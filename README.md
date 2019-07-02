@@ -8,16 +8,16 @@ This repo contains the markdown files and static assets powering [developer.bigc
 ## Directory Structure
 
 
-### `./`
-```
+**`./`**
+```shell
 .
 ├── assets                             # Static files
 └── markdown                           # Markdown docs
 ```
 
-### `./markdown/`
+**`./markdown/`**
 
-```
+```shell
 ├── markdown                           
 │    ├── api-docs                      # Server-to-Server and Storefront API docs
 │    ├── bigcommerce-for-wordpress     # BigCommerce for Wordpress docs
@@ -26,8 +26,8 @@ This repo contains the markdown files and static assets powering [developer.bigc
 └────
 ```
 
-### `./assets`
-```
+**`./assets/`**
+```shell
 .
 ├── ...
 ├── assets                             
@@ -40,5 +40,4 @@ This repo contains the markdown files and static assets powering [developer.bigc
 ```
 
 ## Contributing
-
 For information on contributing to BigCommerce Developer Documentation, see [CONTRIBUTING.md](contributing.md).
