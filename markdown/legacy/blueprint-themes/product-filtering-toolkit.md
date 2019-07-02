@@ -26,7 +26,7 @@ Product filtering (also known as faceted search) enables shoppers to refine prod
 </div>
 </div>
 
-
+---
 
 <a href='#creating-new-theme-product-filtering' aria-hidden='true' class='block-anchor'  id='creating-new-theme-product-filtering'><i aria-hidden='true' class='linkify icon'></i></a>
 
@@ -48,7 +48,7 @@ Product filtering is fully functional in the Blueprint base theme. Once you’ve
 </div>
 </div>
 
-
+---
 
 <a href='#enabling-product-filtering-customized-theme' aria-hidden='true' class='block-anchor'  id='enabling-product-filtering-customized-theme'><i aria-hidden='true' class='linkify icon'></i></a>
 
@@ -74,7 +74,7 @@ If you are working with a new store, product filtering might already work out-of
 
 
 
-
+---
 
 <a href='#implementing-product-filtering-your-theme' aria-hidden='true' class='block-anchor'  id='implementing-product-filtering-your-theme'><i aria-hidden='true' class='linkify icon'></i></a>
 
@@ -125,7 +125,7 @@ Once you’ve enabled product filtering for your sandbox store, you’ll need to
     `<button class="js-faceted-search-action btn"> %%LNG_FilterBy%% </button>`
 11.  If the pages mentioned above don’t exist, you can copy the existing pages from the Blueprint theme. Keep in mind that you’ll need to modify these pages to suit the structure of your theme.
 
-
+---
 
 <a href='#allowing-filtering-on-off' aria-hidden='true' class='block-anchor'  id='allowing-filtering-on-off'><i aria-hidden='true' class='linkify icon'></i></a>
 

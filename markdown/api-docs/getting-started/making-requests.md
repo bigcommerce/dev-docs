@@ -28,6 +28,8 @@ Before we begin, here are a few key concepts:
 
 *Note: You can use any API client (like Postman) for this walkthrough, but these steps are written with the built-in HTTP request maker in mind.*
 
+---
+
 <a href='#making-requests_get-products' aria-hidden='true' class='block-anchor'  id='making-requests_get-products'><i aria-hidden='true' class='linkify icon'></i></a>
 
 ## Getting a List of Products
@@ -49,6 +51,12 @@ In the request maker tabs, replace these placeholders with the appropriate value
 Hit the send button and review your response.
 
 {'method': 'get', 'url': 'https://api.bigcommerce.com/stores/{store_hash}/v3/catalog/products', 'headers': {'Accept': 'application/json', 'Content-Type': 'application/json', 'X-Auth-Token': '{X-Auth-Token}', 'X-Auth-Client': '{X-Auth-Client}'}, 'query': {'limit': '10', 'sort': 'name'}}
+
+<div class="HubBlock-header">
+    <div class="HubBlock-header-title flex items-center">
+        <div class="HubBlock-header-name">GET Products Response</div>
+    </div><div class="HubBlock-header-subtitle">200 OK</div>
+</div>
 
 <!--
 title: "GET Products Response"
@@ -314,7 +322,7 @@ The products are returned in a data array that contains each product object. Loc
 ### Next Steps
 * Try including other filter paramters such as name or include and exclude. See [Get All Products](/api-reference/catalog/catalog-api/products/getproducts) for a full list of available filters. 
 
-
+---
 
 <a href='#making-requests_create-a-product' aria-hidden='true' class='block-anchor'  id='making-requests_create-a-product'><i aria-hidden='true' class='linkify icon'></i></a>
 
@@ -336,6 +344,12 @@ In this walkthrough, we'll create an example product: BigCommerce Hoodie. The mi
 Review the information pre-populated in the Body tab below. Make sure to run a GET request for the categories first and update request with the appropriate category ID.
 
 {'method': 'post', 'url': 'https://api.bigcommerce.com/stores/{store_hash}/v3/catalog/products', 'headers': {'Accept': 'application/sjon', 'X-Auth-Token': '{X-Auth-Token}', 'X-Auth-Client': '{X-Auth-Client}', 'Content-Type': 'application/json'}, 'body': '{\n  "name": "BigCommerce Hoodie",\n  "type": "physical",\n  "description": "A super soft hoodie to wear",\n  "weight": 5,\n  "width": 12,\n  "price": 25.99,\n  "categories": [\n    // set your category here. Accepts a comma seperated list\n  ],\n  "condition": "New"\n}\n'}
+
+<div class="HubBlock-header">
+    <div class="HubBlock-header-title flex items-center">
+        <div class="HubBlock-header-name">Response POST Products</div>
+    </div><div class="HubBlock-header-subtitle">200 OK</div>
+</div>
 
 <!--
 title: "Response POST Products"
@@ -467,7 +481,7 @@ lineNumbers: true
 * To see a full list of fields that can be sent in a request see [Create a Product](/api-reference/catalog/catalog-api/products/createproduct)
 * Try to make a different product with new attributes.
 
-
+---
 
 <a href='#making-requests_troubleshooting' aria-hidden='true' class='block-anchor'  id='making-requests_troubleshooting'><i aria-hidden='true' class='linkify icon'></i></a>
 

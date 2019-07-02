@@ -30,7 +30,7 @@ Bulk pricing rules applied to a product.
 | type | enum |
 | type_value | decimal | The value of the discount |
 
-
+---
 
 <a href='#v2-bulk-pricing-rules_list-bulk-pricing-rules' aria-hidden='true' class='block-anchor'  id='v2-bulk-pricing-rules_list-bulk-pricing-rules'><i aria-hidden='true' class='linkify icon'></i></a>
 
@@ -71,7 +71,7 @@ Example JSON returned in the response:
 ]
 ```
 
-
+---
 
 <a href='#v2-bulk-pricing-rules_get-bulk-pricing-rules' aria-hidden='true' class='block-anchor'  id='v2-bulk-pricing-rules_get-bulk-pricing-rules'><i aria-hidden='true' class='linkify icon'></i></a>
 
@@ -96,7 +96,7 @@ Example JSON returned in the response:
 }
 ```
 
-
+---
 
 <a href='#v2-bulk-pricing-rules_get-count-bulk-pricing-rules' aria-hidden='true' class='block-anchor'  id='v2-bulk-pricing-rules_get-count-bulk-pricing-rules'><i aria-hidden='true' class='linkify icon'></i></a>
 
@@ -117,7 +117,7 @@ Example JSON returned in the response:
 }
 ```
 
-
+---
 
 <a href='#v2-bulk-pricing-rules_create-bulk-pricing-rules' aria-hidden='true' class='block-anchor'  id='v2-bulk-pricing-rules_create-bulk-pricing-rules'><i aria-hidden='true' class='linkify icon'></i></a>
 
@@ -176,7 +176,7 @@ Example JSON returned in the response:
 }
 ```
 
-
+---
 
 <a href='#v2-bulk-pricing-rules_update-bulk-pricing-rules' aria-hidden='true' class='block-anchor'  id='v2-bulk-pricing-rules_update-bulk-pricing-rules'><i aria-hidden='true' class='linkify icon'></i></a>
 
@@ -235,7 +235,7 @@ Example JSON returned in the response:
 }
 ```
 
-
+---
 
 <a href='#v2-bulk-pricing-rules_delete-bulk-pricing-rules' aria-hidden='true' class='block-anchor'  id='v2-bulk-pricing-rules_delete-bulk-pricing-rules'><i aria-hidden='true' class='linkify icon'></i></a>
 
@@ -245,7 +245,7 @@ Deletes a product bulk pricing rule.
 
 >`DELETE /stores/{store_hash}/v2/products/{product_id}/discount_rules/{id}`
 
-
+---
 
 <a href='#v2-bulk-pricing-rules_delete-multiple-bulk-pricing-rules' aria-hidden='true' class='block-anchor'  id='v2-bulk-pricing-rules_delete-multiple-bulk-pricing-rules'><i aria-hidden='true' class='linkify icon'></i></a>
 

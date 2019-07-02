@@ -25,7 +25,7 @@ To support stores that enable BigCommerce's Optimized One-Page Checkout feature,
 </div>
 </div>
 
-
+---
 
 <a href='#customization-options-restrictions' aria-hidden='true' class='block-anchor'  id='customization-options-restrictions'><i aria-hidden='true' class='linkify icon'></i></a>
 
@@ -36,7 +36,7 @@ As a theme developer, you are free to change classes' contents – but do not ne
 The structure and class naming are reserved because each class here maps to multiple Optimized Checkout elements. So renaming would break updates available in future Optimized Checkout enhancements.
 
 
-
+---
 
 <a href='#configuring-desktop-viewport' aria-hidden='true' class='block-anchor'  id='configuring-desktop-viewport'><i aria-hidden='true' class='linkify icon'></i></a>
 
@@ -44,6 +44,12 @@ The structure and class naming are reserved because each class here maps to mult
 
 Within the CSS file, to set up Optimized Checkout's responsive features, you should configure the following breakpoint to define your preferred desktop viewport size:
 
+
+<div class="HubBlock-header">
+    <div class="HubBlock-header-title flex items-center">
+        <div class="HubBlock-header-name"></div>
+    </div><div class="HubBlock-header-subtitle"></div>
+</div>
 
 <!--
 title: ""
@@ -64,7 +70,7 @@ lineNumbers: true
 For other customization options, please see the class descriptions [below](#classes-provided).
 
 
-
+---
 
 <a href='#deploying-custom-css' aria-hidden='true' class='block-anchor'  id='deploying-custom-css'><i aria-hidden='true' class='linkify icon'></i></a>
 
@@ -76,7 +82,7 @@ For a general overview of the process, please see [this support article](https:/
 
 For details on interacting with WebDAV, please see [this article](https://support.bigcommerce.com/articles/Public/Connecting-to-WebDav).
 
-
+---
 
 <a href='#classes-provided' aria-hidden='true' class='block-anchor'  id='classes-provided'><i aria-hidden='true' class='linkify icon'></i></a>
 
@@ -99,13 +105,19 @@ Below is a summary of the classes provided in the template CSS, with correspondi
 | .optimizedCheckout-form-label | Styles form fields like `Email Address` – the field's text-label color. | 
 | .optimizedCheckout-form-input | Styles form fields like `Email Address` – the entry box's background and border colors. |
 
-
+---
 
 <a href='#css-skeleton' aria-hidden='true' class='block-anchor'  id='css-skeleton'><i aria-hidden='true' class='linkify icon'></i></a>
 
 ## CSS Skeleton 
 
 You can copy and modify the template `optimized-checkout-webdav.css` file's current contents directly from this documentation, below: 
+
+<div class="HubBlock-header">
+    <div class="HubBlock-header-title flex items-center">
+        <div class="HubBlock-header-name"></div>
+    </div><div class="HubBlock-header-subtitle"></div>
+</div>
 
 <!--
 title: ""

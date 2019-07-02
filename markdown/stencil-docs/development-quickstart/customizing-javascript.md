@@ -18,7 +18,7 @@ By default, all derived `PageManager` classes contain an `onReady` method functi
 
 To demonstrate, this article describes how to add some very simple JavaScript to `product.js`.
 
-
+---
 
 <a href='#customizing-javascript_customizing' aria-hidden='true' class='block-anchor'  id='customizing-javascript_customizing'><i aria-hidden='true' class='linkify icon'></i></a>
 
@@ -26,6 +26,12 @@ To demonstrate, this article describes how to add some very simple JavaScript to
 In this example, we will add some "hello world" text to the product page's onReady event. We'll first add a call to the function; then, we will implement the function itself. 
 
 In <span class="fp">assets/js/theme/product.js</span> file, add a call to `this.helloWorld()` to the bottom of the `onReady()` method (implemented in next step): 
+
+<div class="HubBlock-header">
+    <div class="HubBlock-header-title flex items-center">
+        <div class="HubBlock-header-name">Hello World Statement</div>
+    </div><div class="HubBlock-header-subtitle">assets/js/theme/product.js</div>
+</div>
 
 <!--
 title: "Hello World Statement"
@@ -53,6 +59,12 @@ export default class Product extends PageManager {
 ```
 
 Next, implement the `helloWorld()` function by adding it to the `Product` class, just after the closing `onReady()` bracket:
+
+<div class="HubBlock-header">
+    <div class="HubBlock-header-title flex items-center">
+        <div class="HubBlock-header-name">Hello World Statement</div>
+    </div><div class="HubBlock-header-subtitle">assets/js/theme/product.js</div>
+</div>
 
 <!--
 title: "Hello World Statement"
@@ -86,19 +98,25 @@ export default class Product extends PageManager {
 
 In your browser, refresh any product-details pop-up or page to see your new `"Hello World"` message (If you are using the Stencil CLI and browsing to localhost, you may need to restart it for changes the most recent changes to be reflected). 
 
-
+---
 
 <a href='#customizing-javascript_bringing-handlebars' aria-hidden='true' class='block-anchor'  id='customizing-javascript_bringing-handlebars'><i aria-hidden='true' class='linkify icon'></i></a>
 
 ## Bringing in Handlebars Context
 
-You can inject any variables from the Handlebars context into your client-side JavaScript by using the `{{inect...}}` expression like so: 
+You can inject any variables from the Handlebars context into your client-side JavaScript by using the `{{inject...}}` expression like so: 
 
 ```
 {{inject 'productThumbSize' theme_settings.productthumb_size}}
 ```
 
 To inject `theme_settings.productthumb_size` into the product page's context, add `{{inject 'productThumbSize' theme_settings.productthumb_size}}` just under `{{#partial "page"}}` in <span class="fp">templates/pages/product.html<span>:
+
+<div class="HubBlock-header">
+    <div class="HubBlock-header-title flex items-center">
+        <div class="HubBlock-header-name">Context Injection</div>
+    </div><div class="HubBlock-header-subtitle">templates/pages/product.html</div>
+</div>
 
 <!--
 title: "Context Injection"
@@ -131,6 +149,12 @@ product:
 ```
 
 The injected `productThumbSize` property can then be accessed from `product.js` by calling `this.context.productThumbSize`:
+
+<div class="HubBlock-header">
+    <div class="HubBlock-header-title flex items-center">
+        <div class="HubBlock-header-name">PageManager class</div>
+    </div><div class="HubBlock-header-subtitle">templates/pages/product.html</div>
+</div>
 
 <!--
 title: "PageManager class"
@@ -170,7 +194,7 @@ Note that the `console.log(this.context.themeImageSizes);` statement will report
 product.js:63 [/assets/js/theme/product.js]: 100x100
 ```
 
-
+---
 
 <a href='#customizing-javascript_installing-various' aria-hidden='true' class='block-anchor'  id='customizing-javascript_installing-various'><i aria-hidden='true' class='linkify icon'></i></a>
 
@@ -183,6 +207,12 @@ To install this particular library for Stencil themes, you would entering the fo
 `npm install jquery`
 
 Next, you would open <span class="fp">assets/js/theme/product.js<span>, and insert the statements excerpted below:
+
+<div class="HubBlock-header">
+    <div class="HubBlock-header-title flex items-center">
+        <div class="HubBlock-header-name"></div>
+    </div><div class="HubBlock-header-subtitle">assets/js/theme/product.js</div>
+</div>
 
 <!--
 title: ""
@@ -200,7 +230,7 @@ $('.myElement').click(() => {
 
 As always, for specifics, refer to your chosen library’s documentation.
 
-
+---
 
 <a href='#customizing-example' aria-hidden='true' class='block-anchor'  id='customizing-example'><i aria-hidden='true' class='linkify icon'></i></a>
 

@@ -12,6 +12,12 @@ The code example below displays the global `{{products.featured}}` object on the
 
 First, you must declare the object using Front Matter. To declare the object, the following front matter must be placed at the top of the template HTML page. This following declaration also limits the number of featured products to be displayed:
 
+<div class="HubBlock-header">
+    <div class="HubBlock-header-title flex items-center">
+        <div class="HubBlock-header-name">{{products.featured}} Front Matter Declaration</div>
+    </div><div class="HubBlock-header-subtitle">cornerstone/templates/pages/home.html</div>
+</div>
+
 <!--
 title: "{{products.featured}} Front Matter Declaration"
 subtitle: "cornerstone/templates/pages/home.html"
@@ -31,6 +37,12 @@ The `homepage_featured_products_count` limit is one of two relevant variables de
 
 
 
+<div class="HubBlock-header">
+    <div class="HubBlock-header-title flex items-center">
+        <div class="HubBlock-header-name">"settings" object</div>
+    </div><div class="HubBlock-header-subtitle">cornerstone/config.json</div>
+</div>
+
 <!--
 title: ""settings" object"
 subtitle: "cornerstone/config.json"
@@ -47,6 +59,12 @@ lineNumbers: true
 ```
 
 In the body of [Cornerstone's `home.html` template](https://github.com/bigcommerce/cornerstone/blob/master/templates/pages/home.html#L27) (Github), the below Handlebars conditional statement is responsible for displaying the `{{products.featured}}` object. This is the object that we declared above using front matter.
+
+<div class="HubBlock-header">
+    <div class="HubBlock-header-title flex items-center">
+        <div class="HubBlock-header-name">conditional {{products.featured}} view</div>
+    </div><div class="HubBlock-header-subtitle">cornerstone/templates/pages/home.html</div>
+</div>
 
 <!--
 title: "conditional {{products.featured}} view"

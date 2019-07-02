@@ -12,6 +12,12 @@ To access the global `{{products.new}}` object on your page, you must first use 
 
 The code example below declares the global `{{products.new}}` object on the `cornerstone/templates/pages/home.html` page template from [Stencil's base Cornerstone Theme](https://github.com/bigcommerce/cornerstone/blob/master/templates/pages/home.html#L3) (Github).
 
+<div class="HubBlock-header">
+    <div class="HubBlock-header-title flex items-center">
+        <div class="HubBlock-header-name">{{products.new}} Front Matter Declaration</div>
+    </div><div class="HubBlock-header-subtitle">cornerstone/templates/pages/home.html</div>
+</div>
+
 <!--
 title: "{{products.new}} Front Matter Declaration"
 subtitle: "cornerstone/templates/pages/home.html"
@@ -28,6 +34,12 @@ products:
 
 The `homepage_featured_products_count` limit is one of two relevant variables defined in Cornerstone's `config.json` file (Github).
 
+<div class="HubBlock-header">
+    <div class="HubBlock-header-title flex items-center">
+        <div class="HubBlock-header-name">"settings" object</div>
+    </div><div class="HubBlock-header-subtitle">cornerstone/config.json</div>
+</div>
+
 <!--
 title: ""settings" object"
 subtitle: "cornerstone/config.json"
@@ -43,6 +55,12 @@ lineNumbers: true
 ```
 
 In the body of [Cornerstone's `home.html` template](https://github.com/bigcommerce/cornerstone/blob/master/templates/pages/home.html#L36) (Github), the below Handlebars conditional statement is responsible for displaying the `{{products.featured}}` object. This is the object that we declared above using front matter.
+
+<div class="HubBlock-header">
+    <div class="HubBlock-header-title flex items-center">
+        <div class="HubBlock-header-name">conditional {{products.new}} view</div>
+    </div><div class="HubBlock-header-subtitle">cornerstone/templates/pages/home.html</div>
+</div>
 
 <!--
 title: "conditional {{products.new}} view"

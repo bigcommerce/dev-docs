@@ -23,7 +23,7 @@ The table below lists out each price type available on a product. The table is r
 | Coupons | Coupons require customer action to take effect. | Modifies the final product or cart price depending on the coupon type. |
 | Tax | Products can be assigned to a different tax class, which will change the final amount the shopper pays. | Tax is the last to calculate after shipping and promotions are applied. |
 
-
+---
 
 ## Resources
 

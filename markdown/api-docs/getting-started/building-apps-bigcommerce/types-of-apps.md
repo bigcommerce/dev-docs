@@ -21,7 +21,7 @@ Single-click apps are listed in our App Marketplace, making them available for i
 To put an app on the Marketplace, you must first be a BigCommerce partner and have your app approved through the App Submission Process. After becoming a partner and having the app approved you have the option of charging merchants to use the app.
 Single-click apps use the Client ID and Client Secret obtained from the Dev Tools workspace to request an OAuth token during the [single-click app authentication flow.](/api-docs/getting-started/building-apps-bigcommerce/building-apps#building-apps_oauth-summary)
 
-
+---
 
 <a href='#types-of-apps_connector-apps' aria-hidden='true' class='block-anchor'  id='types-of-apps_connector-apps'><i aria-hidden='true' class='linkify icon'></i></a>
 
@@ -58,7 +58,7 @@ BigCommerce must review and approve your connector app proposal before we will a
 
 If you’re interested in submitting your integration as a connector app, please contact out to <a href="mailto:appstore@bigcommerce.com">appstore@bigcommerce.com</a>. to discuss your plan.
 
-
+---
 
 <a href='#types-of-apps_unlisted-marketplace-apps' aria-hidden='true' class='block-anchor'  id='types-of-apps_unlisted-marketplace-apps'><i aria-hidden='true' class='linkify icon'></i></a>
 
@@ -71,7 +71,7 @@ Use Cases:
 - A BigCommerce user with several stores wants to install a custom app on all of them. Submitting an unlisted app offers a streamlined alternative to creating separate draft or test apps for each store. To have an app unlisted, please contact
  <a href="mailto:appstore@bigcommerce.com">appstore@bigcommerce.com</a>.
 
-
+---
 
 <a href='#types-of-personal_apps' aria-hidden='true' class='block-anchor'  id='types-of-personal_apps'><i aria-hidden='true' class='linkify icon'></i></a>
 
@@ -85,7 +85,7 @@ Use Cases:
 
 To install a Personal app on a store, your Dev Tools login credentials must be the same as the store owner login credentials for the store where you intend to install the app.
 
-
+---
 
 <a href='#types-of-apps_scripts' aria-hidden='true' class='block-anchor'  id='types-of-apps_scripts'><i aria-hidden='true' class='linkify icon'></i></a>
 
@@ -94,4 +94,10 @@ To install a Personal app on a store, your Dev Tools login credentials must be t
 You may wish to write a small program that can make requests against a store’s API that does not install in the store’s control panel. Scripts connect to a store solely through API credentials: they don’t install in the control panel or present a UI to the user.
 
 To get started with writing scripts, all you need are API Credentials from the store’s Control Panel.  Learn more about [making your first request](/api-docs/getting-started/basics/making-requests) with the BigCommerce API. 
+
+---
+
+## Resources
+### Related Articles
+* [Building a BigCommerce App Using Laravel and React](https://medium.com/bigcommerce-developer-blog/building-a-bigcommerce-app-using-laravel-and-react-711ceceb5006) (BigCommerce Developer Blog)
 

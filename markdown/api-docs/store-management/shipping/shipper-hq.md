@@ -17,7 +17,7 @@ These field values can be set in the Control Panel by the merchant as well as us
 * [Product Metafields Endpoint](/api-reference/catalog/catalog-api/product-metafields/createproductmetafield)
 * [Variant Metafields Endpoint](https://developer.bigcommerce.com/api-reference/catalog/catalog-api/product-variants-metafields/createvariantmetafield)
 
-
+---
 
 <a href='#shipper-hq-object-properties' aria-hidden='true' class='block-anchor'  id='shipper-hq-object-properties'><i aria-hidden='true' class='linkify icon'></i></a>
 
@@ -48,13 +48,19 @@ These field values can be set in the Control Panel by the merchant as well as us
 </div>
 </div>
 
-
+---
 
 <a href='#control-panel-behavior' aria-hidden='true' class='block-anchor'  id='control-panel-behavior'><i aria-hidden='true' class='linkify icon'></i></a>
 
 ## Control Panel Behavior
 
 When Shipping Origins are set using the API, the fields cannot be deleted using the Control Panel. A /DELETE request must be sent to the metafields resource.
+
+<div class="HubBlock-header">
+    <div class="HubBlock-header-title flex items-center">
+        <div class="HubBlock-header-name">SHQ Add Metafield DELETE Request</div>
+    </div><div class="HubBlock-header-subtitle">/DELETE https://api.bigcommerce.com/stores/{{store_hash}}/v3/catalog/products/{{product_id}}/metafields</div>
+</div>
 
 <!--
 title: "SHQ Add Metafield DELETE Request"
@@ -66,11 +72,17 @@ lineNumbers: true
 //204 Reponse
 ```
 
-
+---
 
 <a href='#add-shipperhq-metafield' aria-hidden='true' class='block-anchor'  id='add-shipperhq-metafield'><i aria-hidden='true' class='linkify icon'></i></a>
 
 ## Add ShipperHQ Metafield
+
+<div class="HubBlock-header">
+    <div class="HubBlock-header-title flex items-center">
+        <div class="HubBlock-header-name">SHQ Add Metafield Request</div>
+    </div><div class="HubBlock-header-subtitle">/POST https://api.bigcommerce.com/stores/{{store_hash}}/v3/catalog/products/{{product_id}}/metafields</div>
+</div>
 
 <!--
 title: "SHQ Add Metafield Request"
@@ -86,6 +98,12 @@ lineNumbers: true
 	"namespace": "shipping.shipperhq"
 }
 ```
+
+<div class="HubBlock-header">
+    <div class="HubBlock-header-title flex items-center">
+        <div class="HubBlock-header-name">SHQ Add Metafield Response</div>
+    </div><div class="HubBlock-header-subtitle"></div>
+</div>
 
 <!--
 title: "SHQ Add Metafield Response"
@@ -147,7 +165,7 @@ lineNumbers: true
 }
 ```
 
-
+---
 
 ## Resources
 ### Related Endpoints

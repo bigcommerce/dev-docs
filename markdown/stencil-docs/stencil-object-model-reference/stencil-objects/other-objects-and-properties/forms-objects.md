@@ -273,5 +273,47 @@ https://github.com/bigcommerce/cornerstone/tree/master/templates/components/comm
     <td>error</td>
     <td>Potential error that occurred during previous form submission</td>
   </tr>
+	<tr>
+    <td>recaptcha.markup</td>
+    <td>Adds reCaptcha V2</td>
+  </tr>
+</table>
+
+## Create Account Form 
+
+<b>Description:</b> Form object used to manage merchants’ "Create Account" page. Called on the default <code>&lt;theme-name&gt;/templates/pages/create-account.html</code>template. 
+
+<b>Handlebars Expression:</b> <code>{{forms.create_account}}</code>
+
+<b>Object Properties:</b>
+
+<table>
+  <tr>
+    <th>Property</th>
+    <th>Description</th>
+  </tr>
+	<tr>
+    <td>recaptcha.markup</td>
+    <td>Adds reCaptcha V2</td>
+  </tr>
+</table>
+
+## Login Account Form 
+
+<b>Description:</b> Form object used to manage merchants’ "Login" page. Called on the default <code>&lt;theme-name&gt;/templates/pages/create-login.html</code>template. 
+
+<b>Handlebars Expression:</b> <code>{{forms.login}}</code>
+
+<b>Object Properties:</b>
+
+<table>
+  <tr>
+    <th>Property</th>
+    <th>Description</th>
+  </tr>
+	<tr>
+    <td>recaptcha.markup</td>
+    <td>Adds reCaptcha V2</td>
+  </tr>
 </table>
 

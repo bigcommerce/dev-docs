@@ -33,7 +33,7 @@ Scopes
 The following [OAuth](/api-docs/getting-started/authentication#authentication_oauth-scopes) scopes are required:
 * Modify Catalog
 
-
+---
 
 <a href='#products-overview_products' aria-hidden='true' class='block-anchor'  id='products-overview_products'><i aria-hidden='true' class='linkify icon'></i></a>
 
@@ -81,7 +81,7 @@ Simple products do not have any options, modifiers, or variants, and therefore c
 </div>
 </div>
 
-
+---
 
 ### Create a Complex Product
 
@@ -103,7 +103,7 @@ Files must be added to digital products using the [Control Panel or WebDav](http
 
 {'headers': {'Accepts': 'application/json', 'Content-Type': 'application/json', 'X-Auth-Client': '{{CLIENT ID}}', 'X-Auth-Token': '{{ACCESS TOKEN}}'}, 'method': 'post', 'url': 'https://api.bigcommerce.com/stores/{store_hash}/v3/catalog/products', 'body': '{\n  "name": "ebook: A Guide to Coffee",\n  "price": "10.00",\n  "categories": [\n    23,\n    21\n  ],\n  "type": "digital",\n  "images": [\n    {\n      "is_thumbnail": true,\n      "image_url": "https://your-custom-image/image_name.png"\n    }\n  ]\n}'}
 
-
+---
 
 <a href='#products-overview_pricing-precision' aria-hidden='true' class='block-anchor'  id='products-overview_pricing-precision'><i aria-hidden='true' class='linkify icon'></i></a>
 
@@ -132,7 +132,7 @@ Currency settings allows for inputting a large number of decimal places for disp
 ](//s3.amazonaws.com/user-content.stoplight.io/6012/1553018091114 "#### Currency Decimal Places
 ")
 
-
+---
 
 <a href='#products-overview_product-images' aria-hidden='true' class='block-anchor'  id='products-overview_product-images'><i aria-hidden='true' class='linkify icon'></i></a>
 
@@ -148,6 +148,12 @@ Content-Type: multipart/form-data. Any other updates using the /POST or /PUT wil
 ### Product Thumbnails
 
 Only one image can be the [product thumbnail](/api-reference/catalog/catalog-api/models/productimage). The product thumbnail is the image that shows on the product listing page, in search results and any other location that features the product. If only one image is on the product it becomes both the thumbnail and the main product image. Images can also be added to [variants](/api-reference/catalog/catalog-api/product-variants/getvariantsbyproductid). 
+
+<div class="HubBlock-header">
+    <div class="HubBlock-header-title flex items-center">
+        <div class="HubBlock-header-name">Product Thumbnails</div>
+    </div><div class="HubBlock-header-subtitle">GET https://api.bigcommerce.com/stores/{{store_hash}}/v3/catalog/products/{{product_id}}/images/{{images_id}}</div>
+</div>
 
 <!--
 title: "Product Thumbnails"
@@ -174,7 +180,7 @@ lineNumbers: true
 }
 ```
 
-
+---
 
 <a href='#products-overview_product-videos' aria-hidden='true' class='block-anchor'  id='products-overview_product-videos'><i aria-hidden='true' class='linkify icon'></i></a>
 
@@ -187,7 +193,7 @@ Example: <span class=”fp”>https://www.youtube.com/watch?v=<b>R12345677</b></
 
 {'method': 'put', 'url': 'https://api.bigcommerce.com/stores/{store_hash}/v3/catalog/products/{product_id}/videos', 'headers': {'Accept': 'application/json', 'Content-Type': 'application/json', 'X-Auth-Client': '{$$.env.X-Auth-Client}', 'X-Auth-Token': '{$$.env.X-Auth-Token}'}, 'body': '{\n  "title": "BigCommerce Mug Video",\n  "description": "Video Describing the Mug",\n  "sort_order": 1,\n  "type": "youtube",\n  "video_id": "123345AA"\n}'}
 
-
+---
 
 <a href='#products-overview_custom_fields' aria-hidden='true' class='block-anchor'  id='products-overview_custom_fields'><i aria-hidden='true' class='linkify icon'></i></a>
 
@@ -214,7 +220,7 @@ Custom Fields are intended to be used in a couple of contexts:
 
 {'method': 'put', 'body': '{\n  "name": "Release Year",\n  "value": "2018"\n}', 'url': 'https://api.bigcommerce.com/stores/{store_hash}/v3/catalog/products/{product_id}/custom-fields', 'headers': {'Accept': 'application/json', 'Content-Type': 'application/json', 'X-Auth-Client': '{$$.env.X-Auth-Client}', 'X-Auth-Token': '{$$.env.X-Auth-Token}'}}
 
-
+---
 
 <a href='#products-overview_bulk-pricing-rules' aria-hidden='true' class='block-anchor'  id='products-overview_bulk-pricing-rules'><i aria-hidden='true' class='linkify icon'></i></a>
 
@@ -226,7 +232,7 @@ Bulk Pricing rules in the catalog are on the product, meaning that they’ll tri
 
 {'method': 'put', 'body': '{\n  "bulk_pricing_rules": [\n    {\n      "quantity_min": 10,\n      "quantity_max": 15,\n      "type": "price",\n      "amount": 3\n    },\n    {\n      "quantity_min": 16,\n      "quantity_max": 25,\n      "type": "price",\n      "amount": 5\n    }\n  ]\n}', 'url': 'https://api.bigcommerce.com/stores/{store_hash}/v3/catalog/products/{product_id}/bulk-pricing-rules', 'headers': {'Accept': 'application/json', 'Content-Type': 'application/json', 'X-Auth-Client': '{$$.env.X-Auth-Client}', 'X-Auth-Token': '{$$.env.X-Auth-Token}'}}
 
-
+---
 
 <a href='#products-overview_metafields' aria-hidden='true' class='block-anchor'  id='products-overview_metafields'><i aria-hidden='true' class='linkify icon'></i></a>
 
@@ -238,7 +244,7 @@ Metafields can be added to variants, products, categories, and brands.
 
 {'method': 'put', 'url': 'https://api.bigcommerce.com/stores/{store_hash}/v3/catalog/products/{product_id}/metafields', 'body': '{\n  "permission_set": "read",\n  "namespace": "Location",\n  "key": "bin_number",\n  "value": "#4456",\n  "description": "location of the product",\n  "resource_type": "product",\n  "resource_id": 131\n}', 'headers': {'Accept': 'application/json', 'Content-Type': 'application/json', 'X-Auth-Client': '{$$.env.X-Auth-Client}', 'X-Auth-Token': '{$$.env.X-Auth-Token}'}}
 
-
+---
 
 <a href='#products-overview_reviews' aria-hidden='true' class='block-anchor'  id='products-overview_reviews'><i aria-hidden='true' class='linkify icon'></i></a>
 
@@ -251,7 +257,7 @@ Product Reviews are a native platform feature, but they can be turned off in fav
 
 {'url': 'https://api.bigcommerce.com/stores/{store_hash}/v3/catalog/products/{product_id}/reviews', 'headers': {'Accept': 'application/json', 'Content-Type': 'application/json', 'X-Auth-Client': '{$$.env.X-Auth-Client}', 'X-Auth-Token': '{$$.env.X-Auth-Token}'}, 'method': 'post', 'body': '{\n  "title": "Great Coffee Mug",\n  "text": "This coffee mug kept my liquids hot for several hours.",\n  "status": "pending",\n  "rating": 5,\n  "email": "testing@bigcommerce.com",\n  "name": "BigCommerce",\n  "date_reviewed": "2018-07-20T17:45:13+00:00"\n}'}
 
-
+---
 
 <a href='#products-overview_brands' aria-hidden='true' class='block-anchor'  id='products-overview_brands'><i aria-hidden='true' class='linkify icon'></i></a>
 
@@ -266,7 +272,7 @@ They’re primarily used to tag products so that consumers can find Brands they�
 
 {'method': 'post', 'url': 'https://api.bigcommerce.com/stores/{store_hash}/v3/catalog/brands', 'body': '{\n  "name": "BigCommerce",\n  "page_title": "BigCommerce",\n  "meta_keywords": [\n    "ecommerce",\n    "best in class",\n    "grow your business"\n  ],\n  "image_url": "https://your-custom-image.png"\n}', 'headers': {'Accept': 'application/json', 'Content-Type': 'application/json', 'X-Auth-Client': '{$$.env.X-Auth-Client}', 'X-Auth-Token': '{$$.env.X-Auth-Token}'}}
 
-
+---
 
 <a href='#products-overview_variant-options' aria-hidden='true' class='block-anchor'  id='products-overview_variant-options'><i aria-hidden='true' class='linkify icon'></i></a>
 
@@ -326,6 +332,12 @@ option values or a combination of variant option
 values. A request like this could also be used to
 add new choices to a variant that has already been created.
 
+<div class="HubBlock-header">
+    <div class="HubBlock-header-title flex items-center">
+        <div class="HubBlock-header-name">Create Size Variant Option</div>
+    </div><div class="HubBlock-header-subtitle">/POST https://api.bigcommerce.com/stores/{store_hash}/v3/catalog/products/{product_id}/options</div>
+</div>
+
 <!--
 title: "Create Size Variant Option"
 subtitle: "/POST https://api.bigcommerce.com/stores/{store_hash}/v3/catalog/products/{product_id}/options"
@@ -358,7 +370,7 @@ lineNumbers: true
 }
 ```
 
-
+---
 
 <a href='#products-overview_variants' aria-hidden='true' class='block-anchor'  id='products-overview_variants'><i aria-hidden='true' class='linkify icon'></i></a>
 
@@ -387,6 +399,12 @@ Variants can be created in two ways:
 This will go over using existing variant options to create the variants.
 
 Use the `https://api.bigcommerce.com/stores/{{store_hash}}/v3/catalog/products/131/options` endpoint to get the option information.
+
+<div class="HubBlock-header">
+    <div class="HubBlock-header-title flex items-center">
+        <div class="HubBlock-header-name">Example Response</div>
+    </div><div class="HubBlock-header-subtitle">/GET https://api.bigcommerce.com/stores/{store_hash}/v3/catalog/products/{product_id}/options</div>
+</div>
 
 <!--
 title: "Example Response"
@@ -513,6 +531,12 @@ To combine the variant option values into variants and build out SKUs use the fo
 
 The `option_values` array combines the options Small and Blue to create the SKU SMALL-BLUE. The id in the option_values array is the id from the variant option response option_values > id. The option_id is the id of the option.
 
+<div class="HubBlock-header">
+    <div class="HubBlock-header-title flex items-center">
+        <div class="HubBlock-header-name"></div>
+    </div><div class="HubBlock-header-subtitle"></div>
+</div>
+
 <!--
 title: ""
 subtitle: ""
@@ -557,7 +581,7 @@ The following example creates a base product, variant options, and variants in a
 
 {'method': 'post', 'body': '{\n  "name": "BigCommerce Coffee Mug",\n  "price": "10.00",\n  "categories": [\n    23,\n    21\n  ],\n  "weight": 4,\n  "type": "physical",\n  "variants": [\n    {\n      "sku": "SKU-BLU",\n      "option_values": [\n        {\n          "option_display_name": "Mug Color",\n          "label": "Blue"\n        }\n      ]\n    },\n    {\n      "sku": "SKU-GRAY",\n      "option_values": [\n        {\n          "option_display_name": "Mug Color",\n          "label": "Gray"\n        }\n      ]\n    }\n  ]\n}', 'url': 'https://api.bigcommerce.com/stores/{store_hash}/v3/catalog/products', 'headers': {'Accept': 'application/json', 'Content-Type': 'application/json', 'X-Auth-Client': '{$$.env.X-Auth-Client}', 'X-Auth-Token': '{$$.env.X-Auth-Token}'}}
 
-
+---
 
 <a href='#products-overview_modifier-options' aria-hidden='true' class='block-anchor'  id='products-overview_modifier-options'><i aria-hidden='true' class='linkify icon'></i></a>
 
@@ -622,6 +646,12 @@ First, a POST to create the modifier.
 {'method': 'put', 'body': '{\n  "type": "checkbox",\n  "required": false,\n  "config": {\n    "default_value": "Yes",\n    "checked_by_default": false,\n    "checkbox_label": "Check for Donation"\n  },\n  "display_name": "Add a $5 Donation"\n}', 'url': 'https://api.bigcommerce.com/stores/{store_hash}/v3/catalog/products/{product_id}/modifiers', 'headers': {'Accept': 'application/json', 'Content-Type': 'application/json', 'X-Auth-Client': '{$$.env.X-Auth-Client}', 'X-Auth-Token': '{$$.env.X-Auth-Token}'}}
 
 Since this is a checkbox which has two states, checked/unchecked or yes/no, two option values are created. The default adjuster values are null. 
+
+<div class="HubBlock-header">
+    <div class="HubBlock-header-title flex items-center">
+        <div class="HubBlock-header-name">Response</div>
+    </div><div class="HubBlock-header-subtitle">Create Modifier Option</div>
+</div>
 
 <!--
 title: "Response"
@@ -709,6 +739,12 @@ Next send a PUT request to update the modifier value. This increases the price b
 
 ### Troubleshooting: 422 Error
 
+<div class="HubBlock-header">
+    <div class="HubBlock-header-title flex items-center">
+        <div class="HubBlock-header-name"></div>
+    </div><div class="HubBlock-header-subtitle"></div>
+</div>
+
 <!--
 title: ""
 subtitle: ""
@@ -730,7 +766,7 @@ To fix this error:
 * Modify the products using the V2 API
 * Remove the option set using the V2 API or the Control Panel, then remake the variants and modifiers using V3
 
-
+---
 
 <a href='#products-overview_complex-rules' aria-hidden='true' class='block-anchor'  id='products-overview_complex-rules'><i aria-hidden='true' class='linkify icon'></i></a>
 
@@ -769,6 +805,12 @@ Complex rules must be based on a combination of two or more modifiers, such as t
 
 Complex rules must consist of multiple conditions that trigger the rule adjustment. If multiple conditions are not specified, the request will return a 422 Unprocessable Entity:
 
+<div class="HubBlock-header">
+    <div class="HubBlock-header-title flex items-center">
+        <div class="HubBlock-header-name"></div>
+    </div><div class="HubBlock-header-subtitle"></div>
+</div>
+
 <!--
 title: ""
 subtitle: ""
@@ -783,7 +825,7 @@ lineNumbers: true
 }
 ```
 
-
+---
 
 <a href='#products-overview_categories' aria-hidden='true' class='block-anchor'  id='products-overview_categories'><i aria-hidden='true' class='linkify icon'></i></a>
 
@@ -800,6 +842,12 @@ A product associated with categories does not currently have any priority or wei
 ### Category Tree
 
 [Category Tree](/api-reference/catalog/catalog-api/catalog/getcatalogsummary) returns a simple view of the parent > child relationship of all categories in the store. This endpoint can be used to fetch the categories if building out a custom navigation for a store.
+
+<div class="HubBlock-header">
+    <div class="HubBlock-header-title flex items-center">
+        <div class="HubBlock-header-name">Category Tree Response Example</div>
+    </div><div class="HubBlock-header-subtitle"></div>
+</div>
 
 <!--
 title: "Category Tree Response Example"
@@ -949,7 +997,7 @@ lineNumbers: true
 
 {'url': 'https://api.bigcommerce.com/stores/{store_hash}/v3/catalog/summary', 'method': 'get', 'headers': {'Accept': 'application/json', 'Content-Type': 'application/json', 'X-Auth-Client': '{$$.env.X-Auth-Client}', 'X-Auth-Token': '{$$.env.X-Auth-Token}'}}
 
-
+---
 
 ## Resources
 

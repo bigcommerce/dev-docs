@@ -23,6 +23,12 @@ Below is example JavaScript that will access this JWT. To test the JWT functiona
 
 <a href='#identify-customers-script' aria-hidden='true' class='block-anchor'  id='identify-customers-script'><i aria-hidden='true' class='linkify icon'></i></a>
 
+<div class="HubBlock-header">
+    <div class="HubBlock-header-title flex items-center">
+        <div class="HubBlock-header-name">Identify Logged In Customers</div>
+    </div><div class="HubBlock-header-subtitle"></div>
+</div>
+
 <!--
 title: "Identify Logged In Customers"
 subtitle: ""
@@ -58,6 +64,12 @@ customerJWT();
 If you are logged into the storefront with a customer account, the above JavaScript should alert to the browser with a JWT token. If no customer is logged in, BigCommerce will return a 404 response, and you will see an error message. The JWT returned from this endpoint (example below) can be decoded on JWT.IO
 
 <a href='#logged-in-customer-response' aria-hidden='true' class='block-anchor'  id='logged-in-customer-response'><i aria-hidden='true' class='linkify icon'></i></a>
+
+<div class="HubBlock-header">
+    <div class="HubBlock-header-title flex items-center">
+        <div class="HubBlock-header-name">Logged in Customers Response</div>
+    </div><div class="HubBlock-header-subtitle"></div>
+</div>
 
 <!--
 title: "Logged in Customers Response"

@@ -30,7 +30,7 @@ Extends the context with the properties of other objects. A shallow merge is per
 * `objects` {Object}: One or more objects to extend.
 * `returns` {Object}
 
-
+---
 
 <a href='#handlebars_forin' aria-hidden='true' class='block-anchor'  id='handlebars_forin'><i aria-hidden='true' class='linkify icon'></i></a>
 
@@ -44,7 +44,7 @@ Block helper that iterates over the properties of an object, exposing each key a
 * `options` {Object}
 * `returns` {String}
 
-
+---
 
 <a href='#handlebars_forown' aria-hidden='true' class='block-anchor'  id='handlebars_forown'><i aria-hidden='true' class='linkify icon'></i></a>
 
@@ -58,7 +58,7 @@ Block helper that iterates over the *own* properties of an object, exposing each
 * `options` {Object}
 * `returns` {String}
 
-
+---
 
 <a href='#handlebars_topath' aria-hidden='true' class='block-anchor'  id='handlebars_topath'><i aria-hidden='true' class='linkify icon'></i></a>
 
@@ -71,7 +71,7 @@ Takes arguments and, if they are string or number, converts them to a dot-deline
 * `prop` {String|Number}: The property segments to assemble (can be multiple).
 * `returns` {String}
 
-
+---
 
 <a href='#handlebars_get' aria-hidden='true' class='block-anchor'  id='handlebars_get'><i aria-hidden='true' class='linkify icon'></i></a>
 
@@ -86,7 +86,7 @@ Uses property paths (`a.b.c`) to get a value or nested value from the context. W
 * `options` {Object}: The Handlebars options object, if used as a block helper.
 * `returns` {String}
 
-
+---
 
 <a href='#handlebars_getobject' aria-hidden='true' class='block-anchor'  id='handlebars_getobject'><i aria-hidden='true' class='linkify icon'></i></a>
 
@@ -100,7 +100,7 @@ Uses property paths (`a.b.c`) to get an object from the context. Unlike the `get
 * `context` {Object}: The context object.
 * `returns` {String}
 
-
+---
 
 <a href='#handlebars_hasown' aria-hidden='true' class='block-anchor'  id='handlebars_hasown'><i aria-hidden='true' class='linkify icon'></i></a>
 
@@ -120,7 +120,7 @@ Returns true if `key` is an own, enumerable property of the given `context` obje
 {{hasOwn context key}}
 ```
 
-
+---
 
 <a href='#handlebars_isobject' aria-hidden='true' class='block-anchor'  id='handlebars_isobject'><i aria-hidden='true' class='linkify icon'></i></a>
 
@@ -140,7 +140,7 @@ Returns true if `value` is an object.
 //=> false
 ```
 
-
+---
 
 <a href='#handlebars_merge' aria-hidden='true' class='block-anchor'  id='handlebars_merge'><i aria-hidden='true' class='linkify icon'></i></a>
 
@@ -154,7 +154,7 @@ Deeply merges the properties of the given `objects` with the context object.
 * `objects` {Object}
 * `returns` {Object}
 
-
+---
 
 <a href='#handlebars_jsonparse' aria-hidden='true' class='block-anchor'  id='handlebars_jsonparse'><i aria-hidden='true' class='linkify icon'></i></a>
 
@@ -167,7 +167,7 @@ Block helper that parses a string using `JSON.parse`, then passes the parsed obj
 * `string` {String}: The string to parse.
 * `options` {Object}: Handlebars options object.
 
-
+---
 
 <a href='#handlebars_jsonstringify' aria-hidden='true' class='block-anchor'  id='handlebars_jsonstringify'><i aria-hidden='true' class='linkify icon'></i></a>
 

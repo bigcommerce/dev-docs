@@ -23,7 +23,7 @@ Block helper that returns a block *if* the given collection is empty. If the col
 * `options` {Object}
 * `returns` {String}
 
-
+---
 
 <a href='#handlebars_iterate' aria-hidden='true' class='block-anchor'  id='handlebars_iterate'><i aria-hidden='true' class='linkify icon'></i></a>
 
@@ -37,7 +37,7 @@ Iterates over an array or object.
 * `options` {Object}
 * `returns` {String}
 
-
+---
 
 <a href='#handlebars_length' aria-hidden='true' class='block-anchor'  id='handlebars_length'><i aria-hidden='true' class='linkify icon'></i></a>
 
@@ -51,6 +51,12 @@ Returns the length of the given collection. When using a string literal in the t
 * `returns` {Number}: The length of the value.
 
 #### Example
+
+<div class="HubBlock-header">
+    <div class="HubBlock-header-title flex items-center">
+        <div class="HubBlock-header-name"></div>
+    </div><div class="HubBlock-header-subtitle"></div>
+</div>
 
 <!--
 title: ""

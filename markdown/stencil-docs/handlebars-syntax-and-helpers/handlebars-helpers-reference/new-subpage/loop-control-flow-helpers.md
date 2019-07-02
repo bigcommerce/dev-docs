@@ -43,7 +43,7 @@ The Stencil code controlling this component resides in the theme's `templates/co
 {{/any}}
 ```
 
-
+---
 
 <a href='#handlebars_all' aria-hidden='true' class='block-anchor'  id='handlebars_all'><i aria-hidden='true' class='linkify icon'></i></a>
 
@@ -59,7 +59,7 @@ The `all` helper is custom to Stencil. It checks whether _all_ parameters evalua
 {{/all}}
 ```
 
-
+---
 
 <a href='#handlebars_contains' aria-hidden='true' class='block-anchor'  id='handlebars_contains'><i aria-hidden='true' class='linkify icon'></i></a>
 
@@ -75,7 +75,7 @@ The `contains` helper is custom to Stencil. It checks whether the second paramet
 {{/contains}}
 ```
 
-
+---
 
 <a href='#handlebars_each' aria-hidden='true' class='block-anchor'  id='handlebars_each'><i aria-hidden='true' class='linkify icon'></i></a>
 
@@ -100,7 +100,7 @@ The syntax for the `each` helper can be found in the official Handlebars documen
 - When iterating through objects, `{{@key}}` returns the current key name.
 - `{{each}}` loops can be nested.
 
-
+---
 
 <a href='#handlebars_for' aria-hidden='true' class='block-anchor'  id='handlebars_for'><i aria-hidden='true' class='linkify icon'></i></a>
 

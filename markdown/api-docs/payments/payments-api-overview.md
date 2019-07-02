@@ -27,7 +27,7 @@ The following [OAuth](/api-docs/getting-started/authentication#authentication_oa
 * Create Payments
 * Get Payment Methods
 
-
+---
 
 <a href='#payments_pci-compliance' aria-hidden='true' class='block-anchor'  id='payments_pci-compliance'><i aria-hidden='true' class='linkify icon'></i></a>
 
@@ -48,7 +48,7 @@ Merchants or shoppers personal identifiable information (PII) collected by recur
 </div>
 </div>
 
-
+---
 
 <a href='#payments_processing-payment' aria-hidden='true' class='block-anchor'  id='payments_processing-payment'><i aria-hidden='true' class='linkify icon'></i></a>
 
@@ -62,6 +62,8 @@ Payments can be processed using cards stored with the BigCommerce Stored Credit 
 * Paypal Powered by Braintree
 * CyberSource
 * Stripe
+* Paymetric
+
 
 **The following gateways are supported for credit cards:**
 
@@ -86,7 +88,7 @@ Payments can be processed using cards stored with the BigCommerce Stored Credit 
 * Worldpay Core
 * WorldPay
 * USA ePay
-
+* Paymetric
 
 <div class="HubBlock--callout">
 <div class="CalloutBlock--">
@@ -100,7 +102,7 @@ Payments can be processed using cards stored with the BigCommerce Stored Credit 
 </div>
 </div>
 
-
+---
 
 <a href='#payments_stored-cards' aria-hidden='true' class='block-anchor'  id='payments_stored-cards'><i aria-hidden='true' class='linkify icon'></i></a>
 
@@ -124,6 +126,12 @@ To use stored cards with the Payments API or the Checkout SDK make sure stored c
 This token is the same as `payment_instrument_token` from [Get Transactions](https://developer.bigcommerce.com/api-reference/orders/orders-transactions-api).
 
 {'method': 'get', 'url': 'https://api.bigcommerce.com/stores/{store_hash}/v3/payments/methods', 'query': {'order_id': ''}, 'headers': {'Accept': 'application/json', 'Content-Type': 'application/json', 'X-Auth-Client': '{$$.env.X-Auth-Client}', 'X-Auth-Token': '{$$.env.X-Auth-Token}'}}
+
+<div class="HubBlock-header">
+    <div class="HubBlock-header-title flex items-center">
+        <div class="HubBlock-header-name">Sample Response</div>
+    </div><div class="HubBlock-header-subtitle">Get Payment Methods</div>
+</div>
 
 <!--
 title: "Sample Response"
@@ -192,6 +200,12 @@ On line 46 is the `token`. Make note of the token to use as part of processing t
 ### Create Access Token
 2. Make a request to [Create Access Token](/api-reference/payments/payments-create-payment-token-api/payment-access-token/paymentsaccesstokenspost) to get the authorization token that needs to be passed in the header when processing the payment. The ID of the order needs to be part of the request body.
 
+<div class="HubBlock-header">
+    <div class="HubBlock-header-title flex items-center">
+        <div class="HubBlock-header-name">Sample Request</div>
+    </div><div class="HubBlock-header-subtitle">Create Payment Access Token</div>
+</div>
+
 <!--
 title: "Sample Request"
 subtitle: "Create Payment Access Token"
@@ -207,6 +221,12 @@ lineNumbers: true
 ```
 
 {'url': 'https://api.bigcommerce.com/stores/{store_hash}/v3/payments/access_tokens', 'method': 'post', 'body': '{\n  "order": {\n    "id": your-order-id\n  }\n}', 'headers': {'Accept': 'application/json', 'Content-Type': 'application/json', 'X-Auth-Client': '{$$.env.X-Auth-Client}', 'X-Auth-Token': '{$$.env.X-Auth-Token}'}}
+
+<div class="HubBlock-header">
+    <div class="HubBlock-header-title flex items-center">
+        <div class="HubBlock-header-name">Sample Response</div>
+    </div><div class="HubBlock-header-subtitle">Create Payment Access Token</div>
+</div>
 
 <!--
 title: "Sample Response"
@@ -251,6 +271,12 @@ The headers to process a payment are different than the headers you normally sen
 </div>
 </div>
 
+<div class="HubBlock-header">
+    <div class="HubBlock-header-title flex items-center">
+        <div class="HubBlock-header-name">Sample Request</div>
+    </div><div class="HubBlock-header-subtitle">Process Payment</div>
+</div>
+
 <!--
 title: "Sample Request"
 subtitle: "Process Payment"
@@ -276,6 +302,12 @@ curl -X POST \
 
 ```
 
+<div class="HubBlock-header">
+    <div class="HubBlock-header-title flex items-center">
+        <div class="HubBlock-header-name">Sample Response</div>
+    </div><div class="HubBlock-header-subtitle">Process Payment</div>
+</div>
+
 <!--
 title: "Sample Response"
 subtitle: "Process Payment"
@@ -296,7 +328,7 @@ lineNumbers: true
 
 If the purchase was successful it will return a status of success.  The order is then automatically moved to an Awaiting Fulfillment status. If you get a different response, see [Error Codes](#payments_error-codes) for troubleshooting.
 
-
+---
 
 <a href='#payments_credit-cards' aria-hidden='true' class='block-anchor'  id='payments_credit-cards'><i aria-hidden='true' class='linkify icon'></i></a>
 
@@ -309,6 +341,12 @@ There are two steps to using a credit card to make a payment.
 
 ### Create Access Token
 1. Make a request to [Create Access Token](/api-reference/payments/payments-create-payment-token-api/payment-access-token/paymentsaccesstokenspost) to to get the authorization token that needs to be passed in the header when processing the payment. The ID of the order needs to be part of the request body.
+
+<div class="HubBlock-header">
+    <div class="HubBlock-header-title flex items-center">
+        <div class="HubBlock-header-name">Sample Request</div>
+    </div><div class="HubBlock-header-subtitle">Create Payment Access Token</div>
+</div>
 
 <!--
 title: "Sample Request"
@@ -323,6 +361,12 @@ lineNumbers: true
   }
 }
 ```
+
+<div class="HubBlock-header">
+    <div class="HubBlock-header-title flex items-center">
+        <div class="HubBlock-header-name">Sample Response</div>
+    </div><div class="HubBlock-header-subtitle">Create Payment Access Token</div>
+</div>
 
 <!--
 title: "Sample Response"
@@ -375,6 +419,12 @@ If any of these fields are incorrect, the payment might be rejected.
 </div>
 </div>
 
+<div class="HubBlock-header">
+    <div class="HubBlock-header-title flex items-center">
+        <div class="HubBlock-header-name">Sample Request</div>
+    </div><div class="HubBlock-header-subtitle">Process Payment</div>
+</div>
+
 <!--
 title: "Sample Request"
 subtitle: "Process Payment"
@@ -402,6 +452,12 @@ curl -X POST \
 }'
 ```
 
+<div class="HubBlock-header">
+    <div class="HubBlock-header-title flex items-center">
+        <div class="HubBlock-header-name">Sample Response</div>
+    </div><div class="HubBlock-header-subtitle">Process Payment</div>
+</div>
+
 <!--
 title: "Sample Response"
 subtitle: "Process Payment"
@@ -422,7 +478,7 @@ lineNumbers: true
 
 If the purchase was successful it will return a status of success.  The order is then automatically moved to an Awaiting Fulfillment status. If you get a different response, see [Error Codes](#payments_error-codes) for troubleshooting.
 
-
+---
 
 <a href='#payments_orders-api' aria-hidden='true' class='block-anchor'  id='payments_orders-api'><i aria-hidden='true' class='linkify icon'></i></a>
 
@@ -431,6 +487,12 @@ If the purchase was successful it will return a status of success.  The order is
 It is possible to take a payment for an order created using the [Orders API](orders/orders-api-overview). When creating the order using the Orders API make sure the `status_id:0`. If the order status is not created with the status set to `0` or `Incomplete`, the Payments API will return an [error](#payments_error-codes).
 The billing address and line items should be filled in when creating the order. The order can be created as a guest order by either seeting the 
 `customer_id:0`or leaving it blank. After the order is created, then follow the steps for either a [credit card](#payments_credit-cards) or a [stored card](#payments_stored-cards).
+
+<div class="HubBlock-header">
+    <div class="HubBlock-header-title flex items-center">
+        <div class="HubBlock-header-name">Example Create Order</div>
+    </div><div class="HubBlock-header-subtitle"></div>
+</div>
 
 <!--
 title: "Example Create Order"
@@ -523,7 +585,7 @@ The card data is not accessible via the API once the payment is processed.
 ### Rate Limits
 BigCommerce has rates limits in place for this API. Some payment providers will provide checks on the incoming requests.
 
-
+---
 
 <a href='#payments_sample-app-diagram' aria-hidden='true' class='block-anchor'  id='payments_sample-app-diagram'><i aria-hidden='true' class='linkify icon'></i></a>
 
@@ -544,7 +606,7 @@ Orders can be created using the [Server to Server API Endpoints](https://develop
 ](//s3.amazonaws.com/user-content.stoplight.io/6012/1553180551833 "#### Sample App
 ")
 
-
+---
 
 <a href='#payments_error-codes' aria-hidden='true' class='block-anchor'  id='payments_error-codes'><i aria-hidden='true' class='linkify icon'></i></a>
 
@@ -673,7 +735,7 @@ The payment was declined due to duplicate payment being submitted.
 ### 30106
 The payment was declined due to insufficient funds.
 
-
+---
 
 <a href='#payments_faq' aria-hidden='true' class='block-anchor'  id='payments_faq'><i aria-hidden='true' class='linkify icon'></i></a>
 

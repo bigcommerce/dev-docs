@@ -69,7 +69,7 @@ Note the `External` IP address. You can copy/paste this URL to access the Browse
 To maximize the adoption of your themes, we recommend that you use such testing to design responsive themes that display and function well across multiple viewport sizes.
 
 
-
+---
 
 ## Resources
 * [Testing and Debugging Your Theme](https://developer.bigcommerce.com/stencil-docs/development-quickstart/testing-and-debugging-your-theme)

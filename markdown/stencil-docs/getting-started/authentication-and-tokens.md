@@ -60,7 +60,7 @@ _Doing so will display a modal, from which you can copy your `Client ID` and `Ac
 </div>
 </div>
 
-
+---
 
 <a href='#authentication_issuing-additional' aria-hidden='true' class='block-anchor'  id='authentication_issuing-additional'><i aria-hidden='true' class='linkify icon'></i></a>
 
@@ -73,7 +73,7 @@ To issue store tokens for additional themes or developers, repeat the process ou
 You can create up to 50 API accounts/tokens per store. If you hit this limit and still need to create new tokens, you will need to delete existing accounts. Deleting an account will invalidate the corresponding token, which will affect any developer using that token.
 
 
-
+---
 
 <a href='#authentication_revoking-tokens' aria-hidden='true' class='block-anchor'  id='authentication_revoking-tokens'><i aria-hidden='true' class='linkify icon'></i></a>
 
@@ -115,7 +115,7 @@ If you are completely sure you would like to revoke an existing OAuth store toke
 </div>
 </div>
 
-
+---
 
 <a href='#authentication_copying-oauth-tokens ' aria-hidden='true' class='block-anchor'  id='authentication_copying-oauth-tokens '><i aria-hidden='true' class='linkify icon'></i></a>
 

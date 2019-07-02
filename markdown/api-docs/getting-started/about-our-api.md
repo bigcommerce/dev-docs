@@ -18,7 +18,7 @@ Want to get started making API Requests right away? Check out the [Quick Start](
 
 The BigCommerce set of APIs allow you to create apps, automate store processes, or build headless ecommerce solutions. Need inspiration on what to build? Visit our [App Marketplace](https://www.bigcommerce.com/apps/). 
 
-
+---
 
 <a href='#about-api_api-enviroment' aria-hidden='true' class='block-anchor'  id='about-api_api-enviroment'><i aria-hidden='true' class='linkify icon'></i></a>
 
@@ -30,7 +30,7 @@ BigCommerce API requests can be made in the context of the storefront or server-
 * Server-to-Server requests use the base url:  `https://api.bigcommerce.com/stores/{store_hash}/v3/`
 * V2 API Requests use the base url: `https://api.bigcommerce.com/stores/{store_hash}/v2/`
 
-
+---
 
 <a href='#about-api__available-api' aria-hidden='true' class='block-anchor'  id='about-api__available-api'><i aria-hidden='true' class='linkify icon'></i></a>
 
@@ -64,7 +64,7 @@ BigCommerce API requests can be made in the context of the storefront or server-
 | [Widgets](https://developer.bigcommerce.com/api-reference/storefront/widgets-api) | Programatically inject content into a BigCommerce theme. | [Download Widgets API](https://developer.bigcommerce.com/api-reference/storefront/widgets-api/BigCommerce_Widgets_API.oas2.json) |
 | [Wishlist](https://developer.bigcommerce.com/api-reference/customer-subscribers/wishlist-api) | Wishlist API allows a developer to create and manage customer wishlists. | [Download Wishlist API](https://developer.bigcommerce.com/api-reference/customer-subscribers/wishlist-api/BigCommerce_Wishlist_API.oas2.json) |
 
-
+---
 
 <a href='#about-api_request-headers' aria-hidden='true' class='block-anchor'  id='about-api_request-headers'><i aria-hidden='true' class='linkify icon'></i></a>
 
@@ -81,7 +81,7 @@ Server-to-Server request headers require Accept, X-Auth-Client, X-Auth-Token and
 | `X-Auth-Client` | String | Client ID of the requesting app |
 | `X-Auth-Token` | String | Access token authorizing the app to access resources on behalf of a user |
 
-
+---
 
 <a href='#about-api_response-headers' aria-hidden='true' class='block-anchor'  id='about-api_response-headers'><i aria-hidden='true' class='linkify icon'></i></a>
 
@@ -104,7 +104,7 @@ Server-to-Server request headers require Accept, X-Auth-Client, X-Auth-Token and
 | `X-Rate-Limit-Time-Reset-Ms`  | number | Shows how many milliseconds are remaining in the window. In this case, 3000 milliseconds – so, 3000 milliseconds after this request, the API quota will be refreshed. |`30000 `|
 | `X-Rate-Limit-Time-Window-Ms` | number | Shows the size of your current rate-limiting window. | `9762` |
 
-
+---
 
 <a href='#about-api_media-types' aria-hidden='true' class='block-anchor'  id='about-api_media-types'><i aria-hidden='true' class='linkify icon'></i></a>
 
@@ -112,7 +112,7 @@ Server-to-Server request headers require Accept, X-Auth-Client, X-Auth-Token and
 
 A media type is the format of the request or response body. The BigCommerce API accepts requests and responds in JSON. You should encode requests using the UTF-8 character set (other character sets might have unpredictable results).
 
-
+---
 
 <a href='#about-api_content-types' aria-hidden='true' class='block-anchor'  id='about-api_content-types'><i aria-hidden='true' class='linkify icon'></i></a>
 
@@ -128,7 +128,7 @@ The priority in which these methods are processed are:
 * Accept header high-priority types (eg. `Accept: application/json`) extensions on the resource (e.g. `customers.json`).
 * Accept header low priority types (priorities less than 1, e.g. `Accept: application/json;q=0.9`)
 
-
+---
 
 <a href='#about-api_request-and-response-structure' aria-hidden='true' class='block-anchor'  id='about-api_request-and-response-structure'><i aria-hidden='true' class='linkify icon'></i></a>
 
@@ -136,6 +136,12 @@ The priority in which these methods are processed are:
 
 ### Request Structure
 The body of a JSON request is an object containing a set of key-value pairs. A simple representation of a product object is:
+
+<div class="HubBlock-header">
+    <div class="HubBlock-header-title flex items-center">
+        <div class="HubBlock-header-name"></div>
+    </div><div class="HubBlock-header-subtitle"></div>
+</div>
 
 <!--
 title: ""
@@ -153,6 +159,12 @@ lineNumbers: true
 
 ### Response Structure
 Responses are structured similarly to requests. If a request returns a single object, then the response will contain a single object, containing the fields for that resource.
+
+<div class="HubBlock-header">
+    <div class="HubBlock-header-title flex items-center">
+        <div class="HubBlock-header-name">Single Category Response</div>
+    </div><div class="HubBlock-header-subtitle"></div>
+</div>
 
 <!--
 title: "Single Category Response"
@@ -187,6 +199,12 @@ lineNumbers: true
   "meta": {}
 }
 ```
+
+<div class="HubBlock-header">
+    <div class="HubBlock-header-title flex items-center">
+        <div class="HubBlock-header-name">Multiple Categories Response</div>
+    </div><div class="HubBlock-header-subtitle"></div>
+</div>
 
 <!--
 title: "Multiple Categories Response"

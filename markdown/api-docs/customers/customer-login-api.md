@@ -8,7 +8,7 @@
     <li><a href="#customer-login_sample-code">Sample Code</a></li>
     <li><a href="#customer-login_access-url">Acces URL</a></li>
     <li><a href="#customer-login_logging-in-a-customer">Logging In a Customer</a></li>
-    li><a href="#customer-login_logout-customer">Logging Out a Customer</a></li>
+    <li><a href="#customer-login_logout-customer">Logging Out a Customer</a></li>
     <li><a href="#customer-login_troubleshooting-customer-login-api">Troubleshooting</a></li>
 	</ul>
 </div>
@@ -82,6 +82,12 @@ The `request_ip` field can be used as an additional security precaution, to prev
 
 <a href='#example-payload' aria-hidden='true' class='block-anchor'  id='example-payload'><i aria-hidden='true' class='linkify icon'></i></a>
 
+<div class="HubBlock-header">
+    <div class="HubBlock-header-title flex items-center">
+        <div class="HubBlock-header-name">Example Payload</div>
+    </div><div class="HubBlock-header-subtitle"></div>
+</div>
+
 <!--
 title: "Example Payload"
 subtitle: ""
@@ -117,14 +123,14 @@ lineNumbers: true
 
 The signature is created by signing the header and payload with the hashing algorithm specified in the header (HS256) and your application’s Client Secret. 
 
-
+---
 
 <a href='#customer-login_oauth-scope' aria-hidden='true' class='block-anchor'  id='customer-login_oauth-scope'><i aria-hidden='true' class='linkify icon'></i></a>
 
 ## OAuth Scope
 Your OAuth API credentials must include the [customers_login](/api-docs/getting-started/basics/authentication#authentication_oauth-scopes) scope.
 
-
+---
 
 <a href='#customer-login_access-url' aria-hidden='true' class='block-anchor'  id='customer-login_access-url'><i aria-hidden='true' class='linkify icon'></i></a>
 
@@ -134,7 +140,7 @@ After generating the JWT token, your app should immediately redirect the shopper
 Example:
 `https://storedomain.com/login/token/eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9 .eyJzdWIiOiIxMjM0NTY3ODkwIiwibmFtZSI6IkpvaG4gRG9lIiwiYWRtaW4iOnRydWV9.TJVA95OrM7E2cBab30RMHrHDcEfxjoYZgeFONFh7HgQ`
 
-
+---
 
 <a href='#customer-login_logging-in-a-customer' aria-hidden='true' class='block-anchor'  id='customer-login_logging-in-a-customer'><i aria-hidden='true' class='linkify icon'></i></a>
 
@@ -164,6 +170,12 @@ Client ID and Client Secret generated from the store with the scope set to [Cust
 2. Create the payload by filling in the PAYLOAD:DATA on jwt.io
 
 <a href='#create-the-paylpad' aria-hidden='true' class='block-anchor'  id='create-the-paylpad'><i aria-hidden='true' class='linkify icon'></i></a>
+
+<div class="HubBlock-header">
+    <div class="HubBlock-header-title flex items-center">
+        <div class="HubBlock-header-name">Create the Payload</div>
+    </div><div class="HubBlock-header-subtitle"></div>
+</div>
 
 <!--
 title: "Create the Payload"
@@ -234,7 +246,7 @@ Client libraries in many other languages are at JWT.io.
     {'children': [{'title': 'PHP Sample', 'blocks': [{'type': 'code', 'data': "    public static function getCustomerLoginToken($id, $redirectUrl = '', $requestIp = '')\n    {\n        if (empty(self::$client_secret)) {\n            throw new Exception('Cannot sign customer login tokens without a client secret');\n        }\n\n        $payload = array(\n            'iss' => self::$client_id,\n            'iat' => time(),\n            'jti' => bin2hex(random_bytes(32)),\n            'operation' => 'customer_login',\n            'store_hash' => self::$store_hash,\n            'customer_id' => $id\n        );\n\n        if (!empty($redirectUrl)) {\n            $payload['redirect_to'] = $redirectUrl;\n        }\n\n        if (!empty($requestIp)) {\n            $payload['request_ip'] = $requestIp;\n        }\n\n        return JWT::encode($payload, self::$client_secret, 'HS256');\n    }", 'header': {'subtitle': 'https://github.com/bigcommerce/bigcommerce-api-php/blob/master/src/Bigcommerce/Api/Client.php#L421', 'title': 'Client.php', 'anchor': 'php-sample'}, 'config': {'mode': 'php'}}]}, {'title': 'Python Sample', 'blocks': [{'type': 'code', 'data': "import os\nimport time\nimport uuid\nimport jwt\n\n\nclass CustomerLoginTokens(object):\n    @classmethod\n    def create(cls, client, id, redirect_url=None, request_ip=None):\n\n        # Get the client_secret needed to sign tokens from the environment\n        # Intended to play nice with the Python Hello World sample app\n        # https://github.com/bigcommerce/hello-world-app-python-flask\n        client_secret = os.getenv('APP_CLIENT_SECRET')\n\n        if not client_secret:\n            raise AttributeError('No OAuth client secret specified in the environment, '\n                                 'please specify an APP_CLIENT_SECRET')\n\n        try:\n            client_id = client.connection.client_id\n            store_hash = client.connection.store_hash\n        except AttributeError:\n            raise AttributeError('Store hash or client ID not found in the connection - '\n                                 'make sure an OAuth API connection is configured. Basic auth is not supported.')\n\n        payload = dict(iss=client_id,\n                       iat=int(time.time()),\n                       jti=uuid.uuid4().hex,\n                       operation='customer_login',\n                       store_hash=store_hash,\n                       customer_id=id\n                       )\n\n        if redirect_url:\n            payload['redirect_url'] = redirect_url\n\n        if request_ip:\n            payload['request_ip'] = request_ip\n\n        token = jwt.encode(payload, client_secret, algorithm='HS256')\n\n        return token.decode('utf-8')\n\n    @classmethod\n    def create_url(cls, client, id, redirect_url=None, request_ip=None):\n        secure_url = client.Store.all()['secure_url']\n        login_token = cls.create(client, id, redirect_url, request_ip)\n        return '%s/login/token/%s' % (secure_url, login_token)\n\n", 'header': {'title': 'customer_login_token.py', 'subtitle': 'https://github.com/bigcommerce/bigcommerce-api-python/blob/master/bigcommerce/customer_login_token.py', 'anchor': 'python-sample'}, 'config': {'mode': 'python'}}]}, {'title': 'Ruby Sample', 'blocks': [{'type': 'code', 'data': "require 'bigcommerce'\n\nBigcommerce.configure do |config|\n  config.store_hash = ENV['BC_STORE_HASH']\n  config.client_id = ENV['BC_CLIENT_ID']\n  config.client_secret = ENV['BC_CLIENT_SECRET']\n  config.access_token = ENV['BC_ACCESS_TOKEN']\nend\n\n# Get a customer\ncustomer = Bigcommerce::Customer.all(page: 1).first\n\n# Generate token login url\nputs customer.login_token", 'header': {'subtitle': 'https://github.com/bigcommerce/bigcommerce-api-ruby/blob/master/examples/customers/customer_login.rb', 'title': 'customer_login.rb', 'anchor': 'ruby-sample'}, 'config': {'mode': 'ruby'}}]}]}
 </div>
 
-
+---
 
 <a href='#customer-login_logout-customer' aria-hidden='true' class='block-anchor'  id='customer-login_logout-customer'><i aria-hidden='true' class='linkify icon'></i></a>
 

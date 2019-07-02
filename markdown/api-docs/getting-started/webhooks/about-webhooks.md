@@ -30,7 +30,7 @@ Webhooks allow app developers to be notified, in near real-time, when specific e
 </div>
 </div>
 
-
+---
 
 <a href='#about-webhooks_authentication' aria-hidden='true' class='block-anchor'  id='about-webhooks_authentication'><i aria-hidden='true' class='linkify icon'></i></a>
 
@@ -58,7 +58,7 @@ Before you  can begin to send and receive requests, you must have the following:
 </div>
 </div>
 
-
+---
 
 <a href='#about-webhooks_lightweight-callback-payload' aria-hidden='true' class='block-anchor'  id='about-webhooks_lightweight-callback-payload'><i aria-hidden='true' class='linkify icon'></i></a>
 
@@ -67,6 +67,12 @@ Before you  can begin to send and receive requests, you must have the following:
 When a subscribed event occurs, we send a light payload with only minimum details regarding the event that’s been triggered. This gives you maximum flexibility as to how you want to handle the notification in your application. For instance, if you subscribe to the `store/order/statusUpdated` event, we’ll send you the order ID when the status is updated. You might want to handle the notification by fetching the full order details via a request to the Orders resource.
 
 An example payload follows:
+
+<div class="HubBlock-header">
+    <div class="HubBlock-header-title flex items-center">
+        <div class="HubBlock-header-name"></div>
+    </div><div class="HubBlock-header-subtitle"></div>
+</div>
 
 <!--
 title: ""
@@ -95,7 +101,7 @@ lineNumbers: true
 | data | A lightweight description of the [event](/api-docs/getting-started/webhooks/webhook-events) that triggered the webhook. Will vary depending on the event registered. |
 | hash | The payload data json encoded then passed through sh1 encryption. |
 
-
+---
 
 <a href='#about-webhooks_request-and-response' aria-hidden='true' class='block-anchor'  id='about-webhooks_request-and-response'><i aria-hidden='true' class='linkify icon'></i></a>
 
@@ -104,6 +110,12 @@ lineNumbers: true
 *Never worked with webhooks before? Check out the tutorial on creating webhooks.*
 
 All webhooks requests must include the following in their HTTP headers:
+
+<div class="HubBlock-header">
+    <div class="HubBlock-header-title flex items-center">
+        <div class="HubBlock-header-name"></div>
+    </div><div class="HubBlock-header-subtitle"></div>
+</div>
 
 <!--
 title: ""
@@ -119,6 +131,12 @@ X-Auth-Token: <the OAuth token>
 ```
 
 <a href='#post-webhooks' aria-hidden='true' class='block-anchor'  id='post-webhooks'><i aria-hidden='true' class='linkify icon'></i></a>
+
+<div class="HubBlock-header">
+    <div class="HubBlock-header-title flex items-center">
+        <div class="HubBlock-header-name">/POST Webhook </div>
+    </div><div class="HubBlock-header-subtitle">Request: https://api.bigcommerce.com/stores/{{store_hash}}/v2/hooks</div>
+</div>
 
 <!--
 title: "/POST Webhook "
@@ -139,6 +157,12 @@ curl -X POST \
 ```
 
 <a href='#response-post-webhooks' aria-hidden='true' class='block-anchor'  id='response-post-webhooks'><i aria-hidden='true' class='linkify icon'></i></a>
+
+<div class="HubBlock-header">
+    <div class="HubBlock-header-title flex items-center">
+        <div class="HubBlock-header-name">Response 201 Created</div>
+    </div><div class="HubBlock-header-subtitle">/POST Webhook</div>
+</div>
 
 <!--
 title: "Response 201 Created"
@@ -189,6 +213,12 @@ An HTTP 201 response indicates that the webhook was set successfully.
 
 <a href='#get-all-webhooks' aria-hidden='true' class='block-anchor'  id='get-all-webhooks'><i aria-hidden='true' class='linkify icon'></i></a>
 
+<div class="HubBlock-header">
+    <div class="HubBlock-header-title flex items-center">
+        <div class="HubBlock-header-name">/GET All Webhooks</div>
+    </div><div class="HubBlock-header-subtitle">Request: https://api.bigcommerce.com/stores/{{store_hash}}/v2/hooks</div>
+</div>
+
 <!--
 title: "/GET All Webhooks"
 subtitle: "Request: https://api.bigcommerce.com/stores/{{store_hash}}/v2/hooks"
@@ -227,6 +257,12 @@ lineNumbers: true
 
 <a href='#get-a-single-webhook' aria-hidden='true' class='block-anchor'  id='get-a-single-webhook'><i aria-hidden='true' class='linkify icon'></i></a>
 
+<div class="HubBlock-header">
+    <div class="HubBlock-header-title flex items-center">
+        <div class="HubBlock-header-name">/GET a Single Webhook</div>
+    </div><div class="HubBlock-header-subtitle">To get a single webhook use the `id`.  Request: https://api.bigcommerce.com/stores/{{store_hash}}/v2/hooks/id</div>
+</div>
+
 <!--
 title: "/GET a Single Webhook"
 subtitle: "To get a single webhook use the `id`.  Request: https://api.bigcommerce.com/stores/{{store_hash}}/v2/hooks/id"
@@ -250,6 +286,12 @@ lineNumbers: true
 ```
 
 <a href='#update-a-webhook' aria-hidden='true' class='block-anchor'  id='update-a-webhook'><i aria-hidden='true' class='linkify icon'></i></a>
+
+<div class="HubBlock-header">
+    <div class="HubBlock-header-title flex items-center">
+        <div class="HubBlock-header-name">/PUT Webhook</div>
+    </div><div class="HubBlock-header-subtitle">Update a webhook using the id. Once the webhook is created all the fields below can be changed via an update request. Request: https://api.bigcommerce.com/stores/{{store_hash}}/v2/hooks/id</div>
+</div>
 
 <!--
 title: "/PUT Webhook"
@@ -281,6 +323,12 @@ lineNumbers: true
 
 ```
 
+<div class="HubBlock-header">
+    <div class="HubBlock-header-title flex items-center">
+        <div class="HubBlock-header-name">/DELETE a Wehbook</div>
+    </div><div class="HubBlock-header-subtitle">Request: https://api.bigcommerce.com/stores/{{store_hash}}/v2/hooks/id</div>
+</div>
+
 <!--
 title: "/DELETE a Wehbook"
 subtitle: "Request: https://api.bigcommerce.com/stores/{{store_hash}}/v2/hooks/id"
@@ -307,7 +355,7 @@ There is not a way to delete all webhooks on a store. Run a GET request for the 
 
 If webhooks are no longer being used, either delete them or set `is_active:false`.
 
-
+---
 
 <a href='#about-webhooks_receiving-the-callback' aria-hidden='true' class='block-anchor'  id='about-webhooks_receiving-the-callback'><i aria-hidden='true' class='linkify icon'></i></a>
 
@@ -317,7 +365,7 @@ You’ll need to build an application and configure your server to receive the c
 
 Need to set up a quick destination URL for testing? See Tools for Debugging and Testing Webhooks.
 
-
+---
 
 <a href='#about-webhooks_respond-to-webhook-callbacks' aria-hidden='true' class='block-anchor'  id='about-webhooks_respond-to-webhook-callbacks'><i aria-hidden='true' class='linkify icon'></i></a>
 
@@ -329,7 +377,7 @@ To acknowledge that you received the webhook without issue, your server should r
 
 Need to set up a quick destination URL for testing? See [Tools for testing webhooks.](#about-webhooks_tools-for-debugging-and-testing-webhooks)
 
-
+---
 
 <a href='#about-webhooks_callback-retry-mechanism' aria-hidden='true' class='block-anchor'  id='about-webhooks_callback-retry-mechanism'><i aria-hidden='true' class='linkify icon'></i></a>
 
@@ -358,7 +406,7 @@ The webhook dispatcher will then attempt several retries (at increasing interval
 
 After the final retry attempt (cumulatively, 48 hours after the first delivery attempt), the webhook will automatically be deactivated, and we will send an email to the developer’s email address registered on the subscribing app. You can reactivate the webhook by setting the `is_active` flag back to true via a `/PUT` request to the hooks resource.
 
-
+---
 
 <a href='#about-webhooks_webhook-security' aria-hidden='true' class='block-anchor'  id='about-webhooks_webhook-security'><i aria-hidden='true' class='linkify icon'></i></a>
 
@@ -368,6 +416,12 @@ To ensure that webhook payloads are secure against activity by a malicious actor
 * Webhook payloads contain minimal information about the store and event, for example the ID identifying the order or cart. To access potentially sensitive information on a store, a malicious actor would need to be fully authenticated against that store’s API in order to request full details.
 * Webhook payloads are sent over a TLS-encrypted connection.
 * For added security, you can include custom headers in your webhook creation request, and these headers will be sent in the payload when an event you subscribe to occurs. If your app endpoint is secured by basic authentication, you could set your own basic auth headers to authenticate the payload at runtime.
+
+<div class="HubBlock-header">
+    <div class="HubBlock-header-title flex items-center">
+        <div class="HubBlock-header-name">Webhook Customer Header Example</div>
+    </div><div class="HubBlock-header-subtitle"></div>
+</div>
 
 <!--
 title: "Webhook Customer Header Example"
@@ -387,7 +441,7 @@ lineNumbers: true
 }
 ```
 
-
+---
 
 <a href='#about-webhooks_troubleshooting' aria-hidden='true' class='block-anchor'  id='about-webhooks_troubleshooting'><i aria-hidden='true' class='linkify icon'></i></a>
 
@@ -410,6 +464,12 @@ Once you have resolved the issue preventing the connection, send a PUT request t
 ### Why am I not receiving a 201 response after creating a webhook?
 After sending a POST request to create a webhook, you should get an HTTP 201 back. If you do not, check your TLS/SSL setup and be sure that your request contains the following headers:
 
+<div class="HubBlock-header">
+    <div class="HubBlock-header-title flex items-center">
+        <div class="HubBlock-header-name"></div>
+    </div><div class="HubBlock-header-subtitle"></div>
+</div>
+
 <!--
 title: ""
 subtitle: ""
@@ -423,7 +483,7 @@ lineNumbers: true
  X-Auth-Token: <the OAuth token>
 ```
 
-
+---
 
 <a href='#about-webhooks_tools-for-debugging-and-testing-webhooks' aria-hidden='true' class='block-anchor'  id='about-webhooks_tools-for-debugging-and-testing-webhooks'><i aria-hidden='true' class='linkify icon'></i></a>
 

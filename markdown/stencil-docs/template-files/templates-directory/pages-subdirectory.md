@@ -17,7 +17,7 @@ Children of the [pages subdirectory](https://github.com/bigcommerce/cornerstone/
 
 The subdirectory’s [.html files](https://github.com/bigcommerce/cornerstone/tree/master/templates/pages) are single-purpose pages.
 
-
+---
 
 <a href='#pages_naming-requirements' aria-hidden='true' class='block-anchor'  id='pages_naming-requirements'><i aria-hidden='true' class='linkify icon'></i></a>
 
@@ -38,7 +38,7 @@ Do not change the names of the <span class="fp">/templates/pages/</span> subdire
 </div>
 </div>
 
-
+---
 
 ## Resources
 

@@ -75,7 +75,7 @@ This is the workflow to start developing based on BigCommerce's default Cornerst
 
 Once you have completed these steps, proceed to the _Launching Stencil_ section.
 
-
+---
 
 <a href='#navigating_download-and-install' aria-hidden='true' class='block-anchor'  id='navigating_download-and-install'><i aria-hidden='true' class='linkify icon'></i></a>
 
@@ -89,7 +89,7 @@ If you would like to download and install a **new** version of Cornerstone from 
 * [Reinstall JavaScript Utilities](/stencil-docs/getting-started/installing-stencil#installing_installing-stencils-js-utilities)
 * Repeat steps in _Launching Stencil_
 
-
+---
 
 <a href='#navigating_download-marketplace' aria-hidden='true' class='block-anchor'  id='navigating_download-marketplace'><i aria-hidden='true' class='linkify icon'></i></a>
 
@@ -104,7 +104,7 @@ If you would like to customize a theme _other than_ Cornerstone, follow the requ
 * [Create an API Account to Prepare Your Store and Tokens](/stencil-docs/getting-started/authentication-and-tokens#authentication_creating-an-api-account)
 * Complete the steps outlined in _Launching Stencil_
 
-
+---
 
 <a href='#navigating_implementing-custom-build' aria-hidden='true' class='block-anchor'  id='navigating_implementing-custom-build'><i aria-hidden='true' class='linkify icon'></i></a>
 
@@ -120,7 +120,7 @@ The Stencil framework currently uses Webpack 4 as its default Javascript Build s
 * [Create an API Account to Prepare Your Store and Tokens](/stencil-docs/getting-started/authentication-and-tokens)
 * Proceed to _Launching Stencil_
 
-
+---
 
 <a href='#navigating_blueprint-store' aria-hidden='true' class='block-anchor'  id='navigating_blueprint-store'><i aria-hidden='true' class='linkify icon'></i></a>
 
@@ -135,7 +135,7 @@ and you would like to enable Stencil development on it, you must perform the fol
 * Follow the installation path above that corresponds to your development scenario
 * Enable Stencil in the store’s control panel
 
-
+---
 
 ## Resources
 ### Related Articles

@@ -18,7 +18,7 @@
 
 
 
-
+---
 
 <a href='#page-types_javascript-api' aria-hidden='true' class='block-anchor'  id='page-types_javascript-api'><i aria-hidden='true' class='linkify icon'></i></a>
 
@@ -67,6 +67,12 @@ To properly write JavaScript for your theme, you will have the following page ty
 
 These page types correspond to the pages within your theme. Each of these page types maps to an ES6 module that extends the base `PageManager` abstract class:
 
+<div class="HubBlock-header">
+    <div class="HubBlock-header-title flex items-center">
+        <div class="HubBlock-header-name">pages/blog extending the page PageManager class</div>
+    </div><div class="HubBlock-header-subtitle"></div>
+</div>
+
 <!--
 title: "pages/blog extending the page PageManager class"
 subtitle: ""
@@ -93,7 +99,7 @@ export default class Blog extends PageManager {
 </div>
 </div>
 
-
+---
 
 <a href='#page-types_javascript' aria-hidden='true' class='block-anchor'  id='page-types_javascript'><i aria-hidden='true' class='linkify icon'></i></a>
 
@@ -108,6 +114,12 @@ The `inject` helper allows you to compose a json object with a subset of the tem
 To retrieve the parsable JSON object, just call `{{jsContext}}` after all of the `{{inject}}` calls.
 
 For example, to set up the product name in your client-side app, you can do this if you're in the context of a product:
+
+<div class="HubBlock-header">
+    <div class="HubBlock-header-title flex items-center">
+        <div class="HubBlock-header-name"></div>
+    </div><div class="HubBlock-header-subtitle"></div>
+</div>
 
 <!--
 title: ""

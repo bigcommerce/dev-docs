@@ -31,7 +31,7 @@ Reviews associated with a product.
 | review | text | The full text of the review, displayed on the storefront. |
 | status | int | A status indicator. 0="Pending", 1= "Approved", 2="Disapproved". |
 
-
+---
 
 ## List Product Reviews 
 
@@ -91,7 +91,7 @@ Example JSON returned in the response:
 ]
 ```
 
-
+---
 
 <a href='#v2-reviews_get-count-reviews' aria-hidden='true' class='block-anchor'  id='v2-reviews_get-count-reviews'><i aria-hidden='true' class='linkify icon'></i></a>
 
@@ -120,7 +120,7 @@ Example JSON returned in the response:
 }
 ```
 
-
+---
 
 <a href='#v2-reviews_create-product-reviews' aria-hidden='true' class='block-anchor'  id='v2-reviews_create-product-reviews'><i aria-hidden='true' class='linkify icon'></i></a>
 
@@ -168,7 +168,7 @@ Example JSON returned in the response:
 }
 ```
 
-
+---
 
 <a href='#v2-reviews_update-product-reviews' aria-hidden='true' class='block-anchor'  id='v2-reviews_update-product-reviews'><i aria-hidden='true' class='linkify icon'></i></a>
 
@@ -202,7 +202,7 @@ Example JSON returned in the response:
 }
 ```
 
-
+---
 
 <a href='#v2-reviews_delete-product-reviews' aria-hidden='true' class='block-anchor'  id='v2-reviews_delete-product-reviews'><i aria-hidden='true' class='linkify icon'></i></a>
 
@@ -212,7 +212,7 @@ Deletes a specified product review. (If successful, this will typically return a
 
 >`DELETE /stores/{store_hash}/v2/products/{product_id}/reviews/{id}
 
-
+---
 
 <a href='#v2-reviews_delete-all-product-reviews' aria-hidden='true' class='block-anchor'  id='v2-reviews_delete-all-product-reviews'><i aria-hidden='true' class='linkify icon'></i></a>
 

@@ -31,13 +31,19 @@ You can access the most recent version of this file in the [Cornerstone reposito
 </div>
 </div>
 
-
+---
 
 <a href='#optimized_configuring' aria-hidden='true' class='block-anchor'  id='optimized_configuring'><i aria-hidden='true' class='linkify icon'></i></a>
 
 ## Configuring the Desktop Viewport 
 
 Within the <span class="fn">optimized-checkout.scss</span> file, to set up Optimized Checkout's responsive features, you should configure the following breakpoint to define your preferred desktop viewport size:
+
+<div class="HubBlock-header">
+    <div class="HubBlock-header-title flex items-center">
+        <div class="HubBlock-header-name"></div>
+    </div><div class="HubBlock-header-subtitle"></div>
+</div>
 
 <!--
 title: ""
@@ -54,7 +60,7 @@ lineNumbers: true
 }
 ```
 
-
+---
 
 <a href='#optimized_classes' aria-hidden='true' class='block-anchor'  id='optimized_classes'><i aria-hidden='true' class='linkify icon'></i></a>
 
@@ -78,7 +84,7 @@ Below are the classes provided in Cornerstone's <span class="fn">optimized-check
 | `.optimizedCheckout-form-input` | Styles form fields like `Email Address` – the entry box's background and border colors. |
 
 
-
+---
 
 <a href='#optimized_providing' aria-hidden='true' class='block-anchor'  id='optimized_providing'><i aria-hidden='true' class='linkify icon'></i></a>
 
@@ -87,4 +93,11 @@ Below are the classes provided in Cornerstone's <span class="fn">optimized-check
 You can determine which aspects of Optimized One-Page Checkout merchants will be able to customize with the Store Design tool. 
 
 In Cornerstone's <span class="fn">optimized-checkout.scss</span>, each SCSS class and property available has a corresponding key/value pair in the <span class="fn">config.json</span> file, which can be used as the `id` value in schema.json when [creating customizable Store Design options](/stencil-docs/store-design/schema-json-metadata).
+
+---
+
+## Resources
+
+### Related Articles
+* [The Complete Guide to Checkout Customization on BigCommerce](https://medium.com/bigcommerce-developer-blog/the-complete-guide-to-checkout-customization-on-bigcommerce-6b566bc36fa9) (Developer Blog)
 

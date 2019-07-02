@@ -112,7 +112,7 @@ Your terminal window will display options and commands listed in the tables belo
 </div>
 </div>
 
-
+---
 
 <a href='##stencil_stencil-start' aria-hidden='true' class='block-anchor'  id='#stencil_stencil-start'><i aria-hidden='true' class='linkify icon'></i></a>
 
@@ -168,7 +168,7 @@ Your terminal screen should read similar to the table below.
 </table>
 
 
-
+---
 
 <a href='#stencil_stencil-push' aria-hidden='true' class='block-anchor'  id='stencil_stencil-push'><i aria-hidden='true' class='linkify icon'></i></a>
 
@@ -223,7 +223,7 @@ When you run `stencil push` with the `-f` or `--filename` option, Stencil CLI sk
 
 
 
-
+---
 
 <a href='#stencil_quick' aria-hidden='true' class='block-anchor'  id='stencil_quick'><i aria-hidden='true' class='linkify icon'></i></a>
 
@@ -263,7 +263,7 @@ When you run `stencil push` with the `-f` or `--filename` option, Stencil CLI sk
 	</tr>
 
 
-
+---
 
 <a href='#stencil_local-launch-theme' aria-hidden='true' class='block-anchor'  id='stencil_local-launch-theme'><i aria-hidden='true' class='linkify icon'></i></a>
 
@@ -275,7 +275,7 @@ After initializing Stencil, issue the following command in your theme directory 
 
 When you navigate to your designated port (e.g `http://localhost:3000`), you should see the storefront you selected with the local Stencil theme applied.
 
-
+---
 
 <a href='#stencil_local-launch-theme-and-editor' aria-hidden='true' class='block-anchor'  id='stencil_local-launch-theme-and-editor'><i aria-hidden='true' class='linkify icon'></i></a>
 
@@ -298,7 +298,7 @@ You can override Theme Editor's default port by appending the "--theme-editor-po
 
 To verify Theme Editor's launch, you would then go to http://localhost:9000. Using this option, you can specify any port between `1024` and `65535`.
 
-
+---
 
 <a href='#stencil_disabling' aria-hidden='true' class='block-anchor'  id='stencil_disabling'><i aria-hidden='true' class='linkify icon'></i></a>
 
@@ -317,7 +317,7 @@ Kill the current Stencil server (_ctrl + c will do the job_) and restart Stencil
 `stencil start` 
 
 
-
+---
 
 ## Troubleshooting Token Errors
 
@@ -332,7 +332,7 @@ In this case, please track back and review the following articles:
 * [Authentication & Tokens](https://developer.bigcommerce.com/stencil-docs/getting-started/authentication-and-tokens): How to issue or reissue tokens in the BigCommerce control panel.
 * [Authorizing and Initializing Stencil](https://developer.bigcommerce.com/stencil-docs/getting-started/running-stencil-locally/authorizing-and-initializing): How to initialize Stencil with your username and token
 
-
+---
 
 ## Resources
 ### Related Articles

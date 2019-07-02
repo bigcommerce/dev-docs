@@ -9,6 +9,7 @@
     <li><a href="#schema_theme-editor-data">Store Designs Data Types</a></li>
     <li><a href="#schema_data-structure">Store Design Data Structure in schema.json</a></li>
     <li><a href="#schema_ui-scope">Arbitrary UI Scope and Sequence</a></li>
+    <li><a href="#schema_store-design-troubleshooting">Store Design Troubleshooting</a></li>
 	</ul>
 </div>
 
@@ -35,6 +36,8 @@ that setting – and its possible values – must be present in <span class="fn"
 
 * Also, each key that you create in schema.json must have a corresponding <span class="fn">config.json</span> key whose name matches its id value. This <span class="fn">config.json</span> key sets the default value (even if that is simply an empty string). A <span class="fn">schema.json</span> setting without an `id`-matched <span class="fn">config.json</span> key will not appear to users in the Store Design GUI.
 
+---
+
 <a href='#schema_best-practices' aria-hidden='true' class='block-anchor'  id='schema_best-practices'><i aria-hidden='true' class='linkify icon'></i></a>
 
 ## Best Practices
@@ -51,6 +54,8 @@ Please follow these guidelines to head off errors upon theme upload, and to avoi
 
 
 
+---
+
 <a href='#schema_how-json' aria-hidden='true' class='block-anchor'  id='schema_how-json'><i aria-hidden='true' class='linkify icon'></i></a>
 
 ## How .json Entries Govern Store Design's UI
@@ -63,6 +68,8 @@ Your entries in the <span class=”fn”>schema.json</span> and <span class=”f
 The options displayed within these expandable Section headings correspond directly to the keys/values that you nest within <span class="fn">schema.json</span>'s corresponding Section objects.
 
 In all, the structure that you give your theme's <span class="fn">config.json</span> and <span class="fn">schema.json</span> files directly governs the UI that Store Design exposes to merchants. So these files provide your UI design tools.
+
+---
 
 <a href='#schema_theme-editor-data' aria-hidden='true' class='block-anchor'  id='schema_theme-editor-data'><i aria-hidden='true' class='linkify icon'></i></a>
 
@@ -78,6 +85,12 @@ Store Design supports these data types:
 
 Within <span class="fn">schema.json</span>, each object's data type is declared in a statement like the one highlighted here:
 
+
+<div class="HubBlock-header">
+    <div class="HubBlock-header-title flex items-center">
+        <div class="HubBlock-header-name"></div>
+    </div><div class="HubBlock-header-subtitle"></div>
+</div>
 
 <!--
 title: ""
@@ -96,6 +109,12 @@ lineNumbers: true
 ### Types versus "heading" Labels
 
 Within <span class="fn">schema.json</span>, you will also see `"type": "heading"` statements like this one – highlighted earlier in the same object used for the above example:
+
+<div class="HubBlock-header">
+    <div class="HubBlock-header-title flex items-center">
+        <div class="HubBlock-header-name"></div>
+    </div><div class="HubBlock-header-subtitle"></div>
+</div>
 
 <!--
 title: ""
@@ -123,6 +142,8 @@ lineNumbers: true
 
 These `"type": "heading"` statements do not reference data types. Rather, they declare display captions for the Store Design UI's subcategories – the middle level nested within the Section headings, but outside the individual options from which merchants can select. (Those inner options are designated by `"label": <label-text>` statements.)
 
+---
+
 <a href='#schema_data-structure' aria-hidden='true' class='block-anchor'  id='schema_data-structure'><i aria-hidden='true' class='linkify icon'></i></a>
 
 ## Store Design Data Structure in <span class="fn">schema.json</span> 
@@ -130,9 +151,35 @@ These `"type": "heading"` statements do not reference data types. Rather, they d
 The <span class="fn">schema.json</span> nesting structure that you just saw maps directly to the Store Design UI displayed to merchants: Below the `variations` section (whose data are imported from <span class="fn">config.json</span>), the order and nesting of options in Store Design's UI directly matches the order and nesting of your <span class="fn">schema.json</span> entries.
 
 
+---
+
 <a href='#schema_ui-scope' aria-hidden='true' class='block-anchor'  id='schema_ui-scope'><i aria-hidden='true' class='linkify icon'></i></a>
 
 ## Arbitrary UI Scope and Sequence
 
 You are free to decide which properties of your theme to make editable in Store Design, and in which order to display them. Store Design can expose any set of properties as long as your <span class="fn">schema.json</span> declares them using the data types that Store Design supports.
+
+---
+
+<a href='#schema_store-design-troubleshooting' aria-hidden='true' class='block-anchor'  id='schema_store-design-troubleshooting'><i aria-hidden='true' class='linkify icon'></i></a>
+
+## Store Design UI Troubleshooting
+
+You may experience an issue when setting up the Store Design UI. For any unexpected behavior that you encounter while developing your Stencil theme, we recommend that you check the terminal window where you started Stencil CLI. In some cases, the terminal will provide a verbose error message specifying where to look for problems. For less-detailed error messages, see the below list of potential issues and diagnostic suggestions.
+
+### Empty Drop-Down List in Store Design Panel
+
+* **Symptom:** A drop-down list’s outline appears below its configured label. However, the list appears to be empty.
+* **Likely Cause:** A default value specified in the theme’s config.json file is not enumerated in the schema.json file.
+* **Resolution:** Update schema.json to include the config.json value.
+
+### Configured Control Missing from Store Design Panel
+* **Symptom:** A control that you have configured within schema.json is completely absent from the Store Design UI.
+* **Likely Cause:** The specified “type” is one of: text, text area, radio [button], or image. (Store Design does not currently support these data types.)
+* **Resolution:** Display the user option via one of the supported data types: color, font, select [drop-down list], or checkbox.
+
+### Theme Changes Not Saved from Store Design UI
+* **Symptom:** Changes saved in a browser’s Store Design panel are not reflected in the storefront.
+* **Likely Cause:** Check whether Store Design to customize the same storefront.
+* **Resolution:** We strongly recommend opening only one instance of Store Design, at a time, per storefront. BigCommerce currently provides no synchronization mechanism for configuration changes from multiple Store Design instances. So the storefront’s schema.json will record the last changes made by any instance – but changes saved earlier by other instances might be lost.
 

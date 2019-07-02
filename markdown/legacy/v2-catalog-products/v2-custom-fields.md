@@ -78,7 +78,7 @@ Example JSON returned in the response:
 ]
 ```
 
-
+---
 
 <a href='#v2-custom-fields_get-custom-fields' aria-hidden='true' class='block-anchor'  id='v2-custom-fields_get-custom-fields'><i aria-hidden='true' class='linkify icon'></i></a>
 
@@ -102,7 +102,7 @@ Example JSON returned in the response:
 }
 ```
 
-
+---
 
 <a href='#v2-custom-fields_get-count-custom-fields' aria-hidden='true' class='block-anchor'  id='v2-custom-fields_get-count-custom-fields'><i aria-hidden='true' class='linkify icon'></i></a>
 
@@ -122,7 +122,7 @@ Example JSON returned in the response:
 }
 ```
 
-
+---
 
 <a href='#v2-custom-fields_create-custom-fields' aria-hidden='true' class='block-anchor'  id='v2-custom-fields_create-custom-fields'><i aria-hidden='true' class='linkify icon'></i></a>
 
@@ -168,7 +168,7 @@ Example JSON returned in the response:
   "text": "2013-12-25"
 }
 
-
+---
 
 <a href='#v2-custom-fields_update-custom-fields' aria-hidden='true' class='block-anchor'  id='v2-custom-fields_update-custom-fields'><i aria-hidden='true' class='linkify icon'></i></a>
 
@@ -216,7 +216,7 @@ Example JSON returned in the response:
 }
 ```
 
-
+---
 
 <a href='#v2-custom-fields_delete-custom-fields' aria-hidden='true' class='block-anchor'  id='v2-custom-fields_delete-custom-fields'><i aria-hidden='true' class='linkify icon'></i></a>
 
@@ -227,7 +227,7 @@ Deletes a custom field associated with a product.
 
 >`DELETE /stores/{store_hash}/v2/products/{product_id}/custom_fields/{id}`
 
-
+---
 
 <a href='#v2-custom-fields_delete-multiple-custom-fields' aria-hidden='true' class='block-anchor'  id='v2-custom-fields_delete-multiple-custom-fields'><i aria-hidden='true' class='linkify icon'></i></a>
 

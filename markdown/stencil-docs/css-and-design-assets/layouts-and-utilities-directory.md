@@ -14,7 +14,7 @@
 
 The <span class="fp">{theme-name}/assets/scss/layouts/</span> subdirectory contains .scss files that provide default styling for major layout components of theme pages. You can see the <span class="fp">/layouts/</span> subdirectory's internal structure on the [Cornerstone Github Repository](https://github.com/bigcommerce/cornerstone/tree/master/assets/scss/layouts)
 
-
+---
 
 <a href='#layouts-utilities-settings_the-utilities-directory' aria-hidden='true' class='block-anchor'  id='layouts-utilities-settings_the-utilities-directory'><i aria-hidden='true' class='linkify icon'></i></a>
 
@@ -24,7 +24,7 @@ The <span class="fp">{theme-name}/assets/scss/utilities</span> subdirectory cont
 
 Every utility in this subdirectory will have both a class and a mixin. For example, consider the utility `truncatedText:` You can use it by applying the class `.u-truncatedText`, or by applying the mixin @include u-truncatedText;.
 
-
+---
 
 <a href='#layouts-utilities-settings_the-settings-directory' aria-hidden='true' class='block-anchor'  id='layouts-utilities-settings_the-settings-directory'><i aria-hidden='true' class='linkify icon'></i></a>
 
@@ -67,7 +67,7 @@ $body-font-weight: 700;
 This transformation allows you to use the `$body-font-family` and `$body-font-weight` variables wherever needed in your theme. If a merchant uses Theme Editor to select a different font family and/or weight, the variables will propagate the change throughout your theme.
 
 
-
+---
 
 ## Resources
 

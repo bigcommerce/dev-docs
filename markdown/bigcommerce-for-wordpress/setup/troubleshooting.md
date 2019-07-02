@@ -20,7 +20,7 @@
 ### Solution
 In WordPress, go to Settings → Permalinks. Scroll to the bottom of the page and click Save. This resets the site’s redirects properly.
 
-
+---
 
 <a href='#troubleshooting_php-getenv' aria-hidden='true' class='block-anchor'  id='troubleshooting_php-getenv'><i aria-hidden='true' class='linkify icon'></i></a>
 

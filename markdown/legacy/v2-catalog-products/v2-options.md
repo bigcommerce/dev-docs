@@ -25,7 +25,7 @@ Shared attributes that control value facets on a product.
 | product_id | integer | Optional field; read-only. If `null`, this option can be reused with any product. If populated with a numeric ID, this option can be used exclusively with the corresponding product. |
 
 
-
+---
 
 <a href='#v2-option-set_list-product-option' aria-hidden='true' class='block-anchor'  id='v2-option-set_list-product-option'><i aria-hidden='true' class='linkify icon'></i></a>
 
@@ -72,7 +72,7 @@ Example JSON returned in the response:
 ]
 ```
 
-
+---
 
 <a href='#v2-option-set_get-product-option' aria-hidden='true' class='block-anchor'  id='v2-option-set_get-product-option'><i aria-hidden='true' class='linkify icon'></i></a>
 

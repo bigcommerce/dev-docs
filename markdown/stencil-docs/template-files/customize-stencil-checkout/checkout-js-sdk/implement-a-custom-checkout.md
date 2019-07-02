@@ -40,6 +40,12 @@ Stencil CLI is required to begin this walkthrough. For installation instructions
 
 The React app used to demonstrate the Checkout SDK has a few additional dependencies; install them with `npm`:
 
+<div class="HubBlock-header">
+    <div class="HubBlock-header-title flex items-center">
+        <div class="HubBlock-header-name"></div>
+    </div><div class="HubBlock-header-subtitle"></div>
+</div>
+
 <!--
 title: ""
 subtitle: ""
@@ -59,6 +65,12 @@ npm install --save react react-dom react-text-mask classnames accounting @babel/
 The React app includes `.jsx` files which will not be resolved using the default webpack configuration in Cornerstone. Additionally, loaders must be registered for `.jsx` and `.scss` files.
 
 In `webpack.common.js`, add the following objects to the `rules` array:
+
+<div class="HubBlock-header">
+    <div class="HubBlock-header-title flex items-center">
+        <div class="HubBlock-header-name"></div>
+    </div><div class="HubBlock-header-subtitle"></div>
+</div>
 
 <!--
 title: ""
@@ -94,6 +106,12 @@ lineNumbers: true
 
 Next, in `webpack.common.js`, add the following property to the `resolve` object:
 
+<div class="HubBlock-header">
+    <div class="HubBlock-header-title flex items-center">
+        <div class="HubBlock-header-name"></div>
+    </div><div class="HubBlock-header-subtitle"></div>
+</div>
+
 <!--
 title: ""
 subtitle: ""
@@ -107,6 +125,12 @@ extensions: ['.js', '.jsx']
 ### Add React Checkout Components to Theme
 
 Next, clone the `checkout-sdk-js-example` repo outside of the theme directory:
+
+<div class="HubBlock-header">
+    <div class="HubBlock-header-title flex items-center">
+        <div class="HubBlock-header-name"></div>
+    </div><div class="HubBlock-header-subtitle"></div>
+</div>
 
 <!--
 title: ""
@@ -132,6 +156,12 @@ cp ../checkout-sdk-example/src/* assets/js/checkout-app/
 
 In `/assets/js/app.js`, add the following lines blow the existing `import` statements:
 
+<div class="HubBlock-header">
+    <div class="HubBlock-header-title flex items-center">
+        <div class="HubBlock-header-name"></div>
+    </div><div class="HubBlock-header-subtitle"></div>
+</div>
+
 <!--
 title: ""
 subtitle: ""
@@ -147,6 +177,12 @@ import Checkout from './checkout-app/Checkout/checkout';
 ### Define a Function to Initialize React
 
 In `/assets/js/app.js`, add the following lines to the end:
+
+<div class="HubBlock-header">
+    <div class="HubBlock-header-title flex items-center">
+        <div class="HubBlock-header-name"></div>
+    </div><div class="HubBlock-header-subtitle"></div>
+</div>
 
 <!--
 title: ""
@@ -167,6 +203,12 @@ window.initReact = function initReact() {
 
 In `/templates/pages/checkout.html`, add the following code between `{{{ footer.scripts }}}` and `{{/partial}}`:
 
+<div class="HubBlock-header">
+    <div class="HubBlock-header-title flex items-center">
+        <div class="HubBlock-header-name"></div>
+    </div><div class="HubBlock-header-subtitle"></div>
+</div>
+
 <!--
 title: ""
 subtitle: ""
@@ -184,6 +226,12 @@ lineNumbers: true
 
 Then, in `/templates/pages/checkout.html`, replace:
 
+<div class="HubBlock-header">
+    <div class="HubBlock-header-title flex items-center">
+        <div class="HubBlock-header-name"></div>
+    </div><div class="HubBlock-header-subtitle"></div>
+</div>
+
 <!--
 title: ""
 subtitle: ""
@@ -195,6 +243,12 @@ lineNumbers: true
 ```
 
 with:
+
+<div class="HubBlock-header">
+    <div class="HubBlock-header-title flex items-center">
+        <div class="HubBlock-header-name"></div>
+    </div><div class="HubBlock-header-subtitle"></div>
+</div>
 
 <!--
 title: ""

@@ -16,13 +16,19 @@ Theme developers can enable Smart Buttons on a custom Stencil theme by adding th
 
 Merchants will have the ability to customize some style aspects of the PayPal payment buttons at checkout using Store Design for stores that have PayPal powered by Braintree or PayPal Express Checkout enabled. In order to make PayPal Smart Buttons customizable with Store Design, a theme developer will need to make its customization properties available by adding its schema to the <span class="fn">schema.json</span> file. 
 
-
+---
 
 <a href='#paypal-smart_include-smart-buttons' aria-hidden='true' class='block-anchor'  id='paypal-smart_include-smart-buttons'><i aria-hidden='true' class='linkify icon'></i></a>
 
 ## Enable Smart Buttons on Your Stencil Theme
 
 Smart Buttons are included on Cornerstone versions 2.6.0+. If your theme does not already include Smart Buttons, append the `paymentbuttons` settings to the _Settings_ object within your <span class="fn">config.json</span> file. See the code sample below. 
+
+<div class="HubBlock-header">
+    <div class="HubBlock-header-title flex items-center">
+        <div class="HubBlock-header-name">addition of `payment buttons` to "settings" object</div>
+    </div><div class="HubBlock-header-subtitle">config.json</div>
+</div>
 
 <!--
 title: "addition of `payment buttons` to "settings" object"
@@ -71,12 +77,18 @@ lineNumbers: true
 </div>
 </div>
 
-
+---
 
 ## Enabling Smart Buttons Customization via Store Design
 
 Merchants who enable PayPal powered by Braintree and PayPal Express Checkout can also customize PayPal Smart Buttons via Store Design. As a theme developer, you can enable PayPal Smart Buttons customization via [Store Design](/stencil-docs/stencil-theme-editor/schema-json-metadata), by appending the following object to the <span class="fn">schema.json</span> file:
 
+
+<div class="HubBlock-header">
+    <div class="HubBlock-header-title flex items-center">
+        <div class="HubBlock-header-name">Addition to schema.json file in order to enable Store Design customization</div>
+    </div><div class="HubBlock-header-subtitle">schema.json</div>
+</div>
 
 <!--
 title: "Addition to schema.json file in order to enable Store Design customization"
@@ -220,12 +232,17 @@ lineNumbers: true
 </div>
 </div>
 
-
+---
 
 <a href='#paypal-smart_additional-resources' aria-hidden='true' class='block-anchor'  id='paypal-smart_additional-resources'><i aria-hidden='true' class='linkify icon'></i></a>
 
-## Additional Resources
+## Resources
 
-* [PayPal Checkout Customization](https://developer.paypal.com/demo/checkout/#/pattern/checkout)
+### Related Articles
+* [The Complete Guide to Checkout Customization on BigCommerce](https://medium.com/bigcommerce-developer-blog/the-complete-guide-to-checkout-customization-on-bigcommerce-6b566bc36fa9) (Developer Blog)
+
+## Additonal Resources
+* [PayPal Checkout Customization](https://developer.paypal.com/demo/checkout/#/pattern/checkout) (PayPal)
+
 
 

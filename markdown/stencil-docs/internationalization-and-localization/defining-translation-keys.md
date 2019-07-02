@@ -25,7 +25,7 @@ The Stencil framework allows you to define multiple translations for each theme 
 
 * If you want to fully support multiple languages, we recommend that you set up a separate storefront for each language. This will enable you to thoroughly customize all of your content (including your product catalog) for each target audience.
 
-
+---
 
 <a href='#basis_required' aria-hidden='true' class='block-anchor'  id='basis_required'><i aria-hidden='true' class='linkify icon'></i></a>
 
@@ -38,7 +38,7 @@ You can localize a theme by providing other appropriate .json translation files 
 Within these files, you would define key values corresponding to the text blocks in your theme's templates that you choose to abstract into translatable keys.
 
 
-
+---
 
 <a href='#basis_schema' aria-hidden='true' class='block-anchor'  id='basis_schema'><i aria-hidden='true' class='linkify icon'></i></a>
 
@@ -86,7 +86,7 @@ You can find a list of code subtags in the <a href="http://www.iana.org/assignme
 
 For more examples of frequently-used codes, see the following linked table’s "LCID string" (middle) column: <a href="http://www.science.co.il/Language/Locale-codes.asp">http://www.science.co.il/Language/Locale-codes.asp</a>.
 
-
+---
 
 <a href='#basis_localization-file' aria-hidden='true' class='block-anchor'  id='basis_localization-file'><i aria-hidden='true' class='linkify icon'></i></a>
 
@@ -100,6 +100,12 @@ Above, `"welcome_back"` is an arbitrary key name for a welcome message. The stri
 
 If you design your theme’s storefront pages to refer to this message by its generic key name `"welcome_back"`, they can pass its localized value in other languages, as that value is defined in each language’s `.json` file.
 Key-value pairs are grouped into objects, as you can see in this longer example below:
+
+<div class="HubBlock-header">
+    <div class="HubBlock-header-title flex items-center">
+        <div class="HubBlock-header-name"></div>
+    </div><div class="HubBlock-header-subtitle"></div>
+</div>
 
 <!--
 title: ""

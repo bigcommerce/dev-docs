@@ -19,6 +19,12 @@ In the Cornerstone theme, both the Optimized One-Page Checkout and the [order co
 
 In the [default checkout page template (cornerstone/templates/pages/checkout.html)](https://github.com/bigcommerce/cornerstone/blob/master/templates/pages/checkout.html), one example that you can directly view is the page header:
 
+<div class="HubBlock-header">
+    <div class="HubBlock-header-title flex items-center">
+        <div class="HubBlock-header-name">checkout.html</div>
+    </div><div class="HubBlock-header-subtitle">{{lang}} statement in page header</div>
+</div>
+
 <!--
 title: "checkout.html"
 subtitle: "{{lang}} statement in page header"
@@ -66,7 +72,7 @@ lineNumbers: true
 
 ```
 
-
+---
 
 <a href='#multi_browsing' aria-hidden='true' class='block-anchor'  id='multi_browsing'><i aria-hidden='true' class='linkify icon'></i></a>
 
@@ -76,7 +82,7 @@ BigCommerce exposes only part of the checkout page's structure through the local
 
 This hidden content includes many more key/value pairs that support translation. However, you can see all the available keys with their default English-language values in the [opt-checkout-en.json.zip file](https://storage.googleapis.com/bigcommerce-production-dev-center/template-files/opt-checkout-en.json.zip)
 
-
+---
 
 <a href='#multi_adding' aria-hidden='true' class='block-anchor'  id='multi_adding'><i aria-hidden='true' class='linkify icon'></i></a>
 
@@ -123,7 +129,7 @@ BigCommerce Optimized One-Page Checkout will currently translate displayed `Coun
 | Chinese Simplified | `zh-TW.json` |
 | Chinese Traditional | `zh.json` |
 
-
+---
 
 <a href='#multi_stencils-overall' aria-hidden='true' class='block-anchor'  id='multi_stencils-overall'><i aria-hidden='true' class='linkify icon'></i></a>
 
@@ -134,4 +140,11 @@ BigCommerce Optimized One-Page Checkout will currently translate displayed `Coun
 * Stencil's multi-language capabilities are currently limited to these specific strings that you specify within the theme. The Stencil framework does not currently translate content rendered from a store's database – for example, products' names.
 
 * Within these limitations, if you intend to do business internationally, we recommend that you specify appropriate alternate-language strings for key parts of your storefront, product catalog, and checkout. Doing so will make browsing, purchasing, and payment easier for users in your target market(s). For an overview of all localization options, please see [Localizing Stores](/stencil-docs/internationalization-and-localization/localizing-stores).
+
+---
+
+## Resources
+
+### Related Articles
+* [The Complete Guide to Checkout Customization on BigCommerce](https://medium.com/bigcommerce-developer-blog/the-complete-guide-to-checkout-customization-on-bigcommerce-6b566bc36fa9) (Developer Blog)
 

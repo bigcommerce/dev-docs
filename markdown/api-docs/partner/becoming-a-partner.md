@@ -26,7 +26,7 @@ Before you can submit an app to the [BigCommerce App Marketplace](https://www.bi
 
 Once approved, you will receive one or more emails listing your partner credentials and next steps. Your Partner ID will be required to submit your app for App Marketplace consideration. If you do not receive these credentials by email, please contact <a href="mailto:appstore@bigcommerce.com">appstore@bigcommerce.com</a>.
 
-
+---
 
 <a href='#becoming-a-partner_getting-sandbox-store' aria-hidden='true' class='block-anchor'  id='becoming-a-partner_getting-sandbox-store'><i aria-hidden='true' class='linkify icon'></i></a>
 
@@ -63,7 +63,7 @@ We encourage you to create your sandbox store and your Dev Tools account using t
 8. In the case description, enter your new sandbox store’s friendly URL (for example: http://your-store-name.mybigcommerce.com) and request conversion to a sandbox. We will flag this as a sandbox store to ensure your continued access to the store, as opposed to the normal 15-day trial. This can take around two days.
 9. When you log into your new store, use the same email that you used for step 3 above.
 
-
+---
 
 <a href='#becoming-a-partner_partner-program-troubleshooting' aria-hidden='true' class='block-anchor'  id='becoming-a-partner_partner-program-troubleshooting'><i aria-hidden='true' class='linkify icon'></i></a>
 
@@ -84,7 +84,7 @@ The changes will be effective immediately in your control panel app card, but th
 **Who should I contact if I have further questions?**
 <a href="mailto:appstore@bigcommerce.com">appstore@bigcommerce.com</a>
 
-
+---
 
 ## Resources
 

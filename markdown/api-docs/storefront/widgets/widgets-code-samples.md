@@ -16,6 +16,12 @@ Below are widgets that can be used as building blocks to expand on. Widgets are 
 
 ## Simple List
 
+<div class="HubBlock-header">
+    <div class="HubBlock-header-title flex items-center">
+        <div class="HubBlock-header-name">Widget Template</div>
+    </div><div class="HubBlock-header-subtitle">Simple List</div>
+</div>
+
 <!--
 title: "Widget Template"
 subtitle: "Simple List"
@@ -31,6 +37,12 @@ lineNumbers: true
 </ul>
 
 ```
+
+<div class="HubBlock-header">
+    <div class="HubBlock-header-title flex items-center">
+        <div class="HubBlock-header-name">Sample Widget Configuration</div>
+    </div><div class="HubBlock-header-subtitle">Simple List</div>
+</div>
 
 <!--
 title: "Sample Widget Configuration"
@@ -73,11 +85,17 @@ lineNumbers: true
 ](//s3.amazonaws.com/user-content.stoplight.io/6012/1551901776600 "#### Storefront View
 ")
 
-
+---
 
 <a href='#widget-code-sample_simple-html' aria-hidden='true' class='block-anchor'  id='widget-code-sample_simple-html'><i aria-hidden='true' class='linkify icon'></i></a>
 
 ## Simple HTML
+
+<div class="HubBlock-header">
+    <div class="HubBlock-header-title flex items-center">
+        <div class="HubBlock-header-name">Widget Template</div>
+    </div><div class="HubBlock-header-subtitle">Simple HTML</div>
+</div>
 
 <!--
 title: "Widget Template"
@@ -88,6 +106,12 @@ lineNumbers: true
 ```html
 {{{html}}}
 ```
+
+<div class="HubBlock-header">
+    <div class="HubBlock-header-title flex items-center">
+        <div class="HubBlock-header-name">Sample Widget Configuration</div>
+    </div><div class="HubBlock-header-subtitle">Simple HTML</div>
+</div>
 
 <!--
 title: "Sample Widget Configuration"
@@ -116,11 +140,17 @@ lineNumbers: true
 ](//s3.amazonaws.com/user-content.stoplight.io/6012/1551901919454 "#### Storefront
 ")
 
-
+---
 
 <a href='#widget-code-sample_simple-text-styling' aria-hidden='true' class='block-anchor'  id='widget-code-sample_simple-text-styling'><i aria-hidden='true' class='linkify icon'></i></a>
 
 ## Simple Text with Styling
+
+<div class="HubBlock-header">
+    <div class="HubBlock-header-title flex items-center">
+        <div class="HubBlock-header-name">Widget Template</div>
+    </div><div class="HubBlock-header-subtitle">Simple Text with Styling</div>
+</div>
 
 <!--
 title: "Widget Template"
@@ -131,6 +161,12 @@ lineNumbers: true
 ```html
 "<style>#bc-simple-text-{{_.id}} {color: {{color}};background: {{background_color}};font-size: {{font_size}};font-style: {{font_style}};font-weight: {{font_weight}};font-family: {{font_family}};text-align: {{text_align}};margin-top: {{margin_top}};margin-bottom: {{margin_bottom}};margin-left: {{margin_left}};margin-right: {{margin_right}};padding-top: {{padding_top}};padding-bottom: {{padding_bottom}};padding-left: {{padding_left}};padding-right: {{padding_right}};}</style><p id='bc-simple-text-{{_.id}}'>{{text}}</p>"
 ```
+
+<div class="HubBlock-header">
+    <div class="HubBlock-header-title flex items-center">
+        <div class="HubBlock-header-name">Sample Widget Configuration</div>
+    </div><div class="HubBlock-header-subtitle">Simple Text with Styling</div>
+</div>
 
 <!--
 title: "Sample Widget Configuration"
@@ -170,11 +206,17 @@ lineNumbers: true
 ](//s3.amazonaws.com/user-content.stoplight.io/6012/1551902366345 "#### Storefront
 ")
 
-
+---
 
 <a href='#widget-code-sample_you-tube-embed' aria-hidden='true' class='block-anchor'  id='widget-code-sample_you-tube-embed'><i aria-hidden='true' class='linkify icon'></i></a>
 
 ## Youtube Embed with Layout
+
+<div class="HubBlock-header">
+    <div class="HubBlock-header-title flex items-center">
+        <div class="HubBlock-header-name">Widget Template</div>
+    </div><div class="HubBlock-header-subtitle">Youtube Embed with Layout</div>
+</div>
 
 <!--
 title: "Widget Template"
@@ -185,6 +227,12 @@ lineNumbers: true
 ```html
 "<iframe    id='ytplayer-{{_.id}}'    type='text/html'    width='{{width}}'    height='{{height}}'    src='https://www.youtube.com/embed/{{video_id}}?autoplay={{autoplay}}&color={{color}}&controls={{controls}}&disablekb={{disablekb}}&fs={{fs}}&rel={{rel}}&showinfo={{showinfo}}'    frameborder='{{frameborder}}'>  </iframe>"
 ```
+
+<div class="HubBlock-header">
+    <div class="HubBlock-header-title flex items-center">
+        <div class="HubBlock-header-name">Sample Widget Configuration</div>
+    </div><div class="HubBlock-header-subtitle">Youtube Embed with Layout</div>
+</div>
 
 <!--
 title: "Sample Widget Configuration"
@@ -204,6 +252,12 @@ lineNumbers: true
 	"widget_template_uuid":"your-template-uuid"
 }
 ```
+
+<div class="HubBlock-header">
+    <div class="HubBlock-header-title flex items-center">
+        <div class="HubBlock-header-name">Sample Layout</div>
+    </div><div class="HubBlock-header-subtitle">Youtube Embed with Layout</div>
+</div>
 
 <!--
 title: "Sample Layout"
@@ -230,11 +284,17 @@ lineNumbers: true
 ](//s3.amazonaws.com/user-content.stoplight.io/6012/1551902559005 "#### Storefront
 ")
 
-
+---
 
 <a href='#widget-code-sample_image-slider' aria-hidden='true' class='block-anchor'  id='widget-code-sample_image-slider'><i aria-hidden='true' class='linkify icon'></i></a>
 
 ## Image Slider
+
+<div class="HubBlock-header">
+    <div class="HubBlock-header-title flex items-center">
+        <div class="HubBlock-header-name">Widget Template</div>
+    </div><div class="HubBlock-header-subtitle">Image Slider</div>
+</div>
 
 <!--
 title: "Widget Template"
@@ -245,6 +305,12 @@ lineNumbers: true
 ```
 "<ul class=\"slider\">\n{{#each slides}}\n<ul class=\"slide\"><img class=\"mySlides\" src=\"{{image}}\"/></ul>\n{{/each}}\n</ul>\n<script>\nvar slideIndex = 0;\ncarousel();\nfunction carousel() {\nvar i;\nvar x = document.getElementsByClassName(\"mySlides\");\nfor (i = 0; i < x.length; i++) {\nx[i].style.display = \"none\"; \n}\nslideIndex++;\nif (slideIndex > x.length) {slideIndex = 1} \nx[slideIndex-1].style.display = \"block\"; \nsetTimeout(carousel, 4000); // Change image every 4 seconds\n}\n</script>"
 ```
+
+<div class="HubBlock-header">
+    <div class="HubBlock-header-title flex items-center">
+        <div class="HubBlock-header-name">Widget Configuration</div>
+    </div><div class="HubBlock-header-subtitle">Image Slider</div>
+</div>
 
 <!--
 title: "Widget Configuration"
@@ -283,7 +349,7 @@ lineNumbers: true
 ](//s3.amazonaws.com/user-content.stoplight.io/6012/1551906683783 "#### Storefront
 ")
 
-
+---
 
 ## Resources
 

@@ -30,7 +30,7 @@ Options belonging to an option set.
 | values | object_array | Array of values for the connected option. |
 
 
-
+---
 
 <a href='#v2-option-set-options_list-option-set-option' aria-hidden='true' class='block-anchor'  id='v2-option-set-options_list-option-set-option'><i aria-hidden='true' class='linkify icon'></i></a>
 
@@ -134,7 +134,7 @@ Example JSON returned in the response:
 ]
 ```
 
-
+---
 
 <a href='#v2-option-set-options_get-option-set-option' aria-hidden='true' class='block-anchor'  id='v2-option-set-options_get-option-set-option'><i aria-hidden='true' class='linkify icon'></i></a>
 
@@ -163,7 +163,7 @@ Example JSON returned in the response:
 }
 ```
 
-
+---
 
 <a href='#v2-option-set-options_create-option-set-option' aria-hidden='true' class='block-anchor'  id='v2-option-set-options_create-option-set-option'><i aria-hidden='true' class='linkify icon'></i></a>
 
@@ -275,7 +275,7 @@ Example JSON returned in the response:
 }
 ```
 
-
+---
 
 <a href='#v2-option-set-options_delete-option-set-option' aria-hidden='true' class='block-anchor'  id='v2-option-set-options_delete-option-set-option'><i aria-hidden='true' class='linkify icon'></i></a>
 
@@ -285,7 +285,7 @@ Deletes an option belonging to an option set.
 
 >`DELETE /stores/{store_hash}/v2/option_sets/{option_set_id}/options/{id}`
 
-
+---
 
 <a href='#v2-option-set-options_delete-multiple-option-set-option' aria-hidden='true' class='block-anchor'  id='v2-option-set-options_delete-multiple-option-set-option'><i aria-hidden='true' class='linkify icon'></i></a>
 

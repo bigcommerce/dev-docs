@@ -14,6 +14,12 @@
 
 Once keys and values are defined in the [.json translation files](https://github.com/bigcommerce/cornerstone/tree/master/lang), you can invoke dynamic translation strings using the the [custom `{{lang}}` Handlebars helper](/stencil-docs/handlebars-syntax-and-helpers/handlebars-helpers-reference/string-helpers/custom-string-helpers#handlebars_lang). Your invocation would follow this generic format:
 
+<div class="HubBlock-header">
+    <div class="HubBlock-header-title flex items-center">
+        <div class="HubBlock-header-name">Translation invocation</div>
+    </div><div class="HubBlock-header-subtitle"></div>
+</div>
+
 <!--
 title: "Translation invocation"
 subtitle: ""
@@ -25,6 +31,12 @@ lineNumbers: true
 ```
 
 Here is how this works. In a non-internationalized theme, a storefront page might include a string like this:
+
+<div class="HubBlock-header">
+    <div class="HubBlock-header-title flex items-center">
+        <div class="HubBlock-header-name">Non Internationalized string</div>
+    </div><div class="HubBlock-header-subtitle"></div>
+</div>
 
 <!--
 title: "Non Internationalized string"
@@ -38,6 +50,12 @@ lineNumbers: true
 
 The corresponding internationalized version would substitute the text with the fully dynamic `{{ lang }}` Handlebars helper shown below:
 
+<div class="HubBlock-header">
+    <div class="HubBlock-header-title flex items-center">
+        <div class="HubBlock-header-name">Internationalized String using {{lang}} Handlebars Helper</div>
+    </div><div class="HubBlock-header-subtitle"></div>
+</div>
+
 <!--
 title: "Internationalized String using {{lang}} Handlebars Helper"
 subtitle: ""
@@ -48,7 +66,7 @@ lineNumbers: true
 <a href="{{ urls.account }}">{{ lang "header.welcome_back" name=customer.name }}</a>
 ```
 
-
+---
 
 <a href='#invoking_video' aria-hidden='true' class='block-anchor'  id='invoking_video'><i aria-hidden='true' class='linkify icon'></i></a>
 

@@ -23,7 +23,7 @@
 | `is_required` | `boolean` |
 
 
-
+---
 
 <a href='#v2-review_list-product-reviews' aria-hidden='true' class='block-anchor'  id='v2-review_list-product-reviews'><i aria-hidden='true' class='linkify icon'></i></a>
 

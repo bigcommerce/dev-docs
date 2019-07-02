@@ -1203,6 +1203,12 @@ You can define custom CDN endpoints to use with the `cdn` Handlebars helper. Thi
 
 You could use a local version of the image in development, and a version on a CDN (e.g. Imgix) in production. To do so, define custom CDN endpoints in your theme's <span class="fn">config.json</span> [file](https://github.com/bigcommerce/cornerstone/blob/master/config.json), as highlighted in the example below:
 
+<div class="HubBlock-header">
+    <div class="HubBlock-header-title flex items-center">
+        <div class="HubBlock-header-name">config.json</div>
+    </div><div class="HubBlock-header-subtitle">custom cdn endpointexample</div>
+</div>
+
 <!--
 title: "config.json"
 subtitle: "custom cdn endpointexample"

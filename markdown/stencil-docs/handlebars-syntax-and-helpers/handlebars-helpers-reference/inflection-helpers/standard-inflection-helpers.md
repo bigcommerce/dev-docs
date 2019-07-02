@@ -24,7 +24,7 @@ Handles singular/plural forms.
 * `include` {String}
 * `returns` {String}
 
-
+---
 
 <a href='#handlebars_ordinalize' aria-hidden='true' class='block-anchor'  id='handlebars_ordinalize'><i aria-hidden='true' class='linkify icon'></i></a>
 

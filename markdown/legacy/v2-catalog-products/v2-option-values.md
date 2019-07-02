@@ -96,7 +96,7 @@ Example JSON returned in the response:
 }
 ```
 
-
+---
 
 <a href='#v2-option-values_create-option-values' aria-hidden='true' class='block-anchor'  id='v2-option-values_create-option-values'><i aria-hidden='true' class='linkify icon'></i></a>
 
@@ -154,7 +154,7 @@ Example JSON returned in the response:
 }
 ```
 
-
+---
 
 <a href='#v2-option-values_update-option-values' aria-hidden='true' class='block-anchor'  id='v2-option-values_update-option-values'><i aria-hidden='true' class='linkify icon'></i></a>
 
@@ -209,7 +209,7 @@ Example JSON returned in the response:
 }
 ```
 
-
+---
 
 <a href='#v2-option-values_delete-option-values' aria-hidden='true' class='block-anchor'  id='v2-option-values_delete-option-values'><i aria-hidden='true' class='linkify icon'></i></a>
 
@@ -219,7 +219,7 @@ Deletes an option value.
 
 >`DELETE /stores/{store_hash}/v2/options/{option_id}/values/{id}`
 
-
+---
 
 <a href='#v2-option-values_delete-all-option-values' aria-hidden='true' class='block-anchor'  id='v2-option-values_delete-all-option-values'><i aria-hidden='true' class='linkify icon'></i></a>
 

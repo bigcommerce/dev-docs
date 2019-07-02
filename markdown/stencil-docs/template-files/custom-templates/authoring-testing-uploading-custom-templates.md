@@ -36,13 +36,19 @@ Next,  create the template HTML files, and then place them in the appropriate `<
 </div>
 </div>
 
-
+---
 
 <a href='#authoring-testing-uploading_local-mapping' aria-hidden='true' class='block-anchor'  id='authoring-testing-uploading_local-mapping'><i aria-hidden='true' class='linkify icon'></i></a>
 
 ## Local Mapping and Testing
 
 To test your custom templates locally, you must edit your `<theme-name>/.stencil` file to create mappings between each local template and a corresponding URL. Within the `.stencil` file, look for the following section:
+
+<div class="HubBlock-header">
+    <div class="HubBlock-header-title flex items-center">
+        <div class="HubBlock-header-name"></div>
+    </div><div class="HubBlock-header-subtitle"></div>
+</div>
 
 <!--
 title: ""
@@ -61,6 +67,12 @@ lineNumbers: true
 
 In this section, you would populate keys to create mappings. As a simple example, assume that you have a product custom template named alternate-`product.html`, and you want to see that template locally at the URL: `http://localhost:3000/test-url/`. In this case, you must populate the product key as follows:
 
+<div class="HubBlock-header">
+    <div class="HubBlock-header-title flex items-center">
+        <div class="HubBlock-header-name"></div>
+    </div><div class="HubBlock-header-subtitle"></div>
+</div>
+
 <!--
 title: ""
 subtitle: ""
@@ -76,6 +88,12 @@ lineNumbers: true
 ### Expanded Mapping Example
 
 Here is a more-complete example in which the `brand`, `page`, and `category` keys are also populated:
+
+<div class="HubBlock-header">
+    <div class="HubBlock-header-title flex items-center">
+        <div class="HubBlock-header-name"></div>
+    </div><div class="HubBlock-header-subtitle"></div>
+</div>
 
 <!--
 title: ""
@@ -126,6 +144,12 @@ In the above `.stencil` configuration example’s final entry, the server will l
 ### Mapping Multiple URLs
 Beyond the single URL mapped to each template in the above examples, you have the option of mapping an array of URLs to each template. This is shown in the following example for the product template:
 
+<div class="HubBlock-header">
+    <div class="HubBlock-header-title flex items-center">
+        <div class="HubBlock-header-name"></div>
+    </div><div class="HubBlock-header-subtitle"></div>
+</div>
+
 <!--
 title: ""
 subtitle: ""
@@ -145,7 +169,7 @@ lineNumbers: true
 }
 ```
 
-
+---
 
 <a href='#authoring-testing-uploading_theme-upload' aria-hidden='true' class='block-anchor'  id='authoring-testing-uploading_theme-upload'><i aria-hidden='true' class='linkify icon'></i></a>
 
@@ -153,7 +177,7 @@ lineNumbers: true
 
 Finally, you must bundle and upload the theme to BigCommerce. See the Bundling and Uploading a Theme article for instructions on how to achieve this.
 
-
+---
 
 <a href='#authoring-testing-uploading_troubleshooting' aria-hidden='true' class='block-anchor'  id='authoring-testing-uploading_troubleshooting'><i aria-hidden='true' class='linkify icon'></i></a>
 
@@ -169,6 +193,12 @@ Also, bear in mind that currently, all brand URLs are Unicode-encoded. So, for e
 ### Outdated Stencil CLI
 
 If you have an old version of Stencil CLI installed, it might lack support for custom templates. You can easily update your CLI by executing the following command:
+
+<div class="HubBlock-header">
+    <div class="HubBlock-header-title flex items-center">
+        <div class="HubBlock-header-name"></div>
+    </div><div class="HubBlock-header-subtitle"></div>
+</div>
 
 <!--
 title: ""

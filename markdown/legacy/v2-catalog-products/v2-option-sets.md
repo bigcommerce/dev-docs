@@ -28,7 +28,7 @@ A reusable set of option facets that can be applied to products.
 | options | object/resource | Optional field; read-only. Object containing option-set options: a `url` and a `resource`. |
 | product_id (optional) | integer | Optional field; read-only. If `null`, this option set can be reused with any product. If populated with a numeric ID, this option set can be used exclusively with the corresponding product. |
 
-
+---
 
 <a href='#v2-option-set_list-option-set' aria-hidden='true' class='block-anchor'  id='v2-option-set_list-option-set'><i aria-hidden='true' class='linkify icon'></i></a>
 
@@ -86,7 +86,7 @@ Example JSON returned in the response:
 ```
 
 
-
+---
 
 <a href='#v2-option-set_get-option-set' aria-hidden='true' class='block-anchor'  id='v2-option-set_get-option-set'><i aria-hidden='true' class='linkify icon'></i></a>
 
@@ -114,7 +114,7 @@ Example JSON returned in the response:
 }
 ```
 
-
+---
 
 <a href='#v2-option-set_get-count-option-set' aria-hidden='true' class='block-anchor'  id='v2-option-set_get-count-option-set'><i aria-hidden='true' class='linkify icon'></i></a>
 
@@ -134,7 +134,7 @@ Example JSON returned in the response:
 }
 ```
 
-
+---
 
 <a href='#v2-option-set_create-option-set' aria-hidden='true' class='block-anchor'  id='v2-option-set_create-option-set'><i aria-hidden='true' class='linkify icon'></i></a>
 
@@ -185,7 +185,7 @@ Example JSON returned in the response:
 }
 ```
 
-
+---
 
 <a href='#v2-option-set_update-option-set' aria-hidden='true' class='block-anchor'  id='v2-option-set_update-option-set'><i aria-hidden='true' class='linkify icon'></i></a>
 
@@ -236,7 +236,7 @@ Example JSON returned in the response:
 }
 ```
 
-
+---
 
 <a href='#v2-option-set_delete-option-set' aria-hidden='true' class='block-anchor'  id='v2-option-set_delete-option-set'><i aria-hidden='true' class='linkify icon'></i></a>
 
@@ -246,7 +246,7 @@ Deletes an option set.
 
 >`DELETE /stores/{store_hash}/v2/option_sets/{id}`
 
-
+---
 
 <a href='#v2-option-set_delete-all-option-sets' aria-hidden='true' class='block-anchor'  id='v2-option-set_delete-all-option-sets'><i aria-hidden='true' class='linkify icon'></i></a>
 

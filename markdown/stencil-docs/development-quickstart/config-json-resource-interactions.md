@@ -1,5 +1,4 @@
 <h1><code>config.json</code> Interactions</h1>
-
 <div class="otp" id="no-index">
 	<h3> On This Page </h3>
 	<ul>
@@ -13,14 +12,20 @@
 <a href='#config_new' aria-hidden='true' class='block-anchor'  id='config_new'><i aria-hidden='true' class='linkify icon'></i></a>
 
 To customize your theme’s appearance at a global level, the values that you define in the 
-`<theme-name>/config.json` file interact with local resources. Your config.json definitions set global defaults for templates, front-matter attributes, and Handlebars resources throughout your theme. You can also define custom variables in config.json, named according to your needs.
+<span class="fp">{theme-name}/config.json</span> file interact with local resources. Your <span class="fp">config.json</span> definitions set global defaults for templates, front-matter attributes, and Handlebars resources throughout your theme. You can also define custom variables in <span class="fp">config.json</span>, named according to your needs.
 
 ## New Products Example
 
-To see how interactions with `config.json` values work, first note the default values in `config.json` for the `homepage_new_products_count` and `product_list_display_mode` keys:
+To see how interactions with <span class="fp">config.json</span> values work, first note the default values in <span class="fp">config.json</span> for the `homepage_new_products_count` and `product_list_display_mode` keys:
+
+<div class="HubBlock-header">
+    <div class="HubBlock-header-title flex items-center">
+        <div class="HubBlock-header-name">Setttings</div>
+    </div><div class="HubBlock-header-subtitle"></div>
+</div>
 
 <!--
-title: ""
+title: "Setttings"
 subtitle: ""
 lineNumbers: true
 -->
@@ -34,12 +39,18 @@ lineNumbers: true
 }
 ```
 
-Next, open your `<theme-name>templates/pages/home.html` file. Highlighted in bold below is a statement that uses the theme-wide settings above to customize an API request to the server.
+Next, open your <span class="fp">{theme-name}templates/pages/home.html</span> file. Highlighted in bold below is a statement that uses the theme-wide settings above to customize an API request to the server.
 
-(Note the reference to the `homepage_new_products_count` key in the file’s front matter, between the two "---" delimiters. If your current theme’s `home.html` front matter omits this `products:new:limit` definition, paste it in for this demonstration.)
+(Note the reference to the `homepage_new_products_count` key in the file’s front matter, between the two "---" delimiters. If your current theme’s <span class="fp">home.html</span> front matter omits this `products:new:limit` definition, paste it in for this demonstration.)
+
+<div class="HubBlock-header">
+    <div class="HubBlock-header-title flex items-center">
+        <div class="HubBlock-header-name">Home.html</div>
+    </div><div class="HubBlock-header-subtitle"></div>
+</div>
 
 <!--
-title: ""
+title: "Home.html"
 subtitle: ""
 lineNumbers: true
 -->
@@ -67,14 +78,23 @@ blog:
 
 If you load your storefront’s home page (by default, [http://localhost:3000](http://localhost:3000), you should see a "New Products" section that displays 12 products in a grid.
 
+---
+
 <a href='#config_changing' aria-hidden='true' class='block-anchor'  id='config_changing'><i aria-hidden='true' class='linkify icon'></i></a>
 
 ## Changing Page Layout Using Local Front Matter
 
-Look again at your `<theme-name>templates/pages/home.html` file’s front matter. As in the New Products example above, note how the presence and number of featured products correlates to your theme’s `config.json` setting:
+In the <span class="fp">{theme-name}templates/pages/home.html</span> front matter, products > featured is listed. This controls
+how many products appear on the home page. This is set by the <span class="fp">config.json</span> `theme_settings.homepage_featured_products_count}`. This example shows how you can set theme wide configurations in the front matter using the <span class="fn">config.json</span>.
+
+<div class="HubBlock-header">
+    <div class="HubBlock-header-title flex items-center">
+        <div class="HubBlock-header-name">Home.html</div>
+    </div><div class="HubBlock-header-subtitle"></div>
+</div>
 
 <!--
-title: ""
+title: "Home.html"
 subtitle: ""
 lineNumbers: true
 -->
@@ -90,6 +110,12 @@ products:
 ```
 
 Next, try changing the `limit: {{theme_settings.homepage_featured_products_count}}` statement in the `home.html` file to a hard-coded limit: 2, as indicated below in bold:
+
+<div class="HubBlock-header">
+    <div class="HubBlock-header-title flex items-center">
+        <div class="HubBlock-header-name"></div>
+    </div><div class="HubBlock-header-subtitle"></div>
+</div>
 
 <!--
 title: ""
@@ -121,13 +147,21 @@ products:
 {{> layout/base}}
 ```
 
-If you now reload your storefront’s home page in your browser, you should see the number of displayed "Featured Products" change from its default number (as specified in `config.json`) to two.
+If you now reload your storefront’s home page in your browser, you should see the number of displayed "Featured Products" change from its default number (as specified in <span class="fp">config.json</span>) to two.
+
+---
 
 <a href='#config_retrieving' aria-hidden='true' class='block-anchor'  id='config_retrieving'><i aria-hidden='true' class='linkify icon'></i></a>
 
 ## Retrieving Specific config.json Values through Sass
 
-In `config.json`, global variables bring dynamic values into the framework. Sass imports these global variables’ values to gracefully handle data like theme-wide colors’ hexadecimal values, and to make the data available to Theme Editor. Here is one short snippet from `config.json`:
+In <span class="fn">config.json</span>, global variables bring dynamic values into the framework. Sass imports these global variables’ values to gracefully handle data like theme-wide colors’ hexadecimal values, and to make the data available to Theme Editor. Here is one short snippet from <span class="fn">config.json</span>:
+
+<div class="HubBlock-header">
+    <div class="HubBlock-header-title flex items-center">
+        <div class="HubBlock-header-name"></div>
+    </div><div class="HubBlock-header-subtitle"></div>
+</div>
 
 <!--
 title: ""
@@ -145,7 +179,13 @@ lineNumbers: true
 }
 ```
 
-Here are the corresponding references in the default Stencil theme’s `<theme-name>/assets/scss/settings/global/color/_color.scss` file:
+Here are the corresponding references in the default Stencil theme’s<span class="fn">{theme-name}/assets/scss/settings/global/color/_color.scss</span> file:
+
+<div class="HubBlock-header">
+    <div class="HubBlock-header-title flex items-center">
+        <div class="HubBlock-header-name"></div>
+    </div><div class="HubBlock-header-subtitle"></div>
+</div>
 
 <!--
 title: ""
@@ -161,18 +201,26 @@ $color-highlightDark:   stencilColor("color-highlightDark");
 // [...]
 ```
 
-In `config.json`, try redefining one or more color variables to hex values of your choice. Then re-render your theme’s home page to see the effects.
+In <span class="fn">config.json</span>, try redefining one or more color variables to hex values of your choice. Then re-render your theme’s home page to see the effects.
+
+---
 
 <a href='#config_adding' aria-hidden='true' class='block-anchor'  id='config_adding'><i aria-hidden='true' class='linkify icon'></i></a>
 
 ## Adding/Removing Components
 
-The storefront properties that Stencil abstracts as Handlebars resources are completely portable between HTML files. For an example of how this works, first open any storefront page in a browser. In the page’s footer, note the appearance of product Categories.
+The storefront properties that Stencil abstracts as Handlebars resources are completely portable between HTML files. For an example of how this works, first open any storefront page in a browser. In the page’s footer, note the appearance of Categories.
 
-Next, open your `<theme-name>/templates/components/common/footer.html` file in a text editor. As indicated below, cut (or copy and comment out) the code section shown below (characterized by the strikethrough), and keep it on your Clipboard:
+Next, open your <span class="fn">{theme-name}/templates/components/common/footer.html</span> file in a text editor. As indicated below, cut (or copy and comment out) the code section shown below. 
+
+<div class="HubBlock-header">
+    <div class="HubBlock-header-title flex items-center">
+        <div class="HubBlock-header-name">footer.html</div>
+    </div><div class="HubBlock-header-subtitle"></div>
+</div>
 
 <!--
-title: ""
+title: "footer.html"
 subtitle: ""
 lineNumbers: true
 -->
@@ -196,10 +244,16 @@ lineNumbers: true
 
 If you now refresh the storefront page in your browser, the Categories list should disappear from the footer.
 
-Next, create a new `<theme-name>/templates/components/footer/ `subdirectory. Paste the code block from the previous cut/copy into a new file named `<theme-name>/templates/components/footer/categories.html`, and save it:
+Next, create a new <span class="fn">{theme-name}/templates/components/footer/ subdirectory</span>. Paste the code block from the previous cut/copy into a new file named <span class="fn">{theme-name}/templates/components/footer/categories.html</span>, and save it:
+
+<div class="HubBlock-header">
+    <div class="HubBlock-header-title flex items-center">
+        <div class="HubBlock-header-name">categories.html</div>
+    </div><div class="HubBlock-header-subtitle"></div>
+</div>
 
 <!--
-title: ""
+title: "categories.html"
 subtitle: ""
 lineNumbers: true
 -->
@@ -217,10 +271,16 @@ lineNumbers: true
 </article>
 ```
 
-Next, back in `/templates/components/common/footer.html`, add a reference to your new path/file, as indicated below in comments:
+Next, back in <span class="fp">/templates/components/common/footer.html</span>, add a reference to your new path/file, as indicated below in comments:
+
+<div class="HubBlock-header">
+    <div class="HubBlock-header-title flex items-center">
+        <div class="HubBlock-header-name">footer.html</div>
+    </div><div class="HubBlock-header-subtitle"></div>
+</div>
 
 <!--
-title: ""
+title: "footer.html"
 subtitle: ""
 lineNumbers: true
 -->

@@ -18,7 +18,7 @@
 ## Store Design Overview
 [Store Design](https://support.bigcommerce.com/s/article/Store-Design) is a Graphical User Interface (GUI) that allows BigCommerce merchants to rapidly modify and customize a storefront's look and feel without manually entering any code. A merchant using the Store Design can customize a storefront theme by modifying characteristics from a variety of menu options such as Styles, Colors, Typography, Buttons, and more. Furthermore, Store Design is a useful rapid-customization tool for developers. 
 
-As a theme developer, alongside the ability to use store design, you also have the capability to configure your own settings for Store Design (if you so choose). Your configuration will give merchants who download your theme the ability to use Store Design with your theme in the ways you provide access to. Like previously mentioned, Store Deisgn by default allows merchants to customize everything from Styles, Colors, Typography, Buttons, and more. As a theme developer, you can choose and configure what features can be modified via the Store Design for the theme that you develop.
+As a theme developer, alongside the ability to use store design, you also have the capability to configure your own settings for Store Design (if you so choose). Your configuration will give merchants who download your theme the ability to use Store Design with your theme in the ways you provide access to. Like previously mentioned, Store Design by default allows merchants to customize everything from Styles, Colors, Typography, Buttons, and more. As a theme developer, you can choose and configure what features can be modified via the Store Design for the theme that you develop.
 
 The remainder of this section guides you, as a developer, through configuring your own theme options.
 
@@ -35,7 +35,7 @@ The remainder of this section guides you, as a developer, through configuring yo
 </div>
 </div>
 
-
+---
 
 ## Resources
 

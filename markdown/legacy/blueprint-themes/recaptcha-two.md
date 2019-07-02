@@ -17,7 +17,7 @@ To deter spam submission through storefront forms, BigCommerce now supports Goog
 We recommend that all storefront themes take advantage of this upgraded bot detection. However, BigCommerce's legacy Blueprint themes were last published in our Theme Marketplace before we implemented reCAPTCHA v2. Therefore, please use the following instructions to update your Blueprint-based theme with the best-available deterrent against automated spam.
 
 
-
+---
 
 <a href='#blueprint-how-to-upgrade-recaptcha' aria-hidden='true' class='block-anchor'  id='blueprint-how-to-upgrade-recaptcha'><i aria-hidden='true' class='linkify icon'></i></a>
 
@@ -46,6 +46,12 @@ To incorporate reCAPTCHA v2, you will need to update script references in these 
 ### Script Tag to Remove
 Search each of the three template files for a ``<script>`` tag like the following. If you find it, delete the whole tag. (This script invokes a legacy reCAPTCHA v1 challenge:)
 
+<div class="HubBlock-header">
+    <div class="HubBlock-header-title flex items-center">
+        <div class="HubBlock-header-name">Script Tag to Remove</div>
+    </div><div class="HubBlock-header-subtitle"></div>
+</div>
+
 <!--
 title: "Script Tag to Remove"
 subtitle: ""
@@ -66,6 +72,12 @@ Alternately, you might see the same `RecaptchaOptions` variable inside a differe
 
 
 
+<div class="HubBlock-header">
+    <div class="HubBlock-header-title flex items-center">
+        <div class="HubBlock-header-name"></div>
+    </div><div class="HubBlock-header-subtitle"></div>
+</div>
+
 <!--
 title: ""
 subtitle: ""
@@ -85,6 +97,12 @@ Next, in each of the three template files, replace the "before" code block just 
 
 
 #### Replace this (before):
+
+<div class="HubBlock-header">
+    <div class="HubBlock-header-title flex items-center">
+        <div class="HubBlock-header-name"></div>
+    </div><div class="HubBlock-header-subtitle"></div>
+</div>
 
 <!--
 title: ""
@@ -111,6 +129,12 @@ value="manual_challenge">
 #### ...with this (after):
 
 
+<div class="HubBlock-header">
+    <div class="HubBlock-header-title flex items-center">
+        <div class="HubBlock-header-name"></div>
+    </div><div class="HubBlock-header-subtitle"></div>
+</div>
+
 <!--
 title: ""
 subtitle: ""
@@ -122,7 +146,7 @@ lineNumbers: true
 
 ```
 
-
+---
 
 <a href='#blueprint-supported-browsers' aria-hidden='true' class='block-anchor'  id='blueprint-supported-browsers'><i aria-hidden='true' class='linkify icon'></i></a>
 

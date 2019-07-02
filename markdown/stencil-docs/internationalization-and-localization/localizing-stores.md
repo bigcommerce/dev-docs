@@ -37,7 +37,7 @@ _Adjust other localization details via the BigCommerce Control Panel._
 </div>
 </div>
 
-
+---
 
 <a href='#localizing_translating-theme-files' aria-hidden='true' class='block-anchor'  id='localizing_translating-theme-files'><i aria-hidden='true' class='linkify icon'></i></a>
 
@@ -45,7 +45,7 @@ _Adjust other localization details via the BigCommerce Control Panel._
 
 The bulk of localizing a store is translating content on your theme's page templates. You will need to abstract these templates' literal text strings into `{{lang}}` variables, then provide per-language JSON files that define these variables in corresponding key/value pairs.
 
-
+---
 
 <a href='#localizing_localizing-checkout' aria-hidden='true' class='block-anchor'  id='localizing_localizing-checkout'><i aria-hidden='true' class='linkify icon'></i></a>
 
@@ -70,7 +70,7 @@ Localizing your theme's checkout and order confirmation pages requires customiza
 </div>
 </div>
 
-
+---
 
 <a href='#localizing_localizing-control-panel' aria-hidden='true' class='block-anchor'  id='localizing_localizing-control-panel'><i aria-hidden='true' class='linkify icon'></i></a>
 
@@ -136,7 +136,7 @@ To disable native emails, go to [Storefront › Email Templates](http://login.bi
 
 The BigCommerce platform does not currently support translation of gift certificates into languages other than English. To fully localize your store, you can choose to disable gift certificates via the BigCommerce control panel.
 
-
+---
 
 ## Resources
 

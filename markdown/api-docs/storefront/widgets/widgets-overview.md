@@ -24,7 +24,7 @@ Some benefits are:
 
 We are going to review all the components that make a widget. Then, we’ll use what we’ve learned to create a widget .
 
-
+---
 
 <a href='#widgets_regions' aria-hidden='true' class='block-anchor'  id='widgets_regions'><i aria-hidden='true' class='linkify icon'></i></a>
 
@@ -56,7 +56,7 @@ We are going to review all the components that make a widget. Then, we’ll use 
 
 Most themes in the BigCommerce marketplace come with predefined regions. It is best to utilize those first. By editing the theme and adding theme regions, updates will need to be manually managed. 
 
-
+---
 
 <a href='#widgets_widget-templates' aria-hidden='true' class='block-anchor'  id='widgets_widget-templates'><i aria-hidden='true' class='linkify icon'></i></a>
 
@@ -68,6 +68,12 @@ Most themes in the BigCommerce marketplace come with predefined regions. It is b
 **Simple List**
 
 The Simple List template creates a list where each item in the list can have a different color. This example uses the [each block helper](https://handlebarsjs.com/builtin_helpers.html) in handlebars to loop through each item in the list and display it. The text and color are determined by handlebars placeholders that are set when creating the [Widget]((/api-reference/storefront/widgets-api/widget/createwidget).
+
+<div class="HubBlock-header">
+    <div class="HubBlock-header-title flex items-center">
+        <div class="HubBlock-header-name">Simple List</div>
+    </div><div class="HubBlock-header-subtitle">The list takes advantage of loops to display each list item on the page. </div>
+</div>
 
 <!--
 title: "Simple List"
@@ -82,6 +88,12 @@ lineNumbers: true
 }
 ```
 
+<div class="HubBlock-header">
+    <div class="HubBlock-header-title flex items-center">
+        <div class="HubBlock-header-name">Image Slider</div>
+    </div><div class="HubBlock-header-subtitle">The slider takes advantage of loops to display each slide on the page.</div>
+</div>
+
 <!--
 title: "Image Slider"
 subtitle: "The slider takes advantage of loops to display each slide on the page."
@@ -95,7 +107,7 @@ lineNumbers: true
 }
 ```
 
-
+---
 
 <a href='#widgets_widgets' aria-hidden='true' class='block-anchor'  id='widgets_widgets'><i aria-hidden='true' class='linkify icon'></i></a>
 
@@ -120,6 +132,12 @@ A Widget Configuration is the JSON payload that defines the content to be render
 
 In the example below, we define the list_items array and supply values for the color and text of each list item. Since the template is created separately from the configuration, the same template UUID can be used multiple times for configuration.
 
+<div class="HubBlock-header">
+    <div class="HubBlock-header-title flex items-center">
+        <div class="HubBlock-header-name">Widget Configuration Slides</div>
+    </div><div class="HubBlock-header-subtitle"></div>
+</div>
+
 <!--
 title: "Widget Configuration Slides"
 subtitle: ""
@@ -134,6 +152,12 @@ lineNumbers: true
   ]
 }
 ```
+
+<div class="HubBlock-header">
+    <div class="HubBlock-header-title flex items-center">
+        <div class="HubBlock-header-name">Widget Configuration List Items</div>
+    </div><div class="HubBlock-header-subtitle"></div>
+</div>
 
 <!--
 title: "Widget Configuration List Items"
@@ -169,6 +193,12 @@ lineNumbers: true
 </div>
 </div>
 
+<div class="HubBlock-header">
+    <div class="HubBlock-header-title flex items-center">
+        <div class="HubBlock-header-name">List Items Example: Incorrect</div>
+    </div><div class="HubBlock-header-subtitle"></div>
+</div>
+
 <!--
 title: "List Items Example: Incorrect"
 subtitle: ""
@@ -196,6 +226,12 @@ lineNumbers: true
 
 The example above uses `list_items_two`, on line four, in the configuration which is not the same as `list_items`. If `list_items` has already been established during the initial configuration it must be set as `list_items` when being used again. 
 
+<div class="HubBlock-header">
+    <div class="HubBlock-header-title flex items-center">
+        <div class="HubBlock-header-name">List Items Example: Correct</div>
+    </div><div class="HubBlock-header-subtitle"></div>
+</div>
+
 <!--
 title: "List Items Example: Correct"
 subtitle: ""
@@ -221,7 +257,7 @@ lineNumbers: true
 }
 ```
 
-
+---
 
 <a href='#widgets_placements' aria-hidden='true' class='block-anchor'  id='widgets_placements'><i aria-hidden='true' class='linkify icon'></i></a>
 
@@ -251,6 +287,12 @@ This is the ID for a specific page, brand, category or page. For example, if a W
 
 Below, the region and sort order have a value, so the widget will appear on the home page. 
 
+<div class="HubBlock-header">
+    <div class="HubBlock-header-title flex items-center">
+        <div class="HubBlock-header-name">Widget with Region</div>
+    </div><div class="HubBlock-header-subtitle"></div>
+</div>
+
 <!--
 title: "Widget with Region"
 subtitle: ""
@@ -271,6 +313,12 @@ lineNumbers: true
 ### Create a Widget Placement Without a Region
 Leaving the region and sort order off the request will return just the `placement_id` in the response, allowing for the widget to be rendered using Layouts. 
 
+<div class="HubBlock-header">
+    <div class="HubBlock-header-title flex items-center">
+        <div class="HubBlock-header-name">Widget Without a Region</div>
+    </div><div class="HubBlock-header-subtitle"></div>
+</div>
+
 <!--
 title: "Widget Without a Region"
 subtitle: ""
@@ -286,7 +334,7 @@ lineNumbers: true
 }
 ```
 
-
+---
 
 <a href='#widgets_layouts' aria-hidden='true' class='block-anchor'  id='widgets_layouts'><i aria-hidden='true' class='linkify icon'></i></a>
 
@@ -308,6 +356,12 @@ lineNumbers: true
 
 `bc-placements` is a special field that takes in a placement id and allows the widget to be positioned anywhere in the layout. The `id` is the Placement ID.
 
+<div class="HubBlock-header">
+    <div class="HubBlock-header-title flex items-center">
+        <div class="HubBlock-header-name">Layouts bc-placements Example</div>
+    </div><div class="HubBlock-header-subtitle"></div>
+</div>
+
 <!--
 title: "Layouts bc-placements Example"
 subtitle: ""
@@ -328,7 +382,7 @@ lineNumbers: true
 </div>
 ```
 
-
+---
 
 <a href='#widgets_placement-and-layouts' aria-hidden='true' class='block-anchor'  id='widgets_placement-and-layouts'><i aria-hidden='true' class='linkify icon'></i></a>
 
@@ -383,7 +437,7 @@ A Region can contain multiple Layouts with Widgets and Placements or Widgets wit
 ](//s3.amazonaws.com/user-content.stoplight.io/6012/1551895293134 "#### Widgets Console
 ")
 
-
+---
 
 <a href='#widgets_definitions' aria-hidden='true' class='block-anchor'  id='widgets_definitions'><i aria-hidden='true' class='linkify icon'></i></a>
 
@@ -398,7 +452,7 @@ A Region can contain multiple Layouts with Widgets and Placements or Widgets wit
 | Widget Configuration | This is a JSON payload that contains data used when rendering the widget. Each widget has a configuration, and there is a 64kb limit on the size of the JSON. The widget configuration must be valid JSON, but we don’t enforce any additional requirement on the structure of the configuration. |
 | Layout | A way to style multiple widgets on a page or position a Widget. A Layout will accept any HTML and CSS. *There is a limit of 1000 total layouts per store.* |
 
-
+---
 
 <a href='#widget_resources' aria-hidden='true' class='block-anchor'  id='widget_resources'><i aria-hidden='true' class='linkify icon'></i></a>
 
@@ -407,7 +461,7 @@ A Region can contain multiple Layouts with Widgets and Placements or Widgets wit
 ### Related Endpoints
 * [Widgets API](/api-reference/storefront/widgets-api)
 
-
+---
 
 <a href='#widget_next-steps' aria-hidden='true' class='block-anchor'  id='widget_next-steps'><i aria-hidden='true' class='linkify icon'></i></a>
 

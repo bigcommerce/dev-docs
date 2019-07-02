@@ -17,7 +17,7 @@
 
 BigCommerce frequently enhances its core product and is actively developing v3 API endpoints. By using the newest API version, you will ensure that your app has access to the latest resources. You will also be better positioned to provide a user experience consistent with what merchants will see in their BigCommerce store’s control panel. To stay up to date, bookmark our [changelog](/changelog). 
 
-
+---
 
 <a href='#best-practices_use-webhooks' aria-hidden='true' class='block-anchor'  id='best-practices_use-webhooks'><i aria-hidden='true' class='linkify icon'></i></a>
 
@@ -27,7 +27,7 @@ To keep data in your application up-to-date, [webhooks](/api-docs/getting-starte
 
 BigCommerce will send a partial payload when a subscribed event is triggered, with minimal identifying details (such as the order ID when an order is created). Your application could use the order ID returned in the payload to make a subsequent API request for the full order details.
 
-
+---
 
 <a href='#best-practices_thread-api-requests' aria-hidden='true' class='block-anchor'  id='best-practices_thread-api-requests'><i aria-hidden='true' class='linkify icon'></i></a>
 
@@ -37,7 +37,7 @@ In order to quickly update information in the API, you can use threaded requests
 
 The [BigCommerce Ruby API](https://github.com/bigcommerce/bigcommerce-api-ruby) client is thread-safe: It satisfies the need for multiple threads to access the same shared data and the need for a shared piece of data to be accessed by only one thread at any given time. These attributes can reduce the total time that your app will require to complete a series of requests.
 
-
+---
 
 <a href='#best-practices_marketplace-apps' aria-hidden='true' class='block-anchor'  id='best-practices_marketplace-apps'><i aria-hidden='true' class='linkify icon'></i></a>
 
@@ -52,7 +52,7 @@ In the payload returned when a user launches an app, users are distinguished by 
 If you wish to enable user removal, you can do by filling in your app’s **Technical** > **Remove User Callback URL** field in Dev Tools. (Enabling user removal is optional).
 For more advanced implementations, you can enable the store owner to grant specific permissions to different non-admin users. For example, person1@email.com could be restricted to editing product inventory but not seeing orders. If you decide to include this feature in your app, it’s a great feature to advertise.
 
-
+---
 
 <a href='#best-practices_rate-limits' aria-hidden='true' class='block-anchor'  id='best-practices_rate-limits'><i aria-hidden='true' class='linkify icon'></i></a>
 
@@ -119,7 +119,7 @@ However, your application should monitor the rate limiting headers to avoid an H
 * Slowing your rate of API requests when X-Rate-Limit-Requests-Left is nearing zero.
 * Determining an acceptable average rate of requests, by dividing X-Rate-Limit-Requests-Quota by X-Rate-Limit-Time-Window-Seconds, and then self-throttling to that rate.
 
-
+---
 
 <a href='#best-practices_platform-limits' aria-hidden='true' class='block-anchor'  id='best-practices_platform-limits'><i aria-hidden='true' class='linkify icon'></i></a>
 
@@ -127,7 +127,7 @@ However, your application should monitor the rate limiting headers to avoid an H
 
 BigCommerce does have limits on the number of products, categories, brands, etc. that can be created in a store. See [Platform Limits](https://forum.bigcommerce.com/s/article/Platform-Limits#product-catalog-limits) for more details.
 
-
+---
 
 ## Resources
 ### Related Artices

@@ -20,7 +20,7 @@ In addition to the features listed below, Stencil allows merchants to customize 
 
 Stencil powers BigCommerce’s [Cornerstone](https://github.com/bigcommerce/cornerstone) theme, which serves as your framework for creating custom sites. Cornerstone is available on Github and will be referenced throughout the documentation in order to demonstrate Stencil’s capabilities. See the [Cornerstone theme demo](http://cornerstone-light-demo.mybigcommerce.com/).
 
-
+---
 
 <a href='#about_features-and-stack' aria-hidden='true' class='block-anchor'  id='about_features-and-stack'><i aria-hidden='true' class='linkify icon'></i></a>
 
@@ -79,7 +79,7 @@ Cornerstone comes with 3 variations: Cornerstone Light, Cornerstone Warm, and Co
 
 BigCommerce stores powered by Stencil allow shoppers to have a first class experience _across any device_.
 
-
+---
 
 <a href='#about_blueprint' aria-hidden='true' class='block-anchor'  id='about_blueprint'><i aria-hidden='true' class='linkify icon'></i></a>
 
@@ -87,7 +87,7 @@ BigCommerce stores powered by Stencil allow shoppers to have a first class exper
 
 If you are looking for information on Blueprint, BigCommerce's legacy theme framework, you can visit [Blueprint Themes](https://developer.bigcommerce.com/legacy/blueprint-themes).
 
-
+---
 
 <a href='#about_support' aria-hidden='true' class='block-anchor'  id='about_support'><i aria-hidden='true' class='linkify icon'></i></a>
 
@@ -104,7 +104,7 @@ Are you a more experienced developer or have a programming language specific que
 If you need direct assistance, you can contact BigCommerce Support through [Live Chat, Phone Support, or Email Support](https://support.bigcommerce.com/s/contact). 
 
 
-
+---
 
 ## Resources
 ### Related Articles

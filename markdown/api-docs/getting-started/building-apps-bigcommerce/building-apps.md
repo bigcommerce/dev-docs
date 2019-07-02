@@ -47,7 +47,7 @@ API requests are authenticated by the following HTTP headers:
 
 In addition, while not all resources require the Accept and Content-Type headers, many do. To ensure that your calls succeed, always include these headers. For more details on request headers and their accepted values, see [Request Headers](https://developer.bigcommerce.com/api-docs/getting-started/about-our-api#about-api_request-headers).
 
-
+---
 
 <a href='#building-apps_session-timeouts' aria-hidden='true' class='block-anchor'  id='building-apps_session-timeouts'><i aria-hidden='true' class='linkify icon'></i></a>
 
@@ -58,6 +58,12 @@ We recommend that you add BigCommerce’s JavaScript SDK to your Single-Click Ap
 
 
 Optionally, you can pass a logout callback function within the initialization call:
+
+<div class="HubBlock-header">
+    <div class="HubBlock-header-title flex items-center">
+        <div class="HubBlock-header-name">Logout Callback</div>
+    </div><div class="HubBlock-header-subtitle"></div>
+</div>
 
 <!--
 title: "Logout Callback"
@@ -73,7 +79,7 @@ Bigcommerce.init({
 
 This callback function will run when the user explicitly logs out of the BigCommerce control panel or is automatically logged out. The callback will allow your app to respond to this logout appropriately.
 
-
+---
 
 <a href='#building-apps_installation-update-sequence' aria-hidden='true' class='block-anchor'  id='building-apps_installation-update-sequence'><i aria-hidden='true' class='linkify icon'></i></a>
 
@@ -100,7 +106,7 @@ The request comes from the client browser, rather than directly from BigCommerce
 
 For security, Auth and Load callbacks should be handled server-side. If you are building a client-side application (such as an AngularJS Single Page App), you should handle Auth and Load callbacks outside that application. Use a separate service that accepts the Auth and Load callback requests, generates tokens, validates requests, and then redirects the user to your client-side app’s entry point.
 
-
+---
 
 <a href='#building-apps_recieving-get-request' aria-hidden='true' class='block-anchor'  id='building-apps_recieving-get-request'><i aria-hidden='true' class='linkify icon'></i></a>
 
@@ -120,6 +126,12 @@ The following table details the full list of parameters and values included in t
 
 This example initiates the token exchange, with a requested scope of store_v2_orders:
 
+<div class="HubBlock-header">
+    <div class="HubBlock-header-title flex items-center">
+        <div class="HubBlock-header-name">Initial Installation</div>
+    </div><div class="HubBlock-header-subtitle"></div>
+</div>
+
 <!--
 title: "Initial Installation"
 subtitle: ""
@@ -133,6 +145,12 @@ Host: app.example.com
 
 ### Example – Updating Scopes
 The following example requests a scope of store_v2_products, in addition to the initially requested scope of store_v2_orders:
+
+<div class="HubBlock-header">
+    <div class="HubBlock-header-title flex items-center">
+        <div class="HubBlock-header-name">Updating Scopes</div>
+    </div><div class="HubBlock-header-subtitle"></div>
+</div>
 
 <!--
 title: "Updating Scopes"
@@ -157,7 +175,7 @@ Host: app.example.com
 </div>
 </div>
 
-
+---
 
 <a href='#building-apps_responding-get-request' aria-hidden='true' class='block-anchor'  id='building-apps_responding-get-request'><i aria-hidden='true' class='linkify icon'></i></a>
 
@@ -165,7 +183,7 @@ Host: app.example.com
 
 Upon receiving the GET request at your Auth Callback URI, your app should return some HTML to the merchant browser. BigCommerce renders this in an iframe inside of the control panel. It could be a form that collects further information from the user, or you could redirect the user to your app’s main page. If you do not pass back some HTML, the user will be left looking at a blank screen. Such an app would not be accepted into the App Marketplace.
 
-
+---
 
 <a href='#building-apps_making-post-request' aria-hidden='true' class='block-anchor'  id='building-apps_making-post-request'><i aria-hidden='true' class='linkify icon'></i></a>
 
@@ -209,6 +227,12 @@ Include values for each of the following parameters.
 
 ### Examples – Initial Installation
 
+<div class="HubBlock-header">
+    <div class="HubBlock-header-title flex items-center">
+        <div class="HubBlock-header-name">HTTP</div>
+    </div><div class="HubBlock-header-subtitle"></div>
+</div>
+
 <!--
 title: "HTTP"
 subtitle: ""
@@ -222,6 +246,12 @@ Content-Type: application/x-www-form-urlencoded
 Content-Length: 186
 client_id={CLIENT_ID}&client_secret={CLIENT_SECRET}&code=qr6h3thvbvag2ffq&scope=store_v2_orders&grant_type=authorization_code&redirect_uri=https://app.example.com/oauth&context=stores/{STORE_HASH}
 ```
+
+<div class="HubBlock-header">
+    <div class="HubBlock-header-title flex items-center">
+        <div class="HubBlock-header-name">PHP</div>
+    </div><div class="HubBlock-header-subtitle"></div>
+</div>
 
 <!--
 title: "PHP"
@@ -250,6 +280,12 @@ $token = $response->access_token;
 
 The following examples request a scope of store_v2_products, in addition to the initially requested scope of store_v2_orders:
 
+<div class="HubBlock-header">
+    <div class="HubBlock-header-title flex items-center">
+        <div class="HubBlock-header-name">HTTP</div>
+    </div><div class="HubBlock-header-subtitle"></div>
+</div>
+
 <!--
 title: "HTTP"
 subtitle: ""
@@ -263,6 +299,12 @@ Content-Type: application/x-www-form-urlencoded
 Content-Length: 186
 client_id={CLIENT_ID}&client_secret={CLIENT_SECRET}&scope=store_v2_orders+store_v2_products&grant_type=authorization_code&redirect_uri=https://app.example.com/oauth&context=stores/{STORE_HASH}
 ```
+
+<div class="HubBlock-header">
+    <div class="HubBlock-header-title flex items-center">
+        <div class="HubBlock-header-name">PHP</div>
+    </div><div class="HubBlock-header-subtitle"></div>
+</div>
 
 <!--
 title: "PHP"
@@ -288,7 +330,7 @@ $response = $connection->post($tokenUrl, array(
 $token = $response->access_token;
 ```
 
-
+---
 
 <a href='#building-apps_recieving-post-request' aria-hidden='true' class='block-anchor'  id='building-apps_recieving-post-request'><i aria-hidden='true' class='linkify icon'></i></a>
 
@@ -304,6 +346,12 @@ The POST response will include a JSON object containing the permanent OAuth toke
 | id | integer | Unique identifier for the user. Store this value to identify the user at load and uninstall. |
 | email | string | The user’s email address. Store this value to identify the user at load and uninstall. |
 | context | string | The store hash, as well as a base path: `stores/{_store_hash_}` |
+
+<div class="HubBlock-header">
+    <div class="HubBlock-header-title flex items-center">
+        <div class="HubBlock-header-name">Initial Installation</div>
+    </div><div class="HubBlock-header-subtitle"></div>
+</div>
 
 <!--
 title: "Initial Installation"
@@ -325,6 +373,12 @@ lineNumbers: true
 
 Update requests will refresh the payload’s access_token and scope values. Here again, the following example requests a scope of store_v2_products, in addition to the initially requested scope of store_v2_orders:
 
+<div class="HubBlock-header">
+    <div class="HubBlock-header-title flex items-center">
+        <div class="HubBlock-header-name">Updating Scopes</div>
+    </div><div class="HubBlock-header-subtitle"></div>
+</div>
+
 <!--
 title: "Updating Scopes"
 subtitle: ""
@@ -343,7 +397,7 @@ lineNumbers: true
 }
 ```
 
-
+---
 
 <a href='#building-apps_load-uninstall-removal-requests' aria-hidden='true' class='block-anchor'  id='building-apps_load-uninstall-removal-requests'><i aria-hidden='true' class='linkify icon'></i></a>
 
@@ -394,6 +448,12 @@ If you have not enabled [multi-user](#building-apps_multi-user-support) support,
 
 ### Example -- Get Request sent to the Remove User URI:
 
+<div class="HubBlock-header">
+    <div class="HubBlock-header-title flex items-center">
+        <div class="HubBlock-header-name">Remove User URI</div>
+    </div><div class="HubBlock-header-subtitle"></div>
+</div>
+
 <!--
 title: "Remove User URI"
 subtitle: ""
@@ -419,7 +479,7 @@ Upon receiving the GET request, your app will need to process the signed payload
 </div>
 </div>
 
-
+---
 
 <a href='#building-apps_processing-signed-payload' aria-hidden='true' class='block-anchor'  id='building-apps_processing-signed-payload'><i aria-hidden='true' class='linkify icon'></i></a>
 
@@ -459,6 +519,12 @@ To verify the payload, you need to sign the payload using your client secret, an
 </div>
 </div>
 
+<div class="HubBlock-header">
+    <div class="HubBlock-header-title flex items-center">
+        <div class="HubBlock-header-name">verifySignedRequest</div>
+    </div><div class="HubBlock-header-subtitle"></div>
+</div>
+
 <!--
 title: "verifySignedRequest"
 subtitle: ""
@@ -495,6 +561,12 @@ function verifySignedRequest($signedRequest)
 
 </div>
 </div>
+</div>
+
+<div class="HubBlock-header">
+    <div class="HubBlock-header-title flex items-center">
+        <div class="HubBlock-header-name">verify()</div>
+    </div><div class="HubBlock-header-subtitle"></div>
 </div>
 
 <!--
@@ -563,6 +635,12 @@ Interpreting the user information varies as follows:
 | store_hash | string |Unique identifier for the store. |
 | timestamp | float | The time (in Unix time) when the callback was generated.|
 
+<div class="HubBlock-header">
+    <div class="HubBlock-header-title flex items-center">
+        <div class="HubBlock-header-name">User Information</div>
+    </div><div class="HubBlock-header-subtitle"></div>
+</div>
+
 <!--
 title: "User Information"
 subtitle: ""
@@ -587,7 +665,7 @@ lineNumbers: true
 }
 ```
 
-
+---
 
 <a href='#building-apps_multi-user-support' aria-hidden='true' class='block-anchor'  id='building-apps_multi-user-support'><i aria-hidden='true' class='linkify icon'></i></a>
 
@@ -620,7 +698,7 @@ In addition to their ability to add users, store admins can also remove users. T
 
 For further information, please see [Remove User Request](#building-apps_load-uninstall-removal-requests).
 
-
+---
 
 <a href='#building-apps_external-app-installation' aria-hidden='true' class='block-anchor'  id='building-apps_external-app-installation'><i aria-hidden='true' class='linkify icon'></i></a>
 
@@ -673,6 +751,12 @@ If there were errors, call:
 
 Below is a sample code snippet of an auth callback that does this:
 
+<div class="HubBlock-header">
+    <div class="HubBlock-header-title flex items-center">
+        <div class="HubBlock-header-name">Auth Callback</div>
+    </div><div class="HubBlock-header-subtitle"></div>
+</div>
+
 <!--
 title: "Auth Callback"
 subtitle: ""
@@ -694,7 +778,7 @@ rescue => e
 
 Depending on which endpoint you call, we will render one of the following success/failed pages to the modal.
 
-
+---
 
 <a href='#building-apps_user-interface-constraints' aria-hidden='true' class='block-anchor'  id='building-apps_user-interface-constraints'><i aria-hidden='true' class='linkify icon'></i></a>
 
@@ -721,7 +805,7 @@ Internet Explorer is one of the browsers that BigCommerce [supports](#supported-
 *   <a href="http://www.techrepublic.com/blog/software-engineer/craft-a-p3p-policy-to-make-ie-behave/" target="_blank">Craft a P3P policy to make IE behave</a>
 *   <a href="http://blogs.msdn.com/b/ieinternals/archive/2013/09/17/simple-introduction-to-p3p-cookie-blocking-frame.aspx" target="_blank">MSDN Intro to P3P Cookie Blocking</a>
 
-
+---
 
 <a href='#building-apps_hosting-your-app' aria-hidden='true' class='block-anchor'  id='building-apps_hosting-your-app'><i aria-hidden='true' class='linkify icon'></i></a>
 
@@ -730,7 +814,7 @@ BigCommerce stores are hosted on [Google Cloud Platform](https://cloud.google.co
 
 Therefore, you can maximize performance of your app (in terms of latency to the public API) by hosting in the same region. There is no requirement to do so, and you may host wherever you like.
 
-
+---
 
 <a href='#building-apps_faq' aria-hidden='true' class='block-anchor'  id='building-apps_faq'><i aria-hidden='true' class='linkify icon'></i></a>
 
@@ -746,7 +830,7 @@ The first step to listing an app in the BigCommerce App Marketplace is to apply 
 
 For more details on including your app in the Marketplace, see [App Store Approval Requirements](https://developer.bigcommerce.com/api-docs/partner/app-store-approval-requirements).
 
-
+---
 
 ## Resources
 
@@ -763,6 +847,7 @@ For more details on including your app in the Marketplace, see [App Store Approv
 * [Supported Browsers](https://support.bigcommerce.com/s/article/Themes-Supported-Browsers) (Knowledge Base)
 * [BigCommerce Partners](https://www.bigcommerce.com/partners/) (BigCommerce)
 * [How to Test App Authentication Locally with ngrok](https://medium.com/bigcommerce-developer-blog/how-to-test-app-authentication-locally-with-ngrok-149150bfe4cf) (BigCommerce Developer Blog)
+* [Building a BigCommerce App Using Laravel and React](https://medium.com/bigcommerce-developer-blog/building-a-bigcommerce-app-using-laravel-and-react-711ceceb5006) (BigCommerce Developer Blog)
 ### Additonal Resources
 * [Same Origin Policy](https://en.wikipedia.org/wiki/Same-origin_policy) (Wikipedia)
 * [Craft a P3P Policy to Make IE Behave](https://www.techrepublic.com/blog/software-engineer/craft-a-p3p-policy-to-make-ie-behave/) (Tech Republic)

@@ -91,7 +91,7 @@ Example JSON returned in the response:
 
 
 
-
+---
 
 <a href='#v2-review-product-images' aria-hidden='true' class='block-anchor'  id='v2-review-product-images'><i aria-hidden='true' class='linkify icon'></i></a>
 
@@ -122,7 +122,7 @@ Example JSON returned in the response:
 }
 ```
 
-
+---
 
 <a href='#v2-images_get-count-images' aria-hidden='true' class='block-anchor'  id='v2-images_get-count-images'><i aria-hidden='true' class='linkify icon'></i></a>
 
@@ -144,7 +144,7 @@ Example JSON returned in the response:
 }
 ```
 
-
+---
 
 <a href='#v2-images_create-product-images' aria-hidden='true' class='block-anchor'  id='v2-images_create-product-images'><i aria-hidden='true' class='linkify icon'></i></a>
 
@@ -184,7 +184,7 @@ Example JSON returned in the response:
 }
 ```
 
-
+---
 
 <a href='#v2-images_update-product-images' aria-hidden='true' class='block-anchor'  id='v2-images_update-product-images'><i aria-hidden='true' class='linkify icon'></i></a>
 
@@ -224,7 +224,7 @@ Example JSON returned in the response:
 }
 ```
 
-
+---
 
 <a href='#v2-images_delete-product-images' aria-hidden='true' class='block-anchor'  id='v2-images_delete-product-images'><i aria-hidden='true' class='linkify icon'></i></a>
 
@@ -234,7 +234,7 @@ Deletes a product image.
 
 >`DELETE /stores/{store_hash}/v2/products/{product_id}/images/{id}`
 
-
+---
 
 <a href='#v2-images_delete-all-product-images' aria-hidden='true' class='block-anchor'  id='v2-images_delete-all-product-images'><i aria-hidden='true' class='linkify icon'></i></a>
 

@@ -48,6 +48,12 @@ The following Webpack configuration options can aid in troubleshooting.
 
 If JavaScript errors in your browser's developer tools are not reporting filenames and line numbers, try changing your `webpack.*.js` file(s)' [sourcemap](https://webpack.js.org/guides/build-performance/#devtool) entry from:
 
+<div class="HubBlock-header">
+    <div class="HubBlock-header-title flex items-center">
+        <div class="HubBlock-header-name"></div>
+    </div><div class="HubBlock-header-subtitle">webpack.common.js</div>
+</div>
+
 <!--
 title: ""
 subtitle: "webpack.common.js"
@@ -59,6 +65,12 @@ devtool: 'source-map'
 ```
 
 to
+
+<div class="HubBlock-header">
+    <div class="HubBlock-header-title flex items-center">
+        <div class="HubBlock-header-name"></div>
+    </div><div class="HubBlock-header-subtitle">webpack.common.js</div>
+</div>
 
 <!--
 title: ""
@@ -72,7 +84,7 @@ devtool: 'eval-source-map'
 
 The `eval-source-map` option is slower, but more verbose. This [Webpack Devtool Configuration](https://webpack.js.org/configuration/devtool/) article provides an overview of all devtool options and details regarding each.
 
-
+---
 
 <a href='#configuring_build-system' aria-hidden='true' class='block-anchor'  id='configuring_build-system'><i aria-hidden='true' class='linkify icon'></i></a>
 
@@ -89,6 +101,12 @@ Continue reading to take a closer look at each of these three references.
 ## Watched Folders: watchOptions Object
 
 The `watchOptions` object defines directories for the [Browsersync](https://browsersync.io/docs) preview engine to watch or ignore, in two respective lists. You are free to edit these lists:
+
+<div class="HubBlock-header">
+    <div class="HubBlock-header-title flex items-center">
+        <div class="HubBlock-header-name"></div>
+    </div><div class="HubBlock-header-subtitle"></div>
+</div>
 
 <!--
 title: ""
@@ -122,6 +140,12 @@ Upon the command-line instruction `stencil start`, Stencil CLI will look for and
 
 In the base Cornerstone theme, we have created a Webpack watcher to trigger a browser reload whenever theme edits cause JavaScript to be rebundled to the theme's `bundle.js` file. This watcher uses options configured in the `webpack.common.js` (`webpack.conf.js` in Cornerstone versions < 2.0) file passed by `webpackConfig`. So a JavaScript rebuild will refresh the browser:
 
+<div class="HubBlock-header">
+    <div class="HubBlock-header-title flex items-center">
+        <div class="HubBlock-header-name"></div>
+    </div><div class="HubBlock-header-subtitle"></div>
+</div>
+
 <!--
 title: ""
 subtitle: ""
@@ -147,6 +171,12 @@ function development() {
 When you issue the command-line instruction `stencil bundle`, to process and package a completed theme for upload to a store, Stencil CLI will look for and call the `production` function. This function passes a callback as its first argument to support asynchronous builds. 
 
 The callback must be invoked somewhere inside the `production` function to notify Stencil CLI that the theme-specific build has completed and is ready to package:
+
+<div class="HubBlock-header">
+    <div class="HubBlock-header-title flex items-center">
+        <div class="HubBlock-header-name"></div>
+    </div><div class="HubBlock-header-subtitle"></div>
+</div>
 
 <!--
 title: ""

@@ -28,7 +28,7 @@ Returns the sum of `a` plus `b`.
 * `a` {Number}
 * `b` {Number}
 
-
+---
 
 <a href='#handlebars_subtract' aria-hidden='true' class='block-anchor'  id='handlebars_subtract'><i aria-hidden='true' class='linkify icon'></i></a>
 
@@ -41,7 +41,7 @@ Return the differnece of `a` minus `b`.
 * `a` {Number}
 * `b` {Number}
 
-
+---
 
 <a href='#handlebars_divide' aria-hidden='true' class='block-anchor'  id='handlebars_divide'><i aria-hidden='true' class='linkify icon'></i></a>
 
@@ -54,7 +54,7 @@ Divides `a` by `b`.
 * `a` {Number}: numerator
 * `b` {Number}: denominator
 
-
+---
 
 <a href='#handlebars_multiply' aria-hidden='true' class='block-anchor'  id='handlebars_multiply'><i aria-hidden='true' class='linkify icon'></i></a>
 
@@ -67,7 +67,7 @@ Multiplies `a` by `b`.
 * `a` {Number}: factor
 * `b` {Number}: multiplier
 
-
+---
 
 <a href='#handlebars_floor' aria-hidden='true' class='block-anchor'  id='handlebars_floor'><i aria-hidden='true' class='linkify icon'></i></a>
 
@@ -79,7 +79,7 @@ Gets the `Math.floor()` of the given value.
 
 * `value` {Number}
 
-
+---
 
 <a href='#handlebars_ceil' aria-hidden='true' class='block-anchor'  id='handlebars_ceil'><i aria-hidden='true' class='linkify icon'></i></a>
 
@@ -91,7 +91,7 @@ Gets the `Math.ceil()` [ceiling] of the given value.
 
 * `value` {Number}
 
-
+---
 
 <a href='#handlebars_round' aria-hidden='true' class='block-anchor'  id='handlebars_round'><i aria-hidden='true' class='linkify icon'></i></a>
 
@@ -103,7 +103,7 @@ Rounds the given value.
 
 * `value` {Number}
 
-
+---
 
 <a href='#handlebars_sum' aria-hidden='true' class='block-anchor'  id='handlebars_sum'><i aria-hidden='true' class='linkify icon'></i></a>
 
@@ -123,7 +123,7 @@ Returns the sum of all numbers in the given array.
 //=> '15'
 ```
 
-
+---
 
 <a href='#handlebars_avg' aria-hidden='true' class='block-anchor'  id='handlebars_avg'><i aria-hidden='true' class='linkify icon'></i></a>
 

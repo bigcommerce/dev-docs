@@ -37,7 +37,7 @@ This guide will walk through the available options for developing themes that su
 
 
 
-
+---
 
 <a href='#customization-guide_file-structure' aria-hidden='true' class='block-anchor'  id='customization-guide_file-structure'><i aria-hidden='true' class='linkify icon'></i></a>
 
@@ -57,7 +57,7 @@ BigCommerce for WordPress uses [PostCSS](https://postcss.org/), a JavaScript too
 PostCSS modules are contained in the asset/pcss directory. The assets/css directory contains both the minified and uncompressed versions of the CSS files created during the PostCSS build process.
 
 
-
+---
 
 <a href='#customization-guide_template-overrides' aria-hidden='true' class='block-anchor'  id='customization-guide_template-overrides'><i aria-hidden='true' class='linkify icon'></i></a>
 
@@ -76,7 +76,7 @@ As WordPress loads, it will first check for a custom template override in your t
 ### Required Classes
 BigCommerce for WordPress relies on specially named element classes for JavaScript functionality, and we strongly recommend leaving the default class names untouched as you create custom templates. You are, however, welcome to create additional classes.
 
-
+---
 
 <a href='#customization-guide_custom-css' aria-hidden='true' class='block-anchor'  id='customization-guide_custom-css'><i aria-hidden='true' class='linkify icon'></i></a>
 
@@ -94,7 +94,7 @@ button.bc-btn.bc-btn--form-submit.bc-btn--add_to_cart {
 If you wish to disable the built-in plugin styles entirely, you have the option to do so. In the WordPress theme customizer, navigate to BigCommerce > Colors & Theme and select Disable Plugin Styles from the CSS dropdown menu.
 
 
-
+---
 
 <a href='#customization-guide_hooks' aria-hidden='true' class='block-anchor'  id='customization-guide_hooks'><i aria-hidden='true' class='linkify icon'></i></a>
 
@@ -139,7 +139,7 @@ remove_action( 'bigcommerce/template/product/archive', bigcommerce()->templates-
 add_action( 'bigcommerce/template/product/archive', 'your_callback_function', 10, 2 );
 ```
 
-
+---
 
 <a href='#customization-guide_styling-checkout' aria-hidden='true' class='block-anchor'  id='customization-guide_styling-checkout'><i aria-hidden='true' class='linkify icon'></i></a>
 
@@ -155,6 +155,12 @@ If an SSL is detected, shoppers will visit an embedded version of the BigCommerc
 Embedded Checkout includes settings within the WordPress theme customizer that allow you to adjust colors to blend the checkout page with your theme. For advanced users, the plugin provides the [Checkout Config hook](https://bigcommerce.moderntribe.qa/reference/hooks/bigcommerce-checkout-config/) to filter all available [Embedded Checkout config options](https://github.com/bigcommerce/checkout-sdk-js/blob/master/docs/interfaces/embeddedcheckoutoptions.md) (Github). Because of the method used to load the Embedded Checkout within the iframe, styling checkout must be accomplished by filtering the available `$checkout_config` options rather than targeting element classes or IDs with CSS.
 
 Below, we define a function called `myCheckoutFunction()` that accepts `$checkout_config` as an argument. The function builds an array of checkout config styles that make the checkout step header text red, step number icons blue, and checkout body text green. Finally, we pass `myCheckoutFunction` to the Checkout Config hook. Try adding the below snippet to your theme’s `functions.php` file to test it out
+
+<div class="HubBlock-header">
+    <div class="HubBlock-header-title flex items-center">
+        <div class="HubBlock-header-name">myCheckoutFunction()</div>
+    </div><div class="HubBlock-header-subtitle">functions.php</div>
+</div>
 
 <!--
 title: "myCheckoutFunction()"
@@ -177,7 +183,7 @@ Following this format, you can apply styles to other elements, like buttons, inp
 
 Note that styles apply globally to all elements on the checkout page. For example, styles applied to steps will apply to all steps rather than targeting only step 2 or 3.
 
-
+---
 
 <a href='#customization-guide_email-templates' aria-hidden='true' class='block-anchor'  id='customization-guide_email-templates'><i aria-hidden='true' class='linkify icon'></i></a>
 
@@ -186,7 +192,7 @@ You may wish to customize the built-in transactional emails sent from BigCommerc
 
 Email templates can be customized and enabled/disabled on an individual basis from the BigCommerce control panel. For more information, see [Customizing Emails](https://support.bigcommerce.com/s/article/Customizing-Emails).
 
-
+---
 
 <a href='#customization-guide_external-resources' aria-hidden='true' class='block-anchor'  id='customization-guide_external-resources'><i aria-hidden='true' class='linkify icon'></i></a>
 

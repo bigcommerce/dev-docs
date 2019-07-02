@@ -45,6 +45,12 @@ Use the following steps to authorize your theme using an OAuth API account:
 
 2. Starting from the subdirectory for the appropriate theme (and store), initialize Stencil CLI by running the following command (_Windows users need to run this in git bash_):
 
+<div class="HubBlock-header">
+    <div class="HubBlock-header-title flex items-center">
+        <div class="HubBlock-header-name"></div>
+    </div><div class="HubBlock-header-subtitle"></div>
+</div>
+
 <!--
 title: ""
 subtitle: ""
@@ -66,4 +72,10 @@ stencil init
 6. Finally, you will be prompted: `What is your Stencil OAuth Access Token?` If you entered these credentials when you last ran stencil init, you'll see the token hinted in cleartext. If not, paste your `Access Token` hash onto the command line. Then press Enter.
 
 Your terminal window should now confirm that you have successfully initialized Stencil CLI on your local machine. With Stencil CLI initialized, you are ready to start Stencil and begin development.
+
+---
+
+## Resources
+### Related Articles
+* [Common Stencil CLI Pitfalls and How to Avoid Them](https://medium.com/bigcommerce-developer-blog/common-stencil-cli-pitfalls-and-how-to-avoid-them-7562dbbab793) (Developer Blog)
 

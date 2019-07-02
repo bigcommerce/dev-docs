@@ -16,7 +16,7 @@ Your apps can use a product's or variant's <a href="https://support.bigcommerce.
 * Add a specific SKU to the cart and go directly to checkout.
 * Add a specific SKU to the cart, go directly to checkout, and include a source parameter for analytics and conversion tracking.
 
-
+---
 
 <div class="HubBlock--callout">
 <div class="CalloutBlock--">
@@ -44,7 +44,7 @@ To link to a specific product variant, append `?sku=INSERT-SKU-HERE` to the prod
 ### Example:
 `myawesomestore.com/shirt/?sku=SHIRT-SM-RED`
 
-
+---
 
 <a href='#add-specific-sku-cart' aria-hidden='true' class='block-anchor'  id='add-specific-sku-cart'><i aria-hidden='true' class='linkify icon'></i></a>
 
@@ -59,7 +59,7 @@ To automatically add a product or variant to a shopper's cart and take them dire
 ### Example:
 `myawesomestore.com/cart.php?action=add&sku=SHIRT-SM-RED`
 
-
+---
 
 <a href='#add-cart-url_add-sku-checkout-go-to-cart' aria-hidden='true' class='block-anchor'  id='add-cart-url_add-sku-checkout-go-to-cart'><i aria-hidden='true' class='linkify icon'></i></a>
 
@@ -73,7 +73,7 @@ To automatically add a product or variant to a shopper's cart and forward them d
 ### Example:
 `myawesomestore.com/cart.php?action=buy&sku=SHIRT-SM-RED`
 
-
+---
 
 <a href='#add-cart-url_add-specific-sku-checkout-source' aria-hidden='true' class='block-anchor'  id='add-cart-url_add-specific-sku-checkout-source'><i aria-hidden='true' class='linkify icon'></i></a>
 

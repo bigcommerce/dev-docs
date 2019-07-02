@@ -42,7 +42,7 @@ Three children of the <span class="fp">/templates/components/</span> subdirector
 </div>
 </div>
 
-
+---
 
 ## Resources
 ### Cornerstone GitHub Respository

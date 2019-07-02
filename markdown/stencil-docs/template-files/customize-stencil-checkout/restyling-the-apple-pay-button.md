@@ -19,7 +19,7 @@ Apple Pay is a digital wallet that links to a shopper's chosen credit or debit c
 
 Displaying the Apple Pay button to shoppers on your storefront is subject to Apple's [geographic constraints](https://support.apple.com/en-us/HT204916), [supported devices and software](https://support.apple.com/en-us/KM207105), [industry and conduct restrictions](https://developer.apple.com/apple-pay/acceptable-use-guidelines-for-websites/), and policies regarding store checkout flow. 
 
-
+---
 
 <a href='#restyling_apple' aria-hidden='true' class='block-anchor'  id='restyling_apple'><i aria-hidden='true' class='linkify icon'></i></a>
 
@@ -49,7 +49,7 @@ The following Stencil themes do **not** include Apple Pay:
 
 By default, the Apple Pay button will appear on a theme's Cart page. If the store has [enabled site-wide HTTPS](https://support.bigcommerce.com/s/article/Site-Wide-HTTPS), the Apple Pay button will also appear in the Quick Cart modal. The Apple Pay button does _not_ appear on the checkout page, because Apple Pay is designed as a low-friction alternative that bypasses the store's native checkout.
 
-
+---
 
 <a href='#restyling_implementing' aria-hidden='true' class='block-anchor'  id='restyling_implementing'><i aria-hidden='true' class='linkify icon'></i></a>
 
@@ -66,6 +66,12 @@ To display the Apple Pay button on the Cart page of themes omitting Apple Pay, y
 1. Copy the CSS below.
 2. In the BigCommerce control panel, select **Storefront Design** > **Design Options** > **Scripts tab**.
 3. Paste the copied code into the Footer script box and select **Save**.
+
+<div class="HubBlock-header">
+    <div class="HubBlock-header-title flex items-center">
+        <div class="HubBlock-header-name">Themes Omitting Apple Pay CSS</div>
+    </div><div class="HubBlock-header-subtitle"></div>
+</div>
 
 <!--
 title: "Themes Omitting Apple Pay CSS"
@@ -113,7 +119,7 @@ lineNumbers: true
 </style>
 ```
 
-
+---
 
 <a href='#restyling_apple-pay-identity' aria-hidden='true' class='block-anchor'  id='restyling_apple-pay-identity'><i aria-hidden='true' class='linkify icon'></i></a>
 
@@ -121,7 +127,7 @@ lineNumbers: true
 
 As a condition for enabling Apple Pay, Apple requires merchants to style and display the button according to [Apple Pay Identity Guidelines](https://developer.apple.com/apple-pay/Apple-Pay-Identity-Guidelines.pdf). For BigCommerce's summary of the relevant guidelines, see the [Integrating the Apple Pay Button](https://support.bigcommerce.com/articles/Public/Integrating-the-Apple-Pay-button/#guidelines) support article.
 
-
+---
 
 <a href='#restyling_styling' aria-hidden='true' class='block-anchor'  id='restyling_styling'><i aria-hidden='true' class='linkify icon'></i></a>
 
@@ -149,6 +155,12 @@ In themes omitting Apple Pay, you must use custom CSS to change the Apple Pay bu
 
 To render the button with a white background and black text, use this CSS:
 
+<div class="HubBlock-header">
+    <div class="HubBlock-header-title flex items-center">
+        <div class="HubBlock-header-name">White background and black text</div>
+    </div><div class="HubBlock-header-subtitle">Apple Pay button</div>
+</div>
+
 <!--
 title: "White background and black text"
 subtitle: "Apple Pay button"
@@ -163,6 +175,12 @@ lineNumbers: true
 ```
 
 To render the white Apple Pay button with black text and a black border, use this CSS:
+
+<div class="HubBlock-header">
+    <div class="HubBlock-header-title flex items-center">
+        <div class="HubBlock-header-name">Black text and a black border</div>
+    </div><div class="HubBlock-header-subtitle">Apple Pay button</div>
+</div>
 
 <!--
 title: "Black text and a black border"
@@ -184,6 +202,12 @@ lineNumbers: true
 Resizing the button normally requires custom CSS. The following example shows how, by targeting the 
 `.apple-pay-checkout-button` CSS selector, you can also manipulate the Apple Pay button's width and height. (This is subject to certain constraints imposed by Apple and BigCommerce, which are listed in the example's comments.)
 
+<div class="HubBlock-header">
+    <div class="HubBlock-header-title flex items-center">
+        <div class="HubBlock-header-name">Button Size</div>
+    </div><div class="HubBlock-header-subtitle">Apple Pay button</div>
+</div>
+
 <!--
 title: "Button Size"
 subtitle: "Apple Pay button"
@@ -197,7 +221,7 @@ lineNumbers: true
 }	
 ```
 
-
+---
 
 <a href='#restyling_troubleshooting' aria-hidden='true' class='block-anchor'  id='restyling_troubleshooting'><i aria-hidden='true' class='linkify icon'></i></a>
 
@@ -207,7 +231,7 @@ lineNumbers: true
 
 To troubleshoot issues like this, see the [Integrating the Apple Pay Button](https://support.bigcommerce.com/articles/Public/Integrating-the-Apple-Pay-button/#troubleshoot) support article.
 
-
+---
 
 
 ## Resources
@@ -216,6 +240,7 @@ To troubleshoot issues like this, see the [Integrating the Apple Pay Button](htt
 * [Connection with Apple Pay](https://support.bigcommerce.com/s/article/Connecting-with-Apple-Pay) (Knowledge Base)
 * [Apple Pay Identity Guidelines](https://support.bigcommerce.com/articles/Public/Integrating-the-Apple-Pay-button/#guidelines) (Knowledge Base)
 * [Sitewide HTTPS](https://support.bigcommerce.com/s/article/Site-Wide-HTTPS) (Knowledge Base)
+* [The Complete Guide to Checkout Customization on BigCommerce](https://medium.com/bigcommerce-developer-blog/the-complete-guide-to-checkout-customization-on-bigcommerce-6b566bc36fa9) (Developer Blog)
 
 ### Addtional Resources
 * [Apple Pay on the Web Acceptable Use Guidelines](https://developer.apple.com/apple-pay/acceptable-use-guidelines-for-websites/) (Apple Developer)

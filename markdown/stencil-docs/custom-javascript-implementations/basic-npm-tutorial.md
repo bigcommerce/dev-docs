@@ -55,6 +55,12 @@ The above command's options are:
 
 The `style` and `css` loaders are used to import CSS and to inject it into the DOM. To configure, add the following object to the `rules` array in the appropriate webpack.*.js file (if you're not sure, use `webpack.common.js` or `webpack.config.js`):
 
+<div class="HubBlock-header">
+    <div class="HubBlock-header-title flex items-center">
+        <div class="HubBlock-header-name"></div>
+    </div><div class="HubBlock-header-subtitle">webpack.common.js</div>
+</div>
+
 <!--
 title: ""
 subtitle: "webpack.common.js"
@@ -67,6 +73,12 @@ lineNumbers: true
     loader: 'style-loader!css-loader',
 }
 ```
+
+<div class="HubBlock-header">
+    <div class="HubBlock-header-title flex items-center">
+        <div class="HubBlock-header-name">Cornerstone 3.4.4 Example</div>
+    </div><div class="HubBlock-header-subtitle">webpack.common.js</div>
+</div>
 
 <!--
 title: "Cornerstone 3.4.4 Example"

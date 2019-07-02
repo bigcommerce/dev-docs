@@ -12,7 +12,7 @@
 
 The BigCommerce API responds to requests with different HTTP status codes depending on the result from the request. Error responses might also include an error message in the body to assist in resolving the problem.
 
-
+---
 
 <a href='#api-status-codes_2-success' aria-hidden='true' class='block-anchor'  id='api-status-codes_2-success'><i aria-hidden='true' class='linkify icon'></i></a>
 
@@ -27,7 +27,7 @@ The BigCommerce API responds to requests with different HTTP status codes depend
 | **202** | **Accepted** | For a request that resulted in a scheduled task being created to perform the actual request. |
 | **204** | **No Content** | For a successful request that produced no response (such as `DELETE` requests). |
 
-
+---
 
 <a href='#api-status-codes_3-redirection' aria-hidden='true' class='block-anchor'  id='api-status-codes_3-redirection'><i aria-hidden='true' class='linkify icon'></i></a>
 
@@ -40,7 +40,7 @@ The BigCommerce API responds to requests with different HTTP status codes depend
 | **301** | **Moved Permanently** | When the API routes have changed (unlikely), or if the incoming request is not secure (`http`), the request will be redirected to the secure (`https`) version. |
 | **304** | **Not Modified** | This response will be sent if the request included an `If-Modified-Since` header, but the resource has *not* been modified since the specified date. Please refer to individual resources' documentation regarding support for the `If-Modified-Since` header. |
 
-
+---
 
 <a href='#api-status-codes_4-client-error' aria-hidden='true' class='block-anchor'  id='api-status-codes_4-client-error'><i aria-hidden='true' class='linkify icon'></i></a>
 
@@ -62,7 +62,7 @@ The BigCommerce API responds to requests with different HTTP status codes depend
 | **422** | **Missing or Invalid Data** | The request cannot be processed either because it omitted required fields or because it contained invalid data. See the response for more details. |
 | **429** | **Too Many Requests** | When an OAuth client exceeds the [rate limit](/api-docs/getting-started/basics/best-practices#best-practices_rate-limits) for API requests to a store. |
 
-
+---
 
 <a href='#api-status-codes_5-server-error' aria-hidden='true' class='block-anchor'  id='api-status-codes_5-server-error'><i aria-hidden='true' class='linkify icon'></i></a>
 
@@ -77,7 +77,7 @@ The BigCommerce API responds to requests with different HTTP status codes depend
 | **503** | **Service Unavailable** | When the store is marked as “Down for Maintenance,” or the store is being upgraded to a new version. |
 | **507** | **Insufficient Storage** | When the store has reached a limitation for the resource, according to their BigCommerce plan (e.g., 500-product limit). |
 
-
+---
 
 <a href='#api-status-codes_troubleshooting' aria-hidden='true' class='block-anchor'  id='api-status-codes_troubleshooting'><i aria-hidden='true' class='linkify icon'></i></a>
 

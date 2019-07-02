@@ -17,6 +17,12 @@
 
 You define variations in your <span>{theme-name}/config.json</span> file. From the default Stencil theme’s config.json, here is the Light variation’s definition, followed by the head of the `"Bold"` variation’s definition:
 
+<div class="HubBlock-header">
+    <div class="HubBlock-header-title flex items-center">
+        <div class="HubBlock-header-name">Naming a New Theme Variation</div>
+    </div><div class="HubBlock-header-subtitle"></div>
+</div>
+
 <!--
 title: "Naming a New Theme Variation"
 subtitle: ""
@@ -43,6 +49,12 @@ lineNumbers: true
 ```
 
 Try inserting a new custom variation of your own, below the `"Light"` block shown above. Your variation’s definition might look something like this:
+
+<div class="HubBlock-header">
+    <div class="HubBlock-header-title flex items-center">
+        <div class="HubBlock-header-name">Multiple Theme Variation</div>
+    </div><div class="HubBlock-header-subtitle"></div>
+</div>
 
 <!--
 title: "Multiple Theme Variation"
@@ -87,7 +99,7 @@ lineNumbers: true
 ...
 ```
 
-
+---
 
 <a href='#managing_changing' aria-hidden='true' class='block-anchor'  id='managing_changing'><i aria-hidden='true' class='linkify icon'></i></a>
 
@@ -95,6 +107,12 @@ lineNumbers: true
 
 To learn more about defining variations, see the <span class="fn">config.json</span> reference for details about each key’s usage and allowable values. 
 In particular, note the option to configure settings and variables that are scoped to each variation. For example, you could insert the `"settings":...”body-font-family”` block shown below to set body text throughout this variation (only) to a specific typeface/family:
+
+<div class="HubBlock-header">
+    <div class="HubBlock-header-title flex items-center">
+        <div class="HubBlock-header-name">body-font-family</div>
+    </div><div class="HubBlock-header-subtitle"></div>
+</div>
 
 <!--
 title: "body-font-family"
@@ -114,7 +132,7 @@ lineNumbers: true
 }
 ```
 
-
+---
 
 <a href='#managing_preparing' aria-hidden='true' class='block-anchor'  id='managing_preparing'><i aria-hidden='true' class='linkify icon'></i></a>
 
@@ -123,7 +141,7 @@ lineNumbers: true
 For details on preparing screenshots that enable merchants to preview each variation – and to preview your theme as a whole – in the BigCommerce control panel and Theme Marketplace, see [Preparing Thumbnail Images](/stencil-docs/stencil-theme-editor/preparing-thumbnail-images).
 
 
-
+---
 
 <a href='#managing_using-cli' aria-hidden='true' class='block-anchor'  id='managing_using-cli'><i aria-hidden='true' class='linkify icon'></i></a>
 
@@ -133,7 +151,7 @@ To locally test/debug a specific variation of your theme, launch it by invoking 
 
 `stencil start -v MyCustomVariation`
 
-
+---
 
 <a href='#managing_bundling-and-uploading' aria-hidden='true' class='block-anchor'  id='managing_bundling-and-uploading'><i aria-hidden='true' class='linkify icon'></i></a>
 
@@ -141,7 +159,7 @@ To locally test/debug a specific variation of your theme, launch it by invoking 
 
 If at this stage you are ready to bundle and upload your theme, refer to [Bundling and Uploading a Theme](/stencil-docs/prepare-and-upload-a-theme/bundling-and-uploading). 
 
-
+---
 
 ## Resources
 ### Related Articles

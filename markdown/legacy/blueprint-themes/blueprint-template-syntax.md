@@ -14,7 +14,7 @@ Each of the layout, panel, and snippet files in a theme uses variables (also cal
 
 Template variables are enclosed within `%%` markers. These types of variables are available for use in templates: global variables, string variables, panel references, snippet references, and file includes.
 
-
+---
 
 <a href='#global-variables-references' aria-hidden='true' class='block-anchor'  id='global-variables-references'><i aria-hidden='true' class='linkify icon'></i></a>
 
@@ -31,7 +31,7 @@ For example:
 
 Specific variables' availability depends on the layout template that you're editing. For example, the variable for a product's description is available on the product details page, but not on the category view/product listing page.
 
-
+---
 
 <a href='#panel-references' aria-hidden='true' class='block-anchor'  id='panel-references'><i aria-hidden='true' class='linkify icon'></i></a>
 
@@ -49,7 +49,7 @@ For example:
 
 This panel reference will load in the content from the `Panels/HomeFeaturedProducts.html` panel file.
 
-
+---
 
 <a href='#snippet-references' aria-hidden='true' class='block-anchor'  id='snippet-references'><i aria-hidden='true' class='linkify icon'></i></a>
 
@@ -67,7 +67,7 @@ In most cases, this will correspond to a similarly named file in the theme’s S
 
 This snippet reference will contain repeated copies of `Snippets/HomeFeaturedProductsItem.html`, one for each featured product to be shown in the list.
 
-
+---
 
 <a href='#referencing-distributed-theme-assets' aria-hidden='true' class='block-anchor'  id='referencing-distributed-theme-assets'><i aria-hidden='true' class='linkify icon'></i></a>
 
@@ -128,7 +128,7 @@ url(//mystore.com/content/images/foo.jpg")
 ```
 
 
-
+---
 
 <a href='#file-includes' aria-hidden='true' class='block-anchor'  id='file-includes'><i aria-hidden='true' class='linkify icon'></i></a>
 

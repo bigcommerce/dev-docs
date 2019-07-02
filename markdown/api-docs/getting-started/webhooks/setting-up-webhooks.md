@@ -31,13 +31,19 @@ In this tutorial, we'll install ngrok, register a webhook on your store, and the
 - [API Access Token & Client ID](/api-docs/getting-started/basics/authentication#authentication_getting-api-credentials) with [scope](/api-docs/getting-started/basics/authentication#authentication_oauth-scopes) set to Information & Settings Read-Only and Products Read-Only.
 - [Webhooks Overview](/api-docs/getting-started/webhooks/about-webhooks)
 
-
+---
 
 <a href='#setting-up-webhooks_create-project-folder' aria-hidden='true' class='block-anchor'  id='setting-up-webhooks_create-project-folder'><i aria-hidden='true' class='linkify icon'></i></a>
 
 ## Create Project Folder
 
 1. Open the terminal and create a folder that will hold ngrok and the Node app, then move into that directory.
+
+<div class="HubBlock-header">
+    <div class="HubBlock-header-title flex items-center">
+        <div class="HubBlock-header-name"></div>
+    </div><div class="HubBlock-header-subtitle"></div>
+</div>
 
 <!--
 title: ""
@@ -50,7 +56,7 @@ mkdir webhooks-test
 cd webhooks-test
 ```
 
-
+---
 
 <a href='#setting-up-webhooks_install-ngrok' aria-hidden='true' class='block-anchor'  id='setting-up-webhooks_install-ngrok'><i aria-hidden='true' class='linkify icon'></i></a>
 
@@ -63,6 +69,12 @@ cd webhooks-test
 3. Unzip ngrok and place the application in the project folder that you created.
 
 This can be accomplished in one command:
+
+<div class="HubBlock-header">
+    <div class="HubBlock-header-title flex items-center">
+        <div class="HubBlock-header-name"></div>
+    </div><div class="HubBlock-header-subtitle"></div>
+</div>
 
 <!--
 title: ""
@@ -94,13 +106,19 @@ unzip /Users/your-computer/Downloads/ngrok-stable-darwin-amd64.zip -d /Users/you
 </div>
 </div>
 
-
+---
 
 <a href='#setting-up-webhooks_create-express-app' aria-hidden='true' class='block-anchor'  id='setting-up-webhooks_create-express-app'><i aria-hidden='true' class='linkify icon'></i></a>
 
 ## Create Express App
 
 1. In the terminal run `npm init`. You will be prompted with several questions about the app setup. Feel free to hit return to accept the default values.  The final screen will look something like this:		 
+
+<div class="HubBlock-header">
+    <div class="HubBlock-header-title flex items-center">
+        <div class="HubBlock-header-name"></div>
+    </div><div class="HubBlock-header-subtitle"></div>
+</div>
 
 <!--
 title: ""
@@ -141,6 +159,12 @@ lineNumbers: true
 
 4. Copy and paste the following into `index.js`:
 
+<div class="HubBlock-header">
+    <div class="HubBlock-header-title flex items-center">
+        <div class="HubBlock-header-name"></div>
+    </div><div class="HubBlock-header-subtitle"></div>
+</div>
+
 <!--
 title: ""
 subtitle: ""
@@ -173,7 +197,7 @@ From Express [Website](https://expressjs.com/en/starter/basic-routing.html):
 - HANDLER is the function executed when the route is matched.
 - Res.send is the body parameter that sends the HTTP response.
 
-
+---
 
 <a href='#setting-up-webhooks_start-the-app-ngrok' aria-hidden='true' class='block-anchor'  id='setting-up-webhooks_start-the-app-ngrok'><i aria-hidden='true' class='linkify icon'></i></a>
 
@@ -204,13 +228,19 @@ ngrok returns two values we will need to register a webhook and observe the resp
 ](//s3.amazonaws.com/user-content.stoplight.io/6012/1531500191661 "#### ngrok Web Interface
 ")
 
-
+---
 
 Subscribe to the `store/product/updated` event: 
 
 1. Create a POST request using the try it now box below or your API enviroment of choice to the request URL:`https://api.bigcommerce.com/stores/{{store_hash}}/v2/hooks`. 
 Replace store_hash with the value from your store's API path.
 2. Create a request body where "scope" is the webhook event we are subscribing to and "destination" is your ngrok forwarding url with /webhooks appended (the route specified in our Express app):
+
+<div class="HubBlock-header">
+    <div class="HubBlock-header-title flex items-center">
+        <div class="HubBlock-header-name"></div>
+    </div><div class="HubBlock-header-subtitle"></div>
+</div>
 
 <!--
 title: ""
@@ -227,6 +257,12 @@ lineNumbers: true
 ```
 
 3. Update the request headers to contain:
+
+<div class="HubBlock-header">
+    <div class="HubBlock-header-title flex items-center">
+        <div class="HubBlock-header-name"></div>
+    </div><div class="HubBlock-header-subtitle"></div>
+</div>
 
 <!--
 title: ""
@@ -248,6 +284,12 @@ lineNumbers: true
 {'method': 'post', 'url': 'https://api.bigcommerce.com/stores/{store_hash}/v2/hooks', 'headers': {'Accept': 'application/json', 'Content-Type': 'application/json', 'X-Auth-Client': '{the OAuth client id}', 'X-Auth-Token': '{the OAuth token}'}, 'body': '{\n"scope": "store/product/updated",\n "destination": "https://{your-url}.ngrok.io/webhooks",\n "is_active": true\n}\n'}
 
 <a href='#201-response' aria-hidden='true' class='block-anchor'  id='201-response'><i aria-hidden='true' class='linkify icon'></i></a>
+
+<div class="HubBlock-header">
+    <div class="HubBlock-header-title flex items-center">
+        <div class="HubBlock-header-name">201 Created Response</div>
+    </div><div class="HubBlock-header-subtitle"></div>
+</div>
 
 <!--
 title: "201 Created Response"
@@ -325,6 +367,12 @@ Create a PUT request to the product to be updated, replacing 124 with the produc
 
 In this example, the price of product_id 124 is being changed to 12.99:
 
+<div class="HubBlock-header">
+    <div class="HubBlock-header-title flex items-center">
+        <div class="HubBlock-header-name"></div>
+    </div><div class="HubBlock-header-subtitle"></div>
+</div>
+
 <!--
 title: ""
 subtitle: ""
@@ -354,7 +402,7 @@ After hitting send, check the ngrok web interface. You may see a single event or
 ](//s3.amazonaws.com/user-content.stoplight.io/6012/1531501115256 "#### ngrok Web Interface
 ")
 
-
+---
 
 That’s it! In this walkthrough you created a webhook, set up a server to accept the response, and used ngrok to observe the webhook payload.
 
@@ -377,12 +425,18 @@ Want to keep going? Try changing the text in `res.send()` to a custom response, 
 
 {'method': 'delete', 'url': 'https://api.bigcommerce.com/stores/{store_hash}/v2/hooks/{hook_id}', 'headers': {'X-Auth-Client': '{your-client-id}', 'X-Auth-Token': '{your-auth-token}', 'Content-Type': 'application/json', 'Accept': 'application/json'}}
 
-
+---
 
 <a href='#setting-up-webhooks_custom-headers' aria-hidden='true' class='block-anchor'  id='setting-up-webhooks_custom-headers'><i aria-hidden='true' class='linkify icon'></i></a>
 
 ## Adding Custom Headers
 For added security you can add custom headers to your webhook request. `headers` accepts any key:value pair as a string. 
+
+<div class="HubBlock-header">
+    <div class="HubBlock-header-title flex items-center">
+        <div class="HubBlock-header-name">Example Webhook Custom Headers</div>
+    </div><div class="HubBlock-header-subtitle"></div>
+</div>
 
 <!--
 title: "Example Webhook Custom Headers"
@@ -403,7 +457,7 @@ lineNumbers: true
 }
 ```
 
-
+---
 
 <a href='#setting-up-webhooks_troubleshooting' aria-hidden='true' class='block-anchor'  id='setting-up-webhooks_troubleshooting'><i aria-hidden='true' class='linkify icon'></i></a>
 
@@ -411,6 +465,12 @@ lineNumbers: true
 1. Getting a 404 error using the root (/) url?
 
 Add this snippet to your code to respond to incoming get requests with 'hello':
+
+<div class="HubBlock-header">
+    <div class="HubBlock-header-title flex items-center">
+        <div class="HubBlock-header-name"></div>
+    </div><div class="HubBlock-header-subtitle"></div>
+</div>
 
 <!--
 title: ""

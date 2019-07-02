@@ -55,7 +55,7 @@ We will be making a widget that shows three images, with a hover effect and each
 ](//s3.amazonaws.com/user-content.stoplight.io/6012/1551898706416 "#### Category Page Widget
 ")
 
-
+---
 
 <a href='#widget-tutorial_add-a-region' aria-hidden='true' class='block-anchor'  id='widget-tutorial_add-a-region'><i aria-hidden='true' class='linkify icon'></i></a>
 
@@ -89,6 +89,12 @@ To check the region was added successfully, use [Get Content Regions](/api-refer
 
 {'url': 'https://api.bigcommerce.com/stores/{store_hash}/v3/content/regions', 'method': 'get', 'headers': {'Accept': 'application/json', 'Content-Type': 'application/json', 'X-Auth-Client': '{$$.env.X-Auth-Client}', 'X-Auth-Token': '{$$.env.X-Auth-Token}'}, 'query': {'templateFile': 'pages/category'}}
 
+<div class="HubBlock-header">
+    <div class="HubBlock-header-title flex items-center">
+        <div class="HubBlock-header-name">Sample Response</div>
+    </div><div class="HubBlock-header-subtitle">Get Content Regions</div>
+</div>
+
 <!--
 title: "Sample Response"
 subtitle: "Get Content Regions"
@@ -109,7 +115,7 @@ lineNumbers: true
 }
 ```
 
-
+---
 
 <a href='#widget-tutorial_create-widget-template' aria-hidden='true' class='block-anchor'  id='widget-tutorial_create-widget-template'><i aria-hidden='true' class='linkify icon'></i></a>
 
@@ -124,6 +130,12 @@ Widget Templates are the reusable piece of structure. In this walkthrough we are
 In the response the Widget Template UUID returned. Make note of it for use later when creating the Widget.
 
 {'method': 'post', 'body': '{\n\t"name": "Header Images",\n\t"template": "{{#each images}}<a href=\'{{image_url}}\'><img src={{image_source}} style=\'width:33.3%\'/></a>{{/each}}"\n}', 'url': 'https://api.bigcommerce.com/stores/{store_hash}/v3/content/widget-templates', 'headers': {'Accept': 'application/json', 'Content-Type': 'application/json', 'X-Auth-Client': '{$$.env.X-Auth-Client}', 'X-Auth-Token': '{$$.env.X-Auth-Token}'}}
+
+<div class="HubBlock-header">
+    <div class="HubBlock-header-title flex items-center">
+        <div class="HubBlock-header-name">Sample Response </div>
+    </div><div class="HubBlock-header-subtitle">Create Widget Template</div>
+</div>
 
 <!--
 title: "Sample Response "
@@ -146,7 +158,7 @@ lineNumbers: true
 }
 ```
 
-
+---
 
 <a href='#widget-tutorial_create-widget' aria-hidden='true' class='block-anchor'  id='widget-tutorial_create-widget'><i aria-hidden='true' class='linkify icon'></i></a>
 
@@ -165,6 +177,12 @@ For widget_configuration `images is the top level array, with `image_url` and `i
 In the response the Widget UUID is returned. Make note of it for use later when creating the Placement.
 
 {'method': 'post', 'body': '{\n  "name": "Header Images",\n  "widget_configuration": {\n    "images": [\n      {\n        "image_url": "{where-the-image-should-link-to}",\n        "image_source": "https://cdn11.bigcommerce.com/s-n0i50vy/images/stencil/1280x1280/products/91/309/thekinfolktablecover_1024x1024__80715.1456436719.jpg?c=2&imbypass=on"\n      },\n      {\n        "image_url": "{where-the-image-should-link-to}",\n        "image_source": "https://cdn11.bigcommerce.com/s-n0i50vy/images/stencil/1280x1280/products/109/361/kinfolkessentialissue_1024x1024__22507.1456436715.jpg?c=2&imbypass=on"\n      },\n      {\n        "image_url": "{where-the-image-should-link-to}",\n        "image_source": "https://cdn11.bigcommerce.com/s-n0i50vy/images/stencil/500x659/products/85/282/livingwithplants_grande__26452.1456436666.jpg?c=2&imbypass=on"\n      }\n    ]\n  },\n  "widget_template_uuid": "{your-widget-template-uuid}"\n}', 'url': 'https://api.bigcommerce.com/stores/{store_hash}/v3/content/widgets', 'headers': {'Accept': 'application/json', 'Content-Type': 'application/json', 'X-Auth-Client': '{$$.env.X-Auth-Client}', 'X-Auth-Token': '{$$.env.X-Auth-Token}'}}
+
+<div class="HubBlock-header">
+    <div class="HubBlock-header-title flex items-center">
+        <div class="HubBlock-header-name">Sample Response</div>
+    </div><div class="HubBlock-header-subtitle">Create a Widget</div>
+</div>
 
 <!--
 title: "Sample Response"
@@ -213,7 +231,7 @@ lineNumbers: true
 }
 ```
 
-
+---
 
 <a href='#widget-tutorial_create-placement' aria-hidden='true' class='block-anchor'  id='widget-tutorial_create-placement'><i aria-hidden='true' class='linkify icon'></i></a>
 
@@ -238,6 +256,12 @@ To make use of Layouts for custom markdown use the code sample below. Replace th
 Make note of the `placement_uuid` for use in Layouts later.
 
 {'method': 'post', 'body': '{\n  "widget_uuid": "{your-widget-uuid}",\n  "entity_id": "{your-category-id}",\n  "template_file": "pages/category",\n  "status": "active"\n}', 'url': 'https://api.bigcommerce.com/stores/{store_hash}/v3/content/placements', 'headers': {'Accept': 'application/json', 'Content-Type': 'application/json', 'X-Auth-Client': '{$$.env.X-Auth-Client}', 'X-Auth-Token': '{$$.env.X-Auth-Token}'}}
+
+<div class="HubBlock-header">
+    <div class="HubBlock-header-title flex items-center">
+        <div class="HubBlock-header-name">Sample Response</div>
+    </div><div class="HubBlock-header-subtitle">Create Placement</div>
+</div>
 
 <!--
 title: "Sample Response"
@@ -297,7 +321,7 @@ lineNumbers: true
 
 ```
 
-
+---
 
 <a href='#widget-tutorial_create-layout' aria-hidden='true' class='block-anchor'  id='widget-tutorial_create-layout'><i aria-hidden='true' class='linkify icon'></i></a>
 
@@ -314,6 +338,12 @@ A Layout accepts any html. Using a layout can allow you to create complicated wi
 The markup in the sample requst body adds the style of opacity to each image on hover.
 
 {'method': 'post', 'body': '{\n  "entity_id": "{your-category-id}",\n  "region": "category_header_banner",\n  "template_file": "pages/category",\n  "markup": "<style>img:hover{opacity: 0.3;}</style><div><div style=\'padding:5px margin-bottom:40px;\'><bc-placement id=\'bb34b23b-0d4b-4b9b-9e24-c8b0dcfd5e08\'></bc-placement></div></div>"\n}', 'url': 'https://api.bigcommerce.com/stores/{store_hash}/v3/content/layouts', 'headers': {'Accept': 'application/json', 'Content-Type': 'application/json', 'X-Auth-Client': '{$$.env.X-Auth-Client}', 'X-Auth-Token': '{$$.env.X-Auth-Token}'}}
+
+<div class="HubBlock-header">
+    <div class="HubBlock-header-title flex items-center">
+        <div class="HubBlock-header-name">Sample Response</div>
+    </div><div class="HubBlock-header-subtitle">Create Layout</div>
+</div>
 
 <!--
 title: "Sample Response"
@@ -338,7 +368,7 @@ lineNumbers: true
 
 At this point you should see the widget on the category page of your choice. 
 
-
+---
 
 <a href='#widget-tutorial_reuse-widget-template' aria-hidden='true' class='block-anchor'  id='widget-tutorial_reuse-widget-template'><i aria-hidden='true' class='linkify icon'></i></a>
 
@@ -353,7 +383,7 @@ To reuse the Widget Template:
 * [Create the Widget](/api-reference/storefront/widgets-api/widget/createwidget) with the Widget Template ID
 * Either [Create a Placement](/api-reference/storefront/widgets-api/placement/createplacement) or [Create a Layout](/api-reference/storefront/widgets-api/layout/createlayout) using the Widget
 
-
+---
 
 <a href='#widget-tutorial_resources' aria-hidden='true' class='block-anchor'  id='widget-tutorial_resources'><i aria-hidden='true' class='linkify icon'></i></a>
 
@@ -365,7 +395,7 @@ To reuse the Widget Template:
 ### Related Articles
 * [Widgets Overview](/api-docs/storefront/widgets/widgets-overview)
 
-
+---
 
 <a href='#widget-tutorial_next-steps' aria-hidden='true' class='block-anchor'  id='widget-tutorial_next-steps'><i aria-hidden='true' class='linkify icon'></i></a>
 

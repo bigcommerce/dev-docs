@@ -25,6 +25,12 @@ For the examples below we will use a cart_item with the following pricing:
 ## RRP
 `rrp` is the MSRP or Manufactures Suggested Retail Price. This number will always be the same unless it is changed at the product level.
 
+<div class="HubBlock-header">
+    <div class="HubBlock-header-title flex items-center">
+        <div class="HubBlock-header-name">rrp</div>
+    </div><div class="HubBlock-header-subtitle"></div>
+</div>
+
 <!--
 title: "rrp"
 subtitle: ""
@@ -38,7 +44,7 @@ lineNumbers: true
     },
 ```
 
-
+---
 
 <a href='#cart-price-relationships_bulk-pricing' aria-hidden='true' class='block-anchor'  id='cart-price-relationships_bulk-pricing'><i aria-hidden='true' class='linkify icon'></i></a>
 
@@ -47,6 +53,12 @@ lineNumbers: true
 `bulk_pricing` shows the lowest calculated price. 
 
 Item on sale with 2 items added to the cart:
+
+<div class="HubBlock-header">
+    <div class="HubBlock-header-title flex items-center">
+        <div class="HubBlock-header-name">Item not on sale with 2 items added to the cart</div>
+    </div><div class="HubBlock-header-subtitle"></div>
+</div>
 
 <!--
 title: "Item not on sale with 2 items added to the cart"
@@ -62,6 +74,12 @@ lineNumbers: true
       },
 ```
 
+<div class="HubBlock-header">
+    <div class="HubBlock-header-title flex items-center">
+        <div class="HubBlock-header-name">Item on sale with 2 items added to the cart</div>
+    </div><div class="HubBlock-header-subtitle"></div>
+</div>
+
 <!--
 title: "Item on sale with 2 items added to the cart"
 subtitle: ""
@@ -76,13 +94,19 @@ lineNumbers: true
       },
 ```
 
-
+---
 
 <a href='#cart-price-relationships_price' aria-hidden='true' class='block-anchor'  id='cart-price-relationships_price'><i aria-hidden='true' class='linkify icon'></i></a>
 
 ## Price
 
 `price` shows the lowest calculated price of a single cart item. 
+
+<div class="HubBlock-header">
+    <div class="HubBlock-header-title flex items-center">
+        <div class="HubBlock-header-name">Two items in cart not on sale</div>
+    </div><div class="HubBlock-header-subtitle"></div>
+</div>
 
 <!--
 title: "Two items in cart not on sale"
@@ -98,6 +122,12 @@ lineNumbers: true
 
 ```
 
+<div class="HubBlock-header">
+    <div class="HubBlock-header-title flex items-center">
+        <div class="HubBlock-header-name">Two items in cart on sale</div>
+    </div><div class="HubBlock-header-subtitle"></div>
+</div>
+
 <!--
 title: "Two items in cart on sale"
 subtitle: ""
@@ -110,6 +140,12 @@ lineNumbers: true
       "value": 55
     },
 ```
+
+<div class="HubBlock-header">
+    <div class="HubBlock-header-title flex items-center">
+        <div class="HubBlock-header-name">Two items in cart on sale with bulk pricing</div>
+    </div><div class="HubBlock-header-subtitle"></div>
+</div>
 
 <!--
 title: "Two items in cart on sale with bulk pricing"
@@ -124,11 +160,17 @@ lineNumbers: true
     },
 ```
 
-
+---
 
 <a href='#cart-price-relationships_cart-item-full-response' aria-hidden='true' class='block-anchor'  id='cart-price-relationships_cart-item-full-response'><i aria-hidden='true' class='linkify icon'></i></a>
 
 ## Cart Item Object Example
+
+<div class="HubBlock-header">
+    <div class="HubBlock-header-title flex items-center">
+        <div class="HubBlock-header-name">Cart Item Response</div>
+    </div><div class="HubBlock-header-subtitle"></div>
+</div>
 
 <!--
 title: "Cart Item Response"

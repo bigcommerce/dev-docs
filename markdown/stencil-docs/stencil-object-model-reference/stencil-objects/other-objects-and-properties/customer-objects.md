@@ -956,7 +956,7 @@ Refunded, Rejected, or Cancelled</td>
   </tr>
 </table>
 
-
+---
 
 <a href='#customer_payment-methods' aria-hidden='true' class='block-anchor'  id='customer_payment-methods'><i aria-hidden='true' class='linkify icon'></i></a>
 
@@ -997,7 +997,7 @@ Refunded, Rejected, or Cancelled</td>
 | ↳ provider | ID of the provider to add a vaulted card |
 | ↳ expiry_year | Expiration Year | 
 
-
+---
 
 <a href='#customer_edit-payment-methods' aria-hidden='true' class='block-anchor'  id='customer_edit-payment-methods'><i aria-hidden='true' class='linkify icon'></i></a>
 
@@ -1049,7 +1049,7 @@ Refunded, Rejected, or Cancelled</td>
 | last_four | last four of the credit card |
 | provider | Credit card provider |
 
-
+---
 
 <a href='#customer_add-payment-methods' aria-hidden='true' class='block-anchor'  id='customer_add-payment-methods'><i aria-hidden='true' class='linkify icon'></i></a>
 

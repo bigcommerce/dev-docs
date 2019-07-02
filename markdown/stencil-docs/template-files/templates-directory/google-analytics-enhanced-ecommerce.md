@@ -44,7 +44,7 @@ If you would like to implement Data Tags on your custom theme and do not already
 
 Note: the remainder of this tutorial will be working off the refer to the theme’s base folder as ‘cornerstone’.
 
-
+---
 
 <a href='#google-analytics_implementing' aria-hidden='true' class='block-anchor'  id='google-analytics_implementing'><i aria-hidden='true' class='linkify icon'></i></a>
 
@@ -56,6 +56,12 @@ Note: the remainder of this tutorial will be working off the refer to the theme�
 
 2. In the config.json file, navigate to the features array. There’s should be a property in this array called `enhanced ecommerce`. If the `enhanced ecommerce` property is not present in the features array, add it. The features object should then look similar to the code below.
 
+
+<div class="HubBlock-header">
+    <div class="HubBlock-header-title flex items-center">
+        <div class="HubBlock-header-name">Enhanced ECommerce Feature</div>
+    </div><div class="HubBlock-header-subtitle">config.json</div>
+</div>
 
 <!--
 title: "Enhanced ECommerce Feature"
@@ -113,6 +119,12 @@ See [Pull Request #1377](https://github.com/bigcommerce/cornerstone/pull/1377/co
 
 You can see a data tag implemented in the HTML form tag in the code sample below:
 
+<div class="HubBlock-header">
+    <div class="HubBlock-header-title flex items-center">
+        <div class="HubBlock-header-name">Data Tag HTML</div>
+    </div><div class="HubBlock-header-subtitle"></div>
+</div>
+
 <!--
 title: "Data Tag HTML"
 subtitle: ""
@@ -133,7 +145,7 @@ lineNumbers: true
 
 In the above snippet, the data tag is embedded in a `<form>` HTML tag in lines 1 and 2. The data tag is  `data-list-name` and its value is `“Brand: {{brand.name}}”`.
 
-
+---
 
 <a href='#google-analytics_data-tag-ref' aria-hidden='true' class='block-anchor'  id='google-analytics_data-tag-ref'><i aria-hidden='true' class='linkify icon'></i></a>
 
@@ -256,7 +268,7 @@ Alternatively, if you are adding a data tag to a product list item in products/l
   </tr>
 </table>
 
-
+---
 
 <a href='#google-analytics_additional-resources' aria-hidden='true' class='block-anchor'  id='google-analytics_additional-resources'><i aria-hidden='true' class='linkify icon'></i></a>
 

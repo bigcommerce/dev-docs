@@ -34,6 +34,12 @@ To learn more about using the Fetch API with the Storefront see our tutorial [he
 
 You can run fetch requests from the browser console to test, or you can  use the [Scripts API](/api-docs/scripts/scripts-overview) to add inject JavaScript into your theme's footer.
 
+<div class="HubBlock-header">
+    <div class="HubBlock-header-title flex items-center">
+        <div class="HubBlock-header-name">Log Cart Details to the Console</div>
+    </div><div class="HubBlock-header-subtitle"></div>
+</div>
+
 <!--
 title: "Log Cart Details to the Console"
 subtitle: ""
@@ -52,6 +58,12 @@ fetch('/api/storefront/cart', {
 });
 </script>
 ```
+
+<div class="HubBlock-header">
+    <div class="HubBlock-header-title flex items-center">
+        <div class="HubBlock-header-name">Log Checkout Details to the Console</div>
+    </div><div class="HubBlock-header-subtitle"></div>
+</div>
 
 <!--
 title: "Log Checkout Details to the Console"
@@ -87,6 +99,12 @@ fetch('/api/storefront/cart?includes=consignments.availableShippingOptions', {
 </script>
 ```
 
+<div class="HubBlock-header">
+    <div class="HubBlock-header-title flex items-center">
+        <div class="HubBlock-header-name">Log Order Details to the Console</div>
+    </div><div class="HubBlock-header-subtitle"></div>
+</div>
+
 <!--
 title: "Log Order Details to the Console"
 subtitle: ""
@@ -106,7 +124,7 @@ console.log(myJson);
 </script>
 ```
 
-
+---
 
 <a href='#cart-checkout_server-to-server-cart-and-checkout' aria-hidden='true' class='block-anchor'  id='cart-checkout_server-to-server-cart-and-checkout'><i aria-hidden='true' class='linkify icon'></i></a>
 
@@ -126,7 +144,7 @@ The Server-to-Server APIs are for managing the contents of a shopping cart and c
 * Native mobile apps
 * Pre-filling customer information
 
-
+---
 
 <a href='#cart-checkout_troubleshooting' aria-hidden='true' class='block-anchor'  id='cart-checkout_troubleshooting'><i aria-hidden='true' class='linkify icon'></i></a>
 
@@ -142,6 +160,12 @@ We will go over common Storefront Cart and Checkout as well as Server to Server 
 Options and modifiers refer to a list of choices on a product. Options are used to build out variants and modifiers are not tied to variants at all. To learn more about options and modifiers see [Products Overview](/api-docs/catalog/products-overview#products-overview_modifier-options).
 
 To add a product to the cart that has a single modifier (text field), POST to the [Cart API](/api-reference/cart-checkout/server-server-cart-api/cart/createacart) without the `variant_id`. 
+
+<div class="HubBlock-header">
+    <div class="HubBlock-header-title flex items-center">
+        <div class="HubBlock-header-name">Single Modifier</div>
+    </div><div class="HubBlock-header-subtitle"></div>
+</div>
 
 <!--
 title: "Single Modifier"
@@ -170,6 +194,12 @@ lineNumbers: true
 
 To add a product to the cart that has one option (radio button)  associated with it, use just the `variant_id` in the request. 
 
+<div class="HubBlock-header">
+    <div class="HubBlock-header-title flex items-center">
+        <div class="HubBlock-header-name">Single Option</div>
+    </div><div class="HubBlock-header-subtitle"></div>
+</div>
+
 <!--
 title: "Single Option"
 subtitle: ""
@@ -189,6 +219,12 @@ lineNumbers: true
 ```
 
 To add a product that has both an option and a modifier associated with it, then use the `option_id` and `option_value`. This example uses a radio button (option) and a text field (modifier).
+
+<div class="HubBlock-header">
+    <div class="HubBlock-header-title flex items-center">
+        <div class="HubBlock-header-name">Modifier and Option</div>
+    </div><div class="HubBlock-header-subtitle"></div>
+</div>
 
 <!--
 title: "Modifier and Option"
@@ -230,6 +266,12 @@ Use the [Get Products](/api-reference/catalog/catalog-api/products/getproducts) 
 
 To create a cart with a product modifier:
 
+<div class="HubBlock-header">
+    <div class="HubBlock-header-title flex items-center">
+        <div class="HubBlock-header-name">Create cart with modifier</div>
+    </div><div class="HubBlock-header-subtitle"></div>
+</div>
+
 <!--
 title: "Create cart with modifier"
 subtitle: ""
@@ -268,6 +310,12 @@ A cart should be created with the `customer_id` as part of the request body. Use
 
 To create a cart with a `customer_id`:
 
+<div class="HubBlock-header">
+    <div class="HubBlock-header-title flex items-center">
+        <div class="HubBlock-header-name">Create cart with customer ID</div>
+    </div><div class="HubBlock-header-subtitle"></div>
+</div>
+
 <!--
 title: "Create cart with customer ID"
 subtitle: ""
@@ -296,6 +344,12 @@ lineNumbers: true
 To get the variant ID use the [Get Products](/api-reference/catalog/catalog-api/products/getproducts) endpoint or the [Get Variants](/api-reference/catalog/catalog-api/product-variants/getvariantsbyproductid) endpoint.
 To create a cart with a variant ID:
 
+<div class="HubBlock-header">
+    <div class="HubBlock-header-title flex items-center">
+        <div class="HubBlock-header-name">Create cart with variant ID</div>
+    </div><div class="HubBlock-header-subtitle"></div>
+</div>
+
 <!--
 title: "Create cart with variant ID"
 subtitle: ""
@@ -320,6 +374,12 @@ The incorrect `option_id` is supplied.
 ***Resolution:***
 To get the correct option_id make a request to [Get Products
 ](/api-reference/catalog/catalog-api/products/getproducts) or [Get Options](/api-reference/catalog/catalog-api/product-variant-options/getoptions). 
+
+<div class="HubBlock-header">
+    <div class="HubBlock-header-title flex items-center">
+        <div class="HubBlock-header-name">Create cart option ID</div>
+    </div><div class="HubBlock-header-subtitle"></div>
+</div>
 
 <!--
 title: "Create cart option ID"
@@ -356,6 +416,12 @@ lineNumbers: true
 **Resolution:**
 To add a product to the cart that has a single modifier (text field), POST to the [Cart API](/api-reference/cart-checkout/storefront-cart-api/cart/createacart) without the `variant_id`. Use the `optionId` and `optionValue` instead. 
 
+<div class="HubBlock-header">
+    <div class="HubBlock-header-title flex items-center">
+        <div class="HubBlock-header-name">Create cart optionId and optionValue</div>
+    </div><div class="HubBlock-header-subtitle"></div>
+</div>
+
 <!--
 title: "Create cart optionId and optionValue"
 subtitle: ""
@@ -381,6 +447,12 @@ lineNumbers: true
 
 To add a product to the cart that has one option (radio button)  associated with it, use just the `variant_id` in the request. 
 
+<div class="HubBlock-header">
+    <div class="HubBlock-header-title flex items-center">
+        <div class="HubBlock-header-name">Create Storefront Cart variantID</div>
+    </div><div class="HubBlock-header-subtitle"></div>
+</div>
+
 <!--
 title: "Create Storefront Cart variantID"
 subtitle: ""
@@ -400,6 +472,12 @@ lineNumbers: true
 ```
 
 To add a product that has both an option and a modifier associated with it, then use the `option_id` and `option_value`. This example uses a radio button (option) and a text field (modifier).
+
+<div class="HubBlock-header">
+    <div class="HubBlock-header-title flex items-center">
+        <div class="HubBlock-header-name">Add item with option and modifier</div>
+    </div><div class="HubBlock-header-subtitle"></div>
+</div>
 
 <!--
 title: "Add item with option and modifier"
@@ -462,7 +540,7 @@ When less than a product’s minimum required purchase or more than the maximum 
 ***Resolution:***
 Check the product for order_quantity_minimum and order_quantity_maximum for the correct amount to add the cart. Use the [Get Product](/api-reference/catalog/catalog-api/products/getproducts) endpoint.
 
-
+---
 
 <a href='#cart-checkout_available-webhooks' aria-hidden='true' class='block-anchor'  id='cart-checkout_available-webhooks'><i aria-hidden='true' class='linkify icon'></i></a>
 
@@ -471,7 +549,7 @@ Check the product for order_quantity_minimum and order_quantity_maximum for the 
 * [SKU](/api-docs/getting-started/webhooks/webhook-events#webhook-events_sku)
 * [Cart](/api-docs/getting-started/webhooks/webhook-events#webhook-events_cart)
 
-
+---
 
 <a href='#cart-checkout_oauth-scopes' aria-hidden='true' class='block-anchor'  id='cart-checkout_oauth-scopes'><i aria-hidden='true' class='linkify icon'></i></a>
 
@@ -484,7 +562,7 @@ Check the product for order_quantity_minimum and order_quantity_maximum for the 
 
 For more details and a full list of available scopes, see [Oauth Scopes](/api-docs/getting-started/basics/authentication#authentication_oauth-scopes).
 
-
+---
 
 <a href='#cart-checkout_related-endpoints' aria-hidden='true' class='block-anchor'  id='cart-checkout_related-endpoints'><i aria-hidden='true' class='linkify icon'></i></a>
 

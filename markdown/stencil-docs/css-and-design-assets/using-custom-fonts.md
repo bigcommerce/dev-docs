@@ -32,7 +32,7 @@ First, acquire your custom fonts. In this logo scenario, we'll assume the single
 Next, [use WebDav to upload each custom font](). (Upload to WebDAV's default `/content/` folder.)
 
 
-
+---
 
 <a href='#using-custom-fonts_reference-fonts' aria-hidden='true' class='block-anchor'  id='using-custom-fonts_reference-fonts'><i aria-hidden='true' class='linkify icon'></i></a>
 
@@ -49,7 +49,7 @@ Next, edit the appropriate template files' `<head>` sections to reference your c
 </style>
 ```
 
-
+---
 
 <a href='#using-custom-fonts_video-demo' aria-hidden='true' class='block-anchor'  id='using-custom-fonts_video-demo'><i aria-hidden='true' class='linkify icon'></i></a>
 
@@ -59,7 +59,7 @@ Watch a video demonstration of referencing custom fonts in your template files' 
 
 <iframe width="560" height="315" src="https://www.youtube.com/embed/-w7Hbn_p_pw" frameborder="0" allow="autoplay; encrypted-media" allowfullscreen></iframe>
 
-
+---
 
 <a href='#using-custom-fonts_update-the-css' aria-hidden='true' class='block-anchor'  id='using-custom-fonts_update-the-css'><i aria-hidden='true' class='linkify icon'></i></a>
 

@@ -50,6 +50,12 @@ Here is an example of a compliant file type and location:
 Here is how you would reference this file within <span class="fn"><a href="https://github.com/bigcommerce/cornerstone/blob/master/config.json">config.json</a></span>:
 
 
+<div class="HubBlock-header">
+    <div class="HubBlock-header-title flex items-center">
+        <div class="HubBlock-header-name">config.json</div>
+    </div><div class="HubBlock-header-subtitle">Referencing composed.png</div>
+</div>
+
 <!--
 title: "config.json"
 subtitle: "Referencing composed.png"
@@ -96,6 +102,12 @@ Here is how you would reference these files within <span class="fn"><a href="htt
 
  
 
+<div class="HubBlock-header">
+    <div class="HubBlock-header-title flex items-center">
+        <div class="HubBlock-header-name">config.json</div>
+    </div><div class="HubBlock-header-subtitle">Referencing Bright Variation</div>
+</div>
+
 <!--
 title: "config.json"
 subtitle: "Referencing Bright Variation"
@@ -117,7 +129,7 @@ lineNumbers: true
 
 ```
 
-
+---
 
 ## Resources
 * [Cornerstone config.json](https://github.com/bigcommerce/cornerstone/blob/master/config.json)

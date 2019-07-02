@@ -39,7 +39,7 @@ Index of hierarchical categories used to organize and group products.
 | search_keywords | string | A comma-separated list of keywords that can be used to locate this brand. |
 | url | string | The context path of this category. |
 
-
+---
 
 <a href='#v2-categories_list-categories' aria-hidden='true' class='block-anchor'  id='v2-categories_list-categories'><i aria-hidden='true' class='linkify icon'></i></a>
 
@@ -99,7 +99,7 @@ Example JSON returned in the response:
 ```
 
 
-
+---
 
 <a href='#v2-categories_get-categories' aria-hidden='true' class='block-anchor'  id='v2-categories_get-categories'><i aria-hidden='true' class='linkify icon'></i></a>
 
@@ -136,7 +136,7 @@ Example JSON returned in the response:
 }
 ```
 
-
+---
 
 <a href='#v2-categories_get-count-categories' aria-hidden='true' class='block-anchor'  id='v2-categories_get-count-categories'><i aria-hidden='true' class='linkify icon'></i></a>
 
@@ -157,7 +157,7 @@ Example JSON returned in the response:
 }
 ```
 
-
+---
 
 <a href='#v2-categories_create-categories' aria-hidden='true' class='block-anchor'  id='v2-categories_create-categories'><i aria-hidden='true' class='linkify icon'></i></a>
 
@@ -224,7 +224,7 @@ Example JSON returned in the response:
 }
 ```
 
-
+---
 
 <a href='#v2-categories_update-categories' aria-hidden='true' class='block-anchor'  id='v2-categories_update-categories'><i aria-hidden='true' class='linkify icon'></i></a>
 
@@ -276,7 +276,7 @@ Example JSON returned in the response:
 }
 ```
 
-
+---
 
 <a href='#v2-categories_delete-categories' aria-hidden='true' class='block-anchor'  id='v2-categories_delete-categories'><i aria-hidden='true' class='linkify icon'></i></a>
 
@@ -286,7 +286,7 @@ Deletes a category.
 
 >`DELETE /stores/{store_hash}/v2/categories/{id}`
 
-
+---
 
 <div class="HubBlock--callout">
 <div class="CalloutBlock--error">

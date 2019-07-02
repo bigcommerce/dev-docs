@@ -35,7 +35,7 @@ Rules that modify the properties of a product, such as weight, price, and produc
 | conditions | array | The conditions array can contain one or more objects. Each object inside the array contains three name/value pairs, but at least one value will be missing at any given time. If a `product_option_id` value is present, then a `option_value_id` must also be present. If `product_option_id` and `option_value_id` values are present, then a `sku_id` value must not be present. This also holds true in the reverse, where if a `sku_id` value exists, values for the `product_option_id` and `option_value_id` cannot exist. NOTE: if you can use a SKU value, this is preferred for simplicity. Empty values are represented as `null`. If multiple objects are included in the array, the software runs through them using an AND/OR logic. Objects with identical `product_option_id` values will be linked with an OR. Objects with different `product_option_id` values will be linked with an AND. When one object contains a `sku_id` value and the other contains `product_option_id` and `option_value_id` values, they will be linked with an AND. Two objects which both contain `sku_id` values will be linked with an OR. |
 
 
-
+---
 
 <a href='#v2-rule_list-product-rules' aria-hidden='true' class='block-anchor'  id='v2-rule_list-product-rules'><i aria-hidden='true' class='linkify icon'></i></a>
 
@@ -109,7 +109,7 @@ Example JSON returned in the response:
 ]
 ```
 
-
+---
 
 <a href='#v2-rule-product-rule' aria-hidden='true' class='block-anchor'  id='v2-rule-product-rule'><i aria-hidden='true' class='linkify icon'></i></a>
 
@@ -148,7 +148,7 @@ Example JSON returned in the response:
 }
 ```
 
-
+---
 
 <a href='#v2-rule_get-count-rule' aria-hidden='true' class='block-anchor'  id='v2-rule_get-count-rule'><i aria-hidden='true' class='linkify icon'></i></a>
 
@@ -168,7 +168,7 @@ Example JSON returned in the response:
 }
 ```
 
-
+---
 
 <a href='#v2-rule_create-product-rule' aria-hidden='true' class='block-anchor'  id='v2-rule_create-product-rule'><i aria-hidden='true' class='linkify icon'></i></a>
 
@@ -221,7 +221,7 @@ Example JSON returned in the response:
 }
 ```
 
-
+---
 
 <a href='#v2-rule_update-product-rule' aria-hidden='true' class='block-anchor'  id='v2-rule_update-product-rule'><i aria-hidden='true' class='linkify icon'></i></a>
 
@@ -275,7 +275,7 @@ Example JSON returned in the response:
 }
 ```
 
-
+---
 
 <a href='#v2-rule_delete-product-rule' aria-hidden='true' class='block-anchor'  id='v2-rule_delete-product-rule'><i aria-hidden='true' class='linkify icon'></i></a>
 
@@ -285,7 +285,7 @@ Deletes a product rule.
 
 >`DELETE /stores/{store_hash}/v2/products/{product_id}/rules/{id}`
 
-
+---
 
 <a href='#v2-rule_delete-all-product-rule' aria-hidden='true' class='block-anchor'  id='v2-rule_delete-all-product-rule'><i aria-hidden='true' class='linkify icon'></i></a>
 

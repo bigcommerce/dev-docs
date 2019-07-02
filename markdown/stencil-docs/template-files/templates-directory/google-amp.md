@@ -36,6 +36,12 @@ Example:
 In `layout/amp.html` (referenced below) replace `theme_settings.amp_analytics_id` with
 `settings.amp_analytics_id`.
 
+<div class="HubBlock-header">
+    <div class="HubBlock-header-title flex items-center">
+        <div class="HubBlock-header-name">templates/layout/amp.html</div>
+    </div><div class="HubBlock-header-subtitle"></div>
+</div>
+
 <!--
 title: "templates/layout/amp.html"
 subtitle: ""
@@ -53,6 +59,12 @@ lineNumbers: true
 ```
 
 In [config.json](https://github.com/bigcommerce/cornerstone/blob/master/config.json) (referenced below) make sure `google_amp` is still in the features array. See below for code snippet.
+
+<div class="HubBlock-header">
+    <div class="HubBlock-header-title flex items-center">
+        <div class="HubBlock-header-name">config.json</div>
+    </div><div class="HubBlock-header-subtitle"></div>
+</div>
 
 <!--
 title: "config.json"

@@ -23,13 +23,19 @@ This tutorial reviews the Fetch API and then uses it to complete some storefront
 
 Interaction with the Storefront APIs should be done using JavaScript. The Storefront APIs do not require API Tokens to work. The URL should be served over https and be on the [permanent URL](https://forum.bigcommerce.com/s/article/Changing-Domains); otherwise, it can cause [CORs](https://developers.google.com/web/ilt/pwa/working-with-the-fetch-api#cross-origin_requests) errors in the console.
 
-
+---
 
 <a href='#working-sf-apis_create-postdata' aria-hidden='true' class='block-anchor'  id='working-sf-apis_create-postdata'><i aria-hidden='true' class='linkify icon'></i></a>
 
 ## Create postData() function
 
 Below is the function we are going to use to create a new cart using the Storefront Cart API.
+
+<div class="HubBlock-header">
+    <div class="HubBlock-header-title flex items-center">
+        <div class="HubBlock-header-name">postData</div>
+    </div><div class="HubBlock-header-subtitle"></div>
+</div>
 
 <!--
 title: "postData"
@@ -91,6 +97,12 @@ After the line items, fetch uses [then()](https://developer.mozilla.org/en-US/do
 
 If there is an error, the next line [catch()](https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/Promise/catch) prints the returned error to the console. 
 
+<div class="HubBlock-header">
+    <div class="HubBlock-header-title flex items-center">
+        <div class="HubBlock-header-name"></div>
+    </div><div class="HubBlock-header-subtitle"></div>
+</div>
+
 <!--
 title: ""
 subtitle: ""
@@ -128,7 +140,7 @@ Finally, `.then()` is parsing the response to JSON.
 
 Now that we have the basics of creating a function with the fetch() API, we are going to use it to create a cart, get a cart and delete cart items. 
 
-
+---
 
 <a href='#working-sf-apis_storefront-cart' aria-hidden='true' class='block-anchor'  id='working-sf-apis_storefront-cart'><i aria-hidden='true' class='linkify icon'></i></a>
 
@@ -140,6 +152,12 @@ Now that we have the basics of creating a function with the fetch() API, we are 
 First, we pass in the request URL to create a cart into the function call. 
 
 Then we need to pass in the `lineItems` array. The `quantity` and `productId` are required to create a cart. If there are [variants](/api-reference/catalog/catalog-api/product-variants/getvariantsbyproductid) then the variantId or optionId with the optionValues need to be added.  See [Create Cart](/api-reference/cart-checkout/storefront-cart-api/cart/createacart) for more examples. The response will be printed to the browser console.  Make sure to note the value for cartId as it will be used later.
+
+<div class="HubBlock-header">
+    <div class="HubBlock-header-title flex items-center">
+        <div class="HubBlock-header-name">Create Cart</div>
+    </div><div class="HubBlock-header-subtitle"></div>
+</div>
 
 <!--
 title: "Create Cart"
@@ -174,6 +192,12 @@ function postData(url = ``, cartItems = {}) {
       .then(response => response.json()); 
   }
 ```
+
+<div class="HubBlock-header">
+    <div class="HubBlock-header-title flex items-center">
+        <div class="HubBlock-header-name">Create Cart Response</div>
+    </div><div class="HubBlock-header-subtitle"></div>
+</div>
 
 <!--
 title: "Create Cart Response"
@@ -265,6 +289,12 @@ lineNumbers: true
 
 The function below is slightly different. The postData() that was present in Create a Cart above is removed since the function only needs to print the response data to the console. To return the full product data in a cart, an include query parameter must be added. See [Get Cart endpoint](/api-reference/cart-checkout/storefront-cart-api/cart/getacart) for more details. 
 
+<div class="HubBlock-header">
+    <div class="HubBlock-header-title flex items-center">
+        <div class="HubBlock-header-name">Get Cart</div>
+    </div><div class="HubBlock-header-subtitle"></div>
+</div>
+
 <!--
 title: "Get Cart"
 subtitle: ""
@@ -282,6 +312,12 @@ fetch('/api/storefront/cart?include=lineItems.digitalItems.options,lineItems.phy
     console.log(JSON.stringify(myJson));
   });
 ```
+
+<div class="HubBlock-header">
+    <div class="HubBlock-header-title flex items-center">
+        <div class="HubBlock-header-name">Get Cart Response</div>
+    </div><div class="HubBlock-header-subtitle"></div>
+</div>
 
 <!--
 title: "Get Cart Response"
@@ -379,6 +415,12 @@ lineNumbers: true
 
 To add a line item, adjust the fetch statement. It needs to accept the `url` and `cartId`.  `cartItems` is again passed as the body of the request. 
 
+<div class="HubBlock-header">
+    <div class="HubBlock-header-title flex items-center">
+        <div class="HubBlock-header-name">Add Item to Cart</div>
+    </div><div class="HubBlock-header-subtitle"></div>
+</div>
+
 <!--
 title: "Add Item to Cart"
 subtitle: ""
@@ -429,6 +471,12 @@ We have also introduced a new way to handle errors. Error handling in fetch can 
 </div>
 </div>
 
+<div class="HubBlock-header">
+    <div class="HubBlock-header-title flex items-center">
+        <div class="HubBlock-header-name">Delete Cart Item</div>
+    </div><div class="HubBlock-header-subtitle"></div>
+</div>
+
 <!--
 title: "Delete Cart Item"
 subtitle: ""
@@ -476,6 +524,12 @@ Make sure you have created a cart using the Storefront Cart, added two different
 [*https://<store_url>/api/storefront/checkouts/{checkoutId}/billing-address*](https://developer.bigcommerce.com/api-reference/cart-checkout/storefront-checkout-api/checkout/checkoutsbillingaddressbycheckoutidpost)
 
 A billing address is required to complete a checkout. In postData() we pass in the `checkoutId` and the billing address object.
+
+<div class="HubBlock-header">
+    <div class="HubBlock-header-title flex items-center">
+        <div class="HubBlock-header-name">Add billing address</div>
+    </div><div class="HubBlock-header-subtitle"></div>
+</div>
 
 <!--
 title: "Add billing address"
@@ -525,6 +579,12 @@ When adding a shipping address to the checkout `?include=consignments.availableS
 
 To get the line item IDs needed for consignment, send a request to [/GET Checkout](/api-reference/cart-checkout/storefront-checkout-api/checkout/checkoutsbycheckoutidget). Try to modify the /GET Cart request so it returns Checkout Details. If you are having trouble, see the code sample below. 
 
+<div class="HubBlock-header">
+    <div class="HubBlock-header-title flex items-center">
+        <div class="HubBlock-header-name">Get Checkout by ID</div>
+    </div><div class="HubBlock-header-subtitle"></div>
+</div>
+
 <!--
 title: "Get Checkout by ID"
 subtitle: ""
@@ -542,6 +602,12 @@ fetch('/api/storefront/checkouts/1650fb51-172b-4cde-a220-90c6a8ef9293', {
     console.log(JSON.stringify(myJson));
   });
 ```
+
+<div class="HubBlock-header">
+    <div class="HubBlock-header-title flex items-center">
+        <div class="HubBlock-header-name">Get Checkout Response</div>
+    </div><div class="HubBlock-header-subtitle"></div>
+</div>
 
 <!--
 title: "Get Checkout Response"
@@ -678,6 +744,12 @@ lineNumbers: true
 
 Below, there are two shipping addresses in an array with a lineItem assigned to each. Note that `?include=consignments.availableShippingOptions` is being added as a query parameter. Without this, the `availableShippingOptions` will not return in the response. 
 
+<div class="HubBlock-header">
+    <div class="HubBlock-header-title flex items-center">
+        <div class="HubBlock-header-name">Create Consignment</div>
+    </div><div class="HubBlock-header-subtitle"></div>
+</div>
+
 <!--
 title: "Create Consignment"
 subtitle: ""
@@ -750,6 +822,12 @@ function postData(url = ``, checkoutId = ``, data = {},) {
 
 </div>
 </div>
+</div>
+
+<div class="HubBlock-header">
+    <div class="HubBlock-header-title flex items-center">
+        <div class="HubBlock-header-name">Create Consignment Response</div>
+    </div><div class="HubBlock-header-subtitle"></div>
 </div>
 
 <!--
@@ -975,6 +1053,12 @@ lineNumbers: true
 
 So far we have created a cart, added a billing address and shipping address, and assigned the lineItems to the address they should be shipped. Now we are going to make two PUT requests to assign a shipping option for each address. Only one consignment can be updated at a time. If you sent in the `?include=consignments.availableShippingOptions` with the previous request, then pick the appropriate `shippingOptionId` for each consignment. 
 
+<div class="HubBlock-header">
+    <div class="HubBlock-header-title flex items-center">
+        <div class="HubBlock-header-name">Example Consignment with Available Shipping Options</div>
+    </div><div class="HubBlock-header-subtitle"></div>
+</div>
+
 <!--
 title: "Example Consignment with Available Shipping Options"
 subtitle: ""
@@ -1032,6 +1116,12 @@ lineNumbers: true
 		}]
 ```
 
+<div class="HubBlock-header">
+    <div class="HubBlock-header-title flex items-center">
+        <div class="HubBlock-header-name">Update Consignment with Available Shipping Options</div>
+    </div><div class="HubBlock-header-subtitle"></div>
+</div>
+
 <!--
 title: "Update Consignment with Available Shipping Options"
 subtitle: ""
@@ -1056,7 +1146,7 @@ function postData(url = ``, checkoutId = ``, consignmentId = ``, data = {},) {
 }
 ```
 
-
+---
 
 <a href='#working-sf-apis_troubleshooting' aria-hidden='true' class='block-anchor'  id='working-sf-apis_troubleshooting'><i aria-hidden='true' class='linkify icon'></i></a>
 
@@ -1068,11 +1158,17 @@ Check to make sure you have the right credentials set up. Most requests will use
 * **Did you get a 404?**  
 Make sure you have at least one item in your cart. Deleting all items removes the cart and returns a 404 in the browser console.
 
-
+---
 
 <a href='#working-sf-apis_realated-endpoints' aria-hidden='true' class='block-anchor'  id='working-sf-apis_realated-endpoints'><i aria-hidden='true' class='linkify icon'></i></a>
 
-## Related Endpoints
+## Resources
+
+### Related Endpoints
 - [Storefront Cart](/api-reference/cart-checkout/storefront-cart-api)
 - [Storefront Checkout](/api-reference/cart-checkout/storefront-checkout-api)
+
+### Related Articles
+- [How To Embed a Shipping Location Map on the BigCommerce Order Confirmation Page](https://medium.com/bigcommerce-developer-blog/how-to-embed-a-google-map-on-the-bigcommerce-order-confirmation-page-8264747e654d) (Developer Blog)
+- [Let’s Talk About CORS](https://medium.com/bigcommerce-developer-blog/lets-talk-about-cors-84800c726919) (Developer Blog)
 

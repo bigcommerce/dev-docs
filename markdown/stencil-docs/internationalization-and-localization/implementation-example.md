@@ -16,6 +16,12 @@ Here is an example based on this file within Cornerstone:
 
 In the excerpt below, each highlighted `{{lang...}}` statement is a Handlebars helper. Each of the statements abstracts the message indicated by its (English-language) key name to enable internationalization of that message:
 
+<div class="HubBlock-header">
+    <div class="HubBlock-header-title flex items-center">
+        <div class="HubBlock-header-name"></div>
+    </div><div class="HubBlock-header-subtitle"></div>
+</div>
+
 <!--
 title: ""
 subtitle: ""
@@ -52,6 +58,12 @@ lineNumbers: true
 ```
 
 In the excerpts below, you can see that the default theme’s basic `.../lang/en.json` file includes matches, and value definitions, for each of the translation keys in the Handlebars helpers above:
+
+<div class="HubBlock-header">
+    <div class="HubBlock-header-title flex items-center">
+        <div class="HubBlock-header-name"></div>
+    </div><div class="HubBlock-header-subtitle"></div>
+</div>
 
 <!--
 title: ""

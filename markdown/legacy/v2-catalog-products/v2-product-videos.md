@@ -28,7 +28,7 @@ Embedded videos displayed on product listings.
 | sort_order | int | Sort order for this video. |
 | name | string | Name for this video. |
 
-
+---
 
 <a href='#v2-video_list-product-videos' aria-hidden='true' class='block-anchor'  id='v2-video_list-product-videos'><i aria-hidden='true' class='linkify icon'></i></a>
 
@@ -63,7 +63,7 @@ Example JSON returned in the response:
 ]
 ```
 
-
+---
 
 <a href='#v2-sku_get-product-video' aria-hidden='true' class='block-anchor'  id='v2-sku_get-product-video'><i aria-hidden='true' class='linkify icon'></i></a>
 
@@ -73,7 +73,7 @@ Gets a product video.
 
 >`GET /stores/{store_hash}/v2/products/{product_id}/videos/{id}`
 
-
+---
 
 <a href='#v2-video_get-count-video' aria-hidden='true' class='block-anchor'  id='v2-video_get-count-video'><i aria-hidden='true' class='linkify icon'></i></a>
 
@@ -94,7 +94,7 @@ Example JSON returned in the response:
 }
 ```
 
-
+---
 
 <a href='#v2-video_create-product-video' aria-hidden='true' class='block-anchor'  id='v2-video_create-product-video'><i aria-hidden='true' class='linkify icon'></i></a>
 
@@ -169,7 +169,7 @@ Example request object:
 }
 ```
 
-
+---
 
 <a href='#v2-video_delete-product-video' aria-hidden='true' class='block-anchor'  id='v2-video_delete-product-video'><i aria-hidden='true' class='linkify icon'></i></a>
 
@@ -179,7 +179,7 @@ Delete a product video.
 
 >`DELETE /stores/{store_hash}/v2/products/{product_id}/videos/{id}`
 
-
+---
 
 <a href='#v2-video_delete-all-product-video' aria-hidden='true' class='block-anchor'  id='v2-video_delete-all-product-video'><i aria-hidden='true' class='linkify icon'></i></a>
 

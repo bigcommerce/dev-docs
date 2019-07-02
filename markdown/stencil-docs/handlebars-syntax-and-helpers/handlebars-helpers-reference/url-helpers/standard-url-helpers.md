@@ -23,7 +23,7 @@ Encodes a Uniform Resource Identifier (URI) component, by replacing each instanc
 * `str` {String}: The un-encoded string.
 * `returns` {String}: The encoded string.
 
-
+---
 
 <a href='#handlebars_decodeuri' aria-hidden='true' class='block-anchor'  id='handlebars_decodeuri'><i aria-hidden='true' class='linkify icon'></i></a>
 
@@ -36,7 +36,7 @@ Decodes a Uniform Resource Identifier (URI) component.
 * `str` {String}
 * `returns` {String}
 
-
+---
 
 <a href='#handlebars_urlresolve' aria-hidden='true' class='block-anchor'  id='handlebars_urlresolve'><i aria-hidden='true' class='linkify icon'></i></a>
 
@@ -50,7 +50,7 @@ Takes a base URL, and an href URL, and resolves them as a browser would for an a
 * `href` {String}
 * `returns` {String}
 
-
+---
 
 <a href='#handlebars_urlparse' aria-hidden='true' class='block-anchor'  id='handlebars_urlparse'><i aria-hidden='true' class='linkify icon'></i></a>
 
@@ -63,7 +63,7 @@ Parses a `url` string into an object.
 * `str` {String}: URL string.
 * `returns` {String}: Returns stringified JSON.
 
-
+---
 
 <a href='#handlebars_stripquerystring' aria-hidden='true' class='block-anchor'  id='handlebars_stripquerystring'><i aria-hidden='true' class='linkify icon'></i></a>
 
@@ -76,7 +76,7 @@ Strips the query string from a `url`.
 * `url` {String}
 * `returns` {String}: The URL without the queryString.
 
-
+---
 
 <a href='#handlebars_stripprotocol' aria-hidden='true' class='block-anchor'  id='handlebars_stripprotocol'><i aria-hidden='true' class='linkify icon'></i></a>
 

@@ -22,6 +22,12 @@ A Handlebars expression begins with: ``{{`` and ends with: ``}}``.
 
 Here is a basic example that accesses the title and body variables:
 
+<div class="HubBlock-header">
+    <div class="HubBlock-header-title flex items-center">
+        <div class="HubBlock-header-name"></div>
+    </div><div class="HubBlock-header-subtitle"></div>
+</div>
+
 <!--
 title: ""
 subtitle: ""

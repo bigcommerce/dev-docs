@@ -16,7 +16,7 @@ It allows a developer to create a custom checkout experience to move a customer 
 The SDK handles all the ‘heavy-lifting’ such as customer login, getting shipping quotes and submitting payment for an order.
 With the Checkout JS SDK, you can build a [custom checkout presentation](https://github.com/bigcommerce/checkout-sdk-js-example) layer in popular frontend frameworks such as React.
 
-
+---
 
 <a href='#checkout-sdk_what-can-i-do' aria-hidden='true' class='block-anchor'  id='checkout-sdk_what-can-i-do'><i aria-hidden='true' class='linkify icon'></i></a>
 
@@ -51,14 +51,14 @@ The Checkout JS SDK allows you to present the checkout process to the shopper in
 However, the Checkout JS SDK does not allow you to change the underpinnings of the checkout - you must still conform to the model of the Checkout API underpinning the SDK to complete a Checkout and create an Order in BigCommerce. 
 The SDK does not allow you to implement custom payment, shipping, or tax calculation providers into the checkout - instead, the configured providers for these services on a given store are expressed via our Checkout API.
 
-
+---
 
 <a href='#checkout-sdk_where-to-get' aria-hidden='true' class='block-anchor'  id='checkout-sdk_where-to-get'><i aria-hidden='true' class='linkify icon'></i></a>
 
 ## Where Can I Get the SDK?
 The Checkout JS SDK and associated documentation is available from the [BigCommerce SDK Repo.]( https://github.com/bigcommerce/checkout-sdk-js)
 
-
+---
 
 <a href='#checkout-sdk_support-customization' aria-hidden='true' class='block-anchor'  id='checkout-sdk_support-customization'><i aria-hidden='true' class='linkify icon'></i></a>
 

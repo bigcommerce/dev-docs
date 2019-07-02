@@ -34,7 +34,7 @@ Sent to the recipient of a gift certificate.
 | %%LNG_GiftCertificateEmailWarning%%
 | %%GLOBAL_EmailFooter%%
 
-
+---
 
 <a href='#abandoned-cart-email-template' aria-hidden='true' class='block-anchor'  id='abandoned-cart-email-template'><i aria-hidden='true' class='linkify icon'></i></a>
 
@@ -51,7 +51,7 @@ Sent when a customer abandons a shopping cart.
 | %%LNG_AC_EmailUnsubscribe%%
 | %%LNG_AC_EmailUnsubscribeSuffix%%
 
-
+---
 
 <a href='#invoice-email-template' aria-hidden='true' class='block-anchor'  id='invoice-email-template'><i aria-hidden='true' class='linkify icon'></i></a>
 
@@ -90,7 +90,7 @@ Sent when a customer places an order.
 | %%GLOBAL_ProductThumbImageURL%%
 
 
-
+---
 
 <a href='#order-status-email-template' aria-hidden='true' class='block-anchor'  id='order-status-email-template'><i aria-hidden='true' class='linkify icon'></i></a>
 
@@ -117,7 +117,7 @@ Sent when an order's status is changed.
 | %%GLOBAL_ViewOrderStatusLink%% |
 | %%GLOBAL_EmailFooter%% |
 
-
+---
 
 <a href='#return-confirmation-email-template' aria-hidden='true' class='block-anchor'  id='return-confirmation-email-template'><i aria-hidden='true' class='linkify icon'></i></a>
 

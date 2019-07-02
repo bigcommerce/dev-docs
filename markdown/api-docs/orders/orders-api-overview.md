@@ -50,7 +50,7 @@ An active BigCommerce store with a sellable [product](/api-reference/catalog/cat
 The following [OAuth](/api-docs/getting-started/authentication#authentication_oauth-scopes) scopes are required:
 * Modify Orders
 
-
+---
 
 <a href='#orders-api-overview_create-order' aria-hidden='true' class='block-anchor'  id='orders-api-overview_create-order'><i aria-hidden='true' class='linkify icon'></i></a>
 
@@ -91,6 +91,12 @@ Make note of the `option_values > id` and `option_values > option_id`. These wil
 
 </div>
 </div>
+</div>
+
+<div class="HubBlock-header">
+    <div class="HubBlock-header-title flex items-center">
+        <div class="HubBlock-header-name">Example /GET Variants Response</div>
+    </div><div class="HubBlock-header-subtitle">https://api.bigcommerce.com/stores/{store_hash}/v3/catalog/products/{product_id}/variants</div>
 </div>
 
 <!--
@@ -155,6 +161,12 @@ Next, create the products array which includes the custom product and the existi
 
 The `product_options` > `value` must be passed in as a string.
 
+<div class="HubBlock-header">
+    <div class="HubBlock-header-title flex items-center">
+        <div class="HubBlock-header-name">Example Products Array</div>
+    </div><div class="HubBlock-header-subtitle">This is an abbreviated request</div>
+</div>
+
 <!--
 title: "Example Products Array"
 subtitle: "This is an abbreviated request"
@@ -196,6 +208,12 @@ lineNumbers: true
 * price_inc_tax – Price including tax
 * price_ex_tax – Price excluding tax
 * sku (optional)
+
+<div class="HubBlock-header">
+    <div class="HubBlock-header-title flex items-center">
+        <div class="HubBlock-header-name">Custom Order Products Array</div>
+    </div><div class="HubBlock-header-subtitle">This is an abbreviated request</div>
+</div>
 
 <!--
 title: "Custom Order Products Array"
@@ -271,6 +289,12 @@ For products where product options are required, the API will validate these req
 * country_iso2 
 * email
 
+<div class="HubBlock-header">
+    <div class="HubBlock-header-title flex items-center">
+        <div class="HubBlock-header-name">Add a Billing Address</div>
+    </div><div class="HubBlock-header-subtitle">This is an abbreviated request</div>
+</div>
+
 <!--
 title: "Add a Billing Address"
 subtitle: "This is an abbreviated request"
@@ -322,6 +346,12 @@ lineNumbers: true
 
 The shipping address is input as an array object since more than one shipping address can be added at a time. Adding multiple shipping addresses allows for an order to ship to multiple locations.
 
+<div class="HubBlock-header">
+    <div class="HubBlock-header-title flex items-center">
+        <div class="HubBlock-header-name">Add a shipping address</div>
+    </div><div class="HubBlock-header-subtitle">This is an abbreviated request</div>
+</div>
+
 <!--
 title: "Add a shipping address"
 subtitle: "This is an abbreviated request"
@@ -372,6 +402,12 @@ Manual discounts are supported. To add a manual discount either overwrite the pr
 ### Create Order Example
 
 After the products, billing and shipping address are added, an order can be created.
+
+<div class="HubBlock-header">
+    <div class="HubBlock-header-title flex items-center">
+        <div class="HubBlock-header-name">Create an Order Request</div>
+    </div><div class="HubBlock-header-subtitle"></div>
+</div>
 
 <!--
 title: "Create an Order Request"
@@ -439,7 +475,7 @@ lineNumbers: true
 }
 ```
 
-
+---
 
 <a href='#orders-api-guide_order-response' aria-hidden='true' class='block-anchor'  id='orders-api-guide_order-response'><i aria-hidden='true' class='linkify icon'></i></a>
 
@@ -462,6 +498,12 @@ In the example below, the order ID is 193.
 
 </div>
 </div>
+</div>
+
+<div class="HubBlock-header">
+    <div class="HubBlock-header-title flex items-center">
+        <div class="HubBlock-header-name">Create Order Response</div>
+    </div><div class="HubBlock-header-subtitle"></div>
 </div>
 
 <!--
@@ -562,7 +604,7 @@ lineNumbers: true
 }
 ```
 
-
+---
 
 <a href='#orders-api-overview_shipping-order' aria-hidden='true' class='block-anchor'  id='orders-api-overview_shipping-order'><i aria-hidden='true' class='linkify icon'></i></a>
 
@@ -590,6 +632,12 @@ Once the order shipment is created, it will automatically send out an email to t
 
 If the order shipment is deleted, the status of the shipment is still in shipped. The status will need to be [manually changed](/api-reference/orders/orders-api/order-status/getorderstatuses).
 
+<div class="HubBlock-header">
+    <div class="HubBlock-header-title flex items-center">
+        <div class="HubBlock-header-name">Create Order Shipment</div>
+    </div><div class="HubBlock-header-subtitle"></div>
+</div>
+
 <!--
 title: "Create Order Shipment"
 subtitle: ""
@@ -616,6 +664,12 @@ lineNumbers: true
   ]
 }
 ```
+
+<div class="HubBlock-header">
+    <div class="HubBlock-header-title flex items-center">
+        <div class="HubBlock-header-name">Order Shipment Response</div>
+    </div><div class="HubBlock-header-subtitle"></div>
+</div>
 
 <!--
 title: "Order Shipment Response"
@@ -722,7 +776,7 @@ An order can be created with a `shipping_cost_ex_tax` and `shipping_cost_inc_tax
 ### Shipping Carrier
 Generating a quote through a shipping carrier is currently not supported. A shipping carrier can be specified when creating an Order Shipment. The quote can be generate elsewhere, then update the `shipping_cost_ex_tax` and `shipping_cost_inc_tax` for the order total to be correct.. 
 
-
+---
 
 <a href='#orders-api-overview_taxes' aria-hidden='true' class='block-anchor'  id='orders-api-overview_taxes'><i aria-hidden='true' class='linkify icon'></i></a>
 
@@ -751,14 +805,14 @@ You can create overrides for calculated values such as product prices, subtotal 
 | Paid or `Refunded` | Unpaid | Unpaid | Tax document voided |
 | Unpaid or `Refunded` | Paid | Paid | Tax document submitted |
 
-
+---
 
 <a href='##orders-api-overview_override-preset-values' aria-hidden='true' class='block-anchor'  id='#orders-api-overview_override-preset-values'><i aria-hidden='true' class='linkify icon'></i></a>
 
 ## Overriding Preset Values
 You can create overrides for calculated values such as product prices, subtotal and totals by sending a fixed value in the request. If values are not supplied for these properties, they will be automatically calculated based on the preset store values and tax rules.
 
-
+---
 
 <a href='#orders-api-overview_calculation_totals' aria-hidden='true' class='block-anchor'  id='orders-api-overview_calculation_totals'><i aria-hidden='true' class='linkify icon'></i></a>
 
@@ -780,7 +834,7 @@ Edits to the following properties will trigger a recalculation of the subtotal a
 *   billing_address
 *   shipping_addresses
 
-
+---
 
 <a href='#orders-api-overview_order_status' aria-hidden='true' class='block-anchor'  id='orders-api-overview_order_status'><i aria-hidden='true' class='linkify icon'></i></a>
 
@@ -805,7 +859,7 @@ BigCommerce considers all statuses other than those above to be of the unpaid ty
 
 The order status label can be changed in the Control Panel. This **does not** change the underlying functionality. See our support article on [Order Status](https://support.bigcommerce.com/s/article/Order-Statuses#rename).
 
-
+---
 
 <a href='#orders-api-overview_faq' aria-hidden='true' class='block-anchor'  id='orders-api-overview_faq'><i aria-hidden='true' class='linkify icon'></i></a>
 
@@ -839,7 +893,7 @@ You can either process payment through a third party or using the Control Panel.
 Not at this time. If an order is created either in the Control Panel or via API, then it returns a 204 when trying to get a [Shipping Quote](https://developer.bigcommerce.com/api-reference/orders/orders-api/models/shippingquotes).
 
 
-
+---
 
 <a href='#orders-api-overview_resources' aria-hidden='true' class='block-anchor'  id='orders-api-overview_resources'><i aria-hidden='true' class='linkify icon'></i></a>
 

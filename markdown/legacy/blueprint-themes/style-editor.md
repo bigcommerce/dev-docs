@@ -14,7 +14,7 @@ Style Editor allows users to customize the look and feel of their BigCommerce st
 Style Editor uses Less.js as a CSS preprocessor. This allows Style Editor to take advantage of variables and other functions to ensure design consistency.
 
 
-
+---
 
 <a href='#what-is-lessjs' aria-hidden='true' class='block-anchor'  id='what-is-lessjs'><i aria-hidden='true' class='linkify icon'></i></a>
 
@@ -25,7 +25,7 @@ Less (formally, Less.js) is a CSS preprocessor that allows theme designers to us
 For more information on examples, techniques, and how to install Less, please see <a href="http://lesscss.org/" target="_blank">lesscss.org</a>.
 
 
-
+---
 
 <a href='#integrating-theme-style-editor' aria-hidden='true' class='block-anchor'  id='integrating-theme-style-editor'><i aria-hidden='true' class='linkify icon'></i></a>
 
@@ -50,6 +50,12 @@ There are some syntax patterns involved that Style Editor will understand to hel
 
 For example:
 
+<div class="HubBlock-header">
+    <div class="HubBlock-header-title flex items-center">
+        <div class="HubBlock-header-name"></div>
+    </div><div class="HubBlock-header-subtitle"></div>
+</div>
+
 <!--
 title: ""
 subtitle: ""
@@ -65,6 +71,12 @@ This will generate a color picker with the label “Header Background”, set to
 `@font-your-text-here` — This is the naming convention for a font variable. The style editor will generate this as a dropdown, preloaded with your theme’s predefined fonts. The variable’s value will be preselected.
 
 For example:
+
+<div class="HubBlock-header">
+    <div class="HubBlock-header-title flex items-center">
+        <div class="HubBlock-header-name"></div>
+    </div><div class="HubBlock-header-subtitle"></div>
+</div>
 
 <!--
 title: ""
@@ -82,6 +94,12 @@ This will generate a dropdown with the label “Page Text”, and with the “Op
 
 For example:
 
+<div class="HubBlock-header">
+    <div class="HubBlock-header-title flex items-center">
+        <div class="HubBlock-header-name"></div>
+    </div><div class="HubBlock-header-subtitle"></div>
+</div>
+
 <!--
 title: ""
 subtitle: ""
@@ -96,6 +114,12 @@ lineNumbers: true
 This will populate all font drop-downs with the fonts “Lato” and “Freckle Face,” and if one of them is selected, the fonts for that variable will be set to the values in the corresponding array of fonts. For example, “Lato” will set the fonts to “Lato”, Arial, sans-serif.
 
 To use these fonts in the Style Editor, they must be included in the style editor variables file through an import. For the above example, you would include the styles from Google Fonts like so:
+
+<div class="HubBlock-header">
+    <div class="HubBlock-header-title flex items-center">
+        <div class="HubBlock-header-name"></div>
+    </div><div class="HubBlock-header-subtitle"></div>
+</div>
 
 <!--
 title: ""
@@ -112,6 +136,12 @@ lineNumbers: true
 
 For example:
 
+
+<div class="HubBlock-header">
+    <div class="HubBlock-header-title flex items-center">
+        <div class="HubBlock-header-name"></div>
+    </div><div class="HubBlock-header-subtitle"></div>
+</div>
 
 <!--
 title: ""
@@ -156,6 +186,12 @@ This way, we can reuse the color that gets set to `@color-store-name` as the col
 This is where you initialize the use of the variables. This file contains all the CSS that will be compiled and generated into the theme.css file. For example, the @color-store-name can now be applied to the `#HeaderLogo h1` element by saying:
 
 
+<div class="HubBlock-header">
+    <div class="HubBlock-header-title flex items-center">
+        <div class="HubBlock-header-name"></div>
+    </div><div class="HubBlock-header-subtitle"></div>
+</div>
+
 <!--
 title: ""
 subtitle: ""
@@ -179,6 +215,12 @@ Once you have finished working on your `.less` files, _don’t forget to compile
 
 
 
+<div class="HubBlock-header">
+    <div class="HubBlock-header-title flex items-center">
+        <div class="HubBlock-header-name"></div>
+    </div><div class="HubBlock-header-subtitle"></div>
+</div>
+
 <!--
 title: ""
 subtitle: ""
@@ -198,7 +240,7 @@ If you find that you have to make a change to `theme.css`, please don't forget t
 
 Less offers a variety of compilation methods, including applications for both Windows and Mac that you can use if you prefer not to use the command prompt/terminal.
 
-
+---
 
 <a href='#testing-style-editor-with-theme' aria-hidden='true' class='block-anchor'  id='testing-style-editor-with-theme'><i aria-hidden='true' class='linkify icon'></i></a>
 

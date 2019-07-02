@@ -17,7 +17,7 @@ The Stencil framework allows theme developers and merchants to assign custom lay
 * Page (meaning "Web Pages" – the BigCommerce control panel's designation for static store pages, which can include the store's home page)
 
 
-
+---
 
 <a href='#custom-templates_stencil-versus-blueprint' aria-hidden='true' class='block-anchor'  id='custom-templates_stencil-versus-blueprint'><i aria-hidden='true' class='linkify icon'></i></a>
 
@@ -29,7 +29,7 @@ If you are migrating from BigCommerce's legacy Blueprint themes framework, pleas
 * Unlike Blueprint, Stencil does not require that custom templates' file names start with an underscore (_).
 * In the current Stencil release, you must create and bundle custom templates using Stencil CLI before you can upload the custom templates to stores. However, once you have created and uploaded templates, authorized store users can assign them to storefront pages through the control panel.
 
-
+---
 
 <a href='#custom-templates_video-demo' aria-hidden='true' class='block-anchor'  id='custom-templates_video-demo'><i aria-hidden='true' class='linkify icon'></i></a>
 
@@ -37,7 +37,7 @@ If you are migrating from BigCommerce's legacy Blueprint themes framework, pleas
 
 <iframe width="560" height="315" src="https://www.youtube.com/embed/qgaDX7bhmd8" frameborder="0" allow="autoplay; encrypted-media" allowfullscreen></iframe>
 
-
+---
 
 ## Resources
 

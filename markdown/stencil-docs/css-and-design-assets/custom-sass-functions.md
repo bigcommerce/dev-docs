@@ -34,6 +34,12 @@
 
 In Stencil's Cornerstone (1.4.0) base theme, the <span class="fn">optimized-checkout.scss</span> file sets the background color for the page's header with the following code:
 
+<div class="HubBlock-header">
+    <div class="HubBlock-header-title flex items-center">
+        <div class="HubBlock-header-name">optimized-checkout.scss</div>
+    </div><div class="HubBlock-header-subtitle"></div>
+</div>
+
 <!--
 title: "optimized-checkout.scss"
 subtitle: ""
@@ -55,7 +61,7 @@ The above CSS fetches the background-color property's value by using the `stenci
 
 That `optimizedCheckout-header-backgroundColor` key is defined, and assigned a default value, in <span class="fn">config.json</span>. However, merchants can use [Store Design](https://support.bigcommerce.com/s/article/Store-Design) to change the value at any time. So using this `stencilColor()` call, the key's current value (which might have been altered from the static default value in <span class="fn">config.json</span>) will be fetched from a BigCommerce settings server.
 
-
+---
 
 <a href='#custom-sass-functions_stencilfontfamily' aria-hidden='true' class='block-anchor'  id='custom-sass-functions_stencilfontfamily'><i aria-hidden='true' class='linkify icon'></i></a>
 
@@ -71,7 +77,7 @@ Your Sass stylesheet must call stencilFontFamily for each <span class="fn">confi
 
 `$headings-font-family: stencilFontFamily("headings-font");`
 
-
+---
 
 <a href='#custom-sass-functions_stencilfontweight' aria-hidden='true' class='block-anchor'  id='custom-sass-functions_stencilfontweight'><i aria-hidden='true' class='linkify icon'></i></a>
 
@@ -85,7 +91,7 @@ Your Sass stylesheet may optionally call stencilFontWeight for each <span class=
 
 `$headings-font-weight: stencilFontWeight("headings-font");`
 
-
+---
 
 <a href='#custom-sass-functions_stencilnumber' aria-hidden='true' class='block-anchor'  id='custom-sass-functions_stencilnumber'><i aria-hidden='true' class='linkify icon'></i></a>
 
@@ -97,7 +103,7 @@ You can use this function with arithmetical operators. For example, assume that 
 
 `stencilNumber("font-size", "rem") * 3`
 
-
+---
 
 <a href='#custom-sass-functions_stencilstring' aria-hidden='true' class='block-anchor'  id='custom-sass-functions_stencilstring'><i aria-hidden='true' class='linkify icon'></i></a>
 
@@ -105,7 +111,7 @@ You can use this function with arithmetical operators. For example, assume that 
 
 `stencilString` accepts (as a string) a key name that you have defined in <span class="fn">config.json</span> as editable. It returns (also as a string) the key’s value. This function is used for purposes like defining font family names, or defining paths to images.
 
-
+---
 
 <a href='#custom-sass-functions_stencilimage' aria-hidden='true' class='block-anchor'  id='custom-sass-functions_stencilimage'><i aria-hidden='true' class='linkify icon'></i></a>
 
@@ -113,7 +119,7 @@ You can use this function with arithmetical operators. For example, assume that 
 
 `stencilImage` accepts (as a string) a key name for an image url that you have defined in <span class="fn">config.json</span>. It also accepts (as a string) the key name for the image size that you have defined in <span class="fn">config.json</span>. It returns the string value of the image URL and the size.
 
-
+---
 
 <a href='#custom-sass-functions_compiling-custom-sass-files' aria-hidden='true' class='block-anchor'  id='custom-sass-functions_compiling-custom-sass-files'><i aria-hidden='true' class='linkify icon'></i></a>
 
@@ -138,7 +144,7 @@ Next, be sure the following tag is included within your <span class="fp">{theme-
 
 While `stencil start` is running, it will recompile your custom Sass files to the specified <span class="fp">{theme-name}/assets/css/theme.css</span> file. (Note that this object file’s name is always the same, and is independent of your custom Sass files’ names.) For an additional example, please see [Replacing Content Blocks](https://developer.bigcommerce.com/stencil-docs/css-and-design-assets/page-composition-and-styling).
 
-
+---
 
 ## Resources
 

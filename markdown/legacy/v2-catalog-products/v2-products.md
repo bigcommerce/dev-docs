@@ -119,7 +119,7 @@ A product object represents a saleable item in the catalog.
 | avalara_product_tax_code | resource | Accepts AvaTax System Tax Codes, which identify products and services that fall into special sales-tax categories. By using these codes, merchants who subscribe to Avalara Premium can calculate sales taxes more accurately.<br><br> Stores without Avalara Premium will ignore the code when calculating sales tax. Do not pass more than one code. The codes are case-sensitive.<br><br> For details, please see Avalara's <a href="https://help.avalara.com/000_Avalara_AvaTax/Manage_Product_Taxability/010_Select_AvaTax_System_Tax_Codes" target="_blank">overview</a> and <a href="https://help.avalara.com/000_Avalara_AvaTax/Manage_Product_Taxability/Tax_Codes_-_Frequently_Asked_Questions" target="_blank">FAQ</a> on AvaTax System Tax Codes. You can also <a href="https://help.avalara.com/@api/deki/files/1675/AvaTax_System_Tax_Codes_Toolkit.zip?revision=37" target="_blank">download codes</a> as a zipfile of spreadsheets, or <a href="https://taxcode.avatax.avalara.com/" target="_blank">search or browse codes</a> in Avalara's Tax Code Search Tool. (These external links are subject to change.) |
 
 
-
+---
 
 <a href='#v2-products_list-products' aria-hidden='true' class='block-anchor'  id='v2-products_list-products'><i aria-hidden='true' class='linkify icon'></i></a>
 
@@ -434,7 +434,7 @@ Example JSON returned in the response:
 ]
 ```
 
-
+---
 
 <a href='#v2-products_get-products' aria-hidden='true' class='block-anchor'  id='v2-products_get-products'><i aria-hidden='true' class='linkify icon'></i></a>
 
@@ -678,7 +678,7 @@ Example JSON returned in the response:
 }
 ```
 
-
+---
 
 <a href='#v2-products_get-count-products' aria-hidden='true' class='block-anchor'  id='v2-products_get-count-products'><i aria-hidden='true' class='linkify icon'></i></a>
 
@@ -735,7 +735,7 @@ Example JSON returned in the response:
 }
 ```
 
-
+---
 
 <a href='#v2-products_create-products' aria-hidden='true' class='block-anchor'  id='v2-products_create-products'><i aria-hidden='true' class='linkify icon'></i></a>
 
@@ -803,7 +803,7 @@ To maximize system performance, BigCommerce caps the number of categories to whi
 
 If automatic tax is enabled on the store, the value of `tax_class_id` will have no effect on the calculation of taxes.
 
-
+---
 
 <a href='#v2-products_update-products' aria-hidden='true' class='block-anchor'  id='v2-products_update-products'><i aria-hidden='true' class='linkify icon'></i></a>
 
@@ -902,7 +902,7 @@ To maximize system performance, BigCommerce caps the maximum number of categorie
 If automatic tax is enabled on the store, the value of `tax_class_id` will have no effect on the calculation of taxes.
 
 
-
+---
 
 <a href='#v2-products_delete-products' aria-hidden='true' class='block-anchor'  id='v2-products_delete-products'><i aria-hidden='true' class='linkify icon'></i></a>
 
@@ -920,7 +920,7 @@ Successful deletion of a product returns a `204 No Content` response:
 204 No Content
 ```
 
-
+---
 
 <a href='#v2-products_delete-all-products' aria-hidden='true' class='block-anchor'  id='v2-products_delete-all-products'><i aria-hidden='true' class='linkify icon'></i></a>
 

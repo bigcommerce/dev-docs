@@ -42,7 +42,7 @@ Stored Credit Card management<sup>1</sup> gives customer's the ability to manage
 </div>
 </div>
 
-
+---
 
 <a href='#stored-cc-mgmt_adding' aria-hidden='true' class='block-anchor'  id='stored-cc-mgmt_adding'><i aria-hidden='true' class='linkify icon'></i></a>
 
@@ -50,7 +50,7 @@ Stored Credit Card management<sup>1</sup> gives customer's the ability to manage
 
 Stored Credit Card Management was added to Cornerstone in [pull request #1376](https://github.com/bigcommerce/cornerstone/pull/1376). To add Stored Credit Cards to pre-2.6.0 Cornerstone or Marketplace themes, copy the changes from [PR #1376](https://github.com/bigcommerce/cornerstone/pull/1376) to your theme. This section will walk through [each individual commit](https://github.com/bigcommerce/cornerstone/pull/1376/commits), highlighting the changes that you will need to make to your template files.
 
-
+---
 
 <a href='#stored-cc-mgmt_step1' aria-hidden='true' class='block-anchor'  id='stored-cc-mgmt_step1'><i aria-hidden='true' class='linkify icon'></i></a>
 
@@ -73,7 +73,7 @@ Stored Credit Card Management was added to Cornerstone in [pull request #1376](h
 ](//s3.amazonaws.com/user-content.stoplight.io/6116/1541629154209 "#### Payment Methods Page Addition Example
 ")
 
-
+---
 
 <a href='#stored-cc-mgmt_step2' aria-hidden='true' class='block-anchor'  id='stored-cc-mgmt_step2'><i aria-hidden='true' class='linkify icon'></i></a>
 
@@ -83,7 +83,7 @@ Stored Credit Card Management was added to Cornerstone in [pull request #1376](h
 	* `lang/en.json`
 	* `templates/components/account/navigation.html`
 
-
+---
 
 <a href='#stored-cc-mgmt_step3' aria-hidden='true' class='block-anchor'  id='stored-cc-mgmt_step3'><i aria-hidden='true' class='linkify icon'></i></a>
 
@@ -103,7 +103,7 @@ Stored Credit Card Management was added to Cornerstone in [pull request #1376](h
 
 ![](//s3.amazonaws.com/user-content.stoplight.io/6116/1541630407609 "")
 
-
+---
 
 <a href='#stored-cc-mgmt_step4' aria-hidden='true' class='block-anchor'  id='stored-cc-mgmt_step4'><i aria-hidden='true' class='linkify icon'></i></a>
 
@@ -122,7 +122,7 @@ Stored Credit Card Management was added to Cornerstone in [pull request #1376](h
 ](//s3.amazonaws.com/user-content.stoplight.io/6116/1541655663898 "#### Implementation of Add, Edit, and Delete Methods
 ")
 
-
+---
 
 <a href='#stored-cc-mgmt_step5' aria-hidden='true' class='block-anchor'  id='stored-cc-mgmt_step5'><i aria-hidden='true' class='linkify icon'></i></a>
 
@@ -132,7 +132,7 @@ Stored Credit Card Management was added to Cornerstone in [pull request #1376](h
 
 First, the click will trigger window confirm. The confirmation modal has been added to prevent unintended action. Then, on confirming, a post request will be sent. The action is initiated through a localized form post request in the template which uses a [`delete_url`](https://github.com/bigcommerce/cornerstone/blob/master/templates/components/account/payment-methods-list.html#L34) key provided in the credit card details data. Finally, there will be a redirect to the credit card listing.
 
-
+---
 
 <a href='#stored-cc-mgmt_step6' aria-hidden='true' class='block-anchor'  id='stored-cc-mgmt_step6'><i aria-hidden='true' class='linkify icon'></i></a>
 
@@ -153,7 +153,7 @@ First, the click will trigger window confirm. The confirmation modal has been ad
 ](//s3.amazonaws.com/user-content.stoplight.io/6116/1541654303488 "#### Edit Payment Method Form
 ")
 
-
+---
 
 <a href='#stored-cc-mgmt_step7' aria-hidden='true' class='block-anchor'  id='stored-cc-mgmt_step7'><i aria-hidden='true' class='linkify icon'></i></a>
 
@@ -180,7 +180,7 @@ First, the click will trigger window confirm. The confirmation modal has been ad
 ](//s3.amazonaws.com/user-content.stoplight.io/6116/1541629295212 "#### Example of the addition of the Add Payment Method
 ")
 
-
+---
 
 <a href='#stored-cc-mgmt_step8' aria-hidden='true' class='block-anchor'  id='stored-cc-mgmt_step8'><i aria-hidden='true' class='linkify icon'></i></a>
 
@@ -215,4 +215,9 @@ First, the click will trigger window confirm. The confirmation modal has been ad
 </div>
 </div>
 </div>
+
+---
+
+## Related Articles
+* [The Complete Guide to Checkout Customization on BigCommerce](https://medium.com/bigcommerce-developer-blog/the-complete-guide-to-checkout-customization-on-bigcommerce-6b566bc36fa9) (Developer Blog)
 

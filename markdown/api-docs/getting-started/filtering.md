@@ -28,7 +28,7 @@ These are the most common filter options available for the V3 API:
 
 Available filters vary by endpoint. Refer to the GET method for an endpoint to see a list of available filters.
 
-
+---
 
 ## Includes
 
@@ -41,7 +41,7 @@ As an example, you can include a product's variants and images with the product 
 Availability of the `?include` parameter varies by endpoint. Refer to the GET method for an endpoint to see a list of fields that can be included.
 
 
-
+---
 
 ### Including and Excluding Fields
 
@@ -57,6 +57,12 @@ You can specify any field that is available on the object. Excluding fields you 
 `https://api.bigcommerce.com/stores/{{store_hash}}/v3/catalog/products?include_fields=name,price`
 
 Here, product name and price have been included:
+
+<div class="HubBlock-header">
+    <div class="HubBlock-header-title flex items-center">
+        <div class="HubBlock-header-name">Product Name and Price</div>
+    </div><div class="HubBlock-header-subtitle"></div>
+</div>
 
 <!--
 title: "Product Name and Price"
@@ -76,7 +82,7 @@ lineNumbers: true
 } 
 ```
 
-
+---
 
 ## Pagination and Limit
 

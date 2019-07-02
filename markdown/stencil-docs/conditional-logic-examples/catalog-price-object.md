@@ -38,7 +38,7 @@ Merchants can use Control Panel options to set the following prices for a catalo
 
 These options and assigned values are each represented in the [Catalog Price Object](/stencil-docs/stencil-object-model-reference/stencil-objects/common-objects/catalog-price), allowing theme developers to pull the information and render it onto the storefront to highlight the savings offered by a merchant.
 
-
+---
 
 <a href='##catalog-price_excluding-tax' aria-hidden='true' class='block-anchor'  id='#catalog-price_excluding-tax'><i aria-hidden='true' class='linkify icon'></i></a>
 
@@ -66,6 +66,12 @@ No **Sale Price** is defined for the product.
 ")
 
 A corresponding [Catalog Price Object](/stencil-docs/stencil-object-model-reference/stencil-objects/common-objects/catalog-price) for the product will be structured as follows:
+
+<div class="HubBlock-header">
+    <div class="HubBlock-header-title flex items-center">
+        <div class="HubBlock-header-name">Catalog Price Object (no Sale Price defined)</div>
+    </div><div class="HubBlock-header-subtitle"></div>
+</div>
 
 <!--
 title: "Catalog Price Object (no Sale Price defined)"
@@ -115,7 +121,7 @@ Items to note about the Catalog Price Object above:
 * `saved`:  this property is the difference between the existing values for `without_tax` (**Default Price**) and `rrp_without_tax` (**MSRP**).
 
 
-
+---
 
 ### Sale Price Defined in Control Panel
 
@@ -138,6 +144,12 @@ Assume that a merchant has defined the following for a product in the Control Pa
 ")
 
 A corresponding *Catalog Price Object* for the product will be structured as shown below:
+
+<div class="HubBlock-header">
+    <div class="HubBlock-header-title flex items-center">
+        <div class="HubBlock-header-name">Catalog Price Object (Sale Price defined)</div>
+    </div><div class="HubBlock-header-subtitle"></div>
+</div>
 
 <!--
 title: "Catalog Price Object (Sale Price defined)"
@@ -194,7 +206,7 @@ Items to note about the *Catalog Price* Object above:
 
 Properties noted will only be displayed if a **Sale Price** is set on the product.
 
-
+---
 
 <a href='#catalog-price_prices-and-conditional' aria-hidden='true' class='block-anchor'  id='catalog-price_prices-and-conditional'><i aria-hidden='true' class='linkify icon'></i></a>
 
@@ -208,6 +220,12 @@ With the logic below, the page will display the standard store price with a stri
 
 
 
+<div class="HubBlock-header">
+    <div class="HubBlock-header-title flex items-center">
+        <div class="HubBlock-header-name">Conditional Logic </div>
+    </div><div class="HubBlock-header-subtitle"></div>
+</div>
+
 <!--
 title: "Conditional Logic "
 subtitle: ""
@@ -220,7 +238,7 @@ lineNumbers: true
   {{/or}}
 ```
 
-
+---
 
 <a href='##catalog-price_including-and-excluding' aria-hidden='true' class='block-anchor'  id='#catalog-price_including-and-excluding'><i aria-hidden='true' class='linkify icon'></i></a>
 
@@ -245,7 +263,7 @@ This display setting affects how values are returned in the *Catalog Price Objec
 ](//s3.amazonaws.com/user-content.stoplight.io/6116/1539842045139 "#### Configure Tax Display Settings
 ")
 
-
+---
 
 ### No Sale Price Defined in Control Panel
 
@@ -257,6 +275,12 @@ Assume that a merchant has defined the following for a tax configurations for a 
 There is no defined a **Sale Price** for the product.
 
 A corresponding *Catalog Price Object* for the product will be structured as shown below:
+
+<div class="HubBlock-header">
+    <div class="HubBlock-header-title flex items-center">
+        <div class="HubBlock-header-name">Product Including and Excluding Tax (no Sale Price defined)</div>
+    </div><div class="HubBlock-header-subtitle"></div>
+</div>
 
 <!--
 title: "Product Including and Excluding Tax (no Sale Price defined)"
@@ -310,7 +334,7 @@ Items to note about the *Catalog Price Object* example above:
 </div>
 </div>
 
-
+---
 
 ### Sale Price Defined in Control Panel 
 
@@ -318,6 +342,12 @@ Assume that a merchant has defined the following for a tax configurations for a 
 
 * Show prices on Product Pages **Including and excluding tax**
 * Flat 10% tax rate configured
+
+<div class="HubBlock-header">
+    <div class="HubBlock-header-title flex items-center">
+        <div class="HubBlock-header-name">Product Including and Excluding Tax (Sale Price defined)</div>
+    </div><div class="HubBlock-header-subtitle"></div>
+</div>
 
 <!--
 title: "Product Including and Excluding Tax (Sale Price defined)"
@@ -375,7 +405,7 @@ Items to note about the *Catalog Price Object* above:
 * The `sale_price_without_tax` and `sale_price_without_tax` represent the product's defined **Sale Price**.
 * The `saved` value is based on the difference between the `with_tax` and `non_sale_price_with_tax` values.
 
-
+---
 
 <a href='#catalog-price_quick-reference' aria-hidden='true' class='block-anchor'  id='catalog-price_quick-reference'><i aria-hidden='true' class='linkify icon'></i></a>
 
@@ -435,7 +465,7 @@ Items to note about the *Catalog Price Object* above:
   </tr>  
 </table>
 
-
+---
 
 ## Resources
 

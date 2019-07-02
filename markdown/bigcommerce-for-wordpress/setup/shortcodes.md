@@ -36,7 +36,7 @@ While the shortcode can be built using the button, it can also be created manual
 |`orderby`|Which field to use for sorting. Accepts any field that WP_Query accepts (e.g., title, date)|`[bigcommerce_product orderby="title"]`|
 
 
-
+---
 
 <a href='#shortcode_other-short' aria-hidden='true' class='block-anchor'  id='shortcode_other-short'><i aria-hidden='true' class='linkify icon'></i></a>
 
@@ -51,5 +51,5 @@ While the shortcode can be built using the button, it can also be created manual
 |`[bigcommerce_order_history]`|A list of the customer’s past orders.
 |`[bigcommerce_shipping_address_list]`|A list of the customer’s shipping addresses, and forms to add, remove, or update addresses.
 
-
+---
 

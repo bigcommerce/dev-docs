@@ -24,7 +24,7 @@ Some use cases for the Shipping Provider API are:
 * Third-party logistics
 * Create a combination of in store pickup and shipping options for shoppers
 
-
+---
 
 <a href='#shipping-provider_prerequisites' aria-hidden='true' class='block-anchor'  id='shipping-provider_prerequisites'><i aria-hidden='true' class='linkify icon'></i></a>
 
@@ -40,7 +40,7 @@ Be familiar with the following API Endpoints:
 - [Shipping Methods](/api-reference/store-management/shipping-api/shipping-method)
 - [Shipping Carriers](/api-reference/store-management/shipping-api/shipping-carrier)
 
-
+---
 
 <a href='#shipping_provider-signup' aria-hidden='true' class='block-anchor'  id='shipping_provider-signup'><i aria-hidden='true' class='linkify icon'></i></a>
 
@@ -71,7 +71,7 @@ To get your app ID, create an app in [Developer Tools](https://devtools.bigcomme
 ](//s3.amazonaws.com/user-content.stoplight.io/6012/1552664114224 "#### App ID
 ")
 
-
+---
 
 <a href='#shipping_provider-before_development' aria-hidden='true' class='block-anchor'  id='shipping_provider-before_development'><i aria-hidden='true' class='linkify icon'></i></a>
 
@@ -111,7 +111,7 @@ Example:
 }
 ```
 
-
+---
 
 <a href='#shipping_provider-developing-app' aria-hidden='true' class='block-anchor'  id='shipping_provider-developing-app'><i aria-hidden='true' class='linkify icon'></i></a>
 
@@ -122,6 +122,12 @@ The intended use of the Shipping Provider API is to create an app that merchants
 ### Control Panel Installation Workflow
 
 During the app setup, if the Check Connection Options URL is configured for the carrier, an attempt to connect the carrier via the Shipping Manager UI or the Connect Carrier API causes a request to be made to that URL with the provided options. The resource should respond indicating if the credentials are valid and should provide an explanation of what is wrong. If no such URL is configured, this check will be skipped and the credentials are assumed valid as long as they pass type checks.
+
+<div class="HubBlock-header">
+    <div class="HubBlock-header-title flex items-center">
+        <div class="HubBlock-header-name">Sample Request</div>
+    </div><div class="HubBlock-header-subtitle">POST https://developerserver.com/check_connection_options</div>
+</div>
 
 <!--
 title: "Sample Request"
@@ -136,6 +142,12 @@ lineNumbers: true
   }
 }
 ```
+
+<div class="HubBlock-header">
+    <div class="HubBlock-header-title flex items-center">
+        <div class="HubBlock-header-name">Sample Response</div>
+    </div><div class="HubBlock-header-subtitle">POST https://developerserver.com/check_connection_options</div>
+</div>
 
 <!--
 title: "Sample Response"
@@ -173,6 +185,12 @@ Once the app is installed, it will be made available for configuration by mercha
 
 To set up a carrier using the API, first connect it using the Connect Carrier API. Make a request containing the connection settings required by your carrier. The ID of the carrier is required. The carrier ID will be issued by BigCommerce when your carrier is registered. All connection fields are unique per carrier. If your carrier doesn’t require any connection settings then this object can be left empty.
 
+<div class="HubBlock-header">
+    <div class="HubBlock-header-title flex items-center">
+        <div class="HubBlock-header-name">Sample Request </div>
+    </div><div class="HubBlock-header-subtitle">POST https://developerserver.com/shipping/carrier/connection</div>
+</div>
+
 <!--
 title: "Sample Request "
 subtitle: "POST https://developerserver.com/shipping/carrier/connection"
@@ -189,6 +207,12 @@ lineNumbers: true
 }
 ```
 
+<div class="HubBlock-header">
+    <div class="HubBlock-header-title flex items-center">
+        <div class="HubBlock-header-name">Sample Request with Empty Object</div>
+    </div><div class="HubBlock-header-subtitle">POST https://developerserver.com/shipping/carrier/connection</div>
+</div>
+
 <!--
 title: "Sample Request with Empty Object"
 subtitle: "POST https://developerserver.com/shipping/carrier/connection"
@@ -203,6 +227,12 @@ lineNumbers: true
 ```
 
 Once connected, it’s possible to create shipping methods for a connected carrier in any shipping zone. Shipping zones can be queried using the Shipping Zones resource. For any zone, a request can be made to the Shipping Methods resource using the zone ID from the Shipping Zones resource to create a new method for the connected carrier. The shipping carrier’s ID is required in the type field.
+
+<div class="HubBlock-header">
+    <div class="HubBlock-header-title flex items-center">
+        <div class="HubBlock-header-name">Sample Request</div>
+    </div><div class="HubBlock-header-subtitle">POST https://api.bigcommerce.com/stores/{store_hash}/v2/shipping/zones/{zone_id}/methods</div>
+</div>
 
 <!--
 title: "Sample Request"
@@ -222,6 +252,12 @@ lineNumbers: true
   "enabled": true
 }
 ```
+
+<div class="HubBlock-header">
+    <div class="HubBlock-header-title flex items-center">
+        <div class="HubBlock-header-name">Sample Response</div>
+    </div><div class="HubBlock-header-subtitle">POST https://api.bigcommerce.com/stores/{store_hash}/v2/shipping/zones/{zone_id}/methods</div>
+</div>
 
 <!--
 title: "Sample Response"
@@ -245,13 +281,19 @@ lineNumbers: true
 }
 ```
 
-
+---
 
 <a href='#shipping_provider-return_shipping_quotes' aria-hidden='true' class='block-anchor'  id='shipping_provider-return_shipping_quotes'><i aria-hidden='true' class='linkify icon'></i></a>
 
 ## Returning Shipping Quotes
 
 Whenever shipping rates are required, BigCommerce checks its internal cache for valid entries. If a valid entry exists, it will be used and the shipping carrier will not be called. If a valid cache entry does not exist, a request is made to the Quote URL with details of the items to be shipped, the shipping origin, and shipping destination. If any connection settings or zone settings are configured, these are also included. The shipping carrier must then respond with zero or more Shipping Quotes.
+
+<div class="HubBlock-header">
+    <div class="HubBlock-header-title flex items-center">
+        <div class="HubBlock-header-name">Sample Request</div>
+    </div><div class="HubBlock-header-subtitle">POST https://developerserver.com/rate</div>
+</div>
 
 <!--
 title: "Sample Request"
@@ -344,6 +386,12 @@ lineNumbers: true
 }
 ```
 
+<div class="HubBlock-header">
+    <div class="HubBlock-header-title flex items-center">
+        <div class="HubBlock-header-name">Sample Response</div>
+    </div><div class="HubBlock-header-subtitle">POST https://developerserver.com/rate</div>
+</div>
+
 <!--
 title: "Sample Response"
 subtitle: "POST https://developerserver.com/rate"
@@ -433,7 +481,7 @@ lineNumbers: true
 
 When an app with an associated shipping carrier is uninstalled, all of the shipping methods and the connection info for that carrier is automatically removed from the store. Quote requests will no longer be made and users will no longer see shipping quotes for that carrier.
 
-
+---
 
 <a href='#shipping_provider-submitting-app' aria-hidden='true' class='block-anchor'  id='shipping_provider-submitting-app'><i aria-hidden='true' class='linkify icon'></i></a>
 
@@ -459,7 +507,7 @@ Any shipping zone-specific or connection-specific fields to be made available to
 
 To sumbit your app send an email to <a href="shippingproviderapi@bigcommerce.com">shippingproviderapi@bigcommerce.com</a>.
 
-
+---
 
 <a href='#shipping_provider-app_diagram' aria-hidden='true' class='block-anchor'  id='shipping_provider-app_diagram'><i aria-hidden='true' class='linkify icon'></i></a>
 
@@ -478,7 +526,7 @@ To sumbit your app send an email to <a href="shippingproviderapi@bigcommerce.com
 
 Only one registered shipping carrier may be associated with an app. This [registered carrier](#shipping_provider-definitions) can provide quotes from multiple downstream carriers if desired. In this case it will become a multi-carrier aggregator.
 
-
+---
 
 <a href='#shipping_provider-definitions' aria-hidden='true' class='block-anchor'  id='shipping_provider-definitions'><i aria-hidden='true' class='linkify icon'></i></a>
 
@@ -497,7 +545,7 @@ Only one registered shipping carrier may be associated with an app. This [regist
 | Shipping Zone | Describes a set of destination addresses and the applicable shipping settings, such as handling fees and available shipping methods.|
 | Shipping Origin | The location from which goods are shipped. This determines which shipping carriers are available for the merchant to configure in the control panel. |
 
-
+---
 
 <a href='#shipping_provider-faq' aria-hidden='true' class='block-anchor'  id='shipping_provider-faq'><i aria-hidden='true' class='linkify icon'></i></a>
 
@@ -505,7 +553,7 @@ Only one registered shipping carrier may be associated with an app. This [regist
 **Can I publish more than one app at a time?**  
 No, only one app at a time can be published. The others can be for use as testing or as private apps.
 
-
+---
 
 ## Resources
 ### Webhooks
