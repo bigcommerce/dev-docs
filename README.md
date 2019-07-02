@@ -12,7 +12,8 @@ This repo contains the markdown files and static assets powering [developer.bigc
 ```shell
 .
 ├── assets                             # Static files
-└── markdown                           # Markdown docs
+├── markdown                           # Markdown docs
+└── spec                               # API spec files
 ```
 
 **`./markdown/`**
