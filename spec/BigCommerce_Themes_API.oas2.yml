@@ -1,0 +1,888 @@
+{
+  "swagger": "2.0",
+  "info": {
+    "title": "Themes API",
+    "version": "",
+    "description": "### Themes\nThe Themes API allows for the manage of Stencil themes on a store. In this API, Themes are treated as a single object (.zip file), and not as a collection of files. This API is useful for backing up/restoring themes, as well as for creating a theme publishing workflow.\n\nAs themes must be processed once uploaded or before being downloaded, this API provides job IDs for long-running processing jobs, and a jobs endpoint which you may poll for updates.Before a theme may be uploaded to this API, it should be bundled using stencil-cli.\n\nThemes downloaded from this endpoint may be edited using stencil-cli for local development.",
+    "termsOfService": "",
+    "license": {
+      "name": ""
+    }
+  },
+  "host": "api.bigcommerce.com",
+  "basePath": "/stores/{store_hash}/v3",
+  "tags": [
+    {
+      "name": "Themes",
+      "description": "BigCommerce Themes API Definition."
+    }
+  ],
+  "schemes": [
+    "https"
+  ],
+  "produces": [
+    "application/json"
+  ],
+  "consumes": [
+    "application/json"
+  ],
+  "paths": {
+    "/themes": {
+      "get": {
+        "tags": [
+          "Themes"
+        ],
+        "operationId": "getStoreThemes",
+        "summary": "Get All Store Themes",
+        "responses": {
+          "200": {
+            "description": "",
+            "schema": {
+              "$ref": "#/definitions/ThemesCollectionResponse"
+            },
+            "examples": {
+              "application/json": {
+                "data": [
+                  {
+                    "uuid": "872b3e20-731f-0136-9d2f-633ff0d6ced1",
+                    "variations": [
+                      {
+                        "uuid": "877427a0-731f-0136-9d2f-633ff0d6ced1",
+                        "name": "Light",
+                        "description": "Ideal for a wide range of businesses and brands, this design is fully responsive, simple, and ready for you to add your branding, logo, and products. It comes ready to build a clean looking and beautiful store with features such as homepage carousel, social media icons, featured and top selling products, and faceted search (which is available on select BigCommerce plans). Fully express your brand by using our Theme Editor to quickly and easily style your site's fonts and colors, all without the need to write code.",
+                        "external_id": "light"
+                      },
+                      {
+                        "uuid": "87be3180-731f-0136-9d2f-633ff0d6ced1",
+                        "name": "Bold",
+                        "description": "Ideal for a wide range of businesses and brands, this design is fully responsive, simple, and ready for you to add your branding, logo, and products. It comes ready to build a clean looking and beautiful store with features such as homepage carousel, social media icons, featured and top selling products, and faceted search (which is available on select BigCommerce plans). Fully express your brand by using our Theme Editor to quickly and easily style your site's fonts and colors, all without the need to write code.",
+                        "external_id": "bold"
+                      },
+                      {
+                        "uuid": "87d48e90-731f-0136-9d2f-633ff0d6ced1",
+                        "name": "Warm",
+                        "description": "Ideal for a wide range of businesses and brands, this design is fully responsive, simple, and ready for you to add your branding, logo, and products. It comes ready to build a clean looking and beautiful store with features such as homepage carousel, social media icons, featured and top selling products, and faceted search (which is available on select BigCommerce plans). Fully express your brand by using our Theme Editor to quickly and easily style your site's fonts and colors, all without the need to write code.",
+                        "external_id": "warm"
+                      }
+                    ],
+                    "name": "Cornerstone-blog",
+                    "is_private": true,
+                    "is_active": false
+                  },
+                  {
+                    "uuid": "e3d82ce0-9bae-0133-0de7-525400970412",
+                    "variations": [
+                      {
+                        "uuid": "b16c3fe0-7bcb-0136-b5fc-07fe54a9e639",
+                        "name": "Light",
+                        "description": "Ideal for a wide range of businesses and brands, this design is fully responsive, simple, and ready for you to add your branding, logo, and products. It comes ready to build a clean looking and beautiful store with features such as homepage carousel, social media icons, featured and top selling products, and faceted search (which is available on select BigCommerce plans). Fully express your brand by using our Theme Editor to quickly and easily style your site's fonts and colors, all without the need to write code.",
+                        "external_id": "light"
+                      },
+                      {
+                        "uuid": "b17d57e0-7bcb-0136-b5fc-07fe54a9e639",
+                        "name": "Bold",
+                        "description": "Ideal for a wide range of businesses and brands, this design is fully responsive, simple, and ready for you to add your branding, logo, and products. It comes ready to build a clean looking and beautiful store with features such as homepage carousel, social media icons, featured and top selling products, and faceted search (which is available on select BigCommerce plans). Fully express your brand by using our Theme Editor to quickly and easily style your site's fonts and colors, all without the need to write code.",
+                        "external_id": "bold"
+                      },
+                      {
+                        "uuid": "b18ad610-7bcb-0136-b5fc-07fe54a9e639",
+                        "name": "Warm",
+                        "description": "Ideal for a wide range of businesses and brands, this design is fully responsive, simple, and ready for you to add your branding, logo, and products. It comes ready to build a clean looking and beautiful store with features such as homepage carousel, social media icons, featured and top selling products, and faceted search (which is available on select BigCommerce plans). Fully express your brand by using our Theme Editor to quickly and easily style your site's fonts and colors, all without the need to write code.",
+                        "external_id": "warm"
+                      }
+                    ],
+                    "name": "Cornerstone",
+                    "is_private": false,
+                    "is_active": true
+                  },
+                  {
+                    "uuid": "1242c920-a5a6-0133-a20e-525400970412",
+                    "variations": [
+                      {
+                        "uuid": "fec9fe60-7ede-0136-effe-0cbd49ed50aa",
+                        "name": "Minimal",
+                        "description": "Fortune is a standout theme for cutting-edge online stores. Customers will be transfixed by its striking hero area, which puts your imagery on full display, along with its sleek navigation and unique product grid. Ideal for small-to-medium-sized catalogs, Fortune has everything you need to command and convert shoppers.",
+                        "external_id": "minimal"
+                      },
+                      {
+                        "uuid": "fee26530-7ede-0136-effe-0cbd49ed50aa",
+                        "name": "Bright",
+                        "description": "Fortune is a standout theme for cutting-edge online stores. Customers will be transfixed by its striking hero area, which puts your imagery on full display, along with its sleek navigation and unique product grid. Ideal for small-to-medium-sized catalogs, Fortune has everything you need to command and convert shoppers.",
+                        "external_id": "bright"
+                      },
+                      {
+                        "uuid": "fef38820-7ede-0136-effe-0cbd49ed50aa",
+                        "name": "Contrast",
+                        "description": "Fortune is a standout theme for cutting-edge online stores. Customers will be transfixed by its striking hero area, which puts your imagery on full display, along with its sleek navigation and unique product grid. Ideal for small-to-medium-sized catalogs, Fortune has everything you need to command and convert shoppers.",
+                        "external_id": "contrast"
+                      },
+                      {
+                        "uuid": "ff085ab0-7ede-0136-effe-0cbd49ed50aa",
+                        "name": "Highlight",
+                        "description": "Fortune is a standout theme for cutting-edge online stores. Customers will be transfixed by its striking hero area, which puts your imagery on full display, along with its sleek navigation and unique product grid. Ideal for small-to-medium-sized catalogs, Fortune has everything you need to command and convert shoppers.",
+                        "external_id": "highlight"
+                      }
+                    ],
+                    "name": "Fortune",
+                    "is_private": false,
+                    "is_active": false
+                  }
+                ],
+                "meta": {}
+              }
+            }
+          }
+        },
+        "parameters": [
+          {
+            "$ref": "#/parameters/Accept"
+          },
+          {
+            "$ref": "#/parameters/Content-Type"
+          }
+        ],
+        "description": "Returns a list of store *Themes*."
+      },
+      "post": {
+        "tags": [
+          "Themes"
+        ],
+        "operationId": "uploadTheme",
+        "summary": "Upload New Theme",
+        "consumes": [
+          "multipart/form-data"
+        ],
+        "parameters": [
+          {
+            "name": "file",
+            "description": "The file.",
+            "in": "formData",
+            "type": "file",
+            "required": true
+          },
+          {
+            "$ref": "#/parameters/Accept"
+          },
+          {
+            "$ref": "#/parameters/Content-Type"
+          }
+        ],
+        "responses": {
+          "201": {
+            "description": "Job ID for the background job processing the theme upload.",
+            "schema": {
+              "$ref": "#/definitions/JobId"
+            },
+            "examples": {
+              "application/json": {
+                "job_id": "ceea1917b1518f5ae491da6ad8a56336"
+              }
+            }
+          },
+          "default": {
+            "description": "Error message.",
+            "schema": {
+              "$ref": "#/definitions/ErrorResponse"
+            }
+          }
+        },
+        "description": "Uploads a new *Theme* to your BigCommerce store.\n\n**Required Fields**\n* file"
+      }
+    },
+    "/themes/{uuid}": {
+      "get": {
+        "tags": [
+          "Themes"
+        ],
+        "operationId": "getStoreTheme",
+        "summary": "Get a Store Theme",
+        "parameters": [
+          {
+            "$ref": "#/parameters/ThemeIdParam"
+          },
+          {
+            "$ref": "#/parameters/Accept"
+          },
+          {
+            "$ref": "#/parameters/Content-Type"
+          }
+        ],
+        "responses": {
+          "200": {
+            "description": "",
+            "schema": {
+              "$ref": "#/definitions/ThemeResponse"
+            },
+            "examples": {
+              "application/json": {
+                "data": {
+                  "uuid": "e3d82ce0-9bae-0133-0de7-525400970412",
+                  "variations": [
+                    {
+                      "uuid": "b16c3fe0-7bcb-0136-b5fc-07fe54a9e639",
+                      "name": "Light",
+                      "description": "Ideal for a wide range of businesses and brands, this design is fully responsive, simple, and ready for you to add your branding, logo, and products. It comes ready to build a clean looking and beautiful store with features such as homepage carousel, social media icons, featured and top selling products, and faceted search (which is available on select BigCommerce plans). Fully express your brand by using our Theme Editor to quickly and easily style your site's fonts and colors, all without the need to write code.",
+                      "external_id": "light"
+                    },
+                    {
+                      "uuid": "b17d57e0-7bcb-0136-b5fc-07fe54a9e639",
+                      "name": "Bold",
+                      "description": "Ideal for a wide range of businesses and brands, this design is fully responsive, simple, and ready for you to add your branding, logo, and products. It comes ready to build a clean looking and beautiful store with features such as homepage carousel, social media icons, featured and top selling products, and faceted search (which is available on select BigCommerce plans). Fully express your brand by using our Theme Editor to quickly and easily style your site's fonts and colors, all without the need to write code.",
+                      "external_id": "bold"
+                    },
+                    {
+                      "uuid": "b18ad610-7bcb-0136-b5fc-07fe54a9e639",
+                      "name": "Warm",
+                      "description": "Ideal for a wide range of businesses and brands, this design is fully responsive, simple, and ready for you to add your branding, logo, and products. It comes ready to build a clean looking and beautiful store with features such as homepage carousel, social media icons, featured and top selling products, and faceted search (which is available on select BigCommerce plans). Fully express your brand by using our Theme Editor to quickly and easily style your site's fonts and colors, all without the need to write code.",
+                      "external_id": "warm"
+                    }
+                  ],
+                  "name": "Cornerstone",
+                  "is_private": false,
+                  "is_active": false
+                },
+                "meta": {}
+              }
+            }
+          },
+          "default": {
+            "description": "Error message.",
+            "schema": {
+              "$ref": "#/definitions/ErrorResponse"
+            }
+          }
+        },
+        "description": "Returns a store *Theme*. The theme variation is not available at this endpoint."
+      },
+      "delete": {
+        "tags": [
+          "Themes"
+        ],
+        "operationId": "deleteStoreTheme",
+        "summary": "Delete a Store Theme",
+        "parameters": [
+          {
+            "$ref": "#/parameters/ThemeIdParam"
+          },
+          {
+            "$ref": "#/parameters/Accept"
+          },
+          {
+            "$ref": "#/parameters/Content-Type"
+          }
+        ],
+        "responses": {
+          "204": {
+            "description": ""
+          },
+          "default": {
+            "description": "Error message.",
+            "schema": {
+              "$ref": "#/definitions/ErrorResponse"
+            }
+          }
+        },
+        "description": "Deletes a store *Theme*.\nTheme variations can not be deleted using this endpoint. This will delete the theme and all variations."
+      },
+      "parameters": [
+        {
+          "name": "uuid",
+          "in": "path",
+          "type": "string",
+          "required": true
+        }
+      ]
+    },
+    "/themes/{uuid}/actions/download": {
+      "parameters": [
+        {
+          "$ref": "#/parameters/ThemeIdParam"
+        },
+        {
+          "name": "uuid",
+          "in": "path",
+          "type": "string",
+          "required": true
+        }
+      ],
+      "post": {
+        "tags": [
+          "Themes"
+        ],
+        "operationId": "downloadTheme",
+        "summary": "Download a Store Theme",
+        "parameters": [
+          {
+            "name": "which",
+            "in": "body",
+            "required": true,
+            "schema": {
+              "$ref": "#/definitions/WhichThemeToDownload"
+            },
+            "x-examples": {
+              "application/json": {
+                "which": "last_created"
+              }
+            }
+          },
+          {
+            "$ref": "#/parameters/Accept"
+          },
+          {
+            "$ref": "#/parameters/Content-Type"
+          }
+        ],
+        "responses": {
+          "200": {
+            "description": "Job ID for the background job processing the download.",
+            "schema": {
+              "$ref": "#/definitions/JobId"
+            },
+            "examples": {
+              "application/json": {
+                "job_id": "ceea1917b1518f5ae491da6ad8a56336"
+              }
+            }
+          },
+          "default": {
+            "description": "Error message.",
+            "schema": {
+              "$ref": "#/definitions/ErrorResponse"
+            }
+          }
+        },
+        "description": "Downloads a stores *Theme*."
+      }
+    },
+    "/themes/actions/activate": {
+      "post": {
+        "tags": [
+          "Themes"
+        ],
+        "operationId": "activateStoreTheme",
+        "summary": "Activate a Store Theme",
+        "parameters": [
+          {
+            "name": "body",
+            "description": "Request parameters.",
+            "in": "body",
+            "required": true,
+            "schema": {
+              "$ref": "#/definitions/Activate"
+            },
+            "x-examples": {
+              "application/json": {
+                "variation_id": "87be3180-731f-0136-9d2f-633ff0d6ced1",
+                "which": "original"
+              }
+            }
+          },
+          {
+            "$ref": "#/parameters/Accept"
+          },
+          {
+            "$ref": "#/parameters/Content-Type"
+          }
+        ],
+        "responses": {
+          "204": {
+            "description": "This returns when the request is successful.",
+            "schema": {
+              "$ref": "#/definitions/NoContent"
+            }
+          },
+          "default": {
+            "description": "Error message.",
+            "schema": {
+              "$ref": "#/definitions/ErrorResponse"
+            }
+          }
+        },
+        "description": "Actives a store *Theme*. \n\nThis returns a 204 response upon success."
+      }
+    },
+    "/themes/jobs/{job_id}": {
+      "get": {
+        "tags": [
+          "Themes"
+        ],
+        "operationId": "getJob",
+        "summary": "Get a Theme Job",
+        "parameters": [
+          {
+            "$ref": "#/parameters/JobIdParam"
+          },
+          {
+            "$ref": "#/parameters/Accept"
+          },
+          {
+            "$ref": "#/parameters/Content-Type"
+          }
+        ],
+        "responses": {
+          "200": {
+            "description": "",
+            "schema": {
+              "$ref": "#/definitions/JobResponse"
+            },
+            "examples": {
+              "application/json": {
+                "data": {
+                  "id": "ceea1917b1518f5ae491da6ad8a56336",
+                  "time": "2018-09-18T13:59:01Z",
+                  "status": "COMPLETED",
+                  "percent_complete": 100,
+                  "result": {
+                    "theme_id": "ed1982d0-9d78-0136-33ba-0d84a0c6431b"
+                  },
+                  "warnings": [],
+                  "errors": []
+                },
+                "meta": {}
+              }
+            }
+          },
+          "default": {
+            "description": "Error message.",
+            "schema": {
+              "$ref": "#/definitions/ErrorResponse"
+            }
+          }
+        },
+        "description": "Returns a theme *Job*. If job is completed, the result is included in the response."
+      }
+    }
+  },
+  "parameters": {
+    "JobIdParam": {
+      "name": "job_id",
+      "description": "The job identifier.",
+      "in": "path",
+      "type": "string",
+      "required": true
+    },
+    "ThemeIdParam": {
+      "name": "uuid",
+      "description": "The theme identifier.",
+      "in": "path",
+      "type": "string",
+      "required": true
+    },
+    "Accept": {
+      "in": "header",
+      "type": "string",
+      "name": "Accept",
+      "default": "application/json",
+      "required": true
+    },
+    "Content-Type": {
+      "name": "Content-Type",
+      "in": "header",
+      "type": "string",
+      "default": "application/json",
+      "required": true
+    }
+  },
+  "definitions": {
+    "CollectionMeta": {
+      "type": "object",
+      "description": "Data about the response, including pagination and collection totals.",
+      "properties": {
+        "pagination": {
+          "$ref": "#/definitions/Pagination"
+        }
+      },
+      "title": "Collection Meta"
+    },
+    "Pagination": {
+      "type": "object",
+      "description": "Data about the response, including pagination and collection totals.",
+      "title": "Pagination",
+      "properties": {
+        "total": {
+          "type": "integer",
+          "description": "Total number of items in the result set.\n",
+          "example": 36
+        },
+        "count": {
+          "type": "integer",
+          "description": "Total number of items in the collection response.\n",
+          "example": 36
+        },
+        "per_page": {
+          "type": "integer",
+          "description": "The amount of items returned in the collection per page, controlled by the limit parameter.\n",
+          "example": 50
+        },
+        "current_page": {
+          "type": "integer",
+          "description": "The page you are currently on within the collection.\n",
+          "example": 1
+        },
+        "total_pages": {
+          "type": "integer",
+          "description": "The total number of pages in the collection.\n",
+          "example": 1
+        },
+        "links": {
+          "type": "object",
+          "description": "Pagination links for the previous and next parts of the whole collection.\n",
+          "properties": {
+            "previous": {
+              "type": "string",
+              "description": "Link to the previous page returned in the response.\n"
+            },
+            "current": {
+              "type": "string",
+              "description": "Link to the current page returned in the response.\n",
+              "example": "?page=1&limit=50"
+            },
+            "next": {
+              "type": "string",
+              "description": "Link to the next page returned in the response.\n"
+            }
+          }
+        }
+      }
+    },
+    "Meta": {
+      "type": "object",
+      "description": "Empty meta object; may be used later.",
+      "title": "Meta"
+    },
+    "ErrorResponse": {
+      "allOf": [
+        {
+          "$ref": "#/definitions/BaseError"
+        },
+        {
+          "type": "object",
+          "properties": {
+            "errors": {
+              "$ref": "#/definitions/DetailedErrors"
+            }
+          }
+        }
+      ],
+      "title": "Error Response"
+    },
+    "BaseError": {
+      "type": "object",
+      "description": "Error payload for the BigCommerce API.\n",
+      "properties": {
+        "status": {
+          "description": "The HTTP status code.\n",
+          "type": "integer"
+        },
+        "title": {
+          "description": "The error title describing the particular error.\n",
+          "type": "string"
+        },
+        "type": {
+          "type": "string"
+        },
+        "instance": {
+          "type": "string"
+        }
+      },
+      "title": "Base Error"
+    },
+    "DetailedErrors": {
+      "type": "object",
+      "additionalProperties": {
+        "type": "string"
+      },
+      "title": "DetailedErrors"
+    },
+    "NotFound": {
+      "description": "Error payload for the BigCommerce API.",
+      "type": "object",
+      "properties": {
+        "status": {
+          "description": "404 HTTP status code.\n",
+          "type": "integer"
+        },
+        "title": {
+          "description": "The error title describing the particular error.",
+          "type": "string"
+        },
+        "type": {
+          "type": "string"
+        },
+        "instance": {
+          "type": "string"
+        }
+      },
+      "title": "Not Found"
+    },
+    "JobId": {
+      "description": "The job identifier for theme upload or download.",
+      "type": "object",
+      "properties": {
+        "job_id": {
+          "description": "The job identifier.",
+          "type": "string"
+        }
+      },
+      "title": "Job Id"
+    },
+    "NoContent": {
+      "description": "No-content response for the BigCommerce API.",
+      "type": "object",
+      "properties": {
+        "status": {
+          "description": "204 HTTP status code.\n",
+          "type": "integer"
+        },
+        "title": {
+          "description": "The error title describing the situation.",
+          "type": "string"
+        },
+        "type": {
+          "type": "string"
+        },
+        "instance": {
+          "type": "string"
+        }
+      },
+      "title": "No Content"
+    },
+    "Job": {
+      "description": "The job for theme upload or download",
+      "type": "object",
+      "title": "Job",
+      "properties": {
+        "errors": {
+          "description": "The errors.",
+          "type": "array",
+          "items": {
+            "type": "object",
+            "properties": {
+              "error": {
+                "description": "The error.",
+                "type": "string"
+              },
+              "message": {
+                "description": "The message.",
+                "type": "string"
+              }
+            }
+          }
+        },
+        "id": {
+          "description": "The identifier.",
+          "type": "string"
+        },
+        "percent_complete": {
+          "description": "The percent complete.",
+          "type": "number"
+        },
+        "result": {
+          "description": "The result.",
+          "type": "object",
+          "additionalProperties": {
+            "type": "string"
+          },
+          "properties": {
+            "theme_id": {
+              "type": "string"
+            }
+          }
+        },
+        "status": {
+          "type": "string",
+          "description": "The status.",
+          "enum": [
+            "COMPLETED",
+            "QUEUED",
+            "WORKING",
+            "FAILED"
+          ]
+        },
+        "time": {
+          "type": "string",
+          "description": "The time.",
+          "format": "date-time"
+        },
+        "warnings": {
+          "description": "The warnings.",
+          "type": "array",
+          "items": {
+            "type": "object",
+            "properties": {
+              "message": {
+                "description": "The message.",
+                "type": "string"
+              },
+              "warning": {
+                "description": "The warning.",
+                "type": "string"
+              }
+            }
+          }
+        }
+      }
+    },
+    "Theme": {
+      "description": "A theme.",
+      "type": "object",
+      "properties": {
+        "variations": {
+          "description": "The variations.",
+          "type": "array",
+          "items": {
+            "$ref": "#/definitions/Variation"
+          }
+        },
+        "uuid": {
+          "description": "The identifier.",
+          "type": "string"
+        },
+        "name": {
+          "description": "The theme name identifier.",
+          "type": "string"
+        },
+        "is_private": {
+          "description": "Flag to identify private themes.",
+          "type": "boolean"
+        }
+      }
+    },
+    "Activate": {
+      "description": "Request definition for activation endpoint.",
+      "required": [
+        "variation_id",
+        "which"
+      ],
+      "properties": {
+        "variation_id": {
+          "description": "The identifier for the variation to activate.",
+          "type": "string"
+        },
+        "which": {
+          "description": "Which configuration to use.",
+          "type": "string",
+          "enum": [
+            "original",
+            "last_activated",
+            "last_created"
+          ]
+        }
+      },
+      "title": "Activate"
+    },
+    "Variation": {
+      "description": "A variation.",
+      "type": "object",
+      "properties": {
+        "description": {
+          "description": "The description.",
+          "type": "string"
+        },
+        "external_id": {
+          "description": "The external identifier.",
+          "type": "string"
+        },
+        "name": {
+          "description": "The name.",
+          "type": "string"
+        },
+        "uuid": {
+          "description": "The identifier.",
+          "type": "string"
+        }
+      }
+    },
+    "ThemesCollectionResponse": {
+      "description": "Response payload for the BigCommerce API.\n",
+      "type": "object",
+      "properties": {
+        "data": {
+          "type": "array",
+          "items": {
+            "$ref": "#/definitions/Theme"
+          }
+        },
+        "meta": {
+          "$ref": "#/definitions/CollectionMeta"
+        }
+      },
+      "title": "Themes Collection Response"
+    },
+    "ThemeResponse": {
+      "description": "Response payload for the BigCommerce API.\n",
+      "type": "object",
+      "properties": {
+        "data": {
+          "$ref": "#/definitions/Theme"
+        },
+        "meta": {
+          "$ref": "#/definitions/Meta"
+        }
+      },
+      "title": "Theme Response"
+    },
+    "JobResponse": {
+      "type": "object",
+      "properties": {
+        "data": {
+          "$ref": "#/definitions/Job"
+        },
+        "meta": {
+          "$ref": "#/definitions/Meta"
+        }
+      },
+      "title": "Job Response",
+      "description": "Response for /GET Jobs by Id."
+    },
+    "WhichThemeToDownload": {
+      "description": "An object specifying which theme to download. One of: `original`: the original Marketplace or uploaded custom theme; `last_activated`: the theme version most recently applied to the store; `last_created`: the theme version most recently created.",
+      "allOf": [
+        {
+          "description": "A BigCommerce object specifying which theme to download.\n\n`original`: the original Marketplace or uploaded custom theme.\n\n`last_activated`: the theme version most recently applied to the store.\n\n`last_created`: the theme version most recently created.\n\nIf `which` is missing or invalid in the request, its value will default to `last_activated`.",
+          "example": "original",
+          "properties": {
+            "which": {
+              "description": "Which revision to use.",
+              "type": "string",
+              "enum": [
+                "original",
+                "last_activated",
+                "last_created"
+              ]
+            }
+          }
+        }
+      ],
+      "title": "Which Theme To Download",
+      "type": "object"
+    },
+    "RequestHeaders": {
+      "type": "object",
+      "description": "These are the minium request headers needed for BigCommerce. ",
+      "title": "Request Headers",
+      "properties": {
+        "X-Auth-Client": {
+          "type": "string",
+          "example": "{X-Auth-Client}"
+        },
+        "Accepts": {
+          "type": "string",
+          "default": "application/json"
+        }
+      }
+    }
+  },
+  "securityDefinitions": {
+    "X-Auth-Client": {
+      "type": "apiKey",
+      "name": "X-Auth-Client",
+      "in": "header"
+    },
+    "X-Auth-Token": {
+      "type": "apiKey",
+      "name": "X-Auth-Token",
+      "in": "header"
+    }
+  }
+}
