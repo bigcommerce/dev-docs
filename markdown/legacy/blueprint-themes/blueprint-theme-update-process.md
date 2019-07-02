@@ -11,7 +11,7 @@
 
 Here is how BigCommerce and our partners collaborate to integrate a partner's theme changes/updates into the BigCommerce Theme Marketplace (which merchants also know as our "theme store"):
 
-<a href='#theme-update-prerequisites' aria-hidden='true' class='block-anchor'  id='theme-update-prerequisites'></a>
+<a href='#theme-update-prerequisites' aria-hidden='true' class='block-anchor'  id='theme-update-prerequisites'><i aria-hidden='true' class='linkify icon'></i></a>
 
 ## Prerequisites 
 
@@ -36,7 +36,7 @@ Integrating a partner's theme changes requires these preconditions:
 
 
 
-<a href='#blueprint-theme-update-process' aria-hidden='true' class='block-anchor'  id='blueprint-theme-update-process'></a>
+<a href='#blueprint-theme-update-process' aria-hidden='true' class='block-anchor'  id='blueprint-theme-update-process'><i aria-hidden='true' class='linkify icon'></i></a>
 
 ## Update Process 
 
@@ -77,7 +77,7 @@ Integrating a partner's theme changes requires these preconditions:
 
 
 
-<a href='#theme-update-other-requirements' aria-hidden='true' class='block-anchor'  id='theme-update-other-requirements'></a>
+<a href='#theme-update-other-requirements' aria-hidden='true' class='block-anchor'  id='theme-update-other-requirements'><i aria-hidden='true' class='linkify icon'></i></a>
 
 ## Other Requirements 
 

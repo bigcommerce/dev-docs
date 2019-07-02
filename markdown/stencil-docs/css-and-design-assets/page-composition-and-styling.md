@@ -13,7 +13,7 @@
 
 
 
-<a href='#page-composition_referencing-css-stylesheet' aria-hidden='true' class='block-anchor'  id='page-composition_referencing-css-stylesheet'></a>
+<a href='#page-composition_referencing-css-stylesheet' aria-hidden='true' class='block-anchor'  id='page-composition_referencing-css-stylesheet'><i aria-hidden='true' class='linkify icon'></i></a>
 
 ## Referencing a CSS Stylesheet
 
@@ -27,7 +27,7 @@ To apply CSS styling to a page in your theme, make sure that page's code include
 
 
 
-<a href='#page-composition_template-composition' aria-hidden='true' class='block-anchor'  id='page-composition_template-composition'></a>
+<a href='#page-composition_template-composition' aria-hidden='true' class='block-anchor'  id='page-composition_template-composition'><i aria-hidden='true' class='linkify icon'></i></a>
 
 ## Template Composition
 

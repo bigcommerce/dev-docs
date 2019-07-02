@@ -20,7 +20,7 @@
 </div>
 </div>
 
-<a href='#foundation-for-creating-themes' aria-hidden='true' class='block-anchor'  id='foundation-for-creating-themes'></a>
+<a href='#foundation-for-creating-themes' aria-hidden='true' class='block-anchor'  id='foundation-for-creating-themes'><i aria-hidden='true' class='linkify icon'></i></a>
 
 ## A Foundation for Creating Themes 
 
@@ -30,7 +30,7 @@ Our (legacy) Blueprint "Classic Next" base theme provides a starting point for c
 
 
 
-<a href='#setting-up-your-environment' aria-hidden='true' class='block-anchor'  id='setting-up-your-environment'></a>
+<a href='#setting-up-your-environment' aria-hidden='true' class='block-anchor'  id='setting-up-your-environment'><i aria-hidden='true' class='linkify icon'></i></a>
 
 ## Setting Up Your Environment 
 

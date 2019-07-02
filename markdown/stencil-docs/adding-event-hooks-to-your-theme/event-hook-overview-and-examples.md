@@ -9,7 +9,7 @@
 	</ul>
 </div>
 
-<a href='#event_event-hook' aria-hidden='true' class='block-anchor'  id='event_event-hook'></a>
+<a href='#event_event-hook' aria-hidden='true' class='block-anchor'  id='event_event-hook'><i aria-hidden='true' class='linkify icon'></i></a>
 
 ## Event Hook Overview 
 
@@ -19,7 +19,7 @@ Your Stencil themes incorporate these resources by importing the stencil-utils m
 
 `import utils from '@bigcommerce/stencil-utils';`
 
-<a href='#event_cookie-notification' aria-hidden='true' class='block-anchor'  id='event_cookie-notification'></a>
+<a href='#event_cookie-notification' aria-hidden='true' class='block-anchor'  id='event_cookie-notification'><i aria-hidden='true' class='linkify icon'></i></a>
 
 ## Cookie Notification Example
 
@@ -53,7 +53,7 @@ export default function() {
 A theme could listen for the `cookie-privacy-notification` event to override the browser’s default notification UI.
 
 
-<a href='#event_cart-dialog' aria-hidden='true' class='block-anchor'  id='event_cart-dialog'></a>
+<a href='#event_cart-dialog' aria-hidden='true' class='block-anchor'  id='event_cart-dialog'><i aria-hidden='true' class='linkify icon'></i></a>
 
 ## Cart Dialog Example
 

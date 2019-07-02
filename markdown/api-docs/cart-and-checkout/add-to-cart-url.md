@@ -31,7 +31,7 @@ Your apps can use a product's or variant's <a href="https://support.bigcommerce.
 </div>
 </div>
 
-<a href='#add-cart-url_select-specific-sku' aria-hidden='true' class='block-anchor'  id='add-cart-url_select-specific-sku'></a>
+<a href='#add-cart-url_select-specific-sku' aria-hidden='true' class='block-anchor'  id='add-cart-url_select-specific-sku'><i aria-hidden='true' class='linkify icon'></i></a>
 
 ## Select Specific SKU (Product/Variant) on Product Detail Page
 
@@ -46,7 +46,7 @@ To link to a specific product variant, append `?sku=INSERT-SKU-HERE` to the prod
 
 
 
-<a href='#add-specific-sku-cart' aria-hidden='true' class='block-anchor'  id='add-specific-sku-cart'></a>
+<a href='#add-specific-sku-cart' aria-hidden='true' class='block-anchor'  id='add-specific-sku-cart'><i aria-hidden='true' class='linkify icon'></i></a>
 
 ## Add Specific SKU to Cart
 
@@ -61,7 +61,7 @@ To automatically add a product or variant to a shopper's cart and take them dire
 
 
 
-<a href='#add-cart-url_add-sku-checkout-go-to-cart' aria-hidden='true' class='block-anchor'  id='add-cart-url_add-sku-checkout-go-to-cart'></a>
+<a href='#add-cart-url_add-sku-checkout-go-to-cart' aria-hidden='true' class='block-anchor'  id='add-cart-url_add-sku-checkout-go-to-cart'><i aria-hidden='true' class='linkify icon'></i></a>
 
 ## Add Specific SKU to Cart and Go Directly to Checkout
 To automatically add a product or variant to a shopper's cart and forward them directly to checkout, append   
@@ -75,7 +75,7 @@ To automatically add a product or variant to a shopper's cart and forward them d
 
 
 
-<a href='#add-cart-url_add-specific-sku-checkout-source' aria-hidden='true' class='block-anchor'  id='add-cart-url_add-specific-sku-checkout-source'></a>
+<a href='#add-cart-url_add-specific-sku-checkout-source' aria-hidden='true' class='block-anchor'  id='add-cart-url_add-specific-sku-checkout-source'><i aria-hidden='true' class='linkify icon'></i></a>
 
 ## Add Specific SKU, Go to Checkout, and Include Source
 

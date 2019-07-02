@@ -13,7 +13,7 @@
 </div>
 </div>
 
-<a href='#stencil_stencil-theme-editor-overview' aria-hidden='true' class='block-anchor'  id='stencil_stencil-theme-editor-overview'></a>
+<a href='#stencil_stencil-theme-editor-overview' aria-hidden='true' class='block-anchor'  id='stencil_stencil-theme-editor-overview'><i aria-hidden='true' class='linkify icon'></i></a>
 
 ## Store Design Overview
 [Store Design](https://support.bigcommerce.com/s/article/Store-Design) is a Graphical User Interface (GUI) that allows BigCommerce merchants to rapidly modify and customize a storefront's look and feel without manually entering any code. A merchant using the Store Design can customize a storefront theme by modifying characteristics from a variety of menu options such as Styles, Colors, Typography, Buttons, and more. Furthermore, Store Design is a useful rapid-customization tool for developers. 

@@ -25,7 +25,7 @@ We have provided a [sample checkout app](https://github.com/bigcommerce/checkout
 
 
 
-<a href='#getting-started_prerequisites' aria-hidden='true' class='block-anchor'  id='getting-started_prerequisites'></a>
+<a href='#getting-started_prerequisites' aria-hidden='true' class='block-anchor'  id='getting-started_prerequisites'><i aria-hidden='true' class='linkify icon'></i></a>
 
 ## Prerequisites
 * This tutorial uses [Cornerstone](https://github.com/bigcommerce/cornerstone). Your theme may differ.
@@ -34,7 +34,7 @@ We have provided a [sample checkout app](https://github.com/bigcommerce/checkout
 
 
 
-<a href='#getting-started_installing' aria-hidden='true' class='block-anchor'  id='getting-started_installing'></a>
+<a href='#getting-started_installing' aria-hidden='true' class='block-anchor'  id='getting-started_installing'><i aria-hidden='true' class='linkify icon'></i></a>
 
 ## Installing the Checkout JS SDK
 
@@ -49,7 +49,7 @@ For example, `cd cornerstone`
 
 
 
-<a href='#getting-started_creating' aria-hidden='true' class='block-anchor'  id='getting-started_creating'></a>
+<a href='#getting-started_creating' aria-hidden='true' class='block-anchor'  id='getting-started_creating'><i aria-hidden='true' class='linkify icon'></i></a>
 
 ## Creating a <span class="fn">checkout.js</span> file
 
@@ -87,7 +87,7 @@ The async keyword ensures that `onReady()` returns a Promise; the await keyword 
 
 
 
-<a href='#getting-started_mapping' aria-hidden='true' class='block-anchor'  id='getting-started_mapping'></a>
+<a href='#getting-started_mapping' aria-hidden='true' class='block-anchor'  id='getting-started_mapping'><i aria-hidden='true' class='linkify icon'></i></a>
 
 ## Mapping the <span class="fn">checkout.js</span> file to the checkout page type
 
@@ -158,7 +158,7 @@ const pageClasses = {
 
 
 
-<a href='#getting-started_preparing' aria-hidden='true' class='block-anchor'  id='getting-started_preparing'></a>
+<a href='#getting-started_preparing' aria-hidden='true' class='block-anchor'  id='getting-started_preparing'><i aria-hidden='true' class='linkify icon'></i></a>
 
 ## Preparing the <span class="fn">checkout.html</span> template file
 
@@ -190,7 +190,7 @@ lineNumbers: true
 
 
 
-<a href='#getting-started_logging' aria-hidden='true' class='block-anchor'  id='getting-started_logging'></a>
+<a href='#getting-started_logging' aria-hidden='true' class='block-anchor'  id='getting-started_logging'><i aria-hidden='true' class='linkify icon'></i></a>
 
 ## Logging the Checkout Object
 
@@ -201,7 +201,7 @@ lineNumbers: true
 
 
 
-<a href='#getting-started_next-steps' aria-hidden='true' class='block-anchor'  id='getting-started_next-steps'></a>
+<a href='#getting-started_next-steps' aria-hidden='true' class='block-anchor'  id='getting-started_next-steps'><i aria-hidden='true' class='linkify icon'></i></a>
 
 ## Next Steps
 

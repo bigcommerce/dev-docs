@@ -15,14 +15,14 @@ Most of the WordPress proxy REST endpoints are publicly queryable, with authenti
 
 
 
-<a href='#proxy-api-endpoints_caching' aria-hidden='true' class='block-anchor'  id='proxy-api-endpoints_caching'></a>
+<a href='#proxy-api-endpoints_caching' aria-hidden='true' class='block-anchor'  id='proxy-api-endpoints_caching'><i aria-hidden='true' class='linkify icon'></i></a>
 
 ## Caching and Webhooks
 By default, GET requests under `/catalog` are cached for ten minutes in the object cache -- or via WordPress transients if object caching is not available -- and a BigCommerce webhook is used to bust cached data related to a product when it is updated in BigCommerce or its inventory data changes. This default caching implementation can be overridden using the `bigcommerce/proxy/result_pre` WordPress filter. See the plugin customization guide for details on overriding core plugin functionality.
 
 
 
-<a href='##proxy-api-endpoints_endpoints' aria-hidden='true' class='block-anchor'  id='#proxy-api-endpoints_endpoints'></a>
+<a href='##proxy-api-endpoints_endpoints' aria-hidden='true' class='block-anchor'  id='#proxy-api-endpoints_endpoints'><i aria-hidden='true' class='linkify icon'></i></a>
 
 ## Endpoints
 |URL|Description|Methods|Excluded Fields

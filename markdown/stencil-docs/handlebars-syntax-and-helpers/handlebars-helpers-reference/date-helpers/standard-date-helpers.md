@@ -7,7 +7,7 @@
 	</ul>
 </div>
 
-<a href='#handlebars_moment' aria-hidden='true' class='block-anchor'  id='handlebars_moment'></a>
+<a href='#handlebars_moment' aria-hidden='true' class='block-anchor'  id='handlebars_moment'><i aria-hidden='true' class='linkify icon'></i></a>
 
 The following standard Handlebars helper handles dates.
 

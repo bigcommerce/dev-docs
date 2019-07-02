@@ -8,7 +8,7 @@
 	</ul>
 </div>
 
-<a href='#handlebars_if' aria-hidden='true' class='block-anchor'  id='handlebars_if'></a>
+<a href='#handlebars_if' aria-hidden='true' class='block-anchor'  id='handlebars_if'><i aria-hidden='true' class='linkify icon'></i></a>
 
 The following helpers provide control structures that test for conditions, and branch accordingly.
 
@@ -38,7 +38,7 @@ When you pass only one parameter to the `if` helper, it will return the followin
 
 
 
-<a href='#handlebars_unless' aria-hidden='true' class='block-anchor'  id='handlebars_unless'></a>
+<a href='#handlebars_unless' aria-hidden='true' class='block-anchor'  id='handlebars_unless'><i aria-hidden='true' class='linkify icon'></i></a>
 
 ## {{unless}}
 

@@ -9,7 +9,7 @@
 	</ul>
 </div>
 
-<a href='##category_category' aria-hidden='true' class='block-anchor'  id='#category_category'></a>
+<a href='##category_category' aria-hidden='true' class='block-anchor'  id='#category_category'><i aria-hidden='true' class='linkify icon'></i></a>
 
 ## Category
 
@@ -106,7 +106,7 @@
   </tr>
 </table>
 
-<a href='#category_category-products' aria-hidden='true' class='block-anchor'  id='category_category-products'></a>
+<a href='#category_category-products' aria-hidden='true' class='block-anchor'  id='category_category-products'><i aria-hidden='true' class='linkify icon'></i></a>
 
 ## Category Products
 
@@ -116,7 +116,7 @@
 
 **Object Properties:** References the  [product card model](/stencil-docs/stencil-object-model-reference/stencil-objects/common-objects/common-product-card-model).
 
-<a href='#category_category-shop' aria-hidden='true' class='block-anchor'  id='category_category-shop'></a>
+<a href='#category_category-shop' aria-hidden='true' class='block-anchor'  id='category_category-shop'><i aria-hidden='true' class='linkify icon'></i></a>
 
 ## Category Shop by Price 
 

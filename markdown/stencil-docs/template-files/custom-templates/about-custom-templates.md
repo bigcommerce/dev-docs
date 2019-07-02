@@ -7,7 +7,7 @@
 	</ul>
 </div>
 
-<a href='#custom-templates_about-custom' aria-hidden='true' class='block-anchor'  id='custom-templates_about-custom'></a>
+<a href='#custom-templates_about-custom' aria-hidden='true' class='block-anchor'  id='custom-templates_about-custom'><i aria-hidden='true' class='linkify icon'></i></a>
 
 The Stencil framework allows theme developers and merchants to assign custom layout templates to storefront pages of the following types:
 
@@ -19,7 +19,7 @@ The Stencil framework allows theme developers and merchants to assign custom lay
 
 
 
-<a href='#custom-templates_stencil-versus-blueprint' aria-hidden='true' class='block-anchor'  id='custom-templates_stencil-versus-blueprint'></a>
+<a href='#custom-templates_stencil-versus-blueprint' aria-hidden='true' class='block-anchor'  id='custom-templates_stencil-versus-blueprint'><i aria-hidden='true' class='linkify icon'></i></a>
 
 ## Stencil versus Blueprint Themes
 
@@ -31,7 +31,7 @@ If you are migrating from BigCommerce's legacy Blueprint themes framework, pleas
 
 
 
-<a href='#custom-templates_video-demo' aria-hidden='true' class='block-anchor'  id='custom-templates_video-demo'></a>
+<a href='#custom-templates_video-demo' aria-hidden='true' class='block-anchor'  id='custom-templates_video-demo'><i aria-hidden='true' class='linkify icon'></i></a>
 
 ## Custom Templates Video Demonstration
 

@@ -11,7 +11,7 @@
 	</ul>
 </div>
 
-<a href='#best-practices_integration-up-to-date' aria-hidden='true' class='block-anchor'  id='best-practices_integration-up-to-date'></a>
+<a href='#best-practices_integration-up-to-date' aria-hidden='true' class='block-anchor'  id='best-practices_integration-up-to-date'><i aria-hidden='true' class='linkify icon'></i></a>
 
 ## Ensure that your integration is up-to-date
 
@@ -19,7 +19,7 @@ BigCommerce frequently enhances its core product and is actively developing v3 A
 
 
 
-<a href='#best-practices_use-webhooks' aria-hidden='true' class='block-anchor'  id='best-practices_use-webhooks'></a>
+<a href='#best-practices_use-webhooks' aria-hidden='true' class='block-anchor'  id='best-practices_use-webhooks'><i aria-hidden='true' class='linkify icon'></i></a>
 
 ## Use webhooks effectively within your application
 
@@ -29,7 +29,7 @@ BigCommerce will send a partial payload when a subscribed event is triggered, wi
 
 
 
-<a href='#best-practices_thread-api-requests' aria-hidden='true' class='block-anchor'  id='best-practices_thread-api-requests'></a>
+<a href='#best-practices_thread-api-requests' aria-hidden='true' class='block-anchor'  id='best-practices_thread-api-requests'><i aria-hidden='true' class='linkify icon'></i></a>
 
 ## Thread your requests to the BigCommerce API
 
@@ -39,7 +39,7 @@ The [BigCommerce Ruby API](https://github.com/bigcommerce/bigcommerce-api-ruby) 
 
 
 
-<a href='#best-practices_marketplace-apps' aria-hidden='true' class='block-anchor'  id='best-practices_marketplace-apps'></a>
+<a href='#best-practices_marketplace-apps' aria-hidden='true' class='block-anchor'  id='best-practices_marketplace-apps'><i aria-hidden='true' class='linkify icon'></i></a>
 
 ## Marketplace Apps
 
@@ -54,7 +54,7 @@ For more advanced implementations, you can enable the store owner to grant speci
 
 
 
-<a href='#best-practices_rate-limits' aria-hidden='true' class='block-anchor'  id='best-practices_rate-limits'></a>
+<a href='#best-practices_rate-limits' aria-hidden='true' class='block-anchor'  id='best-practices_rate-limits'><i aria-hidden='true' class='linkify icon'></i></a>
 
 ## API Rate Limits
 Apps that authenticate with OAuth are rate-limited, based on a quota that is refreshed every few seconds. The maximum quota for a store will vary depending on the store’s plan.
@@ -121,7 +121,7 @@ However, your application should monitor the rate limiting headers to avoid an H
 
 
 
-<a href='#best-practices_platform-limits' aria-hidden='true' class='block-anchor'  id='best-practices_platform-limits'></a>
+<a href='#best-practices_platform-limits' aria-hidden='true' class='block-anchor'  id='best-practices_platform-limits'><i aria-hidden='true' class='linkify icon'></i></a>
 
 ## Platform Limits
 

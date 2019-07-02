@@ -57,7 +57,7 @@ We will be making a widget that shows three images, with a hover effect and each
 
 
 
-<a href='#widget-tutorial_add-a-region' aria-hidden='true' class='block-anchor'  id='widget-tutorial_add-a-region'></a>
+<a href='#widget-tutorial_add-a-region' aria-hidden='true' class='block-anchor'  id='widget-tutorial_add-a-region'><i aria-hidden='true' class='linkify icon'></i></a>
 
 ## Add a Region
 Add `{{{region name="category_header_banner"}}}` to <span class=”fp”>pages/category.html</span>. This is where the widgets will appear on the category page. In this example, the region is added to line 24. 
@@ -111,7 +111,7 @@ lineNumbers: true
 
 
 
-<a href='#widget-tutorial_create-widget-template' aria-hidden='true' class='block-anchor'  id='widget-tutorial_create-widget-template'></a>
+<a href='#widget-tutorial_create-widget-template' aria-hidden='true' class='block-anchor'  id='widget-tutorial_create-widget-template'><i aria-hidden='true' class='linkify icon'></i></a>
 
 ## Create a Widget Template
 
@@ -148,7 +148,7 @@ lineNumbers: true
 
 
 
-<a href='#widget-tutorial_create-widget' aria-hidden='true' class='block-anchor'  id='widget-tutorial_create-widget'></a>
+<a href='#widget-tutorial_create-widget' aria-hidden='true' class='block-anchor'  id='widget-tutorial_create-widget'><i aria-hidden='true' class='linkify icon'></i></a>
 
 ## Create a Widget
 
@@ -215,7 +215,7 @@ lineNumbers: true
 
 
 
-<a href='#widget-tutorial_create-placement' aria-hidden='true' class='block-anchor'  id='widget-tutorial_create-placement'></a>
+<a href='#widget-tutorial_create-placement' aria-hidden='true' class='block-anchor'  id='widget-tutorial_create-placement'><i aria-hidden='true' class='linkify icon'></i></a>
 
 ## Create the Placement
 
@@ -299,7 +299,7 @@ lineNumbers: true
 
 
 
-<a href='#widget-tutorial_create-layout' aria-hidden='true' class='block-anchor'  id='widget-tutorial_create-layout'></a>
+<a href='#widget-tutorial_create-layout' aria-hidden='true' class='block-anchor'  id='widget-tutorial_create-layout'><i aria-hidden='true' class='linkify icon'></i></a>
 
 ## Create a Layout
 
@@ -340,7 +340,7 @@ At this point you should see the widget on the category page of your choice.
 
 
 
-<a href='#widget-tutorial_reuse-widget-template' aria-hidden='true' class='block-anchor'  id='widget-tutorial_reuse-widget-template'></a>
+<a href='#widget-tutorial_reuse-widget-template' aria-hidden='true' class='block-anchor'  id='widget-tutorial_reuse-widget-template'><i aria-hidden='true' class='linkify icon'></i></a>
 
 ## Reuse the Widget Template
 
@@ -355,7 +355,7 @@ To reuse the Widget Template:
 
 
 
-<a href='#widget-tutorial_resources' aria-hidden='true' class='block-anchor'  id='widget-tutorial_resources'></a>
+<a href='#widget-tutorial_resources' aria-hidden='true' class='block-anchor'  id='widget-tutorial_resources'><i aria-hidden='true' class='linkify icon'></i></a>
 
 ## Resources
 
@@ -367,7 +367,7 @@ To reuse the Widget Template:
 
 
 
-<a href='#widget-tutorial_next-steps' aria-hidden='true' class='block-anchor'  id='widget-tutorial_next-steps'></a>
+<a href='#widget-tutorial_next-steps' aria-hidden='true' class='block-anchor'  id='widget-tutorial_next-steps'><i aria-hidden='true' class='linkify icon'></i></a>
 
 
 ### Next Steps

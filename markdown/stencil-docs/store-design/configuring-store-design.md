@@ -9,7 +9,7 @@
 	</ul>
 </div>
 
-<a href='#configuring_configuration-files' aria-hidden='true' class='block-anchor'  id='configuring_configuration-files'></a>
+<a href='#configuring_configuration-files' aria-hidden='true' class='block-anchor'  id='configuring_configuration-files'><i aria-hidden='true' class='linkify icon'></i></a>
 
 ## Configuration Files
 
@@ -25,7 +25,7 @@ For documentation on the principal keys included in Stencil's reference Cornerst
 
 
 
-<a href='#configuring_managing-keys' aria-hidden='true' class='block-anchor'  id='configuring_managing-keys'></a>
+<a href='#configuring_managing-keys' aria-hidden='true' class='block-anchor'  id='configuring_managing-keys'><i aria-hidden='true' class='linkify icon'></i></a>
 
 ## Managing Keys between Versions
 
@@ -39,7 +39,7 @@ Adding new keys is generally fine. (However, each key in <span class="fn">schema
 
 
 
-<a href='#configuring_persistent-settings' aria-hidden='true' class='block-anchor'  id='configuring_persistent-settings'></a>
+<a href='#configuring_persistent-settings' aria-hidden='true' class='block-anchor'  id='configuring_persistent-settings'><i aria-hidden='true' class='linkify icon'></i></a>
 
 ## Persistent Settings Storage
 
@@ -47,7 +47,7 @@ When store administrators use Store Design to customize your theme for their sto
 
 
 
-<a href='#configuring_theme-upgrades' aria-hidden='true' class='block-anchor'  id='configuring_theme-upgrades'></a>
+<a href='#configuring_theme-upgrades' aria-hidden='true' class='block-anchor'  id='configuring_theme-upgrades'><i aria-hidden='true' class='linkify icon'></i></a>
 
 ## Theme Upgrades and Settings
 

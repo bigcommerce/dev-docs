@@ -10,7 +10,7 @@
 	</ul>
 </div>
 
-<a href='#authoring-testing-uploading_authoring' aria-hidden='true' class='block-anchor'  id='authoring-testing-uploading_authoring'></a>
+<a href='#authoring-testing-uploading_authoring' aria-hidden='true' class='block-anchor'  id='authoring-testing-uploading_authoring'><i aria-hidden='true' class='linkify icon'></i></a>
 
 ## Authoring a Custom Template
 
@@ -38,7 +38,7 @@ Next,  create the template HTML files, and then place them in the appropriate `<
 
 
 
-<a href='#authoring-testing-uploading_local-mapping' aria-hidden='true' class='block-anchor'  id='authoring-testing-uploading_local-mapping'></a>
+<a href='#authoring-testing-uploading_local-mapping' aria-hidden='true' class='block-anchor'  id='authoring-testing-uploading_local-mapping'><i aria-hidden='true' class='linkify icon'></i></a>
 
 ## Local Mapping and Testing
 
@@ -147,7 +147,7 @@ lineNumbers: true
 
 
 
-<a href='#authoring-testing-uploading_theme-upload' aria-hidden='true' class='block-anchor'  id='authoring-testing-uploading_theme-upload'></a>
+<a href='#authoring-testing-uploading_theme-upload' aria-hidden='true' class='block-anchor'  id='authoring-testing-uploading_theme-upload'><i aria-hidden='true' class='linkify icon'></i></a>
 
 ## Theme Upload
 
@@ -155,7 +155,7 @@ Finally, you must bundle and upload the theme to BigCommerce. See the Bundling a
 
 
 
-<a href='#authoring-testing-uploading_troubleshooting' aria-hidden='true' class='block-anchor'  id='authoring-testing-uploading_troubleshooting'></a>
+<a href='#authoring-testing-uploading_troubleshooting' aria-hidden='true' class='block-anchor'  id='authoring-testing-uploading_troubleshooting'><i aria-hidden='true' class='linkify icon'></i></a>
 
 ## Troubleshooting Template Authoring
 

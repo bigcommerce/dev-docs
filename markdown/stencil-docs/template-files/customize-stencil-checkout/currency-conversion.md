@@ -7,7 +7,7 @@
 	</ul>
 </div>
 
-<a href='#currency_currency-conversion' aria-hidden='true' class='block-anchor'  id='currency_currency-conversion'></a>
+<a href='#currency_currency-conversion' aria-hidden='true' class='block-anchor'  id='currency_currency-conversion'><i aria-hidden='true' class='linkify icon'></i></a>
 
 ## Currency-Conversion Options
 

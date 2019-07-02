@@ -9,7 +9,7 @@
 	</ul>
 </div>
 
-<a href='#customizing_video' aria-hidden='true' class='block-anchor'  id='customizing_video'></a>
+<a href='#customizing_video' aria-hidden='true' class='block-anchor'  id='customizing_video'><i aria-hidden='true' class='linkify icon'></i></a>
 
 ## Customizing a Theme: Video Series
 
@@ -21,7 +21,7 @@ If you prefer to consume by watching video tutorials, this video series will qui
 
 Continue reading if you would like information to supplement the videos, or if you would get started customizing your theme by reading and following along.
 
-<a href='#customizing_config-json' aria-hidden='true' class='block-anchor'  id='customizing_config-json'></a>
+<a href='#customizing_config-json' aria-hidden='true' class='block-anchor'  id='customizing_config-json'><i aria-hidden='true' class='linkify icon'></i></a>
 
 ## Configuring config.json Keys
 
@@ -59,7 +59,7 @@ The next code block shows how you might change these values to reflect your own 
 }
 ```
 
-<a href='#customizing_basic-changes' aria-hidden='true' class='block-anchor'  id='customizing_basic-changes'></a>
+<a href='#customizing_basic-changes' aria-hidden='true' class='block-anchor'  id='customizing_basic-changes'><i aria-hidden='true' class='linkify icon'></i></a>
 
 ## Making Basic Design & Layout Changes
 

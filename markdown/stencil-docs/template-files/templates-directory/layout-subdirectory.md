@@ -6,7 +6,7 @@
 	</ul>
 </div>
 
-<a href='#layout_layout-subdirectory' aria-hidden='true' class='block-anchor'  id='layout_layout-subdirectory'></a>
+<a href='#layout_layout-subdirectory' aria-hidden='true' class='block-anchor'  id='layout_layout-subdirectory'><i aria-hidden='true' class='linkify icon'></i></a>
 
 ## Layout Subdirectory
 

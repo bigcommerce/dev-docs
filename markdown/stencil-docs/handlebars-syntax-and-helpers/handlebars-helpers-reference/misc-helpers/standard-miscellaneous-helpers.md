@@ -10,7 +10,7 @@
 	</ul>
 </div>
 
-<a href='#handlebars_default' aria-hidden='true' class='block-anchor'  id='handlebars_default'></a>
+<a href='#handlebars_default' aria-hidden='true' class='block-anchor'  id='handlebars_default'><i aria-hidden='true' class='linkify icon'></i></a>
 
 The following standard helpers are also supported on the Stencil framework.
 
@@ -26,7 +26,7 @@ Returns the first value, if that value is defined; otherwise, returns the "defau
 
 
 
-<a href='#handlebars_option' aria-hidden='true' class='block-anchor'  id='handlebars_option'></a>
+<a href='#handlebars_option' aria-hidden='true' class='block-anchor'  id='handlebars_option'><i aria-hidden='true' class='linkify icon'></i></a>
 
 ## {{option}}
 
@@ -46,7 +46,7 @@ Given the context `{options: {a: {b: {c: 'ddd'}}}}`, returns the given value of 
 
 
 
-<a href='#handlebars_noop' aria-hidden='true' class='block-anchor'  id='handlebars_noop'></a>
+<a href='#handlebars_noop' aria-hidden='true' class='block-anchor'  id='handlebars_noop'><i aria-hidden='true' class='linkify icon'></i></a>
 
 ## {{noop}}
 
@@ -59,7 +59,7 @@ Block helper that renders the block without taking any arguments.
 
 
 
-<a href='#handlebars_withhash' aria-hidden='true' class='block-anchor'  id='handlebars_withhash'></a>
+<a href='#handlebars_withhash' aria-hidden='true' class='block-anchor'  id='handlebars_withhash'><i aria-hidden='true' class='linkify icon'></i></a>
 
 ## {{withHash}}
 

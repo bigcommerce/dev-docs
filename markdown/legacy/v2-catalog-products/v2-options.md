@@ -8,7 +8,7 @@
 		</ul>
 </div>
 
-<a href='#v2-option_object-properties' aria-hidden='true' class='block-anchor'  id='v2-option_object-properties'></a>
+<a href='#v2-option_object-properties' aria-hidden='true' class='block-anchor'  id='v2-option_object-properties'><i aria-hidden='true' class='linkify icon'></i></a>
 
 ## Options 
 
@@ -27,7 +27,7 @@ Shared attributes that control value facets on a product.
 
 
 
-<a href='#v2-option-set_list-product-option' aria-hidden='true' class='block-anchor'  id='v2-option-set_list-product-option'></a>
+<a href='#v2-option-set_list-product-option' aria-hidden='true' class='block-anchor'  id='v2-option-set_list-product-option'><i aria-hidden='true' class='linkify icon'></i></a>
 
 ## List Product Options 
 
@@ -74,7 +74,7 @@ Example JSON returned in the response:
 
 
 
-<a href='#v2-option-set_get-product-option' aria-hidden='true' class='block-anchor'  id='v2-option-set_get-product-option'></a>
+<a href='#v2-option-set_get-product-option' aria-hidden='true' class='block-anchor'  id='v2-option-set_get-product-option'><i aria-hidden='true' class='linkify icon'></i></a>
 
 ## Get a Product Option 
 

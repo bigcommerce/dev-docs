@@ -17,7 +17,7 @@
 
 
 
-<a href='#configuring_webpack-jspm-other' aria-hidden='true' class='block-anchor'  id='configuring_webpack-jspm-other'></a>
+<a href='#configuring_webpack-jspm-other' aria-hidden='true' class='block-anchor'  id='configuring_webpack-jspm-other'><i aria-hidden='true' class='linkify icon'></i></a>
 
 ## Webpack, jspm, or Other JavaScript Managers
 
@@ -40,7 +40,7 @@ All themes in the BigCommerce Theme Marketplace use Webpack. However, older vers
 </div>
 </div>
 
-<a href='#configuring_webpack-specific' aria-hidden='true' class='block-anchor'  id='configuring_webpack-specific'></a>
+<a href='#configuring_webpack-specific' aria-hidden='true' class='block-anchor'  id='configuring_webpack-specific'><i aria-hidden='true' class='linkify icon'></i></a>
 
 ## Webpack-Specific Javascript Diagnostics
 
@@ -74,7 +74,7 @@ The `eval-source-map` option is slower, but more verbose. This [Webpack Devtool 
 
 
 
-<a href='#configuring_build-system' aria-hidden='true' class='block-anchor'  id='configuring_build-system'></a>
+<a href='#configuring_build-system' aria-hidden='true' class='block-anchor'  id='configuring_build-system'><i aria-hidden='true' class='linkify icon'></i></a>
 
 ## Build-System Configuration File
 
@@ -84,7 +84,7 @@ Within `stencil.conf.js`, Stencil CLI looks for the exported `watchOptions` obje
 
 Continue reading to take a closer look at each of these three references.
 
-<a href='#configuring_watched-folders' aria-hidden='true' class='block-anchor'  id='configuring_watched-folders'></a>
+<a href='#configuring_watched-folders' aria-hidden='true' class='block-anchor'  id='configuring_watched-folders'><i aria-hidden='true' class='linkify icon'></i></a>
 
 ## Watched Folders: watchOptions Object
 
@@ -114,7 +114,7 @@ var watchOptions = {
 };
 ```
 
-<a href='#configuring_javascript-rebundling' aria-hidden='true' class='block-anchor'  id='configuring_javascript-rebundling'></a>
+<a href='#configuring_javascript-rebundling' aria-hidden='true' class='block-anchor'  id='configuring_javascript-rebundling'><i aria-hidden='true' class='linkify icon'></i></a>
 
 ### JavaScript Rebundling: `development` Function
 
@@ -140,7 +140,7 @@ function development() {
 }
 ```
 
-<a href='#configuring_theme-packaging' aria-hidden='true' class='block-anchor'  id='configuring_theme-packaging'></a>
+<a href='#configuring_theme-packaging' aria-hidden='true' class='block-anchor'  id='configuring_theme-packaging'><i aria-hidden='true' class='linkify icon'></i></a>
 
 ## Theme Packaging: `production` Function 
 

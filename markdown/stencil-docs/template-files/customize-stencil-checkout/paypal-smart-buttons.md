@@ -8,7 +8,7 @@
 	</ul>
 </div>
 
-<a href='#paypal-smart_overview' aria-hidden='true' class='block-anchor'  id='paypal-smart_overview'></a>
+<a href='#paypal-smart_overview' aria-hidden='true' class='block-anchor'  id='paypal-smart_overview'><i aria-hidden='true' class='linkify icon'></i></a>
 
 PayPal Smart Buttons are available on Cornerstone versions 2.6.0+ for merchants who have **PayPal powered by Braintree** or **PayPal Express Checkout** enabled on their store. 
 
@@ -18,7 +18,7 @@ Merchants will have the ability to customize some style aspects of the PayPal pa
 
 
 
-<a href='#paypal-smart_include-smart-buttons' aria-hidden='true' class='block-anchor'  id='paypal-smart_include-smart-buttons'></a>
+<a href='#paypal-smart_include-smart-buttons' aria-hidden='true' class='block-anchor'  id='paypal-smart_include-smart-buttons'><i aria-hidden='true' class='linkify icon'></i></a>
 
 ## Enable Smart Buttons on Your Stencil Theme
 
@@ -222,7 +222,7 @@ lineNumbers: true
 
 
 
-<a href='#paypal-smart_additional-resources' aria-hidden='true' class='block-anchor'  id='paypal-smart_additional-resources'></a>
+<a href='#paypal-smart_additional-resources' aria-hidden='true' class='block-anchor'  id='paypal-smart_additional-resources'><i aria-hidden='true' class='linkify icon'></i></a>
 
 ## Additional Resources
 

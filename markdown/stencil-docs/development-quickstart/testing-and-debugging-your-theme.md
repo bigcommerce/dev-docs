@@ -7,7 +7,7 @@
 	</ul>
 </div>
 
-<a href='#testing_testing-and-debugging' aria-hidden='true' class='block-anchor'  id='testing_testing-and-debugging'></a>
+<a href='#testing_testing-and-debugging' aria-hidden='true' class='block-anchor'  id='testing_testing-and-debugging'><i aria-hidden='true' class='linkify icon'></i></a>
 
 ## Testing and Debugging Your Theme
 

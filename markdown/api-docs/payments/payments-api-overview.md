@@ -29,7 +29,7 @@ The following [OAuth](/api-docs/getting-started/authentication#authentication_oa
 
 
 
-<a href='#payments_pci-compliance' aria-hidden='true' class='block-anchor'  id='payments_pci-compliance'></a>
+<a href='#payments_pci-compliance' aria-hidden='true' class='block-anchor'  id='payments_pci-compliance'><i aria-hidden='true' class='linkify icon'></i></a>
 
 ## PCI Compliance
 BigCommerce is only responsible for the security of credit card to the extent that it is directly in the route of the payment request to payment processors during a payment processing request. To ensure secure handling of payment instruments, as a third-party developer, you are responsible for developing the storefronts or recurring billing apps in a PCI compliant manner and maintaining a PCI compliance certification for third-party service providers certified by an external Qualified Security Assessor (QSA).
@@ -50,7 +50,7 @@ Merchants or shoppers personal identifiable information (PII) collected by recur
 
 
 
-<a href='#payments_processing-payment' aria-hidden='true' class='block-anchor'  id='payments_processing-payment'></a>
+<a href='#payments_processing-payment' aria-hidden='true' class='block-anchor'  id='payments_processing-payment'><i aria-hidden='true' class='linkify icon'></i></a>
 
 ## Processing a Payment
 
@@ -102,7 +102,7 @@ Payments can be processed using cards stored with the BigCommerce Stored Credit 
 
 
 
-<a href='#payments_stored-cards' aria-hidden='true' class='block-anchor'  id='payments_stored-cards'></a>
+<a href='#payments_stored-cards' aria-hidden='true' class='block-anchor'  id='payments_stored-cards'><i aria-hidden='true' class='linkify icon'></i></a>
 
 ### Stored Cards
 There are three steps to using a stored card to make a payment.
@@ -298,7 +298,7 @@ If the purchase was successful it will return a status of success.  The order is
 
 
 
-<a href='#payments_credit-cards' aria-hidden='true' class='block-anchor'  id='payments_credit-cards'></a>
+<a href='#payments_credit-cards' aria-hidden='true' class='block-anchor'  id='payments_credit-cards'><i aria-hidden='true' class='linkify icon'></i></a>
 
 ## Credit Cards
 
@@ -424,7 +424,7 @@ If the purchase was successful it will return a status of success.  The order is
 
 
 
-<a href='#payments_orders-api' aria-hidden='true' class='block-anchor'  id='payments_orders-api'></a>
+<a href='#payments_orders-api' aria-hidden='true' class='block-anchor'  id='payments_orders-api'><i aria-hidden='true' class='linkify icon'></i></a>
 
 ## Using the Orders API
 
@@ -488,7 +488,7 @@ lineNumbers: true
 }
 ```
 
-<a href='#payments_technical-details' aria-hidden='true' class='block-anchor'  id='payments_technical-details'></a>
+<a href='#payments_technical-details' aria-hidden='true' class='block-anchor'  id='payments_technical-details'><i aria-hidden='true' class='linkify icon'></i></a>
 
 ## Technical Details 
 
@@ -525,7 +525,7 @@ BigCommerce has rates limits in place for this API. Some payment providers will 
 
 
 
-<a href='#payments_sample-app-diagram' aria-hidden='true' class='block-anchor'  id='payments_sample-app-diagram'></a>
+<a href='#payments_sample-app-diagram' aria-hidden='true' class='block-anchor'  id='payments_sample-app-diagram'><i aria-hidden='true' class='linkify icon'></i></a>
 
 ## Sample App Diagram
 
@@ -546,7 +546,7 @@ Orders can be created using the [Server to Server API Endpoints](https://develop
 
 
 
-<a href='#payments_error-codes' aria-hidden='true' class='block-anchor'  id='payments_error-codes'></a>
+<a href='#payments_error-codes' aria-hidden='true' class='block-anchor'  id='payments_error-codes'><i aria-hidden='true' class='linkify icon'></i></a>
 
 ## Error Codes
 
@@ -675,7 +675,7 @@ The payment was declined due to insufficient funds.
 
 
 
-<a href='#payments_faq' aria-hidden='true' class='block-anchor'  id='payments_faq'></a>
+<a href='#payments_faq' aria-hidden='true' class='block-anchor'  id='payments_faq'><i aria-hidden='true' class='linkify icon'></i></a>
 
 ## FAQ
 

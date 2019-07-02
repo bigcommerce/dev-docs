@@ -12,7 +12,7 @@
 
 Below are widgets that can be used as building blocks to expand on. Widgets are flexible and re-useable making them ideal for creating custom storefront. 
 
-<a href='#widget-code-sample_simple-list' aria-hidden='true' class='block-anchor'  id='widget-code-sample_simple-list'></a>
+<a href='#widget-code-sample_simple-list' aria-hidden='true' class='block-anchor'  id='widget-code-sample_simple-list'><i aria-hidden='true' class='linkify icon'></i></a>
 
 ## Simple List
 
@@ -75,7 +75,7 @@ lineNumbers: true
 
 
 
-<a href='#widget-code-sample_simple-html' aria-hidden='true' class='block-anchor'  id='widget-code-sample_simple-html'></a>
+<a href='#widget-code-sample_simple-html' aria-hidden='true' class='block-anchor'  id='widget-code-sample_simple-html'><i aria-hidden='true' class='linkify icon'></i></a>
 
 ## Simple HTML
 
@@ -118,7 +118,7 @@ lineNumbers: true
 
 
 
-<a href='#widget-code-sample_simple-text-styling' aria-hidden='true' class='block-anchor'  id='widget-code-sample_simple-text-styling'></a>
+<a href='#widget-code-sample_simple-text-styling' aria-hidden='true' class='block-anchor'  id='widget-code-sample_simple-text-styling'><i aria-hidden='true' class='linkify icon'></i></a>
 
 ## Simple Text with Styling
 
@@ -172,7 +172,7 @@ lineNumbers: true
 
 
 
-<a href='#widget-code-sample_you-tube-embed' aria-hidden='true' class='block-anchor'  id='widget-code-sample_you-tube-embed'></a>
+<a href='#widget-code-sample_you-tube-embed' aria-hidden='true' class='block-anchor'  id='widget-code-sample_you-tube-embed'><i aria-hidden='true' class='linkify icon'></i></a>
 
 ## Youtube Embed with Layout
 
@@ -232,7 +232,7 @@ lineNumbers: true
 
 
 
-<a href='#widget-code-sample_image-slider' aria-hidden='true' class='block-anchor'  id='widget-code-sample_image-slider'></a>
+<a href='#widget-code-sample_image-slider' aria-hidden='true' class='block-anchor'  id='widget-code-sample_image-slider'><i aria-hidden='true' class='linkify icon'></i></a>
 
 ## Image Slider
 

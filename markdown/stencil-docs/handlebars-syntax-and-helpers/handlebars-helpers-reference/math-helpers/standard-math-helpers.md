@@ -15,7 +15,7 @@
 	</ul>
 </div>
 
-<a href='#handlebars_add' aria-hidden='true' class='block-anchor'  id='handlebars_add'></a>
+<a href='#handlebars_add' aria-hidden='true' class='block-anchor'  id='handlebars_add'><i aria-hidden='true' class='linkify icon'></i></a>
 
 The following standard helpers are available to handle mathematical operations.
 
@@ -30,7 +30,7 @@ Returns the sum of `a` plus `b`.
 
 
 
-<a href='#handlebars_subtract' aria-hidden='true' class='block-anchor'  id='handlebars_subtract'></a>
+<a href='#handlebars_subtract' aria-hidden='true' class='block-anchor'  id='handlebars_subtract'><i aria-hidden='true' class='linkify icon'></i></a>
 
 ## {{subtract}}
 
@@ -43,7 +43,7 @@ Return the differnece of `a` minus `b`.
 
 
 
-<a href='#handlebars_divide' aria-hidden='true' class='block-anchor'  id='handlebars_divide'></a>
+<a href='#handlebars_divide' aria-hidden='true' class='block-anchor'  id='handlebars_divide'><i aria-hidden='true' class='linkify icon'></i></a>
 
 ## {{divide}}
 
@@ -56,7 +56,7 @@ Divides `a` by `b`.
 
 
 
-<a href='#handlebars_multiply' aria-hidden='true' class='block-anchor'  id='handlebars_multiply'></a>
+<a href='#handlebars_multiply' aria-hidden='true' class='block-anchor'  id='handlebars_multiply'><i aria-hidden='true' class='linkify icon'></i></a>
 
 ## {{multiply}}
 
@@ -69,7 +69,7 @@ Multiplies `a` by `b`.
 
 
 
-<a href='#handlebars_floor' aria-hidden='true' class='block-anchor'  id='handlebars_floor'></a>
+<a href='#handlebars_floor' aria-hidden='true' class='block-anchor'  id='handlebars_floor'><i aria-hidden='true' class='linkify icon'></i></a>
 
 ## {{floor}}
 
@@ -81,7 +81,7 @@ Gets the `Math.floor()` of the given value.
 
 
 
-<a href='#handlebars_ceil' aria-hidden='true' class='block-anchor'  id='handlebars_ceil'></a>
+<a href='#handlebars_ceil' aria-hidden='true' class='block-anchor'  id='handlebars_ceil'><i aria-hidden='true' class='linkify icon'></i></a>
 
 ## {{ceil}}
 
@@ -93,7 +93,7 @@ Gets the `Math.ceil()` [ceiling] of the given value.
 
 
 
-<a href='#handlebars_round' aria-hidden='true' class='block-anchor'  id='handlebars_round'></a>
+<a href='#handlebars_round' aria-hidden='true' class='block-anchor'  id='handlebars_round'><i aria-hidden='true' class='linkify icon'></i></a>
 
 ## {{round}}
 
@@ -105,7 +105,7 @@ Rounds the given value.
 
 
 
-<a href='#handlebars_sum' aria-hidden='true' class='block-anchor'  id='handlebars_sum'></a>
+<a href='#handlebars_sum' aria-hidden='true' class='block-anchor'  id='handlebars_sum'><i aria-hidden='true' class='linkify icon'></i></a>
 
 ## {{sum}}
 
@@ -125,7 +125,7 @@ Returns the sum of all numbers in the given array.
 
 
 
-<a href='#handlebars_avg' aria-hidden='true' class='block-anchor'  id='handlebars_avg'></a>
+<a href='#handlebars_avg' aria-hidden='true' class='block-anchor'  id='handlebars_avg'><i aria-hidden='true' class='linkify icon'></i></a>
 
 ## {{avg}}
 

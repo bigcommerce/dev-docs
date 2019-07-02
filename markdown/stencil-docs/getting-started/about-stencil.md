@@ -10,7 +10,7 @@
 </div>
 
 
-<a href='#about_what-is-stencil' aria-hidden='true' class='block-anchor'  id='about_what-is-stencil'></a>
+<a href='#about_what-is-stencil' aria-hidden='true' class='block-anchor'  id='about_what-is-stencil'><i aria-hidden='true' class='linkify icon'></i></a>
 
 ## What is Stencil?
 
@@ -22,7 +22,7 @@ Stencil powers BigCommerce’s [Cornerstone](https://github.com/bigcommerce/corn
 
 
 
-<a href='#about_features-and-stack' aria-hidden='true' class='block-anchor'  id='about_features-and-stack'></a>
+<a href='#about_features-and-stack' aria-hidden='true' class='block-anchor'  id='about_features-and-stack'><i aria-hidden='true' class='linkify icon'></i></a>
 
 ## Stencil Development Features and Technology Stack
 
@@ -81,7 +81,7 @@ BigCommerce stores powered by Stencil allow shoppers to have a first class exper
 
 
 
-<a href='#about_blueprint' aria-hidden='true' class='block-anchor'  id='about_blueprint'></a>
+<a href='#about_blueprint' aria-hidden='true' class='block-anchor'  id='about_blueprint'><i aria-hidden='true' class='linkify icon'></i></a>
 
 ## Blueprint (Legacy Framework) Documentation
 
@@ -89,7 +89,7 @@ If you are looking for information on Blueprint, BigCommerce's legacy theme fram
 
 
 
-<a href='#about_support' aria-hidden='true' class='block-anchor'  id='about_support'></a>
+<a href='#about_support' aria-hidden='true' class='block-anchor'  id='about_support'><i aria-hidden='true' class='linkify icon'></i></a>
 
 ## Support
 

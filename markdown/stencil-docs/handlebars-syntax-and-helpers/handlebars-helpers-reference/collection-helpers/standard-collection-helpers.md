@@ -9,7 +9,7 @@
 	</ul>
 </div>
 
-<a href='#handlebars_isempty' aria-hidden='true' class='block-anchor'  id='handlebars_isempty'></a>
+<a href='#handlebars_isempty' aria-hidden='true' class='block-anchor'  id='handlebars_isempty'><i aria-hidden='true' class='linkify icon'></i></a>
 
 The following standard helpers are available to handle collections.
 
@@ -25,7 +25,7 @@ Block helper that returns a block *if* the given collection is empty. If the col
 
 
 
-<a href='#handlebars_iterate' aria-hidden='true' class='block-anchor'  id='handlebars_iterate'></a>
+<a href='#handlebars_iterate' aria-hidden='true' class='block-anchor'  id='handlebars_iterate'><i aria-hidden='true' class='linkify icon'></i></a>
 
 ## {{iterate}}
 
@@ -39,7 +39,7 @@ Iterates over an array or object.
 
 
 
-<a href='#handlebars_length' aria-hidden='true' class='block-anchor'  id='handlebars_length'></a>
+<a href='#handlebars_length' aria-hidden='true' class='block-anchor'  id='handlebars_length'><i aria-hidden='true' class='linkify icon'></i></a>
 
 ## {{length}}
 

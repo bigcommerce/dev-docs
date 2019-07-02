@@ -9,7 +9,7 @@
 	</ul>
 </div>
 
-<a href='#basis_what-translates' aria-hidden='true' class='block-anchor'  id='basis_what-translates'></a>
+<a href='#basis_what-translates' aria-hidden='true' class='block-anchor'  id='basis_what-translates'><i aria-hidden='true' class='linkify icon'></i></a>
 
 ## What Does and Doesn't Translate
 
@@ -27,7 +27,7 @@ The Stencil framework allows you to define multiple translations for each theme 
 
 
 
-<a href='#basis_required' aria-hidden='true' class='block-anchor'  id='basis_required'></a>
+<a href='#basis_required' aria-hidden='true' class='block-anchor'  id='basis_required'><i aria-hidden='true' class='linkify icon'></i></a>
 
 ## Required Subdirectory
 
@@ -40,7 +40,7 @@ Within these files, you would define key values corresponding to the text blocks
 
 
 
-<a href='#basis_schema' aria-hidden='true' class='block-anchor'  id='basis_schema'></a>
+<a href='#basis_schema' aria-hidden='true' class='block-anchor'  id='basis_schema'><i aria-hidden='true' class='linkify icon'></i></a>
 
 ## The Schema
 
@@ -88,7 +88,7 @@ For more examples of frequently-used codes, see the following linked table’s "
 
 
 
-<a href='#basis_localization-file' aria-hidden='true' class='block-anchor'  id='basis_localization-file'></a>
+<a href='#basis_localization-file' aria-hidden='true' class='block-anchor'  id='basis_localization-file'><i aria-hidden='true' class='linkify icon'></i></a>
 
 ## Localization File Structure
 

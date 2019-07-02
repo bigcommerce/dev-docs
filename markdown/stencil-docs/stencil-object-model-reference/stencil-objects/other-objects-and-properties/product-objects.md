@@ -27,7 +27,7 @@
 </div>
 </div>
 
-<a href='#product-objects_product' aria-hidden='true' class='block-anchor'  id='product-objects_product'></a>
+<a href='#product-objects_product' aria-hidden='true' class='block-anchor'  id='product-objects_product'><i aria-hidden='true' class='linkify icon'></i></a>
 
 ## Product
 
@@ -405,7 +405,7 @@
   </tr>
 </table>
 
-<a href='#product-objects_product-reviews' aria-hidden='true' class='block-anchor'  id='product-objects_product-reviews'></a>
+<a href='#product-objects_product-reviews' aria-hidden='true' class='block-anchor'  id='product-objects_product-reviews'><i aria-hidden='true' class='linkify icon'></i></a>
 
 ## Product Reviews
 
@@ -473,7 +473,7 @@
   </tr>
 </table>
 
-<a href='#product-objects_related-products' aria-hidden='true' class='block-anchor'  id='product-objects_related-products'></a>
+<a href='#product-objects_related-products' aria-hidden='true' class='block-anchor'  id='product-objects_related-products'><i aria-hidden='true' class='linkify icon'></i></a>
 
 ## Related Products
 
@@ -484,7 +484,7 @@
 <b>Object Properties: </b>References the <a href="/stencil-docs/stencil-object-model-reference/stencil-objects/common-objects/common-product-card-model">product card model</a>.
 
 
-<a href='#product-objects_similar-products' aria-hidden='true' class='block-anchor'  id='product-objects_similar-products'></a>
+<a href='#product-objects_similar-products' aria-hidden='true' class='block-anchor'  id='product-objects_similar-products'><i aria-hidden='true' class='linkify icon'></i></a>
 
 ## Similar Products by Customer Views
 
@@ -495,7 +495,7 @@
 <b>Object Properties:</b> References the <a href="/stencil-docs/stencil-object-model-reference/stencil-objects/common-objects/common-product-card-model">product card model</a>.
 
 
-<a href='#product-objects_product-videos' aria-hidden='true' class='block-anchor'  id='product-objects_product-videos'></a>
+<a href='#product-objects_product-videos' aria-hidden='true' class='block-anchor'  id='product-objects_product-videos'><i aria-hidden='true' class='linkify icon'></i></a>
 
 ## Product Videos
 
@@ -536,7 +536,7 @@
   </tr>
 </table>
 
-<a href='#product-objects_compare' aria-hidden='true' class='block-anchor'  id='product-objects_compare'></a>
+<a href='#product-objects_compare' aria-hidden='true' class='block-anchor'  id='product-objects_compare'><i aria-hidden='true' class='linkify icon'></i></a>
 
 ## Compare
 
@@ -585,7 +585,7 @@
   </tr>
 </table>
 
-<a href='#product-objects_download' aria-hidden='true' class='block-anchor'  id='product-objects_download'></a>
+<a href='#product-objects_download' aria-hidden='true' class='block-anchor'  id='product-objects_download'><i aria-hidden='true' class='linkify icon'></i></a>
 
 ## Download Item
 
@@ -650,7 +650,7 @@
   </tr>
 </table>
 
-<a href='#product-objects_product-other' aria-hidden='true' class='block-anchor'  id='product-objects_product-other'></a>
+<a href='#product-objects_product-other' aria-hidden='true' class='block-anchor'  id='product-objects_product-other'><i aria-hidden='true' class='linkify icon'></i></a>
 
 ## Product Other Details
 

@@ -15,7 +15,7 @@
 	</ul>
 </div>
 
-<a href='#handlebars_addcommas' aria-hidden='true' class='block-anchor'  id='handlebars_addcommas'></a>
+<a href='#handlebars_addcommas' aria-hidden='true' class='block-anchor'  id='handlebars_addcommas'><i aria-hidden='true' class='linkify icon'></i></a>
 
 The following standard helpers are available to handle and transform numbers.
 
@@ -30,7 +30,7 @@ Adds commas to numbers.
 
 
 
-<a href='#handlebars_phonenumber' aria-hidden='true' class='block-anchor'  id='handlebars_phonenumber'></a>
+<a href='#handlebars_phonenumber' aria-hidden='true' class='block-anchor'  id='handlebars_phonenumber'><i aria-hidden='true' class='linkify icon'></i></a>
 
 ## {{phoneNumber}}
 
@@ -43,7 +43,7 @@ Converts a string or number to a formatted phone number.
 
 
 
-<a href='#handlebars_random' aria-hidden='true' class='block-anchor'  id='handlebars_random'></a>
+<a href='#handlebars_random' aria-hidden='true' class='block-anchor'  id='handlebars_random'><i aria-hidden='true' class='linkify icon'></i></a>
 
 ## {{random}}
 
@@ -57,7 +57,7 @@ Generates a random number between two values.
 
 
 
-<a href='#handlebars_toabbr' aria-hidden='true' class='block-anchor'  id='handlebars_toabbr'></a>
+<a href='#handlebars_toabbr' aria-hidden='true' class='block-anchor'  id='handlebars_toabbr'><i aria-hidden='true' class='linkify icon'></i></a>
 
 ## {{toAbbr}}
 
@@ -71,7 +71,7 @@ Abbreviates numbers to the given number of `precision`. This is for general numb
 
 
 
-<a href='#handlebars_toexponential' aria-hidden='true' class='block-anchor'  id='handlebars_toexponential'></a>
+<a href='#handlebars_toexponential' aria-hidden='true' class='block-anchor'  id='handlebars_toexponential'><i aria-hidden='true' class='linkify icon'></i></a>
 
 ## {{toExponential}}
 
@@ -91,7 +91,7 @@ Returns a string, representing the given number in exponential notation.
 
 
 
-<a href='#handlebars_tofixed' aria-hidden='true' class='block-anchor'  id='handlebars_tofixed'></a>
+<a href='#handlebars_tofixed' aria-hidden='true' class='block-anchor'  id='handlebars_tofixed'><i aria-hidden='true' class='linkify icon'></i></a>
 
 ## {{toFixed}}
 
@@ -105,7 +105,7 @@ Formats the given number, using fixed-point notation.
 
 
 
-<a href='#handlebars_tofloat' aria-hidden='true' class='block-anchor'  id='handlebars_tofloat'></a>
+<a href='#handlebars_tofloat' aria-hidden='true' class='block-anchor'  id='handlebars_tofloat'><i aria-hidden='true' class='linkify icon'></i></a>
 
 ## {{toFloat}}
 
@@ -116,7 +116,7 @@ Formats the given number, using fixed-point notation.
 
 
 
-<a href='#handlebars_toint' aria-hidden='true' class='block-anchor'  id='handlebars_toint'></a>
+<a href='#handlebars_toint' aria-hidden='true' class='block-anchor'  id='handlebars_toint'><i aria-hidden='true' class='linkify icon'></i></a>
 
 ## {{toInt}}
 
@@ -127,7 +127,7 @@ Formats the given number, using fixed-point notation.
 
 
 
-<a href='#handlebars_toprecision' aria-hidden='true' class='block-anchor'  id='handlebars_toprecision'></a>
+<a href='#handlebars_toprecision' aria-hidden='true' class='block-anchor'  id='handlebars_toprecision'><i aria-hidden='true' class='linkify icon'></i></a>
 
 ## {{toPrecision}}
 

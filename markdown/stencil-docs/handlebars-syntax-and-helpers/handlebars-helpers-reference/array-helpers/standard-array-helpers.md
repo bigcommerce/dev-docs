@@ -26,7 +26,7 @@
 	</ul>
 </div>
 
-<a href='#handlebars_after' aria-hidden='true' class='block-anchor'  id='handlebars_after'></a>
+<a href='#handlebars_after' aria-hidden='true' class='block-anchor'  id='handlebars_after'><i aria-hidden='true' class='linkify icon'></i></a>
 
 The following standard array helpers are supported on the Stencil framework.
 
@@ -51,7 +51,7 @@ Given the array `['a', 'b', 'c']`:
 
 
 
-<a href='#handlebars_arrayify' aria-hidden='true' class='block-anchor'  id='handlebars_arrayify'></a>
+<a href='#handlebars_arrayify' aria-hidden='true' class='block-anchor'  id='handlebars_arrayify'><i aria-hidden='true' class='linkify icon'></i></a>
 
 ## {{arrayify}}
 
@@ -71,7 +71,7 @@ Casts the given `value` to an array.
 
 
 
-<a href='#handlebars_before' aria-hidden='true' class='block-anchor'  id='handlebars_before'></a>
+<a href='#handlebars_before' aria-hidden='true' class='block-anchor'  id='handlebars_before'><i aria-hidden='true' class='linkify icon'></i></a>
 
 ## {{before}}
 
@@ -94,7 +94,7 @@ Given the array `['a', 'b', 'c']`:
 
 
 
-<a href='#handlebars_eachindex' aria-hidden='true' class='block-anchor'  id='handlebars_eachindex'></a>
+<a href='#handlebars_eachindex' aria-hidden='true' class='block-anchor'  id='handlebars_eachindex'><i aria-hidden='true' class='linkify icon'></i></a>
 
 ## {{eachIndex}}
 
@@ -114,7 +114,7 @@ Given the array `['a', 'b', 'c']`:
 
 
 
-<a href='#handlebars_filter' aria-hidden='true' class='block-anchor'  id='handlebars_filter'></a>
+<a href='#handlebars_filter' aria-hidden='true' class='block-anchor'  id='handlebars_filter'><i aria-hidden='true' class='linkify icon'></i></a>
 
 ## {{filter}}
 
@@ -144,7 +144,7 @@ Block helper that filters the given array. Renders the block for values that eva
 
 
 
-<a href='#handlebars_first' aria-hidden='true' class='block-anchor'  id='handlebars_first'></a>
+<a href='#handlebars_first' aria-hidden='true' class='block-anchor'  id='handlebars_first'><i aria-hidden='true' class='linkify icon'></i></a>
 
 ## {{first}}
 
@@ -167,7 +167,7 @@ Given the array `['a', 'b', 'c', 'd', 'e']`:
 
 
 
-<a href='#handlebars_foreach' aria-hidden='true' class='block-anchor'  id='handlebars_foreach'></a>
+<a href='#handlebars_foreach' aria-hidden='true' class='block-anchor'  id='handlebars_foreach'><i aria-hidden='true' class='linkify icon'></i></a>
 
 ## {{forEach}}
 
@@ -204,7 +204,7 @@ var accounts = [
 
 
 
-<a href='#handlebars_inarray' aria-hidden='true' class='block-anchor'  id='handlebars_inarray'></a>
+<a href='#handlebars_inarray' aria-hidden='true' class='block-anchor'  id='handlebars_inarray'><i aria-hidden='true' class='linkify icon'></i></a>
 
 ## {{inArray}}
 
@@ -232,7 +232,7 @@ Given the array `['a', 'b', 'c']`:
 
 
 
-<a href='#handlebars_isarray' aria-hidden='true' class='block-anchor'  id='handlebars_isarray'></a>
+<a href='#handlebars_isarray' aria-hidden='true' class='block-anchor'  id='handlebars_isarray'><i aria-hidden='true' class='linkify icon'></i></a>
 
 ## {{isArray}}
 
@@ -252,7 +252,7 @@ Returns true if `value` is an es5 array.
 
 
 
-<a href='#handlebars_last' aria-hidden='true' class='block-anchor'  id='handlebars_last'></a>
+<a href='#handlebars_last' aria-hidden='true' class='block-anchor'  id='handlebars_last'><i aria-hidden='true' class='linkify icon'></i></a>
 
 ## {{last}}
 
@@ -275,7 +275,7 @@ Given the array `['a', 'b', 'c', 'd', 'e']`:
 
 
 
-<a href='#handlebars_lengthequal' aria-hidden='true' class='block-anchor'  id='handlebars_lengthequal'></a>
+<a href='#handlebars_lengthequal' aria-hidden='true' class='block-anchor'  id='handlebars_lengthequal'><i aria-hidden='true' class='linkify icon'></i></a>
 
 ## {{lengthEqual}}
 
@@ -299,7 +299,7 @@ Given the array `['a', 'b', 'c', 'd', 'e']`:
 
 
 
-<a href='#handlebars_map' aria-hidden='true' class='block-anchor'  id='handlebars_map'></a>
+<a href='#handlebars_map' aria-hidden='true' class='block-anchor'  id='handlebars_map'><i aria-hidden='true' class='linkify icon'></i></a>
 
 ## {{map}}
 
@@ -323,7 +323,7 @@ Given an array `['c', 'a', 'b']`:
 
 
 
-<a href='#handlebars_some' aria-hidden='true' class='block-anchor'  id='handlebars_some'></a>
+<a href='#handlebars_some' aria-hidden='true' class='block-anchor'  id='handlebars_some'><i aria-hidden='true' class='linkify icon'></i></a>
 
 ## {{some}}
 
@@ -351,7 +351,7 @@ Given the array `[1, 'b', 3]`:
 
 
 
-<a href='#handlebars_sort' aria-hidden='true' class='block-anchor'  id='handlebars_sort'></a>
+<a href='#handlebars_sort' aria-hidden='true' class='block-anchor'  id='handlebars_sort'><i aria-hidden='true' class='linkify icon'></i></a>
 
 ## {{sort}}
 
@@ -374,7 +374,7 @@ Given an array `['b', 'a', 'c']`:
 
 
 
-<a href='#handlebars_sortby' aria-hidden='true' class='block-anchor'  id='handlebars_sortby'></a>
+<a href='#handlebars_sortby' aria-hidden='true' class='block-anchor'  id='handlebars_sortby'><i aria-hidden='true' class='linkify icon'></i></a>
 
 ## {{sortBy}}
 
@@ -396,7 +396,7 @@ Given an array `[{a: 'zzz'}, {a: 'aaa'}]`:
 
 
 
-<a href='#handlebars_withafter' aria-hidden='true' class='block-anchor'  id='handlebars_withafter'></a>
+<a href='#handlebars_withafter' aria-hidden='true' class='block-anchor'  id='handlebars_withafter'><i aria-hidden='true' class='linkify icon'></i></a>
 
 ## {{withAfter}}
 
@@ -422,7 +422,7 @@ Given the array `['a', 'b', 'c', 'd', 'e']`:
 
 
 
-<a href='#handlebars_withbefore' aria-hidden='true' class='block-anchor'  id='handlebars_withbefore'></a>
+<a href='#handlebars_withbefore' aria-hidden='true' class='block-anchor'  id='handlebars_withbefore'><i aria-hidden='true' class='linkify icon'></i></a>
 
 ## {{withBefore}}
 
@@ -448,7 +448,7 @@ Given the array `['a', 'b', 'c', 'd', 'e']`:
 
 
 
-<a href='#handlebars_withfirst' aria-hidden='true' class='block-anchor'  id='handlebars_withfirst'></a>
+<a href='#handlebars_withfirst' aria-hidden='true' class='block-anchor'  id='handlebars_withfirst'><i aria-hidden='true' class='linkify icon'></i></a>
 
 ## {{withFirst}}
 
@@ -474,7 +474,7 @@ Given the array `['a', 'b', 'c']`:
 
 
 
-<a href='#handlebars_withlast' aria-hidden='true' class='block-anchor'  id='handlebars_withlast'></a>
+<a href='#handlebars_withlast' aria-hidden='true' class='block-anchor'  id='handlebars_withlast'><i aria-hidden='true' class='linkify icon'></i></a>
 
 ## {{withLast}}
 
@@ -500,7 +500,7 @@ Given the array `['a', 'b', 'c']`:
 
 
 
-<a href='#handlebars_withsort' aria-hidden='true' class='block-anchor'  id='handlebars_withsort'></a>
+<a href='#handlebars_withsort' aria-hidden='true' class='block-anchor'  id='handlebars_withsort'><i aria-hidden='true' class='linkify icon'></i></a>
 
 ## {{withSort}}
 

@@ -9,7 +9,7 @@
 	</ul>
 </div>
 
-<a href='#downloading_backup-before-reinstalling"' aria-hidden='true' class='block-anchor'  id='downloading_backup-before-reinstalling"'></a>
+<a href='#downloading_backup-before-reinstalling"' aria-hidden='true' class='block-anchor'  id='downloading_backup-before-reinstalling"'><i aria-hidden='true' class='linkify icon'></i></a>
 
 ## Back Up Before Reinstalling
 If you are reinstalling over a base theme on which you have already begun development, first back up at least your theme's .stencil file. This file contains your store URL, your BigCommerce username and access tokens, and other basic settings. Preserving those settings will speed up initializing and launching the new version. To allow complete rollback, back up your whole theme directory. (In a current default installation, this directory is named `cornerstone`. Prior to March 2017, this directory's name defaulted to `stencil`).
@@ -29,7 +29,7 @@ If you are reinstalling over a base theme on which you have already begun develo
 
 
 
-<a href='##downloading_downloading-cornerstone-zip' aria-hidden='true' class='block-anchor'  id='#downloading_downloading-cornerstone-zip'></a>
+<a href='##downloading_downloading-cornerstone-zip' aria-hidden='true' class='block-anchor'  id='#downloading_downloading-cornerstone-zip'><i aria-hidden='true' class='linkify icon'></i></a>
 
 ## Downloading the Cornerstone .zip file from the Control Panel
 
@@ -51,7 +51,7 @@ The Cornerstone theme's description should zoom to full-page and display a Theme
 
 
 
-<a href='##downloading_reinstalling-dependencies' aria-hidden='true' class='block-anchor'  id='#downloading_reinstalling-dependencies'></a>
+<a href='##downloading_reinstalling-dependencies' aria-hidden='true' class='block-anchor'  id='#downloading_reinstalling-dependencies'><i aria-hidden='true' class='linkify icon'></i></a>
 
 ## Reinstalling Dependencies and Relaunching
 
@@ -62,7 +62,7 @@ The Cornerstone theme's description should zoom to full-page and display a Theme
 
 
 
-<a href='##downloading_next-steps' aria-hidden='true' class='block-anchor'  id='#downloading_next-steps'></a>
+<a href='##downloading_next-steps' aria-hidden='true' class='block-anchor'  id='#downloading_next-steps'><i aria-hidden='true' class='linkify icon'></i></a>
 
 ## Next Steps
 

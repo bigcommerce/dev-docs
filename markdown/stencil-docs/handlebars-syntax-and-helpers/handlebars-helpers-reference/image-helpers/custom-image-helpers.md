@@ -7,7 +7,7 @@
 	</ul>
 </div>
 
-<a href='#handlebars_getimage' aria-hidden='true' class='block-anchor'  id='handlebars_getimage'></a>
+<a href='#handlebars_getimage' aria-hidden='true' class='block-anchor'  id='handlebars_getimage'><i aria-hidden='true' class='linkify icon'></i></a>
 
 The Stencil framework provides the following custom helper to manage images.
 

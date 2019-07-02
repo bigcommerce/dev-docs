@@ -7,7 +7,7 @@
 	</ul>
 </div>
 
-<a href='#components_components-subdirectory' aria-hidden='true' class='block-anchor'  id='components_components-subdirectory'></a>
+<a href='#components_components-subdirectory' aria-hidden='true' class='block-anchor'  id='components_components-subdirectory'><i aria-hidden='true' class='linkify icon'></i></a>
 
 ## Components Subdirectory
 
@@ -19,7 +19,7 @@ Subdirectories of <span class="fp">/templates/components/</span> group together 
 
 Furthermore, the <a href="https://github.com/bigcommerce/cornerstone/tree/master/templates/components/common"><span class="fp">/common/</span> subdirectory</a> contains forms and icons resources, plus a collection of single-purpose files.
 
-<a href='#components_naming-requirements' aria-hidden='true' class='block-anchor'  id='components_naming-requirements'></a>
+<a href='#components_naming-requirements' aria-hidden='true' class='block-anchor'  id='components_naming-requirements'><i aria-hidden='true' class='linkify icon'></i></a>
 
 ## Naming Requirements
 

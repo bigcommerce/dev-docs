@@ -8,7 +8,7 @@
 	</ul>
 </div>
 
-<a href='#invoking_translation' aria-hidden='true' class='block-anchor'  id='invoking_translation'></a>
+<a href='#invoking_translation' aria-hidden='true' class='block-anchor'  id='invoking_translation'><i aria-hidden='true' class='linkify icon'></i></a>
 
 ## Translation Syntax
 
@@ -50,7 +50,7 @@ lineNumbers: true
 
 
 
-<a href='#invoking_video' aria-hidden='true' class='block-anchor'  id='invoking_video'></a>
+<a href='#invoking_video' aria-hidden='true' class='block-anchor'  id='invoking_video'><i aria-hidden='true' class='linkify icon'></i></a>
 
 ## Video Demo
 

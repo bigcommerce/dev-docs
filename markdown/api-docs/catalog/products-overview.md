@@ -21,7 +21,7 @@
 	</ul>
 </div>
 
-<a href='#products-overview_introduction' aria-hidden='true' class='block-anchor'  id='products-overview_introduction'></a>
+<a href='#products-overview_introduction' aria-hidden='true' class='block-anchor'  id='products-overview_introduction'><i aria-hidden='true' class='linkify icon'></i></a>
 
 ## Introduction
 
@@ -35,7 +35,7 @@ The following [OAuth](/api-docs/getting-started/authentication#authentication_oa
 
 
 
-<a href='#products-overview_products' aria-hidden='true' class='block-anchor'  id='products-overview_products'></a>
+<a href='#products-overview_products' aria-hidden='true' class='block-anchor'  id='products-overview_products'><i aria-hidden='true' class='linkify icon'></i></a>
 
 ## Products
 
@@ -105,7 +105,7 @@ Files must be added to digital products using the [Control Panel or WebDav](http
 
 
 
-<a href='#products-overview_pricing-precision' aria-hidden='true' class='block-anchor'  id='products-overview_pricing-precision'></a>
+<a href='#products-overview_pricing-precision' aria-hidden='true' class='block-anchor'  id='products-overview_pricing-precision'><i aria-hidden='true' class='linkify icon'></i></a>
 
 ## Pricing Precision
 
@@ -134,7 +134,7 @@ Currency settings allows for inputting a large number of decimal places for disp
 
 
 
-<a href='#products-overview_product-images' aria-hidden='true' class='block-anchor'  id='products-overview_product-images'></a>
+<a href='#products-overview_product-images' aria-hidden='true' class='block-anchor'  id='products-overview_product-images'><i aria-hidden='true' class='linkify icon'></i></a>
 
 ## Product Images
 
@@ -176,7 +176,7 @@ lineNumbers: true
 
 
 
-<a href='#products-overview_product-videos' aria-hidden='true' class='block-anchor'  id='products-overview_product-videos'></a>
+<a href='#products-overview_product-videos' aria-hidden='true' class='block-anchor'  id='products-overview_product-videos'><i aria-hidden='true' class='linkify icon'></i></a>
 
 ## Product Videos
 [Product Videos](/api-reference/catalog/catalog-api/product-videos/getproductvideos), in addition to images, can help shoppers understand what they’re buying and help sell the product. A product can have more than one video.
@@ -189,7 +189,7 @@ Example: <span class=”fp”>https://www.youtube.com/watch?v=<b>R12345677</b></
 
 
 
-<a href='#products-overview_custom_fields' aria-hidden='true' class='block-anchor'  id='products-overview_custom_fields'></a>
+<a href='#products-overview_custom_fields' aria-hidden='true' class='block-anchor'  id='products-overview_custom_fields'><i aria-hidden='true' class='linkify icon'></i></a>
 
 ## Custom Fields
 
@@ -216,7 +216,7 @@ Custom Fields are intended to be used in a couple of contexts:
 
 
 
-<a href='#products-overview_bulk-pricing-rules' aria-hidden='true' class='block-anchor'  id='products-overview_bulk-pricing-rules'></a>
+<a href='#products-overview_bulk-pricing-rules' aria-hidden='true' class='block-anchor'  id='products-overview_bulk-pricing-rules'><i aria-hidden='true' class='linkify icon'></i></a>
 
 ## Bulk Pricing Rules
 
@@ -228,7 +228,7 @@ Bulk Pricing rules in the catalog are on the product, meaning that they’ll tri
 
 
 
-<a href='#products-overview_metafields' aria-hidden='true' class='block-anchor'  id='products-overview_metafields'></a>
+<a href='#products-overview_metafields' aria-hidden='true' class='block-anchor'  id='products-overview_metafields'><i aria-hidden='true' class='linkify icon'></i></a>
 
 ## Product Metafields
 
@@ -240,7 +240,7 @@ Metafields can be added to variants, products, categories, and brands.
 
 
 
-<a href='#products-overview_reviews' aria-hidden='true' class='block-anchor'  id='products-overview_reviews'></a>
+<a href='#products-overview_reviews' aria-hidden='true' class='block-anchor'  id='products-overview_reviews'><i aria-hidden='true' class='linkify icon'></i></a>
 
 ## Product Reviews
 [Product reviews ](/api-reference/catalog/catalog-api/product-reviews/getproductreviews)contains ratings and feedback from shoppers who have purchased a product. Reviews are displayed on product pages. 
@@ -253,7 +253,7 @@ Product Reviews are a native platform feature, but they can be turned off in fav
 
 
 
-<a href='#products-overview_brands' aria-hidden='true' class='block-anchor'  id='products-overview_brands'></a>
+<a href='#products-overview_brands' aria-hidden='true' class='block-anchor'  id='products-overview_brands'><i aria-hidden='true' class='linkify icon'></i></a>
 
 ## Brands
 
@@ -268,7 +268,7 @@ They’re primarily used to tag products so that consumers can find Brands they�
 
 
 
-<a href='#products-overview_variant-options' aria-hidden='true' class='block-anchor'  id='products-overview_variant-options'></a>
+<a href='#products-overview_variant-options' aria-hidden='true' class='block-anchor'  id='products-overview_variant-options'><i aria-hidden='true' class='linkify icon'></i></a>
 
 ## Variant Options
 
@@ -360,7 +360,7 @@ lineNumbers: true
 
 
 
-<a href='#products-overview_variants' aria-hidden='true' class='block-anchor'  id='products-overview_variants'></a>
+<a href='#products-overview_variants' aria-hidden='true' class='block-anchor'  id='products-overview_variants'><i aria-hidden='true' class='linkify icon'></i></a>
 
 ## Variant
 [Variants](/api-reference/catalog/catalog-api/product-variants/getvariantsbyproductid) represent an item as it sits on the shelf in the warehouse or a particular saleable product. A product might be a t-shirt, while the variant would be “a small, red t-shirt”. Variants are selected by shoppers on the storefront via Product Options. In the case where a product is simple, meaning it does not have any options, the product is its own variant - called a base variant. Everything you can buy should be a variant.
@@ -559,7 +559,7 @@ The following example creates a base product, variant options, and variants in a
 
 
 
-<a href='#products-overview_modifier-options' aria-hidden='true' class='block-anchor'  id='products-overview_modifier-options'></a>
+<a href='#products-overview_modifier-options' aria-hidden='true' class='block-anchor'  id='products-overview_modifier-options'><i aria-hidden='true' class='linkify icon'></i></a>
 
 ## Modifier Options
 
@@ -732,7 +732,7 @@ To fix this error:
 
 
 
-<a href='#products-overview_complex-rules' aria-hidden='true' class='block-anchor'  id='products-overview_complex-rules'></a>
+<a href='#products-overview_complex-rules' aria-hidden='true' class='block-anchor'  id='products-overview_complex-rules'><i aria-hidden='true' class='linkify icon'></i></a>
 
 ## Complex Rules
 
@@ -785,7 +785,7 @@ lineNumbers: true
 
 
 
-<a href='#products-overview_categories' aria-hidden='true' class='block-anchor'  id='products-overview_categories'></a>
+<a href='#products-overview_categories' aria-hidden='true' class='block-anchor'  id='products-overview_categories'><i aria-hidden='true' class='linkify icon'></i></a>
 
 ## Categories
 

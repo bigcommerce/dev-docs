@@ -10,13 +10,13 @@
 	</ul>
 </div>
 
-<a href='#google-amp_overview' aria-hidden='true' class='block-anchor'  id='google-amp_overview'></a>
+<a href='#google-amp_overview' aria-hidden='true' class='block-anchor'  id='google-amp_overview'><i aria-hidden='true' class='linkify icon'></i></a>
 
 ## Google AMP Overview
 
 Google AMP aka Accelerated Mobile Pages is an [open source initiative](https://www.ampproject.org/) to make websites load faster across mobile devices.
 
-<a href='#google-amp_implement' aria-hidden='true' class='block-anchor'  id='google-amp_implement'></a>
+<a href='#google-amp_implement' aria-hidden='true' class='block-anchor'  id='google-amp_implement'><i aria-hidden='true' class='linkify icon'></i></a>
 
 ## Implement Google AMP into your Stencil theme
 
@@ -89,7 +89,7 @@ lineNumbers: true
 
 If you are having any implementation issues, review the [full Pull Request #964](https://github.com/bigcommerce/cornerstone/pull/946/files) for changes that need to be made to implement Google AMP. 
 
-<a href='#google-amp_location-of-amp-files' aria-hidden='true' class='block-anchor'  id='google-amp_location-of-amp-files'></a>
+<a href='#google-amp_location-of-amp-files' aria-hidden='true' class='block-anchor'  id='google-amp_location-of-amp-files'><i aria-hidden='true' class='linkify icon'></i></a>
 
 ## Location of AMP Files within Cornerstone
 
@@ -103,7 +103,7 @@ In versions 1.6.0+ of Cornerstone, there are a few key file locations where the 
 After the Google Analytics ID has been added via Control Panel, you can toggle AMP on the product and category pages using the [settings](https://support.bigcommerce.com/articles/Public/Google-AMP?_ga=2.205799699.1406470381.1541441523-967431010.1523308107) there.
 
 
-<a href='#google-amp_local-testing' aria-hidden='true' class='block-anchor'  id='google-amp_local-testing'></a>
+<a href='#google-amp_local-testing' aria-hidden='true' class='block-anchor'  id='google-amp_local-testing'><i aria-hidden='true' class='linkify icon'></i></a>
 
 ## Local Testing
 
@@ -112,7 +112,7 @@ You can test your AMP enabled pages at the following endpoints when running your
 * `localhost:3000/amp/category_url/`
 * `localhost:3000/amp/product_url/`
 
-<a href='#google-amp_additional-resources' aria-hidden='true' class='block-anchor'  id='google-amp_additional-resources'></a>
+<a href='#google-amp_additional-resources' aria-hidden='true' class='block-anchor'  id='google-amp_additional-resources'><i aria-hidden='true' class='linkify icon'></i></a>
 
 ## Additional Resources
 

@@ -7,7 +7,7 @@
 	</ul>
 </div>
 
-<a href='#rendering_rendering-html' aria-hidden='true' class='block-anchor'  id='rendering_rendering-html'></a>
+<a href='#rendering_rendering-html' aria-hidden='true' class='block-anchor'  id='rendering_rendering-html'><i aria-hidden='true' class='linkify icon'></i></a>
 
 ## Rendering HTML with Ajax
 

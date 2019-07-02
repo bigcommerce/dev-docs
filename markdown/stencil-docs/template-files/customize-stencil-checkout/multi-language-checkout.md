@@ -11,7 +11,7 @@
 	</ul>
 </div>
 
-<a href='#multi_multi-lang' aria-hidden='true' class='block-anchor'  id='multi_multi-lang'></a>
+<a href='#multi_multi-lang' aria-hidden='true' class='block-anchor'  id='multi_multi-lang'><i aria-hidden='true' class='linkify icon'></i></a>
 
 ## Multi-Language Setup 
 
@@ -68,7 +68,7 @@ lineNumbers: true
 
 
 
-<a href='#multi_browsing' aria-hidden='true' class='block-anchor'  id='multi_browsing'></a>
+<a href='#multi_browsing' aria-hidden='true' class='block-anchor'  id='multi_browsing'><i aria-hidden='true' class='linkify icon'></i></a>
 
 ## Browsing Hidden Translation Keys
 
@@ -78,7 +78,7 @@ This hidden content includes many more key/value pairs that support translation.
 
 
 
-<a href='#multi_adding' aria-hidden='true' class='block-anchor'  id='multi_adding'></a>
+<a href='#multi_adding' aria-hidden='true' class='block-anchor'  id='multi_adding'><i aria-hidden='true' class='linkify icon'></i></a>
 
 ## Adding Your Own Translation Values
 
@@ -90,7 +90,7 @@ You can provide values for all of checkout's supported translation keys – for 
 
 3. Replace the keys' values with appropriate phrases in each file's target language.
 
-<a href='#multi_localized' aria-hidden='true' class='block-anchor'  id='multi_localized'></a>
+<a href='#multi_localized' aria-hidden='true' class='block-anchor'  id='multi_localized'><i aria-hidden='true' class='linkify icon'></i></a>
 
 ## Localized Country and State Names 
 
@@ -125,7 +125,7 @@ BigCommerce Optimized One-Page Checkout will currently translate displayed `Coun
 
 
 
-<a href='#multi_stencils-overall' aria-hidden='true' class='block-anchor'  id='multi_stencils-overall'></a>
+<a href='#multi_stencils-overall' aria-hidden='true' class='block-anchor'  id='multi_stencils-overall'><i aria-hidden='true' class='linkify icon'></i></a>
 
 ## Stencil's Overall Limits on Translation
 

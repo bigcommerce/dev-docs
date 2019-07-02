@@ -13,7 +13,7 @@
 		</ul>
 </div>
 
-<a href='#v2-bulk-pricing-rules_object-properties' aria-hidden='true' class='block-anchor'  id='v2-bulk-pricing-rules_object-properties'></a>
+<a href='#v2-bulk-pricing-rules_object-properties' aria-hidden='true' class='block-anchor'  id='v2-bulk-pricing-rules_object-properties'><i aria-hidden='true' class='linkify icon'></i></a>
 
 ##  Bulk Pricing 
 
@@ -32,7 +32,7 @@ Bulk pricing rules applied to a product.
 
 
 
-<a href='#v2-bulk-pricing-rules_list-bulk-pricing-rules' aria-hidden='true' class='block-anchor'  id='v2-bulk-pricing-rules_list-bulk-pricing-rules'></a>
+<a href='#v2-bulk-pricing-rules_list-bulk-pricing-rules' aria-hidden='true' class='block-anchor'  id='v2-bulk-pricing-rules_list-bulk-pricing-rules'><i aria-hidden='true' class='linkify icon'></i></a>
 
 ## List Bulk Pricing Rules 
 
@@ -73,7 +73,7 @@ Example JSON returned in the response:
 
 
 
-<a href='#v2-bulk-pricing-rules_get-bulk-pricing-rules' aria-hidden='true' class='block-anchor'  id='v2-bulk-pricing-rules_get-bulk-pricing-rules'></a>
+<a href='#v2-bulk-pricing-rules_get-bulk-pricing-rules' aria-hidden='true' class='block-anchor'  id='v2-bulk-pricing-rules_get-bulk-pricing-rules'><i aria-hidden='true' class='linkify icon'></i></a>
 
 ## Get a Product Bulk Pricing Rule 
 
@@ -98,7 +98,7 @@ Example JSON returned in the response:
 
 
 
-<a href='#v2-bulk-pricing-rules_get-count-bulk-pricing-rules' aria-hidden='true' class='block-anchor'  id='v2-bulk-pricing-rules_get-count-bulk-pricing-rules'></a>
+<a href='#v2-bulk-pricing-rules_get-count-bulk-pricing-rules' aria-hidden='true' class='block-anchor'  id='v2-bulk-pricing-rules_get-count-bulk-pricing-rules'><i aria-hidden='true' class='linkify icon'></i></a>
 
 ## Get a Count of Bulk Pricing Rules 
 
@@ -119,7 +119,7 @@ Example JSON returned in the response:
 
 
 
-<a href='#v2-bulk-pricing-rules_create-bulk-pricing-rules' aria-hidden='true' class='block-anchor'  id='v2-bulk-pricing-rules_create-bulk-pricing-rules'></a>
+<a href='#v2-bulk-pricing-rules_create-bulk-pricing-rules' aria-hidden='true' class='block-anchor'  id='v2-bulk-pricing-rules_create-bulk-pricing-rules'><i aria-hidden='true' class='linkify icon'></i></a>
 
 
 ## Create a Product Bulk Pricing Rule 
@@ -178,7 +178,7 @@ Example JSON returned in the response:
 
 
 
-<a href='#v2-bulk-pricing-rules_update-bulk-pricing-rules' aria-hidden='true' class='block-anchor'  id='v2-bulk-pricing-rules_update-bulk-pricing-rules'></a>
+<a href='#v2-bulk-pricing-rules_update-bulk-pricing-rules' aria-hidden='true' class='block-anchor'  id='v2-bulk-pricing-rules_update-bulk-pricing-rules'><i aria-hidden='true' class='linkify icon'></i></a>
 
 ## Update a Product Bulk Pricing Rule 
 
@@ -237,7 +237,7 @@ Example JSON returned in the response:
 
 
 
-<a href='#v2-bulk-pricing-rules_delete-bulk-pricing-rules' aria-hidden='true' class='block-anchor'  id='v2-bulk-pricing-rules_delete-bulk-pricing-rules'></a>
+<a href='#v2-bulk-pricing-rules_delete-bulk-pricing-rules' aria-hidden='true' class='block-anchor'  id='v2-bulk-pricing-rules_delete-bulk-pricing-rules'><i aria-hidden='true' class='linkify icon'></i></a>
 
 ## Delete a Product Bulk Pricing Rule 
 
@@ -247,7 +247,7 @@ Deletes a product bulk pricing rule.
 
 
 
-<a href='#v2-bulk-pricing-rules_delete-multiple-bulk-pricing-rules' aria-hidden='true' class='block-anchor'  id='v2-bulk-pricing-rules_delete-multiple-bulk-pricing-rules'></a>
+<a href='#v2-bulk-pricing-rules_delete-multiple-bulk-pricing-rules' aria-hidden='true' class='block-anchor'  id='v2-bulk-pricing-rules_delete-multiple-bulk-pricing-rules'><i aria-hidden='true' class='linkify icon'></i></a>
 
 ## Delete Multiple Product Bulk Pricing Rules 
 

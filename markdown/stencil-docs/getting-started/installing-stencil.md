@@ -20,7 +20,7 @@ Each OS has different prerequisites. Be sure to check the correct tab in the [Pr
 
 
 
-<a href='#installing_prerequisites' aria-hidden='true' class='block-anchor'  id='installing_prerequisites'></a>
+<a href='#installing_prerequisites' aria-hidden='true' class='block-anchor'  id='installing_prerequisites'><i aria-hidden='true' class='linkify icon'></i></a>
 
 ## Prerequisites by OS
 
@@ -30,7 +30,7 @@ Each OS has different prerequisites. Be sure to check the correct tab in the [Pr
 
 
 
-<a href='#installing_installing-the-stencil-cli' aria-hidden='true' class='block-anchor'  id='installing_installing-the-stencil-cli'></a>
+<a href='#installing_installing-the-stencil-cli' aria-hidden='true' class='block-anchor'  id='installing_installing-the-stencil-cli'><i aria-hidden='true' class='linkify icon'></i></a>
 
 ## Install Stencil CLI
 
@@ -75,7 +75,7 @@ then either install nvm now, or follow one of the workarounds on [this external 
 
 
 
-<a href='#installing_cloning-cornerstone' aria-hidden='true' class='block-anchor'  id='installing_cloning-cornerstone'></a>
+<a href='#installing_cloning-cornerstone' aria-hidden='true' class='block-anchor'  id='installing_cloning-cornerstone'><i aria-hidden='true' class='linkify icon'></i></a>
 
 ## Cloning Cornerstone Repo
 
@@ -108,7 +108,7 @@ In the next step, we'll install Stencil's [JavaScript utilities](/stencil-docs/g
 
 
 
-<a href='#installing_installing-stencils-js-utilities' aria-hidden='true' class='block-anchor'  id='installing_installing-stencils-js-utilities'></a>
+<a href='#installing_installing-stencils-js-utilities' aria-hidden='true' class='block-anchor'  id='installing_installing-stencils-js-utilities'><i aria-hidden='true' class='linkify icon'></i></a>
 
 ## Installing Stencil CLI JS Dependencies
 
@@ -130,7 +130,7 @@ Now that your installation is complete, you can move on to [preparing your store
 
 
 
-<a href='#installing_video-demo' aria-hidden='true' class='block-anchor'  id='installing_video-demo'></a>
+<a href='#installing_video-demo' aria-hidden='true' class='block-anchor'  id='installing_video-demo'><i aria-hidden='true' class='linkify icon'></i></a>
 
 ## Video Demo
 

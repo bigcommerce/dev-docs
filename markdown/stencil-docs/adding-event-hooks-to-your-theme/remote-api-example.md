@@ -7,7 +7,7 @@
 	</ul>
 </div>
 
-<a href='#remote_remote-api-example' aria-hidden='true' class='block-anchor'  id='remote_remote-api-example'></a>
+<a href='#remote_remote-api-example' aria-hidden='true' class='block-anchor'  id='remote_remote-api-example'><i aria-hidden='true' class='linkify icon'></i></a>
 
 ## Remote API Example
 

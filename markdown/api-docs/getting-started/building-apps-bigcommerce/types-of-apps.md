@@ -10,7 +10,7 @@
 	</ul>
 </div>
 
-<a href='#types-of-apps_single-click-apps' aria-hidden='true' class='block-anchor'  id='types-of-apps_single-click-apps'></a>
+<a href='#types-of-apps_single-click-apps' aria-hidden='true' class='block-anchor'  id='types-of-apps_single-click-apps'><i aria-hidden='true' class='linkify icon'></i></a>
 
 The BigCommerce ecosystem facilitates the creation of multiple types of apps. Determining which type of app to create largely depends on the nature and size of the intended user-base. For example, Single Click Apps are listed on the BigCommerce marketplace and can be installed on any BigCommerce store; Personal Apps, on the other hand, are intended for a specific merchant and are not listed on the marketplace. For more information, see the detailed descriptions of each app type below.
 
@@ -23,7 +23,7 @@ Single-click apps use the Client ID and Client Secret obtained from the Dev Tool
 
 
 
-<a href='#types-of-apps_connector-apps' aria-hidden='true' class='block-anchor'  id='types-of-apps_connector-apps'></a>
+<a href='#types-of-apps_connector-apps' aria-hidden='true' class='block-anchor'  id='types-of-apps_connector-apps'><i aria-hidden='true' class='linkify icon'></i></a>
 
 ## Connector Apps
 
@@ -60,7 +60,7 @@ If you’re interested in submitting your integration as a connector app, please
 
 
 
-<a href='#types-of-apps_unlisted-marketplace-apps' aria-hidden='true' class='block-anchor'  id='types-of-apps_unlisted-marketplace-apps'></a>
+<a href='#types-of-apps_unlisted-marketplace-apps' aria-hidden='true' class='block-anchor'  id='types-of-apps_unlisted-marketplace-apps'><i aria-hidden='true' class='linkify icon'></i></a>
 
 ## Unlisted Marketplace Apps
 
@@ -73,7 +73,7 @@ Use Cases:
 
 
 
-<a href='#types-of-personal_apps' aria-hidden='true' class='block-anchor'  id='types-of-personal_apps'></a>
+<a href='#types-of-personal_apps' aria-hidden='true' class='block-anchor'  id='types-of-personal_apps'><i aria-hidden='true' class='linkify icon'></i></a>
 
 ## Personal Apps
 
@@ -87,7 +87,7 @@ To install a Personal app on a store, your Dev Tools login credentials must be t
 
 
 
-<a href='#types-of-apps_scripts' aria-hidden='true' class='block-anchor'  id='types-of-apps_scripts'></a>
+<a href='#types-of-apps_scripts' aria-hidden='true' class='block-anchor'  id='types-of-apps_scripts'><i aria-hidden='true' class='linkify icon'></i></a>
 
 ## Scripts
 

@@ -19,7 +19,7 @@ These field values can be set in the Control Panel by the merchant as well as us
 
 
 
-<a href='#shipper-hq-object-properties' aria-hidden='true' class='block-anchor'  id='shipper-hq-object-properties'></a>
+<a href='#shipper-hq-object-properties' aria-hidden='true' class='block-anchor'  id='shipper-hq-object-properties'><i aria-hidden='true' class='linkify icon'></i></a>
 
 ## ShipperHQ Object Properties
 
@@ -50,7 +50,7 @@ These field values can be set in the Control Panel by the merchant as well as us
 
 
 
-<a href='#control-panel-behavior' aria-hidden='true' class='block-anchor'  id='control-panel-behavior'></a>
+<a href='#control-panel-behavior' aria-hidden='true' class='block-anchor'  id='control-panel-behavior'><i aria-hidden='true' class='linkify icon'></i></a>
 
 ## Control Panel Behavior
 
@@ -68,7 +68,7 @@ lineNumbers: true
 
 
 
-<a href='#add-shipperhq-metafield' aria-hidden='true' class='block-anchor'  id='add-shipperhq-metafield'></a>
+<a href='#add-shipperhq-metafield' aria-hidden='true' class='block-anchor'  id='add-shipperhq-metafield'><i aria-hidden='true' class='linkify icon'></i></a>
 
 ## Add ShipperHQ Metafield
 

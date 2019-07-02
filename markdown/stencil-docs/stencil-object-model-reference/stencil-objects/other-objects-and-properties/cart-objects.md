@@ -11,7 +11,7 @@
 	</ul>
 </div>
 
-<a href='#cart_cart' aria-hidden='true' class='block-anchor'  id='cart_cart'></a>
+<a href='#cart_cart' aria-hidden='true' class='block-anchor'  id='cart_cart'><i aria-hidden='true' class='linkify icon'></i></a>
 
 ## Cart
 
@@ -164,7 +164,7 @@
   </tr>
 </table>
 
-<a href='#cart_cart-items' aria-hidden='true' class='block-anchor'  id='cart_cart-items'></a>
+<a href='#cart_cart-items' aria-hidden='true' class='block-anchor'  id='cart_cart-items'><i aria-hidden='true' class='linkify icon'></i></a>
 
 ## Cart Items
 
@@ -360,7 +360,7 @@
   </tr>
 </table>
 
-<a href='#cart_strikeout' aria-hidden='true' class='block-anchor'  id='cart_strikeout'></a>
+<a href='#cart_strikeout' aria-hidden='true' class='block-anchor'  id='cart_strikeout'><i aria-hidden='true' class='linkify icon'></i></a>
 
 ## Strikeout Pricing Example
 
@@ -384,7 +384,7 @@ If the type is `Item`, then you would check the {{cart.items.rrp}} value. If the
 
 For further details about catalog price properties, please see [Catalog Price Object: How Properties Interact](/stencil-docs/conditional-logic-examples/catalog-price-object). For usage examples of the `{{cart.items}}` `price` and `total` properties, please see [Cart Price Properties](/stencil-docs/conditional-logic-examples/cart-price-relationships).
 
-<a href='#cart_cart-status' aria-hidden='true' class='block-anchor'  id='cart_cart-status'></a>
+<a href='#cart_cart-status' aria-hidden='true' class='block-anchor'  id='cart_cart-status'><i aria-hidden='true' class='linkify icon'></i></a>
 
 ## Cart Status Message
 
@@ -409,7 +409,7 @@ For further details about catalog price properties, please see [Catalog Price Ob
   </tr>
 </table>
 
-<a href='#cart_suggested' aria-hidden='true' class='block-anchor'  id='cart_suggested'></a>
+<a href='#cart_suggested' aria-hidden='true' class='block-anchor'  id='cart_suggested'><i aria-hidden='true' class='linkify icon'></i></a>
 
 ## Suggested Products
 

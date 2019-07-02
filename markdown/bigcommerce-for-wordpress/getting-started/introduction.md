@@ -12,7 +12,7 @@ BigCommerce for WordPress allows you to power content-driven WordPress storefron
 You can use the BigCommerce for WordPress plugin as a building block to create an ecommerce solution that’s unique to your brand. Whether you want to link multiple WordPress storefronts to a single BigCommerce store or extend the open source plugin to create custom-made solutions, BigCommerce for WordPress makes it easy to combine the power of BigCommerce with the flexible presentation of WordPress.
 
 
-<a href='#introduction_how-it-works' aria-hidden='true' class='block-anchor'  id='introduction_how-it-works'></a>
+<a href='#introduction_how-it-works' aria-hidden='true' class='block-anchor'  id='introduction_how-it-works'><i aria-hidden='true' class='linkify icon'></i></a>
 
 ## How It Works
 

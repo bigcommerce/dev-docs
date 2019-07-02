@@ -32,7 +32,7 @@ Webhooks allow app developers to be notified, in near real-time, when specific e
 
 
 
-<a href='#about-webhooks_authentication' aria-hidden='true' class='block-anchor'  id='about-webhooks_authentication'></a>
+<a href='#about-webhooks_authentication' aria-hidden='true' class='block-anchor'  id='about-webhooks_authentication'><i aria-hidden='true' class='linkify icon'></i></a>
 
 ## Authentication
 
@@ -60,7 +60,7 @@ Before you  can begin to send and receive requests, you must have the following:
 
 
 
-<a href='#about-webhooks_lightweight-callback-payload' aria-hidden='true' class='block-anchor'  id='about-webhooks_lightweight-callback-payload'></a>
+<a href='#about-webhooks_lightweight-callback-payload' aria-hidden='true' class='block-anchor'  id='about-webhooks_lightweight-callback-payload'><i aria-hidden='true' class='linkify icon'></i></a>
 
 ## Lightweight Callback Payload
 
@@ -97,7 +97,7 @@ lineNumbers: true
 
 
 
-<a href='#about-webhooks_request-and-response' aria-hidden='true' class='block-anchor'  id='about-webhooks_request-and-response'></a>
+<a href='#about-webhooks_request-and-response' aria-hidden='true' class='block-anchor'  id='about-webhooks_request-and-response'><i aria-hidden='true' class='linkify icon'></i></a>
 
 ## Request and Response
 
@@ -118,7 +118,7 @@ X-Auth-Client: <the OAuth client id>
 X-Auth-Token: <the OAuth token>
 ```
 
-<a href='#post-webhooks' aria-hidden='true' class='block-anchor'  id='post-webhooks'></a>
+<a href='#post-webhooks' aria-hidden='true' class='block-anchor'  id='post-webhooks'><i aria-hidden='true' class='linkify icon'></i></a>
 
 <!--
 title: "/POST Webhook "
@@ -138,7 +138,7 @@ curl -X POST \
   "is_active": true
 ```
 
-<a href='#response-post-webhooks' aria-hidden='true' class='block-anchor'  id='response-post-webhooks'></a>
+<a href='#response-post-webhooks' aria-hidden='true' class='block-anchor'  id='response-post-webhooks'><i aria-hidden='true' class='linkify icon'></i></a>
 
 <!--
 title: "Response 201 Created"
@@ -187,7 +187,7 @@ An HTTP 201 response indicates that the webhook was set successfully.
 </div>
 </div>
 
-<a href='#get-all-webhooks' aria-hidden='true' class='block-anchor'  id='get-all-webhooks'></a>
+<a href='#get-all-webhooks' aria-hidden='true' class='block-anchor'  id='get-all-webhooks'><i aria-hidden='true' class='linkify icon'></i></a>
 
 <!--
 title: "/GET All Webhooks"
@@ -225,7 +225,7 @@ lineNumbers: true
 
 ```
 
-<a href='#get-a-single-webhook' aria-hidden='true' class='block-anchor'  id='get-a-single-webhook'></a>
+<a href='#get-a-single-webhook' aria-hidden='true' class='block-anchor'  id='get-a-single-webhook'><i aria-hidden='true' class='linkify icon'></i></a>
 
 <!--
 title: "/GET a Single Webhook"
@@ -249,7 +249,7 @@ lineNumbers: true
 
 ```
 
-<a href='#update-a-webhook' aria-hidden='true' class='block-anchor'  id='update-a-webhook'></a>
+<a href='#update-a-webhook' aria-hidden='true' class='block-anchor'  id='update-a-webhook'><i aria-hidden='true' class='linkify icon'></i></a>
 
 <!--
 title: "/PUT Webhook"
@@ -309,7 +309,7 @@ If webhooks are no longer being used, either delete them or set `is_active:false
 
 
 
-<a href='#about-webhooks_receiving-the-callback' aria-hidden='true' class='block-anchor'  id='about-webhooks_receiving-the-callback'></a>
+<a href='#about-webhooks_receiving-the-callback' aria-hidden='true' class='block-anchor'  id='about-webhooks_receiving-the-callback'><i aria-hidden='true' class='linkify icon'></i></a>
 
 ## Receiving the Callback
 
@@ -319,7 +319,7 @@ Need to set up a quick destination URL for testing? See Tools for Debugging and 
 
 
 
-<a href='#about-webhooks_respond-to-webhook-callbacks' aria-hidden='true' class='block-anchor'  id='about-webhooks_respond-to-webhook-callbacks'></a>
+<a href='#about-webhooks_respond-to-webhook-callbacks' aria-hidden='true' class='block-anchor'  id='about-webhooks_respond-to-webhook-callbacks'><i aria-hidden='true' class='linkify icon'></i></a>
 
 ## Respond to Webhook Callbacks
 
@@ -331,7 +331,7 @@ Need to set up a quick destination URL for testing? See [Tools for testing webho
 
 
 
-<a href='#about-webhooks_callback-retry-mechanism' aria-hidden='true' class='block-anchor'  id='about-webhooks_callback-retry-mechanism'></a>
+<a href='#about-webhooks_callback-retry-mechanism' aria-hidden='true' class='block-anchor'  id='about-webhooks_callback-retry-mechanism'><i aria-hidden='true' class='linkify icon'></i></a>
 
 ## Callback Retry Mechanism
 
@@ -360,7 +360,7 @@ After the final retry attempt (cumulatively, 48 hours after the first delivery a
 
 
 
-<a href='#about-webhooks_webhook-security' aria-hidden='true' class='block-anchor'  id='about-webhooks_webhook-security'></a>
+<a href='#about-webhooks_webhook-security' aria-hidden='true' class='block-anchor'  id='about-webhooks_webhook-security'><i aria-hidden='true' class='linkify icon'></i></a>
 
 ## Webhook Security
 To ensure that webhook payloads are secure against activity by a malicious actor, we take a three-pronged approach:
@@ -389,7 +389,7 @@ lineNumbers: true
 
 
 
-<a href='#about-webhooks_troubleshooting' aria-hidden='true' class='block-anchor'  id='about-webhooks_troubleshooting'></a>
+<a href='#about-webhooks_troubleshooting' aria-hidden='true' class='block-anchor'  id='about-webhooks_troubleshooting'><i aria-hidden='true' class='linkify icon'></i></a>
 
 ## Troubleshooting
 
@@ -425,7 +425,7 @@ lineNumbers: true
 
 
 
-<a href='#about-webhooks_tools-for-debugging-and-testing-webhooks' aria-hidden='true' class='block-anchor'  id='about-webhooks_tools-for-debugging-and-testing-webhooks'></a>
+<a href='#about-webhooks_tools-for-debugging-and-testing-webhooks' aria-hidden='true' class='block-anchor'  id='about-webhooks_tools-for-debugging-and-testing-webhooks'><i aria-hidden='true' class='linkify icon'></i></a>
 
 ## Tools for Debugging and Testing Webhooks
 

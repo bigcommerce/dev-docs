@@ -12,7 +12,7 @@
 	</ul>
 </div>
 
-<a href='#cart-checkout_storefront-cart-and-checkout' aria-hidden='true' class='block-anchor'  id='cart-checkout_storefront-cart-and-checkout'></a>
+<a href='#cart-checkout_storefront-cart-and-checkout' aria-hidden='true' class='block-anchor'  id='cart-checkout_storefront-cart-and-checkout'><i aria-hidden='true' class='linkify icon'></i></a>
 
 ## Storefront Cart and Checkout
 
@@ -108,7 +108,7 @@ console.log(myJson);
 
 
 
-<a href='#cart-checkout_server-to-server-cart-and-checkout' aria-hidden='true' class='block-anchor'  id='cart-checkout_server-to-server-cart-and-checkout'></a>
+<a href='#cart-checkout_server-to-server-cart-and-checkout' aria-hidden='true' class='block-anchor'  id='cart-checkout_server-to-server-cart-and-checkout'><i aria-hidden='true' class='linkify icon'></i></a>
 
 ## Server-to-Server Cart and Checkout
 
@@ -128,7 +128,7 @@ The Server-to-Server APIs are for managing the contents of a shopping cart and c
 
 
 
-<a href='#cart-checkout_troubleshooting' aria-hidden='true' class='block-anchor'  id='cart-checkout_troubleshooting'></a>
+<a href='#cart-checkout_troubleshooting' aria-hidden='true' class='block-anchor'  id='cart-checkout_troubleshooting'><i aria-hidden='true' class='linkify icon'></i></a>
 
 ## Troubleshooting Cart Errors
 We will go over common Storefront Cart and Checkout as well as Server to Server Cart and Checkout errors. Each scenario will include the error message and how to fix the error. The most common errors are listed below.
@@ -464,7 +464,7 @@ Check the product for order_quantity_minimum and order_quantity_maximum for the 
 
 
 
-<a href='#cart-checkout_available-webhooks' aria-hidden='true' class='block-anchor'  id='cart-checkout_available-webhooks'></a>
+<a href='#cart-checkout_available-webhooks' aria-hidden='true' class='block-anchor'  id='cart-checkout_available-webhooks'><i aria-hidden='true' class='linkify icon'></i></a>
 
 ## Available Webhooks
 * [Orders](/api-docs/getting-started/webhooks/webhook-events#webhook-events_orders)
@@ -473,7 +473,7 @@ Check the product for order_quantity_minimum and order_quantity_maximum for the 
 
 
 
-<a href='#cart-checkout_oauth-scopes' aria-hidden='true' class='block-anchor'  id='cart-checkout_oauth-scopes'></a>
+<a href='#cart-checkout_oauth-scopes' aria-hidden='true' class='block-anchor'  id='cart-checkout_oauth-scopes'><i aria-hidden='true' class='linkify icon'></i></a>
 
 ## OAuth Scopes
 * Carts
@@ -486,7 +486,7 @@ For more details and a full list of available scopes, see [Oauth Scopes](/api-do
 
 
 
-<a href='#cart-checkout_related-endpoints' aria-hidden='true' class='block-anchor'  id='cart-checkout_related-endpoints'></a>
+<a href='#cart-checkout_related-endpoints' aria-hidden='true' class='block-anchor'  id='cart-checkout_related-endpoints'><i aria-hidden='true' class='linkify icon'></i></a>
 
 ## Related Endpoints
 * [Storefront Cart](/api-reference/cart-checkout/storefront-cart-api)

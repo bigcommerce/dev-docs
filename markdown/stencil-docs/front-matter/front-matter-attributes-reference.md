@@ -14,7 +14,7 @@
 	</ul>
 </div>
 
-<a href='#front-matter-attributes-reference_global' aria-hidden='true' class='block-anchor'  id='front-matter-attributes-reference_global'></a>
+<a href='#front-matter-attributes-reference_global' aria-hidden='true' class='block-anchor'  id='front-matter-attributes-reference_global'><i aria-hidden='true' class='linkify icon'></i></a>
 
 ## Global Attributes
 
@@ -233,7 +233,7 @@ If &lt;number&gt; is not defined, returns 10 brands, ordered by the number of pr
   </tr>
 </table>
 
-<a href='#front-matter-attributes-reference_category' aria-hidden='true' class='block-anchor'  id='front-matter-attributes-reference_category'></a>
+<a href='#front-matter-attributes-reference_category' aria-hidden='true' class='block-anchor'  id='front-matter-attributes-reference_category'><i aria-hidden='true' class='linkify icon'></i></a>
 
 ## Category Attributes 
 
@@ -273,7 +273,7 @@ Defines the number of products displayed per page for this category. Range of po
   </tr>
 </table>
 
-<a href='#front-matter-attributes-reference_blog' aria-hidden='true' class='block-anchor'  id='front-matter-attributes-reference_blog'></a>
+<a href='#front-matter-attributes-reference_blog' aria-hidden='true' class='block-anchor'  id='front-matter-attributes-reference_blog'><i aria-hidden='true' class='linkify icon'></i></a>
 
 ## Blog Attributes
 
@@ -340,7 +340,7 @@ If &lt;number&gt; is not defined, displays 250 characters.</td>
   </tr>
 </table>
 
-<a href='#front-matter-attributes-reference_product' aria-hidden='true' class='block-anchor'  id='front-matter-attributes-reference_product'></a>
+<a href='#front-matter-attributes-reference_product' aria-hidden='true' class='block-anchor'  id='front-matter-attributes-reference_product'><i aria-hidden='true' class='linkify icon'></i></a>
 
 ## Product Attributes 
 
@@ -426,7 +426,7 @@ Inserting “limit:” with no integer will display 0 products. </td>
   </tr>
 </table>
 
-<a href='#front-matter-attributes-reference_brand' aria-hidden='true' class='block-anchor'  id='front-matter-attributes-reference_brand'></a>
+<a href='#front-matter-attributes-reference_brand' aria-hidden='true' class='block-anchor'  id='front-matter-attributes-reference_brand'><i aria-hidden='true' class='linkify icon'></i></a>
 
 ## Brand Attributes
 
@@ -457,7 +457,7 @@ Defines the number of products displayed per page for this brand. Range of possi
   </tr>
 </table>
 
-<a href='#front-matter-attributes-reference_brand-list' aria-hidden='true' class='block-anchor'  id='front-matter-attributes-reference_brand-list'></a>
+<a href='#front-matter-attributes-reference_brand-list' aria-hidden='true' class='block-anchor'  id='front-matter-attributes-reference_brand-list'><i aria-hidden='true' class='linkify icon'></i></a>
 
 ## Brand List Attributes
 
@@ -486,7 +486,7 @@ Sets the number of brands displayed in the list. If &lt;limit&gt; is not defined
   </tr>
 </table>
 
-<a href='#front-matter-attributes-reference_cart' aria-hidden='true' class='block-anchor'  id='front-matter-attributes-reference_cart'></a>
+<a href='#front-matter-attributes-reference_cart' aria-hidden='true' class='block-anchor'  id='front-matter-attributes-reference_cart'><i aria-hidden='true' class='linkify icon'></i></a>
 
 ## Cart Attributes 
 
@@ -525,7 +525,7 @@ If &lt;number&gt; is not defined, returns 4 suggested products.</td>
   </tr>
 </table>
 
-<a href='#front-matter-attributes-reference_search' aria-hidden='true' class='block-anchor'  id='front-matter-attributes-reference_search'></a>
+<a href='#front-matter-attributes-reference_search' aria-hidden='true' class='block-anchor'  id='front-matter-attributes-reference_search'><i aria-hidden='true' class='linkify icon'></i></a>
 
 ## Search Attributes 
 

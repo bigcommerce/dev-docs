@@ -12,7 +12,7 @@
 	</ul>
 </div>
 
-<a href='#transitionining-to-stencil_choosing-dev-path' aria-hidden='true' class='block-anchor'  id='transitionining-to-stencil_choosing-dev-path'></a>
+<a href='#transitionining-to-stencil_choosing-dev-path' aria-hidden='true' class='block-anchor'  id='transitionining-to-stencil_choosing-dev-path'><i aria-hidden='true' class='linkify icon'></i></a>
 
 ## Choosing a Development Path
 
@@ -56,7 +56,7 @@ To learn Stencil CLI's templating conventions, see Installing Stencil CLI. Also 
 
 
 
-<a href='#transitionining-to-stencil_front-matter-quick-start' aria-hidden='true' class='block-anchor'  id='transitionining-to-stencil_front-matter-quick-start'></a>
+<a href='#transitionining-to-stencil_front-matter-quick-start' aria-hidden='true' class='block-anchor'  id='transitionining-to-stencil_front-matter-quick-start'><i aria-hidden='true' class='linkify icon'></i></a>
 
 ## Front-Matter Quick Start
 
@@ -66,7 +66,7 @@ This front-matter section uses conventions from YAML, a simple, widely used mark
 
 
 
-<a href='#transitionining-to-stencil_handlebars_quick-start' aria-hidden='true' class='block-anchor'  id='transitionining-to-stencil_handlebars_quick-start'></a>
+<a href='#transitionining-to-stencil_handlebars_quick-start' aria-hidden='true' class='block-anchor'  id='transitionining-to-stencil_handlebars_quick-start'><i aria-hidden='true' class='linkify icon'></i></a>
 
 ## Handlebars Quick Start
 
@@ -81,7 +81,7 @@ Handlebars' syntax is quite simple, and it allows you to accomplish powerful Jav
 
 
 
-<a href='#transitionining-to-stencil_seo-tips' aria-hidden='true' class='block-anchor'  id='transitionining-to-stencil_seo-tips'></a>
+<a href='#transitionining-to-stencil_seo-tips' aria-hidden='true' class='block-anchor'  id='transitionining-to-stencil_seo-tips'><i aria-hidden='true' class='linkify icon'></i></a>
 
 ## SEO Tips and Best Practices
 
@@ -98,7 +98,7 @@ Also checkout our [Guide to Keyword Research](https://support.bigcommerce.com/s/
 
 
 
-<a href='#transitionining-to-stencil_blueprint-to-stencil' aria-hidden='true' class='block-anchor'  id='transitionining-to-stencil_blueprint-to-stencil'></a>
+<a href='#transitionining-to-stencil_blueprint-to-stencil' aria-hidden='true' class='block-anchor'  id='transitionining-to-stencil_blueprint-to-stencil'><i aria-hidden='true' class='linkify icon'></i></a>
 
 ## Blueprint-to-Stencil Features Map 
 
@@ -109,7 +109,7 @@ This following support and video resurces are designed to help you identify the 
 
 
 
-<a href='#transitionining-to-stencil_interacting-with-api' aria-hidden='true' class='block-anchor'  id='transitionining-to-stencil_interacting-with-api'></a>
+<a href='#transitionining-to-stencil_interacting-with-api' aria-hidden='true' class='block-anchor'  id='transitionining-to-stencil_interacting-with-api'><i aria-hidden='true' class='linkify icon'></i></a>
 
 ## Interacting with the BigCommerce API
 
@@ -123,7 +123,7 @@ As a theme developer, you can rely on apps to enhance your themes' capabilities,
 
 
 
-<a href='#transitionining-to-stencil_partnering-with-bc' aria-hidden='true' class='block-anchor'  id='transitionining-to-stencil_partnering-with-bc'></a>
+<a href='#transitionining-to-stencil_partnering-with-bc' aria-hidden='true' class='block-anchor'  id='transitionining-to-stencil_partnering-with-bc'><i aria-hidden='true' class='linkify icon'></i></a>
 
 ## Partnering with BigCommerce
 

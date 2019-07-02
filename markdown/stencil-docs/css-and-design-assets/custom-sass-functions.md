@@ -26,7 +26,7 @@
 </div>
 </div>
 
-<a href='#custom-sass-functions_stencilcolor' aria-hidden='true' class='block-anchor'  id='custom-sass-functions_stencilcolor'></a>
+<a href='#custom-sass-functions_stencilcolor' aria-hidden='true' class='block-anchor'  id='custom-sass-functions_stencilcolor'><i aria-hidden='true' class='linkify icon'></i></a>
 
 ## stencilColor
 
@@ -57,7 +57,7 @@ That `optimizedCheckout-header-backgroundColor` key is defined, and assigned a d
 
 
 
-<a href='#custom-sass-functions_stencilfontfamily' aria-hidden='true' class='block-anchor'  id='custom-sass-functions_stencilfontfamily'></a>
+<a href='#custom-sass-functions_stencilfontfamily' aria-hidden='true' class='block-anchor'  id='custom-sass-functions_stencilfontfamily'><i aria-hidden='true' class='linkify icon'></i></a>
 
 ## stencilFontFamily
 
@@ -73,7 +73,7 @@ Your Sass stylesheet must call stencilFontFamily for each <span class="fn">confi
 
 
 
-<a href='#custom-sass-functions_stencilfontweight' aria-hidden='true' class='block-anchor'  id='custom-sass-functions_stencilfontweight'></a>
+<a href='#custom-sass-functions_stencilfontweight' aria-hidden='true' class='block-anchor'  id='custom-sass-functions_stencilfontweight'><i aria-hidden='true' class='linkify icon'></i></a>
 
 ## stencilFontWeight
 
@@ -87,7 +87,7 @@ Your Sass stylesheet may optionally call stencilFontWeight for each <span class=
 
 
 
-<a href='#custom-sass-functions_stencilnumber' aria-hidden='true' class='block-anchor'  id='custom-sass-functions_stencilnumber'></a>
+<a href='#custom-sass-functions_stencilnumber' aria-hidden='true' class='block-anchor'  id='custom-sass-functions_stencilnumber'><i aria-hidden='true' class='linkify icon'></i></a>
 
 ## stencilNumber
 
@@ -99,7 +99,7 @@ You can use this function with arithmetical operators. For example, assume that 
 
 
 
-<a href='#custom-sass-functions_stencilstring' aria-hidden='true' class='block-anchor'  id='custom-sass-functions_stencilstring'></a>
+<a href='#custom-sass-functions_stencilstring' aria-hidden='true' class='block-anchor'  id='custom-sass-functions_stencilstring'><i aria-hidden='true' class='linkify icon'></i></a>
 
 ## stencilString
 
@@ -107,7 +107,7 @@ You can use this function with arithmetical operators. For example, assume that 
 
 
 
-<a href='#custom-sass-functions_stencilimage' aria-hidden='true' class='block-anchor'  id='custom-sass-functions_stencilimage'></a>
+<a href='#custom-sass-functions_stencilimage' aria-hidden='true' class='block-anchor'  id='custom-sass-functions_stencilimage'><i aria-hidden='true' class='linkify icon'></i></a>
 
 ## stencilImage
 
@@ -115,7 +115,7 @@ You can use this function with arithmetical operators. For example, assume that 
 
 
 
-<a href='#custom-sass-functions_compiling-custom-sass-files' aria-hidden='true' class='block-anchor'  id='custom-sass-functions_compiling-custom-sass-files'></a>
+<a href='#custom-sass-functions_compiling-custom-sass-files' aria-hidden='true' class='block-anchor'  id='custom-sass-functions_compiling-custom-sass-files'><i aria-hidden='true' class='linkify icon'></i></a>
 
 ## Compiling Custom Sass Files
 

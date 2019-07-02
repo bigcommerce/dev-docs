@@ -12,7 +12,7 @@
 
 
 
-<a href='#config_config-json-overview' aria-hidden='true' class='block-anchor'  id='config_config-json-overview'></a>
+<a href='#config_config-json-overview' aria-hidden='true' class='block-anchor'  id='config_config-json-overview'><i aria-hidden='true' class='linkify icon'></i></a>
 
 ## config.json Overview
 
@@ -26,7 +26,7 @@ Configuring the <span class="fn">{/theme‑name}/config.json</span> file to prop
 
 
 
-<a href='#config_keys-and-example' aria-hidden='true' class='block-anchor'  id='config_keys-and-example'></a>
+<a href='#config_keys-and-example' aria-hidden='true' class='block-anchor'  id='config_keys-and-example'><i aria-hidden='true' class='linkify icon'></i></a>
 
 ## Keys and Example Values
 
@@ -35,8 +35,7 @@ Configuring the <span class="fn">{/theme‑name}/config.json</span> file to prop
 </div>
 
 
-
-<a href='#config_requirements-and-restrictions' aria-hidden='true' class='block-anchor'  id='config_requirements-and-restrictions'></a>
+<a href='#config_requirements-and-restrictions' aria-hidden='true' class='block-anchor'  id='config_requirements-and-restrictions'><i aria-hidden='true' class='linkify icon'></i></a>
 
 ## Requirements and Restrictions
 
@@ -138,7 +137,7 @@ lineNumbers: true
 
 
 
-<a href='#config_video-demo' aria-hidden='true' class='block-anchor'  id='config_video-demo'></a>
+<a href='#config_video-demo' aria-hidden='true' class='block-anchor'  id='config_video-demo'><i aria-hidden='true' class='linkify icon'></i></a>
 
 ## Video Demo
 

@@ -8,7 +8,7 @@
 	</ul>
 </div>
 
-<a href='#shrinking_restructuring' aria-hidden='true' class='block-anchor'  id='shrinking_restructuring'></a>
+<a href='#shrinking_restructuring' aria-hidden='true' class='block-anchor'  id='shrinking_restructuring'><i aria-hidden='true' class='linkify icon'></i></a>
 
 ## Restructuring Your Theme
 
@@ -53,7 +53,7 @@ Once your resulting `.zip` file is 50 MB or smaller, upload it to BigCommerce, a
 
 
 
-<a href='#shrinking_webdav-folders' aria-hidden='true' class='block-anchor'  id='shrinking_webdav-folders'></a>
+<a href='#shrinking_webdav-folders' aria-hidden='true' class='block-anchor'  id='shrinking_webdav-folders'><i aria-hidden='true' class='linkify icon'></i></a>
 
 ## WebDAV Folders and Stencil Themes
 

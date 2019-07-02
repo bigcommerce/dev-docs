@@ -7,7 +7,7 @@
 	</ul>
 </div>
 
-<a href='#staging_sizing-your-theme' aria-hidden='true' class='block-anchor'  id='staging_sizing-your-theme'></a>
+<a href='#staging_sizing-your-theme' aria-hidden='true' class='block-anchor'  id='staging_sizing-your-theme'><i aria-hidden='true' class='linkify icon'></i></a>
 
 ## Organizing Your Theme
 

@@ -12,7 +12,7 @@
 	</ul>
 </div>
 
-<a href='#pricelist_what-is-a-pricelist' aria-hidden='true' class='block-anchor'  id='pricelist_what-is-a-pricelist'></a>
+<a href='#pricelist_what-is-a-pricelist' aria-hidden='true' class='block-anchor'  id='pricelist_what-is-a-pricelist'><i aria-hidden='true' class='linkify icon'></i></a>
 
 A Price List allows you to populate different versions of catalog pricing and assign them to different [Customer Groups](/api-reference/customer-subscribers/customers-api). The prices are specified exclusively at the variant level. 
 
@@ -22,7 +22,7 @@ Price Lists will provide overridden price values to the Stencil storefront. Fina
 
 
 
-<a href='#pricelist_definitions' aria-hidden='true' class='block-anchor'  id='pricelist_definitions'></a>
+<a href='#pricelist_definitions' aria-hidden='true' class='block-anchor'  id='pricelist_definitions'><i aria-hidden='true' class='linkify icon'></i></a>
 
 ## Definitions
 
@@ -119,7 +119,7 @@ lineNumbers: true
 
 Under `discount_rules` the `type` is set to `price_list` and the `price_list_id` is 1. Which is the id of the price list the group has been assigned to.
 
-<a href='#pricelist_notes' aria-hidden='true' class='block-anchor'  id='pricelist_notes'></a>
+<a href='#pricelist_notes' aria-hidden='true' class='block-anchor'  id='pricelist_notes'><i aria-hidden='true' class='linkify icon'></i></a>
 
 ## Notes
 
@@ -131,14 +131,14 @@ Under `discount_rules` the `type` is set to `price_list` and the `price_list_id`
 
 
 
-<a href='#pricelist_oauth-scopes' aria-hidden='true' class='block-anchor'  id='pricelist_oauth-scopes'></a>
+<a href='#pricelist_oauth-scopes' aria-hidden='true' class='block-anchor'  id='pricelist_oauth-scopes'><i aria-hidden='true' class='linkify icon'></i></a>
 
 ## OAuth Scopes
 * [Products](/api-docs/getting-started/basics/authentication#authentication_oauth-scopes)
 
 
 
-<a href='#pricelist_available-webhooks' aria-hidden='true' class='block-anchor'  id='pricelist_available-webhooks'></a>
+<a href='#pricelist_available-webhooks' aria-hidden='true' class='block-anchor'  id='pricelist_available-webhooks'><i aria-hidden='true' class='linkify icon'></i></a>
 
 ## Webhooks Available
 
@@ -149,7 +149,7 @@ There are no direct webhooks available for Price Lists. Since Price Lists direct
 
 
 
-<a href='#pricelist_related-endpoints' aria-hidden='true' class='block-anchor'  id='pricelist_related-endpoints'></a>
+<a href='#pricelist_related-endpoints' aria-hidden='true' class='block-anchor'  id='pricelist_related-endpoints'><i aria-hidden='true' class='linkify icon'></i></a>
 
 ## Related Endpoints
 * [Get Price List Collection](/api-reference/catalog/pricelists-api/price-lists/getpricelistcollection)

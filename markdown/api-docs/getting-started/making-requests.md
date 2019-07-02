@@ -9,7 +9,7 @@
 	</ul>
 </div>
 
-<a href='#making-requests_prerequisites' aria-hidden='true' class='block-anchor'  id='making-requests_prerequisites'></a>
+<a href='#making-requests_prerequisites' aria-hidden='true' class='block-anchor'  id='making-requests_prerequisites'><i aria-hidden='true' class='linkify icon'></i></a>
 
 ## Overview
 
@@ -28,7 +28,7 @@ Before we begin, here are a few key concepts:
 
 *Note: You can use any API client (like Postman) for this walkthrough, but these steps are written with the built-in HTTP request maker in mind.*
 
-<a href='#making-requests_get-products' aria-hidden='true' class='block-anchor'  id='making-requests_get-products'></a>
+<a href='#making-requests_get-products' aria-hidden='true' class='block-anchor'  id='making-requests_get-products'><i aria-hidden='true' class='linkify icon'></i></a>
 
 ## Getting a List of Products
 
@@ -316,7 +316,7 @@ The products are returned in a data array that contains each product object. Loc
 
 
 
-<a href='#making-requests_create-a-product' aria-hidden='true' class='block-anchor'  id='making-requests_create-a-product'></a>
+<a href='#making-requests_create-a-product' aria-hidden='true' class='block-anchor'  id='making-requests_create-a-product'><i aria-hidden='true' class='linkify icon'></i></a>
 
 ## Create a Product
 
@@ -469,7 +469,7 @@ lineNumbers: true
 
 
 
-<a href='#making-requests_troubleshooting' aria-hidden='true' class='block-anchor'  id='making-requests_troubleshooting'></a>
+<a href='#making-requests_troubleshooting' aria-hidden='true' class='block-anchor'  id='making-requests_troubleshooting'><i aria-hidden='true' class='linkify icon'></i></a>
 
 ## Troubleshooting
 

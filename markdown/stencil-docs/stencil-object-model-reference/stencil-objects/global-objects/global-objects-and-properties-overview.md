@@ -7,7 +7,7 @@
 	</ul>
 </div>
 
-<a href='#global_global-objects' aria-hidden='true' class='block-anchor'  id='global_global-objects'></a>
+<a href='#global_global-objects' aria-hidden='true' class='block-anchor'  id='global_global-objects'><i aria-hidden='true' class='linkify icon'></i></a>
 
 ## Global Objects Overview 
 

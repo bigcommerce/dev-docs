@@ -21,7 +21,7 @@
 
 
 
-<a href='#bundling_confirm-dependencies' aria-hidden='true' class='block-anchor'  id='bundling_confirm-dependencies'></a>
+<a href='#bundling_confirm-dependencies' aria-hidden='true' class='block-anchor'  id='bundling_confirm-dependencies'><i aria-hidden='true' class='linkify icon'></i></a>
 
 ## Confirm Dependencies
 
@@ -49,7 +49,7 @@ You must also run `jspm install` in the theme directory.
 
 
 
-<a href='##bundling_add-recaptcha-v2' aria-hidden='true' class='block-anchor'  id='#bundling_add-recaptcha-v2'></a>
+<a href='##bundling_add-recaptcha-v2' aria-hidden='true' class='block-anchor'  id='#bundling_add-recaptcha-v2'><i aria-hidden='true' class='linkify icon'></i></a>
 
 ## Add reCAPTCHA V2
 
@@ -69,7 +69,7 @@ See [PR #951](https://github.com/bigcommerce/cornerstone/pull/951/files) in the 
 
 
 
-<a href='#bundling_verify-directory' aria-hidden='true' class='block-anchor'  id='bundling_verify-directory'></a>
+<a href='#bundling_verify-directory' aria-hidden='true' class='block-anchor'  id='bundling_verify-directory'><i aria-hidden='true' class='linkify icon'></i></a>
 
 ## Verify Directory and File Permissions
 
@@ -93,7 +93,7 @@ If you have added any new subdirectories or files to your base theme, verify tha
 
 
 
-<a href='#bundling_bundling-your-theme' aria-hidden='true' class='block-anchor'  id='bundling_bundling-your-theme'></a>
+<a href='#bundling_bundling-your-theme' aria-hidden='true' class='block-anchor'  id='bundling_bundling-your-theme'><i aria-hidden='true' class='linkify icon'></i></a>
 
 ## Bundling Your Theme
 
@@ -137,7 +137,7 @@ For file-size error diagnostics and workarounds, please _Check/Adjust Zipfile's 
 
 
 
-<a href='#bundling_uploading-your-theme' aria-hidden='true' class='block-anchor'  id='bundling_uploading-your-theme'></a>
+<a href='#bundling_uploading-your-theme' aria-hidden='true' class='block-anchor'  id='bundling_uploading-your-theme'><i aria-hidden='true' class='linkify icon'></i></a>
 
 ## Uploading Your Theme
 
@@ -207,7 +207,7 @@ Stencil CLI will then confirm which variation is active on the storefront.
 
 
 
-<a href='#bunding_theme-quota' aria-hidden='true' class='block-anchor'  id='bunding_theme-quota'></a>
+<a href='#bunding_theme-quota' aria-hidden='true' class='block-anchor'  id='bunding_theme-quota'><i aria-hidden='true' class='linkify icon'></i></a>
 
 ## Theme Quota Warning
 
@@ -245,7 +245,7 @@ If you are certain of your selections, you can next press `Enter` to delete the 
 
 
 
-<a href='#bundling_other-bundling' aria-hidden='true' class='block-anchor'  id='bundling_other-bundling'></a>
+<a href='#bundling_other-bundling' aria-hidden='true' class='block-anchor'  id='bundling_other-bundling'><i aria-hidden='true' class='linkify icon'></i></a>
 
 ## Other Bundling or Upload Errors
 

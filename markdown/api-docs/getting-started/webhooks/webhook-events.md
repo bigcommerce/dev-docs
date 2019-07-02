@@ -15,7 +15,7 @@
 	</ul>
 </div>
 
-<a href='#webhook-events_orders' aria-hidden='true' class='block-anchor'  id='webhook-events_orders'></a>
+<a href='#webhook-events_orders' aria-hidden='true' class='block-anchor'  id='webhook-events_orders'><i aria-hidden='true' class='linkify icon'></i></a>
 
 ## Orders
 
@@ -28,7 +28,7 @@
 | store/order/statusUpdated | This will only fire if the order status has changed. Such as Pending to Awaiting Payment |
 | store/order/message/created | Order message is created by customer or in control panel |
 
-<a href='#order-status-updated' aria-hidden='true' class='block-anchor'  id='order-status-updated'></a>
+<a href='#order-status-updated' aria-hidden='true' class='block-anchor'  id='order-status-updated'><i aria-hidden='true' class='linkify icon'></i></a>
 
 <!--
 title: " store/order/statusUpdated"
@@ -56,7 +56,7 @@ lineNumbers: true
 
 
 
-<a href='#webhook-events_products' aria-hidden='true' class='block-anchor'  id='webhook-events_products'></a>
+<a href='#webhook-events_products' aria-hidden='true' class='block-anchor'  id='webhook-events_products'><i aria-hidden='true' class='linkify icon'></i></a>
 
 ## Products
 
@@ -101,7 +101,7 @@ Changes to any of the following fields will trigger a `store/product/updated` ev
 - _Condition_
 - _Tax Price_
 
-<a href='#product-inventory-order-updated' aria-hidden='true' class='block-anchor'  id='product-inventory-order-updated'></a>
+<a href='#product-inventory-order-updated' aria-hidden='true' class='block-anchor'  id='product-inventory-order-updated'><i aria-hidden='true' class='linkify icon'></i></a>
 
 <!--
 title: "store/product/inventory/order/updated"
@@ -130,7 +130,7 @@ lineNumbers: true
 
 
 
-<a href='#webhook-events_category' aria-hidden='true' class='block-anchor'  id='webhook-events_category'></a>
+<a href='#webhook-events_category' aria-hidden='true' class='block-anchor'  id='webhook-events_category'><i aria-hidden='true' class='linkify icon'></i></a>
 
 ## Category
 
@@ -141,7 +141,7 @@ lineNumbers: true
 | store/category/updated | Category is updated |
 | store/category/deleted | Category is deleted |
 
-<a href='#category-updated' aria-hidden='true' class='block-anchor'  id='category-updated'></a>
+<a href='#category-updated' aria-hidden='true' class='block-anchor'  id='category-updated'><i aria-hidden='true' class='linkify icon'></i></a>
 
 <!--
 title: "store/category/updated"
@@ -163,7 +163,7 @@ lineNumbers: true
 }
 ```
 
-<a href='#webhook-events_sku' aria-hidden='true' class='block-anchor'  id='webhook-events_sku'></a>
+<a href='#webhook-events_sku' aria-hidden='true' class='block-anchor'  id='webhook-events_sku'><i aria-hidden='true' class='linkify icon'></i></a>
 
 ## SKU
 
@@ -188,7 +188,7 @@ Included in the response is a data object:
 
 **variant_id**: Id of the variant
 
-<a href='#sku-inventory-order-updated' aria-hidden='true' class='block-anchor'  id='sku-inventory-order-updated'></a>
+<a href='#sku-inventory-order-updated' aria-hidden='true' class='block-anchor'  id='sku-inventory-order-updated'><i aria-hidden='true' class='linkify icon'></i></a>
 
 <!--
 title: "store/sku/inventory/order/updated"
@@ -218,7 +218,7 @@ lineNumbers: true
 
 
 
-<a href='#webhook-events_customer' aria-hidden='true' class='block-anchor'  id='webhook-events_customer'></a>
+<a href='#webhook-events_customer' aria-hidden='true' class='block-anchor'  id='webhook-events_customer'><i aria-hidden='true' class='linkify icon'></i></a>
 
 ## Customer
 | Name | Description |
@@ -276,7 +276,7 @@ lineNumbers: true
 
 
 
-<a href='#webhook-events_store' aria-hidden='true' class='block-anchor'  id='webhook-events_store'></a>
+<a href='#webhook-events_store' aria-hidden='true' class='block-anchor'  id='webhook-events_store'><i aria-hidden='true' class='linkify icon'></i></a>
 
 ## Store
 |Name|Description|
@@ -316,7 +316,7 @@ Changes to the following store settings will trigger a `store/information/update
 * *Tax Entered With Prices*
 * *Stencil Template Enabled* 
 
-<a href='#store-information-updated' aria-hidden='true' class='block-anchor'  id='store-information-updated'></a>
+<a href='#store-information-updated' aria-hidden='true' class='block-anchor'  id='store-information-updated'><i aria-hidden='true' class='linkify icon'></i></a>
 
 <!--
 title: "store/information/updated"
@@ -339,7 +339,7 @@ lineNumbers: true
 
 
 
-<a href='#webhook-events_cart' aria-hidden='true' class='block-anchor'  id='webhook-events_cart'></a>
+<a href='#webhook-events_cart' aria-hidden='true' class='block-anchor'  id='webhook-events_cart'><i aria-hidden='true' class='linkify icon'></i></a>
 
 ## Cart
 
@@ -357,7 +357,7 @@ lineNumbers: true
 | store/cart/converted | This hook fires when a cart is converted into an order, which is typically after the payment step of checkout on the storefront. At this point, the Cart is no longer accessible and has been deleted. This hook returns both the Cart ID and Order ID for correlation purposes. |
 
 
-<a href='#cart-lineitem-created' aria-hidden='true' class='block-anchor'  id='cart-lineitem-created'></a>
+<a href='#cart-lineitem-created' aria-hidden='true' class='block-anchor'  id='cart-lineitem-created'><i aria-hidden='true' class='linkify icon'></i></a>
 
 <!--
 title: "store/cart/lineItem/created"
@@ -380,7 +380,7 @@ lineNumbers: true
 }
 ```
 
-<a href='#cart-created' aria-hidden='true' class='block-anchor'  id='cart-created'></a>
+<a href='#cart-created' aria-hidden='true' class='block-anchor'  id='cart-created'><i aria-hidden='true' class='linkify icon'></i></a>
 
 <!--
 title: "store/cart/created"
@@ -405,7 +405,7 @@ lineNumbers: true
 
 
 
-<a href='#webhook-events_shipment' aria-hidden='true' class='block-anchor'  id='webhook-events_shipment'></a>
+<a href='#webhook-events_shipment' aria-hidden='true' class='block-anchor'  id='webhook-events_shipment'><i aria-hidden='true' class='linkify icon'></i></a>
 
 ## Shipment
 
@@ -416,7 +416,7 @@ lineNumbers: true
 | store/shipment/updated | Shipment is updated |
 | store/shipment/deleted | Shipment is deleted |
 
-<a href='#shipment-created' aria-hidden='true' class='block-anchor'  id='shipment-created'></a>
+<a href='#shipment-created' aria-hidden='true' class='block-anchor'  id='shipment-created'><i aria-hidden='true' class='linkify icon'></i></a>
 
 <!--
 title: "store/shipment/created"
@@ -441,7 +441,7 @@ lineNumbers: true
 
 
 
-<a href='#webhook-events_subscriber' aria-hidden='true' class='block-anchor'  id='webhook-events_subscriber'></a>
+<a href='#webhook-events_subscriber' aria-hidden='true' class='block-anchor'  id='webhook-events_subscriber'><i aria-hidden='true' class='linkify icon'></i></a>
 
 ## Subscriber
 
@@ -452,7 +452,7 @@ lineNumbers: true
 | store/subscriber/updated| Subscriber is updated |
 | store/subscriber/deleted | Subscriber is deleted |
 
-<a href='#subscriber-created' aria-hidden='true' class='block-anchor'  id='subscriber-created'></a>
+<a href='#subscriber-created' aria-hidden='true' class='block-anchor'  id='subscriber-created'><i aria-hidden='true' class='linkify icon'></i></a>
 
 <!--
 title: "store/subscriber/created"

@@ -24,7 +24,7 @@
 </div>
 </div>
 
-<a href='#using-custom-fonts_stage-the-fonts' aria-hidden='true' class='block-anchor'  id='using-custom-fonts_stage-the-fonts'></a>
+<a href='#using-custom-fonts_stage-the-fonts' aria-hidden='true' class='block-anchor'  id='using-custom-fonts_stage-the-fonts'><i aria-hidden='true' class='linkify icon'></i></a>
 
 ## Stage the Fonts
 
@@ -34,7 +34,7 @@ Next, [use WebDav to upload each custom font](). (Upload to WebDAV's default `/c
 
 
 
-<a href='#using-custom-fonts_reference-fonts' aria-hidden='true' class='block-anchor'  id='using-custom-fonts_reference-fonts'></a>
+<a href='#using-custom-fonts_reference-fonts' aria-hidden='true' class='block-anchor'  id='using-custom-fonts_reference-fonts'><i aria-hidden='true' class='linkify icon'></i></a>
 
 ## Reference Fonts in Templates' `<head>`
 
@@ -51,7 +51,7 @@ Next, edit the appropriate template files' `<head>` sections to reference your c
 
 
 
-<a href='#using-custom-fonts_video-demo' aria-hidden='true' class='block-anchor'  id='using-custom-fonts_video-demo'></a>
+<a href='#using-custom-fonts_video-demo' aria-hidden='true' class='block-anchor'  id='using-custom-fonts_video-demo'><i aria-hidden='true' class='linkify icon'></i></a>
 
 ## Video Demo
 
@@ -61,7 +61,7 @@ Watch a video demonstration of referencing custom fonts in your template files' 
 
 
 
-<a href='#using-custom-fonts_update-the-css' aria-hidden='true' class='block-anchor'  id='using-custom-fonts_update-the-css'></a>
+<a href='#using-custom-fonts_update-the-css' aria-hidden='true' class='block-anchor'  id='using-custom-fonts_update-the-css'><i aria-hidden='true' class='linkify icon'></i></a>
 
 ## Update the CSS
 

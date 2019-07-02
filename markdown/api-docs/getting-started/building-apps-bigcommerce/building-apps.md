@@ -20,7 +20,7 @@
 	</ul>
 </div>
 
-<a href='#building-apps_oauth-summary' aria-hidden='true' class='block-anchor'  id='building-apps_oauth-summary'></a>
+<a href='#building-apps_oauth-summary' aria-hidden='true' class='block-anchor'  id='building-apps_oauth-summary'><i aria-hidden='true' class='linkify icon'></i></a>
 
 ## OAuth Summary
 
@@ -35,7 +35,7 @@ To test an app before release, apply for a [sandbox](https://www.bigcommerce.com
 - BigCommerce will respond with a permanent Oauth token authorized against the store that has installed your app.
 - After installation, the `store_hash` and `access_token` should be stored somewhere secure so the app does not lose its authorization. 
 
-<a href='#building-apps_request-headers' aria-hidden='true' class='block-anchor'  id='building-apps_request-headers'></a>
+<a href='#building-apps_request-headers' aria-hidden='true' class='block-anchor'  id='building-apps_request-headers'><i aria-hidden='true' class='linkify icon'></i></a>
 
 ## Request Headers
 
@@ -49,7 +49,7 @@ In addition, while not all resources require the Accept and Content-Type headers
 
 
 
-<a href='#building-apps_session-timeouts' aria-hidden='true' class='block-anchor'  id='building-apps_session-timeouts'></a>
+<a href='#building-apps_session-timeouts' aria-hidden='true' class='block-anchor'  id='building-apps_session-timeouts'><i aria-hidden='true' class='linkify icon'></i></a>
 
 ## Managing Users Session Timeouts
 
@@ -75,7 +75,7 @@ This callback function will run when the user explicitly logs out of the BigComm
 
 
 
-<a href='#building-apps_installation-update-sequence' aria-hidden='true' class='block-anchor'  id='building-apps_installation-update-sequence'></a>
+<a href='#building-apps_installation-update-sequence' aria-hidden='true' class='block-anchor'  id='building-apps_installation-update-sequence'><i aria-hidden='true' class='linkify icon'></i></a>
 
 ## App Installation and Update Sequence
 
@@ -102,7 +102,7 @@ For security, Auth and Load callbacks should be handled server-side. If you are 
 
 
 
-<a href='#building-apps_recieving-get-request' aria-hidden='true' class='block-anchor'  id='building-apps_recieving-get-request'></a>
+<a href='#building-apps_recieving-get-request' aria-hidden='true' class='block-anchor'  id='building-apps_recieving-get-request'><i aria-hidden='true' class='linkify icon'></i></a>
 
 ## Receiving the GET Request
 
@@ -159,7 +159,7 @@ Host: app.example.com
 
 
 
-<a href='#building-apps_responding-get-request' aria-hidden='true' class='block-anchor'  id='building-apps_responding-get-request'></a>
+<a href='#building-apps_responding-get-request' aria-hidden='true' class='block-anchor'  id='building-apps_responding-get-request'><i aria-hidden='true' class='linkify icon'></i></a>
 
 ## Responding to the GET Request
 
@@ -167,7 +167,7 @@ Upon receiving the GET request at your Auth Callback URI, your app should return
 
 
 
-<a href='#building-apps_making-post-request' aria-hidden='true' class='block-anchor'  id='building-apps_making-post-request'></a>
+<a href='#building-apps_making-post-request' aria-hidden='true' class='block-anchor'  id='building-apps_making-post-request'><i aria-hidden='true' class='linkify icon'></i></a>
 
 ## Making the POST Request
 
@@ -290,7 +290,7 @@ $token = $response->access_token;
 
 
 
-<a href='#building-apps_recieving-post-request' aria-hidden='true' class='block-anchor'  id='building-apps_recieving-post-request'></a>
+<a href='#building-apps_recieving-post-request' aria-hidden='true' class='block-anchor'  id='building-apps_recieving-post-request'><i aria-hidden='true' class='linkify icon'></i></a>
 
 ## Receiving the POST Response
 
@@ -345,7 +345,7 @@ lineNumbers: true
 
 
 
-<a href='#building-apps_load-uninstall-removal-requests' aria-hidden='true' class='block-anchor'  id='building-apps_load-uninstall-removal-requests'></a>
+<a href='#building-apps_load-uninstall-removal-requests' aria-hidden='true' class='block-anchor'  id='building-apps_load-uninstall-removal-requests'><i aria-hidden='true' class='linkify icon'></i></a>
 
 ## Load, Uninstall, and User Removal Requests
 In addition to the Auth Callback URI, the following URI’s are required for BigCommerce Apps:
@@ -421,7 +421,7 @@ Upon receiving the GET request, your app will need to process the signed payload
 
 
 
-<a href='#building-apps_processing-signed-payload' aria-hidden='true' class='block-anchor'  id='building-apps_processing-signed-payload'></a>
+<a href='#building-apps_processing-signed-payload' aria-hidden='true' class='block-anchor'  id='building-apps_processing-signed-payload'><i aria-hidden='true' class='linkify icon'></i></a>
 
 ## Processing the Signed Payload
 
@@ -589,7 +589,7 @@ lineNumbers: true
 
 
 
-<a href='#building-apps_multi-user-support' aria-hidden='true' class='block-anchor'  id='building-apps_multi-user-support'></a>
+<a href='#building-apps_multi-user-support' aria-hidden='true' class='block-anchor'  id='building-apps_multi-user-support'><i aria-hidden='true' class='linkify icon'></i></a>
 
 ## Multi-User Support
 
@@ -622,7 +622,7 @@ For further information, please see [Remove User Request](#building-apps_load-un
 
 
 
-<a href='#building-apps_external-app-installation' aria-hidden='true' class='block-anchor'  id='building-apps_external-app-installation'></a>
+<a href='#building-apps_external-app-installation' aria-hidden='true' class='block-anchor'  id='building-apps_external-app-installation'><i aria-hidden='true' class='linkify icon'></i></a>
 
 ## External App Installation
 
@@ -696,7 +696,7 @@ Depending on which endpoint you call, we will render one of the following succes
 
 
 
-<a href='#building-apps_user-interface-constraints' aria-hidden='true' class='block-anchor'  id='building-apps_user-interface-constraints'></a>
+<a href='#building-apps_user-interface-constraints' aria-hidden='true' class='block-anchor'  id='building-apps_user-interface-constraints'><i aria-hidden='true' class='linkify icon'></i></a>
 
 ## User Interface Constraints
 
@@ -723,7 +723,7 @@ Internet Explorer is one of the browsers that BigCommerce [supports](#supported-
 
 
 
-<a href='#building-apps_hosting-your-app' aria-hidden='true' class='block-anchor'  id='building-apps_hosting-your-app'></a>
+<a href='#building-apps_hosting-your-app' aria-hidden='true' class='block-anchor'  id='building-apps_hosting-your-app'><i aria-hidden='true' class='linkify icon'></i></a>
 
 ## Hosting Your App
 BigCommerce stores are hosted on [Google Cloud Platform](https://cloud.google.com/) in the [us-central1](https://cloud.google.com/compute/docs/regions-zones/) region.
@@ -732,7 +732,7 @@ Therefore, you can maximize performance of your app (in terms of latency to the 
 
 
 
-<a href='#building-apps_faq' aria-hidden='true' class='block-anchor'  id='building-apps_faq'></a>
+<a href='#building-apps_faq' aria-hidden='true' class='block-anchor'  id='building-apps_faq'><i aria-hidden='true' class='linkify icon'></i></a>
 
 ## FAQ
 

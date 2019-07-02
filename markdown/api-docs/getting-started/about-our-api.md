@@ -20,7 +20,7 @@ The BigCommerce set of APIs allow you to create apps, automate store processes, 
 
 
 
-<a href='#about-api_api-enviroment' aria-hidden='true' class='block-anchor'  id='about-api_api-enviroment'></a>
+<a href='#about-api_api-enviroment' aria-hidden='true' class='block-anchor'  id='about-api_api-enviroment'><i aria-hidden='true' class='linkify icon'></i></a>
 
 ## API Environment 
 
@@ -32,7 +32,7 @@ BigCommerce API requests can be made in the context of the storefront or server-
 
 
 
-<a href='#about-api__available-api' aria-hidden='true' class='block-anchor'  id='about-api__available-api'></a>
+<a href='#about-api__available-api' aria-hidden='true' class='block-anchor'  id='about-api__available-api'><i aria-hidden='true' class='linkify icon'></i></a>
 
 ## Available APIs
 
@@ -66,7 +66,7 @@ BigCommerce API requests can be made in the context of the storefront or server-
 
 
 
-<a href='#about-api_request-headers' aria-hidden='true' class='block-anchor'  id='about-api_request-headers'></a>
+<a href='#about-api_request-headers' aria-hidden='true' class='block-anchor'  id='about-api_request-headers'><i aria-hidden='true' class='linkify icon'></i></a>
 
 ## Request Headers
 
@@ -83,7 +83,7 @@ Server-to-Server request headers require Accept, X-Auth-Client, X-Auth-Token and
 
 
 
-<a href='#about-api_response-headers' aria-hidden='true' class='block-anchor'  id='about-api_response-headers'></a>
+<a href='#about-api_response-headers' aria-hidden='true' class='block-anchor'  id='about-api_response-headers'><i aria-hidden='true' class='linkify icon'></i></a>
 
 ## Response Headers 
 
@@ -106,7 +106,7 @@ Server-to-Server request headers require Accept, X-Auth-Client, X-Auth-Token and
 
 
 
-<a href='#about-api_media-types' aria-hidden='true' class='block-anchor'  id='about-api_media-types'></a>
+<a href='#about-api_media-types' aria-hidden='true' class='block-anchor'  id='about-api_media-types'><i aria-hidden='true' class='linkify icon'></i></a>
 
 ## Media Types
 
@@ -114,7 +114,7 @@ A media type is the format of the request or response body. The BigCommerce API 
 
 
 
-<a href='#about-api_content-types' aria-hidden='true' class='block-anchor'  id='about-api_content-types'></a>
+<a href='#about-api_content-types' aria-hidden='true' class='block-anchor'  id='about-api_content-types'><i aria-hidden='true' class='linkify icon'></i></a>
 
 ## Content Types
 
@@ -130,7 +130,7 @@ The priority in which these methods are processed are:
 
 
 
-<a href='#about-api_request-and-response-structure' aria-hidden='true' class='block-anchor'  id='about-api_request-and-response-structure'></a>
+<a href='#about-api_request-and-response-structure' aria-hidden='true' class='block-anchor'  id='about-api_request-and-response-structure'><i aria-hidden='true' class='linkify icon'></i></a>
 
 ## Request and Response Structure
 
@@ -345,7 +345,7 @@ lineNumbers: true
 }
 ```
 
-<a href='#about-api_get-help' aria-hidden='true' class='block-anchor'  id='about-api_get-help'></a>
+<a href='#about-api_get-help' aria-hidden='true' class='block-anchor'  id='about-api_get-help'><i aria-hidden='true' class='linkify icon'></i></a>
 
 ## Support
 

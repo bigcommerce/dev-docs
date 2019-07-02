@@ -8,7 +8,7 @@
 	</ul>
 </div>
 
-<a href='#handlebars_inflect' aria-hidden='true' class='block-anchor'  id='handlebars_inflect'></a>
+<a href='#handlebars_inflect' aria-hidden='true' class='block-anchor'  id='handlebars_inflect'><i aria-hidden='true' class='linkify icon'></i></a>
 
 The following standard helpers are available to transform strings.
 
@@ -26,7 +26,7 @@ Handles singular/plural forms.
 
 
 
-<a href='#handlebars_ordinalize' aria-hidden='true' class='block-anchor'  id='handlebars_ordinalize'></a>
+<a href='#handlebars_ordinalize' aria-hidden='true' class='block-anchor'  id='handlebars_ordinalize'><i aria-hidden='true' class='linkify icon'></i></a>
 
 ## {{ordinalize}}
 

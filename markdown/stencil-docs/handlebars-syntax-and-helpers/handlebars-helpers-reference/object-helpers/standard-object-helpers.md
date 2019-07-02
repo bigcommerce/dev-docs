@@ -17,7 +17,7 @@
 	</ul>
 </div>
 
-<a href='#handlebars_extend' aria-hidden='true' class='block-anchor'  id='handlebars_extend'></a>
+<a href='#handlebars_extend' aria-hidden='true' class='block-anchor'  id='handlebars_extend'><i aria-hidden='true' class='linkify icon'></i></a>
 
 The following standard helpers are available to handle objects.
 
@@ -32,7 +32,7 @@ Extends the context with the properties of other objects. A shallow merge is per
 
 
 
-<a href='#handlebars_forin' aria-hidden='true' class='block-anchor'  id='handlebars_forin'></a>
+<a href='#handlebars_forin' aria-hidden='true' class='block-anchor'  id='handlebars_forin'><i aria-hidden='true' class='linkify icon'></i></a>
 
 ## {{forIn}}
 
@@ -46,7 +46,7 @@ Block helper that iterates over the properties of an object, exposing each key a
 
 
 
-<a href='#handlebars_forown' aria-hidden='true' class='block-anchor'  id='handlebars_forown'></a>
+<a href='#handlebars_forown' aria-hidden='true' class='block-anchor'  id='handlebars_forown'><i aria-hidden='true' class='linkify icon'></i></a>
 
 ## {{forOwn}}
 
@@ -60,7 +60,7 @@ Block helper that iterates over the *own* properties of an object, exposing each
 
 
 
-<a href='#handlebars_topath' aria-hidden='true' class='block-anchor'  id='handlebars_topath'></a>
+<a href='#handlebars_topath' aria-hidden='true' class='block-anchor'  id='handlebars_topath'><i aria-hidden='true' class='linkify icon'></i></a>
 
 ## {{toPath}}
 
@@ -73,7 +73,7 @@ Takes arguments and, if they are string or number, converts them to a dot-deline
 
 
 
-<a href='#handlebars_get' aria-hidden='true' class='block-anchor'  id='handlebars_get'></a>
+<a href='#handlebars_get' aria-hidden='true' class='block-anchor'  id='handlebars_get'><i aria-hidden='true' class='linkify icon'></i></a>
 
 ## {{get}}
 
@@ -88,7 +88,7 @@ Uses property paths (`a.b.c`) to get a value or nested value from the context. W
 
 
 
-<a href='#handlebars_getobject' aria-hidden='true' class='block-anchor'  id='handlebars_getobject'></a>
+<a href='#handlebars_getobject' aria-hidden='true' class='block-anchor'  id='handlebars_getobject'><i aria-hidden='true' class='linkify icon'></i></a>
 
 ## {{getObject}}
 
@@ -102,7 +102,7 @@ Uses property paths (`a.b.c`) to get an object from the context. Unlike the `get
 
 
 
-<a href='#handlebars_hasown' aria-hidden='true' class='block-anchor'  id='handlebars_hasown'></a>
+<a href='#handlebars_hasown' aria-hidden='true' class='block-anchor'  id='handlebars_hasown'><i aria-hidden='true' class='linkify icon'></i></a>
 
 ## {{hasOwn}}
 
@@ -122,7 +122,7 @@ Returns true if `key` is an own, enumerable property of the given `context` obje
 
 
 
-<a href='#handlebars_isobject' aria-hidden='true' class='block-anchor'  id='handlebars_isobject'></a>
+<a href='#handlebars_isobject' aria-hidden='true' class='block-anchor'  id='handlebars_isobject'><i aria-hidden='true' class='linkify icon'></i></a>
 
 ## {{isObject}}
 
@@ -142,7 +142,7 @@ Returns true if `value` is an object.
 
 
 
-<a href='#handlebars_merge' aria-hidden='true' class='block-anchor'  id='handlebars_merge'></a>
+<a href='#handlebars_merge' aria-hidden='true' class='block-anchor'  id='handlebars_merge'><i aria-hidden='true' class='linkify icon'></i></a>
 
 ## {{merge}}
 
@@ -156,7 +156,7 @@ Deeply merges the properties of the given `objects` with the context object.
 
 
 
-<a href='#handlebars_jsonparse' aria-hidden='true' class='block-anchor'  id='handlebars_jsonparse'></a>
+<a href='#handlebars_jsonparse' aria-hidden='true' class='block-anchor'  id='handlebars_jsonparse'><i aria-hidden='true' class='linkify icon'></i></a>
 
 ## {{JSONparse}}
 
@@ -169,7 +169,7 @@ Block helper that parses a string using `JSON.parse`, then passes the parsed obj
 
 
 
-<a href='#handlebars_jsonstringify' aria-hidden='true' class='block-anchor'  id='handlebars_jsonstringify'></a>
+<a href='#handlebars_jsonstringify' aria-hidden='true' class='block-anchor'  id='handlebars_jsonstringify'><i aria-hidden='true' class='linkify icon'></i></a>
 
 ## {{JSONstringify}}
 

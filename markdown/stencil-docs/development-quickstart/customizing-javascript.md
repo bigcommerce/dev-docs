@@ -20,7 +20,7 @@ To demonstrate, this article describes how to add some very simple JavaScript to
 
 
 
-<a href='#customizing-javascript_customizing' aria-hidden='true' class='block-anchor'  id='customizing-javascript_customizing'></a>
+<a href='#customizing-javascript_customizing' aria-hidden='true' class='block-anchor'  id='customizing-javascript_customizing'><i aria-hidden='true' class='linkify icon'></i></a>
 
 ## Modifying a Page's Javascript
 In this example, we will add some "hello world" text to the product page's onReady event. We'll first add a call to the function; then, we will implement the function itself. 
@@ -88,7 +88,7 @@ In your browser, refresh any product-details pop-up or page to see your new `"He
 
 
 
-<a href='#customizing-javascript_bringing-handlebars' aria-hidden='true' class='block-anchor'  id='customizing-javascript_bringing-handlebars'></a>
+<a href='#customizing-javascript_bringing-handlebars' aria-hidden='true' class='block-anchor'  id='customizing-javascript_bringing-handlebars'><i aria-hidden='true' class='linkify icon'></i></a>
 
 ## Bringing in Handlebars Context
 
@@ -172,7 +172,7 @@ product.js:63 [/assets/js/theme/product.js]: 100x100
 
 
 
-<a href='#customizing-javascript_installing-various' aria-hidden='true' class='block-anchor'  id='customizing-javascript_installing-various'></a>
+<a href='#customizing-javascript_installing-various' aria-hidden='true' class='block-anchor'  id='customizing-javascript_installing-various'><i aria-hidden='true' class='linkify icon'></i></a>
 
 ## Installing Libraries
 
@@ -202,7 +202,7 @@ As always, for specifics, refer to your chosen library’s documentation.
 
 
 
-<a href='#customizing-example' aria-hidden='true' class='block-anchor'  id='customizing-example'></a>
+<a href='#customizing-example' aria-hidden='true' class='block-anchor'  id='customizing-example'><i aria-hidden='true' class='linkify icon'></i></a>
 
 ## Example Links 
 

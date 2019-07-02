@@ -13,7 +13,7 @@
 	</ul>
 </div>
 
-<a href='##stencil_basic-cli' aria-hidden='true' class='block-anchor'  id='#stencil_basic-cli'></a>
+<a href='##stencil_basic-cli' aria-hidden='true' class='block-anchor'  id='#stencil_basic-cli'><i aria-hidden='true' class='linkify icon'></i></a>
 
 ## Basic CLI Options and Commands
 
@@ -114,7 +114,7 @@ Your terminal window will display options and commands listed in the tables belo
 
 
 
-<a href='##stencil_stencil-start' aria-hidden='true' class='block-anchor'  id='#stencil_stencil-start'></a>
+<a href='##stencil_stencil-start' aria-hidden='true' class='block-anchor'  id='#stencil_stencil-start'><i aria-hidden='true' class='linkify icon'></i></a>
 
 ## Stencil Start Options
 
@@ -170,7 +170,7 @@ Your terminal screen should read similar to the table below.
 
 
 
-<a href='#stencil_stencil-push' aria-hidden='true' class='block-anchor'  id='stencil_stencil-push'></a>
+<a href='#stencil_stencil-push' aria-hidden='true' class='block-anchor'  id='stencil_stencil-push'><i aria-hidden='true' class='linkify icon'></i></a>
 
 ## Stencil Push Options
 
@@ -225,7 +225,7 @@ When you run `stencil push` with the `-f` or `--filename` option, Stencil CLI sk
 
 
 
-<a href='#stencil_quick' aria-hidden='true' class='block-anchor'  id='stencil_quick'></a>
+<a href='#stencil_quick' aria-hidden='true' class='block-anchor'  id='stencil_quick'><i aria-hidden='true' class='linkify icon'></i></a>
 
 ## Theme Editor Local Launch Quick Reference
 
@@ -265,7 +265,7 @@ When you run `stencil push` with the `-f` or `--filename` option, Stencil CLI sk
 
 
 
-<a href='#stencil_local-launch-theme' aria-hidden='true' class='block-anchor'  id='stencil_local-launch-theme'></a>
+<a href='#stencil_local-launch-theme' aria-hidden='true' class='block-anchor'  id='stencil_local-launch-theme'><i aria-hidden='true' class='linkify icon'></i></a>
 
 ## Local Launch: Theme Only
 
@@ -277,7 +277,7 @@ When you navigate to your designated port (e.g `http://localhost:3000`), you sho
 
 
 
-<a href='#stencil_local-launch-theme-and-editor' aria-hidden='true' class='block-anchor'  id='stencil_local-launch-theme-and-editor'></a>
+<a href='#stencil_local-launch-theme-and-editor' aria-hidden='true' class='block-anchor'  id='stencil_local-launch-theme-and-editor'><i aria-hidden='true' class='linkify icon'></i></a>
 
 ## Local Launch: Theme and Theme Editor
 
@@ -300,7 +300,7 @@ To verify Theme Editor's launch, you would then go to http://localhost:9000. Usi
 
 
 
-<a href='#stencil_disabling' aria-hidden='true' class='block-anchor'  id='stencil_disabling'></a>
+<a href='#stencil_disabling' aria-hidden='true' class='block-anchor'  id='stencil_disabling'><i aria-hidden='true' class='linkify icon'></i></a>
 
 ## Local Launch: Disabling Caching
 

@@ -10,7 +10,7 @@
 	</ul>
 </div>
 
-<a href='#page-types_stencil-utils' aria-hidden='true' class='block-anchor'  id='page-types_stencil-utils'></a>
+<a href='#page-types_stencil-utils' aria-hidden='true' class='block-anchor'  id='page-types_stencil-utils'><i aria-hidden='true' class='linkify icon'></i></a>
 
 ## stencil-utils Library
 
@@ -20,7 +20,7 @@
 
 
 
-<a href='#page-types_javascript-api' aria-hidden='true' class='block-anchor'  id='page-types_javascript-api'></a>
+<a href='#page-types_javascript-api' aria-hidden='true' class='block-anchor'  id='page-types_javascript-api'><i aria-hidden='true' class='linkify icon'></i></a>
 
 ## Page Types
 
@@ -95,7 +95,7 @@ export default class Blog extends PageManager {
 
 
 
-<a href='#page-types_javascript' aria-hidden='true' class='block-anchor'  id='page-types_javascript'></a>
+<a href='#page-types_javascript' aria-hidden='true' class='block-anchor'  id='page-types_javascript'><i aria-hidden='true' class='linkify icon'></i></a>
 
 ## JavaScript Template Context Injection
 

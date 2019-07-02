@@ -13,7 +13,7 @@
 		</ul>
 </div>
 
-<a href='#v2-video_object-properties' aria-hidden='true' class='block-anchor'  id='v2-video_object-properties'></a>
+<a href='#v2-video_object-properties' aria-hidden='true' class='block-anchor'  id='v2-video_object-properties'><i aria-hidden='true' class='linkify icon'></i></a>
 
 ## Videos 
 
@@ -30,7 +30,7 @@ Embedded videos displayed on product listings.
 
 
 
-<a href='#v2-video_list-product-videos' aria-hidden='true' class='block-anchor'  id='v2-video_list-product-videos'></a>
+<a href='#v2-video_list-product-videos' aria-hidden='true' class='block-anchor'  id='v2-video_list-product-videos'><i aria-hidden='true' class='linkify icon'></i></a>
 
 ## List Product Videos 
 
@@ -65,7 +65,7 @@ Example JSON returned in the response:
 
 
 
-<a href='#v2-sku_get-product-video' aria-hidden='true' class='block-anchor'  id='v2-sku_get-product-video'></a>
+<a href='#v2-sku_get-product-video' aria-hidden='true' class='block-anchor'  id='v2-sku_get-product-video'><i aria-hidden='true' class='linkify icon'></i></a>
 
 ## Get a Product Video 
 
@@ -75,7 +75,7 @@ Gets a product video.
 
 
 
-<a href='#v2-video_get-count-video' aria-hidden='true' class='block-anchor'  id='v2-video_get-count-video'></a>
+<a href='#v2-video_get-count-video' aria-hidden='true' class='block-anchor'  id='v2-video_get-count-video'><i aria-hidden='true' class='linkify icon'></i></a>
 
 ## Get a Count of Product Videos 
 
@@ -96,7 +96,7 @@ Example JSON returned in the response:
 
 
 
-<a href='#v2-video_create-product-video' aria-hidden='true' class='block-anchor'  id='v2-video_create-product-video'></a>
+<a href='#v2-video_create-product-video' aria-hidden='true' class='block-anchor'  id='v2-video_create-product-video'><i aria-hidden='true' class='linkify icon'></i></a>
 
 ## Create a Product Video 
 
@@ -132,7 +132,7 @@ Example request object:
 }
 ```
 
-<a href='#v2-video_update-product-video-metadata' aria-hidden='true' class='block-anchor'  id='v2-video_update-product-video-metadata'></a>
+<a href='#v2-video_update-product-video-metadata' aria-hidden='true' class='block-anchor'  id='v2-video_update-product-video-metadata'><i aria-hidden='true' class='linkify icon'></i></a>
 
 ## Update Product Video Metadata 
 
@@ -171,7 +171,7 @@ Example request object:
 
 
 
-<a href='#v2-video_delete-product-video' aria-hidden='true' class='block-anchor'  id='v2-video_delete-product-video'></a>
+<a href='#v2-video_delete-product-video' aria-hidden='true' class='block-anchor'  id='v2-video_delete-product-video'><i aria-hidden='true' class='linkify icon'></i></a>
 
 ## Delete a Product Video 
 
@@ -181,7 +181,7 @@ Delete a product video.
 
 
 
-<a href='#v2-video_delete-all-product-video' aria-hidden='true' class='block-anchor'  id='v2-video_delete-all-product-video'></a>
+<a href='#v2-video_delete-all-product-video' aria-hidden='true' class='block-anchor'  id='v2-video_delete-all-product-video'><i aria-hidden='true' class='linkify icon'></i></a>
 
 ## Delete All Product Videos 
 

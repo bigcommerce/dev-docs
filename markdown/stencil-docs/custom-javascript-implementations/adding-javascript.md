@@ -14,7 +14,7 @@
 	</ul>
 </div>
 
-<a href='#adding_bundling-and-minification' aria-hidden='true' class='block-anchor'  id='adding_bundling-and-minification'></a>
+<a href='#adding_bundling-and-minification' aria-hidden='true' class='block-anchor'  id='adding_bundling-and-minification'><i aria-hidden='true' class='linkify icon'></i></a>
 
 ## Bundling and Minification
 
@@ -30,7 +30,7 @@ Beyond reducing the number of HTTP calls required to fetch all the required Java
 
 
 
-<a href='#adding_development-options' aria-hidden='true' class='block-anchor'  id='adding_development-options'></a>
+<a href='#adding_development-options' aria-hidden='true' class='block-anchor'  id='adding_development-options'><i aria-hidden='true' class='linkify icon'></i></a>
 
 ## Development Options
 
@@ -46,7 +46,7 @@ These techniques are outlined in the following sections.
 
 
 
-<a href='#adding_using-npm' aria-hidden='true' class='block-anchor'  id='adding_using-npm'></a>
+<a href='#adding_using-npm' aria-hidden='true' class='block-anchor'  id='adding_using-npm'><i aria-hidden='true' class='linkify icon'></i></a>
 
 ## Using npm (Node Package Manager)
 
@@ -58,7 +58,7 @@ npm facilitates managing third-party JavaScript components by placing each JavaS
 
 
 
-<a href='#adding_placing-modules' aria-hidden='true' class='block-anchor'  id='adding_placing-modules'></a>
+<a href='#adding_placing-modules' aria-hidden='true' class='block-anchor'  id='adding_placing-modules'><i aria-hidden='true' class='linkify icon'></i></a>
 
 ## Placing Modules in assets/js/
 
@@ -66,7 +66,7 @@ You can freely create subdirectories within `assets/js/`, to contain new JavaScr
 
 
 
-<a href='#adding_theme-specific-js' aria-hidden='true' class='block-anchor'  id='adding_theme-specific-js'></a>
+<a href='#adding_theme-specific-js' aria-hidden='true' class='block-anchor'  id='adding_theme-specific-js'><i aria-hidden='true' class='linkify icon'></i></a>
 
 ## Theme-Specific JavaScript Modules
 
@@ -74,7 +74,7 @@ In your theme's `assets/js/theme/` subdirectory, you will find a tree of JavaScr
 
 
 
-<a href='#adding_mapping-page' aria-hidden='true' class='block-anchor'  id='adding_mapping-page'></a>
+<a href='#adding_mapping-page' aria-hidden='true' class='block-anchor'  id='adding_mapping-page'><i aria-hidden='true' class='linkify icon'></i></a>
 
 ## Mapping Page Types to JavaScript Modules
 
@@ -205,7 +205,7 @@ export default class Cart extends PageManager {
 
 
 
-<a href='#adding_mapping-custom' aria-hidden='true' class='block-anchor'  id='adding_mapping-custom'></a>
+<a href='#adding_mapping-custom' aria-hidden='true' class='block-anchor'  id='adding_mapping-custom'><i aria-hidden='true' class='linkify icon'></i></a>
 
 ## Mapping Custom Templates to JavaScript Modules
 
@@ -295,7 +295,7 @@ lineNumbers: true
 
 
 
-<a href='#adding_summary' aria-hidden='true' class='block-anchor'  id='adding_summary'></a>
+<a href='#adding_summary' aria-hidden='true' class='block-anchor'  id='adding_summary'><i aria-hidden='true' class='linkify icon'></i></a>
 
 ## Summary
 

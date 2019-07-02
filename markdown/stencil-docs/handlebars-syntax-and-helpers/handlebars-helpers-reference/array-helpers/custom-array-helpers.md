@@ -10,7 +10,7 @@
 	</ul>
 </div>
 
-<a href='#handlebars_itemat' aria-hidden='true' class='block-anchor'  id='handlebars_itemat'></a>
+<a href='#handlebars_itemat' aria-hidden='true' class='block-anchor'  id='handlebars_itemat'><i aria-hidden='true' class='linkify icon'></i></a>
 
 ## {{itemAt}}
 
@@ -33,7 +33,7 @@ Given the array `['a', 'b', 'c']`:
 
 
 
-<a href='#handlebars_join' aria-hidden='true' class='block-anchor'  id='handlebars_join'></a>
+<a href='#handlebars_join' aria-hidden='true' class='block-anchor'  id='handlebars_join'><i aria-hidden='true' class='linkify icon'></i></a>
 
 ## {{join}}
 
@@ -47,7 +47,7 @@ The `join` helper is custom to Stencil. It joins an array of string items, with 
 
 
 
-<a href='#handlebars_limit' aria-hidden='true' class='block-anchor'  id='handlebars_limit'></a>
+<a href='#handlebars_limit' aria-hidden='true' class='block-anchor'  id='handlebars_limit'><i aria-hidden='true' class='linkify icon'></i></a>
 
 ## {{limit}}
 
@@ -68,7 +68,7 @@ Assume that `{{cart.items}}` would return 10 items. You could use this helper to
 
 
 
-<a href='#handlebars_pluck' aria-hidden='true' class='block-anchor'  id='handlebars_pluck'></a>
+<a href='#handlebars_pluck' aria-hidden='true' class='block-anchor'  id='handlebars_pluck'><i aria-hidden='true' class='linkify icon'></i></a>
 
 ## {{pluck}}
 

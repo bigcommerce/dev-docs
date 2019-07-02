@@ -7,7 +7,7 @@
 	</ul>
 </div>
 
-<a href='#handlebars_markdown' aria-hidden='true' class='block-anchor'  id='handlebars_markdown'></a>
+<a href='#handlebars_markdown' aria-hidden='true' class='block-anchor'  id='handlebars_markdown'><i aria-hidden='true' class='linkify icon'></i></a>
 
 The following standard helper is available to convert markdown.
 

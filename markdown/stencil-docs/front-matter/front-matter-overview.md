@@ -19,7 +19,7 @@
 
 
 
-<a href='#front-matter-overview_declaring-objects' aria-hidden='true' class='block-anchor'  id='front-matter-overview_declaring-objects'></a>
+<a href='#front-matter-overview_declaring-objects' aria-hidden='true' class='block-anchor'  id='front-matter-overview_declaring-objects'><i aria-hidden='true' class='linkify icon'></i></a>
 
 ## Declaring Front-Matter Objects
 
@@ -47,7 +47,7 @@ In this example, we will include the following code in Cornerstone's [home.html]
 ```
 
 
-<a href='#front-matter-overview_yaml-syntax' aria-hidden='true' class='block-anchor'  id='front-matter-overview_yaml-syntax'></a>
+<a href='#front-matter-overview_yaml-syntax' aria-hidden='true' class='block-anchor'  id='front-matter-overview_yaml-syntax'><i aria-hidden='true' class='linkify icon'></i></a>
 
 ## YAML Syntax – Requirements
 
@@ -77,7 +77,7 @@ You **cannot** use front matter to accomplish this on pages in the following sub
 
 
 
-<a href='#front-matter-overview_filtering-attributes' aria-hidden='true' class='block-anchor'  id='front-matter-overview_filtering-attributes'></a>
+<a href='#front-matter-overview_filtering-attributes' aria-hidden='true' class='block-anchor'  id='front-matter-overview_filtering-attributes'><i aria-hidden='true' class='linkify icon'></i></a>
 
 ## Filtering Attributes
 
@@ -116,7 +116,7 @@ products:
 </div>
 </div>
 
-<a href='#front-matter-overview_combining-front-matter' aria-hidden='true' class='block-anchor'  id='front-matter-overview_combining-front-matter'></a>
+<a href='#front-matter-overview_combining-front-matter' aria-hidden='true' class='block-anchor'  id='front-matter-overview_combining-front-matter'><i aria-hidden='true' class='linkify icon'></i></a>
 
 ## Combining Front Matter with Handlebars Attributes
 
@@ -148,7 +148,7 @@ products:
 </div>
 </div>
 
-<a href='#front-matter-overview_default-versus-custom' aria-hidden='true' class='block-anchor'  id='front-matter-overview_default-versus-custom'></a>
+<a href='#front-matter-overview_default-versus-custom' aria-hidden='true' class='block-anchor'  id='front-matter-overview_default-versus-custom'><i aria-hidden='true' class='linkify icon'></i></a>
 
 ## Default versus Custom Attributes, per Page
 
@@ -156,7 +156,7 @@ To make templates readily useful, they automatically include a page’s default 
 
 However, if you want to include additional attributes on a page, you can declare those attributes in front matter using the conventions shown above. [The Declaring Objects](#front-matter-overview_declaring-objects) example shows the only way to display a "new products" storefront section, which requires front-matter invocation.
 
-<a href='#front-matter-overview_declaring-multiple' aria-hidden='true' class='block-anchor'  id='front-matter-overview_declaring-multiple'></a>
+<a href='#front-matter-overview_declaring-multiple' aria-hidden='true' class='block-anchor'  id='front-matter-overview_declaring-multiple'><i aria-hidden='true' class='linkify icon'></i></a>
 
 ## Declaring Multiple Attributes
 

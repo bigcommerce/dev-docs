@@ -23,7 +23,7 @@
 </div>
 </div>
 
-<a href='#authentication_creating-an-api-account' aria-hidden='true' class='block-anchor'  id='authentication_creating-an-api-account'></a>
+<a href='#authentication_creating-an-api-account' aria-hidden='true' class='block-anchor'  id='authentication_creating-an-api-account'><i aria-hidden='true' class='linkify icon'></i></a>
 
 ## Creating an API Account 
 
@@ -62,7 +62,7 @@ _Doing so will display a modal, from which you can copy your `Client ID` and `Ac
 
 
 
-<a href='#authentication_issuing-additional' aria-hidden='true' class='block-anchor'  id='authentication_issuing-additional'></a>
+<a href='#authentication_issuing-additional' aria-hidden='true' class='block-anchor'  id='authentication_issuing-additional'><i aria-hidden='true' class='linkify icon'></i></a>
 
 ## Issuing Additional Tokens
 
@@ -75,7 +75,7 @@ You can create up to 50 API accounts/tokens per store. If you hit this limit and
 
 
 
-<a href='#authentication_revoking-tokens' aria-hidden='true' class='block-anchor'  id='authentication_revoking-tokens'></a>
+<a href='#authentication_revoking-tokens' aria-hidden='true' class='block-anchor'  id='authentication_revoking-tokens'><i aria-hidden='true' class='linkify icon'></i></a>
 
 ## Revoking OAuth Tokens
 
@@ -117,7 +117,7 @@ If you are completely sure you would like to revoke an existing OAuth store toke
 
 
 
-<a href='#authentication_copying-oauth-tokens ' aria-hidden='true' class='block-anchor'  id='authentication_copying-oauth-tokens '></a>
+<a href='#authentication_copying-oauth-tokens ' aria-hidden='true' class='block-anchor'  id='authentication_copying-oauth-tokens '><i aria-hidden='true' class='linkify icon'></i></a>
 
 ## Copying OAuth Tokens 
 

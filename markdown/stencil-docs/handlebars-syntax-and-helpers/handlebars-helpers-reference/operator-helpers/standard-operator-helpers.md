@@ -9,7 +9,7 @@
 	</ul>
 </div>
 
-<a href='#handlebars-comparison' aria-hidden='true' class='block-anchor'  id='handlebars-comparison'></a>
+<a href='#handlebars-comparison' aria-hidden='true' class='block-anchor'  id='handlebars-comparison'><i aria-hidden='true' class='linkify icon'></i></a>
 
 ## Comparison Operators
 
@@ -60,7 +60,7 @@ To improvise a `!==` (not equal or not equal type) comparison operator in Handle
 
 
 
-<a href='#handlebars_or' aria-hidden='true' class='block-anchor'  id='handlebars_or'></a>
+<a href='#handlebars_or' aria-hidden='true' class='block-anchor'  id='handlebars_or'><i aria-hidden='true' class='linkify icon'></i></a>
 
 ## Logical {{or}} Operator
 
@@ -88,7 +88,7 @@ The `or` operator's parameters are one or more strings, numbers, arrays, or coll
 
 
 
-<a href='#handlebars_typeof' aria-hidden='true' class='block-anchor'  id='handlebars_typeof'></a>
+<a href='#handlebars_typeof' aria-hidden='true' class='block-anchor'  id='handlebars_typeof'><i aria-hidden='true' class='linkify icon'></i></a>
 
 ## {{typeof}} Operator
 

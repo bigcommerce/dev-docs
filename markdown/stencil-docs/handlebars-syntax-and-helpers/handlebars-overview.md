@@ -10,7 +10,7 @@
 	</ul>
 </div>
 
-<a href='#handlebars_handlebars-js' aria-hidden='true' class='block-anchor'  id='handlebars_handlebars-js'></a>
+<a href='#handlebars_handlebars-js' aria-hidden='true' class='block-anchor'  id='handlebars_handlebars-js'><i aria-hidden='true' class='linkify icon'></i></a>
 
 ## Handlebars.js
 
@@ -43,19 +43,19 @@ You can view a [full reference page of all the handlebars helpers available to S
 
 For a thorough overview of how to use Handlebars inside your templates, review the [Handlebars documentation](http://handlebarsjs.com/) (Handlebars).
 
-<a href='#handlebars_template' aria-hidden='true' class='block-anchor'  id='handlebars_template'></a>
+<a href='#handlebars_template' aria-hidden='true' class='block-anchor'  id='handlebars_template'><i aria-hidden='true' class='linkify icon'></i></a>
 
 ## Template Logic
 
 With Handlebars, it’s easy to embed logic right into your templates. Handlebars has [built-in helpers](http://handlebarsjs.com/builtin_helpers.html) for widely used functions.
 
-<a href='#handlebars_stencil' aria-hidden='true' class='block-anchor'  id='handlebars_stencil'></a>
+<a href='#handlebars_stencil' aria-hidden='true' class='block-anchor'  id='handlebars_stencil'><i aria-hidden='true' class='linkify icon'></i></a>
 
 ## Stencil Handlebars Resources
 
 For a comprehensive reference to the Stencil data objects that you can manipulate via Handlebars statements, see the [Stencil Object Model Reference](/stencil-docs/stencil-object-model-reference).
 
-<a href='#handlebars_rendering' aria-hidden='true' class='block-anchor'  id='handlebars_rendering'></a>
+<a href='#handlebars_rendering' aria-hidden='true' class='block-anchor'  id='handlebars_rendering'><i aria-hidden='true' class='linkify icon'></i></a>
 
 ## Rendering Special Characters
 

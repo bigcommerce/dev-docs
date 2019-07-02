@@ -25,7 +25,7 @@ The following [OAuth](https://developer.bigcommerce.com/api-docs/getting-started
 
 
 
-<a href='#customers-subscribers_what-is-a-customer' aria-hidden='true' class='block-anchor'  id='customers-subscribers_what-is-a-customer'></a>
+<a href='#customers-subscribers_what-is-a-customer' aria-hidden='true' class='block-anchor'  id='customers-subscribers_what-is-a-customer'><i aria-hidden='true' class='linkify icon'></i></a>
 
 ## What is a Customer?
 
@@ -49,7 +49,7 @@ Customer groups allow you to organize your customers, give them discounts, and r
 
 
 
-<a href='#customers-subscribers_what-is-a-subscriber' aria-hidden='true' class='block-anchor'  id='customers-subscribers_what-is-a-subscriber'></a>
+<a href='#customers-subscribers_what-is-a-subscriber' aria-hidden='true' class='block-anchor'  id='customers-subscribers_what-is-a-subscriber'><i aria-hidden='true' class='linkify icon'></i></a>
 
 ## What is a Subscriber?
 
@@ -64,7 +64,7 @@ Where possible, the API indicates the origin of the subscriber. If the subscribe
 
 
 
-<a href='#customers-subscribers_subscribers-v-customers' aria-hidden='true' class='block-anchor'  id='customers-subscribers_subscribers-v-customers'></a>
+<a href='#customers-subscribers_subscribers-v-customers' aria-hidden='true' class='block-anchor'  id='customers-subscribers_subscribers-v-customers'><i aria-hidden='true' class='linkify icon'></i></a>
 
 ## Subscribers vs. Customers
 
@@ -74,7 +74,7 @@ Where possible, the API indicates the origin of the subscriber. If the subscribe
 
 
 
-<a href='#customers-subscribers_what-is-a-guest' aria-hidden='true' class='block-anchor'  id='customers-subscribers_what-is-a-guest'></a>
+<a href='#customers-subscribers_what-is-a-guest' aria-hidden='true' class='block-anchor'  id='customers-subscribers_what-is-a-guest'><i aria-hidden='true' class='linkify icon'></i></a>
 
 ## What is a Guest?
 
@@ -82,7 +82,7 @@ Store [settings](https://forum.bigcommerce.com/s/article/Checkout-Settings#check
 
 
 
-<a href='#customers-subscribers_customer-login' aria-hidden='true' class='block-anchor'  id='customers-subscribers_customer-login'></a>
+<a href='#customers-subscribers_customer-login' aria-hidden='true' class='block-anchor'  id='customers-subscribers_customer-login'><i aria-hidden='true' class='linkify icon'></i></a>
 
 ## Customer Login API
 
@@ -90,14 +90,14 @@ The Customer Login API allows for single sign-on. Once a customer has authentica
 
 
 
-<a href='#customers-subscribers_current-customer' aria-hidden='true' class='block-anchor'  id='customers-subscribers_current-customer'></a>
+<a href='#customers-subscribers_current-customer' aria-hidden='true' class='block-anchor'  id='customers-subscribers_current-customer'><i aria-hidden='true' class='linkify icon'></i></a>
 
 ## Current Customer API
 The Current Customer API allows your application to identify logged in customers. This is useful when you need to show customer specific information.
 
 
 
-<a href='#customer-subscribers_customer-api' aria-hidden='true' class='block-anchor'  id='customer-subscribers_customer-api'></a>
+<a href='#customer-subscribers_customer-api' aria-hidden='true' class='block-anchor'  id='customer-subscribers_customer-api'><i aria-hidden='true' class='linkify icon'></i></a>
 
 ## Customer API
 There are two Customer API endpoints available:
@@ -141,7 +141,7 @@ The V2 Customers API is comprised of Customers, Customer Addresses and Customer 
 
 
 
-<a href='#customer-subscribers_difference-v2-v3' aria-hidden='true' class='block-anchor'  id='customer-subscribers_difference-v2-v3'></a>
+<a href='#customer-subscribers_difference-v2-v3' aria-hidden='true' class='block-anchor'  id='customer-subscribers_difference-v2-v3'><i aria-hidden='true' class='linkify icon'></i></a>
 
 ## Differences Between V2 and V3 Customer API
 
@@ -220,7 +220,7 @@ On the new Customers endpoint, when creating a customer there are two ways to se
 
 
 
-<a href='#customer-subscribers_faq' aria-hidden='true' class='block-anchor'  id='customer-subscribers_faq'></a>
+<a href='#customer-subscribers_faq' aria-hidden='true' class='block-anchor'  id='customer-subscribers_faq'><i aria-hidden='true' class='linkify icon'></i></a>
 
 ## FAQ
 

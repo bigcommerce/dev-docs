@@ -10,7 +10,7 @@
 	</ul>
 </div>
 
-<a href='#using-and-updating-icons_installing-grunt' aria-hidden='true' class='block-anchor'  id='using-and-updating-icons_installing-grunt'></a>
+<a href='#using-and-updating-icons_installing-grunt' aria-hidden='true' class='block-anchor'  id='using-and-updating-icons_installing-grunt'><i aria-hidden='true' class='linkify icon'></i></a>
 
 ## Installing Grunt
 
@@ -27,7 +27,7 @@ Then, from your theme's root directory, run:
 
 
 
-<a href='#using-and-updating-icons_calling-theme-icons' aria-hidden='true' class='block-anchor'  id='using-and-updating-icons_calling-theme-icons'></a>
+<a href='#using-and-updating-icons_calling-theme-icons' aria-hidden='true' class='block-anchor'  id='using-and-updating-icons_calling-theme-icons'><i aria-hidden='true' class='linkify icon'></i></a>
 
 ## Calling Theme Icons 
 
@@ -48,7 +48,7 @@ For example:
 
 
 
-<a href='#using-and-updating-icons_adding-new-icons' aria-hidden='true' class='block-anchor'  id='using-and-updating-icons_adding-new-icons'></a>
+<a href='#using-and-updating-icons_adding-new-icons' aria-hidden='true' class='block-anchor'  id='using-and-updating-icons_adding-new-icons'><i aria-hidden='true' class='linkify icon'></i></a>
 
 ## Adding New Icons
 
@@ -56,7 +56,7 @@ Simply add your new icon SVG file to the `assets/icons/ `folder. Then, from your
 
 
 
-<a href='#using-and-updating-icons_video-demo' aria-hidden='true' class='block-anchor'  id='using-and-updating-icons_video-demo'></a>
+<a href='#using-and-updating-icons_video-demo' aria-hidden='true' class='block-anchor'  id='using-and-updating-icons_video-demo'><i aria-hidden='true' class='linkify icon'></i></a>
 
 ## Video Demo
 

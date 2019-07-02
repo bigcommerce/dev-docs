@@ -7,7 +7,7 @@
 	</ul>
 </div>
 
-<a href='#data_stencil-data-tags' aria-hidden='true' class='block-anchor'  id='data_stencil-data-tags'></a>
+<a href='#data_stencil-data-tags' aria-hidden='true' class='block-anchor'  id='data_stencil-data-tags'><i aria-hidden='true' class='linkify icon'></i></a>
 
 ## Stencil Data Tags and Event Hooks
 Stencil themes provide the following chains of data tags, delegated DOM (Document Object Model) events, emitted Stencil event hooks, and Stencil event parameter(s).

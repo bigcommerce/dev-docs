@@ -15,7 +15,7 @@ Themes are built using a powerful template system that enables designers and dev
 
 
 
-<a href='#directory-structure' aria-hidden='true' class='block-anchor'  id='directory-structure'></a>
+<a href='#directory-structure' aria-hidden='true' class='block-anchor'  id='directory-structure'><i aria-hidden='true' class='linkify icon'></i></a>
 
 ## Directory Structure
 
@@ -29,7 +29,7 @@ Theme files that apply to a store design are organized in several different dire
 
 
 
-<a href='#blueprint-images' aria-hidden='true' class='block-anchor'  id='blueprint-images'></a>
+<a href='#blueprint-images' aria-hidden='true' class='block-anchor'  id='blueprint-images'><i aria-hidden='true' class='linkify icon'></i></a>
 
 ## Images
 
@@ -37,7 +37,7 @@ Theme specific static images (referenced from CSS, or in image tags).
 
 
 
-<a href='#blueprint-layouts' aria-hidden='true' class='block-anchor'  id='blueprint-layouts'></a>
+<a href='#blueprint-layouts' aria-hidden='true' class='block-anchor'  id='blueprint-layouts'><i aria-hidden='true' class='linkify icon'></i></a>
 
 ## Layouts
 
@@ -49,7 +49,7 @@ Most layout files contain nothing more than references to individual panels to b
 
 
 
-<a href='#blueprint-panels' aria-hidden='true' class='block-anchor'  id='blueprint-panels'></a>
+<a href='#blueprint-panels' aria-hidden='true' class='block-anchor'  id='blueprint-panels'><i aria-hidden='true' class='linkify icon'></i></a>
 
 ## Panels
 
@@ -63,7 +63,7 @@ Some panels contain strictly static content (such as the store name) whilst othe
 
 
 
-<a href='#blueprint-snippets' aria-hidden='true' class='block-anchor'  id='blueprint-snippets'></a>
+<a href='#blueprint-snippets' aria-hidden='true' class='block-anchor'  id='blueprint-snippets'><i aria-hidden='true' class='linkify icon'></i></a>
 
 ## Snippets
 
@@ -73,7 +73,7 @@ For example, the `HomeFeaturedProductsItem` snippet renders each individual prod
 
 
 
-<a href='#blueprint-styles' aria-hidden='true' class='block-anchor'  id='blueprint-styles'></a>
+<a href='#blueprint-styles' aria-hidden='true' class='block-anchor'  id='blueprint-styles'><i aria-hidden='true' class='linkify icon'></i></a>
 
 ## Styles
 

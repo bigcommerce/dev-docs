@@ -8,7 +8,7 @@
 	</ul>
 </div>
 
-<a href='#authorizing_prerequisites' aria-hidden='true' class='block-anchor'  id='authorizing_prerequisites'></a>
+<a href='#authorizing_prerequisites' aria-hidden='true' class='block-anchor'  id='authorizing_prerequisites'><i aria-hidden='true' class='linkify icon'></i></a>
 
 ## Prerequisites
 
@@ -32,7 +32,7 @@ The following are required from performing previous steps prior to authorizing a
 </div>
 </div>
 
-<a href='#authorizing_authorizing-oauth' aria-hidden='true' class='block-anchor'  id='authorizing_authorizing-oauth'></a>
+<a href='#authorizing_authorizing-oauth' aria-hidden='true' class='block-anchor'  id='authorizing_authorizing-oauth'><i aria-hidden='true' class='linkify icon'></i></a>
 
 ## Authorizing with OAuth Tokens
 

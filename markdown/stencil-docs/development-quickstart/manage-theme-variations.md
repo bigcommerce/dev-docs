@@ -10,7 +10,7 @@
 	</ul>
 </div>
 
-<a href='#managing_creating' aria-hidden='true' class='block-anchor'  id='managing_creating'></a>
+<a href='#managing_creating' aria-hidden='true' class='block-anchor'  id='managing_creating'><i aria-hidden='true' class='linkify icon'></i></a>
 
 ## Creating and Naming a New Theme Variation  
 ### (Cascading Settings from <span class="fn">config.json</span>)
@@ -89,7 +89,7 @@ lineNumbers: true
 
 
 
-<a href='#managing_changing' aria-hidden='true' class='block-anchor'  id='managing_changing'></a>
+<a href='#managing_changing' aria-hidden='true' class='block-anchor'  id='managing_changing'><i aria-hidden='true' class='linkify icon'></i></a>
 
 ## Changing a Theme Variation’s Font Family (config.json)
 
@@ -116,7 +116,7 @@ lineNumbers: true
 
 
 
-<a href='#managing_preparing' aria-hidden='true' class='block-anchor'  id='managing_preparing'></a>
+<a href='#managing_preparing' aria-hidden='true' class='block-anchor'  id='managing_preparing'><i aria-hidden='true' class='linkify icon'></i></a>
 
 ## Preparing a Variation's Thumbnails
 
@@ -125,7 +125,7 @@ For details on preparing screenshots that enable merchants to preview each varia
 
 
 
-<a href='#managing_using-cli' aria-hidden='true' class='block-anchor'  id='managing_using-cli'></a>
+<a href='#managing_using-cli' aria-hidden='true' class='block-anchor'  id='managing_using-cli'><i aria-hidden='true' class='linkify icon'></i></a>
 
 ## Using Stencil CLI to Change Variations
 
@@ -135,7 +135,7 @@ To locally test/debug a specific variation of your theme, launch it by invoking 
 
 
 
-<a href='#managing_bundling-and-uploading' aria-hidden='true' class='block-anchor'  id='managing_bundling-and-uploading'></a>
+<a href='#managing_bundling-and-uploading' aria-hidden='true' class='block-anchor'  id='managing_bundling-and-uploading'><i aria-hidden='true' class='linkify icon'></i></a>
 
 ## Bundling and Uploading Your Theme
 

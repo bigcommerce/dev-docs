@@ -10,7 +10,7 @@
 	</ul>
 </div>
 
-<a href='#handlebars_encodeuri' aria-hidden='true' class='block-anchor'  id='handlebars_encodeuri'></a>
+<a href='#handlebars_encodeuri' aria-hidden='true' class='block-anchor'  id='handlebars_encodeuri'><i aria-hidden='true' class='linkify icon'></i></a>
 
 The following standard helpers are available to transform URLs.
 
@@ -25,7 +25,7 @@ Encodes a Uniform Resource Identifier (URI) component, by replacing each instanc
 
 
 
-<a href='#handlebars_decodeuri' aria-hidden='true' class='block-anchor'  id='handlebars_decodeuri'></a>
+<a href='#handlebars_decodeuri' aria-hidden='true' class='block-anchor'  id='handlebars_decodeuri'><i aria-hidden='true' class='linkify icon'></i></a>
 
 ## {{decodeURI}}
 
@@ -38,7 +38,7 @@ Decodes a Uniform Resource Identifier (URI) component.
 
 
 
-<a href='#handlebars_urlresolve' aria-hidden='true' class='block-anchor'  id='handlebars_urlresolve'></a>
+<a href='#handlebars_urlresolve' aria-hidden='true' class='block-anchor'  id='handlebars_urlresolve'><i aria-hidden='true' class='linkify icon'></i></a>
 
 ## {{urlResolve}}
 
@@ -52,7 +52,7 @@ Takes a base URL, and an href URL, and resolves them as a browser would for an a
 
 
 
-<a href='#handlebars_urlparse' aria-hidden='true' class='block-anchor'  id='handlebars_urlparse'></a>
+<a href='#handlebars_urlparse' aria-hidden='true' class='block-anchor'  id='handlebars_urlparse'><i aria-hidden='true' class='linkify icon'></i></a>
 
 ## {{urlParse}}
 
@@ -65,7 +65,7 @@ Parses a `url` string into an object.
 
 
 
-<a href='#handlebars_stripquerystring' aria-hidden='true' class='block-anchor'  id='handlebars_stripquerystring'></a>
+<a href='#handlebars_stripquerystring' aria-hidden='true' class='block-anchor'  id='handlebars_stripquerystring'><i aria-hidden='true' class='linkify icon'></i></a>
 
 ## {{stripQuerystring}}
 
@@ -78,7 +78,7 @@ Strips the query string from a `url`.
 
 
 
-<a href='#handlebars_stripprotocol' aria-hidden='true' class='block-anchor'  id='handlebars_stripprotocol'></a>
+<a href='#handlebars_stripprotocol' aria-hidden='true' class='block-anchor'  id='handlebars_stripprotocol'><i aria-hidden='true' class='linkify icon'></i></a>
 
 ## {{stripProtocol}}
 

@@ -12,7 +12,7 @@
 	</ul>
 </div>
 
-<a href='#authentication_what-are-oauth-credentials' aria-hidden='true' class='block-anchor'  id='authentication_what-are-oauth-credentials'></a>
+<a href='#authentication_what-are-oauth-credentials' aria-hidden='true' class='block-anchor'  id='authentication_what-are-oauth-credentials'><i aria-hidden='true' class='linkify icon'></i></a>
 
 Two types of API credentials are available to developers wishing to make requests against BigCommerce APIs:
 
@@ -25,7 +25,7 @@ Developers can also create **App API Credentials** in the BigCommerce [Developer
 
 
 
-<a href='#authentication_getting-api-credentials' aria-hidden='true' class='block-anchor'  id='authentication_getting-api-credentials'></a>
+<a href='#authentication_getting-api-credentials' aria-hidden='true' class='block-anchor'  id='authentication_getting-api-credentials'><i aria-hidden='true' class='linkify icon'></i></a>
 
 ## Obtaining Store API Credentials
 
@@ -67,7 +67,7 @@ To get started making requests, see [API Requests](/api-docs/getting-started/bas
 
 
 
-<a href='#authentication_revoking-api-credentials' aria-hidden='true' class='block-anchor'  id='authentication_revoking-api-credentials'></a>
+<a href='#authentication_revoking-api-credentials' aria-hidden='true' class='block-anchor'  id='authentication_revoking-api-credentials'><i aria-hidden='true' class='linkify icon'></i></a>
 
 ## Revoking Store API Credentials
 
@@ -103,7 +103,7 @@ To revoke Store API Credentials:
 
 
 
-<a href='#authentication_client-id-secret' aria-hidden='true' class='block-anchor'  id='authentication_client-id-secret'></a>
+<a href='#authentication_client-id-secret' aria-hidden='true' class='block-anchor'  id='authentication_client-id-secret'><i aria-hidden='true' class='linkify icon'></i></a>
 
 ## Obtaining App API Credentials
 
@@ -196,7 +196,7 @@ During the app installation process, your app will use the Client Id and Client 
 
 
 
-<a href='#authentication_when-to-use' aria-hidden='true' class='block-anchor'  id='authentication_when-to-use'></a>
+<a href='#authentication_when-to-use' aria-hidden='true' class='block-anchor'  id='authentication_when-to-use'><i aria-hidden='true' class='linkify icon'></i></a>
 
 ## Use Cases by Credential Type
 
@@ -216,7 +216,7 @@ During the app installation process, your app will use the Client Id and Client 
 
 
 
-<a href='#authentication_migration-legacy-oauth' aria-hidden='true' class='block-anchor'  id='authentication_migration-legacy-oauth'></a>
+<a href='#authentication_migration-legacy-oauth' aria-hidden='true' class='block-anchor'  id='authentication_migration-legacy-oauth'><i aria-hidden='true' class='linkify icon'></i></a>
 
 ## Migrating from Legacy to OAuth
 
@@ -265,7 +265,7 @@ Rate limiting of API requests works differently for OAuth API connections. To be
 
 
 
-<a href='#authentication_oauth-scopes' aria-hidden='true' class='block-anchor'  id='authentication_oauth-scopes'></a>
+<a href='#authentication_oauth-scopes' aria-hidden='true' class='block-anchor'  id='authentication_oauth-scopes'><i aria-hidden='true' class='linkify icon'></i></a>
 
 ## OAuth Scopes
 

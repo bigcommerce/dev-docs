@@ -10,7 +10,7 @@
 	</ul>
 </div>
 
-<a href='#config_new' aria-hidden='true' class='block-anchor'  id='config_new'></a>
+<a href='#config_new' aria-hidden='true' class='block-anchor'  id='config_new'><i aria-hidden='true' class='linkify icon'></i></a>
 
 To customize your theme’s appearance at a global level, the values that you define in the 
 `<theme-name>/config.json` file interact with local resources. Your config.json definitions set global defaults for templates, front-matter attributes, and Handlebars resources throughout your theme. You can also define custom variables in config.json, named according to your needs.
@@ -67,7 +67,7 @@ blog:
 
 If you load your storefront’s home page (by default, [http://localhost:3000](http://localhost:3000), you should see a "New Products" section that displays 12 products in a grid.
 
-<a href='#config_changing' aria-hidden='true' class='block-anchor'  id='config_changing'></a>
+<a href='#config_changing' aria-hidden='true' class='block-anchor'  id='config_changing'><i aria-hidden='true' class='linkify icon'></i></a>
 
 ## Changing Page Layout Using Local Front Matter
 
@@ -123,7 +123,7 @@ products:
 
 If you now reload your storefront’s home page in your browser, you should see the number of displayed "Featured Products" change from its default number (as specified in `config.json`) to two.
 
-<a href='#config_retrieving' aria-hidden='true' class='block-anchor'  id='config_retrieving'></a>
+<a href='#config_retrieving' aria-hidden='true' class='block-anchor'  id='config_retrieving'><i aria-hidden='true' class='linkify icon'></i></a>
 
 ## Retrieving Specific config.json Values through Sass
 
@@ -163,7 +163,7 @@ $color-highlightDark:   stencilColor("color-highlightDark");
 
 In `config.json`, try redefining one or more color variables to hex values of your choice. Then re-render your theme’s home page to see the effects.
 
-<a href='#config_adding' aria-hidden='true' class='block-anchor'  id='config_adding'></a>
+<a href='#config_adding' aria-hidden='true' class='block-anchor'  id='config_adding'><i aria-hidden='true' class='linkify icon'></i></a>
 
 ## Adding/Removing Components
 

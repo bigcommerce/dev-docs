@@ -13,7 +13,7 @@
 	</ul>
 </div>
 
-<a href='#customer-login_introduction' aria-hidden='true' class='block-anchor'  id='customer-login_introduction'></a>
+<a href='#customer-login_introduction' aria-hidden='true' class='block-anchor'  id='customer-login_introduction'><i aria-hidden='true' class='linkify icon'></i></a>
 
 ## Introduction
 The Customer Login API enables single sign-on (SSO). It allows your apps to programmatically log in a storefront customer by using the login entry point URL: `/login/token/{token}`. Here, {token} must be a JSON Web Token (JWT) containing the parameters for the customer login request, signed by your application’s Oauth client secret.
@@ -24,7 +24,7 @@ Example use cases for the Customer Login API include:
 * Continuous login between a BC storefront and another system, such as a WordPress blog
 * Any login method other than BC's typical email and password login - for example, if you wanted to enable customers to log in via a phone number and SMS password
 
-<a href='#customer-login_jwt' aria-hidden='true' class='block-anchor'  id='customer-login_jwt'></a>
+<a href='#customer-login_jwt' aria-hidden='true' class='block-anchor'  id='customer-login_jwt'><i aria-hidden='true' class='linkify icon'></i></a>
 
 ## JWT
 
@@ -34,7 +34,7 @@ JWT is a standard for verifying a login signature between two parties. For a ful
 
 A valid JWT token is a string composed of three parts, separated by periods (“.”), which correspond to the encoded header, the encoded payload, and the signature.
 
-<a href='#example-jwt-token' aria-hidden='true' class='block-anchor'  id='example-jwt-token'></a>
+<a href='#example-jwt-token' aria-hidden='true' class='block-anchor'  id='example-jwt-token'><i aria-hidden='true' class='linkify icon'></i></a>
 
 <!--
     title: #### Example JWT Token
@@ -47,7 +47,7 @@ A valid JWT token is a string composed of three parts, separated by periods (“
 ](//s3.amazonaws.com/user-content.stoplight.io/6012/1535390918772 "#### Example JWT Token
 ")
 
-<a href='#token-key' aria-hidden='true' class='block-anchor'  id='token-key'></a>
+<a href='#token-key' aria-hidden='true' class='block-anchor'  id='token-key'><i aria-hidden='true' class='linkify icon'></i></a>
 
 <!--
     title: #### Key
@@ -80,7 +80,7 @@ Once a request has is made with a given `jti`, it cannot be made again. This par
 
 The `request_ip` field can be used as an additional security precaution, to prevent a malicious actor from intercepting the request and making it from another browser or system before you do. If you supply this value, BigCommerce checks the incoming request to ensure that it is being made from the stated IP address otherwise the request fails. We strongly encourage setting this IP address value, but doing so is optional, to support those cases where this information is not available.
 
-<a href='#example-payload' aria-hidden='true' class='block-anchor'  id='example-payload'></a>
+<a href='#example-payload' aria-hidden='true' class='block-anchor'  id='example-payload'><i aria-hidden='true' class='linkify icon'></i></a>
 
 <!--
 title: "Example Payload"
@@ -119,14 +119,14 @@ The signature is created by signing the header and payload with the hashing algo
 
 
 
-<a href='#customer-login_oauth-scope' aria-hidden='true' class='block-anchor'  id='customer-login_oauth-scope'></a>
+<a href='#customer-login_oauth-scope' aria-hidden='true' class='block-anchor'  id='customer-login_oauth-scope'><i aria-hidden='true' class='linkify icon'></i></a>
 
 ## OAuth Scope
 Your OAuth API credentials must include the [customers_login](/api-docs/getting-started/basics/authentication#authentication_oauth-scopes) scope.
 
 
 
-<a href='#customer-login_access-url' aria-hidden='true' class='block-anchor'  id='customer-login_access-url'></a>
+<a href='#customer-login_access-url' aria-hidden='true' class='block-anchor'  id='customer-login_access-url'><i aria-hidden='true' class='linkify icon'></i></a>
 
 ## Access URL
 After generating the JWT token, your app should immediately redirect the shopper’s browser to the following access point URL to log the customer into their account: `/login/token/{token}`
@@ -136,7 +136,7 @@ Example:
 
 
 
-<a href='#customer-login_logging-in-a-customer' aria-hidden='true' class='block-anchor'  id='customer-login_logging-in-a-customer'></a>
+<a href='#customer-login_logging-in-a-customer' aria-hidden='true' class='block-anchor'  id='customer-login_logging-in-a-customer'><i aria-hidden='true' class='linkify icon'></i></a>
 
 ## Logging in a Customer
 The following tutorial will walk through creating a login token. We recommend scripting this process since the iat is invalid after 30 seconds. For the purpose of illustration, this tutorial will walk through creating a token manually using the debugger tool at JWT.io, although doing so can be tricky due to time constraints.  
@@ -163,7 +163,7 @@ Client ID and Client Secret generated from the store with the scope set to [Cust
 
 2. Create the payload by filling in the PAYLOAD:DATA on jwt.io
 
-<a href='#create-the-paylpad' aria-hidden='true' class='block-anchor'  id='create-the-paylpad'></a>
+<a href='#create-the-paylpad' aria-hidden='true' class='block-anchor'  id='create-the-paylpad'><i aria-hidden='true' class='linkify icon'></i></a>
 
 <!--
 title: "Create the Payload"
@@ -190,7 +190,7 @@ lineNumbers: true
 
 ![](//s3.amazonaws.com/user-content.stoplight.io/6012/1535469059335 "")
 
-<a href='#iat-claim' aria-hidden='true' class='block-anchor'  id='iat-claim'></a>
+<a href='#iat-claim' aria-hidden='true' class='block-anchor'  id='iat-claim'><i aria-hidden='true' class='linkify icon'></i></a>
 
 <div class="HubBlock--callout">
 <div class="CalloutBlock--error">
@@ -218,7 +218,7 @@ https://storedomain.com/login/token/eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9 .eyJzdW
 If the request was successful then you will be logged in as the customer and directed to /account.php. If it was unsuccessful there will be a login attempt message and you will be directed to /login.php
 
 
-<a href='#customer-login_sample-code' aria-hidden='true' class='block-anchor'  id='customer-login_sample-code'></a>
+<a href='#customer-login_sample-code' aria-hidden='true' class='block-anchor'  id='customer-login_sample-code'><i aria-hidden='true' class='linkify icon'></i></a>
 
 ## Sample Code
 
@@ -236,14 +236,14 @@ Client libraries in many other languages are at JWT.io.
 
 
 
-<a href='#customer-login_logout-customer' aria-hidden='true' class='block-anchor'  id='customer-login_logout-customer'></a>
+<a href='#customer-login_logout-customer' aria-hidden='true' class='block-anchor'  id='customer-login_logout-customer'><i aria-hidden='true' class='linkify icon'></i></a>
 
 ## Logging Out a Customer
 
 To logout a customer programatically, set the redirect URL in the JWT to `/login.php?action=logout`. This will log out the customer even though the cross-origin request to
 `/login/token/{jwt}` will return an opaque response.
 
-<a href='#customer-login_troubleshooting-customer-login-api' aria-hidden='true' class='block-anchor'  id='customer-login_troubleshooting-customer-login-api'></a>
+<a href='#customer-login_troubleshooting-customer-login-api' aria-hidden='true' class='block-anchor'  id='customer-login_troubleshooting-customer-login-api'><i aria-hidden='true' class='linkify icon'></i></a>
 
 ## Troubleshooting
 

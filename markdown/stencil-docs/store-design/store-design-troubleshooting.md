@@ -8,7 +8,7 @@
 	</ul>
 </div>
 
-<a href='#theme-editor_empty' aria-hidden='true' class='block-anchor'  id='theme-editor_empty'></a>
+<a href='#theme-editor_empty' aria-hidden='true' class='block-anchor'  id='theme-editor_empty'><i aria-hidden='true' class='linkify icon'></i></a>
 
 ## Empty Drop-Down List in Store Design Panel
 
@@ -18,7 +18,7 @@
 
 
 
-<a href='#theme-editor_configured' aria-hidden='true' class='block-anchor'  id='theme-editor_configured'></a>
+<a href='#theme-editor_configured' aria-hidden='true' class='block-anchor'  id='theme-editor_configured'><i aria-hidden='true' class='linkify icon'></i></a>
 
 ## Configured Control Missing from Store Design Panel
 
@@ -29,7 +29,7 @@
 
 
 
-<a href='#theme-editor_theme-changes' aria-hidden='true' class='block-anchor'  id='theme-editor_theme-changes'></a>
+<a href='#theme-editor_theme-changes' aria-hidden='true' class='block-anchor'  id='theme-editor_theme-changes'><i aria-hidden='true' class='linkify icon'></i></a>
 
 ## Theme Changes Not Saved from Store Design UI
 

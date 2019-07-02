@@ -10,7 +10,7 @@
 	</ul>
 </div>
 
-<a href='#handlebars_cdn' aria-hidden='true' class='block-anchor'  id='handlebars_cdn'></a>
+<a href='#handlebars_cdn' aria-hidden='true' class='block-anchor'  id='handlebars_cdn'><i aria-hidden='true' class='linkify icon'></i></a>
 
 The Stencil framework provides the following custom helpers to inject various resources into a page context:
 
@@ -77,7 +77,7 @@ As highlighted above, the helper is configured to rewrite *local* URLs to a `<th
 
 
 
-<a href='#handlebars_getfontscollection' aria-hidden='true' class='block-anchor'  id='handlebars_getfontscollection'></a>
+<a href='#handlebars_getfontscollection' aria-hidden='true' class='block-anchor'  id='handlebars_getfontscollection'><i aria-hidden='true' class='linkify icon'></i></a>
 
 ### {{getFontsCollection}}
 
@@ -94,7 +94,7 @@ You can read more about font-display [on the Mozilla Documentation](https://deve
 
 
 
-<a href='#handlebars_inject-and-jscontext' aria-hidden='true' class='block-anchor'  id='handlebars_inject-and-jscontext'></a>
+<a href='#handlebars_inject-and-jscontext' aria-hidden='true' class='block-anchor'  id='handlebars_inject-and-jscontext'><i aria-hidden='true' class='linkify icon'></i></a>
 
 ### {{inject}} and {{jsContext}}
 
@@ -193,7 +193,7 @@ category:
 
 
 
-<a href='#handlebars_stylesheet' aria-hidden='true' class='block-anchor'  id='handlebars_stylesheet'></a>
+<a href='#handlebars_stylesheet' aria-hidden='true' class='block-anchor'  id='handlebars_stylesheet'><i aria-hidden='true' class='linkify icon'></i></a>
 
 ## {{stylesheet}}
 

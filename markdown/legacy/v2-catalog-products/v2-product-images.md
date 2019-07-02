@@ -13,7 +13,7 @@
 		</ul>
 </div>/h1
 
-<a href='#v2-images_object-properties' aria-hidden='true' class='block-anchor'  id='v2-images_object-properties'></a>
+<a href='#v2-images_object-properties' aria-hidden='true' class='block-anchor'  id='v2-images_object-properties'><i aria-hidden='true' class='linkify icon'></i></a>
 
 ## Product Images 
 
@@ -32,7 +32,7 @@ Images associated with a product.
 | date_created | date |
 
 
-<a href='#v2-review_list-product-images' aria-hidden='true' class='block-anchor'  id='v2-review_list-product-images'></a>
+<a href='#v2-review_list-product-images' aria-hidden='true' class='block-anchor'  id='v2-review_list-product-images'><i aria-hidden='true' class='linkify icon'></i></a>
 
 ### List Product Images 
 
@@ -93,7 +93,7 @@ Example JSON returned in the response:
 
 
 
-<a href='#v2-review-product-images' aria-hidden='true' class='block-anchor'  id='v2-review-product-images'></a>
+<a href='#v2-review-product-images' aria-hidden='true' class='block-anchor'  id='v2-review-product-images'><i aria-hidden='true' class='linkify icon'></i></a>
 
 ## Get a Product Image 
 
@@ -124,7 +124,7 @@ Example JSON returned in the response:
 
 
 
-<a href='#v2-images_get-count-images' aria-hidden='true' class='block-anchor'  id='v2-images_get-count-images'></a>
+<a href='#v2-images_get-count-images' aria-hidden='true' class='block-anchor'  id='v2-images_get-count-images'><i aria-hidden='true' class='linkify icon'></i></a>
 
 ## Get a Count of Product Images 
 
@@ -146,7 +146,7 @@ Example JSON returned in the response:
 
 
 
-<a href='#v2-images_create-product-images' aria-hidden='true' class='block-anchor'  id='v2-images_create-product-images'></a>
+<a href='#v2-images_create-product-images' aria-hidden='true' class='block-anchor'  id='v2-images_create-product-images'><i aria-hidden='true' class='linkify icon'></i></a>
 
 ## Create a Product Image 
 
@@ -186,7 +186,7 @@ Example JSON returned in the response:
 
 
 
-<a href='#v2-images_update-product-images' aria-hidden='true' class='block-anchor'  id='v2-images_update-product-images'></a>
+<a href='#v2-images_update-product-images' aria-hidden='true' class='block-anchor'  id='v2-images_update-product-images'><i aria-hidden='true' class='linkify icon'></i></a>
 
 
 ## Update a Product Image 
@@ -226,7 +226,7 @@ Example JSON returned in the response:
 
 
 
-<a href='#v2-images_delete-product-images' aria-hidden='true' class='block-anchor'  id='v2-images_delete-product-images'></a>
+<a href='#v2-images_delete-product-images' aria-hidden='true' class='block-anchor'  id='v2-images_delete-product-images'><i aria-hidden='true' class='linkify icon'></i></a>
 
 ## Delete a Product Image 
 
@@ -236,7 +236,7 @@ Deletes a product image.
 
 
 
-<a href='#v2-images_delete-all-product-images' aria-hidden='true' class='block-anchor'  id='v2-images_delete-all-product-images'></a>
+<a href='#v2-images_delete-all-product-images' aria-hidden='true' class='block-anchor'  id='v2-images_delete-all-product-images'><i aria-hidden='true' class='linkify icon'></i></a>
 
 ## Delete Multiple Product Images 
 

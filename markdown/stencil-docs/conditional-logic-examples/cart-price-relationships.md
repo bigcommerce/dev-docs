@@ -20,7 +20,7 @@ For the examples below we will use a cart_item with the following pricing:
     * Buy three items get 2%
     * Buy four items get 3%
 
-<a href='#cart-price-relationships_rrp' aria-hidden='true' class='block-anchor'  id='cart-price-relationships_rrp'></a>
+<a href='#cart-price-relationships_rrp' aria-hidden='true' class='block-anchor'  id='cart-price-relationships_rrp'><i aria-hidden='true' class='linkify icon'></i></a>
 
 ## RRP
 `rrp` is the MSRP or Manufactures Suggested Retail Price. This number will always be the same unless it is changed at the product level.
@@ -40,7 +40,7 @@ lineNumbers: true
 
 
 
-<a href='#cart-price-relationships_bulk-pricing' aria-hidden='true' class='block-anchor'  id='cart-price-relationships_bulk-pricing'></a>
+<a href='#cart-price-relationships_bulk-pricing' aria-hidden='true' class='block-anchor'  id='cart-price-relationships_bulk-pricing'><i aria-hidden='true' class='linkify icon'></i></a>
 
 ## Bulk Pricing 
 
@@ -78,7 +78,7 @@ lineNumbers: true
 
 
 
-<a href='#cart-price-relationships_price' aria-hidden='true' class='block-anchor'  id='cart-price-relationships_price'></a>
+<a href='#cart-price-relationships_price' aria-hidden='true' class='block-anchor'  id='cart-price-relationships_price'><i aria-hidden='true' class='linkify icon'></i></a>
 
 ## Price
 
@@ -126,7 +126,7 @@ lineNumbers: true
 
 
 
-<a href='#cart-price-relationships_cart-item-full-response' aria-hidden='true' class='block-anchor'  id='cart-price-relationships_cart-item-full-response'></a>
+<a href='#cart-price-relationships_cart-item-full-response' aria-hidden='true' class='block-anchor'  id='cart-price-relationships_cart-item-full-response'><i aria-hidden='true' class='linkify icon'></i></a>
 
 ## Cart Item Object Example
 

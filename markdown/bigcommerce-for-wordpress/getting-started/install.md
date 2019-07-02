@@ -9,7 +9,7 @@
 	</ul>
 </div>
 
-<a href='##install_requirements' aria-hidden='true' class='block-anchor'  id='#install_requirements'></a>
+<a href='##install_requirements' aria-hidden='true' class='block-anchor'  id='#install_requirements'><i aria-hidden='true' class='linkify icon'></i></a>
 
 ## System Requirements:
 
@@ -21,7 +21,7 @@
 
 
 
-<a href='##install_installation' aria-hidden='true' class='block-anchor'  id='#install_installation'></a>
+<a href='##install_installation' aria-hidden='true' class='block-anchor'  id='#install_installation'><i aria-hidden='true' class='linkify icon'></i></a>
 
 ## Installation
 

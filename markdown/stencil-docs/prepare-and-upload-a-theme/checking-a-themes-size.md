@@ -7,7 +7,7 @@
 	</ul>
 </div>
 
-<a href='#checking_checking' aria-hidden='true' class='block-anchor'  id='checking_checking'></a>
+<a href='#checking_checking' aria-hidden='true' class='block-anchor'  id='checking_checking'><i aria-hidden='true' class='linkify icon'></i></a>
 
 ## Checking a Theme's Size
 

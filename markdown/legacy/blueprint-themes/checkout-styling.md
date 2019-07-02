@@ -27,7 +27,7 @@ To support stores that enable BigCommerce's Optimized One-Page Checkout feature,
 
 
 
-<a href='#customization-options-restrictions' aria-hidden='true' class='block-anchor'  id='customization-options-restrictions'></a>
+<a href='#customization-options-restrictions' aria-hidden='true' class='block-anchor'  id='customization-options-restrictions'><i aria-hidden='true' class='linkify icon'></i></a>
 
 ## Customization Options/Restrictions 
 
@@ -38,7 +38,7 @@ The structure and class naming are reserved because each class here maps to mult
 
 
 
-<a href='#configuring-desktop-viewport' aria-hidden='true' class='block-anchor'  id='configuring-desktop-viewport'></a>
+<a href='#configuring-desktop-viewport' aria-hidden='true' class='block-anchor'  id='configuring-desktop-viewport'><i aria-hidden='true' class='linkify icon'></i></a>
 
 ## Configuring the Desktop Viewport 
 
@@ -66,7 +66,7 @@ For other customization options, please see the class descriptions [below](#clas
 
 
 
-<a href='#deploying-custom-css' aria-hidden='true' class='block-anchor'  id='deploying-custom-css'></a>
+<a href='#deploying-custom-css' aria-hidden='true' class='block-anchor'  id='deploying-custom-css'><i aria-hidden='true' class='linkify icon'></i></a>
 
 ## Deploying Custom CSS 
 
@@ -78,7 +78,7 @@ For details on interacting with WebDAV, please see [this article](https://suppor
 
 
 
-<a href='#classes-provided' aria-hidden='true' class='block-anchor'  id='classes-provided'></a>
+<a href='#classes-provided' aria-hidden='true' class='block-anchor'  id='classes-provided'><i aria-hidden='true' class='linkify icon'></i></a>
 
 ## Classes Provided 
 
@@ -101,7 +101,7 @@ Below is a summary of the classes provided in the template CSS, with correspondi
 
 
 
-<a href='#css-skeleton' aria-hidden='true' class='block-anchor'  id='css-skeleton'></a>
+<a href='#css-skeleton' aria-hidden='true' class='block-anchor'  id='css-skeleton'><i aria-hidden='true' class='linkify icon'></i></a>
 
 ## CSS Skeleton 
 

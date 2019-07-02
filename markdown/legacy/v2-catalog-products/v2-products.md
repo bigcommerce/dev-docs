@@ -26,7 +26,7 @@
 </div>
 </div>
 
-<a href='#v2-products_object-properties' aria-hidden='true' class='block-anchor'  id='v2-products_object-properties'></a>
+<a href='#v2-products_object-properties' aria-hidden='true' class='block-anchor'  id='v2-products_object-properties'><i aria-hidden='true' class='linkify icon'></i></a>
 
 ## Products 
 A product object represents a saleable item in the catalog.
@@ -121,7 +121,7 @@ A product object represents a saleable item in the catalog.
 
 
 
-<a href='#v2-products_list-products' aria-hidden='true' class='block-anchor'  id='v2-products_list-products'></a>
+<a href='#v2-products_list-products' aria-hidden='true' class='block-anchor'  id='v2-products_list-products'><i aria-hidden='true' class='linkify icon'></i></a>
 
 ## List Products 
 
@@ -436,7 +436,7 @@ Example JSON returned in the response:
 
 
 
-<a href='#v2-products_get-products' aria-hidden='true' class='block-anchor'  id='v2-products_get-products'></a>
+<a href='#v2-products_get-products' aria-hidden='true' class='block-anchor'  id='v2-products_get-products'><i aria-hidden='true' class='linkify icon'></i></a>
 
 ## Get a Product 
 
@@ -680,7 +680,7 @@ Example JSON returned in the response:
 
 
 
-<a href='#v2-products_get-count-products' aria-hidden='true' class='block-anchor'  id='v2-products_get-count-products'></a>
+<a href='#v2-products_get-count-products' aria-hidden='true' class='block-anchor'  id='v2-products_get-count-products'><i aria-hidden='true' class='linkify icon'></i></a>
 
 ## Get a Product Count 
 
@@ -737,7 +737,7 @@ Example JSON returned in the response:
 
 
 
-<a href='#v2-products_create-products' aria-hidden='true' class='block-anchor'  id='v2-products_create-products'></a>
+<a href='#v2-products_create-products' aria-hidden='true' class='block-anchor'  id='v2-products_create-products'><i aria-hidden='true' class='linkify icon'></i></a>
 
 ## Create a Product 
 
@@ -805,7 +805,7 @@ If automatic tax is enabled on the store, the value of `tax_class_id` will have 
 
 
 
-<a href='#v2-products_update-products' aria-hidden='true' class='block-anchor'  id='v2-products_update-products'></a>
+<a href='#v2-products_update-products' aria-hidden='true' class='block-anchor'  id='v2-products_update-products'><i aria-hidden='true' class='linkify icon'></i></a>
 
 ## Update a Product 
 
@@ -904,7 +904,7 @@ If automatic tax is enabled on the store, the value of `tax_class_id` will have 
 
 
 
-<a href='#v2-products_delete-products' aria-hidden='true' class='block-anchor'  id='v2-products_delete-products'></a>
+<a href='#v2-products_delete-products' aria-hidden='true' class='block-anchor'  id='v2-products_delete-products'><i aria-hidden='true' class='linkify icon'></i></a>
 
 ## Delete a Product 
 
@@ -922,7 +922,7 @@ Successful deletion of a product returns a `204 No Content` response:
 
 
 
-<a href='#v2-products_delete-all-products' aria-hidden='true' class='block-anchor'  id='v2-products_delete-all-products'></a>
+<a href='#v2-products_delete-all-products' aria-hidden='true' class='block-anchor'  id='v2-products_delete-all-products'><i aria-hidden='true' class='linkify icon'></i></a>
 
 ## Delete All Products 
 

@@ -11,7 +11,7 @@
 	</ul>
 </div>
 
-<a href='#forms_account' aria-hidden='true' class='block-anchor'  id='forms_account'></a>
+<a href='#forms_account' aria-hidden='true' class='block-anchor'  id='forms_account'><i aria-hidden='true' class='linkify icon'></i></a>
 
 ## Account Form
 
@@ -52,7 +52,7 @@
   </tr>
 </table>
 
-<a href='#forms_account-address' aria-hidden='true' class='block-anchor'  id='forms_account-address'></a>
+<a href='#forms_account-address' aria-hidden='true' class='block-anchor'  id='forms_account-address'><i aria-hidden='true' class='linkify icon'></i></a>
 
 ## Account Address Form 
 
@@ -86,7 +86,7 @@ https://github.com/bigcommerce/cornerstone/tree/master/templates/components/comm
   </tr>
 </table>
 
-<a href='#forms_wishlist' aria-hidden='true' class='block-anchor'  id='forms_wishlist'></a>
+<a href='#forms_wishlist' aria-hidden='true' class='block-anchor'  id='forms_wishlist'><i aria-hidden='true' class='linkify icon'></i></a>
 
 ## Wishlist Form
 
@@ -123,7 +123,7 @@ https://github.com/bigcommerce/cornerstone/tree/master/templates/components/comm
   </tr>
 </table>
 
-<a href='#forms_gift-certificate' aria-hidden='true' class='block-anchor'  id='forms_gift-certificate'></a>
+<a href='#forms_gift-certificate' aria-hidden='true' class='block-anchor'  id='forms_gift-certificate'><i aria-hidden='true' class='linkify icon'></i></a>
 
 ## Gift Certificate Form
 
@@ -218,7 +218,7 @@ https://github.com/bigcommerce/cornerstone/tree/master/templates/components/comm
   </tr>
 </table>
 
-<a href='#forms_contact-us' aria-hidden='true' class='block-anchor'  id='forms_contact-us'></a>
+<a href='#forms_contact-us' aria-hidden='true' class='block-anchor'  id='forms_contact-us'><i aria-hidden='true' class='linkify icon'></i></a>
 
 ## Contact Us Form 
 

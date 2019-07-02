@@ -10,13 +10,13 @@
 	</ul>
 </div>
 
-<a href='#assigning_merchant-performed' aria-hidden='true' class='block-anchor'  id='assigning_merchant-performed'></a>
+<a href='#assigning_merchant-performed' aria-hidden='true' class='block-anchor'  id='assigning_merchant-performed'><i aria-hidden='true' class='linkify icon'></i></a>
 
 ## Merchant Performed Actions
 
 Once the developer has uploaded a theme to BigCommerce, the merchant (or other authorized store user) can assign custom templates to individual store pages in the BigCommerce Control Panel. The steps are similar whether assigning brands, categories, products, and static Web pages – with slight differences. Below, we show examples for assigning a Web Page and a Category. For further details, please see the [Stencil Custom Templates Knowledge Base article](https://forum.bigcommerce.com/s/article/Stencil-Themes#custom-template).
 
-<a href='#assigning_assigning-a-web-page' aria-hidden='true' class='block-anchor'  id='assigning_assigning-a-web-page'></a>
+<a href='#assigning_assigning-a-web-page' aria-hidden='true' class='block-anchor'  id='assigning_assigning-a-web-page'><i aria-hidden='true' class='linkify icon'></i></a>
 
 ## Assigining a Web Page Template
 
@@ -47,7 +47,7 @@ Starting from the BigCommerce control panel's left navigation pane:
 </div>
 </div>
 
-<a href='#assigning_assigning-a-product' aria-hidden='true' class='block-anchor'  id='assigning_assigning-a-product'></a>
+<a href='#assigning_assigning-a-product' aria-hidden='true' class='block-anchor'  id='assigning_assigning-a-product'><i aria-hidden='true' class='linkify icon'></i></a>
 
 ## Assigning a Product, Brand, or Category Template
 
@@ -67,7 +67,7 @@ Starting from the BigCommerce control panel's left navigation pane:
 
 ![](//s3.amazonaws.com/user-content.stoplight.io/6116/1539930552310 "")
 
-<a href='#assigning_troubleshooting' aria-hidden='true' class='block-anchor'  id='assigning_troubleshooting'></a>
+<a href='#assigning_troubleshooting' aria-hidden='true' class='block-anchor'  id='assigning_troubleshooting'><i aria-hidden='true' class='linkify icon'></i></a>
 
 ## Troubleshooting Template Assignments
 

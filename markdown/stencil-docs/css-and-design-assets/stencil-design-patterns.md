@@ -10,7 +10,7 @@
 	</ul>
 </div>
 
-<a href='#components_design-patterns' aria-hidden='true' class='block-anchor'  id='components_design-patterns'></a>
+<a href='#components_design-patterns' aria-hidden='true' class='block-anchor'  id='components_design-patterns'><i aria-hidden='true' class='linkify icon'></i></a>
 
 Stencil themes include an internal pattern library called Citadel, which consumes the ZURB Foundation framework. Foundation provides the basis for creating responsive themes. Citadel extends the Foundation framework’s mixins and components to provide Stencil’s own mixins, extensible components, and utilities.
 
@@ -37,7 +37,7 @@ A theme developer might use drop-down lists, forms, and similar resources from C
 
 
 
-<a href='#components_components-directory' aria-hidden='true' class='block-anchor'  id='components_components-directory'></a>
+<a href='#components_components-directory' aria-hidden='true' class='block-anchor'  id='components_components-directory'><i aria-hidden='true' class='linkify icon'></i></a>
 
 ## Components Directory 
 
@@ -52,7 +52,7 @@ You can see the components directory and its children present in the [Cornerston
 
 
 
-<a href='#components_citadel-sub' aria-hidden='true' class='block-anchor'  id='components_citadel-sub'></a>
+<a href='#components_citadel-sub' aria-hidden='true' class='block-anchor'  id='components_citadel-sub'><i aria-hidden='true' class='linkify icon'></i></a>
 
 ## Citadel Subdirectory
 
@@ -109,7 +109,7 @@ Mixins follow regular camel-case naming conventions. Namespacing is not universa
 
 
 
-<a href='#components_foundation-sub' aria-hidden='true' class='block-anchor'  id='components_foundation-sub'></a>
+<a href='#components_foundation-sub' aria-hidden='true' class='block-anchor'  id='components_foundation-sub'><i aria-hidden='true' class='linkify icon'></i></a>
 
 ## Foundation Subdirectory
 
@@ -118,7 +118,7 @@ The <span class="fp">/components/foundation/</span> subdirectory contains files 
 
 
 
-<a href='#components_stencil-sub' aria-hidden='true' class='block-anchor'  id='components_stencil-sub'></a>
+<a href='#components_stencil-sub' aria-hidden='true' class='block-anchor'  id='components_stencil-sub'><i aria-hidden='true' class='linkify icon'></i></a>
 
 ## Stencil Subdirectory
 
@@ -152,7 +152,7 @@ This subdirectory’s children contain CSS for the following page elements.
 
 
 
-<a href='#components_vendor-sub' aria-hidden='true' class='block-anchor'  id='components_vendor-sub'></a>
+<a href='#components_vendor-sub' aria-hidden='true' class='block-anchor'  id='components_vendor-sub'><i aria-hidden='true' class='linkify icon'></i></a>
 
 ## Vendor Subdirectory
 

@@ -8,7 +8,7 @@
 	</ul>
 </div>
 
-<a href='#assets_the-assets-directory' aria-hidden='true' class='block-anchor'  id='assets_the-assets-directory'></a>
+<a href='#assets_the-assets-directory' aria-hidden='true' class='block-anchor'  id='assets_the-assets-directory'><i aria-hidden='true' class='linkify icon'></i></a>
 
 ## Assets Directory
 
@@ -71,7 +71,7 @@ The <span class="fp">/scss/</span> subdirectory contains theme-specific CSS reso
 
 
 
-<a href='#assets_video-demo' aria-hidden='true' class='block-anchor'  id='assets_video-demo'></a>
+<a href='#assets_video-demo' aria-hidden='true' class='block-anchor'  id='assets_video-demo'><i aria-hidden='true' class='linkify icon'></i></a>
 
 ## Video Demo
 
@@ -82,7 +82,7 @@ Watch a video tour of the <span class="fp">/assets/</span> directory, its `/scss
 
 
 
-<a href='#assets_restrictions-permissions' aria-hidden='true' class='block-anchor'  id='assets_restrictions-permissions'></a>
+<a href='#assets_restrictions-permissions' aria-hidden='true' class='block-anchor'  id='assets_restrictions-permissions'><i aria-hidden='true' class='linkify icon'></i></a>
 
 ##  Directory and File Restrictions/Permissions
 

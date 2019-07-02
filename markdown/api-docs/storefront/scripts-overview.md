@@ -15,7 +15,7 @@
 	</ul>
 </div>
 
-<a href='#scripts_introduction' aria-hidden='true' class='block-anchor'  id='scripts_introduction'></a>
+<a href='#scripts_introduction' aria-hidden='true' class='block-anchor'  id='scripts_introduction'><i aria-hidden='true' class='linkify icon'></i></a>
 
 The BigCommerce Scripts API gives developers the ability to inject scripts into a store's template files programmatically. This means that app and integrations can insert scripts into a user’s storefront without requiring the user to manually paste a snippet of code into their control panel. There are many use cases for this powerful API, for example:
 * inserting analytics scripts
@@ -28,7 +28,7 @@ The BigCommerce Scripts API gives developers the ability to inject scripts into 
 This article contains detailed information about the Scripts API and assumes you're familiar with BigCommerce App Installation process. For more information on the app installation process, see:
 [App Installation](/api-docs/getting-started/building-apps-bigcommerce/building-apps#building-apps_installation-update-sequence)
 
-<a href='#scripts_script-manager-partner-guidelines' aria-hidden='true' class='block-anchor'  id='scripts_script-manager-partner-guidelines'></a>
+<a href='#scripts_script-manager-partner-guidelines' aria-hidden='true' class='block-anchor'  id='scripts_script-manager-partner-guidelines'><i aria-hidden='true' class='linkify icon'></i></a>
 
 ## Script Manager API Partner Guidelines
 
@@ -51,7 +51,7 @@ Because of this, you’ll need to check whether a user is running Stencil to det
 
 
 
-<a href='#scripts_script-prerequisites' aria-hidden='true' class='block-anchor'  id='scripts_script-prerequisites'></a>
+<a href='#scripts_script-prerequisites' aria-hidden='true' class='block-anchor'  id='scripts_script-prerequisites'><i aria-hidden='true' class='linkify icon'></i></a>
 
 ## Prerequisites
 
@@ -60,7 +60,7 @@ To better understand the content of this document, you should be familiar with t
 
 
 
-<a href='#scripts_upgrades-installation' aria-hidden='true' class='block-anchor'  id='scripts_upgrades-installation'></a>
+<a href='#scripts_upgrades-installation' aria-hidden='true' class='block-anchor'  id='scripts_upgrades-installation'><i aria-hidden='true' class='linkify icon'></i></a>
 
 ## Upgrades and Installation
 
@@ -100,7 +100,7 @@ Existing blueprint installations won’t be affected, but remember that if you a
 
 
 
-<a href='#scripts_fixing-missing-scripts' aria-hidden='true' class='block-anchor'  id='scripts_fixing-missing-scripts'></a>
+<a href='#scripts_fixing-missing-scripts' aria-hidden='true' class='block-anchor'  id='scripts_fixing-missing-scripts'><i aria-hidden='true' class='linkify icon'></i></a>
 
 ### Fixing Missing Scripts
 
@@ -130,7 +130,7 @@ Stencil themes from the marketplace support the [Optimized One-Page Checkout](ht
 
 
 
-<a href='#scripts_scripts-notes' aria-hidden='true' class='block-anchor'  id='scripts_scripts-notes'></a>
+<a href='#scripts_scripts-notes' aria-hidden='true' class='block-anchor'  id='scripts_scripts-notes'><i aria-hidden='true' class='linkify icon'></i></a>
 
 ## Notes
 
@@ -143,7 +143,7 @@ Stencil themes from the marketplace support the [Optimized One-Page Checkout](ht
 
 
 
-<a href='#scripts_scripts-visibility' aria-hidden='true' class='block-anchor'  id='scripts_scripts-visibility'></a>
+<a href='#scripts_scripts-visibility' aria-hidden='true' class='block-anchor'  id='scripts_scripts-visibility'><i aria-hidden='true' class='linkify icon'></i></a>
 
 ## Script Visibility Locations
 
@@ -163,7 +163,7 @@ Scripts can not be injected to:
 
 
 
-<a href='#scripts_oauth-scopes' aria-hidden='true' class='block-anchor'  id='scripts_oauth-scopes'></a>
+<a href='#scripts_oauth-scopes' aria-hidden='true' class='block-anchor'  id='scripts_oauth-scopes'><i aria-hidden='true' class='linkify icon'></i></a>
 
 ## OAuth Scopes
 * Checkout Content	
@@ -173,7 +173,7 @@ For more details and a full list of available scopes, see [Oauth Scopes](/api-do
 
 
 
-<a href='#scripts_related-endpoints' aria-hidden='true' class='block-anchor'  id='scripts_related-endpoints'></a>
+<a href='#scripts_related-endpoints' aria-hidden='true' class='block-anchor'  id='scripts_related-endpoints'><i aria-hidden='true' class='linkify icon'></i></a>
 
 ## Related Endpoints
 * [Get Scripts](/api-reference/content/content-scripts-api)

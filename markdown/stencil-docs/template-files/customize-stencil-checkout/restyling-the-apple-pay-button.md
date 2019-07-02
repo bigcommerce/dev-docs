@@ -11,7 +11,7 @@
 	</ul>
 </div>
 
-<a href='#restyling_using' aria-hidden='true' class='block-anchor'  id='restyling_using'></a>
+<a href='#restyling_using' aria-hidden='true' class='block-anchor'  id='restyling_using'><i aria-hidden='true' class='linkify icon'></i></a>
 
 ## Using Apple Pay
 
@@ -21,7 +21,7 @@ Displaying the Apple Pay button to shoppers on your storefront is subject to App
 
 
 
-<a href='#restyling_apple' aria-hidden='true' class='block-anchor'  id='restyling_apple'></a>
+<a href='#restyling_apple' aria-hidden='true' class='block-anchor'  id='restyling_apple'><i aria-hidden='true' class='linkify icon'></i></a>
 
 ## Apple Pay and Stencil Themes
 
@@ -51,7 +51,7 @@ By default, the Apple Pay button will appear on a theme's Cart page. If the stor
 
 
 
-<a href='#restyling_implementing' aria-hidden='true' class='block-anchor'  id='restyling_implementing'></a>
+<a href='#restyling_implementing' aria-hidden='true' class='block-anchor'  id='restyling_implementing'><i aria-hidden='true' class='linkify icon'></i></a>
 
 ## Implementing the Apple Pay Button
 
@@ -115,7 +115,7 @@ lineNumbers: true
 
 
 
-<a href='#restyling_apple-pay-identity' aria-hidden='true' class='block-anchor'  id='restyling_apple-pay-identity'></a>
+<a href='#restyling_apple-pay-identity' aria-hidden='true' class='block-anchor'  id='restyling_apple-pay-identity'><i aria-hidden='true' class='linkify icon'></i></a>
 
 ## Apple Pay Identity Guidelines
 
@@ -123,7 +123,7 @@ As a condition for enabling Apple Pay, Apple requires merchants to style and dis
 
 
 
-<a href='#restyling_styling' aria-hidden='true' class='block-anchor'  id='restyling_styling'></a>
+<a href='#restyling_styling' aria-hidden='true' class='block-anchor'  id='restyling_styling'><i aria-hidden='true' class='linkify icon'></i></a>
 
 ## Styling the Apple Pay Button
 
@@ -199,7 +199,7 @@ lineNumbers: true
 
 
 
-<a href='#restyling_troubleshooting' aria-hidden='true' class='block-anchor'  id='restyling_troubleshooting'></a>
+<a href='#restyling_troubleshooting' aria-hidden='true' class='block-anchor'  id='restyling_troubleshooting'><i aria-hidden='true' class='linkify icon'></i></a>
 
 ## Troubleshooting
 

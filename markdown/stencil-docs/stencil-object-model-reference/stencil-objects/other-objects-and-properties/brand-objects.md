@@ -9,7 +9,7 @@
 	</ul>
 </div>
 
-<a href='#brand_brand' aria-hidden='true' class='block-anchor'  id='brand_brand'></a>
+<a href='#brand_brand' aria-hidden='true' class='block-anchor'  id='brand_brand'><i aria-hidden='true' class='linkify icon'></i></a>
 
 ## Brand
 
@@ -61,7 +61,7 @@
   </tr>
 </table>
 
-<a href='#brand_brand-list' aria-hidden='true' class='block-anchor'  id='brand_brand-list'></a>
+<a href='#brand_brand-list' aria-hidden='true' class='block-anchor'  id='brand_brand-list'><i aria-hidden='true' class='linkify icon'></i></a>
 
 ## Brand List
 
@@ -94,7 +94,7 @@
   </tr>
 </table>
 
-<a href='#brand_shop-by-brand' aria-hidden='true' class='block-anchor'  id='brand_shop-by-brand'></a>
+<a href='#brand_shop-by-brand' aria-hidden='true' class='block-anchor'  id='brand_shop-by-brand'><i aria-hidden='true' class='linkify icon'></i></a>
 
 ## Shop by Brand
 

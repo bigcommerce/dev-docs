@@ -14,7 +14,7 @@
   </ul>
 </div>
 
-<a href='#customization-guide_introduction' aria-hidden='true' class='block-anchor'  id='customization-guide_introduction'></a>
+<a href='#customization-guide_introduction' aria-hidden='true' class='block-anchor'  id='customization-guide_introduction'><i aria-hidden='true' class='linkify icon'></i></a>
 
 ## Introduction
 
@@ -39,7 +39,7 @@ This guide will walk through the available options for developing themes that su
 
 
 
-<a href='#customization-guide_file-structure' aria-hidden='true' class='block-anchor'  id='customization-guide_file-structure'></a>
+<a href='#customization-guide_file-structure' aria-hidden='true' class='block-anchor'  id='customization-guide_file-structure'><i aria-hidden='true' class='linkify icon'></i></a>
 
 ## File Structure
 ### Templates
@@ -59,7 +59,7 @@ PostCSS modules are contained in the asset/pcss directory. The assets/css direct
 
 
 
-<a href='#customization-guide_template-overrides' aria-hidden='true' class='block-anchor'  id='customization-guide_template-overrides'></a>
+<a href='#customization-guide_template-overrides' aria-hidden='true' class='block-anchor'  id='customization-guide_template-overrides'><i aria-hidden='true' class='linkify icon'></i></a>
 
 ## Template Overrides
 When a WordPress plugin is updated, existing plugin files are overwritten by the new version. To ensure that your customizations persist through the update process, it’s important to use overrides in your theme files rather than editing plugin files directly.
@@ -78,7 +78,7 @@ BigCommerce for WordPress relies on specially named element classes for JavaScri
 
 
 
-<a href='#customization-guide_custom-css' aria-hidden='true' class='block-anchor'  id='customization-guide_custom-css'></a>
+<a href='#customization-guide_custom-css' aria-hidden='true' class='block-anchor'  id='customization-guide_custom-css'><i aria-hidden='true' class='linkify icon'></i></a>
 
 ## Custom CSS
 To style BigCommerce for WordPress elements with custom CSS, add your CSS to your theme’s stylesheet rather than editing the plugin stylesheets directly. Your theme’s CSS will have specificity over styles applied by the plugin and will override the default styles.
@@ -96,7 +96,7 @@ If you wish to disable the built-in plugin styles entirely, you have the option 
 
 
 
-<a href='#customization-guide_hooks' aria-hidden='true' class='block-anchor'  id='customization-guide_hooks'></a>
+<a href='#customization-guide_hooks' aria-hidden='true' class='block-anchor'  id='customization-guide_hooks'><i aria-hidden='true' class='linkify icon'></i></a>
 
 ## Hooks
 Hooks are access points during the WordPress execution process where a developer can insert custom code. Hooks consist of two types: actions and filters. Both allow developers to execute custom code during the WordPress lifecycle. The difference lies in whether the function returns a value: 
@@ -141,7 +141,7 @@ add_action( 'bigcommerce/template/product/archive', 'your_callback_function', 10
 
 
 
-<a href='#customization-guide_styling-checkout' aria-hidden='true' class='block-anchor'  id='customization-guide_styling-checkout'></a>
+<a href='#customization-guide_styling-checkout' aria-hidden='true' class='block-anchor'  id='customization-guide_styling-checkout'><i aria-hidden='true' class='linkify icon'></i></a>
 
 ## Styling Checkout
 BigCommerce for WordPress offers two possible checkout experiences, depending on whether the WordPress site has an installed SSL certificate.
@@ -179,7 +179,7 @@ Note that styles apply globally to all elements on the checkout page. For exampl
 
 
 
-<a href='#customization-guide_email-templates' aria-hidden='true' class='block-anchor'  id='customization-guide_email-templates'></a>
+<a href='#customization-guide_email-templates' aria-hidden='true' class='block-anchor'  id='customization-guide_email-templates'><i aria-hidden='true' class='linkify icon'></i></a>
 
 ## Email Templates
 You may wish to customize the built-in transactional emails sent from BigCommerce when an order is placed or updated. You can add custom text or images to email templates to reflect your store’s branding. 
@@ -188,7 +188,7 @@ Email templates can be customized and enabled/disabled on an individual basis fr
 
 
 
-<a href='#customization-guide_external-resources' aria-hidden='true' class='block-anchor'  id='customization-guide_external-resources'></a>
+<a href='#customization-guide_external-resources' aria-hidden='true' class='block-anchor'  id='customization-guide_external-resources'><i aria-hidden='true' class='linkify icon'></i></a>
 
 ## Additional Resources
 - [https://codex.wordpress.org/Theme_Development](https://codex.wordpress.org/Theme_Development)

@@ -7,7 +7,7 @@
 	</ul>
 </div>
 
-<a href='##implementation_cornerstone-example' aria-hidden='true' class='block-anchor'  id='#implementation_cornerstone-example'></a>
+<a href='##implementation_cornerstone-example' aria-hidden='true' class='block-anchor'  id='#implementation_cornerstone-example'><i aria-hidden='true' class='linkify icon'></i></a>
 
 ## Cornerstone Implementation Example
 

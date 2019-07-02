@@ -8,7 +8,7 @@
 	</ul>
 </div>
 
-<a href='#blog_blog' aria-hidden='true' class='block-anchor'  id='blog_blog'></a>
+<a href='#blog_blog' aria-hidden='true' class='block-anchor'  id='blog_blog'><i aria-hidden='true' class='linkify icon'></i></a>
 
 _These objects are called on the default `<theme-name>/templates/components/blog/post.html` partial._
 
@@ -83,7 +83,7 @@ _These objects are called on the default `<theme-name>/templates/components/blog
   </tr>
 </table>
 
-<a href='#blog_blog-post' aria-hidden='true' class='block-anchor'  id='blog_blog-post'></a>
+<a href='#blog_blog-post' aria-hidden='true' class='block-anchor'  id='blog_blog-post'><i aria-hidden='true' class='linkify icon'></i></a>
 
 ## Blog Post
 

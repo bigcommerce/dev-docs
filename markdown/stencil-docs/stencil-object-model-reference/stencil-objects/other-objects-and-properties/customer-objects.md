@@ -20,7 +20,7 @@
 	</ul>
 </div>
 
-<a href='#customer_customer' aria-hidden='true' class='block-anchor'  id='customer_customer'></a>
+<a href='#customer_customer' aria-hidden='true' class='block-anchor'  id='customer_customer'><i aria-hidden='true' class='linkify icon'></i></a>
 
 ## Customer
 
@@ -155,7 +155,7 @@
   </tr>
 </table>
 
-<a href='#customer_order-details' aria-hidden='true' class='block-anchor'  id='customer_order-details'></a>
+<a href='#customer_order-details' aria-hidden='true' class='block-anchor'  id='customer_order-details'><i aria-hidden='true' class='linkify icon'></i></a>
 
 ## Order Details
 
@@ -397,7 +397,7 @@
   </tr>
 </table>
 
-<a href='#customer_recent-items' aria-hidden='true' class='block-anchor'  id='customer_recent-items'></a>
+<a href='#customer_recent-items' aria-hidden='true' class='block-anchor'  id='customer_recent-items'><i aria-hidden='true' class='linkify icon'></i></a>
 
 ## Recent Items
 
@@ -407,7 +407,7 @@
 
 **Object Properties:** References the standard [product card model](/stencil-docs/stencil-object-model-reference/stencil-objects/common-objects/common-product-card-model).
 
-<a href='#customer_customer-wishlists' aria-hidden='true' class='block-anchor'  id='customer_customer-wishlists'></a>
+<a href='#customer_customer-wishlists' aria-hidden='true' class='block-anchor'  id='customer_customer-wishlists'><i aria-hidden='true' class='linkify icon'></i></a>
 
 ## Customer Wishlists
 
@@ -465,7 +465,7 @@
 </table>
 
 
-<a href='#customer_wishlist-details' aria-hidden='true' class='block-anchor'  id='customer_wishlist-details'></a>
+<a href='#customer_wishlist-details' aria-hidden='true' class='block-anchor'  id='customer_wishlist-details'><i aria-hidden='true' class='linkify icon'></i></a>
 
 ## Wishlist Details
 
@@ -518,7 +518,7 @@
   </tr>
 </table>
 
-<a href='#customer_account-order-shipments' aria-hidden='true' class='block-anchor'  id='customer_account-order-shipments'></a>
+<a href='#customer_account-order-shipments' aria-hidden='true' class='block-anchor'  id='customer_account-order-shipments'><i aria-hidden='true' class='linkify icon'></i></a>
 
 ## Account Order Shipments
 
@@ -563,7 +563,7 @@
   </tr>
 </table>
 
-<a href='#customer_account-orders' aria-hidden='true' class='block-anchor'  id='customer_account-orders'></a>
+<a href='#customer_account-orders' aria-hidden='true' class='block-anchor'  id='customer_account-orders'><i aria-hidden='true' class='linkify icon'></i></a>
 
 ## Account Orders
 
@@ -668,7 +668,7 @@
   </tr>
 </table>
 
-<a href='#customer_account-returns' aria-hidden='true' class='block-anchor'  id='customer_account-returns'></a>
+<a href='#customer_account-returns' aria-hidden='true' class='block-anchor'  id='customer_account-returns'><i aria-hidden='true' class='linkify icon'></i></a>
 
 ## Account Returns
 
@@ -742,7 +742,7 @@ Refunded, Rejected, or Cancelled</td>
   </tr>
 </table>
 
-<a href='#customer_account-new-return' aria-hidden='true' class='block-anchor'  id='customer_account-new-return'></a>
+<a href='#customer_account-new-return' aria-hidden='true' class='block-anchor'  id='customer_account-new-return'><i aria-hidden='true' class='linkify icon'></i></a>
 
 ## Account New Return
 
@@ -807,7 +807,7 @@ Refunded, Rejected, or Cancelled</td>
   </tr>
 </table>
 
-<a href='#customer_create-account' aria-hidden='true' class='block-anchor'  id='customer_create-account'></a>
+<a href='#customer_create-account' aria-hidden='true' class='block-anchor'  id='customer_create-account'><i aria-hidden='true' class='linkify icon'></i></a>
 
 ## Create Account
 
@@ -863,7 +863,7 @@ Refunded, Rejected, or Cancelled</td>
   </tr>
 </table>
 
-<a href='#customer_shipping-addresses' aria-hidden='true' class='block-anchor'  id='customer_shipping-addresses'></a>
+<a href='#customer_shipping-addresses' aria-hidden='true' class='block-anchor'  id='customer_shipping-addresses'><i aria-hidden='true' class='linkify icon'></i></a>
 
 ## Shipping Addresses
 
@@ -958,7 +958,7 @@ Refunded, Rejected, or Cancelled</td>
 
 
 
-<a href='#customer_payment-methods' aria-hidden='true' class='block-anchor'  id='customer_payment-methods'></a>
+<a href='#customer_payment-methods' aria-hidden='true' class='block-anchor'  id='customer_payment-methods'><i aria-hidden='true' class='linkify icon'></i></a>
 
 ## Payment Methods
 
@@ -999,7 +999,7 @@ Refunded, Rejected, or Cancelled</td>
 
 
 
-<a href='#customer_edit-payment-methods' aria-hidden='true' class='block-anchor'  id='customer_edit-payment-methods'></a>
+<a href='#customer_edit-payment-methods' aria-hidden='true' class='block-anchor'  id='customer_edit-payment-methods'><i aria-hidden='true' class='linkify icon'></i></a>
 
 ## Edit Payment Methods
 
@@ -1051,7 +1051,7 @@ Refunded, Rejected, or Cancelled</td>
 
 
 
-<a href='#customer_add-payment-methods' aria-hidden='true' class='block-anchor'  id='customer_add-payment-methods'></a>
+<a href='#customer_add-payment-methods' aria-hidden='true' class='block-anchor'  id='customer_add-payment-methods'><i aria-hidden='true' class='linkify icon'></i></a>
 
 ## Add Payment Methods
 

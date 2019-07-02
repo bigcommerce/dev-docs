@@ -24,7 +24,7 @@
 	</ul>
 </div>
 
-<a href='#handlebars_and' aria-hidden='true' class='block-anchor'  id='handlebars_and'></a>
+<a href='#handlebars_and' aria-hidden='true' class='block-anchor'  id='handlebars_and'><i aria-hidden='true' class='linkify icon'></i></a>
 
 The following standard helpers are available to handle comparisons.
 
@@ -41,7 +41,7 @@ Block helper that renders the block if *both* of the given values are truthy. If
 
 
 
-<a href='#handlebars_gt' aria-hidden='true' class='block-anchor'  id='handlebars_gt'></a>
+<a href='#handlebars_gt' aria-hidden='true' class='block-anchor'  id='handlebars_gt'><i aria-hidden='true' class='linkify icon'></i></a>
 
 ## {{gt}}
 
@@ -58,7 +58,7 @@ If an inverse block is specified, it will be rendered when falsy. You may option
 
 
 
-<a href='#handlebars_gte' aria-hidden='true' class='block-anchor'  id='handlebars_gte'></a>
+<a href='#handlebars_gte' aria-hidden='true' class='block-anchor'  id='handlebars_gte'><i aria-hidden='true' class='linkify icon'></i></a>
 
 ## {{gte}}
 
@@ -75,7 +75,7 @@ If an inverse block is specified, it will be rendered when falsy. You may option
 
 
 
-<a href='#handlebars_has' aria-hidden='true' class='block-anchor'  id='handlebars_has'></a>
+<a href='#handlebars_has' aria-hidden='true' class='block-anchor'  id='handlebars_has'><i aria-hidden='true' class='linkify icon'></i></a>
 
 ## {{has}}
 
@@ -90,7 +90,7 @@ Block helper that renders a block if `value` has `pattern`. If an inverse block 
 
 
 
-<a href='#handlebars_eq' aria-hidden='true' class='block-anchor'  id='handlebars_eq'></a>
+<a href='#handlebars_eq' aria-hidden='true' class='block-anchor'  id='handlebars_eq'><i aria-hidden='true' class='linkify icon'></i></a>
 
 ## {{eq}}
 
@@ -105,7 +105,7 @@ Block helper that renders a block if `a` is *equal to* `b`. If an inverse block 
 
 
 
-<a href='#handlebars_ifeven' aria-hidden='true' class='block-anchor'  id='handlebars_ifeven'></a>
+<a href='#handlebars_ifeven' aria-hidden='true' class='block-anchor'  id='handlebars_ifeven'><i aria-hidden='true' class='linkify icon'></i></a>
 
 ## {{ifEven}}
 
@@ -129,7 +129,7 @@ Returns `true` if the given value is an even number.
 
 
 
-<a href='#handlebars_ifNth' aria-hidden='true' class='block-anchor'  id='handlebars_ifNth'></a>
+<a href='#handlebars_ifNth' aria-hidden='true' class='block-anchor'  id='handlebars_ifNth'><i aria-hidden='true' class='linkify icon'></i></a>
 
 ## {{ifNth}}
 
@@ -144,7 +144,7 @@ Conditionally renders a block *if* dividing the `a` operand by `b` yields a rema
 
 
 
-<a href='#handlebars_ifOdd' aria-hidden='true' class='block-anchor'  id='handlebars_ifOdd'></a>
+<a href='#handlebars_ifOdd' aria-hidden='true' class='block-anchor'  id='handlebars_ifOdd'><i aria-hidden='true' class='linkify icon'></i></a>
 
 ## {{ifOdd}}
 
@@ -168,7 +168,7 @@ Block helper that renders a block if `value` is *an odd number*. If an inverse b
 
 
 
-<a href='#handlebars_is' aria-hidden='true' class='block-anchor'  id='handlebars_is'></a>
+<a href='#handlebars_is' aria-hidden='true' class='block-anchor'  id='handlebars_is'><i aria-hidden='true' class='linkify icon'></i></a>
 
 ## {{is}}
 
@@ -183,7 +183,7 @@ Block helper that renders a block if `a` is *equal to* `b`. If an inverse block 
 
 
 
-<a href='#handlebars_isnt' aria-hidden='true' class='block-anchor'  id='handlebars_isnt'></a>
+<a href='#handlebars_isnt' aria-hidden='true' class='block-anchor'  id='handlebars_isnt'><i aria-hidden='true' class='linkify icon'></i></a>
 
 ## {{isnt}}
 
@@ -198,7 +198,7 @@ Block helper that renders a block if `a` is *not equal to* `b`. If an inverse bl
 
 
 
-<a href='#handlebars_lt' aria-hidden='true' class='block-anchor'  id='handlebars_lt'></a>
+<a href='#handlebars_lt' aria-hidden='true' class='block-anchor'  id='handlebars_lt'><i aria-hidden='true' class='linkify icon'></i></a>
 
 ## {{lt}}
 
@@ -214,7 +214,7 @@ If an inverse block is specified, it will be rendered when falsy. You may option
 
 
 
-<a href='#handlebars_lte' aria-hidden='true' class='block-anchor'  id='handlebars_lte'></a>
+<a href='#handlebars_lte' aria-hidden='true' class='block-anchor'  id='handlebars_lte'><i aria-hidden='true' class='linkify icon'></i></a>
 
 ## {{lte}}
 
@@ -231,7 +231,7 @@ If an inverse block is specified, it will be rendered when falsy. You may option
 
 
 
-<a href='#handlebars_neither' aria-hidden='true' class='block-anchor'  id='handlebars_neither'></a>
+<a href='#handlebars_neither' aria-hidden='true' class='block-anchor'  id='handlebars_neither'><i aria-hidden='true' class='linkify icon'></i></a>
 
 ## {{neither}}
 
@@ -246,7 +246,7 @@ Block helper that renders a block if *neither of* the given values are truthy. I
 
 
 
-<a href='#handlebars_unlesseq' aria-hidden='true' class='block-anchor'  id='handlebars_unlesseq'></a>
+<a href='#handlebars_unlesseq' aria-hidden='true' class='block-anchor'  id='handlebars_unlesseq'><i aria-hidden='true' class='linkify icon'></i></a>
 
 ## {{unlessEq}}
 
@@ -261,7 +261,7 @@ Block helper that always renders the inverse block *unless `a` is equal to `b`*.
 
 
 
-<a href='#handlebars_unlessgt' aria-hidden='true' class='block-anchor'  id='handlebars_unlessgt'></a>
+<a href='#handlebars_unlessgt' aria-hidden='true' class='block-anchor'  id='handlebars_unlessgt'><i aria-hidden='true' class='linkify icon'></i></a>
 
 ## {{unlessGt}}
 
@@ -275,7 +275,7 @@ Block helper that always renders the inverse block *unless `a` is greater than `
 
 
 
-<a href='#handlebars_unlesslt' aria-hidden='true' class='block-anchor'  id='handlebars_unlesslt'></a>
+<a href='#handlebars_unlesslt' aria-hidden='true' class='block-anchor'  id='handlebars_unlesslt'><i aria-hidden='true' class='linkify icon'></i></a>
 
 ## {{unlessLt}}
 
@@ -289,7 +289,7 @@ Block helper that always renders the inverse block *unless `a` is less than `b`*
 
 
 
-<a href='#handlebars_unlessgteq' aria-hidden='true' class='block-anchor'  id='handlebars_unlessgteq'></a>
+<a href='#handlebars_unlessgteq' aria-hidden='true' class='block-anchor'  id='handlebars_unlessgteq'><i aria-hidden='true' class='linkify icon'></i></a>
 
 ## {{unlessGteq}}
 
@@ -303,7 +303,7 @@ Block helper that always renders the inverse block *unless `a` is greater than o
 
 
 
-<a href='#handlebars_unlesslteq' aria-hidden='true' class='block-anchor'  id='handlebars_unlesslteq'></a>
+<a href='#handlebars_unlesslteq' aria-hidden='true' class='block-anchor'  id='handlebars_unlesslteq'><i aria-hidden='true' class='linkify icon'></i></a>
 
 ## {{unlessLteq}}
 

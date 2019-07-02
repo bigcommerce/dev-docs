@@ -8,7 +8,7 @@
 	</ul>
 </div>
 
-<a href='#layouts-utilities-settings_the-layouts-directory' aria-hidden='true' class='block-anchor'  id='layouts-utilities-settings_the-layouts-directory'></a>
+<a href='#layouts-utilities-settings_the-layouts-directory' aria-hidden='true' class='block-anchor'  id='layouts-utilities-settings_the-layouts-directory'><i aria-hidden='true' class='linkify icon'></i></a>
 
 ## Layouts Directory
 
@@ -16,7 +16,7 @@ The <span class="fp">{theme-name}/assets/scss/layouts/</span> subdirectory conta
 
 
 
-<a href='#layouts-utilities-settings_the-utilities-directory' aria-hidden='true' class='block-anchor'  id='layouts-utilities-settings_the-utilities-directory'></a>
+<a href='#layouts-utilities-settings_the-utilities-directory' aria-hidden='true' class='block-anchor'  id='layouts-utilities-settings_the-utilities-directory'><i aria-hidden='true' class='linkify icon'></i></a>
 
 ## Utilities Directory
 
@@ -26,7 +26,7 @@ Every utility in this subdirectory will have both a class and a mixin. For examp
 
 
 
-<a href='#layouts-utilities-settings_the-settings-directory' aria-hidden='true' class='block-anchor'  id='layouts-utilities-settings_the-settings-directory'></a>
+<a href='#layouts-utilities-settings_the-settings-directory' aria-hidden='true' class='block-anchor'  id='layouts-utilities-settings_the-settings-directory'><i aria-hidden='true' class='linkify icon'></i></a>
 
 ## Settings Directory
 

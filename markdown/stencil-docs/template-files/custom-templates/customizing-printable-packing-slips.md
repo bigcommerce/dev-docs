@@ -10,7 +10,7 @@
 
 Merchants commonly request developers modify the default content of packing slips in order to satisfy specific business requirements and industry demands. In order to assist developers in making these changes, this articles contains instructions on how to edit the printable packing slip's HTML.
 
-<a href='#customizing_packing' aria-hidden='true' class='block-anchor'  id='customizing_packing'></a>
+<a href='#customizing_packing' aria-hidden='true' class='block-anchor'  id='customizing_packing'><i aria-hidden='true' class='linkify icon'></i></a>
 
 ## Customizing Printable Packing Slips
 
@@ -39,7 +39,7 @@ Customizing your Stencil theme's printable packing slips currently relies on a t
 </div>
 </div>
 
-<a href='#customizing_packing_resources' aria-hidden='true' class='block-anchor'  id='customizing_packing_resources'></a>
+<a href='#customizing_packing_resources' aria-hidden='true' class='block-anchor'  id='customizing_packing_resources'><i aria-hidden='true' class='linkify icon'></i></a>
 
 ## Resources
 * For more information on accessing theme files via WebDAV, see [File Access (WebDAV)](https://support.bigcommerce.com/articles/Public/File-Access-WebDAV/).

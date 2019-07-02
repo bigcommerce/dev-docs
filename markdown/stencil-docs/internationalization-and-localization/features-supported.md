@@ -10,7 +10,7 @@
 	</ul>
 </div>
 
-<a href='#implementation_automatic-language-detection' aria-hidden='true' class='block-anchor'  id='implementation_automatic-language-detection'></a>
+<a href='#implementation_automatic-language-detection' aria-hidden='true' class='block-anchor'  id='implementation_automatic-language-detection'><i aria-hidden='true' class='linkify icon'></i></a>
 
 ## Automatic Language Detection
 
@@ -18,7 +18,7 @@ The Stencil framework can automatically detect a localized language, based on th
 
 
 
-<a href='#implementation_cascading-translations' aria-hidden='true' class='block-anchor'  id='implementation_cascading-translations'></a>
+<a href='#implementation_cascading-translations' aria-hidden='true' class='block-anchor'  id='implementation_cascading-translations'><i aria-hidden='true' class='linkify icon'></i></a>
 
 ## Cascading Translations
 
@@ -26,7 +26,7 @@ Cascading works as follows: Assume that a Quebec/French-Canadian customer visits
 
 
 
-<a href='#implementation_nested-plurality' aria-hidden='true' class='block-anchor'  id='implementation_nested-plurality'></a>
+<a href='#implementation_nested-plurality' aria-hidden='true' class='block-anchor'  id='implementation_nested-plurality'><i aria-hidden='true' class='linkify icon'></i></a>
 
 ## Nested Plurality and Gender Support
 The framework allows you to code conditional plurality for strings within each translation file. For example, your code within an English-language file could overload a single message to display in each of the following forms – depending on the actual value of its two numeric variables:

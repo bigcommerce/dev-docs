@@ -7,7 +7,7 @@
 	</ul>
 </div>
 
-<a href='#pages_pages-subdirectory' aria-hidden='true' class='block-anchor'  id='pages_pages-subdirectory'></a>
+<a href='#pages_pages-subdirectory' aria-hidden='true' class='block-anchor'  id='pages_pages-subdirectory'><i aria-hidden='true' class='linkify icon'></i></a>
 
 ## Pages Subdirectory
 
@@ -19,7 +19,7 @@ The subdirectory’s [.html files](https://github.com/bigcommerce/cornerstone/tr
 
 
 
-<a href='#pages_naming-requirements' aria-hidden='true' class='block-anchor'  id='pages_naming-requirements'></a>
+<a href='#pages_naming-requirements' aria-hidden='true' class='block-anchor'  id='pages_naming-requirements'><i aria-hidden='true' class='linkify icon'></i></a>
 
 ## Naming Requirements
 

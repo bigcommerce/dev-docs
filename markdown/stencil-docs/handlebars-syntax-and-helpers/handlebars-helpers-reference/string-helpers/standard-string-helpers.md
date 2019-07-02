@@ -28,7 +28,7 @@
 	</ul>
 </div>
 
-<a href='#handlebars_camelcase' aria-hidden='true' class='block-anchor'  id='handlebars_camelcase'></a>
+<a href='#handlebars_camelcase' aria-hidden='true' class='block-anchor'  id='handlebars_camelcase'><i aria-hidden='true' class='linkify icon'></i></a>
 
 ## {{camelcase}}
 
@@ -48,7 +48,7 @@ camelCases the characters in the given `string`.
 
 
 
-<a href='#handlebars_capitalize' aria-hidden='true' class='block-anchor'  id='handlebars_capitalize'></a>
+<a href='#handlebars_capitalize' aria-hidden='true' class='block-anchor'  id='handlebars_capitalize'><i aria-hidden='true' class='linkify icon'></i></a>
 
 ## {{capitalize}}
 
@@ -68,7 +68,7 @@ Capitalizes the first word in a sentence.
 
 
 
-<a href='#handlebars_capitalizeall' aria-hidden='true' class='block-anchor'  id='handlebars_capitalizeall'></a>
+<a href='#handlebars_capitalizeall' aria-hidden='true' class='block-anchor'  id='handlebars_capitalizeall'><i aria-hidden='true' class='linkify icon'></i></a>
 
 ## {{capitalizeAll}}
 
@@ -88,7 +88,7 @@ Capitalizes all words in a string.
 
 
 
-<a href='#handlebars_center' aria-hidden='true' class='block-anchor'  id='handlebars_center'></a>
+<a href='#handlebars_center' aria-hidden='true' class='block-anchor'  id='handlebars_center'><i aria-hidden='true' class='linkify icon'></i></a>
 
 ## {{center}}
 
@@ -102,7 +102,7 @@ Centers a string, using non-breaking spaces.
 
 
 
-<a href='#handlebars_chop' aria-hidden='true' class='block-anchor'  id='handlebars_chop'></a>
+<a href='#handlebars_chop' aria-hidden='true' class='block-anchor'  id='handlebars_chop'><i aria-hidden='true' class='linkify icon'></i></a>
 
 ## {{chop}}
 
@@ -128,7 +128,7 @@ Like `trim`, but removes both extraneous whitespace *and non-word characters* fr
 
 
 
-<a href='#handlebars_dashcase' aria-hidden='true' class='block-anchor'  id='handlebars_dashcase'></a>
+<a href='#handlebars_dashcase' aria-hidden='true' class='block-anchor'  id='handlebars_dashcase'><i aria-hidden='true' class='linkify icon'></i></a>
 
 ## {{dashcase}}
 
@@ -148,7 +148,7 @@ dash-cases the characters in `string`. Replaces non-word characters and periods 
 
 
 
-<a href='#handlebars_dotcase' aria-hidden='true' class='block-anchor'  id='handlebars_dotcase'></a>
+<a href='#handlebars_dotcase' aria-hidden='true' class='block-anchor'  id='handlebars_dotcase'><i aria-hidden='true' class='linkify icon'></i></a>
 
 ## {{dotcase}}
 
@@ -168,7 +168,7 @@ dot.cases the characters in `string`.
 
 
 
-<a href='#handlebars_hyphenate' aria-hidden='true' class='block-anchor'  id='handlebars_hyphenate'></a>
+<a href='#handlebars_hyphenate' aria-hidden='true' class='block-anchor'  id='handlebars_hyphenate'><i aria-hidden='true' class='linkify icon'></i></a>
 
 ## {{hyphenate}}
 
@@ -188,7 +188,7 @@ Replaces spaces in a string with hyphens.
 
 
 
-<a href='#handlebars_isstring' aria-hidden='true' class='block-anchor'  id='handlebars_isstring'></a>
+<a href='#handlebars_isstring' aria-hidden='true' class='block-anchor'  id='handlebars_isstring'><i aria-hidden='true' class='linkify icon'></i></a>
 
 ## {{isString}}
 
@@ -208,7 +208,7 @@ Returns true if `value` is a string.
 
 
 
-<a href='#handlebars_lowercase' aria-hidden='true' class='block-anchor'  id='handlebars_lowercase'></a>
+<a href='#handlebars_lowercase' aria-hidden='true' class='block-anchor'  id='handlebars_lowercase'><i aria-hidden='true' class='linkify icon'></i></a>
 
 ## {{lowercase}}
 
@@ -228,7 +228,7 @@ Lowercases all characters in the given string.
 
 
 
-<a href='#handlebars_occurrences' aria-hidden='true' class='block-anchor'  id='handlebars_occurrences'></a>
+<a href='#handlebars_occurrences' aria-hidden='true' class='block-anchor'  id='handlebars_occurrences'><i aria-hidden='true' class='linkify icon'></i></a>
 
 ## {{occurrences}}
 
@@ -249,7 +249,7 @@ Returns the number of occurrences of `substring` within the given `string`.
 
 
 
-<a href='#handlebars_pascalcase' aria-hidden='true' class='block-anchor'  id='handlebars_pascalcase'></a>
+<a href='#handlebars_pascalcase' aria-hidden='true' class='block-anchor'  id='handlebars_pascalcase'><i aria-hidden='true' class='linkify icon'></i></a>
 
 ## {{pascalcase}}
 
@@ -269,7 +269,7 @@ PascalCases the characters in `string`.
 
 
 
-<a href='#handlebars_pathcase' aria-hidden='true' class='block-anchor'  id='handlebars_pathcase'></a>
+<a href='#handlebars_pathcase' aria-hidden='true' class='block-anchor'  id='handlebars_pathcase'><i aria-hidden='true' class='linkify icon'></i></a>
 
 ## {{pathcase}}
 
@@ -289,7 +289,7 @@ path/cases the characters in `string`.
 
 
 
-<a href='#handlebars_plusify' aria-hidden='true' class='block-anchor'  id='handlebars_plusify'></a>
+<a href='#handlebars_plusify' aria-hidden='true' class='block-anchor'  id='handlebars_plusify'><i aria-hidden='true' class='linkify icon'></i></a>
 
 ## {{plusify}}
 
@@ -309,7 +309,7 @@ Replaces spaces in the given string with pluses.
 
 
 
-<a href='#handlebars_reverse' aria-hidden='true' class='block-anchor'  id='handlebars_reverse'></a>
+<a href='#handlebars_reverse' aria-hidden='true' class='block-anchor'  id='handlebars_reverse'><i aria-hidden='true' class='linkify icon'></i></a>
 
 ## {{reverse}}
 
@@ -329,7 +329,7 @@ Reverses a string.
 
 
 
-<a href='#handlebars_sentence' aria-hidden='true' class='block-anchor'  id='handlebars_sentence'></a>
+<a href='#handlebars_sentence' aria-hidden='true' class='block-anchor'  id='handlebars_sentence'><i aria-hidden='true' class='linkify icon'></i></a>
 
 ## {{sentence}}
 
@@ -349,7 +349,7 @@ Sentence-cases the given string.
 
 
 
-<a href='#handlebars_snakecase' aria-hidden='true' class='block-anchor'  id='handlebars_snakecase'></a>
+<a href='#handlebars_snakecase' aria-hidden='true' class='block-anchor'  id='handlebars_snakecase'><i aria-hidden='true' class='linkify icon'></i></a>
 
 ## {{snakecase}}
 
@@ -369,7 +369,7 @@ snake_cases the characters in the given `string`.
 
 
 
-<a href='#handlebars_split' aria-hidden='true' class='block-anchor'  id='handlebars_split'></a>
+<a href='#handlebars_split' aria-hidden='true' class='block-anchor'  id='handlebars_split'><i aria-hidden='true' class='linkify icon'></i></a>
 
 ## {{split}}
 
@@ -389,7 +389,7 @@ Splits `string` at the given `character`.
 
 
 
-<a href='#handlebars_startswith' aria-hidden='true' class='block-anchor'  id='handlebars_startswith'></a>
+<a href='#handlebars_startswith' aria-hidden='true' class='block-anchor'  id='handlebars_startswith'><i aria-hidden='true' class='linkify icon'></i></a>
 
 ## {{startsWith}}
 
@@ -414,7 +414,7 @@ Tests whether a string begins with the given prefix.
 
 
 
-<a href='#handlebars_titleize' aria-hidden='true' class='block-anchor'  id='handlebars_titleize'></a>
+<a href='#handlebars_titleize' aria-hidden='true' class='block-anchor'  id='handlebars_titleize'><i aria-hidden='true' class='linkify icon'></i></a>
 
 ## {{titleize}}
 
@@ -434,7 +434,7 @@ Title-cases the given string.
 
 
 
-<a href='#handlebars_trim' aria-hidden='true' class='block-anchor'  id='handlebars_trim'></a>
+<a href='#handlebars_trim' aria-hidden='true' class='block-anchor'  id='handlebars_trim'><i aria-hidden='true' class='linkify icon'></i></a>
 
 ## {{trim}}
 
@@ -454,7 +454,7 @@ Removes extraneous whitespace from the beginning and end of a string.
 
 
 
-<a href='#handlebars_truncate' aria-hidden='true' class='block-anchor'  id='handlebars_truncate'></a>
+<a href='#handlebars_truncate' aria-hidden='true' class='block-anchor'  id='handlebars_truncate'><i aria-hidden='true' class='linkify icon'></i></a>
 
 ## {{truncate}}
 
@@ -471,7 +471,7 @@ Returns the first `{{x}}` number of characters in a string (unless it reaches th
 
 
 
-<a href='#handlebars_uppercase' aria-hidden='true' class='block-anchor'  id='handlebars_uppercase'></a>
+<a href='#handlebars_uppercase' aria-hidden='true' class='block-anchor'  id='handlebars_uppercase'><i aria-hidden='true' class='linkify icon'></i></a>
 
 ## {{uppercase}}
 

@@ -7,7 +7,7 @@
 	</ul>
 </div>
 
-<a href='#calling-theme-wide_calling-theme-wide' aria-hidden='true' class='block-anchor'  id='calling-theme-wide_calling-theme-wide'></a>
+<a href='#calling-theme-wide_calling-theme-wide' aria-hidden='true' class='block-anchor'  id='calling-theme-wide_calling-theme-wide'><i aria-hidden='true' class='linkify icon'></i></a>
 
 ## Calling Theme-Wide Variables via Handlebars
 

@@ -26,7 +26,7 @@ Some use cases for the Shipping Provider API are:
 
 
 
-<a href='#shipping-provider_prerequisites' aria-hidden='true' class='block-anchor'  id='shipping-provider_prerequisites'></a>
+<a href='#shipping-provider_prerequisites' aria-hidden='true' class='block-anchor'  id='shipping-provider_prerequisites'><i aria-hidden='true' class='linkify icon'></i></a>
 
 ## Prerequisites
 
@@ -42,7 +42,7 @@ Be familiar with the following API Endpoints:
 
 
 
-<a href='#shipping_provider-signup' aria-hidden='true' class='block-anchor'  id='shipping_provider-signup'></a>
+<a href='#shipping_provider-signup' aria-hidden='true' class='block-anchor'  id='shipping_provider-signup'><i aria-hidden='true' class='linkify icon'></i></a>
 
 ## Sign Up
 
@@ -73,7 +73,7 @@ To get your app ID, create an app in [Developer Tools](https://devtools.bigcomme
 
 
 
-<a href='#shipping_provider-before_development' aria-hidden='true' class='block-anchor'  id='shipping_provider-before_development'></a>
+<a href='#shipping_provider-before_development' aria-hidden='true' class='block-anchor'  id='shipping_provider-before_development'><i aria-hidden='true' class='linkify icon'></i></a>
 
 ## Before Development
 
@@ -113,7 +113,7 @@ Example:
 
 
 
-<a href='#shipping_provider-developing-app' aria-hidden='true' class='block-anchor'  id='shipping_provider-developing-app'></a>
+<a href='#shipping_provider-developing-app' aria-hidden='true' class='block-anchor'  id='shipping_provider-developing-app'><i aria-hidden='true' class='linkify icon'></i></a>
 
 ## Developing the App
 
@@ -247,7 +247,7 @@ lineNumbers: true
 
 
 
-<a href='#shipping_provider-return_shipping_quotes' aria-hidden='true' class='block-anchor'  id='shipping_provider-return_shipping_quotes'></a>
+<a href='#shipping_provider-return_shipping_quotes' aria-hidden='true' class='block-anchor'  id='shipping_provider-return_shipping_quotes'><i aria-hidden='true' class='linkify icon'></i></a>
 
 ## Returning Shipping Quotes
 
@@ -435,7 +435,7 @@ When an app with an associated shipping carrier is uninstalled, all of the shipp
 
 
 
-<a href='#shipping_provider-submitting-app' aria-hidden='true' class='block-anchor'  id='shipping_provider-submitting-app'></a>
+<a href='#shipping_provider-submitting-app' aria-hidden='true' class='block-anchor'  id='shipping_provider-submitting-app'><i aria-hidden='true' class='linkify icon'></i></a>
 
 ## Submitting the App
 
@@ -461,7 +461,7 @@ To sumbit your app send an email to <a href="shippingproviderapi@bigcommerce.com
 
 
 
-<a href='#shipping_provider-app_diagram' aria-hidden='true' class='block-anchor'  id='shipping_provider-app_diagram'></a>
+<a href='#shipping_provider-app_diagram' aria-hidden='true' class='block-anchor'  id='shipping_provider-app_diagram'><i aria-hidden='true' class='linkify icon'></i></a>
 
 ## App Diagram
 
@@ -480,7 +480,7 @@ Only one registered shipping carrier may be associated with an app. This [regist
 
 
 
-<a href='#shipping_provider-definitions' aria-hidden='true' class='block-anchor'  id='shipping_provider-definitions'></a>
+<a href='#shipping_provider-definitions' aria-hidden='true' class='block-anchor'  id='shipping_provider-definitions'><i aria-hidden='true' class='linkify icon'></i></a>
 
 ## Definitions
 
@@ -499,7 +499,7 @@ Only one registered shipping carrier may be associated with an app. This [regist
 
 
 
-<a href='#shipping_provider-faq' aria-hidden='true' class='block-anchor'  id='shipping_provider-faq'></a>
+<a href='#shipping_provider-faq' aria-hidden='true' class='block-anchor'  id='shipping_provider-faq'><i aria-hidden='true' class='linkify icon'></i></a>
 
 ## FAQ
 **Can I publish more than one app at a time?**  

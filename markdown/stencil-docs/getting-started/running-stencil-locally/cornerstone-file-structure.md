@@ -16,7 +16,7 @@ The Cornerstone file structure consists of four main subdirectories, which are d
 
 
 
-<a href='#cornerstone_templates-pages' aria-hidden='true' class='block-anchor'  id='cornerstone_templates-pages'></a>
+<a href='#cornerstone_templates-pages' aria-hidden='true' class='block-anchor'  id='cornerstone_templates-pages'><i aria-hidden='true' class='linkify icon'></i></a>
 
 ## template/pages
 <span class="fp">templates/pages</span> contains all the base template pages used in a BigCommerce Stencil storefront. The pages are grouped by page category.  For details, see [Pages Subdirectory](/stencil-docs/template-files/templates-directory/pages-subdirectory).
@@ -36,28 +36,28 @@ The Cornerstone file structure consists of four main subdirectories, which are d
 
 
 
-<a href='#cornerstone_templates-components' aria-hidden='true' class='block-anchor'  id='cornerstone_templates-components'></a>
+<a href='#cornerstone_templates-components' aria-hidden='true' class='block-anchor'  id='cornerstone_templates-components'><i aria-hidden='true' class='linkify icon'></i></a>
 
 ## template/components
 The <span class="fp">templates/components</span> directory consists of code snippets and partials that can be reused throughout your theme. This components directory is grouped by component type. For details, see [Components Subdirectory](/stencil-docs/template-files/templates-directory/components-subdirectory).
 
 
 
-<a href='#cornerstone_templates-layouts' aria-hidden='true' class='block-anchor'  id='cornerstone_templates-layouts'></a>
+<a href='#cornerstone_templates-layouts' aria-hidden='true' class='block-anchor'  id='cornerstone_templates-layouts'><i aria-hidden='true' class='linkify icon'></i></a>
 
 ## template/layout
 The <span class="fp">templates/layout</span> directory defines the overall structure (header, footer, etc.) for your storefront. Within this directory, you can create multiple layouts for different use cases, making it easy to switch between different variations for the same theme. For details, see [Layout Subdirectory](/stencil-docs/template-files/templates-directory/layout-subdirectory).
 
 
 
-<a href='#cornerstone_assets' aria-hidden='true' class='block-anchor'  id='cornerstone_assets'></a>
+<a href='#cornerstone_assets' aria-hidden='true' class='block-anchor'  id='cornerstone_assets'><i aria-hidden='true' class='linkify icon'></i></a>
 
 ## assets/
 <span class="fp">assets/</span> (images, CSS and JavaScript files) will be located in this directory. For details, see [Assets Directory](/stencil-docs/css-and-design-assets/assets-directory).
 
 
 
-<a href='#cornerstone_lang' aria-hidden='true' class='block-anchor'  id='cornerstone_lang'></a>
+<a href='#cornerstone_lang' aria-hidden='true' class='block-anchor'  id='cornerstone_lang'><i aria-hidden='true' class='linkify icon'></i></a>
 
 ## lang/
 <span class="fp">lang/</span> contains translation files, including the required <span class="fn">en.json</span>. For details, see [Internationalization/Localization](/stencil-docs/internationalization-and-localization/localizing-stores)

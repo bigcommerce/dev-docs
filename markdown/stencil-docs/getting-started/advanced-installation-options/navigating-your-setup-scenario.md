@@ -24,7 +24,7 @@
 </div>
 </div>
 
-<a href='#navigating_illustration' aria-hidden='true' class='block-anchor'  id='navigating_illustration'></a>
+<a href='#navigating_illustration' aria-hidden='true' class='block-anchor'  id='navigating_illustration'><i aria-hidden='true' class='linkify icon'></i></a>
 
 ## Illustration of Stencil's Setup Options
 
@@ -60,7 +60,7 @@ The diagram below visually illustrates _all_ currently supported workflows for s
 </div>
 </div>
 
-<a href='#navigating_initial' aria-hidden='true' class='block-anchor'  id='navigating_initial'></a>
+<a href='#navigating_initial' aria-hidden='true' class='block-anchor'  id='navigating_initial'><i aria-hidden='true' class='linkify icon'></i></a>
 
 ## Initial Cornerstone Setup 
 
@@ -77,7 +77,7 @@ Once you have completed these steps, proceed to the _Launching Stencil_ section.
 
 
 
-<a href='#navigating_download-and-install' aria-hidden='true' class='block-anchor'  id='navigating_download-and-install'></a>
+<a href='#navigating_download-and-install' aria-hidden='true' class='block-anchor'  id='navigating_download-and-install'><i aria-hidden='true' class='linkify icon'></i></a>
 
 ## Download and Install a New Version of Cornerstone 
 
@@ -91,7 +91,7 @@ If you would like to download and install a **new** version of Cornerstone from 
 
 
 
-<a href='#navigating_download-marketplace' aria-hidden='true' class='block-anchor'  id='navigating_download-marketplace'></a>
+<a href='#navigating_download-marketplace' aria-hidden='true' class='block-anchor'  id='navigating_download-marketplace'><i aria-hidden='true' class='linkify icon'></i></a>
 
 ## Download a Marketplace Theme 
 
@@ -106,7 +106,7 @@ If you would like to customize a theme _other than_ Cornerstone, follow the requ
 
 
 
-<a href='#navigating_implementing-custom-build' aria-hidden='true' class='block-anchor'  id='navigating_implementing-custom-build'></a>
+<a href='#navigating_implementing-custom-build' aria-hidden='true' class='block-anchor'  id='navigating_implementing-custom-build'><i aria-hidden='true' class='linkify icon'></i></a>
 
 ## Implement a Custom JavaScript Build System 
 
@@ -122,7 +122,7 @@ The Stencil framework currently uses Webpack 4 as its default Javascript Build s
 
 
 
-<a href='#navigating_blueprint-store' aria-hidden='true' class='block-anchor'  id='navigating_blueprint-store'></a>
+<a href='#navigating_blueprint-store' aria-hidden='true' class='block-anchor'  id='navigating_blueprint-store'><i aria-hidden='true' class='linkify icon'></i></a>
 
 ## Blueprint Store Launched before January 26th, 2016
 

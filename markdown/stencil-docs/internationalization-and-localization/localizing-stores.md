@@ -8,7 +8,7 @@
 	</ul>
 </div>
 
-<a href='#localizing_localization-touchpoints' aria-hidden='true' class='block-anchor'  id='localizing_localization-touchpoints'></a>
+<a href='#localizing_localization-touchpoints' aria-hidden='true' class='block-anchor'  id='localizing_localization-touchpoints'><i aria-hidden='true' class='linkify icon'></i></a>
 
 A BigCommerce storefront can be customized to display in any one language of your choice. To fully localize a store into a language/region other than U.S. English, you will need to customize three areas:
 
@@ -39,7 +39,7 @@ _Adjust other localization details via the BigCommerce Control Panel._
 
 
 
-<a href='#localizing_translating-theme-files' aria-hidden='true' class='block-anchor'  id='localizing_translating-theme-files'></a>
+<a href='#localizing_translating-theme-files' aria-hidden='true' class='block-anchor'  id='localizing_translating-theme-files'><i aria-hidden='true' class='linkify icon'></i></a>
 
 ## Translating Theme via Stencil CLI
 
@@ -47,7 +47,7 @@ The bulk of localizing a store is translating content on your theme's page templ
 
 
 
-<a href='#localizing_localizing-checkout' aria-hidden='true' class='block-anchor'  id='localizing_localizing-checkout'></a>
+<a href='#localizing_localizing-checkout' aria-hidden='true' class='block-anchor'  id='localizing_localizing-checkout'><i aria-hidden='true' class='linkify icon'></i></a>
 
 ## Localizing Checkout
 
@@ -72,7 +72,7 @@ Localizing your theme's checkout and order confirmation pages requires customiza
 
 
 
-<a href='#localizing_localizing-control-panel' aria-hidden='true' class='block-anchor'  id='localizing_localizing-control-panel'></a>
+<a href='#localizing_localizing-control-panel' aria-hidden='true' class='block-anchor'  id='localizing_localizing-control-panel'><i aria-hidden='true' class='linkify icon'></i></a>
 
 ## Localizing Control Panel Content
 

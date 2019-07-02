@@ -11,7 +11,7 @@
 	</ul>
 </div>
 
-<a href='#handlebars_any' aria-hidden='true' class='block-anchor'  id='handlebars_any'></a>
+<a href='#handlebars_any' aria-hidden='true' class='block-anchor'  id='handlebars_any'><i aria-hidden='true' class='linkify icon'></i></a>
 
 The following helpers are used to control loop execution.
 
@@ -45,7 +45,7 @@ The Stencil code controlling this component resides in the theme's `templates/co
 
 
 
-<a href='#handlebars_all' aria-hidden='true' class='block-anchor'  id='handlebars_all'></a>
+<a href='#handlebars_all' aria-hidden='true' class='block-anchor'  id='handlebars_all'><i aria-hidden='true' class='linkify icon'></i></a>
 
 ## {{all}}
 
@@ -61,7 +61,7 @@ The `all` helper is custom to Stencil. It checks whether _all_ parameters evalua
 
 
 
-<a href='#handlebars_contains' aria-hidden='true' class='block-anchor'  id='handlebars_contains'></a>
+<a href='#handlebars_contains' aria-hidden='true' class='block-anchor'  id='handlebars_contains'><i aria-hidden='true' class='linkify icon'></i></a>
 
 ## {{contains}}
 
@@ -77,7 +77,7 @@ The `contains` helper is custom to Stencil. It checks whether the second paramet
 
 
 
-<a href='#handlebars_each' aria-hidden='true' class='block-anchor'  id='handlebars_each'></a>
+<a href='#handlebars_each' aria-hidden='true' class='block-anchor'  id='handlebars_each'><i aria-hidden='true' class='linkify icon'></i></a>
 
 ## {{each}}
 
@@ -102,7 +102,7 @@ The syntax for the `each` helper can be found in the official Handlebars documen
 
 
 
-<a href='#handlebars_for' aria-hidden='true' class='block-anchor'  id='handlebars_for'></a>
+<a href='#handlebars_for' aria-hidden='true' class='block-anchor'  id='handlebars_for'><i aria-hidden='true' class='linkify icon'></i></a>
 
 ## {{for}}
 

@@ -12,7 +12,7 @@
 	</ul>
 </div>
 
-<a href='#schema_enabling' aria-hidden='true' class='block-anchor'  id='schema_enabling'></a>
+<a href='#schema_enabling' aria-hidden='true' class='block-anchor'  id='schema_enabling'><i aria-hidden='true' class='linkify icon'></i></a>
 
 ## Enabling Store Design
 
@@ -35,7 +35,7 @@ that setting – and its possible values – must be present in <span class="fn"
 
 * Also, each key that you create in schema.json must have a corresponding <span class="fn">config.json</span> key whose name matches its id value. This <span class="fn">config.json</span> key sets the default value (even if that is simply an empty string). A <span class="fn">schema.json</span> setting without an `id`-matched <span class="fn">config.json</span> key will not appear to users in the Store Design GUI.
 
-<a href='#schema_best-practices' aria-hidden='true' class='block-anchor'  id='schema_best-practices'></a>
+<a href='#schema_best-practices' aria-hidden='true' class='block-anchor'  id='schema_best-practices'><i aria-hidden='true' class='linkify icon'></i></a>
 
 ## Best Practices
 
@@ -51,7 +51,7 @@ Please follow these guidelines to head off errors upon theme upload, and to avoi
 
 
 
-<a href='#schema_how-json' aria-hidden='true' class='block-anchor'  id='schema_how-json'></a>
+<a href='#schema_how-json' aria-hidden='true' class='block-anchor'  id='schema_how-json'><i aria-hidden='true' class='linkify icon'></i></a>
 
 ## How .json Entries Govern Store Design's UI
 
@@ -64,7 +64,7 @@ The options displayed within these expandable Section headings correspond direct
 
 In all, the structure that you give your theme's <span class="fn">config.json</span> and <span class="fn">schema.json</span> files directly governs the UI that Store Design exposes to merchants. So these files provide your UI design tools.
 
-<a href='#schema_theme-editor-data' aria-hidden='true' class='block-anchor'  id='schema_theme-editor-data'></a>
+<a href='#schema_theme-editor-data' aria-hidden='true' class='block-anchor'  id='schema_theme-editor-data'><i aria-hidden='true' class='linkify icon'></i></a>
 
 ## Store Design Data Types
 
@@ -123,14 +123,14 @@ lineNumbers: true
 
 These `"type": "heading"` statements do not reference data types. Rather, they declare display captions for the Store Design UI's subcategories – the middle level nested within the Section headings, but outside the individual options from which merchants can select. (Those inner options are designated by `"label": <label-text>` statements.)
 
-<a href='#schema_data-structure' aria-hidden='true' class='block-anchor'  id='schema_data-structure'></a>
+<a href='#schema_data-structure' aria-hidden='true' class='block-anchor'  id='schema_data-structure'><i aria-hidden='true' class='linkify icon'></i></a>
 
 ## Store Design Data Structure in <span class="fn">schema.json</span> 
 
 The <span class="fn">schema.json</span> nesting structure that you just saw maps directly to the Store Design UI displayed to merchants: Below the `variations` section (whose data are imported from <span class="fn">config.json</span>), the order and nesting of options in Store Design's UI directly matches the order and nesting of your <span class="fn">schema.json</span> entries.
 
 
-<a href='#schema_ui-scope' aria-hidden='true' class='block-anchor'  id='schema_ui-scope'></a>
+<a href='#schema_ui-scope' aria-hidden='true' class='block-anchor'  id='schema_ui-scope'><i aria-hidden='true' class='linkify icon'></i></a>
 
 ## Arbitrary UI Scope and Sequence
 

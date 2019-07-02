@@ -28,7 +28,7 @@ Cornerstone versions 2.6.0+ will have Data Tags already included in the theme.
 </div>
 </div>
 
-<a href='#google-analytics_prerequisites' aria-hidden='true' class='block-anchor'  id='google-analytics_prerequisites'></a>
+<a href='#google-analytics_prerequisites' aria-hidden='true' class='block-anchor'  id='google-analytics_prerequisites'><i aria-hidden='true' class='linkify icon'></i></a>
 
 ## Prerequisites
 
@@ -46,7 +46,7 @@ Note: the remainder of this tutorial will be working off the refer to the themeâ
 
 
 
-<a href='#google-analytics_implementing' aria-hidden='true' class='block-anchor'  id='google-analytics_implementing'></a>
+<a href='#google-analytics_implementing' aria-hidden='true' class='block-anchor'  id='google-analytics_implementing'><i aria-hidden='true' class='linkify icon'></i></a>
 
 ## Implementing Data Tags on a Cornerstone Based Theme
 
@@ -135,7 +135,7 @@ In the above snippet, the data tag is embedded in a `<form>` HTML tag in lines 1
 
 
 
-<a href='#google-analytics_data-tag-ref' aria-hidden='true' class='block-anchor'  id='google-analytics_data-tag-ref'></a>
+<a href='#google-analytics_data-tag-ref' aria-hidden='true' class='block-anchor'  id='google-analytics_data-tag-ref'><i aria-hidden='true' class='linkify icon'></i></a>
 
 ## Data Tag Reference
 
@@ -258,7 +258,7 @@ Alternatively, if you are adding a data tag to a product list item in products/l
 
 
 
-<a href='#google-analytics_additional-resources' aria-hidden='true' class='block-anchor'  id='google-analytics_additional-resources'></a>
+<a href='#google-analytics_additional-resources' aria-hidden='true' class='block-anchor'  id='google-analytics_additional-resources'><i aria-hidden='true' class='linkify icon'></i></a>
 
 
 ## Resources

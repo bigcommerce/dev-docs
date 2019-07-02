@@ -13,7 +13,7 @@
 	</ul>
 </div>
 
-<a href='#widgets_introduction' aria-hidden='true' class='block-anchor'  id='widgets_introduction'></a>
+<a href='#widgets_introduction' aria-hidden='true' class='block-anchor'  id='widgets_introduction'><i aria-hidden='true' class='linkify icon'></i></a>
 
 The Widgets API allows developers to programmatically associate content with regions on a BigCommerce storefront. The content can consist of HTML, CSS, and JavaScript, and the API supports configuration via Handlebars variables. It can support many types of content such as YouTube Videos, image sliders, and chat apps.
 
@@ -26,7 +26,7 @@ We are going to review all the components that make a widget. Then, we’ll use 
 
 
 
-<a href='#widgets_regions' aria-hidden='true' class='block-anchor'  id='widgets_regions'></a>
+<a href='#widgets_regions' aria-hidden='true' class='block-anchor'  id='widgets_regions'><i aria-hidden='true' class='linkify icon'></i></a>
 
 ## Regions
 
@@ -58,7 +58,7 @@ Most themes in the BigCommerce marketplace come with predefined regions. It is b
 
 
 
-<a href='#widgets_widget-templates' aria-hidden='true' class='block-anchor'  id='widgets_widget-templates'></a>
+<a href='#widgets_widget-templates' aria-hidden='true' class='block-anchor'  id='widgets_widget-templates'><i aria-hidden='true' class='linkify icon'></i></a>
 
 ## Widget Templates
 
@@ -97,7 +97,7 @@ lineNumbers: true
 
 
 
-<a href='#widgets_widgets' aria-hidden='true' class='block-anchor'  id='widgets_widgets'></a>
+<a href='#widgets_widgets' aria-hidden='true' class='block-anchor'  id='widgets_widgets'><i aria-hidden='true' class='linkify icon'></i></a>
 
 ## Widgets
 
@@ -223,7 +223,7 @@ lineNumbers: true
 
 
 
-<a href='#widgets_placements' aria-hidden='true' class='block-anchor'  id='widgets_placements'></a>
+<a href='#widgets_placements' aria-hidden='true' class='block-anchor'  id='widgets_placements'><i aria-hidden='true' class='linkify icon'></i></a>
 
 ## Placements
 
@@ -288,7 +288,7 @@ lineNumbers: true
 
 
 
-<a href='#widgets_layouts' aria-hidden='true' class='block-anchor'  id='widgets_layouts'></a>
+<a href='#widgets_layouts' aria-hidden='true' class='block-anchor'  id='widgets_layouts'><i aria-hidden='true' class='linkify icon'></i></a>
 
 ### Layouts
 [Layouts](/api-reference/storefront/widgets-api/models/layout) allow a developer to control the position of widgets on the storefront. A Layout allows you to style around the Placement. Layout uses the markup field which accepts any valid HTML and CSS. A Layout can contain multiple Placements.
@@ -330,7 +330,7 @@ lineNumbers: true
 
 
 
-<a href='#widgets_placement-and-layouts' aria-hidden='true' class='block-anchor'  id='widgets_placement-and-layouts'></a>
+<a href='#widgets_placement-and-layouts' aria-hidden='true' class='block-anchor'  id='widgets_placement-and-layouts'><i aria-hidden='true' class='linkify icon'></i></a>
 
 ## Placements and Layouts
 
@@ -348,7 +348,7 @@ If you want to arrange widgets inside a page using a multi-column style system, 
 
 Using Layouts is optional and most recommended when you have multiple placements that you want to arrange in a particular way. You can still arrange content in a multi-column style system using HTML and CSS only without having to use Layouts when creating a single placement. 
 
-<a href='#widgets_storefront' aria-hidden='true' class='block-anchor'  id='widgets_storefront'></a>
+<a href='#widgets_storefront' aria-hidden='true' class='block-anchor'  id='widgets_storefront'><i aria-hidden='true' class='linkify icon'></i></a>
 
 ## Widgets on the Storefront
 
@@ -385,7 +385,7 @@ A Region can contain multiple Layouts with Widgets and Placements or Widgets wit
 
 
 
-<a href='#widgets_definitions' aria-hidden='true' class='block-anchor'  id='widgets_definitions'></a>
+<a href='#widgets_definitions' aria-hidden='true' class='block-anchor'  id='widgets_definitions'><i aria-hidden='true' class='linkify icon'></i></a>
 
 ## Definitions
 
@@ -400,7 +400,7 @@ A Region can contain multiple Layouts with Widgets and Placements or Widgets wit
 
 
 
-<a href='#widget_resources' aria-hidden='true' class='block-anchor'  id='widget_resources'></a>
+<a href='#widget_resources' aria-hidden='true' class='block-anchor'  id='widget_resources'><i aria-hidden='true' class='linkify icon'></i></a>
 
 ## Resources
 
@@ -409,7 +409,7 @@ A Region can contain multiple Layouts with Widgets and Placements or Widgets wit
 
 
 
-<a href='#widget_next-steps' aria-hidden='true' class='block-anchor'  id='widget_next-steps'></a>
+<a href='#widget_next-steps' aria-hidden='true' class='block-anchor'  id='widget_next-steps'><i aria-hidden='true' class='linkify icon'></i></a>
 
 ## Next Steps
 * [Widgets Tutorial](/api-docs/storefront/widgets/widgets-tutorial)

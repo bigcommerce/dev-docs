@@ -32,7 +32,7 @@ Options belonging to an option set.
 
 
 
-<a href='#v2-option-set-options_list-option-set-option' aria-hidden='true' class='block-anchor'  id='v2-option-set-options_list-option-set-option'></a>
+<a href='#v2-option-set-options_list-option-set-option' aria-hidden='true' class='block-anchor'  id='v2-option-set-options_list-option-set-option'><i aria-hidden='true' class='linkify icon'></i></a>
 
 ## List Option Set Options 
 
@@ -136,7 +136,7 @@ Example JSON returned in the response:
 
 
 
-<a href='#v2-option-set-options_get-option-set-option' aria-hidden='true' class='block-anchor'  id='v2-option-set-options_get-option-set-option'></a>
+<a href='#v2-option-set-options_get-option-set-option' aria-hidden='true' class='block-anchor'  id='v2-option-set-options_get-option-set-option'><i aria-hidden='true' class='linkify icon'></i></a>
 
 ## Get an Option Set Option 
 
@@ -165,7 +165,7 @@ Example JSON returned in the response:
 
 
 
-<a href='#v2-option-set-options_create-option-set-option' aria-hidden='true' class='block-anchor'  id='v2-option-set-options_create-option-set-option'></a>
+<a href='#v2-option-set-options_create-option-set-option' aria-hidden='true' class='block-anchor'  id='v2-option-set-options_create-option-set-option'><i aria-hidden='true' class='linkify icon'></i></a>
 
 ## Create an Option Set Option 
 
@@ -222,7 +222,7 @@ Example JSON returned in the response:
 }
 ```
 
-<a href='#v2-option-set-options_update-option-set-option' aria-hidden='true' class='block-anchor'  id='v2-option-set-options_update-option-set-option'></a>
+<a href='#v2-option-set-options_update-option-set-option' aria-hidden='true' class='block-anchor'  id='v2-option-set-options_update-option-set-option'><i aria-hidden='true' class='linkify icon'></i></a>
 
 ## Update an Option Set Option 
 
@@ -277,7 +277,7 @@ Example JSON returned in the response:
 
 
 
-<a href='#v2-option-set-options_delete-option-set-option' aria-hidden='true' class='block-anchor'  id='v2-option-set-options_delete-option-set-option'></a>
+<a href='#v2-option-set-options_delete-option-set-option' aria-hidden='true' class='block-anchor'  id='v2-option-set-options_delete-option-set-option'><i aria-hidden='true' class='linkify icon'></i></a>
 
 ## Delete an Option Set Option 
 
@@ -287,7 +287,7 @@ Deletes an option belonging to an option set.
 
 
 
-<a href='#v2-option-set-options_delete-multiple-option-set-option' aria-hidden='true' class='block-anchor'  id='v2-option-set-options_delete-multiple-option-set-option'></a>
+<a href='#v2-option-set-options_delete-multiple-option-set-option' aria-hidden='true' class='block-anchor'  id='v2-option-set-options_delete-multiple-option-set-option'><i aria-hidden='true' class='linkify icon'></i></a>
 
 ## Delete Multiple Option Set Options 
 

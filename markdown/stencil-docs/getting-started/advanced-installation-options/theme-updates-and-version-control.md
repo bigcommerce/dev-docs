@@ -24,7 +24,7 @@
 </div>
 </div>
 
-<a href='#theme-updates_customizing' aria-hidden='true' class='block-anchor'  id='theme-updates_customizing'></a>
+<a href='#theme-updates_customizing' aria-hidden='true' class='block-anchor'  id='theme-updates_customizing'><i aria-hidden='true' class='linkify icon'></i></a>
 
 ## Customizing Strategically for Easier Updates
 
@@ -32,7 +32,7 @@ In order to keep your store and Stencil theme performant, it's crucial to know t
 
 
 
-<a href='#theme-updates_goruck-best-pracs' aria-hidden='true' class='block-anchor'  id='theme-updates_goruck-best-pracs'></a>
+<a href='#theme-updates_goruck-best-pracs' aria-hidden='true' class='block-anchor'  id='theme-updates_goruck-best-pracs'><i aria-hidden='true' class='linkify icon'></i></a>
 
 ## GoRuck's Best Practices for Handling Theme Updates
 
@@ -82,7 +82,7 @@ All of these techniques minimize the complexity of merging base-theme updates in
 
 
 
-<a href='#theme-updates_synchronizing-cornerstone' aria-hidden='true' class='block-anchor'  id='theme-updates_synchronizing-cornerstone'></a>
+<a href='#theme-updates_synchronizing-cornerstone' aria-hidden='true' class='block-anchor'  id='theme-updates_synchronizing-cornerstone'><i aria-hidden='true' class='linkify icon'></i></a>
 
 ## Synchronizing Your Theme With Cornerstone's Updates
 
@@ -130,7 +130,7 @@ This approach downloads all theme files at once, allowing you to copy/paste thei
 
 
 
-<a href='#theme-updates_synchronizing-multiple' aria-hidden='true' class='block-anchor'  id='theme-updates_synchronizing-multiple'></a>
+<a href='#theme-updates_synchronizing-multiple' aria-hidden='true' class='block-anchor'  id='theme-updates_synchronizing-multiple'><i aria-hidden='true' class='linkify icon'></i></a>
 
 ## Synchronizing Updates for Multiple Themes
 
@@ -158,7 +158,7 @@ For greater scalability, you might choose to create your own master fork/branch 
 
 
 
-<a href='#theme-updates_preserving_client_changes' aria-hidden='true' class='block-anchor'  id='theme-updates_preserving_client_changes'></a>
+<a href='#theme-updates_preserving_client_changes' aria-hidden='true' class='block-anchor'  id='theme-updates_preserving_client_changes'><i aria-hidden='true' class='linkify icon'></i></a>
 
 ## Preserving a Client's Theme Setting Changes
 

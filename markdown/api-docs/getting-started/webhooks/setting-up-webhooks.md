@@ -15,13 +15,13 @@
 	</ul>
 </div>
 
-<a href='#setting-up-webhooks_intro' aria-hidden='true' class='block-anchor'  id='setting-up-webhooks_intro'></a>
+<a href='#setting-up-webhooks_intro' aria-hidden='true' class='block-anchor'  id='setting-up-webhooks_intro'><i aria-hidden='true' class='linkify icon'></i></a>
 
 When testing your application locally, ngrok is a helpful tool for viewing the webhook responses that BigCommerce sends to your app. Ngrok creates a publicly accessible tunnel URL to an application running on your machine's localhost. Ngrok also provides a web interface you can use to view HTTP request details.
 
 In this tutorial, we'll install ngrok, register a webhook on your store, and then observe the response when the webhook event is triggered.
 
-<a href='#setting-up-webhooks_prerequisites' aria-hidden='true' class='block-anchor'  id='setting-up-webhooks_prerequisites'></a>
+<a href='#setting-up-webhooks_prerequisites' aria-hidden='true' class='block-anchor'  id='setting-up-webhooks_prerequisites'><i aria-hidden='true' class='linkify icon'></i></a>
 
 ## Prerequisites
 
@@ -33,7 +33,7 @@ In this tutorial, we'll install ngrok, register a webhook on your store, and the
 
 
 
-<a href='#setting-up-webhooks_create-project-folder' aria-hidden='true' class='block-anchor'  id='setting-up-webhooks_create-project-folder'></a>
+<a href='#setting-up-webhooks_create-project-folder' aria-hidden='true' class='block-anchor'  id='setting-up-webhooks_create-project-folder'><i aria-hidden='true' class='linkify icon'></i></a>
 
 ## Create Project Folder
 
@@ -52,7 +52,7 @@ cd webhooks-test
 
 
 
-<a href='#setting-up-webhooks_install-ngrok' aria-hidden='true' class='block-anchor'  id='setting-up-webhooks_install-ngrok'></a>
+<a href='#setting-up-webhooks_install-ngrok' aria-hidden='true' class='block-anchor'  id='setting-up-webhooks_install-ngrok'><i aria-hidden='true' class='linkify icon'></i></a>
 
 ## Install ngrok
 
@@ -96,7 +96,7 @@ unzip /Users/your-computer/Downloads/ngrok-stable-darwin-amd64.zip -d /Users/you
 
 
 
-<a href='#setting-up-webhooks_create-express-app' aria-hidden='true' class='block-anchor'  id='setting-up-webhooks_create-express-app'></a>
+<a href='#setting-up-webhooks_create-express-app' aria-hidden='true' class='block-anchor'  id='setting-up-webhooks_create-express-app'><i aria-hidden='true' class='linkify icon'></i></a>
 
 ## Create Express App
 
@@ -175,7 +175,7 @@ From Express [Website](https://expressjs.com/en/starter/basic-routing.html):
 
 
 
-<a href='#setting-up-webhooks_start-the-app-ngrok' aria-hidden='true' class='block-anchor'  id='setting-up-webhooks_start-the-app-ngrok'></a>
+<a href='#setting-up-webhooks_start-the-app-ngrok' aria-hidden='true' class='block-anchor'  id='setting-up-webhooks_start-the-app-ngrok'><i aria-hidden='true' class='linkify icon'></i></a>
 
 ## Start the App and ngrok
 
@@ -243,11 +243,11 @@ lineNumbers: true
 
 4. Check all the values and then hit POST. If successful, the response will be 201 Created.
 
-<a href='#create-a-webhook' aria-hidden='true' class='block-anchor'  id='create-a-webhook'></a>
+<a href='#create-a-webhook' aria-hidden='true' class='block-anchor'  id='create-a-webhook'><i aria-hidden='true' class='linkify icon'></i></a>
 
 {'method': 'post', 'url': 'https://api.bigcommerce.com/stores/{store_hash}/v2/hooks', 'headers': {'Accept': 'application/json', 'Content-Type': 'application/json', 'X-Auth-Client': '{the OAuth client id}', 'X-Auth-Token': '{the OAuth token}'}, 'body': '{\n"scope": "store/product/updated",\n "destination": "https://{your-url}.ngrok.io/webhooks",\n "is_active": true\n}\n'}
 
-<a href='#201-response' aria-hidden='true' class='block-anchor'  id='201-response'></a>
+<a href='#201-response' aria-hidden='true' class='block-anchor'  id='201-response'><i aria-hidden='true' class='linkify icon'></i></a>
 
 <!--
 title: "201 Created Response"
@@ -269,7 +269,7 @@ lineNumbers: true
 }
 ```
 
-<a href='#setting-up-webhooks_fire-webhooks' aria-hidden='true' class='block-anchor'  id='setting-up-webhooks_fire-webhooks'></a>
+<a href='#setting-up-webhooks_fire-webhooks' aria-hidden='true' class='block-anchor'  id='setting-up-webhooks_fire-webhooks'><i aria-hidden='true' class='linkify icon'></i></a>
 
 ## Trigger the Webhook Event
 Webhooks can be triggered by actions performed by a shopper on the storefront or user within the control panel, or actions performed via API. To illustrate this point, we'll demonstrate both methods.
@@ -339,7 +339,7 @@ lineNumbers: true
 
 After hitting send, check the ngrok web interface. You may see a single event or several based on how many times the product has been updated in the previous step.
 
-<a href='#update-a-product-webhooks' aria-hidden='true' class='block-anchor'  id='update-a-product-webhooks'></a>
+<a href='#update-a-product-webhooks' aria-hidden='true' class='block-anchor'  id='update-a-product-webhooks'><i aria-hidden='true' class='linkify icon'></i></a>
 
 {'url': 'https://api.bigcommerce.com/stores/{store_hash}/v3/catalog/products/{product_id}', 'headers': {'X-Auth-Client': '{Your-X-Auth-Client}', 'X-Auth-Token': '{Your-X-Auth-Token}', 'Accept': 'application/json', 'Content-Type': 'application/json'}, 'method': 'put', 'body': '{\n  "price": 12.99\n}'}
 
@@ -373,13 +373,13 @@ Want to keep going? Try changing the text in `res.send()` to a custom response, 
 </div>
 </div>
 
-<a href='#delete-webhook' aria-hidden='true' class='block-anchor'  id='delete-webhook'></a>
+<a href='#delete-webhook' aria-hidden='true' class='block-anchor'  id='delete-webhook'><i aria-hidden='true' class='linkify icon'></i></a>
 
 {'method': 'delete', 'url': 'https://api.bigcommerce.com/stores/{store_hash}/v2/hooks/{hook_id}', 'headers': {'X-Auth-Client': '{your-client-id}', 'X-Auth-Token': '{your-auth-token}', 'Content-Type': 'application/json', 'Accept': 'application/json'}}
 
 
 
-<a href='#setting-up-webhooks_custom-headers' aria-hidden='true' class='block-anchor'  id='setting-up-webhooks_custom-headers'></a>
+<a href='#setting-up-webhooks_custom-headers' aria-hidden='true' class='block-anchor'  id='setting-up-webhooks_custom-headers'><i aria-hidden='true' class='linkify icon'></i></a>
 
 ## Adding Custom Headers
 For added security you can add custom headers to your webhook request. `headers` accepts any key:value pair as a string. 
@@ -405,7 +405,7 @@ lineNumbers: true
 
 
 
-<a href='#setting-up-webhooks_troubleshooting' aria-hidden='true' class='block-anchor'  id='setting-up-webhooks_troubleshooting'></a>
+<a href='#setting-up-webhooks_troubleshooting' aria-hidden='true' class='block-anchor'  id='setting-up-webhooks_troubleshooting'><i aria-hidden='true' class='linkify icon'></i></a>
 
 ## Troubleshooting
 1. Getting a 404 error using the root (/) url?
