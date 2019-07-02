@@ -40,4 +40,4 @@ This repo contains the markdown files and static assets powering [developer.bigc
 ```
 
 ## Contributing
-For information on contributing to BigCommerce Developer Documentation, see [CONTRIBUTING.md](contributing.md).
+For information on contributing to BigCommerce Developer Documentation, see [CONTRIBUTING.md](CONTRIBUTING.md).
