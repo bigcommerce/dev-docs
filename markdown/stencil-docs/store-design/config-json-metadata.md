@@ -26,6 +26,7 @@ The <span class="fp">config.json</span>file allows you to:
 Below is a list of all available keys and values in <span class="fp">config.json</span>. This will vary based on the theme customizations.
 
 <a href="/stencil-docs/object-references/models/configjson" class="devdocs-schema-box">Config.json Object Reference</a>
+
 ---
 
 <a href='#config_requirements-and-restrictions' aria-hidden='true' class='block-anchor'  id='config_requirements-and-restrictions'><i aria-hidden='true' class='linkify icon'></i></a>
