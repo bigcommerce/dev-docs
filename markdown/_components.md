@@ -208,8 +208,6 @@ lineNumbers: true
 </div>
 </div>
 
-> 
-
 ---
 
 ## Try in Postman Buttons
