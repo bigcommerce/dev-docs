@@ -92,7 +92,7 @@ lineNumbers: true
 
 **Example:**
 
-```markdown
+```html
 <div class="HubBlock-header">
     <div class="HubBlock-header-title flex items-center">
         <div class="HubBlock-header-name">Some JSON</div>
@@ -105,7 +105,7 @@ subtitle: "An Example"
 lineNumbers: true
 -->
 
-```json
+\```json
 {
     "fruits": [
         "apples",
@@ -113,8 +113,7 @@ lineNumbers: true
         "bananas"
     ]
 }
-`` `
-```
+\```
 
 **Result:**
 
