@@ -176,7 +176,7 @@ lineNumbers: true
 -->
 
 #### Dev Tools
-![Dev Tools](/assets/img/devtools.png "Dev Tools")
+![Dev Tools](https://raw.githubusercontent.com/bigcommerce/dev-docs/master/assets/img/devtools.png "Dev Tools")
 
 ---
 
