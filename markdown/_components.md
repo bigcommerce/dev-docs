@@ -51,9 +51,18 @@ lineNumbers: true
 
 ## Schema Blocks
 
+
+**Markup:**
 ```html
-<a href="/path/to/reference" class="devdocs-json-schema">Name of Reference</a>"
+<a href="{{path}}" class="devdocs-schema-box">Name of Reference</a>
 ```
+
+**Example:**
+```html
+<a href="/stencil-docs/object-references/models/configjson" class="devdocs-schema-box">Config.json Object Reference</a>
+```
+
+> `{{path}}` - the relative path to the Dev Center page that contains the reference HTML.  
 
 ## Try in Postman Buttons
 
