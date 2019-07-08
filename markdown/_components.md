@@ -192,7 +192,23 @@ lineNumbers: true
 <a href="/stencil-docs/object-references/models/configjson" class="devdocs-schema-box">Config.json Object Reference</a>
 ```
 
+**Result:**
+
+<a href="/stencil-docs/object-references/models/configjson" class="devdocs-schema-box">Config.json Object Reference</a>
+
+<div class="HubBlock--callout">
+<div class="CalloutBlock--info">
+<div class="HubBlock-content">
+
+<!-- theme: {{callout_type}} -->
+
 > `{{path}}` - the relative path to the Dev Center page that contains the reference HTML.  
+
+</div>
+</div>
+</div>
+
+> 
 
 ---
 
