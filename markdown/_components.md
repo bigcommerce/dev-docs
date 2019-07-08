@@ -92,10 +92,53 @@ lineNumbers: true
 
 **Example:**
 
-```html
+```markdown
+<div class="HubBlock-header">
+    <div class="HubBlock-header-title flex items-center">
+        <div class="HubBlock-header-name">Some JSON</div>
+    </div><div class="HubBlock-header-subtitle">An Example</div>
+</div>
+
+<!--
+title: "Some JSON"
+subtitle: "An Example"
+lineNumbers: true
+-->
+
+```json
+{
+    "fruits": [
+        "apples",
+        "oranges",
+        "bananas"
+    ]
+}
+`` `
 ```
 
 **Result:**
+
+<div class="HubBlock-header">
+    <div class="HubBlock-header-title flex items-center">
+        <div class="HubBlock-header-name">Some JSON</div>
+    </div><div class="HubBlock-header-subtitle">An Example</div>
+</div>
+
+<!--
+title: "Some JSON"
+subtitle: "An Example"
+lineNumbers: true
+-->
+
+```json
+{
+    "fruits": [
+        "apples",
+        "oranges",
+        "bananas"
+    ]
+}
+```
 
 ---
 
