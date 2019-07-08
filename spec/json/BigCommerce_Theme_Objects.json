@@ -1,9 +1,9 @@
 {
   "swagger": "2.0",
   "info": {
-    "title": "Stencil Objects",
+    "title": "Theme Objects",
     "version": "",
-    "description": ""
+    "description": "The definitions in this specification file serve as a reference for various theme .json, JavaScript, and handlebars objects. For example, the `config.json` model describes the keys and values used in a theme's `config.json/` file (the main configuration for stencil themes). "
   },
   "paths": {},
   "definitions": {
