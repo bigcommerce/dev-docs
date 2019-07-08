@@ -1,9 +1,24 @@
+# Components
+
 *Below are the various components (and their markup) used in devdocs articles.*
 
-> **Pro-Tip:**
+
+<div class="HubBlock--callout">
+<div class="CalloutBlock--info">
+<div class="HubBlock-content">
+    
+<!-- theme: {{callout_type}} -->
+
+### Pro-Tip:
 > Copy and paste the components into your favorite text expander (like PhraseExpress or PhraseExpander), or add to your favorite code editor's snippets.
 
+</div>
+</div>
+</div>
+
 ## Callout Blocks
+
+**Markup:**
 
 ```html
 <div class="HubBlock--callout">
@@ -12,14 +27,51 @@
     
 <!-- theme: {{callout_type}} -->
 
-{{title}}> There is no way to re-display this pop-up after selecting Done, so be sure to securely store the credentials before leaving this screen.
+### {{title}}
+> There is no way to re-display this pop-up after selecting Done, so be sure to securely store the credentials before leaving this screen.
 
 </div>
 </div>
 </div>
 ```
 
+**Example:**
+
+```html
+<div class="HubBlock--callout">
+<div class="CalloutBlock--info">
+<div class="HubBlock-content">
+    
+<!-- theme: {{callout_type}} -->
+
+### Pro-Tip:
+> Copy and paste the components into your favorite text expander (like PhraseExpress or PhraseExpander), or add to your favorite code editor's snippets.
+
+</div>
+</div>
+</div>
+```
+
+**Result:**
+
+<div class="HubBlock--callout">
+<div class="CalloutBlock--info">
+<div class="HubBlock-content">
+    
+<!-- theme: {{callout_type}} -->
+
+### Pro-Tip:
+> Copy and paste the components into your favorite text expander (like PhraseExpress or PhraseExpander), or add to your favorite code editor's snippets.
+
+</div>
+</div>
+</div>
+
+---
+
 ## Code Blocks
+
+**Markup:**
 
 ```markdown
 <div class="HubBlock-header">
@@ -37,7 +89,19 @@ lineNumbers: true
 ```{{code_lang}}
 {code}}{{new-line}}```
 ```
+
+**Example:**
+
+```html
+```
+
+**Result:**
+
+---
+
 ## Images
+
+**Markdown:**
 
 ```markdown
 <!--
@@ -49,8 +113,16 @@ lineNumbers: true
 ![{{title}}]({{src}} "{{title}}")
 ```
 
-## Schema Blocks
+**Example:**
 
+```html
+```
+
+**Result:**
+
+---
+
+## Schema Blocks
 
 **Markup:**
 ```html
@@ -63,6 +135,8 @@ lineNumbers: true
 ```
 
 > `{{path}}` - the relative path to the Dev Center page that contains the reference HTML.  
+
+---
 
 ## Try in Postman Buttons
 
