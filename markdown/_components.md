@@ -159,9 +159,24 @@ lineNumbers: true
 **Example:**
 
 ```html
+<!--
+    title: {{title}}
+    data: {{src}}
+-->
+
+#### Dev Tools
+![Dev Tools](/assets/img/devtools.png "Dev Tools")
 ```
 
 **Result:**
+
+<!--
+    title: {{title}}
+    data: {{src}}
+-->
+
+#### Dev Tools
+![Dev Tools](/assets/img/devtools.png "Dev Tools")
 
 ---
 
