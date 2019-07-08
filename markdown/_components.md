@@ -189,12 +189,12 @@ lineNumbers: true
 
 **Example:**
 ```html
-<a href="/stencil-docs/object-references/models/configjson" class="devdocs-schema-box">Config.json Object Reference</a>
+<a href="/api-reference/store-management/store-information-api/models/storeinformation" class="devdocs-schema-box">Config.json Object Reference</a>
 ```
 
 **Result:**
 
-<a href="/stencil-docs/object-references/models/configjson" class="devdocs-schema-box">Config.json Object Reference</a>
+<a href="/api-reference/store-management/store-information-api/models/storeinformation" class="devdocs-schema-box">Config.json Object Reference</a>
 
 <div class="HubBlock--callout">
 <div class="CalloutBlock--info">
