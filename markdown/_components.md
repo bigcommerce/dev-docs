@@ -12,7 +12,7 @@
     
 <!-- theme: {{callout_type}} -->
 
-{{title}}> There is no way to re-display this pop-up after selecting Done, so be sure to securely store the credentials before leaving this screen.
+{{title}} There is no way to re-display this pop-up after selecting Done, so be sure to securely store the credentials before leaving this screen.
 
 </div>
 </div>
