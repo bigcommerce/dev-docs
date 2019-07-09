@@ -27,12 +27,8 @@
     
 <!-- theme: {{callout_type}} -->
 
-<<<<<<< HEAD
-{{title}} There is no way to re-display this pop-up after selecting Done, so be sure to securely store the credentials before leaving this screen.
-=======
 ### {{title}}
 > There is no way to re-display this pop-up after selecting Done, so be sure to securely store the credentials before leaving this screen.
->>>>>>> 34314ac147a0c80cff211dae0745db29a13a99ef
 
 </div>
 </div>
