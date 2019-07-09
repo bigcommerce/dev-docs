@@ -2,6 +2,7 @@
 <div class="otp" id="no-index">
 	<h3> On This Page </h3>
 	<ul>
+	 <li><a href="#payments_payment-endpoints">Payment Endpoints</a></li>
        <li><a href="#payments_pci-compliance">PCI Compliance</a></li>
         <li><a href="#payments_processing-payment">Processing a Payment</a></li>
         <li><a href="#payments_stored-cards">Stored Cards</a></li>
@@ -11,9 +12,10 @@
         <li><a href="#payments_sample-app-diagram">Sample App Diagram</a></li>
     		<li><a href="#payments_error-codes">Error Codes</a></li>
         <li><a href="#payments_faq">FAQ</a></li>
-    
 	</ul>
 </div>
+
+---
 
 The Payments API enables you to process payments through the store’s connected payment gateway. A payment can be taken for an order that is created using either the [Server to Server Checkout API Orders](https://developer.bigcommerce.com/api-reference/cart-checkout/server-server-checkout-api) endpoint or creating an order using [V2 Orders](https://developer.bigcommerce.com/api-reference/orders/orders-api/orders/postorders) endpoint.
 
@@ -29,6 +31,18 @@ The following [OAuth](/api-docs/getting-started/authentication#authentication_oa
 
 ---
 
+<a href='#payments_payment-endpoints' aria-hidden='true' class='block-anchor' id='payments_payment-endpoints'><i aria-hidden='true' class='linkify icon'></i></a>
+
+## Payment Endpoints
+
+|Endpoint|Operations|Reference|
+|---|---|---|---|
+|`/payments/access_tokens`|`POST` - Create the Payment Access Token.|[Create Payment Access Token](https://developer.bigcommerce.com/api-reference/payments/payments-create-payment-token-api/payment-access-token/paymentsaccesstokenspost)
+|`/payments/methods`|`POST` Get all available Payment Methods.|[Get Accepted Payment Methods](https://developer.bigcommerce.com/api-reference/payments/payments-create-payment-token-api/payment-methods/paymentsmethodsget) |
+|`https://payments.bigcommerce.com/stores/{store_hash}/payments`|`POST` - Process Order Payment.|[Process payment for an order](https://developer.bigcommerce.com/api-reference/payments/payments-process-payments/payment/paymentspost) |
+
+---
+
 <a href='#payments_pci-compliance' aria-hidden='true' class='block-anchor'  id='payments_pci-compliance'><i aria-hidden='true' class='linkify icon'></i></a>
 
 ## PCI Compliance
@@ -41,8 +55,8 @@ Merchants or shoppers personal identifiable information (PII) collected by recur
 <div class="HubBlock-content">
     
 <!-- theme: warning -->
-
-> There is no way to re-display this pop-up after selecting Done, so be sure to securely store the credentials before leaving this screen.
+### PCI Compliance
+> If your application handles credit card data, you will need to be PCI Compliant. SAQs (self-assessment questionnaires) can be submitted to compliance@bigcommerce.com.
 
 </div>
 </div>
@@ -95,8 +109,8 @@ Payments can be processed using cards stored with the BigCommerce Stored Credit 
 <div class="HubBlock-content">
     
 <!-- theme:  -->
-
-> There is no way to re-display this pop-up after selecting Done, so be sure to securely store the credentials before leaving this screen.
+### Offsite Providers
+> The API flow does not currently support hosted/offsite providers such as PayPal and Adyen and wallet type payments such as Amazon Pay.
 
 </div>
 </div>
@@ -125,7 +139,10 @@ To use stored cards with the Payments API or the Checkout SDK make sure stored c
 
 This token is the same as `payment_instrument_token` from [Get Transactions](https://developer.bigcommerce.com/api-reference/orders/orders-transactions-api).
 
-{'method': 'get', 'url': 'https://api.bigcommerce.com/stores/{store_hash}/v3/payments/methods', 'query': {'order_id': ''}, 'headers': {'Accept': 'application/json', 'Content-Type': 'application/json', 'X-Auth-Client': '{$$.env.X-Auth-Client}', 'X-Auth-Token': '{$$.env.X-Auth-Token}'}}
+**Try it Now** 
+*Get Payment Methods*
+
+[![Run in Postman](https://run.pstmn.io/button.svg)](https://app.getpostman.com/run-collection/38daa68bda00ba9d4734)
 
 <div class="HubBlock-header">
     <div class="HubBlock-header-title flex items-center">
@@ -195,7 +212,7 @@ lineNumbers: true
 }
 ```
 
-On line 46 is the `token`. Make note of the token to use as part of processing the payment in the request body.
+Make note of the `token` under `stored_instruments` to use as part of processing the payment in the request body.
 
 ### Create Access Token
 2. Make a request to [Create Access Token](/api-reference/payments/payments-create-payment-token-api/payment-access-token/paymentsaccesstokenspost) to get the authorization token that needs to be passed in the header when processing the payment. The ID of the order needs to be part of the request body.
@@ -212,7 +229,7 @@ subtitle: "Create Payment Access Token"
 lineNumbers: true
 -->
 
-```
+```json
 {
   "order": {
     "id": 215
@@ -220,7 +237,10 @@ lineNumbers: true
 }
 ```
 
-{'url': 'https://api.bigcommerce.com/stores/{store_hash}/v3/payments/access_tokens', 'method': 'post', 'body': '{\n  "order": {\n    "id": your-order-id\n  }\n}', 'headers': {'Accept': 'application/json', 'Content-Type': 'application/json', 'X-Auth-Client': '{$$.env.X-Auth-Client}', 'X-Auth-Token': '{$$.env.X-Auth-Token}'}}
+**Try it Now** 
+*Create Access Token*
+
+[![Run in Postman](https://run.pstmn.io/button.svg)](https://app.getpostman.com/run-collection/38daa68bda00ba9d4734)
 
 <div class="HubBlock-header">
     <div class="HubBlock-header-title flex items-center">
@@ -265,7 +285,8 @@ The headers to process a payment are different than the headers you normally sen
     
 <!-- theme: warning -->
 
-> There is no way to re-display this pop-up after selecting Done, so be sure to securely store the credentials before leaving this screen.
+### PAT
+> There is a space between PAT {your-access-token}.
 
 </div>
 </div>
@@ -324,7 +345,10 @@ lineNumbers: true
 }
 ```
 
-{'url': 'https://payments.bigcommerce.com/stores/{store_hash}/payments', 'method': 'post', 'body': '{\n  "payment": {\n    "instrument": {\n      "type": "stored_card",\n      "token": "{your-access-token}",\n      "verification_value": "{verification value}"\n    },\n    "payment_method_id": "{payment-method}.card"\n  }\n}', 'headers': {'Authorization': '{$$.env.Authorization}', 'Accept': 'application/vnd.bc.v1+json', 'Content-Type': 'application/json'}}
+**Try it Now** 
+*Process Payment*
+
+[![Run in Postman](https://run.pstmn.io/button.svg)](https://app.getpostman.com/run-collection/38daa68bda00ba9d4734)
 
 If the purchase was successful it will return a status of success.  The order is then automatically moved to an Awaiting Fulfillment status. If you get a different response, see [Error Codes](#payments_error-codes) for troubleshooting.
 
@@ -374,7 +398,7 @@ subtitle: "Create Payment Access Token"
 lineNumbers: true
 -->
 
-```
+```json
 {
   "data": {
     "id": "eyJ0eXAiOiJKV1QiLCJhbGciOiJIUzI1NiJ9.eyJleHAiOjE1NTEzOTQxNDIsIm5iZiI6MTU1MTM5MDU0MiwiaXNzIjoicGF5bWVudHMuYmlnY29tbWVyY2UuY29tIiwic3ViIjoianJhaDZnbW4iLCJqdGkiOiI3Nzg3ZmU1Zi01OWJmLTQ3ZWMtYTFmZC00ZDQ3ZTkwNjFlNWMiLCJpYXd4gJ8uHDk3kDhhuyefsrtr45mRhdGEiOnsic3RvcmVfaWQiOjEwMjU2NDYsIm9yZGVyX2lkIjoyMTUsImFtb3VudCI6OTgwMCwiY3VycmVuY3kiOiJVU0QifX0.WbR90d8m4gn8wK7kPMDEoVq8B0hHC5Ul5H4Hpqq6Yvo"
@@ -383,7 +407,10 @@ lineNumbers: true
 }
 ```
 
-{'url': 'https://api.bigcommerce.com/stores/{store_hash}/v3/payments/access_tokens', 'method': 'post', 'body': '{\n  "order": {\n    "id": your-order-id\n  }\n}', 'headers': {'Accept': 'application/json', 'Content-Type': 'application/json', 'X-Auth-Client': '{$$.env.X-Auth-Client}', 'X-Auth-Token': '{$$.env.X-Auth-Token}'}}
+**Try it Now** 
+*Get Payment Access Token*
+
+[![Run in Postman](https://run.pstmn.io/button.svg)](https://app.getpostman.com/run-collection/38daa68bda00ba9d4734)
 
 ### Process the Payment
 
@@ -412,8 +439,8 @@ If any of these fields are incorrect, the payment might be rejected.
 <div class="HubBlock-content">
     
 <!-- theme: warning -->
-
-> There is no way to re-display this pop-up after selecting Done, so be sure to securely store the credentials before leaving this screen.
+### PAT
+> There is a space between PAT {your-access-token}.
 
 </div>
 </div>
@@ -431,7 +458,7 @@ subtitle: "Process Payment"
 lineNumbers: true
 -->
 
-```
+```curl
 curl -X POST \
   https://payments.bigcommerce.com/stores/{store_hash}/payments \
   -H 'Accept: application/vnd.bc.v1+json' \
@@ -464,7 +491,7 @@ subtitle: "Process Payment"
 lineNumbers: true
 -->
 
-```
+```json
 {
   "data": {
     "id": "693bb4cd-3f20-444a-8315-6369f582c68a",
@@ -474,7 +501,10 @@ lineNumbers: true
 }
 ```
 
-{'url': 'https://payments.bigcommerce.com/stores/{store_hash}/payments', 'method': 'post', 'body': '{\n  "payment": {\n    "instrument": {\n      "type": "card",\n      "number": "{card-number}",\n      "cardholder_name": "{cardholder-name}",\n      "expiry_month": expiration-month-two-digit,\n      "expiry_year": expiration-year-four-digit,\n      "verification_value": "{verification-value-cvv}"\n    },\n    "payment_method_id": "{payment-provider}.card"\n  }\n}', 'headers': {'Authorization': '{$$.env.Authorization}', 'Accept': 'application/vnd.bc.v1+json', 'Content-Type': 'application/json'}}
+**Try it Now** 
+*Process Payment*
+
+[![Run in Postman](https://run.pstmn.io/button.svg)](https://app.getpostman.com/run-collection/38daa68bda00ba9d4734)
 
 If the purchase was successful it will return a status of success.  The order is then automatically moved to an Awaiting Fulfillment status. If you get a different response, see [Error Codes](#payments_error-codes) for troubleshooting.
 
@@ -612,128 +642,25 @@ Orders can be created using the [Server to Server API Endpoints](https://develop
 
 ## Error Codes
 
-### 10000
-An internal error has occurred within the API.
+| Code | Description | Possible Causes | Possible Solutions |
+| ---   | ---  |  ---- |  ---- |
+| `10000` |  An internal error has occurred within the API. |  Connection error | Try the request again. |
+| `10001` | Missing or incorrect required fields. | Missing or Incorrect Fields |  Check the request for any data that is incorrect or is missing |
+| `30000` | Merchant payment configuration could not be found. | * The payment provider has not been configured in the store. | Check the [payment gateways](https://support.bigcommerce.com/s/article/Online-Payment-Methods#setup) settings in your BigCommerce store. |
+| `3001` | Merchant payment configuration is not correctly being configured. | The payment configuration is being rejected by the payment gateway. | Check the [payment gateways](https://support.bigcommerce.com/s/article/Online-Payment-Methods#setup) settings in your BigCommerce store. <br> Reach out the the payment gateway to check the information is correct. | 
+| `30002` | Vaulting service is currently not available. |  The vaulting feature is not enabled on this store. | Reach out to the store owner to enable [Stored Credit Cards](https://support.bigcommerce.com/s/article/Enabling-Stored-Credit-Cards) |
+| `30003` | Order could not be found. | The order does not exist. <br> The order ID is not correct. |  Check the current orders in the store using [Get All Orders](https://developer.bigcommerce.com/api-reference/orders/orders-api/orders/getorders) |
+| `30004` | The validation on line item and grand total does not match. | N/A| Recreate the payment access token <br> Recreate the order <br> Ensure the store settings for taxes and discounts are setup correctly| 
+| `30050` | Payment instrument could not be saved. | Credit card information is incorrect. | Check that the card information is correct.<br> * `expiry_month` is two digits<br>* `expiry_year` is four digits |
+| `30051` | The stored card was not found. |  The card requested for payment is not associated to the shopper.| Use [Get Payment Methods](/api-reference/payments/payments-create-payment-token-api/payment-methods/paymentsmethodsget) to see available vaulted cards |
+|`30100` | Payment access token could not be created. | N/A|N/A|
+| `30101` | Order is invalid. | The order is in the wrong status. | Orders must be in Incomplete Status with a `status_id:0` <br>  The order must be created by the Checkout SDK, Checkout API or V2 Orders API. Orders created in the Control and set to an incomplete status will return this error. | 
+| `30102` | The payment was declined. | The card information provided was incorrect<br>The token provided was incorrect | Check that the provider shopper information is correct<br>Make sure the token in the Authorization header field is correct |
+| `30103` | Card has expired |N/A | N/A|
+| `30104` | The payment was declined. Please contact card issuer for more information. |N/A |N/A|
+| `30105` | The payment was declined due to duplicate payment being submitted. |N/A |N/A |
+| `30106` | The payment was declined due to insufficient funds. |N/A |N/A|
 
-**Possible Causes**
-- Connection error
-
-**Possible Solutions**
-* Try the request again.
-
-### 10001
-Missing or incorrect required fields.
-
-**Possible Causes** 
-* Missing or Incorrect Fields.
-
-**Possible Solutions**  
-* Check the request for any data that is incorrect or is missing
-
-### 30000
-Merchant payment configuration could not be found.
-
-**Possible Causes**  
-* The payment provider has not been configured in the store.
-
-**Possible Solutions**  
-* Check the [payment gateways](https://support.bigcommerce.com/s/article/Online-Payment-Methods#setup) settings in your BigCommerce store. 
-
-### 30001
-Merchant payment configuration is not correctly being configured.
-
-**Possible Causes**
-* The payment configuration is being rejected by the payment gateway.
-
-**Possible Solutions**
-- Check the [payment gateways](https://support.bigcommerce.com/s/article/Online-Payment-Methods#setup) settings in your BigCommerce store. 
-- Reach out the the payment gateway to check the information is correct.
-
-### 30002
-Vaulting service is currently not available.
-
-**Possible Causes**  
-* The vaulting feature is not enabled on this store.
-
-**Possible Solutions**  
-* Reach out to the store owner to enable [Stored Credit Cards](https://support.bigcommerce.com/s/article/Enabling-Stored-Credit-Cards). 
-
-### 30003
-Order could not be found.
-
-**Possible Causes**
-- The order does not exist.
-- The order ID is not correct.
-
-**Possible Solutions**  
-* Check the current orders in the store using [Get All Orders](https://developer.bigcommerce.com/api-reference/orders/orders-api/orders/getorders).
-
-
-### 30004
-The validation on line item and grand total does not match. 
-
-**Possible Solutions**
-* Recreate the payment access token
-* Recreate the order
-* Ensure the store settings for taxes and discounts are setup correctly. 
-
-
-### 30050
-Payment instrument could not be saved.
-
-**Possible Causes**  
-* Credit card information is incorrect.
-
-**Possible Solutions**
-* Check that the card information is correct.
-	* `expiry_month` is two digits
-	* `expiry_year` is four digits
-
-### 30051
-The stored card was not found.
-
-**Possible Causes**  
-* The card requested for payment is not associated to the shopper.
-
-**Possible Solutions**  
-* Use [Get Payment Methods](/api-reference/payments/payments-create-payment-token-api/payment-methods/paymentsmethodsget) to see available vaulted cards.
-
-### 30100
-Payment access token could not be created.
-
-
-### 30101
-Order is invalid.
-
-**Possible Causes**  
-* The order is in the wrong status.
-
-**Possible Solutions**
- - Orders must be in Incomplete Status with a `status_id:0`.
- - The order must be created by the Checkout SDK, Checkout API or V2 Orders API. Orders created in the Control and set to an incomplete status will return this error. 
-
-### 30102
-The payment was declined.
-
-**Possible Causes**
-- The card information provided was incorrect
-- The token provided was incorrect
-
-**Possible Solutions**
-- Check that the provider shopper information is correct
-- Make sure the token in the Authorization header field is correct
-
-### 30103
-Card has expired
-
-### 30104
-The payment was declined. Please contact card issuer for more information.
-
-### 30105
-The payment was declined due to duplicate payment being submitted.
-
-### 30106
-The payment was declined due to insufficient funds.
 
 ---
 
@@ -748,7 +675,7 @@ When processing a credit payment set `save_instrument: true`. The shopper can al
 
 **How do I get a list of stored credit cards?**
 
-Use the Get Payment Methods to get a list of stored payment instruments. 
+Use the Get Payment Methods to get a list of stored payment instruments. 
 
 **Can I add my payment gateway?**
 

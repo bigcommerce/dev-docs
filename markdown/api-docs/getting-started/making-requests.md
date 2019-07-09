@@ -51,11 +51,6 @@ Before we begin, here are a few key concepts:
 
 * BigCommerce Store (`store_hash`)
 
-  
-
-*Note: You can use any API client (like Postman) for this walkthrough, but these steps are written with the built-in HTTP request maker in mind.*
-
-  
 
 ---
 
