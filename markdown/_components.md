@@ -1,9 +1,24 @@
+# Components
+
 *Below are the various components (and their markup) used in devdocs articles.*
 
-> **Pro-Tip:**
+
+<div class="HubBlock--callout">
+<div class="CalloutBlock--info">
+<div class="HubBlock-content">
+    
+<!-- theme: {{callout_type}} -->
+
+### Pro-Tip:
 > Copy and paste the components into your favorite text expander (like PhraseExpress or PhraseExpander), or add to your favorite code editor's snippets.
 
+</div>
+</div>
+</div>
+
 ## Callout Blocks
+
+**Markup:**
 
 ```html
 <div class="HubBlock--callout">
@@ -12,14 +27,55 @@
     
 <!-- theme: {{callout_type}} -->
 
+<<<<<<< HEAD
 {{title}} There is no way to re-display this pop-up after selecting Done, so be sure to securely store the credentials before leaving this screen.
+=======
+### {{title}}
+> There is no way to re-display this pop-up after selecting Done, so be sure to securely store the credentials before leaving this screen.
+>>>>>>> 34314ac147a0c80cff211dae0745db29a13a99ef
 
 </div>
 </div>
 </div>
 ```
 
+**Example:**
+
+```html
+<div class="HubBlock--callout">
+<div class="CalloutBlock--info">
+<div class="HubBlock-content">
+    
+<!-- theme: {{callout_type}} -->
+
+### Pro-Tip:
+> Copy and paste the components into your favorite text expander (like PhraseExpress or PhraseExpander), or add to your favorite code editor's snippets.
+
+</div>
+</div>
+</div>
+```
+
+**Result:**
+
+<div class="HubBlock--callout">
+<div class="CalloutBlock--info">
+<div class="HubBlock-content">
+    
+<!-- theme: {{callout_type}} -->
+
+### Pro-Tip:
+> Copy and paste the components into your favorite text expander (like PhraseExpress or PhraseExpander), or add to your favorite code editor's snippets.
+
+</div>
+</div>
+</div>
+
+---
+
 ## Code Blocks
+
+**Markup:**
 
 ```markdown
 <div class="HubBlock-header">
@@ -37,7 +93,62 @@ lineNumbers: true
 ```{{code_lang}}
 {code}}{{new-line}}```
 ```
+
+**Example:**
+
+```html
+<div class="HubBlock-header">
+    <div class="HubBlock-header-title flex items-center">
+        <div class="HubBlock-header-name">Some JSON</div>
+    </div><div class="HubBlock-header-subtitle">An Example</div>
+</div>
+
+<!--
+title: "Some JSON"
+subtitle: "An Example"
+lineNumbers: true
+-->
+
+\```json
+{
+    "fruits": [
+        "apples",
+        "oranges",
+        "bananas"
+    ]
+}
+\```
+```
+
+**Result:**
+
+<div class="HubBlock-header">
+    <div class="HubBlock-header-title flex items-center">
+        <div class="HubBlock-header-name">Some JSON</div>
+    </div><div class="HubBlock-header-subtitle">An Example</div>
+</div>
+
+<!--
+title: "Some JSON"
+subtitle: "An Example"
+lineNumbers: true
+-->
+
+```json
+{
+    "fruits": [
+        "apples",
+        "oranges",
+        "bananas"
+    ]
+}
+```
+
+---
+
 ## Images
+
+**Markdown:**
 
 ```markdown
 <!--
@@ -49,8 +160,31 @@ lineNumbers: true
 ![{{title}}]({{src}} "{{title}}")
 ```
 
-## Schema Blocks
+**Example:**
 
+```html
+<!--
+    title: {{title}}
+    data: {{src}}
+-->
+
+#### Dev Tools
+![Dev Tools](/assets/img/devtools.png "Dev Tools")
+```
+
+**Result:**
+
+<!--
+    title: {{title}}
+    data: {{src}}
+-->
+
+#### Dev Tools
+![Dev Tools](https://raw.githubusercontent.com/bigcommerce/dev-docs/master/assets/img/devtools.png "Dev Tools")
+
+---
+
+## Schema Blocks
 
 **Markup:**
 ```html
@@ -59,10 +193,26 @@ lineNumbers: true
 
 **Example:**
 ```html
-<a href="/stencil-docs/object-references/models/configjson" class="devdocs-schema-box">Config.json Object Reference</a>
+<a href="/api-reference/store-management/store-information-api/models/storeinformation" class="devdocs-schema-box">Store Information Object Reference</a>
 ```
 
+**Result:**
+
+<a href="/api-reference/store-management/store-information-api/models/storeinformation" class="devdocs-schema-box">Store Information Object Reference</a>
+
+<div class="HubBlock--callout">
+<div class="CalloutBlock--info">
+<div class="HubBlock-content">
+
+<!-- theme: {{callout_type}} -->
+
 > `{{path}}` - the relative path to the Dev Center page that contains the reference HTML.  
+
+</div>
+</div>
+</div>
+
+---
 
 ## Try in Postman Buttons
 
