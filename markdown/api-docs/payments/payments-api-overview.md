@@ -125,7 +125,13 @@ To use stored cards with the Payments API or the Checkout SDK make sure stored c
 
 This token is the same as `payment_instrument_token` from [Get Transactions](https://developer.bigcommerce.com/api-reference/orders/orders-transactions-api).
 
-{'method': 'get', 'url': 'https://api.bigcommerce.com/stores/{store_hash}/v3/payments/methods', 'query': {'order_id': ''}, 'headers': {'Accept': 'application/json', 'Content-Type': 'application/json', 'X-Auth-Client': '{$$.env.X-Auth-Client}', 'X-Auth-Token': '{$$.env.X-Auth-Token}'}}
+
+<br>
+
+**Try it Now**  
+*Get Payment Methods*
+
+[![Run in Postman](https://run.pstmn.io/button.svg)](https://app.getpostman.com/run-collection/38daa68bda00ba9d4734)
 
 <div class="HubBlock-header">
     <div class="HubBlock-header-title flex items-center">
@@ -220,7 +226,10 @@ lineNumbers: true
 }
 ```
 
-{'url': 'https://api.bigcommerce.com/stores/{store_hash}/v3/payments/access_tokens', 'method': 'post', 'body': '{\n  "order": {\n    "id": your-order-id\n  }\n}', 'headers': {'Accept': 'application/json', 'Content-Type': 'application/json', 'X-Auth-Client': '{$$.env.X-Auth-Client}', 'X-Auth-Token': '{$$.env.X-Auth-Token}'}}
+**Try it Now**  
+*Create Access Token*
+
+[![Run in Postman](https://run.pstmn.io/button.svg)](https://app.getpostman.com/run-collection/38daa68bda00ba9d4734)
 
 <div class="HubBlock-header">
     <div class="HubBlock-header-title flex items-center">
@@ -265,6 +274,7 @@ The headers to process a payment are different than the headers you normally sen
     
 <!-- theme: warning -->
 
+### PAT
 > There is a space between PAT {your-access-token}.
 
 </div>
@@ -324,7 +334,10 @@ lineNumbers: true
 }
 ```
 
-{'url': 'https://payments.bigcommerce.com/stores/{store_hash}/payments', 'method': 'post', 'body': '{\n  "payment": {\n    "instrument": {\n      "type": "stored_card",\n      "token": "{your-access-token}",\n      "verification_value": "{verification value}"\n    },\n    "payment_method_id": "{payment-method}.card"\n  }\n}', 'headers': {'Authorization': '{$$.env.Authorization}', 'Accept': 'application/vnd.bc.v1+json', 'Content-Type': 'application/json'}}
+**Try it Now**  
+*Process Payment*
+
+[![Run in Postman](https://run.pstmn.io/button.svg)](https://app.getpostman.com/run-collection/38daa68bda00ba9d4734)
 
 If the purchase was successful it will return a status of success.  The order is then automatically moved to an Awaiting Fulfillment status. If you get a different response, see [Error Codes](#payments_error-codes) for troubleshooting.
 
@@ -383,7 +396,10 @@ lineNumbers: true
 }
 ```
 
-{'url': 'https://api.bigcommerce.com/stores/{store_hash}/v3/payments/access_tokens', 'method': 'post', 'body': '{\n  "order": {\n    "id": your-order-id\n  }\n}', 'headers': {'Accept': 'application/json', 'Content-Type': 'application/json', 'X-Auth-Client': '{$$.env.X-Auth-Client}', 'X-Auth-Token': '{$$.env.X-Auth-Token}'}}
+**Try it Now**  
+*Get Payment Access Token*
+
+[![Run in Postman](https://run.pstmn.io/button.svg)](https://app.getpostman.com/run-collection/38daa68bda00ba9d4734)
 
 ### Process the Payment
 
@@ -413,6 +429,7 @@ If any of these fields are incorrect, the payment might be rejected.
     
 <!-- theme: warning -->
 
+### PAT
 > There is a space between PAT {your-access-token}.
 
 </div>
@@ -474,7 +491,10 @@ lineNumbers: true
 }
 ```
 
-{'url': 'https://payments.bigcommerce.com/stores/{store_hash}/payments', 'method': 'post', 'body': '{\n  "payment": {\n    "instrument": {\n      "type": "card",\n      "number": "{card-number}",\n      "cardholder_name": "{cardholder-name}",\n      "expiry_month": expiration-month-two-digit,\n      "expiry_year": expiration-year-four-digit,\n      "verification_value": "{verification-value-cvv}"\n    },\n    "payment_method_id": "{payment-provider}.card"\n  }\n}', 'headers': {'Authorization': '{$$.env.Authorization}', 'Accept': 'application/vnd.bc.v1+json', 'Content-Type': 'application/json'}}
+**Try it Now**  
+*Process Payment*
+
+[![Run in Postman](https://run.pstmn.io/button.svg)](https://app.getpostman.com/run-collection/38daa68bda00ba9d4734)
 
 If the purchase was successful it will return a status of success.  The order is then automatically moved to an Awaiting Fulfillment status. If you get a different response, see [Error Codes](#payments_error-codes) for troubleshooting.
 
@@ -612,128 +632,24 @@ Orders can be created using the [Server to Server API Endpoints](https://develop
 
 ## Error Codes
 
-### 10000
-An internal error has occurred within the API.
-
-**Possible Causes**
-- Connection error
-
-**Possible Solutions**
-* Try the request again.
-
-### 10001
-Missing or incorrect required fields.
-
-**Possible Causes** 
-* Missing or Incorrect Fields.
-
-**Possible Solutions**  
-* Check the request for any data that is incorrect or is missing
-
-### 30000
-Merchant payment configuration could not be found.
-
-**Possible Causes**  
-* The payment provider has not been configured in the store.
-
-**Possible Solutions**  
-* Check the [payment gateways](https://support.bigcommerce.com/s/article/Online-Payment-Methods#setup) settings in your BigCommerce store. 
-
-### 30001
-Merchant payment configuration is not correctly being configured.
-
-**Possible Causes**
-* The payment configuration is being rejected by the payment gateway.
-
-**Possible Solutions**
-- Check the [payment gateways](https://support.bigcommerce.com/s/article/Online-Payment-Methods#setup) settings in your BigCommerce store. 
-- Reach out the the payment gateway to check the information is correct.
-
-### 30002
-Vaulting service is currently not available.
-
-**Possible Causes**  
-* The vaulting feature is not enabled on this store.
-
-**Possible Solutions**  
-* Reach out to the store owner to enable [Stored Credit Cards](https://support.bigcommerce.com/s/article/Enabling-Stored-Credit-Cards). 
-
-### 30003
-Order could not be found.
-
-**Possible Causes**
-- The order does not exist.
-- The order ID is not correct.
-
-**Possible Solutions**  
-* Check the current orders in the store using [Get All Orders](https://developer.bigcommerce.com/api-reference/orders/orders-api/orders/getorders).
-
-
-### 30004
-The validation on line item and grand total does not match. 
-
-**Possible Solutions**
-* Recreate the payment access token
-* Recreate the order
-* Ensure the store settings for taxes and discounts are setup correctly. 
-
-
-### 30050
-Payment instrument could not be saved.
-
-**Possible Causes**  
-* Credit card information is incorrect.
-
-**Possible Solutions**
-* Check that the card information is correct.
-	* `expiry_month` is two digits
-	* `expiry_year` is four digits
-
-### 30051
-The stored card was not found.
-
-**Possible Causes**  
-* The card requested for payment is not associated to the shopper.
-
-**Possible Solutions**  
-* Use [Get Payment Methods](/api-reference/payments/payments-create-payment-token-api/payment-methods/paymentsmethodsget) to see available vaulted cards.
-
-### 30100
-Payment access token could not be created.
-
-
-### 30101
-Order is invalid.
-
-**Possible Causes**  
-* The order is in the wrong status.
-
-**Possible Solutions**
- - Orders must be in Incomplete Status with a `status_id:0`.
- - The order must be created by the Checkout SDK, Checkout API or V2 Orders API. Orders created in the Control and set to an incomplete status will return this error. 
-
-### 30102
-The payment was declined.
-
-**Possible Causes**
-- The card information provided was incorrect
-- The token provided was incorrect
-
-**Possible Solutions**
-- Check that the provider shopper information is correct
-- Make sure the token in the Authorization header field is correct
-
-### 30103
-Card has expired
-
-### 30104
-The payment was declined. Please contact card issuer for more information.
-
-### 30105
-The payment was declined due to duplicate payment being submitted.
-
-### 30106
-The payment was declined due to insufficient funds.
+| Code | Description | Possible Causes | Possible Solutions |
+| ---   | ---  |  ---- |  ---- |
+| `10000` |  An internal error has occurred within the API. |  Connection error | Try the request again. |
+| `10001` | Missing or incorrect required fields. | Missing or Incorrect Fields |  Check the request for any data that is incorrect or is missing |
+| `30000` | Merchant payment configuration could not be found. | * The payment provider has not been configured in the store. | Check the [payment gateways](https://support.bigcommerce.com/s/article/Online-Payment-Methods#setup) settings in your BigCommerce store. |
+| `3001` | Merchant payment configuration is not correctly being configured. | The payment configuration is being rejected by the payment gateway. | Check the [payment gateways](https://support.bigcommerce.com/s/article/Online-Payment-Methods#setup) settings in your BigCommerce store. <br> Reach out the the payment gateway to check the information is correct. | 
+| `30002` | Vaulting service is currently not available. |  The vaulting feature is not enabled on this store. | Reach out to the store owner to enable [Stored Credit Cards](https://support.bigcommerce.com/s/article/Enabling-Stored-Credit-Cards) |
+| `30003` | Order could not be found. | The order does not exist. <br> The order ID is not correct. |  Check the current orders in the store using [Get All Orders](https://developer.bigcommerce.com/api-reference/orders/orders-api/orders/getorders) |
+| `30004` | The validation on line item and grand total does not match. | N/A| Recreate the payment access token <br> Recreate the order <br> Ensure the store settings for taxes and discounts are setup correctly| 
+| `30050` | Payment instrument could not be saved. | Credit card information is incorrect. | Check that the card information is correct.<br> * `expiry_month` is two digits<br>* `expiry_year` is four digits |
+| `30051` | The stored card was not found. |  The card requested for payment is not associated to the shopper.| Use [Get Payment Methods](/api-reference/payments/payments-create-payment-token-api/payment-methods/paymentsmethodsget) to see available vaulted cards |
+|`30100` | Payment access token could not be created. | N/A|N/A|
+| `30101` | Order is invalid. | The order is in the wrong status. | Orders must be in Incomplete Status with a `status_id:0` <br>  The order must be created by the Checkout SDK, Checkout API or V2 Orders API. Orders created in the Control and set to an incomplete status will return this error. | 
+| `30102` | The payment was declined. | The card information provided was incorrect<br>The token provided was incorrect | Check that the provider shopper information is correct<br>Make sure the token in the Authorization header field is correct |
+| `30103` | Card has expired |N/A | N/A|
+| `30104` | The payment was declined. Please contact card issuer for more information. |N/A |N/A|
+| `30105` | The payment was declined due to duplicate payment being submitted. |N/A |N/A |
+| `30106` | The payment was declined due to insufficient funds. |N/A |N/A|
 
 ---
 

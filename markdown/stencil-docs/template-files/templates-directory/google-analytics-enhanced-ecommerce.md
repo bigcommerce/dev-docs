@@ -143,7 +143,7 @@ lineNumbers: true
 {{> components/common/paginator pagination.brand}}
 ```
 
-In the above snippet, the data tag is embedded in a `<form>` HTML tag in lines 1 and 2. The data tag is  `data-list-name` and its value is `“Brand: {{brand.name}}”`.
+In the above snippet, the data tag is embedded in a `<form>` HTML tag. The data tag is `data-list-name` and its value is `“Brand: {{brand.name}}”`.
 
 ---
 

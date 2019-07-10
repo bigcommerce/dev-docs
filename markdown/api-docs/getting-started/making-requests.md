@@ -45,12 +45,16 @@ In the request maker tabs, replace these placeholders with the appropriate value
 - `{X-Auth-Token}` Header - Access Token from API Credentials
 - `{X-Auth-Client}` Header - Client Id from API Credentials
 - `store_hash` variable - the hash in your api path 
-	- https://api.bigcommerce.com/stores/{store_hash}/v3/
+	- `https://api.bigcommerce.com/stores/{store_hash}/v3/`
 
  
 Hit the send button and review your response.
 
-{'method': 'get', 'url': 'https://api.bigcommerce.com/stores/{store_hash}/v3/catalog/products', 'headers': {'Accept': 'application/json', 'Content-Type': 'application/json', 'X-Auth-Token': '{X-Auth-Token}', 'X-Auth-Client': '{X-Auth-Client}'}, 'query': {'limit': '10', 'sort': 'name'}}
+
+**Try it Now**  
+*Get all products*
+
+[![Run in Postman](https://run.pstmn.io/button.svg)](https://app.getpostman.com/run-collection/00c3651bcff8d70a61e8)
 
 <div class="HubBlock-header">
     <div class="HubBlock-header-title flex items-center">
@@ -343,7 +347,10 @@ In this walkthrough, we'll create an example product: BigCommerce Hoodie. The mi
 
 Review the information pre-populated in the Body tab below. Make sure to run a GET request for the categories first and update request with the appropriate category ID.
 
-{'method': 'post', 'url': 'https://api.bigcommerce.com/stores/{store_hash}/v3/catalog/products', 'headers': {'Accept': 'application/sjon', 'X-Auth-Token': '{X-Auth-Token}', 'X-Auth-Client': '{X-Auth-Client}', 'Content-Type': 'application/json'}, 'body': '{\n  "name": "BigCommerce Hoodie",\n  "type": "physical",\n  "description": "A super soft hoodie to wear",\n  "weight": 5,\n  "width": 12,\n  "price": 25.99,\n  "categories": [\n    // set your category here. Accepts a comma seperated list\n  ],\n  "condition": "New"\n}\n'}
+**Try it Now**  
+*Create a Product**
+
+[![Run in Postman](https://run.pstmn.io/button.svg)](https://app.getpostman.com/run-collection/00c3651bcff8d70a61e8)
 
 <div class="HubBlock-header">
     <div class="HubBlock-header-title flex items-center">
@@ -487,15 +494,15 @@ lineNumbers: true
 
 ## Troubleshooting
 
-Did you get a status of 403 Forbidden?
+**Did you get a status of 403 Forbidden?**
 * Check the Client ID and Client Token.
 * Make sure your request headers are correct.
 * Be sure you replaced `{store_hash}` with your store hash. 
 * Make sure the request url is correct.
 
-Did you get a 200 but nothing was returned?
+**Did you get a 200 but nothing was returned?**
 * Make sure your store has products.
 
-Did you get a status of 404?
+**Did you get a status of 404?**
 * Check the request url for errors.
 
