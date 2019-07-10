@@ -6,7 +6,6 @@
 		<li><a href="#implementation_automatic-language-detection">Automatic Language Detection</a></li>
     <li><a href="#implementation_cascading-translations">Cascading Translations</a></li>
 		<li><a href="#implementation_nested-plurality">Nested Plurality and Gender Support</a></li>
-
 	</ul>
 </div>
 

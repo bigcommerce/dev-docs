@@ -5,9 +5,9 @@
 		<li><a href="#app-store-approval-requirements_prerequisites">Prerequisites</a></li>
 		<li><a href="#app-store-approval-requirements_general-requirements">General Requirements</a></li>
 		<li><a href="#app-store-approval-requirements_functionality">Functionality</a></li>
-        <li><a href="#app-store-approval-requirements_installation">Installation</a></li>
-        <li><a href="#app-store-approval-requirements_recommendations">Recommendations</a></li>
-        <li><a href="#app-store-approval-requirements_dev-tools-walkthrough">Dev Tools Walkthrough</a></li>
+    <li><a href="#app-store-approval-requirements_installation">Installation</a></li>
+    <li><a href="#app-store-approval-requirements_recommendations">Recommendations</a></li>
+    <li><a href="#app-store-approval-requirements_dev-tools-walkthrough">Dev Tools Walkthrough</a></li>
 	</ul>
 </div>
 

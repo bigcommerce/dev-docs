@@ -2,13 +2,12 @@
 <div class="otp" id="no-index">
 	<h3> On This Page </h3>
 	<ul>
-        <li><a href="#cart-checkout_storefront-cart-and-checkout">Storefront Cart and Checkout</a></li>
-        <li><a href="#cart-checkout_server-to-server-cart-and-checkout">Server-to-Server Cart and Checkout</a></li>
+    <li><a href="#cart-checkout_storefrix otpont-cart-and-checkout">Storefront Cart and Checkout</a></li>
+    <li><a href="#cart-checkout_server-to-server-cart-and-checkout">Server-to-Server Cart and Checkout</a></li>
     <li><a href="#cart-checkout_troubleshooting">Troubleshooting Cart Errors</a></li>
-        <li><a href="#cart-checkout_available-webhooks">Available Webhooks</a></li>
-    		<li><a href="#cart-checkout_oauth-scopes">OAuth Scopes</a></li>
-        <li><a href="#cart-checkout_related-endpoints">Related Endpoints</a></li>
-    
+    <li><a href="#cart-checkout_available-webhooks">Available Webhooks</a></li>
+    <li><a href="#cart-checkout_oauth-scopes">OAuth Scopes</a></li>
+    <li><a href="#cart-checkout_related-endpoints">Related Endpoints</a></li>
 	</ul>
 </div>
 

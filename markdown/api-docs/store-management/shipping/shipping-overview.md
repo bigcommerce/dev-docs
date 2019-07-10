@@ -2,11 +2,10 @@
 <div class="otp" id="no-index">
 	<h3> On This Page </h3>
 	<ul>
-      
-        <li><a href="#shipping_storefront-server-checkout">Storefront Checkout and Server to Server Checkout</a></li>
-        <li><a href="#shipping_order-shipping-addresses">Order Shipping Addresses</a></li>
-        <li><a href="#shipping_shipping-zone-methods">Shipping Zone and Shipping Methods</a></li>
-        <li><a href="#shipping_real-time-carriers">Real-Time Carriers</a></li>
+    <li><a href="#shipping_storefront-server-checkout">Storefront Checkout and Server to Server Checkout</a></li>
+    <li><a href="#shipping_order-shipping-addresses">Order Shipping Addresses</a></li>
+    <li><a href="#shipping_shipping-zone-methods">Shipping Zone and Shipping Methods</a></li>
+    <li><a href="#shipping_real-time-carriers">Real-Time Carriers</a></li>
 	</ul>
 </div>
 

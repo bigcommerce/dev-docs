@@ -2,16 +2,15 @@
 <div class="otp" id="no-index">
 	<h3> On This Page </h3>
 	<ul>
-       <li><a href="#payments_pci-compliance">PCI Compliance</a></li>
-        <li><a href="#payments_processing-payment">Processing a Payment</a></li>
-        <li><a href="#payments_stored-cards">Stored Cards</a></li>
-        <li><a href="#payments_credit-cards">Credit Cards</a></li>
+    <li><a href="#payments_pci-compliance">PCI Compliance</a></li>
+    <li><a href="#payments_processing-payment">Processing a Payment</a></li>
+    <li><a href="#payments_stored-cards">Stored Cards</a></li>
+    <li><a href="#payments_credit-cards">Credit Cards</a></li>
     <li><a href="#payments_orders-api">Orders API</a></li>
-    		<li><a href="#payments_technical-details">Technical Details</a></li>
-        <li><a href="#payments_sample-app-diagram">Sample App Diagram</a></li>
-    		<li><a href="#payments_error-codes">Error Codes</a></li>
-        <li><a href="#payments_faq">FAQ</a></li>
-    
+    <li><a href="#payments_technical-details">Technical Details</a></li>
+    <li><a href="#payments_sample-app-diagram">Sample App Diagram</a></li>
+    <li><a href="#payments_error-codes">Error Codes</a></li>
+    <li><a href="#payments_faq">FAQ</a></li>
 	</ul>
 </div>
 

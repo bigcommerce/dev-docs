@@ -23,11 +23,8 @@ The <span class="fp">config.json</span>file allows you to:
 <a href='#config_keys-and-example' aria-hidden='true' class='block-anchor'  id='config_keys-and-example'><i aria-hidden='true' class='linkify icon'></i></a>
 
 ## Keys and Example Values
-Below is a list of all available keys and values in <span class="fp">config.json</span>. This will vary based on the theme customizations.
+For a list of all available keys and values in <span class="fp">config.json</span>, see [Theme Objects](/api-reference/theme-objects/models/configjson) in the API Reference.
 
-<div class="jsonSchema">
-    {'$ref': './cornerstone_config.oas2.yml#/definitions/config.json'}
-</div>
 ---
 
 <a href='#config_requirements-and-restrictions' aria-hidden='true' class='block-anchor'  id='config_requirements-and-restrictions'><i aria-hidden='true' class='linkify icon'></i></a>

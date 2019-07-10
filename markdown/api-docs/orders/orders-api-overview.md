@@ -26,7 +26,6 @@
             <li><a href="#orders-api-overview_order_status">Order Status</a></li>
             <ul><li><a href="#orders-api-overview_custom-order-status">Custom Order Status</a></li></ul>
             <li><a href="#orders-api-overview_faq">FAQ</a></li>
-            
 	</ul>
 </div>
 

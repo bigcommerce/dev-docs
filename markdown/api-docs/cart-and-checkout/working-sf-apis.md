@@ -2,13 +2,12 @@
 <div class="otp" id="no-index">
 	<h3> On This Page </h3>
 	<ul>
-        <li><a href="#working-sf-apis_prerequisites">Prerequisites</a></li>
-        <li><a href="#working-sf-apis_create-postdata">Create postData() Function</a></li>
-        <li><a href="#working-sf-apis_storefront-cart">Storefront Cart</a></li>
-    		<li><a href="#working-sf-apis_storefront-checkout">Storefront Checkout</a></li>
-        <li><a href="#working-sf-apis_troubleshooting">Troubleshooting</a></li>
-    		<li><a href="#working-sf-apis_realated-endpoints">Related Endpoints</a></li>
-    
+    <li><a href="#working-sf-apis_prerequisites">Prerequisites</a></li>
+    <li><a href="#working-sf-apis_create-postdata">Create postData() Function</a></li>
+    <li><a href="#working-sf-apis_storefront-cart">Storefront Cart</a></li>
+    <li><a href="#working-sf-apis_storefront-checkout">Storefront Checkout</a></li>
+    <li><a href="#working-sf-apis_troubleshooting">Troubleshooting</a></li>
+    <li><a href="#working-sf-apis_realated-endpoints">Related Endpoints</a></li>
 	</ul>
 </div>
 
