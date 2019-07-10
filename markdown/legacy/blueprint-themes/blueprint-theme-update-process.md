@@ -28,7 +28,8 @@ Integrating a partner's theme changes requires these preconditions:
 <!-- theme:  -->
 
 ### Template Path Abstracted
-> There is no way to re-display this pop-up after selecting Done, so be sure to securely store the credentials before leaving this screen.
+> The Theme Development store resolves the %%GLOBAL_TPL_PATH%% variable into /template/. Therefore, assets will be pulled from the /template/ directory, which is accessible via WebDAV or via the BigCommerce control panel.
+
 
 </div>
 </div>
@@ -50,7 +51,7 @@ Integrating a partner's theme changes requires these preconditions:
     
 <!-- theme: error -->
 
-> There is no way to re-display this pop-up after selecting Done, so be sure to securely store the credentials before leaving this screen.
+> This step will wipe out all files in the /template/ directory and copy in the latest version of the integrated theme.
 
 </div>
 </div>
@@ -66,7 +67,7 @@ Integrating a partner's theme changes requires these preconditions:
     
 <!-- theme: warning -->
 
-> There is no way to re-display this pop-up after selecting Done, so be sure to securely store the credentials before leaving this screen.
+> If BigCommerce made conflicting changes (which should happen only when resolving urgent issues), the partner might need to rebase changes (using git rebase master) in order to resolve the conflicts.
 
 </div>
 </div>

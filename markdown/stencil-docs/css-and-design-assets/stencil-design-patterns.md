@@ -21,7 +21,7 @@ Stencil themes include an internal pattern library called Citadel, which consume
 <!-- theme:  -->
 
 ### Citadel Version
-> There is no way to re-display this pop-up after selecting Done, so be sure to securely store the credentials before leaving this screen.
+> Citadel is based specifically on Foundation 5.5.3, which installs with the Stencil framework. We do not support Foundation 6.x, due to breaking changes introduced between versions 5.x and 6.x.
 
 </div>
 </div>

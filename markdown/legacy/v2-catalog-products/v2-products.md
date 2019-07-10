@@ -20,7 +20,7 @@
     
 <!-- theme: error -->
 
-> There is no way to re-display this pop-up after selecting Done, so be sure to securely store the credentials before leaving this screen.
+> It is recommended to use the new [Catalog Products](/api-reference/catalog/catalog-api)
 
 </div>
 </div>

@@ -17,7 +17,8 @@
 <!-- theme: error -->
 
 ### Status Check
-> There is no way to re-display this pop-up after selecting Done, so be sure to securely store the credentials before leaving this screen.
+> If you've successfully installed Stencil you're ready to create a BigCommerce API Account. 
+_If you have not yet installed Stencil, see [Installing Stencil](/stencil-docs/getting-started/installing-stencil)._
 
 </div>
 </div>
@@ -54,7 +55,7 @@ _Doing so will display a modal, from which you can copy your `Client ID` and `Ac
 <!-- theme: warning -->
 
 ### Reserved Role
-> There is no way to re-display this pop-up after selecting Done, so be sure to securely store the credentials before leaving this screen.
+> Currently, only the store owner can create an OAuth API account according to the instructions below. Also, note that each store is limited to 50 accounts at a time.
 
 </div>
 </div>
@@ -85,7 +86,7 @@ You can create up to 50 API accounts/tokens per store. If you hit this limit and
     
 <!-- theme: error -->
 
-> There is no way to re-display this pop-up after selecting Done, so be sure to securely store the credentials before leaving this screen.
+> Note: After completing the below process, there is no undo. The following process completely deletes the selected account(s), revoking the corresponding token(s).
 
 </div>
 </div>
@@ -109,7 +110,7 @@ If you are completely sure you would like to revoke an existing OAuth store toke
     
 <!-- theme:  -->
 
-> There is no way to re-display this pop-up after selecting Done, so be sure to securely store the credentials before leaving this screen.
+> 1. You can also use the check boxes at left to select multiple accounts to delete them all at once.
 
 </div>
 </div>
@@ -135,7 +136,7 @@ To access an existing OAuth token to authorize your theme:
     
 <!-- theme:  -->
 
-> There is no way to re-display this pop-up after selecting Done, so be sure to securely store the credentials before leaving this screen.
+> 2. If you did not retain this file, you will need to generate a new token by repeating the Creating an API Account procedure
 
 </div>
 </div>

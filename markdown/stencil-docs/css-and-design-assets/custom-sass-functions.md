@@ -20,7 +20,7 @@
 <!-- theme: warning -->
 
 ### Before You Customize
-> There is no way to re-display this pop-up after selecting Done, so be sure to securely store the credentials before leaving this screen.
+> The Stencil framework is designed to support your incorporation of custom Sass files/frameworks. However, BigCommerce does not offer technical assistance on substitutions for, or customized versions of, Stencil's default dependencies.
 
 </div>
 </div>

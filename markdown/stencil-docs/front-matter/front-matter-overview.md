@@ -110,7 +110,7 @@ products:
 <!-- theme:  -->
 
 ### Filtering for Faster Page Loads
-> There is no way to re-display this pop-up after selecting Done, so be sure to securely store the credentials before leaving this screen.
+> To keep your pages lightweight, specify only the attributes you need per page. Also, use the limit key (with appropriate values) for attributes that accept it.
 
 </div>
 </div>
@@ -142,7 +142,7 @@ products:
 <!-- theme:  -->
 
 ###  Reading the Handlebars
-> There is no way to re-display this pop-up after selecting Done, so be sure to securely store the credentials before leaving this screen.
+> In the above HTML, the {{ name }} identifier calls an attribute of Stencil’s common product card model, which consolidates details about a given product. For this and other objects that you can access through HTML, please see our reference section on Handlebars objects.
 
 </div>
 </div>

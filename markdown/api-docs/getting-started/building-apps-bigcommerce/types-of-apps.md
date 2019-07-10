@@ -42,7 +42,7 @@ Use Cases:
     
 <!-- theme:  -->
 
-> There is no way to re-display this pop-up after selecting Done, so be sure to securely store the credentials before leaving this screen.
+> Connector apps require the store owner to create API Credentials in the Control Panel and then pass those values into the app manually. The single-click installation process is preferred since it does not require this step.
 
 </div>
 </div>

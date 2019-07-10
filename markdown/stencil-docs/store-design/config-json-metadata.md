@@ -25,8 +25,9 @@ The <span class="fp">config.json</span>file allows you to:
 ## Keys and Example Values
 Below is a list of all available keys and values in <span class="fp">config.json</span>. This will vary based on the theme customizations.
 
-<a href="/stencil-docs/object-references/models/configjson" class="devdocs-schema-box">Config.json Object Reference</a>
-
+<div class="jsonSchema">
+    {'$ref': './cornerstone_config.oas2.yml#/definitions/config.json'}
+</div>
 ---
 
 <a href='#config_requirements-and-restrictions' aria-hidden='true' class='block-anchor'  id='config_requirements-and-restrictions'><i aria-hidden='true' class='linkify icon'></i></a>
@@ -47,7 +48,7 @@ Your theme's <span class="fp">config.json</span> file must meet the following re
 <!-- theme: warning -->
 
 ### Carefully Check Your Requirements
-> There is no way to re-display this pop-up after selecting Done, so be sure to securely store the credentials before leaving this screen.
+> Carefully check your theme against all the requirements listed here – including the required keys within the `meta` object and `variations` array. While some requirements are not enforced in local development, they will be validated (and will trigger errors) when you later upload your theme to BigCommerce.
 
 </div>
 </div>

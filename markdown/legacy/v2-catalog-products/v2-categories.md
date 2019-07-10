@@ -295,7 +295,7 @@ Deletes a category.
 <!-- theme: error -->
 
 ### Delete Products before Categories
-> There is no way to re-display this pop-up after selecting Done, so be sure to securely store the credentials before leaving this screen.
+> The Delete All Categories operation will not succeed unless the store has zero products. If any products in the store belong to any categories, the entire operation will fail. Therefore, if you really want to delete all the categories of the store, you must first delete all of the products in the store.
 
 </div>
 </div>

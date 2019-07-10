@@ -20,7 +20,9 @@ You can enable the display of alternate currencies on your Stencil theme's Optim
 <!-- theme: warning -->
 
 ### Restrictions
-> There is no way to re-display this pop-up after selecting Done, so be sure to securely store the credentials before leaving this screen.
+> The options on this page require that you first enable Optimized One-Page Checkout. Find instructions on how to do this in Enable and Restyle Optimized One-Page Checkout.
+
+Note that regardless of the display options that you set below, transactions will always be processed in the store's single default currency. To change that setting, see Changing Your Default Currency.
 
 </div>
 </div>

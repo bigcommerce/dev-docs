@@ -169,7 +169,7 @@ Host: app.example.com
     
 <!-- theme:  -->
 
-> There is no way to re-display this pop-up after selecting Done, so be sure to securely store the credentials before leaving this screen.
+> When your app receives a new token, any previously issued token is invalidated.
 
 </div>
 </div>
@@ -205,7 +205,7 @@ Upon receiving the POST request during inital installation, BigCommerce marks th
     
 <!-- theme:  -->
 
-> There is no way to re-display this pop-up after selecting Done, so be sure to securely store the credentials before leaving this screen.
+> Upon receiving the POST request during initial installation BigCommerce removes the update prompt from the control panel.
 
 </div>
 </div>
@@ -473,7 +473,7 @@ Upon receiving the GET request, your app will need to process the signed payload
     
 <!-- theme: warning -->
 
-> There is no way to re-display this pop-up after selecting Done, so be sure to securely store the credentials before leaving this screen.
+> Any HTML that you return in your response for uninstalling an app or removing a user will not render in the response.
 
 </div>
 </div>
@@ -513,7 +513,7 @@ To verify the payload, you need to sign the payload using your client secret, an
     
 <!-- theme:  -->
 
-> There is no way to re-display this pop-up after selecting Done, so be sure to securely store the credentials before leaving this screen.
+> To limit the vulnerability of your app to timing attacks, we recommend using a constant time-string comparison function, rather than the equality operator, to check that the signatures match.
 
 </div>
 </div>
@@ -557,7 +557,7 @@ function verifySignedRequest($signedRequest)
     
 <!-- theme:  -->
 
-> There is no way to re-display this pop-up after selecting Done, so be sure to securely store the credentials before leaving this screen.
+> !hash_equals is available in PHP 5.6 and later. If you are running an older version of PHP, pull in a compatibility library such as the following: https://packagist.org/packages/realityking/hash_equals. BigCommerce’s sample app hello-world-app-php-silex app does this automatically.
 
 </div>
 </div>

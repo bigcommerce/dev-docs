@@ -25,7 +25,8 @@ You can access the most recent version of this file in the [Cornerstone reposito
 <!-- theme: error -->
 
 ### Customizing Checkout Restrictions
-> There is no way to re-display this pop-up after selecting Done, so be sure to securely store the credentials before leaving this screen.
+> When customizing the checkout page, you are free to change classes' contents, however, **do not** nest elements or change any class names. BigCommerce imposes these restrictions because each class here maps to multiple Optimized Checkout elements. Changing the structure or naming would break updates available in future Optimized Checkout enhancements.
+
 
 </div>
 </div>

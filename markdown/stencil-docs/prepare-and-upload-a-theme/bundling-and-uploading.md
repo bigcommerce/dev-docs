@@ -41,7 +41,7 @@ You must also run `jspm install` in the theme directory.
 <!-- theme: warning -->
 
 ### No Automatic Check for Dependencies
-> There is no way to re-display this pop-up after selecting Done, so be sure to securely store the credentials before leaving this screen.
+> The `stencil bundle` and `stencil push` commands do not check for the dependencies that these build systems install. So if those dependencies are missing, these commands will not immediately report errors. However, your resulting .zip file will not properly upload to BigCommerce, and will not run properly on a storefront.
 
 </div>
 </div>
@@ -87,7 +87,7 @@ If you have added any new subdirectories or files to your base theme, verify tha
 <!-- theme: warning -->
 
 ### Writable Permissions Are Required
-> There is no way to re-display this pop-up after selecting Done, so be sure to securely store the credentials before leaving this screen.
+> Without these writable permissions, bundling your theme will fail, blocking its upload to BigCommerce.
 
 </div>
 </div>
@@ -239,7 +239,9 @@ If you are certain of your selections, you can next press `Enter` to delete the 
 <!-- theme: error -->
 
 ###  Select Carefully – No Confirmation
-> There is no way to re-display this pop-up after selecting Done, so be sure to securely store the credentials before leaving this screen.
+> Once you press `Enter`, the selected themes will be deleted immediately, with no further confirmation.
+
+If you have any doubts – especially about deleting multiple themes/versions – it is safest to delete them through the control panel GUI. This GUI allows you to compare uploaded versions, and to inspect their metadata.
 
 </div>
 </div>

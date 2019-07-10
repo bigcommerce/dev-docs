@@ -32,7 +32,8 @@ Do not change the names of the <span class="fp">/templates/pages/</span> subdire
 <!-- theme: warning -->
 
 ###  Front-Matter Restriction
-> There is no way to re-display this pop-up after selecting Done, so be sure to securely store the credentials before leaving this screen.
+> Pages in the <span class="fp">/templates/pages/</span> subdirectory are the **only** place you can insert and modify
+YAML front-matter attributes to customize the rendered storefront.
 
 </div>
 </div>

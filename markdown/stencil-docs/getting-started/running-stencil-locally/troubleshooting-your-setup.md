@@ -28,7 +28,9 @@
 <!-- theme:  -->
 
 ### First Check the Terminal Window
-> There is no way to re-display this pop-up after selecting Done, so be sure to securely store the credentials before leaving this screen.
+> For any unexpected behavior that you encounter while developing your Stencil theme, first check your terminal window where you started Stencil CLI. 
+
+In some cases, the terminal will provide a verbose error message specifying where to look for problems. In any case, it has the potential to provide further insight on the issue. Diagnostic suggestions are listed on this page for error messages that may not be helpful in revealing the issue you're experiencing.
 
 </div>
 </div>

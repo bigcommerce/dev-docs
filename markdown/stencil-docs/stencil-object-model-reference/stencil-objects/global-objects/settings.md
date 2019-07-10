@@ -140,7 +140,7 @@
     
 <!-- theme:  -->
 
-> There is no way to re-display this pop-up after selecting Done, so be sure to securely store the credentials before leaving this screen.
+> 1. Never use `{{settings.request.path}}` in the actual HTML of the page. Only use it for handlebars conditional log. Displaying this value in the HTML exposes the the page to injection attacks. 
 
 </div>
 </div>

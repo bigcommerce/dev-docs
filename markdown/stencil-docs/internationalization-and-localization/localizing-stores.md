@@ -31,7 +31,7 @@ _Adjust other localization details via the BigCommerce Control Panel._
 <!-- theme: info -->
 
 ### Storefront Language Support
-> There is no way to re-display this pop-up after selecting Done, so be sure to securely store the credentials before leaving this screen.
+> Each storefront can only support a single language. If you want to support displaying multiple languages, we recommend setting up a separate store for each language.
 
 </div>
 </div>
@@ -64,7 +64,7 @@ Localizing your theme's checkout and order confirmation pages requires customiza
 <!-- theme: warning -->
 
 ### Checkout Localization
-> There is no way to re-display this pop-up after selecting Done, so be sure to securely store the credentials before leaving this screen.
+> Checkout localization is only available for [Optimized One-Page Checkout](/stencil-docs/template-files/customize-stencil-checkout/optimized-one-page-checkout#optimized_enable)
 
 </div>
 </div>
@@ -94,7 +94,7 @@ The remaining localization options reside outside your theme and are accessible 
 <!-- theme: warning -->
 
 ### Transactional Emails or Gift Certificates Translation
-> There is no way to re-display this pop-up after selecting Done, so be sure to securely store the credentials before leaving this screen.
+> The BigCommerce platform does not currently support translation of Transactional Emails or Gift Certificates into languages other than English, so instead we have provided a best practice for each.
 
 </div>
 </div>

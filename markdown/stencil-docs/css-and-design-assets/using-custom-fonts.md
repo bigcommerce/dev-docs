@@ -18,7 +18,7 @@
 <!-- theme: warning -->
 
 ### Custom Fonts Unavailable on Theme Editor
-> There is no way to re-display this pop-up after selecting Done, so be sure to securely store the credentials before leaving this screen.
+> On the current Stencil framework, custom fonts that you incorporate using this process will not be available for selection in Theme Editor.
 
 </div>
 </div>
@@ -82,7 +82,8 @@ display: block;
 <!-- theme:  -->
 
 ### Notes
-> There is no way to re-display this pop-up after selecting Done, so be sure to securely store the credentials before leaving this screen.
+> * The cdn custom Handlebars helper assumes WebDAV's default /content/ folder, so there is no need to specify that folder.
+* Fonts staged via WebDAV, as in the above example, will not show up in the local version of your theme.
 
 </div>
 </div>

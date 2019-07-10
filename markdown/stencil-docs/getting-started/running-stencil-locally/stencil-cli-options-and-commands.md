@@ -106,7 +106,7 @@ Your terminal window will display options and commands listed in the tables belo
 <!-- theme:  -->
 
 ### 'stencil start' and 'stencil push' Options
-> There is no way to re-display this pop-up after selecting Done, so be sure to securely store the credentials before leaving this screen.
+> The `stencil start` and `stencil push` CLI Commands have additional custom options that can be used with the command, which are detailed below.
 
 </div>
 </div>

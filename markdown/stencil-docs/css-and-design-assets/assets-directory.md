@@ -63,7 +63,9 @@ The <span class="fp">/scss/</span> subdirectory contains theme-specific CSS reso
 <!-- theme: success -->
 
 ###  Production-Safe Image References
-> There is no way to re-display this pop-up after selecting Done, so be sure to securely store the credentials before leaving this screen.
+> To avoid unexpected 404 errors on your production store, we recommend that you use short relative paths in your SCSS to reference images in your <span class="fp">/img/</span> subdirectory. So, for example, use references of the form:
+`background: url('../img/header-bg.png');` rather than references of the form:
+`background: url('/assets/img/header-bg.png');`
 
 </div>
 </div>

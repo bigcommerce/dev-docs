@@ -32,7 +32,10 @@
 <!-- theme: warning -->
 
 ###  Handlebars Formatting Exception
-> There is no way to re-display this pop-up after selecting Done, so be sure to securely store the credentials before leaving this screen.
+> Where a banner contains HTML, the banner helper must be placed in triple braces, as in this
+example: `{{{banner}}}`. (Double braces would escape the HTML.)
+
+
 
 </div>
 </div>

@@ -26,7 +26,9 @@ The following are required from performing previous steps prior to authorizing a
 <!-- theme:  -->
 
 ###  Best Practice: Isolate Stores by Subdirectory
-> There is no way to re-display this pop-up after selecting Done, so be sure to securely store the credentials before leaving this screen.
+> If you are sharing a theme across storefronts, we strongly recommend that you clone a separate subdirectory (each containing its own `.stencil` file) for each store. This helps isolate and secure each merchant's data.
+
+You can clone your `/cornerstone/` subdirectory now to create your first isolated copy, and then switch to the resulting new subdirectory to continue. (Prior to March 2017, Stencil's default subdirectory name was `/stencil/`.)
 
 </div>
 </div>

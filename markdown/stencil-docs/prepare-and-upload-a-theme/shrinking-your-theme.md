@@ -45,7 +45,7 @@ Once your resulting `.zip` file is 50 MB or smaller, upload it to BigCommerce, a
 <!-- theme: warning -->
 
 ### URL References to Assets
-> There is no way to re-display this pop-up after selecting Done, so be sure to securely store the credentials before leaving this screen.
+> Both in production and locally, subdirectories of your theme's `assets/` directory – like `img/`,` js/`, and `fonts/` – are parallel to its `scss/` subdirectory. So within your CSS, path references to such assets should reflect this parallel relationship – for example: `../img/test.jpg`.
 
 </div>
 </div>

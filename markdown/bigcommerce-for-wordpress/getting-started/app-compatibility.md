@@ -30,7 +30,7 @@ Although a specific BigCommerce app may not be available, you may be able to fin
 <!-- theme:  -->
 
 ### Bolt Checkout for BigCommerce
-> There is no way to re-display this pop-up after selecting Done, so be sure to securely store the credentials before leaving this screen.
+> It's also possible to integrate into BigCommerce for WordPress by creating additional plugins that hook into and extend functionality; for example, Bolt's WordPress plugin: [Bolt Checkout for BigCommerce](https://wordpress.org/plugins/bolt-checkout-bigcommerce/). For more information on how Bolt used BigCommerce for WordPress to build their plugin, see [How Bolt Built an Internet-Wide Checkout UX](https://medium.com/bigcommerce-developer-blog/how-bolt-built-an-internet-wide-checkout-ux-34c285fdb322).
 
 </div>
 </div>

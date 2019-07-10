@@ -3,11 +3,11 @@
 <div class="otp" id="no-index">
 	<h3> On This Page </h3>
 	<ul>
-    <li><a href="#downloading_setting-up-bit[UUID generator](https://www.uuidgenerator.net/)bucket">Setting Up BitBucket SSH Keys</a></li>
+    <li><a href="#downloading_setting-up-bitbucket">Setting Up BitBucket SSH Keys</a></li>
     <li><a href="#downloading_downloading-a-marketplace-theme">Downloading a Marketplace Theme for Customization</a></li>
     <li><a href="#downloading_checking-themes-version">Checking the Theme's Version</a></li>
+    <li><a href="#downloading_jspm-steps">jspm Steps for Earlier Versions</a></li>
     <li><a href="#downloading_installing-modules">Installing Modules (Webpack themes)</a></li>
-    <li><a href="#jspm-legacy">jspm (Legacy)</a></li>
     <li><a href="#downloading_next-steps">Next Steps</a></li>
     </ul>
 </div>
@@ -19,7 +19,8 @@
 <!-- theme: warning -->
 
 ### BitBucket Registry Access
-> There is no way to re-display this pop-up after selecting Done, so be sure to securely store the credentials before leaving this screen.
+> BitBucket registry access is required for all Pixel Union Marketplace Themes. See [Setting Up BitBucket SSH Keys for Pixel Union Marketplace Themes](#downloading_setting-up-bitbucket) for steps to complete this. 
+
 
 </div>
 </div>
@@ -38,7 +39,7 @@ To set up Stencil CLI for Pixel Union Themes, you must authorize communication a
 <!-- theme: warning -->
 
 ### BitBucket and Github Accounts Required
-> BitBucket registry access is required for all Pixel Union Marketplace Themes. See [Setting Up BitBucket SSH Keys for Pixel Union Marketplace Themes](#downloading_setting-up-bitbucket) for steps to complete this. 
+> Steps beyond this point require that you have active accounts on both BitBucket and GitHub.
 
 </div>
 </div>
@@ -57,14 +58,15 @@ https://help.github.com/articles/connecting-to-github-with-ssh/)
 
 
 <div class="HubBlock--callout">
-<div class="CalloutBlock--warning">
+<div class="CalloutBlock--">
 <div class="HubBlock-content">
     
 <!-- theme:  -->
 
 ###  Theme Access, Copyright/Ownership, and Distribution
-> Steps beyond this point require that you have active accounts on both BitBucket and GitHub.
+> Marketplace themes other than Cornerstone must be purchased in order to be downloadable.
 
+You are entitled to customize a free or purchased theme for a store that you support. However, the theme's original creator retains rights to that theme's design. So, except for Cornerstone-based themes, you may not upload a derived theme to a public theme marketplace (whether BigCommerce's or third-party), nor sell it privately.
 
 </div>
 </div>
@@ -113,14 +115,17 @@ Your selected theme will zoom up to a full-page description and display a Theme 
 ")
 
 <div class="HubBlock--callout">
-<div class="CalloutBlock--info">
+<div class="CalloutBlock--">
 <div class="HubBlock-content">
     
 <!-- theme:  -->
 
 ### Theme Download Shortcuts
-> Marketplace themes other than Cornerstone must be purchased in order to be downloadable.
-> You are entitled to customize a free or purchased theme for a store that you support. However, the theme's original creator retains rights to that theme's design. So, except for Cornerstone-based themes, you may not upload a derived theme to a public theme marketplace (whether BigCommerce's or third-party), nor sell it privately.
+> Some versions of the BigCommerce control panel offer you shortcuts for steps 3–5 above, removing the need to click the theme card/thumbnail:
+
+* For your store's currently active theme, look for a version number to the right of the thumbnail. You can select the Advanced drop-down list to display options similar to those at step 5 above.
+
+* For inactive themes, look for a version number at the theme card's lower left. Also, you can select the "..." menu at the theme card's lower right to display options similar to those at step 5 above.
 
 </div>
 </div>
@@ -145,106 +150,18 @@ Refer to the theme's version number that you noted above at Downloading a Theme 
 
 ### Consider Updating Your Theme
 > For version numbers below 1.10.0, consider using the options My Themes option in the control panel to download a newer version of the same theme. This will allow you to jump ahead to the streamlined instructions below at Installing Modules (Webpack Themes).
-> These version numbers do not apply to the Cornerstone theme. All currently supported Cornerstone versions use Webpack. A clean version of the theme can be downloaded using the instructions in [Downloading the Cornerstone Theme](https://developer.bigcommerce.com/stencil-docs/getting-started/advanced-installation-options/downloading-the-cornerstone-theme).
+
+**Note**: These version numbers do not apply to the Cornerstone theme. All currently supported Cornerstone versions use Webpack. A clean version of the theme can be downloaded using the instructions in [Downloading the Cornerstone Theme]().
 
 </div>
 </div>
 </div>
 
----
+<a href='#downloading_checking-modules' aria-hidden='true' class='block-anchor'  id='downloading_checking-modules'><i aria-hidden='true' class='linkify icon'></i></a>
 
-<a id="downloading_installing-modules"></a>
-
-## Installing Modules for Webpack themes
-
-For Marketplace themes whose version number is 1.10.0 or higher, simply use npm to install the modules required to access Stencil JavaScript events:
-
-1. Navigate to your theme directory. This example assumes that this target directory has the default name Cornerstone:
-
-`cd cornerstone`
-
-2. Within that directory, install the stencil-utils module to ensure that all your dependencies are up to date:
-
-`npm install`
-
----
-
-<a id="jspm-legacy"></a>
-
-## Legacy: Configuring themes with jspm (Marketplace theme versions earlier than 1.10.0)
-
-* Installing jspm
-* Registering the jspm Instance
-* Installing jspm-git
-* Adding BitBucket as a jspm registry
-* Installing Modules (jspm Themes)
-
-Use the following steps for Marketplace themes (other than Cornerstone) for which the version number is lower than 1.10.0
-
-### Installing jspm 
-
-You must [install jspm](http://jspm.io) to manage your pre-1.10.0 theme's JavaScript dependencies. We have tested Stencil on jspm version 0.16.30 for Mac OS and Linux, and on version 0.16.31 for Windows. Use the following npm command to install a tested version of jspm with global scope - for Mac OS or Linux: 
-
-`npm install -g jspm@0.16.30`
-
-Or, for Windows:
-
-`npm install -g jspm@0.16.31`
-
-You can use the same command to upgrade an earlier jspm installation to a Stencil-supported version.
-
-### Registering the jspm Instance 
-
-Next, register your jspm instance with GitHub.
-Navigate to your [GitHub Personal Access Tokens page](https://github.com/settings/tokens).
-
-Generate a new personal access token with the name Stencil and scope repo. GitHub provides specific instructions [here](https://help.github.com/articles/generating-an-ssh-key/).
-
-Verify that your new token includes the following scopes: 
-
-* `repo:status`
-* `repo_deployment`
-* `public_repo`
-
-Once you have generated your token, run the following command to associate your jspm module with your GitHub account:
-
-`jspm registry config github`
-
-You will be prompted (`"Set up GitHub credentials?`) to enter your authentication token. Copy the personal access token you created above and paste it in.
-
-
-### Installing jspm-git 
-
-For the next step, you will need the [jspm-git registry plug-in](https://www.npmjs.com/package/jspm-git\).
-
-To install it with global scope, enter the following on a command line:
-`npm install -g jspm-git`
-
-If you already have an earlier version of jspm-git installed, you might need to update it to handle Git projects with two-digit version numbers (such as `1.10.0`). If so, use this command:
-
-`npm upgrade jspm-git@latest`
-
-### Adding BitBucket as a jspm Registry 
-
-Working with downloaded Marketplace themes requires that you next add BitBucket as a registry for jspm. To proceed, set up a [BitBucket](https://bitbucket.org/product) account, if you do not already have one.
-
-Next, enter the following on a command line:
-
-`jspm registry create bitbucket jspm-git`
-
-You will be prompted for a base URL for your git server. Enter the following: `ssh://git@bitbucket.org`
-
-### Installing Modules (jspm Themes)
-	
-Next, install the npm and jspm modules required to access Stencil JavaScript events: Navigate to your theme directory. 
-
-This example assumes that this target directory has the default name `stencil`
-
-`cd stencil` 
-
-Within that directory, install (or reinstall) the `stencil-utils` module to ensure that all your dependencies are up to date:`npm install` Then execute the following command to complete installation: `jspm install`
-
----
+<div class="tab-block">
+    {'children': [{'title': 'Webpack', 'blocks': [{'type': 'text', 'data': '## Installing Modules for Webpack themes\n\nFor Marketplace themes whose version number is 1.10.0 or higher, simply use npm to install the modules required to access Stencil JavaScript events:\n\n1. Navigate to your theme directory. This example assumes that this target directory has the default name Cornerstone:\n\n`cd cornerstone`\n\n2. Within that directory, install the stencil-utils module to ensure that all your dependencies are up to date:\n\n`npm install`'}]}, {'title': 'jspm', 'blocks': [{'type': 'text', 'data': '## Legacy: Configuring themes with jspm (Marketplace theme versions earlier than 1.10.0)\n\n* Installing jspm\n* Registering the jspm Instance\n* Installing jspm-git\n* Adding BitBucket as a jspm registry\n* Installing Modules (jspm Themes)'}, {'type': 'text', 'data': "Use the following steps for Marketplace themes (other than Cornerstone) for which the version number is lower than 1.10.0\n\n## Installing jspm \n\nYou must [install jspm](http://jspm.io) to manage your pre-1.10.0 theme's JavaScript dependencies. We have tested Stencil on jspm version 0.16.30 for Mac OS and Linux, and on version 0.16.31 for Windows. Use the following npm command to install a tested version of jspm with global scope - for Mac OS or Linux: \n\n`npm install -g jspm@0.16.30`\n\nOr, for Windows:\n\n`npm install -g jspm@0.16.31`\n\nYou can use the same command to upgrade an earlier jspm installation to a Stencil-supported version."}, {'type': 'text', 'data': '## Registering the jspm Instance \n\nNext, register your jspm instance with GitHub.\nNavigate to your [GitHub Personal Access Tokens page](https://github.com/settings/tokens).\n\nGenerate a new personal access token with the name Stencil and scope repo. GitHub provides specific instructions [here](https://help.github.com/articles/generating-an-ssh-key/).\n\nVerify that your new token includes the following scopes: \n\n* `repo:status`\n* `repo_deployment`\n* `public_repo`\n\nOnce you have generated your token, run the following command to associate your jspm module with your GitHub account:\n\n`jspm registry config github`\n\nYou will be prompted (`"Set up GitHub credentials?`) to enter your authentication token. Copy the personal access token you created above and paste it in.\n'}, {'type': 'text', 'data': '## Installing jspm-git \n\nFor the next step, you will need the [jspm-git registry plug-in](https://www.npmjs.com/package/jspm-git\\).\n\nTo install it with global scope, enter the following on a command line:\n`npm install -g jspm-git`\n\nIf you already have an earlier version of jspm-git installed, you might need to update it to handle Git projects with two-digit version numbers (such as `1.10.0`). If so, use this command:\n\n`npm upgrade jspm-git@latest`'}, {'type': 'text', 'data': '## Adding BitBucket as a jspm Registry \n\nWorking with downloaded Marketplace themes requires that you next add BitBucket as a registry for jspm. To proceed, set up a [BitBucket](https://bitbucket.org/product) account, if you do not already have one.\n\nNext, enter the following on a command line:\n\n`jspm registry create bitbucket jspm-git`\n\nYou will be prompted for a base URL for your git server. Enter the following: `ssh://git@bitbucket.org`'}, {'type': 'text', 'data': '## Installing Modules (jspm Themes)\n\t\nNext, install the npm and jspm modules required to access Stencil JavaScript events: Navigate to your theme directory. \n\nThis example assumes that this target directory has the default name `stencil`\n\n`cd stencil` \n\nWithin that directory, install (or reinstall) the `stencil-utils` module to ensure that all your dependencies are up to date:`npm install` Then execute the following command to complete installation: `jspm install`'}]}]}
+</div>
 
 <a href='#downloading_next-steps' aria-hidden='true' class='block-anchor'  id='downloading_next-steps'><i aria-hidden='true' class='linkify icon'></i></a>
 
@@ -264,7 +181,7 @@ Later, when you are ready to upload your customized theme to a store, you should
 ### BitBucket Reauthentication 
 > When you issue the `stencil init` command to [authorize and initialize Stencil](/stencil-docs/getting-started/launching-stencil/authorizing-and-initializing), you might receive error messages about resolving BitBucket as an SSH host. These errors occur when you have not recently logged into BitBucket. 
 
-> When prompted, enter the BitBucket password you used in Setting Up BitBucket SSH Keys above. This will clear the errors and allow you to proceed.
+When prompted, enter the BitBucket password you used in Setting Up BitBucket SSH Keys above. This will clear the errors and allow you to proceed.
 
 </div>
 </div>

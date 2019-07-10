@@ -46,7 +46,7 @@ We encourage you to create your sandbox store and your Dev Tools account using t
 <!-- theme: warning -->
 
 ### Trials Erased After 15 days
-> There is no way to re-display this pop-up after selecting Done, so be sure to securely store the credentials before leaving this screen.
+> Although a sandbox store is not required for app development, it is best practice. If you opt to develop on a trial store, keep in mind that the store and data will be erased after 15 days and a new trial will have to be created.
 
 </div>
 </div>

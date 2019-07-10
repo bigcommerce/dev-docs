@@ -18,7 +18,7 @@
 <!-- theme:  -->
 
 ### Distributed Version Control via Git
-> There is no way to re-display this pop-up after selecting Done, so be sure to securely store the credentials before leaving this screen.
+> Many techniques discussed below rely on GitHub's _distributed version control_ model and features. For the underlying principles, please see [Git's own documentation](https://git-scm.com/book/en/v2/Getting-Started-About-Version-Control).
 
 </div>
 </div>

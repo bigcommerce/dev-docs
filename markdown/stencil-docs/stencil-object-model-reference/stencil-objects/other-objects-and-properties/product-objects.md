@@ -21,7 +21,7 @@
 <!-- theme:  -->
 
 ### Other Product Objects
-> There is no way to re-display this pop-up after selecting Done, so be sure to securely store the credentials before leaving this screen.
+> Also see Common Objects > Common Product Card Model, which documents the product object returned in collections.
 
 </div>
 </div>

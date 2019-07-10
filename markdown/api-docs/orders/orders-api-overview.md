@@ -87,7 +87,7 @@ Make note of the `option_values > id` and `option_values > option_id`. These wil
     
 <!-- theme:  -->
 
-> There is no way to re-display this pop-up after selecting Done, so be sure to securely store the credentials before leaving this screen.
+> If price_ex_tax or price_inc_tax is set, then they both need to bet specified. Otherwise the order total will not calculate correctly.
 
 </div>
 </div>
@@ -245,7 +245,7 @@ lineNumbers: true
     
 <!-- theme:  -->
 
-> There is no way to re-display this pop-up after selecting Done, so be sure to securely store the credentials before leaving this screen.
+> Creating a custom product does not add it to the catalog. Only to the current order.
 
 </div>
 </div>
@@ -323,7 +323,7 @@ lineNumbers: true
     
 <!-- theme:  -->
 
-> There is no way to re-display this pop-up after selecting Done, so be sure to securely store the credentials before leaving this screen.
+> If a shipping address is not provided, it defaults to the billing address.
 
 </div>
 </div>
@@ -494,7 +494,7 @@ In the example below, the order ID is 193.
     
 <!-- theme:  -->
 
-> There is no way to re-display this pop-up after selecting Done, so be sure to securely store the credentials before leaving this screen.
+> Coupons can not be added to an order via API. Use the `discount_amount` instead.
 
 </div>
 </div>
@@ -748,7 +748,7 @@ To ship to multiple locations create an order shipment for each location and ite
     
 <!-- theme:  -->
 
-> There is no way to re-display this pop-up after selecting Done, so be sure to securely store the credentials before leaving this screen.
+> When adding shipping addresses during an order PUT or POST, the API will allow you to add more than is necessary.
 
 </div>
 </div>
@@ -765,7 +765,7 @@ An order can be created with a `shipping_cost_ex_tax` and `shipping_cost_inc_tax
     
 <!-- theme:  -->
 
-> There is no way to re-display this pop-up after selecting Done, so be sure to securely store the credentials before leaving this screen.
+> Both `shipping_cost_ex_tax` and `shipping_cost_inc_tax` must be included otherwise, the final order amount will not be calculated correctly. 
 
 </div>
 </div>

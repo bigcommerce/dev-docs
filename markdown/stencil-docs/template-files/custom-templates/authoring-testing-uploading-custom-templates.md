@@ -30,7 +30,11 @@ Next,  create the template HTML files, and then place them in the appropriate `<
 <!-- theme: warning -->
 
 ### Subdirectory/File Permissions Required
-> There is no way to re-display this pop-up after selecting Done, so be sure to securely store the credentials before leaving this screen.
+> Be sure to set permission `755 (drwxr-x-r-x)` on any new subdirectories that you add.
+Also, be sure to set permission `644 (rw-r–r–)` on any new files that you add.
+
+Without these permissions, running your theme locally will fail with multiple error messages.
+Bundling your theme will also fail, blocking its upload to a store.
 
 </div>
 </div>

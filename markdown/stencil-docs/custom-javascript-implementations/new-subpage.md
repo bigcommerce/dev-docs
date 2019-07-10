@@ -93,7 +93,7 @@ export default class Blog extends PageManager {
     
 <!-- theme:  -->
 
-> There is no way to re-display this pop-up after selecting Done, so be sure to securely store the credentials before leaving this screen.
+> 1. Notice the page types correspond to the html pages in [cornerstone/templates/pages/](https://github.com/bigcommerce/cornerstone/tree/master/templates/pages)
 
 </div>
 </div>

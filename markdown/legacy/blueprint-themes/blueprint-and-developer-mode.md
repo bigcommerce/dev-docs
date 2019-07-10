@@ -14,7 +14,9 @@
 <!-- theme: warning -->
 
 ### Restricted/Grandfathered Access
-> There is no way to re-display this pop-up after selecting Done, so be sure to securely store the credentials before leaving this screen.
+> As of November 2016, new BigCommerce stores are being offered themes exclusively from BigCommerce's new <a href="https://support.bigcommerce.com/articles/Public/The-Stencil-Theme-Platform" target="_blank">Stencil</a> theme platform. For existing stores, the control panel's <NOBR><b>Themes Marketplace</b></nobr> and <NOBR><b>My Themes</b></nobr> pages will show only those Blueprint themes that have been applied to the store and/or purchased before November 2016. <br><br> 
+
+This means that the workflow below will work only for stores that have applied or purchased at least one Blueprint theme before November 2016. For information about developing on the current Stencil platform, please see <a href="https://stencil.bigcommerce.com/docs/" target="_blank">this developer documentation</a>.
 
 </div>
 </div>

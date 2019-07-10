@@ -100,7 +100,8 @@ unzip /Users/your-computer/Downloads/ngrok-stable-darwin-amd64.zip -d /Users/you
 <!-- theme: success -->
 
 ### Checkpoint
-> At this point you should have a project folder with ngrok unzipped inside of it.
+> At this point you should have a project folder with ngrok unzipped inside of it. 
+
 
 </div>
 </div>
@@ -152,11 +153,11 @@ lineNumbers: true
 
 ### Checkpoint
 > At this point your project folder should contain:
-> * index.js
-> * node_modules
-> * package.json
-> * ngrok
-> * package-lock.json
+* `index.js`
+* `node_modules`
+* `package.json`
+* `ngrok`
+* `package-lock.json`
 
 </div>
 </div>
@@ -212,15 +213,9 @@ From Express [Website](https://expressjs.com/en/starter/basic-routing.html):
 2. In one tab run the app. `node index.js`
 3. In the other start ngrok. `./ngrok http 3000`
 
-#### node index.js
-```shell
-BIGCOMMERCE:webhooks your.computer$ node index.js
-Listening for webhooks on port 3000
-```
-
-#### ngrok http 3000
-
-![ngrok running](//s3.amazonaws.com/user-content.stoplight.io/6012/1531500085650)
+<div class="tab-block">
+    {'children': [{'title': 'node index.js', 'blocks': [{'type': 'text', 'data': '```\nBIGCOMMERCE:webhooks your.computer$ node index.js\nListening for webhooks on port 3000\n```'}]}, {'title': 'ngrok http 3000', 'blocks': [{'type': 'image', 'data': '//s3.amazonaws.com/user-content.stoplight.io/6012/1531500085650', 'config': {'centered': True}, 'header': {'title': 'nrgok terminal'}}]}]}
+</div>
 
 ngrok returns two values we will need to register a webhook and observe the response: 
 - **Web Interface:** Where you can monitor the hook from a browser. `https://127.0.0.1:4040`
@@ -243,7 +238,7 @@ ngrok returns two values we will need to register a webhook and observe the resp
 
 Subscribe to the `store/product/updated` event: 
 
-1. Create a POST request using the try it now below or your API enviroment of choice to the request URL:`https://api.bigcommerce.com/stores/{{store_hash}}/v2/hooks`. 
+1. Create a POST request using the try it now box below or your API enviroment of choice to the request URL:`https://api.bigcommerce.com/stores/{{store_hash}}/v2/hooks`. 
 Replace store_hash with the value from your store's API path.
 2. Create a request body where "scope" is the webhook event we are subscribing to and "destination" is your ngrok forwarding url with /webhooks appended (the route specified in our Express app):
 
@@ -292,10 +287,7 @@ lineNumbers: true
 
 <a href='#create-a-webhook' aria-hidden='true' class='block-anchor'  id='create-a-webhook'><i aria-hidden='true' class='linkify icon'></i></a>
 
-**Try it Now**  
-*Create a webhook*
-
-[![Run in Postman](https://run.pstmn.io/button.svg)](https://app.getpostman.com/run-collection/3f005ed74030e01bbf7a)
+{'method': 'post', 'url': 'https://api.bigcommerce.com/stores/{store_hash}/v2/hooks', 'headers': {'Accept': 'application/json', 'Content-Type': 'application/json', 'X-Auth-Client': '{the OAuth client id}', 'X-Auth-Token': '{the OAuth token}'}, 'body': '{\n"scope": "store/product/updated",\n "destination": "https://{your-url}.ngrok.io/webhooks",\n "is_active": true\n}\n'}
 
 <a href='#201-response' aria-hidden='true' class='block-anchor'  id='201-response'><i aria-hidden='true' class='linkify icon'></i></a>
 
@@ -403,10 +395,7 @@ After hitting send, check the ngrok web interface. You may see a single event or
 
 <a href='#update-a-product-webhooks' aria-hidden='true' class='block-anchor'  id='update-a-product-webhooks'><i aria-hidden='true' class='linkify icon'></i></a>
 
-**Try it Now**  
-*Update a product*
-
-[![Run in Postman](https://run.pstmn.io/button.svg)](https://app.getpostman.com/run-collection/3f005ed74030e01bbf7a)
+{'url': 'https://api.bigcommerce.com/stores/{store_hash}/v3/catalog/products/{product_id}', 'headers': {'X-Auth-Client': '{Your-X-Auth-Client}', 'X-Auth-Token': '{Your-X-Auth-Token}', 'Accept': 'application/json', 'Content-Type': 'application/json'}, 'method': 'put', 'body': '{\n  "price": 12.99\n}'}
 
 <!--
     title: #### ngrok Web Interface
@@ -432,7 +421,7 @@ Want to keep going? Try changing the text in `res.send()` to a custom response, 
 <!-- theme: warning -->
 
 ### URL Timeout
-> Unless you have a paid ngrok account, the destination URL will only be valid for a few hours. After that, the webhook will stop working. Send a DELETE request to the specific webhook ID to disable the hook.
+> Unless you have a paid ngrok account, the destination URL will only be valid for a few hours. After that, the webhook will stop working. Send a DELETE request to the specific webhook ID to disable the hook. 
 
 </div>
 </div>
@@ -440,10 +429,7 @@ Want to keep going? Try changing the text in `res.send()` to a custom response, 
 
 <a href='#delete-webhook' aria-hidden='true' class='block-anchor'  id='delete-webhook'><i aria-hidden='true' class='linkify icon'></i></a>
 
-**Try it Now**  
-*Delete a webhook*
-
-[![Run in Postman](https://run.pstmn.io/button.svg)](https://app.getpostman.com/run-collection/3f005ed74030e01bbf7a)
+{'method': 'delete', 'url': 'https://api.bigcommerce.com/stores/{store_hash}/v2/hooks/{hook_id}', 'headers': {'X-Auth-Client': '{your-client-id}', 'X-Auth-Token': '{your-auth-token}', 'Content-Type': 'application/json', 'Accept': 'application/json'}}
 
 ---
 
@@ -464,7 +450,7 @@ subtitle: ""
 lineNumbers: true
 -->
 
-```json
+```
 {
 "scope": "store/cart/lineItem/*",
   "destination": "https://myapp.herokuapp.com/",
@@ -511,6 +497,5 @@ Use the command `./ngrok http 3000` to run ngrok as a sudo user.
 
 3. Windows Users
 If you are having trouble getting ngrok started try setting the PATH. 
-
-[What are PATH and other environment variables, and how can I set or use them?](https://superuser.com/questions/284342/what-are-path-and-other-environment-variables-and-how-can-i-set-or-use-them)
+    - [What are PATH and other environment variables, and how can I set or use them?](https://superuser.com/questions/284342/what-are-path-and-other-environment-variables-and-how-can-i-set-or-use-them)
 

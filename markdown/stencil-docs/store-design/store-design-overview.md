@@ -7,7 +7,7 @@
 <!-- theme: success -->
 
 ### From Theme Editor to Store Design 
-> There is no way to re-display this pop-up after selecting Done, so be sure to securely store the credentials before leaving this screen.
+> Stencil themes have now introduced the new rapid customization tool and experience called **Store Design** (previously Theme Editor). For more information on using Store Design from a merchant perspective, see our support [Store Design article](https://forum.bigcommerce.com/s/article/Store-Design) or [Changelog](https://developer-changelog.bigcommerce.com/posts/store-design-v-3-customers-api) for more information. 
 
 </div>
 </div>
@@ -29,7 +29,7 @@ The remainder of this section guides you, as a developer, through configuring yo
 <!-- theme: info -->
 
 ###  Single Instance per Storefront
-> There is no way to re-display this pop-up after selecting Done, so be sure to securely store the credentials before leaving this screen.
+> Open only one instance of Store Design at a time against each storefront. There is currently no synchronization mechanism for configuration changes made by multiple Store Design instances.
 
 </div>
 </div>

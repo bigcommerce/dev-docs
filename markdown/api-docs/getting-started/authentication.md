@@ -59,7 +59,7 @@ To get started making requests, see [API Requests](/api-docs/getting-started/bas
     
 <!-- theme: warning -->
 
-> There is no way to re-display this pop-up after selecting Done, so be sure to securely store the credentials before leaving this screen.
+> There is no way to re-display this pop-up after selecting Done, so be sure to securely store the credentials before leaving this screen. 
 
 </div>
 </div>
@@ -95,7 +95,7 @@ To revoke Store API Credentials:
 <!-- theme: error -->
 
 ### Delete Carefully
-> There is no way to re-display this pop-up after selecting Done, so be sure to securely store the credentials before leaving this screen.
+> There is no undo, so be sure before you delete an account. You can also use the checkboxes on the left side to delete multiple accounts at once – but be especially careful when using this option.
 
 </div>
 </div>
@@ -161,7 +161,9 @@ To get App API Credentials, login to (or create) your BigCommerce [Developer Por
 <!-- theme:  -->
 
 ### Client ID and Client Secret
-> There is no way to re-display this pop-up after selecting Done, so be sure to securely store the credentials before leaving this screen.
+> The Client ID value uniquely identifies your app. You will need to pass it in the header of all your requests to the API.
+
+The Client Secret value is a secret that your app and BigCommerce share. You only need to pass the Client Secret value once, during the app installation sequence. Thereafter, BigCommerce uses it to sign payloads in load, uninstall, and remove user requests, and your app uses it to verify the signature to ensure that the request is coming from BigCommerce.
 
 </div>
 </div>
@@ -184,7 +186,7 @@ To get App API Credentials, login to (or create) your BigCommerce [Developer Por
     
 <!-- theme: warning -->
 
-> There is no way to re-display this pop-up after selecting Done, so be sure to securely store the credentials before leaving this screen.
+> If you delete the app, there is no way to recover the Client Id and Client Secret.
 
 </div>
 </div>
@@ -226,7 +228,7 @@ During the app installation process, your app will use the Client Id and Client 
     
 <!-- theme: error -->
 
-> There is no way to re-display this pop-up after selecting Done, so be sure to securely store the credentials before leaving this screen.
+> As of July 31, 2018, new BigCommerce stores are no longer able to create Legacy API Accounts (accounts using HTTP Basic Auth) within their control panels. Existing Legacy API Accounts will continue to work until further notice, but we strongly recommend migrating to OAuth as soon as possible.
 
 </div>
 </div>

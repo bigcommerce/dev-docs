@@ -25,8 +25,7 @@ Global attributes are available on all pages.
     <th>Attribute</th>
     <th>Option with Sample Assignment</th>
     <th>Default Value</th>
-    <th>Details and Other 
-Allowable Values/Results</th>
+    <th>Details and Other Allowable Values/Results</th>
   </tr>
   <tr>
     <td>customer:</td>
@@ -38,30 +37,15 @@ Allowable Values/Results</th>
   <tr>
   	<td></td>
   	<td>addresses: true</td>
-    <td>true – on address page
-
-null – on all other pages</td>
-    <td>Boolean indicating whether to retrieve addresses for this customer.
-
-No filtering available. Default sorting is by address id, from lowest to highest.
-
-null or false: Do not retrieve addresses.
-true: Retrieve addresses.</td>
+    <td>true – on address page null – on all other pages</td>
+    <td>Boolean indicating whether to retrieve addresses for this customer. No filtering available. Default sorting is by address id, from lowest to highest. <b>null or false:</b> Do not retrieve addresses. <b>true</b>: Retrieve addresses.</td>
   </tr>
   
   <tr>
     <td></td>
     <td>returns: true</td>
-    <td>true – on returns page
-
-null – on all other pages</td>
-    <td>Boolean indicating whether to retrieve product-return requests for this customer.
-      
-      No filtering available.
-      
-      true: Retrieve requests.
-      
-      null or false: Do not retrieve requests.</td>
+    <td></b>true – on returns page; <b>null</b> – on all other pages</td>
+    <td>Boolean indicating whether to retrieve product-return requests for this customer. No filtering available.<b>true</b>: Retrieve requests. <b>null</b> or <b>false</b>: Do not retrieve requests.</td>
   </tr>
   
   <tr>
@@ -181,16 +165,6 @@ null</td>
       <br><p></p>
       If &lt;number&gt; is not defined, displays 100 characters.</td>
   </tr>
-  
-  <!-- <tr>
-    <td class="">brands:<br>
-        <span class="indent1">&lt;number&gt;</span></td>
-    <td class="">null</td>
-    <td class="">null: Do not display a brand list.<br><p></p>
-&lt;number&gt; limits the number of brands to return.<br><p></p>
-If &lt;number&gt; is not defined, returns all brands.</td>
-  </tr> -->
-  
   <tr>
     <td class="">cart: true</td>
     <td class=""></td>
@@ -320,13 +294,7 @@ Blog attributes are available in the context of a blog.
     <td class=""></td>
     <td class="">pages: &lt;number&gt;</td>
     <td class="">5</td>
-    <td class="">
-null: No pagination.<br><p></p>
-      
-      &lt;number&gt; sets the number of pages to display in pagination links.<br><p></p>
-      
-      If &lt;number&gt; is not defined, defaults to 5 pages.
-    </td>
+    <td class=""><b>null:</b> No pagination. <b>&lt;number&gt;</b> sets the number of pages to display in pagination links. If <b>&lt;number&gt; is not defined</b>, defaults to 5 pages.</td>
   </tr>
   
   <tr>
@@ -366,11 +334,8 @@ Product attributes are available in the context of a product.
         <span class="indent1">limit: &lt;number&gt;</span></td>
     <td class="">
 [unlimited]</td>
-    <td class="">If product.videos is not defined, no videos are returned.<br><p></p>
-      
-      If product.videos is defined, the default behavior is to return all videos. <!-- Check & correct this. --> <br><p></p>
-      
-      If product.videos.limit is also defined, &lt;number&gt; sets the maximum number of videos returned.</td>
+    <td class="">If <b>product.videos is not defined</b>, no videos are returned.
+      <b>If product.videos is defined</b>, the default behavior is to return all videos. <b>If product.videos.limit is also defined</b>, &lt;number&gt; sets the maximum number of videos returned.</td>
   </tr>
   
   <tr>
@@ -379,10 +344,7 @@ Product attributes are available in the context of a product.
         <span class="indent1">limit: &lt;number&gt;</span></td>
     <td class="">
 [unlimited]</td>
-    <td class="">If product.images is not defined, no images are returned.<br><p></p>
-      
-      If product.images is defined, you must also define product.images.limit, which throttles the number of images returned. <br><p></p>
-The maximum allowable value for this option's &lt;number&gt; parameter is 5 images.</td>
+    <td class=""><b>If product.images is not defined</b>, no images are returned. <b>If product.images is defined</b>, you must also define product.images.limit, which throttles the number of images returned. The maximum allowable value for this option's &lt;number&gt; parameter is 5 images.</td>
   </tr>
   
   <tr>
@@ -390,12 +352,7 @@ The maximum allowable value for this option's &lt;number&gt; parameter is 5 imag
     <td class="">reviews: true<br>
         <span class="indent1">limit: &lt;number&gt;</span></td>
     <td>[false]</td>
-    <td>Boolean indicating whether to display product reviews.
-        
-      If product.reviews is present, and is not explicitly set to "false", reviews will appear.
-      
-      If &lt;number&gt; is not defined, defaults to 10 reviews.
-      (When filtering/limiting reviews, default sorting is by review id, from lowest to highest.)</td>
+    <td>Boolean indicating whether to display product reviews. <b>If product.reviews is present, and is not explicitly set to "false"</b>, reviews will appear. <b>If &lt;number&gt; is not defined</b>, defaults to 10 reviews (When filtering/limiting reviews, default sorting is by review id, from lowest to highest).</td>
   </tr>
   
   <tr>
@@ -404,13 +361,7 @@ The maximum allowable value for this option's &lt;number&gt; parameter is 5 imag
         <span class="indent1">limit: &lt;number&gt;</span></td>
     <td class="">
 [unlimited]</td>
-    <td class="">Displays products that are related by name.<br><p></p>
-      
-      &lt;number&gt; limits the number of products displayed.<br><p></p>
-      
-      If &lt;limit&gt; is absent or undefined, the default behavior is to display all related products.<br><p></p> 
-
-Inserting “limit:” with no integer will display 0 products. </td>
+    <td class="">Displays products that are related by name. <b>&lt;number&gt;</b> limits the number of products displayed. <b>If &lt;limit&gt; is absent or undefined</b>, the default behavior is to display all related products. Inserting <b>“limit:”</b> with no integer will display 0 products.</td>
   </tr>
   
   <tr>
@@ -418,11 +369,7 @@ Inserting “limit:” with no integer will display 0 products. </td>
     <td>similar_by_views:<br>
         <span class="indent1">limit: &lt;number&gt;</span></td>
     <td>[unlimited]</td>
-    <td>Displays products similar to those displayed in the current page context.<br><p></p>
-      
-      &lt;number&gt; limits the number of products displayed.
-      
-      If &lt;limit&gt; is absent or undefined, default is to display 4 products.</td>
+    <td>Displays products similar to those displayed in the current page context. <b>&lt;number&gt;</b> limits the number of products displayed. <b>If &lt;limit&gt; is absent or undefined</b>, default is to display 4 products.
   </tr>
 </table>
 

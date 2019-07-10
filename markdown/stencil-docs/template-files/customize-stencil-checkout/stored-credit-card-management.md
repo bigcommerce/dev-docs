@@ -36,7 +36,9 @@ Stored Credit Card management<sup>1</sup> gives customer's the ability to manage
     
 <!-- theme:  -->
 
-> There is no way to re-display this pop-up after selecting Done, so be sure to securely store the credentials before leaving this screen.
+> 1. Cornerstone versions 2.6.0+ include the ability to manage [Stored Credit Cards](https://support.bigcommerce.com/s/article/Enabling-Stored-Credit-Cards).
+2. Card data is stored securely with the payment gateway.
+3. After adding a card, shoppers will only be able to modify the billing address. If other credit card details need to be modified (such as expiration date), the shopper must delete and re-add the card.
 
 </div>
 </div>
@@ -210,7 +212,7 @@ First, the click will trigger window confirm. The confirmation modal has been ad
 
 ### Utilizing Github Automation to Merge the Changes
 
-> There is no way to re-display this pop-up after selecting Done, so be sure to securely store the credentials before leaving this screen.
+> Since this feature involves heavy code changes, it may be easier to merge the necessary code into your theme by utilizing Github's automated process for syncing a fork. See Github's documentation on [Syncing a Fork](https://help.github.com/articles/syncing-a-fork/) for more details on this method.
 
 </div>
 </div>

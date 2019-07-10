@@ -328,7 +328,7 @@ Items to note about the *Catalog Price Object* example above:
 <!-- theme: warning -->
 
 ### Tax Display Configurations
-> There is no way to re-display this pop-up after selecting Done, so be sure to securely store the credentials before leaving this screen.
+> You would see these same properties and values if the Control Panel setting had been **Including tax** (as opposed to **Including and excluding tax**). These properties and values would not be available for a Control Panel setting of **Excluding tax**.
 
 </div>
 </div>

@@ -25,7 +25,7 @@ Your apps can use a product's or variant's <a href="https://support.bigcommerce.
 <!-- theme:  -->
 
 ### Limitation: One Item per URL
-> There is no way to re-display this pop-up after selecting Done, so be sure to securely store the credentials before leaving this screen.
+> Each of the custom links described here can add only a single item (quantity 1) to the cart at a time.
 
 </div>
 </div>

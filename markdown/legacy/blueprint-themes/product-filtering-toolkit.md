@@ -20,7 +20,15 @@ Product filtering (also known as faceted search) enables shoppers to refine prod
 <!-- theme: warning -->
 
 ### Requirements/Restrictions
-> There is no way to re-display this pop-up after selecting Done, so be sure to securely store the credentials before leaving this screen.
+> <ul>
+<li>
+Adding product filtering to a theme is recommended for experienced theme developers only. You must have facility with HTML and CSS, and must also familiarize yourself with how BigCommerce themes are structured and operate. </li>
+<li>
+Product filtering is a Pro/Enterprise feature. To enable it on an active public store, you must upgrade to a Pro or Enterprise plan.
+</li>
+<li>
+As noted below, we recommend implementing product filtering on a temporary sandbox store. You can create a trial store, and then upload your theme customizations to that store via WebDAV to replicate your local changes.</li>
+</ul>
 
 </div>
 </div>
@@ -42,7 +50,11 @@ Product filtering is fully functional in the Blueprint base theme. Once you’ve
 <!-- theme: warning -->
 
 ### Restricted/Grandfathered Access to Blueprint Base Theme
-> There is no way to re-display this pop-up after selecting Done, so be sure to securely store the credentials before leaving this screen.
+> The Blueprint base theme is now available only to stores that applied it before November 2016. <br><br>
+
+As of that date, stores are being offered themes only from BigCommerce's new <a href="https://support.bigcommerce.com/articles/Public/The-Stencil-Theme-Platform" target="_blank">Stencil</a> theme platform. Within a store's control panel, the <NOBR><b>Themes Marketplace</b></nobr> and <NOBR><b>My Themes</b></nobr> pages will show only those Blueprint themes that have been applied to the store and/or purchased before November 2016. <br><br> 
+
+For information about developing on the current Stencil platform, please see <a href="https://stencil.bigcommerce.com/docs/" target="_blank">this developer documentation</a>.
 
 </div>
 </div>
@@ -64,7 +76,7 @@ To enable product filtering, just enable [Developer Mode](#devmode) on your stor
 <!-- theme: warning -->
 
 ### Start with a Sandbox Store
-> There is no way to re-display this pop-up after selecting Done, so be sure to securely store the credentials before leaving this screen.
+> Depending on the customizations you have made to your theme, enabling Developer Mode could have unexpected results. <NOBR>We recommend</nobr> using a sandbox store (not your main store) when applying these changes for the first time.
 
 </div>
 </div>
@@ -91,7 +103,7 @@ Once you’ve enabled product filtering for your sandbox store, you’ll need to
 
 ###  Restricted/Grandfathered Access to Blueprint Base Theme
 
-> There is no way to re-display this pop-up after selecting Done, so be sure to securely store the credentials before leaving this screen.
+> As noted above, the Blueprint base theme is now available only to stores that applied it before November 2016.
 
 </div>
 </div>
@@ -151,7 +163,7 @@ When switched off:
 <!-- theme: warning -->
 
 ###  Clone and Rename Templates, Don’t Alter Originals
-> There is no way to re-display this pop-up after selecting Done, so be sure to securely store the credentials before leaving this screen.
+> Development agencies should not modify the <em>base</em> templates of the <code>brand.html</code>, <code>search.html</code>, or <code>category.html</code> pages to include faceted search. Clients who are not on a Pro or Enterprise plan do not get faceted search, so if you include it on <code>category.html</code>, <code>brand.html</code> or <code>search.html</code> page, your theme will be useless to those clients.
 
 </div>
 </div>

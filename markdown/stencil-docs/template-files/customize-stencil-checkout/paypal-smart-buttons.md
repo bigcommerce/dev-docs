@@ -71,7 +71,7 @@ lineNumbers: true
 <!-- theme: warning -->
 
 ### Store Design Customization
-> There is no way to re-display this pop-up after selecting Done, so be sure to securely store the credentials before leaving this screen.
+> Adding the above keys to the <span class="fn">config.json</span> file will enable Smart Buttons on a Stencil theme, however, the merchant will **not** be able to customize button styles with Store Design unless setting configurations are added to the <span class="fn">schema.json</span> file.
 
 </div>
 </div>
@@ -226,7 +226,14 @@ lineNumbers: true
 <!-- theme: error -->
 
 ### Mutually Exclusive Options
-> There is no way to re-display this pop-up after selecting Done, so be sure to securely store the credentials before leaving this screen.
+> Some customization options are mutually exclusive, meaning when used in combination with other customization options, the smart button will completely fail to render on the page. 
+
+All mutually exclusive options are tied to the layout setting `vertical.` If your layout setting is `vertical,` take note of the following customization **restrictions**:
+
+* If you have a layout setting of `vertical`, you **can not** have a button size of `small`.
+* If you have a layout setting of `vertical`, you **can not** customize the `branding` of the button.
+* If you have a layout setting of `vertical`, you **can not** customize the `tagline` of the button.
+* If you have a layout setting of `vertical`, you **can not** customize the `funding icons` settings.
 
 </div>
 </div>

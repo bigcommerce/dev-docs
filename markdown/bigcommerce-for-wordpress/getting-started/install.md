@@ -41,7 +41,7 @@ Once connected, you’ll set up a new [Channel Name](https://support.bigcommerce
 
 ### 
 Multi-Site Instructions 
-> There is no way to re-display this pop-up after selecting Done, so be sure to securely store the credentials before leaving this screen.
+> Looking for multi-site instructions? See [Multi Site Setup](/bigcommerce-for-wordpress/setup/multi-site).
 
 </div>
 </div>

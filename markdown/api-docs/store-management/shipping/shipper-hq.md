@@ -42,7 +42,7 @@ These field values can be set in the Control Panel by the merchant as well as us
     
 <!-- theme: warning -->
 
-> There is no way to re-display this pop-up after selecting Done, so be sure to securely store the credentials before leaving this screen.
+> The metafields must be entered exactly, otherwise they will not work. Since metafields can also be used to store information against a product, if the <code>namespace</code> for example is set to shipping and not <code>shipping.shipperhq</code>, it will not update the shipping information.
 
 </div>
 </div>

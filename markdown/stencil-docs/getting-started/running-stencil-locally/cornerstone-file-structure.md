@@ -28,7 +28,7 @@ The Cornerstone file structure consists of four main subdirectories, which are d
 <!-- theme: warning -->
 
 ### Prevent Rendering Errors 
-> There is no way to re-display this pop-up after selecting Done, so be sure to securely store the credentials before leaving this screen.
+> In order to prevent any rendering errors, avoid changing the html file names in the <span class="fp">template/pages</span> directory.
 
 </div>
 </div>

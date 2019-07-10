@@ -22,7 +22,7 @@ Cornerstone versions 2.6.0+ will have Data Tags already included in the theme.
 <!-- theme: error -->
 
 ### GAEE for Blueprint
-> There is no way to re-display this pop-up after selecting Done, so be sure to securely store the credentials before leaving this screen.
+> While you can implement data tags with Blueprint themes, we do not currently have specific documentation on how to do this. The data tag HTML structure, however, will be the same as it is in a Stencil theme. 
 
 </div>
 </div>
@@ -160,7 +160,11 @@ Currently, BigCommerce supports 11 different data tags. Below is a table with a 
 <!-- theme: warning -->
 
 ### Mandatory Data
-> There is no way to re-display this pop-up after selecting Done, so be sure to securely store the credentials before leaving this screen.
+> * If tracking promotions data, either `data-banner-id` or `data-name` is required.
+* If tracking data for a product, either `data-entity-id` or `data-name` is required.
+* If tracking data for a product list, `data-product-list` or `data-entity-id` is required.
+
+The “tracked product” refers to the product on which you are inserting the data tag.
 
 </div>
 </div>

@@ -18,7 +18,8 @@
 <!-- theme: success -->
 
 ### Notes on Dependencies
-> There is no way to re-display this pop-up after selecting Done, so be sure to securely store the credentials before leaving this screen.
+> Our installation instructions have been tested on Mac OS X Yosemite, Linux/Ubuntu v.14.04.4, and Windows. Dependencies for other platforms/releases will be added upon further testing.
+
 
 </div>
 </div>
@@ -54,7 +55,7 @@ The diagram below visually illustrates _all_ currently supported workflows for s
 <!-- theme:  -->
 
 ### Detailed Steps Described Below
-> There is no way to re-display this pop-up after selecting Done, so be sure to securely store the credentials before leaving this screen.
+> Continue reading to get a detailed description and breakdown of the steps required for each setup scenario.
 
 </div>
 </div>

@@ -79,7 +79,7 @@ Let’s review the function. First, we call the `postData()` function, which is 
     
 <!-- theme:  -->
 
-> There is no way to re-display this pop-up after selecting Done, so be sure to securely store the credentials before leaving this screen.
+> JavaScript allows function declarations to be [hoisted](https://scotch.io/tutorials/understanding-hoisting-in-javascript#toc-hoisting-functions), so the function postData() can be called before being defined.
 
 </div>
 </div>
@@ -465,7 +465,7 @@ We have also introduced a new way to handle errors. Error handling in fetch can 
     
 <!-- theme: warning -->
 
-> There is no way to re-display this pop-up after selecting Done, so be sure to securely store the credentials before leaving this screen.
+> Deleting the last item in your cart deletes the cart.
 
 </div>
 </div>
@@ -513,7 +513,7 @@ Make sure you have created a cart using the Storefront Cart, added two different
     
 <!-- theme:  -->
 
-> There is no way to re-display this pop-up after selecting Done, so be sure to securely store the credentials before leaving this screen.
+> checkoutId and the cartId are same.
 
 </div>
 </div>
@@ -736,7 +736,7 @@ lineNumbers: true
     
 <!-- theme:  -->
 
-> There is no way to re-display this pop-up after selecting Done, so be sure to securely store the credentials before leaving this screen.
+>  If your cart only has one lineItem or a quantity of one, run a [POST Cart](//api-reference/cart-checkout/storefront-cart-api/cart/createacart) request with a new lineItem, then come back here.
 
 </div>
 </div>
@@ -818,7 +818,7 @@ function postData(url = ``, checkoutId = ``, data = {},) {
     
 <!-- theme: warning -->
 
-> There is no way to re-display this pop-up after selecting Done, so be sure to securely store the credentials before leaving this screen.
+> When a signed in customer proceeds to the create consignment step with an incomplete shipping address, the shipping address will auto-populate with the the most recently used address from the customer's address book.
 
 </div>
 </div>

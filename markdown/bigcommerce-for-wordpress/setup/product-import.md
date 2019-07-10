@@ -17,7 +17,7 @@ The import runs in several stages:
 <!-- theme:  -->
 
 ### WordPress Currency Processing
-> There is no way to re-display this pop-up after selecting Done, so be sure to securely store the credentials before leaving this screen.
+> The WordPress sites you connect to your BigCommerce store will process in the same default currency as the BigCommerce store.
 
 </div>
 </div>

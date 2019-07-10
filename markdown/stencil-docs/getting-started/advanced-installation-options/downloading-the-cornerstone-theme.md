@@ -21,7 +21,7 @@ If you are reinstalling over a base theme on which you have already begun develo
 <!-- theme: error -->
 
 ### Back Up Your Themes
-> There is no way to re-display this pop-up after selecting Done, so be sure to securely store the credentials before leaving this screen.
+> Remember to back up your .stencil file to speed up launching a new version of the theme.
 
 </div>
 </div>
@@ -75,7 +75,7 @@ When you are ready to upload your custom theme to a store, follow the instructio
 <!-- theme: error -->
 
 ### Distribution of Cornerstone-based Themes
-> There is no way to re-display this pop-up after selecting Done, so be sure to securely store the credentials before leaving this screen.
+> Distribution of Cornerstone-based themes is subject to BigCommerce's Cornerstone license, including the mandatory incorporation of BigCommerce's copyright statement.
 
 </div>
 </div>

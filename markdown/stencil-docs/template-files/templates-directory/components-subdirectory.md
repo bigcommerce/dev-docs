@@ -36,7 +36,9 @@ Three children of the <span class="fp">/templates/components/</span> subdirector
 <!-- theme: warning -->
 
 ###  Front-Matter Restrictions
-> There is no way to re-display this pop-up after selecting Done, so be sure to securely store the credentials before leaving this screen.
+> You can use front matter to specify resources only on pages in the `/templates/pages/` subdirectory, not on pages here in the `/templates/components/` subdirectory.
+
+Please bear in mind that if a front-matter directive contains an invalid option, Stencil CLI will silently ignore that option.
 
 </div>
 </div>

@@ -37,7 +37,9 @@ To incorporate reCAPTCHA v2, you will need to update script references in these 
 
 ###  Updating Safely 
 
-> There is no way to re-display this pop-up after selecting Done, so be sure to securely store the credentials before leaving this screen.
+> Please back up each file before making any changes. 
+
+The instructions below are based on the default Blueprint theme (Classic Next), as it was last published in BigCommerce’s Theme Marketplace. Therefore, the HTML markup will vary, based on customizations you have already made to this theme, or to other Marketplace themes.
 
 </div>
 </div>

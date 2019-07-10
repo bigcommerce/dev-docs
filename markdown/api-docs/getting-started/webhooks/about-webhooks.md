@@ -24,7 +24,7 @@ Webhooks allow app developers to be notified, in near real-time, when specific e
 <!-- theme: warning -->
 
 ### Multiple Events Are Triggered during Bulk Data Imports
-> There is no way to re-display this pop-up after selecting Done, so be sure to securely store the credentials before leaving this screen.
+> Bulk data imports will trigger the relevant events for every record affected. For example, if you have a hook on `store/product/created`, when the merchant imports 2,000 products, we will send 2,000 individual callback events.
 
 </div>
 </div>
@@ -52,7 +52,10 @@ Before you  can begin to send and receive requests, you must have the following:
 <!-- theme: error -->
 
 ### Connection Breakers
-> There is no way to re-display this pop-up after selecting Done, so be sure to securely store the credentials before leaving this screen.
+> Any one of the following conditions on your app server will cause a connection failure:
+* Hostname/DNS mismatch.
+* Self-signed certificate.
+* Intermediate certificates not loaded.
 
 </div>
 </div>
@@ -205,7 +208,7 @@ An HTTP 201 response indicates that the webhook was set successfully.
 <!-- theme: warning -->
 
 ### One-Minute Timeout
-> There is no way to re-display this pop-up after selecting Done, so be sure to securely store the credentials before leaving this screen.
+> Following the creation of a webhook, it can take up to one minute for BigCommerce to start sending POST requests to your callback URI.
 
 </div>
 </div>

@@ -23,7 +23,7 @@ Be sure to set permission `755 (drwxr-xr-x)` on any new **subdirectories** that 
 <!-- theme: warning -->
 
 ### Front Matter Restrictions
-> There is no way to re-display this pop-up after selecting Done, so be sure to securely store the credentials before leaving this screen.
+> You can use front matter to specify resources only on pages in the <span class="fn">/templates/pages/</span> subdirectory but **not** on pages here in the <span class="fn">/templates/layout/</span> subdirectory. If a front-matter directive contains an invalid option, Stencil CLI will silently ignore that option.
 
 </div>
 </div>

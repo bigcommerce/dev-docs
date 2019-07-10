@@ -41,7 +41,7 @@ Customer groups allow you to organize your customers, give them discounts, and r
     
 <!-- theme:  -->
 
-> There is no way to re-display this pop-up after selecting Done, so be sure to securely store the credentials before leaving this screen.
+> Customer Groups are only available on specific plans.
 
 </div>
 </div>
@@ -118,7 +118,7 @@ Customers are any shopper that has created an account on the store. The Customer
     
 <!-- theme:  -->
 
-> There is no way to re-display this pop-up after selecting Done, so be sure to securely store the credentials before leaving this screen.
+> Each customer can have up to 100 name, value pairs stored
 
 </div>
 </div>

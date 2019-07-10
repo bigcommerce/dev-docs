@@ -49,7 +49,7 @@ The screen will also contain your API Path, which you will need for the WordPres
 <!-- theme:  -->
 
 ### API Account Name Field
-> There is no way to re-display this pop-up after selecting Done, so be sure to securely store the credentials before leaving this screen.
+> We suggest 'WordPress' for the name, although you can name it anything you'd like as long as it's unique within your API accounts and is more than 3 characters.
 
 </div>
 </div>
@@ -86,7 +86,7 @@ The screen will also contain your API Path, which you will need for the WordPres
 <!-- theme:  -->
 
 ### .txt file fownload
-> There is no way to re-display this pop-up after selecting Done, so be sure to securely store the credentials before leaving this screen.
+> You'll also see a `.txt` file download in your browser that contains the same information in an easy-to-read format, including your API Path again in case you didn't copy it before.
 
 </div>
 </div>
@@ -143,7 +143,7 @@ _Congratulations, you're done setting up your additional site!_
 <!-- theme:  -->
 
 ### WordPress Currency Processing
-> There is no way to re-display this pop-up after selecting Done, so be sure to securely store the credentials before leaving this screen.
+> The WordPress sites you connect to your BigCommerce store will process in the same currency as the BigCommerce store.
 
 </div>
 </div>

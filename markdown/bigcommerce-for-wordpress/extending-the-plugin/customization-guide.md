@@ -121,7 +121,8 @@ The entire plugin operates through closures wrapped around calls to classes inst
 <!-- theme: error -->
 
 ### Warning
-> There is no way to re-display this pop-up after selecting Done, so be sure to securely store the credentials before leaving this screen.
+> Modifying core plugin functionality can lead to security vulnerabilities, data corruption, broken user workflows, and an overall unpleasant experience for you and your customers. Proceed at your own risk.
+
 
 </div>
 </div>

@@ -13,22 +13,11 @@ A complete Stencil theme includes screenshots to show off the theme on cards tha
 * **Storefront** › **My Themes** -- Each individual card displays a _themewide composite image_, which is an image that contains combination of screenshots of the theme's multiple variations. 
 * **Storefront** › **Themes Marketplace** -- Each card displays one variation of your theme. The three variations of Cornerstone (Light, Warm, and Bold) are displayed across three separate cards.
 
-### How your theme will appear in the Control Panel and Theme Marketplace
-Each card contains a themewide composite image, showing all the variations of the theme in each. In this image, we see 3 variations for the Cornerstone theme and 4 for the Showroom theme.
-
-![Desktop View My Themes](https://s3.amazonaws.com/user-content.stoplight.io/6116/1539625143199)
-
-
-![Desktop View Themes Marketplace](https://s3.amazonaws.com/user-content.stoplight.io/6116/1539625143199)
-
-
-
-![Mobile View Theme Marketplace](https://s3.amazonaws.com/user-content.stoplight.io/6116/1539625004658)
-
+<div class="tab-block">
+    {'children': [{'title': 'Desktop View of My Themes', 'blocks': [{'type': 'image', 'data': '//s3.amazonaws.com/user-content.stoplight.io/6116/1539625143199', 'header': {'title': 'Storefront › My Themes', 'subtitle': 'Each card contains a themewide composite image, showing all the variations of the theme in each. In this image, we see 3 variations for the Cornerstone theme and 4 for the Showroom theme.'}, 'config': {'centered': True, 'fluid': True, 'maxWidth': '600', 'maxHeight': '900'}}]}, {'title': 'Desktop View of Themes Marketplace', 'blocks': [{'type': 'image', 'data': '//s3.amazonaws.com/user-content.stoplight.io/6116/1539624737619', 'header': {'title': 'Storefront › Themes Marketplace', 'subtitle': 'Each card contains a themewide composite image, showing all the variations of the theme in each. In this image, we see 3 variations for the Cornerstone theme and 4 for the Showroom theme.'}, 'config': {'centered': True, 'fluid': True}}]}, {'title': 'Mobile View of Themes Marketplace', 'blocks': [{'type': 'image', 'data': '//s3.amazonaws.com/user-content.stoplight.io/6116/1539625004658', 'config': {'centered': True, 'fluid': True, 'maxWidth': '500', 'maxHeight': '1000'}, 'header': {'title': 'Storefront › Themes Marketplace', 'subtitle': 'Each card contains a themewide composite image, showing all the variations of the theme in each. In this image, we see 3 variations for the Cornerstone theme and 4 for the Showroom theme.'}}]}]}
+</div>
 
 <a href='#preparing_general-image' aria-hidden='true' class='block-anchor'  id='preparing_general-image'><i aria-hidden='true' class='linkify icon'></i></a>
-
----
 
 ## General Image Requirements
 
@@ -43,8 +32,6 @@ All screenshots described below must meet the following specifications in order 
 * Must be in **portrait aspect ratio**, with specific resolutions listed under [Themewide Composite Image](#preparing_themewide-composite) below.
 
 <a href='#preparing_themewide-composite' aria-hidden='true' class='block-anchor'  id='preparing_themewide-composite'><i aria-hidden='true' class='linkify icon'></i></a>
-
----
 
 ## Themewide Composite Image
 
@@ -86,8 +73,6 @@ lineNumbers: true
 ```
 
 <a href='#preparing_variations' aria-hidden='true' class='block-anchor'  id='preparing_variations'><i aria-hidden='true' class='linkify icon'></i></a>
-
----
 
 ## Variations: Desktop/Mobile Screenshots
 

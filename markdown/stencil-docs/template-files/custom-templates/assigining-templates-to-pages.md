@@ -41,7 +41,7 @@ Starting from the BigCommerce control panel's left navigation pane:
 <!-- theme: warning -->
 
 ### Static Pages You Can't Assign
-> There is no way to re-display this pop-up after selecting Done, so be sure to securely store the credentials before leaving this screen.
+> Some static page types do not allow you to assign custom templates. You can recognize these excluded pages because their `Edit a Web Page` display will not include a `Template Layout File` drop-down list.
 
 </div>
 </div>

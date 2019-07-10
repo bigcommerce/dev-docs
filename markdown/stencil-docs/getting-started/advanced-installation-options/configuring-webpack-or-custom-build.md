@@ -34,7 +34,7 @@ All themes in the BigCommerce Theme Marketplace use Webpack. However, older vers
 <!-- theme: info -->
 
 ### Optional Workflow
-> There is no way to re-display this pop-up after selecting Done, so be sure to securely store the credentials before leaving this screen.
+> The steps below are required only if you plan to modify or override the default Webpack-based workflow that installs with Stencil's default Cornerstone theme or and current theme in the BigCommerce Theme Marketplace. If you do not require these advanced configuration options, you can safely skip this page.
 
 </div>
 </div>

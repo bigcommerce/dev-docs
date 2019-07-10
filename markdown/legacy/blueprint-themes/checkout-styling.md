@@ -19,7 +19,7 @@ To support stores that enable BigCommerce's Optimized One-Page Checkout feature,
 <!-- theme: success -->
 
 ### Function Names
-> There is no way to re-display this pop-up after selecting Done, so be sure to securely store the credentials before leaving this screen.
+> Although you will see references to "Stencil" functions throughout this template file's CSS, this version of the CSS is designed to be fully compatible with Blueprint themes.
 
 </div>
 </div>

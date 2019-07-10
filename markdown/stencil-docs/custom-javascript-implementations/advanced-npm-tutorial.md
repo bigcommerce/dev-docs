@@ -300,7 +300,7 @@ The above code block was adapted from http://www.material-ui.com/#/components/st
 <!-- theme:  -->
 
 ###  Note on the VerticalLinearStepper.js Example
-> There is no way to re-display this pop-up after selecting Done, so be sure to securely store the credentials before leaving this screen.
+> We must register a custom element to set up the "root" of every React component we create. However, within a React component, we can import other React components without having to register them. For example, here we register x-coupon-drawer as a custom element that renders the React CouponDrawer component. However, within CouponDrawer, we can simply import the VerticalLinearStepper component needing to set it up in the same way.
 
 </div>
 </div>

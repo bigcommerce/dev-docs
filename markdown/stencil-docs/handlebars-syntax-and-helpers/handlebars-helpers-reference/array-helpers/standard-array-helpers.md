@@ -327,7 +327,7 @@ Given an array `['c', 'a', 'b']`:
 
 ## {{some}}
 
-Block helper that returns the block *if* the callback returns true for some value in the given array.
+Block helper that returns the block *if* the callback<sup>1</sup> returns true for some value in the given array.
 
 #### Parameters
 
@@ -340,7 +340,7 @@ Block helper that returns the block *if* the callback returns true for some valu
 
 Given the array `[1, 'b', 3]`:
 
-```handlebars
+```
 {{#some array isString}}
   Render me if the array has a string.
 {{else}}
@@ -348,6 +348,18 @@ Given the array `[1, 'b', 3]`:
 {{/some}}
 //=> 'Render me if the array has a string.'
 ```
+
+<div class="HubBlock--callout">
+<div class="CalloutBlock--">
+<div class="HubBlock-content">
+    
+<!-- theme:  -->
+
+> 1. Callback must be  a standard handlebars helper or a custom stencil helper that returns a Boolean value. For a list of helpers and their return types, see: [Handlebars Helpers Reference](https://developer.bigcommerce.com/stencil-docs/handlebars-syntax-and-helpers/handlebars-helpers-reference/handlebars-full)
+
+</div>
+</div>
+</div>
 
 ---
 
