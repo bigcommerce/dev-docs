@@ -6,7 +6,7 @@
     <li><a href="#customer-login_jwt"> JWT</a></li>
 		<li><a href="#customer-login_oauth-scope">OAuth Scope</a></li>
     <li><a href="#customer-login_sample-code">Sample Code</a></li>
-    <li><a href="#customer-login_access-url">Access URL</a></li>
+    <li><a href="#customer-login_access-url">Acces URL</a></li>
     <li><a href="#customer-login_logging-in-a-customer">Logging In a Customer</a></li>
     <li><a href="#customer-login_logout-customer">Logging Out a Customer</a></li>
     <li><a href="#customer-login_troubleshooting-customer-login-api">Troubleshooting</a></li>
@@ -43,7 +43,7 @@ A valid JWT token is a string composed of three parts, separated by periods (“
 -->
 
 #### Example JWT Token
-![#### Example JWT Token
+![Example JWT Token
 ](//s3.amazonaws.com/user-content.stoplight.io/6012/1535390918772 "#### Example JWT Token
 ")
 
@@ -56,15 +56,14 @@ A valid JWT token is a string composed of three parts, separated by periods (“
 -->
 
 #### Key
-![#### Key
-](//s3.amazonaws.com/user-content.stoplight.io/6012/1535391044482 "#### Key
+![JWT Key](//s3.amazonaws.com/user-content.stoplight.io/6012/1535391044482 "#### Key
 ")
 
 ### Header
 
 The header specifies the type of token (JWT) and the hashing algorithm.
 
-```
+```json
 {
 	"typ": "JWT",
 	"alg": "HS256" 
@@ -161,7 +160,7 @@ Client ID and Client Secret generated from the store with the scope set to [Cust
 <!-- theme: success -->
 
 ### Making a /GET request
-> If you are unsure how to make a /GET request see our tutorial on [making your first request]().
+> If you are unsure how to make a /GET request see our tutorial on [making your first request](https://developer.bigcommerce.com/api-docs/getting-started/making-requests).
 
 </div>
 </div>
@@ -183,7 +182,7 @@ subtitle: ""
 lineNumbers: true
 -->
 
-```
+```json
 {
     "iss": "1234r5t6y7u8i9o0p",
     "iat": 1535393113,
@@ -211,7 +210,8 @@ lineNumbers: true
 <!-- theme: error -->
 
 ### IAT Claim
-> The iat claim is only good for 30 seconds. 
+> The iat claim is only good for 30 seconds.
+
 
 </div>
 </div>
@@ -223,7 +223,7 @@ lineNumbers: true
 *https://store-url/login/token/generated-jwt-token*
 
 **Example**: 
-https://storedomain.com/login/token/eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9 .eyJzdWIiOiIxMjM0NTY3ODkwIiwibmFtZSI6IkpvaG4gRG9lIiwiYWRtaW4iOnRydWV9 .TJVA95OrM7E2cBab30RMHrHDcEfxjoYZgeFONFh7HgQ
+`https://storedomain.com/login/token/eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9 .eyJzdWIiOiIxMjM0NTY3ODkwIiwibmFtZSI6IkpvaG4gRG9lIiwiYWRtaW4iOnRydWV9 .TJVA95OrM7E2cBab30RMHrHDcEfxjoYZgeFONFh7HgQ`
 
 5. Paste the URL into the address bar.
 
@@ -241,10 +241,6 @@ Code to generate a valid JWT token for a storefront login request is provided in
 * [Ruby Sample](https://github.com/bigcommerce/bigcommerce-api-ruby/blob/master/examples/customers/customer_login.rb)
 
 Client libraries in many other languages are at JWT.io.
-
-<div class="tab-block">
-    {'children': [{'title': 'PHP Sample', 'blocks': [{'type': 'code', 'data': "    public static function getCustomerLoginToken($id, $redirectUrl = '', $requestIp = '')\n    {\n        if (empty(self::$client_secret)) {\n            throw new Exception('Cannot sign customer login tokens without a client secret');\n        }\n\n        $payload = array(\n            'iss' => self::$client_id,\n            'iat' => time(),\n            'jti' => bin2hex(random_bytes(32)),\n            'operation' => 'customer_login',\n            'store_hash' => self::$store_hash,\n            'customer_id' => $id\n        );\n\n        if (!empty($redirectUrl)) {\n            $payload['redirect_to'] = $redirectUrl;\n        }\n\n        if (!empty($requestIp)) {\n            $payload['request_ip'] = $requestIp;\n        }\n\n        return JWT::encode($payload, self::$client_secret, 'HS256');\n    }", 'header': {'subtitle': 'https://github.com/bigcommerce/bigcommerce-api-php/blob/master/src/Bigcommerce/Api/Client.php#L421', 'title': 'Client.php', 'anchor': 'php-sample'}, 'config': {'mode': 'php'}}]}, {'title': 'Python Sample', 'blocks': [{'type': 'code', 'data': "import os\nimport time\nimport uuid\nimport jwt\n\n\nclass CustomerLoginTokens(object):\n    @classmethod\n    def create(cls, client, id, redirect_url=None, request_ip=None):\n\n        # Get the client_secret needed to sign tokens from the environment\n        # Intended to play nice with the Python Hello World sample app\n        # https://github.com/bigcommerce/hello-world-app-python-flask\n        client_secret = os.getenv('APP_CLIENT_SECRET')\n\n        if not client_secret:\n            raise AttributeError('No OAuth client secret specified in the environment, '\n                                 'please specify an APP_CLIENT_SECRET')\n\n        try:\n            client_id = client.connection.client_id\n            store_hash = client.connection.store_hash\n        except AttributeError:\n            raise AttributeError('Store hash or client ID not found in the connection - '\n                                 'make sure an OAuth API connection is configured. Basic auth is not supported.')\n\n        payload = dict(iss=client_id,\n                       iat=int(time.time()),\n                       jti=uuid.uuid4().hex,\n                       operation='customer_login',\n                       store_hash=store_hash,\n                       customer_id=id\n                       )\n\n        if redirect_url:\n            payload['redirect_url'] = redirect_url\n\n        if request_ip:\n            payload['request_ip'] = request_ip\n\n        token = jwt.encode(payload, client_secret, algorithm='HS256')\n\n        return token.decode('utf-8')\n\n    @classmethod\n    def create_url(cls, client, id, redirect_url=None, request_ip=None):\n        secure_url = client.Store.all()['secure_url']\n        login_token = cls.create(client, id, redirect_url, request_ip)\n        return '%s/login/token/%s' % (secure_url, login_token)\n\n", 'header': {'title': 'customer_login_token.py', 'subtitle': 'https://github.com/bigcommerce/bigcommerce-api-python/blob/master/bigcommerce/customer_login_token.py', 'anchor': 'python-sample'}, 'config': {'mode': 'python'}}]}, {'title': 'Ruby Sample', 'blocks': [{'type': 'code', 'data': "require 'bigcommerce'\n\nBigcommerce.configure do |config|\n  config.store_hash = ENV['BC_STORE_HASH']\n  config.client_id = ENV['BC_CLIENT_ID']\n  config.client_secret = ENV['BC_CLIENT_SECRET']\n  config.access_token = ENV['BC_ACCESS_TOKEN']\nend\n\n# Get a customer\ncustomer = Bigcommerce::Customer.all(page: 1).first\n\n# Generate token login url\nputs customer.login_token", 'header': {'subtitle': 'https://github.com/bigcommerce/bigcommerce-api-ruby/blob/master/examples/customers/customer_login.rb', 'title': 'customer_login.rb', 'anchor': 'ruby-sample'}, 'config': {'mode': 'ruby'}}]}]}
-</div>
 
 ---
 
@@ -267,3 +263,15 @@ To logout a customer programatically, set the redirect URL in the JWT to `/login
 
 * Tokens will be valid for a very short timeframe after they are first generated, so tokens should not be generated in advance. Instead, the application should generate the token and then immediately redirect the user’s browser to `/login/token/{token}`. If you're seeing issues related to your system time differing from BC's server time, you can use the <a href="/api-reference/store-management/store-information-api/time-zone/gettime">/v2/time</a> endpoint as a source of truth.
 
+---
+
+## Resources 
+
+### Sample Apps
+* [PHP Sample](https://github.com/bigcommerce/bigcommerce-api-php/blob/master/src/Bigcommerce/Api/Client.php#L421)
+* [Python Sample](https://github.com/bigcommerce/bigcommerce-api-python/blob/master/bigcommerce/customer_login_token.py)
+* [Ruby Sample](https://github.com/bigcommerce/bigcommerce-api-ruby/blob/master/examples/customers/customer_login.rb)
+
+### Additional Resources
+* [JWT](https://jwt.io/) (JWT)
+* [UUID generator](https://www.uuidgenerator.net/) (UUID)
