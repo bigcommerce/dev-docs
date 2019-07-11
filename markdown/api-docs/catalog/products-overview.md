@@ -1,7 +1,8 @@
-<h1> Products Overview </h1>
+<h1> Products Overview</h1>
+
 <div class="otp" id="no-index">
-	<h3>On This Page</h3>
-	<ul>
+  <h3>On This Page</h3>
+  <ul>
     <li><a href="#products-overview_introduction">Introduction</a></li>
     <li><a href="#products-overview_products">Products</a></li>
     <li><a href="#products-overview_pricing-precision">Pricing Precision </a></li>
@@ -17,7 +18,7 @@
     <li><a href="#products-overview_modifier-options">Modifier Options</a></li>
     <li><a href="#products-overview_complex-rules">Complex Rules</a></li>
     <li><a href="#products-overview_categories">Categories</a></li>
-	</ul>
+  </ul>
 </div>
 
 <a href='#products-overview_introduction' aria-hidden='true' class='block-anchor'  id='products-overview_introduction'><i aria-hidden='true' class='linkify icon'></i></a>
