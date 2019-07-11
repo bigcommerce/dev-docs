@@ -46,7 +46,7 @@ This repo contains the markdown files and static assets powering [developer.bigc
 ```
 ## Editing Articles
 
-## Editing Spec Files
+## Editing Swagger Files
 
 ## Adding New Articles or References
 
