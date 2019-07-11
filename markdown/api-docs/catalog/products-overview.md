@@ -27,6 +27,8 @@
 
 The Catalog refers to a store’s collection of physical and digital products. The Catalog includes all the information about a product such as MPN, warranty, price, and images. 
 
+---
+
 ### Prerequisites
 Scopes
 
