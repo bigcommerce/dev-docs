@@ -49,7 +49,7 @@ Add the following required headers:
 
 The final request should resemble the image below.
 
-![Get All Products Request](/assets/img/get_all_products_postman.png)
+![Get All Products Request](https://raw.githubusercontent.com/bigcommerce/dev-docs/master/assets/img/get_all_products_postman.png)
 
 
 <!--
