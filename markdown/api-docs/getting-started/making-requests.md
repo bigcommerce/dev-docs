@@ -68,7 +68,7 @@ subtitle: "200 OK"
 lineNumbers: true
 -->
 
-```
+```json
 {
   "data": [
     {
