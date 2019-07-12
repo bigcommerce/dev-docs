@@ -38,7 +38,7 @@ We are going to review all the components that make a widget. Then, we’ll use 
     data: //s3.amazonaws.com/user-content.stoplight.io/6012/1551970794664
 -->
 
-#### Storefront --Content Region
+
 ![#### Storefront --Content Region
 ](//s3.amazonaws.com/user-content.stoplight.io/6012/1551970794664 "#### Storefront --Content Region
 ")
@@ -49,7 +49,7 @@ We are going to review all the components that make a widget. Then, we’ll use 
     data: //s3.amazonaws.com/user-content.stoplight.io/6012/1551970767918
 -->
 
-#### Template File -- Content Region
+
 ![#### Template File -- Content Region
 ](//s3.amazonaws.com/user-content.stoplight.io/6012/1551970767918 "#### Template File -- Content Region
 ")
@@ -69,17 +69,15 @@ Most themes in the BigCommerce marketplace come with predefined regions. It is b
 
 The Simple List template creates a list where each item in the list can have a different color. This example uses the [each block helper](https://handlebarsjs.com/builtin_helpers.html) in handlebars to loop through each item in the list and display it. The text and color are determined by handlebars placeholders that are set when creating the [Widget]((/api-reference/storefront/widgets-api/widget/createwidget).
 
-<div class="HubBlock-header">
-    <div class="HubBlock-header-title flex items-center">
-        <div class="HubBlock-header-name">Simple List</div>
-    </div><div class="HubBlock-header-subtitle">The list takes advantage of loops to display each list item on the page. </div>
-</div>
+<br>
 
 <!--
 title: "Simple List"
 subtitle: "The list takes advantage of loops to display each list item on the page. "
 lineNumbers: true
 -->
+
+The list takes advantage of loops to display each list item on the page. 
 
 ```json
 {
@@ -88,17 +86,14 @@ lineNumbers: true
 }
 ```
 
-<div class="HubBlock-header">
-    <div class="HubBlock-header-title flex items-center">
-        <div class="HubBlock-header-name">Image Slider</div>
-    </div><div class="HubBlock-header-subtitle">The slider takes advantage of loops to display each slide on the page.</div>
-</div>
 
 <!--
 title: "Image Slider"
 subtitle: "The slider takes advantage of loops to display each slide on the page."
 lineNumbers: true
 -->
+
+The slider takes advantage of loops to display each slide on the page.
 
 ```json
 {
@@ -132,17 +127,13 @@ A Widget Configuration is the JSON payload that defines the content to be render
 
 In the example below, we define the list_items array and supply values for the color and text of each list item. Since the template is created separately from the configuration, the same template UUID can be used multiple times for configuration.
 
-<div class="HubBlock-header">
-    <div class="HubBlock-header-title flex items-center">
-        <div class="HubBlock-header-name">Widget Configuration Slides</div>
-    </div><div class="HubBlock-header-subtitle"></div>
-</div>
-
 <!--
 title: "Widget Configuration Slides"
 subtitle: ""
 lineNumbers: true
 -->
+
+**Widget Configuration Slides**
 
 ```json
 {
@@ -153,50 +144,40 @@ lineNumbers: true
 }
 ```
 
-<div class="HubBlock-header">
-    <div class="HubBlock-header-title flex items-center">
-        <div class="HubBlock-header-name">Widget Configuration List Items</div>
-    </div><div class="HubBlock-header-subtitle"></div>
-</div>
-
 <!--
 title: "Widget Configuration List Items"
 subtitle: ""
 lineNumbers: true
 -->
 
+**Widget Configuration List Items**
+
 ```json
 {
-"list_items":[
-{ 
-"color": "orange", 
-"text": " Item One"
-},
-{ 
-"color": "blue", 
-"text": "Item Two"
-}
-]
+	"list_items": [{
+			"color": "orange",
+			"text": " Item One"
+		},
+		{
+			"color": "blue",
+			"text": "Item Two"
+		}
+	]
 }
 
 ```
 
 <div class="HubBlock--callout">
-<div class="CalloutBlock--">
+<div class="CalloutBlock--info">
 <div class="HubBlock-content">
     
 <!-- theme:  -->
 
+### Reusing Widget Configuration
 > Keep in mind that when reusing the `widget_configuration` the array will have to be called `list_items`. Otherwise, the widget will be created on the frontend, but there will be no data, so nothing is rendered. This is because `list_items` was defined when the widget template was originally created. The widget configuration name can anything that is set when the widget_template is created.
 
 </div>
 </div>
-</div>
-
-<div class="HubBlock-header">
-    <div class="HubBlock-header-title flex items-center">
-        <div class="HubBlock-header-name">List Items Example: Incorrect</div>
-    </div><div class="HubBlock-header-subtitle"></div>
 </div>
 
 <!--
@@ -204,6 +185,8 @@ title: "List Items Example: Incorrect"
 subtitle: ""
 lineNumbers: true
 -->
+
+**List Items Example: Incorrect**
 
 ```json
 {
@@ -226,17 +209,13 @@ lineNumbers: true
 
 The example above uses `list_items_two`, on line four, in the configuration which is not the same as `list_items`. If `list_items` has already been established during the initial configuration it must be set as `list_items` when being used again. 
 
-<div class="HubBlock-header">
-    <div class="HubBlock-header-title flex items-center">
-        <div class="HubBlock-header-name">List Items Example: Correct</div>
-    </div><div class="HubBlock-header-subtitle"></div>
-</div>
-
 <!--
 title: "List Items Example: Correct"
 subtitle: ""
 lineNumbers: true
 -->
+
+**List Items Example: Correct**
 
 ```json
 {
@@ -287,17 +266,13 @@ This is the ID for a specific page, brand, category or page. For example, if a W
 
 Below, the region and sort order have a value, so the widget will appear on the home page. 
 
-<div class="HubBlock-header">
-    <div class="HubBlock-header-title flex items-center">
-        <div class="HubBlock-header-name">Widget with Region</div>
-    </div><div class="HubBlock-header-subtitle"></div>
-</div>
-
 <!--
 title: "Widget with Region"
 subtitle: ""
 lineNumbers: true
 -->
+
+**Widget with Region**
 
 ```json
 {
@@ -313,17 +288,13 @@ lineNumbers: true
 ### Create a Widget Placement Without a Region
 Leaving the region and sort order off the request will return just the `placement_id` in the response, allowing for the widget to be rendered using Layouts. 
 
-<div class="HubBlock-header">
-    <div class="HubBlock-header-title flex items-center">
-        <div class="HubBlock-header-name">Widget Without a Region</div>
-    </div><div class="HubBlock-header-subtitle"></div>
-</div>
-
 <!--
 title: "Widget Without a Region"
 subtitle: ""
 lineNumbers: true
 -->
+
+**Widget Without a Region**
 
 ```json
 {
@@ -356,17 +327,13 @@ lineNumbers: true
 
 `bc-placements` is a special field that takes in a placement id and allows the widget to be positioned anywhere in the layout. The `id` is the Placement ID.
 
-<div class="HubBlock-header">
-    <div class="HubBlock-header-title flex items-center">
-        <div class="HubBlock-header-name">Layouts bc-placements Example</div>
-    </div><div class="HubBlock-header-subtitle"></div>
-</div>
-
 <!--
 title: "Layouts bc-placements Example"
 subtitle: ""
 lineNumbers: true
 -->
+
+**Layouts bc-placements Example**
 
 ```html
 <div>
@@ -460,12 +427,7 @@ A Region can contain multiple Layouts with Widgets and Placements or Widgets wit
 
 ### Related Endpoints
 * [Widgets API](/api-reference/storefront/widgets-api)
-
----
-
-<a href='#widget_next-steps' aria-hidden='true' class='block-anchor'  id='widget_next-steps'><i aria-hidden='true' class='linkify icon'></i></a>
-
-## Next Steps
 * [Widgets Tutorial](/api-docs/storefront/widgets/widgets-tutorial)
 * [Wigets Code Samples](/api-docs/storefront/widgets/widgets-code-samples)
+
 

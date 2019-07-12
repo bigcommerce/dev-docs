@@ -2,20 +2,16 @@
 <div class="otp" id="no-index">
 	<h3> On This Page </h3>
 	<ul>
-        <li><a href="#scripts_introduction">Introduction</a></li>
     		<li><a href="#scripts_script-manager-partner-guidelines">Script Manager API Partner Guidelines</a></li>
         <li><a href="#script_prerequisites">Prerequisites</a></li>
         <li><a href="#scripts_upgrades-installation">Upgrades and Installation</a></li>
         <li><a href="#scripts_fixing-missing-scripts">Fixing Missing Scripts</a></li>
         <li><a href="#scripts_scripts-notes">Notes</a></li>
         <li><a href="#scripts_scripts-visibility">Visibility Locations </a></li>
-    		<li><a href="#scripts_oauth-scopes"> OAuth Scopes</a></li>
-    		<li><a href="#scripts_related-endpoints">Related Endpoints</a></li>
-        <li><a href="#script_object-properties">Object Properties</a></li>
 	</ul>
 </div>
 
-<a href='#scripts_introduction' aria-hidden='true' class='block-anchor'  id='scripts_introduction'><i aria-hidden='true' class='linkify icon'></i></a>
+---
 
 The BigCommerce Scripts API gives developers the ability to inject scripts into a store's template files programmatically. This means that app and integrations can insert scripts into a user’s storefront without requiring the user to manually paste a snippet of code into their control panel. There are many use cases for this powerful API, for example:
 * inserting analytics scripts
@@ -27,6 +23,8 @@ The BigCommerce Scripts API gives developers the ability to inject scripts into 
 
 This article contains detailed information about the Scripts API and assumes you're familiar with BigCommerce App Installation process. For more information on the app installation process, see:
 [App Installation](/api-docs/getting-started/building-apps-bigcommerce/building-apps#building-apps_installation-update-sequence)
+
+---
 
 <a href='#scripts_script-manager-partner-guidelines' aria-hidden='true' class='block-anchor'  id='scripts_script-manager-partner-guidelines'><i aria-hidden='true' class='linkify icon'></i></a>
 
@@ -163,18 +161,11 @@ Scripts can not be injected to:
 
 ---
 
-<a href='#scripts_oauth-scopes' aria-hidden='true' class='block-anchor'  id='scripts_oauth-scopes'><i aria-hidden='true' class='linkify icon'></i></a>
-
-## OAuth Scopes
-* Checkout Content	
-* Content
-
-For more details and a full list of available scopes, see [Oauth Scopes](/api-docs/getting-started/basics/authentication#authentication_oauth-scopes).
-
----
 
 <a href='#scripts_related-endpoints' aria-hidden='true' class='block-anchor'  id='scripts_related-endpoints'><i aria-hidden='true' class='linkify icon'></i></a>
 
+## Resources
+
 ## Related Endpoints
-* [Get Scripts](/api-reference/content/content-scripts-api)
+* [Scripts](/api-reference/content/content-scripts-api)
 

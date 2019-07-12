@@ -20,17 +20,21 @@ If an active Price List does not contain prices for a variant then the Catalog p
 
 Price Lists will provide overridden price values to the Stencil storefront. Final price display can be further customized within the Stencil template. See the [Price Object](https://stencil.bigcommerce.com/docs/price-object-properties) in Stencil for further documentation.
 
+### OAuth Scopes
+The following OAuth Scopes are required:
+* [Products](/api-docs/getting-started/basics/authentication#authentication_oauth-scopes)
+
 ---
 
 <a href='#pricelist_definitions' aria-hidden='true' class='block-anchor'  id='pricelist_definitions'><i aria-hidden='true' class='linkify icon'></i></a>
 
 ## Definitions
 
-- `Price List` : A collection of price records. `Price Records` make up a price list.
+- `Price List` -- A collection of price records. `Price Records` make up a price list.
  
-- `Price Record`: A price override for a particular variant - minimally, this is a variant ID, price, and currency.
+- `Price Record` --  A price override for a particular variant - minimally, this is a variant ID, price, and currency.
         
-```
+```json
 	{
 		"variant_id": 3121,
 		"price": 10.0,
@@ -46,17 +50,15 @@ Price Lists will provide overridden price values to the Stencil storefront. Fina
 
 - `Currency`:  A `Price List` can contain records for multiple currencies. At this time, *only price records that match the store's default currency will be used to determine storefront and in-cart prices.* Although BigCommerce supports a storefront currency selection, this is not currently integrated with Price Lists and will merely convert prices from the store's default currency for display convenience.
 
-<div class="HubBlock-header">
-    <div class="HubBlock-header-title flex items-center">
-        <div class="HubBlock-header-name">Example Price List</div>
-    </div><div class="HubBlock-header-subtitle"></div>
-</div>
 
 <!--
 title: "Example Price List"
 subtitle: ""
 lineNumbers: true
 -->
+
+**Example Get All Price Lists**  
+`/GET https://api.bigcommerce.com/stores/{store_hash}/v3/pricelists`
 
 ```json
 [{
@@ -97,19 +99,16 @@ lineNumbers: true
 }] 
 ```
 
-<div class="HubBlock-header">
-    <div class="HubBlock-header-title flex items-center">
-        <div class="HubBlock-header-name">Example Price List assigned to a customer group</div>
-    </div><div class="HubBlock-header-subtitle"></div>
-</div>
-
 <!--
 title: "Example Price List assigned to a customer group"
 subtitle: ""
 lineNumbers: true
 -->
 
-```
+**Example Price List Assigned to a Customer Group**  
+`https://api.bigcommerce.com/stores/{store_hash}/v2/customer_groups/{customer_group_id}`
+
+```json
 [
 
     {
@@ -131,6 +130,8 @@ lineNumbers: true
 
 Under `discount_rules` the `type` is set to `price_list` and the `price_list_id` is 1. Which is the id of the price list the group has been assigned to.
 
+---
+
 <a href='#pricelist_notes' aria-hidden='true' class='block-anchor'  id='pricelist_notes'><i aria-hidden='true' class='linkify icon'></i></a>
 
 ## Notes
@@ -143,26 +144,14 @@ Under `discount_rules` the `type` is set to `price_list` and the `price_list_id`
 
 ---
 
-<a href='#pricelist_oauth-scopes' aria-hidden='true' class='block-anchor'  id='pricelist_oauth-scopes'><i aria-hidden='true' class='linkify icon'></i></a>
+## Resources
 
-## OAuth Scopes
-* [Products](/api-docs/getting-started/basics/authentication#authentication_oauth-scopes)
+### Related Endpoints
+* [Get Price List Collection](/api-reference/catalog/pricelists-api/price-lists/getpricelistcollection)
 
----
-
-<a href='#pricelist_available-webhooks' aria-hidden='true' class='block-anchor'  id='pricelist_available-webhooks'><i aria-hidden='true' class='linkify icon'></i></a>
-
-## Webhooks Available
+### Webhooks Available
 
 There are no direct webhooks available for Price Lists. Since Price Lists directly relate to products, webhooks related to products will fire for corresponding changes such as pricing. 
 
 * [Products](/api-docs/getting-started/webhooks/webhook-events#webhook-events_products)
 * [SKU](/api-docs/getting-started/webhooks/webhook-events#webhook-events_sku)
-
----
-
-<a href='#pricelist_related-endpoints' aria-hidden='true' class='block-anchor'  id='pricelist_related-endpoints'><i aria-hidden='true' class='linkify icon'></i></a>
-
-## Related Endpoints
-* [Get Price List Collection](/api-reference/catalog/pricelists-api/price-lists/getpricelistcollection)
-

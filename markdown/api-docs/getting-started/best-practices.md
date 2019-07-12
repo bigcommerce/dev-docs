@@ -71,6 +71,7 @@ The store’s overall quota is distributed across all apps that are accessing th
 ### Playing Nicely with the Platform
 
 Every API response’s HTTP headers give you full visibility into your position in the rate-limiting algorithm:
+
 ```
 X-Rate-Limit-Requests-Left →6
 X-Rate-Limit-Requests-Quota →25

@@ -99,7 +99,7 @@ In the case of errors, error messages should be included in the response payload
 
 Example:
 
-```
+```json
 {
   "valid": false,
   "messages" [
@@ -123,19 +123,16 @@ The intended use of the Shipping Provider API is to create an app that merchants
 
 During the app setup, if the Check Connection Options URL is configured for the carrier, an attempt to connect the carrier via the Shipping Manager UI or the Connect Carrier API causes a request to be made to that URL with the provided options. The resource should respond indicating if the credentials are valid and should provide an explanation of what is wrong. If no such URL is configured, this check will be skipped and the credentials are assumed valid as long as they pass type checks.
 
-<div class="HubBlock-header">
-    <div class="HubBlock-header-title flex items-center">
-        <div class="HubBlock-header-name">Sample Request</div>
-    </div><div class="HubBlock-header-subtitle">POST https://developerserver.com/check_connection_options</div>
-</div>
-
 <!--
 title: "Sample Request"
 subtitle: "POST https://developerserver.com/check_connection_options"
 lineNumbers: true
 -->
 
-```
+**Example Request Check Connection**  
+`/POST https://developerserver.com/check_connection_options`
+
+```json
 {
   "connection_options" {
     "account_id": "a1ty"
@@ -143,19 +140,16 @@ lineNumbers: true
 }
 ```
 
-<div class="HubBlock-header">
-    <div class="HubBlock-header-title flex items-center">
-        <div class="HubBlock-header-name">Sample Response</div>
-    </div><div class="HubBlock-header-subtitle">POST https://developerserver.com/check_connection_options</div>
-</div>
-
 <!--
 title: "Sample Response"
 subtitle: "POST https://developerserver.com/check_connection_options"
 lineNumbers: true
 -->
 
-```
+**Example Response Check Connection**  
+`/POST https://developerserver.com/check_connection_options`
+
+```json
 {
   "valid": false,
   "messages" [
@@ -168,11 +162,12 @@ lineNumbers: true
 ```
 
 <div class="HubBlock--callout">
-<div class="CalloutBlock--">
+<div class="CalloutBlock--info">
 <div class="HubBlock-content">
     
 <!-- theme:  -->
 
+### Validation Credentials
 > The step of validating the credentials is optional. It does not change how the app operates. It is best practice to authenticate the user against your database or the downstream provider service. 
 
 </div>
@@ -185,11 +180,6 @@ Once the app is installed, it will be made available for configuration by mercha
 
 To set up a carrier using the API, first connect it using the Connect Carrier API. Make a request containing the connection settings required by your carrier. The ID of the carrier is required. The carrier ID will be issued by BigCommerce when your carrier is registered. All connection fields are unique per carrier. If your carrier doesn’t require any connection settings then this object can be left empty.
 
-<div class="HubBlock-header">
-    <div class="HubBlock-header-title flex items-center">
-        <div class="HubBlock-header-name">Sample Request </div>
-    </div><div class="HubBlock-header-subtitle">POST https://developerserver.com/shipping/carrier/connection</div>
-</div>
 
 <!--
 title: "Sample Request "
@@ -197,7 +187,10 @@ subtitle: "POST https://developerserver.com/shipping/carrier/connection"
 lineNumbers: true
 -->
 
-```
+**Example Request Carrier Connection**  
+`/POST https://developerserver.com/shipping/carrier/connection`
+
+```json
 {
   "carrier_id": "carrier_33",
   "connection": {
@@ -207,19 +200,17 @@ lineNumbers: true
 }
 ```
 
-<div class="HubBlock-header">
-    <div class="HubBlock-header-title flex items-center">
-        <div class="HubBlock-header-name">Sample Request with Empty Object</div>
-    </div><div class="HubBlock-header-subtitle">POST https://developerserver.com/shipping/carrier/connection</div>
-</div>
-
 <!--
 title: "Sample Request with Empty Object"
 subtitle: "POST https://developerserver.com/shipping/carrier/connection"
 lineNumbers: true
 -->
 
-```
+
+**Exampe Request with Empty Object**  
+`/POST https://developerserver.com/shipping/carrier/connection`
+
+```json
 {
   "carrier_id": "carrier_33",
   "connection": {}
@@ -227,20 +218,16 @@ lineNumbers: true
 ```
 
 Once connected, it’s possible to create shipping methods for a connected carrier in any shipping zone. Shipping zones can be queried using the Shipping Zones resource. For any zone, a request can be made to the Shipping Methods resource using the zone ID from the Shipping Zones resource to create a new method for the connected carrier. The shipping carrier’s ID is required in the type field.
-
-<div class="HubBlock-header">
-    <div class="HubBlock-header-title flex items-center">
-        <div class="HubBlock-header-name">Sample Request</div>
-    </div><div class="HubBlock-header-subtitle">POST https://api.bigcommerce.com/stores/{store_hash}/v2/shipping/zones/{zone_id}/methods</div>
-</div>
-
 <!--
 title: "Sample Request"
 subtitle: "POST https://api.bigcommerce.com/stores/{store_hash}/v2/shipping/zones/{zone_id}/methods"
 lineNumbers: true
 -->
 
-```
+**Example Request Shipping Method**  
+`/POST https://api.bigcommerce.com/stores/{store_hash}/v2/shipping/zones/{zone_id}/methods`
+
+```json
 {
   "name": "Example Shipping Carrier",
   "type": "carrier_33",
@@ -253,19 +240,16 @@ lineNumbers: true
 }
 ```
 
-<div class="HubBlock-header">
-    <div class="HubBlock-header-title flex items-center">
-        <div class="HubBlock-header-name">Sample Response</div>
-    </div><div class="HubBlock-header-subtitle">POST https://api.bigcommerce.com/stores/{store_hash}/v2/shipping/zones/{zone_id}/methods</div>
-</div>
-
 <!--
 title: "Sample Response"
 subtitle: "POST https://api.bigcommerce.com/stores/{store_hash}/v2/shipping/zones/{zone_id}/methods"
 lineNumbers: true
 -->
 
-```
+**Example Response Shipping Methods**  
+`/POST https://api.bigcommerce.com/stores/{store_hash}/v2/shipping/zones/{zone_id}/methods`
+
+```json
 {
   "id": 24,
   "name": "Per Order Test",
@@ -289,19 +273,15 @@ lineNumbers: true
 
 Whenever shipping rates are required, BigCommerce checks its internal cache for valid entries. If a valid entry exists, it will be used and the shipping carrier will not be called. If a valid cache entry does not exist, a request is made to the Quote URL with details of the items to be shipped, the shipping origin, and shipping destination. If any connection settings or zone settings are configured, these are also included. The shipping carrier must then respond with zero or more Shipping Quotes.
 
-<div class="HubBlock-header">
-    <div class="HubBlock-header-title flex items-center">
-        <div class="HubBlock-header-name">Sample Request</div>
-    </div><div class="HubBlock-header-subtitle">POST https://developerserver.com/rate</div>
-</div>
-
 <!--
 title: "Sample Request"
 subtitle: "POST https://developerserver.com/rate"
 lineNumbers: true
 -->
+**Example Request Shipping Rates**  
+`/POST https://developerserver.com/rate`
 
-```
+```json
 {
   "base_options": {
     "origin": {
@@ -386,19 +366,16 @@ lineNumbers: true
 }
 ```
 
-<div class="HubBlock-header">
-    <div class="HubBlock-header-title flex items-center">
-        <div class="HubBlock-header-name">Sample Response</div>
-    </div><div class="HubBlock-header-subtitle">POST https://developerserver.com/rate</div>
-</div>
-
 <!--
 title: "Sample Response"
 subtitle: "POST https://developerserver.com/rate"
 lineNumbers: true
 -->
 
-```
+**Example Response Shipping Rates**  
+`POST https://developerserver.com/rate`
+
+```json
 {
   "quote_id": "sample_quote",
   "messages": [],

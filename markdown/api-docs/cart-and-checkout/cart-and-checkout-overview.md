@@ -5,9 +5,6 @@
     <li><a href="#cart-checkout_storefrix otpont-cart-and-checkout">Storefront Cart and Checkout</a></li>
     <li><a href="#cart-checkout_server-to-server-cart-and-checkout">Server-to-Server Cart and Checkout</a></li>
     <li><a href="#cart-checkout_troubleshooting">Troubleshooting Cart Errors</a></li>
-    <li><a href="#cart-checkout_available-webhooks">Available Webhooks</a></li>
-    <li><a href="#cart-checkout_oauth-scopes">OAuth Scopes</a></li>
-    <li><a href="#cart-checkout_related-endpoints">Related Endpoints</a></li>
 	</ul>
 </div>
 
@@ -16,6 +13,15 @@
 ## Storefront Cart and Checkout
 
 The Storefront APIs are for managing the contents of a shopper's cart and checkout using JavaScript in the context of a storefront session. 
+
+### Prerequisites:
+The following [OAuth Scopes](https://developer.bigcommerce.com/api-docs/getting-started/authentication#authentication_oauth-scopes) are required:
+
+* Carts
+* Checkouts
+* Products
+* Checkout Content
+* Order Transactions
 
 ### When to Use the Storefront APIs
 
@@ -541,31 +547,18 @@ Check the product for order_quantity_minimum and order_quantity_maximum for the 
 
 ---
 
-<a href='#cart-checkout_available-webhooks' aria-hidden='true' class='block-anchor'  id='cart-checkout_available-webhooks'><i aria-hidden='true' class='linkify icon'></i></a>
 
-## Available Webhooks
+## Resources
+
+### Related Articles
+* [Working with the Storefront Cart and Checkout](https://developer.bigcommerce.com/api-docs/cart-and-checkout/working-sf-apis)
+
+### Available Webhooks
 * [Orders](/api-docs/getting-started/webhooks/webhook-events#webhook-events_orders)
 * [SKU](/api-docs/getting-started/webhooks/webhook-events#webhook-events_sku)
 * [Cart](/api-docs/getting-started/webhooks/webhook-events#webhook-events_cart)
 
----
-
-<a href='#cart-checkout_oauth-scopes' aria-hidden='true' class='block-anchor'  id='cart-checkout_oauth-scopes'><i aria-hidden='true' class='linkify icon'></i></a>
-
-## OAuth Scopes
-* Carts
-* Checkouts
-* Products
-* Checkout Content
-* Order Transactions
-
-For more details and a full list of available scopes, see [Oauth Scopes](/api-docs/getting-started/basics/authentication#authentication_oauth-scopes).
-
----
-
-<a href='#cart-checkout_related-endpoints' aria-hidden='true' class='block-anchor'  id='cart-checkout_related-endpoints'><i aria-hidden='true' class='linkify icon'></i></a>
-
-## Related Endpoints
+### Related Endpoints
 * [Storefront Cart](/api-reference/cart-checkout/storefront-cart-api)
 * [Storefront Checkout](/api-reference/cart-checkout/storefront-checkout-api)
 * [Server-to-Server Cart](/api-reference/cart-checkout/server-server-cart-api)

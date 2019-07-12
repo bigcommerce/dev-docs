@@ -52,17 +52,13 @@ Some endpoints support both `?include_fields` and `?exclude_fields`.
 You can specify any field that is available on the object. Excluding fields you don't care about (especially large fields like descriptions) can speed up your API request response time.
 
 
-#### Example
+
+**Example Response Get Product Name and Price**  
+Here, product name and price have been included:
 
 `https://api.bigcommerce.com/stores/{{store_hash}}/v3/catalog/products?include_fields=name,price`
 
-Here, product name and price have been included:
 
-<div class="HubBlock-header">
-    <div class="HubBlock-header-title flex items-center">
-        <div class="HubBlock-header-name">Product Name and Price</div>
-    </div><div class="HubBlock-header-subtitle"></div>
-</div>
 
 <!--
 title: "Product Name and Price"
@@ -86,7 +82,8 @@ lineNumbers: true
 
 ## Pagination and Limit
 
-`?page` is the number of pages that are returned via api. 
+`?page` is the number of pages that are returned via api.
+
 `?limit` is the number of results per page that are returned.
 
 `page=2&limit=10`
