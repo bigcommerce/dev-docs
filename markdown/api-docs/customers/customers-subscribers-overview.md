@@ -40,7 +40,7 @@ Customer groups allow you to organize your customers, give them discounts, and r
 <div class="HubBlock-content">
     
 <!-- theme:  -->
-
+### Customer Groups by Plan
 > Customer Groups are only available on specific plans.
 
 </div>
@@ -113,11 +113,12 @@ Customers are any shopper that has created an account on the store. The Customer
 [Customer Attributes](https://developer.bigcommerce.com/api-reference/customer-subscribers/v3-customers-api/models/customerattribute) are a name, value key pair that are stored against a Customer. For example, if you want to keep a list of hat sizes, the name can be “Hat Sizes” and the value can be 10. Each customer can have several name, value pairs stored.
 
 <div class="HubBlock--callout">
-<div class="CalloutBlock--">
+<div class="CalloutBlock--info">
 <div class="HubBlock-content">
     
 <!-- theme:  -->
 
+### Name Value Pairs
 > Each customer can have up to 100 name, value pairs stored
 
 </div>
@@ -175,11 +176,6 @@ Get Customer Address by name and company on V2
 
 Requests on this endpoint require an array object for all Create and Update Actions.
 
-<div class="HubBlock-header">
-    <div class="HubBlock-header-title flex items-center">
-        <div class="HubBlock-header-name">Update a Customer V3</div>
-    </div><div class="HubBlock-header-subtitle">/customer</div>
-</div>
 
 <!--
 title: "Update a Customer V3"
@@ -187,7 +183,10 @@ subtitle: "/customer"
 lineNumbers: true
 -->
 
-```
+**Example Update a Customer V3**  
+`/PUT https://api.bigcommerce.com/stores/{store_hash}/v3/customers`
+
+```json
 [
   {
     “id”: 12,
@@ -198,11 +197,6 @@ lineNumbers: true
 ]
 ```
 
-<div class="HubBlock-header">
-    <div class="HubBlock-header-title flex items-center">
-        <div class="HubBlock-header-name">Update a Customer on V2</div>
-    </div><div class="HubBlock-header-subtitle">/customers/{customer_id}</div>
-</div>
 
 <!--
 title: "Update a Customer on V2"
@@ -210,7 +204,10 @@ subtitle: "/customers/{customer_id}"
 lineNumbers: true
 -->
 
-```
+**Example Update a Customer V2**  
+`/PUT https://api.bigcommerce.com/stores/{store_hash}/v2/customer_groups/{customer_group_id}`
+
+```json
 {
   “first_name”: 'Jane',
   “email”: 'jane@email.com',

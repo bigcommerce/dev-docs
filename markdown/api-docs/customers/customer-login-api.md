@@ -81,17 +81,14 @@ The `request_ip` field can be used as an additional security precaution, to prev
 
 <a href='#example-payload' aria-hidden='true' class='block-anchor'  id='example-payload'><i aria-hidden='true' class='linkify icon'></i></a>
 
-<div class="HubBlock-header">
-    <div class="HubBlock-header-title flex items-center">
-        <div class="HubBlock-header-name">Example Payload</div>
-    </div><div class="HubBlock-header-subtitle"></div>
-</div>
 
 <!--
 title: "Example Payload"
 subtitle: ""
 lineNumbers: true
 -->
+
+**Example Payload**
 
 ```json
 {
@@ -154,7 +151,7 @@ Client ID and Client Secret generated from the store with the scope set to [Cust
 1. Run a /GET request against the [Customers](/api-reference/customer-subscribers/customers-api/customers/getacustomer) resource. Choose a customer and make note of the customer_id. 
 
 <div class="HubBlock--callout">
-<div class="CalloutBlock--success">
+<div class="CalloutBlock--info">
 <div class="HubBlock-content">
     
 <!-- theme: success -->
@@ -170,17 +167,14 @@ Client ID and Client Secret generated from the store with the scope set to [Cust
 
 <a href='#create-the-paylpad' aria-hidden='true' class='block-anchor'  id='create-the-paylpad'><i aria-hidden='true' class='linkify icon'></i></a>
 
-<div class="HubBlock-header">
-    <div class="HubBlock-header-title flex items-center">
-        <div class="HubBlock-header-name">Create the Payload</div>
-    </div><div class="HubBlock-header-subtitle"></div>
-</div>
 
 <!--
 title: "Create the Payload"
 subtitle: ""
 lineNumbers: true
 -->
+
+**Create the Payload**
 
 ```json
 {

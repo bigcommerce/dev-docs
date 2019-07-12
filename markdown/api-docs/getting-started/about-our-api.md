@@ -160,17 +160,14 @@ lineNumbers: true
 ### Response Structure
 Responses are structured similarly to requests. If a request returns a single object, then the response will contain a single object, containing the fields for that resource.
 
-<div class="HubBlock-header">
-    <div class="HubBlock-header-title flex items-center">
-        <div class="HubBlock-header-name">Single Category Response</div>
-    </div><div class="HubBlock-header-subtitle"></div>
-</div>
-
 <!--
 title: "Single Category Response"
 subtitle: ""
 lineNumbers: true
 -->
+
+**Response Get a Category**  
+`/GET https://api.bigcommerce.com/stores/{store_hash}/v3/catalog/categories/{category_id}`
 
 ```json
 {
@@ -200,11 +197,7 @@ lineNumbers: true
 }
 ```
 
-<div class="HubBlock-header">
-    <div class="HubBlock-header-title flex items-center">
-        <div class="HubBlock-header-name">Multiple Categories Response</div>
-    </div><div class="HubBlock-header-subtitle"></div>
-</div>
+<br>
 
 <!--
 title: "Multiple Categories Response"
@@ -212,7 +205,11 @@ subtitle: ""
 lineNumbers: true
 -->
 
-```
+**Response Get All Categories**  
+`/GET https://api.bigcommerce.com/stores/{store_hash}/v3/catalog/categories/{category_id}`
+
+
+```json
 {
   "data": [
     {
@@ -363,13 +360,24 @@ lineNumbers: true
 }
 ```
 
+---
+
 <a href='#about-api_get-help' aria-hidden='true' class='block-anchor'  id='about-api_get-help'><i aria-hidden='true' class='linkify icon'></i></a>
 
 ## Support
+
 
 ### [Developer Community](https://forum.bigcommerce.com/s/group/0F913000000HLjECAW/bigcommerce-developers)
 This is a great place to get help from other developers who work on the BigCommerce platform. If you have BigCommerce specific questions this is the best place to ask. It's also great for beginners to get assistance. 
 
 ### [StackOverflow](https://stackoverflow.com/questions/tagged/bigcommerce)
 Are you a more experienced developer or have a programming language specific question? This is a good place to ask questions and get help. The developer community is the best place to get answers about the BigCommerce platform specifically.  
+
+
+---
+
+## Resources
+* [Developer Community](https://forum.bigcommerce.com/s/group/0F913000000HLjECAW/bigcommerce-developers)
+* [Terms of Service](https://www.bigcommerce.com/terms/api-terms/)
+* [StackOverflow](https://stackoverflow.com/questions/tagged/bigcommerce)
 

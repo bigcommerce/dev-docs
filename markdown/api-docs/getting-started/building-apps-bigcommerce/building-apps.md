@@ -122,15 +122,11 @@ The following table details the full list of parameters and values included in t
 | scope | List of scopes authorized by the user. As a best practice, your app should validate this list to ensure that it matches the app&#39;s needs, and fail if it does not. However, at this time, the user does not have any opportunity to pick and choose between scopes. The dialog presented to the user requires the user to approve all scopes or none. |
 | context | The store hash: a unique value that identifies the store on which a logged-in user has clicked to install or your app. BigCommerce passes this along with a context path as follows: `stores/{store_hash}`. Save the store hash value, because you will need to pass it in all your requests to the API. |
 
-### Example – Initial Installation
+
+**Example – Initial Installation**
 
 This example initiates the token exchange, with a requested scope of store_v2_orders:
 
-<div class="HubBlock-header">
-    <div class="HubBlock-header-title flex items-center">
-        <div class="HubBlock-header-name">Initial Installation</div>
-    </div><div class="HubBlock-header-subtitle"></div>
-</div>
 
 <!--
 title: "Initial Installation"
@@ -146,12 +142,6 @@ Host: app.example.com
 ### Example – Updating Scopes
 The following example requests a scope of store_v2_products, in addition to the initially requested scope of store_v2_orders:
 
-<div class="HubBlock-header">
-    <div class="HubBlock-header-title flex items-center">
-        <div class="HubBlock-header-name">Updating Scopes</div>
-    </div><div class="HubBlock-header-subtitle"></div>
-</div>
-
 <!--
 title: "Updating Scopes"
 subtitle: ""
@@ -164,11 +154,12 @@ Host: app.example.com
 ```
 
 <div class="HubBlock--callout">
-<div class="CalloutBlock--">
+<div class="CalloutBlock--info">
 <div class="HubBlock-content">
     
 <!-- theme:  -->
 
+### Token Invalidation
 > When your app receives a new token, any previously issued token is invalidated.
 
 </div>
@@ -200,11 +191,12 @@ Make the POST request to the following address: `https://login.bigcommerce.com/o
 Upon receiving the POST request during inital installation, BigCommerce marks the status of your app as “Installed”, removes the progress-indicator overlay, and places your app icon in the control panel’s left-hand navigation. With the progress-indicator overlay removed, the user can interact with the HTML that you returned in your GET response.
 
 <div class="HubBlock--callout">
-<div class="CalloutBlock--">
+<div class="CalloutBlock--info">
 <div class="HubBlock-content">
     
 <!-- theme:  -->
 
+### Receiving the POST request
 > Upon receiving the POST request during initial installation BigCommerce removes the update prompt from the control panel.
 
 </div>
@@ -225,7 +217,8 @@ Include values for each of the following parameters.
 | redirect_uri | Must be identical to your registered Auth Callback URI. |
 | context | The store hash received in the [GET request](/api-docs/getting-started/building-apps-bigcommerce/building-apps#building-apps_recieving-get-request), in the format: `stores/{_store_hash_}` |
 
-### Examples – Initial Installation
+
+**Examples – Initial Installation**
 
 <div class="HubBlock-header">
     <div class="HubBlock-header-title flex items-center">
@@ -276,7 +269,7 @@ $response = $connection->post($tokenUrl, array(
 $token = $response->access_token;
 ```
 
-### Examples – Updating Scopes
+**Examples – Updating Scopes**
 
 The following examples request a scope of store_v2_products, in addition to the initially requested scope of store_v2_orders:
 
@@ -446,13 +439,9 @@ Upon receiving the GET request, your app will need to process the signed payload
 
 If you have not enabled [multi-user](#building-apps_multi-user-support) support, you will not provide a Remove User Callback URI and can ignore this section. If you enable multi-user support, you can optionally specify a Remove User Callback URI. It must be fully qualified, publicly available, and served over TLS/SSL. BigCommerce will send a GETrequest to your Remove User Callback URI when a store admin revokes a user’s access to your app. 
 
-### Example -- Get Request sent to the Remove User URI:
 
-<div class="HubBlock-header">
-    <div class="HubBlock-header-title flex items-center">
-        <div class="HubBlock-header-name">Remove User URI</div>
-    </div><div class="HubBlock-header-subtitle"></div>
-</div>
+**Example -- Get Request sent to the Remove User URI**
+
 
 <!--
 title: "Remove User URI"
@@ -508,11 +497,12 @@ To decode the signed payload, complete the following steps:
 To verify the payload, you need to sign the payload using your client secret, and confirm that it matches the signature that was sent in the request.
 
 <div class="HubBlock--callout">
-<div class="CalloutBlock--">
+<div class="CalloutBlock--warning">
 <div class="HubBlock-content">
     
 <!-- theme:  -->
 
+### Timing Attacks
 > To limit the vulnerability of your app to timing attacks, we recommend using a constant time-string comparison function, rather than the equality operator, to check that the signatures match.
 
 </div>
@@ -557,6 +547,7 @@ function verifySignedRequest($signedRequest)
     
 <!-- theme:  -->
 
+### !hash_equals
 > !hash_equals is available in PHP 5.6 and later. If you are running an older version of PHP, pull in a compatibility library such as the following: https://packagist.org/packages/realityking/hash_equals. BigCommerce’s sample app hello-world-app-php-silex app does this automatically.
 
 </div>
@@ -614,8 +605,6 @@ The JSON object embedded in the signed_payload contains information about the Bi
 Use the store information endpoint to identify the store to which the request pertains.
 
 ### Interpreting the User Information
-
-Interpreting the user information varies as follows:
 
 | Request type | Multiple users enabled | Multiple users not enabled |
 | --- | --- | --- |
@@ -751,11 +740,6 @@ If there were errors, call:
 
 Below is a sample code snippet of an auth callback that does this:
 
-<div class="HubBlock-header">
-    <div class="HubBlock-header-title flex items-center">
-        <div class="HubBlock-header-name">Auth Callback</div>
-    </div><div class="HubBlock-header-subtitle"></div>
-</div>
 
 <!--
 title: "Auth Callback"

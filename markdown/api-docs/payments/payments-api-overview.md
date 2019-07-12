@@ -26,6 +26,9 @@ The following [OAuth](/api-docs/getting-started/authentication#authentication_oa
 * Create Payments
 * Get Payment Methods
 
+To follow along, we have created a Postman Collection.
+
+[![Run in Postman](https://run.pstmn.io/button.svg)](https://app.getpostman.com/run-collection/38daa68bda00ba9d4734)
 ---
 
 <a href='#payments_pci-compliance' aria-hidden='true' class='block-anchor'  id='payments_pci-compliance'><i aria-hidden='true' class='linkify icon'></i></a>
@@ -40,7 +43,7 @@ Merchants or shoppers personal identifiable information (PII) collected by recur
 <div class="HubBlock-content">
     
 <!-- theme: warning -->
-
+### PCI Compliance
 > If your application handles credit card data, you will need to be PCI Compliant. SAQs (self-assessment questionnaires) can be submitted to 
 <a href="mailto:compliance@bigcommerce.com">compliance@bigcommerce.com</a>.
 
@@ -91,11 +94,11 @@ Payments can be processed using cards stored with the BigCommerce Stored Credit 
 * Paymetric
 
 <div class="HubBlock--callout">
-<div class="CalloutBlock--">
+<div class="CalloutBlock--info">
 <div class="HubBlock-content">
     
 <!-- theme:  -->
-
+### Hosted Providers
 > The API flow does not currently support hosted/offsite providers such as PayPal and Adyen and wallet type payments such as Amazon Pay.
 
 </div>
@@ -125,25 +128,16 @@ To use stored cards with the Payments API or the Checkout SDK make sure stored c
 
 This token is the same as `payment_instrument_token` from [Get Transactions](https://developer.bigcommerce.com/api-reference/orders/orders-transactions-api).
 
-
 <br>
-
-**Try it Now**  
-*Get Payment Methods*
-
-[![Run in Postman](https://run.pstmn.io/button.svg)](https://app.getpostman.com/run-collection/38daa68bda00ba9d4734)
-
-<div class="HubBlock-header">
-    <div class="HubBlock-header-title flex items-center">
-        <div class="HubBlock-header-name">Sample Response</div>
-    </div><div class="HubBlock-header-subtitle">Get Payment Methods</div>
-</div>
 
 <!--
 title: "Sample Response"
 subtitle: "Get Payment Methods"
 lineNumbers: true
 -->
+
+**Example Response Get Payment Methods**  
+`/GET https://api.bigcommerce.com/stores/{{store_hash}}/v3/payments/methods?{{order_id}}`
 
 ```json
 {
@@ -201,16 +195,10 @@ lineNumbers: true
 }
 ```
 
-On line 46 is the `token`. Make note of the token to use as part of processing the payment in the request body.
+Make note of the `token` to use as part of processing the payment in the request body.
 
 ### Create Access Token
 2. Make a request to [Create Access Token](/api-reference/payments/payments-create-payment-token-api/payment-access-token/paymentsaccesstokenspost) to get the authorization token that needs to be passed in the header when processing the payment. The ID of the order needs to be part of the request body.
-
-<div class="HubBlock-header">
-    <div class="HubBlock-header-title flex items-center">
-        <div class="HubBlock-header-name">Sample Request</div>
-    </div><div class="HubBlock-header-subtitle">Create Payment Access Token</div>
-</div>
 
 <!--
 title: "Sample Request"
@@ -218,7 +206,10 @@ subtitle: "Create Payment Access Token"
 lineNumbers: true
 -->
 
-```
+**Example Request Create Payment Access Token**  
+`/POST https://api.bigcommerce.com/stores/{{store_hash}}/v3/payments/access_tokens`
+
+```json
 {
   "order": {
     "id": 215
@@ -226,22 +217,14 @@ lineNumbers: true
 }
 ```
 
-**Try it Now**  
-*Create Access Token*
-
-[![Run in Postman](https://run.pstmn.io/button.svg)](https://app.getpostman.com/run-collection/38daa68bda00ba9d4734)
-
-<div class="HubBlock-header">
-    <div class="HubBlock-header-title flex items-center">
-        <div class="HubBlock-header-name">Sample Response</div>
-    </div><div class="HubBlock-header-subtitle">Create Payment Access Token</div>
-</div>
 
 <!--
 title: "Sample Response"
 subtitle: "Create Payment Access Token"
 lineNumbers: true
 -->
+
+**Example Response Create Payment Access Token**
 
 ```json
 {
@@ -281,11 +264,6 @@ The headers to process a payment are different than the headers you normally sen
 </div>
 </div>
 
-<div class="HubBlock-header">
-    <div class="HubBlock-header-title flex items-center">
-        <div class="HubBlock-header-name">Sample Request</div>
-    </div><div class="HubBlock-header-subtitle">Process Payment</div>
-</div>
 
 <!--
 title: "Sample Request"
@@ -293,7 +271,10 @@ subtitle: "Process Payment"
 lineNumbers: true
 -->
 
-```shell
+**Example Request Process Payment**  
+`/POST https://payments.bigcommerce.com/stores/{store_hash}/payments`
+
+```curl
 curl -X POST \
   https://payments.bigcommerce.com/stores/{store_hash}/payments \
   -H 'Accept: application/vnd.bc.v1+json' \
@@ -312,17 +293,13 @@ curl -X POST \
 
 ```
 
-<div class="HubBlock-header">
-    <div class="HubBlock-header-title flex items-center">
-        <div class="HubBlock-header-name">Sample Response</div>
-    </div><div class="HubBlock-header-subtitle">Process Payment</div>
-</div>
-
 <!--
 title: "Sample Response"
 subtitle: "Process Payment"
 lineNumbers: true
 -->
+
+**Example Response Process Payment**
 
 ```json
 {
@@ -334,12 +311,7 @@ lineNumbers: true
 }
 ```
 
-**Try it Now**  
-*Process Payment*
-
-[![Run in Postman](https://run.pstmn.io/button.svg)](https://app.getpostman.com/run-collection/38daa68bda00ba9d4734)
-
-If the purchase was successful it will return a status of success.  The order is then automatically moved to an Awaiting Fulfillment status. If you get a different response, see [Error Codes](#payments_error-codes) for troubleshooting.
+If the purchase was successful it will return a status of success. The order is then automatically moved to an Awaiting Fulfillment status. If you get a different response, see [Error Codes](#payments_error-codes) for troubleshooting.
 
 ---
 
@@ -355,17 +327,14 @@ There are two steps to using a credit card to make a payment.
 ### Create Access Token
 1. Make a request to [Create Access Token](/api-reference/payments/payments-create-payment-token-api/payment-access-token/paymentsaccesstokenspost) to to get the authorization token that needs to be passed in the header when processing the payment. The ID of the order needs to be part of the request body.
 
-<div class="HubBlock-header">
-    <div class="HubBlock-header-title flex items-center">
-        <div class="HubBlock-header-name">Sample Request</div>
-    </div><div class="HubBlock-header-subtitle">Create Payment Access Token</div>
-</div>
-
 <!--
 title: "Sample Request"
 subtitle: "Create Payment Access Token"
 lineNumbers: true
 -->
+
+**Example Request Create Payment Access Token**  
+`/POST https://api.bigcommerce.com/stores/{{store_hash}}/v3/payments/access_tokens`
 
 ```json
 {
@@ -375,19 +344,15 @@ lineNumbers: true
 }
 ```
 
-<div class="HubBlock-header">
-    <div class="HubBlock-header-title flex items-center">
-        <div class="HubBlock-header-name">Sample Response</div>
-    </div><div class="HubBlock-header-subtitle">Create Payment Access Token</div>
-</div>
-
 <!--
 title: "Sample Response"
 subtitle: "Create Payment Access Token"
 lineNumbers: true
 -->
 
-```
+**Example Response Create Payment Access Token**
+
+```json
 {
   "data": {
     "id": "eyJ0eXAiOiJKV1QiLCJhbGciOiJIUzI1NiJ9.eyJleHAiOjE1NTEzOTQxNDIsIm5iZiI6MTU1MTM5MDU0MiwiaXNzIjoicGF5bWVudHMuYmlnY29tbWVyY2UuY29tIiwic3ViIjoianJhaDZnbW4iLCJqdGkiOiI3Nzg3ZmU1Zi01OWJmLTQ3ZWMtYTFmZC00ZDQ3ZTkwNjFlNWMiLCJpYXd4gJ8uHDk3kDhhuyefsrtr45mRhdGEiOnsic3RvcmVfaWQiOjEwMjU2NDYsIm9yZGVyX2lkIjoyMTUsImFtb3VudCI6OTgwMCwiY3VycmVuY3kiOiJVU0QifX0.WbR90d8m4gn8wK7kPMDEoVq8B0hHC5Ul5H4Hpqq6Yvo"
@@ -395,11 +360,6 @@ lineNumbers: true
   "meta": {}
 }
 ```
-
-**Try it Now**  
-*Get Payment Access Token*
-
-[![Run in Postman](https://run.pstmn.io/button.svg)](https://app.getpostman.com/run-collection/38daa68bda00ba9d4734)
 
 ### Process the Payment
 
@@ -436,19 +396,16 @@ If any of these fields are incorrect, the payment might be rejected.
 </div>
 </div>
 
-<div class="HubBlock-header">
-    <div class="HubBlock-header-title flex items-center">
-        <div class="HubBlock-header-name">Sample Request</div>
-    </div><div class="HubBlock-header-subtitle">Process Payment</div>
-</div>
-
 <!--
 title: "Sample Request"
 subtitle: "Process Payment"
 lineNumbers: true
 -->
 
-```
+**Example Request Process Payment**  
+`/POST https://payments.bigcommerce.com/stores/{store_hash}/payments`
+
+```curl
 curl -X POST \
   https://payments.bigcommerce.com/stores/{store_hash}/payments \
   -H 'Accept: application/vnd.bc.v1+json' \
@@ -469,19 +426,15 @@ curl -X POST \
 }'
 ```
 
-<div class="HubBlock-header">
-    <div class="HubBlock-header-title flex items-center">
-        <div class="HubBlock-header-name">Sample Response</div>
-    </div><div class="HubBlock-header-subtitle">Process Payment</div>
-</div>
-
 <!--
 title: "Sample Response"
 subtitle: "Process Payment"
 lineNumbers: true
 -->
 
-```
+**Example Response Process Payment**
+
+```json
 {
   "data": {
     "id": "693bb4cd-3f20-444a-8315-6369f582c68a",
@@ -491,12 +444,7 @@ lineNumbers: true
 }
 ```
 
-**Try it Now**  
-*Process Payment*
-
-[![Run in Postman](https://run.pstmn.io/button.svg)](https://app.getpostman.com/run-collection/38daa68bda00ba9d4734)
-
-If the purchase was successful it will return a status of success.  The order is then automatically moved to an Awaiting Fulfillment status. If you get a different response, see [Error Codes](#payments_error-codes) for troubleshooting.
+If the purchase was successful it will return a status of success. The order is then automatically moved to an Awaiting Fulfillment status. If you get a different response, see [Error Codes](#payments_error-codes) for troubleshooting.
 
 ---
 
@@ -504,21 +452,18 @@ If the purchase was successful it will return a status of success.  The order is
 
 ## Using the Orders API
 
-It is possible to take a payment for an order created using the [Orders API](orders/orders-api-overview). When creating the order using the Orders API make sure the `status_id:0`. If the order status is not created with the status set to `0` or `Incomplete`, the Payments API will return an [error](#payments_error-codes).
+It is possible to take a payment for an order created using the [Orders API](https://developer.bigcommerce.com/api-docs/orders/orders-api-overview). When creating the order using the Orders API make sure the `status_id:0`. If the order status is not created with the status set to `0` or `Incomplete`, the Payments API will return an [error](#payments_error-codes).
 The billing address and line items should be filled in when creating the order. The order can be created as a guest order by either seeting the 
 `customer_id:0`or leaving it blank. After the order is created, then follow the steps for either a [credit card](#payments_credit-cards) or a [stored card](#payments_stored-cards).
-
-<div class="HubBlock-header">
-    <div class="HubBlock-header-title flex items-center">
-        <div class="HubBlock-header-name">Example Create Order</div>
-    </div><div class="HubBlock-header-subtitle"></div>
-</div>
 
 <!--
 title: "Example Create Order"
 subtitle: ""
 lineNumbers: true
 -->
+
+**Example Create an Order**  
+`/POST https://api.bigcommerce.com/stores/{store_hash}/v2/orders` 
 
 ```json
 {
@@ -689,13 +634,13 @@ Store credit is not a supported payment method with the Payments API. Store cred
 
 Gift certificates are not supported with the Payments API. Gift certificates can still be used by the shopper on the storefront, part of the control panel or with the Checkout API.
 
+---
 
 ## Resources
 
 ### Webhooks
-There are no specific webhooks for payments. 
 
-**Related Webhooks:**
+- [Customer Payment Instrument](https://developer.bigcommerce.com/api-docs/getting-started/webhooks/webhook-events#webhook-events_customer)
 - [Orders](https://developer.bigcommerce.com/api-docs/getting-started/webhooks/webhook-events#webhook-events_orders)
 - [Cart](https://developer.bigcommerce.com/api-docs/getting-started/webhooks/webhook-events#webhook-events_cart)
 

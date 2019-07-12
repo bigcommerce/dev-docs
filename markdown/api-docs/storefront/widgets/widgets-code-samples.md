@@ -50,7 +50,7 @@ subtitle: "Simple List"
 lineNumbers: true
 -->
 
-```
+```json
 {
 	"name": "Simple List Test",
 	"widget_configuration":{
@@ -119,7 +119,7 @@ subtitle: "Simple HTML"
 lineNumbers: true
 -->
 
-```
+```json
 {
 	"name": "Simple List Test",
 	"widget_configuration":{
@@ -174,7 +174,7 @@ subtitle: "Simple Text with Styling"
 lineNumbers: true
 -->
 
-```
+```json
 {
 	"name": "Simple Text with Styling",
 	"widget_configuration":{
@@ -240,7 +240,7 @@ subtitle: "Youtube Embed with Layout"
 lineNumbers: true
 -->
 
-```
+```json
 {
 	"name": "Website YouTube Embed",
 	"widget_configuration":{
@@ -265,7 +265,7 @@ subtitle: "Youtube Embed with Layout"
 lineNumbers: true
 -->
 
-```
+```json
 {
     "region": "widget_page",
     "template_file": "pages/page",
@@ -302,7 +302,7 @@ subtitle: "Image Slider"
 lineNumbers: true
 -->
 
-```
+```html
 "<ul class=\"slider\">\n{{#each slides}}\n<ul class=\"slide\"><img class=\"mySlides\" src=\"{{image}}\"/></ul>\n{{/each}}\n</ul>\n<script>\nvar slideIndex = 0;\ncarousel();\nfunction carousel() {\nvar i;\nvar x = document.getElementsByClassName(\"mySlides\");\nfor (i = 0; i < x.length; i++) {\nx[i].style.display = \"none\"; \n}\nslideIndex++;\nif (slideIndex > x.length) {slideIndex = 1} \nx[slideIndex-1].style.display = \"block\"; \nsetTimeout(carousel, 4000); // Change image every 4 seconds\n}\n</script>"
 ```
 
@@ -318,7 +318,7 @@ subtitle: "Image Slider"
 lineNumbers: true
 -->
 
-```
+```json
 {
   "name": "Home Page Slider",
   "widget_configuration": {

@@ -35,6 +35,10 @@ Scopes
 The following [OAuth](/api-docs/getting-started/authentication#authentication_oauth-scopes) scopes are required:
 * Modify Catalog
 
+If you would like to follow along, we have created a Postman collection. 
+
+[![Run in Postman](https://run.pstmn.io/button.svg)](https://app.getpostman.com/run-collection/63a61a74bd429ee184b3)
+
 ---
 
 <a href='#products-overview_products' aria-hidden='true' class='block-anchor'  id='products-overview_products'><i aria-hidden='true' class='linkify icon'></i></a>
@@ -52,7 +56,7 @@ Products can also be Physical or Digital.
 * Digital products, on the other hand, may not have a physical representation in the real world; this includes downloadable products such as computer software, ebooks, music, images, and other digital media. Alternatively, a digital product may be used to sell services such as spa treatments, consulting, and so forth - which also do not require shipping.
 
 <div class="HubBlock--callout">
-<div class="CalloutBlock--">
+<div class="CalloutBlock--info">
 <div class="HubBlock-content">
     
 <!-- theme:  -->
@@ -64,17 +68,28 @@ Products can also be Physical or Digital.
 </div>
 </div>
 
-### Create a Simple Product
+### Simple Product
 
 Simple products do not have any options, modifiers, or variants, and therefore cannot be configured or modified before they are added to cart. A simple product is its own variant. 
 
-**Try It Now**  
-*Create a simple product*
+**Example Simple Product**  
+`/POST https://api.bigcommerce.com/stores/{{store_hash}}/v3/catalog/products`
 
-[![Run in Postman](https://run.pstmn.io/button.svg)](https://app.getpostman.com/run-collection/63a61a74bd429ee184b3)
+```json 
+{
+  "name": "BigCommerce Coffee Mug",
+  "price": "10.00",
+  "categories": [
+    23,
+    21
+  ],
+  "weight": 4,
+  "type": "physical"
+}
+```
 
 <div class="HubBlock--callout">
-<div class="CalloutBlock--">
+<div class="CalloutBlock--info">
 <div class="HubBlock-content">
     
 <!-- theme:  -->
@@ -94,12 +109,42 @@ Complex products have at least one option and may have modifiers or variants.
 
 The [Create Products](/api-reference/catalog/catalog-api/products/getproducts) endpoint supports the creation of multiple variants along with the base product in a single call.
 
-**Try It Now**  
-*Create a complex product*
 
-[![Run in Postman](https://run.pstmn.io/button.svg)](https://app.getpostman.com/run-collection/63a61a74bd429ee184b3)
+**Example Complex Product**  
+`/POST https://api.bigcommerce.com/stores/{{store_hash}}/v3/catalog/products`
 
-The [Create a Product](/api-reference/catalog/catalog-api/products/createproduct) endpoint supports the creation of multiple variants along with the base product in a single call.
+```json
+{
+  "name": "BigCommerce Coffee Mug",
+  "price": "10.00",
+  "categories": [
+    23,
+    21
+  ],
+  "weight": 4,
+  "type": "physical",
+  "variants": [
+    {
+      "sku": "SKU-BLU",
+      "option_values": [
+        {
+          "option_display_name": "Mug Color",
+          "label": "Blue"
+        }
+      ]
+    },
+    {
+      "sku": "SKU-GRAY",
+      "option_values": [
+        {
+          "option_display_name": "Mug Color",
+          "label": "Gray"
+        }
+      ]
+    }
+  ]
+}
+```
 
 ### Digital Products
 
@@ -109,11 +154,26 @@ Downloadable product files are intended for products of the “digital” type, 
 
 Files must be added to digital products using the [Control Panel or WebDav](https://support.bigcommerce.com/articles/Public/Creating-Downloadable-Products/#adding-downloadable-product) (attaching via the API is not supported). Additional settings such as a description of the file and maximum downloads can be set in the Control Panel.
 
-**Try It Now**  
-*Create a digital product*  
+**Example Create a Digital Product**  
+`/POST https://api.bigcommerce.com/stores/{{store_hash}}/v3/catalog/products`
 
-[![Run in Postman](https://run.pstmn.io/button.svg)](https://app.getpostman.com/run-collection/63a61a74bd429ee184b3)
-
+```json
+{
+  "name": "ebook: A Guide to Coffee",
+  "price": "10.00",
+  "categories": [
+    23,
+    21
+  ],
+  "type": "digital",
+  "images": [
+    {
+      "is_thumbnail": true,
+      "image_url": "{{image_url}}"
+    }
+  ]
+}
+```
 ---
 
 <a href='#products-overview_pricing-precision' aria-hidden='true' class='block-anchor'  id='products-overview_pricing-precision'><i aria-hidden='true' class='linkify icon'></i></a>
@@ -154,26 +214,31 @@ Currency settings allows for inputting a large number of decimal places for disp
 If using `image_file` Content-Type needs to be set to 
 Content-Type: multipart/form-data. Any other updates using the /POST or /PUT will be rejected with the form-data.
 
-**Try It Now**  
-*Add a product image*
+**Example Add a Product Image**  
+`/PUT https://api.bigcommerce.com/stores/{{store_hash}}/v3/catalog/products/{{product_id}}/images`
 
-[![Run in Postman](https://run.pstmn.io/button.svg)](https://app.getpostman.com/run-collection/63a61a74bd429ee184b3)
+```json
+{
+  "is_thumbnail": true,
+  "sort_order": 1,
+  "description": "Yellow Large Bath Towel",
+  "image_url": "{{image_url}}"
+}
+```
 
 ### Product Thumbnails
 
 Only one image can be the [product thumbnail](/api-reference/catalog/catalog-api/models/productimage). The product thumbnail is the image that shows on the product listing page, in search results and any other location that features the product. If only one image is on the product it becomes both the thumbnail and the main product image. Images can also be added to [variants](/api-reference/catalog/catalog-api/product-variants/getvariantsbyproductid). 
 
-<div class="HubBlock-header">
-    <div class="HubBlock-header-title flex items-center">
-        <div class="HubBlock-header-name">Product Thumbnails</div>
-    </div><div class="HubBlock-header-subtitle">GET https://api.bigcommerce.com/stores/{{store_hash}}/v3/catalog/products/{{product_id}}/images/{{images_id}}</div>
-</div>
 
 <!--
 title: "Product Thumbnails"
 subtitle: "GET https://api.bigcommerce.com/stores/{{store_hash}}/v3/catalog/products/{{product_id}}/images/{{images_id}}"
 lineNumbers: true
 -->
+
+**Response Get Product Thumbnails**  
+`/GET https://api.bigcommerce.com/stores/{{store_hash}}/v3/catalog/products/{{product_id}}/images/{{images_id}}`
 
 ```json
 {
@@ -205,10 +270,18 @@ lineNumbers: true
 
 Example: <span class=”fp”>https://www.youtube.com/watch?v=<b>R12345677</b></span>
 
-**Try It Now**  
-*Add a product video*
+**Example Create a Product Video**  
+`/PUT https://api.bigcommerce.com/stores/{{store_hash}}/v3/catalog/products/{{product_id}}/videos`
 
-[![Run in Postman](https://run.pstmn.io/button.svg)](https://app.getpostman.com/run-collection/63a61a74bd429ee184b3)
+```json
+{
+  "title": "BigCommerce Mug Video",
+  "description": "Video Describing the Mug",
+  "sort_order": 1,
+  "type": "youtube",
+  "video_id": "R12345677"
+}
+```
 
 ---
 
@@ -218,12 +291,22 @@ Example: <span class=”fp”>https://www.youtube.com/watch?v=<b>R12345677</b></
 
 [Custom fields](/api-reference/catalog/catalog-api/product-custom-fields/getcustomfields) are a feature intended for product specifications, in a key: value arrangement. As an example, there might be fields indicating technical specifications about an LED TV  such as screen size, maximum resolution, HDR support, etc. Alternatively, if selling wine, I might use Custom Fields for specifications such as vintage, region, grape, etc. Custom fields can not be used to add rules such as changing the weight or price of a product. 
 
+**Example Add Custom Fields**  
+`/PUT https://api.bigcommerce.com/stores/{{store_hash}}/v3/catalog/products/{{product_id}}/custom-fields`
+
+```json
+{
+  "name": "Release Year",
+  "value": "2018"
+}
+```
 <div class="HubBlock--callout">
-<div class="CalloutBlock--">
+<div class="CalloutBlock--info">
 <div class="HubBlock-content">
     
 <!-- theme:  -->
 
+### Character Limit
 > There is a limit of 250 characters for custom field values.
 
 </div>
@@ -235,11 +318,6 @@ Custom Fields are intended to be used in a couple of contexts:
 * Displaying specifications on the product detail page and on the product listing pages such as category and brand pages.
 * Powering faeted search (searching/filtering by custom field values)
 
-**Try It Now**  
-*Add a custom field*
-
-[![Run in Postman](https://run.pstmn.io/button.svg)](https://app.getpostman.com/run-collection/63a61a74bd429ee184b3)
-
 ---
 
 <a href='#products-overview_bulk-pricing-rules' aria-hidden='true' class='block-anchor'  id='products-overview_bulk-pricing-rules'><i aria-hidden='true' class='linkify icon'></i></a>
@@ -250,11 +328,27 @@ Custom Fields are intended to be used in a couple of contexts:
 
 Bulk Pricing rules in the catalog are on the product, meaning that they’ll trigger even if several different variants of the product are in the cart, as long as the total quantity of those variants meets one of the quantity breaks. [Price List bulk pricing](/api-reference/catalog/pricelists-api/price-lists-records/setpricelistrecordcollection) works differently.
 
-**Try It Now**  
-*Add bulk pricing rules*
+**Example Add Bulk Pricing Rules**  
+`/PUT https://api.bigcommerce.com/stores/{{store_hash}}/v3/catalog/products/{{product_id}}/bulk-pricing-rules`
 
-[![Run in Postman](https://run.pstmn.io/button.svg)](https://app.getpostman.com/run-collection/63a61a74bd429ee184b3)
-
+```json
+{
+  "bulk_pricing_rules": [
+    {
+      "quantity_min": 10,
+      "quantity_max": 15,
+      "type": "price",
+      "amount": 3
+    },
+    {
+      "quantity_min": 16,
+      "quantity_max": 25,
+      "type": "price",
+      "amount": 5
+    }
+  ]
+}
+```
 ---
 
 <a href='#products-overview_metafields' aria-hidden='true' class='block-anchor'  id='products-overview_metafields'><i aria-hidden='true' class='linkify icon'></i></a>
@@ -265,10 +359,21 @@ Bulk Pricing rules in the catalog are on the product, meaning that they’ll tri
 
 Metafields can be added to variants, products, categories, and brands.
 
-**Try It Now**  
-*Add a product metafields*
+**Example Add Product Metafields**  
+`/PUT https://api.bigcommerce.com/stores/{{store_hash}}/v3/catalog/products/{{product_id}}/metafields`
 
-[![Run in Postman](https://run.pstmn.io/button.svg)](https://app.getpostman.com/run-collection/63a61a74bd429ee184b3)
+
+```json
+{
+  "permission_set": "read",
+  "namespace": "Location",
+  "key": "bin_number",
+  "value": "#4456",
+  "description": "location of the product",
+  "resource_type": "product",
+  "resource_id": 131
+}
+```
 
 ---
 
@@ -281,10 +386,20 @@ Reviews cannot be created in the control panel, but they can be created via API.
 
 Product Reviews are a native platform feature, but they can be turned off in favor of a custom setup.
 
-**Try It Now**  
-*Create a product review*
+**Example Create Product Review**  
+`/POST https://api.bigcommerce.com/stores/{{store_hash}}/v3/catalog/products/{{product_id}}/reviews`
 
-[![Run in Postman](https://run.pstmn.io/button.svg)](https://app.getpostman.com/run-collection/63a61a74bd429ee184b3)
+```json
+{
+  "title": "Great Coffee Mug",
+  "text": "This coffee mug kept my liquids hot for several hours.",
+  "status": "pending",
+  "rating": 5,
+  "email": "testing@bigcommerce.com",
+  "name": "BigCommerce",
+  "date_reviewed": "2018-07-20T17:45:13+00:00"
+}
+```
 
 ---
 
@@ -299,11 +414,21 @@ Product Reviews are a native platform feature, but they can be turned off in fav
  
 They’re primarily used to tag products so that consumers can find Brands they’re interested in (such as Nike shoes). Brands have their own page on the storefront which shows all the products in that Brand. They’re also used as part of faceted search navigation.
 
-**Try It Now**  
-*Create a brand*
+**Example Create a Brand**  
+`/POST https://api.bigcommerce.com/stores/{{store_hash}}/v3/catalog/brands`
 
-[![Run in Postman](https://run.pstmn.io/button.svg)](https://app.getpostman.com/run-collection/63a61a74bd429ee184b3)
-
+```json
+{
+  "name": "BigCommerce",
+  "page_title": "BigCommerce",
+  "meta_keywords": [
+    "ecommerce",
+    "best in class",
+    "grow your business"
+  ],
+  "image_url": "{{image_url}}"
+}
+```
 ---
 
 <a href='#products-overview_variant-options' aria-hidden='true' class='block-anchor'  id='products-overview_variant-options'><i aria-hidden='true' class='linkify icon'></i></a>
@@ -347,7 +472,7 @@ The combination of Small & Red is what is selected on the storefront and correla
 * Base variants are not SKUs in V2.
 
 <div class="HubBlock--callout">
-<div class="CalloutBlock--">
+<div class="CalloutBlock--info">
 <div class="HubBlock-content">
     
 <!-- theme:  -->
@@ -365,11 +490,6 @@ option values or a combination of variant option
 values. A request like this could also be used to
 add new choices to a variant that has already been created.
 
-<div class="HubBlock-header">
-    <div class="HubBlock-header-title flex items-center">
-        <div class="HubBlock-header-name">Create Size Variant Option</div>
-    </div><div class="HubBlock-header-subtitle">/POST https://api.bigcommerce.com/stores/{store_hash}/v3/catalog/products/{product_id}/options</div>
-</div>
 
 <!--
 title: "Create Size Variant Option"
@@ -377,7 +497,11 @@ subtitle: "/POST https://api.bigcommerce.com/stores/{store_hash}/v3/catalog/prod
 lineNumbers: true
 -->
 
-```
+**Example Create Size Variant Option**  
+`/POST https://api.bigcommerce.com/stores/{store_hash}/v3/catalog/products/{product_id}/options`
+
+
+```json
 {
   "product_id": 134,
   "name": "Size Rectangle",
@@ -433,17 +557,16 @@ This will go over using existing variant options to create the variants
 
 Use the `https://api.bigcommerce.com/stores/{{store_hash}}/v3/catalog/products/131/options` endpoint to get the option information.
 
-<div class="HubBlock-header">
-    <div class="HubBlock-header-title flex items-center">
-        <div class="HubBlock-header-name">Example Response</div>
-    </div><div class="HubBlock-header-subtitle">/GET https://api.bigcommerce.com/stores/{store_hash}/v3/catalog/products/{product_id}/options</div>
-</div>
 
 <!--
 title: "Example Response"
 subtitle: "/GET https://api.bigcommerce.com/stores/{store_hash}/v3/catalog/products/{product_id}/options"
 lineNumbers: true
 -->
+
+**Example Get Variant Options**  
+`/GET https://api.bigcommerce.com/stores/{store_hash}/v3/catalog/products/{product_id}/options`
+
 
 ```json
 {
@@ -540,11 +663,6 @@ lineNumbers: true
 }
 ```
 
-**Try It Now**  
-*Get Variant Options*
-
-[![Run in Postman](https://run.pstmn.io/button.svg)](https://app.getpostman.com/run-collection/63a61a74bd429ee184b3)
-
 In the above response, there are two variant options of size and color with three values each. 
 
 To combine the variant option values into variants and build out SKUs use the following endpoint:
@@ -552,7 +670,7 @@ To combine the variant option values into variants and build out SKUs use the fo
 `https://api.bigcommerce.com/stores/{{store_hash}}/v3/catalog/products/131/variants`
 
 <div class="HubBlock--callout">
-<div class="CalloutBlock--">
+<div class="CalloutBlock--info">
 <div class="HubBlock-content">
     
 <!-- theme:  -->
@@ -564,10 +682,6 @@ To combine the variant option values into variants and build out SKUs use the fo
 </div>
 </div>
 
-**Try It Now**  
-*Add product variants*
-
-[![Run in Postman](https://run.pstmn.io/button.svg)](https://app.getpostman.com/run-collection/63a61a74bd429ee184b3)
 
 The `option_values` array combines the options Small and Blue to create the SKU SMALL-BLUE. The id in the `option_values` array is the id from the variant option response `option_values > id`. The `option_id` is the id of the option.
 
@@ -606,8 +720,44 @@ lineNumbers: true
 
 The following example creates a base product, variant options, and variants in a single call to the /products endpoint. You can use this method to create a product and its variants in a single call without creating variant options first, but the option display type will default to radio button.
 
+**Example Create Variant with Product**  
+`/POST https://api.bigcommerce.com/stores/{store_hash}/v3/catalog/products`
+
+```json
+{
+  "name": "BigCommerce Coffee Mug",
+  "price": "10.00",
+  "categories": [
+    23,
+    21
+  ],
+  "weight": 4,
+  "type": "physical",
+  "variants": [
+    {
+      "sku": "SKU-BLU",
+      "option_values": [
+        {
+          "option_display_name": "Mug Color",
+          "label": "Blue"
+        }
+      ]
+    },
+    {
+      "sku": "SKU-GRAY",
+      "option_values": [
+        {
+          "option_display_name": "Mug Color",
+          "label": "Gray"
+        }
+      ]
+    }
+  ]
+}
+```
+
 <div class="HubBlock--callout">
-<div class="CalloutBlock--">
+<div class="CalloutBlock--info">
 <div class="HubBlock-content">
     
 <!-- theme:  -->
@@ -619,10 +769,6 @@ The following example creates a base product, variant options, and variants in a
 </div>
 </div>
 
-**Try It Now**  
-*Create a variant using the products endpoint*
-
-[![Run in Postman](https://run.pstmn.io/button.svg)](https://app.getpostman.com/run-collection/63a61a74bd429ee184b3)
 
 ---
 
@@ -653,7 +799,7 @@ An adjuster can be added to a modifier option to change things such as increasin
 | Backpack | Black<br>Yellow<br>----------<br>2L <br> 3L<br> 8L |BLACK-2L<br>BLACK-3L<br>BLACK 8L<br>----------<br>YELLOW-2L<br>YELLOW-3L<br>YELLOW-8L| Text Field<br> Add Embroidery|
 
 <div class="HubBlock--callout">
-<div class="CalloutBlock--">
+<div class="CalloutBlock--info">
 <div class="HubBlock-content">
     
 <!-- theme:  -->
@@ -672,7 +818,7 @@ The following example shows how to add a modifier, a checkbox with a price adjus
 Creating a checkbox with an adjuster requires two separate calls: one to create the checkbox and a second to add the adjuster. Adjusters are defined within the `option_values` array, but `option_values` are not allowed in the request to create a checkbox modifier because creating a checkbox automatically generates two mandatory option values: a Yes and a No. Once the checkbox has been created along with its option values, you can update the modifier to add an adjuster. 
 
 <div class="HubBlock--callout">
-<div class="CalloutBlock--">
+<div class="CalloutBlock--info">
 <div class="HubBlock-content">
     
 <!-- theme:  -->
@@ -686,18 +832,23 @@ Creating a checkbox with an adjuster requires two separate calls: one to create 
 
 First, a POST to create the modifier. 
 
-**Try It Now**  
-*Add a product modifier*
+**Example Create a Modifier**  
+`/POST https://api.bigcommerce.com/stores/{{store_hash}}/v3/catalog/products/{{product_id}}/modifiers `
 
-[![Run in Postman](https://run.pstmn.io/button.svg)](https://app.getpostman.com/run-collection/63a61a74bd429ee184b3)
+```json
+{
+  "type": "checkbox",
+  "required": false,
+  "config": {
+    "default_value": "Yes",
+    "checked_by_default": false,
+    "checkbox_label": "Check for Donation"
+  },
+  "display_name": "Add a $5 Donation"
+}
+```
 
-Since this is a checkbox which has two states, checked/unchecked or yes/no, two option values are created. The default adjuster values are null. 
-
-<div class="HubBlock-header">
-    <div class="HubBlock-header-title flex items-center">
-        <div class="HubBlock-header-name">Response</div>
-    </div><div class="HubBlock-header-subtitle">Create Modifier Option</div>
-</div>
+Since this is a checkbox which has two states, checked/unchecked or yes/no, two option values are created. The default `adjuster_value` is null. 
 
 <!--
 title: "Response"
@@ -705,7 +856,10 @@ subtitle: "Create Modifier Option"
 lineNumbers: true
 -->
 
-```
+**Example Response Create Modifier Option**  
+`https://api.bigcommerce.com/stores/{store_hash}/v3/catalog/products/{product_id}/modifiers`
+
+```json
 {
   "data": [
     {
@@ -781,10 +935,19 @@ lineNumbers: true
 
 Next send a PUT request to update the modifier value. This increases the price by $5 when the Yes option value is selected.
 
-**Try It Now**  
-*Add modifier values*
+`/PUT https://api.bigcommerce.com/stores/{store_hash}/v3/catalog/products/{product_id}/modifiers/{modifier_id}/values`
 
-[![Run in Postman](https://run.pstmn.io/button.svg)](https://app.getpostman.com/run-collection/63a61a74bd429ee184b3)
+```json
+{
+  "is_default": false,
+  "adjusters": {
+    "price": {
+      "adjuster": "relative",
+      "adjuster_value": 5
+    }
+  }
+}
+```
 
 ### Troubleshooting: 422 Error
 
@@ -848,10 +1011,8 @@ Use complex rules when an adjustment should be triggered by:
 
 Complex rules must be based on a combination of two or more modifiers, such as two checkboxes. The following example will add $10 to the product price when both boxes are checked. 
 
-**Try It Now**  
-*Add complex rules to a modifier*
-
-[![Run in Postman](https://run.pstmn.io/button.svg)](https://app.getpostman.com/run-collection/63a61a74bd429ee184b3)
+**Example Add Complex Rules**  
+`/PUT https://api.bigcommerce.com/stores/{store_hash}/v3/catalog/products/{product_id}/complex-rules`
 
 ### Troubleshooting
 
@@ -889,26 +1050,33 @@ All products must be associated with at least one Category, although a Category 
 
 A product associated with categories does not currently have any priority or weighted order (there’s no “primary category”), which can make it difficult to integrate with some external systems which might wish to use a product’s categories to map to a category structure in that external system.
 
-**Try It Now**  
-*Create a Category*
+**Example Create a Category**  
+`https://api.bigcommerce.com/stores/{store_hash}/v3/catalog/categories`
 
-[![Run in Postman](https://run.pstmn.io/button.svg)](https://app.getpostman.com/run-collection/63a61a74bd429ee184b3)
+Parent ID is only needed if creating a sub-category.
+
+```json
+{
+  "parent_id": 18,
+  "name": "Shoes",
+  "description": "Shoes Available for purchase",
+  "sort_order": 1,
+  "page_title": "Shoes",
+  "is_visible": true
+}
+```
 
 ### Category Tree
 
 [Category Tree](/api-reference/catalog/catalog-api/catalog/getcatalogsummary) returns a simple view of the parent > child relationship of all categories in the store. This endpoint can be used to fetch the categories if building out a custom navigation for a store.
-
-<div class="HubBlock-header">
-    <div class="HubBlock-header-title flex items-center">
-        <div class="HubBlock-header-name">Category Tree Response Example</div>
-    </div><div class="HubBlock-header-subtitle"></div>
-</div>
 
 <!--
 title: "Category Tree Response Example"
 subtitle: ""
 lineNumbers: true
 -->
+**Example Category Tree Response**  
+`/GET https://api.bigcommerce.com/stores/{store_hash}/v3/catalog/summary`
 
 ```json
 {
@@ -1050,10 +1218,6 @@ lineNumbers: true
 }
 ```
 
-**Try It Now**  
-*Get category tree*
-
-[![Run in Postman](https://run.pstmn.io/button.svg)](https://app.getpostman.com/run-collection/63a61a74bd429ee184b3)
 
 ---
 

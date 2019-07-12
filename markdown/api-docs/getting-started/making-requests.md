@@ -25,48 +25,43 @@ Before we begin, here are a few key concepts:
 * [API Credentials](/api-docs/getting-started/authentication#authentication_getting-api-credentials)
 * [Scope](/api-docs/getting-started/authentication#authentication_oauth-scopes) set to `Products Modify`
 * BigCommerce Store (`store_hash`)
+* If you would like to follow along, you can use our Postman Collection.
 
-*Note: You can use any API client (like Postman) for this walkthrough, but these steps are written with the built-in HTTP request maker in mind.*
+[![Run in Postman](https://run.pstmn.io/button.svg)](https://app.getpostman.com/run-collection/00c3651bcff8d70a61e8)
 
 ---
 
 <a href='#making-requests_get-products' aria-hidden='true' class='block-anchor'  id='making-requests_get-products'><i aria-hidden='true' class='linkify icon'></i></a>
 
 ## Getting a List of Products
-
 In this walkthrough, we'll get a list of products from the store, use a limit filter to only show the first 10 products, and sort products by name. 
 
-In the request maker below, we've prefilled the URL to /GET products: `https://api.bigcommerce.com/stores/{store_hash}/v3/catalog/products`
+To get all products we need to make a request to: `https://api.bigcommerce.com/stores/{store_hash}/v3/catalog/products`. Replace `{store_hash}` with the URL from the [API base path](https://developer.bigcommerce.com/api-docs/getting-started/authentication#authentication_getting-api-credentials). 
 
-To add [filters](/api-docs/getting-started/filtering), append `?page=10&sort=name` to the end of the request URL.
+To add the name and sort filter,  [filters](/api-docs/getting-started/filtering), append `?page=10&sort=name` to the end of the request URL.
 
+Add the following required headers:
 
-In the request maker tabs, replace these placeholders with the appropriate values:  
 - `{X-Auth-Token}` Header - Access Token from API Credentials
 - `{X-Auth-Client}` Header - Client Id from API Credentials
-- `store_hash` variable - the hash in your api path 
-	- `https://api.bigcommerce.com/stores/{store_hash}/v3/`
+- `Accept` Header - application/json
+- `Content-Type` - application/json
 
- 
-Hit the send button and review your response.
+The final request should resemble the image below.
 
+![Get All Products Request](/assets/img/get_all_products_postman.png)
 
-**Try it Now**  
-*Get all products*
-
-[![Run in Postman](https://run.pstmn.io/button.svg)](https://app.getpostman.com/run-collection/00c3651bcff8d70a61e8)
-
-<div class="HubBlock-header">
-    <div class="HubBlock-header-title flex items-center">
-        <div class="HubBlock-header-name">GET Products Response</div>
-    </div><div class="HubBlock-header-subtitle">200 OK</div>
-</div>
 
 <!--
 title: "GET Products Response"
 subtitle: "200 OK"
 lineNumbers: true
 -->
+<br>
+
+**Response Get All Products**  
+`/GET https://api.bigcommerce.com/stores/{store_hash}/v3/catalog/products`
+
 
 ```json
 {
@@ -336,27 +331,127 @@ In this walkthrough, we'll create an example product: BigCommerce Hoodie. The mi
 
 * **Name**: The name of your product as a string.
 * **Price**: How much the items costs in number format. 
-* **Category**: The `{category_id}` for the category this product belongs to. An item can be assigned to more than one category. You can /GET the category id by using:
-
-`https://api.bigcommerce.com/stores/{store_hash}/v3/catalog/categories`
-
 * **Type**: Is the item physical or digital?
 	- Physical items are anything that is shipped to the customer, such as a t-shirt.
 	- Digital items are products that the customer downloads, such as a PDF of an ebook. 
 * **Weight**: How much the product weighs as a number. The measurement unit is determined by the [store settings](https://forum.bigcommerce.com/s/article/Store-Settings#physical). 
+* **Category**: The `{category_id}` for the category this product belongs to. An item can be assigned to more than one category. You can /GET the category id by using:
 
-Review the information pre-populated in the Body tab below. Make sure to run a GET request for the categories first and update request with the appropriate category ID.
+`https://api.bigcommerce.com/stores/{store_hash}/v3/catalog/categories`
 
-**Try it Now**  
-*Create a Product**
+<br>
 
-[![Run in Postman](https://run.pstmn.io/button.svg)](https://app.getpostman.com/run-collection/00c3651bcff8d70a61e8)
+**Response Example Get All Categories**  
+`/GET https://api.bigcommerce.com/stores/{store_hash}/v3/catalog/products`
 
-<div class="HubBlock-header">
-    <div class="HubBlock-header-title flex items-center">
-        <div class="HubBlock-header-name">Response POST Products</div>
-    </div><div class="HubBlock-header-subtitle">200 OK</div>
-</div>
+```json
+{
+    "data": [
+        {
+            "id": 19,
+            "parent_id": 0,
+            "name": "Garden",
+            "description": "<p>This is the garden description</p>",
+            "views": 0,
+            "sort_order": 2,
+            "page_title": "page title",
+            "meta_keywords": [
+                "meta keyword"
+            ],
+            "meta_description": "meta description",
+            "layout_file": "category_with_facets.html",
+            "image_url": "https://cdn11.bigcommerce.com/s-jrah6gmn/product_images/j/group__63336.png",
+            "is_visible": true,
+            "search_keywords": "search keywords",
+            "default_product_sort": "use_store_settings",
+            "custom_url": {
+                "url": "/garden/",
+                "is_customized": false
+            }
+        },
+        {
+            "id": 20,
+            "parent_id": 0,
+            "name": "Publications",
+            "description": "",
+            "views": 0,
+            "sort_order": 4,
+            "page_title": "",
+            "meta_keywords": [
+                ""
+            ],
+            "meta_description": "",
+            "layout_file": "category_with_facets.html",
+            "image_url": "",
+            "is_visible": true,
+            "search_keywords": "",
+            "default_product_sort": "use_store_settings",
+            "custom_url": {
+                "url": "/publications/",
+                "is_customized": false
+            }
+        },
+        {
+            "id": 22,
+            "parent_id": 0,
+            "name": "Utility",
+            "description": "",
+            "views": 0,
+            "sort_order": 5,
+            "page_title": "",
+            "meta_keywords": [
+                ""
+            ],
+            "meta_description": "",
+            "layout_file": "category_with_facets.html",
+            "image_url": "",
+            "is_visible": true,
+            "search_keywords": "",
+            "default_product_sort": "use_store_settings",
+            "custom_url": {
+                "url": "/utility/",
+                "is_customized": false
+            }
+        },
+        {
+            "id": 40,
+            "parent_id": 0,
+            "name": "Sale",
+            "description": "<p>Sale Category</p>\r\n<div>&nbsp;</div>",
+            "views": 0,
+            "sort_order": 0,
+            "page_title": "",
+            "meta_keywords": [
+                ""
+            ],
+            "meta_description": "",
+            "layout_file": "category.html",
+            "image_url": "",
+            "is_visible": true,
+            "search_keywords": "",
+            "default_product_sort": "use_store_settings",
+            "custom_url": {
+                "url": "/sale/",
+                "is_customized": false
+            }
+        }
+    ],
+    "meta": {
+        "pagination": {
+            "total": 8,
+            "count": 8,
+            "per_page": 50,
+            "current_page": 1,
+            "total_pages": 1,
+            "links": {
+                "current": "?page=1&limit=50"
+            }
+        }
+    }
+}
+```
+
+<br>
 
 <!--
 title: "Response POST Products"
@@ -364,125 +459,26 @@ subtitle: "200 OK"
 lineNumbers: true
 -->
 
+**Request Create a Product**  
+`/POST https://api.bigcommerce.com/stores/{store_hash}/v3/catalog/products`
+
 ```json
+
 {
-    "data": {
-        "id": 196,
-        "name": "BigCommerce Hoodie",
-        "type": "physical",
-        "sku": "",
-        "description": "A super soft hoodie to wear",
-        "weight": 5,
-        "width": 12,
-        "depth": 0,
-        "height": 0,
-        "price": 25.99,
-        "cost_price": 0,
-        "retail_price": 0,
-        "sale_price": 0,
-        "map_price": 0,
-        "tax_class_id": 0,
-        "product_tax_code": "",
-        "calculated_price": 25.99,
-        "categories": [
-            20,
-            21
-        ],
-        "brand_id": 0,
-        "option_set_id": null,
-        "option_set_display": "right",
-        "inventory_level": 0,
-        "inventory_warning_level": 0,
-        "inventory_tracking": "none",
-        "reviews_rating_sum": 0,
-        "reviews_count": 0,
-        "total_sold": 0,
-        "fixed_cost_shipping_price": 0,
-        "is_free_shipping": false,
-        "is_visible": true,
-        "is_featured": false,
-        "related_products": [
-            -1
-        ],
-        "warranty": "",
-        "bin_picking_number": "",
-        "layout_file": "",
-        "upc": "",
-        "mpn": "",
-        "gtin": "",
-        "search_keywords": "",
-        "availability": "available",
-        "availability_description": "",
-        "gift_wrapping_options_type": "any",
-        "gift_wrapping_options_list": [],
-        "sort_order": 0,
-        "condition": "New",
-        "is_condition_shown": false,
-        "order_quantity_minimum": 0,
-        "order_quantity_maximum": 0,
-        "page_title": "",
-        "meta_keywords": [],
-        "meta_description": "",
-        "date_created": "2018-09-21T17:12:59+00:00",
-        "date_modified": "2018-09-21T17:12:59+00:00",
-        "view_count": 0,
-        "preorder_release_date": null,
-        "preorder_message": "",
-        "is_preorder_only": false,
-        "is_price_hidden": false,
-        "price_hidden_label": "",
-        "custom_url": {
-            "url": "/bigcommerce-hoodie/",
-            "is_customized": false
-        },
-        "base_variant_id": 402,
-        "open_graph_type": "product",
-        "open_graph_title": "",
-        "open_graph_description": "",
-        "open_graph_use_meta_description": true,
-        "open_graph_use_product_name": true,
-        "open_graph_use_image": true,
-        "variants": [
-            {
-                "id": 402,
-                "product_id": 196,
-                "sku": "",
-                "sku_id": null,
-                "price": 25.99,
-                "calculated_price": 25.99,
-                "sale_price": 0,
-                "retail_price": 0,
-                "map_price": 0,
-                "weight": 5,
-                "width": 12,
-                "height": 0,
-                "depth": 0,
-                "is_free_shipping": false,
-                "fixed_cost_shipping_price": 0,
-                "calculated_weight": 5,
-                "purchasing_disabled": false,
-                "purchasing_disabled_message": "",
-                "image_url": "",
-                "cost_price": 0,
-                "upc": "",
-                "mpn": "",
-                "gtin": "",
-                "inventory_level": 0,
-                "inventory_warning_level": 0,
-                "bin_picking_number": "",
-                "option_values": []
-            }
-        ],
-        "images": [],
-        "primary_image": null,
-        "videos": [],
-        "custom_fields": [],
-        "bulk_pricing_rules": [],
-        "reviews": []
-    },
-    "meta": {}
+  "name": "BigCommerce Hoodie",
+  "type": "physical",
+  "description": "A super soft hoodie to wear",
+  "weight": 5,
+  "width": 12,
+  "price": 25.99,
+  "categories": [
+    {{category_id}}
+  ],
+  "condition": "New"
 }
+
 ```
+
 
 ### Next Steps
 * To see a full list of fields that can be sent in a request see [Create a Product](/api-reference/catalog/catalog-api/products/createproduct)

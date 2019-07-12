@@ -51,7 +51,7 @@ Best practice is to get product details and cache them in a database to display 
 If your catalog is changing all the time, you can use the Catalog API to return real time product information.
 
 **Real Time Pricing + Inventory**  
-If you prefer working with a local copy of your data, but want to make sure that high priority pieces of data like pricing and inventory are always up to date, you can consider a hybrid model. A hybrid model would cache only  certain product details and pull the other information in real time. BigCommerce has webhooks that BigCommerce has webhooks you can use for listening to store events.
+If you prefer working with a local copy of your data, but want to make sure that high priority pieces of data like pricing and inventory are always up to date, you can consider a hybrid model. A hybrid model would cache only  certain product details and pull the other information in real time. BigCommerce has webhooks that you can use for listening to store events.
 
 ### Cart Management 
 Use the [Server to Server Cart API](https://developer.bigcommerce.com/api-reference/cart-checkout/server-server-cart-api) to create carts for existing customers and guest customers.
@@ -73,21 +73,13 @@ If you are using the hosted checkout option shoppers will be able to navigate to
 * Hide non essential pages by removing the back links in Cart and Checkout.
 * Edit the theme files to hide the other pages from all visitors except for those who need to see them for maintenance. The steps to edit the theme files are outlined below.
 
-Edit the schema.json file
-
-
-
-<div class="HubBlock-header">
-    <div class="HubBlock-header-title flex items-center">
-        <div class="HubBlock-header-name">Edit the schema.json file</div>
-    </div><div class="HubBlock-header-subtitle"> Add the following object to the settings array</div>
-</div>
 
 <!--
 title: "Edit the schema.json file"
 subtitle: " Add the following object to the settings array"
 lineNumbers: true
 -->
+Edit the schema.json file and add the following object to the settings array.
 
 ```json
 {
@@ -110,12 +102,6 @@ Modify the following pages to gate all pages except checkout, order confirmation
 * <span class=”fn”>layout/base</span>
 
 Add the following conditional wrapper to each page:
-
-<div class="HubBlock-header">
-    <div class="HubBlock-header-title flex items-center">
-        <div class="HubBlock-header-name">Conditional Wrapper</div>
-    </div><div class="HubBlock-header-subtitle"></div>
-</div>
 
 <!--
 title: "Conditional Wrapper"

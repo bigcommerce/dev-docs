@@ -81,28 +81,26 @@ To get the `product_option > id` and `product_option > value`, make a request to
 Make note of the `option_values > id` and `option_values > option_id`. These will be passed into the products array.
 
 <div class="HubBlock--callout">
-<div class="CalloutBlock--">
+<div class="CalloutBlock--info">
 <div class="HubBlock-content">
     
 <!-- theme:  -->
-
+### Pricing
 > If price_ex_tax or price_inc_tax is set, then they both need to bet specified. Otherwise the order total will not calculate correctly.
 
 </div>
 </div>
 </div>
 
-<div class="HubBlock-header">
-    <div class="HubBlock-header-title flex items-center">
-        <div class="HubBlock-header-name">Example /GET Variants Response</div>
-    </div><div class="HubBlock-header-subtitle">https://api.bigcommerce.com/stores/{store_hash}/v3/catalog/products/{product_id}/variants</div>
-</div>
 
 <!--
 title: "Example /GET Variants Response"
 subtitle: "https://api.bigcommerce.com/stores/{store_hash}/v3/catalog/products/{product_id}/variants"
 lineNumbers: true
 -->
+
+**Example Variants Response**  
+`/GET https://api.bigcommerce.com/stores/{store_hash}/v3/catalog/products/{product_id}/variants`
 
 ```json
 {
@@ -160,17 +158,13 @@ Next, create the products array which includes the custom product and the existi
 
 The `product_options` > `value` must be passed in as a string.
 
-<div class="HubBlock-header">
-    <div class="HubBlock-header-title flex items-center">
-        <div class="HubBlock-header-name">Example Products Array</div>
-    </div><div class="HubBlock-header-subtitle">This is an abbreviated request</div>
-</div>
-
 <!--
 title: "Example Products Array"
 subtitle: "This is an abbreviated request"
 lineNumbers: true
 -->
+**Example Products Array**  
+This is an abbreviated request
 
 ```json
 "products":[
@@ -208,17 +202,14 @@ lineNumbers: true
 * price_ex_tax – Price excluding tax
 * sku (optional)
 
-<div class="HubBlock-header">
-    <div class="HubBlock-header-title flex items-center">
-        <div class="HubBlock-header-name">Custom Order Products Array</div>
-    </div><div class="HubBlock-header-subtitle">This is an abbreviated request</div>
-</div>
 
 <!--
 title: "Custom Order Products Array"
 subtitle: "This is an abbreviated request"
 lineNumbers: true
 -->
+**Example Custom Order Products Array**  
+This is an abbreviated request
 
 ```json
   "products": [
@@ -239,11 +230,12 @@ lineNumbers: true
 ```
 
 <div class="HubBlock--callout">
-<div class="CalloutBlock--">
+<div class="CalloutBlock--info">
 <div class="HubBlock-content">
     
 <!-- theme:  -->
 
+### Custom Products
 > Creating a custom product does not add it to the catalog. Only to the current order.
 
 </div>
@@ -288,17 +280,14 @@ For products where product options are required, the API will validate these req
 * country_iso2 
 * email
 
-<div class="HubBlock-header">
-    <div class="HubBlock-header-title flex items-center">
-        <div class="HubBlock-header-name">Add a Billing Address</div>
-    </div><div class="HubBlock-header-subtitle">This is an abbreviated request</div>
-</div>
-
 <!--
 title: "Add a Billing Address"
 subtitle: "This is an abbreviated request"
 lineNumbers: true
 -->
+
+**Example Add Billing Address**  
+This is an abbreviated request
 
 ```json
     "billing_address": {
@@ -317,11 +306,11 @@ lineNumbers: true
 ```
 
 <div class="HubBlock--callout">
-<div class="CalloutBlock--">
+<div class="CalloutBlock--info">
 <div class="HubBlock-content">
     
 <!-- theme:  -->
-
+### Shipping Address
 > If a shipping address is not provided, it defaults to the billing address.
 
 </div>
@@ -356,6 +345,9 @@ title: "Add a shipping address"
 subtitle: "This is an abbreviated request"
 lineNumbers: true
 -->
+
+**Example Add a shipping address**  
+This is an abbreviated request
 
 ```json
     "shipping_addresses": [
@@ -402,17 +394,14 @@ Manual discounts are supported. To add a manual discount either overwrite the pr
 
 After the products, billing and shipping address are added, an order can be created.
 
-<div class="HubBlock-header">
-    <div class="HubBlock-header-title flex items-center">
-        <div class="HubBlock-header-name">Create an Order Request</div>
-    </div><div class="HubBlock-header-subtitle"></div>
-</div>
-
 <!--
 title: "Create an Order Request"
 subtitle: ""
 lineNumbers: true
 -->
+
+**Example Create an Order Request**  
+`/POST https://api.bigcommerce.com/stores/{store_hash}/v2/orders`
 
 ```json
 {
@@ -492,24 +481,21 @@ In the example below, the order ID is 193.
 <div class="HubBlock-content">
     
 <!-- theme:  -->
-
+### Coupons
 > Coupons can not be added to an order via API. Use the `discount_amount` instead.
 
 </div>
 </div>
 </div>
 
-<div class="HubBlock-header">
-    <div class="HubBlock-header-title flex items-center">
-        <div class="HubBlock-header-name">Create Order Response</div>
-    </div><div class="HubBlock-header-subtitle"></div>
-</div>
 
 <!--
 title: "Create Order Response"
 subtitle: ""
 lineNumbers: true
 -->
+
+**Example Create Order Response**
 
 ```json
 {
@@ -631,17 +617,16 @@ Once the order shipment is created, it will automatically send out an email to t
 
 If the order shipment is deleted, the status of the shipment is still in shipped. The status will need to be [manually changed](/api-reference/orders/orders-api/order-status/getorderstatuses).
 
-<div class="HubBlock-header">
-    <div class="HubBlock-header-title flex items-center">
-        <div class="HubBlock-header-name">Create Order Shipment</div>
-    </div><div class="HubBlock-header-subtitle"></div>
-</div>
+<br>
 
 <!--
 title: "Create Order Shipment"
 subtitle: ""
 lineNumbers: true
 -->
+
+**Example Create Order Shipment**  
+`https://api.bigcommerce.com/stores/{store_hash}/v2/orders/{order_id}/shipments`
 
 ```json
 {
@@ -664,17 +649,13 @@ lineNumbers: true
 }
 ```
 
-<div class="HubBlock-header">
-    <div class="HubBlock-header-title flex items-center">
-        <div class="HubBlock-header-name">Order Shipment Response</div>
-    </div><div class="HubBlock-header-subtitle"></div>
-</div>
-
 <!--
 title: "Order Shipment Response"
 subtitle: ""
 lineNumbers: true
 -->
+
+**Example Order Shipment Response**
 
 ```json
 {
@@ -742,11 +723,11 @@ Orders can have multiple shipment locations. There needs to be more than one pro
 To ship to multiple locations create an order shipment for each location and items. Only one POST request per shipment.
 
 <div class="HubBlock--callout">
-<div class="CalloutBlock--">
+<div class="CalloutBlock--info">
 <div class="HubBlock-content">
     
 <!-- theme:  -->
-
+### Shipping Address
 > When adding shipping addresses during an order PUT or POST, the API will allow you to add more than is necessary.
 
 </div>
@@ -759,11 +740,11 @@ To ship to multiple locations create an order shipment for each location and ite
 An order can be created with a `shipping_cost_ex_tax` and `shipping_cost_inc_tax`. This is a way to add a custom shipping amount to an order. This can be added when creating or updating an order. 
 
 <div class="HubBlock--callout">
-<div class="CalloutBlock--">
+<div class="CalloutBlock--info">
 <div class="HubBlock-content">
     
 <!-- theme:  -->
-
+### Shipping Cost
 > Both `shipping_cost_ex_tax` and `shipping_cost_inc_tax` must be included otherwise, the final order amount will not be calculated correctly. 
 
 </div>

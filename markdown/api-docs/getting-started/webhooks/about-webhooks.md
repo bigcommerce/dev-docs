@@ -69,19 +69,15 @@ Before you  can begin to send and receive requests, you must have the following:
 
 When a subscribed event occurs, we send a light payload with only minimum details regarding the event that’s been triggered. This gives you maximum flexibility as to how you want to handle the notification in your application. For instance, if you subscribe to the `store/order/statusUpdated` event, we’ll send you the order ID when the status is updated. You might want to handle the notification by fetching the full order details via a request to the Orders resource.
 
-An example payload follows:
 
-<div class="HubBlock-header">
-    <div class="HubBlock-header-title flex items-center">
-        <div class="HubBlock-header-name"></div>
-    </div><div class="HubBlock-header-subtitle"></div>
-</div>
 
 <!--
 title: ""
 subtitle: ""
 lineNumbers: true
 -->
+
+**Example Lightweight Callback Payload**
 
 ```json
 {
@@ -110,7 +106,7 @@ lineNumbers: true
 
 ## Request and Response
 
-*Never worked with webhooks before? Check out the tutorial on creating webhooks.*
+*Never worked with webhooks before? Check out the [tutorial](https://developer.bigcommerce.com/api-docs/getting-started/webhooks/setting-up-webhooks) on creating webhooks.*
 
 All webhooks requests must include the following in their HTTP headers:
 
@@ -135,17 +131,14 @@ X-Auth-Token: <the OAuth token>
 
 <a href='#post-webhooks' aria-hidden='true' class='block-anchor'  id='post-webhooks'><i aria-hidden='true' class='linkify icon'></i></a>
 
-<div class="HubBlock-header">
-    <div class="HubBlock-header-title flex items-center">
-        <div class="HubBlock-header-name">/POST Webhook </div>
-    </div><div class="HubBlock-header-subtitle">Request: https://api.bigcommerce.com/stores/{{store_hash}}/v2/hooks</div>
-</div>
-
 <!--
 title: "/POST Webhook "
 subtitle: "Request: https://api.bigcommerce.com/stores/{{store_hash}}/v2/hooks"
 lineNumbers: true
 -->
+
+**Example Create a Webhook**  
+`/POST https://api.bigcommerce.com/stores/{{store_hash}}/v2/hooks`
 
 ```shell
 curl -X POST \
@@ -159,19 +152,15 @@ curl -X POST \
   "is_active": true
 ```
 
-<a href='#response-post-webhooks' aria-hidden='true' class='block-anchor'  id='response-post-webhooks'><i aria-hidden='true' class='linkify icon'></i></a>
-
-<div class="HubBlock-header">
-    <div class="HubBlock-header-title flex items-center">
-        <div class="HubBlock-header-name">Response 201 Created</div>
-    </div><div class="HubBlock-header-subtitle">/POST Webhook</div>
-</div>
+**Example Response 201 Created**  
+`/POST https://api.bigcommerce.com/stores/{{store_hash}}/v2/hooks`
 
 <!--
 title: "Response 201 Created"
 subtitle: "/POST Webhook"
 lineNumbers: true
 -->
+
 
 ```json
     {
@@ -216,17 +205,16 @@ An HTTP 201 response indicates that the webhook was set successfully.
 
 <a href='#get-all-webhooks' aria-hidden='true' class='block-anchor'  id='get-all-webhooks'><i aria-hidden='true' class='linkify icon'></i></a>
 
-<div class="HubBlock-header">
-    <div class="HubBlock-header-title flex items-center">
-        <div class="HubBlock-header-name">/GET All Webhooks</div>
-    </div><div class="HubBlock-header-subtitle">Request: https://api.bigcommerce.com/stores/{{store_hash}}/v2/hooks</div>
-</div>
+
 
 <!--
 title: "/GET All Webhooks"
 subtitle: "Request: https://api.bigcommerce.com/stores/{{store_hash}}/v2/hooks"
 lineNumbers: true
 -->
+
+**Example Get All Webhooks**  
+``/GET https://api.bigcommerce.com/stores/{{store_hash}}/v2/hooks``
 
 ```json
 //Response 200 OK
@@ -260,17 +248,15 @@ lineNumbers: true
 
 <a href='#get-a-single-webhook' aria-hidden='true' class='block-anchor'  id='get-a-single-webhook'><i aria-hidden='true' class='linkify icon'></i></a>
 
-<div class="HubBlock-header">
-    <div class="HubBlock-header-title flex items-center">
-        <div class="HubBlock-header-name">/GET a Single Webhook</div>
-    </div><div class="HubBlock-header-subtitle">To get a single webhook use the `id`.  Request: https://api.bigcommerce.com/stores/{{store_hash}}/v2/hooks/id</div>
-</div>
 
 <!--
 title: "/GET a Single Webhook"
 subtitle: "To get a single webhook use the `id`.  Request: https://api.bigcommerce.com/stores/{{store_hash}}/v2/hooks/id"
 lineNumbers: true
 -->
+
+**Example Get a Single Webhook**  
+`/GET  https://api.bigcommerce.com/stores/{{store_hash}}/v2/hooks/{{id}}`
 
 ```json
 {
@@ -290,17 +276,18 @@ lineNumbers: true
 
 <a href='#update-a-webhook' aria-hidden='true' class='block-anchor'  id='update-a-webhook'><i aria-hidden='true' class='linkify icon'></i></a>
 
-<div class="HubBlock-header">
-    <div class="HubBlock-header-title flex items-center">
-        <div class="HubBlock-header-name">/PUT Webhook</div>
-    </div><div class="HubBlock-header-subtitle">Update a webhook using the id. Once the webhook is created all the fields below can be changed via an update request. Request: https://api.bigcommerce.com/stores/{{store_hash}}/v2/hooks/id</div>
-</div>
 
 <!--
 title: "/PUT Webhook"
 subtitle: "Update a webhook using the id. Once the webhook is created all the fields below can be changed via an update request. Request: https://api.bigcommerce.com/stores/{{store_hash}}/v2/hooks/id"
 lineNumbers: true
 -->
+
+**Example Update a Webhook**  
+`https://api.bigcommerce.com/stores/{{store_hash}}/v2/hooks/{{id}}`
+
+Update a webhook using the id. Once the webhook is created all the fields below can be changed via an update request. 
+
 
 ```json
 {
@@ -326,17 +313,15 @@ lineNumbers: true
 
 ```
 
-<div class="HubBlock-header">
-    <div class="HubBlock-header-title flex items-center">
-        <div class="HubBlock-header-name">/DELETE a Wehbook</div>
-    </div><div class="HubBlock-header-subtitle">Request: https://api.bigcommerce.com/stores/{{store_hash}}/v2/hooks/id</div>
-</div>
-
 <!--
 title: "/DELETE a Wehbook"
 subtitle: "Request: https://api.bigcommerce.com/stores/{{store_hash}}/v2/hooks/id"
 lineNumbers: true
 -->
+
+**Example Delete a Wehbook**  
+`https://api.bigcommerce.com/stores/{{store_hash}}/v2/hooks/{{id}}`
+
 
 ```json
 //Response 200 OK
@@ -420,11 +405,6 @@ To ensure that webhook payloads are secure against activity by a malicious actor
 * Webhook payloads are sent over a TLS-encrypted connection.
 * For added security, you can include custom headers in your webhook creation request, and these headers will be sent in the payload when an event you subscribe to occurs. If your app endpoint is secured by basic authentication, you could set your own basic auth headers to authenticate the payload at runtime.
 
-<div class="HubBlock-header">
-    <div class="HubBlock-header-title flex items-center">
-        <div class="HubBlock-header-name">Webhook Customer Header Example</div>
-    </div><div class="HubBlock-header-subtitle"></div>
-</div>
 
 <!--
 title: "Webhook Customer Header Example"
@@ -432,7 +412,9 @@ subtitle: ""
 lineNumbers: true
 -->
 
-```
+**Example Webhook Customer Header**
+
+```json
 {
 "scope": "store/cart/lineItem/*",
   "destination": "https://myapp.herokuapp.com/",
@@ -450,7 +432,8 @@ lineNumbers: true
 
 ## Troubleshooting
 
-### Why am I not receiving event payloads to my callback URI?
+**Why am I not receiving event payloads to my callback URI?**
+
 If your app does not return an HTTP 2_xx_ to BigCommerce after receiving the webhook event payload, BigCommerce considers it a failure. BigCommerce will keep trying for a little over 48 hours. At the end of that time, BigCommerce sends an email to the email address set during app registration and disables the webhook by setting the is_active flag to false.
 
 You can proactively check to make sure that everything is OK by periodically making a GET request and checking the is_active flag.
@@ -464,7 +447,8 @@ Host name of the certificate does not match the server’s DNS.
 Your server’s key or trust store has not been loaded up with the intermediate certificates necessary to establish the chain of trust.
 Once you have resolved the issue preventing the connection, send a PUT request to flip the is_active flag back to true. This will cause BigCommerce to start sending the event payloads to your callback URI again.
 
-### Why am I not receiving a 201 response after creating a webhook?
+**Why am I not receiving a 201 response after creating a webhook?**
+
 After sending a POST request to create a webhook, you should get an HTTP 201 back. If you do not, check your TLS/SSL setup and be sure that your request contains the following headers:
 
 <div class="HubBlock-header">
@@ -502,3 +486,9 @@ Need help on ngrok and webhooks see our [tutorial](/api-docs/getting-started/web
 **[Webhook Tester](https://webhook.site/#/)**  
 This allows for webhooks to be quickly tested or checked. 
 
+---
+
+## Resources
+* [Webhook Tutorial](https://developer.bigcommerce.com/api-docs/getting-started/webhooks/setting-up-webhooks)
+* [Webhook Events](https://developer.bigcommerce.com/api-docs/getting-started/webhooks/webhook-events)
+* [Webhooks Reference](https://developer.bigcommerce.com/api-reference/webhooks)

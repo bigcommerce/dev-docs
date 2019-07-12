@@ -41,7 +41,7 @@ These field values can be set in the Control Panel by the merchant as well as us
 <div class="HubBlock-content">
     
 <!-- theme: warning -->
-
+### Entering Metafield Data
 > The metafields must be entered exactly, otherwise they will not work. Since metafields can also be used to store information against a product, if the <code>namespace</code> for example is set to shipping and not <code>shipping.shipperhq</code>, it will not update the shipping information.
 
 </div>
@@ -56,21 +56,6 @@ These field values can be set in the Control Panel by the merchant as well as us
 
 When Shipping Origins are set using the API, the fields cannot be deleted using the Control Panel. A /DELETE request must be sent to the metafields resource.
 
-<div class="HubBlock-header">
-    <div class="HubBlock-header-title flex items-center">
-        <div class="HubBlock-header-name">SHQ Add Metafield DELETE Request</div>
-    </div><div class="HubBlock-header-subtitle">/DELETE https://api.bigcommerce.com/stores/{{store_hash}}/v3/catalog/products/{{product_id}}/metafields</div>
-</div>
-
-<!--
-title: "SHQ Add Metafield DELETE Request"
-subtitle: "/DELETE https://api.bigcommerce.com/stores/{{store_hash}}/v3/catalog/products/{{product_id}}/metafields"
-lineNumbers: true
--->
-
-```json
-//204 Reponse
-```
 
 ---
 
@@ -78,11 +63,6 @@ lineNumbers: true
 
 ## Add ShipperHQ Metafield
 
-<div class="HubBlock-header">
-    <div class="HubBlock-header-title flex items-center">
-        <div class="HubBlock-header-name">SHQ Add Metafield Request</div>
-    </div><div class="HubBlock-header-subtitle">/POST https://api.bigcommerce.com/stores/{{store_hash}}/v3/catalog/products/{{product_id}}/metafields</div>
-</div>
 
 <!--
 title: "SHQ Add Metafield Request"
@@ -90,7 +70,10 @@ subtitle: "/POST https://api.bigcommerce.com/stores/{{store_hash}}/v3/catalog/pr
 lineNumbers: true
 -->
 
-```
+**Example Request Add ShipperHQ Metafields**  
+`/POST https://api.bigcommerce.com/stores/{{store_hash}}/v3/catalog/products/{{product_id}}/metafields`
+
+```json
 {
 	"permission_set": "write",
 	"key": "shipping-origins",
@@ -99,19 +82,16 @@ lineNumbers: true
 }
 ```
 
-<div class="HubBlock-header">
-    <div class="HubBlock-header-title flex items-center">
-        <div class="HubBlock-header-name">SHQ Add Metafield Response</div>
-    </div><div class="HubBlock-header-subtitle"></div>
-</div>
-
 <!--
 title: "SHQ Add Metafield Response"
 subtitle: ""
 lineNumbers: true
 -->
 
-```
+**Example Add ShipperHQ Metafield Response**  
+`200 /POST https://api.bigcommerce.com/stores/{{store_hash}}/v3/catalog/products/{{product_id}}/metafields`
+
+```json
 {
 	"data": [{
 			"id": 51,
@@ -172,5 +152,5 @@ lineNumbers: true
 * [Product Metafield](https://developer.bigcommerce.com/api-reference/catalog/catalog-api/product-metafields/createproductmetafield)
 * [Variant Metafield](https://developer.bigcommerce.com/api-reference/catalog/catalog-api/product-variants-metafields/createvariantmetafield)
 ### Related Articles
-* [ShipperHQ](https://www.bigcommerce.com/apps/shipperhq/?search=shipper%20hq) (Knowledge Base)
+* [ShipperHQ](https://support.bigcommerce.com/s/article/ShipperHQ) (Knowledge Base)
 
