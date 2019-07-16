@@ -45,7 +45,7 @@ These instructions have been tested on Mac OS X Yosemite. Dependencies for other
 1. Install [Xcode Development tools](https://developer.apple.com/xcode/) (latest stable version).
 
 2. Install Node.js 8.1.0+.
-* Stencil requires the [Node.js](https://nodejs.org/) runtime environment, version [8.x or later](https://nodejs.org/en/blog/release/).  
+* Stencil requires the [Node.js](https://nodejs.org/) runtime environment, version [8.1.0](https://nodejs.org/en/blog/release/). We’ve deprecated support for earlier versions of Node.
 * We recommend that you install or update Node.js using [nvm](https://github.com/creationix/nvm#installation). First install nvm, version [0.31.0](https://github.com/creationix/nvm/tree/v0.31.0), as follows:
 
 ```
@@ -67,9 +67,9 @@ _You should have administrator/root permissions on your machine. If not, you may
 
 1. Install a [Git Client](https://git-scm.com/downloads)
 
-2. Install Node.js 8.x+
+2. Install Node.js 8.1.0
 
-* Stencil requires the [Node.js](https://nodejs.org/) runtime environment, version [8.x or later](https://nodejs.org/en/blog/release/).  
+* Stencil requires the [Node.js](https://nodejs.org/) runtime environment, version [8.1.0](https://nodejs.org/en/blog/release/).  
 
 * We recommend that you install or update Node.js using `nvm` as follows:
 
