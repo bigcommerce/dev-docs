@@ -27,8 +27,8 @@ stencil --help
 stencil -h
 ```
 
-Your terminal window will display options and commands listed in the tables below. 
-	
+Your terminal window will display options and commands listed in the tables below.
+
 <table>
   <tr>
     <th>Option</th>
@@ -46,44 +46,44 @@ Your terminal window will display options and commands listed in the tables belo
 
 <p></p>
 <table>
-	
+
   <tr>
     <th>Command</th>
     <th>Description</th>
   </tr>
-	
+
   <tr>
     <td>init</td>
     <td >Interactively creates a .stencil file, which configures how to run a BigCommerce store locally.</td>
   </tr>
-	
+
   <tr>
     <td>start</td>
-    <td>Starts up the BigCommerce store, using theme files in the current directory. 
+    <td>Starts up the BigCommerce store, using theme files in the current directory.
     </td>
   </tr>
-	
+
   <tr>
     <td>bundle</td>
     <td>Bundles up the theme into a structured .zip file, which can be uploaded to BigCommerce. (Please see restrictions here).</td>
   </tr>
-  
+
   <tr>
     <td>push</td>
     <td>Bundles up the theme into a structured .zip file; then directly uploads (pushes) the .zip to BigCommerce.</td>
   </tr>
-  
+
   <tr>
     <td>release</td>
     <td>Creates a new release in a theme's GitHub repository. Developers outside BigCommerce can use this for forks (not master) of Stencil's Cornerstone base theme, or for their own parallel themes independent of Cornerstone.</td>
   </tr>
-  
+
   <tr>
     <td>help &lt;command&gt;</td>
     <td>display help and return all the options available to use for the specified command. For example, <code>stencil help bundle</code> will return the options that are available to use specifically with the <code>stencil bundle</code> command.
     </td>
-  </tr> 
-	
+  </tr>
+
 </table>
 
 
@@ -101,7 +101,7 @@ Your terminal window will display options and commands listed in the tables belo
 <div class="HubBlock--callout">
 <div class="CalloutBlock--">
 <div class="HubBlock-content">
-    
+
 <!-- theme:  -->
 
 ### 'stencil start' and 'stencil push' Options
@@ -119,50 +119,50 @@ Your terminal window will display options and commands listed in the tables belo
 
 To see Stencil CLI's additional options for the `stencil start` command (described above), enter the following on your command line:
 
-`stencil help start` 
+`stencil help start`
 
 Your terminal screen should read similar to the table below.
 
 <table>
 	<tr>
     <th>Option</th>
-    <th>Definition</th> 
+    <th>Definition</th>
 	</tr>
   <tr>
     <td>-V, --version</td>
-    <td>Outputs the version number</td> 
+    <td>Outputs the version number</td>
   </tr>
   <tr>
     <td>-o, --open</td>
-    <td>Automatically open default browser</td> 
+    <td>Automatically open default browser</td>
   </tr>
 	  <tr>
 			<td>-v, --variation [name]</td>
-			<td>Set which theme variation to use while developing</td> 
+			<td>Set which theme variation to use while developing</td>
   </tr>
 	  <tr>
 			<td>-t, --test</td>
-			<td>Enable QA mode which will bundle all javascript for speed to test locally</td> 
+			<td>Enable QA mode which will bundle all javascript for speed to test locally</td>
 		</tr>
 		<tr>
 			<td>--tunnel</td>
-			<td>Create a tunnel URL which points to your local server which anyone can use</td> 
+			<td>Create a tunnel URL which points to your local server which anyone can use</td>
 		</tr>
 	  <tr>
 			<td>-e, --theme-editor</td>
-			<td>Run Theme Editor server</td> 
+			<td>Run Theme Editor server</td>
   </tr>
 	  <tr>
     <td>-n, --no-cache</td>
-    <td>Turns off caching for API resource data per storefront page. The cache lasts for 5 minutes before automatically refreshing.</td> 
+    <td>Turns off caching for API resource data per storefront page. The cache lasts for 5 minutes before automatically refreshing.</td>
   </tr>
 	  <tr>
 			<td>--theme-editor-port [port]</td>
-			<td>Run the Theme Editor on a different port</td> 
+			<td>Run the Theme Editor on a different port</td>
   </tr>
 	  <tr>
 			<td>-h, --help</td>
-			<td>output usage information</td> 
+			<td>output usage information</td>
   </tr>
 </table>
 
@@ -182,33 +182,33 @@ Your terminal screen should read similar to the table below.
 <table>
 	<tr>
     <th>Option</th>
-    <th>Definition</th> 
+    <th>Definition</th>
 	</tr>
   <tr>
     <td>-V, --version</td>
-    <td>outputs the version number</td> 
+    <td>outputs the version number</td>
   </tr>
   <tr>
     <td>--host [hostname]</td>
-    <td>specify the API host (default: https://api.bigcommerce.com)</td> 
+    <td>specify the API host (default: https://api.bigcommerce.com)</td>
   </tr>
 	  <tr>
 			<td>-f, --file [filename]</td>
-			<td>specify the filename of the bundle to upload</td> 
+			<td>specify the filename of the bundle to upload</td>
   </tr>
 	  <tr>
 			<td>-s, --save [filename]</td>
-			<td>specify the filename to save the bundle as</td> 
+			<td>specify the filename to save the bundle as</td>
 		</tr>
 		<tr>
 			<td>-a, --activate [variationname]</td>
 			<td>This will skip the prompts that normally come up asking if you would like to activate the theme and to specify a variation.
 
-You can either specify the variation name after the flag or leave it blank to select the first variation (Light for Cornerstone).</td> 
+You can either specify the variation name after the flag or leave it blank to select the first variation (Light for Cornerstone).</td>
 		</tr>
 	  <tr>
 			<td>-h, --help</td>
-			<td>Output usage information.</td> 
+			<td>Output usage information.</td>
 		</tr>
 </table>
 
@@ -228,7 +228,7 @@ When you run `stencil push` with the `-f` or `--filename` option, Stencil CLI sk
 
 ## Theme Editor Local Launch Quick Reference
 
-<table> 
+<table>
 	<tr>
 		<th>Launch type</th>
 		<th>Command</th>
@@ -238,7 +238,7 @@ When you run `stencil push` with the `-f` or `--filename` option, Stencil CLI sk
 	<tr>
 		<td>Theme Only</td>
 		<td><code>stencil start</code></td>
-		<td>http://localhost:3000 (or custom 
+		<td>http://localhost:3000 (or custom
 		port)</td>
 		<td>N/A</td>
 	</tr>
@@ -246,21 +246,21 @@ When you run `stencil push` with the `-f` or `--filename` option, Stencil CLI sk
 		<td>Theme, Theme Editor</td>
 		<td><code>stencil start -e</code>
 		</td>
-		<td>http://localhost:3000 (or custom 
+		<td>http://localhost:3000 (or custom
 		port)</td>
 		<td>http://localhost:8181</td>
 	</tr>
 	<tr>
-		<td>Theme <b>and</b> Theme Editor 
+		<td>Theme <b>and</b> Theme Editor
 		</td>
 		<td><code>stencil start -e --theme-
 		editor-port 9000</code></td>
-		<td>http://localhost:3000 (or custom 
+		<td>http://localhost:3000 (or custom
 		port)</td>
 		<td>http://localhost:9000
 (#### = custom port)</td>
 	</tr>
-
+</table>
 
 ---
 
@@ -279,7 +279,7 @@ When you navigate to your designated port (e.g http://localhost:3000), you shoul
 <div class="HubBlock--callout">
 <div class="CalloutBlock--warning">
 <div class="HubBlock-content">
-    
+
 <!-- theme: warning -->
 
 ### Troubleshooting Token Error
@@ -295,7 +295,7 @@ When you navigate to your designated port (e.g http://localhost:3000), you shoul
 
 ## Local Launch: Theme and Theme Editor
 
-If you want to view or reconfigure the Theme Editor/Store Design settings, you can run Stencil locally while also launching a local version of Theme Editor. This will help you see the UX changes that result from editing the `schema.json` file. 
+If you want to view or reconfigure the Theme Editor/Store Design settings, you can run Stencil locally while also launching a local version of Theme Editor. This will help you see the UX changes that result from editing the `schema.json` file.
 
 To run Stencil locally while also launching a local version of Theme Editor, start in your theme directory and run the same command as above (`stencil start`), but append the `-e` option:
 
@@ -328,7 +328,7 @@ If you prefer to see your changes reflected immediately in your live store, you 
 
 Kill the current Stencil server (_ctrl + c will do the job_) and restart Stencil, this time omitting the `--no-cache` or `-n` option.
 
-`stencil start` 
+`stencil start`
 
 
 ---
@@ -338,4 +338,3 @@ Kill the current Stencil server (_ctrl + c will do the job_) and restart Stencil
 ### Related Articles
 * [Authorizing and Initializing the CLI](/stencil-docs/installing-stencil-cli/authorizing-and-initializing)
 * [Troubleshooting Your Setup](/stencil-docs/installing-stencil-cli/troubleshooting-your-setup)
-
