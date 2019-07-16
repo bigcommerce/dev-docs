@@ -14,6 +14,21 @@ Certain Stencil objects can be accessed through multiple other Stencil objects. 
 
 This consistent behavior is true for each of the common objects documented in the following subsection.
 
+<!-- theme:  -->
+
+### Debugging Your Theme
+> The Stencil framework provides built-in debugging tools to aid in your custom front-end development. When you want to see what data is available on the page you are working on, you can simply add the debug query string to your store’s localhost URL. Here is an example:
+
+`http://localhost:3000/product/this-is-a-sample-product?debug=context`
+
+This will return a list of all the objects available on the page, in JSON syntax. If you want to view the available JSON objects and rendered page at the same time, simply change the debug value to bar. Below is an example:
+
+`http://localhost:3000/product/this-is-a-sample-product?debug=bar`
+
+</div>
+</div>
+</div>
+
 ## Catalog Price
 
 **Description:** Exposes catalog price- and currency-related properties in both raw numeric, and formatted string, formats.
