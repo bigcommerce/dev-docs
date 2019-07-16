@@ -13,7 +13,7 @@
 
 | Custom Sass Function  | Description  |
 |---|---|
-| stencilColor  | `stencilColor` accepts (as a string) the key name of a color that you have defined in <span class="fn">config.json</span> as editable. It returns the color’s hexadecimal value. See the [callout below](#stencil-color-example) for an example. |
+| stencilColor  | `stencilColor` accepts (as a string) the key name of a color that you have defined in <span class="fn">config.json</span> as editable. It returns the color’s hexadecimal value.s|
 | stencilFontFamily  | `stencilFontFamily` accepts (as a string) the name of a font key that you have defined in config.json. It returns the corresponding font-family value, also as a string. For a key named "headings-font" and defined as Google Open Sans, `stencilFontFamily` would return a value like this to Sass variables: `$headings-‐font-‐family: 'Open Sans';` (The example's name and definition in config.json are both arbitrary.) Your Sass stylesheet must call stencilFontFamily for each <span class="fn">config.json</span> font key whose font-family value you want to provide to Sass variables. You would call the function in the following format (again assuming a key arbitrarily named "headings-font"): `$headings-font-family: stencilFontFamily("headings-font");`  |
 | stencilFontWeight  | `stencilFontWeight` accepts (as a string) the key name of a font that you have defined in config.json. It returns (as an integer) the corresponding font-weight value. For a key arbitrarily named "headings-font" and defined as 700, it would return a value like this to Sass variables: `$headings-‐font-‐weight: 700;` Your Sass stylesheet may optionally call stencilFontWeight for each <span class="fn">config.json</span> font key whose weight value you want to provide to Sass variables. You would call the function in the following format: `$headings-font-weight: stencilFontWeight("headings-font");`  |
 | stencilNumber  | `stencilNumber` accepts (as a string) a key name that you have defined in config.json as editable. It also accepts (also as a string) an optional second parameter to define the unit. (This second parameter’s value defaults to `px`.) It returns the corresponding numeric value, postfixed with the defined unit. You can use this function with arithmetical operators. For example, assume that your config.json contains a `font-size` value of `3`. The following statement would evaluate to `9rem`. `stencilNumber("font-size", "rem") * 3`  |
@@ -49,7 +49,7 @@ While `stencil start` is running, it will recompile your custom Sass files to th
 <div class="HubBlock--callout">
 <div class="CalloutBlock--warning">
 <div class="HubBlock-content">
-    
+
 <!-- theme: warning -->
 
 ### Before You Customize
@@ -58,4 +58,3 @@ While `stencil start` is running, it will recompile your custom Sass files to th
 </div>
 </div>
 </div>
-

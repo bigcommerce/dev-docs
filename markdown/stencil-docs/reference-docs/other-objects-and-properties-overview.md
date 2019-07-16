@@ -12,21 +12,34 @@
 	</ul>
 </div>
 
+### Debugging Your Theme
+> The Stencil framework provides built-in debugging tools to aid in your custom front-end development. When you want to see what data is available on the page you are working on, you can simply add the debug query string to your store’s localhost URL. Here is an example:
+
+`http://localhost:3000/product/this-is-a-sample-product?debug=context`
+
+This will return a list of all the objects available on the page, in JSON syntax. If you want to view the available JSON objects and rendered page at the same time, simply change the debug value to bar. Below is an example:
+
+`http://localhost:3000/product/this-is-a-sample-product?debug=bar`
+
+</div>
+</div>
+</div>
+
 <a href='#other-objects_product' aria-hidden='true' class='block-anchor'  id='other-objects_product'><i aria-hidden='true' class='linkify icon'></i></a>
 
 ## Product
 
-<b>Description:</b> Default property that provides detailed product data. Called on the default `<theme-name>/templates/pages/product.html`and `<theme-name>/templates/pages/amp/product.html` templates, and on several partials in the `<theme-name>/templates/components/` subdirectory: 
+<b>Description:</b> Default property that provides detailed product data. Called on the default `<theme-name>/templates/pages/product.html`and `<theme-name>/templates/pages/amp/product.html` templates, and on several partials in the `<theme-name>/templates/components/` subdirectory:
 
-* `account/returns-list.html`, 
-* `cart/item-options.html`, 
-* `products/add-to-cart.html`, 
-* `products/event-date.html`, 
-* `products/modals/writeReview.html`, 
-* `products/price.html`, 
+* `account/returns-list.html`,
+* `cart/item-options.html`,
+* `products/add-to-cart.html`,
+* `products/event-date.html`,
+* `products/modals/writeReview.html`,
+* `products/price.html`,
 * `products/product-view.html`,
-* `amp/products/product-options.html`, 
-* `amp/products/product-view.html`, and 
+* `amp/products/product-options.html`,
+* `amp/products/product-view.html`, and
 * `amp/products/product-view-details.html`.
 
 <b>Handlebars Expression:</b> `{{product}}`
@@ -394,9 +407,9 @@
 
 ## Product Reviews
 
-<b>Description:</b> A list of reviews related to this product. When filtering/limiting, reviews' default sorting is by review id, from lowest to highest. (Called on the default <code>&lt;theme-name&gt;/templates/pages/product.html</code><code>&lt;theme-name&gt;/templates/components/</code> subdirectory: 
+<b>Description:</b> A list of reviews related to this product. When filtering/limiting, reviews' default sorting is by review id, from lowest to highest. (Called on the default <code>&lt;theme-name&gt;/templates/pages/product.html</code><code>&lt;theme-name&gt;/templates/components/</code> subdirectory:
 * <code>products/product-view.html</code>,
-* <code>products/modals/writeReview.html</code>, and 
+* <code>products/modals/writeReview.html</code>, and
 * <code>amp/products/product-view.html</code>.)
 
 <b>Handlebars Expression:</b> <code>{{product.reviews}}</code>
@@ -769,7 +782,7 @@
 
 ---
 
-## Category Shop by Price 
+## Category Shop by Price
 
 <b>Description:</b> A list of price ranges, to enable customers to set price limits within a product category. Called on the default<code>&lt;theme-name&gt;/templates/components/category/shop-by-price.html</code> and <code>&lt;theme-name&gt;/templates/components/category/sidebar.html</code> partials.)
 
@@ -954,7 +967,7 @@
     <td>show_multiple_address_shipping</td>
     <td>Boolean: If >1 physical items are in the cart, and checkout button is displayed: whether to also display the "Ship to multiple addresses"/"Multiple Shipping Addresses” user option</td>
   </tr>
-  
+
   <tr>
     <td class="">discount</td>
     <td class="">Discount being applied to the cart in the current session</td>
@@ -1000,12 +1013,12 @@
     <td class=""><span class="indent2"> selected_zip</span></td>
     <td class="">The ZIP/postal code that the customer selected for the shipping estimate</td>
   </tr>
-  
+
   <tr>
     <td class=""><span class="indent2"> selected_city</span></td>
     <td class="">The city/town that the customer selected for the shipping estimate</td>
   </tr>
-  
+
   <tr>
     <td class=""><span class="indent2"> shipping_cost</span></td>
     <td class=""><a href="/stencil-docs/stencil-object-model-reference/stencil-objects/common-objects/price">Price object</a> that defines shipping cost</td>
@@ -1111,12 +1124,12 @@
     <td class="">remove_url</td>
     <td class="">URL to remove this item from the cart</td>
   </tr>
-  
+
   <tr>
     <td class="">sku</td>
     <td class="">SKU for this cart item</td>
   </tr>
-  
+
   <tr>
     <td class="">If type == Item</td>
     <td class="">If the item in the cart is a purchasable product, these properties are available:</td>
@@ -1213,7 +1226,7 @@
     <td><span class="indent1"> value</span></td>
     <td class="">Value of the option</td>
   </tr>
-  
+
   <tr>
 		<td>bulk_pricing</td>
     <td>Properties for applying bulk-pricing discounts to cart items</td>
@@ -1233,7 +1246,7 @@
     <td class=""><span class="indent1"> discount_percentage </span></td>
     <td class="">Bulk-discount percentage per item, if applicable; otherwise, null</td>
   </tr>  
-   
+
   <tr>
     <td class="">configurable_fields</td>
     <td class="">Custom product fields set when product was added to cart</td>
@@ -1297,7 +1310,7 @@ If the type is `Item`, then you would check the {{cart.items.rrp}} value. If the
 For further details about catalog price properties, please see [Catalog Price Object: How Properties Interact](/stencil-docs/conditional-logic-examples/catalog-price-object). For usage examples of the `{{cart.items}}` `price` and `total` properties, please see [Cart Price Properties](/stencil-docs/conditional-logic-examples/cart-price-relationships).
 
 ---
-## Cart Status Message 
+## Cart Status Message
 
 **Description:** A list of relevant messages for the cart in the current session
 
@@ -1309,7 +1322,7 @@ For further details about catalog price properties, please see [Catalog Price Ob
 |---|---|
 | message  | System-generated messages for the cart  |
 |type|Type of message: error, info, or success	|
-	
+
 ---
 
 
@@ -1327,7 +1340,7 @@ For further details about catalog price properties, please see [Catalog Price Ob
 
 ## Customer
 
-**Description:** Customer-specific properties for a storefront customer object. When filtering/limiting, customers' default sorting is by customer id, from lowest to highest. (Called on several partials in the `<theme-name>/templates/components/` subdirectory: 
+**Description:** Customer-specific properties for a storefront customer object. When filtering/limiting, customers' default sorting is by customer id, from lowest to highest. (Called on several partials in the `<theme-name>/templates/components/` subdirectory:
 `page/contact-us-form.html`,
 `common/subscription-form.html`,
 `account/address-list.html`,
@@ -1716,7 +1729,7 @@ For further details about catalog price properties, please see [Catalog Price Ob
 
 **Description:** Array of product wishlists, specific to this store, for the customer. (Called on the default `<theme-name>/templates/components/account/wishlist-list.html` partial.)
 
-**Handlebars Expression:** `{{customer.wishlists}}` 
+**Handlebars Expression:** `{{customer.wishlists}}`
 
 **Object Properties:**
 
@@ -1825,7 +1838,7 @@ For further details about catalog price properties, please see [Catalog Price Ob
 
 ## Account Order Shipments
 
-<b>Description:</b> Objects to manage shipments associated with a specific order details for the current customer. (Called on the default `<theme-name&gt;/templates/pages/account/orders/details.html` template.) 
+<b>Description:</b> Objects to manage shipments associated with a specific order details for the current customer. (Called on the default `<theme-name&gt;/templates/pages/account/orders/details.html` template.)
 
 **Handlebars Expression:** `{{shipments}}`
 
@@ -1975,7 +1988,7 @@ For further details about catalog price properties, please see [Catalog Price Ob
 
 ## Account Returns
 
-**Description:** Objects to manage returns for the current customer. (Called on the default `<theme-name>/templates/pages/account/returns.html` template.) 
+**Description:** Objects to manage returns for the current customer. (Called on the default `<theme-name>/templates/pages/account/returns.html` template.)
 
 **Handlebars Expression:** `{{customer.returns}}`
 
@@ -2012,7 +2025,7 @@ For further details about catalog price properties, please see [Catalog Price Ob
   </tr>
   <tr>
     <td>status</td>
-    <td>Status of the return: Pending, Received, Authorized, Repaired, 
+    <td>Status of the return: Pending, Received, Authorized, Repaired,
 Refunded, Rejected, or Cancelled</td>
   </tr>
   <tr>
@@ -2263,7 +2276,7 @@ Refunded, Rejected, or Cancelled</td>
 
 ## Payment Methods
 
-**Description:** Object to view stored customer payment methods. 
+**Description:** Object to view stored customer payment methods.
 
 **Called on:** [`[<theme-name>/templates/pages/account/payment-methods.html`](https://github.com/bigcommerce/cornerstone/blob/master/templates/pages/account/payment-methods.html)
 
@@ -2296,7 +2309,7 @@ Refunded, Rejected, or Cancelled</td>
 | ↳ expiry_year | Expiration Year |
 | ↳ last_4 | Last four of card |
 | ↳ provider | ID of the provider to add a vaulted card |
-| ↳ expiry_year | Expiration Year | 
+| ↳ expiry_year | Expiration Year |
 
 ---
 
@@ -2337,7 +2350,7 @@ Refunded, Rejected, or Cancelled</td>
 | &nbsp; &nbsp; ↳  options | Only returns if the field has a dropdown value |
 | &nbsp; &nbsp;  &nbsp; &nbsp; ↳  label | Country label Ex. `United States` |
 | &nbsp; &nbsp;  &nbsp; &nbsp; ↳  selected | This only appears in the results if the field is selected. Boolean Ex. `true` |
-| &nbsp; &nbsp;  &nbsp; &nbsp; ↳  value | Country value Ex. `United States` | 
+| &nbsp; &nbsp;  &nbsp; &nbsp; ↳  value | Country value Ex. `United States` |
 | &nbsp; &nbsp; ↳  partial | The type of field. `select`, `text`, `multiline` |
 | &nbsp; &nbsp; ↳  private_id | The ID of the field. (Used by the backend to identify what type of value has been provided.) e.g. "City"  |
 | &nbsp; &nbsp; ↳  required |  Boolean value to indicate whether the field is required or not.|
@@ -2356,7 +2369,7 @@ Refunded, Rejected, or Cancelled</td>
 
 **Called on:** [`<theme-name>/templates/pages/account/payment-methods.html`](https://github.com/bigcommerce/cornerstone/blob/master/templates/pages/account/add-payment-method.html)
 
-**Handlebars Expression:** 
+**Handlebars Expression:**
 * `{{vault}}`
 * `{{countries}}`
 * `{{forms}}`
@@ -2381,7 +2394,7 @@ Refunded, Rejected, or Cancelled</td>
 
 _These objects are called on the default `<theme-name>/templates/components/blog/post.html` partial._
 
-**Description:** Blog-specific properties for the blog feature within BigCommerce storefronts 
+**Description:** Blog-specific properties for the blog feature within BigCommerce storefronts
 
 **Handlebars Expression:** `{{blog}}`
 
@@ -2554,7 +2567,7 @@ _These objects are called on the default `<theme-name>/templates/components/blog
 
 ---
 
-## Account Address Form 
+## Account Address Form
 
 <b>Description:</b> Form object presented to customers in the Add/Edit Address page. Called on the default <NOBR><span class="inline-code">&lt;theme-name&gt;/templates/components/account/address-list.html</span></nobr> partial and <NOBR><span class="inline-code">&lt;theme-name&gt;/templates/pages/account/add-address.html</span></nobr> template. <br>
 
@@ -2679,7 +2692,7 @@ https://github.com/bigcommerce/cornerstone/tree/master/templates/components/comm
     <td>value</td>
     <td class="">Birthday.html, Celebration.html, General.html, etc.</td>
   </tr>
-  
+
   <tr>
     <td>action</td>
     <td>The action for the form</td>
@@ -2720,9 +2733,9 @@ https://github.com/bigcommerce/cornerstone/tree/master/templates/components/comm
 
 ---
 
-## Contact Us Form 
+## Contact Us Form
 
-<b>Description:</b>Form object used to manage merchants’ "Contact Us" pages. Called on the default <code>&lt;theme-name&gt;/templates/pages/contact-us.html</code>template. 
+<b>Description:</b>Form object used to manage merchants’ "Contact Us" pages. Called on the default <code>&lt;theme-name&gt;/templates/pages/contact-us.html</code>template.
 
 <b>Handlebars Expression:</b> <code>{{forms.contact}}</code>
 
@@ -2781,9 +2794,9 @@ https://github.com/bigcommerce/cornerstone/tree/master/templates/components/comm
 
 ---
 
-## Login Account Form 
+## Login Account Form
 
-<b>Description:</b> Form object used to manage merchants’ "Login" page. Called on the default <code>&lt;theme-name&gt;/templates/pages/create-login.html</code>template. 
+<b>Description:</b> Form object used to manage merchants’ "Login" page. Called on the default <code>&lt;theme-name&gt;/templates/pages/create-login.html</code>template.
 
 <b>Handlebars Expression:</b> <code>{{forms.login}}</code>
 
@@ -2803,7 +2816,7 @@ https://github.com/bigcommerce/cornerstone/tree/master/templates/components/comm
 <div class="HubBlock--callout">
 <div class="CalloutBlock--">
 <div class="HubBlock-content">
-    
+
 <!-- theme:  -->
 
 ### Customizing Login Form Content
@@ -2813,4 +2826,3 @@ https://github.com/bigcommerce/cornerstone/tree/master/templates/components/comm
 </div>
 </div>
 </div>
-
