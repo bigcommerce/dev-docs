@@ -10,7 +10,7 @@
 	</ul>
 </div>
 
-Certain Stencil objects can be accessed through multiple other Stencil objects. For example, the image object is exposed through the Category, Product, Product Options, and other objects. Its structure is consistent for all objects/properties that access it. 
+Certain Stencil objects can be accessed through multiple other Stencil objects. For example, the image object is exposed through the Category, Product, Product Options, and other objects. Its structure is consistent for all objects/properties that access it.
 
 This consistent behavior is true for each of the common objects documented in the following subsection.
 
@@ -18,7 +18,7 @@ This consistent behavior is true for each of the common objects documented in th
 
 **Description:** Exposes catalog price- and currency-related properties in both raw numeric, and formatted string, formats.
 
-**Available through:** 
+**Available through:**
 
 Object/Property: `{{product.price}}`
 
@@ -136,13 +136,13 @@ Object/Property: `{{product.price}}`
     <td>Raw numeric value of the above price</td>
   </tr>
 </table>
-	
+
 ---
-	
+
 ## Price
-	
-<b>Description:</b> Exposes price- and currency-related properties in both raw numeric, and formatted string, formats. 
-	
+
+<b>Description:</b> Exposes price- and currency-related properties in both raw numeric, and formatted string, formats.
+
 <b>Available through:</b>
 
 * Common Object: <a href="/stencil-docs/stencil-object-model-reference/stencil-objects/common-objects/common-product-card-model">Common Product Card Model</a>
@@ -164,15 +164,41 @@ Object/Property: `{{product.price}}`
     <td>Raw numeric value of the price</td>
   </tr>
 </table>
-	
+
 ---
-	
+
 ## Price Range
-	
+
+<b>Description:</b> For products with several variants with different prices, a price range is available which exposes the minimum and maximum variant price.
+
+<b>Object Properties:</b>
+
+<table>
+  <tr>
+    <td>Property</td>
+    <td>Description</td>
+  </tr>
+  <tr>
+    <td>min</td>
+    <td>The minimum variant price for the product, in the form of a <a href="/stencil-docs/stencil-object-model-reference/stencil-objects/common-objects/common-product-card-model">Catalog Price Common Object</a></td>
+  </tr>
+  <tr>
+    <td> <A NAME="without_tax"></a> max</td>
+    <td>The maximum variant price for the product, in the form of a <a href="/stencil-docs/stencil-object-model-reference/stencil-objects/common-objects/common-product-card-model">Catalog Price Common Object</a>
+</td>
+  </tr>
+</table>
+
+<b>Available through:</b>
+
+<b>Object/Property:</b><code>{{product.price}</code></a>
+
+
+
 ----
 
 ## Stencil Image
-	
+
 <b>Description:</b> Exposes a URL and an "alt" string for images used in the Stencil framework
 
 <b>Object Properties:</b>
@@ -192,24 +218,24 @@ Object/Property: `{{product.price}}`
   </tr>
 </table>
 
-<b>Available through:</b> 
+<b>Available through:</b>
 
 <b>Stencil Handlebars Helper:</b> `{{getImage}}`
 
-<b>Common Object:</b> <a href="/stencil-docs/stencil-object-model-reference/stencil-objects/common-objects/common-product-card-model">Common Product Card Model</a> 
+<b>Common Object:</b> <a href="/stencil-docs/stencil-object-model-reference/stencil-objects/common-objects/common-product-card-model">Common Product Card Model</a>
 
 <b>Object/Property:</b> `{{category.image}}`
 
-<b>Arrays/Elements:</b> `{{product.options.image}}`, `{{product.images}}`, `{{downloads.items.images}}`, `{{downloads.items.thumbnail}}`, `{{category.subcategories.image}}`, `{{order.items.image}}`, `{{customer.orders.image}}`, `{{brands.image}}`, `{{order.items.shipping_rows.image}}` 
+<b>Arrays/Elements:</b> `{{product.options.image}}`, `{{product.images}}`, `{{downloads.items.images}}`, `{{downloads.items.thumbnail}}`, `{{category.subcategories.image}}`, `{{order.items.image}}`, `{{customer.orders.image}}`, `{{brands.image}}`, `{{order.items.shipping_rows.image}}`
 
-<b> Usage Example: </b> 
+<b> Usage Example: </b>
 
 `{{getImage image "thumbnail"}}`
-	
+
 ---
-	
+
 ## Common Product Card Model
-	
+
 <b>Description:</b> A model for a product’s basic, primary properties. Typically used for list components that show multiple products, each in its own "card" or panel.
 
 <b>Object Properties:</b>
@@ -296,17 +322,17 @@ Object/Property: `{{product.price}}`
     <td>has_options</td>
     <td>Boolean that indicates whether customer is required to specify options when ordering the product</td>
   </tr>
-  
+
   <tr>
     <td>stock_level</td>
     <td>If inventory tracking is turned on: The number of items available for sale (0 or more). If inventory tracking is turned off: A "null" string. </td>
   </tr>
-     
+
   <tr>
     <td>low_ stock_level</td>
     <td>If inventory tracking is turned on: Sets a threshold low-stock level. You can use conditional logic to display a "limited availability" badge if the <code>stock_level</code> property's value falls below this threshold. If inventory tracking is turned off: A "null" string. </td>
   </tr>
-   
+
   <tr>
     <td>qty_in_cart</td>
     <td>Quantity of this item in the customer’s cart</td>
@@ -315,7 +341,7 @@ Object/Property: `{{product.price}}`
     <td>out_of_stock_message</td>
     <td>Text to display when the product is out of stock</td>
   </tr>
-  
+
   <tr>
 		<td><b>custom_fields</b></td>
     <td>Array of <a href="https://support.bigcommerce.com/articles/Public/Custom-Fields">custom fields</a> for this product; custom fields can be used for purposes like: alternate brand name, merchandising title for the product, product type, "gift idea" indicator, etc.
@@ -340,12 +366,10 @@ Object/Property: `{{product.price}}`
 
 <b>Available through:</b>
 
-<b>Object:</b> <code>{{comparisons}} </code> 
+<b>Object:</b> <code>{{comparisons}} </code>
 
 <b>Arrays/Elements:</b> <code>{{product.related_products}}, {{product.similar_by_views}}, {{category.products}}, {{cart.suggested_products}}, {{customer.recently_viewed_products}} </code>
 
 <!-- :"Common Product Card Model" moved from "Product Objects" page -->
-	
----
-	
 
+---
