@@ -3,23 +3,23 @@
 <div class="otp" id="no-index">
 	<h3> On This Page </h3>
 	<ul>
-    <li>Array Helpers</li>
-    <li>Collection Helpers</li>
-    <li>Comparison Helpers</li>
-    <li>Control-Flow Helpers</li>
-    <li>Date Helpers</li>
-    <li>HTML Helpers</li>
-    <li>Image Helpers</li>
-    <li>Inflection Helpers</li>
-		<li>Injection Helpers</li>
-		<li>Markdown Helpers</li>
-		<li>Math Helpers</li>
-		<li>Number Helpers</li>
-		<li>Object Helpers</li>
-		<li>Operator Helpers</li>
-		<li>String Helpers</li>
-		<li>URL Helpers</li>
-		<li>Miscellaneous Helpers</li>
+    <li><a href="#handlebars-helpers-reference_array">Array Helpers</li>
+    <li><a href="#handlebars-helpers-reference_collection">Collection Helpers</li>
+    <li><a href="#handlebars-helpers-reference_comparison">Comparison Helpers</li>
+    <li><a href="#handlebars-helpers-reference_control-flow">Control-Flow Helpers</li>
+    <li><a href="#handlebars-helpers-reference_date">Date Helpers</li>
+    <li><a href="#handlebars-helpers-reference_html">HTML Helpers</li>
+    <li><a href="#handlebars-helpers-reference_image">Image Helpers</li>
+    <li><a href="#handlebars-helpers-reference_inflection">Inflection Helpers</li>
+		<li><a href="#handlebars-helpers-reference_injection">Injection Helpers</li>
+		<li><a href="#handlebars-helpers-reference_markdown">Markdown Helpers</li>
+		<li><a href="#handlebars-helpers-reference_math">Math Helpers</li>
+		<li><a href="#handlebars-helpers-reference_number">Number Helpers</li>
+		<li><a href="#handlebars-helpers-reference_object">Object Helpers</li>
+		<li><a href="#handlebars-helpers-reference_operator">Operator Helpers</li>
+		<li><a href="#handlebars-helpers-reference_string">String Helpers</li>
+		<li><a href="#handlebars-helpers-reference_url">URL Helpers</li>
+		<li><a href="#handlebars-helpers-reference_misc">Miscellaneous Helpers</li>
     </ul>
 </div>
 
@@ -32,7 +32,7 @@ For background information on using Handlebars helpers, please see the [official
 The following helpers are available to manage arrays:
 
 * [Stencil Custom Array Helpers](#array_custom)
-* [Standard Array Helpers](#array_std) 
+* [Standard Array Helpers](#array_std)
 
 ## <a name="array_custom"></a> Stencil Custom Array Helpers
 
@@ -58,7 +58,7 @@ Given the array `['a', 'b', 'c']`:
 
 ### {{join}}
 
-The `join` helper is custom to Stencil. It joins an array of string items, with separators. It returns a string. 
+The `join` helper is custom to Stencil. It joins an array of string items, with separators. It returns a string.
 
 #### Parameters
 
@@ -75,9 +75,9 @@ The `limit` helper is custom to Stencil. It limits the number of items returned 
 - `data`: {Array}
 - `limit`: {Number}
 
-#### {{limit}} Example 
+#### {{limit}} Example
 
-Assume that `{{cart.items}}` would return 10 items. You could use this helper to limit that behavior to only the first four items, by specifying: 
+Assume that `{{cart.items}}` would return 10 items. You could use this helper to limit that behavior to only the first four items, by specifying:
 
 ```
 {{limit cart.items 4}}
@@ -85,7 +85,7 @@ Assume that `{{cart.items}}` would return 10 items. You could use this helper to
 
 ### {{pluck}}
 
-The `pluck` helper is custom to Stencil. For one specified search key(s), it retrieves corresponding values from some or all elements in a specified collection. 
+The `pluck` helper is custom to Stencil. For one specified search key(s), it retrieves corresponding values from some or all elements in a specified collection.
 
 The `pluck` helper returns the retrieved values in a comma-separated string. This helper's general form is:
 
@@ -852,7 +852,7 @@ The `if` helper has been customized for Stencil, and has the following syntax:
 
 ```
 {{#if <statement>}}
-  ... 
+  ...
 {{else if}}  /* optional else-if block */
   ...
 {{else}}  /* optional else block */
@@ -885,11 +885,11 @@ The `unless` helper is logically the opposite of the [`if` helper](#if), subject
 
 #### <a name="unless_restrix"></a> Restrictions
 
-Statements using `unless` can refer to: 
+Statements using `unless` can refer to:
 
 * Objects, as in: `{{#unless object}}`.
 
-Unlike the `if` helper,  `unless` on the Stencil framework does not support operators for comparison expressions. 
+Unlike the `if` helper,  `unless` on the Stencil framework does not support operators for comparison expressions.
 So, for example, the following expression would throw an error:
 
 ```
@@ -902,7 +902,7 @@ A workaround for this logic is to recast the expression as `if`/not-equal-to. So
 {{#if this.alt "!==" "hidden"}}
 ```
 
-#### Stencil Example 
+#### Stencil Example
 
 Here is a usage example from Stencil's Cornerstone base theme: The `templates/pages/search.html` template displays search results. In this template's section that displays search suggestions, an `#unless` loop determines what to output for the final result:
 
@@ -954,12 +954,12 @@ The `any` helper is custom to Stencil. It checks whether at least one parameter 
 Formally, the `any` helper is invoked as shown here:
 
 ```
-{{#any items selected=true}} 
+{{#any items selected=true}}
   ... /* block to display if any items have selected=true */
 {{/any}}
 ```
 
-A usage example is http://cornerstone-light-demo.mybigcommerce.com/shop-all/garden, a category page in Stencil's Cornerstone base theme that does _not_ have faceted search turned on. Shoppers will see "Shop by price" filters instead of product filters. 
+A usage example is http://cornerstone-light-demo.mybigcommerce.com/shop-all/garden, a category page in Stencil's Cornerstone base theme that does _not_ have faceted search turned on. Shoppers will see "Shop by price" filters instead of product filters.
 
 The Stencil code controlling this component resides in the theme's `templates/components/category/shop-by-price.html` file. In this component, the `{{#any...` Handlebars helper is used to determine whether a shopper has selected one of the filters, and whether a "reset" button needs to be displayed:
 
@@ -1021,7 +1021,7 @@ The syntax for the `each` helper can be found in the official Handlebars documen
 
 ### {{for}}
 
-The `for` helper is a custom Stencil helper. In particular, this helper is limited to 100 iterations, in order to protect against infinite loops. 
+The `for` helper is a custom Stencil helper. In particular, this helper is limited to 100 iterations, in order to protect against infinite loops.
 
 The `for` helper has the following syntax, where parameters `<from>` and `<to>` are numbers, and `<context>` is an object:
 
@@ -1124,13 +1124,13 @@ This helper's parameters are:
 
 - `stencilImage`: a StencilImage.
 - `size`: a string.
-- `defaultImage` (optional): a string. 
+- `defaultImage` (optional): a string.
 
-Here is an example: 
+Here is an example:
 
 ```
 {{getImage image "thumbnail"}}
-``` 
+```
 
 You can use the optional `defaultImage` parameter to specify an image that will be displayed in cases where the passed `stencilImage` value is null.
 
@@ -1203,7 +1203,7 @@ The presumed WebDAV root directory is `/content/`. (So, in this example, the `im
 
 #### <a name="cdn-custom"></a> CDN Custom Endpoints
 
-You can define custom CDN endpoints to use with the `cdn` Handlebars helper. This facilitates including large, high-resolution image assets in themes, without exceeding BigCommerce's [50 MB limit](/stencil-docs/prepare-and-upload-a-theme/bundling-and-uploading#bundling_bundling-your-theme) when bundling the theme for upload to BigCommerce. 
+You can define custom CDN endpoints to use with the `cdn` Handlebars helper. This facilitates including large, high-resolution image assets in themes, without exceeding BigCommerce's [50 MB limit](/stencil-docs/prepare-and-upload-a-theme/bundling-and-uploading#bundling_bundling-your-theme) when bundling the theme for upload to BigCommerce.
 
 You could use a local version of the image in development, and a version on a CDN (e.g. Imgix) in production. To do so, define custom CDN endpoints in your theme's <span class="fn">config.json</span> [file](https://github.com/bigcommerce/cornerstone/blob/master/config.json), as highlighted in the example below:
 
@@ -1266,7 +1266,7 @@ Occasionally, your theme's client-side application code might need to incorporat
 The `inject` helper collects data definitions for injection into the `jsContext` variable. It composes a JSON object containing a subset of the template context to be sent to the browser. Parameters of the `inject` helper are:
 
 - `key`: a string.
-- `value`: multiple types supported. 
+- `value`: multiple types supported.
 
 An `inject` call takes this form:
 
@@ -1288,9 +1288,9 @@ To set up the product name in your client-side app, you can do the following, if
 
 <script>
 // Note the lack of quotes around the jsContext handlebars helper, it becomes a string automatically.
-var jsContext = JSON.parse({{jsContext}}); 
+var jsContext = JSON.parse({{jsContext}});
 
-// jsContext would output "{\"myProductName\": \"Sample Product\"}" which can feed directly into 
+// jsContext would output "{\"myProductName\": \"Sample Product\"}" which can feed directly into
 your JavaScript.
 
 console.log(jsContext.myProductName); // Will output: Sample Product
@@ -1727,7 +1727,7 @@ The following helpers are available to handle comparisons.
 
 ### Equal to and Equal Type Example
 
-To compare a string, use the `===` operator, as in this example from `templates/components/common/share.html`: 
+To compare a string, use the `===` operator, as in this example from `templates/components/common/share.html`:
 
 ```
   {{#if service '===' 'facebook'}}
@@ -1763,7 +1763,7 @@ To improvise a `!==` (not equal or not equal type) comparison operator in Handle
 The `or` operator has been customized for Stencil. It checks whether at least one of its parameters evaluates to true, and has the following syntax:
 
 ```
-{{#or 1 0 0 0 0 0 0}} 
+{{#or 1 0 0 0 0 0 0}}
   ... /* execute this block if OR evaluates to true */
 {{/or}}
 ```
@@ -1778,9 +1778,9 @@ Here is a usage example from Stencil's Cornerstone base theme, where it displays
 {{/or}}
 ```
 
-### Parameters 
+### Parameters
 
-The `or` operator's parameters are one or more strings, numbers, arrays, or collections. Parameters can be of mixed types. 
+The `or` operator's parameters are one or more strings, numbers, arrays, or collections. Parameters can be of mixed types.
 
 
 ## <a name="op_type"></a> {{typeof}} Operator
@@ -2386,4 +2386,3 @@ Block helper that builds the context for the block from the options hash.
 #### Parameters
 
 * `options` {Object}: Handlebars-provided options object.
-
