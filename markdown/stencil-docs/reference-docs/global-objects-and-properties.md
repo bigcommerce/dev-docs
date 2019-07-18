@@ -880,6 +880,7 @@ All possible values for `{{page_type}}` are:
 | &#x21B3; user_agent|user agent string of the request|
 | &#x21B3; is_crawler|renders "true" if user angent is known crawler; "false" otherwise
 | &#x21B3; absolute_path|The absolute URL requested. **Never** use request.path in the actual body of the page<sup>1</sup>
+| &#x21B3; locale|The browser's locale. Allows for varying experience based on shopper locale
 | secure_base_url | The SSL-enabled, secure, shop URL |
 | address | Store’s complete physical address, as entered by merchant in the [Store Profile](https://support.bigcommerce.com/s/article/Store-Profile-Settings)|
 | store_name | Name of the BigCommerce store |
