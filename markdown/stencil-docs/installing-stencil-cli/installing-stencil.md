@@ -13,13 +13,13 @@
 
 
 
-The Stencil CLI enables local development and customization to  a Stencil theme with no impact to a merchant’s live storefront during the development process. When developing locally, developers will have access to real-time Browsersync preview and testing across desktop, mobile, and tablet devices/viewports. 
+The Stencil CLI enables local development and customization to  a Stencil theme with no impact to a merchant’s live storefront during the development process. When developing locally, developers will have access to real-time Browsersync preview and testing across desktop, mobile, and tablet devices/viewports.
 
 This article contains detailed instructions on how to authorize and initialize the Stencil CLI. This includes obtaining an authentication token, installing Stencil CLI on your particular OS, downloading a Stencil theme (Cornerstone or a Third Party Marketplace theme) to begin development on, installing Stencil's JS utilities, and finally initializing the CLI on a Stencil theme.
 
 ---
 
-<a href='##authorizing_authentication' aria-hidden='true' class='block-anchor'  id='#authorizing_authentication'><i aria-hidden='true' class='linkify icon'></i></a>
+<a href='#authorizing_authentication' aria-hidden='true' class='block-anchor'  id='#authorizing_authentication'><i aria-hidden='true' class='linkify icon'></i></a>
 
 ## Authentication
 
@@ -27,24 +27,25 @@ You need to have an authentication token to use the Stencil CLI. To learn how to
 
 ---
 
-<a href='##authorizing_prerequisites' aria-hidden='true' class='block-anchor'  id='#authorizing_prerequisites'><i aria-hidden='true' class='linkify icon'></i></a>
+<a href='#authorizing_prerequisites' aria-hidden='true' class='block-anchor'  id='#authorizing_prerequisites'><i aria-hidden='true' class='linkify icon'></i></a>
 
 ## Prerequisites by OS
 
-Each OS has different prerequisites that need to be fulfilled before installing the Stencil CLI. Check the correct subsection below before attempting installation. 
+Each OS has different prerequisites that need to be fulfilled before installing the Stencil CLI. Check the correct subsection below before attempting installation.
 * [Mac OS](#mac)
 * [Linux](#linux)
 * [Windows](#windows)
 
+<a href='#mac' aria-hidden='true' class='block-anchor'  id='#mac'><i aria-hidden='true' class='linkify icon'></i></a>
 
-### <a name="mac"></a>Mac OS
+### Mac OS
 
 These instructions have been tested on Mac OS X Yosemite. Dependencies for other platforms will be added upon further testing.
 
 1. Install [Xcode Development tools](https://developer.apple.com/xcode/) (latest stable version).
 
-2. Install Node.js 8.x+.
-* Stencil requires the [Node.js](https://nodejs.org/) runtime environment, version [8.x or later](https://nodejs.org/en/blog/release/).  
+2. Install Node.js 8.1.0+.
+* Stencil requires the [Node.js](https://nodejs.org/) runtime environment, version [8.1.0](https://nodejs.org/en/blog/release/). We’ve deprecated support for earlier versions of Node.
 * We recommend that you install or update Node.js using [nvm](https://github.com/creationix/nvm#installation). First install nvm, version [0.31.0](https://github.com/creationix/nvm/tree/v0.31.0), as follows:
 
 ```
@@ -56,8 +57,9 @@ Next, explicitly install a supported Node.js version:
 ```
 nvm install 8.1.0
 ```
+<a href='#linux' aria-hidden='true' class='block-anchor'  id='#linux'><i aria-hidden='true' class='linkify icon'></i></a>
 
-### <a name="linux"></a>Linux
+### Linux
 
 These instructions have been tested on Linux/Ubuntu v.14.04.4.
 
@@ -65,9 +67,9 @@ _You should have administrator/root permissions on your machine. If not, you may
 
 1. Install a [Git Client](https://git-scm.com/downloads)
 
-2. Install Node.js 8.x+
+2. Install Node.js 8.1.0
 
-* Stencil requires the [Node.js](https://nodejs.org/) runtime environment, version [8.x or later](https://nodejs.org/en/blog/release/).  
+* Stencil requires the [Node.js](https://nodejs.org/) runtime environment, version [8.1.0](https://nodejs.org/en/blog/release/).  
 
 * We recommend that you install or update Node.js using `nvm` as follows:
 
@@ -107,7 +109,9 @@ nodejs --version
 	* g++
 	* [libsass](https://sass-lang.com/libsass)
 
-### <a name="windows"></a>Windows
+<a href='#windows' aria-hidden='true' class='block-anchor'  id='#windows'><i aria-hidden='true' class='linkify icon'></i></a>
+
+### Windows
 
 The following instructions have been tested on Windows 10. Dependencies for other platforms will be added upon further testing.
 
@@ -117,14 +121,14 @@ _You must have authorization to run Powershell “as administrator” on your ma
 
 * You must have a Git client installed. The Git for Windows distribution includes a Git client, and also provides the Git BASH emulator for command-line access. All commands should be run in Git Bash from here.
 
-2. Install [Python 2.7.x for Windows](https://www.python.org/downloads/windows/). 
+2. Install [Python 2.7.x for Windows](https://www.python.org/downloads/windows/).
 
 * This is required for Visual Studio’s Windows Build Tools, installed below. **Python 3.x is nsot supported.**
 
 * In the installer dialog (shown below), change the bottom default to enable the `Add python.exe to Path` option. This provides global command-line access to Python.
 
 <!--
-    title: 
+    title:
     data: //s3.amazonaws.com/user-content.stoplight.io/6116/1562046167474
 -->
 
@@ -134,14 +138,14 @@ _You must have authorization to run Powershell “as administrator” on your ma
 
 * We recommend that you install only an LTS (“Long-Term Support”/“Mature and Dependable”) version, and that you download that version’s `.msi` installer (not its `.exe` binary).
 
-* You can choose to instead download the latest x.x version of Node.js from the Node.js Foundation’s archives, using URLs of the form: https://nodejs.org/dist/latest-v8.x/, https://nodejs.org/dist/latest-v8.x/, etc. 
+* You can choose to instead download the latest x.x version of Node.js from the Node.js Foundation’s archives, using URLs of the form: https://nodejs.org/dist/latest-v8.x/, https://nodejs.org/dist/latest-v8.x/, etc.
 
 * To verify your Node.js installation or reinstallation, the article [How to Install Node.js and NPM Windows](https://blog.teamtreehouse.com/install-node-js-npm-windows) (Treehouse) provides Windows-specific tips and tests.
 
 <div class="HubBlock--callout">
 <div class="CalloutBlock--warning">
 <div class="HubBlock-content">
-    
+
 <!-- theme: warning -->
 
 ### Restart Required
@@ -158,7 +162,7 @@ _You must have authorization to run Powershell “as administrator” on your ma
 <div class="HubBlock--callout">
 <div class="CalloutBlock--">
 <div class="HubBlock-content">
-    
+
 <!-- theme:  -->
 
 ### About Node Package Manager (npm)
@@ -188,7 +192,7 @@ Finally, configure Visual Studio within the Node.js runtime environment by runni
 <div class="HubBlock--callout">
 <div class="CalloutBlock--">
 <div class="HubBlock-content">
-    
+
 <!-- theme:  -->
 
 ### Notes on Dependencies
@@ -205,11 +209,11 @@ Once Stencil is fully installed, you can check dependencies’ installed version
 <div class="HubBlock--callout">
 <div class="CalloutBlock--">
 <div class="HubBlock-content">
-    
+
 <!-- theme:  -->
 
 ### Troubleshooting
-> If you run into any problems with Stencil installation or launch, first consult [Troubleshooting Your Setup](/stencil-docs/getting-started/launching-stencil/troubleshooting-your-setup). 
+> If you run into any problems with Stencil installation or launch, first consult [Troubleshooting Your Setup](/stencil-docs/getting-started/launching-stencil/troubleshooting-your-setup).
 
 If that does not resolve your issue, consult our [Support resources](https://support.bigcommerce.com/s/), which include community and peer support via [BigCommerce Developer Community](https://support.bigcommerce.com/s/group/0F913000000HLjECAW/bigcommerce-developers) and [Stack Overflow](https://stackoverflow.com/questions/tagged/bigcommerce) forums.
 
@@ -223,7 +227,7 @@ If that does not resolve your issue, consult our [Support resources](https://sup
 
 ## Install the Stencil Command Line Interface (CLI)
 
-After [obtaining API credentials](/api-docs/getting-started/authentication#authentication_getting-api-credentials) and ensuring you have met all the [prerequisites for your OS](#installing_prerequisites), you are ready to install the Stencil CLI. 
+After [obtaining API credentials](/api-docs/getting-started/authentication#authentication_getting-api-credentials) and ensuring you have met all the [prerequisites for your OS](#installing_prerequisites), you are ready to install the Stencil CLI.
 
 You can do this via the following command (_If you are using Windows, you will need to run this command in git bash._):
 
@@ -233,18 +237,18 @@ You can do this via the following command (_If you are using Windows, you will n
 <div class="HubBlock--callout">
 <div class="CalloutBlock--">
 <div class="HubBlock-content">
-    
+
 <!-- theme:  -->
 
-### Items to note 
+### Items to note
 > * The command above requires <a href="https://www.npmjs.com/">npm</a> to be installed in your local development environment.
 
 * In Windows, this `npm` command's execution might at times appear to freeze. However, the installer is running. Give it several minutes to complete installation.
 
-* On Mac OS machines with installed xcode, version 5.x, this `npm` command has generated errors of the form: 
-`npm ERR! invalid: string_decoder`. The workaround is to upgrade xcode to the latest stable xcode version. 
+* On Mac OS machines with installed xcode, version 5.x, this `npm` command has generated errors of the form:
+`npm ERR! invalid: string_decoder`. The workaround is to upgrade xcode to the latest stable xcode version.
 
-* If you receive a file-permissions error and you did not install Node.js via <a href="https://github.com/creationix/nvm#installation">nvm</a> (Node Version Manager), 
+* If you receive a file-permissions error and you did not install Node.js via <a href="https://github.com/creationix/nvm#installation">nvm</a> (Node Version Manager),
 then either install nvm now, or follow one of the workarounds on [Resolving EACCES permissions errors when installing packages globally](https://docs.npmjs.com/getting-started/fixing-npm-permissions) (NPM).
 
 </div>
@@ -254,7 +258,7 @@ then either install nvm now, or follow one of the workarounds on [Resolving EACC
 <div class="HubBlock--callout">
 <div class="CalloutBlock--warning">
 <div class="HubBlock-content">
-    
+
 <!-- theme: warning -->
 
 ### CLI Force Upgrade and Cornerstone 2.0.0
@@ -270,23 +274,23 @@ Occasionally, you will receive a command line prompt to run the installation com
 
 <a href='#authorizing_download' aria-hidden='true' class='block-anchor'  id='authorizing_download'><i aria-hidden='true' class='linkify icon'></i></a>
 
-## Download a Stencil Theme 
+## Download a Stencil Theme
 
 You should have the [Stencil CLI successfully installed](installing_installing-the-stencil-cli) on your local machine.
 
-To begin locally developing and customizing a Stencil theme, you must first download a theme. If you plan on developing on top of the Cornerstone theme, you can follow the standard practice of cloning the repository from GitHub. If you would like to develop on top of a third party theme, you must follow the instructions provided in [Download a Third-Party Marketplace Theme](#authorizing_download-third-party). 
+To begin locally developing and customizing a Stencil theme, you must first download a theme. If you plan on developing on top of the Cornerstone theme, you can follow the standard practice of cloning the repository from GitHub. If you would like to develop on top of a third party theme, you must follow the instructions provided in [Download a Third-Party Marketplace Theme](#authorizing_download-third-party).
 
 ### Download Cornerstone
 
 The instructions below will instruct you how to download Cornerstone by cloning the Cornerstone repository from GitHub. You can also download Cornerstone from the BigCommerce Control Panel. If you prefer to download Cornerstone from the Control Panel, see [Downloading and Uploading Custom Themes](https://support.bigcommerce.com/s/article/Stencil-Themes#download-upload) (BigCommerce Knowledge Base).
 
-To clone Cornerstone from GitHub, follow the steps below: 
+To clone Cornerstone from GitHub, follow the steps below:
 (_Windows users need to run this in `git bash`._)
 
 1. In your terminal, cd to the directory you would like to use for working on themes, then clone the cornerstone repo:
 
 `git clone https://github.com/bigcommerce/cornerstone.git`
-  
+
 _If the above command fails and you are accessing GitHub anonymously, give the URL this alternate prefix:_
 
 `git clone git://github.com/bigcommerce/cornerstone.git`
@@ -296,7 +300,7 @@ In the next step, we'll Stencil's [JavaScript utilities](#authorizing_installing
 <div class="HubBlock--callout">
 <div class="CalloutBlock--error">
 <div class="HubBlock-content">
-    
+
 <!-- theme: error -->
 
 ### Distribution of Cornerstone-based Themes
@@ -309,7 +313,7 @@ In the next step, we'll Stencil's [JavaScript utilities](#authorizing_installing
 <div class="HubBlock--callout">
 <div class="CalloutBlock--error">
 <div class="HubBlock-content">
-    
+
 <!-- theme: error -->
 
 ### Back Up before Reinstalling
@@ -322,7 +326,7 @@ In the next step, we'll Stencil's [JavaScript utilities](#authorizing_installing
 <div class="HubBlock--callout">
 <div class="CalloutBlock--warning">
 <div class="HubBlock-content">
-    
+
 <!-- theme: warning -->
 
 ### Theme Access, Copyright/Ownership, and Distribution
@@ -339,15 +343,15 @@ If you would prefer to develop on top of a third party theme, use these steps to
 <div class="HubBlock--callout">
 <div class="CalloutBlock--warning">
 <div class="HubBlock-content">
-    
+
 <!-- theme: warning -->
 
 ### Setting Up BitBucket SSH Keys (Pixel Union Themes)
 > To set up Stencil CLI for Pixel Union Themes, you must first authorize communication among your local system, the BitBucket registry, and GitHub. Therefore, steps beyond this point require that you have active accounts on both BitBucket and GitHub.
 
-To authorize ongoing communication, you must first set up a secure shell (SSH) key that is shared between BitBucket and GitHub. 
+To authorize ongoing communication, you must first set up a secure shell (SSH) key that is shared between BitBucket and GitHub.
 
-Setting up an SSH key is a multi-step process. We have included resources below to help achieve this step. 
+Setting up an SSH key is a multi-step process. We have included resources below to help achieve this step.
 
 * [Setting up SSH for Git on BitBucket](https://confluence.atlassian.com/bitbucket/set-up-ssh-for-git-728138079.html) (Confluence)
 * [Connecting to Github with SSH](
@@ -364,9 +368,9 @@ https://help.github.com/articles/connecting-to-github-with-ssh/) (Github)
 2. Go to **Storefront Design** > **My Themes**.
 
 3. Click the theme's thumbnail:
-	 
+
 	- To download the store's active theme, click the image thumbnail at the top of the page, under the **Current Theme** heading.
-	
+
 	- To download an inactive theme, scroll down below the lower My Themes subheading, and click the theme's thumbnail.
 
 Your selected theme will zoom up to a full-page description and display a Theme Options drop-down list at the upper right.
@@ -379,7 +383,7 @@ Your selected theme will zoom up to a full-page description and display a Theme 
 
 	- Download your latest customizations: Download the theme's most recently saved version. (This option appears only for themes that have been customized for this store.)
 
-	- Download theme file: Download the theme as it was originally uploaded to Theme Marketplace. 
+	- Download theme file: Download the theme as it was originally uploaded to Theme Marketplace.
 
 6. Unpack the zipped theme to a working directory.
 (In the remainder of this documentation, substitute this working directory's name for the default `stencil` path or the `theme-name` placeholder.)
@@ -406,7 +410,7 @@ Refer to the theme's version number you noted above in "Downloading a Marketplac
 <div class="HubBlock--callout">
 <div class="CalloutBlock--">
 <div class="HubBlock-content">
-    
+
 <!-- theme:  -->
 
 ### Theme Download Shortcuts
@@ -456,9 +460,9 @@ This will install the required npm modules to properly leverage the Stencil even
 * Adding BitBucket as a jspm registry
 * Installing Modules (jspm Themes)
 
-#### Installing jspm 
+#### Installing jspm
 
-You must [install jspm](http://jspm.io) to manage your pre-1.10.0 theme's JavaScript dependencies. We have tested Stencil on jspm version 0.16.30 for Mac OS and Linux, and on version 0.16.31 for Windows. Use the following npm command to install a tested version of jspm with global scope - for Mac OS or Linux: 
+You must [install jspm](http://jspm.io) to manage your pre-1.10.0 theme's JavaScript dependencies. We have tested Stencil on jspm version 0.16.30 for Mac OS and Linux, and on version 0.16.31 for Windows. Use the following npm command to install a tested version of jspm with global scope - for Mac OS or Linux:
 
 `npm install -g jspm@0.16.30`
 
@@ -468,13 +472,13 @@ Or, for Windows:
 
 You can use the same command to upgrade an earlier jspm installation to a Stencil-supported version.
 
-#### Registering the jspm Instance 
+#### Registering the jspm Instance
 
 Next, register your jspm instance with GitHub. Navigate to your [GitHub Personal Access Tokens page](https://github.com/settings/tokens).
 
 Generate a new personal access token with the name Stencil and scope repo. GitHub provides [specific instructions](https://help.github.com/articles/generating-an-ssh-key/).
 
-Verify that your new token includes the following scopes: 
+Verify that your new token includes the following scopes:
 
 * `repo:status`
 * `repo_deployment`
@@ -486,7 +490,7 @@ Once you have generated your token, run the following command to associate your 
 
 You will be prompted (`"Set up GitHub credentials?`) to enter your authentication token. Copy the personal access token you created above and paste it in.
 
-#### Installing jspm-git 
+#### Installing jspm-git
 
 For the next step, you will need the [jspm-git registry plug-in](https://www.npmjs.com/package/jspm-git\).
 
@@ -497,7 +501,7 @@ If you already have an earlier version of jspm-git installed, you might need to 
 
 `npm upgrade jspm-git@latest`
 
-#### Adding BitBucket as a jspm Registry 
+#### Adding BitBucket as a jspm Registry
 
 Working with downloaded Marketplace themes requires that you next add BitBucket as a registry for jspm. To proceed, set up a [BitBucket](https://bitbucket.org/product) account, if you do not already have one.
 
@@ -508,14 +512,14 @@ Next, enter the following on a command line:
 You will be prompted for a base URL for your git server. Enter the following: `ssh://git@bitbucket.org`
 
 #### Installing Modules (jspm Themes)
-	
-Next, install the npm and jspm modules required to access Stencil JavaScript events. 
 
-Navigate to your theme directory. 
+Next, install the npm and jspm modules required to access Stencil JavaScript events.
+
+Navigate to your theme directory.
 
 This example assumes that this target directory has the default name `cornerstone`
 
-`cd cornerstone` 
+`cd cornerstone`
 
 Within that directory, install (or reinstall) the `stencil-utils` module to ensure that all your dependencies are up to date:`npm install` Then execute the following command to complete installation: `jspm install`
 
@@ -536,11 +540,11 @@ Use these steps to Initialize the Stencil CLI get started locally developing a t
 <div class="HubBlock--callout">
 <div class="CalloutBlock--warning">
 <div class="HubBlock-content">
-    
+
 <!-- theme: warning -->
 
-### BitBucket Reauthentication 
-> When you issue the `stencil init` command to [authorize and initialize Stencil](/stencil-docs/getting-started/launching-stencil/authorizing-and-initializing), you might receive error messages about resolving BitBucket as an SSH host. If your theme requires BitBucket Keys, these errors occur when you have not recently logged into BitBucket. 
+### BitBucket Reauthentication
+> When you issue the `stencil init` command to [authorize and initialize Stencil](/stencil-docs/getting-started/launching-stencil/authorizing-and-initializing), you might receive error messages about resolving BitBucket as an SSH host. If your theme requires BitBucket Keys, these errors occur when you have not recently logged into BitBucket.
 
 To clear the errors, enter the BitBucket password you used when setting up BitBucket SSH Keys when prompted.
 
@@ -548,7 +552,7 @@ To clear the errors, enter the BitBucket password you used when setting up BitBu
 </div>
 </div>
 
-3. You will be prompted to provide the homepage URL of the production store against which you want to develop (for example, https://storename.com or https://storename.mybigcommerce.com). 
+3. You will be prompted to provide the homepage URL of the production store against which you want to develop (for example, https://storename.com or https://storename.mybigcommerce.com).
 
 4. Next, you will be prompted to enter the port where you would like to run your store on your local machine. This can be any port you like, but we recommend using port 3000.
 
@@ -563,7 +567,7 @@ Your terminal window should now confirm that you have successfully initialized S
 The Stencil framework uses Browsersync to help you rapidly test your storefront themes across devices of different viewports. After you launch Stencil with `stencil start`, your console window will display several IP addresses below the BigCommerce “B”.
 
 <!--
-    title: 
+    title:
     data: //s3.amazonaws.com/user-content.stoplight.io/6116/1561488543458
 -->
 
@@ -580,4 +584,3 @@ To maximize the adoption of your themes, we recommend that you use such testing 
 ### Additional Resources
 
 * [Demonstration of Stencil Installation and Launch](https://www.youtube.com/watch/iWBrJalyM0A) (Youtube)
-

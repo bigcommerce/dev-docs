@@ -5,7 +5,6 @@
 	<ul>
 		<li><a href="#bundling_confirm-dependencies">Confirm Dependencies</a></li>
     <li><a href="#bundling_verify-directory">Verify Directory and File Permissions</a></li>
-    <li><a href="#bundling_add-recaptcha-v2">Add reCAPTCHA v2</a></li>    
     <li><a href="#bundling_bundling-your-theme">Bundling Your Theme</a></li>
     <li><a href="#bundling_uploading-your-theme">Uploading Your Theme</a></li>
     <li><a href="#bundling_other-bundling">Other Bundling or Upload Errors</a></li>
@@ -13,19 +12,11 @@
 </div>
 
 
-
-
-
-
-
-
-
-
 <a href='#bundling_confirm-dependencies' aria-hidden='true' class='block-anchor'  id='bundling_confirm-dependencies'><i aria-hidden='true' class='linkify icon'></i></a>
 
 ## Confirm Dependencies
 
-If you have customized a theme originally downloaded from the BigCommerce Theme Marketplace: Before you package your theme, make sure your theme directory includes all the dependencies that BigCommerce requires for submission. 
+If you have customized a theme originally downloaded from the BigCommerce Theme Marketplace: Before you package your theme, make sure your theme directory includes all the dependencies that BigCommerce requires for submission.
 
 Follow the link for your scenario:
 
@@ -37,7 +28,7 @@ You must also run `jspm install` in the theme directory.
 <div class="HubBlock--callout">
 <div class="CalloutBlock--warning">
 <div class="HubBlock-content">
-    
+
 <!-- theme: warning -->
 
 ### No Automatic Check for Dependencies
@@ -46,26 +37,6 @@ You must also run `jspm install` in the theme directory.
 </div>
 </div>
 </div>
-
----
-
-<a href='##bundling_add-recaptcha-v2' aria-hidden='true' class='block-anchor'  id='#bundling_add-recaptcha-v2'><i aria-hidden='true' class='linkify icon'></i></a>
-
-## Add reCAPTCHA V2
-
-reCAPTCHA v1 was deprecated as of March 31, 2018. To deter spam submission through storefront forms, BigCommerce now supports Google reCAPTCHA v2 challenges, to distinguish human customers/visitors from automated bots. We recommend that all storefront themes take advantage of this upgraded bot detection.
-
-If you have based your theme on a theme/version that already incorporates reCAPTCHA v2, you do not need to take any further action. Compliant themes/versions currently are listed in [Updating Themes with reCAPTCHA V2](https://support.bigcommerce.com/s/article/Updating-Themes-with-reCAPTCHA-v2#updatingthemes) (Knowledge Base).
-
-### How to Upgrade
-
-To add reCAPTCHA v2 support to a theme, you will need to update script references in three template files:
-
-* [Create-Account Template](https://github.com/bigcommerce/cornerstone/pull/951/files#diff-ecbae6e2b7d5bbf5c950d68878e79d99)
-* [Write-Review Template](https://github.com/bigcommerce/cornerstone/pull/951/files#diff-945a5d7f1563068188ae39df568cfd43)
-* [Contact-Us Template](https://github.com/bigcommerce/cornerstone/pull/951/files#diff-5351402159301e1c225752f03d9f1f8e)
-
-See [PR #951](https://github.com/bigcommerce/cornerstone/pull/951/files) in the Cornerstone Github Repository to see differentials for each file that needs to be modified.
 
 ---
 
@@ -81,7 +52,7 @@ If you have added any new subdirectories or files to your base theme, verify tha
 <div class="HubBlock--callout">
 <div class="CalloutBlock--warning">
 <div class="HubBlock-content">
-    
+
 <!-- theme: warning -->
 
 ### Writable Permissions Are Required
@@ -99,7 +70,7 @@ If you have added any new subdirectories or files to your base theme, verify tha
 
 Once you have verified the requirements above, you are ready to process and package your theme for upload to BigCommerce. Stencil CLI provides two options for creating a `.zip` file that contains all of your theme's essentials, while excluding redundant components. The options are either only bundling your theme, or bundling and pushing your theme. These options are available depending on how you've [authorized](/stencil-docs/getting-started/launching-stencil/authorizing-and-initializing) your theme:
 
-### Bundle Only 
+### Bundle Only
 
 The `stencil bundle` command is available for all themes, whether they were initialized using OAuth or Basic-Auth tokens. To use it, just enter the following on your command line:
 
@@ -116,7 +87,7 @@ Check the resulting `.zip` file's size before you proceed. The zipped bundle sho
 * [Staging a Theme for CDN Delivery]()
 
 
-### Bundle and Push 
+### Bundle and Push
 
 The `stencil push` command is available only for themes that you have successfully initialized using an OAuth token (with `Themes:modify scope`). This command bundles your theme and uploads it to the associated store, in one continuous process.
 
@@ -147,7 +118,7 @@ BigCommerce provides two alternatives for uploading a theme to its associated Bi
 
 Uploading your theme via the BigCommerce control panel's GUI is compatible with any store token (whether OAuth or Basic-Auth), and with any OAuth token scope, and with all versions of Stencil CLI. However, this option requires that you first use stencil bundle to package your theme into a .zip file. (Prepare your file according to Bundle Only above.)
 
-For the upload steps in the control panel, see the [Uploading Custom Themes]() article in our Knowledge Base. 
+For the upload steps in the control panel, see the [Uploading Custom Themes]() article in our Knowledge Base.
 
 For error codes that you might encounter when uploading a theme – and corresponding workarounds, see [Troubleshooting Theme Uploads]().
 
@@ -160,7 +131,7 @@ Install Stencil CLI version 1.12.0 or higher.
 
 To check your current Stencil CLI version, enter `stencil --version` or `stencil -V` on the command line. If you need to update an earlier version, reinstall Stencil CLI.
 
-### Pushing a Theme 
+### Pushing a Theme
 
 To initiate bundling and pushing, enter the following on the command line:
 
@@ -173,7 +144,7 @@ Stencil CLI is designed to display the same notifications, prompts, and selectio
 Stencil CLI will display `ok` confirmations, or `not ok` errors, or `warnings` for individual substeps in bundling and uploading your theme. If bundling is successful, you will next see a `Processing` progress bar to track the upload.
 
 <!--
-    title: 
+    title:
     data: //s3.amazonaws.com/user-content.stoplight.io/6116/1539055887301
 -->
 
@@ -188,7 +159,7 @@ Upon a successful upload, you will be prompted: `Would you like to apply your th
 If you chose to apply the newly uploaded theme, you will be prompted: `Which variation would you like to apply? (Use arrow keys)`
 
 <!--
-    title: 
+    title:
     data: //s3.amazonaws.com/user-content.stoplight.io/6116/1539055910721
 -->
 
@@ -199,7 +170,7 @@ Use your arrow keys to move the selection caret/highlight to the variation you w
 Stencil CLI will then confirm which variation is active on the storefront.
 
 <!--
-    title: 
+    title:
     data: //s3.amazonaws.com/user-content.stoplight.io/6116/1539055915081
 -->
 
@@ -216,7 +187,7 @@ If you run `stencil push` when your store's `My Themes` section has reached its 
 
 
 <!--
-    title: 
+    title:
     data: //s3.amazonaws.com/user-content.stoplight.io/6116/1539055988142
 -->
 
@@ -233,7 +204,7 @@ If you are certain of your selections, you can next press `Enter` to delete the 
 <div class="HubBlock--callout">
 <div class="CalloutBlock--error">
 <div class="HubBlock-content">
-    
+
 <!-- theme: error -->
 
 ###  Select Carefully – No Confirmation
@@ -252,4 +223,3 @@ If you have any doubts – especially about deleting multiple themes/versions �
 ## Other Bundling or Upload Errors
 
 For any other `not ok` bundling or upload errors that you receive, please refer to these debugging guidelines Theme setup and sizing diagnostics in preceding sections throughout this page, or the following article titled [Troubleshooting Theme Uploads](/stencil-docs/prepare-and-upload-a-theme/troubleshooting-theme-uploads).
-
