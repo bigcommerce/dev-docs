@@ -9,6 +9,7 @@
     <li><a href="#other-objects_customer">Customer Objects</a></li>
     <li><a href="#other-objects_blog">Blog Objects</a></li>
     <li><a href="#other-objects_forms">Forms Objects</a></li>
+    <li><a href="#other-objects_forms">Order Confirmation Objects</a></li>
 	</ul>
 </div>
 
@@ -2526,7 +2527,7 @@ _These objects are called on the default `<theme-name>/templates/components/blog
 
 ## Forms
 
-## Account Form
+### Account Form
 
 <b>Description:</b> The form object used to edit a customer object. <br>
 
@@ -2567,7 +2568,7 @@ _These objects are called on the default `<theme-name>/templates/components/blog
 
 ---
 
-## Account Address Form
+### Account Address Form
 
 <b>Description:</b> Form object presented to customers in the Add/Edit Address page. Called on the default <NOBR><span class="inline-code">&lt;theme-name&gt;/templates/components/account/address-list.html</span></nobr> partial and <NOBR><span class="inline-code">&lt;theme-name&gt;/templates/pages/account/add-address.html</span></nobr> template. <br>
 
@@ -2601,7 +2602,7 @@ https://github.com/bigcommerce/cornerstone/tree/master/templates/components/comm
 
 ---
 
-## Wishlist Form
+### Wishlist Form
 
 <b>Description:</b> Form object presented to customers on the Add/Edit Wishlist page. Called on the default <code>&lt;theme-name&gt;/templates/components/account/add-wishlist.html</code> partial and <code>&lt;theme-name&gt;/templates/pages/account/add-wishlist.html</code> template.
 
@@ -2638,7 +2639,7 @@ https://github.com/bigcommerce/cornerstone/tree/master/templates/components/comm
 
 ---
 
-## Gift Certificate Form
+### Gift Certificate Form
 
 <b>Description:</b><b><em> </em></b>Form object used to create and edit a gift certificate object for the merchant's store. Called on the default <NOBR><span class="inline-code">&lt;theme-name&gt;templates/pages/gift-certificate/purchase.html</span></nobr> template. <br>
 
@@ -2733,7 +2734,7 @@ https://github.com/bigcommerce/cornerstone/tree/master/templates/components/comm
 
 ---
 
-## Contact Us Form
+### Contact Us Form
 
 <b>Description:</b>Form object used to manage merchants’ "Contact Us" pages. Called on the default <code>&lt;theme-name&gt;/templates/pages/contact-us.html</code>template.
 
@@ -2794,7 +2795,7 @@ https://github.com/bigcommerce/cornerstone/tree/master/templates/components/comm
 
 ---
 
-## Login Account Form
+### Login Account Form
 
 <b>Description:</b> Form object used to manage merchants’ "Login" page. Called on the default <code>&lt;theme-name&gt;/templates/pages/create-login.html</code>template.
 
@@ -2826,3 +2827,22 @@ https://github.com/bigcommerce/cornerstone/tree/master/templates/components/comm
 </div>
 </div>
 </div>
+
+## Order Confirmation Objects
+
+### Checkout Object
+
+**Description:** Used to access checkout content and data in `templates\pages\order-confirmation.html`
+
+**Handlebars Expression:** `{{checkout.*}}`
+
+**Object Properties:**
+
+| Property                     | Description                            |
+|------------------------------|----------------------------------------|
+| checkout                     |                                        |
+| ↳ order_confirmation_content | default content from checkout template |
+| ↳ checkout_head              | default content from checkout `<head>` |
+| ↳ order                      | an order object                        |
+|   ↳ id                       | the `id` of the order                  |
+| ↳ header_image               | img `src` for header                   |
