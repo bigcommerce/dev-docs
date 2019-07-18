@@ -3,8 +3,8 @@
 <div class="otp" id="no-index">
 	<h3> On This Page </h3>
 	<ul>
-        <li><a href="#available-blocks">Available Blocks</a></li>
-        <li><a href="#available-blocks">Creating Your Own Blocks</a></li>
+        <li><a href="#available-bigcommerce-blocks">Available BigCommerce Blocks</a></li>
+        <li><a href="#creating-your-own-blocks">Creating Your Own Blocks</a></li>
 	</ul>
 </div>
 
