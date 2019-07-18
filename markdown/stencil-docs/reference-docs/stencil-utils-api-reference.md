@@ -34,6 +34,7 @@
 ---
 
 These functions help you set up asynchronous requests to modify the customer’s cart or storefront view. By using this abstraction library, you can gain more-granular control over themes’ presentation. Use stencil-utils to:
+
 - Interact with the cart
 - Use `getPage` to return a template file.
 
@@ -50,7 +51,7 @@ These functions help you set up asynchronous requests to modify the customer’s
 ### Standalone
 
 If you do not want to support ES6 modules, Stencil Utils can be included as a normal script:
--   Copy the bundled script from  `dist/stencil-utils.min.js`  to your theme.
+-   Copy the bundled script from `dist/stencil-utils.min.js`  to your theme.
 -   Include the script in your HTML document
 -   Access stencil utils from  `window.stencilUtils`
 
