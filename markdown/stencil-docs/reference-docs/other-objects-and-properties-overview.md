@@ -2530,7 +2530,7 @@ _These objects are called on the default `<theme-name>/templates/components/blog
 
 <b>Description:</b> The form object used to edit a customer object. <br>
 
-<b>Handlebars Expression:</b> <code>{{forms.account}}</code>
+<b>Handlebars Expression:</b> <code>{{forms.edit_account}}</code>
 
 <b>Object Properties:</b>
 
