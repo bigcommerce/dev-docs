@@ -43,3 +43,4 @@ Make sure to discuss with the merchant not to make any changes to the files. Thi
 ## References
 * [Version Control for Teams](https://medium.com/bigcommerce-developer-blog/version-control-for-teams-a186bd74ba7e?source=friends_link&sk=721c0fc073cbe5b729c1a2282377ca86) (BigCommerce Developer Blog)
 * [Level Up Your Development Workflow with Continuous Delivery](https://medium.com/bigcommerce-developer-blog/how-to-level-up-your-development-workflow-with-continuous-delivery-3a6493cc1d13) (BigCommerce Developer Blog)
+* [What is Version Control?](https://www.atlassian.com/git/tutorials/what-is-version-control) (Atlassian Blog)
