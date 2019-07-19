@@ -3218,6 +3218,59 @@ paths:
         type: string
         required: true
   '/orders/{order_id}/shipments/{id}':
+    get:
+      tags:
+          - Order Shipments
+      responses:
+        '200':
+          description: ''
+          schema:
+              $ref: '#/definitions/OrderShipment'
+          examples:
+            application/json:
+              id: 1
+              order_id: 120
+              customer_id: 5
+              order_address_id: 20
+              date_created: 'Tue, 12 Jun 2018 14:12:26 +0000'
+              tracking_number: w4se4b6ASFEW4T
+              shipping_method: Ship by Weight
+              shipping_provider: usps
+              tracking_carrier: auspost
+              comments: ''
+              billing_address:
+                first_name: Jane
+                last_name: Doe
+                company: ''
+                street_1: 123 Main Street
+                street_2: ''
+                city: Austin
+                state: TX
+                zip: 12345
+                country: United States
+                country_iso2: US
+                phone: ''
+                email: janedoe@email.com
+              shipping_address:
+                first_name: Jane
+                last_name: Doe
+                company: ''
+                street_1: 123 Main Street
+                street_2: ''
+                city: Austin
+                state: TX
+                zip: 12345
+                country: United States
+                country_iso2: US
+                phone: ''
+                email: janedoe@email.com
+              items:
+                - order_product_id: 25
+                  product_id: 77
+                  quantity: 1
+      operationId: getOrderShipment
+      summary: Get a Shipment
+      description: 'Gets an order shipment. '
     put:
       description: Updates an existing shipment associated with an order.
       summary: Update A Shipment
