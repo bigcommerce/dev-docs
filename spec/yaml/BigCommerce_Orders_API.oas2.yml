@@ -3227,52 +3227,47 @@ paths:
           schema:
               $ref: '#/definitions/OrderShipment'
           examples:
-                application/json:
-                    id: 84
-                    order_id: 7
-                    customer_id: 43
-                    order_address_id: 89
-                    date_created: '2018-02-10T09:30Z'
-                    tracking_number: some text
-                    shipping_method: some text
-                    shipping_provider: ' '
-                    tracking_carrier: shipperhq
-                    comments: some text
-                    billing_address:
-                        first_name: some text
-                        last_name: some text
-                        company: some text
-                        street_1: some text
-                        street_2: some text
-                        city: some text
-                        state: some text
-                        zip: some text
-                        country: some text
-                        country_iso2: some text
-                        phone: some text
-                        email: some text
-                    shipping_address:
-                        first_name: some text
-                        last_name: some text
-                        company: some text
-                        street_1: some text
-                        street_2: some text
-                        city: some text
-                        state: some text
-                        zip: some text
-                        country: some text
-                        country_iso2: some text
-                        phone: some text
-                        email: some text
-                    items:
-                        -
-                            order_product_id: 10
-                            product_id: 73
-                            quantity: 61
-                        -
-                            order_product_id: 1
-                            product_id: 43
-                            quantity: 80
+            application/json:
+              id: 1
+              order_id: 120
+              customer_id: 5
+              order_address_id: 20
+              date_created: 'Tue, 12 Jun 2018 14:12:26 +0000'
+              tracking_number: w4se4b6ASFEW4T
+              shipping_method: Ship by Weight
+              shipping_provider: usps
+              tracking_carrier: auspost
+              comments: ''
+              billing_address:
+                first_name: Jane
+                last_name: Doe
+                company: ''
+                street_1: 123 Main Street
+                street_2: ''
+                city: Austin
+                state: TX
+                zip: 12345
+                country: United States
+                country_iso2: US
+                phone: ''
+                email: janedoe@email.com
+              shipping_address:
+                first_name: Jane
+                last_name: Doe
+                company: ''
+                street_1: 123 Main Street
+                street_2: ''
+                city: Austin
+                state: TX
+                zip: 12345
+                country: United States
+                country_iso2: US
+                phone: ''
+                email: janedoe@email.com
+              items:
+                - order_product_id: 25
+                  product_id: 77
+                  quantity: 1
       operationId: getOrderShipment
       summary: Get a Shipment
       description: 'Gets an order shipment. '
