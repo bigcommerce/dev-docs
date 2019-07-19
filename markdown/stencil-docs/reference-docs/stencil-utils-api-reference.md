@@ -1,40 +1,36 @@
-# Stencil Utils
+# Stencil Utils Reference
 
 <div class="otp" id="no-index">
 
 ###  On this Page
 
 - [Installing](#installing)
-- [API](#api)
-    - [getPage](#getpage)
-- [Cart](#cart)
-    - [getCart](#getcart)
-    - [getCartQuantity](#getcartquantity)
-    - [itemAdd](#itemadd)
-    - [itemUpdate](#itemupdate)
-    - [itemRemove](#itemremove)
-    - [update](#update)
-    - [getItemGiftWrappingOptions](#getitemgiftwrappingoptions)
-    - [submitItemGiftWrappingOption](#submititemgiftwrappingoption)
-    - [getContent](#getcontent)
-    - [getShippingQuotes](#getshippingquotes)
-    - [submitShippingQuotes](#submitshippingquote)
-    - [applyCode](#applycode)
-    - [applyGiftCertificate](#applygiftcertificate)
- - [Countries Resource](#countriesresource)
-	- [getById](#countrygetbyid)
-	- [getByName](#getbyname)
- - [Product Attributes Resource](#productattributeresource)
-	 - [optionChange](#optionchange)
-	 - [configureInCart](#configureincart)
-- [Product Resource](#product-resource)
-- [Search Resource](#search)
+- [API -- getPage](#getpage)
+- [Cart -- getCart](#getcart)
+- [Cart -- getCartQuantity](#getcartquantity)
+- [Cart -- itemAdd](#itemadd)
+- [Cart -- itemUpdate](#itemupdate)
+- [Cart -- itemRemove](#itemremove)
+- [Cart -- update](#update)
+- [Cart -- getItemGiftWrappingOptions](#getitemgiftwrappingoptions)
+- [Cart -- submitItemGiftWrappingOption](#submititemgiftwrappingoption)
+- [Cart -- getContent](#getcontent)
+- [Cart -- getShippingQuotes](#getshippingquotes)
+- [Cart -- submitShippingQuotes](#submitshippingquote)
+- [Cart -- applyCode](#applycode)
+- [Cart -- applyGiftCertificate](#applygiftcertificate)
+- [Country -- getById country](#countrygetbyid)
+- [Country -- getByName](#getbyname)
+- [Product Attributes -- optionChange](#optionchange)
+- [Product Attributes -- configureInCart](#configureincart)
+- [Product Resource -- getById](#product-resource)
+- [Search Resource -- search](#search)
 </div>
 
 ---
+[Stencil Utils](https://github.com/bigcommerce/stencil-utils) is a utility library that contains the BigCommerce Stencil Events system and other functions that make building a theme with the Stencil framework a breeze.
 
 These functions help you set up asynchronous requests to modify the customer’s cart or storefront view. By using this abstraction library, you can gain more-granular control over themes’ presentation. Use stencil-utils to:
-
 - Interact with the cart
 - Use `getPage` to return a template file.
 
@@ -51,7 +47,7 @@ These functions help you set up asynchronous requests to modify the customer’s
 ### Standalone
 
 If you do not want to support ES6 modules, Stencil Utils can be included as a normal script:
--   Copy the bundled script from `dist/stencil-utils.min.js`  to your theme.
+-   Copy the bundled script from  `dist/stencil-utils.min.js`  to your theme.
 -   Include the script in your HTML document
 -   Access stencil utils from  `window.stencilUtils`
 
@@ -1239,4 +1235,5 @@ The `search` function allows you to present a customized user interface for sear
 ---
 
 ## Resources
-[To do after new stencil is published]
+* [Stencil Utils](https://github.com/bigcommerce/stencil-utils) (BigCommerce GitHub)
+* 
