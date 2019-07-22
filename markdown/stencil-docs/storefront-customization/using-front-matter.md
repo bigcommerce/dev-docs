@@ -1,4 +1,4 @@
-<h1>Front Matter Overview</h1>
+<h1>Using Front Matter</h1>
 
 <div class="otp" id="no-index">
 	<h3> On This Page </h3>
