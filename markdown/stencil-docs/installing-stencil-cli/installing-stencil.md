@@ -27,7 +27,7 @@ You need to have an authentication token to use the Stencil CLI. To learn how to
 
 ---
 
-<a href='#authorizing_prerequisites' aria-hidden='true' class='block-anchor'  id='#authorizing_prerequisites'><i aria-hidden='true' class='linkify icon'></i></a>
+<a href='#authorizing_prerequisites' aria-hidden='true' class='block-anchor'  id='authorizing_prerequisites'><i aria-hidden='true' class='linkify icon'></i></a>
 
 ## Prerequisites by OS
 
