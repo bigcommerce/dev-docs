@@ -6,7 +6,7 @@
     <li><a href="#custom-templates_local-mapping-and-testing">Local Mapping and Testing</a></li>
     <li><a href="#custom-templates_theme-upload">Theme Upload</a></li>
     <li><a href="#custom-templates_troubleshooting">Troubleshooting Template Authoring</a></li>
-    <li><a href="#custom-atemplates_applying">Applying Custom Templates to Pages</a></li>
+    <li><a href="#custom-templates_applying">Applying Custom Templates to Pages</a></li>
 	</ul>
 </div>
 
@@ -26,9 +26,8 @@ The Stencil framework allows theme developers and merchants to assign custom lay
 
 ### Stencil versus Blueprint Themes
 > If you are migrating from BigCommerce's legacy Blueprint themes framework, please keep in mind these differences in how Stencil handles custom templates:
-
 * The brand option is entirely new in Stencil. If you are running on a Blueprint theme, you will not be able to create a custom template for brand pages.
-* Unlike Blueprint, Stencil does not require that custom templates' file names start with an underscore (_).
+* Unlike Blueprint, Stencil does not require that custom template file names start with an underscore.
 * In the current Stencil release, you must create and bundle custom templates using Stencil CLI before you can upload the custom templates to stores. However, once you have created and uploaded templates, authorized store users can assign them to storefront pages through the control panel.
 
 </div>
