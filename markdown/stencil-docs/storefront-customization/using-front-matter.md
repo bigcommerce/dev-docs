@@ -4,7 +4,7 @@
 	<h3> On This Page </h3>
 	<ul>
     <li><a href="#front-matter-overview_declaring-objects">Declaring Front Matter Objects</a></li>
-    <li><a href="#front-matter-overview_yaml-syntax">YAML Syntax – Requirements</a></li>
+    <li><a href="#front-matter-overview_yaml-syntax">YAML Syntax Requirements</a></li>
     <li><a href="#front-matter-overview_filtering-attributes">Filtering Attributes</a></li>
     <li><a href="#front-matter-overview_combining-front-matter">Combining Front Matter with Handlebars Attributes</a></li>
     <li><a href="#front-matter-overview_default-versus-custom">Default versus Custom Attributes, per Page</a></li>
@@ -42,7 +42,7 @@ In this example, we will include the following code in Cornerstone's [home.html]
 
 <a href='#front-matter-overview_yaml-syntax' aria-hidden='true' class='block-anchor'  id='front-matter-overview_yaml-syntax'><i aria-hidden='true' class='linkify icon'></i></a>
 
-## YAML Syntax – Requirements
+## YAML Syntax Requirements
 
 Stencil front matter uses the conventions of [YAML]() (short for the recursive "YAML Ain't Markup Language"). Here are the YAML conventions you must follow in front matter:
 
