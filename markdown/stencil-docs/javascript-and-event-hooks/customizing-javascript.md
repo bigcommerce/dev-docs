@@ -6,15 +6,14 @@
 		<li><a href="#customizing-javascript_customizing">Modifying a Page's Javascript</a></li>
     	<li><a href="#customizing-javascript_bringing-handlebars">Bringing In Handlebars Context</a></li>
 		<li><a href="#customizing-javascript_installing-various">Installing Libraries</a></li>
-    <li><a href="#customizing-javascript_installing-various">Example Links</a></li>
 	</ul>
 </div>
 
-Most [Cornerstone theme](https://github.com/bigcommerce/cornerstone) page template files located in <span class="fp">templates/pages/</span>  have a corresponding `.js` file in <span class="fp">assets/js/theme/</span>.  These JavaScript files contain event handlers and logic  for managing page specific elements and actions. 
+Most [Cornerstone theme](https://github.com/bigcommerce/cornerstone) page template files located in <span class="fp">templates/pages/</span>  have a corresponding `.js` file in <span class="fp">assets/js/theme/</span>.  These JavaScript files contain event handlers and logic  for managing page specific elements and actions.
 
-For example, <span class="fp">assets/js/theme/product.js</span> corresponds to <span class="fp">templates/pages/product.html</span> and contains a `productReviewHandler()` and `bulkPricingHandler()` – these functions are implemented within a  derived `Product` class which extends an abstract class called `PageManager` (this same pattern is repeated in all <span class="fp">assets/js/theme/*.js</span> files). 
+For example, <span class="fp">assets/js/theme/product.js</span> corresponds to <span class="fp">templates/pages/product.html</span> and contains a `productReviewHandler()` and `bulkPricingHandler()` – these functions are implemented within a  derived `Product` class which extends an abstract class called `PageManager` (this same pattern is repeated in all <span class="fp">assets/js/theme/*.js</span> files).
 
-By default, all derived `PageManager` classes contain an `onReady` method functionally similar to `JQuery.ready()`. Additionally, certain pages have unique event handlers. For example the `cartUpdate` handler in <span class="fp">assets/js/cart.js</span> runs each time certain cart elements are changed. Developers can customize and enhance page behavior and functionality by editing code within these event handlers (or by creating their own event handlers). 
+By default, all derived `PageManager` classes contain an `onReady` method functionally similar to `JQuery.ready()`. Additionally, certain pages have unique event handlers. For example the `cartUpdate` handler in <span class="fp">assets/js/cart.js</span> runs each time certain cart elements are changed. Developers can customize and enhance page behavior and functionality by editing code within these event handlers (or by creating their own event handlers).
 
 To demonstrate, this article describes how to add some very simple JavaScript to `product.js`.
 
@@ -23,9 +22,9 @@ To demonstrate, this article describes how to add some very simple JavaScript to
 <a href='#customizing-javascript_customizing' aria-hidden='true' class='block-anchor'  id='customizing-javascript_customizing'><i aria-hidden='true' class='linkify icon'></i></a>
 
 ## Modifying a Page's Javascript
-In this example, we will add some "hello world" text to the product page's onReady event. We'll first add a call to the function; then, we will implement the function itself. 
+In this example, we will add some "hello world" text to the product page's onReady event. We'll first add a call to the function; then, we will implement the function itself.
 
-In <span class="fp">assets/js/theme/product.js</span> file, add a call to `this.helloWorld()` to the bottom of the `onReady()` method (implemented in next step): 
+In <span class="fp">assets/js/theme/product.js</span> file, add a call to `this.helloWorld()` to the bottom of the `onReady()` method (implemented in next step):
 
 <div class="HubBlock-header">
     <div class="HubBlock-header-title flex items-center">
@@ -47,10 +46,10 @@ export default class Product extends PageManager {
         this.$reviewLink = $('[data-reveal-id="modal-review-form"]');
         this.$bulkPricingLink = $('[data-reveal-id="modal-bulk-pricing"]');
     }    
-    
+
     onReady() {
       // ...
-      
+
       // Example Code
       this.helloWorld();
     }
@@ -80,14 +79,14 @@ export default class Product extends PageManager {
         this.$reviewLink = $('[data-reveal-id="modal-review-form"]');
         this.$bulkPricingLink = $('[data-reveal-id="modal-bulk-pricing"]');
     }    
-    
+
     onReady() {
       // ...
-        
+
       // Example Code
       this.helloWorld();
     }
-  
+
     // Example Code
     helloWorld() {
         console.log("[assets/js/theme/product.js]: Hello World!");
@@ -96,7 +95,7 @@ export default class Product extends PageManager {
 }
 ```
 
-In your browser, refresh any product-details pop-up or page to see your new `"Hello World"` message (If you are using the Stencil CLI and browsing to localhost, you may need to restart it for changes the most recent changes to be reflected). 
+In your browser, refresh any product-details pop-up or page to see your new `"Hello World"` message (If you are using the Stencil CLI and browsing to localhost, you may need to restart it for changes the most recent changes to be reflected).
 
 ---
 
@@ -104,7 +103,7 @@ In your browser, refresh any product-details pop-up or page to see your new `"He
 
 ## Bringing in Handlebars Context
 
-You can inject any variables from the Handlebars context into your client-side JavaScript by using the `{{inect...}}` expression like so: 
+You can inject any variables from the Handlebars context into your client-side JavaScript by using the `{{inect...}}` expression like so:
 
 ```
 {{inject 'productThumbSize' theme_settings.productthumb_size}}
@@ -141,9 +140,9 @@ product:
     <!-- Context Injection Example: -->
     {{inject 'productThumbSize' theme_settings.productthumb_size}}
     <!-- End Context Injection Example -->
-      
+
     <!-- ... -->
-      
+
 {{/partial}}
 {{> layout/base}}
 ```
@@ -170,14 +169,14 @@ export default class Product extends PageManager {
         this.$reviewLink = $('[data-reveal-id="modal-review-form"]');
         this.$bulkPricingLink = $('[data-reveal-id="modal-bulk-pricing"]');
     }    
-    
+
     onReady() {
       //...
-        
+
         // Example Code
         this.helloWorld();
     }
-  
+
     // Example Code
     helloWorld() {
       console.log("[assets/js/theme/product.js]: Hello World!");
@@ -229,4 +228,3 @@ $('.myElement').click(() => {
 ```
 
 As always, for specifics, refer to your chosen library’s documentation.
-
