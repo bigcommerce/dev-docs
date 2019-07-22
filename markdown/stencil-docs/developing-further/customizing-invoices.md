@@ -33,7 +33,7 @@ After clicking **Edit** on the right, the WYSIWYG Editor will appear. Follow Edi
 
 ---
 
-<a href='#ustomizing-invoices_merchant-printable-invoice' aria-hidden='true' class='block-anchor'  id='ustomizing-invoices_merchant-printable-invoice'><i aria-hidden='true' class='linkify icon'></i></a>
+<a href='#ustomizing-invoices_merchant-printable-invoice' aria-hidden='true' class='block-anchor'  id='customizing-invoices_merchant-printable-invoice'><i aria-hidden='true' class='linkify icon'></i></a>
 
 ## Customizing the Merchant Printable Invoice
 
