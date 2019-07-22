@@ -41,7 +41,7 @@ These options and assigned values are each represented in the [Catalog Price Obj
 
 ---
 
-<a href='##catalog-price_excluding-tax' aria-hidden='true' class='block-anchor'  id='#catalog-price_excluding-tax'><i aria-hidden='true' class='linkify icon'></i></a>
+<a href='#catalog-price_excluding-tax' aria-hidden='true' class='block-anchor'  id='catalog-price_excluding-tax'><i aria-hidden='true' class='linkify icon'></i></a>
 
 ## Catalog Price Object Examples Excluding Tax
 
