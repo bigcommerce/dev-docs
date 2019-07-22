@@ -42,7 +42,7 @@ lineNumbers: true
 
 In production, Handlebars statements run on the server side, generating HTML received by the shopper’s browser.
 
-View the [full Handlebars Helpers Reference](/references/handlebars-full) to learn about the helpers avilable on a Stencil storefront.
+View the [full Handlebars Helpers Reference](/references/handlebars-helpers-reference) to learn about the helpers avilable on a Stencil storefront.
 
 ---
 
