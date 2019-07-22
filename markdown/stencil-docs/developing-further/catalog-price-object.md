@@ -241,7 +241,7 @@ lineNumbers: true
 
 ---
 
-<a href='##catalog-price_including-and-excluding' aria-hidden='true' class='block-anchor'  id='#catalog-price_including-and-excluding'><i aria-hidden='true' class='linkify icon'></i></a>
+<a href='#catalog-price_including-and-excluding' aria-hidden='true' class='block-anchor'  id='catalog-price_including-and-excluding'><i aria-hidden='true' class='linkify icon'></i></a>
 
 ## Catalog Price Object Examples Including and Excluding Tax
 
