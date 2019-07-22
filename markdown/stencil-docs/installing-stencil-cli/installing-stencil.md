@@ -19,7 +19,7 @@ This article contains detailed instructions on how to authorize and initialize t
 
 ---
 
-<a href='#authorizing_authentication' aria-hidden='true' class='block-anchor'  id='#authorizing_authentication'><i aria-hidden='true' class='linkify icon'></i></a>
+<a href='#authorizing_authentication' aria-hidden='true' class='block-anchor'  id='authorizing_authentication'><i aria-hidden='true' class='linkify icon'></i></a>
 
 ## Authentication
 
