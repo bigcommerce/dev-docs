@@ -9,8 +9,6 @@
 	</ul>
 </div>
 
-<a href='#event_event-hook' aria-hidden='true' class='block-anchor'  id='event_event-hook'><i aria-hidden='true' class='linkify icon'></i></a>
-
 Stencil themes provide access to remote resources through data tags and event hooks. Developers can use these hooks to trigger defined events. A theme can hook to an event to perform actions or calculations based on shopper behavior.
 
 Stencil themes incorporate event hooks by importing the stencil-utils module. If take a look at [cornerstone/assets/js/theme/](https://github.com/bigcommerce/cornerstone/tree/master/assets/js/theme), you will see the import statement `'import utils from '@bigcommerce/stencil-utils';` at the top of files using leveraging event hooks.
