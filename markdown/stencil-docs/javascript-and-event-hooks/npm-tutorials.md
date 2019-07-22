@@ -214,6 +214,8 @@ We also needed to add form fields for the `EventDate[Mth]`, `EventDate[Day]`, an
 
 ---
 
+<a href='#npm-tutorials_advanced' aria-hidden='true' class='block-anchor'  id='npm-tutorials_advanced'><i aria-hidden='true' class='linkify icon'></i></a>
+
 ## Advanced npm Tutorial
 
 <iframe width="560" height="315" src="https://www.youtube.com/embed/sudvuxJFxKc" frameborder="0" allow="accelerometer; autoplay; encrypted-media; gyroscope; picture-in-picture" allowfullscreen></iframe>
