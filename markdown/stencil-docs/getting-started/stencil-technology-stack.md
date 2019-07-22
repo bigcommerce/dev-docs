@@ -147,4 +147,4 @@ blog:
 ### Additional Resources
 
 * [Stencil Technology Stack Video](https://www.youtube.com/watch/p5SR8N0SeCg) (Youtube)
-* [Cornerstone Components Subdirectory](https://github.com/bigcommerce/cornerstone) (BigCommerce Github).
+* [Cornerstone Components Subdirectory](https://github.com/bigcommerce/cornerstone) (BigCommerce Github)
