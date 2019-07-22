@@ -4,7 +4,7 @@
 	<h3> On This Page </h3>
 	<ul>
     <li><a href="#npm-tutorials_basic">Basic npm tutorial</a></li>
-        <li><a href="#npm-tutorials_advanced">Advanced npm tutorial</a></li>
+    <li><a href="#npm-tutorials_advanced">Advanced npm tutorial</a></li>
 	</ul>
 </div>
 
