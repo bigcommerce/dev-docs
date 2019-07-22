@@ -1,7 +1,7 @@
 <h1>Add reCAPTCHA V2</h1>
 <div class="otp">
   <ul>
-    <li><a href="#catalog-price_excluding-tax">How to Upgrade</a></li>
+    <li><a href="#add-recaptcha_how-to-upgrade">How to Upgrade</a></li>
 	</ul>
 </div>
 
@@ -30,4 +30,3 @@ It is possible to add reCaptcha to the Login template. See the [Forms object](/s
 ### Related Articles
 
 * [Enabling ReCAPTCHA](https://support.bigcommerce.com/s/article/Updating-Themes-with-reCAPTCHA-v2)
-
