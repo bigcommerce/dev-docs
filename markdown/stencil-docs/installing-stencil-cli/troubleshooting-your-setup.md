@@ -6,7 +6,7 @@
     <li><a href="#troubleshooting_unsupported">Unsupported Node Version</a></li>
     <li><a href="#troubleshooting_npm-install"><code>npm install</code> errors</a></li>
     <li><a href="#troubleshooting_npm-install-stencil-init"><code>npm install</code> and <code>stencil init</code> Errors</a></li>
-    <li><a href="#troubleshooting_stencil-init">"stencil init/stencil start errors</a></li>
+    <li><a href="#troubleshooting_stencil-init"><code>stencil init</code>/<code>stencil start</code> errors</a></li>
     <li><a href="#troubleshooting_stencil-start-missing-module"><code>stencil start</code>/missing module Errors</a></li>
     <li><a href="#troubleshooting_uncaught">"Uncaught TypeError: Illegal invocation" error</a></li>
     <li><a href="#troubleshooting_mac-os">Mac OS: "Xcode/iOS license..." Errors upon Stencil Commands</a></li>
