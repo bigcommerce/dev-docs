@@ -5,7 +5,7 @@
 	<ul>
     <li><a href="#troubleshooting_unsupported">Unsupported Node Version</a></li>
     <li><a href="#troubleshooting_npm-install"><code>npm install</code> errors</a></li>
-    <li><a href="#troubleshooting_npm-install-stencil-init">npm install and stencil init Errors</a></li>
+    <li><a href="#troubleshooting_npm-install-stencil-init"><code>npm install</code> and <code>stencil init</code> Errors</a></li>
     <li><a href="#troubleshooting_stencil-init">"stencil init/stencil start errors</a></li>
     <li><a href="#troubleshooting_stencil-start-missing-module"><code>stencil start</code>/missing module Errors</a></li>
     <li><a href="#troubleshooting_uncaught">"Uncaught TypeError: Illegal invocation" error</a></li>
@@ -21,7 +21,7 @@
 	</ul>
 </div>
 
-For any unexpected behavior you encounter while developing your Stencil theme, we recommend your first check your terminal window where you started Stencil CLI. 
+For any unexpected behavior you encounter while developing your Stencil theme, we recommend your first check your terminal window where you started Stencil CLI.
 
 In some cases, the terminal will provide a verbose error message specifying where to look for problems. It has the potential to provide further insight on the issue. Diagnostic suggestions are listed on this page for error messages that may not be helpful in revealing the issue you're experiencing.
 
@@ -36,7 +36,7 @@ If you receive the following error message, please reinstall Node.js to a suppor
 ```
 Debug: internal, implementation, error
         TypeError: Uncaught error: Object #<Object> has no method 'parse'
-        at internals.implementation 
+        at internals.implementation
         (/usr/local/lib/node_modules/stencil-cli/server/plugins/CssCompiler/index.js:32:26)
 ```
 
@@ -65,14 +65,14 @@ If running the `npm install ` command inside your theme directory does not resol
 
 ### Permissions (EPERM or EACCES) Error
 
-If you get a file-permissions error such as `EPERM` or `EACCES` when issuing the `npm install` command, try one of the workarounds listed on the [npm docs.](https://docs.npmjs.com/getting-started/fixing-npm-permissions) page. 
+If you get a file-permissions error such as `EPERM` or `EACCES` when issuing the `npm install` command, try one of the workarounds listed on the [npm docs.](https://docs.npmjs.com/getting-started/fixing-npm-permissions) page.
 
 ### "js/bundle" Errors
 
 If you get errors of the following type upon executing the `stencil init` command:
 
 ```
-Potentially unhandled rejection [6] TypeError: Error loading "js/bundle" 
+Potentially unhandled rejection [6] TypeError: Error loading "js/bundle"
 at file:/Users/<username>/Desktop/Fortune-1.4.6/assets/js/bundle.js
 
 Error evaluating file:/Users/<username>/Desktop/Fortune-1.4.6/assets/js/bundle.js
@@ -112,7 +112,7 @@ If you get an unexpected error messages when issuing the `npm install` or `stenc
 
 ## `stencil init`/`stencil start` Errors
 
-If you get an unexpected error message or unexpected results upon executing the `stencil init`, `stencil start`, or other Stencil CLI commands, make sure you are working in the subdirectory for the specific theme you intend to launch. 
+If you get an unexpected error message or unexpected results upon executing the `stencil init`, `stencil start`, or other Stencil CLI commands, make sure you are working in the subdirectory for the specific theme you intend to launch.
 
 One way of checking what directory you are working in is by running the `pwd` command in your terminal.
 
@@ -160,7 +160,7 @@ If you receive an `Uncaught TypeError: Illegal invocation` console error, and pr
 
 ## Mac OS: "Xcode/iOS license..." Errors upon Stencil Commands
 
-On Mac OS, if you have recently installed a new version of Xcode, the command line will display the following error when you next try to use or reinstall Stencil: 
+On Mac OS, if you have recently installed a new version of Xcode, the command line will display the following error when you next try to use or reinstall Stencil:
 
 `error: Agreeing to the Xcode/iOS license requires admin privileges, please re-run as root via sudo.`
 
@@ -187,7 +187,7 @@ If you are running a version of Node.js higher than 4.4.0, and you receive an `E
 
 ### Reinstall Stencil CLI
 
-If you receive the error message -bash: `stencil: command not found`, ensure that you have followed the steps on Installing Stencil CLI/Framework or attempt to reinstall the Stencil CLI. 
+If you receive the error message -bash: `stencil: command not found`, ensure that you have followed the steps on Installing Stencil CLI/Framework or attempt to reinstall the Stencil CLI.
 
 ### Redirect Bash shell
 
@@ -199,7 +199,7 @@ If you receive a `stencil: command not found` error message upon executing stenc
 
 `ls ~/.nvm/versions/node`
 
-If this reports more than one version, specify your platform's supported Node.js `<version_number>` by entering: 
+If this reports more than one version, specify your platform's supported Node.js `<version_number>` by entering:
 
 `nvm use <version_number>`
 
@@ -218,7 +218,7 @@ If executing the `stencil start` command generates an `Unauthorized, please use 
 
 If you have downloaded and installed a Marketplace theme (other than Cornerstone), and after running stencil start, received the error `Unable to load registry %bitbucket%`: Try this workaround.
 
-1. Back up your current theme directory/directories. 
+1. Back up your current theme directory/directories.
 (In a default installation, the theme directory is named `.../cornerstone/`. Prior to March 2017, this directory's name defaulted to `.../stencil/`. Use the same substitutions for other code examples on this page.)
 
 2. To ensure that you install refreshed dependencies, delete your `<theme-name>/node_modules/` and `<theme-name>/assets/jspm_packages/` subdirectories. (You can check installed versions of dependencies by examining your `<theme-name>/package.json` file.)
@@ -266,7 +266,7 @@ If you see the following error when running stencil bundle, this is a past bug t
 
 `[ModuleNotFoundError: Module not found: Error: Cannot resolve module 'pace' in...]`
 
-To remove the error, please update your Cornerstone version. 
+To remove the error, please update your Cornerstone version.
 
 ---
 
@@ -282,7 +282,7 @@ to:
 
 `devtool: 'eval-source-map'`
 
-The `eval-cheap-module-source-map` option performs faster rebuilds, but omits line numbers. The `eval-source-map` option is slower, but more verbose. 
+The `eval-cheap-module-source-map` option performs faster rebuilds, but omits line numbers. The `eval-source-map` option is slower, but more verbose.
 
 ---
 
@@ -290,7 +290,7 @@ The `eval-cheap-module-source-map` option performs faster rebuilds, but omits li
 
 ## TR-300 Error upon Theme Upload
 
-If uploading your theme triggers a TR-300 error, this can indicate an included source-map file (`bundle.js.map`) that exceeds its size limit of 5 MB. If your `bundle.js.map` exceeds that limit, the workaround is to move this file outside your theme directory before re-running `stencil bundle`. 
+If uploading your theme triggers a TR-300 error, this can indicate an included source-map file (`bundle.js.map`) that exceeds its size limit of 5 MB. If your `bundle.js.map` exceeds that limit, the workaround is to move this file outside your theme directory before re-running `stencil bundle`.
 
 ---
 
@@ -314,6 +314,3 @@ A more-drastic measure is to uninstall and reinstall Stencil CLI's Node.js prere
 ### Related Articles
 * Authorizing and Initializing the CLI
 * Stencil CLI Options and Commands
-
-
-
