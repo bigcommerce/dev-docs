@@ -1,9 +1,9 @@
 <h1>Customizing Invoices</h1>
 <div class="otp">
   <ul>
-    <li><a href="#customizing-invoices_email-invoice-template">Email Invoice Templace</a></li>
-    <li><a href="#customizing-invoices_merchant-printable-invoice">Merchant Printable Invoice</a></li>
-    <li><a href="#customizing-invoices_customer-printable-invoice">Csustomer</a></li>
+    <li><a href="#customizing-invoices_email-invoice-template">Customizing the Email Invoice Template</a></li>
+    <li><a href="#customizing-invoices_merchant-printable-invoice">Customizing the Merchant Printable Invoice</a></li>
+    <li><a href="#customizing-invoices_customer-printable-invoice">Customizing the Customer Printable Invoice</a></li>
 	</ul>
 </div>
 
