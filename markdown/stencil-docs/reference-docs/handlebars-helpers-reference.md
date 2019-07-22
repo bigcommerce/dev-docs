@@ -131,7 +131,7 @@ In this case, this Handlebars statement:
 ...would return:
 
 ```
-"Bakeware,Cookware"
+["Bakeware","Cookware"]
 ```
 
 #### {{pluck}} Example 2
