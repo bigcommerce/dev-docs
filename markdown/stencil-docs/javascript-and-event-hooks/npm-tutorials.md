@@ -8,6 +8,8 @@
 	</ul>
 </div>
 
+<a href='#npm-tutorials_basic' aria-hidden='true' class='block-anchor'  id='npm-tutorials_basic'><i aria-hidden='true' class='linkify icon'></i></a>
+
 ## Basic `npm` tutorial
 
 <div class="HubBlock--callout">
