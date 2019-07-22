@@ -80,7 +80,7 @@ The above command's options are:
 
 The [css]() and [style]() loaders are used to import CSS and to inject it into the DOM, respectively:
 
-```
+```javascript
 {
     test: /\.css$/,
     loader: 'style-loader!css-loader',
@@ -104,11 +104,12 @@ Import these new dependencies into `<theme-name>/assets/js/theme/product.js`.
 
 In `<theme-name>/assets/js/app.js`, notice that there is a mapping between the product page and the `product.js` script:
 
-```
+```javascript
 const PageClasses = {
     mapping: {
-        ...
+        // ...
         'pages/product': product,
+        // ...
 ```
 
 That is, when a user navigates to the product page, the `product.js` script is run. First its constructor will be run, followed by the methods `before`, `loaded`, and `after` – in that order.
@@ -117,7 +118,7 @@ That is, when a user navigates to the product page, the `product.js` script is r
 
 We'll use the `loaded` method to initialize our datepicker widget:
 
-```
+```javascript
 import $ from 'jquery';
 import PageManager from '../page-manager';
 import Review from './product/reviews';
@@ -197,7 +198,7 @@ Highlighted below is the new code added to the `loaded` method:
 
 Update the `<theme-name>/templates/components/products/product-view.html` template, replacing the existing `{{#if product.event_date}}` block with the following:
 
-```
+```html
 {{#if product.event_date}}
     {{inject 'product' product}}
     <div class="form-field">
@@ -241,7 +242,7 @@ To build this, you will need to complete the following steps:
 
 Material-UI requires the `react-tap-event-plugin` module. Also, `document-register-element` is needed to polyfill `document.registerElement`. The babel presets and plugins are needed to support `Object.assign`, `react`, and `Material-UI`, respectively:
 
-```
+```shell
 npm install -save-dev document-register-element material-ui react react-dom react-tap-event-plugin  
 npm install -save-dev babel-plugin-transform-object-assign babel-preset-react babel-preset-stage-1
 ```
@@ -297,7 +298,7 @@ subtitle: ""
 lineNumbers: true
 -->
 
-```
+```javascript
 window.initReact = function(contextJSON = '{}') {
     injectTapEventPlugin();
     const context = JSON.parse(contextJSON);
@@ -357,7 +358,7 @@ subtitle: ""
 lineNumbers: true
 -->
 
-```
+```javascript
 import React from 'react';
 import Drawer from 'material-ui/Drawer';
 import AppBar from 'material-ui/AppBar';

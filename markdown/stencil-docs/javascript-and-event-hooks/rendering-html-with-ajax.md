@@ -47,7 +47,7 @@ subtitle: ""
 lineNumbers: true
 -->
 
-```
+```javascript
 let $modal = $('#modal'),
   $modalContent = $('.modal-content', $modal),
   $modalOverlay = $('.loadingOverlay', $modal),

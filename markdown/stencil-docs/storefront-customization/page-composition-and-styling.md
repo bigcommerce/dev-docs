@@ -25,7 +25,7 @@ subtitle: ""
 lineNumbers: true
 -->
 
-```
+```html
 {{#partial "head"}}
     <link href="{{cdn '/assets/css/invoice.css'}}" rel="stylesheet">
 {{/partial}}

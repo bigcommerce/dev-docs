@@ -101,7 +101,7 @@ Gets an option set.
 
 Example JSON returned in the response:
 
-```
+```json
 {
   "id": 10,
   "product_id": null,
@@ -128,7 +128,7 @@ Gets a count of the number of option sets in the store.
 
 Example JSON returned in the response:
 
-```
+```json
 {
   "count": 4
 }
@@ -162,7 +162,7 @@ The following properties of the option set are required. The request won’t be 
 
 Example request object:
 
-```
+```json
 {
   "name": "T-Shirts"
 }
@@ -172,7 +172,7 @@ Example request object:
 
 Example JSON returned in the response:
 
-```
+```json
 {
   "id": 10,
   "product_id": null,
@@ -213,7 +213,7 @@ The following properties of the option set are required. The request won’t be 
 
 Example request object:
 
-```
+```json
 {
   "name": "T-shirt Facets"
 }
@@ -223,7 +223,7 @@ Example request object:
 
 Example JSON returned in the response:
 
-```
+```json
 {
   "id": 10,
   "product_id": null,

@@ -125,7 +125,7 @@ Gets a single product rule.
 
 Example JSON returned in the response:
 
-```
+```json
 {
   "id": 2,
   "product_id": 3,
@@ -162,7 +162,7 @@ Gets a count of the number of product rules in the store.
 
 Example JSON returned in the response:
 
-```
+```json
 {
   "count": 3
 }
@@ -198,7 +198,7 @@ The following properties of the product rule are required. The request won’t b
 
 Example JSON returned in the response:
 
-```
+```json
 {
   "id": 10,
   "product_id": 3,
@@ -252,7 +252,7 @@ There are no property requirements for updating a product rule.
 
 Example JSON returned in the response:
 
-```
+```json
 {
   "id": 2,
   "product_id": 3,

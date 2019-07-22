@@ -156,7 +156,7 @@ Gets a single product SKU.
 
 Example JSON returned in the response:
 
-```
+```json
 {
   "id": 5,
   "product_id": 7,
@@ -197,7 +197,7 @@ Gets a count of the number of product SKUs in the store.
 
 Example JSON returned in the response:
 
-```
+```json
 {
   "count": 1235
 }
@@ -239,7 +239,7 @@ BigCommerce has updated the SKU schema to include additional price, weight, imag
 
 Example JSON returned in the response:
 
-```
+```json
 {
   "id": 5,
   "product_id": 7,
@@ -292,7 +292,7 @@ There are no required properties for updating a product SKU.
 
 Example JSON returned in the response:
 
-```
+```json
 {
   "id": 5,
   "product_id": 7,
