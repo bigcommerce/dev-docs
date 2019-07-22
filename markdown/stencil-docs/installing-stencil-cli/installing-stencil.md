@@ -36,6 +36,8 @@ Each OS has different prerequisites that need to be fulfilled before installing 
 * [Linux](#linux)
 * [Windows](#windows)
 
+<a id='mac'></a>
+
 ###  <div id="mac">Mac OS</div>
 
 These instructions have been tested on Mac OS X Yosemite. Dependencies for other platforms will be added upon further testing.
@@ -55,6 +57,8 @@ Next, explicitly install a supported Node.js version:
 ```
 nvm install 8.1.0
 ```
+
+<a id='linux'></a>
 
 ### <div id="linux">Linux</div>
 
@@ -105,6 +109,8 @@ nodejs --version
 
 	* g++
 	* [libsass](https://sass-lang.com/libsass)
+
+	<a id='windows'></a>
 
 ### <div id="windows">Windows<div>
 
