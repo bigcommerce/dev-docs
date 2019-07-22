@@ -312,5 +312,5 @@ A more-drastic measure is to uninstall and reinstall Stencil CLI's Node.js prere
 ## Resources
 
 ### Related Articles
-* Authorizing and Initializing the CLI
-* Stencil CLI Options and Commands
+* [Authorizing and Initializing the CLI](/stencil-docs/installing-stencil-cli/installing-stencil)
+* [Stencil CLI Options and Commands](/stencil-docs/installing-stencil-cli/stencil-cli-options-and-commands)
