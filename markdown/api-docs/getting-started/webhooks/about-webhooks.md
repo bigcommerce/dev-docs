@@ -377,6 +377,19 @@ Webhooks created during that 60-second block will be queued up to send on the ne
 
 The webhook dispatcher will then attempt several retries (at increasing intervals) until the maximum retry limit is reached.
 
+<div class="HubBlock--callout">
+<div class="CalloutBlock--warning">
+<div class="HubBlock-content">
+    
+<!-- theme: warning -->
+
+### Retries Based on Subscriber Domain, Not by Specific Hooks
+> The webhook dispatcher determines whether retries are needed based on responses from the subscribed domain as a whole,not by specific hooks. For example, `domain.com/webhook-1` and `domain.com/webhook-2` will affect each other for failures and retries.
+
+</div>
+</div>
+</div>
+
 ### Retry Intervals
 
 * 60 seconds after the most recent failure  
