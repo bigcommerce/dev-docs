@@ -290,6 +290,10 @@ example: `{{{banner}}}`. (Double braces would escape the HTML.)
     <td><span class="indent1"> url</span></td>    
     <td>URL of the child category</td>  
   </tr>  
+	<tr>    
+		<td><span class="indent1">is_active</span></td>    
+		<td>Boolean that indicates which category is your “breadcrumb” category on a item's product display page (PDP). For example, an emerald necklace may be in the _Jewelry_ and _Accessories_ categories. If you navigated to the product from the _Jewelry_ category, `is_active: true` will be present on the _Jewelry_ object.</td>  
+	</tr>  
   <tr>    
     <td><span class="indent1"> count</span></td>    
     <td>Number of products in this child category</td>
