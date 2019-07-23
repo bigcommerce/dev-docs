@@ -85,7 +85,7 @@ To style BigCommerce for WordPress elements with custom CSS, add your CSS to you
 
 For example, you might want to change the Add-To-Cart button from blue to orange by adding the following CSS to your theme’s stylesheet:
 
-```
+```css
 button.bc-btn.bc-btn--form-submit.bc-btn--add_to_cart {
     background-color: #FF9C33;
 }
@@ -134,7 +134,7 @@ An instance of each of the service providers found in the src/BigCommerce/Contai
 
 Every action or filter callback created by one of the service providers is given an identifier so that it can be retrieved and, if appropriate, unhooked from WordPress. E.g., to unhook the closure that renders the product archive template and replace it with your own, you could do:
 
-```
+```javascript
 remove_action( 'bigcommerce/template/product/archive', bigcommerce()->templates->product_archive, 10 );
 
 add_action( 'bigcommerce/template/product/archive', 'your_callback_function', 10, 2 );
@@ -169,7 +169,7 @@ subtitle: "functions.php"
 lineNumbers: true
 -->
 
-```js
+```javascript
 function myCheckoutFunction($checkout_config) {
   $checkout_config['styles']['heading']['color'] = '#C70039'; //red
   $checkout_config['styles']['step']['icon']['backgroundColor'] = '#AE0BE6'; //purple

@@ -87,7 +87,7 @@ Gets an option associated with a product.
 
 Example JSON returned in the response:
 
-```
+```json
 {
   "id": 14,
   "option_id": 9,

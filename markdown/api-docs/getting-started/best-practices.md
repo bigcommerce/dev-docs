@@ -72,7 +72,7 @@ The store’s overall quota is distributed across all apps that are accessing th
 
 Every API response’s HTTP headers give you full visibility into your position in the rate-limiting algorithm:
 
-```
+```http
 X-Rate-Limit-Requests-Left →6
 X-Rate-Limit-Requests-Quota →25
 X-Rate-Limit-Time-Reset-Ms →3000
@@ -95,7 +95,7 @@ The rate limited response will contain the `X-Rate-Limit-Time-Reset-Ms` header, 
 
 When you see a response with an HTTP 429 status code, your client shouldn’t make any further requests until your quota has refreshed:
 
-```
+```http
 HTTP/1.1 429 Too Many Requests
     	Date: Mon, 03 Feb 2017 20:36:00 GMT
     	Content-Type: application/json

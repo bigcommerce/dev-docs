@@ -69,7 +69,7 @@ subtitle: "config.json"
 lineNumbers: true
 -->
 
-```
+```json
 "features": [
       "fully_responsive",
       "mega_navigation",
@@ -273,6 +273,69 @@ Or, if you are adding a data tag to a product list item in products/list-item.ht
 ---
 
 <a href='#google-analytics_additional-resources' aria-hidden='true' class='block-anchor'  id='google-analytics_additional-resources'><i aria-hidden='true' class='linkify icon'></i></a>
+
+## Custom Dimensions and Metrics
+
+Custom dimensions and metrics are also supported. To use add them, 
+
+In the `config.json` `settings` array, Add the name of the dimension/metric followed by the generic custom metric/dimension alias:
+
+```json
+{
+    // ...
+    "settings": {
+        // ...
+        "custom-dimensions": {
+            "<your-custom-dimension-name>": "dimension1", "dimension-common": "dimension2"
+        },
+        "custom-metrics": {
+            "<your-custom-metric-name": "metric1", "metric-common": "metric2"
+        }
+    }
+    // ...
+}
+```
+
+<div class="HubBlock--callout">
+<div class="CalloutBlock--info">
+<div class="HubBlock-content">
+    
+<!-- theme: info -->
+
+#### Note:
+> * Spelling must be exact
+> * Names may not have spaces
+
+</div>
+</div>
+</div>
+
+
+Next, add the custom metrics/dimensions to the desired theme template:
+
+```html
+<!--...-->
+{{#if settings.data_tag_enabled}}
+    <article class="listItem" dimension-common="yes" metric-common=1 data-event-type="{{event}}">
+{{else}}
+<!--...-->
+{{/if}}
+<!--...-->
+```
+
+<div class="HubBlock--callout">
+<div class="CalloutBlock--info">
+<div class="HubBlock-content">
+    
+<!-- theme: info -->
+
+> dimensions are typically strings; metrics are usually integers
+
+</div>
+</div>
+</div>
+
+---
 
 ## Resources
 

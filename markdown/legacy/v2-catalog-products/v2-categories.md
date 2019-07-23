@@ -114,7 +114,7 @@ Gets a single category.
 
 Example JSON returned in the response:
 
-```
+```json
 {
   "id": 10,
   "parent_id": 1,
@@ -151,7 +151,7 @@ Gets a count of the total number of categories in the store.
 
 Example JSON returned in the response:
 
-```
+```json
 {
   "count": 10
 }
@@ -192,7 +192,7 @@ In addition, BigCommerce caps the total number of parent categories at seven. If
 
 Example request object:
 
-```
+```json
 {
   "name": "Xmen toys"
 }
@@ -202,7 +202,7 @@ Example request object:
 
 Example JSON returned in the response:
 
-```
+```json
 {
   "id": 10,
   "parent_id": 1,
@@ -254,7 +254,7 @@ To maximize system performance, BigCommerce caps the total number of parent cate
 
 Example JSON returned in the response:
 
-```
+```json
 {
   "id": 10,
   "parent_id": 1,

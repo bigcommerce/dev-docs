@@ -165,7 +165,7 @@ subtitle: ""
 lineNumbers: true
 -->
 
-```
+```json
 {
 "settings": {
   "homepage_new_products_count": 12,
@@ -190,7 +190,7 @@ subtitle: ""
 lineNumbers: true
 -->
 
-```
+```html
 products:
   new:
     limit: {{theme_settings.homepage_new_products_count}}
@@ -234,13 +234,13 @@ subtitle: ""
 lineNumbers: true
 -->
 
-```
+```html
 ---
-[...]
+<!-- [...] -->
 products:
   featured:
       limit: {{theme_settings.homepage_featured_products_count}}
-[...]
+<!-- [...] -->
 ---
 ```
 
@@ -258,13 +258,13 @@ subtitle: ""
 lineNumbers: true
 -->
 
-```
+```html
 ---
 products:
-  // [...]
+  <!-- [...] -->
   featured:
       limit: 2
-  // [...]  
+  <!-- [...] -->
 ---
 
 <!-- [...] -->
@@ -304,13 +304,13 @@ subtitle: ""
 lineNumbers: true
 -->
 
-```
+```html
 {
-// [...]
+<!-- [...] -->
 "color-highlight": "#00abc9",
 "color-highlightDark": "#f2f2f2",
 "color-highlightDarker": "#dfdfdf",
-// [...]
+<!-- [...] -->
 }
 ```
 
@@ -328,12 +328,12 @@ subtitle: ""
 lineNumbers: true
 -->
 
-```
-// [...]
+```scss
+// ...
 $color-highlight:       stencilColor("color-highlight");
 $color-highlightDarker: stencilColor("color-highlightDarker");
 $color-highlightDark:   stencilColor("color-highlightDark");
-// [...]
+// ...
 ```
 
 In <span class="fn">config.json</span>, try redefining one or more color variables to hex values of your choice. Then re-render your theme’s home page to see the effects.
@@ -393,7 +393,7 @@ subtitle: ""
 lineNumbers: true
 -->
 
-```
+```html
 <article class="footer-info-col footer-info-col--small">
   <h5 class="footer-info-heading">{{lang 'footer.categories'}}</h5>
   <ul class="footer-info-list">
@@ -420,7 +420,7 @@ subtitle: ""
 lineNumbers: true
 -->
 
-```
+```html
 <footer class="footer" role="contentinfo">
   <div class="container">
       <section class="footer-info">

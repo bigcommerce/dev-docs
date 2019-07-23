@@ -175,7 +175,7 @@ subtitle: ""
 lineNumbers: true
 -->
 
-```
+```html
 {{lang "translation.key" optionalVariable=”someValue”}}
 ```
 
@@ -193,7 +193,7 @@ subtitle: ""
 lineNumbers: true
 -->
 
-```
+```html
 <a href="{{ urls.account }}">Welcome Back <span>{{ customer.name }}</span></a>
 ```
 
@@ -250,7 +250,7 @@ subtitle: ""
 lineNumbers: true
 -->
 
-```
+```html
 <div class="shipping-estimator" style="display: none;">
     <form class="estimator-form">
       <button class="shipping-estimate-hide">{{lang 'cancel'}}</button>
@@ -293,12 +293,12 @@ subtitle: ""
 lineNumbers: true
 -->
 
-```js
+```json
 {
   "header": {
         "welcome_back": "Welcome back, {name}"
   },
-  ...
+  // ...
       "label": "Cart",
         "is_empty": "Your cart is empty",
         "coupon_code": "Coupon Code",
@@ -330,7 +330,7 @@ lineNumbers: true
         "paginator": {
             "page_of": "Page {current} of {total}"
       },
-      ...
+      // ...
 ```
 
 Translation files for other languages would use the same format to define these keys’ values in their respective languages.

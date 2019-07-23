@@ -103,7 +103,7 @@ Gets a brand.
 
 Example JSON returned in the response:
 
-```
+```json
 {
   "id": 1,
   "name": "Apple",
@@ -129,7 +129,7 @@ Returns the total number of brands in the store.
 
 Example JSON returned in the response:
 
-```
+```json
 {
   "count": 25
 }
@@ -166,7 +166,7 @@ To maximize system performance, BigCommerce caps the number of brands that can b
 
 Example request object:
 
-```
+```json
 {
   "name": "Xmen",
   "page_title": "X men brand"
@@ -177,7 +177,7 @@ Example request object:
 
 Example JSON returned in the response:
 
-```
+```json
 {
   "id": 10,
   "name": "Xmen",
@@ -216,7 +216,7 @@ The following properties of the brand are required. The request won’t be fulfi
 
 Example JSON returned in the response:
 
-```
+```json
 {
   "id": 10,
   "name": "Xmen",
