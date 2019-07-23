@@ -16,7 +16,7 @@
     <li><a href="#global-objects_new-products">New Products</a></li>
     <li><a href="#global-objects_page-content">Page Content</a></li>
     <li><a href="#global-objects_pages">Pages</a></li>
-    <li><a href="#global-objects_page-type">Page Type Property</a></li>
+    <li><a href="#global-objects_page-type-property">Page Type Property</a></li>
     <li><a href="#global-objects_pagination">Pagination</a></li>
     <li><a href="#global-objects_settings">Settings</a></li>
     <li><a href="#global-objects_sitemap">Sitemap</a></li>
