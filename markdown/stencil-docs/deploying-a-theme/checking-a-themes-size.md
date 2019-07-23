@@ -3,13 +3,10 @@
 <div class="otp" id="no-index">
 	<h3> On This Page </h3>
 	<ul>
-		<li><a href="#checking_checking">Checking a Theme's Size</a></li>
     <li><a href="#checking_organizing-your-theme">Shrinking a Theme by Excluding Static Assets Using WebDAV</a></li>
     <li><a href="#checking_organizing-your-theme">Organizing Your Theme</a></li>
 	</ul>
 </div>
-
-<a href='#checking_checking' aria-hidden='true' class='block-anchor'  id='checking_checking'><i aria-hidden='true' class='linkify icon'></i></a>
 
 Your theme should ideally bundle into an archive of only a few megabytes. BigCommerce imposes a hard limit of 50 MB, but most themes do not approach this limit unless they include many large static assets. If your theme is unlikely to or does not exceed 50 MB, you can directly go to [Bundling and Pushing a Theme]().
 
@@ -30,7 +27,7 @@ Use WebDAV to upload these items to WebDAV’s remote /content/ directory. For W
 
 * Connecting to WebDav
 * WebDAV Folder Structure
-* 
+*
 Throughout your theme, reference each of these assets using Stencil’s `cdn` custom Handlebars helper – prepending the `webdav:` option to the `assetPath` parameter.
 
 Prepending `webdav:` will build a URL in the remote WebDAV directory. This allows your theme’s deployed topology to diverge from any your local directory structure. As noted above, the `cdn` helper will treat `/content/` as the default/root WebDAV directory. So, for example, this statement:
@@ -48,7 +45,7 @@ Run or re-run the `stencil bundle` command from inside your streamlined <theme�
 <div class="HubBlock--callout">
 <div class="CalloutBlock--warning">
 <div class="HubBlock-content">
-    
+
 <!-- theme: warning -->
 
 ### URL References to Assets
@@ -128,4 +125,3 @@ Then, as you develop your theme, reference each of these assets using Stencil's 
 **Note:** _The presumed WebDAV root directory is /content/. (So, in this example, the `image.jpg` file had been uploaded to the WebDAV `/content/` directory.) The presumed local directory is `<theme-name>/assets/`, so you can omit that path when referencing its contained files or subdirectories._
 
 When you are ready to upload your theme to BigCommerce, follow the procedure in [Bundling and Submitting a Theme](/stencil-docs/shipping-a-theme/bundling-and-submitting).
-
