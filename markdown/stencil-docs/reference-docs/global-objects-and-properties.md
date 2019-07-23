@@ -27,8 +27,6 @@
 </div>
 
 
-<a href='#global_global-objects' aria-hidden='true' class='block-anchor'  id='global_global-objects'><i aria-hidden='true' class='linkify icon'></i></a>
-
 Global objects and properties are common components shared across the entire BigCommerce storefront.
 
 <div class="HubBlock--callout">
