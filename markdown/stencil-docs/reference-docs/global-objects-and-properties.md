@@ -4,19 +4,19 @@
 	<ul>
     <li><a href="#global-objects_banner">Banner</a></li>
     <li><a href="#global-objects_breadcrumbs">Breadcrumbs</a></li>
+		<li><a href="#global-objects_carousel">Carousel</a></li>
+		<li><a href="#global-objects_currency-selector">Currency Selector</a></li>
     <li><a href="#global-objects_categories">Categories</a></li>
-    <li><a href="#global-objects_currency-selector">Currency Selector</a></li>
     <li><a href="#global-objects_faceted-search">Faceted Search</a></li>
     <li><a href="#global-objects_featured-products">Featured Products</a></li>
     <li><a href="#global-objects_footer">Footer</a></li>
-    <li><a href="#global-objects_carousel">Carousel</a></li>
     <li><a href="#global-objects_html-head">HTML Head</a></li>
     <li><a href="#global-objects_is-ajax">Is Ajax</a></li>
     <li><a href="#global-objects_login">Login</a></li>
     <li><a href="#global-objects_new-products">New Products</a></li>
     <li><a href="#global-objects_page-content">Page Content</a></li>
     <li><a href="#global-objects_pages">Pages</a></li>
-    <li><a href="#global-objects_page-type">Page Type</a></li>
+    <li><a href="#global-objects_page-type">Page Type Property</a></li>
     <li><a href="#global-objects_pagination">Pagination</a></li>
     <li><a href="#global-objects_settings">Settings</a></li>
     <li><a href="#global-objects_sitemap">Sitemap</a></li>
@@ -25,7 +25,6 @@
     <li><a href="#global-objects_top-sellers">Top Sellers</a></li>
   </ul>
 </div>
-
 
 Global objects and properties are common components shared across the entire BigCommerce storefront.
 
@@ -48,7 +47,7 @@ This will return a list of all the objects available on the page, in JSON syntax
 </div>
 </div>
 
-<a href='#event_event-hook' aria-hidden='true' class='block-anchor'  id='event_event-hook'><i aria-hidden='true' class='linkify icon'></i></a>
+<a href='#global-objects_banner' aria-hidden='true' class='block-anchor'  id='global-objects_banner'><i aria-hidden='true' class='linkify icon'></i></a>
 
 ## Banner
 
@@ -93,7 +92,7 @@ example: `{{{banner}}}`. (Double braces would escape the HTML.)
 
 ---
 
-<a href='#event_event-hook' aria-hidden='true' class='block-anchor'  id='event_event-hook'><i aria-hidden='true' class='linkify icon'></i></a>
+<a href='#global-objects_breadcrumbs' aria-hidden='true' class='block-anchor'  id='global-objects_breadcrumbs'><i aria-hidden='true' class='linkify icon'></i></a>
 
 ## Breadcrumbs
 
@@ -120,7 +119,7 @@ example: `{{{banner}}}`. (Double braces would escape the HTML.)
 
 ---
 
-<a href='#event_event-hook' aria-hidden='true' class='block-anchor'  id='event_event-hook'><i aria-hidden='true' class='linkify icon'></i></a>
+<a href='#global-objects_carousel' aria-hidden='true' class='block-anchor'  id='global-objects_carousel'><i aria-hidden='true' class='linkify icon'></i></a>
 
 ## Carousel
 
@@ -183,7 +182,7 @@ example: `{{{banner}}}`. (Double braces would escape the HTML.)
 
 ---
 
-<a href='#event_event-hook' aria-hidden='true' class='block-anchor'  id='event_event-hook'><i aria-hidden='true' class='linkify icon'></i></a>
+<a href='#global-objects_currency-selector' aria-hidden='true' class='block-anchor'  id='global-objects_currency-selector'><i aria-hidden='true' class='linkify icon'></i></a>
 
 ## Currency Selector
 
@@ -242,7 +241,7 @@ example: `{{{banner}}}`. (Double braces would escape the HTML.)
 
  ---
 
- <a href='#event_event-hook' aria-hidden='true' class='block-anchor'  id='event_event-hook'><i aria-hidden='true' class='linkify icon'></i></a>
+ <a href='#global-objects_categories' aria-hidden='true' class='block-anchor'  id='global-objects_categories'><i aria-hidden='true' class='linkify icon'></i></a>
 
  ## Categories
 
@@ -310,7 +309,7 @@ example: `{{{banner}}}`. (Double braces would escape the HTML.)
 
 ---
 
-<a href='#event_event-hook' aria-hidden='true' class='block-anchor'  id='event_event-hook'><i aria-hidden='true' class='linkify icon'></i></a>
+<a href='#global-objects_faceted-search' aria-hidden='true' class='block-anchor'  id='global-objects_faceted-search'><i aria-hidden='true' class='linkify icon'></i></a>
 
 ## Faceted Search
 
@@ -345,7 +344,7 @@ example: `{{{banner}}}`. (Double braces would escape the HTML.)
 
 ---
 
-<a href='#event_event-hook' aria-hidden='true' class='block-anchor'  id='event_event-hook'><i aria-hidden='true' class='linkify icon'></i></a>
+<a href='#global-objects_featured-products' aria-hidden='true' class='block-anchor'  id='global-objects_featured-products'><i aria-hidden='true' class='linkify icon'></i></a>
 
 ## Featured Products
 
@@ -395,7 +394,7 @@ This above statement formats the _Featured Products_ display according to the `h
 
 ---
 
-<a href='#event_event-hook' aria-hidden='true' class='block-anchor'  id='event_event-hook'><i aria-hidden='true' class='linkify icon'></i></a>
+<a href='#global-objects_footer' aria-hidden='true' class='block-anchor'  id='global-objects_footer'><i aria-hidden='true' class='linkify icon'></i></a>
 
 ## Footer
 
@@ -422,7 +421,7 @@ This above statement formats the _Featured Products_ display according to the `h
 
 ---
 
-<a href='#event_event-hook' aria-hidden='true' class='block-anchor'  id='event_event-hook'><i aria-hidden='true' class='linkify icon'></i></a>
+<a href='#global-objects_html-head' aria-hidden='true' class='block-anchor'  id='global-objects_html-head'><i aria-hidden='true' class='linkify icon'></i></a>
 
 ## HTML Head
 
@@ -469,7 +468,7 @@ This above statement formats the _Featured Products_ display according to the `h
 
 ---
 
-<a href='#event_event-hook' aria-hidden='true' class='block-anchor'  id='event_event-hook'><i aria-hidden='true' class='linkify icon'></i></a>
+<a href='#global-objects_is-ajax' aria-hidden='true' class='block-anchor'  id='global-objects_is-ajax'><i aria-hidden='true' class='linkify icon'></i></a>
 
 ## Is_Ajax
 
@@ -481,7 +480,7 @@ No properties available for this object.
 
 ---
 
-<a href='#event_event-hook' aria-hidden='true' class='block-anchor'  id='event_event-hook'><i aria-hidden='true' class='linkify icon'></i></a>
+<a href='#global-objects_login' aria-hidden='true' class='block-anchor'  id='global-objects_login'><i aria-hidden='true' class='linkify icon'></i></a>
 
 ## Login
 
@@ -508,7 +507,7 @@ No properties available for this object.
 
 ---
 
-<a href='#event_event-hook' aria-hidden='true' class='block-anchor'  id='event_event-hook'><i aria-hidden='true' class='linkify icon'></i></a>
+<a href='#global-objects_new-products' aria-hidden='true' class='block-anchor'  id='global-objects_new-products'><i aria-hidden='true' class='linkify icon'></i></a>
 
 ## New Products
 
@@ -555,7 +554,7 @@ This above statement formats the _New Products_ display according to the `homepa
 
 ---
 
-<a href='#event_event-hook' aria-hidden='true' class='block-anchor'  id='event_event-hook'><i aria-hidden='true' class='linkify icon'></i></a>
+<a href='#global-objects_page-content' aria-hidden='true' class='block-anchor'  id='global-objects_page-content'><i aria-hidden='true' class='linkify icon'></i></a>
 
 ## Page Content
 
@@ -598,7 +597,7 @@ This above statement formats the _New Products_ display according to the `homepa
 
 ---
 
-<a href='#event_event-hook' aria-hidden='true' class='block-anchor'  id='event_event-hook'><i aria-hidden='true' class='linkify icon'></i></a>
+<a href='#global-objects_pages' aria-hidden='true' class='block-anchor'  id='global-objects_pages'><i aria-hidden='true' class='linkify icon'></i></a>
 
 ## Pages
 
@@ -637,7 +636,7 @@ This above statement formats the _New Products_ display according to the `homepa
 
 ---
 
-<a href='#event_event-hook' aria-hidden='true' class='block-anchor'  id='event_event-hook'><i aria-hidden='true' class='linkify icon'></i></a>
+<a href='#global-objects_page-type-property' aria-hidden='true' class='block-anchor'  id='global-objects_page-type-property'><i aria-hidden='true' class='linkify icon'></i></a>
 
 ## Page Type Property
 
@@ -674,7 +673,7 @@ All possible values for `{{page_type}}` are:
 
 ---
 
-<a href='#event_event-hook' aria-hidden='true' class='block-anchor'  id='event_event-hook'><i aria-hidden='true' class='linkify icon'></i></a>
+<a href='#global-objects_pagination' aria-hidden='true' class='block-anchor'  id='global-objects_pagination'><i aria-hidden='true' class='linkify icon'></i></a>
 
 ## Pagination
 
@@ -724,7 +723,7 @@ All possible values for `{{page_type}}` are:
     </table>
 ---
 
-<a href='#event_event-hook' aria-hidden='true' class='block-anchor'  id='event_event-hook'><i aria-hidden='true' class='linkify icon'></i></a>
+<a href='#global-objects_search' aria-hidden='true' class='block-anchor'  id='global-objects_search'><i aria-hidden='true' class='linkify icon'></i></a>
 
 ## Search
 
@@ -866,30 +865,30 @@ All possible values for `{{page_type}}` are:
     <td>List of search results for a product; points to <a href="/stencil-docs/stencil-object-model-reference/stencil-objects/common-objects/common-product-card-model">product card model</a></td>
   </tr>
   <tr>
-         <td><span class="indent1">show_compare</span></td>
-         <td>Boolean corresponding to merchant’s control-panel selection whether or not to enable product comparisons </td>
-      </tr>
-       <tr>
-         <td><span class="indent1">faceted_search_enabled</span>
-         </td> <td>Boolean that defines whether product-filtering search is enabled for the store</td>
-       </tr>
-       <tr>
-         <td><span class="indent1">facets</span></td>
-         <td>All available search filters</td>
-       </tr>
-       <tr>
-         <td><span class="indent1">pagination</span></td>
-         <td>References pagination model</td>
-       </tr>
-       <tr>
-				 <td><span class="indent1">selected</span</td>
-         <td>Currently selected filters</td>
-       </tr>
+    <td><span class="indent1">show_compare</span></td>
+    <td>Boolean corresponding to merchant’s control-panel selection whether or not to enable product comparisons </td>
+  </tr>
+  <tr>
+    <td><span class="indent1">faceted_search_enabled</span>
+    </td> <td>Boolean that defines whether product-filtering search is enabled for the store</td>
+  </tr>
+  <tr>
+    <td><span class="indent1">facets</span></td>
+    <td>All available search filters</td>
+  </tr>
+  <tr>
+    <td><span class="indent1">pagination</span></td>
+    <td>References pagination model</td>
+  </tr>
+  <tr>
+		<td><span class="indent1">selected</span</td>
+    <td>Currently selected filters</td>
+  </tr>
 </table>
 
 ---
 
-<a href='#event_event-hook' aria-hidden='true' class='block-anchor'  id='event_event-hook'><i aria-hidden='true' class='linkify icon'></i></a>
+<a href='#global-objects_settings' aria-hidden='true' class='block-anchor'  id='global-objects_settings'><i aria-hidden='true' class='linkify icon'></i></a>
 
 ## Settings
 
@@ -1029,7 +1028,7 @@ All possible values for `{{page_type}}` are:
 
 ---
 
-<a href='#event_event-hook' aria-hidden='true' class='block-anchor'  id='event_event-hook'><i aria-hidden='true' class='linkify icon'></i></a>
+<a href='#global-objects_sitemap' aria-hidden='true' class='block-anchor'  id='global-objects_sitemap'><i aria-hidden='true' class='linkify icon'></i></a>
 
 ## Sitemap
 
@@ -1079,7 +1078,7 @@ All possible values for `{{page_type}}` are:
 
 ---
 
-<a href='#event_event-hook' aria-hidden='true' class='block-anchor'  id='event_event-hook'><i aria-hidden='true' class='linkify icon'></i></a>
+<a href='#global-objects_social-links' aria-hidden='true' class='block-anchor'  id='global-objects_social-links'><i aria-hidden='true' class='linkify icon'></i></a>
 
 ## Social Links
 
@@ -1114,7 +1113,7 @@ All possible values for `{{page_type}}` are:
 
 ---
 
-<a href='#event_event-hook' aria-hidden='true' class='block-anchor'  id='event_event-hook'><i aria-hidden='true' class='linkify icon'></i></a>
+<a href='#global-objects_template-property' aria-hidden='true' class='block-anchor'  id='global-objects_template-property'><i aria-hidden='true' class='linkify icon'></i></a>
 
 ## Template Property
 
@@ -1139,7 +1138,7 @@ All possible values for `{{page_type}}` are:
 
 ---
 
-<a href='#event_event-hook' aria-hidden='true' class='block-anchor'  id='event_event-hook'><i aria-hidden='true' class='linkify icon'></i></a>
+<a href='#global-objects_top-sellers' aria-hidden='true' class='block-anchor'  id='global-objects_top-sellers'><i aria-hidden='true' class='linkify icon'></i></a>
 
 ## Top Sellers
 
