@@ -2,11 +2,11 @@
 <div class="otp" id="no-index">
 	<h3> On This Page </h3>
 	<ul>
-    <li><a href="#common-objects_common-objects">Catalog Price</a></li>
-    <li><a href="#common-objects_common-objects">Price</a></li>
-    <li><a href="#common-objects_common-objects">Price Range</a></li>
-    <li><a href="#common-objects_common-objects">Stencil Image</a></li>
-    <li><a href="#common-objects_common-objects">Common Product Card Model</a></li>
+    <li><a href="#common-objects_catalog-price">Catalog Price</a></li>
+    <li><a href="#common-objects_price">Price</a></li>
+    <li><a href="#common-objects_price-range">Price Range</a></li>
+    <li><a href="#common-objects_stencil-image">Stencil Image</a></li>
+    <li><a href="#common-objects_common-product">Common Product Card Model</a></li>
 	</ul>
 </div>
 
@@ -28,6 +28,8 @@ This will return a list of all the objects available on the page, in JSON syntax
 </div>
 </div>
 </div>
+
+<a href='#common-objects_catalog-price' aria-hidden='true' class='block-anchor' id='common-objects_catalog-price'><i aria-hidden='true' class='linkify icon'></i></a>
 
 ## Catalog Price
 
@@ -154,6 +156,8 @@ Object/Property: `{{product.price}}`
 
 ---
 
+<a href='#common-objects_price' aria-hidden='true' class='block-anchor'  id='common-objects_price'><i aria-hidden='true' class='linkify icon'></i></a>
+
 ## Price
 
 <b>Description:</b> Exposes price- and currency-related properties in both raw numeric, and formatted string, formats.
@@ -182,6 +186,8 @@ Object/Property: `{{product.price}}`
 
 ---
 
+<a href='#common-objects_price-range' aria-hidden='true' class='block-anchor'  id='common-objects_price-range'><i aria-hidden='true' class='linkify icon'></i></a>
+
 ## Price Range
 
 <b>Description:</b> For products with several variants with different prices, a price range is available which exposes the minimum and maximum variant price.
@@ -208,9 +214,9 @@ Object/Property: `{{product.price}}`
 
 <b>Object/Property:</b><code>{{product.price}</code></a>
 
-
-
 ----
+
+<a href='#common-objects_stencil-image' aria-hidden='true' class='block-anchor'  id='common-objects_stencil-image'><i aria-hidden='true' class='linkify icon'></i></a>
 
 ## Stencil Image
 
@@ -248,6 +254,8 @@ Object/Property: `{{product.price}}`
 `{{getImage image "thumbnail"}}`
 
 ---
+
+<a href='#common-objects_common-product' aria-hidden='true' class='block-anchor'  id='common-objects_catalog-product'><i aria-hidden='true' class='linkify icon'></i></a>
 
 ## Common Product Card Model
 
