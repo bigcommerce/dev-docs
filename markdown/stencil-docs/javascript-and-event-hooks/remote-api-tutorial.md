@@ -7,6 +7,8 @@
 	</ul>
 </div>
 
+<a href='#remote_remote' aria-hidden='true' class='block-anchor'  id='remote_remote'><i aria-hidden='true' class='linkify icon'></i></a>
+
 ## Remote API Example
 
 Client-side JavaScript can access event hooks directly, without using Handlebars statements. By setting up listeners for these events, you can exercise granular control over your storefront’s user interface. For example, you can pop up custom windows when certain events occur.
@@ -109,4 +111,3 @@ lineNumbers: true
         utils.api.cart.getContent(options, onComplete);
     }
 ```
-

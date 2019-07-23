@@ -1,10 +1,10 @@
-<h1>Front Matter Overview</h1>
+<h1>Using Front Matter</h1>
 
 <div class="otp" id="no-index">
 	<h3> On This Page </h3>
 	<ul>
-    <li><a href="#front-matter-overview_declaring-objects">Declaring Objects</a></li>
-    <li><a href="#front-matter-overview_yaml-syntax">YAML Syntax – Requirements</a></li>
+    <li><a href="#front-matter-overview_declaring-objects">Declaring Front Matter Objects</a></li>
+    <li><a href="#front-matter-overview_yaml-syntax">YAML Syntax Requirements</a></li>
     <li><a href="#front-matter-overview_filtering-attributes">Filtering Attributes</a></li>
     <li><a href="#front-matter-overview_combining-front-matter">Combining Front Matter with Handlebars Attributes</a></li>
     <li><a href="#front-matter-overview_default-versus-custom">Default versus Custom Attributes, per Page</a></li>
@@ -12,16 +12,9 @@
 	</ul>
 </div>
 
-
-
-
-
-
-
-
 <a href='#front-matter-overview_declaring-objects' aria-hidden='true' class='block-anchor'  id='front-matter-overview_declaring-objects'><i aria-hidden='true' class='linkify icon'></i></a>
 
-## Declaring Front-Matter Objects
+## Declaring Front Matter Objects
 
 When you create a store page that requires specific attributes (such as 'New Products') to be displayed, you must first declare the object and attribute on the page in a front-matter block at the top of the page's HTML template file. The front matter block makes the attribute accessible on the page. Then, to display the attribute on the storefront page, you will reference the the object using Handlebars within the page's HTML.
 For example, to display 'new products' on a storefront's home page, you first need to make new products accessible on the home page. To achieve this, include the following front matter block at the top of the [home.html](https://github.com/bigcommerce/cornerstone/blob/master/templates/pages/home.html) file to declare the products object with its new attribute. This allows a storefront's home page to access a store's "New Products."
@@ -34,10 +27,10 @@ products:
 ---
 ```
 
-**Note:** A 'limit' is required for Product Objects to render on a storefront page. You can hard code the limit value or utilize handlebars.js to reference it from the theme's config.json file. In this case, the limit value is being referenced from the `settings` JSON object in the `config.json` file using handlebars.js. Information on required attributes is detailed in the Front Matter Attributes Reference. 
+**Note:** A 'limit' is required for Product Objects to render on a storefront page. You can hard code the limit value or utilize handlebars.js to reference it from the theme's config.json file. In this case, the limit value is being referenced from the `settings` JSON object in the `config.json` file using handlebars.js. Information on required attributes is detailed in the Front Matter Attributes Reference.
 
 After including the front matter block at the top of the home.html file, the New Products attribute will be accessible in the home page's context. As previously stated, simply including the front matter block will not display the attribute on the page. In order to actually display the new products on the desired storefront page, you will refernce the attribute using Handlebars in the same file you have added the front matter block to.
-In this example, we will include the following code in Cornerstone's [home.html](https://github.com/bigcommerce/cornerstone/blob/master/templates/pages/home.html) file to display New Products on our store's home page. 
+In this example, we will include the following code in Cornerstone's [home.html](https://github.com/bigcommerce/cornerstone/blob/master/templates/pages/home.html) file to display New Products on our store's home page.
 
 
 ```
@@ -49,7 +42,7 @@ In this example, we will include the following code in Cornerstone's [home.html]
 
 <a href='#front-matter-overview_yaml-syntax' aria-hidden='true' class='block-anchor'  id='front-matter-overview_yaml-syntax'><i aria-hidden='true' class='linkify icon'></i></a>
 
-## YAML Syntax – Requirements
+## YAML Syntax Requirements
 
 Stencil front matter uses the conventions of [YAML]() (short for the recursive "YAML Ain't Markup Language"). Here are the YAML conventions you must follow in front matter:
 
@@ -67,7 +60,7 @@ You can use front matter to specify attributes on the tops of pages in your
 You **cannot** use front matter to accomplish this on pages in the following subdirectories:
 * `<theme-name>/templates/components/`
 * `<theme-name>/templates/layout/`
-* `<theme-name>/templates/pages/custom/` 
+* `<theme-name>/templates/pages/custom/`
 
 * Indent using only spaces, not tabs. (YAML forbids tabs, to avoid inconsistent encoding of tabs across platforms.) An indent of even one space indicates a child.
 
@@ -106,7 +99,7 @@ products:
 <div class="HubBlock--callout">
 <div class="CalloutBlock--">
 <div class="HubBlock-content">
-    
+
 <!-- theme:  -->
 
 ### Filtering for Faster Page Loads
@@ -138,7 +131,7 @@ products:
 <div class="HubBlock--callout">
 <div class="CalloutBlock--">
 <div class="HubBlock-content">
-    
+
 <!-- theme:  -->
 
 ###  Reading the Handlebars
@@ -182,6 +175,3 @@ product:
   <p>{{ name }}</p>
 {{/each}}
 ```
-
-
-

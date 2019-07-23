@@ -4,24 +4,18 @@
 	<h3> On This Page </h3>
 	<ul>
     <li><a href="#npm-tutorials_basic">Basic npm tutorial</a></li>
-        <li><a href="#npm-tutorials_advanced">Advanced npm tutorial</a></li>
+    <li><a href="#npm-tutorials_advanced">Advanced npm tutorial</a></li>
 	</ul>
 </div>
 
-
-
-
-
-
-
-
+<a href='#npm-tutorials_basic' aria-hidden='true' class='block-anchor'  id='npm-tutorials_basic'><i aria-hidden='true' class='linkify icon'></i></a>
 
 ## Basic `npm` tutorial
 
 <div class="HubBlock--callout">
 <div class="CalloutBlock--warning">
 <div class="HubBlock-content">
-    
+
 <!-- theme: warning -->
 
 ### Compatible with Cornerstone versions earlier than 2.x.x
@@ -221,6 +215,8 @@ We also needed to add form fields for the `EventDate[Mth]`, `EventDate[Day]`, an
 
 ---
 
+<a href='#npm-tutorials_advanced' aria-hidden='true' class='block-anchor'  id='npm-tutorials_advanced'><i aria-hidden='true' class='linkify icon'></i></a>
+
 ## Advanced npm Tutorial
 
 <iframe width="560" height="315" src="https://www.youtube.com/embed/sudvuxJFxKc" frameborder="0" allow="accelerometer; autoplay; encrypted-media; gyroscope; picture-in-picture" allowfullscreen></iframe>
@@ -327,11 +323,11 @@ window.initReact = function(contextJSON = '{}') {
 ```
 
 This sets up a handler for attaching an `<x-coupon-drawer>` element to the page. We’re using React here to render the CouponDrawer component. This block of code was taken and modified from https://facebook.github.io/react/docs/web-components.html#using-react-in-your-web-components.
-	
+
 ### Add the `<x-coupon-drawer>` Element to the Page
 
 Add this in `<theme-name>/templates/layout/base.html.` (See the image below.) We’re using this layout template for this example, although you would follow the same steps in any other template.
-	
+
 ### Call initReact from base.html
 
 Add a call to `window.initReact`. We’re continuing to work with the `base.html` page for this example. Notice that we’re also passing in the jsContext here. The `initReact` method will merge this context with an object created from the attributes placed upon the `<x-coupon-drawer>`, and will pass the combined data along to the React component.
@@ -522,7 +518,7 @@ export default VerticalLinearStepper;
 <div class="HubBlock--callout">
 <div class="CalloutBlock--">
 <div class="HubBlock-content">
-    
+
 <!-- theme:  -->
 
 ### Note on the VerticalLinearStepper.js Example
@@ -531,4 +527,3 @@ export default VerticalLinearStepper;
 </div>
 </div>
 </div>
-

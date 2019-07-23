@@ -10,7 +10,7 @@
 	</ul>
 </div>
 
-As a theme developer, you can use the *Catalog Price Object* to highlight the savings that a merchant is offering over the MSRP (Retail Price) directly on the storefront by simply referencing the product's [Catalog Price Object](/stencil-docs/stencil-object-model-reference/stencil-objects/common-objects/catalog-price) and the correct property for the product. 
+As a theme developer, you can use the [*Catalog Price Object*](/stencil-docs/reference-docs/common-objects#common-objects_catalog-price) to highlight the savings that a merchant is offering over the MSRP (Retail Price) directly on the storefront by simply referencing the product's [Catalog Price Object](/stencil-docs/stencil-object-model-reference/stencil-objects/common-objects/catalog-price) and the correct property for the product.
 
 Merchants can use Control Panel options to set the following prices for a catalog product:
 
@@ -41,7 +41,7 @@ These options and assigned values are each represented in the [Catalog Price Obj
 
 ---
 
-<a href='##catalog-price_excluding-tax' aria-hidden='true' class='block-anchor'  id='#catalog-price_excluding-tax'><i aria-hidden='true' class='linkify icon'></i></a>
+<a href='#catalog-price_excluding-tax' aria-hidden='true' class='block-anchor'  id='catalog-price_excluding-tax'><i aria-hidden='true' class='linkify icon'></i></a>
 
 ## Catalog Price Object Examples Excluding Tax
 
@@ -115,10 +115,10 @@ lineNumbers: true
   }
 ```
 
-Items to note about the Catalog Price Object above: 
+Items to note about the Catalog Price Object above:
 
 * `without_tax` -- this property maps to the control panel’s **Default Price** field.
-* `rrp_without_tax` -- `rrp` is an abbreviation for "regular retail price." This property maps to the control panel's **MSRP (Retail Price)** field. 
+* `rrp_without_tax` -- `rrp` is an abbreviation for "regular retail price." This property maps to the control panel's **MSRP (Retail Price)** field.
 * `saved` --  this property is the difference between the existing values for `without_tax` (**Default Price**) and `rrp_without_tax` (**MSRP**).
 
 
@@ -200,10 +200,10 @@ lineNumbers: true
   }
 ```
 
-Items to note about the *Catalog Price* Object above: 
+Items to note about the *Catalog Price* Object above:
 
-* The `sale_price_without_tax` property maps to the product’s effective price is the Control Panel's **Sale Price** field. The `sale_price_without_tax` property will directly expose the  **Sale Price** set on a base product, variant, or price record. 
-* The regular store price is now displayed in an added property called `non_sale_price_without_tax`. 
+* The `sale_price_without_tax` property maps to the product’s effective price is the Control Panel's **Sale Price** field. The `sale_price_without_tax` property will directly expose the  **Sale Price** set on a base product, variant, or price record.
+* The regular store price is now displayed in an added property called `non_sale_price_without_tax`.
 
 Properties noted will only be displayed if a **Sale Price** is set on the product.
 
@@ -211,11 +211,11 @@ Properties noted will only be displayed if a **Sale Price** is set on the produc
 
 <a href='#catalog-price_prices-and-conditional' aria-hidden='true' class='block-anchor'  id='catalog-price_prices-and-conditional'><i aria-hidden='true' class='linkify icon'></i></a>
 
-### Prices and Conditional Logic Example 
+### Prices and Conditional Logic Example
 
 Stencil structures product prices for backward compatibility with the BigCommerce platform's traditional treatment of prices. This behavior enables you to add logic that determines whether to display a strikeout price on the storefront.
 
-The example below tests for the presence of the `sale_price_without_tax` property (you could also look for the `sale_price_with_tax` property). The presence of the `sale_price_without_tax` property means that the product has been given a **Sale Price**. 
+The example below tests for the presence of the `sale_price_without_tax` property (you could also look for the `sale_price_with_tax` property). The presence of the `sale_price_without_tax` property means that the product has been given a **Sale Price**.
 
 With the logic below, the page will display the standard store price with a strikeout across it, placed next to the **Sale Price**, indicating the current selling price of the product.
 
@@ -241,15 +241,15 @@ lineNumbers: true
 
 ---
 
-<a href='##catalog-price_including-and-excluding' aria-hidden='true' class='block-anchor'  id='#catalog-price_including-and-excluding'><i aria-hidden='true' class='linkify icon'></i></a>
+<a href='#catalog-price_including-and-excluding' aria-hidden='true' class='block-anchor'  id='catalog-price_including-and-excluding'><i aria-hidden='true' class='linkify icon'></i></a>
 
-## Catalog Price Object Examples Including and Excluding Tax 
+## Catalog Price Object Examples Including and Excluding Tax
 
 Depending on how the store has been set up in the Control Panel’s **Store Setup** > **Tax** > **Configure Tax Display Settings**, the *Catalog Price Object* properties may represent prices in the following ways:
 
 * **Including tax**
 * **Excluding tax**
-* **Including and excluding tax** 
+* **Including and excluding tax**
 
 This display setting affects how values are returned in the *Catalog Price Object* and how the values appear on storefront pages.
 
@@ -325,7 +325,7 @@ Items to note about the *Catalog Price Object* example above:
 <div class="HubBlock--callout">
 <div class="CalloutBlock--warning">
 <div class="HubBlock-content">
-    
+
 <!-- theme: warning -->
 
 ### Tax Display Configurations
@@ -337,7 +337,7 @@ Items to note about the *Catalog Price Object* example above:
 
 ---
 
-### Sale Price Defined in Control Panel 
+### Sale Price Defined in Control Panel
 
 Assume that a merchant has defined the following for a tax configurations for a product in the Control Panel, alongside a defined **Sale Price**:
 
@@ -414,7 +414,7 @@ Items to note about the *Catalog Price Object* above:
 
 The table below explains the mapping between the Control Panel fields and the Catalog Price Object properties and values.
 
-<table> 
+<table>
   <tr>
     <th>Control-Panel Field</th>
     <th>Catalog Price Object Property</th>   
@@ -455,7 +455,7 @@ The table below explains the mapping between the Control Panel fields and the Ca
     <td>Sale Price (excluding tax)</td>
     <td><code>{{product.price.sale_price_without_tax}}</code></td>
     <td>This product’s discounted/sale price.</td>
-  </tr> 
+  </tr>
   <tr>
     <td>Sale Price (including tax)</td>
     <td><code>{{ product.sale_price_with_tax }}</code></td>
@@ -476,6 +476,3 @@ The table below explains the mapping between the Control Panel fields and the Ca
 
 * [Catalog Price Object](/stencil-docs/stencil-object-model-reference/stencil-objects/common-objects/catalog-price)
 * [Adding a New Product](https://support.bigcommerce.com/s/article/Adding-Products#new-product) (BigCommerce Knowledge Base)
-
-
-

@@ -9,8 +9,6 @@
 	</ul>
 </div>
 
-<a href='#event_event-hook' aria-hidden='true' class='block-anchor'  id='event_event-hook'><i aria-hidden='true' class='linkify icon'></i></a>
-
 Stencil themes provide access to remote resources through data tags and event hooks. Developers can use these hooks to trigger defined events. A theme can hook to an event to perform actions or calculations based on shopper behavior.
 
 Stencil themes incorporate event hooks by importing the stencil-utils module. If take a look at [cornerstone/assets/js/theme/](https://github.com/bigcommerce/cornerstone/tree/master/assets/js/theme), you will see the import statement `'import utils from '@bigcommerce/stencil-utils';` at the top of files using leveraging event hooks.
@@ -105,7 +103,7 @@ lineNumbers: true
 
 ```
 /*  
- * Import all product-specific js 
+ * Import all product-specific js
  */
 [...]
 import utils from '@bigcommerce/stencil-utils';
@@ -118,6 +116,7 @@ addProductToCart() {
 ```
 
 ---
+<a href='#event_stencil-data-tags' aria-hidden='true' class='block-anchor'  id='event_stencil-data-tags'><i aria-hidden='true' class='linkify icon'></i></a>
 
 ## Stencil Data Tags and Event Hooks
 Stencil themes provide the following chains of data tags, delegated DOM (Document Object Model) events, emitted Stencil event hooks, and Stencil event parameter(s).
@@ -162,7 +161,7 @@ searchEvents() {
   this.$body.on('click', '[data-faceted-search-facet]', (event) => {
         this.emit('facetedSearch-facet-clicked', event);
   });
- 
+
   this.$body.on('submit', '[data-faceted-search-range]', (event) => {
         this.emit('facetedSearch-range-submitted', event);
   });
@@ -195,4 +194,3 @@ searchEvents() {
 
 ### Additional Resources
 * [cookieNotification.js](https://github.com/bigcommerce/cornerstone/blob/637ef1b0ff130333aea128663daa6d1a4d37fb78/assets/js/theme/global/cookieNotification.js) (BigCommerce Github)
-
