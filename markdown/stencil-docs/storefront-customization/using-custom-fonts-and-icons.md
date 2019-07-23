@@ -27,7 +27,7 @@
 
 ## Applying Custom Fonts
 
-There are three paths to take for using custom fonts. 
+There are two paths to take for using custom fonts. 
 - Change to a new Google Font
 - Use a custom font
 
@@ -63,7 +63,9 @@ Make sure it follows of the format `Google_FontName_Weight`.
 
 Custom fonts can be used an any theme. To use a custom font upload it to the stores `/content/` folder in [WebDav](https://support.bigcommerce.com/s/article/File-Access-WebDAV). 
 
-[add image here]
+
+![content folder markdown](https://raw.githubusercontent.com/bigcommerce/dev-docs/master/assets/img/content_folder_webdav.png "Content Folder Webdav")
+
 
 ### Reference Fonts in Templates' `<head>`
 
