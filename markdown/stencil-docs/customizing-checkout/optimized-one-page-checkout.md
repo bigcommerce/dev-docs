@@ -6,7 +6,7 @@
     <li><a href="#optimized_configuring">Configuring the Desktop Viewport</a></li>
     <li><a href="#optimized_classes">Classes Available for Customization</a></li>
     <li><a href="#optimized_providing">Providing User Options in Store Design</a></li>
-		<li><a href="#optimized_currency">Currency Conversion</a></li>
+		<li><a href="#optimized_currency">Currency Conversion Options</a></li>
 	</ul>
 </div>
 
@@ -85,7 +85,9 @@ In Cornerstone's <span class="fn">optimized-checkout.scss</span>, each SCSS clas
 
 ---
 
-## Currency-Conversion Options
+<a href='#optimized_currency' aria-hidden='true' class='block-anchor'  id='optimized_working'><i aria-hidden='true' class='linkify icon'></i></a>
+
+## Currency Conversion Options
 
 You can enable the display of alternate currencies on your Stencil theme’s Optimized One-Page Checkout and order confirmation pages.
 
@@ -122,4 +124,4 @@ At checkout, the shopper will still be billed in the store’s default currency.
 ## Resources
 
 ### Related Articles
-* [The Complete Guide to Checkout Customization on BigCommerce]() (Developer Blog)
+* [The Complete Guide to Checkout Customization on BigCommerce](https://medium.com/bigcommerce-developer-blog/the-complete-guide-to-checkout-customization-on-bigcommerce-6b566bc36fa9) (Developer Blog)
