@@ -2,19 +2,15 @@
 <div class="otp" id="no-index">
 	<h3> On This Page </h3>
 	<ul>
-		<li><a href="#paypal-smart_overview">PayPal Smart Buttons Overview</a></li>
-    <li><a href="#paypal-smart_include-smart-buttons">Enable Smart Buttons on Your Stencil Theme</a></li>
-    <li><a href="#paypal-smart_additional-resources">Additional Resources</a></li>
+    <li><a href="#paypal-smart_include-smart-buttons">Enable Smart Buttons on Your Stencil Theme</a></li>s
 	</ul>
 </div>
 
-<a href='#paypal-smart_overview' aria-hidden='true' class='block-anchor'  id='paypal-smart_overview'><i aria-hidden='true' class='linkify icon'></i></a>
+PayPal Smart Buttons are available on Cornerstone versions 2.6.0+ for merchants who have **PayPal powered by Braintree** or **PayPal Express Checkout** enabled on their store.
 
-PayPal Smart Buttons are available on Cornerstone versions 2.6.0+ for merchants who have **PayPal powered by Braintree** or **PayPal Express Checkout** enabled on their store. 
+Theme developers can enable Smart Buttons on a custom Stencil theme by adding the required settings to the <span class="fn">config.json</span> file.
 
-Theme developers can enable Smart Buttons on a custom Stencil theme by adding the required settings to the <span class="fn">config.json</span> file. 
-
-Merchants will have the ability to customize some style aspects of the PayPal payment buttons at checkout using Store Design for stores that have PayPal powered by Braintree or PayPal Express Checkout enabled. In order to make PayPal Smart Buttons customizable with Store Design, a theme developer will need to make its customization properties available by adding its schema to the <span class="fn">schema.json</span> file. 
+Merchants will have the ability to customize some style aspects of the PayPal payment buttons at checkout using Store Design for stores that have PayPal powered by Braintree or PayPal Express Checkout enabled. In order to make PayPal Smart Buttons customizable with Store Design, a theme developer will need to make its customization properties available by adding its schema to the <span class="fn">schema.json</span> file.
 
 ---
 
@@ -22,7 +18,7 @@ Merchants will have the ability to customize some style aspects of the PayPal pa
 
 ## Enable Smart Buttons on Your Stencil Theme
 
-Smart Buttons are included on Cornerstone versions 2.6.0+. If your theme does not already include Smart Buttons, append the `paymentbuttons` settings to the _Settings_ object within your <span class="fn">config.json</span> file. See the code sample below. 
+Smart Buttons are included on Cornerstone versions 2.6.0+. If your theme does not already include Smart Buttons, append the `paymentbuttons` settings to the _Settings_ object within your <span class="fn">config.json</span> file. See the code sample below.
 
 <div class="HubBlock-header">
     <div class="HubBlock-header-title flex items-center">
@@ -67,7 +63,7 @@ lineNumbers: true
 <div class="HubBlock--callout">
 <div class="CalloutBlock--warning">
 <div class="HubBlock-content">
-    
+
 <!-- theme: warning -->
 
 ### Store Design Customization
@@ -222,11 +218,11 @@ lineNumbers: true
 <div class="HubBlock--callout">
 <div class="CalloutBlock--error">
 <div class="HubBlock-content">
-    
+
 <!-- theme: error -->
 
 ### Mutually Exclusive Options
-> Some customization options are mutually exclusive, meaning when used in combination with other customization options, the smart button will completely fail to render on the page. 
+> Some customization options are mutually exclusive, meaning when used in combination with other customization options, the smart button will completely fail to render on the page.
 
 All mutually exclusive options are tied to the layout setting `vertical.` If your layout setting is `vertical,` take note of the following customization **restrictions**:
 
@@ -248,5 +244,3 @@ All mutually exclusive options are tied to the layout setting `vertical.` If you
 ### Related Articles
 
 * [PayPal Checkout Customization](https://developer.paypal.com/demo/checkout/#/pattern/checkout) (PayPal)
-
-
