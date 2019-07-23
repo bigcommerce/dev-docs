@@ -33,7 +33,7 @@ In some cases, the terminal will provide a verbose error message specifying wher
 
 If you receive the following error message, please reinstall Node.js to a supported "LTS" ("Long-Term Support") version:
 
-```
+```text
 Debug: internal, implementation, error
         TypeError: Uncaught error: Object #<Object> has no method 'parse'
         at internals.implementation
@@ -71,12 +71,10 @@ If you get a file-permissions error such as `EPERM` or `EACCES` when issuing the
 
 If you get errors of the following type upon executing the `stencil init` command:
 
-```
-Potentially unhandled rejection [6] TypeError: Error loading "js/bundle"
+```text
+Potentially unhandled rejection [6] TypeError: Error loading "js/bundle" 
 at file:/Users/<username>/Desktop/Fortune-1.4.6/assets/js/bundle.js
-
 Error evaluating file:/Users/<username>/Desktop/Fortune-1.4.6/assets/js/bundle.js
-
 Cannot read property 'createElement' of undefined...
 ```
 
@@ -124,7 +122,7 @@ One way of checking what directory you are working in is by running the `pwd` co
 
 If executing `stencil start` provokes errors like the following
 
-```
+```text
 module.js:327
 throw err;
 ^
@@ -225,7 +223,7 @@ If you have downloaded and installed a Marketplace theme (other than Cornerstone
 
 3. Starting inside your theme directory, enter this alternate sequence of commands:
 
-```
+```shell
 npm install -g jspm-git
 npm install
 jspm config registries.bitbucket.baseurl git+ssh://git@bitbucket.org/

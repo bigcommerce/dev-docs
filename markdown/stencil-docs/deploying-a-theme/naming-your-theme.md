@@ -28,7 +28,7 @@ subtitle: ""
 lineNumbers: true
 -->
 
-```
+```json
 {
 "name": "Cornerstone",
 "version": "1.0.0",
@@ -36,7 +36,7 @@ lineNumbers: true
   "price": 0,
    "documentation_url": 		
    "https://support.bigcommerce.com/articles/Public/Cornerstone-Theme-Manual",
-  ...
+  // ...
   }
 }
 ```
@@ -55,14 +55,14 @@ subtitle: ""
 lineNumbers: true
 -->
 
-```
+```json
 {
 "name": "MyTheme",
 "version": "1.1.2",
 "meta": {
   "price": 10000,
   "documentation_url": "https://www.mywebsite.com/theme-docs/my-theme.html",
-  ...
+  // ...
   }
 }
 ```
@@ -87,23 +87,26 @@ subtitle: ""
 lineNumbers: true
 -->
 
-```
+```json
 "variations": [
-{
-  "name": "Light",
-  "id": "light",
-  "meta": {
-    "desktop_screenshot": "desktop_screenshot.jpg",
-    "mobile_screenshot": "mobile_screenshot.png",
-    "description": "This is the light style of the Stencil Theme",
-    "demo_url": "https://stencil-light.mybigcommerce.com",
-    "optimized_for": ["fashion", "image_heavy", "etc"],
-    "industries": []
+  {
+    "name": "Light",
+    "id": "light",
+    "meta": {
+      "desktop_screenshot": "desktop_screenshot.jpg",
+      "mobile_screenshot": "mobile_screenshot.png",
+      "description": "This is the light style of the Stencil Theme",
+      "demo_url": "https://stencil-light.mybigcommerce.com",
+      "optimized_for": ["fashion", "image_heavy", "etc"],
+      "industries": []
+    },
   },
-{
+  {
   "name": "Bold",
-  "id": "bold",
-...
+  "id": "bold"
+  }
+  // ...
+]
 ```
 
 Try inserting a new custom variation of your own, below the "Light" block shown above. Your variation’s definition might look something like this:
@@ -120,41 +123,26 @@ subtitle: ""
 lineNumbers: true
 -->
 
-```
+```json
 "variations": [
-...
-{
-  "name": "MyCustomVariation",
-  "id": "my_custom_variation",
-  "meta": {
-    "desktop_screenshot": "my_custom_desktop_screenshot.jpg",
-    "mobile_screenshot": "my_custom_mobile_screenshot.png",
-    "description": "This is a really cool custom style of the Stencil Theme",
-    "demo_url": "https://stencil-custom.mybigcommerce.com",
-    "optimized_for": ["fashion", "image_heavy", "etc"],
-    "industries": []
+// ...
+  {
+    "name": "MyCustomVariation",
+    "id": "my_custom_variation",
+    "meta": {
+      "desktop_screenshot": "my_custom_desktop_screenshot.jpg",
+      "mobile_screenshot": "my_custom_mobile_screenshot.png",
+      "description": "This is a really cool custom style of the Stencil Theme",
+      "demo_url": "https://stencil-custom.mybigcommerce.com",
+      "optimized_for": ["fashion", "image_heavy", "etc"],
+      "industries": []
+    },
   },
-{
-  "name": "Bold",
-  "id": "bold",
-...
-"variations": [
-...
-{
-  "name": "MyCustomVariation",
-  "id": "my_custom_variation",
-  "meta": {
-    "desktop_screenshot": "my_custom_desktop_screenshot.jpg",
-    "mobile_screenshot": "my_custom_mobile_screenshot.png",
-    "description": "This is a really cool custom style of the Stencil Theme",
-    "demo_url": "https://stencil-custom.mybigcommerce.com",
-    "optimized_for": ["fashion", "image_heavy", "etc"],
-    "industries": []
-  },
-{
-  "name": "Bold",
-  "id": "bold",
-...
+  {
+    "name": "Bold",
+    "id": "bold"
+  }
+  // ...
 ```
 
 ---
@@ -181,14 +169,14 @@ subtitle: ""
 lineNumbers: true
 -->
 
-```
+```json
 {
   "name": "MyCustomVariation",
   "id": "my_custom_variation",
   "settings": {
-    ...
+    // ...
     "body-font-family": "MyCoolFont, AnotherFont, sans-serif",
-    ...
+    // ...
   }
 }
 ```

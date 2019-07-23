@@ -41,7 +41,7 @@ subtitle: ""
 lineNumbers: true
 -->
 
-```js
+```javascript
 export default function() {
 
   // Here you can override the default browser alert box by
@@ -82,7 +82,7 @@ subtitle: ""
 lineNumbers: true
 -->
 
-```
+```html
 <form class="form" method="post" action="{{product.cart_url}}"
     enctype="multipart/form-data" data-cart-item-add>
 ```
@@ -127,7 +127,7 @@ Hook for items added to the customer’s shopping cart.
 
 **Function Signature:**
 
-```
+```javascript
 itemAdd() {
     this.$body.on('submit', '[data-cart-item-add]', (event) => {
         this.emit('cart-item-add', event, event.target);
@@ -156,7 +156,7 @@ Hooks for faceted-search selections that the customer initiates or submits.
 
 **Function Signature**
 
-```
+```javascript
 searchEvents() {
   this.$body.on('click', '[data-faceted-search-facet]', (event) => {
         this.emit('facetedSearch-facet-clicked', event);

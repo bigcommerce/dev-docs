@@ -106,7 +106,7 @@ Gets a product image.
 
 Example JSON returned in the response:
 
-```
+```json
 {
   "id": 248,
   "product_id": 32,
@@ -138,7 +138,7 @@ Gets a count of the number of product images in the store.
 
 Example JSON returned in the response:
 
-```
+```json
 {
   "count": 105
 }
@@ -172,7 +172,7 @@ The following properties of the product image are required. The request won’t 
 
 Example JSON returned in the response:
 
-```
+```json
 {
   "id": 116,
   "product_id": 29,
@@ -212,7 +212,7 @@ The following properties of the product image are required. The request won’t 
 
 Example JSON returned in the response:
 
-```
+```json
 {
   "id": 118,
   "product_id": 30,

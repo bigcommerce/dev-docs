@@ -30,15 +30,11 @@ Override any template, create a `bigcommerce` directory in your theme and copy t
 
 For example, copy
 
-```
-wp-content/plugins/bigcommerce/templates/public/single-bigcommerce_product.php
-```
+`wp-content/plugins/bigcommerce/templates/public/single-bigcommerce_product.php`
 
 to
 
-```
-wp-content/themes/<theme-name>/bigcommerce/single-bigcommerce_product.php
-```
+`wp-content/themes/<theme-name>/bigcommerce/single-bigcommerce_product.php`
 
 Then, edit `wp-content/themes/<theme-name>/bigcommerce/single-bigcommerce_product.php` to override the default content.
 

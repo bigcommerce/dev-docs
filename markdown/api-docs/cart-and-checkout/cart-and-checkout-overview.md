@@ -283,7 +283,7 @@ subtitle: ""
 lineNumbers: true
 -->
 
-```
+```json
 
 {
   "line_items": [
@@ -392,7 +392,7 @@ subtitle: ""
 lineNumbers: true
 -->
 
-```
+```json
 {
   "line_item": {
     "quantity": 1,

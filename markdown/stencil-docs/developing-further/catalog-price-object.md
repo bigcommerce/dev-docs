@@ -80,9 +80,9 @@ subtitle: ""
 lineNumbers: true
 -->
 
-```
+```json
 "product": {
-    ...
+    // ...
   },
   "price": {
     "without_tax": {
@@ -158,9 +158,9 @@ subtitle: ""
 lineNumbers: true
 -->
 
-```
+```json
 "product": {
-  ...
+  // ...
   "price": {
     "without_tax": {
       "formatted": "$15.00",
@@ -289,7 +289,7 @@ subtitle: ""
 lineNumbers: true
 -->
 
-```
+```json
 "product": {
   "price": {
     "with_tax": {
@@ -356,7 +356,7 @@ subtitle: ""
 lineNumbers: true
 -->
 
-```
+```json
 "product": {
   "price": {
     "with_tax": {
@@ -372,8 +372,8 @@ lineNumbers: true
       "value": 123
     },
     "sale_price_with_tax": {
-      formatted: "135.30",
-      value: 135.3
+      "formatted": "135.30",
+      "value": 135.3
     },
     "rrp_with_tax": {
       "formatted": "$275.00",

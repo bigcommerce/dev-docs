@@ -80,7 +80,7 @@ If you are working on a theme that does not have the scripts already enabled, he
 
 Add it between these existing statements, so it will ultimately read as shown below.
 
-```
+```html
 <script type="text/javascript">
     window.language = {{{langJson 'optimized_checkout'}}};
 </script>
@@ -112,7 +112,7 @@ Add it between these existing statements, so it will ultimately read as shown be
 
 Add it between these existing statements, so it will ultimately read as shown below.
 
-```
+```html
 <script type="text/javascript">
     window.language = {{{langJson 'optimized_checkout'}}};
 </script>
@@ -130,7 +130,7 @@ Additionally, at the bottom of the order confirmation template (`order-confirmat
 
 Insert it between these existing statements, so it will ultimately read as shown below.
 
-```
+```html
 {{{ checkout.order_confirmation_content }}}
 
 {{{ footer.scripts }}}

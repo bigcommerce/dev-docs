@@ -86,7 +86,7 @@ subtitle: ""
 lineNumbers: true
 -->
 
-```
+```json
 "customLayouts": {
     "product": {},
     "brand": {},
@@ -109,7 +109,7 @@ subtitle: ""
 lineNumbers: true
 -->
 
-```
+```json
 "product": {
     	"alternate-product.html":"/test-url/"
 },
@@ -131,7 +131,7 @@ subtitle: ""
 lineNumbers: true
 -->
 
-```
+```json
 {
   "normalStoreUrl": "http://cornerstone-light-demo.mybigcommerce.com",
   "port": 3000,

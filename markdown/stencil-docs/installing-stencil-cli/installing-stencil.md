@@ -48,13 +48,13 @@ These instructions have been tested on Mac OS X Yosemite. Dependencies for other
 * Stencil requires the [Node.js](https://nodejs.org/) runtime environment, version [8.1.0](https://nodejs.org/en/blog/release/). We’ve deprecated support for earlier versions of Node.
 * We recommend that you install or update Node.js using [nvm](https://github.com/creationix/nvm#installation). First install nvm, version [0.31.0](https://github.com/creationix/nvm/tree/v0.31.0), as follows:
 
-```
+```shell
 curl -o- https://raw.githubusercontent.com/creationix/nvm/v0.31.0/install.sh | bash
 ```
 
 Next, explicitly install a supported Node.js version:
 
-```
+```shell
 nvm install 8.1.0
 ```
 

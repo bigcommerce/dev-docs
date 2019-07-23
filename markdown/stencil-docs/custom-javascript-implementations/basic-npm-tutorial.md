@@ -133,7 +133,7 @@ Import these new dependencies into `<theme-name>/assets/js/theme/product.js`.
 
 In `<theme-name>/assets/js/app.js`, notice that there is a mapping between the product page and the `product.js` script:
 
-```
+```javascript
 const PageClasses = {
     mapping: {
         ...
@@ -146,7 +146,7 @@ That is, when a user navigates to the product page, the `product.js` script is r
 
 We'll use the `loaded` method to initialize our datepicker widget:
 
-```
+```javascript
 import $ from 'jquery';
 import PageManager from '../page-manager';
 import Review from './product/reviews';
@@ -226,7 +226,7 @@ Highlighted below is the new code added to the `loaded` method:
 
 Update the `<theme-name>/templates/components/products/product-view.html` template, replacing the existing `{{#if product.event_date}}` block with the following:
 
-```
+```html
 {{#if product.event_date}}
     {{inject 'product' product}}
     <div class="form-field">
