@@ -38,9 +38,10 @@ Before updating your theme, review the following list items to ensure a successf
 
 ## Maintaining Customizations
 
-A way to keep your customizations separate from the base theme is to rename the files. For example, `{{{stylesheet ‘/assets/css/theme.css’}}}`is the theme CSS that comes with the file. Instead of making edits to this file create a new one `{{{stylesheet ‘/assets/css/my_custom_theme.css’}}}` and reference this file in the layouts.
+When creating customizations, it's important to create a new file to overwrite the original styles, as opposed to modifying the original existing file. For example, `{{{stylesheet ‘/assets/css/theme.css’}}}` is the file that has the CSS that already exists in the theme. Instead of making edits to this file, create a new .css file, such as `{{{stylesheet ‘/assets/css/my_custom_theme.css’}}}`. Place your new styles in this file, and reference this file in the layouts.
 
-Make sure to discuss with the merchant not to make any changes to the files. This can cause issues later on with updates. 
+Make sure to discuss with the merchant not to make any changes to the files. This can cause issues later on with updates. Having multiple editors to files could potentially cause issues later on with updates if a proper workflow is not established.
+
 
 ---
 
