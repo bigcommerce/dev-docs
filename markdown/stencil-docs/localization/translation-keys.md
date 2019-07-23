@@ -2,29 +2,28 @@
 <div class="otp" id="no-index">
 	<h3> On This Page </h3>
 	<ul>
-    <li><a href="#basis_required">Translating a Theme</a></li>
+    <li><a href="#basis_translating">Translating a Theme</a></li>
     <li><a href="#basis_required">Required Subdirectory</a></li>
     <li><a href="#basis_schema">The Schema</a></li>
     <li><a href="#basis_localization-file">Localization File Structure</a></li>
-    <li><a href="#invoking_translation">Invoking a Translation Key</a></li>
-    <li><a href="#implementation_cornerstone-localization-example">Localization Example</a></li>
+    <li><a href="#basis_invoking">Invoking a Translation Key</a></li>
+    <li><a href="#basis_localization-example">Localization Example</a></li>
 	</ul>
 </div>
 
-Translation keys exist in JSON files and are invoked based on the user's browser language. With a Stencil theme, you can define multiple translations for each theme based on a predefined schema. 
+Translation keys exist in JSON files and are invoked based on the user's browser language. With a Stencil theme, you can define multiple translations for each theme based on a predefined schema.
 
 BigCommerce does not provide translations for the theme’s content, however, you have the option of localizing your themes for desired target languages, based on the provided schema. Theme developers are not required to localize or translate a theme in order to make it work.
 
-
 ---
 
-<a href='#basis_what-translates' aria-hidden='true' class='block-anchor'  id='basis_what-translates'><i aria-hidden='true' class='linkify icon'></i></a>
+<a href='#basis_translating' aria-hidden='true' class='block-anchor'  id='basis_translating'><i aria-hidden='true' class='linkify icon'></i></a>
 
 ## Translating a Theme
 
-In order to translate a theme, you must create a JSON file for each language you choose to support and include key-value pairs for the text blocks that you choose to translate. The translated values will be displayed to visitors who have selected the corresponding language in their browser's locale preferences. 
+In order to translate a theme, you must create a JSON file for each language you choose to support and include key-value pairs for the text blocks that you choose to translate. The translated values will be displayed to visitors who have selected the corresponding language in their browser's locale preferences.
 
-Stencil automatically detects the `Accept-Language` request HTTP header from the visitor's browser. If a Stencil theme does not contain a JSON file matching any of the visitor's preferred browser languages, the theme will fall back to the values in the default English-language JSON file. 
+Stencil automatically detects the `Accept-Language` request HTTP header from the visitor's browser. If a Stencil theme does not contain a JSON file matching any of the visitor's preferred browser languages, the theme will fall back to the values in the default English-language JSON file.
 
 Stencil's multi-language capabilities are limited to the particular key-value pairs you specify in the theme. Stencil themes do not translate content rendered from a store's catalog database (i.e. the name of a product).
 
@@ -33,7 +32,7 @@ Stencil's multi-language capabilities are limited to the particular key-value pa
 <div class="HubBlock--callout">
 <div class="CalloutBlock--">
 <div class="HubBlock-content">
-    
+
 <!-- theme:  -->
 
 ### Full Support for Multiple Languages
@@ -159,6 +158,8 @@ lineNumbers: true
 
 ---
 
+<a href='#basis_invoking' aria-hidden='true' class='block-anchor'  id='basis_invoking'><i aria-hidden='true' class='linkify icon'></i></a>
+
 ## Invoking a Translation Key
 
 Once keys and values are defined in the [.json translation files](https://github.com/bigcommerce/cornerstone/tree/master/lang), you can invoke dynamic translation strings using the the [custom `{{lang}}` Handlebars helper](/stencil-docs/handlebars-syntax-and-helpers/handlebars-helpers-reference/string-helpers/custom-string-helpers#handlebars_lang). To invoke a defined translation key, you would follow this generic format:
@@ -219,7 +220,7 @@ lineNumbers: true
 <div class="HubBlock--callout">
 <div class="CalloutBlock--warning">
 <div class="HubBlock-content">
-    
+
 <!-- theme: warning -->
 
 ### File Permissions Required
@@ -231,7 +232,9 @@ lineNumbers: true
 
 ---
 
-## Cornerstone Localization Example
+<a href='##basis_localization-example' aria-hidden='true' class='block-anchor'  id='#basis_localization-example'><i aria-hidden='true' class='linkify icon'></i></a>
+
+## Localization Example
 
 Here is an example based on
 <span class="fp">cornerstone/templates/components/cart/shipping-estimator.html</span> within Cornerstone.
@@ -279,7 +282,7 @@ lineNumbers: true
 
 ```
 
-In the excerpts below, you can see that the default theme’s <span class="fp">/lang/en.json</span> file includes matches, and value definitions, for each of the translation keys in the Handlebars helpers above. 
+In the excerpts below, you can see that the default theme’s <span class="fp">/lang/en.json</span> file includes matches, and value definitions, for each of the translation keys in the Handlebars helpers above.
 
 <div class="HubBlock-header">
     <div class="HubBlock-header-title flex items-center">
@@ -337,10 +340,8 @@ Translation files for other languages would use the same format to define these 
 
 ---
 
-## Resources 
+## Resources
 
 ### Additional Resources
 
 * [Customizing a Theme - lang directory Video Demo](https://www.youtube.com/embed/ygiRGfSrmnA) (Youtube)
-
-
