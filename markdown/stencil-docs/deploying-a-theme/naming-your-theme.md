@@ -69,6 +69,8 @@ lineNumbers: true
 
 ---
 
+<a href='#naming_creating' aria-hidden='true' class='block-anchor'  id='naming_creating'><i aria-hidden='true' class='linkify icon'></i></a>
+
 ## Creating and Naming a New Theme Variation
 
 You define variations in your theme's <Span class="fn">config.json</span> file. Below is the Cornerstone Light variation’s definition, followed by the head of the `Bold` variation’s definition from Cornerstone's <span class="fn">config.json</span>:
