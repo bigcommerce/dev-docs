@@ -1,6 +1,6 @@
 # Theme Updates and Version Control
 
-<div class="otp>
+<div class="otp">
 
 - [Version Control](#version-themes)
 - [Theme Updates](#updates)
@@ -9,13 +9,13 @@
 </div>
 
 
-When working with BigCommerce themes there a few steps you can take to make keeping different theme versions and updates in sync. 
+When developing BigCommerce themes, there are a few steps you can take to ensure your custom theme stays up to date with BigCommerce theme updates and version releases.
 
 <a id="markdown-version-themes" name="version-themes"></a>
 
 ## Version Control
 
-A typical setup might include a base theme and from that several custom themes. The base theme and custom theme need to keep up with any major changes and have a way to maintain the customizations. Using a version control system such as Git can make sure themes are up to date. One example is placing the parent theme on the master branch. Then keeping each child theme on a different branch. This way the master branch is the parent theme and each child theme is kept on a separate branch. Changes to the master theme can then be pushed to each child if needed.
+A typical setup might include a base theme, with several custom themes branching from the base theme. The custom theme(s) will need to be kept up to date with any major changes while maintaining its own customizations. Version control systems such as Git can help ensure themes stay up to date. For example, you can place the parent theme on the master branch and keep each child theme on its own separate branch. Changes to the master theme can then be pushed to each child if needed.
 
 
 ---
@@ -24,10 +24,14 @@ A typical setup might include a base theme and from that several custom themes. 
 
 ## Theme Updates
 
-If you are using a Cornerstone theme as your base theme, update notifications are found in our [changelog](). If you are using another theme, please see the theme creator for updates.
+If you are using a Cornerstone theme as your base theme, update notifications are found in our [changelog](https://developer.bigcommerce.com/changelog). If you are using another theme, please see the theme creator for updates.
 
-Before updating your theme, always make a backup of the theme. When updating keep a backup of the `config.json`. Config contains all the configurations and customizations for that theme. Never merge an update directly into your theme. Test any new updates before pushing them to a production theme. A good way to do this is keep a separate test theme and compare file changes between them. Then apply the changes to the test theme and check for any problems. 
+Before updating your theme, review the following list items to ensure a successful update:
 
+* Create a backup of the custom theme.
+* Keep a backup of `config.json`. This file contains all the configurations and many of the customizations for a theme.
+* Never merge an update directly into your custom theme.
+* Test any new updates before pushing the updates to production. A good way to do this is to keep a test theme that mirrors your theme in production and apply any new changes to the test theme. If there are no issues, apply your updates to production.
 ---
 
 <a id="markdown-maintain-customizations" name="maintain-customizations"></a>
