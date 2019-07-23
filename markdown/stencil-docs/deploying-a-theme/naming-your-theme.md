@@ -195,6 +195,8 @@ lineNumbers: true
 
 ---
 
+<a href='#naming_preparing' aria-hidden='true' class='block-anchor'  id='naming_preparing'><i aria-hidden='true' class='linkify icon'></i></a>
+
 ## Preparing a Variation’s Thumbnails
 
 For details on preparing screenshots that enable merchants to preview each variation – and to preview your theme as a whole in the BigCommerce control panel and Theme Marketplace, see Preparing Thumbnail Images.
