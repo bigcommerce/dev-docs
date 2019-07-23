@@ -3,7 +3,7 @@
 <h3> On This Page </h3>
 	<ul>
     <li><a href="#implement_steps">Implement a Custom React Checkout</a></li>
-    <li><a href="#implement_customization">Additional Customization</a></li>
+    <li><a href="#implement_customization">Additional Customizations</a></li>
 
 
 </ul>
@@ -264,7 +264,7 @@ You should now be able to view your example React checkout by running the `stenc
 
 <a id="implement_customization"></a>
 
-## Customizations
+## Additional Customizations
 
 You can make further customizations to the checkout by modifying the React components in `/assets/js/checkout-app`.
 
@@ -533,6 +533,8 @@ window.initReact = function initReact() {
 
 {{> layout/empty}}
 ```
+---
+
 ## Additional Resources
 
 * [www.reactjs.org](https://reactjs.org/)
