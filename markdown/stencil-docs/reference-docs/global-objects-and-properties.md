@@ -48,6 +48,8 @@ This will return a list of all the objects available on the page, in JSON syntax
 </div>
 </div>
 
+<a href='#event_event-hook' aria-hidden='true' class='block-anchor'  id='event_event-hook'><i aria-hidden='true' class='linkify icon'></i></a>
+
 ## Banner
 
 <b>Description:</b> Elements of marketing banners at page’s top and/or bottom
@@ -90,6 +92,9 @@ example: `{{{banner}}}`. (Double braces would escape the HTML.)
 </div>
 
 ---
+
+<a href='#event_event-hook' aria-hidden='true' class='block-anchor'  id='event_event-hook'><i aria-hidden='true' class='linkify icon'></i></a>
+
 ## Breadcrumbs
 
 <b>Description:</b> Defines a page's breadcrumbs – available on virtually all pages that have a breadcrumb trail
@@ -114,6 +119,8 @@ example: `{{{banner}}}`. (Double braces would escape the HTML.)
 </table>
 
 ---
+
+<a href='#event_event-hook' aria-hidden='true' class='block-anchor'  id='event_event-hook'><i aria-hidden='true' class='linkify icon'></i></a>
 
 ## Carousel
 
@@ -176,6 +183,7 @@ example: `{{{banner}}}`. (Double braces would escape the HTML.)
 
 ---
 
+<a href='#event_event-hook' aria-hidden='true' class='block-anchor'  id='event_event-hook'><i aria-hidden='true' class='linkify icon'></i></a>
 
 ## Currency Selector
 
@@ -233,6 +241,8 @@ example: `{{{banner}}}`. (Double braces would escape the HTML.)
  </table>
 
  ---
+
+ <a href='#event_event-hook' aria-hidden='true' class='block-anchor'  id='event_event-hook'><i aria-hidden='true' class='linkify icon'></i></a>
 
  ## Categories
 
@@ -300,6 +310,8 @@ example: `{{{banner}}}`. (Double braces would escape the HTML.)
 
 ---
 
+<a href='#event_event-hook' aria-hidden='true' class='block-anchor'  id='event_event-hook'><i aria-hidden='true' class='linkify icon'></i></a>
+
 ## Faceted Search
 
 <b>Description:</b> Faceted-search object for searching globally, by category, or by brand
@@ -332,6 +344,8 @@ example: `{{{banner}}}`. (Double braces would escape the HTML.)
 </table>
 
 ---
+
+<a href='#event_event-hook' aria-hidden='true' class='block-anchor'  id='event_event-hook'><i aria-hidden='true' class='linkify icon'></i></a>
 
 ## Featured Products
 
@@ -381,6 +395,8 @@ This above statement formats the _Featured Products_ display according to the `h
 
 ---
 
+<a href='#event_event-hook' aria-hidden='true' class='block-anchor'  id='event_event-hook'><i aria-hidden='true' class='linkify icon'></i></a>
+
 ## Footer
 
 <b>Description:</b>The footer content for each storefront page
@@ -405,6 +421,8 @@ This above statement formats the _Featured Products_ display according to the `h
 </table>
 
 ---
+
+<a href='#event_event-hook' aria-hidden='true' class='block-anchor'  id='event_event-hook'><i aria-hidden='true' class='linkify icon'></i></a>
 
 ## HTML Head
 
@@ -451,6 +469,8 @@ This above statement formats the _Featured Products_ display according to the `h
 
 ---
 
+<a href='#event_event-hook' aria-hidden='true' class='block-anchor'  id='event_event-hook'><i aria-hidden='true' class='linkify icon'></i></a>
+
 ## Is_Ajax
 
 <b>Description:</b> Boolean; returns `true` if the current executing request is an Ajax request
@@ -460,6 +480,8 @@ This above statement formats the _Featured Products_ display according to the `h
 No properties available for this object.
 
 ---
+
+<a href='#event_event-hook' aria-hidden='true' class='block-anchor'  id='event_event-hook'><i aria-hidden='true' class='linkify icon'></i></a>
 
 ## Login
 
@@ -485,6 +507,8 @@ No properties available for this object.
 </table>
 
 ---
+
+<a href='#event_event-hook' aria-hidden='true' class='block-anchor'  id='event_event-hook'><i aria-hidden='true' class='linkify icon'></i></a>
 
 ## New Products
 
@@ -531,6 +555,8 @@ This above statement formats the _New Products_ display according to the `homepa
 
 ---
 
+<a href='#event_event-hook' aria-hidden='true' class='block-anchor'  id='event_event-hook'><i aria-hidden='true' class='linkify icon'></i></a>
+
 ## Page Content
 
 <b>Description:</b> Defines elements of merchant’s store page
@@ -572,6 +598,8 @@ This above statement formats the _New Products_ display according to the `homepa
 
 ---
 
+<a href='#event_event-hook' aria-hidden='true' class='block-anchor'  id='event_event-hook'><i aria-hidden='true' class='linkify icon'></i></a>
+
 ## Pages
 
 <b>Description:</b> A list of all web content pages for the BigCommerce storefront
@@ -609,6 +637,8 @@ This above statement formats the _New Products_ display according to the `homepa
 
 ---
 
+<a href='#event_event-hook' aria-hidden='true' class='block-anchor'  id='event_event-hook'><i aria-hidden='true' class='linkify icon'></i></a>
+
 ## Page Type Property
 
 <b>Description:</b> A string representing the type of page currently displayed. <br>
@@ -643,6 +673,8 @@ All possible values for `{{page_type}}` are:
 | maintenance |
 
 ---
+
+<a href='#event_event-hook' aria-hidden='true' class='block-anchor'  id='event_event-hook'><i aria-hidden='true' class='linkify icon'></i></a>
 
 ## Pagination
 
@@ -691,6 +723,8 @@ All possible values for `{{page_type}}` are:
       </tr>
     </table>
 ---
+
+<a href='#event_event-hook' aria-hidden='true' class='block-anchor'  id='event_event-hook'><i aria-hidden='true' class='linkify icon'></i></a>
 
 ## Search
 
@@ -855,6 +889,8 @@ All possible values for `{{page_type}}` are:
 
 ---
 
+<a href='#event_event-hook' aria-hidden='true' class='block-anchor'  id='event_event-hook'><i aria-hidden='true' class='linkify icon'></i></a>
+
 ## Settings
 
 **Description:** Common settings shared across every BigCommerce storefront
@@ -993,6 +1029,8 @@ All possible values for `{{page_type}}` are:
 
 ---
 
+<a href='#event_event-hook' aria-hidden='true' class='block-anchor'  id='event_event-hook'><i aria-hidden='true' class='linkify icon'></i></a>
+
 ## Sitemap
 
 	<b>Description:</b>A list of all sitemap properties for this BigCommerce storefront: pages, categories, and brands.<br>
@@ -1041,6 +1079,8 @@ All possible values for `{{page_type}}` are:
 
 ---
 
+<a href='#event_event-hook' aria-hidden='true' class='block-anchor'  id='event_event-hook'><i aria-hidden='true' class='linkify icon'></i></a>
+
 ## Social Links
 
 <b>Description:</b> Array of all social-media site links for the storefront<br>
@@ -1074,6 +1114,8 @@ All possible values for `{{page_type}}` are:
 
 ---
 
+<a href='#event_event-hook' aria-hidden='true' class='block-anchor'  id='event_event-hook'><i aria-hidden='true' class='linkify icon'></i></a>
+
 ## Template Property
 
 <b>Description:</b> A string containing the name of the root template currently being rendered in the page context. <br>
@@ -1096,6 +1138,8 @@ All possible values for `{{page_type}}` are:
 (etc.)
 
 ---
+
+<a href='#event_event-hook' aria-hidden='true' class='block-anchor'  id='event_event-hook'><i aria-hidden='true' class='linkify icon'></i></a>
 
 ## Top Sellers
 
