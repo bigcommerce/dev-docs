@@ -3,8 +3,8 @@
 <div class="otp" id="no-index">
 	<h3> On This Page </h3>
 	<ul>
-    <li><a href="#checking_organizing-your-theme">Shrinking a Theme by Excluding Static Assets Using WebDAV</a></li>
-    <li><a href="#checking_organizing-your-theme">Organizing Your Theme</a></li>
+    <li><a href="#checking_shrinking">Shrinking a Theme by Excluding Static Assets Using WebDAV</a></li>
+    <li><a href="#checking_organizing">Organizing Your Theme</a></li>
 	</ul>
 </div>
 
@@ -16,18 +16,21 @@ A few themes might exceed the 50 MB limit. If this is the case, you have two opt
 
 ---
 
+<a href='#checking_shrinking' aria-hidden='true' class='block-anchor'  id='checking_shrinking'><i aria-hidden='true' class='linkify icon'></i></a>
+
 ## Shrinking a Theme by Excluding Static Assets Using WebDAV
 
-Restructuring Your Theme
+### Restructuring Your Theme
+
 In this section, you will first isolate static assets from your theme’s local directory, then use WebDAV to cloud-host those assets, and finally reference those assets using Stencil’s cdn Handlebars helper. For an existing theme, make a backup of your whole <theme‑name> directory before proceeding.
 
 Examine your theme’s /assets/ subdirectory and/or its intended contents. Check for large static assets like images (especially in /assets/img/) and videos that are likely culprits in causing a bundled .zip file to go toward or beyond BigCommerce’s 50 MB limit.
 
 Use WebDAV to upload these items to WebDAV’s remote /content/ directory. For WebDAV specifics, please see BigCommerce’s Knowledge Base articles on:
 
-* Connecting to WebDav
-* WebDAV Folder Structure
-*
+* [Connecting to WebDav](https://support.bigcommerce.com/s/article/File-Access-WebDAV#manual)
+* [WebDAV Folder Structure](https://support.bigcommerce.com/s/article/File-Access-WebDAV#folder)
+
 Throughout your theme, reference each of these assets using Stencil’s `cdn` custom Handlebars helper – prepending the `webdav:` option to the `assetPath` parameter.
 
 Prepending `webdav:` will build a URL in the remote WebDAV directory. This allows your theme’s deployed topology to diverge from any your local directory structure. As noted above, the `cdn` helper will treat `/content/` as the default/root WebDAV directory. So, for example, this statement:
@@ -63,7 +66,7 @@ If you have used WebDAV in developing BigCommerce’s earlier (Blueprint) genera
 
 The directories accessible through WebDAV will dynamically change, depending on the type of theme that is active in the merchant’s store, as follows:
 
-## WebDAV Folders and Stencil Themes
+### WebDAV Folders and Stencil Themes
 
 If you have used WebDAV in developing BigCommerce's earlier (Blueprint) generation of themes, you will see some differences when uploading Stencil themes.<br><br>
 
@@ -108,6 +111,8 @@ The directories accessible through WebDAV will dynamically change, depending on 
 <i>The overall difference is that the WebDAV `/template/` and `/mobile_template/` directories are <b>not</b> available for Stencil themes. These templates must reside and remain within your Stencil theme's local directory and file structure.</i>
 
 ---
+
+<a href='#checking_organizing' aria-hidden='true' class='block-anchor'  id='checking_organizing'><i aria-hidden='true' class='linkify icon'></i></a>
 
 ## Organizing Your Theme
 
