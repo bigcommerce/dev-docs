@@ -29,12 +29,12 @@
 
 <a href='#global_global-objects' aria-hidden='true' class='block-anchor'  id='global_global-objects'><i aria-hidden='true' class='linkify icon'></i></a>
 
-Global objects and properties are common components shared across the entire BigCommerce storefront. 
+Global objects and properties are common components shared across the entire BigCommerce storefront.
 
 <div class="HubBlock--callout">
 <div class="CalloutBlock--">
 <div class="HubBlock-content">
-    
+
 <!-- theme:  -->
 
 ### Debugging Your Theme
@@ -80,7 +80,7 @@ This will return a list of all the objects available on the page, in JSON syntax
 <div class="HubBlock--callout">
 <div class="CalloutBlock--warning">
 <div class="HubBlock-content">
-    
+
 <!-- theme: warning -->
 
 ###  Handlebars Formatting Exception
@@ -92,7 +92,7 @@ example: `{{{banner}}}`. (Double braces would escape the HTML.)
 </div>
 
 ---
-## Breadcrumbs 
+## Breadcrumbs
 
 <b>Description:</b> Defines a page's breadcrumbs – available on virtually all pages that have a breadcrumb trail
 
@@ -179,7 +179,7 @@ example: `{{{banner}}}`. (Double braces would escape the HTML.)
 ---
 
 
-## Currency Selector 
+## Currency Selector
 
 <b>Description:</b> A list of all supported currencies, and the currency that is actively in use in the storefront
 
@@ -199,7 +199,7 @@ example: `{{{banner}}}`. (Double braces would escape the HTML.)
 <tr>    
   <td>active_currency_flag</td>    
   <td>Country flag used to represent the active currency</td>  
-</tr> 
+</tr>
 <tr>    
   <td>active_currency_name</td>    
   <td>Name of the active currency</td>  
@@ -211,33 +211,33 @@ example: `{{{banner}}}`. (Double braces would escape the HTML.)
 <tr>    
   <td>currencies</td>    
   <td>List of all the currencies supported for this storefront</td>  
-</tr> 
+</tr>
 <tr>    
   <td><span class="indent1">is_active</span></td>    
   <td>Boolean that indicates whether this currency is active for use in the storefront</td>  
-</tr> 
+</tr>
 <tr>    
   <td><span class="indent1">switch_url</span></td>    
-  <td>The URL to invoke a switch to this currency</td> 
-</tr> 
+  <td>The URL to invoke a switch to this currency</td>
+</tr>
 <tr>    
  <td><span class="indent1"> id</span></td>    
  <td>ID of the currency</td>  
-</tr> 
+</tr>
 <tr>    
  <td><span class="indent1"> name</span></td>    
  <td>Name of the currency</td>  
-</tr> 
+</tr>
  <tr>    
   <td><span class="indent1"> flag</span></td>    
   <td>Country flag used to visually represent the currency</td>  
  </tr>
  </table>
- 
+
  ---
- 
+
  ## Categories
- 
+
  <b>Description:</b> A list of all product categories shown in the current page context; default sorting is by category id, from lowest to highest
 
 <b>Handlebars Expression:</b> `{{categories}}`
@@ -247,8 +247,8 @@ example: `{{{banner}}}`. (Double braces would escape the HTML.)
 <b>Object Properties:</b>
 <table>  
   <tr>   
-    <td>Property</td>    
-    <td>Description</td>  
+    <th>Property</th>    
+    <th>Description</th>  
   </tr>  
   <tr>    
     <td>id</td>    
@@ -290,9 +290,13 @@ example: `{{{banner}}}`. (Double braces would escape the HTML.)
     <td><span class="indent1"> url</span></td>    
     <td>URL of the child category</td>  
   </tr>  
+	<tr>    
+		<td><span class="indent1">is_active</span></td>    
+		<td>Boolean that indicates which category is your “breadcrumb” category on a item's product display page (PDP). For example, an emerald necklace may be in the _Jewelry_ and _Accessories_ categories. If you navigated to the product from the _Jewelry_ category, `is_active: true` will be present on the _Jewelry_ object.</td>  
+	</tr>  
   <tr>    
     <td><span class="indent1"> count</span></td>    
-    <td>Number of products in this child category</td> 
+    <td>Number of products in this child category</td>
   </tr>
 </table>
 
@@ -345,7 +349,7 @@ The code example below displays the global `{{products.featured}}` object on the
 
 First, you must declare the object using Front Matter. To declare the object, the following front matter must be placed at the top of the template HTML page. This following declaration also limits the number of featured products to be displayed:
 
-```
+```html
 ---
 products:
     [...]
@@ -356,21 +360,21 @@ products:
 
 The `homepage_featured_products_count` limit is one of two relevant variables defined in [Cornerstone's `config.json` file](https://github.com/bigcommerce/cornerstone/blob/master/config.json#L45) (Github).
 
-```
+```json
 "settings": {
-    [...]
+    // ...
     "homepage_featured_products_count": 8,
-    [...]
+    // ...
     "homepage_featured_products_column_count": 4,
-    [...]    
+    // ...    
 ```
 
 
 In the body of [Cornerstone's `home.html` template](https://github.com/bigcommerce/cornerstone/blob/master/templates/pages/home.html#L27) (Github), the below Handlebars conditional statement is responsible for displaying the `{{products.featured}}` object. This is the object that we declared above using front matter.
 
-```
+```html
 {{#if products.featured}}
-		{{> components/products/featured products=products.featured 
+		{{> components/products/featured products=products.featured
     columns=theme_settings.homepage_featured_products_column_count}}
 {{/if}}
 ```
@@ -484,7 +488,7 @@ No properties available for this object.
 
 ---
 
-## New Products 
+## New Products
 
 **Description:** A list of new products for the BigCommerce storefront
 
@@ -494,11 +498,11 @@ No properties available for this object.
 
 **Usage Example:**
 
-To access the global `{{products.new}}` object on your page, you must first use front matter to declare the object at the top of your page template. 
+To access the global `{{products.new}}` object on your page, you must first use front matter to declare the object at the top of your page template.
 
 The code example below declares the global `{{products.new}}` object on the `cornerstone/templates/pages/home.html` page template from [Stencil's base Cornerstone Theme](https://github.com/bigcommerce/cornerstone/blob/master/templates/pages/home.html#L3) (Github).
 
-```
+```html
 ---
 products:
     new:
@@ -508,17 +512,17 @@ products:
 
 The `homepage_featured_products_count` limit is one of two relevant variables defined in Cornerstone's `config.json` file (Github).
 
-```
+```json
 "settings": {
     "homepage_new_products_count": 5,
-    [...]
+    // ...
     "homepage_new_products_column_count": 4,
-    [...]
+    // ...
 ```
 
 In the body of [Cornerstone's `home.html` template](https://github.com/bigcommerce/cornerstone/blob/master/templates/pages/home.html#L36) (Github), the below Handlebars conditional statement is responsible for displaying the `{{products.featured}}` object. This is the object that we declared above using front matter.
 
-```
+```html
 {{#if products.new}}
   {{> components/products/new products=products.new 	
  	columns=theme_settings.homepage_new_products_column_count}}
@@ -581,12 +585,12 @@ This above statement formats the _New Products_ display according to the `homepa
 <table>
   <tr>
     <th>Property</th>
-    <th>Description</th> 
-	</tr> 
+    <th>Description</th>
+	</tr>
     <tr>
       <td>name</td>
       <td>Name of the page</td>
-    </tr> 
+    </tr>
     <tr>
       <td>url</td>
       <td>URL of the page</td>
@@ -622,22 +626,22 @@ This above statement formats the _New Products_ display according to the `homepa
 
 All possible values for `{{page_type}}` are:
 
-| account | shippingaddressform | account_new_return | 
+| account | shippingaddressform | account_new_return |
 |---|---|---|
-| account_addressbook | account_downloaditem | account_inbox | 
-| editaccount | account_orderstatus | account_orders | 
-| invoice_print | account_order | account_recentitems | 
-| account_saved_return | account_returns | wishlists | 
-| add-wishlist | wishlist | createaccount_thanks | 
-| createaccount | forgotpassword | login | 
-| getnewpassword | blog | blog_post | 
-| brand | brands | cart | 
-| category | compare | 403 | 
-| 404 | error | giftcertificates_balance | 
-| giftcertificates | giftcertificates_redeem | default | 
-| page | page_contact_form | product | 
-| rss | search | sitemap | 
-| newsletter_subscribe | unsubscribe | hibernation | 
+| account_addressbook | account_downloaditem | account_inbox |
+| editaccount | account_orderstatus | account_orders |
+| invoice_print | account_order | account_recentitems |
+| account_saved_return | account_returns | wishlists |
+| add-wishlist | wishlist | createaccount_thanks |
+| createaccount | forgotpassword | login |
+| getnewpassword | blog | blog_post |
+| brand | brands | cart |
+| category | compare | 403 |
+| 404 | error | giftcertificates_balance |
+| giftcertificates | giftcertificates_redeem | default |
+| page | page_contact_form | product |
+| rss | search | sitemap |
+| newsletter_subscribe | unsubscribe | hibernation |
 | maintenance |
 
 ---
@@ -653,39 +657,39 @@ All possible values for `{{page_type}}` are:
 <table>
     <tr>   
       <th>Property</th>   
-      <th>Description</th> 
-    </tr> 
+      <th>Description</th>
+    </tr>
     <tr>   
       <td>next</td>   
-      <td>Link to next page, if any</td> 
-    </tr> 
+      <td>Link to next page, if any</td>
+    </tr>
     <tr>   
       <td>previous</td>   
-      <td>Link to previous page, if any</td> 
-    </tr> 
+      <td>Link to previous page, if any</td>
+    </tr>
     <tr>   
       <td>sort</td>   
-      <td>Field to sort by</td> 
-    </tr> 
+      <td>Field to sort by</td>
+    </tr>
     <tr>   
       <td>current</td>   
-      <td>Number representing which page (in the current collection) the customer is viewing</td> 
-    </tr> 
+      <td>Number representing which page (in the current collection) the customer is viewing</td>
+    </tr>
       <tr>   
         <td>total</td>   
-        <td>Total number of results, across all pages</td> 
-      </tr> 
+        <td>Total number of results, across all pages</td>
+      </tr>
         <tr>   
           <td>links</td>   
-          <td>Array of pages that surround the current page; displayed as a set of links, dynamically sized based on the current page number</td> 
-        </tr> 
+          <td>Array of pages that surround the current page; displayed as a set of links, dynamically sized based on the current page number</td>
+        </tr>
         <tr>   
           <td><span class="indent1">url</span></td>   
-          <td>URL to this page of results</td> 
-        </tr> 
+          <td>URL to this page of results</td>
+        </tr>
         <tr>   
           <td><span class="indent1">number</span></td>   
-          <td>The page number of this link, based on an index starting at 1</td> 
+          <td>The page number of this link, based on an index starting at 1</td>
       </tr>
     </table>
 ---
@@ -830,31 +834,31 @@ All possible values for `{{page_type}}` are:
     <td>List of search results for a product; points to <a href="/stencil-docs/stencil-object-model-reference/stencil-objects/common-objects/common-product-card-model">product card model</a></td>
   </tr>
   <tr>
-         <td><span class="indent1">show_compare</span></td> 
-         <td>Boolean corresponding to merchant’s control-panel selection whether or not to enable product comparisons </td> 
-      </tr> 
-       <tr> 
+         <td><span class="indent1">show_compare</span></td>
+         <td>Boolean corresponding to merchant’s control-panel selection whether or not to enable product comparisons </td>
+      </tr>
+       <tr>
          <td><span class="indent1">faceted_search_enabled</span>
-         </td> <td>Boolean that defines whether product-filtering search is enabled for the store</td> 
-       </tr> 
-       <tr> 
-         <td><span class="indent1">facets</span></td> 
-         <td>All available search filters</td> 
-       </tr> 
-       <tr> 
-         <td><span class="indent1">pagination</span></td> 
-         <td>References pagination model</td> 
-       </tr> 
-       <tr> 
-				 <td><span class="indent1">selected</span</td> 
-         <td>Currently selected filters</td> 
+         </td> <td>Boolean that defines whether product-filtering search is enabled for the store</td>
+       </tr>
+       <tr>
+         <td><span class="indent1">facets</span></td>
+         <td>All available search filters</td>
+       </tr>
+       <tr>
+         <td><span class="indent1">pagination</span></td>
+         <td>References pagination model</td>
+       </tr>
+       <tr>
+				 <td><span class="indent1">selected</span</td>
+         <td>Currently selected filters</td>
        </tr>
 </table>
-	
+
 ---
-	
+
 ## Settings
-	
+
 **Description:** Common settings shared across every BigCommerce storefront
 
 **Handlebars Expression:** `{{settings}}`
@@ -992,7 +996,7 @@ All possible values for `{{page_type}}` are:
 ---
 
 ## Sitemap
-	
+
 	<b>Description:</b>A list of all sitemap properties for this BigCommerce storefront: pages, categories, and brands.<br>
 
 <b>Handlebars Expression:</b> `{{sitemap}}`
@@ -1036,11 +1040,11 @@ All possible values for `{{page_type}}` are:
       <td>Label for the child page or category</td>
     </tr>
   </table>
-	
+
 ---
 
 ## Social Links
-	
+
 <b>Description:</b> Array of all social-media site links for the storefront<br>
 
 <b>Handlebars Expression:</b> `{{social_media}}`
@@ -1069,11 +1073,11 @@ All possible values for `{{page_type}}` are:
     <td>Displayed/formatted name of this social-media platform (e.g., “Google+”) </td>
   </tr>
 </table>
-	
+
 ---
-	
+
 ## Template Property
-	
+
 <b>Description:</b> A string containing the name of the root template currently being rendered in the page context. <br>
 
 <b>Handlebars Expression:</b> `{{template}}`
@@ -1094,7 +1098,7 @@ All possible values for `{{page_type}}` are:
 (etc.)
 
 ---
-	
+
 ## Top Sellers
 
 <b>Description:</b> Object to display a sidebar of top-selling products<br>
@@ -1113,5 +1117,3 @@ products:
     top_sellers:
 ---
 ```
-	
-

@@ -148,7 +148,7 @@ Gets an option set option.
 
 Example JSON returned in the response:
 
-```
+```json
 {
   "id": 4,
   "option_id": 5,
@@ -194,7 +194,7 @@ The following properties of the option set option are required. The request wonâ
 
 Example request object:
 
-```
+```json
 {
   "option_id": 10,
   "display_name": "Choose a color",
@@ -207,7 +207,7 @@ Example request object:
 
 Example JSON returned in the response:
 
-```
+```json
 {
   "id": 2,
   "option_id": 10,
@@ -248,7 +248,7 @@ The following properties of the option set option are required. The request wonâ
 
 Example request object:
 
-```
+```json
 {
   "display_name": "Pick a color...",
   "sort_order": 2,
@@ -260,7 +260,7 @@ Example request object:
 
 Example JSON returned in the response:
 
-```
+```json
 {
   "id": 2,
   "option_id": 10,

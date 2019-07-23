@@ -107,7 +107,7 @@ Gets a product review.
 
 Example JSON returned in the response:
 
-```
+```json
 {
   "id": 190,
   "product_id": 5310,
@@ -155,7 +155,7 @@ The following properties of the product review are required. The request won’t
 
 Example JSON returned in the response:
 
-```
+```json
 {
   "id": 8,
   "product_id": 32,
@@ -189,7 +189,7 @@ The following properties of the product review are read-only. If one or more of 
 
 Example JSON returned in the response:
 
-```
+```json
 {
   "id": 8,
   "product_id": 32,

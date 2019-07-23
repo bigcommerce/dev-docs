@@ -8295,6 +8295,71 @@
       ]
     },
     "/orders/{order_id}/shipments/{id}": {
+      "get": {
+        "tags": [
+            "Order Shipments"
+        ],
+        "responses": {
+            "200": {
+              "description": "",
+              "schema": {
+                  "$ref": "#/definitions/OrderShipment"
+              },
+              "examples": {
+                "application/json": {
+                "id": 2,
+                "order_id": 143,
+                "customer_id": 6,
+                "order_address_id": 45,
+                "date_created": "Tue, 14 Aug 2018 13:59:39 +0000",
+                "tracking_number": "123445656746576787568",
+                "shipping_method": "Free Shipping",
+                "comments": "Shipment 1 of 2",
+                "shipping_provider": "",
+                "tracking_carrier": "",
+                "billing_address": {
+                  "first_name": "Jane",
+                  "last_name": "Doe",
+                  "company": "",
+                  "street_1": "123 Main Street",
+                  "street_2": "",
+                  "city": "Austin",
+                  "state": "Texas",
+                  "zip": "78726",
+                  "country": "United States",
+                  "country_iso2": "US",
+                  "phone": "1234567890",
+                  "email": "jane@email.com"
+                },
+                "shipping_address": {
+                  "first_name": "Jane",
+                  "last_name": "Doe",
+                  "company": "",
+                  "street_1": "123 Main Street",
+                  "street_2": "",
+                  "city": "Austin",
+                  "state": "Texas",
+                  "zip": "78726",
+                  "country": "United States",
+                  "country_iso2": "US",
+                  "phone": "1234567890",
+                  "email": ""
+                },
+                "items": [
+                  {
+                    "order_product_id": 57,
+                    "product_id": 86,
+                    "quantity": 1
+                  }
+                ]
+              }
+            }
+          }
+        },
+        "operationId": "getOrderShipment",
+        "summary": "Get a Shipment",
+        "description": "Gets an order shipment. "
+      },
       "put": {
         "description": "Updates an existing shipment associated with an order.",
         "summary": "Update A Shipment",

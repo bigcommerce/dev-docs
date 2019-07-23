@@ -28,7 +28,7 @@
 
 Material-UI requires the `react-tap-event-plugin` module. Also, `document-register-element` is needed to polyfill `document.registerElement`. The babel presets and plugins are needed to support `Object.assign`, `react`, and `Material-UI`, respectively:
 
-```
+```shell
 npm install -save-dev document-register-element material-ui react react-dom react-tap-event-plugin  
 npm install -save-dev babel-plugin-transform-object-assign babel-preset-react babel-preset-stage-1
 ```
@@ -75,7 +75,7 @@ Update webpack.conf.js with the new presets and plug-ins, as shown here:
 
 Add the following code to the bottom of `<theme-name>/assets/js/app.js`:
 
-```
+```javascript
 window.initReact = function(contextJSON = '{}') {
     injectTapEventPlugin();
     const context = JSON.parse(contextJSON);
@@ -140,7 +140,7 @@ We'll store our React components here.
 
 Create a `<theme-name>/assets/js/components/CouponDrawer.js` file. Populate this file with the following code block (which is adapted from http://www.material-ui.com/#/components/drawer):
 
-```
+```javascript
 import React from 'react';
 import Drawer from 'material-ui/Drawer';
 import AppBar from 'material-ui/AppBar';
@@ -179,7 +179,7 @@ export default class CouponDrawer extends React.Component {
 
 Create a `<theme-name>/assets/js/components/VerticalLinearStepper.js` file. Populate this file with the following code block:
 
-```
+```javascript
 import React from 'react';
 import {
   Step,
