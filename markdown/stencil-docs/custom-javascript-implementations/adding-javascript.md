@@ -100,7 +100,7 @@ subtitle: ""
 lineNumbers: true
 -->
 
-```
+```javascript
 import Global from './theme/global';
 
 const getAccount = () => import('./theme/account');
@@ -172,7 +172,7 @@ subtitle: ""
 lineNumbers: true
 -->
 
-```
+```javascript
 import PageManager from './page-manager';
 import _ from 'lodash';
 import giftCertCheck from './common/gift-certificate-validator';

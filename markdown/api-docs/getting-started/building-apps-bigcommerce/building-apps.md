@@ -71,7 +71,7 @@ subtitle: ""
 lineNumbers: true
 -->
 
-```
+```javascript
 Bigcommerce.init({
       onLogout: callback
 });
@@ -412,8 +412,8 @@ Each event listed here triggers a GET request from BigCommerce containing a sign
 
 Once your app has been installed, the store owner or user can click its icon in the control panel to launch it. This causes BigCommerce to send a GET request to the Load Callback URI that you provided during app registration. In a production environment, the Load Callback URI must be publicly available, fully qualified, and served over TLS/SSL.
 
-```
-The GET request contains a signed payload, as shown below.
+```http
+# The GET request contains a signed payload, as shown below.
 GET /load?signed_payload=hw9fhkx2ureq.t73sk8y80jx9 HTTP/1.1
 Host: app.example.com
 ```
@@ -428,11 +428,13 @@ You do not need to provide an Uninstall Callback URI. The lack of an Uninstall C
 
 Should you choose to provide an Uninstall Callback URI, please note that it must be publicly available, fully qualified, and served over TLS/SSL. If provided, BigCommerce will send a GET request to your Uninstall Callback URI when a store owner clicks to uninstall your app.
 
-Example of a GET Request sent to the Uninstall Callback URI
-```
+Example of a GET Request sent to the Uninstall Callback URI:
+
+```http
 GET /uninstall?signed_payload=hw9fhkx2ureq.t73sk8y80jx9 HTTP/1.1
 	Host: app.example.com
 ```
+
 Upon receiving the GET request, your app will need to process the signed payload.
 
 ### Remove User Request (Optional)
@@ -480,7 +482,7 @@ Processing the signed payload involves splitting and decoding it, verifying the 
 
 The signed payload is a string containing a base64 url-encoded JSON string and a base64 url-encoded HMAC signature. The parts are delimited by the `.` character:
 
-```
+```javascript
 encoded_json_string.encoded_hmac_signature
 ```
 
@@ -747,7 +749,7 @@ subtitle: ""
 lineNumbers: true
 -->
 
-```
+```lua
    if params['external_install']
         return get 'https://login.bigcommerce.com/app/m8e1mkkmjw2xjinydqz7ie05to1y2nk/install/succeeded'
     end

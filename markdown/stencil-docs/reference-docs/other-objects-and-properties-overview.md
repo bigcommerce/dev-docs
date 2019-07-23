@@ -1296,14 +1296,14 @@ In your `<theme-name>/templates/components/cart/content.html` file, as you itera
 
 If the type is `Item`, then you would check the {{cart.items.rrp}} value. If the value is _not_ `null`, then you would know that you can display a strike-out price for the item. Below is a sample code skeleton:
 
-```
+```html
 {{#each cart.items}}
-   ...
+   <!--...-->
   {{#if type '==' 'GiftCertificate'}}
       {{#if rrp}}
-          ... /* your code to display strike-thru pricing */
+          <!-- your code to display strike-thru pricing -->
       {{else}}
-          ... /* your code to display normal pricing */
+          <!-- your code to display normal pricing -->
       {{/if}}
   {{/if}}
  ```

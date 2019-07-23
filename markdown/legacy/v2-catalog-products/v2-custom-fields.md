@@ -93,7 +93,7 @@ Gets a custom field associated with a product.
 
 Example JSON returned in the response:
 
-```
+```json
 {
   "id": 2,
   "product_id": 30,
@@ -116,7 +116,7 @@ Gets a count of the number of custom fields in the store.
 
 Example JSON returned in the response:
 
-```
+```json
 {
   "count": 0
 }
@@ -149,7 +149,7 @@ The following properties of the custom field are required. The request won’t b
 
 Example request object:
 
-```
+```json
 {
   "name": "Release Date",
   "text": "2013-12-25"
@@ -160,7 +160,7 @@ Example request object:
 
 Example JSON returned in the response:
 
-```
+```json
 {
   "id": 5,
   "product_id": 45,
@@ -196,7 +196,7 @@ The following properties of the custom field are required. The request won’t b
 
 Example request object:
 
-```
+```json
 {
   "name": "Release Date",
   "text": "2013-12-31"
@@ -207,7 +207,7 @@ Example request object:
 
 Example JSON returned in the response:
 
-```
+```json
 {
   "id": 5,
   "product_id": 45,

@@ -345,7 +345,7 @@ The code example below displays the global `{{products.featured}}` object on the
 
 First, you must declare the object using Front Matter. To declare the object, the following front matter must be placed at the top of the template HTML page. This following declaration also limits the number of featured products to be displayed:
 
-```
+```html
 ---
 products:
     [...]
@@ -356,19 +356,19 @@ products:
 
 The `homepage_featured_products_count` limit is one of two relevant variables defined in [Cornerstone's `config.json` file](https://github.com/bigcommerce/cornerstone/blob/master/config.json#L45) (Github).
 
-```
+```json
 "settings": {
-    [...]
+    // ...
     "homepage_featured_products_count": 8,
-    [...]
+    // ...
     "homepage_featured_products_column_count": 4,
-    [...]    
+    // ...    
 ```
 
 
 In the body of [Cornerstone's `home.html` template](https://github.com/bigcommerce/cornerstone/blob/master/templates/pages/home.html#L27) (Github), the below Handlebars conditional statement is responsible for displaying the `{{products.featured}}` object. This is the object that we declared above using front matter.
 
-```
+```html
 {{#if products.featured}}
 		{{> components/products/featured products=products.featured 
     columns=theme_settings.homepage_featured_products_column_count}}
@@ -498,7 +498,7 @@ To access the global `{{products.new}}` object on your page, you must first use 
 
 The code example below declares the global `{{products.new}}` object on the `cornerstone/templates/pages/home.html` page template from [Stencil's base Cornerstone Theme](https://github.com/bigcommerce/cornerstone/blob/master/templates/pages/home.html#L3) (Github).
 
-```
+```html
 ---
 products:
     new:
@@ -508,17 +508,17 @@ products:
 
 The `homepage_featured_products_count` limit is one of two relevant variables defined in Cornerstone's `config.json` file (Github).
 
-```
+```json
 "settings": {
     "homepage_new_products_count": 5,
-    [...]
+    // ...
     "homepage_new_products_column_count": 4,
-    [...]
+    // ...
 ```
 
 In the body of [Cornerstone's `home.html` template](https://github.com/bigcommerce/cornerstone/blob/master/templates/pages/home.html#L36) (Github), the below Handlebars conditional statement is responsible for displaying the `{{products.featured}}` object. This is the object that we declared above using front matter.
 
-```
+```html
 {{#if products.new}}
   {{> components/products/new products=products.new 	
  	columns=theme_settings.homepage_new_products_column_count}}

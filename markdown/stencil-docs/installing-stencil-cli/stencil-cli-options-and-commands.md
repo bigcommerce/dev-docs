@@ -20,7 +20,7 @@ The syntax to run a basic Stencil CLI command is: `stencil <commands> [options] 
 
 To see the basic options and commands that the Stencil CLI package supports, enter any of the following forms of the help option on your command line:
 
-```
+```shell
 stencil
 stencil help
 stencil --help

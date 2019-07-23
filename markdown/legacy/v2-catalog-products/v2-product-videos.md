@@ -88,7 +88,7 @@ Gets a count of the number of product videos in the store.
 
 Example JSON returned in the response:
 
-```
+```json
 {
   "count": 0
 }
@@ -126,7 +126,7 @@ Only YouTube videos are supported. To create a new video, pass the full `url` in
 
 Example request object:
 
-```
+```json
 {
   "url": "https://www.youtube.com/watch?v=4wZ3ZG_Wams"
 }
@@ -162,7 +162,7 @@ Posting a new `url` will update the `id` of the video to reference the new video
 
 Example request object:
 
-```
+```json
 {
   "name": "New video title",
   "sort_order": 2

@@ -79,7 +79,7 @@ subtitle: ""
 lineNumbers: true
 -->
 
-```js
+```javascript
 {
   test: /\.jsx$/,
   exclude: /node_modules/,
@@ -239,7 +239,7 @@ subtitle: ""
 lineNumbers: true
 -->
 
-```
+```html
 {{ checkout.checkout_content }}
 ```
 

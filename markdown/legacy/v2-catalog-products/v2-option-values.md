@@ -85,7 +85,7 @@ Gets an option value.
 
 Example JSON returned in the response:
 
-```
+```json
 {
   "id": 9,
   "option_id": 3,
@@ -130,7 +130,7 @@ When you POST an `is_default`property of `true`, all other option values on the 
 
 Example request object:
 
-```
+```json
 {
   "label": "white",
   "sort_order": 0,
@@ -143,7 +143,7 @@ Example request object:
 
 Example JSON returned in the response:
 
-```
+```json
 {
   "id": 68,
   "option_id": 3,
@@ -185,7 +185,7 @@ When you PUT an `is_default` property of `true`, all other option values on the 
 
 Example request object:
 
-```
+```json
 {
   "label": "whitish",
   "sort_order": 1,
@@ -198,7 +198,7 @@ Example request object:
 
 Example JSON returned in the response:
 
-```
+```json
 {
   "id": 68,
   "option_id": 3,
