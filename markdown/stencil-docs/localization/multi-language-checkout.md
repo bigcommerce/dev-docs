@@ -147,4 +147,4 @@ BigCommerce Optimized One-Page Checkout will currently translate displayed `Coun
 
 ### Sample Apps
 
-* Cornerstone Repository (Bigcommerce Github)
+* [Cornerstone Repository](https://github.com/bigcommerce/cornerstone) (Bigcommerce Github)
