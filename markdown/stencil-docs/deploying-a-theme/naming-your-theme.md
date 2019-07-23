@@ -157,6 +157,10 @@ lineNumbers: true
 ...
 ```
 
+---
+
+<a href='#naming_changing' aria-hidden='true' class='block-anchor'  id='naming_changing'><i aria-hidden='true' class='linkify icon'></i></a>
+
 ## Changing a Theme Variation’s Font Family (config.json)
 
 To learn more about defining variations, see [Defining Global Styles](/defining-global-styles#defining_keys-and-example) for details about each key/value pair. In particular, note the option to configure settings and variables that are scoped to each variation.
