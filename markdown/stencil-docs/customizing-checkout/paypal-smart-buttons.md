@@ -2,7 +2,7 @@
 <div class="otp" id="no-index">
 	<h3> On This Page </h3>
 	<ul>
-    <li><a href="#paypal-smart_include-smart-buttons">Enable Smart Buttons on Your Stencil Theme</a></li>s
+    <li><a href="#paypal-smart_include-smart-buttons">Enable Smart Buttons on Your Stencil Theme</a></li>
 	</ul>
 </div>
 
@@ -34,7 +34,7 @@ lineNumbers: true
 
 ```json
  "settings": {
-    "...",
+    "..."
     "color_badge_product_sale_badges": "#007dc6",
     "color_text_product_sale_badges": "#ffffff",
     "color_hover_product_sale_badges": "#000000",
@@ -212,7 +212,6 @@ lineNumbers: true
                 "label": "Show buttons vertically"
               }
             ]
-
 ```
 
 <div class="HubBlock--callout">
