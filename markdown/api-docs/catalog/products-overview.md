@@ -549,7 +549,7 @@ lineNumbers: true
 <!-- theme: warning -->
 
 ### V2 SKU rules will override Variant pricing
-Creating SKU rules via the V2 API or via CSV import will override any Variant sale pricing added to a product via the Control Panel, V3 API or Price Lists UI.
+> Creating SKU rules via the V2 API or via CSV import will override any Variant sale pricing added to a product via the Control Panel, V3 API or Price Lists UI.
 
 </div>
 </div>
