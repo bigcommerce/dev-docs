@@ -349,6 +349,20 @@ Bulk Pricing rules in the catalog are on the product, meaning that they’ll tri
   ]
 }
 ```
+
+<div class="HubBlock--callout">
+<div class="CalloutBlock--warning">
+<div class="HubBlock-content">
+    
+<!-- theme: warning -->
+
+### SKU rules will override Variant and Bulk Pricing
+Creating SKU rules via the V2 API or via CSV import will override any Variant sale pricing added to a product via the Control Panel, V3 API or Price Lists UI.
+
+</div>
+</div>
+</div>
+
 ---
 
 <a href='#products-overview_metafields' aria-hidden='true' class='block-anchor'  id='products-overview_metafields'><i aria-hidden='true' class='linkify icon'></i></a>
