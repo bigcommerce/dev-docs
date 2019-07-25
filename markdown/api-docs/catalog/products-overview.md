@@ -349,6 +349,7 @@ Bulk Pricing rules in the catalog are on the product, meaning that they’ll tri
   ]
 }
 ```
+
 ---
 
 <a href='#products-overview_metafields' aria-hidden='true' class='block-anchor'  id='products-overview_metafields'><i aria-hidden='true' class='linkify icon'></i></a>
@@ -539,6 +540,21 @@ lineNumbers: true
 * Can have their own price, weight, dimensions, image, etc - or they can inherit these values from the product if they have not been specified
 * Must have a SKU code (unless they’re a base variant)
 * In the case of non-base variants, variants will relate to a particular combination of variant option values - such as “small” and “red”
+
+
+<div class="HubBlock--callout">
+<div class="CalloutBlock--warning">
+<div class="HubBlock-content">
+    
+<!-- theme: warning -->
+
+### V2 SKU rules will override Variant pricing
+> Creating SKU rules via the V2 API or via CSV import will override any Variant sale pricing added to a product via the Control Panel, V3 API or Price Lists UI.
+
+</div>
+</div>
+</div>
+
 
 ### Variants:
 
