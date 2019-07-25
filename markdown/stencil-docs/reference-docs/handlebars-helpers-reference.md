@@ -126,7 +126,7 @@ In this case, this Handlebars statement:
 
 ```html
 {{pluck (limit categories 2) 'name'}}
-<!-- Returns: "Bakeware,Cookware" -->
+<!-- Returns: ["Bakeware","Cookware"] -->
 ```
 
 #### {{pluck}} Example 2
