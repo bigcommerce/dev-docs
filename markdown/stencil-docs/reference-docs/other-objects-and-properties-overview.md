@@ -9,7 +9,7 @@
     <li><a href="#other-objects_customer">Customer Objects</a></li>
     <li><a href="#other-objects_blog">Blog Objects</a></li>
     <li><a href="#other-objects_forms">Forms Objects</a></li>
-    <li><a href="#other-objects_forms">Order Confirmation Objects</a></li>
+    <li><a href="#other-objects_order-confirmation">Order Confirmation Objects</a></li>
 	</ul>
 </div>
 
@@ -2827,6 +2827,8 @@ https://github.com/bigcommerce/cornerstone/tree/master/templates/components/comm
 </div>
 </div>
 </div>
+
+<a href='#other-objects_order-confirmation' aria-hidden='true' class='block-anchor'  id='other-objects_order-confirmation'><i aria-hidden='true' class='linkify icon'></i></a>
 
 ## Order Confirmation Objects
 
