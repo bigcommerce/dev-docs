@@ -7808,7 +7808,7 @@
           "Catalog"
         ],
         "operationId": "updateProducts",
-        "description": "Updates products in batches. At the time of writing, batches are limited to 50 products.\n\n**Read-Only Fields**\n- id\n- date_created\n- date_modified\n- calculated_price\n- base_variant_id",
+        "description": "Updates products in batches. At the time of writing, batches are limited to 10 products.\n\n**Read-Only Fields**\n- id\n- date_created\n- date_modified\n- calculated_price\n- base_variant_id",
         "parameters": [
           {
             "in": "header",
