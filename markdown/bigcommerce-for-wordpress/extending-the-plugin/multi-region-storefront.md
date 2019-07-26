@@ -10,7 +10,7 @@
 
 </div>
 
-This article demonstrates some BigCommerce for WordPress plugin Multi-Channel capabilities and provides an example to illustrate how a multi-region storefront can be setup with minimal code.
+This article demonstrates some BigCommerce for WordPress plugin Multi-Channel capabilities and provides an example to illustrate how a multi-region storefront can be set up with minimal code.
 
 This is also a representation of what is possible with the BigCommerce public APIs today. If you are looking to implement your own custom storefront and it needs to support more than one region, you can apply the concepts here too.
 
