@@ -20,7 +20,7 @@ This is also a representation of what is possible with the BigCommerce public AP
     
 <!-- theme: info -->
 
-> This article's was adapted from [Build a Multi-Region Storefront with BigCommerce for WordPress 3.1.0+](https://medium.com/bigcommerce-developer-blog/build-a-multi-region-storefront-with-bigcommerce-for-wordpress-3-1-0-80cf56c3e8e9) featured on the [BigCommerce Developer Blog](https://medium.com/bigcommerce-developer-blog)
+> This article was adapted from [Build a Multi-Region Storefront with BigCommerce for WordPress 3.1.0+](https://medium.com/bigcommerce-developer-blog/build-a-multi-region-storefront-with-bigcommerce-for-wordpress-3-1-0-80cf56c3e8e9) featured on the [BigCommerce Developer Blog](https://medium.com/bigcommerce-developer-blog).
 
 </div>
 </div>
