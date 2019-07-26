@@ -1894,7 +1894,7 @@ By design, an array will return a `typeof` value of `object`.
 </script>
 ```
 
-<a name="string"></a>
+<a href='#handlebars-helpers-reference_string' aria-hidden='true' class='block-anchor'  id='handlebars-helpers-reference_string'><i aria-hidden='true' class='linkify icon'></i></a>
 
 ##  String Helpers
 
