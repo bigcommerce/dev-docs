@@ -69,7 +69,7 @@ subtitle: "config.json"
 lineNumbers: true
 -->
 
-```
+```json
 "features": [
       "fully_responsive",
       "mega_navigation",

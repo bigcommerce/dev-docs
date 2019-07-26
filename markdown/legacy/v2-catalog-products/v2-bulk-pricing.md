@@ -85,7 +85,7 @@ Gets a product bulk pricing rule.
 
 Example JSON returned in the response:
 
-```
+```json
 {
   "id": "1",
   "product_id": 30,
@@ -111,7 +111,7 @@ Gets a count of the number of bulk pricing rules in the store.
 
 Example JSON returned in the response:
 
-```
+```json
 {
   "count": 9
 }
@@ -152,7 +152,7 @@ The range of the `min` and `max` values must not overlap an existing rule associ
 
 Example request object:
 
-```
+```json
 {
   "min": 100,
   "max": 500,
@@ -165,7 +165,7 @@ Example request object:
 
 Example JSON returned in the response:
 
-```
+```json
 {
   "id": "1",
   "product_id": 30,
@@ -211,7 +211,7 @@ The range of the `min` and `max` values must not overlap an existing rule associ
 
 Example request object:
 
-```
+```json
 {
   "min": 200,
   "max": 300,
@@ -224,7 +224,7 @@ Example request object:
 
 Example JSON returned in the response:
 
-```
+```json
 {
   "id": "1",
   "product_id": 30,

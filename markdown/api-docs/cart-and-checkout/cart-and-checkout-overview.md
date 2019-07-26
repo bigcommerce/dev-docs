@@ -4,6 +4,7 @@
 	<ul>
     <li><a href="#cart-checkout_storefrix otpont-cart-and-checkout">Storefront Cart and Checkout</a></li>
     <li><a href="#cart-checkout_server-to-server-cart-and-checkout">Server-to-Server Cart and Checkout</a></li>
+    <li><a href="#cart-checkout_persistent-cart">Persistent Cart</a></li>
     <li><a href="#cart-checkout_troubleshooting">Troubleshooting Cart Errors</a></li>
 	</ul>
 </div>
@@ -151,6 +152,18 @@ The Server-to-Server APIs are for managing the contents of a shopping cart and c
 
 ---
 
+<a href="#cart-checkout_persistent-cart" id="cart-checkout_persistent-cart"></a>
+
+## Persistent Cart
+
+[Persistent Cart](https://support.bigcommerce.com/s/article/Persistent-Cart) allows for a logged in shopper to access the same cart across devices. Persistent cart is available on [Plus, Pro and Enterprise plans](https://www.bigcommerce.com/essentials/pricing/). 
+
+Persistent Cart works with our Storefront Cart and Sever to Server Cart. 
+To learn more on setup, see [Persistent Cart](https://support.bigcommerce.com/s/article/Persistent-Cart).
+
+
+---
+
 <a href='#cart-checkout_troubleshooting' aria-hidden='true' class='block-anchor'  id='cart-checkout_troubleshooting'><i aria-hidden='true' class='linkify icon'></i></a>
 
 ## Troubleshooting Cart Errors
@@ -283,7 +296,7 @@ subtitle: ""
 lineNumbers: true
 -->
 
-```
+```json
 
 {
   "line_items": [
@@ -392,7 +405,7 @@ subtitle: ""
 lineNumbers: true
 -->
 
-```
+```json
 {
   "line_item": {
     "quantity": 1,

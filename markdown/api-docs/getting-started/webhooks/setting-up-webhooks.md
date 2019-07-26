@@ -230,7 +230,7 @@ Listening for webhooks on port 3000
 ![ngrok running](//s3.amazonaws.com/user-content.stoplight.io/6012/1531500085650)
 
 ngrok returns two values we will need to register a webhook and observe the response: 
-- **Web Interface:** Where you can monitor the hook from a browser. `https://127.0.0.1:4040`
+- **Web Interface:** Where you can monitor the hook from a browser. `http://127.0.0.1:4040`
 - **Forwarding:** The webhook destination. Make note of the https version. For example, `https://6a35e97b.ngrok.io`.
 
 4. Open a web browser and copy in your Web Interface URL: `http://127.0.0.1:4040`.  This is where webhook payloads will appear when they fire.

@@ -48,7 +48,7 @@ For details on using Handlebars to surface objects in Stencil, see the following
 
 ### WebDav vs CLI
 
-In Blueprint themes, users were able to add new files and assets to themes [via WebDav](https://support.bigcommerce.com/s/article/File-Access-WebDAV). In Stencil, assets must be added to and bundled into the theme, or referenced from an external source. 
+In Blueprint themes, users were able to add new files and assets to themes [via WebDav](https://support.bigcommerce.com/s/article/File-Access-WebDAV). In Stencil, assets must be added to and bundled into the theme, or referenced from an external source.
 
 ### Customizing checkout with Stencil
 
@@ -56,9 +56,9 @@ Stores created before March 2019 had the option to switch to One Page Checkout (
 
 ### Updating a theme
 
-As with Blueprint themes, Stencil themes can receive updates from theme developers. You can apply theme updates by going to the BigCommerce Control Panel. When in the control panel, navigate to **Storefront** › **My Themes**, and click **Update**. 
+As with Blueprint themes, Stencil themes can receive updates from theme developers. You can apply theme updates by going to the BigCommerce Control Panel. When in the control panel, navigate to **Storefront** › **My Themes**, and click **Update**.
 
-BigCommerce shares updates to Cornerstone in our Changelog (https://developer.bigcommerce.com/changelog) so you can verify that updates don't conflict with your customizations. 
+BigCommerce shares updates to Cornerstone in our Changelog (https://developer.bigcommerce.com/changelog) so you can verify that updates don't conflict with your customizations.
 
 For more on theme updates and best practices for handling version control, view this guide:
 https://developer.bigcommerce.com/stencil-docs/getting-started/advanced-installation-options/theme-updates-and-version-control#theme-updates_goruck-best-pracs
@@ -95,7 +95,7 @@ Stencil is designed for high SEO performance. However, you will want to keep SEO
 * [Developing a Keyword Strategy](https://support.bigcommerce.com/articles/Learning/Developing-a-Keyword-Strategy/) (Knowledge Base)
 * [SEO Success Essentials](https://support.bigcommerce.com/articles/Learning/Bigcommerce-SEO-Success-Essentials/) (Knowledge Base)
 * [Advanced SEO on BigCommerce](https://support.bigcommerce.com/s/article/Advanced-SEO-on-Bigcommerce) (Knowledge Base)
-* [Guide to Keyword Research](https://support.bigcommerce.com/s/article/Value-of-Keywords) (Knowledge Base).
+* [Guide to Keyword Research](https://support.bigcommerce.com/s/article/Value-of-Keywords) (Knowledge Base)
 
 ---
 
@@ -115,7 +115,7 @@ As a theme developer, you can rely on apps to enhance your themes’ capabilitie
 <div class="HubBlock--callout">
 <div class="CalloutBlock--">
 <div class="HubBlock-content">
-    
+
 <!-- theme:  -->
 
 ### Partnering with BigCommerce
@@ -164,4 +164,3 @@ As a theme developer, you can rely on apps to enhance your themes’ capabilitie
 * [Getting Started with Handlebars.js](http://blog.teamtreehouse.com/getting-started-with-handlebars-js) (Team Treehouse)
 * [Handlebars interactive tutorial](http://tryhandlebarsjs.com/) (Try Handlebars)
 * [Stencil and the BigCommerce Control Panel](https://www.youtube.com/watch?v=d2F6F8LJXzs&list=PLwTYtMwfzbe7EZiIWPAmPtuwRHkY7BG-0&index=2) (Youtube)
-

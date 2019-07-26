@@ -7,13 +7,13 @@
     <li><a href="#multi_browsing">Browsing Hidden Translation Keys</a></li>
     <li><a href="#multi_adding">Adding Your Own Translation Values</a></li>
     <li><a href="#multi_localized">Localized Country and State Names</a></li>
-    <li><a href="#multi_stencils-overall">Stencil's Overall Limits on Translation</a></li>
+    <li><a href="#multi_stencils-overall">Limits on Translation</a></li>
 	</ul>
 </div>
 
 <a href='#multi_multi-lang' aria-hidden='true' class='block-anchor'  id='multi_multi-lang'><i aria-hidden='true' class='linkify icon'></i></a>
 
-## Multi-Language Setup 
+## Multi-Language Setup
 
 In the Cornerstone theme, both the Optimized One-Page Checkout and the [order confirmation](https://github.com/bigcommerce/cornerstone/blob/master/templates/pages/order-confirmation.html) pages contain [Handlebars`{{lang}}`](/stencil-docs/handlebars-syntax-and-helpers/handlebars-helpers-reference/string-helpers/custom-string-helpers#handlebars_lang) statements to facilitate translation. The `{{lang}}` statements enable automatic rendering of their parameters into languages that shoppers have selected in their browser preferences.
 
@@ -98,7 +98,7 @@ You can provide values for all of checkout's supported translation keys – for 
 
 <a href='#multi_localized' aria-hidden='true' class='block-anchor'  id='multi_localized'><i aria-hidden='true' class='linkify icon'></i></a>
 
-## Localized Country and State Names 
+## Localized Country and State Names
 
 In the Optimized One-Page Checkout page's `Shipping Address` and `Billing Address` fields, BigCommerce currently provides automatic translation of drop-down lists' displayed `Country` and `State` names into 12 supported languages. Here are the steps for enabling this translation:
 
@@ -147,6 +147,4 @@ BigCommerce Optimized One-Page Checkout will currently translate displayed `Coun
 
 ### Sample Apps
 
-* Cornerstone Repository (Bigcommerce Github)
-
-
+* [Cornerstone Repository](https://github.com/bigcommerce/cornerstone) (Bigcommerce Github)

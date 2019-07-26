@@ -19,7 +19,7 @@ This article contains detailed instructions on how to authorize and initialize t
 
 ---
 
-<a href='#authorizing_authentication' aria-hidden='true' class='block-anchor'  id='#authorizing_authentication'><i aria-hidden='true' class='linkify icon'></i></a>
+<a href='#authorizing_authentication' aria-hidden='true' class='block-anchor'  id='authorizing_authentication'><i aria-hidden='true' class='linkify icon'></i></a>
 
 ## Authentication
 
@@ -27,7 +27,7 @@ You need to have an authentication token to use the Stencil CLI. To learn how to
 
 ---
 
-<a href='#authorizing_prerequisites' aria-hidden='true' class='block-anchor'  id='#authorizing_prerequisites'><i aria-hidden='true' class='linkify icon'></i></a>
+<a href='#authorizing_prerequisites' aria-hidden='true' class='block-anchor'  id='authorizing_prerequisites'><i aria-hidden='true' class='linkify icon'></i></a>
 
 ## Prerequisites by OS
 
@@ -35,6 +35,8 @@ Each OS has different prerequisites that need to be fulfilled before installing 
 * [Mac OS](#mac)
 * [Linux](#linux)
 * [Windows](#windows)
+
+<a id='mac'></a>
 
 ###  <div id="mac">Mac OS</div>
 
@@ -46,15 +48,17 @@ These instructions have been tested on Mac OS X Yosemite. Dependencies for other
 * Stencil requires the [Node.js](https://nodejs.org/) runtime environment, version [8.1.0](https://nodejs.org/en/blog/release/). We’ve deprecated support for earlier versions of Node.
 * We recommend that you install or update Node.js using [nvm](https://github.com/creationix/nvm#installation). First install nvm, version [0.31.0](https://github.com/creationix/nvm/tree/v0.31.0), as follows:
 
-```
+```shell
 curl -o- https://raw.githubusercontent.com/creationix/nvm/v0.31.0/install.sh | bash
 ```
 
 Next, explicitly install a supported Node.js version:
 
-```
+```shell
 nvm install 8.1.0
 ```
+
+<a id='linux'></a>
 
 ### <div id="linux">Linux</div>
 
@@ -105,6 +109,8 @@ nodejs --version
 
 	* g++
 	* [libsass](https://sass-lang.com/libsass)
+
+	<a id='windows'></a>
 
 ### <div id="windows">Windows<div>
 

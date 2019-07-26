@@ -1,7 +1,7 @@
 <h1>Add reCAPTCHA V2</h1>
 <div class="otp">
   <ul>
-    <li><a href="#catalog-price_excluding-tax">How to Upgrade</a></li>
+    <li><a href="#add-recaptcha_how-to-upgrade">How to Upgrade</a></li>
 	</ul>
 </div>
 
@@ -10,6 +10,8 @@ reCAPTCHA v1 was deprecated as of March 31, 2018. To deter spam submission throu
 If you have based your theme on a theme/version that already incorporates reCAPTCHA v2, you do not need to take any further action. Compliant themes/versions currently are listed in [Updating Themes with reCAPTCHA V2](https://support.bigcommerce.com/s/article/Updating-Themes-with-reCAPTCHA-v2#updatingthemes) (Knowledge Base).
 
 ---
+
+<a href='#add-recaptcha_how-to-upgrade' aria-hidden='true' class='block-anchor'  id='add-recaptcha_how-to-upgrade'><i aria-hidden='true' class='linkify icon'></i></a>
 
 ## How to Upgrade
 
@@ -30,4 +32,3 @@ It is possible to add reCaptcha to the Login template. See the [Forms object](/s
 ### Related Articles
 
 * [Enabling ReCAPTCHA](https://support.bigcommerce.com/s/article/Updating-Themes-with-reCAPTCHA-v2)
-

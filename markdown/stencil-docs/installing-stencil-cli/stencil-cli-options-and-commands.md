@@ -20,7 +20,7 @@ The syntax to run a basic Stencil CLI command is: `stencil <commands> [options] 
 
 To see the basic options and commands that the Stencil CLI package supports, enter any of the following forms of the help option on your command line:
 
-```
+```shell
 stencil
 stencil help
 stencil --help
@@ -224,7 +224,7 @@ When you run `stencil push` with the `-f` or `--filename` option, Stencil CLI sk
 
 ---
 
-<a href='#stencil_quick' aria-hidden='true' class='block-anchor'  id='stencil_quick'><i aria-hidden='true' class='linkify icon'></i></a>
+<a href='#stencil_theme' aria-hidden='true' class='block-anchor'  id='stencil_theme'><i aria-hidden='true' class='linkify icon'></i></a>
 
 ## Theme Editor Local Launch Quick Reference
 

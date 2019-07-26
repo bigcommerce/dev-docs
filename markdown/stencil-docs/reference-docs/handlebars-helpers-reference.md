@@ -89,7 +89,7 @@ The `limit` helper is custom to Stencil. It limits the number of items returned 
 
 Assume that `{{cart.items}}` would return 10 items. You could use this helper to limit that behavior to only the first four items, by specifying:
 
-```
+```html
 {{limit cart.items 4}}
 ```
 
@@ -99,7 +99,7 @@ The `pluck` helper is custom to Stencil. For one specified search key(s), it ret
 
 The `pluck` helper returns the retrieved values in a comma-separated string. This helper's general form is:
 
-```
+```html
 {{pluck ([limit] <collection> [<limit-value>]) '<search-key>'}}
 ```
 
@@ -114,7 +114,7 @@ The `pluck` helper returns the retrieved values in a comma-separated string. Thi
 
 Assume that the `categories` collection contains:
 
-```
+```html
 categories: [
   { "id": 1, "name": "Bakeware" },
   { "id": 2, "name": "Cookware" },
@@ -124,21 +124,16 @@ categories: [
 
 In this case, this Handlebars statement:
 
-```
+```html
 {{pluck (limit categories 2) 'name'}}
-```
-
-...would return:
-
-```
-"Bakeware,Cookware"
+<!-- Returns: ["Bakeware","Cookware"] -->
 ```
 
 #### {{pluck}} Example 2
 
-If the `categories` themselves each contained an image object, then you could use dot notation to access that image object's children:
+If each category in `categories`  contains an image object, use dot notation to access the image's children:
 
-```
+```json
 categories: [
   { "id": 1, "name": "Bakeware", "image": { "data": "http://...", "alt": "Bakeware image"} },
   { "id": 2, "name": "Cookware" "image": { "data": "http://...", "alt": "Cookware image"} },
@@ -146,13 +141,12 @@ categories: [
 ]
 ```
 
-In this case, this Handlebars statement:
+Handlebars statement:
 
-```
+```html
 {{pluck (limit categories 2) 'image.data'}}
+<!-- Returns a comma-separated list of image URLs -->
 ```
-
-...would return a comma-separated list of image URLs.
 
 ---
 
@@ -893,13 +887,13 @@ The following helpers provide control structures that test for conditions, and b
 
 The `if` helper has been customized for Stencil, and has the following syntax:
 
-```
+```html
 {{#if <statement>}}
-  ...
+  <!--...-->
 {{else if}}  /* optional else-if block */
-  ...
+  <!--...-->
 {{else}}  /* optional else block */
-  ...
+  <!--...-->
 {{/if}}
 ```
 
@@ -920,9 +914,9 @@ The `unless` helper is logically the opposite of the [`if` helper](#if), subject
 
 #### Formal Example
 
-```
+```html
 {{#unless statement}}
-   ... /* block to display/execute unless statement is true */
+   <!-- render unless statement is true -->
 {{/unless}}
 ```
 
@@ -935,13 +929,13 @@ Statements using `unless` can refer to:
 Unlike the `if` helper,  `unless` on the Stencil framework does not support operators for comparison expressions.
 So, for example, the following expression would throw an error:
 
-```
+```html
 {{#unless this.alt "===" "hidden"}}
 ```
 
 A workaround for this logic is to recast the expression as `if`/not-equal-to. So the following expression would be valid:
 
-```
+```html
 {{#if this.alt "!==" "hidden"}}
 ```
 
@@ -949,7 +943,7 @@ A workaround for this logic is to recast the expression as `if`/not-equal-to. So
 
 Here is a usage example from Stencil's Cornerstone base theme: The `templates/pages/search.html` template displays search results. In this template's section that displays search suggestions, an `#unless` loop determines what to output for the final result:
 
-```
+```html
 {{#each category_results}}
 <li class="category-suggestion">
     {{#each this}}
@@ -996,9 +990,9 @@ The `any` helper is custom to Stencil. It checks whether at least one parameter 
 
 Formally, the `any` helper is invoked as shown here:
 
-```
+```html
 {{#any items selected=true}}
-  ... /* block to display if any items have selected=true */
+  <!-- block to display if any items have selected=true -->
 {{/any}}
 ```
 
@@ -1006,7 +1000,7 @@ A usage example is http://cornerstone-light-demo.mybigcommerce.com/shop-all/gard
 
 The Stencil code controlling this component resides in the theme's `templates/components/category/shop-by-price.html` file. In this component, the `{{#any...` Handlebars helper is used to determine whether a shopper has selected one of the filters, and whether a "reset" button needs to be displayed:
 
-```
+```html
 {{#any shop_by_price selected=true}}
     <li class="navList-item">
         <a href="{{category_url}}" class="navList-action">
@@ -1022,7 +1016,7 @@ The `all` helper is custom to Stencil. It checks whether _all_ parameters evalua
 
 #### Example
 
-```
+```html
 {{#all items theme_settings.optionA theme_settings.optionB}}
   ... /* block to display, if all items evaluate to true */
 {{/all}}
@@ -1034,9 +1028,9 @@ The `contains` helper is custom to Stencil. It checks whether the second paramet
 
 #### Example
 
-```
+```html
 {{#contains fonts "Roboto"}}
-  ... /* block to display, if any items contain "Roboto" */
+  <!--block to display, if any items contain "Roboto"-->
 {{/contains}}
 ```
 
@@ -1046,11 +1040,11 @@ The syntax for the `each` helper can be found in the official Handlebars documen
 
 #### Example
 
-```
+```html
 {{#each array | object}}
-  ...
+  <!--...-->
 {{else}} /* optional block to execute if the the list is empty */
-  ...
+  <!--...-->
 {{/each}}
 ```
 
@@ -1068,9 +1062,9 @@ The `for` helper is a custom Stencil helper. In particular, this helper is limit
 
 The `for` helper has the following syntax, where parameters `<from>` and `<to>` are numbers, and `<context>` is an object:
 
-```
+```html
 {{#for <from> <to> <context>}}
-  ...
+  <!--...-->
 {{/for}}
 ```
 
@@ -1193,7 +1187,7 @@ This helper's parameters are:
 
 Here is an example:
 
-```
+```html
 {{getImage image "thumbnail"}}
 ```
 
@@ -1262,13 +1256,13 @@ The `cdn` helper is custom to Stencil. It is a URL transformer for content deliv
 
 When you reference static assets that you have locally staged outside your `<theme-name>` directory and uploaded using WebDAV, place the `webdav:` prefix before each corresponding `assetPath` parameter. For example, a link like:
 
-```
-<img src="{{cdn "webdav:img/image.jpg"}}">
+```html
+<img src="{{cdn 'webdav:img/image.jpg'}}">
 ```
 
 ...will be transformed to a result like:
 
-```
+```html
 <img src="https://cdn.bcapp/3dsf74g/content/img/image.jpg">
 ```
 
@@ -1294,7 +1288,7 @@ subtitle: "custom cdn endpointexample"
 lineNumbers: true
 -->
 
-```
+```json
 {
   "name": "Cornerstone",
   "version": "1.3.5",
@@ -1310,8 +1304,8 @@ lineNumbers: true
 
 After defining an endpoint, you can use the short name in the same way as you would use a `webdav:` abbreviation:
 
-```
-<img src="{{cdn "customcdn:img/image.jpg"}}" />
+```html
+<img src="{{cdn 'customcdn:img/image.jpg'}}" />
 ```
 
 In local development, that helper would return:
@@ -1321,9 +1315,10 @@ In local development, that helper would return:
 
 Whereas in production, it would return:
 
-```
+```html
 <img src="https://bigcommerce.customcdn.net/img/image.jpg" />
 ```
+
 As highlighted above, the helper is configured to rewrite *local* URLs to a `<theme-name>/assets/cdn/` subfolder. The `stencil bundle` command will exclude this local `assets/cdn/` subfolder from the bundle that it creates. This filtering circumvents the 50 MB size limit on the resulting .zip file.
 
 
@@ -1346,7 +1341,7 @@ The `inject` helper collects data definitions for injection into the `jsContext`
 
 An `inject` call takes this form:
 
-```
+```html
 {{inject "stringBasedKey" contextValue}}
 ```
 
@@ -1359,7 +1354,7 @@ The `jsContext` helper takes no parameters; it simply returns a JSON object cont
 
 To set up the product name in your client-side app, you can do the following, if you are in the context of a product:
 
-```
+```html
 {{inject "myProductName" product.title}}
 
 <script>
@@ -1439,7 +1434,7 @@ The `stylesheet` helper is custom to Stencil. It renders a link tag to insert a 
 
 #### Example
 
-```
+```html
 {{{stylesheet "assets/css/style.css" class="myStylesheet"}}}
 ```
 
@@ -1856,9 +1851,9 @@ To improvise a `!==` (not equal or not equal type) comparison operator in Handle
 
 The `or` operator has been customized for Stencil. It checks whether at least one of its parameters evaluates to true, and has the following syntax:
 
-```
+```html
 {{#or 1 0 0 0 0 0 0}}
-  ... /* execute this block if OR evaluates to true */
+  <!-- render this block if OR evaluates to true -->
 {{/or}}
 ```
 
@@ -1866,7 +1861,7 @@ The `or` operator has been customized for Stencil. It checks whether at least on
 
 Here is a usage example from Stencil's Cornerstone base theme, where it displays the cart's contents. The `templates/components/cart/content.html` template uses the `or` operator to determine whether an item contains either product options _or_ configurable fields. If at least one condition is true, the template displays an edit link for the item:
 
-```
+```html
 {{#or options configurable_fields}}
     <a href="#" data-item-edit="{{id}}">{{lang 'cart.checkout.change'}}</a>
 {{/or}}
@@ -1926,7 +1921,7 @@ The `concat` helper is custom to Stencil. It concatenates two string objects fro
 
 #### Example
 
-```
+```html
 {{concat breadcrumbs.[0].name breadcrumbs.[0].url}}
 ```
 
@@ -1954,23 +1949,23 @@ The `nl2br` helper is custom to Stencil. You can call this helper on a string ob
 
 #### Example
 
-This Handlebars statement:
+**Handlebars:**
 
-```
+```html
 {{nl2br settings.address}}
 ```
 
-...will take this example string:
+`settings.address`:
 
-```
+```json
 "settings": {
   "address": "\r\n685 Market St\r\nSan Francisco\r\n94105\r\nCA\r\n"
 }
 ```
 
-...and return
+**Result:**
 
-```
+```html
 "<br>685 Market St<br>San Francisco<br>94105<br>CA<br>"
 ```
 
@@ -1987,7 +1982,7 @@ The `replace` string helper is custom to Stencil. It searches for the first para
 
 For example, the following code would search for the string `needle` within the scope defined by `haystack`. If found, it would replace that string with the Handlebars block defined by `<context...replacement>`:
 
-```
+```html
 {{#replace "needle" haystack}}
   {{<context to use as a replacement>}}
 {{/replace}}
@@ -1999,24 +1994,24 @@ The `toLowerCase` helper is custom to Stencil. Use this helper to return a copy 
 
 #### Example
 
-This Handlebars statement:
+**Handlebars:**
 
-```
-{{toLowerCase head.title}}
+```html
+<h1>{{toLowerCase head.title}}</h1>
 ```
 
-...will take this example string:
+`head.title`:
 
-```
+```json
 "head": {
   "title": "This is my TEST Store"
 }
 ```
 
-...and return:
+**Result:**
 
-```
-"this is my test store"
+```html
+<h1>this is my test store</h1>
 ```
 
 <a name="string_std"></a>

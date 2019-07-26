@@ -10,12 +10,12 @@
     <li><a href="#checkout_app-injection">Checkout App Injection</a></li>
 	</ul>
 </div>
-  
+
 
 
 <a href='#checkout_adding' aria-hidden='true' class='block-anchor'  id='checkout_adding'><i aria-hidden='true' class='linkify icon'></i></a>
 
-## Adding Storewide Styles 
+## Adding Storewide Styles
 
 A prerequisite for the next two options is to add themewide styles to your Checkout or Order Confirmation page. To do so, add this statement:
 
@@ -27,7 +27,7 @@ A prerequisite for the next two options is to add themewide styles to your Check
 
 <a href='#checkout_applying-storewide-header' aria-hidden='true' class='block-anchor'  id='checkout_applying-storewide-header'><i aria-hidden='true' class='linkify icon'></i></a>
 
-## Applying Storewide Header 
+## Applying Storewide Header
 
 You can replace each page's predefined header with your storewide header. To do so, first add themewide styles as described above. Next, replace the following code block (if present):
 
@@ -62,7 +62,7 @@ Ensure that you paste it before this **existing** statement:
 
 <a href='#checkout_applying-storewide-scripts' aria-hidden='true' class='block-anchor'  id='checkout_applying-storewide-scripts'><i aria-hidden='true' class='linkify icon'></i></a>
 
-## Applying Storewide Scripts 
+## Applying Storewide Scripts
 
 You have the following options to add and customize headers and footers, on either or both templates:
 
@@ -80,7 +80,7 @@ If you are working on a theme that does not have the scripts already enabled, he
 
 Add it between these existing statements, so it will ultimately read as shown below.
 
-```
+```html
 <script type="text/javascript">
     window.language = {{{langJson 'optimized_checkout'}}};
 </script>
@@ -112,7 +112,7 @@ Add it between these existing statements, so it will ultimately read as shown be
 
 Add it between these existing statements, so it will ultimately read as shown below.
 
-```
+```html
 <script type="text/javascript">
     window.language = {{{langJson 'optimized_checkout'}}};
 </script>
@@ -130,7 +130,7 @@ Additionally, at the bottom of the order confirmation template (`order-confirmat
 
 Insert it between these existing statements, so it will ultimately read as shown below.
 
-```
+```html
 {{{ checkout.order_confirmation_content }}}
 
 {{{ footer.scripts }}}
@@ -144,7 +144,7 @@ Insert it between these existing statements, so it will ultimately read as shown
 
 <a href='#checkout_adding-trust-seals' aria-hidden='true' class='block-anchor'  id='checkout_adding-trust-seals'><i aria-hidden='true' class='linkify icon'></i></a>
 
-## Adding Trust Seals 
+## Adding Trust Seals
 
 To add a trust seal to either template:
 
@@ -154,7 +154,7 @@ To add a trust seal to either template:
 
 <a href='#checkout_app-injection' aria-hidden='true' class='block-anchor'  id='checkout_app-injection'><i aria-hidden='true' class='linkify icon'></i></a>
 
-## App Injection: Script Examples 
+## Checkout App Injection 
 
 With BigCommerce's extensible software, there are a variety of ways to add scripts to your store. The steps above outline only one method of adding header and footer scripts to your store, which is by directly editing the theme files.
 
@@ -162,7 +162,7 @@ As mentioned in the App Injection Script Examples, you can use BigCommerce's Scr
 
 The following sections present examples of scripts that inject popular apps into the checkout/order confirmation sequence.
 
-### Olark Live Chat 
+### Olark Live Chat
 
 As an example of injecting an app from the BigCommerce Apps Marketplace, you could enable the Olark Live Chat app on either page by by using the script manager or our new Scripts API:
 
@@ -216,7 +216,7 @@ function customerJWT(a){var b="r1sc6nvnnhed377cozp2bfwfa69cfz5",c=new XMLHttpReq
 </script>
 ```
 
-### Conversion Tracking: Conversions on Demand 
+### Conversion Tracking: Conversions on Demand
 
 Here is one final example of an app that you could enable by using the script manager or our new Scripts API. This example enables Conversions on Demand:
 
@@ -238,7 +238,7 @@ Here is one final example of an app that you could enable by using the script ma
 // ]]></script>
 ```
 
-### Google Analytics: Addrexx Address Verification 
+### Google Analytics: Addrexx Address Verification
 
 The Addrexx app is integrated to the Checkout or Order Confirmation page via the BigCommerce control panel's Google Analytics box, rather than through injection directly into either Stencil template file. Here is the corresponding script to enter into the control panel:
 
@@ -259,5 +259,3 @@ loadaddrexx();
 </script>
 <!-- END  Addrexx -->
 ```
-
-
