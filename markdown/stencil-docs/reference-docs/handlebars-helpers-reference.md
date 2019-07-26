@@ -1193,9 +1193,57 @@ Here is an example:
 
 You can use the optional `defaultImage` parameter to specify an image that will be displayed in cases where the passed `stencilImage` value is null.
 
+### {{getImageSrcset}}
+
+This helper is intended to be used with `{{getImage}}`. [Srcset](https://developer.mozilla.org/en-US/docs/Web/HTML/Element/img#attr-srcset) returns a list of response images sizes. 
+If not parameters are passed in then it return the default sizes. 
+
+- `url` : Url  of the image
+- `sizes` : Image sizes
+
+**HTML Use**
+
+```html
+<img src="{{getImage image "default"}}" srcset="{{getImageSrcset image 100w="100w" 200w="200w" 300w="300w"}}" />
+```
+
+**Returns**
+
+```html
+https://cdn00.bigcommerce.com/s-abc123/images/stencil/100w/l/my-huge-image.original.jpg 100w,
+https://cdn00.bigcommerce.com/s-abc123/images/stencil/200w/l/my-huge-image.original.jpg 200w,https://cdn00.bigcommerce.com/s-abc123/images/stencil/300w/l/my-huge-image.original.jpg 300w
+```
+
+**HTML Use**
+```html
+<img src="{{getImage image "default"}}" srcset="{{getImageSrcset image 1x="1000x1000" 2x="2000x2000"}}" />
+```
+
+**Returns**
+
+```html
+https://cdn00.bigcommerce.com/s-abc123/images/stencil/1000x1000/l/my-huge-image.original.jpg 1x, https://cdn00.bigcommerce.com/s-abc123/images/stencil/2000x2000/l/my-huge-image.original.jpg 2x
+```
+
+
+**Default Sizes**
+
+```html
+    '80w': '80w',
+    '160w': '160w',
+    '320w': '320w',
+    '640w': '640w',
+    '960w': '960w',
+    '1280w': '1280w',
+    '1920w': '1920w',
+    '2560w': '2560w',
+```
+
 ---
 
 <a href='#handlebars-helpers-reference_inflection' aria-hidden='true' class='block-anchor'  id='handlebars-helpers-reference_inflection'><i aria-hidden='true' class='linkify icon'></i></a>
+
+
 
 ## Inflection Helpers
 
@@ -1769,7 +1817,7 @@ Deeply merges the properties of the given `objects` with the context object.
 * `objects` {Object}
 * `returns` {Object}
 
-### {{JSONparse}}
+### {{#JSONparse}}
 
 Block helper that parses a string using `JSON.parse`, then passes the parsed object to the block as context.
 
@@ -1777,6 +1825,16 @@ Block helper that parses a string using `JSON.parse`, then passes the parsed obj
 
 * `string` {String}: The string to parse.
 * `options` {Object}: Handlebars options object.
+
+**Example**
+
+*This will return the product stock level to a page.*
+
+```html
+{{#JSONparse product.stock_level}}
+    {{this}}
+{{/JSONparse}}
+```
 
 ### {{JSONstringify}}
 
