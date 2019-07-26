@@ -1,12 +1,12 @@
-<h1>title</h1>
+<h1>Building a Multi-Region Storefront</h1>
 
 <div class="otp" id="no-index">
 
 ### On This Page
 
-* [Section One](#section-one)
-* [Section Two](#section-two)
-* [Section Three](#section-three) 
+* [The BigCommerce Approach to Serving Multiple Regions](#the-bigCommerce-approach-to-serving-multiple-regions)
+* [Primary Use Cases](#primary-use-cases)
+* [Multi-Region Implementation Examples](#multi-region-implementation-examples)
 
 </div>
 
@@ -46,7 +46,7 @@ The reason for this versatility is that multi-channel is controlled within the p
 
 ---
 
-## Multi-region Implementation Examples
+## Multi-Region Implementation Examples
 
 In this section we’ll dive into enabling multi-region storefronts. These two different examples are based on simple child plugins, which trigger the channel view when a user’s region is France. The French channel includes product details that have been translated into the appropriate language and also switches the currency code and symbol to Euro.
 Note: Both examples have a sample child plugin you can download as a starter at the bottom of this post.
