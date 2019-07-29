@@ -818,61 +818,7 @@
                       "bulk_pricing_rules": {
                         "type": "array",
                         "items": {
-                          "type": "object",
-                          "description": "Common BulkPricingRule properties",
-                          "title": "Bulk Pricing Rule",
-                          "properties": {
-                            "id": {
-                              "type": "integer",
-                              "description": "Unique ID of the *Bulk Pricing Rule*. Read-Only."
-                            },
-                            "quantity_min": {
-                              "type": "integer",
-                              "description": "The minimum inclusive quantity of a product to satisfy this rule. Must be greater than or equal to zero.\nRequired in /POST.\n",
-                              "x-required": [
-                                "post"
-                              ],
-                              "minimum": 0,
-                              "example": 10
-                            },
-                            "quantity_max": {
-                              "type": "integer",
-                              "description": "The maximum inclusive quantity of a product to satisfy this rule. Must be greater than the `quantity_min` value – unless this field has a value of 0 (zero), in which case there will be no maximum bound for this rule.\nRequired in /POST.",
-                              "x-required": [
-                                "post"
-                              ],
-                              "minimum": 0,
-                              "example": 50
-                            },
-                            "type": {
-                              "type": "string",
-                              "description": "The type of adjustment that is made. Values: `price` - the adjustment amount per product; `percent` - the adjustment as a percentage of the original price; `fixed` - the adjusted absolute price of the product.\nRequired in /POST.",
-                              "x-required": [
-                                "post"
-                              ],
-                              "enum": [
-                                "price",
-                                "percent",
-                                "fixed"
-                              ],
-                              "example": "price"
-                            },
-                            "amount": {
-                              "description": "The discount can be a fixed dollar amount or a percentage. For a fixed dollar amount enter it as an integer and the response will return as an integer. For percentage enter the amount as the percentage divided by 100 using string format. For example 10% percent would be “.10”. The response will return as an integer. \nRequired in /POST.",
-                              "format": "float",
-                              "example": "\".10\"",
-                              "type": [
-                                "integer",
-                                "string"
-                              ]
-                            }
-                          },
-                          "required": [
-                            "quantity_min",
-                            "quantity_max",
-                            "type",
-                            "amount"
-                          ]
+                          "$ref": "#/definitions/BulkPricingRuleBase"
                         }
                       },
                       "date_created": {
@@ -893,8 +839,8 @@
                           "title": "Product Image",
                           "allOf": [
                             {
-                              "type": "object",
                               "description": "Common ProductImage properties.",
+                              "title": "Product Image Base",
                               "properties": {
                                 "id": {
                                   "description": "The unique numeric ID of the image; increments sequentially.\n",
@@ -943,11 +889,9 @@
                                   "description": "The description for the image.\n",
                                   "type": "string"
                                 }
-                              },
-                              "title": "Product Image Base"
+                              }
                             },
                             {
-                              "type": "object",
                               "properties": {
                                 "id": {
                                   "description": "The unique numeric ID of the image; increments sequentially.\n",
@@ -989,18 +933,18 @@
                                 }
                               }
                             }
-                          ]
+                          ],
+                          "type": "object"
                         }
                       },
                       "videos": {
                         "type": "array",
                         "items": {
-                          "type": "object",
                           "description": "A product video model.\n",
                           "allOf": [
                             {
-                              "type": "object",
                               "description": "Common ProductVideo properties.",
+                              "title": "Product Video Base",
                               "properties": {
                                 "title": {
                                   "type": "string",
@@ -1025,11 +969,9 @@
                                     "youtube"
                                   ]
                                 }
-                              },
-                              "title": "Product Video Base"
+                              }
                             },
                             {
-                              "type": "object",
                               "properties": {
                                 "id": {
                                   "type": "integer",
@@ -1050,16 +992,15 @@
                               }
                             }
                           ],
-                          "title": "Product Video"
+                          "title": "Product Video",
+                          "type": "object"
                         }
                       },
                       "variants": {
                         "type": "array",
                         "items": {
-                          "type": "object",
                           "allOf": [
                             {
-                              "type": "object",
                               "description": "Common Variant properties.",
                               "title": "Variant Base",
                               "properties": {
@@ -1165,7 +1106,6 @@
                               }
                             },
                             {
-                              "type": "object",
                               "properties": {
                                 "id": {
                                   "type": "integer"
@@ -1183,11 +1123,10 @@
                                 },
                                 "option_values": {
                                   "type": "array",
+                                  "description": "Array of option and option values IDs that make up this variant. Will be empty if the variant is the product's base variant.",
                                   "items": {
-                                    "type": "object",
                                     "allOf": [
                                       {
-                                        "type": "object",
                                         "description": "Common Option Value Product properties.",
                                         "title": "Option Value Product Base",
                                         "properties": {
@@ -1214,7 +1153,6 @@
                                         }
                                       },
                                       {
-                                        "type": "object",
                                         "properties": {
                                           "id": {
                                             "type": "integer"
@@ -1225,9 +1163,9 @@
                                         }
                                       }
                                     ],
-                                    "title": "Option Value Variant"
-                                  },
-                                  "description": "Array of option and option values IDs that make up this variant. Will be empty if the variant is the product's base variant."
+                                    "title": "Option Value Variant",
+                                    "type": "object"
+                                  }
                                 },
                                 "calculated_price": {
                                   "type": "number",
@@ -1236,7 +1174,8 @@
                                 }
                               }
                             }
-                          ]
+                          ],
+                          "type": "object"
                         }
                       },
                       "base_variant_id": {
@@ -1254,6 +1193,7 @@
                 "meta": {
                   "type": "object",
                   "description": "Data about the response, including pagination and collection totals.",
+                  "title": "Collection Meta",
                   "properties": {
                     "pagination": {
                       "type": "object",
@@ -1306,8 +1246,7 @@
                         }
                       }
                     }
-                  },
-                  "title": "Collection Meta"
+                  }
                 }
               }
             },
@@ -3328,10 +3267,6 @@
                     "description": "Common BulkPricingRule properties",
                     "title": "Bulk Pricing Rule",
                     "properties": {
-                      "id": {
-                        "type": "integer",
-                        "description": "Unique ID of the *Bulk Pricing Rule*. Read-Only."
-                      },
                       "quantity_min": {
                         "type": "integer",
                         "description": "The minimum inclusive quantity of a product to satisfy this rule. Must be greater than or equal to zero.\nRequired in /POST.\n",
@@ -3364,13 +3299,8 @@
                         "example": "price"
                       },
                       "amount": {
-                        "description": "The discount can be a fixed dollar amount or a percentage. For a fixed dollar amount enter it as an integer and the response will return as an integer. For percentage enter the amount as the percentage divided by 100 using string format. For example 10% percent would be “.10”. The response will return as an integer. \nRequired in /POST.",
-                        "format": "float",
-                        "example": "\".10\"",
-                        "type": [
-                          "integer",
-                          "string"
-                        ]
+                        "type": "integer",
+                        "description": "The discount can be a fixed dollar amount or a percentage. For a fixed dollar amount enter it as an integer and the response will return as an integer. For percentage enter the amount as the percentage divided by 100 using string format. For example 10% percent would be “.10”. The response will return as an integer. \nRequired in /POST."
                       }
                     },
                     "required": [
@@ -3399,8 +3329,8 @@
                     "title": "Product Image",
                     "allOf": [
                       {
-                        "type": "object",
                         "description": "Common ProductImage properties.",
+                        "title": "Product Image Base",
                         "properties": {
                           "id": {
                             "description": "The unique numeric ID of the image; increments sequentially.\n",
@@ -3449,11 +3379,9 @@
                             "description": "The description for the image.\n",
                             "type": "string"
                           }
-                        },
-                        "title": "Product Image Base"
+                        }
                       },
                       {
-                        "type": "object",
                         "properties": {
                           "id": {
                             "description": "The unique numeric ID of the image; increments sequentially.\n",
@@ -3495,18 +3423,18 @@
                           }
                         }
                       }
-                    ]
+                    ],
+                    "type": "object"
                   }
                 },
                 "videos": {
                   "type": "array",
                   "items": {
-                    "type": "object",
                     "description": "A product video model.\n",
                     "allOf": [
                       {
-                        "type": "object",
                         "description": "Common ProductVideo properties.",
+                        "title": "Product Video Base",
                         "properties": {
                           "title": {
                             "type": "string",
@@ -3531,11 +3459,9 @@
                               "youtube"
                             ]
                           }
-                        },
-                        "title": "Product Video Base"
+                        }
                       },
                       {
-                        "type": "object",
                         "properties": {
                           "id": {
                             "type": "integer",
@@ -3556,16 +3482,15 @@
                         }
                       }
                     ],
-                    "title": "Product Video"
+                    "title": "Product Video",
+                    "type": "object"
                   }
                 },
                 "variants": {
                   "type": "array",
                   "items": {
-                    "type": "object",
                     "allOf": [
                       {
-                        "type": "object",
                         "description": "Common Variant properties.",
                         "title": "Variant Base",
                         "properties": {
@@ -3671,7 +3596,6 @@
                         }
                       },
                       {
-                        "type": "object",
                         "properties": {
                           "id": {
                             "type": "integer"
@@ -3689,11 +3613,10 @@
                           },
                           "option_values": {
                             "type": "array",
+                            "description": "Array of option and option values IDs that make up this variant. Will be empty if the variant is the product's base variant.",
                             "items": {
-                              "type": "object",
                               "allOf": [
                                 {
-                                  "type": "object",
                                   "description": "Common Option Value Product properties.",
                                   "title": "Option Value Product Base",
                                   "properties": {
@@ -3720,7 +3643,6 @@
                                   }
                                 },
                                 {
-                                  "type": "object",
                                   "properties": {
                                     "id": {
                                       "type": "integer"
@@ -3731,9 +3653,9 @@
                                   }
                                 }
                               ],
-                              "title": "Option Value Variant"
-                            },
-                            "description": "Array of option and option values IDs that make up this variant. Will be empty if the variant is the product's base variant."
+                              "title": "Option Value Variant",
+                              "type": "object"
+                            }
                           },
                           "calculated_price": {
                             "type": "number",
@@ -3742,7 +3664,8 @@
                           }
                         }
                       }
-                    ]
+                    ],
+                    "type": "object"
                   }
                 },
                 "base_variant_id": {
@@ -3935,6 +3858,7 @@
             "description": "",
             "schema": {
               "type": "object",
+              "title": "Product Response",
               "properties": {
                 "data": {
                   "type": "object",
@@ -4372,61 +4296,7 @@
                     "bulk_pricing_rules": {
                       "type": "array",
                       "items": {
-                        "type": "object",
-                        "description": "Common BulkPricingRule properties",
-                        "title": "Bulk Pricing Rule",
-                        "properties": {
-                          "id": {
-                            "type": "integer",
-                            "description": "Unique ID of the *Bulk Pricing Rule*. Read-Only."
-                          },
-                          "quantity_min": {
-                            "type": "integer",
-                            "description": "The minimum inclusive quantity of a product to satisfy this rule. Must be greater than or equal to zero.\nRequired in /POST.\n",
-                            "x-required": [
-                              "post"
-                            ],
-                            "minimum": 0,
-                            "example": 10
-                          },
-                          "quantity_max": {
-                            "type": "integer",
-                            "description": "The maximum inclusive quantity of a product to satisfy this rule. Must be greater than the `quantity_min` value – unless this field has a value of 0 (zero), in which case there will be no maximum bound for this rule.\nRequired in /POST.",
-                            "x-required": [
-                              "post"
-                            ],
-                            "minimum": 0,
-                            "example": 50
-                          },
-                          "type": {
-                            "type": "string",
-                            "description": "The type of adjustment that is made. Values: `price` - the adjustment amount per product; `percent` - the adjustment as a percentage of the original price; `fixed` - the adjusted absolute price of the product.\nRequired in /POST.",
-                            "x-required": [
-                              "post"
-                            ],
-                            "enum": [
-                              "price",
-                              "percent",
-                              "fixed"
-                            ],
-                            "example": "price"
-                          },
-                          "amount": {
-                            "description": "The discount can be a fixed dollar amount or a percentage. For a fixed dollar amount enter it as an integer and the response will return as an integer. For percentage enter the amount as the percentage divided by 100 using string format. For example 10% percent would be “.10”. The response will return as an integer. \nRequired in /POST.",
-                            "format": "float",
-                            "example": "\".10\"",
-                            "type": [
-                              "integer",
-                              "string"
-                            ]
-                          }
-                        },
-                        "required": [
-                          "quantity_min",
-                          "quantity_max",
-                          "type",
-                          "amount"
-                        ]
+                        "$ref": "#/definitions/BulkPricingRuleBase"
                       }
                     },
                     "date_created": {
@@ -4447,8 +4317,8 @@
                         "title": "Product Image",
                         "allOf": [
                           {
-                            "type": "object",
                             "description": "Common ProductImage properties.",
+                            "title": "Product Image Base",
                             "properties": {
                               "id": {
                                 "description": "The unique numeric ID of the image; increments sequentially.\n",
@@ -4497,11 +4367,9 @@
                                 "description": "The description for the image.\n",
                                 "type": "string"
                               }
-                            },
-                            "title": "Product Image Base"
+                            }
                           },
                           {
-                            "type": "object",
                             "properties": {
                               "id": {
                                 "description": "The unique numeric ID of the image; increments sequentially.\n",
@@ -4543,18 +4411,18 @@
                               }
                             }
                           }
-                        ]
+                        ],
+                        "type": "object"
                       }
                     },
                     "videos": {
                       "type": "array",
                       "items": {
-                        "type": "object",
                         "description": "A product video model.\n",
                         "allOf": [
                           {
-                            "type": "object",
                             "description": "Common ProductVideo properties.",
+                            "title": "Product Video Base",
                             "properties": {
                               "title": {
                                 "type": "string",
@@ -4579,11 +4447,9 @@
                                   "youtube"
                                 ]
                               }
-                            },
-                            "title": "Product Video Base"
+                            }
                           },
                           {
-                            "type": "object",
                             "properties": {
                               "id": {
                                 "type": "integer",
@@ -4604,16 +4470,15 @@
                             }
                           }
                         ],
-                        "title": "Product Video"
+                        "title": "Product Video",
+                        "type": "object"
                       }
                     },
                     "variants": {
                       "type": "array",
                       "items": {
-                        "type": "object",
                         "allOf": [
                           {
-                            "type": "object",
                             "description": "Common Variant properties.",
                             "title": "Variant Base",
                             "properties": {
@@ -4719,7 +4584,6 @@
                             }
                           },
                           {
-                            "type": "object",
                             "properties": {
                               "id": {
                                 "type": "integer"
@@ -4737,11 +4601,10 @@
                               },
                               "option_values": {
                                 "type": "array",
+                                "description": "Array of option and option values IDs that make up this variant. Will be empty if the variant is the product's base variant.",
                                 "items": {
-                                  "type": "object",
                                   "allOf": [
                                     {
-                                      "type": "object",
                                       "description": "Common Option Value Product properties.",
                                       "title": "Option Value Product Base",
                                       "properties": {
@@ -4768,7 +4631,6 @@
                                       }
                                     },
                                     {
-                                      "type": "object",
                                       "properties": {
                                         "id": {
                                           "type": "integer"
@@ -4779,9 +4641,9 @@
                                       }
                                     }
                                   ],
-                                  "title": "Option Value Variant"
-                                },
-                                "description": "Array of option and option values IDs that make up this variant. Will be empty if the variant is the product's base variant."
+                                  "title": "Option Value Variant",
+                                  "type": "object"
+                                }
                               },
                               "calculated_price": {
                                 "type": "number",
@@ -4790,7 +4652,8 @@
                               }
                             }
                           }
-                        ]
+                        ],
+                        "type": "object"
                       }
                     },
                     "base_variant_id": {
@@ -4809,8 +4672,7 @@
                   "description": "Empty meta object; may be used later.",
                   "title": "Meta"
                 }
-              },
-              "title": "Product Response"
+              }
             },
             "examples": {
               "application/json": {
@@ -5620,12 +5482,8 @@
                             },
                             "amount": {
                               "description": "The discount can be a fixed dollar amount or a percentage. For a fixed dollar amount enter it as an integer and the response will return as an integer. For percentage enter the amount as the percentage divided by 100 using string format. For example 10% percent would be “.10”. The response will return as an integer. \nRequired in /POST.",
-                              "format": "float",
-                              "example": "\".10\"",
-                              "type": [
-                                "integer",
-                                "string"
-                              ]
+                              "example": 10,
+                              "type": "integer"
                             }
                           },
                           "required": [
@@ -7808,7 +7666,7 @@
           "Catalog"
         ],
         "operationId": "updateProducts",
-        "description": "Updates products in batches. At the time of writing, batches are limited to 50 products.\n\n**Read-Only Fields**\n- id\n- date_created\n- date_modified\n- calculated_price\n- base_variant_id",
+        "description": "Updates products in batches. At the time of writing, batches are limited to 10 products.\n\n**Read-Only Fields**\n- id\n- date_created\n- date_modified\n- calculated_price\n- base_variant_id",
         "parameters": [
           {
             "in": "header",
@@ -7834,7 +7692,6 @@
                 "description": "The model for a PUT to update a product.",
                 "allOf": [
                   {
-                    "type": "object",
                     "description": "Common Product properties.",
                     "title": "Product",
                     "properties": {
@@ -8273,10 +8130,6 @@
                           "description": "Common BulkPricingRule properties",
                           "title": "Bulk Pricing Rule",
                           "properties": {
-                            "id": {
-                              "type": "integer",
-                              "description": "Unique ID of the *Bulk Pricing Rule*. Read-Only."
-                            },
                             "quantity_min": {
                               "type": "integer",
                               "description": "The minimum inclusive quantity of a product to satisfy this rule. Must be greater than or equal to zero.\nRequired in /POST.\n",
@@ -8309,13 +8162,8 @@
                               "example": "price"
                             },
                             "amount": {
-                              "description": "The discount can be a fixed dollar amount or a percentage. For a fixed dollar amount enter it as an integer and the response will return as an integer. For percentage enter the amount as the percentage divided by 100 using string format. For example 10% percent would be “.10”. The response will return as an integer. \nRequired in /POST.",
-                              "format": "float",
-                              "example": "\".10\"",
-                              "type": [
-                                "integer",
-                                "string"
-                              ]
+                              "type": "integer",
+                              "description": "The discount can be a fixed dollar amount or a percentage. For a fixed dollar amount enter it as an integer and the response will return as an integer. For percentage enter the amount as the percentage divided by 100 using string format. For example 10% percent would be “.10”. The response will return as an integer. \nRequired in /POST."
                             }
                           },
                           "required": [
@@ -8344,8 +8192,8 @@
                           "title": "Product Image",
                           "allOf": [
                             {
-                              "type": "object",
                               "description": "Common ProductImage properties.",
+                              "title": "Product Image Base",
                               "properties": {
                                 "id": {
                                   "description": "The unique numeric ID of the image; increments sequentially.\n",
@@ -8394,11 +8242,9 @@
                                   "description": "The description for the image.\n",
                                   "type": "string"
                                 }
-                              },
-                              "title": "Product Image Base"
+                              }
                             },
                             {
-                              "type": "object",
                               "properties": {
                                 "id": {
                                   "description": "The unique numeric ID of the image; increments sequentially.\n",
@@ -8440,18 +8286,18 @@
                                 }
                               }
                             }
-                          ]
+                          ],
+                          "type": "object"
                         }
                       },
                       "videos": {
                         "type": "array",
                         "items": {
-                          "type": "object",
                           "description": "A product video model.\n",
                           "allOf": [
                             {
-                              "type": "object",
                               "description": "Common ProductVideo properties.",
+                              "title": "Product Video Base",
                               "properties": {
                                 "title": {
                                   "type": "string",
@@ -8476,11 +8322,9 @@
                                     "youtube"
                                   ]
                                 }
-                              },
-                              "title": "Product Video Base"
+                              }
                             },
                             {
-                              "type": "object",
                               "properties": {
                                 "id": {
                                   "type": "integer",
@@ -8501,16 +8345,15 @@
                               }
                             }
                           ],
-                          "title": "Product Video"
+                          "title": "Product Video",
+                          "type": "object"
                         }
                       },
                       "variants": {
                         "type": "array",
                         "items": {
-                          "type": "object",
                           "allOf": [
                             {
-                              "type": "object",
                               "description": "Common Variant properties.",
                               "title": "Variant Base",
                               "properties": {
@@ -8616,7 +8459,6 @@
                               }
                             },
                             {
-                              "type": "object",
                               "properties": {
                                 "id": {
                                   "type": "integer"
@@ -8634,11 +8476,10 @@
                                 },
                                 "option_values": {
                                   "type": "array",
+                                  "description": "Array of option and option values IDs that make up this variant. Will be empty if the variant is the product's base variant.",
                                   "items": {
-                                    "type": "object",
                                     "allOf": [
                                       {
-                                        "type": "object",
                                         "description": "Common Option Value Product properties.",
                                         "title": "Option Value Product Base",
                                         "properties": {
@@ -8665,7 +8506,6 @@
                                         }
                                       },
                                       {
-                                        "type": "object",
                                         "properties": {
                                           "id": {
                                             "type": "integer"
@@ -8676,9 +8516,9 @@
                                         }
                                       }
                                     ],
-                                    "title": "Option Value Variant"
-                                  },
-                                  "description": "Array of option and option values IDs that make up this variant. Will be empty if the variant is the product's base variant."
+                                    "title": "Option Value Variant",
+                                    "type": "object"
+                                  }
                                 },
                                 "calculated_price": {
                                   "type": "number",
@@ -8687,7 +8527,8 @@
                                 }
                               }
                             }
-                          ]
+                          ],
+                          "type": "object"
                         }
                       },
                       "base_variant_id": {
@@ -8794,12 +8635,8 @@
                             },
                             "amount": {
                               "description": "The discount can be a fixed dollar amount or a percentage. For a fixed dollar amount enter it as an integer and the response will return as an integer. For percentage enter the amount as the percentage divided by 100 using string format. For example 10% percent would be “.10”. The response will return as an integer. \nRequired in /POST.",
-                              "format": "float",
-                              "example": "\".10\"",
-                              "type": [
-                                "integer",
-                                "string"
-                              ]
+                              "example": 10,
+                              "type": "integer"
                             }
                           },
                           "required": [
@@ -8813,11 +8650,9 @@
                       "variants": {
                         "type": "array",
                         "items": {
-                          "type": "object",
                           "description": "The model for a PUT to update variants on a product.\n",
                           "allOf": [
                             {
-                              "type": "object",
                               "description": "Common Variant properties.",
                               "title": "Variant Base",
                               "properties": {
@@ -8923,7 +8758,6 @@
                               }
                             },
                             {
-                              "type": "object",
                               "properties": {
                                 "product_id": {
                                   "type": "integer"
@@ -8936,7 +8770,8 @@
                               }
                             }
                           ],
-                          "title": "Variant Product Put"
+                          "title": "Variant Product Put",
+                          "type": "object"
                         }
                       }
                     }
@@ -9839,6 +9674,7 @@
             "description": "",
             "schema": {
               "type": "object",
+              "title": "Product Response",
               "properties": {
                 "data": {
                   "type": "object",
@@ -10316,13 +10152,8 @@
                             "example": "price"
                           },
                           "amount": {
-                            "description": "The discount can be a fixed dollar amount or a percentage. For a fixed dollar amount enter it as an integer and the response will return as an integer. For percentage enter the amount as the percentage divided by 100 using string format. For example 10% percent would be “.10”. The response will return as an integer. \nRequired in /POST.",
-                            "format": "float",
-                            "example": "\".10\"",
-                            "type": [
-                              "integer",
-                              "string"
-                            ]
+                            "type": "integer",
+                            "description": "The discount can be a fixed dollar amount or a percentage. For a fixed dollar amount enter it as an integer and the response will return as an integer. For percentage enter the amount as the percentage divided by 100 using string format. For example 10% percent would be “.10”. The response will return as an integer. \nRequired in /POST."
                           }
                         },
                         "required": [
@@ -10351,8 +10182,8 @@
                         "title": "Product Image",
                         "allOf": [
                           {
-                            "type": "object",
                             "description": "Common ProductImage properties.",
+                            "title": "Product Image Base",
                             "properties": {
                               "id": {
                                 "description": "The unique numeric ID of the image; increments sequentially.\n",
@@ -10401,11 +10232,9 @@
                                 "description": "The description for the image.\n",
                                 "type": "string"
                               }
-                            },
-                            "title": "Product Image Base"
+                            }
                           },
                           {
-                            "type": "object",
                             "properties": {
                               "id": {
                                 "description": "The unique numeric ID of the image; increments sequentially.\n",
@@ -10447,18 +10276,18 @@
                               }
                             }
                           }
-                        ]
+                        ],
+                        "type": "object"
                       }
                     },
                     "videos": {
                       "type": "array",
                       "items": {
-                        "type": "object",
                         "description": "A product video model.\n",
                         "allOf": [
                           {
-                            "type": "object",
                             "description": "Common ProductVideo properties.",
+                            "title": "Product Video Base",
                             "properties": {
                               "title": {
                                 "type": "string",
@@ -10483,11 +10312,9 @@
                                   "youtube"
                                 ]
                               }
-                            },
-                            "title": "Product Video Base"
+                            }
                           },
                           {
-                            "type": "object",
                             "properties": {
                               "id": {
                                 "type": "integer",
@@ -10508,16 +10335,15 @@
                             }
                           }
                         ],
-                        "title": "Product Video"
+                        "title": "Product Video",
+                        "type": "object"
                       }
                     },
                     "variants": {
                       "type": "array",
                       "items": {
-                        "type": "object",
                         "allOf": [
                           {
-                            "type": "object",
                             "description": "Common Variant properties.",
                             "title": "Variant Base",
                             "properties": {
@@ -10623,7 +10449,6 @@
                             }
                           },
                           {
-                            "type": "object",
                             "properties": {
                               "id": {
                                 "type": "integer"
@@ -10641,11 +10466,10 @@
                               },
                               "option_values": {
                                 "type": "array",
+                                "description": "Array of option and option values IDs that make up this variant. Will be empty if the variant is the product's base variant.",
                                 "items": {
-                                  "type": "object",
                                   "allOf": [
                                     {
-                                      "type": "object",
                                       "description": "Common Option Value Product properties.",
                                       "title": "Option Value Product Base",
                                       "properties": {
@@ -10672,7 +10496,6 @@
                                       }
                                     },
                                     {
-                                      "type": "object",
                                       "properties": {
                                         "id": {
                                           "type": "integer"
@@ -10683,9 +10506,9 @@
                                       }
                                     }
                                   ],
-                                  "title": "Option Value Variant"
-                                },
-                                "description": "Array of option and option values IDs that make up this variant. Will be empty if the variant is the product's base variant."
+                                  "title": "Option Value Variant",
+                                  "type": "object"
+                                }
                               },
                               "calculated_price": {
                                 "type": "number",
@@ -10694,7 +10517,8 @@
                               }
                             }
                           }
-                        ]
+                        ],
+                        "type": "object"
                       }
                     },
                     "base_variant_id": {
@@ -10713,8 +10537,7 @@
                   "description": "Empty meta object; may be used later.",
                   "title": "Meta"
                 }
-              },
-              "title": "Product Response"
+              }
             },
             "examples": {
               "application/json": {
@@ -10842,7 +10665,6 @@
               "description": "The model for a PUT to update a product.",
               "allOf": [
                 {
-                  "type": "object",
                   "description": "Common Product properties.",
                   "title": "Product",
                   "properties": {
@@ -11281,10 +11103,6 @@
                         "description": "Common BulkPricingRule properties",
                         "title": "Bulk Pricing Rule",
                         "properties": {
-                          "id": {
-                            "type": "integer",
-                            "description": "Unique ID of the *Bulk Pricing Rule*. Read-Only."
-                          },
                           "quantity_min": {
                             "type": "integer",
                             "description": "The minimum inclusive quantity of a product to satisfy this rule. Must be greater than or equal to zero.\nRequired in /POST.\n",
@@ -11317,13 +11135,8 @@
                             "example": "price"
                           },
                           "amount": {
-                            "description": "The discount can be a fixed dollar amount or a percentage. For a fixed dollar amount enter it as an integer and the response will return as an integer. For percentage enter the amount as the percentage divided by 100 using string format. For example 10% percent would be “.10”. The response will return as an integer. \nRequired in /POST.",
-                            "format": "float",
-                            "example": "\".10\"",
-                            "type": [
-                              "integer",
-                              "string"
-                            ]
+                            "type": "integer",
+                            "description": "The discount can be a fixed dollar amount or a percentage. For a fixed dollar amount enter it as an integer and the response will return as an integer. For percentage enter the amount as the percentage divided by 100 using string format. For example 10% percent would be “.10”. The response will return as an integer. \nRequired in /POST."
                           }
                         },
                         "required": [
@@ -11352,8 +11165,8 @@
                         "title": "Product Image",
                         "allOf": [
                           {
-                            "type": "object",
                             "description": "Common ProductImage properties.",
+                            "title": "Product Image Base",
                             "properties": {
                               "id": {
                                 "description": "The unique numeric ID of the image; increments sequentially.\n",
@@ -11402,11 +11215,9 @@
                                 "description": "The description for the image.\n",
                                 "type": "string"
                               }
-                            },
-                            "title": "Product Image Base"
+                            }
                           },
                           {
-                            "type": "object",
                             "properties": {
                               "id": {
                                 "description": "The unique numeric ID of the image; increments sequentially.\n",
@@ -11448,18 +11259,18 @@
                               }
                             }
                           }
-                        ]
+                        ],
+                        "type": "object"
                       }
                     },
                     "videos": {
                       "type": "array",
                       "items": {
-                        "type": "object",
                         "description": "A product video model.\n",
                         "allOf": [
                           {
-                            "type": "object",
                             "description": "Common ProductVideo properties.",
+                            "title": "Product Video Base",
                             "properties": {
                               "title": {
                                 "type": "string",
@@ -11484,11 +11295,9 @@
                                   "youtube"
                                 ]
                               }
-                            },
-                            "title": "Product Video Base"
+                            }
                           },
                           {
-                            "type": "object",
                             "properties": {
                               "id": {
                                 "type": "integer",
@@ -11509,16 +11318,15 @@
                             }
                           }
                         ],
-                        "title": "Product Video"
+                        "title": "Product Video",
+                        "type": "object"
                       }
                     },
                     "variants": {
                       "type": "array",
                       "items": {
-                        "type": "object",
                         "allOf": [
                           {
-                            "type": "object",
                             "description": "Common Variant properties.",
                             "title": "Variant Base",
                             "properties": {
@@ -11624,7 +11432,6 @@
                             }
                           },
                           {
-                            "type": "object",
                             "properties": {
                               "id": {
                                 "type": "integer"
@@ -11642,11 +11449,10 @@
                               },
                               "option_values": {
                                 "type": "array",
+                                "description": "Array of option and option values IDs that make up this variant. Will be empty if the variant is the product's base variant.",
                                 "items": {
-                                  "type": "object",
                                   "allOf": [
                                     {
-                                      "type": "object",
                                       "description": "Common Option Value Product properties.",
                                       "title": "Option Value Product Base",
                                       "properties": {
@@ -11673,7 +11479,6 @@
                                       }
                                     },
                                     {
-                                      "type": "object",
                                       "properties": {
                                         "id": {
                                           "type": "integer"
@@ -11684,9 +11489,9 @@
                                       }
                                     }
                                   ],
-                                  "title": "Option Value Variant"
-                                },
-                                "description": "Array of option and option values IDs that make up this variant. Will be empty if the variant is the product's base variant."
+                                  "title": "Option Value Variant",
+                                  "type": "object"
+                                }
                               },
                               "calculated_price": {
                                 "type": "number",
@@ -11695,7 +11500,8 @@
                               }
                             }
                           }
-                        ]
+                        ],
+                        "type": "object"
                       }
                     },
                     "base_variant_id": {
@@ -11802,12 +11608,8 @@
                           },
                           "amount": {
                             "description": "The discount can be a fixed dollar amount or a percentage. For a fixed dollar amount enter it as an integer and the response will return as an integer. For percentage enter the amount as the percentage divided by 100 using string format. For example 10% percent would be “.10”. The response will return as an integer. \nRequired in /POST.",
-                            "format": "float",
-                            "example": "\".10\"",
-                            "type": [
-                              "integer",
-                              "string"
-                            ]
+                            "example": 10,
+                            "type": "integer"
                           }
                         },
                         "required": [
@@ -11821,11 +11623,9 @@
                     "variants": {
                       "type": "array",
                       "items": {
-                        "type": "object",
                         "description": "The model for a PUT to update variants on a product.\n",
                         "allOf": [
                           {
-                            "type": "object",
                             "description": "Common Variant properties.",
                             "title": "Variant Base",
                             "properties": {
@@ -11931,7 +11731,6 @@
                             }
                           },
                           {
-                            "type": "object",
                             "properties": {
                               "product_id": {
                                 "type": "integer"
@@ -11944,7 +11743,8 @@
                             }
                           }
                         ],
-                        "title": "Variant Product Put"
+                        "title": "Variant Product Put",
+                        "type": "object"
                       }
                     }
                   }
@@ -12071,6 +11871,7 @@
             "description": "",
             "schema": {
               "type": "object",
+              "title": "Product Response",
               "properties": {
                 "data": {
                   "type": "object",
@@ -12508,61 +12309,7 @@
                     "bulk_pricing_rules": {
                       "type": "array",
                       "items": {
-                        "type": "object",
-                        "description": "Common BulkPricingRule properties",
-                        "title": "Bulk Pricing Rule",
-                        "properties": {
-                          "id": {
-                            "type": "integer",
-                            "description": "Unique ID of the *Bulk Pricing Rule*. Read-Only."
-                          },
-                          "quantity_min": {
-                            "type": "integer",
-                            "description": "The minimum inclusive quantity of a product to satisfy this rule. Must be greater than or equal to zero.\nRequired in /POST.\n",
-                            "x-required": [
-                              "post"
-                            ],
-                            "minimum": 0,
-                            "example": 10
-                          },
-                          "quantity_max": {
-                            "type": "integer",
-                            "description": "The maximum inclusive quantity of a product to satisfy this rule. Must be greater than the `quantity_min` value – unless this field has a value of 0 (zero), in which case there will be no maximum bound for this rule.\nRequired in /POST.",
-                            "x-required": [
-                              "post"
-                            ],
-                            "minimum": 0,
-                            "example": 50
-                          },
-                          "type": {
-                            "type": "string",
-                            "description": "The type of adjustment that is made. Values: `price` - the adjustment amount per product; `percent` - the adjustment as a percentage of the original price; `fixed` - the adjusted absolute price of the product.\nRequired in /POST.",
-                            "x-required": [
-                              "post"
-                            ],
-                            "enum": [
-                              "price",
-                              "percent",
-                              "fixed"
-                            ],
-                            "example": "price"
-                          },
-                          "amount": {
-                            "description": "The discount can be a fixed dollar amount or a percentage. For a fixed dollar amount enter it as an integer and the response will return as an integer. For percentage enter the amount as the percentage divided by 100 using string format. For example 10% percent would be “.10”. The response will return as an integer. \nRequired in /POST.",
-                            "format": "float",
-                            "example": "\".10\"",
-                            "type": [
-                              "integer",
-                              "string"
-                            ]
-                          }
-                        },
-                        "required": [
-                          "quantity_min",
-                          "quantity_max",
-                          "type",
-                          "amount"
-                        ]
+                        "$ref": "#/definitions/BulkPricingRuleBase"
                       }
                     },
                     "date_created": {
@@ -12583,8 +12330,8 @@
                         "title": "Product Image",
                         "allOf": [
                           {
-                            "type": "object",
                             "description": "Common ProductImage properties.",
+                            "title": "Product Image Base",
                             "properties": {
                               "id": {
                                 "description": "The unique numeric ID of the image; increments sequentially.\n",
@@ -12633,11 +12380,9 @@
                                 "description": "The description for the image.\n",
                                 "type": "string"
                               }
-                            },
-                            "title": "Product Image Base"
+                            }
                           },
                           {
-                            "type": "object",
                             "properties": {
                               "id": {
                                 "description": "The unique numeric ID of the image; increments sequentially.\n",
@@ -12679,18 +12424,18 @@
                               }
                             }
                           }
-                        ]
+                        ],
+                        "type": "object"
                       }
                     },
                     "videos": {
                       "type": "array",
                       "items": {
-                        "type": "object",
                         "description": "A product video model.\n",
                         "allOf": [
                           {
-                            "type": "object",
                             "description": "Common ProductVideo properties.",
+                            "title": "Product Video Base",
                             "properties": {
                               "title": {
                                 "type": "string",
@@ -12715,11 +12460,9 @@
                                   "youtube"
                                 ]
                               }
-                            },
-                            "title": "Product Video Base"
+                            }
                           },
                           {
-                            "type": "object",
                             "properties": {
                               "id": {
                                 "type": "integer",
@@ -12740,16 +12483,15 @@
                             }
                           }
                         ],
-                        "title": "Product Video"
+                        "title": "Product Video",
+                        "type": "object"
                       }
                     },
                     "variants": {
                       "type": "array",
                       "items": {
-                        "type": "object",
                         "allOf": [
                           {
-                            "type": "object",
                             "description": "Common Variant properties.",
                             "title": "Variant Base",
                             "properties": {
@@ -12855,7 +12597,6 @@
                             }
                           },
                           {
-                            "type": "object",
                             "properties": {
                               "id": {
                                 "type": "integer"
@@ -12873,11 +12614,10 @@
                               },
                               "option_values": {
                                 "type": "array",
+                                "description": "Array of option and option values IDs that make up this variant. Will be empty if the variant is the product's base variant.",
                                 "items": {
-                                  "type": "object",
                                   "allOf": [
                                     {
-                                      "type": "object",
                                       "description": "Common Option Value Product properties.",
                                       "title": "Option Value Product Base",
                                       "properties": {
@@ -12904,7 +12644,6 @@
                                       }
                                     },
                                     {
-                                      "type": "object",
                                       "properties": {
                                         "id": {
                                           "type": "integer"
@@ -12915,9 +12654,9 @@
                                       }
                                     }
                                   ],
-                                  "title": "Option Value Variant"
-                                },
-                                "description": "Array of option and option values IDs that make up this variant. Will be empty if the variant is the product's base variant."
+                                  "title": "Option Value Variant",
+                                  "type": "object"
+                                }
                               },
                               "calculated_price": {
                                 "type": "number",
@@ -12926,7 +12665,8 @@
                               }
                             }
                           }
-                        ]
+                        ],
+                        "type": "object"
                       }
                     },
                     "base_variant_id": {
@@ -12945,8 +12685,7 @@
                   "description": "Empty meta object; may be used later.",
                   "title": "Meta"
                 }
-              },
-              "title": "Product Response"
+              }
             },
             "examples": {
               "application/json": {
@@ -18116,7 +17855,7 @@
               "application/json": {
                 "image_url": "https://upload.wikimedia.org/wikipedia/commons/7/7f/Anglel_Bless_Legendary_Hills_1_m%C4%9Bs%C3%ADc_st%C3%A1%C5%99%C3%AD.jpg"
               },
-              "multipart/form-data": "curl -X POST \\\n  https://api.bigcommerce.com/stores/{store_hash}/v3/catalog/products/203/variants/503/image \\\n  -H 'Accept: application/json' \\\n  -H 'Content-Type: application/json' \\\n  -H 'Host: api.bigcommerce.com' \\\n  -H 'X-Auth-Client: {X-Auth-Client}' \\\n  -H 'X-Auth-Token: {X-Auth-Token}' \\\n  -H 'content-type: multipart/form-data; boundary=----WebKitFormBoundary7MA4YWxkTrZu0gW' \\\n  -F 'image_file=@/Users/user/Downloads/640px-Bergtocht_van_Gimillan_(1805m.)_naar_Colle_Tsa_Sètse_in_Cogne_Valley_(Italië)._Waterval_boven_Gimillan_gedeeltelijk_in_de_mist_03.jpg'"
+              "multipart/form-data": "curl -X POST \\\n  https://api.bigcommerce.com/stores/{store_hash}/v3/catalog/products/203/variants/503/image \\\n  -H 'Accept: application/json' \\\n  -H 'Content-Type: application/json' \\\n  -H 'Host: api.bigcommerce.com' \\\n  -H 'X-Auth-Client: {X-Auth-Client}' \\\n  -H 'X-Auth-Token: {X-Auth-Token}' \\\n  -H 'content-type: multipart/form-data; boundary=----WebKitFormBoundary7MA4YWxkTrZu0gW' \\\n  -F 'image_file=@/Users/user/Downloads/640px-Bergtocht_van_Gimillan_(1805m.)_naar_Colle_Tsa_Sètse_in_Cogne_Valley_(Italië)._Waterval_boven_Gimillan_gedeeltelijk_in_de_mist_03.jpg'"
             }
           }
         ],
@@ -26304,6 +26043,7 @@
                       "price_adjuster": {
                         "type": "object",
                         "title": "Adjuster",
+                        "description": "Adjuster for Complex Rules.",
                         "properties": {
                           "adjuster": {
                             "type": "string",
@@ -26319,12 +26059,12 @@
                             "description": "The numeric amount by which the adjuster will change either the price or the weight of the variant, when the modifier value is selected on the storefront.\n",
                             "example": 5
                           }
-                        },
-                        "description": "Adjuster for Complex Rules."
+                        }
                       },
                       "weight_adjuster": {
                         "type": "object",
                         "title": "Adjuster",
+                        "description": "Adjuster for Complex Rules.",
                         "properties": {
                           "adjuster": {
                             "type": "string",
@@ -26340,8 +26080,7 @@
                             "description": "The numeric amount by which the adjuster will change either the price or the weight of the variant, when the modifier value is selected on the storefront.\n",
                             "example": 5
                           }
-                        },
-                        "description": "Adjuster for Complex Rules."
+                        }
                       },
                       "conditions": {
                         "type": "array",
@@ -26398,6 +26137,7 @@
                 "meta": {
                   "type": "object",
                   "description": "Data about the response, including pagination and collection totals.",
+                  "title": "Collection Meta",
                   "properties": {
                     "pagination": {
                       "type": "object",
@@ -26450,8 +26190,7 @@
                         }
                       }
                     }
-                  },
-                  "title": "Collection Meta"
+                  }
                 }
               }
             },
@@ -26731,237 +26470,7 @@
         ],
         "responses": {
           "200": {
-            "description": "",
-            "schema": {
-              "description": "",
-              "schema": {
-                "type": "object",
-                "properties": {
-                  "data": {
-                    "type": "object",
-                    "description": "Common ComplexRule properties.",
-                    "title": "Complex Rule",
-                    "properties": {
-                      "id": {
-                        "type": "integer",
-                        "description": "The unique numeric ID of the rule; increments sequentially.\nRead-Only",
-                        "example": 5
-                      },
-                      "product_id": {
-                        "type": "integer",
-                        "description": "The unique numeric ID of the product with which the rule is associated; increments sequentially.\n",
-                        "x-nullable": true,
-                        "x-required": [
-                          "post",
-                          "put"
-                        ],
-                        "example": 67
-                      },
-                      "sort_order": {
-                        "type": "integer",
-                        "description": "The priority to give this rule when making adjustments to the product properties.\n",
-                        "minimum": -2147483648,
-                        "maximum": 2147483647,
-                        "example": 0
-                      },
-                      "enabled": {
-                        "type": "boolean",
-                        "description": "Flag for determining whether the rule is to be used when adjusting a product's price, weight, image, or availabilty.\n",
-                        "example": true
-                      },
-                      "stop": {
-                        "type": "boolean",
-                        "description": "Flag for determining whether other rules should not be applied after this rule has been applied.\n"
-                      },
-                      "purchasing_disabled": {
-                        "type": "boolean",
-                        "description": "Flag for determining whether the rule should disable purchasing of a product when the conditions are applied.\n"
-                      },
-                      "purchasing_disabled_message": {
-                        "type": "string",
-                        "description": "Message displayed on the storefront when a rule disables the purchasing of a product.\n",
-                        "minLength": 0,
-                        "maxLength": 255,
-                        "example": "This product is not available at this time."
-                      },
-                      "purchasing_hidden": {
-                        "type": "boolean",
-                        "description": "Flag for determining whether the rule should hide purchasing of a product when the conditions are applied.\n"
-                      },
-                      "image_url": {
-                        "type": "string",
-                        "description": "The URL for an image displayed on the storefront when the conditions are applied. Limit of 8MB per file. \n",
-                        "example": "https://cdn8.bigcommerce.com/s-123456/product_images/d/fakeimage.png"
-                      },
-                      "price_adjuster": {
-                        "type": "object",
-                        "title": "Adjuster",
-                        "properties": {
-                          "adjuster": {
-                            "type": "string",
-                            "description": "The type of adjuster for either the price or the weight of the variant, when the modifier value is selected on the storefront.\n",
-                            "enum": [
-                              "relative",
-                              "percentage"
-                            ],
-                            "x-nullable": true
-                          },
-                          "adjuster_value": {
-                            "type": "number",
-                            "description": "The numeric amount by which the adjuster will change either the price or the weight of the variant, when the modifier value is selected on the storefront.\n",
-                            "example": 5
-                          }
-                        },
-                        "description": "Adjuster for Complex Rules."
-                      },
-                      "weight_adjuster": {
-                        "type": "object",
-                        "title": "Adjuster",
-                        "properties": {
-                          "adjuster": {
-                            "type": "string",
-                            "description": "The type of adjuster for either the price or the weight of the variant, when the modifier value is selected on the storefront.\n",
-                            "enum": [
-                              "relative",
-                              "percentage"
-                            ],
-                            "x-nullable": true
-                          },
-                          "adjuster_value": {
-                            "type": "number",
-                            "description": "The numeric amount by which the adjuster will change either the price or the weight of the variant, when the modifier value is selected on the storefront.\n",
-                            "example": 5
-                          }
-                        },
-                        "description": "Adjuster for Complex Rules."
-                      },
-                      "conditions": {
-                        "type": "array",
-                        "items": {
-                          "type": "object",
-                          "description": "Complex rules may return with conditions that apply to one or more variants, or with a single modifier value (if the rules were created using the v2 API or the control panel). Complex rules created or updated in the v3 API must have conditions that either reference multiple `modifier_value_id`'s, or else reference a `modifier_value_id` and a `variant_id`.",
-                          "title": "Complex Rule Condition",
-                          "properties": {
-                            "id": {
-                              "type": "integer",
-                              "description": "The unique numeric ID of the rule condition; increments sequentially. Read-Only\n",
-                              "x-nullable": true,
-                              "example": 3
-                            },
-                            "rule_id": {
-                              "type": "integer",
-                              "description": "The unique numeric ID of the rule with which the condition is associated.\nRead-Only",
-                              "x-nullable": true,
-                              "example": 4
-                            },
-                            "modifier_id": {
-                              "type": "integer",
-                              "description": "The unique numeric ID of the modifier with which the rule condition is associated.\nRequired in /POST.",
-                              "x-nullable": true,
-                              "example": 55
-                            },
-                            "modifier_value_id": {
-                              "type": "integer",
-                              "description": "The unique numeric ID of the modifier value with which the rule condition is associated.\nRequired in /POST.",
-                              "x-nullable": true,
-                              "example": 256
-                            },
-                            "variant_id": {
-                              "type": "integer",
-                              "description": "The unique numeric ID of the variant with which the rule condition is associated.\nRequired in /POST.",
-                              "x-nullable": true,
-                              "example": 1
-                            },
-                            "combination_id": {
-                              "type": "integer",
-                              "description": "(READ-ONLY:) The unique numeric ID of the SKU (v2 API), or Combination, with which the rule condition is associated. This is to maintain cross-compatibility between v2 and v3.\n"
-                            }
-                          },
-                          "required": [
-                            "modifier_id",
-                            "modifier_value_id",
-                            "variant_id"
-                          ]
-                        }
-                      }
-                    }
-                  },
-                  "meta": {
-                    "type": "object",
-                    "description": "Empty meta object; may be used later.",
-                    "title": "Meta"
-                  }
-                }
-              }
-            },
-            "examples": {
-              "application/json": {
-                "data": [
-                  {
-                    "id": 82,
-                    "product_id": 195,
-                    "sort_order": 0,
-                    "enabled": true,
-                    "stop": false,
-                    "price_adjuster": {
-                      "adjuster": "relative",
-                      "adjuster_value": 8
-                    },
-                    "weight_adjuster": {},
-                    "purchasing_disabled": false,
-                    "purchasing_disabled_message": "",
-                    "purchasing_hidden": false,
-                    "image_url": "",
-                    "conditions": [
-                      {
-                        "rule_id": 82,
-                        "modifier_id": 221,
-                        "modifier_value_id": 175,
-                        "variant_id": {},
-                        "combination_id": 0
-                      }
-                    ]
-                  },
-                  {
-                    "id": 83,
-                    "product_id": 195,
-                    "sort_order": 1,
-                    "enabled": true,
-                    "stop": false,
-                    "price_adjuster": {},
-                    "weight_adjuster": {
-                      "adjuster": "relative",
-                      "adjuster_value": 3
-                    },
-                    "purchasing_disabled": false,
-                    "purchasing_disabled_message": "",
-                    "purchasing_hidden": false,
-                    "image_url": "",
-                    "conditions": [
-                      {
-                        "rule_id": 83,
-                        "modifier_id": 221,
-                        "modifier_value_id": 174,
-                        "variant_id": {},
-                        "combination_id": 0
-                      }
-                    ]
-                  }
-                ],
-                "meta": {
-                  "pagination": {
-                    "total": 2,
-                    "count": 2,
-                    "per_page": 50,
-                    "current_page": 1,
-                    "total_pages": 1,
-                    "links": {
-                      "current": "?page=1&limit=50"
-                    }
-                  }
-                }
-              }
-            }
+            "$ref": "#/responses/ComplexRuleResponse"
           },
           "409": {
             "description": "The `ComplexRule` was in conflict with another `ComplexRule`. This is the result of duplicate conditions.\n",
@@ -27110,199 +26619,7 @@
         ],
         "responses": {
           "200": {
-            "description": "",
-            "schema": {
-              "description": "",
-              "schema": {
-                "type": "object",
-                "properties": {
-                  "data": {
-                    "type": "object",
-                    "description": "Common ComplexRule properties.",
-                    "title": "Complex Rule",
-                    "properties": {
-                      "id": {
-                        "type": "integer",
-                        "description": "The unique numeric ID of the rule; increments sequentially.\nRead-Only",
-                        "example": 5
-                      },
-                      "product_id": {
-                        "type": "integer",
-                        "description": "The unique numeric ID of the product with which the rule is associated; increments sequentially.\n",
-                        "x-nullable": true,
-                        "x-required": [
-                          "post",
-                          "put"
-                        ],
-                        "example": 67
-                      },
-                      "sort_order": {
-                        "type": "integer",
-                        "description": "The priority to give this rule when making adjustments to the product properties.\n",
-                        "minimum": -2147483648,
-                        "maximum": 2147483647,
-                        "example": 0
-                      },
-                      "enabled": {
-                        "type": "boolean",
-                        "description": "Flag for determining whether the rule is to be used when adjusting a product's price, weight, image, or availabilty.\n",
-                        "example": true
-                      },
-                      "stop": {
-                        "type": "boolean",
-                        "description": "Flag for determining whether other rules should not be applied after this rule has been applied.\n"
-                      },
-                      "purchasing_disabled": {
-                        "type": "boolean",
-                        "description": "Flag for determining whether the rule should disable purchasing of a product when the conditions are applied.\n"
-                      },
-                      "purchasing_disabled_message": {
-                        "type": "string",
-                        "description": "Message displayed on the storefront when a rule disables the purchasing of a product.\n",
-                        "minLength": 0,
-                        "maxLength": 255,
-                        "example": "This product is not available at this time."
-                      },
-                      "purchasing_hidden": {
-                        "type": "boolean",
-                        "description": "Flag for determining whether the rule should hide purchasing of a product when the conditions are applied.\n"
-                      },
-                      "image_url": {
-                        "type": "string",
-                        "description": "The URL for an image displayed on the storefront when the conditions are applied. Limit of 8MB per file. \n",
-                        "example": "https://cdn8.bigcommerce.com/s-123456/product_images/d/fakeimage.png"
-                      },
-                      "price_adjuster": {
-                        "type": "object",
-                        "title": "Adjuster",
-                        "properties": {
-                          "adjuster": {
-                            "type": "string",
-                            "description": "The type of adjuster for either the price or the weight of the variant, when the modifier value is selected on the storefront.\n",
-                            "enum": [
-                              "relative",
-                              "percentage"
-                            ],
-                            "x-nullable": true
-                          },
-                          "adjuster_value": {
-                            "type": "number",
-                            "description": "The numeric amount by which the adjuster will change either the price or the weight of the variant, when the modifier value is selected on the storefront.\n",
-                            "example": 5
-                          }
-                        },
-                        "description": "Adjuster for Complex Rules."
-                      },
-                      "weight_adjuster": {
-                        "type": "object",
-                        "title": "Adjuster",
-                        "properties": {
-                          "adjuster": {
-                            "type": "string",
-                            "description": "The type of adjuster for either the price or the weight of the variant, when the modifier value is selected on the storefront.\n",
-                            "enum": [
-                              "relative",
-                              "percentage"
-                            ],
-                            "x-nullable": true
-                          },
-                          "adjuster_value": {
-                            "type": "number",
-                            "description": "The numeric amount by which the adjuster will change either the price or the weight of the variant, when the modifier value is selected on the storefront.\n",
-                            "example": 5
-                          }
-                        },
-                        "description": "Adjuster for Complex Rules."
-                      },
-                      "conditions": {
-                        "type": "array",
-                        "items": {
-                          "type": "object",
-                          "description": "Complex rules may return with conditions that apply to one or more variants, or with a single modifier value (if the rules were created using the v2 API or the control panel). Complex rules created or updated in the v3 API must have conditions that either reference multiple `modifier_value_id`'s, or else reference a `modifier_value_id` and a `variant_id`.",
-                          "title": "Complex Rule Condition",
-                          "properties": {
-                            "id": {
-                              "type": "integer",
-                              "description": "The unique numeric ID of the rule condition; increments sequentially. Read-Only\n",
-                              "x-nullable": true,
-                              "example": 3
-                            },
-                            "rule_id": {
-                              "type": "integer",
-                              "description": "The unique numeric ID of the rule with which the condition is associated.\nRead-Only",
-                              "x-nullable": true,
-                              "example": 4
-                            },
-                            "modifier_id": {
-                              "type": "integer",
-                              "description": "The unique numeric ID of the modifier with which the rule condition is associated.\nRequired in /POST.",
-                              "x-nullable": true,
-                              "example": 55
-                            },
-                            "modifier_value_id": {
-                              "type": "integer",
-                              "description": "The unique numeric ID of the modifier value with which the rule condition is associated.\nRequired in /POST.",
-                              "x-nullable": true,
-                              "example": 256
-                            },
-                            "variant_id": {
-                              "type": "integer",
-                              "description": "The unique numeric ID of the variant with which the rule condition is associated.\nRequired in /POST.",
-                              "x-nullable": true,
-                              "example": 1
-                            },
-                            "combination_id": {
-                              "type": "integer",
-                              "description": "(READ-ONLY:) The unique numeric ID of the SKU (v2 API), or Combination, with which the rule condition is associated. This is to maintain cross-compatibility between v2 and v3.\n"
-                            }
-                          },
-                          "required": [
-                            "modifier_id",
-                            "modifier_value_id",
-                            "variant_id"
-                          ]
-                        }
-                      }
-                    }
-                  },
-                  "meta": {
-                    "type": "object",
-                    "description": "Empty meta object; may be used later.",
-                    "title": "Meta"
-                  }
-                }
-              }
-            },
-            "examples": {
-              "application/json": {
-                "data": {
-                  "id": 83,
-                  "product_id": 195,
-                  "sort_order": 1,
-                  "enabled": true,
-                  "stop": false,
-                  "price_adjuster": {},
-                  "weight_adjuster": {
-                    "adjuster": "relative",
-                    "adjuster_value": 3
-                  },
-                  "purchasing_disabled": false,
-                  "purchasing_disabled_message": "",
-                  "purchasing_hidden": false,
-                  "image_url": "",
-                  "conditions": [
-                    {
-                      "rule_id": 83,
-                      "modifier_id": 221,
-                      "modifier_value_id": 174,
-                      "variant_id": {},
-                      "combination_id": 0
-                    }
-                  ]
-                },
-                "meta": {}
-              }
-            }
+            "$ref": "#/responses/ComplexRuleResponse"
           },
           "404": {
             "description": "The resource was not found.\n",
@@ -27523,199 +26840,7 @@
         ],
         "responses": {
           "200": {
-            "description": "",
-            "schema": {
-              "description": "",
-              "schema": {
-                "type": "object",
-                "properties": {
-                  "data": {
-                    "type": "object",
-                    "description": "Common ComplexRule properties.",
-                    "title": "Complex Rule",
-                    "properties": {
-                      "id": {
-                        "type": "integer",
-                        "description": "The unique numeric ID of the rule; increments sequentially.\nRead-Only",
-                        "example": 5
-                      },
-                      "product_id": {
-                        "type": "integer",
-                        "description": "The unique numeric ID of the product with which the rule is associated; increments sequentially.\n",
-                        "x-nullable": true,
-                        "x-required": [
-                          "post",
-                          "put"
-                        ],
-                        "example": 67
-                      },
-                      "sort_order": {
-                        "type": "integer",
-                        "description": "The priority to give this rule when making adjustments to the product properties.\n",
-                        "minimum": -2147483648,
-                        "maximum": 2147483647,
-                        "example": 0
-                      },
-                      "enabled": {
-                        "type": "boolean",
-                        "description": "Flag for determining whether the rule is to be used when adjusting a product's price, weight, image, or availabilty.\n",
-                        "example": true
-                      },
-                      "stop": {
-                        "type": "boolean",
-                        "description": "Flag for determining whether other rules should not be applied after this rule has been applied.\n"
-                      },
-                      "purchasing_disabled": {
-                        "type": "boolean",
-                        "description": "Flag for determining whether the rule should disable purchasing of a product when the conditions are applied.\n"
-                      },
-                      "purchasing_disabled_message": {
-                        "type": "string",
-                        "description": "Message displayed on the storefront when a rule disables the purchasing of a product.\n",
-                        "minLength": 0,
-                        "maxLength": 255,
-                        "example": "This product is not available at this time."
-                      },
-                      "purchasing_hidden": {
-                        "type": "boolean",
-                        "description": "Flag for determining whether the rule should hide purchasing of a product when the conditions are applied.\n"
-                      },
-                      "image_url": {
-                        "type": "string",
-                        "description": "The URL for an image displayed on the storefront when the conditions are applied. Limit of 8MB per file. \n",
-                        "example": "https://cdn8.bigcommerce.com/s-123456/product_images/d/fakeimage.png"
-                      },
-                      "price_adjuster": {
-                        "type": "object",
-                        "title": "Adjuster",
-                        "properties": {
-                          "adjuster": {
-                            "type": "string",
-                            "description": "The type of adjuster for either the price or the weight of the variant, when the modifier value is selected on the storefront.\n",
-                            "enum": [
-                              "relative",
-                              "percentage"
-                            ],
-                            "x-nullable": true
-                          },
-                          "adjuster_value": {
-                            "type": "number",
-                            "description": "The numeric amount by which the adjuster will change either the price or the weight of the variant, when the modifier value is selected on the storefront.\n",
-                            "example": 5
-                          }
-                        },
-                        "description": "Adjuster for Complex Rules."
-                      },
-                      "weight_adjuster": {
-                        "type": "object",
-                        "title": "Adjuster",
-                        "properties": {
-                          "adjuster": {
-                            "type": "string",
-                            "description": "The type of adjuster for either the price or the weight of the variant, when the modifier value is selected on the storefront.\n",
-                            "enum": [
-                              "relative",
-                              "percentage"
-                            ],
-                            "x-nullable": true
-                          },
-                          "adjuster_value": {
-                            "type": "number",
-                            "description": "The numeric amount by which the adjuster will change either the price or the weight of the variant, when the modifier value is selected on the storefront.\n",
-                            "example": 5
-                          }
-                        },
-                        "description": "Adjuster for Complex Rules."
-                      },
-                      "conditions": {
-                        "type": "array",
-                        "items": {
-                          "type": "object",
-                          "description": "Complex rules may return with conditions that apply to one or more variants, or with a single modifier value (if the rules were created using the v2 API or the control panel). Complex rules created or updated in the v3 API must have conditions that either reference multiple `modifier_value_id`'s, or else reference a `modifier_value_id` and a `variant_id`.",
-                          "title": "Complex Rule Condition",
-                          "properties": {
-                            "id": {
-                              "type": "integer",
-                              "description": "The unique numeric ID of the rule condition; increments sequentially. Read-Only\n",
-                              "x-nullable": true,
-                              "example": 3
-                            },
-                            "rule_id": {
-                              "type": "integer",
-                              "description": "The unique numeric ID of the rule with which the condition is associated.\nRead-Only",
-                              "x-nullable": true,
-                              "example": 4
-                            },
-                            "modifier_id": {
-                              "type": "integer",
-                              "description": "The unique numeric ID of the modifier with which the rule condition is associated.\nRequired in /POST.",
-                              "x-nullable": true,
-                              "example": 55
-                            },
-                            "modifier_value_id": {
-                              "type": "integer",
-                              "description": "The unique numeric ID of the modifier value with which the rule condition is associated.\nRequired in /POST.",
-                              "x-nullable": true,
-                              "example": 256
-                            },
-                            "variant_id": {
-                              "type": "integer",
-                              "description": "The unique numeric ID of the variant with which the rule condition is associated.\nRequired in /POST.",
-                              "x-nullable": true,
-                              "example": 1
-                            },
-                            "combination_id": {
-                              "type": "integer",
-                              "description": "(READ-ONLY:) The unique numeric ID of the SKU (v2 API), or Combination, with which the rule condition is associated. This is to maintain cross-compatibility between v2 and v3.\n"
-                            }
-                          },
-                          "required": [
-                            "modifier_id",
-                            "modifier_value_id",
-                            "variant_id"
-                          ]
-                        }
-                      }
-                    }
-                  },
-                  "meta": {
-                    "type": "object",
-                    "description": "Empty meta object; may be used later.",
-                    "title": "Meta"
-                  }
-                }
-              }
-            },
-            "examples": {
-              "application/json": {
-                "data": {
-                  "id": 83,
-                  "product_id": 195,
-                  "sort_order": 1,
-                  "enabled": true,
-                  "stop": false,
-                  "price_adjuster": {},
-                  "weight_adjuster": {
-                    "adjuster": "relative",
-                    "adjuster_value": 3
-                  },
-                  "purchasing_disabled": false,
-                  "purchasing_disabled_message": "",
-                  "purchasing_hidden": false,
-                  "image_url": "",
-                  "conditions": [
-                    {
-                      "rule_id": 83,
-                      "modifier_id": 221,
-                      "modifier_value_id": 174,
-                      "variant_id": {},
-                      "combination_id": 0
-                    }
-                  ]
-                },
-                "meta": {}
-              }
-            }
+            "$ref": "#/responses/ComplexRuleResponse"
           },
           "409": {
             "description": "The `ComplexRule` was in conflict with another `ComplexRule`. This is the result of duplicate conditions.\n",
@@ -28759,13 +27884,8 @@
                         "example": "price"
                       },
                       "amount": {
-                        "description": "The discount can be a fixed dollar amount or a percentage. For a fixed dollar amount enter it as an integer and the response will return as an integer. For percentage enter the amount as the percentage divided by 100 using string format. For example 10% percent would be “.10”. The response will return as an integer. \nRequired in /POST.",
-                        "format": "float",
-                        "example": "\".10\"",
-                        "type": [
-                          "integer",
-                          "string"
-                        ]
+                        "type": "integer",
+                        "description": "The discount can be a fixed dollar amount or a percentage. For a fixed dollar amount enter it as an integer and the response will return as an integer. For percentage enter the amount as the percentage divided by 100 using string format. For example 10% percent would be “.10”. The response will return as an integer. \nRequired in /POST."
                       }
                     },
                     "required": [
@@ -28779,6 +27899,7 @@
                 "meta": {
                   "type": "object",
                   "description": "Data about the response, including pagination and collection totals.",
+                  "title": "Collection Meta",
                   "properties": {
                     "pagination": {
                       "type": "object",
@@ -28831,8 +27952,7 @@
                         }
                       }
                     }
-                  },
-                  "title": "Collection Meta"
+                  }
                 }
               }
             },
@@ -28909,93 +28029,15 @@
             "in": "body",
             "required": true,
             "schema": {
-              "type": "object",
-              "description": "Common BulkPricingRule properties",
-              "title": "Bulk Pricing Rule",
-              "properties": {
-                "id": {
-                  "type": "integer",
-                  "description": "Unique ID of the *Bulk Pricing Rule*. Read-Only."
-                },
-                "quantity_min": {
-                  "type": "integer",
-                  "description": "The minimum inclusive quantity of a product to satisfy this rule. Must be greater than or equal to zero.\nRequired in /POST.\n",
-                  "x-required": [
-                    "post"
-                  ],
-                  "minimum": 0,
-                  "example": 10
-                },
-                "quantity_max": {
-                  "type": "integer",
-                  "description": "The maximum inclusive quantity of a product to satisfy this rule. Must be greater than the `quantity_min` value – unless this field has a value of 0 (zero), in which case there will be no maximum bound for this rule.\nRequired in /POST.",
-                  "x-required": [
-                    "post"
-                  ],
-                  "minimum": 0,
-                  "example": 50
-                },
-                "type": {
-                  "type": "string",
-                  "description": "The type of adjustment that is made. Values: `price` - the adjustment amount per product; `percent` - the adjustment as a percentage of the original price; `fixed` - the adjusted absolute price of the product.\nRequired in /POST.",
-                  "x-required": [
-                    "post"
-                  ],
-                  "enum": [
-                    "price",
-                    "percent",
-                    "fixed"
-                  ],
-                  "example": "price"
-                },
-                "amount": {
-                  "description": "The discount can be a fixed dollar amount or a percentage. For a fixed dollar amount enter it as an integer and the response will return as an integer. For percentage enter the amount as the percentage divided by 100 using string format. For example 10% percent would be “.10”. The response will return as an integer. \nRequired in /POST.",
-                  "format": "float",
-                  "example": "\".10\"",
-                  "type": [
-                    "integer",
-                    "string"
-                  ]
-                }
-              },
-              "required": [
-                "quantity_min",
-                "quantity_max",
-                "type",
-                "amount"
-              ]
+              "$ref": "#/definitions/BulkPricingRuleBase"
             },
             "x-examples": {
-              "application/json": [
-                {
-                  "id": 59,
-                  "quantity_min": 1,
-                  "quantity_max": 10,
-                  "type": "price",
-                  "amount": 1
-                },
-                {
-                  "id": 60,
-                  "quantity_min": 11,
-                  "quantity_max": 20,
-                  "type": "price",
-                  "amount": 1.5
-                },
-                {
-                  "id": 61,
-                  "quantity_min": 21,
-                  "quantity_max": 30,
-                  "type": "price",
-                  "amount": 1.75
-                },
-                {
-                  "id": 62,
-                  "quantity_min": 31,
-                  "quantity_max": 0,
-                  "type": "price",
-                  "amount": 2
-                }
-              ]
+              "application/json": {
+                "quantity_min": 1,
+                "quantity_max": 10,
+                "type": "price",
+                "amount": 1
+              }
             }
           },
           {
@@ -29020,61 +28062,7 @@
               "type": "object",
               "properties": {
                 "data": {
-                  "type": "object",
-                  "description": "Common BulkPricingRule properties",
-                  "title": "Bulk Pricing Rule",
-                  "properties": {
-                    "id": {
-                      "type": "integer",
-                      "description": "Unique ID of the *Bulk Pricing Rule*. Read-Only."
-                    },
-                    "quantity_min": {
-                      "type": "integer",
-                      "description": "The minimum inclusive quantity of a product to satisfy this rule. Must be greater than or equal to zero.\nRequired in /POST.\n",
-                      "x-required": [
-                        "post"
-                      ],
-                      "minimum": 0,
-                      "example": 10
-                    },
-                    "quantity_max": {
-                      "type": "integer",
-                      "description": "The maximum inclusive quantity of a product to satisfy this rule. Must be greater than the `quantity_min` value – unless this field has a value of 0 (zero), in which case there will be no maximum bound for this rule.\nRequired in /POST.",
-                      "x-required": [
-                        "post"
-                      ],
-                      "minimum": 0,
-                      "example": 50
-                    },
-                    "type": {
-                      "type": "string",
-                      "description": "The type of adjustment that is made. Values: `price` - the adjustment amount per product; `percent` - the adjustment as a percentage of the original price; `fixed` - the adjusted absolute price of the product.\nRequired in /POST.",
-                      "x-required": [
-                        "post"
-                      ],
-                      "enum": [
-                        "price",
-                        "percent",
-                        "fixed"
-                      ],
-                      "example": "price"
-                    },
-                    "amount": {
-                      "description": "The discount can be a fixed dollar amount or a percentage. For a fixed dollar amount enter it as an integer and the response will return as an integer. For percentage enter the amount as the percentage divided by 100 using string format. For example 10% percent would be “.10”. The response will return as an integer. \nRequired in /POST.",
-                      "format": "float",
-                      "example": "\".10\"",
-                      "type": [
-                        "integer",
-                        "string"
-                      ]
-                    }
-                  },
-                  "required": [
-                    "quantity_min",
-                    "quantity_max",
-                    "type",
-                    "amount"
-                  ]
+                  "$ref": "#/definitions/BulkPricingRuleBase"
                 },
                 "meta": {
                   "type": "object",
@@ -29311,13 +28299,8 @@
                       "example": "price"
                     },
                     "amount": {
-                      "description": "The discount can be a fixed dollar amount or a percentage. For a fixed dollar amount enter it as an integer and the response will return as an integer. For percentage enter the amount as the percentage divided by 100 using string format. For example 10% percent would be “.10”. The response will return as an integer. \nRequired in /POST.",
-                      "format": "float",
-                      "example": "\".10\"",
-                      "type": [
-                        "integer",
-                        "string"
-                      ]
+                      "type": "integer",
+                      "description": "The discount can be a fixed dollar amount or a percentage. For a fixed dollar amount enter it as an integer and the response will return as an integer. For percentage enter the amount as the percentage divided by 100 using string format. For example 10% percent would be “.10”. The response will return as an integer. \nRequired in /POST."
                     }
                   },
                   "required": [
@@ -29387,61 +28370,7 @@
             "in": "body",
             "required": true,
             "schema": {
-              "type": "object",
-              "description": "Common BulkPricingRule properties",
-              "title": "Bulk Pricing Rule",
-              "properties": {
-                "id": {
-                  "type": "integer",
-                  "description": "Unique ID of the *Bulk Pricing Rule*. Read-Only."
-                },
-                "quantity_min": {
-                  "type": "integer",
-                  "description": "The minimum inclusive quantity of a product to satisfy this rule. Must be greater than or equal to zero.\nRequired in /POST.\n",
-                  "x-required": [
-                    "post"
-                  ],
-                  "minimum": 0,
-                  "example": 10
-                },
-                "quantity_max": {
-                  "type": "integer",
-                  "description": "The maximum inclusive quantity of a product to satisfy this rule. Must be greater than the `quantity_min` value – unless this field has a value of 0 (zero), in which case there will be no maximum bound for this rule.\nRequired in /POST.",
-                  "x-required": [
-                    "post"
-                  ],
-                  "minimum": 0,
-                  "example": 50
-                },
-                "type": {
-                  "type": "string",
-                  "description": "The type of adjustment that is made. Values: `price` - the adjustment amount per product; `percent` - the adjustment as a percentage of the original price; `fixed` - the adjusted absolute price of the product.\nRequired in /POST.",
-                  "x-required": [
-                    "post"
-                  ],
-                  "enum": [
-                    "price",
-                    "percent",
-                    "fixed"
-                  ],
-                  "example": "price"
-                },
-                "amount": {
-                  "description": "The discount can be a fixed dollar amount or a percentage. For a fixed dollar amount enter it as an integer and the response will return as an integer. For percentage enter the amount as the percentage divided by 100 using string format. For example 10% percent would be “.10”. The response will return as an integer. \nRequired in /POST.",
-                  "format": "float",
-                  "example": "\".10\"",
-                  "type": [
-                    "integer",
-                    "string"
-                  ]
-                }
-              },
-              "required": [
-                "quantity_min",
-                "quantity_max",
-                "type",
-                "amount"
-              ]
+              "$ref": "#/definitions/BulkPricingRuleBase"
             },
             "x-examples": {
               "application/json": {
@@ -29514,13 +28443,8 @@
                       "example": "price"
                     },
                     "amount": {
-                      "description": "The discount can be a fixed dollar amount or a percentage. For a fixed dollar amount enter it as an integer and the response will return as an integer. For percentage enter the amount as the percentage divided by 100 using string format. For example 10% percent would be “.10”. The response will return as an integer. \nRequired in /POST.",
-                      "format": "float",
-                      "example": "\".10\"",
-                      "type": [
-                        "integer",
-                        "string"
-                      ]
+                      "type": "integer",
+                      "description": "The discount can be a fixed dollar amount or a percentage. For a fixed dollar amount enter it as an integer and the response will return as an integer. For percentage enter the amount as the percentage divided by 100 using string format. For example 10% percent would be “.10”. The response will return as an integer. \nRequired in /POST."
                     }
                   },
                   "required": [
@@ -34967,7 +33891,43 @@
                         "type": "array",
                         "description": "The list of children of the category.\n",
                         "items": {
-                          "$ref": "#/definitions/CategoryNode"
+                          "type": "object",
+                          "description": "Used to reflect parent <> child category relationships. Used by Category Tree.",
+                          "title": "Category Node",
+                          "properties": {
+                            "id": {
+                              "type": "integer",
+                              "description": "The unique numeric ID of the category; increments sequentially.\n",
+                              "example": 26
+                            },
+                            "parent_id": {
+                              "type": "integer",
+                              "description": "The unique numeric ID of the category's parent. This field controls where the category sits in the tree of categories that organize the catalog.\n",
+                              "example": 25
+                            },
+                            "name": {
+                              "type": "string",
+                              "description": "The name displayed for the category. Name is unique with respect to the category's siblings.\n",
+                              "example": "Bath"
+                            },
+                            "is_visible": {
+                              "type": "boolean",
+                              "description": "Flag to determine whether the product should be displayed to customers browsing the store. If `true`, the category will be displayed. If `false`, the category will be hidden from view.\n",
+                              "example": true
+                            },
+                            "url": {
+                              "type": "string",
+                              "description": "The custom URL for the category on the storefront.\n",
+                              "example": "/towels/bath-towels/"
+                            },
+                            "children": {
+                              "type": "array",
+                              "description": "The list of children of the category.\n",
+                              "items": {
+                                "$ref": "#/definitions/CategoryNode"
+                              }
+                            }
+                          }
                         }
                       }
                     }
@@ -44525,7 +43485,43 @@
                 "type": "array",
                 "description": "The list of children of the category.\n",
                 "items": {
-                  "$ref": "#/definitions/CategoryNode"
+                  "type": "object",
+                  "description": "Used to reflect parent <> child category relationships. Used by Category Tree.",
+                  "title": "Category Node",
+                  "properties": {
+                    "id": {
+                      "type": "integer",
+                      "description": "The unique numeric ID of the category; increments sequentially.\n",
+                      "example": 26
+                    },
+                    "parent_id": {
+                      "type": "integer",
+                      "description": "The unique numeric ID of the category's parent. This field controls where the category sits in the tree of categories that organize the catalog.\n",
+                      "example": 25
+                    },
+                    "name": {
+                      "type": "string",
+                      "description": "The name displayed for the category. Name is unique with respect to the category's siblings.\n",
+                      "example": "Bath"
+                    },
+                    "is_visible": {
+                      "type": "boolean",
+                      "description": "Flag to determine whether the product should be displayed to customers browsing the store. If `true`, the category will be displayed. If `false`, the category will be hidden from view.\n",
+                      "example": true
+                    },
+                    "url": {
+                      "type": "string",
+                      "description": "The custom URL for the category on the storefront.\n",
+                      "example": "/towels/bath-towels/"
+                    },
+                    "children": {
+                      "type": "array",
+                      "description": "The list of children of the category.\n",
+                      "items": {
+                        "$ref": "#/definitions/CategoryNode"
+                      }
+                    }
+                  }
                 }
               }
             }
@@ -47280,61 +46276,7 @@
         "bulk_pricing_rules": {
           "type": "array",
           "items": {
-            "type": "object",
-            "description": "Common BulkPricingRule properties",
-            "title": "Bulk Pricing Rule",
-            "properties": {
-              "id": {
-                "type": "integer",
-                "description": "Unique ID of the *Bulk Pricing Rule*. Read-Only."
-              },
-              "quantity_min": {
-                "type": "integer",
-                "description": "The minimum inclusive quantity of a product to satisfy this rule. Must be greater than or equal to zero.\nRequired in /POST.\n",
-                "x-required": [
-                  "post"
-                ],
-                "minimum": 0,
-                "example": 10
-              },
-              "quantity_max": {
-                "type": "integer",
-                "description": "The maximum inclusive quantity of a product to satisfy this rule. Must be greater than the `quantity_min` value – unless this field has a value of 0 (zero), in which case there will be no maximum bound for this rule.\nRequired in /POST.",
-                "x-required": [
-                  "post"
-                ],
-                "minimum": 0,
-                "example": 50
-              },
-              "type": {
-                "type": "string",
-                "description": "The type of adjustment that is made. Values: `price` - the adjustment amount per product; `percent` - the adjustment as a percentage of the original price; `fixed` - the adjusted absolute price of the product.\nRequired in /POST.",
-                "x-required": [
-                  "post"
-                ],
-                "enum": [
-                  "price",
-                  "percent",
-                  "fixed"
-                ],
-                "example": "price"
-              },
-              "amount": {
-                "description": "The discount can be a fixed dollar amount or a percentage. For a fixed dollar amount enter it as an integer and the response will return as an integer. For percentage enter the amount as the percentage divided by 100 using string format. For example 10% percent would be “.10”. The response will return as an integer. \nRequired in /POST.",
-                "format": "float",
-                "example": "\".10\"",
-                "type": [
-                  "integer",
-                  "string"
-                ]
-              }
-            },
-            "required": [
-              "quantity_min",
-              "quantity_max",
-              "type",
-              "amount"
-            ]
+            "$ref": "#/definitions/BulkPricingRuleBase"
           }
         },
         "date_created": {
@@ -47355,8 +46297,8 @@
             "title": "Product Image",
             "allOf": [
               {
-                "type": "object",
                 "description": "Common ProductImage properties.",
+                "title": "Product Image Base",
                 "properties": {
                   "id": {
                     "description": "The unique numeric ID of the image; increments sequentially.\n",
@@ -47405,11 +46347,9 @@
                     "description": "The description for the image.\n",
                     "type": "string"
                   }
-                },
-                "title": "Product Image Base"
+                }
               },
               {
-                "type": "object",
                 "properties": {
                   "id": {
                     "description": "The unique numeric ID of the image; increments sequentially.\n",
@@ -47451,18 +46391,18 @@
                   }
                 }
               }
-            ]
+            ],
+            "type": "object"
           }
         },
         "videos": {
           "type": "array",
           "items": {
-            "type": "object",
             "description": "A product video model.\n",
             "allOf": [
               {
-                "type": "object",
                 "description": "Common ProductVideo properties.",
+                "title": "Product Video Base",
                 "properties": {
                   "title": {
                     "type": "string",
@@ -47487,11 +46427,9 @@
                       "youtube"
                     ]
                   }
-                },
-                "title": "Product Video Base"
+                }
               },
               {
-                "type": "object",
                 "properties": {
                   "id": {
                     "type": "integer",
@@ -47512,16 +46450,15 @@
                 }
               }
             ],
-            "title": "Product Video"
+            "title": "Product Video",
+            "type": "object"
           }
         },
         "variants": {
           "type": "array",
           "items": {
-            "type": "object",
             "allOf": [
               {
-                "type": "object",
                 "description": "Common Variant properties.",
                 "title": "Variant Base",
                 "properties": {
@@ -47627,7 +46564,6 @@
                 }
               },
               {
-                "type": "object",
                 "properties": {
                   "id": {
                     "type": "integer"
@@ -47645,11 +46581,10 @@
                   },
                   "option_values": {
                     "type": "array",
+                    "description": "Array of option and option values IDs that make up this variant. Will be empty if the variant is the product's base variant.",
                     "items": {
-                      "type": "object",
                       "allOf": [
                         {
-                          "type": "object",
                           "description": "Common Option Value Product properties.",
                           "title": "Option Value Product Base",
                           "properties": {
@@ -47676,7 +46611,6 @@
                           }
                         },
                         {
-                          "type": "object",
                           "properties": {
                             "id": {
                               "type": "integer"
@@ -47687,9 +46621,9 @@
                           }
                         }
                       ],
-                      "title": "Option Value Variant"
-                    },
-                    "description": "Array of option and option values IDs that make up this variant. Will be empty if the variant is the product's base variant."
+                      "title": "Option Value Variant",
+                      "type": "object"
+                    }
                   },
                   "calculated_price": {
                     "type": "number",
@@ -47698,7 +46632,8 @@
                   }
                 }
               }
-            ]
+            ],
+            "type": "object"
           }
         },
         "base_variant_id": {
@@ -47716,7 +46651,6 @@
       "description": "The model for a PUT to update a product.",
       "allOf": [
         {
-          "type": "object",
           "description": "Common Product properties.",
           "title": "Product",
           "properties": {
@@ -48151,61 +47085,7 @@
             "bulk_pricing_rules": {
               "type": "array",
               "items": {
-                "type": "object",
-                "description": "Common BulkPricingRule properties",
-                "title": "Bulk Pricing Rule",
-                "properties": {
-                  "id": {
-                    "type": "integer",
-                    "description": "Unique ID of the *Bulk Pricing Rule*. Read-Only."
-                  },
-                  "quantity_min": {
-                    "type": "integer",
-                    "description": "The minimum inclusive quantity of a product to satisfy this rule. Must be greater than or equal to zero.\nRequired in /POST.\n",
-                    "x-required": [
-                      "post"
-                    ],
-                    "minimum": 0,
-                    "example": 10
-                  },
-                  "quantity_max": {
-                    "type": "integer",
-                    "description": "The maximum inclusive quantity of a product to satisfy this rule. Must be greater than the `quantity_min` value – unless this field has a value of 0 (zero), in which case there will be no maximum bound for this rule.\nRequired in /POST.",
-                    "x-required": [
-                      "post"
-                    ],
-                    "minimum": 0,
-                    "example": 50
-                  },
-                  "type": {
-                    "type": "string",
-                    "description": "The type of adjustment that is made. Values: `price` - the adjustment amount per product; `percent` - the adjustment as a percentage of the original price; `fixed` - the adjusted absolute price of the product.\nRequired in /POST.",
-                    "x-required": [
-                      "post"
-                    ],
-                    "enum": [
-                      "price",
-                      "percent",
-                      "fixed"
-                    ],
-                    "example": "price"
-                  },
-                  "amount": {
-                    "description": "The discount can be a fixed dollar amount or a percentage. For a fixed dollar amount enter it as an integer and the response will return as an integer. For percentage enter the amount as the percentage divided by 100 using string format. For example 10% percent would be “.10”. The response will return as an integer. \nRequired in /POST.",
-                    "format": "float",
-                    "example": "\".10\"",
-                    "type": [
-                      "integer",
-                      "string"
-                    ]
-                  }
-                },
-                "required": [
-                  "quantity_min",
-                  "quantity_max",
-                  "type",
-                  "amount"
-                ]
+                "$ref": "#/definitions/BulkPricingRuleBase"
               }
             },
             "date_created": {
@@ -48226,8 +47106,8 @@
                 "title": "Product Image",
                 "allOf": [
                   {
-                    "type": "object",
                     "description": "Common ProductImage properties.",
+                    "title": "Product Image Base",
                     "properties": {
                       "id": {
                         "description": "The unique numeric ID of the image; increments sequentially.\n",
@@ -48276,11 +47156,9 @@
                         "description": "The description for the image.\n",
                         "type": "string"
                       }
-                    },
-                    "title": "Product Image Base"
+                    }
                   },
                   {
-                    "type": "object",
                     "properties": {
                       "id": {
                         "description": "The unique numeric ID of the image; increments sequentially.\n",
@@ -48322,18 +47200,18 @@
                       }
                     }
                   }
-                ]
+                ],
+                "type": "object"
               }
             },
             "videos": {
               "type": "array",
               "items": {
-                "type": "object",
                 "description": "A product video model.\n",
                 "allOf": [
                   {
-                    "type": "object",
                     "description": "Common ProductVideo properties.",
+                    "title": "Product Video Base",
                     "properties": {
                       "title": {
                         "type": "string",
@@ -48358,11 +47236,9 @@
                           "youtube"
                         ]
                       }
-                    },
-                    "title": "Product Video Base"
+                    }
                   },
                   {
-                    "type": "object",
                     "properties": {
                       "id": {
                         "type": "integer",
@@ -48383,16 +47259,15 @@
                     }
                   }
                 ],
-                "title": "Product Video"
+                "title": "Product Video",
+                "type": "object"
               }
             },
             "variants": {
               "type": "array",
               "items": {
-                "type": "object",
                 "allOf": [
                   {
-                    "type": "object",
                     "description": "Common Variant properties.",
                     "title": "Variant Base",
                     "properties": {
@@ -48498,7 +47373,6 @@
                     }
                   },
                   {
-                    "type": "object",
                     "properties": {
                       "id": {
                         "type": "integer"
@@ -48516,11 +47390,10 @@
                       },
                       "option_values": {
                         "type": "array",
+                        "description": "Array of option and option values IDs that make up this variant. Will be empty if the variant is the product's base variant.",
                         "items": {
-                          "type": "object",
                           "allOf": [
                             {
-                              "type": "object",
                               "description": "Common Option Value Product properties.",
                               "title": "Option Value Product Base",
                               "properties": {
@@ -48547,7 +47420,6 @@
                               }
                             },
                             {
-                              "type": "object",
                               "properties": {
                                 "id": {
                                   "type": "integer"
@@ -48558,9 +47430,9 @@
                               }
                             }
                           ],
-                          "title": "Option Value Variant"
-                        },
-                        "description": "Array of option and option values IDs that make up this variant. Will be empty if the variant is the product's base variant."
+                          "title": "Option Value Variant",
+                          "type": "object"
+                        }
                       },
                       "calculated_price": {
                         "type": "number",
@@ -48569,7 +47441,8 @@
                       }
                     }
                   }
-                ]
+                ],
+                "type": "object"
               }
             },
             "base_variant_id": {
@@ -48676,12 +47549,8 @@
                   },
                   "amount": {
                     "description": "The discount can be a fixed dollar amount or a percentage. For a fixed dollar amount enter it as an integer and the response will return as an integer. For percentage enter the amount as the percentage divided by 100 using string format. For example 10% percent would be “.10”. The response will return as an integer. \nRequired in /POST.",
-                    "format": "float",
-                    "example": "\".10\"",
-                    "type": [
-                      "integer",
-                      "string"
-                    ]
+                    "example": 10,
+                    "type": "integer"
                   }
                 },
                 "required": [
@@ -48695,11 +47564,9 @@
             "variants": {
               "type": "array",
               "items": {
-                "type": "object",
                 "description": "The model for a PUT to update variants on a product.\n",
                 "allOf": [
                   {
-                    "type": "object",
                     "description": "Common Variant properties.",
                     "title": "Variant Base",
                     "properties": {
@@ -48805,7 +47672,6 @@
                     }
                   },
                   {
-                    "type": "object",
                     "properties": {
                       "product_id": {
                         "type": "integer"
@@ -48818,7 +47684,8 @@
                     }
                   }
                 ],
-                "title": "Variant Product Put"
+                "title": "Variant Product Put",
+                "type": "object"
               }
             }
           }
@@ -49372,7 +48239,7 @@
     },
     "BulkPricingRuleBase": {
       "type": "object",
-      "description": "Common BulkPricingRule properties",
+      "description": "Common Bulk Pricing Rule properties",
       "title": "Bulk Pricing Rule",
       "properties": {
         "id": {
@@ -49411,13 +48278,9 @@
           "example": "price"
         },
         "amount": {
+          "type": "integer",
           "description": "The discount can be a fixed dollar amount or a percentage. For a fixed dollar amount enter it as an integer and the response will return as an integer. For percentage enter the amount as the percentage divided by 100 using string format. For example 10% percent would be “.10”. The response will return as an integer. \nRequired in /POST.",
-          "format": "float",
-          "example": "\".10\"",
-          "type": [
-            "integer",
-            "string"
-          ]
+          "example": 10
         }
       },
       "required": [
@@ -50346,61 +49209,7 @@
         "bulk_pricing_rules": {
           "type": "array",
           "items": {
-            "type": "object",
-            "description": "Common BulkPricingRule properties",
-            "title": "Bulk Pricing Rule",
-            "properties": {
-              "id": {
-                "type": "integer",
-                "description": "Unique ID of the *Bulk Pricing Rule*. Read-Only."
-              },
-              "quantity_min": {
-                "type": "integer",
-                "description": "The minimum inclusive quantity of a product to satisfy this rule. Must be greater than or equal to zero.\nRequired in /POST.\n",
-                "x-required": [
-                  "post"
-                ],
-                "minimum": 0,
-                "example": 10
-              },
-              "quantity_max": {
-                "type": "integer",
-                "description": "The maximum inclusive quantity of a product to satisfy this rule. Must be greater than the `quantity_min` value – unless this field has a value of 0 (zero), in which case there will be no maximum bound for this rule.\nRequired in /POST.",
-                "x-required": [
-                  "post"
-                ],
-                "minimum": 0,
-                "example": 50
-              },
-              "type": {
-                "type": "string",
-                "description": "The type of adjustment that is made. Values: `price` - the adjustment amount per product; `percent` - the adjustment as a percentage of the original price; `fixed` - the adjusted absolute price of the product.\nRequired in /POST.",
-                "x-required": [
-                  "post"
-                ],
-                "enum": [
-                  "price",
-                  "percent",
-                  "fixed"
-                ],
-                "example": "price"
-              },
-              "amount": {
-                "description": "The discount can be a fixed dollar amount or a percentage. For a fixed dollar amount enter it as an integer and the response will return as an integer. For percentage enter the amount as the percentage divided by 100 using string format. For example 10% percent would be “.10”. The response will return as an integer. \nRequired in /POST.",
-                "format": "float",
-                "example": "\".10\"",
-                "type": [
-                  "integer",
-                  "string"
-                ]
-              }
-            },
-            "required": [
-              "quantity_min",
-              "quantity_max",
-              "type",
-              "amount"
-            ]
+            "$ref": "#/definitions/BulkPricingRuleBase"
           }
         },
         "date_created": {
@@ -50421,8 +49230,8 @@
             "title": "Product Image",
             "allOf": [
               {
-                "type": "object",
                 "description": "Common ProductImage properties.",
+                "title": "Product Image Base",
                 "properties": {
                   "id": {
                     "description": "The unique numeric ID of the image; increments sequentially.\n",
@@ -50471,11 +49280,9 @@
                     "description": "The description for the image.\n",
                     "type": "string"
                   }
-                },
-                "title": "Product Image Base"
+                }
               },
               {
-                "type": "object",
                 "properties": {
                   "id": {
                     "description": "The unique numeric ID of the image; increments sequentially.\n",
@@ -50517,18 +49324,18 @@
                   }
                 }
               }
-            ]
+            ],
+            "type": "object"
           }
         },
         "videos": {
           "type": "array",
           "items": {
-            "type": "object",
             "description": "A product video model.\n",
             "allOf": [
               {
-                "type": "object",
                 "description": "Common ProductVideo properties.",
+                "title": "Product Video Base",
                 "properties": {
                   "title": {
                     "type": "string",
@@ -50553,11 +49360,9 @@
                       "youtube"
                     ]
                   }
-                },
-                "title": "Product Video Base"
+                }
               },
               {
-                "type": "object",
                 "properties": {
                   "id": {
                     "type": "integer",
@@ -50578,16 +49383,15 @@
                 }
               }
             ],
-            "title": "Product Video"
+            "title": "Product Video",
+            "type": "object"
           }
         },
         "variants": {
           "type": "array",
           "items": {
-            "type": "object",
             "allOf": [
               {
-                "type": "object",
                 "description": "Common Variant properties.",
                 "title": "Variant Base",
                 "properties": {
@@ -50693,7 +49497,6 @@
                 }
               },
               {
-                "type": "object",
                 "properties": {
                   "id": {
                     "type": "integer"
@@ -50711,11 +49514,10 @@
                   },
                   "option_values": {
                     "type": "array",
+                    "description": "Array of option and option values IDs that make up this variant. Will be empty if the variant is the product's base variant.",
                     "items": {
-                      "type": "object",
                       "allOf": [
                         {
-                          "type": "object",
                           "description": "Common Option Value Product properties.",
                           "title": "Option Value Product Base",
                           "properties": {
@@ -50742,7 +49544,6 @@
                           }
                         },
                         {
-                          "type": "object",
                           "properties": {
                             "id": {
                               "type": "integer"
@@ -50753,9 +49554,9 @@
                           }
                         }
                       ],
-                      "title": "Option Value Variant"
-                    },
-                    "description": "Array of option and option values IDs that make up this variant. Will be empty if the variant is the product's base variant."
+                      "title": "Option Value Variant",
+                      "type": "object"
+                    }
                   },
                   "calculated_price": {
                     "type": "number",
@@ -50764,7 +49565,8 @@
                   }
                 }
               }
-            ]
+            ],
+            "type": "object"
           }
         },
         "base_variant_id": {
@@ -51472,12 +50274,8 @@
                     },
                     "amount": {
                       "description": "The discount can be a fixed dollar amount or a percentage. For a fixed dollar amount enter it as an integer and the response will return as an integer. For percentage enter the amount as the percentage divided by 100 using string format. For example 10% percent would be “.10”. The response will return as an integer. \nRequired in /POST.",
-                      "format": "float",
-                      "example": "\".10\"",
-                      "type": [
-                        "integer",
-                        "string"
-                      ]
+                      "example": 10,
+                      "type": "integer"
                     }
                   },
                   "required": [
@@ -51956,12 +50754,8 @@
                     },
                     "amount": {
                       "description": "The discount can be a fixed dollar amount or a percentage. For a fixed dollar amount enter it as an integer and the response will return as an integer. For percentage enter the amount as the percentage divided by 100 using string format. For example 10% percent would be “.10”. The response will return as an integer. \nRequired in /POST.",
-                      "format": "float",
-                      "example": "\".10\"",
-                      "type": [
-                        "integer",
-                        "string"
-                      ]
+                      "example": 10,
+                      "type": "integer"
                     }
                   },
                   "required": [
@@ -52614,12 +51408,8 @@
                       },
                       "amount": {
                         "description": "The discount can be a fixed dollar amount or a percentage. For a fixed dollar amount enter it as an integer and the response will return as an integer. For percentage enter the amount as the percentage divided by 100 using string format. For example 10% percent would be “.10”. The response will return as an integer. \nRequired in /POST.",
-                        "format": "float",
-                        "example": "\".10\"",
-                        "type": [
-                          "integer",
-                          "string"
-                        ]
+                        "example": 10,
+                        "type": "integer"
                       }
                     },
                     "required": [
@@ -56494,11 +55284,8 @@
                     "amount": {
                       "description": "The discount can be a fixed dollar amount or a percentage. For a fixed dollar amount enter it as an integer and the response will return as an integer. For percentage enter the amount as the percentage divided by 100 using string format. For example 10% percent would be “.10”. The response will return as an integer. \nRequired in /POST.",
                       "format": "float",
-                      "example": "\".10\"",
-                      "type": [
-                        "integer",
-                        "string"
-                      ]
+                      "example": 10,
+                      "type": "integer"
                     }
                   },
                   "required": [
@@ -56981,61 +55768,7 @@
         "type": "object",
         "properties": {
           "data": {
-            "type": "object",
-            "description": "Common BulkPricingRule properties",
-            "title": "Bulk Pricing Rule",
-            "properties": {
-              "id": {
-                "type": "integer",
-                "description": "Unique ID of the *Bulk Pricing Rule*. Read-Only."
-              },
-              "quantity_min": {
-                "type": "integer",
-                "description": "The minimum inclusive quantity of a product to satisfy this rule. Must be greater than or equal to zero.\nRequired in /POST.\n",
-                "x-required": [
-                  "post"
-                ],
-                "minimum": 0,
-                "example": 10
-              },
-              "quantity_max": {
-                "type": "integer",
-                "description": "The maximum inclusive quantity of a product to satisfy this rule. Must be greater than the `quantity_min` value – unless this field has a value of 0 (zero), in which case there will be no maximum bound for this rule.\nRequired in /POST.",
-                "x-required": [
-                  "post"
-                ],
-                "minimum": 0,
-                "example": 50
-              },
-              "type": {
-                "type": "string",
-                "description": "The type of adjustment that is made. Values: `price` - the adjustment amount per product; `percent` - the adjustment as a percentage of the original price; `fixed` - the adjusted absolute price of the product.\nRequired in /POST.",
-                "x-required": [
-                  "post"
-                ],
-                "enum": [
-                  "price",
-                  "percent",
-                  "fixed"
-                ],
-                "example": "price"
-              },
-              "amount": {
-                "description": "The discount can be a fixed dollar amount or a percentage. For a fixed dollar amount enter it as an integer and the response will return as an integer. For percentage enter the amount as the percentage divided by 100 using string format. For example 10% percent would be “.10”. The response will return as an integer. \nRequired in /POST.",
-                "format": "float",
-                "example": "\".10\"",
-                "type": [
-                  "integer",
-                  "string"
-                ]
-              }
-            },
-            "required": [
-              "quantity_min",
-              "quantity_max",
-              "type",
-              "amount"
-            ]
+            "$ref": "#/definitions/BulkPricingRuleBase"
           },
           "meta": {
             "type": "object",
@@ -57065,66 +55798,13 @@
           "data": {
             "type": "array",
             "items": {
-              "type": "object",
-              "description": "Common BulkPricingRule properties",
-              "title": "Bulk Pricing Rule",
-              "properties": {
-                "id": {
-                  "type": "integer",
-                  "description": "Unique ID of the *Bulk Pricing Rule*. Read-Only."
-                },
-                "quantity_min": {
-                  "type": "integer",
-                  "description": "The minimum inclusive quantity of a product to satisfy this rule. Must be greater than or equal to zero.\nRequired in /POST.\n",
-                  "x-required": [
-                    "post"
-                  ],
-                  "minimum": 0,
-                  "example": 10
-                },
-                "quantity_max": {
-                  "type": "integer",
-                  "description": "The maximum inclusive quantity of a product to satisfy this rule. Must be greater than the `quantity_min` value – unless this field has a value of 0 (zero), in which case there will be no maximum bound for this rule.\nRequired in /POST.",
-                  "x-required": [
-                    "post"
-                  ],
-                  "minimum": 0,
-                  "example": 50
-                },
-                "type": {
-                  "type": "string",
-                  "description": "The type of adjustment that is made. Values: `price` - the adjustment amount per product; `percent` - the adjustment as a percentage of the original price; `fixed` - the adjusted absolute price of the product.\nRequired in /POST.",
-                  "x-required": [
-                    "post"
-                  ],
-                  "enum": [
-                    "price",
-                    "percent",
-                    "fixed"
-                  ],
-                  "example": "price"
-                },
-                "amount": {
-                  "description": "The discount can be a fixed dollar amount or a percentage. For a fixed dollar amount enter it as an integer and the response will return as an integer. For percentage enter the amount as the percentage divided by 100 using string format. For example 10% percent would be “.10”. The response will return as an integer. \nRequired in /POST.",
-                  "format": "float",
-                  "example": "\".10\"",
-                  "type": [
-                    "integer",
-                    "string"
-                  ]
-                }
-              },
-              "required": [
-                "quantity_min",
-                "quantity_max",
-                "type",
-                "amount"
-              ]
+              "$ref": "#/definitions/BulkPricingRuleBase"
             }
           },
           "meta": {
             "type": "object",
             "description": "Data about the response, including pagination and collection totals.",
+            "title": "Collection Meta",
             "properties": {
               "pagination": {
                 "type": "object",
@@ -57177,8 +55857,7 @@
                   }
                 }
               }
-            },
-            "title": "Collection Meta"
+            }
           }
         }
       },
@@ -57567,6 +56246,7 @@
               "price_adjuster": {
                 "type": "object",
                 "title": "Adjuster",
+                "description": "Adjuster for Complex Rules.",
                 "properties": {
                   "adjuster": {
                     "type": "string",
@@ -57582,12 +56262,12 @@
                     "description": "The numeric amount by which the adjuster will change either the price or the weight of the variant, when the modifier value is selected on the storefront.\n",
                     "example": 5
                   }
-                },
-                "description": "Adjuster for Complex Rules."
+                }
               },
               "weight_adjuster": {
                 "type": "object",
                 "title": "Adjuster",
+                "description": "Adjuster for Complex Rules.",
                 "properties": {
                   "adjuster": {
                     "type": "string",
@@ -57603,8 +56283,7 @@
                     "description": "The numeric amount by which the adjuster will change either the price or the weight of the variant, when the modifier value is selected on the storefront.\n",
                     "example": 5
                   }
-                },
-                "description": "Adjuster for Complex Rules."
+                }
               },
               "conditions": {
                 "type": "array",
@@ -57612,6 +56291,11 @@
                   "type": "object",
                   "description": "Complex rules may return with conditions that apply to one or more variants, or with a single modifier value (if the rules were created using the v2 API or the control panel). Complex rules created or updated in the v3 API must have conditions that either reference multiple `modifier_value_id`'s, or else reference a `modifier_value_id` and a `variant_id`.",
                   "title": "Complex Rule Condition",
+                  "required": [
+                    "modifier_id",
+                    "modifier_value_id",
+                    "variant_id"
+                  ],
                   "properties": {
                     "id": {
                       "type": "integer",
@@ -57647,12 +56331,7 @@
                       "type": "integer",
                       "description": "(READ-ONLY:) The unique numeric ID of the SKU (v2 API), or Combination, with which the rule condition is associated. This is to maintain cross-compatibility between v2 and v3.\n"
                     }
-                  },
-                  "required": [
-                    "modifier_id",
-                    "modifier_value_id",
-                    "variant_id"
-                  ]
+                  }
                 }
               }
             }
@@ -57661,6 +56340,74 @@
             "type": "object",
             "description": "Empty meta object; may be used later.",
             "title": "Meta"
+          }
+        }
+      },
+      "examples": {
+        "application/json": {
+          "data": [
+            {
+              "id": 82,
+              "product_id": 195,
+              "sort_order": 0,
+              "enabled": true,
+              "stop": false,
+              "price_adjuster": {
+                "adjuster": "relative",
+                "adjuster_value": 8
+              },
+              "weight_adjuster": {},
+              "purchasing_disabled": false,
+              "purchasing_disabled_message": "",
+              "purchasing_hidden": false,
+              "image_url": "",
+              "conditions": [
+                {
+                  "rule_id": 82,
+                  "modifier_id": 221,
+                  "modifier_value_id": 175,
+                  "variant_id": {},
+                  "combination_id": 0
+                }
+              ]
+            },
+            {
+              "id": 83,
+              "product_id": 195,
+              "sort_order": 1,
+              "enabled": true,
+              "stop": false,
+              "price_adjuster": {},
+              "weight_adjuster": {
+                "adjuster": "relative",
+                "adjuster_value": 3
+              },
+              "purchasing_disabled": false,
+              "purchasing_disabled_message": "",
+              "purchasing_hidden": false,
+              "image_url": "",
+              "conditions": [
+                {
+                  "rule_id": 83,
+                  "modifier_id": 221,
+                  "modifier_value_id": 174,
+                  "variant_id": {},
+                  "combination_id": 0
+                }
+              ]
+            }
+          ],
+          "meta": {
+            "pagination": {
+              "total": 2,
+              "count": 2,
+              "per_page": 50,
+              "current_page": 1,
+              "total_pages": 1,
+              "links": {
+                "current": "?page=1&limit=50"
+              }
+            }
           }
         }
       }
