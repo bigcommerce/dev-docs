@@ -5,7 +5,6 @@
 ###  On this Page
 
 - [Installing](#installing)
-- [Config object](#config-object)
 - [API -- getPage](#getpage)
 - [Cart -- getCart](#getcart)
 - [Cart -- getCartQuantity](#getcartquantity)
@@ -54,31 +53,6 @@ If you do not want to support ES6 modules, Stencil Utils can be included as a no
 
 
 ---
-
-<a id="config-object"></a>
-
-## Config Object
-
-A `config` object can be passed in as part of the Stencil Utils API.
-The object only returns data **in the context** of that call. The config will not be available to anything else. It will not surface objects that are not normally available to the page. Use YAML to return objects in the context of an entire page. 
-
-### 
-
-### Search Attributes
-Product Search Results Page
-
-```json
-        {
-           "search": {
-              "product_results": {
-                 "limit": 5
-              }
-           }
-        }
-```
-
----
-
 
 <a id="api"></a>
 
