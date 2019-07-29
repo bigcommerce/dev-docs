@@ -1,0 +1,95 @@
+{
+  "swagger": "2.0",
+  "info": {
+    "version": "0.0.1",
+    "title": "Returns API",
+    "description": "Returns API for BigCommerce"
+  },
+  "host": "api.bigcommerce.com",
+  "basePath": "/stores/{store_hash}/v3",
+  "schemes": [
+    "https"
+  ],
+  "consumes": [
+    "application/json"
+  ],
+  "produces": [
+    "application/json"
+  ],
+  "paths": {
+    "/store/settings/returns": {
+      "get": {
+        "description": "Provides the configured returns settings",
+        "produces": [
+          "application/json"
+        ],
+        "responses": {
+          "200": {
+            "description": "The configured store settings relating to returns",
+            "schema": {
+              "type": "object",
+              "properties": {
+                "data": {
+                  "$ref": "#/definitions/Settings"
+                }
+              }
+            }
+          }
+        }
+      }
+    }
+  },
+  "definitions": {
+    "Settings": {
+      "type": "object",
+      "properties": {
+        "reasons": {
+          "type": "array",
+          "items": {
+            "$ref": "#/definitions/Reason"
+          }
+        },
+        "preferred_outcomes": {
+          "type": "array",
+          "items": {
+            "$ref": "#/definitions/PreferredOutcome"
+          }
+        }
+      }
+    },
+    "Reason": {
+      "type": "object",
+      "properties": {
+        "id": {
+          "type": "integer",
+          "format": "int64"
+        },
+        "label": {
+          "type": "string",
+          "description": "A description of the reason"
+        },
+        "is_archived": {
+          "type": "boolean",
+          "description": "Indicates whether or not the reason has been archived"
+        }
+      }
+    },
+    "PreferredOutcome": {
+      "type": "object",
+      "properties": {
+        "id": {
+          "type": "integer",
+          "format": "int64"
+        },
+        "label": {
+          "type": "string",
+          "description": "A description of the outcome"
+        },
+        "is_archived": {
+          "type": "boolean",
+          "description": "Indicates whether or not the outcome has been archived"
+        }
+      }
+    }
+  }
+}
