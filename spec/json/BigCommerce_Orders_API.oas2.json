@@ -7202,7 +7202,7 @@
                   }
                 },
                 "items": {
-                  "description": "The items in the shipment. This object has the following members, all integer: order_product_id (required), quantity (required), product_id (read-only). A sample items value might be: [ {\"order_product_id\":16,\"product_id\": 0,\"quantity\":2} ]",
+                  "description": "The items in the shipment. This object has the following members, all integer: order_product_id (required), quantity (required), product_id (read-only). A sample items value might be: [ {\"order_product_id\":16,\"product_id\": 0,\"quantity\":2}]. You cannot change the \"quantity\" of items in an order",
                   "type": "array",
                   "items": {
                     "type": "object",
