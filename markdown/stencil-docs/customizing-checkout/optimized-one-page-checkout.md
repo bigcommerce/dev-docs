@@ -6,12 +6,13 @@
     <li><a href="#optimized_configuring">Configuring the Desktop Viewport</a></li>
     <li><a href="#optimized_classes">Classes Available for Customization</a></li>
     <li><a href="#optimized_providing">Providing User Options in Store Design</a></li>
+		<li><a href="#optimized_currency">Currency Conversion Options</a></li>
 	</ul>
 </div>
 
 <a href='#optimized_working' aria-hidden='true' class='block-anchor'  id='optimized_working'><i aria-hidden='true' class='linkify icon'></i></a>
 
-## Working with the Optimized Checkout SCSS File 
+## Working with the Optimized Checkout SCSS File
 
 Cornerstone includes an SCSS file that styles the Optimized Checkout page. In your local installation, this file is located at <span class="fn">cornerstone/assets/scss/optimized-checkout.scss</span>.s
 
@@ -20,7 +21,7 @@ You can access the most recent version of this file in the [Cornerstone reposito
 <div class="HubBlock--callout">
 <div class="CalloutBlock--error">
 <div class="HubBlock-content">
-    
+
 <!-- theme: error -->
 
 ### Customizing Checkout Restrictions
@@ -35,7 +36,7 @@ You can access the most recent version of this file in the [Cornerstone reposito
 
 <a href='#optimized_configuring' aria-hidden='true' class='block-anchor'  id='optimized_configuring'><i aria-hidden='true' class='linkify icon'></i></a>
 
-## Configuring the Desktop Viewport 
+## Configuring the Desktop Viewport
 
 Within the <span class="fn">optimized-checkout.scss</span> file, to set up Optimized Checkout's responsive features, you should configure the following breakpoint to define your preferred desktop viewport size:
 
@@ -52,7 +53,7 @@ Within the <span class="fn">optimized-checkout.scss</span> file, to set up Optim
 
 <a href='#optimized_classes' aria-hidden='true' class='block-anchor'  id='optimized_classes'><i aria-hidden='true' class='linkify icon'></i></a>
 
-## Classes Available for Customization 
+## Classes Available for Customization
 
 Below are the classes provided in Cornerstone's <span class="fn">optimized-checkout.scss</span>, with the corresponding page elements that they style. _These class names and mappings are subject to change, so please check the inline comments in the <span class="fn">optimized-checkout.scss</span> file that you downloaded with your current Cornerstone release._
 
@@ -68,7 +69,7 @@ Below are the classes provided in Cornerstone's <span class="fn">optimized-check
 | `.optimizedCheckout-button--secondary` | `Edit` buttons.
 | `.optimizedCheckout-orderSummary` | Colors in the `Order Summary` mobile drawer/modal.
 | `.optimizedCheckout-step` | Large step-number indicators on the page's left side. |
-| `.optimizedCheckout-form-label` | Styles form fields like `Email Address` – the field's text-label color. | 
+| `.optimizedCheckout-form-label` | Styles form fields like `Email Address` – the field's text-label color. |
 | `.optimizedCheckout-form-input` | Styles form fields like `Email Address` – the entry box's background and border colors. |
 
 
@@ -78,20 +79,22 @@ Below are the classes provided in Cornerstone's <span class="fn">optimized-check
 
 ## Providing Customizable Options in Store Design
 
-You can determine which aspects of Optimized One-Page Checkout merchants will be able to customize with the Store Design tool. 
+You can determine which aspects of Optimized One-Page Checkout merchants will be able to customize with the Store Design tool.
 
-In Cornerstone's <span class="fn">optimized-checkout.scss</span>, each SCSS class and property available has a corresponding key/value pair in the <span class="fn">config.json</span> file, which can be used as the `id` value in schema.json when [creating customizable Store Design options](/stencil-docs/store-design/schema-json-metadata). 
+In Cornerstone's <span class="fn">optimized-checkout.scss</span>, each SCSS class and property available has a corresponding key/value pair in the <span class="fn">config.json</span> file, which can be used as the `id` value in schema.json when [creating customizable Store Design options](/stencil-docs/store-design/schema-json-metadata).
 
 ---
 
-## Currency-Conversion Options
+<a href='#optimized_currency' aria-hidden='true' class='block-anchor'  id='optimized_working'><i aria-hidden='true' class='linkify icon'></i></a>
+
+## Currency Conversion Options
 
 You can enable the display of alternate currencies on your Stencil theme’s Optimized One-Page Checkout and order confirmation pages.
 
 <div class="HubBlock--callout">
 <div class="CalloutBlock--warning">
 <div class="HubBlock-content">
-    
+
 <!-- theme: warning -->
 
 ### Restrictions
@@ -110,7 +113,7 @@ Shoppers will then be able to use the Currency drop-down list, throughout the st
 At checkout, the shopper will still be billed in the store’s default currency. As shown below, the checkout and cart templates will show an annotation about this, while flagging any converted total (in a shopper’s selected alternate currency) as an Estimated Total:
 
 <!--
-    title: 
+    title:
     data: //s3.amazonaws.com/user-content.stoplight.io/6116/1562870949093
 -->
 
@@ -121,5 +124,4 @@ At checkout, the shopper will still be billed in the store’s default currency.
 ## Resources
 
 ### Related Articles
-* The Complete Guide to Checkout Customization on BigCommerce (Developer Blog)
-
+* [The Complete Guide to Checkout Customization on BigCommerce](https://medium.com/bigcommerce-developer-blog/the-complete-guide-to-checkout-customization-on-bigcommerce-6b566bc36fa9) (Developer Blog)

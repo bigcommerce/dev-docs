@@ -126,7 +126,7 @@ In this case, this Handlebars statement:
 
 ```html
 {{pluck (limit categories 2) 'name'}}
-<!-- Returns: "Bakeware,Cookware" -->
+<!-- Returns: ["Bakeware","Cookware"] -->
 ```
 
 #### {{pluck}} Example 2
@@ -466,7 +466,7 @@ Given an array `[{a: 'zzz'}, {a: 'aaa'}]`:
 {{sortBy array "a"}}
 //=> '[{"a":"aaa"}, {"a":"zzz"}]'
 ```
-<a name="withAfter"></a> 
+<a name="withAfter"></a>
 
 ### {{withAfter}}
 
@@ -512,7 +512,7 @@ Given the array `['a', 'b', 'c', 'd', 'e']`:
 {{/withBefore}}
 //=> 'ab'
 ```
-<a name="withFirst"></a> 
+<a name="withFirst"></a>
 
 ### {{withFirst}}
 
@@ -630,7 +630,7 @@ Returns the length of the given collection. When using a string literal in the t
 {{length myObject}}
 //=> 2
 ```
-<a href="#handlebars-helpers-reference_comparison" aria-hidden='true' class='block-anchor'  id='handlebars-helpers-reference_collection'><i aria-hidden='true' class='linkify icon'></i></a>
+<a href="#handlebars-helpers-reference_comparison" aria-hidden='true' class='block-anchor'  id='handlebars-helpers-reference_comparison'><i aria-hidden='true' class='linkify icon'></i></a>
 
 ## Comparison Helpers
 
@@ -643,7 +643,7 @@ Block helper that renders the block if *both* of the given values are truthy. If
 #### Example
 
 ```html
-<!-- example from templates/layout/base.html --> 
+<!-- example from templates/layout/base.html -->
 
 <!-- ... -->
 {{#and settings.privacy_cookie settings.is_eu_ip_address}}
@@ -1894,7 +1894,7 @@ By design, an array will return a `typeof` value of `object`.
 </script>
 ```
 
-<a name="string"></a>
+<a href='#handlebars-helpers-reference_string' aria-hidden='true' class='block-anchor'  id='handlebars-helpers-reference_string'><i aria-hidden='true' class='linkify icon'></i></a>
 
 ##  String Helpers
 
@@ -1909,7 +1909,7 @@ The following helpers are available to manipulate strings:
 
 The following string helpers are custom to the Stencil framework.
 
-<a name="block-helper"></a> 
+<a name="block-helper"></a>
 
 ### {{block}} </span>
 

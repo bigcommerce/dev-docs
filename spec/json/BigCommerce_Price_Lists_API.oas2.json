@@ -620,7 +620,12 @@
         "tags": [
           "Price Lists"
         ],
-        "summary": "Get a Price List"
+        "summary": "Get a Price List",
+        "parameters": [
+          {
+            "$ref": "#/parameters/FilterVariantIdParam"
+          }
+        ]
       },
       "put": {
         "description": "Updates a *Price List*.",
@@ -901,18 +906,10 @@
         "operationId": "getPriceListRecordCollection",
         "parameters": [
           {
-            "type": "integer",
-            "name": "variant_id",
-            "in": "query",
-            "required": false,
-            "description": "The ID of the `Variant` whose prices were requested.\n"
+            "$ref": "#/parameters/FilterVariantIdParam"
           },
           {
-            "type": "string",
-            "name": "product_id",
-            "in": "query",
-            "required": false,
-            "description": "A comma-separated list of ids of `Product`s whose prices were requested.\n"
+            "$ref": "#/parameters/FilterProductIdParam"
           },
           {
             "name": "currency",
@@ -1783,11 +1780,7 @@
         "operationId": "deletePriceListRecordsByFilter",
         "parameters": [
           {
-            "type": "integer",
-            "name": "variant_id",
-            "in": "query",
-            "required": false,
-            "description": "The ID of the `Variant` whose prices were requested.\n"
+            "$ref": "#/parameters/FilterVariantIdParam"
           },
           {
             "in": "header",
@@ -2960,10 +2953,10 @@
     },
     "FilterVariantIdParam": {
       "type": "integer",
-      "name": "variant_id",
+      "name": "variant_id:in",
       "in": "query",
       "required": false,
-      "description": "The ID of the `Variant` whose prices were requested.\n"
+      "description": "The ID of the `Variant` whose prices were requested."
     },
     "Accept": {
       "in": "header",

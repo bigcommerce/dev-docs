@@ -36,7 +36,7 @@ These functions help you set up asynchronous requests to modify the customer’s
 
 ---
 
-<a name="installing"></a>
+<a id="installing"></a>
 
 ## Installing
 
@@ -54,11 +54,11 @@ If you do not want to support ES6 modules, Stencil Utils can be included as a no
 
 ---
 
-<a name="api"></a>
+<a id="api"></a>
 
 ## API [api.js]
 
-<a name="getpage"></a>
+<a id="getpage"></a>
 
 ### [getPage ](https://github.com/bigcommerce/stencil-utils/blob/master/src/api.js) 
 Request a page using [Ajax](https://developer.mozilla.org/en-US/docs/Web/Guide/AJAX).  
@@ -121,13 +121,13 @@ updateView() {
 
 ---
 
-<a name="cart"></a>
+<a id="cart"></a>
 
 ## Cart API 
 
 The following functions allow your theme to work with [cart](https://github.com/bigcommerce/stencil-utils/blob/9cf7c26b0a1f9ca9da83274ebc375e73f20acac5/src/api/cart.js) contents in customized ways.
 
-<a name="getcart"></a>
+<a id="getcart"></a>
 
 ### [getCart](https://github.com/bigcommerce/stencil-utils/blob/master/src/api/cart.js#L11)
 
@@ -154,7 +154,7 @@ utils.api.cart.getCart({includeOptions: true}, (err, response) => {
 ```
 
 
-<a name="getcartquantity"></a>
+<a id="getcartquantity"></a>
 
 
 ### [getCartQuantity](https://github.com/bigcommerce/stencil-utils/blob/master/src/api/cart.js#L28) 
@@ -197,7 +197,7 @@ utils.api.cart.getCartQuantity(quantity => {
 
 ---
 
-<a name="itemadd"></a>
+<a id="itemadd"></a>
 
 ### [itemAdd](https://github.com/bigcommerce/stencil-utils/blob/master/src/api/cart.js#L51)
 
@@ -268,7 +268,7 @@ The `itemAdd`function allows your code to add an item to the cart, with options:
 
 ---
 
-<a name="itemupdate"></a>
+<a id="itemupdate"></a>
 
 ### [itemUpdate](https://github.com/bigcommerce/stencil-utils/blob/master/src/api/cart.js#L70)
 
@@ -351,7 +351,7 @@ The <code>itemUpdate</code> function allows your code to update a specified cart
 - [`assets/js/theme/cart.js`](https://github.com/bigcommerce/cornerstone/blob/d786c6ecbed5ad588ed9489f79e2226455a07b21/assets/js/theme/cart.js)
 
 ---
-<a name="itemremove"></a>
+<a id="itemremove"></a>
 
 ### [itemRemove](https://github.com/bigcommerce/stencil-utils/blob/master/src/api/cart.js#L106)
 
@@ -403,7 +403,7 @@ In the following example (from <code>cart.js</code>), <code>itemRemove</code> is
 
 ---
 
-<a name="update"></a>
+<a id="update"></a>
 
 ### [update](https://github.com/bigcommerce/stencil-utils/blob/master/src/api/cart.js#L160)
 
@@ -470,7 +470,7 @@ The following example shows a call to `update` within the `itemUpdate` function:
 ---
 
 
-<a name="getitemgiftwrappingoptions"></a>
+<a id="getitemgiftwrappingoptions"></a>
 
 
 ### [getItemGiftWrappingOptions](https://github.com/bigcommerce/stencil-utils/blob/master/src/api/cart.js#L132)
@@ -535,7 +535,7 @@ The following example (from `cart.js`) calls `getItemGiftWrappingOptions` to dis
 ---
 
 
-<a name="submititemgiftwrappingoption"></a>
+<a id="submititemgiftwrappingoption"></a>
 
 
 ### [submitItemGiftWrappingOption](https://github.com/bigcommerce/stencil-utils/blob/master/src/api/cart.js#L150)
@@ -584,7 +584,7 @@ This commented example shows a simple call to `submitItemGiftWrappingOption`:
 
 ---
 
-<a name="getcontent"></a>
+<a id="getcontent"></a>
 
 ### [getContent](https://github.com/bigcommerce/stencil-utils/blob/master/src/api/cart.js#L174)
 
@@ -661,7 +661,7 @@ refreshContent(remove) {
 
 ---
 
-<a name="get-shipping-quotes"></a>
+<a id="get-shipping-quotes"></a>
 
 ### [getShippingQuotes](https://github.com/bigcommerce/stencil-utils/blob/master/src/api/cart.js#L193)
 
@@ -700,7 +700,7 @@ See submitShippingQutoes for an example.
 
 ---
 
-<a name="submitshippingquote"></a>
+<a id="submitshippingquote"></a>
 
 ### [submitShippingQuote](https://github.com/bigcommerce/stencil-utils/blob/master/src/api/cart.js#L218)
 
@@ -770,7 +770,7 @@ bindEstimatorEvents() {
 
 ---
 
-<a name="applycode"></a>
+<a id="applycode"></a>
 
 ### [applyCode](https://github.com/bigcommerce/stencil-utils/blob/master/src/api/cart.js#L234)
 
@@ -851,7 +851,7 @@ bindPromoCodeEvents() {
 
 ---
 
-<a name="apply-gift-certificate"></a>
+<a id="apply-gift-certificate"></a>
 
 ### [applyGiftCertificate](https://github.com/bigcommerce/stencil-utils/blob/master/src/api/cart.js#L250)
 
@@ -887,14 +887,14 @@ Apply a gift certificate to a cart.
 
 ---
 
-<a name="countriesresource"></a>
+<a id="countriesresource"></a>
 
 
 ## Countries Resource
 
 These functions allow your theme or app to retrieve standardized country names, by numeric ID or by string.
 
-<a name="country-get-by-id"></a>
+<a id="country-get-by-id"></a>
 
 ### [getById](https://github.com/bigcommerce/stencil-utils/blob/master/src/api/countries.js#L23)
 
@@ -952,7 +952,7 @@ The following example a call to `getById`, followed by a call to the `getByName`
 
 ---
 
-<a name="get-by-name"></a>
+<a id="get-by-name"></a>
 
 ### [getByName](https://github.com/bigcommerce/stencil-utils/blob/master/src/api/countries.js#L34)
 
@@ -1021,12 +1021,12 @@ $('select[data-field-type="Country"]').on('change', (event) => {
 
 ---
 
-<a name="product-attribute-resource"></a>
+<a id="product-attribute-resource"></a>
 
 ## Product Attributes Resource
 
 
-<a name="optionchange"></a>
+<a id="optionchange"></a>
 
 ### [optionChange](https://github.com/bigcommerce/stencil-utils/blob/master/src/api/product-attributes.js#L24) 
 
@@ -1086,7 +1086,7 @@ In this example (from `common/product-details.js`), `optionChange` is called to 
 
 ---
 
-<a name="configureincart"></a>
+<a id="configureincart"></a>
 
 ### [configureInCart](https://github.com/bigcommerce/stencil-utils/blob/master/src/api/product-attributes.js#L50)
 
@@ -1116,13 +1116,13 @@ Configure product options in the cart.
 
 ---
 
-<a name="product-resource"></a>
+<a id="product-resource"></a>
 
 ## Product Resource
 
 The `product.getById` function allows your code to retrieve, and to present, detailed product information by product ID.
 
-<a name="product-get-by-id"></a>
+<a id="product-get-by-id"></a>
 
 ### [getById](https://github.com/bigcommerce/stencil-utils/blob/master/src/api/product.js)
 
@@ -1178,7 +1178,7 @@ The `product.getById` function allows your code to retrieve, and to present, det
 
 ---
 
-<a name="search"></a>
+<a id="search"></a>
 
 ## Search Resource
 

@@ -3,7 +3,7 @@
 	<h3> On This Page </h3>
 	<ul>
 		<li><a href="#tech-stack_handlebars-overview">Handlebars Overview</a></li>
-    <li><a href="#tech-stack_objects-overview">Objects Overview</a></li>
+    <li><a href="#tech-stack_objects-overview">Stencil Objects Overview</a></li>
     <li><a href="#tech-stack_front-matter-overview">YAML Front Matter Overview</a></li>
   </ul>
 </div>
@@ -23,12 +23,12 @@ Below is a basic example that accesses the `` and `` variables.
 
 <div class="HubBlock-header">
     <div class="HubBlock-header-title flex items-center">
-        <div class="HubBlock-header-name">Using handlebars to access the {{title}} and  variables</div>
+        <div class="HubBlock-header-name">Using handlebars to access the {{title}} variable</div>
     </div><div class="HubBlock-header-subtitle"></div>
 </div>
 
 <!--
-title: "Using handlebars to access the {{title}} and  variables"
+title: "Using handlebars to access the {{title}}  variable"
 subtitle: ""
 lineNumbers: true
 -->
@@ -42,7 +42,7 @@ lineNumbers: true
 
 In production, Handlebars statements run on the server side, generating HTML received by the shopper’s browser.
 
-View the [full Handlebars Helpers Reference](/references/handlebars-full) to learn about the helpers avilable on a Stencil storefront.
+View the [full Handlebars Helpers Reference](/reference-docs/handlebars-helpers-reference) to learn about the helpers avilable on a Stencil storefront.
 
 ---
 
@@ -94,7 +94,7 @@ banners: {
 
 As a developer, you can use Handlebars.js syntax to access objects and use them to customize your Stencil theme.
 
-Stencil Objects are categorized as either Global, Common, or Other, which is representative of the object's scope or where in the theme it can be accessed. For example, Global Objects are components shared across the entire BigCommerce storefront. 
+Stencil Objects are categorized as either Global, Common, or Other, which is representative of the object's scope or where in the theme it can be accessed. For example, Global Objects are components shared across the entire BigCommerce storefront.
 
 ---
 
@@ -102,11 +102,11 @@ Stencil Objects are categorized as either Global, Common, or Other, which is rep
 
 ## YAML Front Matter Overview
 
-BigCommerce Stencil themes utilize YAML Front Matter on template pages. Front Matter allows developers to request objects on the storefront, allowing developers to define each page's design and layout details. 
+BigCommerce Stencil themes utilize YAML Front Matter on template pages. Front Matter allows developers to request objects on the storefront, allowing developers to define each page's design and layout details.
 
 When utilized, Front Matter must be the opening text of a file and must take the form of valid YAML set between triple-dashed lines.
 
-See our [Front Matter Reference](/references/front-matter-reference) to see what Front Matter attributes are available on a Stencil storefront. Below is a snippet from the base Cornerstone theme's <span class="fn">home.html</span> file, showing how Front Matter can be used in a theme.
+See our [Front Matter Reference](/reference-docs/front-matter-reference) to see what Front Matter attributes are available on a Stencil storefront. Below is a snippet from the base Cornerstone theme's <span class="fn">home.html</span> file, showing how Front Matter can be used in a theme.
 
 <div class="HubBlock-header">
     <div class="HubBlock-header-title flex items-center">
@@ -147,6 +147,4 @@ blog:
 ### Additional Resources
 
 * [Stencil Technology Stack Video](https://www.youtube.com/watch/p5SR8N0SeCg) (Youtube)
-* [Cornerstone Components Subdirectory](https://github.com/bigcommerce/cornerstone) (BigCommerce Github).
-
-
+* [Cornerstone Components Subdirectory](https://github.com/bigcommerce/cornerstone) (BigCommerce Github)

@@ -224,7 +224,7 @@ When you run `stencil push` with the `-f` or `--filename` option, Stencil CLI sk
 
 ---
 
-<a href='#stencil_quick' aria-hidden='true' class='block-anchor'  id='stencil_quick'><i aria-hidden='true' class='linkify icon'></i></a>
+<a href='#stencil_theme' aria-hidden='true' class='block-anchor'  id='stencil_theme'><i aria-hidden='true' class='linkify icon'></i></a>
 
 ## Theme Editor Local Launch Quick Reference
 

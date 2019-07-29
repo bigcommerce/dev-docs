@@ -8,8 +8,6 @@
 	</ul>
 </div>
 
-<a href='#localizing_localization-touchpoints' aria-hidden='true' class='block-anchor'  id='localizing_localization-touchpoints'><i aria-hidden='true' class='linkify icon'></i></a>
-
 A BigCommerce storefront can be customized to display in any one language of your choice. To fully localize a store into a language/region other than U.S. English, you will need to customize three areas:
 
 1. [Storefront theme pages](#localizing_translating-theme-files)
@@ -27,7 +25,7 @@ Adjust other localization details via the BigCommerce Control Panel.
 <div class="HubBlock--callout">
 <div class="CalloutBlock--info">
 <div class="HubBlock-content">
-    
+
 <!-- theme: info -->
 
 ### Storefront Language Support
@@ -53,14 +51,14 @@ The bulk of localizing a store is translating content on your theme's page templ
 
 Localizing your theme's checkout and order confirmation pages requires customizations within:
 
-* the corresponding templates ([checkout.html](https://github.com/bigcommerce/cornerstone/blob/master/templates/pages/checkout.html) and [order-confirmation.html](https://github.com/bigcommerce/cornerstone/blob/master/templates/pages/order-confirmation.html)) 
-* each [JSON translation file](https://github.com/bigcommerce/cornerstone/tree/master/lang) 
+* the corresponding templates ([checkout.html](https://github.com/bigcommerce/cornerstone/blob/master/templates/pages/checkout.html) and [order-confirmation.html](https://github.com/bigcommerce/cornerstone/blob/master/templates/pages/order-confirmation.html))
+* each [JSON translation file](https://github.com/bigcommerce/cornerstone/tree/master/lang)
 * the [BigCommerce control panel](http://login.bigcommerce.com/deep-links/manage/)
 
 <div class="HubBlock--callout">
 <div class="CalloutBlock--warning">
 <div class="HubBlock-content">
-    
+
 <!-- theme: warning -->
 
 ### Checkout Localization
@@ -90,7 +88,7 @@ The remaining localization options reside outside your theme and are accessible 
 <div class="HubBlock--callout">
 <div class="CalloutBlock--warning">
 <div class="HubBlock-content">
-    
+
 <!-- theme: warning -->
 
 ### Transactional Emails or Gift Certificates Translation
@@ -124,7 +122,7 @@ Blog entries are managed through the BigCommerce control panel under [**Storefro
  **Blog**](https://nik.mybigcommerce.com/manage/content/blog). You can add blog content in any language you choose. For details, see [Creating a Blog Post](https://support.bigcommerce.com/s/article/Using-the-Built-In-Blog#creating-post) (BigCommerce Support).
 
 ### <div id="static-web-pages">Localizing Static Web Pages</div>
-If you create static pages as Stencil custom templates, you can localize their content just like other theme pages' content. However, if you create custom pages via the BigCommerce control panel (under [Storefront Content › Web Pages](http://login.bigcommerce.com/deep-links/manage/content/pages)), you must also enter their localized content via the control panel. 
+If you create static pages as Stencil custom templates, you can localize their content just like other theme pages' content. However, if you create custom pages via the BigCommerce control panel (under [Storefront Content › Web Pages](http://login.bigcommerce.com/deep-links/manage/content/pages)), you must also enter their localized content via the control panel.
 
 ### <div id="transactional-emails">Managing Transactional Emails</div>
 
@@ -143,7 +141,7 @@ The BigCommerce platform does not currently support translation of gift certific
  * [Basis for Internationalization](/stencil-docs/internationalization-and-localization/basis-for-internationalization)
 * [Optimized One-Page Checkout](/stencil-docs/template-files/customize-stencil-checkout/optimized-one-page-checkout#optimized_enable)
 * [Enabling Optimized One-Page Checkout](/stencil-docs/template-files/customize-stencil-checkout/optimized-one-page-checkout#optimized_enable)
-* [Currency-Conversion Options](/stencil-docs/template-files/customize-stencil-checkout/currency-conversion) 
+* [Currency-Conversion Options](/stencil-docs/template-files/customize-stencil-checkout/currency-conversion)
 * [Multi-Language Checkout](/stencil-docs/template-files/customize-stencil-checkout/multi-language-checkout)
 * [Adding Products](https://support.bigcommerce.com/s/article/Adding-Products) (BigCommerce Knowledge Base)
 * [Changing Your Default Currency](https://support.bigcommerce.com/s/article/Managing-Currencies#default)(BigCommerce Knowledge Base)
@@ -153,4 +151,3 @@ The BigCommerce platform does not currently support translation of gift certific
 * [checkout.html](https://github.com/bigcommerce/cornerstone/blob/master/templates/pages/checkout.html) (BigCommerce Github)
 * [order-confirmation.html](https://github.com/bigcommerce/cornerstone/blob/master/templates/pages/order-confirmation.html) (BigCommerce Github)
 * [JSON translation file](https://github.com/bigcommerce/cornerstone/tree/master/lang) (BigCommerce Github)
-
