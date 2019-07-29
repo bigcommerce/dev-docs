@@ -9,7 +9,7 @@
 	</ul>
 </div>
 
-Query string parameters can be appended to Bigcommerce product and `/cart.php` urls in order to pre-select an SKU or add a product to cart. These paramerters make it possible to build custom add to cart links and forms for use on BigCommerce storefronts and remote sites (such as wordpress, blog posts, and social media). 
+Query string parameters can be appended to Bigcommerce product and `/cart.php` urls in order to pre-select an SKU or add a product to cart. These paramerters make it possible to build custom add to cart links and forms for use on BigCommerce storefronts and remote sites (such as WordPress, blog posts, and social media). 
 
 URLs constructed with these parameters can be used to: 
 * Pre-select a specific SKU on a product detail page
@@ -84,7 +84,7 @@ $("button#addToCart").click(function() {
 
 > Due to CORs, using javascript to make multiple carting requests only works in the BigCommerce storefont and only on the storefront with the domain the request is being made to. 
 
-Alternitively, The [Storefront Cart API's](https://developer.bigcommerce.com/api-docs/cart-and-checkout/working-sf-apis#working-sf-apis_storefront-cart) `/api/storefront/cart` endpoint accepts an array of `lineItems` -- depdending on the complexities and specifics of the use case, this may be a better solution than add to cart urls. 
+Alternitively, The [Storefront Cart API's](https://developer.bigcommerce.com/api-docs/cart-and-checkout/working-sf-apis#working-sf-apis_storefront-cart) `/api/storefront/cart` endpoint accepts an array of `lineItems` -- depending on the complexities and specifics of the use case, this may be a better solution than add to cart URLs. 
 
 </div>
 </div>
