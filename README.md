@@ -86,6 +86,7 @@ Thanks for showing interest in contributing!
 ### Making Pull Requests
 * It must include a JIRA ticket number
 * Include screenshots and animated GIFs in your pull request whenever possible.
+* PLEASE DO NOT MERGE PULL REQUESTS. You are able to approve them, let a member of the dev docs term merge the request. 
 
 ### Contributing to other BigCommerce Projects
 
