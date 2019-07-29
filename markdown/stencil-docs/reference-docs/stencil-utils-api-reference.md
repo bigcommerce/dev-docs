@@ -59,28 +59,24 @@ If you do not want to support ES6 modules, Stencil Utils can be included as a no
 
 ## Config Object
 
-A `config` object can be passed in as part of the Stencil Utils api. 
+A `config` object can be passed in as part of the Stencil Utils API.
+The object only returns data **in the context** of that call. The config will not be available to anything else. It will not surface objects that are not normally available to the page. Use YAML to return objects in the context of an entire page. 
 
-```javascript
-getCartContent(cartItemHash, onComplete) {
-        const options = {
-            template: 'cart/preview',
-            params: {
-                suggest: cartItemHash,
-            },
-            config: {
-                cart: {
-                    suggestions: {
-                        limit: 4,
-                    },
-                },
-            },
-        };
+### 
+
+### Search Attributes
+Product Search Results Page
+
+```json
+        {
+           "search": {
+              "product_results": {
+                 "limit": 5
+              }
+           }
+        }
 ```
 
-The object only returns data **in the context** of that call. The config will not be available to anything else. It will not surface objects that are not normally available to the page. 
-
-If you need to return data in the content of an entire page, 
 ---
 
 
@@ -1266,4 +1262,3 @@ The `search` function allows you to present a customized user interface for sear
 
 ## Resources
 * [Stencil Utils](https://github.com/bigcommerce/stencil-utils) (BigCommerce GitHub)
-* 
