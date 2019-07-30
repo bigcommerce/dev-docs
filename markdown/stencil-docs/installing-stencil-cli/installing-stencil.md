@@ -214,7 +214,7 @@ Once Stencil is fully installed, you can check dependencies’ installed version
 <!-- theme:  -->
 
 ### Troubleshooting
-> If you run into any problems with Stencil installation or launch, first consult [Troubleshooting Your Setup](/stencil-docs/getting-started/launching-stencil/troubleshooting-your-setup).
+> If you run into any problems with Stencil installation or launch, first consult [Troubleshooting Your Setup](/stencil-docs/installing-stencil-cli/troubleshooting-your-setup).
 
 If that does not resolve your issue, consult our [Support resources](https://support.bigcommerce.com/s/), which include community and peer support via [BigCommerce Developer Community](https://support.bigcommerce.com/s/group/0F913000000HLjECAW/bigcommerce-developers) and [Stack Overflow](https://stackoverflow.com/questions/tagged/bigcommerce) forums.
 
