@@ -187,7 +187,7 @@ example: `{{{banner}}}`. (Double braces would escape the HTML.)
 
 ## Cart
 
-**Description:** Returns the cart ID if one exists. 
+**Description:** Returns the cart ID if one exists. To return more cart information use the [Storefront Cart API](https://developer.bigcommerce.com/api-reference/cart-checkout/storefront-cart-api). 
 
 **Handlebars Expression:** `{{cart_id}}`
 
