@@ -5,6 +5,7 @@
     <li><a href="#global-objects_banner">Banner</a></li>
     <li><a href="#global-objects_breadcrumbs">Breadcrumbs</a></li>
 		<li><a href="#global-objects_carousel">Carousel</a></li>
+    <li><a href="#global-objects_cart">Cart</a></li>
 		<li><a href="#global-objects_currency-selector">Currency Selector</a></li>
     <li><a href="#global-objects_categories">Categories</a></li>
     <li><a href="#global-objects_faceted-search">Faceted Search</a></li>
@@ -182,6 +183,23 @@ example: `{{{banner}}}`. (Double braces would escape the HTML.)
 
 ---
 
+<a id="global-objects_cart"></a>
+
+## Cart
+
+**Description:** Returns the cart ID if one exists. To return more cart information use the [Storefront Cart API](https://developer.bigcommerce.com/api-reference/cart-checkout/storefront-cart-api). 
+
+**Handlebars Expression:** `{{cart_id}}`
+
+**Object Properties:**
+
+|Property|Description|
+| -- | -- |
+| cart_id| ID of the shoppers cart. String |
+
+
+---
+
 <a href='#global-objects_currency-selector' aria-hidden='true' class='block-anchor'  id='global-objects_currency-selector'><i aria-hidden='true' class='linkify icon'></i></a>
 
 ## Currency Selector
@@ -260,7 +278,19 @@ example: `{{{banner}}}`. (Double braces would escape the HTML.)
   <tr>    
     <td>id</td>    
     <td>ID of the top-level category listed</td>  
-  </tr>  
+  </tr>
+  <tr>    
+    <td>image</td>    
+  </tr>
+    <tr>    
+    <td><span class="indent1"> alt</span></td>
+    <td><span class="indent1"> The image alt name. Defaults to cateogory name</span></td>      
+  </tr>
+    <tr>    
+    <td><span class="indent1">data</span></td> 
+    <td><span class="indent1">Public category image url.</span></td>   
+  </tr>
+
   <tr>    
     <td>name</td>    
     <td>Name of the top-level category</td>  
@@ -304,6 +334,17 @@ example: `{{{banner}}}`. (Double braces would escape the HTML.)
   <tr>    
     <td><span class="indent1"> count</span></td>    
     <td>Number of products in this child category</td>
+  </tr>
+  <tr>    
+    <td><span class="indent1"> image</span></td>    
+  </tr>
+    <tr>    
+    <td><span class="indent1">&nbsp; alt</span></td>
+    <td><span class="indent1">&nbsp; The image alt name. Defaults to cateogory name</span></td>      
+  </tr>
+    <tr>    
+    <td><span class="indent1">&nbsp; data</span></td> 
+    <td><span class="indent1">&nbsp; Public category image url.</span></td>   
   </tr>
 </table>
 
