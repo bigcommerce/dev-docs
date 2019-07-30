@@ -260,7 +260,19 @@ example: `{{{banner}}}`. (Double braces would escape the HTML.)
   <tr>    
     <td>id</td>    
     <td>ID of the top-level category listed</td>  
-  </tr>  
+  </tr>
+  <tr>    
+    <td>image</td>    
+  </tr>
+    <tr>    
+    <td><span class="indent1"> alt</span></td>
+    <td><span class="indent1"> The image alt name. Defaults to cateogory name</span></td>      
+  </tr>
+    <tr>    
+    <td><span class="indent1">data</span></td> 
+    <td><span class="indent1">Public category image url.</span></td>   
+  </tr>
+
   <tr>    
     <td>name</td>    
     <td>Name of the top-level category</td>  
@@ -304,6 +316,17 @@ example: `{{{banner}}}`. (Double braces would escape the HTML.)
   <tr>    
     <td><span class="indent1"> count</span></td>    
     <td>Number of products in this child category</td>
+  </tr>
+  <tr>    
+    <td><span class="indent1"> image</span></td>    
+  </tr>
+    <tr>    
+    <td><span class="indent1">&nbsp; alt</span></td>
+    <td><span class="indent1">&nbsp; The image alt name. Defaults to cateogory name</span></td>      
+  </tr>
+    <tr>    
+    <td><span class="indent1">&nbsp; data</span></td> 
+    <td><span class="indent1">&nbsp; Public category image url.</span></td>   
   </tr>
 </table>
 
