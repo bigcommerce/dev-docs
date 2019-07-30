@@ -5,6 +5,7 @@
     <li><a href="#global-objects_banner">Banner</a></li>
     <li><a href="#global-objects_breadcrumbs">Breadcrumbs</a></li>
 		<li><a href="#global-objects_carousel">Carousel</a></li>
+    <li><a href="#global-objects_cart">Cart</a></li>
 		<li><a href="#global-objects_currency-selector">Currency Selector</a></li>
     <li><a href="#global-objects_categories">Categories</a></li>
     <li><a href="#global-objects_faceted-search">Faceted Search</a></li>
@@ -179,6 +180,23 @@ example: `{{{banner}}}`. (Double braces would escape the HTML.)
   <td>Color of the button</td>  
 </tr>
 </table>
+
+---
+
+<a id="global-objects_cart"></a>
+
+## Cart
+
+**Description:** Returns the cart ID if one exists. To return more cart information use the [Storefront Cart API](https://developer.bigcommerce.com/api-reference/cart-checkout/storefront-cart-api). 
+
+**Handlebars Expression:** `{{cart_id}}`
+
+**Object Properties:**
+
+|Property|Description|
+| -- | -- |
+| cart_id| ID of the shoppers cart. String |
+
 
 ---
 
