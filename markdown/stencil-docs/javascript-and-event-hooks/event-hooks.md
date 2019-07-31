@@ -101,7 +101,7 @@ subtitle: ""
 lineNumbers: true
 -->
 
-```
+```js
 /*  
  * Import all product-specific js
  */
