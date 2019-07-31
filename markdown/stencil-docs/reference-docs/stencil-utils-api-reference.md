@@ -25,6 +25,7 @@
 - [Product Attributes -- configureInCart](#configureincart)
 - [Product Resource -- getById](#product-resource)
 - [Search Resource -- search](#search)
+- [Config object](#config-object)
 </div>
 
 ---
@@ -53,6 +54,8 @@ If you do not want to support ES6 modules, Stencil Utils can be included as a no
 
 
 ---
+
+
 
 <a id="api"></a>
 
@@ -1230,10 +1233,232 @@ The `search` function allows you to present a customized user interface for sear
 ### Usage in Cornerstone
 - [`assets/js/theme/global/quick-search/js`](https://github.com/bigcommerce/cornerstone/blob/master/assets/js/theme/global/quick-search.js)
 
+---
+
+
+<a id="config-object"></a>
+
+## Config Object
+
+A `config` object can be passed in as part of the Stencil Utils API.
+The object only returns data **in the context** of that call. The config will not be available to anything else. It will not surface objects that are not normally available to the page. Use YAML to return objects in the context of an entire page. Some config objects can only be used on the listed pages, while others are available globally. 
+
+```js
+getCartContent(cartItemHash, onComplete) {
+        const options = {
+            template: 'cart/preview',
+            params: {
+                suggest: cartItemHash,
+            },
+            config: {
+                cart: {
+                    suggestions: {
+                        limit: 4,
+                    },
+                },
+            },
+        };
+```
+
+---
+
+### Search Attributes
+
+[Product Search Results](https://github.com/bigcommerce/cornerstone/blob/master/templates/pages/search.html)
+
+```js
+        {
+           "search": {
+              "product_results": {
+                 "limit": 5
+              }
+           }
+        }
+```
+
+---
+
+### Brands
+
+[Brand List Page](https://github.com/bigcommerce/cornerstone/blob/master/templates/pages/brands.html)
+
+
+```js
+        {
+           "brands": {
+              "limit": 5
+           }
+        }
+```
+
+[Brand Page](https://github.com/bigcommerce/cornerstone/blob/master/templates/pages/brand.html)
+
+```js
+        {
+           "brand": {
+              "products": {
+                 "limit": 5
+              }
+           }
+        }
+```
 
 
 ---
 
+### Cart
+
+[Cart Page](https://github.com/bigcommerce/cornerstone/blob/master/templates/pages/cart.html)
+
+```js
+        {
+           "cart": {
+              "suggestions": {
+                 "limit": 5
+              }
+           }
+        }
+```
+---
+
+### Product
+
+[Product Page](https://github.com/bigcommerce/cornerstone/blob/master/templates/pages/product.html)
+
+```js
+        {
+           "product": {
+              "videos": {
+                 "limit": 11
+              },
+              "images": {
+                 "limit": 12
+              },
+              "reviews": {
+                 "limit": 13
+              },
+              "related_products": {
+                 "limit": 14
+              },
+              "similar_by_views": {
+                 "limit": 15
+              }
+           }
+        }
+```
+--- 
+
+### Blog
+
+[Blog Page](https://github.com/bigcommerce/cornerstone/blob/master/templates/pages/blog.html)
+
+```js
+        {
+           "blog": {
+              "posts": {
+                 "limit": 5,
+                 "pages": 3,
+                 "summary": 10
+              }
+           }
+        }
+```
+
+--- 
+
+### Category
+
+[Category Page](https://github.com/bigcommerce/cornerstone/blob/master/templates/pages/category.html)
+
+```js
+        {
+           "category": {
+             "shop_by_price": false,
+             "products": {
+               "limit": 5
+             }
+           }
+        }
+```
+---
+
+### Global Objects
+
+**Products**
+
+```js
+        {
+           "products": {
+             "featured": 3,
+             "new": 4,
+             "top_sellers": 10
+           }
+        }
+```
+
+```js
+        {
+           "products": {
+             "featured": {
+               "limit": "5"
+             },
+             "new": {
+               "limit": "10"
+             },
+             "top_sellers": {
+               "limit": "15"
+             }
+           }
+        }
+
+```
+
+**All Objects**
+
+```js
+         {
+           "customer": {
+             "addresses": false,
+             "returns": true,
+             "wishlists": {
+               "limit": 3
+             },
+             "orders": {
+               "limit": 4
+             },
+             "recently_viewed_products": true
+           },
+           "products": {
+             "featured": {
+               "limit": 3
+             },
+             "new": {
+               "limit": 4
+             },
+             "top_sellers": {
+               "limit": 5
+             }
+           },
+           "carousel": true,
+           "blog": {
+             "recent_posts": {
+               "limit": 7
+             },
+             "summary": 6
+           },
+           "cart": true,
+           "shipping_messages": true,
+           "categories": {
+             "description": true
+           },
+           "shop_by_brand": {
+             "limit": 4
+           }
+        }
+```
+
+---
+
+
 ## Resources
 * [Stencil Utils](https://github.com/bigcommerce/stencil-utils) (BigCommerce GitHub)
-* 
