@@ -11,7 +11,7 @@
 
 When developing BigCommerce themes, there are a few steps you can take to ensure your custom theme stays up to date with BigCommerce theme updates and version releases.
 
-<a id="markdown-version-themes" name="version-themes"></a>
+<a id="version-themes"></a>
 
 ## Version Control
 
@@ -20,7 +20,7 @@ A typical setup might include a base theme, with several custom themes branching
 
 ---
 
-<a id="markdown-updates" name="updates"></a>
+<a id="updates"></a>
 
 ## Theme Updates
 
@@ -34,7 +34,7 @@ Before updating your theme, review the following list items to ensure a successf
 * Test any new updates before pushing the updates to production. A good way to do this is to keep a test theme that mirrors your theme in production and apply any new changes to the test theme. If there are no issues, apply your updates to production.
 ---
 
-<a id="markdown-maintain-customizations" name="maintain-customizations"></a>
+<a id="maintain-customizations"></a>
 
 ## Maintaining Customizations
 

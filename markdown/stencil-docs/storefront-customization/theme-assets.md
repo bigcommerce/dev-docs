@@ -3,6 +3,10 @@
 	<h3> On This Page </h3>
 	<ul>
     <li><a href="#theme-assets_cornerstone-assets-directory">Cornerstone Assets Directory</a></li>
+    <li><a href="#theme-assets_citadel">Citadel Subdirectory</a></li>
+    <li><a href="#theme-assets_componenets-utilities">Components vs Utilities</a></li>
+    <li><a href="#theme-assets_variables">Variables and Mixins</a></li>
+    <li><a href="#theme-assets_stencil-subdirectory">Stencil Subdirectory</a></li>
 	</ul>
 </div>
 
@@ -29,6 +33,7 @@ Each Stencil theme’s `/assets/` directory contains CSS, JavaScript, and image 
 ## Cornerstone Assets Directory 
 
 * Directory: `cornerstone/assets/`
+
 <table>
   <tr>
   	<th>File Path</th>
@@ -103,7 +108,11 @@ Every utility in this subdirectory will have both a class and a mixin. For examp
   </tr>
 </table>
 
-### Citadel Subdirectory 
+---
+
+<a id="theme-assets_citadel"></a>
+
+## Citadel Subdirectory 
 
 Stencil themes include an internal pattern library called Citadel, which consumes the ZURB Foundation framework. Foundation provides the basis for creating responsive themes. Citadel extends the Foundation framework’s mixins and components to provide Stencil’s own mixins, extensible components, and utilities. The design/style language underlying these Citadel resources is the Sass/SCSS preprocessor. Citadel resources are named according to BEM and SUIT CSS conventions. Classes are named functionally, rather than based on visual presentation or content. Citadel is based specifically on Foundation 5.5.3, which installs with the Stencil framework. We do not support Foundation 6.x, due to breaking changes introduced between versions 5.x and 6.x.
 
@@ -140,7 +149,11 @@ The `components/citadel` subdirectory contains Citadel-specific resources. The r
   </tr>
 </table>
 
-#### Components vs Utilities
+---
+
+<a id="theme-assets_componenets-utilities"></a>
+
+## Components vs Utilities
 
 Our naming scheme makes an architectural distinction between components and utilities. Components are defined as custom elements that enclose specific semantics, styling, and behavior. Component names are in camel case. Our syntax for naming them is:
 
@@ -170,7 +183,11 @@ Our syntax for naming utilities is camel case, prefixed with a u- namespace:
   <tr>
 </table>
 
-#### Variables and Mixins
+---
+
+<a id="theme-assets_variables"></a>
+
+## Variables and Mixins
 
 Citadel variables and mixins follow similar naming conventions.
 
@@ -197,7 +214,11 @@ Variables are things that can change over time. Their names are in camel case, a
   <tr>
 </table>
 
-### Stencil Subdirectory
+---
+
+<a id="theme-assets_stencil-subdirectory"></a>
+
+## Stencil Subdirectory
 
 The /components/stencil/ subdirectory contains CSS files unique to Stencil themes, which are used to create specific page elements within the themes. You can view this subdirectory and all its children in the Cornerstone Theme Github Repository.
 
@@ -227,13 +248,14 @@ This subdirectory’s children contain CSS for the following page elements.
 | toggleLink  | Styles for collapsible/expandable components  |
 |writeReview   | Styles for product-review submission form  |
 
+
 <a href='#akamai-image-manager' aria-hidden='true' class='block-anchor'  id='akamai-image-manager'><i aria-hidden='true' class='linkify icon'></i></a>
 
 <div class="HubBlock--callout">
-<div class="CalloutBlock--">
+<div class="CalloutBlock--info">
 <div class="HubBlock-content">
     
-<!-- theme:  -->
+<!-- theme:info -->
 
 ### Akamai Image Manager
 > For Stencil themes only, images that use the default zoom library pass through Akamai Image Manager. This chooses the best image to serve based on device. To bypass the image optimization, include `imbypass=on` as a query parameter in the image url. This will serve un-optimized images.
