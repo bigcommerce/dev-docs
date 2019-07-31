@@ -25,7 +25,7 @@ You can manage your custom theme's front-end components by configuring the <span
 
 ## Keys and Example Values
 
-For a list of all available keys and values in <span class="fp">config.json</span>, see [Theme Objects](/api-reference/theme-objects/models/configjson) in the API Reference.
+For a list of all available keys and values in <span class="fp">config.json</span>, see [Theme Objects](/stencil-docs/reference-docs/theme-objects/models/configjson) in the API Reference.
 
 </div>
 ---
