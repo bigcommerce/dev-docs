@@ -1195,8 +1195,9 @@ You can use the optional `defaultImage` parameter to specify an image that will 
 
 ### {{getImageSrcset}}
 
-This helper is intended to be used with `{{getImage}}`. [Srcset](https://developer.mozilla.org/en-US/docs/Web/HTML/Element/img#attr-srcset) returns a list of response images sizes. 
-If not parameters are passed in then it return the default sizes. 
+This helper is intended to be used with `{{getImage}}`. [Srcset](https://developer.mozilla.org/en-US/docs/Web/HTML/Element/img#attr-srcset) returns a list of images sizes. 
+
+If no parameters are passed in then it return the default sizes. 
 
 - `url` : Url  of the image
 - `sizes` : Image sizes
@@ -1210,8 +1211,7 @@ If not parameters are passed in then it return the default sizes.
 **Returns**
 
 ```html
-https://cdn00.bigcommerce.com/s-abc123/images/stencil/100w/l/my-huge-image.original.jpg 100w,
-https://cdn00.bigcommerce.com/s-abc123/images/stencil/200w/l/my-huge-image.original.jpg 200w,https://cdn00.bigcommerce.com/s-abc123/images/stencil/300w/l/my-huge-image.original.jpg 300w
+<img src="https://cdn11.bigcommerce.com/s-abc123/images/stencil/640x640/products/86/286/ablebrewingsystem4_1024x1024__07155.1456436672.jpg?c=2" alt="" title="" data-sizes="auto" srcset="https://cdn11.bigcommerce.com/s-abc123/images/stencil/1280x1280/products/86/286/ablebrewingsystem4_1024x1024__07155.1456436672.jpg?c=2 100w, https://cdn11.bigcommerce.com/s-abc123/images/stencil/160x160/products/86/286/ablebrewingsystem4_1024x1024__07155.1456436672.jpg?c=2 200w,https://cdn11.bigcommerce.com/s-abc123/images/stencil/160x160/products/86/286/ablebrewingsystem4_1024x1024__07155.1456436672.jpg?c=2 300w" class="card-image lazyautosizes lazyloaded" loading="lazy" sizes="263px">
 ```
 
 **HTML Use**
@@ -1222,7 +1222,7 @@ https://cdn00.bigcommerce.com/s-abc123/images/stencil/200w/l/my-huge-image.origi
 **Returns**
 
 ```html
-https://cdn00.bigcommerce.com/s-abc123/images/stencil/1000x1000/l/my-huge-image.original.jpg 1x, https://cdn00.bigcommerce.com/s-abc123/images/stencil/2000x2000/l/my-huge-image.original.jpg 2x
+<img src="https://cdn11.bigcommerce.com/s-abc123/images/stencil/640x640/products/86/286/ablebrewingsystem4_1024x1024__07155.1456436672.jpg?c=2" alt="" title="" data-size="auto" srcset="https://cdn11.bigcommerce.com/s-abc123/images/stencil/640x640/products/86/286/ablebrewingsystem4_1024x1024__07155.1456436672.jpg?c=2 1x, https://cdn11.bigcommerce.com/s-abc123/images/stencil/640x640/products/86/286/ablebrewingsystem4_1024x1024__07155.1456436672.jpg?c=2 2x" class="card-image lazyautosizes lazyloaded" loading="lazy" sizes="263px">
 ```
 
 
