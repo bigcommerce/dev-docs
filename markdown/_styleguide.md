@@ -1,1 +1,0 @@
-# DevDocs Style Guide
