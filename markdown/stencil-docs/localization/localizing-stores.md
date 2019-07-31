@@ -134,6 +134,8 @@ To disable native emails, go to [Storefront › Email Templates](http://login.bi
 
 The BigCommerce platform does not currently support translation of gift certificates into languages other than English. To fully localize your store, you can choose to disable gift certificates via the BigCommerce control panel.
 
+--- 
+
 ## Resources
 
 ### Related Articles

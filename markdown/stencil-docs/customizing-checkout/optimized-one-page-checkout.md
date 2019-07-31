@@ -6,7 +6,7 @@
     <li><a href="#optimized_configuring">Configuring the Desktop Viewport</a></li>
     <li><a href="#optimized_classes">Classes Available for Customization</a></li>
     <li><a href="#optimized_providing">Providing User Options in Store Design</a></li>
-		<li><a href="#optimized_currency">Currency Conversion Options</a></li>
+	<li><a href="#optimized_currency">Currency Conversion Options</a></li>
 	</ul>
 </div>
 
@@ -40,7 +40,7 @@ You can access the most recent version of this file in the [Cornerstone reposito
 
 Within the <span class="fn">optimized-checkout.scss</span> file, to set up Optimized Checkout's responsive features, you should configure the following breakpoint to define your preferred desktop viewport size:
 
-```
+```css
     // TODO:
     // Configure media query to be 'desktop' breakpoint size
     // -----------------------------------------------------------------------------
@@ -85,7 +85,7 @@ In Cornerstone's <span class="fn">optimized-checkout.scss</span>, each SCSS clas
 
 ---
 
-<a href='#optimized_currency' aria-hidden='true' class='block-anchor'  id='optimized_working'><i aria-hidden='true' class='linkify icon'></i></a>
+<a id="optimized_currency"></a>
 
 ## Currency Conversion Options
 

@@ -14,6 +14,7 @@
 As a theme developer, you can configure your own settings for Store Design. Your configuration determines the theme's customizable aspects. For example, by customizing the configuration of Store Design, you can modify how merchants can customize colors, fonts, display of page features, and number of products to display per feature.
 
 
+---
 
 <a href='#store-design_configuration-files' aria-hidden='true' class='block-anchor'  id='store-design_configuration-files'><i aria-hidden='true' class='linkify icon'></i></a>
 

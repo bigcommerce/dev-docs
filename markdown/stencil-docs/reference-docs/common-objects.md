@@ -14,34 +14,39 @@ Certain Stencil objects can be accessed through multiple other Stencil objects. 
 
 This consistent behavior is true for each of the common objects documented in the following subsection.
 
-<!-- theme:  -->
+
+<div class="HubBlock--callout">
+<div class="CalloutBlock--info">
+<div class="HubBlock-content">
+    
+<!-- theme: info -->
 
 ### Debugging Your Theme
 > The Stencil framework provides built-in debugging tools to aid in your custom front-end development. When you want to see what data is available on the page you are working on, you can simply add the debug query string to your store’s localhost URL. Here is an example:
 
-`http://localhost:3000/product/this-is-a-sample-product?debug=context`
+> `http://localhost:3000/product/this-is-a-sample-product?debug=context`
+> This will return a list of all the objects available on the page, in JSON syntax. If you want to view the available JSON objects and rendered page at the same time, simply change the debug value to bar. Below is an example:
 
-This will return a list of all the objects available on the page, in JSON syntax. If you want to view the available JSON objects and rendered page at the same time, simply change the debug value to bar. Below is an example:
-
-`http://localhost:3000/product/this-is-a-sample-product?debug=bar`
+> `http://localhost:3000/product/this-is-a-sample-product?debug=bar`
 
 </div>
 </div>
 </div>
+
 
 <a href='#common-objects_catalog-price' aria-hidden='true' class='block-anchor' id='common-objects_catalog-price'><i aria-hidden='true' class='linkify icon'></i></a>
 
 ## Catalog Price
 
-**Description:** Exposes catalog price- and currency-related properties in both raw numeric, and formatted string, formats.
+**Description:** Exposes catalog price and currency-related properties in both raw numeric, and formatted string, formats.
 
 **Available through:**
+* Common Object: <a href="#common-objects_common-product">Common Product Card Model</a>
+* Object: `{{product.price}}`
 
-Object/Property: `{{product.price}}`
 
 <b>Object Properties:</b>
 
-<br></br>
 
 <table>
   <tr>
@@ -164,7 +169,7 @@ Object/Property: `{{product.price}}`
 
 <b>Available through:</b>
 
-* Common Object: <a href="/stencil-docs/stencil-object-model-reference/stencil-objects/common-objects/common-product-card-model">Common Product Card Model</a>
+* Common Object: <a href="#common-objects_common-product">Common Product Card Model</a>
 * Object: `{{category.shop_by_price}}`
 
 <b>Object Properties:</b>
@@ -243,7 +248,7 @@ Object/Property: `{{product.price}}`
 
 <b>Stencil Handlebars Helper:</b> `{{getImage}}`
 
-<b>Common Object:</b> <a href="/stencil-docs/stencil-object-model-reference/stencil-objects/common-objects/common-product-card-model">Common Product Card Model</a>
+<b>Common Object:</b> <a href="#common-objects_common-product">Common Product Card Model</a>
 
 <b>Object/Property:</b> `{{category.image}}`
 
@@ -255,7 +260,7 @@ Object/Property: `{{product.price}}`
 
 ---
 
-<a href='#common-objects_common-product' aria-hidden='true' class='block-anchor'  id='common-objects_catalog-product'><i aria-hidden='true' class='linkify icon'></i></a>
+<a id="common-objects_common-product"></a>
 
 ## Common Product Card Model
 

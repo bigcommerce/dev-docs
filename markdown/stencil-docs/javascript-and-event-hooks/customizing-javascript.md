@@ -188,7 +188,7 @@ export default class Product extends PageManager {
 
 Note that the `console.log(this.context.themeImageSizes);` statement will report the configured image size, following the `"Hello World"` message previously defined in the [Customizing JavaScript for Individual Pages](#customizing-javascript_customizing) above:
 
-```
+```js
 [/assets/js/theme/product.js]: Hello World!
 product.js:63 [/assets/js/theme/product.js]: 100x100
 ```

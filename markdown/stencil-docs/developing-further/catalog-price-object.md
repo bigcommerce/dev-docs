@@ -474,5 +474,5 @@ The table below explains the mapping between the Control Panel fields and the Ca
 
 ### Related Articles
 
-* [Catalog Price Object](/stencil-docs/stencil-object-model-reference/stencil-objects/common-objects/catalog-price)
+* [Catalog Price Object](https://developer.bigcommerce.com/stencil-docs/reference-docs/common-objects#common-objects_catalog-price)
 * [Adding a New Product](https://support.bigcommerce.com/s/article/Adding-Products#new-product) (BigCommerce Knowledge Base)
