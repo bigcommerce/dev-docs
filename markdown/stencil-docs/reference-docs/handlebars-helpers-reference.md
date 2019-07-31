@@ -1193,9 +1193,57 @@ Here is an example:
 
 You can use the optional `defaultImage` parameter to specify an image that will be displayed in cases where the passed `stencilImage` value is null.
 
+### {{getImageSrcset}}
+
+This helper is intended to be used with `{{getImage}}`. [Srcset](https://developer.mozilla.org/en-US/docs/Web/HTML/Element/img#attr-srcset) returns a list of images sizes. 
+
+If no parameters are passed in then it return the default sizes. 
+
+- `url` : Url  of the image
+- `sizes` : Image sizes
+
+**HTML Use**
+
+```html
+<img src="{{getImage image "default"}}" srcset="{{getImageSrcset image 100w="100w" 200w="200w" 300w="300w"}}" />
+```
+
+**Returns**
+
+```html
+<img src="https://cdn11.bigcommerce.com/s-abc123/images/stencil/640x640/products/86/286/ablebrewingsystem4_1024x1024__07155.1456436672.jpg?c=2" alt="" title="" data-sizes="auto" srcset="https://cdn11.bigcommerce.com/s-abc123/images/stencil/1280x1280/products/86/286/ablebrewingsystem4_1024x1024__07155.1456436672.jpg?c=2 100w, https://cdn11.bigcommerce.com/s-abc123/images/stencil/160x160/products/86/286/ablebrewingsystem4_1024x1024__07155.1456436672.jpg?c=2 200w,https://cdn11.bigcommerce.com/s-abc123/images/stencil/160x160/products/86/286/ablebrewingsystem4_1024x1024__07155.1456436672.jpg?c=2 300w" class="card-image lazyautosizes lazyloaded" loading="lazy" sizes="263px">
+```
+
+**HTML Use**
+```html
+<img src="{{getImage image "default"}}" srcset="{{getImageSrcset image 1x="1000x1000" 2x="2000x2000"}}" />
+```
+
+**Returns**
+
+```html
+<img src="https://cdn11.bigcommerce.com/s-abc123/images/stencil/640x640/products/86/286/ablebrewingsystem4_1024x1024__07155.1456436672.jpg?c=2" alt="" title="" data-size="auto" srcset="https://cdn11.bigcommerce.com/s-abc123/images/stencil/640x640/products/86/286/ablebrewingsystem4_1024x1024__07155.1456436672.jpg?c=2 1x, https://cdn11.bigcommerce.com/s-abc123/images/stencil/640x640/products/86/286/ablebrewingsystem4_1024x1024__07155.1456436672.jpg?c=2 2x" class="card-image lazyautosizes lazyloaded" loading="lazy" sizes="263px">
+```
+
+
+**Default Sizes**
+
+```html
+    '80w': '80w',
+    '160w': '160w',
+    '320w': '320w',
+    '640w': '640w',
+    '960w': '960w',
+    '1280w': '1280w',
+    '1920w': '1920w',
+    '2560w': '2560w',
+```
+
 ---
 
 <a href='#handlebars-helpers-reference_inflection' aria-hidden='true' class='block-anchor'  id='handlebars-helpers-reference_inflection'><i aria-hidden='true' class='linkify icon'></i></a>
+
+
 
 ## Inflection Helpers
 
@@ -1769,7 +1817,7 @@ Deeply merges the properties of the given `objects` with the context object.
 * `objects` {Object}
 * `returns` {Object}
 
-### {{JSONparse}}
+### {{#JSONparse}}
 
 Block helper that parses a string using `JSON.parse`, then passes the parsed object to the block as context.
 
@@ -1777,6 +1825,16 @@ Block helper that parses a string using `JSON.parse`, then passes the parsed obj
 
 * `string` {String}: The string to parse.
 * `options` {Object}: Handlebars options object.
+
+**Example**
+
+*This will return the product stock level to a page.*
+
+```html
+{{#JSONparse product.stock_level}}
+    {{this}}
+{{/JSONparse}}
+```
 
 ### {{JSONstringify}}
 
