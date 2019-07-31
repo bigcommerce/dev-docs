@@ -19,6 +19,7 @@
     <li><a href="#global-objects_pages">Pages</a></li>
     <li><a href="#global-objects_page-type-property">Page Type Property</a></li>
     <li><a href="#global-objects_pagination">Pagination</a></li>
+    <li><a href="#global-objects_search">Search</a></li>
     <li><a href="#global-objects_settings">Settings</a></li>
     <li><a href="#global-objects_sitemap">Sitemap</a></li>
     <li><a href="#global-objects_social-links">Social Links</a></li>
@@ -30,19 +31,18 @@
 Global objects and properties are common components shared across the entire BigCommerce storefront.
 
 <div class="HubBlock--callout">
-<div class="CalloutBlock--">
+<div class="CalloutBlock--info">
 <div class="HubBlock-content">
-
-<!-- theme:  -->
+    
+<!-- theme: info -->
 
 ### Debugging Your Theme
 > The Stencil framework provides built-in debugging tools to aid in your custom front-end development. When you want to see what data is available on the page you are working on, you can simply add the debug query string to your store’s localhost URL. Here is an example:
 
-`http://localhost:3000/product/this-is-a-sample-product?debug=context`
+> `http://localhost:3000/product/this-is-a-sample-product?debug=context`
+> This will return a list of all the objects available on the page, in JSON syntax. If you want to view the available JSON objects and rendered page at the same time, simply change the debug value to bar. Below is an example:
 
-This will return a list of all the objects available on the page, in JSON syntax. If you want to view the available JSON objects and rendered page at the same time, simply change the debug value to bar. Below is an example:
-
-`http://localhost:3000/product/this-is-a-sample-product?debug=bar`
+> `http://localhost:3000/product/this-is-a-sample-product?debug=bar`
 
 </div>
 </div>
@@ -718,11 +718,11 @@ All possible values for `{{page_type}}` are:
 
 ## Pagination
 
-<b>Description:</b> Defines pagination of storefront pages
+**Description:** Defines pagination of storefront pages
 
-<b>Handlebars Expression:</b> `{{pagination}}`
+**Handlebars Expression:** `{{pagination}}`
 
-<b>Object Properties:</b>
+**Object Properties:**
 
 <table>
     <tr>   
@@ -762,6 +762,8 @@ All possible values for `{{page_type}}` are:
           <td>The page number of this link, based on an index starting at 1</td>
       </tr>
     </table>
+
+
 ---
 
 <a href='#global-objects_search' aria-hidden='true' class='block-anchor'  id='global-objects_search'><i aria-hidden='true' class='linkify icon'></i></a>
@@ -1073,7 +1075,7 @@ All possible values for `{{page_type}}` are:
 
 ## Sitemap
 
-	<b>Description:</b>A list of all sitemap properties for this BigCommerce storefront: pages, categories, and brands.<br>
+**Description:** A list of all sitemap properties for this BigCommerce storefront: pages, categories, and brands.
 
 <b>Handlebars Expression:</b> `{{sitemap}}`
 

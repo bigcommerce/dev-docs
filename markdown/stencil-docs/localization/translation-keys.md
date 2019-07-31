@@ -232,7 +232,7 @@ lineNumbers: true
 
 ---
 
-<a href='##basis_localization-example' aria-hidden='true' class='block-anchor'  id='#basis_localization-example'><i aria-hidden='true' class='linkify icon'></i></a>
+<a id="basis_localization-example"></a>
 
 ## Localization Example
 
