@@ -56,7 +56,6 @@ If you do not want to support ES6 modules, Stencil Utils can be included as a no
 ---
 
 
-
 <a id="api"></a>
 
 ## API [api.js]
