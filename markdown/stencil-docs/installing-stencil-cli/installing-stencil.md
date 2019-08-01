@@ -277,9 +277,9 @@ Occasionally, you will receive a command line prompt to run the installation com
 
 ## Download a Stencil Theme
 
-You should have the [Stencil CLI successfully installed](installing_installing-the-stencil-cli) on your local machine.
+You should have the [Stencil CLI successfully installed](/stencil-docs/installing-stencil-cli/installing-stencil#authorizing_install) on your local machine.
 
-To begin locally developing and customizing a Stencil theme, you must first download a theme. If you plan on developing on top of the Cornerstone theme, you can follow the standard practice of cloning the repository from GitHub. If you would like to develop on top of a third party theme, you must follow the instructions provided in [Download a Third-Party Marketplace Theme](#authorizing_download-third-party).
+To begin locally developing and customizing a Stencil theme, you must first download a theme. If you plan on developing on top of the Cornerstone theme, you can follow the standard practice of cloning the repository from GitHub. If you would like to develop on top of a third party theme, you must follow the instructions provided below in 'Download a Third-Party Marketplace Theme.'
 
 ### Download Cornerstone
 
@@ -296,7 +296,7 @@ _If the above command fails and you are accessing GitHub anonymously, give the U
 
 `git clone git://github.com/bigcommerce/cornerstone.git`
 
-In the next step, we'll Stencil's [JavaScript utilities](#authorizing_installing-stencils-js-utilities) to enable API access via Ajax.
+In the next step, we'll Stencil's [JavaScript utilities](#authorizing_installing-modules) to enable API access via Ajax.
 
 <div class="HubBlock--callout">
 <div class="CalloutBlock--error">
