@@ -1200,8 +1200,10 @@ The `getImageSrcset` helper is a replacement for `getImage` which allows you to 
 
 Similar to `getImage`, it accepts an `stencilImage` parameter, and optionally, a `defaultImage` to use as a fallback.
 
+This helper's parameters are:
+
 - `stencilImage`: a StencilImage
-- `defaultImage` : Image sizes
+- `defaultImage` : a fallback image URL to use if the StencilImage is undefined.
 - Image sizes specified as named parameters on the helper
 
 You can then specify what sizes you want as named arguments on the helper.
