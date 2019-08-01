@@ -8,20 +8,20 @@
 	</ul>
 </div>
 
-Google Analytics is a free analytics tool that helps you track visitors and conversions on your store. BigCommerce has updated the Google Analytics integration to support Enhanced Ecommerce.  As apart of the Enhanced ECommerce feature, Stencil themes now support Data Tags. 
+Google Analytics is a free analytics tool that helps you track visitors and conversions on your store. BigCommerce has updated the Google Analytics integration to support Enhanced Ecommerce.  As apart of the Enhanced ECommerce feature, Stencil themes now support Data Tags.
 
-Data Tags provide detailed data on the way shoppers interact with your store’s products. However, data tags are not only limited to only product data collection. Data Tags can also track your store’s header and footer for promotions and can collect data on whether those promotions were viewed and/or clicked. BigCommerce’s Data Tags are powered by [Segment](https://segment.com/docs/destinations/google-analytics/) and [Platform.js](https://github.com/segment-integrations/analytics.js-integration-google-analytics/blob/master/lib/index.js), and will send your store’s product data through to Google Analytics. 
+Data Tags provide detailed data on the way shoppers interact with your store’s products. However, data tags are not only limited to only product data collection. Data Tags can also track your store’s header and footer for promotions and can collect data on whether those promotions were viewed and/or clicked. BigCommerce’s Data Tags are powered by [Segment](https://segment.com/docs/destinations/google-analytics/) and [Platform.js](https://github.com/segment-integrations/analytics.js-integration-google-analytics/blob/master/lib/index.js), and will send your store’s product data through to Google Analytics.
 
 Cornerstone versions 2.6.0+ will have Data Tags already included in the theme.
 
 <div class="HubBlock--callout">
 <div class="CalloutBlock--error">
 <div class="HubBlock-content">
-    
+
 <!-- theme: error -->
 
 ### GAEE for Blueprint Themes
-> While you can implement data tags with Blueprint themes, we do not currently have specific documentation on how to do this. The data tag HTML structure, however, will be the same as it is in a Stencil theme. 
+> While you can implement data tags with Blueprint themes, we do not currently have specific documentation on how to do this. The data tag HTML structure, however, will be the same as it is in a Stencil theme.
 
 </div>
 </div>
@@ -35,12 +35,12 @@ Cornerstone versions 2.6.0+ will have Data Tags already included in the theme.
 
 * BigCommerce store using your store’s checkout must be using Optimized One-Page Checkout.
 
-Data Tags will work on any theme. For this tutorial, we will be adding data tags to the Cornerstone theme. 
+Data Tags will work on any theme. For this tutorial, we will be adding data tags to the Cornerstone theme.
 
 ### Downloading a Theme
-This tutorial will be based off of Cornerstone. If you do not already have a local copy of Cornerstone on your machine, see [Downloading Cornerstone](/stencil-docs/installing-stencil-cli/authorizing-and-initializing-the-cli/).
+This tutorial will be based off of Cornerstone. If you do not already have a local copy of Cornerstone on your machine, see [Downloading Cornerstone](/stencil-docs/installing-stencil-cli/installing-stencil#authorizing_download).
 
-If you would like to implement Data Tags on your custom theme and do not already have a copy of your custom theme downloaded, see [Downloading a Marketplace Theme](/stencil-docs/installing-stencil-cli/authorizing-and-initializing-the-cli/).
+If you would like to implement Data Tags on your custom theme and do not already have a copy of your custom theme downloaded, see [Downloading a Marketplace Theme](/stencil-docs/installing-stencil-cli/installing-stencil#authorizing_download).
 
 Note: the remainder of this tutorial will be working off the refer to the theme’s base folder as ‘cornerstone’.
 
@@ -99,7 +99,7 @@ lineNumbers: true
     ]
 ```
 
-You are now ready to begin adding data tags into the HTML files across your Cornerstone theme. 
+You are now ready to begin adding data tags into the HTML files across your Cornerstone theme.
 
 ### Adding Data Tags into Cornerstone’s HTML files
 
@@ -111,7 +111,7 @@ Data tags must be manually added to a product in order to track shopper events a
 
 So, if you would like to track the clicks on a specific product, in order to ensure you get a fully comprehensive look at shoppers’ interactions with a product, you will want to include a data tag on each of these fields. If a specific product possesses multiple data tags, the data tag that is closest to the product is the one which will will track clicks, product impressions, or product views.
 
-Data tags will be implemented in your store by using simple HTML. In order to begin tracking, you will add data tags as an attribute to the already existing HTML tags present in your theme. 
+Data tags will be implemented in your store by using simple HTML. In order to begin tracking, you will add data tags as an attribute to the already existing HTML tags present in your theme.
 
 See [Pull Request #1377](https://github.com/bigcommerce/cornerstone/pull/1377/commits/55fc73eeb1edc6e140005ca811f090f06ab35435) to see how Data Tags were implemented in Cornerstone 2.6.0.
 
@@ -154,7 +154,7 @@ Currently, BigCommerce supports 11 different data tags. Below is a table with a 
 <div class="HubBlock--callout">
 <div class="CalloutBlock--warning">
 <div class="HubBlock-content">
-    
+
 <!-- theme: warning -->
 
 ### Mandatory Data
@@ -212,7 +212,7 @@ The “tracked product” refers to the product on which you are inserting the d
        <td>The <code>data-event-type</code> tag is equal to the shopper event that will be tracked. There are a 4 shopper/product interactions you can measure and set the data-event-type equal to. Custom events are not yet implemented.</td>
   	<td>string that can be either:
       <ul>
-        <li>“promotion”</li> 
+        <li>“promotion”</li>
         <li>“promotion click”</li>
         <li>“product”</li>
         <li>“list”</li>
@@ -220,13 +220,13 @@ The “tracked product” refers to the product on which you are inserting the d
   </tr>
      <tr>
   	<td><code>data-name</code></td>
-       <td>The <code>data-name</code> tag is equal to the tracked product’s or banner’s name. The data-name tag is 
+       <td>The <code>data-name</code> tag is equal to the tracked product’s or banner’s name. The data-name tag is
 </td>
   	<td>string or handlebars helper</td>
        <td><b>String Value Example:</b> <code>data-name=“Ruffle Off-the-Shoulder Top”</code>
-         
+
          <br><br>
-         
+
          <b>Handlebars Value Example:</b> The <code>data-name</code> tag can also get its value using Handlebars.
 
  For example, if you are adding a data tag to your footer in products/footer.html, you could create the tag: <code>data-name=”{{this.banner-name}}”</code>
@@ -276,7 +276,7 @@ Or, if you are adding a data tag to a product list item in products/list-item.ht
 
 ## Custom Dimensions and Metrics
 
-Custom dimensions and metrics are also supported. To use add them, 
+Custom dimensions and metrics are also supported. To use add them,
 
 In the `config.json` `settings` array, Add the name of the dimension/metric followed by the generic custom metric/dimension alias:
 
@@ -299,7 +299,7 @@ In the `config.json` `settings` array, Add the name of the dimension/metric foll
 <div class="HubBlock--callout">
 <div class="CalloutBlock--info">
 <div class="HubBlock-content">
-    
+
 <!-- theme: info -->
 
 #### Note:
@@ -326,7 +326,7 @@ Next, add the custom metrics/dimensions to the desired theme template:
 <div class="HubBlock--callout">
 <div class="CalloutBlock--info">
 <div class="HubBlock-content">
-    
+
 <!-- theme: info -->
 #### Dimensions and Metrics
 > dimensions are typically strings; metrics are usually integers
@@ -339,7 +339,7 @@ Next, add the custom metrics/dimensions to the desired theme template:
 
 ## Resources
 
-### Pull Requests 
+### Pull Requests
 * Cornerstone [PR #1377](https://github.com/bigcommerce/cornerstone/pull/1377/commits/55fc73eeb1edc6e140005ca811f090f06ab35435) (Github)
 * [Google Analytics Product Data Tags](https://github.com/bigcommerce/cornerstone/commit/9a4ddcae7f531a9d542aeb8ebf38c8bda2656b1c) (BigCommerce Github)
 
@@ -349,4 +349,3 @@ Next, add the custom metrics/dimensions to the desired theme template:
 
 ### Additional Resources
 * [Google Analytics Enhanced ECommerce](https://developers.google.com/analytics/devguides/collection/analyticsjs/enhanced-ecommerce#ecommerce-data) (Google)
-
