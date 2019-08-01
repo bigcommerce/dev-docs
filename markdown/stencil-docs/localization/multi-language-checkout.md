@@ -96,6 +96,8 @@ You can provide values for all of checkout's supported translation keys – for 
 
 3. Replace the keys' values with appropriate phrases in each file's target language.
 
+---
+
 <a href='#multi_localized' aria-hidden='true' class='block-anchor'  id='multi_localized'><i aria-hidden='true' class='linkify icon'></i></a>
 
 ## Localized Country and State Names

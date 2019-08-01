@@ -223,3 +223,11 @@ If you have any doubts â€“ especially about deleting multiple themes/versions â€
 ## Other Bundling or Upload Errors
 
 For any other `not ok` bundling or upload errors that you receive, please refer to these debugging guidelines Theme setup and sizing diagnostics in preceding sections throughout this page, or the following article titled [Troubleshooting Theme Uploads](/stencil-docs/prepare-and-upload-a-theme/troubleshooting-theme-uploads).
+
+---
+## Resources
+
+### Related Articles
+* [Naming Your Theme and Theme Variations](https://developer.bigcommerce.com/stencil-docs/deploying-a-theme/naming-your-theme)
+* [Checking a Theme's Size](https://developer.bigcommerce.com/stencil-docs/deploying-a-theme/checking-a-themes-size)
+* [Preparing Thumbnail Images](https://developer.bigcommerce.com/stencil-docs/deploying-a-theme/preparing-thumbnail-images)

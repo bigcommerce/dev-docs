@@ -5,6 +5,7 @@
     <li><a href="#global-objects_banner">Banner</a></li>
     <li><a href="#global-objects_breadcrumbs">Breadcrumbs</a></li>
 		<li><a href="#global-objects_carousel">Carousel</a></li>
+    <li><a href="#global-objects_cart">Cart</a></li>
 		<li><a href="#global-objects_currency-selector">Currency Selector</a></li>
     <li><a href="#global-objects_categories">Categories</a></li>
     <li><a href="#global-objects_faceted-search">Faceted Search</a></li>
@@ -18,6 +19,7 @@
     <li><a href="#global-objects_pages">Pages</a></li>
     <li><a href="#global-objects_page-type-property">Page Type Property</a></li>
     <li><a href="#global-objects_pagination">Pagination</a></li>
+    <li><a href="#global-objects_search">Search</a></li>
     <li><a href="#global-objects_settings">Settings</a></li>
     <li><a href="#global-objects_sitemap">Sitemap</a></li>
     <li><a href="#global-objects_social-links">Social Links</a></li>
@@ -29,19 +31,18 @@
 Global objects and properties are common components shared across the entire BigCommerce storefront.
 
 <div class="HubBlock--callout">
-<div class="CalloutBlock--">
+<div class="CalloutBlock--info">
 <div class="HubBlock-content">
-
-<!-- theme:  -->
+    
+<!-- theme: info -->
 
 ### Debugging Your Theme
 > The Stencil framework provides built-in debugging tools to aid in your custom front-end development. When you want to see what data is available on the page you are working on, you can simply add the debug query string to your store’s localhost URL. Here is an example:
 
-`http://localhost:3000/product/this-is-a-sample-product?debug=context`
+> `http://localhost:3000/product/this-is-a-sample-product?debug=context`
+> This will return a list of all the objects available on the page, in JSON syntax. If you want to view the available JSON objects and rendered page at the same time, simply change the debug value to bar. Below is an example:
 
-This will return a list of all the objects available on the page, in JSON syntax. If you want to view the available JSON objects and rendered page at the same time, simply change the debug value to bar. Below is an example:
-
-`http://localhost:3000/product/this-is-a-sample-product?debug=bar`
+> `http://localhost:3000/product/this-is-a-sample-product?debug=bar`
 
 </div>
 </div>
@@ -182,6 +183,23 @@ example: `{{{banner}}}`. (Double braces would escape the HTML.)
 
 ---
 
+<a id="global-objects_cart"></a>
+
+## Cart
+
+**Description:** Returns the cart ID if one exists. To return more cart information use the [Storefront Cart API](https://developer.bigcommerce.com/api-reference/cart-checkout/storefront-cart-api). 
+
+**Handlebars Expression:** `{{cart_id}}`
+
+**Object Properties:**
+
+|Property|Description|
+| -- | -- |
+| cart_id| ID of the shoppers cart. String |
+
+
+---
+
 <a href='#global-objects_currency-selector' aria-hidden='true' class='block-anchor'  id='global-objects_currency-selector'><i aria-hidden='true' class='linkify icon'></i></a>
 
 ## Currency Selector
@@ -260,7 +278,19 @@ example: `{{{banner}}}`. (Double braces would escape the HTML.)
   <tr>    
     <td>id</td>    
     <td>ID of the top-level category listed</td>  
-  </tr>  
+  </tr>
+  <tr>    
+    <td>image</td>    
+  </tr>
+    <tr>    
+    <td><span class="indent1"> alt</span></td>
+    <td><span class="indent1"> The image alt name. Defaults to cateogory name</span></td>      
+  </tr>
+    <tr>    
+    <td><span class="indent1">data</span></td> 
+    <td><span class="indent1">Public category image url.</span></td>   
+  </tr>
+
   <tr>    
     <td>name</td>    
     <td>Name of the top-level category</td>  
@@ -304,6 +334,17 @@ example: `{{{banner}}}`. (Double braces would escape the HTML.)
   <tr>    
     <td><span class="indent1"> count</span></td>    
     <td>Number of products in this child category</td>
+  </tr>
+  <tr>    
+    <td><span class="indent1"> image</span></td>    
+  </tr>
+    <tr>    
+    <td><span class="indent1">&nbsp; alt</span></td>
+    <td><span class="indent1">&nbsp; The image alt name. Defaults to cateogory name</span></td>      
+  </tr>
+    <tr>    
+    <td><span class="indent1">&nbsp; data</span></td> 
+    <td><span class="indent1">&nbsp; Public category image url.</span></td>   
   </tr>
 </table>
 
@@ -677,11 +718,11 @@ All possible values for `{{page_type}}` are:
 
 ## Pagination
 
-<b>Description:</b> Defines pagination of storefront pages
+**Description:** Defines pagination of storefront pages
 
-<b>Handlebars Expression:</b> `{{pagination}}`
+**Handlebars Expression:** `{{pagination}}`
 
-<b>Object Properties:</b>
+**Object Properties:**
 
 <table>
     <tr>   
@@ -721,6 +762,8 @@ All possible values for `{{page_type}}` are:
           <td>The page number of this link, based on an index starting at 1</td>
       </tr>
     </table>
+
+
 ---
 
 <a href='#global-objects_search' aria-hidden='true' class='block-anchor'  id='global-objects_search'><i aria-hidden='true' class='linkify icon'></i></a>
@@ -1032,7 +1075,7 @@ All possible values for `{{page_type}}` are:
 
 ## Sitemap
 
-	<b>Description:</b>A list of all sitemap properties for this BigCommerce storefront: pages, categories, and brands.<br>
+**Description:** A list of all sitemap properties for this BigCommerce storefront: pages, categories, and brands.
 
 <b>Handlebars Expression:</b> `{{sitemap}}`
 

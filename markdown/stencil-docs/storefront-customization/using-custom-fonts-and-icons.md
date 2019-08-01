@@ -143,14 +143,14 @@ Assume that your theme's `config.json` contains the following key name and value
 	
 In your Sass stylesheet, you would call the `stencilFontFamily` and `stencilFontWeight` custom Sass functions on the corresponding `config.json` key name:
 	
-```
+```css
 $body-font-family: stencilFontFamily("body-font");
 $body-font-weight: stencilFontWeight("body-font");
 ```
 
 These functions would extract the corresponding `config.json` values as:
 
-```
+```css
 $body-font-family: 'Open Sans';
 $body-font-weight: 700;
 ```
@@ -202,7 +202,7 @@ Simply add your new icon SVG file to the `assets/icons/ `folder. Then, from your
 ## Resources
 
 ### Additional Resources
-* Stencil Custom Sass Functions
+* [Stencil Custom Sass Functions](https://developer.bigcommerce.com/stencil-docs/storefront-customization/custom-sass-functions)
 * [Custom Icons Video Tutorial](https://www.youtube.com/watch/-w7Hbn_p_pw)  (BigCommerce Youtube)
 * [Custom Fonts Video Tutorial](https://www.youtube.com/watch/-w7Hbn_p_pw) (BigCommerce Youtube) 
 * [Google Fonts](https://fonts.google.com/) (Google)

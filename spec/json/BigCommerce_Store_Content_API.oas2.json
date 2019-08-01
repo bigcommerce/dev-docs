@@ -1913,7 +1913,7 @@
         "operationId": "getAllPages"
       },
       "post": {
-        "description": "Creates a *Page*.\n\n**Required Fields**\n*   type\n*   name\n*   link (for a page of `type: link`)\n*   feed (for a page of `type: rss_feed`)\n*   body (for a page of `type: raw`)\n\n**Read Only Fields**\n*   id",
+        "description": "Creates a *Page*. The payload limit is 1MB. \n\n**Required Fields**\n*   type\n*   name\n*   link (for a page of `type: link`)\n*   feed (for a page of `type: rss_feed`)\n*   body (for a page of `type: raw`)\n\n**Read Only Fields**\n*   id",
         "summary": "Create a Page",
         "tags": [
           "Pages"
@@ -2767,7 +2767,7 @@
           }
         },
         "summary": "Update a Page",
-        "description": "Updates a *Page*.\n\n**Read Only Fields**\n* id",
+        "description": "Updates a *Page*. The payload limit is 1MB. \n\n**Read Only Fields**\n* id",
         "operationId": "updateAPage",
         "parameters": [
           {

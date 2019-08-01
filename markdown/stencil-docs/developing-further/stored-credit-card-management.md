@@ -2,6 +2,7 @@
 <div class="otp" id="no-index">
 	<h3> On This Page </h3>
 	<ul>
+    <li><a href="#stored-cc-mgmt_prerequisites">Prerequisites</a></li>
     <li><a href="#stored-cc-mgmt_adding-stored-cc-mgmt">Adding Stored Credit Card Management</a></li>
     <li><a href="#stored-cc-mgmt_add-payment-methods">Step 1: Add Payment Methods Page</a></li>
     <li><a href="#stored-cc-mgmt_add-translations">Step 2: Add Translations</a></li>
@@ -14,8 +15,7 @@
 	</ul>
 </div>
 
-Stored Credit Card management<sup>1</sup> gives customer’s the ability to manage their stored credit cards from the My Account page of the storefront. In the Cornerstone theme, shoppers with store accounts will have the ability to add new cards2, delete cards<sup>2</sup>, select a default card, and edit the billing details<sup>3</sup> of existing cards from their customer account area of the storefront.
-
+Stored Credit Card management gives customer’s the ability to manage their stored credit cards from the My Account page of the storefront. In the Cornerstone theme, shoppers with store accounts will have the ability to add new cards, delete cards, select a default card, and edit the billing details of existing cards from their customer account area of the storefront. 
 
 
 <!--
@@ -30,18 +30,31 @@ Stored Credit Card management<sup>1</sup> gives customer’s the ability to mana
 ")
 
 <div class="HubBlock--callout">
-<div class="CalloutBlock--">
+<div class="CalloutBlock--info">
 <div class="HubBlock-content">
     
-<!-- theme:  -->
+<!-- theme:info  -->
 
+#### Theme Versions
 > 1. Cornerstone versions 2.6.0+ include the ability to manage [Stored Credit Cards](https://support.bigcommerce.com/s/article/Enabling-Stored-Credit-Cards) (BigCommerce Support).
-2. Card data is stored securely with the payment gateway.
-3. After adding a card, shoppers will only be able to modify the billing address. If other credit card details need to be modified (such as expiration date), the shopper must delete and re-add the card.
 
 </div>
 </div>
 </div>
+
+---
+
+<a id="stored-cc-mgmt_prerequisites"></a>
+
+## Prerequisites
+
+* Store must be on a [Plus plan or higher](https://www.bigcommerce.com/essentials/pricing/).
+* Store needs to be using a compatible payment gateway:
+    * PayPal powered by Braintree
+    * Cybersource
+    * Authorize.net
+    * Stripe
+    * Paymetric
 
 ---
 
@@ -220,9 +233,25 @@ First, the click will trigger window confirm. The confirmation modal has been ad
 
 ---
 
+## FAQ
+**Where is the card data stored?**
+
+Card data is stored securely with the payment gateway.
+
+**Is storing credit cards PCI compliant?**
+
+Card data is stored securely with the payment gateway. The BigCommerce store is NOT storing the payment data. 
+
+**Can shoppers modify their stored card?**
+
+After adding a card, shoppers will only be able to modify the billing address. If other credit card details need to be modified (such as expiration date), the shopper must delete and re-add the card.
+
+---
+
 ## Resources
 
 ### Related Articles
-
+* [Payments API](https://developer.bigcommerce.com/api-docs/payments/payments-api-overview)
+* [Enabling Stored Cards](https://support.bigcommerce.com/s/article/Enabling-Stored-Credit-Cards) (BigCommerce Knowledge Base)
 * [The Complete Guide to Checkout Customization on BigCommerce](https://medium.com/bigcommerce-developer-blog/the-complete-guide-to-checkout-customization-on-bigcommerce-6b566bc36fa9) (Developer Blog)
 

@@ -25,9 +25,10 @@ You can manage your custom theme's front-end components by configuring the <span
 
 ## Keys and Example Values
 
-For a list of all available keys and values in <span class="fp">config.json</span>, see [Theme Objects](/api-reference/theme-objects/models/configjson) in the API Reference.
+For a list of all available keys and values in <span class="fp">config.json</span>, see [Theme Objects](/stencil-docs/reference-docs/theme-objects/models/configjson) in the API Reference.
 
 </div>
+
 ---
 
 <a href='#defining_requirements-and-restrictions' aria-hidden='true' class='block-anchor'  id='defining_requirements-and-restrictions'><i aria-hidden='true' class='linkify icon'></i></a>
@@ -190,7 +191,7 @@ subtitle: ""
 lineNumbers: true
 -->
 
-```html
+```yaml
 products:
   new:
     limit: {{theme_settings.homepage_new_products_count}}
@@ -304,7 +305,7 @@ subtitle: ""
 lineNumbers: true
 -->
 
-```html
+```css
 {
 <!-- [...] -->
 "color-highlight": "#00abc9",
