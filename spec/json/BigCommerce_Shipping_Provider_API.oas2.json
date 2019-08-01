@@ -282,10 +282,6 @@
                           "quantity": {
                             "type": "number",
                             "format": "int32"
-                          },
-                          "attributes": {
-                            "description": "A list of arbitrary properties stored as part of the product's meta fields. These consist of any public fields and any private fields specific to the carrier integration.",
-                            "type": "object"
                           }
                         },
                         "title": "Rate Request Item"
