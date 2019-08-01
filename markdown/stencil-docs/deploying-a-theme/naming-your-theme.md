@@ -151,7 +151,7 @@ lineNumbers: true
 
 ## Changing a Theme Variation’s Font Family (config.json)
 
-To learn more about defining variations, see [Defining Global Styles](/defining-global-styles#defining_keys-and-example) for details about each key/value pair. In particular, note the option to configure settings and variables that are scoped to each variation.
+To learn more about defining variations, see [Defining Global Styles](/stencil-docs/configure-store-design-ui/defining-global-styles) for details about each key/value pair. In particular, note the option to configure settings and variables that are scoped to each variation.
 
 For example, you could insert the "`settings":...”body-font-family”` block shown below to set body text for one theme variation to a specific typeface/family:
 
