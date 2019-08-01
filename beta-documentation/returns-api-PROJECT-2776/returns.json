@@ -489,6 +489,11 @@
             "$ref": "#/definitions/ReturnItem"
           }
         },
+        "total_price": {
+          "type": "string",
+          "format": "decimal",
+          "description": "The total price of the items being returned"
+        },
         "customer": {
           "type": "object",
           "properties": {
@@ -532,10 +537,10 @@
           "type": "integer",
           "description": "The quantity of items for which a return was requested"
         },
-        "value": {
+        "total_price": {
           "type": "string",
           "format": "decimal",
-          "description": "The value of the item"
+          "description": "The total price of the line item"
         },
         "preferred_outcome": {
           "type": "object",
@@ -814,6 +819,11 @@
           "returnable_quantity": {
             "type": "integer",
             "description": "The maximum quantity of this item that can presently be requested for return"
+          },
+          "total_price": {
+            "type": "string",
+            "format": "decimal",
+            "description": "The value of this line item"
           },
           "options": {
             "type": "array",
