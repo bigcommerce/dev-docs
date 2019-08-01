@@ -560,11 +560,9 @@ To clear the errors, enter the BitBucket password you used when setting up BitBu
 
 4. Next, you will be prompted to enter the port where you would like to run your store on your local machine. This can be any port you like, but we recommend using port 3000.
 
-5. Next, you will be prompted: What is your Stencil OAuth Client ID? Enter your store API account’s Client ID. If you used this Client ID when you last ran stencil init, you’ll see it hinted on the command line, and can just confirm it.
+5. You will be prompted: What is your Stencil OAuth Access Token? If you entered these credentials when you last ran stencil init, you’ll see the token hinted in cleartext. If not, paste your Access Token hash onto the command line. Then press Enter.
 
-6. You will be prompted: What is your Stencil OAuth Access Token? If you entered these credentials when you last ran stencil init, you’ll see the token hinted in cleartext. If not, paste your Access Token hash onto the command line. Then press Enter.
-
-7. Your terminal window should now confirm that you have successfully initialized Stencil CLI on your local machine. With Stencil CLI initialized, you are ready to start Stencil and begin development. To start developing, run the `stencil start` command and navigate to the specified port in your browser, `localhost:<port>`. When you make changes to the theme files in your code editor, you will see those changes relfected on the storefront in real time in your browser.ß
+6. Your terminal window should now confirm that you have successfully initialized Stencil CLI on your local machine. With Stencil CLI initialized, you are ready to start Stencil and begin development. To start developing, run the `stencil start` command and navigate to the specified port in your browser, `localhost:<port>`. When you make changes to the theme files in your code editor, you will see those changes relfected on the storefront in real time in your browser.
 
 ### Using Browsersync to Render the Store on Desktop/Tablet/Mobile for Testing
 
