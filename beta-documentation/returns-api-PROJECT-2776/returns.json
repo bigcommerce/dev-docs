@@ -31,6 +31,7 @@
           "Settings"
         ],
         "description": "Provides the configured returns settings",
+        "operationId": "GetReturnsSettings",
         "produces": [
           "application/json"
         ],
@@ -41,7 +42,7 @@
               "type": "object",
               "properties": {
                 "data": {
-                  "$ref": "#/definitions/Settings"
+                  "$ref": "#/definitions/GetReturnsSettingsResponse"
                 }
               }
             }
@@ -54,7 +55,8 @@
         "tags": [
           "Returns"
         ],
-        "description": "Provides a return-centric summary an order",
+        "description": "Provides a collection of returnable items for an order",
+        "operationId": "GetReturnableItems",
         "parameters": [
           {
             "in": "path",
@@ -72,7 +74,7 @@
               "type": "object",
               "properties": {
                 "data": {
-                  "$ref": "#/definitions/GetReturnableItemsResp"
+                  "$ref": "#/definitions/GetReturnableItemsResponse"
                 }
               }
             }
@@ -85,23 +87,24 @@
         "tags": [
           "Returns"
         ],
-        "description": "Creates a new return request",
+        "description": "Requests a new return",
+        "operationId": "CreateReturn",
         "parameters": [
           {
             "in": "path",
             "name": "id",
-            "description": "The ID of the order for which a return should be created",
+            "description": "The ID of the order for which a return should be requested",
             "required": true,
             "type": "integer",
             "format": "int64"
           },
           {
             "in": "body",
-            "name": "return_request",
-            "description": "Details of the return request",
+            "name": "return",
+            "description": "Details of the return",
             "required": true,
             "schema": {
-              "$ref": "#/definitions/CreateReturnReq"
+              "$ref": "#/definitions/CreateReturnRequest"
             }
           }
         ],
@@ -110,12 +113,12 @@
         ],
         "responses": {
           "201": {
-            "description": "Details of the return request",
+            "description": "Details of the return",
             "schema": {
               "type": "object",
               "properties": {
                 "data": {
-                  "$ref": "#/definitions/GetReturnResp"
+                  "$ref": "#/definitions/CreateReturnResponse"
                 }
               }
             }
@@ -128,27 +131,26 @@
         "tags": [
           "Returns"
         ],
+        "description": "Applies status updates to a return a collection of returns",
+        "operationId": "UpdateReturnStatuses",
         "parameters": [
           {
             "in": "body",
-            "name": "status_updates",
+            "name": "return_status_updates",
             "description": "A collection of status updates to apply",
             "required": true,
             "schema": {
-              "type": "array",
-              "items": {
-                "$ref": "#/definitions/StatusUpdate"
-              }
+              "$ref": "#/definitions/UpdateReturnStatusesRequest"
             }
           }
         ],
         "responses": {
           "200": {
-            "description": "A collection of return request summaries",
+            "description": "A collection of return summaries",
             "schema": {
               "properties": {
                 "data": {
-                  "$ref": "#/definitions/UpdateStatusesResp"
+                  "$ref": "#/definitions/UpdateReturnStatusesResponse"
                 },
                 "errors": {
                   "type": "array",
@@ -171,6 +173,7 @@
           "Returns"
         ],
         "description": "Provides a collection of return requests",
+        "operationId": "GetReturns",
         "parameters": [
           {
             "in": "query",
@@ -233,14 +236,14 @@
         ],
         "responses": {
           "200": {
-            "description": "A collection of return requests",
+            "description": "A collection of returns",
             "schema": {
               "type": "object",
               "properties": {
                 "data": {
                   "type": "array",
                   "items": {
-                    "$ref": "#/definitions/GetReturnResp"
+                    "$ref": "#/definitions/GetReturnsResponse"
                   }
                 },
                 "meta": {
@@ -262,7 +265,8 @@
         "tags": [
           "Returns"
         ],
-        "description": "Updates the received status of one or more return request items",
+        "description": "Updates the received status of one or more return items",
+        "operationId": "UpdateReceipts",
         "parameters": [
           {
             "in": "path",
@@ -283,7 +287,7 @@
             "name": "receipts",
             "required": true,
             "schema": {
-              "$ref": "#/definitions/UpdateReceiptsReq"
+              "$ref": "#/definitions/UpdateReceiptsRequest"
             }
           }
         ],
@@ -296,7 +300,7 @@
             "schema": {
               "properties": {
                 "data": {
-                  "$ref": "#/definitions/UpdateReceiptsResp"
+                  "$ref": "#/definitions/UpdateReceiptsResponse"
                 },
                 "errors": {
                   "type": "array",
@@ -319,6 +323,7 @@
           "Returns"
         ],
         "description": "Updates the reviewed status of one or more return items",
+        "operationId": "UpdateReviews",
         "parameters": [
           {
             "in": "path",
@@ -339,7 +344,7 @@
             "name": "reviews",
             "required": true,
             "schema": {
-              "$ref": "#/definitions/UpdateReviewsReq"
+              "$ref": "#/definitions/UpdateReviewsRequest"
             }
           }
         ],
@@ -352,7 +357,7 @@
             "schema": {
               "properties": {
                 "data": {
-                  "$ref": "#/definitions/UpdateReviewsResp"
+                  "$ref": "#/definitions/UpdateReviewsResponse"
                 },
                 "errors": {
                   "type": "array",
@@ -371,7 +376,7 @@
     }
   },
   "definitions": {
-    "Settings": {
+    "GetReturnsSettingsResponse": {
       "type": "object",
       "properties": {
         "reasons": {
@@ -422,7 +427,7 @@
         }
       }
     },
-    "CreateReturnReq": {
+    "CreateReturnRequest": {
       "type": "object",
       "required": ["items"],
       "properties": {
@@ -430,7 +435,7 @@
           "description": "A collection of items to be returned",
           "type": "array",
           "items": {
-            "$ref": "#/definitions/CreateReturnReqItem"
+            "$ref": "#/definitions/CreateReturnRequestItem"
           }
         },
         "comment": {
@@ -439,7 +444,7 @@
         }
       }
     },
-    "CreateReturnReqItem": {
+    "CreateReturnRequestItem": {
       "type": "object",
       "required": [
         "order_product_id",
@@ -466,14 +471,28 @@
         }
       }
     },
-    "GetReturnResp": {
+    "CreateReturnResponse": {
+      "$ref": "#/definitions/Return"
+    },
+    "GetReturnsResponse": {
+      "type": "array",
+      "items": {
+        "$ref": "#/definitions/Return"
+      }
+    },
+    "Return": {
       "type": "object",
       "properties": {
         "items": {
           "type": "array",
           "items": {
-            "$ref": "#/definitions/GetReturnRespItem"
+            "$ref": "#/definitions/ReturnItem"
           }
+        },
+        "total_price": {
+          "type": "string",
+          "format": "decimal",
+          "description": "The total price of the items being returned"
         },
         "customer": {
           "type": "object",
@@ -501,7 +520,7 @@
         }
       }
     },
-    "GetReturnRespItem": {
+    "ReturnItem": {
       "type": "object",
       "properties": {
         "id": {
@@ -518,10 +537,10 @@
           "type": "integer",
           "description": "The quantity of items for which a return was requested"
         },
-        "value": {
+        "total_price": {
           "type": "string",
           "format": "decimal",
-          "description": "The value of the item"
+          "description": "The total price of the line item"
         },
         "preferred_outcome": {
           "type": "object",
@@ -579,7 +598,13 @@
       "enum": ["CLOSED", "OPEN", "REMOVED"],
       "description": "The status of the return"
     },
-    "UpdateStatusesResp": {
+    "UpdateReturnStatusesRequest": {
+      "type": "array",
+      "items": {
+        "$ref": "#/definitions/StatusUpdate"
+      }
+    },
+    "UpdateReturnStatusesResponse": {
       "type": "array",
       "items": {
         "type": "object",
@@ -669,7 +694,7 @@
         }
       }
     },
-    "UpdateReceiptsReq": {
+    "UpdateReceiptsRequest": {
       "type": "array",
       "items": {
         "type": "object",
@@ -695,7 +720,7 @@
         }
       }
     },
-    "UpdateReceiptsResp": {
+    "UpdateReceiptsResponse": {
       "type": "array",
       "items": {
         "type": "object",
@@ -718,7 +743,7 @@
         }
       }
     },
-    "UpdateReviewsReq": {
+    "UpdateReviewsRequest": {
       "type": "array",
       "items": {
         "type": "object",
@@ -749,7 +774,7 @@
         }
       }
     },
-    "UpdateReviewsResp": {
+    "UpdateReviewsResponse": {
       "type": "array",
       "items": {
         "type": "object",
@@ -777,7 +802,7 @@
         }
       }
     },
-    "GetReturnableItemsResp": {
+    "GetReturnableItemsResponse": {
       "type": "array",
       "items": {
         "type": "object",
@@ -794,6 +819,11 @@
           "returnable_quantity": {
             "type": "integer",
             "description": "The maximum quantity of this item that can presently be requested for return"
+          },
+          "total_price": {
+            "type": "string",
+            "format": "decimal",
+            "description": "The value of this line item"
           },
           "options": {
             "type": "array",
