@@ -1206,14 +1206,16 @@ Similar to `getImage`, it accepts an `stencilImage` parameter, and optionally, a
 
 You can then specify what sizes you want as named arguments on the helper.
 
-*Default sizes*
+**Default sizes**
+
 By specifying `use_default_sizes=true` on the helper, a `srcset` string will be constructed with a set of sizes chosen by BigCommerce to be optimal for most uses.
 ```html
 {{getImageSrcset image use_default_sizes=true}}
 {{getImageSrcset image "https://place-hold.it/500x300" use_default_sizes=true}}
 ```
 
-*Specifying a single '1x' size*
+**Specifying a single '1x' size**
+
 By specifying a single size as the '1x', size, you can choose to get an image at any size of your choosing. You can reference a value from the `theme_settings` object (similar to `getImage`), or you can specify your own size inline. Note that `getImageSrcset` does not require `theme_settings` keys to be wrapped in quotes, they should be referenced directly.
 
 ```html
@@ -1222,7 +1224,8 @@ By specifying a single size as the '1x', size, you can choose to get an image at
 {{getImageSrcset image 1x="1280w"}}
 ```
 
-*Specifying a custom srcset based on pixel density*
+**Specifying a custom srcset based on pixel density**
+
 By specifying several sizes using the pixel density descriptor, you can generate a srcset of different image resolutions for different pixel density screens as described [here](https://developer.mozilla.org/en-US/docs/Learn/HTML/Multimedia_and_embedding/Responsive_images#Resolution_switching_Same_size_different_resolutions). For example, you can specify a `2x` image for Retina screens, and a `1x` image for normal screens.
 
 As above, you can reference `theme_settings` keys or specify your own size inline.
@@ -1232,7 +1235,8 @@ As above, you can reference `theme_settings` keys or specify your own size inlin
 {{getImageSrcset image 1x="640x640" 2x="1280x1280"}}
 ```
 
-*Specifying a custom srcset based on inherent width*
+**Specifying a custom srcset based on inherent width**
+
 By specifying several sizes using the inherent width descriptor, you can generate a srcset of different image resolutions based on width, which can in turn be selected by the browser based on the expected size of the image when the page is painted. It is recommended to use this together with a `sizes` attribute on the `<img>` as described [here](https://developer.mozilla.org/en-US/docs/Learn/HTML/Multimedia_and_embedding/Responsive_images#Resolution_switching_Different_sizes). In Cornerstone, this is handled automatically via JavaScript.
 
 As above, you can reference `theme_settings` keys or specify your own size inline.
