@@ -42,7 +42,7 @@
               "type": "object",
               "properties": {
                 "data": {
-                  "$ref": "#/definitions/GetReturnsSettingsResp"
+                  "$ref": "#/definitions/GetReturnsSettingsResponse"
                 }
               }
             }
@@ -74,7 +74,7 @@
               "type": "object",
               "properties": {
                 "data": {
-                  "$ref": "#/definitions/GetReturnableItemsResp"
+                  "$ref": "#/definitions/GetReturnableItemsResponse"
                 }
               }
             }
@@ -88,7 +88,7 @@
           "Returns"
         ],
         "description": "Requests a new return",
-        "operationId": "RequestReturn",
+        "operationId": "CreateReturn",
         "parameters": [
           {
             "in": "path",
@@ -104,7 +104,7 @@
             "description": "Details of the return",
             "required": true,
             "schema": {
-              "$ref": "#/definitions/RequestReturnReq"
+              "$ref": "#/definitions/CreateReturnRequest"
             }
           }
         ],
@@ -118,7 +118,7 @@
               "type": "object",
               "properties": {
                 "data": {
-                  "$ref": "#/definitions/RequestReturnResp"
+                  "$ref": "#/definitions/CreateReturnResponse"
                 }
               }
             }
@@ -140,7 +140,7 @@
             "description": "A collection of status updates to apply",
             "required": true,
             "schema": {
-              "$ref": "#/definitions/UpdateReturnStatusesReq"
+              "$ref": "#/definitions/UpdateReturnStatusesRequest"
             }
           }
         ],
@@ -150,7 +150,7 @@
             "schema": {
               "properties": {
                 "data": {
-                  "$ref": "#/definitions/UpdateReturnStatusesResp"
+                  "$ref": "#/definitions/UpdateReturnStatusesResponse"
                 },
                 "errors": {
                   "type": "array",
@@ -243,7 +243,7 @@
                 "data": {
                   "type": "array",
                   "items": {
-                    "$ref": "#/definitions/GetReturnsResp"
+                    "$ref": "#/definitions/GetReturnsResponse"
                   }
                 },
                 "meta": {
@@ -287,7 +287,7 @@
             "name": "receipts",
             "required": true,
             "schema": {
-              "$ref": "#/definitions/UpdateReceiptsReq"
+              "$ref": "#/definitions/UpdateReceiptsRequest"
             }
           }
         ],
@@ -300,7 +300,7 @@
             "schema": {
               "properties": {
                 "data": {
-                  "$ref": "#/definitions/UpdateReceiptsResp"
+                  "$ref": "#/definitions/UpdateReceiptsResponse"
                 },
                 "errors": {
                   "type": "array",
@@ -344,7 +344,7 @@
             "name": "reviews",
             "required": true,
             "schema": {
-              "$ref": "#/definitions/UpdateReviewsReq"
+              "$ref": "#/definitions/UpdateReviewsRequest"
             }
           }
         ],
@@ -357,7 +357,7 @@
             "schema": {
               "properties": {
                 "data": {
-                  "$ref": "#/definitions/UpdateReviewsResp"
+                  "$ref": "#/definitions/UpdateReviewsResponse"
                 },
                 "errors": {
                   "type": "array",
@@ -376,7 +376,7 @@
     }
   },
   "definitions": {
-    "GetReturnsSettingsResp": {
+    "GetReturnsSettingsResponse": {
       "type": "object",
       "properties": {
         "reasons": {
@@ -427,7 +427,7 @@
         }
       }
     },
-    "RequestReturnReq": {
+    "CreateReturnRequest": {
       "type": "object",
       "required": ["items"],
       "properties": {
@@ -435,7 +435,7 @@
           "description": "A collection of items to be returned",
           "type": "array",
           "items": {
-            "$ref": "#/definitions/RequestReturnReqItem"
+            "$ref": "#/definitions/CreateReturnRequestItem"
           }
         },
         "comment": {
@@ -444,7 +444,7 @@
         }
       }
     },
-    "RequestReturnReqItem": {
+    "CreateReturnRequestItem": {
       "type": "object",
       "required": [
         "order_product_id",
@@ -471,10 +471,10 @@
         }
       }
     },
-    "RequestReturnResp": {
+    "CreateReturnResponse": {
       "$ref": "#/definitions/Return"
     },
-    "GetReturnsResp": {
+    "GetReturnsResponse": {
       "type": "array",
       "items": {
         "$ref": "#/definitions/Return"
@@ -598,13 +598,13 @@
       "enum": ["CLOSED", "OPEN", "REMOVED"],
       "description": "The status of the return"
     },
-    "UpdateReturnStatusesReq": {
+    "UpdateReturnStatusesRequest": {
       "type": "array",
       "items": {
         "$ref": "#/definitions/StatusUpdate"
       }
     },
-    "UpdateReturnStatusesResp": {
+    "UpdateReturnStatusesResponse": {
       "type": "array",
       "items": {
         "type": "object",
@@ -694,7 +694,7 @@
         }
       }
     },
-    "UpdateReceiptsReq": {
+    "UpdateReceiptsRequest": {
       "type": "array",
       "items": {
         "type": "object",
@@ -720,7 +720,7 @@
         }
       }
     },
-    "UpdateReceiptsResp": {
+    "UpdateReceiptsResponse": {
       "type": "array",
       "items": {
         "type": "object",
@@ -743,7 +743,7 @@
         }
       }
     },
-    "UpdateReviewsReq": {
+    "UpdateReviewsRequest": {
       "type": "array",
       "items": {
         "type": "object",
@@ -774,7 +774,7 @@
         }
       }
     },
-    "UpdateReviewsResp": {
+    "UpdateReviewsResponse": {
       "type": "array",
       "items": {
         "type": "object",
@@ -802,7 +802,7 @@
         }
       }
     },
-    "GetReturnableItemsResp": {
+    "GetReturnableItemsResponse": {
       "type": "array",
       "items": {
         "type": "object",
