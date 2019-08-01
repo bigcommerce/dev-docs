@@ -1198,9 +1198,9 @@ You can use the optional `defaultImage` parameter to specify an image that will 
 
 The `getImageSrcset` helper is a replacement for `getImage` which allows you to generate either a single image URL (for an `<img>` `src`) or a list of image sizes for `srcset`. [Srcset](https://developer.mozilla.org/en-US/docs/Web/HTML/Element/img#attr-srcset) allows you to specify a list of sizes from which the browser may choose, based on the expected size of the image on the page, the device's pixel density, and other factors.
 
-Similar to `getImage`, it accepts an `image` parameter, and optionally, a `defaultImage` to use as a fallback.
+Similar to `getImage`, it accepts an `stencilImage` parameter, and optionally, a `defaultImage` to use as a fallback.
 
-- `image` : Url  of the image
+- `stencilImage`: a StencilImage
 - `defaultImage` : Image sizes
 - Image sizes specified as named parameters on the helper
 
