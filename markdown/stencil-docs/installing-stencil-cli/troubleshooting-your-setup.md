@@ -12,6 +12,7 @@
     <li><a href="#troubleshooting_mac-os">Mac OS: "Xcode/iOS license..." Errors upon Stencil Commands</a></li>
     <li><a href="#troubleshooting_etimeout">ETIMEOUT Errors on Node >4.4.0</a></li>
     <li><a href="#troubleshooting_stencil-command-not-found"><code>stencil</code> command not found</a></li>
+    <li><a href="#troubleshooting_stencil-start-errors"><code>stenci start</code> errors</a></li>
     <li><a href="#troubleshooting_500-errors">500 Errors</a></li>
     <li><a href="#troubleshooting_lint-errors">Lint Errors upon Bundling</a></li>
     <li><a href="#troubleshooting_module-not-found">"Module Not Found" Errors upon Bundling</a></li>
@@ -205,6 +206,8 @@ To prevent this error from recurring, add the same `nvm use <version_number>` co
 
 
 ---
+
+<a id="troubleshooting_stencil-start-errors"></a>
 
 ## `stencil start` errors
 

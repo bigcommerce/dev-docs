@@ -3,25 +3,26 @@
 <div class="otp" id="no-index">
 	<h3> On This Page </h3>
 	<ul>
-    <li><a href="#handlebars-helpers-reference_array">Array Helpers</li>
-    <li><a href="#handlebars-helpers-reference_collection">Collection Helpers</li>
-    <li><a href="#handlebars-helpers-reference_comparison">Comparison Helpers</li>
-    <li><a href="#handlebars-helpers-reference_control-flow">Control-Flow Helpers</li>
-    <li><a href="#handlebars-helpers-reference_date">Date Helpers</li>
-    <li><a href="#handlebars-helpers-reference_html">HTML Helpers</li>
-    <li><a href="#handlebars-helpers-reference_image">Image Helpers</li>
-    <li><a href="#handlebars-helpers-reference_inflection">Inflection Helpers</li>
-		<li><a href="#handlebars-helpers-reference_injection">Injection Helpers</li>
-		<li><a href="#handlebars-helpers-reference_markdown">Markdown Helpers</li>
-		<li><a href="#handlebars-helpers-reference_math">Math Helpers</li>
-		<li><a href="#handlebars-helpers-reference_number">Number Helpers</li>
-		<li><a href="#handlebars-helpers-reference_object">Object Helpers</li>
-		<li><a href="#handlebars-helpers-reference_operator">Operator Helpers</li>
-		<li><a href="#handlebars-helpers-reference_string">String Helpers</li>
-		<li><a href="#handlebars-helpers-reference_url">URL Helpers</li>
-		<li><a href="#handlebars-helpers-reference_misc">Miscellaneous Helpers</li>
-    </ul>
+    <li><a href="#handlebars-helpers-reference_array">Array Helpers</a></li>
+    <li><a href="#handlebars-helpers-reference_collection">Collection Helpers</a></li>
+    <li><a href="#handlebars-helpers-reference_comparison">Comparison Helpers</a></li>
+    <li><a href="#handlebars-helpers-reference_control-flow">Control-Flow Helpers</a></li>
+    <li><a href="#handlebars-helpers-reference_date">Date Helpers</a></li>
+    <li><a href="#handlebars-helpers-reference_html">HTML Helpers</a></li>
+    <li><a href="#handlebars-helpers-reference_image">Image Helpers</a></li>
+    <li><a href="#handlebars-helpers-reference_inflection">Inflection Helpers</a></li>
+		<li><a href="#handlebars-helpers-reference_injection">Injection Helpers</a></li>
+		<li><a href="#handlebars-helpers-reference_markdown">Markdown Helpers</a></li>
+		<li><a href="#handlebars-helpers-reference_math">Math Helpers</a></li>
+		<li><a href="#handlebars-helpers-reference_number">Number Helpers</a></li>
+		<li><a href="#handlebars-helpers-reference_object">Object Helpers</a></li>
+		<li><a href="#handlebars-helpers-reference_operator">Operator Helpers</a></li>
+		<li><a href="#handlebars-helpers-reference_string">String Helpers</a></li>
+		<li><a href="#handlebars-helpers-reference_url">URL Helpers</a></li>
+		<li><a href="#handlebars-helpers-reference_misc">Miscellaneous Helpers</a></li>
+  </ul>
 </div>
+
 
 This page describes all of the Handlebars helpers supported on the Stencil framework. It includes helpers that are custom to, or customized for, Stencil.
 

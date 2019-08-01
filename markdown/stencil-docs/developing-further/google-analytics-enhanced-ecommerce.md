@@ -328,7 +328,7 @@ Next, add the custom metrics/dimensions to the desired theme template:
 <div class="HubBlock-content">
     
 <!-- theme: info -->
-
+#### Dimensions and Metrics
 > dimensions are typically strings; metrics are usually integers
 
 </div>

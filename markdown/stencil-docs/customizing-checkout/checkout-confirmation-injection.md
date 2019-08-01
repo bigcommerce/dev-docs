@@ -25,13 +25,15 @@ A prerequisite for the next two options is to add themewide styles to your Check
 
 `{{{ checkout.checkout_head }}}`
 
+---
+
 <a href='#checkout_applying-storewide-header' aria-hidden='true' class='block-anchor'  id='checkout_applying-storewide-header'><i aria-hidden='true' class='linkify icon'></i></a>
 
 ## Applying Storewide Header
 
 You can replace each page's predefined header with your storewide header. To do so, first add themewide styles as described above. Next, replace the following code block (if present):
 
-```
+```html
 <header class="checkoutHeader optimizedCheckout-header">
     <div class="checkoutHeader-content">
         <h1 class="is-srOnly">{{lang 'checkout.title'}}</h1>
@@ -98,7 +100,7 @@ Additionally, at the bottom of the checkout template (`checkout.html`), add this
 
 Add it between these existing statements, so it will ultimately read as shown below.
 
-```
+```html
     {{{ checkout.checkout_content }}}
 
     {{{ footer.scripts }}}
@@ -148,9 +150,11 @@ Insert it between these existing statements, so it will ultimately read as shown
 
 To add a trust seal to either template:
 
-1. Generate a code snippet (seal script) from your trust-seal provider. You can find instructions for GeoTrust seals in [this BigCommerce KB article](https://support.bigcommerce.com/articles/Public/Adding-a-GeoTrust-SSL-seal-to-your--footer?_ga=2.254356814.718421096.1540222570-967431010.1523308107). (Instructions for other providers will vary.)
+1. Generate a code snippet (seal script) from your trust-seal provider. You can find instructions for GeoTrust seals in [this BigCommerce KB article](https://support.bigcommerce.com/s/article/Adding-a-GeoTrust-SSL-seal-to-your--footer). (Instructions for other providers will vary.)
 
 2. Copy and paste the seal script into your checkout or order confirmation template, before or after the `{{{ checkout.checkout_content }}}` Handlebars statement.
+
+---
 
 <a href='#checkout_app-injection' aria-hidden='true' class='block-anchor'  id='checkout_app-injection'><i aria-hidden='true' class='linkify icon'></i></a>
 
@@ -166,7 +170,7 @@ The following sections present examples of scripts that inject popular apps into
 
 As an example of injecting an app from the BigCommerce Apps Marketplace, you could enable the Olark Live Chat app on either page by by using the script manager or our new Scripts API:
 
-```
+```js
 <!-- begin olark code -->
 <script type="text/javascript" async>
 ;(function(o,l,a,r,k,y){if(o.olark)return;
@@ -187,7 +191,7 @@ olark.identify('4080-493-10-1035');</script>
 
 Similarly, you could enable the Bluecheck age-verification app by using the script manager or our new Scripts API:
 
-```
+```js
 <!-- Bluecheck AV Start Here -->
    <script src="https://api.bluecheck.me/modal/latest/custom/bigcommerce.js"></script>
    <script src='//api.bluecheck.me/age-gate/v2/loader.js.php?domain_token=[user-token-value]'></script>
@@ -204,7 +208,7 @@ Similarly, you could enable the Bluecheck age-verification app by using the scri
 
 To add the Rebillia app, you could add the following tags by using the script manager or our new Scripts API:
 
-```
+```html
 <div id='rebillia_overlay'></div>
 
 <script src="https://js.braintreegateway.com/v2/braintree.js"></script>
@@ -220,7 +224,7 @@ function customerJWT(a){var b="r1sc6nvnnhed377cozp2bfwfa69cfz5",c=new XMLHttpReq
 
 Here is one final example of an app that you could enable by using the script manager or our new Scripts API. This example enables Conversions on Demand:
 
-```
+```js
 <script type='text/javascript'>// <![CDATA[
     var cod_page_guid = 'CHECKOUT';
     var COD_CONFIG = {'platform':'bigcommerce', 'stoken':'as2_bcmarket_org'};
@@ -242,7 +246,7 @@ Here is one final example of an app that you could enable by using the script ma
 
 The Addrexx app is integrated to the Checkout or Order Confirmation page via the BigCommerce control panel's Google Analytics box, rather than through injection directly into either Stencil template file. Here is the corresponding script to enter into the control panel:
 
-```
+```js
 <!-- START  Addrexx -->
 <script type="text/javascript">
 wwPage = window.location.href;
@@ -259,3 +263,19 @@ loadaddrexx();
 </script>
 <!-- END  Addrexx -->
 ```
+
+---
+
+## Resources
+
+### Related Endpoints
+* [Scripts API](https://developer.bigcommerce.com/api-reference/storefront/content-scripts-api)
+
+### Related Articles
+* [Adding a GeoTrust SSL Seal to Your Store's Footer](https://support.bigcommerce.com/s/article/Adding-a-GeoTrust-SSL-seal-to-your--footer) (BigCommerce Knowledge Base)
+
+### Additonal Resources
+* [Olark](https://www.olark.com/integrations/bigcommerce) (Olark)
+* [Rebilla](https://www.rebillia.com/documentation/stencil-or-blueprint) (Rebilla)
+* [Set up conversion tracking for your website](https://support.google.com/google-ads/answer/6095821) (Google)
+* [Addrexx](https://www.bigcommerce.com/apps/addrexx/) (BigCommerce App Marketplace)

@@ -537,6 +537,6 @@ window.initReact = function initReact() {
 
 ## Additional Resources
 
-* [www.reactjs.org](https://reactjs.org/)
-* [www.reactjs.org/tutorial/tutorial.html](https://reactjs.org/tutorial/tutorial.html) (Tutorial on the basics of React)
-* [https://webpack.js.org/concepts/](https://webpack.js.org/concepts/)
+* [ReactJS](https://reactjs.org/) (React)
+* [Tutorial: Intro to React](https://reactjs.org/tutorial/tutorial.html) (React)
+* [Concepts](https://webpack.js.org/concepts/) (Webpack)

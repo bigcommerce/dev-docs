@@ -52,7 +52,7 @@ Please follow these guidelines to head off errors upon theme upload, and to avoi
 
 * File Size: The maximum allowable size for a theme's <span class="fn">schema.json</span> file is 64 KB. Exceeding this limit will trigger an error upon uploading the theme to BigCommerce. (Other than this size constraint, there is no limit on the number of keys and values that you can place in a theme's <span class="fn">schema.json</span>.)
 
-
+---
 
 <a href='#defining-ui-options_how-json' aria-hidden='true' class='block-anchor'  id='defining-ui-options_how-json'><i aria-hidden='true' class='linkify icon'></i></a>
 

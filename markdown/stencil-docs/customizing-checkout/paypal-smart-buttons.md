@@ -2,7 +2,8 @@
 <div class="otp" id="no-index">
 	<h3> On This Page </h3>
 	<ul>
-    <li><a href="#paypal-smart_include-smart-buttons">Enable Smart Buttons on Your Stencil Theme</a></li>
+    <li><a href="#paypal-smart_include-smart-buttons">Enable on Stencil Theme</a></li>
+      <li><a href="#store-design">Enabling via Store Design</a></li>
 	</ul>
 </div>
 
@@ -74,6 +75,8 @@ lineNumbers: true
 </div>
 
 ---
+
+<a id="store-design"></a>
 
 ## Enabling Smart Buttons Customization via Store Design
 
