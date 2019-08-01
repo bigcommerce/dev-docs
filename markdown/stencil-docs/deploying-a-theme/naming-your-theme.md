@@ -203,3 +203,12 @@ For details on preparing screenshots that enable merchants to preview each varia
 </div>
 </div>
 </div>
+
+---
+
+## Resources
+
+### Related Articles
+* [Checking a Theme's Size](https://developer.bigcommerce.com/stencil-docs/deploying-a-theme/checking-a-themes-size)
+* [Preparing Thumbnail Images](https://developer.bigcommerce.com/stencil-docs/deploying-a-theme/preparing-thumbnail-images)
+* [Bundling and Pushing a Theme](https://developer.bigcommerce.com/stencil-docs/deploying-a-theme/bundling-and-pushing)

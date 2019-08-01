@@ -16,12 +16,6 @@
 
 
 
-
-
-
-
-
-
 <div class="HubBlock--callout">
 <div class="CalloutBlock--warning">
 <div class="HubBlock-content">
@@ -42,6 +36,10 @@
 </div>
 </div>
 </div>
+
+---
+
+<a id="front-matter-attributes-reference_global"></a>
 
 ## Global Attributes
 
@@ -235,6 +233,8 @@ If &lt;number&gt; is not defined, returns 10 brands, ordered by the number of pr
 </table>
 
 
+---
+<a id="front-matter-attributes-reference_category"></a>
 
 ## Category Attributes 
 
@@ -274,6 +274,8 @@ Defines the number of products displayed per page for this category. Range of po
   </tr>
 </table>
 
+---
+<a id="front-matter-attributes-reference_blog"></a>
 
 ## Blog Attributes
 
@@ -334,10 +336,10 @@ If &lt;number&gt; is not defined, displays 250 characters.</td>
   </tr>
 </table>
 
+---
+
 <a href='#front-matter-attributes-reference_product' aria-hidden='true' class='block-anchor'  id='front-matter-attributes-reference_product'><i aria-hidden='true' class='linkify icon'></i></a>
 
-
-</table>
 
 ## Product Attributes 
 
@@ -402,6 +404,10 @@ Product attributes are available in the context of a product.
   </tr>
 </table>
 
+---
+
+<a id="front-matter-attributes-reference_brand"></a>
+
 ## Brand Attributes
 
 Brand attributes are available in the context of a brand.<br><br>
@@ -431,6 +437,12 @@ Defines the number of products displayed per page for this brand. Range of possi
   </tr>
 </table>
 
+---
+
+
+
+<a id="front-matter-attributes-reference_brand-list"></a>
+
 ## Brand List Attributes
 
 These attributes are available in the context of a list of brands.<br><br>
@@ -457,6 +469,11 @@ These attributes are available in the context of a list of brands.<br><br>
 Sets the number of brands displayed in the list. If &lt;limit&gt; is not defined, returns all brands, up to a maximum of 50.</td>
   </tr>
 </table>
+
+
+---
+
+<a id="front-matter-attributes-reference_cart"></a>
 
 ## Cart Attributes 
 
@@ -494,6 +511,11 @@ Cart attributes are available in the context of a shopper's cart.
 If &lt;number&gt; is not defined, returns 4 suggested products.</td>
   </tr>
 </table>
+
+
+---
+
+<a id="front-matter-attributes-reference_search"></a>
 
 ## Search Attributes 
 

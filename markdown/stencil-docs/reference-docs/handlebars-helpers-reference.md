@@ -3,25 +3,26 @@
 <div class="otp" id="no-index">
 	<h3> On This Page </h3>
 	<ul>
-    <li><a href="#handlebars-helpers-reference_array">Array Helpers</li>
-    <li><a href="#handlebars-helpers-reference_collection">Collection Helpers</li>
-    <li><a href="#handlebars-helpers-reference_comparison">Comparison Helpers</li>
-    <li><a href="#handlebars-helpers-reference_control-flow">Control-Flow Helpers</li>
-    <li><a href="#handlebars-helpers-reference_date">Date Helpers</li>
-    <li><a href="#handlebars-helpers-reference_html">HTML Helpers</li>
-    <li><a href="#handlebars-helpers-reference_image">Image Helpers</li>
-    <li><a href="#handlebars-helpers-reference_inflection">Inflection Helpers</li>
-		<li><a href="#handlebars-helpers-reference_injection">Injection Helpers</li>
-		<li><a href="#handlebars-helpers-reference_markdown">Markdown Helpers</li>
-		<li><a href="#handlebars-helpers-reference_math">Math Helpers</li>
-		<li><a href="#handlebars-helpers-reference_number">Number Helpers</li>
-		<li><a href="#handlebars-helpers-reference_object">Object Helpers</li>
-		<li><a href="#handlebars-helpers-reference_operator">Operator Helpers</li>
-		<li><a href="#handlebars-helpers-reference_string">String Helpers</li>
-		<li><a href="#handlebars-helpers-reference_url">URL Helpers</li>
-		<li><a href="#handlebars-helpers-reference_misc">Miscellaneous Helpers</li>
-    </ul>
+    <li><a href="#handlebars-helpers-reference_array">Array Helpers</a></li>
+    <li><a href="#handlebars-helpers-reference_collection">Collection Helpers</a></li>
+    <li><a href="#handlebars-helpers-reference_comparison">Comparison Helpers</a></li>
+    <li><a href="#handlebars-helpers-reference_control-flow">Control-Flow Helpers</a></li>
+    <li><a href="#handlebars-helpers-reference_date">Date Helpers</a></li>
+    <li><a href="#handlebars-helpers-reference_html">HTML Helpers</a></li>
+    <li><a href="#handlebars-helpers-reference_image">Image Helpers</a></li>
+    <li><a href="#handlebars-helpers-reference_inflection">Inflection Helpers</a></li>
+		<li><a href="#handlebars-helpers-reference_injection">Injection Helpers</a></li>
+		<li><a href="#handlebars-helpers-reference_markdown">Markdown Helpers</a></li>
+		<li><a href="#handlebars-helpers-reference_math">Math Helpers</a></li>
+		<li><a href="#handlebars-helpers-reference_number">Number Helpers</a></li>
+		<li><a href="#handlebars-helpers-reference_object">Object Helpers</a></li>
+		<li><a href="#handlebars-helpers-reference_operator">Operator Helpers</a></li>
+		<li><a href="#handlebars-helpers-reference_string">String Helpers</a></li>
+		<li><a href="#handlebars-helpers-reference_url">URL Helpers</a></li>
+		<li><a href="#handlebars-helpers-reference_misc">Miscellaneous Helpers</a></li>
+  </ul>
 </div>
+
 
 This page describes all of the Handlebars helpers supported on the Stencil framework. It includes helpers that are custom to, or customized for, Stencil.
 
@@ -1182,7 +1183,7 @@ The `getImage` helper is custom to Stencil. It returns the URL for an image of t
 This helper's parameters are:
 
 - `stencilImage`: a StencilImage.
-- `size`: a string.
+- `size`: a string referencing a key in the `theme_settings` object.
 - `defaultImage` (optional): a string.
 
 Here is an example:
@@ -1195,12 +1196,54 @@ You can use the optional `defaultImage` parameter to specify an image that will 
 
 ### {{getImageSrcset}}
 
-This helper is intended to be used with `{{getImage}}`. [Srcset](https://developer.mozilla.org/en-US/docs/Web/HTML/Element/img#attr-srcset) returns a list of images sizes. 
+The `getImageSrcset` helper is a replacement for `getImage` which allows you to generate either a single image URL (for an `<img>` `src`) or a list of image sizes for `srcset`. [Srcset](https://developer.mozilla.org/en-US/docs/Web/HTML/Element/img#attr-srcset) allows you to specify a list of sizes from which the browser may choose, based on the expected size of the image on the page, the device's pixel density, and other factors.
 
-If no parameters are passed in then it return the default sizes. 
+Similar to `getImage`, it accepts an `stencilImage` parameter, and optionally, a `defaultImage` to use as a fallback.
 
-- `url` : Url  of the image
-- `sizes` : Image sizes
+- `stencilImage`: a StencilImage
+- `defaultImage` : Image sizes
+- Image sizes specified as named parameters on the helper
+
+You can then specify what sizes you want as named arguments on the helper.
+
+**Default sizes**
+
+By specifying `use_default_sizes=true` on the helper, a `srcset` string will be constructed with a set of sizes chosen by BigCommerce to be optimal for most uses.
+```html
+{{getImageSrcset image use_default_sizes=true}}
+{{getImageSrcset image "https://place-hold.it/500x300" use_default_sizes=true}}
+```
+
+**Specifying a single '1x' size**
+
+By specifying a single size as the '1x', size, you can choose to get an image at any size of your choosing. You can reference a value from the `theme_settings` object (similar to `getImage`), or you can specify your own size inline. Note that `getImageSrcset` does not require `theme_settings` keys to be wrapped in quotes, they should be referenced directly.
+
+```html
+{{getImageSrcset image 1x=1x=theme_settings.zoom_size}}
+{{getImageSrcset image 1x="1280x800"}}
+{{getImageSrcset image 1x="1280w"}}
+```
+
+**Specifying a custom srcset based on pixel density**
+
+By specifying several sizes using the pixel density descriptor, you can generate a srcset of different image resolutions for different pixel density screens as described [here](https://developer.mozilla.org/en-US/docs/Learn/HTML/Multimedia_and_embedding/Responsive_images#Resolution_switching_Same_size_different_resolutions). For example, you can specify a `2x` image for Retina screens, and a `1x` image for normal screens.
+
+As above, you can reference `theme_settings` keys or specify your own size inline.
+```html
+{{getImageSrcset image 1x="1280w" 2x="2560w"}}
+{{getImageSrcset image 1x="800w" 1.5x="1200w" 2x="1600w"}}
+{{getImageSrcset image 1x="640x640" 2x="1280x1280"}}
+```
+
+**Specifying a custom srcset based on inherent width**
+
+By specifying several sizes using the inherent width descriptor, you can generate a srcset of different image resolutions based on width, which can in turn be selected by the browser based on the expected size of the image when the page is painted. It is recommended to use this together with a `sizes` attribute on the `<img>` as described [here](https://developer.mozilla.org/en-US/docs/Learn/HTML/Multimedia_and_embedding/Responsive_images#Resolution_switching_Different_sizes). In Cornerstone, this is handled automatically via JavaScript.
+
+As above, you can reference `theme_settings` keys or specify your own size inline.
+```html
+{{getImageSrcset image 100w="100w" 200w="200w" 300w="300w"}}
+```
+
 
 **HTML Use**
 
@@ -1211,18 +1254,18 @@ If no parameters are passed in then it return the default sizes.
 **Returns**
 
 ```html
-<img src="https://cdn11.bigcommerce.com/s-abc123/images/stencil/640x640/products/86/286/ablebrewingsystem4_1024x1024__07155.1456436672.jpg?c=2" alt="" title="" data-sizes="auto" srcset="https://cdn11.bigcommerce.com/s-abc123/images/stencil/1280x1280/products/86/286/ablebrewingsystem4_1024x1024__07155.1456436672.jpg?c=2 100w, https://cdn11.bigcommerce.com/s-abc123/images/stencil/160x160/products/86/286/ablebrewingsystem4_1024x1024__07155.1456436672.jpg?c=2 200w,https://cdn11.bigcommerce.com/s-abc123/images/stencil/160x160/products/86/286/ablebrewingsystem4_1024x1024__07155.1456436672.jpg?c=2 300w" class="card-image lazyautosizes lazyloaded" loading="lazy" sizes="263px">
+<img src="https://cdn11.bigcommerce.com/s-abc123/images/stencil/640x640/products/86/286/ablebrewingsystem4_1024x1024__07155.1456436672.jpg?c=2" srcset="https://cdn11.bigcommerce.com/s-abc123/images/stencil/100w/products/86/286/ablebrewingsystem4_1024x1024__07155.1456436672.jpg?c=2 100w, https://cdn11.bigcommerce.com/s-abc123/images/stencil/200w/products/86/286/ablebrewingsystem4_1024x1024__07155.1456436672.jpg?c=2 200w,https://cdn11.bigcommerce.com/s-abc123/images/stencil/300w/products/86/286/ablebrewingsystem4_1024x1024__07155.1456436672.jpg?c=2 300w" />
 ```
 
 **HTML Use**
 ```html
-<img src="{{getImage image "default"}}" srcset="{{getImageSrcset image 1x="1000x1000" 2x="2000x2000"}}" />
+<img src="{{getImageSrcSet image 1x="1000x1000"}}" srcset="{{getImageSrcset image 1x="1000x1000" 2x="2000x2000"}}" />
 ```
 
 **Returns**
 
 ```html
-<img src="https://cdn11.bigcommerce.com/s-abc123/images/stencil/640x640/products/86/286/ablebrewingsystem4_1024x1024__07155.1456436672.jpg?c=2" alt="" title="" data-size="auto" srcset="https://cdn11.bigcommerce.com/s-abc123/images/stencil/640x640/products/86/286/ablebrewingsystem4_1024x1024__07155.1456436672.jpg?c=2 1x, https://cdn11.bigcommerce.com/s-abc123/images/stencil/640x640/products/86/286/ablebrewingsystem4_1024x1024__07155.1456436672.jpg?c=2 2x" class="card-image lazyautosizes lazyloaded" loading="lazy" sizes="263px">
+<img src="https://cdn11.bigcommerce.com/s-abc123/images/stencil/1000x1000/products/86/286/ablebrewingsystem4_1024x1024__07155.1456436672.jpg?c=2" srcset="https://cdn11.bigcommerce.com/s-abc123/images/stencil/1000x1000/products/86/286/ablebrewingsystem4_1024x1024__07155.1456436672.jpg?c=2 1x, https://cdn11.bigcommerce.com/s-abc123/images/stencil/2000x2000/products/86/286/ablebrewingsystem4_1024x1024__07155.1456436672.jpg?c=2 2x" />
 ```
 
 
