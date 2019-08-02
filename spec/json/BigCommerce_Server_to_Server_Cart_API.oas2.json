@@ -45,7 +45,8 @@
                         "description": "Required if the product has variants"
                       },
                       "list_price": {
-                        "type": "number"
+                        "type": "number",
+                        "description": "Optional price override"
                       },
                       "option_selections": {
                         "type": "array",
@@ -998,7 +999,8 @@
                         "description": "Required if the product has variants"
                       },
                       "list_price": {
-                        "type": "number"
+                        "type": "number",
+                        "description" : "Optional price override"
                       },
                       "option_selections": {
                         "type": "array",
@@ -2062,7 +2064,8 @@
                       "description": "Required if the product has variants"
                     },
                     "list_price": {
-                      "type": "number"
+                      "type": "number",
+                      "description" : "Optional price override"
                     },
                     "option_selections": {
                       "type": "array",
@@ -6803,7 +6806,7 @@
                   },
                   "list_price": {
                     "type": "number",
-                    "description": "Item's list price, as quoted by the manufacturer/distributor."
+                    "description": "Item's list price, as quoted by the manufacturer/distributor. Optional price override."
                   },
                   "sale_price": {
                     "type": "number",
@@ -7031,7 +7034,7 @@
                   },
                   "list_price": {
                     "type": "number",
-                    "description": "Item's list price, as quoted by the manufacturer/distributor."
+                    "description": "Item's list price, as quoted by the manufacturer/distributor. Optional price override."
                   },
                   "sale_price": {
                     "type": "number",
@@ -7189,7 +7192,7 @@
               },
               "list_price": {
                 "type": "string",
-                "description": "Price of the item. With or without tax depending on your stores set up."
+                "description": "Price of the item. With or without tax depending on your stores set up. Optional price override."
               }
             }
           }
@@ -7422,7 +7425,7 @@
             },
             "list_price": {
               "type": "number",
-              "description": "Item's list price, as quoted by the manufacturer/distributor."
+              "description": "Item's list price, as quoted by the manufacturer/distributor. Optional price override."
             },
             "sale_price": {
               "type": "number",
@@ -7646,7 +7649,7 @@
             },
             "list_price": {
               "type": "number",
-              "description": "Item's list price, as quoted by the manufacturer/distributor."
+              "description": "Item's list price, as quoted by the manufacturer/distributor. Optional price override."
             },
             "sale_price": {
               "type": "number",
