@@ -283,7 +283,7 @@ When you navigate to your designated port (e.g http://localhost:3000), you shoul
 <!-- theme: warning -->
 
 ### Troubleshooting Token Error
-> If you receive the following error message, `Unauthorized, please use a valid username/token`, then store token authentication has failed. In this case, please evisit [Authorizing and Initializing the Stencil CLI](https://stencil-docs-reorg.docs.stoplight.io/installing-stencil-CLI/installing-stencil?__build_id=30723#authorizing-authentication).
+> If you receive the following error message, `Unauthorized, please use a valid username/token`, then store token authentication has failed. In this case, please evisit [Authorizing and Initializing the Stencil CLI](/stencil-docs/installing-stencil-cli/stencil-cli-options-and-commands).
 
 </div>
 </div>
@@ -301,7 +301,7 @@ To run Stencil locally while also launching a local version of Theme Editor, sta
 
 `stencil start -e`
 
-The Theme Editor server will run in parallel with the stencil theme at [http://localhost:8181](http://localhost:8181/).
+The Theme Editor server will run in parallel with the stencil theme at https://localhost:8181.
 
 ### Customizing Theme Editor's Port
 
@@ -310,7 +310,7 @@ You can override Theme Editor's default port by appending the "--theme-editor-po
 `stencil start -e --theme-editor-port 9000
 `
 
-To verify Theme Editor's launch, you would then go to http://localhost:9000. Using this option, you can specify any port between `1024` and `65535`.
+To verify Theme Editor's launch, you would then go to https://localhost:9000. Using this option, you can specify any port between `1024` and `65535`.
 
 ---
 
@@ -330,11 +330,10 @@ Kill the current Stencil server (_ctrl + c will do the job_) and restart Stencil
 
 `stencil start`
 
-
 ---
 
 ## Resources
 
 ### Related Articles
-* [Authorizing and Initializing the CLI](/stencil-docs/installing-stencil-cli/authorizing-and-initializing)
+* [Authorizing and Initializing the CLI](/stencil-docs/installing-stencil-cli/installing-stencil)
 * [Troubleshooting Your Setup](/stencil-docs/installing-stencil-cli/troubleshooting-your-setup)
