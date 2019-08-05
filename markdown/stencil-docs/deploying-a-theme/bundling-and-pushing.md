@@ -91,7 +91,7 @@ Check the resulting `.zip` file's size before you proceed. The zipped bundle sho
 
 The `stencil push` command is available only for themes that you have successfully initialized using an OAuth token (with `Themes:modify scope`). This command bundles your theme and uploads it to the associated store, in one continuous process.
 
-For further requirements and usage details, please see the _Command-Line Upload_ in [Uploading Your Theme](bundling_uploading-your-theme) below.
+For further requirements and usage details, please see the _Command-Line Upload_ in [Uploading Your Theme](/stencil-docs/deploying-a-theme/bundling-and-pushing#bundling_uploading-your-theme) below.
 
 For file-size error diagnostics and workarounds, please _Check/Adjust Zipfile's Size_ above.
 

@@ -90,7 +90,7 @@ This hidden content includes many more key/value pairs that support translation.
 
 You can provide values for all of checkout's supported translation keys – for all the languages you want to support – even without direct access to the hidden parts of the checkout template. Here is how:
 
-1. Download and unzip a local copy of the [opt-checkout-en.json.zip file](https://storage.googleapis.com/bigcommerce-production-dev-center/template-files/opt-checkout-en.json.zip), also linked above in [Browsing Hidden Translation Keys](multi_browsing).
+1. Download and unzip a local copy of the [opt-checkout-en.json.zip file](https://storage.googleapis.com/bigcommerce-production-dev-center/template-files/opt-checkout-en.json.zip), also linked above in [Browsing Hidden Translation Keys](/stencil-docs/localization/translation-keys).
 
 2. Copy and paste the whole file's contents into your theme's `en.json` file and into the `.json` file for each language you want to translate your checkout page's text. To see requirements for naming and deploying these translation files, please this documentation's [Internationalization section](/stencil-docs/internationalization-and-localization/).
 

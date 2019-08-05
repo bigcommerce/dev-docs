@@ -12,9 +12,9 @@
 
 Stencil is BigCommerce's theme engine. It incorporates industry best practices in technology, design standards, SEO, and allows developers to build a stunning storefront that engages shoppers and encourages checkouts on any device. Stencil themes are supported on the [following browsers](https://support.bigcommerce.com/s/article/Themes-Supported-Browsers). Stencil is responsible for powering the BigCommerce [Cornerstone theme](#about_cornerstone).
 
-The [Store Design](/configure-store-design-ui/store-design-overview) tool available on Stencil themes allows merchants to customize a storefront’s look and feel with no coding, making customizations possibble by a wide range of users.  Store Design enables quick and easy customization of a theme's colors, typography, banners, headings, carousel, and footer. It also enables customization of a storefront's layout characteristics, such as the number of products displayed in various panels, category pages, and brand pages. For details, see [Personalizing Your Theme](https://support.bigcommerce.com/articles/Learning/Personalizing-your-New-Theme) (BigCommerce Knowledge Base). 
+The [Store Design](/stencil-docs/configure-store-design-ui/store-design-overview) tool available on Stencil themes allows merchants to customize a storefront’s look and feel with no coding, making customizations possibble by a wide range of users.  Store Design enables quick and easy customization of a theme's colors, typography, banners, headings, carousel, and footer. It also enables customization of a storefront's layout characteristics, such as the number of products displayed in various panels, category pages, and brand pages. For details, see [Personalizing Your Theme](https://support.bigcommerce.com/articles/Learning/Personalizing-your-New-Theme) (BigCommerce Knowledge Base). 
 
-BigCommerce Stencil themes are responsive, mobile friendly themes, allowing shoppers to have a first class experience across any device. Each Stencil theme can contain one to four variations. You can optimize individual variations for specific markets, audiences and styles, while still managing and distributing all of these variations as one theme. 
+BigCommerce Stencil themes are responsive, mobile friendly themes, allowing shoppers to have a first class experience across any device. Each Stencil theme can contain one to four variations. You can optimize individual variations for specific markets, audiences and styles, while still managing and distributing all of these variations as one theme.
 
 ---
 
@@ -22,7 +22,7 @@ BigCommerce Stencil themes are responsive, mobile friendly themes, allowing shop
 
 ## Cornerstone
 
-Stencil powers BigCommerce’s [Cornerstone](https://github.com/bigcommerce/cornerstone) theme, which serves as your base Stencil theme for creating custom sites. Cornerstone is available open source on [Github](https://github.com/bigcommerce/cornerstone). 
+Stencil powers BigCommerce’s [Cornerstone](https://github.com/bigcommerce/cornerstone) theme, which serves as your base Stencil theme for creating custom sites. Cornerstone is available open source on [Github](https://github.com/bigcommerce/cornerstone).
 
 The Cornerstone theme comes with three style variations that are each fully responsive and ideal for a large catalog. The variations include:
 
@@ -64,10 +64,10 @@ Foundation offers the framework for creating a responsive theme. You have the op
 <div class="HubBlock--callout">
 <div class="CalloutBlock--">
 <div class="HubBlock-content">
-    
+
 <!-- theme:  -->
 
-### Edit HTML and CSS Files from the BigCommerce Control Panel 
+### Edit HTML and CSS Files from the BigCommerce Control Panel
 > If you are more comfortable working in HTML and CSS, Stencil's *Edit Theme Files* feature allows you to directly edit many of your theme's files from the Control Panel. See [Edit Theme Files](https://www.youtube.com/watch?v=waJ1dg_dAh8&index=related) to learn how (Youtube).
 
 </div>
@@ -113,7 +113,7 @@ If you need direct assistance, you can contact BigCommerce Support through [Live
 * [Store Design](https://forum.bigcommerce.com/s/article/Store-Design) (BigCommerce Knowledge Base)
 * [Personalizing Your Theme](https://support.bigcommerce.com/articles/Learning/Personalizing-your-New-Theme) (BigCommerce Knowledge Base)
 
-### Sample Apps 
+### Sample Apps
 
 * [Cornerstone Theme Demo](http://cornerstone-light-demo.mybigcommerce.com/)
 
@@ -121,4 +121,3 @@ If you need direct assistance, you can contact BigCommerce Support through [Live
 * [stencil-cli Repository](https://github.com/bigcommerce/stencil-cli) (BigCommerce Github)
 * [Cornerstone Repository](https://github.com/bigcommerce/cornerstone) (BigCommerce Github)
 * [Cornerstone Theme Manual](https://support.bigcommerce.com/s/article/Cornerstone-Theme-Manual) (BigCommerce Knowledge Base)
-

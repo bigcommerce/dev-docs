@@ -42,7 +42,7 @@ lineNumbers: true
 
 In production, Handlebars statements run on the server side, generating HTML received by the shopper’s browser.
 
-View the [full Handlebars Helpers Reference](/reference-docs/handlebars-helpers-reference) to learn about the helpers avilable on a Stencil storefront.
+View the [full Handlebars Helpers Reference](/stencil-docs/reference-docs/handlebars-helpers-reference) to learn about the helpers avilable on a Stencil storefront.
 
 ---
 
@@ -50,7 +50,7 @@ View the [full Handlebars Helpers Reference](/reference-docs/handlebars-helpers-
 
 ## Stencil Objects Overview
 
-Stencil Objects are the individual Javascript objects which are rendered onto a Stencil storefront. Below is the Javascript Object Notation (JSON) for a [Banner object](/stencil-docs/stencil-object-model-reference/stencil-objects/global-objects/) rendered on a category page of a storefront.
+Stencil Objects are the individual Javascript objects which are rendered onto a Stencil storefront. Below is the Javascript Object Notation (JSON) for a [Banner object](https://developer.bigcommerce.com/stencil-docs/reference-docs/global-objects-and-properties#global-objects_banner) rendered on a category page of a storefront.
 
 <div class="HubBlock-header">
     <div class="HubBlock-header-title flex items-center">
@@ -106,7 +106,7 @@ BigCommerce Stencil themes utilize YAML Front Matter on template pages. Front Ma
 
 When utilized, Front Matter must be the opening text of a file and must take the form of valid YAML set between triple-dashed lines.
 
-See our [Front Matter Reference](/reference-docs/front-matter-reference) to see what Front Matter attributes are available on a Stencil storefront. Below is a snippet from the base Cornerstone theme's <span class="fn">home.html</span> file, showing how Front Matter can be used in a theme.
+See our [Front Matter Reference](/stencil-docs/reference-docs/front-matter-reference) to see what Front Matter attributes are available on a Stencil storefront. Below is a snippet from the base Cornerstone theme's <span class="fn">home.html</span> file, showing how Front Matter can be used in a theme.
 
 <div class="HubBlock-header">
     <div class="HubBlock-header-title flex items-center">

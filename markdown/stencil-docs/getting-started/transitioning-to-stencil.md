@@ -33,7 +33,7 @@ For complete control over a theme's appearance and logic including the ability t
 
 ## Transition to Stencil from Blueprint
 
-All new BigCommerce storefronts are powered by the Stencil theme engine. However, some BigCommerce stores still use our legacy theme framework, Blueprint. If you're still using this legacy framework, consider switching to Stencil. Transitioning to Stencil allows developers to take advantage of new features, including [Google Analytics Enhanced Ecommerce](/developing-further/google-analytics-enhanced-ecommerce), [Price Lists](/api-docs/catalog/price-list-overview) and [Google AMP](/developing-further/google-amp). Stencil also features a CLI that allows you to design and preview storefronts locally before pushing them to production. BigCommerce's base Stencil theme, Cornerstone, is also natively mobile responsive.
+All new BigCommerce storefronts are powered by the Stencil theme engine. However, some BigCommerce stores still use our legacy theme framework, Blueprint. If you're still using this legacy framework, consider switching to Stencil. Transitioning to Stencil allows developers to take advantage of new features, including [Google Analytics Enhanced Ecommerce](stencil-docs/developing-further/google-analytics-enhanced-ecommerce), [Price Lists](/api-docs/catalog/price-list-overview) and [Google AMP](stencil-docs/developing-further/google-amp). Stencil also features a CLI that allows you to design and preview storefronts locally before pushing them to production. BigCommerce's base Stencil theme, Cornerstone, is also natively mobile responsive.
 
 ### Technical Differences
 
@@ -41,10 +41,7 @@ All new BigCommerce storefronts are powered by the Stencil theme engine. However
 
 Dynamic BigCommerce store data in Stencil themes are represented by Handlebars.js, a Javascript templating language. Dynamic content was previously represented by PHP variables enclosed within %% markers.
 
-For details on using Handlebars to surface objects in Stencil, see the following resources:
-
-* [Handlebars Overview](https://developer.bigcommerce.com/stencil-docs/handlebars-syntax-and-helpers/handlebars-overview)
-* [Global Objects and Properties Overview](https://developer.bigcommerce.com/stencil-docs/stencil-object-model-reference/stencil-objects/global-objects/global-objects-and-properties-overview)
+For details on using Handlebars to surface objects in Stencil, see [Stencil Technlogy Stack](/stencil-docs/getting-started/stencil-technology-stack).
 
 ### WebDav vs CLI
 
