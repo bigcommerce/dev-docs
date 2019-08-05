@@ -482,6 +482,7 @@
     },
     "Return": {
       "type": "object",
+      "description": "A view of a return",
       "properties": {
         "items": {
           "type": "array",
@@ -522,6 +523,7 @@
     },
     "ReturnItem": {
       "type": "object",
+      "description": "A view of a return item",
       "properties": {
         "id": {
           "type": "integer",
@@ -549,6 +551,24 @@
               "type": "integer",
               "format": "int64",
               "description": "Unique identifier of the preferred outcome"
+            },
+            "label": {
+              "type": "string",
+              "description": "A displayable label for the preferred outcome"
+            }
+          }
+        },
+        "reason": {
+          "type": "object",
+          "properties": {
+            "id": {
+              "type": "integer",
+              "format": "int64",
+              "description": "Unique identifier of the reason"
+            },
+            "label": {
+              "type": "string",
+              "description": "A displayable label for the reason"
             }
           }
         },
