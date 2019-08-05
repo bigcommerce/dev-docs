@@ -131,7 +131,7 @@
         "tags": [
           "Returns"
         ],
-        "description": "Applies status updates to a return a collection of returns",
+        "description": "Applies status updates to a collection of returns",
         "operationId": "UpdateReturnStatuses",
         "parameters": [
           {
@@ -202,13 +202,13 @@
           },
           {
             "name": "page",
-            "description": "Specifies the page number in a limited (paginated) collection of return requests",
+            "description": "Specifies the page number in a limited (paginated) collection of returns",
             "in": "query",
             "type": "integer"
           },
           {
             "name": "limit",
-            "description": "Controls the number of items per page in a limited (paginated) collection of products",
+            "description": "Controls the number of items per page in a limited (paginated) collection of returns",
             "in": "query",
             "type": "integer"
           },
@@ -260,13 +260,13 @@
         }
       }
     },
-    "/orders/{order_id}/return/{return_id}/receipts": {
+    "/orders/{order_id}/return/{return_id}/received-items": {
       "put": {
         "tags": [
           "Returns"
         ],
         "description": "Updates the received status of one or more return items",
-        "operationId": "UpdateReceipts",
+        "operationId": "UpdateReceivedItems",
         "parameters": [
           {
             "in": "path",
@@ -284,10 +284,10 @@
           },
           {
             "in": "body",
-            "name": "receipts",
+            "name": "received_items",
             "required": true,
             "schema": {
-              "$ref": "#/definitions/UpdateReceiptsRequest"
+              "$ref": "#/definitions/UpdateReceivedItemsRequest"
             }
           }
         ],
@@ -300,7 +300,7 @@
             "schema": {
               "properties": {
                 "data": {
-                  "$ref": "#/definitions/UpdateReceiptsResponse"
+                  "$ref": "#/definitions/UpdateReceivedItemsResponse"
                 },
                 "errors": {
                   "type": "array",
@@ -317,13 +317,13 @@
         }
       }
     },
-    "/orders/{order_id}/returns/{return_id}/reviews": {
+    "/orders/{order_id}/returns/{return_id}/reviewed-items": {
       "put": {
         "tags": [
           "Returns"
         ],
         "description": "Updates the reviewed status of one or more return items",
-        "operationId": "UpdateReviews",
+        "operationId": "UpdateReviewedItems",
         "parameters": [
           {
             "in": "path",
@@ -341,10 +341,10 @@
           },
           {
             "in": "body",
-            "name": "reviews",
+            "name": "reviewed_items",
             "required": true,
             "schema": {
-              "$ref": "#/definitions/UpdateReviewsRequest"
+              "$ref": "#/definitions/UpdateReviewedItemsRequest"
             }
           }
         ],
@@ -357,7 +357,7 @@
             "schema": {
               "properties": {
                 "data": {
-                  "$ref": "#/definitions/UpdateReviewsResponse"
+                  "$ref": "#/definitions/UpdateReviewedItemsResponse"
                 },
                 "errors": {
                   "type": "array",
@@ -447,15 +447,14 @@
     "CreateReturnRequestItem": {
       "type": "object",
       "required": [
-        "order_product_id",
+        "reference_id",
         "quantity",
         "preferred_outcome_id",
         "reason_id"
       ],
       "properties": {
-        "order_product_id": {
-          "type": "integer",
-          "format": "int64"
+        "reference_id": {
+          "$ref": "#/definitions/ItemReferenceId"
         },
         "quantity": {
           "type": "integer",
@@ -490,10 +489,15 @@
             "$ref": "#/definitions/ReturnItem"
           }
         },
-        "total_price": {
+        "total": {
           "type": "string",
           "format": "decimal",
           "description": "The total price of the items being returned"
+        },
+        "currency": {
+          "type": "string",
+          "format": "iso-4217",
+          "description": "The transactional currency of the return and the associated order"
         },
         "customer": {
           "type": "object",
@@ -530,16 +534,14 @@
           "format": "int64",
           "description": "The unique identifier of this return item"
         },
-        "order_product_id": {
-          "type": "integer",
-          "format": "int64",
-          "description": "The ID of the order product associated with this item"
+        "reference_id": {
+          "$ref": "#/definitions/ItemReferenceId"
         },
         "quantity": {
           "type": "integer",
           "description": "The quantity of items for which a return was requested"
         },
-        "total_price": {
+        "total": {
           "type": "string",
           "format": "decimal",
           "description": "The total price of the line item"
@@ -595,6 +597,10 @@
             "pending_quantity": {
               "type": "integer",
               "description": "The quantity of items pending receipt by the merchant"
+            },
+            "rejected_quantity": {
+              "type": "integer",
+              "description": "The quantity of items rejected by the merchant"
             }
           }
         }
@@ -714,7 +720,7 @@
         }
       }
     },
-    "UpdateReceiptsRequest": {
+    "UpdateReceivedItemsRequest": {
       "type": "array",
       "items": {
         "type": "object",
@@ -740,7 +746,7 @@
         }
       }
     },
-    "UpdateReceiptsResponse": {
+    "UpdateReceivedItemsResponse": {
       "type": "array",
       "items": {
         "type": "object",
@@ -748,7 +754,7 @@
           "item_id": {
             "type": "integer",
             "format": "int64",
-            "description": "The ID of the item for which receipt status was updated"
+            "description": "The ID of the item for which received item status was updated"
           },
           "received_quantity": {
             "type": "integer",
@@ -763,7 +769,7 @@
         }
       }
     },
-    "UpdateReviewsRequest": {
+    "UpdateReviewedItemsRequest": {
       "type": "array",
       "items": {
         "type": "object",
@@ -794,7 +800,7 @@
         }
       }
     },
-    "UpdateReviewsResponse": {
+    "UpdateReviewedItemsResponse": {
       "type": "array",
       "items": {
         "type": "object",
@@ -827,10 +833,8 @@
       "items": {
         "type": "object",
         "properties": {
-          "order_product_id": {
-            "type": "integer",
-            "format": "int64",
-            "description": "The ID of the order product"
+          "reference_id": {
+            "$ref": "#/definitions/ItemReferenceId"
           },
           "name": {
             "type": "string",
@@ -840,10 +844,10 @@
             "type": "integer",
             "description": "The maximum quantity of this item that can presently be requested for return"
           },
-          "total_price": {
+          "total": {
             "type": "string",
             "format": "decimal",
-            "description": "The value of this line item"
+            "description": "The total price of this line item"
           },
           "options": {
             "type": "array",
@@ -865,6 +869,24 @@
           }
         }
       }
+    },
+    "ItemReferenceId": {
+      "type": "object",
+      "properties": {
+        "type": {
+          "type": "string",
+          "description": "The reference type",
+          "enum": ["ORDER_PRODUCT"]
+        },
+        "value": {
+          "type": "string",
+          "description": "The value identifying the returned item"
+        }
+      },
+      "required": [
+        "type",
+        "value"
+      ]
     }
   }
 }
