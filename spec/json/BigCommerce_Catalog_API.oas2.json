@@ -45062,7 +45062,10 @@
           "example": 0
         },
         "value_data": {
-          "type": "object",
+          "type": [
+            "object",
+            "null"
+          ],
           "description": "Extra data describing the value, based on the type of option or modifier with which the value is associated. The `swatch` type option can accept an array of `colors`, with up to three hexidecimal color keys; or an `image_url`, which is a full image URL path including protocol. The `product list` type option requires a `product_id`. The `checkbox` type option requires a boolean flag, called `checked_value`, to determine which value is considered to be the checked state. If no data is available, returns `null`.\n\n"
         }
       },
@@ -45126,11 +45129,9 @@
       "type": "object"
     },
     "OptionValuePost": {
-      "type": "object",
       "description": "The model for a POST to create option values on a product.",
       "allOf": [
         {
-          "type": "object",
           "description": "Common Option Value properties.",
           "title": "Option Value Base",
           "properties": {
@@ -45168,14 +45169,13 @@
           ]
         }
       ],
-      "title": "Option Value Post"
+      "title": "Option Value Post",
+      "type": "object"
     },
     "OptionValuePut": {
-      "type": "object",
       "description": "The model for a PUT to update option values on a product.",
       "allOf": [
         {
-          "type": "object",
           "description": "Common Option Value properties.",
           "title": "Option Value Base",
           "properties": {
@@ -45213,7 +45213,6 @@
           ]
         },
         {
-          "type": "object",
           "properties": {
             "id": {
               "type": "integer",
@@ -45225,7 +45224,8 @@
           }
         }
       ],
-      "title": "Option Value Put"
+      "title": "Option Value Put",
+      "type": "object"
     },
     "ProductImageBase": {
       "type": "object",
