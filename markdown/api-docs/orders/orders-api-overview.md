@@ -882,13 +882,13 @@ Not at this time. If an order is created either in the Control Panel or via API,
 - [Orders](/api-docs/getting-started/webhooks/webhook-events#webhook-events_orders)
 
 ### Related Endpoints
-- [Orders](/api-reference/orders/orders-api/orders/postorders)
-- [Order Shipments](/api-reference/orders/orders-api/order-shipments/postordersorderidshipments)
-- [Order Status](/api-reference/orders/orders-api/order-status/getorderstatuses)
-- [Shipping Quotes](/api-reference/orders/orders-api/order-shipping-addresses-quotes/getordersorderidshippingaddressesshippingaddressidshippingquotes)
-- [Order Products](/api-reference/orders/orders-api/order-products/getordersorderidproducts)
-- [Order Shipping Address](/api-reference/orders/orders-api/order-shipping-addresses/getordersorderidshippingaddresses)
-- [Order Coupons](/api-reference/orders/orders-api/order-coupons/getordersorderidcoupons)
+- [Orders](https://developer.bigcommerce.com/api-reference/orders/orders-api/orders/createanorder)
+- [Order Shipments](/api-reference/orders/orders-api/order-shipments/createordershipments)
+- [Order Status](/api-reference/orders/orders-api/order-status/getaorderstatus)
+- [Shipping Quotes](/api-reference/orders/orders-api/order-shipping-addresses-quotes/getshippingquotes)
+- [Order Products](/api-reference/orders/orders-api/order-products/getanorderproduct)
+- [Order Shipping Address](/api-reference/orders/orders-api/order-shipping-addresses/getashippingaddress)
+- [Order Coupons](/api-reference/orders/orders-api/order-coupons/getallordercoupons)
 
 ### Related Articles
 - [Order Status](https://support.bigcommerce.com/s/article/Order-Statuses#rename) (BigCommerce Support)
