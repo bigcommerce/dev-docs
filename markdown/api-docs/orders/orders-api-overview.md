@@ -607,15 +607,15 @@ We will go over creating a shipment for an order, shipping quotes, shipping carr
 
 Once an Order has products, a billing address and at least one shipping address a order shipment can be created. Order shipments are a way to mark an order as shipped with the shipping information.
 
-To get the `order_address_id`  use the ID returned in [Order Shipping Address](https://developer.bigcommerce.com/api-reference/orders/orders-api/order-shipping-addresses/getashippingaddress).
+To get the `order_address_id`  use the ID returned in [Order Shipping Address](/api-reference/orders/orders-api/order-shipping-addresses/getashippingaddress).
 
-The items array requires the product quantity and `order_product_id`. The `order_product_id` is the ID returned from [Order Products](https://developer.bigcommerce.com/api-reference/orders/orders-api/order-products/getanorderproduct).
+The items array requires the product quantity and `order_product_id`. The `order_product_id` is the ID returned from [Order Products](/api-reference/orders/orders-api/order-products/getanorderproduct).
 
 There does not need to be a shipping provider. If the shipping provider is not sent in at all, it will default to custom and a tracking link is not generated. To have the tracking link generated without a shipping provider, provide an empty string. To add a shipping provider, see the available options on [Order Shipment](/api-reference/orders/orders-api/models/ordershipment).
 
 Once the order shipment is created, it will automatically send out an email to the billing address with the shipment confirmation. To stop this behavior adjust the [Order Notification](https://support.bigcommerce.com/s/article/Customer-Order-Notifications#enable) settings in the Control Panel.
 
-If the order shipment is deleted, the status of the shipment is still in shipped. The status will need to be [manually changed](/api-reference/orders/orders-api/order-status/getorderstatuses).
+If the order shipment is deleted, the status of the shipment is still in shipped. The status will need to be [manually changed](/api-reference/orders/orders-api/order-status/getorderstatus).
 
 <br>
 
