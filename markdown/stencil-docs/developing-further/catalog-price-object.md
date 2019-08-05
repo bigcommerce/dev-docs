@@ -261,7 +261,7 @@ This display setting affects how values are returned in the *Catalog Price Objec
 
 #### Configure Tax Display Settings
 ![#### Configure Tax Display Settings
-](https://raw.githubusercontent.com/bigcommerce/dev-docs/master/assets/img/configure_tax_settings.png "#### Configure Tax Display Settings
+](https://raw.githubusercontent.com/bigcommerce/dev-docs/master/assets/img/confige_tax_settings.png "#### Configure Tax Display Settings
 ")
 
 ---
