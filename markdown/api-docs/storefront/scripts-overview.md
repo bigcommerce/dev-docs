@@ -138,6 +138,20 @@ Stencil themes from the marketplace support the [Optimized One-Page Checkout](ht
 - Scripts Manager is only for Stencil themes. Blueprint store users will still need to copy and paste in code.
 - The current visibility options are `storefront`, `checkout`, `all_pages` and `order_confirmation`.
 - Scripts injected via the Scripts API will not render when you are developing a theme locally via Stencil CLI.
+- Each app can have 10 scripts. 
+- Up to five scripts can be installed in a single call. 
+
+```js
+<!-- Global site tag (gtag.js) - Google Analytics -->
+<script async src="https://www.googletagmanager.com/gtag/js?id=GA_TRACKING_ID"></script>
+<script>
+  window.dataLayer = window.dataLayer || [];
+  function gtag(){dataLayer.push(arguments);}
+  gtag('js', new Date());
+
+  gtag('config', 'GA_TRACKING_ID');
+</script>
+```
 
 ---
 
@@ -147,8 +161,8 @@ Stencil themes from the marketplace support the [Optimized One-Page Checkout](ht
 
 | Scope | Visibility |
 | -- | -- |
-| `all_pages` | Add Wishlist </br> Blog List </br> Blog Post</br> Brand Pages </br> All Brands Page </br> Cart </br> Category </br> Checkout </br> Checkout </br> Product Compare </br> Order Confirmation </br> Page </br> Contact Form </br> Product </br> Search </br> All Wishlist </br> Wish List |
-| `storefront` |  Add Wishlist </br> Blog List </br> Blog Post</br> Brand Pages </br> All Brands Page </br> Cart </br> Category </br> Checkout </br> Checkout </br> Product Compare </br> Page </br> Contact Form </br> Product </br> Search </br> All Wishlist </br> Wish List |
+| `all_pages` | Add Wishlist </br> Blog List </br> Blog Post</br> Brand Pages </br> All Brands Page </br> Cart </br> Category </br> Checkout </br> Checkout </br> Product Compare </br> Order Confirmation </br> Page </br> Contact Form </br> Product </br> Search </br> All Wishlist </br> Wish List <br> 404 page |
+| `storefront` |  Add Wishlist </br> Blog List </br> Blog Post</br> Brand Pages </br> All Brands Page </br> Cart </br> Category </br> Checkout </br> Checkout </br> Product Compare </br> Page </br> Contact Form </br> Product </br> Search </br> All Wishlist </br> Wish List <br> 404 page|
 | `checkout` | Checkout | 
 | `order_confirmation` | Order Confirmation | 
 
@@ -157,7 +171,6 @@ Scripts can not be injected to:
 - sitemap.php
 - account.php
 - login.php
-- 404 pages
 
 ---
 

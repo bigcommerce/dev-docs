@@ -2327,7 +2327,11 @@
         "upc": {
           "type": "string",
           "maxLength": 255,
-          "description": "Universal Product Code."
+          "description": "Universal Product Code. Can be written to for custom products and catalog products."
+        },
+        "variant_id": {
+          "type": "integer",
+          "description": "Products `variant_id`. PUT or POST. This field is not available for custom products."
         }
       }
     },
@@ -3512,6 +3516,10 @@
                   "upc": {
                     "type": "string",
                     "example": "01234567890"
+                  },
+                  "variant_id": {
+                    "type": "integer",
+                    "description": "Products `variant_id`. PUT or POST. This field is not available for custom products."
                   }
                 },
                 "required": [
@@ -3913,6 +3921,10 @@
         },
         "upc": {
           "type": "string"
+        },
+        "variant_id": {
+          "type": "integer",
+          "description": "Products `variant_id`. PUT or POST. This field is not available for custom products."
         }
       },
       "required": [
