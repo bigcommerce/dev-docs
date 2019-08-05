@@ -609,7 +609,7 @@ Once an Order has products, a billing address and at least one shipping address 
 
 To get the `order_address_id`  use the ID returned in [Order Shipping Address](https://developer.bigcommerce.com/api-reference/orders/orders-api/order-shipping-addresses/getashippingaddress).
 
-The items array requires the product quantity and `order_product_id`. The `order_product_id` is the ID returned from [Order Products](https://developer.bigcommerce.com/api-reference/orders/orders-api/order-products/getordersorderidproducts).
+The items array requires the product quantity and `order_product_id`. The `order_product_id` is the ID returned from [Order Products](https://developer.bigcommerce.com/api-reference/orders/orders-api/order-products/getanorderproduct).
 
 There does not need to be a shipping provider. If the shipping provider is not sent in at all, it will default to custom and a tracking link is not generated. To have the tracking link generated without a shipping provider, provide an empty string. To add a shipping provider, see the available options on [Order Shipment](/api-reference/orders/orders-api/models/ordershipment).
 
