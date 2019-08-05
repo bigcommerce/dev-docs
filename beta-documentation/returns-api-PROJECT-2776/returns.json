@@ -16,10 +16,22 @@
   "produces": [
     "application/json"
   ],
+  "tags": [
+    {
+      "name": "Returns"
+    },
+    {
+      "name": "Settings"
+    }
+  ],
   "paths": {
     "/store/settings/returns": {
       "get": {
+        "tags": [
+          "Settings"
+        ],
         "description": "Provides the configured returns settings",
+        "operationId": "GetReturnsSettings",
         "produces": [
           "application/json"
         ],
@@ -30,7 +42,331 @@
               "type": "object",
               "properties": {
                 "data": {
-                  "$ref": "#/definitions/Settings"
+                  "$ref": "#/definitions/GetReturnsSettingsResponse"
+                }
+              }
+            }
+          }
+        }
+      }
+    },
+    "/orders/{id}/returnable-items": {
+      "get": {
+        "tags": [
+          "Returns"
+        ],
+        "description": "Provides a collection of returnable items for an order",
+        "operationId": "GetReturnableItems",
+        "parameters": [
+          {
+            "in": "path",
+            "name": "id",
+            "description": "The ID of the order for which a summary should be obtained",
+            "required": true,
+            "type": "integer",
+            "format": "int64"
+          }
+        ],
+        "responses": {
+          "200": {
+            "description": "A collection of returnable items",
+            "schema": {
+              "type": "object",
+              "properties": {
+                "data": {
+                  "$ref": "#/definitions/GetReturnableItemsResponse"
+                }
+              }
+            }
+          }
+        }
+      }
+    },
+    "/orders/{id}/returns": {
+      "post": {
+        "tags": [
+          "Returns"
+        ],
+        "description": "Requests a new return",
+        "operationId": "CreateReturn",
+        "parameters": [
+          {
+            "in": "path",
+            "name": "id",
+            "description": "The ID of the order for which a return should be requested",
+            "required": true,
+            "type": "integer",
+            "format": "int64"
+          },
+          {
+            "in": "body",
+            "name": "return",
+            "description": "Details of the return",
+            "required": true,
+            "schema": {
+              "$ref": "#/definitions/CreateReturnRequest"
+            }
+          }
+        ],
+        "produces": [
+          "application/json"
+        ],
+        "responses": {
+          "201": {
+            "description": "Details of the return",
+            "schema": {
+              "type": "object",
+              "properties": {
+                "data": {
+                  "$ref": "#/definitions/CreateReturnResponse"
+                }
+              }
+            }
+          }
+        }
+      }
+    },
+    "/orders/returns/status-updates": {
+      "post": {
+        "tags": [
+          "Returns"
+        ],
+        "description": "Applies status updates to a return a collection of returns",
+        "operationId": "UpdateReturnStatuses",
+        "parameters": [
+          {
+            "in": "body",
+            "name": "return_status_updates",
+            "description": "A collection of status updates to apply",
+            "required": true,
+            "schema": {
+              "$ref": "#/definitions/UpdateReturnStatusesRequest"
+            }
+          }
+        ],
+        "responses": {
+          "200": {
+            "description": "A collection of return summaries",
+            "schema": {
+              "properties": {
+                "data": {
+                  "$ref": "#/definitions/UpdateReturnStatusesResponse"
+                },
+                "errors": {
+                  "type": "array",
+                  "items": {
+                    "$ref": "#/definitions/Problem"
+                  }
+                },
+                "meta": {
+                  "$ref": "#/definitions/BatchOperationMeta"
+                }
+              }
+            }
+          }
+        }
+      }
+    },
+    "/orders/returns": {
+      "get": {
+        "tags": [
+          "Returns"
+        ],
+        "description": "Provides a collection of return requests",
+        "operationId": "GetReturns",
+        "parameters": [
+          {
+            "in": "query",
+            "name": "id",
+            "type": "integer",
+            "format": "int64"
+          },
+          {
+            "in": "query",
+            "name": "order_id",
+            "type": "integer",
+            "format": "int64"
+          },
+          {
+            "in": "query",
+            "name": "customer_id",
+            "type": "integer",
+            "format": "int64"
+          },
+          {
+            "in": "query",
+            "name": "status",
+            "type": "string",
+            "enum": ["CLOSED", "OPEN", "REMOVED"],
+            "format": "int64"
+          },
+          {
+            "name": "page",
+            "description": "Specifies the page number in a limited (paginated) collection of return requests",
+            "in": "query",
+            "type": "integer"
+          },
+          {
+            "name": "limit",
+            "description": "Controls the number of items per page in a limited (paginated) collection of products",
+            "in": "query",
+            "type": "integer"
+          },
+          {
+            "name": "direction",
+            "description": "Sort direction",
+            "in": "query",
+            "type": "string",
+            "enum": [
+              "asc",
+              "desc"
+            ]
+          },
+          {
+            "name": "sort",
+            "description": "The field name by which to sort results",
+            "in": "query",
+            "type": "string",
+            "enum": [
+              "id",
+              "order_id",
+              "date_modified"
+            ]
+          }
+        ],
+        "responses": {
+          "200": {
+            "description": "A collection of returns",
+            "schema": {
+              "type": "object",
+              "properties": {
+                "data": {
+                  "type": "array",
+                  "items": {
+                    "$ref": "#/definitions/GetReturnsResponse"
+                  }
+                },
+                "meta": {
+                  "type": "object",
+                  "properties": {
+                    "pagination": {
+                      "$ref": "#/definitions/Pagination"
+                    }
+                  }
+                }
+              }
+            }
+          }
+        }
+      }
+    },
+    "/orders/{order_id}/return/{return_id}/receipts": {
+      "put": {
+        "tags": [
+          "Returns"
+        ],
+        "description": "Updates the received status of one or more return items",
+        "operationId": "UpdateReceipts",
+        "parameters": [
+          {
+            "in": "path",
+            "name": "order_id",
+            "type": "integer",
+            "required": true,
+            "description": "The ID of the order for which items are to be updated"
+          },
+          {
+            "in": "path",
+            "name": "return_id",
+            "type": "integer",
+            "required": true,
+            "description": "The ID of the return for which items are to be updated"
+          },
+          {
+            "in": "body",
+            "name": "receipts",
+            "required": true,
+            "schema": {
+              "$ref": "#/definitions/UpdateReceiptsRequest"
+            }
+          }
+        ],
+        "produces": [
+          "application/json"
+        ],
+        "responses": {
+          "200": {
+            "description": "A collection of return item summaries with updated received statuses",
+            "schema": {
+              "properties": {
+                "data": {
+                  "$ref": "#/definitions/UpdateReceiptsResponse"
+                },
+                "errors": {
+                  "type": "array",
+                  "items": {
+                    "$ref": "#/definitions/Problem"
+                  }
+                },
+                "meta": {
+                  "$ref": "#/definitions/BatchOperationMeta"
+                }
+              }
+            }
+          }
+        }
+      }
+    },
+    "/orders/{order_id}/returns/{return_id}/reviews": {
+      "put": {
+        "tags": [
+          "Returns"
+        ],
+        "description": "Updates the reviewed status of one or more return items",
+        "operationId": "UpdateReviews",
+        "parameters": [
+          {
+            "in": "path",
+            "name": "order_id",
+            "type": "integer",
+            "required": true,
+            "description": "The ID of the order for which items are to be updated"
+          },
+          {
+            "in": "path",
+            "name": "return_id",
+            "type": "integer",
+            "required": true,
+            "description": "The ID of the return for which items are to be updated"
+          },
+          {
+            "in": "body",
+            "name": "reviews",
+            "required": true,
+            "schema": {
+              "$ref": "#/definitions/UpdateReviewsRequest"
+            }
+          }
+        ],
+        "produces": [
+          "application/json"
+        ],
+        "responses": {
+          "200": {
+            "description": "A collection of return item summaries with updated review statuses",
+            "schema": {
+              "properties": {
+                "data": {
+                  "$ref": "#/definitions/UpdateReviewsResponse"
+                },
+                "errors": {
+                  "type": "array",
+                  "items": {
+                    "$ref": "#/definitions/Problem"
+                  }
+                },
+                "meta": {
+                  "$ref": "#/definitions/BatchOperationMeta"
                 }
               }
             }
@@ -40,7 +376,7 @@
     }
   },
   "definitions": {
-    "Settings": {
+    "GetReturnsSettingsResponse": {
       "type": "object",
       "properties": {
         "reasons": {
@@ -88,6 +424,445 @@
         "is_archived": {
           "type": "boolean",
           "description": "Indicates whether or not the outcome has been archived"
+        }
+      }
+    },
+    "CreateReturnRequest": {
+      "type": "object",
+      "required": ["items"],
+      "properties": {
+        "items": {
+          "description": "A collection of items to be returned",
+          "type": "array",
+          "items": {
+            "$ref": "#/definitions/CreateReturnRequestItem"
+          }
+        },
+        "comment": {
+          "description": "A comment provided to the merchant for review",
+          "type": "string"
+        }
+      }
+    },
+    "CreateReturnRequestItem": {
+      "type": "object",
+      "required": [
+        "order_product_id",
+        "quantity",
+        "preferred_outcome_id",
+        "reason_id"
+      ],
+      "properties": {
+        "order_product_id": {
+          "type": "integer",
+          "format": "int64"
+        },
+        "quantity": {
+          "type": "integer",
+          "minimum": 1
+        },
+        "preferred_outcome_id": {
+          "type": "integer",
+          "format": "int64"
+        },
+        "reason_id": {
+          "type": "integer",
+          "format": "int64"
+        }
+      }
+    },
+    "CreateReturnResponse": {
+      "$ref": "#/definitions/Return"
+    },
+    "GetReturnsResponse": {
+      "type": "array",
+      "items": {
+        "$ref": "#/definitions/Return"
+      }
+    },
+    "Return": {
+      "type": "object",
+      "description": "A view of a return",
+      "properties": {
+        "items": {
+          "type": "array",
+          "items": {
+            "$ref": "#/definitions/ReturnItem"
+          }
+        },
+        "total_price": {
+          "type": "string",
+          "format": "decimal",
+          "description": "The total price of the items being returned"
+        },
+        "customer": {
+          "type": "object",
+          "properties": {
+            "id": {
+              "type": "integer",
+              "format": "int64"
+            },
+            "email": {
+              "type": "string",
+              "format": "email"
+            }
+          }
+        },
+        "comment": {
+          "type": "string",
+          "description": "A comment provided to the merchant for review"
+        },
+        "status": {
+          "$ref": "#/definitions/Status"
+        },
+        "date_modified": {
+          "type": "string",
+          "format": "date-time"
+        }
+      }
+    },
+    "ReturnItem": {
+      "type": "object",
+      "description": "A view of a return item",
+      "properties": {
+        "id": {
+          "type": "integer",
+          "format": "int64",
+          "description": "The unique identifier of this return item"
+        },
+        "order_product_id": {
+          "type": "integer",
+          "format": "int64",
+          "description": "The ID of the order product associated with this item"
+        },
+        "quantity": {
+          "type": "integer",
+          "description": "The quantity of items for which a return was requested"
+        },
+        "total_price": {
+          "type": "string",
+          "format": "decimal",
+          "description": "The total price of the line item"
+        },
+        "preferred_outcome": {
+          "type": "object",
+          "properties": {
+            "id": {
+              "type": "integer",
+              "format": "int64",
+              "description": "Unique identifier of the preferred outcome"
+            },
+            "label": {
+              "type": "string",
+              "description": "A displayable label for the preferred outcome"
+            }
+          }
+        },
+        "reason": {
+          "type": "object",
+          "properties": {
+            "id": {
+              "type": "integer",
+              "format": "int64",
+              "description": "Unique identifier of the reason"
+            },
+            "label": {
+              "type": "string",
+              "description": "A displayable label for the reason"
+            }
+          }
+        },
+        "received_state": {
+          "type": "object",
+          "properties": {
+            "received_quantity": {
+              "type": "integer",
+              "description": "The quantity of items marked as received by the merchant"
+            },
+            "pending_quantity": {
+              "type": "integer",
+              "description": "The quantity of items pending receipt by the merchant"
+            }
+          }
+        },
+        "review_state": {
+          "type": "object",
+          "properties": {
+            "approved_quantity": {
+              "type": "integer",
+              "description": "The quantity of items approved for return by the merchant"
+            },
+            "pending_quantity": {
+              "type": "integer",
+              "description": "The quantity of items pending receipt by the merchant"
+            }
+          }
+        }
+      }
+    },
+    "StatusUpdate": {
+      "type": "object",
+      "properties": {
+        "return_id": {
+          "type": "integer",
+          "format": "int64",
+          "description": "The ID of the return for which the status should be updated"
+        },
+        "new_status": {
+          "$ref": "#/definitions/Status"
+        }
+      }
+    },
+    "Status": {
+      "type": "string",
+      "enum": ["CLOSED", "OPEN", "REMOVED"],
+      "description": "The status of the return"
+    },
+    "UpdateReturnStatusesRequest": {
+      "type": "array",
+      "items": {
+        "$ref": "#/definitions/StatusUpdate"
+      }
+    },
+    "UpdateReturnStatusesResponse": {
+      "type": "array",
+      "items": {
+        "type": "object",
+        "properties": {
+          "id": {
+            "type": "integer",
+            "format": "int64",
+            "description": "The ID of the return for which the status was updated"
+          },
+          "status": {
+            "$ref": "#/definitions/Status"
+          }
+        }
+      }
+    },
+    "Problem": {
+      "type": "object",
+      "properties": {
+        "status": {
+          "type": "integer",
+          "description": "Status code of the problem"
+        },
+        "title": {
+          "type": "string",
+          "description": "A short description of the problem"
+        },
+        "type": {
+          "type": "string",
+          "format": "url",
+          "description": "A resource describing the problem"
+        }
+      }
+    },
+    "BatchOperationMeta": {
+      "type": "object",
+      "properties": {
+        "total": {
+          "type": "integer",
+          "description": "The total number of operations in the batch"
+        },
+        "success": {
+          "type": "integer",
+          "description": "The number of failed operations in the batch"
+        },
+        "failed": {
+          "type": "integer",
+          "description": "The number of failed operations in the batch"
+        }
+      }
+    },
+    "Pagination": {
+      "type": "object",
+      "properties": {
+        "total": {
+          "type": "integer",
+          "description": "The total number of items in the collection"
+        },
+        "count": {
+          "type": "integer",
+          "description": "The number of items in the current page of results"
+        },
+        "per_page": {
+          "type": "integer",
+          "description": "The number of per page"
+        },
+        "current_page": {
+          "type": "integer",
+          "description": "The current page number"
+        },
+        "total_pages": {
+          "type": "integer",
+          "description": "The total number of pages"
+        },
+        "links": {
+          "type": "object",
+          "description": "Links to other resources relating to this collection",
+          "properties": {
+            "next": {
+              "type": "string",
+              "description": "The next resource in the collection"
+            },
+            "current": {
+              "type": "string",
+              "description": "The current resource"
+            }
+          }
+        }
+      }
+    },
+    "UpdateReceiptsRequest": {
+      "type": "array",
+      "items": {
+        "type": "object",
+        "required": [
+          "item_id",
+          "received_quantity",
+          "pending_quantity"
+        ],
+        "properties": {
+          "item_id": {
+            "type": "integer",
+            "format": "int64",
+            "description": "The ID of the item for which to update the received state"
+          },
+          "received_quantity": {
+            "type": "integer",
+            "description": "The quantity of items to be marked as received"
+          },
+          "pending_quantity": {
+            "type": "integer",
+            "description": "The quantity of items to be marked as pending"
+          }
+        }
+      }
+    },
+    "UpdateReceiptsResponse": {
+      "type": "array",
+      "items": {
+        "type": "object",
+        "properties": {
+          "item_id": {
+            "type": "integer",
+            "format": "int64",
+            "description": "The ID of the item for which receipt status was updated"
+          },
+          "received_quantity": {
+            "type": "integer",
+            "format": "int64",
+            "description": "The quantity of items marked as received"
+          },
+          "pending_quantity": {
+            "type": "integer",
+            "format": "int64",
+            "description": "The quantity of items marked as pending"
+          }
+        }
+      }
+    },
+    "UpdateReviewsRequest": {
+      "type": "array",
+      "items": {
+        "type": "object",
+        "required": [
+          "item_id",
+          "authorized_quantity",
+          "rejected_quantity",
+          "pending_quantity"
+        ],
+        "properties": {
+          "item_id": {
+            "type": "integer",
+            "format": "int64",
+            "description": "The ID of the item for which to update the received state"
+          },
+          "authorized_quantity": {
+            "type": "integer",
+            "description": "The quantity of items to be marked as authorized"
+          },
+          "rejected_quantity": {
+            "type": "integer",
+            "description": "The quantity of items to be marked as rejected"
+          },
+          "pending_quantity": {
+            "type": "integer",
+            "description": "The quantity of items to be marked as pending"
+          }
+        }
+      }
+    },
+    "UpdateReviewsResponse": {
+      "type": "array",
+      "items": {
+        "type": "object",
+        "properties": {
+          "item_id": {
+            "type": "integer",
+            "format": "int64",
+            "description": "The ID of the item for which receipt status was updated"
+          },
+          "authorized_quantity": {
+            "type": "integer",
+            "format": "int64",
+            "description": "The quantity of items marked as authorized"
+          },
+          "rejected_quantity": {
+            "type": "integer",
+            "format": "int64",
+            "description": "The quantity of items marked as rejected"
+          },
+          "pending_quantity": {
+            "type": "integer",
+            "format": "int64",
+            "description": "The quantity of items marked as pending"
+          }
+        }
+      }
+    },
+    "GetReturnableItemsResponse": {
+      "type": "array",
+      "items": {
+        "type": "object",
+        "properties": {
+          "order_product_id": {
+            "type": "integer",
+            "format": "int64",
+            "description": "The ID of the order product"
+          },
+          "name": {
+            "type": "string",
+            "description": "The name of the order product"
+          },
+          "returnable_quantity": {
+            "type": "integer",
+            "description": "The maximum quantity of this item that can presently be requested for return"
+          },
+          "total_price": {
+            "type": "string",
+            "format": "decimal",
+            "description": "The value of this line item"
+          },
+          "options": {
+            "type": "array",
+            "items": {
+              "type": "object",
+              "properties": {
+                "display_name": {
+                  "type": "string",
+                  "description": "A displayable name for the option"
+                },
+                "display_value": {
+                  "type": "string",
+                  "description": "A displayable value for the option"
+                }
+              },
+              "description": "An item available for return"
+            },
+            "description": "A collection of options configured for the order product"
+          }
         }
       }
     }
