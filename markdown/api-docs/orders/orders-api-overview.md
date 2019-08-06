@@ -615,7 +615,9 @@ There does not need to be a shipping provider. If the shipping provider is not s
 
 Once the order shipment is created, it will automatically send out an email to the billing address with the shipment confirmation. To stop this behavior adjust the [Order Notification](https://support.bigcommerce.com/s/article/Customer-Order-Notifications#enable) settings in the Control Panel.
 
+
 If the order shipment is deleted, the status of the shipment is still in shipped. The status will need to be [manually changed](https://developer.bigcommerce.com/api-reference/orders/orders-api/order-status/getaorderstatus).
+
 
 <br>
 
@@ -883,12 +885,12 @@ Not at this time. If an order is created either in the Control Panel or via API,
 
 ### Related Endpoints
 - [Orders](https://developer.bigcommerce.com/api-reference/orders/orders-api/orders/createanorder)
-- [Order Shipments](https://developer.bigcommerce.com/api-reference/orders/orders-api/order-shipments/)
-- [Order Status](/api-reference/orders/orders-api/order-status/)
-- [Shipping Quotes](https://developer.bigcommerce.com/api-reference/orders/orders-api/order-shipping-addresses-quotes)
-- [Order Products](https://developer.bigcommerce.com/api-reference/orders/orders-api/order-products/)
-- [Order Shipping Address](https://developer.bigcommerce.com/api-reference/orders/orders-api/order-shipping-addresses)
-- [Order Coupons](https://developer.bigcommerce.com/api-reference/orders/orders-api/order-coupons/)
+- [Order Shipments](/api-reference/orders/orders-api/order-shipments/createordershipments)
+- [Order Status](/api-reference/orders/orders-api/order-status/getaorderstatus)
+- [Shipping Quotes](/api-reference/orders/orders-api/order-shipping-addresses-quotes/getshippingquotes)
+- [Order Products](/api-reference/orders/orders-api/order-products/getanorderproduct)
+- [Order Shipping Address](/api-reference/orders/orders-api/order-shipping-addresses/getashippingaddress)
+- [Order Coupons](/api-reference/orders/orders-api/order-coupons/getallordercoupons)
 
 ### Related Articles
 - [Order Status](https://support.bigcommerce.com/s/article/Order-Statuses#rename) (BigCommerce Support)
