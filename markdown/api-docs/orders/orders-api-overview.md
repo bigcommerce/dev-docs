@@ -83,7 +83,7 @@ Make note of the `option_values > id` and `option_values > option_id`. These wil
 <div class="HubBlock--callout">
 <div class="CalloutBlock--info">
 <div class="HubBlock-content">
-    
+
 <!-- theme:  -->
 ### Pricing
 > If price_ex_tax or price_inc_tax is set, then they both need to bet specified. Otherwise the order total will not calculate correctly.
@@ -150,7 +150,7 @@ lineNumbers: true
 ...
 ```
 
-Next, create the products array which includes the custom product and the existing product with product options. Using the `option_id` and `option_value > id` from the previous request we can build the products array. 
+Next, create the products array which includes the custom product and the existing product with product options. Using the `option_id` and `option_value > id` from the previous request we can build the products array.
 
 `product_options` > `id` = `option_values` > `option_id`
 
@@ -232,7 +232,7 @@ This is an abbreviated request
 <div class="HubBlock--callout">
 <div class="CalloutBlock--info">
 <div class="HubBlock-content">
-    
+
 <!-- theme:  -->
 
 ### Custom Products
@@ -270,14 +270,14 @@ For products where product options are required, the API will validate these req
 ### Add a Billing Address
 
 **Required Fields:**
-* first_name 
-* last_name 
-* street_1 
-* city 
-* state 
-* zip 
-* country 
-* country_iso2 
+* first_name
+* last_name
+* street_1
+* city
+* state
+* zip
+* country
+* country_iso2
 * email
 
 <!--
@@ -308,7 +308,7 @@ This is an abbreviated request
 <div class="HubBlock--callout">
 <div class="CalloutBlock--info">
 <div class="HubBlock-content">
-    
+
 <!-- theme:  -->
 ### Shipping Address
 > If a shipping address is not provided, it defaults to the billing address.
@@ -322,14 +322,14 @@ This is an abbreviated request
 ### Add a Shipping Address - optional
 
 **Required Fields:**
-* first_name 
-* last_name 
-* street_1 
-* city 
-* state 
-* zip 
-* country 
-* country_iso2 
+* first_name
+* last_name
+* street_1
+* city
+* state
+* zip
+* country
+* country_iso2
 * email
 
 The shipping address is input as an array object since more than one shipping address can be added at a time. Adding multiple shipping addresses allows for an order to ship to multiple locations.
@@ -382,7 +382,7 @@ If a shipping address is not provided, it will default to the billing addresses 
 
 **Status**
 
-If a status is not provided, it defaults to a status of 1 or Pending. 
+If a status is not provided, it defaults to a status of 1 or Pending.
 
 **Discounts**
 
@@ -469,7 +469,7 @@ lineNumbers: true
 
 ## Order Response
 
-The response will have abbreviated order contents with sub-resources available to get the full order information. The order is automatically set to a status of 1 or Pending. It also returns an id which is the order id. 
+The response will have abbreviated order contents with sub-resources available to get the full order information. The order is automatically set to a status of 1 or Pending. It also returns an id which is the order id.
 
 In the example below, the order ID is 193.
 * The order products sub-resource will list the products added.
@@ -479,7 +479,7 @@ In the example below, the order ID is 193.
 <div class="HubBlock--callout">
 <div class="CalloutBlock--">
 <div class="HubBlock-content">
-    
+
 <!-- theme:  -->
 ### Coupons
 > Coupons can not be added to an order via API. Use the `discount_amount` instead.
@@ -594,7 +594,7 @@ lineNumbers: true
 <a href='#orders-api-overview_shipping-order' aria-hidden='true' class='block-anchor'  id='orders-api-overview_shipping-order'><i aria-hidden='true' class='linkify icon'></i></a>
 
 ## Shipping an Order
-We will go over creating a shipment for an order, shipping quotes, shipping carriers and shipping to multiple locations. 
+We will go over creating a shipment for an order, shipping quotes, shipping carriers and shipping to multiple locations.
 
 <a href='#orders-api-overview_create-order-shipment' aria-hidden='true' class='block-anchor'  id='orders-api-overview_create-order-shipment'><i aria-hidden='true' class='linkify icon'></i></a>
 
@@ -605,17 +605,17 @@ We will go over creating a shipment for an order, shipping quotes, shipping carr
 * shipping_provider
 * items
 
-Once an Order has products, a billing address and at least one shipping address a order shipment can be created. Order shipments are a way to mark an order as shipped with the shipping information. 
+Once an Order has products, a billing address and at least one shipping address a order shipment can be created. Order shipments are a way to mark an order as shipped with the shipping information.
 
-To get the `order_address_id`  use the ID returned in [Order Shipping Address](https://developer.bigcommerce.com/api-reference/orders/orders-api/order-shipping-addresses/getordersorderidshippingaddressesid).
+To get the `order_address_id`  use the ID returned in [Order Shipping Address](https://developer.bigcommerce.com/api-reference/orders/orders-api/order-shipping-addresses/getallshippingaddresses).
 
-The items array requires the product quantity and `order_product_id`. The `order_product_id` is the ID returned from [Order Products](https://developer.bigcommerce.com/api-reference/orders/orders-api/order-products/getordersorderidproducts).
+The items array requires the product quantity and `order_product_id`. The `order_product_id` is the ID returned from [Order Products](https://developer.bigcommerce.com/api-reference/orders/orders-api/order-products/getanorderproduct).
 
-There does not need to be a shipping provider. If the shipping provider is not sent in at all, it will default to custom and a tracking link is not generated. To have the tracking link generated without a shipping provider, provide an empty string. To add a shipping provider, see the available options on [Order Shipment](/api-reference/orders/orders-api/models/ordershipment). 
+There does not need to be a shipping provider. If the shipping provider is not sent in at all, it will default to custom and a tracking link is not generated. To have the tracking link generated without a shipping provider, provide an empty string. To add a shipping provider, see the available options on [Order Shipment](/api-reference/orders/orders-api/models/ordershipment).
 
-Once the order shipment is created, it will automatically send out an email to the billing address with the shipment confirmation. To stop this behavior adjust the [Order Notification](https://support.bigcommerce.com/s/article/Customer-Order-Notifications#enable) settings in the Control Panel. 
+Once the order shipment is created, it will automatically send out an email to the billing address with the shipment confirmation. To stop this behavior adjust the [Order Notification](https://support.bigcommerce.com/s/article/Customer-Order-Notifications#enable) settings in the Control Panel.
 
-If the order shipment is deleted, the status of the shipment is still in shipped. The status will need to be [manually changed](/api-reference/orders/orders-api/order-status/getorderstatuses).
+If the order shipment is deleted, the status of the shipment is still in shipped. The status will need to be [manually changed](https://developer.bigcommerce.com/api-reference/orders/orders-api/order-status/getaorderstatus).
 
 <br>
 
@@ -725,7 +725,7 @@ To ship to multiple locations create an order shipment for each location and ite
 <div class="HubBlock--callout">
 <div class="CalloutBlock--info">
 <div class="HubBlock-content">
-    
+
 <!-- theme:  -->
 ### Shipping Address
 > When adding shipping addresses during an order PUT or POST, the API will allow you to add more than is necessary.
@@ -737,15 +737,15 @@ To ship to multiple locations create an order shipment for each location and ite
 <a href='#orders-api-overview_custom-quotes' aria-hidden='true' class='block-anchor'  id='orders-api-overview_custom-quotes'><i aria-hidden='true' class='linkify icon'></i></a>
 
 ### Custom Quotes
-An order can be created with a `shipping_cost_ex_tax` and `shipping_cost_inc_tax`. This is a way to add a custom shipping amount to an order. This can be added when creating or updating an order. 
+An order can be created with a `shipping_cost_ex_tax` and `shipping_cost_inc_tax`. This is a way to add a custom shipping amount to an order. This can be added when creating or updating an order.
 
 <div class="HubBlock--callout">
 <div class="CalloutBlock--info">
 <div class="HubBlock-content">
-    
+
 <!-- theme:  -->
 ### Shipping Cost
-> Both `shipping_cost_ex_tax` and `shipping_cost_inc_tax` must be included otherwise, the final order amount will not be calculated correctly. 
+> Both `shipping_cost_ex_tax` and `shipping_cost_inc_tax` must be included otherwise, the final order amount will not be calculated correctly.
 
 </div>
 </div>
@@ -754,7 +754,7 @@ An order can be created with a `shipping_cost_ex_tax` and `shipping_cost_inc_tax
 <a href='#orders-api-overview_shipping-carrier' aria-hidden='true' class='block-anchor'  id='orders-api-overview_shipping-carrier'><i aria-hidden='true' class='linkify icon'></i></a>
 
 ### Shipping Carrier
-Generating a quote through a shipping carrier is currently not supported. A shipping carrier can be specified when creating an Order Shipment. The quote can be generate elsewhere, then update the `shipping_cost_ex_tax` and `shipping_cost_inc_tax` for the order total to be correct.. 
+Generating a quote through a shipping carrier is currently not supported. A shipping carrier can be specified when creating an Order Shipment. The quote can be generate elsewhere, then update the `shipping_cost_ex_tax` and `shipping_cost_inc_tax` for the order total to be correct..
 
 ---
 
@@ -819,7 +819,7 @@ Edits to the following properties will trigger a recalculation of the subtotal a
 <a href='#orders-api-overview_order_status' aria-hidden='true' class='block-anchor'  id='orders-api-overview_order_status'><i aria-hidden='true' class='linkify icon'></i></a>
 
 ## Order Status
-When moving through order management, the order status is not automatically updated. This needs to be changed as needed. 
+When moving through order management, the order status is not automatically updated. This needs to be changed as needed.
 
 You can specify `status_id`, which will automatically set the corresponding status. When `status_id` is not specified, it will be automatically set to 1, which will set status to Pending.
 
@@ -831,7 +831,7 @@ The following statuses are of the paid type:
 * Completed
 * Awaiting Fulfillment
 
-BigCommerce considers all statuses other than those above to be of the unpaid type, except Refunded, which is considered neither paid or unpaid. 
+BigCommerce considers all statuses other than those above to be of the unpaid type, except Refunded, which is considered neither paid or unpaid.
 
 <a href='#orders-api-overview_custom-order-status' aria-hidden='true' class='block-anchor'  id='orders-api-overview_custom-order-status'><i aria-hidden='true' class='linkify icon'></i></a>
 
@@ -861,12 +861,12 @@ The `order_source` cannot be specified, and will be set to external. You can opt
 
 Yes, the products are not added to the store's catalog.
 
-**What is the difference between country_ISO2 and country?** 
+**What is the difference between country_ISO2 and country?**
 
 In the shipping and billing addresses, there is no requirement to specify country when `country_ISO2` is specified and vice versa.
 
 **How can I take a payment for an Order?**
-You can either process payment through a third party or using the Control Panel. 
+You can either process payment through a third party or using the Control Panel.
 
 **Can I generate a shipping quote from a carrier using the API?**
 
@@ -882,15 +882,14 @@ Not at this time. If an order is created either in the Control Panel or via API,
 - [Orders](/api-docs/getting-started/webhooks/webhook-events#webhook-events_orders)
 
 ### Related Endpoints
-- [Orders](/api-reference/orders/orders-api/orders/postorders)
-- [Order Shipments](/api-reference/orders/orders-api/order-shipments/postordersorderidshipments)
-- [Order Status](/api-reference/orders/orders-api/order-status/getorderstatuses)
-- [Shipping Quotes](/api-reference/orders/orders-api/order-shipping-addresses-quotes/getordersorderidshippingaddressesshippingaddressidshippingquotes)
-- [Order Products](/api-reference/orders/orders-api/order-products/getordersorderidproducts)
-- [Order Shipping Address](/api-reference/orders/orders-api/order-shipping-addresses/getordersorderidshippingaddresses)
-- [Order Coupons](/api-reference/orders/orders-api/order-coupons/getordersorderidcoupons)
-    
+- [Orders](https://developer.bigcommerce.com/api-reference/orders/orders-api/orders/createanorder)
+- [Order Shipments](https://developer.bigcommerce.com/api-reference/orders/orders-api/order-shipments/)
+- [Order Status](/api-reference/orders/orders-api/order-status/)
+- [Shipping Quotes](https://developer.bigcommerce.com/api-reference/orders/orders-api/order-shipping-addresses-quotes)
+- [Order Products](https://developer.bigcommerce.com/api-reference/orders/orders-api/order-products/)
+- [Order Shipping Address](https://developer.bigcommerce.com/api-reference/orders/orders-api/order-shipping-addresses)
+- [Order Coupons](https://developer.bigcommerce.com/api-reference/orders/orders-api/order-coupons/)
+
 ### Related Articles
 - [Order Status](https://support.bigcommerce.com/s/article/Order-Statuses#rename) (BigCommerce Support)
-- [Order Notifications](https://support.bigcommerce.com/s/article/Customer-Order-Notifications#enable) (BigCommerce Support) 
-
+- [Order Notifications](https://support.bigcommerce.com/s/article/Customer-Order-Notifications#enable) (BigCommerce Support)
