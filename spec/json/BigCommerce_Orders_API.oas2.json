@@ -1014,6 +1014,384 @@
                     "quantity": 1
                   }
                 ]
+              },
+              "type": "object",
+              "properties": {
+                "id": {
+                  "description": "Shipment ID.",
+                  "example": 1,
+                  "type": "integer"
+                },
+                "order_id": {
+                  "description": "ID of the order associated with this shipment.",
+                  "example": 120,
+                  "type": "integer"
+                },
+                "customer_id": {
+                  "description": "ID of this order’s customer.",
+                  "example": 5,
+                  "type": "integer"
+                },
+                "order_address_id": {
+                  "description": "ID of the associated order address.",
+                  "example": 20,
+                  "type": "integer"
+                },
+                "date_created": {
+                  "description": "Creation date for the shipment.",
+                  "example": "Tue, 12 Jun 2018 14:12:26 +0000",
+                  "type": "string",
+                  "format": "date-time"
+                },
+                "tracking_number": {
+                  "description": "Tracking number of the shipment.",
+                  "example": "w4se4b6ASFEW4T",
+                  "type": "string"
+                },
+                "shipping_method": {
+                  "description": "Extra detail to describe the shipment, with values like: Standard, My Custom Shipping Method Name, etc. Can also be used for live quotes from some shipping providers.",
+                  "example": "Ship by Weight",
+                  "type": "string"
+                },
+                "shipping_provider": {
+                  "type": "string",
+                  "description": "Enum of the BigCommerce shipping-carrier integration/module. (Note: This property should be included in a POST request to create a shipment object. If it is omitted from the request, the property’s value will default to custom, and no tracking link will be generated in the email. To avoid this behavior, you can pass the property as an empty string.)",
+                  "enum": [
+                    "auspost",
+                    "canadapost",
+                    "endicia",
+                    "usps",
+                    "fedex",
+                    "royalmail",
+                    "ups",
+                    "upsready",
+                    "upsonline",
+                    "shipperhq",
+                    " "
+                  ]
+                },
+                "tracking_carrier": {
+                  "title": "Tracking Carrier",
+                  "example": "auspost",
+                  "x-enum-elements": [
+                    {
+                      "name": "auspost",
+                      "description": ""
+                    },
+                    {
+                      "name": "canadapost",
+                      "description": ""
+                    },
+                    {
+                      "name": "endicia",
+                      "description": ""
+                    },
+                    {
+                      "name": "usps",
+                      "description": ""
+                    },
+                    {
+                      "name": "fedex",
+                      "description": ""
+                    },
+                    {
+                      "name": "royalmail",
+                      "description": ""
+                    },
+                    {
+                      "name": "ups",
+                      "description": ""
+                    },
+                    {
+                      "name": "upsready",
+                      "description": ""
+                    },
+                    {
+                      "name": "shipperhq",
+                      "description": ""
+                    }
+                  ],
+                  "type": "string",
+                  "enum": [
+                    "auspost",
+                    "canadapost",
+                    "endicia",
+                    "usps",
+                    "fedex",
+                    "royalmail",
+                    "ups",
+                    "upsready",
+                    "shipperhq"
+                  ],
+                  "description": "Optional, but if you include it, its value must refer/map to the same carrier service as the `shipping_provider` value."
+                },
+                "comments": {
+                  "description": "Comments the shipper wishes to add.",
+                  "type": "string"
+                },
+                "billing_address": {
+                  "type": "object",
+                  "properties": {
+                    "first_name": {
+                      "description": "",
+                      "example": "Jane",
+                      "type": "string"
+                    },
+                    "last_name": {
+                      "description": "",
+                      "example": "Doe",
+                      "type": "string"
+                    },
+                    "company": {
+                      "description": "",
+                      "type": "string"
+                    },
+                    "street_1": {
+                      "description": "",
+                      "example": "123 Main Street",
+                      "type": "string"
+                    },
+                    "street_2": {
+                      "description": "",
+                      "type": "string"
+                    },
+                    "city": {
+                      "description": "",
+                      "example": "Austin",
+                      "type": "string"
+                    },
+                    "state": {
+                      "description": "",
+                      "example": "TX",
+                      "type": "string"
+                    },
+                    "zip": {
+                      "description": "",
+                      "example": "12345",
+                      "type": "string"
+                    },
+                    "country": {
+                      "description": "",
+                      "example": "United States",
+                      "type": "string"
+                    },
+                    "country_iso2": {
+                      "description": "",
+                      "example": "US",
+                      "type": "string"
+                    },
+                    "phone": {
+                      "description": "",
+                      "type": "string"
+                    },
+                    "email": {
+                      "description": "",
+                      "example": "janedoe@email.com",
+                      "type": "string"
+                    }
+                  }
+                },
+                "shipping_address": {
+                  "type": "object",
+                  "properties": {
+                    "first_name": {
+                      "description": "",
+                      "example": "Jane",
+                      "type": "string"
+                    },
+                    "last_name": {
+                      "description": "",
+                      "example": "Doe",
+                      "type": "string"
+                    },
+                    "company": {
+                      "description": "",
+                      "type": "string"
+                    },
+                    "street_1": {
+                      "description": "",
+                      "example": "123 Main Street",
+                      "type": "string"
+                    },
+                    "street_2": {
+                      "description": "",
+                      "type": "string"
+                    },
+                    "city": {
+                      "description": "",
+                      "example": "Austin",
+                      "type": "string"
+                    },
+                    "state": {
+                      "description": "",
+                      "example": "TX",
+                      "type": "string"
+                    },
+                    "zip": {
+                      "description": "",
+                      "example": "12345",
+                      "type": "string"
+                    },
+                    "country": {
+                      "description": "",
+                      "example": "United States",
+                      "type": "string"
+                    },
+                    "country_iso2": {
+                      "description": "",
+                      "example": "US",
+                      "type": "string"
+                    },
+                    "phone": {
+                      "description": "",
+                      "type": "string"
+                    },
+                    "email": {
+                      "description": "",
+                      "example": "janedoe@email.com",
+                      "type": "string"
+                    }
+                  }
+                },
+                "items": {
+                  "description": "The items in the shipment. This object has the following members, all integer: order_product_id (required), quantity (required), product_id (read-only). A sample items value might be: [ {\"order_product_id\":16,\"product_id\": 0,\"quantity\":2}]. You cannot change the \"quantity\" of items in an order",
+                  "type": "array",
+                  "items": {
+                    "type": "object",
+                    "properties": {
+                      "order_product_id": {
+                        "type": "integer",
+                        "example": 5
+                      },
+                      "product_id": {
+                        "type": "integer",
+                        "example": 87
+                      },
+                      "quantity": {
+                        "type": "integer",
+                        "example": 2
+                      }
+                    }
+                  }
+                }
+              }
+            },
+            "examples": {
+              "application/json": [
+                {
+                  "id": 2,
+                  "order_id": 143,
+                  "customer_id": 6,
+                  "order_address_id": 45,
+                  "date_created": "Tue, 14 Aug 2018 13:59:39 +0000",
+                  "tracking_number": "123445656746576787568",
+                  "shipping_method": "Free Shipping",
+                  "comments": "Packing Slip Notes",
+                  "shipping_provider": "",
+                  "tracking_carrier": "",
+                  "billing_address": {
+                    "first_name": "Jane",
+                    "last_name": "Doe",
+                    "company": "",
+                    "street_1": "123 Main Street",
+                    "street_2": "",
+                    "city": "Austin",
+                    "state": "Texas",
+                    "zip": "78726",
+                    "country": "United States",
+                    "country_iso2": "US",
+                    "phone": "5122134567",
+                    "email": "janedoe@email.com"
+                  },
+                  "shipping_address": {
+                    "first_name": "Jane",
+                    "last_name": "Doe",
+                    "company": "",
+                    "street_1": "123 Main Street",
+                    "street_2": "",
+                    "city": "Austin",
+                    "state": "Texas",
+                    "zip": "78726",
+                    "country": "United States",
+                    "country_iso2": "US",
+                    "phone": "1234567890",
+                    "email": ""
+                  },
+                  "items": [
+                    {
+                      "order_product_id": 57,
+                      "product_id": 86,
+                      "quantity": 1
+                    }
+                  ]
+                }
+              ],
+              "Response Schema": {
+                "id": 91668730,
+                "order_id": 77374671,
+                "customer_id": 83201935,
+                "order_address_id": 62006623,
+                "date_created": "1976-02-26T18:39:00.940Z",
+                "tracking_number": "tempor Excepteur ipsum",
+                "shipping_method": "esse ad ea",
+                "shipping_provider": "adipisicing consequat non",
+                "tracking_carrier": "canadapost",
+                "comments": "adipisicing sed anim aliquip",
+                "billing_address": {
+                  "first_name": "Ut proident et reprehenderit",
+                  "last_name": "adipisicing elit et dolor",
+                  "company": "in id aliqua",
+                  "street_1": "veniam pariatur deserunt",
+                  "street_2": "exercitation Lorem officia",
+                  "city": "aliquip",
+                  "state": "reprehenderit",
+                  "zip": "dolor exercitation",
+                  "country": "velit dolore",
+                  "country_iso2": "velit Lorem in",
+                  "phone": "dolor est Lorem",
+                  "email": "fugiat ut"
+                },
+                "shipping_address": {
+                  "first_name": "consequat minim",
+                  "last_name": "Ut id ut nulla",
+                  "company": "occaecat Ut",
+                  "street_1": "amet",
+                  "street_2": "nisi an",
+                  "city": "exercitation nostrud et",
+                  "state": "laboris reprehenderit esse Excepteur mollit",
+                  "zip": "sint pariatur consequat ullamco",
+                  "country": "amet ullamco",
+                  "country_iso2": "ut esse",
+                  "phone": "sed enim",
+                  "email": "magna"
+                },
+                "items": [
+                  {
+                    "order_product_id": -79328691,
+                    "product_id": 43400137,
+                    "quantity": -62358931
+                  },
+                  {
+                    "order_product_id": 334583,
+                    "product_id": -50490841,
+                    "quantity": -81937187
+                  },
+                  {
+                    "order_product_id": 52813600,
+                    "product_id": -41184690,
+                    "quantity": -19065407
+                  },
+                  {
+                    "order_product_id": -2991231,
+                    "product_id": -31873505,
+                    "quantity": 42687165
+                  },
+                  {
+                    "order_product_id": -62836534,
+                    "product_id": 14057704,
+                    "quantity": -94446540
+                  }
+                ]
               }
             }
           }
