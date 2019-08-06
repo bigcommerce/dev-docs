@@ -5243,7 +5243,7 @@
         ]
       },
       "delete": {
-        "description": "Deletes [*Customer Attribute Values*](/api-reference/customer-subscribers/customers-api-v3/models/customerattributevalue). Deletes the attribute value from the customer.\n\n**Required Query**\n* id:in - ID of the *Customer Attribute Value*",
+        "description": "Deletes [*Customer Attribute Values*](https://developer.bigcommerce.com/api-reference/customer-subscribers/v3-customers-api/models/customerattributevalue). Deletes the attribute value from the customer.\n\n**Required Query**\n* id:in - ID of the *Customer Attribute Value*",
         "summary": "Delete Customer Attribute Values",
         "operationId": "CustomersAttributeValuesDelete",
         "deprecated": false,
