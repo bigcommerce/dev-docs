@@ -38,6 +38,26 @@ While the shortcode can be built using the button, it can also be created manual
 
 ---
 
+<a href='#shortcode_components' aria-hidden='true' class='block-anchor'  id='shortcode_components'><i aria-hidden='true' class='linkify icon'></i></a>
+
+## Component Shortcodes
+
+`[bc-component]`
+
+The component shortcode lets you include a piece of information about a particular product in pages and posts across your Wordpress site. Within the Block Editor, click the plus symbol on the area of the page you want to add the component to and select BigCommerce Product Components. This creates a Gutenburg block containing a product's information. You must specify a Product ID, then select the product component you'd like to display.
+
+You can build the shortcode using the Block Editor, or it can be created manually. It accepts a number of attributes:
+
+|Attribute|Expected Value|Example|
+|-|-|-|
+|`sku`|The main SKU associated with a product |`[bc-component id="163" type="SKU"]`|
+|`image`|The featured product image associated with a product|`[bc-component id="163" type="image"]`|
+|`title`|The product title|`[bc-component id="163" type="title"]`|
+|`description`|The product description for a product|`[bc-component id="163" type="description"]`|
+|`add_to_cart`| Displays an add-to-cart button for the product |`[bc-component id="163" type="add_to_cart"]`|
+
+---
+
 <a href='#shortcode_other-short' aria-hidden='true' class='block-anchor'  id='shortcode_other-short'><i aria-hidden='true' class='linkify icon'></i></a>
 
 ## Other Shortcodes
@@ -52,4 +72,3 @@ While the shortcode can be built using the button, it can also be created manual
 |`[bigcommerce_shipping_address_list]`|A list of the customer’s shipping addresses, and forms to add, remove, or update addresses.
 
 ---
-
