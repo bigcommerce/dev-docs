@@ -241,10 +241,7 @@
               "type": "object",
               "properties": {
                 "data": {
-                  "type": "array",
-                  "items": {
-                    "$ref": "#/definitions/GetReturnsResponse"
-                  }
+                  "$ref": "#/definitions/GetReturnsResponse"
                 },
                 "meta": {
                   "type": "object",
