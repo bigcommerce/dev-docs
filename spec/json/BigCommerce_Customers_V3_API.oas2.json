@@ -4795,7 +4795,7 @@
     },
     "/customers/attribute-values": {
       "get": {
-        "description": "Returns a list of [*Customer Attribute Values*](/api-reference/customer-subscribers/customers-api-v3/models/customerattributevalue). Optional filter parameters can be passed in.",
+        "description": "Returns a list of [*Customer Attribute Values*](/api-reference/customer-subscribers/v3-customers-api/models/customerattributevalue). Optional filter parameters can be passed in.",
         "summary": "Get All Customer Attribute Values",
         "operationId": "CustomersAttributeValuesGet",
         "deprecated": false,
