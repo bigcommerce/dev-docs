@@ -1807,7 +1807,7 @@
         }
       },
       "put": {
-        "description": "Updates a [*Customers*](/api-reference/customer-subscribers/customers-api-v3/models/customer). Subresource updates are not supported. Multiple customers can be updated in one call.\n\n**Required Fields**\n* id -- ID of the *Customer* This must be included in the request body\n\n**Read Only Fields**\n* id\n* registration_ip_address\n* date_created\n* date_modified\n\n\n**Notes**\n\nAttributes Values can not be updated using Update a Customer. Use the Update a [Customer Attribute Values](https://developer.bigcommerce.com/api-reference/customer-subscribers/v3-customers-api/customer-attribute-values/customersattributevaluesput) endpoint.",
+        "description": "Updates a [*Customers*](/api-reference/customer-subscribers/v3-customers-api/models/customer). Subresource updates are not supported. Multiple customers can be updated in one call.\n\n**Required Fields**\n* id -- ID of the *Customer* This must be included in the request body\n\n**Read Only Fields**\n* id\n* registration_ip_address\n* date_created\n* date_modified\n\n\n**Notes**\n\nAttributes Values can not be updated using Update a Customer. Use the Update a [Customer Attribute Values](https://developer.bigcommerce.com/api-reference/customer-subscribers/v3-customers-api/customer-attribute-values/customersattributevaluesput) endpoint.",
         "summary": "Update a Customer",
         "tags": [
           "Customers"
