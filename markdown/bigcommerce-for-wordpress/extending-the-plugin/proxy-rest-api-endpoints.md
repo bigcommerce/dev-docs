@@ -35,8 +35,7 @@ By default, GET requests under `/catalog` are cached for ten minutes in the obje
 |[Additional `/catalog` endpoints](https://developer.bigcommerce.com/api-reference/catalog/catalog-api)| See BigCommerce API docs |`GET`
 |`/channels(/*)`|BigCommerce channels endpoints|`GET`
 |`/channels/[channel-id]/site`||`GET`|
-|[`/carts`](https://developer.bigcommerce.com/api-reference/cart-checkout/server-server-cart-api/cart/postcarts)|Creates a cart]|`POST`, `PUT`
+|[`/carts`](https://developer.bigcommerce.com/api-reference/cart-checkout/server-server-cart-api/cart/createacart)|Creates a cart]|`POST`, `PUT`
 |[`/carts/[cart-id]`]()|Fetch, update, and delete a cart by cart ID|`GET`, `POST`, `PUT`, `DELETE`|
 |[`/carts/[cart-id]/items(/[item-id])`](https://developer.bigcommerce.com/api-reference/cart-checkout/server-server-cart-api/cart/postcartscartiditems)|Create, update, and delete cart items|`POST`, `PUT`, `DELETE`|
 |[`/carts/[cart-id]/redirect_urls/`](https://developer.bigcommerce.com/api-reference/cart-checkout/server-server-cart-api/cart/postcartscartidredirecturls)|Fetch a cart's redirect URLs|`POST`, `PUT`|
-
