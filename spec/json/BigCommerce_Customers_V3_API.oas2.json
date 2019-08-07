@@ -881,7 +881,7 @@
         }
       },
       "post": {
-        "description": "Creates a [*Customers*](/api-reference/customer-subscribers/customers-api-v3/models/customer). Multiple customers can be created in one call.\n\n**Required Fields**\n* last_name\n* first_name\n* email\n\n**Required Fields Customer Address**\n* first_name\n* city\n* country_code\n* state_or_province\n* last_name\n* address1\n* postal_code\n\n**Required Fields Attributes**\n* attribute_name\n* attribute_value -- This is input as a string, regardless of the [Type](/api-reference/customer-subscribers/v3-customers-api/models/type).",
+        "description": "Creates a [*Customers*](/api-reference/customer-subscribers/v3-customers-api/models/customer). Multiple customers can be created in one call.\n\n**Required Fields**\n* last_name\n* first_name\n* email\n\n**Required Fields Customer Address**\n* first_name\n* city\n* country_code\n* state_or_province\n* last_name\n* address1\n* postal_code\n\n**Required Fields Attributes**\n* attribute_name\n* attribute_value -- This is input as a string, regardless of the [Type](/api-reference/customer-subscribers/v3-customers-api/models/type).",
         "summary": "Create a Customer",
         "tags": [
           "Customers"
@@ -2571,7 +2571,7 @@
         }
       },
       "delete": {
-        "description": "Deletes [*Customers*](/api-reference/customer-subscribers/customers-api-v3/models/customer). \n\n**Required Query**\n* id:in -- ID of the customer\n\n**Notes**\n\nA query is required to delete customers. If not provided, a 204 is returned, with no changes to the data.",
+        "description": "Deletes [*Customers*](/api-reference/customer-subscribers/v3-customers-api/models/customer). \n\n**Required Query**\n* id:in -- ID of the customer\n\n**Notes**\n\nA query is required to delete customers. If not provided, a 204 is returned, with no changes to the data.",
         "summary": "Delete Customers",
         "tags": [
           "Customers"
@@ -4131,7 +4131,7 @@
     },
     "/customers/attributes": {
       "get": {
-        "description": "Returns a list of [*Customer Attributes*](/api-reference/customer-subscribers/customers-api-v3/models/customerattribute). Optional filter parameters can be passed in.",
+        "description": "Returns a list of [*Customer Attributes*](/api-reference/customer-subscribers/v3-customers-api/models/customerattribute). Optional filter parameters can be passed in.",
         "summary": "Get All Customer Attributes",
         "operationId": "CustomersAttributesGet",
         "deprecated": false,
@@ -4750,7 +4750,7 @@
         ]
       },
       "delete": {
-        "description": "Deletes [*Customer Attributes*](/api-reference/customer-subscribers/customers-api-v3/models/customerattribute) from the store. \n\n**Required Query**\n* id:in -- ID of the *Customer Attribute*",
+        "description": "Deletes [*Customer Attributes*](/api-reference/customer-subscribers/v3-customers-api/models/customerattribute) from the store. \n\n**Required Query**\n* id:in -- ID of the *Customer Attribute*",
         "summary": "Delete Customer Attributes",
         "operationId": "CustomersAttributesDelete",
         "deprecated": false,
