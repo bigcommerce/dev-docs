@@ -783,7 +783,7 @@
           "item_id": {
             "type": "integer",
             "format": "int64",
-            "description": "The ID of the item for which to update the received state"
+            "description": "The ID of the item for which to update the reviewed state"
           },
           "authorized_quantity": {
             "type": "integer",
@@ -808,7 +808,7 @@
           "item_id": {
             "type": "integer",
             "format": "int64",
-            "description": "The ID of the item for which receipt status was updated"
+            "description": "The ID of the item for which reviewed status was updated"
           },
           "authorized_quantity": {
             "type": "integer",
