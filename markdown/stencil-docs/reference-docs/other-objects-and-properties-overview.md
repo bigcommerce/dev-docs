@@ -18,7 +18,7 @@
 <div class="HubBlock--callout">
 <div class="CalloutBlock--info">
 <div class="HubBlock-content">
-    
+
 <!-- theme: info -->
 
 ### Debugging Your Theme
@@ -1176,7 +1176,7 @@
   </tr>
   <tr>
     <td class=""><span class="indent1">price</span></td>
-    <td class=""><a href="/stencil-docs/stencil-object-model-reference/stencil-objects/common-objects/price">Price object</a> that defines the unit price of the cart item, after discounts; to see how this and the next three price properties relate to each other, please see <a href="/docs/cart-price-properties">Cart Price Properties</a></td>
+    <td class=""><a href="/stencil-docs/stencil-object-model-reference/stencil-objects/common-objects/price">Price object</a> that defines the unit price of the cart item, after discounts; to see how this and the next three price properties relate to each other, see Cart Price Properties</td>
   </tr>
   <tr>
     <td class=""><span class="indent1">price_discounted</span></td>

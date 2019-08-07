@@ -5,15 +5,15 @@
 <div class="otp" id="no-index">
 	<h3> On This Page </h3>
 	<ul>
-    <li><a href="#amp_whats-amp">What’s AMP?</a></li>	
-    <li><a href="#amp_real-world">AMP real world example</a></li>	
-    <li><a href="#amp_how-to">How to enable AMP</a></li>	
-    <li><a href="#amp_wordpress-amp">WordPress AMP plugin support</a></li>	
+    <li><a href="#amp_whats-amp">What’s AMP?</a></li>
+    <li><a href="#amp_real-world">AMP real world example</a></li>
+    <li><a href="#amp_how-to">How to enable AMP</a></li>
+    <li><a href="#amp_wordpress-amp">WordPress AMP plugin support</a></li>
     <li><a href="#amp_choosing">Choosing an AMP mode</a></li>
     <li><a href="#amp_previewing">Previewing AMP</a></li>
     <li><a href="#amp_amp-tools">AMP Tools</a></li>
-    <li><a href="#amp_amp-for-seo">AMP for SEO</a></li>	
-    <li><a href="#amp_customizing-amp">Customizing AMP templates</a></li>	
+    <li><a href="#amp_amp-for-seo">AMP for SEO</a></li>
+    <li><a href="#amp_customizing-amp">Customizing AMP templates</a></li>
   </ul>
 </div>
 
@@ -94,14 +94,14 @@ Once AMP is enabled and you’ve decided on a mode, you will probably want to pr
 Classic mode
 If you’re running with classic, you can preview the mode in two ways:
 
-1. [yourdomain.com/products/product-slug/amp](yourdomain.com/products/product-slug/amp)
+1. yourdomain.com/products/product-slug/amp
 
-2. [yourdomain.com/products/product-slug/?amp](yourdomain.com/products/product-slug/?amp)
+2. yourdomain.com/products/product-slug/?amp
 
 By visiting any of these two URL’s the AMP version will be shown in a browser.
 
 ### Paired Mode
-For paired mode, you can only use the ?amp query parameter to show the AMP version in a browser. 
+For paired mode, you can only use the ?amp query parameter to show the AMP version in a browser.
 [yourdomain.com/products/product-slug/amp](yourdomain.com/products/product-slug/amp)
 
 ### Native Mode
@@ -151,4 +151,3 @@ Firstly, create a folder in your theme called `bigcommerce`. In this folder add 
 ### Paired and Native Mode
 
 Paired and native mode uses your existing WordPress theme to display. So there is little to no customization needed in terms of the theme layout and branding. You may however want to override the html outputted by the components on a product archive or product page. To do this, you do exactly what you would in classic. Create a folder in your theme called `bigcommerce/amp/components`. In this folder copy and paste any components that you would want to override from the plugin `bigcommerce/templates/public/amp`.
-

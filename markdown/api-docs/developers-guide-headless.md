@@ -36,8 +36,8 @@ To use the BigCommerce platform for headless commerce, you must have a store on 
 ## Ways to Implement Headless
 There are many ways to implement headless commerce. Below are just a few ways to start with Headless commerce.
 * Use our Wordpress Plugin to leverage a custom CMS powered by the BigCommerce Catalog, Cart and Checkout APIs.
-* Create a custom shopper experience by creating your own storefront and checkout using our APIs to manage the Catalog, Cart, Checkout and Payments. 
-* Use the BigCommerce storefront with a customized checkout using the Checkout SDK. 
+* Create a custom shopper experience by creating your own storefront and checkout using our APIs to manage the Catalog, Cart, Checkout and Payments.
+* Use the BigCommerce storefront with a customized checkout using the Checkout SDK.
 
 Below are ways to manage the catalog, cart and checkout. With the flexibility of using APIs, you can use one or all the options for a store.
 
@@ -53,14 +53,14 @@ If your catalog is changing all the time, you can use the Catalog API to return 
 **Real Time Pricing + Inventory**  
 If you prefer working with a local copy of your data, but want to make sure that high priority pieces of data like pricing and inventory are always up to date, you can consider a hybrid model. A hybrid model would cache only  certain product details and pull the other information in real time. BigCommerce has webhooks that you can use for listening to store events.
 
-### Cart Management 
+### Cart Management
 Use the [Server to Server Cart API](https://developer.bigcommerce.com/api-reference/cart-checkout/server-server-cart-api) to create carts for existing customers and guest customers.
 
 **Guest Cart**  
 A guest cart assumes the shopper is not a customer and is not logging in or creating an account during checkout. Handle guest checkouts by displaying the cart data to the customer and then moving them to Checkout using the Checkout API.
 
 **Content Management System**  
-Using a CMS is a good way to offer a custom shopper experience without needing build a content engine as well. The CMS needs to have a database so catalog information can be stored and retrieved and a way to store accounts. The [BigCommerce WordPress plugin](https://wordpress.org/plugins/bigcommerce/) loads the catalog into the database while using an embedded checkout to display cart and checkout details to customers. 
+Using a CMS is a good way to offer a custom shopper experience without needing build a content engine as well. The CMS needs to have a database so catalog information can be stored and retrieved and a way to store accounts. The [BigCommerce WordPress plugin](https://wordpress.org/plugins/bigcommerce/) loads the catalog into the database while using an embedded checkout to display cart and checkout details to customers.
 
 ### Checkout Management
 Use the [Checkout API](https://developer.bigcommerce.com/api-reference/cart-checkout/server-server-checkout-api) to move the cart to checkout and turn an existing checkout into an order.
@@ -68,7 +68,7 @@ Use the [Checkout API](https://developer.bigcommerce.com/api-reference/cart-chec
 **Redirect to a BigCommerce Checkout**  
 When creating a cart, there is an optional query to create a redirect URL. Use this to redirect the shopper to a BigCommerce hosted checkout page.
 
-If you are using the hosted checkout option shoppers will be able to navigate to other pages of the store. To prevent this, there are two options: 
+If you are using the hosted checkout option shoppers will be able to navigate to other pages of the store. To prevent this, there are two options:
 
 * Hide non essential pages by removing the back links in Cart and Checkout.
 * Edit the theme files to hide the other pages from all visitors except for those who need to see them for maintenance. The steps to edit the theme files are outlined below.
@@ -154,7 +154,7 @@ In the diagram below, the Storefront is any location the products are being rend
 The storefront is the front end presentation layer where a shopper interacts with products. In a headless architecture, the storefront might be a CMS, native mobile app, kiosk, static site, or any other front end solution you can imagine. The BigCommerce WordPress plugin is built using an existing CMS and injecting a stores catalog. Any CMS that accepts custom integrations can be used. Another option is to build a storefront from scratch using a framework such as [Gatsby](https://www.bigcommerce.com/blog/flexible-headless-commerce-solutions/#overview-of-bigcommerce-for-react-gatsby).
 
 ### Application
-The application is what a developer builds to control the requests and responses from the BigCommerce APIs. In addition to handling essential ecommerce tasks like requesting product information or sending the request to process a payment, the application layer can also handle logic for custom functionality, like presenting discount codes based on a shopper's history or pre filling details on the checkout page. 
+The application is what a developer builds to control the requests and responses from the BigCommerce APIs. In addition to handling essential ecommerce tasks like requesting product information or sending the request to process a payment, the application layer can also handle logic for custom functionality, like presenting discount codes based on a shopper's history or pre filling details on the checkout page.
 
 
 ### BigCommerce
@@ -178,7 +178,7 @@ BigCommerce will respond to the application with the requested data to power the
 ## PCI Compliance
 
 BigCommerce offers different avenues or channels for integration, depending on your business needs. The ultimate responsibility of PCI compliance lies with you and takes into consideration the architecture of your e-commerce store and multiple channels of integrations.
-BigCommerce is a PCI DSS compliant service provider and certifies annually [all requirements (1-12)](https://www.pcisecuritystndards.org/pci_security/maintaining_payment_security) including as a shared hosting provider. 
+BigCommerce is a PCI DSS compliant service provider and certifies annually [all requirements (1-12)](https://www.pcisecuritystndards.org/pci_security/maintaining_payment_security) including as a shared hosting provider.
 
 The BigCommerce [PCI DSS attestation of compliance (AOC)](https://support.mybigcommerce.com/content/dojo/BigCommerce_PCI_DSS_v3.2.1_AOC_2019_Service_Provider.pdf) outlines the description of the technology stack certified annually.
 
@@ -204,7 +204,7 @@ It is possible to use one more of BigCommerce's technology stack at the same tim
 <div class="HubBlock--callout">
 <div class="CalloutBlock--warning">
 <div class="HubBlock-content">
-    
+
 <!-- theme: warning -->
 
 > If your application handles credit card data, you will need to be PCI Compliant. SAQs (self-assessment questionnaires) can be submitted to <a href="mailto:compliance@bigcommerce.com">compliance@bigcommerce.com</a>.
@@ -249,7 +249,7 @@ Below are example workflows that list which APIs are needed to create a Cart, Ch
 ### Create an Order Directly
 [![Run in Postman](https://run.pstmn.io/button.svg)](https://app.getpostman.com/run-collection/f4dbc360974d4b5eff77)
 
-1.  Send a request /POST request to [Orders](/api-reference/orders/orders-api/orders/postorders)
+1.  Send a request /POST request to [Orders](/api-reference/orders/orders-api/orders/createanorder)
 	2. Make sure the `status_id` is 0
 	3.  Add the Customer ID or leave blank if the shopper is a guest
 	4. Add Line Items or Custom Line Items
@@ -306,4 +306,3 @@ Below are example workflows that list which APIs are needed to create a Cart, Ch
 -   [Merchants Classification Levels Mastercard](https://www.mastercard.us/en-us/merchants/safety-security/security-recommendations/merchants-need-to-know.html) (Mastercard)
 -   [Self Assessment Questionaire (SAQ) Types and Identifying which SAQ is for you](https://www.pcisecuritystandards.org/documents/SAQ-InstrGuidelines-v3_2_1.pdf?agreement=true&time=1562173376464) (PCI Security Standards)
 - [Maintaining Payment Security](https://www.pcisecuritystandards.org/pci_security/maintaining_payment_security) (PCI Security Standards)
-

@@ -20,7 +20,7 @@
   "paths": {
     "/customers": {
       "get": {
-        "description": "Returns a list of [*Customers*](/api-reference/customer-subscribers/customers-api-v3/models/customer). Optional filter parameters can be passed in. \n\n**Notes**\n\nAttribute names are not available on the customer object. ",
+        "description": "Returns a list of [*Customers*](/api-reference/customer-subscribers/v3-customers-api/models/customer). Optional filter parameters can be passed in. \n\n**Notes**\n\nAttribute names are not available on the customer object. ",
         "summary": "Get All Customers",
         "tags": [
           "Customers"
@@ -881,7 +881,7 @@
         }
       },
       "post": {
-        "description": "Creates a [*Customers*](/api-reference/customer-subscribers/customers-api-v3/models/customer). Multiple customers can be created in one call.\n\n**Required Fields**\n* last_name\n* first_name\n* email\n\n**Required Fields Customer Address**\n* first_name\n* city\n* country_code\n* state_or_province\n* last_name\n* address1\n* postal_code\n\n**Required Fields Attributes**\n* attribute_name\n* attribute_value -- This is input as a string, regardless of the [Type](/api-reference/customer-subscribers/customers-api-v3/models/type).",
+        "description": "Creates a [*Customers*](/api-reference/customer-subscribers/v3-customers-api/models/customer). Multiple customers can be created in one call.\n\n**Required Fields**\n* last_name\n* first_name\n* email\n\n**Required Fields Customer Address**\n* first_name\n* city\n* country_code\n* state_or_province\n* last_name\n* address1\n* postal_code\n\n**Required Fields Attributes**\n* attribute_name\n* attribute_value -- This is input as a string, regardless of the [Type](/api-reference/customer-subscribers/v3-customers-api/models/type).",
         "summary": "Create a Customer",
         "tags": [
           "Customers"
@@ -1807,7 +1807,7 @@
         }
       },
       "put": {
-        "description": "Updates a [*Customers*](/api-reference/customer-subscribers/customers-api-v3/models/customer). Subresource updates are not supported. Multiple customers can be updated in one call.\n\n**Required Fields**\n* id -- ID of the *Customer* This must be included in the request body\n\n**Read Only Fields**\n* id\n* registration_ip_address\n* date_created\n* date_modified\n\n\n**Notes**\n\nAttributes Values can not be updated using Update a Customer. Use the Update a [Customer Attribute Values](https://developer.bigcommerce.com/api-reference/customer-subscribers/v3-customers-api/customer-attribute-values/customersattributevaluesput) endpoint.",
+        "description": "Updates a [*Customers*](/api-reference/customer-subscribers/v3-customers-api/models/customer). Subresource updates are not supported. Multiple customers can be updated in one call.\n\n**Required Fields**\n* id -- ID of the *Customer* This must be included in the request body\n\n**Read Only Fields**\n* id\n* registration_ip_address\n* date_created\n* date_modified\n\n\n**Notes**\n\nAttributes Values can not be updated using Update a Customer. Use the Update a [Customer Attribute Values](https://developer.bigcommerce.com/api-reference/customer-subscribers/v3-customers-api/customer-attribute-values/customersattributevaluesput) endpoint.",
         "summary": "Update a Customer",
         "tags": [
           "Customers"
@@ -2571,7 +2571,7 @@
         }
       },
       "delete": {
-        "description": "Deletes [*Customers*](/api-reference/customer-subscribers/customers-api-v3/models/customer). \n\n**Required Query**\n* id:in -- ID of the customer\n\n**Notes**\n\nA query is required to delete customers. If not provided, a 204 is returned, with no changes to the data.",
+        "description": "Deletes [*Customers*](/api-reference/customer-subscribers/v3-customers-api/models/customer). \n\n**Required Query**\n* id:in -- ID of the customer\n\n**Notes**\n\nA query is required to delete customers. If not provided, a 204 is returned, with no changes to the data.",
         "summary": "Delete Customers",
         "tags": [
           "Customers"
@@ -4131,7 +4131,7 @@
     },
     "/customers/attributes": {
       "get": {
-        "description": "Returns a list of [*Customer Attributes*](/api-reference/customer-subscribers/customers-api-v3/models/customerattribute). Optional filter parameters can be passed in.",
+        "description": "Returns a list of [*Customer Attributes*](/api-reference/customer-subscribers/v3-customers-api/models/customerattribute). Optional filter parameters can be passed in.",
         "summary": "Get All Customer Attributes",
         "operationId": "CustomersAttributesGet",
         "deprecated": false,
@@ -4750,7 +4750,7 @@
         ]
       },
       "delete": {
-        "description": "Deletes [*Customer Attributes*](/api-reference/customer-subscribers/customers-api-v3/models/customerattribute) from the store. \n\n**Required Query**\n* id:in -- ID of the *Customer Attribute*",
+        "description": "Deletes [*Customer Attributes*](/api-reference/customer-subscribers/v3-customers-api/models/customerattribute) from the store. \n\n**Required Query**\n* id:in -- ID of the *Customer Attribute*",
         "summary": "Delete Customer Attributes",
         "operationId": "CustomersAttributesDelete",
         "deprecated": false,
@@ -4795,7 +4795,7 @@
     },
     "/customers/attribute-values": {
       "get": {
-        "description": "Returns a list of [*Customer Attribute Values*](/api-reference/customer-subscribers/customers-api-v3/models/customerattributevalue). Optional filter parameters can be passed in.",
+        "description": "Returns a list of [*Customer Attribute Values*](/api-reference/customer-subscribers/v3-customers-api/models/customerattributevalue). Optional filter parameters can be passed in.",
         "summary": "Get All Customer Attribute Values",
         "operationId": "CustomersAttributeValuesGet",
         "deprecated": false,
@@ -5043,7 +5043,7 @@
         ]
       },
       "put": {
-        "description": "Upserts [*Customer Attribute Values*](/api-reference/customer-subscribers/customers-api-v3/models/customerattributevalue). Updates the attribute values on the [*Customer*](/api-reference/customer-subscribers/customers-api-v3/models/customer). Multiple customer attribute values can be updated in one call.\n\nUpsert checks for an existing record, if there is none it creates the record, if there is a matching record it updates that record. \n\nUp to 10 per call are allowed.\n\n**Required Fields**\n* customer_id -- ID of the *Customer*\n* id -- ID of the *Customer Attribute*\n* value -- Value of the *Customer Attribute*",
+        "description": "Upserts [*Customer Attribute Values*](/api-reference/customer-subscribers/v3-customers-api/models/customerattributevalue). Updates the attribute values on the [*Customer*](/api-reference/customer-subscribers/v3-customers-api/models/customer). Multiple customer attribute values can be updated in one call.\n\nUpsert checks for an existing record, if there is none it creates the record, if there is a matching record it updates that record. \n\nUp to 10 per call are allowed.\n\n**Required Fields**\n* customer_id -- ID of the *Customer*\n* id -- ID of the *Customer Attribute*\n* value -- Value of the *Customer Attribute*",
         "summary": "Upsert Customer Attribue Values",
         "operationId": "CustomersAttributeValuesPut",
         "deprecated": false,
@@ -5243,7 +5243,7 @@
         ]
       },
       "delete": {
-        "description": "Deletes [*Customer Attribute Values*](/api-reference/customer-subscribers/customers-api-v3/models/customerattributevalue). Deletes the attribute value from the customer.\n\n**Required Query**\n* id:in - ID of the *Customer Attribute Value*",
+        "description": "Deletes [*Customer Attribute Values*](https://developer.bigcommerce.com/api-reference/customer-subscribers/v3-customers-api/models/customerattributevalue). Deletes the attribute value from the customer.\n\n**Required Query**\n* id:in - ID of the *Customer Attribute Value*",
         "summary": "Delete Customer Attribute Values",
         "operationId": "CustomersAttributeValuesDelete",
         "deprecated": false,
@@ -5496,7 +5496,7 @@
           }
         },
         "summary": "Get Customer Form Fields",
-        "description": "Returns a list of [*Form Field Values*](/api-reference/customer-subscribers/customers-api-v3/models/formfieldvalue) for the [*Customer*](/api-reference/customer-subscribers/customers-api-v3/models/customer) or [*Customer Address*](/api-reference/customer-subscribers/customers-api-v3/models/address) object.",
+        "description": "Returns a list of [*Form Field Values*](/api-reference/customer-subscribers/customers-api-v3/models/formfieldvalue) for the [*Customer*](/api-reference/customer-subscribers/v3-customers-api/models/customer) or [*Customer Address*](/api-reference/customer-subscribers/customers-api-v3/models/address) object.",
         "operationId": "CustomerFormFieldsGet",
         "tags": [
           "Customer Form Fields"
@@ -5771,7 +5771,7 @@
           }
         },
         "summary": "Upsert Customer Form Field Values",
-        "description": "Upserts [*Customer Form Field Values*](/api-reference/customer-subscribers/customers-api-v3/models/formfieldvalue). Updates the form field values on the [*Customer*](/api-reference/customer-subscribers/customers-api-v3/models/customer) or [*Customer Address*](/api-reference/customer-subscribers/customers-api-v3/models/address). Multiple form field values can be updated in one call.\n\nUpsert checks for an existing record, if there is none it creates the record, if there is a matching record it updates that record. \n\n**Required Fields**\n* name\n* value\n* customer_id\n\nOR\n\n* name\n* value\n* address_id",
+        "description": "Upserts [*Customer Form Field Values*](/api-reference/customer-subscribers/customers-api-v3/models/formfieldvalue). Updates the form field values on the [*Customer*](/api-reference/customer-subscribers/v3-customers-api/models/customer) or [*Customer Address*](/api-reference/customer-subscribers/customers-api-v3/models/address). Multiple form field values can be updated in one call.\n\nUpsert checks for an existing record, if there is none it creates the record, if there is a matching record it updates that record. \n\n**Required Fields**\n* name\n* value\n* customer_id\n\nOR\n\n* name\n* value\n* address_id",
         "operationId": "CustomerFormFieldValuePUT",
         "tags": [
           "Customer Form Fields"

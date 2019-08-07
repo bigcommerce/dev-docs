@@ -17,7 +17,7 @@
 <div class="HubBlock--callout">
 <div class="CalloutBlock--error">
 <div class="HubBlock-content">
-    
+
 <!-- theme: error -->
 
 > It is recommended to use the new [Catalog Products](/api-reference/catalog/catalog-api)
@@ -28,10 +28,10 @@
 
 <a href='#v2-products_object-properties' aria-hidden='true' class='block-anchor'  id='v2-products_object-properties'><i aria-hidden='true' class='linkify icon'></i></a>
 
-## Products 
+## Products
 A product object represents a saleable item in the catalog.
 
-### Product Object – Properties 
+### Product Object – Properties
 
 | Name | Type | Description |
 | --- | --- | --- | --- |
@@ -97,7 +97,7 @@ A product object represents a saleable item in the catalog.
 | is_open_graph_thumbnail | boolean | If set to `true`, the product thumbnail image will be used as the open graph image. |
 | upc | string | The product UPC code, which is used in feeds for shopping comparison sites. |
 | date_last_imported | date | The date on which the product was last imported using the bulk importer. |
-| option_set_id | int | The ID of the [option set](/api/v2/#option-sets) applied to the product. (NOTE: To remove the option set from the product, set the value to `null` on update.) |
+| option_set_id | int | The ID of the [option set](/legacy/v2-catalog-products/v2-option-sets) applied to the product. (NOTE: To remove the option set from the product, set the value to `null` on update.) |
 | tax_class_id | int | The ID of the tax class applied to the product. (NOTE: Value ignored if automatic tax is enabled.) |
 | option_set_display | enum | The position on the product page where options from the option set will be displayed. |
 | bin_picking_number | string | The BIN picking number for the product. |
@@ -113,7 +113,7 @@ A product object represents a saleable item in the catalog.
 | videos | resource | See the [Videos resource](/api/v2/#videos) for information. |
 | skus | resource | Stock Keeping Units for the product. See the [Product SKUs](/api/v2/#skus) resource for the definition of a sku object. |
 | rules | resource | Rules that apply only to this product, based on the product's [option set](/v2#product-option-sets). See [Product Rules](/api/v2/#product-rules) resource for information. |
-| option_set | resource | See the [Product Option Sets](/v2/#product-option-sets) resource for information. |
+| option_set | resource | See the [Product Option Sets](https://developer.bigcommerce.com/legacy/v2-catalog-products/v2-option-sets) resource for information. |
 | options | resource | Options from the [option set](/api/v2/#option-sets) applied to the product. See the [Product Options](/api/v2/#product-options) resource for information. |
 | tax_class | resource | Assigned tax class, when using a manual tax setup. This can be a number matching one of the tax classes set up in your store. |
 | avalara_product_tax_code | resource | Accepts AvaTax System Tax Codes, which identify products and services that fall into special sales-tax categories. By using these codes, merchants who subscribe to Avalara Premium can calculate sales taxes more accurately.<br><br> Stores without Avalara Premium will ignore the code when calculating sales tax. Do not pass more than one code. The codes are case-sensitive.<br><br> For details, please see Avalara's <a href="https://help.avalara.com/000_Avalara_AvaTax/Manage_Product_Taxability/010_Select_AvaTax_System_Tax_Codes" target="_blank">overview</a> and <a href="https://help.avalara.com/000_Avalara_AvaTax/Manage_Product_Taxability/Tax_Codes_-_Frequently_Asked_Questions" target="_blank">FAQ</a> on AvaTax System Tax Codes. You can also <a href="https://help.avalara.com/@api/deki/files/1675/AvaTax_System_Tax_Codes_Toolkit.zip?revision=37" target="_blank">download codes</a> as a zipfile of spreadsheets, or <a href="https://taxcode.avatax.avalara.com/" target="_blank">search or browse codes</a> in Avalara's Tax Code Search Tool. (These external links are subject to change.) |
@@ -123,12 +123,12 @@ A product object represents a saleable item in the catalog.
 
 <a href='#v2-products_list-products' aria-hidden='true' class='block-anchor'  id='v2-products_list-products'><i aria-hidden='true' class='linkify icon'></i></a>
 
-## List Products 
+## List Products
 
 Gets the collection of products. (Default sorting is by product id, from lowest to highest.)
 > `GET /stores/{store_hash}/v2/products`
 
-### Filters 
+### Filters
 
 Filter parameters can be added to the URL query string to select specific products in the collection.
 
@@ -161,7 +161,7 @@ Filter parameters can be added to the URL query string to select specific produc
 | category | string | /api/v2/products?category={value} |
 | product_tax_code | string | /api/v2/products?product_tax_code={value} |
 
-### Pagination 
+### Pagination
 
 Parameters can be added to the URL query string to paginate the collection. The maximum limit is 250. If a limit isn’t provided, up to 50 products are returned by default.
 
@@ -170,7 +170,7 @@ Parameters can be added to the URL query string to paginate the collection. The 
 | Page | int | /api/v2/products?page={number} |
 | Limit | int | /api/v2/products?limit={count} |
 
-### Notes 
+### Notes
 
 You can filter the retrieved fields by appending one of the following options to your request:
 
@@ -180,7 +180,7 @@ You can filter the retrieved fields by appending one of the following options to
 
 For details, syntax, and examples, please see the [Get a Product](#get-a-product) operation.
 
-### Response 
+### Response
 
 Example JSON returned in the response:
 
@@ -438,23 +438,23 @@ Example JSON returned in the response:
 
 <a href='#v2-products_get-products' aria-hidden='true' class='block-anchor'  id='v2-products_get-products'><i aria-hidden='true' class='linkify icon'></i></a>
 
-## Get a Product 
+## Get a Product
 
 Gets a product.
- 
+
 > `GET /stores/{store_hash}/v2/products/{id}`
 
-### Notes 
+### Notes
 
-You can filter the retrieved fields by appending one of the following options to your request: 
+You can filter the retrieved fields by appending one of the following options to your request:
 
 - `?include=`
-- `?include=@summary` 
+- `?include=@summary`
 - `?exclude=`
 
 In particular, you can reduce payload size, and improve performance, by excluding the `description` field.
 
-### Mandatory Fields 
+### Mandatory Fields
 
 However, the following fields are always present on product API requests, and cannot be excluded:
 
@@ -463,7 +463,7 @@ However, the following fields are always present on product API requests, and ca
 - `date_modified`
 - `primary_image`
 
-### include 
+### include
 
 The following sample request will retrieve *only* the specified `date_created`, `price`, and `cost_price` fields, plus the mandatory fields listed just above:
 
@@ -492,9 +492,9 @@ Here is a corresponding sample response:
 }
 ```
 
-### include=@summary 
+### include=@summary
 
-The `?include=@summary` option retrieves the following predefined subset of fields, in addition to the [mandatory fields](#get-a-product-mandatory) listed above: 
+The `?include=@summary` option retrieves the following predefined subset of fields, in addition to the [mandatory fields](#get-a-product-mandatory) listed above:
 
 - `availability`
 - `calculated_price`
@@ -503,7 +503,7 @@ The `?include=@summary` option retrieves the following predefined subset of fiel
 - `inventory_level`
 - `inventory_warning_level`
 - `is_visible`
-- `is_featured` 
+- `is_featured`
 
 Here is a sample request with the `?include=@summary` option appended:
 
@@ -537,7 +537,7 @@ Here is a corresponding sample response:
 }
 ```
 
-### exclude 
+### exclude
 
 The `?exclude=` option excludes one or more specified fields. However, you cannot exclude the mandatory `id`, `name`, `date_modified`, or `primary_image` fields.
 
@@ -550,7 +550,7 @@ https://store-et7xe3pz.mybigcommerce.com/api/v2/products/32?exclude=description
 We have omitted the corresponding sample response. However, the following section shows a complete sample response for a request submitted with no `?include` or `?exclude` option. (The effect of the `?exclude=description` option shown above would be to omit the `"description": ` field shown as the sixth field below.)
 
 
-### Response 
+### Response
 
 Example JSON returned in the response:
 
@@ -682,13 +682,13 @@ Example JSON returned in the response:
 
 <a href='#v2-products_get-count-products' aria-hidden='true' class='block-anchor'  id='v2-products_get-count-products'><i aria-hidden='true' class='linkify icon'></i></a>
 
-## Get a Product Count 
+## Get a Product Count
 
 Gets a count of products.
 
 > `GET /stores/{store_hash}/v2/products/count`
 
-### Filters 
+### Filters
 
 Filter parameters can be added to the URL query string to select specific products in the collection.
 
@@ -721,11 +721,11 @@ Filter parameters can be added to the URL query string to select specific produc
 | category | string | /api/v2/products?category={value} |
 | product_tax_code | string | /api/v2/products?product_tax_code={value} |
 
-### Notes 
+### Notes
 
 If no filters are applied, the total number of products is returned.
 
-### Response 
+### Response
 
 Example JSON returned in the response:
 
@@ -739,13 +739,13 @@ Example JSON returned in the response:
 
 <a href='#v2-products_create-products' aria-hidden='true' class='block-anchor'  id='v2-products_create-products'><i aria-hidden='true' class='linkify icon'></i></a>
 
-## Create a Product 
+## Create a Product
 
 Creates a new product. The example request shows how to create a basic product by sending a product object with the minimum required properties.
 
 > `POST /stores/{store_hash}/v2/products`
 
-### Read-only Properties 
+### Read-only Properties
 
 The following properties of the product are read-only. If one or more of these properties are included in the request, it will be rejected.
 
@@ -764,7 +764,7 @@ The following properties of the product are read-only. If one or more of these p
 *   options
 *   tax_class
 
-### Requirements 
+### Requirements
 
 The following properties of the product are required. The request won’t be fulfilled unless these properties are valid.
 
@@ -775,7 +775,7 @@ The following properties of the product are required. The request won’t be ful
 *   availability
 *   weight
 
-### Notes 
+### Notes
 
 Create a request by sending a [product object](#product-object-properties) with the minimum required properties:
 
@@ -807,13 +807,13 @@ If automatic tax is enabled on the store, the value of `tax_class_id` will have 
 
 <a href='#v2-products_update-products' aria-hidden='true' class='block-anchor'  id='v2-products_update-products'><i aria-hidden='true' class='linkify icon'></i></a>
 
-## Update a Product 
+## Update a Product
 
 Updates an existing product.
 
 > `PUT /stores/{store_hash}/v2/products/{id}`
 
-### Read-only Properties 
+### Read-only Properties
 
 The following properties of the product are read-only. If one or more of these properties are included in the request, it will be rejected.
 
@@ -838,11 +838,11 @@ The following properties of the product are read-only. If one or more of these p
 *   options
 *   tax_class
 
-### Requirements 
+### Requirements
 
 There are no required properties when updating a product.
 
-### Notes 
+### Notes
 
 To update a product, set one or more product properties in the `PUT` request:
 
@@ -863,15 +863,15 @@ For example, you can use a `PUT` to link a product to an option set:
 
 Invalid property values will produce a `400 Bad Request` error response:
 
-### Request 
+### Request
 
-``` 
+```
 {
     "condition": "Worn"
 }
 ```
 
-### Response 
+### Response
 
 ```
 400 Bad Request
@@ -879,7 +879,7 @@ Invalid property values will produce a `400 Bad Request` error response:
 
 Trying to set read-only properties will also produce a `400 Bad Request` error response:
 
-### Request 
+### Request
 
 ```
 {
@@ -887,7 +887,7 @@ Trying to set read-only properties will also produce a `400 Bad Request` error r
 }
 ```
 
-### Response 
+### Response
 
 ```
 400 Bad Request
@@ -906,13 +906,13 @@ If automatic tax is enabled on the store, the value of `tax_class_id` will have 
 
 <a href='#v2-products_delete-products' aria-hidden='true' class='block-anchor'  id='v2-products_delete-products'><i aria-hidden='true' class='linkify icon'></i></a>
 
-## Delete a Product 
+## Delete a Product
 
 Deletes a product.
 
 > `DELETE /stores/{store_hash}/v2/products/{id}`
 
-### Notes 
+### Notes
 
 Successful deletion of a product returns a `204 No Content` response:
 
@@ -924,17 +924,16 @@ Successful deletion of a product returns a `204 No Content` response:
 
 <a href='#v2-products_delete-all-products' aria-hidden='true' class='block-anchor'  id='v2-products_delete-all-products'><i aria-hidden='true' class='linkify icon'></i></a>
 
-## Delete All Products 
+## Delete All Products
 
 Deletes all products from the store.
 
 > `DELETE /stores/{store_hash}/v2/products`
 
-### Notes 
+### Notes
 
 Successful deletion of all products returns a `204 No Content` response:
 
 ```
 204 No Content
 ```
-

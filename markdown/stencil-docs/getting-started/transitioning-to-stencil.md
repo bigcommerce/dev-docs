@@ -33,7 +33,7 @@ For complete control over a theme's appearance and logic including the ability t
 
 ## Transition to Stencil from Blueprint
 
-All new BigCommerce storefronts are powered by the Stencil theme engine. However, some BigCommerce stores still use our legacy theme framework, Blueprint. If you're still using this legacy framework, consider switching to Stencil. Transitioning to Stencil allows developers to take advantage of new features, including [Google Analytics Enhanced Ecommerce](stencil-docs/developing-further/google-analytics-enhanced-ecommerce), [Price Lists](/api-docs/catalog/price-list-overview) and [Google AMP](stencil-docs/developing-further/google-amp). Stencil also features a CLI that allows you to design and preview storefronts locally before pushing them to production. BigCommerce's base Stencil theme, Cornerstone, is also natively mobile responsive.
+All new BigCommerce storefronts are powered by the Stencil theme engine. However, some BigCommerce stores still use our legacy theme framework, Blueprint. If you're still using this legacy framework, consider switching to Stencil. Transitioning to Stencil allows developers to take advantage of new features, including [Google Analytics Enhanced Ecommerce](https://developer.bigcommerce.com/stencil-docs/developing-further/google-analytics-enhanced-ecommerce), [Price Lists](/api-docs/catalog/price-list-overview) and [Google AMP](https://developer.bigcommerce.com/stencil-docs/developing-further/google-amp). Stencil also features a CLI that allows you to design and preview storefronts locally before pushing them to production. BigCommerce's base Stencil theme, Cornerstone, is also natively mobile responsive.
 
 ### Technical Differences
 
