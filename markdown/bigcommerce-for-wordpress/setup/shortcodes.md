@@ -44,7 +44,7 @@ While the shortcode can be built using the button, it can also be created manual
 
 `[bc-component]`
 
-The component shortcode lets you include a piece of information about a particular product in pages and posts across your Wordpress site. Within the Block Editor, click the plus symbol on the area of the page you want to add the component to and select BigCommerce Product Components. This creates a Gutenburg block containing a product's information. You must specify a Product ID, then select the product component you'd like to display.
+The component shortcode lets you include an attribute for a particular product in pages and posts across your Wordpress site. Within the Block Editor, click the plus symbol on the area of the page you want to add the component to and select BigCommerce Product Components. This creates a Gutenburg block containing a product's information. You must specify a Product ID, then select the product component you'd like to display.
 
 You can build the shortcode using the Block Editor, or it can be created manually. It accepts a number of attributes:
 
