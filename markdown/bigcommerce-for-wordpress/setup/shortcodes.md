@@ -44,16 +44,16 @@ While the shortcode can be built using the button, it can also be created manual
 
 `[bc-component]`
 
-The component shortcode lets you include an attribute for a particular product in pages and posts across your Wordpress site. Within the Block Editor, click the plus symbol on the area of the page you want to add the component to and select BigCommerce Product Components. This creates a Gutenburg block containing a product's information. You must specify a Product ID, then select the product component you'd like to display.
+The component shortcode lets you include an attribute for a particular product in pages and posts across your WordPress site. Within the Block Editor, click the plus symbol on the area of the page you want to add the component to and select BigCommerce Product Components. This creates a Gutenburg block containing a product's information. You must specify a Product ID, then select the product component you'd like to display.
 
 You can build the shortcode using the Block Editor, or it can be created manually. It accepts a number of attributes:
 
 |Attribute|Expected Value|Example|
 |-|-|-|
-|`sku`|The main SKU associated with a product |`[bc-component id="163" type="SKU"]`|
-|`image`|The featured product image associated with a product|`[bc-component id="163" type="image"]`|
-|`title`|The product title|`[bc-component id="163" type="title"]`|
-|`description`|The product description for a product|`[bc-component id="163" type="description"]`|
+|`sku`|The product's base SKU|`[bc-component id="163" type="SKU"]`|
+|`image`|The product's feature image|`[bc-component id="163" type="image"]`|
+|`title`|The product's title|`[bc-component id="163" type="title"]`|
+|`description`|The product's description|`[bc-component id="163" type="description"]`|
 |`add_to_cart`| Displays an add-to-cart button for the product |`[bc-component id="163" type="add_to_cart"]`|
 
 ---
