@@ -38,126 +38,48 @@ This consistent behavior is true for each of the common objects documented in th
 
 ## Catalog Price
 
-**Description:** Exposes catalog price and currency-related properties in both raw numeric, and formatted string, formats.
+**Description:** Exposes catalog price and currency-related properties in both raw numeric, and formatted string, formats. Tax settings display [configuration](https://support.bigcommerce.com/s/article/Manual-Tax-Setup#display-settings) will determine which properties are available.
 
 **Available through:**
 * Common Object: <a href="#common-objects_common-product">Common Product Card Model</a>
 * Object: `{{product.price}}`
 
 
-<b>Object Properties:</b>
+**Object Properties:**
 
 
-<table>
-  <tr>
-    <th>Property</th>
-    <th>Description</th>
-  </tr>
-  <tr>
-    <td>with_tax</td>
-    <td>Price including tax</td>
-  </tr>
-  <tr>
-    <td><span class="indent1"> formatted</span></td>
-    <td>String representation of the above price, including currency formatting</td>
-  </tr>
-  <tr>
-    <td><span class="indent1"> value</span></td>    
-    <td>Raw numeric value of the above price</td>  
-  </tr>
-  <tr>
-    <td>without_tax</td>
-    <td>Price excluding tax</td>
-  </tr>
-  <tr>
-    <td><span class="indent1"> formatted</span></td>
-    <td>String representation of the above price, including currency formatting</td>
-  </tr>
-  <tr>
-    <td><span class="indent1"> value</span></td>
-    <td>Raw numeric value of the above price</td>
-  </tr>
-  <tr>
-    <td>non_sale_price_with_tax</td>
-    <td>Non-sale price, including tax (can be displayed alongside standard with_tax during sale events)</td>
-  </tr>
-  <tr>
-    <td><span class="indent1"> formatted</span></td>
-    <td>String representation of the above price, including currency formatting</td>
-  </tr>
-  <tr>
-    <td><span class="indent1"> value</span></td>
-    <td>Raw numeric value of the above price</td>
-  </tr>
-  <tr>
-    <td>non_sale_price_without_tax</td>
-    <td>Non-sale price, excluding tax (can be displayed alongside standardwithout_tax during sale events)</td>
-  </tr>
-  <tr>
-    <td><span class="indent1"> formatted</span></td>
-    <td>String representation of the above price, including currency formatting</td>
-  </tr>
-  <tr>
-    <td><span class="indent1"> value</span></td>
-    <td>Raw numeric value of the above price</td>
-  </tr>
-  <tr>
-    <td>rrp_with_tax</td>
-    <td>List (i.e., manufacturer’s suggested retail) price, including tax</td>
-  </tr>
-  <tr>
-    <td><span class="indent1"> formatted</span></td>
-    <td>String representation of the above price, including currency formatting</td>
-  </tr>
-  <tr>
-    <td><span class="indent1"> value</span></td>
-    <td>Raw numeric value of the above price</td>
-  </tr>
-  <tr>
-    <td>rrp_without_tax</td>
-    <td>List (i.e., suggested retail) price, excluding tax</td>
-  </tr>
-  <tr>
-    <td><span class="indent1"> formatted</span></td>
-    <td>String representation of the above price, including currency formatting</td>
-  </tr>
-  <tr>
-    <td><span class="indent1"> value</span></td>
-    <td>Raw numeric value of the above price</td>
-  </tr>
-  <tr>
-    <td>saved</td>
-    <td>Amount customer saved, compared to list price</td>
-  </tr>
-  <tr>
-    <td><span class="indent1"> formatted</span></td>
-    <td>String representation of the above price, including currency formatting</td
-  </tr>
-  <tr>
-    <td><span class="indent1"> value</span></td>
-    <td>Raw numeric value of the above price</td>
-  </tr>
-  <tr>
-    <td>tax_label</td>
-    <td>Tax label (VAT, sales tax, etc.) displayed to customers</td>
-  </tr>
-  <tr>
-    <td>price_range</td>
-    <td>See Price Range Object </td>
-  </tr>
-  <tr>
-    <td>map_price</td>
-    <td>Minimum advertised price</td>
-  </tr>
-  <tr>
-    <td><span class="indent1"> formatted</span></td>
-    <td>String representation of the above price, including currency formatting</td>
-  </tr>
-  <tr>
-    <td><span class="indent1"> value</span></td>
-    <td>Raw numeric value of the above price</td>
-  </tr>
-</table>
+| Property | Description | Type |
+| --- |--- | --- |
+| with_tax | Price including tax | object |
+| &#x21B3; currency | Currency code | string  <br> `"USD"`|
+| &#x21B3; formatted | String representation of the above price, including currency formatting | string <br> `"$216.50"` |
+| &#x21B3; value |Raw numeric value of the above price | number <br> `216.5`
+| without_tax | Price excluding tax | object |
+| &#x21B3; currency | Currency code | string <br> `"USD"` |
+| &#x21B3; formatted | String representation of the above price, including currency formatting | string <br> `"$200.00"` |
+| &#x21B3; value | Raw numeric value of the above price | number <br> `200` |
+| non_sale_price_with_tax | Non-sale price, including tax (can be displayed alongside standard with_tax during sale events) | object |
+| &#x21B3; currency | Currency code | string <br> `"USD"` |
+| &#x21B3; formatted | String representation of the above price, including currency formatting | string <br> `"$243.56"`|
+| &#x21B3;  value | Raw numeric value of the above price | number <br> `243.56`|
+| non_sale_price_without_tax | Non-sale price, excluding tax (can be displayed alongside standard without_tax during sale events) | object |
+| &#x21B3; currency | Currency code | string <br> `"USD"` |
+| &#x21B3; formatted | String representation of the above price, including currency formatting | string <br> `"$225.00"`|
+| &#x21B3; value | Raw numeric value of the above price | number <br> `225.00`|
+| rrp_with_tax	|List (i.e., manufacturer’s suggested retail) price, including tax | object |
+| &#x21B3; currency | Currency code | string <br> `"USD"` |
+|  &#x21B3; formatted	| String representation of the above price, including currency formatting | string <br> `"$242.48"` |
+| &#x21B3; value	| Raw numeric value of the above price | number <br> `242.48` |
+| rrp_without_tax | List (i.e., suggested retail) price, excluding tax | object|
+| &#x21B3; currency | Currency code | string <br> `"USD"` |
+|  &#x21B3; formatted	| String representation of the above price, including currency formatting | string <br> `"$224.00"` |
+| &#x21B3; value | Raw numeric value of the above price | number <br> `224`|
+|saved | Amount customer saved, compared to list price | object |
+| &#x21B3; currency | Currency code | string <br> `"USD"` |
+|  &#x21B3; formatted	| String representation of the above price, including currency formatting | string <br> `"$25.98"` |
+| &#x21B3; value | Raw numeric value of the above price | number <br> `25.98`|
+| tax_label	| Tax label (VAT, sales tax, etc.) displayed to customers. | string  <br> `"Tax"`|
+| price_range | See [Price Range Object](https://developer.bigcommerce.com/stencil-docs/reference-docs/common-objects#common-objects_price-range)| |
 
 ---
 
@@ -180,6 +102,10 @@ This consistent behavior is true for each of the common objects documented in th
     <th>Description</th>
   </tr>
   <tr>
+    <td>currency</td>
+    <td>Currency code </td>
+  </tr>
+  <tr>
     <td>formatted</td>
     <td>String representation of the price, including currency formatting</td>
   </tr>
@@ -199,21 +125,27 @@ This consistent behavior is true for each of the common objects documented in th
 
 <b>Object Properties:</b>
 
-<table>
-  <tr>
-    <td>Property</td>
-    <td>Description</td>
-  </tr>
-  <tr>
-    <td>min</td>
-    <td>The minimum variant price for the product, in the form of a <a href="/stencil-docs/stencil-object-model-reference/stencil-objects/common-objects/common-product-card-model">Catalog Price Common Object</a></td>
-  </tr>
-  <tr>
-    <td> <A NAME="without_tax"></a> max</td>
-    <td>The maximum variant price for the product, in the form of a <a href="/stencil-docs/stencil-object-model-reference/stencil-objects/common-objects/common-product-card-model">Catalog Price Common Object</a>
-</td>
-  </tr>
-</table>
+| Property | Description | Type |
+| ---|---|--|
+| retail_price_range | Product Price Range | object |
+|&#x21B3;   max | The minimum variant price for the product | object |
+|&nbsp;  &nbsp;  &#x21B3;  with_tax | Price including tax | object |
+|&nbsp;  &nbsp; &nbsp;  &nbsp;  &#x21B3; currency | Currency code | string  <br> `"USD"`|
+| &nbsp;  &nbsp; &nbsp;  &nbsp; &#x21B3;formatted | String representation of the above price, including currency formatting | string <br> `"$37.89"` |
+| &nbsp;  &nbsp; &nbsp;  &nbsp;  &#x21B3; value |Raw numeric value of the above price | number <br> `37.89` |
+| &nbsp;  &nbsp; &#x21B3; without_tax | Price without tax| object |
+| &nbsp;  &nbsp; &nbsp; &nbsp; &#x21B3; currency| Currency price is displayed in | string <br> `USD`|
+| &nbsp;  &nbsp; &nbsp; &nbsp; &#x21B3; formatted | String representation of the above price, including currency formatting | string <br> `"$35.00"` |
+| &nbsp;  &nbsp; &nbsp; &nbsp; &#x21B3; value | Raw numeric value of the above price | number <br> `35` |
+|&#x21B3;  min | The minimum variant price for the product | object |
+| &nbsp;  &nbsp; &#x21B3;  with_tax | Price including tax | object |
+| &nbsp;  &nbsp;&nbsp;  &nbsp;  &#x21B3;currency | Currency code | string  <br> `"USD"`|
+| &nbsp;  &nbsp; &nbsp;  &nbsp;  &#x21B3;formatted | String representation of the above price, including currency formatting | string <br> `"$37.89"` |
+| &nbsp;  &nbsp; &nbsp;  &nbsp;  &#x21B3; value |Raw numeric value of the above price | number <br> `37.89` |
+| &nbsp;  &nbsp; &#x21B3; without_tax | Price without tax| object |
+| &nbsp;  &nbsp; &nbsp; &nbsp; &#x21B3; currency| Currency price is displayed in | string  <br> `"USD"`|
+| &nbsp;  &nbsp; &nbsp; &nbsp; &#x21B3; formatted | String representation of the above price, including currency formatting | string <br> `"$35.00"` |
+| &nbsp;  &nbsp; &nbsp; &nbsp; &#x21B3; value | Raw numeric value of the above price | number <br> `35`|
 
 <b>Available through:</b>
 
@@ -268,129 +200,43 @@ This consistent behavior is true for each of the common objects documented in th
 
 <b>Object Properties:</b>
 
-<table>
-  <tr>
-    <th>Property</th>
-    <th>Description</th>
-  </tr>
-  <tr>
-    <td>id</td>
-    <td>ID of the product </td>
-  </tr>
-  <tr>
-    <td>sku</td>
-    <td>The product's SKU (stock keeping unit)/product code, as a string; if the SKU field is not populated, then null
- </td>
-  </tr>
-  <tr>
-    <td>name</td>
-    <td>Name of the product</td>
-  </tr>
-  <tr>
-    <td>url</td>
-    <td>URL to product detail page for the product</td>
-  </tr>
-  <tr>
-    <td>availability</td>
-    <td>Typical shipping time for the product; used to populate "Usually ships within…" fields</td>
-  </tr>
-  <tr>
-    <td>rating</td>
-    <td>Product’s rating</td>
-  </tr>
-  <tr>
-    <td>ratings</td>
-    <td>Number of reviews on which the rating is based</td>
-  </tr>
-  <tr>
-		<td><b>brand</b></td>
-    <td>Brand properties for the product (includes the name property</td>
-  </tr>
-  <tr>
-    <td><i>name</i></td>
-    <td>Product’s brand name</td>
-  </tr>
-  <tr>
-    <td>add_to_cart_url</td>
-    <td>URL that adds this product to customer’s cart</td>
-  </tr>
-  <tr>
-    <td>price</td>
-    <td class="">References the <a href="/stencil-docs/stencil-object-model-reference/stencil-objects/common-objects/catalog-price">catalog price object</a>, to access price properties in both raw-numeric and formatted/string formats</td>
-  </tr>
-  <tr>
-    <td>summary</td>
-    <td>Summary description of the product</td>
-  </tr>
-  <tr>
-    <td>image</td>
-    <td>Default image for the product, in <a href="/stencil-docs/stencil-object-model-reference/stencil-objects/common-objects/stencil-image">Stencil image format</a> <!-- <a href="/docs/handlebars-image-helpers">Stencil image format</a> --> </td>
-  </tr>
-  <tr>
-    <td>images</td>
-    <td>Array of a product's images, in <a href="/stencil-docs/stencil-object-model-reference/stencil-objects/common-objects/stencil-image">Stencil image format</a>; currently limited to 5 images </td>
-  </tr>
-  <tr>
-    <td>date_added</td>
-    <td>Date the product was added to this BigCommerce storefront</td>
-  </tr>
-  <tr>
-    <td>pre_order</td>
-    <td>Product’s availability for pre-order</td>
-  </tr>
-  <tr>
-    <td>release_date</td>
-    <td>Release date, if the product is set to pre-order status</td>
-  </tr>
-  <tr>
-    <td>show_cart_action</td>
-    <td>Boolean that indicates whether the product is available for purchase</td>
-  </tr>
-  <tr>
-    <td>has_options</td>
-    <td>Boolean that indicates whether customer is required to specify options when ordering the product</td>
-  </tr>
 
-  <tr>
-    <td>stock_level</td>
-    <td>If inventory tracking is turned on: The number of items available for sale (0 or more). If inventory tracking is turned off: A "null" string. </td>
-  </tr>
+|Property| Description  | Format | 
+|--|--| -- | 
+| id | ID of the product | integer |
+| sku | The product's SKU (stock keeping unit)/product code, as a string; if the SKU field is not populated, then null | string or null |
+| name | Name of the product | string |
+| url | URL to product detail page for the product | string|
+| availability | Typical shipping time for the product; used to populate "Usually ships within…" fields | string |
+| rating | Product’s rating | number | 
+| brand | Brand properties for the product (includes the name property) | object |
+| &#x21B3; name | Name of the brand | string |
+| &#x21B3; url | URL of the brand | string |
+| add_to_cart_url | URL that adds this product to customer’s cart | string |
+| category | Categories the product belongs to. | array |
+| price |References the [catalog price object](https://developer.bigcommerce.com/stencil-docs/reference-docs/common-objects#common-objects_catalog-price), to access price properties in both raw-numeric and formatted/string formats | object | 
+| summary | Summary description of the product |  string |
+| image | Default image for the product, in  [Stencil image format](https://developer.bigcommerce.com/stencil-docs/reference-docs/common-objects#common-objects_stencil-image) | object
+| images | Array of a product's images, in  [Stencil image format](https://developer.bigcommerce.com/stencil-docs/reference-docs/common-objects#common-objects_stencil-image); currently limited to 5 images | array object |
+| date_added | Date the product was added to this BigCommerce storefront | string Ex. `"Aug 15th 2018"` |
+| pre_order |Product’s availability for pre-order | boolean |
+| show_cart_action | Indicates whether the product is available for purchase | boolean |
+| has_options | Indicates whether customer is required to specify options when ordering the product | Boolean | 
+| stock_level | If inventory tracking is turned on: The number of items available for sale (0 or more). If inventory tracking is turned off: A "null" string. | number or null |
+| low_stock_level | If inventory tracking is turned on: Sets a threshold low-stock level. You can use conditional logic to display a "limited availability" badge if the  `stock_level`property's value falls below this threshold. If inventory tracking is turned off: A "null" string. | number or "null" |
+| qty_in_cart | Quantity of this item in the customer’s cart | number |
+| custom_fields | Array of [custom fields](https://support.bigcommerce.com/articles/Public/Custom-Fields) for this product; custom fields can be used for purposes like: alternate brand name, merchandising title for the product, product type, "gift idea" indicator, etc. | array |
+| &#x21B3; id |Unique (integer) identifier for this custom field | integer |
+| &#x21B3; name | Name of this custom field| string |
+| &#x21B3; value |Value for this custom field | string|
+| num_reviews | Number of product reviews | number |
+| weight | Weight of the product | object 
+| &#x21B3; formatted| String representation of weight on storefront | string |
+| &#x21B3; value | Numerical value of weight | number |
+| out_of_stock_message |Text to display when the product is out of stock. If no message is configured, returns false. | string or `false` |
+| release_date | Release date, if the product is set to pre-order status| string Ex. `Available: Aug 6th 2019` | 
 
-  <tr>
-    <td>low_ stock_level</td>
-    <td>If inventory tracking is turned on: Sets a threshold low-stock level. You can use conditional logic to display a "limited availability" badge if the <code>stock_level</code> property's value falls below this threshold. If inventory tracking is turned off: A "null" string. </td>
-  </tr>
 
-  <tr>
-    <td>qty_in_cart</td>
-    <td>Quantity of this item in the customer’s cart</td>
-  </tr>
-  <tr>
-    <td>out_of_stock_message</td>
-    <td>Text to display when the product is out of stock</td>
-  </tr>
-
-  <tr>
-		<td><b>custom_fields</b></td>
-    <td>Array of <a href="https://support.bigcommerce.com/articles/Public/Custom-Fields">custom fields</a> for this product; custom fields can be used for purposes like: alternate brand name, merchandising title for the product, product type, "gift idea" indicator, etc.
-</td>
-  </tr>
-
-  <tr>
-		<td><i>id</i></td>
-    <td>Unique (integer) identifier for this custom field</td>
-  </tr>
-
-  <tr>
-    <td><i>name</i></td>
-    <td>Name of this custom field</td>
-  </tr>
-
-  <tr>
-    <td><i>value</i></td>
-    <td>Value for this custom field</td>
-  </tr>
-</table>
 
 <b>Available through:</b>
 
