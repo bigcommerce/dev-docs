@@ -1,4 +1,4 @@
-<h1>Authorizing and Initializing the CLI</h1>
+<h1>Installing Stencil CLI</h1>
 <div class="otp" id="no-index">
 	<h3> On This Page </h3>
 	<ul>
@@ -530,7 +530,7 @@ Within that directory, install (or reinstall) the `stencil-utils` module to ensu
 
 ## Initialize the Stencil CLI
 
-Use these steps to Initialize the Stencil CLI get started locally developing a theme. 
+Use these steps to Initialize the Stencil CLI get started locally developing a theme.
 
 1. Have your store API account’s Client ID and Access Token hashes ready. Refer back to [Obtaining Store API Credentials](/api-docs/getting-started/authentication#authentication_getting-api-credentials) if necessary.
 
