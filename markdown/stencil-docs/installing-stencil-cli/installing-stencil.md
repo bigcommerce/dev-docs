@@ -11,112 +11,44 @@
 	</ul>
 </div>
 
+Stencil CLI allows developers to locally edit a theme with no impact to a merchant’s live storefront. Additionally, developers have access to a real-time Browsersync preview and testing across desktop, mobile, and tablet devices. Once work is complete, a theme can be pushed to the storefront and set live using Stencil CLI's simple commands. 
+
+This article contains detailed instructions on installing, configuring, and using Stencil CLI for theme development.
 
 
-The Stencil CLI enables local development and customization to  a Stencil theme with no impact to a merchant’s live storefront during the development process. When developing locally, developers will have access to real-time Browsersync preview and testing across desktop, mobile, and tablet devices/viewports.
-
-This article contains detailed instructions on how to authorize and initialize the Stencil CLI. This includes obtaining an authentication token, installing Stencil CLI on your particular OS, downloading a Stencil theme (Cornerstone or a Third Party Marketplace theme) to begin development on, installing Stencil's JS utilities, and finally initializing the CLI on a Stencil theme.
-
----
-
-<a href='#authorizing_authentication' aria-hidden='true' class='block-anchor'  id='authorizing_authentication'><i aria-hidden='true' class='linkify icon'></i></a>
-
-## Authentication
-
-You need to have an authentication token to use the Stencil CLI. To learn how to obtain an API token, see [Obtaining Store API Credentials](/api-docs/getting-started/authentication#authentication_getting-api-credentials).
+Installation instructions vary by OS. Navigate to you
+* [Mac OS](#mac)
+* [Linux](#linux)
+* [Windows](#windows)
 
 ---
 
 <a href='#authorizing_prerequisites' aria-hidden='true' class='block-anchor'  id='authorizing_prerequisites'><i aria-hidden='true' class='linkify icon'></i></a>
 
-## Prerequisites by OS
+## Installing on Mac
 
-Each OS has different prerequisites that need to be fulfilled before installing the Stencil CLI. Check the correct subsection below before attempting installation.
-* [Mac OS](#mac)
-* [Linux](#linux)
-* [Windows](#windows)
+**Required Dependencies**:
+1. [Xcode Development tools](https://developer.apple.com/xcode/)
+2. [Node.js 8.16](https://nodejs.org/en/download/releases/)
+3. [nvm version0.31.0](https://github.com/creationix/nvm/tree/v0.31.0)
 
-<a id='mac'></a>
-
-###  <div id="mac">Mac OS</div>
-
-These instructions have been tested on Mac OS X Yosemite. Dependencies for other platforms will be added upon further testing.
-
-1. Install [Xcode Development tools](https://developer.apple.com/xcode/) (latest stable version).
-
-2. Install Node.js 8.1.0+.
-* Stencil requires the [Node.js](https://nodejs.org/) runtime environment, version [8.1.0](https://nodejs.org/en/blog/release/). We’ve deprecated support for earlier versions of Node.
-* We recommend that you install or update Node.js using [nvm](https://github.com/creationix/nvm#installation). First install nvm, version [0.31.0](https://github.com/creationix/nvm/tree/v0.31.0), as follows:
+To install Stencil CLI and it's dependencies, run the following commands: 
 
 ```shell
 curl -o- https://raw.githubusercontent.com/creationix/nvm/v0.31.0/install.sh | bash
+
+nvm install 8.16
+
+npm install -g @bigcommerce/stencil-cli
 ```
 
-Next, explicitly install a supported Node.js version:
+These instructions have been tested on Mac OS X Yosemite.
 
-```shell
-nvm install 8.1.0
-```
-
-<a id='linux'></a>
-
-### <div id="linux">Linux</div>
-
-These instructions have been tested on Linux/Ubuntu v.14.04.4.
-
-_You should have administrator/root permissions on your machine. If not, you may need to precede some of the below commands with the `sudo` prefix._
-
-1. Install a [Git Client](https://git-scm.com/downloads)
-
-2. Install Node.js 8.1.0
-
-* Stencil requires the [Node.js](https://nodejs.org/) runtime environment, version [8.1.0](https://nodejs.org/en/blog/release/).  
-
-* We recommend that you install or update Node.js using `nvm` as follows:
-
-<div class="HubBlock-header">
-    <div class="HubBlock-header-title flex items-center">
-        <div class="HubBlock-header-name">Install/Update Node.js using nvm</div>
-    </div><div class="HubBlock-header-subtitle"></div>
-</div>
-
-<!--
-title: "Install/Update Node.js using nvm"
-subtitle: ""
-lineNumbers: true
--->
-
-```js
-## update package list
-sudo apt-get update
-
-## install node and npm
-sudo apt-get install nodejs npm
-
-# download nvm install.sh and run with bash
-curl -o- https://raw.githubusercontent.com/creationix/nvm/v0.31.0/install.sh | bash
-
-# explicitly install a supported Node.js version
-nvm install 8.1.0
-
-# double check the installed node version:
-nodejs --version
-```
-
-3. Install Other Dependencies (if necessary)
-
-* Depending on the distro, you may also need to install the following dependencies:
-
-	* g++
-	* [libsass](https://sass-lang.com/libsass)
-
-	<a id='windows'></a>
-
-### <div id="windows">Windows<div>
+## Installing on Windows
 
 **Required Dependencies:**
-* [git]([https://git-scm.com/downloads](https://git-scm.com/downloads))
-* [python2.7.x]([https://www.python.org/downloads/](https://www.python.org/downloads/) - required to build some dependencies
+* [git](https://git-scm.com/downloads)
+* [python2.7.x](https://www.python.org/downloads/) - required to build some dependencies
 * [node.js 8.16](https://nodejs.org/en/download/releases/) - later versions not currently supported on Windows
 * [Visual C++ Build Tools](https://www.npmjs.com/package/windows-build-tools) - required to compile some dependencies
 
@@ -132,7 +64,7 @@ If you're experienced at installing and configuring `python` and `node.js` envir
 
 ```shell
 # Install chocolatey
-iex ((New-Object System.Net.WebClient).DownloadString('https://chocolatey.org/install.ps1'))
+iex ((New-Object System.Net.WebClient).DownloadString("https://chocolatey.org/install.ps1"))
 
 # Install git if you don't have it
 choco install git
@@ -169,47 +101,35 @@ npm install -g @bigcommerce/stencil-cli
 
 ---
 
-<div class="HubBlock--callout">
-<div class="CalloutBlock--">
-<div class="HubBlock-content">
+## Installing on Linux
 
-<!-- theme:  -->
+**Required Dependencies**
+1. [git](https://git-scm.com/downloads)
+2. [Node.js 8.16](https://nodejs.org/en/download/releases/)
+3. [nvm](https://github.com/nvm-sh/nvm)
 
-### Troubleshooting
-> If you run into any problems with Stencil installation or launch, first consult [Troubleshooting Your Setup](/stencil-docs/installing-stencil-cli/troubleshooting-your-setup).
-
-If that does not resolve your issue, consult our [Support resources](https://support.bigcommerce.com/s/), which include community and peer support via [BigCommerce Developer Community](https://support.bigcommerce.com/s/group/0F913000000HLjECAW/bigcommerce-developers) and [Stack Overflow](https://stackoverflow.com/questions/tagged/bigcommerce) forums.
-
-</div>
-</div>
-</div>
-
----
-
-<a href='#authorizing_install' aria-hidden='true' class='block-anchor'  id='authorizing_install'><i aria-hidden='true' class='linkify icon'></i></a>
-
-## Install the Stencil Command Line Interface (CLI)
-
-Once all [prerequisites](#installing_prerequisites) are met, Stencil CLI can be installed with `npm`:
+**Depending on the distro, you may also need to install:**
+* g++
+* [libsass](https://sass-lang.com/libsass)
 
 ```shell
+## update package list
+sudo apt-get update
+
+## install node and npm
+sudo apt-get install nodejs npm
+
+# download nvm install.sh and run with bash
+curl -o- https://raw.githubusercontent.com/creationix/nvm/v0.31.0/install.sh | bash
+
+# explicitly install supported node version
+nvm install 8.16
+
+# Install Stencil CLI
 npm install -g @bigcommerce/stencil-cli
 ```
 
-<div class="HubBlock--callout">
-<div class="CalloutBlock--warning">
-<div class="HubBlock-content">
-
-<!-- theme: warning -->
-
-### CLI Force Upgrade and Cornerstone 2.0.0
-> To ensure the Stencil CLI is compatible with all the changes introduced in Cornerstone 2.0.0, you must upgrade to the latest version of Stencil CLI (1.15.1) if using Cornerstone 2.x.x.
-
-Occasionally, you will receive a command line prompt to run the installation command when you restart your Stencil server. This occurs when BigCommerce publishes a critical fix in Stencil CLI, to resolve an issue like a newly discovered security exploit.
-
-</div>
-</div>
-</div>
+These instructions have been tested on Linux/Ubuntu v.14.04.4.
 
 ---
 
@@ -295,8 +215,7 @@ To authorize ongoing communication, you must first set up a secure shell (SSH) k
 Setting up an SSH key is a multi-step process. We have included resources below to help achieve this step.
 
 * [Setting up SSH for Git on BitBucket](https://confluence.atlassian.com/bitbucket/set-up-ssh-for-git-728138079.html) (Confluence)
-* [Connecting to Github with SSH](
-https://help.github.com/articles/connecting-to-github-with-ssh/) (Github)
+* [Connecting to Github with SSH](https://help.github.com/articles/connecting-to-github-with-ssh/) (Github)
 
 </div>
 </div>
