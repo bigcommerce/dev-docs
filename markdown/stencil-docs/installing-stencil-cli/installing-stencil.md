@@ -114,34 +114,45 @@ nodejs --version
 
 ### <div id="windows">Windows<div>
 
-The following instructions have been tested on Windows 10. Dependencies for other platforms will be added upon further testing.
+**Required Dependencies:**
+* [git]([https://git-scm.com/downloads](https://git-scm.com/downloads))
+* [python2.7.x]([https://www.python.org/downloads/](https://www.python.org/downloads/) - required to build some dependencies
+* [node.js 8.16](https://nodejs.org/en/download/releases/) - later versions not currently supported on Windows
+* [Visual C++ Build Tools](https://www.npmjs.com/package/windows-build-tools) - required to compile some dependencies
 
-_You must have authorization to run Powershell “as administrator” on your machine._
+**Optional Tools:**
+* [chocolatey](https://chocolatey.org/docs/installation) - package manager for Windows
+* [nvm-windows](https://github.com/coreybutler/nvm-windows) - node.js version manager for windows
 
-1. Install a [Git Client](https://git-scm.com/downloads)
+**There's two methods for installing stencil's dependencies on Windows:**
+1. Install required dependencies manually (or using your preferred method)
+2. Use chocolatey to install dependencies
 
-* You must have a Git client installed. The Git for Windows distribution includes a Git client, and also provides the Git BASH emulator for command-line access. All commands should be run in Git Bash from here.
+If you're experienced at installing and configuring `python` and `node.js` environments on Windows, feel free to install the required dependencies using your preferred method. If you're unsure, chocolatey is the easier option:
 
-2. Install [Python 2.7.x for Windows](https://www.python.org/downloads/windows/).
+```shell
+# Install chocolatey
+iex ((New-Object System.Net.WebClient).DownloadString('https://chocolatey.org/install.ps1'))
 
-* This is required for Visual Studio’s Windows Build Tools, installed below. **Python 3.x is nsot supported.**
+# Install git if you don't have it
+choco install git
 
-* In the installer dialog (shown below), change the bottom default to enable the `Add python.exe to Path` option. This provides global command-line access to Python.
+# Install nvm-windows and stencil compatible node.js
+choco install nvm; nvm install 8.16; nvm use 8.16
 
-<!--
-    title:
-    data: //s3.amazonaws.com/user-content.stoplight.io/6116/1562046167474
--->
+#####################################################################################
+# Close PowerShell and re-open as admin 
+#####################################################################################
 
-![](//s3.amazonaws.com/user-content.stoplight.io/6116/1562046167474 "")
+# Install Windows C++ Build Tools (also installs python2)
+npm install -g windows-build-tools --vs2015
 
-3. Install Node.js 8.x+.
+# Tell npm to use python2
+npm config set python python2.7
 
-* We recommend that you install only an LTS (“Long-Term Support”/“Mature and Dependable”) version, and that you download that version’s `.msi` installer (not its `.exe` binary).
-
-* You can choose to instead download the latest x.x version of Node.js from the Node.js Foundation’s archives, using URLs of the form: https://nodejs.org/dist/latest-v8.x/, https://nodejs.org/dist/latest-v8.x/, etc.
-
-* To verify your Node.js installation or reinstallation, the article [How to Install Node.js and NPM Windows](https://blog.teamtreehouse.com/install-node-js-npm-windows) (Treehouse) provides Windows-specific tips and tests.
+# Install Stencil CLI
+npm install -g @bigcommerce/stencil-cli
+```
 
 <div class="HubBlock--callout">
 <div class="CalloutBlock--warning">
@@ -149,57 +160,8 @@ _You must have authorization to run Powershell “as administrator” on your ma
 
 <!-- theme: warning -->
 
-### Restart Required
-> You will need to restart your computer to complete Node.js installation.
-
-</div>
-</div>
-</div>
-
-4. Configure Python within the Node.js runtime environment by running this npm command:
-
-`npm config set python python2.7`
-
-<div class="HubBlock--callout">
-<div class="CalloutBlock--">
-<div class="HubBlock-content">
-
-<!-- theme:  -->
-
-### About Node Package Manager (npm)
-> The node package manager was installed as part of Node.js. As you proceed through Stencil CLI setup (and later refreshes), you will use this command-line utility to install packages/modules, and to configure and manage dependencies and their versions.
-
-</div>
-</div>
-</div>
-
-5. Choose to either install Turbo C++ or Visual Studio for your C++ Compiler.
-
-#### Turbo C++
-
-You can install Turbo C++ as a lighter version instead of Visual Studio. The installation takes about 5 minutes. After installation, a box opens that highlights the features of Turbo C++. This box can be closed since it is not needed to complete installation. If you prefer using Visual Studio then use the steps below.
-
-#### Visual Studio Installation
-Install MicroSoft Visual Studio. Stencil requires a 2013 or later release, Community Edition (free) or higher.
-
-Be sure to install Visual Studio’s “Common Tools” component. You can also add this component later in the window shown below.
-
-#### Visual Studio Version/Node Configuration
-
-Finally, configure Visual Studio within the Node.js runtime environment by running the following npm command. (Replace the 2015 parameter with 2013 or 2017, as needed, to match the Visual Studio release you have installed:)
-
-`npm config set msvs_version 2015`
-
-<div class="HubBlock--callout">
-<div class="CalloutBlock--">
-<div class="HubBlock-content">
-
-<!-- theme:  -->
-
-### Notes on Dependencies
-> While alternate versions might also support Stencil, BigCommerce does not offer technical assistance on substitutions for, or customized versions of, the tested dependencies listed here.
-
-Once Stencil is fully installed, you can check dependencies’ installed versions by examining your <theme-name>/package.jsonfile.
+### Execution Policy Errors
+> If you receive an execution policy error while attempting to install chocolatey, refer to [Microsoft's Documentation](https://docs.microsoft.com/en-us/powershell/module/microsoft.powershell.security/set-executionpolicy?view=powershell-6) or consult with your organization's system administrator to determine the appropriate course of action.
 
 </div>
 </div>
@@ -228,33 +190,11 @@ If that does not resolve your issue, consult our [Support resources](https://sup
 
 ## Install the Stencil Command Line Interface (CLI)
 
-After [obtaining API credentials](/api-docs/getting-started/authentication#authentication_getting-api-credentials) and ensuring you have met all the [prerequisites for your OS](#installing_prerequisites), you are ready to install the Stencil CLI.
+Once all [prerequisites](#installing_prerequisites) are met, Stencil CLI can be installed with `npm`:
 
-You can do this via the following command (_If you are using Windows, you will need to run this command in git bash._):
-
-`npm install -g @bigcommerce/stencil-cli`
-
-
-<div class="HubBlock--callout">
-<div class="CalloutBlock--">
-<div class="HubBlock-content">
-
-<!-- theme:  -->
-
-### Items to note
-> * The command above requires <a href="https://www.npmjs.com/">npm</a> to be installed in your local development environment.
-
-* In Windows, this `npm` command's execution might at times appear to freeze. However, the installer is running. Give it several minutes to complete installation.
-
-* On Mac OS machines with installed xcode, version 5.x, this `npm` command has generated errors of the form:
-`npm ERR! invalid: string_decoder`. The workaround is to upgrade xcode to the latest stable xcode version.
-
-* If you receive a file-permissions error and you did not install Node.js via <a href="https://github.com/creationix/nvm#installation">nvm</a> (Node Version Manager),
-then either install nvm now, or follow one of the workarounds on [Resolving EACCES permissions errors when installing packages globally](https://docs.npmjs.com/getting-started/fixing-npm-permissions) (NPM).
-
-</div>
-</div>
-</div>
+```shell
+npm install -g @bigcommerce/stencil-cli
+```
 
 <div class="HubBlock--callout">
 <div class="CalloutBlock--warning">
@@ -528,18 +468,27 @@ Within that directory, install (or reinstall) the `stencil-utils` module to ensu
 
 <a href='#authorizing_initialize' aria-hidden='true' class='block-anchor'  id='authorizing_initialize'><i aria-hidden='true' class='linkify icon'></i></a>
 
-## Initialize the Stencil CLI
+## Initializing Stencil CLI
 
-Use these steps to Initialize the Stencil CLI get started locally developing a theme.
+When `stencil start` is ran to serve a theme, Stencil CLI checks for a required `.stencil` configuration file, which contains the store's URL, auth token, and a local port number. This configuration file is created by running `stencil init`. Before doing so, be sure to obtain an API access token; for instructions on doing so, see: [Obtaining Store API Credentials](/api-docs/getting-started/authentication#authentication_getting-api-credentials). Once you have an API access token, `cd` into the theme's directory and run `stencil init`:
 
-1. Have your store API account’s Client ID and Access Token hashes ready. Refer back to [Obtaining Store API Credentials](/api-docs/getting-started/authentication#authentication_getting-api-credentials) if necessary.
+```shell
+# move into theme dir
+cd ~/path/to/them/dir
 
-2. Starting from the subdirectory for the appropriate theme (and store), initialize Stencil CLI by running the following command (Windows users need to run this in git bash):
+# start .stencil initialization prompt
+stencil init
+? What is the URL of your store\'s home page? # Your BigCommerce Storefront URL. Ex: https://yourstore.com/
+? What port would you like to run the server on? (3000) # Enter port number or press enter to use default (3000)
+? What is your Stencil OAuth Access Token? # Enter your OAuth Access Token
 
-`stencil init`
+# a `.stencil` file will be generated
 
-This command creates a `.stencil` file in the root of your theme directory and contains your BigCommerce store URL, access token, and specified port. You can also specify mappings between store pages and custom layout templates in this file. You do not need to run `stencil init` again after the `.stencil` file is initially created in a theme.
+# to serve the theme, run:
+stencil start
 
+# to preview, browse to https://localhost:<port>/ -- theme edits will be reflected in real time. 
+```
 
 <div class="HubBlock--callout">
 <div class="CalloutBlock--warning">
@@ -555,14 +504,6 @@ To clear the errors, enter the BitBucket password you used when setting up BitBu
 </div>
 </div>
 </div>
-
-3. You will be prompted to provide the homepage URL of the production store against which you want to develop (for example, https://storename.com or https://storename.mybigcommerce.com).
-
-4. Next, you will be prompted to enter the port where you would like to run your store on your local machine. This can be any port you like, but we recommend using port 3000.
-
-5. You will be prompted: What is your Stencil OAuth Access Token? If you entered these credentials when you last ran stencil init, you’ll see the token hinted in cleartext. If not, paste your Access Token hash onto the command line. Then press Enter.
-
-6. Your terminal window should now confirm that you have successfully initialized Stencil CLI on your local machine. With Stencil CLI initialized, you are ready to start Stencil and begin development. To start developing, run the `stencil start` command and navigate to the specified port in your browser, `localhost:<port>`. When you make changes to the theme files in your code editor, you will see those changes relfected on the storefront in real time in your browser.
 
 ### Using Browsersync to Render the Store on Desktop/Tablet/Mobile for Testing
 
