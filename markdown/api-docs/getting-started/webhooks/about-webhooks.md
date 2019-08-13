@@ -384,7 +384,7 @@ The webhook dispatcher will then attempt several retries (at increasing interval
 <!-- theme: warning -->
 
 ### Retries Based on Subscriber Domain, Not by Specific Hooks
-> The webhook dispatcher determines whether retries are needed based on responses from the subscribed domain as a whole,not by specific hooks. For example, `domain.com/webhook-1` and `domain.com/webhook-2` will affect each other for failures and retries.
+> The webhook dispatcher determines whether retries are needed based on responses from the subscribed domain as a whole, not by specific hooks. For example, `domain.com/webhook-1` and `domain.com/webhook-2` will affect each other for failures and retries.
 
 </div>
 </div>
