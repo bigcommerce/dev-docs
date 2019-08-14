@@ -409,6 +409,10 @@
     <td><span class="indent1">type</span></td>
     <td>Type of event</td>
   </tr>
+  <tr>
+    <td><span class="indent1">category</span></td>
+    <td>An array of categories the product belongs to</td>
+  </tr>
 </table>
 
 ---
