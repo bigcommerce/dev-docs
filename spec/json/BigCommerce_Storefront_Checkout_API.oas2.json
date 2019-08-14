@@ -4942,18 +4942,7 @@
                   "description": "",
                   "type": "array",
                   "items": {
-                    "title": "CustomField",
-                    "type": "object",
-                    "properties": {
-                      "fieldId": {
-                        "description": "",
-                        "type": "string"
-                      },
-                      "fieldValue": {
-                        "description": "This can also be an array for fields that need to support list of values (e.g., a set of check boxes.)",
-                        "type": "string"
-                      }
-                    }
+                    "$ref": "#/definitions/CustomField"
                   }
                 }
               },
@@ -5499,7 +5488,6 @@
                   "allOf": [
                     {
                       "title": "Address Properties",
-                      "type": "object",
                       "properties": {
                         "firstName": {
                           "description": "",
@@ -5554,18 +5542,7 @@
                           "description": "",
                           "type": "array",
                           "items": {
-                            "title": "CustomField",
-                            "type": "object",
-                            "properties": {
-                              "fieldId": {
-                                "description": "",
-                                "type": "string"
-                              },
-                              "fieldValue": {
-                                "description": "This can also be an array for fields that need to support list of values (e.g., a set of check boxes.)",
-                                "type": "string"
-                              }
-                            }
+                            "$ref": "#/definitions/CustomField"
                           }
                         }
                       },
@@ -5574,7 +5551,6 @@
                       ]
                     },
                     {
-                      "type": "object",
                       "properties": {
                         "id": {
                           "description": "",
@@ -5582,7 +5558,8 @@
                         }
                       }
                     }
-                  ]
+                  ],
+                  "type": "object"
                 },
                 "consignments": {
                   "description": "",
@@ -5601,7 +5578,6 @@
                         "allOf": [
                           {
                             "title": "Address Properties",
-                            "type": "object",
                             "properties": {
                               "firstName": {
                                 "description": "",
@@ -5676,7 +5652,6 @@
                             ]
                           },
                           {
-                            "type": "object",
                             "properties": {
                               "id": {
                                 "description": "",
@@ -5684,7 +5659,8 @@
                               }
                             }
                           }
-                        ]
+                        ],
+                        "type": "object"
                       },
                       "availableShippingOptions": {
                         "description": "This is available only when \"include=consignments.availableShippingOptions\" is presented in the URL.",
@@ -5694,7 +5670,6 @@
                           "allOf": [
                             {
                               "title": "Selected Shipping Option",
-                              "type": "object",
                               "properties": {
                                 "description": {
                                   "description": "Read-only",
@@ -5724,7 +5699,6 @@
                               }
                             },
                             {
-                              "type": "object",
                               "properties": {
                                 "isRecommended": {
                                   "description": "Is this shipping method the recommended shipping option or not.",
@@ -5732,7 +5706,8 @@
                                 }
                               }
                             }
-                          ]
+                          ],
+                          "type": "object"
                         }
                       },
                       "selectedShippingOption": {
@@ -6175,18 +6150,7 @@
                   "description": "",
                   "type": "array",
                   "items": {
-                    "title": "CustomField",
-                    "type": "object",
-                    "properties": {
-                      "fieldId": {
-                        "description": "",
-                        "type": "string"
-                      },
-                      "fieldValue": {
-                        "description": "This can also be an array for fields that need to support list of values (e.g., a set of check boxes.)",
-                        "type": "string"
-                      }
-                    }
+                    "$ref": "#/definitions/CustomField"
                   }
                 }
               },
@@ -6732,7 +6696,6 @@
                   "allOf": [
                     {
                       "title": "Address Properties",
-                      "type": "object",
                       "properties": {
                         "firstName": {
                           "description": "",
@@ -6787,18 +6750,7 @@
                           "description": "",
                           "type": "array",
                           "items": {
-                            "title": "CustomField",
-                            "type": "object",
-                            "properties": {
-                              "fieldId": {
-                                "description": "",
-                                "type": "string"
-                              },
-                              "fieldValue": {
-                                "description": "This can also be an array for fields that need to support list of values (e.g., a set of check boxes.)",
-                                "type": "string"
-                              }
-                            }
+                            "$ref": "#/definitions/CustomField"
                           }
                         }
                       },
@@ -6807,7 +6759,6 @@
                       ]
                     },
                     {
-                      "type": "object",
                       "properties": {
                         "id": {
                           "description": "",
@@ -6815,7 +6766,8 @@
                         }
                       }
                     }
-                  ]
+                  ],
+                  "type": "object"
                 },
                 "consignments": {
                   "description": "",
@@ -6834,7 +6786,6 @@
                         "allOf": [
                           {
                             "title": "Address Properties",
-                            "type": "object",
                             "properties": {
                               "firstName": {
                                 "description": "",
@@ -6909,7 +6860,6 @@
                             ]
                           },
                           {
-                            "type": "object",
                             "properties": {
                               "id": {
                                 "description": "",
@@ -6917,7 +6867,8 @@
                               }
                             }
                           }
-                        ]
+                        ],
+                        "type": "object"
                       },
                       "availableShippingOptions": {
                         "description": "This is available only when \"include=consignments.availableShippingOptions\" is presented in the URL.",
@@ -6927,7 +6878,6 @@
                           "allOf": [
                             {
                               "title": "Selected Shipping Option",
-                              "type": "object",
                               "properties": {
                                 "description": {
                                   "description": "Read-only",
@@ -6957,7 +6907,6 @@
                               }
                             },
                             {
-                              "type": "object",
                               "properties": {
                                 "isRecommended": {
                                   "description": "Is this shipping method the recommended shipping option or not.",
@@ -6965,7 +6914,8 @@
                                 }
                               }
                             }
-                          ]
+                          ],
+                          "type": "object"
                         }
                       },
                       "selectedShippingOption": {
