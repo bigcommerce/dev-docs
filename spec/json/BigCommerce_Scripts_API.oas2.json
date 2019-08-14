@@ -334,7 +334,7 @@
         "tags": [
           "Scripts"
         ],
-        "description": "Creates a *Script*.\n\n**Required Fields**\n* name\n\n**Read Only Fields**\n* uuid\n\n**Notes**\n\nIf kind is `src` –- Only the `src` property is needed, and you can optionally supply a `load_method`. The `html` field should not be specified.\n\nIf kind is script_tag -- Only the `script_tag` is needed. The `src` field should not be specified."
+        "description": "Creates a *Script*.\n\n**Required Fields**\n* name\n\n**Read Only Fields**\n* uuid\n\n**Notes**\n* If kind is `src` –- Only the `src` property is needed, and you can optionally supply a `load_method`. The `html` field should not be specified.\n* If kind is script_tag -- Only the `script_tag` is needed. The `src` field should not be specified.\n* Each app can have 10 scripts installed.\n* Multiple scripts can be created [per call](https://developer.bigcommerce.com/api-docs/storefront/scripts-overview#scripts_scripts-notes). "
       },
       "get": {
         "summary": "Get All Scripts",
@@ -1770,7 +1770,7 @@
         },
         "visibility": {
           "type": "string",
-          "description": "Which set of pages the script should load on. \n\nPlease note that you need to have `Checkout content` scope to use `all_pages` and `checkout`.\n\n- The current visibility options are `storefront`, `checkout`, `all_pages` and `order_confirmation`.\n\n     `storefront`: All pages that are not `checkout` or `order_confirmation`.\n\t\t \nFor a list of all locations visit [Scripts Visibility](/api-docs/scripts/scripts-overview#scripts_scripts-visibility).",
+          "description": "Which set of pages the script should load on. \n\nPlease note that you need to have `Checkout content` scope to use `all_pages` and `checkout`.\n\n- The current visibility options are `storefront`, `checkout`, `all_pages` and `order_confirmation`.\n\n     `storefront`: All pages that are not `checkout` or `order_confirmation`.\n\t\t \nFor a list of all locations visit [Scripts Visibility](https://developer.bigcommerce.com/api-docs/storefront/scripts-overview#scripts_scripts-visibility).",
           "enum": [
             "storefront",
             "all_pages",
@@ -1803,9 +1803,18 @@
       }
     },
     "ScriptPost": {
-      "required": [
-        "name"
-      ],
+      "example": {
+        "name": "jQuery",
+        "description": "The Write Less, Do More, JavaScript Library.",
+        "src": "https://code.jquery.com/jquery-3.2.1.min.js",
+        "auto_uninstall": true,
+        "load_method": "defer",
+        "location": "head",
+        "visibility": "storefront",
+        "kind": "src"
+      },
+      "title": "Script Post",
+      "type": "object",
       "properties": {
         "name": {
           "type": "string",
@@ -1854,7 +1863,7 @@
         },
         "visibility": {
           "type": "string",
-          "description": "Which set of pages the script should load on. The values allowed for this parameter are `storefront`, `all_pages`, `checkout` and `order_confirmation`. Please note that you need to have `Checkout content` scope to use `all_pages` and `checkout`.",
+          "description": "Which set of pages the script should load on. The values allowed for this parameter are `storefront`, `all_pages`, `checkout` and `order_confirmation`. Please note that you need to have `Checkout content` scope to use `all_pages` and `checkout`.\nFor a list of all locations visit [Scripts Visibility](https://developer.bigcommerce.com/api-docs/storefront/scripts-overview#scripts_scripts-visibility).",
           "default": "storefront",
           "enum": [
             "storefront",
@@ -1873,6 +1882,11 @@
           ]
         }
       },
+      "required": [
+        "name"
+      ]
+    },
+    "ScriptPut": {
       "example": {
         "name": "jQuery",
         "description": "The Write Less, Do More, JavaScript Library.",
@@ -1883,9 +1897,8 @@
         "visibility": "storefront",
         "kind": "src"
       },
-      "title": "Script Post"
-    },
-    "ScriptPut": {
+      "title": "Script Put",
+      "type": "object",
       "properties": {
         "name": {
           "type": "string",
@@ -1934,7 +1947,7 @@
         },
         "visibility": {
           "type": "string",
-          "description": "Which set of pages the script should load on. The values allowed for this parameter are `storefront`, `all_pages`, `checkout` and `order_confirmation`. Please note that you need to have `Checkout content` scope to use `all_pages` and `checkout`.",
+          "description": "Which set of pages the script should load on. The values allowed for this parameter are `storefront`, `all_pages`, `checkout` and `order_confirmation`. Please note that you need to have `Checkout content` scope to use `all_pages` and `checkout`.\nFor a list of all locations visit [Scripts Visibility](https://developer.bigcommerce.com/api-docs/storefront/scripts-overview#scripts_scripts-visibility).",
           "default": "storefront",
           "enum": [
             "storefront",
@@ -1952,18 +1965,7 @@
             "html"
           ]
         }
-      },
-      "example": {
-        "name": "jQuery",
-        "description": "The Write Less, Do More, JavaScript Library.",
-        "src": "https://code.jquery.com/jquery-3.2.1.min.js",
-        "auto_uninstall": true,
-        "load_method": "defer",
-        "location": "head",
-        "visibility": "storefront",
-        "kind": "src"
-      },
-      "title": "Script Put"
+      }
     },
     "ScriptResponse": {
       "type": "object",
@@ -2063,7 +2065,8 @@
           }
         }
       },
-      "title": "Script Response"
+      "title": "Script Response",
+      "description": "For a list of all locations visit [Scripts Visibility](https://developer.bigcommerce.com/api-docs/storefront/scripts-overview#scripts_scripts-visibility)."
     },
     "ScriptsResponse": {
       "type": "object",
@@ -2224,7 +2227,8 @@
           "title": "Collection Meta"
         }
       },
-      "title": "Scripts Response"
+      "title": "Scripts Response",
+      "description": "For a list of all locations visit [Scripts Visibility](https://developer.bigcommerce.com/api-docs/storefront/scripts-overview#scripts_scripts-visibility)."
     }
   },
   "securityDefinitions": {
