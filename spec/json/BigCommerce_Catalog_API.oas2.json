@@ -3851,6 +3851,9 @@
             "name": "Accept",
             "default": "application/json",
             "required": true
+          },
+          {
+            "$ref": "#/parameters/FilterIncludeFieldsParam"
           }
         ],
         "responses": {
@@ -9598,6 +9601,9 @@
                 }
               ]
             }
+          },
+          {
+            "$ref": "#/parameters/FilterIncludeFieldsParam"
           }
         ]
       }
