@@ -17897,13 +17897,14 @@
     "CustomField": {
       "title": "CustomField",
       "type": "object",
+      "description": "When doing a PUT or POST to the `fieldValue` with a pick list, the input must be a number. The response will be a string. ",
       "properties": {
         "fieldId": {
           "description": "",
           "type": "string"
         },
         "fieldValue": {
-          "description": "This can also be an array for fields that need to support list of values (e.g., a set of check boxes.)",
+          "description": "This can also be an array for fields that need to support list of values (e.g., a set of check boxes.). When doing a PUT or POST to the `fieldValue` with a pick list, the input must be a number. The response will be a string.",
           "type": "string"
         }
       }
