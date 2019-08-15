@@ -2821,7 +2821,7 @@ https://github.com/bigcommerce/cornerstone/tree/master/templates/components/comm
   </tr>
   <tr>
   <td>error</td>
-  <td>BC-defined message to display when customer’s login fails</td>
+  <td>BigCommerce defined message to display when customer’s login fails</td>
   </tr>
 </table>
 
