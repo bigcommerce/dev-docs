@@ -319,7 +319,7 @@ subtitle: "Request: https://api.bigcommerce.com/stores/{{store_hash}}/v2/hooks/i
 lineNumbers: true
 -->
 
-**Example Delete a Wehbook**  
+**Example Delete a Webhook**  
 `https://api.bigcommerce.com/stores/{{store_hash}}/v2/hooks/{{id}}`
 
 
@@ -361,7 +361,7 @@ Need to set up a quick destination URL for testing? See Tools for Debugging and 
 
 You’ll need to build an application and configure your server to receive the callback we send when events are triggered.
 
-To acknowledge that you received the webhook without issue, your server should return a 200 HTTP status code. Any other information you return in the request headers or request body will be ignored. Any response code outside the 200 range, including 3_xx_ codes, will indicate to us that you did not receive the webhook. When a webhook is not received (for whatever reason), we will retry the callback as described below.
+To acknowledge that you received the webhook without issue, your server should return a 200 HTTP status code. Any other information you return in the request headers or request body will be ignored. Any response code outside the 200 range, including 3_xx_ codes, will indicate to us that you did not receive the webhook. When a webhook is not received (for whatever reason), we will retry the callback as described below. 
 
 Need to set up a quick destination URL for testing? See [Tools for testing webhooks.](#about-webhooks_tools-for-debugging-and-testing-webhooks)
 
@@ -371,9 +371,18 @@ Need to set up a quick destination URL for testing? See [Tools for testing webho
 
 ## Callback Retry Mechanism
 
-The webhooks service will do its best to deliver events to your callback URI. If your server indicates that the webhook payload has not been received, the dispatch service will take the following actions:
-If an app server responds to a webhook payload with anything other than a 2_xx_ response, or times out, the app will be blocked for 60 seconds.
-Webhooks created during that 60-second block will be queued up to send on the next scheduled retry attempt after the block expires, so that webhooks are not lost.
+The webhooks service will do its best to deliver events to your callback URI. It is best practice for your application to respond to the callback before taking any other action that would slow its response to our service. If an app server responds to a webhook payload with anything other than a 2_xx_ response, or times out and indicates the payload has not been received, the following process will determine whether your URI gets blacklisted.
+
+Our webhook service may send many payloads to a single URI in quick succession. Because of this, we use a sliding scale across a 2 minute window to calculate a callback response success rate for each remote destination. When the webhooks service recieves a 2_xx_ in response to a webhook payload, we raise your success count. When we do not receive a response or the remote server times out, we increment your failure count. Based on this count, the service calculates the success rate. The initial 100 responses your remote server sends to our webhook service do not count towards your success rate.
+
+The webhook service flow is as follows:
+
+1. Once a webhook is triggered, the service checks if your callback URI is on the blacklist
+2. If it's not, we calculate a success ratio for your remote server based on your success/failure count in a 2 minute window
+3. If at any point in the two minute window your success/failure ratio dips below 90%, your URI will be blacklisted
+4. Your remote server will remain on the blacklist for 3 minutes, then be immediately sent to the retry queue
+
+After an initial blacklist period, we will send the webhook notification to the retry queue immediately.
 
 The webhook dispatcher will then attempt several retries (at increasing intervals) until the maximum retry limit is reached.
 
@@ -384,7 +393,7 @@ The webhook dispatcher will then attempt several retries (at increasing interval
 <!-- theme: warning -->
 
 ### Retries Based on Subscriber Domain, Not by Specific Hooks
-> The webhook dispatcher determines whether retries are needed based on responses from the subscribed domain as a whole,not by specific hooks. For example, `domain.com/webhook-1` and `domain.com/webhook-2` will affect each other for failures and retries.
+> The webhook dispatcher determines whether retries are needed based on responses from the subscribed domain as a whole, not by specific hooks. For example, `domain.com/webhook-1` and `domain.com/webhook-2` will affect each other for failures and retries.
 
 </div>
 </div>
