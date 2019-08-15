@@ -2819,6 +2819,10 @@ https://github.com/bigcommerce/cornerstone/tree/master/templates/components/comm
     <td>recaptcha.markup</td>
     <td>Adds reCaptcha V2</td>
   </tr>
+  <tr>
+  <td>error</td>
+  <td>BigCommerce defined message to display when customer’s login fails</td>
+  </tr>
 </table>
 
 <div class="HubBlock--callout">
