@@ -380,7 +380,7 @@ The webhook service flow is as follows:
 1. Once a webhook is triggered, the service checks if your callback URI is on the blacklist
 2. If it's not, we calculate a success ratio for your remote server based on your success/failure count in a 2 minute window
 3. If at any point in the two minute window your success/failure ratio dips below 90%, your URI will be blacklisted
-4. Your domain will be blacklisted for 3 minutes. 
+4. Your domain will be blacklisted for 3 minutes
 5. Webhook events triggered during this time are sent to our retry queues to be executed later when the domain is no longer blacklisted and once the retry queue time has elapsed.
 
 <div class="HubBlock--callout">
