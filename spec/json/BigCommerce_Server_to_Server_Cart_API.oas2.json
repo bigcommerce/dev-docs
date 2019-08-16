@@ -1776,67 +1776,7 @@
         "coupons": {
           "type": "array",
           "items": {
-            "type": "object",
-            "title": "Applied Coupon",
-            "properties": {
-              "coupons": {
-                "type": "object",
-                "description": "Required in a ",
-                "properties": {
-                  "coupon_code": {
-                    "type": "object",
-                    "example": "KV56053388J",
-                    "description": "The coupon code",
-                    "properties": {
-                      "id": {
-                        "type": "integer",
-                        "example": 6,
-                        "description": "Coupon Id"
-                      },
-                      "code": {
-                        "type": "string",
-                        "example": "KV56053388J",
-                        "description": "The coupon code. Required in a /POST request."
-                      },
-                      "name": {
-                        "type": "string",
-                        "example": "Percentage off",
-                        "description": "Name given to the coupon in the Control Panel"
-                      },
-                      "discountType": {
-                        "type": "integer",
-                        "description": "The discount type.\n\n- type 0: per_item_discount\n- type 1: percentage_discount\n- type 2: per_total_discount\n- type 3: shipping_discount\n- type 4: free_shipping",
-                        "enum": [
-                          0,
-                          1,
-                          2,
-                          3,
-                          4
-                        ]
-                      },
-                      "discountAmount": {
-                        "type": "integer",
-                        "description": "The amount of the discount based on the coupoon. For example 3 percent off will show a 3.",
-                        "example": 3
-                      },
-                      "expiresDate": {
-                        "type": "integer",
-                        "example": 0,
-                        "description": "Returns 0 if a expiration date is not set"
-                      },
-                      "totalDiscount": {
-                        "type": "number",
-                        "example": 4.19,
-                        "description": "Total discount amount off cart"
-                      }
-                    }
-                  }
-                },
-                "required": [
-                  "coupon_code"
-                ]
-              }
-            }
+            "$ref": "#/definitions/AppliedCoupon"
           }
         },
         "discounts": {
@@ -3740,67 +3680,33 @@
       "title": "Product Option"
     },
     "AppliedCoupon": {
-      "type": "object",
       "title": "Applied Coupon",
+      "type": "object",
       "properties": {
-        "coupons": {
-          "type": "object",
-          "description": "Required in a ",
-          "properties": {
-            "coupon_code": {
-              "type": "object",
-              "example": "KV56053388J",
-              "description": "The coupon code",
-              "properties": {
-                "id": {
-                  "type": "integer",
-                  "example": 6,
-                  "description": "Coupon Id"
-                },
-                "code": {
-                  "type": "string",
-                  "example": "KV56053388J",
-                  "description": "The coupon code. Required in a /POST request."
-                },
-                "name": {
-                  "type": "string",
-                  "example": "Percentage off",
-                  "description": "Name given to the coupon in the Control Panel"
-                },
-                "discountType": {
-                  "type": "integer",
-                  "description": "The discount type.\n\n- type 0: per_item_discount\n- type 1: percentage_discount\n- type 2: per_total_discount\n- type 3: shipping_discount\n- type 4: free_shipping",
-                  "enum": [
-                    0,
-                    1,
-                    2,
-                    3,
-                    4
-                  ]
-                },
-                "discountAmount": {
-                  "type": "integer",
-                  "description": "The amount of the discount based on the coupoon. For example 3 percent off will show a 3.",
-                  "example": 3
-                },
-                "expiresDate": {
-                  "type": "integer",
-                  "example": 0,
-                  "description": "Returns 0 if a expiration date is not set"
-                },
-                "totalDiscount": {
-                  "type": "number",
-                  "example": 4.19,
-                  "description": "Total discount amount off cart"
-                }
-              }
-            }
-          },
-          "required": [
-            "coupon_code"
-          ]
+        "code": {
+          "description": "the coupon code",
+          "type": "string"
+        },
+        "id": {
+          "description": "The coupon ID. Read Only",
+          "type": "string",
+          "readOnly": true
+        },
+        "coupon_type": {
+          "description": "Key name to identify the type of coupon.\n\ntype 0: per_item_discount  \ntype 1: percentage_discount  \ntype 2: per_total_discount\ntype 3: shipping_discount  \ntype 4: free_shipping",
+          "type": "string",
+          "readOnly": true
+        },
+        "discounted_amount": {
+          "description": "The discounted amount applied within a given context.",
+          "type": "number",
+          "format": "double",
+          "readOnly": true
         }
-      }
+      },
+      "required": [
+        "code"
+      ]
     },
     "AppliedDiscount": {
       "type": "object",
