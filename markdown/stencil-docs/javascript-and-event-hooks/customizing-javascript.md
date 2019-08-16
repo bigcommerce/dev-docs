@@ -103,7 +103,7 @@ In your browser, refresh any product-details pop-up or page to see your new `"He
 
 ## Bringing in Handlebars Context
 
-You can inject any variables from the Handlebars context into your client-side JavaScript by using the `{{inect...}}` expression like so:
+You can inject any variables from the Handlebars context into your client-side JavaScript by using the `{{inject...}}` expression like so:
 
 ```html
 {{inject 'productThumbSize' theme_settings.productthumb_size}}
