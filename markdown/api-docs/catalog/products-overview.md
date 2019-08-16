@@ -1083,7 +1083,7 @@ Parent ID is only needed if creating a sub-category.
 
 ### Category Tree
 
-[Category Tree](/api-reference/catalog/catalog-api/catalog/getcatalogsummary) returns a simple view of the parent > child relationship of all categories in the store. This endpoint can be used to fetch the categories if building out a custom navigation for a store.
+[Category Tree](https://developer.bigcommerce.com/api-reference/catalog/catalog-api/category/getcategorytree) returns a simple view of the parent > child relationship of all categories in the store. This endpoint can be used to fetch the categories if building out a custom navigation for a store.
 
 <!--
 title: "Category Tree Response Example"
