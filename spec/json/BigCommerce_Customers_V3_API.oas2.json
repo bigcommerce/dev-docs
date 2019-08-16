@@ -4568,7 +4568,7 @@
         ]
       },
       "put": {
-        "description": "Updates a [*Customer Attribute*](https://developer.bigcommerce.com/api-reference/customer-subscribers/v3-customers-api/models/customerattribute) Multiple customer attributes can be updated in one call.\n\n**Required Fields**\n* id -- ID of the *Customer Attribute*",
+        "description": "Updates a [*Customer Attribute*](https://developer.bigcommerce.com/api-reference/customer-subscribers/v3-customers-api/models/customerattribute) Multiple customer attributes can be updated in one call.\n\n**Required Fields**\n* id -- ID of the *Customer Attribute*\n\nOnce the data type is set, it can not be changed. The attribute will need to be deleted then created again with the new data type. This will also delete it from the customer.",
         "summary": "Update a Customer Attribute",
         "operationId": "CustomersAttributesPut",
         "deprecated": false,
@@ -4584,44 +4584,13 @@
             "schema": {
               "type": "array",
               "items": {
-                "title": "Customer Attribute Put",
-                "type": "object",
-                "properties": {
-                  "name": {
-                    "description": "Attribute name.",
-                    "type": "string",
-                    "minLength": 1,
-                    "maxLength": 255
-                  },
-                  "type": {
-                    "title": "Type",
-                    "description": "Attribute type should match one of: string, number, date. When doing a ",
-                    "example": "string",
-                    "type": "string",
-                    "enum": [
-                      "string",
-                      "number",
-                      "date"
-                    ]
-                  },
-                  "id": {
-                    "description": "Attribute ID.",
-                    "type": "integer",
-                    "format": "int32"
-                  }
-                },
-                "required": [
-                  "name",
-                  "type",
-                  "id"
-                ]
+                "$ref": "#/definitions/CustomerAttributePut"
               }
             },
             "x-examples": {
               "application/json": [
                 {
                   "name": "Date Joined",
-                  "type": "date",
                   "id": 1
                 }
               ]
@@ -7077,17 +7046,6 @@
           "minLength": 1,
           "maxLength": 255
         },
-        "type": {
-          "title": "Type",
-          "description": "Attribute type should match one of: string, number, date. When doing a ",
-          "example": "string",
-          "type": "string",
-          "enum": [
-            "string",
-            "number",
-            "date"
-          ]
-        },
         "id": {
           "description": "Attribute ID.",
           "type": "integer",
@@ -7096,9 +7054,9 @@
       },
       "required": [
         "name",
-        "type",
         "id"
-      ]
+      ],
+      "description": "Once the data type is set, it can not be changed. The attribute will need to be deleted then created again with the new data type. This will also delete it from the customer."
     },
     "CustomerAttributePost": {
       "title": "Customer Attribute Post",
