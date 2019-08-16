@@ -373,7 +373,7 @@ Need to set up a quick destination URL for testing? See [Tools for testing webho
 
 The webhooks service will do its best to deliver events to your callback URI. It is best practice for your application to respond to the callback before taking any other action that would slow its response to our service. If an app server responds to a webhook payload with anything other than a 2_xx_ response, or times out and indicates the payload has not been received, the following process will determine whether your URI gets blacklisted.
 
-Our webhook service may send many payloads to a single URI in quick succession. Because of this, we use a sliding scale across a 2 minute window to calculate a callback response success rate for each remote destination. When the webhooks service recieves a 2_xx_ in response to a webhook payload, we raise your success count. When we do not receive a response or the remote server times out, we increment your failure count. Based on this count, the service calculates the success rate. 
+Our webhook service may send many payloads to a single URI in quick succession. Because of this, we use a sliding scale across a 2 minute window to calculate a callback response success rate for each remote destination. When the webhooks service recieves a 2_xx_ in response to a webhook payload, we raise your success count. When we do not receive a response or the remote server times out, we increment your failure count. Based on this count, the service calculates your URI's success rate. 
 
 The webhook service flow is as follows:
 
