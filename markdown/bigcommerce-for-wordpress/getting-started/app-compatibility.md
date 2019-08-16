@@ -1,6 +1,7 @@
 
-	<h3 class="sub-docs-type" id="bigcommerce-for-wordpress">BigCommerce for Wordpress</h3>
-	<h1 class="sub-docs-title" id="introduction">App Compatibility</h1>
+<h3 class="sub-docs-type" id="bigcommerce-for-wordpress">BigCommerce for Wordpress</h3>
+
+<h1 class="sub-docs-title" id="introduction">App Compatibility</h1>
 
 
 
