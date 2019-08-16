@@ -373,14 +373,30 @@ Need to set up a quick destination URL for testing? See [Tools for testing webho
 
 The webhooks service will do its best to deliver events to your callback URI. It is best practice for your application to respond to the callback before taking any other action that would slow its response to our service. If an app server responds to a webhook payload with anything other than a 2_xx_ response, or times out and indicates the payload has not been received, the following process will determine whether your URI gets blacklisted.
 
-Our webhook service may send many payloads to a single URI in quick succession. Because of this, we use a sliding scale across a 2 minute window to calculate a callback response success rate for each remote destination. When the webhooks service recieves a 2_xx_ in response to a webhook payload, we raise your success count. When we do not receive a response or the remote server times out, we increment your failure count. Based on this count, the service calculates the success rate. The initial 100 responses your remote server sends to our webhook service do not count towards your success rate.
+Our webhook service may send many payloads to a single URI in quick succession. Because of this, we use a sliding scale across a 2 minute window to calculate a callback response success rate for each remote destination. When the webhooks service recieves a 2_xx_ in response to a webhook payload, we raise your success count. When we do not receive a response or the remote server times out, we increment your failure count. Based on this count, the service calculates your URI's success rate. 
 
 The webhook service flow is as follows:
 
 1. Once a webhook is triggered, the service checks if your callback URI is on the blacklist
 2. If it's not, we calculate a success ratio for your remote server based on your success/failure count in a 2 minute window
 3. If at any point in the two minute window your success/failure ratio dips below 90%, your URI will be blacklisted
-4. Your remote server will remain on the blacklist for 3 minutes, then be immediately sent to the retry queue
+4. Your domain will be blacklisted for 3 minutes
+5. Webhook events triggered during this time are sent to our retry queues to be executed later when the domain is no longer blacklisted and once the retry queue time has elapsed.
+
+<div class="HubBlock--callout">
+<div class="CalloutBlock--info">
+<div class="HubBlock-content">
+    
+<!-- theme:  -->
+
+### 100 response count threshold
+> The initial 100 responses your remote server sends to our webhook service do not count towards your success rate.
+
+</div>
+</div>
+</div>
+
+<br>
 
 After an initial blacklist period, we will send the webhook notification to the retry queue immediately.
 
