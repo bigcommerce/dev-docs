@@ -6,7 +6,7 @@
     <li><a href="#authorizing_prerequisites2">Installing on Windows</a></li>
     <li><a href="#authorizing_prerequisites3">Installing on Linux</a></li>
     <li><a href="#authorizing_download">Downloading Cornerstone</a></li>
-    <li><a href="#authorizing_download2">Downloading a Marketplace theme</a></li>
+    <li><a href="#authorizing_download2">Downloading Marketplace Themes</a></li>
     <li><a href="#authorizing_initialize">Live Previewing a Theme</a></li>
 	</ul>
 </div>
@@ -40,6 +40,8 @@ These instructions have been tested on Mac OS X Yosemite.
 
 ---
 
+<a href='#authorizing_prerequisites2' aria-hidden='true' class='block-anchor'  id='authorizing_prerequisites2'><i aria-hidden='true' class='linkify icon'></i></a>
+
 ## Installing on Windows
 
 **Required Dependencies:**
@@ -59,6 +61,8 @@ These instructions have been tested on Mac OS X Yosemite.
 If you're experienced at installing and configuring `python` and `node.js` environments on Windows, feel free to install the required dependencies using your preferred method. If you're unsure, chocolatey is the easier option:
 
 ```shell
+# Open PowerShell as administrator, then run the following commands: 
+
 # Install chocolatey
 iex ((New-Object System.Net.WebClient).DownloadString("https://chocolatey.org/install.ps1"))
 
@@ -96,6 +100,8 @@ npm install -g @bigcommerce/stencil-cli
 </div>
 
 ---
+
+<a href='#authorizing_prerequisites3' aria-hidden='true' class='block-anchor'  id='authorizing_prerequisites3'><i aria-hidden='true' class='linkify icon'></i></a>
 
 ## Installing on Linux
 
@@ -158,7 +164,7 @@ Cornerstone and other themes can also be downloaded from the BigCommerce Control
 
 ---
 
-<a href='#authorizing_initialize' aria-hidden='true' class='block-anchor'  id='authorizing_initialize'><i aria-hidden='true' class='linkify icon'></i></a>
+<a href='#authorizing_download2' aria-hidden='true' class='block-anchor'  id='authorizing_download2'><i aria-hidden='true' class='linkify icon'></i></a>
 
 ## Downloading Marketplace Themes
 
@@ -208,6 +214,8 @@ Setting up an SSH key is a multi-step process. We have included resources below 
 </div>
 
 ---
+
+<a href='#authorizing_initialize' aria-hidden='true' class='block-anchor'  id='authorizing_initialize'><i aria-hidden='true' class='linkify icon'></i></a>
 
 ## Live Previewing a Theme
 
