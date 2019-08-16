@@ -612,6 +612,9 @@
             "type": "string",
             "description": "Must be included to get available shipping options",
             "default": "consignments.available_shipping_options"
+          },
+          {
+            "$ref": "#/parameters/includeShippingOption"
           }
         ],
         "responses": {
@@ -4177,20 +4180,6 @@
         }
       }
     },
-    "Include": {
-      "title": "include",
-      "example": "consignments.availableShippingOptions",
-      "x-enum-elements": [
-        {
-          "name": "Enum_consignments.availableShippingOptions",
-          "description": ""
-        }
-      ],
-      "type": "string",
-      "enum": [
-        "consignments.availableShippingOptions"
-      ]
-    },
     "CreateConsignmentRequest": {
       "title": "Create Consignment Request",
       "type": "object",
@@ -4645,6 +4634,14 @@
       "type": "string",
       "default": "application/json",
       "required": true
+    },
+    "includeShippingOption": {
+      "name": "include",
+      "in": "query",
+      "type": "string",
+      "enum": [
+        "consignments.available_shipping_options"
+      ]
     }
   },
   "securityDefinitions": {
