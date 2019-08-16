@@ -4475,22 +4475,6 @@
           }
         }
       }
-    },
-    "Error": {
-      "type": "array",
-      "items": {
-        "type": "object",
-        "properties": {
-          "status": {
-            "type": "integer"
-          },
-          "message": {
-            "type": "string"
-          }
-        }
-      },
-      "title": "Error",
-      "description": "Returns for incorrect requests. "
     }
   },
   "tags": [
