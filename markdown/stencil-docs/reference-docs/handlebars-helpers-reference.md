@@ -24,7 +24,7 @@
 </div>
 
 
-This page describes all of the Handlebars helpers supported on the Stencil framework. It includes helpers that are custom to, or customized for, Stencil.
+This page describes all of the Handlebars helpers supported on the Stencil framework. It includes helpers that are custom to, or customized for, Stencil. Only certiain standard heplpers are whitelisted and they are listed below as `Standard Helpers`. 
 
 For background information on using Handlebars helpers, please see the [official Handlebars documentation](http://handlebarsjs.com).
 
@@ -32,40 +32,23 @@ For background information on using Handlebars helpers, please see the [official
 
 <a href='#handlebars-helpers-reference_array' aria-hidden='true' class='block-anchor'  id='handlebars-helpers-reference_array'><i aria-hidden='true' class='linkify icon'></i></a>
 
-<a name="array"></a>
 
 ## Array Helpers
 
 The following helpers are available to manage arrays:
 
-* [Stencil Custom Array Helpers](#array_custom)
-* [Standard Array Helpers](#array_std)
+* <a href="#array_custom">Stencil Custom Array Helpers</a>
+* <a href="#array_std">Standard Array Helpers</a>
+
+
 
 ---
 
-<a name="array_custom"></a>
+<a id="array_custom"></a>
 
-##  Stencil Custom Array Helpers
+##  Custom Array Helpers
 
 The following array helpers are custom to the Stencil framework.
-### {{itemAt}}
-
-_Block helper that returns the item at the specified index._
-
-#### Parameters
-
-* `array` {Array}
-* `idx` {Number}
-* `returns` {any} `value`
-
-#### Example
-
-Given the array `['a', 'b', 'c']`:
-
-```handlebars
-{{itemAt array 1}}
-//=> 'b'
-```
 
 ### {{join}}
 
@@ -77,6 +60,25 @@ The `join` helper is custom to Stencil. It joins an array of string items, with 
 - `separator`: {String}
 - `limit=<number>`: An optional limit.
 
+#### Usage
+
+* [Paper Handlebars](https://github.com/bigcommerce/paper-handlebars/blob/master/spec/helpers/join.js)
+* [Cornerstone](https://github.com/bigcommerce/cornerstone/blob/master/templates/components/faceted-search/index.html)
+
+#### Example
+
+Join is used with `{{pluck}}` to display the faceted search navigation . In the example below the arguments are:
+
+* value -- `(pluck facets 'title')`
+* seperator -- `,`
+* limit -- `2`
+
+```js
+{{#if facets.length '>' 2}}
+    {{lang 'search.faceted.browse-by'}} {{ join (pluck facets 'title') ', ' limit=2 }} &amp; {{ toLowerCase (lang 'search.faceted.more') }}
+{{/if}}
+```
+
 ### {{limit}}
 
 The `limit` helper is custom to Stencil. It limits the number of items returned from an array variable, and returns a new array.
@@ -86,12 +88,31 @@ The `limit` helper is custom to Stencil. It limits the number of items returned 
 - `data`: {Array}
 - `limit`: {Number}
 
-#### {{limit}} Example
+#### Usage
+
+* [Paper Handlebars](https://github.com/bigcommerce/paper-handlebars/blob/master/spec/helpers/limit.js) 
+* [Cornerstone](https://github.com/bigcommerce/cornerstone/blob/master/templates/components/common/cart-preview.html)
+
+
+#### Example
 
 Assume that `{{cart.items}}` would return 10 items. You could use this helper to limit that behavior to only the first four items, by specifying:
 
 ```html
-{{limit cart.items 4}}
+{{#each (limit cart.items 4)}}
+    <li class="previewCartItem">
+        <div class="previewCartItem-image">
+            {{#if type '==' 'GiftCertificate'}}
+                <img src="{{cdn ../../theme_settings.default_image_gift_certificate}}" alt="GiftCertificate" title="GiftCertificate">
+            {{else}}
+                {{> components/common/responsive-img
+                    image=image
+                    fallback_size=../../theme_settings.productthumb_size
+                    lazyload=../../theme_settings.lazyload_mode
+                    default_image=../../theme_settings.default_image_product
+                }}
+            {{/if}}
+  ...
 ```
 
 ### {{pluck}}
@@ -109,6 +130,11 @@ The `pluck` helper returns the retrieved values in a comma-separated string. Thi
 - `limit`, `limit-value`: Optional parameters to limit the number of results returned.
 - `collection`: The collection to search.
 - `search-key`: The string to search for.
+
+#### Usage
+
+* [Paper Handlebars](https://github.com/bigcommerce/paper-handlebars/blob/master/spec/helpers/pluck.js) 
+* [Cornerstone](https://github.com/bigcommerce/cornerstone/blob/master/templates/components/faceted-search/index.html)
 
 
 #### {{pluck}} Example 1
@@ -137,8 +163,8 @@ If each category in `categories`  contains an image object, use dot notation to 
 ```json
 categories: [
   { "id": 1, "name": "Bakeware", "image": { "data": "http://...", "alt": "Bakeware image"} },
-  { "id": 2, "name": "Cookware" "image": { "data": "http://...", "alt": "Cookware image"} },
-  { "id": 3, "name": "Cutlery" "image": { "data": "http://...", "alt": "Cutlery image"} }
+  { "id": 2, "name": "Cookware", "image": { "data": "http://...", "alt": "Cookware image"} },
+  { "id": 3, "name": "Cutlery", "image": { "data": "http://...", "alt": "Cutlery image"} }
 ]
 ```
 
@@ -151,19 +177,16 @@ Handlebars statement:
 
 ---
 
-<a name="array_std"></a>
+<a id="array_std"></a>
 
 ##  Standard Array Helpers
 
 The following standard array helpers are supported on the Stencil framework.
 
-<a name="after"></a>
-
 ### {{after}}
 
 Returns all of the items in an array after the specified index. Opposite of [before](#before).
 
-Given the array `['a', 'b', 'c']`:
 
 #### Parameters
 
@@ -172,6 +195,8 @@ Given the array `['a', 'b', 'c']`:
 * `returns` {Array}: Array exluding `n` items.
 
 #### Example
+
+Given the array `['a', 'b', 'c']`:
 
 ```handlebars
 {{after array 1}}
@@ -193,13 +218,13 @@ Casts the given `value` to an array.
 {{arrayify "foo"}}
 //=> '["foo"]'
 ```
+
 <a name="before"></a>
 
 ### {{before}}
 
 Returns all of the items in the collection before the specified count. Opposite of [after](#after).
 
-Given the array `['a', 'b', 'c']`:
 
 #### Parameters
 
@@ -209,12 +234,15 @@ Given the array `['a', 'b', 'c']`:
 
 #### Example
 
+Given the array `['a', 'b', 'c']`:
+
 ```handlebars
 {{before array 2}}
 //=> '["a", "b"]'
 ```
 
 ### {{eachIndex}}
+Add 0 based indexing to the current handlebars loop. 
 
 #### Parameters
 
@@ -224,11 +252,17 @@ Given the array `['a', 'b', 'c']`:
 
 #### Example
 
+```html
+"collection": ["Towels", "Bath Soap", "T-Shirts"]
+```
+
 ```handlebars
 {{#eachIndex collection}}
-  {{item}} is {{index}}
+  {{this}} is {{index}}
 {{/eachIndex}}
+//=> Towels is 0, Bath Soap is 1, T-Shirts is 2
 ```
+
 
 ### {{filter}}
 
@@ -244,8 +278,20 @@ Block helper that filters the given array. Renders the block for values that eva
 #### Example
 
 ```handlebars
-{{#filter array "foo"}}AAA{{else}}BBB{{/filter}}
-//=> 'BBB
+<!-- 
+product: shirt
+myProducts: 
+- shirt
+- mug
+- book  -->
+
+{{#filter myProducts product}}
+  There is a {{this}} available.
+{{else}}
+  No products found
+{{/filter}}
+
+<!-- Returns: There is a shirt available.  -->
 ```
 
 <a name="first"></a>
@@ -278,7 +324,7 @@ Iterates over each item in an array, and exposes the current item in the array a
 * `isFirst`
 * `isLast`
 
-Also, `@index` is exposed as a private variable, and additional private variables may be defined as hash arguments.
+`@index` is exposed as a private variable, and additional private variables may be defined as hash arguments.
 
 #### Parameters
 
@@ -319,11 +365,11 @@ Given the array `['a', 'b', 'c']`:
 
 ```handlebars
 {{#inArray array "d"}}
-  foo
+  "The product is available"
 {{else}}
-  bar
+ "The product is no longer available"
 {{/inArray}}
-//=> 'bar'
+//=> "The product is no longer available"
 ```
 
 ### {{isArray}}
@@ -338,8 +384,12 @@ Returns true if `value` is an es5 array.
 #### Example
 
 ```handlebars
-{{isArray "abc"}}
-//=> 'false'
+{{isArray "applepearbananas"}}
+<!-- results in: false -->
+
+<!-- array: [apple, pears, bananas] -->
+{{isArray array}}
+<!-- results in: true -->
 ```
 
 <a name="last"></a>
@@ -376,11 +426,32 @@ Block helper that compares the length of the given array to the number passed as
 
 #### Example
 
-Given the array `['a', 'b', 'c', 'd', 'e']`:
+Given the collection:
+
+```
+"collection": [
+  {
+    "name": "Mug",
+    "id": 12
+  },
+  {
+    "name": "Towel",
+    "id": 239
+  },
+  {
+    "name": "Poster",
+    "id": 12
+  }
+]
+```
 
 ```handlebars
-{{#lengthEqual array 10}}AAA{{else}}BBB{{/lengthEqual}}
-//=> 'BBB'
+{{#lengthEqual collection 3}}
+  There are 3 products available.
+{{else}}
+  This are not 3 products available.
+{{/lengthEqual}}
+//=> 'There are 3 products available.'
 ```
 
 ### {{map}}
@@ -573,20 +644,40 @@ Block helper that sorts a collection and exposes the sorted collection as contex
 
 #### Example
 
-Given the array `['b', 'a', 'c']`:
+Given the collection:
+
+```
+"collection": [
+  {
+    "name": "Mug",
+    "id": 13
+  },
+  {
+    "name": "Towel",
+    "id": 239
+  },
+  {
+    "name": "Poster",
+    "id": 12
+  }
+]
+```
+
 
 ```handlebars
-{{#withSort array}}{{this}}{{/withSort}}
-//=> 'abc'
+{{#withSort collection "id"}}
+  {{name}} : {{id}}
+{{/withSort}}
+//=> Poster : 12
+Mug: 13
+Towel: 239
 ```
 
 ---
 
 <a href='#handlebars-helpers-reference_collection' aria-hidden='true' class='block-anchor'  id='handlebars-helpers-reference_collection'><i aria-hidden='true' class='linkify icon'></i></a>
 
-## Collection Helpers
-
-The following standard helpers are available to handle collections.
+## Standard Collection Helpers
 
 ### {{isEmpty}}
 
@@ -598,6 +689,23 @@ Block helper that returns a block *if* the given collection is empty. If the col
 * `options` {Object}
 * `returns` {String}
 
+#### Example
+
+```handlebars
+<!-- array: [] -->
+{{#isEmpty array}}
+  AAA
+{{else}}
+  BBB
+{{/isEmpty}}
+<!-- results in: 'AAA' -->
+
+<!-- array: [] -->
+{{isEmpty array}}
+<!-- results in: true -->
+```
+
+
 ### {{iterate}}
 
 Iterates over an array or object.
@@ -607,6 +715,21 @@ Iterates over an array or object.
 * `context` {Object|Array}: The collection to iterate over.
 * `options` {Object}
 * `returns` {String}
+
+### Example
+
+Given array:
+
+```
+[{name: 'a'}, {name: 'b'}, {name: 'c'}];
+```
+
+```handlebars
+{{#iterate array}}
+  {{name}}
+{{/iterate}}
+=> `abc`
+```
 
 ### {{length}}
 
@@ -631,27 +754,16 @@ Returns the length of the given collection. When using a string literal in the t
 {{length myObject}}
 //=> 2
 ```
+
+---
+
 <a href="#handlebars-helpers-reference_comparison" aria-hidden='true' class='block-anchor'  id='handlebars-helpers-reference_comparison'><i aria-hidden='true' class='linkify icon'></i></a>
 
-## Comparison Helpers
-
-The following standard helpers are available to handle comparisons.
+## Standard Comparison Helpers
 
 ### {{and}}
 
 Block helper that renders the block if *both* of the given values are truthy. If you specify an inverse block, it will be rendered when falsy.
-
-#### Example
-
-```html
-<!-- example from templates/layout/base.html -->
-
-<!-- ... -->
-{{#and settings.privacy_cookie settings.is_eu_ip_address}}
-    {{> components/common/cookie}}
-{{/and}}
-<!-- ... -->
-```
 
 #### Parameters
 
@@ -660,9 +772,28 @@ Block helper that renders the block if *both* of the given values are truthy. If
 * `options` {Object}: Handlebars-provided options object.
 * `returns` {String}
 
+
+#### Example
+
+```handlebars
+<!-- {great: true, magnificent: true} -->
+{{#and great magnificent}}
+  A
+{{else}}
+  B
+{{/and}}
+=> 'A'
+```
+
+```handlebars
+<!-- {great: true, magnificent: false} -->
+{{#and great magnificent}}A{{else}}B{{/and}}
+=> 'B'
+```
+
 ### {{gt}}
 
-Block helper that renders a block if `a` is *greater than* `b`.
+Block helper that renders a block if `a` is *greater than* `b`. (a > b)
 
 If an inverse block is specified, it will be rendered when falsy. You may optionally use the `compare=""` hash argument for the second value.
 
@@ -673,9 +804,27 @@ If an inverse block is specified, it will be rendered when falsy. You may option
 * `options` {Object}: Handlebars-provided options object.
 * `returns` {String}: Block, or inverse block if specified and falsy.
 
+#### Example
+
+```handlebars
+{{#gt a b}}
+  A
+{{else}}
+  B
+{{/gt}}
+
+a = 20, b=15 // true
+=> 'A'
+a = 15, b=15 //equal
+=> 'B'
+a = 14, b = 15 //false
+=> 'B'
+```
+
+
 ### {{gte}}
 
-Block helper that renders a block if `a` is *greater than or equal to* `b`.
+Block helper that renders a block if `a` is *greater than or equal to* `b`. (a >= b)
 
 If an inverse block is specified, it will be rendered when falsy. You may optionally use the `compare=""` hash argument for the second value.
 
@@ -685,6 +834,22 @@ If an inverse block is specified, it will be rendered when falsy. You may option
 * `b` {String}
 * `options` {Object}: Handlebars-provided options object
 * `returns` {String}: Block, or inverse block if specified and falsy.
+
+```handlebars
+{{#gt a b}}
+  A
+{{else}}
+  B
+{{/gt}}
+
+a = 20, b=15 // true
+=> 'A'
+a = 15, b=15 //equal
+=> 'A'
+a = 14, b = 15 //false
+=> 'B'
+```
+
 
 ### {{has}}
 
@@ -697,6 +862,14 @@ Block helper that renders a block if `value` has `pattern`. If an inverse block 
 * `options` {Object}: Handlebars-provided options object.
 * `returns` {String}
 
+#### Example
+
+```handlebars
+a = "product"
+{{has "a"}}
+=> 'true'
+```
+
 ### {{eq}}
 
 Block helper that renders a block if `a` is *equal to* `b`. If an inverse block is specified,  it will be rendered when falsy. You may optionally use the `compare=""` hash argument for the second value.
@@ -707,6 +880,38 @@ Block helper that renders a block if `a` is *equal to* `b`. If an inverse block 
 * `b` {String}
 * `options` {Object}: Handlebars-provided options object.
 * `returns` {String}: Block, or inverse block if specified and falsy.
+
+
+#### Example
+
+```handlebars
+number = 8
+{{#eq number compare=8}}
+  A
+{{/eq}
+=> 'A'
+```
+
+```handlebars
+number = 9
+{{#eq number compare=8}}
+  A
+{{else}}
+  B{
+{{/eq}}
+=> 'B'
+```
+
+```handlebars
+number = 8
+{{#eq number 8}}
+  A
+{{else}}
+  B
+{{/eq}}
+-> 'B'
+```
+
 
 ### {{ifEven}}
 
@@ -721,11 +926,23 @@ Returns `true` if the given value is an even number.
 #### Example
 
 ```handlebars
+value = 8
 {{#ifEven value}}
   render A
 {{else}}
   render B
 {{/ifEven}}
+=> A
+```
+
+```handlebars
+value = 9
+{{#ifEven value}}
+  render A
+{{else}}
+  render B
+{{/ifEven}}
+=> B
 ```
 
 ### {{ifNth}}
@@ -738,6 +955,29 @@ Conditionally renders a block *if* dividing the `a` operand by `b` yields a rema
 * {}: {Number}
 * `options` {Object}: Handlebars-provided options object.
 * `returns` {String}: Block, or inverse block if specified and falsy.
+
+```handlebars
+var context = {
+  items: [
+    { name: 'Towel' },
+    { name: 'Mug' },
+    { name: 'T-shirt' },
+    { name: 'Soap' },
+    { name: 'Coffee' }
+  ]
+};
+
+{{#each items}}
+  <div{{#ifNth 2 @index}}{{else}} class="row-alternate"{{/ifNth}}>{{name}}</div>
+{{/each}}
+
+Returns:
+'<div>Towel</div>',
+'<div class="row-alternate">Mug</div>',
+'<div>T-shirt</div>',
+'<div class="row-alternate">Soap</div>',
+'<div>Coffee</div>'
+```
 
 ### {{ifOdd}}
 
@@ -752,11 +992,23 @@ Block helper that renders a block if `value` is *an odd number*. If an inverse b
 #### Example
 
 ```handlebars
+value = 9
 {{#ifOdd value}}
   render A
 {{else}}
   render B
 {{/ifOdd}}
+=> 'B'
+```
+
+```handlebars
+value = 8
+{{#ifOdd value}}
+  render A
+{{else}}
+  render B
+{{/ifOdd}}
+=> 'B'
 ```
 
 ### {{is}}
@@ -770,6 +1022,37 @@ Block helper that renders a block if `a` is *equal to* `b`. If an inverse block 
 * `options` {Object}: Handlebars-provided options object.
 * `returns` {String}
 
+```handlebars
+value = 'CCC'
+{{#is value "CCC"}}
+  A
+{{else}}
+  B
+{{/is}}
+=> 'A'
+```
+
+```handlebars
+value = 'BBB'
+{{#is value "CCC"}}
+  A
+{{else}}
+  B
+{{/is}}
+=> 'B'
+```
+
+```handlebars
+value = 'CCC'
+{{#is value compare="CCC"}}
+  A
+{{else}}
+  B
+{{/is}}
+=> 'A'
+```
+
+
 ### {{isnt}}
 
 Block helper that renders a block if `a` is *not equal to* `b`. If an inverse block is specified, it will be rendered when falsy.
@@ -780,6 +1063,37 @@ Block helper that renders a block if `a` is *not equal to* `b`. If an inverse bl
 * `b` {String}
 * `options` {Object}: Handlebars-provided options object.
 * `returns` {String}
+
+#### Example
+
+```handlebars
+number = 3
+{{#isnt number 2}}
+  A
+{{else}}
+  B
+{{/isnt}}
+=>'A'
+```
+```handlebars
+value = 'Soap'
+{{#isnt value "Soap"}}
+  A
+{{else}}
+  B
+{{/isnt}}
+=>'A'
+```
+
+```handlebars
+value='CCC'
+{{#isnt value compare="CCC"}}
+  A
+{{else}}
+  B
+{{/isnt}}
+=>'A'
+```
 
 ### {{lt}}
 
@@ -792,6 +1106,43 @@ If an inverse block is specified, it will be rendered when falsy. You may option
 * `context` {Object}
 * `options` {Object}: Handlebars-provided options object.
 * `returns` {String}: Block, or inverse block if specified and falsy.
+
+
+#### Example
+
+```handlebars
+{{#lt a b}}
+  A
+{{else}}
+  B
+{{/lt}}
+
+a = 14
+b = 15
+=> 'A'
+
+a = 15
+b = 15
+=>'B'
+
+a = 20
+b = 15
+=> 'B'
+
+```
+
+```handlebars
+number = 5
+{{#lt number compare=8}}A{{/lt}}
+=> 'A'
+```
+
+```handlebars
+number = 42
+{{#lt number compare=8}}A{{/lt}}
+=> '' //empty block when value is greater than given number
+```
+
 
 ### {{lte}}
 
@@ -806,6 +1157,38 @@ If an inverse block is specified, it will be rendered when falsy. You may option
 * `options` {Object}: Handlebars-provided options object.
 * `returns` {String}: Block, or inverse block if specified and falsy.
 
+#### Example
+
+```handlebars
+{{#lte a b}}A{{else}}B{{/lte}}
+a = 14
+b = 15
+=> 'A'
+
+a = 15
+b = 15
+=> 'A'
+
+a = 20
+b = 15
+=> 'B'
+```
+
+```handlebars
+number = 1
+{{#lte number compare=8}}A{{/lte}}
+=> 'A'
+
+number = 8
+{{#lte number compare=8}}A{{/lte}}
+=> 'A'
+
+number = 27
+{{#lte number compare=8}}A{{/lte}}
+=> '' //does not render a block if the value is greater than a given number
+
+```
+
 ### {{neither}}
 
 Block helper that renders a block if *neither of* the given values are truthy. If you specify an inverse block, it will be rendered when falsy.
@@ -816,6 +1199,21 @@ Block helper that renders a block if *neither of* the given values are truthy. I
 * `b` {any}
 * `options` {}: Handlebars options object.
 * `returns` {String}: Block, or inverse block if specified and falsy.
+
+
+#### Example
+
+```handlebars
+product = true
+customer = false
+{{#neither product customer}}A{{else}}B{{/neither}}
+=> 'A'
+
+product = false
+customer = true
+{{#neither great magnificent}}A{{else}}B{{/neither}}
+=> 'B'
+```
 
 ### {{unlessEq}}
 
@@ -828,6 +1226,17 @@ Block helper that always renders the inverse block *unless `a` is equal to `b`*.
 * `options` {Object}: Handlebars-provided options object.
 * `returns` {String}: Inverse block by default, or block if falsy.
 
+```handlebars
+number = 10
+{{#unlessEq number compare=8}}A{{/unlessEq}}
+=> 'A'
+
+number = 8
+{{#unlessEq number compare=8}}A{{/unlessEq}}
+=> '' // returns empty when value is equal to a given number
+```
+
+
 ### {{unlessGt}}
 
 Block helper that always renders the inverse block *unless `a` is greater than `b`*.
@@ -837,6 +1246,19 @@ Block helper that always renders the inverse block *unless `a` is greater than `
 * `context` {Object}
 * `options` {Object}: Handlebars-provided options object.
 * `returns` {String}: Inverse block by default, or block if falsy.
+
+#### Example
+
+```handlebars
+number = 5
+{{#unlessGt number compare=8}}A{{/unlessGt}}
+=> 'A'
+
+number = 10
+{{#unlessGt number compare=8}}A{{/unlessGt}}
+=> '' // returns empty when value is greater than a given number
+
+```
 
 ### {{unlessLt}}
 
@@ -848,6 +1270,20 @@ Block helper that always renders the inverse block *unless `a` is less than `b`*
 * `options` {Object}: Handlebars-provided options object.
 * `returns` {String}: Block, or inverse block if specified and falsy.
 
+#### Example
+
+```handlebars
+number = 10
+{{#unlessLt number compare=8}}A{{/unlessLt}}
+=> 'A'
+
+number = 5
+{{#unlessLt number compare=8}}A{{/unlessLt}}
+=> '' //returns empty when the value is less than a given number
+
+```
+
+
 ### {{unlessGteq}}
 
 Block helper that always renders the inverse block *unless `a` is greater than or equal to `b`*.
@@ -858,6 +1294,22 @@ Block helper that always renders the inverse block *unless `a` is greater than o
 * `options` {Object}: Handlebars-provided options object.
 * `returns` {String}: Block, or inverse block if specified and falsy.
 
+#### Example
+
+```handlebars
+number = 4
+{{#unlessGteq number compare=8}}A{{/unlessGteq}}
+=> 'A'
+
+number = 8
+{{#unlessGteq number compare=8}}A{{/unlessGteq}}
+=> '' //returns empty when the value is greater than or equal to a given number
+
+number = 34
+{{#unlessGteq number compare=8}}A{{/unlessGteq}}
+=> '' // returns empty when the value is greater than or equal to a given number
+```
+
 ### {{unlessLteq}}
 
 Block helper that always renders the inverse block *unless `a` is less than or equal to `b`*.
@@ -867,6 +1319,22 @@ Block helper that always renders the inverse block *unless `a` is less than or e
 * `context` {Object}
 * `options` {Object}: Handlebars-provided options object.
 * `returns` {String}: Block, or inverse block if specified and falsy.
+
+#### Example
+
+```handlebars
+number = 10
+{{#unlessLteq number compare=8}}A{{/unlessLteq}}
+=> 'A'
+
+number = 8
+{{#unlessLteq number compare=8}}A{{/unlessLteq}}
+=> '' // returns empty when the value is less than or equal to a given number
+
+number = 4
+{{#unlessLteq number compare=8}}A{{/unlessLteq}}
+=> '' // returns empty when the value is less than or equal to a given number
+```
 
 <a href="#handlebars-helpers-reference_control-flow" aria-hidden='true' class='block-anchor'  id='handlebars-helpers-reference_control-flow'><i aria-hidden='true' class='linkify icon'></i></a>
 
