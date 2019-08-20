@@ -6,6 +6,8 @@
     <li><a href="#adding_bundling-and-minification">Bundling and Minification</a></li>
     <li><a href="#adding_development-options">Development Options</a></li>
     <li><a href="#adding_using-npm">Using npm (Node Package Manager)</a></li>
+    <li><a href="#adding_page-types">Page Types and Javascript API</a></li>
+    <li><a href="#adding_page-template-injection">JavaScript Template Context Injection</a></li>
     <li><a href="#adding_placing-modules">Placing Modules in assets/js/</a></li>
     <li><a href="#adding_theme-specific-js">Theme-Specific JavaScript Modules</a></li>
     <li><a href="#adding_mapping-page">Mapping Page Types to JavaScript Modules</a></li>
@@ -55,6 +57,133 @@ Many third-party JavaScript components are distributed with npm (Node Package Ma
 ### Taking Over from npm
 
 npm facilitates managing third-party JavaScript components by placing each JavaScript component – and any of its dependencies – in the correct directories. However, as a developer, you will still need to edit your theme files to wire up the JavaScript component to expose it on your storefront. You will find several examples of this on the following pages.
+
+---
+
+<a href='#adding_development-options' aria-hidden='true' class='block-anchor'  id='adding_development-options'><i aria-hidden='true' class='linkify icon'></i></a>
+
+## Page Types and Javascript API
+
+<a href='#adding_page-types' aria-hidden='true' class='block-anchor'  id='page-types_stencil-utils'><i aria-hidden='true' class='linkify icon'></i></a>
+
+Stencil themes include an API for running JavaScript on a per-page basis.
+
+To properly write JavaScript for your theme, you will have the following page types available to you:
+
+* `pages/account/addresses`
+* `pages/account/add-address`
+* `pages/account/add-return`
+* `pages/account/add-wishlist`
+* `pages/account/recent-items`
+* `pages/account/download-item`
+* `pages/account/edit`
+* `pages/account/return-saved`
+* `pages/account/returns`
+* `pages/auth/login`
+* `pages/auth/account-created`
+* `pages/auth/create-account`
+* `pages/auth/new-password`
+* `pages/blog`
+* `pages/blog-post`
+* `pages/brand`
+* `pages/brands`
+* `pages/cart`
+* `pages/category`
+* `pages/compare`
+* `pages/errors`
+* `pages/gift-certificate/purchase`
+* `pages/gift-certificate/balance`
+* `pages/gift-certificate/redeem`
+* `global`
+* `pages/home`
+* `pages/order-complete`
+* `pages/page`
+* `pages/product`
+* `pages/search`
+* `pages/sitemap`
+* `pages/subscribed`
+* `pages/account/wishlist-details`
+* `pages/account/wishlists`
+* `pages/order-confirmation`
+* `pages/checkout`
+
+These page types correspond to the pages within your theme. Each of these page types maps to an ES6 module that extends the base `PageManager` abstract class:
+
+<div class="HubBlock-header">
+    <div class="HubBlock-header-title flex items-center">
+        <div class="HubBlock-header-name">pages/blog extending the page PageManager class</div>
+    </div><div class="HubBlock-header-subtitle"></div>
+</div>
+
+<!--
+title: "pages/blog extending the page PageManager class"
+subtitle: ""
+lineNumbers: true
+-->
+
+```js
+export default class Blog extends PageManager {
+        constructor() {
+            //Setup code goes here – attach to internals, and use internals as you would 'this'
+        }
+    }
+```
+
+<div class="HubBlock--callout">
+<div class="CalloutBlock--">
+<div class="HubBlock-content">
+    
+<!-- theme:  -->
+
+> 1. Notice the page types correspond to the html pages in [cornerstone/templates/pages/](https://github.com/bigcommerce/cornerstone/tree/master/templates/pages)
+
+</div>
+</div>
+</div>
+
+---
+
+<a href='#adding_page-template-injection' aria-hidden='true' class='block-anchor'  id='page-types_javascript'><i aria-hidden='true' class='linkify icon'></i></a>
+
+## JavaScript Template Context Injection
+
+Occasionally, you might need to use dynamic data from the template context within your theme's client-side application code. Two helpers are provided to help achieve this.
+
+The `inject` helper allows you to compose a json object with a subset of the template context to be sent to the browser:
+
+`{{inject "stringBasedKey" contextValue}}`
+
+To retrieve the parsable JSON object, just call `{{jsContext}}` after all of the `{{inject}}` calls.
+
+For example, to set up the product name in your client-side app, you can do this if you're in the context of a product:
+
+<div class="HubBlock-header">
+    <div class="HubBlock-header-title flex items-center">
+        <div class="HubBlock-header-name"></div>
+    </div><div class="HubBlock-header-subtitle"></div>
+</div>
+
+<!--
+title: ""
+subtitle: ""
+lineNumbers: true
+-->
+
+```html
+{{inject "myProductName" product.title}}
+
+<script>
+// Note the lack of quotes around the jsContext handlebars helper, it becomes a string automatically.
+var jsContext = JSON.parse({{jsContext}}); //jsContext would output "{\"myProductName\": \"Sample Product\"}" which can feed directly into your JavaScript
+
+console.log(jsContext.myProductName); // Will output: Sample Product
+</script>
+```
+
+You can compose your JSON object across multiple pages, to create a different set of client-side data depending on the currently loaded template context.
+
+Stencil's Cornerstone base theme makes the `jsContext` available as `this.context`, both on the active page scoped and on global `PageManager` objects.
+
 
 ---
 
@@ -221,7 +350,7 @@ export default class Cart extends PageManager {
 
 ## Mapping Custom Templates to JavaScript Modules
 
-If you add [custom page templates](/stencil-docs/template-files/custom-templates/about-custom-templates) to your theme, you can edit the same `assets/js/app.js` file to map each custom template to an appropriate JavaScript module.
+If you add [custom page templates](/stencil-docs/storefront-customization/custom-templates/) to your theme, you can edit the same `assets/js/app.js` file to map each custom template to an appropriate JavaScript module.
 
 <div class="HubBlock-header">
     <div class="HubBlock-header-title flex items-center">
