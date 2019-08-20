@@ -352,21 +352,84 @@ export default class Cart extends PageManager {
 
 If you add [custom page templates](/stencil-docs/storefront-customization/custom-templates/) to your theme, you can edit the same `assets/js/app.js` file to map each custom template to an appropriate JavaScript module.
 
+In the following example, we will map a custom JavaScript file, `assets/js/themes/custom.js` to a custom product page file `templates/pages/custom/product/customProd.html`.
+
+
 <div class="HubBlock-header">
     <div class="HubBlock-header-title flex items-center">
-        <div class="HubBlock-header-name">app.js</div>
-    </div><div class="HubBlock-header-subtitle">map custom templates to js modules</div>
+        <div class="HubBlock-header-name">Custom JS file</div>
+    </div><div class="HubBlock-header-subtitle">assets/js/themes/custom.js</div>
+</div>
+
+<!--
+title: "Custom product page file"
+subtitle: "assets/js/themes/custom.js"
+lineNumbers: true
+-->
+
+
+```js
+import PageManager from "./page-manager";
+
+export default class Custom extends PageManager  {
+
+    onReady(){
+        alert("Hello world!");
+    }
+}
+
+```
+
+This is a basic module that creates a class called Custom which extends the PageManager class. 
+
+<div class="HubBlock-header">
+    <div class="HubBlock-header-title flex items-center">
+        <div class="HubBlock-header-name">Custom product page template file</div>
+    </div><div class="HubBlock-header-subtitle">templates/pages/custom/product/customProd.html</div>
+</div>
+
+<!--
+title: "Custom product page template file"
+subtitle: "templates/pages/custom/product/customProd.html"
+lineNumbers: true
+-->
+```html
+{{~inject 'template' template}}
+    <h2>Hello World!</h2>
+    <body>
+    Some custom content!
+    <body>
+    <script>window.__webpack_public_path__ = "{{cdn 'assets/dist/'}}";</script>
+    <script src="{{cdn 'assets/dist/theme-bundle.main.js'}}"></script>
+    <script>window.stencilBootstrap("{{page_type}}", {{jsContext}}).load();</script>
+```
+
+In order to successully map your custom module to a custom template file, that file must
+* Inject the custom template 
+* Load webpack 
+* Load the main theme bundle
+* Load stencilBootstrap
+
+It is a good idea to pull in `{{>layout/base}}` to your custom template file because of these requirements.
+
+Finally, use the customClasses function in `assets/js/app.js` to map the custom page file to your custom template. Your app.js file should look like this:
+
+<div class="HubBlock-header">
+    <div class="HubBlock-header-title flex items-center">
+        <div class="HubBlock-header-name">Mapping custom templates to JS modules</div>
+    </div><div class="HubBlock-header-subtitle">assets/app.js</div>
 </div>
 
 <!--
 title: "app.js"
-subtitle: "map custom templates to js modules"
+subtitle: "Mapping custom templates to JS modules"
 lineNumbers: true
 -->
 
 ```js
-const customClasses = {};
-
+const customClasses = {
+    'pages/custom/product/customProd': () => import('./theme/custom')
+};
 /**
  * This function gets added to the global window and then called
  * on page load with the current template loaded and JS Context passed in
@@ -410,42 +473,6 @@ window.stencilBootstrap = function stencilBootstrap(pageType, contextJSON = null
     };
 };
 ```
-
-### Injecting Custom Templates
-
-In the theme's [templates/layout/base.html](https://github.com/bigcommerce/cornerstone/blob/master/templates/layout/base.html) template, we've added the line `{{inject 'template' template}}` just above `{{{snippet 'htmlhead'}}}` statement to inject the custom template:
-
-<div class="HubBlock-header">
-    <div class="HubBlock-header-title flex items-center">
-        <div class="HubBlock-header-name">base.html</div>
-    </div><div class="HubBlock-header-subtitle">custom template injection</div>
-</div>
-
-<!--
-title: "base.html"
-subtitle: "custom template injection"
-lineNumbers: true
--->
-
-```html
-<head>
-      <title>{{ head.title }}</title>
-      {{{ head.meta_tags }}}
-      {{{ head.config }}}
-      [...]
-
-      {{{head.scripts}}}
-      {{{head.rsslinks}}}
-
-      {{inject 'themeSettings' theme_settings}}
-      {{inject 'genericError' (lang 'common.generic_error')}}
-      {{inject 'maintenanceMode' settings.maintenance}}
-      {{inject 'urls' urls}}
-      {{inject 'template' template}} //injects the custom template
-      {{{snippet 'htmlhead'}}}
-</head> 
-```
-
 ---
 
 <a href='#adding_summary' aria-hidden='true' class='block-anchor'  id='adding_summary'><i aria-hidden='true' class='linkify icon'></i></a>
