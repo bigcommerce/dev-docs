@@ -2119,24 +2119,40 @@ As above, you can reference `theme_settings` keys or specify your own size inlin
 <a href='#handlebars-helpers-reference_inflection' aria-hidden='true' class='block-anchor'  id='handlebars-helpers-reference_inflection'><i aria-hidden='true' class='linkify icon'></i></a>
 
 
-
 ## Inflection Helpers
 
 The following standard helpers are available to transform strings.
 
 ### {{inflect}}
 
-Handles singular/plural forms.
+**Standard Helper**
+
+Returns the singular or plural form of a word based on the count.
 
 #### Parameters
 
 * `count` {Number}
 * `singular` {String}: The singular form
 * `plural` {String}: The plural form
-* `include` {String}
+* `include` {String}: If to include the count before the work
 * `returns` {String}
 
+#### Example
+
+products = 0  
+customers = 1
+
+```handlebars
+{{inflect products "product" "products"}}
+{{inflect customers "customer" "friends" true}}
+
+=> products
+1 customer
+```
+
 ### {{ordinalize}}
+
+**Standard Helper**
 
 Returns an ordinalized number (as a string).
 
@@ -2165,9 +2181,6 @@ Returns an ordinalized number (as a string).
 ## Injection Helpers
 
 The Stencil framework provides the following custom helpers to insert various resources into a page context
-
-
-
 
 ###  {{cdn}}
 
@@ -2242,6 +2255,10 @@ Whereas in production, it would return:
 
 As highlighted above, the helper is configured to rewrite *local* URLs to a `<theme-name>/assets/cdn/` subfolder. The `stencil bundle` command will exclude this local `assets/cdn/` subfolder from the bundle that it creates. This filtering circumvents the 50 MB size limit on the resulting .zip file.
 
+#### Resources
+* [Cornerstone](https://github.com/bigcommerce/cornerstone/blob/master/templates/layout/base.html)
+* [Paper Handlebars](https://github.com/bigcommerce/paper-handlebars/blob/master/helpers/cdn.js)
+
 
 ###  {{getFontsCollection}}
 
@@ -2251,7 +2268,7 @@ The `getFontsCollection` helper is custom to Stencil. It returns a link tag that
 
 ### {{inject}} and {{jsContext}}
 
-**Custom Helper**
+**Custom Helpers**
 
 Occasionally, your theme's client-side application code might need to incorporate dynamic data from the template context. Stencil provides two custom Handlebars helpers to help you achieve this: `inject`  and `jsContext`.
 
@@ -2301,7 +2318,7 @@ The Stencil theme makes the `jsContext` available on the active page scoped. It 
 
 The following code uses `inject` to add all product IDs into JavaScript on category pages. It resides in a theme's `<theme-name>/templates/pages/category.html` template. Note the two `inject` calls directly under the front matter:
 
-```
+```html
 ---
 category:
     shop_by_price: true
@@ -2346,9 +2363,47 @@ category:
 {{> layout/base}}
 ```
 
+
+In the example below from our [Developer Blog](https://medium.com/bigcommerce-developer-blog/build-a-bulk-order-form-using-the-bigcommerce-storefront-api-and-react-a9f73ec7f0d6), the inject helper will create a property on the `jsContext` object with the values we ask for in the pluck helper. In this case we are grabbing the product id, product name, product image, and product price.
+
+```js
+{{inject “productIds” (pluck category.products “id”)}}
+{{inject “productNames” (pluck category.products “name”)}}
+{{inject “productImages” (pluck category.products “image.data”)}}
+{{inject “productPrices” (pluck category.products “price.without_tax.formatted”)}}
+<script>
+const pageContext = JSON.parse({{jsContext}});
+let productData = [];
+pageContext[‘productIds’].forEach((id, index) => {
+    let imageURL = ‘’;
+    pageContext[‘productImages’][index] === null ? 
+    imageURL = ‘’ : 
+    imageURL = pageContext[‘productImages’][index].replace(‘{:size}’, ‘100x100’);
+productData.push({
+    id: id,
+    name: pageContext[‘productNames’][index],
+    image: imageURL,
+    price: pageContext[‘productPrices’][index],
+    quantity: 0
+    })
+});
+window.initBulkOrderForm(productData)
+</script>
+```
+
+#### Resources
+
+* [Cornerstone `jsContext`](https://github.com/bigcommerce/cornerstone/blob/master/templates/layout/base.html)
+* [Cornerstone `inject`](https://github.com/bigcommerce/cornerstone/blob/master/templates/pages/account/add-payment-method.html)
+* [Paper Handlebars `inject`](https://github.com/bigcommerce/paper-handlebars/blob/master/helpers/inject.js)
+* [Paper Handlebars `jsContext`](https://github.com/bigcommerce/paper-handlebars/blob/master/helpers/jsContext.js)
+
+
 ### {{stylesheet}}
 
-The `stylesheet` helper is custom to Stencil. It renders a link tag to insert a stylesheet into your theme. (This is required if you want Theme Editor to rewrite the stylesheet file when a merchant customizes their theme.) This helper returns an HTML string.
+**Custom Helper**
+
+It renders a link tag to insert a stylesheet into your theme. (This is required if you want Theme Editor to rewrite the stylesheet file when a merchant customizes their theme.) This helper returns an HTML string.
 
 #### Parameters
 
@@ -2361,6 +2416,11 @@ The `stylesheet` helper is custom to Stencil. It renders a link tag to insert a 
 {{{stylesheet "assets/css/style.css" class="myStylesheet"}}}
 ```
 
+#### Resources
+
+* [Cornestone](https://github.com/bigcommerce/cornerstone/blob/master/templates/pages/unavailable/maintenance.html)
+* [Paper Handlebars](https://github.com/bigcommerce/paper-handlebars/blob/master/helpers/stylesheet.js)
+
 ---
 
 <a href='#handlebars-helpers-reference_markdown' aria-hidden='true' class='block-anchor'  id='handlebars-helpers-reference_markdown'><i aria-hidden='true' class='linkify icon'></i></a>
@@ -2370,6 +2430,7 @@ The `stylesheet` helper is custom to Stencil. It renders a link tag to insert a 
 The following standard helper is available to convert markdown.
 
 ### {{markdown}}
+**Standard Helper**
 
 Block helper that converts a string of inline markdown to HTML.
 
@@ -2399,6 +2460,8 @@ The following standard helpers are available to handle mathematical operations.
 
 ### {{add}}
 
+**Standard Helper**
+
 Returns the sum of `a` plus `b`.
 
 #### Parameters
@@ -2406,7 +2469,20 @@ Returns the sum of `a` plus `b`.
 * `a` {Number}
 * `b` {Number}
 
+
+### Example
+
+```handlebars
+{{add value 5}}
+=> 10
+
+{{add value 5 10}}
+=> 15
+```
+
 ### {{subtract}}
+
+**Standard Helper**
 
 Return the difference of `a` minus `b`.
 
@@ -2415,7 +2491,16 @@ Return the difference of `a` minus `b`.
 * `a` {Number}
 * `b` {Number}
 
+#### Example
+
+```handlebars
+{{add value 10 5}}
+=> 5
+```
+
 ### {{divide}}
+
+**Standard Helper**
 
 Divides `a` by `b`.
 
@@ -2424,7 +2509,17 @@ Divides `a` by `b`.
 * `a` {Number}: numerator
 * `b` {Number}: denominator
 
+
+#### Example
+
+```handlebars
+{{divide value 5}}
+=> 1
+```
+
 ### {{multiply}}
+
+**Standard Helper**
 
 Multiplies `a` by `b`.
 
@@ -2433,7 +2528,14 @@ Multiplies `a` by `b`.
 * `a` {Number}: factor
 * `b` {Number}: multiplier
 
+```handlebars
+{{multiply value 5}}
+=> 25
+```
+
 ### {{floor}}
+
+**Standard Helper**
 
 Gets the `Math.floor()` of the given value.
 
@@ -2441,7 +2543,17 @@ Gets the `Math.floor()` of the given value.
 
 * `value` {Number}
 
+#### Example
+
+```handlebars
+value = 5.6
+{{floor value}}
+=> 5
+```
+
 ### {{ceil}}
+
+**Standard Helper**
 
 Gets the `Math.ceil()` [ceiling] of the given value.
 
@@ -2449,7 +2561,18 @@ Gets the `Math.ceil()` [ceiling] of the given value.
 
 * `value` {Number}
 
+#### Example
+
+```handlebars
+value = 5.6
+
+{{ceil value}}
+=> 6
+```
+
 ### {{round}}
+
+**Standard Helper**
 
 Rounds the given value.
 
@@ -2457,7 +2580,17 @@ Rounds the given value.
 
 * `value` {Number}
 
+#### Example
+
+```handlebars
+value = 5.69
+{{round value}}
+=>6
+```
+
 ### {{sum}}
+
+**Standard Helper**
 
 Returns the sum of all numbers in the given array.
 
@@ -2474,6 +2607,8 @@ Returns the sum of all numbers in the given array.
 ```
 
 ### {{avg}}
+
+**Standard Helper**
 
 Returns the average of all numbers in the given array.
 
@@ -2499,6 +2634,8 @@ The following standard helpers are available to handle and transform numbers.
 
 ### {{addCommas}}
 
+**Standard Helper**
+
 Adds commas to numbers.
 
 #### Parameters
@@ -2506,7 +2643,16 @@ Adds commas to numbers.
 * `num` {Number}
 * `returns` {Number}
 
+```handlebars
+value = 2222222 
+
+{{addCommas value}}
+=> 2,222,222
+```
+
 ### {{phoneNumber}}
+
+**Standard Helper**
 
 Converts a string or number to a formatted phone number.
 
@@ -2515,7 +2661,19 @@ Converts a string or number to a formatted phone number.
 * `num` {Number|String}: The phone number to format, e.g., `8005551212`
 * `returns` {Number}: The formatted phone number: `(800) 555-1212`
 
+
+#### Example
+
+```handlebars
+value = 8005551212
+{{phoneNumber value}}
+=> (800) 555-1212
+```
+
+
 ### {{random}}
+
+**Standard Helper**
 
 Generates a random number between two values.
 
@@ -2525,7 +2683,13 @@ Generates a random number between two values.
 * `max` {Number}
 * `returns` {String}
 
+```handlebars
+{{random 5 10}}
+```
+
 ### {{toAbbr}}
+
+**Standard Helper**
 
 Abbreviates numbers to the given number of `precision`. This is for general numbers, not size in bytes.
 
@@ -2535,7 +2699,18 @@ Abbreviates numbers to the given number of `precision`. This is for general numb
 * `precision` {Number}
 * `returns` {String}
 
+#### Example
+
+```handlebars
+number = 123456789
+{{toAbbr number}}
+=> 123.457m
+```
+
+
 ### {{toExponential}}
+
+**Standard Helper**
 
 Returns a string, representing the given number in exponential notation.
 
@@ -2547,11 +2722,22 @@ Returns a string, representing the given number in exponential notation.
 
 #### Example
 
-```js
+```handlebars
 {{toExponential number digits}};
 ```
 
+```handlebars
+value = 5 
+{{toExponential value 5}}
+=> 5.00000e+0 // to the 5th place
+
+{{toExponential value}}
+=>5e+0
+```
+
 ### {{toFixed}}
+
+**Standard Helper**
 
 Formats the given number, using fixed-point notation.
 
@@ -2561,27 +2747,76 @@ Formats the given number, using fixed-point notation.
 * `digits` {Number}: Optional. The number of digits to use after the decimal point. This can be a value between 0 and 20, inclusive, and implementations may optionally support a larger range of values. If this argument is omitted, it is treated as 0.
 * `returns` {Number}
 
+#### Examples
+
+```handlebars
+value = 5.5323
+{{toFixed value}}
+=> 6
+
+{{toFixed value 3}}
+=> 5.532
+```
+
 ### {{toFloat}}
+
+**Standard Helper**
+
+Returns a floating point number.
 
 #### Parameters
 
 * `number` {Number}
 * `returns` {Number}
+
+#### Example
+
+```handlebars
+value = '12.1abc' 
+{{toFloat value}}
+=>12.1
+```
+
 
 ### {{toInt}}
 
+**Standard Helper**
+
+Returns an integer.
+
 #### Parameters
 
 * `number` {Number}
 * `returns` {Number}
 
+#### Example
+
+```handlebars
+value = '12.1abc' 
+{{toInt value}}
+=>12
+```
+
 ### {{toPrecision}}
+
+**Standard Helper**
+
+Returns the number in fixed-point or exponential notation rounded to precision significant digits.
 
 #### Parameters
 
 * `number` {Number}
 * `precision` {Number}: Optional. The number of significant digits.
 * `returns` {Number}
+
+
+#### Example
+
+```handlebars
+value = 555.322 
+{{toPrecision value 4}}
+=> 555.3
+```
 
 ---
 
