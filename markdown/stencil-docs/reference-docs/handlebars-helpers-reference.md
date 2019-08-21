@@ -24,7 +24,7 @@
 </div>
 
 
-This page describes all of the Handlebars helpers supported on the Stencil framework. It includes helpers that are custom to, or customized for, Stencil. Only certiain standard heplpers are whitelisted and they are listed below as `Standard Helpers`. 
+This page describes all of the Handlebars helpers supported on the Stencil framework. It includes helpers that are custom to, or customized for, Stencil. They are marked as **Custom Helper**. Only certiain standard heplpers are whitelisted and they are listed below as **Standard Helpers**. 
 
 For background information on using Handlebars helpers, please see the [official Handlebars documentation](http://handlebarsjs.com).
 
@@ -35,24 +35,15 @@ For background information on using Handlebars helpers, please see the [official
 
 ## Array Helpers
 
-The following helpers are available to manage arrays:
-
-* <a href="#array_custom">Stencil Custom Array Helpers</a>
-* <a href="#array_std">Standard Array Helpers</a>
-
-
+The following helpers manage arrays.
 
 ---
 
-<a id="array_custom"></a>
-
-##  Custom Array Helpers
-
-The following array helpers are custom to the Stencil framework.
-
 ### {{join}}
 
-The `join` helper is custom to Stencil. It joins an array of string items, with separators. It returns a string.
+**Custom Helper**
+
+It joins an array of string items, with separators. It returns a string.
 
 #### Parameters
 
@@ -60,10 +51,6 @@ The `join` helper is custom to Stencil. It joins an array of string items, with 
 - `separator`: {String}
 - `limit=<number>`: An optional limit.
 
-#### Usage
-
-* [Paper Handlebars](https://github.com/bigcommerce/paper-handlebars/blob/master/spec/helpers/join.js)
-* [Cornerstone](https://github.com/bigcommerce/cornerstone/blob/master/templates/components/faceted-search/index.html)
 
 #### Example
 
@@ -79,20 +66,22 @@ Join is used with `{{pluck}}` to display the faceted search navigation . In the 
 {{/if}}
 ```
 
+#### Resources
+
+* [Paper Handlebars](https://github.com/bigcommerce/paper-handlebars/blob/master/spec/helpers/join.js)
+* [Cornerstone](https://github.com/bigcommerce/cornerstone/blob/master/templates/components/faceted-search/index.html)
+
+
 ### {{limit}}
 
-The `limit` helper is custom to Stencil. It limits the number of items returned from an array variable, and returns a new array.
+**Custom Helper**
+
+It limits the number of items returned from an array variable, and returns a new array.
 
 #### Parameters
 
 - `data`: {Array}
 - `limit`: {Number}
-
-#### Usage
-
-* [Paper Handlebars](https://github.com/bigcommerce/paper-handlebars/blob/master/spec/helpers/limit.js) 
-* [Cornerstone](https://github.com/bigcommerce/cornerstone/blob/master/templates/components/common/cart-preview.html)
-
 
 #### Example
 
@@ -115,9 +104,18 @@ Assume that `{{cart.items}}` would return 10 items. You could use this helper to
   ...
 ```
 
+#### Resources
+
+* [Paper Handlebars](https://github.com/bigcommerce/paper-handlebars/blob/master/spec/helpers/limit.js) 
+* [Cornerstone](https://github.com/bigcommerce/cornerstone/blob/master/templates/components/common/cart-preview.html)
+
+
+
 ### {{pluck}}
 
-The `pluck` helper is custom to Stencil. For one specified search key(s), it retrieves corresponding values from some or all elements in a specified collection.
+**Custom Helper**
+
+For one specified search key(s), it retrieves corresponding values from some or all elements in a specified collection.
 
 The `pluck` helper returns the retrieved values in a comma-separated string. This helper's general form is:
 
@@ -130,11 +128,6 @@ The `pluck` helper returns the retrieved values in a comma-separated string. Thi
 - `limit`, `limit-value`: Optional parameters to limit the number of results returned.
 - `collection`: The collection to search.
 - `search-key`: The string to search for.
-
-#### Usage
-
-* [Paper Handlebars](https://github.com/bigcommerce/paper-handlebars/blob/master/spec/helpers/pluck.js) 
-* [Cornerstone](https://github.com/bigcommerce/cornerstone/blob/master/templates/components/faceted-search/index.html)
 
 
 #### {{pluck}} Example 1
@@ -175,18 +168,19 @@ Handlebars statement:
 <!-- Returns a comma-separated list of image URLs -->
 ```
 
----
 
-<a id="array_std"></a>
+#### Resources
 
-##  Standard Array Helpers
+* [Paper Handlebars](https://github.com/bigcommerce/paper-handlebars/blob/master/spec/helpers/pluck.js) 
+* [Cornerstone](https://github.com/bigcommerce/cornerstone/blob/master/templates/components/faceted-search/index.html)
 
-The following standard array helpers are supported on the Stencil framework.
+
 
 ### {{after}}
 
-Returns all of the items in an array after the specified index. Opposite of [before](#before).
+**Standard Helper**
 
+Returns all of the items in an array after the specified index. Opposite of [before](#before).
 
 #### Parameters
 
@@ -204,6 +198,7 @@ Given the array `['a', 'b', 'c']`:
 ```
 
 ### {{arrayify}}
+**Standard Helper**
 
 Casts the given `value` to an array.
 
@@ -222,6 +217,8 @@ Casts the given `value` to an array.
 <a name="before"></a>
 
 ### {{before}}
+
+**Standard Helper**
 
 Returns all of the items in the collection before the specified count. Opposite of [after](#after).
 
@@ -242,6 +239,9 @@ Given the array `['a', 'b', 'c']`:
 ```
 
 ### {{eachIndex}}
+
+**Standard Helper**
+
 Add 0 based indexing to the current handlebars loop. 
 
 #### Parameters
@@ -263,8 +263,9 @@ Add 0 based indexing to the current handlebars loop.
 //=> Towels is 0, Bath Soap is 1, T-Shirts is 2
 ```
 
-
 ### {{filter}}
+
+**Standard Helper**
 
 Block helper that filters the given array. Renders the block for values that evaluate to `true`; otherwise, returns the inverse block.
 
@@ -298,6 +299,8 @@ myProducts:
 
 ### {{first}}
 
+**Standard Helper**
+
 Returns the first item, or first `n` items, of an array.
 
 #### Parameters
@@ -316,6 +319,8 @@ Given the array `['a', 'b', 'c', 'd', 'e']`:
 ```
 
 ### {{forEach}}
+
+**Standard Helper**
 
 Iterates over each item in an array, and exposes the current item in the array as context to the inner block. In addition to the current array item, the helper exposes the following variables to the inner block:
 
@@ -340,15 +345,17 @@ var accounts = [
 {'name': 'David', 'email': 'david@example.com'}
 ];
 
-// example usage
-// {{#forEach accounts}}
-//   <a href="mailto:{{ email }}" title="Send an email to {{ name }}">
-//     {{ name }}
-//   </a>{{#unless isLast}}, {{/unless}}
-// {{/forEach}}
+
+{{#forEach accounts}}
+  <a href="mailto:{{ email }}" title="Send an email to {{ name }}">
+    {{ name }}
+  </a>{{#unless isLast}}, {{/unless}}
+{{/forEach}}
 ```
 
 ### {{inArray}}
+
+**Standard Helper**
 
 Block helper that renders the block if an array has the given `value`. Optionally, you can specify an inverse block to render when the array does not have the given value.
 
@@ -374,6 +381,8 @@ Given the array `['a', 'b', 'c']`:
 
 ### {{isArray}}
 
+**Standard Helper**
+
 Returns true if `value` is an es5 array.
 
 #### Parameters
@@ -396,6 +405,8 @@ Returns true if `value` is an es5 array.
 
 ###  {{last}}
 
+**Standard Helper**
+
 Returns the last item, or last `n` items, of an array. Opposite of [first](#first).
 
 #### Parameters
@@ -415,6 +426,8 @@ Given the array `['a', 'b', 'c', 'd', 'e']`:
 
 ### {{lengthEqual}}
 
+**Standard Helper**
+
 Block helper that compares the length of the given array to the number passed as the second argument. If the array length is equal to the given `length`, the block is returned. Otherwise, you have the option of returning an inverse block.
 
 #### Parameters
@@ -428,7 +441,7 @@ Block helper that compares the length of the given array to the number passed as
 
 Given the collection:
 
-```
+```json
 "collection": [
   {
     "name": "Mug",
@@ -456,6 +469,8 @@ Given the collection:
 
 ### {{map}}
 
+**Standard Helper**
+
 Returns a new array, created by calling `function` on each element of the given `array`.
 
 #### Parameters
@@ -479,6 +494,8 @@ function double(str) {
 ```
 
 ### {{some}}
+
+**Standard Helper**
 
 Block helper that returns the block *if* the callback returns true for some value in the given array.
 
@@ -504,6 +521,8 @@ Given the array `[1, 'b', 3]`:
 
 ### {{sort}}
 
+**Standard Helper**
+
 Sorts the given `array`. If an array of objects is passed, you may optionally pass (as the second argument) a `key` to sort on. Alternatively, you may pass a sorting function as the second argument.
 
 #### Parameters
@@ -523,6 +542,8 @@ Given an array `['b', 'a', 'c']`:
 
 ### {{sortBy}}
 
+**Standard Helper**
+
 Sorts an `array`. If an array of objects is passed, you may optionally pass a `key` to sort on as the second argument. You may alternatively pass a sorting function as the second argument.
 
 #### Parameters
@@ -538,9 +559,13 @@ Given an array `[{a: 'zzz'}, {a: 'aaa'}]`:
 {{sortBy array "a"}}
 //=> '[{"a":"aaa"}, {"a":"zzz"}]'
 ```
+
+
 <a name="withAfter"></a>
 
 ### {{withAfter}}
+
+**Standard Helper**
 
 Use the items in the array, _after_ the specified index, as context inside a block. Opposite of [withBefore](#withBefore).
 
@@ -561,9 +586,13 @@ Given the array `['a', 'b', 'c', 'd', 'e']`:
 {{/withAfter}}
 //=> "de"
 ```
+
+
 <a name="withBefore"></a>
 
 ### {{withBefore}}
+
+**Standard Helper**
 
 Use the items in the array, _before_ the specified index, as context inside a block. Opposite of [withAfter](#withAfter).
 
@@ -584,9 +613,13 @@ Given the array `['a', 'b', 'c', 'd', 'e']`:
 {{/withBefore}}
 //=> 'ab'
 ```
+
+
 <a name="withFirst"></a>
 
 ### {{withFirst}}
+
+**Standard Helper**
 
 Uses a collection's first item inside a Handlebars block expression. Opposite of [withLast](#withLast).
 
@@ -607,9 +640,13 @@ Given the array `['a', 'b', 'c']`:
 {{/withFirst}}
 //=> 'a'
 ```
+
+
 <a name="withLast"></a>
 
 ###  {{withLast}}
+
+**Standard Helper**
 
 Use the last item, or `n` items, in an array as context inside a block. Opposite of [withFirst](#withFirst).
 
@@ -633,6 +670,8 @@ Given the array `['a', 'b', 'c']`:
 
 ### {{withSort}}
 
+**Standard Helper**
+
 Block helper that sorts a collection and exposes the sorted collection as context inside the block.
 
 #### Parameters
@@ -646,7 +685,7 @@ Block helper that sorts a collection and exposes the sorted collection as contex
 
 Given the collection:
 
-```
+```json
 "collection": [
   {
     "name": "Mug",
@@ -677,9 +716,11 @@ Towel: 239
 
 <a href='#handlebars-helpers-reference_collection' aria-hidden='true' class='block-anchor'  id='handlebars-helpers-reference_collection'><i aria-hidden='true' class='linkify icon'></i></a>
 
-## Standard Collection Helpers
+## Collection Helpers
 
 ### {{isEmpty}}
+
+**Standard Helper**
 
 Block helper that returns a block *if* the given collection is empty. If the collection is not empty, returns the inverse block (if supplied).
 
@@ -708,6 +749,8 @@ Block helper that returns a block *if* the given collection is empty. If the col
 
 ### {{iterate}}
 
+**Standard Helper**
+
 Iterates over an array or object.
 
 #### Parameters
@@ -718,11 +761,9 @@ Iterates over an array or object.
 
 ### Example
 
-Given array:
+Given the array:
+`[{name: 'a'}, {name: 'b'}, {name: 'c'}];`
 
-```
-[{name: 'a'}, {name: 'b'}, {name: 'c'}];
-```
 
 ```handlebars
 {{#iterate array}}
@@ -732,6 +773,8 @@ Given array:
 ```
 
 ### {{length}}
+
+**Standard Helper**
 
 Returns the length of the given collection. When using a string literal in the template, the string must be value JSON. See the example below. Otherwise, pass in an array or object from the context.
 
@@ -759,9 +802,11 @@ Returns the length of the given collection. When using a string literal in the t
 
 <a href="#handlebars-helpers-reference_comparison" aria-hidden='true' class='block-anchor'  id='handlebars-helpers-reference_comparison'><i aria-hidden='true' class='linkify icon'></i></a>
 
-## Standard Comparison Helpers
+## Comparison Helpers
 
 ### {{and}}
+
+**Standard Helper**
 
 Block helper that renders the block if *both* of the given values are truthy. If you specify an inverse block, it will be rendered when falsy.
 
@@ -792,6 +837,8 @@ Block helper that renders the block if *both* of the given values are truthy. If
 ```
 
 ### {{gt}}
+
+**Standard Helper**
 
 Block helper that renders a block if `a` is *greater than* `b`. (a > b)
 
@@ -824,6 +871,8 @@ a = 14, b = 15 //false
 
 ### {{gte}}
 
+**Standard Helper**
+
 Block helper that renders a block if `a` is *greater than or equal to* `b`. (a >= b)
 
 If an inverse block is specified, it will be rendered when falsy. You may optionally use the `compare=""` hash argument for the second value.
@@ -853,6 +902,8 @@ a = 14, b = 15 //false
 
 ### {{has}}
 
+**Standard Helper**
+
 Block helper that renders a block if `value` has `pattern`. If an inverse block is specified, it will be rendered when falsy.
 
 #### Parameters
@@ -871,6 +922,8 @@ a = "product"
 ```
 
 ### {{eq}}
+
+**Standard Helper**
 
 Block helper that renders a block if `a` is *equal to* `b`. If an inverse block is specified,  it will be rendered when falsy. You may optionally use the `compare=""` hash argument for the second value.
 
@@ -915,6 +968,8 @@ number = 8
 
 ### {{ifEven}}
 
+**Standard Helper**
+
 Returns `true` if the given value is an even number.
 
 #### Parameters
@@ -946,6 +1001,8 @@ value = 9
 ```
 
 ### {{ifNth}}
+
+**Standard Helper**
 
 Conditionally renders a block *if* dividing the `a` operand by `b` yields a remainder of zero. If you specify an inverse block, it will be rendered when the remainder is *not* zero.
 
@@ -981,6 +1038,8 @@ Returns:
 
 ### {{ifOdd}}
 
+**Standard Helper**
+
 Block helper that renders a block if `value` is *an odd number*. If an inverse block is specified, it will be rendered when falsy.
 
 #### Parameters
@@ -1012,6 +1071,8 @@ value = 8
 ```
 
 ### {{is}}
+
+**Standard Helper**
 
 Block helper that renders a block if `a` is *equal to* `b`. If an inverse block is specified, it will be rendered when falsy.
 
@@ -1055,6 +1116,8 @@ value = 'CCC'
 
 ### {{isnt}}
 
+**Standard Helper**
+
 Block helper that renders a block if `a` is *not equal to* `b`. If an inverse block is specified, it will be rendered when falsy.
 
 #### Parameters
@@ -1075,6 +1138,7 @@ number = 3
 {{/isnt}}
 =>'A'
 ```
+
 ```handlebars
 value = 'Soap'
 {{#isnt value "Soap"}}
@@ -1096,6 +1160,8 @@ value='CCC'
 ```
 
 ### {{lt}}
+
+**Standard Helper**
 
 Block helper that renders a block if `a` is *less than* `b`.
 
@@ -1146,6 +1212,8 @@ number = 42
 
 ### {{lte}}
 
+**Standard Helper**
+
 Block helper that renders a block if `a` is *less than or equal to* `b`.
 
 If an inverse block is specified, it will be rendered when falsy. You may optionally use the `compare=""` hash argument for the second value.
@@ -1191,6 +1259,8 @@ number = 27
 
 ### {{neither}}
 
+**Standard Helper**
+
 Block helper that renders a block if *neither of* the given values are truthy. If you specify an inverse block, it will be rendered when falsy.
 
 #### Parameters
@@ -1217,6 +1287,8 @@ customer = true
 
 ### {{unlessEq}}
 
+**Standard Helper**
+
 Block helper that always renders the inverse block *unless `a` is equal to `b`*.
 
 #### Parameters
@@ -1238,6 +1310,8 @@ number = 8
 
 
 ### {{unlessGt}}
+
+**Standard Helper**
 
 Block helper that always renders the inverse block *unless `a` is greater than `b`*.
 
@@ -1262,6 +1336,8 @@ number = 10
 
 ### {{unlessLt}}
 
+**Standard Helper**
+
 Block helper that always renders the inverse block *unless `a` is less than `b`*.
 
 #### Parameters
@@ -1285,6 +1361,8 @@ number = 5
 
 
 ### {{unlessGteq}}
+
+**Standard Helper**
 
 Block helper that always renders the inverse block *unless `a` is greater than or equal to `b`*.
 
@@ -1312,6 +1390,8 @@ number = 34
 
 ### {{unlessLteq}}
 
+**Standard Helper**
+
 Block helper that always renders the inverse block *unless `a` is less than or equal to `b`*.
 
 #### Parameters
@@ -1336,35 +1416,29 @@ number = 4
 => '' // returns empty when the value is less than or equal to a given number
 ```
 
+---
+
 <a href="#handlebars-helpers-reference_control-flow" aria-hidden='true' class='block-anchor'  id='handlebars-helpers-reference_control-flow'><i aria-hidden='true' class='linkify icon'></i></a>
 
 ## Control-Flow Helpers
 
 The following control-flow helpers have been customized for the Stencil framework:
 
-* [Conditional Control Flow](#ctrl_conditional)
-* [Loop Control Flow](#ctrl_loop)
+* <a href="#ctrl_conditional">Conditional Control Flow</a>
+* <a href="#ctrl_loop">Loop Control Flow</a>
 
-Beyond the formal examples below, syntax and examples for control-flow helpers are covered in the official Handlebars documentation [here](http://handlebarsjs.com/builtin_helpers.html).
 
+<a id="ctrl_conditional"></a>
 
 ## Conditional Control Flow
 
 The following helpers provide control structures that test for conditions, and branch accordingly.
 
+<a href="#if"></a>
+
 ### {{if}}
 
-The `if` helper has been customized for Stencil, and has the following syntax:
-
-```html
-{{#if <statement>}}
-  <!--...-->
-{{else if}}  /* optional else-if block */
-  <!--...-->
-{{else}}  /* optional else block */
-  <!--...-->
-{{/if}}
-```
+**Custom Helper**
 
 The `<statement>` that the `if` helper evaluates can take these forms:
 
@@ -1376,58 +1450,31 @@ When you pass only one parameter to the `if` helper, it will return the followin
 - For an array parameter, the array's length.
 - For an empty object, a value of `false`.
 
-
-### {{unless}}
-
-The `unless` helper is logically the opposite of the [`if` helper](#if), subject to the [restrictions](#unless_restrix) below. The syntax for `unless` can be found in the official Handlebars documentation [here](http://handlebarsjs.com/builtin_helpers.html).
-
-#### Formal Example
+#### Example
 
 ```html
-{{#unless statement}}
-   <!-- render unless statement is true -->
-{{/unless}}
+{{#if <statement>}}
+  <!--...-->
+{{else if}}  /* optional else-if block */
+  <!--...-->
+{{else}}  /* optional else block */
+  <!--...-->
+{{/if}}
 ```
 
-#### Restrictions
-
-Statements using `unless` can refer to:
-
-* Objects, as in: `{{#unless object}}`.
-
-Unlike the `if` helper,  `unless` on the Stencil framework does not support operators for comparison expressions.
-So, for example, the following expression would throw an error:
-
 ```html
-{{#unless this.alt "===" "hidden"}}
-```
-
-A workaround for this logic is to recast the expression as `if`/not-equal-to. So the following expression would be valid:
-
-```html
-{{#if this.alt "!==" "hidden"}}
-```
-
-#### Stencil Example
-
-Here is a usage example from Stencil's Cornerstone base theme: The `templates/pages/search.html` template displays search results. In this template's section that displays search suggestions, an `#unless` loop determines what to output for the final result:
-
-```html
-{{#each category_results}}
-<li class="category-suggestion">
-    {{#each this}}
-        <a href="{{url}}">{{name}}</a>
-        {{#unless @last}} > {{/unless}}
-    {{/each}}
-</li>
-{{/each}}
+  {{#if product.call_for_price}}
+      <p class="productView-price">
+          <span>{{product.call_for_price}}</span>
+      </p>
+  {{/if}}
 ```
 
 ### Nested if/else Statements to Test for if/and Conditions
 
 Handlebars does not provide an `if`/`and` conditional structure. However, to test for multiple conditions, you can nest `if`/`else` statements, as shown in this example:
 
-```
+```html
  <nav class="navigation">
       <ul>
         {{#each nav_items}}
@@ -1447,17 +1494,110 @@ Handlebars does not provide an `if`/`and` conditional structure. However, to tes
     </nav>
 ```
 
+#### Usage
+* [Paper Handlebars](https://github.com/bigcommerce/paper-handlebars/blob/master/helpers/if.js)
+* [Cornerstone](https://github.com/bigcommerce/cornerstone/blob/master/templates/components/amp/products/product-view-details.html)
+
+
+### {{unless}}
+
+**Custom Helper**
+
+The `unless` helper is logically the opposite of the [`if` helper](#if), subject to the restrictions below. 
+
+#### Restrictions
+
+Statements using `unless` can refer to:
+
+* Objects, as in: `{{#unless object}}`.
+
+Unlike the `if` helper, `unless` on the Stencil framework does not support operators for comparison expressions.
+So, for example, the following expression would throw an error:
+
+```html
+{{#unless this.alt "===" "hidden"}}
+```
+
+A workaround for this logic is to recast the expression as `if`/not-equal-to. So the following expression would be valid:
+
+```html
+{{#if this.alt "!==" "hidden"}}
+```
+
+#### Example
+
+```html
+{{#unless statement}}
+   <!-- render unless statement is true -->
+{{/unless}}
+```
+
+```html
+{{#if price.with_tax}}
+    <div class="price-section price-section--withTax rrp-price--withTax" {{#unless price.rrp_with_tax}}style="display: none;"{{/unless}}>
+        {{theme_settings.pdp-retail-price-label}}
+        <span data-product-rrp-with-tax class="price price--rrp">
+            {{price.rrp_with_tax.formatted}}
+        </span>
+    </div>
+...
+```
+
+Here is a usage example from Stencil's Cornerstone base theme: The `templates/pages/search.html` template displays search results. In this template's section that displays search suggestions, an `#unless` loop determines what to output for the final result:
+
+```html
+{{#each category_results}}
+<li class="category-suggestion">
+    {{#each this}}
+        <a href="{{url}}">{{name}}</a>
+        {{#unless @last}} > {{/unless}}
+    {{/each}}
+</li>
+{{/each}}
+```
+
+#### Restrictions
+
+Statements using `unless` can refer to:
+
+* Objects, as in: `{{#unless object}}`.
+
+Unlike the `if` helper, `unless` on the Stencil framework does not support operators for comparison expressions.
+So, for example, the following expression would throw an error:
+
+```html
+{{#unless this.alt "===" "hidden"}}
+```
+
+A workaround for this logic is to recast the expression as `if`/not-equal-to. So the following expression would be valid:
+
+```html
+{{#if this.alt "!==" "hidden"}}
+```
+
+#### Resources
+
+* [Cornerstone](https://github.com/bigcommerce/cornerstone/blob/master/templates/components/products/price.html)
+* [Paper Handlebars](https://github.com/bigcommerce/paper-handlebars/blob/master/helpers/unless.js)
+
+
+---
+
+<a id="ctrl_loop"></a>
+
 ## Loop Control Flow
 
 The following helpers are used to control loop execution.
 
 ### {{any}}
 
-The `any` helper is custom to Stencil. It checks whether at least one parameter evaluates to `true`.  Parameters can be of different types (strings, numbers, arrays, or collections).
+**Custom Helper**
+
+It checks whether at least one parameter evaluates to `true`.  Parameters can be of different types (strings, numbers, arrays, or collections).
 
 #### Examples
 
-Formally, the `any` helper is invoked as shown here:
+The `any` helper is invoked as shown here:
 
 ```html
 {{#any items selected=true}}
@@ -1465,9 +1605,9 @@ Formally, the `any` helper is invoked as shown here:
 {{/any}}
 ```
 
-A usage example is http://cornerstone-light-demo.mybigcommerce.com/shop-all/garden, a category page in Stencil's Cornerstone base theme that does _not_ have faceted search turned on. Shoppers will see "Shop by price" filters instead of product filters.
+A usage example is [`templates/components/category/shop-by-price.html`](https://github.com/bigcommerce/cornerstone/blob/master/templates/components/category/shop-by-price.html), a category page in Stencil's Cornerstone base theme that does _not_ have faceted search turned on. Shoppers will see "Shop by price" filters instead of product filters.
 
-The Stencil code controlling this component resides in the theme's `templates/components/category/shop-by-price.html` file. In this component, the `{{#any...` Handlebars helper is used to determine whether a shopper has selected one of the filters, and whether a "reset" button needs to be displayed:
+In this component, the `{{#any...` Handlebars helper is used to determine whether a shopper has selected one of the filters, and whether a "reset" button needs to be displayed:
 
 ```html
 {{#any shop_by_price selected=true}}
@@ -1479,9 +1619,17 @@ The Stencil code controlling this component resides in the theme's `templates/co
 {{/any}}
 ```
 
+#### Resources
+
+* [Cornerstone](https://github.com/bigcommerce/cornerstone/blob/master/templates/components/category/shop-by-price.html)
+* [Paper Handlebars](https://github.com/bigcommerce/paper-handlebars/blob/master/helpers/any.js)
+
+
 ### {{all}}
 
-The `all` helper is custom to Stencil. It checks whether _all_ parameters evaluate to `true`. Parameters can be of different types (strings, numbers, arrays, or collections).
+**Custom Helper**
+
+It checks whether _all_ parameters evaluate to `true`. Parameters can be of different types (strings, numbers, arrays, or collections).
 
 #### Example
 
@@ -1491,9 +1639,24 @@ The `all` helper is custom to Stencil. It checks whether _all_ parameters evalua
 {{/all}}
 ```
 
-### contains Helper
+```html
+{{#all product.custom_fields theme_settings.show_custom_fields_tabs}}
+    <li class="tab">
+        <a class="tab-title" href="#tab-{{dashcase (lowercase (sanitize theme_settings.pdp-custom-fields-tab-label))}}">{{sanitize theme_settings.pdp-custom-fields-tab-label}}</a>
+    </li>
+{{/all}}
+```
 
-The `contains` helper is custom to Stencil. It checks whether the second parameter is included in the first parameter (typically a collection).
+#### Resources
+* [Cornerstone](https://github.com/bigcommerce/cornerstone/blob/master/templates/components/products/description-tabs.html)
+* [Paper Handlebars](https://github.com/bigcommerce/paper-handlebars/blob/master/helpers/all.js)
+
+
+### {{contains}} 
+
+**Custom Helper**
+
+It checks whether the second parameter is included in the first parameter (typically a collection).
 
 #### Example
 
@@ -1503,11 +1666,17 @@ The `contains` helper is custom to Stencil. It checks whether the second paramet
 {{/contains}}
 ```
 
+#### Usage
+* [Paper Handlebars](https://github.com/bigcommerce/paper-handlebars/blob/master/helpers/contains.js)
+
+
 ### {{each}}
 
-The syntax for the `each` helper can be found in the official Handlebars documentation [here](http://handlebarsjs.com/builtin_helpers.html).
+**Standard Helper**
 
-#### Example
+Each is a built in block helper. Use it to loop over an array or object.
+
+#### Examples
 
 ```html
 {{#each array | object}}
@@ -1517,19 +1686,124 @@ The syntax for the `each` helper can be found in the official Handlebars documen
 {{/each}}
 ```
 
+```html
+<article data-section-type="footer-categories">
+    <h5 class="amp-footer-heading">{{lang 'footer.categories'}}</h5>
+    <ul class="amp-footer-list">
+        {{#each categories}}
+            <li>
+                <a href="{{url}}">{{name}}</a>
+            </li>
+        {{/each}}
+    </ul>
+</article>
+```
+
+
+```handlebars
+//Given the array
+{
+  "products": [
+    "T-Shirt",
+    "Mug"
+  ]
+}
+
+{{#each products}}
+  {{this}}! //optional seperator
+{{/each}}
+
+=> T-Shirt!Mug!
+```
+
+
+```handlebars
+//Given the array, use @index for the current index
+{
+  "products": [
+    "T-Shirt",
+    "Mug"
+  ]
+}
+
+{{#each products}}
+  {{@index}}: {{this}} //optional seperator
+{{/each}}
+=> 0: T-Shirt
+1: Mug
+```
+
+```handlebars
+// Given the object
+
+{
+  "products": {
+    "id": "T-Shirt",
+    "id": "Mug"
+  }
+}
+{{#each products}}
+  {{this}} ! //optional seperator
+{{/each}}
+
+=> T-Shirt!Mug!
+```
+
+```handlebars
+// Given the object use @key for the current key in the loop
+// each key must be different
+
+{
+  "products": {
+    "id": "T-Shirt",
+    "key": "Mug"
+  }
+}
+{{#each products}}
+  {{@key}}:{{this}}! //optional seperator
+{{/each}}
+
+=> key:T-Shirt! 
+  id:Mug! 
+```
+
+```handlebars
+//Given the object
+
+{
+  "products": {
+    "first": "T-Shirt",
+    "second": "Mug"
+  },
+  "title": "Products"
+}
+
+{{#each products}}
+  {{../title}}:{{this}}! //optional seperator
+{{/each}}
+
+=> Products:T-Shirt!
+Products:Mug!
+```
+
+
 #### Notes
 
 - Within an each block, use `{{this}}` to reference the current item.
 - Within an each block, use `{{@index}}` to reference the current item's index number.
 - When iterating through objects, `{{@key}}` returns the current key name.
 - `{{each}}` loops can be nested.
-
+- `{{each}}` does not work on strings. eg. `{"foo": "Good"}`
 
 ### {{for}}
 
-The `for` helper is a custom Stencil helper. In particular, this helper is limited to 100 iterations, in order to protect against infinite loops.
+**Custom Helper**
+
+In particular, this helper is limited to 100 iterations, in order to protect against infinite loops.
 
 The `for` helper has the following syntax, where parameters `<from>` and `<to>` are numbers, and `<context>` is an object:
+
+#### Example
 
 ```html
 {{#for <from> <to> <context>}}
@@ -1537,15 +1811,30 @@ The `for` helper has the following syntax, where parameters `<from>` and `<to>` 
 {{/for}}
 ```
 
+```html
+<select class="form-select form-select--date" name="attribute[{{this.id}}][month]" {{#if required}}required{{/if}}>
+    <option value="">{{lang 'common.month'}}</option>
+    {{#for 1 12}}
+        <option value="{{$index}}" {{#if ../selected_date.month '==' $index}}selected="selected"{{/if}}>
+            {{lang (concat 'common.short_months.' $index)}}
+        </option>
+    {{/for}}
+</select>
+```
+
+#### Reference
+* [Cornerstone](https://github.com/bigcommerce/cornerstone/blob/master/templates/components/products/options/date.html)
+* [Paper Handlebars](https://github.com/bigcommerce/paper-handlebars/blob/master/helpers/for.js)
+
 ---
 
 <a href="#handlebars-helpers-reference_date" aria-hidden='true' class='block-anchor'  id='handlebars-helpers-reference_date'><i aria-hidden='true' class='linkify icon'></i></a>
 
 ## Date Helpers
 
-The following standard Handlebars helper handles dates.
-
 ### {{moment}}
+
+**Standard Helper**
 
 Exposes `helper-date` as `moment`.
 
@@ -1572,6 +1861,8 @@ The following standard helpers are available to handle HTML content.
 
 ### {{ellipsis}}
 
+**Standard Helper**
+
 Truncates a string to the specified `length`, and appends an elipsis, `…`.
 
 #### Parameters
@@ -1589,6 +1880,8 @@ Truncates a string to the specified `length`, and appends an elipsis, `…`.
 
 ### {{sanitize}}
 
+**Standard Helper**
+
 Strips HTML tags from a string, so that only the text nodes are preserved.
 
 #### Parameters
@@ -1605,6 +1898,8 @@ Strips HTML tags from a string, so that only the text nodes are preserved.
 
 ### {{ul}}
 
+**Standard Helper**
+
 Block helper for creating unordered lists (`<ul></ul>`).
 
 #### Parameters
@@ -1613,7 +1908,17 @@ Block helper for creating unordered lists (`<ul></ul>`).
 * `options` {Object}
 * `returns` {String}
 
+#### Example
+
+```handlebars
+{{#ul data class="names"}}{{aaa}} {{bbb}}{{/ul}}
+
+=> <ul class="names"><li>AAA BBB</li></ul>
+```
+
 ### {{ol}}
+
+**Standard Helper**
 
 Block helper for creating ordered lists  (`<ol></ol>`).
 
@@ -1623,7 +1928,19 @@ Block helper for creating ordered lists  (`<ol></ol>`).
 * `options` {Object}
 * `returns` {String}
 
+
+#### Examples
+
+```handlebars
+{{#ol data class="names"}}{{aaa}} {{bbb}}{{/ol}}
+
+=> <ol class="names"><li>aaa bbb</li></ol>
+
+```
+
 ### {{thumbnailImage}}
+
+**Standard Helper**
 
 Returns a `<figure>` with a thumbnail linked to a full picture.
 
@@ -1636,6 +1953,36 @@ Returns a `<figure>` with a thumbnail linked to a full picture.
 * `context.height` {Number}
 * `returns` {String}: HTML `<figure>` element with image and optional caption/link.
 
+
+
+#### Example
+
+```handlebars
+{{{thumbnailImage context}}}
+
+var context = {
+  data: {
+    id: 'id',
+    alt: 'Picture of a placeholder',
+    thumbnail: 'http://placehold.it/200x200/0eafff/ffffff.png',
+    size: {
+      width: 200,
+      height: 200
+    },
+    full: 'http://placehold.it/600x400/0eafff/ffffff.png',
+    caption: 'My new caption!'
+  }
+};
+
+=>
+'<figure id="image-id">',
+'<a href="http://placehold.it/600x400/0eafff/ffffff.png" rel="thumbnail">',
+'<img alt="Picture of a placeholder" src="http://placehold.it/200x200/0eafff/ffffff.png" width="200" height="200">',
+'</a>',
+'<figcaption>My new caption!</figcaption>',
+'</figure>'
+```
+
 ---
 
 <a href='#handlebars-helpers-reference_image' aria-hidden='true' class='block-anchor'  id='handlebars-helpers-reference_image'><i aria-hidden='true' class='linkify icon'></i></a>
@@ -1646,23 +1993,34 @@ The Stencil framework provides the following custom helper to manage images.
 
 ### {{getImage}}
 
-The `getImage` helper is custom to Stencil. It returns the URL for an image of the specified size. Values for the size parameter are defined in the `config.json` file’s `settings` section.
+**Custom Helper**
 
-This helper's parameters are:
+It returns the URL for an image of the specified size. Values for the size parameter are defined in the `config.json` file’s `settings` section.
+
+#### Parameters
 
 - `stencilImage`: a StencilImage.
 - `size`: a string referencing a key in the `theme_settings` object.
 - `defaultImage` (optional): a string.
 
-Here is an example:
+You can use the optional `defaultImage` parameter to specify an image that will be displayed in cases where the passed `stencilImage` value is null.
+
+
+#### Example
 
 ```html
 {{getImage image "thumbnail"}}
 ```
 
-You can use the optional `defaultImage` parameter to specify an image that will be displayed in cases where the passed `stencilImage` value is null.
+#### Resources
+* [Cornerstone](https://github.com/bigcommerce/cornerstone/blob/master/templates/components/amp/products/card.html)
+* [Paper Handlebars](https://github.com/bigcommerce/paper-handlebars/blob/master/helpers/getImage.js)
+
+
 
 ### {{getImageSrcset}}
+
+**Custom Helper**
 
 The `getImageSrcset` helper is a replacement for `getImage` which allows you to generate either a single image URL (for an `<img>` `src`) or a list of image sizes for `srcset`. [Srcset](https://developer.mozilla.org/en-US/docs/Web/HTML/Element/img#attr-srcset) allows you to specify a list of sizes from which the browser may choose, based on the expected size of the image on the page, the device's pixel density, and other factors.
 
@@ -1752,6 +2110,10 @@ As above, you can reference `theme_settings` keys or specify your own size inlin
     '2560w': '2560w',
 ```
 
+#### Resources
+* [Cornerstone](https://github.com/bigcommerce/cornerstone/blob/master/templates/components/products/product-view.html)
+* [Paper Handlebars](https://github.com/bigcommerce/paper-handlebars/blob/master/helpers/getImageSrcset.js)
+
 ---
 
 <a href='#handlebars-helpers-reference_inflection' aria-hidden='true' class='block-anchor'  id='handlebars-helpers-reference_inflection'><i aria-hidden='true' class='linkify icon'></i></a>
@@ -1802,18 +2164,16 @@ Returns an ordinalized number (as a string).
 
 ## Injection Helpers
 
-The Stencil framework provides the following custom helpers to insert various resources into a page context:
+The Stencil framework provides the following custom helpers to insert various resources into a page context
 
-* [{{cdn}}](#cdn)
-* [{{getFontsCollection}}](#fonts)
-* [{{inject}} and {{jsContext}}](#inject)
-* [{{stylesheet}}](#stylesheet)
 
-<a name="cdn"></a>
+
 
 ###  {{cdn}}
 
-The `cdn` helper is custom to Stencil. It is a URL transformer for content delivery networks.
+**Custom Helper**
+
+It is a URL transformer for content delivery networks.
 
 When you reference static assets that you have locally staged outside your `<theme-name>` directory and uploaded using WebDAV, place the `webdav:` prefix before each corresponding `assetPath` parameter. For example, a link like:
 
@@ -1890,6 +2250,8 @@ The `getFontsCollection` helper is custom to Stencil. It returns a link tag that
 <a name="inject"></a>
 
 ### {{inject}} and {{jsContext}}
+
+**Custom Helper**
 
 Occasionally, your theme's client-side application code might need to incorporate dynamic data from the template context. Stencil provides two custom Handlebars helpers to help you achieve this: `inject`  and `jsContext`.
 
@@ -2366,9 +2728,9 @@ Stringifies an object using `JSON.stringify`.
 
 The Stencil framework supports the following operator helpers:
 
-[Comparison Operators](#op_comparison)
-[Logical {{or}} Operator](#op_logical)
-[{{typeof}} Operator](#op_type)
+* [Comparison Operators](#op_comparison)
+* [Logical {{or}} Operator](#op_logical)
+* [{{typeof}} Operator](#op_type)
 
 ## Comparison Operators
 
@@ -2482,13 +2844,17 @@ The following string helpers are custom to the Stencil framework.
 
 <a name="block-helper"></a>
 
-### {{block}} </span>
+### {{block}} 
 
-The `block` string helper is custom to Stencil. It defines a block of content, which can be overwritten by the [partial](#partial-helper) helper.
+**Custom Helper**
+
+It defines a block of content, which can be overwritten by the [partial](#partial-helper) helper.
 
 ### {{concat}}
 
-The `concat` helper is custom to Stencil. It concatenates two string objects from the page's context, which are passed as parameters. It returns a new string object.
+**Custom Helper**
+
+It concatenates two string objects from the page's context, which are passed as parameters. It returns a new string object.
 
 #### Example
 
