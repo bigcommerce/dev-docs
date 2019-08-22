@@ -282,6 +282,47 @@
                           "quantity": {
                             "type": "number",
                             "format": "int32"
+                          },
+                          "attributes": {
+                            "description": "A list of arbitrary properties stored as part of the product or product variant meta fields. These consist of public fields specific to the carrier integration.",
+                            "type": "array",
+                            "items": {
+                              "type": "object",
+                              "properties": {
+                                "key": {
+                                  "type": "string",
+                                  "description": "The key associated with the meta field"
+                                },
+                                "value": {
+                                  "type": "string",
+                                  "description": "The value associated with the meta field"
+                                },
+                                "namespace": {
+                                  "type": "string",
+                                  "description": "The namespace associated with the meta field. The meta field namespace should be saved under the format 'shipping_carrier_{yourCarrierId}'"
+                                },
+                                "resource_type": {
+                                  "type": "string",
+                                  "enum": [
+                                    "product",
+                                    "variant"
+                                  ],
+                                  "description": "Resource type associated with the meta field. Currently the only values available are 'product' or 'variant'"
+                                },
+                                "resource_id": {
+                                  "type": "string",
+                                  "description": "The resource id of the meta field"
+                                },
+                                "attribute_type": {
+                                  "type": "string",
+                                  "enum": [
+                                    "metafield"
+                                  ],
+                                  "description": "Attribute type associated with the product or product variant meta field. Currently the only value for this is 'metafield'"
+                                }
+                              },
+                              "title": "Attribute Value"
+                            }
                           }
                         },
                         "title": "Rate Request Item"
@@ -903,8 +944,45 @@
                     "format": "int32"
                   },
                   "attributes": {
-                    "description": "A list of arbitrary properties stored as part of the product's meta fields. These consist of any public fields and any private fields specific to the carrier integration.",
-                    "type": "object"
+                    "type": "array",
+                    "description": "A list of arbitrary properties stored as part of the product or product variant meta fields. These consist of any public fields specific to the carrier integration.",
+                    "items": {
+                      "type": "object",
+                      "properties": {
+                        "key": {
+                          "type": "string",
+                          "description": "The key associated with the meta field"
+                        },
+                        "value": {
+                          "type": "string",
+                          "description": "The value associated with the meta field"
+                        },
+                        "namespace": {
+                          "type": "string",
+                          "description": "The namespace associated with the meta field. The meta field namespace should be saved under this format 'shipping_carrier_{yourCarrierId}'"
+                        },
+                        "resource_type": {
+                          "type": "string",
+                          "enum": [
+                            "product",
+                            "variant"
+                          ],
+                          "description": "Resource type associated with the product or product variant meta field. Currently the only values available are 'product' or 'variant'"
+                        },
+                        "resource_id": {
+                          "type": "string",
+                          "description": "The resource id of the product or product variant meta field"
+                        },
+                        "attribute_type": {
+                          "type": "string",
+                          "enum": [
+                            "metafield"
+                          ],
+                          "description": "Attribute type associated with the product or product variant meta field. Currently the only value for this is 'metafield'"
+                        }
+                      },
+                      "title": "Attribute Value"
+                    }
                   }
                 },
                 "title": "Rate Request Item"
@@ -1262,8 +1340,45 @@
                 "format": "int32"
               },
               "attributes": {
-                "description": "A list of arbitrary properties stored as part of the product's meta fields. These consist of any public fields and any private fields specific to the carrier integration.",
-                "type": "object"
+                "description": "A list of arbitrary properties stored as part of the product or product variant meta fields. These consist of any public fields specific to the carrier integration.",
+                "type": "array",
+                "items": {
+                  "type": "object",
+                  "properties": {
+                    "key": {
+                      "type": "string",
+                      "description": "The key associated with the product or product variant meta field"
+                    },
+                    "value": {
+                      "type": "string",
+                      "description": "The value associated with the product or product variant meta field"
+                    },
+                    "namespace": {
+                      "type": "string",
+                      "description": "The namespace associated with the product or product variant meta field. The meta field namespace should be saved under this format 'shipping_carrier_{yourCarrierId}'"
+                    },
+                    "resource_type": {
+                      "type": "string",
+                      "enum": [
+                        "product",
+                        "variant"
+                      ],
+                      "description": "Resource type associated with the product or product variant meta field. Currently the only values available are 'product' or 'variant'"
+                    },
+                    "resource_id": {
+                      "type": "string",
+                      "description": "The resource id of the product or product variant meta field"
+                    },
+                    "attribute_type": {
+                      "type": "string",
+                      "enum": [
+                        "metafield"
+                      ],
+                      "description": "Attribute type associated with the product or product variant meta field. Currently the only value for this is 'metafield'"
+                    }
+                  },
+                  "title": "Attribute Value"
+                }
               }
             },
             "title": "Rate Request Item"
@@ -1953,8 +2068,45 @@
           "format": "int32"
         },
         "attributes": {
-          "description": "A list of arbitrary properties stored as part of the product's meta fields. These consist of any public fields and any private fields specific to the carrier integration.",
-          "type": "object"
+          "type": "array",
+          "description": "A list of arbitrary properties stored as part of the product or product variant meta fields. These consist of any public fields specific to the carrier integration.",
+          "items": {
+            "type": "object",
+            "properties": {
+              "key": {
+                "type": "string",
+                "description": "The key associated with the product or product variant meta field"
+              },
+              "value": {
+                "type": "string",
+                "description": "The value associated with the product or product variant meta field"
+              },
+              "namespace": {
+                "type": "string",
+                "description": "The namespace associated with the product or product variant meta field. The meta field namespace should be saved under this format 'shipping_carrier_{yourCarrierId}'"
+              },
+              "resource_type": {
+                "type": "string",
+                "enum": [
+                  "product",
+                  "variant"
+                ],
+                "description": "Resource type associated with the product or product variant meta field. Currently the only values available are 'product' or 'variant'"
+              },
+              "resource_id": {
+                "type": "string",
+                "description": "The resource id of the product or product variant meta field"
+              },
+              "attribute_type": {
+                "type": "string",
+                "enum": [
+                  "metafield"
+                ],
+                "description": "Attribute type associated with the product or product variant meta field. Currently the only value for this is 'metafield'"
+              }
+            },
+            "title": "Attribute Value"
+          }
         }
       },
       "title": "Rate Request Item"
@@ -2177,6 +2329,43 @@
       },
       "title": "Transit Time Object",
       "description": "Value object for the length of time in transit"
+    },
+    "AttributeValue": {
+      "description": "Value object for an attribute. This represents a product or product variant meta field.",
+      "type": "object",
+      "properties": {
+        "key": {
+          "type": "string",
+          "description": "The key associated with the product or product variant meta field"
+        },
+        "value": {
+          "type": "string",
+          "description": "The value associated with the product or product variant meta field"
+        },
+        "namespace": {
+          "type": "string",
+          "description": "The namespace associated with the product or product variant meta field. The meta field namespace should be saved under this format 'shipping_carrier_{yourCarrierId}'"
+        },
+        "resource_type": {
+          "type": "string",
+          "description": "Resource type associated with the product or product variant meta field. Currently the only values available are 'product' or 'variant'",
+          "enum": [
+            "product",
+            "variant"
+          ]
+        },
+        "resource_id": {
+          "type": "string"
+        },
+        "attribute_type": {
+          "type": "string",
+          "description": "Attribute type associated with the product or product variant meta field. Currently the only value for this is 'metafield'",
+          "enum": [
+            "metafield"
+          ]
+        }
+      },
+      "title": "Attribute Value"
     },
     "MoneyValue": {
       "description": "Value object for a money amount",
