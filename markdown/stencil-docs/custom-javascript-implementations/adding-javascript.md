@@ -66,7 +66,7 @@ npm facilitates managing third-party JavaScript components by placing each JavaS
 
 <a href='#adding_page-types' aria-hidden='true' class='block-anchor'  id='page-types_stencil-utils'><i aria-hidden='true' class='linkify icon'></i></a>
 
-Stencil themes include an API for running JavaScript on a per-page basis.
+Stencil themes include [an API](/api-reference/) for running JavaScript on a per-page basis.
 
 To properly write JavaScript for your theme, you will have the following page types available to you:
 
@@ -130,12 +130,12 @@ export default class Blog extends PageManager {
 ```
 
 <div class="HubBlock--callout">
-<div class="CalloutBlock--">
+<div class="CalloutBlock--info">
 <div class="HubBlock-content">
     
 <!-- theme:  -->
 
-> 1. Notice the page types correspond to the html pages in [cornerstone/templates/pages/](https://github.com/bigcommerce/cornerstone/tree/master/templates/pages)
+Notice the page types correspond to the html pages in [cornerstone/templates/pages/](https://github.com/bigcommerce/cornerstone/tree/master/templates/pages)
 
 </div>
 </div>
@@ -162,12 +162,6 @@ For example, to set up the product name in your client-side app, you can do this
         <div class="HubBlock-header-name"></div>
     </div><div class="HubBlock-header-subtitle"></div>
 </div>
-
-<!--
-title: ""
-subtitle: ""
-lineNumbers: true
--->
 
 ```html
 {{inject "myProductName" product.title}}
