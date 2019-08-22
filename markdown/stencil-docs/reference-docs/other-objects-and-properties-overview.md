@@ -2819,15 +2819,33 @@ https://github.com/bigcommerce/cornerstone/tree/master/templates/components/comm
     <th>Property</th>
     <th>Description</th>
   </tr>
-	<tr>
-    <td>recaptcha.markup</td>
-    <td>Adds reCaptcha V2</td>
+  <tr>
+    <td>error</td>
+    <td>BigCommerce defined message to display when customer’s login action fails</td>
   </tr>
   <tr>
-  <td>error</td>
-  <td>BigCommerce defined message to display when customer’s login fails</td>
+    <td>success</td>
+    <td>BigCommerce defined message to display when customer’s login action succeeds</td>
+  </tr>
+  <tr>
+  <td>reCAPTCHA</td>
+  <td></td>
+  </tr>
+  <tr>
+  <td class=""><span class="indent1">enabled</span></td>
+  <td class="">Returns 1 when reCAPTCHA is enabled and 0 when it's disabled within the BigCommerce control panel</td>
+  </tr>
+  <tr>
+  <td class=""><span class="indent1">public_key</span></td>
+  <td class="">Optional key used for all reCAPTCHA in your store if specified in the BigCommerce control panel</td>
+  </tr>
+  <tr>
+  <td class=""><span class="indent1">markup</span></td>
+  <td class="">HTML that adds reCAPTCHA V2</td>
   </tr>
 </table>
+
+
 
 <div class="HubBlock--callout">
 <div class="CalloutBlock--">
