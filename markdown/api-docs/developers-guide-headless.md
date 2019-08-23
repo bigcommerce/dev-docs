@@ -2,46 +2,111 @@
 <div class="otp" id="no-index">
 	<h3> On This Page </h3>
 	<ul>
-        <li><a href="#headless-commerce_prerequisites">Prerequisites</a></li>
         <li><a href="#headless-commerce_ways-to-implement-headless">Ways to Implement Headless</a></li>
-        <li><a href="#headless-commerce-customer_login">Customer Login</a></li>
-        <li><a href="#headless-commerce_sample-integration">Sample Integration</a></li>
+        <li><a href="#headless-commerce_multi-site">Multisite</a></li>      
         <li><a href="#headless-commerce_pci-compliance">PCI Compliance</a></li>
-        <li><a href="#headless-commerce_sample-api-workflows">Sample API Workflows</a></li>
+         <li><a href="#headless-commerce-common-workflows">Common Workflows</a></li>
+         <li><a href="#headless-commerce_sample-integration">Sample Integration Workflow</a></li>
+<li><a  href="#headless-commerce_sample-api-workflows">Sample API Workflows</a></li> 
 	</ul>
 </div>
 
+---
 
 Headless commerce decouples the front end from the ecommerce platform that powers it, allowing developers to build flexible and content-rich storefronts. BigCommerce provides APIs for the Catalog, Cart, Checkout, Orders, Customers, Authentication and Payments. The APIs can be plugged into an existing CMS or website for flexible content management. BigCommerce used this approach to create our [WordPress Plugin](https://www.bigcommerce.com/solutions/wordpress-ecommerce-plugin/). The WordPress Plugin allows for a developer to take advantage of WordPress content management while using our APIs to manage the catalog and shopper checkout.
-For a deeper guide on Headless, see our Whitepaper, [A New Era of Ecommerce: Headless Commerce](https://www.bigcommerce.com/new-era-headless-caas/).  
 
-### Multisite
-
-With headless, developers can use BigCommerce as the back-end for several stores. By placing an application layer between the storefront and the APIs, the application can control which catalog information is pushed to which storefront. To learn more about Multisite, see [Multisite Ecommerce with WordPress and BigCommerce](https://medium.com/bigcommerce-developer-blog/multi-site-ecommerce-with-wordpress-and-bigcommerce-40dee194f8a).
-
-In this article we will review ways you can implement headless, what requires PCI compliance audits and go through sample workflows for cart and checkout.
-
-
----
-
-<a href='#headless-commerce_prerequisites' aria-hidden='true' class='block-anchor'  id='headless-commerce_prerequisites'><i aria-hidden='true' class='linkify icon'></i></a>
-
-## Prerequisites
-To use the BigCommerce platform for headless commerce, you must have a store on an active plan. The store does not need to be [launched](https://support.bigcommerce.com/s/article/Launching-Your-Store).
-
----
-
-<a href='#headless-commerce_ways-to-implement-headless' aria-hidden='true' class='block-anchor'  id='headless-commerce_ways-to-implement-headless'><i aria-hidden='true' class='linkify icon'></i></a>
-
-## Ways to Implement Headless
-There are many ways to implement headless commerce. Below are just a few ways to start with Headless commerce.
+There multiple ways to implement Headless with BigCommerce:
 * Use our Wordpress Plugin to leverage a custom CMS powered by the BigCommerce Catalog, Cart and Checkout APIs.
 * Create a custom shopper experience by creating your own storefront and checkout using our APIs to manage the Catalog, Cart, Checkout and Payments.
 * Use the BigCommerce storefront with a customized checkout using the Checkout SDK.
+* Using a partner app that connects to a CMS or front-end.
 
+In this guide we will review ways you can implement headless, what requires PCI compliance audits and go through sample workflows for cart and checkout.
+
+For a deeper guide on Headless, see our Whitepaper, [A New Era of Ecommerce: Headless Commerce](https://www.bigcommerce.com/new-era-headless-caas/).
+
+---
+
+<a id="headless-commerce_ways-to-implement-headless"></a>
+
+## Ways to Implement Headless
+
+### WordPress Plugin
+
+With [BigCommerce for WordPress](https://wordpress.org/plugins/bigcommerce/) you can use WordPress to manage your content, while using BigCommerce to manage your inventory, checkout and orders. The plugin works by using the BigCommerce APIs to pull in product data and once shopper moves to checkout, it returns an embedded BigCommerce checkout. 
+
+### Custom Storefront
+
+Headless commerce on BigCommerce is flexible. By just tapping into our APIs you can layer on any presentation layer in any language you choose. Being able to continue using existing front-ends, speeds up development time. Developers can continue to build on, enhance, customize, and extend additional aspects of the core BigCommerce platform using our APIs and webhooks to build truly unique front-end experiences.
+
+### Checkout SDK
+The [Checkout SDK](https://github.com/bigcommerce/checkout-sdk-js) integrates into an [existing](https://developer.bigcommerce.com/stencil-docs/customizing-checkout/checkout-sdk-quickstart) BigCommerce storefront or it can be embedded into a framework such as [React](https://developer.bigcommerce.com/stencil-docs/customizing-checkout/checkout-sdk-example).  Our Checkout SDK allows developers to fully embed the end-to-end shopping experience in different front-ends and platforms, preserving the analytics and user tracking within that environment. 
+
+### Partner Apps -- To Do
+
+Info here from Elizabeth
+https://bigcommerce.slack.com/archives/CF0AEQM2T/p1565797615005000
+
+---
+
+
+<a id="headless-commerce_multi-site"></a>
+
+## Multisite
+
+With headless, developers can use BigCommerce as the back-end for several stores. By placing an application layer between the storefront and the APIs, the application can control which catalog information is pushed to which storefront. To learn more about Multisite, see [Multisite Ecommerce with WordPress and BigCommerce](https://medium.com/bigcommerce-developer-blog/multi-site-ecommerce-with-wordpress-and-bigcommerce-40dee194f8a).
+
+---
+
+<a href='#headless-commerce_pci-compliance' aria-hidden='true' class='block-anchor'  id='headless-commerce_pci-compliance'><i aria-hidden='true' class='linkify icon'></i></a>
+
+## PCI Compliance
+
+BigCommerce offers different avenues or channels for integration, depending on your business needs. The ultimate responsibility of PCI compliance lies with you and takes into consideration the architecture of your e-commerce store and multiple channels of integrations.
+BigCommerce is a PCI DSS compliant service provider and certifies annually [all requirements (1-12)](https://www.pcisecuritystndards.org/pci_security/maintaining_payment_security) including as a shared hosting provider.
+
+The BigCommerce [PCI DSS attestation of compliance (AOC)](https://support.mybigcommerce.com/content/dojo/BigCommerce_PCI_DSS_v3.2.1_AOC_2019_Service_Provider.pdf) outlines the description of the technology stack certified annually.
+
+Merchants can use BigCommerce's [PCI DSS AOC](https://support.mybigcommerce.com/content/dojo/BigCommerce_PCI_DSS_v3.2.1_AOC_2019_Service_Provider.pdf) to satisfy the compliance requirements for the part that outlines its responsibilities.
+
+### Integrations with BigCommerce and Responsibility Matrix
+
+|  |BigCommerce Responsibility  |Merchant Responsibility |
+|--|--| -- |
+| BigCommerce as a storefront and backend | Responsible for all [PCI DSS requirements (1-12)](https://www.pcisecuritystandards.org/pci_security/maintaining_payment_security) of the product to the point that it has control of Merchants stores. | Responsible for ensuring that all modifications that result in external calls to, or integrations with outside parties are done in a PCI DSS compliant manner.<br><br>Responsible for ensuring all design modifications are done in a PCI DSS compliant manner.<br><br>Responsible for ensuring that all service providers it uses are compliant with PCI DSS. |
+| BigCommerce as a backend for example [headless integrations](https://developer.bigcommerce.com/api-docs/developers-guide-headless) or the [BigCommerce WordPress Plugin](https://wordpress.org/plugins/bigcommerce/). | Responsible for all PCI DSS requirements from the point at which cardholder data is handed to a BigCommerce controlled interface. (see [BigCommerce Attestation of PCI DSS 2019-2020](https://support.mybigcommerce.com/content/dojo/BigCommerce_PCI_DSS_v3.2.1_AOC_2019_Service_Provider.pdf)) | Responsible for the PCI DSS compliance of its storefront plus all of the above. |
+| Checkout and Payments SDK | Not Responsible<br> The way your business consumes the SDKs (either BigCommerce as a storefront and backend or BigCommerce as a backend ) would determine BigCommerce's  responsibilities. | Responsible for the PCI DSS compliance requirements applicable stated in BigCommerce as a storefront or BigCommerce as a backend. <br><br> The way your business consumes the SDKs (either BigCommerce as a storefront and backend or BigCommerce as a backend ) would determine BigCommerce's responsibilities.|
+| Checkout and Payments API | Not Responsible* <br> The way your business consumes the SDKs (either BigCommerce as a storefront and backend or BigCommerce as a backend ) would determine BigCommerce's  responsibilities. | Responsible for the PCI DSS compliance requirements applicable stated in BigCommerce as a storefront or BigCommerce as a backend. <br><br> The way your business consumes the SDKs (either BigCommerce as a storefront and backend or BigCommerce as a backend ) would determine BigCommerce's responsibilities. |
+
+It is possible to use one more of BigCommerce's technology stack at the same time. Your PCI DSS compliance responsibilities will be a combination of each stack consumed.
 Below are ways to manage the catalog, cart and checkout. With the flexibility of using APIs, you can use one or all the options for a store.
 
+### Additional Resources
+-   [Merchants Classification Levels Visa](https://usa.visa.com/support/small-business/security-compliance.html#3)
+-   [Merchants Classification Levels Mastercard](https://www.mastercard.us/en-us/merchants/safety-security/security-recommendations/merchants-need-to-know.html)
+-   [Self Assessment Questionaire (SAQ) Types and Identifying which SAQ is for you](https://www.pcisecuritystandards.org/documents/SAQ-InstrGuidelines-v3_2_1.pdf?agreement=true&time=1562173376464)
+
+<div class="HubBlock--callout">
+<div class="CalloutBlock--warning">
+<div class="HubBlock-content">
+
+<!-- theme: warning -->
+
+> If your application handles credit card data, you will need to be PCI Compliant. SAQs (self-assessment questionnaires) can be submitted to <a href="mailto:compliance@bigcommerce.com">compliance@bigcommerce.com</a>.
+
+</div>
+</div>
+</div>
+
+---
+
+<a id="headless-commerce-common-workflows"></a>
+
+## Common Workflows
+Below are ways to manage the catalog, cart, checkout and customer login. With the flexibility of using APIs, you can use one or all the options for a store.
+
 ### Catalog Management
+
 Using the [Catalog API](https://developer.bigcommerce.com/api-reference/catalog/catalog-api) you can return product data to your product details page and product listing page.
 
 **Sync the Catalog**  
@@ -54,6 +119,7 @@ If your catalog is changing all the time, you can use the Catalog API to return 
 If you prefer working with a local copy of your data, but want to make sure that high priority pieces of data like pricing and inventory are always up to date, you can consider a hybrid model. A hybrid model would cache only  certain product details and pull the other information in real time. BigCommerce has webhooks that you can use for listening to store events.
 
 ### Cart Management
+
 Use the [Server to Server Cart API](https://developer.bigcommerce.com/api-reference/cart-checkout/server-server-cart-api) to create carts for existing customers and guest customers.
 
 **Guest Cart**  
@@ -63,6 +129,7 @@ A guest cart assumes the shopper is not a customer and is not logging in or crea
 Using a CMS is a good way to offer a custom shopper experience without needing build a content engine as well. The CMS needs to have a database so catalog information can be stored and retrieved and a way to store accounts. The [BigCommerce WordPress plugin](https://wordpress.org/plugins/bigcommerce/) loads the catalog into the database while using an embedded checkout to display cart and checkout details to customers.
 
 ### Checkout Management
+
 Use the [Checkout API](https://developer.bigcommerce.com/api-reference/cart-checkout/server-server-checkout-api) to move the cart to checkout and turn an existing checkout into an order.
 
 **Redirect to a BigCommerce Checkout**  
@@ -79,7 +146,7 @@ title: "Edit the schema.json file"
 subtitle: " Add the following object to the settings array"
 lineNumbers: true
 -->
-Edit the schema.json file and add the following object to the settings array.
+Edit the `schema.json`file (Cornerstone)  and add the following object to the settings array.
 
 ```json
 {
@@ -122,13 +189,9 @@ To customize the checkout when using a redirect URL, use our [Checkout SDK](http
 **Checkout API**  
 If you need complete control over the checkout page, you have the option to build an external checkout in your CMS or app using the server-to-server Checkout API. Then use the Payments API to process a payment through BigCommerce to take payment for the order. If you are using the Payments API, you are responsible for [PCI compliance](#headless-commerce_pci-compliance).
 
----
+### Customer Login
 
-<a href='#headless-commerce-customer_login' aria-hidden='true' class='block-anchor'  id='headless-commerce-customer_login'><i aria-hidden='true' class='linkify icon'></i></a>
-
-## Customer Login
-
-### Associate Cart with a Customer
+**Associate Cart with a Customer**
 
 If a shopper creates a cart as a guest then logs into the store, you can use the following process to associate the cart to the customer and log them in at the same time. The [Server to Server Cart API](https://developer.bigcommerce.com/api-reference/cart-checkout/server-server-cart-api) is used since it allows for the front end to be bypassed when creating a cart.
 
@@ -136,16 +199,16 @@ When a cart is created, your app should store the `cart_id`.  The `cart_id` is u
 
 To populate the `customer_id` on the cart with the correct data, use the email address entered to match against the [Customers API](https://developer.bigcommerce.com/api-reference/customer-subscribers/v3-customers-api). If the email address matches what the customer input and what is in the BigCommerce database then proceed with login. If a match is not found then direct the customer to a [sign up](https://developer.bigcommerce.com/api-reference/customer-subscribers/v3-customers-api/customers/customerspost) screen.
 
-### Creating a New Customer
+**Creating a New Customer**
+
 Our WordPress plugin uses the approach of using the Customer API to [validate the password](https://developer.bigcommerce.com/api-reference/customer-subscribers/customers-api/customer-passwords/validatecustomerpassword) against what is stored in BigCommerce.
 
 If a new account is created in WordPress, the password is written to the customer account in BigCommerce and used as the validation in future requests. The password is never stored in the WordPress database. You can match customers using the email address and the [Customers API](https://developer.bigcommerce.com/api-reference/customer-subscribers/v3-customers-api).
 
 ---
-
 <a href='#headless-commerce_sample-integration' aria-hidden='true' class='block-anchor'  id='headless-commerce_sample-integration'><i aria-hidden='true' class='linkify icon'></i></a>
 
-## Sample Integration
+## Sample Integration Workflow
 
 In the diagram below, the Storefront is any location the products are being rendered and where the shopper browses for products. With headless the storefront can be a CMS or an app. The Application is making API calls to BigCommerce in order to perform certain actions and return data either to display to the shopper or pass it along to another system. BigCommerce is creating the order and processing payments so you don’t need to worry about building the infrastructure.
 
@@ -170,48 +233,6 @@ BigCommerce will respond to the application with the requested data to power the
 ![#### Sample Headless Integration
 ](//s3.amazonaws.com/user-content.stoplight.io/6012/1554323466855 "#### Sample Headless Integration
 ")
-
----
-
-<a href='#headless-commerce_pci-compliance' aria-hidden='true' class='block-anchor'  id='headless-commerce_pci-compliance'><i aria-hidden='true' class='linkify icon'></i></a>
-
-## PCI Compliance
-
-BigCommerce offers different avenues or channels for integration, depending on your business needs. The ultimate responsibility of PCI compliance lies with you and takes into consideration the architecture of your e-commerce store and multiple channels of integrations.
-BigCommerce is a PCI DSS compliant service provider and certifies annually [all requirements (1-12)](https://www.pcisecuritystndards.org/pci_security/maintaining_payment_security) including as a shared hosting provider.
-
-The BigCommerce [PCI DSS attestation of compliance (AOC)](https://support.mybigcommerce.com/content/dojo/BigCommerce_PCI_DSS_v3.2.1_AOC_2019_Service_Provider.pdf) outlines the description of the technology stack certified annually.
-
-Merchants can use BigCommerce's [PCI DSS AOC](https://support.mybigcommerce.com/content/dojo/BigCommerce_PCI_DSS_v3.2.1_AOC_2019_Service_Provider.pdf) to satisfy the compliance requirements for the part that outlines its responsibilities.
-
-### Integrations with BigCommerce and Responsibility Matrix
-
-|  |BigCommerce Responsibility  |Merchant Responsibility |
-|--|--| -- |
-| BigCommerce as a storefront and backend | Responsible for all [PCI DSS requirements (1-12)](https://www.pcisecuritystandards.org/pci_security/maintaining_payment_security) of the product to the point that it has control of Merchants stores. | Responsible for ensuring that all modifications that result in external calls to, or integrations with outside parties are done in a PCI DSS compliant manner.<br><br>Responsible for ensuring all design modifications are done in a PCI DSS compliant manner.<br><br>Responsible for ensuring that all service providers it uses are compliant with PCI DSS. |
-| BigCommerce as a backend for example [headless integrations](https://developer.bigcommerce.com/api-docs/developers-guide-headless) or the [BigCommerce WordPress Plugin](https://wordpress.org/plugins/bigcommerce/). | Responsible for all PCI DSS requirements from the point at which cardholder data is handed to a BigCommerce controlled interface. (see [BigCommerce Attestation of PCI DSS 2019-2020](https://support.mybigcommerce.com/content/dojo/BigCommerce_PCI_DSS_v3.2.1_AOC_2019_Service_Provider.pdf)) | Responsible for the PCI DSS compliance of its storefront plus all of the above. |
-| Checkout and Payments SDK | Not Responsible<br> The way your business consumes the SDKs (either BigCommerce as a storefront and backend or BigCommerce as a backend ) would determine BigCommerce's  responsibilities. | Responsible for the PCI DSS compliance requirements applicable stated in BigCommerce as a storefront or BigCommerce as a backend. <br><br> The way your business consumes the SDKs (either BigCommerce as a storefront and backend or BigCommerce as a backend ) would determine BigCommerce's responsibilities.|
-| Checkout and Payments API | Not Responsible* <br> The way your business consumes the SDKs (either BigCommerce as a storefront and backend or BigCommerce as a backend ) would determine BigCommerce's  responsibilities. | Responsible for the PCI DSS compliance requirements applicable stated in BigCommerce as a storefront or BigCommerce as a backend. <br><br> The way your business consumes the SDKs (either BigCommerce as a storefront and backend or BigCommerce as a backend ) would determine BigCommerce's responsibilities. |
-
-It is possible to use one more of BigCommerce's technology stack at the same time. Your PCI DSS compliance responsibilities will be a combination of each stack consumed.
-
-### Additional Resources
--   [Merchants Classification Levels Visa](https://usa.visa.com/support/small-business/security-compliance.html#3)
--   [Merchants Classification Levels Mastercard](https://www.mastercard.us/en-us/merchants/safety-security/security-recommendations/merchants-need-to-know.html)
--   [Self Assessment Questionaire (SAQ) Types and Identifying which SAQ is for you](https://www.pcisecuritystandards.org/documents/SAQ-InstrGuidelines-v3_2_1.pdf?agreement=true&time=1562173376464)
-
-
-<div class="HubBlock--callout">
-<div class="CalloutBlock--warning">
-<div class="HubBlock-content">
-
-<!-- theme: warning -->
-
-> If your application handles credit card data, you will need to be PCI Compliant. SAQs (self-assessment questionnaires) can be submitted to <a href="mailto:compliance@bigcommerce.com">compliance@bigcommerce.com</a>.
-
-</div>
-</div>
-</div>
 
 ---
 
@@ -264,10 +285,6 @@ Below are example workflows that list which APIs are needed to create a Cart, Ch
 4.  Credit Card -- The shopper has not saved a credit card
 	9. [Create Access Token](/api-reference/payments/payments-create-payment-token-api/payment-access-token/paymentsaccesstokenspost)
 	10. [Process Payment](/api-reference/payments/payments-process-payments/payment/paymentspost)
-
-
-
-
 
 
 ---
