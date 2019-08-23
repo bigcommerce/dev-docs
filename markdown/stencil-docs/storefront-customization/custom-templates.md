@@ -209,7 +209,7 @@ lineNumbers: true
 
 ## Theme Upload
 
-Finally, you must bundle and push the theme to BigCommerce. See Bundling and Pushing a Them for instructions on how to achieve this.
+Finally, you must bundle and push the theme to BigCommerce. See [Bundling and Pushing a Theme](https://developer.bigcommerce.com/stencil-docs/deploying-a-theme/bundling-and-pushing) for instructions on how to achieve this.
 
 ---
 
