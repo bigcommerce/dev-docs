@@ -2826,7 +2826,7 @@
     },
     "FilterProductIdParam": {
       "type": "string",
-      "name": "product_id",
+      "name": "product_id:in",
       "in": "query",
       "required": false,
       "description": "A comma-separated list of ids of `Product`s whose prices were requested.\n"
