@@ -539,12 +539,6 @@ Check the product for `order_quantity_minimum` and `order_quantity_maximum `for 
 *Server to Server Cart API* 
 
 ***Issue:***
-Adding more product quantity to a cart than what’s in stock. 
-
-***Resolution:***
-Check the product for `inventory_level` to see how many are in stock. Use the [Get Product](/api-reference/catalog/catalog-api/products/getproducts) endpoint.
-
-***Issue:***
 Trying to edit a Cart that does not exist. 
 
 ***Resolution:***

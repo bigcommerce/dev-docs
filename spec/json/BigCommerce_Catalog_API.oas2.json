@@ -3851,6 +3851,9 @@
             "name": "Accept",
             "default": "application/json",
             "required": true
+          },
+          {
+            "$ref": "#/parameters/FilterIncludeFieldsParam"
           }
         ],
         "responses": {
@@ -9598,6 +9601,9 @@
                 }
               ]
             }
+          },
+          {
+            "$ref": "#/parameters/FilterIncludeFieldsParam"
           }
         ]
       }
@@ -11864,6 +11870,9 @@
             "type": "string",
             "default": "application/json",
             "required": true
+          },
+          {
+            "$ref": "#/parameters/FilterIncludeFieldsParam"
           }
         ],
         "responses": {
@@ -18066,13 +18075,13 @@
             "schema": {
               "description": "Get all product options",
               "type": "object",
+              "title": "Option Collection Response",
               "properties": {
                 "data": {
                   "type": "array",
                   "items": {
                     "allOf": [
                       {
-                        "type": "object",
                         "description": "Common Option properties.",
                         "title": "Option Base",
                         "properties": {
@@ -18277,10 +18286,8 @@
                             ],
                             "minItems": 1,
                             "items": {
-                              "type": "object",
                               "allOf": [
                                 {
-                                  "type": "object",
                                   "description": "Common Option Value properties.",
                                   "title": "Option Value Base",
                                   "properties": {
@@ -18308,7 +18315,10 @@
                                       "example": 0
                                     },
                                     "value_data": {
-                                      "type": "object",
+                                      "type": [
+                                        "object",
+                                        "null"
+                                      ],
                                       "description": "Extra data describing the value, based on the type of option or modifier with which the value is associated. The `swatch` type option can accept an array of `colors`, with up to three hexidecimal color keys; or an `image_url`, which is a full image URL path including protocol. The `product list` type option requires a `product_id`. The `checkbox` type option requires a boolean flag, called `checked_value`, to determine which value is considered to be the checked state.\n"
                                     }
                                   },
@@ -18318,7 +18328,6 @@
                                   ]
                                 },
                                 {
-                                  "type": "object",
                                   "properties": {
                                     "id": {
                                       "type": "integer",
@@ -18327,7 +18336,8 @@
                                   }
                                 }
                               ],
-                              "title": "Option Value"
+                              "title": "Option Value",
+                              "type": "object"
                             }
                           },
                           "image_url": {
@@ -18353,6 +18363,7 @@
                 "meta": {
                   "type": "object",
                   "description": "Data about the response, including pagination and collection totals.",
+                  "title": "Collection Meta",
                   "properties": {
                     "pagination": {
                       "type": "object",
@@ -18405,11 +18416,9 @@
                         }
                       }
                     }
-                  },
-                  "title": "Collection Meta"
+                  }
                 }
-              },
-              "title": "Option Collection Response"
+              }
             },
             "examples": {
               "application/json": {
@@ -19342,11 +19351,11 @@
             "description": "",
             "schema": {
               "type": "object",
+              "title": "Option Response",
               "properties": {
                 "data": {
                   "allOf": [
                     {
-                      "type": "object",
                       "description": "Common Option properties.",
                       "title": "Option Base",
                       "properties": {
@@ -19551,10 +19560,8 @@
                           ],
                           "minItems": 1,
                           "items": {
-                            "type": "object",
                             "allOf": [
                               {
-                                "type": "object",
                                 "description": "Common Option Value properties.",
                                 "title": "Option Value Base",
                                 "properties": {
@@ -19582,7 +19589,10 @@
                                     "example": 0
                                   },
                                   "value_data": {
-                                    "type": "object",
+                                    "type": [
+                                      "object",
+                                      "null"
+                                    ],
                                     "description": "Extra data describing the value, based on the type of option or modifier with which the value is associated. The `swatch` type option can accept an array of `colors`, with up to three hexidecimal color keys; or an `image_url`, which is a full image URL path including protocol. The `product list` type option requires a `product_id`. The `checkbox` type option requires a boolean flag, called `checked_value`, to determine which value is considered to be the checked state.\n"
                                   }
                                 },
@@ -19592,7 +19602,6 @@
                                 ]
                               },
                               {
-                                "type": "object",
                                 "properties": {
                                   "id": {
                                     "type": "integer",
@@ -19601,7 +19610,8 @@
                                 }
                               }
                             ],
-                            "title": "Option Value"
+                            "title": "Option Value",
+                            "type": "object"
                           }
                         },
                         "image_url": {
@@ -19628,8 +19638,7 @@
                   "description": "Empty meta object; may be used later.",
                   "title": "Meta"
                 }
-              },
-              "title": "Option Response"
+              }
             },
             "examples": {
               "application/json": {
@@ -20061,11 +20070,11 @@
             "description": "",
             "schema": {
               "type": "object",
+              "title": "Option Response",
               "properties": {
                 "data": {
                   "allOf": [
                     {
-                      "type": "object",
                       "description": "Common Option properties.",
                       "title": "Option Base",
                       "properties": {
@@ -20270,10 +20279,8 @@
                           ],
                           "minItems": 1,
                           "items": {
-                            "type": "object",
                             "allOf": [
                               {
-                                "type": "object",
                                 "description": "Common Option Value properties.",
                                 "title": "Option Value Base",
                                 "properties": {
@@ -20301,7 +20308,10 @@
                                     "example": 0
                                   },
                                   "value_data": {
-                                    "type": "object",
+                                    "type": [
+                                      "object",
+                                      "null"
+                                    ],
                                     "description": "Extra data describing the value, based on the type of option or modifier with which the value is associated. The `swatch` type option can accept an array of `colors`, with up to three hexidecimal color keys; or an `image_url`, which is a full image URL path including protocol. The `product list` type option requires a `product_id`. The `checkbox` type option requires a boolean flag, called `checked_value`, to determine which value is considered to be the checked state.\n"
                                   }
                                 },
@@ -20311,7 +20321,6 @@
                                 ]
                               },
                               {
-                                "type": "object",
                                 "properties": {
                                   "id": {
                                     "type": "integer",
@@ -20320,7 +20329,8 @@
                                 }
                               }
                             ],
-                            "title": "Option Value"
+                            "title": "Option Value",
+                            "type": "object"
                           }
                         },
                         "image_url": {
@@ -20347,8 +20357,7 @@
                   "description": "Empty meta object; may be used later.",
                   "title": "Meta"
                 }
-              },
-              "title": "Option Response"
+              }
             },
             "examples": {
               "application/json": {
@@ -20591,14 +20600,13 @@
             "schema": {
               "description": "Get Option Values response.",
               "type": "object",
+              "title": "Option Value Collection Response",
               "properties": {
                 "data": {
                   "type": "array",
                   "items": {
-                    "type": "object",
                     "allOf": [
                       {
-                        "type": "object",
                         "description": "Common Option Value properties.",
                         "title": "Option Value Base",
                         "properties": {
@@ -20626,7 +20634,10 @@
                             "example": 0
                           },
                           "value_data": {
-                            "type": "object",
+                            "type": [
+                              "object",
+                              "null"
+                            ],
                             "description": "Extra data describing the value, based on the type of option or modifier with which the value is associated. The `swatch` type option can accept an array of `colors`, with up to three hexidecimal color keys; or an `image_url`, which is a full image URL path including protocol. The `product list` type option requires a `product_id`. The `checkbox` type option requires a boolean flag, called `checked_value`, to determine which value is considered to be the checked state.\n"
                           }
                         },
@@ -20636,7 +20647,6 @@
                         ]
                       },
                       {
-                        "type": "object",
                         "properties": {
                           "id": {
                             "type": "integer",
@@ -20645,12 +20655,14 @@
                         }
                       }
                     ],
-                    "title": "Option Value"
+                    "title": "Option Value",
+                    "type": "object"
                   }
                 },
                 "meta": {
                   "type": "object",
                   "description": "Data about the response, including pagination and collection totals.",
+                  "title": "Collection Meta",
                   "properties": {
                     "pagination": {
                       "type": "object",
@@ -20703,11 +20715,9 @@
                         }
                       }
                     }
-                  },
-                  "title": "Collection Meta"
+                  }
                 }
-              },
-              "title": "Option Value Collection Response"
+              }
             },
             "examples": {
               "application/json": {
@@ -20866,12 +20876,11 @@
             "description": "",
             "schema": {
               "type": "object",
+              "title": "Option Value Response",
               "properties": {
                 "data": {
-                  "type": "object",
                   "allOf": [
                     {
-                      "type": "object",
                       "description": "Common Option Value properties.",
                       "title": "Option Value Base",
                       "properties": {
@@ -20899,7 +20908,10 @@
                           "example": 0
                         },
                         "value_data": {
-                          "type": "object",
+                          "type": [
+                            "object",
+                            "null"
+                          ],
                           "description": "Extra data describing the value, based on the type of option or modifier with which the value is associated. The `swatch` type option can accept an array of `colors`, with up to three hexidecimal color keys; or an `image_url`, which is a full image URL path including protocol. The `product list` type option requires a `product_id`. The `checkbox` type option requires a boolean flag, called `checked_value`, to determine which value is considered to be the checked state.\n"
                         }
                       },
@@ -20909,7 +20921,6 @@
                       ]
                     },
                     {
-                      "type": "object",
                       "properties": {
                         "id": {
                           "type": "integer",
@@ -20918,15 +20929,15 @@
                       }
                     }
                   ],
-                  "title": "Option Value"
+                  "title": "Option Value",
+                  "type": "object"
                 },
                 "meta": {
                   "type": "object",
                   "description": "Empty meta object; may be used later.",
                   "title": "Meta"
                 }
-              },
-              "title": "Option Value Response"
+              }
             },
             "examples": {
               "application/json": {
@@ -21044,12 +21055,11 @@
             "description": "",
             "schema": {
               "type": "object",
+              "title": "Option Value Response",
               "properties": {
                 "data": {
-                  "type": "object",
                   "allOf": [
                     {
-                      "type": "object",
                       "description": "Common Option Value properties.",
                       "title": "Option Value Base",
                       "properties": {
@@ -21077,7 +21087,10 @@
                           "example": 0
                         },
                         "value_data": {
-                          "type": "object",
+                          "type": [
+                            "object",
+                            "null"
+                          ],
                           "description": "Extra data describing the value, based on the type of option or modifier with which the value is associated. The `swatch` type option can accept an array of `colors`, with up to three hexidecimal color keys; or an `image_url`, which is a full image URL path including protocol. The `product list` type option requires a `product_id`. The `checkbox` type option requires a boolean flag, called `checked_value`, to determine which value is considered to be the checked state.\n"
                         }
                       },
@@ -21087,7 +21100,6 @@
                       ]
                     },
                     {
-                      "type": "object",
                       "properties": {
                         "id": {
                           "type": "integer",
@@ -21096,15 +21108,15 @@
                       }
                     }
                   ],
-                  "title": "Option Value"
+                  "title": "Option Value",
+                  "type": "object"
                 },
                 "meta": {
                   "type": "object",
                   "description": "Empty meta object; may be used later.",
                   "title": "Meta"
                 }
-              },
-              "title": "Option Value Response"
+              }
             },
             "examples": {
               "application/json": {
@@ -21241,12 +21253,11 @@
             "description": "",
             "schema": {
               "type": "object",
+              "title": "Option Value Response",
               "properties": {
                 "data": {
-                  "type": "object",
                   "allOf": [
                     {
-                      "type": "object",
                       "description": "Common Option Value properties.",
                       "title": "Option Value Base",
                       "properties": {
@@ -21274,7 +21285,10 @@
                           "example": 0
                         },
                         "value_data": {
-                          "type": "object",
+                          "type": [
+                            "object",
+                            "null"
+                          ],
                           "description": "Extra data describing the value, based on the type of option or modifier with which the value is associated. The `swatch` type option can accept an array of `colors`, with up to three hexidecimal color keys; or an `image_url`, which is a full image URL path including protocol. The `product list` type option requires a `product_id`. The `checkbox` type option requires a boolean flag, called `checked_value`, to determine which value is considered to be the checked state.\n"
                         }
                       },
@@ -21284,7 +21298,6 @@
                       ]
                     },
                     {
-                      "type": "object",
                       "properties": {
                         "id": {
                           "type": "integer",
@@ -21293,15 +21306,15 @@
                       }
                     }
                   ],
-                  "title": "Option Value"
+                  "title": "Option Value",
+                  "type": "object"
                 },
                 "meta": {
                   "type": "object",
                   "description": "Empty meta object; may be used later.",
                   "title": "Meta"
                 }
-              },
-              "title": "Option Value Response"
+              }
             },
             "examples": {
               "application/json": {
@@ -41574,7 +41587,6 @@
     "ModifierValueBase": {
       "allOf": [
         {
-          "type": "object",
           "description": "Common Option Value properties.",
           "title": "Option Value Base",
           "properties": {
@@ -41602,8 +41614,11 @@
               "example": 0
             },
             "value_data": {
-              "type": "object",
-              "description": "Extra data describing the value, based on the type of option or modifier with which the value is associated. The `swatch` type option can accept an array of `colors`, with up to three hexidecimal color keys; or an `image_url`, which is a full image URL path including protocol. The `product list` type option requires a `product_id`. The `checkbox` type option requires a boolean flag, called `checked_value`, to determine which value is considered to be the checked state.\n"
+              "type": [
+                "object",
+                "null"
+              ],
+              "description": "Extra data describing the value, based on the type of option or modifier with which the value is associated. The `swatch` type option can accept an array of `colors`, with up to three hexidecimal color keys; or an `image_url`, which is a full image URL path including protocol. The `product list` type option requires a `product_id`. The `checkbox` type option requires a boolean flag, called `checked_value`, to determine which value is considered to be the checked state. If no data is available, returns `null`.\n\n"
             }
           },
           "required": [
@@ -41619,6 +41634,7 @@
                 "price": {
                   "type": "object",
                   "title": "Adjuster",
+                  "description": "Adjuster for Complex Rules.",
                   "properties": {
                     "adjuster": {
                       "type": "string",
@@ -41634,12 +41650,12 @@
                       "description": "The numeric amount by which the adjuster will change either the price or the weight of the variant, when the modifier value is selected on the storefront.\n",
                       "example": 5
                     }
-                  },
-                  "description": "Adjuster for Complex Rules."
+                  }
                 },
                 "weight": {
                   "type": "object",
                   "title": "Adjuster",
+                  "description": "Adjuster for Complex Rules.",
                   "properties": {
                     "adjuster": {
                       "type": "string",
@@ -41655,8 +41671,7 @@
                       "description": "The numeric amount by which the adjuster will change either the price or the weight of the variant, when the modifier value is selected on the storefront.\n",
                       "example": 5
                     }
-                  },
-                  "description": "Adjuster for Complex Rules."
+                  }
                 },
                 "image_url": {
                   "type": "string",
@@ -41685,12 +41700,10 @@
       "type": "object"
     },
     "ModifierValue": {
-      "type": "object",
       "allOf": [
         {
           "allOf": [
             {
-              "type": "object",
               "description": "Common Option Value properties.",
               "title": "Option Value Base",
               "properties": {
@@ -41718,8 +41731,16 @@
                   "example": 0
                 },
                 "value_data": {
-                  "type": "object",
-                  "description": "Extra data describing the value, based on the type of option or modifier with which the value is associated. The `swatch` type option can accept an array of `colors`, with up to three hexidecimal color keys; or an `image_url`, which is a full image URL path including protocol. The `product list` type option requires a `product_id`. The `checkbox` type option requires a boolean flag, called `checked_value`, to determine which value is considered to be the checked state.\n"
+                  "type": [
+                    "object",
+                    "null"
+                  ],
+                  "description": "Extra data describing the value, based on the type of option or modifier with which the value is associated. The `swatch` type option can accept an array of `colors`, with up to three hexidecimal color keys; or an `image_url`, which is a full image URL path including protocol. The `product list` type option requires a `product_id`. The `checkbox` type option requires a boolean flag, called `checked_value`, to determine which value is considered to be the checked state. If no data is available, returns `null`.\n",
+                  "properties": {
+                    "": {
+                      "type": "string"
+                    }
+                  }
                 }
               },
               "required": [
@@ -41735,6 +41756,7 @@
                     "price": {
                       "type": "object",
                       "title": "Adjuster",
+                      "description": "Adjuster for Complex Rules.",
                       "properties": {
                         "adjuster": {
                           "type": "string",
@@ -41750,12 +41772,12 @@
                           "description": "The numeric amount by which the adjuster will change either the price or the weight of the variant, when the modifier value is selected on the storefront.\n",
                           "example": 5
                         }
-                      },
-                      "description": "Adjuster for Complex Rules."
+                      }
                     },
                     "weight": {
                       "type": "object",
                       "title": "Adjuster",
+                      "description": "Adjuster for Complex Rules.",
                       "properties": {
                         "adjuster": {
                           "type": "string",
@@ -41771,8 +41793,7 @@
                           "description": "The numeric amount by which the adjuster will change either the price or the weight of the variant, when the modifier value is selected on the storefront.\n",
                           "example": 5
                         }
-                      },
-                      "description": "Adjuster for Complex Rules."
+                      }
                     },
                     "image_url": {
                       "type": "string",
@@ -41797,11 +41818,9 @@
               }
             }
           ],
-          "title": "Modifier Value Base",
-          "type": "object"
+          "title": "Modifier Value Base"
         },
         {
-          "type": "object",
           "properties": {
             "id": {
               "type": "integer",
@@ -41811,7 +41830,8 @@
         }
       ],
       "title": "Modifier Value",
-      "description": "Part of Modifier Value Response "
+      "description": "Part of Modifier Value Response ",
+      "type": "object"
     },
     "ModifierValuePost": {
       "type": "object",
@@ -42067,11 +42087,11 @@
     },
     "OptionResponse": {
       "type": "object",
+      "title": "Option Response",
       "properties": {
         "data": {
           "allOf": [
             {
-              "type": "object",
               "description": "Common Option properties.",
               "title": "Option Base",
               "properties": {
@@ -42276,10 +42296,8 @@
                   ],
                   "minItems": 1,
                   "items": {
-                    "type": "object",
                     "allOf": [
                       {
-                        "type": "object",
                         "description": "Common Option Value properties.",
                         "title": "Option Value Base",
                         "properties": {
@@ -42307,8 +42325,11 @@
                             "example": 0
                           },
                           "value_data": {
-                            "type": "object",
-                            "description": "Extra data describing the value, based on the type of option or modifier with which the value is associated. The `swatch` type option can accept an array of `colors`, with up to three hexidecimal color keys; or an `image_url`, which is a full image URL path including protocol. The `product list` type option requires a `product_id`. The `checkbox` type option requires a boolean flag, called `checked_value`, to determine which value is considered to be the checked state.\n"
+                            "type": [
+                              "object",
+                              "null"
+                            ],
+                            "description": "Extra data describing the value, based on the type of option or modifier with which the value is associated. The `swatch` type option can accept an array of `colors`, with up to three hexidecimal color keys; or an `image_url`, which is a full image URL path including protocol. The `product list` type option requires a `product_id`. The `checkbox` type option requires a boolean flag, called `checked_value`, to determine which value is considered to be the checked state. If no data is available, returns `null`.\n\n"
                           }
                         },
                         "required": [
@@ -42317,7 +42338,6 @@
                         ]
                       },
                       {
-                        "type": "object",
                         "properties": {
                           "id": {
                             "type": "integer",
@@ -42326,7 +42346,8 @@
                         }
                       }
                     ],
-                    "title": "Option Value"
+                    "title": "Option Value",
+                    "type": "object"
                   }
                 },
                 "image_url": {
@@ -42353,8 +42374,7 @@
           "description": "Empty meta object; may be used later.",
           "title": "Meta"
         }
-      },
-      "title": "Option Response"
+      }
     },
     "OptionBase": {
       "type": "object",
@@ -42562,10 +42582,8 @@
           ],
           "minItems": 1,
           "items": {
-            "type": "object",
             "allOf": [
               {
-                "type": "object",
                 "description": "Common Option Value properties.",
                 "title": "Option Value Base",
                 "properties": {
@@ -42593,8 +42611,11 @@
                     "example": 0
                   },
                   "value_data": {
-                    "type": "object",
-                    "description": "Extra data describing the value, based on the type of option or modifier with which the value is associated. The `swatch` type option can accept an array of `colors`, with up to three hexidecimal color keys; or an `image_url`, which is a full image URL path including protocol. The `product list` type option requires a `product_id`. The `checkbox` type option requires a boolean flag, called `checked_value`, to determine which value is considered to be the checked state.\n"
+                    "type": [
+                      "object",
+                      "null"
+                    ],
+                    "description": "Extra data describing the value, based on the type of option or modifier with which the value is associated. The `swatch` type option can accept an array of `colors`, with up to three hexidecimal color keys; or an `image_url`, which is a full image URL path including protocol. The `product list` type option requires a `product_id`. The `checkbox` type option requires a boolean flag, called `checked_value`, to determine which value is considered to be the checked state. If no data is available, returns `null`.\n"
                   }
                 },
                 "required": [
@@ -42603,7 +42624,6 @@
                 ]
               },
               {
-                "type": "object",
                 "properties": {
                   "id": {
                     "type": "integer",
@@ -42612,7 +42632,8 @@
                 }
               }
             ],
-            "title": "Option Value"
+            "title": "Option Value",
+            "type": "object"
           }
         },
         "image_url": {
@@ -42624,7 +42645,6 @@
     "Option": {
       "allOf": [
         {
-          "type": "object",
           "description": "Common Option properties.",
           "title": "Option Base",
           "properties": {
@@ -42829,10 +42849,8 @@
               ],
               "minItems": 1,
               "items": {
-                "type": "object",
                 "allOf": [
                   {
-                    "type": "object",
                     "description": "Common Option Value properties.",
                     "title": "Option Value Base",
                     "properties": {
@@ -42860,8 +42878,11 @@
                         "example": 0
                       },
                       "value_data": {
-                        "type": "object",
-                        "description": "Extra data describing the value, based on the type of option or modifier with which the value is associated. The `swatch` type option can accept an array of `colors`, with up to three hexidecimal color keys; or an `image_url`, which is a full image URL path including protocol. The `product list` type option requires a `product_id`. The `checkbox` type option requires a boolean flag, called `checked_value`, to determine which value is considered to be the checked state.\n"
+                        "type": [
+                          "object",
+                          "null"
+                        ],
+                        "description": "Extra data describing the value, based on the type of option or modifier with which the value is associated. The `swatch` type option can accept an array of `colors`, with up to three hexidecimal color keys; or an `image_url`, which is a full image URL path including protocol. The `product list` type option requires a `product_id`. The `checkbox` type option requires a boolean flag, called `checked_value`, to determine which value is considered to be the checked state.\nIf no data is available, returns `null`."
                       }
                     },
                     "required": [
@@ -42870,7 +42891,6 @@
                     ]
                   },
                   {
-                    "type": "object",
                     "properties": {
                       "id": {
                         "type": "integer",
@@ -42879,7 +42899,8 @@
                     }
                   }
                 ],
-                "title": "Option Value"
+                "title": "Option Value",
+                "type": "object"
               }
             },
             "image_url": {
@@ -43947,10 +43968,8 @@
       }
     },
     "Variant": {
-      "type": "object",
       "allOf": [
         {
-          "type": "object",
           "description": "Common Variant properties.",
           "title": "Variant Base",
           "properties": {
@@ -44056,7 +44075,6 @@
           }
         },
         {
-          "type": "object",
           "properties": {
             "id": {
               "type": "integer"
@@ -44074,11 +44092,10 @@
             },
             "option_values": {
               "type": "array",
+              "description": "Array of option and option values IDs that make up this variant. Will be empty if the variant is the product's base variant.",
               "items": {
-                "type": "object",
                 "allOf": [
                   {
-                    "type": "object",
                     "description": "Common Option Value Product properties.",
                     "title": "Option Value Product Base",
                     "properties": {
@@ -44105,7 +44122,6 @@
                     }
                   },
                   {
-                    "type": "object",
                     "properties": {
                       "id": {
                         "type": "integer"
@@ -44116,9 +44132,9 @@
                     }
                   }
                 ],
-                "title": "Option Value Variant"
-              },
-              "description": "Array of option and option values IDs that make up this variant. Will be empty if the variant is the product's base variant."
+                "title": "Option Value Variant",
+                "type": "object"
+              }
             },
             "calculated_price": {
               "type": "number",
@@ -44127,7 +44143,8 @@
             }
           }
         }
-      ]
+      ],
+      "type": "object"
     },
     "VariantPost": {
       "description": "The model for a POST to create variants on a product.\n",
@@ -44959,12 +44976,11 @@
     },
     "OptionValueResponse": {
       "type": "object",
+      "title": "Option Value Response",
       "properties": {
         "data": {
-          "type": "object",
           "allOf": [
             {
-              "type": "object",
               "description": "Common Option Value properties.",
               "title": "Option Value Base",
               "properties": {
@@ -44992,8 +45008,11 @@
                   "example": 0
                 },
                 "value_data": {
-                  "type": "object",
-                  "description": "Extra data describing the value, based on the type of option or modifier with which the value is associated. The `swatch` type option can accept an array of `colors`, with up to three hexidecimal color keys; or an `image_url`, which is a full image URL path including protocol. The `product list` type option requires a `product_id`. The `checkbox` type option requires a boolean flag, called `checked_value`, to determine which value is considered to be the checked state.\n"
+                  "type": [
+                    "object",
+                    "null"
+                  ],
+                  "description": "Extra data describing the value, based on the type of option or modifier with which the value is associated. The `swatch` type option can accept an array of `colors`, with up to three hexidecimal color keys; or an `image_url`, which is a full image URL path including protocol. The `product list` type option requires a `product_id`. The `checkbox` type option requires a boolean flag, called `checked_value`, to determine which value is considered to be the checked state. If no data is available, returns `null`.\n\n"
                 }
               },
               "required": [
@@ -45002,7 +45021,6 @@
               ]
             },
             {
-              "type": "object",
               "properties": {
                 "id": {
                   "type": "integer",
@@ -45011,15 +45029,15 @@
               }
             }
           ],
-          "title": "Option Value"
+          "title": "Option Value",
+          "type": "object"
         },
         "meta": {
           "type": "object",
           "description": "Empty meta object; may be used later.",
           "title": "Meta"
         }
-      },
-      "title": "Option Value Response"
+      }
     },
     "OptionValueBase": {
       "type": "object",
@@ -45050,8 +45068,11 @@
           "example": 0
         },
         "value_data": {
-          "type": "object",
-          "description": "Extra data describing the value, based on the type of option or modifier with which the value is associated. The `swatch` type option can accept an array of `colors`, with up to three hexidecimal color keys; or an `image_url`, which is a full image URL path including protocol. The `product list` type option requires a `product_id`. The `checkbox` type option requires a boolean flag, called `checked_value`, to determine which value is considered to be the checked state.\n"
+          "type": [
+            "object",
+            "null"
+          ],
+          "description": "Extra data describing the value, based on the type of option or modifier with which the value is associated. The `swatch` type option can accept an array of `colors`, with up to three hexidecimal color keys; or an `image_url`, which is a full image URL path including protocol. The `product list` type option requires a `product_id`. The `checkbox` type option requires a boolean flag, called `checked_value`, to determine which value is considered to be the checked state. If no data is available, returns `null`.\n\n"
         }
       },
       "required": [
@@ -45060,10 +45081,8 @@
       ]
     },
     "OptionValue": {
-      "type": "object",
       "allOf": [
         {
-          "type": "object",
           "description": "Common Option Value properties.",
           "title": "Option Value Base",
           "properties": {
@@ -45091,8 +45110,11 @@
               "example": 0
             },
             "value_data": {
-              "type": "object",
-              "description": "Extra data describing the value, based on the type of option or modifier with which the value is associated. The `swatch` type option can accept an array of `colors`, with up to three hexidecimal color keys; or an `image_url`, which is a full image URL path including protocol. The `product list` type option requires a `product_id`. The `checkbox` type option requires a boolean flag, called `checked_value`, to determine which value is considered to be the checked state.\n"
+              "type": [
+                "object",
+                "null"
+              ],
+              "description": "Extra data describing the value, based on the type of option or modifier with which the value is associated. The `swatch` type option can accept an array of `colors`, with up to three hexidecimal color keys; or an `image_url`, which is a full image URL path including protocol. The `product list` type option requires a `product_id`. The `checkbox` type option requires a boolean flag, called `checked_value`, to determine which value is considered to be the checked state. If no data is available, returns `null`.\n\n"
             }
           },
           "required": [
@@ -45101,7 +45123,6 @@
           ]
         },
         {
-          "type": "object",
           "properties": {
             "id": {
               "type": "integer",
@@ -45110,14 +45131,13 @@
           }
         }
       ],
-      "title": "Option Value"
+      "title": "Option Value",
+      "type": "object"
     },
     "OptionValuePost": {
-      "type": "object",
       "description": "The model for a POST to create option values on a product.",
       "allOf": [
         {
-          "type": "object",
           "description": "Common Option Value properties.",
           "title": "Option Value Base",
           "properties": {
@@ -45155,14 +45175,13 @@
           ]
         }
       ],
-      "title": "Option Value Post"
+      "title": "Option Value Post",
+      "type": "object"
     },
     "OptionValuePut": {
-      "type": "object",
       "description": "The model for a PUT to update option values on a product.",
       "allOf": [
         {
-          "type": "object",
           "description": "Common Option Value properties.",
           "title": "Option Value Base",
           "properties": {
@@ -45200,7 +45219,6 @@
           ]
         },
         {
-          "type": "object",
           "properties": {
             "id": {
               "type": "integer",
@@ -45212,7 +45230,8 @@
           }
         }
       ],
-      "title": "Option Value Put"
+      "title": "Option Value Put",
+      "type": "object"
     },
     "ProductImageBase": {
       "type": "object",

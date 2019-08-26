@@ -467,7 +467,6 @@ The combination of Small & Red is what is selected on the storefront and correla
 
 ### Options created on V2 and V3
 
-* Variant options created on V3 cannot be accessed from the Control Panel. They can only be accessed via the API.
 * If a product has options that were created using the V2 API, additional options cannot be added using the V3 API.
 * SKUs in V2 map to variants in V3.
 * Base variants are not SKUs in V2.
@@ -1084,7 +1083,7 @@ Parent ID is only needed if creating a sub-category.
 
 ### Category Tree
 
-[Category Tree](/api-reference/catalog/catalog-api/catalog/getcatalogsummary) returns a simple view of the parent > child relationship of all categories in the store. This endpoint can be used to fetch the categories if building out a custom navigation for a store.
+[Category Tree](https://developer.bigcommerce.com/api-reference/catalog/catalog-api/category/getcategorytree) returns a simple view of the parent > child relationship of all categories in the store. This endpoint can be used to fetch the categories if building out a custom navigation for a store.
 
 <!--
 title: "Category Tree Response Example"

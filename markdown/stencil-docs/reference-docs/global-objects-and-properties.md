@@ -521,33 +521,6 @@ No properties available for this object.
 
 ---
 
-<a href='#global-objects_login' aria-hidden='true' class='block-anchor'  id='global-objects_login'><i aria-hidden='true' class='linkify icon'></i></a>
-
-## Login
-
-<b>Description: </b>Object to handle customer login details<br>
-
-<b>Handlebars Expression:</b> `{{forms.login}}`
-
-<b>Object Properties:</b>
-
-<table>
-  <tr>
-    <th>Property</th>
-    <th>Description</th>
-  </tr>
-  <tr>
-    <td>came_from_checkout</td>
-    <td>Boolean indicating whether the customer submitted login information at checkout</td>
-  </tr>
-  <tr>
-    <td>error</td>
-    <td>BC-defined message to display when customer’s login fails</td>
-  </tr>
-</table>
-
----
-
 <a href='#global-objects_new-products' aria-hidden='true' class='block-anchor'  id='global-objects_new-products'><i aria-hidden='true' class='linkify icon'></i></a>
 
 ## New Products
