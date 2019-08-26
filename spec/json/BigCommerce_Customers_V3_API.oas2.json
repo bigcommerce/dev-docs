@@ -881,7 +881,7 @@
         }
       },
       "post": {
-        "description": "Creates a [*Customers*](/api-reference/customer-subscribers/v3-customers-api/models/customer). Multiple customers can be created in one call.\n\n**Required Fields**\n* last_name\n* first_name\n* email\n\n**Required Fields Customer Address**\n* first_name\n* city\n* country_code\n* state_or_province\n* last_name\n* address1\n* postal_code\n\n**Required Fields Attributes**\n* attribute_name\n* attribute_value -- This is input as a string, regardless of the [Type](/api-reference/customer-subscribers/v3-customers-api/models/type).",
+        "description": "Creates a [*Customers*](/api-reference/customer-subscribers/v3-customers-api/models/customer). Multiple customers can be created in one call.\n\n**Required Fields**\n* last_name\n* first_name\n* email\n\n**Required Fields Customer Address**\n* first_name\n* city\n* country_code\n* state_or_province\n* last_name\n* address1\n* postal_code\n\n**Required Fields Attributes**\n* Attributes must be [created](https://developer.bigcommerce.com/api-reference/customer-subscribers/v3-customers-api/customer-attributes/customersattributespost) **BEFORE** creating a customer.\n* attribute_id\n* attribute_value -- This is input as a string, regardless of the [Type](/api-reference/customer-subscribers/v3-customers-api/models/type).",
         "summary": "Create a Customer",
         "tags": [
           "Customers"
