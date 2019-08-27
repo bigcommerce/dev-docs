@@ -39819,7 +39819,7 @@
       "description": "Filter items by condition.\n",
       "required": false,
       "in": "query",
-      "type": "integer",
+      "type": "string",
       "enum": [
         "new",
         "used",
