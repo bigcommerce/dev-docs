@@ -165,7 +165,7 @@ null</td>
     <td class="">blog:</td>
     <td class=""></td>
     <td class=""></td>
-    <td class="">(Default sorting is by published_date, from most-recent to earliest.)</td>
+    <td class="">(Default sorting is by published_date, from most-recent to earliest.) This does not work on the blog page. See [Blog Attributes](https://developer.bigcommerce.com/stencil-docs/reference-docs/front-matter-reference#front-matter-attributes-reference_blog). </td>
   </tr>
   
   <tr>
