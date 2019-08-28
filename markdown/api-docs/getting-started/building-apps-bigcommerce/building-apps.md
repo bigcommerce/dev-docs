@@ -1,20 +1,20 @@
-<h1>Building an App</h1>
+=<h1>Building an App</h1>
 <div class="otp" id="no-index">
 	<h3> On This Page </h3>
 	<ul>
     <li><a href="#building-apps_oauth-summary">OAuth Summary</a></li>
-		<li><a href="#building-apps_request-headers">Request Headers</a></li>
-		<li><a href="#building-apps_session-timeouts">Managing Users Session Timeouts</a></li>
-		<li><a href="#building-apps_installation-update-sequence">App Installation and Update Sequence</a></li>
-		<li><a href="#building-apps_recieving-get-request">Receiving the GET Request</a></li>
-		<li><a href="#building-apps_responding-get-request">Responding to the GET Request</a></li>
-        <li><a href="#building-apps_making-post-request">Making the POST Request</a></li>
-        <li><a href="#building-apps_recieving-post-request">Receiving the POST Response</a></li>
-        <li><a href="#building-apps_load-uninstall-removal-requests">Load, Uninstall, and User Removal Requests</a></li>
-        <li><a href="#building-apps_processing-signed-payload">Processing the Signed Payload</a></li>
-        <li><a href="#building-apps_multi-user-support">Multi-User Support</a></li>
+    <li><a href="#building-apps_request-headers">Request Headers</a></li>
+    <li><a href="#building-apps_session-timeouts">Managing Users Session Timeouts</a></li>
+    <li><a href="#building-apps_installation-update-sequence">App Installation and Update Sequence</a></li>
+    <li><a href="#building-apps_recieving-get-request">Receiving the GET Request</a></li>
+    <li><a href="#building-apps_responding-get-request">Responding to the GET Request</a></li>
+    <li><a href="#building-apps_making-post-request">Making the POST Request</a></li>
+    <li><a href="#building-apps_recieving-post-request">Receiving the POST Response</a></li>
+    <li><a href="#building-apps_load-uninstall-removal-requests">Load, Uninstall, and User Removal Requests</a></li>
+    <li><a href="#building-apps_processing-signed-payload">Processing the Signed Payload</a></li>
+    <li><a href="#building-apps_multi-user-support">Multi-User Support</a></li>
     <li><a href="#building-apps_external-app-installation">External App Installation</a></li>
-    <li><a href="#building-apps_user-interface-constraints">User Interface Constraints<a/></li>
+    <li><a href="#building-apps_design-user-interface">Designing the User Interface</a></li>
     <li><a href="#building-apps_hosting-your-app">Hosting Your App </a></li>
     <li><a href="#building-apps_faq">FAQ</a></li>
 	</ul>
@@ -766,9 +766,13 @@ Depending on which endpoint you call, we will render one of the following succes
 
 ---
 
-<a href='#building-apps_user-interface-constraints' aria-hidden='true' class='block-anchor'  id='building-apps_user-interface-constraints'><i aria-hidden='true' class='linkify icon'></i></a>
+<a href='#building-apps_design-user-interface' aria-hidden='true' class='block-anchor'  id='building-apps_design-user-interface'><i aria-hidden='true' class='linkify icon'></i></a>
 
-## User Interface Constraints
+## Designing the User Interface
+
+BigDesign is a collection of reusable React components, design guidelines, and UI patterns that can be used to build interfaces matching the BigCommerce control panel. It is available as an [npm package](https://www.npmjs.com/package/@bigcommerce/big-design), which can be installed as a dependency in third-party apps, and as an [open source repository on GitHub.](https://github.com/bigcommerce) BigDesign includes all the essential elements you need to construct a UI: buttons, forms, headings, and more. To get started using the components see our [BigDesign Playground](https://developer.bigcommerce.com/big-design/). 
+
+### User Interface Constraints
 
 Single-click apps benefit from a high level of integration with the BigCommerce platform. Users interacting with your app will enjoy a seamless experience. BigCommerce achieves this by rendering your app&#39;s user interface inside of an iframe within the control panel. To ensure acceptance into the App Marketplace, your app should be able to perform all of its functions inside of the iframe.
 
@@ -826,6 +830,7 @@ For more details on including your app in the Marketplace, see [App Store Approv
 * [Ruby Hello World](https://github.com/bigcommerce/omniauth-bigcommerce) (BigCommerce GitHub)
 * [Python Hello World](https://github.com/bigcommerce/hello-world-app-python-flask) (BigCommerce GitHub)
 ### Related Articles
+* [Big Design Developer Playground](https://developer.bigcommerce.com/big-design/)
 * [Authentication](https://developer.bigcommerce.com/api-docs/getting-started/authentication)
 * [Customer Login API](https://developer.bigcommerce.com/api-docs/customers/customer-login-api)
 * [App Store Approval Requirements](https://developer.bigcommerce.com/api-docs/partner/app-store-approval-requirements)
@@ -834,9 +839,9 @@ For more details on including your app in the Marketplace, see [App Store Approv
 * [BigCommerce Partners](https://www.bigcommerce.com/partners/) (BigCommerce)
 * [How to Test App Authentication Locally with ngrok](https://medium.com/bigcommerce-developer-blog/how-to-test-app-authentication-locally-with-ngrok-149150bfe4cf) (BigCommerce Developer Blog)
 * [Building a BigCommerce App Using Laravel and React](https://medium.com/bigcommerce-developer-blog/building-a-bigcommerce-app-using-laravel-and-react-711ceceb5006) (BigCommerce Developer Blog)
+* [Big Design Tutorial](https://medium.com/bigcommerce-developer-blog/bigdesign-build-native-looking-uis-with-the-bigcommerce-design-system-fb06a01a24f2) (BigCommerce Developer Blog)
 ### Additonal Resources
 * [Same Origin Policy](https://en.wikipedia.org/wiki/Same-origin_policy) (Wikipedia)
 * [Craft a P3P Policy to Make IE Behave](https://www.techrepublic.com/blog/software-engineer/craft-a-p3p-policy-to-make-ie-behave/) (Tech Republic)
 * [Quick Look at P3P](https://blogs.msdn.microsoft.com/ieinternals/2013/09/17/a-quick-look-at-p3p/) (Microsoft Blogs)
 * [Google Cloud](https://cloud.google.com/) (Google)
-
