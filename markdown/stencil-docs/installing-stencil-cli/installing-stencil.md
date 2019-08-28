@@ -25,8 +25,11 @@ To install Stencil CLI and it's dependencies on Mac, open a terminal and run the
 # Install Node Version Manager (nvm)
 curl -o- https://raw.githubusercontent.com/creationix/nvm/v0.31.0/install.sh | bash
 
-# Switch to a Stencil CLI supported version of Node.js
+# Install Stencil CLI supported version of Node.js
 nvm install 8.16
+
+# Switch to Stencil CLI support version of Node.js:
+nvm use 8.16
 
 # Install Stencil CLI
 npm install -g @bigcommerce/stencil-cli
