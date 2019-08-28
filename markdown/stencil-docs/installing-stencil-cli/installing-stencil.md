@@ -28,7 +28,7 @@ curl -o- https://raw.githubusercontent.com/creationix/nvm/v0.31.0/install.sh | b
 # Install Stencil CLI supported version of Node.js
 nvm install 8.16
 
-# Switch to Stencil CLI support version of Node.js:
+# Switch to Stencil CLI supported version of Node.js:
 nvm use 8.16
 
 # Install Stencil CLI
