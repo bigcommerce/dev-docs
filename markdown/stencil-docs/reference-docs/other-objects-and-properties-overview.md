@@ -1120,23 +1120,50 @@
     <td class="">id</td>
     <td class="">Unique system ID for the item in the cart</td>
   </tr>
+	<tr>
+		<td class="">remove_url</td>
+		<td class="">URL to remove this item from the cart</td>
+	</tr>
   <tr>
     <td class="">quantity</td>
     <td class="">Quantity of the item being ordered</td>
   </tr>
+	<tr>
+		<td class="">min_purchase_quantity</td>
+		<td class="">Quantity of the item being ordered</td>
+	</tr>
+	<tr>
+		<td class="">max_purchase_quantity</td>
+		<td class="">Maximum quantity the customer can order of the given item (if applicable)</td>
+	</tr>
   <tr>
     <td class="">type</td>
     <td class="">String indicating the type of purchase: either "Item" or "GiftCertificate"</td>
   </tr>
+	<tr>
+		<td class="">product_id</td>
+		<td class="">The value indicating the Product ID</td>
+	</tr>
+	<tr>
+		<td class="">brand</td>
+		<td class="">An object denoting the brand details of the product</td>
+	</tr>
+	<tr>
+		<td class="">name</td>
+		<td class="">The name of the product</td>
+	</tr>
+	<tr>
+		<td class="">URL</td>
+		<td class="">The store URL to access the product </td>
+	</tr>
   <tr>
     <td class="">can_modify</td>
     <td class="">Boolean indicating whether the customer may modify the quantity of, or remove, this cart item</td>
   </tr>
-  <tr>
-    <td class="">remove_url</td>
-    <td class="">URL to remove this item from the cart</td>
-  </tr>
-
+	<tr>
+		<td class="">show_gift_wrapping</td>
+		<td class="">Boolean indicating whether the customer has the option to apply gift wrapping to the product. This </td>
+	</tr>
   <tr>
     <td class="">sku</td>
     <td class="">SKU for this cart item</td>
