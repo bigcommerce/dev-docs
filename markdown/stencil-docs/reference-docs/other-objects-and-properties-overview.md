@@ -1539,10 +1539,6 @@ For further details about catalog price properties, please see [Catalog Price Ob
     <td>Customer’s message about the order</td>
   </tr>
   <tr>
-    <td>is_digital</td>
-    <td>Boolean indicating whether the order will be delivered digitally</td>
-  </tr>
-  <tr>
     <td>items</td>
     <td>List of items for the order</td>
   </tr>
