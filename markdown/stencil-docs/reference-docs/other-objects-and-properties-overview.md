@@ -1184,6 +1184,26 @@
     <td class=""><span class="indent1">show_gift_wrapping</span></td>
     <td class="">Boolean indicating whether the wrapping options are shown</td>
   </tr>
+	<tr>
+		<td class="">gift_wrapping</td>
+		<td class="">Gift-wrapping options</td>
+	</tr>
+	<tr>
+		<td class=""><span class="indent1"> name</span></td>
+		<td class="">Name of the gift-wrapping option</td>
+	</tr>
+	<tr>
+		<td class=""><span class="indent1"> price</span></td>
+		<td class=""><a href="/stencil-docs/stencil-object-model-reference/stencil-objects/common-objects/price">Price object</a> that defines the price of the gift-wrapping option</td>
+	</tr>
+	<tr>
+		<td class=""><span class="indent1"> message</span></td>
+		<td class="">Customer-defined message for the gift wrapping </td>
+	</tr>
+	<tr>
+		<td class=""><span class="indent1"> remove_url</span></td>
+		<td class="">URL to remove the gift-wrapping option</td>
+	</tr>
   <tr>
     <td class=""><span class="indent1">rrp</span></td>
     <td class=""><a href="/stencil-docs/stencil-object-model-reference/stencil-objects/common-objects/price">Price object</a> that defines the cart item's list price (MSRP); can be used to display struck-out list prices, as explained <a href="#strikeout">here</a></td>
@@ -1205,32 +1225,8 @@
     <td class=""><a href="/stencil-docs/stencil-object-model-reference/stencil-objects/common-objects/price">Price object</a> that defines the total price (price * quantity), after all cart discounts and promotions</td>
   </tr>
   <tr>
-    <td class=""><span class="indent1">brand</span></td>
-    <td class="">Brand properties</td>
-  </tr>
-  <tr>
     <td class=""><span class="indent1">release_date</span></td>
     <td class="">If a pre-order product was added to the cart,  displays a message about when the item is expected to ship to the customer</td>
-  </tr>
-  <tr>
-    <td class="">gift_wrapping</td>
-    <td class="">Gift-wrapping options</td>
-  </tr>
-  <tr>
-    <td class=""><span class="indent1"> name</span></td>
-    <td class="">Name of the gift-wrapping option</td>
-  </tr>
-  <tr>
-    <td class=""><span class="indent1"> price</span></td>
-    <td class=""><a href="/stencil-docs/stencil-object-model-reference/stencil-objects/common-objects/price">Price object</a> that defines the price of the gift-wrapping option</td>
-  </tr>
-  <tr>
-    <td class=""><span class="indent1"> message</span></td>
-    <td class="">Customer-defined message for the gift wrapping </td>
-  </tr>
-  <tr>
-    <td class=""><span class="indent1"> remove_url</span></td>
-    <td class="">URL to remove the gift-wrapping option</td>
   </tr>
   <tr>
     <td class="">options</td>
@@ -1277,31 +1273,6 @@
     <td class=""><span class="indent1"> value</span></td>
     <td class="">Value of the custom option</td>
   </tr>
-	<tr>
-		<td class="">product_id</td>
-		<td class="">The number value indicating the Product ID</td>
-	</tr>
-	<tr>
-		<td class="">brand</td>
-		<td class="">An object denoting the brand details of the product</td>
-	</tr>
-	<tr>
-		<td class="">name</td>
-		<td class="">The name of the product</td>
-	</tr>
-	<tr>
-		<td class="">URL</td>
-		<td class="">The store URL to access the product </td>
-	</tr>
-	<tr>
-		<td class="">sku</td>
-		<td class="">SKU for this cart item</td>
-	</tr>
-	<tr>
-		<td class="">availability</td>
-		<td class="">Availability for this cart item if applicable</td>
-	</tr>
-
   <tr>
     <td class="">can_modify</td>
     <td class="">Boolean indicating whether the customer may modify the quantity of, or remove, this cart item</td>
