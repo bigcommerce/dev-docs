@@ -4683,6 +4683,12 @@
       "type": "boolean",
       "description": "If the message is [flagged](https://support.bigcommerce.com/s/article/Communicating-with-Customers#Messages)."
     },
+    "customer_id": {
+      "name": "customer_id",
+      "in": "query",
+      "type": "boolean",
+      "description": "If the message is [flagged](https://support.bigcommerce.com/s/article/Communicating-with-Customers#Messages)."
+    },
     "order_id": {
       "in": "path",
       "type": "integer",
