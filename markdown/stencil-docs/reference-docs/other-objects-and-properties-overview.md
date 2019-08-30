@@ -1141,35 +1141,6 @@
     <td class="">String indicating the type of purchase: either "Item" or "GiftCertificate"</td>
   </tr>
 	<tr>
-		<td class="">product_id</td>
-		<td class="">The value indicating the Product ID</td>
-	</tr>
-	<tr>
-		<td class="">brand</td>
-		<td class="">An object denoting the brand details of the product</td>
-	</tr>
-	<tr>
-		<td class="">name</td>
-		<td class="">The name of the product</td>
-	</tr>
-	<tr>
-		<td class="">URL</td>
-		<td class="">The store URL to access the product </td>
-	</tr>
-  <tr>
-    <td class="">can_modify</td>
-    <td class="">Boolean indicating whether the customer may modify the quantity of, or remove, this cart item</td>
-  </tr>
-	<tr>
-		<td class="">show_gift_wrapping</td>
-		<td class="">Boolean indicating whether the customer has the option to apply gift wrapping to the product. This </td>
-	</tr>
-  <tr>
-    <td class="">sku</td>
-    <td class="">SKU for this cart item</td>
-  </tr>
-
-  <tr>
     <td class="">If type == Item</td>
     <td class="">If the item in the cart is a purchasable product, these properties are available:</td>
   </tr>
@@ -1177,6 +1148,14 @@
     <td class=""><span class="indent1">product_id</span></td>
     <td class="">Product ID for the cart item</td>
   </tr>
+	<tr>
+		<td class=""><span class="indent1">brand</span></td>
+		<td class="">Brand details for this cart item</td>
+	</tr>
+	<tr>
+		<td class=""><span class="indent2"> name</span></td>
+		<td class="">The product’s brand name</td>
+	</tr>
   <tr>
     <td class=""><span class="indent1">name</span></td>
     <td class="">Product name of the cart item</td>
@@ -1185,6 +1164,10 @@
     <td class=""><span class="indent1">url</span></td>
     <td class="">Link to the product page for the cart item</td>
   </tr>
+	<tr>
+		<td class=""><span class="indent1">sku</span></td>
+		<td class="">SKU value for this cart item</td>
+	</tr>
   <tr>
     <td class=""><span class="indent1">availability</span></td>
     <td class="">An optional availability message set by the merchant</td>
@@ -1198,7 +1181,7 @@
     <td class="">Chosen event date for event-based products</td>
   </tr>
   <tr>
-    <td class=""><span class="indent1">show_wrapping_options</span></td>
+    <td class=""><span class="indent1">show_gift_wrapping</span></td>
     <td class="">Boolean indicating whether the wrapping options are shown</td>
   </tr>
   <tr>
@@ -1224,10 +1207,6 @@
   <tr>
     <td class=""><span class="indent1">brand</span></td>
     <td class="">Brand properties</td>
-  </tr>
-  <tr>
-    <td class=""><span class="indent2"> name</span></td>
-    <td class="">The product’s brand name</td>
   </tr>
   <tr>
     <td class=""><span class="indent1">release_date</span></td>
@@ -1298,6 +1277,39 @@
     <td class=""><span class="indent1"> value</span></td>
     <td class="">Value of the custom option</td>
   </tr>
+	<tr>
+		<td class="">product_id</td>
+		<td class="">The number value indicating the Product ID</td>
+	</tr>
+	<tr>
+		<td class="">brand</td>
+		<td class="">An object denoting the brand details of the product</td>
+	</tr>
+	<tr>
+		<td class="">name</td>
+		<td class="">The name of the product</td>
+	</tr>
+	<tr>
+		<td class="">URL</td>
+		<td class="">The store URL to access the product </td>
+	</tr>
+	<tr>
+		<td class="">sku</td>
+		<td class="">SKU for this cart item</td>
+	</tr>
+	<tr>
+		<td class="">availability</td>
+		<td class="">Availability for this cart item if applicable</td>
+	</tr>
+
+  <tr>
+    <td class="">can_modify</td>
+    <td class="">Boolean indicating whether the customer may modify the quantity of, or remove, this cart item</td>
+  </tr>
+	<tr>
+		<td class="">show_gift_wrapping</td>
+		<td class="">Boolean indicating whether the customer has the option to apply gift wrapping to the product. This </td>
+	</tr>
   <tr>
     <td class="">If type == GiftCertificate</td>
     <td class="">If the item in the cart is a gift certificate, these properties are available:</td>
