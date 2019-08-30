@@ -1176,6 +1176,10 @@
     <td class=""><span class="indent1">image</span></td>
     <td class="">Product image for the cart item</td>
   </tr>
+	<tr>
+		<td class="">can_modify</td>
+		<td class="">Boolean indicating whether the customer may modify the quantity of, or remove, this cart item</td>
+	</tr>
   <tr>
     <td class=""><span class="indent1">event_date</span></td>
     <td class="">Chosen event date for event-based products</td>
@@ -1260,27 +1264,15 @@
     <td class=""><span class="indent1"> discount_percentage </span></td>
     <td class="">Bulk-discount percentage per item, if applicable; otherwise, null</td>
   </tr>  
-
+	<tr>
+		<td class="">custom_fields</td>
+		<td class="">Custom product fields set when product was added to cart</td>
+	</tr>
   <tr>
     <td class="">configurable_fields</td>
     <td class="">Custom product fields set when product was added to cart</td>
   </tr>
-  <tr>
-    <td class=""><span class="indent1"> name</span></td>
-    <td class="">Name of the custom option</td>
-  </tr>
-  <tr>
-    <td class=""><span class="indent1"> value</span></td>
-    <td class="">Value of the custom option</td>
-  </tr>
-  <tr>
-    <td class="">can_modify</td>
-    <td class="">Boolean indicating whether the customer may modify the quantity of, or remove, this cart item</td>
-  </tr>
-	<tr>
-		<td class="">show_gift_wrapping</td>
-		<td class="">Boolean indicating whether the customer has the option to apply gift wrapping to the product. This </td>
-	</tr>
+
   <tr>
     <td class="">If type == GiftCertificate</td>
     <td class="">If the item in the cart is a gift certificate, these properties are available:</td>
