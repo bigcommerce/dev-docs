@@ -1120,29 +1120,27 @@
     <td class="">id</td>
     <td class="">Unique system ID for the item in the cart</td>
   </tr>
+	<tr>
+		<td class="">remove_url</td>
+		<td class="">URL to remove this item from the cart</td>
+	</tr>
   <tr>
     <td class="">quantity</td>
     <td class="">Quantity of the item being ordered</td>
   </tr>
+	<tr>
+		<td class="">min_purchase_quantity</td>
+		<td class="">Quantity of the item being ordered</td>
+	</tr>
+	<tr>
+		<td class="">max_purchase_quantity</td>
+		<td class="">Maximum quantity the customer can order of the given item (if applicable)</td>
+	</tr>
   <tr>
     <td class="">type</td>
     <td class="">String indicating the type of purchase: either "Item" or "GiftCertificate"</td>
   </tr>
-  <tr>
-    <td class="">can_modify</td>
-    <td class="">Boolean indicating whether the customer may modify the quantity of, or remove, this cart item</td>
-  </tr>
-  <tr>
-    <td class="">remove_url</td>
-    <td class="">URL to remove this item from the cart</td>
-  </tr>
-
-  <tr>
-    <td class="">sku</td>
-    <td class="">SKU for this cart item</td>
-  </tr>
-
-  <tr>
+	<tr>
     <td class="">If type == Item</td>
     <td class="">If the item in the cart is a purchasable product, these properties are available:</td>
   </tr>
@@ -1150,6 +1148,14 @@
     <td class=""><span class="indent1">product_id</span></td>
     <td class="">Product ID for the cart item</td>
   </tr>
+	<tr>
+		<td class=""><span class="indent1">brand</span></td>
+		<td class="">Brand details for this cart item</td>
+	</tr>
+	<tr>
+		<td class=""><span class="indent2"> name</span></td>
+		<td class="">The product’s brand name</td>
+	</tr>
   <tr>
     <td class=""><span class="indent1">name</span></td>
     <td class="">Product name of the cart item</td>
@@ -1158,6 +1164,10 @@
     <td class=""><span class="indent1">url</span></td>
     <td class="">Link to the product page for the cart item</td>
   </tr>
+	<tr>
+		<td class=""><span class="indent1">sku</span></td>
+		<td class="">SKU value for this cart item</td>
+	</tr>
   <tr>
     <td class=""><span class="indent1">availability</span></td>
     <td class="">An optional availability message set by the merchant</td>
@@ -1166,14 +1176,38 @@
     <td class=""><span class="indent1">image</span></td>
     <td class="">Product image for the cart item</td>
   </tr>
+	<tr>
+		<td class="">can_modify</td>
+		<td class="">Boolean indicating whether the customer may modify the quantity of, or remove, this cart item</td>
+	</tr>
   <tr>
     <td class=""><span class="indent1">event_date</span></td>
     <td class="">Chosen event date for event-based products</td>
   </tr>
   <tr>
-    <td class=""><span class="indent1">show_wrapping_options</span></td>
+    <td class=""><span class="indent1">show_gift_wrapping</span></td>
     <td class="">Boolean indicating whether the wrapping options are shown</td>
   </tr>
+	<tr>
+		<td class="">gift_wrapping</td>
+		<td class="">Gift-wrapping options</td>
+	</tr>
+	<tr>
+		<td class=""><span class="indent1"> name</span></td>
+		<td class="">Name of the gift-wrapping option</td>
+	</tr>
+	<tr>
+		<td class=""><span class="indent1"> price</span></td>
+		<td class=""><a href="/stencil-docs/stencil-object-model-reference/stencil-objects/common-objects/price">Price object</a> that defines the price of the gift-wrapping option</td>
+	</tr>
+	<tr>
+		<td class=""><span class="indent1"> message</span></td>
+		<td class="">Customer-defined message for the gift wrapping </td>
+	</tr>
+	<tr>
+		<td class=""><span class="indent1"> remove_url</span></td>
+		<td class="">URL to remove the gift-wrapping option</td>
+	</tr>
   <tr>
     <td class=""><span class="indent1">rrp</span></td>
     <td class=""><a href="/stencil-docs/stencil-object-model-reference/stencil-objects/common-objects/price">Price object</a> that defines the cart item's list price (MSRP); can be used to display struck-out list prices, as explained <a href="#strikeout">here</a></td>
@@ -1195,36 +1229,8 @@
     <td class=""><a href="/stencil-docs/stencil-object-model-reference/stencil-objects/common-objects/price">Price object</a> that defines the total price (price * quantity), after all cart discounts and promotions</td>
   </tr>
   <tr>
-    <td class=""><span class="indent1">brand</span></td>
-    <td class="">Brand properties</td>
-  </tr>
-  <tr>
-    <td class=""><span class="indent2"> name</span></td>
-    <td class="">The product’s brand name</td>
-  </tr>
-  <tr>
     <td class=""><span class="indent1">release_date</span></td>
     <td class="">If a pre-order product was added to the cart,  displays a message about when the item is expected to ship to the customer</td>
-  </tr>
-  <tr>
-    <td class="">gift_wrapping</td>
-    <td class="">Gift-wrapping options</td>
-  </tr>
-  <tr>
-    <td class=""><span class="indent1"> name</span></td>
-    <td class="">Name of the gift-wrapping option</td>
-  </tr>
-  <tr>
-    <td class=""><span class="indent1"> price</span></td>
-    <td class=""><a href="/stencil-docs/stencil-object-model-reference/stencil-objects/common-objects/price">Price object</a> that defines the price of the gift-wrapping option</td>
-  </tr>
-  <tr>
-    <td class=""><span class="indent1"> message</span></td>
-    <td class="">Customer-defined message for the gift wrapping </td>
-  </tr>
-  <tr>
-    <td class=""><span class="indent1"> remove_url</span></td>
-    <td class="">URL to remove the gift-wrapping option</td>
   </tr>
   <tr>
     <td class="">options</td>
@@ -1258,19 +1264,15 @@
     <td class=""><span class="indent1"> discount_percentage </span></td>
     <td class="">Bulk-discount percentage per item, if applicable; otherwise, null</td>
   </tr>  
-
+	<tr>
+		<td class="">custom_fields</td>
+		<td class="">Custom product fields set when product was added to cart</td>
+	</tr>
   <tr>
     <td class="">configurable_fields</td>
     <td class="">Custom product fields set when product was added to cart</td>
   </tr>
-  <tr>
-    <td class=""><span class="indent1"> name</span></td>
-    <td class="">Name of the custom option</td>
-  </tr>
-  <tr>
-    <td class=""><span class="indent1"> value</span></td>
-    <td class="">Value of the custom option</td>
-  </tr>
+
   <tr>
     <td class="">If type == GiftCertificate</td>
     <td class="">If the item in the cart is a gift certificate, these properties are available:</td>
@@ -1537,10 +1539,6 @@ For further details about catalog price properties, please see [Catalog Price Ob
   <tr>
     <td>comments</td>
     <td>Customer’s message about the order</td>
-  </tr>
-  <tr>
-    <td>is_digital</td>
-    <td>Boolean indicating whether the order will be delivered digitally</td>
   </tr>
   <tr>
     <td>items</td>
