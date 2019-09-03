@@ -256,6 +256,9 @@
             "$ref": "#/parameters/max_total"
           },
           {
+            "$ref": "#/parameters/customer_id"
+          },
+          {
             "$ref": "#/parameters/email"
           },
           {
