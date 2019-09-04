@@ -4,12 +4,33 @@
 
 ### On This Page
 
+* [Step 0: Obtain Store API Credentials](#step-0-obtain-store-api-credentials)
 * [Step 1: Download a Theme](#step-1-download-a-theme)
 * [Step 2: Install Theme Modules](#step-2-install-theme-modules)
 * [Step 3: Serve Live Preview](#step-3-serve-live-preview)
+
 </div>
 
 Once Stencil CLI is installed, the next step on the road to theme development is downloading a theme to edit and previewing live changes using Stencil CLI's powerful Browsersync functionality. This article will walk you through the process of downloading a theme for development, installing theme modules, then serving a live preview using Stencil CLI's `stencil start` command. The steps in this article assume Stencil CLI has been installed on your system; if its not installed yet, see [Installing Stencil CLI](https://developer.bigcommerce.com/stencil-docs/installing-stencil-cli/installing-stencil) for detailed, operating system specific instructions.
+
+---
+
+<a href='#step-0-obtain-store-api-credentials' aria-hidden='true' class='block-anchor'  id='step-0-obtain-store-api-credentials'><i aria-hidden='true' class='linkify icon'></i></a>
+
+## Step 0: Obtain Store API Credentials
+
+Stencil CLI uses various BigCommerce APIs to inject store specific data (like carousel images and products) into the live theme preview it serves up. To do so, Stencil CLI must be supplied a store API token. [Store API Accounts](https://support.bigcommerce.com/s/article/Store-API-Accounts) and their tokens are generated in **Advanced Settings** > **API Accounts** inside a BigCommerce store's control panel (see [Store API Accounts](https://support.bigcommerce.com/s/article/Store-API-Accounts) for detailed instructions). 
+
+To automatically create a store API account with the scopes and permissions required by Stencil CLI, select **Create Stencil-CLI Token** in the **Create API Accounts** dropdown:
+
+![Create API Account](https://raw.githubusercontent.com/bigcommerce/dev-docs/master/assets/img/create-api-account.png "Create API Account")
+
+The **Stencil-CLI Access Level** can then be set by selecting **local development only** or **publish theme**:
+
+![Create Stencil-CLI Token](https://raw.githubusercontent.com/bigcommerce/dev-docs/master/assets/img/create-stencil-cli-token.png "Create Stencil-CLI Token")
+
+* **local development only** - can read theme related store data, but can not publish
+* **publish theme** - can read theme related store data and push themes to the live storefront
 
 ---
 
@@ -128,28 +149,21 @@ The Browsersync preview is launched by executing the `stencil start` command in 
 * an API access token
 * a local port number
 
-This configuration file is created by running `stencil init`, which begins a prompt requesting the information listed above (before doing so, be sure to obtain an API access token; for instructions on doing so, see: [Obtaining Store API Credentials](/api-docs/getting-started/authentication#authentication_getting-api-credentials)). 
+This configuration file is created by running `stencil init` and entering the information listed above (before doing so, be sure to [obtain store API credentials](#step-0-obtain-store-api-credentials)). 
 
-To initialize a new stencil configuration for a theme,`cd` into the theme's directory and run `stencil init`:
+To initialize a new `.stencil` configuration file and start live preview, run the following commands in a terminal:
 
 ```shell
-# move into theme dir
+# move into the theme's directory
 cd ~/path/to/theme/dir
 
 # install theme modules (if you haven't already)
 npm install
 
-# start .stencil initialization prompt
-stencil init
+# create .stencil configuration file
+stencil init --url https://yourstore.com/ --token 19d3ae6-dc15-4af9-bead-a2c703aa7b --port 3000
 
-# prompt:
-? What is the URL of your store\'s home page? # Your BigCommerce Storefront URL. Ex: https://yourstore.com/
-? What port would you like to run the server on? (3000) # Enter a port number or press enter to use default
-? What is your Stencil OAuth Access Token? # Enter your OAuth Access Token
-
-# a .stencil file will be generated
-
-# to serve the theme, run:
+# serve a live preview of the theme:
 stencil start
 ```
 
@@ -192,3 +206,4 @@ For a full list of Stencil CLI commands, see [Stencil CLI Options and Commands](
 
 ### Additional Resources
 * [Demonstration of Stencil Installation and Launch](https://www.youtube.com/watch/iWBrJalyM0A) (Youtube)
+* [Stencil CLI GitHub Repo](https://github.com/bigcommerce/stencil-cli)
