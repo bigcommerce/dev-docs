@@ -77,7 +77,7 @@ Options:
 
 ## `stencil init`
 
-Creates a `.stencil` file used to configure the live preview when `stencil start` is ran. The configuration information can be specified using the optional switches; if the configuration information is not specified via options, a prompt for the information will be displayed. 
+Creates a `.stencil` file used to configure the live preview when `stencil start` is run. The configuration information can be specified using the optional switches; if the configuration information is not specified via options, a prompt for the information will be displayed. 
 
 **Usage:**
 
@@ -132,7 +132,7 @@ stencil start --open # opens live theme preview in default browser
 <!-- theme: warning -->
 
 ### Authentication Errors
-> If you receive an `Unauthorized, please use a valid username/token` error, authentication has failed. Triple check the API token supplied is correct. For more information on creating store API accounts and generating tokens, see: [Obtaining Store API Credentials](https://developer.bigcommerce.com/stencil-docs/installing-stencil-cli/live-previewing-a-theme#step-3-serve-live-preview). 
+> If you receive an `Unauthorized, please use a valid username/token` error, authentication has failed. Check the API token supplied is correct. For more information on creating store API accounts and generating tokens, see: [Obtaining Store API Credentials](https://developer.bigcommerce.com/stencil-docs/installing-stencil-cli/live-previewing-a-theme#step-3-serve-live-preview). 
 
 </div>
 </div>
