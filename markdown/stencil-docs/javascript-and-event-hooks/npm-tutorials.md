@@ -16,14 +16,7 @@
 <div class="CalloutBlock--warning">
 <div class="HubBlock-content">
 
-<!-- theme: warning -->
-
-### Compatible with Cornerstone versions earlier than 2.x.x
-> Because this example involves editing the `webpack.conf.js` file, the way this example is outlined will align with only with Cornerstone versions earlier than 2.x.x. This is due to the transition to Webpack 4 in Cornerstone 2.0.0, which deprecated the `webpack.conf.js` file.
-
-</div>
-</div>
-</div>
+## What We're Building
 
 This example will use the [Foundation-datepicker.js](http://foundation-datepicker.peterbeno.com/#basic-example) plugin to implement a datepicker for product pages' Delivery/Event Date fields.
 
@@ -38,21 +31,13 @@ This example will use the [Foundation-datepicker.js](http://foundation-datepicke
 ](//s3.amazonaws.com/user-content.stoplight.io/6116/1539276603841 "#### Screenshot of final product
 ")
 
-To build this, you will need to complete the following steps:
-
-* Set Up Your Store
-* Install Dependencies
-* Configure Webpack Loaders
-* Import Dependencies
-* Configure the loaded() Method
-
-### Set Up Your Store
+## Set Up Your Store
 
 To test this example, you'll want your (sandbox or production) store to include at least a couple of products that have a `Delivery/Event Date` configured. (In production, you'd typically use this feature for things like seasonally themed products, temporary promotions, or event tickets.)
 
 For product configuration steps in the BigCommerce control panel, please see this support article.
 
-### Install Dependencies
+## Install Dependencies
 
 Use the following command to install this example's required dependencies:
 
@@ -70,29 +55,83 @@ The above command's options are:
 
 * `foundation-datepicker` specifies the datepicker package to install.
 
-### Configure Webpack loaders in webpack.conf.js
+## Configure Webpack Loaders
 
-The [css]() and [style]() loaders are used to import CSS and to inject it into the DOM, respectively:
+The `style` and `css` loaders are used to import CSS and to inject it into the DOM. To configure, add the following object to the `rules` array in the appropriate webpack.*.js file (if you're not sure, use `webpack.common.js` or `webpack.config.js`):
 
-```javascript
+<div class="HubBlock-header">
+    <div class="HubBlock-header-title flex items-center">
+        <div class="HubBlock-header-name"></div>
+    </div><div class="HubBlock-header-subtitle">webpack.common.js</div>
+</div>
+
+<!--
+title: ""
+subtitle: "webpack.common.js"
+lineNumbers: true
+-->
+
+```js
 {
     test: /\.css$/,
     loader: 'style-loader!css-loader',
 }
 ```
 
-<!--
-    title: #### CSS and style loaders in context
+<div class="HubBlock-header">
+    <div class="HubBlock-header-title flex items-center">
+        <div class="HubBlock-header-name">Cornerstone 3.4.4 Example</div>
+    </div><div class="HubBlock-header-subtitle">webpack.common.js</div>
+</div>
 
-    data: //s3.amazonaws.com/user-content.stoplight.io/6116/1539280227448
+<!--
+title: "Cornerstone 3.4.4 Example"
+subtitle: "webpack.common.js"
+lineNumbers: true
 -->
 
-#### CSS and style loaders in context
-![#### CSS and style loaders in context
-](//s3.amazonaws.com/user-content.stoplight.io/6116/1539280227448 "#### CSS and style loaders in context
-")
+```js
+// ...
 
-### Import the Dependencies
+module.exports = {
+    bail: true,
+    context: __dirname,
+    entry: {
+        main: './assets/js/app.js',
+    },
+    module: {
+        rules: [
+            {
+                test: /\.js$/,
+                include: /(assets\/js|assets\\js|stencil-utils)/,
+                use: {
+                    loader: 'babel-loader',
+                    options: {
+                        plugins: [
+                            '@babel/plugin-syntax-dynamic-import', // add support for dynamic imports (used in app.js)
+                            'lodash', // Tree-shake lodash
+                        ],
+                        presets: [
+                            ['@babel/preset-env', {
+                                loose: true, // Enable "loose" transformations for any plugins in this preset that allow them
+                                modules: false, // Don't transform modules; needed for tree-shaking
+                                useBuiltIns: 'usage', // Tree-shake babel-polyfill
+                                targets: '> 1%, last 2 versions, Firefox ESR',
+                            }],
+                        ],
+                    },
+                },
+            }, {
+                test:/\.css$/,
+                loader: 'style-loader!css-loader'
+            }
+        ],
+    },
+
+  //...
+```
+
+## Import the Dependencies
 
 Import these new dependencies into `<theme-name>/assets/js/theme/product.js`.
 
@@ -101,14 +140,13 @@ In `<theme-name>/assets/js/app.js`, notice that there is a mapping between the p
 ```javascript
 const PageClasses = {
     mapping: {
-        // ...
+        ...
         'pages/product': product,
-        // ...
 ```
 
 That is, when a user navigates to the product page, the `product.js` script is run. First its constructor will be run, followed by the methods `before`, `loaded`, and `after` – in that order.
 
-### Configure the loaded() Method
+## Configure the loaded() Method
 
 We'll use the `loaded` method to initialize our datepicker widget:
 
@@ -212,7 +250,6 @@ Note that we're "injecting" the product here, so we have access to its propertie
 
 We also needed to add form fields for the `EventDate[Mth]`, `EventDate[Day]`, and `EventDate[Yr]` data, which we update whenever the `changeDate` event occurs. This conforms to the data format that the server expects. These fields are hidden from the user.
 
-
 ---
 
 <a href='#npm-tutorials_advanced' aria-hidden='true' class='block-anchor'  id='npm-tutorials_advanced'><i aria-hidden='true' class='linkify icon'></i></a>
@@ -233,8 +270,13 @@ To build this, you will need to complete the following steps:
 * Create a CouponDrawer.js File
 * Create a VerticalLinearStepper.js File
 
+## Video of What We're Building
 
-### Install Dependencies
+<iframe width="560" height="315" src="https://www.youtube.com/embed/sudvuxJFxKc" frameborder="0" allow="autoplay; encrypted-media" allowfullscreen></iframe>
+
+<a href='#advanced_install-dependencies' aria-hidden='true' class='block-anchor'  id='advanced_install-dependencies'><i aria-hidden='true' class='linkify icon'></i></a>
+
+## Install Dependencies
 
 Material-UI requires the `react-tap-event-plugin` module. Also, `document-register-element` is needed to polyfill `document.registerElement`. The babel presets and plugins are needed to support `Object.assign`, `react`, and `Material-UI`, respectively:
 
@@ -243,56 +285,47 @@ npm install -save-dev document-register-element material-ui react react-dom reac
 npm install -save-dev babel-plugin-transform-object-assign babel-preset-react babel-preset-stage-1
 ```
 
-### Import Dependencies
+<a href='#advanced_import-dependencies' aria-hidden='true' class='block-anchor'  id='advanced_import-dependencies'><i aria-hidden='true' class='linkify icon'></i></a>
+
+## Import Dependencies
 
 Next, import the new dependencies into `<theme-name>/assets/js/app.js`
 
-Note the CouponDrawer import at the bottom in the photo below. This file doesn’t yet exist, but we’ll shortly create a React component with this name.
-
-
-
+Note the `CouponDrawer` import at the bottom. This file doesn't yet exist, but we'll shortly create a React component with this name:
 
 <!--
     title: #### app.js imports
 
-    data: //s3.amazonaws.com/user-content.stoplight.io/6116/1561419156404
+    data: //s3.amazonaws.com/user-content.stoplight.io/6116/1540279579178
 -->
 
 #### app.js imports
 ![#### app.js imports
-](//s3.amazonaws.com/user-content.stoplight.io/6116/1561419156404 "#### app.js imports
+](//s3.amazonaws.com/user-content.stoplight.io/6116/1540279579178 "#### app.js imports
 ")
 
-### Update webpack.conf.js
+<a href='#advanced_update-webpackconfjs' aria-hidden='true' class='block-anchor'  id='advanced_update-webpackconfjs'><i aria-hidden='true' class='linkify icon'></i></a>
+
+## Update webpack.conf.js
 
 Update webpack.conf.js with the new presets and plug-ins, as shown here:
 
 <!--
     title: #### webpack.config.js: presets and plugins
 
-    data: //s3.amazonaws.com/user-content.stoplight.io/6116/1561419204148
+    data: //s3.amazonaws.com/user-content.stoplight.io/6116/1540279603654
 -->
 
 #### webpack.config.js: presets and plugins
 ![#### webpack.config.js: presets and plugins
-](//s3.amazonaws.com/user-content.stoplight.io/6116/1561419204148 "#### webpack.config.js: presets and plugins
+](//s3.amazonaws.com/user-content.stoplight.io/6116/1540279603654 "#### webpack.config.js: presets and plugins
 ")
 
-### Update app.js
+<a href='#advanced_update-appjs' aria-hidden='true' class='block-anchor'  id='advanced_update-appjs'><i aria-hidden='true' class='linkify icon'></i></a>
 
-Add the following code to the bottom of `<theme-name>/assets/js/app.js:`
+## Update app.js
 
-<div class="HubBlock-header">
-    <div class="HubBlock-header-title flex items-center">
-        <div class="HubBlock-header-name"></div>
-    </div><div class="HubBlock-header-subtitle"></div>
-</div>
-
-<!--
-title: ""
-subtitle: ""
-lineNumbers: true
--->
+Add the following code to the bottom of `<theme-name>/assets/js/app.js`:
 
 ```javascript
 window.initReact = function(contextJSON = '{}') {
@@ -322,37 +355,42 @@ window.initReact = function(contextJSON = '{}') {
 }
 ```
 
-This sets up a handler for attaching an `<x-coupon-drawer>` element to the page. We’re using React here to render the CouponDrawer component. This block of code was taken and modified from https://facebook.github.io/react/docs/web-components.html#using-react-in-your-web-components.
+This sets up a handler for attaching an `<x-coupon-drawer>` element to the page. We're using React here to render the `CouponDrawer` component. This block of code was taken and modified from https://facebook.github.io/react/docs/web-components.html#using-react-in-your-web-components.
 
-### Add the `<x-coupon-drawer>` Element to the Page
+<a href='#advanced_add-the-xcoupondrawer' aria-hidden='true' class='block-anchor'  id='advanced_add-the-xcoupondrawer'><i aria-hidden='true' class='linkify icon'></i></a>
 
-Add this in `<theme-name>/templates/layout/base.html.` (See the image below.) We’re using this layout template for this example, although you would follow the same steps in any other template.
+## Add the `<x-coupon-drawer>` Element to the Page
 
-### Call initReact from base.html
+Add this in `<theme-name>/templates/layout/base.html`. (See the image below.) We're using this layout template for this example, although you would follow the same steps in any other template.
 
-Add a call to `window.initReact`. We’re continuing to work with the `base.html` page for this example. Notice that we’re also passing in the jsContext here. The `initReact` method will merge this context with an object created from the attributes placed upon the `<x-coupon-drawer>`, and will pass the combined data along to the React component.
+<a href='#advanced_call-initreact' aria-hidden='true' class='block-anchor'  id='advanced_call-initreact'><i aria-hidden='true' class='linkify icon'></i></a>
 
-### Create an assets/js/components Folder
+## Call initReact from base.html
 
-We’ll store our React components here.
-
-### Create a CouponDrawer.js File
-
-Create a `<theme-name>/assets/js/components/CouponDrawer.js` file. Populate this file with the following code block (which is adapted from http://www.material-ui.com/#/components/drawer):
-
-
-
-<div class="HubBlock-header">
-    <div class="HubBlock-header-title flex items-center">
-        <div class="HubBlock-header-name"></div>
-    </div><div class="HubBlock-header-subtitle"></div>
-</div>
+Add a call to `window.initReact`. We're continuing to work with the `base.html` page for this example. Notice that we're also passing in the jsContext here. The `initReact` method will merge this context with an object created from the attributes placed upon the `<x-coupon-drawer>`, and will pass the combined data along to the React component.
 
 <!--
-title: ""
-subtitle: ""
-lineNumbers: true
+    title: #### base.html setup
+
+    data: //s3.amazonaws.com/user-content.stoplight.io/6116/1540279254389
 -->
+
+#### base.html setup
+![#### base.html setup
+](//s3.amazonaws.com/user-content.stoplight.io/6116/1540279254389 "#### base.html setup
+")
+
+<a href='#advanced_create-an-assetsjscomp' aria-hidden='true' class='block-anchor'  id='advanced_create-an-assetsjscomp'><i aria-hidden='true' class='linkify icon'></i></a>
+
+## Create an assets/js/components Folder
+
+We'll store our React components here.
+
+<a href='#advanced_create-a-coupondrawerjs-file' aria-hidden='true' class='block-anchor'  id='advanced_create-a-coupondrawerjs-file'><i aria-hidden='true' class='linkify icon'></i></a>
+
+## Create a CouponDrawer.js File
+
+Create a `<theme-name>/assets/js/components/CouponDrawer.js` file. Populate this file with the following code block (which is adapted from http://www.material-ui.com/#/components/drawer):
 
 ```javascript
 import React from 'react';
@@ -387,23 +425,13 @@ export default class CouponDrawer extends React.Component {
 }
 ```
 
-### Create a VerticalLinearStepper.js File
+<a href='#advanced_create-a-verticallinear' aria-hidden='true' class='block-anchor'  id='advanced_create-a-verticallinear'><i aria-hidden='true' class='linkify icon'></i></a>
+
+## Create a VerticalLinearStepper.js File
 
 Create a `<theme-name>/assets/js/components/VerticalLinearStepper.js` file. Populate this file with the following code block:
 
-<div class="HubBlock-header">
-    <div class="HubBlock-header-title flex items-center">
-        <div class="HubBlock-header-name"></div>
-    </div><div class="HubBlock-header-subtitle"></div>
-</div>
-
-<!--
-title: ""
-subtitle: ""
-lineNumbers: true
--->
-
-```js
+```javascript
 import React from 'react';
 import {
   Step,
@@ -515,14 +543,16 @@ class VerticalLinearStepper extends React.Component {
 export default VerticalLinearStepper;
 ```
 
+The above code block was adapted from http://www.material-ui.com/#/components/stepper.
+
 <div class="HubBlock--callout">
 <div class="CalloutBlock--">
 <div class="HubBlock-content">
 
 <!-- theme:  -->
 
-### Note on the VerticalLinearStepper.js Example
-> We must register a custom element to set up the “root” of every React component we create. However, within a React component, we can import other React components without having to register them. For example, here we register x-coupon-drawer as a custom element that renders the React CouponDrawer component. However, within CouponDrawer, we can simply import the VerticalLinearStepper component needing to set it up in the same way.
+###  Note on the VerticalLinearStepper.js Example
+> We must register a custom element to set up the "root" of every React component we create. However, within a React component, we can import other React components without having to register them. For example, here we register x-coupon-drawer as a custom element that renders the React CouponDrawer component. However, within CouponDrawer, we can simply import the VerticalLinearStepper component needing to set it up in the same way.
 
 </div>
 </div>
