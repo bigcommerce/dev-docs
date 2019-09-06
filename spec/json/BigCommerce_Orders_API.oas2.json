@@ -2669,7 +2669,7 @@
                 "type": "string"
               },
               "value": {
-                "description": "",
+                "description": "This value is used to access the Customer File Upload",
                 "example": "70",
                 "type": "string"
               },
