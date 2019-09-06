@@ -265,7 +265,7 @@ For products that have min and max quantities specified in their settings, the A
 
 For products where product options are required, the API will validate these requirements to ensure that the product options are specified.
 
-**Customer File Uploads**
+**Custom File Uploads**
 
 For products that allow customers to upload a file at checkout (i.e. an image uploaded for a t-shirt order), developers can follow these steps to retrieve the file:
 
