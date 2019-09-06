@@ -265,6 +265,14 @@ For products that have min and max quantities specified in their settings, the A
 
 For products where product options are required, the API will validate these requirements to ensure that the product options are specified.
 
+**Customer File Uploads**
+
+For products that allow customers to upload a file at checkout (i.e. an image uploaded for a t-shirt order), developers can follow these steps to retrieve the file:
+
+* Get the filename value from GET [/orders/[order_id]/products](https://developer.bigcommerce.com/api-reference/orders/orders-api/order-products/getallorderproducts), in the product_options array
+* Use that filename value to download the file via WebDAV using the following path: https://store.com/product_images/configured_products/[value]
+
+
 <a href='#orders-api-overview_add-billing-address' aria-hidden='true' class='block-anchor'  id='orders-api-overview_add-billing-address'><i aria-hidden='true' class='linkify icon'></i></a>
 
 ### Add a Billing Address
