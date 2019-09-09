@@ -17,4 +17,4 @@ on:
         SL_TOKEN: ${{ secrets.SL_TOKEN }}
       uses: actions/bin/curl@master
       with:
-      - args: -H "Authorization: Bearer $SL_TOKEN" -x POST https://next-api.stoplight.io/docs.release?id=890
+        args: -H "Authorization: Bearer $SL_TOKEN" -x POST https://next-api.stoplight.io/docs.release?id=890
