@@ -1,0 +1,20 @@
+name: CI
+
+on: [push]
+
+on:
+  push:
+    branches:
+      - master
+    paths:
+      - 'markdown/*'
+
+    runs-on: ubuntu-latest
+    
+    steps:
+    - name: Stoplight API Request
+      env:
+        SL_TOKEN: ${{ secrets.SL_TOKEN }}
+      uses: actions/bin/curl@master
+      with:
+      - args: -H "Authorization: Bearer $SL_TOKEN" -x POST https://next-api.stoplight.io/docs.release?id=890
