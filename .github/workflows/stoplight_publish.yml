@@ -1,0 +1,19 @@
+name: CI
+
+on:
+  push:
+    branches:
+      - master
+    paths:
+      - 'markdown/*'
+      
+jobs:
+  publish:
+    name: Trigger Stoplight Build
+    runs-on: ubuntu-latest
+    
+    steps:
+    - name: Stoplight API Request
+      uses: actions/bin/curl@master
+      with:
+        args: ["${{ secrets.SL_AUTH_HEADER }} -x POST https://next-api.stoplight.io/docs.release?id=890"]
