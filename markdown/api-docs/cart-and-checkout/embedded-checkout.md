@@ -14,7 +14,7 @@
 
 <a href='#embedded-checkout_embedded-checkout' aria-hidden='true' class='block-anchor'  id='embedded-checkout_embedded-checkout'><i aria-hidden='true' class='linkify icon'></i></a>
 
-Embedded Checkout lets you place BigCommerce’s checkout into any website. You can create a seamless conversion experience that allows shoppers to remain on your external website through the lifecycle of checkout, while syncing order information to the BigCommerce Control Panel. You can see this in action within the BigCommerce for WordPress plugin, which uses the same process described here as a checkout option for merchants. View more information on the plugin [here](https://developer.bigcommerce.com/bigcommerce-for-wordpress/getting-started/introduction).
+Embedded Checkout lets you place BigCommerce’s checkout onto any website. You can create a seamless conversion experience that allows shoppers to remain on your external website through the lifecycle of checkout, while syncing order information to the BigCommerce Control Panel. You can see this in action within the BigCommerce for WordPress plugin, which uses the same process described here as a checkout option for merchants. View more information on the plugin [here](https://developer.bigcommerce.com/bigcommerce-for-wordpress/getting-started/introduction).
 
 <a href='#embedded-checkout_initial-setup' aria-hidden='true' class='block-anchor'  id='embedded-checkout_initial-setup'><i aria-hidden='true' class='linkify icon'></i></a>
 
@@ -256,11 +256,13 @@ Once you have created the JSON object, create an empty `<div>` with the id attri
 
 Example: `<div id="bc-embedded-checkout"></div>`
  
-Finally, render the checkout from your app by first installing the BigCommerce [Checkout SDK](https://developer.bigcommerce.com/api-docs/cart-and-checkout/checkout-sdk) into your project. 
+Finally, we will render the checkout from your app.
+
+Install the BigCommerce [Checkout SDK](https://developer.bigcommerce.com/api-docs/cart-and-checkout/checkout-sdk) into your project. 
 
 `npm install --save @bigcommerce/checkout-sdk`
 
-Import and invoke the checkout service, and import and call the `embedCheckout` method while passing in your JSON object.
+Then import and invoke the checkout service, and import and call the `embedCheckout` method while passing in your JSON object.
 
 
 <!--
@@ -291,3 +293,21 @@ embedCheckout({
 
 ```
 At this point, you should have a working embedded checkout.
+
+##FAQ
+
+### How can I work with embedded checkout locally?
+
+* You cannot pass `https://localhost:[port]` when you create a channel. The response will always be returned as `https://localhost`. One way of getting around this is using port 443 to serve your app. When using `https` this is what localhost will default to.
+
+* Another option is to spin up a server locally.
+
+* You can also publish your app in the cloud and develop it from there. For example, you can host your app on Heroku and and set it up to [automatically deploy with GitHub](https://devcenter.heroku.com/articles/github-integration).
+
+### Do I have to create a channel?
+No. If you don’t create a channel, the checkout and all subsequent shopper experience will reference the BigCommerce storefront urls. This is helpful if you are building landing pages on another site that require an embedded checkout because of the desired UX, however it’s acceptable to direct users to a central site after purchase.
+
+### How does this work with registered customers?
+Customers are handled in two steps. First, you need to pass the customer_id when creating the cart. Second, you need to log in the customer so the session is active when the checkout loads. This is done through the Customer Login API which is documented here.
+
+
