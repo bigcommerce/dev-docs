@@ -2,7 +2,7 @@
 <div class="otp" id="no-index">
 	<h3> On This Page </h3>
 	<ul>
-    <li><a href="#embedded-checkout_initial-setup">Step 1: Initial Setup</a></li>
+    <li><a href="#embedded-checkout_prerequisites">Step 1: Prerequisites</a></li>
     <li><a href="#embedded-checkout_create-channel">Step 2: Create a Channel</a></li>
     <li><a href="#embedded-checkout_create-site">Step 3: Create a Site</a></li>
     <li><a href="#embedded-checkout_create-cart">Step 4: Create a Cart</a></li>
@@ -11,27 +11,21 @@
 	</ul>
 </div>
 
-Embedded Checkout lets you place BigCommerce’s checkout onto any website. Customers will be able to check out on your site while their order information syncs simultaneously to the BigCommerce Control Panel. You can see this in action within the BigCommerce for WordPress plugin, which uses the same process described here as a checkout option for merchants. View more information on the plugin [here](https://developer.bigcommerce.com/bigcommerce-for-wordpress/getting-started/introduction).
+Embedded Checkout lets you place BigCommerce’s checkout onto any website. Customers can check out on an external storefront while their order information syncs simultaneously to the BigCommerce Control Panel. You can see this in action within the BigCommerce for WordPress plugin, which uses the same process described here as a checkout option for merchants. View more information about the plugin in the article [BigCommerce for Wordpress](https://developer.bigcommerce.com/bigcommerce-for-wordpress/getting-started/introduction).
 
-This tutorial will walk you through creating a working BigCommerce embedded checkout on an external website.
+This tutorial will walk you through creating a working BigCommerce embedded checkout example deployed to [Heroku](https://heroku.com). Embedded checkout uses an iFrame to insert the Optimized One-Page Checkout from your BigCommerce store into another site. This is a good solution if you want to sell products from your BigCommerce store on another site without worrying about PCI compliance.
 
-You will need to use the Channels, Sites and Routes APIs to complete this tutorial. 
+You will need to use the [Channels, Sites and Routes](#) APIs to complete this tutorial. The Channels API allows you to create and manage sales channel listings across a merchant's channels. The Sites and Routes APIs let you set an external storefront domain and destination routes that are not BigCommerce URLs.
 
-The Channels API is... The Sites API is... The Routes API is...
+This tutorial will cover the sequence of API calls necessary to create an embedded checkout. In the real world, your app would manage all of these API calls server side, after being prompted by a customer adding an item to cart on your external site's front end.
 
+<a href='#embedded-checkout_prerequisites' aria-hidden='true' class='block-anchor'  id='embedded-checkout_prerequisites'><i aria-hidden='true' class='linkify icon'></i></a>
 
-This tutorial will cover the sequence of API calls necessary to create an embedded checkout, but in the real-world, you'd 
-this is the sequence of API calls... if you were doing it for real... talk about how these are the server side API etc
+## 1: Prerequisites
 
-** explain problems we're solving and why to use this solution over another; call out its an iframe**
+### Credentials
 
-<a href='#embedded-checkout_initial-setup' aria-hidden='true' class='block-anchor'  id='embedded-checkout_initial-setup'><i aria-hidden='true' class='linkify icon'></i></a>
-
-## 1: Initial Setup
-
-Obtain a set of Store API credentials, which can be found [in the Control Panel of your BigCommerce store.](https://developer.bigcommerce.com/api-docs/getting-started/authentication#authentication_getting-api-credentials)
-
-TODO: fix this link to style guide spec
+Obtain a set of Store API credentials, which can be found in the Control Panel of your BigCommerce store. See [Authentication](https://developer.bigcommerce.com/api-docs/getting-started/authentication#authentication_getting-api-credentials) for details.
 
 These scopes are required for this guide:
 
@@ -46,15 +40,49 @@ These scopes are required for this guide:
 
 We recommend limiting scopes only to what you need in your script or app. Learn more about scopes [here](https://developer.bigcommerce.com/api-docs/getting-started/authentication).
 
+### Create React App
+
+This tutorial uses several npm packages to build an embeddable checkout. First we will spin up a basic [React](https://reactjs.org) application that we'll use as a starting point. Run the following in your shell:
+
+<!--
+title: "Create react app"
+subtitle: ""
+lineNumbers: true
+-->
+
+```shell
+npx create-react-app bc-embedded-checkout
+
+cd bc-embedded-checkout
+
+npm start
+```
+
+### BigCommerce Checkout SDK
+Install the BigCommerce Checkout SDK to invoke a method that can render the checkout in your app.
+
+In your project folder, run the following in your shell:
+
+<!--
+title: "Install Checkout SDK"
+subtitle: ""
+lineNumbers: true
+-->
+
+```shell
+npm install --save @bigcommerce/checkout-sdk
+
+```
+
+### Heroku
+
+We'll be deploying this app on [Heroku](https://heroku.com). Create a new app and give it a name. We will use the app's public URL to create a Channel in the next step.
+
 <a href='#embedded-checkout_create-channel' aria-hidden='true' class='block-anchor'  id='embedded-checkout_create-channel'><i aria-hidden='true' class='linkify icon'></i></a>
 
 ## 2: Create a Channel
 
-TODO: explain what channels represent; its not just a checkout running in isolation
-
-In order to authenticate your external website to serve the BigCommerce checkout, you must first create a new Channel using the [Channels API](link).
-
-TODO: "every outlet for selling prods needs to registered with bigcommerce"
+In order to allow your external website to serve the BigCommerce checkout, you must first create a new Channel using the Channels API.
 
 To do this, make a POST request to `https://api.bigcommerce.com/stores/{{store_hash}}/V3/channels`
 
@@ -69,18 +97,15 @@ lineNumbers: true
 ```js
 {
     "type": "storefront",
-    "platform": "wordpress",
-    "name": "https://my-website-address.com"
+    "platform": "custom",
+    "name": "https://bc-react.herokuapp.com"
 }
 
 ```
 
 The response will be an `id` which you will use as the `channel_id` in future requests. Let's assume it's `15001` for this guide.
 
-Once you create a Channel, it appears in your BigCommerce Control Panel under Products > Listed On. Here merchants can choose which products should be available to purchase for that channel. The Orders section will now also include a filter for your channel.
-
-TODO: use passive voice "products can be chosen..."
-
+Once you create a Channel, it appears in your BigCommerce Control Panel under Products > Listed On. Here products can be chosen to be listen on each desired channel. The Orders section will now also include a filter for your channel.
 
 <a href='#embedded-checkout_create-site' aria-hidden='true' class='block-anchor'  id='embedded-checkout_create-site'><i aria-hidden='true' class='linkify icon'></i></a>
 
@@ -88,7 +113,6 @@ TODO: use passive voice "products can be chosen..."
 
 Next you will need to create a site for the channel. Make a POST to `https://api.bigcommerce.com/stores/{{store_hash}}/v3/channels/{{channel_id}}/site`
 
-TODO: include correct JSON
 <!--
 title: "POST to Channels"
 subtitle: ""
@@ -99,44 +123,24 @@ lineNumbers: true
 
 ```js
 {
-    "type": "storefront",
-    "platform": "wordpress",
-    "name": "https://my-website-address.com"
+    "channel_id": 15001,
+    "url": "https://bc-react.herokuapp.com"
 }
 
 ```
 
 This returns `id` which you will use as the `site_id` in future requests. The `url` value is the base path for all other routes you define for the site.
 
-<!--
-title: "Create Site Response"
-subtitle: ""
-lineNumbers: true
--->
-
-**Response**
-
-```js
-{
-    "channel_id": 15001,
-    "url": "https://www.my-website-address.com"
-}
-
-```
 
 <a href='embedded-checkout_create-cart' aria-hidden='true' class='block-anchor'  id='embedded-checkout_create-cart'><i aria-hidden='true' class='linkify icon'></i></a>
 
 ## 4: Create a Cart
 
-TODO: In order to proceed to checkout, an active cart is required
+In order to proceed to checkout, an active cart is required. You'll use the [Server-to-Server Cart API](https://developer.bigcommerce.com/api-reference/cart-checkout/server-server-cart-api) to generate it.
 
-You must create a cart using the [Server-to-Server Cart API](https://developer.bigcommerce.com/api-reference/cart-checkout/server-server-cart-api) in order to display the checkout. 
+We'll also use the [Catalog API](https://developer.bigcommerce.com/api-reference/catalog/catalog-api) to obtain `product_id`s and/or `variant_id`s for the items we need to build a cart. See [Catalog API](https://developer.bigcommerce.com/api-reference/catalog/catalog-api/products/getproductbyid) for more information on how to GET a product.
 
-Use the [Catalog API](https://developer.bigcommerce.com/api-reference/catalog/catalog-api) to obtain `product_id`s and/or `variant_id`s for the items you'll use to build a cart. [View this page](https://developer.bigcommerce.com/api-reference/catalog/catalog-api/products/getproductbyid) for more information on using the Catalog API to GET a product.
-
-Make a POST with your product information to the Carts endpoint: `https://api.bigcommerce.com/stores/{{store_hash}}/v3/carts`
-
-TODO: note that you must include the channel id
+Make the POST with your product information to the Carts endpoint: `https://api.bigcommerce.com/stores/{{store_hash}}/v3/carts`
 
 <div class="HubBlock--callout">
 <div class="CalloutBlock--">
@@ -178,10 +182,7 @@ This will return a UUID format `id` that you will use as the `cart_id`.
 
 ## 5: Create Routes
 
-TODO: explain what a route is
-
-Create routes to redirect customers from links on your external site to the appropriate BigCommerce URLs. 
-
+Next we'll create routes to redirect customers from links on your external site to the appropriate BigCommerce URLs.
 
 To do so, make a PUT to this endpoint: `https://api.bigcommerce.com/stores/{{store_hash}}/v3/sites/{{site_id}}/routes`
 
@@ -194,15 +195,13 @@ lineNumbers: true
 **Create Cart POST**
 
 ```js
-
 [
-    {
-    "type": "product",
-    "matching": "*",
-    "route": "/products/"
-    }
-]
-
+  {
+    type: "product",
+    matching: "*",
+    route: "/products/"
+  }
+];
 ```
 
 <div class="HubBlock--callout">
@@ -211,7 +210,7 @@ lineNumbers: true
     
 <!-- theme:  -->
 
-This resource supports upsert, so you can batch upsert routes on the PUT request. POST only supports single creation.
+This resource supports upsert, so you can batch upsert routes on the PUT request. POST only supports single route creation.
 
 </div>
 </div>
@@ -228,10 +227,7 @@ For a full list of supported `type` values, see the [Sites & Routes API](#) docu
 To generate a cart URL and set this cart as the active cart for a shopper, make a POST to:
 `https://api.bigcommerce.com/stores/{{store_hash}}/v3/carts/{{cart_id}}/redirect_urls`
 
-Once you generate the redirect URLs they can only be used once. Your front-end should send information to your app that it can use to generate a cart and the redirect URL, and then proceed to pass the redirect URL to the `embedCheckout` method.
-
-TODO: "Your front end should communicate to the back end application to build and manage the shopper's cart and generate the redirect URL"
-
+Once you generate the redirect URLs they can only be used once. 
 <!--
 title: "Response"
 subtitle: ""
@@ -278,20 +274,11 @@ lineNumbers: true
 
 ```
 
-Once you have created the JSON object, create an empty `<div>` with the id attribute mapped to the value for "containerId” in the page where you want to embed the checkout.
+Once you have created the JSON object, in your app project folder navigate to `public > index.html`. Create an empty `<div>` with the id attribute mapped to the value for `containerId` in the page where you want to embed the checkout.
 
 Example: `<div id="bc-embedded-checkout"></div>`
- 
-Finally, we will render the checkout from your app.
 
-TODO: fill in steps here.....
-
-TODO: *move this to the into graf Install the BigCommerce [Checkout SDK](https://developer.bigcommerce.com/api-docs/cart-and-checkout/checkout-sdk) into your project. 
-
-`npm install --save @bigcommerce/checkout-sdk`
-
-Then import and invoke the checkout service, and import and call the `embedCheckout` method while passing in your JSON object.
-
+Finally, we will render the checkout from your app. Import and invoke the checkout service, and import and call the `embedCheckout` method while passing in your JSON object.
 
 <!--
 title: "External app"
@@ -299,44 +286,50 @@ subtitle: ""
 lineNumbers: true
 -->
 
-**External app**
+**App.js**
 
 ```js
+import React from 'react';
+import './App.css';
 import {createCheckoutService} from '@bigcommerce/checkout-sdk'
 import {embedCheckout} from '@bigcommerce/checkout-sdk'
 
 const service = createCheckoutService();
 
-embedCheckout({
-"containerId": "bc-embedded-checkout",
-"url": "https://store-id30h7ohwf.mybigcommerce.com/cart.php?embedded=1&action=loadInCheckout&id=bc218c65-7a32-4ab7-8082-68730c074d02&token=aa958e2b7922035bf3339215d95d145ebd9193deb36ae847caa780aa2e003e4b",
-"styles": {
-    "button": {
-	"backgroundColor": "#ffffff",
-	"borderColor": "#000000",
-	"color": "#000000"
-        }   
-    }
-});
 
+class App extends React.Component {
+componentDidMount(){
+  embedCheckout({
+    "containerId": "bc-embedded-checkout",
+    "url": "https://my-site.com/cart.php?embedded=1&action=loadInCheckout&id=9a988ee4-be1e-4fbd-9e3c-5cc32df42cbd&token=bccc9a5e9691a7d30267a3188c238d7a22d2d9685734e926cf4c261f7c83de13",
+    "styles": {
+      "button": {
+        "backgroundColor": "#ffffff",
+        "borderColor": "#000000",
+        "color": "#000000"
+      }
+    }
+  })
+ }
+ render(){
+   return <h1>BC Embedded Checkout</h1>
+ }
+}
+
+export default App;
 ```
-At this point, you should have a working embedded checkout.
+
+At this point, you should have a working embedded checkout. 
 
 ##FAQ
 
 ### How can I work with embedded checkout locally?
 
-There are several things to consider when working locally. Your channel site must match the URL from which you're making a requxest to a BigCommerce store or embedded checkout will not load. Requests to your BigCommerce store must also be served over HTTPS.
+If your channel site doesn't match the URL from which you're making a request to a BigCommerce, you will get a security error and the checkout will not load. Additionally, if requests to your BigCommerce store aren't served over HTTPS, you will also see an error.
 
-There are several options you have etc etc
-
-* Be awa FIX THIS PART `https://localhost:[port]` as the site name when you create a channel. The response will always be returned as `https://localhost`. One way of getting around this is using port 443 to serve your app. When using `https` this is what localhost will default to.
-
-* You can also publish your app in the cloud and develop it from there. For example, you can host your app on Heroku and and set it up to [automatically deploy with GitHub](https://devcenter.heroku.com/articles/github-integration).
-
-* Another option is to spin up a server locally.
+One option to work locally is to install an SSL on your local machine, and then send `https://localhost.com` at the Channel site. Use the default port 443 to be able to preview your site locally.
 
 ### How does this work with logged-in customers?
-Customers are handled in two steps. First, you need to pass the customer_id when creating the cart. Second, you need to log in the customer so the session is active when the checkout loads. This is done through the Customer Login API which is documented here.
 
+Customers are handled in two steps. First, you need to pass the customer_id when creating the cart. Second, you need to log in the customer so the session is active when the checkout loads. This is done through the [Customer Login API](https://developer.bigcommerce.com/api-docs/customers/customer-login-api).
 
