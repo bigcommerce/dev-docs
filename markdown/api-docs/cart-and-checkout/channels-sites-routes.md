@@ -21,13 +21,16 @@ Through these integrations, merchants can easily expand where they sell their pr
 
 ## Channels and Listings
 
-The `/channels/` endpoint allows the creations of an external platform on which you can list products beyond the BigCommerce Storefront. Each Channel represents an external platform, site or CMS.
+The `/channels/` endpoint allows the creation of an external platform on which you can list products beyond the BigCommerce Storefront. Each Channel represents an external platform, site or CMS. Each channel defines which external platform will appear in the store UI.
 
 The `/channels/{channelId}/listings` endpoint represents an individual product per channel, allowing you to override fields with different values, whether necessary for merchandising, external channel requirements, enabling a different language, or more.
 
 ## Sites and Routes
 
 The endpoint for `/channels/{channel_id}/site` lets you define the external platform for each sales Channel.
+
+
+The `/sites/{site_id}/routes` endpoints define redirect URLs for the default URLs that would redirect back to parts of your BigCommerce store. If you don’t add a route for a certain type of entity / entities, we will default to the BigCommerce storefront URL instead.
 
 
 
