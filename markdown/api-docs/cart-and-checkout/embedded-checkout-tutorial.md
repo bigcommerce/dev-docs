@@ -47,7 +47,7 @@ The response will contain an `id` (use this as the`channel_id` in future request
 
 {
     "data": {
-        "id": 20244,
+        "id": 20266,
         "name": "https://www.{your-site}.com",
         "platform": "custom",
         "type": "storefront",
@@ -72,7 +72,7 @@ The response will contain an `id` (use this as the`channel_id` in future request
 
 ## 3: Create a Site
 
-Next, create a site for the channel by POSTing to the [/channels/id endpoint](/path/to/reference):
+Next, create a site for the channel by POSTing to the [/channels/id/site endpoint](/path/to/reference):
 
 *`POST`* `https://api.bigcommerce.com/stores/{{store_hash}}/v3/channels/{{channel_id}}/site`
 
@@ -87,12 +87,26 @@ lineNumbers: true
 ```js
 {
     "channel_id": 15001,
-    "url": "https://bc-react.herokuapp.com"
+    "url": "https://www.{your-site}.com"
 }
 ```
 
 This returns `id` which you will use as the `site_id` in future requests. The `url` value is the base path for all other routes you define for the site.
 
+```js
+{
+    {
+    "data": {
+        "id": 6,
+        "url": "https://www.{your-site}.com",
+        "channel_id": 15001,
+        "created_at": "2019-09-19T17:08:44Z",
+        "updated_at": "2019-09-19T17:08:44Z"
+    },
+    "meta": {}
+    }
+}
+```
 
 <a href='embedded-checkout_create-cart' aria-hidden='true' class='block-anchor'  id='embedded-checkout_create-cart'><i aria-hidden='true' class='linkify icon'></i></a>
 
@@ -117,12 +131,6 @@ To proceed to checkout, we'll need an active cart. To create one, send a `POST` 
 
 Contained in the response is a `UUID` which is we'll as the `cart_id` in the next request: 
 	
-```json
-{
-	// example
-}
-```
-	
 Next, generate a cart URL and set this cart as the active cart by posting to  to `/carts/{{cart_id}}/redirect_urls`:
 
 **`POST`** `https://api.bigcommerce.com/stores/{{store_hash}}/v3/carts/{{cart_id}}/redirect_urls`
@@ -139,7 +147,7 @@ Next, generate a cart URL and set this cart as the active cart by posting to  to
 
 ## Step 5: Embed Checkout
 
-Use the `embedded_checkout_url` that is returned and assemble a JSON object that will be used by the Checkout JS SDK to determine how to render the checkout.
+Use the `embedded_checkout_url` that is returned and assemble a JSON object that will be used by the Checkout JS SDK to determine how to render the checkout. Pass the object to the `embedCheckout` method of the Checkout SDK. This will render the checkout to an HTML element with the `id` you chose.
 
 Read more about the [JSON object](https://github.com/bigcommerce/checkout-sdk-js/blob/master/docs/README.md#embedcheckout) and its possible corresponding [rendering options](https://github.com/bigcommerce/checkout-sdk-js/blob/master/docs/interfaces/embeddedcheckoutoptions.md).
 
@@ -154,63 +162,17 @@ lineNumbers: true
 **JSON Object**
 
 ```js
-{
-"containerId": "bc-embedded-checkout",
+embedCheckout({
+"containerId": "foo-bar-checkout",
 "url": "https://store-id30h7ohwf.mybigcommerce.com/cart.php?embedded=1&action=loadInCheckout&id=bc218c65-7a32-4ab7-8082-68730c074d02&token=aa958e2b7922035bf3339215d95d145ebd9193deb36ae847caa780aa2e003e4b",
-"styles": {
-    "button": {
-	"backgroundColor": "#ffffff",
-	"borderColor": "#000000",
-	"color": "#000000"
-        }
+
     }
-}
+});
 
 ```
 
-Once you have created the JSON object, in your app project folder navigate to `public > index.html`. Create an empty `<div>` with the id attribute mapped to the value for `containerId` in the page where you want to embed the checkout.
-
-Example: `<div id="bc-embedded-checkout"></div>`
-
-Finally, we will render the checkout from your app. Import and invoke the checkout service, and import and call the `embedCheckout` method while passing in your JSON object.
-
-<!--
-title: "External app"
-subtitle: ""
-lineNumbers: true
--->
-
-**App.js**
-
-```js
-import React from 'react';
-import './App.css';
-import {createCheckoutService} from '@bigcommerce/checkout-sdk'
-import {embedCheckout} from '@bigcommerce/checkout-sdk'
-
-const service = createCheckoutService();
-
-
-class App extends React.Component {
-componentDidMount(){
-  embedCheckout({
-    "containerId": "bc-embedded-checkout",
-    "url": "https://my-site.com/cart.php?embedded=1&action=loadInCheckout&id=9a988ee4-be1e-4fbd-9e3c-5cc32df42cbd&token=bccc9a5e9691a7d30267a3188c238d7a22d2d9685734e926cf4c261f7c83de13",
-    "styles": {
-      "button": {
-        "backgroundColor": "#ffffff",
-        "borderColor": "#000000",
-        "color": "#000000"
-      }
-    }
-  })
- }
- render(){
-   return <h1>BC Embedded Checkout</h1>
- }
-}
-
-export default App;
+```html
+<div id="foo-bar-checkout"></div>
 ```
 
 At this point, you should have a working embedded checkout. 
