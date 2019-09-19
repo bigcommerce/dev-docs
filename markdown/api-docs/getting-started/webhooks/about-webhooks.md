@@ -1,18 +1,20 @@
-<h1>Webhooks Overview</h1>
+# Webhooks Overview
+
 <div class="otp" id="no-index">
-	<h3> On This Page </h3>
-	<ul>
-        <li><a href="#about-webhooks_authentication">Authentication</a></li>
-        <li><a href="#about-webhooks_lightweight-callback-payload">Lightweight Callback Payload</a></li>
-        <li><a href="#about-webhooks_request-and-response">Request and Response</a></li>
-    		<li><a href="#about-webhooks_receiving-the-callback">Recieving the Callback</a></li>
-    		<li><a href="#about-webhooks_respond-to-webhook-callbacks">Responding to the Callback</a></li>
-        <li><a href="#about-webhooks_callback-retry-mechanism">Callback Retry Mechanism</a></li>
-        <li><a href="#about-webhooks_webhook-security">Webhook Security</a></li>
-    		<li><a href="#about-webhooks_webhook-troubleshooting">Troubleshooting</a></li>
-        <li><a href="#about-webhooks_tools-for-debugging-and-testing-webhooks">Tools for Debugging</a></li>
-        <li><a href="/api-docs/getting-started/webhooks/webhook-events">All Available Webhooks</a></li>
-	</ul>
+
+### On this Page
+
+- [Authentication](#authentication)
+- [Lightweight Callback Payload](#lightweight-callback-payload)
+- [Request and Response](#request-and-response)
+- [Receiving the Callback](#receiving-the-callback)
+- [Respond to Webhook Callbacks](#respond-to-webhook-callbacks)
+- [Callback Retry Mechanism](#callback-retry-mechanism)
+- [Webhook Security](#webhook-security)
+- [Troubleshooting](#troubleshooting)
+- [Tools for Debugging and Testing Webhooks](#tools-for-debugging-and-testing-webhooks)
+- [Resources](#resources)
+
 </div>
 
 Webhooks allow app developers to be notified, in near real-time, when specific events occur on a BigCommerce store. For example, your app may need to perform an action when a new order is created, a product’s inventory decreases, or an item is added to a shopper’s cart. When a subscribed event occurs on a store, BigCommerce will POST a payload to your app’s callback URI so your app can take some action based on that event.
@@ -32,7 +34,7 @@ Webhooks allow app developers to be notified, in near real-time, when specific e
 
 ---
 
-<a href='#about-webhooks_authentication' aria-hidden='true' class='block-anchor'  id='about-webhooks_authentication'><i aria-hidden='true' class='linkify icon'></i></a>
+<a id="authentication"></a>
 
 ## Authentication
 
@@ -63,7 +65,7 @@ Before you  can begin to send and receive requests, you must have the following:
 
 ---
 
-<a href='#about-webhooks_lightweight-callback-payload' aria-hidden='true' class='block-anchor'  id='about-webhooks_lightweight-callback-payload'><i aria-hidden='true' class='linkify icon'></i></a>
+<a id="lightweight-callback-payload"></a>
 
 ## Lightweight Callback Payload
 
@@ -102,7 +104,7 @@ lineNumbers: true
 
 ---
 
-<a href='#about-webhooks_request-and-response' aria-hidden='true' class='block-anchor'  id='about-webhooks_request-and-response'><i aria-hidden='true' class='linkify icon'></i></a>
+<a id="request-and-response"></a>
 
 ## Request and Response
 
@@ -129,7 +131,7 @@ X-Auth-Client: <the OAuth client id>
 X-Auth-Token: <the OAuth token>
 ```
 
-<a href='#post-webhooks' aria-hidden='true' class='block-anchor'  id='post-webhooks'><i aria-hidden='true' class='linkify icon'></i></a>
+<a id='post-webhooks'></a>
 
 <!--
 title: "/POST Webhook "
@@ -203,7 +205,7 @@ An HTTP 201 response indicates that the webhook was set successfully.
 </div>
 </div>
 
-<a href='#get-all-webhooks' aria-hidden='true' class='block-anchor'  id='get-all-webhooks'><i aria-hidden='true' class='linkify icon'></i></a>
+<a id='get-all-webhooks'></a>
 
 
 
@@ -246,7 +248,7 @@ lineNumbers: true
 
 ```
 
-<a href='#get-a-single-webhook' aria-hidden='true' class='block-anchor'  id='get-a-single-webhook'><i aria-hidden='true' class='linkify icon'></i></a>
+<a id='get-a-single-webhook'></a>
 
 
 <!--
@@ -274,7 +276,7 @@ lineNumbers: true
 
 ```
 
-<a href='#update-a-webhook' aria-hidden='true' class='block-anchor'  id='update-a-webhook'><i aria-hidden='true' class='linkify icon'></i></a>
+<a id='update-a-webhook'></a>
 
 
 <!--
@@ -345,7 +347,7 @@ If webhooks are no longer being used, either delete them or set `is_active:false
 
 ---
 
-<a href='#about-webhooks_receiving-the-callback' aria-hidden='true' class='block-anchor'  id='about-webhooks_receiving-the-callback'><i aria-hidden='true' class='linkify icon'></i></a>
+<a id="receiving-the-callback"></a>
 
 ## Receiving the Callback
 
@@ -355,7 +357,7 @@ Need to set up a quick destination URL for testing? See Tools for Debugging and 
 
 ---
 
-<a href='#about-webhooks_respond-to-webhook-callbacks' aria-hidden='true' class='block-anchor'  id='about-webhooks_respond-to-webhook-callbacks'><i aria-hidden='true' class='linkify icon'></i></a>
+<a id="espond-to-webhook-callbacks"></a>
 
 ## Respond to Webhook Callbacks
 
@@ -367,7 +369,7 @@ Need to set up a quick destination URL for testing? See [Tools for testing webho
 
 ---
 
-<a href='#about-webhooks_callback-retry-mechanism' aria-hidden='true' class='block-anchor'  id='about-webhooks_callback-retry-mechanism'><i aria-hidden='true' class='linkify icon'></i></a>
+<a id='about-webhooks_callback-retry-mechanism'></a>
 
 ## Callback Retry Mechanism
 
@@ -389,8 +391,8 @@ The webhook service flow is as follows:
     
 <!-- theme:  -->
 
-### 100 response count threshold
-> The initial 100 responses your remote server sends to our webhook service do not count towards your success rate.
+### Webhook Rate Limit Minimum Threshold Count
+> A domain's success rate for a given sliding window is not calculated until 100 webhook requests are sent -- this means the domain will not be blacklisted for the first 100 webhooks sent within the time window (regardless of response) as all webhooks are sent until the minimum threshold has been reached for the current time window.
 
 </div>
 </div>
@@ -398,7 +400,7 @@ The webhook service flow is as follows:
 
 <br>
 
-After an initial blacklist period, we will send the webhook notification to the retry queue immediately.
+Once a domain is no longer blacklisted, all new webhook requests will be sent as they occur. Event requests sent to the retry queue during a blacklisting period will be delivered according to the retry queue schedule.
 
 The webhook dispatcher will then attempt several retries (at increasing intervals) until the maximum retry limit is reached.
 
@@ -409,7 +411,7 @@ The webhook dispatcher will then attempt several retries (at increasing interval
 <!-- theme: warning -->
 
 ### Retries Based on Subscriber Domain, Not by Specific Hooks
-> The webhook dispatcher determines whether retries are needed based on responses from the subscribed domain as a whole, not by specific hooks. For example, `domain.com/webhook-1` and `domain.com/webhook-2` will affect each other for failures and retries.
+> The webhook dispatcher determines whether retries are needed based on responses from the subscribed domain as a whole, not by specific hooks. For example, `domain.com/webhook-1` and `domain.com/webhook-2` will affect each other for failures and retries, as both URLs belong to the same domain.
 
 </div>
 </div>
@@ -434,7 +436,7 @@ After the final retry attempt (cumulatively, 48 hours after the first delivery a
 
 ---
 
-<a href='#about-webhooks_webhook-security' aria-hidden='true' class='block-anchor'  id='about-webhooks_webhook-security'><i aria-hidden='true' class='linkify icon'></i></a>
+<a id="webhook-security"></a>
 
 ## Webhook Security
 To ensure that webhook payloads are secure against activity by a malicious actor, we take a three-pronged approach:
@@ -466,7 +468,7 @@ lineNumbers: true
 
 ---
 
-<a href='#about-webhooks_troubleshooting' aria-hidden='true' class='block-anchor'  id='about-webhooks_troubleshooting'><i aria-hidden='true' class='linkify icon'></i></a>
+<a id='about-webhooks_troubleshooting'></a>
 
 ## Troubleshooting
 
@@ -510,7 +512,7 @@ lineNumbers: true
 
 ---
 
-<a href='#about-webhooks_tools-for-debugging-and-testing-webhooks' aria-hidden='true' class='block-anchor'  id='about-webhooks_tools-for-debugging-and-testing-webhooks'><i aria-hidden='true' class='linkify icon'></i></a>
+<a id="tools-for-debugging-and-testing-webhooks"></a>
 
 ## Tools for Debugging and Testing Webhooks
 
