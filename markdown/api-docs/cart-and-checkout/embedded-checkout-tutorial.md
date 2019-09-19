@@ -27,6 +27,8 @@ This article assumes you have familiarity with the following concepts:
 	- **Sites & Routes:** `Modify`
 	- **Products:** `Read Only`
 
+<a id="#step-1-create-channel"></a>
+
 ## Step 1: Create a Channel
 
 To allow the external website to serve the BigCommerce checkout, create a new Channel by sending a `POST` request to the [/channels](/path/to/reference) endpoint:
@@ -70,7 +72,9 @@ The response will contain an `id` (use this as the`channel_id` in future request
 </div>
 </div>
 
-## 3: Create a Site
+<a id="#step-2-create-site"></a>
+
+## 2: Create a Site
 
 Next, create a site for the channel by POSTing to the [/channels/id/site endpoint](/path/to/reference):
 
@@ -108,9 +112,10 @@ This returns `id` which you will use as the `site_id` in future requests. The `u
 }
 ```
 
-<a href='embedded-checkout_create-cart' aria-hidden='true' class='block-anchor'  id='embedded-checkout_create-cart'><i aria-hidden='true' class='linkify icon'></i></a>
 
-## Step 4: Create a Cart
+<a id="step-3-create-cart"></a>
+
+## Step 3: Create a Cart
 
 To proceed to checkout, we'll need an active cart. To create one, send a `POST` request to the [Server-to-Server Cart API's](https://developer.bigcommerce.com/api-reference/cart-checkout/server-server-cart-api)  `/cart` endpoint: 
 
@@ -144,8 +149,9 @@ Next, generate a cart URL and set this cart as the active cart by posting to  to
   "embedded_checkout_url": "https://store-id30h7ohwf.mybigcommerce.com/cart.php?embedded=1&action=loadInCheckout&id=bc218c65-7a32-4ab7-8082-68730c074d02&token=aa958e2b7922035bf3339215d95d145ebd9193deb36ae847caa780aa2e003e4b"
 }
 ```
+<a id="#step-4-embed-checkout"></a>
 
-## Step 5: Embed Checkout
+## Step 4: Embed Checkout
 
 Use the `embedded_checkout_url` that is returned and assemble a JSON object that will be used by the Checkout JS SDK to determine how to render the checkout. Pass the object to the `embedCheckout` method of the Checkout SDK. This will render the checkout to an HTML element with the `id` you chose.
 
