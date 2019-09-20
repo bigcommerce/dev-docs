@@ -2,7 +2,7 @@
 <div class="otp" id="no-index">
 	<h3> On This Page </h3>
 	<ul>
-    <li><a href="#cart-checkout_storefrix otpont-cart-and-checkout">Storefront Cart and Checkout</a></li>
+    <li><a href="#cart-checkout_storefront-cart-and-checkout">Storefront Cart and Checkout</a></li>
     <li><a href="#cart-checkout_server-to-server-cart-and-checkout">Server-to-Server Cart and Checkout</a></li>
     <li><a href="#cart-checkout_persistent-cart">Persistent Cart</a></li>
     <li><a href="#cart-checkout_troubleshooting">Troubleshooting Cart Errors</a></li>
