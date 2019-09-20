@@ -4,28 +4,24 @@
 
 ### On This Page
 
-* [Step 1: Create a Channel](#step-1-create-channel)
-* [Step 2: Create a Site](#step-2-create-site)
-* [Step 3: Create a Cart](#step-3-create-cart)
-* [Step 4: Embed Checkout](#step-4-embed-checkout)
+- [Step 1: Create a Channel](#step-1-create-channel)
+- [Step 2: Create a Site](#step-2-create-site)
+- [Step 3: Create a Cart](#step-3-create-cart)
+- [Step 4: Embed Checkout](#step-4-embed-checkout)
 
-Embedded Checkout lets you place BigCommerce’s Optimized One-Page checkout onto an external site. This tutorial will walk you through the sequence of API calls your application should make to create a working Embedded Checkout. 
+Embedded Checkout lets you place BigCommerce’s Optimized One-Page checkout onto an external site. This tutorial will walk you through the sequence of API calls your application should make to create a working Embedded Checkout.
 
 This article assumes you have familiarity with the following concepts:
 
-* Creating and managing a server-side application
-* Making and recieving API calls from within your app
-* Using your application to make changes to a front end
+- Creating and managing a server-side application
+- Making and recieving API calls from within your app
+- Using your application to make changes to a front end
 
 ---
 
 ### Prerequisites
 
-* Store API credentials (see [Authentication](https://developer.bigcommerce.com/api-docs/getting-started/authentication#authentication_getting-api-credentials) for details) with the following permissions:
-	- **Carts:** `Modify`
-	- **Channel Settings:** `Modify`
-	- **Sites & Routes:** `Modify`
-	- **Products:** `Read Only`
+- Store API credentials (see [Authentication](https://developer.bigcommerce.com/api-docs/getting-started/authentication#authentication_getting-api-credentials) for details) with the following permissions: - **Carts:** `Modify` - **Channel Settings:** `Modify` - **Sites & Routes:** `Modify` - **Products:** `Read Only`
 
 <a id="#step-1-create-channel"></a>
 
@@ -37,30 +33,30 @@ To allow the external website to serve the BigCommerce checkout, create a new Ch
 
 ```json
 {
-    "type": "storefront",
-    "platform": "custom",
-    "name": "https://{your-site}.com"
+  "type": "storefront",
+  "platform": "custom",
+  "name": "https://{your-site}.com"
 }
 ```
 
 The response will contain an `id` (use this as the`channel_id` in future requests):
-	
-```json
 
+```json
 {
-    "data": {
-        "id": 20266,
-        "name": "https://www.{your-site}.com",
-        "platform": "custom",
-        "type": "storefront",
-        "date_created": "2019-09-18T22:28:36Z",
-        "date_modified": "2019-09-18T22:28:36Z",
-        "external_id": "",
-        "is_enabled": true
-    },
-    "meta": {}
+  "data": {
+    "id": 20266,
+    "name": "https://www.{your-site}.com",
+    "platform": "custom",
+    "type": "storefront",
+    "date_created": "2019-09-18T22:28:36Z",
+    "date_modified": "2019-09-18T22:28:36Z",
+    "external_id": "",
+    "is_enabled": true
+  },
+  "meta": {}
 }
 ```
+
 <div class="HubBlock--callout">
 <div class="CalloutBlock--info">
 <div class="HubBlock-content">
@@ -78,7 +74,7 @@ The response will contain an `id` (use this as the`channel_id` in future request
 
 Next, create a site for the channel by POSTing to the [/channels/id/site endpoint](/path/to/reference):
 
-*`POST`* `https://api.bigcommerce.com/stores/{{store_hash}}/v3/channels/{{channel_id}}/site`
+_`POST`_ `https://api.bigcommerce.com/stores/{{store_hash}}/v3/channels/{{channel_id}}/site`
 
 <!--
 title: "POST to Channels"
@@ -112,14 +108,13 @@ This returns `id` which you will use as the `site_id` in future requests. The `u
 }
 ```
 
-
 <a id="step-3-create-cart"></a>
 
 ## Step 3: Create a Cart
 
-To proceed to checkout, we'll need an active cart. To create one, send a `POST` request to the [Server-to-Server Cart API's](https://developer.bigcommerce.com/api-reference/cart-checkout/server-server-cart-api)  `/cart` endpoint: 
+To proceed to checkout, we'll need an active cart. To create one, send a `POST` request to the [Server-to-Server Cart API's](https://developer.bigcommerce.com/api-reference/cart-checkout/server-server-cart-api) `/cart` endpoint:
 
-**`POST`**  `https://api.bigcommerce.com/stores/{{store_hash}}/v3/carts`
+**`POST`** `https://api.bigcommerce.com/stores/{{store_hash}}/v3/carts`
 
 ```json
 {
@@ -134,12 +129,10 @@ To proceed to checkout, we'll need an active cart. To create one, send a `POST` 
 }
 ```
 
-Contained in the response is a `UUID` which is we'll as the `cart_id` in the next request: 
-	
-Next, generate a cart URL and set this cart as the active cart by posting to  to `/carts/{{cart_id}}/redirect_urls`:
+Contained in the response is a `UUID` which is we'll as the `cart_id` in the next request:
+Next, generate a cart URL and set this cart as the active cart by posting to to `/carts/{{cart_id}}/redirect_urls`:
 
 **`POST`** `https://api.bigcommerce.com/stores/{{store_hash}}/v3/carts/{{cart_id}}/redirect_urls`
-	
 **Response**
 
 ```json
@@ -149,6 +142,7 @@ Next, generate a cart URL and set this cart as the active cart by posting to  to
   "embedded_checkout_url": "https://store-id30h7ohwf.mybigcommerce.com/cart.php?embedded=1&action=loadInCheckout&id=bc218c65-7a32-4ab7-8082-68730c074d02&token=aa958e2b7922035bf3339215d95d145ebd9193deb36ae847caa780aa2e003e4b"
 }
 ```
+
 <a id="#step-4-embed-checkout"></a>
 
 ## Step 4: Embed Checkout
@@ -157,7 +151,7 @@ Use the `embedded_checkout_url` that is returned and assemble a JSON object that
 
 Read more about the [JSON object](https://github.com/bigcommerce/checkout-sdk-js/blob/master/docs/README.md#embedcheckout) and its possible corresponding [rendering options](https://github.com/bigcommerce/checkout-sdk-js/blob/master/docs/interfaces/embeddedcheckoutoptions.md).
 
-Example of the JSON object:
+Example:
 
 <!--
 title: "JSON object"
@@ -165,9 +159,15 @@ subtitle: ""
 lineNumbers: true
 -->
 
+```html
+<div id="foo-bar-checkout"></div>
+```
+
 **JSON Object**
 
-```js
+```html
+<script>
+
 embedCheckout({
 "containerId": "foo-bar-checkout",
 "url": "https://store-id30h7ohwf.mybigcommerce.com/cart.php?embedded=1&action=loadInCheckout&id=bc218c65-7a32-4ab7-8082-68730c074d02&token=aa958e2b7922035bf3339215d95d145ebd9193deb36ae847caa780aa2e003e4b",
@@ -175,13 +175,10 @@ embedCheckout({
     }
 });
 
+</script>
 ```
 
-```html
-<div id="foo-bar-checkout"></div>
-```
-
-At this point, you should have a working embedded checkout. 
+At this point, you should have a working embedded checkout.
 
 ## FAQ
 
