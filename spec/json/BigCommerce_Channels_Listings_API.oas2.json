@@ -1,0 +1,1233 @@
+{
+    "swagger": "2.0",
+    "info": {
+      "version": "1.0",
+      "title": "BigCommerce Channels API",
+      "description": "The Channels API enables you to create and manage listings across a BigCommerce merchant's sales channels."
+    },
+    "host": "api.bigcommerce.com",
+    "tags": [
+      {
+        "name": "Channels",
+        "description": "Enables creation and management of additional channels, such as marketplaces, POS, and 3rd-party storefronts, where a merchant can list their products to sell."
+      },
+      {
+        "name": "Channel Listings",
+        "description": "Enables creation and management of product listings, the representation of a product from a merchant's catalog on a specific sales channel."
+      }
+    ],
+    "schemes": [
+      "https"
+    ],
+    "consumes": [
+      "application/json"
+    ],
+    "produces": [
+      "application/json"
+    ],
+    "paths": {
+      "/channels": {
+        "get": {
+          "tags": [
+            "Channels"
+          ],
+          "summary": "Get all Channels",
+          "operationId": "listChannels",
+          "responses": {
+            "200": {
+              "$ref": "#/responses/ChannelCollectionResponse",
+              "examples": {
+                "application/json": {
+                  "data": [
+                    {
+                      "id": 1,
+                      "type": "storefront",
+                      "platform": "wordpress",
+                      "name": "mysite.com",
+                      "date_created": "2018-01-04T04:15:50.000Z",
+                      "date_modified": "2018-01-18T01:22:10.000Z",
+                      "is_enabled": false,
+                      "external_id": ""
+                    },
+                    {
+                      "id": 2,
+                      "name": "Square",
+                      "platform": "square",
+                      "type": "pos",
+                      "date_created": "2019-03-19T16:05:37Z",
+                      "date_modified": "2019-03-19T16:05:37Z",
+                      "external_id": "",
+                      "is_enabled": true
+                    }
+                  ],
+                  "meta": {
+                    "pagination": {
+                      "total": 1
+                    }
+                  }
+                }
+              }
+            }
+          },
+          "description": "Returns a list of *Channels* "
+        },
+        "post": {
+          "tags": [
+            "Channels"
+          ],
+          "summary": "Create a Channel",
+          "operationId": "createChannel",
+          "parameters": [
+            {
+              "name": "body",
+              "in": "body",
+              "required": true,
+              "schema": {
+                "$ref": "#/definitions/ChannelPost"
+              },
+              "x-examples": {
+                "application/json": {
+                  "data": [
+                    {
+                      "id": 17350,
+                      "date_created": "2019-05-31T19:38:45Z",
+                      "date_modified": "2019-05-31T19:43:28Z",
+                      "name": "My Store - US",
+                      "type": "storefront",
+                      "platform": "bigcommerce",
+                      "external_id": "002",
+                      "is_enabled": true
+                    },
+                    {
+                      "id": 17347,
+                      "name": "my-new-wp-site.com",
+                      "platform": "wordpress",
+                      "type": "storefront",
+                      "date_created": "2019-05-31T19:38:45Z",
+                      "date_modified": "2019-05-31T19:43:28Z",
+                      "external_id": "",
+                      "is_enabled": false
+                    }
+                  ],
+                  "meta": {}
+                }
+              }
+            }
+          ],
+          "responses": {
+            "200": {
+              "$ref": "#/responses/ChannelResponse"
+            },
+            "400": {
+              "description": "Invalid data was submitted. This is the result of an invalid value being passed for 1 or more fields. Commonly, an invalid combination of 'type' and 'platform' was provided.",
+              "schema": {
+                "$ref": "#/responses/ErrorResponse"
+              },
+              "examples": {
+                "application/json": {
+                  "status": 400,
+                  "title": "Input is invalid",
+                  "type": "https://developer.bigcommerce.com/api#api-status-codes",
+                  "errors": {}
+                }
+              }
+            },
+            "422": {
+              "description": "The request is missing 1 or more required fields",
+              "schema": {
+                "$ref": "#/responses/ErrorResponse"
+              },
+              "examples": {
+                "application/json": {
+                  "status": 422,
+                  "title": "JSON data is missing or invalid",
+                  "type": "https://developer.bigcommerce.com/api#api-status-codes",
+                  "errors": {
+                    "platform": "error.path.missing"
+                  }
+                }
+              }
+            }
+          },
+          "description": "Creates a *Channel*.\n\n**Required Fields**\n* type\n* platform\n* name\n\nType and platform must each be one of the allowed fields. Type & platform combination must also be a valid pair, which currently includes:\n* Type: pos\n* Platform: square, vend, clover, custom\n-------------\n* Type: marketplace\n* Platform: facebook, amazon, ebay, custom\n-----------------\n* Type: storefront\n* Platform: bigcommerce, wordpress, drupal, acquia, bloomreach, deity, custom\n------------------\n* Type: marketing\n* Platform: facebook, google_shopping, custom"
+        }
+      },
+      "/channels/{channelId}": {
+        "parameters": [
+          {
+            "name": "channelId",
+            "in": "path",
+            "description": "The ID of a Channel that's available through GET /channels",
+            "required": true,
+            "type": "integer",
+            "format": "int64"
+          }
+        ],
+        "get": {
+          "tags": [
+            "Channels"
+          ],
+          "summary": "Get Channel",
+          "operationId": "getChannel",
+          "responses": {
+            "200": {
+              "$ref": "#/responses/ChannelResponse"
+            },
+            "404": {
+              "description": "A *Channel* with the provided ID was not found. ",
+              "schema": {
+                "$ref": "#/responses/ErrorResponse"
+              },
+              "examples": {
+                "application/json": {
+                  "status": 404,
+                  "title": "{}",
+                  "type": "https://developer.bigcommerce.com/api#api-status-codes",
+                  "errors": {}
+                }
+              }
+            }
+          },
+          "description": "Returns a *Channel*"
+        },
+        "put": {
+          "tags": [
+            "Channels"
+          ],
+          "summary": "Update a Channel",
+          "operationId": "updateChannel",
+          "parameters": [
+            {
+              "name": "body",
+              "in": "body",
+              "required": true,
+              "schema": {
+                "$ref": "#/definitions/ChannelPut"
+              },
+              "x-examples": {
+                "application/json": {
+                  "is_enabled": false,
+                  "name": "Old Wordpress Channel"
+                }
+              }
+            }
+          ],
+          "responses": {
+            "200": {
+              "description": "",
+              "examples": {
+                "application/json": {
+                  "data": {
+                    "id": 15023,
+                    "name": "Old Wordpress Channel",
+                    "platform": "wordpress",
+                    "type": "storefront",
+                    "date_created": "2019-03-19T16:05:37Z",
+                    "date_modified": "2019-05-29T06:03:37Z",
+                    "external_id": "",
+                    "is_enabled": false
+                  },
+                  "meta": {}
+                }
+              }
+            },
+            "400": {
+              "description": "The value for at least one provided field is not valid.",
+              "schema": {
+                "$ref": "#/responses/ErrorResponse"
+              },
+              "examples": {
+                "application/json": {
+                  "status": 400,
+                  "title": "Input is invalid",
+                  "type": "https://developer.bigcommerce.com/api#api-status-codes",
+                  "errors": {}
+                }
+              }
+            },
+            "404": {
+              "description": "A *Channel* with the provided ID was not found. ",
+              "schema": {
+                "$ref": "#/responses/ErrorResponse"
+              },
+              "examples": {
+                "application/json": {
+                  "status": 404,
+                  "title": "{}",
+                  "type": "https://developer.bigcommerce.com/api#api-status-codes",
+                  "errors": {}
+                }
+              }
+            }
+          },
+          "description": "Updates a *Channel*. Partial updates are supported. Currently, if a field that *cannot* be updated is passed in, the API **not** respond with an error.\n\n**Fields That Can Be Updated**\n* name\n* external_id"
+        }
+      },
+      "/channels/{channelId}/listings": {
+        "get": {
+          "summary": "Get all Channel Listings",
+          "operationId": "listChannelListings",
+          "parameters": [
+            {
+              "name": "channelId",
+              "in": "path",
+              "type": "integer",
+              "required": true,
+              "format": "int64"
+            },
+            {
+              "$ref": "#/parameters/LimitParam"
+            },
+            {
+              "$ref": "#/parameters/AfterParam"
+            },
+            {
+              "in": "query",
+              "name": "data_modified:min",
+              "type": "string",
+              "format": "date-time",
+              "description": "Filter items by mininum date_modified. `date_modified:min=2019-09-04T:00:00:00` or `date_modified:min=2019-09-04`"
+            },
+            {
+              "in": "query",
+              "name": "data_modified:max",
+              "type": "string",
+              "format": "date-time",
+              "description": "Filter items by maximum date_modified. `date_modified:max=2019-09-04T:00:00:00` or `date_modified:max=2019-09-04`"
+            }
+          ],
+          "responses": {
+            "200": {
+              "$ref": "#/responses/ListingCollectionResponse"
+            }
+          },
+          "tags": [
+            "Channel Listings"
+          ],
+          "description": "Returns a list of all *Channel Listings* for a particular channel"
+        },
+        "put": {
+          "summary": "Update Channel Listings",
+          "operationId": "updateChannelListings",
+          "parameters": [
+            {
+              "name": "channelId",
+              "in": "path",
+              "type": "integer",
+              "required": true,
+              "format": "int64"
+            },
+            {
+              "name": "body",
+              "in": "body",
+              "required": true,
+              "schema": {
+                "type": "array",
+                "items": {
+                  "$ref": "#/definitions/ListingPut"
+                }
+              },
+              "x-examples": {
+                "application/json": [
+                  {
+                    "product_id": 111,
+                    "listing_id": 12180407,
+                    "state": "pending",
+                    "variants": [
+                      {
+                        "product_id": 112,
+                        "variant_id": 77,
+                        "state": "error"
+                      }
+                    ]
+                  },
+                  {
+                    "product_id": 111,
+                    "listing_id": 11511867,
+                    "state": "deleted",
+                    "variants": [
+                      {
+                        "product_id": 111,
+                        "variant_id": 74,
+                        "state": "error"
+                      }
+                    ]
+                  }
+                ]
+              }
+            }
+          ],
+          "responses": {
+            "200": {
+              "$ref": "#/responses/ListingCollectionResponse"
+            },
+            "422": {
+              "description": "When there are errors with multiple objects in the request, errors will be associated with the object's location in the list. ",
+              "schema": {
+                "$ref": "#/responses/ErrorResponse"
+              },
+              "examples": {
+                "application/json": {
+                  "status": 422,
+                  "title": "JSON data is missing or invalid",
+                  "type": "https://developer.bigcommerce.com/api#api-status-codes",
+                  "errors": {
+                    "0.product_id": "error.path.missing",
+                    "1.product_id": "error.path.missing"
+                  }
+                }
+              }
+            }
+          },
+          "tags": [
+            "Channel Listings"
+          ],
+          "description": "Currently only the following properties can be updated on channel listings:\n\n* state\n* variants.state"
+        },
+        "post": {
+          "summary": "Create Channel Listings",
+          "operationId": "createChannelListings",
+          "parameters": [
+            {
+              "name": "channelId",
+              "in": "path",
+              "type": "integer",
+              "required": true,
+              "format": "int64"
+            },
+            {
+              "name": "body",
+              "in": "body",
+              "required": true,
+              "schema": {
+                "type": "array",
+                "items": {
+                  "$ref": "#/definitions/ListingPost"
+                }
+              },
+              "x-examples": {
+                "application/json": [
+                  {
+                    "product_id": 117,
+                    "state": "active",
+                    "name": "baseball hat",
+                    "description": "Baseball hat with your favorite team's name.",
+                    "external_id": "listing1",
+                    "variants": [
+                      {
+                        "variant_id": 82,
+                        "name": "blue baseball bat",
+                        "product_id": 117,
+                        "state": "disabled",
+                        "external_id": "Var1"
+                      },
+                      {
+                        "variant_id": 83,
+                        "product_id": 117,
+                        "state": "active",
+                        "external_id": "Var2"
+                      }
+                    ]
+                  }
+                ]
+              }
+            }
+          ],
+          "responses": {
+            "200": {
+              "description": "",
+              "schema": {
+                "$ref": "#/responses/ListingCollectionResponse"
+              },
+              "examples": {
+                "application/json": {
+                  "data": [
+                    {
+                      "channel_id": 14196,
+                      "listing_id": 12180407,
+                      "product_id": 112,
+                      "state": "active",
+                      "date_created": "2019-03-06T20:27:05Z",
+                      "date_modified": "2019-03-06T20:32:24Z",
+                      "variants": [
+                        {
+                          "channel_id": 14196,
+                          "product_id": 112,
+                          "variant_id": 77,
+                          "state": "active",
+                          "date_created": "2019-03-06T20:27:05Z",
+                          "date_modified": "2019-03-06T20:32:24Z"
+                        }
+                      ]
+                    }
+                  ],
+                  "meta": {
+                    "pagination": {
+                      "count": 1,
+                      "total": 1,
+                      "links": {
+                        "current": "?page=1&limit=1000"
+                      },
+                      "total_pages": 1
+                    }
+                  }
+                }
+              }
+            },
+            "422": {
+              "description": "",
+              "examples": {
+                "application/json": {
+                  "status": 422,
+                  "title": "JSON data is missing or invalid",
+                  "type": "https://developer.bigcommerce.com/api#api-status-codes",
+                  "errors": {
+                    "0.variants": "error.path.missing"
+                  }
+                }
+              },
+              "schema": {
+                "$ref": "#/responses/ErrorResponse"
+              }
+            }
+          },
+          "tags": [
+            "Channel Listings"
+          ]
+        }
+      },
+      "/channels/{channelId}/listings/{listingId}": {
+        "parameters": [
+          {
+            "name": "channelId",
+            "in": "path",
+            "type": "integer",
+            "required": true,
+            "format": "int64"
+          },
+          {
+            "name": "listingId",
+            "in": "path",
+            "description": "The ID of a Channel Listing that's available through GET /channels/listings",
+            "required": true,
+            "type": "integer",
+            "format": "int64"
+          }
+        ],
+        "get": {
+          "summary": "Get Channel Listing",
+          "operationId": "getChannelListing",
+          "responses": {
+            "200": {
+              "$ref": "#/responses/ListingResponse"
+            },
+            "404": {
+              "description": "",
+              "examples": {
+                "application/json": {
+                  "status": 404,
+                  "title": "Listing [1218040] not found",
+                  "type": "https://developer.bigcommerce.com/api#api-status-codes",
+                  "errors": {}
+                }
+              },
+              "schema": {
+                "$ref": "#/responses/ErrorResponse"
+              }
+            }
+          },
+          "tags": [
+            "Channel Listings"
+          ]
+        }
+      }
+    },
+    "definitions": {
+      "CollectionMeta": {
+        "type": "object",
+        "description": "BC Meta payload for collection-type responses",
+        "properties": {
+          "pagination": {
+            "$ref": "#/definitions/Pagination"
+          }
+        }
+      },
+      "Pagination": {
+        "type": "object",
+        "description": "Data about the response, including pagination and collection totals.\n",
+        "properties": {
+          "total": {
+            "type": "integer",
+            "description": "Total number of items in the result set.\n"
+          },
+          "count": {
+            "type": "integer",
+            "description": "Total number of items in the collection response.\n"
+          },
+          "total_pages": {
+            "type": "integer",
+            "description": "The total number of pages in the collection.\n"
+          },
+          "links": {
+            "type": "object",
+            "description": "Pagination links for the previous and next parts of the whole collection.\n",
+            "properties": {
+              "previous": {
+                "type": "string",
+                "description": "Link to the previous page returned in the response.\n"
+              },
+              "current": {
+                "type": "string",
+                "description": "Link to the current page returned in the response.\n"
+              },
+              "next": {
+                "type": "string",
+                "description": "Link to the next page returned in the response.\n"
+              }
+            }
+          }
+        }
+      },
+      "ChannelPost": {
+        "title": "Channel Post",
+        "type": "object",
+        "description": "Create a *Channel*",
+        "properties": {
+          "type": {
+            "type": "string",
+            "enum": [
+              "pos",
+              "marketplace",
+              "storefront",
+              "marketing"
+            ]
+          },
+          "name": {
+            "type": "string",
+            "description": "Name of the channel as it will appear to merchants in BC"
+          },
+          "external_id": {
+            "type": "string",
+            "description": "Associated ID within a system / platform outside of BC. "
+          },
+          "is_enabled": {
+            "type": "boolean",
+            "description": "Determines whether the channel is enabled on a store. In order to disable a channel, set is_enabled to false.\n\nThis results in the channel not showing in the 'Products' section of the BC control panel.",
+            "default": true
+          },
+          "platform": {
+            "type": "string",
+            "enum": [
+              "amazon",
+              "bigcommerce",
+              "facebook",
+              "google_shopping",
+              "vend",
+              "square",
+              "clover",
+              "wordpress",
+              "acquia",
+              "deity",
+              "ebay",
+              "drupal",
+              "bloomreach",
+              "custom"
+            ]
+          }
+        },
+        "required": [
+          "type",
+          "name"
+        ]
+      },
+      "ChannelPut": {
+        "title": "Channel Put",
+        "type": "object",
+        "properties": {
+          "name": {
+            "type": "string",
+            "description": "Name of the channel as it will appear to merchants in BC"
+          },
+          "external_id": {
+            "type": "string",
+            "description": "Associated ID within a system / platform outside of BC. "
+          },
+          "is_enabled": {
+            "type": "boolean",
+            "description": "Determines whether the channel is enabled on a store. In order to disable a channel, set is_enabled to false.\n\nThis results in the channel not showing in the 'Products' section of the BC control panel.",
+            "default": true
+          }
+        }
+      },
+      "Channel": {
+        "title": "Channel",
+        "type": "object",
+        "properties": {
+          "id": {
+            "type": "integer",
+            "format": "int32",
+            "description": "ID of the channel, as returned by BC"
+          },
+          "type": {
+            "type": "string",
+            "enum": [
+              "pos",
+              "marketplace",
+              "storefront",
+              "marketing"
+            ],
+            "description": "The type of channel that is being created, updated, or fetched"
+          },
+          "platform": {
+            "type": "string",
+            "description": "The name of the platform for the channel. Must be used with a valid platform combination",
+            "enum": [
+              "wordpress",
+              "square",
+              "drupal",
+              "acquia",
+              "bloomreach",
+              "deity",
+              "amazon",
+              "facebook",
+              "ebay",
+              "google_shopping",
+              "vend",
+              "clover",
+              "bigcommerce",
+              "custom"
+            ]
+          },
+          "name": {
+            "type": "string",
+            "description": "Name of the channel as it will appear to merchants in BC"
+          },
+          "date_created": {
+            "type": "string"
+          },
+          "date_modified": {
+            "type": "string"
+          },
+          "external_id": {
+            "type": "string",
+            "description": "Associated ID within a system / platform outside of BC for the channel"
+          },
+          "is_enabled": {
+            "type": "boolean",
+            "description": "Determines whether the channel is enabled on a store. In order to disable a channel, set is_enabled to false.\n\nThis results in the channel not showing in the 'Products' section of the BC control panel.",
+            "default": true
+          }
+        }
+      },
+      "ListingPut": {
+        "title": "Listing Put",
+        "type": "object",
+        "properties": {
+          "listing_id": {
+            "type": "integer",
+            "format": "int32"
+          },
+          "product_id": {
+            "type": "integer",
+            "format": "int32"
+          },
+          "name": {
+            "type": "string",
+            "description": "Name of the product for this channel listing specifically. This overrides the name in the catalog "
+          },
+          "description": {
+            "type": "string",
+            "description": "Description of the product for this channel listing specifically. This overrides the description in the catalog "
+          },
+          "state": {
+            "enum": [
+              "active",
+              "disabled",
+              "error",
+              "pending",
+              "pending_disable",
+              "pending_delete",
+              "queued",
+              "rejected",
+              "submitted",
+              "deleted",
+              "unknown"
+            ]
+          },
+          "variants": {
+            "type": "array",
+            "items": {
+              "$ref": "#/definitions/ListingVariantRequest"
+            }
+          }
+        },
+        "required": [
+          "listing_id",
+          "product_id",
+          "state",
+          "variants"
+        ]
+      },
+      "Listing": {
+        "title": "Listing",
+        "type": "object",
+        "properties": {
+          "channel_id": {
+            "type": "integer",
+            "format": "int64",
+            "description": "ID of the channel that the channel listing belongs to"
+          },
+          "listing_id": {
+            "type": "integer",
+            "format": "int32",
+            "description": "ID of the channel listing that has been created, returned, or updated"
+          },
+          "external_id": {
+            "type": "string",
+            "description": "Associated ID within a system / platform outside of BC for the product listing."
+          },
+          "product_id": {
+            "type": "integer",
+            "format": "int32",
+            "description": "ID of the product in the BC catalog that the channel listing corresponds to"
+          },
+          "name": {
+            "type": "string",
+            "description": "Name of the product for this channel listing specifically. This overrides the name in the catalog "
+          },
+          "description": {
+            "type": "string",
+            "description": "Description of the product for this channel listing specifically. This overrides the description in the catalog "
+          },
+          "state": {
+            "enum": [
+              "active",
+              "disabled",
+              "error",
+              "pending",
+              "pending_disable",
+              "pending_delete",
+              "queued",
+              "rejected",
+              "submitted",
+              "deleted",
+              "unknown"
+            ],
+            "description": "Current state of the channel listing "
+          },
+          "date_created": {
+            "type": "string",
+            "format": "date-time",
+            "description": "Date on which the channel listing was first created"
+          },
+          "date_modified": {
+            "type": "string",
+            "format": "date-time",
+            "description": "Date on which the channel listing was most recently changed"
+          },
+          "variants": {
+            "type": "array",
+            "items": {
+              "$ref": "#/definitions/ListingVariant"
+            }
+          }
+        }
+      },
+      "Meta": {
+        "type": "object",
+        "description": "Empty meta object; may be used later."
+      },
+      "ListingPost": {
+        "title": "Listing Post",
+        "type": "object",
+        "properties": {
+          "product_id": {
+            "type": "integer",
+            "format": "int32"
+          },
+          "external_id": {
+            "type": "string",
+            "description": "Associated ID within a system / platform outside of BC."
+          },
+          "name": {
+            "type": "string",
+            "description": "Name of the product for this channel listing specifically. This overrides the name in the catalog "
+          },
+          "description": {
+            "type": "string",
+            "description": "Description of the product for this channel listing specifically. This overrides the description in the catalog "
+          },
+          "state": {
+            "enum": [
+              "active",
+              "disabled",
+              "error",
+              "pending",
+              "pending_disable",
+              "pending_delete",
+              "queued",
+              "rejected",
+              "submitted",
+              "deleted",
+              "unknown"
+            ]
+          },
+          "variants": {
+            "type": "array",
+            "items": {
+              "$ref": "#/definitions/ListingVariantRequest"
+            }
+          }
+        },
+        "required": [
+          "product_id",
+          "state",
+          "variants"
+        ]
+      },
+      "ListingVariant": {
+        "title": "Listing Variant",
+        "type": "object",
+        "properties": {
+          "channel_id": {
+            "type": "integer",
+            "format": "int64",
+            "minimum": 0
+          },
+          "product_id": {
+            "type": "integer",
+            "format": "int64",
+            "minimum": 0
+          },
+          "variant_id": {
+            "type": "integer",
+            "format": "int64",
+            "minimum": 0
+          },
+          "external_id": {
+            "type": "string",
+            "description": "Associated ID within a system / platform outside of BC for the product variant listing"
+          },
+          "name": {
+            "type": "string",
+            "description": "Name of the product for this channel listing specifically. This overrides the name in the catalog "
+          },
+          "description": {
+            "type": "string",
+            "description": "Description of the product for this channel listing specifically. This overrides the description in the catalog "
+          },
+          "state": {
+            "enum": [
+              "active",
+              "disabled",
+              "error",
+              "pending",
+              "pending_disable",
+              "pending_delete",
+              "queued",
+              "rejected",
+              "submitted",
+              "deleted",
+              "unknown"
+            ]
+          },
+          "date_created": {
+            "type": "string",
+            "format": "date-time",
+            "description": "Date on which the channel listing variant was created"
+          },
+          "date_modified": {
+            "type": "string",
+            "format": "date-time",
+            "description": "Date on which the channel listing variant was most recently changed"
+          }
+        }
+      },
+      "ListingVariantRequest": {
+        "title": "Listing Variant Request",
+        "type": "object",
+        "properties": {
+          "product_id": {
+            "type": "integer",
+            "format": "int64"
+          },
+          "variant_id": {
+            "type": "integer",
+            "format": "int64"
+          },
+          "external_id": {
+            "type": "string"
+          },
+          "name": {
+            "type": "string",
+            "description": "Name of the product for this channel listing specifically. This overrides the name in the catalog "
+          },
+          "description": {
+            "type": "string",
+            "description": "Description of the product for this channel listing specifically. This overrides the description in the catalog "
+          },
+          "state": {
+            "enum": [
+              "active",
+              "disabled",
+              "error",
+              "pending",
+              "pending_disable",
+              "pending_delete",
+              "queued",
+              "rejected",
+              "submitted",
+              "deleted",
+              "unknown"
+            ]
+          }
+        },
+        "required": [
+          "product_id",
+          "variant_id",
+          "state"
+        ]
+      }
+    },
+    "parameters": {
+      "AfterParam": {
+        "name": "after",
+        "description": "Specifies the prior ID number in a limited (paginated) list of listings.\n",
+        "required": false,
+        "in": "query",
+        "type": "integer"
+      },
+      "DateModifiedMaxParam": {
+        "name": "date_modified:max",
+        "description": "max iso8601 time",
+        "in": "query",
+        "type": "string",
+        "format": "date-time"
+      },
+      "DateModifiedMinParam": {
+        "name": "date_modified:min",
+        "description": "min iso8601 time",
+        "in": "query",
+        "type": "string",
+        "format": "date-time"
+      },
+      "PageParam": {
+        "name": "page",
+        "description": "Specifies the page number in a limited (paginated) list of listings.\n",
+        "required": false,
+        "in": "query",
+        "type": "integer"
+      },
+      "LimitParam": {
+        "name": "limit",
+        "description": "Controls the number of items per page in a limited (paginated) list of products.\n",
+        "required": false,
+        "in": "query",
+        "type": "integer"
+      }
+    },
+    "basePath": "/stores/{store_hash}/v3",
+    "securityDefinitions": {
+      "X-Auth-Client": {
+        "type": "apiKey",
+        "name": "X-Auth-Client",
+        "in": "header",
+        "description": "client_id provided when user creates an API user account or the app is installed"
+      },
+      "X-Auth-Token": {
+        "type": "apiKey",
+        "in": "header",
+        "name": "X-Auth-Token",
+        "description": "Access Token (access_token) provided when API User account was created or app is installed"
+      }
+    },
+    "security": [
+      {
+        "X-Auth-Client": []
+      },
+      {
+        "X-Auth-Token": []
+      }
+    ],
+    "responses": {
+      "ChannelCollectionResponse": {
+        "description": "",
+        "schema": {
+          "title": "Channel Collection Response",
+          "type": "object",
+          "properties": {
+            "data": {
+              "type": "array",
+              "items": {
+                "$ref": "#/definitions/Channel"
+              }
+            },
+            "meta": {
+              "$ref": "#/definitions/CollectionMeta"
+            }
+          }
+        },
+        "examples": {
+          "application/json": {
+            "data": [
+              {
+                "id": 1,
+                "type": "storefront",
+                "platform": "wordpress",
+                "name": "mysite.com",
+                "date_created": "2018-01-04T04:15:50.000Z",
+                "date_modified": "2018-01-18T01:22:10.000Z",
+                "external_id": "",
+                "is_enabled": false
+              },
+              {
+                "id": 2,
+                "name": "Square",
+                "platform": "square",
+                "type": "pos",
+                "date_created": "2019-03-19T16:05:37Z",
+                "date_modified": "2019-03-19T16:05:37Z",
+                "external_id": "",
+                "is_enabled": true
+              }
+            ],
+            "meta": {
+              "pagination": {
+                "total": 1
+              }
+            }
+          }
+        }
+      },
+      "ChannelResponse": {
+        "description": "",
+        "schema": {
+          "title": "Channel Response",
+          "type": "object",
+          "properties": {
+            "data": {
+              "$ref": "#/definitions/Channel"
+            },
+            "meta": {
+              "$ref": "#/definitions/Meta"
+            }
+          }
+        },
+        "examples": {
+          "application/json": {
+            "data": {
+              "id": 1,
+              "type": "storefront",
+              "platform": "wordpress",
+              "name": "mysite.com",
+              "date_created": "2018-01-04T04:15:50.000Z",
+              "date_modified": "2018-01-18T01:22:10.000Z",
+              "is_enabled": true,
+              "external_id": ""
+            },
+            "meta": {}
+          }
+        }
+      },
+      "ErrorResponse": {
+        "description": "",
+        "schema": {
+          "title": "Error Response",
+          "type": "object",
+          "properties": {
+            "status": {
+              "description": "The HTTP status code.",
+              "type": "integer",
+              "format": "int32"
+            },
+            "title": {
+              "description": "The error title describing the particular error.",
+              "type": "string"
+            },
+            "type": {
+              "type": "string"
+            },
+            "errors": {
+              "type": "object",
+              "additionalProperties": {
+                "type": "string"
+              }
+            }
+          }
+        }
+      },
+      "ListingResponse": {
+        "description": "",
+        "schema": {
+          "title": "Listing Response",
+          "type": "object",
+          "properties": {
+            "data": {
+              "$ref": "#/definitions/Listing"
+            },
+            "meta": {
+              "$ref": "#/definitions/Meta"
+            }
+          }
+        }
+      },
+      "ListingCollectionResponse": {
+        "description": "",
+        "schema": {
+          "title": "Listing Collection Response",
+          "type": "object",
+          "properties": {
+            "data": {
+              "type": "array",
+              "items": {
+                "$ref": "#/definitions/Listing"
+              }
+            },
+            "meta": {
+              "$ref": "#/definitions/CollectionMeta"
+            }
+          }
+        },
+        "examples": {
+          "application/json": {
+            "data": [
+              {
+                "channel_id": 42527118,
+                "listing_id": 58667643,
+                "external_id": "EXT-1",
+                "product_id": 76825686,
+                "name": "Baseball bat",
+                "description": "A steel baseball bat",
+                "state": "active",
+                "date_created": "2019-01-20T22:11:39.384Z",
+                "date_modified": "2019-02-06T22:59:36.867Z",
+                "variants": [
+                  {
+                    "channel_id": 42527118,
+                    "product_id": 76825686,
+                    "variant_id": 77,
+                    "external_id": "ext-1-var",
+                    "name": "Baseball Bat - short",
+                    "description": "A shorter baseball bat",
+                    "state": "deleted",
+                    "date_created": "2019-01-20T22:11:39.384Z",
+                    "date_modified": "2019-02-06T22:59:36.867Z"
+                  }
+                ]
+              }
+            ],
+            "meta": {
+              "pagination": {
+                "total": 1,
+                "count": 1,
+                "total_pages": 1,
+                "links": {
+                  "current": "?page=1&limit=1000"
+                }
+              }
+            }
+          }
+        }
+      }
+    }
+  }
