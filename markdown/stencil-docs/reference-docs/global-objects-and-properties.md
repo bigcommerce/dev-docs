@@ -263,13 +263,25 @@ example: `{{{banner}}}`. (Double braces would escape the HTML.)
 
  ## Categories
 
- <b>Description:</b> A list of all product categories shown in the current page context; default sorting is by category id, from lowest to highest
+ <b>Description:</b> A array of category objects filled with all categories shown in the current page context; default sorting is by category ID, from lowest to highest
 
 <b>Handlebars Expression:</b> `{{categories}}`
 
-<b>Object Properties:</b>
+**Usage Example:**
 
-<b>Object Properties:</b>
+```html
+<!-- renders a UL of categories for the current page context -->
+<ul class="people_list">
+  {{#each categories}}
+    <li>{{this.name}}</li>
+  {{/each}}
+</ul>
+```
+
+**Object Properties:**
+
+The table below displays properties for the individual category objects within the array.
+
 <table>  
   <tr>   
     <th>Property</th>    
