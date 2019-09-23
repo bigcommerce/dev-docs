@@ -1,23 +1,23 @@
 {
     "openapi": "3.0.0",
     "info": {
-      "title": "Storefront API Authentication Token",
+      "title": "Storefront API Authentication Token API (Closed Beta)",
       "version": "1.0",
-      "description": "An OpenAPI Document for Storefront API Token generation via Bigcommerce v3 API.",
+      "description": "An OpenAPI Document for Storefront API Token generation via Bigcommerce v3 API. \n **Note:** this endpoint is currently in **`closed beta`**.",
       "termsOfService": "http://www.bigcommerce.com/terms"
     },
     "tags": [
       {
         "name": "Storefront API Auth",
-        "description": "Bigcommerce Storefront API Auth API Definition."
+        "description": "Bigcommerce Storefront Token API Definition."
       }
     ],
     "servers": [
       {
-        "url": "https://api.bigcommerce.com/stores/{store_id}/v3",
+        "url": "https://api.bigcommerce.com/stores/{store_hash}/v3",
         "variables": {
-          "store_id": {
-            "default": "unknown"
+          "store_hash": {
+            "default": "{store_hash}"
           }
         }
       }
@@ -309,4 +309,4 @@
         }
       }
     }
-  }
+}
