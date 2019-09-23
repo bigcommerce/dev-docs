@@ -68,23 +68,36 @@ Version 1.0 of the Official AMP Plugin for WordPress is due to be released short
 ## Choosing an AMP mode
 
 The official AMP Plugin for WordPress plugin allows you to serve AMP pages in 3 different ways. Let’s see what they are and which mode is best suited for you.
-Classic mode (AMP Plugin Version 0.1+)
-This is the original mode for rendering AMP pages and it renders an AMP theme that is separate and different from your WordPress theme. Think of it as a whole new WordPress theme that is only displayed when the site is being viewed as AMP. The AMP theme is customizable and can be branded to align with your brand.
 
-Generally this mode works out of the box and not much customization is needed to be done to your website for it to be AMP valid, this is because it uses specific a specific AMP valid theme. The draw back being that your website theme is different from the AMP theme.
-
-### Paired mode (AMP Plugin Version 0.7+)
+### Paired mode (v0.7+)
 
 Paired mode uses your existing theme and through clever sanitization and post CSS processing, the plugin does it’s best to create an AMP valid version of it. Your AMP theme and WordPress theme look extremely similar except they’re just accessed from different URL’s.
 
 In paired mode, there is usually additional development work needed to be done to your theme to make it AMP valid. The Official AMP Plugin for WordPress plugin does a really good job of reducing the size of the CSS and loading only what is needed on the page, but because of 3rd party plugins and custom theme development, you may need to conditionally remove parts of your site when AMP is valid for it to pass validation. The plugin helps you do this and in version 1.0 it has an interface to let you know of any failing AMP validations that need to be fixed.
 
-### Native mode (AMP Plugin Version 0.7+)
+### Native mode (v0.7+)
 
 Native mode is very much the same as paired mode in terms of rendering, however it will always render the AMP version of the theme. It’s basically always on AMP.
 
 For more technical details on how the 3 modes are differentiated, please check out the [Theme docs for the Official AMP Plugin for WordPress](https://github.com/ampproject/amp-wp/wiki/Adding-Theme-Support).
 
+### Classic mode (v0.1+) - Legacy
+
+<div class="HubBlock--callout">
+<div class="CalloutBlock--warning">
+<div class="HubBlock-content">
+    
+<!-- theme: warning -->
+
+> Classic is now considered legacy -- Paired and Native are the recommended AMP Plugin modes.
+
+</div>
+</div>
+</div>
+
+This is the original mode for rendering AMP pages and it renders an AMP theme that is separate and different from your WordPress theme. Think of it as a whole new WordPress theme that is only displayed when the site is being viewed as AMP. The AMP theme is customizable and can be branded to align with your brand.
+
+Generally this mode works out of the box and not much customization is needed to be done to your website for it to be AMP valid, this is because it uses specific a specific AMP valid theme. The draw back being that your website theme is different from the AMP theme.
 
 <a href='#amp_previewing' aria-hidden='true' class='block-anchor'  id='amp_previewing'><i aria-hidden='true' class='linkify icon'></i></a>
 
