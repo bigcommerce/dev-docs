@@ -27,6 +27,8 @@ This article assumes you have familiarity with the following concepts:
 	- **Sites & Routes:** `Modify`
 	- **Products:** `Read Only`
 
+Embedded Checkout also requires the [BigCommerce JS Checkout SDK](https://github.com/bigcommerce/checkout-sdk-js) to be acessible in the browser.
+
 <a id="#step-1-create-channel"></a>
 
 ## Step 1: Create a Channel
@@ -157,15 +159,11 @@ Use the `embedded_checkout_url` that is returned and assemble a JSON object that
 
 Read more about the [JSON object](https://github.com/bigcommerce/checkout-sdk-js/blob/master/docs/README.md#embedcheckout) and its possible corresponding [rendering options](https://github.com/bigcommerce/checkout-sdk-js/blob/master/docs/interfaces/embeddedcheckoutoptions.md).
 
-Example of the JSON object:
 
-<!--
-title: "JSON object"
-subtitle: ""
-lineNumbers: true
--->
 
-**JSON Object**
+```html
+<div id="foo-bar-checkout"></div>
+```
 
 ```js
 embedCheckout({
@@ -175,10 +173,6 @@ embedCheckout({
     }
 });
 
-```
-
-```html
-<div id="foo-bar-checkout"></div>
 ```
 
 At this point, you should have a working embedded checkout. 
@@ -194,3 +188,6 @@ One option to work locally is to install an SSL on your local machine, and then 
 ### How does this work with logged-in customers?
 
 Customers are handled in two steps. First, you need to pass the customer_id when creating the cart. Second, you need to log in the customer so the session is active when the checkout loads. This is done through the [Customer Login API](https://developer.bigcommerce.com/api-docs/customers/customer-login-api).
+
+### Are hosted payment gateways support with Embedded Checkout?
+At this time you cannot embed checkout using a hosted payment gateway. See [Available Payment Gateways](https://support.bigcommerce.com/s/article/Available-Payment-Gateways#all-available) to determine which type of gateway you're using.
