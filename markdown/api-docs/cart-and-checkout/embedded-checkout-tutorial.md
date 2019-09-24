@@ -33,7 +33,7 @@ Embedded Checkout also requires the [BigCommerce JS Checkout SDK](https://github
 
 ## Step 1: Create a Channel
 
-To allow the external website to serve the BigCommerce checkout, create a new Channel by sending a `POST` request to the [/channels](/path/to/reference) endpoint:
+To allow the external website to serve the BigCommerce checkout, create a new Channel by sending a `POST` request to the [/channels](/api-reference/cart-checkout/channels-listings-api) endpoint:
 
 **`POST`** `https://api.bigcommerce.com/stores/{{store_hash}}/V3/channels`
 
@@ -78,7 +78,7 @@ The response will contain an `id` (use this as the`channel_id` in future request
 
 ## 2: Create a Site
 
-Next, create a site for the channel by POSTing to the [/channels/id/site endpoint](/path/to/reference):
+Next, create a site for the channel by POSTing to the [/channels/id/site endpoint](/api-reference/cart-checkout/sites-routes-api/sites/get-channel-site):
 
 *`POST`* `https://api.bigcommerce.com/stores/{{store_hash}}/v3/channels/{{channel_id}}/site`
 
