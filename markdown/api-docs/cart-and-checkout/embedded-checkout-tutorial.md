@@ -4,10 +4,13 @@
 
 ### On This Page
 
-* [Step 1: Create a Channel](#step-1-create-channel)
-* [Step 2: Create a Site](#step-2-create-site)
-* [Step 3: Create a Cart](#step-3-create-cart)
-* [Step 4: Embed Checkout](#step-4-embed-checkout)
+- [Step 1: Create a Channel](#step-1-create-a-channel)
+- [2: Create a Site](#2-create-a-site)
+- [Step 3: Create a Cart](#step-3-create-a-cart)
+- [Step 4: Embed Checkout](#step-4-embed-checkout)
+- [FAQ](#faq)
+
+</div>
 
 Embedded Checkout lets you place BigCommerce’s Optimized One-Page checkout onto an external site. This tutorial will walk you through the sequence of API calls your application should make to create a working Embedded Checkout. 
 
@@ -158,7 +161,6 @@ Next, generate a cart URL and set this cart as the active cart by posting to  to
 Use the `embedded_checkout_url` that is returned and assemble a JSON object that will be used by the Checkout JS SDK to determine how to render the checkout. Pass the object to the `embedCheckout` method of the Checkout SDK. This will render the checkout to an HTML element with the `id` you chose.
 
 Read more about the [JSON object](https://github.com/bigcommerce/checkout-sdk-js/blob/master/docs/README.md#embedcheckout) and its possible corresponding [rendering options](https://github.com/bigcommerce/checkout-sdk-js/blob/master/docs/interfaces/embeddedcheckoutoptions.md).
-
 
 
 ```html
