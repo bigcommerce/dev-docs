@@ -487,7 +487,7 @@
         "operationId": "getAllBlogPosts"
       },
       "post": {
-        "description": "Creates a *Blog Post*.\n\n**Required Fields**\n*   title\n*   body\n\n**Read Only Fields**\n*   id\n*   preview_url\n*   summary\n\n**Notes**\n\n* When including `published_date` in a request, supply it as a flat date string (not an object) in valid <a href=\"http://tools.ietf.org/html/rfc2822#section-3.3\" target=\"_blank\">RFC 2822</a> or <a href=\"https://en.wikipedia.org/wiki/ISO_8601\" target=\"_blank\">ISO 8601</a> format. The&#160;example request below includes a `published_date` in RFC 2822 format.\n\n* Blog posts default to draft status. To publish blog posts to the storefront, set their `is_published` property to `true`.\n* If a custom URL is not provided, the post’s URL will be generated based on the value of `title`.",
+        "description": "Creates a *Blog Post*.\n\n**Required Fields**\n*   title\n*   body\n\n**Read Only Fields**\n*   id\n*   preview_url\n*   summary\n\n**Notes**\n\n* When including `published_date` in a request, supply it as a flat date string (not an object) in valid <a href=\"http://tools.ietf.org/html/rfc2822#section-3.3\" target=\"_blank\">RFC 2822</a>. The&#160;example request below includes a `published_date` in RFC 2822 format.\n\n* Blog posts default to draft status. To publish blog posts to the storefront, set their `is_published` property to `true`.\n* If a custom URL is not provided, the post’s URL will be generated based on the value of `title`.",
         "summary": "Create a Blog Post",
         "produces": [
           "application/json"
@@ -585,27 +585,8 @@
                   "type": "boolean"
                 },
                 "published_date": {
-                  "type": "object",
-                  "properties": {
-                    "timezone_type": {
-                      "type": "string",
-                      "example": 1
-                    },
-                    "date": {
-                      "type": "string",
-                      "format": "date-time",
-                      "example": "2018-05-18T08:26:42.000Z"
-                    },
-                    "timezone": {
-                      "type": "string",
-                      "format": "time",
-                      "example": "+00:00"
-                    }
-                  }
-                },
-                "published_date_iso8601": {
-                  "description": "Published date in ISO 8601 format.",
-                  "example": "5/18/2018 1:26:42 PM",
+                  "description": "Published date in RFC-2822 format.",
+                  "example": "Fri, 6 Sep 2019 12:55:31 +0000",
                   "type": "string"
                 },
                 "meta_description": {
@@ -640,11 +621,12 @@
                 "author": "Author Name",
                 "thumbnail_path": "http://cdn.example.com/sample-post.jpg",
                 "is_published": true,
+                "published_date": "Fri, 6 Sep 2019 12:55:31 +0000",
                 "tags": [
                   "Blog",
                   "Example"
                 ]
-              }
+              } 
             }
           }
         ],
@@ -1110,7 +1092,7 @@
         "operationId": "getABlogPost"
       },
       "put": {
-        "description": "Updates a *Blog Post*.\n\n**Read Only Fields**\n*   id\n*   preview_url\n\n**Notes** \n\n* When including `published_date` in a request, supply it as a flat date string (not an object) in valid <a href=\"http://tools.ietf.org/html/rfc2822#section-3.3\" target=\"_blank\">RFC 2822</a> or <a href=\"https://en.wikipedia.org/wiki/ISO_8601\" target=\"_blank\">ISO 8601</a> format. The&#160;example request below includes a `published_date` in RFC 2822 format.\n",
+        "description": "Updates a *Blog Post*.\n\n**Read Only Fields**\n*   id\n*   preview_url\n\n**Notes** \n\n* When including `published_date` in a request, supply it as a flat date string (not an object) in valid <a href=\"http://tools.ietf.org/html/rfc2822#section-3.3\" target=\"_blank\">RFC 2822</a>. The&#160;example request below includes a `published_date` in RFC 2822 format.\n",
         "summary": "Update a Blog Post",
         "tags": [
           "Blog Posts"
@@ -1163,17 +1145,11 @@
                 "summary": "<p>We power ecommerce websites for successful retailers all over the world</p>",
                 "is_published": true,
                 "published_date": {
-                  "date": "2018-05-18T08:26:42.000Z",
-                  "timezone_type": 1,
-                  "timezone": "+00:00"
-                },
-                "published_date_iso8601": "2018-05-18T13:26:42.000Z",
-                "meta_description": "Welcome Post",
-                "meta_keywords": "BigCommerce, welcome, ecommerce",
-                "author": "BigCommerce",
-                "thumbnail_path": ""
+                  "description": "Published date in RFC-2822 format.",
+                  "example": "Fri, 6 Sep 2019 12:55:31 +0000",
+                  "type": "string"
+                }
               },
-              "type": "object",
               "properties": {
                 "id": {
                   "description": "ID of this blog post. (READ-ONLY)",
@@ -1218,28 +1194,9 @@
                   "type": "boolean"
                 },
                 "published_date": {
-                  "type": "object",
-                  "properties": {
-                    "timezone_type": {
-                      "type": "string",
-                      "example": 1
-                    },
-                    "date": {
-                      "type": "string",
-                      "format": "date-time",
-                      "example": "2018-05-18T08:26:42.000Z"
-                    },
-                    "timezone": {
-                      "type": "string",
-                      "format": "time",
-                      "example": "+00:00"
-                    }
-                  }
-                },
-                "published_date_iso8601": {
-                  "description": "Published date in ISO 8601 format.",
-                  "example": "5/18/2018 1:26:42 PM",
-                  "type": "string"
+                  "type": "string",
+                  "example": "Fri, 6 Sep 2019 12:55:31 +0000",
+                  "description": "Published date in RFC-2822 format."
                 },
                 "meta_description": {
                   "description": "Description text for this blog post’s <meta> element.",
