@@ -26,20 +26,22 @@
 
 ## Compiling Custom Sass Files
 
-If you want to add your own custom Sass files to a theme, initiate auto-compilation of those files by including the associated tag in your HTML markup. Cornerstone's Sass file is named:
+If you want to add your own custom Sass files to a theme, initiate auto-compilation of those files by including the associated tag in your HTML markup. Doing this is useful for isolating your custom styles. Cornerstone's Sass file is named:
 
 <span class="fp">/cornerstone/assets/scss/theme.scss</span>
 
 To add a custom Sass file, place it at this path location, using an arbitrary filename prefix as shown:
 
-<span class="fp">/assets/scss/theme-or-file-name.scss</span>
+<span class="fp">/assets/scss/foobar.scss</span>
 
-For example, to use the Foundation Sass framework, you might need:
 
-<span class="fp">{theme-name}/assets/scss/main.scss</span>
-`<theme-name>/assets/scss/widgets.scss`
+Next, import the custom file into `theme.css`.
 
-Next, be sure the following tag is included within your `<theme-name>/templates/layout/base.html` file’s `<head>` tag, to compile your Sass to the specified object file:
+```scss
+@import "foobar";
+```
+
+Finally, be sure the following tag is included within your `<theme-name>/templates/layout/base.html` file’s `<head>` tag, to compile your Sass to the specified object file:
 
 `{{stylesheet '/assets/css/theme.css'}}`
 
