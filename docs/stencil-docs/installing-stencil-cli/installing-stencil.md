@@ -1,0 +1,191 @@
+<h1>Installing Stencil CLI</h1>
+<div class="otp" id="no-index">
+	<h3> On This Page </h3>
+	<ul>
+    <li><a href="#authorizing_prerequisites">Installing on Mac</a></li>
+    <li><a href="#authorizing_prerequisites2">Installing on Windows</a></li>
+    <li><a href="#authorizing_prerequisites3">Installing on Linux</a></li>
+    <li><a href="#live-previewing-a-theme">Live Previewing a Theme</a></li>
+	</ul>
+</div>
+
+Stencil CLI gives developers the power to locally edit and preview themes with no impact to a merchant’s live storefront, and its built-in [Browsersync](https://github.com/bigcommerce/browser-sync) capabilities make simultaneous testing across desktop, mobile, and tablet devices a breeze. Once work is complete, developers can push themes to BigCommerce storefronts (and set them live) using Stencil CLI's simple, yet powerful commands. 
+
+This article contains the detailed instructions needed to install and configure Stencil CLI -- the first step to developing themes on the BigCommerce platform.
+
+---
+
+<a href='#authorizing_prerequisites' aria-hidden='true' class='block-anchor'  id='authorizing_prerequisites'><i aria-hidden='true' class='linkify icon'></i></a>
+
+## Installing on Mac
+
+To install Stencil CLI and it's dependencies on Mac, open a terminal and run the following commands: 
+
+```shell
+# Install Node Version Manager (nvm)
+curl -o- https://raw.githubusercontent.com/creationix/nvm/v0.31.0/install.sh | bash
+
+# Install Stencil CLI supported version of Node.js
+nvm install 8.16
+
+# Switch to Stencil CLI supported version of Node.js:
+nvm use 8.16
+
+# Install Stencil CLI
+npm install -g @bigcommerce/stencil-cli
+```
+
+<div class="HubBlock--callout">
+<div class="CalloutBlock--info">
+<div class="HubBlock-content">
+
+<!-- theme: info -->
+
+> These instructions have been tested on **Mac OS X Yosemite**.
+
+</div>
+</div>
+</div>
+
+---
+
+<a href='#authorizing_prerequisites2' aria-hidden='true' class='block-anchor'  id='authorizing_prerequisites2'><i aria-hidden='true' class='linkify icon'></i></a>
+
+## Installing on Windows
+There's two methods for installing Stencil CLI and its dependencies on Windows.
+
+### Method 1: Install Dependencies Using Chocolatey
+If you're not comfortable manually installing and configuring Python and Node.js on windows, or if you prefer an easy installation option, use the [Chocolatey package manager](https://chocolatey.org/) to install Stencil CLI's dependencies. To do so, [open PowerShell](https://docs.microsoft.com/en-us/powershell/scripting/getting-started/starting-windows-powershell?view=powershell-6) as an administrator, and run the following commands:
+```shell
+ # Install Chocolatey
+iex ((New-Object System.Net.WebClient).DownloadString("https://chocolatey.org/install.ps1"))
+
+# Install git if you don't have it
+choco install git
+
+# Install nvm-windows and stencil compatible node.js
+choco install nvm; nvm install 8.16; nvm use 8.16
+
+#####################################################################################
+# Close PowerShell and re-open as admin 
+#####################################################################################
+
+# Install Windows C++ Build Tools (also installs python2)
+npm install -g windows-build-tools --vs2015
+
+# Tell npm to use python2
+npm config set python python2.7
+
+# Install Stencil CLI
+npm install -g @bigcommerce/stencil-cli
+```
+
+<div class="HubBlock--callout">
+<div class="CalloutBlock--warning">
+<div class="HubBlock-content">
+
+<!-- theme: warning -->
+
+### Execution Policy Errors
+> If you receive an execution policy error while attempting to install chocolatey, refer to [Microsoft's Documentation](https://docs.microsoft.com/en-us/powershell/module/microsoft.powershell.security/set-executionpolicy?view=powershell-6) and/or consult with your organization's system administrator to determine the appropriate course of action.
+> 
+### Chocolatey Installation Alternatives
+> For additional information on installing Chocolatey and alternative installation options, see [the installation page on chocolatey.org](https://chocolatey.org/install).
+
+</div>
+</div>
+</div>
+
+### Method 2: Install Dependencies Manually
+If you're a pro at installing and configuring Python and Node.js environments on Windows, feel free to install the required dependencies using your preferred method.
+
+**Required Dependencies:**
+* [Git](https://git-scm.com/downloads) - required to run npm install
+* [Python 2.7.x](https://www.python.org/downloads/) - required to build some dependencies
+* [Node.js 8.16 and npm](https://nodejs.org/en/download/releases/) - later versions not currently supported on Windows
+* [Visual C++ Build Tools 2015](https://www.npmjs.com/package/windows-build-tools) - required to compile some dependencies
+
+Once they're installed and configured, use `npm` to install Stencil CLI:
+
+```shell
+npm install -g @bigcommerce/stencil-cli
+```
+
+<div class="HubBlock--callout">
+<div class="CalloutBlock--info">
+<div class="HubBlock-content">
+
+<!-- theme: info -->
+
+> These instructions have been tested successfully on **Windows 10**. 
+
+</div>
+</div>
+</div>
+
+---
+
+<a href='#authorizing_prerequisites3' aria-hidden='true' class='block-anchor'  id='authorizing_prerequisites3'><i aria-hidden='true' class='linkify icon'></i></a>
+
+## Installing on Linux
+
+To install Stencil CLI and dependencies on debian-based distros, open a terminal and run the following commands:
+
+```shell
+## Update package list, then install node and npm
+sudo apt-get update && sudo apt-get install nodejs npm
+
+# Download nvm install.sh and run with bash
+curl -o- https://raw.githubusercontent.com/creationix/nvm/v0.31.0/install.sh | bash
+
+# Explicitly install supported node version
+nvm install 8.16
+
+# Install Stencil CLI
+npm install -g @bigcommerce/stencil-cli
+```
+
+**Depending on the distro, you may also need to install:**
+* g++
+* [libsass](https://sass-lang.com/libsass)
+
+<div class="HubBlock--callout">
+<div class="CalloutBlock--info">
+<div class="HubBlock-content">
+
+<!-- theme: info -->
+
+> These instructions have been tested on **Ubuntu v.14.04.4**. 
+
+</div>
+</div>
+</div>
+
+---
+
+<a href='#live-previewing-a-theme' aria-hidden='true' class='block-anchor'  id='live-previewing-a-theme'><i aria-hidden='true' class='linkify icon'></i></a>
+
+## Live Previewing a Theme
+
+Once Stencil CLI is installed, the next step on the road to theme development is downloading a theme to edit and previewing live changes using Stencil CLI's powerful Browsersync functionality. For detailed instructions on doing so, see: [Live Previewing a Theme](https://developer.bigcommerce.com/stencil-docs/installing-stencil-cli/live-previewing-a-theme). Here's the gist:
+
+```shell
+# move into theme dir
+cd ~/path/to/theme/dir
+
+# initialize a new .stencil config for the theme
+stencil init
+
+# install theme modules
+npm install
+
+# serve a live, Browsersync enabled preview of the theme
+stencil start
+```
+
+---
+
+## Resources
+
+### Additional Resources
+* [Demonstration of Stencil Installation and Launch](https://www.youtube.com/watch/iWBrJalyM0A) (Youtube)

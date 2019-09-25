@@ -1,3 +1,0 @@
-# New Test Article 2
-
-The beginning of an awesome article...

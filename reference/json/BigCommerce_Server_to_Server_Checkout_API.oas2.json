@@ -1,0 +1,5075 @@
+{
+  "swagger": "2.0",
+  "info": {
+    "version": "",
+    "title": "Server to Server Checkout API",
+    "description": "### Checkout\nAllows for a checkout to be created from an existing cart using BigCommerce checkout logic. The existing BigCommerce front end cart/checkout can be bypassed.\n\nNotes:\n- checkoutId is the same as the cartId."
+  },
+  "host": "api.bigcommerce.com",
+  "basePath": "/stores/{store_hash}/v3",
+  "schemes": [
+    "https"
+  ],
+  "consumes": [
+    "application/json"
+  ],
+  "produces": [
+    "application/json"
+  ],
+  "paths": {
+    "/checkouts/{checkoutId}": {
+      "get": {
+        "description": "Returns a *Checkout*.\n\n**Notes**\n\nThe cart ID and checkout ID are the same.",
+        "summary": "Get a Checkout",
+        "tags": [
+          "Checkout"
+        ],
+        "operationId": "CheckoutsByCheckoutIdGet",
+        "produces": [
+          "application/json"
+        ],
+        "parameters": [
+          {
+            "name": "checkoutId",
+            "in": "path",
+            "type": "string",
+            "required": true,
+            "description": "Id of the Checkout"
+          },
+          {
+            "name": "Accept",
+            "in": "header",
+            "type": "string",
+            "default": "application/json",
+            "required": true
+          },
+          {
+            "name": "Content-Type",
+            "in": "header",
+            "type": "string",
+            "default": "application/json",
+            "required": true
+          }
+        ],
+        "responses": {
+          "200": {
+            "$ref": "#/responses/CheckoutResponse"
+          },
+          "404": {
+            "description": "When a given checkout ID is not found.",
+            "schema": {
+              "title": "Checkout Error",
+              "type": "object",
+              "properties": {
+                "errors": {
+                  "description": "",
+                  "type": "array",
+                  "items": {
+                    "title": "ErrorDetail",
+                    "type": "object",
+                    "properties": {
+                      "status": {
+                        "description": "",
+                        "type": "integer",
+                        "format": "int32"
+                      },
+                      "title": {
+                        "description": "",
+                        "type": "string"
+                      },
+                      "type": {
+                        "description": "",
+                        "type": "string"
+                      },
+                      "detail": {
+                        "description": "",
+                        "type": "string"
+                      }
+                    }
+                  }
+                }
+              }
+            }
+          }
+        },
+        "security": [],
+        "x-unitTests": [],
+        "x-operation-settings": {
+          "CollectParameters": false,
+          "AllowDynamicQueryParameters": false,
+          "AllowDynamicFormParameters": false,
+          "IsMultiContentStreaming": false
+        }
+      }
+    },
+    "/checkouts/{checkoutId}/billing-address": {
+      "post": {
+        "description": "Adds a billing address to an existing *Checkout*.\n\n**Required Fields**\n* email\n* country_code",
+        "tags": [
+          "Checkout"
+        ],
+        "operationId": "CheckoutsBillingAddressByCheckoutIdPost",
+        "produces": [
+          "application/json"
+        ],
+        "parameters": [
+          {
+            "name": "checkoutId",
+            "in": "path",
+            "type": "string",
+            "required": true,
+            "description": "Id of the Checkout"
+          },
+          {
+            "name": "Accept",
+            "in": "header",
+            "type": "string",
+            "default": "application/json",
+            "required": true
+          },
+          {
+            "name": "Content-Type",
+            "in": "header",
+            "type": "string",
+            "default": "application/json",
+            "required": true
+          },
+          {
+            "name": "body",
+            "in": "body",
+            "required": true,
+            "description": "Either email or countryCode is required.",
+            "schema": {
+              "title": "Address Properties",
+              "type": "object",
+              "properties": {
+                "first_name": {
+                  "description": "",
+                  "type": "string"
+                },
+                "last_name": {
+                  "description": "",
+                  "type": "string"
+                },
+                "email": {
+                  "type": "string",
+                  "description": ""
+                },
+                "company": {
+                  "description": "",
+                  "type": "string"
+                },
+                "address1": {
+                  "description": "",
+                  "type": "string"
+                },
+                "address2": {
+                  "description": "",
+                  "type": "string"
+                },
+                "city": {
+                  "description": "",
+                  "type": "string"
+                },
+                "state_or_province": {
+                  "description": "Represents state or province.",
+                  "type": "string"
+                },
+                "state_or_province_code": {
+                  "description": "",
+                  "type": "string"
+                },
+                "country_code": {
+                  "type": "string",
+                  "description": ""
+                },
+                "postal_code": {
+                  "description": "",
+                  "type": "string"
+                },
+                "phone": {
+                  "description": "",
+                  "type": "string",
+                  "pattern": "^\\+?[1-9]\\d{1,14}(x\\d{1-5})?$"
+                },
+                "custom_fields": {
+                  "description": "",
+                  "type": "array",
+                  "items": {
+                    "title": "Custom Field",
+                    "type": "object",
+                    "properties": {
+                      "field_id": {
+                        "description": "",
+                        "type": "string"
+                      },
+                      "field_value": {
+                        "description": "This can also be an array for fields that need to support list of values (e.g., a set of check boxes.)",
+                        "type": "string"
+                      }
+                    }
+                  }
+                }
+              },
+              "required": [
+                "email",
+                "country_code"
+              ]
+            },
+            "x-examples": {
+              "application/json": {
+                "first_name": "Jane",
+                "last_name": "Doe",
+                "email": "jane@email.com",
+                "address1": "123 Main Street",
+                "address2": "",
+                "city": "Austin",
+                "state_or_province": "Texas",
+                "state_or_province_code": "TX",
+                "country_code": "US",
+                "postal_code": "78751",
+                "phone": "1234567890"
+              }
+            }
+          }
+        ],
+        "responses": {
+          "200": {
+            "$ref": "#/responses/CheckoutResponse"
+          }
+        },
+        "security": [],
+        "x-unitTests": [],
+        "x-operation-settings": {
+          "CollectParameters": false,
+          "AllowDynamicQueryParameters": false,
+          "AllowDynamicFormParameters": false,
+          "IsMultiContentStreaming": false
+        },
+        "summary": "Add Checkout Billing Address"
+      }
+    },
+    "/checkouts/{checkoutId}/billing-address/{addressId}": {
+      "put": {
+        "description": "Updates an existing billing address on *Checkout*.",
+        "summary": "Update Checkout Billing Address",
+        "tags": [
+          "Checkout"
+        ],
+        "operationId": "CheckoutsBillingAddressByCheckoutIdAndAddressIdPut",
+        "produces": [
+          "application/json"
+        ],
+        "parameters": [
+          {
+            "name": "checkoutId",
+            "in": "path",
+            "type": "string",
+            "required": true,
+            "description": "Id of the Checkout"
+          },
+          {
+            "name": "Accept",
+            "in": "header",
+            "type": "string",
+            "default": "application/json",
+            "required": true
+          },
+          {
+            "name": "Content-Type",
+            "in": "header",
+            "type": "string",
+            "default": "application/json",
+            "required": true
+          },
+          {
+            "name": "addressId",
+            "in": "path",
+            "type": "integer",
+            "required": true
+          },
+          {
+            "name": "body",
+            "in": "body",
+            "required": true,
+            "description": "",
+            "schema": {
+              "title": "Address Properties",
+              "type": "object",
+              "properties": {
+                "first_name": {
+                  "description": "",
+                  "type": "string"
+                },
+                "last_name": {
+                  "description": "",
+                  "type": "string"
+                },
+                "email": {
+                  "type": "string",
+                  "description": ""
+                },
+                "company": {
+                  "description": "",
+                  "type": "string"
+                },
+                "address1": {
+                  "description": "",
+                  "type": "string"
+                },
+                "address2": {
+                  "description": "",
+                  "type": "string"
+                },
+                "city": {
+                  "description": "",
+                  "type": "string"
+                },
+                "state_or_province": {
+                  "description": "Represents state or province.",
+                  "type": "string"
+                },
+                "state_or_province_code": {
+                  "description": "",
+                  "type": "string"
+                },
+                "country_code": {
+                  "type": "string",
+                  "description": ""
+                },
+                "postal_code": {
+                  "description": "",
+                  "type": "string"
+                },
+                "phone": {
+                  "description": "",
+                  "type": "string",
+                  "pattern": "^\\+?[1-9]\\d{1,14}(x\\d{1-5})?$"
+                },
+                "custom_fields": {
+                  "description": "",
+                  "type": "array",
+                  "items": {
+                    "title": "Custom Field",
+                    "type": "object",
+                    "properties": {
+                      "field_id": {
+                        "description": "",
+                        "type": "string"
+                      },
+                      "field_value": {
+                        "description": "This can also be an array for fields that need to support list of values (e.g., a set of check boxes.)",
+                        "type": "string"
+                      }
+                    }
+                  }
+                }
+              },
+              "required": [
+                "email",
+                "country_code"
+              ]
+            },
+            "x-examples": {
+              "application/json": {
+                "email": "jane@email.com",
+                "phone": "1234567890"
+              }
+            }
+          }
+        ],
+        "responses": {
+          "200": {
+            "$ref": "#/responses/CheckoutResponse"
+          }
+        },
+        "security": [],
+        "x-unitTests": [],
+        "x-operation-settings": {
+          "CollectParameters": false,
+          "AllowDynamicQueryParameters": false,
+          "AllowDynamicFormParameters": false,
+          "IsMultiContentStreaming": false
+        }
+      }
+    },
+    "/checkouts/{checkoutId}/consignments": {
+      "post": {
+        "description": "Adds a new *Consignment* to *Checkout*.\n\n\nThere are two steps to add a new shipping address and shipping options with line items. \n1. Add a [new Consignment](/api-reference/cart-checkout/server-server-checkout-api/checkout/checkoutsconsignmentsbycheckoutidpost) to Checkout.\n\t2. Send a POST to Consignments with each shipping address and line items IDs. Each address can have its own line item IDs.\n\t3. As part of the request URL make sure to add `include=consignments.available_shipping_options` to return the available shipping options based on line items and shipping locations. This will return `available_shipping_options` in the response.\n3. [Update the Consignment](/api-reference/cart-checkout/server-server-checkout-api/checkout/checkoutsconsignmentsbycheckoutidandconsignmentidput) with Shipping Options.\n\n**Required Query**\n* consignments.available_shipping_options\n\n**Required Fields**\n* shipping_address\n* line_items",
+        "summary": "Add Consignment to Checkout",
+        "tags": [
+          "Checkout"
+        ],
+        "operationId": "CheckoutsConsignmentsByCheckoutIdPost",
+        "produces": [
+          "application/json"
+        ],
+        "parameters": [
+          {
+            "name": "checkoutId",
+            "in": "path",
+            "type": "string",
+            "required": true,
+            "description": "Id of the Checkout"
+          },
+          {
+            "name": "Accept",
+            "in": "header",
+            "type": "string",
+            "default": "application/json",
+            "required": true
+          },
+          {
+            "name": "Content-Type",
+            "in": "header",
+            "type": "string",
+            "default": "application/json",
+            "required": true
+          },
+          {
+            "name": "body",
+            "in": "body",
+            "required": true,
+            "description": "",
+            "schema": {
+              "type": "array",
+              "items": {
+                "title": "Create Consignment Request",
+                "type": "object",
+                "properties": {
+                  "shipping_address": {
+                    "title": "Address Properties",
+                    "type": "object",
+                    "properties": {
+                      "first_name": {
+                        "description": "",
+                        "type": "string"
+                      },
+                      "last_name": {
+                        "description": "",
+                        "type": "string"
+                      },
+                      "email": {
+                        "type": "string",
+                        "description": ""
+                      },
+                      "company": {
+                        "description": "",
+                        "type": "string"
+                      },
+                      "address1": {
+                        "description": "",
+                        "type": "string"
+                      },
+                      "address2": {
+                        "description": "",
+                        "type": "string"
+                      },
+                      "city": {
+                        "description": "",
+                        "type": "string"
+                      },
+                      "state_or_province": {
+                        "description": "Represents state or province.",
+                        "type": "string"
+                      },
+                      "state_or_province_code": {
+                        "description": "",
+                        "type": "string"
+                      },
+                      "country_code": {
+                        "type": "string",
+                        "description": ""
+                      },
+                      "postal_code": {
+                        "description": "",
+                        "type": "string"
+                      },
+                      "phone": {
+                        "description": "",
+                        "type": "string",
+                        "pattern": "^\\+?[1-9]\\d{1,14}(x\\d{1-5})?$"
+                      },
+                      "custom_fields": {
+                        "description": "",
+                        "type": "array",
+                        "items": {
+                          "title": "Custom Field",
+                          "type": "object",
+                          "properties": {
+                            "field_id": {
+                              "description": "",
+                              "type": "string"
+                            },
+                            "field_value": {
+                              "description": "This can also be an array for fields that need to support list of values (e.g., a set of check boxes.)",
+                              "type": "string"
+                            }
+                          }
+                        }
+                      }
+                    },
+                    "required": [
+                      "email",
+                      "country_code"
+                    ]
+                  },
+                  "line_items": {
+                    "description": "",
+                    "type": "array",
+                    "items": {
+                      "title": "Consignment Line Item",
+                      "type": "object",
+                      "properties": {
+                        "item_id": {
+                          "description": "Corresponds to `line_items` > `id in Checkout response.",
+                          "type": "string"
+                        },
+                        "quantity": {
+                          "description": "",
+                          "type": "integer",
+                          "format": "int32"
+                        }
+                      },
+                      "required": [
+                        "item_id",
+                        "quantity"
+                      ]
+                    }
+                  }
+                }
+              }
+            },
+            "x-examples": {
+              "application/json": [
+                {
+                  "shipping_address": {
+                    "email": "jane2@email.com",
+                    "country_code": "US",
+                    "first_name": "BigCommerce",
+                    "last_name": "Cart/Checkout",
+                    "address1": "123 Main Street",
+                    "city": "Austin",
+                    "state_or_province": "Texas",
+                    "state_or_province_code": "TX",
+                    "postal_code": "78751",
+                    "phone": "688546",
+                    "custom_fields": [
+                      {
+                        "field_id": "field_25",
+                        "field_value": "Great!"
+                      }
+                    ]
+                  },
+                  "line_items": [
+                    {
+                      "item_id": "27556eb3-6537-4d08-b75e-1ac32d80934b",
+                      "quantity": 1
+                    }
+                  ]
+                },
+                {
+                  "shipping_address": {
+                    "email": "testing@email.com",
+                    "country_code": "US",
+                    "first_name": "Testing",
+                    "last_name": "BigCommerce",
+                    "company": "BigCommerce",
+                    "address1": "111 Main Street",
+                    "address2": "#1324",
+                    "city": "Austin",
+                    "state_or_province": "Texas",
+                    "state_or_province_code": "TX",
+                    "postal_code": "78751",
+                    "phone": "+5185158x1{1-5}",
+                    "custom_fields": [
+                      {
+                        "field_id": "field_25",
+                        "field_value": "You're Welcome"
+                      }
+                    ]
+                  },
+                  "line_items": [
+                    {
+                      "item_id": "15429582-222e-499e-8d22-d2930a0cfc0e",
+                      "quantity": 1
+                    }
+                  ]
+                }
+              ]
+            }
+          },
+          {
+            "name": "include",
+            "in": "query",
+            "required": false,
+            "x-enum-elements": [
+              {
+                "name": "Enum_consignments.availableShippingOptions",
+                "description": ""
+              }
+            ],
+            "type": "string",
+            "description": "Must be included to get available shipping options",
+            "default": "consignments.available_shipping_options"
+          },
+          {
+            "$ref": "#/parameters/includeShippingOption"
+          }
+        ],
+        "responses": {
+          "200": {
+            "$ref": "#/responses/CheckoutResponse"
+          }
+        },
+        "security": [],
+        "x-unitTests": [],
+        "x-operation-settings": {
+          "CollectParameters": false,
+          "AllowDynamicQueryParameters": false,
+          "AllowDynamicFormParameters": false,
+          "IsMultiContentStreaming": false
+        }
+      }
+    },
+    "/checkouts/{checkoutId}/consignments/{consignmentId}": {
+      "put": {
+        "description": "Updates an existing consignment. Shipping address, line item IDs or the shipping option ID can be updated using this endpoint.\n\nThere are two steps to add a new shipping address and shipping options with line items. \n1. Add a [new Consignment](/api-reference/cart-checkout/server-server-checkout-api/checkout/checkoutsconsignmentsbycheckoutidpost) to Checkout.\n3. [Update the Consignment](/api-reference/cart-checkout/server-server-checkout-api/checkout/checkoutsconsignmentsbycheckoutidandconsignmentidput) with Shipping Options.\n\t4. Update each *Consignment* `shipping_option_id` (shipping address and line items) with the `available_shipping_option > id` from Step One. \n\n\n**Required Fields**\n* shipping_option_id",
+        "summary": "Update Checkout Consignment",
+        "tags": [
+          "Checkout"
+        ],
+        "operationId": "CheckoutsConsignmentsByCheckoutIdAndConsignmentIdPut",
+        "produces": [
+          "application/json"
+        ],
+        "parameters": [
+          {
+            "name": "checkoutId",
+            "in": "path",
+            "type": "string",
+            "required": true,
+            "description": "Id of the Checkout"
+          },
+          {
+            "name": "Accept",
+            "in": "header",
+            "type": "string",
+            "default": "application/json",
+            "required": true
+          },
+          {
+            "name": "Content-Type",
+            "in": "header",
+            "type": "string",
+            "default": "application/json",
+            "required": true
+          },
+          {
+            "name": "consignmentId",
+            "in": "path",
+            "type": "string",
+            "required": true
+          },
+          {
+            "name": "body",
+            "in": "body",
+            "required": true,
+            "description": "",
+            "schema": {
+              "title": "Update Consignment Request",
+              "description": "One or more of these three fields are mandatory. Shipping address and line items can be updated in one request. Shipping option ID has to be updated in a separate request, since changing the address or line items can invalidate the previously available shipping options.",
+              "type": "object",
+              "properties": {
+                "shipping_address": {
+                  "title": "Address Properties",
+                  "type": "object",
+                  "properties": {
+                    "first_name": {
+                      "description": "",
+                      "type": "string"
+                    },
+                    "last_name": {
+                      "description": "",
+                      "type": "string"
+                    },
+                    "email": {
+                      "type": "string",
+                      "description": ""
+                    },
+                    "company": {
+                      "description": "",
+                      "type": "string"
+                    },
+                    "address1": {
+                      "description": "",
+                      "type": "string"
+                    },
+                    "address2": {
+                      "description": "",
+                      "type": "string"
+                    },
+                    "city": {
+                      "description": "",
+                      "type": "string"
+                    },
+                    "state_or_province": {
+                      "description": "Represents state or province.",
+                      "type": "string"
+                    },
+                    "state_or_province_code": {
+                      "description": "",
+                      "type": "string"
+                    },
+                    "country_code": {
+                      "type": "string",
+                      "description": ""
+                    },
+                    "postal_code": {
+                      "description": "",
+                      "type": "string"
+                    },
+                    "phone": {
+                      "description": "",
+                      "type": "string",
+                      "pattern": "^\\+?[1-9]\\d{1,14}(x\\d{1-5})?$"
+                    },
+                    "custom_fields": {
+                      "description": "",
+                      "type": "array",
+                      "items": {
+                        "title": "Custom Field",
+                        "type": "object",
+                        "properties": {
+                          "field_id": {
+                            "description": "",
+                            "type": "string"
+                          },
+                          "field_value": {
+                            "description": "This can also be an array for fields that need to support list of values (e.g., a set of check boxes.)",
+                            "type": "string"
+                          }
+                        }
+                      }
+                    }
+                  },
+                  "required": [
+                    "email",
+                    "country_code"
+                  ]
+                },
+                "line_items": {
+                  "description": "",
+                  "type": "array",
+                  "items": {
+                    "title": "Consignment Line Item",
+                    "type": "object",
+                    "properties": {
+                      "item_id": {
+                        "description": "Corresponds to `line_items` > `id in Checkout response.",
+                        "type": "string"
+                      },
+                      "quantity": {
+                        "description": "",
+                        "type": "integer",
+                        "format": "int32"
+                      }
+                    },
+                    "required": [
+                      "item_id",
+                      "quantity"
+                    ]
+                  }
+                },
+                "shipping_option_id": {
+                  "description": "",
+                  "type": "string"
+                }
+              }
+            },
+            "x-examples": {
+              "application/json": {
+                "shipping_address": {
+                  "email": "aliquip do commodo mollit ea",
+                  "country_code": "qui Duis",
+                  "first_name": "occaecat labore cillum Duis dolore",
+                  "last_name": "quis nisi",
+                  "company": "laborum aliquip aliqua elit sint",
+                  "address1": "in",
+                  "address2": "Ut veniam",
+                  "city": "consequat ullamco velit amet veniam",
+                  "state_or_province": "dolor",
+                  "state_or_province_code": "sunt",
+                  "postal_code": "do",
+                  "phone": "+481526687548x4{1-5}",
+                  "custom_fields": [
+                    {
+                      "field_id": "amet in esse consequat eiusmod",
+                      "field_value": "laboris eu Excepteur esse veniam"
+                    },
+                    {
+                      "field_id": "sed qui nulla anim",
+                      "field_value": "in dolor enim voluptate officia"
+                    },
+                    {
+                      "field_id": "sunt",
+                      "field_value": "sit aliqua ullamco in ad"
+                    }
+                  ]
+                },
+                "line_items": [
+                  {
+                    "item_id": "Excepteur non Ut eu dolor",
+                    "quantity": 71499869
+                  },
+                  {
+                    "item_id": "id adipisicing",
+                    "quantity": 94354217
+                  }
+                ],
+                "shipping_option_id": "aliquip deserunt dolor aliqua ut"
+              }
+            }
+          },
+          {
+            "name": "include",
+            "in": "query",
+            "required": false,
+            "x-enum-elements": [
+              {
+                "name": "Enum_consignments.availableShippingOptions",
+                "description": ""
+              }
+            ],
+            "type": "string",
+            "description": "Must be included to get available shipping options",
+            "default": "consignments.available_shipping_options"
+          }
+        ],
+        "responses": {
+          "200": {
+            "$ref": "#/responses/CheckoutResponse"
+          }
+        },
+        "security": [],
+        "x-unitTests": [],
+        "x-operation-settings": {
+          "CollectParameters": false,
+          "AllowDynamicQueryParameters": false,
+          "AllowDynamicFormParameters": false,
+          "IsMultiContentStreaming": false
+        }
+      },
+      "delete": {
+        "description": "Removes an existing consignment from checkout. \n\nRemoving the last consigment will remove the Cart from the customer it is assigned to. Create a new rediret url for the customer to access it again.",
+        "summary": "Delete Checkout Consignment",
+        "tags": [
+          "Checkout"
+        ],
+        "operationId": "CheckoutsConsignmentsByCheckoutIdAndConsignmentIdDelete",
+        "produces": [
+          "application/json"
+        ],
+        "parameters": [
+          {
+            "name": "checkoutId",
+            "in": "path",
+            "type": "string",
+            "required": true,
+            "description": "Id of the Checkout"
+          },
+          {
+            "name": "Accept",
+            "in": "header",
+            "type": "string",
+            "default": "application/json",
+            "required": true
+          },
+          {
+            "name": "Content-Type",
+            "in": "header",
+            "type": "string",
+            "default": "application/json",
+            "required": true
+          },
+          {
+            "name": "consignmentId",
+            "in": "path",
+            "type": "string",
+            "required": true
+          }
+        ],
+        "responses": {
+          "200": {
+            "$ref": "#/responses/CheckoutResponse"
+          }
+        },
+        "security": [],
+        "x-unitTests": [],
+        "x-operation-settings": {
+          "CollectParameters": false,
+          "AllowDynamicQueryParameters": false,
+          "AllowDynamicFormParameters": false,
+          "IsMultiContentStreaming": false
+        }
+      }
+    },
+    "/checkouts/{checkoutId}/coupons": {
+      "post": {
+        "description": "Adds a *Coupon Code* to *Checkout*.\n\n**Required Fields**\n* coupon_code",
+        "summary": "Add Coupon to Checkout",
+        "tags": [
+          "Checkout"
+        ],
+        "operationId": "CheckoutsCouponsByCheckoutIdPost",
+        "produces": [
+          "application/json"
+        ],
+        "parameters": [
+          {
+            "name": "checkoutId",
+            "in": "path",
+            "type": "string",
+            "required": true,
+            "description": "Id of the Checkout"
+          },
+          {
+            "name": "Accept",
+            "in": "header",
+            "type": "string",
+            "default": "application/json",
+            "required": true
+          },
+          {
+            "name": "Content-Type",
+            "in": "header",
+            "type": "string",
+            "default": "application/json",
+            "required": true
+          },
+          {
+            "name": "body",
+            "in": "body",
+            "required": true,
+            "description": "",
+            "schema": {
+              "title": "Coupon Code Request",
+              "type": "object",
+              "properties": {
+                "coupon_code": {
+                  "description": "",
+                  "type": "string"
+                }
+              }
+            },
+            "x-examples": {
+              "application/json": {
+                "coupon_code": "S2549JM0Y"
+              }
+            }
+          }
+        ],
+        "responses": {
+          "200": {
+            "$ref": "#/responses/CheckoutResponse"
+          }
+        },
+        "security": [],
+        "x-unitTests": [],
+        "x-operation-settings": {
+          "CollectParameters": false,
+          "AllowDynamicQueryParameters": false,
+          "AllowDynamicFormParameters": false,
+          "IsMultiContentStreaming": false
+        }
+      }
+    },
+    "/checkouts/{checkoutId}/coupons/{couponCode}": {
+      "delete": {
+        "description": "Deletes a *Coupon Code* from *Checkout*.",
+        "summary": "Delete Checkout Coupon",
+        "tags": [
+          "Checkout"
+        ],
+        "operationId": "CheckoutsCouponsByCheckoutIdAndCouponCodeDelete",
+        "produces": [
+          "application/json"
+        ],
+        "parameters": [
+          {
+            "name": "checkoutId",
+            "in": "path",
+            "type": "string",
+            "required": true,
+            "description": "Id of the Checkout"
+          },
+          {
+            "name": "Accept",
+            "in": "header",
+            "type": "string",
+            "default": "application/json",
+            "required": true
+          },
+          {
+            "name": "Content-Type",
+            "in": "header",
+            "type": "string",
+            "default": "application/json",
+            "required": true
+          },
+          {
+            "name": "couponCode",
+            "in": "path",
+            "type": "string",
+            "required": true,
+            "description": "The actual couponCode, not the couponId."
+          }
+        ],
+        "responses": {
+          "200": {
+            "$ref": "#/responses/CheckoutResponse"
+          }
+        },
+        "security": [],
+        "x-unitTests": [],
+        "x-operation-settings": {
+          "CollectParameters": false,
+          "AllowDynamicQueryParameters": false,
+          "AllowDynamicFormParameters": false,
+          "IsMultiContentStreaming": false
+        }
+      }
+    },
+    "/checkouts/{checkoutId}/orders": {
+      "post": {
+        "responses": {
+          "200": {
+            "description": "",
+            "schema": {
+              "type": "object",
+              "title": "Order",
+              "properties": {
+                "id": {
+                  "type": "integer",
+                  "example": 75,
+                  "description": "The order Id."
+                }
+              }
+            },
+            "examples": {
+              "application/json": {
+                "id": 85424895
+              }
+            }
+          }
+        },
+        "summary": "Create an Order",
+        "description": "Creates an *Order*. \n\n**Notes**\n\nOrders created will be set to incomplete order status. \n\nYou can create as many orders from the same order(cart) as you want. Order duplication creates the same order with a new order number with the incomplete status. \nOnce the order is paid, then the cart is deleted. Cart deletion occurs if you are using BigCommerce to accept payments on orders.",
+        "parameters": [
+          {
+            "name": "Accept",
+            "in": "header",
+            "type": "string",
+            "default": "application/json",
+            "required": true
+          },
+          {
+            "name": "Content-Type",
+            "in": "header",
+            "type": "string",
+            "default": "application/json",
+            "required": true
+          },
+          {
+            "name": "checkoutId",
+            "in": "path",
+            "type": "string",
+            "required": true,
+            "description": "Id of the Checkout"
+          }
+        ],
+        "tags": [
+          "Checkout"
+        ],
+        "operationId": "createAnOrder"
+      },
+      "parameters": [
+        {
+          "name": "checkoutId",
+          "in": "path",
+          "type": "string",
+          "required": true
+        }
+      ]
+    }
+  },
+  "definitions": {
+    "Checkout": {
+      "title": "Checkout",
+      "type": "object",
+      "properties": {
+        "id": {
+          "description": "",
+          "type": "string",
+          "format": "uuid"
+        },
+        "cart": {
+          "title": "Cart",
+          "type": "object",
+          "properties": {
+            "id": {
+              "description": "Cart ID, provided after creating a cart with a POST.",
+              "type": "string",
+              "format": "uuid"
+            },
+            "customer_id": {
+              "description": "ID of the customer to which the cart belongs.",
+              "type": "integer",
+              "format": "int32"
+            },
+            "email": {
+              "description": "The cart's email. This is the same email that is used in the billing address",
+              "type": "string"
+            },
+            "currency": {
+              "title": "Currency",
+              "type": "object",
+              "properties": {
+                "code": {
+                  "description": "ISO-4217 currency code. (See: http://en.wikipedia.org/wiki/ISO_4217.)",
+                  "type": "string"
+                }
+              }
+            },
+            "base_amount": {
+              "description": "Cost of cart's contents, before applying discounts.",
+              "type": "number",
+              "format": "double"
+            },
+            "discount_amount": {
+              "description": "Discounted amount.",
+              "type": "number",
+              "format": "double"
+            },
+            "cart_amount_inc_tax": {
+              "description": "Sum of line-items amounts, minus cart-level discounts and coupons including tax",
+              "type": "number",
+              "format": "double"
+            },
+            "cart_amount_ex_tax": {
+              "description": "Sum of line-items amounts, minus cart-level discounts and coupons excluding tax",
+              "type": "number",
+              "format": "double"
+            },
+            "coupons": {
+              "description": "",
+              "type": "array",
+              "items": {
+                "title": "Applied Coupon",
+                "type": "object",
+                "properties": {
+                  "code": {
+                    "description": "the coupon code",
+                    "type": "string"
+                  },
+                  "id": {
+                    "description": "The coupon ID.",
+                    "type": "string"
+                  },
+                  "coupon_type": {
+                    "description": "Key name to identify the type of coupon.",
+                    "type": "string"
+                  },
+                  "discounted_amount": {
+                    "description": "The discounted amount applied within a given context.",
+                    "type": "number",
+                    "format": "double"
+                  }
+                },
+                "required": [
+                  "code"
+                ]
+              }
+            },
+            "discounts": {
+              "description": "",
+              "type": "array",
+              "items": {
+                "title": "Applied Discount",
+                "type": "object",
+                "properties": {
+                  "id": {
+                    "description": "ID of the applied discount.",
+                    "type": "number",
+                    "format": "double"
+                  },
+                  "discounted_amount": {
+                    "description": "The discounted amount applied within a given context.",
+                    "type": "number",
+                    "format": "double"
+                  }
+                }
+              }
+            },
+            "line_items": {
+              "description": "",
+              "type": "array",
+              "items": {
+                "title": "Line Item",
+                "type": "object",
+                "properties": {
+                  "physical_items": {
+                    "description": "",
+                    "type": "array",
+                    "items": {
+                      "title": "Item Physical",
+                      "type": "object",
+                      "properties": {
+                        "quantity": {
+                          "description": "",
+                          "type": "number",
+                          "format": "double"
+                        },
+                        "id": {
+                          "description": "The line-item ID.",
+                          "type": "string"
+                        },
+                        "variant_id": {
+                          "description": "",
+                          "type": "number",
+                          "format": "double"
+                        },
+                        "product_id": {
+                          "description": "",
+                          "type": "number",
+                          "format": "double"
+                        },
+                        "sku": {
+                          "description": "",
+                          "type": "string"
+                        },
+                        "name": {
+                          "description": "The item's product name.",
+                          "type": "string"
+                        },
+                        "url": {
+                          "description": "The product URL.",
+                          "type": "string"
+                        },
+                        "is_taxable": {
+                          "description": "",
+                          "type": "boolean"
+                        },
+                        "image_url": {
+                          "description": "",
+                          "type": "string"
+                        },
+                        "discounts": {
+                          "description": "",
+                          "type": "array",
+                          "items": {
+                            "title": "Applied Discount",
+                            "type": "object",
+                            "properties": {
+                              "id": {
+                                "description": "ID of the applied discount.",
+                                "type": "number",
+                                "format": "double"
+                              },
+                              "discounted_amount": {
+                                "description": "The discounted amount applied within a given context.",
+                                "type": "number",
+                                "format": "double"
+                              }
+                            }
+                          }
+                        },
+                        "coupons": {
+                          "description": "",
+                          "type": "array",
+                          "items": {
+                            "title": "Applied Coupon",
+                            "type": "object",
+                            "properties": {
+                              "code": {
+                                "description": "the coupon code",
+                                "type": "string"
+                              },
+                              "id": {
+                                "description": "The coupon ID.",
+                                "type": "string"
+                              },
+                              "coupon_type": {
+                                "description": "Key name to identify the type of coupon.",
+                                "type": "string"
+                              },
+                              "discounted_amount": {
+                                "description": "The discounted amount applied within a given context.",
+                                "type": "number",
+                                "format": "double"
+                              }
+                            },
+                            "required": [
+                              "code"
+                            ]
+                          }
+                        },
+                        "discount_amount": {
+                          "description": "The total value of all discounts applied to this item.",
+                          "type": "number",
+                          "format": "double"
+                        },
+                        "coupon_amount": {
+                          "description": "The total value of all coupons applied to this item.",
+                          "type": "number",
+                          "format": "double"
+                        },
+                        "list_price": {
+                          "description": "Item's list price, as quoted by the manufacturer/distributor.",
+                          "type": "number",
+                          "format": "double"
+                        },
+                        "sale_price": {
+                          "description": "Item's price after all discounts are applied. (The final price before tax calculation.)",
+                          "type": "number",
+                          "format": "double"
+                        },
+                        "extended_list_price": {
+                          "description": "Item's list price multiplied by the quantity.",
+                          "type": "number",
+                          "format": "double"
+                        },
+                        "extended_sale_price": {
+                          "description": "Item's sale price multiplied by the quantity.",
+                          "type": "number",
+                          "format": "double"
+                        },
+                        "options": {
+                          "description": "The list of selected options for this product.",
+                          "type": "array",
+                          "items": {
+                            "title": "Product Option",
+                            "type": "object",
+                            "properties": {
+                              "name": {
+                                "description": "The product option name. For example, Color or Size",
+                                "type": "string"
+                              },
+                              "name_id": {
+                                "description": "The product option identifier.",
+                                "type": "number",
+                                "format": "double"
+                              },
+                              "value": {
+                                "description": "The product option value. For example, Red or Medium",
+                                "type": "string"
+                              },
+                              "value_id": {
+                                "description": "The product option value identifier.",
+                                "type": "number",
+                                "format": "double"
+                              }
+                            }
+                          }
+                        },
+                        "is_require_shipping": {
+                          "description": "",
+                          "type": "boolean"
+                        },
+                        "gift_wrapping": {
+                          "title": "Gift Wrapping",
+                          "type": "object",
+                          "properties": {
+                            "name": {
+                              "description": "",
+                              "type": "string"
+                            },
+                            "message": {
+                              "description": "",
+                              "type": "string"
+                            },
+                            "amount": {
+                              "description": "",
+                              "type": "number",
+                              "format": "double"
+                            },
+                            "amount_as_integer": {
+                              "description": "",
+                              "type": "number",
+                              "format": "double"
+                            }
+                          }
+                        }
+                      },
+                      "required": [
+                        "quantity"
+                      ]
+                    }
+                  },
+                  "digital_items": {
+                    "description": "",
+                    "type": "array",
+                    "items": {
+                      "title": "Item Digital",
+                      "type": "object",
+                      "properties": {
+                        "quantity": {
+                          "description": "",
+                          "type": "number",
+                          "format": "double"
+                        },
+                        "id": {
+                          "description": "The line-item ID.",
+                          "type": "string"
+                        },
+                        "variant_id": {
+                          "description": "",
+                          "type": "number",
+                          "format": "double"
+                        },
+                        "product_id": {
+                          "description": "",
+                          "type": "number",
+                          "format": "double"
+                        },
+                        "sku": {
+                          "description": "",
+                          "type": "string"
+                        },
+                        "name": {
+                          "description": "The item's product name.",
+                          "type": "string"
+                        },
+                        "url": {
+                          "description": "The product URL.",
+                          "type": "string"
+                        },
+                        "is_taxable": {
+                          "description": "",
+                          "type": "boolean"
+                        },
+                        "image_url": {
+                          "description": "",
+                          "type": "string"
+                        },
+                        "discounts": {
+                          "description": "",
+                          "type": "array",
+                          "items": {
+                            "title": "Applied Discount",
+                            "type": "object",
+                            "properties": {
+                              "id": {
+                                "description": "ID of the applied discount.",
+                                "type": "number",
+                                "format": "double"
+                              },
+                              "discounted_amount": {
+                                "description": "The discounted amount applied within a given context.",
+                                "type": "number",
+                                "format": "double"
+                              }
+                            }
+                          }
+                        },
+                        "coupons": {
+                          "description": "",
+                          "type": "array",
+                          "items": {
+                            "title": "Applied Coupon",
+                            "type": "object",
+                            "properties": {
+                              "code": {
+                                "description": "the coupon code",
+                                "type": "string"
+                              },
+                              "id": {
+                                "description": "The coupon ID.",
+                                "type": "string"
+                              },
+                              "coupon_type": {
+                                "description": "Key name to identify the type of coupon.",
+                                "type": "string"
+                              },
+                              "discounted_amount": {
+                                "description": "The discounted amount applied within a given context.",
+                                "type": "number",
+                                "format": "double"
+                              }
+                            },
+                            "required": [
+                              "code"
+                            ]
+                          }
+                        },
+                        "discount_amount": {
+                          "description": "The total value of all discounts applied to this item.",
+                          "type": "number",
+                          "format": "double"
+                        },
+                        "coupon_amount": {
+                          "description": "The total value of all coupons applied to this item.",
+                          "type": "number",
+                          "format": "double"
+                        },
+                        "list_price": {
+                          "description": "Item's list price, as quoted by the manufacturer/distributor.",
+                          "type": "number",
+                          "format": "double"
+                        },
+                        "sale_price": {
+                          "description": "Item's price after all discounts are applied. (The final price before tax calculation.)",
+                          "type": "number",
+                          "format": "double"
+                        },
+                        "extended_list_price": {
+                          "description": "Item's list price multiplied by the quantity.",
+                          "type": "number",
+                          "format": "double"
+                        },
+                        "extended_sale_price": {
+                          "description": "Item's sale price multiplied by the quantity.",
+                          "type": "number",
+                          "format": "double"
+                        },
+                        "options": {
+                          "description": "The list of selected options for this product.",
+                          "type": "array",
+                          "items": {
+                            "title": "Product Option",
+                            "type": "object",
+                            "properties": {
+                              "name": {
+                                "description": "The product option name. For example, Color or Size",
+                                "type": "string"
+                              },
+                              "name_id": {
+                                "description": "The product option identifier.",
+                                "type": "number",
+                                "format": "double"
+                              },
+                              "value": {
+                                "description": "The product option value. For example, Red or Medium",
+                                "type": "string"
+                              },
+                              "value_id": {
+                                "description": "The product option value identifier.",
+                                "type": "number",
+                                "format": "double"
+                              }
+                            }
+                          }
+                        },
+                        "download_file_urls": {
+                          "description": "URLs to download all product files.",
+                          "type": "array",
+                          "items": {
+                            "type": "string"
+                          }
+                        },
+                        "download_page_url": {
+                          "description": "The URL for the combined downloads page.",
+                          "type": "string"
+                        },
+                        "download_size": {
+                          "description": "Combined download size, in human-readable style. E.g.: `30MB`.",
+                          "type": "string"
+                        }
+                      },
+                      "required": [
+                        "quantity"
+                      ]
+                    }
+                  },
+                  "gift_certificates": {
+                    "description": "",
+                    "type": "array",
+                    "items": {
+                      "title": "Item Gift Certificate",
+                      "type": "object",
+                      "properties": {
+                        "theme": {
+                          "description": "Currently supports `Birthday`, `Boy`, `Celebration`, `Christmas`, `General`, and `Girl`.",
+                          "type": "string"
+                        },
+                        "amount": {
+                          "description": "Value must be between 1.00 and 1,000.00 in the store's default currency.",
+                          "type": "number",
+                          "format": "double"
+                        },
+                        "sender": {
+                          "title": "Contact Entity",
+                          "type": "object",
+                          "properties": {
+                            "name": {
+                              "description": "",
+                              "type": "string"
+                            },
+                            "email": {
+                              "description": "",
+                              "type": "string"
+                            }
+                          }
+                        },
+                        "recipient": {
+                          "title": "Contact Entity",
+                          "type": "object",
+                          "properties": {
+                            "name": {
+                              "description": "",
+                              "type": "string"
+                            },
+                            "email": {
+                              "description": "",
+                              "type": "string"
+                            }
+                          }
+                        },
+                        "id": {
+                          "description": "",
+                          "type": "string"
+                        },
+                        "name": {
+                          "description": "GiftCertificate-provided name that will appear in the control panel.",
+                          "type": "string"
+                        },
+                        "is_taxable": {
+                          "description": "",
+                          "type": "boolean"
+                        },
+                        "message": {
+                          "description": "Limited to 200 characters.",
+                          "type": "string"
+                        }
+                      },
+                      "required": [
+                        "theme",
+                        "amount",
+                        "sender",
+                        "recipient"
+                      ]
+                    }
+                  }
+                },
+                "required": [
+                  "physical_items",
+                  "digital_items",
+                  "gift_certificates"
+                ]
+              }
+            },
+            "created_time": {
+              "description": "Time when the cart was created.",
+              "type": "string"
+            },
+            "updated_time": {
+              "description": "Time when the cart was last updated.",
+              "type": "string"
+            }
+          }
+        },
+        "billing_address": {
+          "title": "Address Response",
+          "allOf": [
+            {
+              "title": "Address Properties",
+              "properties": {
+                "first_name": {
+                  "description": "",
+                  "type": "string"
+                },
+                "last_name": {
+                  "description": "",
+                  "type": "string"
+                },
+                "email": {
+                  "type": "string",
+                  "description": ""
+                },
+                "company": {
+                  "description": "",
+                  "type": "string"
+                },
+                "address1": {
+                  "description": "",
+                  "type": "string"
+                },
+                "address2": {
+                  "description": "",
+                  "type": "string"
+                },
+                "city": {
+                  "description": "",
+                  "type": "string"
+                },
+                "state_or_province": {
+                  "description": "Represents state or province.",
+                  "type": "string"
+                },
+                "state_or_province_code": {
+                  "description": "",
+                  "type": "string"
+                },
+                "country_code": {
+                  "type": "string",
+                  "description": ""
+                },
+                "postal_code": {
+                  "description": "",
+                  "type": "string"
+                },
+                "phone": {
+                  "description": "",
+                  "type": "string",
+                  "pattern": "^\\+?[1-9]\\d{1,14}(x\\d{1-5})?$"
+                },
+                "custom_fields": {
+                  "description": "",
+                  "type": "array",
+                  "items": {
+                    "title": "Custom Field",
+                    "type": "object",
+                    "properties": {
+                      "field_id": {
+                        "description": "",
+                        "type": "string"
+                      },
+                      "field_value": {
+                        "description": "This can also be an array for fields that need to support list of values (e.g., a set of check boxes.)",
+                        "type": "string"
+                      }
+                    }
+                  }
+                }
+              },
+              "required": [
+                "email",
+                "country_code"
+              ]
+            },
+            {
+              "properties": {
+                "id": {
+                  "description": "",
+                  "type": "string"
+                }
+              }
+            }
+          ],
+          "type": "object"
+        },
+        "consignments": {
+          "description": "",
+          "type": "array",
+          "items": {
+            "title": "Consignment",
+            "description": "This allows us to have multiple shipping addresses. Where there is only one shipping address, this array will contain only one value, with all the items.",
+            "type": "object",
+            "properties": {
+              "id": {
+                "description": "",
+                "type": "string"
+              },
+              "shipping_address": {
+                "title": "Address Response",
+                "allOf": [
+                  {
+                    "title": "Address Properties",
+                    "properties": {
+                      "first_name": {
+                        "description": "",
+                        "type": "string"
+                      },
+                      "last_name": {
+                        "description": "",
+                        "type": "string"
+                      },
+                      "email": {
+                        "type": "string",
+                        "description": ""
+                      },
+                      "company": {
+                        "description": "",
+                        "type": "string"
+                      },
+                      "address1": {
+                        "description": "",
+                        "type": "string"
+                      },
+                      "address2": {
+                        "description": "",
+                        "type": "string"
+                      },
+                      "city": {
+                        "description": "",
+                        "type": "string"
+                      },
+                      "state_or_province": {
+                        "description": "Represents state or province.",
+                        "type": "string"
+                      },
+                      "state_or_province_code": {
+                        "description": "",
+                        "type": "string"
+                      },
+                      "country_code": {
+                        "type": "string",
+                        "description": ""
+                      },
+                      "postal_code": {
+                        "description": "",
+                        "type": "string"
+                      },
+                      "phone": {
+                        "description": "",
+                        "type": "string",
+                        "pattern": "^\\+?[1-9]\\d{1,14}(x\\d{1-5})?$"
+                      },
+                      "custom_fields": {
+                        "description": "",
+                        "type": "array",
+                        "items": {
+                          "title": "Custom Field",
+                          "type": "object",
+                          "properties": {
+                            "field_id": {
+                              "description": "",
+                              "type": "string"
+                            },
+                            "field_value": {
+                              "description": "This can also be an array for fields that need to support list of values (e.g., a set of check boxes.)",
+                              "type": "string"
+                            }
+                          }
+                        }
+                      }
+                    },
+                    "required": [
+                      "email",
+                      "country_code"
+                    ]
+                  },
+                  {
+                    "properties": {
+                      "id": {
+                        "description": "",
+                        "type": "string"
+                      }
+                    }
+                  }
+                ],
+                "type": "object"
+              },
+              "available_shipping_options": {
+                "description": "This is available only when \"include=available_shipping_options\" is presented in the URL.",
+                "type": "array",
+                "items": {
+                  "title": "Selected Shipping Option",
+                  "type": "object",
+                  "properties": {
+                    "description": {
+                      "description": "",
+                      "type": "string"
+                    },
+                    "id": {
+                      "description": "",
+                      "type": "string"
+                    },
+                    "type": {
+                      "description": "Specified the type of shipping option. Flat rate, UPS, etc.,",
+                      "type": "string"
+                    },
+                    "image_url": {
+                      "description": "",
+                      "type": "string"
+                    },
+                    "cost": {
+                      "description": "",
+                      "type": "number",
+                      "format": "double"
+                    },
+                    "transit_time": {
+                      "description": "An estimate of the arrival time.",
+                      "type": "string"
+                    },
+                    "additional_description": {
+                      "type": "string",
+                      "description": "ReadOnly, Field used for Shipping Provider API."
+                    }
+                  }
+                }
+              },
+              "selected_shipping_option": {
+                "title": "Selected Shipping Option",
+                "type": "object",
+                "properties": {
+                  "description": {
+                    "description": "",
+                    "type": "string"
+                  },
+                  "id": {
+                    "description": "",
+                    "type": "string"
+                  },
+                  "type": {
+                    "description": "Specified the type of shipping option. Flat rate, UPS, etc.,",
+                    "type": "string"
+                  },
+                  "image_url": {
+                    "description": "",
+                    "type": "string"
+                  },
+                  "cost": {
+                    "description": "",
+                    "type": "number",
+                    "format": "double"
+                  },
+                  "transit_time": {
+                    "description": "An estimate of the arrival time.",
+                    "type": "string"
+                  },
+                  "additional_description": {
+                    "type": "string",
+                    "description": "ReadOnly, Field used for Shipping Provider API."
+                  }
+                }
+              },
+              "coupon_discounts": {
+                "description": "List of consignment discounts applied through coupons",
+                "type": "array",
+                "items": {
+                  "title": "Consignment Coupon Discount",
+                  "type": "object",
+                  "properties": {
+                    "code": {
+                      "description": "Coupon code that applied this discount",
+                      "type": "string"
+                    },
+                    "amount": {
+                      "description": "",
+                      "type": "number",
+                      "format": "double"
+                    }
+                  }
+                }
+              },
+              "discounts": {
+                "description": "List of consignment discounts applied through cart level discounts",
+                "type": "array",
+                "items": {
+                  "title": "Consignment Discount",
+                  "type": "object",
+                  "properties": {
+                    "id": {
+                      "description": "Discount rule ID that applied this discount",
+                      "type": "string"
+                    }
+                  }
+                }
+              },
+              "shipping_cost_inc_tax": {
+                "description": "The shipping cost for this consignment including tax.",
+                "type": "number",
+                "format": "double"
+              },
+              "shipping_cost_ex_tax": {
+                "description": "The shipping cost for this consignment excluding tax.",
+                "type": "number",
+                "format": "double"
+              },
+              "handling_cost_inc_tax": {
+                "description": "The handling cost of shipping for this consignment including tax.",
+                "type": "number",
+                "format": "double"
+              },
+              "handling_cost_ex_tax": {
+                "description": "The handling cost of shipping for this consignment excluding tax.",
+                "type": "number",
+                "format": "double"
+              },
+              "line_item_ids": {
+                "description": "",
+                "type": "array",
+                "items": {
+                  "type": "string"
+                }
+              }
+            }
+          }
+        },
+        "taxes": {
+          "description": "",
+          "type": "array",
+          "items": {
+            "title": "Tax",
+            "type": "object",
+            "properties": {
+              "name": {
+                "description": "Name of the tax.",
+                "type": "string"
+              },
+              "amount": {
+                "description": "",
+                "type": "number",
+                "format": "double"
+              }
+            }
+          }
+        },
+        "coupons": {
+          "description": "Coupons applied at checkout level.",
+          "type": "array",
+          "items": {
+            "title": "Applied Coupon",
+            "type": "object",
+            "properties": {
+              "code": {
+                "description": "the coupon code",
+                "type": "string"
+              },
+              "id": {
+                "description": "The coupon ID.",
+                "type": "string"
+              },
+              "coupon_type": {
+                "description": "Key name to identify the type of coupon.",
+                "type": "string"
+              },
+              "discounted_amount": {
+                "description": "The discounted amount applied within a given context.",
+                "type": "number",
+                "format": "double"
+              }
+            },
+            "required": [
+              "code"
+            ]
+          }
+        },
+        "order_id": {
+          "description": "",
+          "type": "string"
+        },
+        "shipping_cost_total_inc_tax": {
+          "description": "Shipping cost before any discounts are applied including tax.",
+          "type": "number",
+          "format": "double"
+        },
+        "shipping_cost_total_ex_tax": {
+          "description": "Shipping cost before any discounts are applied excluding tax.",
+          "type": "number",
+          "format": "double"
+        },
+        "handling_cost_total_inc_tax": {
+          "description": "Handling cost for all consignments including tax.",
+          "type": "number",
+          "format": "double"
+        },
+        "handling_cost_total_ex_tax": {
+          "description": "Handling cost for all consignments excluding tax.",
+          "type": "number",
+          "format": "double"
+        },
+        "tax_total": {
+          "description": "",
+          "type": "number",
+          "format": "double"
+        },
+        "subtotal_inc_tax": {
+          "description": "Subtotal of the checkout before applying item level discounts including tax.",
+          "type": "number",
+          "format": "double"
+        },
+        "subtotal_ex_tax": {
+          "description": "Subtotal of the checkout before applying item level discounts excluding tax.",
+          "type": "number",
+          "format": "double"
+        },
+        "grand_total": {
+          "description": "The total payable amount, before applying any store credit or gift certificate.",
+          "type": "number",
+          "format": "double"
+        },
+        "created_time": {
+          "description": "Time when the cart was created.",
+          "type": "string"
+        },
+        "updated_time": {
+          "description": "Time when the cart was last updated.",
+          "type": "string"
+        },
+        "customer_message": {
+          "description": "Shopper's message provided as details for the order to be created from this checkout",
+          "type": "string"
+        }
+      }
+    },
+    "Cart": {
+      "title": "Cart",
+      "type": "object",
+      "properties": {
+        "id": {
+          "description": "Cart ID, provided after creating a cart with a POST.",
+          "type": "string",
+          "format": "uuid"
+        },
+        "customer_id": {
+          "description": "ID of the customer to which the cart belongs.",
+          "type": "integer",
+          "format": "int32"
+        },
+        "email": {
+          "description": "The cart's email. This is the same email that is used in the billing address",
+          "type": "string"
+        },
+        "currency": {
+          "title": "Currency",
+          "type": "object",
+          "properties": {
+            "code": {
+              "description": "ISO-4217 currency code. (See: http://en.wikipedia.org/wiki/ISO_4217.)",
+              "type": "string"
+            }
+          }
+        },
+        "base_amount": {
+          "description": "Cost of cart's contents, before applying discounts.",
+          "type": "number",
+          "format": "double"
+        },
+        "discount_amount": {
+          "description": "Discounted amount.",
+          "type": "number",
+          "format": "double"
+        },
+        "cart_amount_inc_tax": {
+          "description": "Sum of line-items amounts, minus cart-level discounts and coupons including tax",
+          "type": "number",
+          "format": "double"
+        },
+        "cart_amount_ex_tax": {
+          "description": "Sum of line-items amounts, minus cart-level discounts and coupons excluding tax",
+          "type": "number",
+          "format": "double"
+        },
+        "coupons": {
+          "description": "",
+          "type": "array",
+          "items": {
+            "title": "Applied Coupon",
+            "type": "object",
+            "properties": {
+              "code": {
+                "description": "the coupon code",
+                "type": "string"
+              },
+              "id": {
+                "description": "The coupon ID.",
+                "type": "string"
+              },
+              "coupon_type": {
+                "description": "Key name to identify the type of coupon.",
+                "type": "string"
+              },
+              "discounted_amount": {
+                "description": "The discounted amount applied within a given context.",
+                "type": "number",
+                "format": "double"
+              }
+            },
+            "required": [
+              "code"
+            ]
+          }
+        },
+        "discounts": {
+          "description": "",
+          "type": "array",
+          "items": {
+            "title": "Applied Discount",
+            "type": "object",
+            "properties": {
+              "id": {
+                "description": "ID of the applied discount.",
+                "type": "number",
+                "format": "double"
+              },
+              "discounted_amount": {
+                "description": "The discounted amount applied within a given context.",
+                "type": "number",
+                "format": "double"
+              }
+            }
+          }
+        },
+        "line_items": {
+          "description": "",
+          "type": "array",
+          "items": {
+            "title": "Line Item",
+            "type": "object",
+            "properties": {
+              "physical_items": {
+                "description": "",
+                "type": "array",
+                "items": {
+                  "title": "Item Physical",
+                  "type": "object",
+                  "properties": {
+                    "quantity": {
+                      "description": "",
+                      "type": "number",
+                      "format": "double"
+                    },
+                    "id": {
+                      "description": "The line-item ID.",
+                      "type": "string"
+                    },
+                    "variant_id": {
+                      "description": "",
+                      "type": "number",
+                      "format": "double"
+                    },
+                    "product_id": {
+                      "description": "",
+                      "type": "number",
+                      "format": "double"
+                    },
+                    "sku": {
+                      "description": "",
+                      "type": "string"
+                    },
+                    "name": {
+                      "description": "The item's product name.",
+                      "type": "string"
+                    },
+                    "url": {
+                      "description": "The product URL.",
+                      "type": "string"
+                    },
+                    "is_taxable": {
+                      "description": "",
+                      "type": "boolean"
+                    },
+                    "image_url": {
+                      "description": "",
+                      "type": "string"
+                    },
+                    "discounts": {
+                      "description": "",
+                      "type": "array",
+                      "items": {
+                        "title": "Applied Discount",
+                        "type": "object",
+                        "properties": {
+                          "id": {
+                            "description": "ID of the applied discount.",
+                            "type": "number",
+                            "format": "double"
+                          },
+                          "discounted_amount": {
+                            "description": "The discounted amount applied within a given context.",
+                            "type": "number",
+                            "format": "double"
+                          }
+                        }
+                      }
+                    },
+                    "coupons": {
+                      "description": "",
+                      "type": "array",
+                      "items": {
+                        "title": "Applied Coupon",
+                        "type": "object",
+                        "properties": {
+                          "code": {
+                            "description": "the coupon code",
+                            "type": "string"
+                          },
+                          "id": {
+                            "description": "The coupon ID.",
+                            "type": "string"
+                          },
+                          "coupon_type": {
+                            "description": "Key name to identify the type of coupon.",
+                            "type": "string"
+                          },
+                          "discounted_amount": {
+                            "description": "The discounted amount applied within a given context.",
+                            "type": "number",
+                            "format": "double"
+                          }
+                        },
+                        "required": [
+                          "code"
+                        ]
+                      }
+                    },
+                    "discount_amount": {
+                      "description": "The total value of all discounts applied to this item.",
+                      "type": "number",
+                      "format": "double"
+                    },
+                    "coupon_amount": {
+                      "description": "The total value of all coupons applied to this item.",
+                      "type": "number",
+                      "format": "double"
+                    },
+                    "list_price": {
+                      "description": "Item's list price, as quoted by the manufacturer/distributor.",
+                      "type": "number",
+                      "format": "double"
+                    },
+                    "sale_price": {
+                      "description": "Item's price after all discounts are applied. (The final price before tax calculation.)",
+                      "type": "number",
+                      "format": "double"
+                    },
+                    "extended_list_price": {
+                      "description": "Item's list price multiplied by the quantity.",
+                      "type": "number",
+                      "format": "double"
+                    },
+                    "extended_sale_price": {
+                      "description": "Item's sale price multiplied by the quantity.",
+                      "type": "number",
+                      "format": "double"
+                    },
+                    "options": {
+                      "description": "The list of selected options for this product.",
+                      "type": "array",
+                      "items": {
+                        "title": "Product Option",
+                        "type": "object",
+                        "properties": {
+                          "name": {
+                            "description": "The product option name. For example, Color or Size",
+                            "type": "string"
+                          },
+                          "name_id": {
+                            "description": "The product option identifier.",
+                            "type": "number",
+                            "format": "double"
+                          },
+                          "value": {
+                            "description": "The product option value. For example, Red or Medium",
+                            "type": "string"
+                          },
+                          "value_id": {
+                            "description": "The product option value identifier.",
+                            "type": "number",
+                            "format": "double"
+                          }
+                        }
+                      }
+                    },
+                    "is_require_shipping": {
+                      "description": "",
+                      "type": "boolean"
+                    },
+                    "gift_wrapping": {
+                      "title": "Gift Wrapping",
+                      "type": "object",
+                      "properties": {
+                        "name": {
+                          "description": "",
+                          "type": "string"
+                        },
+                        "message": {
+                          "description": "",
+                          "type": "string"
+                        },
+                        "amount": {
+                          "description": "",
+                          "type": "number",
+                          "format": "double"
+                        },
+                        "amount_as_integer": {
+                          "description": "",
+                          "type": "number",
+                          "format": "double"
+                        }
+                      }
+                    }
+                  },
+                  "required": [
+                    "quantity"
+                  ]
+                }
+              },
+              "digital_items": {
+                "description": "",
+                "type": "array",
+                "items": {
+                  "title": "Item Digital",
+                  "type": "object",
+                  "properties": {
+                    "quantity": {
+                      "description": "",
+                      "type": "number",
+                      "format": "double"
+                    },
+                    "id": {
+                      "description": "The line-item ID.",
+                      "type": "string"
+                    },
+                    "variant_id": {
+                      "description": "",
+                      "type": "number",
+                      "format": "double"
+                    },
+                    "product_id": {
+                      "description": "",
+                      "type": "number",
+                      "format": "double"
+                    },
+                    "sku": {
+                      "description": "",
+                      "type": "string"
+                    },
+                    "name": {
+                      "description": "The item's product name.",
+                      "type": "string"
+                    },
+                    "url": {
+                      "description": "The product URL.",
+                      "type": "string"
+                    },
+                    "is_taxable": {
+                      "description": "",
+                      "type": "boolean"
+                    },
+                    "image_url": {
+                      "description": "",
+                      "type": "string"
+                    },
+                    "discounts": {
+                      "description": "",
+                      "type": "array",
+                      "items": {
+                        "title": "Applied Discount",
+                        "type": "object",
+                        "properties": {
+                          "id": {
+                            "description": "ID of the applied discount.",
+                            "type": "number",
+                            "format": "double"
+                          },
+                          "discounted_amount": {
+                            "description": "The discounted amount applied within a given context.",
+                            "type": "number",
+                            "format": "double"
+                          }
+                        }
+                      }
+                    },
+                    "coupons": {
+                      "description": "",
+                      "type": "array",
+                      "items": {
+                        "title": "Applied Coupon",
+                        "type": "object",
+                        "properties": {
+                          "code": {
+                            "description": "the coupon code",
+                            "type": "string"
+                          },
+                          "id": {
+                            "description": "The coupon ID.",
+                            "type": "string"
+                          },
+                          "coupon_type": {
+                            "description": "Key name to identify the type of coupon.",
+                            "type": "string"
+                          },
+                          "discounted_amount": {
+                            "description": "The discounted amount applied within a given context.",
+                            "type": "number",
+                            "format": "double"
+                          }
+                        },
+                        "required": [
+                          "code"
+                        ]
+                      }
+                    },
+                    "discount_amount": {
+                      "description": "The total value of all discounts applied to this item.",
+                      "type": "number",
+                      "format": "double"
+                    },
+                    "coupon_amount": {
+                      "description": "The total value of all coupons applied to this item.",
+                      "type": "number",
+                      "format": "double"
+                    },
+                    "list_price": {
+                      "description": "Item's list price, as quoted by the manufacturer/distributor.",
+                      "type": "number",
+                      "format": "double"
+                    },
+                    "sale_price": {
+                      "description": "Item's price after all discounts are applied. (The final price before tax calculation.)",
+                      "type": "number",
+                      "format": "double"
+                    },
+                    "extended_list_price": {
+                      "description": "Item's list price multiplied by the quantity.",
+                      "type": "number",
+                      "format": "double"
+                    },
+                    "extended_sale_price": {
+                      "description": "Item's sale price multiplied by the quantity.",
+                      "type": "number",
+                      "format": "double"
+                    },
+                    "options": {
+                      "description": "The list of selected options for this product.",
+                      "type": "array",
+                      "items": {
+                        "title": "Product Option",
+                        "type": "object",
+                        "properties": {
+                          "name": {
+                            "description": "The product option name. For example, Color or Size",
+                            "type": "string"
+                          },
+                          "name_id": {
+                            "description": "The product option identifier.",
+                            "type": "number",
+                            "format": "double"
+                          },
+                          "value": {
+                            "description": "The product option value. For example, Red or Medium",
+                            "type": "string"
+                          },
+                          "value_id": {
+                            "description": "The product option value identifier.",
+                            "type": "number",
+                            "format": "double"
+                          }
+                        }
+                      }
+                    },
+                    "download_file_urls": {
+                      "description": "URLs to download all product files.",
+                      "type": "array",
+                      "items": {
+                        "type": "string"
+                      }
+                    },
+                    "download_page_url": {
+                      "description": "The URL for the combined downloads page.",
+                      "type": "string"
+                    },
+                    "download_size": {
+                      "description": "Combined download size, in human-readable style. E.g.: `30MB`.",
+                      "type": "string"
+                    }
+                  },
+                  "required": [
+                    "quantity"
+                  ]
+                }
+              },
+              "gift_certificates": {
+                "description": "",
+                "type": "array",
+                "items": {
+                  "title": "Item Gift Certificate",
+                  "type": "object",
+                  "properties": {
+                    "theme": {
+                      "description": "Currently supports `Birthday`, `Boy`, `Celebration`, `Christmas`, `General`, and `Girl`.",
+                      "type": "string"
+                    },
+                    "amount": {
+                      "description": "Value must be between 1.00 and 1,000.00 in the store's default currency.",
+                      "type": "number",
+                      "format": "double"
+                    },
+                    "sender": {
+                      "title": "Contact Entity",
+                      "type": "object",
+                      "properties": {
+                        "name": {
+                          "description": "",
+                          "type": "string"
+                        },
+                        "email": {
+                          "description": "",
+                          "type": "string"
+                        }
+                      }
+                    },
+                    "recipient": {
+                      "title": "Contact Entity",
+                      "type": "object",
+                      "properties": {
+                        "name": {
+                          "description": "",
+                          "type": "string"
+                        },
+                        "email": {
+                          "description": "",
+                          "type": "string"
+                        }
+                      }
+                    },
+                    "id": {
+                      "description": "",
+                      "type": "string"
+                    },
+                    "name": {
+                      "description": "GiftCertificate-provided name that will appear in the control panel.",
+                      "type": "string"
+                    },
+                    "is_taxable": {
+                      "description": "",
+                      "type": "boolean"
+                    },
+                    "message": {
+                      "description": "Limited to 200 characters.",
+                      "type": "string"
+                    }
+                  },
+                  "required": [
+                    "theme",
+                    "amount",
+                    "sender",
+                    "recipient"
+                  ]
+                }
+              }
+            },
+            "required": [
+              "physical_items",
+              "digital_items",
+              "gift_certificates"
+            ]
+          }
+        },
+        "created_time": {
+          "description": "Time when the cart was created.",
+          "type": "string"
+        },
+        "updated_time": {
+          "description": "Time when the cart was last updated.",
+          "type": "string"
+        }
+      }
+    },
+    "Currency": {
+      "title": "Currency",
+      "type": "object",
+      "properties": {
+        "code": {
+          "description": "ISO-4217 currency code. (See: http://en.wikipedia.org/wiki/ISO_4217.)",
+          "type": "string"
+        }
+      }
+    },
+    "AppliedCoupon": {
+      "title": "Applied Coupon",
+      "type": "object",
+      "properties": {
+        "code": {
+          "description": "the coupon code",
+          "type": "string"
+        },
+        "id": {
+          "description": "The coupon ID.",
+          "type": "string"
+        },
+        "coupon_type": {
+          "description": "Key name to identify the type of coupon.",
+          "type": "string"
+        },
+        "discounted_amount": {
+          "description": "The discounted amount applied within a given context.",
+          "type": "number",
+          "format": "double"
+        }
+      },
+      "required": [
+        "code"
+      ]
+    },
+    "AppliedDiscount": {
+      "title": "Applied Discount",
+      "type": "object",
+      "properties": {
+        "id": {
+          "description": "ID of the applied discount.",
+          "type": "number",
+          "format": "double"
+        },
+        "discounted_amount": {
+          "description": "The discounted amount applied within a given context.",
+          "type": "number",
+          "format": "double"
+        }
+      }
+    },
+    "LineItem": {
+      "title": "Line Item",
+      "type": "object",
+      "properties": {
+        "physical_items": {
+          "description": "",
+          "type": "array",
+          "items": {
+            "title": "Item Physical",
+            "type": "object",
+            "properties": {
+              "quantity": {
+                "description": "",
+                "type": "number",
+                "format": "double"
+              },
+              "id": {
+                "description": "The line-item ID.",
+                "type": "string"
+              },
+              "variant_id": {
+                "description": "",
+                "type": "number",
+                "format": "double"
+              },
+              "product_id": {
+                "description": "",
+                "type": "number",
+                "format": "double"
+              },
+              "sku": {
+                "description": "",
+                "type": "string"
+              },
+              "name": {
+                "description": "The item's product name.",
+                "type": "string"
+              },
+              "url": {
+                "description": "The product URL.",
+                "type": "string"
+              },
+              "is_taxable": {
+                "description": "",
+                "type": "boolean"
+              },
+              "image_url": {
+                "description": "",
+                "type": "string"
+              },
+              "discounts": {
+                "description": "",
+                "type": "array",
+                "items": {
+                  "title": "Applied Discount",
+                  "type": "object",
+                  "properties": {
+                    "id": {
+                      "description": "ID of the applied discount.",
+                      "type": "number",
+                      "format": "double"
+                    },
+                    "discounted_amount": {
+                      "description": "The discounted amount applied within a given context.",
+                      "type": "number",
+                      "format": "double"
+                    }
+                  }
+                }
+              },
+              "coupons": {
+                "description": "",
+                "type": "array",
+                "items": {
+                  "title": "Applied Coupon",
+                  "type": "object",
+                  "properties": {
+                    "code": {
+                      "description": "the coupon code",
+                      "type": "string"
+                    },
+                    "id": {
+                      "description": "The coupon ID.",
+                      "type": "string"
+                    },
+                    "coupon_type": {
+                      "description": "Key name to identify the type of coupon.",
+                      "type": "string"
+                    },
+                    "discounted_amount": {
+                      "description": "The discounted amount applied within a given context.",
+                      "type": "number",
+                      "format": "double"
+                    }
+                  },
+                  "required": [
+                    "code"
+                  ]
+                }
+              },
+              "discount_amount": {
+                "description": "The total value of all discounts applied to this item.",
+                "type": "number",
+                "format": "double"
+              },
+              "coupon_amount": {
+                "description": "The total value of all coupons applied to this item.",
+                "type": "number",
+                "format": "double"
+              },
+              "list_price": {
+                "description": "Item's list price, as quoted by the manufacturer/distributor.",
+                "type": "number",
+                "format": "double"
+              },
+              "sale_price": {
+                "description": "Item's price after all discounts are applied. (The final price before tax calculation.)",
+                "type": "number",
+                "format": "double"
+              },
+              "extended_list_price": {
+                "description": "Item's list price multiplied by the quantity.",
+                "type": "number",
+                "format": "double"
+              },
+              "extended_sale_price": {
+                "description": "Item's sale price multiplied by the quantity.",
+                "type": "number",
+                "format": "double"
+              },
+              "options": {
+                "description": "The list of selected options for this product.",
+                "type": "array",
+                "items": {
+                  "title": "Product Option",
+                  "type": "object",
+                  "properties": {
+                    "name": {
+                      "description": "The product option name. For example, Color or Size",
+                      "type": "string"
+                    },
+                    "name_id": {
+                      "description": "The product option identifier.",
+                      "type": "number",
+                      "format": "double"
+                    },
+                    "value": {
+                      "description": "The product option value. For example, Red or Medium",
+                      "type": "string"
+                    },
+                    "value_id": {
+                      "description": "The product option value identifier.",
+                      "type": "number",
+                      "format": "double"
+                    }
+                  }
+                }
+              },
+              "is_require_shipping": {
+                "description": "",
+                "type": "boolean"
+              },
+              "gift_wrapping": {
+                "title": "Gift Wrapping",
+                "type": "object",
+                "properties": {
+                  "name": {
+                    "description": "",
+                    "type": "string"
+                  },
+                  "message": {
+                    "description": "",
+                    "type": "string"
+                  },
+                  "amount": {
+                    "description": "",
+                    "type": "number",
+                    "format": "double"
+                  },
+                  "amount_as_integer": {
+                    "description": "",
+                    "type": "number",
+                    "format": "double"
+                  }
+                }
+              }
+            },
+            "required": [
+              "quantity"
+            ]
+          }
+        },
+        "digital_items": {
+          "description": "",
+          "type": "array",
+          "items": {
+            "title": "Item Digital",
+            "type": "object",
+            "properties": {
+              "quantity": {
+                "description": "",
+                "type": "number",
+                "format": "double"
+              },
+              "id": {
+                "description": "The line-item ID.",
+                "type": "string"
+              },
+              "variant_id": {
+                "description": "",
+                "type": "number",
+                "format": "double"
+              },
+              "product_id": {
+                "description": "",
+                "type": "number",
+                "format": "double"
+              },
+              "sku": {
+                "description": "",
+                "type": "string"
+              },
+              "name": {
+                "description": "The item's product name.",
+                "type": "string"
+              },
+              "url": {
+                "description": "The product URL.",
+                "type": "string"
+              },
+              "is_taxable": {
+                "description": "",
+                "type": "boolean"
+              },
+              "image_url": {
+                "description": "",
+                "type": "string"
+              },
+              "discounts": {
+                "description": "",
+                "type": "array",
+                "items": {
+                  "title": "Applied Discount",
+                  "type": "object",
+                  "properties": {
+                    "id": {
+                      "description": "ID of the applied discount.",
+                      "type": "number",
+                      "format": "double"
+                    },
+                    "discounted_amount": {
+                      "description": "The discounted amount applied within a given context.",
+                      "type": "number",
+                      "format": "double"
+                    }
+                  }
+                }
+              },
+              "coupons": {
+                "description": "",
+                "type": "array",
+                "items": {
+                  "title": "Applied Coupon",
+                  "type": "object",
+                  "properties": {
+                    "code": {
+                      "description": "the coupon code",
+                      "type": "string"
+                    },
+                    "id": {
+                      "description": "The coupon ID.",
+                      "type": "string"
+                    },
+                    "coupon_type": {
+                      "description": "Key name to identify the type of coupon.",
+                      "type": "string"
+                    },
+                    "discounted_amount": {
+                      "description": "The discounted amount applied within a given context.",
+                      "type": "number",
+                      "format": "double"
+                    }
+                  },
+                  "required": [
+                    "code"
+                  ]
+                }
+              },
+              "discount_amount": {
+                "description": "The total value of all discounts applied to this item.",
+                "type": "number",
+                "format": "double"
+              },
+              "coupon_amount": {
+                "description": "The total value of all coupons applied to this item.",
+                "type": "number",
+                "format": "double"
+              },
+              "list_price": {
+                "description": "Item's list price, as quoted by the manufacturer/distributor.",
+                "type": "number",
+                "format": "double"
+              },
+              "sale_price": {
+                "description": "Item's price after all discounts are applied. (The final price before tax calculation.)",
+                "type": "number",
+                "format": "double"
+              },
+              "extended_list_price": {
+                "description": "Item's list price multiplied by the quantity.",
+                "type": "number",
+                "format": "double"
+              },
+              "extended_sale_price": {
+                "description": "Item's sale price multiplied by the quantity.",
+                "type": "number",
+                "format": "double"
+              },
+              "options": {
+                "description": "The list of selected options for this product.",
+                "type": "array",
+                "items": {
+                  "title": "Product Option",
+                  "type": "object",
+                  "properties": {
+                    "name": {
+                      "description": "The product option name. For example, Color or Size",
+                      "type": "string"
+                    },
+                    "name_id": {
+                      "description": "The product option identifier.",
+                      "type": "number",
+                      "format": "double"
+                    },
+                    "value": {
+                      "description": "The product option value. For example, Red or Medium",
+                      "type": "string"
+                    },
+                    "value_id": {
+                      "description": "The product option value identifier.",
+                      "type": "number",
+                      "format": "double"
+                    }
+                  }
+                }
+              },
+              "download_file_urls": {
+                "description": "URLs to download all product files.",
+                "type": "array",
+                "items": {
+                  "type": "string"
+                }
+              },
+              "download_page_url": {
+                "description": "The URL for the combined downloads page.",
+                "type": "string"
+              },
+              "download_size": {
+                "description": "Combined download size, in human-readable style. E.g.: `30MB`.",
+                "type": "string"
+              }
+            },
+            "required": [
+              "quantity"
+            ]
+          }
+        },
+        "gift_certificates": {
+          "description": "",
+          "type": "array",
+          "items": {
+            "title": "Item Gift Certificate",
+            "type": "object",
+            "properties": {
+              "theme": {
+                "description": "Currently supports `Birthday`, `Boy`, `Celebration`, `Christmas`, `General`, and `Girl`.",
+                "type": "string"
+              },
+              "amount": {
+                "description": "Value must be between 1.00 and 1,000.00 in the store's default currency.",
+                "type": "number",
+                "format": "double"
+              },
+              "sender": {
+                "title": "Contact Entity",
+                "type": "object",
+                "properties": {
+                  "name": {
+                    "description": "",
+                    "type": "string"
+                  },
+                  "email": {
+                    "description": "",
+                    "type": "string"
+                  }
+                }
+              },
+              "recipient": {
+                "title": "Contact Entity",
+                "type": "object",
+                "properties": {
+                  "name": {
+                    "description": "",
+                    "type": "string"
+                  },
+                  "email": {
+                    "description": "",
+                    "type": "string"
+                  }
+                }
+              },
+              "id": {
+                "description": "",
+                "type": "string"
+              },
+              "name": {
+                "description": "GiftCertificate-provided name that will appear in the control panel.",
+                "type": "string"
+              },
+              "is_taxable": {
+                "description": "",
+                "type": "boolean"
+              },
+              "message": {
+                "description": "Limited to 200 characters.",
+                "type": "string"
+              }
+            },
+            "required": [
+              "theme",
+              "amount",
+              "sender",
+              "recipient"
+            ]
+          }
+        }
+      },
+      "required": [
+        "physical_items",
+        "digital_items",
+        "gift_certificates"
+      ]
+    },
+    "ItemPhysical": {
+      "title": "Item Physical",
+      "type": "object",
+      "properties": {
+        "quantity": {
+          "description": "",
+          "type": "number",
+          "format": "double"
+        },
+        "id": {
+          "description": "The line-item ID.",
+          "type": "string"
+        },
+        "variant_id": {
+          "description": "",
+          "type": "number",
+          "format": "double"
+        },
+        "product_id": {
+          "description": "",
+          "type": "number",
+          "format": "double"
+        },
+        "sku": {
+          "description": "",
+          "type": "string"
+        },
+        "name": {
+          "description": "The item's product name.",
+          "type": "string"
+        },
+        "url": {
+          "description": "The product URL.",
+          "type": "string"
+        },
+        "is_taxable": {
+          "description": "",
+          "type": "boolean"
+        },
+        "image_url": {
+          "description": "",
+          "type": "string"
+        },
+        "discounts": {
+          "description": "",
+          "type": "array",
+          "items": {
+            "title": "Applied Discount",
+            "type": "object",
+            "properties": {
+              "id": {
+                "description": "ID of the applied discount.",
+                "type": "number",
+                "format": "double"
+              },
+              "discounted_amount": {
+                "description": "The discounted amount applied within a given context.",
+                "type": "number",
+                "format": "double"
+              }
+            }
+          }
+        },
+        "coupons": {
+          "description": "",
+          "type": "array",
+          "items": {
+            "title": "Applied Coupon",
+            "type": "object",
+            "properties": {
+              "code": {
+                "description": "the coupon code",
+                "type": "string"
+              },
+              "id": {
+                "description": "The coupon ID.",
+                "type": "string"
+              },
+              "coupon_type": {
+                "description": "Key name to identify the type of coupon.",
+                "type": "string"
+              },
+              "discounted_amount": {
+                "description": "The discounted amount applied within a given context.",
+                "type": "number",
+                "format": "double"
+              }
+            },
+            "required": [
+              "code"
+            ]
+          }
+        },
+        "discount_amount": {
+          "description": "The total value of all discounts applied to this item.",
+          "type": "number",
+          "format": "double"
+        },
+        "coupon_amount": {
+          "description": "The total value of all coupons applied to this item.",
+          "type": "number",
+          "format": "double"
+        },
+        "list_price": {
+          "description": "Item's list price, as quoted by the manufacturer/distributor.",
+          "type": "number",
+          "format": "double"
+        },
+        "sale_price": {
+          "description": "Item's price after all discounts are applied. (The final price before tax calculation.)",
+          "type": "number",
+          "format": "double"
+        },
+        "extended_list_price": {
+          "description": "Item's list price multiplied by the quantity.",
+          "type": "number",
+          "format": "double"
+        },
+        "extended_sale_price": {
+          "description": "Item's sale price multiplied by the quantity.",
+          "type": "number",
+          "format": "double"
+        },
+        "options": {
+          "description": "The list of selected options for this product.",
+          "type": "array",
+          "items": {
+            "title": "Product Option",
+            "type": "object",
+            "properties": {
+              "name": {
+                "description": "The product option name. For example, Color or Size",
+                "type": "string"
+              },
+              "name_id": {
+                "description": "The product option identifier.",
+                "type": "number",
+                "format": "double"
+              },
+              "value": {
+                "description": "The product option value. For example, Red or Medium",
+                "type": "string"
+              },
+              "value_id": {
+                "description": "The product option value identifier.",
+                "type": "number",
+                "format": "double"
+              }
+            }
+          }
+        },
+        "is_require_shipping": {
+          "description": "",
+          "type": "boolean"
+        },
+        "gift_wrapping": {
+          "title": "Gift Wrapping",
+          "type": "object",
+          "properties": {
+            "name": {
+              "description": "",
+              "type": "string"
+            },
+            "message": {
+              "description": "",
+              "type": "string"
+            },
+            "amount": {
+              "description": "",
+              "type": "number",
+              "format": "double"
+            },
+            "amount_as_integer": {
+              "description": "",
+              "type": "number",
+              "format": "double"
+            }
+          }
+        }
+      },
+      "required": [
+        "quantity"
+      ]
+    },
+    "ProductOption": {
+      "title": "Product Option",
+      "type": "object",
+      "properties": {
+        "name": {
+          "description": "The product option name. For example, Color or Size",
+          "type": "string"
+        },
+        "name_id": {
+          "description": "The product option identifier.",
+          "type": "number",
+          "format": "double"
+        },
+        "value": {
+          "description": "The product option value. For example, Red or Medium",
+          "type": "string"
+        },
+        "value_id": {
+          "description": "The product option value identifier.",
+          "type": "number",
+          "format": "double"
+        }
+      }
+    },
+    "GiftWrapping": {
+      "title": "Gift Wrapping",
+      "type": "object",
+      "properties": {
+        "name": {
+          "description": "",
+          "type": "string"
+        },
+        "message": {
+          "description": "",
+          "type": "string"
+        },
+        "amount": {
+          "description": "",
+          "type": "number",
+          "format": "double"
+        },
+        "amount_as_integer": {
+          "description": "",
+          "type": "number",
+          "format": "double"
+        }
+      }
+    },
+    "ItemDigital": {
+      "title": "Item Digital",
+      "type": "object",
+      "properties": {
+        "quantity": {
+          "description": "",
+          "type": "number",
+          "format": "double"
+        },
+        "id": {
+          "description": "The line-item ID.",
+          "type": "string"
+        },
+        "variant_id": {
+          "description": "",
+          "type": "number",
+          "format": "double"
+        },
+        "product_id": {
+          "description": "",
+          "type": "number",
+          "format": "double"
+        },
+        "sku": {
+          "description": "",
+          "type": "string"
+        },
+        "name": {
+          "description": "The item's product name.",
+          "type": "string"
+        },
+        "url": {
+          "description": "The product URL.",
+          "type": "string"
+        },
+        "is_taxable": {
+          "description": "",
+          "type": "boolean"
+        },
+        "image_url": {
+          "description": "",
+          "type": "string"
+        },
+        "discounts": {
+          "description": "",
+          "type": "array",
+          "items": {
+            "title": "Applied Discount",
+            "type": "object",
+            "properties": {
+              "id": {
+                "description": "ID of the applied discount.",
+                "type": "number",
+                "format": "double"
+              },
+              "discounted_amount": {
+                "description": "The discounted amount applied within a given context.",
+                "type": "number",
+                "format": "double"
+              }
+            }
+          }
+        },
+        "coupons": {
+          "description": "",
+          "type": "array",
+          "items": {
+            "title": "Applied Coupon",
+            "type": "object",
+            "properties": {
+              "code": {
+                "description": "the coupon code",
+                "type": "string"
+              },
+              "id": {
+                "description": "The coupon ID.",
+                "type": "string"
+              },
+              "coupon_type": {
+                "description": "Key name to identify the type of coupon.",
+                "type": "string"
+              },
+              "discounted_amount": {
+                "description": "The discounted amount applied within a given context.",
+                "type": "number",
+                "format": "double"
+              }
+            },
+            "required": [
+              "code"
+            ]
+          }
+        },
+        "discount_amount": {
+          "description": "The total value of all discounts applied to this item.",
+          "type": "number",
+          "format": "double"
+        },
+        "coupon_amount": {
+          "description": "The total value of all coupons applied to this item.",
+          "type": "number",
+          "format": "double"
+        },
+        "list_price": {
+          "description": "Item's list price, as quoted by the manufacturer/distributor.",
+          "type": "number",
+          "format": "double"
+        },
+        "sale_price": {
+          "description": "Item's price after all discounts are applied. (The final price before tax calculation.)",
+          "type": "number",
+          "format": "double"
+        },
+        "extended_list_price": {
+          "description": "Item's list price multiplied by the quantity.",
+          "type": "number",
+          "format": "double"
+        },
+        "extended_sale_price": {
+          "description": "Item's sale price multiplied by the quantity.",
+          "type": "number",
+          "format": "double"
+        },
+        "options": {
+          "description": "The list of selected options for this product.",
+          "type": "array",
+          "items": {
+            "title": "Product Option",
+            "type": "object",
+            "properties": {
+              "name": {
+                "description": "The product option name. For example, Color or Size",
+                "type": "string"
+              },
+              "name_id": {
+                "description": "The product option identifier.",
+                "type": "number",
+                "format": "double"
+              },
+              "value": {
+                "description": "The product option value. For example, Red or Medium",
+                "type": "string"
+              },
+              "value_id": {
+                "description": "The product option value identifier.",
+                "type": "number",
+                "format": "double"
+              }
+            }
+          }
+        },
+        "download_file_urls": {
+          "description": "URLs to download all product files.",
+          "type": "array",
+          "items": {
+            "type": "string"
+          }
+        },
+        "download_page_url": {
+          "description": "The URL for the combined downloads page.",
+          "type": "string"
+        },
+        "download_size": {
+          "description": "Combined download size, in human-readable style. E.g.: `30MB`.",
+          "type": "string"
+        }
+      },
+      "required": [
+        "quantity"
+      ]
+    },
+    "ItemGiftCertificate": {
+      "title": "Item Gift Certificate",
+      "type": "object",
+      "properties": {
+        "theme": {
+          "description": "Currently supports `Birthday`, `Boy`, `Celebration`, `Christmas`, `General`, and `Girl`.",
+          "type": "string"
+        },
+        "amount": {
+          "description": "Value must be between 1.00 and 1,000.00 in the store's default currency.",
+          "type": "number",
+          "format": "double"
+        },
+        "sender": {
+          "title": "Contact Entity",
+          "type": "object",
+          "properties": {
+            "name": {
+              "description": "",
+              "type": "string"
+            },
+            "email": {
+              "description": "",
+              "type": "string"
+            }
+          }
+        },
+        "recipient": {
+          "title": "Contact Entity",
+          "type": "object",
+          "properties": {
+            "name": {
+              "description": "",
+              "type": "string"
+            },
+            "email": {
+              "description": "",
+              "type": "string"
+            }
+          }
+        },
+        "id": {
+          "description": "",
+          "type": "string"
+        },
+        "name": {
+          "description": "GiftCertificate-provided name that will appear in the control panel.",
+          "type": "string"
+        },
+        "is_taxable": {
+          "description": "",
+          "type": "boolean"
+        },
+        "message": {
+          "description": "Limited to 200 characters.",
+          "type": "string"
+        }
+      },
+      "required": [
+        "theme",
+        "amount",
+        "sender",
+        "recipient"
+      ]
+    },
+    "ContactEntity": {
+      "title": "Contact Entity",
+      "type": "object",
+      "properties": {
+        "name": {
+          "description": "",
+          "type": "string"
+        },
+        "email": {
+          "description": "",
+          "type": "string"
+        }
+      }
+    },
+    "AddressResponse": {
+      "title": "Address Response",
+      "allOf": [
+        {
+          "title": "Address Properties",
+          "type": "object",
+          "properties": {
+            "first_name": {
+              "description": "",
+              "type": "string"
+            },
+            "last_name": {
+              "description": "",
+              "type": "string"
+            },
+            "email": {
+              "type": "string",
+              "description": ""
+            },
+            "company": {
+              "description": "",
+              "type": "string"
+            },
+            "address1": {
+              "description": "",
+              "type": "string"
+            },
+            "address2": {
+              "description": "",
+              "type": "string"
+            },
+            "city": {
+              "description": "",
+              "type": "string"
+            },
+            "state_or_province": {
+              "description": "Represents state or province.",
+              "type": "string"
+            },
+            "state_or_province_code": {
+              "description": "",
+              "type": "string"
+            },
+            "country_code": {
+              "type": "string",
+              "description": ""
+            },
+            "postal_code": {
+              "description": "",
+              "type": "string"
+            },
+            "phone": {
+              "description": "",
+              "type": "string",
+              "pattern": "^\\+?[1-9]\\d{1,14}(x\\d{1-5})?$"
+            },
+            "custom_fields": {
+              "description": "",
+              "type": "array",
+              "items": {
+                "title": "Custom Field",
+                "type": "object",
+                "properties": {
+                  "field_id": {
+                    "description": "",
+                    "type": "string"
+                  },
+                  "field_value": {
+                    "description": "This can also be an array for fields that need to support list of values (e.g., a set of check boxes.)",
+                    "type": "string"
+                  }
+                }
+              }
+            }
+          },
+          "required": [
+            "email",
+            "country_code"
+          ]
+        },
+        {
+          "type": "object",
+          "properties": {
+            "id": {
+              "description": "",
+              "type": "string"
+            }
+          }
+        }
+      ]
+    },
+    "AddressProperties": {
+      "title": "Address Properties",
+      "type": "object",
+      "properties": {
+        "first_name": {
+          "description": "",
+          "type": "string"
+        },
+        "last_name": {
+          "description": "",
+          "type": "string"
+        },
+        "email": {
+          "type": "string",
+          "description": ""
+        },
+        "company": {
+          "description": "",
+          "type": "string"
+        },
+        "address1": {
+          "description": "",
+          "type": "string"
+        },
+        "address2": {
+          "description": "",
+          "type": "string"
+        },
+        "city": {
+          "description": "",
+          "type": "string"
+        },
+        "state_or_province": {
+          "description": "Represents state or province.",
+          "type": "string"
+        },
+        "state_or_province_code": {
+          "description": "",
+          "type": "string"
+        },
+        "country_code": {
+          "type": "string",
+          "description": ""
+        },
+        "postal_code": {
+          "description": "",
+          "type": "string"
+        },
+        "phone": {
+          "description": "",
+          "type": "string",
+          "pattern": "^\\+?[1-9]\\d{1,14}(x\\d{1-5})?$"
+        },
+        "custom_fields": {
+          "description": "",
+          "type": "array",
+          "items": {
+            "title": "Custom Field",
+            "type": "object",
+            "properties": {
+              "field_id": {
+                "description": "",
+                "type": "string"
+              },
+              "field_value": {
+                "description": "This can also be an array for fields that need to support list of values (e.g., a set of check boxes.)",
+                "type": "string"
+              }
+            }
+          }
+        }
+      },
+      "required": [
+        "email",
+        "country_code"
+      ]
+    },
+    "CustomField": {
+      "title": "Custom Field",
+      "type": "object",
+      "properties": {
+        "field_id": {
+          "description": "",
+          "type": "string"
+        },
+        "field_value": {
+          "description": "This can also be an array for fields that need to support list of values (e.g., a set of check boxes.)",
+          "type": "string"
+        }
+      }
+    },
+    "Consignment": {
+      "title": "Consignment",
+      "description": "This allows us to have multiple shipping addresses. Where there is only one shipping address, this array will contain only one value, with all the items.",
+      "type": "object",
+      "properties": {
+        "id": {
+          "description": "",
+          "type": "string"
+        },
+        "shipping_address": {
+          "title": "Address Response",
+          "allOf": [
+            {
+              "title": "Address Properties",
+              "properties": {
+                "first_name": {
+                  "description": "",
+                  "type": "string"
+                },
+                "last_name": {
+                  "description": "",
+                  "type": "string"
+                },
+                "email": {
+                  "type": "string",
+                  "description": ""
+                },
+                "company": {
+                  "description": "",
+                  "type": "string"
+                },
+                "address1": {
+                  "description": "",
+                  "type": "string"
+                },
+                "address2": {
+                  "description": "",
+                  "type": "string"
+                },
+                "city": {
+                  "description": "",
+                  "type": "string"
+                },
+                "state_or_province": {
+                  "description": "Represents state or province.",
+                  "type": "string"
+                },
+                "state_or_province_code": {
+                  "description": "",
+                  "type": "string"
+                },
+                "country_code": {
+                  "type": "string",
+                  "description": ""
+                },
+                "postal_code": {
+                  "description": "",
+                  "type": "string"
+                },
+                "phone": {
+                  "description": "",
+                  "type": "string",
+                  "pattern": "^\\+?[1-9]\\d{1,14}(x\\d{1-5})?$"
+                },
+                "custom_fields": {
+                  "description": "",
+                  "type": "array",
+                  "items": {
+                    "title": "Custom Field",
+                    "type": "object",
+                    "properties": {
+                      "field_id": {
+                        "description": "",
+                        "type": "string"
+                      },
+                      "field_value": {
+                        "description": "This can also be an array for fields that need to support list of values (e.g., a set of check boxes.)",
+                        "type": "string"
+                      }
+                    }
+                  }
+                }
+              },
+              "required": [
+                "email",
+                "country_code"
+              ]
+            },
+            {
+              "properties": {
+                "id": {
+                  "description": "",
+                  "type": "string"
+                }
+              }
+            }
+          ],
+          "type": "object"
+        },
+        "available_shipping_options": {
+          "description": "This is available only when \"include=available_shipping_options\" is presented in the URL.",
+          "type": "array",
+          "items": {
+            "title": "Selected Shipping Option",
+            "type": "object",
+            "properties": {
+              "description": {
+                "description": "",
+                "type": "string"
+              },
+              "id": {
+                "description": "",
+                "type": "string"
+              },
+              "type": {
+                "description": "Specified the type of shipping option. Flat rate, UPS, etc.,",
+                "type": "string"
+              },
+              "image_url": {
+                "description": "",
+                "type": "string"
+              },
+              "cost": {
+                "description": "",
+                "type": "number",
+                "format": "double"
+              },
+              "transit_time": {
+                "description": "An estimate of the arrival time.",
+                "type": "string"
+              },
+              "additional_description": {
+                "type": "string",
+                "description": "ReadOnly, Field used for Shipping Provider API."
+              }
+            }
+          }
+        },
+        "selected_shipping_option": {
+          "title": "Selected Shipping Option",
+          "type": "object",
+          "properties": {
+            "description": {
+              "description": "",
+              "type": "string"
+            },
+            "id": {
+              "description": "",
+              "type": "string"
+            },
+            "type": {
+              "description": "Specified the type of shipping option. Flat rate, UPS, etc.,",
+              "type": "string"
+            },
+            "image_url": {
+              "description": "",
+              "type": "string"
+            },
+            "cost": {
+              "description": "",
+              "type": "number",
+              "format": "double"
+            },
+            "transit_time": {
+              "description": "An estimate of the arrival time.",
+              "type": "string"
+            },
+            "additional_description": {
+              "type": "string",
+              "description": "ReadOnly, Field used for Shipping Provider API."
+            }
+          }
+        },
+        "coupon_discounts": {
+          "description": "List of consignment discounts applied through coupons",
+          "type": "array",
+          "items": {
+            "title": "Consignment Coupon Discount",
+            "type": "object",
+            "properties": {
+              "code": {
+                "description": "Coupon code that applied this discount",
+                "type": "string"
+              },
+              "amount": {
+                "description": "",
+                "type": "number",
+                "format": "double"
+              }
+            }
+          }
+        },
+        "discounts": {
+          "description": "List of consignment discounts applied through cart level discounts",
+          "type": "array",
+          "items": {
+            "title": "Consignment Discount",
+            "type": "object",
+            "properties": {
+              "id": {
+                "description": "Discount rule ID that applied this discount",
+                "type": "string"
+              }
+            }
+          }
+        },
+        "shipping_cost_inc_tax": {
+          "description": "The shipping cost for this consignment including tax.",
+          "type": "number",
+          "format": "double"
+        },
+        "shipping_cost_ex_tax": {
+          "description": "The shipping cost for this consignment excluding tax.",
+          "type": "number",
+          "format": "double"
+        },
+        "handling_cost_inc_tax": {
+          "description": "The handling cost of shipping for this consignment including tax.",
+          "type": "number",
+          "format": "double"
+        },
+        "handling_cost_ex_tax": {
+          "description": "The handling cost of shipping for this consignment excluding tax.",
+          "type": "number",
+          "format": "double"
+        },
+        "line_item_ids": {
+          "description": "",
+          "type": "array",
+          "items": {
+            "type": "string"
+          }
+        }
+      }
+    },
+    "SelectedShippingOption": {
+      "title": "Selected Shipping Option",
+      "type": "object",
+      "properties": {
+        "description": {
+          "description": "",
+          "type": "string"
+        },
+        "id": {
+          "description": "",
+          "type": "string"
+        },
+        "type": {
+          "description": "Specified the type of shipping option. Flat rate, UPS, etc.,",
+          "type": "string"
+        },
+        "image_url": {
+          "description": "",
+          "type": "string"
+        },
+        "cost": {
+          "description": "",
+          "type": "number",
+          "format": "double"
+        },
+        "transit_time": {
+          "description": "An estimate of the arrival time.",
+          "type": "string"
+        }
+      }
+    },
+    "ConsignmentCouponDiscount": {
+      "title": "Consignment Coupon Discount",
+      "type": "object",
+      "properties": {
+        "code": {
+          "description": "Coupon code that applied this discount",
+          "type": "string"
+        },
+        "amount": {
+          "description": "",
+          "type": "number",
+          "format": "double"
+        }
+      }
+    },
+    "ConsignmentDiscount": {
+      "title": "Consignment Discount",
+      "type": "object",
+      "properties": {
+        "id": {
+          "description": "Discount rule ID that applied this discount",
+          "type": "string"
+        }
+      }
+    },
+    "Tax": {
+      "title": "Tax",
+      "type": "object",
+      "properties": {
+        "name": {
+          "description": "Name of the tax.",
+          "type": "string"
+        },
+        "amount": {
+          "description": "",
+          "type": "number",
+          "format": "double"
+        }
+      }
+    },
+    "CheckoutError": {
+      "title": "Checkout Error",
+      "type": "object",
+      "properties": {
+        "errors": {
+          "description": "",
+          "type": "array",
+          "items": {
+            "title": "ErrorDetail",
+            "type": "object",
+            "properties": {
+              "status": {
+                "description": "",
+                "type": "integer",
+                "format": "int32"
+              },
+              "title": {
+                "description": "",
+                "type": "string"
+              },
+              "type": {
+                "description": "",
+                "type": "string"
+              },
+              "detail": {
+                "description": "",
+                "type": "string"
+              }
+            }
+          }
+        }
+      }
+    },
+    "ErrorDetail": {
+      "title": "ErrorDetail",
+      "type": "object",
+      "properties": {
+        "status": {
+          "description": "",
+          "type": "integer",
+          "format": "int32"
+        },
+        "title": {
+          "description": "",
+          "type": "string"
+        },
+        "type": {
+          "description": "",
+          "type": "string"
+        },
+        "detail": {
+          "description": "",
+          "type": "string"
+        }
+      }
+    },
+    "CreateConsignmentRequest": {
+      "title": "Create Consignment Request",
+      "type": "object",
+      "properties": {
+        "shipping_address": {
+          "title": "Address Properties",
+          "type": "object",
+          "properties": {
+            "first_name": {
+              "description": "",
+              "type": "string"
+            },
+            "last_name": {
+              "description": "",
+              "type": "string"
+            },
+            "email": {
+              "type": "string",
+              "description": ""
+            },
+            "company": {
+              "description": "",
+              "type": "string"
+            },
+            "address1": {
+              "description": "",
+              "type": "string"
+            },
+            "address2": {
+              "description": "",
+              "type": "string"
+            },
+            "city": {
+              "description": "",
+              "type": "string"
+            },
+            "state_or_province": {
+              "description": "Represents state or province.",
+              "type": "string"
+            },
+            "state_or_province_code": {
+              "description": "",
+              "type": "string"
+            },
+            "country_code": {
+              "type": "string",
+              "description": ""
+            },
+            "postal_code": {
+              "description": "",
+              "type": "string"
+            },
+            "phone": {
+              "description": "",
+              "type": "string",
+              "pattern": "^\\+?[1-9]\\d{1,14}(x\\d{1-5})?$"
+            },
+            "custom_fields": {
+              "description": "",
+              "type": "array",
+              "items": {
+                "title": "Custom Field",
+                "type": "object",
+                "properties": {
+                  "field_id": {
+                    "description": "",
+                    "type": "string"
+                  },
+                  "field_value": {
+                    "description": "This can also be an array for fields that need to support list of values (e.g., a set of check boxes.)",
+                    "type": "string"
+                  }
+                }
+              }
+            }
+          },
+          "required": [
+            "email",
+            "country_code"
+          ]
+        },
+        "line_items": {
+          "description": "",
+          "type": "array",
+          "items": {
+            "title": "Consignment Line Item",
+            "type": "object",
+            "properties": {
+              "item_id": {
+                "description": "Corresponds to `line_items` > `id in Checkout response.",
+                "type": "string"
+              },
+              "quantity": {
+                "description": "",
+                "type": "integer",
+                "format": "int32"
+              }
+            },
+            "required": [
+              "item_id",
+              "quantity"
+            ]
+          }
+        }
+      }
+    },
+    "ConsignmentLineItem": {
+      "title": "Consignment Line Item",
+      "type": "object",
+      "properties": {
+        "item_id": {
+          "description": "Corresponds to `line_items` > `id in Checkout response.",
+          "type": "string"
+        },
+        "quantity": {
+          "description": "",
+          "type": "integer",
+          "format": "int32"
+        }
+      },
+      "required": [
+        "item_id",
+        "quantity"
+      ]
+    },
+    "UpdateConsignmentRequest": {
+      "title": "Update Consignment Request",
+      "description": "One or more of these three fields are mandatory. Shipping address and line items can be updated in one request. Shipping option ID has to be updated in a separate request, since changing the address or line items can invalidate the previously available shipping options.",
+      "type": "object",
+      "properties": {
+        "shipping_address": {
+          "title": "Address Properties",
+          "type": "object",
+          "properties": {
+            "first_name": {
+              "description": "",
+              "type": "string"
+            },
+            "last_name": {
+              "description": "",
+              "type": "string"
+            },
+            "email": {
+              "type": "string",
+              "description": ""
+            },
+            "company": {
+              "description": "",
+              "type": "string"
+            },
+            "address1": {
+              "description": "",
+              "type": "string"
+            },
+            "address2": {
+              "description": "",
+              "type": "string"
+            },
+            "city": {
+              "description": "",
+              "type": "string"
+            },
+            "state_or_province": {
+              "description": "Represents state or province.",
+              "type": "string"
+            },
+            "state_or_province_code": {
+              "description": "",
+              "type": "string"
+            },
+            "country_code": {
+              "type": "string",
+              "description": ""
+            },
+            "postal_code": {
+              "description": "",
+              "type": "string"
+            },
+            "phone": {
+              "description": "",
+              "type": "string",
+              "pattern": "^\\+?[1-9]\\d{1,14}(x\\d{1-5})?$"
+            },
+            "custom_fields": {
+              "description": "",
+              "type": "array",
+              "items": {
+                "title": "Custom Field",
+                "type": "object",
+                "properties": {
+                  "field_id": {
+                    "description": "",
+                    "type": "string"
+                  },
+                  "field_value": {
+                    "description": "This can also be an array for fields that need to support list of values (e.g., a set of check boxes.)",
+                    "type": "string"
+                  }
+                }
+              }
+            }
+          },
+          "required": [
+            "email",
+            "country_code"
+          ]
+        },
+        "line_items": {
+          "description": "",
+          "type": "array",
+          "items": {
+            "title": "Consignment Line Item",
+            "type": "object",
+            "properties": {
+              "item_id": {
+                "description": "Corresponds to `line_items` > `id in Checkout response.",
+                "type": "string"
+              },
+              "quantity": {
+                "description": "",
+                "type": "integer",
+                "format": "int32"
+              }
+            },
+            "required": [
+              "item_id",
+              "quantity"
+            ]
+          }
+        },
+        "shipping_option_id": {
+          "description": "",
+          "type": "string"
+        }
+      }
+    },
+    "CouponCodeRequest": {
+      "title": "Coupon Code Request",
+      "type": "object",
+      "properties": {
+        "coupon_code": {
+          "description": "",
+          "type": "string"
+        }
+      }
+    },
+    "BaseItem": {
+      "title": "Base Item",
+      "type": "object",
+      "properties": {
+        "quantity": {
+          "description": "",
+          "type": "number",
+          "format": "double"
+        },
+        "id": {
+          "description": "The line-item ID.",
+          "type": "string"
+        },
+        "variant_id": {
+          "description": "",
+          "type": "number",
+          "format": "double"
+        },
+        "product_id": {
+          "description": "",
+          "type": "number",
+          "format": "double"
+        },
+        "sku": {
+          "description": "",
+          "type": "string"
+        },
+        "name": {
+          "description": "The item's product name.",
+          "type": "string"
+        },
+        "url": {
+          "description": "The product URL.",
+          "type": "string"
+        },
+        "is_taxable": {
+          "description": "",
+          "type": "boolean"
+        },
+        "image_url": {
+          "description": "",
+          "type": "string"
+        },
+        "discounts": {
+          "description": "",
+          "type": "array",
+          "items": {
+            "title": "Applied Discount",
+            "type": "object",
+            "properties": {
+              "id": {
+                "description": "ID of the applied discount.",
+                "type": "number",
+                "format": "double"
+              },
+              "discounted_amount": {
+                "description": "The discounted amount applied within a given context.",
+                "type": "number",
+                "format": "double"
+              }
+            }
+          }
+        },
+        "coupons": {
+          "description": "",
+          "type": "array",
+          "items": {
+            "title": "Applied Coupon",
+            "type": "object",
+            "properties": {
+              "code": {
+                "description": "the coupon code",
+                "type": "string"
+              },
+              "id": {
+                "description": "The coupon ID.",
+                "type": "string"
+              },
+              "coupon_type": {
+                "description": "Key name to identify the type of coupon.",
+                "type": "string"
+              },
+              "discounted_amount": {
+                "description": "The discounted amount applied within a given context.",
+                "type": "number",
+                "format": "double"
+              }
+            },
+            "required": [
+              "code"
+            ]
+          }
+        },
+        "discount_amount": {
+          "description": "The total value of all discounts applied to this item.",
+          "type": "number",
+          "format": "double"
+        },
+        "coupon_amount": {
+          "description": "The total value of all coupons applied to this item.",
+          "type": "number",
+          "format": "double"
+        },
+        "list_price": {
+          "description": "Item's list price, as quoted by the manufacturer/distributor.",
+          "type": "number",
+          "format": "double"
+        },
+        "sale_price": {
+          "description": "Item's price after all discounts are applied. (The final price before tax calculation.)",
+          "type": "number",
+          "format": "double"
+        },
+        "extended_list_price": {
+          "description": "Item's list price multiplied by the quantity.",
+          "type": "number",
+          "format": "double"
+        },
+        "extended_sale_price": {
+          "description": "Item's sale price multiplied by the quantity.",
+          "type": "number",
+          "format": "double"
+        },
+        "options": {
+          "description": "The list of selected options for this product.",
+          "type": "array",
+          "items": {
+            "title": "Product Option",
+            "type": "object",
+            "properties": {
+              "name": {
+                "description": "The product option name. For example, Color or Size",
+                "type": "string"
+              },
+              "name_id": {
+                "description": "The product option identifier.",
+                "type": "number",
+                "format": "double"
+              },
+              "value": {
+                "description": "The product option value. For example, Red or Medium",
+                "type": "string"
+              },
+              "value_id": {
+                "description": "The product option value identifier.",
+                "type": "number",
+                "format": "double"
+              }
+            }
+          }
+        }
+      },
+      "required": [
+        "quantity"
+      ]
+    },
+    "Order": {
+      "type": "object",
+      "title": "Order",
+      "properties": {
+        "id": {
+          "type": "integer",
+          "example": 75,
+          "description": "The order Id."
+        }
+      }
+    }
+  },
+  "parameters": {
+    "checkoutId": {
+      "name": "checkoutId",
+      "in": "path",
+      "type": "string",
+      "required": true,
+      "description": "Id of the Checkout"
+    },
+    "addressId": {
+      "name": "addressId",
+      "in": "path",
+      "type": "integer",
+      "required": true
+    },
+    "consignmentId": {
+      "name": "consignmentId",
+      "in": "path",
+      "type": "string",
+      "required": true
+    },
+    "couponCode": {
+      "name": "couponCode",
+      "in": "path",
+      "type": "string",
+      "required": true,
+      "description": "The actual couponCode, not the couponId."
+    },
+    "Accept": {
+      "name": "Accept",
+      "in": "header",
+      "type": "string",
+      "default": "application/json",
+      "required": true
+    },
+    "Content-Type": {
+      "name": "Content-Type",
+      "in": "header",
+      "type": "string",
+      "default": "application/json",
+      "required": true
+    },
+    "includeShippingOption": {
+      "name": "include",
+      "in": "query",
+      "type": "string",
+      "enum": [
+        "consignments.available_shipping_options"
+      ]
+    }
+  },
+  "securityDefinitions": {
+    "X-Auth-Client": {
+      "type": "apiKey",
+      "name": "{X-Auth-Client}",
+      "in": "header"
+    },
+    "X-Auth-Token": {
+      "type": "apiKey",
+      "name": "{X-Auth-Token}",
+      "in": "header"
+    }
+  },
+  "tags": [
+    {
+      "name": "Checkout"
+    }
+  ],
+  "security": [
+    {
+      "X-Auth-Client": []
+    },
+    {
+      "X-Auth-Token": []
+    }
+  ],
+  "x-stoplight": {
+    "docs": {
+      "includeDownloadLink": true
+    }
+  },
+  "responses": {
+    "CheckoutResponse": {
+      "description": "",
+      "schema": {
+        "type": "object",
+        "properties": {
+          "data": {
+            "$ref": "#/definitions/Checkout"
+          }
+        }
+      },
+      "examples": {
+        "application/json": {
+          "data": {
+            "id": "41d4ef29-0532-4ded-a669-14e4048451ad",
+            "cart": {
+              "id": "41d4ef29-0532-4ded-a669-14e4048451ad",
+              "customer_id": 9,
+              "email": "testing@email.com",
+              "currency": {
+                "code": "USD"
+              },
+              "base_amount": 520.54,
+              "discount_amount": 0,
+              "cart_amount_inc_tax": 600.6,
+              "cart_amount_ex_tax": 515.54,
+              "coupons": [
+                {
+                  "id": 1,
+                  "code": "S2549JM0Y",
+                  "coupon_type": "per_total_discount",
+                  "discounted_amount": 5
+                }
+              ],
+              "discounts": [
+                {
+                  "id": "87c770bc-7a5e-42cf-aaf9-c8bceda81704",
+                  "discounted_amount": 0.17
+                },
+                {
+                  "id": "8166a146-3ecb-40aa-b40a-f39244e6c257",
+                  "discounted_amount": 0.46
+                },
+                {
+                  "id": "1359bfee-5b01-4f73-803b-6b07d75b36cd",
+                  "discounted_amount": 2.1
+                },
+                {
+                  "id": "20e79ae2-5c44-472c-9ac4-aaa645b955ff",
+                  "discounted_amount": 2.27
+                }
+              ],
+              "line_items": {
+                "physical_items": [
+                  {
+                    "id": "8166a146-3ecb-40aa-b40a-f39244e6c257",
+                    "parent_id": {},
+                    "variant_id": 328,
+                    "product_id": 158,
+                    "sku": "SKU-BDD6E975",
+                    "name": "Chambray Towel",
+                    "url": "http://store-url.mybigcommerce.com/all/chambray-towel/",
+                    "quantity": 1,
+                    "taxable": true,
+                    "image_url": "https://cdn8.bigcommerce.com/s-{store_hash}/products/158/images/382/foglinenbeigestripetowel1b_1024x1024__83011__60806.1534344511.330.500.jpg?c=2",
+                    "discounts": [
+                      {
+                        "id": "total-coupon",
+                        "discounted_amount": 0.46
+                      }
+                    ],
+                    "coupons": [],
+                    "discount_amount": 0,
+                    "coupon_amount": 0,
+                    "list_price": 47.49,
+                    "sale_price": 47.49,
+                    "extended_list_price": 47.49,
+                    "extended_sale_price": 47.03,
+                    "is_require_shipping": true
+                  },
+                  {
+                    "id": "1359bfee-5b01-4f73-803b-6b07d75b36cd",
+                    "parent_id": {},
+                    "variant_id": 338,
+                    "product_id": 167,
+                    "sku": "",
+                    "name": "Able Brewing System",
+                    "url": "http://store-url.mybigcommerce.com/all/able-brewing-system/",
+                    "quantity": 1,
+                    "taxable": true,
+                    "image_url": "https://cdn8.bigcommerce.com/s-{store_hash}/products/167/images/398/ablebrewingsystem4_1024x1024__07155__93974.1534344516.330.500.jpg?c=2",
+                    "discounts": [
+                      {
+                        "id": "total-coupon",
+                        "discounted_amount": 2.1
+                      }
+                    ],
+                    "coupons": [],
+                    "discount_amount": 0,
+                    "coupon_amount": 0,
+                    "list_price": 218.5,
+                    "sale_price": 218.5,
+                    "extended_list_price": 218.5,
+                    "extended_sale_price": 216.4,
+                    "is_require_shipping": true
+                  },
+                  {
+                    "id": "20e79ae2-5c44-472c-9ac4-aaa645b955ff",
+                    "parent_id": {},
+                    "variant_id": 367,
+                    "product_id": 184,
+                    "sku": "SMA-GRE",
+                    "name": "Canvas Laundry Cart",
+                    "url": "http://store-url.mybigcommerce.com/all/canvas-laundry-cart/",
+                    "quantity": 1,
+                    "taxable": true,
+                    "image_url": "https://cdn8.bigcommerce.com/s-{store_hash}/products/184/images/445/naturalcanvascart2_1024x1024__92347__29648.1534344533.330.500.jpg?c=2",
+                    "discounts": [
+                      {
+                        "id": "total-coupon",
+                        "discounted_amount": 2.27
+                      }
+                    ],
+                    "coupons": [],
+                    "discount_amount": 0,
+                    "coupon_amount": 0,
+                    "list_price": 236.55,
+                    "sale_price": 236.55,
+                    "extended_list_price": 236.55,
+                    "extended_sale_price": 234.28,
+                    "is_require_shipping": true
+                  }
+                ],
+                "digital_items": [
+                  {
+                    "id": "87c770bc-7a5e-42cf-aaf9-c8bceda81704",
+                    "parent_id": {},
+                    "variant_id": 360,
+                    "product_id": 189,
+                    "sku": "",
+                    "name": "Gather Journal Issue 7",
+                    "url": "http://store-url.mybigcommerce.com/all/gather-journal-issue-7/",
+                    "quantity": 1,
+                    "taxable": true,
+                    "image_url": "https://cdn8.bigcommerce.com/s-{store_hash}/products/189/images/465/gather_1024x1024__17195__82620.1534344540.330.500.jpg?c=2",
+                    "discounts": [
+                      {
+                        "id": "total-coupon",
+                        "discounted_amount": 0.17
+                      }
+                    ],
+                    "coupons": [],
+                    "discount_amount": 0,
+                    "coupon_amount": 0,
+                    "list_price": 18,
+                    "sale_price": 18,
+                    "extended_list_price": 18,
+                    "extended_sale_price": 17.83,
+                    "is_require_shipping": false
+                  }
+                ],
+                "gift_certificates": []
+              },
+              "created_time": "2018-08-15T15:53:10+00:00",
+              "updated_time": "2018-08-15T15:54:31+00:00"
+            },
+            "billing_address": {
+              "id": "5b744c77bbe1f",
+              "first_name": "BigCommerce",
+              "last_name": "BigCommerce Cart/Checkout",
+              "email": "testing@email.com",
+              "company": {},
+              "address1": "123 Main Street",
+              "address2": {},
+              "city": "Austin",
+              "state_or_province": "Texas",
+              "state_or_province_code": "TX",
+              "country": "United States",
+              "country_code": "US",
+              "postal_code": "78726",
+              "phone": "5122134567"
+            },
+            "consignments": [
+              {
+                "id": "5b744c77bbf2b",
+                "shipping_cost_inc_tax": 54.53,
+                "shipping_cost_ex_tax": 46.81,
+                "handling_cost_inc_tax": 0,
+                "handling_cost_ex_tax": 0,
+                "coupon_discounts": [],
+                "discounts": [],
+                "line_item_ids": [
+                  "8166a146-3ecb-40aa-b40a-f39244e6c257",
+                  "1359bfee-5b01-4f73-803b-6b07d75b36cd",
+                  "20e79ae2-5c44-472c-9ac4-aaa645b955ff"
+                ],
+                "selectedShippingOption": {
+                  "id": "156fb123-68e1-40a2-8a48-98ceb04031c1",
+                  "type": "shipping_upsready",
+                  "description": "UPS® (UPS Next Day Air®)",
+                  "image_url": "",
+                  "cost": 46.81,
+                  "transit_time": "1 business day"
+                },
+                "shippingAddress": {
+                  "first_name": "BigCommerce",
+                  "last_name": "BigCommerce Cart/Checkout",
+                  "email": "testing@email.com",
+                  "company": "",
+                  "address1": "123 Main Street",
+                  "address2": "",
+                  "city": "Austin",
+                  "state_or_province": "Texas",
+                  "state_or_province_code": "TX",
+                  "country": "United States",
+                  "country_code": "US",
+                  "postal_code": "78726",
+                  "phone": "5122134567",
+                  "customFields": [
+                    {
+                      "field_id": "field_25",
+                      "field_value": "11305 4 Points Drive"
+                    }
+                  ]
+                },
+                "couponDiscounts": []
+              }
+            ],
+            "taxes": [
+              {
+                "name": "This is tax",
+                "amount": 92.78
+              }
+            ],
+            "coupons": [
+              {
+                "id": 1,
+                "code": "S2549JM0Y",
+                "coupon_type": "per_total_discount",
+                "discounted_amount": 5
+              }
+            ],
+            "order_id": {},
+            "shipping_cost_total_inc_tax": 54.53,
+            "shipping_cost_total_ex_tax": 46.81,
+            "handling_cost_total_inc_tax": 0,
+            "handling_cost_total_ex_tax": 0,
+            "tax_total": 92.78,
+            "subtotal_inc_tax": 606.42496049047,
+            "subtotal_ex_tax": 520.54,
+            "grand_total": 605.13,
+            "created_time": "2018-08-15T15:53:10+00:00",
+            "updated_time": "2018-08-15T15:54:31+00:00",
+            "customer_message": ""
+          },
+          "meta": {}
+        },
+        "Available Shipping Options": "{\n    \"data\": {\n        \"id\": \"306d57d7-124e-4112-82cd-35e060c0d4d9\",\n        \"cart\": {\n            \"id\": \"306d57d7-124e-4112-82cd-35e060c0d4d9\",\n            \"customer_id\": 11,\n            \"channel_id\": 1,\n            \"email\": \"janedoe@email.com\",\n            \"currency\": {\n                \"code\": \"USD\"\n            },\n            \"base_amount\": 31.95,\n            \"discount_amount\": 0,\n            \"cart_amount_inc_tax\": 33.23,\n            \"cart_amount_ex_tax\": 31.95,\n            \"coupons\": [],\n            \"discounts\": [\n                {\n                    \"id\": \"8edef915-8e8e-4ebd-bece-31fbb1191a7e\",\n                    \"discounted_amount\": 0\n                }\n            ],\n            \"line_items\": {\n                \"physical_items\": [\n                    {\n                        \"id\": \"8edef915-8e8e-4ebd-bece-31fbb1191a7e\",\n                        \"parent_id\": null,\n                        \"variant_id\": 359,\n                        \"product_id\": 188,\n                        \"sku\": \"DUST1\",\n                        \"name\": \"Hello\",\n                        \"url\": \"https:\\/\\/{store_hash}\\/all\\/dustpan-brush\\/\",\n                        \"quantity\": 1,\n                        \"is_taxable\": true,\n                        \"image_url\": \"https:\\/\\/cdn11.bigcommerce.com\\/s-{store_hash}\\/products\\/188\\/images\\/460\\/dustpan1_1024x1024_1024x1024__43447__69128.1534344539.330.500.jpg?c=2\",\n                        \"discounts\": [],\n                        \"coupons\": [],\n                        \"discount_amount\": 0,\n                        \"coupon_amount\": 0,\n                        \"list_price\": 31.95,\n                        \"sale_price\": 33.23,\n                        \"extended_list_price\": 31.95,\n                        \"extended_sale_price\": 33.23,\n                        \"is_require_shipping\": true,\n                        \"gift_wrapping\": null\n                    }\n                ],\n                \"digital_items\": [],\n                \"gift_certificates\": [],\n                \"custom_items\": []\n            },\n            \"created_time\": \"2019-08-05T15:38:14+00:00\",\n            \"updated_time\": \"2019-08-05T15:41:28+00:00\"\n        },\n        \"billing_address\": {\n            \"id\": \"5d484d668e5aa\",\n            \"first_name\": null,\n            \"last_name\": null,\n            \"email\": \"janedoe@email.com\",\n            \"company\": \"BigCommerce\",\n            \"address1\": \"123 Main Street\",\n            \"address2\": \"Apt 1\",\n            \"city\": \"Austin\",\n            \"state_or_province\": \"\",\n            \"state_or_province_code\": \"\",\n            \"country\": \"\",\n            \"country_code\": \"\",\n            \"postal_code\": null,\n            \"phone\": null,\n            \"custom_fields\": []\n        },\n        \"consignments\": [\n            {\n                \"id\": \"5d484e28d20a8\",\n                \"shipping_cost_inc_tax\": 0,\n                \"shipping_cost_ex_tax\": 0,\n                \"handling_cost_inc_tax\": 0,\n                \"handling_cost_ex_tax\": 0,\n                \"coupon_discounts\": [],\n                \"discounts\": [],\n                \"line_item_ids\": [\n                    \"8edef915-8e8e-4ebd-bece-31fbb1191a7e\"\n                ],\n                \"shipping_address\": {\n                    \"first_name\": \"BigCommerce\",\n                    \"last_name\": \"Cart\\/Checkout\",\n                    \"email\": \"jane2@email.com\",\n                    \"company\": \"\",\n                    \"address1\": \"123 Main Street\",\n                    \"address2\": \"\",\n                    \"city\": \"Austin\",\n                    \"state_or_province\": \"Texas\",\n                    \"state_or_province_code\": \"TX\",\n                    \"country\": \"United States\",\n                    \"country_code\": \"US\",\n                    \"postal_code\": \"78751\",\n                    \"phone\": \"688546\",\n                    \"custom_fields\": [\n                        {\n                            \"field_id\": \"field_25\",\n                            \"field_value\": \"Great!\"\n                        }\n                    ]\n                },\n                \"available_shipping_options\": [\n                    {\n                        \"id\": \"006a58a98c9a844225552ee2a9c60ca8\",\n                        \"type\": \"shipping_byweight\",\n                        \"description\": \"Ship by Weight\",\n                        \"image_url\": \"\",\n                        \"cost\": 8,\n                        \"transit_time\": \"\",\n                        \"additional_description\": \"\"\n                    },\n                    {\n                        \"id\": \"722d78b5120de60a725e41be9bb8d999\",\n                        \"type\": \"shipping_flatrate\",\n                        \"description\": \"Flat Rate\",\n                        \"image_url\": \"\",\n                        \"cost\": 12,\n                        \"transit_time\": \"\",\n                        \"additional_description\": \"\"\n                    },\n                    {\n                        \"id\": \"71090fa93c8985348892543c3f4887b6\",\n                        \"type\": \"shipping_upsready\",\n                        \"description\": \"UPS® (UPS Next Day Air®)\",\n                        \"image_url\": \"\",\n                        \"cost\": 43.9,\n                        \"transit_time\": \"1 business day\",\n                        \"additional_description\": \"\"\n                    }\n                ]\n            }\n        ],\n        \"taxes\": [\n            {\n                \"name\": \"Tax\",\n                \"amount\": 1.28\n            }\n        ],\n        \"coupons\": [],\n        \"order_id\": null,\n        \"shipping_cost_total_inc_tax\": 0,\n        \"shipping_cost_total_ex_tax\": 0,\n        \"handling_cost_total_inc_tax\": 0,\n        \"handling_cost_total_ex_tax\": 0,\n        \"tax_total\": 1.28,\n        \"subtotal_inc_tax\": 33.23,\n        \"subtotal_ex_tax\": 31.95,\n        \"grand_total\": 33.23,\n        \"created_time\": \"2019-08-05T15:38:14+00:00\",\n        \"updated_time\": \"2019-08-05T15:41:28+00:00\",\n        \"customer_message\": \"\"\n    },\n    \"meta\": {}\n}",
+        "Selected Shipping Options": {
+          "data": {
+            "id": "306d57d7-124e-4112-82cd-35e060c0d4d9",
+            "cart": {
+              "id": "306d57d7-124e-4112-82cd-35e060c0d4d9",
+              "customer_id": 11,
+              "channel_id": 1,
+              "email": "janedoe@email.com",
+              "currency": {
+                "code": "USD"
+              },
+              "base_amount": 31.95,
+              "discount_amount": 0,
+              "cart_amount_inc_tax": 33.23,
+              "cart_amount_ex_tax": 31.95,
+              "coupons": [],
+              "discounts": [
+                {
+                  "id": "8edef915-8e8e-4ebd-bece-31fbb1191a7e",
+                  "discounted_amount": 0
+                }
+              ],
+              "line_items": {
+                "physical_items": [
+                  {
+                    "id": "8edef915-8e8e-4ebd-bece-31fbb1191a7e",
+                    "parent_id": null,
+                    "variant_id": 359,
+                    "product_id": 188,
+                    "sku": "DUST1",
+                    "name": "Hello",
+                    "url": "https://{store_hash}/all/dustpan-brush/",
+                    "quantity": 1,
+                    "is_taxable": true,
+                    "image_url": "https://cdn11.bigcommerce.com/s-{store_hash}/products/188/images/460/dustpan1_1024x1024_1024x1024__43447__69128.1534344539.330.500.jpg?c=2",
+                    "discounts": [],
+                    "coupons": [],
+                    "discount_amount": 0,
+                    "coupon_amount": 0,
+                    "list_price": 31.95,
+                    "sale_price": 33.23,
+                    "extended_list_price": 31.95,
+                    "extended_sale_price": 33.23,
+                    "is_require_shipping": true,
+                    "gift_wrapping": null
+                  }
+                ],
+                "digital_items": [],
+                "gift_certificates": [],
+                "custom_items": []
+              },
+              "created_time": "2019-08-05T15:38:14+00:00",
+              "updated_time": "2019-08-05T15:41:28+00:00"
+            },
+            "billing_address": {
+              "id": "5d484d668e5aa",
+              "first_name": null,
+              "last_name": null,
+              "email": "janedoe@email.com",
+              "company": "BigCommerce",
+              "address1": "123 Main Street",
+              "address2": "Apt 1",
+              "city": "Austin",
+              "state_or_province": "",
+              "state_or_province_code": "",
+              "country": "",
+              "country_code": "",
+              "postal_code": null,
+              "phone": null,
+              "custom_fields": []
+            },
+            "consignments": [
+              {
+                "id": "5d484e28d20a8",
+                "shipping_cost_inc_tax": 8.32,
+                "shipping_cost_ex_tax": 8,
+                "handling_cost_inc_tax": 0,
+                "handling_cost_ex_tax": 0,
+                "coupon_discounts": [],
+                "discounts": [],
+                "line_item_ids": [
+                  "8edef915-8e8e-4ebd-bece-31fbb1191a7e"
+                ],
+                "selected_shipping_option": {
+                  "id": "006a58a98c9a844225552ee2a9c60ca8",
+                  "type": "shipping_byweight",
+                  "description": "Ship by Weight",
+                  "image_url": "",
+                  "cost": 8,
+                  "transit_time": "",
+                  "additional_description": ""
+                },
+                "shipping_address": {
+                  "first_name": "BigCommerce",
+                  "last_name": "Cart/Checkout",
+                  "email": "jane2@email.com",
+                  "company": "",
+                  "address1": "123 Main Street",
+                  "address2": "",
+                  "city": "Austin",
+                  "state_or_province": "Texas",
+                  "state_or_province_code": "TX",
+                  "country": "United States",
+                  "country_code": "US",
+                  "postal_code": "78751",
+                  "phone": "688546",
+                  "custom_fields": [
+                    {
+                      "field_id": "field_25",
+                      "field_value": "Great!"
+                    }
+                  ]
+                }
+              }
+            ],
+            "taxes": [
+              {
+                "name": "Tax",
+                "amount": 1.6
+              }
+            ],
+            "coupons": [],
+            "order_id": null,
+            "shipping_cost_total_inc_tax": 8.32,
+            "shipping_cost_total_ex_tax": 8,
+            "handling_cost_total_inc_tax": 0,
+            "handling_cost_total_ex_tax": 0,
+            "tax_total": 1.6,
+            "subtotal_inc_tax": 33.23,
+            "subtotal_ex_tax": 31.95,
+            "grand_total": 41.55,
+            "created_time": "2019-08-05T15:38:14+00:00",
+            "updated_time": "2019-08-05T15:41:28+00:00",
+            "customer_message": ""
+          },
+          "meta": {}
+        }
+      }
+    }
+  }
+}

@@ -1,0 +1,2778 @@
+{
+  "swagger": "2.0",
+  "info": {
+    "version": "",
+    "title": "Shipping Provider API",
+    "description": "## Shipping Provider API\n\nThe Shipping Provider API allows developers to create custom shipping providers to either create an app in the [Marketplace](https://www.bigcommerce.com/apps/) or create custom shipping for a merchant as a [private app](/api-docs/getting-started/building-apps-bigcommerce/types-of-apps#types-of-apps_unlisted-marketplace-apps).\n\nTo learn more, see [Shipping Provider API Overview](/api-docs/store-management/shipping/shipping-provider-api).",
+    "termsOfService": "https://www.bigcommerce.com/terms/api-terms/"
+  },
+  "schemes": [
+    "http"
+  ],
+  "consumes": [
+    "application/json"
+  ],
+  "produces": [
+    "application/json"
+  ],
+  "paths": {
+    "/rate": {
+      "post": {
+        "consumes": [
+          "application/json"
+        ],
+        "produces": [
+          "application/json"
+        ],
+        "description": "Request shipping rates",
+        "parameters": [
+          {
+            "in": "body",
+            "name": "body",
+            "description": "Rate request object",
+            "required": true,
+            "schema": {
+              "type": "object",
+              "properties": {
+                "base_options": {
+                  "description": "The minimum required payload that is sent to retrieve rates",
+                  "type": "object",
+                  "properties": {
+                    "origin": {
+                      "type": "object",
+                      "title": "Shipping Address",
+                      "description": "Object representing a destination or origin address for items.",
+                      "properties": {
+                        "street_1": {
+                          "type": "string",
+                          "maxLength": 255
+                        },
+                        "street_2": {
+                          "type": "string",
+                          "maxLength": 255
+                        },
+                        "zip": {
+                          "type": "string",
+                          "maxLength": 20,
+                          "example": "94105"
+                        },
+                        "city": {
+                          "type": "string",
+                          "maxLength": 50,
+                          "example": "San Francisco"
+                        },
+                        "state_iso2": {
+                          "type": "string",
+                          "description": "State in ISO_3166 2 format",
+                          "maxLength": 2
+                        },
+                        "country_iso2": {
+                          "type": "string",
+                          "description": "Country in ISO_3166 2 format",
+                          "maxLength": 2,
+                          "example": "US"
+                        },
+                        "address_type": {
+                          "description": "Optional, defaults to residential",
+                          "type": "string",
+                          "enum": [
+                            "RESIDENTIAL",
+                            "COMMERCIAL"
+                          ]
+                        }
+                      },
+                      "required": [
+                        "zip",
+                        "country_iso2"
+                      ]
+                    },
+                    "destination": {
+                      "type": "object",
+                      "title": "Shipping Address",
+                      "description": "Object representing a destination or origin address for items.",
+                      "properties": {
+                        "street_1": {
+                          "type": "string",
+                          "maxLength": 255
+                        },
+                        "street_2": {
+                          "type": "string",
+                          "maxLength": 255
+                        },
+                        "zip": {
+                          "type": "string",
+                          "maxLength": 20,
+                          "example": "94105"
+                        },
+                        "city": {
+                          "type": "string",
+                          "maxLength": 50,
+                          "example": "San Francisco"
+                        },
+                        "state_iso2": {
+                          "type": "string",
+                          "description": "State in ISO_3166 2 format",
+                          "maxLength": 2
+                        },
+                        "country_iso2": {
+                          "type": "string",
+                          "description": "Country in ISO_3166 2 format",
+                          "maxLength": 2,
+                          "example": "US"
+                        },
+                        "address_type": {
+                          "description": "Optional, defaults to residential",
+                          "type": "string",
+                          "enum": [
+                            "RESIDENTIAL",
+                            "COMMERCIAL"
+                          ]
+                        }
+                      },
+                      "required": [
+                        "zip",
+                        "country_iso2"
+                      ]
+                    },
+                    "items": {
+                      "type": "array",
+                      "items": {
+                        "type": "object",
+                        "description": "A cart item along with it's shipping specific attributes",
+                        "properties": {
+                          "sku": {
+                            "type": "string",
+                            "description": "The variant SKU"
+                          },
+                          "variant_id": {
+                            "type": "string"
+                          },
+                          "product_id": {
+                            "type": "string"
+                          },
+                          "name": {
+                            "type": "string"
+                          },
+                          "length": {
+                            "description": "Value object for a length measurement",
+                            "type": "object",
+                            "properties": {
+                              "units": {
+                                "type": "string",
+                                "enum": [
+                                  "cm",
+                                  "in"
+                                ]
+                              },
+                              "value": {
+                                "type": "number",
+                                "minimum": 0
+                              }
+                            },
+                            "required": [
+                              "units",
+                              "value"
+                            ],
+                            "title": "Dimension Value"
+                          },
+                          "width": {
+                            "description": "Value object for a length measurement",
+                            "type": "object",
+                            "properties": {
+                              "units": {
+                                "type": "string",
+                                "enum": [
+                                  "cm",
+                                  "in"
+                                ]
+                              },
+                              "value": {
+                                "type": "number",
+                                "minimum": 0
+                              }
+                            },
+                            "required": [
+                              "units",
+                              "value"
+                            ],
+                            "title": "Dimension Value"
+                          },
+                          "height": {
+                            "description": "Value object for a length measurement",
+                            "type": "object",
+                            "properties": {
+                              "units": {
+                                "type": "string",
+                                "enum": [
+                                  "cm",
+                                  "in"
+                                ]
+                              },
+                              "value": {
+                                "type": "number",
+                                "minimum": 0
+                              }
+                            },
+                            "required": [
+                              "units",
+                              "value"
+                            ],
+                            "title": "Dimension Value"
+                          },
+                          "weight": {
+                            "description": "Value object for a weight measurement",
+                            "type": "object",
+                            "properties": {
+                              "units": {
+                                "type": "string",
+                                "enum": [
+                                  "oz",
+                                  "g"
+                                ]
+                              },
+                              "value": {
+                                "type": "number",
+                                "minimum": 0
+                              }
+                            },
+                            "required": [
+                              "units",
+                              "value"
+                            ],
+                            "title": "Weight Value"
+                          },
+                          "discounted_price": {
+                            "description": "Value object for a money amount",
+                            "type": "object",
+                            "properties": {
+                              "currency": {
+                                "type": "string",
+                                "pattern": "^[A-Z]{3,3}$"
+                              },
+                              "amount": {
+                                "type": "number",
+                                "minimum": 0
+                              }
+                            },
+                            "required": [
+                              "currency",
+                              "amount"
+                            ],
+                            "title": "Money Value"
+                          },
+                          "declared_value": {
+                            "description": "Value object for a money amount",
+                            "type": "object",
+                            "properties": {
+                              "currency": {
+                                "type": "string",
+                                "pattern": "^[A-Z]{3,3}$"
+                              },
+                              "amount": {
+                                "type": "number",
+                                "minimum": 0
+                              }
+                            },
+                            "required": [
+                              "currency",
+                              "amount"
+                            ],
+                            "title": "Money Value"
+                          },
+                          "quantity": {
+                            "type": "number",
+                            "format": "int32"
+                          },
+                          "attributes": {
+                            "description": "A list of arbitrary properties stored as part of the product or product variant meta fields. These consist of public fields specific to the carrier integration.",
+                            "type": "array",
+                            "items": {
+                              "type": "object",
+                              "properties": {
+                                "key": {
+                                  "type": "string",
+                                  "description": "The key associated with the meta field"
+                                },
+                                "value": {
+                                  "type": "string",
+                                  "description": "The value associated with the meta field"
+                                },
+                                "namespace": {
+                                  "type": "string",
+                                  "description": "The namespace associated with product(https://developer.bigcommerce.com/api-reference/catalog/catalog-api/product-metafields/createproductmetafield) or product variant (https://developer.bigcommerce.com/api-reference/catalog/catalog-api/product-variants-metafields/createvariantmetafield) meta fields. The meta field namespace should be saved under this format 'shipping_carrier_{yourCarrierId}' otherwise it will not be recognized as an attribute."
+                                },
+                                "resource_type": {
+                                  "type": "string",
+                                  "enum": [
+                                    "product",
+                                    "variant"
+                                  ],
+                                  "description": "Resource type associated with the meta field. Currently the only values available are 'product' or 'variant'"
+                                },
+                                "resource_id": {
+                                  "type": "string",
+                                  "description": "The resource id of the meta field"
+                                },
+                                "attribute_type": {
+                                  "type": "string",
+                                  "enum": [
+                                    "metafield"
+                                  ],
+                                  "description": "Attribute type associated with the product or product variant meta field. Currently the only value for this is 'metafield'"
+                                }
+                              },
+                              "title": "Attribute Value"
+                            }
+                          }
+                        },
+                        "title": "Rate Request Item"
+                      }
+                    },
+                    "customer": {
+                      "type": "object",
+                      "properties": {
+                        "customer_groups": {
+                          "type": "array",
+                          "items": {
+                            "type": "object",
+                            "properties": {
+                              "customer_group_id": {
+                                "type": "integer"
+                              },
+                              "customer_group_name": {
+                                "type": "string"
+                              }
+                            },
+                            "title": "Customer Group",
+                            "description": "The Group (if any) that this customer is in. This will be default to zero if the customer is not in a group or is a guest. "
+                          }
+                        },
+                        "customer_id": {
+                          "type": "integer"
+                        }
+                      },
+                      "title": "Customer Details",
+                      "description": "The details of the Customer that has made the purchase."
+                    },
+                    "cart_id": {
+                      "type": "string"
+                    },
+                    "store_id": {
+                      "type": "string"
+                    },
+                    "request_context": {
+                      "type": "object",
+                      "properties": {
+                        "reference_values": {
+                          "type": "array",
+                          "items": {
+                            "type": "object",
+                            "properties": {
+                              "name": {
+                                "type": "string"
+                              },
+                              "value": {
+                                "type": "string"
+                              }
+                            },
+                            "title": "Reference Value",
+                            "description": "Value objects contained within the request context"
+                          }
+                        }
+                      },
+                      "title": "Request Context",
+                      "description": "A collection of Reference Value objects."
+                    }
+                  },
+                  "required": [
+                    "origin",
+                    "destination",
+                    "items",
+                    "store_id"
+                  ],
+                  "title": "Base Rate Request"
+                },
+                "zone_options": {
+                  "type": "object",
+                  "description": "Optional, any zone specific request options declared by the carrier and configued by the merchant to retrieve rates",
+                  "title": "Zone Options Instance"
+                },
+                "connection_options": {
+                  "type": "object",
+                  "description": "Optional, any global request options declared by the carrier and configued by the merchant to retrieve rates",
+                  "title": "Connection Options Instance"
+                },
+                "rate_options": {
+                  "description": "Optional, any checkout specific request options to retrieve rates",
+                  "type": "array",
+                  "items": {
+                    "type": "object",
+                    "properties": {
+                      "key": {
+                        "type": "string"
+                      },
+                      "value": {
+                        "type": "string"
+                      }
+                    },
+                    "required": [
+                      "key",
+                      "value"
+                    ],
+                    "title": "Key Value Pair"
+                  },
+                  "title": "Rate Options Instance"
+                }
+              },
+              "required": [
+                "base_options"
+              ],
+              "title": "Rate Request Payload",
+              "description": "Payload sent off to a Shipping Provider in order to get quotes."
+            }
+          }
+        ],
+        "responses": {
+          "200": {
+            "description": "Quote response",
+            "schema": {
+              "type": "object",
+              "properties": {
+                "quote_id": {
+                  "type": "string",
+                  "maxLength": 50
+                },
+                "messages": {
+                  "type": "array",
+                  "items": {
+                    "type": "object",
+                    "properties": {
+                      "text": {
+                        "type": "string",
+                        "minLength": 1,
+                        "maxLength": 500
+                      },
+                      "type": {
+                        "type": "string",
+                        "enum": [
+                          "INFO",
+                          "WARNING",
+                          "ERROR"
+                        ]
+                      }
+                    },
+                    "required": [
+                      "text",
+                      "type"
+                    ],
+                    "title": "Message",
+                    "description": "A simple string/type response for returning information."
+                  }
+                },
+                "carrier_quotes": {
+                  "type": "array",
+                  "items": {
+                    "type": "object",
+                    "description": "A grouping of carrier rates and optionally info about that carrier",
+                    "properties": {
+                      "carrier_info": {
+                        "type": "object",
+                        "properties": {
+                          "code": {
+                            "type": "string",
+                            "maxLength": 50
+                          },
+                          "display_name": {
+                            "type": "string",
+                            "minLength": 1,
+                            "maxLength": 100
+                          }
+                        },
+                        "required": [
+                          "code",
+                          "display_name"
+                        ]
+                      },
+                      "quotes": {
+                        "type": "array",
+                        "items": {
+                          "type": "object",
+                          "properties": {
+                            "display_name": {
+                              "description": "A display name for the service",
+                              "type": "string",
+                              "maxLength": 100
+                            },
+                            "cost": {
+                              "description": "Value object for a money amount",
+                              "type": "object",
+                              "properties": {
+                                "currency": {
+                                  "type": "string",
+                                  "pattern": "^[A-Z]{3,3}$"
+                                },
+                                "amount": {
+                                  "type": "number",
+                                  "minimum": 0
+                                }
+                              },
+                              "required": [
+                                "currency",
+                                "amount"
+                              ],
+                              "title": "Money Value"
+                            },
+                            "messages": {
+                              "type": "array",
+                              "items": {
+                                "type": "object",
+                                "properties": {
+                                  "text": {
+                                    "type": "string",
+                                    "minLength": 1,
+                                    "maxLength": 500
+                                  },
+                                  "type": {
+                                    "type": "string",
+                                    "enum": [
+                                      "INFO",
+                                      "WARNING",
+                                      "ERROR"
+                                    ]
+                                  }
+                                },
+                                "required": [
+                                  "text",
+                                  "type"
+                                ],
+                                "title": "Message",
+                                "description": "A simple string/type response for returning information."
+                              }
+                            },
+                            "description": {
+                              "type": "string",
+                              "maxLength": 500
+                            },
+                            "transit_time": {
+                              "type": "object",
+                              "properties": {
+                                "units": {
+                                  "type": "string",
+                                  "enum": [
+                                    "BUSINESS_DAYS",
+                                    "DAYS",
+                                    "HOURS"
+                                  ]
+                                },
+                                "duration": {
+                                  "type": "integer",
+                                  "minimum": 1,
+                                  "maximum": 90
+                                }
+                              },
+                              "title": "Transit Time Object",
+                              "description": "Value object for the length of time in transit"
+                            }
+                          },
+                          "required": [
+                            "display_name",
+                            "cost"
+                          ],
+                          "title": "Rate Quote Object",
+                          "description": "A quote being returned as part of the rate request."
+                        }
+                      }
+                    },
+                    "required": [
+                      "quotes"
+                    ],
+                    "title": "Carrier Quote Object"
+                  }
+                }
+              },
+              "required": [
+                "quote_id",
+                "messages",
+                "carrier_quotes"
+              ],
+              "title": "Rate Response Payload",
+              "description": "The response from the Shipping Service, will contain zero to many quotes."
+            }
+          }
+        },
+        "summary": "Request shipping rates",
+        "tags": [
+          "Shipping Provider"
+        ],
+        "operationId": "requestShippingRates"
+      }
+    },
+    "/check_connection_options": {
+      "post": {
+        "consumes": [
+          "application/json"
+        ],
+        "produces": [
+          "application/json"
+        ],
+        "description": "Validate connection options",
+        "parameters": [
+          {
+            "in": "body",
+            "name": "body",
+            "description": "Check connection options request",
+            "required": true,
+            "schema": {
+              "type": "object",
+              "properties": {
+                "connection_options": {
+                  "type": "object",
+                  "description": "Optional, any global request options declared by the carrier and configued by the merchant to retrieve rates",
+                  "title": "Connection Options Instance"
+                }
+              },
+              "required": [
+                "connection_options"
+              ],
+              "title": "Check Connection Options Request Payload",
+              "description": "The payload sent to a Shipping Provider to check that the store is connected to this provider.\nEach Shipping Provider will have different configurations for the payload."
+            }
+          }
+        ],
+        "responses": {
+          "200": {
+            "description": "Check connection options response",
+            "schema": {
+              "type": "object",
+              "properties": {
+                "valid": {
+                  "type": "boolean",
+                  "description": "Indicates whether or not the connection options are valid"
+                },
+                "messages": {
+                  "type": "array",
+                  "items": {
+                    "type": "object",
+                    "properties": {
+                      "text": {
+                        "type": "string",
+                        "minLength": 1,
+                        "maxLength": 500
+                      },
+                      "type": {
+                        "type": "string",
+                        "enum": [
+                          "INFO",
+                          "WARNING",
+                          "ERROR"
+                        ]
+                      }
+                    },
+                    "required": [
+                      "text",
+                      "type"
+                    ],
+                    "title": "Message",
+                    "description": "A simple string/type response for returning information."
+                  }
+                }
+              },
+              "title": "Check Connection Options Response Payload",
+              "description": "The response recieved back from the Shipping Provider connection check this allows the store to understand if the connection was successful."
+            }
+          }
+        },
+        "summary": "Validate connection options",
+        "tags": [
+          "Shipping Provider"
+        ],
+        "operationId": "validateConnectionOptions"
+      }
+    }
+  },
+  "definitions": {
+    "RateRequestPayload": {
+      "type": "object",
+      "properties": {
+        "base_options": {
+          "description": "The minimum required payload that is sent to retrieve rates",
+          "type": "object",
+          "properties": {
+            "origin": {
+              "type": "object",
+              "title": "Shipping Address",
+              "description": "Object representing a destination or origin address for items.",
+              "properties": {
+                "street_1": {
+                  "type": "string",
+                  "maxLength": 255
+                },
+                "street_2": {
+                  "type": "string",
+                  "maxLength": 255
+                },
+                "zip": {
+                  "type": "string",
+                  "maxLength": 20,
+                  "example": "94105"
+                },
+                "city": {
+                  "type": "string",
+                  "maxLength": 50,
+                  "example": "San Francisco"
+                },
+                "state_iso2": {
+                  "type": "string",
+                  "description": "State in ISO_3166 2 format",
+                  "maxLength": 2
+                },
+                "country_iso2": {
+                  "type": "string",
+                  "description": "Country in ISO_3166 2 format",
+                  "maxLength": 2,
+                  "example": "US"
+                },
+                "address_type": {
+                  "description": "Optional, defaults to residential",
+                  "type": "string",
+                  "enum": [
+                    "RESIDENTIAL",
+                    "COMMERCIAL"
+                  ]
+                }
+              },
+              "required": [
+                "zip",
+                "country_iso2"
+              ]
+            },
+            "destination": {
+              "type": "object",
+              "title": "Shipping Address",
+              "description": "Object representing a destination or origin address for items.",
+              "properties": {
+                "street_1": {
+                  "type": "string",
+                  "maxLength": 255
+                },
+                "street_2": {
+                  "type": "string",
+                  "maxLength": 255
+                },
+                "zip": {
+                  "type": "string",
+                  "maxLength": 20,
+                  "example": "94105"
+                },
+                "city": {
+                  "type": "string",
+                  "maxLength": 50,
+                  "example": "San Francisco"
+                },
+                "state_iso2": {
+                  "type": "string",
+                  "description": "State in ISO_3166 2 format",
+                  "maxLength": 2
+                },
+                "country_iso2": {
+                  "type": "string",
+                  "description": "Country in ISO_3166 2 format",
+                  "maxLength": 2,
+                  "example": "US"
+                },
+                "address_type": {
+                  "description": "Optional, defaults to residential",
+                  "type": "string",
+                  "enum": [
+                    "RESIDENTIAL",
+                    "COMMERCIAL"
+                  ]
+                }
+              },
+              "required": [
+                "zip",
+                "country_iso2"
+              ]
+            },
+            "items": {
+              "type": "array",
+              "items": {
+                "type": "object",
+                "description": "A cart item along with it's shipping specific attributes",
+                "properties": {
+                  "sku": {
+                    "type": "string",
+                    "description": "The variant SKU"
+                  },
+                  "variant_id": {
+                    "type": "string"
+                  },
+                  "product_id": {
+                    "type": "string"
+                  },
+                  "name": {
+                    "type": "string"
+                  },
+                  "length": {
+                    "description": "Value object for a length measurement",
+                    "type": "object",
+                    "properties": {
+                      "units": {
+                        "type": "string",
+                        "enum": [
+                          "cm",
+                          "in"
+                        ]
+                      },
+                      "value": {
+                        "type": "number",
+                        "minimum": 0
+                      }
+                    },
+                    "required": [
+                      "units",
+                      "value"
+                    ],
+                    "title": "Dimension Value"
+                  },
+                  "width": {
+                    "description": "Value object for a length measurement",
+                    "type": "object",
+                    "properties": {
+                      "units": {
+                        "type": "string",
+                        "enum": [
+                          "cm",
+                          "in"
+                        ]
+                      },
+                      "value": {
+                        "type": "number",
+                        "minimum": 0
+                      }
+                    },
+                    "required": [
+                      "units",
+                      "value"
+                    ],
+                    "title": "Dimension Value"
+                  },
+                  "height": {
+                    "description": "Value object for a length measurement",
+                    "type": "object",
+                    "properties": {
+                      "units": {
+                        "type": "string",
+                        "enum": [
+                          "cm",
+                          "in"
+                        ]
+                      },
+                      "value": {
+                        "type": "number",
+                        "minimum": 0
+                      }
+                    },
+                    "required": [
+                      "units",
+                      "value"
+                    ],
+                    "title": "Dimension Value"
+                  },
+                  "weight": {
+                    "description": "Value object for a weight measurement",
+                    "type": "object",
+                    "properties": {
+                      "units": {
+                        "type": "string",
+                        "enum": [
+                          "oz",
+                          "g"
+                        ]
+                      },
+                      "value": {
+                        "type": "number",
+                        "minimum": 0
+                      }
+                    },
+                    "required": [
+                      "units",
+                      "value"
+                    ],
+                    "title": "Weight Value"
+                  },
+                  "discounted_price": {
+                    "description": "Value object for a money amount",
+                    "type": "object",
+                    "properties": {
+                      "currency": {
+                        "type": "string",
+                        "pattern": "^[A-Z]{3,3}$"
+                      },
+                      "amount": {
+                        "type": "number",
+                        "minimum": 0
+                      }
+                    },
+                    "required": [
+                      "currency",
+                      "amount"
+                    ],
+                    "title": "Money Value"
+                  },
+                  "declared_value": {
+                    "description": "Value object for a money amount",
+                    "type": "object",
+                    "properties": {
+                      "currency": {
+                        "type": "string",
+                        "pattern": "^[A-Z]{3,3}$"
+                      },
+                      "amount": {
+                        "type": "number",
+                        "minimum": 0
+                      }
+                    },
+                    "required": [
+                      "currency",
+                      "amount"
+                    ],
+                    "title": "Money Value"
+                  },
+                  "quantity": {
+                    "type": "number",
+                    "format": "int32"
+                  },
+                  "attributes": {
+                    "type": "array",
+                    "description": "A list of arbitrary properties stored as part of the product or product variant meta fields. These consist of any public fields specific to the carrier integration.",
+                    "items": {
+                      "type": "object",
+                      "properties": {
+                        "key": {
+                          "type": "string",
+                          "description": "The key associated with the meta field"
+                        },
+                        "value": {
+                          "type": "string",
+                          "description": "The value associated with the meta field"
+                        },
+                        "namespace": {
+                          "type": "string",
+                          "description": "The namespace associated with product(https://developer.bigcommerce.com/api-reference/catalog/catalog-api/product-metafields/createproductmetafield) or product variant (https://developer.bigcommerce.com/api-reference/catalog/catalog-api/product-variants-metafields/createvariantmetafield) meta fields. The meta field namespace should be saved under this format 'shipping_carrier_{yourCarrierId}' otherwise it will not be recognized as an attribute."
+                        },
+                        "resource_type": {
+                          "type": "string",
+                          "enum": [
+                            "product",
+                            "variant"
+                          ],
+                          "description": "Resource type associated with the product or product variant meta field. Currently the only values available are 'product' or 'variant'"
+                        },
+                        "resource_id": {
+                          "type": "string",
+                          "description": "The resource id of the product or product variant meta field"
+                        },
+                        "attribute_type": {
+                          "type": "string",
+                          "enum": [
+                            "metafield"
+                          ],
+                          "description": "Attribute type associated with the product or product variant meta field. Currently the only value for this is 'metafield'"
+                        }
+                      },
+                      "title": "Attribute Value"
+                    }
+                  }
+                },
+                "title": "Rate Request Item"
+              }
+            },
+            "customer": {
+              "type": "object",
+              "properties": {
+                "customer_groups": {
+                  "type": "array",
+                  "items": {
+                    "type": "object",
+                    "properties": {
+                      "customer_group_id": {
+                        "type": "integer"
+                      },
+                      "customer_group_name": {
+                        "type": "string"
+                      }
+                    },
+                    "title": "Customer Group",
+                    "description": "The Group (if any) that this customer is in. This will be default to zero if the customer is not in a group or is a guest. "
+                  }
+                },
+                "customer_id": {
+                  "type": "integer"
+                }
+              },
+              "title": "Customer Details",
+              "description": "The details of the Customer that has made the purchase."
+            },
+            "cart_id": {
+              "type": "string"
+            },
+            "store_id": {
+              "type": "string"
+            },
+            "request_context": {
+              "type": "object",
+              "properties": {
+                "reference_values": {
+                  "type": "array",
+                  "items": {
+                    "type": "object",
+                    "properties": {
+                      "name": {
+                        "type": "string"
+                      },
+                      "value": {
+                        "type": "string"
+                      }
+                    },
+                    "title": "Reference Value",
+                    "description": "Value objects contained within the request context"
+                  }
+                }
+              },
+              "title": "Request Context",
+              "description": "A collection of Reference Value objects."
+            }
+          },
+          "required": [
+            "origin",
+            "destination",
+            "items",
+            "store_id"
+          ],
+          "title": "Base Rate Request"
+        },
+        "zone_options": {
+          "type": "object",
+          "description": "Optional, any zone specific request options declared by the carrier and configued by the merchant to retrieve rates",
+          "title": "Zone Options Instance"
+        },
+        "connection_options": {
+          "type": "object",
+          "description": "Optional, any global request options declared by the carrier and configued by the merchant to retrieve rates",
+          "title": "Connection Options Instance"
+        },
+        "rate_options": {
+          "description": "Optional, any checkout specific request options to retrieve rates",
+          "type": "array",
+          "items": {
+            "type": "object",
+            "properties": {
+              "key": {
+                "type": "string"
+              },
+              "value": {
+                "type": "string"
+              }
+            },
+            "required": [
+              "key",
+              "value"
+            ],
+            "title": "Key Value Pair"
+          },
+          "title": "Rate Options Instance"
+        }
+      },
+      "required": [
+        "base_options"
+      ],
+      "title": "Rate Request Payload",
+      "description": "Payload sent off to a Shipping Provider in order to get quotes."
+    },
+    "BaseRateRequest": {
+      "description": "The minimum required payload that is sent to retrieve rates",
+      "type": "object",
+      "properties": {
+        "origin": {
+          "type": "object",
+          "title": "Shipping Address",
+          "description": "Object representing a destination or origin address for items.",
+          "properties": {
+            "street_1": {
+              "type": "string",
+              "maxLength": 255
+            },
+            "street_2": {
+              "type": "string",
+              "maxLength": 255
+            },
+            "zip": {
+              "type": "string",
+              "maxLength": 20,
+              "example": "94105"
+            },
+            "city": {
+              "type": "string",
+              "maxLength": 50,
+              "example": "San Francisco"
+            },
+            "state_iso2": {
+              "type": "string",
+              "description": "State in ISO_3166 2 format",
+              "maxLength": 2
+            },
+            "country_iso2": {
+              "type": "string",
+              "description": "Country in ISO_3166 2 format",
+              "maxLength": 2,
+              "example": "US"
+            },
+            "address_type": {
+              "description": "Optional, defaults to residential",
+              "type": "string",
+              "enum": [
+                "RESIDENTIAL",
+                "COMMERCIAL"
+              ]
+            }
+          },
+          "required": [
+            "zip",
+            "country_iso2"
+          ]
+        },
+        "destination": {
+          "type": "object",
+          "title": "Shipping Address",
+          "description": "Object representing a destination or origin address for items.",
+          "properties": {
+            "street_1": {
+              "type": "string",
+              "maxLength": 255
+            },
+            "street_2": {
+              "type": "string",
+              "maxLength": 255
+            },
+            "zip": {
+              "type": "string",
+              "maxLength": 20,
+              "example": "94105"
+            },
+            "city": {
+              "type": "string",
+              "maxLength": 50,
+              "example": "San Francisco"
+            },
+            "state_iso2": {
+              "type": "string",
+              "description": "State in ISO_3166 2 format",
+              "maxLength": 2
+            },
+            "country_iso2": {
+              "type": "string",
+              "description": "Country in ISO_3166 2 format",
+              "maxLength": 2,
+              "example": "US"
+            },
+            "address_type": {
+              "description": "Optional, defaults to residential",
+              "type": "string",
+              "enum": [
+                "RESIDENTIAL",
+                "COMMERCIAL"
+              ]
+            }
+          },
+          "required": [
+            "zip",
+            "country_iso2"
+          ]
+        },
+        "items": {
+          "type": "array",
+          "items": {
+            "type": "object",
+            "description": "A cart item along with it's shipping specific attributes",
+            "properties": {
+              "sku": {
+                "type": "string",
+                "description": "The variant SKU"
+              },
+              "variant_id": {
+                "type": "string"
+              },
+              "product_id": {
+                "type": "string"
+              },
+              "name": {
+                "type": "string"
+              },
+              "length": {
+                "description": "Value object for a length measurement",
+                "type": "object",
+                "properties": {
+                  "units": {
+                    "type": "string",
+                    "enum": [
+                      "cm",
+                      "in"
+                    ]
+                  },
+                  "value": {
+                    "type": "number",
+                    "minimum": 0
+                  }
+                },
+                "required": [
+                  "units",
+                  "value"
+                ],
+                "title": "Dimension Value"
+              },
+              "width": {
+                "description": "Value object for a length measurement",
+                "type": "object",
+                "properties": {
+                  "units": {
+                    "type": "string",
+                    "enum": [
+                      "cm",
+                      "in"
+                    ]
+                  },
+                  "value": {
+                    "type": "number",
+                    "minimum": 0
+                  }
+                },
+                "required": [
+                  "units",
+                  "value"
+                ],
+                "title": "Dimension Value"
+              },
+              "height": {
+                "description": "Value object for a length measurement",
+                "type": "object",
+                "properties": {
+                  "units": {
+                    "type": "string",
+                    "enum": [
+                      "cm",
+                      "in"
+                    ]
+                  },
+                  "value": {
+                    "type": "number",
+                    "minimum": 0
+                  }
+                },
+                "required": [
+                  "units",
+                  "value"
+                ],
+                "title": "Dimension Value"
+              },
+              "weight": {
+                "description": "Value object for a weight measurement",
+                "type": "object",
+                "properties": {
+                  "units": {
+                    "type": "string",
+                    "enum": [
+                      "oz",
+                      "g"
+                    ]
+                  },
+                  "value": {
+                    "type": "number",
+                    "minimum": 0
+                  }
+                },
+                "required": [
+                  "units",
+                  "value"
+                ],
+                "title": "Weight Value"
+              },
+              "discounted_price": {
+                "description": "Value object for a money amount",
+                "type": "object",
+                "properties": {
+                  "currency": {
+                    "type": "string",
+                    "pattern": "^[A-Z]{3,3}$"
+                  },
+                  "amount": {
+                    "type": "number",
+                    "minimum": 0
+                  }
+                },
+                "required": [
+                  "currency",
+                  "amount"
+                ],
+                "title": "Money Value"
+              },
+              "declared_value": {
+                "description": "Value object for a money amount",
+                "type": "object",
+                "properties": {
+                  "currency": {
+                    "type": "string",
+                    "pattern": "^[A-Z]{3,3}$"
+                  },
+                  "amount": {
+                    "type": "number",
+                    "minimum": 0
+                  }
+                },
+                "required": [
+                  "currency",
+                  "amount"
+                ],
+                "title": "Money Value"
+              },
+              "quantity": {
+                "type": "number",
+                "format": "int32"
+              },
+              "attributes": {
+                "description": "A list of arbitrary properties stored as part of the product or product variant meta fields. These consist of any public fields specific to the carrier integration.",
+                "type": "array",
+                "items": {
+                  "type": "object",
+                  "properties": {
+                    "key": {
+                      "type": "string",
+                      "description": "The key associated with the product or product variant meta field"
+                    },
+                    "value": {
+                      "type": "string",
+                      "description": "The value associated with the product or product variant meta field"
+                    },
+                    "namespace": {
+                      "type": "string",
+                      "description": "The namespace associated with product(https://developer.bigcommerce.com/api-reference/catalog/catalog-api/product-metafields/createproductmetafield) or product variant (https://developer.bigcommerce.com/api-reference/catalog/catalog-api/product-variants-metafields/createvariantmetafield) meta fields. The meta field namespace should be saved under this format 'shipping_carrier_{yourCarrierId}' otherwise it will not be recognized as an attribute."
+                    },
+                    "resource_type": {
+                      "type": "string",
+                      "enum": [
+                        "product",
+                        "variant"
+                      ],
+                      "description": "Resource type associated with the product or product variant meta field. Currently the only values available are 'product' or 'variant'"
+                    },
+                    "resource_id": {
+                      "type": "string",
+                      "description": "The resource id of the product or product variant meta field"
+                    },
+                    "attribute_type": {
+                      "type": "string",
+                      "enum": [
+                        "metafield"
+                      ],
+                      "description": "Attribute type associated with the product or product variant meta field. Currently the only value for this is 'metafield'"
+                    }
+                  },
+                  "title": "Attribute Value"
+                }
+              }
+            },
+            "title": "Rate Request Item"
+          }
+        },
+        "customer": {
+          "type": "object",
+          "properties": {
+            "customer_groups": {
+              "type": "array",
+              "items": {
+                "type": "object",
+                "properties": {
+                  "customer_group_id": {
+                    "type": "integer"
+                  },
+                  "customer_group_name": {
+                    "type": "string"
+                  }
+                },
+                "title": "Customer Group",
+                "description": "The Group (if any) that this customer is in. This will be default to zero if the customer is not in a group or is a guest. "
+              }
+            },
+            "customer_id": {
+              "type": "integer"
+            }
+          },
+          "title": "Customer Details",
+          "description": "The details of the Customer that has made the purchase."
+        },
+        "cart_id": {
+          "type": "string"
+        },
+        "store_id": {
+          "type": "string"
+        },
+        "request_context": {
+          "type": "object",
+          "properties": {
+            "reference_values": {
+              "type": "array",
+              "items": {
+                "type": "object",
+                "properties": {
+                  "name": {
+                    "type": "string"
+                  },
+                  "value": {
+                    "type": "string"
+                  }
+                },
+                "title": "Reference Value",
+                "description": "Value objects contained within the request context"
+              }
+            }
+          },
+          "title": "Request Context",
+          "description": "A collection of Reference Value objects."
+        }
+      },
+      "required": [
+        "origin",
+        "destination",
+        "items",
+        "store_id"
+      ],
+      "title": "Base Rate Request"
+    },
+    "CustomerDetails": {
+      "type": "object",
+      "properties": {
+        "customer_groups": {
+          "type": "array",
+          "items": {
+            "type": "object",
+            "properties": {
+              "customer_group_id": {
+                "type": "integer"
+              },
+              "customer_group_name": {
+                "type": "string"
+              }
+            },
+            "title": "Customer Group",
+            "description": "The Group (if any) that this customer is in. This will be default to zero if the customer is not in a group or is a guest. "
+          }
+        },
+        "customer_id": {
+          "type": "integer"
+        }
+      },
+      "title": "Customer Details",
+      "description": "The details of the Customer that has made the purchase."
+    },
+    "ZoneOptionsInstance": {
+      "type": "object",
+      "description": "Optional, any zone specific request options declared by the carrier and configued by the merchant to retrieve rates",
+      "title": "Zone Options Instance"
+    },
+    "ConnectionOptionsInstance": {
+      "type": "object",
+      "description": "Optional, any global request options declared by the carrier and configued by the merchant to retrieve rates",
+      "title": "Connection Options Instance"
+    },
+    "RateOptionsInstance": {
+      "description": "Optional, any checkout specific request options to retrieve rates",
+      "type": "array",
+      "items": {
+        "type": "object",
+        "properties": {
+          "key": {
+            "type": "string"
+          },
+          "value": {
+            "type": "string"
+          }
+        },
+        "required": [
+          "key",
+          "value"
+        ],
+        "title": "Key Value Pair"
+      },
+      "title": "Rate Options Instance"
+    },
+    "CustomerGroup": {
+      "type": "object",
+      "properties": {
+        "customer_group_id": {
+          "type": "integer"
+        },
+        "customer_group_name": {
+          "type": "string"
+        }
+      },
+      "title": "Customer Group",
+      "description": "The Group (if any) that this customer is in. This will be default to zero if the customer is not in a group or is a guest. "
+    },
+    "KeyValuePair": {
+      "type": "object",
+      "properties": {
+        "key": {
+          "type": "string"
+        },
+        "value": {
+          "type": "string"
+        }
+      },
+      "required": [
+        "key",
+        "value"
+      ],
+      "title": "Key Value Pair"
+    },
+    "RateResponsePayload": {
+      "type": "object",
+      "properties": {
+        "quote_id": {
+          "type": "string",
+          "maxLength": 50
+        },
+        "messages": {
+          "type": "array",
+          "items": {
+            "type": "object",
+            "properties": {
+              "text": {
+                "type": "string",
+                "minLength": 1,
+                "maxLength": 500
+              },
+              "type": {
+                "type": "string",
+                "enum": [
+                  "INFO",
+                  "WARNING",
+                  "ERROR"
+                ]
+              }
+            },
+            "required": [
+              "text",
+              "type"
+            ],
+            "title": "Message",
+            "description": "A simple string/type response for returning information."
+          }
+        },
+        "carrier_quotes": {
+          "type": "array",
+          "items": {
+            "type": "object",
+            "description": "A grouping of carrier rates and optionally info about that carrier",
+            "properties": {
+              "carrier_info": {
+                "type": "object",
+                "properties": {
+                  "code": {
+                    "type": "string",
+                    "maxLength": 50
+                  },
+                  "display_name": {
+                    "type": "string",
+                    "minLength": 1,
+                    "maxLength": 100
+                  }
+                },
+                "required": [
+                  "code",
+                  "display_name"
+                ]
+              },
+              "quotes": {
+                "type": "array",
+                "items": {
+                  "type": "object",
+                  "properties": {
+                    "code": {
+                      "description": "A code describing the service",
+                      "type": "string",
+                      "maxLength": 50,
+                      "example": "GND"
+                    },
+                    "display_name": {
+                      "description": "A display name for the service",
+                      "type": "string",
+                      "maxLength": 100
+                    },
+                    "cost": {
+                      "description": "Value object for a money amount",
+                      "type": "object",
+                      "properties": {
+                        "currency": {
+                          "type": "string",
+                          "pattern": "^[A-Z]{3,3}$"
+                        },
+                        "amount": {
+                          "type": "number",
+                          "minimum": 0
+                        }
+                      },
+                      "required": [
+                        "currency",
+                        "amount"
+                      ],
+                      "title": "Money Value"
+                    },
+                    "messages": {
+                      "type": "array",
+                      "items": {
+                        "type": "object",
+                        "properties": {
+                          "text": {
+                            "type": "string",
+                            "minLength": 1,
+                            "maxLength": 500
+                          },
+                          "type": {
+                            "type": "string",
+                            "enum": [
+                              "INFO",
+                              "WARNING",
+                              "ERROR"
+                            ]
+                          }
+                        },
+                        "required": [
+                          "text",
+                          "type"
+                        ],
+                        "title": "Message",
+                        "description": "A simple string/type response for returning information."
+                      }
+                    },
+                    "description": {
+                      "type": "string",
+                      "maxLength": 500
+                    },
+                    "rate_id": {
+                      "type": "string",
+                      "maxLength": 50
+                    },
+                    "discounted_cost": {
+                      "description": "Value object for a money amount",
+                      "type": "object",
+                      "properties": {
+                        "currency": {
+                          "type": "string",
+                          "pattern": "^[A-Z]{3,3}$"
+                        },
+                        "amount": {
+                          "type": "number",
+                          "minimum": 0
+                        }
+                      },
+                      "required": [
+                        "currency",
+                        "amount"
+                      ],
+                      "title": "Money Value"
+                    },
+                    "handling_fee": {
+                      "description": "Value object for a money amount",
+                      "type": "object",
+                      "properties": {
+                        "currency": {
+                          "type": "string",
+                          "pattern": "^[A-Z]{3,3}$"
+                        },
+                        "amount": {
+                          "type": "number",
+                          "minimum": 0
+                        }
+                      },
+                      "required": [
+                        "currency",
+                        "amount"
+                      ],
+                      "title": "Money Value"
+                    },
+                    "dispatch_date": {
+                      "type": "string",
+                      "format": "date"
+                    },
+                    "transit_time": {
+                      "type": "object",
+                      "properties": {
+                        "units": {
+                          "type": "string",
+                          "enum": [
+                            "BUSINESS_DAYS",
+                            "DAYS",
+                            "HOURS"
+                          ]
+                        },
+                        "duration": {
+                          "type": "integer",
+                          "minimum": 1,
+                          "maximum": 90
+                        }
+                      },
+                      "title": "Transit Time Object",
+                      "description": "Value object for the length of time in transit"
+                    }
+                  },
+                  "required": [
+                    "code",
+                    "display_name",
+                    "cost"
+                  ],
+                  "title": "Rate Quote Object",
+                  "description": "A quote being returned as part of the rate request."
+                }
+              }
+            },
+            "required": [
+              "quotes"
+            ],
+            "title": "Carrier Quote Object"
+          }
+        }
+      },
+      "required": [
+        "quote_id",
+        "messages",
+        "carrier_quotes"
+      ],
+      "title": "Rate Response Payload",
+      "description": "The response from the Shipping Service, will contain zero to many quotes."
+    },
+    "CarrierQuoteObject": {
+      "type": "object",
+      "description": "A grouping of carrier rates and optionally info about that carrier",
+      "properties": {
+        "carrier_info": {
+          "type": "object",
+          "properties": {
+            "code": {
+              "type": "string",
+              "maxLength": 50
+            },
+            "display_name": {
+              "type": "string",
+              "minLength": 1,
+              "maxLength": 100
+            }
+          },
+          "required": [
+            "code",
+            "display_name"
+          ]
+        },
+        "quotes": {
+          "type": "array",
+          "items": {
+            "type": "object",
+            "properties": {
+              "code": {
+                "description": "A code describing the service",
+                "type": "string",
+                "maxLength": 50,
+                "example": "GND"
+              },
+              "display_name": {
+                "description": "A display name for the service",
+                "type": "string",
+                "maxLength": 100
+              },
+              "cost": {
+                "description": "Value object for a money amount",
+                "type": "object",
+                "properties": {
+                  "currency": {
+                    "type": "string",
+                    "pattern": "^[A-Z]{3,3}$"
+                  },
+                  "amount": {
+                    "type": "number",
+                    "minimum": 0
+                  }
+                },
+                "required": [
+                  "currency",
+                  "amount"
+                ],
+                "title": "Money Value"
+              },
+              "messages": {
+                "type": "array",
+                "items": {
+                  "type": "object",
+                  "properties": {
+                    "text": {
+                      "type": "string",
+                      "minLength": 1,
+                      "maxLength": 500
+                    },
+                    "type": {
+                      "type": "string",
+                      "enum": [
+                        "INFO",
+                        "WARNING",
+                        "ERROR"
+                      ]
+                    }
+                  },
+                  "required": [
+                    "text",
+                    "type"
+                  ],
+                  "title": "Message",
+                  "description": "A simple string/type response for returning information."
+                }
+              },
+              "description": {
+                "type": "string",
+                "maxLength": 500
+              },
+              "rate_id": {
+                "type": "string",
+                "maxLength": 50
+              },
+              "discounted_cost": {
+                "description": "Value object for a money amount",
+                "type": "object",
+                "properties": {
+                  "currency": {
+                    "type": "string",
+                    "pattern": "^[A-Z]{3,3}$"
+                  },
+                  "amount": {
+                    "type": "number",
+                    "minimum": 0
+                  }
+                },
+                "required": [
+                  "currency",
+                  "amount"
+                ],
+                "title": "Money Value"
+              },
+              "handling_fee": {
+                "description": "Value object for a money amount",
+                "type": "object",
+                "properties": {
+                  "currency": {
+                    "type": "string",
+                    "pattern": "^[A-Z]{3,3}$"
+                  },
+                  "amount": {
+                    "type": "number",
+                    "minimum": 0
+                  }
+                },
+                "required": [
+                  "currency",
+                  "amount"
+                ],
+                "title": "Money Value"
+              },
+              "dispatch_date": {
+                "type": "string",
+                "format": "date"
+              },
+              "transit_time": {
+                "type": "object",
+                "properties": {
+                  "units": {
+                    "type": "string",
+                    "enum": [
+                      "BUSINESS_DAYS",
+                      "DAYS",
+                      "HOURS"
+                    ]
+                  },
+                  "duration": {
+                    "type": "integer",
+                    "minimum": 1,
+                    "maximum": 90
+                  }
+                },
+                "title": "Transit Time Object",
+                "description": "Value object for the length of time in transit"
+              }
+            },
+            "required": [
+              "code",
+              "display_name",
+              "cost"
+            ],
+            "title": "Rate Quote Object",
+            "description": "A quote being returned as part of the rate request."
+          }
+        }
+      },
+      "required": [
+        "quotes"
+      ],
+      "title": "Carrier Quote Object"
+    },
+    "RateRequestItem": {
+      "type": "object",
+      "description": "A cart item along with it's shipping specific attributes",
+      "properties": {
+        "sku": {
+          "type": "string",
+          "description": "The variant SKU"
+        },
+        "variant_id": {
+          "type": "string"
+        },
+        "product_id": {
+          "type": "string"
+        },
+        "name": {
+          "type": "string"
+        },
+        "length": {
+          "description": "Value object for a length measurement",
+          "type": "object",
+          "properties": {
+            "units": {
+              "type": "string",
+              "enum": [
+                "cm",
+                "in"
+              ]
+            },
+            "value": {
+              "type": "number",
+              "minimum": 0
+            }
+          },
+          "required": [
+            "units",
+            "value"
+          ],
+          "title": "Dimension Value"
+        },
+        "width": {
+          "description": "Value object for a length measurement",
+          "type": "object",
+          "properties": {
+            "units": {
+              "type": "string",
+              "enum": [
+                "cm",
+                "in"
+              ]
+            },
+            "value": {
+              "type": "number",
+              "minimum": 0
+            }
+          },
+          "required": [
+            "units",
+            "value"
+          ],
+          "title": "Dimension Value"
+        },
+        "height": {
+          "description": "Value object for a length measurement",
+          "type": "object",
+          "properties": {
+            "units": {
+              "type": "string",
+              "enum": [
+                "cm",
+                "in"
+              ]
+            },
+            "value": {
+              "type": "number",
+              "minimum": 0
+            }
+          },
+          "required": [
+            "units",
+            "value"
+          ],
+          "title": "Dimension Value"
+        },
+        "weight": {
+          "description": "Value object for a weight measurement",
+          "type": "object",
+          "properties": {
+            "units": {
+              "type": "string",
+              "enum": [
+                "oz",
+                "g"
+              ]
+            },
+            "value": {
+              "type": "number",
+              "minimum": 0
+            }
+          },
+          "required": [
+            "units",
+            "value"
+          ],
+          "title": "Weight Value"
+        },
+        "discounted_price": {
+          "description": "Value object for a money amount",
+          "type": "object",
+          "properties": {
+            "currency": {
+              "type": "string",
+              "pattern": "^[A-Z]{3,3}$"
+            },
+            "amount": {
+              "type": "number",
+              "minimum": 0
+            }
+          },
+          "required": [
+            "currency",
+            "amount"
+          ],
+          "title": "Money Value"
+        },
+        "declared_value": {
+          "description": "Value object for a money amount",
+          "type": "object",
+          "properties": {
+            "currency": {
+              "type": "string",
+              "pattern": "^[A-Z]{3,3}$"
+            },
+            "amount": {
+              "type": "number",
+              "minimum": 0
+            }
+          },
+          "required": [
+            "currency",
+            "amount"
+          ],
+          "title": "Money Value"
+        },
+        "quantity": {
+          "type": "number",
+          "format": "int32"
+        },
+        "attributes": {
+          "type": "array",
+          "description": "A list of arbitrary properties stored as part of the product or product variant meta fields. These consist of any public fields specific to the carrier integration.",
+          "items": {
+            "type": "object",
+            "properties": {
+              "key": {
+                "type": "string",
+                "description": "The key associated with the product or product variant meta field"
+              },
+              "value": {
+                "type": "string",
+                "description": "The value associated with the product or product variant meta field"
+              },
+              "namespace": {
+                "type": "string",
+                "description": "The namespace associated with product(https://developer.bigcommerce.com/api-reference/catalog/catalog-api/product-metafields/createproductmetafield) or product variant (https://developer.bigcommerce.com/api-reference/catalog/catalog-api/product-variants-metafields/createvariantmetafield) meta fields. The meta field namespace should be saved under this format 'shipping_carrier_{yourCarrierId}' otherwise it will not be recognized as an attribute."
+              },
+              "resource_type": {
+                "type": "string",
+                "enum": [
+                  "product",
+                  "variant"
+                ],
+                "description": "Resource type associated with the product or product variant meta field. Currently the only values available are 'product' or 'variant'"
+              },
+              "resource_id": {
+                "type": "string",
+                "description": "The resource id of the product or product variant meta field"
+              },
+              "attribute_type": {
+                "type": "string",
+                "enum": [
+                  "metafield"
+                ],
+                "description": "Attribute type associated with the product or product variant meta field. Currently the only value for this is 'metafield'"
+              }
+            },
+            "title": "Attribute Value"
+          }
+        }
+      },
+      "title": "Rate Request Item"
+    },
+    "RequestContext": {
+      "type": "object",
+      "properties": {
+        "reference_values": {
+          "type": "array",
+          "items": {
+            "type": "object",
+            "properties": {
+              "name": {
+                "type": "string"
+              },
+              "value": {
+                "type": "string"
+              }
+            },
+            "title": "Reference Value",
+            "description": "Value objects contained within the request context"
+          }
+        }
+      },
+      "title": "Request Context",
+      "description": "A collection of Reference Value objects."
+    },
+    "ReferenceValue": {
+      "type": "object",
+      "properties": {
+        "name": {
+          "type": "string"
+        },
+        "value": {
+          "type": "string"
+        }
+      },
+      "title": "Reference Value",
+      "description": "Value objects contained within the request context"
+    },
+    "Message": {
+      "type": "object",
+      "properties": {
+        "text": {
+          "type": "string",
+          "minLength": 1,
+          "maxLength": 500
+        },
+        "type": {
+          "type": "string",
+          "enum": [
+            "INFO",
+            "WARNING",
+            "ERROR"
+          ]
+        }
+      },
+      "required": [
+        "text",
+        "type"
+      ],
+      "title": "Message",
+      "description": "A simple string/type response for returning information."
+    },
+    "RateQuoteObject": {
+      "type": "object",
+      "properties": {
+        "code": {
+          "description": "A code describing the service",
+          "type": "string",
+          "maxLength": 50,
+          "example": "GND"
+        },
+        "display_name": {
+          "description": "A display name for the service",
+          "type": "string",
+          "maxLength": 100
+        },
+        "cost": {
+          "description": "Value object for a money amount",
+          "type": "object",
+          "properties": {
+            "currency": {
+              "type": "string",
+              "pattern": "^[A-Z]{3,3}$"
+            },
+            "amount": {
+              "type": "number",
+              "minimum": 0
+            }
+          },
+          "required": [
+            "currency",
+            "amount"
+          ],
+          "title": "Money Value"
+        },
+        "messages": {
+          "type": "array",
+          "items": {
+            "type": "object",
+            "properties": {
+              "text": {
+                "type": "string",
+                "minLength": 1,
+                "maxLength": 500
+              },
+              "type": {
+                "type": "string",
+                "enum": [
+                  "INFO",
+                  "WARNING",
+                  "ERROR"
+                ]
+              }
+            },
+            "required": [
+              "text",
+              "type"
+            ],
+            "title": "Message",
+            "description": "A simple string/type response for returning information."
+          }
+        },
+        "description": {
+          "type": "string",
+          "maxLength": 500
+        },
+        "rate_id": {
+          "type": "string",
+          "maxLength": 50
+        },
+        "discounted_cost": {
+          "description": "Value object for a money amount",
+          "type": "object",
+          "properties": {
+            "currency": {
+              "type": "string",
+              "pattern": "^[A-Z]{3,3}$"
+            },
+            "amount": {
+              "type": "number",
+              "minimum": 0
+            }
+          },
+          "required": [
+            "currency",
+            "amount"
+          ],
+          "title": "Money Value"
+        },
+        "handling_fee": {
+          "description": "Value object for a money amount",
+          "type": "object",
+          "properties": {
+            "currency": {
+              "type": "string",
+              "pattern": "^[A-Z]{3,3}$"
+            },
+            "amount": {
+              "type": "number",
+              "minimum": 0
+            }
+          },
+          "required": [
+            "currency",
+            "amount"
+          ],
+          "title": "Money Value"
+        },
+        "dispatch_date": {
+          "type": "string",
+          "format": "date"
+        },
+        "transit_time": {
+          "type": "object",
+          "properties": {
+            "units": {
+              "type": "string",
+              "enum": [
+                "BUSINESS_DAYS",
+                "DAYS",
+                "HOURS"
+              ]
+            },
+            "duration": {
+              "type": "integer",
+              "minimum": 1,
+              "maximum": 90
+            }
+          },
+          "title": "Transit Time Object",
+          "description": "Value object for the length of time in transit"
+        }
+      },
+      "required": [
+        "code",
+        "display_name",
+        "cost"
+      ],
+      "title": "Rate Quote Object",
+      "description": "A quote being returned as part of the rate request."
+    },
+    "TransitTimeObject": {
+      "type": "object",
+      "properties": {
+        "units": {
+          "type": "string",
+          "enum": [
+            "BUSINESS_DAYS",
+            "DAYS",
+            "HOURS"
+          ]
+        },
+        "duration": {
+          "type": "integer",
+          "minimum": 1,
+          "maximum": 90
+        }
+      },
+      "title": "Transit Time Object",
+      "description": "Value object for the length of time in transit"
+    },
+    "AttributeValue": {
+      "description": "Value object for an attribute. This represents a product or product variant meta field.",
+      "type": "object",
+      "properties": {
+        "key": {
+          "type": "string",
+          "description": "The key associated with the product or product variant meta field"
+        },
+        "value": {
+          "type": "string",
+          "description": "The value associated with the product or product variant meta field"
+        },
+        "namespace": {
+          "type": "string",
+          "description": "The namespace associated with product(https://developer.bigcommerce.com/api-reference/catalog/catalog-api/product-metafields/createproductmetafield) or product variant (https://developer.bigcommerce.com/api-reference/catalog/catalog-api/product-variants-metafields/createvariantmetafield) meta fields. The meta field namespace should be saved under this format 'shipping_carrier_{yourCarrierId}' otherwise it will not be recognized as an attribute."
+        },
+        "resource_type": {
+          "type": "string",
+          "description": "Resource type associated with the product or product variant meta field. Currently the only values available are 'product' or 'variant'",
+          "enum": [
+            "product",
+            "variant"
+          ]
+        },
+        "resource_id": {
+          "type": "string"
+        },
+        "attribute_type": {
+          "type": "string",
+          "description": "Attribute type associated with the product or product variant meta field. Currently the only value for this is 'metafield'",
+          "enum": [
+            "metafield"
+          ]
+        }
+      },
+      "title": "Attribute Value"
+    },
+    "MoneyValue": {
+      "description": "Value object for a money amount",
+      "type": "object",
+      "properties": {
+        "currency": {
+          "type": "string",
+          "pattern": "^[A-Z]{3,3}$"
+        },
+        "amount": {
+          "type": "number",
+          "minimum": 0
+        }
+      },
+      "required": [
+        "currency",
+        "amount"
+      ],
+      "title": "Money Value"
+    },
+    "DimensionValue": {
+      "description": "Value object for a length measurement",
+      "type": "object",
+      "properties": {
+        "units": {
+          "type": "string",
+          "enum": [
+            "cm",
+            "in"
+          ]
+        },
+        "value": {
+          "type": "number",
+          "minimum": 0
+        }
+      },
+      "required": [
+        "units",
+        "value"
+      ],
+      "title": "Dimension Value"
+    },
+    "WeightValue": {
+      "description": "Value object for a weight measurement",
+      "type": "object",
+      "properties": {
+        "units": {
+          "type": "string",
+          "enum": [
+            "oz",
+            "g"
+          ]
+        },
+        "value": {
+          "type": "number",
+          "minimum": 0
+        }
+      },
+      "required": [
+        "units",
+        "value"
+      ],
+      "title": "Weight Value"
+    },
+    "RateOptionsSchema": {
+      "description": "A set of carrier specific fields that will be displayed to shoppers at checkout",
+      "type": "array",
+      "items": {
+        "description": "An individual carrier defined field to display at checkout, along with any defaults and validation",
+        "type": "object",
+        "properties": {
+          "code": {
+            "description": "The internal code that represents this input field",
+            "type": "string"
+          },
+          "label": {
+            "description": "Display name for this input field",
+            "type": "string"
+          },
+          "description": {
+            "description": "Longer description text to be displayed as a tooltip at checkout",
+            "type": "string"
+          },
+          "validation": {
+            "description": "Placeholder for any validation we choose to implement",
+            "type": "string"
+          },
+          "type": {
+            "description": "How this input will be displayed",
+            "type": "string",
+            "enum": [
+              "date",
+              "string",
+              "select",
+              "code"
+            ]
+          },
+          "default_value": {
+            "description": "A valid default value for this field",
+            "type": "string"
+          },
+          "value_options": {
+            "description": "For select type fields, the list of available options",
+            "type": "array",
+            "items": {
+              "type": "string"
+            }
+          },
+          "date_ranges": {
+            "description": "For date type fields, a set of valid date ranges available to choose from",
+            "type": "array",
+            "items": {
+              "type": "object",
+              "properties": {
+                "from": {
+                  "type": "object",
+                  "properties": {
+                    "date": {
+                      "type": "string",
+                      "format": "date"
+                    },
+                    "timezone": {
+                      "type": "string"
+                    }
+                  },
+                  "title": "Date Value",
+                  "description": "Value Object representing a Date"
+                },
+                "to": {
+                  "type": "object",
+                  "properties": {
+                    "date": {
+                      "type": "string",
+                      "format": "date"
+                    },
+                    "timezone": {
+                      "type": "string"
+                    }
+                  },
+                  "title": "Date Value",
+                  "description": "Value Object representing a Date"
+                }
+              },
+              "title": "Date Range",
+              "description": "Representation of a range of date objects"
+            }
+          }
+        },
+        "required": [
+          "code",
+          "label",
+          "type",
+          "default_value"
+        ],
+        "title": "Key Value Pair Schema"
+      },
+      "title": "Rate Options Schema"
+    },
+    "KeyValuePairSchema": {
+      "description": "An individual carrier defined field to display at checkout, along with any defaults and validation",
+      "type": "object",
+      "properties": {
+        "code": {
+          "description": "The internal code that represents this input field",
+          "type": "string"
+        },
+        "label": {
+          "description": "Display name for this input field",
+          "type": "string"
+        },
+        "description": {
+          "description": "Longer description text to be displayed as a tooltip at checkout",
+          "type": "string"
+        },
+        "validation": {
+          "description": "Placeholder for any validation we choose to implement",
+          "type": "string"
+        },
+        "type": {
+          "description": "How this input will be displayed",
+          "type": "string",
+          "enum": [
+            "date",
+            "string",
+            "select",
+            "code"
+          ]
+        },
+        "default_value": {
+          "description": "A valid default value for this field",
+          "type": "string"
+        },
+        "value_options": {
+          "description": "For select type fields, the list of available options",
+          "type": "array",
+          "items": {
+            "type": "string"
+          }
+        },
+        "date_ranges": {
+          "description": "For date type fields, a set of valid date ranges available to choose from",
+          "type": "array",
+          "items": {
+            "type": "object",
+            "properties": {
+              "from": {
+                "type": "object",
+                "properties": {
+                  "date": {
+                    "type": "string",
+                    "format": "date"
+                  },
+                  "timezone": {
+                    "type": "string"
+                  }
+                },
+                "title": "Date Value",
+                "description": "Value Object representing a Date"
+              },
+              "to": {
+                "type": "object",
+                "properties": {
+                  "date": {
+                    "type": "string",
+                    "format": "date"
+                  },
+                  "timezone": {
+                    "type": "string"
+                  }
+                },
+                "title": "Date Value",
+                "description": "Value Object representing a Date"
+              }
+            },
+            "title": "Date Range",
+            "description": "Representation of a range of date objects"
+          }
+        }
+      },
+      "required": [
+        "code",
+        "label",
+        "type",
+        "default_value"
+      ],
+      "title": "Key Value Pair Schema"
+    },
+    "ShippingAddress": {
+      "type": "object",
+      "title": "Shipping Address",
+      "description": "Object representing a destination or origin address for items.",
+      "properties": {
+        "street_1": {
+          "type": "string",
+          "maxLength": 255
+        },
+        "street_2": {
+          "type": "string",
+          "maxLength": 255
+        },
+        "zip": {
+          "type": "string",
+          "maxLength": 20,
+          "example": "94105"
+        },
+        "city": {
+          "type": "string",
+          "maxLength": 50,
+          "example": "San Francisco"
+        },
+        "state_iso2": {
+          "type": "string",
+          "description": "State in ISO_3166 2 format",
+          "maxLength": 2
+        },
+        "country_iso2": {
+          "type": "string",
+          "description": "Country in ISO_3166 2 format",
+          "maxLength": 2,
+          "example": "US"
+        },
+        "address_type": {
+          "description": "Optional, defaults to residential",
+          "type": "string",
+          "enum": [
+            "RESIDENTIAL",
+            "COMMERCIAL"
+          ]
+        }
+      },
+      "required": [
+        "zip",
+        "country_iso2"
+      ]
+    },
+    "CheckConnectionOptionsRequestPayload": {
+      "type": "object",
+      "properties": {
+        "connection_options": {
+          "type": "object",
+          "description": "Optional, any global request options declared by the carrier and configued by the merchant to retrieve rates",
+          "title": "Connection Options Instance"
+        }
+      },
+      "required": [
+        "connection_options"
+      ],
+      "title": "Check Connection Options Request Payload",
+      "description": "The payload sent to a Shipping Provider to check that the store is connected to this provider.\nEach Shipping Provider will have different configurations for the payload."
+    },
+    "CheckConnectionOptionsResponsePayload": {
+      "type": "object",
+      "properties": {
+        "valid": {
+          "type": "boolean",
+          "description": "Indicates whether or not the connection options are valid"
+        },
+        "messages": {
+          "type": "array",
+          "items": {
+            "type": "object",
+            "properties": {
+              "text": {
+                "type": "string",
+                "minLength": 1,
+                "maxLength": 500
+              },
+              "type": {
+                "type": "string",
+                "enum": [
+                  "INFO",
+                  "WARNING",
+                  "ERROR"
+                ]
+              }
+            },
+            "required": [
+              "text",
+              "type"
+            ],
+            "title": "Message",
+            "description": "A simple string/type response for returning information."
+          }
+        }
+      },
+      "title": "Check Connection Options Response Payload",
+      "description": "The response recieved back from the Shipping Provider connection check this allows the store to understand if the connection was successful."
+    },
+    "DateRange": {
+      "type": "object",
+      "properties": {
+        "from": {
+          "type": "object",
+          "properties": {
+            "date": {
+              "type": "string",
+              "format": "date"
+            },
+            "timezone": {
+              "type": "string"
+            }
+          },
+          "title": "Date Value",
+          "description": "Value Object representing a Date"
+        },
+        "to": {
+          "type": "object",
+          "properties": {
+            "date": {
+              "type": "string",
+              "format": "date"
+            },
+            "timezone": {
+              "type": "string"
+            }
+          },
+          "title": "Date Value",
+          "description": "Value Object representing a Date"
+        }
+      },
+      "title": "Date Range",
+      "description": "Representation of a range of date objects"
+    },
+    "DateValue": {
+      "type": "object",
+      "properties": {
+        "date": {
+          "type": "string",
+          "format": "date"
+        },
+        "timezone": {
+          "type": "string"
+        }
+      },
+      "title": "Date Value",
+      "description": "Value Object representing a Date"
+    }
+  },
+  "tags": [
+    {
+      "name": "Shipping Provider"
+    }
+  ],
+  "host": "<yourserver.com>",
+  "x-stoplight": {
+    "docs": {
+      "includeDownloadLink": true
+    }
+  }
+}

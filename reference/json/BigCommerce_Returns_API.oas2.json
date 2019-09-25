@@ -2,8 +2,8 @@
   "swagger": "2.0",
   "info": {
     "version": "0.0.1",
-    "title": "Returns API",
-    "description": "Returns API for BigCommerce"
+    "title": "Returns API (Beta)",
+    "description": "Returns API for BigCommerce (Beta)"
   },
   "host": "api.bigcommerce.com",
   "basePath": "/stores/{store_hash}/v3",
