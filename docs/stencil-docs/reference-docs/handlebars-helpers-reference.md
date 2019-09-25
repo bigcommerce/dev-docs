@@ -24,7 +24,7 @@
 </div>
 
 
-This page describes all of the Handlebars helpers supported on the Stencil framework. It includes helpers that are custom to, or customized for, Stencil. They are marked as **Custom Helper**. Only certiain standard heplpers are whitelisted and they are listed below as **Standard Helpers**. 
+This page describes all of the Handlebars helpers supported on the Stencil framework. It includes helpers that are custom to, or customized for, Stencil. They are marked as **Custom Helper**. Only certain standard helpers are whitelisted and they are listed below as **Standard Helpers**. 
 
 For background information on using Handlebars helpers, please see the [official Handlebars documentation](http://handlebarsjs.com).
 
@@ -4111,7 +4111,7 @@ Uppercases all of the characters in the given string. If used as a block helper,
 ### Example
 
 ```handlebars
-{{uppdercase 'f'}}
+{{uppercase 'f'}}
 => 'F'
 ```
 
