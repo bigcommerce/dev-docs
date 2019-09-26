@@ -8,7 +8,7 @@
 - [Step 2: Create a Site](#2-create-a-site)
 - [Step 3: Create a Cart](#step-3-create-a-cart)
 - [Step 4: Embed Checkout](#step-4-embed-checkout)
-- [FAQ](#faq)
+- [FAQ](#embedded-checkout-faq)
 
 </div>
 
@@ -178,6 +178,8 @@ embedCheckout({
 ```
 
 At this point, you should have a working embedded checkout. 
+
+<a id="embedded-checkout-faq"></a>
 
 ## FAQ
 
