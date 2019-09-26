@@ -30,9 +30,9 @@ This article assumes you have familiarity with the following concepts:
 	- **Sites & Routes:** `Modify`
 	- **Products:** `Read Only`
 
-Embedded Checkout also requires the [BigCommerce JS Checkout SDK](https://github.com/bigcommerce/checkout-sdk-js) to be acessible in the browser.
+Embedded Checkout also requires the [BigCommerce JS Checkout SDK](https://github.com/bigcommerce/checkout-sdk-js) to be accessible in the browser.
 
-<a id="#step-1-create-channel"></a>
+<a id="step-1-create-channel"></a>
 
 ## Step 1: Create a Channel
 
@@ -77,9 +77,9 @@ The response will contain an `id` (use this as the`channel_id` in future request
 </div>
 </div>
 
-<a id="#step-2-create-site"></a>
+<a id="step-2-create-site"></a>
 
-## 2: Create a Site
+## Step 2: Create a Site
 
 Next, create a site for the channel by POSTing to the [/channels/id/site endpoint](https://developer.bigcommerce.com/api-reference/cart-checkout/sites-routes-api/sites/post-channel-site):
 
@@ -118,7 +118,7 @@ This returns `id` which you will use as the `site_id` in future requests. The `u
 ```
 
 
-<a id="step-3-create-cart"></a>
+<a id="step-3-create-a-cart"></a>
 
 ## Step 3: Create a Cart
 
