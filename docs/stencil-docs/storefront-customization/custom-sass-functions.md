@@ -40,11 +40,6 @@ Next, import the custom file into `theme.css`.
 ```scss
 @import "foobar";
 ```
-<<<<<<< HEAD
-=======
-
-Finally, be sure the following tag is included within your `<theme-name>/templates/layout/base.html` file’s `<head>` tag, to compile your Sass to the specified object file:
->>>>>>> 6beea8c913a3febff3f8e21e8bdf8f08448cbf85
 
 Finally, ensure
 
@@ -57,7 +52,6 @@ Finally, ensure
 <!-- ... -->
 </head>
 ```
-
 
 While `stencil start` is running, it will recompile your custom Sass files to the specified <span class="fp">`{theme-name}/assets/css/theme.css`</span> file. (Note that this object file’s name is always the same, and is independent of your custom Sass files’ names.) For an additional example, please see Replacing Content Blocks.
 
