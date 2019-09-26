@@ -26,24 +26,35 @@
 
 ## Compiling Custom Sass Files
 
-If you want to add your own custom Sass files to a theme, initiate auto-compilation of those files by including the associated tag in your HTML markup. Cornerstone's Sass file is named:
+If you want to add your own custom Sass files to a theme, initiate auto-compilation of those files by including the associated tag in your HTML markup. Doing this is useful for isolating your custom styles. Cornerstone's Sass file is named:
 
-<span class="fp">/cornerstone/assets/scss/theme.scss</span>
+<span class="fp">/assets/scss/theme.scss</span>
 
 To add a custom Sass file, place it at this path location, using an arbitrary filename prefix as shown:
 
-<span class="fp">/assets/scss/theme-or-file-name.scss</span>
+<span class="fp">/assets/scss/foobar.scss</span>
 
-For example, to use the Foundation Sass framework, you might need:
 
-<span class="fp">{theme-name}/assets/scss/main.scss</span>
-`<theme-name>/assets/scss/widgets.scss`
+Next, import the custom file into `theme.css`.
 
-Next, be sure the following tag is included within your `<theme-name>/templates/layout/base.html` file’s `<head>` tag, to compile your Sass to the specified object file:
+```scss
+@import "foobar";
+```
 
-`{{stylesheet '/assets/css/theme.css'}}`
+Finally, ensure
 
-While `stencil start` is running, it will recompile your custom Sass files to the specified <span class="fp">{theme-name}/assets/css/theme.css</span> file. (Note that this object file’s name is always the same, and is independent of your custom Sass files’ names.) For an additional example, please see Replacing Content Blocks.
+`{{stylesheet '/assets/css/theme.css'}}` is located in `templates/assets/layout/base.html/`:
+
+```handlebars
+<head>
+<!-- ... -->
+{{stylesheet '/assets/css/theme.css'}}
+<!-- ... -->
+</head>
+```
+
+
+While `stencil start` is running, it will recompile your custom Sass files to the specified <span class="fp">`{theme-name}/assets/css/theme.css`</span> file. (Note that this object file’s name is always the same, and is independent of your custom Sass files’ names.) For an additional example, please see Replacing Content Blocks.
 
 
 <div class="HubBlock--callout">
