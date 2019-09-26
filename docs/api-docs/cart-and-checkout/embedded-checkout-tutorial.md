@@ -32,7 +32,7 @@ This article assumes you have familiarity with the following concepts:
 
 Embedded Checkout also requires the [BigCommerce JS Checkout SDK](https://github.com/bigcommerce/checkout-sdk-js) to be accessible in the browser.
 
-<a id="step-1-create-channel"></a>
+<a id="step-1-create-a-channel"></a>
 
 ## Step 1: Create a Channel
 
@@ -77,7 +77,7 @@ The response will contain an `id` (use this as the`channel_id` in future request
 </div>
 </div>
 
-<a id="step-2-create-site"></a>
+<a id="2-create-a-site"></a>
 
 ## Step 2: Create a Site
 
