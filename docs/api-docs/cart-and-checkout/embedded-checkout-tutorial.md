@@ -79,7 +79,7 @@ The response will contain an `id` (use this as the`channel_id` in future request
 
 <a id="step-2-create-site"></a>
 
-## 2: Create a Site
+## Step 2: Create a Site
 
 Next, create a site for the channel by POSTing to the [/channels/id/site endpoint](https://developer.bigcommerce.com/api-reference/cart-checkout/sites-routes-api/sites/post-channel-site):
 
