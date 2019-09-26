@@ -154,7 +154,7 @@ Next, generate a cart URL and set this cart as the active cart by posting to  to
   "embedded_checkout_url": "https://store-id30h7ohwf.mybigcommerce.com/cart.php?embedded=1&action=loadInCheckout&id=bc218c65-7a32-4ab7-8082-68730c074d02&token=aa958e2b7922035bf3339215d95d145ebd9193deb36ae847caa780aa2e003e4b"
 }
 ```
-<a id="#step-4-embed-checkout"></a>
+<a id="step-4-embed-checkout"></a>
 
 ## Step 4: Embed Checkout
 
