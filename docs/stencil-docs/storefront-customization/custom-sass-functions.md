@@ -40,6 +40,11 @@ Next, import the custom file into `theme.css`.
 ```scss
 @import "foobar";
 ```
+<<<<<<< HEAD
+=======
+
+Finally, be sure the following tag is included within your `<theme-name>/templates/layout/base.html` file’s `<head>` tag, to compile your Sass to the specified object file:
+>>>>>>> 6beea8c913a3febff3f8e21e8bdf8f08448cbf85
 
 Finally, ensure
 
