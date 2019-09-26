@@ -137,7 +137,7 @@ lineNumbers: true
 -->
 
 **Example Response Get Payment Methods**  
-`/GET https://api.bigcommerce.com/stores/{{store_hash}}/v3/payments/methods?{{order_id}}`
+`/GET https://api.bigcommerce.com/stores/{{store_hash}}/v3/payments/methods?order_id={{order_id}}`
 
 ```json
 {
