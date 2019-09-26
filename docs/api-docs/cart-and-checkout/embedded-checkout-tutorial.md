@@ -5,7 +5,7 @@
 ### On This Page
 
 - [Step 1: Create a Channel](#step-1-create-a-channel)
-- [2: Create a Site](#2-create-a-site)
+- [Step 2: Create a Site](#2-create-a-site)
 - [Step 3: Create a Cart](#step-3-create-a-cart)
 - [Step 4: Embed Checkout](#step-4-embed-checkout)
 - [FAQ](#faq)
@@ -36,7 +36,7 @@ Embedded Checkout also requires the [BigCommerce JS Checkout SDK](https://github
 
 ## Step 1: Create a Channel
 
-To allow the external website to serve the BigCommerce checkout, create a new Channel by sending a `POST` request to the [/channels](/api-reference/cart-checkout/channels-listings-api) endpoint:
+To allow the external website to serve the BigCommerce checkout, create a new Channel by sending a `POST` request to the [/channels](https://developer.bigcommerce.com/api-reference/cart-checkout/channels-listings-api/channels/createchannel) endpoint:
 
 **`POST`** `https://api.bigcommerce.com/stores/{{store_hash}}/V3/channels`
 
@@ -81,7 +81,7 @@ The response will contain an `id` (use this as the`channel_id` in future request
 
 ## 2: Create a Site
 
-Next, create a site for the channel by POSTing to the [/channels/id/site endpoint](/api-reference/cart-checkout/sites-routes-api/sites/get-channel-site):
+Next, create a site for the channel by POSTing to the [/channels/id/site endpoint](https://developer.bigcommerce.com/api-reference/cart-checkout/sites-routes-api/sites/post-channel-site):
 
 *`POST`* `https://api.bigcommerce.com/stores/{{store_hash}}/v3/channels/{{channel_id}}/site`
 
