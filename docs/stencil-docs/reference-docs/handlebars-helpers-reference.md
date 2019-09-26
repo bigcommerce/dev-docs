@@ -1759,7 +1759,7 @@ Each is a built in block helper. Use it to loop over an array or object.
 }
 
 {{#each products}}
-  {{this}}! //optional seperator
+  {{this}}! //optional separator
 {{/each}}
 
 => T-Shirt!Mug!
@@ -1776,7 +1776,7 @@ Each is a built in block helper. Use it to loop over an array or object.
 }
 
 {{#each products}}
-  {{@index}}: {{this}} //optional seperator
+  {{@index}}: {{this}} //optional separator
 {{/each}}
 => 0: T-Shirt
 1: Mug
@@ -1792,7 +1792,7 @@ Each is a built in block helper. Use it to loop over an array or object.
   }
 }
 {{#each products}}
-  {{this}} ! //optional seperator
+  {{this}} ! //optional separator
 {{/each}}
 
 => T-Shirt!Mug!
@@ -1809,30 +1809,11 @@ Each is a built in block helper. Use it to loop over an array or object.
   }
 }
 {{#each products}}
-  {{@key}}:{{this}}! //optional seperator
+  {{@key}}:{{this}}! //optional separator
 {{/each}}
 
 => key:T-Shirt! 
   id:Mug! 
-```
-
-```handlebars
-//Given the object
-
-{
-  "products": {
-    "first": "T-Shirt",
-    "second": "Mug"
-  },
-  "title": "Products"
-}
-
-{{#each products}}
-  {{../title}}:{{this}}! //optional seperator
-{{/each}}
-
-=> Products:T-Shirt!
-Products:Mug!
 ```
 
 
@@ -2364,8 +2345,8 @@ To set up the product name in your client-side app, you can do the following, if
 // Note the lack of quotes around the jsContext handlebars helper, it becomes a string automatically.
 var jsContext = JSON.parse({{jsContext}});
 
-// jsContext would output "{\"myProductName\": \"Sample Product\"}" which can feed directly into
-your JavaScript.
+/* jsContext would output "{\"myProductName\": \"Sample Product\"}" which can feed directly into
+your JavaScript. */
 
 console.log(jsContext.myProductName); // Will output: Sample Product
 </script>
