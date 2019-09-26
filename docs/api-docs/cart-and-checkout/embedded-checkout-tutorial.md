@@ -8,7 +8,7 @@
 - [Step 2: Create a Site](#2-create-a-site)
 - [Step 3: Create a Cart](#step-3-create-a-cart)
 - [Step 4: Embed Checkout](#step-4-embed-checkout)
-- [FAQ](#faq)
+- [FAQ](#embedded-checkout-faq)
 
 </div>
 
@@ -32,7 +32,7 @@ This article assumes you have familiarity with the following concepts:
 
 Embedded Checkout also requires the [BigCommerce JS Checkout SDK](https://github.com/bigcommerce/checkout-sdk-js) to be accessible in the browser.
 
-<a id="step-1-create-channel"></a>
+<a id="step-1-create-a-channel"></a>
 
 ## Step 1: Create a Channel
 
@@ -77,7 +77,7 @@ The response will contain an `id` (use this as the`channel_id` in future request
 </div>
 </div>
 
-<a id="step-2-create-site"></a>
+<a id="2-create-a-site"></a>
 
 ## Step 2: Create a Site
 
@@ -154,7 +154,7 @@ Next, generate a cart URL and set this cart as the active cart by posting to  to
   "embedded_checkout_url": "https://store-id30h7ohwf.mybigcommerce.com/cart.php?embedded=1&action=loadInCheckout&id=bc218c65-7a32-4ab7-8082-68730c074d02&token=aa958e2b7922035bf3339215d95d145ebd9193deb36ae847caa780aa2e003e4b"
 }
 ```
-<a id="#step-4-embed-checkout"></a>
+<a id="step-4-embed-checkout"></a>
 
 ## Step 4: Embed Checkout
 
@@ -178,6 +178,8 @@ embedCheckout({
 ```
 
 At this point, you should have a working embedded checkout. 
+
+<a id="embedded-checkout-faq"></a>
 
 ## FAQ
 
