@@ -174,7 +174,7 @@ lineNumbers: true
 <!-- theme:  -->
 
 ### Reusing Widget Configuration
-> Keep in mind that when reusing the `widget_configuration` the array will have to be called `list_items`. Otherwise, the widget will be created on the frontend, but there will be no data, so nothing is rendered. This is because `list_items` was defined when the widget template was originally created. The widget configuration name can anything that is set when the widget_template is created.
+> Keep in mind that when reusing the `widget_configuration` the array will have to be called `list_items`. Otherwise, the widget will be created on the frontend, but there will be no data, so nothing is rendered. This is because `list_items` was defined when the widget template was originally created. The widget configuration name can be anything that is set when the widget_template is created.
 
 </div>
 </div>
@@ -310,7 +310,7 @@ lineNumbers: true
 <a href='#widgets_layouts' aria-hidden='true' class='block-anchor'  id='widgets_layouts'><i aria-hidden='true' class='linkify icon'></i></a>
 
 ### Layouts
-[Layouts](/api-reference/storefront/widgets-api/models/layout) allow a developer to control the position of widgets on the storefront. A Layout allows you to style around the Placement. Layout uses the markup field which accepts any valid HTML and CSS. A Layout can contain multiple Placements.
+[Layouts](/api-reference/storefront/widgets-api/models/layout) allow developers to control widget positioning and styling. The layout markup field accepts valid HTML and CSS. A Layout can contain multiple Placements.
 
 <!--
     title: #### Storefront -- Layouts
@@ -355,7 +355,7 @@ lineNumbers: true
 
 ## Placements and Layouts
 
-In order to position widgets inside a page you need to use placements. Placements determine in which region the widgets is located and in what the order it will be displayed in case there are other widgets in the same region. 
+Placements determine which region widgets are located in and the order that they're displayed.
 
 Placements can be used in two ways:
 
