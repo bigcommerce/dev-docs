@@ -7,7 +7,6 @@
         <li><a href="#widget-tutorial_create-widget-template">Create a Widget Template</a></li>
         <li><a href="#widget-tutorial_create-widget">Create a Widget</a></li>
         <li><a href="#widget-tutorial_create-placement">Create the Placement</a></li>
-        <li><a href="#widget-tutorial_create-layout">Create the Layout</a></li>
     		<li><a href="#widget-tutorial_reuse-widget-template">Reuse the Widget</a></li>
 	</ul>
 </div>
@@ -19,7 +18,6 @@ In this tutorial, we will cover:
 * Creating a Widget Template
 * Creating a Widget
 * Placing the Widget
-* Creating the Layout
 
 This tutorial assumes knowledge of [Widgets](/api-docs/storefront/widgets/widgets-overview). 
 
@@ -234,7 +232,6 @@ lineNumbers: true
     "meta": {}
 }
 ```
-
 ---
 
 <a href='#widget-tutorial_create-placement' aria-hidden='true' class='block-anchor'  id='widget-tutorial_create-placement'><i aria-hidden='true' class='linkify icon'></i></a>
@@ -253,7 +250,7 @@ Placement defines the page and region where the widget should appear. Remember t
 
 If you wanted to see the results of the Widget without a layout, use the Placement without the layout code sample below. If you would like to learn more about Layouts use the Create Placement code sample below. 
 
-**Example Create a Placement Without a Layout**  
+**Example Create a Placement**  
 `/POST https://api.bigcommerce.com/stores/{{store_hash}}/v3/content/placements`
 
 ```json
@@ -267,23 +264,6 @@ If you wanted to see the results of the Widget without a layout, use the Placeme
 }
 ```
 
-To make use of Layouts for custom markdown use the code sample below. Replace the `widget_uuid` with your own.
-
-Make note of the `placement_uuid` for use in Layouts later.
-
-**Example Create a Placement With a Layout**  
-`/POST https://api.bigcommerce.com/stores/{{store_hash}}/v3/content/placements`
-
-```json
-
-{
-  "widget_uuid": "{your-widget-uuid}",
-  "entity_id": "{your-category-id}",
-  "template_file": "pages/category",
-  "status": "active"
-}
-
-```
 
 <!--
 title: "Sample Response"
@@ -345,61 +325,6 @@ lineNumbers: true
 }
 
 ```
-
----
-
-<a href='#widget-tutorial_create-layout' aria-hidden='true' class='block-anchor'  id='widget-tutorial_create-layout'><i aria-hidden='true' class='linkify icon'></i></a>
-
-## Create a Layout
-
-A Layout accepts any html. Using a layout can allow you to create complicated widget placements on the storefront. 
-
-* entity_id -- The page, category, brand or product ID the widget should appear on. 
-* region -- region the template will show. It should match the template file
-* template_file -- template file the region was added to
-* markup -- this accepts any valid HTML and CSS including style tags. 
-* bc-placement -- A special id that is used in layouts. It is populated with the placement ID.
-
-The markup in the sample requst body adds the style of opacity to each image on hover.
-
-**Example Create a Layout**  
-`/POST https://api.bigcommerce.com/stores/{{store_hash}}/v3/content/layouts`
-
-```json
-{
-  "entity_id": "{your-category-id}",
-  "region": "category_header_banner",
-  "template_file": "pages/category",
-  "markup": "<style>img:hover{opacity: 0.3;}</style><div><div style='padding:5px margin-bottom:40px;'><bc-placement id='bb34b23b-0d4b-4b9b-9e24-c8b0dcfd5e08'></bc-placement></div></div>"
-}
-```
-
-<!--
-title: "Sample Response"
-subtitle: "Create Layout"
-lineNumbers: true
--->
-
-**Example Response Create a Layout**  
-`/POST https://api.bigcommerce.com/stores/{{store_hash}}/v3/content/layouts`
-
-```json
-{
-    "data": {
-        "uuid": "cacdadcf-07ec-43f3-aec4-f8e3382d7618",
-        "template_file": "pages/category",
-        "entity_id": "21",
-        "region": "category_header_banner",
-        "markup": "<style>img:hover{opacity: 0.3;}</style><div><div style='padding:5px;'><bc-placement id='bb34b23b-0d4b-4b9b-9e24-c8b0dcfd5e08'></bc-placement></div></div>",
-        "date_created": "2019-02-25T18:38:08.455Z",
-        "date_modified": "2019-02-25T18:38:08.455Z"
-    },
-    "meta": {}
-}
-```
-
-At this point you should see the widget on the category page of your choice. 
-
 ---
 
 <a href='#widget-tutorial_reuse-widget-template' aria-hidden='true' class='block-anchor'  id='widget-tutorial_reuse-widget-template'><i aria-hidden='true' class='linkify icon'></i></a>
@@ -413,10 +338,9 @@ To reuse the Widget Template:
 * Decide if the Widget should appear on all pages or if it should use an `entity_id`
 * Get the [Widget Template ID](/api-reference/storefront/widgets-api/widget-template/getwidgettemplates)
 * [Create the Widget](/api-reference/storefront/widgets-api/widget/createwidget) with the Widget Template ID
-* Either [Create a Placement](/api-reference/storefront/widgets-api/placement/createplacement) or [Create a Layout](/api-reference/storefront/widgets-api/layout/createlayout) using the Widget
+* [Create a Placement](/api-reference/storefront/widgets-api/placement/createplacement) using the Widget
 
 ---
-
 <a href='#widget-tutorial_resources' aria-hidden='true' class='block-anchor'  id='widget-tutorial_resources'><i aria-hidden='true' class='linkify icon'></i></a>
 
 ## Resources

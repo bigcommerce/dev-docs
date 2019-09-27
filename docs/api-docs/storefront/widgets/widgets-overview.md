@@ -6,8 +6,7 @@
         <li><a href="#widgets_widget-templates">Widget Templates</a></li>
         <li><a href="#widgets_widgets">Widgets</a></li>
         <li><a href="#widgets_placements">Placements</a></li>
-        <li><a href="#widgets_layouts">Layouts</a></li>
-    <li><a href="#widgets_placement-and-layouts">Placements and Layouts</a></li>
+    <li><a href="#widgets_placement-and-widgets">Placements and Widgets</a></li>
     		<li><a href="#widgets_storefront">Widgets on the Storefront</a></li>
     		<li><a href="#widgets_definitions">Definitions</a></li>
 	</ul>
@@ -245,10 +244,7 @@ lineNumbers: true
 [Placements](/api-reference/storefront/widgets-api/placement/createplacement) determine the Region where the Widget is placed and in what order. The order of the placement is controlled by the `sort_order` when creating the placement. 
 A placement must be created in order use a Widget on the storefront.
 
-
-Placements can be used in two ways:
-* On their own using the `sort_order` and region to determine placement in a theme.
-* With a Layout, for more control arranginging widgets such as a table or column. Using Layouts is an optional step. The Widget can still be rendered without a Layout.
+Placements can be used with `sort_order` and region to determine placement in a theme.
 
 ### Placements `entity_id`
 
@@ -307,67 +303,15 @@ lineNumbers: true
 
 ---
 
-<a href='#widgets_layouts' aria-hidden='true' class='block-anchor'  id='widgets_layouts'><i aria-hidden='true' class='linkify icon'></i></a>
+<a href='#widgets_placement-and-widgets' aria-hidden='true' class='block-anchor'  id='widgets_placement-and-widgets'><i aria-hidden='true' class='linkify icon'></i></a>
 
-### Layouts
-[Layouts](/api-reference/storefront/widgets-api/models/layout) allow developers to control widget positioning and styling. The layout markup field accepts valid HTML and CSS. A Layout can contain multiple Placements.
-
-<!--
-    title: #### Storefront -- Layouts
-
-    data: //s3.amazonaws.com/user-content.stoplight.io/6012/1551971170727
--->
-
-#### Storefront -- Layouts
-![#### Storefront -- Layouts
-](//s3.amazonaws.com/user-content.stoplight.io/6012/1551971170727 "#### Storefront -- Layouts
-")
-
-### Layouts `bc-placements`
-
-`bc-placements` is a special field that takes in a placement id and allows the widget to be positioned anywhere in the layout. The `id` is the Placement ID.
-
-<!--
-title: "Layouts bc-placements Example"
-subtitle: ""
-lineNumbers: true
--->
-
-**Layouts bc-placements Example**
-
-```html
-<div>
-   <div style="width: 33.3%; float: left; display: inline-block; padding: 5px; box-sizing: border-box">
-     <bc-placement id="73ee60d9-72e4-4dce-be93-c96b861cb5ff"></bc-placement>
-   </div>
-   <div style="width: 33.3%; float: left; display: inline-block; padding: 5px; box-sizing: border-box">
-     <bc-placement id="3466ccb8-cb3e-4811-8266-acae20d1bb93"></bc-placement>
-   </div>
-     <div style="width: 33.3%; float: left; display: inline-block; padding: 5px; box-sizing: border-box">
-     <bc-placement id="73ee60d9-72e4-4dce-be93-c96b861cb5ff"></bc-placement>
-   </div>
-</div>
-```
-
----
-
-<a href='#widgets_placement-and-layouts' aria-hidden='true' class='block-anchor'  id='widgets_placement-and-layouts'><i aria-hidden='true' class='linkify icon'></i></a>
-
-## Placements and Layouts
+## Placements and Widgets
 
 Placements determine which region widgets are located in and the order that they're displayed.
 
-Placements can be used in two ways:
-
-**1. Placement + Widget:**  
 When creating a placement with a widget, the widget content takes the full region width. Any additional widgets that are placed onto the same region will be stacked above or below based on the `sort_order` property for each placement.
 
 If you are creating marketplace applications that create placements directly, you don’t need to use the `sort_order` property. 
-
-**2. Placement + Layout:**  
-If you want to arrange widgets inside a page using a multi-column style system, then you can create the placement with a Layout. You can also add additional styling around placements when using Layouts.  
-
-Using Layouts is optional and most recommended when you have multiple placements that you want to arrange in a particular way. You can still arrange content in a multi-column style system using HTML and CSS only without having to use Layouts when creating a single placement. 
 
 <a href='#widgets_storefront' aria-hidden='true' class='block-anchor'  id='widgets_storefront'><i aria-hidden='true' class='linkify icon'></i></a>
 
@@ -376,33 +320,10 @@ Using Layouts is optional and most recommended when you have multiple placements
 Widgets are rendered on the storefront as a data tag in the HTML.
 
 * Region -- data-content-region
-* Layout -- data-layout-id
 * Widget -- data-widget-id
 * Placement does not generate a data tag. Only the Widget.
 
-A Region can contain multiple Layouts with Widgets and Placements or Widgets without a Layout. Within a single region, you might have widgets whose positioning is determined by a Layout, as well as widgets whose positioning is determined simply by a Placement. In the example below, the region is named “widget_page.” Nested within that region is a Layout, which contains a widget. The region also contains a Placement, or a widget that’s been placed on the page without a Layout.
-
-<!--
-    title: #### Storefront
-
-    data: //s3.amazonaws.com/user-content.stoplight.io/6012/1551971208326
--->
-
-#### Storefront
-![#### Storefront
-](//s3.amazonaws.com/user-content.stoplight.io/6012/1551971208326 "#### Storefront
-")
-
-<!--
-    title: #### Widgets Console
-
-    data: //s3.amazonaws.com/user-content.stoplight.io/6012/1551895293134
--->
-
-#### Widgets Console
-![#### Widgets Console
-](//s3.amazonaws.com/user-content.stoplight.io/6012/1551895293134 "#### Widgets Console
-")
+A Region can contain multiple Placements with Widgets. 
 
 ---
 
@@ -417,7 +338,7 @@ A Region can contain multiple Layouts with Widgets and Placements or Widgets wit
 | Placements | Placements are the records to track which widget appears on which page, and in what order.  Currently, placements can only exist on the following pages: </br>* pages/blog-post </br> * pages/blog</br>* pages/brand</br>* pages/brands</br>* pages/cart</br>* pages/category</br>* pages/home</br>* pages/page</br>* pages/product</br>* pages/search</br> *There is a limit of 75 placements per template file and 6500 total placements per store.*|
 | Regions | Regions are specific spots in a Stencil template file where Widgets can be placed. Regions are defined at the theme file level using the following syntax: `{{{region name="..."}}}`. There can be many widgets inside a given region, and these widgets can have an assigned sort order. |
 | Widget Configuration | This is a JSON payload that contains data used when rendering the widget. Each widget has a configuration, and there is a 64kb limit on the size of the JSON. The widget configuration must be valid JSON, but we don’t enforce any additional requirement on the structure of the configuration. |
-| Layout | A way to style multiple widgets on a page or position a Widget. A Layout will accept any HTML and CSS. *There is a limit of 1000 total layouts per store.* |
+
 
 ---
 
