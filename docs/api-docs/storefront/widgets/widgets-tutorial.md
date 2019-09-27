@@ -66,36 +66,34 @@ We will be making a widget that shows three images, with a hover effect and each
 <a href='#widget-tutorial_add-a-region' aria-hidden='true' class='block-anchor'  id='widget-tutorial_add-a-region'><i aria-hidden='true' class='linkify icon'></i></a>
 
 ## Add a Region
-Add `{{{region name="category_header_banner"}}}` to <span class=”fp”>pages/category.html</span>. This is where the widgets will appear on the category page. In this example, the region is added to line 24. 
+In <span class="fp">templates/pages/category.html</span>, add `{{{region name="category_header_banner"}}}` below the page heading: 
 
-<!--
-    title: #### Add Region to category.html
+```html
+<!-- ... -->
+{{#unless theme_settings.hide_category_page_heading }}
+    <h1 class="page-heading">{{category.name}}</h1>
+{{/unless}}
 
-    data: //s3.amazonaws.com/user-content.stoplight.io/6012/1551898921184
--->
+{{{category.description}}}
+<!-- ... -->
+<div class="page">
+```
 
-![#### Add Region to category.html
-](//s3.amazonaws.com/user-content.stoplight.io/6012/1551898921184 "#### Add Region to category.html
-")
 
 <div class="HubBlock--callout">
 <div class="CalloutBlock--info">
 <div class="HubBlock-content">
     
 <!-- theme: info -->
-### Regions
 > Regions can only be added to files under pages/templates, including subfolders.
 
 </div>
 </div>
 </div>
 
-To check the region was added successfully, use [Get Content Regions](/api-reference/storefront/widgets-api/regions/getcontentregions).
+To check the region was added successfully, use [Get Content Regions](/api-reference/storefront/widgets-api/regions/getcontentregions):
 
-
-**Example Response Get Content Regions**  
-`/GET https://developer.bigcommerce.com/api-reference/storefront/widgets-api/regions/getcontentregions`
-
+**`GET`** `https://developer.bigcommerce.com/api-reference/storefront/widgets-api/regions/getcontentregions`
 
 <!--
 title: "Sample Response"
@@ -105,15 +103,15 @@ lineNumbers: true
 
 ```json
 {
-    "data": [
-        {
-            "name": "header_bottom"
-        },
-        {
-            "name": "category_header_banner"
-        }
-    ],
-    "meta": {}
+"data": [
+    {
+        "name": "header_bottom"
+    },
+    {
+        "name": "category_header_banner"
+    }
+],
+"meta": {}
 }
 ```
 

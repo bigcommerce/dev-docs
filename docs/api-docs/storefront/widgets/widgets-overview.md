@@ -173,7 +173,7 @@ lineNumbers: true
 <!-- theme:  -->
 
 ### Reusing Widget Configuration
-> Keep in mind that when reusing the `widget_configuration` the array will have to be called `list_items`. Otherwise, the widget will be created on the frontend, but there will be no data, so nothing is rendered. This is because `list_items` was defined when the widget template was originally created. The widget configuration name can anything that is set when the widget_template is created.
+> Keep in mind that when reusing the `widget_configuration` the array will have to be called `list_items`. Otherwise, the widget will be created on the frontend, but there will be no data, so nothing is rendered. This is because `list_items` was defined when the widget template was originally created. The widget configuration name can be anything that is set when the widget_template is created.
 
 </div>
 </div>
@@ -303,11 +303,11 @@ lineNumbers: true
 
 ---
 
-<a href='#widgets_placement-and-widgets' aria-hidden='true' class='block-anchor'  id='widgets_placement-and-layouts'><i aria-hidden='true' class='linkify icon'></i></a>
+<a href='#widgets_placement-and-widgets' aria-hidden='true' class='block-anchor'  id='widgets_placement-and-widgets'><i aria-hidden='true' class='linkify icon'></i></a>
 
 ## Placements and Widgets
 
-In order to position widgets inside a page you need to use placements. Placements determine in which region the widgets is located and in what the order it will be displayed in case there are other widgets in the same region. 
+Placements determine which region widgets are located in and the order that they're displayed.
 
 When creating a placement with a widget, the widget content takes the full region width. Any additional widgets that are placed onto the same region will be stacked above or below based on the `sort_order` property for each placement.
 
