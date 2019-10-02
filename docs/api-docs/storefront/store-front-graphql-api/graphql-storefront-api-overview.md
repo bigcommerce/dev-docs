@@ -4,32 +4,27 @@
 
 ### On this Page
 
-- [GraphQL Storefront API in Action](#graphql-storefront-api-in-action)
+- [Seeing it in Action](#seeing-it-in-action)
 - [Accessing the GraphQL Playground](#accessing-the-graphql-playground)
 - [Using the GraphQL Playground](#using-the-graphql-playground)
-- [Authentication](#authentication)
-- [Querying from within a Stencil Theme](#querying-from-within-a-stencil-theme)
+- [Storefront API Authentication](#storefront-api-authentication)
+- [Querying from a Stencil Theme](#querying-from-a-stencil-theme)
 - [Querying from a Remote Site](#querying-from-a-remote-site)
 - [Resources](#resources)
 
 </div>
 
-The GraphQL Storefront API enables you to freely query storefront data on top of the BigCommerce Stencil theming framework. This means that you can use frontend JavaScript to access the same information you previously had to write as template logic. For example, you can:
+BigCommerce's GraphQL Storefront API makes it possible to query storefront data from from within a [Stencil](https://devcenter-production.docs.stoplight.io/stencil-docs/getting-started/about-stencil) theme or remote site. This means information previously only available on the back-end via [Stencil's template logic](https://devcenter-production.docs.stoplight.io/stencil-docs/reference-docs/global-objects-and-properties) can now be accessed via front-end javascript. For example, with the Storefront API, it is possible to:
 
-* Access Product Option details about any product from any page
-* Ask for details about particular product variations based on option values or variant IDs
-* Request a product’s custom fields
-*  Request any of a product’s images, at any resolution
-* Ask for details about a Customer, such as their name, email address, and Customer Attributes
-* Look up an object by its URL, and fetch information about it
-* Build frontend applications on top of Stencil or externally
+* Access product options, variations, and custom fields for any product from any page
+* Request any product's images at any resolution
+* Ask for customer details such as name, email address, and attributes (if logged in)
+* Look up objects (e.g. categories or brands) by URL, and fetch their details
+* Build front-end applications on top of a BigCommerce [Stencil](https://devcenter-production.docs.stoplight.io/stencil-docs/getting-started/about-stencil) theme or on a remote site
 
-The Storefront API will always return information from the perspective of a storefront shopper - so if you’re not logged in to the storefront, you’ll get the same information that would be accessible to a guest shopper on the storefront - product availability, pricing, etc - and no Customer-specific information will be available.
+Additionally, by leveraging the power of [GraphQL](https://graphql.org/), data for multiple resources can be returned from a single API call, which simplifies integration and increases performance so that developers can focus on building delightful shopper experiences.
 
-Once you log in as a particular Customer, you’ll be able to access details about that Customer, and the information that is returned on other nodes (such as Product or Category information, or pricing) will reflect the correct information for that Customer.
-
-Due to our use of GraphQL, you can request information from many different resources in a single API call, which drastically simplifies integration. We’ve also put special emphasis on the performance of the API to make sure you can build pleasurable shopper experiences.
-
+This article is a general overview of the capabilities and usage of BigCommerce's GraphQL Storefront API; it includes sections on authentication and how to access a store's GraphQL Playground. To see specific examples of how GraphQL can be used to query storefront data, see [GraphQL Storefront API Code Samples](https://developer.bigcommerce.com/api-docs/storefront/graphql-api/graphql-code-samples).
 
 <div class="HubBlock--callout">
 <div class="CalloutBlock--warning">
@@ -47,8 +42,7 @@ Due to our use of GraphQL, you can request information from many different resou
 
 <a id="sectionId" class="devdocsAnchor"></a>
 
-## GraphQL Storefront API in Action
-
+## Seeing it in Action
 [Storefront API](https://github.com/bigcommerce/storefront-api-examples)
 
 ---
@@ -59,9 +53,9 @@ Due to our use of GraphQL, you can request information from many different resou
 
 >TODO: Add passage about what the playground is https://electronjs.org/apps/graphql-playground
 
-To access the GraphQL Storefront API playground and documentation:
+To access the GraphQL Storefront API Playground and documentation:
 
-1. Log into the BigCommerce store enrolled in the beta
+1. Log into a BigCommerce store enrolled in the beta
 2. Navigate to **Advanced Settings** > **Storefront Playground**
 
 <div class="HubBlock--callout">
@@ -70,7 +64,7 @@ To access the GraphQL Storefront API playground and documentation:
     
 <!-- theme: info -->
 
-> If the **Storefront Playground** link is not visible, the store is not enrolled in the GraphQL Storefront API Open Beta. To enroll, contact support (we're only accepting sandbox stores at this time, however).
+> If the **Storefront Playground** link is not visible, the store is not enrolled in the GraphQL Storefront API Open Beta. To enroll, contact support (only sandbox stores are accepted at this time, however).
 
 </div>
 </div>
@@ -120,17 +114,19 @@ query MyFirstQuery {
 
 <a id="sectionId" class="devdocsAnchor"></a>
 
-## Authentication
+## Storefront API Authentication
 
-content
+* overview of authentication methods and use cases
+* How to add token to stencil context
+* how to authenticate from a remote site using the auth token endpoint
 
 ---
 
 <a id="sectionId" class="devdocsAnchor"></a>
 
-## Querying from within a Stencil Theme
+## Querying from a Stencil Theme
 
-You can invoke the API directly from within a Stencil theme or a Script in the Script Manager. Here’s a few ways:
+You can invoke the API directly from within a Stencil theme or a script in the [Script Manager](https://support.bigcommerce.com/s/article/Using-Script-Manager). There's a few way to do so:
 1. Using [`fetch()`](https://developer.mozilla.org/en-US/docs/Web/API/Fetch_API)
 2. Using the Apollo Client
 3. Using any GraphQL Client
@@ -196,11 +192,12 @@ content
 ### Examples
 * [Bootstrap + Vanilla JS Storefront API Example](https://bigcommerce.github.io/storefront-api-examples/html-bootstrap-vanillajs/) (bigcommerce.github.io)
 * [All BigCommerce Storefront API Examples](https://github.com/bigcommerce/storefront-api-examples) (github.com)
-* [GraphQL Storefront API Community Group](https://support.bigcommerce.com/s/group/0F91B000000bo3TSAQ/storefront-api-beta)
+* [GraphQL Storefront API Community Group](https://support.bigcommerce.com/s/group/0F91B000000bo3TSAQ/storefront-api-beta) (support.bigcommerce.com)
 
 ### Pull Requests
 * [Simple GraphQL Example Using Apollo Client with Cornerstone](https://github.com/bigcommerce/cornerstone/compare/graphQL-example)
 
 ### Additional Resources
-* [GraphQL IDE](https://github.com/andev-software/graphql-ide)
-* [GraphQL Playground](https://www.npmjs.com/package/graphql-playground-react)
+* [GraphQL Cheat Sheet](https://devhints.io/graphql) (devhints.io)
+* [GraphQL IDE](https://github.com/andev-software/graphql-ide) (github.com)
+* [GraphQL Playground](https://www.npmjs.com/package/graphql-playground-react) (npmjs.com)
