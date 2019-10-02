@@ -4,29 +4,25 @@
 
 ### On this Page
 
+- [GraphQL Storefront API in Action](#graphql-storefront-api-in-action)
 - [Accessing the GraphQL Playground](#accessing-the-graphql-playground)
 - [Using the GraphQL Playground](#using-the-graphql-playground)
 - [Authentication](#authentication)
-- [Making GraphQL Queries within a Stencil Theme](#making-graphql-queries-within-a-stencil-theme)
-- [Section6](#section6)
-- [Section7](#section7)
-- [Section8](#section8)
-- [Section9](#section9)
-- [Section10](#section10)
-- [Section11](#section11)
-- [Section12](#section12)
+- [Querying from within a Stencil Theme](#querying-from-within-a-stencil-theme)
+- [Querying from a Remote Site](#querying-from-a-remote-site)
+- [Resources](#resources)
 
 </div>
 
 The GraphQL Storefront API enables you to freely query storefront data on top of the BigCommerce Stencil theming framework. This means that you can use frontend JavaScript to access the same information you previously had to write as template logic. For example, you can:
 
-Access Product Option details about any product from any page
-Ask for details about particular product variations based on option values or variant IDs
-Request a product’s custom fields
-Request any of a product’s images, at any resolution
-Ask for details about a Customer, such as their name, email address, and Customer Attributes
-Look up an object by its URL, and fetch information about it
-Build frontend applications on top of Stencil or externally
+* Access Product Option details about any product from any page
+* Ask for details about particular product variations based on option values or variant IDs
+* Request a product’s custom fields
+*  Request any of a product’s images, at any resolution
+* Ask for details about a Customer, such as their name, email address, and Customer Attributes
+* Look up an object by its URL, and fetch information about it
+* Build frontend applications on top of Stencil or externally
 
 The Storefront API will always return information from the perspective of a storefront shopper - so if you’re not logged in to the storefront, you’ll get the same information that would be accessible to a guest shopper on the storefront - product availability, pricing, etc - and no Customer-specific information will be available.
 
@@ -51,9 +47,17 @@ Due to our use of GraphQL, you can request information from many different resou
 
 <a id="sectionId" class="devdocsAnchor"></a>
 
+## GraphQL Storefront API in Action
+
+[Storefront API](https://github.com/bigcommerce/storefront-api-examples)
+
+---
+
+<a id="sectionId" class="devdocsAnchor"></a>
+
 ## Accessing the GraphQL Playground
 
->TODO: Add passage about what the playground is 
+>TODO: Add passage about what the playground is https://electronjs.org/apps/graphql-playground
 
 To access the GraphQL Storefront API playground and documentation:
 
@@ -124,7 +128,7 @@ content
 
 <a id="sectionId" class="devdocsAnchor"></a>
 
-## Making GraphQL Queries within a Stencil Theme
+## Querying from within a Stencil Theme
 
 You can invoke the API directly from within a Stencil theme or a Script in the Script Manager. Here’s a few ways:
 1. Using [`fetch()`](https://developer.mozilla.org/en-US/docs/Web/API/Fetch_API)
@@ -179,7 +183,7 @@ You can invoke the API directly from within a Stencil theme or a Script in the S
 
 <a id="sectionId" class="devdocsAnchor"></a>
 
-## Section6 
+## Querying from a Remote Site
 
 content
 
@@ -187,46 +191,16 @@ content
 
 <a id="sectionId" class="devdocsAnchor"></a>
 
-## Section7
+## Resources
 
-content
+### Examples
+* [Bootstrap + Vanilla JS Storefront API Example](https://bigcommerce.github.io/storefront-api-examples/html-bootstrap-vanillajs/) (bigcommerce.github.io)
+* [All BigCommerce Storefront API Examples](https://github.com/bigcommerce/storefront-api-examples) (github.com)
+* [GraphQL Storefront API Community Group](https://support.bigcommerce.com/s/group/0F91B000000bo3TSAQ/storefront-api-beta)
 
----
+### Pull Requests
+* [Simple GraphQL Example Using Apollo Client with Cornerstone](https://github.com/bigcommerce/cornerstone/compare/graphQL-example)
 
-<a id="sectionId" class="devdocsAnchor"></a>
-
-## Section8
-
-content
-
----
-
-<a id="sectionId" class="devdocsAnchor"></a>
-
-## Section9
-
-content
-
----
-
-<a id="sectionId" class="devdocsAnchor"></a>
-
-## Section10
-
-content
-
----
-
-<a id="sectionId" class="devdocsAnchor"></a>
-
-## Section11
-
-content
-
----
-
-<a id="sectionId" class="devdocsAnchor"></a>
-
-## Section12
-
-content  
+### Additional Resources
+* [GraphQL IDE](https://github.com/andev-software/graphql-ide)
+* [GraphQL Playground](https://www.npmjs.com/package/graphql-playground-react)
