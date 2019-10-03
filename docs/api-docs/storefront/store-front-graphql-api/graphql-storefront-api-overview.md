@@ -4,7 +4,7 @@
 
 ### On this Page
 
-- [Seeing it in Action](#seeing-it-in-action)
+- [See it in Action](#see-it-in-action)
 - [Accessing the GraphQL Playground](#accessing-the-graphql-playground)
 - [Using the GraphQL Playground](#using-the-graphql-playground)
 - [Storefront API Authentication](#storefront-api-authentication)
@@ -32,7 +32,14 @@ This article is a general overview of the capabilities and usage of BigCommerce'
     
 <!-- theme: warning -->
 
-> The GraphQL Storefront API is currently in Beta
+### Note
+
+> * The GraphQL Storefront API is currently in open beta and only sandbox stores are being accepted into the program at this time
+> * This API officially supports only Stencil themes at this time.
+
+### Theme Support
+
+>
 
 </div>
 </div>
@@ -42,8 +49,13 @@ This article is a general overview of the capabilities and usage of BigCommerce'
 
 <a id="sectionId" class="devdocsAnchor"></a>
 
-## Seeing it in Action
-[Storefront API](https://github.com/bigcommerce/storefront-api-examples)
+## See it in Action
+
+To see the GraphQL storefront API in action, checkout the [Bootstrap + Vanilla JS Storefront API Example](https://bigcommerce.github.io/storefront-api-examples/html-bootstrap-vanillajs/) hosted on GitHub -- This example shows how a static HTML site can be used to render dynamic product information via the GraphQL Storefront API.
+
+Simply open the link and click submit with the sample data in the form. To see the example page with your store's data, [create a Storefront API Token](https://developer.bigcommerce.com/api-reference/storefront/storefront-token-api/storefront-api-auth/createtoken) against your store and paste the token into the example form (be sure to create a token valid for this origin: `https://bigcommerce.github.io`).
+
+For a full list of examples, see the [Storefront API Examples repo](https://github.com/bigcommerce/storefront-api-examples).
 
 ---
 
