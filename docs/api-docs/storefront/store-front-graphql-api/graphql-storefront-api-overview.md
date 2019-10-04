@@ -7,9 +7,8 @@
 - [See it in Action](#see-it-in-action)
 - [Accessing the GraphQL Playground](#accessing-the-graphql-playground)
 - [Using the GraphQL Playground](#using-the-graphql-playground)
-- [Storefront API Authentication](#storefront-api-authentication)
+- [Authentication](#authentication)
 - [Querying from a Stencil Theme](#querying-from-a-stencil-theme)
-- [Querying from a Remote Site](#querying-from-a-remote-site)
 - [Resources](#resources)
 
 </div>
@@ -34,12 +33,8 @@ This article is a general overview of the capabilities and usage of BigCommerce'
 
 ### Note
 
-> * The GraphQL Storefront API is currently in open beta and only sandbox stores are being accepted into the program at this time
-> * This API officially supports only Stencil themes at this time.
-
-### Theme Support
-
->
+> * GraphQL Storefront API is currently in open beta and only sandbox stores are being accepted into the program at this time
+> * Only Stencil themes are supported at this time.
 
 </div>
 </div>
@@ -63,12 +58,14 @@ For a full list of examples, see the [Storefront API Examples repo](https://gith
 
 ## Accessing the GraphQL Playground
 
->TODO: Add passage about what the playground is https://electronjs.org/apps/graphql-playground
-
-To access the GraphQL Storefront API Playground and documentation:
+To access<sup>1</sup> the GraphQL Storefront API Playground<sup>2</sup> and documentation:
 
 1. Log into a BigCommerce store enrolled in the beta
 2. Navigate to **Advanced Settings** > **Storefront Playground**
+
+The GraphQL Storefront API Playground will be opened:
+
+![GraphQL Storefront API Playground](https://raw.githubusercontent.com/bigcommerce/dev-docs/master/assets/img/graphql-storefront-api-playground.png "GraphQL Storefront API Playground")
 
 <div class="HubBlock--callout">
 <div class="CalloutBlock--info">
@@ -76,23 +73,24 @@ To access the GraphQL Storefront API Playground and documentation:
     
 <!-- theme: info -->
 
-> If the **Storefront Playground** link is not visible, the store is not enrolled in the GraphQL Storefront API Open Beta. To enroll, contact support (only sandbox stores are accepted at this time, however).
+> 1. If the **Storefront Playground** link is not visible, the store is not enrolled in the GraphQL Storefront API Open Beta. To enroll, [contact support](https://support.bigcommerce.com/SubmitCase) (only sandbox stores are accepted at this time, however).
+> 2. GraphQL Playground is GraphQL IDE built on Electron. For more information, see [GraphQL Playground](https://electronjs.org/apps/graphql-playground) on [electrongjs.org](https://electronjs.org)
 
+</div> 
 </div>
 </div>
-</div>
-
->TODO: Add url https://raw.githubusercontent.com/bigcommerce/dev-docs/master/assets/img/
-
-The GraphQL Storefront API Playground will be opened:
-
-![GraphQL Storefront API Playground](/assets/img/graphql-storefront-api-playground.png "GraphQL Storefront API Playground")
 
 ---
 
 <a id="sectionId" class="devdocsAnchor"></a>
 
 ## Using the GraphQL Playground
+
+Using the request runner, input queries on the left side, then press the play / execute button to see the results on the right side:
+
+![GraphQL Playground Query](https://raw.githubusercontent.com/bigcommerce/dev-docs/master/assets/img/graphql-storefront-api-playground2.png "GraphQL Playground Query")
+
+Here's a sample Query to get you started:
 
 ```javascript
 query MyFirstQuery {
@@ -121,16 +119,40 @@ query MyFirstQuery {
 
 ```
 
+For an extensive list of query examples, see: [GraphQL Storefront API Code Samples](https://devcenter-production.docs.stoplight.io/api-docs/storefront/graphql-api/graphql-code-samples).
 
 ---
 
 <a id="sectionId" class="devdocsAnchor"></a>
 
-## Storefront API Authentication
+## Authentication
 
-* overview of authentication methods and use cases
-* How to add token to stencil context
-* how to authenticate from a remote site using the auth token endpoint
+`/storefront/api-token`
+
+`POST` `https://{yourbigcommercedomain}/storefront/api-token`
+
+```json
+{
+  "channel_id": 123,
+  "expires_at": 123,
+  "allowed_cors_origins": [
+    "{allowed_remote_origin_1}",
+    "{allowed_remote_origin_2}",
+    // ...
+  ]
+}
+```
+
+**Response:**
+
+```json
+{
+  "token":"...eyJ0eXAiOiJKV1QiLCJhbGciOiJFUzI1NiJ9....",
+  "meta": {}
+}
+```
+
+Use generated token as a header like this: `Authorization: Bearer {token}`
 
 ---
 
@@ -138,10 +160,9 @@ query MyFirstQuery {
 
 ## Querying from a Stencil Theme
 
-You can invoke the API directly from within a Stencil theme or a script in the [Script Manager](https://support.bigcommerce.com/s/article/Using-Script-Manager). There's a few way to do so:
-1. Using [`fetch()`](https://developer.mozilla.org/en-US/docs/Web/API/Fetch_API)
-2. Using the Apollo Client
-3. Using any GraphQL Client
+You can invoke the API directly from within a Stencil theme or a script in the [Script Manager](https://support.bigcommerce.com/s/article/Using-Script-Manager). 
+
+You can run a simple JavaScript [`fetch()`](https://developer.mozilla.org/en-US/docs/Web/API/Fetch_API) call to the API like thisUsing
 
 `{{ settings.storefront_api.token }}`
 
@@ -186,14 +207,22 @@ You can invoke the API directly from within a Stencil theme or a script in the [
    .then(json => console.log(json));
 </script>
 
+In addition to using `fetch()`, there's a other ways to query the API:
+1. **Using [Apollo Client](https://www.apollographql.com/docs/react/)** - Apollo is a popular GraphQL client that's easy to use in BigCommerce themes. For a a quick example of adding Apollo Client to cornerstone, checkout this [Cornerstone commit](https://github.com/bigcommerce/cornerstone/commit/508feeb1b00d2bb2940771e5e91250a08b6be4d9) on GitHub.
+2. **Using any GraphQL Client** - GraphQL is standard with client libraries in many languages, so feel free to explore your options. The focus of the beta is on using the API from frontend JavaScript within Stencil; however, in the future, the API will also be opened up for server-to-server requests.
 
----
+<div class="HubBlock--callout">
+<div class="CalloutBlock--info">
+<div class="HubBlock-content">
+    
+<!-- theme: info -->
 
-<a id="sectionId" class="devdocsAnchor"></a>
+### Note
+> The above code must be used in a place where the `{{settings.storefront_api.token}}` handlebars variable can be accessed in order to get credentials for the API request. 
 
-## Querying from a Remote Site
-
-content
+</div>
+</div>
+</div>
 
 ---
 
