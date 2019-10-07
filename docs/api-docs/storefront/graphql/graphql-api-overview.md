@@ -47,7 +47,7 @@ This article is a general overview of the capabilities and usage of BigCommerce'
 
 ## See it in Action
 
-To see the GraphQL storefront API in action, checkout the [Bootstrap + Vanilla JS Storefront API Example](https://bigcommerce.github.io/storefront-api-examples/html-bootstrap-vanillajs/) hosted on GitHub -- This example shows how a static HTML site can be used to render dynamic product information via the GraphQL Storefront API.
+To see the GraphQL storefront API in action, checkout the [Bootstrap + Vanilla JS Storefront API Example](https://bigcommerce.github.io/storefront-api-examples/html-bootstrap-vanillajs/) hosted on GitHub. This example shows how a static HTML site can be used to render dynamic product information via the GraphQL Storefront API.
 
 Simply open the link and click submit with the sample data in the form. To see the example page with your store's data, [create a Storefront API Token](https://developer.bigcommerce.com/api-reference/storefront/storefront-token-api/storefront-api-auth/createtoken) against your store and paste the token into the example form (be sure to create a token valid for this origin: `https://bigcommerce.github.io`).
 
@@ -161,7 +161,7 @@ GraphQL Storefront API requests are authenticated with tokens sent via the HTTP 
 ```bash
 curl 'https://www.{bigcommerce_storefront_domain}.com/graphql'\
   # ...
-  -H 'Authorization: Bearer simple_eyp4mnu1ox...3p2mnt0btlf6ku'\
+  -H 'Authorization: Bearer {token}'\
   # ...
 ```
 
@@ -181,9 +181,11 @@ fetch('/graphql', {
   `
 // ...
 </script>
-``` 
+```
 
-Tokens can also be generated using the [Storefront API Token endpoint](https://developer.bigcommerce.com/api-reference/storefront/storefront-token-api/storefront-api-auth/createtoken):
+Tokens rendered by `{{settings.storefront_api.token}}` are non-JWT tokens that can only be used for same-origin requests.
+
+JWT tokens for authenticating cross-origin requests to the Storefront API can be created using the [Storefront API Token endpoint](https://developer.bigcommerce.com/api-reference/storefront/storefront-token-api/storefront-api-auth/createtoken):
 
 **`POST`** `https://{yourbigcommercedomain}/storefront/api-token`
 
@@ -202,7 +204,7 @@ Tokens can also be generated using the [Storefront API Token endpoint](https://d
 
 ```json
 {
-  "token":"...eyJ0eXAiOiJKV1QiLCJhbGciOiJFUzI1NiJ9....",
+  "token":"...eyJ0eXAiOiJKV1QiLCJhbGciOiJFUzI1NiJ9...",
   "meta": {
     // ...
   }

@@ -5,13 +5,13 @@
 ### On this Page
 
 - [Get a Customer's Details](#get-a-customers-details)
-- [Get First Three Levels of the Category Tree](#get-first-three-levels-of-the-category-tree)
-- [Get a Category and Child Products by URL](#get-a-category-and-child-products-by-url)
-- [Get Mutliple Objects by URL and Return Details Based on Type](#get-mutliple-objects-by-url-and-return-details-based-on-type)
-- [Get a Product's Images at Different Resolutions](#get-a-products-images-at-different-resolutions)
+- [Get First Three Levels of Category Tree](#get-first-three-levels-of-category-tree)
+- [Get Category and Children by URL](#get-category-and-children-by-url)
+- [Get Multiple Objects by URL](#get-multiple-objects-by-url)
+- [Get Product's Images at Different Resolutions](#get-products-images-at-different-resolutions)
 - [Get Variant Details as a Product Object](#get-variant-details-as-a-product-object)
 - [Get Product Option Details by Product ID](#get-product-option-details-by-product-id)
-- [Get a Refined Product Object for Given Option Selections](#get-a-refined-product-object-for-given-option-selections)
+- [Get Refined Product Object for Given Options](#get-refined-product-object-for-given-options)
 
 </div>
 
@@ -51,7 +51,7 @@ query CustomerAttributes {
 
 <a id="sectionId" class="devdocsAnchor"></a>
 
-## Get First Three Levels of the Category Tree
+## Get First Three Levels of Category Tree
 
 ```javascript
 query CategoryTree3LevelsDeep {
@@ -79,7 +79,7 @@ fragment CategoryFields on CategoryTreeItem {
 
 <a id="sectionId" class="devdocsAnchor"></a>
 
-## Get a Category and Child Products by URL
+## Get Category and Children by URL
 
 ```javascript
 query CategoryByUrl {
@@ -138,7 +138,7 @@ fragment PriceFields on Money {
 
 <a id="sectionId" class="devdocsAnchor"></a>
 
-## Get Mutliple Objects by URL and Return Details Based on Type
+## Get Multiple Objects by URL
 
 ```js
 query LookUpUrl {
@@ -181,7 +181,7 @@ query LookUpUrl {
 
 <a id="sectionId" class="devdocsAnchor"></a>
 
-## Get a Product's Images at Different Resolutions
+## Get Product's Images at Different Resolutions
 
 ```js
 query SrcsetImages {
@@ -305,7 +305,7 @@ query SeveralProductsByID {
 
 <a id="sectionId" class="devdocsAnchor"></a>
 
-## Get a Refined Product Object for Given Option Selections
+## Get Refined Product Object for Given Options
 
 ```js
 query ProductsWithOptionSelections {
