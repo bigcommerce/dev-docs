@@ -58,10 +58,10 @@ For a full list of examples, see the [Storefront API Examples repo](https://gith
 
 ## Accessing the GraphQL Playground
 
-To access<sup>1</sup> the GraphQL Storefront API Playground<sup>2</sup> and documentation:
+To access the GraphQL Storefront API Playground<sup>1</sup> and documentation:
 
 1. Log into a BigCommerce store enrolled in the beta
-2. Navigate to **Advanced Settings** > **Storefront Playground**
+2. Navigate to **Advanced Settings** > **Storefront API Playground**<sup>2</sup>
 
 The GraphQL Storefront API Playground will be opened:
 
@@ -73,8 +73,11 @@ The GraphQL Storefront API Playground will be opened:
     
 <!-- theme: info -->
 
-> 1. If the **Storefront Playground** link is not visible, the store is not enrolled in the GraphQL Storefront API Open Beta. To enroll, [contact support](https://support.bigcommerce.com/SubmitCase) (only sandbox stores are accepted at this time, however).
-> 2. GraphQL Playground is GraphQL IDE built on Electron. For more information, see [GraphQL Playground](https://electronjs.org/apps/graphql-playground) on [electrongjs.org](https://electronjs.org)
+### Note
+> 1. GraphQL Playground is GraphQL IDE built on Electron. For more information, see [GraphQL Playground](https://electronjs.org/apps/graphql-playground) on [electrongjs.org](https://electronjs.org)
+
+> 2. If the **Storefront API Playground** link is not visible, the store is not enrolled in the Beta program. To enroll, [contact support](https://support.bigcommerce.com/SubmitCase) (only sandbox stores are being accepted at this time).
+
 
 </div> 
 </div>
@@ -86,11 +89,12 @@ The GraphQL Storefront API Playground will be opened:
 
 ## Using the GraphQL Playground
 
-Using the request runner, input queries on the left side, then press the play / execute button to see the results on the right side:
+To use the request runner, input queries on the left side and then click the play button. Query results will be displayed on the the right side:
 
 ![GraphQL Playground Query](https://raw.githubusercontent.com/bigcommerce/dev-docs/master/assets/img/graphql-storefront-api-playground2.png "GraphQL Playground Query")
 
 Here's a sample Query to get you started:
+
 
 ```javascript
 query MyFirstQuery {
@@ -116,10 +120,33 @@ query MyFirstQuery {
         }
       }
     }
-
+  }
+}
 ```
 
-For an extensive list of query examples, see: [GraphQL Storefront API Code Samples](https://devcenter-production.docs.stoplight.io/api-docs/storefront/graphql-api/graphql-code-samples).
+To explore the storefront GraphQL schema, checkout the Docs and Schema tabs on the right:
+
+![GraphQL Playground Docs](https://raw.githubusercontent.com/bigcommerce/dev-docs/master/assets/img/graphql-playground-docs.png "GraphQL Playground Docs")
+
+Click changelog in the top right to view a list of recent changes to the storefront API:
+
+![GraphQL Playground Changelog](https://raw.githubusercontent.com/bigcommerce/dev-docs/master/assets/img/graphql-playground-changelog.png "GraphQL Playground Changelog")
+
+<div class="HubBlock--callout">
+<div class="CalloutBlock--info">
+<div class="HubBlock-content">
+
+<!-- theme: info -->
+
+### Note
+> * The changelog is updated with each deployment. 
+> * Breaking changes are possible during the beta, so its recommended to keep an eye on the changelog
+
+</div> 
+</div>
+</div>
+
+
 
 ---
 
@@ -127,18 +154,58 @@ For an extensive list of query examples, see: [GraphQL Storefront API Code Sampl
 
 ## Authentication
 
-`/storefront/api-token`
+GraphQL Storefront API requests are authenticated by passing a `Bearer` token in the `Authorization` header:
 
-`POST` `https://{yourbigcommercedomain}/storefront/api-token`
+```bash
+curl 'https://www.{bigcommerce_storefront_domain}.com/graphql'\
+  # ... additional headers ...
+  -H 'Authorization: Bearer simple_eyp4mnu1ox...3p2mnt0btlf6ku'\
+  --data-binary '{"query":"..."}'\
+  --compressed
+```
 
-```json
+<div class="HubBlock--callout">
+<div class="CalloutBlock--info">
+<div class="HubBlock-content">
+<!-- theme: info -->
+
+> Click **COPY CURL** in the GraphQL Playground to copy the curl command for last request made in the IDE
+
+</div> 
+</div>
+</div>
+
+Client code in BigCommerce Stencil themes can be passed a token at render time with the `{{ settings.storefront_api.token }}` handlebars object:
+
+```html
+<script>
+fetch('/graphql', {
+       method: 'POST',
+       headers: {
+           'Content-Type': 'application/json',
+           'Authorization': 'Bearer {{ settings.storefront_api.token }}'
+       },
+       body: JSON.stringify({
+           query: `
+            query MyFirstQuery {
+              ...
+            }
+  `
+// ...
+</script>
+``` 
+
+Tokens can also be generated using the [Storefront API Token endpoint](https://developer.bigcommerce.com/api-reference/storefront/storefront-token-api/storefront-api-auth/createtoken):
+
+**`POST`** `https://{yourbigcommercedomain}/storefront/api-token`
+
+```javascript
 {
-  "channel_id": 123,
-  "expires_at": 123,
-  "allowed_cors_origins": [
+  "channel_id": {int_channel_id},            // ID of the corresponding channel (required)
+  "expires_at": {double_unix_utc_timestamp}, // UTC date and time the token should expire (required)
+  "allowed_cors_origins": [                  // array of allowed CORS origins
     "{allowed_remote_origin_1}",
-    "{allowed_remote_origin_2}",
-    // ...
+    "{allowed_remote_origin_2}"
   ]
 }
 ```
@@ -148,11 +215,24 @@ For an extensive list of query examples, see: [GraphQL Storefront API Code Sampl
 ```json
 {
   "token":"...eyJ0eXAiOiJKV1QiLCJhbGciOiJFUzI1NiJ9....",
-  "meta": {}
+  "meta": {
+    // ...
+  }
 }
 ```
 
-Use generated token as a header like this: `Authorization: Bearer {token}`
+<div class="HubBlock--callout">
+<div class="CalloutBlock--warning">
+<div class="HubBlock-content">
+<!-- theme: warning -->
+
+### channel_id
+> * `1` can be passed in for the `channel_id` for generating tokens for use on the storefront itself.
+> * To get a `channel_id` for a remote site, first create a channel for the site. For more information on doing so, see [Create Channel](https://developer.bigcommerce.com/api-reference/cart-checkout/channels-listings-api/channels/createchannel) in the API Reference.
+
+</div> 
+</div>
+</div>
 
 ---
 
@@ -160,11 +240,9 @@ Use generated token as a header like this: `Authorization: Bearer {token}`
 
 ## Querying from a Stencil Theme
 
-You can invoke the API directly from within a Stencil theme or a script in the [Script Manager](https://support.bigcommerce.com/s/article/Using-Script-Manager). 
+GraphQL Storefront API calls can be made directly from within a Stencil theme or a from a script in [Storefront > Script Manager](https://support.bigcommerce.com/s/article/Using-Script-Manager).
 
-You can run a simple JavaScript [`fetch()`](https://developer.mozilla.org/en-US/docs/Web/API/Fetch_API) call to the API like thisUsing
-
-`{{ settings.storefront_api.token }}`
+Here's an an example request using the  `{{ settings.storefront_api.token }}` handlebars object and `fetch()`](https://developer.mozilla.org/en-US/docs/Web/API/Fetch_API):
 
 <script>
    fetch('/graphql', {
@@ -206,6 +284,8 @@ You can run a simple JavaScript [`fetch()`](https://developer.mozilla.org/en-US/
    .then(res => res.json())
    .then(json => console.log(json));
 </script>
+
+The code above can be copied and pasted directly into a script in [Storefront > Script Manager](https://support.bigcommerce.com/s/article/Using-Script-Manager). Once done, the output from `console.log(json)` is viewable via the browser's Javascript Console.
 
 In addition to using `fetch()`, there's a other ways to query the API:
 1. **Using [Apollo Client](https://www.apollographql.com/docs/react/)** - Apollo is a popular GraphQL client that's easy to use in BigCommerce themes. For a a quick example of adding Apollo Client to cornerstone, checkout this [Cornerstone commit](https://github.com/bigcommerce/cornerstone/commit/508feeb1b00d2bb2940771e5e91250a08b6be4d9) on GitHub.
