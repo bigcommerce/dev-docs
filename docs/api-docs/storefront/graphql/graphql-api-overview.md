@@ -33,8 +33,9 @@ This article is a general overview of the capabilities and usage of BigCommerce'
 
 ### Note
 
-> * GraphQL Storefront API is currently in open beta and only sandbox stores are being accepted into the program at this time
-> * Only Stencil themes are supported at this time.
+> * GraphQL Storefront API is in beta
+> * Only sandbox stores are being accepted into the beta at this time
+> * Only Stencil themes are currently supported
 
 </div>
 </div>
