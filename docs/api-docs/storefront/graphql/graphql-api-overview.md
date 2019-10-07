@@ -229,7 +229,7 @@ Tokens can also be generated using the [Storefront API Token endpoint](https://d
 
 GraphQL Storefront API calls can be made directly from within a Stencil theme or a from a script in [Storefront > Script Manager](https://support.bigcommerce.com/s/article/Using-Script-Manager).
 
-Here's an an example request using the  `{{ settings.storefront_api.token }}` handlebars object and `fetch()`](https://developer.mozilla.org/en-US/docs/Web/API/Fetch_API):
+Here's an an example request using the  `{{settings.storefront_api.token}}` handlebars object and [`fetch()`](https://developer.mozilla.org/en-US/docs/Web/API/Fetch_API):
 
 ```html
 <script>
