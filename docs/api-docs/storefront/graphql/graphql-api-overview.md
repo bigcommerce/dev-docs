@@ -60,7 +60,7 @@ For a full list of examples, see the [Storefront API Examples repo](https://gith
 
 To access the GraphQL Storefront API Playground<sup>1</sup> and documentation:
 
-1. Log into a BigCommerce store enrolled in the beta
+1. Login to a BigCommerce store enrolled in the beta
 2. Navigate to **Advanced Settings** > **Storefront API Playground**<sup>2</sup>
 
 The GraphQL Storefront API Playground will be opened:
@@ -74,6 +74,7 @@ The GraphQL Storefront API Playground will be opened:
 <!-- theme: info -->
 
 ### Note
+
 > 1. GraphQL Playground is a GraphQL IDE built on Electron. For more information, see [GraphQL Playground](https://electronjs.org/apps/graphql-playground) on [electrongjs.org](https://electronjs.org)
 
 > 2. If the **Storefront API Playground** link is not visible, the store is not enrolled in the Beta program. To enroll, [contact support](https://support.bigcommerce.com/SubmitCase) (only sandbox stores are being accepted at this time).
@@ -163,17 +164,6 @@ curl 'https://www.{bigcommerce_storefront_domain}.com/graphql'\
   # ...
 ```
 
-<div class="HubBlock--callout">
-<div class="CalloutBlock--info">
-<div class="HubBlock-content">
-<!-- theme: info -->
-
-> Click **COPY CURL** in the GraphQL Playground to copy a the curl command code for the last request made in the IDE
-
-</div> 
-</div>
-</div>
-
 Client code in BigCommerce Stencil themes can be passed a token at render time with the `{{settings.storefront_api.token}}` handlebars object:
 
 ```html
@@ -241,6 +231,7 @@ GraphQL Storefront API calls can be made directly from within a Stencil theme or
 
 Here's an an example request using the  `{{ settings.storefront_api.token }}` handlebars object and `fetch()`](https://developer.mozilla.org/en-US/docs/Web/API/Fetch_API):
 
+```html
 <script>
    fetch('/graphql', {
        method: 'POST',
@@ -281,11 +272,7 @@ Here's an an example request using the  `{{ settings.storefront_api.token }}` ha
    .then(res => res.json())
    .then(json => console.log(json));
 </script>
-
-
-### Note
-> * If pasted directly into a script in [**Storefront** > **Script Manager**](https://support.bigcommerce.com/s/article/Using-Script-Manager), the output from `console.log(json)` will be viewable in the browser's Javascript Console.
-> * The above code must be used in a place where the `{{settings.storefront_api.token}}` handlebars variable can be accessed in order to get credentials for the API request. 
+```
 
 In addition to using `fetch()`, there's a other ways to query the API:
 1. **Using [Apollo Client](https://www.apollographql.com/docs/react/)** - Apollo is a popular GraphQL client that's easy to use in BigCommerce themes. For a a quick example of adding Apollo Client to cornerstone, checkout this [Cornerstone commit](https://github.com/bigcommerce/cornerstone/commit/508feeb1b00d2bb2940771e5e91250a08b6be4d9) on GitHub.
@@ -296,6 +283,11 @@ In addition to using `fetch()`, there's a other ways to query the API:
 <div class="HubBlock-content">
     
 <!-- theme: info -->
+
+### Note
+
+> * If pasted directly into a script in [**Storefront** > **Script Manager**](https://support.bigcommerce.com/s/article/Using-Script-Manager), the output from `console.log(json)` will be viewable in the browser's Javascript Console.
+> * The above code must be used in a place where the `{{settings.storefront_api.token}}` handlebars variable can be accessed in order to get credentials for the API request.
 
 </div>
 </div>
