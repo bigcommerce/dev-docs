@@ -43,7 +43,7 @@ This article is a general overview of the capabilities and usage of BigCommerce'
 
 ---
 
-<a id="sectionId" class="devdocsAnchor"></a>
+<a id="see-it-in-action" class="devdocsAnchor"></a>
 
 ## See it in Action
 
@@ -55,7 +55,7 @@ For a full list of examples, see the [Storefront API Examples repo](https://gith
 
 ---
 
-<a id="sectionId" class="devdocsAnchor"></a>
+<a id="accessing-the-graphql-playground" class="devdocsAnchor"></a>
 
 ## Accessing the GraphQL Playground
 
@@ -87,7 +87,7 @@ The GraphQL Storefront API Playground will be opened:
 
 ---
 
-<a id="sectionId" class="devdocsAnchor"></a>
+<a id="using-the-graphql-playground" class="devdocsAnchor"></a>
 
 ## Using the GraphQL Playground
 
@@ -152,7 +152,7 @@ Click changelog in the top right to view a list of recent changes to the storefr
 
 ---
 
-<a id="sectionId" class="devdocsAnchor"></a>
+<a id="authentication" class="devdocsAnchor"></a>
 
 ## Authentication
 
@@ -226,7 +226,7 @@ JWT tokens for authenticating cross-origin requests to the Storefront API can be
 
 ---
 
-<a id="sectionId" class="devdocsAnchor"></a>
+<a id="querying-within-a-bigcommerce-storefront" class="devdocsAnchor"></a>
 
 ## Querying Within a BigCommerce Storefront
 
@@ -298,7 +298,7 @@ In addition to using `fetch()`, there's a other ways to query the API:
 
 ---
 
-<a id="sectionId" class="devdocsAnchor"></a>
+<a id="resources" class="devdocsAnchor"></a>
 
 ## Resources
 

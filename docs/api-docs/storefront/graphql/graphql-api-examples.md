@@ -20,7 +20,7 @@ Below are example GraphQL queries for use with the BigCommerce GraphQL Storefron
 
 ---
 
-<a id="sectionId" class="devdocsAnchor"></a>
+<a id="get-a-customers-details" class="devdocsAnchor"></a>
 
 ## Get a Customer's Details
 
@@ -49,7 +49,7 @@ query CustomerAttributes {
 
 ---
 
-<a id="sectionId" class="devdocsAnchor"></a>
+<a id="get-first-three-levels-of-category-tree" class="devdocsAnchor"></a>
 
 ## Get First Three Levels of Category Tree
 
@@ -77,7 +77,7 @@ fragment CategoryFields on CategoryTreeItem {
 
 ---
 
-<a id="sectionId" class="devdocsAnchor"></a>
+<a id="get-category-and-children-by-url" class="devdocsAnchor"></a>
 
 ## Get Category and Children by URL
 
@@ -136,7 +136,7 @@ fragment PriceFields on Money {
 
 ---
 
-<a id="sectionId" class="devdocsAnchor"></a>
+<a id="get-multiple-objects-by-url" class="devdocsAnchor"></a>
 
 ## Get Multiple Objects by URL
 
@@ -179,7 +179,7 @@ query LookUpUrl {
 
 ---
 
-<a id="sectionId" class="devdocsAnchor"></a>
+<a id="get-products-images-at-different-resolutions" class="devdocsAnchor"></a>
 
 ## Get Product's Images at Different Resolutions
 
@@ -204,7 +204,7 @@ query SrcsetImages {
 
 ---
 
-<a id="sectionId" class="devdocsAnchor"></a>
+<a id="get-variant-details-as-a-product-object" class="devdocsAnchor"></a>
 
 ## Get Variant Details as a Product Object 
 
@@ -266,7 +266,7 @@ This query returns variant information appropriately overlaid on the Product obj
 
 ---
 
-<a id="sectionId" class="devdocsAnchor"></a>
+<a id="get-product-option-details-by-product-id" class="devdocsAnchor"></a>
 
 ## Get Product Option Details by Product ID
 
@@ -303,7 +303,7 @@ query SeveralProductsByID {
 
 ---
 
-<a id="sectionId" class="devdocsAnchor"></a>
+<a id="get-refined-product-object-for-given-options" class="devdocsAnchor"></a>
 
 ## Get Refined Product Object for Given Options
 
