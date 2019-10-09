@@ -191,12 +191,9 @@ JWT tokens for authenticating cross-origin requests to the Storefront API can be
 
 ```javascript
 {
-  "channel_id": {int_channel_id},            // ID of the corresponding channel (required)
-  "expires_at": {double_unix_utc_timestamp}, // datetime token should expire (required)
-  "allowed_cors_origins": [                  // array of allowed CORS origins
-    "{allowed_remote_origin_1}",
-    "{allowed_remote_origin_2}"
-  ]
+  "channel_id": 1,                                 // channel ID (required, only ID 1 currently accepted)
+  "expires_at": 1602288000,                        // double utc unix timestamp (required)
+  "allowed_cors_origins": ["https://example.com"]  // array of allowed origins (accepts 1 origin currently)
 }
 ```
 
@@ -216,9 +213,11 @@ JWT tokens for authenticating cross-origin requests to the Storefront API can be
 <div class="HubBlock-content">
 <!-- theme: warning -->
 
-### channel_id
+### Note
 > * `1` can be passed in for the `channel_id` for generating tokens for use on the storefront itself.
+> * `1` is currently the only accepted `channel_id`
 > * To create a channel for a remote site, see [Create Channel](https://developer.bigcommerce.com/api-reference/cart-checkout/channels-listings-api/channels/createchannel) in the API Reference.
+> `allowed_cors_origins` array accepts only a single origin currently
 
 </div> 
 </div>
