@@ -191,9 +191,11 @@ JWT tokens for authenticating cross-origin requests to the Storefront API can be
 
 ```javascript
 {
-  "channel_id": 1,                                 // channel ID (required, only ID 1 currently accepted)
-  "expires_at": 1602288000,                        // double utc unix timestamp (required)
-  "allowed_cors_origins": ["https://example.com"]  // array of allowed origins (accepts 1 origin currently)
+  "channel_id": 1,            // int (only ID 1 currently accepted)
+  "expires_at": 1602288000,   // double utc unix timestamp (required)
+  "allowed_cors_origins": [   // array (accepts 1 origin currently)
+    "https://example.com"
+  ]  
 }
 ```
 
