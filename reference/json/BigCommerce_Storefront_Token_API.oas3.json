@@ -6,12 +6,7 @@
       "description": "An OpenAPI Document for Storefront API Token generation via Bigcommerce v3 API. \n **Note:** this endpoint is currently in **`closed beta`**.",
       "termsOfService": "http://www.bigcommerce.com/terms"
     },
-    "tags": [
-      {
-        "name": "Storefront API Auth",
-        "description": "Bigcommerce Storefront Token API Definition."
-      }
-    ],
+    "tags": [],
     "servers": [
       {
         "url": "https://api.bigcommerce.com/stores/{store_hash}/v3",
@@ -25,9 +20,7 @@
     "paths": {
       "/storefront/api-token": {
         "post": {
-          "tags": [
-            "Storefront API Auth"
-          ],
+          "tags": [],
           "description": "Creates a Storefront API token.\n\n**Required Scopes**\n* `Manage` `Storefront API Tokens`",
           "operationId": "createToken",
           "requestBody": {
@@ -83,9 +76,7 @@
           }
         },
         "delete": {
-          "tags": [
-            "Storefront API Auth"
-          ],
+          "tags": [],
           "description": "Revoke access for a Storefront API token.",
           "operationId": "revokeToken",
           "parameters": [
@@ -150,9 +141,7 @@
       },
       "/storefront/api-token-customer-impersonation": {
         "post": {
-          "tags": [
-            "Storefront API Auth"
-          ],
+          "tags": [],
           "description": "Creates a Storefront API token that allows for customer impersonation.\n\n**Required Scopes**\n* `Manage` `Storefront API Customer Impersonation Tokens`",
           "operationId": "createTokenWithCustomerImpersonation",
           "requestBody": {
