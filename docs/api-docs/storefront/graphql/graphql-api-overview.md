@@ -77,7 +77,7 @@ The GraphQL Storefront API Playground will be opened:
 
 > 1. GraphQL Playground is a GraphQL IDE built on Electron. For more information, see [GraphQL Playground](https://electronjs.org/apps/graphql-playground) on [electrongjs.org](https://electronjs.org)
 
-> 2. If the **Storefront API Playground** link is not visible, the store is not enrolled in the Beta program. To enroll, [contact support](https://support.bigcommerce.com/SubmitCase) (only sandbox stores are being accepted at this time).
+> 2. If the **Storefront API Playground** link is not visible, the store is not enrolled in the Beta program. To enroll, [contact support](https://support.bigcommerce.com/SubmitCase) (all stores using Stencil are now eligible).
 
 
 </div> 
@@ -219,7 +219,7 @@ JWT tokens for authenticating cross-origin requests to the Storefront API can be
 > * `1` can be passed in for the `channel_id` for generating tokens for use on the storefront itself.
 > * `1` is currently the only accepted `channel_id`.
 > * To create a channel for a remote site, see [Create Channel].(https://developer.bigcommerce.com/api-reference/cart-checkout/channels-listings-api/channels/createchannel) in the API Reference.
-> * `allowed_cors_origins` array accepts only a single origin currently.
+> * `allowed_cors_origins` array accepts only a single origin currently -- one token must be generated for each origin.
 > * `/storefront/api-token` endpoint requires the `Manage` `Storefront API Tokens` OAuth Scope.
 > * `storefront/api-token-customer-impersonation` endpoint requires the `Manage` `Storefront API Customer Impersonation Tokens` OAuth Scope.
 
