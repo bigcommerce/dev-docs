@@ -78,7 +78,10 @@
         }
       },
       "delete": {
-        "tags": [],
+        "tags": [
+          "API Token",
+          "API Token Customer Impersonation"
+        ],
         "description": "Revoke access for a Storefront API token.",
         "operationId": "revokeToken",
         "parameters": [
@@ -138,7 +141,8 @@
               }
             }
           }
-        }
+        },
+        "summary": ""
       }
     },
     "/storefront/api-token-customer-impersonation": {
