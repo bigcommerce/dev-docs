@@ -150,7 +150,7 @@
         "tags": [
           "API Token Customer Impersonation"
         ],
-        "description": "Creates a Storefront API token that allows for customer impersonation.\n\n**Required Scopes**\n* `Manage` `Storefront API Customer Impersonation Tokens`",
+        "description": "Creates a Storefront API token that allows for customer impersonation.\n\n**Required Scopes**\n* `Manage` `Storefront API Customer Impersonation Tokens`\n\n**Headers**:\n* `X-Bc-Customer-Id` - The ID of the Customer to impersonate",
         "operationId": "createTokenWithCustomerImpersonation",
         "requestBody": {
           "content": {
