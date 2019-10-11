@@ -34,8 +34,7 @@ This article is a general overview of the capabilities and usage of BigCommerce'
 ### Note
 
 > * GraphQL Storefront API is in beta
-> * Only sandbox stores are being accepted into the beta at this time
-> * Only Stencil themes are currently supported
+> * BigCommerce legacy Blueprint themes currently do not support the GraphQL API and Playground
 
 </div>
 </div>
@@ -165,6 +164,7 @@ curl 'https://www.{bigcommerce_storefront_domain}.com/graphql'\
   # ...
 ```
 
+### Authenticating with a Stencil Simple Token
 Client code in BigCommerce Stencil themes can be passed a token at render time with the `{{settings.storefront_api.token}}` handlebars object:
 
 ```html
@@ -184,6 +184,8 @@ fetch('/graphql', {
 ```
 
 Tokens rendered by `{{settings.storefront_api.token}}` are non-JWT tokens that can only be used for same-origin requests.
+
+### Authenticating with a JWT
 
 JWT tokens for authenticating cross-origin requests to the Storefront API can be created using the [Storefront API Token endpoint](https://developer.bigcommerce.com/api-reference/storefront/storefront-token-api/storefront-api-auth/createtoken):
 
@@ -215,9 +217,11 @@ JWT tokens for authenticating cross-origin requests to the Storefront API can be
 
 ### Note
 > * `1` can be passed in for the `channel_id` for generating tokens for use on the storefront itself.
-> * `1` is currently the only accepted `channel_id`
-> * To create a channel for a remote site, see [Create Channel](https://developer.bigcommerce.com/api-reference/cart-checkout/channels-listings-api/channels/createchannel) in the API Reference.
-> `allowed_cors_origins` array accepts only a single origin currently
+> * `1` is currently the only accepted `channel_id`.
+> * To create a channel for a remote site, see [Create Channel].(https://developer.bigcommerce.com/api-reference/cart-checkout/channels-listings-api/channels/createchannel) in the API Reference.
+> * `allowed_cors_origins` array accepts only a single origin currently.
+> * `/storefront/api-token` endpoint requires the `Manage` `Storefront API Tokens` OAuth Scope.
+> * `storefront/api-token-customer-impersonation` endpoint requires the `Manage` `Storefront API Customer Impersonation Tokens` OAuth Scope.
 
 </div> 
 </div>
