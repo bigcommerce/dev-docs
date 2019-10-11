@@ -1,10 +1,7 @@
+# Building Multi-Currency Storefronts
 
-
-
-
-# Multi Currency
 <div class="otp" id="no-index">
-	
+
 ### On this Page
 * [Beta Limitations](#multi-currency_beta-limitations)
 * [Setup Multi Currency](#multi-currency_setup)
@@ -23,8 +20,6 @@
 
 ---
 
-## Introduction
-
 Multi Currency will allow stores to transact in the currency of their choice. The amount and currency the shopper sees in catalog, cart and checkout pages is the amount and currency we pass to the payment provider.
 
 With the introduction of multi-currency, BigCommerce now supports both transactional and display-only currencies across the entire platform. With this change, the currency and amount sent to the payment provider will depend on whether the merchant has set the currency as transactional or display-only. By using multiple transactional currencies, merchants can allow their shopper to transact in a currency of their preference, make sure that the shopper knows exactly how much they’ll be charged on their account, and help them avoid extra fees.  
@@ -33,21 +28,25 @@ With the introduction of multi-currency, BigCommerce now supports both transacti
 
 ---
 
-## <a id="multi-currency_beta-limitations"></a> Beta Release Current Limitations
+<a id="multi-currency_beta-limitations"></a>
+
+## Beta Release Current Limitations
 The following features are not supported:
- -   [Optimized One-Page Checkout](https://support.bigcommerce.com/s/article/Optimized-Single-Page-Checkout)  only, no legacy checkout
+-   [Optimized One-Page Checkout](https://support.bigcommerce.com/s/article/Optimized-Single-Page-Checkout) only, no legacy checkout
 -   Stencil only
 - Stripe credit cards only
 - Storefront Elasticsearch
 - Storefront product filtering
 - Automatic tax calculation. Only manual tax is supported for now.
-	- Avalara does not support multiple currencies on a single account
+    - Avalara does not support multiple currencies on a single account
 - Store credit is issued in default currency only. Regardless of display currency.
 - Customer group discounts cannot be set in multiple currencies
 
 ---
 
-## <a id="multi-currency_setup"></a> Set Up Multi Currency
+<a id="multi-currency_setup"></a> 
+
+## Set Up Multi Currency
 
 Before setup make sure your store is configured in the following way:
 * Manual Taxes
@@ -96,30 +95,30 @@ The currency must be enabled in the control panel before it can be used via the 
 
 3.  Set the currency display then  **Save**.
 
-<div class="HubBlock HubBlock--image flex is-viewing is-padded is-standalone"><div class="HubBlock-inner flex-1 w-full"><div class="HubBlock-content"><div class=""><img src="//s3.amazonaws.com/user-content.stoplight.io/6012/1552586209341" class="ui image"></div></div></div></div>
+![]()
 
 4.  After saving, to make the currency visible to the shopper, you will need to click visible.
 
 <div class="HubBlock HubBlock--image flex is-viewing is-padded is-standalone"><div class="HubBlock-inner flex-1 w-full"><div class="HubBlock-content"><div class=""><img src="//s3.amazonaws.com/user-content.stoplight.io/6012/1552586250305" class="ui image"></div></div></div></div>
 
-<div class="HubBlock HubBlock--callout flex is-viewing is-padded is-padded-inner is-standalone">
-	<div class="HubBlock-inner flex-1 w-full CalloutBlock--error">
-		<div class="HubBlock-content flex">
-			<div class="flex-1">
-				<div class="HubBlock-content-title">Default Currency</div>
-				<div class="MarkdownViewer markdown-body HubBlock-content-body">
-					<div class="HtmlViewer">
-						<p>Please do not change default currency. It will cause unintented currency conversion issues.</p>
-					</div>
-				</div>
-			</div>
-		</div>
-	</div>
+<div class="HubBlock--callout">
+<div class="CalloutBlock--error">
+<div class="HubBlock-content">
+    
+<!-- theme: error -->
+
+### Default Currency
+> Please do not change default currency. It will cause unintented currency conversion issues.
+
+</div>
+</div>
 </div>
 
-
 ---
-## <a id="multi-currency_currency"></a> Display & Transactional Currency
+
+<a id="multi-currency_currency"></a>
+
+## Display & Transactional Currency
 
 Currency can be setup in two ways:
 - display
