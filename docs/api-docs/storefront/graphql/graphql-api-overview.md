@@ -147,8 +147,6 @@ Click changelog in the top right to view a list of recent changes to the storefr
 </div>
 </div>
 
-
-
 ---
 
 <a id="authentication" class="devdocsAnchor"></a>
@@ -189,7 +187,7 @@ Tokens rendered by `{{settings.storefront_api.token}}` are non-JWT tokens that c
 
 JWT tokens for authenticating cross-origin requests to the Storefront API can be created using the [Storefront API Token endpoint](https://developer.bigcommerce.com/api-reference/storefront/storefront-token-api/storefront-api-auth/createtoken):
 
-**`POST`** `https://{yourbigcommercedomain}/storefront/api-token`
+**`POST`** `https://api.bigcommerce.com/stores/{store_hash}/v3/storefront/api-token`
 
 ```javascript
 {
@@ -226,6 +224,33 @@ JWT tokens for authenticating cross-origin requests to the Storefront API can be
 </div> 
 </div>
 </div>
+
+### Customer Impersonation Tokens
+
+Its also possible to generate tokens for use in server-to-server interactions with a trusted consumer by POSTing to the [API Token Customer Impersonation Endpoint](https://developer.bigcommerce.com/api-reference/storefront/storefront-token-api/api-token-customer-impersonation/createtokenwithcustomerimpersonation) with the `X-Bc-Customer-Id` header set to the customer's ID:
+
+**`POST`** `https://api.bigcommerce.com/stores/{store_id}/v3/storefront/api-token-customer-impersonationn`
+
+```json
+{
+  "channel_id": 1,
+  "expires_at": 1602288000
+}
+```
+
+**Response**:
+
+```json
+{
+  "data":
+  {
+    "token": "eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJzdWIiOiIxMjM0NTY3ODkwIiwibmFtZSI6IkpvaG4gRG9lIiwiaWF0IjoxNTE2MjM5MDIyfQ.SflKxwRJSMeKKF2QT4fwpMeJf36POk6yJV_adQssw5c"
+  }
+  "meta": {}
+}
+```
+
+Customer Impersonation Token authenticated requests made to the GraphQL API receive store information from the perspective of the customer corresponding to the customer ID specified in the `X-Bc-Customer-Id` header used to create the token -- for example: pricing, product availability, customer account, and customer details.
 
 ---
 
