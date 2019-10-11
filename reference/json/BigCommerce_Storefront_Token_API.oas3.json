@@ -157,6 +157,9 @@
             "application/json": {
               "schema": {
                 "$ref": "#/components/schemas/TokenPostImpersonation"
+              },
+              "examples": {
+                "example-1": {}
               }
             }
           }
@@ -210,7 +213,8 @@
             },
             "in": "header",
             "name": "X-Bc-Customer-Id",
-            "description": "Ther Customer ID for the customer to impersonate"
+            "description": "Ther Customer ID for the customer to impersonate",
+            "required": true
           }
         ]
       }
@@ -314,6 +318,7 @@
           "type": "string"
         }
       }
-    }
+    },
+    "securitySchemes": {}
   }
 }
