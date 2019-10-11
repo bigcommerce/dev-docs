@@ -65,7 +65,7 @@ To access the GraphQL Storefront API Playground<sup>1</sup> and documentation:
 
 The GraphQL Storefront API Playground will be opened:
 
-![GraphQL Storefront API Playground](https://raw.githubusercontent.com/bigcommerce/dev-docs/master/assets/img/graphql-storefront-api-playground.png "GraphQL Storefront API Playground")
+![GraphQL Storefront API Playground](https://raw.githubusercontent.com/bigcommerce/dev-docs/master/assets/images/graphql-storefront-api-playground.png "GraphQL Storefront API Playground")
 
 <div class="HubBlock--callout">
 <div class="CalloutBlock--info">
@@ -92,7 +92,7 @@ The GraphQL Storefront API Playground will be opened:
 
 To use the request runner, input queries on the left side and then click the play button. Query results will be displayed on the the right side:
 
-![GraphQL Playground Query](https://raw.githubusercontent.com/bigcommerce/dev-docs/master/assets/img/graphql-storefront-api-playground2.png "GraphQL Playground Query")
+![GraphQL Playground Query](https://raw.githubusercontent.com/bigcommerce/dev-docs/master/assets/images/graphql-storefront-api-playground2.png "GraphQL Playground Query")
 
 Here's a sample Query to get you started:
 
@@ -127,11 +127,11 @@ query MyFirstQuery {
 
 To explore the storefront GraphQL schema, checkout the Docs and Schema tabs on the right:
 
-![GraphQL Playground Docs](https://raw.githubusercontent.com/bigcommerce/dev-docs/master/assets/img/graphql-playground-docs.png "GraphQL Playground Docs")
+![GraphQL Playground Docs](https://raw.githubusercontent.com/bigcommerce/dev-docs/master/assets/images/graphql-playground-docs.png "GraphQL Playground Docs")
 
 Click changelog in the top right to view a list of recent changes to the storefront API:
 
-![GraphQL Playground Changelog](https://raw.githubusercontent.com/bigcommerce/dev-docs/master/assets/img/graphql-playground-changelog.png "GraphQL Playground Changelog")
+![GraphQL Playground Changelog](https://raw.githubusercontent.com/bigcommerce/dev-docs/master/assets/images/graphql-playground-changelog.png "GraphQL Playground Changelog")
 
 <div class="HubBlock--callout">
 <div class="CalloutBlock--info">

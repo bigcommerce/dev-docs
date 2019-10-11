@@ -23,11 +23,11 @@ Stencil CLI uses various BigCommerce APIs to inject store specific data (like ca
 
 To automatically create a store API account with the scopes and permissions required by Stencil CLI, select **Create Stencil-CLI Token** in the **Create API Accounts** dropdown:
 
-![Create API Account](https://raw.githubusercontent.com/bigcommerce/dev-docs/master/assets/img/create-api-account.png "Create API Account")
+![Create API Account](https://raw.githubusercontent.com/bigcommerce/dev-docs/master/assets/images/create-api-account.png "Create API Account")
 
 The **Stencil-CLI Access Level** can then be set by selecting **local development only** or **publish theme**:
 
-![Create Stencil-CLI Token](https://raw.githubusercontent.com/bigcommerce/dev-docs/master/assets/img/create-stencil-cli-token.png "Create Stencil-CLI Token")
+![Create Stencil-CLI Token](https://raw.githubusercontent.com/bigcommerce/dev-docs/master/assets/images/create-stencil-cli-token.png "Create Stencil-CLI Token")
 
 * **local development only** - can read theme related store data, but can not publish
 * **publish theme** - can read theme related store data and push themes to the live storefront
