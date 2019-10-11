@@ -63,7 +63,7 @@ No **Sale Price** is defined for the product.
 
 #### Product in Control Panel (no Sale Price defined)
 ![#### Product in Control Panel (no Sale Price defined)
-](https://raw.githubusercontent.com/bigcommerce/dev-docs/master/assets/img/sale_price_catalog.png "#### Product in Control Panel (no Sale Price defined)
+](https://raw.githubusercontent.com/bigcommerce/dev-docs/master/assets/images/sale_price_catalog.png "#### Product in Control Panel (no Sale Price defined)
 ")
 
 A corresponding [Catalog Price Object](/stencil-docs/stencil-object-model-reference/stencil-objects/common-objects/catalog-price) for the product will be structured as follows:
@@ -141,7 +141,7 @@ Assume that a merchant has defined the following for a product in the Control Pa
 
 #### Product in Control Panel (Sale Price defined)
 ![#### Product in Control Panel (Sale Price defined)
-](https://raw.githubusercontent.com/bigcommerce/dev-docs/master/assets/img/sale_price_defined_catalog.png "#### Product in Control Panel (Sale Price defined)
+](https://raw.githubusercontent.com/bigcommerce/dev-docs/master/assets/images/sale_price_defined_catalog.png "#### Product in Control Panel (Sale Price defined)
 ")
 
 A corresponding *Catalog Price Object* for the product will be structured as shown below:
@@ -261,7 +261,7 @@ This display setting affects how values are returned in the *Catalog Price Objec
 
 #### Configure Tax Display Settings
 ![#### Configure Tax Display Settings
-](https://raw.githubusercontent.com/bigcommerce/dev-docs/master/assets/img/confige_tax_settings.png "#### Configure Tax Display Settings
+](https://raw.githubusercontent.com/bigcommerce/dev-docs/master/assets/images/confige_tax_settings.png "#### Configure Tax Display Settings
 ")
 
 ---

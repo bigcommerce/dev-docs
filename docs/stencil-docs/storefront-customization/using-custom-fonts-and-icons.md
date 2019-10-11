@@ -64,7 +64,7 @@ Make sure it follows of the format `Google_FontName_Weight`.
 Custom fonts can be used an any theme. To use a custom font upload it to the stores `/content/` folder in [WebDav](https://support.bigcommerce.com/s/article/File-Access-WebDAV).
 
 
-![content folder markdown](https://raw.githubusercontent.com/bigcommerce/dev-docs/master/assets/img/content_folder_webdav.png "Content Folder Webdav")
+![content folder markdown](https://raw.githubusercontent.com/bigcommerce/dev-docs/master/assets/images/content_folder_webdav.png "Content Folder Webdav")
 
 
 ### Reference Fonts in Templates' `<head>`
