@@ -150,13 +150,16 @@
         "tags": [
           "API Token Customer Impersonation"
         ],
-        "description": "Creates a Storefront API token that allows for customer impersonation.\n\n**Required Scopes**\n* `Manage` `Storefront API Customer Impersonation Tokens`",
+        "description": "Creates a Storefront API token that allows for customer impersonation.\n\n**Required Scopes**\n* `Manage` `Storefront API Customer Impersonation Tokens`\n\n**Headers**:\n* `X-Bc-Customer-Id` - The ID of the Customer to impersonate",
         "operationId": "createTokenWithCustomerImpersonation",
         "requestBody": {
           "content": {
             "application/json": {
               "schema": {
                 "$ref": "#/components/schemas/TokenPostImpersonation"
+              },
+              "examples": {
+                "example-1": {}
               }
             }
           }
@@ -210,7 +213,8 @@
             },
             "in": "header",
             "name": "X-Bc-Customer-Id",
-            "description": "Ther Customer ID for the customer to impersonate"
+            "description": "Ther Customer ID for the customer to impersonate",
+            "required": true
           }
         ]
       }
@@ -314,6 +318,7 @@
           "type": "string"
         }
       }
-    }
+    },
+    "securitySchemes": {}
   }
 }
