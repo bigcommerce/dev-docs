@@ -3,7 +3,7 @@
 <div class="otp" id="no-index">
 
 ### On this Page
-* [Beta Limitations](#multi-currency_beta-limitations)
+* [Supported Features](#multi-currency_beta-limitations)
 * [Setup Multi Currency](#multi-currency_setup)
 * [Display & Transactional Currencies](#multi-currency_currency)
 * [Catalog Pricing](#multi-currency_pricing)	
@@ -16,6 +16,7 @@
 * [Tax](#multi-currency_tax)
 * [Definitions](#multi-currency_definitions)
 * [FAQ](#multi-currency_faq)
+
 </div>
 
 ---
@@ -30,17 +31,19 @@ With the introduction of multi-currency, BigCommerce now supports both transacti
 
 <a id="multi-currency_beta-limitations"></a>
 
-## Beta Release Current Limitations
-The following features are not supported:
--   [Optimized One-Page Checkout](https://support.bigcommerce.com/s/article/Optimized-Single-Page-Checkout) only, no legacy checkout
--   Stencil only
-- Stripe credit cards only
-- Storefront Elasticsearch
-- Storefront product filtering
-- Automatic tax calculation. Only manual tax is supported for now.
-    - Avalara does not support multiple currencies on a single account
-- Store credit is issued in default currency only. Regardless of display currency.
-- Customer group discounts cannot be set in multiple currencies
+## Feature Support
+See the table below for a list of the Beta release supported and un-supported features.
+
+| Supported                                    | Not Supported                                  |
+|----------------------------------------------|------------------------------------------------|
+| Optimized One-Page Checkout                  | Legacy Checkout                                |
+| Stencil Themes                               | Legacy Blueprint Themes                        |
+| Stripe Payment Gateway                       | Other Payment Gateways                         |
+| Store credit in default currency             | Store credit in display currencies             |
+| Customer group discounts in default currency | Customer group discounts in display currencies |
+| Storefront Elasticsearch                     |                                                |
+| Storefront product filtering                 |                                                |
+
 
 ---
 
