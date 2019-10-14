@@ -265,6 +265,14 @@
                       "type": "string",
                       "example": "optimized",
                       "description": "What type of checkout is enabled on the store. Possible values returned are optimized, single (one page), single_customizable (one page for developers), klarna."
+                    },
+                    "wishlists_enabled": {
+                      "type": "boolean",
+                      "example": true
+                    },
+                    "graphql_storefront_api_enabled": {
+                      "type": "boolean",
+                      "example": true
                     }
                   }
                 }
