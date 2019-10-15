@@ -942,6 +942,7 @@ All possible values for `{{page_type}}` are:
 |request|object that contaisn details about the HTTP request|
 | &#x21B3; referer|refer of the request|
 | &#x21B3; host|hostname of the request|
+| &#x21B3; origin|origin of the request|
 | &#x21B3; user_agent|user agent string of the request|
 | &#x21B3; is_crawler|renders "true" if user angent is known crawler; "false" otherwise
 | &#x21B3; absolute_path|The absolute URL requested. **Never** use request.path in the actual body of the page<sup>1</sup>
