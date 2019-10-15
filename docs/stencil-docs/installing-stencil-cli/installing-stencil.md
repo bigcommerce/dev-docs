@@ -26,10 +26,10 @@ To install Stencil CLI and it's dependencies on Mac, open a terminal and run the
 curl -o- https://raw.githubusercontent.com/creationix/nvm/v0.31.0/install.sh | bash
 
 # Install Stencil CLI supported version of Node.js
-nvm install 8.16
+nvm install 10.16
 
 # Switch to Stencil CLI supported version of Node.js:
-nvm use 8.16
+nvm use 10.16
 
 # Install Stencil CLI
 npm install -g @bigcommerce/stencil-cli
@@ -64,7 +64,7 @@ iex ((New-Object System.Net.WebClient).DownloadString("https://chocolatey.org/in
 choco install git
 
 # Install nvm-windows and stencil compatible node.js
-choco install nvm; nvm install 8.16; nvm use 8.16
+choco install nvm; nvm install 10.16; nvm use 10.16
 
 #####################################################################################
 # Close PowerShell and re-open as admin 
@@ -102,7 +102,7 @@ If you're a pro at installing and configuring Python and Node.js environments on
 **Required Dependencies:**
 * [Git](https://git-scm.com/downloads) - required to run npm install
 * [Python 2.7.x](https://www.python.org/downloads/) - required to build some dependencies
-* [Node.js 8.16 and npm](https://nodejs.org/en/download/releases/) - later versions not currently supported on Windows
+* [Node.js 10.16 and npm](https://nodejs.org/en/download/releases/) - later versions not currently supported on Windows
 * [Visual C++ Build Tools 2015](https://www.npmjs.com/package/windows-build-tools) - required to compile some dependencies
 
 Once they're installed and configured, use `npm` to install Stencil CLI:
@@ -139,7 +139,7 @@ sudo apt-get update && sudo apt-get install nodejs npm
 curl -o- https://raw.githubusercontent.com/creationix/nvm/v0.31.0/install.sh | bash
 
 # Explicitly install supported node version
-nvm install 8.16
+nvm install 10.16
 
 # Install Stencil CLI
 npm install -g @bigcommerce/stencil-cli
