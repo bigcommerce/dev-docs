@@ -6,14 +6,15 @@
 - [Catalog Pricing](#catalog-pricing)
 - [Price Lists](#price-lists)
 - [Price List Modifiers](#price-list-modifiers)
-- [Multi-Currency Price Records](#multi-currency-price-records)
-- [Server-to-Server Cart and Checkout](#server-to-server-cart-and-checkout)
+- [Price Records](#price-records)
+- [S-2-S Cart and Checkout](#s-2-s-cart-and-checkout)
 - [Storefront Cart and Checkout](#storefront-cart-and-checkout)
 - [Orders](#orders)
 - [Promotions](#promotions)
 - [Shipping](#shipping)
 - [Refunds](#refunds)
 - [Payment Methods Supported](#payment-methods-supported)
+- [Gift Certificates](#gift-certificates)
 
 </div>
 
@@ -25,8 +26,9 @@ This article details how currencies are surfaced throughout BigCommerce APIs, us
 
 <a id="catalog-pricing"></a>
 
-* When Multiple Currencies are configured, BigCommerce will convert the catalog default currency price of items into the selected non-default currency on the storefront. It does not change the default catalog pricing of products. 
-* Catalog search and filtering by price only works for the default currency and auto-converted pricing for non-default transactional currencies. If a merchant sets up pricing through **Price Lists** and has price filter enabled on their store, when shopper searches by price, no products will be displayed to them.
+When Multiple Currencies are configured, BigCommerce will convert the catalog default currency price of items into the selected non-default currency on the storefront. It does not change the default catalog pricing of products. 
+
+Catalog search and filtering by price only works for the default currency and auto-converted pricing for non-default transactional currencies. If a merchant sets up pricing through **Price Lists** and has price filter enabled on their store, when shopper searches by price, no products will be displayed to them.
 * `Shop by: Price` only works for default currency and auto-converted pricing for non-default transactional currencies. If merchant sets up pricing through Price Lists and has price filter enabled on their store, when shopper searches by price, no products will be displayed to them.
 * Currency is not dynamically converted. To convert the merchant will need to do one of the following:
   * Manually update their conversion rate from default currency to other transactional currencies,
@@ -69,7 +71,7 @@ The above example assumes a default currency of USD.
 
 ---
 
-## Multi-Currency Price Records
+## Price Records
 
 <a id="multi-currency-price-records"></a>
 
@@ -157,7 +159,7 @@ To create a price record in multiple currencies via API, send a `POST` request t
 
 ---
 
-## Server-to-Server Cart and Checkout
+## S-2-S Cart and Checkout
 
 <a id="server-to-server-cart-and-checkout"></a>
 
@@ -196,7 +198,7 @@ The API will return the item price and the currency of the item price in the sto
 
 <a id="storefront-cart-and-checkout"></a>
 
-In the example below the store’s default currency is USD, and the item is $7.95. Since the shopper has switched to Euros as the transactional currency, we now convert the line item price and taxes to Euros.
+In the example below the store’s default currency is `USD`, and the item is `$7.95`. Since the shopper has switched to Euros as the transactional currency, we now convert the line item price and taxes to Euros:
 
 *The item is set to show prices including tax. Abbreviated Response*
 
@@ -234,7 +236,7 @@ In the example below the store’s default currency is USD, and the item is $7.9
     "createdTime": "2019-01-17T18:38:26+00:00",
     "updatedTime": "2019-01-17T18:38:26+00:00"
   },
-  ...
+  // ...
   "taxTotal": 0.53,
   "taxes": [
     {
@@ -247,7 +249,7 @@ In the example below the store’s default currency is USD, and the item is $7.9
 }
 ```
 
-If a shopper changes the currency and has added at least one item to the cart, they will still be charged in the original transactional currency. Below the shopper changed from USD to AUS. A message is displayed that they will still checkout using USD:
+If a shopper changes the currency and has added at least one item to the cart, they will still be charged in the original transactional currency. Below the shopper changed from `USD` to `AUS`. A message is displayed that they will still checkout using `USD`:
 
 `*You will be billed for this order in USD*.`
 
@@ -255,7 +257,7 @@ The API also still returns Australian Dollars as the currency.
 
 ![Order Summary](https://raw.githubusercontent.com/bigcommerce/dev-docs/master/assets/images/multi-currency-order-summary.png "Order Summary")
 
-To change the transactional currency of their cart, shopper needs to empty their cart and re-add their items in their desired transactional currency.
+To change the transactional currency of their cart, the shopper will need to empty the cart and re-add the items in the desired transactional currency.
 
 ---
 
@@ -263,6 +265,7 @@ To change the transactional currency of their cart, shopper needs to empty their
 
 <a id="orders"></a>
 
+**Details:**
 * The order history page shows the currency of the transaction.
 * Invoices show item price and the currency of the transaction.
 * Since each order can be in a different currency, the control panel order page shows the currency's token (this also applies to Order Export data).
@@ -272,8 +275,6 @@ The APIs `default_currency_code` and `default_currency_id` are now in the transa
 
 
 **Default Currency Response V2 Orders**
-
-*This is an abbreviated response*
 
 ```json
 // ...      
@@ -296,9 +297,8 @@ The APIs `default_currency_code` and `default_currency_id` are now in the transa
 
 ---
 
-<a id="multi-currency_promotions"></a>
-
 ## Promotions
+
 <a id="promotions"></a>
 
 Coupons are available in the default currency only. Attempting to use a coupon with a different currency will return an invalid coupon error. If a customer is checking out in the default currency then changes to a different currency, in the cart, the coupon code will still work. This is because once the cart is created, it is “locked” into the default currency until being deleted. Creating a coupon in a different currency is not available during the beta.
@@ -313,6 +313,7 @@ Cart Level discounts can be created in your currency of choice. The shopper must
 
 <a id="shipping"></a>
 
+**Details:**
 * **Product Level Fixed Shipping** - shipping is set at the product level in the store's default currency. During checkout, BigCommerce converts shipping costs using the store's exchange rate and displays that value to the shopper.  
 * **Flat Rate Shipping** - flat rate shipping is converted based on the store's currency. 
 * **Shipping Carriers** - the currency is sent to the carrier and depending on the carrier, quotes are returned in the stores transactional currency. If the shipping carrier can not return in the transactional currency or the currency is display then it is converted using the transactional currency exchange rate set by the merchant. Shipping providers that support multiple currencies can supply quotes straight in shopper's transactional currency, so no currency conversion needed. ShipperHQ does not support multiple currencies.
@@ -335,15 +336,18 @@ Cart Level discounts can be created in your currency of choice. The shopper must
 
 <a id="payment-methods-supported"></a>
 
-* Gift Certificates can be used in the currency they were purchased in. They can also be purchased as part of an order. Gift certificates can also be setup per currency.
-* Test Payment Gateway
-* Stripe credit cards
-* Store Credit is not converted in beta. If a customer has $10.00 USD worth of store credit and tries to transact in EUR, then store credit of €10.00 will be applied.
+| Payment Method    | Details                                                                                                                                                |
+|-------------------|--------------------------------------------------------------------------------------------------------------------------------------------------------|
+| Gift Certificates | can be used in the currency they were purchased in and can be setup per currency                                                                       |
+| Store Credit      | not converted in beta. If a customer has `$10.00 USD` worth of store credit and tries to transact in `EUR` , store credit of `€10.00` will be applied. |
+| Credit Cards      | Processed through Stripe Payment Gateway or Test Payment Gateway                                                                                       |
+
 
 <div class="HubBlock HubBlock--image flex is-viewing is-padded is-standalone"><div class="HubBlock-inner flex-1 w-full"><div class="HubBlock-content"><div class="justify-center text-center"><div class="ImageBlock-title">Gift Certificates</div><img style="max-width:805px" src="https://raw.githubusercontent.com/tatiana-perry/dev-docs-images/master/currency_beta/gift_certificates_multi_currency.png" alt="Control Panel Order History" class="ui centered fluid image"></div></div></div></div>
 
-**Create a Gift Certificate -- API Example**
-[*https://api.bigcommerce.com/stores/{store_hash}/v2/gift_certificates*](https://developer.bigcommerce.com/api-reference/marketing/marketing-api/gift-certificates/createagiftcertificate)
+## Gift Certificates
+
+[**Create a Gift Certificate**](https://developer.bigcommerce.com/api-reference/marketing/marketing-api/gift-certificates/createagiftcertificate)
 
 ```json
 {
@@ -354,6 +358,9 @@ Cart Level discounts can be created in your currency of choice. The shopper must
   "to_email": "janedoe@email.com",
   "from_name": "Tarzan",
   "from_email": "test1@test.com",
-  "currency_code": "EUR"
+  "currency_code": "EUR"           // new property
 }
 ```
+
+**Control Panel UI**
+![Gift Certificates](https://raw.githubusercontent.com/bigcommerce/dev-docs/master/assets/images/multi-currency-gift-cerfiticates.png "Gift Certificates")

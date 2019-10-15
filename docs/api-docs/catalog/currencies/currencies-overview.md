@@ -76,7 +76,7 @@ By offering localized transactional currencies, you allow those shoppers to tran
 
 | Display Currency                                                                                                                                   | Transactional Currency                                                                                                                                                   |
 |----------------------------------------------------------------------------------------------------------------------------------------------------|--------------------------------------------------------------------------------------------------------------------------------------------------------------------------|
-|![Display Currency](https://raw.githubusercontent.com/bigcommerce/dev-docs/master/assets/img/multi-currency-display-currency.png "Display Currency")|![Transactional Currency](https://raw.githubusercontent.com/bigcommerce/dev-docs/master/assets/img/multi-currency-transactional-currency.png "Transactional Currency")    |
+|![Display Currency](https://raw.githubusercontent.com/bigcommerce/dev-docs/master/assets/images/multi-currency-display-currency.png "Display Currency")|![Transactional Currency](https://raw.githubusercontent.com/bigcommerce/dev-docs/master/assets/images/multi-currency-transactional-currency.png "Transactional Currency")    |
 
 
 <div class="HubBlock--callout">
