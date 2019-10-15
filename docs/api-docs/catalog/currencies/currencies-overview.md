@@ -15,7 +15,7 @@
 
 </div>
 
-BigCommerce’s flexible Currency settings assist developers in building Multi-Currency storefronts that allow shoppers and merchants to do business in their currency of choice. Allowing customers to shop and check out in their native currency provides a more consistent and positive shopping experience, and maintaining price expectations throughout the shopping process encourages conversions for merchants. This article provides a high-level guide to Multi-Currency concepts on BigCommerce as well as specific instructions on [adding currencies](adding-a-currency) via the control panel. For additional details on how currencies are surfaced throughout BigCommerce APIs, user interfaces, and storefront components, see [How Currencies Works](https://developer.bigcommerce.com/api-docs/catalog/currencies/how-currencies-work)/ 
+BigCommerce’s flexible Currency settings assist developers in building Multi-Currency storefronts that allow shoppers and merchants to do business in their currency of choice. Allowing customers to shop and check out in their native currency provides a more consistent and positive shopping experience, and maintaining price expectations throughout the shopping process encourages conversions for merchants. This article provides a high-level guide to Multi-Currency concepts on BigCommerce as well as specific instructions on [adding currencies](adding-a-currency) via the control panel. For additional details on how currencies are surfaced throughout BigCommerce APIs, user interfaces, and storefront components, see [How Currencies Works](https://developer.bigcommerce.com/api-docs/catalog/currencies/how-currencies-work)
 
 ---
 
@@ -158,6 +158,8 @@ After saving, be sure to check **visible** to make the currency visible to shopp
 
 For details on how currencies are surfaced throughout BigCommerce APIs, user interfaces, and storefront components, see [How Currencies Works](https://developer.bigcommerce.com/api-docs/catalog/currencies/how-currencies-work)
 
+---
+
 ## Current Limitations
 
 <a id="current-limitations"></a>
@@ -221,10 +223,15 @@ Please reach out to Stripe for more information on setting up the account.
 ---
 
 ## Resources
+
+- [How Currencies Works](https://developer.bigcommerce.com/api-docs/catalog/currencies/how-currencies-work)
 - [Currency API](https://developer.bigcommerce.com/api-reference/store-management/currency-api)
 - [Price List API](https://developer.bigcommerce.com/api-reference/catalog/pricelists-api)
 - [Using Price Lists](https://support.bigcommerce.com/s/article/Price-Lists) (BigCommerce Knowledge Base)
 - [Managing Currencies](https://support.bigcommerce.com/s/article/Managing-Currencies-Beta) (BigCommerce Knowledge Base)
 - [Tax](https://support.bigcommerce.com/s/article/Manual-Tax-Setup#intro1) (BigCommerce Knowledge Base)
+
+### Additional Resources
+
 - [Supported Currencies](https://stripe.com/docs/currencies) (Stripe Documentation)
 - [Supported Settlement Currencies](https://stripe.com/docs/connect/payouts#supported-settlement) (Stripe Documentation)
