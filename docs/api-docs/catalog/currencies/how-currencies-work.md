@@ -1,4 +1,4 @@
-# How Currency is Surfaced
+# How Currencies Work
 
 <div class="otp" id="no-index">
 
@@ -14,19 +14,16 @@
 - [Shipping](#shipping)
 - [Refunds](#refunds)
 - [Payment Methods Supported](#payment-methods-supported)
-- [Tax](#tax)
 
 </div>
 
-Introduction
+This article details how currencies are surfaced throughout BigCommerce APIs, user interfaces, and storefront components; it assumes you're already familiar with the core concepts behind BigCommerce's Multi-Currency settings. For a high level overview as well as instructions on how to add currencies to a BigCommerce store, see [Currencies Overview](https://developer.bigcommerce.com/api-docs/catalog/currencies/currencies-overview).
 
 ---
 
-
-
 ## Catalog Pricing
 
-<a id="multi-currency_pricing"></a>
+<a id="catalog-pricing"></a>
 
 * When Multiple Currencies are configured, BigCommerce will convert the catalog default currency price of items into the selected non-default currency on the storefront. It does not change the default catalog pricing of products. 
 * Catalog search and filtering by price only works for the default currency and auto-converted pricing for non-default transactional currencies. If a merchant sets up pricing through **Price Lists** and has price filter enabled on their store, when shopper searches by price, no products will be displayed to them.
@@ -37,7 +34,12 @@ Introduction
   * Set up explicit pricing per each currency using Price Lists (only available to Enterprise merchants)
   * Pricing by currency only, not by country.
 
+---
+
 ## Price Lists
+
+<a id="price-lists"></a>
+
 Price Lists can be created in any currency setup in the store. Both transactional and display currencies are available in Price Lists. Price records are not copied from one currency to another. The price record must be created for each currency.
 
 ![titled](https://raw.githubusercontent.com/bigcommerce/dev-docs/master/assets/images/multi-currency-price-overrides.png "Price Overrides")
@@ -55,12 +57,21 @@ Price Lists can be created in any currency setup in the store. Both transactiona
 </div>
 </div>
 
+---
+
 ## Price List Modifiers
+
+<a id="price-list-modifiers"></a>
+
 Modifiers use the auto conversion rate. For example, if the keychain is `€30`, and there's a modifier for engraving, the price is calculated as: `€30 + ($5 * auto conversion rate)`
 
 The above example assumes a default currency of USD.
 
+---
+
 ## Multi-Currency Price Records
+
+<a id="multi-currency-price-records"></a>
 
 To create a price record in multiple currencies via API, send a `POST` request to the [Set Price Records](/api-reference/catalog/pricelists-api/price-lists-records/setpricelistrecordcollection) endpoint -- as long as the currency is available in the store, multiple currencies can be set in the request.
 
@@ -148,7 +159,7 @@ To create a price record in multiple currencies via API, send a `POST` request t
 
 ## Server-to-Server Cart and Checkout
 
-<a id="multi-currency_cart-checkout"></a>
+<a id="server-to-server-cart-and-checkout"></a>
 
 The cart currency can be set when creating a [Server to Server Cart](https://developer.bigcommerce.com/api-reference/cart-checkout/server-server-cart-api/cart/createacart). The currency needs to be setup in the [control panel first](#multi-currency_setup). 
 
@@ -179,7 +190,11 @@ The cart currency can be set when creating a [Server to Server Cart](https://dev
 
 The API will return the item price and the currency of the item price in the store’s current transactional currency. 
 
+---
+
 ## Storefront Cart and Checkout
+
+<a id="storefront-cart-and-checkout"></a>
 
 In the example below the store’s default currency is USD, and the item is $7.95. Since the shopper has switched to Euros as the transactional currency, we now convert the line item price and taxes to Euros.
 
@@ -246,7 +261,7 @@ To change the transactional currency of their cart, shopper needs to empty their
 
 ## Orders
 
-<a id="multi-currency_orders"></a>
+<a id="orders"></a>
 
 * The order history page shows the currency of the transaction.
 * Invoices show item price and the currency of the transaction.
@@ -261,13 +276,13 @@ The APIs `default_currency_code` and `default_currency_id` are now in the transa
 *This is an abbreviated response*
 
 ```json
-...      
+// ...      
   "currency_id": 4,
         "currency_code": "EUR",
         "currency_exchange_rate": 1,
         "default_currency_id": 4,
         "default_currency_code": "EUR"
-...
+// ...
 ```
 
 **Shopper Order History**:
@@ -284,6 +299,8 @@ The APIs `default_currency_code` and `default_currency_id` are now in the transa
 <a id="multi-currency_promotions"></a>
 
 ## Promotions
+<a id="promotions"></a>
+
 Coupons are available in the default currency only. Attempting to use a coupon with a different currency will return an invalid coupon error. If a customer is checking out in the default currency then changes to a different currency, in the cart, the coupon code will still work. This is because once the cart is created, it is “locked” into the default currency until being deleted. Creating a coupon in a different currency is not available during the beta.
 
 Cart Level discounts can be created in your currency of choice. The shopper must have the currency selected for the promotion to apply.
@@ -292,9 +309,9 @@ Cart Level discounts can be created in your currency of choice. The shopper must
 
 ---
 
-<a id="multi-currency_shipping"></a>
-
 ## Shipping
+
+<a id="shipping"></a>
 
 * **Product Level Fixed Shipping** - shipping is set at the product level in the store's default currency. During checkout, BigCommerce converts shipping costs using the store's exchange rate and displays that value to the shopper.  
 * **Flat Rate Shipping** - flat rate shipping is converted based on the store's currency. 
@@ -302,9 +319,9 @@ Cart Level discounts can be created in your currency of choice. The shopper must
 
 ---
 
-<a id="multi-currency_refunds"></a>
-
 ## Refunds
+
+<a id="refunds"></a>
 
 * **Default Currency** - Works as normal and no changes were made. 
 
@@ -314,9 +331,9 @@ Cart Level discounts can be created in your currency of choice. The shopper must
 
 ---
 
-<a id="multi-currency_payment-methods-supported"></a>
-
 ## Payment Methods Supported
+
+<a id="payment-methods-supported"></a>
 
 * Gift Certificates can be used in the currency they were purchased in. They can also be purchased as part of an order. Gift certificates can also be setup per currency.
 * Test Payment Gateway
@@ -340,9 +357,3 @@ Cart Level discounts can be created in your currency of choice. The shopper must
   "currency_code": "EUR"
 }
 ```
----
-
-<a id="multi-currency_tax"></a>
-
-## Tax
-Automated tax provides on the BigCommerce platform do not supported calculating tax in multiple currencies.

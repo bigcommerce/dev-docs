@@ -1,4 +1,4 @@
-# Managing Currencies
+# Currencies Overview
 
 <div class="otp" id="no-index">
 
@@ -7,7 +7,7 @@
 - [Display vs. Transactional Currencies](#display-vs-transactional-currencies)
 - [Pre-Configuring the Store](#pre-configuring-the-store)
 - [Adding a Currency](#adding-a-currency)
-- [How Multiple Currencies are Surfaced](#how-multiple-currencies-are-surfaced)
+- [How Currencies Work](#how-currencies-work)
 - [Current Limitations](#current-limitations)
 - [Definitions](#definitions)
 - [FAQ](#faq)
@@ -22,9 +22,9 @@ With the introduction of Multi-Currency settings, BigCommerce now supports both 
 ---
 
 ## Multi-Currency Beta
-Multiple transactional currencies is now available as an opt-in feature on all stores. In the control panel, go to **Store Setup** › **Currencies** and click the *Try it now** button under the Early Access opt-in notice.
+Multiple transactional currencies is now available as an opt-in feature on all stores. In the control panel, go to **Store Setup** › **Currencies** and click the **Try it now** button under the Early Access opt-in notice.
 
-![titled](https://raw.githubusercontent.com/bigcommerce/dev-docs/master/assets/images/multi-currency-try-it-now.png "title")
+![Multi-Currency Early Access](https://raw.githubusercontent.com/bigcommerce/dev-docs/master/assets/images/multi-currency-try-it-now.png "Multi-Currency Early Access")
 
 To use multiple transactional currencies, the store must:
 
@@ -51,12 +51,37 @@ Some BigCommerce features do not yet support multiple transactional currencies, 
 
 <a id="multi-currency_currency"></a>
 
-Currency can be setup in two ways:
-1. **Display**
-   * Process in the store's default currency (regardless of currency chosen by shopper). 
-   * When the shopper reaches checkout, a notification is displayed that shows the currency the payment will be processed in.
-   * Can use either manual exchange rate or automatic exchange rates set by the BigCommerce Payment Service
-2. **Transactional** -  the shopper will pay in the selected currency. The amount in the checkout will be the final amount the shopper sees with their bank; transactional currency must be set to a manual conversion rate. If the currency is changed from display only to transaction it will automatically set the exchange rate to be manual and use the last available exchange rate from the display only currency. Multiple transactional currencies can be setup on a store. The shopper will not pay conversion fees, but if the shopper card issuing bank differs from the merchants bank account country, they may have cross-border fees. This may change the final settlement amount.
+In BigCommerce, there are two types of currency that can be set up: a **display currency** and **transactional currency**.
+
+### Display Currency
+When a currency is set to display-only, shoppers in associated countries will see prices on the storefront in that currency, but the actual order will be transacted in the store’s default currency.
+
+For display-only currencies, shoppers at checkout see the estimated price in the display currency with a note indicating the actual currency and amount to be charged.
+
+### Transactional Currency
+When a currency is enabled as transactional, shoppers in associated countries will both see prices on the storefront in that currency and be charged in that currency when they check out.
+
+By offering localized transactional currencies, you allow those shoppers to transact in the currency of their preference, which give them a more accurate representation of exactly how much they will be charged and helps them avoid additional conversion fees.
+
+| Display Currency                                                                                                                                   | Transactional Currency                                                                                                                                                   |
+|----------------------------------------------------------------------------------------------------------------------------------------------------|--------------------------------------------------------------------------------------------------------------------------------------------------------------------------|
+|![Display Currency](https://raw.githubusercontent.com/bigcommerce/dev-docs/master/assets/img/multi-currency-display-currency.png "Display Currency")|![Transactional Currency](https://raw.githubusercontent.com/bigcommerce/dev-docs/master/assets/img/multi-currency-transactional-currency.png "Transactional Currency")    |
+
+
+<div class="HubBlock--callout">
+<div class="CalloutBlock--info">
+<div class="HubBlock-content">
+    
+<!-- theme: info -->
+
+### Note
+> * If the shopper’s card-issuing bank differs from the merchant's bank account country, additional cross-border fees may apply that can change the final settlement amount.
+> * You can choose whether a currency should be display-only or transactional when adding or editing a currency.
+
+</div>
+</div>
+</div>
+
 
 ---
 
@@ -116,9 +141,9 @@ After saving, be sure to check **visible** to make the currency visible to shopp
 </div>
 </div>
 
-## How Multiple Currencies are Surfaced
+## How Currencies Work
 
-
+For details on how currencies are surfaced throughout BigCommerce APIs, user interfaces, and storefront components, see [How Currencies Works](https://developer.bigcommerce.com/api-docs/catalog/currencies/how-currencies-work.md)
 
 ## Current Limitations
 
