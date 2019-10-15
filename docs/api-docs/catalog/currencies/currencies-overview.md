@@ -101,18 +101,12 @@ Additionally, review the [Currency API reference](https://developer.bigcommerce.
 
 Transactional currencies can't be created via API just yet, so they'll need to be added via the control panel. To do so:
 
- 1. Navigate to **Store Setup > Currencies**, then select **Add a Currency...**
- 2. Enter a **Currency Name**
- 3. Select an option for **Exchange Rate** (enter the exchange rate manually, or get exchange rate from BigCommerce's Currency Service)
- 4. Check **Set as transactional currency?** if shoppers will transact in this currency -- if this box is not selected, it will be a display only currency.
- 5. Configure **Currency Display** fields with desired settings, then
- 6. Click **Save**.
+1. Navigate to **Store Setup > Currencies**, then select **Add a Currency...**
+2. Select the currency code that corresponds to the currency you want to set up, then click Next.
+3. Configure the currency’s display and transactional settings.
+4. Click **Save**.
 
-![Add a Currency](https://raw.githubusercontent.com/bigcommerce/dev-docs/master/assets/images/multi-currency-add-currency.png "Add a Currency")
-
-After saving, be sure to check **visible** to make the currency visible to shoppers:
-
-![Currency List](https://raw.githubusercontent.com/bigcommerce/dev-docs/master/assets/images/multi-currency-currencies-list.png "Currency List")
+For more in-depth instructions and helpful screenshots, see [Adding a Currency](https://support.bigcommerce.com/s/article/Managing-Currencies-Beta#add) in the Help Center.
 
 <div class="HubBlock--callout">
 <div class="CalloutBlock--error">
