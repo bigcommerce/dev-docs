@@ -50,9 +50,7 @@ In BigCommerce, there are two types of currency that can be set up: a **display 
 
 2. **Transactional Currency** - When a currency is enabled as transactional, shoppers in associated countries will both see prices on the storefront in that currency and be charged in that currency when they check out.
 
-| Display Currency                                                                                                                                   | Transactional Currency                                                                                                                                                   |
-|----------------------------------------------------------------------------------------------------------------------------------------------------|--------------------------------------------------------------------------------------------------------------------------------------------------------------------------|
-|![Display Currency](https://raw.githubusercontent.com/bigcommerce/dev-docs/master/assets/images/multi-currency-display-currency.png "Display Currency")|![Transactional Currency](https://raw.githubusercontent.com/bigcommerce/dev-docs/master/assets/images/multi-currency-transactional-currency.png "Transactional Currency")    |
+![Display Currency](https://raw.githubusercontent.com/bigcommerce/dev-docs/master/assets/images/multi-currency-display-currency.png "Display Currency")
 
 <div class="HubBlock--callout">
 <div class="CalloutBlock--info">
