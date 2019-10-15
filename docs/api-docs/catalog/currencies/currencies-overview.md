@@ -8,18 +8,23 @@
 - [Pre-Configuring the Store](#pre-configuring-the-store)
 - [Adding a Currency](#adding-a-currency)
 - [How Currencies Work](#how-currencies-work)
-- [Current Limitations](#current-limitations)
+- [Supported Features](#supported-features)
 - [Definitions](#definitions)
 - [FAQ](#faq)
 - [Resources](#resources)
 
 </div>
 
-BigCommerce’s flexible Currency settings assist developers in building Multi-Currency storefronts that allow shoppers and merchants to do business in their currency of choice. Allowing customers to shop and check out in their native currency provides a more consistent and positive shopping experience, and maintaining price expectations throughout the shopping process encourages conversions for merchants. This article provides a high-level guide to Multi-Currency concepts on BigCommerce as well as specific instructions on [adding currencies](adding-a-currency) via the control panel. For additional details on how currencies are surfaced throughout BigCommerce APIs, user interfaces, and storefront components, see [How Currencies Works](https://developer.bigcommerce.com/api-docs/catalog/currencies/how-currencies-work)
+BigCommerce’s flexible Currency settings assist developers in building Multi-Currency storefronts that empower shoppers and merchants to do business in their currency of choice. Allowing customers to shop and check out in their native currency provides a more consistent and positive shopping experience, and maintaining price expectations throughout the shopping process encourages conversions for merchants. 
+
+This article provides a high-level guide to Multi-Currency concepts on BigCommerce as well as specific instructions on [adding currencies](adding-a-currency) via the control panel. For additional details on how currencies are surfaced throughout BigCommerce APIs, user interfaces, and storefront components, see [How Currencies Works](https://developer.bigcommerce.com/api-docs/catalog/currencies/how-currencies-work)
 
 ---
 
 ## Multi-Currency Beta
+
+<a id="multi-currency-beta"></a>
+
 Multiple transactional currencies is now available as an opt-in feature on all stores. In the control panel, go to **Store Setup** › **Currencies** and click the **Try it now** button under the Early Access opt-in notice.
 
 ![Multi-Currency Early Access](https://raw.githubusercontent.com/bigcommerce/dev-docs/master/assets/images/multi-currency-try-it-now.png "Multi-Currency Early Access")
@@ -33,29 +38,6 @@ To use multiple transactional currencies, the store:
 Currently, Stripe cannot be enabled for a specific currency (it is also enabled for the default currency). This is a known issue and will be fixed in a later release.
 Automatic tax calculation and document submission is compatible with multiple currencies. However, the application of automatic tax depends on the countries supported by the tax provider.
 
-Some BigCommerce features do not yet support multiple transactional currencies, including:
-
-* Blueprint themes
-* Legacy checkout
-* Coupon Codes
-* Draft orders
-* Storefront product filtering
-* Storefront elastic search
-* Store credit<sup>1</sup>
-
-
-<div class="HubBlock--callout">
-<div class="CalloutBlock--info">
-<div class="HubBlock-content">
-    
-<!-- theme: info -->
-
-> 1. Store credit currently only works with default currency. If a shopper selects a transactional currency other than the default currency, they will not be able to see or use any assigned store credit.
-
-</div>
-</div>
-</div>
-
 ---
 
 ## Display vs. Transactional
@@ -64,20 +46,13 @@ Some BigCommerce features do not yet support multiple transactional currencies, 
 
 In BigCommerce, there are two types of currency that can be set up: a **display currency** and **transactional currency**.
 
-### Display Currency
-When a currency is set to display-only, shoppers in associated countries will see prices on the storefront in that currency, but the actual order will be transacted in the store’s default currency.
+1. **Display Currency** - When a currency is set to display-only, shoppers in associated countries will see prices on the storefront in that currency, but the actual order will be transacted in the store’s default currency. Shoppers at checkout see the estimated price in the display currency with a note indicating the actual currency and amount to be charged.
 
-For display-only currencies, shoppers at checkout see the estimated price in the display currency with a note indicating the actual currency and amount to be charged.
-
-### Transactional Currency
-When a currency is enabled as transactional, shoppers in associated countries will both see prices on the storefront in that currency and be charged in that currency when they check out.
-
-By offering localized transactional currencies, you allow those shoppers to transact in the currency of their preference, which give them a more accurate representation of exactly how much they will be charged and helps them avoid additional conversion fees.
+2. **Transactional Currency** - When a currency is enabled as transactional, shoppers in associated countries will both see prices on the storefront in that currency and be charged in that currency when they check out.
 
 | Display Currency                                                                                                                                   | Transactional Currency                                                                                                                                                   |
 |----------------------------------------------------------------------------------------------------------------------------------------------------|--------------------------------------------------------------------------------------------------------------------------------------------------------------------------|
 |![Display Currency](https://raw.githubusercontent.com/bigcommerce/dev-docs/master/assets/images/multi-currency-display-currency.png "Display Currency")|![Transactional Currency](https://raw.githubusercontent.com/bigcommerce/dev-docs/master/assets/images/multi-currency-transactional-currency.png "Transactional Currency")    |
-
 
 <div class="HubBlock--callout">
 <div class="CalloutBlock--info">
@@ -97,7 +72,9 @@ By offering localized transactional currencies, you allow those shoppers to tran
 
 ## Pre-Configuring the Store
 
-Before enabling multiple currencies on a store, ensure it is configured as follows:
+<a id="pre-configuring-the-store"></a>
+
+Before setting up multiple currencies on a store, ensure the store is configured as follows:
 * Stripe Payment Gateway
 * Stencil Theme
 * Optimized One-Page Checkout
@@ -160,9 +137,9 @@ For details on how currencies are surfaced throughout BigCommerce APIs, user int
 
 ---
 
-## Current Limitations
+## Supported Features
 
-<a id="current-limitations"></a>
+<a id="supported-features"></a>
 
 See the table below for a list of Currencies Beta release supported and un-supported features.
 
@@ -181,7 +158,7 @@ See the table below for a list of Currencies Beta release supported and un-suppo
 
 ## Definitions
 
-<a id="multi-currency_definitions"></a>
+<a id="definitions"></a>
 
 | Name | Description |
 | -- | -- |
@@ -223,6 +200,8 @@ Please reach out to Stripe for more information on setting up the account.
 ---
 
 ## Resources
+
+<a id="resources"></a>
 
 - [How Currencies Works](https://developer.bigcommerce.com/api-docs/catalog/currencies/how-currencies-work)
 - [Currency API](https://developer.bigcommerce.com/api-reference/store-management/currency-api)
