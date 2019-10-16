@@ -5,27 +5,14 @@
 ###  On this Page
 
 - [Installing](#installing)
-- [API -- getPage](#getpage)
-- [Cart -- getCart](#getcart)
-- [Cart -- getCartQuantity](#getcartquantity)
-- [Cart -- itemAdd](#itemadd)
-- [Cart -- itemUpdate](#itemupdate)
-- [Cart -- itemRemove](#itemremove)
-- [Cart -- update](#update)
-- [Cart -- getItemGiftWrappingOptions](#getitemgiftwrappingoptions)
-- [Cart -- submitItemGiftWrappingOption](#submititemgiftwrappingoption)
-- [Cart -- getContent](#getcontent)
-- [Cart -- getShippingQuotes](#getshippingquotes)
-- [Cart -- submitShippingQuotes](#submitshippingquote)
-- [Cart -- applyCode](#applycode)
-- [Cart -- applyGiftCertificate](#applygiftcertificate)
-- [Country -- getById country](#countrygetbyid)
-- [Country -- getByName](#getbyname)
-- [Product Attributes -- optionChange](#optionchange)
-- [Product Attributes -- configureInCart](#configureincart)
-- [Product Resource -- getById](#product-resource)
-- [Search Resource -- search](#search)
-- [Config object](#config-object)
+- [api.js](#apijs)
+- [Cart API](#cart-api)
+- [Countries Resource](#countries-resource)
+- [Product Attributes Resource](#product-attributes-resource)
+- [Product Resource](#product-resource)
+- [Search Resource](#search-resource)
+- [Config Object](#config-object)
+- [Resources](#resources)
 </div>
 
 ---
@@ -37,7 +24,7 @@ These functions help you set up asynchronous requests to modify the customer’s
 
 ---
 
-<a id="installing"></a>
+
 
 ## Installing
 
@@ -56,11 +43,9 @@ If you do not want to support ES6 modules, Stencil Utils can be included as a no
 ---
 
 
-<a id="api"></a>
 
-## API [api.js]
 
-<a id="getpage"></a>
+## api.js
 
 ### [getPage ](https://github.com/bigcommerce/stencil-utils/blob/master/src/api.js) 
 Request a page using [Ajax](https://developer.mozilla.org/en-US/docs/Web/Guide/AJAX).  
@@ -75,7 +60,7 @@ Request a page using [Ajax](https://developer.mozilla.org/en-US/docs/Web/Guide/A
   <tr>
     <td>url</td>
     <td>String</td>
-    <td>URL to which you want to send a request (for example: localhost:4000/cart.php)</td>
+    <td>request URL (ex: `/cart.php`)</td>
   </tr>
   <tr>
     <td>options</td>
@@ -123,13 +108,13 @@ updateView() {
 
 ---
 
-<a id="cart"></a>
+
 
 ## Cart API 
 
 The following functions allow your theme to work with [cart](https://github.com/bigcommerce/stencil-utils/blob/9cf7c26b0a1f9ca9da83274ebc375e73f20acac5/src/api/cart.js) contents in customized ways.
 
-<a id="getcart"></a>
+
 
 ### [getCart](https://github.com/bigcommerce/stencil-utils/blob/master/src/api/cart.js#L11)
 
@@ -156,7 +141,7 @@ utils.api.cart.getCart({includeOptions: true}, (err, response) => {
 ```
 
 
-<a id="getcartquantity"></a>
+
 
 
 ### [getCartQuantity](https://github.com/bigcommerce/stencil-utils/blob/master/src/api/cart.js#L28) 
@@ -199,7 +184,7 @@ utils.api.cart.getCartQuantity(quantity => {
 
 ---
 
-<a id="itemadd"></a>
+
 
 ### [itemAdd](https://github.com/bigcommerce/stencil-utils/blob/master/src/api/cart.js#L51)
 
@@ -270,7 +255,7 @@ The `itemAdd`function allows your code to add an item to the cart, with options:
 
 ---
 
-<a id="itemupdate"></a>
+
 
 ### [itemUpdate](https://github.com/bigcommerce/stencil-utils/blob/master/src/api/cart.js#L70)
 
@@ -353,7 +338,7 @@ The <code>itemUpdate</code> function allows your code to update a specified cart
 - [`assets/js/theme/cart.js`](https://github.com/bigcommerce/cornerstone/blob/d786c6ecbed5ad588ed9489f79e2226455a07b21/assets/js/theme/cart.js)
 
 ---
-<a id="itemremove"></a>
+
 
 ### [itemRemove](https://github.com/bigcommerce/stencil-utils/blob/master/src/api/cart.js#L106)
 
@@ -405,7 +390,7 @@ In the following example (from <code>cart.js</code>), <code>itemRemove</code> is
 
 ---
 
-<a id="update"></a>
+
 
 ### [update](https://github.com/bigcommerce/stencil-utils/blob/master/src/api/cart.js#L160)
 
@@ -472,7 +457,7 @@ The following example shows a call to `update` within the `itemUpdate` function:
 ---
 
 
-<a id="getitemgiftwrappingoptions"></a>
+
 
 
 ### [getItemGiftWrappingOptions](https://github.com/bigcommerce/stencil-utils/blob/master/src/api/cart.js#L132)
@@ -537,7 +522,7 @@ The following example (from `cart.js`) calls `getItemGiftWrappingOptions` to dis
 ---
 
 
-<a id="submititemgiftwrappingoption"></a>
+
 
 
 ### [submitItemGiftWrappingOption](https://github.com/bigcommerce/stencil-utils/blob/master/src/api/cart.js#L150)
@@ -586,7 +571,7 @@ This commented example shows a simple call to `submitItemGiftWrappingOption`:
 
 ---
 
-<a id="getcontent"></a>
+
 
 ### [getContent](https://github.com/bigcommerce/stencil-utils/blob/master/src/api/cart.js#L174)
 
@@ -663,7 +648,7 @@ refreshContent(remove) {
 
 ---
 
-<a id="get-shipping-quotes"></a>
+
 
 ### [getShippingQuotes](https://github.com/bigcommerce/stencil-utils/blob/master/src/api/cart.js#L193)
 
@@ -702,7 +687,7 @@ See submitShippingQutoes for an example.
 
 ---
 
-<a id="submitshippingquote"></a>
+
 
 ### [submitShippingQuote](https://github.com/bigcommerce/stencil-utils/blob/master/src/api/cart.js#L218)
 
@@ -772,7 +757,7 @@ bindEstimatorEvents() {
 
 ---
 
-<a id="applycode"></a>
+
 
 ### [applyCode](https://github.com/bigcommerce/stencil-utils/blob/master/src/api/cart.js#L234)
 
@@ -853,7 +838,7 @@ bindPromoCodeEvents() {
 
 ---
 
-<a id="apply-gift-certificate"></a>
+
 
 ### [applyGiftCertificate](https://github.com/bigcommerce/stencil-utils/blob/master/src/api/cart.js#L250)
 
@@ -889,14 +874,14 @@ Apply a gift certificate to a cart.
 
 ---
 
-<a id="countriesresource"></a>
+
 
 
 ## Countries Resource
 
 These functions allow your theme or app to retrieve standardized country names, by numeric ID or by string.
 
-<a id="country-get-by-id"></a>
+
 
 ### [getById](https://github.com/bigcommerce/stencil-utils/blob/master/src/api/countries.js#L23)
 
@@ -954,7 +939,7 @@ The following example a call to `getById`, followed by a call to the `getByName`
 
 ---
 
-<a id="get-by-name"></a>
+
 
 ### [getByName](https://github.com/bigcommerce/stencil-utils/blob/master/src/api/countries.js#L34)
 
@@ -1023,12 +1008,12 @@ $('select[data-field-type="Country"]').on('change', (event) => {
 
 ---
 
-<a id="product-attribute-resource"></a>
+
 
 ## Product Attributes Resource
 
 
-<a id="optionchange"></a>
+
 
 ### [optionChange](https://github.com/bigcommerce/stencil-utils/blob/master/src/api/product-attributes.js#L24) 
 
@@ -1088,7 +1073,7 @@ In this example (from `common/product-details.js`), `optionChange` is called to 
 
 ---
 
-<a id="configureincart"></a>
+
 
 ### [configureInCart](https://github.com/bigcommerce/stencil-utils/blob/master/src/api/product-attributes.js#L50)
 
@@ -1118,13 +1103,13 @@ Configure product options in the cart.
 
 ---
 
-<a id="product-resource"></a>
+
 
 ## Product Resource
 
 The `product.getById` function allows your code to retrieve, and to present, detailed product information by product ID.
 
-<a id="product-get-by-id"></a>
+
 
 ### [getById](https://github.com/bigcommerce/stencil-utils/blob/master/src/api/product.js)
 
@@ -1180,7 +1165,7 @@ The `product.getById` function allows your code to retrieve, and to present, det
 
 ---
 
-<a id="search"></a>
+
 
 ## Search Resource
 
@@ -1235,7 +1220,7 @@ The `search` function allows you to present a customized user interface for sear
 ---
 
 
-<a id="config-object"></a>
+
 
 ## Config Object
 
