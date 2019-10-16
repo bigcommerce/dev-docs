@@ -158,8 +158,8 @@
             }
           }
         },
-        "summary": "Get All Webhooks",
-        "description": "Returns a list of all webhooks on a store",
+        "summary": "Get Webhooks",
+        "description": "Returns a list of all webhooks on a store associated to the `client_id` used to authenticate the request",
         "operationId": "getAllWebhooks",
         "tags": [
           "Webhooks"
