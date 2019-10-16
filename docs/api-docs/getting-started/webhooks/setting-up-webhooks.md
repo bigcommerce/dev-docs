@@ -1,22 +1,24 @@
-<h1>Webhooks Tutorial</h1>
+# Webhooks Tutorial
+
 <div class="otp" id="no-index">
-	<h3> On This Page </h3>
-	<ul>
-    		<li><a href="#setting-up-webhooks_prerequisites">Prerequisites</a></li>
-        <li><a href="#setting-up-webhooks_create-project-folder">Create Project Folder</a></li>
-        <li><a href="#setting-up-webhooks_install-ngrok">Install ngrok</a></li>
-        <li><a href="#setting-up-webhooks_create-express-app">Create Express App</a></li>
-        <li><a href="#setting-up-webhooks_start-the-app-ngrok">Start the App and ngrok</a></li>
-        <li><a href="#setting-up-webhooks_fire-webhooks">Trigger the Webhook Event</a></li>
-    		<li><a href="#setting-up-webhooks_custom-headers">Adding Custom Headers</a></li>
-        <li><a href="#setting-up-webhooks_troubleshooting">Troubleshooting</a></li>
-        <li><a href="#/api-docs/getting-started/webhooks/webhook-events">All Available Webhooks</a></li>
-	</ul>
+
+# On This Page
+
+- [Prerequisites](#prerequisites)
+- [Create Project Folder](#create-project-folder)
+- [Install ngrok](#install-ngrok)
+- [Create Express App](#create-express-app)
+- [Start the App and ngrok](#start-the-app-and-ngrok)
+- [Trigger the Webhook Event](#trigger-the-webhook-event)
+- [Adding Custom Headers](#adding-custom-headers)
+- [Troubleshooting](#troubleshooting)
+- [Resources](#resources)
+
 </div>
 
 ---
 
-<a href='#setting-up-webhooks_intro' aria-hidden='true' class='block-anchor'  id='setting-up-webhooks_intro'><i aria-hidden='true' class='linkify icon'></i></a>
+
 
 When testing your application locally, ngrok is a helpful tool for viewing the webhook responses that BigCommerce sends to your app. Ngrok creates a publicly accessible tunnel URL to an application running on your machine's localhost. Ngrok also provides a web interface you can use to view HTTP request details.
 
@@ -25,8 +27,6 @@ In this tutorial, we'll install ngrok, register a webhook on your store, and the
 If you would like to follow along, we have created a Postman collection with all the requests. 
 
 [![Run in Postman](https://run.pstmn.io/button.svg)](https://app.getpostman.com/run-collection/3f005ed74030e01bbf7a)
-
-<a href='#setting-up-webhooks_prerequisites' aria-hidden='true' class='block-anchor'  id='setting-up-webhooks_prerequisites'><i aria-hidden='true' class='linkify icon'></i></a>
 
 ## Prerequisites
 
@@ -37,8 +37,6 @@ If you would like to follow along, we have created a Postman collection with all
 - [Webhooks Overview](/api-docs/getting-started/webhooks/about-webhooks)
 
 ---
-
-<a href='#setting-up-webhooks_create-project-folder' aria-hidden='true' class='block-anchor'  id='setting-up-webhooks_create-project-folder'><i aria-hidden='true' class='linkify icon'></i></a>
 
 ## Create Project Folder
 
@@ -63,7 +61,7 @@ cd webhooks-test
 
 ---
 
-<a href='#setting-up-webhooks_install-ngrok' aria-hidden='true' class='block-anchor'  id='setting-up-webhooks_install-ngrok'><i aria-hidden='true' class='linkify icon'></i></a>
+
 
 ## Install ngrok
 
@@ -113,7 +111,7 @@ unzip /Users/your-computer/Downloads/ngrok-stable-darwin-amd64.zip -d /Users/you
 
 ---
 
-<a href='#setting-up-webhooks_create-express-app' aria-hidden='true' class='block-anchor'  id='setting-up-webhooks_create-express-app'><i aria-hidden='true' class='linkify icon'></i></a>
+
 
 ## Create Express App
 
@@ -209,7 +207,7 @@ From Express [Website](https://expressjs.com/en/starter/basic-routing.html):
 
 ---
 
-<a href='#setting-up-webhooks_start-the-app-ngrok' aria-hidden='true' class='block-anchor'  id='setting-up-webhooks_start-the-app-ngrok'><i aria-hidden='true' class='linkify icon'></i></a>
+
 
 ## Start the App and ngrok
 
@@ -250,9 +248,9 @@ ngrok returns two values we will need to register a webhook and observe the resp
 
 Subscribe to the `store/product/updated` event: 
 
-1. Create a POST request using the try it now box below or your API enviroment of choice to the request URL:`https://api.bigcommerce.com/stores/{{store_hash}}/v2/hooks`. 
+1. `POST` to `https://api.bigcommerce.com/stores/{{store_hash}}/v2/hooks`. 
 Replace store_hash with the value from your store's API path.
-2. Create a request body where "scope" is the webhook event we are subscribing to and "destination" is your ngrok forwarding url with /webhooks appended (the route specified in our Express app):
+2. In the request body, `scope` is the webhook event we are subscribing to, and `destination` is the `ngrok` forwarding url with `/webhooks` appended (the route specified in the Express app):
 
 <div class="HubBlock-header">
     <div class="HubBlock-header-title flex items-center">
@@ -274,7 +272,7 @@ lineNumbers: true
 }
 ```
 
-3. Update the request headers to contain:
+1. Update the request headers to contain:
 
 <div class="HubBlock-header">
     <div class="HubBlock-header-title flex items-center">
@@ -299,7 +297,7 @@ lineNumbers: true
 
 
 
-<a href='#201-response' aria-hidden='true' class='block-anchor'  id='201-response'><i aria-hidden='true' class='linkify icon'></i></a>
+
 
 <div class="HubBlock-header">
     <div class="HubBlock-header-title flex items-center">
@@ -327,7 +325,7 @@ lineNumbers: true
 }
 ```
 
-<a href='#setting-up-webhooks_fire-webhooks' aria-hidden='true' class='block-anchor'  id='setting-up-webhooks_fire-webhooks'><i aria-hidden='true' class='linkify icon'></i></a>
+
 
 ## Trigger the Webhook Event
 Webhooks can be triggered by actions performed by a shopper on the storefront or user within the control panel, or actions performed via API. To illustrate this point, we'll demonstrate both methods.
@@ -437,7 +435,7 @@ Want to keep going? Try changing the text in `res.send()` to a custom response, 
 
 ---
 
-<a href='#setting-up-webhooks_custom-headers' aria-hidden='true' class='block-anchor'  id='setting-up-webhooks_custom-headers'><i aria-hidden='true' class='linkify icon'></i></a>
+
 
 ## Adding Custom Headers
 For added security you can add custom headers to your webhook request. `headers` accepts any key:value pair as a string. 
@@ -465,7 +463,7 @@ lineNumbers: true
 
 ---
 
-<a href='#setting-up-webhooks_troubleshooting' aria-hidden='true' class='block-anchor'  id='setting-up-webhooks_troubleshooting'><i aria-hidden='true' class='linkify icon'></i></a>
+
 
 ## Troubleshooting
 
