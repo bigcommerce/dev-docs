@@ -781,7 +781,7 @@
         "operationId": "getACart"
       },
       "post": {
-        "description": "Creates a *Cart*.\n\n**Required Fields**\n* line_items object\n* gift_certificates object – Only if adding a gift certificate to for shopper purchase\n\n**Notes**\n\nCart ID is generated in the response.\n\nWhen creating a cart it is recommeneded to use the option id and option value.\n\nTo add a product with a mix of variants and options, the `optionSelections` need to be listed out separately. \n\nThe redirect url endpoint does not work using the Storefront Cart. At this time shoppers can not be directed to any carts or checkouts created using the Storefront APIS. ",
+        "description": "Creates a *Cart*.\n\n**Required Fields**\n* line_items object\n* gift_certificates object – Only if adding a gift certificate to for shopper purchase\n\n**Notes**\n\nCart ID is generated in the response.\n\nWhen creating a cart it is recommended to use the option id and option value.\n\nTo add a product with a mix of variants and options, the `optionSelections` need to be listed out separately. \n\nThe redirect url endpoint does not work using the Storefront Cart. At this time, shoppers can not be directed to any carts or checkouts created using the Storefront APIS. ",
         "parameters": [
           {
             "name": "cartData",
