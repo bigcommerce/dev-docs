@@ -1,20 +1,18 @@
-<h1>Front Matter Reference</h1>
+# Front Matter Reference
 
 <div class="otp" id="no-index">
-	<h3> On This Page </h3>
-	<ul>
-    <li><a href="#front-matter-attributes-reference_global">Global Attributes</a></li>
-    <li><a href="#front-matter-attributes-reference_category">Category Attributes</a></li>
-    <li><a href="#front-matter-attributes-reference_blog">Blog Attributes</a></li>
-    <li><a href="#front-matter-attributes-reference_product">Product Attributes</a></li>
-    <li><a href="#front-matter-attributes-reference_brand">Brand Attributes</a></li>
-    <li><a href="#front-matter-attributes-reference_brand-list">Brand List Attributes</a></li>
-    <li><a href="#front-matter-attributes-reference_cart">Cart Attributes</a></li>
-    <li><a href="#front-matter-attributes-reference_search">Search Attributes</a></li>
-	</ul>
+
+### On This Page
+- [Global Attributes](#global-attributes)
+- [Category Attributes](#category-attributes)
+- [Blog Attributes](#blog-attributes)
+- [Product Attributes](#product-attributes)
+- [Brand Attributes](#brand-attributes)
+- [Brand List Attributes](#brand-list-attributes)
+- [Cart Attributes](#cart-attributes)
+- [Search Attributes](#search-attributes)
+  
 </div>
-
-
 
 <div class="HubBlock--callout">
 <div class="CalloutBlock--warning">
@@ -22,16 +20,14 @@
     
 <!-- theme: warning -->
 
-### Front Matter Restrictions
-> You can use front matter to specify attributes on the tops of pages in your
-`<theme-name>/templates/pages/` subdirectory, but you **cannot** use front matter to accomplish this on pages in the following subdirectories:
- - `<theme-name>/templates/components/`
- - `<theme-name>/templates/layout/`
- - `<theme-name>/templates/pages/custom/` 
-* Indent using **only** spaces. (YAML forbids tabs to avoid inconsistent encoding of tabs across platforms.) An indent of even one space indicates a child.
+### Note
+> Front is supported in `templates/pages/`; however, the files in the following directories do not support front-matter:
+ - `templates/components/`
+ - `templates/layout/`
+ - `templates/pages/custom/` 
+* Spaces should be used to indent (tabs don't follow YAML Spec)
 * Front matter on a given page cannot exceed 64 KB.
-* If a front-matter directive contains an invalid option, Stencil CLI will silently ignore that option.
-
+* If a front-matter directive contains an invalid option, Stencil-CLI will silently ignore that option.
 
 </div>
 </div>
@@ -58,21 +54,13 @@ Global attributes are available on all pages.
     <td></td>
     <td>Customer attributes are always included, and are available if the active shopper is logged in.</td>
   </tr>
-
-  <tr>
-  	<td></td>
-  	<td>addresses: true</td>
-    <td>true – on address page null – on all other pages</td>
-    <td>Boolean indicating whether to retrieve addresses for this customer. No filtering available. Default sorting is by address id, from lowest to highest. <b>null or false:</b> Do not retrieve addresses. <b>true</b>: Retrieve addresses.</td>
-  </tr>
-  
   <tr>
     <td></td>
     <td>returns: true</td>
     <td></b>true – on returns page; <b>null</b> – on all other pages</td>
     <td>Boolean indicating whether to retrieve product-return requests for this customer. No filtering available.<b>true</b>: Retrieve requests. <b>null</b> or <b>false</b>: Do not retrieve requests.</td>
   </tr>
-  
+
   <tr>
     <td></td>
     <td>wishlists: <br>
@@ -234,6 +222,7 @@ If &lt;number&gt; is not defined, returns 10 brands, ordered by the number of pr
 
 
 ---
+
 <a id="front-matter-attributes-reference_category"></a>
 
 ## Category Attributes 
@@ -275,6 +264,7 @@ Defines the number of products displayed per page for this category. Range of po
 </table>
 
 ---
+
 <a id="front-matter-attributes-reference_blog"></a>
 
 ## Blog Attributes
