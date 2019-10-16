@@ -39600,7 +39600,7 @@
     "/catalog/summary": {
       "get": {
         "tags": [
-          "Catalog"
+          "Summary"
         ],
         "description": "Returns a lightweight inventory summary from the BigCommerce Catalog.\n\nThe inventory summary includes:\n* \"inventory_count\"\n* \"variant_count\"\n* \"inventory_value\"\n* \"highest_variant_price\"\n* \"average_variant_price\"\n* \"lowest_variant_price\"\n* \"oldest_variant_date\"\n* \"newest_variant_date\"\n* \"primary_category_id\"\n* \"primary_category_name\"",
         "responses": {
