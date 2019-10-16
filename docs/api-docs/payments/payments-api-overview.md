@@ -1,17 +1,15 @@
-<h1>Payments API</h1>
+# Payments API
+
 <div class="otp" id="no-index">
-	<h3> On This Page </h3>
-	<ul>
-    <li><a href="#payments_pci-compliance">PCI Compliance</a></li>
-    <li><a href="#payments_processing-payment">Processing a Payment</a></li>
-    <li><a href="#payments_stored-cards">Stored Cards</a></li>
-    <li><a href="#payments_credit-cards">Credit Cards</a></li>
-    <li><a href="#payments_orders-api">Orders API</a></li>
-    <li><a href="#payments_technical-details">Technical Details</a></li>
-    <li><a href="#payments_sample-app-diagram">Sample App Diagram</a></li>
-    <li><a href="#payments_error-codes">Error Codes</a></li>
-    <li><a href="#payments_faq">FAQ</a></li>
-	</ul>
+- [PCI Compliance](#pci-compliance)
+- [Processing a Payment](#processing-a-payment)
+- [Credit Cards](#credit-cards)
+- [Using the Orders API](#using-the-orders-api)
+- [Technical Details](#technical-details)
+- [Sample App Diagram](#sample-app-diagram)
+- [Error Codes](#error-codes)
+- [FAQ](#faq)
+- [Resources](#resources)
 </div>
 
 The Payments API enables you to process payments through the store’s connected payment gateway. A payment can be taken for an order that is created using either the [Server to Server Checkout API Orders](https://developer.bigcommerce.com/api-reference/cart-checkout/server-server-checkout-api) endpoint or creating an order using [V2 Orders](https://developer.bigcommerce.com/api-reference/orders/orders-api/orders/createanorder) endpoint.
@@ -20,20 +18,18 @@ Payments are processed via a sequence of requests to two API hosts:
 * Create the payment token:   `https://api.bigcommerce.com/stores/{store_hash}/v3/payments/access_tokens`
 * Process the payment:   `https://payments.bigcommerce.com/stores/{store_hash}/payments`
 
-### Prerequisites
-**Scopes**  
-The following [OAuth](/api-docs/getting-started/authentication#authentication_oauth-scopes) scopes are required:
-* Create Payments
-* Get Payment Methods
-
-To follow along, we have created a Postman Collection.
+### Required [OAuth Scopes](/api-docs/getting-started/authentication#authentication_oauth-scopes)**  
+* `Create` `Payments`
+* `Read` `Payment Methods`
 
 [![Run in Postman](https://run.pstmn.io/button.svg)](https://app.getpostman.com/run-collection/38daa68bda00ba9d4734)
+
 ---
 
 <a href='#payments_pci-compliance' aria-hidden='true' class='block-anchor'  id='payments_pci-compliance'><i aria-hidden='true' class='linkify icon'></i></a>
 
 ## PCI Compliance
+
 BigCommerce is only responsible for the security of credit card to the extent that it is directly in the route of the payment request to payment processors during a payment processing request. To ensure secure handling of payment instruments, as a third-party developer, you are responsible for developing the storefronts or recurring billing apps in a PCI compliant manner and maintaining a PCI compliance certification for third-party service providers certified by an external Qualified Security Assessor (QSA).
 
 Merchants or shoppers personal identifiable information (PII) collected by recurring billing apps that consumes the BigCommerce Payments API must have it’s own Privacy Policy sufficient to the requirements of the European Union General Data Protection Requirements (GDPR) which must be available and displayed to the general public.
@@ -602,7 +598,6 @@ Orders can be created using the [Server to Server API Endpoints](https://develop
 
 ## FAQ
 
-
 **How can I store a credit card?**
 
 When processing a credit payment set `save_instrument: true`. The shopper can also store credit cards during checkout. If you are using the Checkout SDK, it can store the credit card as part of the checkout.
@@ -633,6 +628,9 @@ Store credit is not a supported payment method with the Payments API. Store cred
 **Are gift certificates supported?**
 
 Gift certificates are not supported with the Payments API. Gift certificates can still be used by the shopper on the storefront, part of the control panel or with the Checkout API.
+
+**Are offline payment methods supported?**
+The Payments API is designed to process credit card payments through supported payment gateways; it does not expose methods for processing [offline payment methods](https://support.bigcommerce.com/s/article/Offline-Payment-Methods) such as cash on delivery.
 
 ---
 
