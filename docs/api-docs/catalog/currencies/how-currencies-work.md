@@ -4,6 +4,7 @@
 
 ### On this Page
 - [Catalog Pricing](#catalog-pricing)
+- [Currencies](#currencies)
 - [Price Lists](#price-lists)
 - [Price List Modifiers](#price-list-modifiers)
 - [Price Records](#price-records)
@@ -36,6 +37,37 @@ Currency is not dynamically converted. To convert the merchant will need to do o
 * Set up automatic updates to their conversion rate through APIs,
 * Set up explicit pricing per each currency using Price Lists (only available to Enterprise merchants)
 * Pricing by currency only, not by country.
+
+---
+
+## Currencies
+
+**Details:**
+* A new field has been added to [/v2/currencies](https://developer.bigcommerce.com/api-reference/store-management/currency-api):
+  * `is_transactional` - boolean inidcating the currency is transactional or not; false means display only currency.
+
+
+**Example:**
+
+```json
+{
+  "country_iso2": "EU",
+  "currency_code": "EUR",
+  "currency_exchange_rate": "0.849",
+  "auto_update": true,
+  "token_location": "left",
+  "token": "€",
+  "decimal_token": ".",
+  "thousands_token": ",",
+  "decimal_places": 2,
+  "name": "Euro",
+  "is_transactional": false,
+  "id": 2,
+  "is_default": false,
+  "last_updated": "2018-06-12T14:41:56.000Z",
+  "enabled": false
+}
+```
 
 ---
 
@@ -271,20 +303,28 @@ To change the transactional currency of their cart, the shopper will need to emp
 * Invoices show item price and the currency of the transaction.
 * Since each order can be in a different currency, the control panel order page shows the currency's token (this also applies to Order Export data).
 * The shopper's order history shows the transactional currency, not the display currency. While the underlying historical data itself will remain unchanged, the page now surfaces the transactional currency and amount, rather than display currency and amount -- this change applies to all orders, including historical ones. 
+* `default_currency_code` - now the transactional currency used in the order (was the store's default currency).
+* `currency_code` - the display currency used to present prices to the shopper on the storefront.
+* `currency_exchange_rate` - exchange between the store's default currency and the display currency; when the order is created via server-to-server endpoints, the value is always `1` -- only in the storefront can this value differ from `1`
+* The following additional fields are returned on orders when Multi-Currency is enabled:
+  * `store_default_currency_code` - the store's default currency.
+  * `store_default_to_transactional_exchange_rate` - the exchange rate between the store's default currency and the transactional currency used in the order.
 
-The APIs `default_currency_code` and `default_currency_id` are now in the transaction currency of the order. This is only for stores using multi-currency. 
-
-
-**Default Currency Response V2 Orders**
+**Example:**
 
 ```json
-// ...      
+{
+  //...   
   "currency_id": 4,
-        "currency_code": "EUR",
-        "currency_exchange_rate": 1,
-        "default_currency_id": 4,
-        "default_currency_code": "EUR"
-// ...
+  "currency_code": "EUR",
+  "currency_exchange_rate": 1,
+  "default_currency_id": 4,
+  "default_currency_code": "EUR",
+  "store_default_currency_code": "USD",
+  "store_default_to_transactional_exchange_rate": "100.0000000000"
+  //...
+}
+
 ```
 
 **Shopper Order History**:
