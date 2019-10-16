@@ -1,40 +1,34 @@
-<h1>Handlebars Helpers Reference</h1>
+# Handlebars Helpers Reference
 
 <div class="otp" id="no-index">
-	<h3> On This Page </h3>
-	<ul>
-    <li>Array Helpers</li>
-    <li>Collection Helpers</li>
-    <li>Comparison Helpers</li>
-    <li>Control-Flow Helpers</li>
-    <li>Date Helpers</li>
-    <li>HTML Helpers</li>
-    <li>Image Helpers</li>
-    <li>Inflection Helpers</li>
-		<li>Injection Helpers</li>
-		<li>Markdown Helpers</li>
-		<li>Math Helpers</li>
-		<li>Number Helpers</li>
-		<li>Object Helpers</li>
-		<li>Operator Helpers</li>
-		<li>String Helpers</li>
-		<li>URL Helpers</li>
-		<li>Miscellaneous Helpers</li>
-    </ul>
+	
+### On This Page
+
+- [Stencil Custom Array Helpers](#stencil-custom-array-helpers)
+- [Standard Array Helpers](#standard-array-helpers)
+- [Conditional Control Flow](#conditional-control-flow)
+- [Loop Control Flow](#loop-control-flow)
+- [{{getImage}}](#getimage)
+- [Comparison Operators](#comparison-operators)
+- [Logical {{or}} Operator](#logical-or-operator)
+- [{{typeof}} Operator](#typeof-operator)
+- [Stencil Custom String Helpers](#stencil-custom-string-helpers)
+- [Standard String Helpers](#standard-string-helpers)
+
 </div>
 
 This page describes all of the Handlebars helpers supported on the Stencil framework. It includes helpers that are custom to, or customized for, Stencil.
 
 For background information on using Handlebars helpers, please see the [official Handlebars documentation](http://handlebarsjs.com).
 
-# <a name="array"></a> Array Helpers
+# Array Helpers
 
 The following helpers are available to manage arrays:
 
 * [Stencil Custom Array Helpers](#array_custom)
 * [Standard Array Helpers](#array_std) 
 
-## <a name="array_custom"></a> Stencil Custom Array Helpers
+##  Stencil Custom Array Helpers
 
 The following array helpers are custom to the Stencil framework.
 ### {{itemAt}}
@@ -145,11 +139,11 @@ In this case, this Handlebars statement:
 ...would return a comma-separated list of image URLs.
 
 
-## <a name="array_std"></a> Standard Array Helpers
+##  Standard Array Helpers
 
 The following standard array helpers are supported on the Stencil framework.
 
-### <a name="after"></a> {{after}}
+###  {{after}}
 
 Returns all of the items in an array after the specified index. Opposite of [before](#before).
 
@@ -184,7 +178,7 @@ Casts the given `value` to an array.
 //=> '["foo"]'
 ```
 
-### <a name="before"></a> {{before}}
+###  {{before}}
 
 Returns all of the items in the collection before the specified count. Opposite of [after](#after).
 
@@ -237,7 +231,7 @@ Block helper that filters the given array. Renders the block for values that eva
 //=> 'BBB
 ```
 
-### <a name="first"></a> {{first}}
+###  {{first}}
 
 Returns the first item, or first `n` items, of an array.
 
@@ -329,7 +323,7 @@ Returns true if `value` is an es5 array.
 //=> 'false'
 ```
 
-### <a name="last"></a> {{last}}
+###  {{last}}
 
 Returns the last item, or last `n` items, of an array. Opposite of [first](#first).
 
@@ -449,7 +443,7 @@ Given an array `[{a: 'zzz'}, {a: 'aaa'}]`:
 //=> '[{"a":"aaa"}, {"a":"zzz"}]'
 ```
 
-### <a name="withAfter"></a> {{withAfter}}
+###  {{withAfter}}
 
 Use the items in the array, _after_ the specified index, as context inside a block. Opposite of [withBefore](#withBefore).
 
@@ -471,7 +465,7 @@ Given the array `['a', 'b', 'c', 'd', 'e']`:
 //=> "de"
 ```
 
-### <a name="withBefore"></a> {{withBefore}}
+###  {{withBefore}}
 
 Use the items in the array, _before_ the specified index, as context inside a block. Opposite of [withAfter](#withAfter).
 
@@ -493,7 +487,7 @@ Given the array `['a', 'b', 'c', 'd', 'e']`:
 //=> 'ab'
 ```
 
-### <a name="withFirst"></a> {{withFirst}}
+###  {{withFirst}}
 
 Uses a collection's first item inside a Handlebars block expression. Opposite of [withLast](#withLast).
 
@@ -514,7 +508,7 @@ Given the array `['a', 'b', 'c']`:
 {{/withFirst}}
 //=> 'a'
 ```
-### <a name="withLast"></a> {{withLast}}
+###  {{withLast}}
 
 Use the last item, or `n` items, in an array as context inside a block. Opposite of [withFirst](#withFirst).
 
@@ -556,7 +550,7 @@ Given the array `['b', 'a', 'c']`:
 //=> 'abc'
 ```
 
-# <a name="collection"></a> Collection Helpers
+#  Collection Helpers
 
 The following standard helpers are available to handle collections.
 
@@ -604,7 +598,7 @@ Returns the length of the given collection. When using a string literal in the t
 //=> 2
 ```
 
-# <a name="comparison"></a> Comparison Helpers
+#  Comparison Helpers
 
 The following standard helpers are available to handle comparisons.
 
@@ -828,7 +822,7 @@ Block helper that always renders the inverse block *unless `a` is less than or e
 * `returns` {String}: Block, or inverse block if specified and falsy.
 
 
-# <a name="control"></a> Control-Flow Helpers
+#  Control-Flow Helpers
 
 The following control-flow helpers have been customized for the Stencil framework:
 
@@ -838,11 +832,11 @@ The following control-flow helpers have been customized for the Stencil framewor
 Beyond the formal examples below, syntax and examples for control-flow helpers are covered in the official Handlebars documentation [here](http://handlebarsjs.com/builtin_helpers.html).
 
 
-## <a name="ctrl_conditional"></a> Conditional Control Flow
+##  Conditional Control Flow
 
 The following helpers provide control structures that test for conditions, and branch accordingly.
 
-### <a name="if"></a> {{if}}
+###  {{if}}
 
 The `if` helper has been customized for Stencil, and has the following syntax:
 
@@ -879,7 +873,7 @@ The `unless` helper is logically the opposite of the [`if` helper](#if), subject
 {{/unless}}
 ```
 
-#### <a name="unless_restrix"></a> Restrictions
+####  Restrictions
 
 Statements using `unless` can refer to: 
 
@@ -937,7 +931,7 @@ Handlebars does not provide an `if`/`and` conditional structure. However, to tes
     </nav>
 ```
 
-## <a name="ctrl_loop"></a> Loop Control Flow
+##  Loop Control Flow
 
 The following helpers are used to control loop execution.
 
@@ -1028,7 +1022,7 @@ The `for` helper has the following syntax, where parameters `<from>` and `<to>` 
 ```
 
 
-# <a name="date"></a> Date Helpers
+#  Date Helpers
 
 The following standard Handlebars helper handles dates.
 
@@ -1037,7 +1031,7 @@ The following standard Handlebars helper handles dates.
 Exposes `helper-date` as `moment`.
 
 
-# <a name="html"></a> HTML Helpers
+#  HTML Helpers
 
 The following standard helpers are available to handle HTML content.
 
@@ -1054,7 +1048,7 @@ Truncates a string to the specified `length`, and appends an elipsis, `…`.
 #### Example
 
 ```js
-{{ellipsis "<span>foo bar baz</span>", 7}}
+{{ellipsis "<span>foo bar baz</span>" 7}}
 //=> 'foo bar…'
 ```
 
@@ -1108,7 +1102,7 @@ Returns a `<figure>` with a thumbnail linked to a full picture.
 * `returns` {String}: HTML `<figure>` element with image and optional caption/link.
 
 
-# <a name="image"></a> Image Helpers
+#  Image Helpers
 
 The Stencil framework provides the following custom helper to manage images.
 
@@ -1131,7 +1125,7 @@ Here is an example:
 You can use the optional `defaultImage` parameter to specify an image that will be displayed in cases where the passed `stencilImage` value is null.
 
 
-# <a name="inflection"></a> Inflection Helpers
+#  Inflection Helpers
 
 The following standard helpers are available to transform strings.
 
@@ -1169,7 +1163,7 @@ Returns an ordinalized number (as a string).
 //=> '22nd'
 ```
 
-# <a name="injection"></a> Injection Helpers
+#  Injection Helpers
 
 The Stencil framework provides the following custom helpers to insert various resources into a page context:
 
@@ -1178,7 +1172,7 @@ The Stencil framework provides the following custom helpers to insert various re
 * [{{inject}} and {{jsContext}}](#inject)
 * [{{stylesheet}}](#stylesheet)
 
-### <a name="cdn"></a> {{cdn}}
+###  {{cdn}}
 
 The `cdn` helper is custom to Stencil. It is a URL transformer for content delivery networks.
 
@@ -1197,7 +1191,7 @@ When you reference static assets that you have locally staged outside your `<the
 The presumed WebDAV root directory is `/content/`. (So, in this example, the `image.jpg` file has been uploaded to the WebDAV `/content/` directory.) The presumed local directory is `<theme-name>/assets/`, so you can omit that path when referencing its contained files or subdirectories.
 
 
-#### <a name="cdn-custom"></a> CDN Custom Endpoints
+####  CDN Custom Endpoints
 
 You can define custom CDN endpoints to use with the `cdn` Handlebars helper. This facilitates including large, high-resolution image assets in themes, without exceeding BigCommerce's [50 MB limit](/stencil-docs/prepare-and-upload-a-theme/bundling-and-uploading#bundling_bundling-your-theme) when bundling the theme for upload to BigCommerce. 
 
@@ -1261,7 +1255,7 @@ The default mode is `swap`.
 
 You can read more about font-display [on the Mozilla Documentation](https://developer.mozilla.org/en-US/docs/Web/CSS/@font-face/font-display).
 
-### <a name="inject"></a> {{inject}} and {{jsContext}}
+###  {{inject}} and {{jsContext}}
 
 Occasionally, your theme's client-side application code might need to incorporate dynamic data from the template context. Stencil provides two custom Handlebars helpers to help you achieve this: `inject`  and `jsContext`.
 
@@ -1356,7 +1350,7 @@ category:
 {{> layout/base}}
 ```
 
-### <a name="stylesheet"></a> {{stylesheet}}
+###  {{stylesheet}}
 
 The `stylesheet` helper is custom to Stencil. It renders a link tag to insert a stylesheet into your theme. (This is required if you want Theme Editor to rewrite the stylesheet file when a merchant customizes their theme.) This helper returns an HTML string.
 
@@ -1372,7 +1366,7 @@ The `stylesheet` helper is custom to Stencil. It renders a link tag to insert a 
 ```
 
 
-# <a name="markdown"></a> Markdown Helpers
+#  Markdown Helpers
 
 The following standard helper is available to convert markdown.
 
@@ -1395,7 +1389,7 @@ Block helper that converts a string of inline markdown to HTML.
 //=> <h1>Foo</h1>
 ```
 
-# <a name="math"></a> Math Helpers
+#  Math Helpers
 
 The following standard helpers are available to handle mathematical operations.
 
@@ -1492,7 +1486,7 @@ Returns the average of all numbers in the given array.
 //=> '3'
 ```
 
-# <a name="number"></a> Number Helpers
+#  Number Helpers
 
 The following standard helpers are available to handle and transform numbers.
 
@@ -1583,7 +1577,7 @@ Formats the given number, using fixed-point notation.
 * `returns` {Number}
 
 
-# <a name="object"></a> Object Helpers
+#  Object Helpers
 
 The following standard helpers are available to handle objects.
 
@@ -1707,7 +1701,7 @@ Stringifies an object using `JSON.stringify`.
 * `returns` {String}
 
 
-# <a name="operator"></a> Operator Helpers
+#  Operator Helpers
 
 The Stencil framework supports the following operator helpers:
 
@@ -1715,7 +1709,7 @@ The Stencil framework supports the following operator helpers:
 [Logical {{or}} Operator](#op_logical)
 [{{typeof}} Operator](#op_type)
 
-## <a name="op_comparison"></a> Comparison Operators
+##  Comparison Operators
 
 The following helpers are available to handle comparisons.
 
@@ -1762,7 +1756,7 @@ To improvise a `!==` (not equal or not equal type) comparison operator in Handle
     </nav>
 ```
 
-## <a name="op_logical"></a> Logical {{or}} Operator
+##  Logical {{or}} Operator
 
 The `or` operator has been customized for Stencil. It checks whether at least one of its parameters evaluates to true, and has the following syntax:
 
@@ -1787,7 +1781,7 @@ Here is a usage example from Stencil's Cornerstone base theme, where it displays
 The `or` operator's parameters are one or more strings, numbers, arrays, or collections. Parameters can be of mixed types. 
 
 
-## <a name="op_type"></a> {{typeof}} Operator
+##  {{typeof}} Operator
 
 The `typeof` operator returns the JavaScript type of a variable, such as:
 
@@ -1809,7 +1803,7 @@ By design, an array will return a `typeof` value of `object`.
 ```
 
 
-# <a name="string"></a> String Helpers
+#  String Helpers
 
 The following helpers are available to manipulate strings:
 
@@ -1817,11 +1811,11 @@ The following helpers are available to manipulate strings:
 * [Standard String Helpers](#string_std)
 
 
-## <a name="string_custom"></a> Stencil Custom String Helpers
+##  Stencil Custom String Helpers
 
 The following string helpers are custom to the Stencil framework.
 
-### <a name="block-helper"></a> {{block}} </span>
+### 
 
 The `block` string helper is custom to Stencil. It defines a block of content, which can be overwritten by the [partial](#partial-helper) helper.
 
@@ -1879,7 +1873,7 @@ This Handlebars statement:
 "<br>685 Market St<br>San Francisco<br>94105<br>CA<br>"
 ```
 
-### <a name="partial-helper"></a> {{partial}}
+###  {{partial}}
 
 The `partial` string helper is custom to Stencil. It overrides block content defined by the [block](#block-helper) helper.
 
@@ -1923,7 +1917,7 @@ This Handlebars statement:
 ```
 
 
-## <a name="string_std"></a> Standard String Helpers
+##  Standard String Helpers
 
 The following standard string helpers are supported on the Stencil framework.
 
@@ -2280,7 +2274,7 @@ does not support inverse blocks.
 * `returns` {String}
 
 
-# <a name="url"></a> URL Helpers
+#  URL Helpers
 
 The following standard helpers are available to transform URLs.
 
@@ -2343,7 +2337,7 @@ Useful for displaying media that might have an `http` protocol on secure connect
 * `returns` {String}: The URL with the `http` protocol stripped.
 
 
-# <a name="misc"></a> Miscellaneous Helpers
+#  Miscellaneous Helpers
 
 The following standard helpers are also supported on the Stencil framework.
 
