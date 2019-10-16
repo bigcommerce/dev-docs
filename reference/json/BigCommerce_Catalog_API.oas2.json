@@ -21974,7 +21974,7 @@
         ]
       },
       "post": {
-        "description": "Creates a *Product Modifier*.\n\n**Required Fields**\n* required\n* display_name\n* type\n\n**Read-Only Fields**\n* id\n\nThere are two steps to create a modifier. \n1. Add the modifier using the [Create Modifier](/api-reference/catalog/catalog-api/product-modifiers/createmodifier). \n2. [Update](/api-reference/catalog/catalog-api/product-modifiers/updatemodifier) the modifier values. ",
+        "description": "Creates a *Product Modifier*.\n\n**Required Fields**\n* `required`\n* `display_name`\n* `type`\n\n**Read-Only Fields**\n* `id`\n\nCreating a product modifier via API requires a minimum of two requests:\n1. a `POST` to [/catalog/products/{product_id}/modifiers](/api-reference/catalog/catalog-api/product-modifiers/createmodifier) to create the modifier, and\n2. a `POST` [/catalog/products/{product_id}/modifiers/{modifier_id}/values](/api-reference/catalog/catalog-api/product-modifiers/updatemodifier) to add values to the modifier. ",
         "operationId": "createModifier",
         "parameters": [
           {
@@ -41736,11 +41736,7 @@
                     "null"
                   ],
                   "description": "Extra data describing the value, based on the type of option or modifier with which the value is associated. The `swatch` type option can accept an array of `colors`, with up to three hexidecimal color keys; or an `image_url`, which is a full image URL path including protocol. The `product list` type option requires a `product_id`. The `checkbox` type option requires a boolean flag, called `checked_value`, to determine which value is considered to be the checked state. If no data is available, returns `null`.\n",
-                  "properties": {
-                    "": {
-                      "type": "string"
-                    }
-                  }
+                  "properties": {}
                 }
               },
               "required": [
