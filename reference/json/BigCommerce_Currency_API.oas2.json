@@ -132,7 +132,7 @@
             "required": true
           }
         ],
-        "tags": [],
+        "tags": ["/currencies"],
         "description": "Deletes all non-default store currencies."
       },
       "post": {
@@ -216,7 +216,7 @@
             "description": ""
           }
         ],
-        "tags": []
+        "tags": ["/currencies"]
       }
     },
     "/currencies/{id}": {
@@ -559,7 +559,7 @@
             }
           }
         ],
-        "tags": [],
+        "tags": ["/currencies"],
         "operationId": "updateACurrency"
       },
       "delete": {
@@ -729,7 +729,12 @@
       "description": "Currency Object"
     }
   },
-  "tags": [],
+  "tags": [
+    {
+      "name": "/currencies", 
+      "description":""
+    }
+  ],
   "securityDefinitions": {
     "X-Auth-Token": {
       "type": "apiKey",
