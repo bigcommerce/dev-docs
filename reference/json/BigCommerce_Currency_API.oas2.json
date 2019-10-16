@@ -2,8 +2,8 @@
   "swagger": "2.0",
   "info": {
     "version": "",
-    "title": "Currency API",
-    "description": "### Currency\nThe Currency object and endpoints manage alternate currency display options on the storefront."
+    "title": "Currencies",
+    "description": "### Currencies\n`/currencies` endpoints manage alternate currency display options on the storefront.\n\n**OAuth Scopes**\n* `Information & Settings`"
   },
   "host": "api.bigcommerce.com",
   "basePath": "/stores/{store_hash}/v2/",
@@ -25,113 +25,11 @@
             "schema": {
               "type": "array",
               "items": {
-                "title": "Currency",
-                "example": {
-                  "id": 2,
-                  "is_default": false,
-                  "last_updated": "Tue, 12 Jun 2018 14:41:56 +0000\"",
-                  "country_iso2": "EU",
-                  "currency_code": "EUR",
-                  "currency_exchange_rate": 0.849,
-                  "auto_update": true,
-                  "token_location": "left",
-                  "token": "€",
-                  "decimal_token": ".",
-                  "thousands_token": ",",
-                  "decimal_places": 2,
-                  "name": "Euro",
-                  "enabled": false
-                },
-                "type": "object",
-                "properties": {
-                  "id": {
-                    "description": "Id of the currency. READ-ONLY",
-                    "example": 2,
-                    "type": "integer"
-                  },
-                  "is_default": {
-                    "description": "Specifies whether this is the store’s default currency display format and may only be adjusted in the control panel. READ-ONLY",
-                    "example": false,
-                    "type": "boolean"
-                  },
-                  "last_updated": {
-                    "description": "Date the currency was last updated, created or modified.",
-                    "example": "Tue, 12 Jun 2018 14:41:56 +0000\"",
-                    "type": "string",
-                    "format": "date-time"
-                  },
-                  "country_iso2": {
-                    "type": "string",
-                    "description": "2-letter ISO Alpha-2 code for this currency’s country.",
-                    "example": "EU"
-                  },
-                  "currency_code": {
-                    "type": "string",
-                    "description": "3-letter ISO 4217 code for this currency.",
-                    "example": "EUR"
-                  },
-                  "currency_exchange_rate": {
-                    "type": "string",
-                    "description": "Amount of this currency that is equivalent to one U.S. dollar.(Float, Float as String, Integer)",
-                    "example": 0.849
-                  },
-                  "auto_update": {
-                    "type": "boolean",
-                    "description": "Specifies whether to use the Open Exchange Rates service to update the currency conversion. A value of false specifies a static conversion value.",
-                    "example": true
-                  },
-                  "token_location": {
-                    "type": "string",
-                    "description": "Specifies whether this currency’s symbol appears to the “left” or “right” of the numeric amount.",
-                    "example": "left"
-                  },
-                  "token": {
-                    "type": "string",
-                    "description": "Symbol for this currency.",
-                    "example": "€"
-                  },
-                  "decimal_token": {
-                    "type": "string",
-                    "description": "Symbol used as the decimal separator in this currency.",
-                    "example": "."
-                  },
-                  "thousands_token": {
-                    "type": "string",
-                    "description": "Symbol used as the thousands separator in this currency.",
-                    "example": ","
-                  },
-                  "decimal_places": {
-                    "type": "integer",
-                    "description": "Number of decimal places to show for this currency.",
-                    "example": 2
-                  },
-                  "name": {
-                    "type": "string",
-                    "description": "Name of the currency.",
-                    "example": "Euro"
-                  },
-                  "enabled": {
-                    "description": "If the currency is active on the store.",
-                    "example": false,
-                    "type": "boolean"
-                  }
-                },
-                "required": [
-                  "country_iso2",
-                  "currency_code",
-                  "currency_exchange_rate",
-                  "auto_update",
-                  "token_location",
-                  "token",
-                  "decimal_token",
-                  "thousands_token",
-                  "decimal_places",
-                  "name"
-                ]
+                "$ref": "#/definitions/Currency"
               }
             },
             "examples": {
-              "application/json": [
+              "Example": [
                 {
                   "id": 1,
                   "is_default": true,
@@ -180,7 +78,8 @@
                   "decimal_places": 2,
                   "enabled": false
                 }
-              ]
+              ],
+              "example-2": {}
             }
           }
         },
@@ -204,9 +103,6 @@
             "default": "application/json",
             "required": true
           }
-        ],
-        "tags": [
-          "Currency"
         ]
       },
       "delete": {
@@ -246,109 +142,7 @@
           "200": {
             "description": "",
             "schema": {
-              "title": "Currency",
-              "example": {
-                "id": 2,
-                "is_default": false,
-                "last_updated": "Tue, 12 Jun 2018 14:41:56 +0000\"",
-                "country_iso2": "EU",
-                "currency_code": "EUR",
-                "currency_exchange_rate": 0.849,
-                "auto_update": true,
-                "token_location": "left",
-                "token": "€",
-                "decimal_token": ".",
-                "thousands_token": ",",
-                "decimal_places": 2,
-                "name": "Euro",
-                "enabled": false
-              },
-              "type": "object",
-              "properties": {
-                "id": {
-                  "description": "Id of the currency. READ-ONLY",
-                  "example": 2,
-                  "type": "integer"
-                },
-                "is_default": {
-                  "description": "Specifies whether this is the store’s default currency display format and may only be adjusted in the control panel. READ-ONLY",
-                  "example": false,
-                  "type": "boolean"
-                },
-                "last_updated": {
-                  "description": "Date the currency was last updated, created or modified.",
-                  "example": "Tue, 12 Jun 2018 14:41:56 +0000\"",
-                  "type": "string",
-                  "format": "date-time"
-                },
-                "country_iso2": {
-                  "type": "string",
-                  "description": "2-letter ISO Alpha-2 code for this currency’s country.",
-                  "example": "EU"
-                },
-                "currency_code": {
-                  "type": "string",
-                  "description": "3-letter ISO 4217 code for this currency.",
-                  "example": "EUR"
-                },
-                "currency_exchange_rate": {
-                  "type": "string",
-                  "description": "Amount of this currency that is equivalent to one U.S. dollar.(Float, Float as String, Integer)",
-                  "example": 0.849
-                },
-                "auto_update": {
-                  "type": "boolean",
-                  "description": "Specifies whether to use the Open Exchange Rates service to update the currency conversion. A value of false specifies a static conversion value.",
-                  "example": true
-                },
-                "token_location": {
-                  "type": "string",
-                  "description": "Specifies whether this currency’s symbol appears to the “left” or “right” of the numeric amount.",
-                  "example": "left"
-                },
-                "token": {
-                  "type": "string",
-                  "description": "Symbol for this currency.",
-                  "example": "€"
-                },
-                "decimal_token": {
-                  "type": "string",
-                  "description": "Symbol used as the decimal separator in this currency.",
-                  "example": "."
-                },
-                "thousands_token": {
-                  "type": "string",
-                  "description": "Symbol used as the thousands separator in this currency.",
-                  "example": ","
-                },
-                "decimal_places": {
-                  "type": "integer",
-                  "description": "Number of decimal places to show for this currency.",
-                  "example": 2
-                },
-                "name": {
-                  "type": "string",
-                  "description": "Name of the currency.",
-                  "example": "Euro"
-                },
-                "enabled": {
-                  "description": "If the currency is active on the store.",
-                  "example": false,
-                  "type": "boolean"
-                }
-              },
-              "required": [
-                "country_iso2",
-                "currency_code",
-                "currency_exchange_rate",
-                "auto_update",
-                "token_location",
-                "token",
-                "decimal_token",
-                "thousands_token",
-                "decimal_places",
-                "name"
-              ]
+              "$ref": "#/definitions/Currency"
             },
             "examples": {
               "application/json": {
@@ -406,112 +200,10 @@
             "in": "body",
             "name": "body",
             "schema": {
-              "title": "Currency",
-              "example": {
-                "id": 2,
-                "is_default": false,
-                "last_updated": "Tue, 12 Jun 2018 14:41:56 +0000\"",
-                "country_iso2": "EU",
-                "currency_code": "EUR",
-                "currency_exchange_rate": 0.849,
-                "auto_update": true,
-                "token_location": "left",
-                "token": "€",
-                "decimal_token": ".",
-                "thousands_token": ",",
-                "decimal_places": 2,
-                "name": "Euro",
-                "enabled": false
-              },
-              "type": "object",
-              "properties": {
-                "id": {
-                  "description": "Id of the currency. READ-ONLY",
-                  "example": 2,
-                  "type": "integer"
-                },
-                "is_default": {
-                  "description": "Specifies whether this is the store’s default currency display format and may only be adjusted in the control panel. READ-ONLY",
-                  "example": false,
-                  "type": "boolean"
-                },
-                "last_updated": {
-                  "description": "Date the currency was last updated, created or modified.",
-                  "example": "Tue, 12 Jun 2018 14:41:56 +0000\"",
-                  "type": "string",
-                  "format": "date-time"
-                },
-                "country_iso2": {
-                  "type": "string",
-                  "description": "2-letter ISO Alpha-2 code for this currency’s country.",
-                  "example": "EU"
-                },
-                "currency_code": {
-                  "type": "string",
-                  "description": "3-letter ISO 4217 code for this currency.",
-                  "example": "EUR"
-                },
-                "currency_exchange_rate": {
-                  "type": "string",
-                  "description": "Amount of this currency that is equivalent to one U.S. dollar.(Float, Float as String, Integer)",
-                  "example": 0.849
-                },
-                "auto_update": {
-                  "type": "boolean",
-                  "description": "Specifies whether to use the Open Exchange Rates service to update the currency conversion. A value of false specifies a static conversion value.",
-                  "example": true
-                },
-                "token_location": {
-                  "type": "string",
-                  "description": "Specifies whether this currency’s symbol appears to the “left” or “right” of the numeric amount.",
-                  "example": "left"
-                },
-                "token": {
-                  "type": "string",
-                  "description": "Symbol for this currency.",
-                  "example": "€"
-                },
-                "decimal_token": {
-                  "type": "string",
-                  "description": "Symbol used as the decimal separator in this currency.",
-                  "example": "."
-                },
-                "thousands_token": {
-                  "type": "string",
-                  "description": "Symbol used as the thousands separator in this currency.",
-                  "example": ","
-                },
-                "decimal_places": {
-                  "type": "integer",
-                  "description": "Number of decimal places to show for this currency.",
-                  "example": 2
-                },
-                "name": {
-                  "type": "string",
-                  "description": "Name of the currency.",
-                  "example": "Euro"
-                },
-                "enabled": {
-                  "description": "If the currency is active on the store.",
-                  "example": false,
-                  "type": "boolean"
-                }
-              },
-              "required": [
-                "country_iso2",
-                "currency_code",
-                "currency_exchange_rate",
-                "auto_update",
-                "token_location",
-                "token",
-                "decimal_token",
-                "thousands_token",
-                "decimal_places",
-                "name"
-              ]
+              "$ref": "#/definitions/Currency"
             },
             "x-examples": {
-              "application/json": {
+              "Example": {
                 "country_iso2": "AU",
                 "currency_code": "AUD",
                 "currency_exchange_rate": "1.3885600000",
@@ -522,7 +214,8 @@
                 "thousands_token": ",",
                 "decimal_places": 2
               }
-            }
+            },
+            "description": ""
           }
         ],
         "tags": [
@@ -536,112 +229,10 @@
           "200": {
             "description": "",
             "schema": {
-              "title": "Currency",
-              "example": {
-                "id": 2,
-                "is_default": false,
-                "last_updated": "Tue, 12 Jun 2018 14:41:56 +0000\"",
-                "country_iso2": "EU",
-                "currency_code": "EUR",
-                "currency_exchange_rate": 0.849,
-                "auto_update": true,
-                "token_location": "left",
-                "token": "€",
-                "decimal_token": ".",
-                "thousands_token": ",",
-                "decimal_places": 2,
-                "name": "Euro",
-                "enabled": false
-              },
-              "type": "object",
-              "properties": {
-                "id": {
-                  "description": "Id of the currency. READ-ONLY",
-                  "example": 2,
-                  "type": "integer"
-                },
-                "is_default": {
-                  "description": "Specifies whether this is the store’s default currency display format and may only be adjusted in the control panel. READ-ONLY",
-                  "example": false,
-                  "type": "boolean"
-                },
-                "last_updated": {
-                  "description": "Date the currency was last updated, created or modified.",
-                  "example": "Tue, 12 Jun 2018 14:41:56 +0000\"",
-                  "type": "string",
-                  "format": "date-time"
-                },
-                "country_iso2": {
-                  "type": "string",
-                  "description": "2-letter ISO Alpha-2 code for this currency’s country.",
-                  "example": "EU"
-                },
-                "currency_code": {
-                  "type": "string",
-                  "description": "3-letter ISO 4217 code for this currency.",
-                  "example": "EUR"
-                },
-                "currency_exchange_rate": {
-                  "type": "string",
-                  "description": "Amount of this currency that is equivalent to one U.S. dollar.(Float, Float as String, Integer)",
-                  "example": 0.849
-                },
-                "auto_update": {
-                  "type": "boolean",
-                  "description": "Specifies whether to use the Open Exchange Rates service to update the currency conversion. A value of false specifies a static conversion value.",
-                  "example": true
-                },
-                "token_location": {
-                  "type": "string",
-                  "description": "Specifies whether this currency’s symbol appears to the “left” or “right” of the numeric amount.",
-                  "example": "left"
-                },
-                "token": {
-                  "type": "string",
-                  "description": "Symbol for this currency.",
-                  "example": "€"
-                },
-                "decimal_token": {
-                  "type": "string",
-                  "description": "Symbol used as the decimal separator in this currency.",
-                  "example": "."
-                },
-                "thousands_token": {
-                  "type": "string",
-                  "description": "Symbol used as the thousands separator in this currency.",
-                  "example": ","
-                },
-                "decimal_places": {
-                  "type": "integer",
-                  "description": "Number of decimal places to show for this currency.",
-                  "example": 2
-                },
-                "name": {
-                  "type": "string",
-                  "description": "Name of the currency.",
-                  "example": "Euro"
-                },
-                "enabled": {
-                  "description": "If the currency is active on the store.",
-                  "example": false,
-                  "type": "boolean"
-                }
-              },
-              "required": [
-                "country_iso2",
-                "currency_code",
-                "currency_exchange_rate",
-                "auto_update",
-                "token_location",
-                "token",
-                "decimal_token",
-                "thousands_token",
-                "decimal_places",
-                "name"
-              ]
+              "$ref": "#/definitions/Currency"
             },
             "examples": {
-              "application/json": {
+              "Example": {
                 "id": 3,
                 "is_default": "false",
                 "date_created": "Thu, 11 Sep 2014 17:10:12 +0000",
@@ -655,22 +246,6 @@
                 "decimal_token": ".",
                 "thousands_token": ",",
                 "decimal_places": 2
-              },
-              "Response Schema": {
-                "country_iso2": "est laboris",
-                "currency_code": "magna ut",
-                "currency_exchange_rate": "esse aliquip ut ex occaecat",
-                "auto_update": false,
-                "token_location": "culpa incididunt id Excepteur minim",
-                "token": "commodo adipisicing ut",
-                "decimal_token": "id Duis",
-                "thousands_token": "in ut",
-                "decimal_places": 97021891,
-                "name": "qui",
-                "id": -1769307,
-                "is_default": true,
-                "last_updated": "1985-10-10T01:43:33.605Z",
-                "enabled": false
               }
             }
           }
@@ -692,9 +267,6 @@
             "default": "application/json",
             "required": true
           }
-        ],
-        "tags": [
-          "Currency"
         ],
         "operationId": "getACurrency"
       },
@@ -1024,9 +596,6 @@
             "required": true
           }
         ],
-        "tags": [
-          "Currency"
-        ],
         "operationId": "deleteACurrency"
       }
     }
@@ -1051,6 +620,27 @@
         "enabled": false
       },
       "type": "object",
+      "x-examples": {
+        "Example": {
+          "value": {
+            "country_iso2": "EU",
+            "currency_code": "EUR",
+            "currency_exchange_rate": "0.849",
+            "auto_update": true,
+            "token_location": "left",
+            "token": "€",
+            "decimal_token": ".",
+            "thousands_token": ",",
+            "decimal_places": 2,
+            "name": "Euro",
+            "is_transactional": false,
+            "id": 2,
+            "is_default": false,
+            "last_updated": "2018-06-12T14:41:56.000Z",
+            "enabled": false
+          }
+        }
+      },
       "properties": {
         "id": {
           "description": "Id of the currency. READ-ONLY",
@@ -1122,6 +712,11 @@
           "description": "If the currency is active on the store.",
           "example": false,
           "type": "boolean"
+        },
+        "is_transactional": {
+          "type": "boolean",
+          "description": "Indicates if the currency is set as transactional or not. False means display only currency",
+          "example": false
         }
       },
       "required": [
@@ -1134,15 +729,13 @@
         "decimal_token",
         "thousands_token",
         "decimal_places",
-        "name"
-      ]
+        "name",
+        "is_transactional"
+      ],
+      "description": "Currency Object"
     }
   },
-  "tags": [
-    {
-      "name": "Currency"
-    }
-  ],
+  "tags": [],
   "securityDefinitions": {
     "X-Auth-Token": {
       "type": "apiKey",
