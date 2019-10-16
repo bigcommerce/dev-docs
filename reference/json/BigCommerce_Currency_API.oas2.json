@@ -85,6 +85,7 @@
         },
         "summary": "Get All Store Currency",
         "description": "Returns a list of all store *Currency*.",
+        "tags": ["/currencies"],
         "produces": [
           "application/json"
         ],
@@ -248,6 +249,7 @@
         },
         "summary": "Get a Currency",
         "description": "Returns a single *Currency*.",
+        "tags": ["/currencies"],
         "parameters": [
           {
             "name": "Content-Type",
@@ -574,6 +576,7 @@
         },
         "summary": "Delete a Currency",
         "description": "Deletes a *Currency*.",
+        "tags": ["/currencies"],
         "parameters": [
           {
             "name": "Accept",
