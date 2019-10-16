@@ -132,9 +132,7 @@
             "required": true
           }
         ],
-        "tags": [
-          "Currency"
-        ],
+        "tags": [],
         "description": "Deletes all non-default store currencies."
       },
       "post": {
@@ -218,9 +216,7 @@
             "description": ""
           }
         ],
-        "tags": [
-          "Currency"
-        ]
+        "tags": []
       }
     },
     "/currencies/{id}": {
@@ -563,9 +559,7 @@
             }
           }
         ],
-        "tags": [
-          "Currency"
-        ],
+        "tags": [],
         "operationId": "updateACurrency"
       },
       "delete": {
