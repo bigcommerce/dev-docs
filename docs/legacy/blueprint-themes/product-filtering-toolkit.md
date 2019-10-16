@@ -1,4 +1,4 @@
-<h1>Product Filtering Toolkit</h1>
+# Product Filtering Toolkit
 <div class="otp" id="no-index">
 	<h3>On This Page</h3>
 	<ul>

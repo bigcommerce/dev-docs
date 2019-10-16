@@ -1,4 +1,4 @@
-<h1>Live Previewing a Theme</h1>
+# Live Previewing a Theme
 
 <div class="otp" id="no-index">
 

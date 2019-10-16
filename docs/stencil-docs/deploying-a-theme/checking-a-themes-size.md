@@ -1,4 +1,4 @@
-<h1>Checking a Theme's Size</h1>
+# Checking a Theme's Size
 
 <div class="otp" id="no-index">
 	<h3> On This Page </h3>

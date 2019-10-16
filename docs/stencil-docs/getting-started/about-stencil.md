@@ -1,4 +1,4 @@
-<h1>About Stencil</h1>
+# About Stencil
 <div class="otp" id="no-index">
 	<h3> On This Page </h3>
 	<ul>

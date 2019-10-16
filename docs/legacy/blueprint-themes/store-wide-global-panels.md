@@ -1,4 +1,4 @@
-<h1>Store-Wide Global Panels</h1>
+# Store-Wide Global Panels
 
 
 The following panels are available store-wide:

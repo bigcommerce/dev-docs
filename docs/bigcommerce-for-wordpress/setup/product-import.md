@@ -1,5 +1,5 @@
 <div><h3 class="sub-docs-type" id="bigcommerce-for-wordpress">BigCommerce for Wordpress</h3>
-<h1 class="sub-docs-title">Product Import</h1>
+<h1 class="sub-docs-title">Product Import
 
 Products are imported from the BigCommerce API on a [WordPress cron job](https://developer.wordpress.org/plugins/cron/), or using a WP-CLI command: `wp bigcommerce import products`
 

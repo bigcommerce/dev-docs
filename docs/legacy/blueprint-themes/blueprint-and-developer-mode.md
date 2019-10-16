@@ -1,4 +1,4 @@
-<h1>Blueprint and Developer Mode</h1>
+# Blueprint and Developer Mode
 <div class="otp" id="no-index">
 	<h3>On This Page</h3>
 	<ul>

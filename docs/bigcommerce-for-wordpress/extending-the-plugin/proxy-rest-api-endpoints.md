@@ -1,4 +1,4 @@
-<h1>Proxy REST API Endpoints</h1>
+# Proxy REST API Endpoints
 <div class="otp" id="no-index">
 	<h3> On This Page </h3>
 	<ul>

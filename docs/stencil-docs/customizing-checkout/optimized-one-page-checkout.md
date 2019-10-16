@@ -1,4 +1,4 @@
-<h1>Restyle Optimized One-Page Checkout</h1>
+# Restyle Optimized One-Page Checkout
 <div class="otp" id="no-index">
 	<h3> On This Page </h3>
 	<ul>

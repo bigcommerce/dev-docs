@@ -1,4 +1,4 @@
-<h1>Cart and Checkout</h1>
+# Cart and Checkout
 <div class="otp" id="no-index">
 	<h3> On This Page </h3>
 	<ul>

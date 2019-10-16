@@ -1,4 +1,4 @@
-<h1>Defining Global Styles</h1>
+# Defining Global Styles
 
 <div class="otp" id="no-index">
 	<h3> On This Page </h3>

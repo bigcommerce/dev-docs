@@ -1,4 +1,4 @@
-<h1>Localizing Stores</h1>
+# Localizing Stores
 <div class="otp" id="no-index">
 	<h3> On This Page </h3>
 	<ul>

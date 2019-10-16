@@ -1,4 +1,4 @@
-<h1>Working with the Storefront Cart and Checkout APIs</h1>
+# Working with the Storefront Cart and Checkout APIs
 <div class="otp" id="no-index">
 	<h3> On This Page </h3>
 	<ul>

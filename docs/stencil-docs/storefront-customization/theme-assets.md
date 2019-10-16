@@ -1,4 +1,4 @@
-<h1>Theme Assets</h1>
+# Theme Assets
 <div class="otp" id="no-index">
 	<h3> On This Page </h3>
 	<ul>

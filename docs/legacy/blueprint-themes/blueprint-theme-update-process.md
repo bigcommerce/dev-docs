@@ -1,4 +1,4 @@
-<h1>Theme Update Process</h1>
+# Theme Update Process
 <div class="otp" id="no-index">
 	<h3>On This Page</h3>
 	<ul>

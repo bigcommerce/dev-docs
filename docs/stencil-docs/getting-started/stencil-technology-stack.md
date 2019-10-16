@@ -1,4 +1,4 @@
-<h1>Stencil Technology Stack</h1>
+# Stencil Technology Stack
 <div class="otp" id="no-index">
 	<h3> On This Page </h3>
 	<ul>
@@ -35,7 +35,7 @@ lineNumbers: true
 
 ```html
 <div class="entry">
-  <h1>Using handlebars to access the {{title}} and  variables</h1>
+  # Using handlebars to access the {{title}} and  variables
   <div class="body"></div>
 </div>
 ```

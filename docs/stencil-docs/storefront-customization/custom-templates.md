@@ -1,4 +1,4 @@
-<h1>Custom Templates</h1>
+# Custom Templates
 <div class="otp" id="no-index">
 	<h3> On This Page </h3>
 	<ul>

@@ -1,4 +1,4 @@
-<h1>Checkout/Confirmation Injection Options</h1>
+# Checkout/Confirmation Injection Options
 
 <div class="otp" id="no-index">
 	<h3> On This Page </h3>
@@ -36,7 +36,7 @@ You can replace each page's predefined header with your storewide header. To do 
 ```html
 <header class="checkoutHeader optimizedCheckout-header">
     <div class="checkoutHeader-content">
-        <h1 class="is-srOnly">{{lang 'checkout.title'}}</h1>
+        <h1 class="is-srOnly">{{lang 'checkout.title'}}
         <h2 class="checkoutHeader-heading">
             <a class="checkoutHeader-link" href="{{urls.home}}">
                 {{#if checkout.header_image}}

@@ -1,6 +1,6 @@
 
 
-<h1>Catalog Price Object Examples</h1>
+# Catalog Price Object Examples
 <div class="otp" id="no-index">
 	<h3> On This Page </h3>
 	<ul>

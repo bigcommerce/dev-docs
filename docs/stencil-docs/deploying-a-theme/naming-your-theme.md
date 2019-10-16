@@ -1,4 +1,4 @@
-<h1>Naming Your Theme and Theme Variations</h1>
+# Naming Your Theme and Theme Variations
 
 <div class="otp" id="no-index">
 	<h3> On This Page </h3>

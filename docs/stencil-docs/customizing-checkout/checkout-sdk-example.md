@@ -1,4 +1,4 @@
-<h1>Implementing a Custom React.js Checkout to Cornerstone using the BigCommerce Checkout SDK</h1>
+# Implementing a Custom React.js Checkout to Cornerstone using the BigCommerce Checkout SDK
 <div class="otp" id="no-index">
 <h3> On This Page </h3>
 	<ul>
@@ -506,7 +506,7 @@ window.initReact = function initReact() {
 {{#partial "page"}}
 <header class="checkoutHeader optimizedCheckout-header">
     <div class="checkoutHeader-content">
-        <h1 class="is-srOnly">{{lang 'checkout.title'}}</h1>
+        <h1 class="is-srOnly">{{lang 'checkout.title'}}
         <h2 class="checkoutHeader-heading">
             <a class="checkoutHeader-link" href="{{urls.home}}">
                 {{#if checkout.header_image}}

@@ -1,4 +1,4 @@
-<h1>Customizing Printable Packing Slips</h1>
+# Customizing Printable Packing Slips
 <div class="otp">
   <ul>
     <li><a href="#customizing-printable_customizing-printable">Customizing Printable Packing Slips</a></li>

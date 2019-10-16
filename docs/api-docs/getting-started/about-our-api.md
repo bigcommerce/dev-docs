@@ -1,4 +1,4 @@
-<h1>About Our API</h1>
+# About Our API
 <div class="otp" id="no-index">
 	<h3> On This Page </h3>
 	<ul>
@@ -304,7 +304,7 @@ lineNumbers: true
       "id": 23,
       "parent_id": 0,
       "name": "Shop All",
-      "description": "<h1>Browse our full collection</h1>",
+      "description": "# Browse our full collection",
       "views": 0,
       "sort_order": 0,
       "page_title": "",

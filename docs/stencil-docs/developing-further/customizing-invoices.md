@@ -1,4 +1,4 @@
-<h1>Customizing Invoices</h1>
+# Customizing Invoices
 <div class="otp">
   <ul>
     <li><a href="#customizing-invoices_email-invoice-template">Email Invoice Template</a></li>

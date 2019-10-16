@@ -1,4 +1,4 @@
-<h1>Page Composition and Styling</h1>
+# Page Composition and Styling
 <div class="otp" id="no-index">
 	<h3> On This Page </h3>
 	<ul>

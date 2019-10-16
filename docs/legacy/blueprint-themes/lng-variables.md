@@ -1,4 +1,4 @@
-<h1>LNG Variables</h1>
+# LNG Variables
 
 
 The Blueprint theme uses the following LNG variables to reference text strings. This list is sorted alphabetically by variable name. 

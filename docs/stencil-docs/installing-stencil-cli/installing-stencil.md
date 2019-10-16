@@ -1,4 +1,4 @@
-<h1>Installing Stencil CLI</h1>
+# Installing Stencil CLI
 <div class="otp" id="no-index">
 	<h3> On This Page </h3>
 	<ul>

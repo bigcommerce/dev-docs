@@ -1,4 +1,4 @@
-<h1>Troubleshooting Theme Uploads</h1>
+# Troubleshooting Theme Uploads
 
 <div class="otp" id="no-index">
 	<h3> On This Page </h3>

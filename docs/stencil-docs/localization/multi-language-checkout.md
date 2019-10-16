@@ -1,4 +1,4 @@
-<h1>Multi Language Checkout</h1>
+# Multi Language Checkout
 
 <div class="otp" id="no-index">
 	<h3> On This Page </h3>
@@ -49,7 +49,7 @@ lineNumbers: true
 {{#partial "page"}}
 <header class="checkoutHeader optimizedCheckout-header">
     <div class="checkoutHeader-content">
-        <h1 class="is-srOnly">{{lang 'checkout.title'}}</h1>
+        <h1 class="is-srOnly">{{lang 'checkout.title'}}
         <h2 class="checkoutHeader-heading">
             <a class="checkoutHeader-link" href="{{urls.home}}">
                 {{#if checkout.header_image}}

@@ -1,4 +1,4 @@
-<h1>Installing Legacy Theme Modules</h1>
+# Installing Legacy Theme Modules
 
 <div class="otp" id="no-index">
 

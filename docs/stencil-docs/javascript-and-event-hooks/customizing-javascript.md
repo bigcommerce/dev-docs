@@ -1,4 +1,4 @@
-<h1>Customizing Javascript</h1>
+# Customizing Javascript
 
 <div class="otp" id="no-index">
 	<h3> On This Page </h3>

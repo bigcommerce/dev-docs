@@ -1,4 +1,4 @@
-<h1>Handlebars Helpers Reference</h1>
+# Handlebars Helpers Reference
 
 <div class="otp" id="no-index">
 	<h3> On This Page </h3>
@@ -2386,7 +2386,7 @@ category:
 {{#if category.image}}
     <img src="{{getImage category.image 'zoom_size'}}">
 {{/if}}
-<h1 class="page-heading">{{category.name}}</h1>
+<h1 class="page-heading">{{category.name}}
 {{{category.description}}}
 {{{snippet 'categories'}}}
 <div class="page">
@@ -2491,7 +2491,7 @@ Block helper that converts a string of inline markdown to HTML.
 {{#markdown}}
 # Foo
 {{/markdown}}
-//=> <h1>Foo</h1>
+//=> # Foo
 ```
 
 ---
@@ -2934,7 +2934,7 @@ Extend can be used to extend a page layout. For example:
     <div class="site">
         <div class="site-hd" role="banner">
             {{#block "header"}}
-                <h1>{{title}}</h1>
+                # {{title}}
             {{/block}}
         </div>
 </body>
@@ -3616,7 +3616,7 @@ Return a copy of a string object, in all-lowercase. The helper returns a new str
 ### Example
 
 ```html
-<h1>{{toLowerCase head.title}}</h1>
+# {{toLowerCase head.title}}
 ```
 
 `head.title`:
@@ -3630,7 +3630,7 @@ Return a copy of a string object, in all-lowercase. The helper returns a new str
 **Result:**
 
 ```html
-<h1>this is my test store</h1>
+# this is my test store
 ```
 
 ### Resources

@@ -1,4 +1,4 @@
-<h1>Types of Apps</h1>
+# Types of Apps
 <div class="otp" id="no-index">
 	<h3> On This Page </h3>
 	<ul>

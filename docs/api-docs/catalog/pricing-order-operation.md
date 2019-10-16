@@ -1,4 +1,4 @@
-<h1>Price Order of Operations</h1>
+# Price Order of Operations
 
 The table below lists out each price type available on a product. The table is read from top to bottom with the default price having the lowest weight and the tax having the highest weight when calculating price.  
 

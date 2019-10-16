@@ -1,4 +1,4 @@
-<h1>Custom Sass Functions</h1>
+# Custom Sass Functions
 <div class="otp" id="no-index">
 	<h3> On This Page </h3>
 	<ul>

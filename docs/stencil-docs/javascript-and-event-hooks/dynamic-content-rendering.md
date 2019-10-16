@@ -1,4 +1,4 @@
-<h1>Dynamic Content Rendering on Stencil Storefronts</h1>
+# Dynamic Content Rendering on Stencil Storefronts
 
 <div class="otp" id="no-index">
 	<h3> On This Page </h3>

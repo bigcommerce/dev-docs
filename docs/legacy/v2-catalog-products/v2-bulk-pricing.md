@@ -1,4 +1,4 @@
-<h1>Bulk Pricing Rules</h1>
+# Bulk Pricing Rules
 <div class="otp" id="no-index">
 	<h3> On This Page </h3>
 	<ul>

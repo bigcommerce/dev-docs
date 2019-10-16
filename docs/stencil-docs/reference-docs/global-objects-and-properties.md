@@ -1,4 +1,4 @@
-<h1>Global Objects and Properties</h1>
+# Global Objects and Properties
 <div class="otp" id="no-index">
 	<h3> On This Page </h3>
 	<ul>

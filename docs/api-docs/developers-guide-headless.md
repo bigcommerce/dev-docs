@@ -1,4 +1,4 @@
-<h1>Developers Guide to Headless Commerce</h1>
+# Developers Guide to Headless Commerce
 <div class="otp" id="no-index">
 	<h3> On This Page </h3>
 	<ul>

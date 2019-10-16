@@ -1,4 +1,4 @@
-<h1>Troubleshooting Your Setup</h1>
+# Troubleshooting Your Setup
 
 <div class="otp" id="no-index">
 	<h3> On This Page </h3>

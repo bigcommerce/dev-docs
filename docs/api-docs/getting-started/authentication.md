@@ -1,4 +1,4 @@
-<h1>Authentication</h1>
+# Authentication
 
 <div class="otp" id="no-index">
 	<h3> On This Page </h3>

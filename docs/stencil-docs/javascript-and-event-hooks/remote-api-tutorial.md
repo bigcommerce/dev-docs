@@ -1,4 +1,4 @@
-<h1>Remote API Tutorial</h1>
+# Remote API Tutorial
 
 <div class="otp" id="no-index">
 	<h3> On This Page </h3>

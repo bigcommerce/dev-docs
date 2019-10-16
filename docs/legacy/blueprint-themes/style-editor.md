@@ -1,4 +1,4 @@
-<h1>Style Editor</h1>
+# Style Editor
 <div class="otp" id="no-index">
 	<h3>On This Page</h3>
 	<ul>

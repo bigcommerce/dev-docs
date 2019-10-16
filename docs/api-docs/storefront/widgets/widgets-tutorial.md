@@ -1,4 +1,4 @@
-<h1>Widgets Tutorial</h1>
+# Widgets Tutorial
 <div class="otp" id="no-index">
 	<h3> On This Page </h3>
 	<ul>
@@ -71,7 +71,7 @@ In <span class="fp">templates/pages/category.html</span>, add `{{{region name="c
 ```html
 <!-- ... -->
 {{#unless theme_settings.hide_category_page_heading }}
-    <h1 class="page-heading">{{category.name}}</h1>
+    <h1 class="page-heading">{{category.name}}
 {{/unless}}
 
 {{{category.description}}}

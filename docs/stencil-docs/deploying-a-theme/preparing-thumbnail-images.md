@@ -1,4 +1,4 @@
-<h1>Preparing Thumbnail Images</h1>
+# Preparing Thumbnail Images
 
 <div class="otp" id="no-index">
 	<h3> On This Page </h3>

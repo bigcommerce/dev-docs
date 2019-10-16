@@ -1,6 +1,6 @@
 <div><h3 class="sub-docs-type" id="bigcommerce-for-wordpress">BigCommerce for Wordpress</h3>
 <h1 class="sub-docs-title">AMP for the BigCommerce WordPress plugin
-</h1>
+
   <h4>Prepared by XWP for BigCommerce</h4>
 <div class="otp" id="no-index">
 	<h3> On This Page </h3>

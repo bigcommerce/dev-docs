@@ -1,4 +1,4 @@
-<h1>Quick Start</h1>
+# Quick Start
 <div class="otp" id="no-index">
 	<h3> On This Page </h3>
 	<ul>

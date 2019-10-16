@@ -1,4 +1,4 @@
-<h1>Rendering HTML with Ajax</h1>
+# Rendering HTML with Ajax
 
 <div class="otp" id="no-index">
 	<h3> On This Page </h3>

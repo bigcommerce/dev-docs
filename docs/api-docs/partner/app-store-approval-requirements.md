@@ -1,4 +1,4 @@
-<h1>App Store Approval Requirements</h1>
+# App Store Approval Requirements
 <div class="otp" id="no-index">
 	<h3> On This Page </h3>
 	<ul>

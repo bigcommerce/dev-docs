@@ -1,4 +1,4 @@
-<h1><code>npm</code> Tutorials</h1>
+# <code>npm</code> Tutorials
 
 <div class="otp" id="no-index">
 	<h3> On This Page </h3>

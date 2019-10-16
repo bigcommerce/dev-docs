@@ -1,4 +1,4 @@
-<h1>Widgets Code Samples</h1>
+# Widgets Code Samples
 <div class="otp" id="no-index">
 	<h3> On This Page </h3>
 	<ul>
@@ -123,7 +123,7 @@ lineNumbers: true
 {
 	"name": "Simple List Test",
 	"widget_configuration":{
-		"html":"<h1> This widget will accept any HTML </h1>"
+		"html":"#  This widget will accept any HTML "
 	},
 	"widget_template_uuid":"your-template-uuid"
 }

@@ -1,4 +1,4 @@
-<h1>Product SKU</h1>
+# Product SKU
 <div class="otp" id="no-index">
 	<h3> On This Page </h3>
 	<ul>

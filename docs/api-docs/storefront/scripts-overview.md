@@ -1,4 +1,4 @@
-<h1>Scripts API</h1>
+# Scripts API
 <div class="otp" id="no-index">
 	<h3> On This Page </h3>
 	<ul>

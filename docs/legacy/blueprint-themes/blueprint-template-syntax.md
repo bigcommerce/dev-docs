@@ -1,4 +1,4 @@
-<h1>Template Syntax</h1>
+# Template Syntax
 <div class="otp" id="no-index">
 	<h3>On This Page</h3>
 	<ul>

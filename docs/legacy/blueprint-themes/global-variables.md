@@ -1,4 +1,4 @@
-<h1>Global Variables</h1>
+# Global Variables
 
 
 Blueprint themes use the following GLOBAL variables to pull data from the store's database.

@@ -1,4 +1,4 @@
-<h1>Event Hooks</h1>
+# Event Hooks
 
 <div class="otp" id="no-index">
 	<h3> On This Page </h3>

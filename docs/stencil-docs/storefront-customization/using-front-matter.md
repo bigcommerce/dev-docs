@@ -1,4 +1,4 @@
-<h1>Using Front Matter</h1>
+# Using Front Matter
 
 <div class="otp" id="no-index">
 	<h3> On This Page </h3>
@@ -127,7 +127,7 @@ products:
         limit: 4
 ---
 
-<h1> This is the HTML for the new-products example </h1>
+#  This is the HTML for the new-products example 
 {{#each products.new}}
     <p>{{ name }}</p>
 {{/each}}

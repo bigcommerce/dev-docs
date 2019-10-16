@@ -1,4 +1,4 @@
-<h1>Store-Wide Global Variables</h1>
+# Store-Wide Global Variables
 
 
 The following GLOBAL variables are available from any layout, panel, or snippet in the store, independent of session status.

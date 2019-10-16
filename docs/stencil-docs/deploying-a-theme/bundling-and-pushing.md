@@ -1,4 +1,4 @@
-<h1>Bundling and Pushing a Theme</h1>
+# Bundling and Pushing a Theme
 
 <div class="otp" id="no-index">
 	<h3> On This Page </h3>

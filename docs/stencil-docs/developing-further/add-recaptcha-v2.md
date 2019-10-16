@@ -1,4 +1,4 @@
-<h1>Add reCAPTCHA V2</h1>
+# Add reCAPTCHA V2
 <div class="otp">
   <ul>
     <li><a href="#add-recaptcha_how-to-upgrade">How to Upgrade</a></li>
