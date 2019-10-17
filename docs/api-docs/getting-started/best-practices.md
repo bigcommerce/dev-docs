@@ -1,6 +1,6 @@
 # Best Practices
 
-.otp <div class="otp" id="no-index">
+<div class="otp" id="no-index">
 
 ### On This Page
 - [Ensure Your Integration is Up-to-Date](#ensure-your-integration-is-up-to-date)
