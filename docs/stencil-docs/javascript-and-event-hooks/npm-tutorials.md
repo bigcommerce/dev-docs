@@ -4,54 +4,28 @@
 
 ### On This Page
 - [Basic `npm` tutorial](#basic-npm-tutorial)
-- [What We're Building](#what-were-building)
-- [Set Up Your Store](#set-up-your-store)
-- [Install Dependencies](#install-dependencies)
-- [Configure Webpack Loaders](#configure-webpack-loaders)
-- [Import the Dependencies](#import-the-dependencies)
-- [Configure the loaded() Method](#configure-the-loaded-method)
 - [Advanced npm Tutorial](#advanced-npm-tutorial)
 - [Video of What We're Building](#video-of-what-were-building)
-- [Install Dependencies](#install-dependencies-1)
-- [Import Dependencies](#import-dependencies)
-- [Update webpack.conf.js](#update-webpackconfjs)
-- [Update app.js](#update-appjs)
-- [Add Coupon Drawer Markup](#add-coupon-drawer-markup)
-- [Call initReact from base.html](#call-initreact-from-basehtml)
-- [Create Components Folder](#create-components-folder)
-- [Add CouponDrawer.js](#add-coupondrawerjs)
-- [Add VerticalLinearStepper.js](#add-verticallinearstepperjs)
 
 </div> 
 
 ## Basic `npm` tutorial
 
-<div class="HubBlock--callout">
-<div class="CalloutBlock--warning">
-<div class="HubBlock-content">
-
-## What We're Building
+### What We're Building
 
 This example will use the [Foundation-datepicker.js](http://foundation-datepicker.peterbeno.com/#basic-example) plugin to implement a datepicker for product pages' Delivery/Event Date fields.
 
-<!--
-    title: #### Screenshot of final product
-
-    data: //s3.amazonaws.com/user-content.stoplight.io/6116/1539276603841
--->
-
 #### Screenshot of final product
-![#### Screenshot of final product
-](//s3.amazonaws.com/user-content.stoplight.io/6116/1539276603841 "#### Screenshot of final product
-")
 
-## Set Up Your Store
+![#### Screenshot of final product](//s3.amazonaws.com/user-content.stoplight.io/6116/1539276603841 "#### Screenshot of final product")
+
+### Set Up Your Store
 
 To test this example, you'll want your (sandbox or production) store to include at least a couple of products that have a `Delivery/Event Date` configured. (In production, you'd typically use this feature for things like seasonally themed products, temporary promotions, or event tickets.)
 
 For product configuration steps in the BigCommerce control panel, please see this support article.
 
-## Install Dependencies
+### Install Dependencies
 
 Use the following command to install this example's required dependencies:
 
@@ -69,21 +43,9 @@ The above command's options are:
 
 * `foundation-datepicker` specifies the datepicker package to install.
 
-## Configure Webpack Loaders
+### Configure Webpack Loaders
 
 The `style` and `css` loaders are used to import CSS and to inject it into the DOM. To configure, add the following object to the `rules` array in the appropriate webpack.*.js file (if you're not sure, use `webpack.common.js` or `webpack.config.js`):
-
-<div class="HubBlock-header">
-    <div class="HubBlock-header-title flex items-center">
-        <div class="HubBlock-header-name"></div>
-    </div><div class="HubBlock-header-subtitle">webpack.common.js</div>
-</div>
-
-<!--
-title: ""
-subtitle: "webpack.common.js"
-lineNumbers: true
--->
 
 ```js
 {
@@ -92,17 +54,7 @@ lineNumbers: true
 }
 ```
 
-<div class="HubBlock-header">
-    <div class="HubBlock-header-title flex items-center">
-        <div class="HubBlock-header-name">Cornerstone 3.4.4 Example</div>
-    </div><div class="HubBlock-header-subtitle">webpack.common.js</div>
-</div>
-
-<!--
-title: "Cornerstone 3.4.4 Example"
-subtitle: "webpack.common.js"
-lineNumbers: true
--->
+`webpack.common.j`:
 
 ```js
 // ...
@@ -145,11 +97,11 @@ module.exports = {
   //...
 ```
 
-## Import the Dependencies
+### Import the Dependencies
 
-Import these new dependencies into `<theme-name>/assets/js/theme/product.js`.
+Import these new dependencies into `assets/js/theme/product.js`.
 
-In `<theme-name>/assets/js/app.js`, notice that there is a mapping between the product page and the `product.js` script:
+In `assets/js/app.js`, notice that there is a mapping between the product page and the `product.js` script:
 
 ```javascript
 const PageClasses = {
@@ -160,7 +112,7 @@ const PageClasses = {
 
 That is, when a user navigates to the product page, the `product.js` script is run. First its constructor will be run, followed by the methods `before`, `loaded`, and `after` – in that order.
 
-## Configure the loaded() Method
+### Configure the loaded() Method
 
 We'll use the `loaded` method to initialize our datepicker widget:
 
@@ -176,7 +128,7 @@ import 'foundation-datepicker/js/foundation-datepicker.min.js';
 import 'foundation-datepicker/css/foundation-datepicker.min.css';
 import moment from 'moment';
 
-...
+// ...
 
 loaded(next) {
     let validator;
@@ -231,18 +183,9 @@ loaded(next) {
 
 Highlighted below is the new code added to the `loaded` method:
 
-<!--
-    title: #### Code addition to loaded method in product.js
+![Code addition to loaded method in product.js](//s3.amazonaws.com/user-content.stoplight.io/6116/1539275148248 "Code addition to loaded method in product.js")
 
-    data: //s3.amazonaws.com/user-content.stoplight.io/6116/1539275148248
--->
-
-#### Code addition to loaded method in product.js
-![#### Code addition to loaded method in product.js
-](//s3.amazonaws.com/user-content.stoplight.io/6116/1539275148248 "#### Code addition to loaded method in product.js
-")
-
-Update the `<theme-name>/templates/components/products/product-view.html` template, replacing the existing `{{#if product.event_date}}` block with the following:
+Update the `templates/components/products/product-view.html` template, replacing the existing `{{#if product.event_date}}` block with the following:
 
 ```html
 {{#if product.event_date}}
@@ -288,9 +231,7 @@ To build this, you will need to complete the following steps:
 
 <iframe width="560" height="315" src="https://www.youtube.com/embed/sudvuxJFxKc" frameborder="0" allow="autoplay; encrypted-media" allowfullscreen></iframe>
 
-
-
-## Install Dependencies
+### Install Dependencies
 
 Material-UI requires the `react-tap-event-plugin` module. Also, `document-register-element` is needed to polyfill `document.registerElement`. The babel presets and plugins are needed to support `Object.assign`, `react`, and `Material-UI`, respectively:
 
@@ -299,45 +240,21 @@ npm install -save-dev document-register-element material-ui react react-dom reac
 npm install -save-dev babel-plugin-transform-object-assign babel-preset-react babel-preset-stage-1
 ```
 
-
-
-## Import Dependencies
+### Import Dependencies
 
 Next, import the new dependencies into `<theme-name>/assets/js/app.js`
 
 Note the `CouponDrawer` import at the bottom. This file doesn't yet exist, but we'll shortly create a React component with this name:
 
-<!--
-    title: #### app.js imports
+![app.js imports](//s3.amazonaws.com/user-content.stoplight.io/6116/1540279579178 "app.js imports")
 
-    data: //s3.amazonaws.com/user-content.stoplight.io/6116/1540279579178
--->
-
-#### app.js imports
-![#### app.js imports
-](//s3.amazonaws.com/user-content.stoplight.io/6116/1540279579178 "#### app.js imports
-")
-
-
-
-## Update webpack.conf.js
+### Update webpack.conf.js
 
 Update webpack.conf.js with the new presets and plug-ins, as shown here:
 
-<!--
-    title: #### webpack.config.js: presets and plugins
+![webpack.config.js: presets and plugins](//s3.amazonaws.com/user-content.stoplight.io/6116/1540279603654 "webpack.config.js: presets and plugins")
 
-    data: //s3.amazonaws.com/user-content.stoplight.io/6116/1540279603654
--->
-
-#### webpack.config.js: presets and plugins
-![#### webpack.config.js: presets and plugins
-](//s3.amazonaws.com/user-content.stoplight.io/6116/1540279603654 "#### webpack.config.js: presets and plugins
-")
-
-
-
-## Update app.js
+### Update app.js
 
 Add the following code to the bottom of `<theme-name>/assets/js/app.js`:
 
@@ -372,37 +289,22 @@ window.initReact = function(contextJSON = '{}') {
 This sets up a handler for attaching an `<x-coupon-drawer>` element to the page. We're using React here to render the `CouponDrawer` component. This block of code was taken and modified from https://facebook.github.io/react/docs/web-components.html#using-react-in-your-web-components.
 
 
-
-## Add Coupon Drawer Markup
+### Add Coupon Drawer Markup
 
 Add this in `<theme-name>/templates/layout/base.html`. (See the image below.) We're using this layout template for this example, although you would follow the same steps in any other template.
 
-
-
-## Call initReact from base.html
+### Call initReact from base.html
 
 Add a call to `window.initReact`. We're continuing to work with the `base.html` page for this example. Notice that we're also passing in the jsContext here. The `initReact` method will merge this context with an object created from the attributes placed upon the `<x-coupon-drawer>`, and will pass the combined data along to the React component.
 
-<!--
-    title: #### base.html setup
-
-    data: //s3.amazonaws.com/user-content.stoplight.io/6116/1540279254389
--->
-
-#### base.html setup
-![#### base.html setup
-](//s3.amazonaws.com/user-content.stoplight.io/6116/1540279254389 "#### base.html setup
-")
+![base.html setup](//s3.amazonaws.com/user-content.stoplight.io/6116/1540279254389 "base.html setup")
 
 
-
-## Create Components Folder
+### Create Components Folder
 
 We'll store our React components here.
 
-
-
-## Add CouponDrawer.js
+### Add CouponDrawer.js
 
 Create a `<theme-name>/assets/js/components/CouponDrawer.js` file. Populate this file with the following code block (which is adapted from http://www.material-ui.com/#/components/drawer):
 
@@ -439,9 +341,7 @@ export default class CouponDrawer extends React.Component {
 }
 ```
 
-
-
-## Add VerticalLinearStepper.js
+### Add VerticalLinearStepper.js
 
 Create a `<theme-name>/assets/js/components/VerticalLinearStepper.js` file. Populate this file with the following code block:
 
@@ -565,7 +465,7 @@ The above code block was adapted from http://www.material-ui.com/#/components/st
 
 <!-- theme:  -->
 
-###  Note on the VerticalLinearStepper.js Example
+###  Note
 > We must register a custom element to set up the "root" of every React component we create. However, within a React component, we can import other React components without having to register them. For example, here we register x-coupon-drawer as a custom element that renders the React CouponDrawer component. However, within CouponDrawer, we can simply import the VerticalLinearStepper component needing to set it up in the same way.
 
 </div>
