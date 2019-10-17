@@ -1,13 +1,14 @@
 # Theme Updates and Version Control
 
-<div class="otp">
+<div class="otp" id="no-index">
 
-- [Version Control](#version-themes)
-- [Theme Updates](#updates)
-- [Maintaining Customizations](#maintain-customizations)
+### On This Page
+- [Version Control](#version-control)
+- [Theme Updates](#theme-updates)
+- [Maintaining Customizations](#maintaining-customizations)
+- [References](#references)
 
-</div>
-
+</div> 
 
 When developing BigCommerce themes, there are a few steps you can take to ensure your custom theme stays up to date with BigCommerce theme updates and version releases.
 
@@ -32,7 +33,6 @@ Before updating your theme, review the following list items to ensure a successf
 * Keep a backup of `config.json`. This file contains all the configurations and many of the customizations for a theme.
 * Never merge an update directly into your custom theme.
 * Test any new updates before pushing the updates to production. A good way to do this is to keep a test theme that mirrors your theme in production and apply any new changes to the test theme. If there are no issues, apply your updates to production.
----
 
 <a id="maintain-customizations"></a>
 
