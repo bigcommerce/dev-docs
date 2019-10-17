@@ -1,14 +1,15 @@
 # Email Templates
+
 <div class="otp" id="no-index">
-	<h3>On This Page</h3>
-	<ul>
-		<li><a href="#gift-certificate-email-template">Gift Certificate Email Template</a></li>
-		<li><a href="#abandoned-cart-email-template">Abandoned Cart Email Template</a></li>
-    <li><a href="#invoice-email-template">Invoice Email Template</a></li>
-    <li><a href="#order-status-email-template">Order Status Email Template</a></li>
-    <li><a href="#return-confirmation-email-template">Return Confirmation Email Template</a></li>
-		</ul>
-</div>
+
+### On This Page
+- [Gift Certificate Email Template](#gift-certificate-email-template)
+- [Abandoned Cart Email Template](#abandoned-cart-email-template)
+- [Invoice Email Template](#invoice-email-template)
+- [Order Status Email Template](#order-status-email-template)
+- [Return Confirmation Email Template](#return-confirmation-email-template)
+
+</div> 
 
 The following variables are available within individual BigCommerce email template:
 
