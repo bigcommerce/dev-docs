@@ -1,17 +1,16 @@
 # Checkout/Confirmation Injection Options
 
-<div class="otp" id="no-index">
-	<h3> On This Page </h3>
-	<ul>
-		<li><a href="#checkout_adding">Adding Storewide Styles</a></li>
-    <li><a href="#checkout_applying-storewide-header">Applying Storewide Header</a></li>
-    <li><a href="#checkout_applying-storewide-scripts">Applying Storewide Scripts</a></li>
-    <li><a href="#checkout_adding-trust-seals">Adding Trust Seals</a></li>
-    <li><a href="#checkout_app-injection">Checkout App Injection</a></li>
-	</ul>
+.otp <div class="otp" id="no-index">
+
+### On This Page
+- [Adding Storewide Styles](#adding-storewide-styles)
+- [Applying Storewide Header](#applying-storewide-header)
+- [Applying Storewide Scripts](#applying-storewide-scripts)
+- [Adding Trust Seals](#adding-trust-seals)
+- [Checkout App Injection](#checkout-app-injection)
+- [Resources](#resources)
+
 </div>
-
-
 
 <a href='#checkout_adding' aria-hidden='true' class='block-anchor'  id='checkout_adding'><i aria-hidden='true' class='linkify icon'></i></a>
 
