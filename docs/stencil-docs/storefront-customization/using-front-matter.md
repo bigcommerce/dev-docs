@@ -1,18 +1,17 @@
 # Using Front Matter
 
 <div class="otp" id="no-index">
-	<h3> On This Page </h3>
-	<ul>
-    <li><a href="#front-matter-overview_declaring-objects">Declaring Front Matter Objects</a></li>
-    <li><a href="#front-matter-overview_yaml-syntax">YAML Syntax Requirements</a></li>
-    <li><a href="#front-matter-overview_filtering-attributes">Filtering Attributes</a></li>
-    <li><a href="#front-matter-overview_combining-front-matter">Combining Front Matter with Handlebars Attributes</a></li>
-    <li><a href="#front-matter-overview_default-versus-custom">Default versus Custom Attributes, per Page</a></li>
-    <li><a href="#front-matter-overview_declaring-multiple">Declaring Multiple Attributes</a></li>
-	</ul>
-</div>
 
-<a href='#front-matter-overview_declaring-objects' aria-hidden='true' class='block-anchor'  id='front-matter-overview_declaring-objects'><i aria-hidden='true' class='linkify icon'></i></a>
+### On This Page
+- [Declaring Front Matter Objects](#declaring-front-matter-objects)
+- [YAML Syntax](#yaml-syntax)
+- [Filtering Attributes](#filtering-attributes)
+- [Combining Front Matter and Handlebars](#combining-front-matter-and-handlebars)
+- [Default vs Custom Attributes](#default-vs-custom-attributes)
+- [Declaring Multiple Attributes](#declaring-multiple-attributes)
+- [Resources](#resources)
+
+</div>
 
 ## Declaring Front Matter Objects
 
@@ -44,7 +43,7 @@ In this example, we will include the following code in Cornerstone's [home.html]
 
 <a href='#front-matter-overview_yaml-syntax' aria-hidden='true' class='block-anchor'  id='front-matter-overview_yaml-syntax'><i aria-hidden='true' class='linkify icon'></i></a>
 
-## YAML Syntax Requirements
+## YAML Syntax
 
 Stencil front matter uses the conventions of [YAML]() (short for the recursive "YAML Ain't Markup Language"). Here are the YAML conventions you must follow in front matter:
 
@@ -116,7 +115,7 @@ products:
 
 <a href='#front-matter-overview_combining-front-matter' aria-hidden='true' class='block-anchor'  id='front-matter-overview_combining-front-matter'><i aria-hidden='true' class='linkify icon'></i></a>
 
-## Combining Front Matter with Handlebars Attributes
+## Combining Front Matter and Handlebars
 
 The next example builds on front-matter object invocation and filtering, by showing a corresponding Handlebars statement in HTML. Here is how you would declare the `products` object to return four new products, and to then display each product’s name:
 
@@ -150,15 +149,11 @@ products:
 
 <a href='#front-matter-overview_default-versus-custom' aria-hidden='true' class='block-anchor'  id='front-matter-overview_default-versus-custom'><i aria-hidden='true' class='linkify icon'></i></a>
 
-## Default versus Custom Attributes, per Page
+## Default vs Custom Attributes
 
 To make templates readily useful, they automatically include a page’s default attributes. For example, a theme’s [product.html](https://github.com/bigcommerce/cornerstone/blob/master/templates/pages/product.html) page will automatically include a product attribute.
 
 However, if you want to include additional attributes on a page, you can declare those attributes in front matter using the conventions shown above. [The Declaring Objects](#front-matter-overview_declaring-objects) example shows the only way to display a "new products" storefront section, which requires front-matter invocation.
-
-
-
-<a href='#front-matter-overview_declaring-multiple' aria-hidden='true' class='block-anchor'  id='front-matter-overview_declaring-multiple'><i aria-hidden='true' class='linkify icon'></i></a>
 
 ## Declaring Multiple Attributes
 
@@ -172,8 +167,6 @@ product:
    related_products:
        limit: 10
 
-
-
 <h2>{{ product.name }}</h2>
 {{#each product.reviews.list}}
     <p>{{text}}</p>
@@ -184,9 +177,6 @@ product:
   <p>{{ name }}</p>
 {{/each}}
 ```
-
-
-
 
 ## Resources
 * [Front Matter Reference](https://developer.bigcommerce.com/stencil-docs/reference-docs/front-matter-reference)
