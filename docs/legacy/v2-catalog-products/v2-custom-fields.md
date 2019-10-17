@@ -1,18 +1,17 @@
 # Custom Fields
-<div class="otp" id="no-index">
-	<h3> On This Page </h3>
-	<ul>
-		<li><a href="#v2-custom-fields_object-properties">Object Properties</a></li>
-		<li><a href="#v2-custom-fields_list-custom-fields">List Custom Fields</a></li>
-		<li><a href="#v2-custom-fields_get-custom-fields">Get Custom Fields</a></li>
-    <li><a href="#v2-custom-fields_get-count-custom-fields">Get a Count of Custom Fields</a></li>
-    <li><a href="#v2-custom-fields_create-custom-fields">Create Custom Fields</a></li>
-    <li><a href="#v2-custom-fields_update-custom-fields">Update Custom Fields</a></li>
-    <li><a href="#v2-custom-fields_delete-custom-fields">Delete an Custom Fields</a></li>
-    <li><a href="#v2-custom-fields_delete-multiple-custom-fields">Delete Multiple Custom Fields</a></li>
-		</ul>
-</div>
 
+<div class="otp" id="no-index">
+
+### On This Page
+- [Custom Fields](#custom-fields)
+- [List Custom Fields](#list-custom-fields)
+- [Get a Custom Field](#get-a-custom-field)
+- [Get a Count of Custom Fields](#get-a-count-of-custom-fields)
+- [Create a Custom Field](#create-a-custom-field)
+- [Delete a Custom Field](#delete-a-custom-field)
+- [Delete Multiple Custom Fields](#delete-multiple-custom-fields)
+
+</div> 
 
 <a href='#v2-custom-fields_object-properties' aria-hidden='true' class='block-anchor'  id='v2-custom-fields_object-properties'><i aria-hidden='true' class='linkify icon'></i></a>
 
