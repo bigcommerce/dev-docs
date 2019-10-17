@@ -1,17 +1,18 @@
 # Bulk Pricing Rules
+
 <div class="otp" id="no-index">
-	<h3> On This Page </h3>
-	<ul>
-		<li><a href="#v2-bulk-pricing-rules_object-properties">Object Properties</a></li>
-		<li><a href="#v2-bulk-pricing-rules_list-bulk-pricing-rules">List Bulk Pricing Rules</a></li>
-		<li><a href="#v2-bulk-pricing-rules_get-bulk-pricing-rules">Get a Bulk Pricing Rule</a></li>
-    <li><a href="#v2-bulk-pricing-rules_get-count-bulk-pricing-rules">Get a Count of Bulk Pricing Rules</a></li>
-    <li><a href="#v2-bulk-pricing-rules_create-bulk-pricing-rules">Create a Bulk Pricing Rule</a></li>
-    <li><a href="#v2-bulk-pricing-rules_update-bulk-pricing-rules">Update A Bulk Pricing Rule</a></li>
-    <li><a href="#v2-bulk-pricing-rules_delete-bulk-pricing-rules">Delete a Bulk Pricing Rules</a></li>
-    <li><a href="#v2-bulk-pricing-rules_delete-multiple-bulk-pricing-rules">Delete Multiple Bulk Pricing Rules</a></li>
-		</ul>
-</div>
+
+### On This Page
+- [Bulk Pricing](#bulk-pricing)
+- [List Bulk Pricing Rules](#list-bulk-pricing-rules)
+- [Get a Product Bulk Pricing Rule](#get-a-product-bulk-pricing-rule)
+- [Get a Count of Bulk Pricing Rules](#get-a-count-of-bulk-pricing-rules)
+- [Create a Product Bulk Pricing Rule](#create-a-product-bulk-pricing-rule)
+- [Update a Product Bulk Pricing Rule](#update-a-product-bulk-pricing-rule)
+- [Delete a Product Bulk Pricing Rule](#delete-a-product-bulk-pricing-rule)
+- [Delete Multiple Product Bulk Pricing Rules](#delete-multiple-product-bulk-pricing-rules)
+
+</div> 
 
 <a href='#v2-bulk-pricing-rules_object-properties' aria-hidden='true' class='block-anchor'  id='v2-bulk-pricing-rules_object-properties'><i aria-hidden='true' class='linkify icon'></i></a>
 
