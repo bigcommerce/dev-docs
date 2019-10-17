@@ -1,19 +1,18 @@
 # Becoming a Partner
+
 <div class="otp" id="no-index">
-	<h3> On This Page </h3>
-	<ul>
-		<li><a href="#becoming-a-partner_apply-technology-partner-program">Apply to the Technology Partner Program </a></li>
-		<li><a href="#becoming-a-partner_getting-sandbox-store">Getting a Sandbox Store</a></li>
-		<li><a href="#becoming-a-partner_partner-program-troubleshooting">Troubleshooting</a></li>
-	</ul>
-</div>
+
+### On This Page
+- [Applying to the Technology Partner Program](#applying-to-the-technology-partner-program)
+- [Getting a Sandbox Store](#getting-a-sandbox-store)
+- [Troubleshooting](#troubleshooting)
+- [Resources](#resources)
+
+</div> 
 
 Our BigCommerce Partner Program includes access to training, sales enablement and a referral network to get more clients and build better ecommerce experiences.
 
 The following sections outline the steps required to become a vendor of Single-Click Apps on the BigCommerce platform. Doing so requires a partnership application, but acceptance will authorize you to provide best-of-breed solutions to the fast-growing online businesses we host. 
-
-
-
 
 ## Applying to the Technology Partner Program
 
@@ -25,10 +24,6 @@ Before you can submit an app to the [BigCommerce App Marketplace](https://www.bi
 * Evidence of expertise in app development
 
 Once approved, you will receive one or more emails listing your partner credentials and next steps. Your Partner ID will be required to submit your app for App Marketplace consideration. If you do not receive these credentials by email, please contact <a href="mailto:appstore@bigcommerce.com">appstore@bigcommerce.com</a>.
-
-
-
-
 
 ## Getting a Sandbox Store
 
@@ -55,17 +50,13 @@ We encourage you to create your sandbox store and your Dev Tools account using t
 ### Create a Sandbox Store
 
 1. Go to the [BigCommerce Pricing page](https://www.bigcommerce.com/pricing/) and Select **Start your free trial**.
-3. Where prompted for an email address, enter the same email that you used when applying to become a Technology Partner. 
-4. Select **Continue to store details**.
-5. In the trial store setup form, enter a store name, password, and other details. Then select **Create your store**.
-6. Log in to the [Partner Portal](https://partners.bigcommerce.com) and navigate to **Support > Create a Case** 
-	7. Under **Issue Type**, choose **Portal and Membership**. 
-8. In the case description, enter your new sandbox store’s friendly URL (for example: http://your-store-name.mybigcommerce.com) and request conversion to a sandbox. We will flag this as a sandbox store to ensure your continued access to the store, as opposed to the normal 15-day trial. This can take around two days.
-9. When you log into your new store, use the same email that you used for step 3 above.
-
-
-
-
+2. Where prompted for an email address, enter the same email that you used when applying to become a Technology Partner. 
+3. Select **Continue to store details**.
+4. In the trial store setup form, enter a store name, password, and other details. Then select **Create your store**.
+5. Log in to the [Partner Portal](https://partners.bigcommerce.com) and navigate to **Support > Create a Case** 
+	1. Under **Issue Type**, choose **Portal and Membership**. 
+6. In the case description, enter your new sandbox store’s friendly URL (for example: http://your-store-name.mybigcommerce.com) and request conversion to a sandbox. We will flag this as a sandbox store to ensure your continued access to the store, as opposed to the normal 15-day trial. This can take around two days.
+7. When you log into your new store, use the same email that you used for step 3 above.
 
 ##  Troubleshooting
 
@@ -83,8 +74,6 @@ The changes will be effective immediately in your control panel app card, but th
 
 **Who should I contact if I have further questions?**
 <a href="mailto:appstore@bigcommerce.com">appstore@bigcommerce.com</a>
-
-
 
 ## Resources
 
