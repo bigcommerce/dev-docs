@@ -1,14 +1,16 @@
 # Restyle Optimized One-Page Checkout
+
 <div class="otp" id="no-index">
-	<h3> On This Page </h3>
-	<ul>
-    <li><a href="#optimized_working">Working with the Optimized Checkout SCSS File</a></li>
-    <li><a href="#optimized_configuring">Configuring the Desktop Viewport</a></li>
-    <li><a href="#optimized_classes">Classes Available for Customization</a></li>
-    <li><a href="#optimized_providing">Providing User Options in Store Design</a></li>
-	<li><a href="#optimized_currency">Currency Conversion Options</a></li>
-	</ul>
-</div>
+
+### On This Page
+- [Working with the Optimized Checkout SCSS File](#working-with-the-optimized-checkout-scss-file)
+- [Configuring the Desktop Viewport](#configuring-the-desktop-viewport)
+- [Classes Available for Customization](#classes-available-for-customization)
+- [Providing Customizable Options in Store Design](#providing-customizable-options-in-store-design)
+- [Currency Conversion Options](#currency-conversion-options)
+- [Resources](#resources)
+
+</div> 
 
 <a href='#optimized_working' aria-hidden='true' class='block-anchor'  id='optimized_working'><i aria-hidden='true' class='linkify icon'></i></a>
 
