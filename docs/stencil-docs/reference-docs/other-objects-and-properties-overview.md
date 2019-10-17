@@ -2801,7 +2801,7 @@ https://github.com/bigcommerce/cornerstone/tree/master/templates/components/comm
 **Object Properties:**
 
 | Property                     | Description                            |
-||-|
+|-|-|
 | checkout                     |                                        |
 | ↳ order_confirmation_content | default content from checkout template |
 | ↳ checkout_head              | default content from checkout `<head>` |
