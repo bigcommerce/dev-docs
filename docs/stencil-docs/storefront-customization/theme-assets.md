@@ -1,13 +1,15 @@
 # Theme Assets
+
 <div class="otp" id="no-index">
-	<h3> On This Page </h3>
-	<ul>
-    <li><a href="#theme-assets_cornerstone-assets-directory">Cornerstone Assets Directory</a></li>
-    <li><a href="#theme-assets_citadel">Citadel Subdirectory</a></li>
-    <li><a href="#theme-assets_componenets-utilities">Components vs Utilities</a></li>
-    <li><a href="#theme-assets_variables">Variables and Mixins</a></li>
-    <li><a href="#theme-assets_stencil-subdirectory">Stencil Subdirectory</a></li>
-	</ul>
+
+### On This Page
+- [Cornerstone Assets Directory](#cornerstone-assets-directory)
+- [Citadel Subdirectory](#citadel-subdirectory)
+- [Components vs Utilities](#components-vs-utilities)
+- [Variables and Mixins](#variables-and-mixins)
+- [Stencil Subdirectory](#stencil-subdirectory)
+- [Resources](#resources)
+
 </div>
 
 Each Stencil theme’s `/assets/` directory contains CSS, JavaScript, and image assets that help create the design of storefront pages. A minimal `/assets/` directory contains the files and subdirectories that you can view on the [Cornerstone Github Repository](https://github.com/bigcommerce/cornerstone/tree/master/assets). 
