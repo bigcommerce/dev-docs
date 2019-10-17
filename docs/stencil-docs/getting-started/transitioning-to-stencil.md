@@ -1,13 +1,16 @@
 # Transitioning to Stencil
+
 <div class="otp" id="no-index">
-	<h3> On This Page </h3>
-	<ul>
-		<li><a href="#transitioning_find">Find an Agency Partner</a></li>
-    <li><a href="#transitioning_adapt">Adapt a Stencil Theme or Develop from Scratch</a></li>
-    <li><a href="#transitioning_transition">Transition to Stencil from Blueprint</a></li>
-    <li><a href="#transitioning_seo-tips">SEO Tips and Best Practices</a></li>
-    <li><a href="#transitioning_interacting">Interacting with the BigCommerce API</a></li>
-</div>
+
+### On This Page
+- [Find an Agency Partner](#find-an-agency-partner)
+- [Adapt a Stencil Theme or Develop from Scratch](#adapt-a-stencil-theme-or-develop-from-scratch)
+- [Transition to Stencil from Blueprint](#transition-to-stencil-from-blueprint)
+- [SEO Tips and Best Practices](#seo-tips-and-best-practices)
+- [Interacting with the BigCommerce API](#interacting-with-the-bigcommerce-api)
+- [Resources](#resources)
+
+</div> 
 
 Whether you are new to Stencil or approaching Stencil from a different platform or theming framework (such as BigCommerce’s Legacy Blueprint), there are a few ways to develop a custom theme for your BigCommerce Stencil storefront. This article will provide instruction on how to transition to Stencil depending on your skill set, budget, and approach to the framework.
 
