@@ -1,13 +1,15 @@
 # Template Syntax
+
+.otp
 <div class="otp" id="no-index">
-	<h3>On This Page</h3>
-	<ul>
-		<li><a href="#global-variables-references">Global-Variables References/a></li>
-		<li><a href="#panel-references">Panel References/a></li>
-		<li><a href="#snippet-references">Snippet References</a></li>
-    <li><a href="#referencing-distributed-theme-assets">Referencing Distributed Theme Assets</a></li>
-    <li><a href="#file-includes">File Includes</a></li>
-</ul>
+
+### On This Page
+- [Global-Variables References](#global-variables-references)
+- [Panel References](#panel-references)
+- [Snippet References](#snippet-references)
+- [Referencing Distributed Theme Assets](#referencing-distributed-theme-assets)
+- [File Includes](#file-includes)
+
 </div>
 
 Each of the layout, panel, and snippet files in a theme uses variables (also called placeholders) to show external content or content fetched from the database (such as the name of a product).
