@@ -1,13 +1,15 @@
 # Store Design Overview
+
 <div class="otp" id="no-index">
-	<h3> On This Page </h3>
-	<ul>
-    <li><a href="#store-design_configuration-files">Configuration Files</a></li>
-    <li><a href="#store-design_managing-keys">Managing Keys between Versions</a></li>
-    <li><a href="#store-design_persistent-settings">Persistent Settings Storage</a></li>
-    <li><a href="#store-design_theme-upgrades">Theme Upgrades and Settings</a></li>
-	</ul>
-</div>
+
+### On This Page
+- [Configuration Files](#configuration-files)
+- [Managing Keys between Versions](#managing-keys-between-versions)
+- [Persistent Settings Storage](#persistent-settings-storage)
+- [Theme Upgrades and Settings](#theme-upgrades-and-settings)
+- [Resources](#resources)
+
+</div> 
 
 [Store Design](https://support.bigcommerce.com/s/article/Store-Design) is a browser-based tool that enables BigCommerce merchants to rapidly modify and customize a storefront's look and feel without writing any code. A merchant using Store Design can customize a storefront theme by modifying characteristics from a variety of menu options such as **Styles, Colors, Typography, Buttons**, and more. 
 
