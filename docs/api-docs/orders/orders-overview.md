@@ -23,10 +23,6 @@ BigCommerce offers two possible workflows for creating orders via the API: the S
 * The Server-to-Server Checkout API represents an extension of the Server-to-Server Cart API and can be used to complete a purchase from product selection to conversion.
 * The Orders API is used to retrieve or update existing orders or to push orders from a third party, like a POS, to BigCommerce.
 
-
-
-
-
 ## Available Endpoints
 
 | Name | Description |
@@ -36,10 +32,6 @@ BigCommerce offers two possible workflows for creating orders via the API: the S
 | [Orders API](/api-reference/orders/orders-api) | Create and manage orders. Can manage orders created via API or the Control Panel |
 | [Order Transactions](/api-reference/orders/orders-transactions-api) | Get transaction information for existing orders. Read Only Endpoint |
 
-
-
-
-
 ##  Storefront Orders API 
 The Storefront Orders API can be used to return information about a just-placed order on the order confirmation page. You can interact with the Storefront Orders API using an app or a browser API. 
 
@@ -48,7 +40,6 @@ For an example using the Fetch API to log order information to the console, see 
 ### When to Use:
 * Scrape order information
 * Send order data to an analytics app
-
 
 <!--
 title: "Log Orders to Console"
@@ -70,21 +61,12 @@ console.log(myJson);
 </script>
 ```
 
-
-
-
-
 ## Server-to-Server Checkout API
 
 The Server-to-Server Checkout API allows you to create a checkout programmatically and then convert it to an order. From there, the order can be managed in the Control Panel or using the V2 Orders API. [See Server-to-Server Checkout](https://developer.bigcommerce.com/api-reference/cart-checkout/server-server-checkout-api/checkout/createanorder) for more.
 
 ### When to Use:
 * Create an order from an existing checkout
-
-
-
-
-
 
 ## Orders API
 The Orders API can be used to create an order without first creating a cart and checkout. It also allows you to manage an order's billing address, products, coupons, and taxes. See [Orders API](/api-reference/orders/orders-api) for a complete list of methods.
@@ -94,19 +76,11 @@ The Orders API can be used to create an order without first creating a cart and 
 * Make changes to existing orders
 * Export or import order information to a third-party system
 
-
-
-
-
 ## Order Transactions
 The Order Transactions API is a read-only endpoint that returns transaction or payment data about an order. The data returned does not include payment tokens for a third party such as Braintree. 
 
 ### When to Use:
 * View transaction information about an Order. 
-
-
-
-
 
 ## OAuth Scopes
 - Orders
@@ -114,10 +88,6 @@ The Order Transactions API is a read-only endpoint that returns transaction or p
 - Checkouts
 
 For a more details and a full list of available scopes, see [Oauth Scopes](/api-docs/getting-started/basics/authentication#authentication_oauth-scopes).
-
-
-
-
 
 ## Resources
 ### Webhooks Available
