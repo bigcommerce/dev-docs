@@ -1,15 +1,17 @@
 # Translation Keys
+
 <div class="otp" id="no-index">
-	<h3> On This Page </h3>
-	<ul>
-    <li><a href="#basis_translating">Translating a Theme</a></li>
-    <li><a href="#basis_required">Required Subdirectory</a></li>
-    <li><a href="#basis_schema">The Schema</a></li>
-    <li><a href="#basis_localization-file">Localization File Structure</a></li>
-    <li><a href="#basis_invoking">Invoking a Translation Key</a></li>
-    <li><a href="#basis_localization-example">Localization Example</a></li>
-	</ul>
-</div>
+
+### On This Page
+- [Translating a Theme](#translating-a-theme)
+- [Required Subdirectory](#required-subdirectory)
+- [The Schema](#the-schema)
+- [Localization File Structure](#localization-file-structure)
+- [Invoking a Translation Key](#invoking-a-translation-key)
+- [Localization Example](#localization-example)
+- [Resources](#resources)
+
+</div> 
 
 Translation keys exist in JSON files and are invoked based on the user's browser language. With a Stencil theme, you can define multiple translations for each theme based on a predefined schema.
 
