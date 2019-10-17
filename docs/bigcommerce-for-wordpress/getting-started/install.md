@@ -1,12 +1,14 @@
 <div><h3 class="sub-docs-type" id="bigcommerce-for-wordpress">BigCommerce for Wordpress</h3>
-<h1 class="sub-docs-title">Install
+
+# Install
+
 <div class="otp" id="no-index">
-	<h3> On This Page </h3>
-	<ul>
-        <li><a href="#install_requirements">Requirements</a></li>
-        <li><a href="#install_ installation">Installation</a></li>
-        <li><a href="#install_plugin-install-wordpress">Plugin Installation in WordPress</a></li>
-	</ul>
+
+### On This Page
+- [System Requirements:](#system-requirements)
+- [Installation](#installation)
+- [Setting Your Channel Name](#setting-your-channel-name)
+
 </div>
 
 <a href='##install_requirements' aria-hidden='true' class='block-anchor'  id='#install_requirements'><i aria-hidden='true' class='linkify icon'></i></a>
