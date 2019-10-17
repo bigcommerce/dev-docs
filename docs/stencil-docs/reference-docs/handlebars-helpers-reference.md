@@ -3680,11 +3680,6 @@ Call this helper on a string object from the page's context, to convert its cont
 "<br>685 Market St<br>San Francisco<br>94105<br>CA<br>"
 ```
 
-# Resources
-
-* [Cornerstone](https://github.com/bigcommerce/cornerstone/blob/master/templates/components/amp/common/footer.html)
-* [Paper Handlebars](https://github.com/bigcommerce/paper-handlebars/blob/master/helpers/nl2br.js)
-
 ---
 
 ## {{partial}}
