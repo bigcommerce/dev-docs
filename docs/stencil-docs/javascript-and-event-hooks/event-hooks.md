@@ -1,12 +1,13 @@
 # Event Hooks
 
 <div class="otp" id="no-index">
-	<h3> On This Page </h3>
-	<ul>
-    <li><a href="#event_cookie-notification">Cookie Notification Example</a></li>
-    <li><a href="#event_cart-dialog">Cart Dialog Example</a></li>
-    <li><a href="#event_stencil-data-tags">Stencil Data Tags and Event Hooks</a></li>
-	</ul>
+
+### On This Page
+- [Cookie Notification Example](#cookie-notification-example)
+- [Cart Dialog Example](#cart-dialog-example)
+- [Stencil Data Tags and Event Hooks](#stencil-data-tags-and-event-hooks)
+- [Resources](#resources)
+
 </div>
 
 Stencil themes provide access to remote resources through data tags and event hooks. Developers can use these hooks to trigger defined events. A theme can hook to an event to perform actions or calculations based on shopper behavior.
