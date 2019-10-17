@@ -1,13 +1,11 @@
 # Remote API Tutorial
 
 <div class="otp" id="no-index">
-	<h3> On This Page </h3>
-	<ul>
-		<li><a href="#remote_remote">Remote API Tutorial</a></li>
-	</ul>
-</div>
 
-<a href='#remote_remote' aria-hidden='true' class='block-anchor'  id='remote_remote'><i aria-hidden='true' class='linkify icon'></i></a>
+### On This Page
+- [Remote API Example](#remote-api-example)
+
+</div>
 
 ## Remote API Example
 
