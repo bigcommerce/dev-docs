@@ -1,16 +1,17 @@
 # Product Reviews
+
 <div class="otp" id="no-index">
-	<h3> On This Page </h3>
-	<ul>
-		<li><a href="#v2-review_object-properties">Object Properties</a></li>
-		<li><a href="#v2-review_list-product-reviews">List Product Reviews</a></li>
-		<li><a href="#v2-review-product-review">Get Product Reviews</a></li>
-    <li><a href="#v2-reviews_create-product-reviews">Create Product Reviews</a></li>
-    <li><a href="#v2-reviews_update-product-reviews">Update Product Reviews </a></li>
-    <li><a href="#v2-reviews_delete-product-reviews">Delete a Product Reviews</a></li>
-    <li><a href="#v2-reviews_delete-all-product-reviews">Delete All Product Reviews</a></li>
-		</ul>
-</div>
+
+### On This Page
+- [Product Reviews](#product-reviews)
+- [List Product Reviews](#list-product-reviews)
+- [Get a Product Review](#get-a-product-review)
+- [Create a Product Review](#create-a-product-review)
+- [Update a Product Review](#update-a-product-review)
+- [Delete a Product Review](#delete-a-product-review)
+- [Delete All Product Reviews](#delete-all-product-reviews)
+
+</div> 
 
 <a href='#v2-review_object-properties' aria-hidden='true' class='block-anchor'  id='v2-review_object-properties'><i aria-hidden='true' class='linkify icon'></i></a>
 
