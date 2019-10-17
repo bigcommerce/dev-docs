@@ -1,17 +1,19 @@
 <div><h3 class="sub-docs-type" id="bigcommerce-for-wordpress">BigCommerce for Wordpress</h3>
+
 # Customization Guide
+
 <div class="otp" id="no-index">
-	<h3> On This Page </h3>
-	<ul>
-        <li><a href="#customization-guide_introduction">Introduction</a></li>
-        <li><a href="#customization-guide_file-structure">File Structure</a></li>
-    		<li><a href="#customization-guide_template-overrides">Template Overrides</a></li>	
-    		<li><a href="#customization-guide_custom-css">Custom CSS</a></li>	
-    		<li><a href="#customization-guide_hooks">Hooks</a></li>
-    		<li><a href="#customization-guide_styling-checkout">Styling Checkout</a></li>	
-    		<li><a href="#customization-guide_email-templates">Email Templates</a></li>
-    		<li><a href="#customization-guide_external-resources">External Resources</a></li>	
-  </ul>
+
+### On This Page
+- [Introduction](#introduction)
+- [File Structure](#file-structure)
+- [Template Overrides](#template-overrides)
+- [Custom CSS](#custom-css)
+- [Hooks](#hooks)
+- [Styling Checkout](#styling-checkout)
+- [Email Templates](#email-templates)
+- [Additional Resources](#additional-resources)
+
 </div>
 
 <a href='#customization-guide_introduction' aria-hidden='true' class='block-anchor'  id='customization-guide_introduction'><i aria-hidden='true' class='linkify icon'></i></a>
