@@ -1,17 +1,18 @@
-# About Our API
+# About Our APIs
+
 <div class="otp" id="no-index">
-	<h3> On This Page </h3>
-	<ul>
-    <li><a href="#about-api_api-enviroment">API Environment</a></li>
-        <li><a href="#about-api__available-api">Available APIs</a></li>
-        <li><a href="#about-api_request-headers">Request Headers</a></li>
-        <li><a href="#about-api_response-headers">Response Headers</a></li>
-        <li><a href="#about-api_media-types">Media Types</a></li>
-        <li><a href="#about-api_content-types">Content Types</a></li>
-    <li><a href="#  about-api_request-and-response-structure">Request and Response Structure</a></li>
-    		<li><a href="#about-api_get-help">Support</a></li>
-    		<li><a href="https://www.bigcommerce.com/terms/api-terms/">Terms of Service</a></li>
-	</ul>
+
+### On This Page
+- [API Environment](#api-environment)
+- [Available APIs](#available-apis)
+- [Request Headers](#request-headers)
+- [Response Headers](#response-headers)
+- [Media Types](#media-types)
+- [Content Types](#content-types)
+- [Request and Response Structure](#request-and-response-structure)
+- [Support](#support)
+- [Resources](#resources)
+
 </div>
 
 Want to get started making API Requests right away? Check out the [Quick Start](/api-docs/getting-started/basics/making-requests).
