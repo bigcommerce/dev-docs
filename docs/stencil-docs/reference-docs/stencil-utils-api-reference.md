@@ -3,7 +3,6 @@
 <div class="otp" id="no-index">
 
 ###  On this Page
-
 - [Installing](#installing)
 - [api.js](#apijs)
 - [Cart API](#cart-api)
@@ -22,10 +21,6 @@ These functions help you set up asynchronous requests to modify the customer’s
 - Interact with the cart
 - Use `getPage` to return a template file.
 
----
-
-
-
 ## Installing
 
 ### As an ES6 module
@@ -38,12 +33,6 @@ If you do not want to support ES6 modules, Stencil Utils can be included as a no
 -   Copy the bundled script from  `dist/stencil-utils.min.js`  to your theme.
 -   Include the script in your HTML document
 -   Access stencil utils from  `window.stencilUtils`
-
-
----
-
-
-
 
 ## api.js
 
@@ -106,15 +95,9 @@ updateView() {
 - [`assets/js/theme/gift-certificate.js`](https://github.com/bigcommerce/cornerstone/blob/master/assets/js/theme/gift-certificate.js)
 - [`assets/js/theme/faceted-search.js`](https://github.com/bigcommerce/cornerstone/blob/master/assets/js/theme/common/faceted-search.js)
 
----
-
-
-
 ## Cart API 
 
 The following functions allow your theme to work with [cart](https://github.com/bigcommerce/stencil-utils/blob/9cf7c26b0a1f9ca9da83274ebc375e73f20acac5/src/api/cart.js) contents in customized ways.
-
-
 
 ### [getCart](https://github.com/bigcommerce/stencil-utils/blob/master/src/api/cart.js#L11)
 
@@ -122,7 +105,6 @@ The following functions allow your theme to work with [cart](https://github.com/
 | -- | -- | -- |
 | options | object | Return product variant options |
 | callback | Function | Asynchronous function call to handle the results |
-
 
 **getCart Example**
 
@@ -139,10 +121,6 @@ utils.api.cart.getCart({includeOptions: true}, (err, response) => {
 		console.log(err);
 });
 ```
-
-
-
-
 
 ### [getCartQuantity](https://github.com/bigcommerce/stencil-utils/blob/master/src/api/cart.js#L28) 
 
@@ -184,8 +162,6 @@ utils.api.cart.getCartQuantity(quantity => {
 
 ---
 
-
-
 ### [itemAdd](https://github.com/bigcommerce/stencil-utils/blob/master/src/api/cart.js#L51)
 
 The `itemAdd`function allows your code to add an item to the cart, with options:
@@ -210,7 +186,6 @@ The `itemAdd`function allows your code to add an item to the cart, with options:
   </tr>
 </tbody>
 </table>
-
 
 **itemAdd Example**
 
@@ -254,8 +229,6 @@ The `itemAdd`function allows your code to add an item to the cart, with options:
 - [`assets/js/theme/common/product-details.js`](https://github.com/bigcommerce/cornerstone/blob/master/assets/js/theme/common/product-details.js)
 
 ---
-
-
 
 ### [itemUpdate](https://github.com/bigcommerce/stencil-utils/blob/master/src/api/cart.js#L70)
 
@@ -390,8 +363,6 @@ In the following example (from <code>cart.js</code>), <code>itemRemove</code> is
 
 ---
 
-
-
 ### [update](https://github.com/bigcommerce/stencil-utils/blob/master/src/api/cart.js#L160)
 
 The <code>update</code> function allows your code to update the set of items in the cart:
@@ -417,7 +388,6 @@ The <code>update</code> function allows your code to update the set of items in 
   </tr>
 </tbody>
 </table>
-
 
 **update Example**
 
@@ -455,10 +425,6 @@ The following example shows a call to `update` within the `itemUpdate` function:
 ```
 
 ---
-
-
-
-
 
 ### [getItemGiftWrappingOptions](https://github.com/bigcommerce/stencil-utils/blob/master/src/api/cart.js#L132)
 
