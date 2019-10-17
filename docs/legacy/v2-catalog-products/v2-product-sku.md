@@ -1,17 +1,16 @@
 # Product SKU
+
 <div class="otp" id="no-index">
-	<h3> On This Page </h3>
-	<ul>
-		<li><a href="#v2-sku_object-properties">Object Properties</a></li>
-		<li><a href="#v2-sku_list-product-sku">List Product SKU</a></li>
-		<li><a href="#v2-sku_get-product-sku">Get Product SKU</a></li>
-    <li><a href="#v2-sku_get-count-sku">Get a Count of Product SKUs</a></li>
-    <li><a href="#v2-sku_create-product-sku">Create Product SKU</a></li>
-    <li><a href="#v2-sku_update-product-sku">Update Product SKU</a></li>
-    <li><a href="#v2-sku_delete-product-sku">Delete a Product SKU</a></li>
-    <li><a href="#v2-sku_delete-multiple-product-sku">Delete Multiple Product SKUs</a></li>
-		</ul>
-</div>
+
+### On This Page
+- [SKUs](#skus)
+- [List Product SKUs](#list-product-skus)
+- [Get a Product SKU](#get-a-product-sku)
+- [Update a Product SKU](#update-a-product-sku)
+- [Delete a Product SKU](#delete-a-product-sku)
+- [Delete Multiple Product SKUs](#delete-multiple-product-skus)
+
+</div> 
 
 <a href='#v2-sku_object-properties' aria-hidden='true' class='block-anchor'  id='v2-sku_object-properties'><i aria-hidden='true' class='linkify icon'></i></a>
 
