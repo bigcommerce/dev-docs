@@ -1,17 +1,19 @@
 #  Customer Login API 
+
 <div class="otp" id="no-index">
-	<h3> On This Page </h3>
-	<ul>
-		<li><a href="#customer-login_introduction"> Introduction</a></li>
-    <li><a href="#customer-login_jwt"> JWT</a></li>
-		<li><a href="#customer-login_oauth-scope">OAuth Scope</a></li>
-    <li><a href="#customer-login_sample-code">Sample Code</a></li>
-    <li><a href="#customer-login_access-url">Acces URL</a></li>
-    <li><a href="#customer-login_logging-in-a-customer">Logging In a Customer</a></li>
-    <li><a href="#customer-login_logout-customer">Logging Out a Customer</a></li>
-    <li><a href="#customer-login_troubleshooting-customer-login-api">Troubleshooting</a></li>
-	</ul>
-</div>
+
+### On This Page
+- [Introduction](#introduction)
+- [JWT](#jwt)
+- [OAuth Scope](#oauth-scope)
+- [Access URL](#access-url)
+- [Logging in a Customer](#logging-in-a-customer)
+- [Sample Code](#sample-code)
+- [Logging Out a Customer](#logging-out-a-customer)
+- [Troubleshooting](#troubleshooting)
+- [Resources](#resources)
+
+</div> 
 
 ## Introduction
 The Customer Login API enables single sign-on (SSO). It allows your apps to programmatically log in a storefront customer by using the login entry point URL: `/login/token/{token}`. Here, {token} must be a JSON Web Token (JWT) containing the parameters for the customer login request, signed by your application’s Oauth client secret.
