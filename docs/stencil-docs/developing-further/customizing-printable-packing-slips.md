@@ -1,9 +1,12 @@
 # Customizing Printable Packing Slips
-<div class="otp">
-  <ul>
-    <li><a href="#customizing-printable_customizing-printable">Customizing Printable Packing Slips</a></li>
-	</ul>
-</div>
+
+<div class="otp" id="no-index">
+
+### On This Page
+- [Customizing Printable Packing Slips](#customizing-printable-packing-slips)
+- [Resources](#resources)
+
+</div> 
 
 Merchants commonly request developers modify the default content of packing slips in order to satisfy specific business requirements and industry demands. In order to assist developers in making these changes, this articles contains instructions on how to edit the printable packing slip’s HTML.
 
@@ -31,4 +34,3 @@ Customizing your Stencil theme’s printable packing slips currently relies on a
 * [Blueprint Theme Email Templates](https://developer.bigcommerce.com/legacy/blueprint-themes/blueprint-email-templates)
 * [File Access (WebDAV)](https://support.bigcommerce.com/articles/Public/File-Access-WebDAV/) (Knowledge Base)
 * [Uploading and Linking to a File in Your Store](https://support.bigcommerce.com/s/article/How-do-I-add-and-link-to-a-file-in-my-store#upload-a-file) (Knowledge Base)
-
