@@ -1,17 +1,13 @@
 # Quick Start
+
 <div class="otp" id="no-index">
-	<h3> On This Page </h3>
-	<ul>
-    		<li><a href="#making-requests_prerequisites">Overview<a/></li>
-        <li><a href="#making-requests_get-products">Getting a List of Products</a></li>
-        <li><a href="#making-requests_create-a-product">Creating a Product</a></li>
-        <li><a href="#making-requests_troubleshooting">Troubleshooting</a></li>
-	</ul>
-</div>
 
-<a href='#making-requests_prerequisites' aria-hidden='true' class='block-anchor'  id='making-requests_prerequisites'><i aria-hidden='true' class='linkify icon'></i></a>
+### On This Page
+- [Getting a List of Products](#getting-a-list-of-products)
+- [Create a Product](#create-a-product)
+- [Troubleshooting](#troubleshooting)
 
-## Overview
+</div> 
 
 This Quick Start guide will take you through the minimum required steps to begin making API requests. By the end of this guide, you’ll be able to retrieve a store’s product catalog, create a new product, and troubleshoot common errors.
 
