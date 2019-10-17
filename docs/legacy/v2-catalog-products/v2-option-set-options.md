@@ -1,16 +1,17 @@
 # Option Set Options
+
 <div class="otp" id="no-index">
-	<h3> On This Page </h3>
-	<ul>
-		<li><a href="#v2-option-set-options_object-properties">Object Properties</a></li>
-		<li><a href="#v2-option-set-options_list-option-set-option">List Option Set Options</a></li>
-		<li><a href="#v2-option-set-options_get-option-set-option">Get Option Set Options</a></li>
-    <li><a href="#v2-option-set-options_create-option-set-option">Create Option Set Options</a></li>
-    <li><a href="#v2-option-set-options_update-option-set-option">Update Option Set Options</a></li>
-    <li><a href="#v2-option-set-options_delete-option-set-option">Delete an Option Set Options</a></li>
-    <li><a href="#v2-option-set-options_delete-multiple-option-set-option">Delete Multiple Option Set Options</a></li>
-		</ul>
-</div>
+
+### On This Page
+- [Option Set Options](#option-set-options)
+- [List Option Set Options](#list-option-set-options)
+- [Get an Option Set Option](#get-an-option-set-option)
+- [Create an Option Set Option](#create-an-option-set-option)
+- [Update an Option Set Option](#update-an-option-set-option)
+- [Delete an Option Set Option](#delete-an-option-set-option)
+- [Delete Multiple Option Set Options](#delete-multiple-option-set-options)
+
+</div> 
 
 ##  Option Set Options 
 
