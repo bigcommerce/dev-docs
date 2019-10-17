@@ -1,15 +1,16 @@
 # Defining UI Options
+
 <div class="otp" id="no-index">
-	<h3> On This Page </h3>
-	<ul>
-    <li><a href="#defining-ui-options_enabling">Enabling Store Design Options</a></li>
-    <li><a href="#defining-ui-options_best-practices">Best Practices</a></li>
-    <li><a href="#defining-ui-options_how-json">How .json Entries Govern Store Design's UI</a></li>
-    <li><a href="#defining-ui-options_store-design-data">Store Designs Data Types</a></li>
-    <li><a href="#defining-ui-options_data-structure">Store Design Data Structure in defining-ui-options.json</a></li>
-    <li><a href="#defining-ui-options_troubleshooting">Store Design UI Troubleshooting</a></li>
-	</ul>
-</div>
+
+### On This Page
+- [Enabling Store Design Options](#enabling-store-design-options)
+- [Best Practices](#best-practices)
+- [How .json Entries Govern Store Design's UI](#how-json-entries-govern-store-designs-ui)
+- [Store Design Data Types](#store-design-data-types)
+- [Store Design Data Structure in schema.json](#store-design-data-structure-in-schemajson)
+- [Store Design UI Troubleshooting](#store-design-ui-troubleshooting)
+
+</div> 
 
 You are free to decide which properties of your theme to make editable in Store Design, and in which order to display them. Store Design can expose any set of properties as long as your <span class="fn">schema.json</span> declares them using the data types that Store Design supports.
 
