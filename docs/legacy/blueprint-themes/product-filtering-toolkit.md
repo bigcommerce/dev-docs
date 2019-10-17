@@ -1,14 +1,15 @@
 # Product Filtering Toolkit
+
 <div class="otp" id="no-index">
-	<h3>On This Page</h3>
-	<ul>
-		<li><a href="#creating-new-theme-product-filtering">Creating a New Theme With Product Filtering</a></li>
-		<li><a href="#enabling-product-filtering-customized-theme">Enabling Product Filtering for Your Customized Theme</a></li>
-		<li><a href="#implementing-product-filtering-your-theme">Implementing Product Filtering in Your Theme</a></li>
-    <li><a href="#allowing-filtering-on-off">Allowing For Filtering On/Off</a></li>
-    <li><a href="#category-filtering-details">Category Filtering Details</a></li>
-		</ul>
-</div>
+
+### On This Page
+- [Creating a New Theme with Product Filtering](#creating-a-new-theme-with-product-filtering)
+- [Enabling Product Filtering for Your Customized Theme](#enabling-product-filtering-for-your-customized-theme)
+- [Implementing Product Filtering in Your Theme](#implementing-product-filtering-in-your-theme)
+- [Allowing For Filtering On/Off](#allowing-for-filtering-onoff)
+- [Category Filtering Details](#category-filtering-details)
+
+</div> 
 
 Product filtering (also known as faceted search) enables shoppers to refine product searches based on multiple attributes like price, size, ratings, etc. For a store owner's view of administering this feature, please see <a href="https://forum.bigcommerce.com/s/article/Product-Filtering-Settings" target="_blank">this KB article</a>. 
 
