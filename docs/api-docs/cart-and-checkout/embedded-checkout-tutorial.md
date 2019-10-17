@@ -3,12 +3,11 @@
 <div class="otp" id="no-index">
 
 ### On This Page
-
 - [Step 1: Create a Channel](#step-1-create-a-channel)
-- [Step 2: Create a Site](#2-create-a-site)
+- [Step 2: Create a Site](#step-2-create-a-site)
 - [Step 3: Create a Cart](#step-3-create-a-cart)
 - [Step 4: Embed Checkout](#step-4-embed-checkout)
-- [FAQ](#embedded-checkout-faq)
+- [FAQ](#faq)
 
 </div>
 
