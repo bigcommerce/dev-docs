@@ -1,17 +1,18 @@
 # Product Rules
+
 <div class="otp" id="no-index">
-	<h3> On This Page </h3>
-	<ul>
-		<li><a href="#v2-rule_object-properties">Object Properties</a></li>
-		<li><a href="#v2-rule_list-product-rules">List Product Rules</a></li>
-		<li><a href="#v2-rule-product-rule">Get Product Rules</a></li>
-    <li><a href="#v2-rule_get-count-rule">Get a Count of Product Rules</a></li>
-    <li><a href="#v2-rule_create-product-rule">Create Product Rules</a></li>
-    <li><a href="#v2-rule_update-product-rule">Update Product Rules </a></li>
-    <li><a href="#v2-rule_delete-product-rule">Delete a Product Rule</a></li>
-    <li><a href="#v2-rule_delete-all-product-rule">Delete All Product Rules</a></li>
-		</ul>
-</div>
+
+### On This Page
+- [Product Rules](#product-rules)
+- [List Product Rules](#list-product-rules)
+- [Get a Product Rule](#get-a-product-rule)
+- [Get a Count of Product Rules](#get-a-count-of-product-rules)
+- [Create a Product Rule](#create-a-product-rule)
+- [Update a Product Rule](#update-a-product-rule)
+- [Delete a Product Rule](#delete-a-product-rule)
+- [Delete Multiple Product Rules](#delete-multiple-product-rules)
+
+</div> 
 
 ## Product Rules 
 
