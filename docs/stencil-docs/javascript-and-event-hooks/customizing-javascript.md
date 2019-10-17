@@ -1,13 +1,13 @@
 # Customizing Javascript
 
 <div class="otp" id="no-index">
-	<h3> On This Page </h3>
-	<ul>
-		<li><a href="#customizing-javascript_customizing">Modifying a Page's Javascript</a></li>
-    	<li><a href="#customizing-javascript_bringing-handlebars">Bringing In Handlebars Context</a></li>
-		<li><a href="#customizing-javascript_installing-various">Installing Libraries</a></li>
-	</ul>
-</div>
+
+### On This Page
+- [Modifying a Page's Javascript](#modifying-a-pages-javascript)
+- [Bringing in Handlebars Context](#bringing-in-handlebars-context)
+- [Installing Libraries](#installing-libraries)
+
+</div> 
 
 Most [Cornerstone theme](https://github.com/bigcommerce/cornerstone) page template files located in <span class="fp">templates/pages/</span>  have a corresponding `.js` file in <span class="fp">assets/js/theme/</span>.  These JavaScript files contain event handlers and logic  for managing page specific elements and actions.
 

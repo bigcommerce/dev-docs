@@ -1,21 +1,22 @@
 # Dynamic Content Rendering on Stencil Storefronts
 
 <div class="otp" id="no-index">
-	<h3> On This Page </h3>
-	<ul>
-    <li><a href="#dynamic-content_why-dynamic-content">Why Dynamic Content?: Dropzones, Dynamic Tabs, and Snippets</a></li>
-    <li><a href="#dynamic-content_dropzones">Dropzones</a></li>
-    <li><a href="#dynamic-content_dynamic-tabs">Dynamic Tabs</a></li>
-    <li><a href="#dynamic-content_snippets">Snippets</a></li>
-    <li><a href="#dynamic-content_recap">Recap</a></li>
-  </ul>
+
+### On This Page
+- [Why Dynamic Content?](#why-dynamic-content)
+- [Dropzones](#dropzones)
+- [Dynamic Tabs](#dynamic-tabs)
+- [Snippets](#snippets)
+- [Snippets HTML](#snippets-html)
+- [Recap](#recap)
+
 </div>
 
 <a href='#dynamic-content_why-dynamic-content' aria-hidden='true' class='block-anchor'  id='dynamic-content_why-dynamic-content'><i aria-hidden='true' class='linkify icon'></i></a>
 
 _We're gratefully sharing techniques devised by Ken Utting, Web Developer for BigCommerce client goruck.com_.
 
-## Why Dynamic Content?: Dropzones, Dynamic Tabs, and Snippets
+## Why Dynamic Content?
 
 At GORUCK, we've customized our Stencil theme (currently using the [Merchant](https://www.bigcommerce.com/theme/merchant-light/?_ga=2.52710120.1984523106.1539568940-967431010.1523308107) theme) to provide several ways to update our site content without requiring changes to the theme itself. This allows our content folks to make changes to our theme without having to wait on our software developers.
 
