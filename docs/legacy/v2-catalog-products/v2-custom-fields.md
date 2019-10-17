@@ -20,7 +20,7 @@ Custom fields associated with a product.
 ### Custom Field Object – Properties 
 
 | Name | Type | Description |
-|  |  |  |
+|-|-|-|
 | id | int | |
 | product_id | int | ID of the associated product |
 | name | string | key; limited to 250 characters |
@@ -47,7 +47,7 @@ There are no filter parameters specific to `custom_fields`.
 Parameters can be added to the URL query string to paginate the collection. The maximum limit is 250. If a limit isn’t provided, up to 50 custom_fields are returned by default.
 
 | Parameter | Type | Example |
-|  |  |  |
+|-|-|-|
 | page | int | /api/v2/products/{product_id}/custom_fields?page={number} |
 | limit | int | /api/v2/products/{product_id}/custom_fields?limit={count} |
 
@@ -209,6 +209,6 @@ Deletes multiple custom fields associated with a product.
 Parameters can be added to the URL query string to paginate the collection. The maximum limit is 250. If a limit isn’t provided, up to 50 custom_fields are returned by default.
 
 | Parameter | Type | Example |
-|  |  |  |
+|-|-|-|
 | page | int | /api/v2/products/{product_id}/custom_fields?page={number} |
 | limit | int | /api/v2/products/{product_id}/custom_fields?limit={count} |

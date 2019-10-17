@@ -20,7 +20,7 @@ Reviews associated with a product.
 ### Product Review Object – Properties 
 
 | Name | Type | Description |
-|  |  |  |
+|-|-|-|
 | id | int | Unique database ID for this product review. Read-only. |
 | product_id | int | The ID of the product to which this review belongs. Read-only. |
 | author | string | The review's author, displayed on the storefront. |
@@ -45,7 +45,7 @@ There are no filter parameters specific to product reviews.
 Parameters can be added to the URL query string to paginate the collection. The maximum limit is 250. If a limit isn’t provided, up to 50 product_reviews are returned by default.
 
 | Parameter | Type | Example |
-|  |  |  |
+|-|-|-|
 | page | int | /api/v2/products/{product_id}/reviews?page={number} |
 | limit | int | /api/v2/products/{product_id}/reviews?limit={count} |
 

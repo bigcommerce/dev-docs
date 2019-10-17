@@ -32,7 +32,7 @@ A product object represents a saleable item in the catalog.
 ### Product Object – Properties
 
 | Name | Type | Description |
-|  |  |  |  |
+|-|-|-|  |
 | id | int | The unique numerical ID of the product. Increments sequentially. |
 | keyword_filter | string | (This property is deprecated.) |
 | name | string | The product name. |
@@ -126,7 +126,7 @@ Gets the collection of products. (Default sorting is by product id, from lowest 
 Filter parameters can be added to the URL query string to select specific products in the collection.
 
 | Parameter | Type | Example |
-|  |  |  |
+|-|-|-|
 | min_id | int | /api/v2/products?min_id={value} |
 | max_id | int | /api/v2/products?max_id={value} |
 | name | string | /api/v2/products?name={value} |
@@ -159,7 +159,7 @@ Filter parameters can be added to the URL query string to select specific produc
 Parameters can be added to the URL query string to paginate the collection. The maximum limit is 250. If a limit isn’t provided, up to 50 products are returned by default.
 
 | Parameter | Type | Example |
-|  |  |  |
+|-|-|-|
 | Page | int | /api/v2/products?page={number} |
 | Limit | int | /api/v2/products?limit={count} |
 
@@ -677,7 +677,7 @@ Gets a count of products.
 Filter parameters can be added to the URL query string to select specific products in the collection.
 
 | Parameter | Type | Example |
-|  |  |  |
+|-|-|-|
 | min_id | int | /api/v2/products?min_id={value} |
 | max_id | int | /api/v2/products?max_id={value} |
 | name | string | /api/v2/products?name={value} |

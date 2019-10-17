@@ -1,8 +1,8 @@
 # AccountDownloadItemList Snippet 
 
 ## Available Variables 
-|||
-|||
+||
+|-|
 | %%GLOBAL_DownloadName%% |
 | %%GLOBAL_DisplayDownloadLink%% |
 | %%GLOBAL_DownloadLink%% |
@@ -15,8 +15,8 @@
 # AccountInboxMessage Snippet 
 
 ## Available Variables 
-|||
-|||
+||
+|-|
 | %%GLOBAL_MessageSubject%% |
 | %%GLOBAL_MessageDate%% |
 | %%GLOBAL_IMG_PATH%% |
@@ -28,16 +28,16 @@
 # AccountInboxOrderItem Snippet 
 
 ## Available Variables 
-|||
-|||
+||
+|-|
 | %%GLOBAL_OrderItemMessage%% |
 | %%GLOBAL_OrderId%% |
 
 # AccountNewReturnItem Snippet 
 
 ## Available Variables 
-|||
-|||
+||
+|-|
 | %%GLOBAL_ItemClass%% |
 | %%GLOBAL_ProductName%% |
 | %%GLOBAL_ProductOptions%% |
@@ -49,16 +49,16 @@
 # AccountOrderItemDownloadLink Snippet 
 
 ## Available Variables 
-|||
-|||
+||
+|-|
 | %%GLOBAL_ShopPathSSL%% |
 | %%GLOBAL_DownloadItemEncrypted%% |
 
 # AccountOrderItemList Snippet 
 
 ## Available Variables 
-|||
-|||
+||
+|-|
 | %%GLOBAL_StrikeStart%% |
 | %%GLOBAL_ItemQty%% |
 | %%GLOBAL_ItemName%% |

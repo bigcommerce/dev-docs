@@ -18,73 +18,73 @@ The following variables are available within individual BigCommerce email templa
 Sent to the recipient of a gift certificate.
 
 ### Available Variables 
-|||
-|||
-| %%LNG_GiftCertificateEmailYouHaveReceived%%
-| %%GLOBAL_StoreName%%
-| %%LNG_Dear%%
-| %%GLOBAL_ToName%%
-| %%GLOBAL_Intro%%
-| %%GLOBAL_ExpiryInfo%%
-| %%LNG_GiftCertificateEmailInstructions%%
-| %%LNG_GiftCertificateEmailAttached%%
-| %%LNG_GiftCertificateEmailWarning%%
-| %%GLOBAL_EmailFooter%%
+||
+|-|
+| %%LNG_GiftCertificateEmailYouHaveReceived%% |
+| %%GLOBAL_StoreName%% |
+| %%LNG_Dear%% |
+| %%GLOBAL_ToName%% |
+| %%GLOBAL_Intro%% |
+| %%GLOBAL_ExpiryInfo%% |
+| %%LNG_GiftCertificateEmailInstructions%% |
+| %%LNG_GiftCertificateEmailAttached%% |
+| %%LNG_GiftCertificateEmailWarning%% |
+| %%GLOBAL_EmailFooter%% |
 
 ## Abandoned Cart Email Template 
 
 Sent when a customer abandons a shopping cart.
 
 ### Available Variables 
-|||
-|||
-| %%GLOBAL_AC_EmailBody%%
-| %%GLOBAL_EmailFooter%%
-| %%GLOBAL_AC_UnsubscribeLink%%
-| %%LNG_AC_EmailUnsubscribe%%
-| %%LNG_AC_EmailUnsubscribeSuffix%%
+||
+|-|
+| %%GLOBAL_AC_EmailBody%%|
+| %%GLOBAL_EmailFooter%%|
+| %%GLOBAL_AC_UnsubscribeLink%%|
+| %%LNG_AC_EmailUnsubscribe%%|
+| %%LNG_AC_EmailUnsubscribeSuffix%%|
 
 ## Invoice Email Template 
 
 Sent when a customer places an order.
 
 ### Available Variables 
-|||
-|||
-| %%GLOBAL_NoPaymentTaken%%
-| %%LNG_ThanksForYourOrder%%
-| %%GLOBAL_IMG_PATH%%
-| %%LNG_YourOrderIDIs%%
+||
+|-|
+| %%GLOBAL_NoPaymentTaken%%|
+| %%LNG_ThanksForYourOrder%%|
+| %%GLOBAL_IMG_PATH%%|
+| %%LNG_YourOrderIDIs%%|
 | %%GLOBAL_OrderNumber%%
-| %%GLOBAL_ViewOrderStatusMsg%%
-| %%GLOBAL_PendingPaymentNotice%%
-| %%LNG_ShippingAddress%%
-| %%GLOBAL_ShippingAddress%%</div>
-| %%GLOBAL_HideShippingEmail%%"
-| %%LNG_Email%%
-| %%GLOBAL_ShippingEmail%%
-| %%LNG_BillingAddress%%
-| %%GLOBAL_BillingAddress%%
-| %%GLOBAL_HideBillingEmail%%
-| %%LNG_Email%%
-| %%GLOBAL_BillingEmail%%
-| %%GLOBAL_PendingPaymentDetails%%
-| %%GLOBAL_OrderCommentBlock%%
-| %%LNG_YourOrderContainsTheFollowingItems%%
-| %%GLOBAL_CartItemColumns%%
-| %%SNIPPET_CartItems%%
-| %%SNIPPET_TotalRows%%
-| %%SNIPPET_PaymentMethod%%
-| %%GLOBAL_EmailFooter%%
-| %%GLOBAL_ProductThumbImageURL%%
+| %%GLOBAL_ViewOrderStatusMsg%%|
+| %%GLOBAL_PendingPaymentNotice%%|
+| %%LNG_ShippingAddress%%|
+| %%GLOBAL_ShippingAddress%%|
+| %%GLOBAL_HideShippingEmail%%|
+| %%LNG_Email%%|
+| %%GLOBAL_ShippingEmail%%|
+| %%LNG_BillingAddress%%|
+| %%GLOBAL_BillingAddress%%|
+| %%GLOBAL_HideBillingEmail%%|
+| %%LNG_Email%%|
+| %%GLOBAL_BillingEmail%%|
+| %%GLOBAL_PendingPaymentDetails%%|
+| %%GLOBAL_OrderCommentBlock%%|
+| %%LNG_YourOrderContainsTheFollowingItems%%|
+| %%GLOBAL_CartItemColumns%%|
+| %%SNIPPET_CartItems%%|
+| %%SNIPPET_TotalRows%%|
+| %%SNIPPET_PaymentMethod%%|
+| %%GLOBAL_EmailFooter%%|
+| %%GLOBAL_ProductThumbImageURL%%|
 
 ## Order Status Email Template 
 
 Sent when an order's status is changed.
 
 ### Available Variables 
-|||
-|||
+||
+|-|
 | %%LNG_OrderStatusChanged%% |
 | %%GLOBAL_OrderStatusChangedHi%% |
 | %%LNG_OrderStatusChangedIntro%% |
@@ -106,8 +106,8 @@ Sent when an order's status is changed.
 Sent when a customer submits a return request.
 
 ### Available Variables 
-|||
-|||
+||
+|-|
 | %%LNG_NotificationConfirmationForReturn%% |
 | %%GLOBAL_OrderId%% |
 | %%GLOBAL_IMG_PATH%% |

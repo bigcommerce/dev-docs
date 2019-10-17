@@ -21,7 +21,7 @@ Rules that modify the properties of a product, such as weight, price, and produc
 ### Product Rule Object – Properties 
 
 | Name | Type | Description |
-|  |  |  |
+|-|-|-|
 | id | int | The ID of the rule. |
 | product_id | int | The ID of the product to which the rule belongs. |
 | sort_order | int | The order in which the rule will be displayed on the product page. Lower integers will give the rule a higher priority. If the rule is given a lower priority, then when updating, all rules with a `sort_order` the same or greater than the rule's new `sort_order` value will have their `sort_order` reordered. |
@@ -50,7 +50,7 @@ There are no filter parameters specific to product rules.
 Parameters can be added to the URL query string to paginate the collection. The maximum limit is 250. If a limit isn’t provided, up to 50 product_rules are returned by default.
 
 | Parameter | Type | Example |
-|  |  |  |
+|-|-|-|
 | page | int | /api/v2/products/{product_id}/rules?page={number} |
 | limit | int | /api/v2/products/{product_id}/rules?limit={count} |
 
@@ -263,6 +263,6 @@ Deletes multiple product rules.
 Parameters can be added to the URL query string to paginate the collection. The maximum limit is 250. If a limit isn’t provided, up to 50 `product_rules` are returned by default.
 
 | Parameter | Type | Example |
-|  |  |  |
+|-|-|-|
 | page | int | /api/v2/products/{product_id}/rules?page={number} |
 | limit | int | /api/v2/products/{product_id}/rules?limit={count} 

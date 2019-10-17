@@ -44,7 +44,7 @@ This consistent behavior is true for each of the common objects documented in th
 **Object Properties:**
 
 | Property | Description | Type |
-|  | |  |
+|-|-|-|
 | with_tax | Price including tax | object |
 | &#x21B3; currency | Currency code | string  <br> `"USD"`|
 | &#x21B3; formatted | String representation of the above price, including currency formatting | string <br> `"$216.50"` |

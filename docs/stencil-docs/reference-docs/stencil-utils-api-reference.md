@@ -973,7 +973,7 @@ Configure product options in the cart.
 `utils.api.productAttributes.configureInCart(itemId, options, callback)`
 
 | Argument | Type | Description|
-|  |  | -- |
+|-|-| -- |
 | itemId | number | product ID|
 | params | object | |
 | callback | Function | Asynchronous function call to handle the results |

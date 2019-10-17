@@ -104,7 +104,7 @@ In the Optimized One-Page Checkout page's `Shipping Address` and `Billing Addres
 BigCommerce Optimized One-Page Checkout will currently translate displayed `Country/State` names if your Stencil theme includes `.../lang/xx.json` files named as shown below.
 
 | Supported Language | Required Translation File Name |
-|||
+|-|-|
 |  German | `de.json` |
 | Spanish | `es.json` |
 | French | `fr.json` |

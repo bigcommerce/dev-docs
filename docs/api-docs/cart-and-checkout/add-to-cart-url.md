@@ -20,7 +20,7 @@ URLs constructed with these parameters can be used to:
 ## Parameters
 
 | **Type**| **Parameter** | **Description**                                     | **Example**                                                 |
-|-- ||--|-|
+|-- |-|--|-|
 | string  | `action=`     | `add` or  `buy`; `buy` goes directly to checkout    | `/cart.php?action=add&product_id=123`                       |
 | string  | `couponcode=` | coupon code to apply to the cart                    | `/cart.php?action=add&product_id=123&couponcode=10off100`   |
 | int     | `product_id=` | product id to add to the cart                       | `/cart.php?action=add&product_id=123`                       |

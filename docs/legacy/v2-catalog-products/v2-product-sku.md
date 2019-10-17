@@ -19,7 +19,7 @@ Stock Keeping Unit identifiers associated with products or product options.
 ### SKU Object – Properties 
 
 | Name | Type | Description |
-|  |  |  |
+|-|-|-|
 | id | int | |
 | product_id | int | |
 | sku | string | The unique SKU (stock keeping unit). |
@@ -52,7 +52,7 @@ BigCommerce has updated the SKU schema to include additional price, weight, imag
 Filter parameters can be added to the URL query string to select specific skus in the collection.
 
 | Parameter | Type | Example |
-|  |  |  |
+|-|-|-|
 | min_id | int | /api/v2/products/{product_id}/skus?min_id={value} |
 | max_id | int | /api/v2/products/{product_id}/skus?max_id={value} |
 | sku | string | /api/v2/products/{product_id}/skus?sku={value} |
@@ -70,7 +70,7 @@ Filter parameters can be added to the URL query string to select specific skus i
 Parameters can be added to the URL query string to paginate the collection. The maximum limit is 250. If a limit isn’t provided, up to 50 skus are returned by default.
 
 | Parameter | Type | Example |
-|  |  |  |
+|-|-|-|
 | page | int | /api/v2/products/{product_id}/skus?page={number} |
 | limit | int | /api/v2/products/{product_id}/skus?limit={count} |
 
@@ -317,7 +317,7 @@ Deletes multiple product SKUs.
 Filter parameters can be added to the URL query string to select specific SKUs in the collection.
 
 | Parameter | Type | Example |
-|  |  |  |
+|-|-|-|
 | min_id | int | /api/v2/products/{product_id}/skus?min_id={value} |
 | max_id | int | /api/v2/products/{product_id}/skus?max_id={value} |
 | sku | string | /api/v2/products/{product_id}/skus?sku={value} |
@@ -335,6 +335,6 @@ Filter parameters can be added to the URL query string to select specific SKUs i
 Parameters can be added to the URL query string to paginate the collection. The maximum limit is 250. If a limit isn’t provided, up to 50 skus are returned by default.
 
 | Parameter | Type | Example |
-|  |  |  |
+|-|-|-|
 | page | int | /api/v2/products/{product_id}/skus?page={number} |
 | limit | int | /api/v2/products/{product_id}/skus?limit={count} |

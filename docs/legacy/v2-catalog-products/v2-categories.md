@@ -21,7 +21,7 @@ Index of hierarchical categories used to organize and group products.
 ### Category Object – Properties 
 
 | Name | Type | Description |
-|  |  |  |
+|-|-|-|
 | id | int | A read-only field containing the unique numeric identifier of this category. |
 | parent_id | int | The ID of the parent category to which this category belongs.<br> (NOTE: the total number of parent categories cannot exceed seven.) |
 | name | string | The name of the category. Must be unique. |
@@ -48,7 +48,7 @@ Gets the list of categories. (Default sorting is by category id, from lowest to 
 Filter parameters can be added to the URL query string to select specific categories in the collection.
 
 | Parameter | Type | Example |
-|  |  |  |
+|-|-|-|
 | parent_id | string | /api/v2/categories?parent_id={value} |
 | name | string | /api/v2/categories?name={value} |
 | is_visible | string | /api/v2/categories?is_visible={value} |
@@ -60,7 +60,7 @@ Filter parameters can be added to the URL query string to select specific catego
 Parameters can be added to the URL query string to paginate the collection. The maximum limit is 250. If a limit isn’t provided, up to 50 categories are returned by default.
 
 | Parameter | Type | Example |
-|  |  |  |
+|-|-|-|
 | Page | int | /api/v2/categories?page={number} |
 | Limit | int | /api/v2/categories?limit={count} |
 

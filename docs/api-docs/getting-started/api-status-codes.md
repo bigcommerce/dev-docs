@@ -17,7 +17,7 @@ The BigCommerce API responds to requests with different HTTP status codes depend
 2xx codes are returned for requests that were understood and processed successfully.
 
 | Code | Text | Purpose |
-|  |  |  |
+|-|-|-|
 | **200** | **OK** | For successful `GET` and `PUT` requests. |
 | **201** | **Created** | For a successful `POST` request. |
 | **202** | **Accepted** | For a request that resulted in a scheduled task being created to perform the actual request. |
@@ -28,7 +28,7 @@ The BigCommerce API responds to requests with different HTTP status codes depend
 3xx codes are returned for requests that require further action.
 
 | Code | Text | Purpose |
-|  |  |  |
+|-|-|-|
 | **301** | **Moved Permanently** | When the API routes have changed (unlikely), or if the incoming request is not secure (`http`), the request will be redirected to the secure (`https`) version. |
 | **304** | **Not Modified** | This response will be sent if the request included an `If-Modified-Since` header, but the resource has *not* been modified since the specified date. Please refer to individual resources' documentation regarding support for the `If-Modified-Since` header. |
 
@@ -37,7 +37,7 @@ The BigCommerce API responds to requests with different HTTP status codes depend
 4xx codes are returned for requests that could not be processed due to problems with the request or the data.
 
 | Code | Text | Purpose |
-|  |  |  |
+|-|-|-|
 | **400** | **Bad Request** | Issued when a malformed request was sent.
 | **401** | **Unauthorized** | This response is sent when your client failed to provide credentials or its credentials were invalid. |
 | **403** | **Forbidden** | Returned when permissions do not allow the operation. 
@@ -55,7 +55,7 @@ The BigCommerce API responds to requests with different HTTP status codes depend
 5xx codes are returned for requests that could not be processed due to an internal error with the API or server.
 
 | Code | Text | Purpose |
-|  |  |  |
+|-|-|-|
 | **500** | **Internal Server Error** | When an error has occurred within the API. |
 | **501** | **Not Implemented** | When a request method is sent that is not supported by the API (e.g., `TRACE`, `PATCH`). |
 | **503** | **Service Unavailable** | When the store is marked as “Down for Maintenance,” or the store is being upgraded to a new version. |

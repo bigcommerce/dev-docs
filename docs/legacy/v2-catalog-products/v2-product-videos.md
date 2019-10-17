@@ -21,7 +21,7 @@ Embedded videos displayed on product listings.
 ### Videos Object – Properties 
 
 | Name | Type | Description |
-|  |  |  |
+|-|-|-|
 | id | string | ID of this video. |
 | product_id | int | ID of the associated product. |
 | sort_order | int | Sort order for this video. |
@@ -38,7 +38,7 @@ Gets the videos associated with a product.
 Parameters can be added to the URL query string to paginate the collection. The maximum limit is 250. If a limit isn’t provided, up to 50 `product_videos` are returned by default.
 
 | Parameter | Type | Example |
-|  |  |  |
+|-|-|-|
 | page | int | /api/v2/products/{product_id}/videos?page={number} |
 | limit | int | /api/v2/products/{product_id}/videos?limit={count} |
 

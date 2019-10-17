@@ -543,7 +543,7 @@ Orders can be created using the [Server to Server API Endpoints](https://develop
 ## Error Codes
 
 | Code | Description | Possible Causes | Possible Solutions |
-|    |   |  - |  - |
+|-|-|  - |  - |
 | `10000` |  An internal error has occurred within the API. |  Connection error | Try the request again. |
 | `10001` | Missing or incorrect required fields. | Missing or Incorrect Fields |  Check the request for any data that is incorrect or is missing |
 | `30000` | Merchant payment configuration could not be found. | * The payment provider has not been configured in the store. | Check the [payment gateways](https://support.bigcommerce.com/s/article/Online-Payment-Methods#setup) settings in your BigCommerce store. |

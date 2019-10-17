@@ -20,7 +20,7 @@ Options belonging to an option set.
 ### Option Set Option: Object – Properties 
 
 | Name | Type | Description |
-|  |  |  |
+|-|-|-|
 | id | int | The ID of this option. |
 | option_id | int | The ID of the option to which this option set connects. |
 | option_set_id | int | The ID of this option set. |
@@ -41,7 +41,7 @@ Gets the options associated with an option set. (Default sorting is by option id
 Parameters can be added to the URL query string to paginate the collection. The maximum limit is 250. If a limit isn’t provided, up to 50 option_set_options are returned by default.
 
 | Parameter | Type | Example |
-|  |  |  |
+|-|-|-|
 | Page | int | /api/v2/option_sets/{option_set_id}/options?page={number} |
 | Limit | int | /api/v2/option_sets/{option_set_id}/options?limit={count} |
 
@@ -276,6 +276,6 @@ Deletes multiple options associated with an option set.
 Parameters can be added to the URL query string to paginate the collection. The maximum limit is 250. If a limit isn’t provided, up to 50 option_set_options are returned by default.
 
 | Parameter | Type | Example |
-|  |  |  |
+|-|-|-|
 | Page | int | /api/v2/option_sets/{option_set_id}/options?page={number} |
 | Limit | int | /api/v2/option_sets/{option_set_id}/options?limit={count} |

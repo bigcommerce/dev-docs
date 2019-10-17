@@ -3,7 +3,7 @@
 The following GLOBAL variables are available from any layout, panel, or snippet in the store, independent of session status.
 
 | Variable | Description |
-|  |  |
+|-|-|
 | `%%GLOBAL_AllPricesAreInCurrency%%` | This variable produces a text string that identifies the currency currently active on the store. For example: <NOBR>`All Prices are in USD`</nobr> |
 | `%%GLOBAL_AlternateClass%%` | . |
 | `%%GLOBAL_CdnAppPath%%` | The URI of the CDN application. |

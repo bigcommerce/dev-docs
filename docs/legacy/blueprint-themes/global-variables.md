@@ -7,7 +7,7 @@ While these variables are prefixed with the word GLOBAL, the data's availability
 The list below is sorted by the number of times that the Blueprint base theme references the variable – with the most frequently referenced variables at the top:
 
 | Variable | Description |
-|  |  |
+|-|-|
 | `%%GLOBAL_ShopPath%%` | The full URL to the store without a trailing slash. If on an SSL based page, this will be the HTTPS version of the store path. |
 | `%%GLOBAL_IMG_PATH%%` | . |
 | `%%GLOBAL_ProductName%%` | . |

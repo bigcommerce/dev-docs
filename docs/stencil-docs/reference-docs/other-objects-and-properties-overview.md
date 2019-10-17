@@ -1319,7 +1319,7 @@ For further details about catalog price properties, please see [Catalog Price Ob
 **Object Properties:**
 
 | Property  | Description  |
-|||
+|-|-|
 | message  | System-generated messages for the cart  |
 |type|Type of message: error, info, or success	|
 

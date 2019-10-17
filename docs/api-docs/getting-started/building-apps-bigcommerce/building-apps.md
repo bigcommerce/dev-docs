@@ -101,7 +101,7 @@ The GET request to your Auth Callback URI contains a temporary code that you can
 The following table details the full list of parameters and values included in the GET request from BigCommerce to your Auth Callback URI. BigCommerce passes these within the URI itself as query parameters.
 
 | Parameter | Description |
-|  |  |
+|-|-|
 | code | Temporary code to exchange for a permanent OAuth token. See [Making the POST request](#building-apps_making-post-request) below for more information about this exchange. |
 | scope | List of scopes authorized by the user. As a best practice, your app should validate this list to ensure that it matches the app&#39;s needs, and fail if it does not. However, at this time, the user does not have any opportunity to pick and choose between scopes. The dialog presented to the user requires the user to approve all scopes or none. |
 | context | The store hash: a unique value that identifies the store on which a logged-in user has clicked to install or your app. BigCommerce passes this along with a context path as follows: `stores/{store_hash}`. Save the store hash value, because you will need to pass it in all your requests to the API. |
@@ -182,7 +182,7 @@ Upon receiving the POST request during inital installation, BigCommerce marks th
 Include values for each of the following parameters.
 
 | Parameter | Description |
-|  |  |
+|-|-|
 | client_id | The Client ID for your app, obtained during [registration](https://developer.bigcommerce.com/api-docs/getting-started/authentication#authentication_client-id-secret). |
 | client_secret | The Client Secret for your app, obtained during [registration](https://developer.bigcommerce.com/api-docs/getting-started/authentication#authentication_client-id-secret). |
 | code | Temporary access code received in the [GET request](/api-docs/getting-started/building-apps-bigcommerce/building-apps#building-apps_recieving-get-request) discussed above. |
@@ -302,7 +302,7 @@ The POST response will include a JSON object containing the permanent OAuth toke
 
 ### JSON Values
 | Name | Data Type | Value Description |
-|  |  |  |
+|-|-|-|
 | access_token | string | The permanent OAuth token that your app can use to make requests to the Stores API on behalf of the user. Store this value securely. |
 | scope | string | List of authorization scopes. |
 | id | integer | Unique identifier for the user. Store this value to identify the user at load and uninstall. |
@@ -363,7 +363,7 @@ lineNumbers: true
 In addition to the Auth Callback URI, the following URI’s are required for BigCommerce Apps:
 
 | Name | Required? | Event Discussion |
-|  |  |  |
+|-|-|-|
 | Load Callback URI | Yes | Called when the store owner or user clicks to load your app. |
 | Uninstall Callback URI | No | Called when the store owner clicks to uninstall your app. |
 | Remove User Callback URI | No | Called when the store admin revokes a user's access to your app. |
@@ -567,7 +567,7 @@ Use the store information endpoint to identify the store to which the request pe
 ### Interpreting the User Information
 
 | Request type | Multiple users enabled | Multiple users not enabled |
-|  |  |  |
+|-|-|-|
 | Load | Compare the user information to see if it matches that of the store owner (received at the time of [app installation](#building-apps_installation-update-sequence)) or that of an existing user. If the user information does not match either of these, then it represents a new user that you should add to your database or other storage. | The information should match that of the store owner, received at the time of [app installation](#building-apps_installation-update-sequence). |
 | Uninstall | The user information should match that of the store owner. Only the store owner can uninstall your app. | Should match the store owner. |
 | Remove user | The user information should match one of the users that you have stored. After locating the stored user, delete it from your database or other storage. | N/A |
@@ -575,7 +575,7 @@ Use the store information endpoint to identify the store to which the request pe
 ### JSON Values
 
 | Name | Data Type | Value Description |
-|  |  |  |
+|-|-|-|
 | user.id | integer | Unique identifier for the user who initiated the callback. |
 | user.email | string | Email address of the user who initiated the callback. |
 | owner.id | integer | Unique identifier for the user listed as the store owner. |

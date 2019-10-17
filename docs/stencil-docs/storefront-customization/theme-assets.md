@@ -217,7 +217,7 @@ The /components/stencil/ subdirectory contains CSS files unique to Stencil theme
 This subdirectory’s children contain CSS for the following page elements.
 
 | Subdirectory  | UI Element/Purpose  |
-|||
+|-|-|
 | account  | Customer account details |
 | addressBox  | Customer shipping addresses |
 | addReturn  | Add a product-return request |

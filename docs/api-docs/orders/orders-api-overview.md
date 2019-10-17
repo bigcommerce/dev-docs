@@ -724,7 +724,7 @@ POST or PUT orders on stores with Avalara Premium cause tax documents to be subm
 You can create overrides for calculated values such as product prices, subtotal and totals by sending a fixed value in the request. If values are not supplied for these properties, they will be automatically calculated based on the preset store values and tax rules.
 
 | Existing Status | Status Passed | Resultant Status | Avalara Tax Document Submission |
-|  |  |  |  |
+|-|-|-|  |
 | Any | None | `Pending` | None |
 | Paid or `Refunded` | Paid | Paid | None |
 | Unpaid or `Refunded` | Unpaid | Unpaid | None |

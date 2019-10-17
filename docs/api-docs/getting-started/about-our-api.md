@@ -62,7 +62,7 @@ BigCommerce API requests can be made in the context of the storefront or server-
 Server-to-Server request headers require Accept, X-Auth-Client, X-Auth-Token and Content-Type at a minimum.
 
 | Header | Allowed Values | Description | Example |
-|  |  |  |  |
+|-|-|-| -|
 | `Accept` | `application/json` (for .json requests) `application/xml` (for .xml requests) | The MIME type for the format you want to receive a response in.|`application/xml` |
 | `Content-Type` | `application/json` (for JSON requests) `application/xml` (for XML requests) | The MIME type of the request body. Used to validate and parse the request to the API. | `application/json` |
 | `User-Agent` | String | While it is not required, we ask that you specify a user agent which identifies your integration/client with your requests. |
@@ -72,7 +72,7 @@ Server-to-Server request headers require Accept, X-Auth-Client, X-Auth-Token and
 ## Response Headers 
 
 | Header | Possible Values | Description | Example |
-|  |  | -- | - |
+|-|-| -- | - |
 | `Date` | An <a href="http://tools.ietf.org/html/rfc2822#section-3.3" target="_blank">RFC 2822</a> date. | The date the response was sent. | `Tue, 15 Nov 2011 12:45:26 GMT` |
 | `last-modified` | An <a href="http://tools.ietf.org/html/rfc2822#section-3.3" target="_blank">RFC 2822</a> date. | The date the resource was last modified. Please refer to the individual resource pages for support for this header. | `Tue, 15 Nov 2011 12:45:26 GMT` |
 | `Content-Type` | `application/json` | The MIME type of the response, dependent on the extension of the endpoint that was requested. | `application/json` |

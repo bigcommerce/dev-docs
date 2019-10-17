@@ -256,7 +256,7 @@ All OAuth scopes except `default` have `read_only` scopes that allow only `GET` 
 - Wishlists API is accessible with Customers scope.
 
 | Scope GUI Name | Resources  | Description |
-||||
+|-|-|-|
 | Content | store_v2_content | View and modify store content |
 ||| [/v2/pages](/api-reference/content/store-content-api) |
 ||| [/v2/blog](/api-reference/content/store-content-api) |
@@ -321,9 +321,9 @@ All OAuth scopes except `default` have `read_only` scopes that allow only `GET` 
 || store_cart_read_only | View Carts |
 ||| [/v3/carts](/api-reference/cart-checkout/storefront-cart-api) |
 | Create Payments  | store_payments_access_token_create | Process Payments |
-| | | [/payments/access_tokens](/api-reference/payments/payments-create-payment-token-api)|
+|-|-| [/payments/access_tokens](/api-reference/payments/payments-create-payment-token-api)|
 | Get Payment Methods | store_payments_methods_read | Get Order Payment Methods |
-| | | [/payments](/api-reference/payments/payments-process-payments)|
+|-|-| [/payments](/api-reference/payments/payments-process-payments)|
 
 ## Resources
 * [Building An App](https://developer.bigcommerce.com/api-docs/getting-started/building-apps-bigcommerce/building-apps)

@@ -76,7 +76,7 @@ These APIs are not always required, but highly recommended for app developers ba
 ### Features/ Requirements
 
 |  | Channel Manager | App Marketplace |
-| | | |
+|-|-|-|
 | Preferred app placement & discovery in the control panel | Yes | No |
 | Required to use BigCommerce’s Big Design  UI components | Yes | No|
 | Must be express-installable app | Yes | No |

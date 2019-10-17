@@ -85,7 +85,7 @@ The following tables map earlier to current syntax:
 ##### Assets in CSS Files 
 
 | Previous Syntax | Updated Syntax (CDN) |
-|--||
+|--|-|
 | `url(/template/images/foo.jpg)` | `url(%%ASSET_images/foo.jpg%%)` |
 | `url(/templates/__custom/images/foo.jpg)` | `url(%%ASSET_images/foo.jpg%%)` |
 | `url(/template/foo/bar/font.woff)` | `url(%%ASSET_foo/bar/font.woff%%)` |
@@ -96,7 +96,7 @@ The following tables map earlier to current syntax:
 ##### Assets in HTML Files 
 
 | Previous Syntax | Updated Syntax (CDN) |
-||-|
+|-|-|
 | `<img src="../images/foo.jpg" />` | `<img src="%%ASSET_images/foo.jpg%%" />` |
 | `<img src="//mystore.com/template/images/foo.jpg">` | `<img src="%%ASSET_images/foo.jpg%%" />` |
 | `<link href="/template/Styles/foo.css" />` | `<link href="%%ASSET_Styles/foo.css%%" />` |

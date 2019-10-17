@@ -21,7 +21,7 @@ Bulk pricing rules applied to a product.
 ###  Bulk Pricing Object – Properties 
 
 | Name | Type | Description |
-|  |  |  |
+|-|-|-|
 | id | string | The ID of the bulk discount rule. |
 | product_id | int | The ID of the product associated with this bulk discount rule. |
 | min | int | The minimum inclusive quantity of a product to satisfy this rule. Must be greater than or equal to zero. |
@@ -44,7 +44,7 @@ There are no filter parameters specific to `discount_rules`.
 Parameters can be added to the URL query string to paginate the collection. The maximum limit is 250. If a limit isn’t provided, up to 50 bulk_pricing_rules are returned by default.
 
 | Parameter | Type | Example |
-|  |  |  |
+|-|-|-|
 | page | int | /api/v2/products/{product_id}/discount_rules?page={number} |
 | limit | int | /api/v2/products/{product_id}/discount_rules?limit={count} |
 
@@ -225,6 +225,6 @@ Deletes bulk pricing rules associated with a product.
 Parameters can be added to the URL query string to paginate the collection. The maximum limit is 250. If a limit isn’t provided, up to 50 `bulk_pricing_rules` are returned by default.
 
 | Parameter | Type | Example |
-|  |  |  |
+|-|-|-|
 | page | int | /api/v2/products/{product_id}/discount_rules?page={number} |
 | limit | int | /api/v2/products/{product_id}/discount_rules?limit={count} |

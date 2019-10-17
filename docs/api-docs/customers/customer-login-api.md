@@ -96,7 +96,7 @@ lineNumbers: true
 ```
 
 | Field Name | Type | Description |
-|  |  |  |
+|-|-|-|
 | iss | string | Indicates the token's issuer. This is your application's client ID, which is obtained during application registration in Developer Portal. |
 | iat | integer| Time when the token was generated. This is a numeric value indicating the number of seconds since the [Unix epoch](http://en.wikipedia.org/wiki/Unix_time).|
 | jti | string | Request ID string that must be unique across all requests made by your app. A UUID or other random string would be an appropriate value. Most libraries contain a method for generating a uuid. For testing a [UUID generator](https://www.uuidgenerator.net/) can be used, but it recommended to use built in libraries.|

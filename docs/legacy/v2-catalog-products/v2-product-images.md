@@ -20,7 +20,7 @@ Images associated with a product.
 ### Product Image Object – Properties 
 
 | Name | Type | Description |
-|  |  |  |
+|-|-|-|
 | id | int |
 | product_id | int | The ID of the product to which the image belongs. |
 | image_file | string | When specifying a product image, the `image_file` should be specified as either: a path to an image already uploaded via WebDAV to the import directory (with the path relative to the import directory); or a URL to an image accessible on the internet. |
@@ -44,7 +44,7 @@ There are no filter parameters specific to product images.
 Parameters can be added to the URL query string to paginate the collection. The maximum limit is 250. If a limit isn’t provided, up to 50 product_images are returned by default.
 
 | Parameter | Type | Example |
-|  |  |  |
+|-|-|-|
 | page | int | /api/v2/products/{product_id}/images?page={number} |
 | limit | int | /api/v2/products/{product_id}/images?limit={count} |
 
@@ -212,6 +212,6 @@ Deletes multiple product images.
 Parameters can be added to the URL query string to paginate the collection. The maximum limit is 250. If a limit isn’t provided, up to 50 `product_images` are returned by default.
 
 | Parameter | Type | Example |
-|  |  |  |
+|-|-|-|
 | Page | int | /api/v2/products/{product_id}/images?page={number} |
 | Limit | int | /api/v2/products/{product_id}/images?limit={count} |

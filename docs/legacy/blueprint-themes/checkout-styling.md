@@ -73,7 +73,7 @@ For details on interacting with WebDAV, please see [this article](https://suppor
 Below is a summary of the classes provided in the template CSS, with corresponding page elements that they style. (These class names and mappings are subject to change, so please see the inline comments embedded in the file itself.)
 
 | Class | Styles This Optimized One-Page Checkout Element: |
-|||
+|-|-|
 | .optimizedCheckout-header | Page header. |
 | .optimizedCheckout-headingPrimary | Top-level headings. |
 | .optimizedCheckout-headingSecondary | Certain lower-level elements, such as descriptions of cart items. |
