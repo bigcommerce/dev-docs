@@ -1,17 +1,16 @@
 # Multi Language Checkout
 
 <div class="otp" id="no-index">
-	<h3> On This Page </h3>
-	<ul>
-		<li><a href="#multi_multi-lang">Multi Language Setup</a></li>
-    <li><a href="#multi_browsing">Browsing Hidden Translation Keys</a></li>
-    <li><a href="#multi_adding">Adding Your Own Translation Values</a></li>
-    <li><a href="#multi_localized">Localized Country and State Names</a></li>
-    <li><a href="#multi_stencils-overall">Limits on Translation</a></li>
-	</ul>
-</div>
 
-<a href='#multi_multi-lang' aria-hidden='true' class='block-anchor'  id='multi_multi-lang'><i aria-hidden='true' class='linkify icon'></i></a>
+### On This Page
+- [Multi-Language Setup](#multi-language-setup)
+- [Browsing Hidden Translation Keys](#browsing-hidden-translation-keys)
+- [Adding Your Own Translation Values](#adding-your-own-translation-values)
+- [Localized Country and State Names](#localized-country-and-state-names)
+- [Limits on Translation](#limits-on-translation)
+- [Resources](#resources)
+
+</div> 
 
 ## Multi-Language Setup
 
