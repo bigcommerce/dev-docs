@@ -40,7 +40,6 @@ A sample order workflow might include:
 * Taking payment using either the Control Panel or third party payment solutions
 * Creating a shipment for the order to generate an order confirmation email and mark it as shipped
 
-
 ### Prerequisites:
 **BigCommerce Store**  
 An active BigCommerce store with a sellable [product](/api-reference/catalog/catalog-api/products/createproduct)
@@ -48,8 +47,6 @@ An active BigCommerce store with a sellable [product](/api-reference/catalog/cat
 **Scopes**  
 The following [OAuth](/api-docs/getting-started/authentication#authentication_oauth-scopes) scopes are required:
 * Modify Orders
-
-
 
 <a href='#orders-api-overview_create-order' aria-hidden='true' class='block-anchor'  id='orders-api-overview_create-order'><i aria-hidden='true' class='linkify icon'></i></a>
 
@@ -91,7 +88,6 @@ Make note of the `option_values > id` and `option_values > option_id`. These wil
 </div>
 </div>
 </div>
-
 
 <!--
 title: "Example /GET Variants Response"
@@ -202,7 +198,6 @@ This is an abbreviated request
 * price_ex_tax – Price excluding tax
 * sku (optional)
 
-
 <!--
 title: "Custom Order Products Array"
 subtitle: "This is an abbreviated request"
@@ -252,7 +247,6 @@ If price is not specified, it will automatically pick up the price from the stor
 
 If the `price_inc_tax` or `price_ex_tax` specified then any variant pricing is ignored and the order products base_price is updated according to the store settings. For example, if the store is set to display prices with tax included, then the `base_price` will be `price_inc_tax`.
 
-
 **Stock**
 
 For products that are configured to track stock, the quantity specified on the order will reduce the stock on hand. When there is not enough inventory to fulfill the order, the order will be rejected with an “out of stock” error code.
@@ -271,7 +265,6 @@ For products that allow customers to upload a file at checkout (i.e. an image up
 
 * Get the filename value from GET [/orders/[order_id]/products](https://developer.bigcommerce.com/api-reference/orders/orders-api/order-products/getallorderproducts), in the product_options array
 * Use that filename value to download the file via WebDAV using the following path: https://store.com/product_images/configured_products/[value]
-
 
 <a href='#orders-api-overview_add-billing-address' aria-hidden='true' class='block-anchor'  id='orders-api-overview_add-billing-address'><i aria-hidden='true' class='linkify icon'></i></a>
 
@@ -471,8 +464,6 @@ lineNumbers: true
 }
 ```
 
-
-
 <a href='#orders-api-guide_order-response' aria-hidden='true' class='block-anchor'  id='orders-api-guide_order-response'><i aria-hidden='true' class='linkify icon'></i></a>
 
 ## Order Response
@@ -495,7 +486,6 @@ In the example below, the order ID is 193.
 </div>
 </div>
 </div>
-
 
 <!--
 title: "Create Order Response"
@@ -597,8 +587,6 @@ lineNumbers: true
 }
 ```
 
-
-
 <a href='#orders-api-overview_shipping-order' aria-hidden='true' class='block-anchor'  id='orders-api-overview_shipping-order'><i aria-hidden='true' class='linkify icon'></i></a>
 
 ## Shipping an Order
@@ -623,9 +611,7 @@ There does not need to be a shipping provider. If the shipping provider is not s
 
 Once the order shipment is created, it will automatically send out an email to the billing address with the shipment confirmation. To stop this behavior adjust the [Order Notification](https://support.bigcommerce.com/s/article/Customer-Order-Notifications#enable) settings in the Control Panel.
 
-
 If the order shipment is deleted, the status of the shipment is still in shipped. The status will need to be [manually changed](https://developer.bigcommerce.com/api-reference/orders/orders-api/order-status/getaorderstatus).
-
 
 <br>
 
@@ -766,8 +752,6 @@ An order can be created with a `shipping_cost_ex_tax` and `shipping_cost_inc_tax
 ### Shipping Carrier
 Generating a quote through a shipping carrier is currently not supported. A shipping carrier can be specified when creating an Order Shipment. The quote can be generate elsewhere, then update the `shipping_cost_ex_tax` and `shipping_cost_inc_tax` for the order total to be correct..
 
-
-
 <a href='#orders-api-overview_taxes' aria-hidden='true' class='block-anchor'  id='orders-api-overview_taxes'><i aria-hidden='true' class='linkify icon'></i></a>
 
 ## Taxes
@@ -786,7 +770,6 @@ POST or PUT orders on stores with Avalara Premium cause tax documents to be subm
 
 You can create overrides for calculated values such as product prices, subtotal and totals by sending a fixed value in the request. If values are not supplied for these properties, they will be automatically calculated based on the preset store values and tax rules.
 
-
 | Existing Status | Status Passed | Resultant Status | Avalara Tax Document Submission |
 |  |  |  |  |
 | Any | None | `Pending` | None |
@@ -795,14 +778,10 @@ You can create overrides for calculated values such as product prices, subtotal 
 | Paid or `Refunded` | Unpaid | Unpaid | Tax document voided |
 | Unpaid or `Refunded` | Paid | Paid | Tax document submitted |
 
-
-
 <a href='##orders-api-overview_override-preset-values' aria-hidden='true' class='block-anchor'  id='#orders-api-overview_override-preset-values'><i aria-hidden='true' class='linkify icon'></i></a>
 
 ## Overriding Preset Values
 You can create overrides for calculated values such as product prices, subtotal and totals by sending a fixed value in the request. If values are not supplied for these properties, they will be automatically calculated based on the preset store values and tax rules.
-
-
 
 <a href='#orders-api-overview_calculation_totals' aria-hidden='true' class='block-anchor'  id='orders-api-overview_calculation_totals'><i aria-hidden='true' class='linkify icon'></i></a>
 
@@ -823,8 +802,6 @@ Edits to the following properties will trigger a recalculation of the subtotal a
 *   wrapping_cost_inc_tax
 *   billing_address
 *   shipping_addresses
-
-
 
 <a href='#orders-api-overview_order_status' aria-hidden='true' class='block-anchor'  id='orders-api-overview_order_status'><i aria-hidden='true' class='linkify icon'></i></a>
 
@@ -848,8 +825,6 @@ BigCommerce considers all statuses other than those above to be of the unpaid ty
 ### Custom Order Status
 
 The order status label can be changed in the Control Panel. This **does not** change the underlying functionality. See our support article on [Order Status](https://support.bigcommerce.com/s/article/Order-Statuses#rename).
-
-
 
 <a href='#orders-api-overview_faq' aria-hidden='true' class='block-anchor'  id='orders-api-overview_faq'><i aria-hidden='true' class='linkify icon'></i></a>
 
@@ -881,9 +856,6 @@ You can either process payment through a third party or using the Control Panel.
 **Can I generate a shipping quote from a carrier using the API?**
 
 Not at this time. If an order is created either in the Control Panel or via API, then it returns a 204 when trying to get a [Shipping Quote](https://developer.bigcommerce.com/api-reference/orders/orders-api/models/shippingquotes).
-
-
-
 
 <a href='#orders-api-overview_resources' aria-hidden='true' class='block-anchor'  id='orders-api-overview_resources'><i aria-hidden='true' class='linkify icon'></i></a>
 

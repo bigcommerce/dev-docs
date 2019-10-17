@@ -32,10 +32,7 @@ This page describes all of the Handlebars helpers supported on the Stencil frame
 
 For background information on using Handlebars helpers, please see the [official Handlebars documentation](http://handlebarsjs.com).
 
-
-
 <a href='#handlebars-helpers-reference_array' aria-hidden='true' class='block-anchor'  id='handlebars-helpers-reference_array'><i aria-hidden='true' class='linkify icon'></i></a>
-
 
 ## Array Helpers
 
@@ -52,7 +49,6 @@ It joins an array of string items, with separators. It returns a string.
 - `values`: {Array}
 - `separator`: {String}
 - `limit=<number>`: An optional limit.
-
 
 #### Example
 
@@ -100,11 +96,8 @@ Assume that `{{cart.items}}` would return 10 items. You could use this helper to
   ...
 ```
 
-
 * [Paper Handlebars](https://github.com/bigcommerce/paper-handlebars/blob/master/spec/helpers/limit.js) 
 * [Cornerstone](https://github.com/bigcommerce/cornerstone/blob/master/templates/components/common/cart-preview.html)
-
-
 
 ### {{pluck}}
 
@@ -123,7 +116,6 @@ The `pluck` helper returns the retrieved values in a comma-separated string. Thi
 - `limit`, `limit-value`: Optional parameters to limit the number of results returned.
 - `collection`: The collection to search.
 - `search-key`: The string to search for.
-
 
 ### {{pluck}} Example 1
 
@@ -184,8 +176,6 @@ Given the array `['a', 'b', 'c']`:
 //=> '["c"]'
 ```
 
-
-
 ### {{arrayify}}
 
 **Standard Helper**
@@ -204,8 +194,6 @@ Casts the given `value` to an array.
 //=> '["foo"]'
 ```
 
-
-
 <a name="before"></a>
 
 ### {{before}}
@@ -213,7 +201,6 @@ Casts the given `value` to an array.
 **Standard Helper**
 
 Returns all of the items in the collection before the specified count. Opposite of [after](#after).
-
 
 #### Parameters
 
@@ -229,8 +216,6 @@ Given the array `['a', 'b', 'c']`:
 {{before array 2}}
 //=> '["a", "b"]'
 ```
-
-
 
 ### {{eachIndex}}
 
@@ -256,8 +241,6 @@ Add 0 based indexing to the current handlebars loop.
 {{/eachIndex}}
 //=> Towels is 0, Bath Soap is 1, T-Shirts is 2
 ```
-
-
 
 ### {{filter}}
 
@@ -290,8 +273,6 @@ myProducts:
 => There is a shirt available.
 ```
 
-
-
 <a name="first"></a>
 
 ### {{first}}
@@ -314,7 +295,6 @@ Given the array `['a', 'b', 'c', 'd', 'e']`:
 {{first array 2}}
 //=> '["a", "b"]'
 ```
-
 
 ### {{forEach}}
 
@@ -352,8 +332,6 @@ var accounts = [
 {{/forEach}}
 ```
 
-
-
 ### {{inArray}}
 
 **Standard Helper**
@@ -380,8 +358,6 @@ Given the array `['a', 'b', 'c']`:
 //=> "The product is no longer available"
 ```
 
-
-
 ### {{isArray}}
 
 **Standard Helper**
@@ -403,8 +379,6 @@ Returns true if `value` is an es5 array.
 {{isArray array}}
 <!-- results in: true -->
 ```
-
-
 
 <a name="last"></a>
 
@@ -428,8 +402,6 @@ Given the array `['a', 'b', 'c', 'd', 'e']`:
 {{last array 2}}
 //=> '["d", "e"]'
 ```
-
-
 
 ### {{lengthEqual}}
 
@@ -474,8 +446,6 @@ Given the collection:
 //=> 'There are 3 products available.'
 ```
 
-
-
 ### {{map}}
 
 **Standard Helper**
@@ -501,8 +471,6 @@ function double(str) {
 // {{map array double}}
 //=> '["aa", "bb", "cc"]'
 ```
-
-
 
 ### {{some}}
 
@@ -530,14 +498,11 @@ Given the array `[1, 'b', 3]`:
 //=> 'Render me if the array has a string.'
 ```
 
-
-
 ### {{sort}}
 
 **Standard Helper**
 
 Sorts the given `array`. If an array of objects is passed, you may optionally pass (as the second argument) a `key` to sort on. Alternatively, you may pass a sorting function as the second argument.
-
 
 #### Parameters
 
@@ -548,13 +513,10 @@ Sorts the given `array`. If an array of objects is passed, you may optionally pa
 
 Given an array `['b', 'a', 'c']`:
 
-
 ```handlebars
 {{sort array}}
 //=> '["a", "b", "c"]'
 ```
-
-
 
 ### {{sortBy}}
 
@@ -575,8 +537,6 @@ Given an array `[{a: 'zzz'}, {a: 'aaa'}]`:
 {{sortBy array "a"}}
 //=> '[{"a":"aaa"}, {"a":"zzz"}]'
 ```
-
-
 
 <a name="withAfter"></a>
 
@@ -604,8 +564,6 @@ Given the array `['a', 'b', 'c', 'd', 'e']`:
 //=> "de"
 ```
 
-
-
 <a name="withBefore"></a>
 
 ### {{withBefore}}
@@ -631,8 +589,6 @@ Given the array `['a', 'b', 'c', 'd', 'e']`:
 {{/withBefore}}
 //=> 'ab'
 ```
-
-
 
 <a name="withFirst"></a>
 
@@ -660,8 +616,6 @@ Given the array `['a', 'b', 'c']`:
 //=> 'a'
 ```
 
-
-
 <a name="withLast"></a>
 
 ###  {{withLast}}
@@ -687,8 +641,6 @@ Given the array `['a', 'b', 'c']`:
 {{/withLast}}
 //=> 'c'
 ```
-
-
 
 ### {{withSort}}
 
@@ -724,7 +676,6 @@ Given the collection:
 ]
 ```
 
-
 ```handlebars
 {{#withSort collection "id"}}
   {{name}} : {{id}}
@@ -734,12 +685,9 @@ Mug: 13
 Towel: 239
 ```
 
-
-
 <a href='#handlebars-helpers-reference_collection' aria-hidden='true' class='block-anchor'  id='handlebars-helpers-reference_collection'><i aria-hidden='true' class='linkify icon'></i></a>
 
 ## Collection Helpers
-
 
 ### {{isEmpty}}
 
@@ -769,8 +717,6 @@ Block helper that returns a block *if* the given collection is empty. If the col
 <!-- results in: true -->
 ```
 
-
-
 ### {{iterate}}
 
 **Standard Helper**
@@ -788,15 +734,12 @@ Iterates over an array or object.
 Given the array:
 `[{name: 'a'}, {name: 'b'}, {name: 'c'}];`
 
-
 ```handlebars
 {{#iterate array}}
   {{name}}
 {{/iterate}}
 => `abc`
 ```
-
-
 
 ### {{length}}
 
@@ -824,13 +767,9 @@ Returns the length of the given collection. When using a string literal in the t
 //=> 2
 ```
 
-
-
 <a href="#handlebars-helpers-reference_comparison" aria-hidden='true' class='block-anchor'  id='handlebars-helpers-reference_comparison'><i aria-hidden='true' class='linkify icon'></i></a>
 
 ## Comparison Helpers
-
-
 
 ### {{and}}
 
@@ -844,7 +783,6 @@ Block helper that renders the block if *both* of the given values are truthy. If
 * `b` {any}
 * `options` {Object}: Handlebars-provided options object.
 * `returns` {String}
-
 
 #### Example
 
@@ -863,8 +801,6 @@ Block helper that renders the block if *both* of the given values are truthy. If
 {{#and great magnificent}}A{{else}}B{{/and}}
 => 'B'
 ```
-
-
 
 ### {{gt}}
 
@@ -898,8 +834,6 @@ a = 14, b = 15 //false
 => 'B'
 ```
 
-
-
 ### {{gte}}
 
 **Standard Helper**
@@ -930,8 +864,6 @@ a = 14, b = 15 //false
 => 'B'
 ```
 
-
-
 ### {{has}}
 
 **Standard Helper**
@@ -953,8 +885,6 @@ a = "product"
 => 'true'
 ```
 
-
-
 ### {{eq}}
 
 **Standard Helper**
@@ -967,7 +897,6 @@ Block helper that renders a block if `a` is *equal to* `b`. If an inverse block 
 * `b` {String}
 * `options` {Object}: Handlebars-provided options object.
 * `returns` {String}: Block, or inverse block if specified and falsy.
-
 
 #### Example
 
@@ -998,8 +927,6 @@ number = 8
 {{/eq}}
 -> 'B'
 ```
-
-
 
 ### {{ifEven}}
 
@@ -1034,8 +961,6 @@ value = 9
 {{/ifEven}}
 => B
 ```
-
-
 
 ### {{ifNth}}
 
@@ -1073,8 +998,6 @@ Returns:
 '<div>Coffee</div>'
 ```
 
-
-
 ### {{ifOdd}}
 
 **Standard Helper**
@@ -1108,8 +1031,6 @@ value = 8
 {{/ifOdd}}
 => 'B'
 ```
-
-
 
 ### {{is}}
 
@@ -1153,8 +1074,6 @@ value = 'CCC'
 {{/is}}
 => 'A'
 ```
-
-
 
 ### {{isnt}}
 
@@ -1201,8 +1120,6 @@ value='CCC'
 =>'A'
 ```
 
-
-
 ### {{lt}}
 
 **Standard Helper**
@@ -1216,7 +1133,6 @@ If an inverse block is specified, it will be rendered when falsy. You may option
 * `context` {Object}
 * `options` {Object}: Handlebars-provided options object.
 * `returns` {String}: Block, or inverse block if specified and falsy.
-
 
 #### Example
 
@@ -1252,8 +1168,6 @@ number = 42
 {{#lt number compare=8}}A{{/lt}}
 => '' //empty block when value is greater than given number
 ```
-
-
 
 ### {{lte}}
 
@@ -1302,8 +1216,6 @@ number = 27
 
 ```
 
-
-
 ### {{neither}}
 
 **Standard Helper**
@@ -1331,8 +1243,6 @@ customer = true
 => 'B'
 ```
 
-
-
 ### {{unlessEq}}
 
 **Standard Helper**
@@ -1355,8 +1265,6 @@ number = 8
 {{#unlessEq number compare=8}}A{{/unlessEq}}
 => '' // returns empty when value is equal to a given number
 ```
-
-
 
 ### {{unlessGt}}
 
@@ -1383,8 +1291,6 @@ number = 10
 
 ```
 
-
-
 ### {{unlessLt}}
 
 **Standard Helper**
@@ -1409,8 +1315,6 @@ number = 5
 => '' //returns empty when the value is less than a given number
 
 ```
-
-
 
 ### {{unlessGteq}}
 
@@ -1440,8 +1344,6 @@ number = 34
 => '' // returns empty when the value is greater than or equal to a given number
 ```
 
-
-
 ### {{unlessLteq}}
 
 **Standard Helper**
@@ -1470,8 +1372,6 @@ number = 4
 => '' // returns empty when the value is less than or equal to a given number
 ```
 
-
-
 <a href="#handlebars-helpers-reference_control-flow" aria-hidden='true' class='block-anchor'  id='handlebars-helpers-reference_control-flow'><i aria-hidden='true' class='linkify icon'></i></a>
 
 ## Control-Flow Helpers
@@ -1479,14 +1379,11 @@ number = 4
 * <a href="#ctrl_conditional">Conditional Control Flow</a>
 * <a href="#ctrl_loop">Loop Control Flow</a>
 
-
-
 <a id="ctrl_conditional"></a>
 
 ## Conditional Control Flow
 
 The following helpers provide control structures that test for conditions, and branch accordingly.
-
 
 ### {{if}}
 
@@ -1496,7 +1393,6 @@ The `<statement>` that the `if` helper evaluates can take these forms:
 
 - An object, as in: `{{#if object}}`.
 - A comparison expression, as in: `{{#if <lvalue> <operator> <rvalue>}}`.
-
 
 When you pass only one parameter to the `if` helper, it will return the following:
 - For an array parameter, the array's length.
@@ -1549,8 +1445,6 @@ Handlebars does not provide an `if`/`and` conditional structure. However, to tes
 ### Usage
 * [Paper Handlebars](https://github.com/bigcommerce/paper-handlebars/blob/master/helpers/if.js)
 * [Cornerstone](https://github.com/bigcommerce/cornerstone/blob/master/templates/components/amp/products/product-view-details.html)
-
-
 
 ### {{unless}}
 
@@ -1643,7 +1537,6 @@ In this component, the `{{#any...` Handlebars helper is used to determine whethe
 {{/any}}
 ```
 
-
 ### {{all}}
 
 **Custom Helper**
@@ -1683,8 +1576,6 @@ It checks whether the second parameter is included in the first parameter (typic
 ### Usage
 * [Paper Handlebars](https://github.com/bigcommerce/paper-handlebars/blob/master/helpers/contains.js)
 
-
-
 ### {{each}}
 
 **Standard Helper**
@@ -1714,7 +1605,6 @@ Each is a built in block helper. Use it to loop over an array or object.
 </article>
 ```
 
-
 ```handlebars
 //Given the array
 {
@@ -1730,7 +1620,6 @@ Each is a built in block helper. Use it to loop over an array or object.
 
 => T-Shirt!Mug!
 ```
-
 
 ```handlebars
 //Given the array, use @index for the current index
@@ -1782,7 +1671,6 @@ Each is a built in block helper. Use it to loop over an array or object.
   id:Mug! 
 ```
 
-
 #### Notes
 
 - Within an each block, use `{{this}}` to reference the current item.
@@ -1790,8 +1678,6 @@ Each is a built in block helper. Use it to loop over an array or object.
 - When iterating through objects, `{{@key}}` returns the current key name.
 - `{{each}}` loops can be nested.
 - `{{each}}` does not work on strings. eg. `{"foo": "Good"}`
-
-
 
 ### {{for}}
 
@@ -1824,12 +1710,9 @@ The `for` helper has the following syntax, where parameters `<from>` and `<to>` 
 * [Cornerstone](https://github.com/bigcommerce/cornerstone/blob/master/templates/components/products/options/date.html)
 * [Paper Handlebars](https://github.com/bigcommerce/paper-handlebars/blob/master/helpers/for.js)
 
-
-
 <a href="#handlebars-helpers-reference_date" aria-hidden='true' class='block-anchor'  id='handlebars-helpers-reference_date'><i aria-hidden='true' class='linkify icon'></i></a>
 
 ## Date Helpers
-
 
 ### {{moment}}
 
@@ -1850,14 +1733,11 @@ Exposes `helper-date` as `moment`.
 {{/partial}}
 ```
 
-
-
 <a href='#handlebars-helpers-reference_html' aria-hidden='true' class='block-anchor'  id='handlebars-helpers-reference_html'><i aria-hidden='true' class='linkify icon'></i></a>
 
 ## HTML Helpers
 
 The following standard helpers are available to handle HTML content.
-
 
 ### {{ellipsis}}
 
@@ -1878,8 +1758,6 @@ Truncates a string to the specified `length`, and appends an elipsis, `…`.
 //=> 'foo bar…'
 ```
 
-
-
 ### {{sanitize}}
 
 **Standard Helper**
@@ -1897,8 +1775,6 @@ Strips HTML tags from a string, so that only the text nodes are preserved.
 {{sanitize "<span>foo</span>"}}
 //=> 'foo'
 ```
-
-
 
 ### {{ul}}
 
@@ -1920,8 +1796,6 @@ Block helper for creating unordered lists (`<ul></ul>`).
 => <ul class="names"><li>AAA BBB</li></ul>
 ```
 
-
-
 ### {{ol}}
 
 **Standard Helper**
@@ -1934,7 +1808,6 @@ Block helper for creating ordered lists  (`<ol></ol>`).
 * `options` {Object}
 * `returns` {String}
 
-
 #### Example
 
 ```handlebars
@@ -1943,8 +1816,6 @@ Block helper for creating ordered lists  (`<ol></ol>`).
 => <ol class="names"><li>aaa bbb</li></ol>
 
 ```
-
-
 
 ### {{thumbnailImage}}
 
@@ -1960,7 +1831,6 @@ Returns a `<figure>` with a thumbnail linked to a full picture.
 * `context.width` {Number}
 * `context.height` {Number}
 * `returns` {String}: HTML `<figure>` element with image and optional caption/link.
-
 
 #### Example
 
@@ -1990,8 +1860,6 @@ var context = {
 '</figure>'
 ```
 
-
-
 <a href='#handlebars-helpers-reference_image' aria-hidden='true' class='block-anchor'  id='handlebars-helpers-reference_image'><i aria-hidden='true' class='linkify icon'></i></a>
 
 ## Image Helpers
@@ -2011,7 +1879,6 @@ It returns the URL for an image of the specified size. Values for the size param
 - `defaultImage` (optional): a string.
 
 You can use the optional `defaultImage` parameter to specify an image that will be displayed in cases where the passed `stencilImage` value is null.
-
 
 #### Example
 
@@ -2073,7 +1940,6 @@ As above, you can reference `theme_settings` keys or specify your own size inlin
 {{getImageSrcset image 100w="100w" 200w="200w" 300w="300w"}}
 ```
 
-
 **HTML Use**
 
 ```html
@@ -2096,7 +1962,6 @@ As above, you can reference `theme_settings` keys or specify your own size inlin
 ```html
 <img src="https://cdn11.bigcommerce.com/s-abc123/images/stencil/1000x1000/products/86/286/ablebrewingsystem4_1024x1024__07155.1456436672.jpg?c=2" srcset="https://cdn11.bigcommerce.com/s-abc123/images/stencil/1000x1000/products/86/286/ablebrewingsystem4_1024x1024__07155.1456436672.jpg?c=2 1x, https://cdn11.bigcommerce.com/s-abc123/images/stencil/2000x2000/products/86/286/ablebrewingsystem4_1024x1024__07155.1456436672.jpg?c=2 2x" />
 ```
-
 
 **Default Sizes**
 
@@ -2142,7 +2007,6 @@ customers = 1
 1 customer
 ```
 
-
 ### {{ordinalize}}
 
 **Standard Helper**
@@ -2166,8 +2030,6 @@ Returns an ordinalized number (as a string).
 {{ordinalize 22}}
 //=> '22nd'
 ```
-
-
 
 <a href='#handlebars-helpers-reference_injection' aria-hidden='true' class='block-anchor'  id='handlebars-helpers-reference_injection'><i aria-hidden='true' class='linkify icon'></i></a>
 
@@ -2277,7 +2139,6 @@ An `inject` call takes this form:
 
 The `jsContext` helper takes no parameters; it simply returns a JSON object containing all data collected by the `inject` helper. To retrieve the parsable JSON object, just call `{{jsContext}}` after all of the `{{inject}}` calls.
 
-
 ### {{inject}} + {{jsContext}} Example 1
 
 To set up the product name in your client-side app, you can do the following, if you are in the context of a product:
@@ -2351,7 +2212,6 @@ category:
 {{> layout/base}}
 ```
 
-
 In the example below from our [Developer Blog](https://medium.com/bigcommerce-developer-blog/build-a-bulk-order-form-using-the-bigcommerce-storefront-api-and-react-a9f73ec7f0d6), the inject helper will create a property on the `jsContext` object with the values we ask for in the pluck helper. In this case we are grabbing the product id, product name, product image, and product price.
 
 ```js
@@ -2420,8 +2280,6 @@ Block helper that converts a string of inline markdown to HTML.
 //=> # Foo
 ```
 
-
-
 <a href='#handlebars-helpers-reference_math' aria-hidden='true' class='block-anchor'  id='handlebars-helpers-reference_math'><i aria-hidden='true' class='linkify icon'></i></a>
 
 ## Math Helpers
@@ -2439,7 +2297,6 @@ Returns the sum of `a` plus `b`.
 * `a` {Number}
 * `b` {Number}
 
-
 #### Example
 
 ```handlebars
@@ -2449,8 +2306,6 @@ Returns the sum of `a` plus `b`.
 {{add value 5 10}}
 => 15
 ```
-
-
 
 ### {{subtract}}
 
@@ -2470,8 +2325,6 @@ Return the difference of `a` minus `b`.
 => 5
 ```
 
-
-
 ### {{divide}}
 
 **Standard Helper**
@@ -2483,15 +2336,12 @@ Divides `a` by `b`.
 * `a` {Number}: numerator
 * `b` {Number}: denominator
 
-
 #### Example
 
 ```handlebars
 {{divide value 5}}
 => 1
 ```
-
-
 
 ### {{multiply}}
 
@@ -2508,8 +2358,6 @@ Multiplies `a` by `b`.
 {{multiply value 5}}
 => 25
 ```
-
-
 
 ### {{floor}}
 
@@ -2528,8 +2376,6 @@ value = 5.6
 {{floor value}}
 => 5
 ```
-
-
 
 ### {{ceil}}
 
@@ -2550,8 +2396,6 @@ value = 5.6
 => 6
 ```
 
-
-
 ### {{round}}
 
 **Standard Helper**
@@ -2569,8 +2413,6 @@ value = 5.69
 {{round value}}
 =>6
 ```
-
-
 
 ### {{sum}}
 
@@ -2590,8 +2432,6 @@ Returns the sum of all numbers in the given array.
 //=> '15'
 ```
 
-
-
 ### {{avg}}
 
 **Standard Helper**
@@ -2609,8 +2449,6 @@ Returns the average of all numbers in the given array.
 {{avg "[1, 2, 3, 4, 5]"}}
 //=> '3'
 ```
-
-
 
 <a href='#handlebars-helpers-reference_number' aria-hidden='true' class='block-anchor'  id='handlebars-helpers-reference_number'><i aria-hidden='true' class='linkify icon'></i></a>
 
@@ -2638,8 +2476,6 @@ value = 2222222
 => 2,222,222
 ```
 
-
-
 ### {{phoneNumber}}
 
 **Standard Helper**
@@ -2651,7 +2487,6 @@ Converts a string or number to a formatted phone number.
 * `num` {Number|String}: The phone number to format, e.g., `8005551212`
 * `returns` {Number}: The formatted phone number: `(800) 555-1212`
 
-
 #### Example
 
 ```handlebars
@@ -2659,8 +2494,6 @@ value = 8005551212
 {{phoneNumber value}}
 => (800) 555-1212
 ```
-
-
 
 ### {{random}}
 
@@ -2679,8 +2512,6 @@ Generates a random number between two values.
 ```handlebars
 {{random 5 10}}
 ```
-
-
 
 ### {{toAbbr}}
 
@@ -2701,8 +2532,6 @@ number = 123456789
 {{toAbbr number}}
 => 123.457m
 ```
-
-
 
 ### {{toExponential}}
 
@@ -2731,8 +2560,6 @@ value = 5
 =>5e+0
 ```
 
-
-
 ### {{toFixed}}
 
 **Standard Helper**
@@ -2756,8 +2583,6 @@ value = 5.5323
 => 5.532
 ```
 
-
-
 ### {{toFloat}}
 
 **Standard Helper**
@@ -2776,8 +2601,6 @@ value = '12.1abc'
 {{toFloat value}}
 =>12.1
 ```
-
-
 
 ### {{toInt}}
 
@@ -2798,8 +2621,6 @@ value = '12.1abc'
 =>12
 ```
 
-
-
 ### {{toPrecision}}
 
 **Standard Helper**
@@ -2812,7 +2633,6 @@ Returns the number in fixed-point or exponential notation rounded to precision s
 * `precision` {Number}: Optional. The number of significant digits.
 * `returns` {Number}
 
-
 #### Example
 
 ```handlebars
@@ -2820,8 +2640,6 @@ value = 555.322
 {{toPrecision value 4}}
 => 555.3
 ```
-
-
 
 <a href='#handlebars-helpers-reference_object' aria-hidden='true' class='block-anchor'  id='handlebars-helpers-reference_object'><i aria-hidden='true' class='linkify icon'></i></a>
 
@@ -2884,8 +2702,6 @@ Now that a basic layout is defined, it can be used to extend other pages.
 {{/extend}}
 ```
 
-
-
 ### {{forIn}}
 
 **Standard Helper**
@@ -2897,7 +2713,6 @@ Block helper that iterates over the properties of an object, exposing each key a
 * `context` {Object}
 * `options` {Object}
 * `returns` {String}
-
 
 #### Examples
 Given an object `{object: {a: 'b', c: 'd', e: 'f'}}`
@@ -2921,8 +2736,6 @@ Given an object `{object: {a: 'b', c: 'd', e: 'f'}}`
 {{#forIn this abc=object}} {{@abc.a}} {{/forIn}}
 => ' b '
 ```
-
-
 
 ### {{forOwn}}
 
@@ -2955,8 +2768,6 @@ Given an object `{object: {a: 'b', c: 'd', e: 'f'}}`
 =>' d '
 ```
 
-
-
 ### {{toPath}}
 
 **Standard Helper**
@@ -2967,7 +2778,6 @@ Takes arguments and, if they are string or number, converts them to a dot-deline
 
 * `prop` {String|Number}: The property segments to assemble (can be multiple).
 * `returns` {String}
-
 
 #### Examples
 
@@ -2980,8 +2790,6 @@ Takes arguments and, if they are string or number, converts them to a dot-deline
 {{toPath "a" (add 1 1) "b"}}
 => 'a.2.b'
 ```
-
-
 
 ### {{get}}
 
@@ -3030,9 +2838,6 @@ Uses property paths (`a.b.c`) to get a value or nested value from the context. W
 => No
 ```
 
-
-
-
 ### {{getObject}}
 
 **Standard Helper**
@@ -3050,8 +2855,6 @@ Uses property paths (`a.b.c`) to get an object from the context. Unlike the `get
 {{{stringify (getObject "a" this)}}}
 => {"a":"b"}
 ```
-
-
 
 ### {{hasOwn}}
 
@@ -3079,8 +2882,6 @@ Returns true if `key` is an own, enumerable property of the given `context` obje
 => false 
 ```
 
-
-
 ### {{isObject}}
 
 **Standard Helper**
@@ -3098,8 +2899,6 @@ Returns true if `value` is an object.
 {{isObject "foo"}}
 //=> false
 ```
-
-
 
 ### {{merge}}
 
@@ -3134,9 +2933,6 @@ Deeply merges the properties of the given `objects` with the context object.
 }
 ```
 
-
-
-
 ### {{#JSONparse}}
 
 **Standard Helper**
@@ -3158,8 +2954,6 @@ This will return the product stock level to a page.
 {{/JSONparse}}
 ```
 
-
-
 ### {{JSONstringify}}
 
 **Standard Helper**
@@ -3176,8 +2970,6 @@ Stringifies an object using `JSON.stringify`.
 ```js
 console.log({{{JSONstringify customer.payment_methods}}});
 ```
-
-
 
 <a href='#handlebars-helpers-reference_operator' aria-hidden='true' class='block-anchor'  id='handlebars-helpers-reference_operator'><i aria-hidden='true' class='linkify icon'></i></a>
 
@@ -3238,8 +3030,6 @@ To improvise a `!==` (not equal or not equal type) comparison operator in Handle
     </nav>
 ```
 
-
-
 ###  Logical {{or}} Operator
 
 **Custom Helpers**
@@ -3265,8 +3055,6 @@ Here is a usage example from Stencil's Cornerstone base theme, where it displays
 {{/or}}
 ```
 
-
-
 ###  {{typeof}} Operator
 
 **Standard Helpers**
@@ -3289,8 +3077,6 @@ By design, an array will return a `typeof` value of `object`.
     }
 </script>
 ```
-
-
 
 <a href='#handlebars-helpers-reference_string' aria-hidden='true' class='block-anchor'  id='handlebars-helpers-reference_string'><i aria-hidden='true' class='linkify icon'></i></a>
 
@@ -3432,8 +3218,6 @@ Call this helper on a string object from the page's context, to convert its cont
 "<br>685 Market St<br>San Francisco<br>94105<br>CA<br>"
 ```
 
-
-
 ### {{partial}}
 
 **Custom Helper**
@@ -3460,7 +3244,6 @@ Overrides block content defined by the [block](#block-helper) helper.
 The `replace` string helper is custom to Stencil. It searches for the first parameter within the second parameter and, if it finds it, replaces the first parameter with the contents of the specified Handlebars block.
 
 For example, the following code would search for the string `needle` within the scope defined by `haystack`. If found, it would replace that string with the Handlebars block defined by `<context...replacement>`:
-
 
 #### Examples
 
@@ -3522,8 +3305,6 @@ camelCases the characters in the given `string`.
 //=> 'fooBarBaz'
 ```
 
-
-
 ### {{capitalize}}
 
 **Standard Helper**
@@ -3541,8 +3322,6 @@ Capitalizes the first word in a sentence.
 {{capitalize "foo bar baz"}}
 //=> "Foo bar baz"
 ```
-
-
 
 ### {{capitalizeAll}}
 
@@ -3562,8 +3341,6 @@ Capitalizes all words in a string.
 //=> "Foo Bar Baz"
 ```
 
-
-
 ### {{center}}
 
 **Standard Helper**
@@ -3582,8 +3359,6 @@ Centers a string, using non-breaking spaces.
 {{center "Get more features out-of-the-box to build, run and scale a better online business — without the hidden fees." 2}}
 => '&amp;nbsp;&amp;nbsp;Get more features out-of-the-box to build, run and scale a better online business — without the hidden fees.&amp;nbsp;&amp;nbsp;
 ```
-
-
 
 ### {{chop}}
 
@@ -3609,8 +3384,6 @@ Like `trim`, but removes both extraneous whitespace *and non-word characters* fr
 //=> 'ABC'
 ```
 
-
-
 ### {{dashcase}}
 
 **Standard Helper**
@@ -3628,8 +3401,6 @@ dash-cases the characters in `string`. Replaces non-word characters and periods 
 {{dashcase "a-b-c d_e"}}
 //=> 'a-b-c-d-e'
 ```
-
-
 
 ### {{dotcase}}
 
@@ -3649,9 +3420,6 @@ dot.cases the characters in `string`.
 //=> 'a.b.c.d.e'
 ```
 
-
-
-
 ### {{hyphenate}}
 
 **Standard Helper**
@@ -3669,8 +3437,6 @@ Replaces spaces in a string with hyphens.
 {{hyphenate "foo bar baz qux"}}
 //=> "foo-bar-baz-qux"
 ```
-
-
 
 ### {{isString}}
 
@@ -3690,8 +3456,6 @@ Returns true if `value` is a string.
 //=> 'true'
 ```
 
-
-
 ### {{lowercase}}
 
 **Standard Helper**
@@ -3709,9 +3473,6 @@ Lowercases all characters in the given string.
 {{lowercase "Foo BAR baZ"}}
 //=> 'foo bar baz'
 ```
-
-
-
 
 ### {{occurrences}}
 
@@ -3732,8 +3493,6 @@ Returns the number of occurrences of `substring` within the given `string`.
 //=> 2
 ```
 
-
-
 ### {{pascalcase}}
 
 **Standard Helper**
@@ -3751,8 +3510,6 @@ PascalCases the characters in `string`.
 {{pascalcase "foo bar baz"}}
 //=> 'FooBarBaz'
 ```
-
-
 
 ### {{pathcase}}
 
@@ -3772,8 +3529,6 @@ path/cases the characters in `string`.
 //=> 'a/b/c/d/e'
 ```
 
-
-
 ### {{plusify}}
 
 **Standard Helper**
@@ -3791,8 +3546,6 @@ Replaces spaces in the given string with pluses.
 {{plusify "foo bar baz"}}
 //=> 'foo+bar+baz'
 ```
-
-
 
 ### {{reverse}}
 
@@ -3812,8 +3565,6 @@ Reverses a string.
 //=> 'edcba'
 ```
 
-
-
 ### {{sentence}}
 
 **Standard Helper**
@@ -3831,8 +3582,6 @@ Sentence-cases the given string.
 {{sentence "hello world. goodbye world."}}
 //=> 'Hello world. Goodbye world.'
 ```
-
-
 
 ### {{snakecase}}
 
@@ -3852,8 +3601,6 @@ snake_cases the characters in the given `string`.
 //=> 'a_b_c_d_e'
 ```
 
-
-
 ### {{split}}
 
 **Standard Helper**
@@ -3871,9 +3618,6 @@ Splits `string` at the given `character`.
 {{split "a,b,c" ","}}
 //=> ['a', 'b', 'c']
 ```
-
-
-
 
 ### {{startsWith}}
 
@@ -3898,9 +3642,6 @@ Tests whether a string begins with the given prefix.
 {{/startsWith}}
 ```
 
-
-
-
 ### {{titleize}}
 
 **Standard Helper**
@@ -3918,8 +3659,6 @@ Title-cases the given string.
 {{titleize "this is title case"}}
 //=> 'This Is Title Case'
 ```
-
-
 
 ### {{trim}}
 
@@ -3939,8 +3678,6 @@ Removes extraneous whitespace from the beginning and end of a string.
 //=> 'ABC'
 ```
 
-
-
 ### {{uppercase}}
 
 **Standard Helper**
@@ -3959,8 +3696,6 @@ Uppercases all of the characters in the given string. If used as a block helper,
 {{uppercase 'f'}}
 => 'F'
 ```
-
-
 
 <a href='#handlebars-helpers-reference_url' aria-hidden='true' class='block-anchor'  id='handlebars-helpers-reference_url'><i aria-hidden='true' class='linkify icon'></i></a>
 
@@ -3984,8 +3719,6 @@ Encodes a Uniform Resource Identifier (URI) component, by replacing each instanc
 => 'http%3A%2F%2Fexample.com%3Fcomment%3DThyme%20%26time%3Dagain'
 ```
 
-
-
 ### {{decodeURI}}
 
 **Standard Helper**
@@ -4003,8 +3736,6 @@ Decodes a Uniform Resource Identifier (URI) component.
 {{{decodeURI "http%3A%2F%2Fexample.com%3Fcomment%3DThyme%20%26time%3Dagain"}}}
 => 'http://example.com?comment=Thyme &time=again'
 ```
-
-
 
 ### {{urlResolve}}
 
@@ -4031,8 +3762,6 @@ Takes a base URL, and an href URL, and resolves them as a browser would for an a
 => 'http://example.com/two'
 ```
 
-
-
 ### {{urlParse}}
 
 **Standard Helper**
@@ -4051,8 +3780,6 @@ Parses a `url` string into an object.
 => '{"protocol":"http:","slashes":true,"auth":null,"host":"foo.com","port":null,"hostname":"foo.com","hash":null,"search":"?key=value","query":"key=value","pathname":"/bar/baz","path":"/bar/baz?key=value","href":"http://foo.com/bar/baz?key=value"}'
 ```
 
-
-
 ### {{stripQuerystring}}
 
 **Standard Helper**
@@ -4070,8 +3797,6 @@ Strips the query string from a `url`.
 {{stripQuerystring "http://example.com?tests=true"}}
 => 'http://example.com'
 ```
-
-
 
 ### {{stripProtocol}}
 
@@ -4094,8 +3819,6 @@ testURL = 'https://bigcommerce.com'
 {{stripProtocol testUrl}}
 => //bigcommerce.com/
 ```
-
-
 
 <a href='#handlebars-helpers-reference_misc' aria-hidden='true' class='block-anchor'  id='handlebars-helpers-reference_misc'><i aria-hidden='true' class='linkify icon'></i></a>
 
@@ -4136,8 +3859,6 @@ title = 'B'
 => 'A'
 ```
 
-
-
 ### {{option}}
 
 **Standard Helper**
@@ -4163,8 +3884,6 @@ Returns the given value of `prop` from `this.options`. Returns an empty string i
 => 'ddd'
 ```
 
-
-
 ### {{noop}}
 
 **Standard Helper**
@@ -4183,8 +3902,6 @@ Block helper that renders the block without taking any arguments.
 {{#noop}}{{message}}{{/noop}}
 => 'This is a message'
 ```
-
-
 
 ### {{withHash}}
 
@@ -4212,7 +3929,6 @@ message: 'This is a test'
 => 'This is a test'
 ```
 
-
 ```handlebars
 {{#withHash subject="Feedback" message="Hello!"}}{{subject}} - {{message}}{{/withHash}}
 => 'Feedback - Hello!'
@@ -4223,8 +3939,6 @@ message: 'This is a test'
 {{#withHash}}{{message}}{{/withHash}}
 => ''
 ```
-
-
 
 ## Resources
 

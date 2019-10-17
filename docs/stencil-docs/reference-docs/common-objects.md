@@ -15,7 +15,6 @@ Certain Stencil objects can be accessed through multiple other Stencil objects. 
 
 This consistent behavior is true for each of the common objects documented in the following subsection.
 
-
 <div class="HubBlock--callout">
 <div class="CalloutBlock--info">
 <div class="HubBlock-content">
@@ -34,7 +33,6 @@ This consistent behavior is true for each of the common objects documented in th
 </div>
 </div>
 
-
 <a href='#common-objects_catalog-price' aria-hidden='true' class='block-anchor' id='common-objects_catalog-price'><i aria-hidden='true' class='linkify icon'></i></a>
 
 ## Catalog Price
@@ -45,9 +43,7 @@ This consistent behavior is true for each of the common objects documented in th
 * Common Object: <a href="#common-objects_common-product">Common Product Card Model</a>
 * Object: `{{product.price}}`
 
-
 **Object Properties:**
-
 
 | Property | Description | Type |
 |  | |  |
@@ -82,8 +78,6 @@ This consistent behavior is true for each of the common objects documented in th
 | tax_label	| Tax label (VAT, sales tax, etc.) displayed to customers. | string  <br> `"Tax"`|
 | price_range | See [Price Range Object](https://developer.bigcommerce.com/stencil-docs/reference-docs/common-objects#common-objects_price-range)| |
 
-
-
 <a href='#common-objects_price' aria-hidden='true' class='block-anchor'  id='common-objects_price'><i aria-hidden='true' class='linkify icon'></i></a>
 
 ## Price
@@ -115,8 +109,6 @@ This consistent behavior is true for each of the common objects documented in th
     <td>Raw numeric value of the price</td>
   </tr>
 </table>
-
-
 
 <a href='#common-objects_price-range' aria-hidden='true' class='block-anchor'  id='common-objects_price-range'><i aria-hidden='true' class='linkify icon'></i></a>
 
@@ -191,8 +183,6 @@ This consistent behavior is true for each of the common objects documented in th
 
 `{{getImage image "thumbnail"}}`
 
-
-
 <a id="common-objects_common-product"></a>
 
 ## Common Product Card Model
@@ -200,7 +190,6 @@ This consistent behavior is true for each of the common objects documented in th
 <b>Description:</b> A model for a product’s basic, primary properties. Typically used for list components that show multiple products, each in its own "card" or panel.
 
 <b>Object Properties:</b>
-
 
 |Property| Description  | Format | 
 |--|--| -- | 
@@ -237,8 +226,6 @@ This consistent behavior is true for each of the common objects documented in th
 | out_of_stock_message |Text to display when the product is out of stock. If no message is configured, returns false. | string or `false` |
 | release_date | Release date, if the product is set to pre-order status| string Ex. `Available: Aug 6th 2019` | 
 
-
-
 <b>Available through:</b>
 
 <b>Object:</b> <code>{{comparisons}} </code>
@@ -246,5 +233,4 @@ This consistent behavior is true for each of the common objects documented in th
 <b>Arrays/Elements:</b> <code>{{product.related_products}}, {{product.similar_by_views}}, {{category.products}}, {{cart.suggested_products}}, {{customer.recently_viewed_products}} </code>
 
 <!-- :"Common Product Card Model" moved from "Product Objects" page -->
-
 

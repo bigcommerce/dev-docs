@@ -22,9 +22,6 @@ Custom theme uploads must meet these restrictions:
 * A theme's `.zip` file must be no larger than 50 MB. If your file exceeds that size, please use either a WebDAV or a CDN upload to exclude large static assets.
 * Generated parsed template files must be less than 1 MB.
 
-
-
-
 <a href='#troubleshooting-theme-uploads_error-codes' aria-hidden='true' class='block-anchor'  id='troubleshooting-theme-uploads_error-codes'><i aria-hidden='true' class='linkify icon'></i></a>
 
 ## Error Codes
@@ -124,8 +121,6 @@ Custom theme uploads must meet these restrictions:
   </tr>
  </table>
 
-
-
 <a href='#troubleshooting-theme-uploads_warnings' aria-hidden='true' class='block-anchor'  id='troubleshooting-theme-uploads_warnings'><i aria-hidden='true' class='linkify icon'></i></a>
 
 ## Warnings
@@ -148,9 +143,6 @@ Warnings will not block a theme's upload, but these onscreen and/or log messages
 | Full-size (`desktop_screenshot`) image dimensions are not right. Expected 2048 x 2600 pixels. |
 | Mobile (`mobile_screenshot`) image dimensions are not right. Expected 304 x 540 pixels. |
 | Too-large image file size for a theme screenshot `composed_image` (thumbnails), `desktop_screenshot`, or `mobile_screenshot`] . The maximum supported size is x, but the file's actual size is y. |
-
-
-
 
 <a href='#troubleshooting-theme-uploads_workarounds' aria-hidden='true' class='block-anchor'  id='troubleshooting-theme-uploads_workarounds'><i aria-hidden='true' class='linkify icon'></i></a>
 

@@ -81,7 +81,6 @@ The `request_ip` field can be used as an additional security precaution, to prev
 
 <a href='#example-payload' aria-hidden='true' class='block-anchor'  id='example-payload'><i aria-hidden='true' class='linkify icon'></i></a>
 
-
 <!--
 title: "Example Payload"
 subtitle: ""
@@ -119,14 +118,10 @@ lineNumbers: true
 
 The signature is created by signing the header and payload with the hashing algorithm specified in the header (HS256) and your application’s Client Secret. 
 
-
-
 <a href='#customer-login_oauth-scope' aria-hidden='true' class='block-anchor'  id='customer-login_oauth-scope'><i aria-hidden='true' class='linkify icon'></i></a>
 
 ## OAuth Scope
 Your OAuth API credentials must include the [customers_login](/api-docs/getting-started/basics/authentication#authentication_oauth-scopes) scope.
-
-
 
 <a href='#customer-login_access-url' aria-hidden='true' class='block-anchor'  id='customer-login_access-url'><i aria-hidden='true' class='linkify icon'></i></a>
 
@@ -135,8 +130,6 @@ After generating the JWT token, your app should immediately redirect the shopper
 
 Example:
 `https://storedomain.com/login/token/eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9 .eyJzdWIiOiIxMjM0NTY3ODkwIiwibmFtZSI6IkpvaG4gRG9lIiwiYWRtaW4iOnRydWV9.TJVA95OrM7E2cBab30RMHrHDcEfxjoYZgeFONFh7HgQ`
-
-
 
 <a href='#customer-login_logging-in-a-customer' aria-hidden='true' class='block-anchor'  id='customer-login_logging-in-a-customer'><i aria-hidden='true' class='linkify icon'></i></a>
 
@@ -166,7 +159,6 @@ Client ID and Client Secret generated from the store with the scope set to [Cust
 2. Create the payload by filling in the PAYLOAD:DATA on jwt.io
 
 <a href='#create-the-paylpad' aria-hidden='true' class='block-anchor'  id='create-the-paylpad'><i aria-hidden='true' class='linkify icon'></i></a>
-
 
 <!--
 title: "Create the Payload"
@@ -206,7 +198,6 @@ lineNumbers: true
 ### IAT Claim
 > The iat claim is only good for 30 seconds.
 
-
 </div>
 </div>
 </div>
@@ -223,7 +214,6 @@ lineNumbers: true
 
 If the request was successful then you will be logged in as the customer and directed to /account.php. If it was unsuccessful there will be a login attempt message and you will be directed to /login.php
 
-
 <a href='#customer-login_sample-code' aria-hidden='true' class='block-anchor'  id='customer-login_sample-code'><i aria-hidden='true' class='linkify icon'></i></a>
 
 ## Sample Code
@@ -235,8 +225,6 @@ Code to generate a valid JWT token for a storefront login request is provided in
 * [Ruby Sample](https://github.com/bigcommerce/bigcommerce-api-ruby/blob/master/examples/customers/customer_login.rb)
 
 Client libraries in many other languages are at JWT.io.
-
-
 
 <a href='#customer-login_logout-customer' aria-hidden='true' class='block-anchor'  id='customer-login_logout-customer'><i aria-hidden='true' class='linkify icon'></i></a>
 
@@ -256,8 +244,6 @@ To logout a customer programatically, set the redirect URL in the JWT to `/login
 * Tokens can be validated or generated for testing purposes using the debugger at https://jwt.io/.
 
 * Tokens will be valid for a very short timeframe after they are first generated, so tokens should not be generated in advance. Instead, the application should generate the token and then immediately redirect the user’s browser to `/login/token/{token}`. If you're seeing issues related to your system time differing from BC's server time, you can use the <a href="/api-reference/store-management/store-information-api/time-zone/gettime">/v2/time</a> endpoint as a source of truth.
-
-
 
 ## Resources 
 

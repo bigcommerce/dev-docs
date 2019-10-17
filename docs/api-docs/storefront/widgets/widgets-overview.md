@@ -23,8 +23,6 @@ Some benefits are:
 
 We are going to review all the components that make a widget. Then, we’ll use what we’ve learned to create a widget .
 
-
-
 <a href='#widgets_regions' aria-hidden='true' class='block-anchor'  id='widgets_regions'><i aria-hidden='true' class='linkify icon'></i></a>
 
 ## Regions
@@ -37,7 +35,6 @@ We are going to review all the components that make a widget. Then, we’ll use 
     data: //s3.amazonaws.com/user-content.stoplight.io/6012/1551970794664
 -->
 
-
 ![#### Storefront --Content Region
 ](//s3.amazonaws.com/user-content.stoplight.io/6012/1551970794664 "#### Storefront --Content Region
 ")
@@ -48,14 +45,11 @@ We are going to review all the components that make a widget. Then, we’ll use 
     data: //s3.amazonaws.com/user-content.stoplight.io/6012/1551970767918
 -->
 
-
 ![#### Template File -- Content Region
 ](//s3.amazonaws.com/user-content.stoplight.io/6012/1551970767918 "#### Template File -- Content Region
 ")
 
 Most themes in the BigCommerce marketplace come with predefined regions. It is best to utilize those first. By editing the theme and adding theme regions, updates will need to be manually managed. 
-
-
 
 <a href='#widgets_widget-templates' aria-hidden='true' class='block-anchor'  id='widgets_widget-templates'><i aria-hidden='true' class='linkify icon'></i></a>
 
@@ -85,7 +79,6 @@ The list takes advantage of loops to display each list item on the page.
 }
 ```
 
-
 <!--
 title: "Image Slider"
 subtitle: "The slider takes advantage of loops to display each slide on the page."
@@ -100,8 +93,6 @@ The slider takes advantage of loops to display each slide on the page.
 "template": "<ul class='slider'>{{#each slides}}<li class='slide'><img src={{image}}'/</li>{{/each}}</ul>"
 }
 ```
-
-
 
 <a href='#widgets_widgets' aria-hidden='true' class='block-anchor'  id='widgets_widgets'><i aria-hidden='true' class='linkify icon'></i></a>
 
@@ -235,8 +226,6 @@ lineNumbers: true
 }
 ```
 
-
-
 <a href='#widgets_placements' aria-hidden='true' class='block-anchor'  id='widgets_placements'><i aria-hidden='true' class='linkify icon'></i></a>
 
 ## Placements
@@ -256,7 +245,6 @@ This is the ID for a specific page, brand, category or page. For example, if a W
 * pages/category
 * pages/page
 * pages/product
-
 
 ### Create a Widget Placement with Region
 
@@ -301,8 +289,6 @@ lineNumbers: true
 }
 ```
 
-
-
 <a href='#widgets_placement-and-widgets' aria-hidden='true' class='block-anchor'  id='widgets_placement-and-widgets'><i aria-hidden='true' class='linkify icon'></i></a>
 
 ## Placements and Widgets
@@ -325,8 +311,6 @@ Widgets are rendered on the storefront as a data tag in the HTML.
 
 A Region can contain multiple Placements with Widgets. 
 
-
-
 <a href='#widgets_definitions' aria-hidden='true' class='block-anchor'  id='widgets_definitions'><i aria-hidden='true' class='linkify icon'></i></a>
 
 ## Definitions
@@ -339,9 +323,6 @@ A Region can contain multiple Placements with Widgets.
 | Regions | Regions are specific spots in a Stencil template file where Widgets can be placed. Regions are defined at the theme file level using the following syntax: `{{{region name="..."}}}`. There can be many widgets inside a given region, and these widgets can have an assigned sort order. |
 | Widget Configuration | This is a JSON payload that contains data used when rendering the widget. Each widget has a configuration, and there is a 64kb limit on the size of the JSON. The widget configuration must be valid JSON, but we don’t enforce any additional requirement on the structure of the configuration. |
 
-
-
-
 <a href='#widget_resources' aria-hidden='true' class='block-anchor'  id='widget_resources'><i aria-hidden='true' class='linkify icon'></i></a>
 
 ## Resources
@@ -350,5 +331,4 @@ A Region can contain multiple Placements with Widgets.
 * [Widgets API](/api-reference/storefront/widgets-api)
 * [Widgets Tutorial](/api-docs/storefront/widgets/widgets-tutorial)
 * [Wigets Code Samples](/api-docs/storefront/widgets/widgets-code-samples)
-
 

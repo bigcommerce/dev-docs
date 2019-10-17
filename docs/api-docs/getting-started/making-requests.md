@@ -16,7 +16,6 @@ Before we begin, here are a few key concepts:
 * API Credentials can be generated from a store’s control panel. If you’re testing requests or writing a script for a single store, start here to quickly get your token and begin making API calls. 
 * If you’re building an app that will install in a store’s control panel, you’ll need to generate an API token programmatically during the [app installation process](/api-docs/getting-started/building-apps-bigcommerce/building-apps#building-apps_installation-update-sequence). However in the beginning, it’s still a good idea to generate API credentials from the control panel to start testing requests with minimal effort.
 
-
 ### Prerequisites
 * [API Credentials](/api-docs/getting-started/authentication#authentication_getting-api-credentials)
 * [Scope](/api-docs/getting-started/authentication#authentication_oauth-scopes) set to `Products Modify`
@@ -24,8 +23,6 @@ Before we begin, here are a few key concepts:
 * If you would like to follow along, you can use our Postman Collection.
 
 [![Run in Postman](https://run.pstmn.io/button.svg)](https://app.getpostman.com/run-collection/00c3651bcff8d70a61e8)
-
-
 
 <a href='#making-requests_get-products' aria-hidden='true' class='block-anchor'  id='making-requests_get-products'><i aria-hidden='true' class='linkify icon'></i></a>
 
@@ -47,7 +44,6 @@ The final request should resemble the image below.
 
 ![Get All Products Request](https://raw.githubusercontent.com/bigcommerce/dev-docs/master/assets/images/get_all_products_postman.png)
 
-
 <!--
 title: "GET Products Response"
 subtitle: "200 OK"
@@ -57,7 +53,6 @@ lineNumbers: true
 
 **Response Get All Products**  
 `/GET https://api.bigcommerce.com/stores/{store_hash}/v3/catalog/products`
-
 
 ```json
 {
@@ -317,8 +312,6 @@ The products are returned in a data array that contains each product object. Loc
 ### Next Steps
 * Try including other filter paramters such as name or include and exclude. See [Get All Products](/api-reference/catalog/catalog-api/products/getproducts) for a full list of available filters. 
 
-
-
 <a href='#making-requests_create-a-product' aria-hidden='true' class='block-anchor'  id='making-requests_create-a-product'><i aria-hidden='true' class='linkify icon'></i></a>
 
 ## Create a Product
@@ -475,12 +468,9 @@ lineNumbers: true
 
 ```
 
-
 ### Next Steps
 * To see a full list of fields that can be sent in a request see [Create a Product](/api-reference/catalog/catalog-api/products/createproduct)
 * Try to make a different product with new attributes.
-
-
 
 <a href='#making-requests_troubleshooting' aria-hidden='true' class='block-anchor'  id='making-requests_troubleshooting'><i aria-hidden='true' class='linkify icon'></i></a>
 

@@ -71,8 +71,6 @@ lineNumbers: true
 
 ```
 
-
-
 <a href='#multi_browsing' aria-hidden='true' class='block-anchor'  id='multi_browsing'><i aria-hidden='true' class='linkify icon'></i></a>
 
 ## Browsing Hidden Translation Keys
@@ -80,8 +78,6 @@ lineNumbers: true
 BigCommerce exposes only part of the checkout page's structure through the local template referenced above. For security purposes – and also to offer all stores new checkout features simultaneously – most checkout content is hidden.
 
 This hidden content includes many more key/value pairs that support translation. However, you can see all the available keys with their default English-language values in the [opt-checkout-en.json.zip file](https://storage.googleapis.com/bigcommerce-production-dev-center/template-files/opt-checkout-en.json.zip)
-
-
 
 <a href='#multi_adding' aria-hidden='true' class='block-anchor'  id='multi_adding'><i aria-hidden='true' class='linkify icon'></i></a>
 
@@ -94,8 +90,6 @@ You can provide values for all of checkout's supported translation keys – for 
 2. Copy and paste the whole file's contents into your theme's `en.json` file and into the `.json` file for each language you want to translate your checkout page's text. To see requirements for naming and deploying these translation files, please this documentation's [Internationalization section](/stencil-docs/internationalization-and-localization/).
 
 3. Replace the keys' values with appropriate phrases in each file's target language.
-
-
 
 <a href='#multi_localized' aria-hidden='true' class='block-anchor'  id='multi_localized'><i aria-hidden='true' class='linkify icon'></i></a>
 
@@ -130,8 +124,6 @@ BigCommerce Optimized One-Page Checkout will currently translate displayed `Coun
 | Chinese Simplified | `zh-TW.json` |
 | Chinese Traditional | `zh.json` |
 
-
-
 <a href='#multi_stencils-overall' aria-hidden='true' class='block-anchor'  id='multi_stencils-overall'><i aria-hidden='true' class='linkify icon'></i></a>
 
 ## Limits on Translation
@@ -141,8 +133,6 @@ BigCommerce Optimized One-Page Checkout will currently translate displayed `Coun
 * Stencil's multi-language capabilities are currently limited to these specific strings that you specify within the theme. The Stencil framework does not currently translate content rendered from a store's database – for example, products' names.
 
 * Within these limitations, if you intend to do business internationally, we recommend that you specify appropriate alternate-language strings for key parts of your storefront, product catalog, and checkout. Doing so will make browsing, purchasing, and payment easier for users in your target market(s). For an overview of all localization options, please see [Localizing Stores](/stencil-docs/internationalization-and-localization/localizing-stores).
-
-
 
 ## Resources
 

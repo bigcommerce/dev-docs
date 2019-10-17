@@ -17,8 +17,6 @@ URLs constructed with these parameters can be used to:
 * Add a specific SKU to the cart and go directly to checkout.
 * Attach a `source` for marketing an analytics purposes
 
-
-
 ## Parameters
 
 | **Type**| **Parameter** | **Description**                                     | **Example**                                                 |

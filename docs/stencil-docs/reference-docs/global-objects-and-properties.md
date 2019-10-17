@@ -91,8 +91,6 @@ example: `{{{banner}}}`. (Double braces would escape the HTML.)
 </div>
 </div>
 
-
-
 <a href='#global-objects_breadcrumbs' aria-hidden='true' class='block-anchor'  id='global-objects_breadcrumbs'><i aria-hidden='true' class='linkify icon'></i></a>
 
 ## Breadcrumbs
@@ -117,8 +115,6 @@ example: `{{{banner}}}`. (Double braces would escape the HTML.)
     <td>URL of this breadcrumb element</td>
   </tr>
 </table>
-
-
 
 <a href='#global-objects_carousel' aria-hidden='true' class='block-anchor'  id='global-objects_carousel'><i aria-hidden='true' class='linkify icon'></i></a>
 
@@ -181,8 +177,6 @@ example: `{{{banner}}}`. (Double braces would escape the HTML.)
 </tr>
 </table>
 
-
-
 <a id="global-objects_cart"></a>
 
 ## Cart
@@ -196,9 +190,6 @@ example: `{{{banner}}}`. (Double braces would escape the HTML.)
 |Property|Description|
 | -- | -- |
 | cart_id| ID of the shoppers cart. String |
-
-
-
 
 <a href='#global-objects_currency-selector' aria-hidden='true' class='block-anchor'  id='global-objects_currency-selector'><i aria-hidden='true' class='linkify icon'></i></a>
 
@@ -360,8 +351,6 @@ The table below displays properties for the individual category objects within t
   </tr>
 </table>
 
-
-
 <a href='#global-objects_faceted-search' aria-hidden='true' class='block-anchor'  id='global-objects_faceted-search'><i aria-hidden='true' class='linkify icon'></i></a>
 
 ## Faceted Search
@@ -394,8 +383,6 @@ The table below displays properties for the individual category objects within t
     <td>Currently enabled search facets</td>
   </tr>
 </table>
-
-
 
 <a href='#global-objects_featured-products' aria-hidden='true' class='block-anchor'  id='global-objects_featured-products'><i aria-hidden='true' class='linkify icon'></i></a>
 
@@ -433,7 +420,6 @@ The `homepage_featured_products_count` limit is one of two relevant variables de
     // ...    
 ```
 
-
 In the body of [Cornerstone's `home.html` template](https://github.com/bigcommerce/cornerstone/blob/master/templates/pages/home.html#L27) (Github), the below Handlebars conditional statement is responsible for displaying the `{{products.featured}}` object. This is the object that we declared above using front matter.
 
 ```html
@@ -444,8 +430,6 @@ In the body of [Cornerstone's `home.html` template](https://github.com/bigcommer
 ```
 
 This above statement formats the _Featured Products_ display according to the `homepage_featured_products_column_count` variable, which is the second relevant variable defined in [Cornerstone's `config.json` file](https://github.com/bigcommerce/cornerstone/blob/master/config.json#L53) (Github).
-
-
 
 <a href='#global-objects_footer' aria-hidden='true' class='block-anchor'  id='global-objects_footer'><i aria-hidden='true' class='linkify icon'></i></a>
 
@@ -471,8 +455,6 @@ This above statement formats the _Featured Products_ display according to the `h
     <td>Scripts to be loaded after the HTML has loaded; includes performance metrics</td>
   </tr>
 </table>
-
-
 
 <a href='#global-objects_html-head' aria-hidden='true' class='block-anchor'  id='global-objects_html-head'><i aria-hidden='true' class='linkify icon'></i></a>
 
@@ -519,8 +501,6 @@ This above statement formats the _Featured Products_ display according to the `h
   </tr>
 </table>
 
-
-
 <a href='#global-objects_is-ajax' aria-hidden='true' class='block-anchor'  id='global-objects_is-ajax'><i aria-hidden='true' class='linkify icon'></i></a>
 
 ## Is_Ajax
@@ -530,8 +510,6 @@ This above statement formats the _Featured Products_ display according to the `h
 <b>Handlebars Expression:</b> `{{is_ajax}}`
 
 No properties available for this object.
-
-
 
 <a href='#global-objects_new-products' aria-hidden='true' class='block-anchor'  id='global-objects_new-products'><i aria-hidden='true' class='linkify icon'></i></a>
 
@@ -578,8 +556,6 @@ In the body of [Cornerstone's `home.html` template](https://github.com/bigcommer
 
 This above statement formats the _New Products_ display according to the `homepage_new_products_column_count` variable, which is the second relevant variable defined in [Cornerstone's `config.json` file](https://github.com/bigcommerce/cornerstone/blob/master/config.json#L46) (Github
 
-
-
 <a href='#global-objects_page-content' aria-hidden='true' class='block-anchor'  id='global-objects_page-content'><i aria-hidden='true' class='linkify icon'></i></a>
 
 ## Page Content
@@ -621,8 +597,6 @@ This above statement formats the _New Products_ display according to the `homepa
   </tr>
 </table>
 
-
-
 <a href='#global-objects_pages' aria-hidden='true' class='block-anchor'  id='global-objects_pages'><i aria-hidden='true' class='linkify icon'></i></a>
 
 ## Pages
@@ -660,8 +634,6 @@ This above statement formats the _New Products_ display according to the `homepa
     </tr>
 </table>
 
-
-
 <a href='#global-objects_page-type-property' aria-hidden='true' class='block-anchor'  id='global-objects_page-type-property'><i aria-hidden='true' class='linkify icon'></i></a>
 
 ## Page Type Property
@@ -696,8 +668,6 @@ All possible values for `{{page_type}}` are:
 | rss | search | sitemap |
 | newsletter_subscribe | unsubscribe | hibernation |
 | maintenance |
-
-
 
 <a href='#global-objects_pagination' aria-hidden='true' class='block-anchor'  id='global-objects_pagination'><i aria-hidden='true' class='linkify icon'></i></a>
 
@@ -747,9 +717,6 @@ All possible values for `{{page_type}}` are:
           <td>The page number of this link, based on an index starting at 1</td>
       </tr>
     </table>
-
-
-
 
 <a href='#global-objects_search' aria-hidden='true' class='block-anchor'  id='global-objects_search'><i aria-hidden='true' class='linkify icon'></i></a>
 
@@ -914,8 +881,6 @@ All possible values for `{{page_type}}` are:
   </tr>
 </table>
 
-
-
 <a href='#global-objects_settings' aria-hidden='true' class='block-anchor'  id='global-objects_settings'><i aria-hidden='true' class='linkify icon'></i></a>
 
 ## Settings
@@ -1055,8 +1020,6 @@ All possible values for `{{page_type}}` are:
 | amp_analytics_id | Returns Google AMP analytics ID |
 | bulk_discount_enabled | Boolean that return `true` if bulk discount is enabled on products. |
 
-
-
 <a href='#global-objects_sitemap' aria-hidden='true' class='block-anchor'  id='global-objects_sitemap'><i aria-hidden='true' class='linkify icon'></i></a>
 
 ## Sitemap
@@ -1105,8 +1068,6 @@ All possible values for `{{page_type}}` are:
     </tr>
   </table>
 
-
-
 <a href='#global-objects_social-links' aria-hidden='true' class='block-anchor'  id='global-objects_social-links'><i aria-hidden='true' class='linkify icon'></i></a>
 
 ## Social Links
@@ -1140,8 +1101,6 @@ All possible values for `{{page_type}}` are:
   </tr>
 </table>
 
-
-
 <a href='#global-objects_template-property' aria-hidden='true' class='block-anchor'  id='global-objects_template-property'><i aria-hidden='true' class='linkify icon'></i></a>
 
 ## Template Property
@@ -1164,8 +1123,6 @@ All possible values for `{{page_type}}` are:
 * `pages/auth/login`
 * `pages/custom/product/<some_page_name>` (for a custom product page)
 (etc.)
-
-
 
 <a href='#global-objects_top-sellers' aria-hidden='true' class='block-anchor'  id='global-objects_top-sellers'><i aria-hidden='true' class='linkify icon'></i></a>
 

@@ -437,8 +437,6 @@
   </tr>
 </table>
 
-
-
 ## Product Reviews
 
 <b>Description:</b> A list of reviews related to this product. When filtering/limiting, reviews' default sorting is by review id, from lowest to highest. (Called on the default <code>&lt;theme-name&gt;/templates/pages/product.html</code><code>&lt;theme-name&gt;/templates/components/</code> subdirectory:
@@ -515,8 +513,6 @@
 
 <b>Object Properties: </b>References the <a href="/stencil-docs/stencil-object-model-reference/stencil-objects/common-objects/common-product-card-model">product card model</a>.
 
-
-
 ## Similar Products by Customer Views
 
 **Description:** A list of products similar to a given product, based on customer’s product browsing history. (Called on the default <code>&lt;theme-name&gt;/templates/components/products/tabs.html</code> partial.)
@@ -524,9 +520,6 @@
 <b>Handlebars Expression:</b> <code>{{product.similar_by_views}}</code>
 
 <b>Object Properties:</b> References the <a href="/stencil-docs/stencil-object-model-reference/stencil-objects/common-objects/common-product-card-model">product card model</a>.
-
-
-
 
 ## Product Videos
 
@@ -566,8 +559,6 @@
     <td>Duration of the product video</td>
   </tr>
 </table>
-
-
 
 ## Compare
 
@@ -679,8 +670,6 @@
   </tr>
 </table>
 
-
-
 ## Product Other Details
 
 <b>Description:</b> Property to display custom product details (such as a book's ISBN code, a DVD's release date, etc.). (Called on the default <code>&lt;theme-name&gt;/templates/components/products/product-view.html</code> and <code>&lt;theme-name&gt;/templates/components/amp/products/product-view-details.html</code> partials.)
@@ -703,8 +692,6 @@
     <td>Displayed value for this product’s entry</td>
   </tr>
 </table>
-
-
 
 <a href='#other-objects_category' aria-hidden='true' class='block-anchor'  id='other-objects_category'><i aria-hidden='true' class='linkify icon'></i></a>
 
@@ -803,8 +790,6 @@
   </tr>
 </table>
 
-
-
 ## Category Products
 
 **Description:** A list of products associated with this category. (Called on the default `<theme-name>/templates/pages/category.html` template, and on the `<theme-name>/templates/components/category/product-listing.html` partial.)
@@ -812,8 +797,6 @@
 **Handlebars Expression:** `{{category.products}}`
 
 **Object Properties:** References the  [product card model](/stencil-docs/stencil-object-model-reference/stencil-objects/common-objects/common-product-card-model).
-
-
 
 ## Category Shop by Price
 
@@ -845,7 +828,6 @@
     <td><a href="/stencil-docs/stencil-object-model-reference/stencil-objects/common-objects/price">Price object</a> that defines the currently selected price range</td>
   </tr>
 </table>
-
 
 <a href='#other-objects_brand' aria-hidden='true' class='block-anchor'  id='other-objects_brand'><i aria-hidden='true' class='linkify icon'></i></a>
 
@@ -899,8 +881,6 @@
   </tr>
 </table>
 
-
-
 ## Brand List
 
 <b>Description:</b> A list of brands with their basic data. Default sorting is by brand id, from lowest to highest. (Called on the default `<theme-name>/templates/pages/brands.html` template.)
@@ -931,8 +911,6 @@
     <td>Stencil image object (if any) for the brand</td>
   </tr>
 </table>
-
-
 
 ## Shop by Brand
 
@@ -1121,8 +1099,6 @@
     <td class="">Boolean that indicates whether taxes are included in the total price for the cart’s contents</td>
   </tr>
 </table>
-
-
 
 ### Cart Items
 
@@ -1320,8 +1296,6 @@
   </tr>
 </table>
 
-
-
 ### Strikeout Pricing Example
 
 As a theme developer, you can use the `{{cart.items.rrp}}` property to display strike-out pricing in the Cart context. Here is the general approach:
@@ -1344,8 +1318,6 @@ If the type is `Item`, then you would check the {{cart.items.rrp}} value. If the
 
 For further details about catalog price properties, please see [Catalog Price Object: How Properties Interact](/stencil-docs/conditional-logic-examples/catalog-price-object). For usage examples of the `{{cart.items}}` `price` and `total` properties, please see [Cart Price Properties](/stencil-docs/conditional-logic-examples/cart-price-relationships).
 
-
-
 ### Cart Status Message
 
 **Description:** A list of relevant messages for the cart in the current session
@@ -1359,9 +1331,6 @@ For further details about catalog price properties, please see [Catalog Price Ob
 | message  | System-generated messages for the cart  |
 |type|Type of message: error, info, or success	|
 
-
-
-
 ### Suggested Products
 
 <b>Description:</b> A list of suggested products, based on cart contents; displays only if enabled by the `cart.suggestions` front-matter attribute, and only immediately after a product is added to the cart
@@ -1369,8 +1338,6 @@ For further details about catalog price properties, please see [Catalog Price Ob
 <b>Handlebars Expression:</b> `{{cart.suggested_products}}`
 
 <b>Object Properties:</b> References standard product card model.
-
-
 
 <a href='#other-objects_customer' aria-hidden='true' class='block-anchor'  id='other-objects_customer'><i aria-hidden='true' class='linkify icon'></i></a>
 
@@ -1506,8 +1473,6 @@ For further details about catalog price properties, please see [Catalog Price Ob
     <td>Used on the <a href="https://github.com/bigcommerce/cornerstone/blob/master/templates/components/account/payment-methods-list.html">payment methods page</a> to render list of customer's saved payment methods</td>
   </tr>
 </table>
-
-
 
 ## Order Details
 
@@ -1745,8 +1710,6 @@ For further details about catalog price properties, please see [Catalog Price Ob
   </tr>
 </table>
 
-
-
 ## Recent Items
 
 **Description:** Items the customer has recently viewed. (Called on the default `<theme-name>/templates/pages/account/recent-items.html` template.)
@@ -1754,8 +1717,6 @@ For further details about catalog price properties, please see [Catalog Price Ob
 **Handlebars Expression:** `{{customer.recently_viewed_products}}`
 
 **Object Properties:** References the standard [product card model](/stencil-docs/stencil-object-model-reference/stencil-objects/common-objects/common-product-card-model).
-
-
 
 ## Customer Wishlists
 
@@ -1812,8 +1773,6 @@ For further details about catalog price properties, please see [Catalog Price Ob
   </tr>
 </table>
 
-
-
 ## Wishlist Details
 
 **Description:** Wishlist information for a specific wishlist. (Called on the default `<theme-name>/templates/pages/account/wishlist-details.html` template and `<theme-name>/templates/components/account/wishlist-item-list.html`partial.)
@@ -1865,9 +1824,6 @@ For further details about catalog price properties, please see [Catalog Price Ob
   </tr>
 </table>
 
-
-
-
 ## Account Order Shipments
 
 <b>Description:</b> Objects to manage shipments associated with a specific order details for the current customer. (Called on the default `<theme-name&gt;/templates/pages/account/orders/details.html` template.)
@@ -1910,8 +1866,6 @@ For further details about catalog price properties, please see [Catalog Price Ob
     <td>Tracking number for this shipment</td>
   </tr>
 </table>
-
-
 
 ## Account Orders
 
@@ -2016,8 +1970,6 @@ For further details about catalog price properties, please see [Catalog Price Ob
   </tr>
 </table>
 
-
-
 ## Account Returns
 
 **Description:** Objects to manage returns for the current customer. (Called on the default `<theme-name>/templates/pages/account/returns.html` template.)
@@ -2090,8 +2042,6 @@ Refunded, Rejected, or Cancelled</td>
   </tr>
 </table>
 
-
-
 ## Account New Return
 
 **Description:** Objects to handle a new return for the current customer. (Called on the default `<theme-name>/templates/pages/account/add-return.html` template.)
@@ -2155,8 +2105,6 @@ Refunded, Rejected, or Cancelled</td>
   </tr>
 </table>
 
-
-
 ## Create Account
 
 **Description:** Object to enable the current customer to create a store account. (Called on the default `<theme-name&gt;/templates/pages/auth/create-account.html` template.)
@@ -2210,8 +2158,6 @@ Refunded, Rejected, or Cancelled</td>
     <td>Boolean indicating whether customer created the account during a purchase checkout</td>
   </tr>
 </table>
-
-
 
 ## Shipping Addresses
 
@@ -2304,8 +2250,6 @@ Refunded, Rejected, or Cancelled</td>
   </tr>
 </table>
 
-
-
 ## Payment Methods
 
 **Description:** Object to view stored customer payment methods.
@@ -2342,8 +2286,6 @@ Refunded, Rejected, or Cancelled</td>
 | ↳ last_4 | Last four of card |
 | ↳ provider | ID of the provider to add a vaulted card |
 | ↳ expiry_year | Expiration Year |
-
-
 
 ## Edit Payment Methods
 
@@ -2392,8 +2334,6 @@ Refunded, Rejected, or Cancelled</td>
 | &nbsp; &nbsp; ↳  value | Returns if there is a current value for the field e.g. 90210 |
 | last_four | last four of the credit card |
 | provider | Credit card provider |
-
-
 
 ## Add Payment Methods
 
@@ -2495,8 +2435,6 @@ _These objects are called on the default `<theme-name>/templates/components/blog
   </tr>
 </table>
 
-
-
 ## Blog Post
 
 <b>Description:</b> Individual blog post object
@@ -2552,8 +2490,6 @@ _These objects are called on the default `<theme-name>/templates/components/blog
   </tr>
 </table>
 
-
-
 <a href='#other-objects_forms' aria-hidden='true' class='block-anchor'  id='other-objects_forms'><i aria-hidden='true' class='linkify icon'></i></a>
 
 ## Forms
@@ -2597,8 +2533,6 @@ _These objects are called on the default `<theme-name>/templates/components/blog
   </tr>
 </table>
 
-
-
 ### Account Address Form
 
 <b>Description:</b> Form object presented to customers in the Add/Edit Address page. Called on the default <NOBR><span class="inline-code">&lt;theme-name&gt;/templates/components/account/address-list.html</span></nobr> partial and <NOBR><span class="inline-code">&lt;theme-name&gt;/templates/pages/account/add-address.html</span></nobr> template. <br>
@@ -2630,8 +2564,6 @@ https://github.com/bigcommerce/cornerstone/tree/master/templates/components/comm
     <td class="">Message to display when form entry fails (defined by the BigCommerce App)</td>
   </tr>
 </table>
-
-
 
 ### Wishlist Form
 
@@ -2667,8 +2599,6 @@ https://github.com/bigcommerce/cornerstone/tree/master/templates/components/comm
     <td class="">URL to the proper handler (Update Wish List versus Save New Wish List)</td>
   </tr>
 </table>
-
-
 
 ### Gift Certificate Form
 
@@ -2763,8 +2693,6 @@ https://github.com/bigcommerce/cornerstone/tree/master/templates/components/comm
   </tr>
 </table>
 
-
-
 ### Contact Us Form
 
 <b>Description:</b>Form object used to manage merchants’ "Contact Us" pages. Called on the default <code>&lt;theme-name&gt;/templates/pages/contact-us.html</code>template.
@@ -2824,8 +2752,6 @@ https://github.com/bigcommerce/cornerstone/tree/master/templates/components/comm
   </tr>
 </table>
 
-
-
 ### Login Account Form
 
 <b>Description:</b> Form object used to manage merchants’ "Login" page. Called on the default <code>&lt;theme-name&gt;/templates/pages/create-login.html</code>template.
@@ -2865,8 +2791,6 @@ https://github.com/bigcommerce/cornerstone/tree/master/templates/components/comm
   </tr>
 </table>
 
-
-
 <div class="HubBlock--callout">
 <div class="CalloutBlock--">
 <div class="HubBlock-content">
@@ -2875,7 +2799,6 @@ https://github.com/bigcommerce/cornerstone/tree/master/templates/components/comm
 
 ### Customizing Login Form Content
 > Login form content can be customized in templates/components/common/alert-success.html
-
 
 </div>
 </div>

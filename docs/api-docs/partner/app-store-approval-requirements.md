@@ -17,23 +17,17 @@
 	</ul>
 </div>
 
-
-
 Dev Tools is the BigCommerce workspace for developing single-click apps. Within Dev Tools, you'll create the Client Id and Client Secret to authenticate your apps, submit new apps to the App Marketplace, and manage existing Marketplace listings.
 
 Dev Tools can be found by clicking [My Apps](https://devtools.bigcommerce.com/) in the upper right corner of the page.
 
 The requirements to submit an app are listed below, as well as where the information needs to be updated.
 
-
-
 <a href='#app-store-approval-requirements_prerequisites' aria-hidden='true' class='block-anchor'  id='app-store-approval-requirements_prerequisites'><i aria-hidden='true' class='linkify icon'></i></a>
 
 ## Prerequisites
 
 Make sure you’ve applied and been approved for our [Technology Partner Program](https://partners.bigcommerce.com/English/register_email.aspx) before you’re ready to submit your app - you’ll need a valid Partner ID to do so. You’ll also need to accept the Terms & Conditions in the [Partner Portal](https://partners.bigcommerce.com/English/) before we can publish your app.
-
-
 
 <a href='#app-store-approval-requirements_general-requirements' aria-hidden='true' class='block-anchor'  id='app-store-approval-requirements_general-requirements'><i aria-hidden='true' class='linkify icon'></i></a>
 
@@ -50,9 +44,6 @@ Make sure you’ve applied and been approved for our [Technology Partner Program
     - If your solution is a connector to a specific third-party service, or you’re offering only a specific feature, make sure to include both the name of the third party service or feature and your company name (Ex: “Marketplace by BigCommerce”, “Search by BigCommerce”), with your company name following the feature.
 
 -   Your app, including any storefront components, should be compatible with all [browsers](https://support.bigcommerce.com/s/article/Themes-Supported-Browsers) that the BigCommerce platform supports.
-
-
-
 
 <a href='#app-store-approval-requirements_functionality' aria-hidden='true' class='block-anchor'  id='app-store-approval-requirements_functionality'><i aria-hidden='true' class='linkify icon'></i></a>
 
@@ -71,8 +62,6 @@ Make sure you’ve applied and been approved for our [Technology Partner Program
 -   Avoid copy/paste for storefront code - use the [Scripts API](https://developer.bigcommerce.com/api-reference/storefront/content-scripts-api) to programmatically inject code snippets into a store’s Script Manager and storefront theme.
 
 -   If your app requires payment, you’ll need to collect payment from the user within your app. See Pricing & Categorization under App Summary for more information.
-
-
 
 <a href='#app-store-approval-requirements_installation' aria-hidden='true' class='block-anchor'  id='app-store-approval-requirements_installation'><i aria-hidden='true' class='linkify icon'></i></a>
 
@@ -98,8 +87,6 @@ Make sure you’ve applied and been approved for our [Technology Partner Program
 </div>
 </div>
 
-
-
 <a href='#app-store-approval-requirements_recommendations' aria-hidden='true' class='block-anchor'  id='app-store-approval-requirements_recommendations'><i aria-hidden='true' class='linkify icon'></i></a>
 
 ## Recommendations
@@ -111,8 +98,6 @@ Make sure you’ve applied and been approved for our [Technology Partner Program
 -   Require login on launch? Use the information in the BigCommerce payload to your callback URL to authenticate the user without asking for a username and password each time.
 
 -   Want to share user testimonials? Add a link to your full case study in the Case Studies field, with a title and short description.
-
-
 
 ## Dev Tools Walkthrough
 
@@ -146,7 +131,6 @@ These will be publicly visible on the Marketplace, so make sure to stay away fro
 ###  Partner ID
 When you’re ready to submit your listing for review, you will need to enter your [Partner ID](https://partners.bigcommerce.com/English/register_email.aspx) for your Technology Partner account. This field is not required to create, save, or edit a Draft prior to submission.
 
-
 ![App Summary Part Two](https://s3.amazonaws.com/user-content.stoplight.io/6012/1536259722234)
 
 ### App Name
@@ -169,7 +153,6 @@ Choose the most appropriate category for your app.
 </div>
 </div>
 </div>
-
 
 ### App Logo
 Your primary app logo should be 350 x 130px (or larger at this ratio) with a white background and dark branding in the foreground. The logo should only include branding, no taglines necessary.
@@ -202,13 +185,11 @@ Your app icon will be included on the main app detail page and the sidebar in th
 ### Category
 Choose the most appropriate category for your app. Take a look at the live [Marketplace](https://www.bigcommerce.com/apps/) for an idea of where solutions are currently assigned to help decide the right category. The category selection will also be a search attribute for your listing. BigCommerce will review your category assignment and may re-categorize your listing prior to launch. One category maximum.
 
-
 <a id="app-store-approval-requirements_details"></a>
 
 ## Details
 
 ![Details](https://s3.amazonaws.com/user-content.stoplight.io/6012/1536260365610)
-
 
 ### App Details
 A more in-depth value proposition for your listing, including how your solution works, why your solution stands out in its category, and why a merchant should choose you over other competitors. Avoid using fluff or buzzwords, as this field will not be indexed for search. 200 words max recommended.
@@ -267,7 +248,6 @@ These can either be “Thought Leadership” case studies and/or traditional cas
 Use these fields to enumerate the major features your platform or solution has to offer. Include a brief title for each feature, and a description of the feature to accompany it. The feature title will be search indexed in the Marketplace, so be specific with your feature names and include major functions potential users will search for. Use the + icon to add a feature, and the x icon to remove. Utilize the rich text editing of these fields to bold, underline, or italicize copy as needed.
 
 Up to five features can be added.
-
 
 ![Legal Terms and Privacy Dev Tools](https://s3.amazonaws.com/user-content.stoplight.io/6012/1536260434551)
 
@@ -337,7 +317,6 @@ If you want to receive a callback when the store owner uninstalls your app, you 
 
 ![Dev Tool OAuth Scopes](https://s3.amazonaws.com/user-content.stoplight.io/6012/1536260600336)
 
-
 ### OAuth Scopes
 If you know the [OAuth scopes](/api-docs/getting-started/authentication#authentication_oauth-scopes) that your app requires, you should select these. If you do not yet know the scopes that you need, you can just request minimal permissions (such as Information: Read-Only) to get started. However, once you determine the scopes you need, you must:
 - Modify the scopes of your app in My Apps and save the changes.
@@ -347,8 +326,6 @@ If you know the [OAuth scopes](/api-docs/getting-started/authentication#authenti
 ![Dev Tools App Testing](https://s3.amazonaws.com/user-content.stoplight.io/6012/1536260650757)
 Add in any instructions needed to test the app thoroughly.
 
-
-
 <a id="app-store-approval-requirements_review"></a>
 
 ## Review
@@ -356,7 +333,6 @@ Add in any instructions needed to test the app thoroughly.
 ![Dev Tools Review](https://s3.amazonaws.com/user-content.stoplight.io/6012/1536260677950)
 
 Review the information added before submitting the app. Look over this page carefully, once the app is submitted, if it is rejected there will be another fee for submission.
-
 
 <a id="app-store-approval-requirements_preview"></a>
 
@@ -366,8 +342,6 @@ Review the information added before submitting the app. Look over this page care
 
 This is an approximation of what the app’s page will look like in the BigCommerce Marketplace.
 
-
-
 <a id="app-store-approval-requirements_payment-submission"></a>
 
 ## Payment and Submission
@@ -375,8 +349,6 @@ This is an approximation of what the app’s page will look like in the BigComme
 ![Dev Tools Payment](https://s3.amazonaws.com/user-content.stoplight.io/6012/1536261347648)
 
 At this point you make sure the information has been filled out completely and the app has been thoroughly tested before submitting for review. Updates to the App will not require the submission fee again.
-
-
 
 ## Resources
 ### Related Endpoints

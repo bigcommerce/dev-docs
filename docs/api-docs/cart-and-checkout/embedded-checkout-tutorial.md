@@ -19,8 +19,6 @@ This article assumes you have familiarity with the following concepts:
 * Making and recieving API calls from within your app
 * Using your application to make changes to a front end
 
-
-
 ### Prerequisites
 
 * Store API credentials (see [Authentication](https://developer.bigcommerce.com/api-docs/getting-started/authentication#authentication_getting-api-credentials) for details) with the following permissions:
@@ -116,7 +114,6 @@ This returns `id` which you will use as the `site_id` in future requests. The `u
 }
 ```
 
-
 <a id="step-3-create-a-cart"></a>
 
 ## Step 3: Create a Cart
@@ -160,7 +157,6 @@ Next, generate a cart URL and set this cart as the active cart by posting to  to
 Use the `embedded_checkout_url` that is returned and assemble a JSON object that will be used by the Checkout JS SDK to determine how to render the checkout. Pass the object to the `embedCheckout` method of the Checkout SDK. This will render the checkout to an HTML element with the `id` you chose.
 
 Read more about the [JSON object](https://github.com/bigcommerce/checkout-sdk-js/blob/master/docs/README.md#embedcheckout) and its possible corresponding [rendering options](https://github.com/bigcommerce/checkout-sdk-js/blob/master/docs/interfaces/embeddedcheckoutoptions.md).
-
 
 ```html
 <div id="foo-bar-checkout"></div>
