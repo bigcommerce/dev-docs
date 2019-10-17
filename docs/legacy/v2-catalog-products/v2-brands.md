@@ -1,17 +1,18 @@
 # Brands
+
 <div class="otp" id="no-index">
-	<h3> On This Page </h3>
-	<ul>
-		<li><a href="#v2-brands_object-properties">Object Properties</a></li>
-		<li><a href="#v2-brands_list-brands">List Brands</a></li>
-		<li><a href="#v2-brands_get-brands">Get a Brand</a></li>
-    <li><a href="#v2-brands_get-count-brands">Get a Count of Brands</a></li>
-    <li><a href="#v2-brands_create-brands">Create a Brand</a></li>
-    <li><a href="#v2-brands_update-brands">Update A Brand</a></li>
-    <li><a href="#v2-brands_delete-brands">Delete a Brand</a></li>
-    <li><a href="#v2-brands_delete-all-brands">Delete All Brands</a></li>
-		</ul>
-</div>
+
+### On This Page
+- [Brands](#brands)
+- [List Brands](#list-brands)
+- [Get a Brand](#get-a-brand)
+- [Get a Count of Brands](#get-a-count-of-brands)
+- [Create a Brand](#create-a-brand)
+- [Update a Brand](#update-a-brand)
+- [Delete a Brand](#delete-a-brand)
+- [Delete All Brands](#delete-all-brands)
+
+</div> 
 
 <a href='#v2-brands_object-properties' aria-hidden='true' class='block-anchor'  id='v2-brands_object-properties'><i aria-hidden='true' class='linkify icon'></i></a>
 
