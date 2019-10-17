@@ -1,12 +1,14 @@
 <div><h3 class="sub-docs-type" id="bigcommerce-for-wordpress">BigCommerce for Wordpress</h3>
-<h1 class="sub-docs-title" id="introduction">Gutenberg Support
+
+# Gutenberg Support
+
 <div class="otp" id="no-index">
-	<h3> On This Page </h3>
-	<ul>
-        <li><a href="#available-bigcommerce-blocks">Available BigCommerce Blocks</a></li>
-        <li><a href="#creating-your-own-blocks">Creating Your Own Blocks</a></li>
-	</ul>
-</div>
+
+### On This Page
+- [Available BigCommerce Blocks](#available-bigcommerce-blocks)
+- [Creating Your Own Blocks](#creating-your-own-blocks)
+
+</div> 
 
 The WordPress Gutenberg Visual Editor provides users the ability to easily compose a page by adding and arranging blocks of content. Some blocks come with WordPress by default -- paragraph, image, list, and audio blocks, for example. Additionally, WordPress plugins can extend Gutenberg by adding their own blocks to the Visual Editor's Add Block dropdown. The BigCommerce for Wordpress plugin is packed with custom blocks that put the power of BigCommerce in the hands of WordPress developers.
 
