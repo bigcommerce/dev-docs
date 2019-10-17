@@ -1,13 +1,12 @@
 #  Checkout SDK 
+
 <div class="otp" id="no-index">
-	<h3> On This Page </h3>
-	<ul>
-		<li><a href="#checkout-sdk_what-can-i-do"> What Can I Do with the SDK?</a></li>
-		<li><a href="#checkout-sdk_where-to-get">Where Can I Get the SDK?
-</a></li>
-    <li><a href="#checkout-sdk_support-customization">Support and Customization
-</a></li>
-	</ul>
+
+### On This Page
+- [What Can I Do with the SDK?](#what-can-i-do-with-the-sdk)
+- [Where Can I Get the SDK?](#where-can-i-get-the-sdk)
+- [Support and Customization](#support-and-customization)
+
 </div>
 
 The Checkout JS SDK is a wrapper for the BigCommerce Storefront Checkout API.
