@@ -1,19 +1,18 @@
 # Categories
+
 <div class="otp" id="no-index">
-	<h3> On This Page </h3>
-	<ul>
-		<li><a href="#v2-categories_object-properties">Object Properties</a></li>
-		<li><a href="#v2-categories_list-categories">List Categories</a></li>
-		<li><a href="#v2-categories_get-categories">Get a Category</a></li>
-    <li><a href="#v2-categories_get-count-categories">Get a Count of Categories</a></li>
-    <li><a href="#v2-categories_create-categories">Create a Category</a></li>
-    <li><a href="#v2-categories_update-categories">Update A Category</a></li>
-    <li><a href="#v2-categories_delete-categories">Delete an Categories</a></li>
-    <li><a href="#v2-categories_delete-all-categories">Delete All Categories</a></li>
-		</ul>
+
+### On This Page
+- [Categories](#categories)
+- [List Categories](#list-categories)
+- [Get a Category](#get-a-category)
+- [Get a Count of Categories](#get-a-count-of-categories)
+- [Create a Category](#create-a-category)
+- [Update a Category](#update-a-category)
+- [Delete a Category](#delete-a-category)
+- [Delete All Categories](#delete-all-categories)
+
 </div>
-
-
 <a href='#v2-categories_object-properties' aria-hidden='true' class='block-anchor'  id='v2-categories_object-properties'><i aria-hidden='true' class='linkify icon'></i></a>
 
 ## Categories 
