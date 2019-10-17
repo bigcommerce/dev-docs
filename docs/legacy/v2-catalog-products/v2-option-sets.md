@@ -1,17 +1,18 @@
 # Option Sets
+
 <div class="otp" id="no-index">
-	<h3> On This Page </h3>
-	<ul>
-		<li><a href="#v2-option-set_object-properties">Object Properties</a></li>
-		<li><a href="#v2-option-set_list-option-set">List Option Set</a></li>
-		<li><a href="#v2-option-set_get-option-set">Get Option Set</a></li>
-    <li><a href="#v2-option-set_get-count-option-set">Get a Count of Option Set</a></li>
-    <li><a href="#v2-option-set_create-option-set">Create Option Set</a></li>
-    <li><a href="#v2-option-set_update-option-set">Update Option Set</a></li>
-    <li><a href="#v2-option-set_delete-option-set">Delete an Option Set</a></li>
-    <li><a href="#v2-option-set_delete-all-option-sets">Delete All Option Sets</a></li>
-		</ul>
-</div>
+
+### On This Page
+- [Option Sets](#option-sets)
+- [List Option Sets](#list-option-sets)
+- [Get an Option Set](#get-an-option-set)
+- [Get a Count of Option Sets](#get-a-count-of-option-sets)
+- [Create an Option Set](#create-an-option-set)
+- [Update an Option Set](#update-an-option-set)
+- [Delete an Option Set](#delete-an-option-set)
+- [Delete All Option Sets](#delete-all-option-sets)
+
+</div> 
 
 <a href='#v2-option-set_object-properties' aria-hidden='true' class='block-anchor'  id='v2-option-set_object-properties'><i aria-hidden='true' class='linkify icon'></i></a>
 
