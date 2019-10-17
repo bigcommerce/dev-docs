@@ -1,12 +1,14 @@
 # Google AMP
+
 <div class="otp" id="no-index">
-	<h3> On This Page </h3>
-	<ul>
-    <li><a href="#google-amp_implement">Implement Google AMP into your Stencil theme</a></li>
-    <li><a href="#google-amp_location-of-amp-files">Location of AMP Files within Cornerstone</a></li>
-    <li><a href="#google-amp_local-testing">Local Testing</a></li>
-	</ul>
-</div>
+
+### On This Page
+- [Implementing AMP](#implementing-amp)
+- [Location of AMP Files](#location-of-amp-files)
+- [Local Testing](#local-testing)
+- [Resources](#resources)
+
+</div> 
 
 Google AMP (Accelerated Mobile Pages) is an open-source project to improve page speed on mobile devices by using a specific framework for a page’s code. The improved performance on mobile devices provides a better browsing experience for shoppers and boosts ranking on Google search. To learn more about the Google AMP project, see [AMP Overview](https://www.ampproject.org/support/faqs/overview) on the Google AMP project site.
 
@@ -32,7 +34,7 @@ The article will walk you through enabling Google AMP pages in your theme.
 
 <a href='#google-amp_implement' aria-hidden='true' class='block-anchor'  id='google-amp_implement'><i aria-hidden='true' class='linkify icon'></i></a>
 
-## Implement Google AMP into your Stencil theme
+## Implementing AMP
 
 Google AMP will be automatically added if your store's theme is based on Cornerstone themes 1.6.0+.
 
@@ -118,7 +120,7 @@ If you are having any implementation issues, review the [full Pull Request #964]
 
 <a href='#google-amp_location-of-amp-files' aria-hidden='true' class='block-anchor'  id='google-amp_location-of-amp-files'><i aria-hidden='true' class='linkify icon'></i></a>
 
-## Location of AMP Files within Cornerstone
+## Location of AMP Files
 
 
 In versions 1.6.0+ of Cornerstone, there are a few key file locations where the AMP information is located:

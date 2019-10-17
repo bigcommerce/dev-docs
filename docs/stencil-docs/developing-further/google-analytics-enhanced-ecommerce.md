@@ -1,11 +1,14 @@
 # Google Analytics Enhanced ECommerce
+
 <div class="otp" id="no-index">
-	<h3> On This Page </h3>
-	<ul>
-    <li><a href="#google-analytics_prerequisites">Prerequisites</a></li>
-    <li><a href="#google-analytics_implementing">Implementing Data Tags</a></li>
-    <li><a href="#google-analytics_data-tag-ref">Data Tag Reference</a></li>
-	</ul>
+
+### On This Page
+- [Prerequisites](#prerequisites)
+- [Adding Data Tags](#adding-data-tags)
+- [Data Tag Reference](#data-tag-reference)
+- [Custom Dimensions and Metrics](#custom-dimensions-and-metrics)
+- [Resources](#resources)
+
 </div>
 
 Google Analytics is a free analytics tool that helps you track visitors and conversions on your store. BigCommerce has updated the Google Analytics integration to support Enhanced Ecommerce.  As apart of the Enhanced ECommerce feature, Stencil themes now support Data Tags.
@@ -48,7 +51,7 @@ Note: the remainder of this tutorial will be working off the refer to the themeâ
 
 <a href='#google-analytics_implementing' aria-hidden='true' class='block-anchor'  id='google-analytics_implementing'><i aria-hidden='true' class='linkify icon'></i></a>
 
-## Implementing Data Tags on a Cornerstone Based Theme
+## Adding Data Tags
 
 ### Include the Enhanced ECommerce Property
 
