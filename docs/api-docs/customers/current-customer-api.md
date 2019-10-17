@@ -1,13 +1,11 @@
 #  Current Customer API 
 <div class="otp" id="no-index">
-	<h3> On This Page </h3>
-	<ul>
-		<li><a href="#current-customer_identifying-logged-in-customers">Identifying Logged-In Customers Securely</a></li>
-    <li><a href="#current-customer_logged-in-customers-javascript">Example JavaScript</a></li>
-	</ul>
-</div>
 
+### On This Page
+- [Identifying Logged-In Customers Securely](#identifying-logged-in-customers-securely)
+- [Example JavaScript](#example-javascript)
 
+</div> 
 
 ## Identifying Logged-In Customers Securely
 
