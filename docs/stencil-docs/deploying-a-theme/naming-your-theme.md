@@ -1,14 +1,15 @@
 # Naming Your Theme and Theme Variations
 
 <div class="otp" id="no-index">
-	<h3> On This Page </h3>
-	<ul>
-  	<li><a href="#naming_naming">Naming Your Theme</a></li>
-  	<li><a href="#naming_creating">Creating and Naming a New Theme Variation</a></li>
-  	<li><a href="#naming_changing">Changing a Theme Variation’s Font Family (config.json)</a></li>
-  	<li><a href="#naming_preparing">Preparing a Variation’s Thumbnails</a></li>
-	</ul>
-</div>
+
+### On This Page
+- [Naming Your Theme](#naming-your-theme)
+- [Creating and Naming a New Theme Variation](#creating-and-naming-a-new-theme-variation)
+- [Changing a Theme Variation’s Font Family (config.json)](#changing-a-theme-variations-font-family-configjson)
+- [Preparing a Variation’s Thumbnails](#preparing-a-variations-thumbnails)
+- [Resources](#resources)
+
+</div> 
 
 <a href='#naming_naming' aria-hidden='true' class='block-anchor'  id='naming_naming'><i aria-hidden='true' class='linkify icon'></i></a>
 

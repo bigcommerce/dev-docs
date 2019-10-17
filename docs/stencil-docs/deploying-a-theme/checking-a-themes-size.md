@@ -1,12 +1,13 @@
 # Checking a Theme's Size
 
 <div class="otp" id="no-index">
-	<h3> On This Page </h3>
-	<ul>
-    <li><a href="#checking_shrinking">Shrinking a Theme by Excluding Static Assets Using WebDAV</a></li>
-    <li><a href="#checking_organizing">Organizing Your Theme</a></li>
-	</ul>
-</div>
+
+### On This Page
+- [Shrinking a Theme by Excluding Static Assets Using WebDAV](#shrinking-a-theme-by-excluding-static-assets-using-webdav)
+- [Organizing Your Theme](#organizing-your-theme)
+- [Resources](#resources)
+
+</div> 
 
 Your theme should ideally bundle into an archive of only a few megabytes. BigCommerce imposes a hard limit of 50 MB, but most themes do not approach this limit unless they include many large static assets. If your theme is unlikely to or does not exceed 50 MB, you can directly go to [Bundling and Pushing a Theme](https://developer.bigcommerce.com/stencil-docs/deploying-a-theme/bundling-and-pushing).
 

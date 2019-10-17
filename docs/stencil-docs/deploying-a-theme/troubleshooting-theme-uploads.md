@@ -1,14 +1,14 @@
 # Troubleshooting Theme Uploads
 
 <div class="otp" id="no-index">
-	<h3> On This Page </h3>
-	<ul>
-		<li><a href="#troubleshooting-theme-uploads_restrictions">Restrictions</a></li>
-    <li><a href="#troubleshooting-theme-uploads_error-codes">Error Codes</a></li>
-    <li><a href="#troubleshooting-theme-uploads_warnings">Warnings</a></li>
-    <li><a href="#troubleshooting-theme-uploads_workarounds">Workarounds and Further Info</a></li>
-	</ul>
-</div>
+
+### On This Page
+- [Restrictions](#restrictions)
+- [Error Codes](#error-codes)
+- [Warnings](#warnings)
+- [Workarounds and Further Info](#workarounds-and-further-info)
+
+</div> 
 
 <a href='#troubleshooting-theme-uploads_restrictions' aria-hidden='true' class='block-anchor'  id='troubleshooting-theme-uploads_restrictions'><i aria-hidden='true' class='linkify icon'></i></a>
 

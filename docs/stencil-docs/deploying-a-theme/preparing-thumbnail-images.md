@@ -1,14 +1,15 @@
 # Preparing Thumbnail Images
 
 <div class="otp" id="no-index">
-	<h3> On This Page </h3>
-	<ul>
-    <li><a href="#preparing_where-and-how-merchants">Where Merchants See Your Theme's Thumbnail Images</a></li>
-    <li><a href="#preparing_general-image">General Image Requirements</a></li>
-    <li><a href="#preparing_themewide-composite">Themewide Composite Image</a></li>
-    <li><a href="#preparing_variations">Variations: Desktop/Mobile Screenshots</a></li>
-	</ul>
-</div>
+
+### On This Page
+- [Where Merchants See Your Theme's Thumbnail Images](#where-merchants-see-your-themes-thumbnail-images)
+- [General Image Requirements](#general-image-requirements)
+- [Themewide Composite Image](#themewide-composite-image)
+- [Variations: Desktop/Mobile Screenshots](#variations-desktopmobile-screenshots)
+- [Resources](#resources)
+
+</div> 
 
 <a href='#preparing_where-and-how-merchants' aria-hidden='true' class='block-anchor'  id='preparing_where-and-how-merchants'><i aria-hidden='true' class='linkify icon'></i></a>
 

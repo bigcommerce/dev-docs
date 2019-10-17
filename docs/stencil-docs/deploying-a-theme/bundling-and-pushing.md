@@ -1,15 +1,17 @@
 # Bundling and Pushing a Theme
 
 <div class="otp" id="no-index">
-	<h3> On This Page </h3>
-	<ul>
-		<li><a href="#bundling_confirm-dependencies">Confirm Dependencies</a></li>
-    <li><a href="#bundling_verify-directory">Verify Directory and File Permissions</a></li>
-    <li><a href="#bundling_bundling-your-theme">Bundling Your Theme</a></li>
-    <li><a href="#bundling_uploading-your-theme">Uploading Your Theme</a></li>
-    <li><a href="#bundling_other-bundling">Other Bundling or Upload Errors</a></li>
-	</ul>
-</div>
+
+### On This Page
+- [Confirm Dependencies](#confirm-dependencies)
+- [Verify Directory and File Permissions](#verify-directory-and-file-permissions)
+- [Bundling Your Theme](#bundling-your-theme)
+- [Pushing Your Theme](#pushing-your-theme)
+- [Theme Quota Warning](#theme-quota-warning)
+- [Other Bundling or Upload Errors](#other-bundling-or-upload-errors)
+- [Resources](#resources)
+
+</div> 
 
 
 <a href='#bundling_confirm-dependencies' aria-hidden='true' class='block-anchor'  id='bundling_confirm-dependencies'><i aria-hidden='true' class='linkify icon'></i></a>
