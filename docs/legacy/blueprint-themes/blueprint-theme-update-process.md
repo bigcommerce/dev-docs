@@ -1,13 +1,13 @@
 # Theme Update Process
+
 <div class="otp" id="no-index">
-	<h3>On This Page</h3>
-	<ul>
-		<li><a href="#theme-update-prerequisites">Prerequisites</a></li>
-		<li><a href="#blueprint-theme-update-process">Update Process</a></li>
-    <li><a href="#theme-update-other-requirements">Requirements</a></li>
-  
-		</ul>
-</div>
+
+### On This Page
+- [Prerequisites](#prerequisites)
+- [Update Process](#update-process)
+- [Other Requirements](#other-requirements)
+
+</div> 
 
 Here is how BigCommerce and our partners collaborate to integrate a partner's theme changes/updates into the BigCommerce Theme Marketplace (which merchants also know as our "theme store"):
 
