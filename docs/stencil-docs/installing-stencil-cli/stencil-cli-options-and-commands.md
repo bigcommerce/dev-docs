@@ -106,7 +106,7 @@ stencil start --open # opens live theme preview in default browser
 ```
 
 | Option                       |Alias| Description                                                                           |
-||--||
+|-|-|-|
 | `--version`                  |`-V` | Outputs the version number                                                            |
 | `--open`                     |`-o` | Automatically open default browser                                                    |
 | `--variation [<NAME>]`       |`-v` | Set which theme variation to use while developing                                     |
