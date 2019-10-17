@@ -1,12 +1,14 @@
 <div><h3 class="sub-docs-type" id="bigcommerce-for-wordpress">BigCommerce for Wordpress</h3>
+
 # Multisite Setup
+
 <div class="otp" id="no-index">
-	<h3> On This Page </h3>
-	<ul>
-        <li><a href="#multisite_getting">Getting Your API Credentials</a></li>
-        <li><a href="#multisite_setting-up">Setting up a WordPress Site Using API Account Credentials</a></li>
-    		<li><a href="#multisite_additional">Additional Resources</a></li>
-	</ul>
+
+### On This Page
+- [Getting Your API Credentials](#getting-your-api-credentials)
+- [Setting up a WordPress Site Using API Account Credentials](#setting-up-a-wordpress-site-using-api-account-credentials)
+- [Additional Resources](#additional-resources)
+
 </div>
 
 <a href='#multisite_overview' aria-hidden='true' class='block-anchor'  id='multisite_overview'><i aria-hidden='true' class='linkify icon'></i></a>
