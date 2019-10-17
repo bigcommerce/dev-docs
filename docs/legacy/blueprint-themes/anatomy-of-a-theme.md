@@ -1,15 +1,16 @@
 # Anatomy of a Theme
+
 <div class="otp" id="no-index">
-	<h3>On This Page</h3>
-	<ul>
-		<li><a href="#directory-structure">Directory Structure</a></li>
-		<li><a href="#blueprint-images">Images</a></li>
-		<li><a href="#blueprint-layouts">Layouts</a></li>
-    <li><a href="#blueprint-panels">Panels</a></li>
-    <li><a href="#blueprint-snippets">Snippets</a></li>
-    <li><a href="#blueprint-styles">Styles</a></li>
-		</ul>
-</div>
+
+### On This Page
+- [Directory Structure](#directory-structure)
+- [Images](#images)
+- [Layouts](#layouts)
+- [Panels](#panels)
+- [Snippets](#snippets)
+- [Styles](#styles)
+
+</div> 
 
 Themes are built using a powerful template system that enables designers and developers familiar with CSS and HTML to modify the presentation and structure of a BigCommerce store.
 
