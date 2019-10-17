@@ -1,12 +1,15 @@
 <div><h3 class="sub-docs-type" id="bigcommerce-for-wordpress">BigCommerce for Wordpress</h3>
+
 # Shortcodes
+
 <div class="otp" id="no-index">
-	<h3> On This Page </h3>
-	<ul>
-        <li><a href="#shortcode_product-shortcode">Products Shortcode</a></li>
-        <li><a href="#plugin-settings_api-keys">API Keys</a></li>
-	</ul>
-</div>
+
+### On This Page
+- [Products Shortcode](#products-shortcode)
+- [Component Shortcodes](#component-shortcodes)
+- [Other Shortcodes](#other-shortcodes)
+
+</div> 
 
 Most of the plugin's functionality is exposed on the front-end of the site through shortcodes embedded on automatically created pages. The code controlling those shortcodes can be found in the classes in `src/BigCommerce/Shortcodes`.
 
