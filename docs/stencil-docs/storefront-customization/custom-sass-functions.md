@@ -1,11 +1,12 @@
 # Custom Sass Functions
+
 <div class="otp" id="no-index">
-	<h3> On This Page </h3>
-	<ul>
-    <li><a href="#custom_custom-sass-functions">Custom Sass Functions</a></li>
-    <li><a href="#custom_compiling">Compiling Custom Sass Files</a></li>
-	</ul>
-</div>
+
+### On This Page
+- [Custom Sass Functions](#custom-sass-functions)
+- [Compiling Custom Sass Files](#compiling-custom-sass-files)
+
+</div> 
 
 <a href='#custom_custom-sass-functions' aria-hidden='true' class='block-anchor'  id='custom_custom-sass-functions'><i aria-hidden='true' class='linkify icon'></i></a>
 
