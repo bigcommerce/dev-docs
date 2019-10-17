@@ -1,17 +1,18 @@
 # Product Videos
+
 <div class="otp" id="no-index">
-	<h3> On This Page </h3>
-	<ul>
-		<li><a href="#v2-video_object-properties">Object Properties</a></li>
-		<li><a href="#v2-video_list-product-videos">List Product SKU</a></li>
-		<li><a href="#v2-sku_get-product-video">Get Product Video</a></li>
-    <li><a href="#v2-video_get-count-video">Get a Count of Product Videos</a></li>
-    <li><a href="#v2-video_create-product-video">Create Product Video</a></li>
-    <li><a href="#v2-video_update-product-video-metadata">Update Product Video Metadata</a></li>
-    <li><a href="#v2-video_delete-product-video">Delete a Product Video</a></li>
-    <li><a href="#v2-video_delete-all-product-video">Delete All Product Videos</a></li>
-		</ul>
-</div>
+
+### On This Page
+- [Videos](#videos)
+- [List Product Videos](#list-product-videos)
+- [Get a Product Video](#get-a-product-video)
+- [Get a Count of Product Videos](#get-a-count-of-product-videos)
+- [Create a Product Video](#create-a-product-video)
+- [Update Product Video Metadata](#update-product-video-metadata)
+- [Delete a Product Video](#delete-a-product-video)
+- [Delete All Product Videos](#delete-all-product-videos)
+
+</div> 
 
 <a href='#v2-video_object-properties' aria-hidden='true' class='block-anchor'  id='v2-video_object-properties'><i aria-hidden='true' class='linkify icon'></i></a>
 
