@@ -1,15 +1,17 @@
 <div><h3 class="sub-docs-type" id="bigcommerce-for-wordpress">BigCommerce for Wordpress</h3>
+
 # Plugin Settings
+
 <div class="otp" id="no-index">
-	<h3> On This Page </h3>
-	<ul>
-        <li><a href="#plugin-settings_api-keys">API Keys</a></li>
-        <li><a href="#plugin-settings_product-sync">Product Sync</a></li>
-        <li><a href="#plugin-settings_cart-settings">Cart Settings</a></li>
-        <li><a href="#plugin-settings_theme-customizer">Theme Customizer</a></li>
-        <li><a href="#plugin-settings_reviews">Reviews</a></li>
-        <li><a href="#plugin-settings_gift-certificate-settings">Gift Certificate Settings</a></li>
-	</ul>
+
+### On This Page
+- [Product Sync](#product-sync)
+- [Cart Settings](#cart-settings)
+- [Theme Customizer](#theme-customizer)
+- [Navigation Menus](#navigation-menus)
+- [Reviews](#reviews)
+- [Gift Certificate Settings](#gift-certificate-settings)
+
 </div>
 
 BigCommerce settings for WordPress are found in the left admin menu in WordPress, under the BigCommerce menu item.
