@@ -3,11 +3,10 @@
 <div class="otp" id="no-index">
 
 ### On This Page
-
 - [How it Works](#how-it-works)
 - [Channels, Sites and Routes APIs](#channels-sites-and-routes-apis)
 - [BigCommerce Checkout SDK](#bigcommerce-checkout-sdk)
-- [Logged-In Customers](#embedded-logged-in-customers)
+- [Logged-In Customers](#logged-in-customers)
 
 </div>
 
