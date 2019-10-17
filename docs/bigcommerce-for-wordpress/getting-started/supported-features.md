@@ -1,12 +1,14 @@
 <div><h3 class="sub-docs-type" id="bigcommerce-for-wordpress">BigCommerce for Wordpress</h3>
-<h1 class="sub-docs-title">Supported Features
+
+# Supported Features
+
 <div class="otp" id="no-index">
-	<h3> On This Page </h3>
-	<ul>
-    <li><a href="#supported_supported">BigCommerce for Wordpress Supported Features</a></li>
-    <li><a href="#supported_unsupported">BigCommerce for Wordpress Unsupported Features</a></li>
-    <li><a href="#supported_general">General Product Roadmap</a></li>
-	</ul>
+
+### On This Page
+- [BigCommerce for Wordpress Supported Features](#bigcommerce-for-wordpress-supported-features)
+- [BigCommerce for Wordpress Unsupported Features](#bigcommerce-for-wordpress-unsupported-features)
+- [General Product Roadmap](#general-product-roadmap)
+
 </div>
 
 <a href='##supported_supported' aria-hidden='true' class='block-anchor'  id='#supported_supported'><i aria-hidden='true' class='linkify icon'></i></a>
