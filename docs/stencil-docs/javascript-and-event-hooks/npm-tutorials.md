@@ -1,14 +1,28 @@
-# <code>npm</code> Tutorials
+# `npm` Tutorials
 
 <div class="otp" id="no-index">
-	<h3> On This Page </h3>
-	<ul>
-    <li><a href="#npm-tutorials_basic">Basic npm tutorial</a></li>
-    <li><a href="#npm-tutorials_advanced">Advanced npm tutorial</a></li>
-	</ul>
-</div>
 
-<a href='#npm-tutorials_basic' aria-hidden='true' class='block-anchor'  id='npm-tutorials_basic'><i aria-hidden='true' class='linkify icon'></i></a>
+### On This Page
+- [Basic `npm` tutorial](#basic-npm-tutorial)
+- [What We're Building](#what-were-building)
+- [Set Up Your Store](#set-up-your-store)
+- [Install Dependencies](#install-dependencies)
+- [Configure Webpack Loaders](#configure-webpack-loaders)
+- [Import the Dependencies](#import-the-dependencies)
+- [Configure the loaded() Method](#configure-the-loaded-method)
+- [Advanced npm Tutorial](#advanced-npm-tutorial)
+- [Video of What We're Building](#video-of-what-were-building)
+- [Install Dependencies](#install-dependencies-1)
+- [Import Dependencies](#import-dependencies)
+- [Update webpack.conf.js](#update-webpackconfjs)
+- [Update app.js](#update-appjs)
+- [Add Coupon Drawer Markup](#add-coupon-drawer-markup)
+- [Call initReact from base.html](#call-initreact-from-basehtml)
+- [Create Components Folder](#create-components-folder)
+- [Add CouponDrawer.js](#add-coupondrawerjs)
+- [Add VerticalLinearStepper.js](#add-verticallinearstepperjs)
+
+</div> 
 
 ## Basic `npm` tutorial
 
@@ -359,7 +373,7 @@ This sets up a handler for attaching an `<x-coupon-drawer>` element to the page.
 
 <a href='#advanced_add-the-xcoupondrawer' aria-hidden='true' class='block-anchor'  id='advanced_add-the-xcoupondrawer'><i aria-hidden='true' class='linkify icon'></i></a>
 
-## Add the `<x-coupon-drawer>` Element to the Page
+## Add Coupon Drawer Markup
 
 Add this in `<theme-name>/templates/layout/base.html`. (See the image below.) We're using this layout template for this example, although you would follow the same steps in any other template.
 
@@ -382,13 +396,13 @@ Add a call to `window.initReact`. We're continuing to work with the `base.html` 
 
 <a href='#advanced_create-an-assetsjscomp' aria-hidden='true' class='block-anchor'  id='advanced_create-an-assetsjscomp'><i aria-hidden='true' class='linkify icon'></i></a>
 
-## Create an assets/js/components Folder
+## Create Components Folder
 
 We'll store our React components here.
 
 <a href='#advanced_create-a-coupondrawerjs-file' aria-hidden='true' class='block-anchor'  id='advanced_create-a-coupondrawerjs-file'><i aria-hidden='true' class='linkify icon'></i></a>
 
-## Create a CouponDrawer.js File
+## Add CouponDrawer.js
 
 Create a `<theme-name>/assets/js/components/CouponDrawer.js` file. Populate this file with the following code block (which is adapted from http://www.material-ui.com/#/components/drawer):
 
@@ -427,7 +441,7 @@ export default class CouponDrawer extends React.Component {
 
 <a href='#advanced_create-a-verticallinear' aria-hidden='true' class='block-anchor'  id='advanced_create-a-verticallinear'><i aria-hidden='true' class='linkify icon'></i></a>
 
-## Create a VerticalLinearStepper.js File
+## Add VerticalLinearStepper.js
 
 Create a `<theme-name>/assets/js/components/VerticalLinearStepper.js` file. Populate this file with the following code block:
 
