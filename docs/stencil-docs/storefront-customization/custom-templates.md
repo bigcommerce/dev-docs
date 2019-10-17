@@ -1,14 +1,16 @@
 # Custom Templates
+
 <div class="otp" id="no-index">
-	<h3> On This Page </h3>
-	<ul>
-    <li><a href="#custom-templates_authoring-templates">Authoring a Custom Template</a></li>
-    <li><a href="#custom-templates_local-mapping-and-testing">Local Mapping and Testing</a></li>
-    <li><a href="#custom-templates_theme-upload">Theme Upload</a></li>
-    <li><a href="#custom-templates_troubleshooting">Troubleshooting Template Authoring</a></li>
-    <li><a href="#custom-templates_applying">Applying Custom Templates to Pages</a></li>
-	</ul>
-</div>
+
+### On This Page
+- [Authoring a Custom Template](#authoring-a-custom-template)
+- [Local Mapping and Testing](#local-mapping-and-testing)
+- [Theme Upload](#theme-upload)
+- [Troubleshooting Template Authoring](#troubleshooting-template-authoring)
+- [Applying Custom Templates to Pages](#applying-custom-templates-to-pages)
+- [Resources](#resources)
+
+</div> 
 
 The Stencil framework allows theme developers and merchants to assign custom layout templates to storefront pages of the following types:
 
@@ -33,10 +35,6 @@ The Stencil framework allows theme developers and merchants to assign custom lay
 </div>
 </div>
 </div>
-
-
-
-<a href='#custom-templates_authoring-templates' aria-hidden='true' class='block-anchor'  id='custom-templates_authoring-templates'><i aria-hidden='true' class='linkify icon'></i></a>
 
 ## Authoring a Custom Template
 
