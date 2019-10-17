@@ -1375,7 +1375,50 @@
           }
         }
       }
+    },
+    "StoredPaypalInstrument": {
+      "title": "StoredPaypalInstrument",
+      "type": "object",
+      "properties": {
+        "type": {
+          "type": "string",
+          "description": "Type to classify this stored account"
+        },
+        "is_default": {
+          "type": "boolean",
+          "description": "Whether this instrument is a default instrument",
+          "default": "false"
+        },
+        "token": {
+          "type": "string",
+          "description": "Identifier representing this stored account",
+          "minLength": 64,
+          "maxLength": 64
+        },
+        "email": {
+          "type": "string",
+          "format": "email",
+          "description": "Email address of this stored account"
+        }
+      },
+      "required": [
+        "email",
+        "token",
+        "is_default",
+        "type"
+      ]
+    },
+    "SupportedPaypalAccountInstrument": {
+    "title": "SupportedPaypalAccountInstrument",
+    "type": "object",
+    "properties": {
+      "instrument_type": {
+        "type": "string",
+        "description": "Type of this instrument",
+        "required": ["instrument_type"]
+      }
     }
+  }
   },
   "tags": [
     {
