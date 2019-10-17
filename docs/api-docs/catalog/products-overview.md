@@ -2,9 +2,7 @@
 
 <div class="otp" id="no-index">
   
-## On This Page
-
-- [On This Page](#on-this-page)
+### On This Page
 - [Products](#products)
 - [Pricing Precision](#pricing-precision)
 - [Product Images](#product-images)
