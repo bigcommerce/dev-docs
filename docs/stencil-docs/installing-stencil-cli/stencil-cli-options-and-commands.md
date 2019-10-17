@@ -3,14 +3,14 @@
 <div class="otp" id="no-index">
 
 ### On this Page
-
-* [Commands Overview](#commands-overview)
-* [stencil help](#stencil-help)
-* [stencil init](#stencil-init)
-* [stencil start](#stencil-start)
-* [stencil bundle](#stencil-bundle)
-* [stencil push](#stencil-push)
-* [stencil release](#stencil-release)
+- [Commands Overview](#commands-overview)
+- [`stencil help`](#stencil-help)
+- [`stencil init`](#stencil-init)
+- [`stencil start`](#stencil-start)
+- [`stencil bundle`](#stencil-bundle)
+- [`stencil push`](#stencil-push)
+- [`stencil release`](#stencil-release)
+- [Resources](#resources)
 
 </div>
 
