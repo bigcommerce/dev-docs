@@ -1,12 +1,12 @@
 # Add to Cart URLs
 
 <div class="otp" id="no-index">
-	<h3> On This Page </h3>
-	<ul>
-        <li><a href="#parameters">Parameters</a></li>
-        <li><a href="#common-usage">Common Usage</a></li>
-        <li><a href="#adding-multiple-products">Adding Multiple Products</a></li>
-	</ul>
+
+### On This Page
+- [Parameters](#parameters)
+- [Common Usage](#common-usage)
+- [Adding Multiple Products](#adding-multiple-products)
+
 </div>
 
 Query string parameters can be appended to Bigcommerce product and `/cart.php` urls in order to pre-select an SKU or add a product to cart. These parameters make it possible to build custom add to cart links and forms for use on BigCommerce storefronts and remote sites (such as WordPress, blog posts, and social media).
