@@ -50,7 +50,7 @@ This consistent behavior is true for each of the common objects documented in th
 
 
 | Property | Description | Type |
-| --- |--- | --- |
+|  | |  |
 | with_tax | Price including tax | object |
 | &#x21B3; currency | Currency code | string  <br> `"USD"`|
 | &#x21B3; formatted | String representation of the above price, including currency formatting | string <br> `"$216.50"` |
@@ -82,7 +82,7 @@ This consistent behavior is true for each of the common objects documented in th
 | tax_label	| Tax label (VAT, sales tax, etc.) displayed to customers. | string  <br> `"Tax"`|
 | price_range | See [Price Range Object](https://developer.bigcommerce.com/stencil-docs/reference-docs/common-objects#common-objects_price-range)| |
 
----
+
 
 <a href='#common-objects_price' aria-hidden='true' class='block-anchor'  id='common-objects_price'><i aria-hidden='true' class='linkify icon'></i></a>
 
@@ -116,7 +116,7 @@ This consistent behavior is true for each of the common objects documented in th
   </tr>
 </table>
 
----
+
 
 <a href='#common-objects_price-range' aria-hidden='true' class='block-anchor'  id='common-objects_price-range'><i aria-hidden='true' class='linkify icon'></i></a>
 
@@ -127,7 +127,7 @@ This consistent behavior is true for each of the common objects documented in th
 <b>Object Properties:</b>
 
 | Property | Description | Type |
-| ---|---|--|
+| ||--|
 | retail_price_range | Product Price Range | object |
 |&#x21B3;   max | The minimum variant price for the product | object |
 |&nbsp;  &nbsp;  &#x21B3;  with_tax | Price including tax | object |
@@ -152,7 +152,7 @@ This consistent behavior is true for each of the common objects documented in th
 
 <b>Object/Property:</b><code>{{product.price}</code></a>
 
-----
+-
 
 <a href='#common-objects_stencil-image' aria-hidden='true' class='block-anchor'  id='common-objects_stencil-image'><i aria-hidden='true' class='linkify icon'></i></a>
 
@@ -191,7 +191,7 @@ This consistent behavior is true for each of the common objects documented in th
 
 `{{getImage image "thumbnail"}}`
 
----
+
 
 <a id="common-objects_common-product"></a>
 
@@ -247,4 +247,4 @@ This consistent behavior is true for each of the common objects documented in th
 
 <!-- :"Common Product Card Model" moved from "Product Objects" page -->
 
----
+

@@ -12,12 +12,12 @@
 
 The WordPress Gutenberg Visual Editor provides users the ability to easily compose a page by adding and arranging blocks of content. Some blocks come with WordPress by default -- paragraph, image, list, and audio blocks, for example. Additionally, WordPress plugins can extend Gutenberg by adding their own blocks to the Visual Editor's Add Block dropdown. The BigCommerce for Wordpress plugin is packed with custom blocks that put the power of BigCommerce in the hands of WordPress developers.
 
----
+
 
 ## Available BigCommerce Blocks
 
 | Block Name                           | Description                                                                     | Settings                                            |
-|--------------------------------------|---------------------------------------------------------------------------------|-----------------------------------------------------|
+|--||--|
 | BigCommerce Products                 | displays a list of products by brands, categories or individual products.       | Edit Products, Additional CSS Class                 |
 | BigCommerce Cart                     | displays the items currently in the customer’s cart                             | Additional CSS Class                                |
 | BigCommerce Checkout                 | displays an embedded checkout form                                              | Additional CSS Class                                |
@@ -43,7 +43,7 @@ The WordPress Gutenberg Visual Editor provides users the ability to easily compo
 </div>
 </div>
 
----
+
 
 ## Creating Your Own Blocks
 

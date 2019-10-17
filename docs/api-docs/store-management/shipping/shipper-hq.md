@@ -17,14 +17,14 @@ These field values can be set in the Control Panel by the merchant as well as us
 * [Product Metafields Endpoint](/api-reference/catalog/catalog-api/product-metafields/createproductmetafield)
 * [Variant Metafields Endpoint](https://developer.bigcommerce.com/api-reference/catalog/catalog-api/product-variants-metafields/createvariantmetafield)
 
----
+
 
 <a href='#shipper-hq-object-properties' aria-hidden='true' class='block-anchor'  id='shipper-hq-object-properties'><i aria-hidden='true' class='linkify icon'></i></a>
 
 ## ShipperHQ Object Properties
 
 | Property | Type | Values |
-|---|---|---|
+||||
 | permission_set | string | This must be set to `write`. Setting to any other field will cause unintended behavior. **required** |
 | key | enum | Members: `shipping-groups`, `shipping-origins`, `shipping-dimensional-rules` **required** |
 | value | JSON encoded string | This will be the name of the attribute type in ShipperHQ. This needs to be input exactly how it is listed within ShipperHQ. To pass in more than one Shipping Origin, Origin Location or Dimensional Rule use an array with a comma-separated list. White spaces and special characters need to be escaped. Must be a JSON encoded string `"[\"Origin Name from SHQ-1\",\" Origin Name from SHQ-2\"]"` **required** |
@@ -48,7 +48,7 @@ These field values can be set in the Control Panel by the merchant as well as us
 </div>
 </div>
 
----
+
 
 <a href='#control-panel-behavior' aria-hidden='true' class='block-anchor'  id='control-panel-behavior'><i aria-hidden='true' class='linkify icon'></i></a>
 
@@ -57,7 +57,7 @@ These field values can be set in the Control Panel by the merchant as well as us
 When Shipping Origins are set using the API, the fields cannot be deleted using the Control Panel. A /DELETE request must be sent to the metafields resource.
 
 
----
+
 
 <a href='#add-shipperhq-metafield' aria-hidden='true' class='block-anchor'  id='add-shipperhq-metafield'><i aria-hidden='true' class='linkify icon'></i></a>
 
@@ -145,7 +145,7 @@ lineNumbers: true
 }
 ```
 
----
+
 
 ## Resources
 ### Related Endpoints

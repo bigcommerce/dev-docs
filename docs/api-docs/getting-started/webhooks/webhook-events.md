@@ -24,14 +24,14 @@
 ## Webhook Endpoints
 
 |Endpoint|Operations| Reference
-|---|---|---|
+||||
 | `/v2/hooks/` | `GET` - Get all webhooks on a store | [Get All Webhooks](https://developer.bigcommerce.com/api-reference/webhooks/webhooks/getallwebhooks) |
 | `/v2/hooks/` | `POST` Create a webhook| [Create a Webhook](https://developer.bigcommerce.com/api-reference/webhooks/webhooks/createwebhooks) |
 | `/v2/hooks/{id}` | `GET` Get a webhook by `{id}` | [Get a Webhook](https://developer.bigcommerce.com/api-reference/webhooks/webhooks/getwebhook) |
 | `/v2/hooks/{id}` | `PUT` Update a webhook by `{id}` | [Update a Webhook](https://developer.bigcommerce.com/api-reference/webhooks/webhooks/updateawebhook) |
 | `/v2/hooks/{id}` | `DELETE` - Delete a webhook by `{id}` | [Delete a Webhook ](https://developer.bigcommerce.com/api-reference/webhooks/webhooks/deleteawebhook)|
 
----
+
 
 <a id="webhook-events_response-structure"></a>
 
@@ -61,7 +61,7 @@
     "producer": "stores/{store_hash}"
 }
 ```
----
+
 
 
 <a id="webhook-events_orders"></a>
@@ -69,7 +69,7 @@
 ## Orders
 
 | Name | Description |
-| ---| --- |
+| |  |
 | store/order/* | Subscribe to all store/order events  |
 | store/order/created |Fires if an order is created using the control panel, an app or via the API.| 
 | store/order/updated| Fires when an already created order is updated. Any changes to an existing order will fire this webhook. Updates can include changing the status, updating a coupon or changing an address.|
@@ -157,14 +157,14 @@
 }
 ```
 
----
+
 
 <a id="webhook-events_products"></a>
 
 ## Products
 
 | Name | Description |
-| --- | --- |
+|  |  |
 | store/product/* | Subscribe to all store/product events |
 |store/product/deleted| Product is deleted|
 | store/product/created | A new product is created |
@@ -251,14 +251,14 @@ Changes to any of the following fields will trigger a `store/product/updated` ev
 - _Condition_
 - _Tax Price_
 
----
+
 
 <a id="webhook-events_category"></a>
 
 ## Category
 
 | Name | Description |
-|---|---|
+|||
 | store/category/* | Subscribe to all store/category events |
 | store/category/created | Category is created |
 | store/category/updated | Category is updated |
@@ -288,14 +288,14 @@ Changes to any of the following fields will trigger a `store/product/updated` ev
     "producer": "stores/{store_hash}"
 }
 ```
----
+
 
 <a id="webhook-events_sku"></a>
 
 ## SKU
 
 | Name | Description |
-| --- | --- |
+|  |  |
 | store/sku/* |Subscribe to all store/sku events |
 | store/sku/created | A new sku is created |
 | store/sku/updated | SKU is updated |
@@ -368,14 +368,14 @@ Changes to any of the following fields will trigger a `store/product/updated` ev
 }
 ```
 
----
+
 
 <a id="webhook-events_customer"></a>
 
 ## Customer
 
 | Name | Description |
-|---|---|
+|||
 | store/customer/* | Subscribe to all store/customer events |
 | store/customer/created | A new customer is created|
 | store/customer/updated | Customer is updated. Does not currently track changes to the customer address. |
@@ -436,14 +436,14 @@ Changes to any of the following fields will trigger a `store/product/updated` ev
 }
 ```
 
----
+
 
 <a id="webhook-events_store"></a>
 
 ## Store
 
 |Name|Description|
-|---|---|
+|||
 | store/app/uninstalled | Occurs when a client store is cancelled and uninstalled from the platform |
 |store/information/updated | Occurs when changes are made to store settings. For a full list of fields that can trigger this event, see **Store Information Updated Events** below |
 
@@ -493,14 +493,14 @@ Changes to the following store settings will trigger a `store/information/update
   "producer": "stores/{store_hash}"
 }
 ```
----
+
 
 <a id="webhook-events_cart"></a>
 
 ## Cart
 
 | Name | Description |
-| --- | --- |
+|  |  |
 | store/cart/* | Subscribe to all cart events. This will also subscribe you to cart/lineItem. |
 | store/cart/created | This webhook will fire whenever a new cart is created either via a storefront shopper adding their first item to the cart or when a new cart being created via an API consumer. If it is from the storefront, then it fires when the first product is added to a new session.(The cart did not exist before) For the API it means a  `POST`  to /carts, (V3 and Storefront API). The  `store/cart/updated`  will also fire.|
 | store/cart/updated | This webhook is fired whenever a cart is modified through the changes in its line items. Eg. when a new item is added to a cart or an existing item’s quantity is updated. This hook also fires when the email is changed during guest checkout or an existing item is deleted. The payload will include the ID of the cart being updated. <br> This webhook is also fired along with cart created, because the first product being added to an empty cart triggers an update. <br> - Logging into customer account after creating a cart (email is inherited from customer account email) <br>- Entering email address via guest checkout <br> -Changing the email in guest checkout |
@@ -575,14 +575,14 @@ Changes to the following store settings will trigger a `store/information/update
 }
 ```
 
----
+
 
 <a id="webhook-events_cart-line-items"></a>
 
 ## Cart Line Item
 
 | Name | Description |
-| --- | --- |
+|  |  |
 | store/cart/lineItem/* | Subscribe to all cart line item events. This webhook will fire when a change occurs to line items in the cart. This can be items added to a cart, removed or updated.(Ex. change to quantity, product options or price). |
 | store/cart/lineItem/created | When a new item is added to the cart  |
 | store/cart/lineItem/updated | When an item’s quantity has changed or the product options change. |
@@ -613,14 +613,14 @@ Changes to the following store settings will trigger a `store/information/update
     "producer": "stores/{store_hash}"
 }
 ```
----
+
 
 <a id="webhook-events_shipment"></a>
 
 ## Shipment
 
 | Name | Description |
-| --- | --- |
+|  |  |
 | store/shipment/* | Subscribe to all store/shipment events |
 | store/shipment/created | Shipment is created |
 | store/shipment/updated | Shipment is updated |
@@ -652,14 +652,14 @@ Changes to the following store settings will trigger a `store/information/update
 }
 ```
 
----
+
 
 <a id="webhook-events_subscriber"></a>
 
 ## Subscriber
 
 | Name | Description |
-| --- | --- |
+|  |  |
 | store/subscriber/* | Subscribe to all store/subscriber events |
 | store/subscriber/created | Subscriber is created |
 | store/subscriber/updated| Subscriber is updated |
@@ -688,7 +688,7 @@ Changes to the following store settings will trigger a `store/information/update
 }
 ```
 
----
+
 
 ## Resoures
 ### Related Articles

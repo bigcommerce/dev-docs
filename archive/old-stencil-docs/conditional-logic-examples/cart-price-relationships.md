@@ -44,7 +44,7 @@ lineNumbers: true
     },
 ```
 
----
+
 
 <a href='#cart-price-relationships_bulk-pricing' aria-hidden='true' class='block-anchor'  id='cart-price-relationships_bulk-pricing'><i aria-hidden='true' class='linkify icon'></i></a>
 
@@ -94,7 +94,7 @@ lineNumbers: true
       },
 ```
 
----
+
 
 <a href='#cart-price-relationships_price' aria-hidden='true' class='block-anchor'  id='cart-price-relationships_price'><i aria-hidden='true' class='linkify icon'></i></a>
 
@@ -160,7 +160,7 @@ lineNumbers: true
     },
 ```
 
----
+
 
 <a href='#cart-price-relationships_cart-item-full-response' aria-hidden='true' class='block-anchor'  id='cart-price-relationships_cart-item-full-response'><i aria-hidden='true' class='linkify icon'></i></a>
 

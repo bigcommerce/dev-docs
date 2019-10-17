@@ -30,7 +30,7 @@ Cornerstone versions 2.6.0+ will have Data Tags already included in the theme.
 </div>
 </div>
 
----
+
 
 <a href='#google-analytics_prerequisites' aria-hidden='true' class='block-anchor'  id='google-analytics_prerequisites'><i aria-hidden='true' class='linkify icon'></i></a>
 
@@ -47,7 +47,7 @@ If you would like to implement Data Tags on your custom theme and do not already
 
 Note: the remainder of this tutorial will be working off the refer to the theme’s base folder as ‘cornerstone’.
 
----
+
 
 <a href='#google-analytics_implementing' aria-hidden='true' class='block-anchor'  id='google-analytics_implementing'><i aria-hidden='true' class='linkify icon'></i></a>
 
@@ -273,7 +273,7 @@ Or, if you are adding a data tag to a product list item in products/list-item.ht
   </tr>
 </table>
 
----
+
 
 <a href='#google-analytics_additional-resources' aria-hidden='true' class='block-anchor'  id='google-analytics_additional-resources'><i aria-hidden='true' class='linkify icon'></i></a>
 
@@ -338,7 +338,7 @@ Next, add the custom metrics/dimensions to the desired theme template:
 </div>
 </div>
 
----
+
 
 ## Resources
 

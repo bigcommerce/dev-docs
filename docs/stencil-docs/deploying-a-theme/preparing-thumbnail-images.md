@@ -53,7 +53,7 @@ A complete Stencil theme includes screenshots to show off the theme on cards tha
 ](//s3.amazonaws.com/user-content.stoplight.io/6116/1563227341485 "#### Mobile View of Themes Marketplace
 ")
 
----
+
 
 <a href='#preparing_general-image' aria-hidden='true' class='block-anchor'  id='preparing_general-image'><i aria-hidden='true' class='linkify icon'></i></a>
 
@@ -69,7 +69,7 @@ All screenshots described below must meet the following specifications in order 
 * Be stored in your [<theme‑name>/meta/](https://github.com/bigcommerce/cornerstone/tree/master/meta) subdirectory.
 * Must be in **portrait aspect ratio**, with specific resolutions listed under [Themewide Composite Image](#preparing_themewide-composite) below.
 
---- 
+ 
 
 <a href='#preparing_themewide-composite' aria-hidden='true' class='block-anchor'  id='preparing_themewide-composite'><i aria-hidden='true' class='linkify icon'></i></a>
 
@@ -112,7 +112,7 @@ lineNumbers: true
 }
 ```
 
----
+
 
 <a href='#preparing_variations' aria-hidden='true' class='block-anchor'  id='preparing_variations'><i aria-hidden='true' class='linkify icon'></i></a>
 
@@ -171,7 +171,7 @@ lineNumbers: true
 
 ```
 
----
+
 
 ## Resources
 

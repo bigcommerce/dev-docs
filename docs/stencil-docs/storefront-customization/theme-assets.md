@@ -108,7 +108,7 @@ Every utility in this subdirectory will have both a class and a mixin. For examp
   </tr>
 </table>
 
----
+
 
 <a id="theme-assets_citadel"></a>
 
@@ -149,7 +149,7 @@ The `components/citadel` subdirectory contains Citadel-specific resources. The r
   </tr>
 </table>
 
----
+
 
 <a id="theme-assets_componenets-utilities"></a>
 
@@ -183,7 +183,7 @@ Our syntax for naming utilities is camel case, prefixed with a u- namespace:
   <tr>
 </table>
 
----
+
 
 <a id="theme-assets_variables"></a>
 
@@ -214,7 +214,7 @@ Variables are things that can change over time. Their names are in camel case, a
   <tr>
 </table>
 
----
+
 
 <a id="theme-assets_stencil-subdirectory"></a>
 
@@ -225,7 +225,7 @@ The /components/stencil/ subdirectory contains CSS files unique to Stencil theme
 This subdirectory’s children contain CSS for the following page elements.
 
 | Subdirectory  | UI Element/Purpose  |
-|---|---|
+|||
 | account  | Customer account details |
 | addressBox  | Customer shipping addresses |
 | addReturn  | Add a product-return request |
@@ -269,7 +269,7 @@ This subdirectory’s children contain CSS for the following page elements.
 </div>
 </div>
 
----
+
 
 ## Resources
 

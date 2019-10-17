@@ -46,7 +46,7 @@ camelCases the characters in the given `string`.
 //=> 'fooBarBaz'
 ```
 
----
+
 
 <a href='#handlebars_capitalize' aria-hidden='true' class='block-anchor'  id='handlebars_capitalize'><i aria-hidden='true' class='linkify icon'></i></a>
 
@@ -66,7 +66,7 @@ Capitalizes the first word in a sentence.
 //=> "Foo bar baz"
 ```
 
----
+
 
 <a href='#handlebars_capitalizeall' aria-hidden='true' class='block-anchor'  id='handlebars_capitalizeall'><i aria-hidden='true' class='linkify icon'></i></a>
 
@@ -86,7 +86,7 @@ Capitalizes all words in a string.
 //=> "Foo Bar Baz"
 ```
 
----
+
 
 <a href='#handlebars_center' aria-hidden='true' class='block-anchor'  id='handlebars_center'><i aria-hidden='true' class='linkify icon'></i></a>
 
@@ -100,7 +100,7 @@ Centers a string, using non-breaking spaces.
 * `spaces` {String}
 * `returns` {String}
 
----
+
 
 <a href='#handlebars_chop' aria-hidden='true' class='block-anchor'  id='handlebars_chop'><i aria-hidden='true' class='linkify icon'></i></a>
 
@@ -126,7 +126,7 @@ Like `trim`, but removes both extraneous whitespace *and non-word characters* fr
 //=> 'ABC'
 ```
 
----
+
 
 <a href='#handlebars_dashcase' aria-hidden='true' class='block-anchor'  id='handlebars_dashcase'><i aria-hidden='true' class='linkify icon'></i></a>
 
@@ -146,7 +146,7 @@ dash-cases the characters in `string`. Replaces non-word characters and periods 
 //=> 'a-b-c-d-e'
 ```
 
----
+
 
 <a href='#handlebars_dotcase' aria-hidden='true' class='block-anchor'  id='handlebars_dotcase'><i aria-hidden='true' class='linkify icon'></i></a>
 
@@ -166,7 +166,7 @@ dot.cases the characters in `string`.
 //=> 'a.b.c.d.e'
 ```
 
----
+
 
 <a href='#handlebars_hyphenate' aria-hidden='true' class='block-anchor'  id='handlebars_hyphenate'><i aria-hidden='true' class='linkify icon'></i></a>
 
@@ -186,7 +186,7 @@ Replaces spaces in a string with hyphens.
 //=> "foo-bar-baz-qux"
 ```
 
----
+
 
 <a href='#handlebars_isstring' aria-hidden='true' class='block-anchor'  id='handlebars_isstring'><i aria-hidden='true' class='linkify icon'></i></a>
 
@@ -206,7 +206,7 @@ Returns true if `value` is a string.
 //=> 'true'
 ```
 
----
+
 
 <a href='#handlebars_lowercase' aria-hidden='true' class='block-anchor'  id='handlebars_lowercase'><i aria-hidden='true' class='linkify icon'></i></a>
 
@@ -226,7 +226,7 @@ Lowercases all characters in the given string.
 //=> 'foo bar baz'
 ```
 
----
+
 
 <a href='#handlebars_occurrences' aria-hidden='true' class='block-anchor'  id='handlebars_occurrences'><i aria-hidden='true' class='linkify icon'></i></a>
 
@@ -247,7 +247,7 @@ Returns the number of occurrences of `substring` within the given `string`.
 //=> 2
 ```
 
----
+
 
 <a href='#handlebars_pascalcase' aria-hidden='true' class='block-anchor'  id='handlebars_pascalcase'><i aria-hidden='true' class='linkify icon'></i></a>
 
@@ -267,7 +267,7 @@ PascalCases the characters in `string`.
 //=> 'FooBarBaz'
 ```
 
----
+
 
 <a href='#handlebars_pathcase' aria-hidden='true' class='block-anchor'  id='handlebars_pathcase'><i aria-hidden='true' class='linkify icon'></i></a>
 
@@ -287,7 +287,7 @@ path/cases the characters in `string`.
 //=> 'a/b/c/d/e'
 ```
 
----
+
 
 <a href='#handlebars_plusify' aria-hidden='true' class='block-anchor'  id='handlebars_plusify'><i aria-hidden='true' class='linkify icon'></i></a>
 
@@ -307,7 +307,7 @@ Replaces spaces in the given string with pluses.
 //=> 'foo+bar+baz'
 ```
 
----
+
 
 <a href='#handlebars_reverse' aria-hidden='true' class='block-anchor'  id='handlebars_reverse'><i aria-hidden='true' class='linkify icon'></i></a>
 
@@ -327,7 +327,7 @@ Reverses a string.
 //=> 'edcba'
 ```
 
----
+
 
 <a href='#handlebars_sentence' aria-hidden='true' class='block-anchor'  id='handlebars_sentence'><i aria-hidden='true' class='linkify icon'></i></a>
 
@@ -347,7 +347,7 @@ Sentence-cases the given string.
 //=> 'Hello world. Goodbye world.'
 ```
 
----
+
 
 <a href='#handlebars_snakecase' aria-hidden='true' class='block-anchor'  id='handlebars_snakecase'><i aria-hidden='true' class='linkify icon'></i></a>
 
@@ -367,7 +367,7 @@ snake_cases the characters in the given `string`.
 //=> 'a_b_c_d_e'
 ```
 
----
+
 
 <a href='#handlebars_split' aria-hidden='true' class='block-anchor'  id='handlebars_split'><i aria-hidden='true' class='linkify icon'></i></a>
 
@@ -387,7 +387,7 @@ Splits `string` at the given `character`.
 //=> ['a', 'b', 'c']
 ```
 
----
+
 
 <a href='#handlebars_startswith' aria-hidden='true' class='block-anchor'  id='handlebars_startswith'><i aria-hidden='true' class='linkify icon'></i></a>
 
@@ -412,7 +412,7 @@ Tests whether a string begins with the given prefix.
 {{/startsWith}}
 ```
 
----
+
 
 <a href='#handlebars_titleize' aria-hidden='true' class='block-anchor'  id='handlebars_titleize'><i aria-hidden='true' class='linkify icon'></i></a>
 
@@ -432,7 +432,7 @@ Title-cases the given string.
 //=> 'This Is Title Case'
 ```
 
----
+
 
 <a href='#handlebars_trim' aria-hidden='true' class='block-anchor'  id='handlebars_trim'><i aria-hidden='true' class='linkify icon'></i></a>
 
@@ -452,7 +452,7 @@ Removes extraneous whitespace from the beginning and end of a string.
 //=> 'ABC'
 ```
 
----
+
 
 <a href='#handlebars_truncate' aria-hidden='true' class='block-anchor'  id='handlebars_truncate'><i aria-hidden='true' class='linkify icon'></i></a>
 
@@ -469,7 +469,7 @@ Returns the first `{{x}}` number of characters in a string (unless it reaches th
 {{lang (truncate 'blog.post.body.' 40) }}
 ```
 
----
+
 
 <a href='#handlebars_uppercase' aria-hidden='true' class='block-anchor'  id='handlebars_uppercase'><i aria-hidden='true' class='linkify icon'></i></a>
 

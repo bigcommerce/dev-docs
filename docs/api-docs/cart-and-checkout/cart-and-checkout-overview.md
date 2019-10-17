@@ -133,7 +133,7 @@ console.log(myJson);
 </script>
 ```
 
----
+
 
 <a href='#cart-checkout_server-to-server-cart-and-checkout' aria-hidden='true' class='block-anchor'  id='cart-checkout_server-to-server-cart-and-checkout'><i aria-hidden='true' class='linkify icon'></i></a>
 
@@ -153,7 +153,7 @@ The Server-to-Server APIs are for managing the contents of a shopping cart and c
 * Native mobile apps
 * Pre-filling customer information
 
----
+
 
 <a href="#cart-checkout_persistent-cart" id="cart-checkout_persistent-cart"></a>
 
@@ -165,7 +165,7 @@ Persistent Cart works with our Storefront Cart and Sever to Server Cart.
 To learn more on setup, see [Persistent Cart](https://support.bigcommerce.com/s/article/Persistent-Cart).
 
 
----
+
 
 <a href='#cart-checkout_troubleshooting' aria-hidden='true' class='block-anchor'  id='cart-checkout_troubleshooting'><i aria-hidden='true' class='linkify icon'></i></a>
 
@@ -555,7 +555,7 @@ When less than a product’s minimum required purchase or more than the maximum 
 ***Resolution:***
 Check the product for order_quantity_minimum and order_quantity_maximum for the correct amount to add the cart. Use the [Get Product](/api-reference/catalog/catalog-api/products/getproducts) endpoint.
 
----
+
 
 
 ## Resources

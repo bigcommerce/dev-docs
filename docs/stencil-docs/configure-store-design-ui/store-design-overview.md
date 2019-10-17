@@ -16,7 +16,7 @@
 As a theme developer, you can configure your own settings for Store Design. Your configuration determines the theme's customizable aspects. For example, by customizing the configuration of Store Design, you can modify how merchants can customize colors, fonts, display of page features, and number of products to display per feature.
 
 
----
+
 
 <a href='#store-design_configuration-files' aria-hidden='true' class='block-anchor'  id='store-design_configuration-files'><i aria-hidden='true' class='linkify icon'></i></a>
 
@@ -32,7 +32,7 @@ Keys located under both files' `settings` objects define the theme's look, feel,
 For documentation on the principal keys included in Stencil's reference Cornerstone theme, see this section's [config.json Metadata](/stencil-docs/stencil-theme-editor/config-json-metadata) and [schema.json Metadata](/stencil-docs/stencil-theme-editor/schema-json-metadata) entries. For an introduction to the graphical editor, see
 [Store Design Overview](/stencil-docs/stencil-theme-editor/stencil-theme-editor-overview).
 
----
+
 
 <a href='#store-design_managing-keys' aria-hidden='true' class='block-anchor'  id='store-design_managing-keys'><i aria-hidden='true' class='linkify icon'></i></a>
 
@@ -46,7 +46,7 @@ Adding new keys is generally fine. (However, each key in <span class="fn">schema
 * We do not recommend renaming keys. Instead, we recommend introducing a new key, while maintaining the old key until it is no longer in use by anyone using an older version of your theme.
 * Each object within your <span class="fn">config.json</span> › `variations` object defines one theme variation. If you are adapting an existing theme and consciously want to remove one or more variations, you can do so by removing the corresponding key(s).
 
----
+
 
 <a href='#store-design_persistent-settings' aria-hidden='true' class='block-anchor'  id='store-design_persistent-settings'><i aria-hidden='true' class='linkify icon'></i></a>
 
@@ -54,7 +54,7 @@ Adding new keys is generally fine. (However, each key in <span class="fn">schema
 
 When store administrators use Store Design to customize your theme for their store, the store's resulting configuration settings are saved to a separate configuration service at BigCommerce.
 
----
+
 
 <a href='#store-design_theme-upgrades' aria-hidden='true' class='block-anchor'  id='store-design_theme-upgrades'><i aria-hidden='true' class='linkify icon'></i></a>
 
@@ -68,7 +68,7 @@ You release Star Glow, version 1.1. In this theme revision, you have changed the
 When the merchant applies Star Glow version 1.1 to their store, their custom `logo_size` setting of 175x275 remains in effect.
 If you the merchant creates a second store and applies Star Glow version 1.1 to it, that store has no custom `logo_size` setting – so it will default to the new theme version's 300x300 value.
 
----
+
 
 ## Resources
 

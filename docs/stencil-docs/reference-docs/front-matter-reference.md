@@ -33,7 +33,7 @@
 </div>
 </div>
 
----
+
 
 <a id="front-matter-attributes-reference_global"></a>
 
@@ -221,7 +221,7 @@ If &lt;number&gt; is not defined, returns 10 brands, ordered by the number of pr
 </table>
 
 
----
+
 
 <a id="front-matter-attributes-reference_category"></a>
 
@@ -263,7 +263,7 @@ Defines the number of products displayed per page for this category. Range of po
   </tr>
 </table>
 
----
+
 
 <a id="front-matter-attributes-reference_blog"></a>
 
@@ -326,7 +326,7 @@ If &lt;number&gt; is not defined, displays 250 characters.</td>
   </tr>
 </table>
 
----
+
 
 <a href='#front-matter-attributes-reference_product' aria-hidden='true' class='block-anchor'  id='front-matter-attributes-reference_product'><i aria-hidden='true' class='linkify icon'></i></a>
 
@@ -394,7 +394,7 @@ Product attributes are available in the context of a product.
   </tr>
 </table>
 
----
+
 
 <a id="front-matter-attributes-reference_brand"></a>
 
@@ -427,7 +427,7 @@ Defines the number of products displayed per page for this brand. Range of possi
   </tr>
 </table>
 
----
+
 
 
 
@@ -461,7 +461,7 @@ Sets the number of brands displayed in the list. If &lt;limit&gt; is not defined
 </table>
 
 
----
+
 
 <a id="front-matter-attributes-reference_cart"></a>
 
@@ -503,7 +503,7 @@ If &lt;number&gt; is not defined, returns 4 suggested products.</td>
 </table>
 
 
----
+
 
 <a id="front-matter-attributes-reference_search"></a>
 

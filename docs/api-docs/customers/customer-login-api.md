@@ -105,7 +105,7 @@ lineNumbers: true
 ```
 
 | Field Name | Type | Description |
-| --- | --- | --- |
+|  |  |  |
 | iss | string | Indicates the token's issuer. This is your application's client ID, which is obtained during application registration in Developer Portal. |
 | iat | integer| Time when the token was generated. This is a numeric value indicating the number of seconds since the [Unix epoch](http://en.wikipedia.org/wiki/Unix_time).|
 | jti | string | Request ID string that must be unique across all requests made by your app. A UUID or other random string would be an appropriate value. Most libraries contain a method for generating a uuid. For testing a [UUID generator](https://www.uuidgenerator.net/) can be used, but it recommended to use built in libraries.|
@@ -119,14 +119,14 @@ lineNumbers: true
 
 The signature is created by signing the header and payload with the hashing algorithm specified in the header (HS256) and your application’s Client Secret. 
 
----
+
 
 <a href='#customer-login_oauth-scope' aria-hidden='true' class='block-anchor'  id='customer-login_oauth-scope'><i aria-hidden='true' class='linkify icon'></i></a>
 
 ## OAuth Scope
 Your OAuth API credentials must include the [customers_login](/api-docs/getting-started/basics/authentication#authentication_oauth-scopes) scope.
 
----
+
 
 <a href='#customer-login_access-url' aria-hidden='true' class='block-anchor'  id='customer-login_access-url'><i aria-hidden='true' class='linkify icon'></i></a>
 
@@ -136,7 +136,7 @@ After generating the JWT token, your app should immediately redirect the shopper
 Example:
 `https://storedomain.com/login/token/eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9 .eyJzdWIiOiIxMjM0NTY3ODkwIiwibmFtZSI6IkpvaG4gRG9lIiwiYWRtaW4iOnRydWV9.TJVA95OrM7E2cBab30RMHrHDcEfxjoYZgeFONFh7HgQ`
 
----
+
 
 <a href='#customer-login_logging-in-a-customer' aria-hidden='true' class='block-anchor'  id='customer-login_logging-in-a-customer'><i aria-hidden='true' class='linkify icon'></i></a>
 
@@ -236,7 +236,7 @@ Code to generate a valid JWT token for a storefront login request is provided in
 
 Client libraries in many other languages are at JWT.io.
 
----
+
 
 <a href='#customer-login_logout-customer' aria-hidden='true' class='block-anchor'  id='customer-login_logout-customer'><i aria-hidden='true' class='linkify icon'></i></a>
 
@@ -257,7 +257,7 @@ To logout a customer programatically, set the redirect URL in the JWT to `/login
 
 * Tokens will be valid for a very short timeframe after they are first generated, so tokens should not be generated in advance. Instead, the application should generate the token and then immediately redirect the user’s browser to `/login/token/{token}`. If you're seeing issues related to your system time differing from BC's server time, you can use the <a href="/api-reference/store-management/store-information-api/time-zone/gettime">/v2/time</a> endpoint as a source of truth.
 
----
+
 
 ## Resources 
 

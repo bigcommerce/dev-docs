@@ -23,7 +23,7 @@ Sent to the recipient of a gift certificate.
 
 ### Available Variables 
 |||
-|---|---|
+|||
 | %%LNG_GiftCertificateEmailYouHaveReceived%%
 | %%GLOBAL_StoreName%%
 | %%LNG_Dear%%
@@ -35,7 +35,7 @@ Sent to the recipient of a gift certificate.
 | %%LNG_GiftCertificateEmailWarning%%
 | %%GLOBAL_EmailFooter%%
 
----
+
 
 <a href='#abandoned-cart-email-template' aria-hidden='true' class='block-anchor'  id='abandoned-cart-email-template'><i aria-hidden='true' class='linkify icon'></i></a>
 
@@ -45,14 +45,14 @@ Sent when a customer abandons a shopping cart.
 
 ### Available Variables 
 |||
-|---|---|
+|||
 | %%GLOBAL_AC_EmailBody%%
 | %%GLOBAL_EmailFooter%%
 | %%GLOBAL_AC_UnsubscribeLink%%
 | %%LNG_AC_EmailUnsubscribe%%
 | %%LNG_AC_EmailUnsubscribeSuffix%%
 
----
+
 
 <a href='#invoice-email-template' aria-hidden='true' class='block-anchor'  id='invoice-email-template'><i aria-hidden='true' class='linkify icon'></i></a>
 
@@ -62,7 +62,7 @@ Sent when a customer places an order.
 
 ### Available Variables 
 |||
-|---|---|
+|||
 | %%GLOBAL_NoPaymentTaken%%
 | %%LNG_ThanksForYourOrder%%
 | %%GLOBAL_IMG_PATH%%
@@ -91,7 +91,7 @@ Sent when a customer places an order.
 | %%GLOBAL_ProductThumbImageURL%%
 
 
----
+
 
 <a href='#order-status-email-template' aria-hidden='true' class='block-anchor'  id='order-status-email-template'><i aria-hidden='true' class='linkify icon'></i></a>
 
@@ -101,7 +101,7 @@ Sent when an order's status is changed.
 
 ### Available Variables 
 |||
-|---|---|
+|||
 | %%LNG_OrderStatusChanged%% |
 | %%GLOBAL_OrderStatusChangedHi%% |
 | %%LNG_OrderStatusChangedIntro%% |
@@ -118,7 +118,7 @@ Sent when an order's status is changed.
 | %%GLOBAL_ViewOrderStatusLink%% |
 | %%GLOBAL_EmailFooter%% |
 
----
+
 
 <a href='#return-confirmation-email-template' aria-hidden='true' class='block-anchor'  id='return-confirmation-email-template'><i aria-hidden='true' class='linkify icon'></i></a>
 
@@ -128,7 +128,7 @@ Sent when a customer submits a return request.
 
 ### Available Variables 
 |||
-|---|---|
+|||
 | %%LNG_NotificationConfirmationForReturn%% |
 | %%GLOBAL_OrderId%% |
 | %%GLOBAL_IMG_PATH%% |

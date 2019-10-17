@@ -123,7 +123,7 @@ display: block;
 
 Any location where the font is not overridden in the CSS, it falls back on the font in `config.json`. Make sure to update the font there to prevent fallbacks.
 
----
+
 
 <a id="markdown-sass-stylesheet-support-for-theme-fonts" name="sass-stylesheet-support-for-theme-fonts"></a>
 
@@ -157,7 +157,7 @@ $body-font-weight: 700;
 
 This transformation allows you to use the `$body-font-family` and `$body-font-weight` variables wherever needed in your theme. If a merchant uses Theme Editor to select a different font family and/or weight, the variables will propagate the change throughout your theme.
 
----
+
 
 <a id="markdown-applying-custom-icons" name="applying-custom-icons"></a>
 
@@ -197,7 +197,7 @@ For example:
 
 Simply add your new icon SVG file to the `assets/icons/ `folder. Then, from your theme's root directory, run `grunt svgstore` or just `grunt`.
 
----
+
 
 ## Resources
 

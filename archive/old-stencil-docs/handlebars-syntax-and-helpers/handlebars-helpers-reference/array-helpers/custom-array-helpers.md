@@ -31,7 +31,7 @@ Given the array `['a', 'b', 'c']`:
 //=> 'b'
 ```
 
----
+
 
 <a href='#handlebars_join' aria-hidden='true' class='block-anchor'  id='handlebars_join'><i aria-hidden='true' class='linkify icon'></i></a>
 
@@ -45,7 +45,7 @@ The `join` helper is custom to Stencil. It joins an array of string items, with 
 - `separator`: {String}
 - `limit=<number>`: An optional limit.
 
----
+
 
 <a href='#handlebars_limit' aria-hidden='true' class='block-anchor'  id='handlebars_limit'><i aria-hidden='true' class='linkify icon'></i></a>
 
@@ -66,7 +66,7 @@ Assume that `{{cart.items}}` would return 10 items. You could use this helper to
 {{limit cart.items 4}}
 ```
 
----
+
 
 <a href='#handlebars_pluck' aria-hidden='true' class='block-anchor'  id='handlebars_pluck'><i aria-hidden='true' class='linkify icon'></i></a>
 

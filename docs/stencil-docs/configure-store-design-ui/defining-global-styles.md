@@ -20,7 +20,7 @@ You can manage your custom theme's front-end components by configuring the <span
 * Provide metadata for your theme’s listing in the Theme Marketplace.
 * Define variations included in your custom theme
 
----
+
 
 <a href='#defining_keys-and-example' aria-hidden='true' class='block-anchor'  id='defining_keys-and-example'><i aria-hidden='true' class='linkify icon'></i></a>
 
@@ -30,7 +30,7 @@ For a list of all available keys and values in <span class="fp">config.json</spa
 
 </div>
 
----
+
 
 <a href='#defining_requirements-and-restrictions' aria-hidden='true' class='block-anchor'  id='defining_requirements-and-restrictions'><i aria-hidden='true' class='linkify icon'></i></a>
 
@@ -144,7 +144,7 @@ lineNumbers: true
   ]
 ```
 
----
+
 
 <a href='#defining_new' aria-hidden='true' class='block-anchor'  id='defining_new'><i aria-hidden='true' class='linkify icon'></i></a>
 
@@ -178,7 +178,7 @@ lineNumbers: true
 
 Next, open your <span class="fp">{theme-name}templates/pages/home.html</span> file. Highlighted in bold below is a statement that uses the theme-wide settings above to customize an API request to the server.
 
-(Note the reference to the `homepage_new_products_count` key in the file’s front matter, between the two "---" delimiters. If your current theme’s <span class="fp">home.html</span> front matter omits this `products:new:limit` definition, paste it in for this demonstration.)
+(Note the reference to the `homepage_new_products_count` key in the file’s front matter, between the two "" delimiters. If your current theme’s <span class="fp">home.html</span> front matter omits this `products:new:limit` definition, paste it in for this demonstration.)
 
 <div class="HubBlock-header">
     <div class="HubBlock-header-title flex items-center">
@@ -204,7 +204,7 @@ carousel: {{theme_settings.homepage_show_carousel}}
 blog:
     recent_posts:
         limit: {{theme_settings.homepage_blog_posts_count}}
----
+
 {{#partial "hero"}}
 
 <!-- [...] -->
@@ -215,7 +215,7 @@ blog:
 
 If you load your storefront’s home page (by default, [http://localhost:3000](http://localhost:3000), you should see a "New Products" section that displays 12 products in a grid.
 
----
+
 
 <a href='#defining_changing' aria-hidden='true' class='block-anchor'  id='defining_changing'><i aria-hidden='true' class='linkify icon'></i></a>
 
@@ -237,13 +237,13 @@ lineNumbers: true
 -->
 
 ```html
----
+
 <!-- [...] -->
 products:
   featured:
       limit: {{theme_settings.homepage_featured_products_count}}
 <!-- [...] -->
----
+
 ```
 
 Next, try changing the `limit: {{theme_settings.homepage_featured_products_count}}` statement in the `home.html` file to a hard-coded limit: 2, as indicated below in bold:
@@ -261,13 +261,13 @@ lineNumbers: true
 -->
 
 ```html
----
+
 products:
   <!-- [...] -->
   featured:
       limit: 2
   <!-- [...] -->
----
+
 
 <!-- [...] -->
 
@@ -286,7 +286,7 @@ products:
 
 If you now reload your storefront’s home page in your browser, you should see the number of displayed "Featured Products" change from its default number (as specified in <span class="fp">config.json</span>) to two.
 
----
+
 
 <a href='#defining_retrieving' aria-hidden='true' class='block-anchor'  id='defining_retrieving'><i aria-hidden='true' class='linkify icon'></i></a>
 
@@ -340,7 +340,7 @@ $color-highlightDark:   stencilColor("color-highlightDark");
 
 In <span class="fn">config.json</span>, try redefining one or more color variables to hex values of your choice. Then re-render your theme’s home page to see the effects.
 
----
+
 
 <a href='#defining_adding' aria-hidden='true' class='block-anchor'  id='defining_adding'><i aria-hidden='true' class='linkify icon'></i></a>
 
@@ -436,7 +436,7 @@ lineNumbers: true
 
 If you now refresh storefront pages in your browser, the Categories list should reappear in the footer. The component returns even though you have moved its data resources to an arbitrary new location, and referenced them indirectly.
 
----
+
 
 ## Resources
 

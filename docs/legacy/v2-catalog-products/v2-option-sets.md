@@ -23,13 +23,13 @@ A reusable set of option facets that can be applied to products.
 ### Option Set Object – Properties 
 
 | Name | Type | Description |
-| --- | --- | --- |
+|  |  |  |
 | id | int | Optional field. Unique numeric ID for this option set. Increments sequentially. |
 | name | string | Required field. The option set's name, as used internally. Must be unique. |
 | options | object/resource | Optional field; read-only. Object containing option-set options: a `url` and a `resource`. |
 | product_id (optional) | integer | Optional field; read-only. If `null`, this option set can be reused with any product. If populated with a numeric ID, this option set can be used exclusively with the corresponding product. |
 
----
+
 
 <a href='#v2-option-set_list-option-set' aria-hidden='true' class='block-anchor'  id='v2-option-set_list-option-set'><i aria-hidden='true' class='linkify icon'></i></a>
 
@@ -45,7 +45,7 @@ Gets the collection of option sets. (Default sorting is by option-set id, from l
 Filter parameters can be added to the URL query string to select specific option_sets in the collection.
 
 | Parameter | Type | Example |
-| --- | --- | --- |
+|  |  |  |
 | name | string | /api/v2/option_sets?name={value} |
 
 ### Pagination 
@@ -53,7 +53,7 @@ Filter parameters can be added to the URL query string to select specific option
 Parameters can be added to the URL query string to paginate the collection. The maximum limit is 250. If a limit isn’t provided, up to 50 option_sets are returned by default.
 
 | Parameter | Type | Example |
-| --- | --- | --- |
+|  |  |  |
 | Page | int | /api/v2/option_sets?page={number} |
 | Limit | int | /api/v2/option_sets?limit={count} |
 
@@ -87,7 +87,7 @@ Example JSON returned in the response:
 ```
 
 
----
+
 
 <a href='#v2-option-set_get-option-set' aria-hidden='true' class='block-anchor'  id='v2-option-set_get-option-set'><i aria-hidden='true' class='linkify icon'></i></a>
 
@@ -115,7 +115,7 @@ Example JSON returned in the response:
 }
 ```
 
----
+
 
 <a href='#v2-option-set_get-count-option-set' aria-hidden='true' class='block-anchor'  id='v2-option-set_get-count-option-set'><i aria-hidden='true' class='linkify icon'></i></a>
 
@@ -135,7 +135,7 @@ Example JSON returned in the response:
 }
 ```
 
----
+
 
 <a href='#v2-option-set_create-option-set' aria-hidden='true' class='block-anchor'  id='v2-option-set_create-option-set'><i aria-hidden='true' class='linkify icon'></i></a>
 
@@ -186,7 +186,7 @@ Example JSON returned in the response:
 }
 ```
 
----
+
 
 <a href='#v2-option-set_update-option-set' aria-hidden='true' class='block-anchor'  id='v2-option-set_update-option-set'><i aria-hidden='true' class='linkify icon'></i></a>
 
@@ -237,7 +237,7 @@ Example JSON returned in the response:
 }
 ```
 
----
+
 
 <a href='#v2-option-set_delete-option-set' aria-hidden='true' class='block-anchor'  id='v2-option-set_delete-option-set'><i aria-hidden='true' class='linkify icon'></i></a>
 
@@ -247,7 +247,7 @@ Deletes an option set.
 
 >`DELETE /stores/{store_hash}/v2/option_sets/{id}`
 
----
+
 
 <a href='#v2-option-set_delete-all-option-sets' aria-hidden='true' class='block-anchor'  id='v2-option-set_delete-all-option-sets'><i aria-hidden='true' class='linkify icon'></i></a>
 

@@ -14,7 +14,7 @@
 
 If a theme’s version number is lower than `1.10.0`, the theme uses `jspm` as its JavaScript build system. Follow the steps outlined on this article to install theme modules via `jspm`.
 
---- 
+ 
 
 <a href='#install-jspm' aria-hidden='true' class='block-anchor'  id='install-jspm'><i aria-hidden='true' class='linkify icon'></i></a>
 
@@ -30,7 +30,7 @@ Or, for Windows:
 npm install -g jspm@0.16.31
 ```
 
----
+
 
 <a href='#register-jspm-instance' aria-hidden='true' class='block-anchor'  id='register-jspm-instance'><i aria-hidden='true' class='linkify icon'></i></a>
 
@@ -43,7 +43,7 @@ Next, register your jspm instance with GitHub. To do so:
 * Run the following command in a terminal to associate the `jspm` module and GitHub account: `jspm registry config github`
 * When prompted with `Set up GitHub credentials?`, copy and paste the access token created above.
 
----
+
 
 <a href='#install-jspm-git' aria-hidden='true' class='block-anchor'  id='install-jspm-git'><i aria-hidden='true' class='linkify icon'></i></a>
 
@@ -64,7 +64,7 @@ If you already have an earlier version of `jspm-git` installed, you might need t
 npm upgrade jspm-git@latest
 ```
 
----
+
 
 <a href='#add-bitbucket-as-a-jspm-registry' aria-hidden='true' class='block-anchor'  id='add-bitbucket-as-a-jspm-registry'><i aria-hidden='true' class='linkify icon'></i></a>
 
@@ -78,7 +78,7 @@ jspm registry create bitbucket jspm-git
 # When prompted for a base URL, Enter: ssh://git@bitbucket.org
 ```
 
----
+
 
 <a href='#install-the-modules' aria-hidden='true' class='block-anchor'  id='install-the-modules'><i aria-hidden='true' class='linkify icon'></i></a>
 

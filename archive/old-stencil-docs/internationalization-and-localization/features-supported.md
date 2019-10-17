@@ -15,7 +15,7 @@
 
 The Stencil framework can automatically detect a localized language, based on the active shopper’s `"Accept‑Language"` header.
 
----
+
 
 <a href='#implementation_cascading-translations' aria-hidden='true' class='block-anchor'  id='implementation_cascading-translations'><i aria-hidden='true' class='linkify icon'></i></a>
 
@@ -23,7 +23,7 @@ The Stencil framework can automatically detect a localized language, based on th
 
 Cascading works as follows: Assume that a Quebec/French-Canadian customer visits a storefront built with both `fr.json` and `fr‑CA.json` localization files. The framework places the `fr‑CA` locale "on top of" the base `fr locale`. Therefore, any strings missing from the `fr‑CA.json` file will “fall back” to definitions in the base `fr.json file`, providing at least approximate translations. This cascading works generally across languages and locales.
 
----
+
 
 <a href='#implementation_nested-plurality' aria-hidden='true' class='block-anchor'  id='implementation_nested-plurality'><i aria-hidden='true' class='linkify icon'></i></a>
 

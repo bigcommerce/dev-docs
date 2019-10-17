@@ -27,11 +27,11 @@ When you create a store page that requires specific attributes (such as 'New Pro
 For example, to display 'new products' on a storefront's home page, you first need to make new products accessible on the home page. To achieve this, include the following front matter block at the top of the [home.html](https://github.com/bigcommerce/cornerstone/blob/master/templates/pages/home.html) file to declare the products object with its new attribute. This allows a storefront's home page to access a store's "New Products."
 
 ```
----
+
 products:
     new:
     	limit: {{theme_settings.homepage_new_products_count}}
----
+
 ```
 
 **Note:** A 'limit' is required for Product Objects to render on a storefront page. You can hard code the limit value or utilize handlebars.js to reference it from the theme's config.json file. In this case, the limit value is being referenced from the `settings` JSON object in the `config.json` file using handlebars.js. Information on required attributes is detailed in the Front Matter Attributes Reference. 
@@ -54,7 +54,7 @@ In this example, we will include the following code in Cornerstone's [home.html]
 Stencil front matter uses the conventions of [YAML]() (short for the recursive "YAML Ain't Markup Language"). Here are the YAML conventions you must follow in front matter:
 
 Place the front-matter block at the top of your template.
-Fence the beginning and end of the front-matter block with a row of three hyphens (---), as you see in the examples here.
+Fence the beginning and end of the front-matter block with a row of three hyphens (), as you see in the examples here.
 Show attribute > key relationship (or object > property relationship) by indenting the children. In the example above, products is the object,
 Place a colon (:) directly after each attribute name, and directly after each key name. (Colons separate key:value pairs.)
 Identifiers are case-sensitive.
@@ -85,21 +85,21 @@ Some attributes can accept indented keys, or key-value pairs, to further define 
 To return products similar to the product that a customer is currently viewing – with a limit of six – you would declare front matter as follows:
 
 ```
----
+
 products:
     similar_by_views:
         limit: 6
----
+
 ```
 
 Most keys have a default value, as listed in the [Front Matter Attributes]() Reference. Specifying the key without a value will call that default value. The default value for `similar_by_views:limit:` happens to be `4`, so inserting `limit` with no integer will display four products:
 
 ```
----
+
 products:
     similar_by_views:
         limit:
----
+
 ```
 
 
@@ -123,11 +123,11 @@ products:
 The next example builds on front-matter object invocation and filtering, by showing a corresponding Handlebars statement in HTML. Here is how you would declare the `products` object to return four new products, and to then display each product’s name:
 
 ```
----
+
 products:
     new:
         limit: 4
----
+
 
 <h1> This is the HTML for the new-products example </h1>
 {{#each products.new}}
@@ -163,13 +163,13 @@ However, if you want to include additional attributes on a page, you can declare
 Below is an example that assumes you want to include a product’s reviews and also related products. To display images for the related products, the HTML statement `<img src="{{getImage image 'gallery'}}">` relies on Stencil's `{{getImage}}` custom Handlebars helper:
 
 ```
----
+
 product:
    reviews:
        limit: 9
    related_products:
        limit: 10
----
+
 
 
 <h2>{{ product.name }}</h2>

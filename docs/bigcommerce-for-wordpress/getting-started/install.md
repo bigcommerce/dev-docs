@@ -21,7 +21,7 @@
 * SSL
 * The PHP intl extension is recommended to enable better currency formatting
 
----
+
 
 <a href='##install_installation' aria-hidden='true' class='block-anchor'  id='#install_installation'><i aria-hidden='true' class='linkify icon'></i></a>
 

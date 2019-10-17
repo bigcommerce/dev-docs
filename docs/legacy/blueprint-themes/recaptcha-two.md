@@ -18,7 +18,7 @@ To deter spam submission through storefront forms, BigCommerce now supports Goog
 We recommend that all storefront themes take advantage of this upgraded bot detection. However, BigCommerce's legacy Blueprint themes were last published in our Theme Marketplace before we implemented reCAPTCHA v2. Therefore, please use the following instructions to update your Blueprint-based theme with the best-available deterrent against automated spam.
 
 
----
+
 
 <a href='#blueprint-how-to-upgrade-recaptcha' aria-hidden='true' class='block-anchor'  id='blueprint-how-to-upgrade-recaptcha'><i aria-hidden='true' class='linkify icon'></i></a>
 
@@ -149,7 +149,7 @@ lineNumbers: true
 
 ```
 
----
+
 
 <a href='#blueprint-supported-browsers' aria-hidden='true' class='block-anchor'  id='blueprint-supported-browsers'><i aria-hidden='true' class='linkify icon'></i></a>
 
@@ -158,7 +158,7 @@ lineNumbers: true
 Below are the browsers supported for the BigCommerce control panel. We drop support when a version falls below 2% of usage. The browsers are sorted by popularity, with the most popular browsers at the top.
 
 | Desktop |
-| --- |
+|  |
 | Chrome latest |
 | Firefox latest |
 | Internet Explorer 11 or later |

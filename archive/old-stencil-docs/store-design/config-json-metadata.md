@@ -18,14 +18,14 @@ The <span class="fp">config.json</span>file allows you to:
 * Provide metadata for your theme’s listing in the Theme Marketplace
 * Define variations included in your theme
 
----
+
 
 <a href='#config_keys-and-example' aria-hidden='true' class='block-anchor'  id='config_keys-and-example'><i aria-hidden='true' class='linkify icon'></i></a>
 
 ## Keys and Example Values
 For a list of all available keys and values in <span class="fp">config.json</span>, see [Theme Objects](/api-reference/theme-objects/models/configjson) in the API Reference.
 
----
+
 
 <a href='#config_requirements-and-restrictions' aria-hidden='true' class='block-anchor'  id='config_requirements-and-restrictions'><i aria-hidden='true' class='linkify icon'></i></a>
 
@@ -140,7 +140,7 @@ lineNumbers: true
   ]
 ```
 
----
+
 
 <a href='#config_video-demo' aria-hidden='true' class='block-anchor'  id='config_video-demo'><i aria-hidden='true' class='linkify icon'></i></a>
 
@@ -149,7 +149,7 @@ The following video is a walkthrough of the config.json. It goes over what the f
 
 <iframe width="560" height="315" src="https://www.youtube.com/embed/VZYZsDoEOpQ" frameborder="0" allow="autoplay; encrypted-media" allowfullscreen></iframe>
 
----
+
 
 ## Resources
 

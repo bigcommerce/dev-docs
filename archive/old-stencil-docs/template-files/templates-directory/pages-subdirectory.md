@@ -17,7 +17,7 @@ Children of the [pages subdirectory](https://github.com/bigcommerce/cornerstone/
 
 The subdirectory’s [.html files](https://github.com/bigcommerce/cornerstone/tree/master/templates/pages) are single-purpose pages.
 
----
+
 
 <a href='#pages_naming-requirements' aria-hidden='true' class='block-anchor'  id='pages_naming-requirements'><i aria-hidden='true' class='linkify icon'></i></a>
 
@@ -39,7 +39,7 @@ YAML front-matter attributes to customize the rendered storefront.
 </div>
 </div>
 
----
+
 
 ## Resources
 

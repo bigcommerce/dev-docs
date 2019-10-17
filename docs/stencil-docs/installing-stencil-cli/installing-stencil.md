@@ -15,7 +15,7 @@ Stencil CLI gives developers the power to locally edit and preview themes with n
 
 This article contains the detailed instructions needed to install and configure Stencil CLI -- the first step to developing themes on the BigCommerce platform.
 
----
+
 
 <a href='#authorizing_prerequisites' aria-hidden='true' class='block-anchor'  id='authorizing_prerequisites'><i aria-hidden='true' class='linkify icon'></i></a>
 
@@ -49,7 +49,7 @@ npm install -g @bigcommerce/stencil-cli
 </div>
 </div>
 
----
+
 
 <a href='#authorizing_prerequisites2' aria-hidden='true' class='block-anchor'  id='authorizing_prerequisites2'><i aria-hidden='true' class='linkify icon'></i></a>
 
@@ -125,7 +125,7 @@ npm install -g @bigcommerce/stencil-cli
 </div>
 </div>
 
----
+
 
 <a href='#authorizing_prerequisites3' aria-hidden='true' class='block-anchor'  id='authorizing_prerequisites3'><i aria-hidden='true' class='linkify icon'></i></a>
 
@@ -163,7 +163,7 @@ npm install -g @bigcommerce/stencil-cli
 </div>
 </div>
 
----
+
 
 <a href='#live-previewing-a-theme' aria-hidden='true' class='block-anchor'  id='live-previewing-a-theme'><i aria-hidden='true' class='linkify icon'></i></a>
 
@@ -185,7 +185,7 @@ npm install
 stencil start
 ```
 
----
+
 
 ## Resources
 

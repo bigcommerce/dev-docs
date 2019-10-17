@@ -14,7 +14,7 @@ Style Editor allows users to customize the look and feel of their BigCommerce st
 Style Editor uses Less.js as a CSS preprocessor. This allows Style Editor to take advantage of variables and other functions to ensure design consistency.
 
 
----
+
 
 <a href='#what-is-lessjs' aria-hidden='true' class='block-anchor'  id='what-is-lessjs'><i aria-hidden='true' class='linkify icon'></i></a>
 
@@ -25,7 +25,7 @@ Less (formally, Less.js) is a CSS preprocessor that allows theme designers to us
 For more information on examples, techniques, and how to install Less, please see <a href="http://lesscss.org/" target="_blank">lesscss.org</a>.
 
 
----
+
 
 <a href='#integrating-theme-style-editor' aria-hidden='true' class='block-anchor'  id='integrating-theme-style-editor'><i aria-hidden='true' class='linkify icon'></i></a>
 
@@ -240,7 +240,7 @@ If you find that you have to make a change to `theme.css`, please don't forget t
 
 Less offers a variety of compilation methods, including applications for both Windows and Mac that you can use if you prefer not to use the command prompt/terminal.
 
----
+
 
 <a href='#testing-style-editor-with-theme' aria-hidden='true' class='block-anchor'  id='testing-style-editor-with-theme'><i aria-hidden='true' class='linkify icon'></i></a>
 

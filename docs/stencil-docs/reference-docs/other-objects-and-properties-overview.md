@@ -437,7 +437,7 @@
   </tr>
 </table>
 
----
+
 
 ## Product Reviews
 
@@ -505,7 +505,7 @@
   </tr>
 </table>
 
-----
+-
 
 ## Related Products
 
@@ -515,7 +515,7 @@
 
 <b>Object Properties: </b>References the <a href="/stencil-docs/stencil-object-model-reference/stencil-objects/common-objects/common-product-card-model">product card model</a>.
 
----
+
 
 ## Similar Products by Customer Views
 
@@ -525,7 +525,7 @@
 
 <b>Object Properties:</b> References the <a href="/stencil-docs/stencil-object-model-reference/stencil-objects/common-objects/common-product-card-model">product card model</a>.
 
----
+
 
 
 ## Product Videos
@@ -567,7 +567,7 @@
   </tr>
 </table>
 
----
+
 
 ## Compare
 
@@ -679,7 +679,7 @@
   </tr>
 </table>
 
----
+
 
 ## Product Other Details
 
@@ -704,7 +704,7 @@
   </tr>
 </table>
 
----
+
 
 <a href='#other-objects_category' aria-hidden='true' class='block-anchor'  id='other-objects_category'><i aria-hidden='true' class='linkify icon'></i></a>
 
@@ -803,7 +803,7 @@
   </tr>
 </table>
 
----
+
 
 ## Category Products
 
@@ -813,7 +813,7 @@
 
 **Object Properties:** References the  [product card model](/stencil-docs/stencil-object-model-reference/stencil-objects/common-objects/common-product-card-model).
 
----
+
 
 ## Category Shop by Price
 
@@ -899,7 +899,7 @@
   </tr>
 </table>
 
----
+
 
 ## Brand List
 
@@ -932,7 +932,7 @@
   </tr>
 </table>
 
----
+
 
 ## Shop by Brand
 
@@ -1122,7 +1122,7 @@
   </tr>
 </table>
 
----
+
 
 ### Cart Items
 
@@ -1320,7 +1320,7 @@
   </tr>
 </table>
 
----
+
 
 ### Strikeout Pricing Example
 
@@ -1344,7 +1344,7 @@ If the type is `Item`, then you would check the {{cart.items.rrp}} value. If the
 
 For further details about catalog price properties, please see [Catalog Price Object: How Properties Interact](/stencil-docs/conditional-logic-examples/catalog-price-object). For usage examples of the `{{cart.items}}` `price` and `total` properties, please see [Cart Price Properties](/stencil-docs/conditional-logic-examples/cart-price-relationships).
 
----
+
 
 ### Cart Status Message
 
@@ -1355,11 +1355,11 @@ For further details about catalog price properties, please see [Catalog Price Ob
 **Object Properties:**
 
 | Property  | Description  |
-|---|---|
+|||
 | message  | System-generated messages for the cart  |
 |type|Type of message: error, info, or success	|
 
----
+
 
 
 ### Suggested Products
@@ -1370,7 +1370,7 @@ For further details about catalog price properties, please see [Catalog Price Ob
 
 <b>Object Properties:</b> References standard product card model.
 
----
+
 
 <a href='#other-objects_customer' aria-hidden='true' class='block-anchor'  id='other-objects_customer'><i aria-hidden='true' class='linkify icon'></i></a>
 
@@ -1507,7 +1507,7 @@ For further details about catalog price properties, please see [Catalog Price Ob
   </tr>
 </table>
 
----
+
 
 ## Order Details
 
@@ -1745,7 +1745,7 @@ For further details about catalog price properties, please see [Catalog Price Ob
   </tr>
 </table>
 
----
+
 
 ## Recent Items
 
@@ -1755,7 +1755,7 @@ For further details about catalog price properties, please see [Catalog Price Ob
 
 **Object Properties:** References the standard [product card model](/stencil-docs/stencil-object-model-reference/stencil-objects/common-objects/common-product-card-model).
 
----
+
 
 ## Customer Wishlists
 
@@ -1812,7 +1812,7 @@ For further details about catalog price properties, please see [Catalog Price Ob
   </tr>
 </table>
 
----
+
 
 ## Wishlist Details
 
@@ -1865,7 +1865,7 @@ For further details about catalog price properties, please see [Catalog Price Ob
   </tr>
 </table>
 
----
+
 
 
 ## Account Order Shipments
@@ -1911,7 +1911,7 @@ For further details about catalog price properties, please see [Catalog Price Ob
   </tr>
 </table>
 
----
+
 
 ## Account Orders
 
@@ -2016,7 +2016,7 @@ For further details about catalog price properties, please see [Catalog Price Ob
   </tr>
 </table>
 
----
+
 
 ## Account Returns
 
@@ -2090,7 +2090,7 @@ Refunded, Rejected, or Cancelled</td>
   </tr>
 </table>
 
----
+
 
 ## Account New Return
 
@@ -2155,7 +2155,7 @@ Refunded, Rejected, or Cancelled</td>
   </tr>
 </table>
 
----
+
 
 ## Create Account
 
@@ -2211,7 +2211,7 @@ Refunded, Rejected, or Cancelled</td>
   </tr>
 </table>
 
----
+
 
 ## Shipping Addresses
 
@@ -2304,7 +2304,7 @@ Refunded, Rejected, or Cancelled</td>
   </tr>
 </table>
 
----
+
 
 ## Payment Methods
 
@@ -2343,7 +2343,7 @@ Refunded, Rejected, or Cancelled</td>
 | ↳ provider | ID of the provider to add a vaulted card |
 | ↳ expiry_year | Expiration Year |
 
----
+
 
 ## Edit Payment Methods
 
@@ -2393,7 +2393,7 @@ Refunded, Rejected, or Cancelled</td>
 | last_four | last four of the credit card |
 | provider | Credit card provider |
 
----
+
 
 ## Add Payment Methods
 
@@ -2495,7 +2495,7 @@ _These objects are called on the default `<theme-name>/templates/components/blog
   </tr>
 </table>
 
----
+
 
 ## Blog Post
 
@@ -2552,7 +2552,7 @@ _These objects are called on the default `<theme-name>/templates/components/blog
   </tr>
 </table>
 
----
+
 
 <a href='#other-objects_forms' aria-hidden='true' class='block-anchor'  id='other-objects_forms'><i aria-hidden='true' class='linkify icon'></i></a>
 
@@ -2597,7 +2597,7 @@ _These objects are called on the default `<theme-name>/templates/components/blog
   </tr>
 </table>
 
----
+
 
 ### Account Address Form
 
@@ -2631,7 +2631,7 @@ https://github.com/bigcommerce/cornerstone/tree/master/templates/components/comm
   </tr>
 </table>
 
----
+
 
 ### Wishlist Form
 
@@ -2668,7 +2668,7 @@ https://github.com/bigcommerce/cornerstone/tree/master/templates/components/comm
   </tr>
 </table>
 
----
+
 
 ### Gift Certificate Form
 
@@ -2763,7 +2763,7 @@ https://github.com/bigcommerce/cornerstone/tree/master/templates/components/comm
   </tr>
 </table>
 
----
+
 
 ### Contact Us Form
 
@@ -2824,7 +2824,7 @@ https://github.com/bigcommerce/cornerstone/tree/master/templates/components/comm
   </tr>
 </table>
 
----
+
 
 ### Login Account Form
 
@@ -2894,7 +2894,7 @@ https://github.com/bigcommerce/cornerstone/tree/master/templates/components/comm
 **Object Properties:**
 
 | Property                     | Description                            |
-|------------------------------|----------------------------------------|
+||-|
 | checkout                     |                                        |
 | ↳ order_confirmation_content | default content from checkout template |
 | ↳ checkout_head              | default content from checkout `<head>` |

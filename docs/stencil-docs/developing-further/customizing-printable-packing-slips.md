@@ -24,7 +24,7 @@ Customizing your Stencil theme’s printable packing slips currently relies on a
 
 
 
----
+
 
 ## Resources
 

@@ -12,7 +12,7 @@
 
 Stencil's use of Handlebars.js, Javascript, and YAML Front Matter on the front end allows developers to create dynamic, templated customizations across a BigCommerce storefront.
 
----
+
 
 <a href='#tech-stack_handlebars-overview' aria-hidden='true' class='block-anchor'  id='tech-stack_handlebars-overview'><i aria-hidden='true' class='linkify icon'></i></a>
 
@@ -46,7 +46,7 @@ In production, Handlebars statements run on the server side, generating HTML rec
 
 View the [full Handlebars Helpers Reference](/stencil-docs/reference-docs/handlebars-helpers-reference) to learn about the helpers avilable on a Stencil storefront.
 
----
+
 
 <a href='#tech-stack_objects-overview' aria-hidden='true' class='block-anchor'  id='tech-stack_objects-overview'><i aria-hidden='true' class='linkify icon'></i></a>
 
@@ -98,7 +98,7 @@ As a developer, you can use Handlebars.js syntax to access objects and use them 
 
 Stencil Objects are categorized as either Global, Common, or Other, which is representative of the object's scope or where in the theme it can be accessed. For example, Global Objects are components shared across the entire BigCommerce storefront.
 
----
+
 
 <a href='#tech-stack_front-matter-overview' aria-hidden='true' class='block-anchor'  id='tech-stack_front-matter-overview'><i aria-hidden='true' class='linkify icon'></i></a>
 
@@ -123,7 +123,7 @@ lineNumbers: true
 -->
 
 ```yaml
----
+
 products:
     new:
         limit: {{theme_settings.homepage_new_products_count}}
@@ -135,10 +135,10 @@ carousel: {{theme_settings.homepage_show_carousel}}
 blog:
     recent_posts:
         limit: {{theme_settings.homepage_blog_posts_count}}
----
+
 ```
 
----
+
 
 ## Resources
 

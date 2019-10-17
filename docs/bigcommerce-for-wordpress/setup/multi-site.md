@@ -151,7 +151,7 @@ _Congratulations, you're done setting up your additional site!_
 </div>
 </div>
 
----
+
 
 <a href='#multisite_additional' aria-hidden='true' class='block-anchor'  id='multisite_additional'><i aria-hidden='true' class='linkify icon'></i></a>
 

@@ -40,7 +40,7 @@ Bundling your theme will also fail, blocking its upload to a store.
 </div>
 </div>
 
----
+
 
 <a href='#authoring-testing-uploading_local-mapping' aria-hidden='true' class='block-anchor'  id='authoring-testing-uploading_local-mapping'><i aria-hidden='true' class='linkify icon'></i></a>
 
@@ -173,7 +173,7 @@ lineNumbers: true
 }
 ```
 
----
+
 
 <a href='#authoring-testing-uploading_theme-upload' aria-hidden='true' class='block-anchor'  id='authoring-testing-uploading_theme-upload'><i aria-hidden='true' class='linkify icon'></i></a>
 
@@ -181,7 +181,7 @@ lineNumbers: true
 
 Finally, you must bundle and upload the theme to BigCommerce. See the Bundling and Uploading a Theme article for instructions on how to achieve this.
 
----
+
 
 <a href='#authoring-testing-uploading_troubleshooting' aria-hidden='true' class='block-anchor'  id='authoring-testing-uploading_troubleshooting'><i aria-hidden='true' class='linkify icon'></i></a>
 

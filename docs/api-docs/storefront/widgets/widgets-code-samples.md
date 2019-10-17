@@ -85,7 +85,7 @@ lineNumbers: true
 ](//s3.amazonaws.com/user-content.stoplight.io/6012/1551901776600 "#### Storefront View
 ")
 
----
+
 
 <a href='#widget-code-sample_simple-html' aria-hidden='true' class='block-anchor'  id='widget-code-sample_simple-html'><i aria-hidden='true' class='linkify icon'></i></a>
 
@@ -140,7 +140,7 @@ lineNumbers: true
 ](//s3.amazonaws.com/user-content.stoplight.io/6012/1551901919454 "#### Storefront
 ")
 
----
+
 
 <a href='#widget-code-sample_simple-text-styling' aria-hidden='true' class='block-anchor'  id='widget-code-sample_simple-text-styling'><i aria-hidden='true' class='linkify icon'></i></a>
 
@@ -206,7 +206,7 @@ lineNumbers: true
 ](//s3.amazonaws.com/user-content.stoplight.io/6012/1551902366345 "#### Storefront
 ")
 
----
+
 
 <a href='#widget-code-sample_image-slider' aria-hidden='true' class='block-anchor'  id='widget-code-sample_image-slider'><i aria-hidden='true' class='linkify icon'></i></a>
 
@@ -271,7 +271,7 @@ lineNumbers: true
 ](//s3.amazonaws.com/user-content.stoplight.io/6012/1551906683783 "#### Storefront
 ")
 
----
+
 
 ## Resources
 

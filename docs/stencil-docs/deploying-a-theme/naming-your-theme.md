@@ -68,7 +68,7 @@ lineNumbers: true
 }
 ```
 
----
+
 
 <a href='#naming_creating' aria-hidden='true' class='block-anchor'  id='naming_creating'><i aria-hidden='true' class='linkify icon'></i></a>
 
@@ -146,7 +146,7 @@ lineNumbers: true
   // ...
 ```
 
----
+
 
 <a href='#naming_changing' aria-hidden='true' class='block-anchor'  id='naming_changing'><i aria-hidden='true' class='linkify icon'></i></a>
 
@@ -182,7 +182,7 @@ lineNumbers: true
 }
 ```
 
----
+
 
 <a href='#naming_preparing' aria-hidden='true' class='block-anchor'  id='naming_preparing'><i aria-hidden='true' class='linkify icon'></i></a>
 
@@ -205,7 +205,7 @@ For details on preparing screenshots that enable merchants to preview each varia
 </div>
 </div>
 
----
+
 
 ## Resources
 

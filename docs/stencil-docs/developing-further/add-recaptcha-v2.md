@@ -12,7 +12,7 @@ reCAPTCHA v1 was deprecated as of March 31, 2018. To deter spam submission throu
 
 If you have based your theme on a theme/version that already incorporates reCAPTCHA v2, you do not need to take any further action. Compliant themes/versions currently are listed in [Updating Themes with reCAPTCHA V2](https://support.bigcommerce.com/s/article/Updating-Themes-with-reCAPTCHA-v2#updatingthemes) (Knowledge Base).
 
----
+
 
 <a href='#add-recaptcha_how-to-upgrade' aria-hidden='true' class='block-anchor'  id='add-recaptcha_how-to-upgrade'><i aria-hidden='true' class='linkify icon'></i></a>
 
@@ -28,7 +28,7 @@ See [PR #951](https://github.com/bigcommerce/cornerstone/pull/951) in the Corner
 
 It is possible to add reCaptcha to the Login template. See the [Forms object](/stencil-docs/reference-docs/) for details.
 
----
+
 
 ## Resources
 

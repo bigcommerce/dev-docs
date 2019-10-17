@@ -24,7 +24,7 @@ Returns the first value, if that value is defined; otherwise, returns the "defau
 * `defaultValue` {any}
 * `returns` {String}
 
----
+
 
 <a href='#handlebars_option' aria-hidden='true' class='block-anchor'  id='handlebars_option'><i aria-hidden='true' class='linkify icon'></i></a>
 
@@ -44,7 +44,7 @@ Given the context `{options: {a: {b: {c: 'ddd'}}}}`, returns the given value of 
 <!-- results => `ddd` -->
 ```
 
----
+
 
 <a href='#handlebars_noop' aria-hidden='true' class='block-anchor'  id='handlebars_noop'><i aria-hidden='true' class='linkify icon'></i></a>
 
@@ -57,7 +57,7 @@ Block helper that renders the block without taking any arguments.
 * `options` {Object}
 * `returns` {String}
 
----
+
 
 <a href='#handlebars_withhash' aria-hidden='true' class='block-anchor'  id='handlebars_withhash'><i aria-hidden='true' class='linkify icon'></i></a>
 

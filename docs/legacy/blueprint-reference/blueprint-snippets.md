@@ -2,7 +2,7 @@
 
 ## Available Variables 
 |||
-|---|---|
+|||
 | %%GLOBAL_DownloadName%% |
 | %%GLOBAL_DisplayDownloadLink%% |
 | %%GLOBAL_DownloadLink%% |
@@ -16,7 +16,7 @@
 
 ## Available Variables 
 |||
-|---|---|
+|||
 | %%GLOBAL_MessageSubject%% |
 | %%GLOBAL_MessageDate%% |
 | %%GLOBAL_IMG_PATH%% |
@@ -29,7 +29,7 @@
 
 ## Available Variables 
 |||
-|---|---|
+|||
 | %%GLOBAL_OrderItemMessage%% |
 | %%GLOBAL_OrderId%% |
 
@@ -37,7 +37,7 @@
 
 ## Available Variables 
 |||
-|---|---|
+|||
 | %%GLOBAL_ItemClass%% |
 | %%GLOBAL_ProductName%% |
 | %%GLOBAL_ProductOptions%% |
@@ -50,7 +50,7 @@
 
 ## Available Variables 
 |||
-|---|---|
+|||
 | %%GLOBAL_ShopPathSSL%% |
 | %%GLOBAL_DownloadItemEncrypted%% |
 
@@ -58,7 +58,7 @@
 
 ## Available Variables 
 |||
-|---|---|
+|||
 | %%GLOBAL_StrikeStart%% |
 | %%GLOBAL_ItemQty%% |
 | %%GLOBAL_ItemName%% |
@@ -73,7 +73,7 @@
 
 ## Available Variables 
 |||
-|---|---|
+|||
 | %%GLOBAL_ItemShippingRow%% |
 | %%GLOBAL_ItemClass%% |
 | %%GLOBAL_OrderProductId%% |
@@ -102,7 +102,7 @@
 
 ## Available Variables 
 |||
-|---|---|
+|||
 | %%LNG_ItemsShippedTo%% |
 | %%GLOBAL_ItemShippingRow_AddressLine%% |
 | %%LNG_Price%% |
@@ -111,7 +111,7 @@
 
 ## Available Variables 
 |||
-|---|---|
+|||
 | %%GLOBAL_ShopPath%% |
 | %%GLOBAL_OrderId%% |
 | %%LNG_HC_returnitem%% |
@@ -131,7 +131,7 @@
 
 ## Available Variables 
 |||
-|---|---|
+|||
 | %%GLOBAL_DateShipped%% |
 | %%GLOBAL_ShippingProvider%% |
 | %%GLOBAL_HideShippingMethod%% |
@@ -142,7 +142,7 @@
 
 ## Available Variables 
 |||
-|---|---|
+|||
 | %%GLOBAL_ShopPath%% |
 | %%GLOBAL_OrderId%% |
 | %%GLOBAL_IMG_PATH%% |
@@ -166,7 +166,7 @@
 
 ## Available Variables 
 |||
-|---|---|
+|||
 | %%GLOBAL_label%% |
 | %%GLOBAL_value%% |  
 
@@ -174,7 +174,7 @@
 
 ## Available Variables 
 |||
-|---|---|
+|||
 | %%GLOBAL_ProductThumb%% |
 | %%GLOBAL_ProductLink%% |
 | %%GLOBAL_SearchTrackClass%% |
@@ -191,7 +191,7 @@
 
 ## Available Variables 
 |||
-|---|---|
+|||
 | %%LNG_Return%% |
 | %%GLOBAL_ReturnId%% |
 | %%GLOBAL_ReturnStatus%% |
@@ -214,7 +214,7 @@
 
 ## Available Variables 
 |||
-|---|---|
+|||
 | %%GLOBAL_AddThisServiceButtonMeta%% |
 | %%GLOBAL_AddThisServiceButtons%% |
 
@@ -222,7 +222,7 @@
 
 ## Available Variables 
 |||
-|---|---|
+|||
 | %%GLOBAL_ShipFullName%% |
 | %%GLOBAL_ShipCompany%% |
 | %%GLOBAL_ShipAddressLines%% |
@@ -236,7 +236,7 @@
 
 ## Available Variables 
 |||
-|---|---|
+|||
 | %%GLOBAL_Thumbnail%% |
 | %%GLOBAL_RecentPostUrl%% |
 | %%GLOBAL_RecentPostTitle%% |
@@ -247,7 +247,7 @@
 
 ## Available Variables 
 |||
-|---|---|
+|||
 | %%GLOBAL_RecentPostUrl%% |
 | %%GLOBAL_RecentPostTitle%% |
 
@@ -255,7 +255,7 @@
 
 ## Available Variables 
 |||
-|---|---|
+|||
 | %%GLOBAL_BrandName%% |
 | %%GLOBAL_NumProducts%% |
 | %%LNG_Products%% |
@@ -266,14 +266,14 @@
 
 ## Available Variables 
 |||
-|---|---|
+|||
 | %%GLOBAL_ChooseBrandFromList%% |
 
 # BrandProductsItem Snippet 
 
 ## Available Variables 
 |||
-|---|---|
+|||
 | %%GLOBAL_ProductId%% |
 | %%GLOBAL_ProductThumb%% |
 | %%GLOBAL_ProductLink%% |
@@ -293,14 +293,14 @@
 
 ## Available Variables 
 |||
-|---|---|
+|||
 | %%GLOBAL_CatTrailName%% |
 
 # BreadcrumbItem Snippet 
 
 ## Available Variables 
 |||
-|---|---|
+|||
 | %%GLOBAL_CatTrailLink%% |
 | %%GLOBAL_CatTrailName%% |
 
@@ -308,7 +308,7 @@
 
 ## Available Variables 
 |||
-|---|---|
+|||
 | %%LNG_Coupon%% |
 | %%GLOBAL_CouponCode%% |
 | %%GLOBAL_CouponId%% |
@@ -319,7 +319,7 @@
 
 ## Available Variables 
 |||
-|---|---|
+|||
 | %%LNG_GiftCertificate%% |
 | %%GLOBAL_GiftCertificateCode%% |
 | %%GLOBAL_GiftCertificateRemaining%% |
@@ -332,7 +332,7 @@
 
 ## Available Variables 
 |||
-|---|---|
+|||
 | %%GLOBAL_HideThumbColumn%% |
 | %%GLOBAL_ProductNameSpan%% |
 | %%GLOBAL_GiftCertificateName%% |
@@ -349,7 +349,7 @@
 
 ## Available Variables 
 |||
-|---|---|
+|||
 | %%GLOBAL_CartItemId%% |
 | %%GLOBAL_QtySelectStyle%% |
 | %%GLOBAL_Quantity1%% |
@@ -388,7 +388,7 @@
 
 ## Available Variables 
 |||
-|---|---|
+|||
 | %%GLOBAL_CartItemId%% |
 | %%GLOBAL_ProductQuantity%% |
 
@@ -396,7 +396,7 @@
 
 ## Available Variables 
 |||
-|---|---|
+|||
 | %%GLOBAL_HideThumbColumn%% |
 | %%GLOBAL_ProductImage%% |
 | %%GLOBAL_ProductNameSpan%% |
@@ -429,7 +429,7 @@
 
 ## Available Variables 
 |||
-|---|---|
+|||
 | %%GLOBAL_ProductAttributeName%% |
 | %%GLOBAL_ProductAttributeValue%% |
 
@@ -437,7 +437,7 @@
 
 ## Available Variables 
 |||
-|---|---|
+|||
 | %%GLOBAL_ProductAttributes%% |
 | %%GLOBAL_CartItemId%% |
 | %%LNG_Change%% |
@@ -446,7 +446,7 @@
 
 ## Available Variables 
 |||
-|---|---|
+|||
 | %%GLOBAL_ProductFieldId%% |
 | %%GLOBAL_ProductFieldRequired%% |
 | %%GLOBAL_ProductFieldName%% |
@@ -459,7 +459,7 @@
 
 ## Available Variables 
 |||
-|---|---|
+|||
 | %%GLOBAL_ProductFieldId%% |
 | %%GLOBAL_ProductFieldRequired%% |
 | %%GLOBAL_ProductFieldName%% |
@@ -484,7 +484,7 @@
 
 ## Available Variables 
 |||
-|---|---|
+|||
 | %%GLOBAL_ProductFieldId%% |
 | %%GLOBAL_ProductFieldRequired%% |
 | %%GLOBAL_ProductFieldName%% |
@@ -498,7 +498,7 @@
 
 ## Available Variables 
 |||
-|---|---|
+|||
 | %%GLOBAL_ProductFieldId%% |
 | %%GLOBAL_ProductFieldRequired%% |
 | %%GLOBAL_ProductFieldName%% |
@@ -510,7 +510,7 @@
 
 ## Available Variables 
 |||
-|---|---|
+|||
 | %%GLOBAL_ProductFieldId%% |
 | %%GLOBAL_ProductFieldRequired%% |
 | %%GLOBAL_ProductFieldName%% |
@@ -521,7 +521,7 @@
 
 ## Available Variables 
 |||
-|---|---|
+|||
 | %%GLOBAL_IMG_PATH%% |
 | %%GLOBAL_CustomFieldName%% |
 | %%GLOBAL_CustomFieldValue%% |
@@ -530,7 +530,7 @@
 
 ## Available Variables 
 |||
-|---|---|
+|||
 | %%GLOBAL_ShippingQuoteId%% |
 | %%GLOBAL_ShipperName%% |
 | %%GLOBAL_TransitTime%% |
@@ -540,14 +540,14 @@
 
 ## Available Variables 
 |||
-|---|---|
+|||
 | %%GLOBAL_TransitTime%% |
 
 # CartTotalTaxRow Snippet 
 
 ## Available Variables 
 |||
-|---|---|
+|||
 | %%GLOBAL_TaxName%% |
 | %%GLOBAL_TaxCost%% |
 
@@ -555,14 +555,14 @@
 
 ## Available Variables 
 |||
-|---|---|
+|||
 | %%GLOBAL_PageNumber%% |
 
 # CategoryPagingItem Snippet 
 
 ## Available Variables 
 |||
-|---|---|
+|||
 | %%GLOBAL_PageLink%% |
 | %%GLOBAL_PageNumber%% |
 
@@ -570,7 +570,7 @@
 
 ## Available Variables 
 |||
-|---|---|
+|||
 | %%GLOBAL_NextLink%% |
 | %%LNG_Next%% |  
 
@@ -578,7 +578,7 @@
 
 ## Available Variables 
 |||
-|---|---|
+|||
 | %%GLOBAL_PrevLink%% |
 | %%LNG_Previous%% |
 
@@ -586,7 +586,7 @@
 
 ## Available Variables 
 |||
-|---|---|
+|||
 | %%SNIPPET_CategoryPagingPrevious%% |
 | %%SNIPPET_CategoryPagingNext%% |
 | %%LNG_Pages%% |
@@ -596,7 +596,7 @@
 
 ## Available Variables 
 |||
-|---|---|
+|||
 | %%GLOBAL_AlternateClass%% |
 | %%GLOBAL_ProductId%% |
 | %%GLOBAL_ProductThumb%% |
@@ -619,7 +619,7 @@
 
 ## Available Variables 
 |||
-|---|---|
+|||
 | %%GLOBAL_AlternateClass%% |
 | %%GLOBAL_ProductId%% |
 | %%GLOBAL_ProductThumb%% |
@@ -640,7 +640,7 @@
 
 ## Available Variables 
 |||
-|---|---|
+|||
 | %%GLOBAL_URL%% |
 | %%GLOBAL_HiddenSortField%% |
 | %%LNG_SortBy%% |
@@ -665,7 +665,7 @@
 
 ## Available Variables 
 |||
-|---|---|
+|||
 | %%LNG_EmailAddress%% |
 | %%GLOBAL_AccountEmail%% |
 
@@ -673,7 +673,7 @@
 
 ## Available Variables 
 |||
-|---|---|
+|||
 | %%GLOBAL_GiftCertificateName%% |
 | %%LNG_CapitalFor%% |
 | %%GLOBAL_GiftCertificateTo%% |
@@ -685,7 +685,7 @@
 
 ## Available Variables 
 |||
-|---|---|
+|||
 | %%GLOBAL_ProductName%% |
 | %%GLOBAL_ProductOptions%% |
 | %%GLOBAL_EventDate%% |
@@ -708,7 +708,7 @@
 
 ## Available Variables 
 |||
-|---|---|
+|||
 | %%GLOBAL_label%% |
 | %%GLOBAL_value%% |
 
@@ -716,7 +716,7 @@
 
 ## Available Variables 
 |||
-|---|---|
+|||
 | %%GLOBAL_IMG_PATH%% |
 | %%LNG_IPreferThisEmailFormat%% |
 | %%GLOBAL_MailFormatPreferenceOptions%% |
@@ -725,7 +725,7 @@
 
 ## Available Variables 
 |||
-|---|---|
+|||
 | %%GLOBAL_PaymentFieldPrefix%% |
 | %%GLOBAL_ProviderId%% |
 | %%GLOBAL_ProviderChecked%% |
@@ -737,7 +737,7 @@
 
 ## Available Variables 
 |||
-|---|---|
+|||
 | %%GLOBAL_ShipFullName%% |
 | %%GLOBAL_ShopPath%% |
 | %%GLOBAL_ShippingAddressId%% |
@@ -763,7 +763,7 @@
 
 ## Available Variables 
 |||
-|---|---|
+|||
 | %%GLOBAL_TaxName%% |
 | %%GLOBAL_TaxCost%% |
 
@@ -771,7 +771,7 @@
 
 ## Available Variables
 |||
-|---|---|
+|||
 | %%GLOBAL_HideCompareItems%% |
 | %%LNG_CompareSelected%% |
 | %%GLOBAL_IMG_PATH%% |
@@ -782,7 +782,7 @@
 
 ## Available Variables
 |||
-|---|---|
+|||
 | %%GLOBAL_HideCompareItems%% |
 | %%LNG_CompareSelected%% |
 | %%GLOBAL_IMG_PATH%% |
@@ -792,7 +792,7 @@
 
 ## Available Variables
 |||
-|---|---|
+|||
 | %%GLOBAL_CustomFieldName%% |
 | %%GLOBAL_CustomFieldValue%% |
 
@@ -800,7 +800,7 @@
 
 ## Available Variables
 |||
-|---|---|
+|||
 | %%GLOBAL_ProductNumber%% |
 | %%GLOBAL_CompareWidth%% |
 | %%GLOBAL_RemoveCompareLink%% |
@@ -810,7 +810,7 @@
 
 ## Available Variables
 |||
-|---|---|
+|||
 | %%GLOBAL_ProductNumber%% |
 | %%GLOBAL_ProductLink%% |
 | %%GLOBAL_ProductName%% |
@@ -819,7 +819,7 @@
 
 ## Available Variables
 |||
-|---|---|
+|||
 | %%GLOBAL_ProductNumber%% |
 | %%GLOBAL_ProductThumb%% |
 
@@ -827,7 +827,7 @@
 
 ##  Available Variables
 |||
-|---|---|
+|||
 | %%GLOBAL_ProductNumber%% |
 | %%GLOBAL_ProductPrice%% |
 
@@ -835,7 +835,7 @@
 
 ## Available Variables
 |||
-|---|---|
+|||
 | %%GLOBAL_ProductNumber%% |
 | %%GLOBAL_ProductAvailability%% |
 
@@ -843,7 +843,7 @@
 
 ## Available Variables
 |||
-|---|---|
+|||
 | %%GLOBAL_ProductNumber%% |
 | %%GLOBAL_IMG_PATH%% |
 | %%GLOBAL_ProductLink%% |
@@ -858,7 +858,7 @@
 
 ## Available Variables
 |||
-|---|---|
+|||
 | %%GLOBAL_ProductNumber%% |
 | %%GLOBAL_ProductSummary%% |
 
@@ -866,7 +866,7 @@
 
 ## Available Variables
 |||
-|---|---|
+|||
 | %%GLOBAL_ProductNumber%% |
 | %%GLOBAL_CustomFields%% |
 
@@ -874,7 +874,7 @@
 
 ## Available Variables
 |||
-|---|---|
+|||
 | %%GLOBAL_ProductNumber%% |
 | %%GLOBAL_ProductBrand%% |
 
@@ -882,7 +882,7 @@
 
 ## Available Variables
 |||
-|---|---|
+|||
 | %%GLOBAL_CompareHeadWidth%% |
 | %%LNG_ProductDetails%% |
 | %%SNIPPET_TD1%% |
@@ -891,7 +891,7 @@
 
 ## Available Variables
 |||
-|---|---|
+|||
 | %%GLOBAL_BaseCompareLink%% |
 | %%LNG_SortByProductName%% |
 | %%LNG_Product%% |
@@ -901,7 +901,7 @@
 
 ## Available Variables
 |||
-|---|---|
+|||
 | %%LNG_Image%% |
 | %%SNIPPET_TD3%% |
 
@@ -909,7 +909,7 @@
 
 ## Available Variables
 |||
-|---|---|
+|||
 | %%GLOBAL_HideProductPrice%% |
 | %%GLOBAL_BaseCompareLink%% |
 | %%LNG_SortByProductPrice%% |
@@ -920,7 +920,7 @@
 
 ## Available Variables
 |||
-|---|---|
+|||
 | %%LNG_Availability%% |
 | %%SNIPPET_TD5%% |
 
@@ -928,7 +928,7 @@
 
 ## Available Variables
 |||
-|---|---|
+|||
 | %%GLOBAL_HideProductRating%% |
 | %%GLOBAL_BaseCompareLink%% |
 | %%LNG_SortByProductRating%% |
@@ -939,7 +939,7 @@
 
 ## Available Variables
 |||
-|---|---|
+|||
 | %%LNG_Summary%% |
 | %%SNIPPET_TD7%% |
 
@@ -947,7 +947,7 @@
 
 ## Available Variables
 |||
-|---|---|
+|||
 | %%LNG_Other%% |
 | %%SNIPPET_TD8%% |
 
@@ -955,7 +955,7 @@
 
 ## Available Variables 
 |||
-|---|---|
+|||
 | %%GLOBAL_BaseCompareLink%% |
 | %%LNG_SortByProductBrand%% |
 | %%LNG_Brand%% |
@@ -965,7 +965,7 @@
 
 ## Available Variables 
 |||
-|---|---|
+|||
 | %%LNG_Coupon%% |
 | %%GLOBAL_CouponCode%% |
 | %%GLOBAL_CouponDiscount%% |
@@ -974,7 +974,7 @@
 
 ## Available Variables 
 |||
-|---|---|
+|||
 | %%LNG_GiftCertificate%% |
 | %%GLOBAL_GiftCertificateCode%% |
 | %%GLOBAL_GiftCertificateRemaining%% |
@@ -985,7 +985,7 @@
 
 ## Available Variables 
 |||
-|---|---|
+|||
 | %%GLOBAL_PrivacyCookieNotification%% |
 | %%LNG_HC_ok%% |
 
@@ -993,14 +993,14 @@
 
 ## Available Variables 
 |||
-|---|---|
+|||
 | %%GLOBAL_ProductAttributesJavascript%% |
 
 # DesignModeFooter Snippet 
 
 ## Available Variables 
 |||
-|---|---|
+|||
 | %%GLOBAL_CdnAppPath%% |
 | %%GLOBAL_JSCacheToken%% |
 | %%GLOBAL_jQueryUIPath%% |
@@ -1027,7 +1027,7 @@
 
 ## Available Variables 
 |||
-|---|---|
+|||
 | %%LNG_Amount%% |
 | %%GLOBAL_Amount%% |
 | %%LNG_TransactionType%% |
@@ -1059,7 +1059,7 @@
 
 ## Available Variables 
 |||
-|---|---|
+|||
 | %%LNG_Amount%% |
 | %%GLOBAL_Amount%% |
 | %%LNG_TransactionType%% |
@@ -1091,7 +1091,7 @@
 
 ## Available Variables 
 |||
-|---|---|
+|||
 | %%LNG_MerchantName%% |
 | %%GLOBAL_MerchantName%% |
 | %%LNG_MerchantURL%% |
@@ -1119,7 +1119,7 @@
 
 ## Available Variables 
 |||
-|---|---|
+|||
 | %%GLOBAL_ShippingQuotes%% |
 | %%LNG_UpdateShippingCost%% |
 | %%GLOBAL_DeliveryDisclaimer%% |
@@ -1128,7 +1128,7 @@
 
 ## Available Variables 
 |||
-|---|---|
+|||
 | %%GLOBAL_ProductQuantity%% |
 | %%GLOBAL_ProductName%% |
 
@@ -1136,7 +1136,7 @@
 
 ## Available Variables 
 |||
-|---|---|
+|||
 | %%LNG_ShippingMethod%% |
 | %%LNG_Price%% |
 | %%GLOBAL_ShippingQuoteRow%% |
@@ -1145,7 +1145,7 @@
 
 ## Available Variables 
 |||
-|---|---|
+|||
 | %%GLOBAL_EventDateNameRequired%% |
 | %%GLOBAL_EventDateName%% |
 | %%GLOBAL_EventDateMonthStyle%% |
@@ -1160,7 +1160,7 @@
 
 ## Available Variables 
 |||
-|---|---|
+|||
 | %%GLOBAL_AddressId%% |
 | %%GLOBAL_AddressType%% |
 | %%GLOBAL_AddressSelected%% |
@@ -1170,7 +1170,7 @@
 
 ## Available Variables 
 |||
-|---|---|
+|||
 | %%GLOBAL_UpperAddressType%% |
 | %%GLOBAL_HideChooseAddress%% |
 | %%GLOBAL_UseExistingAddress%% |
@@ -1200,7 +1200,7 @@
 
 ## Available Variables 
 |||
-|---|---|
+|||
 | %%LNG_ExpressCheckoutSelectShippingProvider%% |
 | %%GLOBAL_ShippingQuotes%% |
 | %%LNG_Continue%% |
@@ -1210,7 +1210,7 @@
 
 ## Available Panels 
 |||
-|---|---|
+|||
 | %%GLOBAL_ShopPath%% |
 | %%GLOBAL_HideCheckoutError%% |
 | %%GLOBAL_CheckoutErrorMsg%% |
@@ -1282,7 +1282,7 @@
 
 ## Available Variables 
 |||
-|---|---|
+|||
 | %%LNG_EmailAddress%% |
 | %%GLOBAL_AccountEmail%% |
 | %%LNG_Password%% |
@@ -1292,7 +1292,7 @@
 
 ## Available Variables 
 |||
-|---|---|
+|||
 | %%GLOBAL_AddressId%% |
 | %%GLOBAL_ShippingQuoteId%% |
 | %%GLOBAL_ShipperName%% |
@@ -1303,7 +1303,7 @@
 
 ## Available Variables 
 |||
-|---|---|
+|||
 | %%GLOBAL_FrameWidth%% |
 | %%GLOBAL_FacebookButtonHref%% |
 
@@ -1311,7 +1311,7 @@
 
 ## Available Variables 
 |||
-|---|---|
+|||
 | %%GLOBAL_HideThumbColumn%%% |
 | %%GLOBAL_fastCartProdImg%% |
 | %%GLOBAL_fastCartQuantityTxt%% |
@@ -1343,7 +1343,7 @@
 
 ## Available Variables 
 |||
-|---|---|
+|||
 | %%GLOBAL_FlyoutAttributes%% |
 | %%GLOBAL_FlyoutNodeUrl%% |
 | %%GLOBAL_FlyoutNodeLabel%% |
@@ -1353,7 +1353,7 @@
 
 ## Available Variables 
 |||
-|---|---|
+|||
 | %%GLOBAL_FlyoutAttributes%% |
 | %%GLOBAL_FlyoutChildHtml%% |
 
@@ -1361,7 +1361,7 @@
 
 ## Available Variables 
 |||
-|---|---|
+|||
 | %%GLOBAL_HideWrappingTitle%% |
 | %%LNG_Item%% |
 | %%GLOBAL_ProductName%% |
@@ -1380,7 +1380,7 @@
 
 ## Available Variables 
 |||
-|---|---|
+|||
 | %%GLOBAL_CurrencyID%% |
 | %%GLOBAL_CurrencyFlagURL%% |
 | %%GLOBAL_CurrencyName%% |
@@ -1390,7 +1390,7 @@
 
 ## Available Variables 
 |||
-|---|---|
+|||
 | %%GLOBAL_ShopPath%% |
 | %%GLOBAL_IMG_PATH%% |
 | %%LNG_FeaturedProductsFeed%% |
@@ -1399,7 +1399,7 @@
 
 ## Available Variables 
 |||
-|---|---|
+|||
 | %%GLOBAL_AlternateClass%% |
 | %%GLOBAL_ProductId%% |
 | %%GLOBAL_ProductThumb%% |
@@ -1418,7 +1418,7 @@
 
 ## Available Variables 
 |||
-|---|---|
+|||
 | %%GLOBAL_ShopPath%% |
 | %%GLOBAL_IMG_PATH%% |
 | %%LNG_NewProductsFeed%% |
@@ -1427,7 +1427,7 @@
 
 ## Available Variables 
 |||
-|---|---|
+|||
 | %%GLOBAL_AlternateClass%% |
 | %%GLOBAL_ProductId%% |
 | %%GLOBAL_ProductThumb%% |
@@ -1446,7 +1446,7 @@
 
 ## Available Variables 
 |||
-|---|---|
+|||
 | %%GLOBAL_ShopPath%% |
 | %%GLOBAL_IMG_PATH%% |
 | %%LNG_RecentBlogsFeed%% |
@@ -1455,7 +1455,7 @@
 
 ## Available Variables 
 |||
-|---|---|
+|||
 | %%GLOBAL_AlternateClass%% |
 | %%GLOBAL_ProductThumb%% |
 | %%GLOBAL_ProductLink%% |
@@ -1472,7 +1472,7 @@
 
 ## Available Variables 
 |||
-|---|---|
+|||
 | %%GLOBAL_ProductName%% |
 | %%GLOBAL_ProductAvailability%% |
 | %%GLOBAL_HideWrappingOptions%% |
@@ -1486,7 +1486,7 @@
 
 ## Available Variables 
 |||
-|---|---|
+|||
 | %%GLOBAL_CustomerName%% |
 | %%GLOBAL_CustomerEmail%% |
 | %%GLOBAL_CustomerPhone%% |
@@ -1495,7 +1495,7 @@
 
 ## Available Variables 
 |||
-|---|---|
+|||
 | %%LNG_HeresHowtoPayforYourOrderUC%% |
 | %%LNG_PayForYourOrderHelpI%% |
 | %%LNG_YourOrderTotalIs%% |
@@ -1506,7 +1506,7 @@
 
 ## Available Variables 
 |||
-|---|---|
+|||
 | %%GLOBAL_IMG_PATH%% |
 | %%LNG_InvoicePendingPaymentText%% |
 
@@ -1514,7 +1514,7 @@
 
 ## Available Variables 
 |||
-|---|---|
+|||
 | %%GLOBAL_ShopPathNormal%% |
 | %%GLOBAL_CdnStorePath%% |
 | %%GLOBAL_ImageDirectory%% |
@@ -1525,7 +1525,7 @@
 
 ## Available Variables 
 |||
-|---|---|
+|||
 | %%GLOBAL_ShopPathNormal%% |
 | %%GLOBAL_LogoText%% |
 
@@ -1533,7 +1533,7 @@
 
 ### Available Variables 
 |||
-|---|---|
+|||
 | %%GLOBAL_IMG_PATH%% |
 | %%GLOBAL_jQueryUIPath%% |
 | %%GLOBAL_CdnAppPath%% |
@@ -1549,7 +1549,7 @@
 
 ## Available Variables 
 |||
-|---|---|
+|||
 | %%GLOBAL_MsgBox_Type%% |
 | %%GLOBAL_MsgBox_Message%% |
 
@@ -1557,7 +1557,7 @@
 
 ## Available Variables 
 |||
-|---|---|
+|||
 | %%GLOBAL_MobileSiteURL%% |
 | %%LNG_MobileSite%% |
 
@@ -1565,7 +1565,7 @@
 
 ## Available Variables 
 |||
-|---|---|
+|||
 | %%GLOBAL_ProductName%% |
 | %%GLOBAL_ProductOptions%% |
 | %%GLOBAL_AddressFieldId%% |
@@ -1575,7 +1575,7 @@
 
 ## Available Variables 
 |||
-|---|---|
+|||
 | %%LNG_YourOrderNumber%% |
 | %%GLOBAL_ShopPath%% |
 | %%GLOBAL_OrderId%% |
@@ -1590,14 +1590,14 @@
 
 ## Available Variables 
 |||
-|---|---|
+|||
 | %%GLOBAL_SubMenuLinks%% |
 
 # PageMenu Snippet 
 
 ## Available Variables 
 |||
-|---|---|
+|||
 | %%GLOBAL_HasSubMenuClass%% |
 | %%GLOBAL_ActivePageClass%% |
 | %%GLOBAL_PageLink%% |
@@ -1608,7 +1608,7 @@
 
 ## Available Variables 
 |||
-|---|---|
+|||
 | %%GLOBAL_RSSLink%% |
 | %%GLOBAL_RSSTitle%% |
 | %%GLOBAL_RSSDescription%% |
@@ -1617,7 +1617,7 @@
 
 ## Available Variables 
 |||
-|---|---|
+|||
 | %%GLOBAL_sPageLink%% |
 | %%GLOBAL_sPageName%% |
 
@@ -1625,7 +1625,7 @@
 
 ## Available Variables 
 |||
-|---|---|
+|||
 | %%GLOBAL_CurrentProductLink%% |
 | %%GLOBAL_InitialZoomImage%% |
 | %%GLOBAL_PinterestButtonDescription%% |
@@ -1634,7 +1634,7 @@
 
 ## Available Variables 
 |||
-|---|---|
+|||
 | %%GLOBAL_TagUrl%% |
 | %%GLOBAL_TagName%% |
 
@@ -1642,7 +1642,7 @@
 
 ## Available Variables 
 |||
-|---|---|
+|||
 | %%GLOBAL_FieldName%% |
 | %%GLOBAL_SKUValue%% |
 | %%GLOBAL_FieldValue%% |
@@ -1651,7 +1651,7 @@
 
 ## Available Variables 
 |||
-|---|---|
+|||
 | %%GLOBAL_invoiceItemClass%% |
 | %%GLOBAL_hideAddressColumn%% |
 | %%GLOBAL_addressColumnRowSpan%% |
@@ -1678,7 +1678,7 @@
 
 ## Available Variables 
 |||
-|---|---|
+|||
 | %%GLOBAL_HeaderLogo%% |
 | %%GLOBAL_StoreName%% |
 | %%GLOBAL_InvoiceTitle%% |
@@ -1723,7 +1723,7 @@
 
 ## Available Variables 
 |||
-|---|---|
+|||
 | %%GLOBAL_ProductQuantity%% |
 | %%GLOBAL_ProductSku%% |
 | %%GLOBAL_ProductName%% |
@@ -1743,7 +1743,7 @@
 
 ## Available Variables
 |||
-|---|---|
+|||
 | %%GLOBAL_AddToCartButtonControlScript%% |
 | %%GLOBAL_CartLink%% |
 | %%GLOBAL_ProductOptionRequired%% |
@@ -1815,14 +1815,14 @@
 
 ## Available Variables
 |||
-|---|---|
+|||
 | %%GLOBAL_BreadcrumbItems%% |
 
 # ProductBulkDiscountThickBox Snippet
 
 ## Available Variables
 |||
-|---|---|
+|||
 | %%GLOBAL_BulkDiscountThickBoxTitle%% |
 | %%LNG_BulkDiscountThickBoxIntro%% |
 | %%GLOBAL_BulkDiscountThickBoxRates%% |
@@ -1834,7 +1834,7 @@
 
 ## Available Variables
 |||
-|---|---|
+|||
 | %%GLOBAL_CustomFieldName%% |
 | %%GLOBAL_CustomFieldValue%% |
 
@@ -1842,14 +1842,14 @@
 
 ## Available Variables
 |||
-|---|---|
+|||
 | %%GLOBAL_ReleaseDate%% |
 
 # ProductFieldCheckbox Snippet
 
 ## Available Variables
 |||
-|---|---|
+|||
 | %%GLOBAL_ProductFieldRequired%% |
 | %%GLOBAL_CheckboxFieldNameLeft%% |
 | %%GLOBAL_ProductFieldType%% |
@@ -1863,7 +1863,7 @@
 
 ## Available Variables
 |||
-|---|---|
+|||
 | %%GLOBAL_ProductFieldRequired%% |
 | %%GLOBAL_ProductFieldName%% |
 | %%GLOBAL_ProductFieldType%% |
@@ -1889,7 +1889,7 @@
 
 ## Available Variables
 |||
-|---|---|
+|||
 | %%GLOBAL_ProductFieldRequired%% |
 | %%GLOBAL_ProductFieldName%% |
 | %%GLOBAL_ProductFieldId%% |
@@ -1901,7 +1901,7 @@
 
 ## Available Variables
 |||
-|---|---|
+|||
 | %%GLOBAL_ProductFieldRequired%% |
 | %%GLOBAL_ProductFieldName%% |
 | %%GLOBAL_ProductFieldId%% |
@@ -1912,7 +1912,7 @@
 
 ## Available Variables
 |||
-|---|---|
+|||
 | %%GLOBAL_CatTrailLink%% |
 | %%GLOBAL_CatTrailName%% |
 
@@ -1920,14 +1920,14 @@
 
 ## Available Variables
 |||
-|---|---|
+|||
 | %%GLOBAL_FindByCategoryItems%% |
 
 # ProductImageZoomer Snippet
 
 ## Available Variables
 |||
-|---|---|
+|||
 | %%GLOBAL_CdnAppPath%% |
 | %%GLOBAL_JSCacheToken%% |
 | %%GLOBAL_ProdImageZoomJavascript%% |
@@ -1937,7 +1937,7 @@
 
 ## Available Variables
 |||
-|---|---|
+|||
 | %%GLOBAL_CdnAppPath%% |
 | %%GLOBAL_JSCacheToken%% |
 | %%GLOBAL_LightBoxImageList%% |
@@ -1952,7 +1952,7 @@
 
 ## Available Variables
 |||
-|---|---|
+|||
 | %%GLOBAL_OptionChooseText%% |
 | %%SNIPPET_OptionList%% |
 
@@ -1960,7 +1960,7 @@
 
 ## Available Variables
 |||
-|---|---|
+|||
 | %%GLOBAL_OptionChooseText%% |
 | %%SNIPPET_OptionList%% |
 
@@ -1968,14 +1968,14 @@
 
 ## Available Variables
 |||
-|---|---|
+|||
 | %%GLOBAL_ReviewError%% |
 
 # ProductReviewItem Snippet
 
 ## Available Variables
 |||
-|---|---|
+|||
 | %%GLOBAL_AlternateReviewClass%% |
 | %%GLOBAL_ReviewTitle%% |
 | %%GLOBAL_IMG_PATH%% |
@@ -1990,7 +1990,7 @@
 
 ## Available Variables
 |||
-|---|---|
+|||
 | %%GLOBAL_ReviewStart%% |
 | %%GLOBAL_ProductReviews%% |
 
@@ -1998,7 +1998,7 @@
 
 ## Available Variables
 |||
-|---|---|
+|||
 | %%GLOBAL_ReviewLink%% |
 | %%LNG_Next%% |
 
@@ -2006,7 +2006,7 @@
 
 ## Available Variables
 |||
-|---|---|
+|||
 | %%GLOBAL_PrevRevLink%% |
 | %%LNG_ShowingReviews%% |
 | %%GLOBAL_ReviewStart%% |
@@ -2019,7 +2019,7 @@
 
 ## Available Variables
 |||
-|---|---|
+|||
 | %%GLOBAL_ReviewLink%% |
 | %%LNG_Previous%% |
 
@@ -2027,7 +2027,7 @@
 
 ## Available Variables
 |||
-|---|---|
+|||
 | %%GLOBAL_FontSize%% |
 | %%GLOBAL_TagLink%% |
 | %%GLOBAL_TagProductCount%% |
@@ -2037,7 +2037,7 @@
 
 ## Available Variables
 |||
-|---|---|
+|||
 | %%GLOBAL_ProductThumbWidth%% |
 | %%GLOBAL_ProductThumbHeight%% |
 | %%GLOBAL_ThumbImageURL%% |
@@ -2047,7 +2047,7 @@
 
 ## Available Variables
 |||
-|---|---|
+|||
 | %%GLOBAL_ProductThumbWidth%% |
 | %%GLOBAL_ProductThumbHeight%% |
 | %%GLOBAL_InitialZoomImage%% |
@@ -2059,7 +2059,7 @@
 
 ## Available Variables
 |||
-|---|---|
+|||
 | %%GLOBAL_ProductTinyBoxHeight%% |
 | %%GLOBAL_ProductTinyBoxWidth%% |
 | %%GLOBAL_TinyImageOverJavascript%% |
@@ -2079,7 +2079,7 @@
 
 ## Available Variables
 |||
-|---|---|
+|||
 | %%GLOBAL_ProductId%% |
 | %%GLOBAL_ProductName%% |
 
@@ -2087,7 +2087,7 @@
 
 ## Available Variables
 |||
-|---|---|
+|||
 | %%GLOBAL_OptionId%% |
 | %%GLOBAL_OptionValue%% |
 
@@ -2095,7 +2095,7 @@
 
 ## Available Variables
 |||
-|---|---|
+|||
 | %%GLOBAL_VariationName%% |
 | %%GLOBAL_VariationNumber%% |
 | %%GLOBAL_VariationChooseText%% |
@@ -2105,7 +2105,7 @@
 
 ## Available Variables
 |||
-|---|---|
+|||
 | %%GLOBAL_VariationNumber%% |
 | %%GLOBAL_OptionId%% |
 | %%GLOBAL_OptionChecked%% |
@@ -2115,7 +2115,7 @@
 
 ## Available Variables 
 |||
-|---|---|
+|||
 | %%GLOBAL_VariationName%% |
 | %%SNIPPET_OptionList%% |
 
@@ -2123,7 +2123,7 @@
 
 ## Available Variables 
 |||
-|---|---|
+|||
 | %%GLOBAL_CdnAppPath%% |
 | %%GLOBAL_JSCacheToken%% |
 
@@ -2131,7 +2131,7 @@
 
 ## Available Variables 
 |||
-|---|---|
+|||
 | %%GLOBAL_QuickViewButtonText%% |
 | %%GLOBAL_QuickViewButtonColor%% |
 | %%GLOBAL_QuickViewGradientColor%% |
@@ -2141,7 +2141,7 @@
 
 ## Available Variables 
 |||
-|---|---|
+|||
 | %%GLOBAL_BlogLink%% |
 | %%GLOBAL_BlogText%% |
 | %%GLOBAL_BlogPreview%% |
@@ -2150,7 +2150,7 @@
 
 ## Available Variables 
 |||
-|---|---|
+|||
 | %%GLOBAL_SearchId%% |
 | %%GLOBAL_ShopPath%% |
 | %%GLOBAL_RelatedSearchQuery%% |
@@ -2160,7 +2160,7 @@
 
 ## Available Variables 
 |||
-|---|---|
+|||
 | %%GLOBAL_NewsURL%% |
 | %%GLOBAL_NewsTitle%% |
 | %%LNG_SearchTypeNewsItem%% |
@@ -2169,7 +2169,7 @@
 
 ## Available Variables 
 |||
-|---|---|
+|||
 | %%GLOBAL_PageURL%% |
 | %%GLOBAL_PageTitle%% |
 | %%LNG_SearchTypeWebPage%% |
@@ -2179,7 +2179,7 @@
 
 ## Available Variables 
 |||
-|---|---|
+|||
 | %%GLOBAL_ProductNoImageClassName%% |
 | %%GLOBAL_ProductImage%% |
 | %%GLOBAL_ProductURL%% |
@@ -2191,7 +2191,7 @@
 
 ## Available Variables 
 |||
-|---|---|
+|||
 | %%GLOBAL_HideSectionPaging%% |
 | %%GLOBAL_SectionPagingPrevious%% |
 | %%GLOBAL_SectionPagingNext%% |
@@ -2208,7 +2208,7 @@
 
 ## Available Variables 
 |||
-|---|---|
+|||
 | %%GLOBAL_NewsURL%% |
 | %%GLOBAL_NewsTitle%% |
 | %%LNG_SearchTypeNewsItem%% |
@@ -2218,7 +2218,7 @@
 
 ## Available Variables 
 |||
-|---|---|
+|||
 | %%GLOBAL_PageURL%% |
 | %%GLOBAL_PageTitle%% |
 | %%LNG_SearchTypeWebPage%% |
@@ -2228,7 +2228,7 @@
 
 ## Available Variables 
 |||
-|---|---|
+|||
 | %%GLOBAL_AlternateClass%% |
 | %%GLOBAL_ProductThumb%% |
 | %%GLOBAL_ProductLink%% |
@@ -2248,7 +2248,7 @@
 
 ## Available Variables 
 |||
-|---|---|
+|||
 | %%GLOBAL_AlternateClass%% |
 | %%GLOBAL_ProductId%% |
 | %%GLOBAL_ProductThumb%% |
@@ -2271,14 +2271,14 @@
 
 ## Available Variables 
 |||
-|---|---|
+|||
 | %%GLOBAL_SectionSearchResults%% |
 
 # SearchResultSectionProduct Snippet 
 
 ## Available Variables 
 |||
-|---|---|
+|||
 | %%LNG_CompareSelectMessage%% |
 | %%LNG_PleaseSelectAProduct%% |
 | %%GLOBAL_CompareLink%% |
@@ -2292,7 +2292,7 @@
 
 ## Available Variables 
 |||
-|---|---|
+|||
 | %%GLOBAL_ShopPath%% |
 | %%GLOBAL_RSSURL%% |
 | %%GLOBAL_IMG_PATH%% |
@@ -2303,7 +2303,7 @@
 
 ##  Available Variables
 |||
-|---|---|
+|||
 | %%GLOBAL_GiftWrappingTitle%% |
 | %%GLOBAL_ItemId%% |
 | %%GLOBAL_GiftWrapModalClass%% |
@@ -2320,7 +2320,7 @@
 
 ## Available Variables 
 |||
-|---|---|
+|||
 | %%GLOBAL_TagName%% |
 | %%GLOBAL_BlogUrl%% |
 
@@ -2328,7 +2328,7 @@
 
 ## Available Variables 
 |||
-|---|---|
+|||
 | %%GLOBAL_ShippingData%% |
 | %%GLOBAL_AddressId%% |
 | %%GLOBAL_ShipperId%% |
@@ -2340,7 +2340,7 @@
 
 ## Available Variables 
 |||
-|---|---|
+|||
 | %%GLOBAL_ProductQuantity%% |
 | %%GLOBAL_ProductName%% |
 | %%GLOBAL_HideGiftWrapping%% |
@@ -2354,7 +2354,7 @@
 
 ## Available Variables 
 |||
-|---|---|
+|||
 | %%GLOBAL_HideAddressLine%% |
 | %%LNG_ShippedTo%% |
 | %%GLOBAL_AddressLine%% |
@@ -2369,7 +2369,7 @@
 
 ## Available Variables 
 |||
-|---|---|
+|||
 | %%GLOBAL_AllBrandsLink%% |
 | %%LNG_SeeAllBrands%% |
 
@@ -2377,7 +2377,7 @@
 
 ## Available Variables 
 |||
-|---|---|
+|||
 | %%GLOBAL_BrandName%% |
 | %%GLOBAL_BrandLink%% |
 
@@ -2385,7 +2385,7 @@
 
 ## Available Variables 
 |||
-|---|---|
+|||
 | %%GLOBAL_PriceLink%% |
 | %%GLOBAL_PriceLow%% |
 | %%GLOBAL_PriceHigh%% |
@@ -2394,7 +2394,7 @@
 
 ## Available Variables 
 |||
-|---|---|
+|||
 | %%LNG_CurrentlySoldOut1%% |
 | %%LNG_CurrentlySoldOut2%% |
 | %%LNG_HC_outofstock%% |
@@ -2403,7 +2403,7 @@
 
 ## Available Variables 
 |||
-|---|---|
+|||
 | %%GLOBAL_CheckoutLink%% |
 | %%LNG_Checkout%% |
 
@@ -2411,7 +2411,7 @@
 
 ## Available Variables 
 |||
-|---|---|
+|||
 | %%GLOBAL_ProductQuantity%% |
 | %%GLOBAL_ProductName%% |
 | %%GLOBAL_ProductOptions%% |
@@ -2422,7 +2422,7 @@
 
 ## Available Variables 
 |||
-|---|---|
+|||
 | %%GLOBAL_LastChildClass%% |
 | %%GLOBAL_CategoryLink%% |
 | %%GLOBAL_CategoryName%% |
@@ -2432,7 +2432,7 @@
 
 ## Available Variables 
 |||
-|---|---|
+|||
 | %%GLOBAL_ShopPath%% |
 | %%GLOBAL_CatId%% |
 | %%GLOBAL_IMG_PATH%% |
@@ -2442,7 +2442,7 @@
 
 ## Available Variables 
 |||
-|---|---|
+|||
 | %%GLOBAL_AlternateClass%% |
 | %%GLOBAL_ProductThumb%% |
 | %%GLOBAL_ProductLink%% |
@@ -2459,7 +2459,7 @@
 
 ## Available Variables 
 |||
-|---|---|
+|||
 | %%GLOBAL_ShopPath%% |
 | %%GLOBAL_CatId%% |
 | %%GLOBAL_IMG_PATH%% |
@@ -2469,7 +2469,7 @@
 
 ## Available Variables 
 |||
-|---|---|
+|||
 | %%GLOBAL_AlternateClass%% |
 | %%GLOBAL_ProductThumb%% |
 | %%GLOBAL_ProductLink%% |
@@ -2486,7 +2486,7 @@
 
 ## Available Variables 
 |||
-|---|---|
+|||
 | %%GLOBAL_ProductNumber%% |
 | %%GLOBAL_ProductThumb%% |
 | %%GLOBAL_ProductLink%% |
@@ -2500,7 +2500,7 @@
 
 ## Available Variables 
 |||
-|---|---|
+|||
 | %%GLOBAL_CurrencyFlagStyle%% |
 | %%GLOBAL_CurrencySwitchLink%% |
 | %%GLOBAL_CurrencySelected%% |
@@ -2511,7 +2511,7 @@
 
 ## Available Variables 
 |||
-|---|---|
+|||
 | %%GLOBAL_RootCatName%% |
 | %%GLOBAL_RootCatList%% |
 
@@ -2519,7 +2519,7 @@
 
 ## Available Variables 
 |||
-|---|---|
+|||
 | %%GLOBAL_ShopPath%% |
 | %%GLOBAL_CatId%% |
 | %%GLOBAL_IMG_PATH%% |
@@ -2529,7 +2529,7 @@
 
 ## Available Variables 
 |||
-|---|---|
+|||
 | %%GLOBAL_AlternateClass%% |
 | %%GLOBAL_ProductThumb%% |
 | %%GLOBAL_ProductLink%% |
@@ -2546,7 +2546,7 @@
 
 ## Available Variables 
 |||
-|---|---|
+|||
 | %%GLOBAL_PageLink%% |
 | %%GLOBAL_PageName%% |
 
@@ -2554,7 +2554,7 @@
 
 ## Available Variables 
 |||
-|---|---|
+|||
 | %%GLOBAL_ShopPath%% |
 | %%GLOBAL_IMG_PATH%% |
 | %%LNG_PopularProductsFeed%% |
@@ -2563,7 +2563,7 @@
 
 ## Available Variables 
 |||
-|---|---|
+|||
 | %%GLOBAL_AlternateClass%% |
 | %%GLOBAL_ProductThumb%% |
 | %%GLOBAL_ProductLink%% |
@@ -2581,7 +2581,7 @@
 
 ## Available Variables 
 |||
-|---|---|
+|||
 | %%GLOBAL_ProductThumb%% |
 | %%GLOBAL_ProductLink%% |
 | %%GLOBAL_SearchTrackClass%% |
@@ -2595,7 +2595,7 @@
 
 ## Available Variables 
 |||
-|---|---|
+|||
 | %%GLOBAL_HideSideProductRecentlyViewedCompare%% |
 | %%GLOBAL_ProductId%% |
 | %%GLOBAL_ProductThumb%% |
@@ -2614,7 +2614,7 @@
 
 ## Available Variables 
 |||
-|---|---|
+|||
 | %%GLOBAL_ProductThumb%% |
 | %%GLOBAL_ProductId%% |
 | %%GLOBAL_ProductLink%% |
@@ -2628,7 +2628,7 @@
 
 ## Available Variables 
 |||
-|---|---|
+|||
 | %%GLOBAL_AlternateClass%% |
 | %%GLOBAL_ProductId%% |
 | %%GLOBAL_ProductNumber%% |
@@ -2647,7 +2647,7 @@
 
 ## Available Variables 
 |||
-|---|---|
+|||
 | %%GLOBAL_AlternateClass%% |
 | %%GLOBAL_ProductId%% |
 | %%GLOBAL_ProductNumber%% |
@@ -2666,7 +2666,7 @@
 
 ## Available Variables 
 |||
-|---|---|
+|||
 | %%GLOBAL_AlternateClass%% |
 | %%GLOBAL_ProductId%% |
 | %%GLOBAL_ProductThumb%% |
@@ -2687,7 +2687,7 @@
 
 ## Available Variables 
 |||
-|---|---|
+|||
 | %%GLOBAL_FontSize%% |
 | %%GLOBAL_TagLink%% |
 | %%GLOBAL_TagProductCount%% |
@@ -2697,7 +2697,7 @@
 
 ## Available Variables 
 |||
-|---|---|
+|||
 | %%GLOBAL_SitemapURL_HTML%% |
 | %%LNG_Sitemap%% |
 
@@ -2705,7 +2705,7 @@
 
 ## Available Variables 
 |||
-|---|---|
+|||
 | %%GLOBAL_ModelType%% |
 | %%GLOBAL_ModelHeading%% |
 | %%GLOBAL_ModelBody%% |
@@ -2717,7 +2717,7 @@
 
 ## Available Variables 
 |||
-|---|---|
+|||
 | %%GLOBAL_Slide_Link_Url%% |
 | %%GLOBAL_Slide_Heading_Color%% |
 | %%GLOBAL_Slide_Heading_Text%% |
@@ -2733,7 +2733,7 @@
 
 ## Available Variables 
 |||
-|---|---|
+|||
 | %%GLOBAL_SocialMedia_Service_Url%% |
 | %%GLOBAL_UseThemeSettingsClass%% |
 | %%GLOBAL_SocialMedia_Service_Class%% |
@@ -2743,7 +2743,7 @@
 
 ## Available Variables 
 |||
-|---|---|
+|||
 | %%GLOBAL_SharingActiveTab%% |
 | %%GLOBAL_SharingName%% |
 | %%GLOBAL_SharingIcon%% |
@@ -2753,7 +2753,7 @@
 
 ## Available Variables 
 |||
-|---|---|
+|||
 | %%GLOBAL_width%% |
 | %%GLOBAL_height%% |
 | %%GLOBAL_SubBrandLink%% |
@@ -2764,7 +2764,7 @@
 
 ## Available Variables 
 |||
-|---|---|
+|||
 | %%GLOBAL_SubBrandLink%% |
 | %%GLOBAL_SubBrandName%% |
 
@@ -2772,7 +2772,7 @@
 
 ## Available Variables 
 |||
-|---|---|
+|||
 | %%GLOBAL_width%% |
 | %%GLOBAL_height%% |
 | %%GLOBAL_SubCatLink%% |
@@ -2783,7 +2783,7 @@
 
 ## Available Variables 
 |||
-|---|---|
+|||
 | %%GLOBAL_SubCatLink%% |
 | %%GLOBAL_SubCatName%% |
 
@@ -2791,7 +2791,7 @@
 
 ## Available Variables 
 |||
-|---|---|
+|||
 | %%GLOBAL_AlternateClass%% |
 | %%GLOBAL_ProductThumb%% |
 | %%GLOBAL_ProductLink%% |
@@ -2812,7 +2812,7 @@
 
 ## Available Variables 
 |||
-|---|---|
+|||
 | %%GLOBAL_ShopPathNormal%% |
 | %%LNG_GiftCertificates%% |
 
@@ -2820,7 +2820,7 @@
 
 ## Available Variables 
 |||
-|---|---|
+|||
 | %%GLOBAL_ShipAddressLine1%% |
 | %%GLOBAL_ShipAddressLine2%% |
 | %%GLOBAL_ShipSuburb%% |
@@ -2832,7 +2832,7 @@
 
 ## Available Variables 
 |||
-|---|---|
+|||
 | %%GLOBAL_VideoId%% |
 | %%GLOBAL_IMG_PATH%% |
 | %%GLOBAL_VideoTitleLong%% |
@@ -2842,7 +2842,7 @@
 
 ## Available Variables 
 |||
-|---|---|
+|||
 | %%GLOBAL_VideoId%% |
 | %%GLOBAL_VideoTitleLong%% |
 | %%GLOBAL_VideoTitleShort%% |
@@ -2853,7 +2853,7 @@
 
 ## Available Variables 
 |||
-|---|---|
+|||
 | %%GLOBAL_WishListID%% |
 | %%GLOBAL_WishListName%% |
 | %%GLOBAL_NumOfItems%% |
@@ -2866,7 +2866,7 @@
 
 ## Available Variables 
 |||
-|---|---|
+|||
 | %%GLOBAL_ProductId%% |
 | %%GLOBAL_ProductThumb%% |
 | %%GLOBAL_ProductLink%% |

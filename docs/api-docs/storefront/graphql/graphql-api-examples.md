@@ -18,7 +18,7 @@
 
 Below are example GraphQL queries for use with the BigCommerce GraphQL Storefront API. The purpose of these examples is to assist developers in getting familiar with the API. For a general overview of it's usage and capabilities, see [GraphQL Storefront API Overview](https://developer.bigcommerce.com/api-docs/storefront/graphql/graphql-storefront-api-overview).
 
----
+
 
 <a id="get-a-customers-details" class="devdocsAnchor"></a>
 
@@ -47,7 +47,7 @@ query CustomerAttributes {
 }
 ```
 
----
+
 
 <a id="get-first-three-levels-of-category-tree" class="devdocsAnchor"></a>
 
@@ -75,7 +75,7 @@ fragment CategoryFields on CategoryTreeItem {
 }
 ```
 
----
+
 
 <a id="get-category-and-children-by-url" class="devdocsAnchor"></a>
 
@@ -134,7 +134,7 @@ fragment PriceFields on Money {
 }
 ```
 
----
+
 
 <a id="get-multiple-objects-by-url" class="devdocsAnchor"></a>
 
@@ -177,7 +177,7 @@ query LookUpUrl {
 }
 ```
 
----
+
 
 <a id="get-products-images-at-different-resolutions" class="devdocsAnchor"></a>
 
@@ -202,7 +202,7 @@ query SrcsetImages {
 }
 ```
 
----
+
 
 <a id="get-variant-details-as-a-product-object" class="devdocsAnchor"></a>
 
@@ -264,7 +264,7 @@ This query returns variant information appropriately overlaid on the Product obj
 
 
 
----
+
 
 <a id="get-product-option-details-by-product-id" class="devdocsAnchor"></a>
 
@@ -301,7 +301,7 @@ query SeveralProductsByID {
 }
 ```
 
----
+
 
 <a id="get-refined-product-object-for-given-options" class="devdocsAnchor"></a>
 

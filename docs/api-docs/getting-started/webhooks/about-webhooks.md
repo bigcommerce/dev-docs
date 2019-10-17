@@ -32,7 +32,7 @@ Webhooks allow app developers to be notified, in near real-time, when specific e
 </div>
 </div>
 
----
+
 
 <a id="authentication"></a>
 
@@ -63,7 +63,7 @@ Before you  can begin to send and receive requests, you must have the following:
 </div>
 </div>
 
----
+
 
 <a id="lightweight-callback-payload"></a>
 
@@ -102,7 +102,7 @@ lineNumbers: true
 | data | A lightweight description of the [event](/api-docs/getting-started/webhooks/webhook-events) that triggered the webhook. Will vary depending on the event registered. |
 | hash | The payload data json encoded then passed through sh1 encryption. |
 
----
+
 
 <a id="request-and-response"></a>
 
@@ -345,7 +345,7 @@ There is not a way to delete all webhooks on a store. Run a GET request for the 
 
 If webhooks are no longer being used, either delete them or set `is_active:false`.
 
----
+
 
 <a id="receiving-the-callback"></a>
 
@@ -355,7 +355,7 @@ You’ll need to build an application and configure your server to receive the c
 
 Need to set up a quick destination URL for testing? See Tools for Debugging and Testing Webhooks.
 
----
+
 
 <a id="espond-to-webhook-callbacks"></a>
 
@@ -367,7 +367,7 @@ To acknowledge that you received the webhook without issue, your server should r
 
 Need to set up a quick destination URL for testing? See [Tools for testing webhooks.](#about-webhooks_tools-for-debugging-and-testing-webhooks)
 
----
+
 
 <a id='about-webhooks_callback-retry-mechanism'></a>
 
@@ -434,7 +434,7 @@ The webhook dispatcher will then attempt several retries (at increasing interval
 
 After the final retry attempt (cumulatively, 48 hours after the first delivery attempt), the webhook will automatically be deactivated, and we will send an email to the developer’s email address registered on the subscribing app. You can reactivate the webhook by setting the `is_active` flag back to true via a `/PUT` request to the hooks resource.
 
----
+
 
 <a id="webhook-security"></a>
 
@@ -466,7 +466,7 @@ lineNumbers: true
 }
 ```
 
----
+
 
 <a id='about-webhooks_troubleshooting'></a>
 
@@ -510,7 +510,7 @@ lineNumbers: true
  X-Auth-Token: <the OAuth token>
 ```
 
----
+
 
 <a id="tools-for-debugging-and-testing-webhooks"></a>
 
@@ -526,7 +526,7 @@ Need help on ngrok and webhooks see our [tutorial](/api-docs/getting-started/web
 **[Webhook Tester](https://webhook.site/#/)**  
 This allows for webhooks to be quickly tested or checked. 
 
----
+
 
 ## Resources
 * [Webhook Tutorial](https://developer.bigcommerce.com/api-docs/getting-started/webhooks/setting-up-webhooks)

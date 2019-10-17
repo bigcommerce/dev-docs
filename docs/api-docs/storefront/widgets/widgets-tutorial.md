@@ -11,7 +11,7 @@
 	</ul>
 </div>
 
----
+
 
 In this tutorial, we will cover:
 * Creating a Region
@@ -34,7 +34,7 @@ This tutorial assumes knowledge of [Widgets](/api-docs/storefront/widgets/widget
 </div>
 </div>
 
----
+
 <a id="widget-tutorial_prerequisites"></a>
 
 ##  Prerequisites:
@@ -61,7 +61,7 @@ We will be making a widget that shows three images, with a hover effect and each
 ](//s3.amazonaws.com/user-content.stoplight.io/6012/1551898706416 "#### Category Page Widget
 ")
 
----
+
 
 <a href='#widget-tutorial_add-a-region' aria-hidden='true' class='block-anchor'  id='widget-tutorial_add-a-region'><i aria-hidden='true' class='linkify icon'></i></a>
 
@@ -115,7 +115,7 @@ lineNumbers: true
 }
 ```
 
----
+
 
 <a href='#widget-tutorial_create-widget-template' aria-hidden='true' class='block-anchor'  id='widget-tutorial_create-widget-template'><i aria-hidden='true' class='linkify icon'></i></a>
 
@@ -165,7 +165,7 @@ lineNumbers: true
 }
 ```
 
----
+
 
 <a href='#widget-tutorial_create-widget' aria-hidden='true' class='block-anchor'  id='widget-tutorial_create-widget'><i aria-hidden='true' class='linkify icon'></i></a>
 
@@ -232,7 +232,7 @@ lineNumbers: true
     "meta": {}
 }
 ```
----
+
 
 <a href='#widget-tutorial_create-placement' aria-hidden='true' class='block-anchor'  id='widget-tutorial_create-placement'><i aria-hidden='true' class='linkify icon'></i></a>
 
@@ -325,7 +325,7 @@ lineNumbers: true
 }
 
 ```
----
+
 
 <a href='#widget-tutorial_reuse-widget-template' aria-hidden='true' class='block-anchor'  id='widget-tutorial_reuse-widget-template'><i aria-hidden='true' class='linkify icon'></i></a>
 
@@ -340,7 +340,7 @@ To reuse the Widget Template:
 * [Create the Widget](/api-reference/storefront/widgets-api/widget/createwidget) with the Widget Template ID
 * [Create a Placement](/api-reference/storefront/widgets-api/placement/createplacement) using the Widget
 
----
+
 <a href='#widget-tutorial_resources' aria-hidden='true' class='block-anchor'  id='widget-tutorial_resources'><i aria-hidden='true' class='linkify icon'></i></a>
 
 ## Resources

@@ -47,7 +47,7 @@ You must also run `jspm install` in the theme directory.
 </div>
 </div>
 
----
+
 
 <a href='##bundling_add-recaptcha-v2' aria-hidden='true' class='block-anchor'  id='#bundling_add-recaptcha-v2'><i aria-hidden='true' class='linkify icon'></i></a>
 
@@ -69,7 +69,7 @@ See [PR #951](https://github.com/bigcommerce/cornerstone/pull/951/files) in the 
 
 It is possible to add reCaptcha to the Login template. See the [Forms object](https://developer.bigcommerce.com/stencil-docs/stencil-object-model-reference/stencil-objects/other-objects-and-properties/forms-objects) for details.
 
----
+
 
 <a href='#bundling_verify-directory' aria-hidden='true' class='block-anchor'  id='bundling_verify-directory'><i aria-hidden='true' class='linkify icon'></i></a>
 
@@ -93,7 +93,7 @@ If you have added any new subdirectories or files to your base theme, verify tha
 </div>
 </div>
 
----
+
 
 <a href='#bundling_bundling-your-theme' aria-hidden='true' class='block-anchor'  id='bundling_bundling-your-theme'><i aria-hidden='true' class='linkify icon'></i></a>
 
@@ -137,7 +137,7 @@ For file-size error diagnostics and workarounds, please _Check/Adjust Zipfile's 
 * If bundling your theme triggers multiple lint errors related to the `bundle.js` file, then your theme is missing the `.eslintignore` file. Please retrieve this file from the [Stencil Cornerstone repo](https://github.com/bigcommerce/cornerstone/blob/master/.eslintignore), then re-run `stencil bundle` or `stencil push`.
 
 
----
+
 
 <a href='#bundling_uploading-your-theme' aria-hidden='true' class='block-anchor'  id='bundling_uploading-your-theme'><i aria-hidden='true' class='linkify icon'></i></a>
 
@@ -207,7 +207,7 @@ Stencil CLI will then confirm which variation is active on the storefront.
 
 ![](//s3.amazonaws.com/user-content.stoplight.io/6116/1539055915081 "")
 
----
+
 
 <a href='#bunding_theme-quota' aria-hidden='true' class='block-anchor'  id='bunding_theme-quota'><i aria-hidden='true' class='linkify icon'></i></a>
 
@@ -247,7 +247,7 @@ If you have any doubts â€“ especially about deleting multiple themes/versions â€
 </div>
 </div>
 
----
+
 
 <a href='#bundling_other-bundling' aria-hidden='true' class='block-anchor'  id='bundling_other-bundling'><i aria-hidden='true' class='linkify icon'></i></a>
 

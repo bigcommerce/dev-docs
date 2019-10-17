@@ -15,7 +15,7 @@ A few themes might exceed the 50 MB limit. If this is the case, you have two opt
 * Shrink Your Theme with the help of WebDAV
 * Stage Your Theme for CDN Delivery to restructure your theme to a size that's manageable for upload to BigCommerce.
 
----
+
 
 <a href='#checking_shrinking' aria-hidden='true' class='block-anchor'  id='checking_shrinking'><i aria-hidden='true' class='linkify icon'></i></a>
 
@@ -111,7 +111,7 @@ The directories accessible through WebDAV will dynamically change, depending on 
 
 <i>The overall difference is that the WebDAV `/template/` and `/mobile_template/` directories are <b>not</b> available for Stencil themes. These templates must reside and remain within your Stencil theme's local directory and file structure.</i>
 
----
+
 
 <a href='#checking_organizing' aria-hidden='true' class='block-anchor'  id='checking_organizing'><i aria-hidden='true' class='linkify icon'></i></a>
 
@@ -133,7 +133,7 @@ Then, as you develop your theme, reference each of these assets using Stencil's 
 When you are ready to upload your theme to BigCommerce, follow the procedure in [Bundling and Submitting a Theme](https://developer.bigcommerce.com/stencil-docs/deploying-a-theme/bundling-and-pushing).
 
 
----
+
 
 ## Resources
 

@@ -27,7 +27,7 @@ Payments are processed via a sequence of requests to two API hosts:
 
 [![Run in Postman](https://run.pstmn.io/button.svg)](https://app.getpostman.com/run-collection/38daa68bda00ba9d4734)
 
----
+
 
 <a href='#payments_pci-compliance' aria-hidden='true' class='block-anchor'  id='payments_pci-compliance'><i aria-hidden='true' class='linkify icon'></i></a>
 
@@ -50,7 +50,7 @@ Merchants or shoppers personal identifiable information (PII) collected by recur
 </div>
 </div>
 
----
+
 
 <a href='#payments_processing-payment' aria-hidden='true' class='block-anchor'  id='payments_processing-payment'><i aria-hidden='true' class='linkify icon'></i></a>
 
@@ -104,7 +104,7 @@ Payments can be processed using cards stored with the BigCommerce Stored Credit 
 </div>
 </div>
 
----
+
 
 <a href='#payments_stored-cards' aria-hidden='true' class='block-anchor'  id='payments_stored-cards'><i aria-hidden='true' class='linkify icon'></i></a>
 
@@ -312,7 +312,7 @@ lineNumbers: true
 
 If the purchase was successful it will return a status of success. The order is then automatically moved to an Awaiting Fulfillment status. If you get a different response, see [Error Codes](#payments_error-codes) for troubleshooting.
 
----
+
 
 <a href='#payments_credit-cards' aria-hidden='true' class='block-anchor'  id='payments_credit-cards'><i aria-hidden='true' class='linkify icon'></i></a>
 
@@ -445,7 +445,7 @@ lineNumbers: true
 
 If the purchase was successful it will return a status of success. The order is then automatically moved to an Awaiting Fulfillment status. If you get a different response, see [Error Codes](#payments_error-codes) for troubleshooting.
 
----
+
 
 <a href='#payments_orders-api' aria-hidden='true' class='block-anchor'  id='payments_orders-api'><i aria-hidden='true' class='linkify icon'></i></a>
 
@@ -549,7 +549,7 @@ The card data is not accessible via the API once the payment is processed.
 ### Rate Limits
 BigCommerce has rates limits in place for this API. Some payment providers will provide checks on the incoming requests.
 
----
+
 
 <a href='#payments_sample-app-diagram' aria-hidden='true' class='block-anchor'  id='payments_sample-app-diagram'><i aria-hidden='true' class='linkify icon'></i></a>
 
@@ -570,14 +570,14 @@ Orders can be created using the [Server to Server API Endpoints](https://develop
 ](//s3.amazonaws.com/user-content.stoplight.io/6012/1553180551833 "#### Sample App
 ")
 
----
+
 
 <a href='#payments_error-codes' aria-hidden='true' class='block-anchor'  id='payments_error-codes'><i aria-hidden='true' class='linkify icon'></i></a>
 
 ## Error Codes
 
 | Code | Description | Possible Causes | Possible Solutions |
-| ---   | ---  |  ---- |  ---- |
+|    |   |  - |  - |
 | `10000` |  An internal error has occurred within the API. |  Connection error | Try the request again. |
 | `10001` | Missing or incorrect required fields. | Missing or Incorrect Fields |  Check the request for any data that is incorrect or is missing |
 | `30000` | Merchant payment configuration could not be found. | * The payment provider has not been configured in the store. | Check the [payment gateways](https://support.bigcommerce.com/s/article/Online-Payment-Methods#setup) settings in your BigCommerce store. |
@@ -595,7 +595,7 @@ Orders can be created using the [Server to Server API Endpoints](https://develop
 | `30105` | The payment was declined due to duplicate payment being submitted. |N/A |N/A |
 | `30106` | The payment was declined due to insufficient funds. |N/A |N/A|
 
----
+
 
 <a href='#payments_faq' aria-hidden='true' class='block-anchor'  id='payments_faq'><i aria-hidden='true' class='linkify icon'></i></a>
 
@@ -635,7 +635,7 @@ Gift certificates are not supported with the Payments API. Gift certificates can
 **Are offline payment methods supported?**
 The Payments API is designed to process credit card payments through supported payment gateways; it does not expose methods for processing [offline payment methods](https://support.bigcommerce.com/s/article/Offline-Payment-Methods) such as cash on delivery.
 
----
+
 
 ## Resources
 

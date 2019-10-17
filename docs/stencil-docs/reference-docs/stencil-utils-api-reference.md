@@ -14,7 +14,7 @@
 - [Resources](#resources)
 </div>
 
----
+
 [Stencil Utils](https://github.com/bigcommerce/stencil-utils) is a utility library that contains the BigCommerce Stencil Events system and other functions that make building a theme with the Stencil framework a breeze.
 
 These functions help you set up asynchronous requests to modify the customer’s cart or storefront view. By using this abstraction library, you can gain more-granular control over themes’ presentation. Use stencil-utils to:
@@ -160,7 +160,7 @@ utils.api.cart.getCartQuantity(quantity => {
 ### Usage in Cornerstone
 - [`assets/js/theme/global/cart-preview.js`](https://github.com/bigcommerce/cornerstone/blob/master/assets/js/theme/global/cart-preview.js)
 
----
+
 
 ### [itemAdd](https://github.com/bigcommerce/stencil-utils/blob/master/src/api/cart.js#L51)
 
@@ -228,7 +228,7 @@ The `itemAdd`function allows your code to add an item to the cart, with options:
 ### Usage in Cornerstone
 - [`assets/js/theme/common/product-details.js`](https://github.com/bigcommerce/cornerstone/blob/master/assets/js/theme/common/product-details.js)
 
----
+
 
 ### [itemUpdate](https://github.com/bigcommerce/stencil-utils/blob/master/src/api/cart.js#L70)
 
@@ -310,7 +310,7 @@ The <code>itemUpdate</code> function allows your code to update a specified cart
 ### Usage in Cornerstone
 - [`assets/js/theme/cart.js`](https://github.com/bigcommerce/cornerstone/blob/d786c6ecbed5ad588ed9489f79e2226455a07b21/assets/js/theme/cart.js)
 
----
+
 
 
 ### [itemRemove](https://github.com/bigcommerce/stencil-utils/blob/master/src/api/cart.js#L106)
@@ -361,7 +361,7 @@ In the following example (from <code>cart.js</code>), <code>itemRemove</code> is
 
 - [`assets/js/theme/cart.js`](https://github.com/bigcommerce/cornerstone/blob/d786c6ecbed5ad588ed9489f79e2226455a07b21/assets/js/theme/cart.js)
 
----
+
 
 ### [update](https://github.com/bigcommerce/stencil-utils/blob/master/src/api/cart.js#L160)
 
@@ -424,7 +424,7 @@ The following example shows a call to `update` within the `itemUpdate` function:
     } 
 ```
 
----
+
 
 ### [getItemGiftWrappingOptions](https://github.com/bigcommerce/stencil-utils/blob/master/src/api/cart.js#L132)
 
@@ -485,7 +485,7 @@ The following example (from `cart.js`) calls `getItemGiftWrappingOptions` to dis
 
 - [`assets/js/theme/cart.js`](https://github.com/bigcommerce/cornerstone/blob/master/assets/js/theme/cart.js)
 
----
+
 
 
 
@@ -535,7 +535,7 @@ This commented example shows a simple call to `submitItemGiftWrappingOption`:
     }
  ```
 
----
+
 
 
 
@@ -612,7 +612,7 @@ refreshContent(remove) {
 
 
 
----
+
 
 
 
@@ -651,7 +651,7 @@ See submitShippingQutoes for an example.
 ### Usage in Cornerstone
 - [`assets/js/theme/cart/shipping-estimator.js`](https://github.com/bigcommerce/cornerstone/blob/master/assets/js/theme/cart/shipping-estimator.js)
 
----
+
 
 
 
@@ -721,7 +721,7 @@ bindEstimatorEvents() {
 ### Usage in Cornerstone
 - [`assets/js/theme/cart/shipping-estimator.js`](https://github.com/bigcommerce/cornerstone/blob/master/assets/js/theme/cart/shipping-estimator.js)
 
----
+
 
 
 
@@ -802,7 +802,7 @@ bindPromoCodeEvents() {
 - [`assets/js/theme/cart.js`](https://github.com/bigcommerce/cornerstone/blob/master/assets/js/theme/cart.js)
 
 
----
+
 
 
 
@@ -838,7 +838,7 @@ Apply a gift certificate to a cart.
 ### Usage in Cornerstone
 - [`assets/js/theme/cart.js`](https://github.com/bigcommerce/cornerstone/blob/master/assets/js/theme/cart.js)
 
----
+
 
 
 
@@ -903,7 +903,7 @@ The following example a call to `getById`, followed by a call to the `getByName`
 }
 ```
 
----
+
 
 
 
@@ -972,7 +972,7 @@ $('select[data-field-type="Country"]').on('change', (event) => {
 - [`assets/js/theme/common/state-country.js`](https://github.com/bigcommerce/cornerstone/blob/master/assets/js/theme/common/state-country.js)
 
 
----
+
 
 
 
@@ -1037,7 +1037,7 @@ In this example (from `common/product-details.js`), `optionChange` is called to 
 - [`assets/js/theme/common/product-details.js`](https://github.com/bigcommerce/cornerstone/blob/master/assets/js/theme/common/product-details.js)
 - [`assets/js/theme/cart.js`](https://github.com/bigcommerce/cornerstone/blob/master/assets/js/theme/cart.js)
 
----
+
 
 
 
@@ -1048,7 +1048,7 @@ Configure product options in the cart.
 `utils.api.productAttributes.configureInCart(itemId, options, callback)`
 
 | Argument | Type | Description|
-| --- | --- | -- |
+|  |  | -- |
 | itemId | number | product ID|
 | params | object | |
 | callback | Function | Asynchronous function call to handle the results |
@@ -1067,7 +1067,7 @@ Configure product options in the cart.
 - [`assets/js/theme/cart.js`](https://github.com/bigcommerce/cornerstone/blob/master/assets/js/theme/cart.js)
 
 
----
+
 
 
 
@@ -1129,7 +1129,7 @@ The `product.getById` function allows your code to retrieve, and to present, det
 ### Usage in Cornerstone
 - [`assets/js/theme/global/quick-view.js`](https://github.com/bigcommerce/cornerstone/blob/master/assets/js/theme/global/quick-view.js)
 
----
+
 
 
 
@@ -1183,7 +1183,7 @@ The `search` function allows you to present a customized user interface for sear
 ### Usage in Cornerstone
 - [`assets/js/theme/global/quick-search/js`](https://github.com/bigcommerce/cornerstone/blob/master/assets/js/theme/global/quick-search.js)
 
----
+
 
 
 
@@ -1210,7 +1210,7 @@ getCartContent(cartItemHash, onComplete) {
         };
 ```
 
----
+
 
 ### Search Attributes
 
@@ -1226,7 +1226,7 @@ getCartContent(cartItemHash, onComplete) {
         }
 ```
 
----
+
 
 ### Brands
 
@@ -1254,7 +1254,7 @@ getCartContent(cartItemHash, onComplete) {
 ```
 
 
----
+
 
 ### Cart
 
@@ -1269,7 +1269,7 @@ getCartContent(cartItemHash, onComplete) {
            }
         }
 ```
----
+
 
 ### Product
 
@@ -1296,7 +1296,7 @@ getCartContent(cartItemHash, onComplete) {
            }
         }
 ```
---- 
+ 
 
 ### Blog
 
@@ -1314,7 +1314,7 @@ getCartContent(cartItemHash, onComplete) {
         }
 ```
 
---- 
+ 
 
 ### Category
 
@@ -1330,7 +1330,7 @@ getCartContent(cartItemHash, onComplete) {
            }
         }
 ```
----
+
 
 ### Global Objects
 
@@ -1407,7 +1407,7 @@ getCartContent(cartItemHash, onComplete) {
         }
 ```
 
----
+
 
 
 ## Resources

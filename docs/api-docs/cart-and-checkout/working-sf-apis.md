@@ -23,7 +23,7 @@ This tutorial reviews the Fetch API and then uses it to complete some storefront
 
 Interaction with the Storefront APIs should be done using JavaScript. The Storefront APIs do not require API Tokens to work. The URL should be served over https and be on the [permanent URL](https://forum.bigcommerce.com/s/article/Changing-Domains); otherwise, it can cause [CORs](https://developers.google.com/web/ilt/pwa/working-with-the-fetch-api#cross-origin_requests) errors in the console.
 
----
+
 
 <a href='#working-sf-apis_create-postdata' aria-hidden='true' class='block-anchor'  id='working-sf-apis_create-postdata'><i aria-hidden='true' class='linkify icon'></i></a>
 
@@ -135,7 +135,7 @@ Finally, `.then()` is parsing the response to JSON.
 
 Now that we have the basics of creating a function with the fetch() API, we are going to use it to create a cart, get a cart and delete cart items. 
 
----
+
 
 <a href='#working-sf-apis_storefront-cart' aria-hidden='true' class='block-anchor'  id='working-sf-apis_storefront-cart'><i aria-hidden='true' class='linkify icon'></i></a>
 
@@ -1087,7 +1087,7 @@ function postData(url = ``, checkoutId = ``, consignmentId = ``, data = {},) {
 }
 ```
 
----
+
 
 <a href='#working-sf-apis_troubleshooting' aria-hidden='true' class='block-anchor'  id='working-sf-apis_troubleshooting'><i aria-hidden='true' class='linkify icon'></i></a>
 
@@ -1099,7 +1099,7 @@ Check to make sure you have the right credentials set up. Most requests will use
 **Did you get a 404?**  
 Make sure you have at least one item in your cart. Deleting all items removes the cart and returns a 404 in the browser console.
 
----
+
 
 <a href='#working-sf-apis_realated-endpoints' aria-hidden='true' class='block-anchor'  id='working-sf-apis_realated-endpoints'><i aria-hidden='true' class='linkify icon'></i></a>
 

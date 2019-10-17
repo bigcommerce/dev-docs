@@ -36,7 +36,7 @@ When you pass only one parameter to the `if` helper, it will return the followin
 - For an array parameter, the array's length.
 - For an empty object, a value of `false`.
 
----
+
 
 <a href='#handlebars_unless' aria-hidden='true' class='block-anchor'  id='handlebars_unless'><i aria-hidden='true' class='linkify icon'></i></a>
 

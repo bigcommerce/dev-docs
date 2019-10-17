@@ -31,7 +31,7 @@ lineNumbers: true
 {{/partial}}
 ```
 
----
+
 
 <a href='#page-composition_template-composition' aria-hidden='true' class='block-anchor'  id='page-composition_template-composition'><i aria-hidden='true' class='linkify icon'></i></a>
 

@@ -22,14 +22,14 @@ With headless, developers can use BigCommerce as the back-end for several stores
 In this article we will review ways you can implement headless, what requires PCI compliance audits and go through sample workflows for cart and checkout.
 
 
----
+
 
 <a href='#headless-commerce_prerequisites' aria-hidden='true' class='block-anchor'  id='headless-commerce_prerequisites'><i aria-hidden='true' class='linkify icon'></i></a>
 
 ## Prerequisites
 To use the BigCommerce platform for headless commerce, you must have a store on an active plan. The store does not need to be [launched](https://support.bigcommerce.com/s/article/Launching-Your-Store).
 
----
+
 
 <a href='#headless-commerce_ways-to-implement-headless' aria-hidden='true' class='block-anchor'  id='headless-commerce_ways-to-implement-headless'><i aria-hidden='true' class='linkify icon'></i></a>
 
@@ -122,7 +122,7 @@ To customize the checkout when using a redirect URL, use our [Checkout SDK](http
 **Checkout API**  
 If you need complete control over the checkout page, you have the option to build an external checkout in your CMS or app using the server-to-server Checkout API. Then use the Payments API to process a payment through BigCommerce to take payment for the order. If you are using the Payments API, you are responsible for [PCI compliance](#headless-commerce_pci-compliance).
 
----
+
 
 <a href='#headless-commerce-customer_login' aria-hidden='true' class='block-anchor'  id='headless-commerce-customer_login'><i aria-hidden='true' class='linkify icon'></i></a>
 
@@ -141,7 +141,7 @@ Our WordPress plugin uses the approach of using the Customer API to [validate th
 
 If a new account is created in WordPress, the password is written to the customer account in BigCommerce and used as the validation in future requests. The password is never stored in the WordPress database. You can match customers using the email address and the [Customers API](https://developer.bigcommerce.com/api-reference/customer-subscribers/v3-customers-api).
 
----
+
 
 <a href='#headless-commerce_sample-integration' aria-hidden='true' class='block-anchor'  id='headless-commerce_sample-integration'><i aria-hidden='true' class='linkify icon'></i></a>
 
@@ -171,7 +171,7 @@ BigCommerce will respond to the application with the requested data to power the
 ](//s3.amazonaws.com/user-content.stoplight.io/6012/1554323466855 "#### Sample Headless Integration
 ")
 
----
+
 
 <a href='#headless-commerce_pci-compliance' aria-hidden='true' class='block-anchor'  id='headless-commerce_pci-compliance'><i aria-hidden='true' class='linkify icon'></i></a>
 
@@ -213,7 +213,7 @@ It is possible to use one more of BigCommerce's technology stack at the same tim
 </div>
 </div>
 
----
+
 
 <a href='#headless-commerce_sample-api-workflows' aria-hidden='true' class='block-anchor'  id='headless-commerce_sample-api-workflows'><i aria-hidden='true' class='linkify icon'></i></a>
 
@@ -270,7 +270,7 @@ Below are example workflows that list which APIs are needed to create a Cart, Ch
 
 
 
----
+
 
 ## Resources
 

@@ -17,7 +17,7 @@
 	</ul>
 </div>
 
----
+
 
 Dev Tools is the BigCommerce workspace for developing single-click apps. Within Dev Tools, you'll create the Client Id and Client Secret to authenticate your apps, submit new apps to the App Marketplace, and manage existing Marketplace listings.
 
@@ -25,7 +25,7 @@ Dev Tools can be found by clicking [My Apps](https://devtools.bigcommerce.com/) 
 
 The requirements to submit an app are listed below, as well as where the information needs to be updated.
 
----
+
 
 <a href='#app-store-approval-requirements_prerequisites' aria-hidden='true' class='block-anchor'  id='app-store-approval-requirements_prerequisites'><i aria-hidden='true' class='linkify icon'></i></a>
 
@@ -33,7 +33,7 @@ The requirements to submit an app are listed below, as well as where the informa
 
 Make sure you’ve applied and been approved for our [Technology Partner Program](https://partners.bigcommerce.com/English/register_email.aspx) before you’re ready to submit your app - you’ll need a valid Partner ID to do so. You’ll also need to accept the Terms & Conditions in the [Partner Portal](https://partners.bigcommerce.com/English/) before we can publish your app.
 
----
+
 
 <a href='#app-store-approval-requirements_general-requirements' aria-hidden='true' class='block-anchor'  id='app-store-approval-requirements_general-requirements'><i aria-hidden='true' class='linkify icon'></i></a>
 
@@ -52,7 +52,7 @@ Make sure you’ve applied and been approved for our [Technology Partner Program
 -   Your app, including any storefront components, should be compatible with all [browsers](https://support.bigcommerce.com/s/article/Themes-Supported-Browsers) that the BigCommerce platform supports.
 
 
----
+
 
 <a href='#app-store-approval-requirements_functionality' aria-hidden='true' class='block-anchor'  id='app-store-approval-requirements_functionality'><i aria-hidden='true' class='linkify icon'></i></a>
 
@@ -72,7 +72,7 @@ Make sure you’ve applied and been approved for our [Technology Partner Program
 
 -   If your app requires payment, you’ll need to collect payment from the user within your app. See Pricing & Categorization under App Summary for more information.
 
----
+
 
 <a href='#app-store-approval-requirements_installation' aria-hidden='true' class='block-anchor'  id='app-store-approval-requirements_installation'><i aria-hidden='true' class='linkify icon'></i></a>
 
@@ -98,7 +98,7 @@ Make sure you’ve applied and been approved for our [Technology Partner Program
 </div>
 </div>
 
----
+
 
 <a href='#app-store-approval-requirements_recommendations' aria-hidden='true' class='block-anchor'  id='app-store-approval-requirements_recommendations'><i aria-hidden='true' class='linkify icon'></i></a>
 
@@ -112,7 +112,7 @@ Make sure you’ve applied and been approved for our [Technology Partner Program
 
 -   Want to share user testimonials? Add a link to your full case study in the Case Studies field, with a title and short description.
 
----
+
 
 ## Dev Tools Walkthrough
 
@@ -120,7 +120,7 @@ Below are the screens you will go through when submitting an app through DevTool
 
 <a href='#app-store-approval-requirements_dev-tools-walkthrough' aria-hidden='true' class='block-anchor'  id='app-store-approval-requirements_dev-tools-walkthrough'><i aria-hidden='true' class='linkify icon'></i></a>
 
- ---
+ 
 <a id="app-store-approval-requirements_app_summary"></a>
 
 ## App Summary
@@ -202,7 +202,7 @@ Your app icon will be included on the main app detail page and the sidebar in th
 ### Category
 Choose the most appropriate category for your app. Take a look at the live [Marketplace](https://www.bigcommerce.com/apps/) for an idea of where solutions are currently assigned to help decide the right category. The category selection will also be a search attribute for your listing. BigCommerce will review your category assignment and may re-categorize your listing prior to launch. One category maximum.
 
----
+
 <a id="app-store-approval-requirements_details"></a>
 
 ## Details
@@ -303,7 +303,7 @@ Add screenshots of your solution’s functionality or user interface as it appea
 ### Alternate Logo
 Your alternate logo will be used if your app is featured on the homepage carousel of the Marketplace. This image should be 259 x 158px (or larger at this ratio) with a dark background and white or light branding in the foreground. The logo should only include branding, no taglines necessary.
 
-----
+-
 
 <a id="app-store-approval-requirements_technical"></a>
 
@@ -348,7 +348,7 @@ If you know the [OAuth scopes](/api-docs/getting-started/authentication#authenti
 Add in any instructions needed to test the app thoroughly.
 
 
----
+
 <a id="app-store-approval-requirements_review"></a>
 
 ## Review
@@ -357,7 +357,7 @@ Add in any instructions needed to test the app thoroughly.
 
 Review the information added before submitting the app. Look over this page carefully, once the app is submitted, if it is rejected there will be another fee for submission.
 
----
+
 <a id="app-store-approval-requirements_preview"></a>
 
 ## Preview
@@ -366,7 +366,7 @@ Review the information added before submitting the app. Look over this page care
 
 This is an approximation of what the app’s page will look like in the BigCommerce Marketplace.
 
----
+
 
 <a id="app-store-approval-requirements_payment-submission"></a>
 
@@ -376,7 +376,7 @@ This is an approximation of what the app’s page will look like in the BigComme
 
 At this point you make sure the information has been filled out completely and the app has been thoroughly tested before submitting for review. Updates to the App will not require the submission fee again.
 
----
+
 
 ## Resources
 ### Related Endpoints

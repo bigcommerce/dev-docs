@@ -149,7 +149,7 @@
               }
             }
           },
-          "description": "Creates a *Channel*.\n\n**Required Fields**\n* type\n* platform\n* name\n\nType and platform must each be one of the allowed fields. Type & platform combination must also be a valid pair, which currently includes:\n* Type: pos\n* Platform: square, vend, clover, custom\n-------------\n* Type: marketplace\n* Platform: facebook, amazon, ebay, custom\n-----------------\n* Type: storefront\n* Platform: bigcommerce, wordpress, drupal, acquia, bloomreach, deity, custom\n------------------\n* Type: marketing\n* Platform: facebook, google_shopping, custom"
+          "description": "Creates a *Channel*.\n\n**Required Fields**\n* type\n* platform\n* name\n\nType and platform must each be one of the allowed fields. Type & platform combination must also be a valid pair, which currently includes:\n* Type: pos\n* Platform: square, vend, clover, custom\n-\n* Type: marketplace\n* Platform: facebook, amazon, ebay, custom\n--\n* Type: storefront\n* Platform: bigcommerce, wordpress, drupal, acquia, bloomreach, deity, custom\n\n* Type: marketing\n* Platform: facebook, google_shopping, custom"
         }
       },
       "/channels/{channelId}": {

@@ -27,7 +27,7 @@ For any unexpected behavior you encounter while developing your Stencil theme, w
 
 In some cases, the terminal will provide a verbose error message specifying where to look for problems. It has the potential to provide further insight on the issue. Diagnostic suggestions are listed on this page for error messages that may not be helpful in revealing the issue you're experiencing.
 
----
+
 
 <a href='#troubleshooting_unsupported' aria-hidden='true' class='block-anchor'  id='troubleshooting_unsupported'><i aria-hidden='true' class='linkify icon'></i></a>
 
@@ -44,7 +44,7 @@ Debug: internal, implementation, error
 
 On Mac OS, we have tested Stencil CLI most robustly on Node.js version 4.4.0. On Linux, we have tested most robustly on version 4.1.2. On Windows, we have tested most robustly on version 4.6.1. You’ll find detailed steps (for each operating system) in these instructions' Installing Stencil Prerequisites by OS section.
 
----
+
 
 <a href='#troubleshooting_npm-install' aria-hidden='true' class='block-anchor'  id='troubleshooting_npm-install'><i aria-hidden='true' class='linkify icon'></i></a>
 
@@ -98,7 +98,7 @@ This should now execute properly.
 
 8. Verify your theme's launch at: http://localhost:3000.
 
----
+
 
 <a href='#troubleshooting_npm-install-stencil-init' aria-hidden='true' class='block-anchor'  id='troubleshooting_npm-install-stencil-init'><i aria-hidden='true' class='linkify icon'></i></a>
 
@@ -106,7 +106,7 @@ This should now execute properly.
 
 If you get an unexpected error messages when issuing the `npm install` or `stencil init` commands, check your Node.js version and ensure it aligns with a version compatible for the Stencil framework.
 
----
+
 
 <a href='#troubleshooting_stencil-init' aria-hidden='true' class='block-anchor'  id='troubleshooting_stencil-init'><i aria-hidden='true' class='linkify icon'></i></a>
 
@@ -116,7 +116,7 @@ If you get an unexpected error message or unexpected results upon executing the 
 
 One way of checking what directory you are working in is by running the `pwd` command in your terminal.
 
----
+
 
 <a href='#troubleshooting_stencil-start-missing-module' aria-hidden='true' class='block-anchor'  id='troubleshooting_stencil-start-missing-module'><i aria-hidden='true' class='linkify icon'></i></a>
 
@@ -146,7 +146,7 @@ switch to your theme directory and run `npm install`. Running this command will 
 
 If you receive the same error again after running `npm install`, you should completely uninstall and reinstall both the Stencil framework and Node.js.
 
----
+
 
 <a href='#troubleshooting_uncaught' aria-hidden='true' class='block-anchor'  id='troubleshooting_uncaught'><i aria-hidden='true' class='linkify icon'></i></a>
 
@@ -154,7 +154,7 @@ If you receive the same error again after running `npm install`, you should comp
 
 If you receive an `Uncaught TypeError: Illegal invocation` console error, and previously installed Stencil using the original jspm-based installation flow and later switched to our current webpack installation flow, please remove your theme's `/node_modules/` subdirectory, then re-run `npm install` inside your theme's directory.
 
----
+
 
 <a href='#troubleshooting_mac-os' aria-hidden='true' class='block-anchor'  id='troubleshooting_mac-os'><i aria-hidden='true' class='linkify icon'></i></a>
 
@@ -171,7 +171,7 @@ To resolve this error, do the following:
 * Re-execute your Stencil command.
 
 
----
+
 
 <a href='#troubleshooting_etimeout' aria-hidden='true' class='block-anchor'  id='troubleshooting_etimeout'><i aria-hidden='true' class='linkify icon'></i></a>
 
@@ -179,7 +179,7 @@ To resolve this error, do the following:
 
 If you are running a version of Node.js higher than 4.4.0, and you receive an `ETIMEOUT` error when running Stencil CLI, re-install the latest version of Stencil CLI to resolve this error by following the workflow in Installing Stencil CLI/Framework.
 
----
+
 
 <a href='#troubleshooting_stencil-command-not-found' aria-hidden='true' class='block-anchor'  id='troubleshooting_stencil-command-not-found'><i aria-hidden='true' class='linkify icon'></i></a>
 
@@ -206,7 +206,7 @@ If this reports more than one version, specify your platform's supported Node.js
 To prevent this error from recurring, add the same `nvm use <version_number>` command to your ~/.bash_profile file.
 
 
----
+
 
 <a id="troubleshooting_stencil-start-errors"></a>
 
@@ -237,7 +237,7 @@ jspm install
 
 4. Re-launch your theme.
 
----
+
 
 <a href='#troubleshooting_500-errors' aria-hidden='true' class='block-anchor'  id='troubleshooting_500-errors'><i aria-hidden='true' class='linkify icon'></i></a>
 
@@ -249,7 +249,7 @@ If you see errors like or _similar_ to below:
 
 They often indicate a template syntax error, such as unmatched or missing punctuation. Check your terminal window for more details.
 
----
+
 
 <a href='#troubleshooting_lint-errors' aria-hidden='true' class='block-anchor'  id='troubleshooting_lint-errors'><i aria-hidden='true' class='linkify icon'></i></a>
 
@@ -258,7 +258,7 @@ They often indicate a template syntax error, such as unmatched or missing punctu
 If bundling your theme triggers multiple lint errors related to the `bundle.js` file, your theme is missing the `.eslintignore` file. Retrieve [this file from the Cornerstone repo](https://github.com/bigcommerce/cornerstone), then re-run `stencil bundle`.
 
 
----
+
 
 <a href='#troubleshooting_module-not-found' aria-hidden='true' class='block-anchor'  id='troubleshooting_module-not-found'><i aria-hidden='true' class='linkify icon'></i></a>
 
@@ -270,7 +270,7 @@ If you see the following error when running stencil bundle, this is a past bug t
 
 To remove the error, please update your Cornerstone version.
 
----
+
 
 <a href='#troubleshooting_short' aria-hidden='true' class='block-anchor'  id='troubleshooting_short'><i aria-hidden='true' class='linkify icon'></i></a>
 
@@ -286,7 +286,7 @@ to:
 
 The `eval-cheap-module-source-map` option performs faster rebuilds, but omits line numbers. The `eval-source-map` option is slower, but more verbose.
 
----
+
 
 <a href='#troubleshooting_tr-300' aria-hidden='true' class='block-anchor'  id='troubleshooting_tr-300'><i aria-hidden='true' class='linkify icon'></i></a>
 
@@ -294,7 +294,7 @@ The `eval-cheap-module-source-map` option performs faster rebuilds, but omits li
 
 If uploading your theme triggers a TR-300 error, this can indicate an included source-map file (`bundle.js.map`) that exceeds its size limit of 5 MB. If your `bundle.js.map` exceeds that limit, the workaround is to move this file outside your theme directory before re-running `stencil bundle`.
 
----
+
 
 <a href='#troubleshooting_uninstalling' aria-hidden='true' class='block-anchor'  id='troubleshooting_uninstalling'><i aria-hidden='true' class='linkify icon'></i></a>
 
@@ -309,7 +309,7 @@ If you encounter persistent problems in initializing or starting Stencil, you ha
 
 A more-drastic measure is to uninstall and reinstall Stencil CLI's Node.js prerequisites (along with uninstalling Stencil CLI). We do not recommend this, as it might disable other Node.js applications on your local machine.
 
----
+
 
 ## Resources
 

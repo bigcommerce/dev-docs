@@ -16,7 +16,7 @@
 ### Product Options Object – Properties 
 
 | Title | Name | Type | Description |
-| --- | --- | --- | --- |
+|  |  |  |  |
 | `id` | `int` |
 | `option_id` | `int` |
 | `display_name` | `string` |
@@ -24,7 +24,7 @@
 | `is_required` | `boolean` |
 
 
----
+
 
 <a href='#v2-review_list-product-reviews' aria-hidden='true' class='block-anchor'  id='v2-review_list-product-reviews'><i aria-hidden='true' class='linkify icon'></i></a>
 
@@ -39,7 +39,7 @@ Gets the options associated with a product.
 Parameters can be added to the URL query string to paginate the collection. The maximum limit is 250\. If a limit isn’t provided, up to 50 product_options are returned by default.
 
 | Parameter | Type | Example |
-| --- | --- | --- |
+|  |  |  |
 | `page` | int | `/api/v2/products/{product_id}/options?page={number}` |
 | `limit` | int | `/api/v2/products/{product_id}/options?limit={count}` |
 

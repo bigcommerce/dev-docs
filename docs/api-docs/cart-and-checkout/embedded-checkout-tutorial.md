@@ -19,7 +19,7 @@ This article assumes you have familiarity with the following concepts:
 * Making and recieving API calls from within your app
 * Using your application to make changes to a front end
 
----
+
 
 ### Prerequisites
 

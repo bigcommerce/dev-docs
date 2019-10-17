@@ -23,7 +23,7 @@ Custom theme uploads must meet these restrictions:
 * Generated parsed template files must be less than 1 MB.
 
 
----
+
 
 <a href='#troubleshooting-theme-uploads_error-codes' aria-hidden='true' class='block-anchor'  id='troubleshooting-theme-uploads_error-codes'><i aria-hidden='true' class='linkify icon'></i></a>
 
@@ -124,7 +124,7 @@ Custom theme uploads must meet these restrictions:
   </tr>
  </table>
 
----
+
 
 <a href='#troubleshooting-theme-uploads_warnings' aria-hidden='true' class='block-anchor'  id='troubleshooting-theme-uploads_warnings'><i aria-hidden='true' class='linkify icon'></i></a>
 
@@ -133,7 +133,7 @@ Custom theme uploads must meet these restrictions:
 Warnings will not block a theme's upload, but these onscreen and/or log messages notify you of problems within the zipped theme. Here are the warnings and their meanings:
 
 | Warning |
-|---|
+||
 | (These messages do not have numeric codes) |
 | Issue in processing this theme's thumbnail screenshot (`composed_image`). |
 | Issue in processing this theme's full-size screenshot (`desktop_screenshot`). |
@@ -150,7 +150,7 @@ Warnings will not block a theme's upload, but these onscreen and/or log messages
 | Too-large image file size for a theme screenshot `composed_image` (thumbnails), `desktop_screenshot`, or `mobile_screenshot`] . The maximum supported size is x, but the file's actual size is y. |
 
 
----
+
 
 <a href='#troubleshooting-theme-uploads_workarounds' aria-hidden='true' class='block-anchor'  id='troubleshooting-theme-uploads_workarounds'><i aria-hidden='true' class='linkify icon'></i></a>
 

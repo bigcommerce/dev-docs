@@ -264,7 +264,7 @@ Note that we're "injecting" the product here, so we have access to its propertie
 
 We also needed to add form fields for the `EventDate[Mth]`, `EventDate[Day]`, and `EventDate[Yr]` data, which we update whenever the `changeDate` event occurs. This conforms to the data format that the server expects. These fields are hidden from the user.
 
----
+
 
 <a href='#npm-tutorials_advanced' aria-hidden='true' class='block-anchor'  id='npm-tutorials_advanced'><i aria-hidden='true' class='linkify icon'></i></a>
 

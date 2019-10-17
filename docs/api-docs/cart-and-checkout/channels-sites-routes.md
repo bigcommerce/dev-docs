@@ -21,7 +21,7 @@ With Channels, Sites and Routes APIs, developers can quickly create an app that 
 
 Through these integrations, merchants can easily expand where they sell their product catalog online, helping broaden shopper reach with greater merchandising opportunities.
 
----
+
 <a id="channels-listings"></a>
 
 ## Channels and Listings
@@ -30,7 +30,7 @@ The `/channels/` endpoint allows the creation of an external platform on which y
 
 The `/channels/{channelId}/listings` endpoint represents an individual product per channel, allowing you to override its fields with different values, whether necessary for merchandising, external channel requirements, enabling a different language, or more.
 
----
+
 
 <a id="sites-routes"></a>
 
@@ -40,14 +40,14 @@ The endpoint for `/channels/{channel_id}/site` lets you define the external URI 
 
 The `/sites/{site_id}/routes` endpoints define redirect URLs for the default URLs that would redirect back to parts of your BigCommerce store. If you don’t add a route for a certain type of entity / entities, we will default to the BigCommerce storefront URL instead.
 
----
+
 <a id="channel-manager-vs-app-marketplace"></a>
 
 ## Channel Manager vs. App Marketplace
 
 The BigCommerce Channel Manager and App Marketplace are the two places where channel apps can be discovered and installed by merchants. While there are similar requirements for building an app that will be marketed in either of these two locations, there are unique benefits, requirements, and considerations for apps that are made available in the Channel Manager. 
 
----
+
 
 <a id="channels-sites-routes-app"></a>
 
@@ -79,13 +79,13 @@ These APIs are not always required, but highly recommended for app developers ba
 * Cart & Checkout: Server to Server Checkout ([API Docs](https://developer.bigcommerce.com/api-docs/cart-and-checkout/cart-and-checkout-overview), [API Reference](https://developer.bigcommerce.com/api-reference/cart-checkout/server-server-checkout-api))
 * Cart & Checkout: Checkout SDK ([API Docs](https://developer.bigcommerce.com/api-docs/cart-and-checkout/checkout-sdk), [Github](https://github.com/bigcommerce/checkout-sdk-js))
 
----
+
 
 
 ### Features/ Requirements
 
 |  | Channel Manager | App Marketplace |
-| ---| ---| ---|
+| | | |
 | Preferred app placement & discovery in the control panel | Yes | No |
 | Required to use BigCommerce’s Big Design  UI components | Yes | No|
 | Must be express-installable app | Yes | No |

@@ -18,7 +18,7 @@ You will need to have an authentication token to use the Stencil CLI. See Gettin
 
 Each OS has different prerequisites. Be sure to check the correct tab in the [Prerequisites by OS](#installing_prerequisites) (Mac OS, Linux, or Windows) section before attempting installation.
 
----
+
 
 <a href='#installing_prerequisites' aria-hidden='true' class='block-anchor'  id='installing_prerequisites'><i aria-hidden='true' class='linkify icon'></i></a>
 
@@ -191,7 +191,7 @@ If you run into any problems with Stencil installation or launch, first consult 
 
 If that does not resolve your issue, consult our [Support resources](https://support.bigcommerce.com/s/), which include community and peer support via [BigCommerce Developer Community](https://support.bigcommerce.com/s/group/0F913000000HLjECAW/bigcommerce-developers) and [Stack Overflow](https://stackoverflow.com/questions/tagged/bigcommerce) forums.
 
----
+
 
 <a href='#installing_installing-the-stencil-cli' aria-hidden='true' class='block-anchor'  id='installing_installing-the-stencil-cli'><i aria-hidden='true' class='linkify icon'></i></a>
 
@@ -244,7 +244,7 @@ Occasionally, you will receive a command line prompt to run the installation com
 </div>
 </div>
 
----
+
 
 <a href='#installing_cloning-cornerstone' aria-hidden='true' class='block-anchor'  id='installing_cloning-cornerstone'><i aria-hidden='true' class='linkify icon'></i></a>
 
@@ -283,7 +283,7 @@ In the next step, we'll install Stencil's [JavaScript utilities](/stencil-docs/g
 </div>
 </div>
 
----
+
 
 <a href='#installing_installing-stencils-js-utilities' aria-hidden='true' class='block-anchor'  id='installing_installing-stencils-js-utilities'><i aria-hidden='true' class='linkify icon'></i></a>
 
@@ -311,7 +311,7 @@ npm install # install dependencies with node package manager
 
 Now that your installation is complete, you can move on to [preparing your store/tokens](/stencil-docs/getting-started/authentication-and-tokens)
 
----
+
 
 <a href='#installing_video-demo' aria-hidden='true' class='block-anchor'  id='installing_video-demo'><i aria-hidden='true' class='linkify icon'></i></a>
 

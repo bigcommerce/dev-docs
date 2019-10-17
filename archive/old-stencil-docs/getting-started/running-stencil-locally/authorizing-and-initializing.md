@@ -75,7 +75,7 @@ stencil init
 
 Your terminal window should now confirm that you have successfully initialized Stencil CLI on your local machine. With Stencil CLI initialized, you are ready to start Stencil and begin development.
 
----
+
 
 ## Resources
 ### Related Articles

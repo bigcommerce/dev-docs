@@ -23,7 +23,7 @@ Bulk pricing rules applied to a product.
 ###  Bulk Pricing Object – Properties 
 
 | Name | Type | Description |
-| --- | --- | --- |
+|  |  |  |
 | id | string | The ID of the bulk discount rule. |
 | product_id | int | The ID of the product associated with this bulk discount rule. |
 | min | int | The minimum inclusive quantity of a product to satisfy this rule. Must be greater than or equal to zero. |
@@ -31,7 +31,7 @@ Bulk pricing rules applied to a product.
 | type | enum |
 | type_value | decimal | The value of the discount |
 
----
+
 
 <a href='#v2-bulk-pricing-rules_list-bulk-pricing-rules' aria-hidden='true' class='block-anchor'  id='v2-bulk-pricing-rules_list-bulk-pricing-rules'><i aria-hidden='true' class='linkify icon'></i></a>
 
@@ -51,7 +51,7 @@ There are no filter parameters specific to `discount_rules`.
 Parameters can be added to the URL query string to paginate the collection. The maximum limit is 250. If a limit isn’t provided, up to 50 bulk_pricing_rules are returned by default.
 
 | Parameter | Type | Example |
-| --- | --- | --- |
+|  |  |  |
 | page | int | /api/v2/products/{product_id}/discount_rules?page={number} |
 | limit | int | /api/v2/products/{product_id}/discount_rules?limit={count} |
 
@@ -72,7 +72,7 @@ Example JSON returned in the response:
 ]
 ```
 
----
+
 
 <a href='#v2-bulk-pricing-rules_get-bulk-pricing-rules' aria-hidden='true' class='block-anchor'  id='v2-bulk-pricing-rules_get-bulk-pricing-rules'><i aria-hidden='true' class='linkify icon'></i></a>
 
@@ -97,7 +97,7 @@ Example JSON returned in the response:
 }
 ```
 
----
+
 
 <a href='#v2-bulk-pricing-rules_get-count-bulk-pricing-rules' aria-hidden='true' class='block-anchor'  id='v2-bulk-pricing-rules_get-count-bulk-pricing-rules'><i aria-hidden='true' class='linkify icon'></i></a>
 
@@ -118,7 +118,7 @@ Example JSON returned in the response:
 }
 ```
 
----
+
 
 <a href='#v2-bulk-pricing-rules_create-bulk-pricing-rules' aria-hidden='true' class='block-anchor'  id='v2-bulk-pricing-rules_create-bulk-pricing-rules'><i aria-hidden='true' class='linkify icon'></i></a>
 
@@ -177,7 +177,7 @@ Example JSON returned in the response:
 }
 ```
 
----
+
 
 <a href='#v2-bulk-pricing-rules_update-bulk-pricing-rules' aria-hidden='true' class='block-anchor'  id='v2-bulk-pricing-rules_update-bulk-pricing-rules'><i aria-hidden='true' class='linkify icon'></i></a>
 
@@ -236,7 +236,7 @@ Example JSON returned in the response:
 }
 ```
 
----
+
 
 <a href='#v2-bulk-pricing-rules_delete-bulk-pricing-rules' aria-hidden='true' class='block-anchor'  id='v2-bulk-pricing-rules_delete-bulk-pricing-rules'><i aria-hidden='true' class='linkify icon'></i></a>
 
@@ -246,7 +246,7 @@ Deletes a product bulk pricing rule.
 
 >`DELETE /stores/{store_hash}/v2/products/{product_id}/discount_rules/{id}`
 
----
+
 
 <a href='#v2-bulk-pricing-rules_delete-multiple-bulk-pricing-rules' aria-hidden='true' class='block-anchor'  id='v2-bulk-pricing-rules_delete-multiple-bulk-pricing-rules'><i aria-hidden='true' class='linkify icon'></i></a>
 
@@ -261,7 +261,7 @@ Deletes bulk pricing rules associated with a product.
 Parameters can be added to the URL query string to paginate the collection. The maximum limit is 250. If a limit isn’t provided, up to 50 `bulk_pricing_rules` are returned by default.
 
 | Parameter | Type | Example |
-| --- | --- | --- |
+|  |  |  |
 | page | int | /api/v2/products/{product_id}/discount_rules?page={number} |
 | limit | int | /api/v2/products/{product_id}/discount_rules?limit={count} |
 

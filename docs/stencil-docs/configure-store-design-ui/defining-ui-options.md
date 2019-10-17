@@ -37,7 +37,7 @@ that setting – and its possible values – must be present in <span class="fn"
 
 * Also, each key that you create in schema.json must have a corresponding <span class="fn">config.json</span> key whose name matches its id value. This <span class="fn">config.json</span> key sets the default value (even if that is simply an empty string). A <span class="fn">schema.json</span> setting without an `id`-matched <span class="fn">config.json</span> key will not appear to users in the Store Design GUI.
 
----
+
 
 <a href='#defining-ui-options_best-practices' aria-hidden='true' class='block-anchor'  id='defining-ui-options_best-practices'><i aria-hidden='true' class='linkify icon'></i></a>
 
@@ -53,7 +53,7 @@ Please follow these guidelines to head off errors upon theme upload, and to avoi
 
 * File Size: The maximum allowable size for a theme's <span class="fn">schema.json</span> file is 64 KB. Exceeding this limit will trigger an error upon uploading the theme to BigCommerce. (Other than this size constraint, there is no limit on the number of keys and values that you can place in a theme's <span class="fn">schema.json</span>.)
 
----
+
 
 <a href='#defining-ui-options_how-json' aria-hidden='true' class='block-anchor'  id='defining-ui-options_how-json'><i aria-hidden='true' class='linkify icon'></i></a>
 
@@ -68,7 +68,7 @@ The options displayed within these expandable Section headings correspond direct
 
 In all, the structure that you give your theme's <span class="fn">config.json</span> and <span class="fn">schema.json</span> files directly governs the UI that Store Design exposes to merchants. So these files provide your UI design tools.
 
----
+
 
 <a href='#defining-ui-options_store-design-data' aria-hidden='true' class='block-anchor'  id='defining-ui-options_store-design-data'><i aria-hidden='true' class='linkify icon'></i></a>
 
@@ -141,7 +141,7 @@ lineNumbers: true
 
 These `"type": "heading"` statements do not reference data types. Rather, they declare display captions for the Store Design UI's subcategories – the middle level nested within the Section headings, but outside the individual options from which merchants can select. (Those inner options are designated by `"label": <label-text>` statements.)
 
----
+
 
 <a href='#defining-ui-options_data-structure' aria-hidden='true' class='block-anchor'  id='defining-ui-options_data-structure'><i aria-hidden='true' class='linkify icon'></i></a>
 
@@ -150,7 +150,7 @@ These `"type": "heading"` statements do not reference data types. Rather, they d
 The <span class="fn">schema.json</span> nesting structure that you just saw maps directly to the Store Design UI displayed to merchants: Below the `variations` section (whose data are imported from <span class="fn">config.json</span>), the order and nesting of options in Store Design's UI directly matches the order and nesting of your <span class="fn">schema.json</span> entries.
 
 
----
+
 
 <a href='#defining-ui-options_troubleshooting' aria-hidden='true' class='block-anchor'  id='defining-ui-options_troubleshooting'><i aria-hidden='true' class='linkify icon'></i></a>
 

@@ -23,7 +23,7 @@ The Checkout JS SDK is a JavaScript library of methods for performing actions re
 
 We have provided a [sample checkout app](https://github.com/bigcommerce/checkout-sdk-js-example) built in React; the React sample app is a great place to get started if you prefer to build within a framework. However, because the SDK is built in vanilla JS, it’s framework agnostic. To illustrate that point, this tutorial will walk through the first steps for building a custom checkout directly into the theme files using vanilla JS. At the end of the tutorial, you will have installed the Checkout SDK, created a new JavaScript module for your custom checkout, and console logged the checkout object.
 
----
+
 
 <a href='#getting-started_prerequisites' aria-hidden='true' class='block-anchor'  id='getting-started_prerequisites'><i aria-hidden='true' class='linkify icon'></i></a>
 
@@ -32,7 +32,7 @@ We have provided a [sample checkout app](https://github.com/bigcommerce/checkout
 * Theme should be setup for [local development](https://developer.bigcommerce.com/stencil-docs/getting-started/installing-stencil).
 
 
----
+
 
 <a href='#getting-started_installing' aria-hidden='true' class='block-anchor'  id='getting-started_installing'><i aria-hidden='true' class='linkify icon'></i></a>
 
@@ -47,7 +47,7 @@ For example, `cd cornerstone`
 `npm install --save @bigcommerce/checkout-sdk`
 
 
----
+
 
 <a href='#getting-started_creating' aria-hidden='true' class='block-anchor'  id='getting-started_creating'><i aria-hidden='true' class='linkify icon'></i></a>
 
@@ -91,7 +91,7 @@ The async keyword ensures that `onReady()` returns a Promise; the await keyword 
 
 4. Save the file. 
 
----
+
 
 <a href='#getting-started_mapping' aria-hidden='true' class='block-anchor'  id='getting-started_mapping'><i aria-hidden='true' class='linkify icon'></i></a>
 
@@ -168,7 +168,7 @@ const pageClasses = {
 
 3. Save the file.
 
----
+
 
 <a href='#getting-started_preparing' aria-hidden='true' class='block-anchor'  id='getting-started_preparing'><i aria-hidden='true' class='linkify icon'></i></a>
 
@@ -206,7 +206,7 @@ lineNumbers: true
 
 4. Save the file.
 
----
+
 
 <a href='#getting-started_logging' aria-hidden='true' class='block-anchor'  id='getting-started_logging'><i aria-hidden='true' class='linkify icon'></i></a>
 
@@ -217,7 +217,7 @@ lineNumbers: true
 3. Note the checkout object logged to the console. 
 
 
----
+
 
 <a href='#getting-started_next-steps' aria-hidden='true' class='block-anchor'  id='getting-started_next-steps'><i aria-hidden='true' class='linkify icon'></i></a>
 
@@ -225,7 +225,7 @@ lineNumbers: true
 
 Build out your custom checkout page by entering your HTML into the `checkout.html` file and JavaScript into checkout.js. For detailed documentation on all of the Checkout SDK library methods visit the [SDK GitHub repository](https://github.com/bigcommerce/checkout-sdk-js).
 
----
+
 
 ## Resources
 

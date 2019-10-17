@@ -32,7 +32,7 @@ This page describes all of the Handlebars helpers supported on the Stencil frame
 
 For background information on using Handlebars helpers, please see the [official Handlebars documentation](http://handlebarsjs.com).
 
----
+
 
 <a href='#handlebars-helpers-reference_array' aria-hidden='true' class='block-anchor'  id='handlebars-helpers-reference_array'><i aria-hidden='true' class='linkify icon'></i></a>
 
@@ -104,7 +104,7 @@ Assume that `{{cart.items}}` would return 10 items. You could use this helper to
 * [Paper Handlebars](https://github.com/bigcommerce/paper-handlebars/blob/master/spec/helpers/limit.js) 
 * [Cornerstone](https://github.com/bigcommerce/cornerstone/blob/master/templates/components/common/cart-preview.html)
 
----
+
 
 ### {{pluck}}
 
@@ -184,7 +184,7 @@ Given the array `['a', 'b', 'c']`:
 //=> '["c"]'
 ```
 
----
+
 
 ### {{arrayify}}
 
@@ -204,7 +204,7 @@ Casts the given `value` to an array.
 //=> '["foo"]'
 ```
 
----
+
 
 <a name="before"></a>
 
@@ -230,7 +230,7 @@ Given the array `['a', 'b', 'c']`:
 //=> '["a", "b"]'
 ```
 
----
+
 
 ### {{eachIndex}}
 
@@ -257,7 +257,7 @@ Add 0 based indexing to the current handlebars loop.
 //=> Towels is 0, Bath Soap is 1, T-Shirts is 2
 ```
 
----
+
 
 ### {{filter}}
 
@@ -290,7 +290,7 @@ myProducts:
 => There is a shirt available.
 ```
 
----
+
 
 <a name="first"></a>
 
@@ -314,7 +314,7 @@ Given the array `['a', 'b', 'c', 'd', 'e']`:
 {{first array 2}}
 //=> '["a", "b"]'
 ```
----
+
 
 ### {{forEach}}
 
@@ -352,7 +352,7 @@ var accounts = [
 {{/forEach}}
 ```
 
----
+
 
 ### {{inArray}}
 
@@ -380,7 +380,7 @@ Given the array `['a', 'b', 'c']`:
 //=> "The product is no longer available"
 ```
 
----
+
 
 ### {{isArray}}
 
@@ -404,7 +404,7 @@ Returns true if `value` is an es5 array.
 <!-- results in: true -->
 ```
 
----
+
 
 <a name="last"></a>
 
@@ -429,7 +429,7 @@ Given the array `['a', 'b', 'c', 'd', 'e']`:
 //=> '["d", "e"]'
 ```
 
----
+
 
 ### {{lengthEqual}}
 
@@ -474,7 +474,7 @@ Given the collection:
 //=> 'There are 3 products available.'
 ```
 
----
+
 
 ### {{map}}
 
@@ -502,7 +502,7 @@ function double(str) {
 //=> '["aa", "bb", "cc"]'
 ```
 
----
+
 
 ### {{some}}
 
@@ -530,7 +530,7 @@ Given the array `[1, 'b', 3]`:
 //=> 'Render me if the array has a string.'
 ```
 
----
+
 
 ### {{sort}}
 
@@ -554,7 +554,7 @@ Given an array `['b', 'a', 'c']`:
 //=> '["a", "b", "c"]'
 ```
 
----
+
 
 ### {{sortBy}}
 
@@ -576,7 +576,7 @@ Given an array `[{a: 'zzz'}, {a: 'aaa'}]`:
 //=> '[{"a":"aaa"}, {"a":"zzz"}]'
 ```
 
----
+
 
 <a name="withAfter"></a>
 
@@ -604,7 +604,7 @@ Given the array `['a', 'b', 'c', 'd', 'e']`:
 //=> "de"
 ```
 
----
+
 
 <a name="withBefore"></a>
 
@@ -632,7 +632,7 @@ Given the array `['a', 'b', 'c', 'd', 'e']`:
 //=> 'ab'
 ```
 
----
+
 
 <a name="withFirst"></a>
 
@@ -660,7 +660,7 @@ Given the array `['a', 'b', 'c']`:
 //=> 'a'
 ```
 
----
+
 
 <a name="withLast"></a>
 
@@ -688,7 +688,7 @@ Given the array `['a', 'b', 'c']`:
 //=> 'c'
 ```
 
----
+
 
 ### {{withSort}}
 
@@ -734,7 +734,7 @@ Mug: 13
 Towel: 239
 ```
 
----
+
 
 <a href='#handlebars-helpers-reference_collection' aria-hidden='true' class='block-anchor'  id='handlebars-helpers-reference_collection'><i aria-hidden='true' class='linkify icon'></i></a>
 
@@ -769,7 +769,7 @@ Block helper that returns a block *if* the given collection is empty. If the col
 <!-- results in: true -->
 ```
 
----
+
 
 ### {{iterate}}
 
@@ -796,7 +796,7 @@ Given the array:
 => `abc`
 ```
 
----
+
 
 ### {{length}}
 
@@ -824,7 +824,7 @@ Returns the length of the given collection. When using a string literal in the t
 //=> 2
 ```
 
----
+
 
 <a href="#handlebars-helpers-reference_comparison" aria-hidden='true' class='block-anchor'  id='handlebars-helpers-reference_comparison'><i aria-hidden='true' class='linkify icon'></i></a>
 
@@ -864,7 +864,7 @@ Block helper that renders the block if *both* of the given values are truthy. If
 => 'B'
 ```
 
----
+
 
 ### {{gt}}
 
@@ -898,7 +898,7 @@ a = 14, b = 15 //false
 => 'B'
 ```
 
----
+
 
 ### {{gte}}
 
@@ -930,7 +930,7 @@ a = 14, b = 15 //false
 => 'B'
 ```
 
----
+
 
 ### {{has}}
 
@@ -953,7 +953,7 @@ a = "product"
 => 'true'
 ```
 
----
+
 
 ### {{eq}}
 
@@ -999,7 +999,7 @@ number = 8
 -> 'B'
 ```
 
----
+
 
 ### {{ifEven}}
 
@@ -1035,7 +1035,7 @@ value = 9
 => B
 ```
 
----
+
 
 ### {{ifNth}}
 
@@ -1073,7 +1073,7 @@ Returns:
 '<div>Coffee</div>'
 ```
 
----
+
 
 ### {{ifOdd}}
 
@@ -1109,7 +1109,7 @@ value = 8
 => 'B'
 ```
 
----
+
 
 ### {{is}}
 
@@ -1154,7 +1154,7 @@ value = 'CCC'
 => 'A'
 ```
 
----
+
 
 ### {{isnt}}
 
@@ -1201,7 +1201,7 @@ value='CCC'
 =>'A'
 ```
 
----
+
 
 ### {{lt}}
 
@@ -1253,7 +1253,7 @@ number = 42
 => '' //empty block when value is greater than given number
 ```
 
----
+
 
 ### {{lte}}
 
@@ -1302,7 +1302,7 @@ number = 27
 
 ```
 
----
+
 
 ### {{neither}}
 
@@ -1331,7 +1331,7 @@ customer = true
 => 'B'
 ```
 
----
+
 
 ### {{unlessEq}}
 
@@ -1356,7 +1356,7 @@ number = 8
 => '' // returns empty when value is equal to a given number
 ```
 
----
+
 
 ### {{unlessGt}}
 
@@ -1383,7 +1383,7 @@ number = 10
 
 ```
 
----
+
 
 ### {{unlessLt}}
 
@@ -1410,7 +1410,7 @@ number = 5
 
 ```
 
----
+
 
 ### {{unlessGteq}}
 
@@ -1440,7 +1440,7 @@ number = 34
 => '' // returns empty when the value is greater than or equal to a given number
 ```
 
----
+
 
 ### {{unlessLteq}}
 
@@ -1470,7 +1470,7 @@ number = 4
 => '' // returns empty when the value is less than or equal to a given number
 ```
 
----
+
 
 <a href="#handlebars-helpers-reference_control-flow" aria-hidden='true' class='block-anchor'  id='handlebars-helpers-reference_control-flow'><i aria-hidden='true' class='linkify icon'></i></a>
 
@@ -1479,7 +1479,7 @@ number = 4
 * <a href="#ctrl_conditional">Conditional Control Flow</a>
 * <a href="#ctrl_loop">Loop Control Flow</a>
 
----
+
 
 <a id="ctrl_conditional"></a>
 
@@ -1550,7 +1550,7 @@ Handlebars does not provide an `if`/`and` conditional structure. However, to tes
 * [Paper Handlebars](https://github.com/bigcommerce/paper-handlebars/blob/master/helpers/if.js)
 * [Cornerstone](https://github.com/bigcommerce/cornerstone/blob/master/templates/components/amp/products/product-view-details.html)
 
----
+
 
 ### {{unless}}
 
@@ -1683,7 +1683,7 @@ It checks whether the second parameter is included in the first parameter (typic
 ### Usage
 * [Paper Handlebars](https://github.com/bigcommerce/paper-handlebars/blob/master/helpers/contains.js)
 
----
+
 
 ### {{each}}
 
@@ -1791,7 +1791,7 @@ Each is a built in block helper. Use it to loop over an array or object.
 - `{{each}}` loops can be nested.
 - `{{each}}` does not work on strings. eg. `{"foo": "Good"}`
 
----
+
 
 ### {{for}}
 
@@ -1824,7 +1824,7 @@ The `for` helper has the following syntax, where parameters `<from>` and `<to>` 
 * [Cornerstone](https://github.com/bigcommerce/cornerstone/blob/master/templates/components/products/options/date.html)
 * [Paper Handlebars](https://github.com/bigcommerce/paper-handlebars/blob/master/helpers/for.js)
 
----
+
 
 <a href="#handlebars-helpers-reference_date" aria-hidden='true' class='block-anchor'  id='handlebars-helpers-reference_date'><i aria-hidden='true' class='linkify icon'></i></a>
 
@@ -1850,7 +1850,7 @@ Exposes `helper-date` as `moment`.
 {{/partial}}
 ```
 
----
+
 
 <a href='#handlebars-helpers-reference_html' aria-hidden='true' class='block-anchor'  id='handlebars-helpers-reference_html'><i aria-hidden='true' class='linkify icon'></i></a>
 
@@ -1878,7 +1878,7 @@ Truncates a string to the specified `length`, and appends an elipsis, `…`.
 //=> 'foo bar…'
 ```
 
----
+
 
 ### {{sanitize}}
 
@@ -1898,7 +1898,7 @@ Strips HTML tags from a string, so that only the text nodes are preserved.
 //=> 'foo'
 ```
 
----
+
 
 ### {{ul}}
 
@@ -1920,7 +1920,7 @@ Block helper for creating unordered lists (`<ul></ul>`).
 => <ul class="names"><li>AAA BBB</li></ul>
 ```
 
----
+
 
 ### {{ol}}
 
@@ -1944,7 +1944,7 @@ Block helper for creating ordered lists  (`<ol></ol>`).
 
 ```
 
----
+
 
 ### {{thumbnailImage}}
 
@@ -1990,7 +1990,7 @@ var context = {
 '</figure>'
 ```
 
----
+
 
 <a href='#handlebars-helpers-reference_image' aria-hidden='true' class='block-anchor'  id='handlebars-helpers-reference_image'><i aria-hidden='true' class='linkify icon'></i></a>
 
@@ -2141,7 +2141,7 @@ customers = 1
 => products
 1 customer
 ```
----
+
 
 ### {{ordinalize}}
 
@@ -2167,7 +2167,7 @@ Returns an ordinalized number (as a string).
 //=> '22nd'
 ```
 
----
+
 
 <a href='#handlebars-helpers-reference_injection' aria-hidden='true' class='block-anchor'  id='handlebars-helpers-reference_injection'><i aria-hidden='true' class='linkify icon'></i></a>
 
@@ -2307,12 +2307,12 @@ The Stencil theme makes the `jsContext` available on the active page scoped. It 
 The following code uses `inject` to add all product IDs into JavaScript on category pages. It resides in a theme's `<theme-name>/templates/pages/category.html` template. Note the two `inject` calls directly under the front matter:
 
 ```html
----
+
 category:
     shop_by_price: true
     products:
         limit: {{theme_settings.categorypage_products_per_page}}
----
+
 {{inject "categoryProductsPerPage" theme_settings.categorypage_products_per_page}}
 {{inject "productIds" (pluck category.products 'id')}}
 {{#partial "head"}}
@@ -2420,7 +2420,7 @@ Block helper that converts a string of inline markdown to HTML.
 //=> # Foo
 ```
 
----
+
 
 <a href='#handlebars-helpers-reference_math' aria-hidden='true' class='block-anchor'  id='handlebars-helpers-reference_math'><i aria-hidden='true' class='linkify icon'></i></a>
 
@@ -2450,7 +2450,7 @@ Returns the sum of `a` plus `b`.
 => 15
 ```
 
----
+
 
 ### {{subtract}}
 
@@ -2470,7 +2470,7 @@ Return the difference of `a` minus `b`.
 => 5
 ```
 
----
+
 
 ### {{divide}}
 
@@ -2491,7 +2491,7 @@ Divides `a` by `b`.
 => 1
 ```
 
----
+
 
 ### {{multiply}}
 
@@ -2509,7 +2509,7 @@ Multiplies `a` by `b`.
 => 25
 ```
 
----
+
 
 ### {{floor}}
 
@@ -2529,7 +2529,7 @@ value = 5.6
 => 5
 ```
 
----
+
 
 ### {{ceil}}
 
@@ -2550,7 +2550,7 @@ value = 5.6
 => 6
 ```
 
----
+
 
 ### {{round}}
 
@@ -2570,7 +2570,7 @@ value = 5.69
 =>6
 ```
 
----
+
 
 ### {{sum}}
 
@@ -2590,7 +2590,7 @@ Returns the sum of all numbers in the given array.
 //=> '15'
 ```
 
----
+
 
 ### {{avg}}
 
@@ -2610,7 +2610,7 @@ Returns the average of all numbers in the given array.
 //=> '3'
 ```
 
----
+
 
 <a href='#handlebars-helpers-reference_number' aria-hidden='true' class='block-anchor'  id='handlebars-helpers-reference_number'><i aria-hidden='true' class='linkify icon'></i></a>
 
@@ -2638,7 +2638,7 @@ value = 2222222
 => 2,222,222
 ```
 
----
+
 
 ### {{phoneNumber}}
 
@@ -2660,7 +2660,7 @@ value = 8005551212
 => (800) 555-1212
 ```
 
----
+
 
 ### {{random}}
 
@@ -2680,7 +2680,7 @@ Generates a random number between two values.
 {{random 5 10}}
 ```
 
----
+
 
 ### {{toAbbr}}
 
@@ -2702,7 +2702,7 @@ number = 123456789
 => 123.457m
 ```
 
----
+
 
 ### {{toExponential}}
 
@@ -2731,7 +2731,7 @@ value = 5
 =>5e+0
 ```
 
----
+
 
 ### {{toFixed}}
 
@@ -2756,7 +2756,7 @@ value = 5.5323
 => 5.532
 ```
 
----
+
 
 ### {{toFloat}}
 
@@ -2777,7 +2777,7 @@ value = '12.1abc'
 =>12.1
 ```
 
----
+
 
 ### {{toInt}}
 
@@ -2798,7 +2798,7 @@ value = '12.1abc'
 =>12
 ```
 
----
+
 
 ### {{toPrecision}}
 
@@ -2821,7 +2821,7 @@ value = 555.322
 => 555.3
 ```
 
----
+
 
 <a href='#handlebars-helpers-reference_object' aria-hidden='true' class='block-anchor'  id='handlebars-helpers-reference_object'><i aria-hidden='true' class='linkify icon'></i></a>
 
@@ -2884,7 +2884,7 @@ Now that a basic layout is defined, it can be used to extend other pages.
 {{/extend}}
 ```
 
----
+
 
 ### {{forIn}}
 
@@ -2922,7 +2922,7 @@ Given an object `{object: {a: 'b', c: 'd', e: 'f'}}`
 => ' b '
 ```
 
----
+
 
 ### {{forOwn}}
 
@@ -2955,7 +2955,7 @@ Given an object `{object: {a: 'b', c: 'd', e: 'f'}}`
 =>' d '
 ```
 
----
+
 
 ### {{toPath}}
 
@@ -2981,7 +2981,7 @@ Takes arguments and, if they are string or number, converts them to a dot-deline
 => 'a.2.b'
 ```
 
----
+
 
 ### {{get}}
 
@@ -3031,7 +3031,7 @@ Uses property paths (`a.b.c`) to get a value or nested value from the context. W
 ```
 
 
----
+
 
 ### {{getObject}}
 
@@ -3051,7 +3051,7 @@ Uses property paths (`a.b.c`) to get an object from the context. Unlike the `get
 => {"a":"b"}
 ```
 
----
+
 
 ### {{hasOwn}}
 
@@ -3079,7 +3079,7 @@ Returns true if `key` is an own, enumerable property of the given `context` obje
 => false 
 ```
 
----
+
 
 ### {{isObject}}
 
@@ -3099,7 +3099,7 @@ Returns true if `value` is an object.
 //=> false
 ```
 
----
+
 
 ### {{merge}}
 
@@ -3135,7 +3135,7 @@ Deeply merges the properties of the given `objects` with the context object.
 ```
 
 
----
+
 
 ### {{#JSONparse}}
 
@@ -3158,7 +3158,7 @@ This will return the product stock level to a page.
 {{/JSONparse}}
 ```
 
----
+
 
 ### {{JSONstringify}}
 
@@ -3177,7 +3177,7 @@ Stringifies an object using `JSON.stringify`.
 console.log({{{JSONstringify customer.payment_methods}}});
 ```
 
----
+
 
 <a href='#handlebars-helpers-reference_operator' aria-hidden='true' class='block-anchor'  id='handlebars-helpers-reference_operator'><i aria-hidden='true' class='linkify icon'></i></a>
 
@@ -3238,7 +3238,7 @@ To improvise a `!==` (not equal or not equal type) comparison operator in Handle
     </nav>
 ```
 
----
+
 
 ###  Logical {{or}} Operator
 
@@ -3265,7 +3265,7 @@ Here is a usage example from Stencil's Cornerstone base theme, where it displays
 {{/or}}
 ```
 
----
+
 
 ###  {{typeof}} Operator
 
@@ -3290,7 +3290,7 @@ By design, an array will return a `typeof` value of `object`.
 </script>
 ```
 
----
+
 
 <a href='#handlebars-helpers-reference_string' aria-hidden='true' class='block-anchor'  id='handlebars-helpers-reference_string'><i aria-hidden='true' class='linkify icon'></i></a>
 
@@ -3432,7 +3432,7 @@ Call this helper on a string object from the page's context, to convert its cont
 "<br>685 Market St<br>San Francisco<br>94105<br>CA<br>"
 ```
 
----
+
 
 ### {{partial}}
 
@@ -3522,7 +3522,7 @@ camelCases the characters in the given `string`.
 //=> 'fooBarBaz'
 ```
 
----
+
 
 ### {{capitalize}}
 
@@ -3542,7 +3542,7 @@ Capitalizes the first word in a sentence.
 //=> "Foo bar baz"
 ```
 
----
+
 
 ### {{capitalizeAll}}
 
@@ -3562,7 +3562,7 @@ Capitalizes all words in a string.
 //=> "Foo Bar Baz"
 ```
 
----
+
 
 ### {{center}}
 
@@ -3583,7 +3583,7 @@ Centers a string, using non-breaking spaces.
 => '&amp;nbsp;&amp;nbsp;Get more features out-of-the-box to build, run and scale a better online business — without the hidden fees.&amp;nbsp;&amp;nbsp;
 ```
 
----
+
 
 ### {{chop}}
 
@@ -3609,7 +3609,7 @@ Like `trim`, but removes both extraneous whitespace *and non-word characters* fr
 //=> 'ABC'
 ```
 
----
+
 
 ### {{dashcase}}
 
@@ -3629,7 +3629,7 @@ dash-cases the characters in `string`. Replaces non-word characters and periods 
 //=> 'a-b-c-d-e'
 ```
 
----
+
 
 ### {{dotcase}}
 
@@ -3649,7 +3649,7 @@ dot.cases the characters in `string`.
 //=> 'a.b.c.d.e'
 ```
 
----
+
 
 
 ### {{hyphenate}}
@@ -3670,7 +3670,7 @@ Replaces spaces in a string with hyphens.
 //=> "foo-bar-baz-qux"
 ```
 
----
+
 
 ### {{isString}}
 
@@ -3690,7 +3690,7 @@ Returns true if `value` is a string.
 //=> 'true'
 ```
 
----
+
 
 ### {{lowercase}}
 
@@ -3710,7 +3710,7 @@ Lowercases all characters in the given string.
 //=> 'foo bar baz'
 ```
 
----
+
 
 
 ### {{occurrences}}
@@ -3732,7 +3732,7 @@ Returns the number of occurrences of `substring` within the given `string`.
 //=> 2
 ```
 
----
+
 
 ### {{pascalcase}}
 
@@ -3752,7 +3752,7 @@ PascalCases the characters in `string`.
 //=> 'FooBarBaz'
 ```
 
----
+
 
 ### {{pathcase}}
 
@@ -3772,7 +3772,7 @@ path/cases the characters in `string`.
 //=> 'a/b/c/d/e'
 ```
 
----
+
 
 ### {{plusify}}
 
@@ -3792,7 +3792,7 @@ Replaces spaces in the given string with pluses.
 //=> 'foo+bar+baz'
 ```
 
----
+
 
 ### {{reverse}}
 
@@ -3812,7 +3812,7 @@ Reverses a string.
 //=> 'edcba'
 ```
 
----
+
 
 ### {{sentence}}
 
@@ -3832,7 +3832,7 @@ Sentence-cases the given string.
 //=> 'Hello world. Goodbye world.'
 ```
 
----
+
 
 ### {{snakecase}}
 
@@ -3852,7 +3852,7 @@ snake_cases the characters in the given `string`.
 //=> 'a_b_c_d_e'
 ```
 
----
+
 
 ### {{split}}
 
@@ -3872,7 +3872,7 @@ Splits `string` at the given `character`.
 //=> ['a', 'b', 'c']
 ```
 
----
+
 
 
 ### {{startsWith}}
@@ -3898,7 +3898,7 @@ Tests whether a string begins with the given prefix.
 {{/startsWith}}
 ```
 
----
+
 
 
 ### {{titleize}}
@@ -3919,7 +3919,7 @@ Title-cases the given string.
 //=> 'This Is Title Case'
 ```
 
----
+
 
 ### {{trim}}
 
@@ -3939,7 +3939,7 @@ Removes extraneous whitespace from the beginning and end of a string.
 //=> 'ABC'
 ```
 
----
+
 
 ### {{uppercase}}
 
@@ -3960,7 +3960,7 @@ Uppercases all of the characters in the given string. If used as a block helper,
 => 'F'
 ```
 
----
+
 
 <a href='#handlebars-helpers-reference_url' aria-hidden='true' class='block-anchor'  id='handlebars-helpers-reference_url'><i aria-hidden='true' class='linkify icon'></i></a>
 
@@ -3984,7 +3984,7 @@ Encodes a Uniform Resource Identifier (URI) component, by replacing each instanc
 => 'http%3A%2F%2Fexample.com%3Fcomment%3DThyme%20%26time%3Dagain'
 ```
 
----
+
 
 ### {{decodeURI}}
 
@@ -4004,7 +4004,7 @@ Decodes a Uniform Resource Identifier (URI) component.
 => 'http://example.com?comment=Thyme &time=again'
 ```
 
----
+
 
 ### {{urlResolve}}
 
@@ -4031,7 +4031,7 @@ Takes a base URL, and an href URL, and resolves them as a browser would for an a
 => 'http://example.com/two'
 ```
 
----
+
 
 ### {{urlParse}}
 
@@ -4051,7 +4051,7 @@ Parses a `url` string into an object.
 => '{"protocol":"http:","slashes":true,"auth":null,"host":"foo.com","port":null,"hostname":"foo.com","hash":null,"search":"?key=value","query":"key=value","pathname":"/bar/baz","path":"/bar/baz?key=value","href":"http://foo.com/bar/baz?key=value"}'
 ```
 
----
+
 
 ### {{stripQuerystring}}
 
@@ -4071,7 +4071,7 @@ Strips the query string from a `url`.
 => 'http://example.com'
 ```
 
----
+
 
 ### {{stripProtocol}}
 
@@ -4095,7 +4095,7 @@ testURL = 'https://bigcommerce.com'
 => //bigcommerce.com/
 ```
 
----
+
 
 <a href='#handlebars-helpers-reference_misc' aria-hidden='true' class='block-anchor'  id='handlebars-helpers-reference_misc'><i aria-hidden='true' class='linkify icon'></i></a>
 
@@ -4136,7 +4136,7 @@ title = 'B'
 => 'A'
 ```
 
----
+
 
 ### {{option}}
 
@@ -4163,7 +4163,7 @@ Returns the given value of `prop` from `this.options`. Returns an empty string i
 => 'ddd'
 ```
 
----
+
 
 ### {{noop}}
 
@@ -4184,7 +4184,7 @@ Block helper that renders the block without taking any arguments.
 => 'This is a message'
 ```
 
----
+
 
 ### {{withHash}}
 
@@ -4224,7 +4224,7 @@ message: 'This is a test'
 => ''
 ```
 
----
+
 
 ## Resources
 

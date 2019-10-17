@@ -23,7 +23,7 @@ Some benefits are:
 
 We are going to review all the components that make a widget. Then, we’ll use what we’ve learned to create a widget .
 
----
+
 
 <a href='#widgets_regions' aria-hidden='true' class='block-anchor'  id='widgets_regions'><i aria-hidden='true' class='linkify icon'></i></a>
 
@@ -55,7 +55,7 @@ We are going to review all the components that make a widget. Then, we’ll use 
 
 Most themes in the BigCommerce marketplace come with predefined regions. It is best to utilize those first. By editing the theme and adding theme regions, updates will need to be manually managed. 
 
----
+
 
 <a href='#widgets_widget-templates' aria-hidden='true' class='block-anchor'  id='widgets_widget-templates'><i aria-hidden='true' class='linkify icon'></i></a>
 
@@ -101,7 +101,7 @@ The slider takes advantage of loops to display each slide on the page.
 }
 ```
 
----
+
 
 <a href='#widgets_widgets' aria-hidden='true' class='block-anchor'  id='widgets_widgets'><i aria-hidden='true' class='linkify icon'></i></a>
 
@@ -235,7 +235,7 @@ lineNumbers: true
 }
 ```
 
----
+
 
 <a href='#widgets_placements' aria-hidden='true' class='block-anchor'  id='widgets_placements'><i aria-hidden='true' class='linkify icon'></i></a>
 
@@ -301,7 +301,7 @@ lineNumbers: true
 }
 ```
 
----
+
 
 <a href='#widgets_placement-and-widgets' aria-hidden='true' class='block-anchor'  id='widgets_placement-and-widgets'><i aria-hidden='true' class='linkify icon'></i></a>
 
@@ -325,7 +325,7 @@ Widgets are rendered on the storefront as a data tag in the HTML.
 
 A Region can contain multiple Placements with Widgets. 
 
----
+
 
 <a href='#widgets_definitions' aria-hidden='true' class='block-anchor'  id='widgets_definitions'><i aria-hidden='true' class='linkify icon'></i></a>
 
@@ -340,7 +340,7 @@ A Region can contain multiple Placements with Widgets.
 | Widget Configuration | This is a JSON payload that contains data used when rendering the widget. Each widget has a configuration, and there is a 64kb limit on the size of the JSON. The widget configuration must be valid JSON, but we don’t enforce any additional requirement on the structure of the configuration. |
 
 
----
+
 
 <a href='#widget_resources' aria-hidden='true' class='block-anchor'  id='widget_resources'><i aria-hidden='true' class='linkify icon'></i></a>
 

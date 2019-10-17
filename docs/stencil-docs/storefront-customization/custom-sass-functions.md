@@ -12,7 +12,7 @@
 ## Custom Sass Functions
 
 | Custom Sass Function  | Description  |
-|---|---|
+|||
 | stencilColor  | `stencilColor` accepts (as a string) the key name of a color that you have defined in <span class="fn">config.json</span> as editable. It returns the color’s hexadecimal value.s|
 | stencilFontFamily  | `stencilFontFamily` accepts (as a string) the name of a font key that you have defined in config.json. It returns the corresponding font-family value, also as a string. For a key named "headings-font" and defined as Google Open Sans, `stencilFontFamily` would return a value like this to Sass variables: `$headings-‐font-‐family: 'Open Sans';` (The example's name and definition in config.json are both arbitrary.) Your Sass stylesheet must call stencilFontFamily for each <span class="fn">config.json</span> font key whose font-family value you want to provide to Sass variables. You would call the function in the following format (again assuming a key arbitrarily named "headings-font"): `$headings-font-family: stencilFontFamily("headings-font");`  |
 | stencilFontWeight  | `stencilFontWeight` accepts (as a string) the key name of a font that you have defined in config.json. It returns (as an integer) the corresponding font-weight value. For a key arbitrarily named "headings-font" and defined as 700, it would return a value like this to Sass variables: `$headings-‐font-‐weight: 700;` Your Sass stylesheet may optionally call stencilFontWeight for each <span class="fn">config.json</span> font key whose weight value you want to provide to Sass variables. You would call the function in the following format: `$headings-font-weight: stencilFontWeight("headings-font");`  |
@@ -20,7 +20,7 @@
 | stencilString  | `stencilString` accepts (as a string) a key name that you have defined in <span class="fn">config.json</span> as editable. It returns (also as a string) the key’s value. This function is used for purposes like defining font family names, or defining paths to images.  |
 | stencilImage  | `stencilImage` accepts (as a string) a key name for an image url that you have defined in <span class="fn">config.json</span>. It also accepts (as a string) the key name for the image size that you have defined in <span class="fn">config.json</span>. It returns the string value of the image URL and the size.  |
 
----
+
 
 <a href='#custom_compiling' aria-hidden='true' class='block-anchor'  id='custom_compiling'><i aria-hidden='true' class='linkify icon'></i></a>
 

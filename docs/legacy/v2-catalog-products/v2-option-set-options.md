@@ -20,7 +20,7 @@ Options belonging to an option set.
 ### Option Set Option: Object – Properties 
 
 | Name | Type | Description |
-| --- | --- | --- |
+|  |  |  |
 | id | int | The ID of this option. |
 | option_id | int | The ID of the option to which this option set connects. |
 | option_set_id | int | The ID of this option set. |
@@ -31,7 +31,7 @@ Options belonging to an option set.
 | values | object_array | Array of values for the connected option. |
 
 
----
+
 
 <a href='#v2-option-set-options_list-option-set-option' aria-hidden='true' class='block-anchor'  id='v2-option-set-options_list-option-set-option'><i aria-hidden='true' class='linkify icon'></i></a>
 
@@ -46,7 +46,7 @@ Gets the options associated with an option set. (Default sorting is by option id
 Parameters can be added to the URL query string to paginate the collection. The maximum limit is 250. If a limit isn’t provided, up to 50 option_set_options are returned by default.
 
 | Parameter | Type | Example |
-| --- | --- | --- |
+|  |  |  |
 | Page | int | /api/v2/option_sets/{option_set_id}/options?page={number} |
 | Limit | int | /api/v2/option_sets/{option_set_id}/options?limit={count} |
 
@@ -135,7 +135,7 @@ Example JSON returned in the response:
 ]
 ```
 
----
+
 
 <a href='#v2-option-set-options_get-option-set-option' aria-hidden='true' class='block-anchor'  id='v2-option-set-options_get-option-set-option'><i aria-hidden='true' class='linkify icon'></i></a>
 
@@ -164,7 +164,7 @@ Example JSON returned in the response:
 }
 ```
 
----
+
 
 <a href='#v2-option-set-options_create-option-set-option' aria-hidden='true' class='block-anchor'  id='v2-option-set-options_create-option-set-option'><i aria-hidden='true' class='linkify icon'></i></a>
 
@@ -276,7 +276,7 @@ Example JSON returned in the response:
 }
 ```
 
----
+
 
 <a href='#v2-option-set-options_delete-option-set-option' aria-hidden='true' class='block-anchor'  id='v2-option-set-options_delete-option-set-option'><i aria-hidden='true' class='linkify icon'></i></a>
 
@@ -286,7 +286,7 @@ Deletes an option belonging to an option set.
 
 >`DELETE /stores/{store_hash}/v2/option_sets/{option_set_id}/options/{id}`
 
----
+
 
 <a href='#v2-option-set-options_delete-multiple-option-set-option' aria-hidden='true' class='block-anchor'  id='v2-option-set-options_delete-multiple-option-set-option'><i aria-hidden='true' class='linkify icon'></i></a>
 
@@ -301,7 +301,7 @@ Deletes multiple options associated with an option set.
 Parameters can be added to the URL query string to paginate the collection. The maximum limit is 250. If a limit isn’t provided, up to 50 option_set_options are returned by default.
 
 | Parameter | Type | Example |
-| --- | --- | --- |
+|  |  |  |
 | Page | int | /api/v2/option_sets/{option_set_id}/options?page={number} |
 | Limit | int | /api/v2/option_sets/{option_set_id}/options?limit={count} |
 

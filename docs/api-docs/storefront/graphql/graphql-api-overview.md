@@ -40,7 +40,7 @@ This article is a general overview of the capabilities and usage of BigCommerce'
 </div>
 </div>
 
----
+
 
 <a id="see-it-in-action" class="devdocsAnchor"></a>
 
@@ -52,7 +52,7 @@ Simply open the link and click submit with the sample data in the form. To see t
 
 For a full list of examples, see the [Storefront API Examples repo](https://github.com/bigcommerce/storefront-api-examples).
 
----
+
 
 <a id="accessing-the-graphql-playground" class="devdocsAnchor"></a>
 
@@ -84,7 +84,7 @@ The GraphQL Storefront API Playground will be opened:
 </div>
 </div>
 
----
+
 
 <a id="using-the-graphql-playground" class="devdocsAnchor"></a>
 
@@ -147,7 +147,7 @@ Click changelog in the top right to view a list of recent changes to the storefr
 </div>
 </div>
 
----
+
 
 <a id="authentication" class="devdocsAnchor"></a>
 
@@ -254,7 +254,7 @@ Its also possible to generate tokens for use in server-to-server interactions wi
 
 Customer Impersonation Token authenticated requests made to the GraphQL API receive store information from the perspective of the customer corresponding to the customer ID specified in the `X-Bc-Customer-Id` header used to create the token -- for example: pricing, product availability, customer account, and customer details.
 
----
+
 
 <a id="querying-within-a-bigcommerce-storefront" class="devdocsAnchor"></a>
 
@@ -326,7 +326,7 @@ In addition to using `fetch()`, there's a other ways to query the API:
 </div>
 </div>
 
----
+
 
 <a id="resources" class="devdocsAnchor"></a>
 

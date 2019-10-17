@@ -14,7 +14,7 @@
 
 Themes are built using a powerful template system that enables designers and developers familiar with CSS and HTML to modify the presentation and structure of a BigCommerce store.
 
----
+
 
 <a href='#directory-structure' aria-hidden='true' class='block-anchor'  id='directory-structure'><i aria-hidden='true' class='linkify icon'></i></a>
 
@@ -28,7 +28,7 @@ Theme files that apply to a store design are organized in several different dire
 *   **Styles**
 
 
----
+
 
 <a href='#blueprint-images' aria-hidden='true' class='block-anchor'  id='blueprint-images'><i aria-hidden='true' class='linkify icon'></i></a>
 
@@ -36,7 +36,7 @@ Theme files that apply to a store design are organized in several different dire
 
 Theme specific static images (referenced from CSS, or in image tags).
 
----
+
 
 <a href='#blueprint-layouts' aria-hidden='true' class='block-anchor'  id='blueprint-layouts'><i aria-hidden='true' class='linkify icon'></i></a>
 
@@ -48,7 +48,7 @@ For example, `product.html` refers to the page that’s shown when a customer is
 
 Most layout files contain nothing more than references to individual panels to be shown on a page. These panels are contained in div tags that generally define left, center, or right columns of the page.
 
----
+
 
 <a href='#blueprint-panels' aria-hidden='true' class='block-anchor'  id='blueprint-panels'><i aria-hidden='true' class='linkify icon'></i></a>
 
@@ -62,7 +62,7 @@ Panels are generally referenced directly from layout templates. They define whic
 
 Some panels contain strictly static content (such as the store name) whilst others generate content dynamically. Dynamically generated panels cannot be created ad-hoc as they are linked to specific data and logic within the application.
 
----
+
 
 <a href='#blueprint-snippets' aria-hidden='true' class='block-anchor'  id='blueprint-snippets'><i aria-hidden='true' class='linkify icon'></i></a>
 
@@ -72,7 +72,7 @@ Snippets are templates containing a fragment of HTML that can be embedded multip
 
 For example, the `HomeFeaturedProductsItem` snippet renders each individual product listed in the `HomeFeaturedProducts` panel.
 
----
+
 
 <a href='#blueprint-styles' aria-hidden='true' class='block-anchor'  id='blueprint-styles'><i aria-hidden='true' class='linkify icon'></i></a>
 

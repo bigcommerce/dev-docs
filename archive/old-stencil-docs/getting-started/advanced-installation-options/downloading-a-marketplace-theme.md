@@ -12,7 +12,7 @@
     </ul>
 </div>
 
---- 
+ 
 
 <div class="HubBlock--callout">
 <div class="CalloutBlock--warning">
@@ -153,7 +153,7 @@ Refer to the theme's version number that you noted above at Downloading a Theme 
 </div>
 </div>
 
----
+
 
 <a id="downloading_installing-modules"></a>
 
@@ -169,7 +169,7 @@ For Marketplace themes whose version number is 1.10.0 or higher, simply use npm 
 
 `npm install`
 
----
+
 
 <a id="jspm-legacy"></a>
 
@@ -246,7 +246,7 @@ This example assumes that this target directory has the default name `stencil`
 
 Within that directory, install (or reinstall) the `stencil-utils` module to ensure that all your dependencies are up to date:`npm install` Then execute the following command to complete installation: `jspm install`
 
----
+
 
 <a href='#downloading_next-steps' aria-hidden='true' class='block-anchor'  id='downloading_next-steps'><i aria-hidden='true' class='linkify icon'></i></a>
 

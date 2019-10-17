@@ -91,7 +91,7 @@ example: `{{{banner}}}`. (Double braces would escape the HTML.)
 </div>
 </div>
 
----
+
 
 <a href='#global-objects_breadcrumbs' aria-hidden='true' class='block-anchor'  id='global-objects_breadcrumbs'><i aria-hidden='true' class='linkify icon'></i></a>
 
@@ -118,7 +118,7 @@ example: `{{{banner}}}`. (Double braces would escape the HTML.)
   </tr>
 </table>
 
----
+
 
 <a href='#global-objects_carousel' aria-hidden='true' class='block-anchor'  id='global-objects_carousel'><i aria-hidden='true' class='linkify icon'></i></a>
 
@@ -181,7 +181,7 @@ example: `{{{banner}}}`. (Double braces would escape the HTML.)
 </tr>
 </table>
 
----
+
 
 <a id="global-objects_cart"></a>
 
@@ -198,7 +198,7 @@ example: `{{{banner}}}`. (Double braces would escape the HTML.)
 | cart_id| ID of the shoppers cart. String |
 
 
----
+
 
 <a href='#global-objects_currency-selector' aria-hidden='true' class='block-anchor'  id='global-objects_currency-selector'><i aria-hidden='true' class='linkify icon'></i></a>
 
@@ -257,7 +257,7 @@ example: `{{{banner}}}`. (Double braces would escape the HTML.)
  </tr>
  </table>
 
- ---
+ 
 
  <a href='#global-objects_categories' aria-hidden='true' class='block-anchor'  id='global-objects_categories'><i aria-hidden='true' class='linkify icon'></i></a>
 
@@ -360,7 +360,7 @@ The table below displays properties for the individual category objects within t
   </tr>
 </table>
 
----
+
 
 <a href='#global-objects_faceted-search' aria-hidden='true' class='block-anchor'  id='global-objects_faceted-search'><i aria-hidden='true' class='linkify icon'></i></a>
 
@@ -395,7 +395,7 @@ The table below displays properties for the individual category objects within t
   </tr>
 </table>
 
----
+
 
 <a href='#global-objects_featured-products' aria-hidden='true' class='block-anchor'  id='global-objects_featured-products'><i aria-hidden='true' class='linkify icon'></i></a>
 
@@ -414,12 +414,12 @@ The code example below displays the global `{{products.featured}}` object on the
 First, you must declare the object using Front Matter. To declare the object, the following front matter must be placed at the top of the template HTML page. This following declaration also limits the number of featured products to be displayed:
 
 ```html
----
+
 products:
     [...]
     featured:
         limit: {{theme_settings.homepage_featured_products_count}} //limits the number of featured products to be displayed
----
+
 ```
 
 The `homepage_featured_products_count` limit is one of two relevant variables defined in [Cornerstone's `config.json` file](https://github.com/bigcommerce/cornerstone/blob/master/config.json#L45) (Github).
@@ -445,7 +445,7 @@ In the body of [Cornerstone's `home.html` template](https://github.com/bigcommer
 
 This above statement formats the _Featured Products_ display according to the `homepage_featured_products_column_count` variable, which is the second relevant variable defined in [Cornerstone's `config.json` file](https://github.com/bigcommerce/cornerstone/blob/master/config.json#L53) (Github).
 
----
+
 
 <a href='#global-objects_footer' aria-hidden='true' class='block-anchor'  id='global-objects_footer'><i aria-hidden='true' class='linkify icon'></i></a>
 
@@ -472,7 +472,7 @@ This above statement formats the _Featured Products_ display according to the `h
   </tr>
 </table>
 
----
+
 
 <a href='#global-objects_html-head' aria-hidden='true' class='block-anchor'  id='global-objects_html-head'><i aria-hidden='true' class='linkify icon'></i></a>
 
@@ -519,7 +519,7 @@ This above statement formats the _Featured Products_ display according to the `h
   </tr>
 </table>
 
----
+
 
 <a href='#global-objects_is-ajax' aria-hidden='true' class='block-anchor'  id='global-objects_is-ajax'><i aria-hidden='true' class='linkify icon'></i></a>
 
@@ -531,7 +531,7 @@ This above statement formats the _Featured Products_ display according to the `h
 
 No properties available for this object.
 
----
+
 
 <a href='#global-objects_new-products' aria-hidden='true' class='block-anchor'  id='global-objects_new-products'><i aria-hidden='true' class='linkify icon'></i></a>
 
@@ -550,11 +550,11 @@ To access the global `{{products.new}}` object on your page, you must first use 
 The code example below declares the global `{{products.new}}` object on the `cornerstone/templates/pages/home.html` page template from [Stencil's base Cornerstone Theme](https://github.com/bigcommerce/cornerstone/blob/master/templates/pages/home.html#L3) (Github).
 
 ```html
----
+
 products:
     new:
         limit: {{theme_settings.homepage_new_products_count}}
----
+
 ```
 
 The `homepage_featured_products_count` limit is one of two relevant variables defined in Cornerstone's `config.json` file (Github).
@@ -578,7 +578,7 @@ In the body of [Cornerstone's `home.html` template](https://github.com/bigcommer
 
 This above statement formats the _New Products_ display according to the `homepage_new_products_column_count` variable, which is the second relevant variable defined in [Cornerstone's `config.json` file](https://github.com/bigcommerce/cornerstone/blob/master/config.json#L46) (Github
 
----
+
 
 <a href='#global-objects_page-content' aria-hidden='true' class='block-anchor'  id='global-objects_page-content'><i aria-hidden='true' class='linkify icon'></i></a>
 
@@ -621,7 +621,7 @@ This above statement formats the _New Products_ display according to the `homepa
   </tr>
 </table>
 
----
+
 
 <a href='#global-objects_pages' aria-hidden='true' class='block-anchor'  id='global-objects_pages'><i aria-hidden='true' class='linkify icon'></i></a>
 
@@ -660,7 +660,7 @@ This above statement formats the _New Products_ display according to the `homepa
     </tr>
 </table>
 
----
+
 
 <a href='#global-objects_page-type-property' aria-hidden='true' class='block-anchor'  id='global-objects_page-type-property'><i aria-hidden='true' class='linkify icon'></i></a>
 
@@ -680,7 +680,7 @@ This above statement formats the _New Products_ display according to the `homepa
 All possible values for `{{page_type}}` are:
 
 | account | shippingaddressform | account_new_return |
-|---|---|---|
+||||
 | account_addressbook | account_downloaditem | account_inbox |
 | editaccount | account_orderstatus | account_orders |
 | invoice_print | account_order | account_recentitems |
@@ -697,7 +697,7 @@ All possible values for `{{page_type}}` are:
 | newsletter_subscribe | unsubscribe | hibernation |
 | maintenance |
 
----
+
 
 <a href='#global-objects_pagination' aria-hidden='true' class='block-anchor'  id='global-objects_pagination'><i aria-hidden='true' class='linkify icon'></i></a>
 
@@ -749,7 +749,7 @@ All possible values for `{{page_type}}` are:
     </table>
 
 
----
+
 
 <a href='#global-objects_search' aria-hidden='true' class='block-anchor'  id='global-objects_search'><i aria-hidden='true' class='linkify icon'></i></a>
 
@@ -914,7 +914,7 @@ All possible values for `{{page_type}}` are:
   </tr>
 </table>
 
----
+
 
 <a href='#global-objects_settings' aria-hidden='true' class='block-anchor'  id='global-objects_settings'><i aria-hidden='true' class='linkify icon'></i></a>
 
@@ -927,7 +927,7 @@ All possible values for `{{page_type}}` are:
 **Object Properties:**
 
 | Property | Description |
-| --- | --- |
+|  |  |
 | account_creation_enabled | Site-wide boolean value that indicates whether to allow customers to create accounts |
 | show_product_rating | Site-wide boolean value that indicates whether to display product ratings (in numeric or star format) to visitors |
 | show_product_reviews | Site-wide boolean value that indicates whether to display full-text product reviews to visitors |
@@ -1055,7 +1055,7 @@ All possible values for `{{page_type}}` are:
 | amp_analytics_id | Returns Google AMP analytics ID |
 | bulk_discount_enabled | Boolean that return `true` if bulk discount is enabled on products. |
 
----
+
 
 <a href='#global-objects_sitemap' aria-hidden='true' class='block-anchor'  id='global-objects_sitemap'><i aria-hidden='true' class='linkify icon'></i></a>
 
@@ -1105,7 +1105,7 @@ All possible values for `{{page_type}}` are:
     </tr>
   </table>
 
----
+
 
 <a href='#global-objects_social-links' aria-hidden='true' class='block-anchor'  id='global-objects_social-links'><i aria-hidden='true' class='linkify icon'></i></a>
 
@@ -1140,7 +1140,7 @@ All possible values for `{{page_type}}` are:
   </tr>
 </table>
 
----
+
 
 <a href='#global-objects_template-property' aria-hidden='true' class='block-anchor'  id='global-objects_template-property'><i aria-hidden='true' class='linkify icon'></i></a>
 
@@ -1165,7 +1165,7 @@ All possible values for `{{page_type}}` are:
 * `pages/custom/product/<some_page_name>` (for a custom product page)
 (etc.)
 
----
+
 
 <a href='#global-objects_top-sellers' aria-hidden='true' class='block-anchor'  id='global-objects_top-sellers'><i aria-hidden='true' class='linkify icon'></i></a>
 
@@ -1182,8 +1182,8 @@ All possible values for `{{page_type}}` are:
 To access the global`{{products.top_sellers}}` object on your page, you must first use [front matter](/stencil-docs/front-matter/front-matter-attributes-reference) to declare the object at the top of your page template. For example, you would place this front-matter declaration at the top of your template file:
 
 ```
----
+
 products:
     top_sellers:
----
+
 ```

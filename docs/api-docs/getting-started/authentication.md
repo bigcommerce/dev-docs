@@ -23,7 +23,7 @@ Two types of API credentials are available to developers wishing to make request
 
 Developers can also create **App API Credentials** in the BigCommerce [Developer Portal](https://devtools.bigcommerce.com). App API Credentials are used during the OAuth flow to request authorization “on behalf” of a store owner, allowing the app to make API requests against store data. App API Credentials are OAuth only, and the store owner must install the app before the app is granted access to the store. 
 
----
+
 
 <a href='#authentication_getting-api-credentials' aria-hidden='true' class='block-anchor'  id='authentication_getting-api-credentials'><i aria-hidden='true' class='linkify icon'></i></a>
 
@@ -66,7 +66,7 @@ To get started making requests, see [API Requests](/api-docs/getting-started/bas
 </div>
 </div>
 
----
+
 
 <a href='#authentication_revoking-api-credentials' aria-hidden='true' class='block-anchor'  id='authentication_revoking-api-credentials'><i aria-hidden='true' class='linkify icon'></i></a>
 
@@ -102,7 +102,7 @@ To revoke Store API Credentials:
 </div>
 </div>
 
----
+
 
 <a href='#authentication_client-id-secret' aria-hidden='true' class='block-anchor'  id='authentication_client-id-secret'><i aria-hidden='true' class='linkify icon'></i></a>
 
@@ -198,14 +198,14 @@ The Client Secret value is a secret that your app and BigCommerce share. You onl
 
 During the app installation process, your app will use the Client Id and Client Secret to obtain an Oauth token authorized against the store installing the app. For a detailed look at this process, see [Building an App](/api-docs/getting-started/building-apps-bigcommerce/building-apps).
 
----
+
 
 <a href='#authentication_when-to-use' aria-hidden='true' class='block-anchor'  id='authentication_when-to-use'><i aria-hidden='true' class='linkify icon'></i></a>
 
 ## Use Cases by Credential Type
 
 |  | App API Credentials | Store API Credentials|
-|---|:---:|:---:|
+||::|::|
 | From Dev Tools| X | |
 |From Store Control Panel| | X |
 | Single Click Apps (Marketplace)| X | |
@@ -218,7 +218,7 @@ During the app installation process, your app will use the Client Id and Client 
 | V3 | X | X |
 |Webhooks | X | X |
 
----
+
 
 <a href='#authentication_migration-legacy-oauth' aria-hidden='true' class='block-anchor'  id='authentication_migration-legacy-oauth'><i aria-hidden='true' class='linkify icon'></i></a>
 
@@ -268,7 +268,7 @@ As an example, requests to `https://store-abc123.mybigcommerce.com/api/v2/orders
 
 Rate limiting of API requests works differently for OAuth API connections. To become familiar with the OAuth system, please see the [Rate Limits](/api-docs/getting-started/basics/best-practices#best-practices_rate-limits).
 
----
+
 
 <a href='#authentication_oauth-scopes' aria-hidden='true' class='block-anchor'  id='authentication_oauth-scopes'><i aria-hidden='true' class='linkify icon'></i></a>
 
@@ -282,7 +282,7 @@ All OAuth scopes except `default` have `read_only` scopes that allow only `GET` 
 - Wishlists API is accessible with Customers scope.
 
 | Scope GUI Name | Resources  | Description |
-|---|---|---|
+||||
 | Content | store_v2_content | View and modify store content |
 ||| [/v2/pages](/api-reference/content/store-content-api) |
 ||| [/v2/blog](/api-reference/content/store-content-api) |
@@ -351,7 +351,7 @@ All OAuth scopes except `default` have `read_only` scopes that allow only `GET` 
 | Get Payment Methods | store_payments_methods_read | Get Order Payment Methods |
 | | | [/payments](/api-reference/payments/payments-process-payments)|
 
----
+
 
 ## Resources
 * [Building An App](https://developer.bigcommerce.com/api-docs/getting-started/building-apps-bigcommerce/building-apps)

@@ -13,7 +13,7 @@
 
 Once Stencil CLI is installed, the next step on the road to theme development is downloading a theme to edit and previewing live changes using Stencil CLI's powerful Browsersync functionality. This article will walk you through the process of downloading a theme for development, installing theme modules, then serving a live preview using Stencil CLI's `stencil start` command. The steps in this article assume Stencil CLI has been installed on your system; if its not installed yet, see [Installing Stencil CLI](https://developer.bigcommerce.com/stencil-docs/installing-stencil-cli/installing-stencil) for detailed, operating system specific instructions.
 
----
+
 
 <a href='#step-0-obtain-store-api-credentials' aria-hidden='true' class='block-anchor'  id='step-0-obtain-store-api-credentials'><i aria-hidden='true' class='linkify icon'></i></a>
 
@@ -32,7 +32,7 @@ The **Stencil-CLI Access Level** can then be set by selecting **local developmen
 * **local development only** - can read theme related store data, but can not publish
 * **publish theme** - can read theme related store data and push themes to the live storefront
 
----
+
 
 <a href='#step-1-download-a-theme' aria-hidden='true' class='block-anchor'  id='step-1-download-a-theme'><i aria-hidden='true' class='linkify icon'></i></a>
 
@@ -103,7 +103,7 @@ For instructions on doing so, see the following resources:
 </div>
 </div>
 
----
+
 
 <a href='#step-2-install-theme-modules' aria-hidden='true' class='block-anchor'  id='step-2-install-theme-modules'><i aria-hidden='true' class='linkify icon'></i></a>
 
@@ -134,7 +134,7 @@ This will install the `npm` modules required to properly leverage the Stencil ev
 </div>
 </div>
 
----
+
 
 <a href='#step-3-serve-live-preview' aria-hidden='true' class='block-anchor'  id='step-3-serve-live-preview'><i aria-hidden='true' class='linkify icon'></i></a>
 
@@ -173,13 +173,13 @@ stencil start
 # ...
 [Browsersync] Proxying: http://localhost:3001
 [Browsersync] Access URLs:
- -----------------------------------
+ --
        Local: http://localhost:3000  # preview real-time changes on your local machine
     External: http://10.4.10.71:3000 # preview real-time changes across multiple devices
- -----------------------------------
+ --
           UI: http://localhost:3002
  UI External: http://10.4.10.71:3002
- -----------------------------------
+ --
 [Browsersync] Watching files...
 ```
 
@@ -200,7 +200,7 @@ For a full list of Stencil CLI commands, see [Stencil CLI Options and Commands](
 </div>
 </div>
 
----
+
 
 ## Resources
 

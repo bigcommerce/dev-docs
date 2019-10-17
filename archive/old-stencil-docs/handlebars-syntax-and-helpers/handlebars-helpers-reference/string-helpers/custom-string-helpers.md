@@ -23,7 +23,7 @@ The following custom helpers are available to manipulate strings:
 
 The `block` string helper is custom to Stencil. It defines a block of content, which can be overwritten by the [partial](#partial-helper) helper.
 
----
+
 
 <a href='#handlebars_concat' aria-hidden='true' class='block-anchor'  id='handlebars_concat'><i aria-hidden='true' class='linkify icon'></i></a>
 
@@ -37,7 +37,7 @@ The `concat` helper is custom to Stencil. It concatenates two string objects fro
 {{concat breadcrumbs.[0].name breadcrumbs.[0].url}}
 ```
 
----
+
 
 <a href='#handlebars_dynamiccomponent' aria-hidden='true' class='block-anchor'  id='handlebars_dynamiccomponent'><i aria-hidden='true' class='linkify icon'></i></a>
 
@@ -45,7 +45,7 @@ The `concat` helper is custom to Stencil. It concatenates two string objects fro
 
 The `dynamicComponent` string helper is custom to Stencil. It inserts a dynamic partial from within the path that is supplied as its parameter.
 
----
+
 
 <a href='#handlebars_json' aria-hidden='true' class='block-anchor'  id='handlebars_json'><i aria-hidden='true' class='linkify icon'></i></a>
 
@@ -53,7 +53,7 @@ The `dynamicComponent` string helper is custom to Stencil. It inserts a dynamic 
 
 The `json` string helper is custom to Stencil. You can use this helper to convert a JavaScript string object (from the page's context) into a JSON string object.
 
----
+
 
 <a href='#handlebars_lang' aria-hidden='true' class='block-anchor'  id='handlebars_lang'><i aria-hidden='true' class='linkify icon'></i></a>
 
@@ -64,7 +64,7 @@ The `lang` string helper is custom to Stencil. It maps keys to translation files
 - `translationKey`: a string.
 - `options`: key-value pairs.
 
----
+
 
 <a href='#handlebars_nl2br' aria-hidden='true' class='block-anchor'  id='handlebars_nl2br'><i aria-hidden='true' class='linkify icon'></i></a>
 
@@ -94,7 +94,7 @@ This Handlebars statement:
 "<br>685 Market St<br>San Francisco<br>94105<br>CA<br>"
 ```
 
----
+
 
 <a href='#handlebars_partial' aria-hidden='true' class='block-anchor'  id='handlebars_partial'><i aria-hidden='true' class='linkify icon'></i></a>
 
@@ -102,7 +102,7 @@ This Handlebars statement:
 
 The `partial` string helper is custom to Stencil. It overrides block content defined by the [block](#block-helper) helper.
 
----
+
 
 <a href='#handlebars_replace' aria-hidden='true' class='block-anchor'  id='handlebars_replace'><i aria-hidden='true' class='linkify icon'></i></a>
 
@@ -118,7 +118,7 @@ For example, the following code would search for the string `needle` within the 
 {{/replace}}
 ```
 
----
+
 
 <a href='#handlebars_toLowerCase' aria-hidden='true' class='block-anchor'  id='handlebars_toLowerCase'><i aria-hidden='true' class='linkify icon'></i></a>
 

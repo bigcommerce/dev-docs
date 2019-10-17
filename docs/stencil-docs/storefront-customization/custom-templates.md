@@ -34,7 +34,7 @@ The Stencil framework allows theme developers and merchants to assign custom lay
 </div>
 </div>
 
----
+
 
 <a href='#custom-templates_authoring-templates' aria-hidden='true' class='block-anchor'  id='custom-templates_authoring-templates'><i aria-hidden='true' class='linkify icon'></i></a>
 
@@ -66,7 +66,7 @@ Without these permissions, running your theme locally will fail with multiple er
 </div>
 </div>
 
----
+
 
 <a href='#custom-templates_local-mapping-and-testing' aria-hidden='true' class='block-anchor'  id='custom-templates_local-mapping-and-testing'><i aria-hidden='true' class='linkify icon'></i></a>
 
@@ -203,7 +203,7 @@ lineNumbers: true
 }
 ```
 
----
+
 
 <a href='#custom-templates_theme-upload' aria-hidden='true' class='block-anchor'  id='custom-templates_theme-upload'><i aria-hidden='true' class='linkify icon'></i></a>
 
@@ -211,7 +211,7 @@ lineNumbers: true
 
 Finally, you must bundle and push the theme to BigCommerce. See [Bundling and Pushing a Theme](https://developer.bigcommerce.com/stencil-docs/deploying-a-theme/bundling-and-pushing) for instructions on how to achieve this.
 
----
+
 
 <a href='#custom-templates_troubleshooting' aria-hidden='true' class='block-anchor'  id='custom-templates_troubleshooting'><i aria-hidden='true' class='linkify icon'></i></a>
 
@@ -229,7 +229,7 @@ If you have an old version of Stencil CLI installed, it might lack support for c
 
 `npm install -g bigcommerce/stencil-cli`
 
----
+
 
 <a href='#custom-templates_applying' aria-hidden='true' class='block-anchor'  id='custom-templates_applying'><i aria-hidden='true' class='linkify icon'></i></a>
 
@@ -239,7 +239,7 @@ Once the developer has uploaded a theme to BigCommerce, the merchant (or other a
 
 If you are ready to apply your custom template to the live BigCommerce storefront, see [Applying a Custom Template](https://support.bigcommerce.com/s/article/Stencil-Themes#intro3) (BigCommerce Knowledge base).
 
----
+
 
 ## Resources
 

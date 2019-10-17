@@ -11,9 +11,9 @@
 To access the global`{{products.top_sellers}}` object on your page, you must first use [front matter](/stencil-docs/front-matter/front-matter-attributes-reference) to declare the object at the top of your page template. For example, you would place this front-matter declaration at the top of your template file:
 
 ```
----
+
 products:
     top_sellers:
----
+
 ```
 

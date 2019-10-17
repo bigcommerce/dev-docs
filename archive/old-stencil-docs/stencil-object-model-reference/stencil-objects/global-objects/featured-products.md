@@ -25,12 +25,12 @@ lineNumbers: true
 -->
 
 ```js
----
+
 products:
     [...]
     featured:
         limit: {{theme_settings.homepage_featured_products_count}} //limits the number of featured products to be displayed
----
+
 ```
 
 The `homepage_featured_products_count` limit is one of two relevant variables defined in [Cornerstone's `config.json` file](https://github.com/bigcommerce/cornerstone/blob/master/config.json#L45) (Github).

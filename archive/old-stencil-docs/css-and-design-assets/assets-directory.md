@@ -71,7 +71,7 @@ The <span class="fp">/scss/</span> subdirectory contains theme-specific CSS reso
 </div>
 </div>
 
----
+
 
 <a href='#assets_video-demo' aria-hidden='true' class='block-anchor'  id='assets_video-demo'><i aria-hidden='true' class='linkify icon'></i></a>
 
@@ -82,7 +82,7 @@ Watch a video tour of the <span class="fp">/assets/</span> directory, its `/scss
 <iframe width="560" height="315" src="https://www.youtube.com/embed/zUDNgprOEts" frameborder="0" allow="autoplay; encrypted-media" allowfullscreen></iframe>
 
 
----
+
 
 <a href='#assets_restrictions-permissions' aria-hidden='true' class='block-anchor'  id='assets_restrictions-permissions'><i aria-hidden='true' class='linkify icon'></i></a>
 

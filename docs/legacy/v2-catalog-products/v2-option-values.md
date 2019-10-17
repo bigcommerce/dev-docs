@@ -20,7 +20,7 @@ Values that can be selected for an option.
 ### Option Value Object – Properties 
 
 | Name | Type | Description |
-| --- | --- | --- |
+|  |  |  |
 | id | int | A unique, read-only value that identifies this option value. |
 | option_id | int | A read-only value identifying the option to which this option value is assigned. |
 | label | string | The name of the label. Cannot be the same as the label of another value already assigned to the option. |
@@ -43,7 +43,7 @@ Gets the values belonging to an option. (Default sorting is by option-value id, 
 Parameters can be added to the URL query string to paginate the collection. The maximum limit is 250. If a limit isn’t provided, up to 50 option_values are returned by default.
 
 | Parameter | Type | Example |
-| --- | --- | --- |
+|  |  |  |
 | Page | int | /api/v2/options/{option_id}/values?page={number} |
 | Limit | int | /api/v2/options/{option_id}/values?limit={count} |
 
@@ -97,7 +97,7 @@ Example JSON returned in the response:
 }
 ```
 
----
+
 
 <a href='#v2-option-values_create-option-values' aria-hidden='true' class='block-anchor'  id='v2-option-values_create-option-values'><i aria-hidden='true' class='linkify icon'></i></a>
 
@@ -155,7 +155,7 @@ Example JSON returned in the response:
 }
 ```
 
----
+
 
 <a href='#v2-option-values_update-option-values' aria-hidden='true' class='block-anchor'  id='v2-option-values_update-option-values'><i aria-hidden='true' class='linkify icon'></i></a>
 
@@ -210,7 +210,7 @@ Example JSON returned in the response:
 }
 ```
 
----
+
 
 <a href='#v2-option-values_delete-option-values' aria-hidden='true' class='block-anchor'  id='v2-option-values_delete-option-values'><i aria-hidden='true' class='linkify icon'></i></a>
 
@@ -220,7 +220,7 @@ Deletes an option value.
 
 >`DELETE /stores/{store_hash}/v2/options/{option_id}/values/{id}`
 
----
+
 
 <a href='#v2-option-values_delete-all-option-values' aria-hidden='true' class='block-anchor'  id='v2-option-values_delete-all-option-values'><i aria-hidden='true' class='linkify icon'></i></a>
 
@@ -236,7 +236,7 @@ Deletes multiple values belonging to an option.
 Parameters can be added to the URL query string to paginate the collection. The maximum limit is 250. If a limit isn’t provided, up to 50 option_values are returned by default.
 
 | Parameter | Type | Example |
-| --- | --- | --- |
+|  |  |  |
 | Page | int | /api/v2/options/{option_id}/values?page={number} |
 | Limit | int | /api/v2/options/{option_id}/values?limit={count} |
 

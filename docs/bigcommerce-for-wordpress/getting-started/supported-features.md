@@ -46,7 +46,7 @@ Unsupported Hosted Payment Gateways are Amazon Pay, AfterPay, Google Pay, Chase 
 
 
 
----
+
 
 <a href='##supported_unsupported' aria-hidden='true' class='block-anchor'  id='#supported_unsupported'><i aria-hidden='true' class='linkify icon'></i></a>
 
@@ -62,7 +62,7 @@ The BigCommerce for Wordpress plugin does not currently support the following fe
 * Cart Page Promotional Banners
 * Real-Time Syncing with BigCommerce Catalog Updates
 
----
+
 
 <a href='#supported_general' aria-hidden='true' class='block-anchor'  id='supported_general'><i aria-hidden='true' class='linkify icon'></i></a>
 

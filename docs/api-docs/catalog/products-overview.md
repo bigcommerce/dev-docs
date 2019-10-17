@@ -29,7 +29,7 @@ The Catalog refers to a store’s collection of physical and digital products. T
 
 [![Run in Postman](https://run.pstmn.io/button.svg)](https://app.getpostman.com/run-collection/63a61a74bd429ee184b3)
 
----
+
 
 ## Products
 
@@ -88,7 +88,7 @@ Simple products do not have any options, modifiers, or variants, and therefore c
 </div>
 </div>
 
----
+
 
 ### Create a Complex Product
 
@@ -161,7 +161,7 @@ Files must be added to digital products using the [Control Panel or WebDav](http
   ]
 }
 ```
----
+
 
 
 
@@ -190,7 +190,7 @@ Currency settings allows for inputting a large number of decimal places for disp
 ](//s3.amazonaws.com/user-content.stoplight.io/6012/1553018091114 "#### Currency Decimal Places
 ")
 
----
+
 
 
 
@@ -246,7 +246,7 @@ lineNumbers: true
 }
 ```
 
----
+
 
 
 
@@ -270,7 +270,7 @@ Example: <span class=”fp”>https://www.youtube.com/watch?v=<b>R12345677</b></
 }
 ```
 
----
+
 
 
 
@@ -305,7 +305,7 @@ Custom Fields are intended to be used in a couple of contexts:
 * Displaying specifications on the product detail page and on the product listing pages such as category and brand pages.
 * Powering faeted search (searching/filtering by custom field values)
 
----
+
 
 
 
@@ -337,7 +337,7 @@ Bulk Pricing rules in the catalog are on the product, meaning that they’ll tri
 }
 ```
 
----
+
 
 
 
@@ -363,7 +363,7 @@ Metafields can be added to variants, products, categories, and brands.
 }
 ```
 
----
+
 
 
 
@@ -389,7 +389,7 @@ Product Reviews are a native platform feature, but they can be turned off in fav
 }
 ```
 
----
+
 
 
 
@@ -417,7 +417,7 @@ They’re primarily used to tag products so that consumers can find Brands they�
   "image_url": "{{image_url}}"
 }
 ```
----
+
 
 
 
@@ -448,8 +448,8 @@ The combination of Small & Red is what is selected on the storefront and correla
 
 | If the product is | Variant Option |
 | -- | -- |
-| T-Shirt | Blue<br>----------<br>Small<br> Medium<br> Large|
-| Backpack | Black<br> Yellow<br>----------<br>2L <br> 3L<br> 8L |
+| T-Shirt | Blue<br>-<br>Small<br> Medium<br> Large|
+| Backpack | Black<br> Yellow<br>-<br>2L <br> 3L<br> 8L |
 
 
 ### Options created on V2 and V3
@@ -514,7 +514,7 @@ lineNumbers: true
 }
 ```
 
----
+
 
 
 
@@ -546,8 +546,8 @@ lineNumbers: true
 
 | If the product is | Variant Option | Variant |
 | -- | -- | -- |
-| T-Shirt | Blue<br>----------<br> Small<br> Medium<br> Large| SM-BLU<br> SM-MED <br> SM-LARG
-| Backpack | Black<br>Yellow<br>----------<br>2L <br> 3L<br> 8L |BLACK-2L<br>BLACK-3L<br>BLACK 8L<br>----------<br>YELLOW-2L<br>YELLOW-3L<br>YELLOW-8L|
+| T-Shirt | Blue<br>-<br> Small<br> Medium<br> Large| SM-BLU<br> SM-MED <br> SM-LARG
+| Backpack | Black<br>Yellow<br>-<br>2L <br> 3L<br> 8L |BLACK-2L<br>BLACK-3L<br>BLACK 8L<br>-<br>YELLOW-2L<br>YELLOW-3L<br>YELLOW-8L|
 
 
 ## Create a Variant
@@ -772,7 +772,7 @@ The following example creates a base product, variant options, and variants in a
 </div>
 
 
----
+
 
 
 
@@ -797,8 +797,8 @@ An adjuster can be added to a modifier option to change things such as increasin
 
 | If the product is | Variant Option | Variant |Modifier |
 | -- | -- | -- | -- |
-| T-Shirt | Blue<br>----------<br> Small<br> Medium<br> Large| SM-BLU<br> SM-MED <br> SM-LARG| Checkbox<br>Donate to Charity|
-| Backpack | Black<br>Yellow<br>----------<br>2L <br> 3L<br> 8L |BLACK-2L<br>BLACK-3L<br>BLACK 8L<br>----------<br>YELLOW-2L<br>YELLOW-3L<br>YELLOW-8L| Text Field<br> Add Embroidery|
+| T-Shirt | Blue<br>-<br> Small<br> Medium<br> Large| SM-BLU<br> SM-MED <br> SM-LARG| Checkbox<br>Donate to Charity|
+| Backpack | Black<br>Yellow<br>-<br>2L <br> 3L<br> 8L |BLACK-2L<br>BLACK-3L<br>BLACK 8L<br>-<br>YELLOW-2L<br>YELLOW-3L<br>YELLOW-8L| Text Field<br> Add Embroidery|
 
 <div class="HubBlock--callout">
 <div class="CalloutBlock--info">
@@ -980,7 +980,7 @@ To fix this error:
 * Modify the products using the V2 API
 * Remove the option set using the V2 API or the Control Panel, then remake the variants and modifiers using V3
 
----
+
 
 
 
@@ -1004,8 +1004,8 @@ Use complex rules when an adjustment should be triggered by:
 
 | If the product is | Variant Option | Variant |Modifier | Complex Rule |
 | -- | -- | -- | -- | -- |
-| T-Shirt | Blue<br>----------<br> Small<br> Medium<br> Large| SM-BLU<br> SM-MED <br> SM-LARG| Checkbox<br>Donate to Charity| Checkox<br> Donate to Charity.<br> Add $5
-| Backpack | Black<br>Yellow<br>----------<br>2L <br> 3L<br> 8L |BLACK-2L<br>BLACK-3L<br>BLACK 8L<br>----------<br>YELLOW-2L<br>YELLOW-3L<br>YELLOW-8L| Text Field<br> Add Embroidery| N/A
+| T-Shirt | Blue<br>-<br> Small<br> Medium<br> Large| SM-BLU<br> SM-MED <br> SM-LARG| Checkbox<br>Donate to Charity| Checkox<br> Donate to Charity.<br> Add $5
+| Backpack | Black<br>Yellow<br>-<br>2L <br> 3L<br> 8L |BLACK-2L<br>BLACK-3L<br>BLACK 8L<br>-<br>YELLOW-2L<br>YELLOW-3L<br>YELLOW-8L| Text Field<br> Add Embroidery| N/A
 
 <br>
 
@@ -1040,7 +1040,7 @@ lineNumbers: true
 }
 ```
 
----
+
 
 
 
@@ -1221,7 +1221,7 @@ lineNumbers: true
 ```
 
 
----
+
 
 ## Resources
 

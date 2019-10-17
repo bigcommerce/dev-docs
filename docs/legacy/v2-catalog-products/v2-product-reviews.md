@@ -22,7 +22,7 @@ Reviews associated with a product.
 ### Product Review Object – Properties 
 
 | Name | Type | Description |
-| --- | --- | --- |
+|  |  |  |
 | id | int | Unique database ID for this product review. Read-only. |
 | product_id | int | The ID of the product to which this review belongs. Read-only. |
 | author | string | The review's author, displayed on the storefront. |
@@ -32,7 +32,7 @@ Reviews associated with a product.
 | review | text | The full text of the review, displayed on the storefront. |
 | status | int | A status indicator. 0="Pending", 1= "Approved", 2="Disapproved". |
 
----
+
 
 ## List Product Reviews 
 
@@ -49,7 +49,7 @@ There are no filter parameters specific to product reviews.
 Parameters can be added to the URL query string to paginate the collection. The maximum limit is 250. If a limit isn’t provided, up to 50 product_reviews are returned by default.
 
 | Parameter | Type | Example |
-| --- | --- | --- |
+|  |  |  |
 | page | int | /api/v2/products/{product_id}/reviews?page={number} |
 | limit | int | /api/v2/products/{product_id}/reviews?limit={count} |
 
@@ -92,7 +92,7 @@ Example JSON returned in the response:
 ]
 ```
 
----
+
 
 <a href='#v2-reviews_get-count-reviews' aria-hidden='true' class='block-anchor'  id='v2-reviews_get-count-reviews'><i aria-hidden='true' class='linkify icon'></i></a>
 
@@ -121,7 +121,7 @@ Example JSON returned in the response:
 }
 ```
 
----
+
 
 <a href='#v2-reviews_create-product-reviews' aria-hidden='true' class='block-anchor'  id='v2-reviews_create-product-reviews'><i aria-hidden='true' class='linkify icon'></i></a>
 
@@ -169,7 +169,7 @@ Example JSON returned in the response:
 }
 ```
 
----
+
 
 <a href='#v2-reviews_update-product-reviews' aria-hidden='true' class='block-anchor'  id='v2-reviews_update-product-reviews'><i aria-hidden='true' class='linkify icon'></i></a>
 
@@ -203,7 +203,7 @@ Example JSON returned in the response:
 }
 ```
 
----
+
 
 <a href='#v2-reviews_delete-product-reviews' aria-hidden='true' class='block-anchor'  id='v2-reviews_delete-product-reviews'><i aria-hidden='true' class='linkify icon'></i></a>
 
@@ -213,7 +213,7 @@ Deletes a specified product review. (If successful, this will typically return a
 
 >`DELETE /stores/{store_hash}/v2/products/{product_id}/reviews/{id}
 
----
+
 
 <a href='#v2-reviews_delete-all-product-reviews' aria-hidden='true' class='block-anchor'  id='v2-reviews_delete-all-product-reviews'><i aria-hidden='true' class='linkify icon'></i></a>
 

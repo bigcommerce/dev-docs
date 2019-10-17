@@ -49,7 +49,7 @@ An active BigCommerce store with a sellable [product](/api-reference/catalog/cat
 The following [OAuth](/api-docs/getting-started/authentication#authentication_oauth-scopes) scopes are required:
 * Modify Orders
 
----
+
 
 <a href='#orders-api-overview_create-order' aria-hidden='true' class='block-anchor'  id='orders-api-overview_create-order'><i aria-hidden='true' class='linkify icon'></i></a>
 
@@ -471,7 +471,7 @@ lineNumbers: true
 }
 ```
 
----
+
 
 <a href='#orders-api-guide_order-response' aria-hidden='true' class='block-anchor'  id='orders-api-guide_order-response'><i aria-hidden='true' class='linkify icon'></i></a>
 
@@ -597,7 +597,7 @@ lineNumbers: true
 }
 ```
 
----
+
 
 <a href='#orders-api-overview_shipping-order' aria-hidden='true' class='block-anchor'  id='orders-api-overview_shipping-order'><i aria-hidden='true' class='linkify icon'></i></a>
 
@@ -766,7 +766,7 @@ An order can be created with a `shipping_cost_ex_tax` and `shipping_cost_inc_tax
 ### Shipping Carrier
 Generating a quote through a shipping carrier is currently not supported. A shipping carrier can be specified when creating an Order Shipment. The quote can be generate elsewhere, then update the `shipping_cost_ex_tax` and `shipping_cost_inc_tax` for the order total to be correct..
 
----
+
 
 <a href='#orders-api-overview_taxes' aria-hidden='true' class='block-anchor'  id='orders-api-overview_taxes'><i aria-hidden='true' class='linkify icon'></i></a>
 
@@ -788,21 +788,21 @@ You can create overrides for calculated values such as product prices, subtotal 
 
 
 | Existing Status | Status Passed | Resultant Status | Avalara Tax Document Submission |
-| --- | --- | --- | --- |
+|  |  |  |  |
 | Any | None | `Pending` | None |
 | Paid or `Refunded` | Paid | Paid | None |
 | Unpaid or `Refunded` | Unpaid | Unpaid | None |
 | Paid or `Refunded` | Unpaid | Unpaid | Tax document voided |
 | Unpaid or `Refunded` | Paid | Paid | Tax document submitted |
 
----
+
 
 <a href='##orders-api-overview_override-preset-values' aria-hidden='true' class='block-anchor'  id='#orders-api-overview_override-preset-values'><i aria-hidden='true' class='linkify icon'></i></a>
 
 ## Overriding Preset Values
 You can create overrides for calculated values such as product prices, subtotal and totals by sending a fixed value in the request. If values are not supplied for these properties, they will be automatically calculated based on the preset store values and tax rules.
 
----
+
 
 <a href='#orders-api-overview_calculation_totals' aria-hidden='true' class='block-anchor'  id='orders-api-overview_calculation_totals'><i aria-hidden='true' class='linkify icon'></i></a>
 
@@ -824,7 +824,7 @@ Edits to the following properties will trigger a recalculation of the subtotal a
 *   billing_address
 *   shipping_addresses
 
----
+
 
 <a href='#orders-api-overview_order_status' aria-hidden='true' class='block-anchor'  id='orders-api-overview_order_status'><i aria-hidden='true' class='linkify icon'></i></a>
 
@@ -849,7 +849,7 @@ BigCommerce considers all statuses other than those above to be of the unpaid ty
 
 The order status label can be changed in the Control Panel. This **does not** change the underlying functionality. See our support article on [Order Status](https://support.bigcommerce.com/s/article/Order-Statuses#rename).
 
----
+
 
 <a href='#orders-api-overview_faq' aria-hidden='true' class='block-anchor'  id='orders-api-overview_faq'><i aria-hidden='true' class='linkify icon'></i></a>
 
@@ -883,7 +883,7 @@ You can either process payment through a third party or using the Control Panel.
 Not at this time. If an order is created either in the Control Panel or via API, then it returns a 204 when trying to get a [Shipping Quote](https://developer.bigcommerce.com/api-reference/orders/orders-api/models/shippingquotes).
 
 
----
+
 
 <a href='#orders-api-overview_resources' aria-hidden='true' class='block-anchor'  id='orders-api-overview_resources'><i aria-hidden='true' class='linkify icon'></i></a>
 

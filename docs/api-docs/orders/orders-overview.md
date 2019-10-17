@@ -24,7 +24,7 @@ BigCommerce offers two possible workflows for creating orders via the API: the S
 * The Server-to-Server Checkout API represents an extension of the Server-to-Server Cart API and can be used to complete a purchase from product selection to conversion.
 * The Orders API is used to retrieve or update existing orders or to push orders from a third party, like a POS, to BigCommerce.
 
----
+
 
 <a href='#order-overview_available-endpoints' aria-hidden='true' class='block-anchor'  id='order-overview_available-endpoints'><i aria-hidden='true' class='linkify icon'></i></a>
 
@@ -37,7 +37,7 @@ BigCommerce offers two possible workflows for creating orders via the API: the S
 | [Orders API](/api-reference/orders/orders-api) | Create and manage orders. Can manage orders created via API or the Control Panel |
 | [Order Transactions](/api-reference/orders/orders-transactions-api) | Get transaction information for existing orders. Read Only Endpoint |
 
----
+
 
 <a href='#order-overview_storefront-orders' aria-hidden='true' class='block-anchor'  id='order-overview_storefront-orders'><i aria-hidden='true' class='linkify icon'></i></a>
 
@@ -71,7 +71,7 @@ console.log(myJson);
 </script>
 ```
 
----
+
 
 <a href='#order-overview_server-server-checkout' aria-hidden='true' class='block-anchor'  id='order-overview_server-server-checkout'><i aria-hidden='true' class='linkify icon'></i></a>
 
@@ -82,7 +82,7 @@ The Server-to-Server Checkout API allows you to create a checkout programmatical
 ### When to Use:
 * Create an order from an existing checkout
 
----
+
 
 <a href='#order-overview_v2-orders' aria-hidden='true' class='block-anchor'  id='order-overview_v2-orders'><i aria-hidden='true' class='linkify icon'></i></a>
 
@@ -95,7 +95,7 @@ The Orders API can be used to create an order without first creating a cart and 
 * Make changes to existing orders
 * Export or import order information to a third-party system
 
----
+
 
 <a href='#order-overview_transactions' aria-hidden='true' class='block-anchor'  id='order-overview_transactions'><i aria-hidden='true' class='linkify icon'></i></a>
 
@@ -105,7 +105,7 @@ The Order Transactions API is a read-only endpoint that returns transaction or p
 ### When to Use:
 * View transaction information about an Order. 
 
----
+
 
 <a href='#order-oauth-scopes' aria-hidden='true' class='block-anchor'  id='order-oauth-scopes'><i aria-hidden='true' class='linkify icon'></i></a>
 
@@ -116,7 +116,7 @@ The Order Transactions API is a read-only endpoint that returns transaction or p
 
 For a more details and a full list of available scopes, see [Oauth Scopes](/api-docs/getting-started/basics/authentication#authentication_oauth-scopes).
 
----
+
 
 <a href='#order-webhooks-available' aria-hidden='true' class='block-anchor'  id='order-webhooks-available'><i aria-hidden='true' class='linkify icon'></i></a>
 

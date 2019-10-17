@@ -99,7 +99,7 @@ lineNumbers: true
 ...
 ```
 
----
+
 
 <a href='#managing_changing' aria-hidden='true' class='block-anchor'  id='managing_changing'><i aria-hidden='true' class='linkify icon'></i></a>
 
@@ -132,7 +132,7 @@ lineNumbers: true
 }
 ```
 
----
+
 
 <a href='#managing_preparing' aria-hidden='true' class='block-anchor'  id='managing_preparing'><i aria-hidden='true' class='linkify icon'></i></a>
 
@@ -141,7 +141,7 @@ lineNumbers: true
 For details on preparing screenshots that enable merchants to preview each variation – and to preview your theme as a whole – in the BigCommerce control panel and Theme Marketplace, see [Preparing Thumbnail Images](/stencil-docs/stencil-theme-editor/preparing-thumbnail-images).
 
 
----
+
 
 <a href='#managing_using-cli' aria-hidden='true' class='block-anchor'  id='managing_using-cli'><i aria-hidden='true' class='linkify icon'></i></a>
 
@@ -151,7 +151,7 @@ To locally test/debug a specific variation of your theme, launch it by invoking 
 
 `stencil start -v MyCustomVariation`
 
----
+
 
 <a href='#managing_bundling-and-uploading' aria-hidden='true' class='block-anchor'  id='managing_bundling-and-uploading'><i aria-hidden='true' class='linkify icon'></i></a>
 
@@ -159,7 +159,7 @@ To locally test/debug a specific variation of your theme, launch it by invoking 
 
 If at this stage you are ready to bundle and upload your theme, refer to [Bundling and Uploading a Theme](/stencil-docs/prepare-and-upload-a-theme/bundling-and-uploading). 
 
----
+
 
 ## Resources
 ### Related Articles

@@ -16,7 +16,7 @@
 
 This article is a comprehensive command reference for Stencil CLI (BigCommerce's powerful theme development and deployment tool). For installation instructions for your OS, see: [Installing Stencil CLI](https://developer.bigcommerce.com/stencil-docs/installing-stencil-cli/installing-stencil). For more information on BigCommerce's Stencil Theme Engine, see: [About Stencil](https://developer.bigcommerce.com/stencil-docs/getting-started/about-stencil). Continue reading below for detailed information on each Stencil CLI command and option.
 
----
+
 
 <a id="commands-overview"></a>
 
@@ -31,7 +31,7 @@ stencil <COMMANDS> [<OPTIONS>] <PARAMETERS>
 Running `stencil help` outputs a full list of commands and their descriptions. For more detailed information and usage examples, click a link in the table below:
 
 |Command                     |Description                                                                                 |
-|----------------------------|--------------------------------------------------------------------------------------------|
+|-|--|
 |[init](#stencil-init)       |Interactively creates a `.stencil`, which configures how to run a BigCommerce store locally.|
 |[start](#stencil-init)      |Starts up the BigCommerce store, using theme files in the current directory.                |
 |[bundle](#stencil-bundle)   |Bundles up the theme into a structured .zip file, which can be uploaded to BigCommerce      |
@@ -45,7 +45,7 @@ Running `stencil help` outputs a full list of commands and their descriptions. F
     data: //s3.amazonaws.com/user-content.stoplight.io/6116/1538055264839
 -->
 
----
+
 
 <a id="stencil-help"></a>
 
@@ -71,7 +71,7 @@ Options:
 ...
 ```
 
----
+
 
 <a id="stencil-init"></a>
 
@@ -86,12 +86,12 @@ stencil init [--url <STORE_URL>] [--token <API_TOKEN>]
 ```
 
 | Option                  | Alias | Description                                                                               |
-|-------------------------|-------|-------------------------------------------------------------------------------------------|
+|-|-|-|
 | `--port [<HTTP_PORT>]`  |`-p`   | The `HTTP` port number to use when serving the live theme preview                         |
 | `--token [<API_TOKEN>]` |`-t`   | The [BigCommerce API Token](https://support.bigcommerce.com/s/article/Store-API-Accounts) |
 | `--url [<STORE_URL>]`   |`-u`   | The BigCommerce storefront URL                                                            |
 
----
+
 
 <a id="stencil-start"></a>
 
@@ -114,7 +114,7 @@ stencil start --open # opens live theme preview in default browser
 ```
 
 | Option                       |Alias| Description                                                                           |
-|------------------------------|-----|---------------------------------------------------------------------------------------|
+||--||
 | `--version`                  |`-V` | Outputs the version number                                                            |
 | `--open`                     |`-o` | Automatically open default browser                                                    |
 | `--variation [<NAME>]`       |`-v` | Set which theme variation to use while developing                                     |
@@ -138,7 +138,7 @@ stencil start --open # opens live theme preview in default browser
 </div>
 </div>
 
----
+
 
 <a id="stencil-bundle"></a>
 
@@ -152,7 +152,7 @@ Bundles up the theme into a structured `.zip` file, which can be uploaded to Big
 stencil bundle
 ```
 
----
+
 
 <a id="stencil-push"></a>
 
@@ -167,7 +167,7 @@ Usage: stencil push [<OPTIONS>]
 ```
 
 | Option                        |Alias| Description                                                                          |
-|-------------------------------|-----|--------------------------------------------------------------------------------------|
+|-|--|--|
 |`--version`                    |`-V` | Outputs the version number                                                           |
 |`--host [HOSTNAME]`            |     | Specify the API host (default: https://api.bigcommerce.com)                          |
 |`--file [<FILENAME>]`          |`-f` | Specify the filename of the bundle to upload                                         |
@@ -195,7 +195,7 @@ stencil push -f Cornerstone-2.3.2.zip # uploads specified file, skips bundling i
 </div>
 </div>
 
----
+
 
 <a id="stencil-release"></a>
 
@@ -210,11 +210,11 @@ stencil release [<OPTIONS>]
 ```
 
 | Option      | Alias | Description                |
-|-------------|-------|----------------------------|
+|-|-|-|
 | `--version` | `-V`  | Outputs the version number |
 | `--help`    | `-h`  | Output usage information.  |
 
----
+
 
 ## Resources
 

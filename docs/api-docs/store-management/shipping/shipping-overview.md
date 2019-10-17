@@ -17,7 +17,7 @@ The V2 Shipping API allows you to manage Shipping Zones, Shipping Methods, and S
 
 The Order Shipments resource creates a shipment for an order. You can specify the shipping provider, tracking number and shipping address id when creating a shipment.
 
----
+
 
 <a href='#shipping_storefront-server-checkout' aria-hidden='true' class='block-anchor'  id='shipping_storefront-server-checkout'><i aria-hidden='true' class='linkify icon'></i></a>
 
@@ -29,7 +29,7 @@ However, both the Storefront and Server-to-Server Checkout APIs provide methods 
 
 A Checkout will always have one Consignment assigned to it, which is the first shipping address. A Consignment supports multiple shipping addresses, with each address having its own line items.
 
----
+
 
 <a href='#shipping_order-shipping-addresses' aria-hidden='true' class='block-anchor'  id='shipping_order-shipping-addresses'><i aria-hidden='true' class='linkify icon'></i></a>
 
@@ -37,7 +37,7 @@ A Checkout will always have one Consignment assigned to it, which is the first s
 
 The [Order Shipping Addresses](https://developer.bigcommerce.com/api-reference/orders/orders-api/order-shipping-addresses) endpoint allows you to view the shipping addresses on an order. This will be the address(es) the items are shipped to.  An order can have more than one shipping address.
 
----
+
 
 <a href='#shipping_shipping-zone-methods' aria-hidden='true' class='block-anchor'  id='shipping_shipping-zone-methods'><i aria-hidden='true' class='linkify icon'></i></a>
 
@@ -47,7 +47,7 @@ The [Order Shipping Addresses](https://developer.bigcommerce.com/api-reference/o
 
 An example of a shipping zone might be North America, and within that shipping zone, the shipping methods might be Free Shipping, Ship-by-Weight, and USPS.
 
----
+
 
 <a href='#shipping_real-time-carriers' aria-hidden='true' class='block-anchor'  id='shipping_real-time-carriers'><i aria-hidden='true' class='linkify icon'></i></a>
 
@@ -57,7 +57,7 @@ BigCommerce offers native integrations with many real-time shipping carriers suc
 
 For a list of all supported carriers, see [Real-Time Quote Providers](https://support.bigcommerce.com/articles/Public/Setting-Up-a-Real-Time-Shipping-Quote-Shipping-Method/#providers).
 
----
+
 
 ## Resources
 

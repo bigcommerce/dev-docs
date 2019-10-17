@@ -27,7 +27,7 @@ These are the most common filter options available for the V3 API:
 
 Available filters vary by endpoint. Refer to the GET method for an endpoint to see a list of available filters.
 
----
+
 
 ## Includes
 
@@ -40,7 +40,7 @@ As an example, you can include a product's variants and images with the product 
 Availability of the `?include` parameter varies by endpoint. Refer to the GET method for an endpoint to see a list of fields that can be included.
 
 
----
+
 
 ### Including and Excluding Fields
 
@@ -77,7 +77,7 @@ lineNumbers: true
 } 
 ```
 
----
+
 
 ## Pagination and Limit
 

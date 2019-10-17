@@ -84,7 +84,7 @@ devtool: 'eval-source-map'
 
 The `eval-source-map` option is slower, but more verbose. This [Webpack Devtool Configuration](https://webpack.js.org/configuration/devtool/) article provides an overview of all devtool options and details regarding each.
 
----
+
 
 <a href='#configuring_build-system' aria-hidden='true' class='block-anchor'  id='configuring_build-system'><i aria-hidden='true' class='linkify icon'></i></a>
 

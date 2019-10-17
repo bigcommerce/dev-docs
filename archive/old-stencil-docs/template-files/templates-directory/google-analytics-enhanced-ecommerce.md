@@ -44,7 +44,7 @@ If you would like to implement Data Tags on your custom theme and do not already
 
 Note: the remainder of this tutorial will be working off the refer to the theme’s base folder as ‘cornerstone’.
 
----
+
 
 <a href='#google-analytics_implementing' aria-hidden='true' class='block-anchor'  id='google-analytics_implementing'><i aria-hidden='true' class='linkify icon'></i></a>
 
@@ -145,7 +145,7 @@ lineNumbers: true
 
 In the above snippet, the data tag is embedded in a `<form>` HTML tag. The data tag is `data-list-name` and its value is `“Brand: {{brand.name}}”`.
 
----
+
 
 <a href='#google-analytics_data-tag-ref' aria-hidden='true' class='block-anchor'  id='google-analytics_data-tag-ref'><i aria-hidden='true' class='linkify icon'></i></a>
 
@@ -272,7 +272,7 @@ Alternatively, if you are adding a data tag to a product list item in products/l
   </tr>
 </table>
 
----
+
 
 <a href='#google-analytics_additional-resources' aria-hidden='true' class='block-anchor'  id='google-analytics_additional-resources'><i aria-hidden='true' class='linkify icon'></i></a>
 

@@ -25,11 +25,11 @@ lineNumbers: true
 -->
 
 ```html
----
+
 products:
     new:
         limit: {{theme_settings.homepage_new_products_count}}
----
+
 ```
 
 The `homepage_featured_products_count` limit is one of two relevant variables defined in Cornerstone's `config.json` file (Github).

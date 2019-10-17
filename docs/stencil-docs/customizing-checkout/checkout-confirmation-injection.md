@@ -24,7 +24,7 @@ A prerequisite for the next two options is to add themewide styles to your Check
 
 `{{{ checkout.checkout_head }}}`
 
----
+
 
 <a href='#checkout_applying-storewide-header' aria-hidden='true' class='block-anchor'  id='checkout_applying-storewide-header'><i aria-hidden='true' class='linkify icon'></i></a>
 
@@ -59,7 +59,7 @@ Ensure that you paste it before this **existing** statement:
 
 
 
----
+
 
 <a href='#checkout_applying-storewide-scripts' aria-hidden='true' class='block-anchor'  id='checkout_applying-storewide-scripts'><i aria-hidden='true' class='linkify icon'></i></a>
 
@@ -141,7 +141,7 @@ Insert it between these existing statements, so it will ultimately read as shown
 
 4. In your store's BigCommerce control panel, ensure that you have inserted any desired script text in the `Storefront` > `Script Manager` field.
 
----
+
 
 <a href='#checkout_adding-trust-seals' aria-hidden='true' class='block-anchor'  id='checkout_adding-trust-seals'><i aria-hidden='true' class='linkify icon'></i></a>
 
@@ -153,7 +153,7 @@ To add a trust seal to either template:
 
 2. Copy and paste the seal script into your checkout or order confirmation template, before or after the `{{{ checkout.checkout_content }}}` Handlebars statement.
 
----
+
 
 <a href='#checkout_app-injection' aria-hidden='true' class='block-anchor'  id='checkout_app-injection'><i aria-hidden='true' class='linkify icon'></i></a>
 
@@ -263,7 +263,7 @@ loadaddrexx();
 <!-- END  Addrexx -->
 ```
 
----
+
 
 ## Resources
 

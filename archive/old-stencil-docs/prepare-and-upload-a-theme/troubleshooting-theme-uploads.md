@@ -129,7 +129,7 @@ Custom theme uploads must meet these restrictions:
 Warnings will not block a theme's upload, but these onscreen and/or log messages notify you of problems within the zipped theme. Here are the warnings and their meanings:
 
 | Warning |
-|---|
+||
 | (These messages do not have numeric codes) |
 | Issue in processing this theme's thumbnail screenshot (`composed_image`). |
 | Issue in processing this theme's full-size screenshot (`desktop_screenshot`). |

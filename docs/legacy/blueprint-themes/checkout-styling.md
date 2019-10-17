@@ -26,7 +26,7 @@ To support stores that enable BigCommerce's Optimized One-Page Checkout feature,
 </div>
 </div>
 
----
+
 
 <a href='#customization-options-restrictions' aria-hidden='true' class='block-anchor'  id='customization-options-restrictions'><i aria-hidden='true' class='linkify icon'></i></a>
 
@@ -37,7 +37,7 @@ As a theme developer, you are free to change classes' contents – but do not ne
 The structure and class naming are reserved because each class here maps to multiple Optimized Checkout elements. So renaming would break updates available in future Optimized Checkout enhancements.
 
 
----
+
 
 <a href='#configuring-desktop-viewport' aria-hidden='true' class='block-anchor'  id='configuring-desktop-viewport'><i aria-hidden='true' class='linkify icon'></i></a>
 
@@ -62,7 +62,7 @@ lineNumbers: true
 
 // TODO:
 // Configure media query to be 'desktop' breakpoint size
-// -----------------------------------------------------------------------------
+// --
 @media (min-width: 801px) {
     text-align: stencilString("optimizedCheckout-logo-position");
 }
@@ -71,7 +71,7 @@ lineNumbers: true
 For other customization options, please see the class descriptions [below](#classes-provided).
 
 
----
+
 
 <a href='#deploying-custom-css' aria-hidden='true' class='block-anchor'  id='deploying-custom-css'><i aria-hidden='true' class='linkify icon'></i></a>
 
@@ -83,7 +83,7 @@ For a general overview of the process, please see [this support article](https:/
 
 For details on interacting with WebDAV, please see [this article](https://support.bigcommerce.com/articles/Public/Connecting-to-WebDav).
 
----
+
 
 <a href='#classes-provided' aria-hidden='true' class='block-anchor'  id='classes-provided'><i aria-hidden='true' class='linkify icon'></i></a>
 
@@ -92,7 +92,7 @@ For details on interacting with WebDAV, please see [this article](https://suppor
 Below is a summary of the classes provided in the template CSS, with corresponding page elements that they style. (These class names and mappings are subject to change, so please see the inline comments embedded in the file itself.)
 
 | Class | Styles This Optimized One-Page Checkout Element: |
-|---|---|
+|||
 | .optimizedCheckout-header | Page header. |
 | .optimizedCheckout-headingPrimary | Top-level headings. |
 | .optimizedCheckout-headingSecondary | Certain lower-level elements, such as descriptions of cart items. |
@@ -106,7 +106,7 @@ Below is a summary of the classes provided in the template CSS, with correspondi
 | .optimizedCheckout-form-label | Styles form fields like `Email Address` – the field's text-label color. | 
 | .optimizedCheckout-form-input | Styles form fields like `Email Address` – the entry box's background and border colors. |
 
----
+
 
 <a href='#css-skeleton' aria-hidden='true' class='block-anchor'  id='css-skeleton'><i aria-hidden='true' class='linkify icon'></i></a>
 
@@ -147,7 +147,7 @@ lineNumbers: true
 /*
 // Header Section
 // Background, Logo Position
-// -----------------------------------------------------------------------------
+// --
 */
 
 .optimizedCheckout-header {
@@ -159,7 +159,7 @@ lineNumbers: true
 /*
 // TODO:
 // Configure media query to be 'desktop' breakpoint size
-// -----------------------------------------------------------------------------
+// --
 */
 
 @media (min-width: 801px) {
@@ -175,7 +175,7 @@ lineNumbers: true
 // .optimizedCheckout-headingPrimary styles top-level headings.
 //
 // .optimizedCheckout-headingSecondary styles certain lower-level elements, such as descriptions of cart items.
-// -----------------------------------------------------------------------------
+// --
 */
 
 .optimizedCheckout-headingPrimary {
@@ -193,7 +193,7 @@ lineNumbers: true
 /*
 // Body
 // Background & Shipping Method Overlay
-// -----------------------------------------------------------------------------
+// --
 */
 
 body {
@@ -213,7 +213,7 @@ body {
 //
 // .optimizedCheckout-contentSecondary styles check boxes' text labels, 
 // and lower-level text in the Order Summary.
-// -----------------------------------------------------------------------------
+// --
 */
 
 .optimizedCheckout-contentPrimary {
@@ -233,7 +233,7 @@ body {
 // Background & Border & Text Color & Typography
 //
 // Styles the CONTINUE button for each step, & the final confirmation button.
-// -----------------------------------------------------------------------------
+// --
 */
 
 .optimizedCheckout-buttonPrimary {
@@ -262,7 +262,7 @@ body {
 // Background & Border & Text Color & Typography
 //
 // Styles the EDIT button for each step.
-// -----------------------------------------------------------------------------
+// --
 */
 
 .optimizedCheckout-buttonSecondary {
@@ -276,7 +276,7 @@ body {
 /*
 // Links
 // Text Color & Typography
-// -----------------------------------------------------------------------------
+// --
 */
 
 a {
@@ -288,7 +288,7 @@ a {
 /*
 // Order Summary (Mobile Drawer & Modal)
 // Background
-// -----------------------------------------------------------------------------
+// --
 */
 
 .optimizedCheckout-orderSummary {
@@ -300,7 +300,7 @@ a {
 // Background & Text Color
 //
 // Styles the large step-number indicators on the page's left side.
-// -----------------------------------------------------------------------------
+// --
 */
 
 .optimizedCheckout-step {
@@ -320,7 +320,7 @@ a {
 // Text Color
 //
 // Styles text labels on form fields.
-// -----------------------------------------------------------------------------
+// --
 */
 
 .optimizedCheckout-form-label {
@@ -332,7 +332,7 @@ a {
 // Background & Border Color
 //
 // Styles form fields.
-// -----------------------------------------------------------------------------
+// --
 */
 
 .optimizedCheckout-form-input {

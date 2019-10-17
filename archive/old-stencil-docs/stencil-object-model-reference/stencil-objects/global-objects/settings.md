@@ -7,7 +7,7 @@
 **Object Properties:**
 
 | Property | Description |
-| --- | --- |
+|  |  |
 | account_creation_enabled | Site-wide boolean value that indicates whether to allow customers to create accounts |
 | show_product_rating | Site-wide boolean value that indicates whether to display product ratings (in numeric or star format) to visitors |
 | show_product_reviews | Site-wide boolean value that indicates whether to display full-text product reviews to visitors |

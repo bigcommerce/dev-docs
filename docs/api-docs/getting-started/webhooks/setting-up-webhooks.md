@@ -16,7 +16,7 @@
 
 </div>
 
----
+
 
 
 
@@ -36,7 +36,7 @@ If you would like to follow along, we have created a Postman collection with all
 - [API Access Token & Client ID](/api-docs/getting-started/basics/authentication#authentication_getting-api-credentials) with [scope](/api-docs/getting-started/basics/authentication#authentication_oauth-scopes) set to Information & Settings Read-Only and Products Read-Only.
 - [Webhooks Overview](/api-docs/getting-started/webhooks/about-webhooks)
 
----
+
 
 ## Create Project Folder
 
@@ -59,7 +59,7 @@ mkdir webhooks-test
 cd webhooks-test
 ```
 
----
+
 
 
 
@@ -109,7 +109,7 @@ unzip /Users/your-computer/Downloads/ngrok-stable-darwin-amd64.zip -d /Users/you
 </div>
 </div>
 
----
+
 
 
 
@@ -205,7 +205,7 @@ From Express [Website](https://expressjs.com/en/starter/basic-routing.html):
 - HANDLER is the function executed when the route is matched.
 - Res.send is the body parameter that sends the HTTP response.
 
----
+
 
 
 
@@ -244,7 +244,7 @@ ngrok returns two values we will need to register a webhook and observe the resp
 ](//s3.amazonaws.com/user-content.stoplight.io/6012/1531500191661 "#### ngrok Web Interface
 ")
 
----
+
 
 Subscribe to the `store/product/updated` event: 
 
@@ -413,7 +413,7 @@ After hitting send, check the ngrok web interface. You may see a single event or
 ](//s3.amazonaws.com/user-content.stoplight.io/6012/1531501115256 "#### ngrok Web Interface
 ")
 
----
+
 
 That’s it! In this walkthrough you created a webhook, set up a server to accept the response, and used ngrok to observe the webhook payload.
 
@@ -433,7 +433,7 @@ Want to keep going? Try changing the text in `res.send()` to a custom response, 
 </div>
 
 
----
+
 
 
 
@@ -461,7 +461,7 @@ lineNumbers: true
 }
 ```
 
----
+
 
 
 

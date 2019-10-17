@@ -13,7 +13,7 @@ This repo contains the markdown files and static assets powering [developer.bigc
 * [BigCommerce for Wordpress](https://developer.bigcommerce.com/bigcommerce-for-wordpress)
 * [Legacy](https://developer.bigcommerce.com/legacy)
 
----
+
 
 ## Directory Structure
 
@@ -56,7 +56,7 @@ This repo contains the markdown files and static assets powering [developer.bigc
 ├── ...
 ```
 
----
+
 
 ## Contributing to BigCommerce Developer Documentation
 

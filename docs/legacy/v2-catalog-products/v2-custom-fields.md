@@ -22,7 +22,7 @@ Custom fields associated with a product.
 ### Custom Field Object – Properties 
 
 | Name | Type | Description |
-| --- | --- | --- |
+|  |  |  |
 | id | int | |
 | product_id | int | ID of the associated product |
 | name | string | key; limited to 250 characters |
@@ -31,7 +31,7 @@ Custom fields associated with a product.
 <a href='#v2-custom-fields_list-custom-fields' aria-hidden='true' class='block-anchor'  id='v2-custom-fields_list-custom-fields'><i aria-hidden='true' class='linkify icon'></i></a>
 
 |||
-|---|---|
+|||
 | **Manages** |
 | **OAuth Scopes** | store_v2_products
 ||store_v2_products_read_only
@@ -52,7 +52,7 @@ There are no filter parameters specific to `custom_fields`.
 Parameters can be added to the URL query string to paginate the collection. The maximum limit is 250. If a limit isn’t provided, up to 50 custom_fields are returned by default.
 
 | Parameter | Type | Example |
-| --- | --- | --- |
+|  |  |  |
 | page | int | /api/v2/products/{product_id}/custom_fields?page={number} |
 | limit | int | /api/v2/products/{product_id}/custom_fields?limit={count} |
 
@@ -77,7 +77,7 @@ Example JSON returned in the response:
 ]
 ```
 
----
+
 
 <a href='#v2-custom-fields_get-custom-fields' aria-hidden='true' class='block-anchor'  id='v2-custom-fields_get-custom-fields'><i aria-hidden='true' class='linkify icon'></i></a>
 
@@ -101,7 +101,7 @@ Example JSON returned in the response:
 }
 ```
 
----
+
 
 <a href='#v2-custom-fields_get-count-custom-fields' aria-hidden='true' class='block-anchor'  id='v2-custom-fields_get-count-custom-fields'><i aria-hidden='true' class='linkify icon'></i></a>
 
@@ -121,7 +121,7 @@ Example JSON returned in the response:
 }
 ```
 
----
+
 
 <a href='#v2-custom-fields_create-custom-fields' aria-hidden='true' class='block-anchor'  id='v2-custom-fields_create-custom-fields'><i aria-hidden='true' class='linkify icon'></i></a>
 
@@ -167,7 +167,7 @@ Example JSON returned in the response:
   "text": "2013-12-25"
 }
 
----
+
 
 <a href='#v2-custom-fields_update-custom-fields' aria-hidden='true' class='block-anchor'  id='v2-custom-fields_update-custom-fields'><i aria-hidden='true' class='linkify icon'></i></a>
 
@@ -215,7 +215,7 @@ Example JSON returned in the response:
 }
 ```
 
----
+
 
 <a href='#v2-custom-fields_delete-custom-fields' aria-hidden='true' class='block-anchor'  id='v2-custom-fields_delete-custom-fields'><i aria-hidden='true' class='linkify icon'></i></a>
 
@@ -226,7 +226,7 @@ Deletes a custom field associated with a product.
 
 >`DELETE /stores/{store_hash}/v2/products/{product_id}/custom_fields/{id}`
 
----
+
 
 <a href='#v2-custom-fields_delete-multiple-custom-fields' aria-hidden='true' class='block-anchor'  id='v2-custom-fields_delete-multiple-custom-fields'><i aria-hidden='true' class='linkify icon'></i></a>
 
@@ -242,7 +242,7 @@ Deletes multiple custom fields associated with a product.
 Parameters can be added to the URL query string to paginate the collection. The maximum limit is 250. If a limit isn’t provided, up to 50 custom_fields are returned by default.
 
 | Parameter | Type | Example |
-| --- | --- | --- |
+|  |  |  |
 | page | int | /api/v2/products/{product_id}/custom_fields?page={number} |
 | limit | int | /api/v2/products/{product_id}/custom_fields?limit={count} |
 

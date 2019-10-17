@@ -12,7 +12,7 @@
 
 <!-- /TOC -->
 
----
+
 
 <a id="markdown-callouts" name="callouts"></a>
 
@@ -68,7 +68,7 @@
 </div>
 
 
----
+
 
 
 <a id="markdown-code-blocks" name="code-blocks"></a>
@@ -122,7 +122,7 @@ lineNumbers: true
 }
 ```
 
----
+
 
 <a id="images"></a>
 
@@ -163,7 +163,7 @@ lineNumbers: true
 #### Dev Tools
 ![Dev Tools](https://raw.githubusercontent.com/bigcommerce/dev-docs/master/assets/images/devtools.png "Dev Tools")
 
----
+
 
 <a id="menu"></a>
 
@@ -203,7 +203,7 @@ lineNumbers: true
 ```
 
 
----
+
 
 <a id="postman"></a>
 

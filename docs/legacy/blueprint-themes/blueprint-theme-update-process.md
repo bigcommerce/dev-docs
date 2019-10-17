@@ -35,7 +35,7 @@ Integrating a partner's theme changes requires these preconditions:
 </div>
 </div>
 
----
+
 
 <a href='#blueprint-theme-update-process' aria-hidden='true' class='block-anchor'  id='blueprint-theme-update-process'><i aria-hidden='true' class='linkify icon'></i></a>
 
@@ -76,7 +76,7 @@ Integrating a partner's theme changes requires these preconditions:
 6.  Partner [emails](mailto:themestore@bigcommerce.com) their Git URL to the BigCommerce Theme Marketplace.
 7.  BigCommerce integrates changes into BigCommerce Themes.
 
----
+
 
 <a href='#theme-update-other-requirements' aria-hidden='true' class='block-anchor'  id='theme-update-other-requirements'><i aria-hidden='true' class='linkify icon'></i></a>
 

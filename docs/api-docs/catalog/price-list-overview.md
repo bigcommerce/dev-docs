@@ -24,7 +24,7 @@ Price Lists will provide overridden price values to the Stencil storefront. Fina
 The following OAuth Scopes are required:
 * [Products](/api-docs/getting-started/basics/authentication#authentication_oauth-scopes)
 
----
+
 
 <a href='#pricelist_definitions' aria-hidden='true' class='block-anchor'  id='pricelist_definitions'><i aria-hidden='true' class='linkify icon'></i></a>
 
@@ -130,7 +130,7 @@ lineNumbers: true
 
 Under `discount_rules` the `type` is set to `price_list` and the `price_list_id` is 1. Which is the id of the price list the group has been assigned to.
 
----
+
 
 <a href='#pricelist_notes' aria-hidden='true' class='block-anchor'  id='pricelist_notes'><i aria-hidden='true' class='linkify icon'></i></a>
 
@@ -142,7 +142,7 @@ Under `discount_rules` the `type` is set to `price_list` and the `price_list_id`
 
 - Price Lists Records accepts bulk upsert. Only one [Bulk upsert](https://developer.bigcommerce.com/api-reference/catalog/pricelists-api/price-lists-records/setpricelistrecordcollection) can done at a time. Running more than one in parallel on the **same store** will cause a 429 error and the request will fail. 
 
----
+
 
 ## Resources
 
