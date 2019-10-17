@@ -1,16 +1,17 @@
 # Defining Global Styles
 
 <div class="otp" id="no-index">
-	<h3> On This Page </h3>
-	<ul>
-    <li><a href="#defining_keys-and-example">Keys and Example Values</a></li>
-    <li><a href="#defining_requirements-and-restrictions">Requirements and Restrictions</a></li>
-    <li><a href="#defining_new">New Products Example</a></li>
-    <li><a href="#defining_changing">Changing Page Layout using Local Front Matter</a></li>
-    <li><a href="#defining_retrieving">Retrieving Specific config.json Values through Sass</a></li>
-    <li><a href="#defining_adding">Adding/Removing Components</a></li>
-	</ul>
-</div>
+
+### On This Page
+- [Keys and Example Values](#keys-and-example-values)
+- [Requirements and Restrictions](#requirements-and-restrictions)
+- [New Products Example](#new-products-example)
+- [Changing Page Layout Using Local Front Matter](#changing-page-layout-using-local-front-matter)
+- [Retrieving Specific config.json Values through Sass](#retrieving-specific-configjson-values-through-sass)
+- [Adding/Removing Components](#addingremoving-components)
+- [Resources](#resources)
+
+</div> 
 
 You can manage your custom theme's front-end components by configuring the <span class="fn">config.json</span> file. This file is made up of different keys and values that define the global styles shoppers will see on a theme. This <span class="fn">config.json</span> file’s functions are to:
 
