@@ -1,21 +1,22 @@
 <div><h3 class="sub-docs-type" id="bigcommerce-for-wordpress">BigCommerce for Wordpress</h3>
-# AMP for the BigCommerce WordPress plugin
 
-  <h4>Prepared by XWP for BigCommerce</h4>
+# AMP for the BigCommerce WordPress plugin
+#### Prepared by XWP for BigCommerce
+
 <div class="otp" id="no-index">
-	<h3> On This Page </h3>
-	<ul>
-    <li><a href="#amp_whats-amp">What’s AMP?</a></li>
-    <li><a href="#amp_real-world">AMP real world example</a></li>
-    <li><a href="#amp_how-to">How to enable AMP</a></li>
-    <li><a href="#amp_wordpress-amp">WordPress AMP plugin support</a></li>
-    <li><a href="#amp_choosing">Choosing an AMP mode</a></li>
-    <li><a href="#amp_previewing">Previewing AMP</a></li>
-    <li><a href="#amp_amp-tools">AMP Tools</a></li>
-    <li><a href="#amp_amp-for-seo">AMP for SEO</a></li>
-    <li><a href="#amp_customizing-amp">Customizing AMP templates</a></li>
-  </ul>
-</div>
+
+### On This Page
+- [What's AMP?](#whats-amp)
+- [AMP real world example](#amp-real-world-example)
+- [How to enable AMP](#how-to-enable-amp)
+- [WordPress AMP plugin support](#wordpress-amp-plugin-support)
+- [Choosing an AMP mode](#choosing-an-amp-mode)
+- [Previewing AMP](#previewing-amp)
+- [AMP Tools](#amp-tools)
+- [AMP for SEO](#amp-for-seo)
+- [Customizing AMP templates](#customizing-amp-templates)
+
+</div> 
 
 <a href='#amp_whats-amp' aria-hidden='true' class='block-anchor'  id='amp_whats-amp'><i aria-hidden='true' class='linkify icon'></i></a>
 
