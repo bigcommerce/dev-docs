@@ -44,7 +44,7 @@ As a the theme developer, you must first create the custom subdirectory in the t
 * templates/pages/custom/product
 * templates/pages/custom/page
 
-Next, create the template HTML files, and then place them in the appropriate `<theme-name>/templates/pages/custom/` subdirectories corresponding to the types listed above.
+Next, create the template HTML files, and then place them in the appropriate `templates/pages/custom/` subdirectories corresponding to the types listed above.
 
 <div class="HubBlock--callout">
 <div class="CalloutBlock--warning">
@@ -63,7 +63,7 @@ Without these permissions, running your theme locally will fail with multiple er
 
 ## Local Mapping and Testing
 
-To test your custom templates locally, you must edit your `<theme-name>/.stencil` file to create mappings between each local template and a corresponding URL. Within the .stencil file, look for the following section:
+To test your custom templates locally, you must edit your `.stencil` file to create mappings between each local template and a corresponding URL. Within the .stencil file, look for the following section:
 
 <div class="HubBlock-header">
     <div class="HubBlock-header-title flex items-center">

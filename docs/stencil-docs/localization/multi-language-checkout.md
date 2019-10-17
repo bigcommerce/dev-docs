@@ -99,7 +99,7 @@ In the Optimized One-Page Checkout page's `Shipping Address` and `Billing Addres
 
 1. As for the translation options described above, you must enable Optimized One-Page Checkout.
 
-2. Within your `<theme-name>/lang/` subdirectory, you must provide a `xx.json` file with the appropriate two-letter prefix for one or more of the `Supported Languages` in the Naming Requirements table below. (The naming conventions we follow are explained on this page.)
+2. Within your `lang/` subdirectory, you must provide a `xx.json` file with the appropriate two-letter prefix for one or more of the `Supported Languages` in the Naming Requirements table below. (The naming conventions we follow are explained on this page.)
 
 3. We recommend that you populate that file with the checkout-specific keys/values covered above at Adding Your Own Translation Values. This is not strictly necessary to translate the drop-down lists, but it is necessary to provide a consistent translation of the surrounding Address sections. You do not need to provide any keys/values for the Country/State names, whose translations are predefined within the BigCommerce platform.
 
@@ -128,7 +128,7 @@ BigCommerce Optimized One-Page Checkout will currently translate displayed `Coun
 
 ## Limits on Translation
 
-* Your theme's content will translate only to the extent that you have created JSON files in your `<theme-name>/lang/` subdirectory for each language that you choose to support, and have included key/value pairs for the parameters (beyond `Country/State`) that you choose to translate.
+* Your theme's content will translate only to the extent that you have created JSON files in your `lang/` subdirectory for each language that you choose to support, and have included key/value pairs for the parameters (beyond `Country/State`) that you choose to translate.
 
 * Stencil's multi-language capabilities are currently limited to these specific strings that you specify within the theme. The Stencil framework does not currently translate content rendered from a store's database – for example, products' names.
 

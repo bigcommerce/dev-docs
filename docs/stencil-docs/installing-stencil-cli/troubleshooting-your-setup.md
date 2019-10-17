@@ -81,7 +81,7 @@ Try the following workaround:
 
 *You will see the same error message as before, but proceed to:*
 
-4. Delete the `<theme-name>/assets/js/bundle.js` file.
+4. Delete the `assets/js/bundle.js` file.
 
 5. Run `stencil init` again.
 This should now execute properly.
@@ -182,7 +182,7 @@ If you have downloaded and installed a Marketplace theme (other than Cornerstone
 1. Back up your current theme directory/directories.
 (In a default installation, the theme directory is named `.../cornerstone/`. Prior to March 2017, this directory's name defaulted to `.../stencil/`. Use the same substitutions for other code examples on this page.)
 
-2. To ensure that you install refreshed dependencies, delete your `<theme-name>/node_modules/` and `<theme-name>/assets/jspm_packages/` subdirectories. (You can check installed versions of dependencies by examining your `<theme-name>/package.json` file.)
+2. To ensure that you install refreshed dependencies, delete your `node_modules/` and `assets/jspm_packages/` subdirectories. (You can check installed versions of dependencies by examining your `package.json` file.)
 
 3. Starting inside your theme directory, enter this alternate sequence of commands:
 

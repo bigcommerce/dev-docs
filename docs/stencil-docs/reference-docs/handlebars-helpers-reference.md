@@ -2055,7 +2055,7 @@ When you reference static assets that you have locally staged outside your `<the
 <img src="https://cdn.bcapp/3dsf74g/content/img/image.jpg">
 ```
 
-The presumed WebDAV root directory is `/content/`. (So, in this example, the `image.jpg` file has been uploaded to the WebDAV `/content/` directory.) The presumed local directory is `<theme-name>/assets/`, so you can omit that path when referencing its contained files or subdirectories.
+The presumed WebDAV root directory is `/content/`. (So, in this example, the `image.jpg` file has been uploaded to the WebDAV `/content/` directory.) The presumed local directory is `assets/`, so you can omit that path when referencing its contained files or subdirectories.
 
 <a name="cdn-custom"></a>
 
@@ -2108,7 +2108,7 @@ Whereas in production, it would return:
 <img src="https://bigcommerce.customcdn.net/img/image.jpg" />
 ```
 
-As highlighted above, the helper is configured to rewrite *local* URLs to a `<theme-name>/assets/cdn/` subfolder. The `stencil bundle` command will exclude this local `assets/cdn/` subfolder from the bundle that it creates. This filtering circumvents the 50 MB size limit on the resulting .zip file.
+As highlighted above, the helper is configured to rewrite *local* URLs to a `assets/cdn/` subfolder. The `stencil bundle` command will exclude this local `assets/cdn/` subfolder from the bundle that it creates. This filtering circumvents the 50 MB size limit on the resulting .zip file.
 
 ### {{getFontsCollection}}
 
@@ -2165,7 +2165,7 @@ The Stencil theme makes the `jsContext` available on the active page scoped. It 
 
 ### {{inject}} Example 2
 
-The following code uses `inject` to add all product IDs into JavaScript on category pages. It resides in a theme's `<theme-name>/templates/pages/category.html` template. Note the two `inject` calls directly under the front matter:
+The following code uses `inject` to add all product IDs into JavaScript on category pages. It resides in a theme's `templates/pages/category.html` template. Note the two `inject` calls directly under the front matter:
 
 ```html
 

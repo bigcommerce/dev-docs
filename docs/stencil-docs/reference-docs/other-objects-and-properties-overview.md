@@ -59,7 +59,7 @@
 
 ## Product
 
-<b>Description:</b> Default property that provides detailed product data. Called on the default `<theme-name>/templates/pages/product.html`and `<theme-name>/templates/pages/amp/product.html` templates, and on several partials in the `<theme-name>/templates/components/` subdirectory:
+<b>Description:</b> Default property that provides detailed product data. Called on the default `templates/pages/product.html`and `templates/pages/amp/product.html` templates, and on several partials in the `templates/components/` subdirectory:
 
 * `account/returns-list.html`,
 * `cart/item-options.html`,
@@ -507,7 +507,7 @@
 
 ## Related Products
 
-<b>Description:</b> A list of products related to this product. (Called on the default `<theme-name>/templates/components/products/tabs.html` partial.)
+<b>Description:</b> A list of products related to this product. (Called on the default `templates/components/products/tabs.html` partial.)
 
 <b>Handlebars Expression:</b> `{{product.related_products}}`
 
@@ -697,7 +697,7 @@
 
 ## Category
 
-**Description:**  The category object for the page calling the object. When retrieving a collection of categories, default sorting is by category `id`, from lowest to highest. (Called on the default `<theme-name>/templates/pages/category.html` template, and on several partials in the `<theme-name&gt;/templates/components/</code> subdirectory: <code>category/shop-by-price.html`,`category/sidebar.html`, and `amp/category/subcategories.html`)
+**Description:**  The category object for the page calling the object. When retrieving a collection of categories, default sorting is by category `id`, from lowest to highest. (Called on the default `templates/pages/category.html` template, and on several partials in the `<theme-name&gt;/templates/components/</code> subdirectory: <code>category/shop-by-price.html`,`category/sidebar.html`, and `amp/category/subcategories.html`)
 
 <b>Handlebars Expression:</b> `{{category}}`
 
@@ -792,7 +792,7 @@
 
 ## Category Products
 
-**Description:** A list of products associated with this category. (Called on the default `<theme-name>/templates/pages/category.html` template, and on the `<theme-name>/templates/components/category/product-listing.html` partial.)
+**Description:** A list of products associated with this category. (Called on the default `templates/pages/category.html` template, and on the `templates/components/category/product-listing.html` partial.)
 
 **Handlebars Expression:** `{{category.products}}`
 
@@ -833,7 +833,7 @@
 
 ## Brand
 
-**Description:** The brand object for the page calling the object. (Called on the default `<theme-name>/templates/pages/brand.html` template.)
+**Description:** The brand object for the page calling the object. (Called on the default `templates/pages/brand.html` template.)
 
 **Handlebars Expression:** `{{brand}}`
 
@@ -883,7 +883,7 @@
 
 ## Brand List
 
-<b>Description:</b> A list of brands with their basic data. Default sorting is by brand id, from lowest to highest. (Called on the default `<theme-name>/templates/pages/brands.html` template.)
+<b>Description:</b> A list of brands with their basic data. Default sorting is by brand id, from lowest to highest. (Called on the default `templates/pages/brands.html` template.)
 
 <b>Handlebars Expression:</b> `{{brands}}`
 
@@ -914,7 +914,7 @@
 
 ## Shop by Brand
 
-**Description:** Objects to enable customers to shop by brand. Returns top 10 brands, by product count. (Called on the default `<theme-name>/templates/components/brand/sidebar.html` and `<theme-name>/templates/components/common/footer.html` partials.)
+**Description:** Objects to enable customers to shop by brand. Returns top 10 brands, by product count. (Called on the default `templates/components/brand/sidebar.html` and `templates/components/common/footer.html` partials.)
 
 <b>Handlebars Expression:</b> `{{shop_by_brand}}`
 
@@ -1300,7 +1300,7 @@
 
 As a theme developer, you can use the `{{cart.items.rrp}}` property to display strike-out pricing in the Cart context. Here is the general approach:
 
-In your `<theme-name>/templates/components/cart/content.html` file, as you iterate over the list of items in the cart, you would check each item's `type`. (No `rrp` property is available where the `type` is `GiftCertificate`.)
+In your `templates/components/cart/content.html` file, as you iterate over the list of items in the cart, you would check each item's `type`. (No `rrp` property is available where the `type` is `GiftCertificate`.)
 
 If the type is `Item`, then you would check the {{cart.items.rrp}} value. If the value is _not_ `null`, then you would know that you can display a strike-out price for the item. Below is a sample code skeleton:
 
@@ -1343,7 +1343,7 @@ For further details about catalog price properties, please see [Catalog Price Ob
 
 ## Customer
 
-**Description:** Customer-specific properties for a storefront customer object. When filtering/limiting, customers' default sorting is by customer id, from lowest to highest. (Called on several partials in the `<theme-name>/templates/components/` subdirectory:
+**Description:** Customer-specific properties for a storefront customer object. When filtering/limiting, customers' default sorting is by customer id, from lowest to highest. (Called on several partials in the `templates/components/` subdirectory:
 `page/contact-us-form.html`,
 `common/subscription-form.html`,
 `account/address-list.html`,
@@ -1476,7 +1476,7 @@ For further details about catalog price properties, please see [Catalog Price Ob
 
 ## Order Details
 
-**Description:** The order properties for a specific order, usable on the order details page. (Called on the default `<theme-name>/templates/pages/account/orders/details.html` and `<theme-name&gt;/templates/pages/account/orders/invoice.html` templates, and on the `<theme-name&gt;/templates/components/account/order-contents.html` partial.)
+**Description:** The order properties for a specific order, usable on the order details page. (Called on the default `templates/pages/account/orders/details.html` and `<theme-name&gt;/templates/pages/account/orders/invoice.html` templates, and on the `<theme-name&gt;/templates/components/account/order-contents.html` partial.)
 
 **Handlebars Expression:** `{{order}}`
 
@@ -1712,7 +1712,7 @@ For further details about catalog price properties, please see [Catalog Price Ob
 
 ## Recent Items
 
-**Description:** Items the customer has recently viewed. (Called on the default `<theme-name>/templates/pages/account/recent-items.html` template.)
+**Description:** Items the customer has recently viewed. (Called on the default `templates/pages/account/recent-items.html` template.)
 
 **Handlebars Expression:** `{{customer.recently_viewed_products}}`
 
@@ -1720,7 +1720,7 @@ For further details about catalog price properties, please see [Catalog Price Ob
 
 ## Customer Wishlists
 
-**Description:** Array of product wishlists, specific to this store, for the customer. (Called on the default `<theme-name>/templates/components/account/wishlist-list.html` partial.)
+**Description:** Array of product wishlists, specific to this store, for the customer. (Called on the default `templates/components/account/wishlist-list.html` partial.)
 
 **Handlebars Expression:** `{{customer.wishlists}}`
 
@@ -1775,7 +1775,7 @@ For further details about catalog price properties, please see [Catalog Price Ob
 
 ## Wishlist Details
 
-**Description:** Wishlist information for a specific wishlist. (Called on the default `<theme-name>/templates/pages/account/wishlist-details.html` template and `<theme-name>/templates/components/account/wishlist-item-list.html`partial.)
+**Description:** Wishlist information for a specific wishlist. (Called on the default `templates/pages/account/wishlist-details.html` template and `templates/components/account/wishlist-item-list.html`partial.)
 
 **Handlebars Expression:** `{{wishlist}}`
 
@@ -1869,7 +1869,7 @@ For further details about catalog price properties, please see [Catalog Price Ob
 
 ## Account Orders
 
-**Description:** Objects to manage completed orders for the current customer. By default, orders sort by order id, from lowest to highest. (Called on the default `<theme-name>/templates/pages/account/orders/all.html`and `<theme-name&gt;/templates/pages/account/orders/completed.html`  templates, and on the `<theme-name>/templates/components/account/orders-list.html` partial.)
+**Description:** Objects to manage completed orders for the current customer. By default, orders sort by order id, from lowest to highest. (Called on the default `templates/pages/account/orders/all.html`and `<theme-name&gt;/templates/pages/account/orders/completed.html`  templates, and on the `templates/components/account/orders-list.html` partial.)
 
 **Handlebars Expression:** `{{customer.orders}}`
 
@@ -1972,7 +1972,7 @@ For further details about catalog price properties, please see [Catalog Price Ob
 
 ## Account Returns
 
-**Description:** Objects to manage returns for the current customer. (Called on the default `<theme-name>/templates/pages/account/returns.html` template.)
+**Description:** Objects to manage returns for the current customer. (Called on the default `templates/pages/account/returns.html` template.)
 
 **Handlebars Expression:** `{{customer.returns}}`
 
@@ -2044,7 +2044,7 @@ Refunded, Rejected, or Cancelled</td>
 
 ## Account New Return
 
-**Description:** Objects to handle a new return for the current customer. (Called on the default `<theme-name>/templates/pages/account/add-return.html` template.)
+**Description:** Objects to handle a new return for the current customer. (Called on the default `templates/pages/account/add-return.html` template.)
 
 **Handlebars Expression:** `{{forms.return}}`
 
@@ -2161,7 +2161,7 @@ Refunded, Rejected, or Cancelled</td>
 
 ## Shipping Addresses
 
-**Description:** Object to enable the customer to enter shipping and contact information. (Called on the default `<theme-name>/templates/components/account/address-list.html` partial.)
+**Description:** Object to enable the customer to enter shipping and contact information. (Called on the default `templates/components/account/address-list.html` partial.)
 
 **Handlebars Expression:**`{{customer.addresses}}`
 
@@ -2254,7 +2254,7 @@ Refunded, Rejected, or Cancelled</td>
 
 **Description:** Object to view stored customer payment methods.
 
-**Called on:** [`[<theme-name>/templates/pages/account/payment-methods.html`](https://github.com/bigcommerce/cornerstone/blob/master/templates/pages/account/payment-methods.html)
+**Called on:** [`[templates/pages/account/payment-methods.html`](https://github.com/bigcommerce/cornerstone/blob/master/templates/pages/account/payment-methods.html)
 
 **Handlebars Expression:**`{{customer.payment_methods}}`
 
@@ -2291,7 +2291,7 @@ Refunded, Rejected, or Cancelled</td>
 
 **Description:** Object to view stored customer payment methods.
 
-**Called on:** [`<theme-name>/templates/pages/account/payment-methods.html`](https://github.com/bigcommerce/cornerstone/blob/master/templates/pages/account/payment-methods.html)
+**Called on:** [`templates/pages/account/payment-methods.html`](https://github.com/bigcommerce/cornerstone/blob/master/templates/pages/account/payment-methods.html)
 
 **Handlebars Expression:**`{{customer.payment_methods}}`
 
@@ -2339,7 +2339,7 @@ Refunded, Rejected, or Cancelled</td>
 
 **Description:** Object to add stored customer payment methods.
 
-**Called on:** [`<theme-name>/templates/pages/account/payment-methods.html`](https://github.com/bigcommerce/cornerstone/blob/master/templates/pages/account/add-payment-method.html)
+**Called on:** [`templates/pages/account/payment-methods.html`](https://github.com/bigcommerce/cornerstone/blob/master/templates/pages/account/add-payment-method.html)
 
 **Handlebars Expression:**
 * `{{vault}}`
@@ -2364,7 +2364,7 @@ Refunded, Rejected, or Cancelled</td>
 
 ## Blog
 
-_These objects are called on the default `<theme-name>/templates/components/blog/post.html` partial._
+_These objects are called on the default `templates/components/blog/post.html` partial._
 
 **Description:** Blog-specific properties for the blog feature within BigCommerce storefronts
 

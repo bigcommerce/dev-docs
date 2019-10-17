@@ -242,7 +242,7 @@ npm install -save-dev babel-plugin-transform-object-assign babel-preset-react ba
 
 ### Import Dependencies
 
-Next, import the new dependencies into `<theme-name>/assets/js/app.js`
+Next, import the new dependencies into `assets/js/app.js`
 
 Note the `CouponDrawer` import at the bottom. This file doesn't yet exist, but we'll shortly create a React component with this name:
 
@@ -256,7 +256,7 @@ Update webpack.conf.js with the new presets and plug-ins, as shown here:
 
 ### Update app.js
 
-Add the following code to the bottom of `<theme-name>/assets/js/app.js`:
+Add the following code to the bottom of `assets/js/app.js`:
 
 ```javascript
 window.initReact = function(contextJSON = '{}') {
@@ -291,7 +291,7 @@ This sets up a handler for attaching an `<x-coupon-drawer>` element to the page.
 
 ### Add Coupon Drawer Markup
 
-Add this in `<theme-name>/templates/layout/base.html`. (See the image below.) We're using this layout template for this example, although you would follow the same steps in any other template.
+Add this in `templates/layout/base.html`. (See the image below.) We're using this layout template for this example, although you would follow the same steps in any other template.
 
 ### Call initReact from base.html
 
@@ -306,7 +306,7 @@ We'll store our React components here.
 
 ### Add CouponDrawer.js
 
-Create a `<theme-name>/assets/js/components/CouponDrawer.js` file. Populate this file with the following code block (which is adapted from http://www.material-ui.com/#/components/drawer):
+Create a `assets/js/components/CouponDrawer.js` file. Populate this file with the following code block (which is adapted from http://www.material-ui.com/#/components/drawer):
 
 ```javascript
 import React from 'react';
@@ -343,7 +343,7 @@ export default class CouponDrawer extends React.Component {
 
 ### Add VerticalLinearStepper.js
 
-Create a `<theme-name>/assets/js/components/VerticalLinearStepper.js` file. Populate this file with the following code block:
+Create a `assets/js/components/VerticalLinearStepper.js` file. Populate this file with the following code block:
 
 ```javascript
 import React from 'react';

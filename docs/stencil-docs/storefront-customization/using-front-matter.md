@@ -50,12 +50,12 @@ Identifiers are case-sensitive.
 ### Restrictions
 
 You can use front matter to specify attributes on the tops of pages in your
-`<theme-name>/templates/pages/` subdirectory.
+`templates/pages/` subdirectory.
 
 You **cannot** use front matter to accomplish this on pages in the following subdirectories:
-* `<theme-name>/templates/components/`
-* `<theme-name>/templates/layout/`
-* `<theme-name>/templates/pages/custom/`
+* `templates/components/`
+* `templates/layout/`
+* `templates/pages/custom/`
 
 * Indent using only spaces, not tabs. (YAML forbids tabs, to avoid inconsistent encoding of tabs across platforms.) An indent of even one space indicates a child.
 
