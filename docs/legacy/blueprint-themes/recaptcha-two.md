@@ -1,12 +1,13 @@
 # ReCaptcha 2
+
 <div class="otp" id="no-index">
-	<h3> On This Page </h3>
-	<ul>
-		<li><a href="#better-spam-deterrance">Better Spam Deterrance</a></li>
-		<li><a href="#blueprint-how-to-upgrade-recaptcha">How to Upgrade</a></li>
-		<li><a href="#blueprint-supported-browsers">Supported Browsers</a></li>
-		</ul>
-</div>
+
+### On This Page
+- [Better Spam Deterrence](#better-spam-deterrence)
+- [How to Upgrade](#how-to-upgrade)
+- [Supported Browsers](#supported-browsers)
+
+</div> 
 
 To deter spam submission through storefront forms, BigCommerce now supports Google [reCAPTCHA v2](https://support.google.com/recaptcha/?hl=en#6080933) challenges, to distinguish human customers/visitors from automated bots.
 
