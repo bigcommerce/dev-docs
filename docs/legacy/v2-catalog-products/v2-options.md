@@ -1,12 +1,13 @@
 # Product Options
+
 <div class="otp" id="no-index">
-	<h3> On This Page </h3>
-	<ul>
-		<li><a href="#v2-option_object-properties">Object Properties</a></li>
-		<li><a href="#v2-option-set_list-product-option">List Option Set</a></li>
-		<li><a href="#v2-option-set_get-product-option">Get Option Set</a></li>
-		</ul>
-</div>
+
+### On This Page
+- [Options](#options)
+- [List Product Options](#list-product-options)
+- [Get a Product Option](#get-a-product-option)
+
+</div> 
 
 <a href='#v2-option_object-properties' aria-hidden='true' class='block-anchor'  id='v2-option_object-properties'><i aria-hidden='true' class='linkify icon'></i></a>
 
