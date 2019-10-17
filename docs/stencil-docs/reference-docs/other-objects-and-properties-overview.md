@@ -1,19 +1,43 @@
 # Other Objects and Properties Overview
+
 <div class="otp" id="no-index">
-	<h3> On This Page </h3>
-	<ul>
-    <li><a href="#other-objects_product">Product Objects</a></li>
-    <li><a href="#other-objects_category">Category Objects</a></li>
-    <li><a href="#other-objects_brand">Brand Objects</a></li>
-    <li><a href="#other-objects_cart">Cart Objects</a></li>
-    <li><a href="#other-objects_customer">Customer Objects</a></li>
-    <li><a href="#other-objects_blog">Blog Objects</a></li>
-    <li><a href="#other-objects_forms">Forms Objects</a></li>
-    <li><a href="#other-objects_order-confirmation">Order Confirmation Objects</a></li>
-	</ul>
-</div>
 
+### On This Page
+- [Product](#product)
+- [Product Reviews](#product-reviews)
+- [Related Products](#related-products)
+- [Similar Products by Customer Views](#similar-products-by-customer-views)
+- [Product Videos](#product-videos)
+- [Compare](#compare)
+- [Download Item](#download-item)
+- [Product Other Details](#product-other-details)
+- [Category](#category)
+- [Category Products](#category-products)
+- [Category Shop by Price](#category-shop-by-price)
+- [Brand](#brand)
+- [Brand List](#brand-list)
+- [Shop by Brand](#shop-by-brand)
+- [Cart](#cart)
+- [Customer](#customer)
+- [Order Details](#order-details)
+- [Recent Items](#recent-items)
+- [Customer Wishlists](#customer-wishlists)
+- [Wishlist Details](#wishlist-details)
+- [Account Order Shipments](#account-order-shipments)
+- [Account Orders](#account-orders)
+- [Account Returns](#account-returns)
+- [Account New Return](#account-new-return)
+- [Create Account](#create-account)
+- [Shipping Addresses](#shipping-addresses)
+- [Payment Methods](#payment-methods)
+- [Edit Payment Methods](#edit-payment-methods)
+- [Add Payment Methods](#add-payment-methods)
+- [Blog](#blog)
+- [Blog Post](#blog-post)
+- [Forms](#forms)
+- [Order Confirmation Objects](#order-confirmation-objects)
 
+</div> 
 
 <div class="HubBlock--callout">
 <div class="CalloutBlock--info">
@@ -23,11 +47,9 @@
 
 ### Debugging Your Theme
 > The Stencil framework provides built-in debugging tools to aid in your custom front-end development. When you want to see what data is available on the page you are working on, you can simply add the debug query string to your store’s localhost URL. Here is an example:
-
-> `http://localhost:3000/product/this-is-a-sample-product?debug=context`
+> ```http://localhost:3000/product/this-is-a-sample-product?debug=context```
 > This will return a list of all the objects available on the page, in JSON syntax. If you want to view the available JSON objects and rendered page at the same time, simply change the debug value to bar. Below is an example:
-
-> `http://localhost:3000/product/this-is-a-sample-product?debug=bar`
+> ```http://localhost:3000/product/this-is-a-sample-product?debug=bar```
 
 </div>
 </div>
@@ -594,7 +616,6 @@
   </tr>
 </table>
 
-----
 ## Download Item
 
 <b>Description:</b> Property for digital (non-physical) products. (Called on the default <code>&lt;theme-name&gt;/templates/pages/account/download-item.html</code>template.)
@@ -1103,7 +1124,7 @@
 
 ---
 
-## Cart Items
+### Cart Items
 
 <b>Description:</b> A list of items added to the cart in the current session
 
@@ -1301,7 +1322,7 @@
 
 ---
 
-## Strikeout Pricing Example
+### Strikeout Pricing Example
 
 As a theme developer, you can use the `{{cart.items.rrp}}` property to display strike-out pricing in the Cart context. Here is the general approach:
 
@@ -1324,7 +1345,8 @@ If the type is `Item`, then you would check the {{cart.items.rrp}} value. If the
 For further details about catalog price properties, please see [Catalog Price Object: How Properties Interact](/stencil-docs/conditional-logic-examples/catalog-price-object). For usage examples of the `{{cart.items}}` `price` and `total` properties, please see [Cart Price Properties](/stencil-docs/conditional-logic-examples/cart-price-relationships).
 
 ---
-## Cart Status Message
+
+### Cart Status Message
 
 **Description:** A list of relevant messages for the cart in the current session
 
@@ -1340,7 +1362,7 @@ For further details about catalog price properties, please see [Catalog Price Ob
 ---
 
 
-## Suggested Products
+### Suggested Products
 
 <b>Description:</b> A list of suggested products, based on cart contents; displays only if enabled by the `cart.suggestions` front-matter attribute, and only immediately after a product is added to the cart
 
@@ -2529,8 +2551,8 @@ _These objects are called on the default `<theme-name>/templates/components/blog
     <td>URL for the tag</td>
   </tr>
 </table>
----
 
+---
 
 <a href='#other-objects_forms' aria-hidden='true' class='block-anchor'  id='other-objects_forms'><i aria-hidden='true' class='linkify icon'></i></a>
 
