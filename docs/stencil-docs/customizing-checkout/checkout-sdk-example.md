@@ -60,7 +60,7 @@ npm install --save react react-dom react-text-mask classnames accounting @babel/
 
 The React app includes `.jsx` files which will not be resolved using the default webpack configuration in Cornerstone. Additionally, loaders must be registered for `.jsx` and `.scss` files.
 
-In `webpack.common.js`, add the following objects to the `rules` array:
+In `webpack.common.js`, add the following objects to the `rules` arraypr:
 
 <div class="HubBlock-header">
     <div class="HubBlock-header-title flex items-center">
