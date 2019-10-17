@@ -1,12 +1,14 @@
 <div><h3 class="sub-docs-type" id="bigcommerce-for-wordpress">BigCommerce for Wordpress</h3>
+
 # Troubleshooting
+
 <div class="otp" id="no-index">
-	<h3> On This Page </h3>
-	<ul>
-        <li><a href="#troubleshooting_add-cart-error">Error on "Add to Cart" button, 404 error</a></li>
-        <li><a href="#troubleshooting_php-getenv">PHP getenv() Errors</a></li>
-	</ul>
-</div>
+
+### On This Page
+- [Error on "Add to Cart" button, 404 error](#error-on-%22add-to-cart%22-button-404-error)
+- [PHP getenv() Errors](#php-getenv-errors)
+
+</div> 
 
 <a href='#troubleshooting_add-cart-error' aria-hidden='true' class='block-anchor'  id='troubleshooting_add-cart-error'><i aria-hidden='true' class='linkify icon'></i></a>
 
