@@ -1,13 +1,16 @@
 # Cart and Checkout
+
 <div class="otp" id="no-index">
-	<h3> On This Page </h3>
-	<ul>
-    <li><a href="#cart-checkout_storefront-cart-and-checkout">Storefront Cart and Checkout</a></li>
-    <li><a href="#cart-checkout_server-to-server-cart-and-checkout">Server-to-Server Cart and Checkout</a></li>
-    <li><a href="#cart-checkout_persistent-cart">Persistent Cart</a></li>
-    <li><a href="#cart-checkout_troubleshooting">Troubleshooting Cart Errors</a></li>
-	</ul>
-</div>
+
+### On This Page
+- [Storefront Cart and Checkout](#storefront-cart-and-checkout)
+- [Server-to-Server Cart and Checkout](#server-to-server-cart-and-checkout)
+- [When to Use](#when-to-use)
+- [Persistent Cart](#persistent-cart)
+- [Troubleshooting Cart Errors](#troubleshooting-cart-errors)
+- [Resources](#resources)
+
+</div> 
 
 <a href='#cart-checkout_storefront-cart-and-checkout' aria-hidden='true' class='block-anchor'  id='cart-checkout_storefront-cart-and-checkout'><i aria-hidden='true' class='linkify icon'></i></a>
 
