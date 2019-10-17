@@ -1,18 +1,18 @@
 # Products
-<div class="otp" id="no-index">
-	<h3> On This Page </h3>
-	<ul>
-		<li><a href="#v2-products_object-properties">Object Properties</a></li>
-		<li><a href="#v2-products_list-products">List Products</a></li>
-		<li><a href="#v2-products_get-products">Get a Product</a></li>
-    <li><a href="#v2-products_get-count-products">Get a Count of Products</a></li>
-    <li><a href="#v2-products_create-products">Create a Product</a></li>
-    <li><a href="#v2-products_update-products">Update A Product</a></li>
-    <li><a href="#v2-products_delete-products">Delete a Product</a></li>
-    <li><a href="#v2-products_delete-all-products">Delete All Products</a></li>
-		</ul>
-</div>
 
+<div class="otp" id="no-index">
+
+### On This Page
+- [Products](#products)
+- [List Products](#list-products)
+- [Get a Product](#get-a-product)
+- [Get a Product Count](#get-a-product-count)
+- [Create a Product](#create-a-product)
+- [Update a Product](#update-a-product)
+- [Delete a Product](#delete-a-product)
+- [Delete All Products](#delete-all-products)
+
+</div> 
 
 <div class="HubBlock--callout">
 <div class="CalloutBlock--error">
