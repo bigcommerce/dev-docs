@@ -1,5 +1,5 @@
 <div><h3 class="sub-docs-type" id="bigcommerce-for-wordpress">BigCommerce for Wordpress</h3>
-<h1 class="sub-docs-title">Shortcodes
+# Shortcodes
 <div class="otp" id="no-index">
 	<h3> On This Page </h3>
 	<ul>
