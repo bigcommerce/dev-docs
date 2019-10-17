@@ -1,16 +1,17 @@
 # Option Values
+
 <div class="otp" id="no-index">
-	<h3> On This Page </h3>
-	<ul>
-		<li><a href="#v2-option-values_object-properties">Object Properties</a></li>
-		<li><a href="#v2-option-values_list-option-values">List Option Values</a></li>
-		<li><a href="#v2-option-values-option-values">Get Option Values</a></li>
-    <li><a href="#v2-option-values_create-option-values">Create Option Values</a></li>
-    <li><a href="#v2-option-values_update-option-values">Update Option Values </a></li>
-    <li><a href="#v2-option-values_delete-option-values">Delete a Option Value</a></li>
-    <li><a href="#v2-option-values_delete-all-option-values">Delete All Option Values</a></li>
-		</ul>
-</div>
+
+### On This Page
+- [Option Values](#option-values)
+- [List Option Values](#list-option-values)
+- [Get an Option Value](#get-an-option-value)
+- [Create an Option Value](#create-an-option-value)
+- [Update an Option Value](#update-an-option-value)
+- [Delete an Option Value](#delete-an-option-value)
+- [Delete Multiple Option Values](#delete-multiple-option-values)
+
+</div> 
 
 ## Option Values 
 
