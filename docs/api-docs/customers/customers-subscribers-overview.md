@@ -1,31 +1,31 @@
 # Customers and Subscribers
+
 <div class="otp" id="no-index">
-	<h3> On This Page </h3>
-	<ul>
-        <li><a href="#customers-subscribers_what-is-a-customer">What is a Customer?</a></li>
-    		<li><a href="#customers-subscribers_what-is-a-subscriber">What is a Subscriber</a></li>
-        <li><a href="#customers-subscribers_subscribers-v-customers">Subscribers vs. Customers</a></li>
-        <li><a href="#customers-subscribers_what-is-a-guest">Guests</a></li>
-        <li><a href="#customers-subscribers_customer-login">Customer Login API</a></li>
-        <li><a href="#customers-subscribers_current-customer">Current Customer API</a></li>
-        <li><a href="#customer-subscribers_customer-api">Customer API</a></li>
-        <li><a href="#customer-subscribers_difference-v2-v3">Differences Between V2 and V3 Customer API</a></li>
-        <li><a href="#customer-subscribers_faq">FAQ</a></li>
-	</ul>
-</div>
+
+### On This Page
+- [Introduction](#introduction)
+- [What is a Customer?](#what-is-a-customer)
+- [What is a Subscriber?](#what-is-a-subscriber)
+- [Subscribers vs. Customers](#subscribers-vs-customers)
+- [What is a Guest?](#what-is-a-guest)
+- [Customer Login API](#customer-login-api)
+- [Current Customer API](#current-customer-api)
+- [Customer API](#customer-api)
+- [Differences Between V2 and V3 Customer API](#differences-between-v2-and-v3-customer-api)
+- [FAQ](#faq)
+- [Resources](#resources)
+
+</div> 
 
 ## Introduction
 
 ### Prerequisites
+
 **Scopes**
 
 The following [OAuth](https://developer.bigcommerce.com/api-docs/getting-started/authentication#authentication_oauth-scopes) scopes are required:
 - Customers View/Modify
 - Customers Login
-
-
-
-
 
 ## What is a Customer?
 
@@ -47,24 +47,16 @@ Customer groups allow you to organize your customers, give them discounts, and r
 </div>
 </div>
 
-
-
-
-
 ## What is a Subscriber?
 
 A subscriber is someone who has signed up for a store’s newsletter.  
 Subscribers can be added by:
 
--   Signing up for the newsletter via the signup box located in the footer of most storefront themes
--   Signing up for the newsletter during checkout
--   POSTing to the Subscribers API
+- Signing up for the newsletter via the signup box located in the footer of most storefront themes
+- Signing up for the newsletter during checkout
+- POSTing to the Subscribers API
 
 Where possible, the API indicates the origin of the subscriber. If the subscriber was added during checkout, the Order ID is included.
-
-
-
-
 
 ## Subscribers vs. Customers
 
@@ -72,31 +64,16 @@ Where possible, the API indicates the origin of the subscriber. If the subscribe
 - A customer is not always a subscriber. Signing up for the newsletter is a separate action from creating an account and purchasing an item.
 - A customer and a subscriber can be the same. If a shopper checks out on the storefront, creates an account and opts into the newsletter, they are a customer and a subscriber.
 
-
-
-
-
 ## What is a Guest?
 
 Store [settings](https://forum.bigcommerce.com/s/article/Checkout-Settings#checkout-settings) can be set to allow a shopper to complete checkout without creating an account. These shoppers are not captured as customers or stored in the BigCommerce system. If you want to capture guest data, using the [Storefront APIs](https://developer.bigcommerce.com/api-docs/cart-and-checkout/cart-and-checkout-overview) can help.
-
-
-
-
 
 ## Customer Login API
 
 The Customer Login API allows for single sign-on. Once a customer has authenticated by logging in to a third-party system (CMS, portal, or app), you can use the customer login API to seamlessly log the customer into their BigCommerce customer account.
 
-
-
-
-
 ## Current Customer API
 The Current Customer API allows your application to identify logged in customers. This is useful when you need to show customer specific information.
-
-
-
 
 
 ## Customer API
@@ -140,10 +117,6 @@ The V2 Customers API is comprised of Customers, Customer Addresses and Customer 
 
 [Customer Groups](https://developer.bigcommerce.com/api-reference/customer-subscribers/customers-api/models/customergroup) allow you to organize your customers, give them discounts, and restrict access to specific products or categories. Customer groups are not yet available on the V3 Customers API.
 
-
-
-
-
 ## Differences Between V2 and V3 Customer API
 
 ### Making Requests
@@ -158,7 +131,6 @@ Single Customer on V3
 Single Customer on V2
 * `/customers/{customer_id}`
 * `/customers/{customer_id}/addresses`
-
 
 ### Queries
 
@@ -197,7 +169,6 @@ lineNumbers: true
 ]
 ```
 
-
 <!--
 title: "Update a Customer on V2"
 subtitle: "/customers/{customer_id}"
@@ -227,10 +198,6 @@ On the new Customers endpoint, when creating a customer there are two ways to se
 
 [Password Confirmation](https://developer.bigcommerce.com/api-reference/customer-subscribers/customers-api/customers/createanewcustomer) and [Validation](https://developer.bigcommerce.com/api-reference/customer-subscribers/customers-api/customer-passwords/validatecustomerpassword) are still available under V2 Customers. 
 
-
-
-
-
 ## FAQ
 
 **Which API should I use?**
@@ -241,21 +208,20 @@ When possible use the V3 Customers API since we will eventually begin the proces
 
 Password validation is only available on V2 Customers API. Validation will return a true or false. The V3 Customers API can reset a customers password or input a new password. 
 
-
-
 ## Resources
+
 ### Related Endpoints
--   [Customer Login API](https://developer.bigcommerce.com/api-docs/customers/customer-login-api)
--   [Current Customer API](https://developer.bigcommerce.com/api-docs/customers/current-customer-api)
--   [Customers API](https://developer.bigcommerce.com/api-reference/customer-subscribers/v3-customers-api)
+  [Customer Login API](https://developer.bigcommerce.com/api-docs/customers/customer-login-api)
+- [Current Customer API](https://developer.bigcommerce.com/api-docs/customers/current-customer-api)
+- [Customers API](https://developer.bigcommerce.com/api-reference/customer-subscribers/v3-customers-api)
 - [Customer Groups](https://developer.bigcommerce.com/api-reference/customer-subscribers/customers-api/customer-groups/getallcustomergroups) (Customer V2 API)
 - [Password Validation](https://developer.bigcommerce.com/api-reference/customer-subscribers/customers-api/customer-passwords/validatecustomerpassword) (Customer V2 API)
 - [Password Confirmation](https://developer.bigcommerce.com/api-reference/customer-subscribers/customers-api/customers/createanewcustomer) (Customer V2 API)
--   [Subscribers API](https://developer.bigcommerce.com/api-reference/customer-subscribers/subscribers-api)
+- [Subscribers API](https://developer.bigcommerce.com/api-reference/customer-subscribers/subscribers-api)
 
 ### Webhooks
 - [Customers](https://developer.bigcommerce.com/api-docs/getting-started/webhooks/webhook-events#webhook-events_customer)
+
 ### Related Articles
 - [Adding and Editing Fields in the Account Signup Form](https://support.bigcommerce.com/s/article/Editing-Form-Fields#account-fields) (Knowledge Base)
 - [Checkout Settings](https://support.bigcommerce.com/s/article/Checkout-Settings#checkout-settings) (Knowledge Base)
-
