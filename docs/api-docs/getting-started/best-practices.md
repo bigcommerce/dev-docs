@@ -1,27 +1,25 @@
 # Best Practices
-<div class="otp" id="no-index">
-	<h3> On This Page </h3>
-	<ul>
-        <li><a href="#best-practices_integration-up-to-date">Ensure That Your Integration is Up-to-Date</a></li>
-        <li><a href="#best-practices_use-webhooks">Use Webhooks Effectively Within Your Application</a></li>
-        <li><a href="#best-practices_thread-api-requests">Thread Your Requests to the BigCommerce API</a></li>
-        <li><a href="#best-practices_marketplace-apps">Marketplace Apps</a></li>
-        <li><a href="#best-practices_rate-limits">API Rate Limits</a></li>
-        <li><a href="#best-practices_platform-limits">Platform Limits</a></li>
-	</ul>
+
+.otp <div class="otp" id="no-index">
+
+### On This Page
+- [Ensure Your Integration is Up-to-Date](#ensure-your-integration-is-up-to-date)
+- [Use Webhooks Effectively](#use-webhooks-effectively)
+- [Thread API Requests](#thread-api-requests)
+- [Marketplace Apps](#marketplace-apps)
+- [API Rate Limits](#api-rate-limits)
+- [Platform Limits](#platform-limits)
+- [Resources](#resources)
+
 </div>
 
-<a href='#best-practices_integration-up-to-date' aria-hidden='true' class='block-anchor'  id='best-practices_integration-up-to-date'><i aria-hidden='true' class='linkify icon'></i></a>
-
-## Ensure that your integration is up-to-date
+## Ensure Your Integration is Up-to-Date
 
 BigCommerce frequently enhances its core product and is actively developing v3 API endpoints. By using the newest API version, you will ensure that your app has access to the latest resources. You will also be better positioned to provide a user experience consistent with what merchants will see in their BigCommerce store’s control panel. To stay up to date, bookmark our [changelog](/changelog). 
-
+ 
 ---
 
-<a href='#best-practices_use-webhooks' aria-hidden='true' class='block-anchor'  id='best-practices_use-webhooks'><i aria-hidden='true' class='linkify icon'></i></a>
-
-## Use webhooks effectively within your application
+## Use Webhooks Effectively
 
 To keep data in your application up-to-date, [webhooks](/api-docs/getting-started/webhooks/about-webhooks) provide a great alternative to doing periodic checks. In order to register a webhook event that your application can listen for, you will need to use OAuth (not legacy “Basic Authentication”).
 
@@ -29,17 +27,13 @@ BigCommerce will send a partial payload when a subscribed event is triggered, wi
 
 ---
 
-<a href='#best-practices_thread-api-requests' aria-hidden='true' class='block-anchor'  id='best-practices_thread-api-requests'><i aria-hidden='true' class='linkify icon'></i></a>
-
-## Thread your requests to the BigCommerce API
+## Thread API Requests
 
 In order to quickly update information in the API, you can use threaded requests. Threaded requests allow you to send multiple requests at one time. They can come from a different open connection or multiple requests to the same resource. 
 
 The [BigCommerce Ruby API](https://github.com/bigcommerce/bigcommerce-api-ruby) client is thread-safe: It satisfies the need for multiple threads to access the same shared data and the need for a shared piece of data to be accessed by only one thread at any given time. These attributes can reduce the total time that your app will require to complete a series of requests.
 
 ---
-
-<a href='#best-practices_marketplace-apps' aria-hidden='true' class='block-anchor'  id='best-practices_marketplace-apps'><i aria-hidden='true' class='linkify icon'></i></a>
 
 ## Marketplace Apps
 
@@ -53,8 +47,6 @@ If you wish to enable user removal, you can do by filling in your app’s **Tech
 For more advanced implementations, you can enable the store owner to grant specific permissions to different non-admin users. For example, person1@email.com could be restricted to editing product inventory but not seeing orders. If you decide to include this feature in your app, it’s a great feature to advertise.
 
 ---
-
-<a href='#best-practices_rate-limits' aria-hidden='true' class='block-anchor'  id='best-practices_rate-limits'><i aria-hidden='true' class='linkify icon'></i></a>
 
 ## API Rate Limits
 Apps that authenticate with OAuth are rate-limited, based on a quota that is refreshed every few seconds. The maximum quota for a store will vary depending on the store’s plan.
@@ -121,8 +113,6 @@ However, your application should monitor the rate limiting headers to avoid an H
 * Determining an acceptable average rate of requests, by dividing X-Rate-Limit-Requests-Quota by X-Rate-Limit-Time-Window-Seconds, and then self-throttling to that rate.
 
 ---
-
-<a href='#best-practices_platform-limits' aria-hidden='true' class='block-anchor'  id='best-practices_platform-limits'><i aria-hidden='true' class='linkify icon'></i></a>
 
 ## Platform Limits
 

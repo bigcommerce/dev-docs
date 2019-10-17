@@ -1,26 +1,27 @@
-=# Building an App
-<div class="otp" id="no-index">
-	<h3> On This Page </h3>
-	<ul>
-    <li><a href="#building-apps_oauth-summary">OAuth Summary</a></li>
-    <li><a href="#building-apps_request-headers">Request Headers</a></li>
-    <li><a href="#building-apps_session-timeouts">Managing Users Session Timeouts</a></li>
-    <li><a href="#building-apps_installation-update-sequence">App Installation and Update Sequence</a></li>
-    <li><a href="#building-apps_recieving-get-request">Receiving the GET Request</a></li>
-    <li><a href="#building-apps_responding-get-request">Responding to the GET Request</a></li>
-    <li><a href="#building-apps_making-post-request">Making the POST Request</a></li>
-    <li><a href="#building-apps_recieving-post-request">Receiving the POST Response</a></li>
-    <li><a href="#building-apps_load-uninstall-removal-requests">Load, Uninstall, and User Removal Requests</a></li>
-    <li><a href="#building-apps_processing-signed-payload">Processing the Signed Payload</a></li>
-    <li><a href="#building-apps_multi-user-support">Multi-User Support</a></li>
-    <li><a href="#building-apps_external-app-installation">External App Installation</a></li>
-    <li><a href="#building-apps_design-user-interface">Designing the User Interface</a></li>
-    <li><a href="#building-apps_hosting-your-app">Hosting Your App </a></li>
-    <li><a href="#building-apps_faq">FAQ</a></li>
-	</ul>
-</div>
+# Building an App
 
-<a href='#building-apps_oauth-summary' aria-hidden='true' class='block-anchor'  id='building-apps_oauth-summary'><i aria-hidden='true' class='linkify icon'></i></a>
+
+<div class="otp" id="no-index">
+
+### On This Page
+- [OAuth Summary](#oauth-summary)
+- [Request Headers](#request-headers)
+- [Managing Users Session Timeouts](#managing-users-session-timeouts)
+- [Installation and Update Sequence](#installation-and-update-sequence)
+- [Receiving the GET Request](#receiving-the-get-request)
+- [Responding to the GET Request](#responding-to-the-get-request)
+- [Making the POST Request](#making-the-post-request)
+- [Receiving the POST Response](#receiving-the-post-response)
+- [Required URIs](#required-uris)
+- [Processing the Signed Payload](#processing-the-signed-payload)
+- [Multi-User Support](#multi-user-support)
+- [External App Installation](#external-app-installation)
+- [Designing the User Interface](#designing-the-user-interface)
+- [Hosting Your App](#hosting-your-app)
+- [FAQ](#faq)
+- [Resources](#resources)
+
+</div>
 
 ## OAuth Summary
 
@@ -83,7 +84,7 @@ This callback function will run when the user explicitly logs out of the BigComm
 
 <a href='#building-apps_installation-update-sequence' aria-hidden='true' class='block-anchor'  id='building-apps_installation-update-sequence'><i aria-hidden='true' class='linkify icon'></i></a>
 
-## App Installation and Update Sequence
+## Installation and Update Sequence
 
 The purpose of the App Installation sequence is to obtain an Oauth token for the store installing the app, using the Client ID and Secret from Dev Tools. 
 
@@ -394,7 +395,7 @@ lineNumbers: true
 
 <a href='#building-apps_load-uninstall-removal-requests' aria-hidden='true' class='block-anchor'  id='building-apps_load-uninstall-removal-requests'><i aria-hidden='true' class='linkify icon'></i></a>
 
-## Load, Uninstall, and User Removal Requests
+## Required URIs
 In addition to the Auth Callback URI, the following URI’s are required for BigCommerce Apps:
 
 | Name | Required? | Event Discussion |
