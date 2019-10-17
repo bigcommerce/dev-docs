@@ -1,12 +1,11 @@
 # Filtering
 
 <div class="otp" id="no-index">
-	<h3> On This Page </h3>
-	<ul>
-		<li><a href="#filtering-includes">Includes</a></li>
-		<li><a href="#filtering-including_excluding_fields">Including and Excluding Fields</a></li>
-		<li><a href="#filtering-pagination-limit">Pagination and Limit</a></li>
-	</ul>
+
+### On This Page
+- [Includes](#includes)
+- [Pagination and Limit](#pagination-and-limit)
+
 </div>
 
 To filter collections down to a particular set of items, you can add filters to your request as URL query parameters.
@@ -32,7 +31,7 @@ Available filters vary by endpoint. Refer to the GET method for an endpoint to s
 
 ## Includes
 
-Some endpoints allow an `?include` parameter to include subresources and other information in the primary GET response for a parent object.
+Some endpoints allow an `?include` parameter to include sub-resources and other information in the primary GET response for a parent object.
 
 This allows you to save API calls by getting more information in a response. However, it may slow down your response.
 
@@ -88,4 +87,3 @@ lineNumbers: true
 
 `page=2&limit=10`
 This will return page 2 of the results with 10 items per page.
-
