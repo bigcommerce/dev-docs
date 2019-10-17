@@ -1,14 +1,15 @@
 # Checkout Styling
+
 <div class="otp" id="no-index">
-	<h3>On This Page</h3>
-	<ul>
-		<li><a href="#customization-options-restrictions">Customization Options/Restrictions</a></li>
-		<li><a href="#configuring-desktop-viewport">Configuring the Desktop Viewport</a></li>
-    <li><a href="#deploying-custom-css">Deploying Custom CSS</a></li>
-    <li><a href="#classes-provided">Classes Provided</a></li>
-    <li><a href="#css-skeleton">CSS Skeleton</a></li>
-		</ul>
-</div>
+
+### On This Page
+- [Customization Options/Restrictions](#customization-optionsrestrictions)
+- [Configuring the Desktop Viewport](#configuring-the-desktop-viewport)
+- [Deploying Custom CSS](#deploying-custom-css)
+- [Classes Provided](#classes-provided)
+- [CSS Skeleton](#css-skeleton)
+
+</div> 
 
 To support stores that enable BigCommerce's Optimized One-Page Checkout feature, you can customize the Optimized Checkout page's styling within your theme. You do this by adding custom CSS to the `optimized-checkout-webdav.css` template file that we provide. You can copy the CSS [below](#css-skeleton).
 
