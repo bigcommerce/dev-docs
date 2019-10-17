@@ -1,32 +1,32 @@
 # Global Objects and Properties
+
 <div class="otp" id="no-index">
-	<h3> On This Page </h3>
-	<ul>
-    <li><a href="#global-objects_banner">Banner</a></li>
-    <li><a href="#global-objects_breadcrumbs">Breadcrumbs</a></li>
-		<li><a href="#global-objects_carousel">Carousel</a></li>
-    <li><a href="#global-objects_cart">Cart</a></li>
-		<li><a href="#global-objects_currency-selector">Currency Selector</a></li>
-    <li><a href="#global-objects_categories">Categories</a></li>
-    <li><a href="#global-objects_faceted-search">Faceted Search</a></li>
-    <li><a href="#global-objects_featured-products">Featured Products</a></li>
-    <li><a href="#global-objects_footer">Footer</a></li>
-    <li><a href="#global-objects_html-head">HTML Head</a></li>
-    <li><a href="#global-objects_is-ajax">Is Ajax</a></li>
-    <li><a href="#global-objects_login">Login</a></li>
-    <li><a href="#global-objects_new-products">New Products</a></li>
-    <li><a href="#global-objects_page-content">Page Content</a></li>
-    <li><a href="#global-objects_pages">Pages</a></li>
-    <li><a href="#global-objects_page-type-property">Page Type Property</a></li>
-    <li><a href="#global-objects_pagination">Pagination</a></li>
-    <li><a href="#global-objects_search">Search</a></li>
-    <li><a href="#global-objects_settings">Settings</a></li>
-    <li><a href="#global-objects_sitemap">Sitemap</a></li>
-    <li><a href="#global-objects_social-links">Social Links</a></li>
-    <li><a href="#global-objects_template-property">Template Property</a></li>
-    <li><a href="#global-objects_top-sellers">Top Sellers</a></li>
-  </ul>
-</div>
+
+### On This Page
+- [Banner](#banner)
+- [Breadcrumbs](#breadcrumbs)
+- [Carousel](#carousel)
+- [Cart](#cart)
+- [Currency Selector](#currency-selector)
+- [Categories](#categories)
+- [Faceted Search](#faceted-search)
+- [Featured Products](#featured-products)
+- [Footer](#footer)
+- [HTML Head](#html-head)
+- [Is_Ajax](#isajax)
+- [New Products](#new-products)
+- [Page Content](#page-content)
+- [Pages](#pages)
+- [Page Type Property](#page-type-property)
+- [Pagination](#pagination)
+- [Search](#search)
+- [Settings](#settings)
+- [Sitemap](#sitemap)
+- [Social Links](#social-links)
+- [Template Property](#template-property)
+- [Top Sellers](#top-sellers)
+
+</div> 
 
 Global objects and properties are common components shared across the entire BigCommerce storefront.
 
