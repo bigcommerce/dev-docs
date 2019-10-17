@@ -1,12 +1,14 @@
 # Stencil Technology Stack
+
 <div class="otp" id="no-index">
-	<h3> On This Page </h3>
-	<ul>
-		<li><a href="#tech-stack_handlebars-overview">Handlebars Overview</a></li>
-    <li><a href="#tech-stack_objects-overview">Stencil Objects Overview</a></li>
-    <li><a href="#tech-stack_front-matter-overview">YAML Front Matter Overview</a></li>
-  </ul>
-</div>
+
+### On This Page
+- [Handlebars.js Overview](#handlebarsjs-overview)
+- [Stencil Objects Overview](#stencil-objects-overview)
+- [YAML Front Matter Overview](#yaml-front-matter-overview)
+- [Resources](#resources)
+
+</div> 
 
 Stencil's use of Handlebars.js, Javascript, and YAML Front Matter on the front end allows developers to create dynamic, templated customizations across a BigCommerce storefront.
 
