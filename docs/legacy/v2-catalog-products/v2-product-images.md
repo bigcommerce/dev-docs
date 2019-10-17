@@ -1,17 +1,17 @@
 # Product Images
+
 <div class="otp" id="no-index">
-	<h3> On This Page </h3>
-	<ul>
-		<li><a href="#v2-images_object-properties">Object Properties</a></li>
-		<li><a href="#v2-review_list-product-images">List Product Images</a></li>
-		<li><a href="#v2-review-product-images">Get Product Images</a></li>
-    <li><a href="#v2-images_get-count-images">Get a Count of Product Images</a></li>
-    <li><a href="#v2-images_create-product-images">Create Product Images</a></li>
-    <li><a href="#v2-images_update-product-images">Update Product Images </a></li>
-    <li><a href="#v2-images_delete-product-images">Delete a Product Images</a></li>
-    <li><a href="#v2-images_delete-all-product-images">Delete All Product Images</a></li>
-		</ul>
-</div>/h1
+
+### On This Page
+- [Product Images](#product-images)
+- [Get a Product Image](#get-a-product-image)
+- [Get a Count of Product Images](#get-a-count-of-product-images)
+- [Create a Product Image](#create-a-product-image)
+- [Update a Product Image](#update-a-product-image)
+- [Delete a Product Image](#delete-a-product-image)
+- [Delete Multiple Product Images](#delete-multiple-product-images)
+
+</div> 
 
 <a href='#v2-images_object-properties' aria-hidden='true' class='block-anchor'  id='v2-images_object-properties'><i aria-hidden='true' class='linkify icon'></i></a>
 
