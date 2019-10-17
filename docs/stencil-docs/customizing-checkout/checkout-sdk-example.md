@@ -3,7 +3,7 @@
 <div class="otp" id="no-index">
 
 ### On This Page
-- [Implementing a Custom React Checkout in Cornerstone](#implementing-a-custom-react-checkout-in-cornerstone)
+- [Implementing React Checkout in Cornerstone](#implementing-react-checkout-in-cornerstone)
 - [Additional Customizations](#additional-customizations)
 - [Additional Resources](#additional-resources)
 
@@ -30,7 +30,7 @@ Stencil CLI is required to begin this walkthrough. For installation instructions
 
 <a href='#implement_steps' aria-hidden='true' class='block-anchor'  id='implement_steps'><i aria-hidden='true' class='linkify icon'></i></a>
 
-## Implementing a Custom React Checkout in Cornerstone
+## Implementing React Checkout in Cornerstone
 
 ### Install Dependencies
 
