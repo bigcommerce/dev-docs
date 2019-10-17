@@ -1,12 +1,14 @@
 # About Stencil
+
 <div class="otp" id="no-index">
-	<h3> On This Page </h3>
-	<ul>
-    <li><a href="#about_cornerstone">Cornerstone</a></li>
-		<li><a href="#about_features-and-stack">Stencil Development Features</a></li>
-		<li><a href="#about_blueprint">Blueprint (Legacy Framework)</a></li>
-    <li><a href="#about_support">Support</a></li>
-	</ul>
+
+### On This Page
+- [Cornerstone](#cornerstone)
+- [Stencil Development Features](#stencil-development-features)
+- [Blueprint (Legacy Framework)](#blueprint-legacy-framework)
+- [Support](#support)
+- [Resources](#resources)
+
 </div>
 
 
