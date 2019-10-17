@@ -601,10 +601,6 @@ Orders can be created using the [Server to Server API Endpoints](https://develop
 
 ## FAQ
 
-**How can I store a credit card?**
-
-When processing a credit payment set `save_instrument: true`. The shopper can also store credit cards during checkout. If you are using the Checkout SDK, it can store the credit card as part of the checkout.
-
 **How do I get a list of stored credit cards?**
 
 Use the Get Payment Methods to get a list of stored payment instruments. 
