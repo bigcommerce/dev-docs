@@ -16,10 +16,6 @@
 
 </div>
 
-
-
-
-
 When testing your application locally, ngrok is a helpful tool for viewing the webhook responses that BigCommerce sends to your app. Ngrok creates a publicly accessible tunnel URL to an application running on your machine's localhost. Ngrok also provides a web interface you can use to view HTTP request details.
 
 In this tutorial, we'll install ngrok, register a webhook on your store, and then observe the response when the webhook event is triggered.
@@ -35,8 +31,6 @@ If you would like to follow along, we have created a Postman collection with all
 - Familiar with Postman
 - [API Access Token & Client ID](/api-docs/getting-started/basics/authentication#authentication_getting-api-credentials) with [scope](/api-docs/getting-started/basics/authentication#authentication_oauth-scopes) set to Information & Settings Read-Only and Products Read-Only.
 - [Webhooks Overview](/api-docs/getting-started/webhooks/about-webhooks)
-
-
 
 ## Create Project Folder
 
@@ -58,10 +52,6 @@ lineNumbers: true
 mkdir webhooks-test
 cd webhooks-test
 ```
-
-
-
-
 
 ## Install ngrok
 
@@ -108,10 +98,6 @@ unzip /Users/your-computer/Downloads/ngrok-stable-darwin-amd64.zip -d /Users/you
 </div>
 </div>
 </div>
-
-
-
-
 
 ## Create Express App
 
@@ -205,16 +191,11 @@ From Express [Website](https://expressjs.com/en/starter/basic-routing.html):
 - HANDLER is the function executed when the route is matched.
 - Res.send is the body parameter that sends the HTTP response.
 
-
-
-
-
 ## Start the App and ngrok
 
 1. Open two terminal tabs. In both tabs, navigate to your project folder. 
 2. In one tab run the app. `node index.js`
 3. In the other start ngrok. `./ngrok http 3000`
-
 
 #### node index.js
 
@@ -243,8 +224,6 @@ ngrok returns two values we will need to register a webhook and observe the resp
 ![#### ngrok Web Interface
 ](//s3.amazonaws.com/user-content.stoplight.io/6012/1531500191661 "#### ngrok Web Interface
 ")
-
-
 
 Subscribe to the `store/product/updated` event: 
 
@@ -295,10 +274,6 @@ lineNumbers: true
 
 4. Check all the values and then send. If successful, the response will be 201 Created.
 
-
-
-
-
 <div class="HubBlock-header">
     <div class="HubBlock-header-title flex items-center">
         <div class="HubBlock-header-name">201 Created Response</div>
@@ -324,8 +299,6 @@ lineNumbers: true
   "updated_at": 1531256030
 }
 ```
-
-
 
 ## Trigger the Webhook Event
 Webhooks can be triggered by actions performed by a shopper on the storefront or user within the control panel, or actions performed via API. To illustrate this point, we'll demonstrate both methods.
@@ -401,7 +374,6 @@ lineNumbers: true
 
 After hitting send, check the ngrok web interface. You may see a single event or several based on how many times the product has been updated in the previous step.
 
-
 <!--
     title: #### ngrok Web Interface
 
@@ -412,8 +384,6 @@ After hitting send, check the ngrok web interface. You may see a single event or
 ![#### ngrok Web Interface
 ](//s3.amazonaws.com/user-content.stoplight.io/6012/1531501115256 "#### ngrok Web Interface
 ")
-
-
 
 That’s it! In this walkthrough you created a webhook, set up a server to accept the response, and used ngrok to observe the webhook payload.
 
@@ -431,11 +401,6 @@ Want to keep going? Try changing the text in `res.send()` to a custom response, 
 </div>
 </div>
 </div>
-
-
-
-
-
 
 ## Adding Custom Headers
 For added security you can add custom headers to your webhook request. `headers` accepts any key:value pair as a string. 
@@ -460,10 +425,6 @@ lineNumbers: true
   	
 }
 ```
-
-
-
-
 
 ## Troubleshooting
 
