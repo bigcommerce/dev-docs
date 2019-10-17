@@ -1,11 +1,14 @@
 # Customizing Invoices
-<div class="otp">
-  <ul>
-    <li><a href="#customizing-invoices_email-invoice-template">Email Invoice Template</a></li>
-    <li><a href="#customizing-invoices_merchant-printable-invoice">Merchant Printable Invoice</a></li>
-    <li><a href="#customizing-invoices_customer-printable-invoice">Customer Printable Invoice</a></li>
-	</ul>
-</div>
+
+<div class="otp" id="no-index">
+
+### On This Page
+- [Email Invoice Template](#email-invoice-template)
+- [Merchant Printable Invoice](#merchant-printable-invoice)
+- [Customizing the Customer Printable Invoice](#customizing-the-customer-printable-invoice)
+- [Resources](#resources)
+
+</div> 
 
 There are three editable invoices in BigCommerce:
 
@@ -17,7 +20,7 @@ Merchants commonly request developers modify the default content of invoices in 
 
 <a href='#customizing-invoices_email-invoice-template' aria-hidden='true' class='block-anchor'  id='customizing-invoices_email-invoice-template'><i aria-hidden='true' class='linkify icon'></i></a>
 
-## Customizing the Email Invoice Template
+## Email Invoice Template
 
 The email invoice is sent to a customer after an order has been completed. The email invoice can be edited in the Control Panel in **Storefront** > **Email Templates** > <span class="fn">invoice_email.html</span>
 
@@ -35,7 +38,7 @@ After clicking **Edit** on the right, the WYSIWYG Editor will appear. Follow Edi
 
 <a href='#ustomizing-invoices_merchant-printable-invoice' aria-hidden='true' class='block-anchor'  id='customizing-invoices_merchant-printable-invoice'><i aria-hidden='true' class='linkify icon'></i></a>
 
-## Customizing the Merchant Printable Invoice
+## Merchant Printable Invoice
 
 The Merchant Printable Invoice is the invoice that can be printed from the control panel in **Orders** > **View**. Clicking the **...** in the Action column will generate a list of options, one option being **Print Invoice**.
 

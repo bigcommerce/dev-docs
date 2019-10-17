@@ -1,14 +1,14 @@
-
-
 # Catalog Price Object Examples
+
 <div class="otp" id="no-index">
-	<h3> On This Page </h3>
-	<ul>
-    <li><a href="#catalog-price_excluding-tax">Examples Excluding Tax</a></li>
-    <li><a href="#catalog-price_including-and-excluding">Examples Including and Excluding Tax</a></li>
-    <li><a href="#catalog-price_quick-reference">Control Panel and Catalog Price Object Quick Reference</a></li>
-	</ul>
-</div>
+
+### On This Page
+- [Catalog Price Object Examples Excluding Tax](#catalog-price-object-examples-excluding-tax)
+- [Catalog Price Object Examples Including and Excluding Tax](#catalog-price-object-examples-including-and-excluding-tax)
+- [Control Panel Quick Reference](#control-panel-quick-reference)
+- [Resources](#resources)
+
+</div> 
 
 As a theme developer, you can use the [*Catalog Price Object*](/stencil-docs/reference-docs/common-objects#common-objects_catalog-price) to highlight the savings that a merchant is offering over the MSRP (Retail Price) directly on the storefront by simply referencing the product's [Catalog Price Object](/stencil-docs/stencil-object-model-reference/stencil-objects/common-objects/catalog-price) and the correct property for the product.
 

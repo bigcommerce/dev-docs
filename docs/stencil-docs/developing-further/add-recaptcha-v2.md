@@ -1,9 +1,12 @@
 # Add reCAPTCHA V2
-<div class="otp">
-  <ul>
-    <li><a href="#add-recaptcha_how-to-upgrade">How to Upgrade</a></li>
-	</ul>
-</div>
+
+<div class="otp" id="no-index">
+
+### On This Page
+- [How to Upgrade](#how-to-upgrade)
+- [Resources](#resources)
+
+</div> 
 
 reCAPTCHA v1 was deprecated as of March 31, 2018. To deter spam submission through storefront forms, BigCommerce now supports Google reCAPTCHA v2 challenges, to distinguish human customers/visitors from automated bots. We recommend that all storefront themes take advantage of this upgraded bot detection.
 
