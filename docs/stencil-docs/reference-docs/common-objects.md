@@ -113,7 +113,7 @@ This consistent behavior is true for each of the common objects documented in th
 <b>Object Properties:</b>
 
 | Property | Description | Type |
-| ||--|
+|-|-|--|
 | retail_price_range | Product Price Range | object |
 |&#x21B3;   max | The minimum variant price for the product | object |
 |&nbsp;  &nbsp;  &#x21B3;  with_tax | Price including tax | object |
