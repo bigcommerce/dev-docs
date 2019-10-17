@@ -1,12 +1,14 @@
 # Localizing Stores
+
 <div class="otp" id="no-index">
-	<h3> On This Page </h3>
-	<ul>
-    <li><a href="#localizing_translating-theme-files">Translating Theme Files via Stencil CLI</a></li>
-    <li><a href="#localizing_localizing-checkout">Localizing Checkout</a></li>
-    <li><a href="#localizing_localizing-control-panel">Localizing Control Panel Content</a></li>
-	</ul>
-</div>
+
+### On This Page
+- [Translating Theme Files via Stencil CLI](#translating-theme-files-via-stencil-cli)
+- [Localizing Checkout](#localizing-checkout)
+- [Localizing Control Panel Content](#localizing-control-panel-content)
+- [Resources](#resources)
+
+</div> 
 
 A BigCommerce storefront can be customized to display in any one language of your choice. To fully localize a store into a language/region other than U.S. English, you will need to customize three areas:
 
