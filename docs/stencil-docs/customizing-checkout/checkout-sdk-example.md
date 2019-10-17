@@ -1,6 +1,6 @@
 # Implementing a Custom React.js Checkout to Cornerstone using the BigCommerce Checkout SDK
 
-.otp <div class="otp" id="no-index">
+<div class="otp" id="no-index">
 
 ### On This Page
 - [Implementing a Custom React Checkout in Cornerstone](#implementing-a-custom-react-checkout-in-cornerstone)
