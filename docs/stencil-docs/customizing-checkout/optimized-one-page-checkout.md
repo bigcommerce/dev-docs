@@ -49,7 +49,7 @@ Within the <span class="fn">optimized-checkout.scss</span> file, to set up Optim
 Below are the classes provided in Cornerstone's <span class="fn">optimized-checkout.scss</span>, with the corresponding page elements that they style. _These class names and mappings are subject to change, so please check the inline comments in the <span class="fn">optimized-checkout.scss</span> file that you downloaded with your current Cornerstone release._
 
 | **Class** | **Styles This Optimized One-Page Checkout Element:** |
-|||
+|-|-|
 | `.optimizedCheckout-header` | Page header. |
 | `.optimizedCheckout-headingPrimary` | Top-level headings. |
 | `.optimizedCheckout-headingSecondary` | Certain lower-level elements, such as descriptions of cart items. |
