@@ -1,13 +1,15 @@
 # Working with the Storefront Cart and Checkout APIs
+
 <div class="otp" id="no-index">
-	<h3> On This Page </h3>
-	<ul>
-    <li><a href="#working-sf-apis_prerequisites">Prerequisites</a></li>
-    <li><a href="#working-sf-apis_create-postdata">Create postData() Function</a></li>
-    <li><a href="#working-sf-apis_storefront-cart">Storefront Cart</a></li>
-    <li><a href="#working-sf-apis_storefront-checkout">Storefront Checkout</a></li>
-    <li><a href="#working-sf-apis_troubleshooting">Troubleshooting</a></li>
-	</ul>
+
+### On This Page
+- [Prerequisites:](#prerequisites)
+- [Create postData() function](#create-postdata-function)
+- [Storefront Cart](#storefront-cart)
+- [Storefront Checkout](#storefront-checkout)
+- [Troubleshooting](#troubleshooting)
+- [Resources](#resources)
+
 </div>
 
 <a href='#working-sf-apis_prerequisites' aria-hidden='true' class='block-anchor'  id='working-sf-apis_prerequisites'><i aria-hidden='true' class='linkify icon'></i></a>
