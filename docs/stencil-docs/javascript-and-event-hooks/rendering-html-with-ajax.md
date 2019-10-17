@@ -1,13 +1,11 @@
 # Rendering HTML with Ajax
 
 <div class="otp" id="no-index">
-	<h3> On This Page </h3>
-	<ul>
-		<li><a href="#rendering_rendering-html">Rendering HTML with Ajax</a></li>
-	</ul>
-</div>
 
-<a href='#rendering_rendering-html' aria-hidden='true' class='block-anchor'  id='rendering_rendering-html'><i aria-hidden='true' class='linkify icon'></i></a>
+### On This Page
+- [Rendering HTML with Ajax](#rendering-html-with-ajax)
+
+</div> 
 
 ## Rendering HTML with Ajax
 
