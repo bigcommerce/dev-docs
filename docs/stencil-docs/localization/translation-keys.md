@@ -17,8 +17,6 @@ Translation keys exist in JSON files and are invoked based on the user's browser
 
 BigCommerce does not provide translations for the theme’s content, however, you have the option of localizing your themes for desired target languages, based on the provided schema. Theme developers are not required to localize or translate a theme in order to make it work.
 
-
-
 ## Translating a Theme
 
 In order to translate a theme, you must create a JSON file for each language you choose to support and include key-value pairs for the text blocks that you choose to translate. The translated values will be displayed to visitors who have selected the corresponding language in their browser's locale preferences.
@@ -40,8 +38,6 @@ Stencil's multi-language capabilities are limited to the particular key-value pa
 </div>
 </div>
 
-
-
 ## Required Subdirectory
 
 Within each Stencil theme, a top level <span class="fp">/lang/</span> subdirectory is reserved for localization and internationalization. This <span class="fp">/lang/</span> subdirectory, as well as the <span class="fp">/lang/en.json</span> (which contains English-language defaults), must be present in order for a Stencil theme to properly function.
@@ -49,8 +45,6 @@ Within each Stencil theme, a top level <span class="fp">/lang/</span> subdirecto
 You can localize a theme by providing other appropriate <span class="fn">.json</span> translation files in the <span class="fp">/lang/</span> subdirectory. One JSON file is required for each language that you want to support. (These can include non-U.S. versions of English, each with their own spellings.)
 
 In these files, you would define key and values corresponding to the text blocks in your theme's templates that you choose to translate.
-
-
 
 ## The Schema
 
@@ -92,8 +86,6 @@ You can find a list of code subtags in the <a href="http://www.iana.org/assignme
 </table>
 
 For more examples of frequently-used codes, see the following linked table’s "LCID string" (middle) column: <a href="http://www.science.co.il/Language/Locale-codes.asp">http://www.science.co.il/Language/Locale-codes.asp</a>.
-
-
 
 ## Localization File Structure
 
@@ -145,8 +137,6 @@ lineNumbers: true
    },
 }
 ```
-
-
 
 ## Invoking a Translation Key
 

@@ -33,8 +33,6 @@ This consistent behavior is true for each of the common objects documented in th
 </div>
 </div>
 
-
-
 ## Catalog Price
 
 **Description:** Exposes catalog price and currency-related properties in both raw numeric, and formatted string, formats. Tax settings display [configuration](https://support.bigcommerce.com/s/article/Manual-Tax-Setup#display-settings) will determine which properties are available.
@@ -78,8 +76,6 @@ This consistent behavior is true for each of the common objects documented in th
 | tax_label	| Tax label (VAT, sales tax, etc.) displayed to customers. | string  <br> `"Tax"`|
 | price_range | See [Price Range Object](https://developer.bigcommerce.com/stencil-docs/reference-docs/common-objects#common-objects_price-range)| |
 
-
-
 ## Price
 
 <b>Description:</b> Exposes price- and currency-related properties in both raw numeric, and formatted string, formats.
@@ -109,8 +105,6 @@ This consistent behavior is true for each of the common objects documented in th
     <td>Raw numeric value of the price</td>
   </tr>
 </table>
-
-
 
 ## Price Range
 
@@ -145,8 +139,6 @@ This consistent behavior is true for each of the common objects documented in th
 <b>Object/Property:</b><code>{{product.price}</code></a>
 
 -
-
-
 
 ## Stencil Image
 
@@ -233,4 +225,3 @@ This consistent behavior is true for each of the common objects documented in th
 <b>Arrays/Elements:</b> <code>{{product.related_products}}, {{product.similar_by_views}}, {{category.products}}, {{cart.suggested_products}}, {{customer.recently_viewed_products}} </code>
 
 <!-- :"Common Product Card Model" moved from "Product Objects" page -->
-

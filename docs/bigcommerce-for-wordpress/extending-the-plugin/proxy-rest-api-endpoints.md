@@ -14,16 +14,8 @@ By default, these proxy REST endpoints are available under `your-wordpress-site.
 
 Most of the WordPress proxy REST endpoints are publicly queryable, with authentication happening automatically using plugin settings. For security purposes, however, some potentially sensitive data is filtered out of the WordPress response. Those fields are noted in the table below.
 
-
-
-
-
 ## Caching and Webhooks
 By default, GET requests under `/catalog` are cached for ten minutes in the object cache -- or via WordPress transients if object caching is not available -- and a BigCommerce webhook is used to bust cached data related to a product when it is updated in BigCommerce or its inventory data changes. This default caching implementation can be overridden using the `bigcommerce/proxy/result_pre` WordPress filter. See the plugin customization guide for details on overriding core plugin functionality.
-
-
-
-
 
 ## Endpoints
 |URL|Description|Methods|Excluded Fields

@@ -20,19 +20,11 @@ You can manage your custom theme's front-end components by configuring the <span
 * Provide metadata for your theme’s listing in the Theme Marketplace.
 * Define variations included in your custom theme
 
-
-
-
-
 ## Keys and Example Values
 
 For a list of all available keys and values in <span class="fp">config.json</span>, see [Theme Objects](/stencil-docs/reference-docs/theme-objects/models/configjson) in the API Reference.
 
 </div>
-
-
-
-
 
 ## Requirements and Restrictions
 
@@ -144,10 +136,6 @@ lineNumbers: true
   ]
 ```
 
-
-
-
-
 ## New Products Example
 
 To customize your theme’s appearance at a global level, the values that you define in the
@@ -215,10 +203,6 @@ blog:
 
 If you load your storefront’s home page (by default, [http://localhost:3000](http://localhost:3000), you should see a "New Products" section that displays 12 products in a grid.
 
-
-
-
-
 ## Changing Page Layout Using Local Front Matter
 
 In the <span class="fp">{theme-name}templates/pages/home.html</span> front matter, products > featured is listed. This controls
@@ -268,7 +252,6 @@ products:
       limit: 2
   <!-- [...] -->
 
-
 <!-- [...] -->
 
 {{#partial "page"}}
@@ -285,10 +268,6 @@ products:
 ```
 
 If you now reload your storefront’s home page in your browser, you should see the number of displayed "Featured Products" change from its default number (as specified in <span class="fp">config.json</span>) to two.
-
-
-
-
 
 ## Retrieving Specific config.json Values through Sass
 
@@ -339,10 +318,6 @@ $color-highlightDark:   stencilColor("color-highlightDark");
 ```
 
 In <span class="fn">config.json</span>, try redefining one or more color variables to hex values of your choice. Then re-render your theme’s home page to see the effects.
-
-
-
-
 
 ## Adding/Removing Components
 
@@ -435,8 +410,6 @@ lineNumbers: true
 ```
 
 If you now refresh storefront pages in your browser, the Categories list should reappear in the footer. The component returns even though you have moved its data resources to an arbitrary new location, and referenced them indirectly.
-
-
 
 ## Resources
 

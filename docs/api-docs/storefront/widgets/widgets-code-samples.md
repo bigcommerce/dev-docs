@@ -12,8 +12,6 @@
 
 Below are widgets that can be used as building blocks to expand on. Widgets are flexible and re-useable making them ideal for creating custom storefront. 
 
-
-
 ## Simple List
 
 <div class="HubBlock-header">
@@ -85,10 +83,6 @@ lineNumbers: true
 ](//s3.amazonaws.com/user-content.stoplight.io/6012/1551901776600 "#### Storefront View
 ")
 
-
-
-
-
 ## Simple HTML
 
 <div class="HubBlock-header">
@@ -139,10 +133,6 @@ lineNumbers: true
 ![#### Storefront
 ](//s3.amazonaws.com/user-content.stoplight.io/6012/1551901919454 "#### Storefront
 ")
-
-
-
-
 
 ## Simple Text with Styling
 
@@ -206,10 +196,6 @@ lineNumbers: true
 ](//s3.amazonaws.com/user-content.stoplight.io/6012/1551902366345 "#### Storefront
 ")
 
-
-
-
-
 ## Image Slider
 
 <div class="HubBlock-header">
@@ -271,8 +257,6 @@ lineNumbers: true
 ](//s3.amazonaws.com/user-content.stoplight.io/6012/1551906683783 "#### Storefront
 ")
 
-
-
 ## Resources
 
 ### Related Endpoints
@@ -281,4 +265,3 @@ lineNumbers: true
 ### Related Articles
 * [Widgets Overview](/api-docs/storefront/widgets/widgets-overview)
 * [Widgets Tutorial](/api-docs/storefront/widgets/widgets-tutorial)
-

@@ -19,10 +19,6 @@ Want to get started making API Requests right away? Check out the [Quick Start](
 
 The BigCommerce set of APIs allow you to create apps, automate store processes, or build headless ecommerce solutions. Need inspiration on what to build? Visit our [App Marketplace](https://www.bigcommerce.com/apps/). 
 
-
-
-
-
 ## API Environment 
 
 BigCommerce API requests can be made in the context of the storefront or server-to-server.  
@@ -30,10 +26,6 @@ BigCommerce API requests can be made in the context of the storefront or server-
 * Storefront APIs use the store url: `https://your-store.mybigcommerce.com/api/{endpoint}`
 * Server-to-Server requests use the base url:  `https://api.bigcommerce.com/stores/{store_hash}/v3/`
 * V2 API Requests use the base url: `https://api.bigcommerce.com/stores/{store_hash}/v2/`
-
-
-
-
 
 ## Available APIs
 
@@ -65,14 +57,9 @@ BigCommerce API requests can be made in the context of the storefront or server-
 | [Widgets](https://developer.bigcommerce.com/api-reference/storefront/widgets-api) | Programatically inject content into a BigCommerce theme. | [Download Widgets API](https://developer.bigcommerce.com/api-reference/storefront/widgets-api/BigCommerce_Widgets_API.oas2.json) |
 | [Wishlist](https://developer.bigcommerce.com/api-reference/customer-subscribers/wishlist-api) | Wishlist API allows a developer to create and manage customer wishlists. | [Download Wishlist API](https://developer.bigcommerce.com/api-reference/customer-subscribers/wishlist-api/BigCommerce_Wishlist_API.oas2.json) |
 
-
-
-
-
 ## Request Headers
 
 Server-to-Server request headers require Accept, X-Auth-Client, X-Auth-Token and Content-Type at a minimum.
-
 
 | Header | Allowed Values | Description | Example |
 |  |  |  |  |
@@ -81,10 +68,6 @@ Server-to-Server request headers require Accept, X-Auth-Client, X-Auth-Token and
 | `User-Agent` | String | While it is not required, we ask that you specify a user agent which identifies your integration/client with your requests. |
 | `X-Auth-Client` | String | Client ID of the requesting app |
 | `X-Auth-Token` | String | Access token authorizing the app to access resources on behalf of a user |
-
-
-
-
 
 ## Response Headers 
 
@@ -105,17 +88,9 @@ Server-to-Server request headers require Accept, X-Auth-Client, X-Auth-Token and
 | `X-Rate-Limit-Time-Reset-Ms`  | number | Shows how many milliseconds are remaining in the window. In this case, 3000 milliseconds – so, 3000 milliseconds after this request, the API quota will be refreshed. |`30000 `|
 | `X-Rate-Limit-Time-Window-Ms` | number | Shows the size of your current rate-limiting window. | `9762` |
 
-
-
-
-
 ## Media Types
 
 A media type is the format of the request or response body. The BigCommerce API accepts requests and responds in JSON. You should encode requests using the UTF-8 character set (other character sets might have unpredictable results).
-
-
-
-
 
 ## Content Types
 
@@ -128,10 +103,6 @@ There are two ways you can specify the type of content you would like to receive
 The priority in which these methods are processed are:
 * Accept header high-priority types (eg. `Accept: application/json`) extensions on the resource (e.g. `customers.json`).
 * Accept header low priority types (priorities less than 1, e.g. `Accept: application/json;q=0.9`)
-
-
-
-
 
 ## Request and Response Structure
 
@@ -208,7 +179,6 @@ lineNumbers: true
 
 **Response Get All Categories**  
 `/GET https://api.bigcommerce.com/stores/{store_hash}/v3/catalog/categories/{category_id}`
-
 
 ```json
 {
@@ -361,12 +331,7 @@ lineNumbers: true
 }
 ```
 
-
-
-
-
 ## Support
-
 
 ### [Developer Community](https://forum.bigcommerce.com/s/group/0F913000000HLjECAW/bigcommerce-developers)
 This is a great place to get help from other developers who work on the BigCommerce platform. If you have BigCommerce specific questions this is the best place to ask. It's also great for beginners to get assistance. 
@@ -374,11 +339,7 @@ This is a great place to get help from other developers who work on the BigComme
 ### [StackOverflow](https://stackoverflow.com/questions/tagged/bigcommerce)
 Are you a more experienced developer or have a programming language specific question? This is a good place to ask questions and get help. The developer community is the best place to get answers about the BigCommerce platform specifically.  
 
-
-
-
 ## Resources
 * [Developer Community](https://forum.bigcommerce.com/s/group/0F913000000HLjECAW/bigcommerce-developers)
 * [Terms of Service](https://www.bigcommerce.com/terms/api-terms/)
 * [StackOverflow](https://stackoverflow.com/questions/tagged/bigcommerce)
-

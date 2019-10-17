@@ -12,8 +12,6 @@
 	</ul>
 </div>
 
-
-
 A Price List allows you to populate different versions of catalog pricing and assign them to different [Customer Groups](/api-reference/customer-subscribers/customers-api). The prices are specified exclusively at the variant level. 
 
 If an active Price List does not contain prices for a variant then the Catalog pricing will be used. The association of a Price List to a Customer Group can be done either via the Control Panel or using the [Customer Groups API.](/api-reference/customer-subscribers/customers-api)
@@ -23,10 +21,6 @@ Price Lists will provide overridden price values to the Stencil storefront. Fina
 ### OAuth Scopes
 The following OAuth Scopes are required:
 * [Products](/api-docs/getting-started/basics/authentication#authentication_oauth-scopes)
-
-
-
-
 
 ## Definitions
 
@@ -49,7 +43,6 @@ The following OAuth Scopes are required:
 - `PriceRecordBatch`: A way to update several `Price Records` in a `Price List` at once. Using this bulk upsert endpoint, you can upsert up to 1000 Price Records in a single API call.
 
 - `Currency`:  A `Price List` can contain records for multiple currencies. At this time, *only price records that match the store's default currency will be used to determine storefront and in-cart prices.* Although BigCommerce supports a storefront currency selection, this is not currently integrated with Price Lists and will merely convert prices from the store's default currency for display convenience.
-
 
 <!--
 title: "Example Price List"
@@ -130,10 +123,6 @@ lineNumbers: true
 
 Under `discount_rules` the `type` is set to `price_list` and the `price_list_id` is 1. Which is the id of the price list the group has been assigned to.
 
-
-
-
-
 ## Notes
 
 - Bulk Pricing Tiers may additionally be associated with a Price Record to indicate different pricing as the quantity in cart increases.
@@ -141,8 +130,6 @@ Under `discount_rules` the `type` is set to `price_list` and the `price_list_id`
 - If a variant has a `Price Record` any existing product-level bulk pricing will not apply in the cart.  For variants without `Price Records`, any existing product bulk pricing will apply.
 
 - Price Lists Records accepts bulk upsert. Only one [Bulk upsert](https://developer.bigcommerce.com/api-reference/catalog/pricelists-api/price-lists-records/setpricelistrecordcollection) can done at a time. Running more than one in parallel on the **same store** will cause a 429 error and the request will fail. 
-
-
 
 ## Resources
 

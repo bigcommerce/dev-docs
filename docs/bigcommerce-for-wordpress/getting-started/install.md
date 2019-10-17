@@ -11,8 +11,6 @@
 
 </div>
 
-
-
 ## System Requirements:
 
 * PHP: 5.6+ (7.1+ recommended)
@@ -20,10 +18,6 @@
 * WordPress: 4.8+
 * SSL
 * The PHP intl extension is recommended to enable better currency formatting
-
-
-
-
 
 ## Installation
 
@@ -50,4 +44,3 @@ Multi-Site Instructions
 </div>
 
 After you’ve created your new channel name, the initial product sync will begin and you can begin configuring your plugin settings.
-

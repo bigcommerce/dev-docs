@@ -14,8 +14,6 @@
 
 </div> 
 
-
-
 ##  Bulk Pricing 
 
 Bulk pricing rules applied to a product.
@@ -31,14 +29,9 @@ Bulk pricing rules applied to a product.
 | type | enum |
 | type_value | decimal | The value of the discount |
 
-
-
-
-
 ## List Bulk Pricing Rules 
 
 Gets the collection of product bulk pricing rules.
-
 
 >`GET /stores/{store_hash}/v2/products/{product_id}/discount_rules`
 
@@ -72,10 +65,6 @@ Example JSON returned in the response:
 ]
 ```
 
-
-
-
-
 ## Get a Product Bulk Pricing Rule 
 
 Gets a product bulk pricing rule.
@@ -97,16 +86,11 @@ Example JSON returned in the response:
 }
 ```
 
-
-
-
-
 ## Get a Count of Bulk Pricing Rules 
 
 Gets a count of the number of bulk pricing rules in the store.
 
 >`GET /stores/{store_hash}/v2/products/discount_rules/count`
-
 
 ### Response 
 
@@ -118,15 +102,9 @@ Example JSON returned in the response:
 }
 ```
 
-
-
-
-
-
 ## Create a Product Bulk Pricing Rule 
 
 Creates a new product bulk pricing rule.
-
 
 >`POST /stores/{store_hash}/v2/products/{product_id}/discount_rules`
 
@@ -177,17 +155,11 @@ Example JSON returned in the response:
 }
 ```
 
-
-
-
-
 ## Update a Product Bulk Pricing Rule 
 
 Updates an existing product bulk pricing rule.
 
-
 >`PUT /stores/{store_hash}/v2/products/{product_id}/discount_rules/{id}`
-
 
 ### Read-only Properties 
 
@@ -236,19 +208,11 @@ Example JSON returned in the response:
 }
 ```
 
-
-
-
-
 ## Delete a Product Bulk Pricing Rule 
 
 Deletes a product bulk pricing rule.
 
 >`DELETE /stores/{store_hash}/v2/products/{product_id}/discount_rules/{id}`
-
-
-
-
 
 ## Delete Multiple Product Bulk Pricing Rules 
 
@@ -264,4 +228,3 @@ Parameters can be added to the URL query string to paginate the collection. The 
 |  |  |  |
 | page | int | /api/v2/products/{product_id}/discount_rules?page={number} |
 | limit | int | /api/v2/products/{product_id}/discount_rules?limit={count} |
-

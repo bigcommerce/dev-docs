@@ -31,8 +31,6 @@
 | `/v2/hooks/{id}` | `PUT` Update a webhook by `{id}` | [Update a Webhook](https://developer.bigcommerce.com/api-reference/webhooks/webhooks/updateawebhook) |
 | `/v2/hooks/{id}` | `DELETE` - Delete a webhook by `{id}` | [Delete a Webhook ](https://developer.bigcommerce.com/api-reference/webhooks/webhooks/deleteawebhook)|
 
-
-
 <a id="webhook-events_response-structure"></a>
 
 ## Webhook Response Struture
@@ -45,8 +43,6 @@
 | hash | The payload data json encoded then passed through sh1 encryption. |
 | created_at | Unix timestamp of the date the hook was created. |
 | producer | Will always follow the pattern `stores/store_hash`. This is the store that created the webhook. |
-
-
 
 ```json
 {
@@ -61,8 +57,6 @@
     "producer": "stores/{store_hash}"
 }
 ```
-
-
 
 <a id="webhook-events_orders"></a>
 
@@ -157,8 +151,6 @@
 }
 ```
 
-
-
 <a id="webhook-events_products"></a>
 
 ## Products
@@ -251,8 +243,6 @@ Changes to any of the following fields will trigger a `store/product/updated` ev
 - _Condition_
 - _Tax Price_
 
-
-
 <a id="webhook-events_category"></a>
 
 ## Category
@@ -288,7 +278,6 @@ Changes to any of the following fields will trigger a `store/product/updated` ev
     "producer": "stores/{store_hash}"
 }
 ```
-
 
 <a id="webhook-events_sku"></a>
 
@@ -368,8 +357,6 @@ Changes to any of the following fields will trigger a `store/product/updated` ev
 }
 ```
 
-
-
 <a id="webhook-events_customer"></a>
 
 ## Customer
@@ -436,8 +423,6 @@ Changes to any of the following fields will trigger a `store/product/updated` ev
 }
 ```
 
-
-
 <a id="webhook-events_store"></a>
 
 ## Store
@@ -493,7 +478,6 @@ Changes to the following store settings will trigger a `store/information/update
   "producer": "stores/{store_hash}"
 }
 ```
-
 
 <a id="webhook-events_cart"></a>
 
@@ -575,8 +559,6 @@ Changes to the following store settings will trigger a `store/information/update
 }
 ```
 
-
-
 <a id="webhook-events_cart-line-items"></a>
 
 ## Cart Line Item
@@ -587,7 +569,6 @@ Changes to the following store settings will trigger a `store/information/update
 | store/cart/lineItem/created | When a new item is added to the cart  |
 | store/cart/lineItem/updated | When an item’s quantity has changed or the product options change. |
 | store/cart/lineItem/deleted | When an item is deleted from the cart|
-
 
 ### The same response is returned for the following endpoints:
 * `store/cart/lineItem/created`
@@ -613,7 +594,6 @@ Changes to the following store settings will trigger a `store/information/update
     "producer": "stores/{store_hash}"
 }
 ```
-
 
 <a id="webhook-events_shipment"></a>
 
@@ -652,8 +632,6 @@ Changes to the following store settings will trigger a `store/information/update
 }
 ```
 
-
-
 <a id="webhook-events_subscriber"></a>
 
 ## Subscriber
@@ -688,11 +666,8 @@ Changes to the following store settings will trigger a `store/information/update
 }
 ```
 
-
-
 ## Resoures
 ### Related Articles
 * [Webhooks Overview](https://developer.bigcommerce.com/api-docs/getting-started/webhooks/about-webhooks)
 * [Webhooks Tutorial](https://developer.bigcommerce.com/api-docs/getting-started/webhooks/setting-up-webhooks)
 * [Webhooks Reference](https://developer.bigcommerce.com/api-reference/webhooks)
-

@@ -14,7 +14,6 @@
 
 </div>
 
-
 ## Categories 
 
 Index of hierarchical categories used to organize and group products.
@@ -38,16 +37,11 @@ Index of hierarchical categories used to organize and group products.
 | search_keywords | string | A comma-separated list of keywords that can be used to locate this brand. |
 | url | string | The context path of this category. |
 
-
-
-
-
 ## List Categories 
 
 Gets the list of categories. (Default sorting is by category id, from lowest to highest.)
 
 >`GET /stores/{store_hash}/v2/categories`
-
 
 ### Filters 
 
@@ -97,12 +91,6 @@ Example JSON returned in the response:
 ]
 ```
 
-
-
-
-
-
-
 ## Get a Category 
 
 Gets a single category.
@@ -135,14 +123,9 @@ Example JSON returned in the response:
 }
 ```
 
-
-
-
-
 ## Get a Count of Categories 
 
 Gets a count of the total number of categories in the store.
-
 
 >`GET /stores/{store_hash}/v2/categories/count`
 
@@ -156,17 +139,11 @@ Example JSON returned in the response:
 }
 ```
 
-
-
-
-
 ## Create a Category 
 
 Creates a new category.
 
-
 >`POST /stores/{store_hash}/v2/categories`
-
 
 ### Read-only Properties 
 
@@ -223,16 +200,11 @@ Example JSON returned in the response:
 }
 ```
 
-
-
-
-
 ## Update a Category 
 
 Updates an existing category.
 
 >`PUT /stores/{store_hash}/v2/categories/{id}`
-
 
 ### Read-only Properties 
 
@@ -275,17 +247,11 @@ Example JSON returned in the response:
 }
 ```
 
-
-
-
-
 ## Delete a Category 
 
 Deletes a category.
 
 >`DELETE /stores/{store_hash}/v2/categories/{id}`
-
-
 
 <div class="HubBlock--callout">
 <div class="CalloutBlock--error">
@@ -300,11 +266,8 @@ Deletes a category.
 </div>
 </div>
 
-
-
 ## Delete All Categories 
 
 Deletes all the categories in the store.
 
 >`DELETE /stores/{store_hash}/v2/categories`
-

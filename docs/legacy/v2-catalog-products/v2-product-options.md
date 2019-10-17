@@ -9,8 +9,6 @@
 
 </div> 
 
-
-
 ## Product Options 
 
 ### Product Options Object – Properties 
@@ -22,11 +20,6 @@
 | `display_name` | `string` |
 | `sort_order` | `int` |
 | `is_required` | `boolean` |
-
-
-
-
-
 
 ## List Product Options
 
@@ -66,12 +59,9 @@ Example JSON returned in the response:
 ]
 ```
 
-
-
 ## Get a Product Option
 
 Gets an option associated with a product.
-
 
 >`GET /stores/{store_hash}/v2/products/{product_id}/options/{id}`
 
@@ -88,4 +78,3 @@ Example JSON returned in the response:
   "is_required": false
 }
 ```
-

@@ -268,4 +268,3 @@ This subdirectory’s children contain CSS for the following page elements.
 * [SUIT CSS](https://suitcss.github.io/) (GitHub)
 * [Customizing a Theme (Assets Directory)](https://www.youtube.com/embed/zUDNgprOEts) (Youtube)
 * [BigCommerce Sass Styling Guide](https://github.com/bigcommerce/sass-style-guide) (BigCommerce GitHub)
-

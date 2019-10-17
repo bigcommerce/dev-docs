@@ -1,7 +1,6 @@
 # Components
 *Below are the various components (and their markup) used in devdocs articles.*
 
-
 <!-- TOC -->
 
 - [Callouts](#callouts)
@@ -11,8 +10,6 @@
 - [Postman Buttons](#postman)
 
 <!-- /TOC -->
-
-
 
 <a id="markdown-callouts" name="callouts"></a>
 
@@ -67,10 +64,6 @@
 </div>
 </div>
 
-
-
-
-
 <a id="markdown-code-blocks" name="code-blocks"></a>
 
 ## Code Blocks
@@ -103,7 +96,6 @@ lineNumbers: true
 \```
 ```
 
-
 **Result:**
 
 <!--
@@ -121,8 +113,6 @@ lineNumbers: true
     ]
 }
 ```
-
-
 
 <a id="images"></a>
 
@@ -152,7 +142,6 @@ lineNumbers: true
 ![Dev Tools](/assets/img/devtools.png "Dev Tools")
 ```
 
-
 **Result:**
 
 <!--
@@ -162,8 +151,6 @@ lineNumbers: true
 
 #### Dev Tools
 ![Dev Tools](https://raw.githubusercontent.com/bigcommerce/dev-docs/master/assets/images/devtools.png "Dev Tools")
-
-
 
 <a id="menu"></a>
 
@@ -202,15 +189,11 @@ lineNumbers: true
 ## Webhook Response Struture
 ```
 
-
-
-
 <a id="postman"></a>
 
 ## Try in Postman Buttons
 
 See [Creating a Run in Postman Button](https://learning.getpostman.com/docs/postman_for_publishers/run_button/creating_run_button/) for instructions on creating the button and generating the markdown.
-
 
 **Example**
 

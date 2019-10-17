@@ -17,10 +17,6 @@ These field values can be set in the Control Panel by the merchant as well as us
 * [Product Metafields Endpoint](/api-reference/catalog/catalog-api/product-metafields/createproductmetafield)
 * [Variant Metafields Endpoint](https://developer.bigcommerce.com/api-reference/catalog/catalog-api/product-variants-metafields/createvariantmetafield)
 
-
-
-
-
 ## ShipperHQ Object Properties
 
 | Property | Type | Values |
@@ -48,21 +44,11 @@ These field values can be set in the Control Panel by the merchant as well as us
 </div>
 </div>
 
-
-
-
-
 ## Control Panel Behavior
 
 When Shipping Origins are set using the API, the fields cannot be deleted using the Control Panel. A /DELETE request must be sent to the metafields resource.
 
-
-
-
-
-
 ## Add ShipperHQ Metafield
-
 
 <!--
 title: "SHQ Add Metafield Request"
@@ -145,12 +131,9 @@ lineNumbers: true
 }
 ```
 
-
-
 ## Resources
 ### Related Endpoints
 * [Product Metafield](https://developer.bigcommerce.com/api-reference/catalog/catalog-api/product-metafields/createproductmetafield)
 * [Variant Metafield](https://developer.bigcommerce.com/api-reference/catalog/catalog-api/product-variants-metafields/createvariantmetafield)
 ### Related Articles
 * [ShipperHQ](https://support.bigcommerce.com/s/article/ShipperHQ) (Knowledge Base)
-

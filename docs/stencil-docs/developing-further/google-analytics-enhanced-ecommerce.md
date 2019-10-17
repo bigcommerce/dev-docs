@@ -30,10 +30,6 @@ Cornerstone versions 2.6.0+ will have Data Tags already included in the theme.
 </div>
 </div>
 
-
-
-
-
 ## Prerequisites
 
 * BigCommerce store using your store’s checkout must be using Optimized One-Page Checkout.
@@ -47,10 +43,6 @@ If you would like to implement Data Tags on your custom theme and do not already
 
 Note: the remainder of this tutorial will be working off the refer to the theme’s base folder as ‘cornerstone’.
 
-
-
-
-
 ## Adding Data Tags
 
 ### Include the Enhanced ECommerce Property
@@ -58,7 +50,6 @@ Note: the remainder of this tutorial will be working off the refer to the theme�
 1. Open your local copy of your theme and navigate to the theme’s <span class="fn">cornerstone/config.json</span> file.
 
 2. In the config.json file, navigate to the features array. There’s should be a property in this array called `enhanced ecommerce`. If the `enhanced ecommerce` property is not present in the features array, add it. The features object should then look similar to image below.
-
 
 <div class="HubBlock-header">
     <div class="HubBlock-header-title flex items-center">
@@ -147,8 +138,6 @@ lineNumbers: true
 ```
 
 In the above snippet, the data tag is embedded in a `<form>` HTML tag in lines 1 and 2. The data tag is  `data-list-name` and its value is `“Brand: {{brand.name}}”`.
-
-
 
 ## Data Tag Reference
 
@@ -273,10 +262,6 @@ Or, if you are adding a data tag to a product list item in products/list-item.ht
   </tr>
 </table>
 
-
-
-
-
 ## Custom Dimensions and Metrics
 
 Custom dimensions and metrics are also supported. To use add them,
@@ -313,7 +298,6 @@ In the `config.json` `settings` array, Add the name of the dimension/metric foll
 </div>
 </div>
 
-
 Next, add the custom metrics/dimensions to the desired theme template:
 
 ```html
@@ -337,8 +321,6 @@ Next, add the custom metrics/dimensions to the desired theme template:
 </div>
 </div>
 </div>
-
-
 
 ## Resources
 

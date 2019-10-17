@@ -13,8 +13,6 @@
 
 </div> 
 
-
-
 ## Product Images 
 
 Images associated with a product.
@@ -31,15 +29,11 @@ Images associated with a product.
 | description | text | The description for the image |
 | date_created | date |
 
-
-
-
 ### List Product Images 
 
 Gets the images associated with a product. (Default sorting is by image id, from lowest to highest.)
 
 >GET /stores/{store_hash}/v2/products/{product_id}/images
-
 
 ### Filters 
 
@@ -89,18 +83,11 @@ Example JSON returned in the response:
 ]
 ```
 
-
-
-
-
-
-
 ## Get a Product Image 
 
 Gets a product image.
 
 >`GET /stores/{store_hash}/v2/products/{product_id}/images/{id}`
-
 
 ### Response 
 
@@ -122,17 +109,11 @@ Example JSON returned in the response:
 }
 ```
 
-
-
-
-
 ## Get a Count of Product Images 
 
 Gets a count of the number of product images in the store.
 
-
 >`GET /stores/{store_hash}/v2/products/images/count`
-
 
 ### Response 
 
@@ -143,10 +124,6 @@ Example JSON returned in the response:
   "count": 105
 }
 ```
-
-
-
-
 
 ## Create a Product Image 
 
@@ -184,17 +161,11 @@ Example JSON returned in the response:
 }
 ```
 
-
-
-
-
-
 ## Update a Product Image 
 
 Updates an existing product image.
 
 >`PUT /stores/{store_hash}/v2/products/{product_id}/images/{id}`
-
 
 ### Read-only Properties 
 
@@ -224,19 +195,11 @@ Example JSON returned in the response:
 }
 ```
 
-
-
-
-
 ## Delete a Product Image 
 
 Deletes a product image.
 
 >`DELETE /stores/{store_hash}/v2/products/{product_id}/images/{id}`
-
-
-
-
 
 ## Delete Multiple Product Images 
 
@@ -252,4 +215,3 @@ Parameters can be added to the URL query string to paginate the collection. The 
 |  |  |  |
 | Page | int | /api/v2/products/{product_id}/images?page={number} |
 | Limit | int | /api/v2/products/{product_id}/images?limit={count} |
-

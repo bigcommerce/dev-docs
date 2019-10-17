@@ -13,8 +13,6 @@
 
 </div> 
 
-
-
 ## Custom Fields 
 
 Custom fields associated with a product.
@@ -28,8 +26,6 @@ Custom fields associated with a product.
 | name | string | key; limited to 250 characters |
 | text | string | value; limited to 250 characters |
 
-
-
 |||
 |||
 | **Manages** |
@@ -39,7 +35,6 @@ Custom fields associated with a product.
 ## List Custom Fields 
 
 Gets custom fields associated with a product.
-
 
 >`GET /stores/{store_hash}/v2/products/{product_id}/custom_fields`
 
@@ -77,14 +72,9 @@ Example JSON returned in the response:
 ]
 ```
 
-
-
-
-
 ## Get a Custom Field 
 
 Gets a custom field associated with a product.
-
 
 >`GET /stores/{store_hash}/v2/products/{product_id}/custom_fields/{id}`
 
@@ -101,10 +91,6 @@ Example JSON returned in the response:
 }
 ```
 
-
-
-
-
 ## Get a Count of Custom Fields 
 
 Gets a count of the number of custom fields in the store.
@@ -120,10 +106,6 @@ Example JSON returned in the response:
   "count": 0
 }
 ```
-
-
-
-
 
 ## Create a Custom Field 
 
@@ -167,14 +149,9 @@ Example JSON returned in the response:
   "text": "2013-12-25"
 }
 
-
-
-
-
 ## Update a Custom Field 
 
 Updates an existing custom field associated with a product.
-
 
 >`PUT /stores/{store_hash}/v2/products/{product_id}/custom_fields/{id}`
 
@@ -215,25 +192,15 @@ Example JSON returned in the response:
 }
 ```
 
-
-
-
-
-
 ## Delete a Custom Field 
 
 Deletes a custom field associated with a product.
 
 >`DELETE /stores/{store_hash}/v2/products/{product_id}/custom_fields/{id}`
 
-
-
-
-
 ## Delete Multiple Custom Fields 
 
 Deletes multiple custom fields associated with a product.
-
 
 >`DELETE /stores/{store_hash}/v2/products/{product_id}/custom_fields`
 
@@ -245,4 +212,3 @@ Parameters can be added to the URL query string to paginate the collection. The 
 |  |  |  |
 | page | int | /api/v2/products/{product_id}/custom_fields?page={number} |
 | limit | int | /api/v2/products/{product_id}/custom_fields?limit={count} |
-

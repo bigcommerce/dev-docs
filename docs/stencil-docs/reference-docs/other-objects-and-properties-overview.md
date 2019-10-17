@@ -55,8 +55,6 @@
 </div>
 </div>
 
-
-
 ## Product
 
 <b>Description:</b> Default property that provides detailed product data. Called on the default `templates/pages/product.html`and `templates/pages/amp/product.html` templates, and on several partials in the `templates/components/` subdirectory:
@@ -693,8 +691,6 @@
   </tr>
 </table>
 
-
-
 ## Category
 
 **Description:**  The category object for the page calling the object. When retrieving a collection of categories, default sorting is by category `id`, from lowest to highest. (Called on the default `templates/pages/category.html` template, and on several partials in the `<theme-name&gt;/templates/components/</code> subdirectory: <code>category/shop-by-price.html`,`category/sidebar.html`, and `amp/category/subcategories.html`)
@@ -829,8 +825,6 @@
   </tr>
 </table>
 
-
-
 ## Brand
 
 **Description:** The brand object for the page calling the object. (Called on the default `templates/pages/brand.html` template.)
@@ -946,8 +940,6 @@
     <td class="">Number of products matching this brand</td>
   </tr>
 </table>
-
-
 
 ## Cart
 
@@ -1338,8 +1330,6 @@ For further details about catalog price properties, please see [Catalog Price Ob
 <b>Handlebars Expression:</b> `{{cart.suggested_products}}`
 
 <b>Object Properties:</b> References standard product card model.
-
-
 
 ## Customer
 
@@ -2360,8 +2350,6 @@ Refunded, Rejected, or Cancelled</td>
 | forms | Object |
 | &nbsp; ↳ provider | ID of the provider to add a vaulted card. Ex. stripe |
 
-
-
 ## Blog
 
 _These objects are called on the default `templates/components/blog/post.html` partial._
@@ -2489,8 +2477,6 @@ _These objects are called on the default `templates/components/blog/post.html` p
     <td>URL for the tag</td>
   </tr>
 </table>
-
-
 
 ## Forms
 
@@ -2803,8 +2789,6 @@ https://github.com/bigcommerce/cornerstone/tree/master/templates/components/comm
 </div>
 </div>
 </div>
-
-
 
 ## Order Confirmation Objects
 

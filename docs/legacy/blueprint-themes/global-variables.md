@@ -1,12 +1,10 @@
 # Global Variables
 
-
 Blueprint themes use the following GLOBAL variables to pull data from the store's database.
 
 While these variables are prefixed with the word GLOBAL, the data's availability actually varies per session, layout, panel, and snippet. For the list of variables available from anywhere in the store, regardless of session status, see [Store-Wide Variables](/legacy/blueprint-themes/store-wide-global-variables).
 
 The list below is sorted by the number of times that the Blueprint base theme references the variable – with the most frequently referenced variables at the top:
-
 
 | Variable | Description |
 |  |  |
@@ -1270,4 +1268,3 @@ The list below is sorted by the number of times that the Blueprint base theme re
 | |   {{ id }} : {{ name }} : {{ value }}
 | |{{/each}} </pre>|
         
-

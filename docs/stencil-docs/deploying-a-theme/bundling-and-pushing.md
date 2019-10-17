@@ -13,9 +13,6 @@
 
 </div> 
 
-
-
-
 ## Confirm Dependencies
 
 If you have customized a theme originally downloaded from the BigCommerce Theme Marketplace: Before you package your theme, make sure your theme directory includes all the dependencies that BigCommerce requires for submission.
@@ -40,10 +37,6 @@ You must also run `jspm install` in the theme directory.
 </div>
 </div>
 
-
-
-
-
 ## Verify Directory and File Permissions
 
 If you have added any new subdirectories or files to your base theme, verify that you have:
@@ -64,10 +57,6 @@ If you have added any new subdirectories or files to your base theme, verify tha
 </div>
 </div>
 
-
-
-
-
 ## Bundling Your Theme
 
 Once you have verified the requirements above, you are ready to process and package your theme for upload to BigCommerce. Stencil CLI provides two options for creating a `.zip` file that contains all of your theme's essentials, while excluding redundant components. The options are either only bundling your theme, or bundling and pushing your theme. These options are available depending on how you've [authorized](/stencil-docs/getting-started/launching-stencil/authorizing-and-initializing) your theme:
@@ -80,14 +69,12 @@ The `stencil bundle` command is available for all themes, whether they were init
 
 The `bundle` command will notify you of its progress and completion.
 
-
 ####  Check/Adjust Zipfile's Size
 
 Check the resulting `.zip` file's size before you proceed. The zipped bundle should be only a few megabytes. BigCommerce imposes a hard limit of 50 MB, and any file size approaching that is problematic. If your `.zip` file fits comfortably within the size limit above, jump directly to [Uploading Your Theme](https://developer.bigcommerce.com/stencil-docs/deploying-a-theme/bundling-and-pushing). However, if your `.zip` file approaches or exceeds 50 MB, you must first use one of these procedures to restructure your theme to a size that's manageable for upload to BigCommerce:
 
 * [Shrinking Your Theme by Excluding Static Assets (WebDAV)]()
 * [Staging a Theme for CDN Delivery]()
-
 
 ### Bundle and Push
 
@@ -106,11 +93,6 @@ For file-size error diagnostics and workarounds, please _Check/Adjust Zipfile's 
 * Do not open a bundled theme `.zip` file to add, delete, rename, or update files. Doing so will make your theme unusable on the production store.
 
 * If bundling your theme triggers multiple lint errors related to the `bundle.js` file, then your theme is missing the `.eslintignore` file. Please retrieve this file from the [Stencil Cornerstone repo](https://github.com/bigcommerce/cornerstone/blob/master/.eslintignore), then re-run `stencil bundle` or `stencil push`.
-
-
-
-
-
 
 ## Pushing Your Theme
 
@@ -178,15 +160,9 @@ Stencil CLI will then confirm which variation is active on the storefront.
 
 ![](//s3.amazonaws.com/user-content.stoplight.io/6116/1539055915081 "")
 
-
-
-
-
 ## Theme Quota Warning
 
 If you run `stencil push` when your store's `My Themes` section has reached its [maximum of 20 themes](), you will be prompted to select at least one existing theme for deletion.
-
-
 
 <!--
     title:
@@ -200,8 +176,6 @@ Custom themes – which are available for selection – will have a circle to th
 Use your arrow keys to move the selection caret to each theme/version that you want to select. Then press the spacebar to select it. (Filled circles will indicate your selected themes/versions.)
 
 If you are certain of your selections, you can next press `Enter` to delete the themes.
-
-
 
 <div class="HubBlock--callout">
 <div class="CalloutBlock--error">
@@ -218,14 +192,9 @@ If you have any doubts – especially about deleting multiple themes/versions �
 </div>
 </div>
 
-
-
-
-
 ## Other Bundling or Upload Errors
 
 For any other `not ok` bundling or upload errors that you receive, please refer to these debugging guidelines Theme setup and sizing diagnostics in preceding sections throughout this page, or the following article titled [Troubleshooting Theme Uploads](/stencil-docs/prepare-and-upload-a-theme/troubleshooting-theme-uploads).
-
 
 ## Resources
 

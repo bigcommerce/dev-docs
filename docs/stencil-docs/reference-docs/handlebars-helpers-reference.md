@@ -32,8 +32,6 @@ This page describes all of the Handlebars helpers supported on the Stencil frame
 
 For background information on using Handlebars helpers, please see the [official Handlebars documentation](http://handlebarsjs.com).
 
-
-
 ## Array Helpers
 
 The following helpers manage arrays.
@@ -685,8 +683,6 @@ Mug: 13
 Towel: 239
 ```
 
-
-
 ## Collection Helpers
 
 ### {{isEmpty}}
@@ -766,8 +762,6 @@ Returns the length of the given collection. When using a string literal in the t
 {{length myObject}}
 //=> 2
 ```
-
-
 
 ## Comparison Helpers
 
@@ -1372,8 +1366,6 @@ number = 4
 => '' // returns empty when the value is less than or equal to a given number
 ```
 
-
-
 ## Control-Flow Helpers
 
 * <a href="#ctrl_conditional">Conditional Control Flow</a>
@@ -1710,8 +1702,6 @@ The `for` helper has the following syntax, where parameters `<from>` and `<to>` 
 * [Cornerstone](https://github.com/bigcommerce/cornerstone/blob/master/templates/components/products/options/date.html)
 * [Paper Handlebars](https://github.com/bigcommerce/paper-handlebars/blob/master/helpers/for.js)
 
-
-
 ## Date Helpers
 
 ### {{moment}}
@@ -1732,8 +1722,6 @@ Exposes `helper-date` as `moment`.
 <!-- ... -->
 {{/partial}}
 ```
-
-
 
 ## HTML Helpers
 
@@ -1859,8 +1847,6 @@ var context = {
 '<figcaption>My new caption!</figcaption>',
 '</figure>'
 ```
-
-
 
 ## Image Helpers
 
@@ -2030,8 +2016,6 @@ Returns an ordinalized number (as a string).
 {{ordinalize 22}}
 //=> '22nd'
 ```
-
-
 
 ## Injection Helpers
 
@@ -2280,8 +2264,6 @@ Block helper that converts a string of inline markdown to HTML.
 //=> # Foo
 ```
 
-
-
 ## Math Helpers
 
 The following standard helpers are available to handle mathematical operations.
@@ -2449,8 +2431,6 @@ Returns the average of all numbers in the given array.
 {{avg "[1, 2, 3, 4, 5]"}}
 //=> '3'
 ```
-
-
 
 ## Number Helpers
 
@@ -2640,8 +2620,6 @@ value = 555.322
 {{toPrecision value 4}}
 => 555.3
 ```
-
-
 
 ## Object Helpers
 
@@ -2971,8 +2949,6 @@ Stringifies an object using `JSON.stringify`.
 console.log({{{JSONstringify customer.payment_methods}}});
 ```
 
-
-
 ## Operator Helpers
 
 The Stencil framework supports the following operator helpers:
@@ -3077,8 +3053,6 @@ By design, an array will return a `typeof` value of `object`.
     }
 </script>
 ```
-
-
 
 ##  String Helpers
 
@@ -3697,8 +3671,6 @@ Uppercases all of the characters in the given string. If used as a block helper,
 => 'F'
 ```
 
-
-
 ## URL Helpers
 
 ### {{encodeURI}}
@@ -3819,8 +3791,6 @@ testURL = 'https://bigcommerce.com'
 {{stripProtocol testUrl}}
 => //bigcommerce.com/
 ```
-
-
 
 ## Miscellaneous Helpers
 

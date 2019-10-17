@@ -12,10 +12,6 @@
 
 Stencil's use of Handlebars.js, Javascript, and YAML Front Matter on the front end allows developers to create dynamic, templated customizations across a BigCommerce storefront.
 
-
-
-
-
 ## Handlebars.js Overview
 
 [Handlebars.js](https://handlebarsjs.com/) is a minimal templating language that allows developers to create dynamic and robust templates for any BigCommerce Stencil storefront. A Handlebars template looks like an HTML file, with the addition of Handlebars.js expressions for dynamic logic that can be embedded into the page.
@@ -45,10 +41,6 @@ lineNumbers: true
 In production, Handlebars statements run on the server side, generating HTML received by the shopper’s browser.
 
 View the [full Handlebars Helpers Reference](/stencil-docs/reference-docs/handlebars-helpers-reference) to learn about the helpers avilable on a Stencil storefront.
-
-
-
-
 
 ## Stencil Objects Overview
 
@@ -98,10 +90,6 @@ As a developer, you can use Handlebars.js syntax to access objects and use them 
 
 Stencil Objects are categorized as either Global, Common, or Other, which is representative of the object's scope or where in the theme it can be accessed. For example, Global Objects are components shared across the entire BigCommerce storefront.
 
-
-
-
-
 ## YAML Front Matter Overview
 
 BigCommerce Stencil themes utilize YAML Front Matter on template pages. Front Matter allows developers to request objects on the storefront, allowing developers to define each page's design and layout details.
@@ -137,8 +125,6 @@ blog:
         limit: {{theme_settings.homepage_blog_posts_count}}
 
 ```
-
-
 
 ## Resources
 

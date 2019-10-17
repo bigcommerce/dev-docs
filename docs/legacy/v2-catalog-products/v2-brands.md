@@ -14,8 +14,6 @@
 
 </div> 
 
-
-
 ## Brands 
 
 Brand facets for identifying and categorizing products according to their manufacturer or company metonym.
@@ -31,10 +29,6 @@ Brand facets for identifying and categorizing products according to their manufa
 | meta_description | text | A meta description to include. |
 | image_file | string | A valid image. |
 | s
-
-
-
-
 
 ## List Brands 
 
@@ -88,17 +82,11 @@ Example JSON returned in the response:
 ]
 ```
 
-
-
-
-
 ## Get a Brand 
 
 Gets a brand.
 
-
 >`GET /stores/{store_hash}/v2/brands/{id}`
-
 
 ### Response 
 
@@ -116,10 +104,6 @@ Example JSON returned in the response:
 }
 ```
 
-
-
-
-
 ## Get a Count of Brands 
 
 Returns the total number of brands in the store.
@@ -136,16 +120,11 @@ Example JSON returned in the response:
 }
 ```
 
-
-
-
-
 ## Create a Brand 
 
 Creates a new brand.
 
 >`POST /stores/{store_hash}/v2/brands`
-
 
 ### Read-only Properties 
 
@@ -190,18 +169,11 @@ Example JSON returned in the response:
 }
 ```
 
-
-
-
-
-
 ## Update a Brand 
 
 Updates an existing brand.
 
-
 >`PUT /stores/{store_hash}/v2/brands/{id}`
-
 
 ### Read-only Properties 
 
@@ -229,23 +201,14 @@ Example JSON returned in the response:
 }
 ```
 
-
-
-
-
 ## Delete a Brand 
 
 Deletes a brand.
 
 >`DELETE /stores/{store_hash}/v2/brands/{id}`
 
-
-
-
-
 ## Delete All Brands 
 
 Deletes all brands belonging to a product.
 
 >`DELETE /stores/{store_hash}/v2/brands`
-

@@ -71,15 +71,11 @@ lineNumbers: true
 
 ```
 
-
-
 ## Browsing Hidden Translation Keys
 
 BigCommerce exposes only part of the checkout page's structure through the local template referenced above. For security purposes – and also to offer all stores new checkout features simultaneously – most checkout content is hidden.
 
 This hidden content includes many more key/value pairs that support translation. However, you can see all the available keys with their default English-language values in the [opt-checkout-en.json.zip file](https://storage.googleapis.com/bigcommerce-production-dev-center/template-files/opt-checkout-en.json.zip)
-
-
 
 ## Adding Your Own Translation Values
 
@@ -90,8 +86,6 @@ You can provide values for all of checkout's supported translation keys – for 
 2. Copy and paste the whole file's contents into your theme's `en.json` file and into the `.json` file for each language you want to translate your checkout page's text. To see requirements for naming and deploying these translation files, please this documentation's [Internationalization section](/stencil-docs/internationalization-and-localization/).
 
 3. Replace the keys' values with appropriate phrases in each file's target language.
-
-
 
 ## Localized Country and State Names
 
@@ -123,8 +117,6 @@ BigCommerce Optimized One-Page Checkout will currently translate displayed `Coun
 | Tamil | `ta.json` |
 | Chinese Simplified | `zh-TW.json` |
 | Chinese Traditional | `zh.json` |
-
-
 
 ## Limits on Translation
 

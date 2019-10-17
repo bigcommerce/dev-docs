@@ -9,8 +9,6 @@
 
 </div> 
 
-
-
 ## Options 
 
 Shared attributes that control value facets on a product.
@@ -25,15 +23,9 @@ Shared attributes that control value facets on a product.
 | values | object | Optional field. Object containing option values: a `url` and a `resource`. |
 | product_id | integer | Optional field; read-only. If `null`, this option can be reused with any product. If populated with a numeric ID, this option can be used exclusively with the corresponding product. |
 
-
-
-
-
-
 ## List Product Options 
 
 Gets the options associated with a product.
-
 
 >`GET /stores/{store_hash}/v2/products/{product_id}/options`
 
@@ -73,14 +65,9 @@ Example JSON returned in the response:
 ]
 ```
 
-
-
-
-
 ## Get a Product Option 
 
 Gets an option associated with a product.
-
 
 >`GET /stores/{store_hash}/v2/products/{product_id}/options/{id}`
 
@@ -97,4 +84,3 @@ Example JSON returned in the response:
   "is_required": false
 }
 ```
-

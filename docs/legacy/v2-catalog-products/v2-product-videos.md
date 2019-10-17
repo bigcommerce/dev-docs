@@ -14,8 +14,6 @@
 
 </div> 
 
-
-
 ## Videos 
 
 Embedded videos displayed on product listings.
@@ -29,16 +27,11 @@ Embedded videos displayed on product listings.
 | sort_order | int | Sort order for this video. |
 | name | string | Name for this video. |
 
-
-
-
-
 ## List Product Videos 
 
 Gets the videos associated with a product.
 
 >`GET /stores/{store_hash}/v2/products/{product_id}/videos`
-
 
 ### Pagination 
 
@@ -64,26 +57,17 @@ Example JSON returned in the response:
 ]
 ```
 
-
-
-
-
 ## Get a Product Video 
 
 Gets a product video.
 
 >`GET /stores/{store_hash}/v2/products/{product_id}/videos/{id}`
 
-
-
-
-
 ## Get a Count of Product Videos 
 
 Gets a count of the number of product videos in the store.
 
 >`GET /stores/{store_hash}/v2/products/videos/count`
-
 
 ### Response 
 
@@ -95,16 +79,11 @@ Example JSON returned in the response:
 }
 ```
 
-
-
-
-
 ## Create a Product Video 
 
 Adds a link to a YouTube video to a product.
 
 >`POST /stores/{store_hash}/v2/products/{product_id}/videos`
-
 
 ### Read-only Properties 
 
@@ -133,14 +112,11 @@ Example request object:
 }
 ```
 
-
-
 ## Update Product Video Metadata 
 
 Edit the metadata of a product video.
 
 >`PUT /stores/{store_hash}/v2/products/{product_id}/videos/{id}`
-
 
 ### Read-only Properties 
 
@@ -170,23 +146,14 @@ Example request object:
 }
 ```
 
-
-
-
-
 ## Delete a Product Video 
 
 Delete a product video.
 
 >`DELETE /stores/{store_hash}/v2/products/{product_id}/videos/{id}`
 
-
-
-
-
 ## Delete All Product Videos 
 
 Deletes all videos belonging to a product.
 
 >`DELETE /stores/{store_hash}/v2/products/{product_id}/videos`
-

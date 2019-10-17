@@ -28,8 +28,6 @@ This tutorial demonstrates how to implement a custom checkout built with React o
 
 Stencil CLI is required to begin this walkthrough. For installation instructions, see [Installing Stencil](/stencil-docs/getting-started/installing-stencil).
 
-
-
 ## Implementing React Checkout in Cornerstone
 
 ### Install Dependencies
@@ -259,8 +257,6 @@ lineNumbers: true
 ### Congratulations!
 
 You should now be able to view your example React checkout by running the `stencil start` command in your theme directory and navigating to your storefront at http://localhost:3000/.
-
-
 
 <a id="implement_customization"></a>
 
@@ -533,7 +529,6 @@ window.initReact = function initReact() {
 
 {{> layout/empty}}
 ```
-
 
 ## Additional Resources
 

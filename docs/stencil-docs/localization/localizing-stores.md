@@ -37,17 +37,9 @@ Adjust other localization details via the BigCommerce Control Panel.
 </div>
 </div>
 
-
-
-
-
 ## Translating Theme Files via Stencil CLI
 
 The bulk of localizing a store is translating content on your theme's page templates. You will need to abstract these templates' literal text strings into `{{lang}}` variables, then provide per-language JSON files that define these variables in corresponding key/value pairs.
-
-
-
-
 
 ## Localizing Checkout
 
@@ -69,10 +61,6 @@ Localizing your theme's checkout and order confirmation pages requires customiza
 </div>
 </div>
 </div>
-
-
-
-
 
 ## Localizing Control Panel Content
 

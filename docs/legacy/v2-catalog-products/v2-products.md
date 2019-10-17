@@ -26,8 +26,6 @@
 </div>
 </div>
 
-
-
 ## Products
 A product object represents a saleable item in the catalog.
 
@@ -117,11 +115,6 @@ A product object represents a saleable item in the catalog.
 | options | resource | Options from the [option set](/api/v2/#option-sets) applied to the product. See the [Product Options](/api/v2/#product-options) resource for information. |
 | tax_class | resource | Assigned tax class, when using a manual tax setup. This can be a number matching one of the tax classes set up in your store. |
 | avalara_product_tax_code | resource | Accepts AvaTax System Tax Codes, which identify products and services that fall into special sales-tax categories. By using these codes, merchants who subscribe to Avalara Premium can calculate sales taxes more accurately.<br><br> Stores without Avalara Premium will ignore the code when calculating sales tax. Do not pass more than one code. The codes are case-sensitive.<br><br> For details, please see Avalara's <a href="https://help.avalara.com/000_Avalara_AvaTax/Manage_Product_Taxability/010_Select_AvaTax_System_Tax_Codes" target="_blank">overview</a> and <a href="https://help.avalara.com/000_Avalara_AvaTax/Manage_Product_Taxability/Tax_Codes_-_Frequently_Asked_Questions" target="_blank">FAQ</a> on AvaTax System Tax Codes. You can also <a href="https://help.avalara.com/@api/deki/files/1675/AvaTax_System_Tax_Codes_Toolkit.zip?revision=37" target="_blank">download codes</a> as a zipfile of spreadsheets, or <a href="https://taxcode.avatax.avalara.com/" target="_blank">search or browse codes</a> in Avalara's Tax Code Search Tool. (These external links are subject to change.) |
-
-
-
-
-
 
 ## List Products
 
@@ -434,10 +427,6 @@ Example JSON returned in the response:
 ]
 ```
 
-
-
-
-
 ## Get a Product
 
 Gets a product.
@@ -548,7 +537,6 @@ https://store-et7xe3pz.mybigcommerce.com/api/v2/products/32?exclude=description
 ```
 
 We have omitted the corresponding sample response. However, the following section shows a complete sample response for a request submitted with no `?include` or `?exclude` option. (The effect of the `?exclude=description` option shown above would be to omit the `"description": ` field shown as the sixth field below.)
-
 
 ### Response
 
@@ -678,10 +666,6 @@ Example JSON returned in the response:
 }
 ```
 
-
-
-
-
 ## Get a Product Count
 
 Gets a count of products.
@@ -734,10 +718,6 @@ Example JSON returned in the response:
   "count": 44
 }
 ```
-
-
-
-
 
 ## Create a Product
 
@@ -802,10 +782,6 @@ To maximize system performance, BigCommerce caps the number of categories to whi
 ```
 
 If automatic tax is enabled on the store, the value of `tax_class_id` will have no effect on the calculation of taxes.
-
-
-
-
 
 ## Update a Product
 
@@ -901,11 +877,6 @@ To maximize system performance, BigCommerce caps the maximum number of categorie
 
 If automatic tax is enabled on the store, the value of `tax_class_id` will have no effect on the calculation of taxes.
 
-
-
-
-
-
 ## Delete a Product
 
 Deletes a product.
@@ -919,10 +890,6 @@ Successful deletion of a product returns a `204 No Content` response:
 ```
 204 No Content
 ```
-
-
-
-
 
 ## Delete All Products
 

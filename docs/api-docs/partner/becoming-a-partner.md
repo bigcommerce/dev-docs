@@ -80,4 +80,3 @@ The changes will be effective immediately in your control panel app card, but th
 ### Related Articles
 * [App Store Approval Requirements](https://developer.bigcommerce.com/api-docs/partner/app-store-approval-requirements)
 * [Partner Portal](https://partners.bigcommerce.com/) (BigCommerce)
-

@@ -26,25 +26,15 @@ To support stores that enable BigCommerce's Optimized One-Page Checkout feature,
 </div>
 </div>
 
-
-
-
-
 ## Customization Options/Restrictions 
 
 As a theme developer, you are free to change classes' contents – but do not nest elements, nor change any class names. 
 
 The structure and class naming are reserved because each class here maps to multiple Optimized Checkout elements. So renaming would break updates available in future Optimized Checkout enhancements.
 
-
-
-
-
-
 ## Configuring the Desktop Viewport 
 
 Within the CSS file, to set up Optimized Checkout's responsive features, you should configure the following breakpoint to define your preferred desktop viewport size:
-
 
 <div class="HubBlock-header">
     <div class="HubBlock-header-title flex items-center">
@@ -70,11 +60,6 @@ lineNumbers: true
 
 For other customization options, please see the class descriptions [below](#classes-provided).
 
-
-
-
-
-
 ## Deploying Custom CSS 
 
 To deploy your custom CSS to a BigCommerce store, you will need to upload your `optimized-checkout-webdav.css` file (once customized) via WebDAV. 
@@ -82,10 +67,6 @@ To deploy your custom CSS to a BigCommerce store, you will need to upload your `
 For a general overview of the process, please see [this support article](https://support.bigcommerce.com/articles/Public/Accessing-and-Customizing-Template-Files/). Place your customized `optimized-checkout-webdav.css` file directly within WebDAV's `/content/` folder.
 
 For details on interacting with WebDAV, please see [this article](https://support.bigcommerce.com/articles/Public/Connecting-to-WebDav).
-
-
-
-
 
 ## Classes Provided 
 
@@ -105,10 +86,6 @@ Below is a summary of the classes provided in the template CSS, with correspondi
 | .optimizedCheckout-step | Large step-number indicators on the page's left side. |
 | .optimizedCheckout-form-label | Styles form fields like `Email Address` – the field's text-label color. | 
 | .optimizedCheckout-form-input | Styles form fields like `Email Address` – the entry box's background and border colors. |
-
-
-
-
 
 ## CSS Skeleton 
 
@@ -142,7 +119,6 @@ lineNumbers: true
 //
 // =============================================================================
 */
-
 
 /*
 // Header Section
@@ -340,4 +316,3 @@ a {
     border-color: stencilColor("optimizedCheckout-formField-borderColor");
 }
 ```
-

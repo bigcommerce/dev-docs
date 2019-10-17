@@ -13,8 +13,6 @@
 
 </div> 
 
-
-
 ## Product Reviews 
 
 Reviews associated with a product.
@@ -31,8 +29,6 @@ Reviews associated with a product.
 | title | string | The review's title, displayed on the storefront. |
 | review | text | The full text of the review, displayed on the storefront. |
 | status | int | A status indicator. 0="Pending", 1= "Approved", 2="Disapproved". |
-
-
 
 ## List Product Reviews 
 
@@ -92,17 +88,11 @@ Example JSON returned in the response:
 ]
 ```
 
-
-
-
-
-
 ## Get a Product Review 
 
 Gets a product review.
 
 >`GET /stores/{store_hash}/v2/products/{product_id}/reviews/{id}`
-
 
 ### Response 
 
@@ -121,10 +111,6 @@ Example JSON returned in the response:
 }
 ```
 
-
-
-
-
 ## Create a Product Review 
 
 Creates a new product review. 
@@ -132,7 +118,6 @@ Creates a new product review.
 ### Notes 
 
 The `review` property is the review's text. The `rating` property must be a whole number between 1–5. If the optional `date_created` property is not specified, it defaults to the current date/time. If the optional "status" property is not specified, it defaults to 0 [`Pending`]. Other allowable values are 1 [`Approved`] or 2 [`Disapproved`].)
-
 
 >`POST /stores/{store_hash}/v2/products/{product_id}/reviews`
 
@@ -169,10 +154,6 @@ Example JSON returned in the response:
 }
 ```
 
-
-
-
-
 ## Update a Product Review 
 
 Updates an existing product review. Your request may update any of the properties that are writeable for the Create (POST) operation.
@@ -203,23 +184,14 @@ Example JSON returned in the response:
 }
 ```
 
-
-
-
-
 ## Delete a Product Review 
 
 Deletes a specified product review. (If successful, this will typically return a `204 No Content`.)
 
 >`DELETE /stores/{store_hash}/v2/products/{product_id}/reviews/{id}
 
-
-
-
-
 ## Delete All Product Reviews 
 
 Deletes all reviews for the specified product. (If successful, this will typically return a `204 No Content`.)
 
 >`DELETE /stores/{store_hash}/v2/products/{product_id}/reviews`
-

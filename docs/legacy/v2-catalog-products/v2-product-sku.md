@@ -12,8 +12,6 @@
 
 </div> 
 
-
-
 ## SKUs 
 
 Stock Keeping Unit identifiers associated with products or product options.
@@ -38,9 +36,6 @@ Stock Keeping Unit identifiers associated with products or product options.
 | purchasing_disabled_message | string | The message to display if purchasing is disabled on this SKU. | 
 | image_file | string | The image that will be displayed when this SKU is selected on the storefront. When updating a SKU image, send the publicly accessible URL. Supported image formats are JPEG, PNG, and GIF. | 
 | options | object_array | This is an object {"product_option_id": int, "option_value_id":int} |
-
-
-
 
 ## List Product SKUs 
 
@@ -142,14 +137,11 @@ Example JSON returned in the response:
 ]
 ```
 
-
-
 ## Get a Product SKU 
 
 Gets a single product SKU.
 
 >`GET /stores/{store_hash}/v2/products/{product_id}/skus/{id}`
-
 
 ### Response 
 
@@ -181,8 +173,6 @@ Example JSON returned in the response:
 }
 ```
 
-
-
 ### Get a Count of Product SKUs 
 
 Gets a count of the number of product SKUs in the store.
@@ -202,15 +192,12 @@ Example JSON returned in the response:
 }
 ```
 
-
-
 ### Create a Product SKU 
 
 Creates a new product SKU.
 
 *   OAuth
 >`POST /stores/{store_hash}/v2/products/{product_id}/skus`
-
 
 ### Read-only Properties 
 
@@ -264,15 +251,11 @@ Example JSON returned in the response:
 }
 ```
 
-
-
 ## Update a Product SKU 
 
 Updates an existing product SKU.
 
-
 >`PUT /stores/{store_hash}/v2/products/{product_id}/skus/{id}`
-
 
 ### Read-only Properties 
 
@@ -317,20 +300,15 @@ Example JSON returned in the response:
 }
 ```
 
-
-
 ## Delete a Product SKU 
 
 Deletes a product SKU.
 
 >`DELETE /stores/{store_hash}/v2/products/{product_id}/skus/{id}`
 
-
-
 ## Delete Multiple Product SKUs 
 
 Deletes multiple product SKUs.
-
 
 >`DELETE /stores/{store_hash}/v2/products/{product_id}/skus`
 
@@ -360,4 +338,3 @@ Parameters can be added to the URL query string to paginate the collection. The 
 |  |  |  |
 | page | int | /api/v2/products/{product_id}/skus?page={number} |
 | limit | int | /api/v2/products/{product_id}/skus?limit={count} |
-

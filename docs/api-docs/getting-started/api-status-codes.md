@@ -12,10 +12,6 @@
 
 The BigCommerce API responds to requests with different HTTP status codes depending on the result from the request. Error responses might also include an error message in the body to assist in resolving the problem.
 
-
-
-
-
 ## 2xx Success 
 
 2xx codes are returned for requests that were understood and processed successfully.
@@ -27,10 +23,6 @@ The BigCommerce API responds to requests with different HTTP status codes depend
 | **202** | **Accepted** | For a request that resulted in a scheduled task being created to perform the actual request. |
 | **204** | **No Content** | For a successful request that produced no response (such as `DELETE` requests). |
 
-
-
-
-
 ## 3xx Redirection 
 
 3xx codes are returned for requests that require further action.
@@ -39,10 +31,6 @@ The BigCommerce API responds to requests with different HTTP status codes depend
 |  |  |  |
 | **301** | **Moved Permanently** | When the API routes have changed (unlikely), or if the incoming request is not secure (`http`), the request will be redirected to the secure (`https`) version. |
 | **304** | **Not Modified** | This response will be sent if the request included an `If-Modified-Since` header, but the resource has *not* been modified since the specified date. Please refer to individual resources' documentation regarding support for the `If-Modified-Since` header. |
-
-
-
-
 
 ## 4xx Client Error 
 
@@ -62,10 +50,6 @@ The BigCommerce API responds to requests with different HTTP status codes depend
 | **422** | **Missing or Invalid Data** | The request cannot be processed either because it omitted required fields or because it contained invalid data. See the response for more details. |
 | **429** | **Too Many Requests** | When an OAuth client exceeds the [rate limit](/api-docs/getting-started/basics/best-practices#best-practices_rate-limits) for API requests to a store. |
 
-
-
-
-
 ## 5xx Server Error 
 
 5xx codes are returned for requests that could not be processed due to an internal error with the API or server.
@@ -76,10 +60,6 @@ The BigCommerce API responds to requests with different HTTP status codes depend
 | **501** | **Not Implemented** | When a request method is sent that is not supported by the API (e.g., `TRACE`, `PATCH`). |
 | **503** | **Service Unavailable** | When the store is marked as “Down for Maintenance,” or the store is being upgraded to a new version. |
 | **507** | **Insufficient Storage** | When the store has reached a limitation for the resource, according to their BigCommerce plan (e.g., 500-product limit). |
-
-
-
-
 
 ## Troubleshooting
 
@@ -96,4 +76,3 @@ The BigCommerce API responds to requests with different HTTP status codes depend
 |**500**|Expensive API calls or an internal server error in BigCommerce.|Re-attempt the request three to five times, with increasing delays of at least a minute between attempts.
 |||Try reducing the number of objects being requested (in the v2 API, you can request fewer objects by using `?limit={count}`. In  `v2` and `v3` API, fewer objects can be requested by excluding certain fields or only requesting certain fields).
 ||| Check the BigCommerce [Status Page](https://status.bigcommerce.com/).
-

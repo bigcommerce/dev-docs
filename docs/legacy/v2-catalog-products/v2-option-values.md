@@ -28,15 +28,11 @@ Values that can be selected for an option.
 | value | text | Acceptable values generally depend on the option type, as defined in the option:<br><br> `RB`: string to be displayed to the customer.<br> `RT`: string to be displayed to the customer.<br> `S`: string to be displayed to the customer.<br> `P`: product ID;<br> `PI`: product ID.<br> `CS`: one of the following color values – a hexadecimal color code to create a color option (e.g., `#0f0000`);<br> a CSS 2.1 color name (e.g., `blue`);<br> up to three hexadecimal color codes and/or color names, separated by pipe symbols (e.g., <code>#FF0000&#124;lime&#124;#0000FF</code>);<br>  a URI to an image to create a texture (e.g., `http://store.com/images/myimg.png`);<br> or the name of an image file in the store's WebDAV `import` folder  (e.g., `myimg.png`). |
 | is_default | boolean | Whether or not this value is selected by default. For each option, only one option value can be selected by default. |
 
-
-
-
 ## List Option Values 
 
 Gets the values belonging to an option. (Default sorting is by option-value id, from lowest to highest.)
 
 >`GET /stores/{store_hash}/v2/options/{option_id}/values`
-
 
 ### Pagination 
 
@@ -72,13 +68,9 @@ Example JSON returned in the response:
 ]
 ```
 
-
-
-
 ## Get an Option Value 
 
 Gets an option value.
-
 
 >`GET /stores/{store_hash}/v2/options/{option_id}/values/{id}`
 
@@ -96,10 +88,6 @@ Example JSON returned in the response:
   "is_default": false
 }
 ```
-
-
-
-
 
 ## Create an Option Value 
 
@@ -155,17 +143,11 @@ Example JSON returned in the response:
 }
 ```
 
-
-
-
-
 ## Update an Option Value 
 
 Updates an existing option value.
 
-
 >`PUT /stores/{store_hash}/v2/options/{option_id}/values/{id}`
-
 
 ###  Read-only Properties
 
@@ -210,26 +192,17 @@ Example JSON returned in the response:
 }
 ```
 
-
-
-
-
 ## Delete an Option Value 
 
 Deletes an option value.
 
 >`DELETE /stores/{store_hash}/v2/options/{option_id}/values/{id}`
 
-
-
-
-
 ## Delete Multiple Option Values 
 
 Deletes multiple values belonging to an option.
 
 >`DELETE /stores/{store_hash}/v2/options/{option_id}/values`
-
 
 ### Pagination 
 
@@ -239,4 +212,3 @@ Parameters can be added to the URL query string to paginate the collection. The 
 |  |  |  |
 | Page | int | /api/v2/options/{option_id}/values?page={number} |
 | Limit | int | /api/v2/options/{option_id}/values?limit={count} |
-

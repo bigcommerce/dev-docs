@@ -13,10 +13,6 @@
 
 The following variables are available within individual BigCommerce email template:
 
-
-
-
-
 ## Gift Certificate Email Template 
 
 Sent to the recipient of a gift certificate.
@@ -35,10 +31,6 @@ Sent to the recipient of a gift certificate.
 | %%LNG_GiftCertificateEmailWarning%%
 | %%GLOBAL_EmailFooter%%
 
-
-
-
-
 ## Abandoned Cart Email Template 
 
 Sent when a customer abandons a shopping cart.
@@ -51,10 +43,6 @@ Sent when a customer abandons a shopping cart.
 | %%GLOBAL_AC_UnsubscribeLink%%
 | %%LNG_AC_EmailUnsubscribe%%
 | %%LNG_AC_EmailUnsubscribeSuffix%%
-
-
-
-
 
 ## Invoice Email Template 
 
@@ -90,11 +78,6 @@ Sent when a customer places an order.
 | %%GLOBAL_EmailFooter%%
 | %%GLOBAL_ProductThumbImageURL%%
 
-
-
-
-
-
 ## Order Status Email Template 
 
 Sent when an order's status is changed.
@@ -117,10 +100,6 @@ Sent when an order's status is changed.
 | %%GLOBAL_TrackingLinkList%% |
 | %%GLOBAL_ViewOrderStatusLink%% |
 | %%GLOBAL_EmailFooter%% |
-
-
-
-
 
 ## Return Confirmation Email Template 
 
@@ -147,4 +126,3 @@ Sent when a customer submits a return request.
 | %%LNG_Qty%% |
 | %%SNIPPET_ReturnItems%% |
 | %%GLOBAL_EmailFooter%% |
-

@@ -12,8 +12,6 @@
 
 </div>
 
-
-
 ## Adding Storewide Styles
 
 A prerequisite for the next two options is to add themewide styles to your Checkout or Order Confirmation page. To do so, add this statement:
@@ -23,10 +21,6 @@ A prerequisite for the next two options is to add themewide styles to your Check
 ...before this statement, which is already present at the head of each template:
 
 `{{{ checkout.checkout_head }}}`
-
-
-
-
 
 ## Applying Storewide Header
 
@@ -56,12 +50,6 @@ with this simple Handlebars statement:
 Ensure that you paste it before this **existing** statement:
 
 `{{{ checkout.checkout_head }}}`
-
-
-
-
-
-
 
 ## Applying Storewide Scripts
 
@@ -141,10 +129,6 @@ Insert it between these existing statements, so it will ultimately read as shown
 
 4. In your store's BigCommerce control panel, ensure that you have inserted any desired script text in the `Storefront` > `Script Manager` field.
 
-
-
-
-
 ## Adding Trust Seals
 
 To add a trust seal to either template:
@@ -152,10 +136,6 @@ To add a trust seal to either template:
 1. Generate a code snippet (seal script) from your trust-seal provider. You can find instructions for GeoTrust seals in [this BigCommerce KB article](https://support.bigcommerce.com/s/article/Adding-a-GeoTrust-SSL-seal-to-your--footer). (Instructions for other providers will vary.)
 
 2. Copy and paste the seal script into your checkout or order confirmation template, before or after the `{{{ checkout.checkout_content }}}` Handlebars statement.
-
-
-
-
 
 ## Checkout App Injection 
 
@@ -262,8 +242,6 @@ loadaddrexx();
 </script>
 <!-- END  Addrexx -->
 ```
-
-
 
 ## Resources
 

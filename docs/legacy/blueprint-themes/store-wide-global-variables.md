@@ -1,6 +1,5 @@
 # Store-Wide Global Variables
 
-
 The following GLOBAL variables are available from any layout, panel, or snippet in the store, independent of session status.
 
 | Variable | Description |
@@ -46,4 +45,3 @@ The following GLOBAL variables are available from any layout, panel, or snippet 
 | `%%GLOBAL_TPL_PATH%%` | The CDN URI of the theme. |
 | `%%GLOBAL_value%%` | The type of value. For example: `Array` |
 | `%%GLOBAL_Year%%` | The current year. For example: `2015` |
-

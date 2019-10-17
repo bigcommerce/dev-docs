@@ -915,7 +915,6 @@ Displays the title and the content of the web page currently being viewed.
 |||
 | %%GLOBAL_ActivePageHomeClass%% |
 
-
 # ProductBreadcrumb Panel 
 
 The breadcrumb navigation menu.
@@ -1525,7 +1524,6 @@ A complete list of brand names on the store ordered alphabetically.
 |||
 | %%GLOBAL_HideSideTopSellersPanel%% |
 
-
 # SimilarProductsByTag Panel 
 
 ## Available Variables 
@@ -1647,4 +1645,3 @@ Shown whenever a list of wishlists the customer has is to be displayed.
 | %%GLOBAL_WishListMessage%% |
 | %%GLOBAL_HideWishLists%% |
 | %%GLOBAL_HideWishListsTable%% |
-

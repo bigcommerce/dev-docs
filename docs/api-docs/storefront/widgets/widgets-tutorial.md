@@ -11,8 +11,6 @@
 	</ul>
 </div>
 
-
-
 In this tutorial, we will cover:
 * Creating a Region
 * Creating a Widget Template
@@ -29,11 +27,9 @@ This tutorial assumes knowledge of [Widgets](/api-docs/storefront/widgets/widget
 ### Cornerstone Theme
 > The instructions below use the Cornerstone Theme. Your theme may differ.
 
-
 </div>
 </div>
 </div>
-
 
 <a id="widget-tutorial_prerequisites"></a>
 
@@ -61,10 +57,6 @@ We will be making a widget that shows three images, with a hover effect and each
 ](//s3.amazonaws.com/user-content.stoplight.io/6012/1551898706416 "#### Category Page Widget
 ")
 
-
-
-
-
 ## Add a Region
 In <span class="fp">templates/pages/category.html</span>, add `{{{region name="category_header_banner"}}}` below the page heading: 
 
@@ -78,7 +70,6 @@ In <span class="fp">templates/pages/category.html</span>, add `{{{region name="c
 <!-- ... -->
 <div class="page">
 ```
-
 
 <div class="HubBlock--callout">
 <div class="CalloutBlock--info">
@@ -115,14 +106,9 @@ lineNumbers: true
 }
 ```
 
-
-
-
-
 ## Create a Widget Template
 
 Widget Templates are the reusable piece of structure. In this walkthrough we are creating a header image. `image_source` is set using handlebars so the header image can be changed every time the template is reused. The template also takes advantage of conditional logical with `#each images`. Instead of creating a template with three lines of code for each image, one line can loop through each image provided. 
-
 
 * name -- Name of the widget template (required)
 * template -- Html to create the widget template (required)
@@ -139,7 +125,6 @@ In the response the Widget Template UUID returned. Make note of it for use later
 }
 ```
 
-
 <!--
 title: "Sample Response "
 subtitle: "Create Widget Template"
@@ -148,7 +133,6 @@ lineNumbers: true
 
 **Example Response Create Widget Template**  
 `/POST https://api.bigcommerce.com/stores/{{store_hash}}/v3/content/widget-templates`
-
 
 ```json
 {
@@ -164,10 +148,6 @@ lineNumbers: true
     "meta": {}
 }
 ```
-
-
-
-
 
 ## Create a Widget
 
@@ -233,9 +213,6 @@ lineNumbers: true
 }
 ```
 
-
-
-
 ## Create the Placement
 
 Placement defines the page and region where the widget should appear. Remember that [Placements](/api-docs/storefront/widgets/widgets-overview#widgets_placements) can either lead to a Layout or they can be used on their own. In this walkthrough we will use Layouts. 
@@ -246,7 +223,6 @@ Placement defines the page and region where the widget should appear. Remember t
 * region -- region the template will show. It should match the template file
 * template_file -- template file the region was added to
 * status -- if the widget is active or inactive
-
 
 If you wanted to see the results of the Widget without a layout, use the Placement without the layout code sample below. If you would like to learn more about Layouts use the Create Placement code sample below. 
 
@@ -263,7 +239,6 @@ If you wanted to see the results of the Widget without a layout, use the Placeme
   "status": "active"
 }
 ```
-
 
 <!--
 title: "Sample Response"
@@ -326,9 +301,6 @@ lineNumbers: true
 
 ```
 
-
-
-
 ## Reuse the Widget Template
 
 Now that the Widget Template has been created it can be reused on a different page again. 
@@ -340,9 +312,6 @@ To reuse the Widget Template:
 * [Create the Widget](/api-reference/storefront/widgets-api/widget/createwidget) with the Widget Template ID
 * [Create a Placement](/api-reference/storefront/widgets-api/placement/createplacement) using the Widget
 
-
-
-
 ## Resources
 
 ### Related Endpoints
@@ -351,4 +320,3 @@ To reuse the Widget Template:
 ### Related Articles
 * [Widgets Overview](/api-docs/storefront/widgets/widgets-overview)
 * [Wigets Code Samples](/api-docs/storefront/widgets/widgets-code-samples)
-

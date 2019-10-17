@@ -313,4 +313,3 @@ A Region can contain multiple Placements with Widgets.
 * [Widgets API](/api-reference/storefront/widgets-api)
 * [Widgets Tutorial](/api-docs/storefront/widgets/widgets-tutorial)
 * [Wigets Code Samples](/api-docs/storefront/widgets/widgets-code-samples)
-

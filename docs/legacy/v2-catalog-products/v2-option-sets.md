@@ -14,8 +14,6 @@
 
 </div> 
 
-
-
 ## Option Sets 
 
 A reusable set of option facets that can be applied to products.
@@ -29,16 +27,11 @@ A reusable set of option facets that can be applied to products.
 | options | object/resource | Optional field; read-only. Object containing option-set options: a `url` and a `resource`. |
 | product_id (optional) | integer | Optional field; read-only. If `null`, this option set can be reused with any product. If populated with a numeric ID, this option set can be used exclusively with the corresponding product. |
 
-
-
-
-
 ## List Option Sets 
 
 Gets the collection of option sets. (Default sorting is by option-set id, from lowest to highest.)
 
 >`GET /stores/{store_hash}/v2/option_sets`
-
 
 ### Filters 
 
@@ -86,15 +79,9 @@ Example JSON returned in the response:
 ]
 ```
 
-
-
-
-
-
 ## Get an Option Set 
 
 Gets an option set.
-
 
 >`GET /stores/{store_hash}/v2/option_sets/{id}`
 
@@ -115,10 +102,6 @@ Example JSON returned in the response:
 }
 ```
 
-
-
-
-
 ## Get a Count of Option Sets 
 
 Gets a count of the number of option sets in the store.
@@ -135,16 +118,11 @@ Example JSON returned in the response:
 }
 ```
 
-
-
-
-
 ## Create an Option Set 
 
 Creates a new Option set.
 
 >`POST /stores/{store_hash}/v2/option_sets`
-
 
 ### Read-only Properties 
 
@@ -186,14 +164,9 @@ Example JSON returned in the response:
 }
 ```
 
-
-
-
-
 ## Update an Option Set 
 
 Updates an existing option set.
-
 
 >`PUT /stores/{store_hash}/v2/option_sets/{id}`
 
@@ -237,24 +210,14 @@ Example JSON returned in the response:
 }
 ```
 
-
-
-
-
 ## Delete an Option Set 
 
 Deletes an option set.
 
 >`DELETE /stores/{store_hash}/v2/option_sets/{id}`
 
-
-
-
-
-
 ## Delete All Option Sets 
 
 Deletes all option sets in the store.
 
 >`DELETE /stores/{store_hash}/v2/option_sets`
-

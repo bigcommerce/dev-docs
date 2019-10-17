@@ -48,8 +48,6 @@ Global objects and properties are common components shared across the entire Big
 </div>
 </div>
 
-
-
 ## Banner
 
 <b>Description:</b> Elements of marketing banners at page’s top and/or bottom
@@ -91,8 +89,6 @@ example: `{{{banner}}}`. (Double braces would escape the HTML.)
 </div>
 </div>
 
-
-
 ## Breadcrumbs
 
 <b>Description:</b> Defines a page's breadcrumbs – available on virtually all pages that have a breadcrumb trail
@@ -115,8 +111,6 @@ example: `{{{banner}}}`. (Double braces would escape the HTML.)
     <td>URL of this breadcrumb element</td>
   </tr>
 </table>
-
-
 
 ## Carousel
 
@@ -190,8 +184,6 @@ example: `{{{banner}}}`. (Double braces would escape the HTML.)
 |Property|Description|
 | -- | -- |
 | cart_id| ID of the shoppers cart. String |
-
-
 
 ## Currency Selector
 
@@ -351,8 +343,6 @@ The table below displays properties for the individual category objects within t
   </tr>
 </table>
 
-
-
 ## Faceted Search
 
 <b>Description:</b> Faceted-search object for searching globally, by category, or by brand
@@ -383,8 +373,6 @@ The table below displays properties for the individual category objects within t
     <td>Currently enabled search facets</td>
   </tr>
 </table>
-
-
 
 ## Featured Products
 
@@ -431,8 +419,6 @@ In the body of [Cornerstone's `home.html` template](https://github.com/bigcommer
 
 This above statement formats the _Featured Products_ display according to the `homepage_featured_products_column_count` variable, which is the second relevant variable defined in [Cornerstone's `config.json` file](https://github.com/bigcommerce/cornerstone/blob/master/config.json#L53) (Github).
 
-
-
 ## Footer
 
 <b>Description:</b>The footer content for each storefront page
@@ -455,8 +441,6 @@ This above statement formats the _Featured Products_ display according to the `h
     <td>Scripts to be loaded after the HTML has loaded; includes performance metrics</td>
   </tr>
 </table>
-
-
 
 ## HTML Head
 
@@ -501,8 +485,6 @@ This above statement formats the _Featured Products_ display according to the `h
   </tr>
 </table>
 
-
-
 ## Is_Ajax
 
 <b>Description:</b> Boolean; returns `true` if the current executing request is an Ajax request
@@ -510,8 +492,6 @@ This above statement formats the _Featured Products_ display according to the `h
 <b>Handlebars Expression:</b> `{{is_ajax}}`
 
 No properties available for this object.
-
-
 
 ## New Products
 
@@ -556,8 +536,6 @@ In the body of [Cornerstone's `home.html` template](https://github.com/bigcommer
 
 This above statement formats the _New Products_ display according to the `homepage_new_products_column_count` variable, which is the second relevant variable defined in [Cornerstone's `config.json` file](https://github.com/bigcommerce/cornerstone/blob/master/config.json#L46) (Github
 
-
-
 ## Page Content
 
 <b>Description:</b> Defines elements of merchant’s store page
@@ -597,8 +575,6 @@ This above statement formats the _New Products_ display according to the `homepa
   </tr>
 </table>
 
-
-
 ## Pages
 
 <b>Description:</b> A list of all web content pages for the BigCommerce storefront
@@ -634,8 +610,6 @@ This above statement formats the _New Products_ display according to the `homepa
     </tr>
 </table>
 
-
-
 ## Page Type Property
 
 <b>Description:</b> A string representing the type of page currently displayed. <br>
@@ -668,8 +642,6 @@ All possible values for `{{page_type}}` are:
 | rss | search | sitemap |
 | newsletter_subscribe | unsubscribe | hibernation |
 | maintenance |
-
-
 
 ## Pagination
 
@@ -717,8 +689,6 @@ All possible values for `{{page_type}}` are:
           <td>The page number of this link, based on an index starting at 1</td>
       </tr>
     </table>
-
-
 
 ## Search
 
@@ -881,8 +851,6 @@ All possible values for `{{page_type}}` are:
   </tr>
 </table>
 
-
-
 ## Settings
 
 **Description:** Common settings shared across every BigCommerce storefront
@@ -1020,8 +988,6 @@ All possible values for `{{page_type}}` are:
 | amp_analytics_id | Returns Google AMP analytics ID |
 | bulk_discount_enabled | Boolean that return `true` if bulk discount is enabled on products. |
 
-
-
 ## Sitemap
 
 **Description:** A list of all sitemap properties for this BigCommerce storefront: pages, categories, and brands.
@@ -1068,8 +1034,6 @@ All possible values for `{{page_type}}` are:
     </tr>
   </table>
 
-
-
 ## Social Links
 
 <b>Description:</b> Array of all social-media site links for the storefront<br>
@@ -1101,8 +1065,6 @@ All possible values for `{{page_type}}` are:
   </tr>
 </table>
 
-
-
 ## Template Property
 
 <b>Description:</b> A string containing the name of the root template currently being rendered in the page context. <br>
@@ -1123,8 +1085,6 @@ All possible values for `{{page_type}}` are:
 * `pages/auth/login`
 * `pages/custom/product/<some_page_name>` (for a custom product page)
 (etc.)
-
-
 
 ## Top Sellers
 

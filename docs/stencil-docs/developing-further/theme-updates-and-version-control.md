@@ -18,9 +18,6 @@ When developing BigCommerce themes, there are a few steps you can take to ensure
 
 A typical setup might include a base theme, with several custom themes branching from the base theme. The custom theme(s) will need to be kept up to date with any major changes while maintaining its own customizations. Version control systems such as Git can help ensure themes stay up to date. For example, you can place the parent theme on the master branch and keep each child theme on its own separate branch. Changes to the master theme can then be pushed to each child if needed.
 
-
-
-
 <a id="updates"></a>
 
 ## Theme Updates
@@ -41,9 +38,6 @@ Before updating your theme, review the following list items to ensure a successf
 When creating customizations, it's important to create a new file to overwrite the original styles, as opposed to modifying the original existing file. For example, `{{{stylesheet ‘/assets/css/theme.css’}}}` is the file that has the CSS that already exists in the theme. Instead of making edits to this file, create a new .css file, such as `{{{stylesheet ‘/assets/css/my_custom_theme.css’}}}`. Place your new styles in this file, and reference this file in the layouts.
 
 Make sure to discuss with the merchant not to make any changes to the files. This can cause issues later on with updates. Having multiple editors to files could potentially cause issues later on with updates if a proper workflow is not established.
-
-
-
 
 ## References
 * [Version Control for Teams](https://medium.com/bigcommerce-developer-blog/version-control-for-teams-a186bd74ba7e?source=friends_link&sk=721c0fc073cbe5b729c1a2282377ca86) (BigCommerce Developer Blog)

@@ -13,7 +13,6 @@
 
 Product filtering (also known as faceted search) enables shoppers to refine product searches based on multiple attributes like price, size, ratings, etc. For a store owner's view of administering this feature, please see <a href="https://forum.bigcommerce.com/s/article/Product-Filtering-Settings" target="_blank">this KB article</a>. 
 
-
 <div class="HubBlock--callout">
 <div class="CalloutBlock--warning">
 <div class="HubBlock-content">
@@ -35,14 +34,9 @@ As noted below, we recommend implementing product filtering on a temporary sandb
 </div>
 </div>
 
-
-
-
-
 ## Creating a New Theme with Product Filtering 
 
 Product filtering is fully functional in the Blueprint base theme. Once you’ve enabled [Developer Mode](#blueprint-and-developer-mode), you’ll be able to access this base theme and add product filtering to your developer store.
-
 
 <div class="HubBlock--callout">
 <div class="CalloutBlock--warning">
@@ -61,14 +55,9 @@ For information about developing on the current Stencil platform, please see <a 
 </div>
 </div>
 
-
-
-
-
 ## Enabling Product Filtering for Your Customized Theme 
 
 To enable product filtering, just enable [Developer Mode](#devmode) on your store. This will enable product filtering on your store by default, regardless of whether or not your theme and plan support it.
-
 
 <div class="HubBlock--callout">
 <div class="CalloutBlock--warning">
@@ -85,16 +74,9 @@ To enable product filtering, just enable [Developer Mode](#devmode) on your stor
 
 If you are working with a new store, product filtering might already work out-of-the-box for your theme.
 
-
-
-
-
-
-
 ## Implementing Product Filtering in Your Theme 
 
 Once you’ve enabled product filtering for your sandbox store, you’ll need to get the most up-to-date Blueprint files and copy them into your own theme. Here is how to do so.
-
 
 <div class="HubBlock--callout">
 <div class="CalloutBlock--warning">
@@ -138,10 +120,6 @@ Once you’ve enabled product filtering for your sandbox store, you’ll need to
     `<button class="js-faceted-search-action btn"> %%LNG_FilterBy%% </button>`
 11.  If the pages mentioned above don’t exist, you can copy the existing pages from the Blueprint theme. Keep in mind that you’ll need to modify these pages to suit the structure of your theme.
 
-
-
-
-
 ## Allowing For Filtering On/Off 
 
 When faceted search is switched on, the following templates will be used:
@@ -156,7 +134,6 @@ When switched off:
 *   Search page > `search.html`
 *   Category pages > `category.html`
 
-
 <div class="HubBlock--callout">
 <div class="CalloutBlock--warning">
 <div class="HubBlock-content">
@@ -170,11 +147,8 @@ When switched off:
 </div>
 </div>
 
-
-
 ## Category Filtering Details 
 
 When you turn on product filtering for a store, it will automatically switch all `Category Layout File`s to your new `category_with_facets.html` page. To view product filtering on Category pages, you must ensure that the `Category Layout File` is set to `category_with_facets.html`.
 
 You will not see the Category filter on storefront Category pages. This has been hidden for SEO reasons.
-

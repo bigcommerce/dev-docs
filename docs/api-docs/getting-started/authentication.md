@@ -12,8 +12,6 @@
 	</ul>
 </div>
 
-
-
 Two types of API credentials are available to developers wishing to make requests against BigCommerce APIs:
 
 1. Store API Credentials (created in a store's control panel)
@@ -22,10 +20,6 @@ Two types of API credentials are available to developers wishing to make request
 **Store API Credentials** are generated when a Store API Account is created in a store's control panel (**Advanced Settings** > **API Accounts**). These credentials are used to programmatically interact with an individual store's data using BigCommerce's APIs. Both OAuth and token-based authentication are possible with Store API Credentials
 
 Developers can also create **App API Credentials** in the BigCommerce [Developer Portal](https://devtools.bigcommerce.com). App API Credentials are used during the OAuth flow to request authorization “on behalf” of a store owner, allowing the app to make API requests against store data. App API Credentials are OAuth only, and the store owner must install the app before the app is granted access to the store. 
-
-
-
-
 
 ## Obtaining Store API Credentials
 
@@ -66,10 +60,6 @@ To get started making requests, see [API Requests](/api-docs/getting-started/bas
 </div>
 </div>
 
-
-
-
-
 ## Revoking Store API Credentials
 
 To revoke Store API Credentials:
@@ -101,10 +91,6 @@ To revoke Store API Credentials:
 </div>
 </div>
 </div>
-
-
-
-
 
 ## Obtaining App API Credentials
 
@@ -198,10 +184,6 @@ The Client Secret value is a secret that your app and BigCommerce share. You onl
 
 During the app installation process, your app will use the Client Id and Client Secret to obtain an Oauth token authorized against the store installing the app. For a detailed look at this process, see [Building an App](/api-docs/getting-started/building-apps-bigcommerce/building-apps).
 
-
-
-
-
 ## Use Cases by Credential Type
 
 |  | App API Credentials | Store API Credentials|
@@ -217,10 +199,6 @@ During the app installation process, your app will use the Client Id and Client 
 | V2 | X | X |
 | V3 | X | X |
 |Webhooks | X | X |
-
-
-
-
 
 ## Migrating from Legacy to OAuth
 
@@ -267,10 +245,6 @@ As an example, requests to `https://store-abc123.mybigcommerce.com/api/v2/orders
 	- X-Auth-Token header for your Access Token. You can read more [here](/api-docs/getting-started/basics/authentication#authentication_what-are-oauth-credentials-1).
 
 Rate limiting of API requests works differently for OAuth API connections. To become familiar with the OAuth system, please see the [Rate Limits](/api-docs/getting-started/basics/best-practices#best-practices_rate-limits).
-
-
-
-
 
 ## OAuth Scopes
 
@@ -350,8 +324,6 @@ All OAuth scopes except `default` have `read_only` scopes that allow only `GET` 
 | | | [/payments/access_tokens](/api-reference/payments/payments-create-payment-token-api)|
 | Get Payment Methods | store_payments_methods_read | Get Order Payment Methods |
 | | | [/payments](/api-reference/payments/payments-process-payments)|
-
-
 
 ## Resources
 * [Building An App](https://developer.bigcommerce.com/api-docs/getting-started/building-apps-bigcommerce/building-apps)

@@ -30,11 +30,6 @@ Options belonging to an option set.
 | option | resource | The connected option. |
 | values | object_array | Array of values for the connected option. |
 
-
-
-
-
-
 ## List Option Set Options 
 
 Gets the options associated with an option set. (Default sorting is by option id, from lowest to highest.)
@@ -135,10 +130,6 @@ Example JSON returned in the response:
 ]
 ```
 
-
-
-
-
 ## Get an Option Set Option 
 
 Gets an option set option.
@@ -164,17 +155,11 @@ Example JSON returned in the response:
 }
 ```
 
-
-
-
-
 ## Create an Option Set Option 
 
 Creates a new option associated with an option set.
 
-
 >`POST /stores/{store_hash}/v2/option_sets/{option_set_id}/options`
-
 
 ### Read-only Properties 
 
@@ -222,8 +207,6 @@ Example JSON returned in the response:
   }
 }
 ```
-
-
 
 ## Update an Option Set Option 
 
@@ -276,19 +259,11 @@ Example JSON returned in the response:
 }
 ```
 
-
-
-
-
 ## Delete an Option Set Option 
 
 Deletes an option belonging to an option set.
 
 >`DELETE /stores/{store_hash}/v2/option_sets/{option_set_id}/options/{id}`
-
-
-
-
 
 ## Delete Multiple Option Set Options 
 
@@ -304,4 +279,3 @@ Parameters can be added to the URL query string to paginate the collection. The 
 |  |  |  |
 | Page | int | /api/v2/option_sets/{option_set_id}/options?page={number} |
 | Limit | int | /api/v2/option_sets/{option_set_id}/options?limit={count} |
-

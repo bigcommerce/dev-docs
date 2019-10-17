@@ -17,10 +17,6 @@ By default, all derived `PageManager` classes contain an `onReady` method functi
 
 To demonstrate, this article describes how to add some very simple JavaScript to `product.js`.
 
-
-
-
-
 ## Modifying a Page's Javascript
 In this example, we will add some "hello world" text to the product page's onReady event. We'll first add a call to the function; then, we will implement the function itself.
 
@@ -96,10 +92,6 @@ export default class Product extends PageManager {
 ```
 
 In your browser, refresh any product-details pop-up or page to see your new `"Hello World"` message (If you are using the Stencil CLI and browsing to localhost, you may need to restart it for changes the most recent changes to be reflected).
-
-
-
-
 
 ## Bringing in Handlebars Context
 
@@ -192,10 +184,6 @@ Note that the `console.log(this.context.themeImageSizes);` statement will report
 [/assets/js/theme/product.js]: Hello World!
 product.js:63 [/assets/js/theme/product.js]: 100x100
 ```
-
-
-
-
 
 ## Installing Libraries
 

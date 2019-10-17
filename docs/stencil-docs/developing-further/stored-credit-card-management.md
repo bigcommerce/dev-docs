@@ -20,7 +20,6 @@
 
 Stored Credit Card management gives customer’s the ability to manage their stored credit cards from the My Account page of the storefront. In the Cornerstone theme, shoppers with store accounts will have the ability to add new cards, delete cards, select a default card, and edit the billing details of existing cards from their customer account area of the storefront. 
 
-
 <!--
     title: #### Stored Credit Card Management 
 
@@ -45,8 +44,6 @@ Stored Credit Card management gives customer’s the ability to manage their sto
 </div>
 </div>
 
-
-
 <a id="stored-cc-mgmt_prerequisites"></a>
 
 ## Prerequisites
@@ -59,17 +56,9 @@ Stored Credit Card management gives customer’s the ability to manage their sto
     * Stripe
     * Paymetric
 
-
-
-
-
 ## Adding Stored Credit Card Management 
 
 Stored Credit Card Management was added to Cornerstone in [pull request #1376](https://github.com/bigcommerce/cornerstone/pull/1376). To add Stored Credit Cards to pre-2.6.0 Cornerstone or Marketplace themes, copy the changes from [PR #1376](https://github.com/bigcommerce/cornerstone/pull/1376) to your theme. This section will walk through [each individual commit](https://github.com/bigcommerce/cornerstone/pull/1376/commits), highlighting the changes that you will need to make to your template files.
-
-
-
-
 
 ## Step 1: [Add Payment Methods Page](https://github.com/bigcommerce/cornerstone/pull/1376/commits/24abc038fe346a8572b40da40c98a9465788957a)
 
@@ -89,19 +78,11 @@ Stored Credit Card Management was added to Cornerstone in [pull request #1376](h
 ](//s3.amazonaws.com/user-content.stoplight.io/6116/1541629154209 "#### Payment Methods Page Addition Example
 ")
 
-
-
-
-
 ## Step 2: [Add Translations](https://github.com/bigcommerce/cornerstone/pull/1376/commits/9edf1a0f6907811abf470db1486b4fdb199b27ae)
 
 * Makes the Payments Method page translatable by modifying the following:
 	* <span class="fp">lang/en.json</span>
 	* <span class="fp">templates/components/account/navigation.html</span> files
-
-
-
-
 
 ## Step 3: [Include Credit Card Listing](https://github.com/bigcommerce/cornerstone/pull/1376/commits/5574eb98c710f4540e8390420563099b6f5710bf)
 
@@ -119,14 +100,9 @@ Stored Credit Card Management was added to Cornerstone in [pull request #1376](h
 
 ![](//s3.amazonaws.com/user-content.stoplight.io/6116/1541630407609 "")
 
-
-
-
-
 ## Step 4: [Add Credit Card Actions](https://github.com/bigcommerce/cornerstone/pull/1376/commits/499016d320995852fe4ef621724e08556896b70d)
 
 *  add `Edit`, `Delete`, and `Add` buttons
-
 
 <!--
     title: #### Implementation of Add, Edit, and Delete Methods
@@ -139,19 +115,11 @@ Stored Credit Card Management was added to Cornerstone in [pull request #1376](h
 ](//s3.amazonaws.com/user-content.stoplight.io/6116/1541655663898 "#### Implementation of Add, Edit, and Delete Methods
 ")
 
-
-
-
-
 ## Step 5: [Implement `Delete Payment` Method](https://github.com/bigcommerce/cornerstone/pull/1376/commits/cf102901d9061b7334e8c39f15a8904c37cf0652)
 
 * Bind the delete button's front end and back end
 
 First, the click will trigger window confirm. The confirmation modal has been added to prevent unintended action. Then, on confirming, a post request will be sent. The action is initiated through a localized form post request in the template which uses a [`delete_url`](https://github.com/bigcommerce/cornerstone/blob/master/templates/components/account/payment-methods-list.html#L34) key provided in the credit card details data. Finally, there will be a redirect to the credit card listing.
-
-
-
-
 
 ## Step 6: [Implement `Edit Payment` Method](https://github.com/bigcommerce/cornerstone/pull/1376/commits/ab2fe1df455fa8ac93760904b718fbce7ce361ed)
 
@@ -170,12 +138,7 @@ First, the click will trigger window confirm. The confirmation modal has been ad
 ](//s3.amazonaws.com/user-content.stoplight.io/6116/1541654303488 "#### Edit Payment Method Form
 ")
 
-
-
-
-
 ## Step 7: [Implement `Add Payment` Method](https://github.com/bigcommerce/cornerstone/pull/1376/commits/c960338c32faa8fb798b2826c72dfe9d74bf9751)
-
 
 *  Adding new icon `lock.svg`
 *  Unify the CSS classes for the add and edit form.
@@ -197,10 +160,6 @@ First, the click will trigger window confirm. The confirmation modal has been ad
 ![#### Example of the addition of the Add Payment Method
 ](//s3.amazonaws.com/user-content.stoplight.io/6116/1541629295212 "#### Example of the addition of the Add Payment Method
 ")
-
-
-
-
 
 ## Step 8: [Add Default Instrument](https://github.com/bigcommerce/cornerstone/pull/1376/commits/5576aee5af0194e85cb11dbf44563f89b2687f40)
 
@@ -234,8 +193,6 @@ First, the click will trigger window confirm. The confirmation modal has been ad
 </div>
 </div>
 
-
-
 ## FAQ
 **Where is the card data stored?**
 
@@ -249,12 +206,9 @@ Card data is stored securely with the payment gateway. The BigCommerce store is 
 
 After adding a card, shoppers will only be able to modify the billing address. If other credit card details need to be modified (such as expiration date), the shopper must delete and re-add the card.
 
-
-
 ## Resources
 
 ### Related Articles
 * [Payments API](https://developer.bigcommerce.com/api-docs/payments/payments-api-overview)
 * [Enabling Stored Cards](https://support.bigcommerce.com/s/article/Enabling-Stored-Credit-Cards) (BigCommerce Knowledge Base)
 * [The Complete Guide to Checkout Customization on BigCommerce](https://medium.com/bigcommerce-developer-blog/the-complete-guide-to-checkout-customization-on-bigcommerce-6b566bc36fa9) (Developer Blog)
-

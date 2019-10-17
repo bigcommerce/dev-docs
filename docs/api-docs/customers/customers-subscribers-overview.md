@@ -75,7 +75,6 @@ The Customer Login API allows for single sign-on. Once a customer has authentica
 ## Current Customer API
 The Current Customer API allows your application to identify logged in customers. This is useful when you need to show customer specific information.
 
-
 ## Customer API
 There are two Customer API endpoints available:
 - V3 Customers API
@@ -147,7 +146,6 @@ Get Customer Address by name and company on V2
 ### Requests
 
 Requests on this endpoint require an array object for all Create and Update Actions.
-
 
 <!--
 title: "Update a Customer V3"

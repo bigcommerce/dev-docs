@@ -12,8 +12,6 @@
 
 </div>
 
-
-
 _We're gratefully sharing techniques devised by Ken Utting, Web Developer for BigCommerce client goruck.com_.
 
 ## Why Dynamic Content?
@@ -33,8 +31,6 @@ The HTML editor will remove a number of tags, particularly style and script tags
 Without changes like the ones we made at GORUCK (described below), all the content will be placed in a single location on the page.
 
 At GORUCK, we needed the ability to inject arbitrary HTML into our page, and to place that content at various specific page locations. To achieve this, we developed the three techniques described below.
-
-
 
 ## Dropzones
 
@@ -56,8 +52,6 @@ With these dropzones defined, we can then populate them with dynamic content spe
 ![#### Dropzone that places an image gallery at the bottom of a category page
 ](//s3.amazonaws.com/user-content.stoplight.io/6116/1539874696853 "#### Dropzone that places an image gallery at the bottom of a category page
 ")
-
-
 
 ### Dropzones HTML
 
@@ -108,8 +102,6 @@ We modified our theme's PageManager.before method to invoke a new method named `
 ```
 
 Finally, in our .scss file, we set the `.gr-dropzone` class to display: none. This prevents the content from appearing on the page in the wrong location before PageManager has a chance to move it into the dropzone.
-
-
 
 ## Dynamic Tabs
 
@@ -228,8 +220,6 @@ Again, the JavaScript code to implement Dynamic Tabs is invoked in the PageManag
 
 Nevertheless, none of it is rocket science. The three classes involved are 250 lines of code. Interested readers are invited to contact me via the BigCommerce Developers forum for more information about the implementation.
 
-
-
 ## Snippets
 
 Snippets are similar to Dynamic Tabs, in that they allow you to use the BigCommerce control panel's HTML editor to provide content, but pull it from a separate file. This allows you to share common content across multiple pages.
@@ -244,8 +234,6 @@ We use snippets at GORUCK to display our sizing charts, as shown below. This mak
 -->
 
 ![](//s3.amazonaws.com/user-content.stoplight.io/6116/1539878331668 "")
-
-
 
 ## Snippets HTML
 
@@ -263,10 +251,6 @@ The external file can contain any arbitrary HTML and CSS, and the styled HTML is
 
 Like Dropzones and Dynamic Tabs, the Snippets code is invoked in `PageManager`'s `before` method. Snippets adds just another 50 lines of JavaScript code to the theme, also relying on the same code that Dynamic Tabs uses to get the external file and cache it in the browser.
 
-
-
-
-
 ## Recap 
 
 At GORUCK, we've developed a number of techniques that allow us to separate our content from our theme. These techniques have proved valuable to us, because they allow us to:
@@ -275,4 +259,3 @@ At GORUCK, we've developed a number of techniques that allow us to separate our 
 * Reduce modifications to our theme, which simplifies merging updates from our theme provider.
 * Share content across multiple pages.
 * Tailor our content based on product category and brand.
-

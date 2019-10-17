@@ -10,8 +10,6 @@
 
 </div> 
 
-
-
 ## Error on "Add to Cart" button, 404 error
 
 ### Symptom
@@ -22,19 +20,12 @@
 ### Solution
 In WordPress, go to Settings → Permalinks. Scroll to the bottom of the page and click Save. This resets the site’s redirects properly.
 
-
-
-
-
 ## PHP getenv() Errors
 
 ### Symptom: 
 When in use the plugin floods the error log with the following:
 
-
 > PHP message: PHP Warning: getenv() expects exactly 1 parameter, 2 given in wp-content/plugins/bigcommerce-for-wordpress-0.11.1/bigcommerce.php on line 58
-
 
 ### Solution
 You can expect to see that error if you're on PHP version 5.4 or lower (the plugin requires 5.6+).
-

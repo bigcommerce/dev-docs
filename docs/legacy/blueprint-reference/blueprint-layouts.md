@@ -1406,4 +1406,3 @@ The page shown when any action related to wishlists (adding items, managing wish
 |||
 |||
 | %%GLOBAL_HideRightMenu%% |
-

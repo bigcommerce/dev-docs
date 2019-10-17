@@ -8,7 +8,6 @@
 
 </div>
 
-
 <div class="HubBlock--callout">
 <div class="CalloutBlock--warning">
 <div class="HubBlock-content">
@@ -21,7 +20,6 @@
 </div>
 </div>
 </div>
-
 
 <a id="markdown-applying-custom-fonts" name="applying-custom-fonts"></a>
 
@@ -53,19 +51,15 @@ Make sure it follows of the format `Google_FontName_Weight`.
 ### Check with your theme developer
 > If you are using a different theme, please check with the theme developer on using Google Fonts.
 
-
 </div>
 </div>
 </div>
-
 
 ### Custom Fonts
 
 Custom fonts can be used an any theme. To use a custom font upload it to the stores `/content/` folder in [WebDav](https://support.bigcommerce.com/s/article/File-Access-WebDAV).
 
-
 ![content folder markdown](https://raw.githubusercontent.com/bigcommerce/dev-docs/master/assets/images/content_folder_webdav.png "Content Folder Webdav")
-
 
 ### Reference Fonts in Templates' `<head>`
 
@@ -123,8 +117,6 @@ display: block;
 
 Any location where the font is not overridden in the CSS, it falls back on the font in `config.json`. Make sure to update the font there to prevent fallbacks.
 
-
-
 <a id="markdown-sass-stylesheet-support-for-theme-fonts" name="sass-stylesheet-support-for-theme-fonts"></a>
 
 ##  Sass Stylesheet Support for Theme Fonts
@@ -133,7 +125,6 @@ To support Store Design, your theme's Sass stylesheet must call [Stencil's custo
 
 The default Stencil theme includes these function calls in this stylesheet:
 `{theme-name}/assets/scss/settings/foundation/type/_settings.scss`. If your theme relies on a Sass framework other than Foundation, the relevant stylesheet will be a different .scss file name within `{theme-name}/assets/scss/`.
-
 
 ### How to Enable Fonts for Store Design
 
@@ -156,8 +147,6 @@ $body-font-weight: 700;
 ```
 
 This transformation allows you to use the `$body-font-family` and `$body-font-weight` variables wherever needed in your theme. If a merchant uses Theme Editor to select a different font family and/or weight, the variables will propagate the change throughout your theme.
-
-
 
 <a id="markdown-applying-custom-icons" name="applying-custom-icons"></a>
 
@@ -196,8 +185,6 @@ For example:
 ### Adding New Icons
 
 Simply add your new icon SVG file to the `assets/icons/ `folder. Then, from your theme's root directory, run `grunt svgstore` or just `grunt`.
-
-
 
 ## Resources
 

@@ -2881,4 +2881,3 @@
 | %%GLOBAL_WishListID%% |
 | %%GLOBAL_ItemId%% |
 | %%LNG_RemoveFromWishList%% |
-

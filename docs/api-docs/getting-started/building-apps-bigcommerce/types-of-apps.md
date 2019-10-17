@@ -76,7 +76,6 @@ Use Cases:
 
 To install a Personal app on a store, your Dev Tools login credentials must be the same as the store owner login credentials for the store where you intend to install the app.
 
-
 ## Scripts
 
 You may wish to write a small program that can make requests against a store’s API that does not install in the store’s control panel. Scripts connect to a store solely through API credentials: they don’t install in the control panel or present a UI to the user.

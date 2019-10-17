@@ -1,6 +1,5 @@
 # LNG Variables
 
-
 The Blueprint theme uses the following LNG variables to reference text strings. This list is sorted alphabetically by variable name. 
 
 To make it easier for store owners who might wish to translate, or otherwise modify, their strings: Use these variables instead of hard-coding string values into your theme.
@@ -1790,4 +1789,3 @@ To make it easier for store owners who might wish to translate, or otherwise mod
 <TD>"Zip/Postcode"</td></tr>
 </tbody>
 </table>
-

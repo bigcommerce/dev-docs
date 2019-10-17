@@ -18,8 +18,6 @@
 
 </div> 
 
-
-
 ## What's AMP?
 
 AMP stands for Accelerated Mobile Pages and is an [open source project](https://www.ampproject.org/) created by Google and maintained by thousands of developers who care deeply about a better and faster web.
@@ -27,8 +25,6 @@ AMP stands for Accelerated Mobile Pages and is an [open source project](https://
 AMP aims to load your web pages faster and thus providing a better end user experience. It does this by using a subset of HTML called AMP HTML which is very similar to HTML, with a few restrictions. There is also AMP JS which is a whitelisted and concise JavaScript library and most importantly the AMP Cache which search engines like Google use to serve AMP pages.
 
 While AMP is quite widely used in the publishing industry and many large news organizations have taken advantage of it, AMP has not yet been rolled out in any significant way to ecommerce stores. This means there is a big opportunity for online stores to get in early and start publishing AMP valid stores to increase traffic, conversion rates, and ultimately sales.
-
-
 
 ## AMP real world example
 
@@ -42,8 +38,6 @@ Search engine optimization is one of the key advantages of AMP, however user exp
 
 The good news is that BigCommerce for WordPress ships with AMP by default.
 
-
-
 ## How to enable AMP
 
 Enabling AMP in the BigCommerce for WordPress plugin is simple. All you need to do is download the [Official AMP Plugin for WordPress](https://wordpress.org/plugins/amp/), noting that its the “official” one by WordPress.com VIP, XWP, and Google.
@@ -54,17 +48,11 @@ Alternatively, you can use the WordPress installer to install the Official AMP P
 
 Once the plugin is installed and activated, your store will immediately start serving an AMP version of the store when requested.
 
-
-
-
 ## WordPress AMP plugin support
 
 The Official AMP Plugin for WordPress is currently at version 0.7.2 and the BigCommerce for WordPress plugin fully supports this version.
 
 Version 1.0 of the Official AMP Plugin for WordPress is due to be released shortly and the great news is that BigCommerce for WordPress already fully supports this version of the AMP plugin. Version 1.0 brings a whole new set of features including the ability to validate AMP inside WordPress and we’re excited to be able to support that with the BigCommerce plugin.
-
-
-
 
 ## Choosing an AMP mode
 
@@ -100,8 +88,6 @@ This is the original mode for rendering AMP pages and it renders an AMP theme th
 
 Generally this mode works out of the box and not much customization is needed to be done to your website for it to be AMP valid, this is because it uses specific a specific AMP valid theme. The draw back being that your website theme is different from the AMP theme.
 
-
-
 ## Previewing AMP
 
 Once AMP is enabled and you’ve decided on a mode, you will probably want to preview what your site looks like. This is easy to do but depending on the mode you selected, you would need to preview the AMP theme differently.
@@ -121,8 +107,6 @@ For paired mode, you can only use the ?amp query parameter to show the AMP versi
 ### Native Mode
 As discussed earlier, native mode will always display the AMP version of the theme.
 
-
-
 ## AMP Tools
 
 There are a number of tools that you can use to help you with AMP development, testing, and maintenance.
@@ -139,17 +123,11 @@ https://validator.ampproject.org/
 If you’re using Chrome, there is an AMP Validator extension that allows you to test AMP pages directly while browsing your website:
 [https://chrome.google.com/webstore/detail/amp-validator/nmoffdblmcmgeicmolmhobpoocbbmknc?hl=en](https://chrome.google.com/webstore/detail/amp-validator/nmoffdblmcmgeicmolmhobpoocbbmknc?hl=en)
 
-
-
-
 ## AMP for SEO
 
 Earlier we talked about how AMP can be beneficial for SEO purposes and driving web traffic to your store. Just by enabling the Official AMP Plugin for WordPress and BigCommerce for WordPress plugins, your AMP pages will automatically get indexed and cached by Google without having to submit or request this from Google. This is because the plugin adds a reference to the AMP page on each canonical web page that has an AMP version.
 
 There is nothing additional that you need to do to get the added SEO benefit from AMP, it’s all handled for you by the plugin and Google crawler.
-
-
-
 
 ## Customizing AMP templates
 

@@ -11,8 +11,6 @@
 	</ul>
 </div>
 
-
-
 The BigCommerce Scripts API gives developers the ability to inject scripts into a store's template files programmatically. This means that app and integrations can insert scripts into a user’s storefront without requiring the user to manually paste a snippet of code into their control panel. There are many use cases for this powerful API, for example:
 * inserting analytics scripts
 * inserting single-click app scripts
@@ -23,10 +21,6 @@ The BigCommerce Scripts API gives developers the ability to inject scripts into 
 
 This article contains detailed information about the Scripts API and assumes you're familiar with BigCommerce App Installation process. For more information on the app installation process, see:
 [App Installation](/api-docs/getting-started/building-apps-bigcommerce/building-apps#building-apps_installation-update-sequence)
-
-
-
-
 
 ## Script Manager API Partner Guidelines
 
@@ -47,18 +41,10 @@ As mentioned above, BigCommerce supports two theme engines: Stencil and Blueprin
 
 Because of this, you’ll need to check whether a user is running Stencil to determine if their store supports the Script Manager API. To do this, use the [Get Store Information API](https://developer.bigcommerce.com/api/v2/#store-information-reference) endpoint and check the `stencil_enabled` flag. (requires [store_v2_information_read_only scope](https://developer.bigcommerce.com/api/#oauth-scopes)).
 
-
-
-
-
 ## Prerequisites
 
 To better understand the content of this document, you should be familiar with the app installation procedure, which is outlined here:
 [App Installation](/api-docs/getting-started/building-apps-bigcommerce/building-apps#building-apps_installation-update-sequence)
-
-
-
-
 
 ## Upgrades and Installation
 
@@ -96,10 +82,6 @@ As mentioned, the Blueprint theme engine does not support the Script Manager API
 
 Existing blueprint installations won’t be affected, but remember that if you are prompting existing Stencil users to upgrade to the Script Manager, you’ll want to suppress this message for Blueprint users. 
 
-
-
-
-
 ### Fixing Missing Scripts
 
 It’s possible that your App installation may find itself unexpectedly missing one or more scripts. Below are some possible causes of this issue.
@@ -126,10 +108,6 @@ In order to render scripts, the store must have BigCommerce’s Optimized one-pa
 
 Stencil themes from the marketplace support the [Optimized One-Page Checkout](https://support.bigcommerce.com/articles/Public/Optimized-Single-Page-Checkout#signup). However, there could be instances where the merchant maintains their own private theme and the theme has not been updated to support the Optimized one-page checkout. In this case, the merchant is required to add the theme support, following the steps [here](https://stencil.bigcommerce.com/docs/optimized-checkout-prereqs).  
 
-
-
-
-
 ## Notes
 
 - If you are injecting scripts into the Checkout, you will need to update the scope to Checkout Content. Accounts can only be created by the [store owner](https://support.bigcommerce.com/articles/Public/Store-API-Accounts/).
@@ -153,10 +131,6 @@ Stencil themes from the marketplace support the [Optimized One-Page Checkout](ht
 </script>
 ```
 
-
-
-
-
 ## Script Visibility Locations
 
 | Scope | Visibility |
@@ -172,13 +146,7 @@ Scripts can not be injected to:
 - account.php
 - login.php
 
-
-
-
-
-
 ## Resources
 
 ## Related Endpoints
 * [Scripts](/api-reference/content/content-scripts-api)
-

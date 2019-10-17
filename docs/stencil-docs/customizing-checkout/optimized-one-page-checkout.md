@@ -12,8 +12,6 @@
 
 </div> 
 
-
-
 ## Working with the Optimized Checkout SCSS File
 
 Cornerstone includes an SCSS file that styles the Optimized Checkout page. In your local installation, this file is located at <span class="fn">cornerstone/assets/scss/optimized-checkout.scss</span>.s
@@ -29,14 +27,9 @@ You can access the most recent version of this file in the [Cornerstone reposito
 ### Customizing Checkout Restrictions
 > When customizing the checkout page, you are free to change classes' contents, however, **do not** nest elements or change any class names. BigCommerce imposes these restrictions because each class here maps to multiple Optimized Checkout elements. Changing the structure or naming would break updates available in future Optimized Checkout enhancements.
 
-
 </div>
 </div>
 </div>
-
-
-
-
 
 ## Configuring the Desktop Viewport
 
@@ -50,10 +43,6 @@ Within the <span class="fn">optimized-checkout.scss</span> file, to set up Optim
         text-align: stencilString("optimizedCheckout-logo-position");
     }
 ```
-
-
-
-
 
 ## Classes Available for Customization
 
@@ -74,18 +63,11 @@ Below are the classes provided in Cornerstone's <span class="fn">optimized-check
 | `.optimizedCheckout-form-label` | Styles form fields like `Email Address` – the field's text-label color. |
 | `.optimizedCheckout-form-input` | Styles form fields like `Email Address` – the entry box's background and border colors. |
 
-
-
-
-
-
 ## Providing Customizable Options in Store Design
 
 You can determine which aspects of Optimized One-Page Checkout merchants will be able to customize with the Store Design tool.
 
 In Cornerstone's <span class="fn">optimized-checkout.scss</span>, each SCSS class and property available has a corresponding key/value pair in the <span class="fn">config.json</span> file, which can be used as the `id` value in schema.json when [creating customizable Store Design options](/stencil-docs/store-design/schema-json-metadata).
-
-
 
 <a id="optimized_currency"></a>
 
@@ -120,8 +102,6 @@ At checkout, the shopper will still be billed in the store’s default currency.
 -->
 
 ![](//s3.amazonaws.com/user-content.stoplight.io/6116/1562870949093 "")
-
-
 
 ## Resources
 

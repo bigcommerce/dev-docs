@@ -11,8 +11,6 @@
 
 Here is how BigCommerce and our partners collaborate to integrate a partner's theme changes/updates into the BigCommerce Theme Marketplace (which merchants also know as our "theme store"):
 
-
-
 ## Prerequisites 
 
 Integrating a partner's theme changes requires these preconditions:
@@ -30,14 +28,9 @@ Integrating a partner's theme changes requires these preconditions:
 ### Template Path Abstracted
 > The Theme Development store resolves the %%GLOBAL_TPL_PATH%% variable into /template/. Therefore, assets will be pulled from the /template/ directory, which is accessible via WebDAV or via the BigCommerce control panel.
 
-
 </div>
 </div>
 </div>
-
-
-
-
 
 ## Update Process 
 
@@ -76,13 +69,8 @@ Integrating a partner's theme changes requires these preconditions:
 6.  Partner [emails](mailto:themestore@bigcommerce.com) their Git URL to the BigCommerce Theme Marketplace.
 7.  BigCommerce integrates changes into BigCommerce Themes.
 
-
-
-
-
 ## Other Requirements 
 
 *   Partners must not change the repository's directory structure or directory names.
 *   Files should have permission 644 (`rw-r–r–`).
 *   Directories should have permission 755 (`drwxr-x-r-x`).
-

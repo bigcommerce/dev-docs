@@ -24,10 +24,6 @@ Some use cases for the Shipping Provider API are:
 * Third-party logistics
 * Create a combination of in store pickup and shipping options for shoppers
 
-
-
-
-
 ## Prerequisites
 
 ### Scopes 
@@ -39,10 +35,6 @@ Be familiar with the following API Endpoints:
 - [Shipping Zones](/api-reference/store-management/shipping-api/shipping-zones)
 - [Shipping Methods](/api-reference/store-management/shipping-api/shipping-method)
 - [Shipping Carriers](/api-reference/store-management/shipping-api/shipping-carrier)
-
-
-
-
 
 ## Sign Up
 
@@ -70,10 +62,6 @@ To get your app ID, create an app in [Developer Tools](https://devtools.bigcomme
 ![#### App ID
 ](//s3.amazonaws.com/user-content.stoplight.io/6012/1552664114224 "#### App ID
 ")
-
-
-
-
 
 ## Before Development
 
@@ -110,10 +98,6 @@ Example:
   ]
 }
 ```
-
-
-
-
 
 ## Developing the App
 
@@ -180,7 +164,6 @@ Once the app is installed, it will be made available for configuration by mercha
 
 To set up a carrier using the API, first connect it using the Connect Carrier API. Make a request containing the connection settings required by your carrier. The ID of the carrier is required. The carrier ID will be issued by BigCommerce when your carrier is registered. All connection fields are unique per carrier. If your carrier doesn’t require any connection settings then this object can be left empty.
 
-
 <!--
 title: "Sample Request "
 subtitle: "POST https://developerserver.com/shipping/carrier/connection"
@@ -205,7 +188,6 @@ title: "Sample Request with Empty Object"
 subtitle: "POST https://developerserver.com/shipping/carrier/connection"
 lineNumbers: true
 -->
-
 
 **Exampe Request with Empty Object**  
 `/POST https://developerserver.com/shipping/carrier/connection`
@@ -264,10 +246,6 @@ lineNumbers: true
   "is_fallback": false
 }
 ```
-
-
-
-
 
 ## Returning Shipping Quotes
 
@@ -458,10 +436,6 @@ lineNumbers: true
 
 When an app with an associated shipping carrier is uninstalled, all of the shipping methods and the connection info for that carrier is automatically removed from the store. Quote requests will no longer be made and users will no longer see shipping quotes for that carrier.
 
-
-
-
-
 ## Submitting the App
 
 Before submitting your app make sure you have the following information. 
@@ -484,10 +458,6 @@ Any shipping zone-specific or connection-specific fields to be made available to
 
 To sumbit your app send an email to <a href="shippingproviderapi@bigcommerce.com">shippingproviderapi@bigcommerce.com</a>.
 
-
-
-
-
 ## App Diagram
 
 <!--
@@ -502,10 +472,6 @@ To sumbit your app send an email to <a href="shippingproviderapi@bigcommerce.com
 ")
 
 Only one registered shipping carrier may be associated with an app. This [registered carrier](#shipping_provider-definitions) can provide quotes from multiple downstream carriers if desired. In this case it will become a multi-carrier aggregator.
-
-
-
-
 
 ## Definitions
 
@@ -522,15 +488,9 @@ Only one registered shipping carrier may be associated with an app. This [regist
 | Shipping Zone | Describes a set of destination addresses and the applicable shipping settings, such as handling fees and available shipping methods.|
 | Shipping Origin | The location from which goods are shipped. This determines which shipping carriers are available for the merchant to configure in the control panel. |
 
-
-
-
-
 ## FAQ
 **Can I publish more than one app at a time?**  
 No, only one app at a time can be published. The others can be for use as testing or as private apps.
-
-
 
 ## Resources
 ### Webhooks
@@ -542,4 +502,3 @@ No, only one app at a time can be published. The others can be for use as testin
 - [Shipping Carriers](/api-reference/store-management/shipping-api/shipping-carrier)
 ### Related Articles
 - [App Store Approval Requirements](https://developer.bigcommerce.com/api-docs/partner/app-store-approval-requirements)
-

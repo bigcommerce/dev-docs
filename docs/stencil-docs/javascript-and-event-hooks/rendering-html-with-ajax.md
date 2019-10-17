@@ -72,4 +72,3 @@ $('body').on('click', '.quickview', (event) => {
   });
 });
 ```
-

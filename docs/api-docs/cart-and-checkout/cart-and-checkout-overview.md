@@ -12,8 +12,6 @@
 
 </div> 
 
-
-
 ## Storefront Cart and Checkout
 
 The Storefront APIs are for managing the contents of a shopper's cart and checkout using JavaScript in the context of a storefront session. 
@@ -133,10 +131,6 @@ console.log(myJson);
 </script>
 ```
 
-
-
-
-
 ## Server-to-Server Cart and Checkout
 
 The Server-to-Server APIs are for managing the contents of a shopping cart and checkout remotely, from a server. Using the Cart, Checkout and Payment API allows for a fully headless ecommerce solution.
@@ -145,15 +139,12 @@ The Server-to-Server APIs are for managing the contents of a shopping cart and c
 
 [Commerce-as-a-Service](https://www.bigcommerce.com/commerce-as-a-service/) is made possible with the Server-to-Server APIs. It lets the underlying cart, checkout, order and payment APIs be called from a separate app, allowing you to create a completely custom checkout without ever touching the BigCommerce storefront.
 
-
 ## When to Use
 * Modifying cart contents, such as price matching
 * Taking a shopper through cart and checkout using an app
 * Quote Builder - Building a cart then restoring it on the storefront
 * Native mobile apps
 * Pre-filling customer information
-
-
 
 <a href="#cart-checkout_persistent-cart" id="cart-checkout_persistent-cart"></a>
 
@@ -163,11 +154,6 @@ The Server-to-Server APIs are for managing the contents of a shopping cart and c
 
 Persistent Cart works with our Storefront Cart and Sever to Server Cart. 
 To learn more on setup, see [Persistent Cart](https://support.bigcommerce.com/s/article/Persistent-Cart).
-
-
-
-
-
 
 ## Troubleshooting Cart Errors
 We will go over common Storefront Cart and Checkout as well as Server to Server Cart and Checkout errors. Each scenario will include the error message and how to fix the error. The most common errors are listed below.
@@ -433,7 +419,6 @@ lineNumbers: true
 * The variantID is incorrect.
 * The modifierID is incorrect.
 
-
 **Resolution:**
 To add a product to the cart that has a single modifier (text field), POST to the [Cart API](/api-reference/cart-checkout/storefront-cart-api/cart/createacart) without the `variant_id`. Use the `optionId` and `optionValue` instead. 
 
@@ -555,9 +540,6 @@ When less than a product’s minimum required purchase or more than the maximum 
 ***Resolution:***
 Check the product for order_quantity_minimum and order_quantity_maximum for the correct amount to add the cart. Use the [Get Product](/api-reference/catalog/catalog-api/products/getproducts) endpoint.
 
-
-
-
 ## Resources
 
 ### Related Articles
@@ -573,4 +555,3 @@ Check the product for order_quantity_minimum and order_quantity_maximum for the 
 * [Storefront Checkout](/api-reference/cart-checkout/storefront-checkout-api)
 * [Server-to-Server Cart](/api-reference/cart-checkout/server-server-cart-api)
 * [Server-to-Server Checkout](/api-reference/cart-checkout/server-server-checkout-api)
-

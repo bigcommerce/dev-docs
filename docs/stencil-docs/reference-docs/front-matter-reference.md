@@ -319,8 +319,6 @@ If &lt;number&gt; is not defined, displays 250 characters.</td>
   </tr>
 </table>
 
-
-
 ## Product Attributes 
 
 Product attributes are available in the context of a product.
@@ -521,4 +519,3 @@ Search attributes are available in the context of a search results page.
 Defines the number of product search results displayed per page. Range of possible values is 1&ndash;100 products.</td>
   </tr>
 </table>
-

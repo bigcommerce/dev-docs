@@ -13,9 +13,6 @@ BigCommerce for WordPress allows you to power content-driven WordPress storefron
 
 You can use the BigCommerce for WordPress plugin as a building block to create an ecommerce solution that’s unique to your brand. Whether you want to link multiple WordPress storefronts to a single BigCommerce store or extend the open source plugin to create custom-made solutions, BigCommerce for WordPress makes it easy to combine the power of BigCommerce with the flexible presentation of WordPress.
 
-
-
-
 ## How It Works
 
 BigCommerce for WordPress connects your WordPress site to your BigCommerce store via API, and pulls all of the relevant data into a variety of database tables, some custom, some default WordPress. Products are a post type: product data is stored in the post table and product meta is stored in the post_meta table.
@@ -23,7 +20,6 @@ BigCommerce for WordPress connects your WordPress site to your BigCommerce store
 Orders data is stored on the BigCommerce servers and is accessible in your WordPress site via API with custom code and via a nice UI in the BigCommerce admin. 
 
 Most store options and settings are managed inside the BigCommerce UI, including Shipping, Taxes, and Payment Gateways.
-
 
 ### Templating
 
@@ -56,5 +52,3 @@ Channels allow you to manage products in BigCommerce and sell them on other stor
 When using the WordPress plugin for BigCommerce, each connected WordPress site is considered another channel. This means that your WordPress store is aware of inventory levels, because those are monitored centrally in your BigCommerce store, and when an order is placed, it appears in the BigCommerce Order View UI along with orders received on other channels. Orders are labeled with the channel they originated from, to help you track sales data across multiple channels.
 
 While merchants traditionally sell primarily through their BigCommerce store and supplement with channels, it is possible to mask the main BigCommerce store and treat any given channel as the primary store. This would allow you to use WordPress as your primary store.
-
-

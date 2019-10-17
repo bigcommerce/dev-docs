@@ -14,10 +14,6 @@ Stencil themes provide access to remote resources through data tags and event ho
 
 Stencil themes incorporate event hooks by importing the stencil-utils module. If take a look at [cornerstone/assets/js/theme/](https://github.com/bigcommerce/cornerstone/tree/master/assets/js/theme), you will see the import statement `'import utils from '@bigcommerce/stencil-utils';` at the top of files using leveraging event hooks.
 
-
-
-
-
 ## Cookie Notification Example
 
 In the example below, the `cookie-privacy-notification` hook enables customization of the alert window that displays European Union–required cookie notifications:
@@ -28,7 +24,6 @@ First, ensure you have loaded the `stencil-utils` package with the following com
 
 European websites must notify users of cookies to comply with European Union law.
 The following code implements hook that will alert shoppers that the website uses cookies.
-
 
 <div class="HubBlock-header">
     <div class="HubBlock-header-title flex items-center">
@@ -62,10 +57,6 @@ export default function() {
 ```
 
 A theme would listen for the `cookie-privacy-notification` event to override the browser’s default notification UI.
-
-
-
-
 
 ## Cart Dialog Example
 
@@ -115,9 +106,6 @@ addProductToCart() {
     });
 }
 ```
-
-
-
 
 ## Stencil Data Tags and Event Hooks
 Stencil themes provide the following chains of data tags, delegated DOM (Document Object Model) events, emitted Stencil event hooks, and Stencil event parameter(s).

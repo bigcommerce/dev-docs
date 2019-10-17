@@ -11,16 +11,9 @@
 
 To deter spam submission through storefront forms, BigCommerce now supports Google [reCAPTCHA v2](https://support.google.com/recaptcha/?hl=en#6080933) challenges, to distinguish human customers/visitors from automated bots.
 
-
-
 ## Better Spam Deterrence
 
 We recommend that all storefront themes take advantage of this upgraded bot detection. However, BigCommerce's legacy Blueprint themes were last published in our Theme Marketplace before we implemented reCAPTCHA v2. Therefore, please use the following instructions to update your Blueprint-based theme with the best-available deterrent against automated spam.
-
-
-
-
-
 
 ## How to Upgrade
 
@@ -73,8 +66,6 @@ lineNumbers: true
 
 Alternately, you might see the same `RecaptchaOptions` variable inside a different `<script>` tag at the top of the same three templates. If so, delete the lines shown here:
 
-
-
 <div class="HubBlock-header">
     <div class="HubBlock-header-title flex items-center">
         <div class="HubBlock-header-name"></div>
@@ -97,7 +88,6 @@ var RecaptchaOptions = {
 ### reCAPTCHA Script to Update
 
 Next, in each of the three template files, replace the "before" code block just below with the simplified "after" code that follows.
-
 
 #### Replace this (before):
 
@@ -131,7 +121,6 @@ value="manual_challenge">
 
 #### ...with this (after):
 
-
 <div class="HubBlock-header">
     <div class="HubBlock-header-title flex items-center">
         <div class="HubBlock-header-name"></div>
@@ -149,10 +138,6 @@ lineNumbers: true
 
 ```
 
-
-
-
-
 ## Supported Browsers 
 
 Below are the browsers supported for the BigCommerce control panel. We drop support when a version falls below 2% of usage. The browsers are sorted by popularity, with the most popular browsers at the top.
@@ -165,4 +150,3 @@ Below are the browsers supported for the BigCommerce control panel. We drop supp
 | Safari latest |
 
 For a current list of target browsers (desktop and mobile) that BigCommerce supports for _storefronts_ using our themes, please see <NOBR><a href="https://forum.bigcommerce.com/s/article/Themes-Supported-Browsers" target="_blank">this support page</a>.</nobr>
-

@@ -32,8 +32,6 @@ The article will walk you through enabling Google AMP pages in your theme.
 </div>
 </div>
 
-
-
 ## Implementing AMP
 
 Google AMP will be automatically added if your store's theme is based on Cornerstone themes 1.6.0+.
@@ -116,12 +114,7 @@ lineNumbers: true
 
 If you are having any implementation issues, review the [full Pull Request #964](https://github.com/bigcommerce/cornerstone/pull/946/files) for changes that need to be made to implement Google AMP. 
 
-
-
-
-
 ## Location of AMP Files
-
 
 In versions 1.6.0+ of Cornerstone, there are a few key file locations where the AMP information is located:
 
@@ -131,19 +124,12 @@ In versions 1.6.0+ of Cornerstone, there are a few key file locations where the 
 
 After the Google Analytics ID has been added via Control Panel, you can toggle AMP on the product and category pages using the [settings](https://support.bigcommerce.com/articles/Public/Google-AMP?_ga=2.205799699.1406470381.1541441523-967431010.1523308107) there.
 
-
-
-
-
-
 ## Local Testing
 
 You are able to test your AMP enabled pages at the following endpoints when running your store locally:
 
 * `localhost:3000/amp/category_url/`
 * `localhost:3000/amp/product_url/`
-
-
 
 ## Resources
 
@@ -153,4 +139,3 @@ You are able to test your AMP enabled pages at the following endpoints when runn
 * [Adding Analytics to your AMP Pages](https://developers.google.com/analytics/devguides/collection/amp-analytics/) (Google)
 * [Google AMP Home Page](https://www.ampproject.org/) (Google)
 * [Google Developer AMP Resources](https://developers.google.com/amp/) (Google)
-

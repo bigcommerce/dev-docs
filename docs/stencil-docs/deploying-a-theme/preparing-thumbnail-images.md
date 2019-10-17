@@ -11,8 +11,6 @@
 
 </div> 
 
-
-
 ## Where Merchants See Your Theme's Thumbnail Images
 
 A complete Stencil theme includes screenshots to show off the theme on cards that appear in two locations within the BigCommerce Control Panel:
@@ -53,10 +51,6 @@ A complete Stencil theme includes screenshots to show off the theme on cards tha
 ](//s3.amazonaws.com/user-content.stoplight.io/6116/1563227341485 "#### Mobile View of Themes Marketplace
 ")
 
-
-
-
-
 ## General Image Requirements
 
 Below are details about:
@@ -70,8 +64,6 @@ All screenshots described below must meet the following specifications in order 
 * Must be in **portrait aspect ratio**, with specific resolutions listed under [Themewide Composite Image](#preparing_themewide-composite) below.
 
  
-
-
 
 ## Themewide Composite Image
 
@@ -88,7 +80,6 @@ Here is an example of a compliant file type and location:
 `<theme‑name>/meta/composed.png`
 
 Here is how you would reference this file within [config.json](https://github.com/bigcommerce/cornerstone/blob/master/config.json):
-
 
 <div class="HubBlock-header">
     <div class="HubBlock-header-title flex items-center">
@@ -111,10 +102,6 @@ lineNumbers: true
     [...]
 }
 ```
-
-
-
-
 
 ## Variations: Desktop/Mobile Screenshots
 
@@ -140,7 +127,6 @@ Below is an example showing two files of compliant types and location:
 * `<theme‑name>/meta/mobile_bright.png`	
 
 Here is how you would reference these files within [config.json](https://github.com/bigcommerce/cornerstone/blob/master/config.json), for a variation named `Bright`:
-
 
  
 
@@ -170,8 +156,6 @@ lineNumbers: true
   ]
 
 ```
-
-
 
 ## Resources
 

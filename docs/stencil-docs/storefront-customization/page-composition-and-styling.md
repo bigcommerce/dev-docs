@@ -99,4 +99,3 @@ lineNumbers: true
 ### Matching Partials with Blocks
 
 For any given name defined within the template rendering path, we recommend that you maintain a 1:1 mapping of partials to blocks.
-

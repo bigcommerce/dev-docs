@@ -11,7 +11,6 @@
 	</ul>
 </div>
 
-
 Headless commerce decouples the front end from the ecommerce platform that powers it, allowing developers to build flexible and content-rich storefronts. BigCommerce provides APIs for the Catalog, Cart, Checkout, Orders, Customers, Authentication and Payments. The APIs can be plugged into an existing CMS or website for flexible content management. BigCommerce used this approach to create our [WordPress Plugin](https://www.bigcommerce.com/solutions/wordpress-ecommerce-plugin/). The WordPress Plugin allows for a developer to take advantage of WordPress content management while using our APIs to manage the catalog and shopper checkout.
 For a deeper guide on Headless, see our Whitepaper, [A New Era of Ecommerce: Headless Commerce](https://www.bigcommerce.com/new-era-headless-caas/).  
 
@@ -21,17 +20,8 @@ With headless, developers can use BigCommerce as the back-end for several stores
 
 In this article we will review ways you can implement headless, what requires PCI compliance audits and go through sample workflows for cart and checkout.
 
-
-
-
-
-
 ## Prerequisites
 To use the BigCommerce platform for headless commerce, you must have a store on an active plan. The store does not need to be [launched](https://support.bigcommerce.com/s/article/Launching-Your-Store).
-
-
-
-
 
 ## Ways to Implement Headless
 There are many ways to implement headless commerce. Below are just a few ways to start with Headless commerce.
@@ -72,7 +62,6 @@ If you are using the hosted checkout option shoppers will be able to navigate to
 
 * Hide non essential pages by removing the back links in Cart and Checkout.
 * Edit the theme files to hide the other pages from all visitors except for those who need to see them for maintenance. The steps to edit the theme files are outlined below.
-
 
 <!--
 title: "Edit the schema.json file"
@@ -122,10 +111,6 @@ To customize the checkout when using a redirect URL, use our [Checkout SDK](http
 **Checkout API**  
 If you need complete control over the checkout page, you have the option to build an external checkout in your CMS or app using the server-to-server Checkout API. Then use the Payments API to process a payment through BigCommerce to take payment for the order. If you are using the Payments API, you are responsible for [PCI compliance](#headless-commerce_pci-compliance).
 
-
-
-
-
 ## Customer Login
 
 ### Associate Cart with a Customer
@@ -141,10 +126,6 @@ Our WordPress plugin uses the approach of using the Customer API to [validate th
 
 If a new account is created in WordPress, the password is written to the customer account in BigCommerce and used as the validation in future requests. The password is never stored in the WordPress database. You can match customers using the email address and the [Customers API](https://developer.bigcommerce.com/api-reference/customer-subscribers/v3-customers-api).
 
-
-
-
-
 ## Sample Integration
 
 In the diagram below, the Storefront is any location the products are being rendered and where the shopper browses for products. With headless the storefront can be a CMS or an app. The Application is making API calls to BigCommerce in order to perform certain actions and return data either to display to the shopper or pass it along to another system. BigCommerce is creating the order and processing payments so you don’t need to worry about building the infrastructure.
@@ -155,7 +136,6 @@ The storefront is the front end presentation layer where a shopper interacts wit
 
 ### Application
 The application is what a developer builds to control the requests and responses from the BigCommerce APIs. In addition to handling essential ecommerce tasks like requesting product information or sending the request to process a payment, the application layer can also handle logic for custom functionality, like presenting discount codes based on a shopper's history or pre filling details on the checkout page.
-
 
 ### BigCommerce
 BigCommerce will respond to the application with the requested data to power the backend ecommerce functionality. It can handle processing payments, storing customer data, retrieving the catalog and order information.
@@ -170,10 +150,6 @@ BigCommerce will respond to the application with the requested data to power the
 ![#### Sample Headless Integration
 ](//s3.amazonaws.com/user-content.stoplight.io/6012/1554323466855 "#### Sample Headless Integration
 ")
-
-
-
-
 
 ## PCI Compliance
 
@@ -200,7 +176,6 @@ It is possible to use one more of BigCommerce's technology stack at the same tim
 -   [Merchants Classification Levels Mastercard](https://www.mastercard.us/en-us/merchants/safety-security/security-recommendations/merchants-need-to-know.html)
 -   [Self Assessment Questionaire (SAQ) Types and Identifying which SAQ is for you](https://www.pcisecuritystandards.org/documents/SAQ-InstrGuidelines-v3_2_1.pdf?agreement=true&time=1562173376464)
 
-
 <div class="HubBlock--callout">
 <div class="CalloutBlock--warning">
 <div class="HubBlock-content">
@@ -213,17 +188,12 @@ It is possible to use one more of BigCommerce's technology stack at the same tim
 </div>
 </div>
 
-
-
-
-
 ## Sample API Workflows
 
 Below are example workflows that list which APIs are needed to create a Cart, Checkout and Order on BigCommerce. Our headless implementation is based on the Server to Server Cart and Checkout APIs. There are currently two ways to handle this:
 
 * Create an order from a cart
 * Creating an order directly to bypass the cart and checkout
-
 
 ### Create an Order from a Cart
 [![Run in Postman](https://run.pstmn.io/button.svg)](https://app.getpostman.com/run-collection/f4dbc360974d4b5eff77)
@@ -264,13 +234,6 @@ Below are example workflows that list which APIs are needed to create a Cart, Ch
 4.  Credit Card -- The shopper has not saved a credit card
 	9. [Create Access Token](/api-reference/payments/payments-create-payment-token-api/payment-access-token/paymentsaccesstokenspost)
 	10. [Process Payment](/api-reference/payments/payments-process-payments/payment/paymentspost)
-
-
-
-
-
-
-
 
 ## Resources
 

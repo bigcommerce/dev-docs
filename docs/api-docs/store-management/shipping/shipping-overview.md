@@ -9,17 +9,11 @@
 	</ul>
 </div>
 
-
-
 Shipments are created from orders. A [shipment](/api-reference/orders/orders-api/order-shipments/createordershipments) represents a grouping of order line items that are shipped to a customer, and multiple shipments can be created from a single order.
 
 The V2 Shipping API allows you to manage Shipping Zones, Shipping Methods, and Shipping Carrier Connections.
 
 The Order Shipments resource creates a shipment for an order. You can specify the shipping provider, tracking number and shipping address id when creating a shipment.
-
-
-
-
 
 ## Storefront Checkout and Server-to-Server Checkout API
 
@@ -29,17 +23,9 @@ However, both the Storefront and Server-to-Server Checkout APIs provide methods 
 
 A Checkout will always have one Consignment assigned to it, which is the first shipping address. A Consignment supports multiple shipping addresses, with each address having its own line items.
 
-
-
-
-
 ## Order Shipping Addresses
 
 The [Order Shipping Addresses](https://developer.bigcommerce.com/api-reference/orders/orders-api/order-shipping-addresses) endpoint allows you to view the shipping addresses on an order. This will be the address(es) the items are shipped to.  An order can have more than one shipping address.
-
-
-
-
 
 ## Shipping Zone and Shipping Methods
 
@@ -47,17 +33,11 @@ The [Order Shipping Addresses](https://developer.bigcommerce.com/api-reference/o
 
 An example of a shipping zone might be North America, and within that shipping zone, the shipping methods might be Free Shipping, Ship-by-Weight, and USPS.
 
-
-
-
-
 ## Real-Time Carriers
 
 BigCommerce offers native integrations with many real-time shipping carriers such as UPS, Fedex, and USPS. The [Real-Time Carriers](https://developer.bigcommerce.com/api-reference/store-management/shipping-api/shipping-carrier) resource allows you to connect an account for one of our natively supported shipping carrier integrations.
 
 For a list of all supported carriers, see [Real-Time Quote Providers](https://support.bigcommerce.com/articles/Public/Setting-Up-a-Real-Time-Shipping-Quote-Shipping-Method/#providers).
-
-
 
 ## Resources
 

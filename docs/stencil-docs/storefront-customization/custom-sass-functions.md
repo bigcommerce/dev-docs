@@ -8,8 +8,6 @@
 
 </div> 
 
-
-
 ## Custom Sass Functions
 
 | Custom Sass Function  | Description  |
@@ -21,10 +19,6 @@
 | stencilString  | `stencilString` accepts (as a string) a key name that you have defined in <span class="fn">config.json</span> as editable. It returns (also as a string) the key’s value. This function is used for purposes like defining font family names, or defining paths to images.  |
 | stencilImage  | `stencilImage` accepts (as a string) a key name for an image url that you have defined in <span class="fn">config.json</span>. It also accepts (as a string) the key name for the image size that you have defined in <span class="fn">config.json</span>. It returns the string value of the image URL and the size.  |
 
-
-
-
-
 ## Compiling Custom Sass Files
 
 If you want to add your own custom Sass files to a theme, initiate auto-compilation of those files by including the associated tag in your HTML markup. Doing this is useful for isolating your custom styles. Cornerstone's Sass file is named:
@@ -34,7 +28,6 @@ If you want to add your own custom Sass files to a theme, initiate auto-compilat
 To add a custom Sass file, place it at this path location, using an arbitrary filename prefix as shown:
 
 <span class="fp">/assets/scss/foobar.scss</span>
-
 
 Next, import the custom file into `theme.css`.
 
@@ -55,7 +48,6 @@ Finally, ensure
 ```
 
 While `stencil start` is running, it will recompile your custom Sass files to the specified <span class="fp">`{theme-name}/assets/css/theme.css`</span> file. (Note that this object file’s name is always the same, and is independent of your custom Sass files’ names.) For an additional example, please see Replacing Content Blocks.
-
 
 <div class="HubBlock--callout">
 <div class="CalloutBlock--warning">

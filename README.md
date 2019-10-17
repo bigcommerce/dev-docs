@@ -6,14 +6,11 @@
 - [Components](/markdown/_components.md)
 - [Style Guide](https://intranet.bigcommerce.com/display/clientsuccess/Developer+Documentation+Style+Guide) (Intranet)
 
-
 This repo contains the markdown files and static assets powering [developer.bigcommerce.com](https://developer.bigcommerce.com/stencil-docs), which includes: 
 * [API Docs](https://developer.bigcommerce.com/api-docs)
 * [Theme Docs](https://developer.bigcommerce.com/stencil-docs)
 * [BigCommerce for Wordpress](https://developer.bigcommerce.com/bigcommerce-for-wordpress)
 * [Legacy](https://developer.bigcommerce.com/legacy)
-
-
 
 ## Directory Structure
 
@@ -56,8 +53,6 @@ This repo contains the markdown files and static assets powering [developer.bigc
 ├── ...
 ```
 
-
-
 ## Contributing to BigCommerce Developer Documentation
 
 <a id="contributing"></a>
@@ -98,15 +93,12 @@ You an also join our [BigCommerce Developers](https://support.bigcommerce.com/s/
 - [BigCommerce Ruby API](https://github.com/bigcommerce/bigcommerce-api-ruby)
 - [BigCommerce Node API - Community Supported](https://github.com/getconversio/node-bigcommerce)
 
-
 - [BigCommerce Checkout SDK](https://github.com/bigcommerce/checkout-sdk-js)
 - [BigCommerce Checkout SDK Example](https://github.com/bigcommerce/checkout-sdk-js-example)
-
 
 - [PHP Hello World App](https://github.com/bigcommerce/hello-world-app-php-silex)
 - [Python Hello World App](https://github.com/bigcommerce/hello-world-app-python-flask)
 - [Ruby Hello World App - OmniAuth](https://github.com/bigcommerce/omniauth-bigcommerce)
-
 
 - [Cornerstone Issues](https://github.com/bigcommerce/cornerstone)
 - [Stencil CLI](https://github.com/bigcommerce/stencil-cli)

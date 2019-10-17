@@ -97,4 +97,3 @@ An express installable app means that all scopes and permissions will be automat
 ### Must Meet App Requirements
 
 Any app, whether it is in the app marketplace or channel manager, must meet BigCommerce’s [app requirements](https://developer.bigcommerce.com/api-docs/partner/app-store-approval-requirements).
-
