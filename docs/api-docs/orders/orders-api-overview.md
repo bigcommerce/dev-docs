@@ -1,33 +1,20 @@
 # Orders API Overview
+
 <div class="otp" id="no-index">
-	<h3> On This Page </h3>
-	<ul>
-    		<li><a href="#orders-api-overview_create-order">Create an Order</a></li>
-            <ul>
-                <li><a href="#orders-api-overview_add-produt-options">Add an Existing Product with Options</a></li>
-                <li><a href="#orders-api-overview_add-custom-product">Create a Custom Product</a></li>
-                <li><a href="#orders-api-overview_order-products">Order Products</a></li>
-                <li><a href="#orders-api-overview_add-billing-address">Add a Billing Address</a></li>
-                <li><a href="#orders-api-overview_add-shipping-address">Add a Shipping Address</a></li>
-                <li><a href="#orders-api-overview_other-recommended-fields">Other Recommended Fields</a></li>
-                <li><a href="#orders-api-overview_create-order-example">Create Order Example</a></li>
-            </ul>
-            <li><a href="#orders-api-guide_order-response">Order Response</a></li>
-            <li><a href="#orders-api-overview_shipping-order">Shipping an Order</a></li>
-            <ul>
-                <li><a href="#orders-api-overview_create-order-shipment">Create an Order Shipment</a></li>
-                <li><a href="#orders-api-overview_multiple-locations">Multiple Locations</a></li>
-                <li><a href="#orders-api-overview_custom-quotes">Custom Quotes</a></li>
-                <li><a href="#orders-api-overview_shipping-carrier">Shipping Carrier</a></li>
-            </ul>
-            <li><a href="#orders-api-overview_taxes">Taxes</a></li>
-                <ul><li><a href="#orders-api-overview_taxes_avalara">Avalara</a></li></ul>
-            <li><a href="#orders-api-overview_calculation_totals">Calculation of Totals</a></li>
-            <li><a href="#orders-api-overview_order_status">Order Status</a></li>
-            <ul><li><a href="#orders-api-overview_custom-order-status">Custom Order Status</a></li></ul>
-            <li><a href="#orders-api-overview_faq">FAQ</a></li>
-	</ul>
-</div>
+
+### On This Page
+- [Introduction](#introduction)
+- [Create an Order](#create-an-order)
+- [Order Response](#order-response)
+- [Shipping an Order](#shipping-an-order)
+- [Taxes](#taxes)
+- [Overriding Preset Values](#overriding-preset-values)
+- [Calculation of Totals](#calculation-of-totals)
+- [Order Status](#order-status)
+- [FAQ](#faq)
+- [Resources](#resources)
+
+</div> 
 
 ## Introduction
 
