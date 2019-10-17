@@ -63,7 +63,7 @@ We will be making a widget that shows three images, with a hover effect and each
 
 
 
-<a href='#widget-tutorial_add-a-region' aria-hidden='true' class='block-anchor'  id='widget-tutorial_add-a-region'><i aria-hidden='true' class='linkify icon'></i></a>
+
 
 ## Add a Region
 In <span class="fp">templates/pages/category.html</span>, add `{{{region name="category_header_banner"}}}` below the page heading: 
@@ -117,7 +117,7 @@ lineNumbers: true
 
 
 
-<a href='#widget-tutorial_create-widget-template' aria-hidden='true' class='block-anchor'  id='widget-tutorial_create-widget-template'><i aria-hidden='true' class='linkify icon'></i></a>
+
 
 ## Create a Widget Template
 
@@ -167,7 +167,7 @@ lineNumbers: true
 
 
 
-<a href='#widget-tutorial_create-widget' aria-hidden='true' class='block-anchor'  id='widget-tutorial_create-widget'><i aria-hidden='true' class='linkify icon'></i></a>
+
 
 ## Create a Widget
 
@@ -234,7 +234,7 @@ lineNumbers: true
 ```
 
 
-<a href='#widget-tutorial_create-placement' aria-hidden='true' class='block-anchor'  id='widget-tutorial_create-placement'><i aria-hidden='true' class='linkify icon'></i></a>
+
 
 ## Create the Placement
 
@@ -327,7 +327,7 @@ lineNumbers: true
 ```
 
 
-<a href='#widget-tutorial_reuse-widget-template' aria-hidden='true' class='block-anchor'  id='widget-tutorial_reuse-widget-template'><i aria-hidden='true' class='linkify icon'></i></a>
+
 
 ## Reuse the Widget Template
 
@@ -341,7 +341,7 @@ To reuse the Widget Template:
 * [Create a Placement](/api-reference/storefront/widgets-api/placement/createplacement) using the Widget
 
 
-<a href='#widget-tutorial_resources' aria-hidden='true' class='block-anchor'  id='widget-tutorial_resources'><i aria-hidden='true' class='linkify icon'></i></a>
+
 
 ## Resources
 

@@ -18,7 +18,7 @@ Template variables are enclosed within `%%` markers. These types of variables ar
 
 
 
-<a href='#global-variables-references' aria-hidden='true' class='block-anchor'  id='global-variables-references'><i aria-hidden='true' class='linkify icon'></i></a>
+
 
 ## Global-Variables References 
 
@@ -35,7 +35,7 @@ Specific variables' availability depends on the layout template that you're edit
 
 
 
-<a href='#panel-references' aria-hidden='true' class='block-anchor'  id='panel-references'><i aria-hidden='true' class='linkify icon'></i></a>
+
 
 ## Panel References 
 
@@ -53,7 +53,7 @@ This panel reference will load in the content from the `Panels/HomeFeaturedProdu
 
 
 
-<a href='#snippet-references' aria-hidden='true' class='block-anchor'  id='snippet-references'><i aria-hidden='true' class='linkify icon'></i></a>
+
 
 ## Snippet References 
 
@@ -71,7 +71,7 @@ This snippet reference will contain repeated copies of `Snippets/HomeFeaturedPro
 
 
 
-<a href='#referencing-distributed-theme-assets' aria-hidden='true' class='block-anchor'  id='referencing-distributed-theme-assets'><i aria-hidden='true' class='linkify icon'></i></a>
+
 
 ## Referencing Distributed Theme Assets 
 
@@ -132,7 +132,7 @@ url(//mystore.com/content/images/foo.jpg")
 
 
 
-<a href='#file-includes' aria-hidden='true' class='block-anchor'  id='file-includes'><i aria-hidden='true' class='linkify icon'></i></a>
+
 
 ## File Includes 
 

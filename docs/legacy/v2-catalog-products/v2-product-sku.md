@@ -12,7 +12,7 @@
 
 </div> 
 
-<a href='#v2-sku_object-properties' aria-hidden='true' class='block-anchor'  id='v2-sku_object-properties'><i aria-hidden='true' class='linkify icon'></i></a>
+
 
 ## SKUs 
 
@@ -40,7 +40,7 @@ Stock Keeping Unit identifiers associated with products or product options.
 | options | object_array | This is an object {"product_option_id": int, "option_value_id":int} |
 
 
-<a href='#v2-sku_list-product-sku' aria-hidden='true' class='block-anchor'  id='v2-sku_list-product-sku'><i aria-hidden='true' class='linkify icon'></i></a>
+
 
 ## List Product SKUs 
 
@@ -142,7 +142,7 @@ Example JSON returned in the response:
 ]
 ```
 
-<a href='#v2-sku_get-product-sku' aria-hidden='true' class='block-anchor'  id='v2-sku_get-product-sku'><i aria-hidden='true' class='linkify icon'></i></a>
+
 
 ## Get a Product SKU 
 
@@ -181,7 +181,7 @@ Example JSON returned in the response:
 }
 ```
 
-<a href='#v2-sku_get-count-sku' aria-hidden='true' class='block-anchor'  id='v2-sku_get-count-sku'><i aria-hidden='true' class='linkify icon'></i></a>
+
 
 ### Get a Count of Product SKUs 
 
@@ -202,7 +202,7 @@ Example JSON returned in the response:
 }
 ```
 
-<a href='#v2-sku_create-product-sku' aria-hidden='true' class='block-anchor'  id='v2-sku_create-product-sku'><i aria-hidden='true' class='linkify icon'></i></a>
+
 
 ### Create a Product SKU 
 
@@ -264,7 +264,7 @@ Example JSON returned in the response:
 }
 ```
 
-<a href='#v2-sku_update-product-sku' aria-hidden='true' class='block-anchor'  id='v2-sku_update-product-sku'><i aria-hidden='true' class='linkify icon'></i></a>
+
 
 ## Update a Product SKU 
 
@@ -317,7 +317,7 @@ Example JSON returned in the response:
 }
 ```
 
-<a href='#v2-sku_delete-product-sku' aria-hidden='true' class='block-anchor'  id='v2-sku_delete-product-sku'><i aria-hidden='true' class='linkify icon'></i></a>
+
 
 ## Delete a Product SKU 
 
@@ -325,7 +325,7 @@ Deletes a product SKU.
 
 >`DELETE /stores/{store_hash}/v2/products/{product_id}/skus/{id}`
 
-<a href='#v2-sku_delete-multiple-product-sku' aria-hidden='true' class='block-anchor'  id='v2-sku_delete-multiple-product-sku'><i aria-hidden='true' class='linkify icon'></i></a>
+
 
 ## Delete Multiple Product SKUs 
 

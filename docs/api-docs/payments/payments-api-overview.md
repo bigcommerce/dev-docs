@@ -27,10 +27,6 @@ Payments are processed via a sequence of requests to two API hosts:
 
 [![Run in Postman](https://run.pstmn.io/button.svg)](https://app.getpostman.com/run-collection/38daa68bda00ba9d4734)
 
-
-
-<a href='#payments_pci-compliance' aria-hidden='true' class='block-anchor'  id='payments_pci-compliance'><i aria-hidden='true' class='linkify icon'></i></a>
-
 ## PCI Compliance
 
 BigCommerce is only responsible for the security of credit card to the extent that it is directly in the route of the payment request to payment processors during a payment processing request. To ensure secure handling of payment instruments, as a third-party developer, you are responsible for developing the storefronts or recurring billing apps in a PCI compliant manner and maintaining a PCI compliance certification for third-party service providers certified by an external Qualified Security Assessor (QSA).
@@ -50,10 +46,6 @@ Merchants or shoppers personal identifiable information (PII) collected by recur
 </div>
 </div>
 
-
-
-<a href='#payments_processing-payment' aria-hidden='true' class='block-anchor'  id='payments_processing-payment'><i aria-hidden='true' class='linkify icon'></i></a>
-
 ## Processing a Payment
 
 Payments can be processed using cards stored with the BigCommerce Stored Credit Cards feature or by providing a credit card number.  
@@ -65,7 +57,6 @@ Payments can be processed using cards stored with the BigCommerce Stored Credit 
 * CyberSource
 * Stripe
 * Paymetric
-
 
 **The following gateways are supported for credit cards:**
 
@@ -103,10 +94,6 @@ Payments can be processed using cards stored with the BigCommerce Stored Credit 
 </div>
 </div>
 </div>
-
-
-
-<a href='#payments_stored-cards' aria-hidden='true' class='block-anchor'  id='payments_stored-cards'><i aria-hidden='true' class='linkify icon'></i></a>
 
 ### Stored Cards
 There are three steps to using a stored card to make a payment.
@@ -216,7 +203,6 @@ lineNumbers: true
 }
 ```
 
-
 <!--
 title: "Sample Response"
 subtitle: "Create Payment Access Token"
@@ -262,7 +248,6 @@ The headers to process a payment are different than the headers you normally sen
 </div>
 </div>
 </div>
-
 
 <!--
 title: "Sample Request"
@@ -311,10 +296,6 @@ lineNumbers: true
 ```
 
 If the purchase was successful it will return a status of success. The order is then automatically moved to an Awaiting Fulfillment status. If you get a different response, see [Error Codes](#payments_error-codes) for troubleshooting.
-
-
-
-<a href='#payments_credit-cards' aria-hidden='true' class='block-anchor'  id='payments_credit-cards'><i aria-hidden='true' class='linkify icon'></i></a>
 
 ## Credit Cards
 
@@ -445,10 +426,6 @@ lineNumbers: true
 
 If the purchase was successful it will return a status of success. The order is then automatically moved to an Awaiting Fulfillment status. If you get a different response, see [Error Codes](#payments_error-codes) for troubleshooting.
 
-
-
-<a href='#payments_orders-api' aria-hidden='true' class='block-anchor'  id='payments_orders-api'><i aria-hidden='true' class='linkify icon'></i></a>
-
 ## Using the Orders API
 
 It is possible to take a payment for an order created using the [Orders API](https://developer.bigcommerce.com/api-docs/orders/orders-api-overview). When creating the order using the Orders API make sure the `status_id:0`. If the order status is not created with the status set to `0` or `Incomplete`, the Payments API will return an [error](#payments_error-codes).
@@ -514,8 +491,6 @@ lineNumbers: true
 }
 ```
 
-<a href='#payments_technical-details' aria-hidden='true' class='block-anchor'  id='payments_technical-details'><i aria-hidden='true' class='linkify icon'></i></a>
-
 ## Technical Details
 
 ### Using Test Credit Cards
@@ -526,7 +501,6 @@ The following is a list of supported gateways and a list of their test credit ca
 * [Paypal Powered by Braintree](https://developers.braintreepayments.com/guides/credit-cards/testing-go-live/php)
 * [CyberSource](https://www.cybersource.com/developers/other_resources/quick_references/test_cc_numbers/)
 * [Stripe](https://stripe.com/docs/testing#cards)
-
 
 ### Token
 The `payment_access_token` is not from the payment provider. It is created by BigCommerce.
@@ -549,10 +523,6 @@ The card data is not accessible via the API once the payment is processed.
 ### Rate Limits
 BigCommerce has rates limits in place for this API. Some payment providers will provide checks on the incoming requests.
 
-
-
-<a href='#payments_sample-app-diagram' aria-hidden='true' class='block-anchor'  id='payments_sample-app-diagram'><i aria-hidden='true' class='linkify icon'></i></a>
-
 ## Sample App Diagram
 
 The following diagram shows how the `payment_access_token` interacts with BigCommerce API and BigCommerce payments.
@@ -569,10 +539,6 @@ Orders can be created using the [Server to Server API Endpoints](https://develop
 ![#### Sample App
 ](//s3.amazonaws.com/user-content.stoplight.io/6012/1553180551833 "#### Sample App
 ")
-
-
-
-<a href='#payments_error-codes' aria-hidden='true' class='block-anchor'  id='payments_error-codes'><i aria-hidden='true' class='linkify icon'></i></a>
 
 ## Error Codes
 
@@ -594,10 +560,6 @@ Orders can be created using the [Server to Server API Endpoints](https://develop
 | `30104` | The payment was declined. Please contact card issuer for more information. |N/A |N/A|
 | `30105` | The payment was declined due to duplicate payment being submitted. |N/A |N/A |
 | `30106` | The payment was declined due to insufficient funds. |N/A |N/A|
-
-
-
-<a href='#payments_faq' aria-hidden='true' class='block-anchor'  id='payments_faq'><i aria-hidden='true' class='linkify icon'></i></a>
 
 ## FAQ
 
@@ -634,8 +596,6 @@ Gift certificates are not supported with the Payments API. Gift certificates can
 
 **Are offline payment methods supported?**
 The Payments API is designed to process credit card payments through supported payment gateways; it does not expose methods for processing [offline payment methods](https://support.bigcommerce.com/s/article/Offline-Payment-Methods) such as cash on delivery.
-
-
 
 ## Resources
 

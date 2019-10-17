@@ -24,8 +24,6 @@ Before we begin, here are a few key concepts:
 
 [![Run in Postman](https://run.pstmn.io/button.svg)](https://app.getpostman.com/run-collection/00c3651bcff8d70a61e8)
 
-<a href='#making-requests_get-products' aria-hidden='true' class='block-anchor'  id='making-requests_get-products'><i aria-hidden='true' class='linkify icon'></i></a>
-
 ## Getting a List of Products
 In this walkthrough, we'll get a list of products from the store, use a limit filter to only show the first 10 products, and sort products by name. 
 
@@ -312,8 +310,6 @@ The products are returned in a data array that contains each product object. Loc
 ### Next Steps
 * Try including other filter paramters such as name or include and exclude. See [Get All Products](/api-reference/catalog/catalog-api/products/getproducts) for a full list of available filters. 
 
-<a href='#making-requests_create-a-product' aria-hidden='true' class='block-anchor'  id='making-requests_create-a-product'><i aria-hidden='true' class='linkify icon'></i></a>
-
 ## Create a Product
 
 In this walkthrough, we'll create an example product: BigCommerce Hoodie. The minimum parameters to create a product are: name, price, category, type and weight. 
@@ -471,8 +467,6 @@ lineNumbers: true
 ### Next Steps
 * To see a full list of fields that can be sent in a request see [Create a Product](/api-reference/catalog/catalog-api/products/createproduct)
 * Try to make a different product with new attributes.
-
-<a href='#making-requests_troubleshooting' aria-hidden='true' class='block-anchor'  id='making-requests_troubleshooting'><i aria-hidden='true' class='linkify icon'></i></a>
 
 ## Troubleshooting
 

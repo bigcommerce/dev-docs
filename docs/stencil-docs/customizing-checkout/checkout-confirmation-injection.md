@@ -12,7 +12,7 @@
 
 </div>
 
-<a href='#checkout_adding' aria-hidden='true' class='block-anchor'  id='checkout_adding'><i aria-hidden='true' class='linkify icon'></i></a>
+
 
 ## Adding Storewide Styles
 
@@ -26,7 +26,7 @@ A prerequisite for the next two options is to add themewide styles to your Check
 
 
 
-<a href='#checkout_applying-storewide-header' aria-hidden='true' class='block-anchor'  id='checkout_applying-storewide-header'><i aria-hidden='true' class='linkify icon'></i></a>
+
 
 ## Applying Storewide Header
 
@@ -61,7 +61,7 @@ Ensure that you paste it before this **existing** statement:
 
 
 
-<a href='#checkout_applying-storewide-scripts' aria-hidden='true' class='block-anchor'  id='checkout_applying-storewide-scripts'><i aria-hidden='true' class='linkify icon'></i></a>
+
 
 ## Applying Storewide Scripts
 
@@ -143,7 +143,7 @@ Insert it between these existing statements, so it will ultimately read as shown
 
 
 
-<a href='#checkout_adding-trust-seals' aria-hidden='true' class='block-anchor'  id='checkout_adding-trust-seals'><i aria-hidden='true' class='linkify icon'></i></a>
+
 
 ## Adding Trust Seals
 
@@ -155,7 +155,7 @@ To add a trust seal to either template:
 
 
 
-<a href='#checkout_app-injection' aria-hidden='true' class='block-anchor'  id='checkout_app-injection'><i aria-hidden='true' class='linkify icon'></i></a>
+
 
 ## Checkout App Injection 
 

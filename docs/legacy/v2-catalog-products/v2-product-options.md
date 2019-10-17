@@ -9,7 +9,7 @@
 
 </div> 
 
-<a href='#v2-options_object-properties' aria-hidden='true' class='block-anchor'  id='v2-options_object-properties'><i aria-hidden='true' class='linkify icon'></i></a>
+
 
 ## Product Options 
 
@@ -26,7 +26,7 @@
 
 
 
-<a href='#v2-review_list-product-reviews' aria-hidden='true' class='block-anchor'  id='v2-review_list-product-reviews'><i aria-hidden='true' class='linkify icon'></i></a>
+
 
 ## List Product Options
 
@@ -66,7 +66,7 @@ Example JSON returned in the response:
 ]
 ```
 
-<a href='#v2-review-product-options' aria-hidden='true' class='block-anchor'  id='v2-review-product-options'><i aria-hidden='true' class='linkify icon'></i></a>
+
 
 ## Get a Product Option
 

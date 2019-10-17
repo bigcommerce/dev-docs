@@ -16,7 +16,7 @@ Style Editor uses Less.js as a CSS preprocessor. This allows Style Editor to tak
 
 
 
-<a href='#what-is-lessjs' aria-hidden='true' class='block-anchor'  id='what-is-lessjs'><i aria-hidden='true' class='linkify icon'></i></a>
+
 
 ## What Is Less.js? 
 
@@ -27,7 +27,7 @@ For more information on examples, techniques, and how to install Less, please se
 
 
 
-<a href='#integrating-theme-style-editor' aria-hidden='true' class='block-anchor'  id='integrating-theme-style-editor'><i aria-hidden='true' class='linkify icon'></i></a>
+
 
 ## Integrating a Theme with the Style Editor 
 
@@ -242,7 +242,7 @@ Less offers a variety of compilation methods, including applications for both Wi
 
 
 
-<a href='#testing-style-editor-with-theme' aria-hidden='true' class='block-anchor'  id='testing-style-editor-with-theme'><i aria-hidden='true' class='linkify icon'></i></a>
+
 
 ## Testing Style Editor with Your Theme 
 

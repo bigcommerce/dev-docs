@@ -18,7 +18,7 @@
 
 </div> 
 
-<a href='#amp_whats-amp' aria-hidden='true' class='block-anchor'  id='amp_whats-amp'><i aria-hidden='true' class='linkify icon'></i></a>
+
 
 ## What's AMP?
 
@@ -28,7 +28,7 @@ AMP aims to load your web pages faster and thus providing a better end user expe
 
 While AMP is quite widely used in the publishing industry and many large news organizations have taken advantage of it, AMP has not yet been rolled out in any significant way to ecommerce stores. This means there is a big opportunity for online stores to get in early and start publishing AMP valid stores to increase traffic, conversion rates, and ultimately sales.
 
-<a href='#amp_real-world' aria-hidden='true' class='block-anchor'  id='amp_real-world'><i aria-hidden='true' class='linkify icon'></i></a>
+
 
 ## AMP real world example
 
@@ -42,7 +42,7 @@ Search engine optimization is one of the key advantages of AMP, however user exp
 
 The good news is that BigCommerce for WordPress ships with AMP by default.
 
-<a href='#amp_how-to' aria-hidden='true' class='block-anchor'  id='amp_how-to'><i aria-hidden='true' class='linkify icon'></i></a>
+
 
 ## How to enable AMP
 
@@ -55,7 +55,7 @@ Alternatively, you can use the WordPress installer to install the Official AMP P
 Once the plugin is installed and activated, your store will immediately start serving an AMP version of the store when requested.
 
 
-<a href='#amp_wordpress-amp' aria-hidden='true' class='block-anchor'  id='amp_wordpress-amp'><i aria-hidden='true' class='linkify icon'></i></a>
+
 
 ## WordPress AMP plugin support
 
@@ -64,7 +64,7 @@ The Official AMP Plugin for WordPress is currently at version 0.7.2 and the BigC
 Version 1.0 of the Official AMP Plugin for WordPress is due to be released shortly and the great news is that BigCommerce for WordPress already fully supports this version of the AMP plugin. Version 1.0 brings a whole new set of features including the ability to validate AMP inside WordPress and we’re excited to be able to support that with the BigCommerce plugin.
 
 
-<a href='#amp_choosing' aria-hidden='true' class='block-anchor'  id='amp_choosing'><i aria-hidden='true' class='linkify icon'></i></a>
+
 
 ## Choosing an AMP mode
 
@@ -100,7 +100,7 @@ This is the original mode for rendering AMP pages and it renders an AMP theme th
 
 Generally this mode works out of the box and not much customization is needed to be done to your website for it to be AMP valid, this is because it uses specific a specific AMP valid theme. The draw back being that your website theme is different from the AMP theme.
 
-<a href='#amp_previewing' aria-hidden='true' class='block-anchor'  id='amp_previewing'><i aria-hidden='true' class='linkify icon'></i></a>
+
 
 ## Previewing AMP
 
@@ -121,7 +121,7 @@ For paired mode, you can only use the ?amp query parameter to show the AMP versi
 ### Native Mode
 As discussed earlier, native mode will always display the AMP version of the theme.
 
-<a href='#amp_amp-tools' aria-hidden='true' class='block-anchor'  id='amp_amp-tools'><i aria-hidden='true' class='linkify icon'></i></a>
+
 
 ## AMP Tools
 
@@ -140,7 +140,7 @@ If you’re using Chrome, there is an AMP Validator extension that allows you to
 [https://chrome.google.com/webstore/detail/amp-validator/nmoffdblmcmgeicmolmhobpoocbbmknc?hl=en](https://chrome.google.com/webstore/detail/amp-validator/nmoffdblmcmgeicmolmhobpoocbbmknc?hl=en)
 
 
-<a href='#amp_amp-for-seo' aria-hidden='true' class='block-anchor'  id='amp_amp-for-seo'><i aria-hidden='true' class='linkify icon'></i></a>
+
 
 ## AMP for SEO
 
@@ -149,7 +149,7 @@ Earlier we talked about how AMP can be beneficial for SEO purposes and driving w
 There is nothing additional that you need to do to get the added SEO benefit from AMP, it’s all handled for you by the plugin and Google crawler.
 
 
-<a href='#amp_customizing-amp' aria-hidden='true' class='block-anchor'  id='amp_customizing-amp'><i aria-hidden='true' class='linkify icon'></i></a>
+
 
 ## Customizing AMP templates
 

@@ -15,7 +15,7 @@ The following variables are available within individual BigCommerce email templa
 
 
 
-<a href='#gift-certificate-email-template' aria-hidden='true' class='block-anchor'  id='gift-certificate-email-template'><i aria-hidden='true' class='linkify icon'></i></a>
+
 
 ## Gift Certificate Email Template 
 
@@ -37,7 +37,7 @@ Sent to the recipient of a gift certificate.
 
 
 
-<a href='#abandoned-cart-email-template' aria-hidden='true' class='block-anchor'  id='abandoned-cart-email-template'><i aria-hidden='true' class='linkify icon'></i></a>
+
 
 ## Abandoned Cart Email Template 
 
@@ -54,7 +54,7 @@ Sent when a customer abandons a shopping cart.
 
 
 
-<a href='#invoice-email-template' aria-hidden='true' class='block-anchor'  id='invoice-email-template'><i aria-hidden='true' class='linkify icon'></i></a>
+
 
 ## Invoice Email Template 
 
@@ -93,7 +93,7 @@ Sent when a customer places an order.
 
 
 
-<a href='#order-status-email-template' aria-hidden='true' class='block-anchor'  id='order-status-email-template'><i aria-hidden='true' class='linkify icon'></i></a>
+
 
 ## Order Status Email Template 
 
@@ -120,7 +120,7 @@ Sent when an order's status is changed.
 
 
 
-<a href='#return-confirmation-email-template' aria-hidden='true' class='block-anchor'  id='return-confirmation-email-template'><i aria-hidden='true' class='linkify icon'></i></a>
+
 
 ## Return Confirmation Email Template 
 

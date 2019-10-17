@@ -11,7 +11,7 @@
 
 To deter spam submission through storefront forms, BigCommerce now supports Google [reCAPTCHA v2](https://support.google.com/recaptcha/?hl=en#6080933) challenges, to distinguish human customers/visitors from automated bots.
 
-<a href='#better-spam-deterrance' aria-hidden='true' class='block-anchor'  id='better-spam-deterrance'><i aria-hidden='true' class='linkify icon'></i></a>
+
 
 ## Better Spam Deterrence
 
@@ -20,7 +20,7 @@ We recommend that all storefront themes take advantage of this upgraded bot dete
 
 
 
-<a href='#blueprint-how-to-upgrade-recaptcha' aria-hidden='true' class='block-anchor'  id='blueprint-how-to-upgrade-recaptcha'><i aria-hidden='true' class='linkify icon'></i></a>
+
 
 ## How to Upgrade
 
@@ -151,7 +151,7 @@ lineNumbers: true
 
 
 
-<a href='#blueprint-supported-browsers' aria-hidden='true' class='block-anchor'  id='blueprint-supported-browsers'><i aria-hidden='true' class='linkify icon'></i></a>
+
 
 ## Supported Browsers 
 

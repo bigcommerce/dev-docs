@@ -9,7 +9,7 @@
 	</ul>
 </div>
 
-<a href='#shipping_what-is-a-shipment' aria-hidden='true' class='block-anchor'  id='shipping_what-is-a-shipment'><i aria-hidden='true' class='linkify icon'></i></a>
+
 
 Shipments are created from orders. A [shipment](/api-reference/orders/orders-api/order-shipments/createordershipments) represents a grouping of order line items that are shipped to a customer, and multiple shipments can be created from a single order.
 
@@ -19,7 +19,7 @@ The Order Shipments resource creates a shipment for an order. You can specify th
 
 
 
-<a href='#shipping_storefront-server-checkout' aria-hidden='true' class='block-anchor'  id='shipping_storefront-server-checkout'><i aria-hidden='true' class='linkify icon'></i></a>
+
 
 ## Storefront Checkout and Server-to-Server Checkout API
 
@@ -31,7 +31,7 @@ A Checkout will always have one Consignment assigned to it, which is the first s
 
 
 
-<a href='#shipping_order-shipping-addresses' aria-hidden='true' class='block-anchor'  id='shipping_order-shipping-addresses'><i aria-hidden='true' class='linkify icon'></i></a>
+
 
 ## Order Shipping Addresses
 
@@ -39,7 +39,7 @@ The [Order Shipping Addresses](https://developer.bigcommerce.com/api-reference/o
 
 
 
-<a href='#shipping_shipping-zone-methods' aria-hidden='true' class='block-anchor'  id='shipping_shipping-zone-methods'><i aria-hidden='true' class='linkify icon'></i></a>
+
 
 ## Shipping Zone and Shipping Methods
 
@@ -49,7 +49,7 @@ An example of a shipping zone might be North America, and within that shipping z
 
 
 
-<a href='#shipping_real-time-carriers' aria-hidden='true' class='block-anchor'  id='shipping_real-time-carriers'><i aria-hidden='true' class='linkify icon'></i></a>
+
 
 ## Real-Time Carriers
 

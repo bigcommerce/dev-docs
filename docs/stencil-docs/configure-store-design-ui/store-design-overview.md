@@ -18,7 +18,7 @@ As a theme developer, you can configure your own settings for Store Design. Your
 
 
 
-<a href='#store-design_configuration-files' aria-hidden='true' class='block-anchor'  id='store-design_configuration-files'><i aria-hidden='true' class='linkify icon'></i></a>
+
 
 ## Configuration Files
 
@@ -34,7 +34,7 @@ For documentation on the principal keys included in Stencil's reference Cornerst
 
 
 
-<a href='#store-design_managing-keys' aria-hidden='true' class='block-anchor'  id='store-design_managing-keys'><i aria-hidden='true' class='linkify icon'></i></a>
+
 
 ## Managing Keys between Versions
 
@@ -48,7 +48,7 @@ Adding new keys is generally fine. (However, each key in <span class="fn">schema
 
 
 
-<a href='#store-design_persistent-settings' aria-hidden='true' class='block-anchor'  id='store-design_persistent-settings'><i aria-hidden='true' class='linkify icon'></i></a>
+
 
 ## Persistent Settings Storage
 
@@ -56,7 +56,7 @@ When store administrators use Store Design to customize your theme for their sto
 
 
 
-<a href='#store-design_theme-upgrades' aria-hidden='true' class='block-anchor'  id='store-design_theme-upgrades'><i aria-hidden='true' class='linkify icon'></i></a>
+
 
 ## Theme Upgrades and Settings
 

@@ -11,14 +11,14 @@
 
 </div>
 
-<a href='#multisite_overview' aria-hidden='true' class='block-anchor'  id='multisite_overview'><i aria-hidden='true' class='linkify icon'></i></a>
+
 
 When connecting more than one WordPress site to your BigCommerce store, you need to use an API account to link them. If you try to connect using the 'connect your store' flow, which uses a BigCommerce app to streamline the connection, your first WordPress site will lose its connection to BigCommerce.
 
 Multiple sites can share the same API credentials or you can choose to create a new set of credentials for each site.
 
 
-<a href='#multisite_getting' aria-hidden='true' class='block-anchor'  id='multisite_getting'><i aria-hidden='true' class='linkify icon'></i></a>
+
 
 ## Getting Your API Credentials
 
@@ -105,7 +105,7 @@ The screen will also contain your API Path, which you will need for the WordPres
 ](//s3.amazonaws.com/user-content.stoplight.io/6116/1544044589538 "#### .txt file download
 ")
 
-<a href='#multisite_setting-up' aria-hidden='true' class='block-anchor'  id='multisite_setting-up'><i aria-hidden='true' class='linkify icon'></i></a>
+
 
 ## Setting up a WordPress Site Using API Account Credentials
 
@@ -153,7 +153,7 @@ _Congratulations, you're done setting up your additional site!_
 
 
 
-<a href='#multisite_additional' aria-hidden='true' class='block-anchor'  id='multisite_additional'><i aria-hidden='true' class='linkify icon'></i></a>
+
 
 ## Additional Resources
 

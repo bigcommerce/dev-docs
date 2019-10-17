@@ -10,7 +10,7 @@
 
 Merchants commonly request developers modify the default content of packing slips in order to satisfy specific business requirements and industry demands. In order to assist developers in making these changes, this articles contains instructions on how to edit the printable packing slip’s HTML.
 
-<a href='#customizing-printable_customizing-printable' aria-hidden='true' class='block-anchor'  id='customizing-printable_customizing-printable'><i aria-hidden='true' class='linkify icon'></i></a>
+
 
 ## Customizing Printable Packing Slips
 

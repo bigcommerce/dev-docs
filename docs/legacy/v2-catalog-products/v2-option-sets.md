@@ -14,7 +14,7 @@
 
 </div> 
 
-<a href='#v2-option-set_object-properties' aria-hidden='true' class='block-anchor'  id='v2-option-set_object-properties'><i aria-hidden='true' class='linkify icon'></i></a>
+
 
 ## Option Sets 
 
@@ -31,7 +31,7 @@ A reusable set of option facets that can be applied to products.
 
 
 
-<a href='#v2-option-set_list-option-set' aria-hidden='true' class='block-anchor'  id='v2-option-set_list-option-set'><i aria-hidden='true' class='linkify icon'></i></a>
+
 
 ## List Option Sets 
 
@@ -89,7 +89,7 @@ Example JSON returned in the response:
 
 
 
-<a href='#v2-option-set_get-option-set' aria-hidden='true' class='block-anchor'  id='v2-option-set_get-option-set'><i aria-hidden='true' class='linkify icon'></i></a>
+
 
 ## Get an Option Set 
 
@@ -117,7 +117,7 @@ Example JSON returned in the response:
 
 
 
-<a href='#v2-option-set_get-count-option-set' aria-hidden='true' class='block-anchor'  id='v2-option-set_get-count-option-set'><i aria-hidden='true' class='linkify icon'></i></a>
+
 
 ## Get a Count of Option Sets 
 
@@ -137,7 +137,7 @@ Example JSON returned in the response:
 
 
 
-<a href='#v2-option-set_create-option-set' aria-hidden='true' class='block-anchor'  id='v2-option-set_create-option-set'><i aria-hidden='true' class='linkify icon'></i></a>
+
 
 ## Create an Option Set 
 
@@ -188,7 +188,7 @@ Example JSON returned in the response:
 
 
 
-<a href='#v2-option-set_update-option-set' aria-hidden='true' class='block-anchor'  id='v2-option-set_update-option-set'><i aria-hidden='true' class='linkify icon'></i></a>
+
 
 ## Update an Option Set 
 
@@ -239,7 +239,7 @@ Example JSON returned in the response:
 
 
 
-<a href='#v2-option-set_delete-option-set' aria-hidden='true' class='block-anchor'  id='v2-option-set_delete-option-set'><i aria-hidden='true' class='linkify icon'></i></a>
+
 
 ## Delete an Option Set 
 
@@ -249,7 +249,7 @@ Deletes an option set.
 
 
 
-<a href='#v2-option-set_delete-all-option-sets' aria-hidden='true' class='block-anchor'  id='v2-option-set_delete-all-option-sets'><i aria-hidden='true' class='linkify icon'></i></a>
+
 
 
 ## Delete All Option Sets 

@@ -22,7 +22,7 @@ You can manage your custom theme's front-end components by configuring the <span
 
 
 
-<a href='#defining_keys-and-example' aria-hidden='true' class='block-anchor'  id='defining_keys-and-example'><i aria-hidden='true' class='linkify icon'></i></a>
+
 
 ## Keys and Example Values
 
@@ -32,7 +32,7 @@ For a list of all available keys and values in <span class="fp">config.json</spa
 
 
 
-<a href='#defining_requirements-and-restrictions' aria-hidden='true' class='block-anchor'  id='defining_requirements-and-restrictions'><i aria-hidden='true' class='linkify icon'></i></a>
+
 
 ## Requirements and Restrictions
 
@@ -146,7 +146,7 @@ lineNumbers: true
 
 
 
-<a href='#defining_new' aria-hidden='true' class='block-anchor'  id='defining_new'><i aria-hidden='true' class='linkify icon'></i></a>
+
 
 ## New Products Example
 
@@ -217,7 +217,7 @@ If you load your storefront’s home page (by default, [http://localhost:3000](h
 
 
 
-<a href='#defining_changing' aria-hidden='true' class='block-anchor'  id='defining_changing'><i aria-hidden='true' class='linkify icon'></i></a>
+
 
 ## Changing Page Layout Using Local Front Matter
 
@@ -288,7 +288,7 @@ If you now reload your storefront’s home page in your browser, you should see 
 
 
 
-<a href='#defining_retrieving' aria-hidden='true' class='block-anchor'  id='defining_retrieving'><i aria-hidden='true' class='linkify icon'></i></a>
+
 
 ## Retrieving Specific config.json Values through Sass
 
@@ -342,7 +342,7 @@ In <span class="fn">config.json</span>, try redefining one or more color variabl
 
 
 
-<a href='#defining_adding' aria-hidden='true' class='block-anchor'  id='defining_adding'><i aria-hidden='true' class='linkify icon'></i></a>
+
 
 ## Adding/Removing Components
 

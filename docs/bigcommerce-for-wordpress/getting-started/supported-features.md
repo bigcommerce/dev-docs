@@ -11,7 +11,7 @@
 
 </div>
 
-<a href='##supported_supported' aria-hidden='true' class='block-anchor'  id='#supported_supported'><i aria-hidden='true' class='linkify icon'></i></a>
+
 
 ## BigCommerce for Wordpress Supported Features
 
@@ -48,7 +48,7 @@ Unsupported Hosted Payment Gateways are Amazon Pay, AfterPay, Google Pay, Chase 
 
 
 
-<a href='##supported_unsupported' aria-hidden='true' class='block-anchor'  id='#supported_unsupported'><i aria-hidden='true' class='linkify icon'></i></a>
+
 
 ## BigCommerce for Wordpress Unsupported Features
 
@@ -64,7 +64,7 @@ The BigCommerce for Wordpress plugin does not currently support the following fe
 
 
 
-<a href='#supported_general' aria-hidden='true' class='block-anchor'  id='supported_general'><i aria-hidden='true' class='linkify icon'></i></a>
+
 
 ## General Product Roadmap
 

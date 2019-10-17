@@ -266,7 +266,7 @@ We also needed to add form fields for the `EventDate[Mth]`, `EventDate[Day]`, an
 
 
 
-<a href='#npm-tutorials_advanced' aria-hidden='true' class='block-anchor'  id='npm-tutorials_advanced'><i aria-hidden='true' class='linkify icon'></i></a>
+
 
 ## Advanced npm Tutorial
 
@@ -288,7 +288,7 @@ To build this, you will need to complete the following steps:
 
 <iframe width="560" height="315" src="https://www.youtube.com/embed/sudvuxJFxKc" frameborder="0" allow="autoplay; encrypted-media" allowfullscreen></iframe>
 
-<a href='#advanced_install-dependencies' aria-hidden='true' class='block-anchor'  id='advanced_install-dependencies'><i aria-hidden='true' class='linkify icon'></i></a>
+
 
 ## Install Dependencies
 
@@ -299,7 +299,7 @@ npm install -save-dev document-register-element material-ui react react-dom reac
 npm install -save-dev babel-plugin-transform-object-assign babel-preset-react babel-preset-stage-1
 ```
 
-<a href='#advanced_import-dependencies' aria-hidden='true' class='block-anchor'  id='advanced_import-dependencies'><i aria-hidden='true' class='linkify icon'></i></a>
+
 
 ## Import Dependencies
 
@@ -318,7 +318,7 @@ Note the `CouponDrawer` import at the bottom. This file doesn't yet exist, but w
 ](//s3.amazonaws.com/user-content.stoplight.io/6116/1540279579178 "#### app.js imports
 ")
 
-<a href='#advanced_update-webpackconfjs' aria-hidden='true' class='block-anchor'  id='advanced_update-webpackconfjs'><i aria-hidden='true' class='linkify icon'></i></a>
+
 
 ## Update webpack.conf.js
 
@@ -335,7 +335,7 @@ Update webpack.conf.js with the new presets and plug-ins, as shown here:
 ](//s3.amazonaws.com/user-content.stoplight.io/6116/1540279603654 "#### webpack.config.js: presets and plugins
 ")
 
-<a href='#advanced_update-appjs' aria-hidden='true' class='block-anchor'  id='advanced_update-appjs'><i aria-hidden='true' class='linkify icon'></i></a>
+
 
 ## Update app.js
 
@@ -371,13 +371,13 @@ window.initReact = function(contextJSON = '{}') {
 
 This sets up a handler for attaching an `<x-coupon-drawer>` element to the page. We're using React here to render the `CouponDrawer` component. This block of code was taken and modified from https://facebook.github.io/react/docs/web-components.html#using-react-in-your-web-components.
 
-<a href='#advanced_add-the-xcoupondrawer' aria-hidden='true' class='block-anchor'  id='advanced_add-the-xcoupondrawer'><i aria-hidden='true' class='linkify icon'></i></a>
+
 
 ## Add Coupon Drawer Markup
 
 Add this in `<theme-name>/templates/layout/base.html`. (See the image below.) We're using this layout template for this example, although you would follow the same steps in any other template.
 
-<a href='#advanced_call-initreact' aria-hidden='true' class='block-anchor'  id='advanced_call-initreact'><i aria-hidden='true' class='linkify icon'></i></a>
+
 
 ## Call initReact from base.html
 
@@ -394,13 +394,13 @@ Add a call to `window.initReact`. We're continuing to work with the `base.html` 
 ](//s3.amazonaws.com/user-content.stoplight.io/6116/1540279254389 "#### base.html setup
 ")
 
-<a href='#advanced_create-an-assetsjscomp' aria-hidden='true' class='block-anchor'  id='advanced_create-an-assetsjscomp'><i aria-hidden='true' class='linkify icon'></i></a>
+
 
 ## Create Components Folder
 
 We'll store our React components here.
 
-<a href='#advanced_create-a-coupondrawerjs-file' aria-hidden='true' class='block-anchor'  id='advanced_create-a-coupondrawerjs-file'><i aria-hidden='true' class='linkify icon'></i></a>
+
 
 ## Add CouponDrawer.js
 
@@ -439,7 +439,7 @@ export default class CouponDrawer extends React.Component {
 }
 ```
 
-<a href='#advanced_create-a-verticallinear' aria-hidden='true' class='block-anchor'  id='advanced_create-a-verticallinear'><i aria-hidden='true' class='linkify icon'></i></a>
+
 
 ## Add VerticalLinearStepper.js
 

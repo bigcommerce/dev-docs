@@ -32,7 +32,7 @@ Cornerstone versions 2.6.0+ will have Data Tags already included in the theme.
 
 
 
-<a href='#google-analytics_prerequisites' aria-hidden='true' class='block-anchor'  id='google-analytics_prerequisites'><i aria-hidden='true' class='linkify icon'></i></a>
+
 
 ## Prerequisites
 
@@ -49,7 +49,7 @@ Note: the remainder of this tutorial will be working off the refer to the theme�
 
 
 
-<a href='#google-analytics_implementing' aria-hidden='true' class='block-anchor'  id='google-analytics_implementing'><i aria-hidden='true' class='linkify icon'></i></a>
+
 
 ## Adding Data Tags
 
@@ -148,7 +148,7 @@ lineNumbers: true
 
 In the above snippet, the data tag is embedded in a `<form>` HTML tag in lines 1 and 2. The data tag is  `data-list-name` and its value is `“Brand: {{brand.name}}”`.
 
-<a href='#google-analytics_data-tag-ref' aria-hidden='true' class='block-anchor'  id='google-analytics_data-tag-ref'><i aria-hidden='true' class='linkify icon'></i></a>
+
 
 ## Data Tag Reference
 
@@ -275,7 +275,7 @@ Or, if you are adding a data tag to a product list item in products/list-item.ht
 
 
 
-<a href='#google-analytics_additional-resources' aria-hidden='true' class='block-anchor'  id='google-analytics_additional-resources'><i aria-hidden='true' class='linkify icon'></i></a>
+
 
 ## Custom Dimensions and Metrics
 

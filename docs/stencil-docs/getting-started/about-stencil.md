@@ -20,7 +20,7 @@ BigCommerce Stencil themes are responsive, mobile friendly themes, allowing shop
 
 
 
-<a href='#about_cornerstone' aria-hidden='true' class='block-anchor'  id='about_cornerstone'><i aria-hidden='true' class='linkify icon'></i></a>
+
 
 ## Cornerstone
 
@@ -38,7 +38,7 @@ As the default theme on new/trial stores, Cornerstone is typically the first the
 
 
 
-<a href='#about_features-and-stack' aria-hidden='true' class='block-anchor'  id='about_features-and-stack'><i aria-hidden='true' class='linkify icon'></i></a>
+
 
 ## Stencil Development Features
 
@@ -86,7 +86,7 @@ Stencil themes can access remote objects through event hooks, using the hooks to
 
 
 
-<a href='#about_blueprint' aria-hidden='true' class='block-anchor'  id='about_blueprint'><i aria-hidden='true' class='linkify icon'></i></a>
+
 
 ## Blueprint (Legacy Framework)
 
@@ -94,7 +94,7 @@ If you are looking for information on Blueprint, BigCommerce's legacy theme fram
 
 
 
-<a href='#about_support' aria-hidden='true' class='block-anchor'  id='about_support'><i aria-hidden='true' class='linkify icon'></i></a>
+
 
 ## Support
 

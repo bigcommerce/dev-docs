@@ -12,7 +12,7 @@
 
 </div> 
 
-<a href='#optimized_working' aria-hidden='true' class='block-anchor'  id='optimized_working'><i aria-hidden='true' class='linkify icon'></i></a>
+
 
 ## Working with the Optimized Checkout SCSS File
 
@@ -36,7 +36,7 @@ You can access the most recent version of this file in the [Cornerstone reposito
 
 
 
-<a href='#optimized_configuring' aria-hidden='true' class='block-anchor'  id='optimized_configuring'><i aria-hidden='true' class='linkify icon'></i></a>
+
 
 ## Configuring the Desktop Viewport
 
@@ -53,7 +53,7 @@ Within the <span class="fn">optimized-checkout.scss</span> file, to set up Optim
 
 
 
-<a href='#optimized_classes' aria-hidden='true' class='block-anchor'  id='optimized_classes'><i aria-hidden='true' class='linkify icon'></i></a>
+
 
 ## Classes Available for Customization
 
@@ -77,7 +77,7 @@ Below are the classes provided in Cornerstone's <span class="fn">optimized-check
 
 
 
-<a href='#optimized_providing' aria-hidden='true' class='block-anchor'  id='optimized_providing'><i aria-hidden='true' class='linkify icon'></i></a>
+
 
 ## Providing Customizable Options in Store Design
 

@@ -8,7 +8,7 @@
 
 </div> 
 
-<a href='#custom_custom-sass-functions' aria-hidden='true' class='block-anchor'  id='custom_custom-sass-functions'><i aria-hidden='true' class='linkify icon'></i></a>
+
 
 ## Custom Sass Functions
 
@@ -23,7 +23,7 @@
 
 
 
-<a href='#custom_compiling' aria-hidden='true' class='block-anchor'  id='custom_compiling'><i aria-hidden='true' class='linkify icon'></i></a>
+
 
 ## Compiling Custom Sass Files
 

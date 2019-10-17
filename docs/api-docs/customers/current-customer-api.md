@@ -7,7 +7,7 @@
 	</ul>
 </div>
 
-<a href='#current-customer_identifying-logged-in-customers' aria-hidden='true' class='block-anchor'  id='current-customer_identifying-logged-in-customers'><i aria-hidden='true' class='linkify icon'></i></a>
+
 
 ## Identifying Logged-In Customers Securely
 
@@ -15,13 +15,13 @@ If your application interacts dynamically with the BigCommerce storefront, and c
 
 To address this need, BigCommerce provides a Current Customer endpoint, which your app can access via JavaScript on the storefront. This endpoint returns a JWT with identifying details about the customer. The information is signed with your [OAuth client secret](/api-docs/getting-started/basics/authentication#authentication_client-id-secret).
 
-<a href='#current-customer_logged-in-customers-javascript' aria-hidden='true' class='block-anchor'  id='current-customer_logged-in-customers-javascript'><i aria-hidden='true' class='linkify icon'></i></a>
+
 
 ## Example JavaScript
 
 Below is example JavaScript that will access this JWT. To test the JWT functionality, you can install this JavaScript on your sandbox BigCommerce store. Your application’s Client ID must be included in the request (to identify the requesting application):
 
-<a href='#identify-customers-script' aria-hidden='true' class='block-anchor'  id='identify-customers-script'><i aria-hidden='true' class='linkify icon'></i></a>
+
 
 
 <!--
@@ -58,7 +58,7 @@ customerJWT();
 
 If you are logged into the storefront with a customer account, the above JavaScript should alert to the browser with a JWT token. If no customer is logged in, BigCommerce will return a 404 response, and you will see an error message. The JWT returned from this endpoint (example below) can be decoded on JWT.IO
 
-<a href='#logged-in-customer-response' aria-hidden='true' class='block-anchor'  id='logged-in-customer-response'><i aria-hidden='true' class='linkify icon'></i></a>
+
 
 <!--
 title: "Logged in Customers Response"

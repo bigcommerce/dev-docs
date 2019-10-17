@@ -29,8 +29,6 @@
 	</ul>
 </div>
 
-<a href='#orders-api-overview_introduction' aria-hidden='true' class='block-anchor'  id='orders-api-overview_introduction'><i aria-hidden='true' class='linkify icon'></i></a>
-
 ## Introduction
 
 The Orders API is used when an order is being created manually. If you are using the Server to Server Checkout an Order can be created using the orders endpoint. The order can then be updated if needed.
@@ -48,8 +46,6 @@ An active BigCommerce store with a sellable [product](/api-reference/catalog/cat
 The following [OAuth](/api-docs/getting-started/authentication#authentication_oauth-scopes) scopes are required:
 * Modify Orders
 
-<a href='#orders-api-overview_create-order' aria-hidden='true' class='block-anchor'  id='orders-api-overview_create-order'><i aria-hidden='true' class='linkify icon'></i></a>
-
 ## Create an Order
 
 We will go over adding an existing product, adding a custom product, adding a billing address and adding a shipping address. At the end of this section, you will be able to see the full sample request to create an order.
@@ -59,8 +55,6 @@ Want to skip ahead and see the [full request](/api-docs/orders/orders-api-overvi
 At a minimum, an order needs products and a billing address. If either of these fields are left off the order is rejected.
 
 A order can be created with either an existing Product or using a Custom Product.
-
-<a href='#orders-api-overview_add-produt-options' aria-hidden='true' class='block-anchor'  id='orders-api-overview_add-produt-options'><i aria-hidden='true' class='linkify icon'></i></a>
 
 ### Add an Existing Product with Options
 
@@ -187,8 +181,6 @@ This is an abbreviated request
       ]
 ```
 
-<a href='#orders-api-overview_add-custom-product' aria-hidden='true' class='block-anchor'  id='orders-api-overview_add-custom-product'><i aria-hidden='true' class='linkify icon'></i></a>
-
 ### Create a Custom Product
 
 **Required Fields:**
@@ -237,8 +229,6 @@ This is an abbreviated request
 </div>
 </div>
 
-<a href='#orders-api-overview_order-products' aria-hidden='true' class='block-anchor'  id='orders-api-overview_order-products'><i aria-hidden='true' class='linkify icon'></i></a>
-
 ### Order Products
 
 **Pricing**
@@ -265,8 +255,6 @@ For products that allow customers to upload a file at checkout (i.e. an image up
 
 * Get the filename value from GET [/orders/[order_id]/products](https://developer.bigcommerce.com/api-reference/orders/orders-api/order-products/getallorderproducts), in the product_options array
 * Use that filename value to download the file via WebDAV using the following path: https://store.com/product_images/configured_products/[value]
-
-<a href='#orders-api-overview_add-billing-address' aria-hidden='true' class='block-anchor'  id='orders-api-overview_add-billing-address'><i aria-hidden='true' class='linkify icon'></i></a>
 
 ### Add a Billing Address
 
@@ -318,8 +306,6 @@ This is an abbreviated request
 </div>
 </div>
 
-<a href='#orders-api-overview_add-shipping-address' aria-hidden='true' class='block-anchor'  id='orders-api-overview_add-shipping-address'><i aria-hidden='true' class='linkify icon'></i></a>
-
 ### Add a Shipping Address - optional
 
 **Required Fields:**
@@ -368,8 +354,6 @@ This is an abbreviated request
         }
 ```
 
-<a href='#orders-api-overview_other-recommended-fields' aria-hidden='true' class='block-anchor'  id='orders-api-overview_other-recommended-fields'><i aria-hidden='true' class='linkify icon'></i></a>
-
 ### Other Recommended Fields
 Below are fields which are recommended but not required when creating an order.
 
@@ -388,8 +372,6 @@ If a status is not provided, it defaults to a status of 1 or Pending.
 **Discounts**
 
 Manual discounts are supported. To add a manual discount either overwrite the product price or use `discount_amount`. This accepts a fixed dollar amount.
-
-<a href='#orders-api-overview_create-order-example' aria-hidden='true' class='block-anchor'  id='orders-api-overview_create-order-example'><i aria-hidden='true' class='linkify icon'></i></a>
 
 ### Create Order Example
 
@@ -463,8 +445,6 @@ lineNumbers: true
   ]
 }
 ```
-
-<a href='#orders-api-guide_order-response' aria-hidden='true' class='block-anchor'  id='orders-api-guide_order-response'><i aria-hidden='true' class='linkify icon'></i></a>
 
 ## Order Response
 
@@ -587,12 +567,8 @@ lineNumbers: true
 }
 ```
 
-<a href='#orders-api-overview_shipping-order' aria-hidden='true' class='block-anchor'  id='orders-api-overview_shipping-order'><i aria-hidden='true' class='linkify icon'></i></a>
-
 ## Shipping an Order
 We will go over creating a shipment for an order, shipping quotes, shipping carriers and shipping to multiple locations.
-
-<a href='#orders-api-overview_create-order-shipment' aria-hidden='true' class='block-anchor'  id='orders-api-overview_create-order-shipment'><i aria-hidden='true' class='linkify icon'></i></a>
 
 ### Create an Order Shipment
 
@@ -710,8 +686,6 @@ lineNumbers: true
 
 ```
 
-<a href='#orders-api-overview_multiple-locations' aria-hidden='true' class='block-anchor'  id='orders-api-overview_multiple-locations'><i aria-hidden='true' class='linkify icon'></i></a>
-
 ### Multiple Locations
 
 Orders can have multiple shipment locations. There needs to be more than one product or quantity of a product and more than one shipping addresses. A shipping address can be added either during the create or using an update.
@@ -730,8 +704,6 @@ To ship to multiple locations create an order shipment for each location and ite
 </div>
 </div>
 
-<a href='#orders-api-overview_custom-quotes' aria-hidden='true' class='block-anchor'  id='orders-api-overview_custom-quotes'><i aria-hidden='true' class='linkify icon'></i></a>
-
 ### Custom Quotes
 An order can be created with a `shipping_cost_ex_tax` and `shipping_cost_inc_tax`. This is a way to add a custom shipping amount to an order. This can be added when creating or updating an order.
 
@@ -747,19 +719,13 @@ An order can be created with a `shipping_cost_ex_tax` and `shipping_cost_inc_tax
 </div>
 </div>
 
-<a href='#orders-api-overview_shipping-carrier' aria-hidden='true' class='block-anchor'  id='orders-api-overview_shipping-carrier'><i aria-hidden='true' class='linkify icon'></i></a>
-
 ### Shipping Carrier
 Generating a quote through a shipping carrier is currently not supported. A shipping carrier can be specified when creating an Order Shipment. The quote can be generate elsewhere, then update the `shipping_cost_ex_tax` and `shipping_cost_inc_tax` for the order total to be correct..
-
-<a href='#orders-api-overview_taxes' aria-hidden='true' class='block-anchor'  id='orders-api-overview_taxes'><i aria-hidden='true' class='linkify icon'></i></a>
 
 ## Taxes
 Tax will be calculated based on the tax rules specified in the store, except in the case of automatic taxes. However, in both cases, you can optionally override the tax values by specifying `price_inc_tax` and `price_ex_tax`.
 
 If a store has automatic tax enabled, BigCommerce does not compute sales tax on orders created via the API.
-
-<a href='#orders-api-overview_taxes_avalara' aria-hidden='true' class='block-anchor'  id='orders-api-overview_taxes_avalara'><i aria-hidden='true' class='linkify icon'></i></a>
 
 ### Avalara
 When the store is subscribed to Avalara Premium, a value of API Tax Override is written to the Order Tax object’s name field.
@@ -778,12 +744,8 @@ You can create overrides for calculated values such as product prices, subtotal 
 | Paid or `Refunded` | Unpaid | Unpaid | Tax document voided |
 | Unpaid or `Refunded` | Paid | Paid | Tax document submitted |
 
-<a href='##orders-api-overview_override-preset-values' aria-hidden='true' class='block-anchor'  id='#orders-api-overview_override-preset-values'><i aria-hidden='true' class='linkify icon'></i></a>
-
 ## Overriding Preset Values
 You can create overrides for calculated values such as product prices, subtotal and totals by sending a fixed value in the request. If values are not supplied for these properties, they will be automatically calculated based on the preset store values and tax rules.
-
-<a href='#orders-api-overview_calculation_totals' aria-hidden='true' class='block-anchor'  id='orders-api-overview_calculation_totals'><i aria-hidden='true' class='linkify icon'></i></a>
 
 ## Calculation of Totals
 When not specified, order subtotal and total are automatically calculated.
@@ -803,8 +765,6 @@ Edits to the following properties will trigger a recalculation of the subtotal a
 *   billing_address
 *   shipping_addresses
 
-<a href='#orders-api-overview_order_status' aria-hidden='true' class='block-anchor'  id='orders-api-overview_order_status'><i aria-hidden='true' class='linkify icon'></i></a>
-
 ## Order Status
 When moving through order management, the order status is not automatically updated. This needs to be changed as needed.
 
@@ -820,13 +780,9 @@ The following statuses are of the paid type:
 
 BigCommerce considers all statuses other than those above to be of the unpaid type, except Refunded, which is considered neither paid or unpaid.
 
-<a href='#orders-api-overview_custom-order-status' aria-hidden='true' class='block-anchor'  id='orders-api-overview_custom-order-status'><i aria-hidden='true' class='linkify icon'></i></a>
-
 ### Custom Order Status
 
 The order status label can be changed in the Control Panel. This **does not** change the underlying functionality. See our support article on [Order Status](https://support.bigcommerce.com/s/article/Order-Statuses#rename).
-
-<a href='#orders-api-overview_faq' aria-hidden='true' class='block-anchor'  id='orders-api-overview_faq'><i aria-hidden='true' class='linkify icon'></i></a>
 
 ## FAQ
 
@@ -856,8 +812,6 @@ You can either process payment through a third party or using the Control Panel.
 **Can I generate a shipping quote from a carrier using the API?**
 
 Not at this time. If an order is created either in the Control Panel or via API, then it returns a 204 when trying to get a [Shipping Quote](https://developer.bigcommerce.com/api-reference/orders/orders-api/models/shippingquotes).
-
-<a href='#orders-api-overview_resources' aria-hidden='true' class='block-anchor'  id='orders-api-overview_resources'><i aria-hidden='true' class='linkify icon'></i></a>
 
 ## Resources
 ### Webhooks

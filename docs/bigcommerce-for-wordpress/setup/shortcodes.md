@@ -13,7 +13,7 @@
 
 Most of the plugin's functionality is exposed on the front-end of the site through shortcodes embedded on automatically created pages. The code controlling those shortcodes can be found in the classes in `src/BigCommerce/Shortcodes`.
 
-<a href='#shortcode_product-shortcodes' aria-hidden='true' class='block-anchor'  id='shortcode_product-shortcodes'><i aria-hidden='true' class='linkify icon'></i></a>
+
 
 ## Products Shortcode
 `[bigcommerce_product]`
@@ -41,7 +41,7 @@ While the shortcode can be built using the button, it can also be created manual
 
 
 
-<a href='#shortcode_components' aria-hidden='true' class='block-anchor'  id='shortcode_components'><i aria-hidden='true' class='linkify icon'></i></a>
+
 
 ## Component Shortcodes
 
@@ -61,7 +61,7 @@ You can build the shortcode using the Block Editor, or it can be created manuall
 
 
 
-<a href='#shortcode_other-short' aria-hidden='true' class='block-anchor'  id='shortcode_other-short'><i aria-hidden='true' class='linkify icon'></i></a>
+
 
 ## Other Shortcodes
 

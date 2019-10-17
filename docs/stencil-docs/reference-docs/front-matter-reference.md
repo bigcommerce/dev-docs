@@ -319,7 +319,7 @@ If &lt;number&gt; is not defined, displays 250 characters.</td>
   </tr>
 </table>
 
-<a href='#front-matter-attributes-reference_product' aria-hidden='true' class='block-anchor'  id='front-matter-attributes-reference_product'><i aria-hidden='true' class='linkify icon'></i></a>
+
 
 ## Product Attributes 
 

@@ -39,7 +39,7 @@ Adjust other localization details via the BigCommerce Control Panel.
 
 
 
-<a href='#localizing_translating-theme-files' aria-hidden='true' class='block-anchor'  id='localizing_translating-theme-files'><i aria-hidden='true' class='linkify icon'></i></a>
+
 
 ## Translating Theme Files via Stencil CLI
 
@@ -47,7 +47,7 @@ The bulk of localizing a store is translating content on your theme's page templ
 
 
 
-<a href='#localizing_localizing-checkout' aria-hidden='true' class='block-anchor'  id='localizing_localizing-checkout'><i aria-hidden='true' class='linkify icon'></i></a>
+
 
 ## Localizing Checkout
 
@@ -72,7 +72,7 @@ Localizing your theme's checkout and order confirmation pages requires customiza
 
 
 
-<a href='#localizing_localizing-control-panel' aria-hidden='true' class='block-anchor'  id='localizing_localizing-control-panel'><i aria-hidden='true' class='linkify icon'></i></a>
+
 
 ## Localizing Control Panel Content
 

@@ -10,7 +10,7 @@
 
 </div> 
 
-<a href='#troubleshooting_add-cart-error' aria-hidden='true' class='block-anchor'  id='troubleshooting_add-cart-error'><i aria-hidden='true' class='linkify icon'></i></a>
+
 
 ## Error on "Add to Cart" button, 404 error
 
@@ -24,7 +24,7 @@ In WordPress, go to Settings → Permalinks. Scroll to the bottom of the page an
 
 
 
-<a href='#troubleshooting_php-getenv' aria-hidden='true' class='block-anchor'  id='troubleshooting_php-getenv'><i aria-hidden='true' class='linkify icon'></i></a>
+
 
 ## PHP getenv() Errors
 

@@ -13,7 +13,7 @@
 
 </div> 
 
-<a href='#v2-review_object-properties' aria-hidden='true' class='block-anchor'  id='v2-review_object-properties'><i aria-hidden='true' class='linkify icon'></i></a>
+
 
 ## Product Reviews 
 
@@ -94,7 +94,7 @@ Example JSON returned in the response:
 
 
 
-<a href='#v2-reviews_get-count-reviews' aria-hidden='true' class='block-anchor'  id='v2-reviews_get-count-reviews'><i aria-hidden='true' class='linkify icon'></i></a>
+
 
 
 ## Get a Product Review 
@@ -123,7 +123,7 @@ Example JSON returned in the response:
 
 
 
-<a href='#v2-reviews_create-product-reviews' aria-hidden='true' class='block-anchor'  id='v2-reviews_create-product-reviews'><i aria-hidden='true' class='linkify icon'></i></a>
+
 
 ## Create a Product Review 
 
@@ -171,7 +171,7 @@ Example JSON returned in the response:
 
 
 
-<a href='#v2-reviews_update-product-reviews' aria-hidden='true' class='block-anchor'  id='v2-reviews_update-product-reviews'><i aria-hidden='true' class='linkify icon'></i></a>
+
 
 ## Update a Product Review 
 
@@ -205,7 +205,7 @@ Example JSON returned in the response:
 
 
 
-<a href='#v2-reviews_delete-product-reviews' aria-hidden='true' class='block-anchor'  id='v2-reviews_delete-product-reviews'><i aria-hidden='true' class='linkify icon'></i></a>
+
 
 ## Delete a Product Review 
 
@@ -215,7 +215,7 @@ Deletes a specified product review. (If successful, this will typically return a
 
 
 
-<a href='#v2-reviews_delete-all-product-reviews' aria-hidden='true' class='block-anchor'  id='v2-reviews_delete-all-product-reviews'><i aria-hidden='true' class='linkify icon'></i></a>
+
 
 ## Delete All Product Reviews 
 

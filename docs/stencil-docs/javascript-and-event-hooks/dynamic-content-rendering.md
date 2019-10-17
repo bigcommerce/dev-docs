@@ -12,7 +12,7 @@
 
 </div>
 
-<a href='#dynamic-content_why-dynamic-content' aria-hidden='true' class='block-anchor'  id='dynamic-content_why-dynamic-content'><i aria-hidden='true' class='linkify icon'></i></a>
+
 
 _We're gratefully sharing techniques devised by Ken Utting, Web Developer for BigCommerce client goruck.com_.
 
@@ -34,7 +34,7 @@ Without changes like the ones we made at GORUCK (described below), all the conte
 
 At GORUCK, we needed the ability to inject arbitrary HTML into our page, and to place that content at various specific page locations. To achieve this, we developed the three techniques described below.
 
-<a href='#dynamic-content_dropzones' aria-hidden='true' class='block-anchor'  id='dynamic-content_dropzones'><i aria-hidden='true' class='linkify icon'></i></a>
+
 
 ## Dropzones
 
@@ -57,7 +57,7 @@ With these dropzones defined, we can then populate them with dynamic content spe
 ](//s3.amazonaws.com/user-content.stoplight.io/6116/1539874696853 "#### Dropzone that places an image gallery at the bottom of a category page
 ")
 
-<a href='#dynamic-content_dropzones' aria-hidden='true' class='block-anchor'  id='dynamic-content_dropzones'><i aria-hidden='true' class='linkify icon'></i></a>
+
 
 ### Dropzones HTML
 
@@ -109,7 +109,7 @@ We modified our theme's PageManager.before method to invoke a new method named `
 
 Finally, in our .scss file, we set the `.gr-dropzone` class to display: none. This prevents the content from appearing on the page in the wrong location before PageManager has a chance to move it into the dropzone.
 
-<a href='#dynamic-content_dynamic-tabs' aria-hidden='true' class='block-anchor'  id='dynamic-content_dynamic-tabs'><i aria-hidden='true' class='linkify icon'></i></a>
+
 
 ## Dynamic Tabs
 
@@ -245,7 +245,7 @@ We use snippets at GORUCK to display our sizing charts, as shown below. This mak
 
 ![](//s3.amazonaws.com/user-content.stoplight.io/6116/1539878331668 "")
 
-<a href='#dynamic-content_snippets' aria-hidden='true' class='block-anchor'  id='dynamic-content_snippets'><i aria-hidden='true' class='linkify icon'></i></a>
+
 
 ## Snippets HTML
 
@@ -265,7 +265,7 @@ Like Dropzones and Dynamic Tabs, the Snippets code is invoked in `PageManager`'s
 
 
 
-<a href='#dynamic-content_recap' aria-hidden='true' class='block-anchor'  id='dynamic-content_recap'><i aria-hidden='true' class='linkify icon'></i></a>
+
 
 ## Recap 
 

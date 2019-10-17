@@ -17,7 +17,7 @@ Merchants will have the ability to customize some style aspects of the PayPal pa
 
 
 
-<a href='#paypal-smart_include-smart-buttons' aria-hidden='true' class='block-anchor'  id='paypal-smart_include-smart-buttons'><i aria-hidden='true' class='linkify icon'></i></a>
+
 
 ## Enable Smart Buttons on Your Stencil Theme
 
@@ -241,7 +241,7 @@ All mutually exclusive options are tied to the layout setting `vertical.` If you
 
 
 
-<a href='#paypal-smart_additional-resources' aria-hidden='true' class='block-anchor'  id='paypal-smart_additional-resources'><i aria-hidden='true' class='linkify icon'></i></a>
+
 
 ## Resources
 

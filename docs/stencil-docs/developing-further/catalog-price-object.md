@@ -41,7 +41,7 @@ These options and assigned values are each represented in the [Catalog Price Obj
 
 
 
-<a href='#catalog-price_excluding-tax' aria-hidden='true' class='block-anchor'  id='catalog-price_excluding-tax'><i aria-hidden='true' class='linkify icon'></i></a>
+
 
 ## Catalog Price Object Examples Excluding Tax
 
@@ -209,7 +209,7 @@ Properties noted will only be displayed if a **Sale Price** is set on the produc
 
 
 
-<a href='#catalog-price_prices-and-conditional' aria-hidden='true' class='block-anchor'  id='catalog-price_prices-and-conditional'><i aria-hidden='true' class='linkify icon'></i></a>
+
 
 ### Prices and Conditional Logic Example
 
@@ -241,7 +241,7 @@ lineNumbers: true
 
 
 
-<a href='#catalog-price_including-and-excluding' aria-hidden='true' class='block-anchor'  id='catalog-price_including-and-excluding'><i aria-hidden='true' class='linkify icon'></i></a>
+
 
 ## Catalog Price Object Examples Including and Excluding Tax
 
@@ -408,7 +408,7 @@ Items to note about the *Catalog Price Object* above:
 
 
 
-<a href='#catalog-price_quick-reference' aria-hidden='true' class='block-anchor'  id='catalog-price_quick-reference'><i aria-hidden='true' class='linkify icon'></i></a>
+
 
 ## Control Panel Quick Reference
 

@@ -31,17 +31,11 @@ products:
 After including the front matter block at the top of the home.html file, the New Products attribute will be accessible in the home page's context. As previously stated, simply including the front matter block will not display the attribute on the page. In order to actually display the new products on the desired storefront page, you will refernce the attribute using Handlebars in the same file you have added the front matter block to.
 In this example, we will include the following code in Cornerstone's [home.html](https://github.com/bigcommerce/cornerstone/blob/master/templates/pages/home.html) file to display New Products on our store's home page.
 
-
 ```html
   {{#if products.new}}
         {{> components/products/new products=products.new columns=theme_settings.homepage_new_products_column_count}}
     {{/if}}
 ```
-
-
-
-
-<a href='#front-matter-overview_yaml-syntax' aria-hidden='true' class='block-anchor'  id='front-matter-overview_yaml-syntax'><i aria-hidden='true' class='linkify icon'></i></a>
 
 ## YAML Syntax
 
@@ -69,11 +63,6 @@ You **cannot** use front matter to accomplish this on pages in the following sub
 
 * If a front-matter directive contains an invalid option, Stencil CLI will silently ignore that option.
 
-
-
-
-<a href='#front-matter-overview_filtering-attributes' aria-hidden='true' class='block-anchor'  id='front-matter-overview_filtering-attributes'><i aria-hidden='true' class='linkify icon'></i></a>
-
 ## Filtering Attributes
 
 Some attributes can accept indented keys, or key-value pairs, to further define the attribute. For example, limit is a key commonly used to restrict the number of objects to return for an attribute.
@@ -97,7 +86,6 @@ products:
 
 ```
 
-
 <div class="HubBlock--callout">
 <div class="CalloutBlock--info">
 <div class="HubBlock-content">
@@ -111,10 +99,6 @@ products:
 </div>
 </div>
 
-
-
-<a href='#front-matter-overview_combining-front-matter' aria-hidden='true' class='block-anchor'  id='front-matter-overview_combining-front-matter'><i aria-hidden='true' class='linkify icon'></i></a>
-
 ## Combining Front Matter and Handlebars
 
 The next example builds on front-matter object invocation and filtering, by showing a corresponding Handlebars statement in HTML. Here is how you would declare the `products` object to return four new products, and to then display each product’s name:
@@ -124,7 +108,6 @@ The next example builds on front-matter object invocation and filtering, by show
 products:
     new:
         limit: 4
-
 
 #  This is the HTML for the new-products example 
 {{#each products.new}}
@@ -144,10 +127,6 @@ products:
 </div>
 </div>
 </div>
-
-
-
-<a href='#front-matter-overview_default-versus-custom' aria-hidden='true' class='block-anchor'  id='front-matter-overview_default-versus-custom'><i aria-hidden='true' class='linkify icon'></i></a>
 
 ## Default vs Custom Attributes
 

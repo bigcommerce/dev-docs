@@ -30,8 +30,6 @@ Each Stencil theme’s `/assets/` directory contains CSS, JavaScript, and image 
 </div>
 </div>
 
-<a href='#theme-assets_cornerstone-assets-directory' aria-hidden='true' class='block-anchor'  id='theme-assets_cornerstone-assets-directory'><i aria-hidden='true' class='linkify icon'></i></a>
-
 ## Cornerstone Assets Directory 
 
 * Directory: `cornerstone/assets/`
@@ -110,8 +108,6 @@ Every utility in this subdirectory will have both a class and a mixin. For examp
   </tr>
 </table>
 
-
-
 <a id="theme-assets_citadel"></a>
 
 ## Citadel Subdirectory 
@@ -151,8 +147,6 @@ The `components/citadel` subdirectory contains Citadel-specific resources. The r
   </tr>
 </table>
 
-
-
 <a id="theme-assets_componenets-utilities"></a>
 
 ## Components vs Utilities
@@ -185,8 +179,6 @@ Our syntax for naming utilities is camel case, prefixed with a u- namespace:
   <tr>
 </table>
 
-
-
 <a id="theme-assets_variables"></a>
 
 ## Variables and Mixins
@@ -215,8 +207,6 @@ Variables are things that can change over time. Their names are in camel case, a
 @mixin u-textTruncate;</td>
   <tr>
 </table>
-
-
 
 <a id="theme-assets_stencil-subdirectory"></a>
 
@@ -250,9 +240,6 @@ This subdirectory’s children contain CSS for the following page elements.
 | toggleLink  | Styles for collapsible/expandable components  |
 |writeReview   | Styles for product-review submission form  |
 
-
-<a href='#akamai-image-manager' aria-hidden='true' class='block-anchor'  id='akamai-image-manager'><i aria-hidden='true' class='linkify icon'></i></a>
-
 <div class="HubBlock--callout">
 <div class="CalloutBlock--info">
 <div class="HubBlock-content">
@@ -266,12 +253,9 @@ This subdirectory’s children contain CSS for the following page elements.
 * `<img src="{{getImage settings.store_logo.image 'logo_size'}}?imbypass=on">`
 * `<img src="{{cdn 'assets/img/image.jpg?imbypass=on'}}">`
 
-
 </div>
 </div>
 </div>
-
-
 
 ## Resources
 

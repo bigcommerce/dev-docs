@@ -28,7 +28,7 @@ This tutorial demonstrates how to implement a custom checkout built with React o
 
 Stencil CLI is required to begin this walkthrough. For installation instructions, see [Installing Stencil](/stencil-docs/getting-started/installing-stencil).
 
-<a href='#implement_steps' aria-hidden='true' class='block-anchor'  id='implement_steps'><i aria-hidden='true' class='linkify icon'></i></a>
+
 
 ## Implementing React Checkout in Cornerstone
 

@@ -24,14 +24,14 @@ In this article we will review ways you can implement headless, what requires PC
 
 
 
-<a href='#headless-commerce_prerequisites' aria-hidden='true' class='block-anchor'  id='headless-commerce_prerequisites'><i aria-hidden='true' class='linkify icon'></i></a>
+
 
 ## Prerequisites
 To use the BigCommerce platform for headless commerce, you must have a store on an active plan. The store does not need to be [launched](https://support.bigcommerce.com/s/article/Launching-Your-Store).
 
 
 
-<a href='#headless-commerce_ways-to-implement-headless' aria-hidden='true' class='block-anchor'  id='headless-commerce_ways-to-implement-headless'><i aria-hidden='true' class='linkify icon'></i></a>
+
 
 ## Ways to Implement Headless
 There are many ways to implement headless commerce. Below are just a few ways to start with Headless commerce.
@@ -124,7 +124,7 @@ If you need complete control over the checkout page, you have the option to buil
 
 
 
-<a href='#headless-commerce-customer_login' aria-hidden='true' class='block-anchor'  id='headless-commerce-customer_login'><i aria-hidden='true' class='linkify icon'></i></a>
+
 
 ## Customer Login
 
@@ -143,7 +143,7 @@ If a new account is created in WordPress, the password is written to the custome
 
 
 
-<a href='#headless-commerce_sample-integration' aria-hidden='true' class='block-anchor'  id='headless-commerce_sample-integration'><i aria-hidden='true' class='linkify icon'></i></a>
+
 
 ## Sample Integration
 
@@ -173,7 +173,7 @@ BigCommerce will respond to the application with the requested data to power the
 
 
 
-<a href='#headless-commerce_pci-compliance' aria-hidden='true' class='block-anchor'  id='headless-commerce_pci-compliance'><i aria-hidden='true' class='linkify icon'></i></a>
+
 
 ## PCI Compliance
 
@@ -215,7 +215,7 @@ It is possible to use one more of BigCommerce's technology stack at the same tim
 
 
 
-<a href='#headless-commerce_sample-api-workflows' aria-hidden='true' class='block-anchor'  id='headless-commerce_sample-api-workflows'><i aria-hidden='true' class='linkify icon'></i></a>
+
 
 ## Sample API Workflows
 

@@ -14,7 +14,7 @@ The BigCommerce API responds to requests with different HTTP status codes depend
 
 
 
-<a href='#api-status-codes_2-success' aria-hidden='true' class='block-anchor'  id='api-status-codes_2-success'><i aria-hidden='true' class='linkify icon'></i></a>
+
 
 ## 2xx Success 
 
@@ -29,7 +29,7 @@ The BigCommerce API responds to requests with different HTTP status codes depend
 
 
 
-<a href='#api-status-codes_3-redirection' aria-hidden='true' class='block-anchor'  id='api-status-codes_3-redirection'><i aria-hidden='true' class='linkify icon'></i></a>
+
 
 ## 3xx Redirection 
 
@@ -42,7 +42,7 @@ The BigCommerce API responds to requests with different HTTP status codes depend
 
 
 
-<a href='#api-status-codes_4-client-error' aria-hidden='true' class='block-anchor'  id='api-status-codes_4-client-error'><i aria-hidden='true' class='linkify icon'></i></a>
+
 
 ## 4xx Client Error 
 
@@ -64,7 +64,7 @@ The BigCommerce API responds to requests with different HTTP status codes depend
 
 
 
-<a href='#api-status-codes_5-server-error' aria-hidden='true' class='block-anchor'  id='api-status-codes_5-server-error'><i aria-hidden='true' class='linkify icon'></i></a>
+
 
 ## 5xx Server Error 
 
@@ -79,7 +79,7 @@ The BigCommerce API responds to requests with different HTTP status codes depend
 
 
 
-<a href='#api-status-codes_troubleshooting' aria-hidden='true' class='block-anchor'  id='api-status-codes_troubleshooting'><i aria-hidden='true' class='linkify icon'></i></a>
+
 
 ## Troubleshooting
 

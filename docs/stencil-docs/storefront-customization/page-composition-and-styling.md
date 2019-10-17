@@ -30,10 +30,6 @@ lineNumbers: true
 {{/partial}}
 ```
 
-
-
-<a href='#page-composition_template-composition' aria-hidden='true' class='block-anchor'  id='page-composition_template-composition'><i aria-hidden='true' class='linkify icon'></i></a>
-
 ## Template Composition
 
 Template composition is a valuable Stencil feature. By defining blocks of overrideable content, your themes can insert templates on a per-page basis, while sharing code that is common to the whole theme.

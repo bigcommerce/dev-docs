@@ -16,7 +16,7 @@ If a theme’s version number is lower than `1.10.0`, the theme uses `jspm` as i
 
  
 
-<a href='#install-jspm' aria-hidden='true' class='block-anchor'  id='install-jspm'><i aria-hidden='true' class='linkify icon'></i></a>
+
 
 ## Step 1: Install `jspm`
 
@@ -32,7 +32,7 @@ npm install -g jspm@0.16.31
 
 
 
-<a href='#register-jspm-instance' aria-hidden='true' class='block-anchor'  id='register-jspm-instance'><i aria-hidden='true' class='linkify icon'></i></a>
+
 
 ## Step 2: Register `jspm` Instance
 
@@ -45,7 +45,7 @@ Next, register your jspm instance with GitHub. To do so:
 
 
 
-<a href='#install-jspm-git' aria-hidden='true' class='block-anchor'  id='install-jspm-git'><i aria-hidden='true' class='linkify icon'></i></a>
+
 
 ## Step 3: Install `jspm-git`
 
@@ -66,7 +66,7 @@ npm upgrade jspm-git@latest
 
 
 
-<a href='#add-bitbucket-as-a-jspm-registry' aria-hidden='true' class='block-anchor'  id='add-bitbucket-as-a-jspm-registry'><i aria-hidden='true' class='linkify icon'></i></a>
+
 
 ## Step 4: Add BitBucket as a `jspm` Registry
 
@@ -80,7 +80,7 @@ jspm registry create bitbucket jspm-git
 
 
 
-<a href='#install-the-modules' aria-hidden='true' class='block-anchor'  id='install-the-modules'><i aria-hidden='true' class='linkify icon'></i></a>
+
 
 ## Step 5: Install the Modules
 

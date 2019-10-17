@@ -33,7 +33,7 @@ This consistent behavior is true for each of the common objects documented in th
 </div>
 </div>
 
-<a href='#common-objects_catalog-price' aria-hidden='true' class='block-anchor' id='common-objects_catalog-price'><i aria-hidden='true' class='linkify icon'></i></a>
+
 
 ## Catalog Price
 
@@ -78,7 +78,7 @@ This consistent behavior is true for each of the common objects documented in th
 | tax_label	| Tax label (VAT, sales tax, etc.) displayed to customers. | string  <br> `"Tax"`|
 | price_range | See [Price Range Object](https://developer.bigcommerce.com/stencil-docs/reference-docs/common-objects#common-objects_price-range)| |
 
-<a href='#common-objects_price' aria-hidden='true' class='block-anchor'  id='common-objects_price'><i aria-hidden='true' class='linkify icon'></i></a>
+
 
 ## Price
 
@@ -110,7 +110,7 @@ This consistent behavior is true for each of the common objects documented in th
   </tr>
 </table>
 
-<a href='#common-objects_price-range' aria-hidden='true' class='block-anchor'  id='common-objects_price-range'><i aria-hidden='true' class='linkify icon'></i></a>
+
 
 ## Price Range
 
@@ -146,7 +146,7 @@ This consistent behavior is true for each of the common objects documented in th
 
 -
 
-<a href='#common-objects_stencil-image' aria-hidden='true' class='block-anchor'  id='common-objects_stencil-image'><i aria-hidden='true' class='linkify icon'></i></a>
+
 
 ## Stencil Image
 

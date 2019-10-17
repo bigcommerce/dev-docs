@@ -14,7 +14,7 @@
 
 </div> 
 
-<a href='#v2-brands_object-properties' aria-hidden='true' class='block-anchor'  id='v2-brands_object-properties'><i aria-hidden='true' class='linkify icon'></i></a>
+
 
 ## Brands 
 
@@ -34,7 +34,7 @@ Brand facets for identifying and categorizing products according to their manufa
 
 
 
-<a href='#v2-brands_list-brands' aria-hidden='true' class='block-anchor'  id='v2-brands_list-brands'><i aria-hidden='true' class='linkify icon'></i></a>
+
 
 ## List Brands 
 
@@ -90,7 +90,7 @@ Example JSON returned in the response:
 
 
 
-<a href='#v2-brands_get-brands' aria-hidden='true' class='block-anchor'  id='v2-brands_get-brands'><i aria-hidden='true' class='linkify icon'></i></a>
+
 
 ## Get a Brand 
 
@@ -118,7 +118,7 @@ Example JSON returned in the response:
 
 
 
-<a href='#v2-brands_get-count-brands' aria-hidden='true' class='block-anchor'  id='v2-brands_get-count-brands'><i aria-hidden='true' class='linkify icon'></i></a>
+
 
 ## Get a Count of Brands 
 
@@ -138,7 +138,7 @@ Example JSON returned in the response:
 
 
 
-<a href='#v2-brands_create-brands' aria-hidden='true' class='block-anchor'  id='v2-brands_create-brands'><i aria-hidden='true' class='linkify icon'></i></a>
+
 
 ## Create a Brand 
 
@@ -192,7 +192,7 @@ Example JSON returned in the response:
 
 
 
-<a href='#v2-brands_update-brands' aria-hidden='true' class='block-anchor'  id='v2-brands_update-brands'><i aria-hidden='true' class='linkify icon'></i></a>
+
 
 
 ## Update a Brand 
@@ -231,7 +231,7 @@ Example JSON returned in the response:
 
 
 
-<a href='#2-brands_delete-brands' aria-hidden='true' class='block-anchor'  id='2-brands_delete-brands'><i aria-hidden='true' class='linkify icon'></i></a>
+
 
 ## Delete a Brand 
 
@@ -241,7 +241,7 @@ Deletes a brand.
 
 
 
-<a href='#v2-brands_delete-all-brands' aria-hidden='true' class='block-anchor'  id='v2-brands_delete-all-brands'><i aria-hidden='true' class='linkify icon'></i></a>
+
 
 ## Delete All Brands 
 

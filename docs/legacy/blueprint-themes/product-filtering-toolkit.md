@@ -37,7 +37,7 @@ As noted below, we recommend implementing product filtering on a temporary sandb
 
 
 
-<a href='#creating-new-theme-product-filtering' aria-hidden='true' class='block-anchor'  id='creating-new-theme-product-filtering'><i aria-hidden='true' class='linkify icon'></i></a>
+
 
 ## Creating a New Theme with Product Filtering 
 
@@ -63,7 +63,7 @@ For information about developing on the current Stencil platform, please see <a 
 
 
 
-<a href='#enabling-product-filtering-customized-theme' aria-hidden='true' class='block-anchor'  id='enabling-product-filtering-customized-theme'><i aria-hidden='true' class='linkify icon'></i></a>
+
 
 ## Enabling Product Filtering for Your Customized Theme 
 
@@ -89,7 +89,7 @@ If you are working with a new store, product filtering might already work out-of
 
 
 
-<a href='#implementing-product-filtering-your-theme' aria-hidden='true' class='block-anchor'  id='implementing-product-filtering-your-theme'><i aria-hidden='true' class='linkify icon'></i></a>
+
 
 ## Implementing Product Filtering in Your Theme 
 
@@ -140,7 +140,7 @@ Once you’ve enabled product filtering for your sandbox store, you’ll need to
 
 
 
-<a href='#allowing-filtering-on-off' aria-hidden='true' class='block-anchor'  id='allowing-filtering-on-off'><i aria-hidden='true' class='linkify icon'></i></a>
+
 
 ## Allowing For Filtering On/Off 
 
@@ -170,7 +170,7 @@ When switched off:
 </div>
 </div>
 
-<a href='#category-filtering-details' aria-hidden='true' class='block-anchor'  id='category-filtering-details'><i aria-hidden='true' class='linkify icon'></i></a>
+
 
 ## Category Filtering Details 
 

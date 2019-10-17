@@ -32,7 +32,7 @@ The article will walk you through enabling Google AMP pages in your theme.
 </div>
 </div>
 
-<a href='#google-amp_implement' aria-hidden='true' class='block-anchor'  id='google-amp_implement'><i aria-hidden='true' class='linkify icon'></i></a>
+
 
 ## Implementing AMP
 
@@ -118,7 +118,7 @@ If you are having any implementation issues, review the [full Pull Request #964]
 
 
 
-<a href='#google-amp_location-of-amp-files' aria-hidden='true' class='block-anchor'  id='google-amp_location-of-amp-files'><i aria-hidden='true' class='linkify icon'></i></a>
+
 
 ## Location of AMP Files
 
@@ -134,7 +134,7 @@ After the Google Analytics ID has been added via Control Panel, you can toggle A
 
 
 
-<a href='#google-amp_local-testing' aria-hidden='true' class='block-anchor'  id='google-amp_local-testing'><i aria-hidden='true' class='linkify icon'></i></a>
+
 
 ## Local Testing
 

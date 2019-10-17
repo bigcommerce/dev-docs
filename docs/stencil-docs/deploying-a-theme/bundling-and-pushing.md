@@ -14,7 +14,7 @@
 </div> 
 
 
-<a href='#bundling_confirm-dependencies' aria-hidden='true' class='block-anchor'  id='bundling_confirm-dependencies'><i aria-hidden='true' class='linkify icon'></i></a>
+
 
 ## Confirm Dependencies
 
@@ -42,7 +42,7 @@ You must also run `jspm install` in the theme directory.
 
 
 
-<a href='#bundling_verify-directory' aria-hidden='true' class='block-anchor'  id='bundling_verify-directory'><i aria-hidden='true' class='linkify icon'></i></a>
+
 
 ## Verify Directory and File Permissions
 
@@ -66,7 +66,7 @@ If you have added any new subdirectories or files to your base theme, verify tha
 
 
 
-<a href='#bundling_bundling-your-theme' aria-hidden='true' class='block-anchor'  id='bundling_bundling-your-theme'><i aria-hidden='true' class='linkify icon'></i></a>
+
 
 ## Bundling Your Theme
 
@@ -110,7 +110,7 @@ For file-size error diagnostics and workarounds, please _Check/Adjust Zipfile's 
 
 
 
-<a href='#bundling_uploading-your-theme' aria-hidden='true' class='block-anchor'  id='bundling_uploading-your-theme'><i aria-hidden='true' class='linkify icon'></i></a>
+
 
 ## Pushing Your Theme
 
@@ -180,7 +180,7 @@ Stencil CLI will then confirm which variation is active on the storefront.
 
 
 
-<a href='#bunding_theme-quota' aria-hidden='true' class='block-anchor'  id='bunding_theme-quota'><i aria-hidden='true' class='linkify icon'></i></a>
+
 
 ## Theme Quota Warning
 
@@ -220,7 +220,7 @@ If you have any doubts â€“ especially about deleting multiple themes/versions â€
 
 
 
-<a href='#bundling_other-bundling' aria-hidden='true' class='block-anchor'  id='bundling_other-bundling'><i aria-hidden='true' class='linkify icon'></i></a>
+
 
 ## Other Bundling or Upload Errors
 

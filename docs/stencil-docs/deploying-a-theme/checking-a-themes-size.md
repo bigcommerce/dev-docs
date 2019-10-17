@@ -17,7 +17,7 @@ A few themes might exceed the 50 MB limit. If this is the case, you have two opt
 
 
 
-<a href='#checking_shrinking' aria-hidden='true' class='block-anchor'  id='checking_shrinking'><i aria-hidden='true' class='linkify icon'></i></a>
+
 
 ## Shrinking a Theme by Excluding Static Assets Using WebDAV
 
@@ -113,7 +113,7 @@ The directories accessible through WebDAV will dynamically change, depending on 
 
 
 
-<a href='#checking_organizing' aria-hidden='true' class='block-anchor'  id='checking_organizing'><i aria-hidden='true' class='linkify icon'></i></a>
+
 
 ## Organizing Your Theme
 

@@ -13,7 +13,7 @@ Our BigCommerce Partner Program includes access to training, sales enablement an
 The following sections outline the steps required to become a vendor of Single-Click Apps on the BigCommerce platform. Doing so requires a partnership application, but acceptance will authorize you to provide best-of-breed solutions to the fast-growing online businesses we host. 
 
 
-<a href='#becoming-a-partner_apply-technology-partner-program' aria-hidden='true' class='block-anchor'  id='becoming-a-partner_apply-technology-partner-program'><i aria-hidden='true' class='linkify icon'></i></a>
+
 
 ## Applying to the Technology Partner Program
 
@@ -28,7 +28,7 @@ Once approved, you will receive one or more emails listing your partner credenti
 
 
 
-<a href='#becoming-a-partner_getting-sandbox-store' aria-hidden='true' class='block-anchor'  id='becoming-a-partner_getting-sandbox-store'><i aria-hidden='true' class='linkify icon'></i></a>
+
 
 ## Getting a Sandbox Store
 
@@ -65,7 +65,7 @@ We encourage you to create your sandbox store and your Dev Tools account using t
 
 
 
-<a href='#becoming-a-partner_partner-program-troubleshooting' aria-hidden='true' class='block-anchor'  id='becoming-a-partner_partner-program-troubleshooting'><i aria-hidden='true' class='linkify icon'></i></a>
+
 
 ##  Troubleshooting
 

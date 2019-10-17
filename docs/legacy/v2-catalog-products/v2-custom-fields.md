@@ -13,7 +13,7 @@
 
 </div> 
 
-<a href='#v2-custom-fields_object-properties' aria-hidden='true' class='block-anchor'  id='v2-custom-fields_object-properties'><i aria-hidden='true' class='linkify icon'></i></a>
+
 
 ## Custom Fields 
 
@@ -28,7 +28,7 @@ Custom fields associated with a product.
 | name | string | key; limited to 250 characters |
 | text | string | value; limited to 250 characters |
 
-<a href='#v2-custom-fields_list-custom-fields' aria-hidden='true' class='block-anchor'  id='v2-custom-fields_list-custom-fields'><i aria-hidden='true' class='linkify icon'></i></a>
+
 
 |||
 |||
@@ -79,7 +79,7 @@ Example JSON returned in the response:
 
 
 
-<a href='#v2-custom-fields_get-custom-fields' aria-hidden='true' class='block-anchor'  id='v2-custom-fields_get-custom-fields'><i aria-hidden='true' class='linkify icon'></i></a>
+
 
 ## Get a Custom Field 
 
@@ -103,7 +103,7 @@ Example JSON returned in the response:
 
 
 
-<a href='#v2-custom-fields_get-count-custom-fields' aria-hidden='true' class='block-anchor'  id='v2-custom-fields_get-count-custom-fields'><i aria-hidden='true' class='linkify icon'></i></a>
+
 
 ## Get a Count of Custom Fields 
 
@@ -123,7 +123,7 @@ Example JSON returned in the response:
 
 
 
-<a href='#v2-custom-fields_create-custom-fields' aria-hidden='true' class='block-anchor'  id='v2-custom-fields_create-custom-fields'><i aria-hidden='true' class='linkify icon'></i></a>
+
 
 ## Create a Custom Field 
 
@@ -169,7 +169,7 @@ Example JSON returned in the response:
 
 
 
-<a href='#v2-custom-fields_update-custom-fields' aria-hidden='true' class='block-anchor'  id='v2-custom-fields_update-custom-fields'><i aria-hidden='true' class='linkify icon'></i></a>
+
 
 ## Update a Custom Field 
 
@@ -217,7 +217,7 @@ Example JSON returned in the response:
 
 
 
-<a href='#v2-custom-fields_delete-custom-fields' aria-hidden='true' class='block-anchor'  id='v2-custom-fields_delete-custom-fields'><i aria-hidden='true' class='linkify icon'></i></a>
+
 
 
 ## Delete a Custom Field 
@@ -228,7 +228,7 @@ Deletes a custom field associated with a product.
 
 
 
-<a href='#v2-custom-fields_delete-multiple-custom-fields' aria-hidden='true' class='block-anchor'  id='v2-custom-fields_delete-multiple-custom-fields'><i aria-hidden='true' class='linkify icon'></i></a>
+
 
 ## Delete Multiple Custom Fields 
 

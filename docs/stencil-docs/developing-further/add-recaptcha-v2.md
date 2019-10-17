@@ -14,7 +14,7 @@ If you have based your theme on a theme/version that already incorporates reCAPT
 
 
 
-<a href='#add-recaptcha_how-to-upgrade' aria-hidden='true' class='block-anchor'  id='add-recaptcha_how-to-upgrade'><i aria-hidden='true' class='linkify icon'></i></a>
+
 
 ## How to Upgrade
 

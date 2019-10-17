@@ -17,7 +17,7 @@ With the Checkout JS SDK, you can build a [custom checkout presentation](https:/
 
 
 
-<a href='#checkout-sdk_what-can-i-do' aria-hidden='true' class='block-anchor'  id='checkout-sdk_what-can-i-do'><i aria-hidden='true' class='linkify icon'></i></a>
+
 
 ## What Can I Do with the SDK?
 
@@ -52,14 +52,14 @@ The SDK does not allow you to implement custom payment, shipping, or tax calcula
 
 
 
-<a href='#checkout-sdk_where-to-get' aria-hidden='true' class='block-anchor'  id='checkout-sdk_where-to-get'><i aria-hidden='true' class='linkify icon'></i></a>
+
 
 ## Where Can I Get the SDK?
 The Checkout JS SDK and associated documentation is available from the [BigCommerce SDK Repo.]( https://github.com/bigcommerce/checkout-sdk-js)
 
 
 
-<a href='#checkout-sdk_support-customization' aria-hidden='true' class='block-anchor'  id='checkout-sdk_support-customization'><i aria-hidden='true' class='linkify icon'></i></a>
+
 
 ## Support and Customization
 - Enterprise clients can reach out to their account manager to review services and resources available.

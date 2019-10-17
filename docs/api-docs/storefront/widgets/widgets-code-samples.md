@@ -12,7 +12,7 @@
 
 Below are widgets that can be used as building blocks to expand on. Widgets are flexible and re-useable making them ideal for creating custom storefront. 
 
-<a href='#widget-code-sample_simple-list' aria-hidden='true' class='block-anchor'  id='widget-code-sample_simple-list'><i aria-hidden='true' class='linkify icon'></i></a>
+
 
 ## Simple List
 
@@ -87,7 +87,7 @@ lineNumbers: true
 
 
 
-<a href='#widget-code-sample_simple-html' aria-hidden='true' class='block-anchor'  id='widget-code-sample_simple-html'><i aria-hidden='true' class='linkify icon'></i></a>
+
 
 ## Simple HTML
 
@@ -142,7 +142,7 @@ lineNumbers: true
 
 
 
-<a href='#widget-code-sample_simple-text-styling' aria-hidden='true' class='block-anchor'  id='widget-code-sample_simple-text-styling'><i aria-hidden='true' class='linkify icon'></i></a>
+
 
 ## Simple Text with Styling
 
@@ -208,7 +208,7 @@ lineNumbers: true
 
 
 
-<a href='#widget-code-sample_image-slider' aria-hidden='true' class='block-anchor'  id='widget-code-sample_image-slider'><i aria-hidden='true' class='linkify icon'></i></a>
+
 
 ## Image Slider
 

@@ -38,7 +38,7 @@ Rules that modify the properties of a product, such as weight, price, and produc
 
 
 
-<a href='#v2-rule_list-product-rules' aria-hidden='true' class='block-anchor'  id='v2-rule_list-product-rules'><i aria-hidden='true' class='linkify icon'></i></a>
+
 
 ## List Product Rules 
 
@@ -112,7 +112,7 @@ Example JSON returned in the response:
 
 
 
-<a href='#v2-rule-product-rule' aria-hidden='true' class='block-anchor'  id='v2-rule-product-rule'><i aria-hidden='true' class='linkify icon'></i></a>
+
 
 ## Get a Product Rule 
 
@@ -151,7 +151,7 @@ Example JSON returned in the response:
 
 
 
-<a href='#v2-rule_get-count-rule' aria-hidden='true' class='block-anchor'  id='v2-rule_get-count-rule'><i aria-hidden='true' class='linkify icon'></i></a>
+
 
 ## Get a Count of Product Rules 
 
@@ -171,7 +171,7 @@ Example JSON returned in the response:
 
 
 
-<a href='#v2-rule_create-product-rule' aria-hidden='true' class='block-anchor'  id='v2-rule_create-product-rule'><i aria-hidden='true' class='linkify icon'></i></a>
+
 
 ## Create a Product Rule 
 
@@ -224,7 +224,7 @@ Example JSON returned in the response:
 
 
 
-<a href='#v2-rule_update-product-rule' aria-hidden='true' class='block-anchor'  id='v2-rule_update-product-rule'><i aria-hidden='true' class='linkify icon'></i></a>
+
 
 
 ## Update a Product Rule 
@@ -278,7 +278,7 @@ Example JSON returned in the response:
 
 
 
-<a href='#v2-rule_delete-product-rule' aria-hidden='true' class='block-anchor'  id='v2-rule_delete-product-rule'><i aria-hidden='true' class='linkify icon'></i></a>
+
 
 ## Delete a Product Rule 
 
@@ -288,7 +288,7 @@ Deletes a product rule.
 
 
 
-<a href='#v2-rule_delete-all-product-rule' aria-hidden='true' class='block-anchor'  id='v2-rule_delete-all-product-rule'><i aria-hidden='true' class='linkify icon'></i></a>
+
 
 ## Delete Multiple Product Rules 
 

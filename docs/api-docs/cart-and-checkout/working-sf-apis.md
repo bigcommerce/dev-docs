@@ -12,7 +12,7 @@
 
 </div>
 
-<a href='#working-sf-apis_prerequisites' aria-hidden='true' class='block-anchor'  id='working-sf-apis_prerequisites'><i aria-hidden='true' class='linkify icon'></i></a>
+
 
 ## Prerequisites:
 * Chrome/Firefox/Safari - Fetch does not work every version of [Internet Explorer](https://developer.mozilla.org/en-US/docs/Web/API/Fetch_API/Using_Fetch#Browser_compatibility). We recommend installing a [polyfill](https://github.com/github/fetch#html), then use fetch as usual.
@@ -25,7 +25,7 @@ Interaction with the Storefront APIs should be done using JavaScript. The Storef
 
 
 
-<a href='#working-sf-apis_create-postdata' aria-hidden='true' class='block-anchor'  id='working-sf-apis_create-postdata'><i aria-hidden='true' class='linkify icon'></i></a>
+
 
 ## Create postData() function
 
@@ -137,7 +137,7 @@ Now that we have the basics of creating a function with the fetch() API, we are 
 
 
 
-<a href='#working-sf-apis_storefront-cart' aria-hidden='true' class='block-anchor'  id='working-sf-apis_storefront-cart'><i aria-hidden='true' class='linkify icon'></i></a>
+
 
 ## Storefront Cart
 
@@ -472,7 +472,7 @@ headers:
 }
 ```
 
-<a href='#working-sf-apis_storefront-checkout' aria-hidden='true' class='block-anchor'  id='working-sf-apis_storefront-checkout'><i aria-hidden='true' class='linkify icon'></i></a>
+
 
 ## Storefront Checkout
 Next, we will cover using the Storefront Checkout to add a billing address, add a shipping address and update a shipping address to add the shipping option.
@@ -1089,7 +1089,7 @@ function postData(url = ``, checkoutId = ``, consignmentId = ``, data = {},) {
 
 
 
-<a href='#working-sf-apis_troubleshooting' aria-hidden='true' class='block-anchor'  id='working-sf-apis_troubleshooting'><i aria-hidden='true' class='linkify icon'></i></a>
+
 
 ## Troubleshooting
 
@@ -1101,7 +1101,7 @@ Make sure you have at least one item in your cart. Deleting all items removes th
 
 
 
-<a href='#working-sf-apis_realated-endpoints' aria-hidden='true' class='block-anchor'  id='working-sf-apis_realated-endpoints'><i aria-hidden='true' class='linkify icon'></i></a>
+
 
 ## Resources
 

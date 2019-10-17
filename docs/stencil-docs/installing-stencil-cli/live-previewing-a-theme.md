@@ -15,7 +15,7 @@ Once Stencil CLI is installed, the next step on the road to theme development is
 
 
 
-<a href='#step-0-obtain-store-api-credentials' aria-hidden='true' class='block-anchor'  id='step-0-obtain-store-api-credentials'><i aria-hidden='true' class='linkify icon'></i></a>
+
 
 ## Step 0: Obtain Store API Credentials
 
@@ -34,7 +34,7 @@ The **Stencil-CLI Access Level** can then be set by selecting **local developmen
 
 
 
-<a href='#step-1-download-a-theme' aria-hidden='true' class='block-anchor'  id='step-1-download-a-theme'><i aria-hidden='true' class='linkify icon'></i></a>
+
 
 ## Step 1: Download a Theme
 
@@ -105,7 +105,7 @@ For instructions on doing so, see the following resources:
 
 
 
-<a href='#step-2-install-theme-modules' aria-hidden='true' class='block-anchor'  id='step-2-install-theme-modules'><i aria-hidden='true' class='linkify icon'></i></a>
+
 
 ## Step 2: Install Theme Modules
  
@@ -136,7 +136,7 @@ This will install the `npm` modules required to properly leverage the Stencil ev
 
 
 
-<a href='#step-3-serve-live-preview' aria-hidden='true' class='block-anchor'  id='step-3-serve-live-preview'><i aria-hidden='true' class='linkify icon'></i></a>
+
 
 ## Step 3: Serve Live Preview
 

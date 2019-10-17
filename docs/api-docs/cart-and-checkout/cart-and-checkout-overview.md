@@ -12,7 +12,7 @@
 
 </div> 
 
-<a href='#cart-checkout_storefront-cart-and-checkout' aria-hidden='true' class='block-anchor'  id='cart-checkout_storefront-cart-and-checkout'><i aria-hidden='true' class='linkify icon'></i></a>
+
 
 ## Storefront Cart and Checkout
 
@@ -135,7 +135,7 @@ console.log(myJson);
 
 
 
-<a href='#cart-checkout_server-to-server-cart-and-checkout' aria-hidden='true' class='block-anchor'  id='cart-checkout_server-to-server-cart-and-checkout'><i aria-hidden='true' class='linkify icon'></i></a>
+
 
 ## Server-to-Server Cart and Checkout
 
@@ -167,7 +167,7 @@ To learn more on setup, see [Persistent Cart](https://support.bigcommerce.com/s/
 
 
 
-<a href='#cart-checkout_troubleshooting' aria-hidden='true' class='block-anchor'  id='cart-checkout_troubleshooting'><i aria-hidden='true' class='linkify icon'></i></a>
+
 
 ## Troubleshooting Cart Errors
 We will go over common Storefront Cart and Checkout as well as Server to Server Cart and Checkout errors. Each scenario will include the error message and how to fix the error. The most common errors are listed below.

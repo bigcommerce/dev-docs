@@ -29,7 +29,7 @@ Values that can be selected for an option.
 | is_default | boolean | Whether or not this value is selected by default. For each option, only one option value can be selected by default. |
 
 
-<a href='#v2-option-values_list-option-values' aria-hidden='true' class='block-anchor'  id='v2-option-values_list-option-values'><i aria-hidden='true' class='linkify icon'></i></a>
+
 
 ## List Option Values 
 
@@ -73,7 +73,7 @@ Example JSON returned in the response:
 ```
 
 
-<a href='#v2-option-values-option-values' aria-hidden='true' class='block-anchor'  id='v2-option-values-option-values'><i aria-hidden='true' class='linkify icon'></i></a>
+
 
 ## Get an Option Value 
 
@@ -99,7 +99,7 @@ Example JSON returned in the response:
 
 
 
-<a href='#v2-option-values_create-option-values' aria-hidden='true' class='block-anchor'  id='v2-option-values_create-option-values'><i aria-hidden='true' class='linkify icon'></i></a>
+
 
 ## Create an Option Value 
 
@@ -157,7 +157,7 @@ Example JSON returned in the response:
 
 
 
-<a href='#v2-option-values_update-option-values' aria-hidden='true' class='block-anchor'  id='v2-option-values_update-option-values'><i aria-hidden='true' class='linkify icon'></i></a>
+
 
 ## Update an Option Value 
 
@@ -212,7 +212,7 @@ Example JSON returned in the response:
 
 
 
-<a href='#v2-option-values_delete-option-values' aria-hidden='true' class='block-anchor'  id='v2-option-values_delete-option-values'><i aria-hidden='true' class='linkify icon'></i></a>
+
 
 ## Delete an Option Value 
 
@@ -222,7 +222,7 @@ Deletes an option value.
 
 
 
-<a href='#v2-option-values_delete-all-option-values' aria-hidden='true' class='block-anchor'  id='v2-option-values_delete-all-option-values'><i aria-hidden='true' class='linkify icon'></i></a>
+
 
 ## Delete Multiple Option Values 
 

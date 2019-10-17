@@ -14,7 +14,7 @@
 
 You are free to decide which properties of your theme to make editable in Store Design, and in which order to display them. Store Design can expose any set of properties as long as your <span class="fn">schema.json</span> declares them using the data types that Store Design supports.
 
-<a href='#defining-ui-options_enabling' aria-hidden='true' class='block-anchor'  id='defining-ui-options_enabling'><i aria-hidden='true' class='linkify icon'></i></a>
+
 
 ## Enabling Store Design Options
 
@@ -39,7 +39,7 @@ that setting – and its possible values – must be present in <span class="fn"
 
 
 
-<a href='#defining-ui-options_best-practices' aria-hidden='true' class='block-anchor'  id='defining-ui-options_best-practices'><i aria-hidden='true' class='linkify icon'></i></a>
+
 
 ## Best Practices
 
@@ -55,7 +55,7 @@ Please follow these guidelines to head off errors upon theme upload, and to avoi
 
 
 
-<a href='#defining-ui-options_how-json' aria-hidden='true' class='block-anchor'  id='defining-ui-options_how-json'><i aria-hidden='true' class='linkify icon'></i></a>
+
 
 ## How .json Entries Govern Store Design's UI
 
@@ -70,7 +70,7 @@ In all, the structure that you give your theme's <span class="fn">config.json</s
 
 
 
-<a href='#defining-ui-options_store-design-data' aria-hidden='true' class='block-anchor'  id='defining-ui-options_store-design-data'><i aria-hidden='true' class='linkify icon'></i></a>
+
 
 ## Store Design Data Types
 
@@ -143,7 +143,7 @@ These `"type": "heading"` statements do not reference data types. Rather, they d
 
 
 
-<a href='#defining-ui-options_data-structure' aria-hidden='true' class='block-anchor'  id='defining-ui-options_data-structure'><i aria-hidden='true' class='linkify icon'></i></a>
+
 
 ## Store Design Data Structure in <span class="fn">schema.json</span> 
 
@@ -152,7 +152,7 @@ The <span class="fn">schema.json</span> nesting structure that you just saw maps
 
 
 
-<a href='#defining-ui-options_troubleshooting' aria-hidden='true' class='block-anchor'  id='defining-ui-options_troubleshooting'><i aria-hidden='true' class='linkify icon'></i></a>
+
 
 ## Store Design UI Troubleshooting
 

@@ -71,7 +71,7 @@ lineNumbers: true
 
 ```
 
-<a href='#multi_browsing' aria-hidden='true' class='block-anchor'  id='multi_browsing'><i aria-hidden='true' class='linkify icon'></i></a>
+
 
 ## Browsing Hidden Translation Keys
 
@@ -79,7 +79,7 @@ BigCommerce exposes only part of the checkout page's structure through the local
 
 This hidden content includes many more key/value pairs that support translation. However, you can see all the available keys with their default English-language values in the [opt-checkout-en.json.zip file](https://storage.googleapis.com/bigcommerce-production-dev-center/template-files/opt-checkout-en.json.zip)
 
-<a href='#multi_adding' aria-hidden='true' class='block-anchor'  id='multi_adding'><i aria-hidden='true' class='linkify icon'></i></a>
+
 
 ## Adding Your Own Translation Values
 
@@ -91,7 +91,7 @@ You can provide values for all of checkout's supported translation keys – for 
 
 3. Replace the keys' values with appropriate phrases in each file's target language.
 
-<a href='#multi_localized' aria-hidden='true' class='block-anchor'  id='multi_localized'><i aria-hidden='true' class='linkify icon'></i></a>
+
 
 ## Localized Country and State Names
 
@@ -124,7 +124,7 @@ BigCommerce Optimized One-Page Checkout will currently translate displayed `Coun
 | Chinese Simplified | `zh-TW.json` |
 | Chinese Traditional | `zh.json` |
 
-<a href='#multi_stencils-overall' aria-hidden='true' class='block-anchor'  id='multi_stencils-overall'><i aria-hidden='true' class='linkify icon'></i></a>
+
 
 ## Limits on Translation
 

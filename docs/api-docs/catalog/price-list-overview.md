@@ -12,7 +12,7 @@
 	</ul>
 </div>
 
-<a href='#pricelist_what-is-a-pricelist' aria-hidden='true' class='block-anchor'  id='pricelist_what-is-a-pricelist'><i aria-hidden='true' class='linkify icon'></i></a>
+
 
 A Price List allows you to populate different versions of catalog pricing and assign them to different [Customer Groups](/api-reference/customer-subscribers/customers-api). The prices are specified exclusively at the variant level. 
 
@@ -26,7 +26,7 @@ The following OAuth Scopes are required:
 
 
 
-<a href='#pricelist_definitions' aria-hidden='true' class='block-anchor'  id='pricelist_definitions'><i aria-hidden='true' class='linkify icon'></i></a>
+
 
 ## Definitions
 
@@ -132,7 +132,7 @@ Under `discount_rules` the `type` is set to `price_list` and the `price_list_id`
 
 
 
-<a href='#pricelist_notes' aria-hidden='true' class='block-anchor'  id='pricelist_notes'><i aria-hidden='true' class='linkify icon'></i></a>
+
 
 ## Notes
 

@@ -26,7 +26,7 @@ This article contains detailed information about the Scripts API and assumes you
 
 
 
-<a href='#scripts_script-manager-partner-guidelines' aria-hidden='true' class='block-anchor'  id='scripts_script-manager-partner-guidelines'><i aria-hidden='true' class='linkify icon'></i></a>
+
 
 ## Script Manager API Partner Guidelines
 
@@ -49,7 +49,7 @@ Because of this, you’ll need to check whether a user is running Stencil to det
 
 
 
-<a href='#scripts_script-prerequisites' aria-hidden='true' class='block-anchor'  id='scripts_script-prerequisites'><i aria-hidden='true' class='linkify icon'></i></a>
+
 
 ## Prerequisites
 
@@ -58,7 +58,7 @@ To better understand the content of this document, you should be familiar with t
 
 
 
-<a href='#scripts_upgrades-installation' aria-hidden='true' class='block-anchor'  id='scripts_upgrades-installation'><i aria-hidden='true' class='linkify icon'></i></a>
+
 
 ## Upgrades and Installation
 
@@ -98,7 +98,7 @@ Existing blueprint installations won’t be affected, but remember that if you a
 
 
 
-<a href='#scripts_fixing-missing-scripts' aria-hidden='true' class='block-anchor'  id='scripts_fixing-missing-scripts'><i aria-hidden='true' class='linkify icon'></i></a>
+
 
 ### Fixing Missing Scripts
 
@@ -128,7 +128,7 @@ Stencil themes from the marketplace support the [Optimized One-Page Checkout](ht
 
 
 
-<a href='#scripts_scripts-notes' aria-hidden='true' class='block-anchor'  id='scripts_scripts-notes'><i aria-hidden='true' class='linkify icon'></i></a>
+
 
 ## Notes
 
@@ -155,7 +155,7 @@ Stencil themes from the marketplace support the [Optimized One-Page Checkout](ht
 
 
 
-<a href='#scripts_scripts-visibility' aria-hidden='true' class='block-anchor'  id='scripts_scripts-visibility'><i aria-hidden='true' class='linkify icon'></i></a>
+
 
 ## Script Visibility Locations
 
@@ -175,7 +175,7 @@ Scripts can not be injected to:
 
 
 
-<a href='#scripts_related-endpoints' aria-hidden='true' class='block-anchor'  id='scripts_related-endpoints'><i aria-hidden='true' class='linkify icon'></i></a>
+
 
 ## Resources
 

@@ -23,13 +23,9 @@ Dev Tools can be found by clicking [My Apps](https://devtools.bigcommerce.com/) 
 
 The requirements to submit an app are listed below, as well as where the information needs to be updated.
 
-<a href='#app-store-approval-requirements_prerequisites' aria-hidden='true' class='block-anchor'  id='app-store-approval-requirements_prerequisites'><i aria-hidden='true' class='linkify icon'></i></a>
-
 ## Prerequisites
 
 Make sure you’ve applied and been approved for our [Technology Partner Program](https://partners.bigcommerce.com/English/register_email.aspx) before you’re ready to submit your app - you’ll need a valid Partner ID to do so. You’ll also need to accept the Terms & Conditions in the [Partner Portal](https://partners.bigcommerce.com/English/) before we can publish your app.
-
-<a href='#app-store-approval-requirements_general-requirements' aria-hidden='true' class='block-anchor'  id='app-store-approval-requirements_general-requirements'><i aria-hidden='true' class='linkify icon'></i></a>
 
 ## General Requirements
 
@@ -44,8 +40,6 @@ Make sure you’ve applied and been approved for our [Technology Partner Program
     - If your solution is a connector to a specific third-party service, or you’re offering only a specific feature, make sure to include both the name of the third party service or feature and your company name (Ex: “Marketplace by BigCommerce”, “Search by BigCommerce”), with your company name following the feature.
 
 -   Your app, including any storefront components, should be compatible with all [browsers](https://support.bigcommerce.com/s/article/Themes-Supported-Browsers) that the BigCommerce platform supports.
-
-<a href='#app-store-approval-requirements_functionality' aria-hidden='true' class='block-anchor'  id='app-store-approval-requirements_functionality'><i aria-hidden='true' class='linkify icon'></i></a>
 
 ## Functionality
 
@@ -62,8 +56,6 @@ Make sure you’ve applied and been approved for our [Technology Partner Program
 -   Avoid copy/paste for storefront code - use the [Scripts API](https://developer.bigcommerce.com/api-reference/storefront/content-scripts-api) to programmatically inject code snippets into a store’s Script Manager and storefront theme.
 
 -   If your app requires payment, you’ll need to collect payment from the user within your app. See Pricing & Categorization under App Summary for more information.
-
-<a href='#app-store-approval-requirements_installation' aria-hidden='true' class='block-anchor'  id='app-store-approval-requirements_installation'><i aria-hidden='true' class='linkify icon'></i></a>
 
 ## Installation
 
@@ -87,8 +79,6 @@ Make sure you’ve applied and been approved for our [Technology Partner Program
 </div>
 </div>
 
-<a href='#app-store-approval-requirements_recommendations' aria-hidden='true' class='block-anchor'  id='app-store-approval-requirements_recommendations'><i aria-hidden='true' class='linkify icon'></i></a>
-
 ## Recommendations
 
 -   Have a form to fill out for new users? We recommend auto-filling user input fields with data from the [Store Information API resource](https://developer.bigcommerce.com/api-reference/store-management/store-information-api), which already contains much of the info you might need from a new user.
@@ -102,8 +92,6 @@ Make sure you’ve applied and been approved for our [Technology Partner Program
 ## Dev Tools Walkthrough
 
 Below are the screens you will go through when submitting an app through DevTools. Each tab shows the page along with the fields and descriptions. Each field needs to have the correct information for the app to be approved.
-
-<a href='#app-store-approval-requirements_dev-tools-walkthrough' aria-hidden='true' class='block-anchor'  id='app-store-approval-requirements_dev-tools-walkthrough'><i aria-hidden='true' class='linkify icon'></i></a>
 
  
 <a id="app-store-approval-requirements_app_summary"></a>

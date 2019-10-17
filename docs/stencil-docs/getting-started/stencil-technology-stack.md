@@ -14,7 +14,7 @@ Stencil's use of Handlebars.js, Javascript, and YAML Front Matter on the front e
 
 
 
-<a href='#tech-stack_handlebars-overview' aria-hidden='true' class='block-anchor'  id='tech-stack_handlebars-overview'><i aria-hidden='true' class='linkify icon'></i></a>
+
 
 ## Handlebars.js Overview
 
@@ -48,7 +48,7 @@ View the [full Handlebars Helpers Reference](/stencil-docs/reference-docs/handle
 
 
 
-<a href='#tech-stack_objects-overview' aria-hidden='true' class='block-anchor'  id='tech-stack_objects-overview'><i aria-hidden='true' class='linkify icon'></i></a>
+
 
 ## Stencil Objects Overview
 
@@ -100,7 +100,7 @@ Stencil Objects are categorized as either Global, Common, or Other, which is rep
 
 
 
-<a href='#tech-stack_front-matter-overview' aria-hidden='true' class='block-anchor'  id='tech-stack_front-matter-overview'><i aria-hidden='true' class='linkify icon'></i></a>
+
 
 ## YAML Front Matter Overview
 

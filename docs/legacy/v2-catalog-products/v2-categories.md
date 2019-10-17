@@ -13,7 +13,7 @@
 - [Delete All Categories](#delete-all-categories)
 
 </div>
-<a href='#v2-categories_object-properties' aria-hidden='true' class='block-anchor'  id='v2-categories_object-properties'><i aria-hidden='true' class='linkify icon'></i></a>
+
 
 ## Categories 
 
@@ -40,7 +40,7 @@ Index of hierarchical categories used to organize and group products.
 
 
 
-<a href='#v2-categories_list-categories' aria-hidden='true' class='block-anchor'  id='v2-categories_list-categories'><i aria-hidden='true' class='linkify icon'></i></a>
+
 
 ## List Categories 
 
@@ -100,7 +100,7 @@ Example JSON returned in the response:
 
 
 
-<a href='#v2-categories_get-categories' aria-hidden='true' class='block-anchor'  id='v2-categories_get-categories'><i aria-hidden='true' class='linkify icon'></i></a>
+
 
 
 ## Get a Category 
@@ -137,7 +137,7 @@ Example JSON returned in the response:
 
 
 
-<a href='#v2-categories_get-count-categories' aria-hidden='true' class='block-anchor'  id='v2-categories_get-count-categories'><i aria-hidden='true' class='linkify icon'></i></a>
+
 
 ## Get a Count of Categories 
 
@@ -158,7 +158,7 @@ Example JSON returned in the response:
 
 
 
-<a href='#v2-categories_create-categories' aria-hidden='true' class='block-anchor'  id='v2-categories_create-categories'><i aria-hidden='true' class='linkify icon'></i></a>
+
 
 ## Create a Category 
 
@@ -225,7 +225,7 @@ Example JSON returned in the response:
 
 
 
-<a href='#v2-categories_update-categories' aria-hidden='true' class='block-anchor'  id='v2-categories_update-categories'><i aria-hidden='true' class='linkify icon'></i></a>
+
 
 ## Update a Category 
 
@@ -277,7 +277,7 @@ Example JSON returned in the response:
 
 
 
-<a href='#v2-categories_delete-categories' aria-hidden='true' class='block-anchor'  id='v2-categories_delete-categories'><i aria-hidden='true' class='linkify icon'></i></a>
+
 
 ## Delete a Category 
 
@@ -300,7 +300,7 @@ Deletes a category.
 </div>
 </div>
 
-<a href='#v2-categories_delete-all-categories' aria-hidden='true' class='block-anchor'  id='v2-categories_delete-all-categories'><i aria-hidden='true' class='linkify icon'></i></a>
+
 
 ## Delete All Categories 
 

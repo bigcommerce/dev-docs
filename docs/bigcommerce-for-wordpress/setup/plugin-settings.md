@@ -29,7 +29,7 @@ BigCommerce settings for WordPress are found in the left admin menu in WordPress
 
 
 
-<a href='#plugin-settings_product-sync' aria-hidden='true' class='block-anchor'  id='plugin-settings_product-sync'><i aria-hidden='true' class='linkify icon'></i></a>
+
 
 ## Product Sync
 Once the plugin is connected, the plugin will import products using the BigCommerce API. This will run automatically using [WordPress cron](https://developer.wordpress.org/plugins/cron/), using the schedule set on the settings page (default: every five minutes).
@@ -41,7 +41,7 @@ Product titles, descriptions, and post statuses can be edited in the WordPress a
 
 
 
-<a href='#plugin-settings_cart-settings' aria-hidden='true' class='block-anchor'  id='plugin-settings_cart-settings'><i aria-hidden='true' class='linkify icon'></i></a>
+
 
 ## Cart Settings
 
@@ -62,7 +62,7 @@ The cart page should be excluded from any page caching system enabled for your s
 
 
 
-<a href='#plugin-settings_theme-customizer' aria-hidden='true' class='block-anchor'  id='plugin-settings_theme-customizer'><i aria-hidden='true' class='linkify icon'></i></a>
+
 
 ## Theme Customizer
 The visual presentation of your store can be customized using the WordPress theme customizer. Open the theme customizer and find the "BigCommerce" panel, which contains several sections.
@@ -79,7 +79,7 @@ The visual presentation of your store can be customized using the WordPress them
 
 
 
-<a href='#plugin-settings_navigation-menus' aria-hidden='true' class='block-anchor'  id='plugin-settings_navigation-menus'><i aria-hidden='true' class='linkify icon'></i></a>
+
 
 ## Navigation Menus
 
@@ -95,7 +95,7 @@ Some of these pages acquire special functionality when they are added to navigat
 
 
 
-<a href='#plugin-settings_reviews' aria-hidden='true' class='block-anchor'  id='plugin-settings_reviews'><i aria-hidden='true' class='linkify icon'></i></a>
+
 
 ## Reviews
 Reviews placed on the WordPress store are synced to BigCommerce for permanent storage as well as usage on other channels. Additionally, reviews are stored in a local, custom database for quick access.
@@ -104,7 +104,7 @@ The review system on WordPress is enabled or disabled by the site’s Comments s
 
 
 
-<a href='#plugin-settings_gift-certificate-settings' aria-hidden='true' class='block-anchor'  id='plugin-settings_gift-certificate-settings'><i aria-hidden='true' class='linkify icon'></i></a>
+
 
 ## Gift Certificate Settings
 If the gift certificate setting is enabled in WordPress, shoppers will be able to purchase gift certificates from the site. Gift certificate functionality relies on two pages that are automatically created by the plugin. Both pages can be replaced by pages you create containing the appropriate shortcodes.

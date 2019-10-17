@@ -16,7 +16,7 @@ Whether you are new to Stencil or approaching Stencil from a different platform 
 
 
 
-<a href='#transitioning_find' aria-hidden='true' class='block-anchor'  id='transitioning_find'><i aria-hidden='true' class='linkify icon'></i></a>
+
 
 ##  Find an Agency Partner
 
@@ -24,7 +24,7 @@ If you prefer an expert customize your theme, we recommend working with one of o
 
 
 
-<a href='#transitioning_adapt' aria-hidden='true' class='block-anchor'  id='transitioning_adapt'><i aria-hidden='true' class='linkify icon'></i></a>
+
 
 ## Adapt a Stencil Theme or Develop from Scratch
 
@@ -32,7 +32,7 @@ For complete control over a theme's appearance and logic including the ability t
 
 
 
-<a href='#transitioning_transition' aria-hidden='true' class='block-anchor'  id='transitioning_transition'><i aria-hidden='true' class='linkify icon'></i></a>
+
 
 ## Transition to Stencil from Blueprint
 
@@ -83,7 +83,7 @@ If your store was created before March 2019, you will still be able to use One P
 
 
 
-<a href='#transitioning_seo-tips' aria-hidden='true' class='block-anchor'  id='transitioning_seo-tips'><i aria-hidden='true' class='linkify icon'></i></a>
+
 
 ## SEO Tips and Best Practices
 
@@ -99,7 +99,7 @@ Stencil is designed for high SEO performance. However, you will want to keep SEO
 
 
 
-<a href='#transitioning_interacting' aria-hidden='true' class='block-anchor'  id='transitioning_interacting'><i aria-hidden='true' class='linkify icon'></i></a>
+
 
 ## Interacting with the BigCommerce API
 
@@ -110,7 +110,7 @@ As a theme developer, you can rely on apps to enhance your themes’ capabilitie
 * [App Marketplace](https://www.bigcommerce.com/apps/) (BigCommerce)
 * [API Documentation](https://developer.bigcommerce.com/api-docs)
 
-<a href='#partner-with-bc' aria-hidden='true' class='block-anchor'  id='partner-with-bc'><i aria-hidden='true' class='linkify icon'></i></a>
+
 
 <div class="HubBlock--callout">
 <div class="CalloutBlock--">

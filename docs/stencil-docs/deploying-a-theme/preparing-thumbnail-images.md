@@ -11,7 +11,7 @@
 
 </div> 
 
-<a href='#preparing_where-and-how-merchants' aria-hidden='true' class='block-anchor'  id='preparing_where-and-how-merchants'><i aria-hidden='true' class='linkify icon'></i></a>
+
 
 ## Where Merchants See Your Theme's Thumbnail Images
 
@@ -55,7 +55,7 @@ A complete Stencil theme includes screenshots to show off the theme on cards tha
 
 
 
-<a href='#preparing_general-image' aria-hidden='true' class='block-anchor'  id='preparing_general-image'><i aria-hidden='true' class='linkify icon'></i></a>
+
 
 ## General Image Requirements
 
@@ -71,7 +71,7 @@ All screenshots described below must meet the following specifications in order 
 
  
 
-<a href='#preparing_themewide-composite' aria-hidden='true' class='block-anchor'  id='preparing_themewide-composite'><i aria-hidden='true' class='linkify icon'></i></a>
+
 
 ## Themewide Composite Image
 
@@ -114,7 +114,7 @@ lineNumbers: true
 
 
 
-<a href='#preparing_variations' aria-hidden='true' class='block-anchor'  id='preparing_variations'><i aria-hidden='true' class='linkify icon'></i></a>
+
 
 ## Variations: Desktop/Mobile Screenshots
 

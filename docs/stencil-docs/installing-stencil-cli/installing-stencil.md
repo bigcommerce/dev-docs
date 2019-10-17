@@ -17,7 +17,7 @@ This article contains the detailed instructions needed to install and configure 
 
 
 
-<a href='#authorizing_prerequisites' aria-hidden='true' class='block-anchor'  id='authorizing_prerequisites'><i aria-hidden='true' class='linkify icon'></i></a>
+
 
 ## Installing on Mac
 
@@ -51,7 +51,7 @@ npm install -g @bigcommerce/stencil-cli
 
 
 
-<a href='#authorizing_prerequisites2' aria-hidden='true' class='block-anchor'  id='authorizing_prerequisites2'><i aria-hidden='true' class='linkify icon'></i></a>
+
 
 ## Installing on Windows
 There's two methods for installing Stencil CLI and its dependencies on Windows.
@@ -127,7 +127,7 @@ npm install -g @bigcommerce/stencil-cli
 
 
 
-<a href='#authorizing_prerequisites3' aria-hidden='true' class='block-anchor'  id='authorizing_prerequisites3'><i aria-hidden='true' class='linkify icon'></i></a>
+
 
 ## Installing on Linux
 
@@ -165,7 +165,7 @@ npm install -g @bigcommerce/stencil-cli
 
 
 
-<a href='#live-previewing-a-theme' aria-hidden='true' class='block-anchor'  id='live-previewing-a-theme'><i aria-hidden='true' class='linkify icon'></i></a>
+
 
 ## Live Previewing a Theme
 

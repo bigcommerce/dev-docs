@@ -55,7 +55,7 @@
 </div>
 </div>
 
-<a href='#other-objects_product' aria-hidden='true' class='block-anchor'  id='other-objects_product'><i aria-hidden='true' class='linkify icon'></i></a>
+
 
 ## Product
 
@@ -693,7 +693,7 @@
   </tr>
 </table>
 
-<a href='#other-objects_category' aria-hidden='true' class='block-anchor'  id='other-objects_category'><i aria-hidden='true' class='linkify icon'></i></a>
+
 
 ## Category
 
@@ -829,7 +829,7 @@
   </tr>
 </table>
 
-<a href='#other-objects_brand' aria-hidden='true' class='block-anchor'  id='other-objects_brand'><i aria-hidden='true' class='linkify icon'></i></a>
+
 
 ## Brand
 
@@ -947,7 +947,7 @@
   </tr>
 </table>
 
-<a href='#other-objects_cart' aria-hidden='true' class='block-anchor'  id='other-objects_cart'><i aria-hidden='true' class='linkify icon'></i></a>
+
 
 ## Cart
 
@@ -1339,7 +1339,7 @@ For further details about catalog price properties, please see [Catalog Price Ob
 
 <b>Object Properties:</b> References standard product card model.
 
-<a href='#other-objects_customer' aria-hidden='true' class='block-anchor'  id='other-objects_customer'><i aria-hidden='true' class='linkify icon'></i></a>
+
 
 ## Customer
 
@@ -2360,7 +2360,7 @@ Refunded, Rejected, or Cancelled</td>
 | forms | Object |
 | &nbsp; ↳ provider | ID of the provider to add a vaulted card. Ex. stripe |
 
-<a href='#other-objects_blog' aria-hidden='true' class='block-anchor'  id='other-objects_blog'><i aria-hidden='true' class='linkify icon'></i></a>
+
 
 ## Blog
 
@@ -2490,7 +2490,7 @@ _These objects are called on the default `<theme-name>/templates/components/blog
   </tr>
 </table>
 
-<a href='#other-objects_forms' aria-hidden='true' class='block-anchor'  id='other-objects_forms'><i aria-hidden='true' class='linkify icon'></i></a>
+
 
 ## Forms
 
@@ -2804,7 +2804,7 @@ https://github.com/bigcommerce/cornerstone/tree/master/templates/components/comm
 </div>
 </div>
 
-<a href='#other-objects_order-confirmation' aria-hidden='true' class='block-anchor'  id='other-objects_order-confirmation'><i aria-hidden='true' class='linkify icon'></i></a>
+
 
 ## Order Confirmation Objects
 

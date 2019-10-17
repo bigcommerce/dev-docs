@@ -61,7 +61,7 @@ Stored Credit Card management gives customer’s the ability to manage their sto
 
 
 
-<a href='#stored-cc-mgmt_adding-stored-cc-mgmt' aria-hidden='true' class='block-anchor'  id='stored-cc-mgmt_adding-stored-cc-mgmt'><i aria-hidden='true' class='linkify icon'></i></a>
+
 
 ## Adding Stored Credit Card Management 
 
@@ -69,7 +69,7 @@ Stored Credit Card Management was added to Cornerstone in [pull request #1376](h
 
 
 
-<a href='#stored-cc-mgmt_add-payment-methods' aria-hidden='true' class='block-anchor'  id='stored-cc-mgmt_add-payment-methods'><i aria-hidden='true' class='linkify icon'></i></a>
+
 
 ## Step 1: [Add Payment Methods Page](https://github.com/bigcommerce/cornerstone/pull/1376/commits/24abc038fe346a8572b40da40c98a9465788957a)
 
@@ -91,7 +91,7 @@ Stored Credit Card Management was added to Cornerstone in [pull request #1376](h
 
 
 
-<a href='#stored-cc-mgmt_add-translations' aria-hidden='true' class='block-anchor'  id='stored-cc-mgmt_add-translations'><i aria-hidden='true' class='linkify icon'></i></a>
+
 
 ## Step 2: [Add Translations](https://github.com/bigcommerce/cornerstone/pull/1376/commits/9edf1a0f6907811abf470db1486b4fdb199b27ae)
 
@@ -101,7 +101,7 @@ Stored Credit Card Management was added to Cornerstone in [pull request #1376](h
 
 
 
-<a href='#stored-cc-mgmt_include-cc-listing' aria-hidden='true' class='block-anchor'  id='stored-cc-mgmt_include-cc-listing'><i aria-hidden='true' class='linkify icon'></i></a>
+
 
 ## Step 3: [Include Credit Card Listing](https://github.com/bigcommerce/cornerstone/pull/1376/commits/5574eb98c710f4540e8390420563099b6f5710bf)
 
@@ -121,7 +121,7 @@ Stored Credit Card Management was added to Cornerstone in [pull request #1376](h
 
 
 
-<a href='#stored-cc-mgmt_add-cc-actions' aria-hidden='true' class='block-anchor'  id='stored-cc-mgmt_add-cc-actions'><i aria-hidden='true' class='linkify icon'></i></a>
+
 
 ## Step 4: [Add Credit Card Actions](https://github.com/bigcommerce/cornerstone/pull/1376/commits/499016d320995852fe4ef621724e08556896b70d)
 
@@ -141,7 +141,7 @@ Stored Credit Card Management was added to Cornerstone in [pull request #1376](h
 
 
 
-<a href='#stored-cc-mgmt_implement-delete' aria-hidden='true' class='block-anchor'  id='stored-cc-mgmt_implement-delete'><i aria-hidden='true' class='linkify icon'></i></a>
+
 
 ## Step 5: [Implement `Delete Payment` Method](https://github.com/bigcommerce/cornerstone/pull/1376/commits/cf102901d9061b7334e8c39f15a8904c37cf0652)
 
@@ -151,7 +151,7 @@ First, the click will trigger window confirm. The confirmation modal has been ad
 
 
 
-<a href='#stored-cc-mgmt_implement-edit' aria-hidden='true' class='block-anchor'  id='stored-cc-mgmt_implement-edit'><i aria-hidden='true' class='linkify icon'></i></a>
+
 
 ## Step 6: [Implement `Edit Payment` Method](https://github.com/bigcommerce/cornerstone/pull/1376/commits/ab2fe1df455fa8ac93760904b718fbce7ce361ed)
 
@@ -172,7 +172,7 @@ First, the click will trigger window confirm. The confirmation modal has been ad
 
 
 
-<a href='#stored-cc-mgmt_implement-add' aria-hidden='true' class='block-anchor'  id='stored-cc-mgmt_implement-add'><i aria-hidden='true' class='linkify icon'></i></a>
+
 
 ## Step 7: [Implement `Add Payment` Method](https://github.com/bigcommerce/cornerstone/pull/1376/commits/c960338c32faa8fb798b2826c72dfe9d74bf9751)
 
@@ -200,7 +200,7 @@ First, the click will trigger window confirm. The confirmation modal has been ad
 
 
 
-<a href='#stored-cc-mgmt_add-default' aria-hidden='true' class='block-anchor'  id='stored-cc-mgmt_add-default'><i aria-hidden='true' class='linkify icon'></i></a>
+
 
 ## Step 8: [Add Default Instrument](https://github.com/bigcommerce/cornerstone/pull/1376/commits/5576aee5af0194e85cb11dbf44563f89b2687f40)
 
