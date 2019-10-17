@@ -1,13 +1,21 @@
 
 <h3 class="sub-docs-type" id="bigcommerce-for-wordpress">BigCommerce for Wordpress</h3>
 
-<h1 class="sub-docs-title" id="introduction">App Compatibility
+# App Compatibility
+
+<div class="otp" id="no-index">
+
+### On This Page
+- [Supported Apps](#supported-apps)
+- [Unsupported Apps](#unsupported-apps)
+
+</div> 
 
 
 
 When you use BigCommerce for WordPress, your storefront is rendered by WordPress rather than BigCommerce, so some apps that you use for a BigCommerce-powered storefront may no longer be compatible.
 
-### Supported Apps
+## Supported Apps
 
 For the most part, any app that operates solely on the backend can be used without modification on WordPress. This includes  apps that interface with our catalog, order, shipping, and customer APIs. You can find hundreds of compatible apps in these categories:
 
@@ -18,7 +26,7 @@ For the most part, any app that operates solely on the backend can be used witho
 * [Sales Channels](https://www.bigcommerce.com/apps/sales-channels/)
 * [Shipping & Fulfillment](https://www.bigcommerce.com/apps/shipping-fulfillment/)
 
-### Unsupported Apps 
+## Unsupported Apps 
 
 Apps that modify the storefront are currently not supported. This includes [Customer Acquisition & Retention](https://www.bigcommerce.com/apps/customer-acquisition-retention/) apps show banners, pop-ups, or other storefront modifications.
 
