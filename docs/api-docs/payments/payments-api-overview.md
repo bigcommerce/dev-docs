@@ -445,6 +445,32 @@ lineNumbers: true
 
 If the purchase was successful it will return a status of success. The order is then automatically moved to an Awaiting Fulfillment status. If you get a different response, see [Error Codes](#payments_error-codes) for troubleshooting.
 
+### Storing Credit Cards
+
+Payments API allows developers to store a credit card while processing a credit card payment.
+
+When processing a credit payment set `save_instrument: true`. The shopper can also store credit cards during checkout. If you are using the [Checkout SDK](https://developer.bigcommerce.com/api-docs/cart-and-checkout/checkout-sdk), it can store the credit card as part of the checkout.
+
+*`POST`* `https://api.bigcommerce.com/stores/{{store_hash}}/v3/payments`
+
+**Process payment example POST**
+
+```json
+{
+  "payment": {
+    "instrument": {
+      "type": "card",
+      "number": "4111111111111111",
+      "cardholder_name": "BP",
+      "expiry_month": 12,
+      "expiry_year": 2020,
+      "verification_value": "411"
+    },
+    "payment_method_id": "authorizenet.card",
+		"save_instrument": true
+  }
+}
+```
 ---
 
 <a href='#payments_orders-api' aria-hidden='true' class='block-anchor'  id='payments_orders-api'><i aria-hidden='true' class='linkify icon'></i></a>
@@ -536,9 +562,6 @@ If a payment is declined it will return a 4XX error with details if available.
 
 ### Authorization
 If a payment gateway is configured for authorization only, the payment will be authorized at the time of processing. The order will have to later be captured through the control panel. If the gateway is set for authorization and capture, the payment will be authorized and captured when payment is processed.
-
-### Stored Cards
-The Payments API supports payment with cards that are currently stored. It does not provide a method for storing new cards.
 
 ### Control Panel
 Orders created and captured via the API will look the same as other orders created via the storefront or other apps. The order source will be “Checkout API.”
