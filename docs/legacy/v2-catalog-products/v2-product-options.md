@@ -14,7 +14,7 @@
 ### Product Options Object – Properties 
 
 | Title | Name | Type | Description |
-|-|-|-|  |
+|-|-|-|-|
 | `id` | `int` |
 | `option_id` | `int` |
 | `display_name` | `string` |
