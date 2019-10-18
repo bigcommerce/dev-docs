@@ -5,6 +5,7 @@
 ### On This Page
 - [PCI Compliance](#pci-compliance)
 - [Processing a Payment](#processing-a-payment)
+- [Stored Cards](#stored-cards)
 - [Credit Cards](#credit-cards)
 - [Using the Orders API](#using-the-orders-api)
 - [Technical Details](#technical-details)
@@ -95,7 +96,7 @@ Payments can be processed using cards stored with the BigCommerce Stored Credit 
 </div>
 </div>
 
-### Stored Cards
+## Stored Cards
 There are three steps to using a stored card to make a payment.
 
 1. [Get Payment Methods](/api-reference/payments/payments-create-payment-token-api/payment-methods/paymentsmethodsget)
