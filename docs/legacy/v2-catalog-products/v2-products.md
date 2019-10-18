@@ -32,7 +32,7 @@ A product object represents a saleable item in the catalog.
 ### Product Object – Properties
 
 | Name | Type | Description |
-|-|-|-|  |
+|-|-|-|
 | id | int | The unique numerical ID of the product. Increments sequentially. |
 | keyword_filter | string | (This property is deprecated.) |
 | name | string | The product name. |
