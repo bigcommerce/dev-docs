@@ -143,7 +143,7 @@ lineNumbers: true
 Below are the browsers supported for the BigCommerce control panel. We drop support when a version falls below 2% of usage. The browsers are sorted by popularity, with the most popular browsers at the top.
 
 | Desktop |
-|  |
+|-|
 | Chrome latest |
 | Firefox latest |
 | Internet Explorer 11 or later |
