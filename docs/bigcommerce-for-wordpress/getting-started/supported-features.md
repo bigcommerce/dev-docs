@@ -11,8 +11,6 @@
 
 </div>
 
-<a href='##supported_supported' aria-hidden='true' class='block-anchor'  id='#supported_supported'><i aria-hidden='true' class='linkify icon'></i></a>
-
 ## BigCommerce for Wordpress Supported Features
 
 The open source BigCommerce for Wordpress plugin currently supports the following features and capabilities that are native to the BigCommerce platform and more:
@@ -44,12 +42,6 @@ BigCommerce has over 65 payment gateway integrations available out-of-the box, s
 
 Unsupported Hosted Payment Gateways are Amazon Pay, AfterPay, Google Pay, Chase Pay, and Masterpass.
 
-
-
----
-
-<a href='##supported_unsupported' aria-hidden='true' class='block-anchor'  id='#supported_unsupported'><i aria-hidden='true' class='linkify icon'></i></a>
-
 ## BigCommerce for Wordpress Unsupported Features
 
 The BigCommerce for Wordpress plugin does not currently support the following features: 
@@ -61,10 +53,6 @@ The BigCommerce for Wordpress plugin does not currently support the following fe
 * Cart Preview
 * Cart Page Promotional Banners
 * Real-Time Syncing with BigCommerce Catalog Updates
-
----
-
-<a href='#supported_general' aria-hidden='true' class='block-anchor'  id='supported_general'><i aria-hidden='true' class='linkify icon'></i></a>
 
 ## General Product Roadmap
 
@@ -80,5 +68,3 @@ We plan on supporting and improving the following features in the BigCommerce fo
 * Shipping Calculation on Cart Page
 * Promotional Banner Support
 * Page Builder Plugins Support
-
-

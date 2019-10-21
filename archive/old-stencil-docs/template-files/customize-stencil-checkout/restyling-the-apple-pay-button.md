@@ -19,7 +19,7 @@ Apple Pay is a digital wallet that links to a shopper's chosen credit or debit c
 
 Displaying the Apple Pay button to shoppers on your storefront is subject to Apple's [geographic constraints](https://support.apple.com/en-us/HT204916), [supported devices and software](https://support.apple.com/en-us/KM207105), [industry and conduct restrictions](https://developer.apple.com/apple-pay/acceptable-use-guidelines-for-websites/), and policies regarding store checkout flow. 
 
----
+
 
 <a href='#restyling_apple' aria-hidden='true' class='block-anchor'  id='restyling_apple'><i aria-hidden='true' class='linkify icon'></i></a>
 
@@ -49,7 +49,7 @@ The following Stencil themes do **not** include Apple Pay:
 
 By default, the Apple Pay button will appear on a theme's Cart page. If the store has [enabled site-wide HTTPS](https://support.bigcommerce.com/s/article/Site-Wide-HTTPS), the Apple Pay button will also appear in the Quick Cart modal. The Apple Pay button does _not_ appear on the checkout page, because Apple Pay is designed as a low-friction alternative that bypasses the store's native checkout.
 
----
+
 
 <a href='#restyling_implementing' aria-hidden='true' class='block-anchor'  id='restyling_implementing'><i aria-hidden='true' class='linkify icon'></i></a>
 
@@ -119,7 +119,7 @@ lineNumbers: true
 </style>
 ```
 
----
+
 
 <a href='#restyling_apple-pay-identity' aria-hidden='true' class='block-anchor'  id='restyling_apple-pay-identity'><i aria-hidden='true' class='linkify icon'></i></a>
 
@@ -127,7 +127,7 @@ lineNumbers: true
 
 As a condition for enabling Apple Pay, Apple requires merchants to style and display the button according to [Apple Pay Identity Guidelines](https://developer.apple.com/apple-pay/Apple-Pay-Identity-Guidelines.pdf). For BigCommerce's summary of the relevant guidelines, see the [Integrating the Apple Pay Button](https://support.bigcommerce.com/articles/Public/Integrating-the-Apple-Pay-button/#guidelines) support article.
 
----
+
 
 <a href='#restyling_styling' aria-hidden='true' class='block-anchor'  id='restyling_styling'><i aria-hidden='true' class='linkify icon'></i></a>
 
@@ -221,7 +221,7 @@ lineNumbers: true
 }	
 ```
 
----
+
 
 <a href='#restyling_troubleshooting' aria-hidden='true' class='block-anchor'  id='restyling_troubleshooting'><i aria-hidden='true' class='linkify icon'></i></a>
 
@@ -231,7 +231,7 @@ lineNumbers: true
 
 To troubleshoot issues like this, see the [Integrating the Apple Pay Button](https://support.bigcommerce.com/articles/Public/Integrating-the-Apple-Pay-button/#troubleshoot) support article.
 
----
+
 
 
 ## Resources

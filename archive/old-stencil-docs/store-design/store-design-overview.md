@@ -35,7 +35,7 @@ The remainder of this section guides you, as a developer, through configuring yo
 </div>
 </div>
 
----
+
 
 ## Resources
 

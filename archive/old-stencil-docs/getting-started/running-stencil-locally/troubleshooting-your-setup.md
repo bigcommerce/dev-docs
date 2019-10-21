@@ -280,7 +280,7 @@ If you encounter persistent problems in initializing or starting Stencil, you ha
 
 A more-drastic measure is to **also** uninstall and reinstall Stencil CLI's Node.js prerequisites (along with uninstalling Stencil CLI). We do not recommend this, as it might disable other Node.js applications on your local machine.
 
----
+
 
 ## Resources
 ### Related Articles

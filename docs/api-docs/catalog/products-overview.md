@@ -29,8 +29,6 @@ The Catalog refers to a store’s collection of physical and digital products. T
 
 [![Run in Postman](https://run.pstmn.io/button.svg)](https://app.getpostman.com/run-collection/63a61a74bd429ee184b3)
 
----
-
 ## Products
 
 [Products](/api-reference/catalog/catalog-api/products/getproducts) are the primary catalog entity, and the primary function of the e-commerce platform is to sell products on the storefront and other selling channels.
@@ -88,14 +86,11 @@ Simple products do not have any options, modifiers, or variants, and therefore c
 </div>
 </div>
 
----
-
 ### Create a Complex Product
 
 Complex products have at least one option and may have modifiers or variants.
 
 The [Create Products](/api-reference/catalog/catalog-api/products/getproducts) endpoint supports the creation of multiple variants along with the base product in a single call.
-
 
 **Example Complex Product**  
 `/POST https://api.bigcommerce.com/stores/{{store_hash}}/v3/catalog/products`
@@ -161,9 +156,6 @@ Files must be added to digital products using the [Control Panel or WebDav](http
   ]
 }
 ```
----
-
-
 
 ## Pricing Precision
 
@@ -190,10 +182,6 @@ Currency settings allows for inputting a large number of decimal places for disp
 ](//s3.amazonaws.com/user-content.stoplight.io/6012/1553018091114 "#### Currency Decimal Places
 ")
 
----
-
-
-
 ## Product Images
 
 [Product images](/api-reference/catalog/catalog-api/product-images/getproductimages) are used to show shoppers what they’re buying and merchandise products. When creating an image, `image_url` or an `image_file` can be passed in. 
@@ -216,7 +204,6 @@ Content-Type: multipart/form-data. Any other updates using the /POST or /PUT wil
 ### Product Thumbnails
 
 Only one image can be the [product thumbnail](/api-reference/catalog/catalog-api/models/productimage). The product thumbnail is the image that shows on the product listing page, in search results and any other location that features the product. If only one image is on the product it becomes both the thumbnail and the main product image. Images can also be added to [variants](/api-reference/catalog/catalog-api/product-variants/getvariantsbyproductid). 
-
 
 <!--
 title: "Product Thumbnails"
@@ -246,10 +233,6 @@ lineNumbers: true
 }
 ```
 
----
-
-
-
 ## Product Videos
 [Product Videos](/api-reference/catalog/catalog-api/product-videos/getproductvideos), in addition to images, can help shoppers understand what they’re buying and help sell the product. A product can have more than one video.
 
@@ -269,10 +252,6 @@ Example: <span class=”fp”>https://www.youtube.com/watch?v=<b>R12345677</b></
   "video_id": "R12345677"
 }
 ```
-
----
-
-
 
 ## Custom Fields
 
@@ -305,10 +284,6 @@ Custom Fields are intended to be used in a couple of contexts:
 * Displaying specifications on the product detail page and on the product listing pages such as category and brand pages.
 * Powering faeted search (searching/filtering by custom field values)
 
----
-
-
-
 ## Bulk Pricing Rules
 
 [Bulk Pricing Rules](/api-reference/catalog/catalog-api/product-bulk-pricing-rules/getbulkpricingrules) are intended for merchants who want to offer wholesale discounts for buying in bulk. They apply once products are added to cart, but they are displayed as a callout on the storefront to let shoppers know how they can save.
@@ -337,10 +312,6 @@ Bulk Pricing rules in the catalog are on the product, meaning that they’ll tri
 }
 ```
 
----
-
-
-
 ## Product Metafields
 
 [Metafields](/api-reference/catalog/catalog-api/product-metafields/createproductmetafield) allow a developer to set up key and namespace pairs to store data against a resource, like a product. The data does not appear in the storefront or the control panel. This is useful for when information needs to be passed back and forth between an app and the store. 
@@ -349,7 +320,6 @@ Metafields can be added to variants, products, categories, and brands.
 
 **Example Add Product Metafields**  
 `/PUT https://api.bigcommerce.com/stores/{{store_hash}}/v3/catalog/products/{{product_id}}/metafields`
-
 
 ```json
 {
@@ -362,10 +332,6 @@ Metafields can be added to variants, products, categories, and brands.
   "resource_id": 131
 }
 ```
-
----
-
-
 
 ## Product Reviews
 [Product reviews ](/api-reference/catalog/catalog-api/product-reviews/getproductreviews)contains ratings and feedback from shoppers who have purchased a product. Reviews are displayed on product pages. 
@@ -388,10 +354,6 @@ Product Reviews are a native platform feature, but they can be turned off in fav
   "date_reviewed": "2018-07-20T17:45:13+00:00"
 }
 ```
-
----
-
-
 
 ## Brands
 
@@ -417,9 +379,6 @@ They’re primarily used to tag products so that consumers can find Brands they�
   "image_url": "{{image_url}}"
 }
 ```
----
-
-
 
 ## Variant Options
 
@@ -443,14 +402,12 @@ The combination of Small & Red is what is selected on the storefront and correla
 * Will automatically generate variants when created in the CP
 * Are auto-generated from variants when a product is created with variants via V3 API Product /POST
 
-
 ### Variant Options Example:
 
 | If the product is | Variant Option |
 | -- | -- |
-| T-Shirt | Blue<br>----------<br>Small<br> Medium<br> Large|
-| Backpack | Black<br> Yellow<br>----------<br>2L <br> 3L<br> 8L |
-
+| T-Shirt | Blue<br>-<br>Small<br> Medium<br> Large|
+| Backpack | Black<br> Yellow<br>-<br>2L <br> 3L<br> 8L |
 
 ### Options created on V2 and V3
 
@@ -477,7 +434,6 @@ option values or a combination of variant option
 values. A request like this could also be used to
 add new choices to a variant that has already been created.
 
-
 <!--
 title: "Create Size Variant Option"
 subtitle: "/POST https://api.bigcommerce.com/stores/{store_hash}/v3/catalog/products/{product_id}/options"
@@ -486,7 +442,6 @@ lineNumbers: true
 
 **Example Create Size Variant Option**  
 `/POST https://api.bigcommerce.com/stores/{store_hash}/v3/catalog/products/{product_id}/options`
-
 
 ```json
 {
@@ -514,10 +469,6 @@ lineNumbers: true
 }
 ```
 
----
-
-
-
 ## Variant
 [Variants](/api-reference/catalog/catalog-api/product-variants/getvariantsbyproductid) represent an item as it sits on the shelf in the warehouse or a particular saleable product. A product might be a t-shirt, while the variant would be “a small, red t-shirt”. Variants are selected by shoppers on the storefront via Product Options. In the case where a product is simple, meaning it does not have any options, the product is its own variant - called a base variant. Everything you can buy should be a variant.
 
@@ -526,7 +477,6 @@ lineNumbers: true
 * Can have their own price, weight, dimensions, image, etc - or they can inherit these values from the product if they have not been specified
 * Must have a SKU code (unless they’re a base variant)
 * In the case of non-base variants, variants will relate to a particular combination of variant option values - such as “small” and “red”
-
 
 <div class="HubBlock--callout">
 <div class="CalloutBlock--warning">
@@ -541,14 +491,12 @@ lineNumbers: true
 </div>
 </div>
 
-
 ### Variants:
 
 | If the product is | Variant Option | Variant |
 | -- | -- | -- |
-| T-Shirt | Blue<br>----------<br> Small<br> Medium<br> Large| SM-BLU<br> SM-MED <br> SM-LARG
-| Backpack | Black<br>Yellow<br>----------<br>2L <br> 3L<br> 8L |BLACK-2L<br>BLACK-3L<br>BLACK 8L<br>----------<br>YELLOW-2L<br>YELLOW-3L<br>YELLOW-8L|
-
+| T-Shirt | Blue<br>-<br> Small<br> Medium<br> Large| SM-BLU<br> SM-MED <br> SM-LARG
+| Backpack | Black<br>Yellow<br>-<br>2L <br> 3L<br> 8L |BLACK-2L<br>BLACK-3L<br>BLACK 8L<br>-<br>YELLOW-2L<br>YELLOW-3L<br>YELLOW-8L|
 
 ## Create a Variant
 Variants can be created in two ways:
@@ -559,7 +507,6 @@ This will go over using existing variant options to create the variants
 
 Use the `https://api.bigcommerce.com/stores/{{store_hash}}/v3/catalog/products/131/options` endpoint to get the option information.
 
-
 <!--
 title: "Example Response"
 subtitle: "/GET https://api.bigcommerce.com/stores/{store_hash}/v3/catalog/products/{product_id}/options"
@@ -568,7 +515,6 @@ lineNumbers: true
 
 **Example Get Variant Options**  
 `/GET https://api.bigcommerce.com/stores/{store_hash}/v3/catalog/products/{product_id}/options`
-
 
 ```json
 {
@@ -684,7 +630,6 @@ To combine the variant option values into variants and build out SKUs use the fo
 </div>
 </div>
 
-
 The `option_values` array combines the options Small and Blue to create the SKU SMALL-BLUE. The id in the `option_values` array is the id from the variant option response `option_values > id`. The `option_id` is the id of the option.
 
 <div class="HubBlock-header">
@@ -771,11 +716,6 @@ The following example creates a base product, variant options, and variants in a
 </div>
 </div>
 
-
----
-
-
-
 ## Modifier Options
 
 [Modifier options](/api-reference/catalog/catalog-api/product-modifiers/getmodifiers) are any choices that the shopper can make that will change the way the merchant fulfills the product. Examples include:
@@ -790,15 +730,14 @@ Modifier options:
 * Support all option types
 * Cannot be used as part of a variant
 
-
 An adjuster can be added to a modifier option to change things such as increasing the price, changing the weight, or shipping rules.  Adjusters cannot be applied to all modifier types.
 
 ### Modifier Options Example:
 
 | If the product is | Variant Option | Variant |Modifier |
 | -- | -- | -- | -- |
-| T-Shirt | Blue<br>----------<br> Small<br> Medium<br> Large| SM-BLU<br> SM-MED <br> SM-LARG| Checkbox<br>Donate to Charity|
-| Backpack | Black<br>Yellow<br>----------<br>2L <br> 3L<br> 8L |BLACK-2L<br>BLACK-3L<br>BLACK 8L<br>----------<br>YELLOW-2L<br>YELLOW-3L<br>YELLOW-8L| Text Field<br> Add Embroidery|
+| T-Shirt | Blue<br>-<br> Small<br> Medium<br> Large| SM-BLU<br> SM-MED <br> SM-LARG| Checkbox<br>Donate to Charity|
+| Backpack | Black<br>Yellow<br>-<br>2L <br> 3L<br> 8L |BLACK-2L<br>BLACK-3L<br>BLACK 8L<br>-<br>YELLOW-2L<br>YELLOW-3L<br>YELLOW-8L| Text Field<br> Add Embroidery|
 
 <div class="HubBlock--callout">
 <div class="CalloutBlock--info">
@@ -980,10 +919,6 @@ To fix this error:
 * Modify the products using the V2 API
 * Remove the option set using the V2 API or the Control Panel, then remake the variants and modifiers using V3
 
----
-
-
-
 ## Complex Rules
 
 [Complex rules](/api-reference/catalog/catalog-api/product-complex-rules/getcomplexrules) allow merchants to set up conditions and actions based on shopper option selections on the storefront. You can use them to vary the following based on option selections made by the shopper:
@@ -1004,8 +939,8 @@ Use complex rules when an adjustment should be triggered by:
 
 | If the product is | Variant Option | Variant |Modifier | Complex Rule |
 | -- | -- | -- | -- | -- |
-| T-Shirt | Blue<br>----------<br> Small<br> Medium<br> Large| SM-BLU<br> SM-MED <br> SM-LARG| Checkbox<br>Donate to Charity| Checkox<br> Donate to Charity.<br> Add $5
-| Backpack | Black<br>Yellow<br>----------<br>2L <br> 3L<br> 8L |BLACK-2L<br>BLACK-3L<br>BLACK 8L<br>----------<br>YELLOW-2L<br>YELLOW-3L<br>YELLOW-8L| Text Field<br> Add Embroidery| N/A
+| T-Shirt | Blue<br>-<br> Small<br> Medium<br> Large| SM-BLU<br> SM-MED <br> SM-LARG| Checkbox<br>Donate to Charity| Checkox<br> Donate to Charity.<br> Add $5
+| Backpack | Black<br>Yellow<br>-<br>2L <br> 3L<br> 8L |BLACK-2L<br>BLACK-3L<br>BLACK 8L<br>-<br>YELLOW-2L<br>YELLOW-3L<br>YELLOW-8L| Text Field<br> Add Embroidery| N/A
 
 <br>
 
@@ -1039,10 +974,6 @@ lineNumbers: true
     "type": "https://developer.bigcommerce.com/api#api-status-codes"
 }
 ```
-
----
-
-
 
 ## Categories
 
@@ -1220,9 +1151,6 @@ lineNumbers: true
 }
 ```
 
-
----
-
 ## Resources
 
 ### Webhooks
@@ -1232,4 +1160,3 @@ lineNumbers: true
 
 ### Related Endpoints
 * [Catalog API](/api-reference/catalog/catalog-api)
-

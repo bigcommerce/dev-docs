@@ -12,8 +12,6 @@
 	</ul>
 </div>
 
-<a href='#widgets_introduction' aria-hidden='true' class='block-anchor'  id='widgets_introduction'><i aria-hidden='true' class='linkify icon'></i></a>
-
 The Widgets API allows developers to programmatically associate content with regions on a BigCommerce storefront. The content can consist of HTML, CSS, and JavaScript, and the API supports configuration via Handlebars variables. It can support many types of content such as YouTube Videos, image sliders, and chat apps.
 
 Some benefits are:
@@ -22,10 +20,6 @@ Some benefits are:
 * Target specific products, categories or brands with widgets
 
 We are going to review all the components that make a widget. Then, we’ll use what we’ve learned to create a widget .
-
----
-
-<a href='#widgets_regions' aria-hidden='true' class='block-anchor'  id='widgets_regions'><i aria-hidden='true' class='linkify icon'></i></a>
 
 ## Regions
 
@@ -37,7 +31,6 @@ We are going to review all the components that make a widget. Then, we’ll use 
     data: //s3.amazonaws.com/user-content.stoplight.io/6012/1551970794664
 -->
 
-
 ![#### Storefront --Content Region
 ](//s3.amazonaws.com/user-content.stoplight.io/6012/1551970794664 "#### Storefront --Content Region
 ")
@@ -48,16 +41,11 @@ We are going to review all the components that make a widget. Then, we’ll use 
     data: //s3.amazonaws.com/user-content.stoplight.io/6012/1551970767918
 -->
 
-
 ![#### Template File -- Content Region
 ](//s3.amazonaws.com/user-content.stoplight.io/6012/1551970767918 "#### Template File -- Content Region
 ")
 
 Most themes in the BigCommerce marketplace come with predefined regions. It is best to utilize those first. By editing the theme and adding theme regions, updates will need to be manually managed. 
-
----
-
-<a href='#widgets_widget-templates' aria-hidden='true' class='block-anchor'  id='widgets_widget-templates'><i aria-hidden='true' class='linkify icon'></i></a>
 
 ## Widget Templates
 
@@ -85,7 +73,6 @@ The list takes advantage of loops to display each list item on the page.
 }
 ```
 
-
 <!--
 title: "Image Slider"
 subtitle: "The slider takes advantage of loops to display each slide on the page."
@@ -100,10 +87,6 @@ The slider takes advantage of loops to display each slide on the page.
 "template": "<ul class='slider'>{{#each slides}}<li class='slide'><img src={{image}}'/</li>{{/each}}</ul>"
 }
 ```
-
----
-
-<a href='#widgets_widgets' aria-hidden='true' class='block-anchor'  id='widgets_widgets'><i aria-hidden='true' class='linkify icon'></i></a>
 
 ## Widgets
 
@@ -235,10 +218,6 @@ lineNumbers: true
 }
 ```
 
----
-
-<a href='#widgets_placements' aria-hidden='true' class='block-anchor'  id='widgets_placements'><i aria-hidden='true' class='linkify icon'></i></a>
-
 ## Placements
 
 [Placements](/api-reference/storefront/widgets-api/placement/createplacement) determine the Region where the Widget is placed and in what order. The order of the placement is controlled by the `sort_order` when creating the placement. 
@@ -256,7 +235,6 @@ This is the ID for a specific page, brand, category or page. For example, if a W
 * pages/category
 * pages/page
 * pages/product
-
 
 ### Create a Widget Placement with Region
 
@@ -301,10 +279,6 @@ lineNumbers: true
 }
 ```
 
----
-
-<a href='#widgets_placement-and-widgets' aria-hidden='true' class='block-anchor'  id='widgets_placement-and-widgets'><i aria-hidden='true' class='linkify icon'></i></a>
-
 ## Placements and Widgets
 
 Placements determine which region widgets are located in and the order that they're displayed.
@@ -312,8 +286,6 @@ Placements determine which region widgets are located in and the order that they
 When creating a placement with a widget, the widget content takes the full region width. Any additional widgets that are placed onto the same region will be stacked above or below based on the `sort_order` property for each placement.
 
 If you are creating marketplace applications that create placements directly, you don’t need to use the `sort_order` property. 
-
-<a href='#widgets_storefront' aria-hidden='true' class='block-anchor'  id='widgets_storefront'><i aria-hidden='true' class='linkify icon'></i></a>
 
 ## Widgets on the Storefront
 
@@ -325,10 +297,6 @@ Widgets are rendered on the storefront as a data tag in the HTML.
 
 A Region can contain multiple Placements with Widgets. 
 
----
-
-<a href='#widgets_definitions' aria-hidden='true' class='block-anchor'  id='widgets_definitions'><i aria-hidden='true' class='linkify icon'></i></a>
-
 ## Definitions
 
 | Name | Definition |
@@ -339,16 +307,9 @@ A Region can contain multiple Placements with Widgets.
 | Regions | Regions are specific spots in a Stencil template file where Widgets can be placed. Regions are defined at the theme file level using the following syntax: `{{{region name="..."}}}`. There can be many widgets inside a given region, and these widgets can have an assigned sort order. |
 | Widget Configuration | This is a JSON payload that contains data used when rendering the widget. Each widget has a configuration, and there is a 64kb limit on the size of the JSON. The widget configuration must be valid JSON, but we don’t enforce any additional requirement on the structure of the configuration. |
 
-
----
-
-<a href='#widget_resources' aria-hidden='true' class='block-anchor'  id='widget_resources'><i aria-hidden='true' class='linkify icon'></i></a>
-
 ## Resources
 
 ### Related Endpoints
 * [Widgets API](/api-reference/storefront/widgets-api)
 * [Widgets Tutorial](/api-docs/storefront/widgets/widgets-tutorial)
 * [Wigets Code Samples](/api-docs/storefront/widgets/widgets-code-samples)
-
-

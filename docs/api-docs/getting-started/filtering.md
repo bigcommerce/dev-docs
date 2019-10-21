@@ -27,8 +27,6 @@ These are the most common filter options available for the V3 API:
 
 Available filters vary by endpoint. Refer to the GET method for an endpoint to see a list of available filters.
 
----
-
 ## Includes
 
 Some endpoints allow an `?include` parameter to include sub-resources and other information in the primary GET response for a parent object.
@@ -39,9 +37,6 @@ As an example, you can include a product's variants and images with the product 
 
 Availability of the `?include` parameter varies by endpoint. Refer to the GET method for an endpoint to see a list of fields that can be included.
 
-
----
-
 ### Including and Excluding Fields
 
 Some endpoints support both `?include_fields` and `?exclude_fields`. 
@@ -50,14 +45,10 @@ Some endpoints support both `?include_fields` and `?exclude_fields`.
 
 You can specify any field that is available on the object. Excluding fields you don't care about (especially large fields like descriptions) can speed up your API request response time.
 
-
-
 **Example Response Get Product Name and Price**  
 Here, product name and price have been included:
 
 `https://api.bigcommerce.com/stores/{{store_hash}}/v3/catalog/products?include_fields=name,price`
-
-
 
 <!--
 title: "Product Name and Price"
@@ -76,8 +67,6 @@ lineNumbers: true
     ]
 } 
 ```
-
----
 
 ## Pagination and Limit
 

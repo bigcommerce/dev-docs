@@ -1,18 +1,17 @@
 # Authentication
 
 <div class="otp" id="no-index">
-	<h3> On This Page </h3>
-	<ul>
-		<li><a href="#authentication_getting-api-credentials"> Obtaining Store API Credentials </a></li>
-		<li><a href="#authentication_revoking-api-credentials"> Revoking Store API Credentials</a></li>
-		<li><a href="#authentication_client-id-secret"> Obtaining App API Credentials</a></li>
-		<li><a href="#authentication_when-to-use"> Use Cases by Credential Type</a></li>
-    <li><a href="#authentication_migration-legacy-oauth">Migrating from Legacy to OAuth</a></li>
-		<li><a href="#authentication_oauth-scopes"> OAuth Scopes</a></li>
-	</ul>
-</div>
 
-<a href='#authentication_what-are-oauth-credentials' aria-hidden='true' class='block-anchor'  id='authentication_what-are-oauth-credentials'><i aria-hidden='true' class='linkify icon'></i></a>
+### On This Page
+- [Obtaining Store API Credentials](#obtaining-store-api-credentials)
+- [Revoking Store API Credentials](#revoking-store-api-credentials)
+- [Obtaining App API Credentials](#obtaining-app-api-credentials)
+- [Use Cases by Credential Type](#use-cases-by-credential-type)
+- [Migrating from Legacy to OAuth](#migrating-from-legacy-to-oauth)
+- [OAuth Scopes](#oauth-scopes)
+- [Resources](#resources)
+
+</div> 
 
 Two types of API credentials are available to developers wishing to make requests against BigCommerce APIs:
 
@@ -22,10 +21,6 @@ Two types of API credentials are available to developers wishing to make request
 **Store API Credentials** are generated when a Store API Account is created in a store's control panel (**Advanced Settings** > **API Accounts**). These credentials are used to programmatically interact with an individual store's data using BigCommerce's APIs. Both OAuth and token-based authentication are possible with Store API Credentials
 
 Developers can also create **App API Credentials** in the BigCommerce [Developer Portal](https://devtools.bigcommerce.com). App API Credentials are used during the OAuth flow to request authorization “on behalf” of a store owner, allowing the app to make API requests against store data. App API Credentials are OAuth only, and the store owner must install the app before the app is granted access to the store. 
-
----
-
-<a href='#authentication_getting-api-credentials' aria-hidden='true' class='block-anchor'  id='authentication_getting-api-credentials'><i aria-hidden='true' class='linkify icon'></i></a>
 
 ## Obtaining Store API Credentials
 
@@ -42,16 +37,7 @@ The base api path will look something like this: `https://api.bigcommerce.com/st
 
 To get started making requests, see [API Requests](/api-docs/getting-started/basics/making-requests).
 
-<!--
-    title: #### Create an API Account
-
-    data: //s3.amazonaws.com/user-content.stoplight.io/6012/1536087816482
--->
-
-#### Create an API Account
-![#### Create an API Account
-](//s3.amazonaws.com/user-content.stoplight.io/6012/1536087816482 "#### Create an API Account
-")
+![#### Create an API Account](//s3.amazonaws.com/user-content.stoplight.io/6012/1536087816482 "#### Create an API Account")
 
 <div class="HubBlock--callout">
 <div class="CalloutBlock--warning">
@@ -66,10 +52,6 @@ To get started making requests, see [API Requests](/api-docs/getting-started/bas
 </div>
 </div>
 
----
-
-<a href='#authentication_revoking-api-credentials' aria-hidden='true' class='block-anchor'  id='authentication_revoking-api-credentials'><i aria-hidden='true' class='linkify icon'></i></a>
-
 ## Revoking Store API Credentials
 
 To revoke Store API Credentials:
@@ -78,16 +60,7 @@ To revoke Store API Credentials:
 3. Select **API Accounts**. This will display the Store API Accounts page, shown below.
 4. In the Actions column at right, select the trash-can button next to the account you want to delete.
 
-<!--
-    title: #### Revoking API Credentials
-
-    data: //s3.amazonaws.com/user-content.stoplight.io/6012/1537388177603
--->
-
-#### Revoking API Credentials
-![#### Revoking API Credentials
-](//s3.amazonaws.com/user-content.stoplight.io/6012/1537388177603 "#### Revoking API Credentials
-")
+![#### Revoking API Credentials](//s3.amazonaws.com/user-content.stoplight.io/6012/1537388177603 "#### Revoking API Credentials")
 
 <div class="HubBlock--callout">
 <div class="CalloutBlock--error">
@@ -102,10 +75,6 @@ To revoke Store API Credentials:
 </div>
 </div>
 
----
-
-<a href='#authentication_client-id-secret' aria-hidden='true' class='block-anchor'  id='authentication_client-id-secret'><i aria-hidden='true' class='linkify icon'></i></a>
-
 ## Obtaining App API Credentials
 
 To get App API Credentials, login to (or create) your BigCommerce [Developer Portal](https://devtools.bigcommerce.com) account. Navigate to **My Apps** (top-right corner), then:
@@ -114,46 +83,20 @@ To get App API Credentials, login to (or create) your BigCommerce [Developer Por
 2. Give your app a name (only be visible to you)
 3. Click **Create** (a pop up box will display showing Your Profile, App Summary and Category)
 
-<!--
-    title: #### Create an App
+![#### Create an App](//s3.amazonaws.com/user-content.stoplight.io/6012/1537389767940 "#### Create an App")
 
-    data: //s3.amazonaws.com/user-content.stoplight.io/6012/1537389767940
--->
-
-#### Create an App
-![#### Create an App
-](//s3.amazonaws.com/user-content.stoplight.io/6012/1537389767940 "#### Create an App
-")
-
-4. Click on **Step 3 - Technical**. Fill out the App Features sections with App Type, Callback URLs and Scope.
-
-<!--
-    title: #### Step 3 - Technical
-
-    data: //s3.amazonaws.com/user-content.stoplight.io/6012/1537389883100
--->
+1. Click on **Step 3 - Technical**. Fill out the App Features sections with App Type, Callback URLs and Scope.
 
 #### Step 3 - Technical
-![#### Step 3 - Technical
-](//s3.amazonaws.com/user-content.stoplight.io/6012/1537389883100 "#### Step 3 - Technical
-")
+![#### Step 3 - Technical](//s3.amazonaws.com/user-content.stoplight.io/6012/1537389883100 "#### Step 3 - Technical")
 
-5. In the lower right-hand corner of the popup box, click **Update & Close**.
-6. A new pop up will show asking if you want to change the OAuth Scopes. Click **Confirm Update**.
-7. You will be routed back to the Dev Tools home page and your app will be listed. Click **View Client ID**. 
+1. In the lower right-hand corner of the popup box, click **Update & Close**.
+2. A new pop up will show asking if you want to change the OAuth Scopes. Click **Confirm Update**.
+3. You will be routed back to the Dev Tools home page and your app will be listed. Click **View Client ID**. 
 
-<!--
-    title: #### View Client Id
+![#### View Client Id](//s3.amazonaws.com/user-content.stoplight.io/6012/1537390078741 "#### View Client Id")
 
-    data: //s3.amazonaws.com/user-content.stoplight.io/6012/1537390078741
--->
-
-#### View Client Id
-![#### View Client Id
-](//s3.amazonaws.com/user-content.stoplight.io/6012/1537390078741 "#### View Client Id
-")
-
-9. Copy your Client ID and Client Secret. The Client ID and Client Secret can be accessed at any time by clicking **View Client ID**. 
+1. Copy your Client ID and Client Secret. The Client ID and Client Secret can be accessed at any time by clicking **View Client ID**. 
 
 <div class="HubBlock--callout">
 <div class="CalloutBlock--">
@@ -170,16 +113,7 @@ The Client Secret value is a secret that your app and BigCommerce share. You onl
 </div>
 </div>
 
-<!--
-    title: #### Client Id and Client Secret
-
-    data: //s3.amazonaws.com/user-content.stoplight.io/6012/1537390135692
--->
-
-#### Client Id and Client Secret
-![#### Client Id and Client Secret
-](//s3.amazonaws.com/user-content.stoplight.io/6012/1537390135692 "#### Client Id and Client Secret
-")
+![#### Client Id and Client Secret](//s3.amazonaws.com/user-content.stoplight.io/6012/1537390135692 "#### Client Id and Client Secret")
 
 <div class="HubBlock--callout">
 <div class="CalloutBlock--warning">
@@ -198,14 +132,10 @@ The Client Secret value is a secret that your app and BigCommerce share. You onl
 
 During the app installation process, your app will use the Client Id and Client Secret to obtain an Oauth token authorized against the store installing the app. For a detailed look at this process, see [Building an App](/api-docs/getting-started/building-apps-bigcommerce/building-apps).
 
----
-
-<a href='#authentication_when-to-use' aria-hidden='true' class='block-anchor'  id='authentication_when-to-use'><i aria-hidden='true' class='linkify icon'></i></a>
-
 ## Use Cases by Credential Type
 
-|  | App API Credentials | Store API Credentials|
-|---|:---:|:---:|
+| App API Credentials | Store API Credentials|
+|-|-|
 | From Dev Tools| X | |
 |From Store Control Panel| | X |
 | Single Click Apps (Marketplace)| X | |
@@ -217,10 +147,6 @@ During the app installation process, your app will use the Client Id and Client 
 | V2 | X | X |
 | V3 | X | X |
 |Webhooks | X | X |
-
----
-
-<a href='#authentication_migration-legacy-oauth' aria-hidden='true' class='block-anchor'  id='authentication_migration-legacy-oauth'><i aria-hidden='true' class='linkify icon'></i></a>
 
 ## Migrating from Legacy to OAuth
 
@@ -268,10 +194,6 @@ As an example, requests to `https://store-abc123.mybigcommerce.com/api/v2/orders
 
 Rate limiting of API requests works differently for OAuth API connections. To become familiar with the OAuth system, please see the [Rate Limits](/api-docs/getting-started/basics/best-practices#best-practices_rate-limits).
 
----
-
-<a href='#authentication_oauth-scopes' aria-hidden='true' class='block-anchor'  id='authentication_oauth-scopes'><i aria-hidden='true' class='linkify icon'></i></a>
-
 ## OAuth Scopes
 
 Scope limits ability to read or write to data. Set the scope to the minimum level needed to accomplish the task at hand.
@@ -282,7 +204,7 @@ All OAuth scopes except `default` have `read_only` scopes that allow only `GET` 
 - Wishlists API is accessible with Customers scope.
 
 | Scope GUI Name | Resources  | Description |
-|---|---|---|
+|-|-|-|
 | Content | store_v2_content | View and modify store content |
 ||| [/v2/pages](/api-reference/content/store-content-api) |
 ||| [/v2/blog](/api-reference/content/store-content-api) |
@@ -347,11 +269,9 @@ All OAuth scopes except `default` have `read_only` scopes that allow only `GET` 
 || store_cart_read_only | View Carts |
 ||| [/v3/carts](/api-reference/cart-checkout/storefront-cart-api) |
 | Create Payments  | store_payments_access_token_create | Process Payments |
-| | | [/payments/access_tokens](/api-reference/payments/payments-create-payment-token-api)|
+||| [/payments/access_tokens](/api-reference/payments/payments-create-payment-token-api)|
 | Get Payment Methods | store_payments_methods_read | Get Order Payment Methods |
-| | | [/payments](/api-reference/payments/payments-process-payments)|
-
----
+||| [/payments](/api-reference/payments/payments-process-payments)|
 
 ## Resources
 * [Building An App](https://developer.bigcommerce.com/api-docs/getting-started/building-apps-bigcommerce/building-apps)

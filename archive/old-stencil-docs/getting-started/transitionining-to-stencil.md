@@ -54,7 +54,7 @@ For complete control over a theme's appearance and logic – including the abili
 
 To learn Stencil CLI's templating conventions, see Installing Stencil CLI. Also take a look at BigCommerce's [Getting Started with the Stencil Framework](https://www.youtube.com/playlist?list=PLwTYtMwfzbe7EZiIWPAmPtuwRHkY7BG-0) video playlist.
 
----
+
 
 <a href='#transitionining-to-stencil_front-matter-quick-start' aria-hidden='true' class='block-anchor'  id='transitionining-to-stencil_front-matter-quick-start'><i aria-hidden='true' class='linkify icon'></i></a>
 
@@ -64,7 +64,7 @@ Stencil templates start with a section of "front matter" where you can and conci
 
 This front-matter section uses conventions from YAML, a simple, widely used markup language. If you haven't used these conventions before, refer to our [Front-Matter Overview](https://developer.bigcommerce.com/stencil-docs/front-matter/front-matter-overview).
 
----
+
 
 <a href='#transitionining-to-stencil_handlebars_quick-start' aria-hidden='true' class='block-anchor'  id='transitionining-to-stencil_handlebars_quick-start'><i aria-hidden='true' class='linkify icon'></i></a>
 
@@ -79,7 +79,7 @@ Handlebars' syntax is quite simple, and it allows you to accomplish powerful Jav
 * [Getting Started with Handlebars.js](http://blog.teamtreehouse.com/getting-started-with-handlebars-js) (Team Treehouse)
 * [Handlebars interactive tutorial](http://tryhandlebarsjs.com/) (Try Handlebars)
 
----
+
 
 <a href='#transitionining-to-stencil_seo-tips' aria-hidden='true' class='block-anchor'  id='transitionining-to-stencil_seo-tips'><i aria-hidden='true' class='linkify icon'></i></a>
 
@@ -96,7 +96,7 @@ The Stencil framework is [designed for high SEO performance](https://www.bigcomm
 
 Also checkout our [Guide to Keyword Research](https://support.bigcommerce.com/s/article/Value-of-Keywords) (Knowledge Base).
 
----
+
 
 <a href='#transitionining-to-stencil_blueprint-to-stencil' aria-hidden='true' class='block-anchor'  id='transitionining-to-stencil_blueprint-to-stencil'><i aria-hidden='true' class='linkify icon'></i></a>
 
@@ -107,7 +107,7 @@ This following support and video resurces are designed to help you identify the 
 * [What to Consider When Changing Your Theme](https://support.bigcommerce.com/s/article/What-to-Consider-When-Changing-Your-Theme) (Knowledge Base)
 * [Stencil and the BigCommerce Control Panel](https://www.youtube.com/watch?v=d2F6F8LJXzs&list=PLwTYtMwfzbe7EZiIWPAmPtuwRHkY7BG-0&index=2) (Video tour of Blueprint-to-Stencil changes in the BigCommerce control panel)
 
----
+
 
 <a href='#transitionining-to-stencil_interacting-with-api' aria-hidden='true' class='block-anchor'  id='transitionining-to-stencil_interacting-with-api'><i aria-hidden='true' class='linkify icon'></i></a>
 
@@ -121,7 +121,7 @@ As a theme developer, you can rely on apps to enhance your themes' capabilities,
 * [App Marketplace](https://www.bigcommerce.com/apps/) (BigCommerce)
 * [API Documentation](https://developer.bigcommerce.com/api-docs)
 
----
+
 
 <a href='#transitionining-to-stencil_partnering-with-bc' aria-hidden='true' class='block-anchor'  id='transitionining-to-stencil_partnering-with-bc'><i aria-hidden='true' class='linkify icon'></i></a>
 
@@ -134,7 +134,7 @@ No formal business relationship is required to develop themes on the BigCommerce
 * [Technology Partners](https://www.bigcommerce.com/partners/developers/) (BigCommerce)
 * [Partnership Application](https://partners.bigcommerce.com/English/register_email.aspx) (BigCommerce)
 
----
+
 
 ## Resources
 

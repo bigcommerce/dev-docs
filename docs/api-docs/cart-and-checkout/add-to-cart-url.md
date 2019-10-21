@@ -17,12 +17,10 @@ URLs constructed with these parameters can be used to:
 * Add a specific SKU to the cart and go directly to checkout.
 * Attach a `source` for marketing an analytics purposes
 
----
-
 ## Parameters
 
 | **Type**| **Parameter** | **Description**                                     | **Example**                                                 |
-|-------- |---------------|-----------------------------------------------------|-------------------------------------------------------------|
+|-- |-|--|-|
 | string  | `action=`     | `add` or  `buy`; `buy` goes directly to checkout    | `/cart.php?action=add&product_id=123`                       |
 | string  | `couponcode=` | coupon code to apply to the cart                    | `/cart.php?action=add&product_id=123&couponcode=10off100`   |
 | int     | `product_id=` | product id to add to the cart                       | `/cart.php?action=add&product_id=123`                       |
@@ -35,7 +33,7 @@ URLs constructed with these parameters can be used to:
 Below is a table of common scenarios and example URLs.
 
 | **Scenario**                                                 | **URL**                                                              |
-|--------------------------------------------------------------|----------------------------------------------------------------------|
+|--|-|
 | Select a specific SKU on Product Detail page                 |`https://{{domain}}/{{page}}?sku={{sku}}`                             |
 | Add specific SKU to cart                                     |`https://{{domain}}/cart.php?action=add&sku={{sku}}`                  |
 | Add specific SKU to cart, go directly to checkout            |`https://{{domain}}/cart.php?action=buy&sku={{sku}}`                  |

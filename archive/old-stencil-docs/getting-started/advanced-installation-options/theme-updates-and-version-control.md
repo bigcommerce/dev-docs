@@ -30,7 +30,7 @@
 
 In order to keep your store and Stencil theme performant, it's crucial to know the best way to set up your customized Stencil theme in order to smoothly incorporate future bug fixes, enhancements, and updates that are applied to the base theme. 
 
----
+
 
 <a href='#theme-updates_goruck-best-pracs' aria-hidden='true' class='block-anchor'  id='theme-updates_goruck-best-pracs'><i aria-hidden='true' class='linkify icon'></i></a>
 
@@ -80,7 +80,7 @@ _Or, we can use the BigCommerce control panel's various HTML editors – for Pro
 
 All of these techniques minimize the complexity of merging base-theme updates into our customized theme. For further details and examples on how we implement these techniques, see [Dynamic Content Rendering on Stencil Storefronts](/stencil-docs/conditional-logic-examples/dynamic-content-rendering).
 
----
+
 
 <a href='#theme-updates_synchronizing-cornerstone' aria-hidden='true' class='block-anchor'  id='theme-updates_synchronizing-cornerstone'><i aria-hidden='true' class='linkify icon'></i></a>
 
@@ -128,7 +128,7 @@ This approach downloads all theme files at once, allowing you to copy/paste thei
 1. Navigate to the [Cornerstone Github Repository](https://github.com/bigcommerce/cornerstone).
 2. On the right hand side of the page, click the green `Clone or download` button, and select Download ZIP.
 
----
+
 
 <a href='#theme-updates_synchronizing-multiple' aria-hidden='true' class='block-anchor'  id='theme-updates_synchronizing-multiple'><i aria-hidden='true' class='linkify icon'></i></a>
 
@@ -156,7 +156,7 @@ As with relying on theme variations, this approach has limited scalability. Beyo
 ### Buffered Updates to Multiple Themes
 For greater scalability, you might choose to create your own master fork/branch of Cornerstone for your group of themes. Keep that fork/branch in sync with Cornerstone updates, then cascade the updates to theme-specific repo's that you fork/branch from this master. (This extends the approach of isolating customizations, outlined above.)
 
----
+
 
 <a href='#theme-updates_preserving_client_changes' aria-hidden='true' class='block-anchor'  id='theme-updates_preserving_client_changes'><i aria-hidden='true' class='linkify icon'></i></a>
 

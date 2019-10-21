@@ -14,8 +14,6 @@
 
 You are free to decide which properties of your theme to make editable in Store Design, and in which order to display them. Store Design can expose any set of properties as long as your <span class="fn">schema.json</span> declares them using the data types that Store Design supports.
 
-<a href='#defining-ui-options_enabling' aria-hidden='true' class='block-anchor'  id='defining-ui-options_enabling'><i aria-hidden='true' class='linkify icon'></i></a>
-
 ## Enabling Store Design Options
 
 To provide merchants with Store Design customization options, you must declare those options in the theme's <span class="fn">schema.json file</span>. You must also include those settings in your theme's <span class="fn">config.json</span> file, templates, and Sass/CSS files. The basic division of labor is this:
@@ -37,10 +35,6 @@ that setting – and its possible values – must be present in <span class="fn"
 
 * Also, each key that you create in schema.json must have a corresponding <span class="fn">config.json</span> key whose name matches its id value. This <span class="fn">config.json</span> key sets the default value (even if that is simply an empty string). A <span class="fn">schema.json</span> setting without an `id`-matched <span class="fn">config.json</span> key will not appear to users in the Store Design GUI.
 
----
-
-<a href='#defining-ui-options_best-practices' aria-hidden='true' class='block-anchor'  id='defining-ui-options_best-practices'><i aria-hidden='true' class='linkify icon'></i></a>
-
 ## Best Practices
 
 Please follow these guidelines to head off errors upon theme upload, and to avoid possible loss of customizations made via the Store Design GUI at runtime:
@@ -53,10 +47,6 @@ Please follow these guidelines to head off errors upon theme upload, and to avoi
 
 * File Size: The maximum allowable size for a theme's <span class="fn">schema.json</span> file is 64 KB. Exceeding this limit will trigger an error upon uploading the theme to BigCommerce. (Other than this size constraint, there is no limit on the number of keys and values that you can place in a theme's <span class="fn">schema.json</span>.)
 
----
-
-<a href='#defining-ui-options_how-json' aria-hidden='true' class='block-anchor'  id='defining-ui-options_how-json'><i aria-hidden='true' class='linkify icon'></i></a>
-
 ## How .json Entries Govern Store Design's UI
 
 Your entries in the <span class=”fn”>schema.json</span> and <span class=”fn”>config.json</span> directly shape users' options in Store Design:
@@ -67,10 +57,6 @@ Your entries in the <span class=”fn”>schema.json</span> and <span class=”f
 The options displayed within these expandable Section headings correspond directly to the keys/values that you nest within <span class="fn">schema.json</span>'s corresponding Section objects.
 
 In all, the structure that you give your theme's <span class="fn">config.json</span> and <span class="fn">schema.json</span> files directly governs the UI that Store Design exposes to merchants. So these files provide your UI design tools.
-
----
-
-<a href='#defining-ui-options_store-design-data' aria-hidden='true' class='block-anchor'  id='defining-ui-options_store-design-data'><i aria-hidden='true' class='linkify icon'></i></a>
 
 ## Store Design Data Types
 
@@ -83,7 +69,6 @@ Store Design supports these data types:
 * text
 
 Within <span class="fn">schema.json</span>, each object's data type is declared in a statement like the one highlighted here:
-
 
 <div class="HubBlock-header">
     <div class="HubBlock-header-title flex items-center">
@@ -141,18 +126,9 @@ lineNumbers: true
 
 These `"type": "heading"` statements do not reference data types. Rather, they declare display captions for the Store Design UI's subcategories – the middle level nested within the Section headings, but outside the individual options from which merchants can select. (Those inner options are designated by `"label": <label-text>` statements.)
 
----
-
-<a href='#defining-ui-options_data-structure' aria-hidden='true' class='block-anchor'  id='defining-ui-options_data-structure'><i aria-hidden='true' class='linkify icon'></i></a>
-
 ## Store Design Data Structure in <span class="fn">schema.json</span> 
 
 The <span class="fn">schema.json</span> nesting structure that you just saw maps directly to the Store Design UI displayed to merchants: Below the `variations` section (whose data are imported from <span class="fn">config.json</span>), the order and nesting of options in Store Design's UI directly matches the order and nesting of your <span class="fn">schema.json</span> entries.
-
-
----
-
-<a href='#defining-ui-options_troubleshooting' aria-hidden='true' class='block-anchor'  id='defining-ui-options_troubleshooting'><i aria-hidden='true' class='linkify icon'></i></a>
 
 ## Store Design UI Troubleshooting
 
@@ -173,4 +149,3 @@ You may experience an issue when setting up the Store Design UI. For any unexpec
 * **Symptom:** Changes saved in a browser’s Store Design panel are not reflected in the storefront.
 * **Likely Cause:** Check whether Store Design to customize the same storefront.
 * **Resolution:** We strongly recommend opening only one instance of Store Design, at a time, per storefront. BigCommerce currently provides no synchronization mechanism for configuration changes from multiple Store Design instances. So the storefront’s schema.json will record the last changes made by any instance – but changes saved earlier by other instances might be lost.
-

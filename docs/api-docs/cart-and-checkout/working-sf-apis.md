@@ -12,8 +12,6 @@
 
 </div>
 
-<a href='#working-sf-apis_prerequisites' aria-hidden='true' class='block-anchor'  id='working-sf-apis_prerequisites'><i aria-hidden='true' class='linkify icon'></i></a>
-
 ## Prerequisites:
 * Chrome/Firefox/Safari - Fetch does not work every version of [Internet Explorer](https://developer.mozilla.org/en-US/docs/Web/API/Fetch_API/Using_Fetch#Browser_compatibility). We recommend installing a [polyfill](https://github.com/github/fetch#html), then use fetch as usual.
 * BigCommerce Store with at least two [products](/api-reference/catalog/catalog-api/products/createproduct) and a [shipping option](/api-docs/shipping/shipping-overview#shipping_shipping-zone-methods) available. 
@@ -22,10 +20,6 @@
 This tutorial reviews the Fetch API and then uses it to complete some storefront actions. 
 
 Interaction with the Storefront APIs should be done using JavaScript. The Storefront APIs do not require API Tokens to work. The URL should be served over https and be on the [permanent URL](https://forum.bigcommerce.com/s/article/Changing-Domains); otherwise, it can cause [CORs](https://developers.google.com/web/ilt/pwa/working-with-the-fetch-api#cross-origin_requests) errors in the console.
-
----
-
-<a href='#working-sf-apis_create-postdata' aria-hidden='true' class='block-anchor'  id='working-sf-apis_create-postdata'><i aria-hidden='true' class='linkify icon'></i></a>
 
 ## Create postData() function
 
@@ -135,10 +129,6 @@ Finally, `.then()` is parsing the response to JSON.
 
 Now that we have the basics of creating a function with the fetch() API, we are going to use it to create a cart, get a cart and delete cart items. 
 
----
-
-<a href='#working-sf-apis_storefront-cart' aria-hidden='true' class='block-anchor'  id='working-sf-apis_storefront-cart'><i aria-hidden='true' class='linkify icon'></i></a>
-
 ## Storefront Cart
 
 ### Create a Cart
@@ -146,7 +136,6 @@ Now that we have the basics of creating a function with the fetch() API, we are 
 First, we pass in the request URL to create a cart into the function call. 
 
 Then we need to pass in the `lineItems` array. The `quantity` and `productId` are required to create a cart. If there are [variants](/api-reference/catalog/catalog-api/product-variants/getvariantsbyproductid) then the variantId or optionId with the optionValues need to be added.  See [Create Cart](/api-reference/cart-checkout/storefront-cart-api/cart/createacart) for more examples. The response will be printed to the browser console.  Make sure to note the value for cartId as it will be used later.
-
 
 <!--
 title: "Create Cart"
@@ -273,9 +262,7 @@ lineNumbers: true
 
 ### Get a Cart
 
-
 The function below is slightly different. The postData() that was present in Create a Cart above is removed since the function only needs to print the response data to the console. To return the full product data in a cart, an include query parameter must be added. See [Get Cart endpoint](/api-reference/cart-checkout/storefront-cart-api/cart/getacart) for more details. 
-
 
 <!--
 title: "Get Cart"
@@ -444,8 +431,6 @@ We have also introduced a new way to handle errors. Error handling in fetch can 
 </div>
 </div>
 
-
-
 <!--
 title: "Delete Cart Item"
 subtitle: ""
@@ -471,8 +456,6 @@ headers:
 .then(response => response.json());
 }
 ```
-
-<a href='#working-sf-apis_storefront-checkout' aria-hidden='true' class='block-anchor'  id='working-sf-apis_storefront-checkout'><i aria-hidden='true' class='linkify icon'></i></a>
 
 ## Storefront Checkout
 Next, we will cover using the Storefront Checkout to add a billing address, add a shipping address and update a shipping address to add the shipping option.
@@ -700,7 +683,6 @@ lineNumbers: true
 
 Below, there are two shipping addresses in an array with a lineItem assigned to each. Note that `?include=consignments.availableShippingOptions` is being added as a query parameter. Without this, the `availableShippingOptions` will not return in the response. 
 
-
 <!--
 title: "Create Consignment"
 subtitle: ""
@@ -708,7 +690,6 @@ lineNumbers: true
 -->
 **Example Create Consignment**  
 `/POST https://<store_url>/api/storefront/checkouts/{checkoutId}/consignments`
-
 
 ```js
 postData(`/api/storefront/checkouts/`, `1650fb51-172b-4cde-a220-90c6a8ef9293`,
@@ -1087,10 +1068,6 @@ function postData(url = ``, checkoutId = ``, consignmentId = ``, data = {},) {
 }
 ```
 
----
-
-<a href='#working-sf-apis_troubleshooting' aria-hidden='true' class='block-anchor'  id='working-sf-apis_troubleshooting'><i aria-hidden='true' class='linkify icon'></i></a>
-
 ## Troubleshooting
 
 **Did you get a CORs error response?**  
@@ -1098,10 +1075,6 @@ Check to make sure you have the right credentials set up. Most requests will use
 
 **Did you get a 404?**  
 Make sure you have at least one item in your cart. Deleting all items removes the cart and returns a 404 in the browser console.
-
----
-
-<a href='#working-sf-apis_realated-endpoints' aria-hidden='true' class='block-anchor'  id='working-sf-apis_realated-endpoints'><i aria-hidden='true' class='linkify icon'></i></a>
 
 ## Resources
 
@@ -1112,4 +1085,3 @@ Make sure you have at least one item in your cart. Deleting all items removes th
 ### Related Articles
 - [How To Embed a Shipping Location Map on the BigCommerce Order Confirmation Page](https://medium.com/bigcommerce-developer-blog/how-to-embed-a-google-map-on-the-bigcommerce-order-confirmation-page-8264747e654d) (Developer Blog)
 - [Let’s Talk About CORS](https://medium.com/bigcommerce-developer-blog/lets-talk-about-cors-84800c726919) (Developer Blog)
-

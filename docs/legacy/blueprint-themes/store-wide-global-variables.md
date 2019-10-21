@@ -1,10 +1,9 @@
 # Store-Wide Global Variables
 
-
 The following GLOBAL variables are available from any layout, panel, or snippet in the store, independent of session status.
 
 | Variable | Description |
-| --- | --- |
+|-|-|
 | `%%GLOBAL_AllPricesAreInCurrency%%` | This variable produces a text string that identifies the currency currently active on the store. For example: <NOBR>`All Prices are in USD`</nobr> |
 | `%%GLOBAL_AlternateClass%%` | . |
 | `%%GLOBAL_CdnAppPath%%` | The URI of the CDN application. |
@@ -46,4 +45,3 @@ The following GLOBAL variables are available from any layout, panel, or snippet 
 | `%%GLOBAL_TPL_PATH%%` | The CDN URI of the theme. |
 | `%%GLOBAL_value%%` | The type of value. For example: `Array` |
 | `%%GLOBAL_Year%%` | The current year. For example: `2015` |
-

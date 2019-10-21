@@ -1,35 +1,26 @@
 # Transitioning to Stencil
+
 <div class="otp" id="no-index">
-	<h3> On This Page </h3>
-	<ul>
-		<li><a href="#transitioning_find">Find an Agency Partner</a></li>
-    <li><a href="#transitioning_adapt">Adapt a Stencil Theme or Develop from Scratch</a></li>
-    <li><a href="#transitioning_transition">Transition to Stencil from Blueprint</a></li>
-    <li><a href="#transitioning_seo-tips">SEO Tips and Best Practices</a></li>
-    <li><a href="#transitioning_interacting">Interacting with the BigCommerce API</a></li>
-</div>
+
+### On This Page
+- [Find an Agency Partner](#find-an-agency-partner)
+- [Adapt a Stencil Theme or Develop from Scratch](#adapt-a-stencil-theme-or-develop-from-scratch)
+- [Transition to Stencil from Blueprint](#transition-to-stencil-from-blueprint)
+- [SEO Tips and Best Practices](#seo-tips-and-best-practices)
+- [Interacting with the BigCommerce API](#interacting-with-the-bigcommerce-api)
+- [Resources](#resources)
+
+</div> 
 
 Whether you are new to Stencil or approaching Stencil from a different platform or theming framework (such as BigCommerce’s Legacy Blueprint), there are a few ways to develop a custom theme for your BigCommerce Stencil storefront. This article will provide instruction on how to transition to Stencil depending on your skill set, budget, and approach to the framework.
-
----
-
-<a href='#transitioning_find' aria-hidden='true' class='block-anchor'  id='transitioning_find'><i aria-hidden='true' class='linkify icon'></i></a>
 
 ##  Find an Agency Partner
 
 If you prefer an expert customize your theme, we recommend working with one of our certified certified BigCommerce Agency Partners. See our [Partner Directory](https://partners.bigcommerce.com/directory/search?i=75) and [Working with a Design Partner](https://support.bigcommerce.com/articles/Learning/Working-with-a-Design-Partner) find an agency partner.
 
----
-
-<a href='#transitioning_adapt' aria-hidden='true' class='block-anchor'  id='transitioning_adapt'><i aria-hidden='true' class='linkify icon'></i></a>
-
 ## Adapt a Stencil Theme or Develop from Scratch
 
 For complete control over a theme's appearance and logic including the ability to edit _all_ theme configuration files–you will want to use the Stencil Command-line interface, also known as the Stencil CLI.
-
----
-
-<a href='#transitioning_transition' aria-hidden='true' class='block-anchor'  id='transitioning_transition'><i aria-hidden='true' class='linkify icon'></i></a>
 
 ## Transition to Stencil from Blueprint
 
@@ -78,10 +69,6 @@ Yes. The Stencil CLI allows you to preview theme changes on your live store loca
 
 If your store was created before March 2019, you will still be able to use One Page Checkout (for Developers). Consider switching to Optimized One Page Checkout, as this legacy checkout will eventually be deprecated for all stores.
 
----
-
-<a href='#transitioning_seo-tips' aria-hidden='true' class='block-anchor'  id='transitioning_seo-tips'><i aria-hidden='true' class='linkify icon'></i></a>
-
 ## SEO Tips and Best Practices
 
 Search-engine optimization (SEO) helps translate an elegant theme into a successful, high-conversion storefront. Because so many shoppers reach online stores through a search engine, a search-optimized site will be more visible–attracting more traffic.
@@ -94,10 +81,6 @@ Stencil is designed for high SEO performance. However, you will want to keep SEO
 * [Advanced SEO on BigCommerce](https://support.bigcommerce.com/s/article/Advanced-SEO-on-Bigcommerce) (Knowledge Base)
 * [Guide to Keyword Research](https://support.bigcommerce.com/s/article/Value-of-Keywords) (Knowledge Base)
 
----
-
-<a href='#transitioning_interacting' aria-hidden='true' class='block-anchor'  id='transitioning_interacting'><i aria-hidden='true' class='linkify icon'></i></a>
-
 ## Interacting with the BigCommerce API
 
 Interacting with the BigCommerce API BigCommerce’s growing API resources enable application developers to create private scripts or apps that support a single store, or to create public apps offered to multiple stores via BigCommerce’s App Marketplace.
@@ -106,8 +89,6 @@ As a theme developer, you can rely on apps to enhance your themes’ capabilitie
 
 * [App Marketplace](https://www.bigcommerce.com/apps/) (BigCommerce)
 * [API Documentation](https://developer.bigcommerce.com/api-docs)
-
-<a href='#partner-with-bc' aria-hidden='true' class='block-anchor'  id='partner-with-bc'><i aria-hidden='true' class='linkify icon'></i></a>
 
 <div class="HubBlock--callout">
 <div class="CalloutBlock--">
@@ -123,12 +104,9 @@ As a theme developer, you can rely on apps to enhance your themes’ capabilitie
 * [Technology Partners](https://www.bigcommerce.com/partners/developers/) (BigCommerce)
 * [Partnership Application](https://partners.bigcommerce.com/English/register_email.aspx) (BigCommerce)
 
-
 </div>
 </div>
 </div>
-
----
 
 ## Resources
 

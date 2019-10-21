@@ -19,8 +19,6 @@ BigCommerce’s flexible Currency settings assist developers in building Multi-C
 
 This article provides a high-level guide to Multi-Currency concepts on BigCommerce as well as specific instructions on [adding currencies](adding-a-currency) via the control panel. For additional details on how currencies are surfaced throughout BigCommerce APIs, user interfaces, and storefront components, see [How Currencies Works](https://developer.bigcommerce.com/api-docs/catalog/currencies/how-currencies-work)
 
----
-
 ## Multi-Currency Beta
 
 <a id="multi-currency-beta"></a>
@@ -37,8 +35,6 @@ To use multiple transactional currencies, the store:
 
 Currently, Stripe cannot be enabled for a specific currency (it is also enabled for the default currency). This is a known issue and will be fixed in a later release.
 Automatic tax calculation and document submission is compatible with multiple currencies. However, the application of automatic tax depends on the countries supported by the tax provider.
-
----
 
 ## Display vs. Transactional
 
@@ -66,8 +62,6 @@ In BigCommerce, there are two types of currency that can be set up: a **display 
 </div>
 </div>
 
----
-
 ## Pre-Configuring the Store
 
 <a id="pre-configuring-the-store"></a>
@@ -90,8 +84,6 @@ Additionally, review the [Currency API reference](https://developer.bigcommerce.
 </div>
 </div>
 </div>
-
----
 
 ## Adding a Currency
 
@@ -119,15 +111,11 @@ For more in-depth instructions and helpful screenshots, see [Adding a Currency](
 </div>
 </div>
 
----
-
 ## How Currencies Work
 
 <a id="how-currencies-work"></a>
 
 For details on how currencies are surfaced throughout BigCommerce APIs, user interfaces, and storefront components, see [How Currencies Works](https://developer.bigcommerce.com/api-docs/catalog/currencies/how-currencies-work)
-
----
 
 ## Supported Features
 
@@ -136,7 +124,7 @@ For details on how currencies are surfaced throughout BigCommerce APIs, user int
 See the table below for a list of Currencies Beta release supported and un-supported features.
 
 | Supported                                    | Not Supported                                  |
-|----------------------------------------------|------------------------------------------------|
+|-||
 | Optimized One-Page Checkout                  | Legacy Checkout                                |
 | Stencil Themes                               | Legacy Blueprint Themes                        |
 | Stripe Payment Gateway                       | Other Payment Gateways                         |
@@ -145,8 +133,6 @@ See the table below for a list of Currencies Beta release supported and un-suppo
 | Discounts created through Promotions         | Legacy coupon codes                            |
 | Storefront Elasticsearch                     |                                                |
 | Storefront product filtering                 |                                                |
-
----
 
 ## Definitions
 
@@ -163,8 +149,6 @@ See the table below for a list of Currencies Beta release supported and un-suppo
 | Dynamic Conversion Rate | One of the two auto-converted pricing options. If a merchant selects a dynamic conversion rate, they've tied themselves to a currency conversion service, which will update the conversion rate at a certain frequency. This helps shopper-facing pricing remain most aligned to the store's default currency and keeps non-default currency conversion rate at market rate. Merchant can either use BigCommerce Currency Service provided in the Currency setup page, or they can use API to automatically update the exchange rate from their trusted source. |
 | Bank Conversion Rate | Conversion rate used by merchant’s or shopper’s payment or credit card provider when auto-converting from store’s transactional currency. This rate might not align to the BC conversion rate and BC has no visibility into it. |
 | Multi Currency Pricing | Rather than opting for auto-converting product pricing from default currency using BC conversion rate, merchant has a choice to set price per product per currency. This will be implemented through price lists. |
-
----
 
 ## FAQ
 
@@ -188,8 +172,6 @@ abandoned cart analytics or web analytics such as Google Analytics. Currently it
 **How can I setup settlement currencies in Stripe?**  
 Please reach out to Stripe for more information on setting up the account. 
 [Supported Settlement Currencies](https://stripe.com/docs/connect/payouts#supported-settlement) (Stripe Documentation)
-
----
 
 ## Resources
 

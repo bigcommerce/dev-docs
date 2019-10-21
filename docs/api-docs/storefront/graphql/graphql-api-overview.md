@@ -40,8 +40,6 @@ This article is a general overview of the capabilities and usage of BigCommerce'
 </div>
 </div>
 
----
-
 <a id="see-it-in-action" class="devdocsAnchor"></a>
 
 ## See it in Action
@@ -51,8 +49,6 @@ To see the GraphQL storefront API in action, checkout the [Bootstrap + Vanilla J
 Simply open the link and click submit with the sample data in the form. To see the example page with your store's data, [create a Storefront API Token](https://developer.bigcommerce.com/api-reference/storefront/storefront-token-api/api-token/createtoken) against your store and paste the token into the example form (be sure to create a token valid for this origin: `https://bigcommerce.github.io`).
 
 For a full list of examples, see the [Storefront API Examples repo](https://github.com/bigcommerce/storefront-api-examples).
-
----
 
 <a id="accessing-the-graphql-playground" class="devdocsAnchor"></a>
 
@@ -79,12 +75,9 @@ The GraphQL Storefront API Playground will be opened:
 
 > 2. If the **Storefront API Playground** link is not visible, the store is not enrolled in the Beta program. To enroll, [contact support](https://support.bigcommerce.com/SubmitCase) (all stores using Stencil are now eligible).
 
-
 </div> 
 </div>
 </div>
-
----
 
 <a id="using-the-graphql-playground" class="devdocsAnchor"></a>
 
@@ -95,7 +88,6 @@ To use the request runner, input queries on the left side and then click the pla
 ![GraphQL Playground Query](https://raw.githubusercontent.com/bigcommerce/dev-docs/master/assets/images/graphql-storefront-api-playground2.png "GraphQL Playground Query")
 
 Here's a sample Query to get you started:
-
 
 ```javascript
 query MyFirstQuery {
@@ -146,8 +138,6 @@ Click changelog in the top right to view a list of recent changes to the storefr
 </div> 
 </div>
 </div>
-
----
 
 <a id="authentication" class="devdocsAnchor"></a>
 
@@ -254,8 +244,6 @@ Its also possible to generate tokens for use in server-to-server interactions wi
 
 Customer Impersonation Token authenticated requests made to the GraphQL API receive store information from the perspective of the customer corresponding to the customer ID specified in the `X-Bc-Customer-Id` header used to create the token -- for example: pricing, product availability, customer account, and customer details.
 
----
-
 <a id="querying-within-a-bigcommerce-storefront" class="devdocsAnchor"></a>
 
 ## Querying Within a BigCommerce Storefront
@@ -325,8 +313,6 @@ In addition to using `fetch()`, there's a other ways to query the API:
 </div>
 </div>
 </div>
-
----
 
 <a id="resources" class="devdocsAnchor"></a>
 

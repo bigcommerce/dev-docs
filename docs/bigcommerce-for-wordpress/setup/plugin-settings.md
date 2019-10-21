@@ -27,10 +27,6 @@ BigCommerce settings for WordPress are found in the left admin menu in WordPress
 ](//s3.amazonaws.com/user-content.stoplight.io/6012/1540476609033 "#### Plugin Settings
 ")
 
----
-
-<a href='#plugin-settings_product-sync' aria-hidden='true' class='block-anchor'  id='plugin-settings_product-sync'><i aria-hidden='true' class='linkify icon'></i></a>
-
 ## Product Sync
 Once the plugin is connected, the plugin will import products using the BigCommerce API. This will run automatically using [WordPress cron](https://developer.wordpress.org/plugins/cron/), using the schedule set on the settings page (default: every five minutes).
 If you choose to disable the cron job, you can set a server-side cron job to run the sync using WP-CLI. The command to import products is:
@@ -38,10 +34,6 @@ If you choose to disable the cron job, you can set a server-side cron job to run
 `wp bigcommerce import products`
 
 Product titles, descriptions, and post statuses can be edited in the WordPress admin. Your changes will be automatically synced with your BigCommerce channel and preserved during future imports.
-
----
-
-<a href='#plugin-settings_cart-settings' aria-hidden='true' class='block-anchor'  id='plugin-settings_cart-settings'><i aria-hidden='true' class='linkify icon'></i></a>
 
 ## Cart Settings
 
@@ -60,10 +52,6 @@ The plugin requires several pages to support user account management. These page
 The “Support Email” field will be used to give customers an address to contact you with questions about orders.
 The cart page should be excluded from any page caching system enabled for your site.
 
----
-
-<a href='#plugin-settings_theme-customizer' aria-hidden='true' class='block-anchor'  id='plugin-settings_theme-customizer'><i aria-hidden='true' class='linkify icon'></i></a>
-
 ## Theme Customizer
 The visual presentation of your store can be customized using the WordPress theme customizer. Open the theme customizer and find the "BigCommerce" panel, which contains several sections.
 
@@ -77,10 +65,6 @@ The visual presentation of your store can be customized using the WordPress them
 
 * **Product Archive:** Customize labels and filters for the prouct archive.
 
----
-
-<a href='#plugin-settings_navigation-menus' aria-hidden='true' class='block-anchor'  id='plugin-settings_navigation-menus'><i aria-hidden='true' class='linkify icon'></i></a>
-
 ## Navigation Menus
 
 The BigCommerce for WordPress plugin creates several pages, which can be added to the WordPress navigation menus using the standard WordPress admin(**Appearance** › **Menus**, or in the theme customizer). 
@@ -93,18 +77,9 @@ Some of these pages acquire special functionality when they are added to navigat
 * **Register:** If user registration is disabled, the menu item will be disabled (it won't render on the front end of the site). If the user is logged in, the menu item will link to the user's account profile.  
 * **Account Profile, Order History, Addresses:** If the user is not logged in, these menu items will be disabled (they won't render on the front end of the site).
 
----
-
-<a href='#plugin-settings_reviews' aria-hidden='true' class='block-anchor'  id='plugin-settings_reviews'><i aria-hidden='true' class='linkify icon'></i></a>
-
 ## Reviews
 Reviews placed on the WordPress store are synced to BigCommerce for permanent storage as well as usage on other channels. Additionally, reviews are stored in a local, custom database for quick access.
 The review system on WordPress is enabled or disabled by the site’s Comments setting, under Settings → Discussion in the WordPress admin. Additionally, each product has a Comments switch which can be used to override the global settings.
-
-
----
-
-<a href='#plugin-settings_gift-certificate-settings' aria-hidden='true' class='block-anchor'  id='plugin-settings_gift-certificate-settings'><i aria-hidden='true' class='linkify icon'></i></a>
 
 ## Gift Certificate Settings
 If the gift certificate setting is enabled in WordPress, shoppers will be able to purchase gift certificates from the site. Gift certificate functionality relies on two pages that are automatically created by the plugin. Both pages can be replaced by pages you create containing the appropriate shortcodes.
@@ -114,5 +89,3 @@ Use the shortcode `[bigcommerce_gift_form]`
 
 * Gift Certificate Balance Page:
 The page where customers can check their gift certificate balance. Use the shortcode`[bigcommerce_gift_balance]`
-
-

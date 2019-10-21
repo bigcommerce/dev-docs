@@ -1,18 +1,16 @@
 # Stencil Technology Stack
+
 <div class="otp" id="no-index">
-	<h3> On This Page </h3>
-	<ul>
-		<li><a href="#tech-stack_handlebars-overview">Handlebars Overview</a></li>
-    <li><a href="#tech-stack_objects-overview">Stencil Objects Overview</a></li>
-    <li><a href="#tech-stack_front-matter-overview">YAML Front Matter Overview</a></li>
-  </ul>
-</div>
+
+### On This Page
+- [Handlebars.js Overview](#handlebarsjs-overview)
+- [Stencil Objects Overview](#stencil-objects-overview)
+- [YAML Front Matter Overview](#yaml-front-matter-overview)
+- [Resources](#resources)
+
+</div> 
 
 Stencil's use of Handlebars.js, Javascript, and YAML Front Matter on the front end allows developers to create dynamic, templated customizations across a BigCommerce storefront.
-
----
-
-<a href='#tech-stack_handlebars-overview' aria-hidden='true' class='block-anchor'  id='tech-stack_handlebars-overview'><i aria-hidden='true' class='linkify icon'></i></a>
 
 ## Handlebars.js Overview
 
@@ -43,10 +41,6 @@ lineNumbers: true
 In production, Handlebars statements run on the server side, generating HTML received by the shopper’s browser.
 
 View the [full Handlebars Helpers Reference](/stencil-docs/reference-docs/handlebars-helpers-reference) to learn about the helpers avilable on a Stencil storefront.
-
----
-
-<a href='#tech-stack_objects-overview' aria-hidden='true' class='block-anchor'  id='tech-stack_objects-overview'><i aria-hidden='true' class='linkify icon'></i></a>
 
 ## Stencil Objects Overview
 
@@ -96,10 +90,6 @@ As a developer, you can use Handlebars.js syntax to access objects and use them 
 
 Stencil Objects are categorized as either Global, Common, or Other, which is representative of the object's scope or where in the theme it can be accessed. For example, Global Objects are components shared across the entire BigCommerce storefront.
 
----
-
-<a href='#tech-stack_front-matter-overview' aria-hidden='true' class='block-anchor'  id='tech-stack_front-matter-overview'><i aria-hidden='true' class='linkify icon'></i></a>
-
 ## YAML Front Matter Overview
 
 BigCommerce Stencil themes utilize YAML Front Matter on template pages. Front Matter allows developers to request objects on the storefront, allowing developers to define each page's design and layout details.
@@ -121,7 +111,7 @@ lineNumbers: true
 -->
 
 ```yaml
----
+
 products:
     new:
         limit: {{theme_settings.homepage_new_products_count}}
@@ -133,10 +123,8 @@ carousel: {{theme_settings.homepage_show_carousel}}
 blog:
     recent_posts:
         limit: {{theme_settings.homepage_blog_posts_count}}
----
-```
 
----
+```
 
 ## Resources
 

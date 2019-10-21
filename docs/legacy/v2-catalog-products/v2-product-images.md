@@ -13,8 +13,6 @@
 
 </div> 
 
-<a href='#v2-images_object-properties' aria-hidden='true' class='block-anchor'  id='v2-images_object-properties'><i aria-hidden='true' class='linkify icon'></i></a>
-
 ## Product Images 
 
 Images associated with a product.
@@ -22,7 +20,7 @@ Images associated with a product.
 ### Product Image Object – Properties 
 
 | Name | Type | Description |
-| --- | --- | --- |
+|-|-|-|
 | id | int |
 | product_id | int | The ID of the product to which the image belongs. |
 | image_file | string | When specifying a product image, the `image_file` should be specified as either: a path to an image already uploaded via WebDAV to the import directory (with the path relative to the import directory); or a URL to an image accessible on the internet. |
@@ -31,15 +29,11 @@ Images associated with a product.
 | description | text | The description for the image |
 | date_created | date |
 
-
-<a href='#v2-review_list-product-images' aria-hidden='true' class='block-anchor'  id='v2-review_list-product-images'><i aria-hidden='true' class='linkify icon'></i></a>
-
 ### List Product Images 
 
 Gets the images associated with a product. (Default sorting is by image id, from lowest to highest.)
 
 >GET /stores/{store_hash}/v2/products/{product_id}/images
-
 
 ### Filters 
 
@@ -50,7 +44,7 @@ There are no filter parameters specific to product images.
 Parameters can be added to the URL query string to paginate the collection. The maximum limit is 250. If a limit isn’t provided, up to 50 product_images are returned by default.
 
 | Parameter | Type | Example |
-| --- | --- | --- |
+|-|-|-|
 | page | int | /api/v2/products/{product_id}/images?page={number} |
 | limit | int | /api/v2/products/{product_id}/images?limit={count} |
 
@@ -89,18 +83,11 @@ Example JSON returned in the response:
 ]
 ```
 
-
-
----
-
-<a href='#v2-review-product-images' aria-hidden='true' class='block-anchor'  id='v2-review-product-images'><i aria-hidden='true' class='linkify icon'></i></a>
-
 ## Get a Product Image 
 
 Gets a product image.
 
 >`GET /stores/{store_hash}/v2/products/{product_id}/images/{id}`
-
 
 ### Response 
 
@@ -122,17 +109,11 @@ Example JSON returned in the response:
 }
 ```
 
----
-
-<a href='#v2-images_get-count-images' aria-hidden='true' class='block-anchor'  id='v2-images_get-count-images'><i aria-hidden='true' class='linkify icon'></i></a>
-
 ## Get a Count of Product Images 
 
 Gets a count of the number of product images in the store.
 
-
 >`GET /stores/{store_hash}/v2/products/images/count`
-
 
 ### Response 
 
@@ -143,10 +124,6 @@ Example JSON returned in the response:
   "count": 105
 }
 ```
-
----
-
-<a href='#v2-images_create-product-images' aria-hidden='true' class='block-anchor'  id='v2-images_create-product-images'><i aria-hidden='true' class='linkify icon'></i></a>
 
 ## Create a Product Image 
 
@@ -184,17 +161,11 @@ Example JSON returned in the response:
 }
 ```
 
----
-
-<a href='#v2-images_update-product-images' aria-hidden='true' class='block-anchor'  id='v2-images_update-product-images'><i aria-hidden='true' class='linkify icon'></i></a>
-
-
 ## Update a Product Image 
 
 Updates an existing product image.
 
 >`PUT /stores/{store_hash}/v2/products/{product_id}/images/{id}`
-
 
 ### Read-only Properties 
 
@@ -224,19 +195,11 @@ Example JSON returned in the response:
 }
 ```
 
----
-
-<a href='#v2-images_delete-product-images' aria-hidden='true' class='block-anchor'  id='v2-images_delete-product-images'><i aria-hidden='true' class='linkify icon'></i></a>
-
 ## Delete a Product Image 
 
 Deletes a product image.
 
 >`DELETE /stores/{store_hash}/v2/products/{product_id}/images/{id}`
-
----
-
-<a href='#v2-images_delete-all-product-images' aria-hidden='true' class='block-anchor'  id='v2-images_delete-all-product-images'><i aria-hidden='true' class='linkify icon'></i></a>
 
 ## Delete Multiple Product Images 
 
@@ -249,7 +212,6 @@ Deletes multiple product images.
 Parameters can be added to the URL query string to paginate the collection. The maximum limit is 250. If a limit isn’t provided, up to 50 `product_images` are returned by default.
 
 | Parameter | Type | Example |
-| --- | --- | --- |
+|-|-|-|
 | Page | int | /api/v2/products/{product_id}/images?page={number} |
 | Limit | int | /api/v2/products/{product_id}/images?limit={count} |
-

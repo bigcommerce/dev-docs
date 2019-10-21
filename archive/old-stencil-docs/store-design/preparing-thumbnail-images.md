@@ -28,7 +28,7 @@ Each card contains a themewide composite image, showing all the variations of th
 
 <a href='#preparing_general-image' aria-hidden='true' class='block-anchor'  id='preparing_general-image'><i aria-hidden='true' class='linkify icon'></i></a>
 
----
+
 
 ## General Image Requirements
 
@@ -44,7 +44,7 @@ All screenshots described below must meet the following specifications in order 
 
 <a href='#preparing_themewide-composite' aria-hidden='true' class='block-anchor'  id='preparing_themewide-composite'><i aria-hidden='true' class='linkify icon'></i></a>
 
----
+
 
 ## Themewide Composite Image
 
@@ -87,7 +87,7 @@ lineNumbers: true
 
 <a href='#preparing_variations' aria-hidden='true' class='block-anchor'  id='preparing_variations'><i aria-hidden='true' class='linkify icon'></i></a>
 
----
+
 
 ## Variations: Desktop/Mobile Screenshots
 
@@ -144,7 +144,7 @@ lineNumbers: true
 
 ```
 
----
+
 
 ## Resources
 * [Cornerstone config.json](https://github.com/bigcommerce/cornerstone/blob/master/config.json)

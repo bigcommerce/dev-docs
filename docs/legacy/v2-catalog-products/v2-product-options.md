@@ -9,24 +9,17 @@
 
 </div> 
 
-<a href='#v2-options_object-properties' aria-hidden='true' class='block-anchor'  id='v2-options_object-properties'><i aria-hidden='true' class='linkify icon'></i></a>
-
 ## Product Options 
 
 ### Product Options Object – Properties 
 
 | Title | Name | Type | Description |
-| --- | --- | --- | --- |
+|-|-|-|-|
 | `id` | `int` |
 | `option_id` | `int` |
 | `display_name` | `string` |
 | `sort_order` | `int` |
 | `is_required` | `boolean` |
-
-
----
-
-<a href='#v2-review_list-product-reviews' aria-hidden='true' class='block-anchor'  id='v2-review_list-product-reviews'><i aria-hidden='true' class='linkify icon'></i></a>
 
 ## List Product Options
 
@@ -39,7 +32,7 @@ Gets the options associated with a product.
 Parameters can be added to the URL query string to paginate the collection. The maximum limit is 250\. If a limit isn’t provided, up to 50 product_options are returned by default.
 
 | Parameter | Type | Example |
-| --- | --- | --- |
+|-|-|-|
 | `page` | int | `/api/v2/products/{product_id}/options?page={number}` |
 | `limit` | int | `/api/v2/products/{product_id}/options?limit={count}` |
 
@@ -66,12 +59,9 @@ Example JSON returned in the response:
 ]
 ```
 
-<a href='#v2-review-product-options' aria-hidden='true' class='block-anchor'  id='v2-review-product-options'><i aria-hidden='true' class='linkify icon'></i></a>
-
 ## Get a Product Option
 
 Gets an option associated with a product.
-
 
 >`GET /stores/{store_hash}/v2/products/{product_id}/options/{id}`
 
@@ -88,4 +78,3 @@ Example JSON returned in the response:
   "is_required": false
 }
 ```
-

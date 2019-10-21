@@ -1,19 +1,19 @@
 # Common Objects
+
 <div class="otp" id="no-index">
-	<h3> On This Page </h3>
-	<ul>
-    <li><a href="#common-objects_catalog-price">Catalog Price</a></li>
-    <li><a href="#common-objects_price">Price</a></li>
-    <li><a href="#common-objects_price-range">Price Range</a></li>
-    <li><a href="#common-objects_stencil-image">Stencil Image</a></li>
-    <li><a href="#common-objects_common-product">Common Product Card Model</a></li>
-	</ul>
-</div>
+
+### On This Page
+- [Catalog Price](#catalog-price)
+- [Price](#price)
+- [Price Range](#price-range)
+- [Stencil Image](#stencil-image)
+- [Common Product Card Model](#common-product-card-model)
+
+</div> 
 
 Certain Stencil objects can be accessed through multiple other Stencil objects. For example, the image object is exposed through the Category, Product, Product Options, and other objects. Its structure is consistent for all objects/properties that access it.
 
 This consistent behavior is true for each of the common objects documented in the following subsection.
-
 
 <div class="HubBlock--callout">
 <div class="CalloutBlock--info">
@@ -33,9 +33,6 @@ This consistent behavior is true for each of the common objects documented in th
 </div>
 </div>
 
-
-<a href='#common-objects_catalog-price' aria-hidden='true' class='block-anchor' id='common-objects_catalog-price'><i aria-hidden='true' class='linkify icon'></i></a>
-
 ## Catalog Price
 
 **Description:** Exposes catalog price and currency-related properties in both raw numeric, and formatted string, formats. Tax settings display [configuration](https://support.bigcommerce.com/s/article/Manual-Tax-Setup#display-settings) will determine which properties are available.
@@ -44,12 +41,10 @@ This consistent behavior is true for each of the common objects documented in th
 * Common Object: <a href="#common-objects_common-product">Common Product Card Model</a>
 * Object: `{{product.price}}`
 
-
 **Object Properties:**
 
-
 | Property | Description | Type |
-| --- |--- | --- |
+|-|-|-|
 | with_tax | Price including tax | object |
 | &#x21B3; currency | Currency code | string  <br> `"USD"`|
 | &#x21B3; formatted | String representation of the above price, including currency formatting | string <br> `"$216.50"` |
@@ -81,10 +76,6 @@ This consistent behavior is true for each of the common objects documented in th
 | tax_label	| Tax label (VAT, sales tax, etc.) displayed to customers. | string  <br> `"Tax"`|
 | price_range | See [Price Range Object](https://developer.bigcommerce.com/stencil-docs/reference-docs/common-objects#common-objects_price-range)| |
 
----
-
-<a href='#common-objects_price' aria-hidden='true' class='block-anchor'  id='common-objects_price'><i aria-hidden='true' class='linkify icon'></i></a>
-
 ## Price
 
 <b>Description:</b> Exposes price- and currency-related properties in both raw numeric, and formatted string, formats.
@@ -115,10 +106,6 @@ This consistent behavior is true for each of the common objects documented in th
   </tr>
 </table>
 
----
-
-<a href='#common-objects_price-range' aria-hidden='true' class='block-anchor'  id='common-objects_price-range'><i aria-hidden='true' class='linkify icon'></i></a>
-
 ## Price Range
 
 <b>Description:</b> For products with several variants with different prices, a price range is available which exposes the minimum and maximum variant price.
@@ -126,7 +113,7 @@ This consistent behavior is true for each of the common objects documented in th
 <b>Object Properties:</b>
 
 | Property | Description | Type |
-| ---|---|--|
+|-|-|--|
 | retail_price_range | Product Price Range | object |
 |&#x21B3;   max | The minimum variant price for the product | object |
 |&nbsp;  &nbsp;  &#x21B3;  with_tax | Price including tax | object |
@@ -151,9 +138,7 @@ This consistent behavior is true for each of the common objects documented in th
 
 <b>Object/Property:</b><code>{{product.price}</code></a>
 
-----
-
-<a href='#common-objects_stencil-image' aria-hidden='true' class='block-anchor'  id='common-objects_stencil-image'><i aria-hidden='true' class='linkify icon'></i></a>
+-
 
 ## Stencil Image
 
@@ -190,8 +175,6 @@ This consistent behavior is true for each of the common objects documented in th
 
 `{{getImage image "thumbnail"}}`
 
----
-
 <a id="common-objects_common-product"></a>
 
 ## Common Product Card Model
@@ -199,7 +182,6 @@ This consistent behavior is true for each of the common objects documented in th
 <b>Description:</b> A model for a product’s basic, primary properties. Typically used for list components that show multiple products, each in its own "card" or panel.
 
 <b>Object Properties:</b>
-
 
 |Property| Description  | Format | 
 |--|--| -- | 
@@ -236,8 +218,6 @@ This consistent behavior is true for each of the common objects documented in th
 | out_of_stock_message |Text to display when the product is out of stock. If no message is configured, returns false. | string or `false` |
 | release_date | Release date, if the product is set to pre-order status| string Ex. `Available: Aug 6th 2019` | 
 
-
-
 <b>Available through:</b>
 
 <b>Object:</b> <code>{{comparisons}} </code>
@@ -245,5 +225,3 @@ This consistent behavior is true for each of the common objects documented in th
 <b>Arrays/Elements:</b> <code>{{product.related_products}}, {{product.similar_by_views}}, {{category.products}}, {{cart.suggested_products}}, {{customer.recently_viewed_products}} </code>
 
 <!-- :"Common Product Card Model" moved from "Product Objects" page -->
-
----

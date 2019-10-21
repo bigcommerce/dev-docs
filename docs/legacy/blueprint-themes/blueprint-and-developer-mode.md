@@ -23,17 +23,11 @@ This means that the workflow below will work only for stores that have applied o
 </div>
 </div>
 
-<a href='#foundation-for-creating-themes' aria-hidden='true' class='block-anchor'  id='foundation-for-creating-themes'><i aria-hidden='true' class='linkify icon'></i></a>
-
 ## A Foundation for Creating Themes 
 
 Our (legacy) Blueprint "Classic Next" base theme provides a starting point for creating a new theme. This theme includes responsive support out-of-the-box, so it works with lower resolutions like those on mobile devices. The visual design has been stripped back, so you can create from a clean canvas.
 
 <a href="https://blueprint-demo.mybigcommerce.com" target="_blank">View the demo</a>.
-
----
-
-<a href='#setting-up-your-environment' aria-hidden='true' class='block-anchor'  id='setting-up-your-environment'><i aria-hidden='true' class='linkify icon'></i></a>
 
 ## Setting Up Your Environment 
 
@@ -46,4 +40,3 @@ Follow these steps to start developing using the Blueprint theme:
 4.  Once connected via WebDav, navigate to the `/template/` folder, where you will have access to all the files that make up a theme.
 5.  To make a change to a file, just download the file, edit it, and then upload your altered version.
 6.  Every time you make changes to any files, you will need to upload them through WebDAV for the changes to be reflected on your site.
-

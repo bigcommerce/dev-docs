@@ -13,21 +13,11 @@ Style Editor allows users to customize the look and feel of their BigCommerce st
 
 Style Editor uses Less.js as a CSS preprocessor. This allows Style Editor to take advantage of variables and other functions to ensure design consistency.
 
-
----
-
-<a href='#what-is-lessjs' aria-hidden='true' class='block-anchor'  id='what-is-lessjs'><i aria-hidden='true' class='linkify icon'></i></a>
-
 ## What Is Less.js? 
 
 Less (formally, Less.js) is a CSS preprocessor that allows theme designers to use advanced functions and programming principles in their CSS. A JavaScript compiler runs over the Less files, and converts them into usable CSS that can be included in themes.
 
 For more information on examples, techniques, and how to install Less, please see <a href="http://lesscss.org/" target="_blank">lesscss.org</a>.
-
-
----
-
-<a href='#integrating-theme-style-editor' aria-hidden='true' class='block-anchor'  id='integrating-theme-style-editor'><i aria-hidden='true' class='linkify icon'></i></a>
 
 ## Integrating a Theme with the Style Editor 
 
@@ -136,7 +126,6 @@ lineNumbers: true
 
 For example:
 
-
 <div class="HubBlock-header">
     <div class="HubBlock-header-title flex items-center">
         <div class="HubBlock-header-name"></div>
@@ -167,7 +156,6 @@ This will create a section in the left navigation with the title “Header”, w
 
 More information on syntax, and examples, can be found in the comments of the style-editor-variables.less file found in Blueprint.
 
-
 ### internal-variables.less 
 
 This file is for you to store the variables that you may need to use, but don’t want the Style editor to see. For example, you can use it to create a hierarchy within your Less file, so that:
@@ -180,11 +168,9 @@ In this example, the link hover color will be set to whatever the store name col
 
 This way, we can reuse the color that gets set to `@color-store-name` as the color for elements that we may not want to be edited in the Style Editor, but will now carry on the colour of the store name to create consistency within your design.
 
-
 ### init.less 
 
 This is where you initialize the use of the variables. This file contains all the CSS that will be compiled and generated into the theme.css file. For example, the @color-store-name can now be applied to the `#HeaderLogo h1` element by saying:
-
 
 <div class="HubBlock-header">
     <div class="HubBlock-header-title flex items-center">
@@ -213,8 +199,6 @@ Compiling your Less files
 
 Once you have finished working on your `.less` files, _don’t forget to compile them!_ If you are using the command line, you should be doing something similar to:
 
-
-
 <div class="HubBlock-header">
     <div class="HubBlock-header-title flex items-center">
         <div class="HubBlock-header-name"></div>
@@ -230,8 +214,6 @@ lineNumbers: true
 ```html
 lessc Styles/less/theme.less > Styles/theme.css 
 
-
-
 ```
 
 This will use the `theme.less` file to generate the `theme.css` file into your theme's `Styles/` folder.
@@ -240,14 +222,9 @@ If you find that you have to make a change to `theme.css`, please don't forget t
 
 Less offers a variety of compilation methods, including applications for both Windows and Mac that you can use if you prefer not to use the command prompt/terminal.
 
----
-
-<a href='#testing-style-editor-with-theme' aria-hidden='true' class='block-anchor'  id='testing-style-editor-with-theme'><i aria-hidden='true' class='linkify icon'></i></a>
-
 ## Testing Style Editor with Your Theme 
 
 If you'd like to add Style Editor support to your theme, you can enable the Style Editor on just your store. Simply log in to the control panel and place `/index.php?ToDo=viewTemplates&dev=enable` after `/admin`.<br>
 (For example: <NOBR>`https://store-123abmy.mybigcommerce.com/admin/index.php?ToDo=viewTemplates&dev=enable`</nobr>)
 
 This will enable [Developer Mode](#) for your store, which also enables Blueprint and other features for theme developers. You can [use Blueprint](#) as a basis for creating new themes.
-

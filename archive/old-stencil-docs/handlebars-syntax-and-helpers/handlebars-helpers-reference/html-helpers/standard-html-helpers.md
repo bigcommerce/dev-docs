@@ -32,7 +32,7 @@ Truncates a string to the specified `length`, and appends an elipsis, `…`.
 //=> 'foo bar…'
 ```
 
----
+
 
 <a href='#handlebars_sanitize' aria-hidden='true' class='block-anchor'  id='handlebars_sanitize'><i aria-hidden='true' class='linkify icon'></i></a>
 
@@ -52,7 +52,7 @@ Strips HTML tags from a string, so that only the text nodes are preserved.
 //=> 'foo'
 ```
 
----
+
 
 <a href='#handlebars_ul' aria-hidden='true' class='block-anchor'  id='handlebars_ul'><i aria-hidden='true' class='linkify icon'></i></a>
 
@@ -66,7 +66,7 @@ Block helper for creating unordered lists (`<ul></ul>`).
 * `options` {Object}
 * `returns` {String}
 
----
+
 
 <a href='#handlebars_ol' aria-hidden='true' class='block-anchor'  id='handlebars_ol'><i aria-hidden='true' class='linkify icon'></i></a>
 
@@ -80,7 +80,7 @@ Block helper for creating ordered lists  (`<ol></ol>`).
 * `options` {Object}
 * `returns` {String}
 
----
+
 
 <a href='#handlebars_thumbnailimage' aria-hidden='true' class='block-anchor'  id='handlebars_thumbnailimage'><i aria-hidden='true' class='linkify icon'></i></a>
 

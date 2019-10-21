@@ -1,34 +1,31 @@
 # Troubleshooting Your Setup
 
 <div class="otp" id="no-index">
-	<h3> On This Page </h3>
-	<ul>
-    <li><a href="#troubleshooting_unsupported">Unsupported Node Version</a></li>
-    <li><a href="#troubleshooting_npm-install"><code>npm install</code> errors</a></li>
-    <li><a href="#troubleshooting_npm-install-stencil-init"><code>npm install</code> and <code>stencil init</code> Errors</a></li>
-    <li><a href="#troubleshooting_stencil-init"><code>stencil init</code>/<code>stencil start</code> errors</a></li>
-    <li><a href="#troubleshooting_stencil-start-missing-module"><code>stencil start</code>/missing module Errors</a></li>
-    <li><a href="#troubleshooting_uncaught">"Uncaught TypeError: Illegal invocation" error</a></li>
-    <li><a href="#troubleshooting_mac-os">Mac OS: "Xcode/iOS license..." Errors upon Stencil Commands</a></li>
-    <li><a href="#troubleshooting_etimeout">ETIMEOUT Errors on Node >4.4.0</a></li>
-    <li><a href="#troubleshooting_stencil-command-not-found"><code>stencil</code> command not found</a></li>
-    <li><a href="#troubleshooting_stencil-start-errors"><code>stenci start</code> errors</a></li>
-    <li><a href="#troubleshooting_500-errors">500 Errors</a></li>
-    <li><a href="#troubleshooting_lint-errors">Lint Errors upon Bundling</a></li>
-    <li><a href="#troubleshooting_module-not-found">"Module Not Found" Errors upon Bundling</a></li>
-    <li><a href="#troubleshooting_short">Short or Undescriptive JavaScript Diagnostics</a></li>
-    <li><a href="#troubleshooting_tr-300">TR-300 Error upon Theme Upload</a></li>
-    <li><a href="#troubleshooting_uninstalling">Uninstalling and Reinstalling Stencil CLI</a></li>
-	</ul>
+
+### On This Page
+- [Unsupported Node Version](#unsupported-node-version)
+- [`npm install` Errors](#npm-install-errors)
+- [`npm install` and `stencil init` Errors](#npm-install-and-stencil-init-errors)
+- [`stencil init`/`stencil start` Errors](#stencil-initstencil-start-errors)
+- [`stencil start` Missing Module Errors](#stencil-start-missing-module-errors)
+- [`Uncaught TypeError: Illegal invocation` error](#uncaught-typeerror-illegal-invocation-error)
+- [Mac OS: `Xcode/iOS license...` Errors](#mac-os-xcodeios-license-errors)
+- [ETIMEOUT Errors on Node > 4.4.0](#etimeout-errors-on-node--440)
+- [`stencil` command not found](#stencil-command-not-found)
+- [`stencil start` errors](#stencil-start-errors)
+- [500 Errors](#500-errors)
+- [Lint Errors upon Bundling](#lint-errors-upon-bundling)
+- ["Module Not Found" Errors upon Bundling](#%22module-not-found%22-errors-upon-bundling)
+- [Short Un-Descriptive JavaScript Diagnostics](#short-un-descriptive-javascript-diagnostics)
+- [TR-300 Error upon Theme Upload](#tr-300-error-upon-theme-upload)
+- [Reinstalling Stencil CLI](#reinstalling-stencil-cli)
+- [Resources](#resources)
+
 </div>
 
 For any unexpected behavior you encounter while developing your Stencil theme, we recommend your first check your terminal window where you started Stencil CLI.
 
 In some cases, the terminal will provide a verbose error message specifying where to look for problems. It has the potential to provide further insight on the issue. Diagnostic suggestions are listed on this page for error messages that may not be helpful in revealing the issue you're experiencing.
-
----
-
-<a href='#troubleshooting_unsupported' aria-hidden='true' class='block-anchor'  id='troubleshooting_unsupported'><i aria-hidden='true' class='linkify icon'></i></a>
 
 ## Unsupported Node Version
 
@@ -42,10 +39,6 @@ Debug: internal, implementation, error
 ```
 
 On Mac OS, we have tested Stencil CLI most robustly on Node.js version 4.4.0. On Linux, we have tested most robustly on version 4.1.2. On Windows, we have tested most robustly on version 4.6.1. You’ll find detailed steps (for each operating system) in these instructions' Installing Stencil Prerequisites by OS section.
-
----
-
-<a href='#troubleshooting_npm-install' aria-hidden='true' class='block-anchor'  id='troubleshooting_npm-install'><i aria-hidden='true' class='linkify icon'></i></a>
 
 ## `npm install` Errors
 
@@ -63,8 +56,7 @@ If running the `npm install ` command inside your theme directory does not resol
 
 * Re-run `npm install`
 
-
-### Permissions (EPERM or EACCES) Error
+### Permissions Errors
 
 If you get a file-permissions error such as `EPERM` or `EACCES` when issuing the `npm install` command, try one of the workarounds listed on the [npm docs.](https://docs.npmjs.com/getting-started/fixing-npm-permissions) page.
 
@@ -83,13 +75,13 @@ Try the following workaround:
 
 1. Download and unzip a fresh copy of the theme.
 
-3. Refresh theme dependencies by running `npm install && jspm install`
+2. Refresh theme dependencies by running `npm install && jspm install`
 
 3. Run `stencil init`.
 
 *You will see the same error message as before, but proceed to:*
 
-4. Delete the `<theme-name>/assets/js/bundle.js` file.
+4. Delete the `assets/js/bundle.js` file.
 
 5. Run `stencil init` again.
 This should now execute properly.
@@ -97,17 +89,9 @@ This should now execute properly.
 
 8. Verify your theme's launch at: http://localhost:3000.
 
----
-
-<a href='#troubleshooting_npm-install-stencil-init' aria-hidden='true' class='block-anchor'  id='troubleshooting_npm-install-stencil-init'><i aria-hidden='true' class='linkify icon'></i></a>
-
 ## `npm install` and `stencil init` Errors
 
 If you get an unexpected error messages when issuing the `npm install` or `stencil init` commands, check your Node.js version and ensure it aligns with a version compatible for the Stencil framework.
-
----
-
-<a href='#troubleshooting_stencil-init' aria-hidden='true' class='block-anchor'  id='troubleshooting_stencil-init'><i aria-hidden='true' class='linkify icon'></i></a>
 
 ## `stencil init`/`stencil start` Errors
 
@@ -115,11 +99,7 @@ If you get an unexpected error message or unexpected results upon executing the 
 
 One way of checking what directory you are working in is by running the `pwd` command in your terminal.
 
----
-
-<a href='#troubleshooting_stencil-start-missing-module' aria-hidden='true' class='block-anchor'  id='troubleshooting_stencil-start-missing-module'><i aria-hidden='true' class='linkify icon'></i></a>
-
-## `stencil start`/missing module Errors
+## `stencil start` Missing Module Errors
 
 If executing `stencil start` provokes errors like the following
 
@@ -145,19 +125,11 @@ switch to your theme directory and run `npm install`. Running this command will 
 
 If you receive the same error again after running `npm install`, you should completely uninstall and reinstall both the Stencil framework and Node.js.
 
----
-
-<a href='#troubleshooting_uncaught' aria-hidden='true' class='block-anchor'  id='troubleshooting_uncaught'><i aria-hidden='true' class='linkify icon'></i></a>
-
-## "Uncaught TypeError: Illegal invocation" error
+## `Uncaught TypeError: Illegal invocation` error
 
 If you receive an `Uncaught TypeError: Illegal invocation` console error, and previously installed Stencil using the original jspm-based installation flow and later switched to our current webpack installation flow, please remove your theme's `/node_modules/` subdirectory, then re-run `npm install` inside your theme's directory.
 
----
-
-<a href='#troubleshooting_mac-os' aria-hidden='true' class='block-anchor'  id='troubleshooting_mac-os'><i aria-hidden='true' class='linkify icon'></i></a>
-
-## Mac OS: "Xcode/iOS license..." Errors upon Stencil Commands
+## Mac OS: `Xcode/iOS license...` Errors
 
 On Mac OS, if you have recently installed a new version of Xcode, the command line will display the following error when you next try to use or reinstall Stencil:
 
@@ -169,18 +141,9 @@ To resolve this error, do the following:
 * Quit Xcode.
 * Re-execute your Stencil command.
 
-
----
-
-<a href='#troubleshooting_etimeout' aria-hidden='true' class='block-anchor'  id='troubleshooting_etimeout'><i aria-hidden='true' class='linkify icon'></i></a>
-
-## ETIMEOUT Errors on Node >4.4.0
+## ETIMEOUT Errors on Node > 4.4.0
 
 If you are running a version of Node.js higher than 4.4.0, and you receive an `ETIMEOUT` error when running Stencil CLI, re-install the latest version of Stencil CLI to resolve this error by following the workflow in Installing Stencil CLI/Framework.
-
----
-
-<a href='#troubleshooting_stencil-command-not-found' aria-hidden='true' class='block-anchor'  id='troubleshooting_stencil-command-not-found'><i aria-hidden='true' class='linkify icon'></i></a>
 
 ## `stencil` command not found
 
@@ -204,9 +167,6 @@ If this reports more than one version, specify your platform's supported Node.js
 
 To prevent this error from recurring, add the same `nvm use <version_number>` command to your ~/.bash_profile file.
 
-
----
-
 <a id="troubleshooting_stencil-start-errors"></a>
 
 ## `stencil start` errors
@@ -222,7 +182,7 @@ If you have downloaded and installed a Marketplace theme (other than Cornerstone
 1. Back up your current theme directory/directories.
 (In a default installation, the theme directory is named `.../cornerstone/`. Prior to March 2017, this directory's name defaulted to `.../stencil/`. Use the same substitutions for other code examples on this page.)
 
-2. To ensure that you install refreshed dependencies, delete your `<theme-name>/node_modules/` and `<theme-name>/assets/jspm_packages/` subdirectories. (You can check installed versions of dependencies by examining your `<theme-name>/package.json` file.)
+2. To ensure that you install refreshed dependencies, delete your `node_modules/` and `assets/jspm_packages/` subdirectories. (You can check installed versions of dependencies by examining your `package.json` file.)
 
 3. Starting inside your theme directory, enter this alternate sequence of commands:
 
@@ -236,10 +196,6 @@ jspm install
 
 4. Re-launch your theme.
 
----
-
-<a href='#troubleshooting_500-errors' aria-hidden='true' class='block-anchor'  id='troubleshooting_500-errors'><i aria-hidden='true' class='linkify icon'></i></a>
-
 ## 500 Errors
 
 If you see errors like or _similar_ to below:
@@ -248,18 +204,9 @@ If you see errors like or _similar_ to below:
 
 They often indicate a template syntax error, such as unmatched or missing punctuation. Check your terminal window for more details.
 
----
-
-<a href='#troubleshooting_lint-errors' aria-hidden='true' class='block-anchor'  id='troubleshooting_lint-errors'><i aria-hidden='true' class='linkify icon'></i></a>
-
 ## Lint Errors upon Bundling
 
 If bundling your theme triggers multiple lint errors related to the `bundle.js` file, your theme is missing the `.eslintignore` file. Retrieve [this file from the Cornerstone repo](https://github.com/bigcommerce/cornerstone), then re-run `stencil bundle`.
-
-
----
-
-<a href='#troubleshooting_module-not-found' aria-hidden='true' class='block-anchor'  id='troubleshooting_module-not-found'><i aria-hidden='true' class='linkify icon'></i></a>
 
 ## "Module Not Found" Errors upon Bundling
 
@@ -269,11 +216,7 @@ If you see the following error when running stencil bundle, this is a past bug t
 
 To remove the error, please update your Cornerstone version.
 
----
-
-<a href='#troubleshooting_short' aria-hidden='true' class='block-anchor'  id='troubleshooting_short'><i aria-hidden='true' class='linkify icon'></i></a>
-
-## Short or Undescriptive JavaScript Diagnostics
+## Short Un-Descriptive JavaScript Diagnostics
 
 If JavaScript errors in your browser's developer tools are not reporting filenames and line numbers, try changing your `webpack.conf.js` file's sourcemap entry from:
 
@@ -285,19 +228,11 @@ to:
 
 The `eval-cheap-module-source-map` option performs faster rebuilds, but omits line numbers. The `eval-source-map` option is slower, but more verbose.
 
----
-
-<a href='#troubleshooting_tr-300' aria-hidden='true' class='block-anchor'  id='troubleshooting_tr-300'><i aria-hidden='true' class='linkify icon'></i></a>
-
 ## TR-300 Error upon Theme Upload
 
 If uploading your theme triggers a TR-300 error, this can indicate an included source-map file (`bundle.js.map`) that exceeds its size limit of 5 MB. If your `bundle.js.map` exceeds that limit, the workaround is to move this file outside your theme directory before re-running `stencil bundle`.
 
----
-
-<a href='#troubleshooting_uninstalling' aria-hidden='true' class='block-anchor'  id='troubleshooting_uninstalling'><i aria-hidden='true' class='linkify icon'></i></a>
-
-## Uninstalling and Reinstalling Stencil CLI
+## Reinstalling Stencil CLI
 
 If you encounter persistent problems in initializing or starting Stencil, you have the option of completely removing Stencil CLI and doing a fresh reinstall. You would do so as follows:
 
@@ -307,8 +242,6 @@ If you encounter persistent problems in initializing or starting Stencil, you ha
 2. Navigate back to the Installing and Launching Stencil section and repeat all installation steps to reinstall dependencies and restore your theme, according to your development scenario.
 
 A more-drastic measure is to uninstall and reinstall Stencil CLI's Node.js prerequisites (along with uninstalling Stencil CLI). We do not recommend this, as it might disable other Node.js applications on your local machine.
-
----
 
 ## Resources
 

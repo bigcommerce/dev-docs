@@ -1,57 +1,54 @@
 # Handlebars Helpers Reference
 
 <div class="otp" id="no-index">
-	<h3> On This Page </h3>
-	<ul>
-    <li><a href="#handlebars-helpers-reference_array">Array Helpers</a></li>
-    <li><a href="#handlebars-helpers-reference_collection">Collection Helpers</a></li>
-    <li><a href="#handlebars-helpers-reference_comparison">Comparison Helpers</a></li>
-    <li><a href="#handlebars-helpers-reference_control-flow">Control-Flow Helpers</a></li>
-    <li><a href="#handlebars-helpers-reference_date">Date Helpers</a></li>
-    <li><a href="#handlebars-helpers-reference_html">HTML Helpers</a></li>
-    <li><a href="#handlebars-helpers-reference_image">Image Helpers</a></li>
-    <li><a href="#handlebars-helpers-reference_inflection">Inflection Helpers</a></li>
-		<li><a href="#handlebars-helpers-reference_injection">Injection Helpers</a></li>
-		<li><a href="#handlebars-helpers-reference_markdown">Markdown Helpers</a></li>
-		<li><a href="#handlebars-helpers-reference_math">Math Helpers</a></li>
-		<li><a href="#handlebars-helpers-reference_number">Number Helpers</a></li>
-		<li><a href="#handlebars-helpers-reference_object">Object Helpers</a></li>
-		<li><a href="#handlebars-helpers-reference_operator">Operator Helpers</a></li>
-		<li><a href="#handlebars-helpers-reference_string">String Helpers</a></li>
-		<li><a href="#handlebars-helpers-reference_url">URL Helpers</a></li>
-		<li><a href="#handlebars-helpers-reference_misc">Miscellaneous Helpers</a></li>
-  </ul>
-</div>
 
+### On This Page
+- [Array Helpers](#array-helpers)
+- [Collection Helpers](#collection-helpers)
+- [Example](#example)
+- [Comparison Helpers](#comparison-helpers)
+- [Control-Flow Helpers](#control-flow-helpers)
+- [Conditional Control Flow](#conditional-control-flow)
+- [Loop Control Flow](#loop-control-flow)
+- [Date Helpers](#date-helpers)
+- [HTML Helpers](#html-helpers)
+- [Image Helpers](#image-helpers)
+- [Inflection Helpers](#inflection-helpers)
+- [Injection Helpers](#injection-helpers)
+- [Markdown Helpers](#markdown-helpers)
+- [Math Helpers](#math-helpers)
+- [Number Helpers](#number-helpers)
+- [Object Helpers](#object-helpers)
+- [Operator Helpers](#operator-helpers)
+- [Comparison Operators](#comparison-operators)
+- [String Helpers](#string-helpers)
+- [URL Helpers](#url-helpers)
+- [Miscellaneous Helpers](#miscellaneous-helpers)
+- [Resources](#resources)
+
+</div>
 
 This page describes all of the Handlebars helpers supported on the Stencil framework. It includes helpers that are custom to, or customized for, Stencil. They are marked as **Custom Helper**. Only certain standard helpers are whitelisted and they are listed below as **Standard Helpers**. 
 
 For background information on using Handlebars helpers, please see the [official Handlebars documentation](http://handlebarsjs.com).
 
----
-
-<a href='#handlebars-helpers-reference_array' aria-hidden='true' class='block-anchor'  id='handlebars-helpers-reference_array'><i aria-hidden='true' class='linkify icon'></i></a>
-
-
 ## Array Helpers
 
 The following helpers manage arrays.
 
-
-## {{join}}
+### {{join}}
 
 **Custom Helper**
 
 It joins an array of string items, with separators. It returns a string.
 
-### Parameters
+#### Parameters
 
 - `values`: {Array}
 - `separator`: {String}
 - `limit=<number>`: An optional limit.
 
-
-### Example
+#### Example
 
 Join is used with `{{pluck}}` to display the faceted search navigation . In the example below the arguments are:
 
@@ -65,25 +62,18 @@ Join is used with `{{pluck}}` to display the faceted search navigation . In the 
 {{/if}}
 ```
 
-### Resources
-
-* [Paper Handlebars](https://github.com/bigcommerce/paper-handlebars/blob/master/spec/helpers/join.js)
-* [Cornerstone](https://github.com/bigcommerce/cornerstone/blob/master/templates/components/faceted-search/index.html)
-
----
-
-## {{limit}}
+### {{limit}}
 
 **Custom Helper**
 
 It limits the number of items returned from an array variable, and returns a new array.
 
-### Parameters
+#### Parameters
 
 - `data`: {Array}
 - `limit`: {Number}
 
-### Example
+#### Example
 
 Assume that `{{cart.items}}` would return 10 items. You could use this helper to limit that behavior to only the first four items, by specifying:
 
@@ -104,14 +94,10 @@ Assume that `{{cart.items}}` would return 10 items. You could use this helper to
   ...
 ```
 
-### Resources
-
 * [Paper Handlebars](https://github.com/bigcommerce/paper-handlebars/blob/master/spec/helpers/limit.js) 
 * [Cornerstone](https://github.com/bigcommerce/cornerstone/blob/master/templates/components/common/cart-preview.html)
 
----
-
-## {{pluck}}
+### {{pluck}}
 
 **Custom Helper**
 
@@ -123,12 +109,11 @@ The `pluck` helper returns the retrieved values in a comma-separated string. Thi
 {{pluck ([limit] <collection> [<limit-value>]) '<search-key>'}}
 ```
 
-### Parameters
+#### Parameters
 
 - `limit`, `limit-value`: Optional parameters to limit the number of results returned.
 - `collection`: The collection to search.
 - `search-key`: The string to search for.
-
 
 ### {{pluck}} Example 1
 
@@ -168,26 +153,19 @@ Handlebars statement:
 <!-- Returns a comma-separated list of image URLs -->
 ```
 
-### Resources
-
-* [Paper Handlebars](https://github.com/bigcommerce/paper-handlebars/blob/master/spec/helpers/pluck.js) 
-* [Cornerstone](https://github.com/bigcommerce/cornerstone/blob/master/templates/components/faceted-search/index.html)
-
----
-
-## {{after}}
+### {{after}}
 
 **Standard Helper**
 
 Returns all of the items in an array after the specified index. Opposite of [before](#before).
 
-### Parameters
+#### Parameters
 
 * `array` {Array}: Collection.
 * `n` {Number}: Starting index (number of items to exclude).
 * `returns` {Array}: Array exluding `n` items.
 
-### Example
+#### Example
 
 Given the array `['a', 'b', 'c']`:
 
@@ -196,44 +174,39 @@ Given the array `['a', 'b', 'c']`:
 //=> '["c"]'
 ```
 
----
-
-## {{arrayify}}
+### {{arrayify}}
 
 **Standard Helper**
 
 Casts the given `value` to an array.
 
-### Parameters
+#### Parameters
 
 * `value` {any}
 * `returns` {Array}
 
-### Example
+#### Example
 
 ```handlebars
 {{arrayify "foo"}}
 //=> '["foo"]'
 ```
 
----
-
 <a name="before"></a>
 
-## {{before}}
+### {{before}}
 
 **Standard Helper**
 
 Returns all of the items in the collection before the specified count. Opposite of [after](#after).
 
-
-### Parameters
+#### Parameters
 
 * `array` {Array}
 * `n` {Number}
 * `returns` {Array}: Array excluding items after the given number.
 
-### Example
+#### Example
 
 Given the array `['a', 'b', 'c']`:
 
@@ -242,21 +215,19 @@ Given the array `['a', 'b', 'c']`:
 //=> '["a", "b"]'
 ```
 
----
-
-## {{eachIndex}}
+### {{eachIndex}}
 
 **Standard Helper**
 
 Add 0 based indexing to the current handlebars loop. 
 
-### Parameters
+#### Parameters
 
 * `array` {Array}
 * `options` {Object}
 * `returns` {String}
 
-### Example
+#### Example
 
 ```html
 "collection": ["Towels", "Bath Soap", "T-Shirts"]
@@ -269,22 +240,20 @@ Add 0 based indexing to the current handlebars loop.
 //=> Towels is 0, Bath Soap is 1, T-Shirts is 2
 ```
 
----
-
-## {{filter}}
+### {{filter}}
 
 **Standard Helper**
 
 Block helper that filters the given array. Renders the block for values that evaluate to `true`; otherwise, returns the inverse block.
 
-### Parameters
+#### Parameters
 
 * `array` {Array}
 * `value` {any}
 * `options` {Object}
 * `returns` {String}
 
-### Example
+#### Example
 
 ```handlebars
 <!-- 
@@ -302,23 +271,21 @@ myProducts:
 => There is a shirt available.
 ```
 
----
-
 <a name="first"></a>
 
-## {{first}}
+### {{first}}
 
 **Standard Helper**
 
 Returns the first item, or first `n` items, of an array.
 
-### Parameters
+#### Parameters
 
 * `array` {Array}
 * `n` {Number}: Number of items to return, starting at `0`.
 * `returns` {Array}
 
-### Example
+#### Example
 
 Given the array `['a', 'b', 'c', 'd', 'e']`:
 
@@ -326,9 +293,8 @@ Given the array `['a', 'b', 'c', 'd', 'e']`:
 {{first array 2}}
 //=> '["a", "b"]'
 ```
----
 
-## {{forEach}}
+### {{forEach}}
 
 **Standard Helper**
 
@@ -341,12 +307,12 @@ Iterates over each item in an array, and exposes the current item in the array a
 
 `@index` is exposed as a private variable, and additional private variables may be defined as hash arguments.
 
-### Parameters
+#### Parameters
 
 * `array` {Array}
 * `returns` {String}
 
-### Example
+#### Example
 
 ```js
 var accounts = [
@@ -364,22 +330,20 @@ var accounts = [
 {{/forEach}}
 ```
 
----
-
-## {{inArray}}
+### {{inArray}}
 
 **Standard Helper**
 
 Block helper that renders the block if an array has the given `value`. Optionally, you can specify an inverse block to render when the array does not have the given value.
 
-### Parameters
+#### Parameters
 
 * `array` {Array}
 * `value` {any}
 * `options` {Object}
 * `returns` {String}
 
-### Example
+#### Example
 
 Given the array `['a', 'b', 'c']`:
 
@@ -392,20 +356,18 @@ Given the array `['a', 'b', 'c']`:
 //=> "The product is no longer available"
 ```
 
----
-
-## {{isArray}}
+### {{isArray}}
 
 **Standard Helper**
 
 Returns true if `value` is an es5 array.
 
-### Parameters
+#### Parameters
 
 * `value` {any}: The value to test.
 * `returns` {Boolean}
 
-### Example
+#### Example
 
 ```handlebars
 {{isArray "applepearbananas"}}
@@ -416,23 +378,21 @@ Returns true if `value` is an es5 array.
 <!-- results in: true -->
 ```
 
----
-
 <a name="last"></a>
 
-##  {{last}}
+###  {{last}}
 
 **Standard Helper**
 
 Returns the last item, or last `n` items, of an array. Opposite of [first](#first).
 
-### Parameters
+#### Parameters
 
 * `array` {Array}
 * `n` {Number}: Number of items to return, starting with the last item.
 * `returns` {Array}
 
-### Example
+#### Example
 
 Given the array `['a', 'b', 'c', 'd', 'e']`:
 
@@ -441,22 +401,20 @@ Given the array `['a', 'b', 'c', 'd', 'e']`:
 //=> '["d", "e"]'
 ```
 
----
-
-## {{lengthEqual}}
+### {{lengthEqual}}
 
 **Standard Helper**
 
 Block helper that compares the length of the given array to the number passed as the second argument. If the array length is equal to the given `length`, the block is returned. Otherwise, you have the option of returning an inverse block.
 
-### Parameters
+#### Parameters
 
 * `array` {Array}
 * `length` {Number}
 * `options` {Object}
 * `returns` {String}
 
-### Example
+#### Example
 
 Given the collection:
 
@@ -486,21 +444,19 @@ Given the collection:
 //=> 'There are 3 products available.'
 ```
 
----
-
-## {{map}}
+### {{map}}
 
 **Standard Helper**
 
 Returns a new array, created by calling `function` on each element of the given `array`.
 
-### Parameters
+#### Parameters
 
 * `array` {Array}
 * `fn` {Function}
 * `returns` {String}
 
-### Example
+#### Example
 
 Given an array `['a', 'b', 'c']`:
 
@@ -514,22 +470,20 @@ function double(str) {
 //=> '["aa", "bb", "cc"]'
 ```
 
----
-
-## {{some}}
+### {{some}}
 
 **Standard Helper**
 
 Block helper that returns the block *if* the callback returns true for some value in the given array.
 
-### Parameters
+#### Parameters
 
 * `array` {Array}
 * `cb` {Function}: Callback function.
 * {Options}: Handlebars-provided options object.
 * `returns` {Array}
 
-### Example
+#### Example
 
 Given the array `[1, 'b', 3]`:
 
@@ -542,44 +496,38 @@ Given the array `[1, 'b', 3]`:
 //=> 'Render me if the array has a string.'
 ```
 
----
-
-## {{sort}}
+### {{sort}}
 
 **Standard Helper**
 
 Sorts the given `array`. If an array of objects is passed, you may optionally pass (as the second argument) a `key` to sort on. Alternatively, you may pass a sorting function as the second argument.
 
-
-### Parameters
+#### Parameters
 
 * `array` {Array}: The array to sort.
 * `key` {String|Function}: The object key to sort by, or a sorting function.
 
-### Example
+#### Example
 
 Given an array `['b', 'a', 'c']`:
-
 
 ```handlebars
 {{sort array}}
 //=> '["a", "b", "c"]'
 ```
 
----
-
-## {{sortBy}}
+### {{sortBy}}
 
 **Standard Helper**
 
 Sorts an `array`. If an array of objects is passed, you may optionally pass a `key` to sort on as the second argument. You may alternatively pass a sorting function as the second argument.
 
-### Parameters
+#### Parameters
 
 * `array` {Array}: The array to sort.
 * `props` {String|Function}: One or more properties to sort by, or sorting functions to use.
 
-### Example
+#### Example
 
 Given an array `[{a: 'zzz'}, {a: 'aaa'}]`:
 
@@ -588,24 +536,22 @@ Given an array `[{a: 'zzz'}, {a: 'aaa'}]`:
 //=> '[{"a":"aaa"}, {"a":"zzz"}]'
 ```
 
----
-
 <a name="withAfter"></a>
 
-## {{withAfter}}
+### {{withAfter}}
 
 **Standard Helper**
 
 Use the items in the array, _after_ the specified index, as context inside a block. Opposite of [withBefore](#withBefore).
 
-### Parameters
+#### Parameters
 
 * `array` {Array}
 * `idx` {Number}
 * `options` {Object}
 * `returns` {Array}
 
-### Example
+#### Example
 
 Given the array `['a', 'b', 'c', 'd', 'e']`:
 
@@ -616,24 +562,22 @@ Given the array `['a', 'b', 'c', 'd', 'e']`:
 //=> "de"
 ```
 
----
-
 <a name="withBefore"></a>
 
-## {{withBefore}}
+### {{withBefore}}
 
 **Standard Helper**
 
 Use the items in the array, _before_ the specified index, as context inside a block. Opposite of [withAfter](#withAfter).
 
-### Parameters
+#### Parameters
 
 * `array` {Array}
 * `idx` {Number}
 * `options` {Object}
 * `returns` {Array}
 
-### Example
+#### Example
 
 Given the array `['a', 'b', 'c', 'd', 'e']`:
 
@@ -644,24 +588,22 @@ Given the array `['a', 'b', 'c', 'd', 'e']`:
 //=> 'ab'
 ```
 
----
-
 <a name="withFirst"></a>
 
-## {{withFirst}}
+### {{withFirst}}
 
 **Standard Helper**
 
 Uses a collection's first item inside a Handlebars block expression. Opposite of [withLast](#withLast).
 
-### Parameters
+#### Parameters
 
 * `array` {Array}
 * `idx` {Number}
 * `options` {Object}
 * `returns` {String}
 
-### Example
+#### Example
 
 Given the array `['a', 'b', 'c']`:
 
@@ -672,24 +614,22 @@ Given the array `['a', 'b', 'c']`:
 //=> 'a'
 ```
 
----
-
 <a name="withLast"></a>
 
-##  {{withLast}}
+###  {{withLast}}
 
 **Standard Helper**
 
 Use the last item, or `n` items, in an array as context inside a block. Opposite of [withFirst](#withFirst).
 
-### Parameters
+#### Parameters
 
 * `array` {Array}
 * `idx` {Number}: The starting index.
 * `options` {Object}
 * `returns` {String}
 
-### Example
+#### Example
 
 Given the array `['a', 'b', 'c']`:
 
@@ -700,22 +640,20 @@ Given the array `['a', 'b', 'c']`:
 //=> 'c'
 ```
 
----
-
-## {{withSort}}
+### {{withSort}}
 
 **Standard Helper**
 
 Block helper that sorts a collection and exposes the sorted collection as context inside the block.
 
-### Parameters
+#### Parameters
 
 * `array` {Array}
 * `prop` {String}
 * `options` {Object}: Specify `reverse="true"` to reverse the array.
 * `returns` {String}
 
-### Example
+#### Example
 
 Given the collection:
 
@@ -736,7 +674,6 @@ Given the collection:
 ]
 ```
 
-
 ```handlebars
 {{#withSort collection "id"}}
   {{name}} : {{id}}
@@ -746,26 +683,21 @@ Mug: 13
 Towel: 239
 ```
 
----
-
-<a href='#handlebars-helpers-reference_collection' aria-hidden='true' class='block-anchor'  id='handlebars-helpers-reference_collection'><i aria-hidden='true' class='linkify icon'></i></a>
-
 ## Collection Helpers
 
-
-## {{isEmpty}}
+### {{isEmpty}}
 
 **Standard Helper**
 
 Block helper that returns a block *if* the given collection is empty. If the collection is not empty, returns the inverse block (if supplied).
 
-### Parameters
+#### Parameters
 
 * `collection` {Object}
 * `options` {Object}
 * `returns` {String}
 
-### Example
+#### Example
 
 ```handlebars
 <!-- array: [] -->
@@ -781,15 +713,13 @@ Block helper that returns a block *if* the given collection is empty. If the col
 <!-- results in: true -->
 ```
 
----
-
-## {{iterate}}
+### {{iterate}}
 
 **Standard Helper**
 
 Iterates over an array or object.
 
-### Parameters
+#### Parameters
 
 * `context` {Object|Array}: The collection to iterate over.
 * `options` {Object}
@@ -800,7 +730,6 @@ Iterates over an array or object.
 Given the array:
 `[{name: 'a'}, {name: 'b'}, {name: 'c'}];`
 
-
 ```handlebars
 {{#iterate array}}
   {{name}}
@@ -808,20 +737,18 @@ Given the array:
 => `abc`
 ```
 
----
-
-## {{length}}
+### {{length}}
 
 **Standard Helper**
 
 Returns the length of the given collection. When using a string literal in the template, the string must be value JSON. See the example below. Otherwise, pass in an array or object from the context.
 
-### Parameters
+#### Parameters
 
 * `value` {Array|Object|String}
 * `returns` {Number}: The length of the value.
 
-### Example
+#### Example
 
 ```handlebars
 {{length '["a", "b", "c"]'}}
@@ -836,29 +763,22 @@ Returns the length of the given collection. When using a string literal in the t
 //=> 2
 ```
 
----
-
-<a href="#handlebars-helpers-reference_comparison" aria-hidden='true' class='block-anchor'  id='handlebars-helpers-reference_comparison'><i aria-hidden='true' class='linkify icon'></i></a>
-
 ## Comparison Helpers
 
-
-
-## {{and}}
+### {{and}}
 
 **Standard Helper**
 
 Block helper that renders the block if *both* of the given values are truthy. If you specify an inverse block, it will be rendered when falsy.
 
-### Parameters
+#### Parameters
 
 * `a` {any}
 * `b` {any}
 * `options` {Object}: Handlebars-provided options object.
 * `returns` {String}
 
-
-### Example
+#### Example
 
 ```handlebars
 <!-- {great: true, magnificent: true} -->
@@ -876,9 +796,7 @@ Block helper that renders the block if *both* of the given values are truthy. If
 => 'B'
 ```
 
----
-
-## {{gt}}
+### {{gt}}
 
 **Standard Helper**
 
@@ -886,14 +804,14 @@ Block helper that renders a block if `a` is *greater than* `b`. (a > b)
 
 If an inverse block is specified, it will be rendered when falsy. You may optionally use the `compare=""` hash argument for the second value.
 
-### Parameters
+#### Parameters
 
 * `a` {String}
 * `b` {String}
 * `options` {Object}: Handlebars-provided options object.
 * `returns` {String}: Block, or inverse block if specified and falsy.
 
-### Example
+#### Example
 
 ```handlebars
 {{#gt a b}}
@@ -910,9 +828,7 @@ a = 14, b = 15 //false
 => 'B'
 ```
 
----
-
-## {{gte}}
+### {{gte}}
 
 **Standard Helper**
 
@@ -920,7 +836,7 @@ Block helper that renders a block if `a` is *greater than or equal to* `b`. (a >
 
 If an inverse block is specified, it will be rendered when falsy. You may optionally use the `compare=""` hash argument for the second value.
 
-### Parameters
+#### Parameters
 
 * `a` {String}
 * `b` {String}
@@ -942,22 +858,20 @@ a = 14, b = 15 //false
 => 'B'
 ```
 
----
-
-## {{has}}
+### {{has}}
 
 **Standard Helper**
 
 Block helper that renders a block if `value` has `pattern`. If an inverse block is specified, it will be rendered when falsy.
 
-### Parameters
+#### Parameters
 
 * `val` {any}: The value to check.
 * `pattern` {any}: The pattern to check for.
 * `options` {Object}: Handlebars-provided options object.
 * `returns` {String}
 
-### Example
+#### Example
 
 ```handlebars
 a = "product"
@@ -965,23 +879,20 @@ a = "product"
 => 'true'
 ```
 
----
-
-## {{eq}}
+### {{eq}}
 
 **Standard Helper**
 
 Block helper that renders a block if `a` is *equal to* `b`. If an inverse block is specified,  it will be rendered when falsy. You may optionally use the `compare=""` hash argument for the second value.
 
-### Parameters
+#### Parameters
 
 * `a` {String}
 * `b` {String}
 * `options` {Object}: Handlebars-provided options object.
 * `returns` {String}: Block, or inverse block if specified and falsy.
 
-
-### Example
+#### Example
 
 ```handlebars
 number = 8
@@ -1011,21 +922,19 @@ number = 8
 -> 'B'
 ```
 
----
-
-## {{ifEven}}
+### {{ifEven}}
 
 **Standard Helper**
 
 Returns `true` if the given value is an even number.
 
-### Parameters
+#### Parameters
 
 * `number` {Number}
 * `options` {Object}: Handlebars-provided options object
 * `returns` {String}: Block, or inverse block if specified and falsy.
 
-### Example
+#### Example
 
 ```handlebars
 value = 8
@@ -1047,15 +956,13 @@ value = 9
 => B
 ```
 
----
-
-## {{ifNth}}
+### {{ifNth}}
 
 **Standard Helper**
 
 Conditionally renders a block *if* dividing the `a` operand by `b` yields a remainder of zero. If you specify an inverse block, it will be rendered when the remainder is *not* zero.
 
-### Parameters
+#### Parameters
 
 * `{}`: {Number}
 * `{}`: {Number}
@@ -1085,21 +992,19 @@ Returns:
 '<div>Coffee</div>'
 ```
 
----
-
-## {{ifOdd}}
+### {{ifOdd}}
 
 **Standard Helper**
 
 Block helper that renders a block if `value` is *an odd number*. If an inverse block is specified, it will be rendered when falsy.
 
-### Parameters
+#### Parameters
 
 * `value` {Object}
 * `options` {Object}: Handlebars-provided options object.
 * `returns` {String}: Block, or inverse block if specified and falsy.
 
-### Example
+#### Example
 
 ```handlebars
 value = 9
@@ -1121,15 +1026,13 @@ value = 8
 => 'B'
 ```
 
----
-
-## {{is}}
+### {{is}}
 
 **Standard Helper**
 
 Block helper that renders a block if `a` is *equal to* `b`. If an inverse block is specified, it will be rendered when falsy.
 
-### Parameters
+#### Parameters
 
 * `a` {any}
 * `b` {any}
@@ -1166,22 +1069,20 @@ value = 'CCC'
 => 'A'
 ```
 
----
-
-## {{isnt}}
+### {{isnt}}
 
 **Standard Helper**
 
 Block helper that renders a block if `a` is *not equal to* `b`. If an inverse block is specified, it will be rendered when falsy.
 
-### Parameters
+#### Parameters
 
 * `a` {String}
 * `b` {String}
 * `options` {Object}: Handlebars-provided options object.
 * `returns` {String}
 
-### Example
+#### Example
 
 ```handlebars
 number = 3
@@ -1213,9 +1114,7 @@ value='CCC'
 =>'A'
 ```
 
----
-
-## {{lt}}
+### {{lt}}
 
 **Standard Helper**
 
@@ -1223,14 +1122,13 @@ Block helper that renders a block if `a` is *less than* `b`.
 
 If an inverse block is specified, it will be rendered when falsy. You may optionally use the `compare=""` hash argument for the second value.
 
-### Parameters
+#### Parameters
 
 * `context` {Object}
 * `options` {Object}: Handlebars-provided options object.
 * `returns` {String}: Block, or inverse block if specified and falsy.
 
-
-### Example
+#### Example
 
 ```handlebars
 {{#lt a b}}
@@ -1265,9 +1163,7 @@ number = 42
 => '' //empty block when value is greater than given number
 ```
 
----
-
-## {{lte}}
+### {{lte}}
 
 **Standard Helper**
 
@@ -1275,14 +1171,14 @@ Block helper that renders a block if `a` is *less than or equal to* `b`.
 
 If an inverse block is specified, it will be rendered when falsy. You may optionally use the `compare=""` hash argument for the second value.
 
-### Parameters
+#### Parameters
 
 * `a` {String}
 * `b` {String}
 * `options` {Object}: Handlebars-provided options object.
 * `returns` {String}: Block, or inverse block if specified and falsy.
 
-### Example
+#### Example
 
 ```handlebars
 {{#lte a b}}A{{else}}B{{/lte}}
@@ -1314,22 +1210,20 @@ number = 27
 
 ```
 
----
-
-## {{neither}}
+### {{neither}}
 
 **Standard Helper**
 
 Block helper that renders a block if *neither of* the given values are truthy. If you specify an inverse block, it will be rendered when falsy.
 
-### Parameters
+#### Parameters
 
 * `a` {any}
 * `b` {any}
 * `options` {}: Handlebars options object.
 * `returns` {String}: Block, or inverse block if specified and falsy.
 
-### Example
+#### Example
 
 ```handlebars
 product = true
@@ -1343,15 +1237,13 @@ customer = true
 => 'B'
 ```
 
----
-
-## {{unlessEq}}
+### {{unlessEq}}
 
 **Standard Helper**
 
 Block helper that always renders the inverse block *unless `a` is equal to `b`*.
 
-### Parameters
+#### Parameters
 
 * `a` {String}
 * `b` {String}
@@ -1368,21 +1260,19 @@ number = 8
 => '' // returns empty when value is equal to a given number
 ```
 
----
-
-## {{unlessGt}}
+### {{unlessGt}}
 
 **Standard Helper**
 
 Block helper that always renders the inverse block *unless `a` is greater than `b`*.
 
-### Parameters
+#### Parameters
 
 * `context` {Object}
 * `options` {Object}: Handlebars-provided options object.
 * `returns` {String}: Inverse block by default, or block if falsy.
 
-### Example
+#### Example
 
 ```handlebars
 number = 5
@@ -1395,21 +1285,19 @@ number = 10
 
 ```
 
----
-
-## {{unlessLt}}
+### {{unlessLt}}
 
 **Standard Helper**
 
 Block helper that always renders the inverse block *unless `a` is less than `b`*.
 
-### Parameters
+#### Parameters
 
 * `context` {Object}
 * `options` {Object}: Handlebars-provided options object.
 * `returns` {String}: Block, or inverse block if specified and falsy.
 
-### Example
+#### Example
 
 ```handlebars
 number = 10
@@ -1422,21 +1310,19 @@ number = 5
 
 ```
 
----
-
-## {{unlessGteq}}
+### {{unlessGteq}}
 
 **Standard Helper**
 
 Block helper that always renders the inverse block *unless `a` is greater than or equal to `b`*.
 
-### Parameters
+#### Parameters
 
 * `context` {Object}
 * `options` {Object}: Handlebars-provided options object.
 * `returns` {String}: Block, or inverse block if specified and falsy.
 
-### Example
+#### Example
 
 ```handlebars
 number = 4
@@ -1452,21 +1338,19 @@ number = 34
 => '' // returns empty when the value is greater than or equal to a given number
 ```
 
----
-
-## {{unlessLteq}}
+### {{unlessLteq}}
 
 **Standard Helper**
 
 Block helper that always renders the inverse block *unless `a` is less than or equal to `b`*.
 
-### Parameters
+#### Parameters
 
 * `context` {Object}
 * `options` {Object}: Handlebars-provided options object.
 * `returns` {String}: Block, or inverse block if specified and falsy.
 
-### Example
+#### Example
 
 ```handlebars
 number = 10
@@ -1482,16 +1366,10 @@ number = 4
 => '' // returns empty when the value is less than or equal to a given number
 ```
 
----
-
-<a href="#handlebars-helpers-reference_control-flow" aria-hidden='true' class='block-anchor'  id='handlebars-helpers-reference_control-flow'><i aria-hidden='true' class='linkify icon'></i></a>
-
 ## Control-Flow Helpers
 
 * <a href="#ctrl_conditional">Conditional Control Flow</a>
 * <a href="#ctrl_loop">Loop Control Flow</a>
-
----
 
 <a id="ctrl_conditional"></a>
 
@@ -1499,8 +1377,7 @@ number = 4
 
 The following helpers provide control structures that test for conditions, and branch accordingly.
 
-
-## {{if}}
+### {{if}}
 
 **Custom Helper**
 
@@ -1509,12 +1386,11 @@ The `<statement>` that the `if` helper evaluates can take these forms:
 - An object, as in: `{{#if object}}`.
 - A comparison expression, as in: `{{#if <lvalue> <operator> <rvalue>}}`.
 
-
 When you pass only one parameter to the `if` helper, it will return the following:
 - For an array parameter, the array's length.
 - For an empty object, a value of `false`.
 
-### Example
+#### Example
 
 ```html
 {{#if <statement>}}
@@ -1562,15 +1438,13 @@ Handlebars does not provide an `if`/`and` conditional structure. However, to tes
 * [Paper Handlebars](https://github.com/bigcommerce/paper-handlebars/blob/master/helpers/if.js)
 * [Cornerstone](https://github.com/bigcommerce/cornerstone/blob/master/templates/components/amp/products/product-view-details.html)
 
----
-
-## {{unless}}
+### {{unless}}
 
 **Custom Helper**
 
 The `unless` helper is logically the opposite of the [`if` helper](#if), subject to the restrictions below. 
 
-### Example
+#### Example
 
 ```html
 {{#unless statement}}
@@ -1621,27 +1495,17 @@ A workaround for this logic is to recast the expression as `if`/not-equal-to. So
 {{#if this.alt "!==" "hidden"}}
 ```
 
-### Resources
-
-* [Cornerstone](https://github.com/bigcommerce/cornerstone/blob/master/templates/components/products/price.html)
-* [Paper Handlebars](https://github.com/bigcommerce/paper-handlebars/blob/master/helpers/unless.js)
-
-
----
-
-<a id="ctrl_loop"></a>
-
 ## Loop Control Flow
 
 The following helpers are used to control loop execution.
 
-## {{any}}
+### {{any}}
 
 **Custom Helper**
 
 It checks whether at least one parameter evaluates to `true`.  Parameters can be of different types (strings, numbers, arrays, or collections).
 
-### Examples
+#### Examples
 
 The `any` helper is invoked as shown here:
 
@@ -1665,20 +1529,13 @@ In this component, the `{{#any...` Handlebars helper is used to determine whethe
 {{/any}}
 ```
 
-### Resources
-
-* [Cornerstone](https://github.com/bigcommerce/cornerstone/blob/master/templates/components/category/shop-by-price.html)
-* [Paper Handlebars](https://github.com/bigcommerce/paper-handlebars/blob/master/helpers/any.js)
-
----
-
-## {{all}}
+### {{all}}
 
 **Custom Helper**
 
 It checks whether _all_ parameters evaluate to `true`. Parameters can be of different types (strings, numbers, arrays, or collections).
 
-### Example
+#### Example
 
 ```html
 {{#all items theme_settings.optionA theme_settings.optionB}}
@@ -1694,19 +1551,13 @@ It checks whether _all_ parameters evaluate to `true`. Parameters can be of diff
 {{/all}}
 ```
 
-### Resources
-* [Cornerstone](https://github.com/bigcommerce/cornerstone/blob/master/templates/components/products/description-tabs.html)
-* [Paper Handlebars](https://github.com/bigcommerce/paper-handlebars/blob/master/helpers/all.js)
-
----
-
-## {{contains}} 
+### {{contains}} 
 
 **Custom Helper**
 
 It checks whether the second parameter is included in the first parameter (typically a collection).
 
-### Example
+#### Example
 
 ```html
 {{#contains fonts "Roboto"}}
@@ -1717,15 +1568,13 @@ It checks whether the second parameter is included in the first parameter (typic
 ### Usage
 * [Paper Handlebars](https://github.com/bigcommerce/paper-handlebars/blob/master/helpers/contains.js)
 
----
-
-## {{each}}
+### {{each}}
 
 **Standard Helper**
 
 Each is a built in block helper. Use it to loop over an array or object.
 
-### Examples
+#### Examples
 
 ```html
 {{#each array | object}}
@@ -1748,7 +1597,6 @@ Each is a built in block helper. Use it to loop over an array or object.
 </article>
 ```
 
-
 ```handlebars
 //Given the array
 {
@@ -1764,7 +1612,6 @@ Each is a built in block helper. Use it to loop over an array or object.
 
 => T-Shirt!Mug!
 ```
-
 
 ```handlebars
 //Given the array, use @index for the current index
@@ -1816,7 +1663,6 @@ Each is a built in block helper. Use it to loop over an array or object.
   id:Mug! 
 ```
 
-
 #### Notes
 
 - Within an each block, use `{{this}}` to reference the current item.
@@ -1825,9 +1671,7 @@ Each is a built in block helper. Use it to loop over an array or object.
 - `{{each}}` loops can be nested.
 - `{{each}}` does not work on strings. eg. `{"foo": "Good"}`
 
----
-
-## {{for}}
+### {{for}}
 
 **Custom Helper**
 
@@ -1835,7 +1679,7 @@ In particular, this helper is limited to 100 iterations, in order to protect aga
 
 The `for` helper has the following syntax, where parameters `<from>` and `<to>` are numbers, and `<context>` is an object:
 
-### Example
+#### Example
 
 ```html
 {{#for <from> <to> <context>}}
@@ -1858,20 +1702,15 @@ The `for` helper has the following syntax, where parameters `<from>` and `<to>` 
 * [Cornerstone](https://github.com/bigcommerce/cornerstone/blob/master/templates/components/products/options/date.html)
 * [Paper Handlebars](https://github.com/bigcommerce/paper-handlebars/blob/master/helpers/for.js)
 
----
-
-<a href="#handlebars-helpers-reference_date" aria-hidden='true' class='block-anchor'  id='handlebars-helpers-reference_date'><i aria-hidden='true' class='linkify icon'></i></a>
-
 ## Date Helpers
 
-
-## {{moment}}
+### {{moment}}
 
 **Standard Helper**
 
 Exposes `helper-date` as `moment`.
 
-### Example
+#### Example
 
 ```html
 {{#partial "page"}}
@@ -1884,69 +1723,60 @@ Exposes `helper-date` as `moment`.
 {{/partial}}
 ```
 
----
-
-<a href='#handlebars-helpers-reference_html' aria-hidden='true' class='block-anchor'  id='handlebars-helpers-reference_html'><i aria-hidden='true' class='linkify icon'></i></a>
-
 ## HTML Helpers
 
 The following standard helpers are available to handle HTML content.
 
-
-## {{ellipsis}}
+### {{ellipsis}}
 
 **Standard Helper**
 
 Truncates a string to the specified `length`, and appends an elipsis, `…`.
 
-### Parameters
+#### Parameters
 
 * `str` {String}
 * `length` {Number}: The desired length of the returned string.
 * `returns` {String}: The truncated string.
 
-### Example
+#### Example
 
 ```js
 {{ellipsis "<span>foo bar baz</span>", 7}}
 //=> 'foo bar…'
 ```
 
----
-
-## {{sanitize}}
+### {{sanitize}}
 
 **Standard Helper**
 
 Strips HTML tags from a string, so that only the text nodes are preserved.
 
-### Parameters
+#### Parameters
 
 * `str` {String}: The string of HTML to sanitize.
 * `returns` {String}
 
-### Example
+#### Example
 
 ```js
 {{sanitize "<span>foo</span>"}}
 //=> 'foo'
 ```
 
----
-
-## {{ul}}
+### {{ul}}
 
 **Standard Helper**
 
 Block helper for creating unordered lists (`<ul></ul>`).
 
-### Parameters
+#### Parameters
 
 * `context` {Object}
 * `options` {Object}
 * `returns` {String}
 
-### Example
+#### Example
 
 ```handlebars
 {{#ul data class="names"}}{{aaa}} {{bbb}}{{/ul}}
@@ -1954,22 +1784,19 @@ Block helper for creating unordered lists (`<ul></ul>`).
 => <ul class="names"><li>AAA BBB</li></ul>
 ```
 
----
-
-## {{ol}}
+### {{ol}}
 
 **Standard Helper**
 
 Block helper for creating ordered lists  (`<ol></ol>`).
 
-### Parameters
+#### Parameters
 
 * `context` {Object}
 * `options` {Object}
 * `returns` {String}
 
-
-### Example
+#### Example
 
 ```handlebars
 {{#ol data class="names"}}{{aaa}} {{bbb}}{{/ol}}
@@ -1978,15 +1805,13 @@ Block helper for creating ordered lists  (`<ol></ol>`).
 
 ```
 
----
-
-## {{thumbnailImage}}
+### {{thumbnailImage}}
 
 **Standard Helper**
 
 Returns a `<figure>` with a thumbnail linked to a full picture.
 
-### Parameters
+#### Parameters
 
 * `context` {Object}: Object with values/attributes to add to the generated elements:
 * `context.alt` {String}
@@ -1995,8 +1820,7 @@ Returns a `<figure>` with a thumbnail linked to a full picture.
 * `context.height` {Number}
 * `returns` {String}: HTML `<figure>` element with image and optional caption/link.
 
-
-### Example
+#### Example
 
 ```handlebars
 {{{thumbnailImage context}}}
@@ -2024,21 +1848,17 @@ var context = {
 '</figure>'
 ```
 
----
-
-<a href='#handlebars-helpers-reference_image' aria-hidden='true' class='block-anchor'  id='handlebars-helpers-reference_image'><i aria-hidden='true' class='linkify icon'></i></a>
-
 ## Image Helpers
 
 The Stencil framework provides the following custom helper to manage images.
 
-## {{getImage}}
+### {{getImage}}
 
 **Custom Helper**
 
 It returns the URL for an image of the specified size. Values for the size parameter are defined in the `config.json` file’s `settings` section.
 
-### Parameters
+#### Parameters
 
 - `stencilImage`: a StencilImage.
 - `size`: a string referencing a key in the `theme_settings` object.
@@ -2046,21 +1866,13 @@ It returns the URL for an image of the specified size. Values for the size param
 
 You can use the optional `defaultImage` parameter to specify an image that will be displayed in cases where the passed `stencilImage` value is null.
 
-
-### Example
+#### Example
 
 ```handlebars
 {{getImage image "thumbnail"}}
 ```
 
-### Resources
-* [Cornerstone](https://github.com/bigcommerce/cornerstone/blob/master/templates/components/amp/products/card.html)
-* [Paper Handlebars](https://github.com/bigcommerce/paper-handlebars/blob/master/helpers/getImage.js)
-
-
----
-
-## {{getImageSrcset}}
+### {{getImageSrcset}}
 
 **Custom Helper**
 
@@ -2114,7 +1926,6 @@ As above, you can reference `theme_settings` keys or specify your own size inlin
 {{getImageSrcset image 100w="100w" 200w="200w" 300w="300w"}}
 ```
 
-
 **HTML Use**
 
 ```html
@@ -2138,7 +1949,6 @@ As above, you can reference `theme_settings` keys or specify your own size inlin
 <img src="https://cdn11.bigcommerce.com/s-abc123/images/stencil/1000x1000/products/86/286/ablebrewingsystem4_1024x1024__07155.1456436672.jpg?c=2" srcset="https://cdn11.bigcommerce.com/s-abc123/images/stencil/1000x1000/products/86/286/ablebrewingsystem4_1024x1024__07155.1456436672.jpg?c=2 1x, https://cdn11.bigcommerce.com/s-abc123/images/stencil/2000x2000/products/86/286/ablebrewingsystem4_1024x1024__07155.1456436672.jpg?c=2 2x" />
 ```
 
-
 **Default Sizes**
 
 ```html
@@ -2152,26 +1962,17 @@ As above, you can reference `theme_settings` keys or specify your own size inlin
     '2560w': '2560w',
 ```
 
-### Resources
-* [Cornerstone](https://github.com/bigcommerce/cornerstone/blob/master/templates/components/products/product-view.html)
-* [Paper Handlebars](https://github.com/bigcommerce/paper-handlebars/blob/master/helpers/getImageSrcset.js)
-
----
-
-<a href='#handlebars-helpers-reference_inflection' aria-hidden='true' class='block-anchor'  id='handlebars-helpers-reference_inflection'><i aria-hidden='true' class='linkify icon'></i></a>
-
-
 ## Inflection Helpers
 
 The following standard helpers are available to transform strings.
 
-## {{inflect}}
+### {{inflect}}
 
 **Standard Helper**
 
 Returns the singular or plural form of a word based on the count.
 
-### Parameters
+#### Parameters
 
 * `count` {Number}
 * `singular` {String}: The singular form
@@ -2179,7 +1980,7 @@ Returns the singular or plural form of a word based on the count.
 * `include` {String}: If to include the count before the work
 * `returns` {String}
 
-### Example
+#### Example
 
 products = 0  
 customers = 1
@@ -2191,20 +1992,19 @@ customers = 1
 => products
 1 customer
 ```
----
 
-## {{ordinalize}}
+### {{ordinalize}}
 
 **Standard Helper**
 
 Returns an ordinalized number (as a string).
 
-### Parameters
+#### Parameters
 
 * `val` {String}: The value to ordinalize.
 * `returns` {String}: The ordinalized number.
 
-### Example
+#### Example
 
 ```handlebars
 {{ordinalize 1}}
@@ -2217,15 +2017,11 @@ Returns an ordinalized number (as a string).
 //=> '22nd'
 ```
 
----
-
-<a href='#handlebars-helpers-reference_injection' aria-hidden='true' class='block-anchor'  id='handlebars-helpers-reference_injection'><i aria-hidden='true' class='linkify icon'></i></a>
-
 ## Injection Helpers
 
 The Stencil framework provides the following custom helpers to insert various resources into a page context
 
-##  {{cdn}}
+### {{cdn}}
 
 **Custom Helper**
 
@@ -2243,7 +2039,7 @@ When you reference static assets that you have locally staged outside your `<the
 <img src="https://cdn.bcapp/3dsf74g/content/img/image.jpg">
 ```
 
-The presumed WebDAV root directory is `/content/`. (So, in this example, the `image.jpg` file has been uploaded to the WebDAV `/content/` directory.) The presumed local directory is `<theme-name>/assets/`, so you can omit that path when referencing its contained files or subdirectories.
+The presumed WebDAV root directory is `/content/`. (So, in this example, the `image.jpg` file has been uploaded to the WebDAV `/content/` directory.) The presumed local directory is `assets/`, so you can omit that path when referencing its contained files or subdirectories.
 
 <a name="cdn-custom"></a>
 
@@ -2296,21 +2092,15 @@ Whereas in production, it would return:
 <img src="https://bigcommerce.customcdn.net/img/image.jpg" />
 ```
 
-As highlighted above, the helper is configured to rewrite *local* URLs to a `<theme-name>/assets/cdn/` subfolder. The `stencil bundle` command will exclude this local `assets/cdn/` subfolder from the bundle that it creates. This filtering circumvents the 50 MB size limit on the resulting .zip file.
+As highlighted above, the helper is configured to rewrite *local* URLs to a `assets/cdn/` subfolder. The `stencil bundle` command will exclude this local `assets/cdn/` subfolder from the bundle that it creates. This filtering circumvents the 50 MB size limit on the resulting .zip file.
 
-### Resources
-* [Cornerstone](https://github.com/bigcommerce/cornerstone/blob/master/templates/layout/base.html)
-* [Paper Handlebars](https://github.com/bigcommerce/paper-handlebars/blob/master/helpers/cdn.js)
-
----
-
-##  {{getFontsCollection}}
+### {{getFontsCollection}}
 
 The `getFontsCollection` helper is custom to Stencil. It returns a link tag that loads all selected font collections. It takes no parameters.
 
 <a name="inject"></a>
 
-## {{inject}} and {{jsContext}}
+### {{inject}} and {{jsContext}}
 
 **Custom Helpers**
 
@@ -2332,7 +2122,6 @@ An `inject` call takes this form:
 ### About the {{jsContext}} Helper
 
 The `jsContext` helper takes no parameters; it simply returns a JSON object containing all data collected by the `inject` helper. To retrieve the parsable JSON object, just call `{{jsContext}}` after all of the `{{inject}}` calls.
-
 
 ### {{inject}} + {{jsContext}} Example 1
 
@@ -2360,15 +2149,15 @@ The Stencil theme makes the `jsContext` available on the active page scoped. It 
 
 ### {{inject}} Example 2
 
-The following code uses `inject` to add all product IDs into JavaScript on category pages. It resides in a theme's `<theme-name>/templates/pages/category.html` template. Note the two `inject` calls directly under the front matter:
+The following code uses `inject` to add all product IDs into JavaScript on category pages. It resides in a theme's `templates/pages/category.html` template. Note the two `inject` calls directly under the front matter:
 
 ```html
----
+
 category:
     shop_by_price: true
     products:
         limit: {{theme_settings.categorypage_products_per_page}}
----
+
 {{inject "categoryProductsPerPage" theme_settings.categorypage_products_per_page}}
 {{inject "productIds" (pluck category.products 'id')}}
 {{#partial "head"}}
@@ -2407,7 +2196,6 @@ category:
 {{> layout/base}}
 ```
 
-
 In the example below from our [Developer Blog](https://medium.com/bigcommerce-developer-blog/build-a-bulk-order-form-using-the-bigcommerce-storefront-api-and-react-a9f73ec7f0d6), the inject helper will create a property on the `jsContext` object with the values we ask for in the pluck helper. In this case we are grabbing the product id, product name, product image, and product price.
 
 ```js
@@ -2435,57 +2223,39 @@ window.initBulkOrderForm(productData)
 </script>
 ```
 
-### Resources
-
-* [Cornerstone `jsContext`](https://github.com/bigcommerce/cornerstone/blob/master/templates/layout/base.html)
-* [Cornerstone `inject`](https://github.com/bigcommerce/cornerstone/blob/master/templates/pages/account/add-payment-method.html)
-* [Paper Handlebars `inject`](https://github.com/bigcommerce/paper-handlebars/blob/master/helpers/inject.js)
-* [Paper Handlebars `jsContext`](https://github.com/bigcommerce/paper-handlebars/blob/master/helpers/jsContext.js)
-
----
-
-## {{stylesheet}}
+### {{stylesheet}}
 
 **Custom Helper**
 
 It renders a link tag to insert a stylesheet into your theme. (This is required if you want Theme Editor to rewrite the stylesheet file when a merchant customizes their theme.) This helper returns an HTML string.
 
-### Parameters
+#### Parameters
 
 - path: String containing the path to the theme's CSS stylesheet file.
 - Other parameters are optional, appended in the form: `key="value"`.
 
-### Example
+#### Example
 
 ```html
 {{{stylesheet "assets/css/style.css" class="myStylesheet"}}}
 ```
 
-### Resources
-
-* [Cornestone](https://github.com/bigcommerce/cornerstone/blob/master/templates/pages/unavailable/maintenance.html)
-* [Paper Handlebars](https://github.com/bigcommerce/paper-handlebars/blob/master/helpers/stylesheet.js)
-
----
-
-<a href='#handlebars-helpers-reference_markdown' aria-hidden='true' class='block-anchor'  id='handlebars-helpers-reference_markdown'><i aria-hidden='true' class='linkify icon'></i></a>
-
 ## Markdown Helpers
 
 The following standard helper is available to convert markdown.
 
-## {{markdown}}
+### {{markdown}}
 **Standard Helper**
 
 Block helper that converts a string of inline markdown to HTML.
 
-### Parameters
+#### Parameters
 
 * `context` {Object}
 * `options` {Object}
 * `returns` {String}
 
-### Example
+#### Example
 
 ```html
 {{#markdown}}
@@ -2494,28 +2264,22 @@ Block helper that converts a string of inline markdown to HTML.
 //=> # Foo
 ```
 
----
-
-<a href='#handlebars-helpers-reference_math' aria-hidden='true' class='block-anchor'  id='handlebars-helpers-reference_math'><i aria-hidden='true' class='linkify icon'></i></a>
-
 ## Math Helpers
 
 The following standard helpers are available to handle mathematical operations.
 
-
-## {{add}}
+### {{add}}
 
 **Standard Helper**
 
 Returns the sum of `a` plus `b`.
 
-### Parameters
+#### Parameters
 
 * `a` {Number}
 * `b` {Number}
 
-
-### Example
+#### Example
 
 ```handlebars
 {{add value 5}}
@@ -2525,56 +2289,49 @@ Returns the sum of `a` plus `b`.
 => 15
 ```
 
----
-
-## {{subtract}}
+### {{subtract}}
 
 **Standard Helper**
 
 Return the difference of `a` minus `b`.
 
-### Parameters
+#### Parameters
 
 * `a` {Number}
 * `b` {Number}
 
-### Example
+#### Example
 
 ```handlebars
 {{subtract value 10 5}}
 => 5
 ```
 
----
-
-## {{divide}}
+### {{divide}}
 
 **Standard Helper**
 
 Divides `a` by `b`.
 
-### Parameters
+### #Parameters
 
 * `a` {Number}: numerator
 * `b` {Number}: denominator
 
-
-### Example
+#### Example
 
 ```handlebars
 {{divide value 5}}
 => 1
 ```
 
----
-
-## {{multiply}}
+### {{multiply}}
 
 **Standard Helper**
 
 Multiplies `a` by `b`.
 
-### Parameters
+#### Parameters
 
 * `a` {Number}: factor
 * `b` {Number}: multiplier
@@ -2584,19 +2341,17 @@ Multiplies `a` by `b`.
 => 25
 ```
 
----
-
-## {{floor}}
+### {{floor}}
 
 **Standard Helper**
 
 Gets the `Math.floor()` of the given value.
 
-### Parameters
+#### Parameters
 
 * `value` {Number}
 
-### Example
+#### Example
 
 ```handlebars
 value = 5.6
@@ -2604,19 +2359,17 @@ value = 5.6
 => 5
 ```
 
----
-
-## {{ceil}}
+### {{ceil}}
 
 **Standard Helper**
 
 Gets the `Math.ceil()` [ceiling] of the given value.
 
-### Parameters
+#### Parameters
 
 * `value` {Number}
 
-### Example
+#### Example
 
 ```handlebars
 value = 5.6
@@ -2625,19 +2378,17 @@ value = 5.6
 => 6
 ```
 
----
-
-## {{round}}
+### {{round}}
 
 **Standard Helper**
 
 Rounds the given value.
 
-### Parameters
+#### Parameters
 
 * `value` {Number}
 
-### Example
+#### Example
 
 ```handlebars
 value = 5.69
@@ -2645,66 +2396,58 @@ value = 5.69
 =>6
 ```
 
----
-
-## {{sum}}
+### {{sum}}
 
 **Standard Helper**
 
 Returns the sum of all numbers in the given array.
 
-### Parameters
+#### Parameters
 
 * `array` {Array}: Array of numbers to add up.
 * `returns` {Number}
 
-### Example
+#### Example
 
 ```handlebars
 {{sum "[1, 2, 3, 4, 5]"}}
 //=> '15'
 ```
 
----
-
-## {{avg}}
+### {{avg}}
 
 **Standard Helper**
 
 Returns the average of all numbers in the given array.
 
-### Parameters
+#### Parameters
 
 * `array` {Array}: Array of numbers to add up and average.
 * `returns` {Number}
 
-### Example
+#### Example
 
 ```handlebars
 {{avg "[1, 2, 3, 4, 5]"}}
 //=> '3'
 ```
 
----
-
-<a href='#handlebars-helpers-reference_number' aria-hidden='true' class='block-anchor'  id='handlebars-helpers-reference_number'><i aria-hidden='true' class='linkify icon'></i></a>
-
 ## Number Helpers
 
 The following standard helpers are available to handle and transform numbers.
 
-## {{addCommas}}
+### {{addCommas}}
 
 **Standard Helper**
 
 Adds commas to numbers.
 
-### Parameters
+#### Parameters
 
 * `num` {Number}
 * `returns` {Number}
 
-### Example
+#### Example
 
 ```handlebars
 value = 2222222 
@@ -2713,21 +2456,18 @@ value = 2222222
 => 2,222,222
 ```
 
----
-
-## {{phoneNumber}}
+### {{phoneNumber}}
 
 **Standard Helper**
 
 Converts a string or number to a formatted phone number.
 
-### Parameters
+#### Parameters
 
 * `num` {Number|String}: The phone number to format, e.g., `8005551212`
 * `returns` {Number}: The formatted phone number: `(800) 555-1212`
 
-
-### Example
+#### Example
 
 ```handlebars
 value = 8005551212
@@ -2735,41 +2475,37 @@ value = 8005551212
 => (800) 555-1212
 ```
 
----
-
-## {{random}}
+### {{random}}
 
 **Standard Helper**
 
 Generates a random number between two values.
 
-### Parameters
+#### Parameters
 
 * `min` {Number}
 * `max` {Number}
 * `returns` {String}
 
-### Example
+#### Example
 
 ```handlebars
 {{random 5 10}}
 ```
 
----
-
-## {{toAbbr}}
+### {{toAbbr}}
 
 **Standard Helper**
 
 Abbreviates numbers to the given number of `precision`. This is for general numbers, not size in bytes.
 
-### Parameters
+#### Parameters
 
 * `number` {Number}
 * `precision` {Number}
 * `returns` {String}
 
-### Example
+#### Example
 
 ```handlebars
 number = 123456789
@@ -2777,21 +2513,19 @@ number = 123456789
 => 123.457m
 ```
 
----
-
-## {{toExponential}}
+### {{toExponential}}
 
 **Standard Helper**
 
 Returns a string, representing the given number in exponential notation.
 
-### Parameters
+#### Parameters
 
 * `number` {Number}
 * `fractionDigits` {Number}: Optional. An integer specifying the number of digits to use after the decimal point. Defaults to as many digits as necessary to specify the number.
 * `returns` {Number}
 
-### Example
+#### Example
 
 ```handlebars
 {{toExponential number digits}}
@@ -2806,21 +2540,19 @@ value = 5
 =>5e+0
 ```
 
----
-
-## {{toFixed}}
+### {{toFixed}}
 
 **Standard Helper**
 
 Formats the given number, using fixed-point notation.
 
-### Parameters
+#### Parameters
 
 * `number` {Number}
 * `digits` {Number}: Optional. The number of digits to use after the decimal point. This can be a value between 0 and 20, inclusive, and implementations may optionally support a larger range of values. If this argument is omitted, it is treated as 0.
 * `returns` {Number}
 
-### Examples
+#### Examples
 
 ```handlebars
 value = 5.5323
@@ -2831,20 +2563,18 @@ value = 5.5323
 => 5.532
 ```
 
----
-
-## {{toFloat}}
+### {{toFloat}}
 
 **Standard Helper**
 
 Returns a floating point number.
 
-### Parameters
+#### Parameters
 
 * `number` {Number}
 * `returns` {Number}
 
-### Example
+#### Example
 
 ```handlebars
 value = '12.1abc' 
@@ -2852,20 +2582,18 @@ value = '12.1abc'
 =>12.1
 ```
 
----
-
-## {{toInt}}
+### {{toInt}}
 
 **Standard Helper**
 
 Returns an integer.
 
-### Parameters
+#### Parameters
 
 * `number` {Number}
 * `returns` {Number}
 
-### Example
+#### Example
 
 ```handlebars
 value = '12.1abc' 
@@ -2873,22 +2601,19 @@ value = '12.1abc'
 =>12
 ```
 
----
-
-## {{toPrecision}}
+### {{toPrecision}}
 
 **Standard Helper**
 
 Returns the number in fixed-point or exponential notation rounded to precision significant digits.
 
-### Parameters
+#### Parameters
 
 * `number` {Number}
 * `precision` {Number}: Optional. The number of significant digits.
 * `returns` {Number}
 
-
-### Example
+#### Example
 
 ```handlebars
 value = 555.322 
@@ -2896,26 +2621,22 @@ value = 555.322
 => 555.3
 ```
 
----
-
-<a href='#handlebars-helpers-reference_object' aria-hidden='true' class='block-anchor'  id='handlebars-helpers-reference_object'><i aria-hidden='true' class='linkify icon'></i></a>
-
 ## Object Helpers
 
 The following standard helpers are available to handle objects.
 
-## {{extend}}
+### {{extend}}
 
 **Standard Helper**
 
 Extends the context with the properties of other objects. A shallow merge is performed to avoid mutating the context.
 
-### Parameters
+#### Parameters
 
 * `objects` {Object}: One or more objects to extend.
 * `returns` {Object}
 
-### Example
+#### Example
 Extend can be used to extend a page layout. For example:
 
 **layout.html**
@@ -2959,22 +2680,19 @@ Now that a basic layout is defined, it can be used to extend other pages.
 {{/extend}}
 ```
 
----
-
-## {{forIn}}
+### {{forIn}}
 
 **Standard Helper**
 
 Block helper that iterates over the properties of an object, exposing each key and value on the context.
 
-### Parameters
+#### Parameters
 
 * `context` {Object}
 * `options` {Object}
 * `returns` {String}
 
-
-### Examples
+#### Examples
 Given an object `{object: {a: 'b', c: 'd', e: 'f'}}`
 
 ```handlebars
@@ -2997,21 +2715,19 @@ Given an object `{object: {a: 'b', c: 'd', e: 'f'}}`
 => ' b '
 ```
 
----
-
-## {{forOwn}}
+### {{forOwn}}
 
 **Standard Helper**
 
 Block helper that iterates over the *own* properties of an object, exposing each key and value on the context.
 
-### Parameters
+#### Parameters
 
 * `obj` {Object}: The object to iterate over.
 * `options` {Object}
 * `returns` {String}
 
-### Examples
+#### Examples
 
 Given an object `{object: {a: 'b', c: 'd', e: 'f'}}`
 
@@ -3030,21 +2746,18 @@ Given an object `{object: {a: 'b', c: 'd', e: 'f'}}`
 =>' d '
 ```
 
----
-
-## {{toPath}}
+### {{toPath}}
 
 **Standard Helper**
 
 Takes arguments and, if they are string or number, converts them to a dot-delineated object property path.
 
-### Parameters
+#### Parameters
 
 * `prop` {String|Number}: The property segments to assemble (can be multiple).
 * `returns` {String}
 
-
-### Examples
+#### Examples
 
 ```handlebars
 {{toPath "a" "b" "c"}}
@@ -3056,15 +2769,13 @@ Takes arguments and, if they are string or number, converts them to a dot-deline
 => 'a.2.b'
 ```
 
----
-
-## {{get}}
+### {{get}}
 
 **Standard Helper**
 
 Uses property paths (`a.b.c`) to get a value or nested value from the context. Works as a regular helper or block helper.
 
-### Parameters
+#### Parameters
 
 * `prop` {String}: The property to get, optionally using dot notation for nested properties.
 * `context` {Object}: The context object.
@@ -3105,10 +2816,7 @@ Uses property paths (`a.b.c`) to get a value or nested value from the context. W
 => No
 ```
 
-
----
-
-## {{getObject}}
+### {{getObject}}
 
 **Standard Helper**
 
@@ -3126,21 +2834,19 @@ Uses property paths (`a.b.c`) to get an object from the context. Unlike the `get
 => {"a":"b"}
 ```
 
----
-
-## {{hasOwn}}
+### {{hasOwn}}
 
 **Standard Helper**
 
 Returns true if `key` is an own, enumerable property of the given `context` object.
 
-### Parameters
+#### Parameters
 
 * `key` {String}
 * `context` {Object}: The context object.
 * `returns` {Boolean}
 
-### Example
+#### Example
 
 ```handlebars
 // a ='b'
@@ -3154,35 +2860,31 @@ Returns true if `key` is an own, enumerable property of the given `context` obje
 => false 
 ```
 
----
-
-## {{isObject}}
+### {{isObject}}
 
 **Standard Helper**
 
 Returns true if `value` is an object.
 
-### Parameters
+#### Parameters
 
 * `value` {String}
 * `returns` {Boolean}
 
-### Example
+#### Example
 
 ```handlebars
 {{isObject "foo"}}
 //=> false
 ```
 
----
-
-## {{merge}}
+### {{merge}}
 
 **Standard Helper**
 
 Deeply merges the properties of the given `objects` with the context object.
 
-### Parameters
+#### Parameters
 
 * `object` {Object}: The target object. Pass an empty object to shallow-clone.
 * `objects` {Object}
@@ -3209,21 +2911,18 @@ Deeply merges the properties of the given `objects` with the context object.
 }
 ```
 
-
----
-
-## {{#JSONparse}}
+### {{#JSONparse}}
 
 **Standard Helper**
 
 Block helper that parses a string using `JSON.parse`, then passes the parsed object to the block as context.
 
-### Parameters
+#### Parameters
 
 * `string` {String}: The string to parse.
 * `options` {Object}: Handlebars options object.
 
-### Example
+#### Example
 
 This will return the product stock level to a page.
 
@@ -3233,28 +2932,22 @@ This will return the product stock level to a page.
 {{/JSONparse}}
 ```
 
----
-
-## {{JSONstringify}}
+### {{JSONstringify}}
 
 **Standard Helper**
 
 Stringifies an object using `JSON.stringify`.
 
-### Parameters
+#### Parameters
 
 * `obj` {Object}: Object to stringify.
 * `returns` {String}
 
-### Example
+#### Example
 
 ```js
 console.log({{{JSONstringify customer.payment_methods}}});
 ```
-
----
-
-<a href='#handlebars-helpers-reference_operator' aria-hidden='true' class='block-anchor'  id='handlebars-helpers-reference_operator'><i aria-hidden='true' class='linkify icon'></i></a>
 
 ## Operator Helpers
 
@@ -3313,9 +3006,7 @@ To improvise a `!==` (not equal or not equal type) comparison operator in Handle
     </nav>
 ```
 
----
-
-##  Logical {{or}} Operator
+###  Logical {{or}} Operator
 
 **Custom Helpers**
 
@@ -3326,11 +3017,11 @@ Checks whether at least one of its parameters evaluates to true, and has the fol
   <!-- render this block if OR evaluates to true -->
 {{/or}}
 ```
-### Parameters
+#### Parameters
 
 The `or` operator's parameters are one or more strings, numbers, arrays, or collections. Parameters can be of mixed types.
 
-### Example
+#### Example
 
 Here is a usage example from Stencil's Cornerstone base theme, where it displays the cart's contents. The `templates/components/cart/content.html` template uses the `or` operator to determine whether an item contains either product options _or_ configurable fields. If at least one condition is true, the template displays an edit link for the item:
 
@@ -3340,9 +3031,7 @@ Here is a usage example from Stencil's Cornerstone base theme, where it displays
 {{/or}}
 ```
 
----
-
-##  {{typeof}} Operator
+###  {{typeof}} Operator
 
 **Standard Helpers**
 
@@ -3355,7 +3044,7 @@ The `typeof` operator returns the JavaScript type of a variable, such as:
 
 By design, an array will return a `typeof` value of `object`.
 
-### Example
+#### Example
 
 ```js
 <script>
@@ -3365,19 +3054,15 @@ By design, an array will return a `typeof` value of `object`.
 </script>
 ```
 
----
-
-<a href='#handlebars-helpers-reference_string' aria-hidden='true' class='block-anchor'  id='handlebars-helpers-reference_string'><i aria-hidden='true' class='linkify icon'></i></a>
-
 ##  String Helpers
 
-## {{block}} 
+### {{block}} 
 
 **Custom Helper**
 
 It defines a block of content, which can be overwritten by the [partial](#partial-helper) helper.
 
-### Example
+#### Example
 
 ```html
 <div class="body" data-currency-code="{{currency_selector.active_currency_code}}">
@@ -3390,19 +3075,13 @@ It defines a block of content, which can be overwritten by the [partial](#partia
 </div>
 ```
 
-### Resources
-* [Cornerstone](https://github.com/bigcommerce/cornerstone/blob/master/templates/components/common/body.html)
-* [Paper Handlebars](https://github.com/bigcommerce/paper-handlebars/blob/master/helpers/block.js)
----
-
-
-## {{concat}}
+### {{concat}}
 
 **Custom Helper**
 
 It concatenates two string objects from the page's context, which are passed as parameters. It returns a new string object.
 
-### Examples
+#### Examples
 
 ```html
 {{concat breadcrumbs.[0].name breadcrumbs.[0].url}}
@@ -3421,20 +3100,13 @@ It concatenates two string objects from the page's context, which are passed as 
 ```
                       
 
-### Resources
-
-* [Cornerstone](https://github.com/bigcommerce/cornerstone/blob/master/templates/components/products/modals/writeReview.html)
-* [Paper Handlebars](https://github.com/bigcommerce/paper-handlebars/blob/master/helpers/concat.js)
-
----
-
-## {{dynamicComponent}}
+### {{dynamicComponent}}
 
 **Custom Helper**
 
 Inserts a dynamic partial from within the path that is supplied as its parameter.
 
-### Example
+#### Example
 
 ```html
 ...
@@ -3444,20 +3116,13 @@ Inserts a dynamic partial from within the path that is supplied as its parameter
 ...
 ```
 
-### Resources
-
-* [Cornerstone](https://github.com/bigcommerce/cornerstone/blob/master/templates/pages/auth/create-account.html)
-* [Paper Handlebars](https://github.com/bigcommerce/paper-handlebars/blob/master/helpers/dynamicComponent.js)
-
----
-
-## {{json}}
+### {{json}}
 
 **Custom Helper**
 
 Convert a JavaScript string object (from the page's context) into a JSON string object.
 
-### Example
+#### Example
 
 Returns the blog page contents. 
 
@@ -3483,14 +3148,7 @@ Returns the blog page contents.
 }
 ```
 
-### Resources
-
-* [Paper Handlebars](https://github.com/bigcommerce/paper-handlebars/blob/master/helpers/json.js)
-
----
-
-
-## {{lang}}
+### {{lang}}
 
 **Custom Helper**
 
@@ -3499,7 +3157,7 @@ Maps keys to translation files, based on the locale indicated by the visitor’s
 - `translationKey`: a string.
 - `options`: key-value pairs.
 
-### Example
+#### Example
 
 ```html
 <label class="form-label" for="search_query_adv">
@@ -3508,22 +3166,13 @@ Maps keys to translation files, based on the locale indicated by the visitor’s
 </label>
 ```                        
 
-### Resources
-
-* [Cornerstone](https://github.com/bigcommerce/cornerstone/blob/master/templates/components/search/advanced-search.html)
-* [Paper Handlebars](https://github.com/bigcommerce/paper-handlebars/blob/master/helpers/lang.js)
-
-
-
----
-
-## {{nl2br}}
+### {{nl2br}}
 
 **Custom Helper**
 
 Call this helper on a string object from the page's context, to convert its contained newline characters (`\r\n`, `\n\r`, `\r`, `\n`) to `<br>` tags. The `nl2br` helper returns a new string object.
 
-### Example
+#### Example
 
 ```html
 {{nl2br settings.address}}
@@ -3543,20 +3192,13 @@ Call this helper on a string object from the page's context, to convert its cont
 "<br>685 Market St<br>San Francisco<br>94105<br>CA<br>"
 ```
 
-# Resources
-
-* [Cornerstone](https://github.com/bigcommerce/cornerstone/blob/master/templates/components/amp/common/footer.html)
-* [Paper Handlebars](https://github.com/bigcommerce/paper-handlebars/blob/master/helpers/nl2br.js)
-
----
-
-## {{partial}}
+### {{partial}}
 
 **Custom Helper**
 
 Overrides block content defined by the [block](#block-helper) helper.
 
-### Example
+#### Example
 
 ```html
 {{#partial "head"}}
@@ -3569,14 +3211,7 @@ Overrides block content defined by the [block](#block-helper) helper.
 {{/partial}}
 ```
 
-### Resources
-
-* [Cornerstone](https://github.com/bigcommerce/cornerstone/blob/master/templates/pages/amp/category.html)
-* [Paper Handlebars](https://github.com/bigcommerce/paper-handlebars/blob/master/helpers/partial.js)
-
----
-
-## {{replace}}
+### {{replace}}
 
 **Custom Helper**
 
@@ -3584,8 +3219,7 @@ The `replace` string helper is custom to Stencil. It searches for the first para
 
 For example, the following code would search for the string `needle` within the scope defined by `haystack`. If found, it would replace that string with the Handlebars block defined by `<context...replacement>`:
 
-
-### Examples
+#### Examples
 
 ```html
 {{#replace "needle" haystack}}
@@ -3601,19 +3235,13 @@ For example, the following code would search for the string `needle` within the 
 {{/replace}}
 ```
 
-### Resources
-* [Cornerstone](https://github.com/bigcommerce/cornerstone/blob/master/templates/pages/page.html)
-* [Paper Handlebars](https://github.com/bigcommerce/paper-handlebars/blob/master/helpers/replace.js)
-
----
-
-## {{toLowerCase}}
+### {{toLowerCase}}
 
 **Custom Helper**
 
 Return a copy of a string object, in all-lowercase. The helper returns a new string object.
 
-### Example
+#### Example
 
 ```html
 # {{toLowerCase head.title}}
@@ -3633,72 +3261,59 @@ Return a copy of a string object, in all-lowercase. The helper returns a new str
 # this is my test store
 ```
 
-### Resources
-* [Cornerstone](https://github.com/bigcommerce/cornerstone/blob/master/templates/components/faceted-search/index.html)
-* [Paper Handlebars](https://github.com/bigcommerce/paper-handlebars/blob/master/helpers/toLowerCase.js)
-
-
----
-
-## {{camelcase}}
+### {{camelcase}}
 
 **Standard Helper**
 
 camelCases the characters in the given `string`.
 
-### Parameters
+#### Parameters
 
 * `string` {String}: The string to camelcase.
 * `returns` {String}
 
-### Example
+#### Example
 
 ```js
 {{camelcase "foo bar baz"}};
 //=> 'fooBarBaz'
 ```
 
----
-
-## {{capitalize}}
+### {{capitalize}}
 
 **Standard Helper**
 
 Capitalizes the first word in a sentence.
 
-### Parameters
+#### Parameters
 
 * `str` {String}
 * `returns` {String}
 
-### Example
+#### Example
 
 ```handlebars
 {{capitalize "foo bar baz"}}
 //=> "Foo bar baz"
 ```
 
----
-
-## {{capitalizeAll}}
+### {{capitalizeAll}}
 
 **Standard Helper**
 
 Capitalizes all words in a string.
 
-### Parameters
+#### Parameters
 
 * `str` {String}
 * `returns` {String}
 
-### Example
+#### Example
 
 ```handlebars
 {{capitalizeAll "foo bar baz"}}
 //=> "Foo Bar Baz"
 ```
-
----
 
 ### {{center}}
 
@@ -3706,20 +3321,18 @@ Capitalizes all words in a string.
 
 Centers a string, using non-breaking spaces.
 
-### Parameters
+#### Parameters
 
 * `str` {String}
 * `spaces` {String}
 * `returns` {String}
 
-### Example
+#### Example
 
 ```handlebars
 {{center "Get more features out-of-the-box to build, run and scale a better online business — without the hidden fees." 2}}
 => '&amp;nbsp;&amp;nbsp;Get more features out-of-the-box to build, run and scale a better online business — without the hidden fees.&amp;nbsp;&amp;nbsp;
 ```
-
----
 
 ### {{chop}}
 
@@ -3727,12 +3340,12 @@ Centers a string, using non-breaking spaces.
 
 Like `trim`, but removes both extraneous whitespace *and non-word characters* from the beginning and end of a string.
 
-### Parameters
+#### Parameters
 
 * `string` {String}: The string to chop.
 * `returns` {String}
 
-### Example
+#### Example
 
 ```js
 {{chop "_ABC_"}}
@@ -3745,27 +3358,23 @@ Like `trim`, but removes both extraneous whitespace *and non-word characters* fr
 //=> 'ABC'
 ```
 
----
-
-## {{dashcase}}
+### {{dashcase}}
 
 **Standard Helper**
 
 dash-cases the characters in `string`. Replaces non-word characters and periods with hyphens.
 
-### Parameters
+#### Parameters
 
 * `string` {String}
 * `returns` {String}
 
-### Example
+#### Example
 
 ```js
 {{dashcase "a-b-c d_e"}}
 //=> 'a-b-c-d-e'
 ```
-
----
 
 ### {{dotcase}}
 
@@ -3773,258 +3382,231 @@ dash-cases the characters in `string`. Replaces non-word characters and periods 
 
 dot.cases the characters in `string`.
 
-### Parameters
+#### Parameters
 
 * `string` {String}
 * `returns` {String}
 
-### Example
+#### Example
 
 ```handlebars
 {{dotcase "a-b-c d_e"}}
 //=> 'a.b.c.d.e'
 ```
 
----
-
-
-## {{hyphenate}}
+### {{hyphenate}}
 
 **Standard Helper**
 
 Replaces spaces in a string with hyphens.
 
-### Parameters
+#### Parameters
 
 * `str` {String}
 * `returns` {String}
 
-### Example
+#### Example
 
 ```handlebars
 {{hyphenate "foo bar baz qux"}}
 //=> "foo-bar-baz-qux"
 ```
 
----
-
-## {{isString}}
+### {{isString}}
 
 **Standard Helper**
 
 Returns true if `value` is a string.
 
-### Parameters
+#### Parameters
 
 * `value` {String}
 * `returns` {Boolean}
 
-### Example
+#### Example
 
 ```handlebars
 {{isString "foo"}}
 //=> 'true'
 ```
 
----
-
-## {{lowercase}}
+### {{lowercase}}
 
 **Standard Helper**
 
 Lowercases all characters in the given string.
 
-### Parameters
+#### Parameters
 
 * `str` {String}
 * `returns` {String}
 
-### Example
+#### Example
 
 ```handlebars
 {{lowercase "Foo BAR baZ"}}
 //=> 'foo bar baz'
 ```
 
----
-
-
-## {{occurrences}}
+### {{occurrences}}
 
 **Standard Helper**
 
 Returns the number of occurrences of `substring` within the given `string`.
 
-### Parameters
+#### Parameters
 
 * `str` {String}
 * `substring` {String}
 * `returns` {Number}: Number of occurrences.
 
-### Example
+#### Example
 
 ```handlebars
 {{occurrences "foo bar foo bar baz" "foo"}}
 //=> 2
 ```
 
----
-
-## {{pascalcase}}
+### {{pascalcase}}
 
 **Standard Helper**
 
 PascalCases the characters in `string`.
 
-### Parameters
+#### Parameters
 
 * `string` {String}
 * `returns` {String}
 
-### Example
+#### Example
 
 ```handlebars
 {{pascalcase "foo bar baz"}}
 //=> 'FooBarBaz'
 ```
 
----
-
-## {{pathcase}}
+### {{pathcase}}
 
 **Standard Helper**
 
 path/cases the characters in `string`.
 
-### Parameters
+#### Parameters
 
 * `string` {String}
 * `returns` {String}
 
-### Example
+#### Example
 
 ```handlebars
 {{pathcase "a-b-c d_e"}}
 //=> 'a/b/c/d/e'
 ```
 
----
-
-## {{plusify}}
+### {{plusify}}
 
 **Standard Helper**
 
 Replaces spaces in the given string with pluses.
 
-### Parameters
+#### Parameters
 
 * `str` {String}: The input string
 * `returns` {String}: Input string with spaces replaced by plus signs
 
-### Example
+#### Example
 
 ```handlebars
 {{plusify "foo bar baz"}}
 //=> 'foo+bar+baz'
 ```
 
----
-
-## {{reverse}}
+### {{reverse}}
 
 **Standard Helper**
 
 Reverses a string.
 
-### Parameters
+#### Parameters
 
 * `str` {String}
 * `returns` {String}
 
-### Example
+#### Example
 
 ```handlebars
 {{reverse "abcde"}}
 //=> 'edcba'
 ```
 
----
-
-## {{sentence}}
+### {{sentence}}
 
 **Standard Helper**
 
 Sentence-cases the given string.
 
-### Parameters
+#### Parameters
 
 * `str` {String}
 * `returns` {String}
 
-### Example
+#### Example
 
 ```handlebars
 {{sentence "hello world. goodbye world."}}
 //=> 'Hello world. Goodbye world.'
 ```
 
----
-
-## {{snakecase}}
+### {{snakecase}}
 
 **Standard Helper**
 
 snake_cases the characters in the given `string`.
 
-### Parameters
+#### Parameters
 
 * `string` {String}
 * `returns` {String}
 
-### Example
+#### Example
 
 ```handlebars
 {{snakecase "a-b-c d_e"}}
 //=> 'a_b_c_d_e'
 ```
 
----
-
-## {{split}}
+### {{split}}
 
 **Standard Helper**
 
 Splits `string` at the given `character`.
 
-### Parameters
+#### Parameters
 
 * `string` {String}: The string to split.
 * `returns` {String} `character`: Default is `,`
 
-### Example
+#### Example
 
 ```handlebars
 {{split "a,b,c" ","}}
 //=> ['a', 'b', 'c']
 ```
 
----
-
-
-## {{startsWith}}
+### {{startsWith}}
 
 **Standard Helper**
 
 Tests whether a string begins with the given prefix.
 
-### Parameters
+#### Parameters
 
 * `prefix` {String}
 * `testString` {String}
 * `options` {String}
 * `returns` {String}
 
-### Example
+#### Example
 
 ```handlebars
 {{#startsWith "Goodbye" "Hello, world!"}}
@@ -4034,113 +3616,98 @@ Tests whether a string begins with the given prefix.
 {{/startsWith}}
 ```
 
----
-
-
-## {{titleize}}
+### {{titleize}}
 
 **Standard Helper**
 
 Title-cases the given string.
 
-### Parameters
+#### Parameters
 
 * `str` {String}
 * `returns` {String}
 
-### Example
+#### Example
 
 ```handlebars
 {{titleize "this is title case"}}
 //=> 'This Is Title Case'
 ```
 
----
-
-## {{trim}}
+### {{trim}}
 
 **Standard Helper**
 
 Removes extraneous whitespace from the beginning and end of a string.
 
-### Parameters
+#### Parameters
 
 * `string` {String}: The string to trim.
 * `returns` {String}
 
-### Example
+#### Example
 
 ```handlebars
 {{trim " ABC "}}
 //=> 'ABC'
 ```
 
----
-
-## {{uppercase}}
+### {{uppercase}}
 
 **Standard Helper**
 
 Uppercases all of the characters in the given string. If used as a block helper, it will uppercase the entire block. This helper does not support inverse blocks.
 
-### Parameters
+#### Parameters
 
 * `str` {String}: The string to uppercase.
 * `options` {Object}: Handlebars options object.
 * `returns` {String}
 
-### Example
+#### Example
 
 ```handlebars
 {{uppercase 'f'}}
 => 'F'
 ```
 
----
-
-<a href='#handlebars-helpers-reference_url' aria-hidden='true' class='block-anchor'  id='handlebars-helpers-reference_url'><i aria-hidden='true' class='linkify icon'></i></a>
-
 ## URL Helpers
 
-## {{encodeURI}}
+### {{encodeURI}}
 
 **Standard Helper**
 
 Encodes a Uniform Resource Identifier (URI) component, by replacing each instance of certain characters by one, two, three, or four escape sequences that represent the UTF-8 encoding of the character.
 
-### Parameters
+#### Parameters
 
 * `str` {String}: The un-encoded string.
 * `returns` {String}: The encoded string.
 
-### Example
+#### Example
 
 ```handlebars
 {{encodeURI "http://example.com?comment=Thyme &time=again"}}
 => 'http%3A%2F%2Fexample.com%3Fcomment%3DThyme%20%26time%3Dagain'
 ```
 
----
-
-## {{decodeURI}}
+### {{decodeURI}}
 
 **Standard Helper**
 
 Decodes a Uniform Resource Identifier (URI) component.
 
-### Parameters
+#### Parameters
 
 * `str` {String}
 * `returns` {String}
 
-### Example
+#### Example
 
 ```handlebars
 {{{decodeURI "http%3A%2F%2Fexample.com%3Fcomment%3DThyme%20%26time%3Dagain"}}}
 => 'http://example.com?comment=Thyme &time=again'
 ```
-
----
 
 ### {{urlResolve}}
 
@@ -4148,13 +3715,13 @@ Decodes a Uniform Resource Identifier (URI) component.
 
 Takes a base URL, and an href URL, and resolves them as a browser would for an anchor tag.
 
-### Parameters
+#### Parameters
 
 * `base` {String}
 * `href` {String}
 * `returns` {String}
 
-### Example
+#### Example
 
 ```handlebars
 {{urlResolve "/one/two/three" "four"}}
@@ -4167,49 +3734,43 @@ Takes a base URL, and an href URL, and resolves them as a browser would for an a
 => 'http://example.com/two'
 ```
 
----
-
 ### {{urlParse}}
 
 **Standard Helper**
 
 Parses a `url` string into an object.
 
-### Parameters
+#### Parameters
 
 * `str` {String}: URL string.
 * `returns` {String}: Returns stringified JSON.
 
-### Example
+#### Example
 
 ```handlebars
 {{{JSONstringify (urlParse "http://foo.com/bar/baz?key=value" "json")}}}
 => '{"protocol":"http:","slashes":true,"auth":null,"host":"foo.com","port":null,"hostname":"foo.com","hash":null,"search":"?key=value","query":"key=value","pathname":"/bar/baz","path":"/bar/baz?key=value","href":"http://foo.com/bar/baz?key=value"}'
 ```
 
----
-
-## {{stripQuerystring}}
+### {{stripQuerystring}}
 
 **Standard Helper**
 
 Strips the query string from a `url`.
 
-### Parameters
+#### Parameters
 
 * `url` {String}
 * `returns` {String}: The URL without the queryString.
 
-### Example
+#### Example
 
 ```handlebars
 {{stripQuerystring "http://example.com?tests=true"}}
 => 'http://example.com'
 ```
 
----
-
-## {{stripProtocol}}
+### {{stripProtocol}}
 
 **Standard Helper**
 
@@ -4217,12 +3778,12 @@ Strips the protocol from a `url`.
 
 Useful for displaying media that might have an `http` protocol on secure connections. Will change `http://foo.bar` to `//foo.bar`
 
-### Parameters
+#### Parameters
 
 * `str` {String}
 * `returns` {String}: The URL with the `http` protocol stripped.
 
-### Example
+#### Example
 
 ```handlebars
 testURL = 'https://bigcommerce.com'
@@ -4231,25 +3792,21 @@ testURL = 'https://bigcommerce.com'
 => //bigcommerce.com/
 ```
 
----
-
-<a href='#handlebars-helpers-reference_misc' aria-hidden='true' class='block-anchor'  id='handlebars-helpers-reference_misc'><i aria-hidden='true' class='linkify icon'></i></a>
-
 ## Miscellaneous Helpers
 
-## {{default}}
+### {{default}}
 
 **Standard Helper**
 
 Returns the first value, if that value is defined; otherwise, returns the "default" value.
 
-### Parameters
+#### Parameters
 
 * `value` {any}
 * `defaultValue` {any}
 * `returns` {String}
 
-### Example
+#### Example
 
 ```handlebars
 
@@ -4272,20 +3829,18 @@ title = 'B'
 => 'A'
 ```
 
----
-
-## {{option}}
+### {{option}}
 
 **Standard Helper**
 
 Returns the given value of `prop` from `this.options`. Returns an empty string if no options are found.
 
-### Parameters
+#### Parameters
 
 * `prop` {String}
 * `returns` {any}
 
-### Examples
+#### Examples
 
 ```handlebars
 {{option "a.b.c"}} 
@@ -4299,28 +3854,24 @@ Returns the given value of `prop` from `this.options`. Returns an empty string i
 => 'ddd'
 ```
 
----
-
-## {{noop}}
+### {{noop}}
 
 **Standard Helper**
 
 Block helper that renders the block without taking any arguments.
 
-### Parameters
+#### Parameters
 
 * `options` {Object}
 * `returns` {String}
 
-### Example
+#### Example
 
 ```handlebars
 {message: 'This is a message'}
 {{#noop}}{{message}}{{/noop}}
 => 'This is a message'
 ```
-
----
 
 ### {{withHash}}
 
@@ -4332,7 +3883,7 @@ Block helper that builds the context for the block from the options hash.
 
 * `options` {Object}: Handlebars-provided options object.
 
-### Examples
+#### Examples
 
 ```handlebars
 //Return a string from new context
@@ -4348,7 +3899,6 @@ message: 'This is a test'
 => 'This is a test'
 ```
 
-
 ```handlebars
 {{#withHash subject="Feedback" message="Hello!"}}{{subject}} - {{message}}{{/withHash}}
 => 'Feedback - Hello!'
@@ -4359,8 +3909,6 @@ message: 'This is a test'
 {{#withHash}}{{message}}{{/withHash}}
 => ''
 ```
-
----
 
 ## Resources
 

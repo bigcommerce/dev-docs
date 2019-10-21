@@ -6,7 +6,7 @@ Shown when a customer does not have the permissions necessary to view a particul
 
 ## Available Panels 
 |||
-|---|---|
+|||
 | %%Panel.HTMLHead%% |
 | %%Panel.Header%% |
 | %%Panel.WrapperBanner%% |
@@ -18,7 +18,7 @@ Shown when a customer does not have the permissions necessary to view a particul
 ## Available Variables 
 
 |||
-|---|---|
+|||
 | %%GLOBAL_Contact%% |
 
 # 404 Layout 
@@ -29,7 +29,7 @@ Shown when a customer accesses an invalid URL (such as an old removed product) o
 
 ## Available Panels 
 |||
-|---|---|
+|||
 | %%Panel.HTMLHead%% |
 | %%Panel.Header%% |
 | %%Panel.WrapperBanner%% |
@@ -46,7 +46,7 @@ A list of shipping addresses (found under the My Account > Address Book menu) th
 
 ## Available Panels 
 |||
-|---|---|
+|||
 | %%Panel.HTMLHead%% |
 | %%Panel.Header%% |
 | %%Panel.WrapperBanner%% |
@@ -63,7 +63,7 @@ A list of shipping addresses (found under the My Account > Address Book menu) th
 
 ## Available Panels 
 |||
-|---|---|
+|||
 | %%Panel.HTMLHead%% |
 | %%Panel.Header%% |
 | %%Panel.WrapperBanner%% |
@@ -77,7 +77,7 @@ A list of shipping addresses (found under the My Account > Address Book menu) th
 
 ## Available Variables 
 |||
-|---|---|
+|||
 | %%GLOBAL_DownloadTitle%% |
 
 # Account Inbox Layout 
@@ -88,7 +88,7 @@ The list of order messages the customer has associated with any of their past or
 
 ## Available Panels 
 |||
-|---|---|
+|||
 | %%Panel.HTMLHead%% |
 | %%Panel.Header%% |
 | %%Panel.WrapperBanner%% |
@@ -107,7 +107,7 @@ The new return request/submission page.
 
 ## Available Panels 
 |||
-|---|---|
+|||
 | %%Panel.HTMLHead%% |
 | %%Panel.Header%% |
 | %%Panel.WrapperBanner%% |
@@ -122,7 +122,7 @@ The new return request/submission page.
 
 ## Available Variables 
 |||
-|---|---|
+|||
 | %%GLOBAL_OrderId%% |
 | %%GLOBAL_HideErrorMessage%% |
 | %%GLOBAL_ErrorMessage%% |
@@ -135,7 +135,7 @@ Shown when a customer is viewing the details of a past order they’ve placed on
 
 ## Available Panels 
 |||
-|---|---|
+|||
 | %%Panel.HTMLHead%% |
 | %%Panel.Header%% |
 | %%Panel.WrapperBanner%% |
@@ -155,7 +155,7 @@ A list of previously completed orders placed on the store by the customer.
 
 ## Available Panels 
 |||
-|---|---|
+|||
 | %%Panel.HTMLHead%% |
 | %%Panel.Header%% |
 | %%Panel.WrapperBanner%% |
@@ -174,7 +174,7 @@ A list of currently pending orders placed on the store by the customer.
 
 ## Available Panels 
 |||
-|---|---|
+|||
 | %%Panel.HTMLHead%% |
 | %%Panel.Header%% |
 | %%Panel.WrapperBanner%% |
@@ -193,7 +193,7 @@ A list of products recently viewed on the store by the customer.
 
 ## Available Panels 
 |||
-|---|---|
+|||
 | %%Panel.HTMLHead%% |
 | %%Panel.Header%% |
 | %%Panel.WrapperBanner%% |
@@ -212,7 +212,7 @@ A list of previously submitted returns requests by the customer.
 
 ## Available Panels 
 |||
-|---|---|
+|||
 | %%Panel.HTMLHead%% |
 | %%Panel.Header%% |
 | %%Panel.WrapperBanner%% |
@@ -232,7 +232,7 @@ Shown after a customer successfully submits a new returns request on the store.
 
 ## Available Panels 
 |||
-|---|---|
+|||
 | %%Panel.HTMLHead%% |
 | %%Panel.Header%% |
 | %%Panel.WrapperBanner%% |
@@ -244,7 +244,7 @@ Shown after a customer successfully submits a new returns request on the store.
 
 ## Available Variables 
 |||
-|---|---|
+|||
 | %%GLOBAL_HideReturnInstructions%% |
 | %%GLOBAL_ReturnInstructions%% |
 
@@ -256,7 +256,7 @@ The “My Account” welcome page with an explanation on each of the sections av
 
 ## Available Panels 
 |||
-|---|---|
+|||
 | %%Panel.HTMLHead%% |
 | %%Panel.Header%% |
 | %%Panel.WrapperBanner%% |
@@ -269,7 +269,7 @@ The “My Account” welcome page with an explanation on each of the sections av
 
 ## Available Variables 
 |||
-|---|---|
+|||
 | %%GLOBAL_HideMessagesMenu%% |
 | %%GLOBAL_HideReturnRequestsMenu%% |
 | %%GLOBAL_HideWishlist%% |
@@ -282,7 +282,7 @@ The account creation/signup form where customers can create an account on the st
 
 ## Available Panels 
 |||
-|---|---|
+|||
 | %%Panel.HTMLHead%% |
 | %%Panel.Header%% |
 | %%Panel.WrapperBanner%% |
@@ -301,7 +301,7 @@ A thank you page shown after the customer has successfully registered an account
 
 ## Available Panels 
 |||
-|---|---|
+|||
 | %%Panel.HTMLHead%% |
 | %%Panel.Header%% |
 | %%Panel.WrapperBanner%% |
@@ -312,7 +312,7 @@ A thank you page shown after the customer has successfully registered an account
 
 ## Available Variables 
 |||
-|---|---|
+|||
 | %%GLOBAL_Continue%% |
 | %%GLOBAL_ContinueLink%% |
 
@@ -324,7 +324,7 @@ Shown in the “My Account” section of the store when a customer chooses to ed
 
 ## Available Panels 
 |||
-|---|---|
+|||
 | %%Panel.HTMLHead%% |
 | %%Panel.Header%% |
 | %%Panel.WrapperBanner%% |
@@ -342,7 +342,7 @@ Shown in the “My Account” section of the store when a customer chooses to ed
 
 ## Available Panels 
 |||
-|---|---|
+|||
 | %%Panel.Footer%% |
 
 # Brands Layout 
@@ -353,7 +353,7 @@ A list of products in a particular brand, or if no brand is specified, a list of
 
 ## Available Panels 
 |||
-|---|---|
+|||
 | %%Panel.HTMLHead%% |
 | %%Panel.Header%% |
 | %%Panel.WrapperBanner%% |
@@ -374,7 +374,7 @@ The “View Cart” page showing the contents of the current customers cart.
 
 ## Available Panels 
 |||
-|---|---|
+|||
 | %%Panel.HTMLHead%% |
 | %%Panel.Header%% |
 | %%Panel.WrapperBanner%% |
@@ -394,7 +394,7 @@ The “View Cart” page showing the contents of the current customers cart.
 
 ## Available Variables 
 |||
-|---|---|
+|||
 | %%GLOBAL_CdnAppPath%% |
 | %%GLOBAL_JSCacheToken%% |
 
@@ -406,7 +406,7 @@ A list of products or sub categories that exist within a particular category.
 
 ## Available Panels 
 |||
-|---|---|
+|||
 | %%Panel.HTMLHead%% |
 | %%Panel.Header%% |
 | %%Panel.WrapperBanner%% |
@@ -427,7 +427,7 @@ A list of products or sub categories that exist within a particular category.
 
 ## Available Variables 
 |||
-|---|---|
+|||
 | %%GLOBAL_ExtraCategoryClass%% |
 | %%GLOBAL_HideRightColumn%% |
 
@@ -439,7 +439,7 @@ The billing/shipping address form shown as the second step of the checkout proce
 
 ## Available Panels 
 |||
-|---|---|
+|||
 | %%Panel.HTMLHead%% |
 | %%Panel.Header%% |
 | %%Panel.WrapperBanner%% |
@@ -450,7 +450,7 @@ The billing/shipping address form shown as the second step of the checkout proce
 
 ## Available Variables 
 |||
-|---|---|
+|||
 | %%GLOBAL_CdnAppPath%% |
 | %%GLOBAL_JSCacheToken%% |
 
@@ -462,7 +462,7 @@ The order confirmation page (last page of the multi-page checkout) showing a sum
 
 ## Available Panels 
 |||
-|---|---|
+|||
 | %%Panel.HTMLHead%% |
 | %%Panel.Header%% |
 | %%Panel.WrapperBanner%% |
@@ -471,7 +471,7 @@ The order confirmation page (last page of the multi-page checkout) showing a sum
 
 ## Available Variables 
 |||
-|---|---|
+|||
 | %%GLOBAL_CdnAppPath%% |
 | %%GLOBAL_JSCacheToken%% |
 
@@ -483,7 +483,7 @@ The express single-page checkout.
 
 ## Available Panels 
 |||
-|---|---|
+|||
 | %%Panel.HTMLHead%% |
 | %%Panel.Header%% |
 | %%Panel.WrapperBanner%% |
@@ -491,7 +491,7 @@ The express single-page checkout.
 
 ## Available Variables 
 |||
-|---|---|
+|||
 | %%GLOBAL_LoginMessage%% |
 | %%GLOBAL_IMG_PATH%% |
 | %%GLOBAL_CollapsedStepClassBillingAddress%% |
@@ -534,7 +534,7 @@ The payment details collection form shown in the multi-page checkout. This page 
 
 ## Available Panels 
 |||
-|---|---|
+|||
 | %%Panel.HTMLHead%% |
 | %%Panel.Header%% |
 | %%Panel.WrapperBanner%% |
@@ -542,7 +542,7 @@ The payment details collection form shown in the multi-page checkout. This page 
 
 ## Available Variables 
 |||
-|---|---|
+|||
 | %%GLOBAL_PaymentFormContent%% |
 
 # Checkout Shipper Layout 
@@ -553,7 +553,7 @@ The shipping provider selection page shown for the multi-page checkout.
 
 ## Available Panels 
 |||
-|---|---|
+|||
 | %%Panel.HTMLHead%% |
 | %%Panel.Header%% |
 | %%Panel.WrapperBanner%% |
@@ -562,7 +562,7 @@ The shipping provider selection page shown for the multi-page checkout.
 
 ## Available Variables 
 |||
-|---|---|
+|||
 | %%GLOBAL_CdnAppPath%% |
 | %%GLOBAL_JSCacheToken%% |
 
@@ -574,7 +574,7 @@ The first page of the standard multi-page checkout shown for guests asking them 
 
 ## Available Panels 
 |||
-|---|---|
+|||
 | %%Panel.HTMLHead%% |
 | %%Panel.Header%% |
 | %%Panel.WrapperBanner%% |
@@ -582,7 +582,7 @@ The first page of the standard multi-page checkout shown for guests asking them 
 
 ## Available Variables 
 |||
-|---|---|
+|||
 | %%GLOBAL_HideCheckoutGuest%% |
 | %%GLOBAL_HideCheckoutRegistrationRequired%% |
 | %%GLOBAL_HideLoginMessage%% |
@@ -597,7 +597,7 @@ Shown when a customer chooses to compare one or more products with each other.
 
 ## Available Panels 
 |||
-|---|---|
+|||
 | %%Panel.HTMLHead%% |
 | %%Panel.Header%% |
 | %%Panel.WrapperBanner%% |
@@ -613,7 +613,7 @@ The default index page of the store.
 
 ## Available Panels 
 |||
-|---|---|
+|||
 | %%Panel.HTMLHead%% |
 | %%Panel.Header%% |
 | %%Panel.WrapperBanner%% |
@@ -639,7 +639,7 @@ A generic page that can be shown whenever there is an error message on the store
 
 ## Available Panels 
 |||
-|---|---|
+|||
 | %%Panel.HTMLHead%% |
 | %%Panel.Header%% |
 | %%Panel.WrapperBanner%% |
@@ -650,7 +650,7 @@ A generic page that can be shown whenever there is an error message on the store
 
 ## Available Variables 
 |||
-|---|---|
+|||
 | %%GLOBAL_ErrorMessage%% |
 | %%GLOBAL_ErrorDetails%% |
 
@@ -662,7 +662,7 @@ Allows customers to check the remaining balance (and shows the remaining balance
 
 ## Available Panels 
 |||
-|---|---|
+|||
 | %%Panel.HTMLHead%% |
 | %%Panel.Header%% |
 | %%Panel.WrapperBanner%% |
@@ -681,7 +681,7 @@ The page shown containing instructions on how to redeem a gift certificate durin
 
 ## Available Panels 
 |||
-|---|---|
+|||
 | %%Panel.HTMLHead%% |
 | %%Panel.Header%% |
 | %%Panel.WrapperBanner%% |
@@ -699,7 +699,7 @@ Shown when a customer clicks the “Gift Certificates” link on the top menu of
 
 ## Available Panels 
 |||
-|---|---|
+|||
 | %%Panel.HTMLHead%% |
 | %%Panel.Header%% |
 | %%Panel.WrapperBanner%% |
@@ -715,7 +715,7 @@ Shown when a customer clicks the “Gift Certificates” link on the top menu of
 
 ## Available Variables 
 |||
-|---|---|
+|||
 | %%GLOBAL_HideIdealError%% |
 | %%GLOBAL_IdealErrorMessage%% |
 | %%GLOBAL_IdealPaymentForm%% |
@@ -728,7 +728,7 @@ A printable invoice for an order that a customer can print from the front end of
 
 ## Available Variables 
 |||
-|---|---|
+|||
 | %%GLOBAL_PrintableInvoiceScript%% |
 | %%GLOBAL_JSCacheToken%% |
 | %%GLOBAL_PrintInvoiceStylesheetPath%% |
@@ -740,7 +740,7 @@ A printable invoice for an order that a customer can print from the front end of
 
 ## Available Panels 
 |||
-|---|---|
+|||
 | %%Panel.HTMLHead%% |
 | %%Panel.Header%% |
 | %%Panel.WrapperBanner%% |
@@ -757,7 +757,7 @@ A printable invoice for an order that a customer can print from the front end of
 
 ## Available Variables 
 |||
-|---|---|
+|||
 | %%GLOBAL_MessageText%% |
 
 # Message Layout 
@@ -768,7 +768,7 @@ Shown when a page simply needs to show a particular message to the user.
 
 ## Available Panels 
 |||
-|---|---|
+|||
 | %%Panel.HTMLHead%% |
 | %%Panel.Header%% |
 | %%Panel.WrapperBanner%% |
@@ -778,7 +778,7 @@ Shown when a page simply needs to show a particular message to the user.
 
 ## Available Variables 
 |||
-|---|---|
+|||
 | %%GLOBAL_MessageTitle%% |
 | %%GLOBAL_MessageText%% |
 
@@ -790,7 +790,7 @@ The page that shows an individual news item on the store.
 
 ## Available Panels 
 |||
-|---|---|
+|||
 | %%Panel.HTMLHead%% |
 | %%Panel.Header%% |
 | %%Panel.WrapperBanner%% |
@@ -809,7 +809,7 @@ The thank you page shown after a visitor subscribes to the store newsletter.
 
 ## Available Panels 
 |||
-|---|---|
+|||
 | %%Panel.HTMLHead%% |
 | %%Panel.Header%% |
 | %%Panel.WrapperBanner%% |
@@ -829,7 +829,7 @@ The “Thank you for your order” page shown after an order is successfully pla
 
 ## Available Panels 
 |||
-|---|---|
+|||
 | %%Panel.HTMLHead%% |
 | %%Panel.Header%% |
 | %%Panel.WrapperBanner%% |
@@ -842,7 +842,7 @@ The “Thank you for your order” page shown after an order is successfully pla
 
 ## Available Variables 
 |||
-|---|---|
+|||
 | %%GLOBAL_CustomerName%% |
 | %%GLOBAL_HideError%% |
 | %%GLOBAL_ErrorMessage%% |
@@ -867,7 +867,7 @@ The “Thank you for your order” page shown after an order is successfully pla
 
 ## Available Variables 
 |||
-|---|---|
+|||
 | %%GLOBAL_BillingAddress%% |
 | %%GLOBAL_CustomerEmail%% |
 | %%GLOBAL_HideBillingPhone%% |
@@ -898,7 +898,7 @@ The layout file shown when viewing a web page created on the store.
 
 ## Available Panels 
 |||
-|---|---|
+|||
 | %%Panel.HTMLHead%% |
 | %%Panel.Header%% |
 | %%Panel.WrapperBanner%% |
@@ -921,7 +921,7 @@ The page shown when a customer clicks the “Forgot your password?” link on th
 
 ## Available Panels 
 |||
-|---|---|
+|||
 | %%Panel.HTMLHead%% |
 | %%Panel.Header%% |
 | %%Panel.WrapperBanner%% |
@@ -938,7 +938,7 @@ The page shown when a customer clicks the “Forgot your password?” link on th
 
 ## Available Panels 
 |||
-|---|---|
+|||
 | %%Panel.HTMLHead%% |
 | %%Panel.Header%% |
 | %%Panel.WrapperBanner%% |
@@ -957,12 +957,12 @@ The Authorize.net payment module form. This form is included on both the multist
 
 ## Available Panels 
 |||
-|---|---|
+|||
 | %%Panel.AuthorizeNetPaymentJavaScript%% |
 
 ## Available Variables 
 |||
-|---|---|
+|||
 | %%GLOBAL_AuthorizeNetName%% |
 | %%GLOBAL_AuthorizeNetNum%% |
 | %%GLOBAL_AuthorizeNetMonths%% |
@@ -982,12 +982,12 @@ The credit card (manual) payment method credit card details form.
 
 ## Available Panels 
 |||
-|---|---|
+|||
 | %%Panel.CCManualPaymentJavaScript%% |
 
 ## Available Variables 
 |||
-|---|---|
+|||
 | %%GLOBAL_CCName%% |
 | %%GLOBAL_CCTypes%% |
 | %%GLOBAL_CCNum%% |
@@ -1009,12 +1009,12 @@ The payment details collection form for the eSelect DirectPost payment module.
 
 ## Available Panels 
 |||
-|---|---|
+|||
 | %%Panel.eSelectPlusDPPaymentJavaScript%% |
 
 ## Available Variables 
 |||
-|---|---|
+|||
 | %%GLOBAL_eSelectPlusDPNum%% |
 | %%GLOBAL_eSelectPlusDPMonths%% |
 | %%GLOBAL_eSelectPlusDPYears%% |
@@ -1035,12 +1035,12 @@ Shown when a customer chooses to pay via eWay when making a purchase on the stor
 
 ## Available Panels 
 |||
-|---|---|
+|||
 | %%Panel.EWayPaymentJavaScript%% |
 
 ## Available Variables 
 |||
-|---|---|
+|||
 | %%GLOBAL_EWayName%% |
 | %%GLOBAL_EWayMonths%% |
 | %%GLOBAL_EWayYears%% |
@@ -1057,12 +1057,12 @@ Shown when a customer chooses to pay via eWay when making a purchase on the stor
 
 ## Available Panels 
 |||
-|---|---|
+|||
 | %%Panel.GenericCreditCardPaymentJavaScript%% |
 
 ## Available Variables 
 |||
-|---|---|
+|||
 | %%GLOBAL_HideCreditCardError%% |
 | %%GLOBAL_CCTypes%% |
 | %%GLOBAL_CreditCardName%% |
@@ -1086,12 +1086,12 @@ Shown when a customer chooses to pay via eWay when making a purchase on the stor
 
 ## Available Panels 
 |||
-|---|---|
+|||
 | %%Panel.NMIPaymentJavaScript%% |
 
 ## Available Variables 
 |||
-|---|---|
+|||
 | %%GLOBAL_NMIName%% |
 | %%GLOBAL_NMINum%% |
 | %%GLOBAL_NMIMonths%% |
@@ -1111,12 +1111,12 @@ The payment details (credit card entry) form shown when a customer chooses to pa
 
 ## Available Panels 
 |||
-|---|---|
+|||
 | %%Panel.PayflowProPaymentJavaScript%% |
 
 ## Available Variables 
 |||
-|---|---|
+|||
 | %%GLOBAL_PayflowProName%% |
 | %%GLOBAL_PayflowProNum%% |
 | %%GLOBAL_PayflowProMonths%% |
@@ -1134,12 +1134,12 @@ The payment details (credit card entry) form shown when a customer chooses to pa
 
 ## Available Panels 
 |||
-|---|---|
+|||
 | %%Panel.ValutecCardPaymentJavaScript%% |
 
 ## Available Variables 
 |||
-|---|---|
+|||
 | %%GLOBAL_HideCreditCardError%% |
 | %%GLOBAL_CreditCardNum%% |
 | %%GLOBAL_OrderAmount%% |
@@ -1152,7 +1152,7 @@ The payment details (credit card entry) form shown when a customer chooses to pa
 
 ## Available Panels
 |||
-|---|---|
+|||
 | %%Panel.HTMLHead%% |
 | %%Panel.Header%% |
 | %%Panel.WrapperBanner%% |
@@ -1180,7 +1180,7 @@ The payment details (credit card entry) form shown when a customer chooses to pa
 
 ## Available Variables
 |||
-|---|---|
+|||
 | %%GLOBAL_CdnAppPath%% |
 | %%GLOBAL_JSCacheToken%% |
 | %%GLOBAL_CdnAppPath%% |
@@ -1194,7 +1194,7 @@ The payment details (credit card entry) form shown when a customer chooses to pa
 
 ## Available Variables
 |||
-|---|---|
+|||
 | %%GLOBAL_HideSectionSeparator%% |
 | %%GLOBAL_ProductId%% |
 | %%GLOBAL_throttleToken%% |
@@ -1231,7 +1231,7 @@ The payment details (credit card entry) form shown when a customer chooses to pa
 
 ## Available Variables
 |||
-|---|---|
+|||
 | %%GLOBAL_VideoId%% |
 | %%GLOBAL_STYLE_PATH%% |
 | %%GLOBAL_VideoId%% |
@@ -1244,12 +1244,12 @@ The popup window used to display product images.
 
 ## Available Panels 
 |||
-|---|---|
+|||
 | %%Panel.ProductImagePopup%% |
 
 ## Available Variables 
 |||
-|---|---|
+|||
 | %%GLOBAL_CurrentImageIndex%% |
 | %%GLOBAL_ProductMaxImageHeight%% |
 | %%GLOBAL_ProductMaxImageWidth%% |
@@ -1270,7 +1270,7 @@ The page that either shows the form to search for products or product search res
 
 ## Available Panels 
 |||
-|---|---|
+|||
 | %%Panel.HTMLHead%% |
 | %%Panel.Header%% |
 | %%Panel.WrapperBanner%% |
@@ -1289,7 +1289,7 @@ The page that shows tips and tricks for using the product search.
 
 ## Available Panels 
 |||
-|---|---|
+|||
 | %%Panel.HTMLHead%% |
 | %%Panel.Header%% |
 | %%Panel.WrapperBanner%% |
@@ -1307,7 +1307,7 @@ Shown when a customer wishes to edit a shipping/billing address in their address
 
 ## Available Panels 
 |||
-|---|---|
+|||
 | %%Panel.HTMLHead%% |
 | %%Panel.Header%% |
 | %%Panel.WrapperBanner%% |
@@ -1325,7 +1325,7 @@ Shown when a customer wishes to edit a shipping/billing address in their address
 
 ### Available Panels 
 |||
-|---|---|
+|||
 | %%Panel.HTMLHead%% |
 | %%Panel.Header%% |
 | %%Panel.WrapperBanner%% |
@@ -1344,7 +1344,7 @@ Shown when a customer wishes to edit a shipping/billing address in their address
 
 ## Available Panels 
 |||
-|---|---|
+|||
 | %%Panel.HTMLHead%% |
 | %%Panel.Header%% |
 | %%Panel.WrapperBanner%% |
@@ -1363,7 +1363,7 @@ Shown when a customer wishes to edit a shipping/billing address in their address
 
 ## Available Panels 
 |||
-|---|---|
+|||
 | %%Panel.HTMLHead%% |
 | %%Panel.Header%% |
 | %%Panel.WrapperBanner%% |
@@ -1377,7 +1377,7 @@ Shown when a customer wishes to edit a shipping/billing address in their address
 
 ## Available Variables 
 |||
-|---|---|
+|||
 | %%GLOBAL_UnsubscribeTitle%% |
 
 # Wishlist Layout 
@@ -1388,7 +1388,7 @@ The page shown when any action related to wishlists (adding items, managing wish
 
 ## Available Panels 
 |||
-|---|---|
+|||
 | %%Panel.HTMLHead%% |
 | %%Panel.Header%% |
 | %%Panel.WrapperBanner%% |
@@ -1404,6 +1404,5 @@ The page shown when any action related to wishlists (adding items, managing wish
 
 ## Available Variables 
 |||
-|---|---|
+|||
 | %%GLOBAL_HideRightMenu%% |
-

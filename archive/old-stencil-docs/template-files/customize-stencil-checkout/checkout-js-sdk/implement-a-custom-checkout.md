@@ -265,7 +265,7 @@ lineNumbers: true
 
 You should now be able to view your example React checkout by running the `stencil start` command in your theme directory and navigating to your storefront at [http://localhost:3000](http://localhost:3000).
 
----
+
 
 <a id="implement_customization"></a>
 

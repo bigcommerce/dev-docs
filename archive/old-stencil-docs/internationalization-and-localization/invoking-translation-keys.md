@@ -66,7 +66,7 @@ lineNumbers: true
 <a href="{{ urls.account }}">{{ lang "header.welcome_back" name=customer.name }}</a>
 ```
 
----
+
 
 <a href='#invoking_video' aria-hidden='true' class='block-anchor'  id='invoking_video'><i aria-hidden='true' class='linkify icon'></i></a>
 

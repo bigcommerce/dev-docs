@@ -1,21 +1,18 @@
 # Event Hooks
 
 <div class="otp" id="no-index">
-	<h3> On This Page </h3>
-	<ul>
-    <li><a href="#event_cookie-notification">Cookie Notification Example</a></li>
-    <li><a href="#event_cart-dialog">Cart Dialog Example</a></li>
-    <li><a href="#event_stencil-data-tags">Stencil Data Tags and Event Hooks</a></li>
-	</ul>
+
+### On This Page
+- [Cookie Notification Example](#cookie-notification-example)
+- [Cart Dialog Example](#cart-dialog-example)
+- [Stencil Data Tags and Event Hooks](#stencil-data-tags-and-event-hooks)
+- [Resources](#resources)
+
 </div>
 
 Stencil themes provide access to remote resources through data tags and event hooks. Developers can use these hooks to trigger defined events. A theme can hook to an event to perform actions or calculations based on shopper behavior.
 
 Stencil themes incorporate event hooks by importing the stencil-utils module. If take a look at [cornerstone/assets/js/theme/](https://github.com/bigcommerce/cornerstone/tree/master/assets/js/theme), you will see the import statement `'import utils from '@bigcommerce/stencil-utils';` at the top of files using leveraging event hooks.
-
----
-
-<a href='#event_cookie-notification' aria-hidden='true' class='block-anchor'  id='event_cookie-notification'><i aria-hidden='true' class='linkify icon'></i></a>
 
 ## Cookie Notification Example
 
@@ -27,7 +24,6 @@ First, ensure you have loaded the `stencil-utils` package with the following com
 
 European websites must notify users of cookies to comply with European Union law.
 The following code implements hook that will alert shoppers that the website uses cookies.
-
 
 <div class="HubBlock-header">
     <div class="HubBlock-header-title flex items-center">
@@ -61,10 +57,6 @@ export default function() {
 ```
 
 A theme would listen for the `cookie-privacy-notification` event to override the browser’s default notification UI.
-
----
-
-<a href='#event_cart-dialog' aria-hidden='true' class='block-anchor'  id='event_cart-dialog'><i aria-hidden='true' class='linkify icon'></i></a>
 
 ## Cart Dialog Example
 
@@ -114,9 +106,6 @@ addProductToCart() {
     });
 }
 ```
-
----
-<a href='#event_stencil-data-tags' aria-hidden='true' class='block-anchor'  id='event_stencil-data-tags'><i aria-hidden='true' class='linkify icon'></i></a>
 
 ## Stencil Data Tags and Event Hooks
 Stencil themes provide the following chains of data tags, delegated DOM (Document Object Model) events, emitted Stencil event hooks, and Stencil event parameter(s).

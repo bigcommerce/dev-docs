@@ -20,18 +20,9 @@ The Checkout JS SDK is a JavaScript library of methods for performing actions re
 
 We have provided a [sample checkout app](https://github.com/bigcommerce/checkout-sdk-js-example) built in React; the React sample app is a great place to get started if you prefer to build within a framework. However, because the SDK is built in vanilla JS, it’s framework agnostic. To illustrate that point, this tutorial will walk through the first steps for building a custom checkout directly into the theme files using vanilla JS. At the end of the tutorial, you will have installed the Checkout SDK, created a new JavaScript module for your custom checkout, and console logged the checkout object.
 
----
-
-<a href='#getting-started_prerequisites' aria-hidden='true' class='block-anchor'  id='getting-started_prerequisites'><i aria-hidden='true' class='linkify icon'></i></a>
-
 ## Prerequisites
 * This tutorial uses [Cornerstone](https://github.com/bigcommerce/cornerstone). Your theme may differ.
 * Theme should be setup for [local development](https://developer.bigcommerce.com/stencil-docs/getting-started/installing-stencil).
-
-
----
-
-<a href='#getting-started_installing' aria-hidden='true' class='block-anchor'  id='getting-started_installing'><i aria-hidden='true' class='linkify icon'></i></a>
 
 ## Installing the Checkout JS SDK
 
@@ -42,11 +33,6 @@ For example, `cd cornerstone`
 2. Run the following command:
 
 `npm install --save @bigcommerce/checkout-sdk`
-
-
----
-
-<a href='#getting-started_creating' aria-hidden='true' class='block-anchor'  id='getting-started_creating'><i aria-hidden='true' class='linkify icon'></i></a>
 
 ## Creating a <span class="fn">checkout.js</span> file
 
@@ -87,10 +73,6 @@ Importing and extending the PageManager abstract class sets the page context for
 The async keyword ensures that `onReady()` returns a Promise; the await keyword waits until the Promise resolves to load the checkout. Async/await is supported in nearly all modern browsers, but if you need to support older browsers like IE, you will require the [Promise polyfill](https://github.com/stefanpenner/es6-promise).
 
 4. Save the file.
-
----
-
-<a href='#getting-started_mapping' aria-hidden='true' class='block-anchor'  id='getting-started_mapping'><i aria-hidden='true' class='linkify icon'></i></a>
 
 ## Mapping the <span class="fn">checkout.js</span> file to the checkout page type
 
@@ -165,10 +147,6 @@ const pageClasses = {
 
 3. Save the file.
 
----
-
-<a href='#getting-started_preparing' aria-hidden='true' class='block-anchor'  id='getting-started_preparing'><i aria-hidden='true' class='linkify icon'></i></a>
-
 ## Preparing the <span class="fn">checkout.html</span> template file
 
 1. Open the <span class="fn">checkout.html</span> file in your text editor.
@@ -203,26 +181,15 @@ lineNumbers: true
 
 4. Save the file.
 
----
-
-<a href='#getting-started_logging' aria-hidden='true' class='block-anchor'  id='getting-started_logging'><i aria-hidden='true' class='linkify icon'></i></a>
-
 ## Logging the Checkout Object
 
 1. Navigate to the storefront and open your browser console.
 2. Add an item to your cart and proceed to the checkout page. The checkout page will be blank below the header.
 3. Note the checkout object logged to the console.
 
-
----
-
-<a href='#getting-started_next-steps' aria-hidden='true' class='block-anchor'  id='getting-started_next-steps'><i aria-hidden='true' class='linkify icon'></i></a>
-
 ## Next Steps
 
 Build out your custom checkout page by entering your HTML into the `checkout.html` file and JavaScript into checkout.js. For detailed documentation on all of the Checkout SDK library methods visit the [SDK GitHub repository](https://github.com/bigcommerce/checkout-sdk-js).
-
----
 
 ## Resources
 

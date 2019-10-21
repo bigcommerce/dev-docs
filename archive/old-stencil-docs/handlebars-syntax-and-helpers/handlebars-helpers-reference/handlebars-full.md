@@ -1306,12 +1306,12 @@ The Stencil theme makes the `jsContext` available on the active page scoped. It 
 The following code uses `inject` to add all product IDs into JavaScript on category pages. It resides in a theme's `<theme-name>/templates/pages/category.html` template. Note the two `inject` calls directly under the front matter:
 
 ```
----
+
 category:
     shop_by_price: true
     products:
         limit: {{theme_settings.categorypage_products_per_page}}
----
+
 {{inject "categoryProductsPerPage" theme_settings.categorypage_products_per_page}}
 {{inject "productIds" (pluck category.products 'id')}}
 {{#partial "head"}}

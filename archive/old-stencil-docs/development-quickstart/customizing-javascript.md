@@ -18,7 +18,7 @@ By default, all derived `PageManager` classes contain an `onReady` method functi
 
 To demonstrate, this article describes how to add some very simple JavaScript to `product.js`.
 
----
+
 
 <a href='#customizing-javascript_customizing' aria-hidden='true' class='block-anchor'  id='customizing-javascript_customizing'><i aria-hidden='true' class='linkify icon'></i></a>
 
@@ -98,7 +98,7 @@ export default class Product extends PageManager {
 
 In your browser, refresh any product-details pop-up or page to see your new `"Hello World"` message (If you are using the Stencil CLI and browsing to localhost, you may need to restart it for changes the most recent changes to be reflected). 
 
----
+
 
 <a href='#customizing-javascript_bringing-handlebars' aria-hidden='true' class='block-anchor'  id='customizing-javascript_bringing-handlebars'><i aria-hidden='true' class='linkify icon'></i></a>
 
@@ -125,7 +125,7 @@ lineNumbers: true
 -->
 
 ```html
----
+
 product:
     videos:
         limit: {{theme_settings.productpage_videos_count}}
@@ -135,7 +135,7 @@ product:
         limit: {{theme_settings.productpage_related_products_count}}
     similar_by_views:
         limit: {{theme_settings.productpage_similar_by_views_count}}
----
+
 {{#partial "page"}}
 
     <!-- Context Injection Example: -->
@@ -194,7 +194,7 @@ Note that the `console.log(this.context.themeImageSizes);` statement will report
 product.js:63 [/assets/js/theme/product.js]: 100x100
 ```
 
----
+
 
 <a href='#customizing-javascript_installing-various' aria-hidden='true' class='block-anchor'  id='customizing-javascript_installing-various'><i aria-hidden='true' class='linkify icon'></i></a>
 
@@ -230,7 +230,7 @@ $('.myElement').click(() => {
 
 As always, for specifics, refer to your chosen library’s documentation.
 
----
+
 
 <a href='#customizing-example' aria-hidden='true' class='block-anchor'  id='customizing-example'><i aria-hidden='true' class='linkify icon'></i></a>
 

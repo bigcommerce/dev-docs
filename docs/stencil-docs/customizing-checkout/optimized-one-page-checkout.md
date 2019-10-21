@@ -12,8 +12,6 @@
 
 </div> 
 
-<a href='#optimized_working' aria-hidden='true' class='block-anchor'  id='optimized_working'><i aria-hidden='true' class='linkify icon'></i></a>
-
 ## Working with the Optimized Checkout SCSS File
 
 Cornerstone includes an SCSS file that styles the Optimized Checkout page. In your local installation, this file is located at <span class="fn">cornerstone/assets/scss/optimized-checkout.scss</span>.s
@@ -29,14 +27,9 @@ You can access the most recent version of this file in the [Cornerstone reposito
 ### Customizing Checkout Restrictions
 > When customizing the checkout page, you are free to change classes' contents, however, **do not** nest elements or change any class names. BigCommerce imposes these restrictions because each class here maps to multiple Optimized Checkout elements. Changing the structure or naming would break updates available in future Optimized Checkout enhancements.
 
-
 </div>
 </div>
 </div>
-
----
-
-<a href='#optimized_configuring' aria-hidden='true' class='block-anchor'  id='optimized_configuring'><i aria-hidden='true' class='linkify icon'></i></a>
 
 ## Configuring the Desktop Viewport
 
@@ -45,22 +38,18 @@ Within the <span class="fn">optimized-checkout.scss</span> file, to set up Optim
 ```css
     // TODO:
     // Configure media query to be 'desktop' breakpoint size
-    // -----------------------------------------------------------------------------
+    // --
     @media (min-width: 801px) {
         text-align: stencilString("optimizedCheckout-logo-position");
     }
 ```
-
----
-
-<a href='#optimized_classes' aria-hidden='true' class='block-anchor'  id='optimized_classes'><i aria-hidden='true' class='linkify icon'></i></a>
 
 ## Classes Available for Customization
 
 Below are the classes provided in Cornerstone's <span class="fn">optimized-checkout.scss</span>, with the corresponding page elements that they style. _These class names and mappings are subject to change, so please check the inline comments in the <span class="fn">optimized-checkout.scss</span> file that you downloaded with your current Cornerstone release._
 
 | **Class** | **Styles This Optimized One-Page Checkout Element:** |
-|---|---|
+|-|-|
 | `.optimizedCheckout-header` | Page header. |
 | `.optimizedCheckout-headingPrimary` | Top-level headings. |
 | `.optimizedCheckout-headingSecondary` | Certain lower-level elements, such as descriptions of cart items. |
@@ -74,18 +63,11 @@ Below are the classes provided in Cornerstone's <span class="fn">optimized-check
 | `.optimizedCheckout-form-label` | Styles form fields like `Email Address` – the field's text-label color. |
 | `.optimizedCheckout-form-input` | Styles form fields like `Email Address` – the entry box's background and border colors. |
 
-
----
-
-<a href='#optimized_providing' aria-hidden='true' class='block-anchor'  id='optimized_providing'><i aria-hidden='true' class='linkify icon'></i></a>
-
 ## Providing Customizable Options in Store Design
 
 You can determine which aspects of Optimized One-Page Checkout merchants will be able to customize with the Store Design tool.
 
 In Cornerstone's <span class="fn">optimized-checkout.scss</span>, each SCSS class and property available has a corresponding key/value pair in the <span class="fn">config.json</span> file, which can be used as the `id` value in schema.json when [creating customizable Store Design options](/stencil-docs/store-design/schema-json-metadata).
-
----
 
 <a id="optimized_currency"></a>
 
@@ -120,8 +102,6 @@ At checkout, the shopper will still be billed in the store’s default currency.
 -->
 
 ![](//s3.amazonaws.com/user-content.stoplight.io/6116/1562870949093 "")
-
----
 
 ## Resources
 

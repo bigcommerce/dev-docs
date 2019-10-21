@@ -1,17 +1,15 @@
 # Using Disqus
+
 <div class="otp" id="no-index">
-	<h3> On This Page </h3>
-	<ul>
-    <li><a href="#using-disqus_blog">Integrating Disqus with your Stencil blog</a></li>
-    <li><a href="#using-disqus_product">Integrating Disqus with your Stencil Product Pages</a></li>
-	</ul>
-</div>
+
+### On This Page
+- [Integrating Disqus with your Stencil blog](#integrating-disqus-with-your-stencil-blog)
+- [Integrating Disqus with your Stencil Product Pages](#integrating-disqus-with-your-stencil-product-pages)
+- [Resources](#resources)
+
+</div> 
 
 Stencil themes have the ability to integrate with Disqus, a third-party commenting system that allows users to leave blog comments on blog posts made with Stencil’s built-in blog. Disqus can also be used with on Stencil product pages to allow comment and review threads on individual products.
-
----
-
-<a href='#using-disqus_blog' aria-hidden='true' class='block-anchor'  id='using-disqus_blog'><i aria-hidden='true' class='linkify icon'></i></a>
 
 ## Integrating Disqus with your Stencil blog
 
@@ -24,10 +22,6 @@ To use Disqus blog comments in Stencil, follow the steps below:
 5. Paste your Disqus Universal Code before the closing {{/partial}} tag.
 6. Save your files.
 7. Apply your theme.
-
----
-
-<a href='#using-disqus_product' aria-hidden='true' class='block-anchor'  id='using-disqus_product'><i aria-hidden='true' class='linkify icon'></i></a>
 
 ## Integrating Disqus with your Stencil Product Pages
 
@@ -81,12 +75,9 @@ var disqus_config = function () {
 7. Save your files
 8. Apply your theme
 
----
-
 ## Resources
 
 ### Related Articles
 
 * [Enabling Disqus for Product Reviews](https://forum.bigcommerce.com/s/article/How-do-I-enable-Disqus-as-my-Comment-Service?_ga=2.224340315.1984523106.1539568940-967431010.1523308107#get-code) (Blueprint)
 * [Using Disqus for Blog Comments](https://forum.bigcommerce.com/s/article/Using-Disqus-Comments?_ga=2.224340315.1984523106.1539568940-967431010.1523308107) (BigCommerce Community)
-

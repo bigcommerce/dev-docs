@@ -27,7 +27,7 @@ If you are reinstalling over a base theme on which you have already begun develo
 </div>
 </div>
 
----
+
 
 <a href='##downloading_downloading-cornerstone-zip' aria-hidden='true' class='block-anchor'  id='#downloading_downloading-cornerstone-zip'><i aria-hidden='true' class='linkify icon'></i></a>
 
@@ -49,7 +49,7 @@ The Cornerstone theme's description should zoom to full-page and display a Theme
 3. From the `Theme Options` drop-down list, select `Download theme file` to download this Cornerstone release as it was refreshed on Theme Marketplace. 
 4. Unpack the zipped theme to a working directory. This can either be the directory where you have been developing your theme or a new directory.
 
----
+
 
 <a href='##downloading_reinstalling-dependencies' aria-hidden='true' class='block-anchor'  id='#downloading_reinstalling-dependencies'><i aria-hidden='true' class='linkify icon'></i></a>
 
@@ -60,7 +60,7 @@ The Cornerstone theme's description should zoom to full-page and display a Theme
 * To relaunch, repeat the steps listed in the _Launching Stencil_ section.
 
 
----
+
 
 <a href='##downloading_next-steps' aria-hidden='true' class='block-anchor'  id='#downloading_next-steps'><i aria-hidden='true' class='linkify icon'></i></a>
 
@@ -81,7 +81,7 @@ When you are ready to upload your custom theme to a store, follow the instructio
 </div>
 </div>
 
----
+
 
 ## Resources
 ### Related Articles

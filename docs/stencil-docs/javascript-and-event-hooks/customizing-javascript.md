@@ -1,13 +1,13 @@
 # Customizing Javascript
 
 <div class="otp" id="no-index">
-	<h3> On This Page </h3>
-	<ul>
-		<li><a href="#customizing-javascript_customizing">Modifying a Page's Javascript</a></li>
-    	<li><a href="#customizing-javascript_bringing-handlebars">Bringing In Handlebars Context</a></li>
-		<li><a href="#customizing-javascript_installing-various">Installing Libraries</a></li>
-	</ul>
-</div>
+
+### On This Page
+- [Modifying a Page's Javascript](#modifying-a-pages-javascript)
+- [Bringing in Handlebars Context](#bringing-in-handlebars-context)
+- [Installing Libraries](#installing-libraries)
+
+</div> 
 
 Most [Cornerstone theme](https://github.com/bigcommerce/cornerstone) page template files located in <span class="fp">templates/pages/</span>  have a corresponding `.js` file in <span class="fp">assets/js/theme/</span>.  These JavaScript files contain event handlers and logic  for managing page specific elements and actions.
 
@@ -16,10 +16,6 @@ For example, <span class="fp">assets/js/theme/product.js</span> corresponds to <
 By default, all derived `PageManager` classes contain an `onReady` method functionally similar to `JQuery.ready()`. Additionally, certain pages have unique event handlers. For example the `cartUpdate` handler in <span class="fp">assets/js/cart.js</span> runs each time certain cart elements are changed. Developers can customize and enhance page behavior and functionality by editing code within these event handlers (or by creating their own event handlers).
 
 To demonstrate, this article describes how to add some very simple JavaScript to `product.js`.
-
----
-
-<a href='#customizing-javascript_customizing' aria-hidden='true' class='block-anchor'  id='customizing-javascript_customizing'><i aria-hidden='true' class='linkify icon'></i></a>
 
 ## Modifying a Page's Javascript
 In this example, we will add some "hello world" text to the product page's onReady event. We'll first add a call to the function; then, we will implement the function itself.
@@ -97,10 +93,6 @@ export default class Product extends PageManager {
 
 In your browser, refresh any product-details pop-up or page to see your new `"Hello World"` message (If you are using the Stencil CLI and browsing to localhost, you may need to restart it for changes the most recent changes to be reflected).
 
----
-
-<a href='#customizing-javascript_bringing-handlebars' aria-hidden='true' class='block-anchor'  id='customizing-javascript_bringing-handlebars'><i aria-hidden='true' class='linkify icon'></i></a>
-
 ## Bringing in Handlebars Context
 
 You can inject any variables from the Handlebars context into your client-side JavaScript by using the `{{inject...}}` expression like so:
@@ -124,7 +116,7 @@ lineNumbers: true
 -->
 
 ```html
----
+
 product:
     videos:
         limit: {{theme_settings.productpage_videos_count}}
@@ -134,7 +126,7 @@ product:
         limit: {{theme_settings.productpage_related_products_count}}
     similar_by_views:
         limit: {{theme_settings.productpage_similar_by_views_count}}
----
+
 {{#partial "page"}}
 
     <!-- Context Injection Example: -->
@@ -192,10 +184,6 @@ Note that the `console.log(this.context.themeImageSizes);` statement will report
 [/assets/js/theme/product.js]: Hello World!
 product.js:63 [/assets/js/theme/product.js]: 100x100
 ```
-
----
-
-<a href='#customizing-javascript_installing-various' aria-hidden='true' class='block-anchor'  id='customizing-javascript_installing-various'><i aria-hidden='true' class='linkify icon'></i></a>
 
 ## Installing Libraries
 

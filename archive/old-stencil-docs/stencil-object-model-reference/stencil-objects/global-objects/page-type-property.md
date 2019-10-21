@@ -14,7 +14,7 @@
 All possible values for `{{page_type}}` are:
 
 | account | shippingaddressform | account_new_return | 
-|---|---|---|
+||||
 | account_addressbook | account_downloaditem | account_inbox | 
 | editaccount | account_orderstatus | account_orders | 
 | invoice_print | account_order | account_recentitems | 

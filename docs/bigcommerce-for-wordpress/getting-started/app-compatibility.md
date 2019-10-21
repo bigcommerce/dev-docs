@@ -11,8 +11,6 @@
 
 </div> 
 
-
-
 When you use BigCommerce for WordPress, your storefront is rendered by WordPress rather than BigCommerce, so some apps that you use for a BigCommerce-powered storefront may no longer be compatible.
 
 ## Supported Apps
@@ -46,4 +44,3 @@ Although a specific BigCommerce app may not be available, you may be able to fin
 </div>
 
 If you are a BigCommerce app developer and would like to help our merchants on WordPress too, reach out to our App Marketplace team at [appstore@bigcommerce.com](mailto:appstore@bigcommerce.com).
-

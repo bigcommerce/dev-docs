@@ -1,32 +1,32 @@
 # Global Objects and Properties
+
 <div class="otp" id="no-index">
-	<h3> On This Page </h3>
-	<ul>
-    <li><a href="#global-objects_banner">Banner</a></li>
-    <li><a href="#global-objects_breadcrumbs">Breadcrumbs</a></li>
-		<li><a href="#global-objects_carousel">Carousel</a></li>
-    <li><a href="#global-objects_cart">Cart</a></li>
-		<li><a href="#global-objects_currency-selector">Currency Selector</a></li>
-    <li><a href="#global-objects_categories">Categories</a></li>
-    <li><a href="#global-objects_faceted-search">Faceted Search</a></li>
-    <li><a href="#global-objects_featured-products">Featured Products</a></li>
-    <li><a href="#global-objects_footer">Footer</a></li>
-    <li><a href="#global-objects_html-head">HTML Head</a></li>
-    <li><a href="#global-objects_is-ajax">Is Ajax</a></li>
-    <li><a href="#global-objects_login">Login</a></li>
-    <li><a href="#global-objects_new-products">New Products</a></li>
-    <li><a href="#global-objects_page-content">Page Content</a></li>
-    <li><a href="#global-objects_pages">Pages</a></li>
-    <li><a href="#global-objects_page-type-property">Page Type Property</a></li>
-    <li><a href="#global-objects_pagination">Pagination</a></li>
-    <li><a href="#global-objects_search">Search</a></li>
-    <li><a href="#global-objects_settings">Settings</a></li>
-    <li><a href="#global-objects_sitemap">Sitemap</a></li>
-    <li><a href="#global-objects_social-links">Social Links</a></li>
-    <li><a href="#global-objects_template-property">Template Property</a></li>
-    <li><a href="#global-objects_top-sellers">Top Sellers</a></li>
-  </ul>
-</div>
+
+### On This Page
+- [Banner](#banner)
+- [Breadcrumbs](#breadcrumbs)
+- [Carousel](#carousel)
+- [Cart](#cart)
+- [Currency Selector](#currency-selector)
+- [Categories](#categories)
+- [Faceted Search](#faceted-search)
+- [Featured Products](#featured-products)
+- [Footer](#footer)
+- [HTML Head](#html-head)
+- [Is_Ajax](#isajax)
+- [New Products](#new-products)
+- [Page Content](#page-content)
+- [Pages](#pages)
+- [Page Type Property](#page-type-property)
+- [Pagination](#pagination)
+- [Search](#search)
+- [Settings](#settings)
+- [Sitemap](#sitemap)
+- [Social Links](#social-links)
+- [Template Property](#template-property)
+- [Top Sellers](#top-sellers)
+
+</div> 
 
 Global objects and properties are common components shared across the entire BigCommerce storefront.
 
@@ -47,8 +47,6 @@ Global objects and properties are common components shared across the entire Big
 </div>
 </div>
 </div>
-
-<a href='#global-objects_banner' aria-hidden='true' class='block-anchor'  id='global-objects_banner'><i aria-hidden='true' class='linkify icon'></i></a>
 
 ## Banner
 
@@ -91,10 +89,6 @@ example: `{{{banner}}}`. (Double braces would escape the HTML.)
 </div>
 </div>
 
----
-
-<a href='#global-objects_breadcrumbs' aria-hidden='true' class='block-anchor'  id='global-objects_breadcrumbs'><i aria-hidden='true' class='linkify icon'></i></a>
-
 ## Breadcrumbs
 
 <b>Description:</b> Defines a page's breadcrumbs – available on virtually all pages that have a breadcrumb trail
@@ -117,10 +111,6 @@ example: `{{{banner}}}`. (Double braces would escape the HTML.)
     <td>URL of this breadcrumb element</td>
   </tr>
 </table>
-
----
-
-<a href='#global-objects_carousel' aria-hidden='true' class='block-anchor'  id='global-objects_carousel'><i aria-hidden='true' class='linkify icon'></i></a>
 
 ## Carousel
 
@@ -181,8 +171,6 @@ example: `{{{banner}}}`. (Double braces would escape the HTML.)
 </tr>
 </table>
 
----
-
 <a id="global-objects_cart"></a>
 
 ## Cart
@@ -196,11 +184,6 @@ example: `{{{banner}}}`. (Double braces would escape the HTML.)
 |Property|Description|
 | -- | -- |
 | cart_id| ID of the shoppers cart. String |
-
-
----
-
-<a href='#global-objects_currency-selector' aria-hidden='true' class='block-anchor'  id='global-objects_currency-selector'><i aria-hidden='true' class='linkify icon'></i></a>
 
 ## Currency Selector
 
@@ -257,9 +240,9 @@ example: `{{{banner}}}`. (Double braces would escape the HTML.)
  </tr>
  </table>
 
- ---
+ 
 
- <a href='#global-objects_categories' aria-hidden='true' class='block-anchor'  id='global-objects_categories'><i aria-hidden='true' class='linkify icon'></i></a>
+ 
 
  ## Categories
 
@@ -360,10 +343,6 @@ The table below displays properties for the individual category objects within t
   </tr>
 </table>
 
----
-
-<a href='#global-objects_faceted-search' aria-hidden='true' class='block-anchor'  id='global-objects_faceted-search'><i aria-hidden='true' class='linkify icon'></i></a>
-
 ## Faceted Search
 
 <b>Description:</b> Faceted-search object for searching globally, by category, or by brand
@@ -395,10 +374,6 @@ The table below displays properties for the individual category objects within t
   </tr>
 </table>
 
----
-
-<a href='#global-objects_featured-products' aria-hidden='true' class='block-anchor'  id='global-objects_featured-products'><i aria-hidden='true' class='linkify icon'></i></a>
-
 ## Featured Products
 
 <b>Description:</b> Renders a list of all the featured products for the BigCommerce storefront.
@@ -414,12 +389,12 @@ The code example below displays the global `{{products.featured}}` object on the
 First, you must declare the object using Front Matter. To declare the object, the following front matter must be placed at the top of the template HTML page. This following declaration also limits the number of featured products to be displayed:
 
 ```html
----
+
 products:
     [...]
     featured:
         limit: {{theme_settings.homepage_featured_products_count}} //limits the number of featured products to be displayed
----
+
 ```
 
 The `homepage_featured_products_count` limit is one of two relevant variables defined in [Cornerstone's `config.json` file](https://github.com/bigcommerce/cornerstone/blob/master/config.json#L45) (Github).
@@ -433,7 +408,6 @@ The `homepage_featured_products_count` limit is one of two relevant variables de
     // ...    
 ```
 
-
 In the body of [Cornerstone's `home.html` template](https://github.com/bigcommerce/cornerstone/blob/master/templates/pages/home.html#L27) (Github), the below Handlebars conditional statement is responsible for displaying the `{{products.featured}}` object. This is the object that we declared above using front matter.
 
 ```html
@@ -444,10 +418,6 @@ In the body of [Cornerstone's `home.html` template](https://github.com/bigcommer
 ```
 
 This above statement formats the _Featured Products_ display according to the `homepage_featured_products_column_count` variable, which is the second relevant variable defined in [Cornerstone's `config.json` file](https://github.com/bigcommerce/cornerstone/blob/master/config.json#L53) (Github).
-
----
-
-<a href='#global-objects_footer' aria-hidden='true' class='block-anchor'  id='global-objects_footer'><i aria-hidden='true' class='linkify icon'></i></a>
 
 ## Footer
 
@@ -471,10 +441,6 @@ This above statement formats the _Featured Products_ display according to the `h
     <td>Scripts to be loaded after the HTML has loaded; includes performance metrics</td>
   </tr>
 </table>
-
----
-
-<a href='#global-objects_html-head' aria-hidden='true' class='block-anchor'  id='global-objects_html-head'><i aria-hidden='true' class='linkify icon'></i></a>
 
 ## HTML Head
 
@@ -519,10 +485,6 @@ This above statement formats the _Featured Products_ display according to the `h
   </tr>
 </table>
 
----
-
-<a href='#global-objects_is-ajax' aria-hidden='true' class='block-anchor'  id='global-objects_is-ajax'><i aria-hidden='true' class='linkify icon'></i></a>
-
 ## Is_Ajax
 
 <b>Description:</b> Boolean; returns `true` if the current executing request is an Ajax request
@@ -530,10 +492,6 @@ This above statement formats the _Featured Products_ display according to the `h
 <b>Handlebars Expression:</b> `{{is_ajax}}`
 
 No properties available for this object.
-
----
-
-<a href='#global-objects_new-products' aria-hidden='true' class='block-anchor'  id='global-objects_new-products'><i aria-hidden='true' class='linkify icon'></i></a>
 
 ## New Products
 
@@ -550,11 +508,11 @@ To access the global `{{products.new}}` object on your page, you must first use 
 The code example below declares the global `{{products.new}}` object on the `cornerstone/templates/pages/home.html` page template from [Stencil's base Cornerstone Theme](https://github.com/bigcommerce/cornerstone/blob/master/templates/pages/home.html#L3) (Github).
 
 ```html
----
+
 products:
     new:
         limit: {{theme_settings.homepage_new_products_count}}
----
+
 ```
 
 The `homepage_featured_products_count` limit is one of two relevant variables defined in Cornerstone's `config.json` file (Github).
@@ -577,10 +535,6 @@ In the body of [Cornerstone's `home.html` template](https://github.com/bigcommer
 ```
 
 This above statement formats the _New Products_ display according to the `homepage_new_products_column_count` variable, which is the second relevant variable defined in [Cornerstone's `config.json` file](https://github.com/bigcommerce/cornerstone/blob/master/config.json#L46) (Github
-
----
-
-<a href='#global-objects_page-content' aria-hidden='true' class='block-anchor'  id='global-objects_page-content'><i aria-hidden='true' class='linkify icon'></i></a>
 
 ## Page Content
 
@@ -621,10 +575,6 @@ This above statement formats the _New Products_ display according to the `homepa
   </tr>
 </table>
 
----
-
-<a href='#global-objects_pages' aria-hidden='true' class='block-anchor'  id='global-objects_pages'><i aria-hidden='true' class='linkify icon'></i></a>
-
 ## Pages
 
 <b>Description:</b> A list of all web content pages for the BigCommerce storefront
@@ -660,10 +610,6 @@ This above statement formats the _New Products_ display according to the `homepa
     </tr>
 </table>
 
----
-
-<a href='#global-objects_page-type-property' aria-hidden='true' class='block-anchor'  id='global-objects_page-type-property'><i aria-hidden='true' class='linkify icon'></i></a>
-
 ## Page Type Property
 
 <b>Description:</b> A string representing the type of page currently displayed. <br>
@@ -680,7 +626,7 @@ This above statement formats the _New Products_ display according to the `homepa
 All possible values for `{{page_type}}` are:
 
 | account | shippingaddressform | account_new_return |
-|---|---|---|
+|-|-|-|
 | account_addressbook | account_downloaditem | account_inbox |
 | editaccount | account_orderstatus | account_orders |
 | invoice_print | account_order | account_recentitems |
@@ -696,10 +642,6 @@ All possible values for `{{page_type}}` are:
 | rss | search | sitemap |
 | newsletter_subscribe | unsubscribe | hibernation |
 | maintenance |
-
----
-
-<a href='#global-objects_pagination' aria-hidden='true' class='block-anchor'  id='global-objects_pagination'><i aria-hidden='true' class='linkify icon'></i></a>
 
 ## Pagination
 
@@ -747,11 +689,6 @@ All possible values for `{{page_type}}` are:
           <td>The page number of this link, based on an index starting at 1</td>
       </tr>
     </table>
-
-
----
-
-<a href='#global-objects_search' aria-hidden='true' class='block-anchor'  id='global-objects_search'><i aria-hidden='true' class='linkify icon'></i></a>
 
 ## Search
 
@@ -914,10 +851,6 @@ All possible values for `{{page_type}}` are:
   </tr>
 </table>
 
----
-
-<a href='#global-objects_settings' aria-hidden='true' class='block-anchor'  id='global-objects_settings'><i aria-hidden='true' class='linkify icon'></i></a>
-
 ## Settings
 
 **Description:** Common settings shared across every BigCommerce storefront
@@ -927,7 +860,7 @@ All possible values for `{{page_type}}` are:
 **Object Properties:**
 
 | Property | Description |
-| --- | --- |
+|-|-|
 | account_creation_enabled | Site-wide boolean value that indicates whether to allow customers to create accounts |
 | show_product_rating | Site-wide boolean value that indicates whether to display product ratings (in numeric or star format) to visitors |
 | show_product_reviews | Site-wide boolean value that indicates whether to display full-text product reviews to visitors |
@@ -1055,10 +988,6 @@ All possible values for `{{page_type}}` are:
 | amp_analytics_id | Returns Google AMP analytics ID |
 | bulk_discount_enabled | Boolean that return `true` if bulk discount is enabled on products. |
 
----
-
-<a href='#global-objects_sitemap' aria-hidden='true' class='block-anchor'  id='global-objects_sitemap'><i aria-hidden='true' class='linkify icon'></i></a>
-
 ## Sitemap
 
 **Description:** A list of all sitemap properties for this BigCommerce storefront: pages, categories, and brands.
@@ -1105,10 +1034,6 @@ All possible values for `{{page_type}}` are:
     </tr>
   </table>
 
----
-
-<a href='#global-objects_social-links' aria-hidden='true' class='block-anchor'  id='global-objects_social-links'><i aria-hidden='true' class='linkify icon'></i></a>
-
 ## Social Links
 
 <b>Description:</b> Array of all social-media site links for the storefront<br>
@@ -1140,10 +1065,6 @@ All possible values for `{{page_type}}` are:
   </tr>
 </table>
 
----
-
-<a href='#global-objects_template-property' aria-hidden='true' class='block-anchor'  id='global-objects_template-property'><i aria-hidden='true' class='linkify icon'></i></a>
-
 ## Template Property
 
 <b>Description:</b> A string containing the name of the root template currently being rendered in the page context. <br>
@@ -1165,10 +1086,6 @@ All possible values for `{{page_type}}` are:
 * `pages/custom/product/<some_page_name>` (for a custom product page)
 (etc.)
 
----
-
-<a href='#global-objects_top-sellers' aria-hidden='true' class='block-anchor'  id='global-objects_top-sellers'><i aria-hidden='true' class='linkify icon'></i></a>
-
 ## Top Sellers
 
 <b>Description:</b> Object to display a sidebar of top-selling products<br>
@@ -1182,8 +1099,8 @@ All possible values for `{{page_type}}` are:
 To access the global`{{products.top_sellers}}` object on your page, you must first use [front matter](/stencil-docs/front-matter/front-matter-attributes-reference) to declare the object at the top of your page template. For example, you would place this front-matter declaration at the top of your template file:
 
 ```
----
+
 products:
     top_sellers:
----
+
 ```

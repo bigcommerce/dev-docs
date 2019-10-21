@@ -21,7 +21,7 @@ Customizing your Stencil theme's printable packing slips currently relies on a t
 
 3. [Use WebDAV](https://support.bigcommerce.com/articles/Public/File-Access-WebDAV/) to upload your customized HTML file to WebDAV's `/template/` folder.
 
----
+
 
 <a href='#customizing_packing_resources' aria-hidden='true' class='block-anchor'  id='customizing_packing_resources'><i aria-hidden='true' class='linkify icon'></i></a>
 

@@ -3,19 +3,15 @@
 <div class="otp" id="no-index">
 
 ### On This Page
-
-* [Step 0: Obtain Store API Credentials](#step-0-obtain-store-api-credentials)
-* [Step 1: Download a Theme](#step-1-download-a-theme)
-* [Step 2: Install Theme Modules](#step-2-install-theme-modules)
-* [Step 3: Serve Live Preview](#step-3-serve-live-preview)
+- [Step 0: Obtain Store API Credentials](#step-0-obtain-store-api-credentials)
+- [Step 1: Download a Theme](#step-1-download-a-theme)
+- [Step 2: Install Theme Modules](#step-2-install-theme-modules)
+- [Step 3: Serve Live Preview](#step-3-serve-live-preview)
+- [Resources](#resources)
 
 </div>
 
 Once Stencil CLI is installed, the next step on the road to theme development is downloading a theme to edit and previewing live changes using Stencil CLI's powerful Browsersync functionality. This article will walk you through the process of downloading a theme for development, installing theme modules, then serving a live preview using Stencil CLI's `stencil start` command. The steps in this article assume Stencil CLI has been installed on your system; if its not installed yet, see [Installing Stencil CLI](https://developer.bigcommerce.com/stencil-docs/installing-stencil-cli/installing-stencil) for detailed, operating system specific instructions.
-
----
-
-<a href='#step-0-obtain-store-api-credentials' aria-hidden='true' class='block-anchor'  id='step-0-obtain-store-api-credentials'><i aria-hidden='true' class='linkify icon'></i></a>
 
 ## Step 0: Obtain Store API Credentials
 
@@ -32,10 +28,6 @@ The **Stencil-CLI Access Level** can then be set by selecting **local developmen
 * **local development only** - can read theme related store data, but can not publish
 * **publish theme** - can read theme related store data and push themes to the live storefront
 
----
-
-<a href='#step-1-download-a-theme' aria-hidden='true' class='block-anchor'  id='step-1-download-a-theme'><i aria-hidden='true' class='linkify icon'></i></a>
-
 ## Step 1: Download a Theme
 
 To develop against BigCommerce's Cornerstone theme (which is the building block and starting point for rapidly developing themes for BigCommerce) clone [the repository](https://github.com/bigcommerce/cornerstone) from GitHub:
@@ -45,7 +37,6 @@ git clone https://github.com/bigcommerce/cornerstone.git
 ```
 
 Cornerstone and other themes can also be downloaded from the BigCommerce control panel. For instructions on doing so, see [Downloading and Uploading Custom Themes](https://support.bigcommerce.com/s/article/Stencil-Themes#download-upload) (BigCommerce Knowledge Base).
-
 
 It is also possible to download and develop against themes in the BigCommerce Themes Marketplace. To do so:
 1. Navigate to **Storefront** > **Themes Marketplace**, and add the desired theme.
@@ -103,10 +94,6 @@ For instructions on doing so, see the following resources:
 </div>
 </div>
 
----
-
-<a href='#step-2-install-theme-modules' aria-hidden='true' class='block-anchor'  id='step-2-install-theme-modules'><i aria-hidden='true' class='linkify icon'></i></a>
-
 ## Step 2: Install Theme Modules
  
 For theme versions `1.10.0+`, modules can be installed with `npm`:
@@ -133,10 +120,6 @@ This will install the `npm` modules required to properly leverage the Stencil ev
 </div>
 </div>
 </div>
-
----
-
-<a href='#step-3-serve-live-preview' aria-hidden='true' class='block-anchor'  id='step-3-serve-live-preview'><i aria-hidden='true' class='linkify icon'></i></a>
 
 ## Step 3: Serve Live Preview
 
@@ -173,13 +156,13 @@ stencil start
 # ...
 [Browsersync] Proxying: http://localhost:3001
 [Browsersync] Access URLs:
- -----------------------------------
+ --
        Local: http://localhost:3000  # preview real-time changes on your local machine
     External: http://10.4.10.71:3000 # preview real-time changes across multiple devices
- -----------------------------------
+ --
           UI: http://localhost:3002
  UI External: http://10.4.10.71:3002
- -----------------------------------
+ --
 [Browsersync] Watching files...
 ```
 
@@ -199,8 +182,6 @@ For a full list of Stencil CLI commands, see [Stencil CLI Options and Commands](
 </div>
 </div>
 </div>
-
----
 
 ## Resources
 

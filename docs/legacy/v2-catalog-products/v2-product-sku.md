@@ -12,8 +12,6 @@
 
 </div> 
 
-<a href='#v2-sku_object-properties' aria-hidden='true' class='block-anchor'  id='v2-sku_object-properties'><i aria-hidden='true' class='linkify icon'></i></a>
-
 ## SKUs 
 
 Stock Keeping Unit identifiers associated with products or product options.
@@ -21,7 +19,7 @@ Stock Keeping Unit identifiers associated with products or product options.
 ### SKU Object – Properties 
 
 | Name | Type | Description |
-| --- | --- | --- |
+|-|-|-|
 | id | int | |
 | product_id | int | |
 | sku | string | The unique SKU (stock keeping unit). |
@@ -39,9 +37,6 @@ Stock Keeping Unit identifiers associated with products or product options.
 | image_file | string | The image that will be displayed when this SKU is selected on the storefront. When updating a SKU image, send the publicly accessible URL. Supported image formats are JPEG, PNG, and GIF. | 
 | options | object_array | This is an object {"product_option_id": int, "option_value_id":int} |
 
-
-<a href='#v2-sku_list-product-sku' aria-hidden='true' class='block-anchor'  id='v2-sku_list-product-sku'><i aria-hidden='true' class='linkify icon'></i></a>
-
 ## List Product SKUs 
 
 Gets the collection of SKUs associated with a product.
@@ -57,7 +52,7 @@ BigCommerce has updated the SKU schema to include additional price, weight, imag
 Filter parameters can be added to the URL query string to select specific skus in the collection.
 
 | Parameter | Type | Example |
-| --- | --- | --- |
+|-|-|-|
 | min_id | int | /api/v2/products/{product_id}/skus?min_id={value} |
 | max_id | int | /api/v2/products/{product_id}/skus?max_id={value} |
 | sku | string | /api/v2/products/{product_id}/skus?sku={value} |
@@ -75,7 +70,7 @@ Filter parameters can be added to the URL query string to select specific skus i
 Parameters can be added to the URL query string to paginate the collection. The maximum limit is 250. If a limit isn’t provided, up to 50 skus are returned by default.
 
 | Parameter | Type | Example |
-| --- | --- | --- |
+|-|-|-|
 | page | int | /api/v2/products/{product_id}/skus?page={number} |
 | limit | int | /api/v2/products/{product_id}/skus?limit={count} |
 
@@ -142,14 +137,11 @@ Example JSON returned in the response:
 ]
 ```
 
-<a href='#v2-sku_get-product-sku' aria-hidden='true' class='block-anchor'  id='v2-sku_get-product-sku'><i aria-hidden='true' class='linkify icon'></i></a>
-
 ## Get a Product SKU 
 
 Gets a single product SKU.
 
 >`GET /stores/{store_hash}/v2/products/{product_id}/skus/{id}`
-
 
 ### Response 
 
@@ -181,8 +173,6 @@ Example JSON returned in the response:
 }
 ```
 
-<a href='#v2-sku_get-count-sku' aria-hidden='true' class='block-anchor'  id='v2-sku_get-count-sku'><i aria-hidden='true' class='linkify icon'></i></a>
-
 ### Get a Count of Product SKUs 
 
 Gets a count of the number of product SKUs in the store.
@@ -202,15 +192,12 @@ Example JSON returned in the response:
 }
 ```
 
-<a href='#v2-sku_create-product-sku' aria-hidden='true' class='block-anchor'  id='v2-sku_create-product-sku'><i aria-hidden='true' class='linkify icon'></i></a>
-
 ### Create a Product SKU 
 
 Creates a new product SKU.
 
 *   OAuth
 >`POST /stores/{store_hash}/v2/products/{product_id}/skus`
-
 
 ### Read-only Properties 
 
@@ -264,15 +251,11 @@ Example JSON returned in the response:
 }
 ```
 
-<a href='#v2-sku_update-product-sku' aria-hidden='true' class='block-anchor'  id='v2-sku_update-product-sku'><i aria-hidden='true' class='linkify icon'></i></a>
-
 ## Update a Product SKU 
 
 Updates an existing product SKU.
 
-
 >`PUT /stores/{store_hash}/v2/products/{product_id}/skus/{id}`
-
 
 ### Read-only Properties 
 
@@ -317,20 +300,15 @@ Example JSON returned in the response:
 }
 ```
 
-<a href='#v2-sku_delete-product-sku' aria-hidden='true' class='block-anchor'  id='v2-sku_delete-product-sku'><i aria-hidden='true' class='linkify icon'></i></a>
-
 ## Delete a Product SKU 
 
 Deletes a product SKU.
 
 >`DELETE /stores/{store_hash}/v2/products/{product_id}/skus/{id}`
 
-<a href='#v2-sku_delete-multiple-product-sku' aria-hidden='true' class='block-anchor'  id='v2-sku_delete-multiple-product-sku'><i aria-hidden='true' class='linkify icon'></i></a>
-
 ## Delete Multiple Product SKUs 
 
 Deletes multiple product SKUs.
-
 
 >`DELETE /stores/{store_hash}/v2/products/{product_id}/skus`
 
@@ -339,7 +317,7 @@ Deletes multiple product SKUs.
 Filter parameters can be added to the URL query string to select specific SKUs in the collection.
 
 | Parameter | Type | Example |
-| --- | --- | --- |
+|-|-|-|
 | min_id | int | /api/v2/products/{product_id}/skus?min_id={value} |
 | max_id | int | /api/v2/products/{product_id}/skus?max_id={value} |
 | sku | string | /api/v2/products/{product_id}/skus?sku={value} |
@@ -357,7 +335,6 @@ Filter parameters can be added to the URL query string to select specific SKUs i
 Parameters can be added to the URL query string to paginate the collection. The maximum limit is 250. If a limit isn’t provided, up to 50 skus are returned by default.
 
 | Parameter | Type | Example |
-| --- | --- | --- |
+|-|-|-|
 | page | int | /api/v2/products/{product_id}/skus?page={number} |
 | limit | int | /api/v2/products/{product_id}/skus?limit={count} |
-

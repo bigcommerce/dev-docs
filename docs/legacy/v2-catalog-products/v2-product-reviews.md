@@ -13,8 +13,6 @@
 
 </div> 
 
-<a href='#v2-review_object-properties' aria-hidden='true' class='block-anchor'  id='v2-review_object-properties'><i aria-hidden='true' class='linkify icon'></i></a>
-
 ## Product Reviews 
 
 Reviews associated with a product.
@@ -22,7 +20,7 @@ Reviews associated with a product.
 ### Product Review Object – Properties 
 
 | Name | Type | Description |
-| --- | --- | --- |
+|-|-|-|
 | id | int | Unique database ID for this product review. Read-only. |
 | product_id | int | The ID of the product to which this review belongs. Read-only. |
 | author | string | The review's author, displayed on the storefront. |
@@ -31,8 +29,6 @@ Reviews associated with a product.
 | title | string | The review's title, displayed on the storefront. |
 | review | text | The full text of the review, displayed on the storefront. |
 | status | int | A status indicator. 0="Pending", 1= "Approved", 2="Disapproved". |
-
----
 
 ## List Product Reviews 
 
@@ -49,7 +45,7 @@ There are no filter parameters specific to product reviews.
 Parameters can be added to the URL query string to paginate the collection. The maximum limit is 250. If a limit isn’t provided, up to 50 product_reviews are returned by default.
 
 | Parameter | Type | Example |
-| --- | --- | --- |
+|-|-|-|
 | page | int | /api/v2/products/{product_id}/reviews?page={number} |
 | limit | int | /api/v2/products/{product_id}/reviews?limit={count} |
 
@@ -92,17 +88,11 @@ Example JSON returned in the response:
 ]
 ```
 
----
-
-<a href='#v2-reviews_get-count-reviews' aria-hidden='true' class='block-anchor'  id='v2-reviews_get-count-reviews'><i aria-hidden='true' class='linkify icon'></i></a>
-
-
 ## Get a Product Review 
 
 Gets a product review.
 
 >`GET /stores/{store_hash}/v2/products/{product_id}/reviews/{id}`
-
 
 ### Response 
 
@@ -121,10 +111,6 @@ Example JSON returned in the response:
 }
 ```
 
----
-
-<a href='#v2-reviews_create-product-reviews' aria-hidden='true' class='block-anchor'  id='v2-reviews_create-product-reviews'><i aria-hidden='true' class='linkify icon'></i></a>
-
 ## Create a Product Review 
 
 Creates a new product review. 
@@ -132,7 +118,6 @@ Creates a new product review.
 ### Notes 
 
 The `review` property is the review's text. The `rating` property must be a whole number between 1–5. If the optional `date_created` property is not specified, it defaults to the current date/time. If the optional "status" property is not specified, it defaults to 0 [`Pending`]. Other allowable values are 1 [`Approved`] or 2 [`Disapproved`].)
-
 
 >`POST /stores/{store_hash}/v2/products/{product_id}/reviews`
 
@@ -169,10 +154,6 @@ Example JSON returned in the response:
 }
 ```
 
----
-
-<a href='#v2-reviews_update-product-reviews' aria-hidden='true' class='block-anchor'  id='v2-reviews_update-product-reviews'><i aria-hidden='true' class='linkify icon'></i></a>
-
 ## Update a Product Review 
 
 Updates an existing product review. Your request may update any of the properties that are writeable for the Create (POST) operation.
@@ -203,23 +184,14 @@ Example JSON returned in the response:
 }
 ```
 
----
-
-<a href='#v2-reviews_delete-product-reviews' aria-hidden='true' class='block-anchor'  id='v2-reviews_delete-product-reviews'><i aria-hidden='true' class='linkify icon'></i></a>
-
 ## Delete a Product Review 
 
 Deletes a specified product review. (If successful, this will typically return a `204 No Content`.)
 
 >`DELETE /stores/{store_hash}/v2/products/{product_id}/reviews/{id}
 
----
-
-<a href='#v2-reviews_delete-all-product-reviews' aria-hidden='true' class='block-anchor'  id='v2-reviews_delete-all-product-reviews'><i aria-hidden='true' class='linkify icon'></i></a>
-
 ## Delete All Product Reviews 
 
 Deletes all reviews for the specified product. (If successful, this will typically return a `204 No Content`.)
 
 >`DELETE /stores/{store_hash}/v2/products/{product_id}/reviews`
-

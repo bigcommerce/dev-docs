@@ -13,7 +13,6 @@
 - [Delete All Categories](#delete-all-categories)
 
 </div>
-<a href='#v2-categories_object-properties' aria-hidden='true' class='block-anchor'  id='v2-categories_object-properties'><i aria-hidden='true' class='linkify icon'></i></a>
 
 ## Categories 
 
@@ -22,7 +21,7 @@ Index of hierarchical categories used to organize and group products.
 ### Category Object – Properties 
 
 | Name | Type | Description |
-| --- | --- | --- |
+|-|-|-|
 | id | int | A read-only field containing the unique numeric identifier of this category. |
 | parent_id | int | The ID of the parent category to which this category belongs.<br> (NOTE: the total number of parent categories cannot exceed seven.) |
 | name | string | The name of the category. Must be unique. |
@@ -38,23 +37,18 @@ Index of hierarchical categories used to organize and group products.
 | search_keywords | string | A comma-separated list of keywords that can be used to locate this brand. |
 | url | string | The context path of this category. |
 
----
-
-<a href='#v2-categories_list-categories' aria-hidden='true' class='block-anchor'  id='v2-categories_list-categories'><i aria-hidden='true' class='linkify icon'></i></a>
-
 ## List Categories 
 
 Gets the list of categories. (Default sorting is by category id, from lowest to highest.)
 
 >`GET /stores/{store_hash}/v2/categories`
 
-
 ### Filters 
 
 Filter parameters can be added to the URL query string to select specific categories in the collection.
 
 | Parameter | Type | Example |
-| --- | --- | --- |
+|-|-|-|
 | parent_id | string | /api/v2/categories?parent_id={value} |
 | name | string | /api/v2/categories?name={value} |
 | is_visible | string | /api/v2/categories?is_visible={value} |
@@ -66,7 +60,7 @@ Filter parameters can be added to the URL query string to select specific catego
 Parameters can be added to the URL query string to paginate the collection. The maximum limit is 250. If a limit isn’t provided, up to 50 categories are returned by default.
 
 | Parameter | Type | Example |
-| --- | --- | --- |
+|-|-|-|
 | Page | int | /api/v2/categories?page={number} |
 | Limit | int | /api/v2/categories?limit={count} |
 
@@ -96,12 +90,6 @@ Example JSON returned in the response:
   }
 ]
 ```
-
-
----
-
-<a href='#v2-categories_get-categories' aria-hidden='true' class='block-anchor'  id='v2-categories_get-categories'><i aria-hidden='true' class='linkify icon'></i></a>
-
 
 ## Get a Category 
 
@@ -135,14 +123,9 @@ Example JSON returned in the response:
 }
 ```
 
----
-
-<a href='#v2-categories_get-count-categories' aria-hidden='true' class='block-anchor'  id='v2-categories_get-count-categories'><i aria-hidden='true' class='linkify icon'></i></a>
-
 ## Get a Count of Categories 
 
 Gets a count of the total number of categories in the store.
-
 
 >`GET /stores/{store_hash}/v2/categories/count`
 
@@ -156,17 +139,11 @@ Example JSON returned in the response:
 }
 ```
 
----
-
-<a href='#v2-categories_create-categories' aria-hidden='true' class='block-anchor'  id='v2-categories_create-categories'><i aria-hidden='true' class='linkify icon'></i></a>
-
 ## Create a Category 
 
 Creates a new category.
 
-
 >`POST /stores/{store_hash}/v2/categories`
-
 
 ### Read-only Properties 
 
@@ -223,16 +200,11 @@ Example JSON returned in the response:
 }
 ```
 
----
-
-<a href='#v2-categories_update-categories' aria-hidden='true' class='block-anchor'  id='v2-categories_update-categories'><i aria-hidden='true' class='linkify icon'></i></a>
-
 ## Update a Category 
 
 Updates an existing category.
 
 >`PUT /stores/{store_hash}/v2/categories/{id}`
-
 
 ### Read-only Properties 
 
@@ -275,17 +247,11 @@ Example JSON returned in the response:
 }
 ```
 
----
-
-<a href='#v2-categories_delete-categories' aria-hidden='true' class='block-anchor'  id='v2-categories_delete-categories'><i aria-hidden='true' class='linkify icon'></i></a>
-
 ## Delete a Category 
 
 Deletes a category.
 
 >`DELETE /stores/{store_hash}/v2/categories/{id}`
-
----
 
 <div class="HubBlock--callout">
 <div class="CalloutBlock--error">
@@ -300,11 +266,8 @@ Deletes a category.
 </div>
 </div>
 
-<a href='#v2-categories_delete-all-categories' aria-hidden='true' class='block-anchor'  id='v2-categories_delete-all-categories'><i aria-hidden='true' class='linkify icon'></i></a>
-
 ## Delete All Categories 
 
 Deletes all the categories in the store.
 
 >`DELETE /stores/{store_hash}/v2/categories`
-

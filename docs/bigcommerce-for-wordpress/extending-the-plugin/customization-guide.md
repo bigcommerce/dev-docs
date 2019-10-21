@@ -16,8 +16,6 @@
 
 </div>
 
-<a href='#customization-guide_introduction' aria-hidden='true' class='block-anchor'  id='customization-guide_introduction'><i aria-hidden='true' class='linkify icon'></i></a>
-
 ## Introduction
 
 BigCommerce for WordPress is compatible out-of-the-box with all standard WordPress themes and includes full support for the Genesis theme framework. The plugin includes templates and stylesheets to render all of the elements and pages you need to merchandise your products and move shoppers through checkout, including:
@@ -37,12 +35,6 @@ Plugin developers can also fork [BigCommerce for WordPress on GitHub](https://gi
 
 This guide will walk through the available options for developing themes that support BigCommerce for WordPress and extending the plugin through custom development.
 
-
-
----
-
-<a href='#customization-guide_file-structure' aria-hidden='true' class='block-anchor'  id='customization-guide_file-structure'><i aria-hidden='true' class='linkify icon'></i></a>
-
 ## File Structure
 ### Templates
 All of the BigCommerce for WordPress template files that render on the front end can be found in the templates/public folder. Templates within the components subfolder render smaller content blocks within your theme’s template, while two control the entire page:
@@ -57,11 +49,6 @@ The page content is rendered inside the wrapper template found in `components/pa
 BigCommerce for WordPress uses [PostCSS](https://postcss.org/), a JavaScript tool that accepts CSS with special additional syntax and compiles it into normal CSS. Combined with PostCSS plugins, PostCSS offers many of the core features of CSS preprocessors like Sass, with less overhead.
 
 PostCSS modules are contained in the asset/pcss directory. The assets/css directory contains both the minified and uncompressed versions of the CSS files created during the PostCSS build process.
-
-
----
-
-<a href='#customization-guide_template-overrides' aria-hidden='true' class='block-anchor'  id='customization-guide_template-overrides'><i aria-hidden='true' class='linkify icon'></i></a>
 
 ## Template Overrides
 When a WordPress plugin is updated, existing plugin files are overwritten by the new version. To ensure that your customizations persist through the update process, it’s important to use overrides in your theme files rather than editing plugin files directly.
@@ -78,10 +65,6 @@ As WordPress loads, it will first check for a custom template override in your t
 ### Required Classes
 BigCommerce for WordPress relies on specially named element classes for JavaScript functionality, and we strongly recommend leaving the default class names untouched as you create custom templates. You are, however, welcome to create additional classes.
 
----
-
-<a href='#customization-guide_custom-css' aria-hidden='true' class='block-anchor'  id='customization-guide_custom-css'><i aria-hidden='true' class='linkify icon'></i></a>
-
 ## Custom CSS
 To style BigCommerce for WordPress elements with custom CSS, add your CSS to your theme’s stylesheet rather than editing the plugin stylesheets directly. Your theme’s CSS will have specificity over styles applied by the plugin and will override the default styles.
 
@@ -95,14 +78,8 @@ button.bc-btn.bc-btn--form-submit.bc-btn--add_to_cart {
 ### Opting Out of BigCommerce Styles
 If you wish to disable the built-in plugin styles entirely, you have the option to do so. In the WordPress theme customizer, navigate to BigCommerce > Colors & Theme and select Disable Plugin Styles from the CSS dropdown menu.
 
-
----
-
-<a href='#customization-guide_hooks' aria-hidden='true' class='block-anchor'  id='customization-guide_hooks'><i aria-hidden='true' class='linkify icon'></i></a>
-
 ## Hooks
 Hooks are access points during the WordPress execution process where a developer can insert custom code. Hooks consist of two types: actions and filters. Both allow developers to execute custom code during the WordPress lifecycle. The difference lies in whether the function returns a value: 
-
 
 - **Actions** execute a function with no output. Even if a value was returned it would be ignored. 
 - **Filters** modify a variable and return a value, which is the modified version of the original variable.
@@ -114,8 +91,6 @@ All actions and filters called by the plugin begin with the `bigcommerce/` prefi
 
 The entire plugin operates through closures wrapped around calls to classes instantiated via a dependency injection container. In the event that you need to modify the core behavior of the plugin, there are several methods to get access to these closures.
 
-
-
 <div class="HubBlock--callout">
 <div class="CalloutBlock--error">
 <div class="HubBlock-content">
@@ -124,7 +99,6 @@ The entire plugin operates through closures wrapped around calls to classes inst
 
 ### Warning
 > Modifying core plugin functionality can lead to security vulnerabilities, data corruption, broken user workflows, and an overall unpleasant experience for you and your customers. Proceed at your own risk.
-
 
 </div>
 </div>
@@ -141,10 +115,6 @@ remove_action( 'bigcommerce/template/product/archive', bigcommerce()->templates-
 
 add_action( 'bigcommerce/template/product/archive', 'your_callback_function', 10, 2 );
 ```
-
----
-
-<a href='#customization-guide_styling-checkout' aria-hidden='true' class='block-anchor'  id='customization-guide_styling-checkout'><i aria-hidden='true' class='linkify icon'></i></a>
 
 ## Styling Checkout
 BigCommerce for WordPress offers two possible checkout experiences, depending on whether the WordPress site has an installed SSL certificate.
@@ -186,21 +156,12 @@ Following this format, you can apply styles to other elements, like buttons, inp
 
 Note that styles apply globally to all elements on the checkout page. For example, styles applied to steps will apply to all steps rather than targeting only step 2 or 3.
 
----
-
-<a href='#customization-guide_email-templates' aria-hidden='true' class='block-anchor'  id='customization-guide_email-templates'><i aria-hidden='true' class='linkify icon'></i></a>
-
 ## Email Templates
 You may wish to customize the built-in transactional emails sent from BigCommerce when an order is placed or updated. You can add custom text or images to email templates to reflect your store’s branding. 
 
 Email templates can be customized and enabled/disabled on an individual basis from the BigCommerce control panel. For more information, see [Customizing Emails](https://support.bigcommerce.com/s/article/Customizing-Emails).
 
----
-
-<a href='#customization-guide_external-resources' aria-hidden='true' class='block-anchor'  id='customization-guide_external-resources'><i aria-hidden='true' class='linkify icon'></i></a>
-
 ## Additional Resources
 - [https://codex.wordpress.org/Theme_Development](https://codex.wordpress.org/Theme_Development)
 - [https://wpengine.com/resources/customize-wordpress-plugin/](https://wpengine.com/resources/customize-wordpress-plugin/)
 - [https://css-tricks.com/methods-overriding-styles-wordpress/](https://css-tricks.com/methods-overriding-styles-wordpress/)
-

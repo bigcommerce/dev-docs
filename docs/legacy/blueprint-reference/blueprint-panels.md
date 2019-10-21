@@ -4,7 +4,7 @@ The breadcrumb navigation shown when downloading digital items from an order.
 
 ## Available Variables 
 |||
-|---|---|
+|-|-|
 | %%GLOBAL_OrderId%% |
 
 # AccountDownloadItems Panel 
@@ -13,7 +13,7 @@ The list of downloadable items in a digital order.
 
 ## Available Variables 
 |||
-|---|---|
+|-|-|
 | %%GLOBAL_DownloadIntro%% |
 
 # AccountInbox Panel 
@@ -22,12 +22,12 @@ A list of order messages in the customer’s account. Also includes the form to 
 
 ##  Available Panels
 |||
-|---|---|
+|-|-|
 | AccountInbox |
 
 ## Available Variables 
 |||
-|---|---|
+|-|-|
 | %%GLOBAL_HideNoOrderMessage%% |
 | %%GLOBAL_HideInbox%% |
 | %%GLOBAL_HideInboxMessage%% |
@@ -41,7 +41,7 @@ The breadcrumb navigation menu.
 
 ## Available Variables 
 |||
-|---|---|
+|-|-|
 | %%GLOBAL_OrderId%% |
 
 # AccountNewReturnInfo Panel 
@@ -50,7 +50,7 @@ Form for entering details about the new return request such as the reason, actio
 
 ## Available Variables 
 |||
-|---|---|
+|-|-|
 | %%GLOBAL_ReturnReasonsList%% |
 | %%GLOBAL_HideReturnAction%% |
 | %%GLOBAL_HideReturnAction%% |
@@ -63,7 +63,7 @@ A table of products in the particular order including choices to select the quan
 
 ## Available Variables 
 |||
-|---|---|
+|-|-|
 | %%GLOBAL_HideReturnForm%% |
 
 # AccountOrderLinks Panel 
@@ -72,7 +72,7 @@ Links shown on the right to submit a return request for this order or print a co
 
 ## Available Variables 
 |||
-|---|---|
+|-|-|
 | %%GLOBAL_ShowOrderActions%% |
 | %%GLOBAL_OrderId%% |
 | %%GLOBAL_DisableReturnButton%% |
@@ -82,7 +82,7 @@ Links shown on the right to submit a return request for this order or print a co
 
 ## Available Variables 
 |||
-|---|---|
+|-|-|
 | %%GLOBAL_LNG_OrderShipments%% |
 
 # AccountOrderStatus Panel 
@@ -91,7 +91,7 @@ The list of pending orders placed on the store by the customer.
 
 ## Available Variables 
 |||
-|---|---|
+|-|-|
 | %%GLOBAL_HideNoOrderStatusMessage%% |
 | %%GLOBAL_HideOrderStatusList%% |
 
@@ -101,13 +101,13 @@ The details of the order (billing and shipping address as well as the products p
 
 ##  Available Panels
 |||
-|---|---|
+|-|-|
 | AccountOrder |
 | AccountOrder |
 
 ## Available Variables 
 |||
-|---|---|
+|-|-|
 | %%GLOBAL_OrderStatus%% |
 | %%GLOBAL_OrderDate%% |
 | %%GLOBAL_OrderTotal%% |
@@ -132,7 +132,7 @@ The list of previously placed orders on the store by the customer.
 
 ## Available Variables 
 |||
-|---|---|
+|-|-|
 | %%GLOBAL_HideNoOrdersMessage%% |
 | %%GLOBAL_HideOrderList%% |
 
@@ -142,7 +142,7 @@ The list of items that the customer has recently viewed on the store.
 
 ## Available Variables 
 |||
-|---|---|
+|-|-|
 | %%GLOBAL_CompareLink%% |
 | %%GLOBAL_HideCompareItems%% |
 | %%GLOBAL_IMG_PATH%% |
@@ -156,7 +156,7 @@ The list of submitted returns requests.
 
 ## Available Variables 
 |||
-|---|---|
+|-|-|
 | %%GLOBAL_HideReturnsList%% |
 | %%GLOBAL_HideNoReturnsMessage%% |
 
@@ -166,7 +166,7 @@ The breadcrumb navigation menu.
 
 ## Available Variables 
 |||
-|---|---|
+|-|-|
 | %%GLOBAL_AllBrandsLink%% |
 | %%GLOBAL_TrailBrandName%% |
 
@@ -176,12 +176,12 @@ The contents of the brands page. Either the products in a particular brand or a 
 
 ## Available Panels 
 |||
-|---|---|
+|-|-|
 | BrandContent |
 
 ## Available Variables 
 |||
-|---|---|
+|-|-|
 | %%GLOBAL_CompareLink%% |
 | %%GLOBAL_HideCompareItems%% |
 | %%GLOBAL_IMG_PATH%% |
@@ -192,7 +192,7 @@ The contents of the brands page. Either the products in a particular brand or a 
 
 ## Available Variables 
 |||
-|---|---|
+|-|-|
 | %%GLOBAL_BrandsMessage%% |
 | %%GLOBAL_HideBrandProductListing%% |
 | %%GLOBAL_BrandProductListing%% |
@@ -203,7 +203,7 @@ The contents of the customers shopping cart and the bottom “Proceed to Checkou
 
 ## Available Variables 
 |||
-|---|---|
+|-|-|
 | %%GLOBAL_HideCheckoutButton%% |
 | %%GLOBAL_CheckoutLink%% |
 | %%GLOBAL_OptimizerLinkFunction%% |
@@ -250,7 +250,7 @@ The header of the cart contents page with the title and the top “Proceed to Ch
 
 ## Available Variables 
 |||
-|---|---|
+|-|-|
 | %%GLOBAL_IMG_PATH%% |
 | %%GLOBAL_SiteColor%% |
 | %%GLOBAL_CartCheckoutButtonOptimizerNoScriptTag%% |
@@ -268,7 +268,7 @@ If an alternate status message is to be shown, the status message.
 
 ## Available Variables 
 |||
-|---|---|
+|-|-|
 | %%GLOBAL_CartStatusMessage%% |
 
 # SuggestiveCartContent Panel 
@@ -277,7 +277,7 @@ Displays recommended products after a product was added to the cart. This includ
 
 ## Available Variables 
 |||
-|---|---|
+|-|-|
 | %%GLOBAL_HideSuggestiveCartContent%% |
 | %%GLOBAL_SuggestedProductListing%% |
 
@@ -287,7 +287,7 @@ The list of products in the category being viewed on the store.
 
 ## Available Variables 
 |||
-|---|---|
+|-|-|
 | %%GLOBAL_CompareButtonTop%% |
 | %%GLOBAL_DisplayMode%% |
 | %%GLOBAL_CategoryProductListing%% |
@@ -304,7 +304,7 @@ The heading (category name) as well as the “sort” box for a particular categ
 
 ## Available Variables 
 |||
-|---|---|
+|-|-|
 | %%GLOBAL_CatDesc%% |
 | %%GLOBAL_CategoryDescriptionOptimizerNoScriptTag%% |
 | %%GLOBAL_CategoryNameOptimizerScriptTag%% |
@@ -316,7 +316,7 @@ The heading (category name) as well as the “sort” box for a particular categ
 
 ## Available Variables 
 |||
-|---|---|
+|-|-|
 | %%GLOBAL_CategoryProductListing%% |
 
 # CheckGiftCertificateBalance Panel 
@@ -325,7 +325,7 @@ Displays the form asking for the gift certificate code to check the balance of.
 
 ## Available Variables 
 |||
-|---|---|
+|-|-|
 | %%GLOBAL_HideExampleImage%% |
 | %%GLOBAL_IMG_PATH%% |
 | %%GLOBAL_BalanceTitle%% |
@@ -338,12 +338,12 @@ Displays the form asking for the gift certificate code to check the balance of.
 
 ## Available Panels 
 |||
-|---|---|
+|-|-|
 | ChooseBillingAddress |
 
 ## Available Variables 
 |||
-|---|---|
+|-|-|
 | %%GLOBAL_CheckoutShippingTitle%% |
 | %%GLOBAL_CheckoutShippingIntro%% |
 
@@ -353,12 +353,12 @@ If the customer is logged in, this panel is shown containing the list of shippin
 
 ## Available Panels 
 |||
-|---|---|
+|-|-|
 | ChooseShippingAddress |
 
 ## Available Variables 
 |||
-|---|---|
+|-|-|
 | %%GLOBAL_HideTabSingle%% |
 | %%GLOBAL_CheckoutShippingIntro%% |
 | %%GLOBAL_HideTabMultiple%% |
@@ -374,7 +374,7 @@ The table showing the products being compared.
 
 ## Available Variables 
 |||
-|---|---|
+|-|-|
 | %%GLOBAL_NumCompareItems%% |
 | %%GLOBAL_ComparisonHeading%% |
 | %%GLOBAL_HideTooManyProductsMessage%% |
@@ -386,12 +386,12 @@ The order confirmation and payment method selection form.
 
 ## Available Panels 
 |||
-|---|---|
+|-|-|
 | ConfirmOrder |
 
 ## Available Variables 
 |||
-|---|---|
+|-|-|
 | %%GLOBAL_CreditAlt%% |
 | %%GLOBAL_HidePaymentProviderList%% |
 | %%GLOBAL_PaymentProviders%% |
@@ -446,7 +446,7 @@ The order confirmation and payment method selection form.
 
 ## Available Variables 
 |||
-|---|---|
+|-|-|
 | %%GLOBAL_DesignModeHTML%% |
 | %%GLOBAL_QueryList%% |
 | %%GLOBAL_DesignModeScriptTag%% |
@@ -469,12 +469,12 @@ The form shown when a web page is configured as a “Contact Form” allowing us
 
 ## Available Panels 
 |||
-|---|---|
+|-|-|
 | %%Panel.ContactFormJavaScript%% |
 
 ## Available Variables 
 |||
-|---|---|
+|-|-|
 | %%GLOBAL_HideFullName%% |
 | %%GLOBAL_ContactName%% |
 | %%GLOBAL_HideFullName%% |
@@ -505,12 +505,12 @@ If the customer is not logged in and checking out as a guest this panel is shown
 
 ## Available Panels 
 |||
-|---|---|
+|-|-|
 | CheckoutNewAddressForm |
 
 ## Available Variables 
 |||
-|---|---|
+|-|-|
 | %%GLOBAL_ShipCustomFields%% |
 | %%GLOBAL_HideShippingOptions%% |
 | %%GLOBAL_HideShippingOptions%% |
@@ -529,12 +529,12 @@ A form containing the fields necessary to create a customer account on the store
 
 ## Available Panels 
 |||
-|---|---|
+|-|-|
 | CreateAccountForm |
 
 ## Available Variables 
 |||
-|---|---|
+|-|-|
 | %%GLOBAL_HideCreateAccountErrorMessage%% |
 | %%GLOBAL_ErrorMessage%% |
 | %%GLOBAL_CreateAccountEmailPassword%% |
@@ -553,12 +553,12 @@ Form shown allowing the customer to change the details (email address, password,
 
 ## Available Panels 
 |||
-|---|---|
+|-|-|
 | EditAccountForm |
 
 ## Available Variables 
 |||
-|---|---|
+|-|-|
 | %%GLOBAL_HideEditAccountSuccessMessage%% |
 | %%GLOBAL_StatusMessage%% |
 | %%GLOBAL_AccountCurrentEmail%% |
@@ -577,12 +577,12 @@ The form shown for the customer to enter their email address to have their passw
 
 ## Available Panels 
 |||
-|---|---|
+|-|-|
 | ForgotPasswordForm |
 
 ## Available Variables 
 |||
-|---|---|
+|-|-|
 | %%GLOBAL_HideForgotPasswordError%% |
 | %%GLOBAL_ErrorMessage%% |
 
@@ -590,7 +590,7 @@ The form shown for the customer to enter their email address to have their passw
 
 ## Available Variables 
 |||
-|---|---|
+|-|-|
 | %%GLOBAL_CustomerId%% |
 | %%GLOBAL_ForgottenPasswordToken%% |
 | %%GLOBAL_CustomerEmailAddress%% |
@@ -601,12 +601,12 @@ The form shown for the customer to enter their email address to have their passw
 
 ## Available Panels 
 |||
-|---|---|
+|-|-|
 | IdealPaymentForm |
 
 ## Available Variables 
 |||
-|---|---|
+|-|-|
 | %%GLOBAL_IdealIssuerOptions%% |
 
 # LoginForm Panel 
@@ -615,12 +615,12 @@ The “Create an Account” and “Sign in to Your Account” options shown on t
 
 ## Available Panels 
 |||
-|---|---|
+|-|-|
 | LoginForm |
 
 ## Available Variables 
 |||
-|---|---|
+|-|-|
 | %%GLOBAL_HideLoginNewAccountIntro%% |
 | %%GLOBAL_ExistingUserHeading%% |
 | %%GLOBAL_HideLoginMessage%% |
@@ -635,12 +635,12 @@ The form containing the fields for either editing or adding a shipping/billing a
 
 ## Available Panels 
 |||
-|---|---|
+|-|-|
 | ShippingAddressForm |
 
 ## Available Variables 
 |||
-|---|---|
+|-|-|
 | %%GLOBAL_ShippingAddressFormAction%% |
 | %%GLOBAL_ShipId%% |
 | %%GLOBAL_ShipCustomFields%% |
@@ -654,7 +654,7 @@ The form containing the fields for either editing or adding a shipping/billing a
 
 ## Available Variables 
 |||
-|---|---|
+|-|-|
 | %%GLOBAL_CdnAppPath%% |
 | %%GLOBAL_JSCacheToken%% |
 | %%GLOBAL_jQueryUIPath%% |
@@ -673,7 +673,7 @@ The form containing the fields for either editing or adding a shipping/billing a
 
 ## Available Variables 
 |||
-|---|---|
+|-|-|
 | %%GLOBAL_CdnAppPath%% |
 | %%GLOBAL_IMG_PATH%% |
 | %%LNG_InvoicePendingPaymentText%% |
@@ -685,7 +685,7 @@ Shown after a customer enters their gift certificate code and displays the remai
 
 ## Available Variables 
 |||
-|---|---|
+|-|-|
 | %%GLOBAL_GiftCertificateCode%% |
 | %%GLOBAL_RemainingBalance%% |
 
@@ -693,7 +693,7 @@ Shown after a customer enters their gift certificate code and displays the remai
 
 ## Available Variables 
 |||
-|---|---|
+|-|-|
 | %%GLOBAL_OriginalSearchQuery%% |
 | %%GLOBAL_IMG_PATH%% |
 | %%GLOBAL_SiteColor%% |
@@ -702,12 +702,12 @@ Shown after a customer enters their gift certificate code and displays the remai
 
 ## Available Panels 
 |||
-|---|---|
+|-|-|
 | Header |
 
 ## Available Variables 
 |||
-|---|---|
+|-|-|
 | %%GLOBAL_IMG_PATH%% |
 | %%GLOBAL_MaintenanceNotice%% |
 | %%GLOBAL_HeaderLogo%% |
@@ -716,7 +716,7 @@ Shown after a customer enters their gift certificate code and displays the remai
 
 ## Available Variables 
 |||
-|---|---|
+|-|-|
 | %%GLOBAL_HeadFonts%% |
 | %%GLOBAL_Favicon%% |
 | %%GLOBAL_OptimizerControlScript%% |
@@ -747,7 +747,7 @@ A list of store-wide featured products (products marked as featured in the contr
 
 ## Available Variables 
 |||
-|---|---|
+|-|-|
 | %%GLOBAL_HideHomeFeaturedProductsPanel%% |
 
 # HomeNewProducts Panel 
@@ -756,7 +756,7 @@ A list of store-wide new products (based on the date they were added to the stor
 
 ## Available Variables 
 |||
-|---|---|
+|-|-|
 | %%GLOBAL_HideHomeNewProductsPanel%% |
 
 # HomeRecentBlogs Panel 
@@ -765,26 +765,26 @@ A list of products that are on sale (those that have a sale price configured tha
 
 ## Available Variables 
 |||
-|---|---|
+|-|-|
 | %%GLOBAL_HideHomeRecentBlogsPanel%% |
 
 # HomeSlideShow Panel 
 
 ## Available Panels 
 |||
-|---|---|
+|-|-|
 | HomeSlideShow |
 
 ## Available Variables 
 |||
-|---|---|
+|-|-|
 | %%GLOBAL_SwapFrequency%% |
 
 # AddShippingAddressJavaScript Panel 
 
 ## Available Variables 
 |||
-|---|---|
+|-|-|
 | %%GLOBAL_AddressFormFieldID%% |
 | %%GLOBAL_CdnAppPath%% |
 | %%GLOBAL_JSCacheToken%% |
@@ -796,7 +796,7 @@ A list of products that are on sale (those that have a sale price configured tha
 
 ## Available Variables 
 |||
-|---|---|
+|-|-|
 | %%GLOBAL_IMG_PATH%% |
 | %%GLOBAL_SiteColor%% |
 | %%GLOBAL_IMG_PATH%% |
@@ -814,14 +814,14 @@ A list of products that are on sale (those that have a sale price configured tha
 
 ## Available Variables 
 |||
-|---|---|
+|-|-|
 | %%GLOBAL_HideCaptcha%% |
 
 # CreateAccountJavaScript Panel 
 
 ## Available Variables 
 |||
-|---|---|
+|-|-|
 | %%GLOBAL_CdnAppPath%% |
 | %%GLOBAL_JSCacheToken%% |
 | %%GLOBAL_CreateAccountAccountFormFieldID%% |
@@ -835,7 +835,7 @@ A list of products that are on sale (those that have a sale price configured tha
 
 ## Available Variables 
 |||
-|---|---|
+|-|-|
 | %%GLOBAL_CdnAppPath%% |
 | %%GLOBAL_JSCacheToken%% |
 | %%GLOBAL_EditAccountAccountFormFieldID%% |
@@ -845,14 +845,14 @@ A list of products that are on sale (those that have a sale price configured tha
 
 ## Available Variables 
 |||
-|---|---|
+|-|-|
 | %%GLOBAL_CdnAppPath%% |
 
 # SearchJavaScript Panel 
 
 ## Available Variables 
 |||
-|---|---|
+|-|-|
 | %%GLOBAL_SearchId%% |
 | %%GLOBAL_SelectedCategoryOptions%% |
 | %%GLOBAL_AutoHideSearchForm%% |
@@ -866,14 +866,14 @@ The breadcrumb navigation menu.
 
 ## Available Variables 
 |||
-|---|---|
+|-|-|
 | %%GLOBAL_NewsTitle%% |
 
 # NewsComments Panel 
 
 ## Available Variables 
 |||
-|---|---|
+|-|-|
 | %%GLOBAL_CommentsHTML%% |
 
 # NewsContent Panel 
@@ -882,7 +882,7 @@ Used to display an individual news item on the news page.
 
 ## Available Variables 
 |||
-|---|---|
+|-|-|
 | %%GLOBAL_NewsTitle%% |
 | %%GLOBAL_NewsDate%% |
 | %%GLOBAL_NewsContent%% |
@@ -891,7 +891,7 @@ Used to display an individual news item on the news page.
 
 ## Available Variables 
 |||
-|---|---|
+|-|-|
 | %%GLOBAL_CommentsHTML%% |
 
 # PageContent Panel 
@@ -900,7 +900,7 @@ Displays the title and the content of the web page currently being viewed.
 
 ## Available Variables 
 |||
-|---|---|
+|-|-|
 | %%GLOBAL_PageNameOptimizerScriptTag%% |
 | %%GLOBAL_PageTitle%% |
 | %%GLOBAL_PageNameOptimizerNoScriptTag%% |
@@ -912,9 +912,8 @@ Displays the title and the content of the web page currently being viewed.
 
 ## Available Variables 
 |||
-|---|---|
+|-|-|
 | %%GLOBAL_ActivePageHomeClass%% |
-
 
 # ProductBreadcrumb Panel 
 
@@ -922,7 +921,7 @@ The breadcrumb navigation menu.
 
 ## Available Variables 
 |||
-|---|---|
+|-|-|
 | %%GLOBAL_HideBreadCrumbs%% |
 | %%GLOBAL_BreadCrumbs%% |
 
@@ -932,7 +931,7 @@ Shows a list of categories related to the product currently being viewed.
 
 ## Available Variables 
 |||
-|---|---|
+|-|-|
 | %%GLOBAL_FindByCategory%% |
 | %%GLOBAL_HideSectionSeparator%% |
 
@@ -942,7 +941,7 @@ Contains the description of the product currently being viewed.
 
 ## Available Variables 
 |||
-|---|---|
+|-|-|
 | %%GLOBAL_ProductDescriptionOptimizerScriptTag%% |
 | %%GLOBAL_ProductDesc%% |
 | %%GLOBAL_ProductDescriptionOptimizerNoScriptTag%% |
@@ -954,7 +953,7 @@ Contains the details (price, brand, shipping information, product image and prod
 
 ## Available Variables 
 |||
-|---|---|
+|-|-|
 | %%GLOBAL_ProductCondition%% |
 | %%GLOBAL_HideWeight%% |
 | %%GLOBAL_ProductWeight%% |
@@ -1035,7 +1034,7 @@ Shows an individual product image in the product image popup and the buttons to 
 
 ## Available Variables 
 |||
-|---|---|
+|-|-|
 | %%GLOBAL_IMG_PATH%% |
 | %%GLOBAL_IMG_PATH%% |
 | %%GLOBAL_ProductName%% |
@@ -1050,7 +1049,7 @@ Displays the custom fields configured for the product being shown.
 
 ## Available Variables 
 |||
-|---|---|
+|-|-|
 | %%GLOBAL_HideCustomFields%% |
 
 # ProductReviews Panel 
@@ -1059,14 +1058,14 @@ A list of product reviews for this particular product as well as the form for po
 
 ## Available Variables 
 |||
-|---|---|
+|-|-|
 | %%GLOBAL_CommentsHTML%% |
 
 # ProductTabs Panel 
 
 ## Available Variables 
 |||
-|---|---|
+|-|-|
 | %%GLOBAL_ProductTabsOptimizerScriptTag%% |
 | %%GLOBAL_ProductTabsControlScript%% |
 | %%GLOBAL_ProductTabsOptimizerNoScriptTag%% |
@@ -1075,7 +1074,7 @@ A list of product reviews for this particular product as well as the form for po
 
 ## Available Variables 
 |||
-|---|---|
+|-|-|
 | %%GLOBAL_FeaturedVideo%% |
 | %%GLOBAL_FeaturedVideo%% |
 | %%GLOBAL_HideSingleVideo%% |
@@ -1093,7 +1092,7 @@ If the product has any warranty text/information set, it will be shown in this p
 
 ## Available Variables 
 |||
-|---|---|
+|-|-|
 | %%GLOBAL_ProductWarranty%% |
 | %%GLOBAL_HideSectionSeparator%% |
 
@@ -1103,7 +1102,7 @@ Displays the form used to make the purchase of a gift certificate from the store
 
 ## Available Variables 
 |||
-|---|---|
+|-|-|
 | %%GLOBAL_HideGiftCertificateForm%% |
 | %%GLOBAL_GiftCertificateMinimum%% |
 | %%GLOBAL_CartItemId%% |
@@ -1135,7 +1134,7 @@ Displays the form used to make the purchase of a gift certificate from the store
 
 ## Available Variables 
 |||
-|---|---|
+|-|-|
 | %%GLOBAL_ProductWeight%% |
 | %%GLOBAL_HideAvailability%% |
 | %%GLOBAL_Availability%% |
@@ -1209,12 +1208,12 @@ The header containing the search form and breadcrumb navigation menu.
 
 ## Available Panels
 |||
-|---|---|
+|-|-|
 | SearchPageHeader |
 
 ## Available Variables
 |||
-|---|---|
+|-|-|
 | %%GLOBAL_HideAdvancedOptions%% |
 | %%GLOBAL_FormattedSearchQuery%% |
 | %%GLOBAL_BrandNameOptions%% |
@@ -1238,7 +1237,7 @@ The header containing the search form and breadcrumb navigation menu.
 
 ## Available Variables
 |||
-|---|---|
+|-|-|
 | %%GLOBAL_HideSearchResults%% |
 | %%GLOBAL_SearchResults%% |
 
@@ -1248,12 +1247,12 @@ If a search is being performed, this panel will be shown containing any results 
 
 ## Available Panels
 |||
-|---|---|
+|-|-|
 | SearchPage |
 
 ## Available Variables
 |||
-|---|---|
+|-|-|
 | %%GLOBAL_ContentContainerDisplay%% |
 | %%GLOBAL_HideSearchPage%% |
 | %%GLOBAL_SelectedSearchTab%% |
@@ -1267,7 +1266,7 @@ If a search is being performed, this panel will be shown containing any results 
 
 ## Available Variables
 |||
-|---|---|
+|-|-|
 | %%GLOBAL_HideSearchResultsContent%% |
 | %%GLOBAL_SearchResultsContent%% |
 | %%GLOBAL_HideSearchResultsNoResult%% |
@@ -1277,7 +1276,7 @@ If a search is being performed, this panel will be shown containing any results 
 
 ## Available Variables 
 |||
-|---|---|
+|-|-|
 | %%GLOBAL_HideSearchResultsProduct%% |
 | %%GLOBAL_SearchResultsProduct%% |
 | %%GLOBAL_SnippetSearchResultsFeed%% |
@@ -1293,12 +1292,12 @@ If a search is being performed, this panel will be shown containing any results 
 
 ## Available Panels 
 |||
-|---|---|
+|-|-|
 | ShareProductById |
 
 ## Available Variables 
 |||
-|---|---|
+|-|-|
 | %%GLOBAL_HideChooseAnotherToShare%% |
 | %%GLOBAL_FirstProductId%% |
 | %%GLOBAL_SharingData%% |
@@ -1307,7 +1306,7 @@ If a search is being performed, this panel will be shown containing any results 
 
 ## Available Variables 
 |||
-|---|---|
+|-|-|
 | %%GLOBAL_IMG_PATH%% |
 | %%GLOBAL_IMG_PATH%% |
 
@@ -1317,7 +1316,7 @@ The list of links/options available in the “My Account” section of the store
 
 ## Available Variables 
 |||
-|---|---|
+|-|-|
 | %%GLOBAL_HideWishlist%% |
 | %%GLOBAL_NumWishListItems%% |
 | %%GLOBAL_HideMessagesMenu%% |
@@ -1330,7 +1329,7 @@ If the customer has store credit, shows the amount of store credit their account
 
 ## Available Variables 
 |||
-|---|---|
+|-|-|
 | %%GLOBAL_HideStoreCredit%% |
 | %%GLOBAL_StoreCreditAmount%% |
 
@@ -1340,14 +1339,14 @@ A tag cloud showing the popularity/density of brand names on the store.
 
 ## Available Variables 
 |||
-|---|---|
+|-|-|
 | %%GLOBAL_HideBrandTagCloudPanel%% |
 
 # SideCartContents Panel 
 
 ## Available Variables 
 |||
-|---|---|
+|-|-|
 | %%GLOBAL_AdditionalCheckoutButtons%% |
 | %%GLOBAL_HideCartOptions%% |
 | %%GLOBAL_HidePurchasingOptions%% |
@@ -1358,7 +1357,7 @@ A tag cloud showing the popularity/density of brand names on the store.
 
 ## Available Variables 
 |||
-|---|---|
+|-|-|
 | %%GLOBAL_SideCategoryListTypeClass%% |
 
 # SideCategoryNewProducts Panel 
@@ -1367,7 +1366,7 @@ A list of new products in the category currently being viewed.
 
 ## Available Variables 
 |||
-|---|---|
+|-|-|
 | %%GLOBAL_HideSideCategoryNewProductsPanel%% |
 
 # SideCategoryPopularProducts Panel 
@@ -1376,7 +1375,7 @@ List of the popular products (based on the ratings/reviews) for a particular cat
 
 ## Available Variables 
 |||
-|---|---|
+|-|-|
 | %%GLOBAL_HideSideCategoryPopularProductsPanel%% |
 
 # SideCategoryShopByPrice Panel 
@@ -1385,7 +1384,7 @@ The price point options for browsing items between different price ranges in the
 
 ## Available Variables 
 |||
-|---|---|
+|-|-|
 | %%GLOBAL_HideSideCategoryShopByPricePanel%% |
 
 # SideCategoryTopSellers Panel 
@@ -1394,7 +1393,7 @@ The list of top selling products (based on the number sold) for a particular cat
 
 ## Available Variables 
 |||
-|---|---|
+|-|-|
 | %%GLOBAL_HideSideCategoryTopSellersPanel%% |
 
 # SideCouponCodeBox Panel 
@@ -1403,7 +1402,7 @@ The coupon code entry box shown on the side of the cart page.
 
 ## Available Variables 
 |||
-|---|---|
+|-|-|
 | %%GLOBAL_IMG_PATH%% |
 | %%GLOBAL_SiteColor%% |
 
@@ -1413,7 +1412,7 @@ The gift certificate code entry box shown on the side of the cart page.
 
 ## Available Variables 
 |||
-|---|---|
+|-|-|
 | %%GLOBAL_IMG_PATH%% |
 | %%GLOBAL_SiteColor%% |
 
@@ -1421,26 +1420,26 @@ The gift certificate code entry box shown on the side of the cart page.
 
 ## Available Variables 
 |||
-|---|---|
+|-|-|
 | %%GLOBAL_SideLiveChatCode%% |
 
 # SideNewProducts Panel 
 
 ## Available Variables 
 |||
-|---|---|
+|-|-|
 | %%GLOBAL_HideSideNewProductsPanel%% |
 
 # SideNewsletterBox Panel 
 
 ## Available Panels 
 |||
-|---|---|
+|-|-|
 | SideNewsletterBox |
 
 ## Available Variables 
 |||
-|---|---|
+|-|-|
 | %%GLOBAL_NewsletterButtonOptimizerScriptTag%% |
 | %%GLOBAL_IMG_PATH%% |
 | %%GLOBAL_SiteColor%% |
@@ -1452,7 +1451,7 @@ The gift certificate code entry box shown on the side of the cart page.
 
 ## Available Variables 
 |||
-|---|---|
+|-|-|
 | %%GLOBAL_HideSidePopularProductsPanel%% |
 | %%SNIPPET_SidePopularProductsFeed%% |
 | %%LNG_PopularProducts%% |
@@ -1464,7 +1463,7 @@ The button to add this product to the customer’s wishlist.
 
 ## Available Variables 
 |||
-|---|---|
+|-|-|
 | %%GLOBAL_IMG_PATH%% |
 | %%GLOBAL_SiteColor%% |
 | %%GLOBAL_HidePurchasingOptions%% |
@@ -1479,14 +1478,14 @@ Shows a list of products that customers have purchased who have also purchased t
 
 ## Available Variables 
 |||
-|---|---|
+|-|-|
 | %%GLOBAL_AlsoBoughtProductListing%% |
 
 # SideProductRecentlyViewed Panel 
 
 ## Available Variables 
 |||
-|---|---|
+|-|-|
 | %%GLOBAL_HideSideProductRecentlyViewedCompare%% |
 | %%GLOBAL_IMG_PATH%% |
 | %%GLOBAL_SiteColor%% |
@@ -1499,7 +1498,7 @@ A list of products related to this product (either automatically fetched or manu
 
 ## Available Variables 
 |||
-|---|---|
+|-|-|
 | %%GLOBAL_HideRelatedProductsPanel%% |
 
 # SideShopByBrandFull Panel 
@@ -1508,36 +1507,35 @@ A complete list of brand names on the store ordered alphabetically.
 
 ## Available Variables 
 |||
-|---|---|
+|-|-|
 | %%GLOBAL_HideSideShopByBrandFullPanel%% |
 
 # SideShopByBrand Panel 
 
 ## Available Variables 
 |||
-|---|---|
+|-|-|
 | %%GLOBAL_HideShopByBrandPanel%% |
 
 # SideTopSellers Panel 
 
 ## Available Variables 
 |||
-|---|---|
+|-|-|
 | %%GLOBAL_HideSideTopSellersPanel%% |
-
 
 # SimilarProductsByTag Panel 
 
 ## Available Variables 
 |||
-|---|---|
+|-|-|
 | %%GLOBAL_HideSectionSeparator%% |
 
 # SitemapBreadcrumb Panel 
 
 ## Available Variables 
 |||
-|---|---|
+|-|-|
 | %%GLOBAL_HideIfSubsection%% |
 | %%GLOBAL_HideIfNoSubsection%% |
 | %%GLOBAL_SitemapLink%% |
@@ -1548,7 +1546,7 @@ A complete list of brand names on the store ordered alphabetically.
 
 ## Available Variables 
 |||
-|---|---|
+|-|-|
 | %%GLOBAL_ShowNewProductsFeed%% |
 | %%GLOBAL_IMG_PATH%% |
 | %%GLOBAL_IMG_PATH%% |
@@ -1567,7 +1565,7 @@ A complete list of brand names on the store ordered alphabetically.
 
 ## Available Variables 
 |||
-|---|---|
+|-|-|
 | %%GLOBAL_CompareLink%% |
 | %%GLOBAL_TagProductListing%% |
 | %%GLOBAL_HideCompareItems%% |
@@ -1579,7 +1577,7 @@ A complete list of brand names on the store ordered alphabetically.
 
 ## Available Variables 
 |||
-|---|---|
+|-|-|
 | %%GLOBAL_HideWishlist%% |
 | %%GLOBAL_HideCartOptions%% |
 | %%GLOBAL_HideAccountOptions%% |
@@ -1597,7 +1595,7 @@ The form that allows creation of a wishlist.
 
 ## Available Variables 
 |||
-|---|---|
+|-|-|
 | %%GLOBAL_PageTitle%% |
 | %%GLOBAL_HideNormalMessage%% |
 | %%GLOBAL_WishListMessage%% |
@@ -1617,7 +1615,7 @@ Used when displaying the contents of a particular wishlist.
 
 ## Available Variables 
 |||
-|---|---|
+|-|-|
 | %%GLOBAL_WishListName%% |
 | %%GLOBAL_HideNormalMessage%% |
 | %%GLOBAL_WishListMessage%% |
@@ -1638,7 +1636,7 @@ Shown whenever a list of wishlists the customer has is to be displayed.
 
 ## Available Variables 
 |||
-|---|---|
+|-|-|
 | %%GLOBAL_HideNormalMessage%% |
 | %%GLOBAL_WishListMessage%% |
 | %%GLOBAL_HideErrorMessage%% |
@@ -1647,4 +1645,3 @@ Shown whenever a list of wishlists the customer has is to be displayed.
 | %%GLOBAL_WishListMessage%% |
 | %%GLOBAL_HideWishLists%% |
 | %%GLOBAL_HideWishListsTable%% |
-

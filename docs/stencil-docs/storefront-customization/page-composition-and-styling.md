@@ -1,13 +1,12 @@
 # Page Composition and Styling
-<div class="otp" id="no-index">
-	<h3> On This Page </h3>
-	<ul>
-    <li><a href="#page-composition_referencing-css-stylesheet">Referencing a CSS Stylesheet</a></li>
-    <li><a href="#page-composition_template-composition">Template Composition</a></li>
-	</ul>
-</div>
 
-<a href='#page-composition_referencing-css-stylesheet' aria-hidden='true' class='block-anchor'  id='page-composition_referencing-css-stylesheet'><i aria-hidden='true' class='linkify icon'></i></a>
+<div class="otp" id="no-index">
+
+### On This Page
+- [Referencing a CSS Stylesheet](#referencing-a-css-stylesheet)
+- [Template Composition](#template-composition)
+
+</div> 
 
 ## Referencing a CSS Stylesheet
 
@@ -30,10 +29,6 @@ lineNumbers: true
     <link href="{{cdn '/assets/css/invoice.css'}}" rel="stylesheet">
 {{/partial}}
 ```
-
----
-
-<a href='#page-composition_template-composition' aria-hidden='true' class='block-anchor'  id='page-composition_template-composition'><i aria-hidden='true' class='linkify icon'></i></a>
 
 ## Template Composition
 
@@ -104,4 +99,3 @@ lineNumbers: true
 ### Matching Partials with Blocks
 
 For any given name defined within the template rendering path, we recommend that you maintain a 1:1 mapping of partials to blocks.
-

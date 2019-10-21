@@ -1,13 +1,15 @@
 # Theme Assets
+
 <div class="otp" id="no-index">
-	<h3> On This Page </h3>
-	<ul>
-    <li><a href="#theme-assets_cornerstone-assets-directory">Cornerstone Assets Directory</a></li>
-    <li><a href="#theme-assets_citadel">Citadel Subdirectory</a></li>
-    <li><a href="#theme-assets_componenets-utilities">Components vs Utilities</a></li>
-    <li><a href="#theme-assets_variables">Variables and Mixins</a></li>
-    <li><a href="#theme-assets_stencil-subdirectory">Stencil Subdirectory</a></li>
-	</ul>
+
+### On This Page
+- [Cornerstone Assets Directory](#cornerstone-assets-directory)
+- [Citadel Subdirectory](#citadel-subdirectory)
+- [Components vs Utilities](#components-vs-utilities)
+- [Variables and Mixins](#variables-and-mixins)
+- [Stencil Subdirectory](#stencil-subdirectory)
+- [Resources](#resources)
+
 </div>
 
 Each Stencil theme’s `/assets/` directory contains CSS, JavaScript, and image assets that help create the design of storefront pages. A minimal `/assets/` directory contains the files and subdirectories that you can view on the [Cornerstone Github Repository](https://github.com/bigcommerce/cornerstone/tree/master/assets). 
@@ -27,8 +29,6 @@ Each Stencil theme’s `/assets/` directory contains CSS, JavaScript, and image 
 </div>
 </div>
 </div>
-
-<a href='#theme-assets_cornerstone-assets-directory' aria-hidden='true' class='block-anchor'  id='theme-assets_cornerstone-assets-directory'><i aria-hidden='true' class='linkify icon'></i></a>
 
 ## Cornerstone Assets Directory 
 
@@ -108,8 +108,6 @@ Every utility in this subdirectory will have both a class and a mixin. For examp
   </tr>
 </table>
 
----
-
 <a id="theme-assets_citadel"></a>
 
 ## Citadel Subdirectory 
@@ -149,8 +147,6 @@ The `components/citadel` subdirectory contains Citadel-specific resources. The r
   </tr>
 </table>
 
----
-
 <a id="theme-assets_componenets-utilities"></a>
 
 ## Components vs Utilities
@@ -183,8 +179,6 @@ Our syntax for naming utilities is camel case, prefixed with a u- namespace:
   <tr>
 </table>
 
----
-
 <a id="theme-assets_variables"></a>
 
 ## Variables and Mixins
@@ -214,8 +208,6 @@ Variables are things that can change over time. Their names are in camel case, a
   <tr>
 </table>
 
----
-
 <a id="theme-assets_stencil-subdirectory"></a>
 
 ## Stencil Subdirectory
@@ -225,7 +217,7 @@ The /components/stencil/ subdirectory contains CSS files unique to Stencil theme
 This subdirectory’s children contain CSS for the following page elements.
 
 | Subdirectory  | UI Element/Purpose  |
-|---|---|
+|-|-|
 | account  | Customer account details |
 | addressBox  | Customer shipping addresses |
 | addReturn  | Add a product-return request |
@@ -248,9 +240,6 @@ This subdirectory’s children contain CSS for the following page elements.
 | toggleLink  | Styles for collapsible/expandable components  |
 |writeReview   | Styles for product-review submission form  |
 
-
-<a href='#akamai-image-manager' aria-hidden='true' class='block-anchor'  id='akamai-image-manager'><i aria-hidden='true' class='linkify icon'></i></a>
-
 <div class="HubBlock--callout">
 <div class="CalloutBlock--info">
 <div class="HubBlock-content">
@@ -264,12 +253,9 @@ This subdirectory’s children contain CSS for the following page elements.
 * `<img src="{{getImage settings.store_logo.image 'logo_size'}}?imbypass=on">`
 * `<img src="{{cdn 'assets/img/image.jpg?imbypass=on'}}">`
 
-
 </div>
 </div>
 </div>
-
----
 
 ## Resources
 
@@ -282,4 +268,3 @@ This subdirectory’s children contain CSS for the following page elements.
 * [SUIT CSS](https://suitcss.github.io/) (GitHub)
 * [Customizing a Theme (Assets Directory)](https://www.youtube.com/embed/zUDNgprOEts) (Youtube)
 * [BigCommerce Sass Styling Guide](https://github.com/bigcommerce/sass-style-guide) (BigCommerce GitHub)
-

@@ -10,8 +10,6 @@
 
 Merchants commonly request developers modify the default content of packing slips in order to satisfy specific business requirements and industry demands. In order to assist developers in making these changes, this articles contains instructions on how to edit the printable packing slip’s HTML.
 
-<a href='#customizing-printable_customizing-printable' aria-hidden='true' class='block-anchor'  id='customizing-printable_customizing-printable'><i aria-hidden='true' class='linkify icon'></i></a>
-
 ## Customizing Printable Packing Slips
 
 Customizing your Stencil theme’s printable packing slips currently relies on a template and variables from BigCommerce’s legacy Blueprint themes framework. Here are the steps:
@@ -21,10 +19,6 @@ Customizing your Stencil theme’s printable packing slips currently relies on a
 2. Make your customizations to the HTML file.
 
 3. [Use WebDAV](https://support.bigcommerce.com/articles/Public/File-Access-WebDAV/) to upload your customized HTML file to WebDAV’s /template/ folder.
-
-
-
----
 
 ## Resources
 

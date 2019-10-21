@@ -1,21 +1,20 @@
 # Dynamic Content Rendering on Stencil Storefronts
 
 <div class="otp" id="no-index">
-	<h3> On This Page </h3>
-	<ul>
-    <li><a href="#dynamic-content_why-dynamic-content">Why Dynamic Content?: Dropzones, Dynamic Tabs, and Snippets</a></li>
-    <li><a href="#dynamic-content_dropzones">Dropzones</a></li>
-    <li><a href="#dynamic-content_dynamic-tabs">Dynamic Tabs</a></li>
-    <li><a href="#dynamic-content_snippets">Snippets</a></li>
-    <li><a href="#dynamic-content_recap">Recap</a></li>
-  </ul>
-</div>
 
-<a href='#dynamic-content_why-dynamic-content' aria-hidden='true' class='block-anchor'  id='dynamic-content_why-dynamic-content'><i aria-hidden='true' class='linkify icon'></i></a>
+### On This Page
+- [Why Dynamic Content?](#why-dynamic-content)
+- [Dropzones](#dropzones)
+- [Dynamic Tabs](#dynamic-tabs)
+- [Snippets](#snippets)
+- [Snippets HTML](#snippets-html)
+- [Recap](#recap)
+
+</div>
 
 _We're gratefully sharing techniques devised by Ken Utting, Web Developer for BigCommerce client goruck.com_.
 
-## Why Dynamic Content?: Dropzones, Dynamic Tabs, and Snippets
+## Why Dynamic Content?
 
 At GORUCK, we've customized our Stencil theme (currently using the [Merchant](https://www.bigcommerce.com/theme/merchant-light/?_ga=2.52710120.1984523106.1539568940-967431010.1523308107) theme) to provide several ways to update our site content without requiring changes to the theme itself. This allows our content folks to make changes to our theme without having to wait on our software developers.
 
@@ -32,8 +31,6 @@ The HTML editor will remove a number of tags, particularly style and script tags
 Without changes like the ones we made at GORUCK (described below), all the content will be placed in a single location on the page.
 
 At GORUCK, we needed the ability to inject arbitrary HTML into our page, and to place that content at various specific page locations. To achieve this, we developed the three techniques described below.
-
-<a href='#dynamic-content_dropzones' aria-hidden='true' class='block-anchor'  id='dynamic-content_dropzones'><i aria-hidden='true' class='linkify icon'></i></a>
 
 ## Dropzones
 
@@ -55,8 +52,6 @@ With these dropzones defined, we can then populate them with dynamic content spe
 ![#### Dropzone that places an image gallery at the bottom of a category page
 ](//s3.amazonaws.com/user-content.stoplight.io/6116/1539874696853 "#### Dropzone that places an image gallery at the bottom of a category page
 ")
-
-<a href='#dynamic-content_dropzones' aria-hidden='true' class='block-anchor'  id='dynamic-content_dropzones'><i aria-hidden='true' class='linkify icon'></i></a>
 
 ### Dropzones HTML
 
@@ -107,8 +102,6 @@ We modified our theme's PageManager.before method to invoke a new method named `
 ```
 
 Finally, in our .scss file, we set the `.gr-dropzone` class to display: none. This prevents the content from appearing on the page in the wrong location before PageManager has a chance to move it into the dropzone.
-
-<a href='#dynamic-content_dynamic-tabs' aria-hidden='true' class='block-anchor'  id='dynamic-content_dynamic-tabs'><i aria-hidden='true' class='linkify icon'></i></a>
 
 ## Dynamic Tabs
 
@@ -227,8 +220,6 @@ Again, the JavaScript code to implement Dynamic Tabs is invoked in the PageManag
 
 Nevertheless, none of it is rocket science. The three classes involved are 250 lines of code. Interested readers are invited to contact me via the BigCommerce Developers forum for more information about the implementation.
 
-
-
 ## Snippets
 
 Snippets are similar to Dynamic Tabs, in that they allow you to use the BigCommerce control panel's HTML editor to provide content, but pull it from a separate file. This allows you to share common content across multiple pages.
@@ -243,8 +234,6 @@ We use snippets at GORUCK to display our sizing charts, as shown below. This mak
 -->
 
 ![](//s3.amazonaws.com/user-content.stoplight.io/6116/1539878331668 "")
-
-<a href='#dynamic-content_snippets' aria-hidden='true' class='block-anchor'  id='dynamic-content_snippets'><i aria-hidden='true' class='linkify icon'></i></a>
 
 ## Snippets HTML
 
@@ -262,10 +251,6 @@ The external file can contain any arbitrary HTML and CSS, and the styled HTML is
 
 Like Dropzones and Dynamic Tabs, the Snippets code is invoked in `PageManager`'s `before` method. Snippets adds just another 50 lines of JavaScript code to the theme, also relying on the same code that Dynamic Tabs uses to get the external file and cache it in the browser.
 
-
-
-<a href='#dynamic-content_recap' aria-hidden='true' class='block-anchor'  id='dynamic-content_recap'><i aria-hidden='true' class='linkify icon'></i></a>
-
 ## Recap 
 
 At GORUCK, we've developed a number of techniques that allow us to separate our content from our theme. These techniques have proved valuable to us, because they allow us to:
@@ -274,4 +259,3 @@ At GORUCK, we've developed a number of techniques that allow us to separate our 
 * Reduce modifications to our theme, which simplifies merging updates from our theme provider.
 * Share content across multiple pages.
 * Tailor our content based on product category and brand.
-

@@ -54,13 +54,13 @@ _________________________
 
 [BS] Proxying: http://localhost:4001
 [BS] Access URLs:
-------------------------------------
+
       Local: http://localhost:4000
    External: http://172.24.4.28:4000
-------------------------------------
+
          UI: http://localhost:3001
 UI External: http://172.24.4.28:3001
-------------------------------------
+
 [BS] Watching files...
 ```
 
@@ -69,7 +69,7 @@ Note the `External` IP address. You can copy/paste this URL to access the Browse
 To maximize the adoption of your themes, we recommend that you use such testing to design responsive themes that display and function well across multiple viewport sizes.
 
 
----
+
 
 ## Resources
 * [Testing and Debugging Your Theme](https://developer.bigcommerce.com/stencil-docs/development-quickstart/testing-and-debugging-your-theme)

@@ -1,14 +1,16 @@
 # Custom Templates
+
 <div class="otp" id="no-index">
-	<h3> On This Page </h3>
-	<ul>
-    <li><a href="#custom-templates_authoring-templates">Authoring a Custom Template</a></li>
-    <li><a href="#custom-templates_local-mapping-and-testing">Local Mapping and Testing</a></li>
-    <li><a href="#custom-templates_theme-upload">Theme Upload</a></li>
-    <li><a href="#custom-templates_troubleshooting">Troubleshooting Template Authoring</a></li>
-    <li><a href="#custom-templates_applying">Applying Custom Templates to Pages</a></li>
-	</ul>
-</div>
+
+### On This Page
+- [Authoring a Custom Template](#authoring-a-custom-template)
+- [Local Mapping and Testing](#local-mapping-and-testing)
+- [Theme Upload](#theme-upload)
+- [Troubleshooting Template Authoring](#troubleshooting-template-authoring)
+- [Applying Custom Templates to Pages](#applying-custom-templates-to-pages)
+- [Resources](#resources)
+
+</div> 
 
 The Stencil framework allows theme developers and merchants to assign custom layout templates to storefront pages of the following types:
 
@@ -16,7 +18,6 @@ The Stencil framework allows theme developers and merchants to assign custom lay
 * Category
 * Product
 * Page (meaning "Web Pages" – the BigCommerce control panel's designation for static store pages, which can include the store's home page)
-
 
 <div class="HubBlock--callout">
 <div class="CalloutBlock--warning">
@@ -34,10 +35,6 @@ The Stencil framework allows theme developers and merchants to assign custom lay
 </div>
 </div>
 
----
-
-<a href='#custom-templates_authoring-templates' aria-hidden='true' class='block-anchor'  id='custom-templates_authoring-templates'><i aria-hidden='true' class='linkify icon'></i></a>
-
 ## Authoring a Custom Template
 
 As a the theme developer, you must first create the custom subdirectory in the templates/pages directory, and four required subdirectories inside of it (brand, category, product, page), which will result in the following directory paths:
@@ -47,7 +44,7 @@ As a the theme developer, you must first create the custom subdirectory in the t
 * templates/pages/custom/product
 * templates/pages/custom/page
 
-Next, create the template HTML files, and then place them in the appropriate `<theme-name>/templates/pages/custom/` subdirectories corresponding to the types listed above.
+Next, create the template HTML files, and then place them in the appropriate `templates/pages/custom/` subdirectories corresponding to the types listed above.
 
 <div class="HubBlock--callout">
 <div class="CalloutBlock--warning">
@@ -60,19 +57,13 @@ Next, create the template HTML files, and then place them in the appropriate `<t
 
 Without these permissions, running your theme locally will fail with multiple error messages. Bundling your theme will also fail, blocking its upload to a store.
 
-
-
 </div>
 </div>
 </div>
-
----
-
-<a href='#custom-templates_local-mapping-and-testing' aria-hidden='true' class='block-anchor'  id='custom-templates_local-mapping-and-testing'><i aria-hidden='true' class='linkify icon'></i></a>
 
 ## Local Mapping and Testing
 
-To test your custom templates locally, you must edit your `<theme-name>/.stencil` file to create mappings between each local template and a corresponding URL. Within the .stencil file, look for the following section:
+To test your custom templates locally, you must edit your `.stencil` file to create mappings between each local template and a corresponding URL. Within the .stencil file, look for the following section:
 
 <div class="HubBlock-header">
     <div class="HubBlock-header-title flex items-center">
@@ -203,17 +194,9 @@ lineNumbers: true
 }
 ```
 
----
-
-<a href='#custom-templates_theme-upload' aria-hidden='true' class='block-anchor'  id='custom-templates_theme-upload'><i aria-hidden='true' class='linkify icon'></i></a>
-
 ## Theme Upload
 
 Finally, you must bundle and push the theme to BigCommerce. See [Bundling and Pushing a Theme](https://developer.bigcommerce.com/stencil-docs/deploying-a-theme/bundling-and-pushing) for instructions on how to achieve this.
-
----
-
-<a href='#custom-templates_troubleshooting' aria-hidden='true' class='block-anchor'  id='custom-templates_troubleshooting'><i aria-hidden='true' class='linkify icon'></i></a>
 
 ## Troubleshooting Template Authoring
 
@@ -229,17 +212,11 @@ If you have an old version of Stencil CLI installed, it might lack support for c
 
 `npm install -g bigcommerce/stencil-cli`
 
----
-
-<a href='#custom-templates_applying' aria-hidden='true' class='block-anchor'  id='custom-templates_applying'><i aria-hidden='true' class='linkify icon'></i></a>
-
 ## Applying Custom Templates to Pages
 
 Once the developer has uploaded a theme to BigCommerce, the merchant (or other authorized store user) can assign the custom templates to individual store pages in the BigCommerce Control Panel in order to make it live on the storefront.
 
 If you are ready to apply your custom template to the live BigCommerce storefront, see [Applying a Custom Template](https://support.bigcommerce.com/s/article/Stencil-Themes#intro3) (BigCommerce Knowledge base).
-
----
 
 ## Resources
 

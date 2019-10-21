@@ -1,24 +1,21 @@
 # About Stencil
-<div class="otp" id="no-index">
-	<h3> On This Page </h3>
-	<ul>
-    <li><a href="#about_cornerstone">Cornerstone</a></li>
-		<li><a href="#about_features-and-stack">Stencil Development Features</a></li>
-		<li><a href="#about_blueprint">Blueprint (Legacy Framework)</a></li>
-    <li><a href="#about_support">Support</a></li>
-	</ul>
-</div>
 
+<div class="otp" id="no-index">
+
+### On This Page
+- [Cornerstone](#cornerstone)
+- [Stencil Development Features](#stencil-development-features)
+- [Blueprint (Legacy Framework)](#blueprint-legacy-framework)
+- [Support](#support)
+- [Resources](#resources)
+
+</div>
 
 Stencil is BigCommerce's theme engine. It incorporates industry best practices in technology, design standards, SEO, and allows developers to build a stunning storefront that engages shoppers and encourages checkouts on any device. Stencil themes are supported on the [following browsers](https://support.bigcommerce.com/s/article/Themes-Supported-Browsers). Stencil is responsible for powering the BigCommerce [Cornerstone theme](#about_cornerstone).
 
 The [Store Design](/stencil-docs/configure-store-design-ui/store-design-overview) tool available on Stencil themes allows merchants to customize a storefront’s look and feel with no coding, making customizations possibble by a wide range of users.  Store Design enables quick and easy customization of a theme's colors, typography, banners, headings, carousel, and footer. It also enables customization of a storefront's layout characteristics, such as the number of products displayed in various panels, category pages, and brand pages. For details, see [Personalizing Your Theme](https://support.bigcommerce.com/articles/Learning/Personalizing-your-New-Theme) (BigCommerce Knowledge Base). 
 
 BigCommerce Stencil themes are responsive, mobile friendly themes, allowing shoppers to have a first class experience across any device. Each Stencil theme can contain one to four variations. You can optimize individual variations for specific markets, audiences and styles, while still managing and distributing all of these variations as one theme.
-
----
-
-<a href='#about_cornerstone' aria-hidden='true' class='block-anchor'  id='about_cornerstone'><i aria-hidden='true' class='linkify icon'></i></a>
 
 ## Cornerstone
 
@@ -33,10 +30,6 @@ The Cornerstone theme comes with three style variations that are each fully resp
 See the [Cornerstone Light theme demo](http://cornerstone-light-demo.mybigcommerce.com/) to experience a Stencil theme's capabilities.
 
 As the default theme on new/trial stores, Cornerstone is typically the first theme to support new theme-related features and improvements. See the [BigCommerce Developer Changelog](https://developer.bigcommerce.com/changelog) for the latest Cornerstone news and release notes.
-
----
-
-<a href='#about_features-and-stack' aria-hidden='true' class='block-anchor'  id='about_features-and-stack'><i aria-hidden='true' class='linkify icon'></i></a>
 
 ## Stencil Development Features
 
@@ -82,17 +75,9 @@ Stencil's use of YAML front matter allows you to request only the objects you ne
 
 Stencil themes can access remote objects through event hooks, using the hooks to trigger defined events based on shopper behavior. This will allow you to collect product data and optimize a shopper's experience. To facilitate theme-building, BigCommerce provides the [stencil-utils client-side JavaScript library](/stencil-docs/adding-event-hooks-to-your-theme/stencil-utils-api-reference) for managing event hooks.
 
----
-
-<a href='#about_blueprint' aria-hidden='true' class='block-anchor'  id='about_blueprint'><i aria-hidden='true' class='linkify icon'></i></a>
-
 ## Blueprint (Legacy Framework)
 
 If you are looking for information on Blueprint, BigCommerce's legacy theme framework, you can visit [Blueprint Themes](https://developer.bigcommerce.com/legacy/blueprint-themes).
-
----
-
-<a href='#about_support' aria-hidden='true' class='block-anchor'  id='about_support'><i aria-hidden='true' class='linkify icon'></i></a>
 
 ## Support
 
@@ -103,8 +88,6 @@ This is a great place to get help from other developers who work on the BigComme
 Are you a more experienced developer or have a programming language specific question? This is a good place to ask questions and get help. The developer community is the best place to get answers about the BigCommerce platform specifically.
 
 If you need direct assistance, you can contact BigCommerce Support through [Live Chat, Phone Support, or Email Support](https://support.bigcommerce.com/s/contact).
-
----
 
 ## Resources
 

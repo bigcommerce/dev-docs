@@ -16,7 +16,7 @@ Theme developers can enable Smart Buttons on a custom Stencil theme by adding th
 
 Merchants will have the ability to customize some style aspects of the PayPal payment buttons at checkout using Store Design for stores that have PayPal powered by Braintree or PayPal Express Checkout enabled. In order to make PayPal Smart Buttons customizable with Store Design, a theme developer will need to make its customization properties available by adding its schema to the <span class="fn">schema.json</span> file. 
 
----
+
 
 <a href='#paypal-smart_include-smart-buttons' aria-hidden='true' class='block-anchor'  id='paypal-smart_include-smart-buttons'><i aria-hidden='true' class='linkify icon'></i></a>
 
@@ -77,7 +77,7 @@ lineNumbers: true
 </div>
 </div>
 
----
+
 
 ## Enabling Smart Buttons Customization via Store Design
 
@@ -239,7 +239,7 @@ All mutually exclusive options are tied to the layout setting `vertical.` If you
 </div>
 </div>
 
----
+
 
 <a href='#paypal-smart_additional-resources' aria-hidden='true' class='block-anchor'  id='paypal-smart_additional-resources'><i aria-hidden='true' class='linkify icon'></i></a>
 

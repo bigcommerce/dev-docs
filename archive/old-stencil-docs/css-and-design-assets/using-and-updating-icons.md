@@ -25,7 +25,7 @@ Then, from your theme's root directory, run:
 `npm install`
 
 
----
+
 
 <a href='#using-and-updating-icons_calling-theme-icons' aria-hidden='true' class='block-anchor'  id='using-and-updating-icons_calling-theme-icons'><i aria-hidden='true' class='linkify icon'></i></a>
 
@@ -46,7 +46,7 @@ For example:
 
 `xlink:href="#icon-facebook"`
 
----
+
 
 <a href='#using-and-updating-icons_adding-new-icons' aria-hidden='true' class='block-anchor'  id='using-and-updating-icons_adding-new-icons'><i aria-hidden='true' class='linkify icon'></i></a>
 
@@ -54,7 +54,7 @@ For example:
 
 Simply add your new icon SVG file to the `assets/icons/ `folder. Then, from your theme's root directory, run `grunt svgstore` or just `grunt`.
 
----
+
 
 <a href='#using-and-updating-icons_video-demo' aria-hidden='true' class='block-anchor'  id='using-and-updating-icons_video-demo'><i aria-hidden='true' class='linkify icon'></i></a>
 

@@ -13,8 +13,6 @@
 
 Most of the plugin's functionality is exposed on the front-end of the site through shortcodes embedded on automatically created pages. The code controlling those shortcodes can be found in the classes in `src/BigCommerce/Shortcodes`.
 
-<a href='#shortcode_product-shortcodes' aria-hidden='true' class='block-anchor'  id='shortcode_product-shortcodes'><i aria-hidden='true' class='linkify icon'></i></a>
-
 ## Products Shortcode
 `[bigcommerce_product]`
 
@@ -38,11 +36,6 @@ While the shortcode can be built using the button, it can also be created manual
 |`order`|Whether to sort products in "ASC" or "DESC" order|`[bigcommerce_product order="ASC"]`|
 |`orderby`|Which field to use for sorting. Accepts any field that WP_Query accepts (e.g., title, date)|`[bigcommerce_product orderby="title"]`|
 
-
----
-
-<a href='#shortcode_components' aria-hidden='true' class='block-anchor'  id='shortcode_components'><i aria-hidden='true' class='linkify icon'></i></a>
-
 ## Component Shortcodes
 
 `[bc-component]`
@@ -59,10 +52,6 @@ You can build the shortcode using the Block Editor, or it can be created manuall
 |`description`|The product's description|`[bc-component id="163" type="description"]`|
 |`add_to_cart`| Displays an add-to-cart button for the product |`[bc-component id="163" type="add_to_cart"]`|
 
----
-
-<a href='#shortcode_other-short' aria-hidden='true' class='block-anchor'  id='shortcode_other-short'><i aria-hidden='true' class='linkify icon'></i></a>
-
 ## Other Shortcodes
 
 |Shortcode|Description|
@@ -73,5 +62,3 @@ You can build the shortcode using the Block Editor, or it can be created manuall
 |`[bigcommerce_account_profile]`|A form to update the customer’s profile.
 |`[bigcommerce_order_history]`|A list of the customer’s past orders.
 |`[bigcommerce_shipping_address_list]`|A list of the customer’s shipping addresses, and forms to add, remove, or update addresses.
-
----

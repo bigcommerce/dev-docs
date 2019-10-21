@@ -14,8 +14,6 @@
 
 </div> 
 
-<a href='#v2-brands_object-properties' aria-hidden='true' class='block-anchor'  id='v2-brands_object-properties'><i aria-hidden='true' class='linkify icon'></i></a>
-
 ## Brands 
 
 Brand facets for identifying and categorizing products according to their manufacturer or company metonym.
@@ -23,7 +21,7 @@ Brand facets for identifying and categorizing products according to their manufa
 ### Brand Object – Properties 
 
 | Name | Type | Description |
-| --- | --- | --- |
+|-|-|-|
 | id | int |
 | name | string | The name of the brand. Must be unique. |
 | page_title | string | The title shown in the browser while viewing the brand. |
@@ -31,10 +29,6 @@ Brand facets for identifying and categorizing products according to their manufa
 | meta_description | text | A meta description to include. |
 | image_file | string | A valid image. |
 | s
-
----
-
-<a href='#v2-brands_list-brands' aria-hidden='true' class='block-anchor'  id='v2-brands_list-brands'><i aria-hidden='true' class='linkify icon'></i></a>
 
 ## List Brands 
 
@@ -47,7 +41,7 @@ Gets the collection of brands. (Default sorting is by brand id, from lowest to h
 Filter parameters can be added to the URL query string to select specific brands in the collection.
 
 | Parameter | Type | Example |
-| --- | --- | --- |
+|-|-|-|
 | name | string | /api/v2/brands?name={value} |
 | min_id | int | /api/v2/brands?min_id={value} |
 | max_id | int | /api/v2/brands?max_id={value} |
@@ -57,7 +51,7 @@ Filter parameters can be added to the URL query string to select specific brands
 Parameters can be added to the URL query string to paginate the collection. The maximum limit is 250. If a limit isn’t provided, BigCommerce returns up to 50 brands by default.
 
 | Parameter | Type | Example |
-| --- | --- | --- |
+|-|-|-|
 | Page | int | /api/v2/brands?page={number} |
 | Limit | int | /api/v2/brands?limit={count} |
 
@@ -88,17 +82,11 @@ Example JSON returned in the response:
 ]
 ```
 
----
-
-<a href='#v2-brands_get-brands' aria-hidden='true' class='block-anchor'  id='v2-brands_get-brands'><i aria-hidden='true' class='linkify icon'></i></a>
-
 ## Get a Brand 
 
 Gets a brand.
 
-
 >`GET /stores/{store_hash}/v2/brands/{id}`
-
 
 ### Response 
 
@@ -116,10 +104,6 @@ Example JSON returned in the response:
 }
 ```
 
----
-
-<a href='#v2-brands_get-count-brands' aria-hidden='true' class='block-anchor'  id='v2-brands_get-count-brands'><i aria-hidden='true' class='linkify icon'></i></a>
-
 ## Get a Count of Brands 
 
 Returns the total number of brands in the store.
@@ -136,16 +120,11 @@ Example JSON returned in the response:
 }
 ```
 
----
-
-<a href='#v2-brands_create-brands' aria-hidden='true' class='block-anchor'  id='v2-brands_create-brands'><i aria-hidden='true' class='linkify icon'></i></a>
-
 ## Create a Brand 
 
 Creates a new brand.
 
 >`POST /stores/{store_hash}/v2/brands`
-
 
 ### Read-only Properties 
 
@@ -190,18 +169,11 @@ Example JSON returned in the response:
 }
 ```
 
----
-
-<a href='#v2-brands_update-brands' aria-hidden='true' class='block-anchor'  id='v2-brands_update-brands'><i aria-hidden='true' class='linkify icon'></i></a>
-
-
 ## Update a Brand 
 
 Updates an existing brand.
 
-
 >`PUT /stores/{store_hash}/v2/brands/{id}`
-
 
 ### Read-only Properties 
 
@@ -229,23 +201,14 @@ Example JSON returned in the response:
 }
 ```
 
----
-
-<a href='#2-brands_delete-brands' aria-hidden='true' class='block-anchor'  id='2-brands_delete-brands'><i aria-hidden='true' class='linkify icon'></i></a>
-
 ## Delete a Brand 
 
 Deletes a brand.
 
 >`DELETE /stores/{store_hash}/v2/brands/{id}`
 
----
-
-<a href='#v2-brands_delete-all-brands' aria-hidden='true' class='block-anchor'  id='v2-brands_delete-all-brands'><i aria-hidden='true' class='linkify icon'></i></a>
-
 ## Delete All Brands 
 
 Deletes all brands belonging to a product.
 
 >`DELETE /stores/{store_hash}/v2/brands`
-

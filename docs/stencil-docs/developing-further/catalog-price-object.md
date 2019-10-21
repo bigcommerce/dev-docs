@@ -39,10 +39,6 @@ Merchants can use Control Panel options to set the following prices for a catalo
 
 These options and assigned values are each represented in the [Catalog Price Object](/stencil-docs/stencil-object-model-reference/stencil-objects/common-objects/catalog-price), allowing theme developers to pull the information and render it onto the storefront to highlight the savings offered by a merchant.
 
----
-
-<a href='#catalog-price_excluding-tax' aria-hidden='true' class='block-anchor'  id='catalog-price_excluding-tax'><i aria-hidden='true' class='linkify icon'></i></a>
-
 ## Catalog Price Object Examples Excluding Tax
 
 ### No Sale Price Defined in Control Panel
@@ -120,9 +116,6 @@ Items to note about the Catalog Price Object above:
 * `without_tax` -- this property maps to the control panel’s **Default Price** field.
 * `rrp_without_tax` -- `rrp` is an abbreviation for "regular retail price." This property maps to the control panel's **MSRP (Retail Price)** field.
 * `saved` --  this property is the difference between the existing values for `without_tax` (**Default Price**) and `rrp_without_tax` (**MSRP**).
-
-
----
 
 ### Sale Price Defined in Control Panel
 
@@ -207,10 +200,6 @@ Items to note about the *Catalog Price* Object above:
 
 Properties noted will only be displayed if a **Sale Price** is set on the product.
 
----
-
-<a href='#catalog-price_prices-and-conditional' aria-hidden='true' class='block-anchor'  id='catalog-price_prices-and-conditional'><i aria-hidden='true' class='linkify icon'></i></a>
-
 ### Prices and Conditional Logic Example
 
 Stencil structures product prices for backward compatibility with the BigCommerce platform's traditional treatment of prices. This behavior enables you to add logic that determines whether to display a strikeout price on the storefront.
@@ -218,8 +207,6 @@ Stencil structures product prices for backward compatibility with the BigCommerc
 The example below tests for the presence of the `sale_price_without_tax` property (you could also look for the `sale_price_with_tax` property). The presence of the `sale_price_without_tax` property means that the product has been given a **Sale Price**.
 
 With the logic below, the page will display the standard store price with a strikeout across it, placed next to the **Sale Price**, indicating the current selling price of the product.
-
-
 
 <div class="HubBlock-header">
     <div class="HubBlock-header-title flex items-center">
@@ -238,10 +225,6 @@ lineNumbers: true
      ... [code to display on-sale strikeout pricing or content for an on sale product]  ...
   {{/or}}
 ```
-
----
-
-<a href='#catalog-price_including-and-excluding' aria-hidden='true' class='block-anchor'  id='catalog-price_including-and-excluding'><i aria-hidden='true' class='linkify icon'></i></a>
 
 ## Catalog Price Object Examples Including and Excluding Tax
 
@@ -263,8 +246,6 @@ This display setting affects how values are returned in the *Catalog Price Objec
 ![#### Configure Tax Display Settings
 ](https://raw.githubusercontent.com/bigcommerce/dev-docs/master/assets/images/confige_tax_settings.png "#### Configure Tax Display Settings
 ")
-
----
 
 ### No Sale Price Defined in Control Panel
 
@@ -335,8 +316,6 @@ Items to note about the *Catalog Price Object* example above:
 </div>
 </div>
 
----
-
 ### Sale Price Defined in Control Panel
 
 Assume that a merchant has defined the following for a tax configurations for a product in the Control Panel, alongside a defined **Sale Price**:
@@ -406,10 +385,6 @@ Items to note about the *Catalog Price Object* above:
 * The `sale_price_without_tax` and `sale_price_without_tax` represent the product's defined **Sale Price**.
 * The `saved` value is based on the difference between the `with_tax` and `non_sale_price_with_tax` values.
 
----
-
-<a href='#catalog-price_quick-reference' aria-hidden='true' class='block-anchor'  id='catalog-price_quick-reference'><i aria-hidden='true' class='linkify icon'></i></a>
-
 ## Control Panel Quick Reference
 
 The table below explains the mapping between the Control Panel fields and the Catalog Price Object properties and values.
@@ -467,8 +442,6 @@ The table below explains the mapping between the Control Panel fields and the Ca
     <td>The customer’s savings on the effective price versus list price.</td>
   </tr>  
 </table>
-
----
 
 ## Resources
 

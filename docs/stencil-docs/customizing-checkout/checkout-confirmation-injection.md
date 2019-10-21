@@ -12,8 +12,6 @@
 
 </div>
 
-<a href='#checkout_adding' aria-hidden='true' class='block-anchor'  id='checkout_adding'><i aria-hidden='true' class='linkify icon'></i></a>
-
 ## Adding Storewide Styles
 
 A prerequisite for the next two options is to add themewide styles to your Checkout or Order Confirmation page. To do so, add this statement:
@@ -23,10 +21,6 @@ A prerequisite for the next two options is to add themewide styles to your Check
 ...before this statement, which is already present at the head of each template:
 
 `{{{ checkout.checkout_head }}}`
-
----
-
-<a href='#checkout_applying-storewide-header' aria-hidden='true' class='block-anchor'  id='checkout_applying-storewide-header'><i aria-hidden='true' class='linkify icon'></i></a>
 
 ## Applying Storewide Header
 
@@ -56,12 +50,6 @@ with this simple Handlebars statement:
 Ensure that you paste it before this **existing** statement:
 
 `{{{ checkout.checkout_head }}}`
-
-
-
----
-
-<a href='#checkout_applying-storewide-scripts' aria-hidden='true' class='block-anchor'  id='checkout_applying-storewide-scripts'><i aria-hidden='true' class='linkify icon'></i></a>
 
 ## Applying Storewide Scripts
 
@@ -141,10 +129,6 @@ Insert it between these existing statements, so it will ultimately read as shown
 
 4. In your store's BigCommerce control panel, ensure that you have inserted any desired script text in the `Storefront` > `Script Manager` field.
 
----
-
-<a href='#checkout_adding-trust-seals' aria-hidden='true' class='block-anchor'  id='checkout_adding-trust-seals'><i aria-hidden='true' class='linkify icon'></i></a>
-
 ## Adding Trust Seals
 
 To add a trust seal to either template:
@@ -152,10 +136,6 @@ To add a trust seal to either template:
 1. Generate a code snippet (seal script) from your trust-seal provider. You can find instructions for GeoTrust seals in [this BigCommerce KB article](https://support.bigcommerce.com/s/article/Adding-a-GeoTrust-SSL-seal-to-your--footer). (Instructions for other providers will vary.)
 
 2. Copy and paste the seal script into your checkout or order confirmation template, before or after the `{{{ checkout.checkout_content }}}` Handlebars statement.
-
----
-
-<a href='#checkout_app-injection' aria-hidden='true' class='block-anchor'  id='checkout_app-injection'><i aria-hidden='true' class='linkify icon'></i></a>
 
 ## Checkout App Injection 
 
@@ -262,8 +242,6 @@ loadaddrexx();
 </script>
 <!-- END  Addrexx -->
 ```
-
----
 
 ## Resources
 

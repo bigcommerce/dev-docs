@@ -35,7 +35,7 @@ Citadel assets bundled with Cornerstone are located in these Cornerstone subdire
 
 A theme developer might use drop-down lists, forms, and similar resources from Citadel’s design patterns. The design/style language underlying these Citadel resources is the Sass/SCSS preprocessor.
 
----
+
 
 <a href='#components_components-directory' aria-hidden='true' class='block-anchor'  id='components_components-directory'><i aria-hidden='true' class='linkify icon'></i></a>
 
@@ -50,7 +50,7 @@ Citadel design patterns reside in the <span class="fp">{theme-name}/assets/scss/
 
 You can see the components directory and its children present in the [Cornerstone Theme Github Repository](https://github.com/bigcommerce/cornerstone/tree/master/assets/scss/components).
 
----
+
 
 <a href='#components_citadel-sub' aria-hidden='true' class='block-anchor'  id='components_citadel-sub'><i aria-hidden='true' class='linkify icon'></i></a>
 
@@ -107,7 +107,7 @@ Mixins follow regular camel-case naming conventions. Namespacing is not universa
 @mixin u-textTruncate;
 ```
 
----
+
 
 <a href='#components_foundation-sub' aria-hidden='true' class='block-anchor'  id='components_foundation-sub'><i aria-hidden='true' class='linkify icon'></i></a>
 
@@ -116,7 +116,7 @@ Mixins follow regular camel-case naming conventions. Namespacing is not universa
 The <span class="fp">/components/foundation/</span> subdirectory contains files installed by the [ZURB Foundation framework](https://foundation.zurb.com/showcase/about.html). (Stencil's Foundation support is limited to version 5.5.3.)
 
 
----
+
 
 <a href='#components_stencil-sub' aria-hidden='true' class='block-anchor'  id='components_stencil-sub'><i aria-hidden='true' class='linkify icon'></i></a>
 
@@ -150,7 +150,7 @@ This subdirectory’s children contain CSS for the following page elements.
 | writeReview | Styles for product-review submission form |
 
 
----
+
 
 <a href='#components_vendor-sub' aria-hidden='true' class='block-anchor'  id='components_vendor-sub'><i aria-hidden='true' class='linkify icon'></i></a>
 
@@ -158,7 +158,7 @@ This subdirectory’s children contain CSS for the following page elements.
 
 The <span class="fp">/components/vendor/</span> subdirectory contains the consumed version of framework components from your chosen provider. There is some renaming of these components to match Stencil naming conventions.
 
----
+
 
 ## Resources
 

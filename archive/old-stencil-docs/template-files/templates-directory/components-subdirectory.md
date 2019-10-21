@@ -44,7 +44,7 @@ Please bear in mind that if a front-matter directive contains an invalid option,
 </div>
 </div>
 
----
+
 
 ## Resources
 ### Cornerstone GitHub Respository

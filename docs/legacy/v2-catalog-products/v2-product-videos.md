@@ -14,8 +14,6 @@
 
 </div> 
 
-<a href='#v2-video_object-properties' aria-hidden='true' class='block-anchor'  id='v2-video_object-properties'><i aria-hidden='true' class='linkify icon'></i></a>
-
 ## Videos 
 
 Embedded videos displayed on product listings.
@@ -23,15 +21,11 @@ Embedded videos displayed on product listings.
 ### Videos Object – Properties 
 
 | Name | Type | Description |
-| --- | --- | --- |
+|-|-|-|
 | id | string | ID of this video. |
 | product_id | int | ID of the associated product. |
 | sort_order | int | Sort order for this video. |
 | name | string | Name for this video. |
-
----
-
-<a href='#v2-video_list-product-videos' aria-hidden='true' class='block-anchor'  id='v2-video_list-product-videos'><i aria-hidden='true' class='linkify icon'></i></a>
 
 ## List Product Videos 
 
@@ -39,13 +33,12 @@ Gets the videos associated with a product.
 
 >`GET /stores/{store_hash}/v2/products/{product_id}/videos`
 
-
 ### Pagination 
 
 Parameters can be added to the URL query string to paginate the collection. The maximum limit is 250. If a limit isn’t provided, up to 50 `product_videos` are returned by default.
 
 | Parameter | Type | Example |
-| --- | --- | --- |
+|-|-|-|
 | page | int | /api/v2/products/{product_id}/videos?page={number} |
 | limit | int | /api/v2/products/{product_id}/videos?limit={count} |
 
@@ -64,26 +57,17 @@ Example JSON returned in the response:
 ]
 ```
 
----
-
-<a href='#v2-sku_get-product-video' aria-hidden='true' class='block-anchor'  id='v2-sku_get-product-video'><i aria-hidden='true' class='linkify icon'></i></a>
-
 ## Get a Product Video 
 
 Gets a product video.
 
 >`GET /stores/{store_hash}/v2/products/{product_id}/videos/{id}`
 
----
-
-<a href='#v2-video_get-count-video' aria-hidden='true' class='block-anchor'  id='v2-video_get-count-video'><i aria-hidden='true' class='linkify icon'></i></a>
-
 ## Get a Count of Product Videos 
 
 Gets a count of the number of product videos in the store.
 
 >`GET /stores/{store_hash}/v2/products/videos/count`
-
 
 ### Response 
 
@@ -95,16 +79,11 @@ Example JSON returned in the response:
 }
 ```
 
----
-
-<a href='#v2-video_create-product-video' aria-hidden='true' class='block-anchor'  id='v2-video_create-product-video'><i aria-hidden='true' class='linkify icon'></i></a>
-
 ## Create a Product Video 
 
 Adds a link to a YouTube video to a product.
 
 >`POST /stores/{store_hash}/v2/products/{product_id}/videos`
-
 
 ### Read-only Properties 
 
@@ -133,14 +112,11 @@ Example request object:
 }
 ```
 
-<a href='#v2-video_update-product-video-metadata' aria-hidden='true' class='block-anchor'  id='v2-video_update-product-video-metadata'><i aria-hidden='true' class='linkify icon'></i></a>
-
 ## Update Product Video Metadata 
 
 Edit the metadata of a product video.
 
 >`PUT /stores/{store_hash}/v2/products/{product_id}/videos/{id}`
-
 
 ### Read-only Properties 
 
@@ -170,23 +146,14 @@ Example request object:
 }
 ```
 
----
-
-<a href='#v2-video_delete-product-video' aria-hidden='true' class='block-anchor'  id='v2-video_delete-product-video'><i aria-hidden='true' class='linkify icon'></i></a>
-
 ## Delete a Product Video 
 
 Delete a product video.
 
 >`DELETE /stores/{store_hash}/v2/products/{product_id}/videos/{id}`
 
----
-
-<a href='#v2-video_delete-all-product-video' aria-hidden='true' class='block-anchor'  id='v2-video_delete-all-product-video'><i aria-hidden='true' class='linkify icon'></i></a>
-
 ## Delete All Product Videos 
 
 Deletes all videos belonging to a product.
 
 >`DELETE /stores/{store_hash}/v2/products/{product_id}/videos`
-

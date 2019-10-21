@@ -41,7 +41,7 @@ At checkout, the shopper will still be billed in the store's default currency. A
 
 ![](//s3.amazonaws.com/user-content.stoplight.io/6116/1540232528988 "")
 
----
+
 
 ## Resources
 

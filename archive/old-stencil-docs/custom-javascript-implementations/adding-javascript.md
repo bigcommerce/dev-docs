@@ -30,7 +30,7 @@ To solve this problem, Stencil – like other modern front-end frameworks – bu
 ### Minification
 Beyond reducing the number of HTTP calls required to fetch all the required JavaScript modules, we can reduce the size of the individual JavaScript modules through minification. JavaScript minification removes white space and comments, shortens variable and function names, removes dead code, and more. The goal, in all cases, is to reduce the amount of bandwidth necessary to transmit the JavaScript module to the browser.
 
----
+
 
 <a href='#adding_development-options' aria-hidden='true' class='block-anchor'  id='adding_development-options'><i aria-hidden='true' class='linkify icon'></i></a>
 
@@ -46,7 +46,7 @@ When you add JavaScript to a theme, use one of the following techniques, so that
 
 These techniques are outlined in the following sections.
 
----
+
 
 <a href='#adding_using-npm' aria-hidden='true' class='block-anchor'  id='adding_using-npm'><i aria-hidden='true' class='linkify icon'></i></a>
 
@@ -58,7 +58,7 @@ Many third-party JavaScript components are distributed with npm (Node Package Ma
 
 npm facilitates managing third-party JavaScript components by placing each JavaScript component – and any of its dependencies – in the correct directories. However, as a developer, you will still need to edit your theme files to wire up the JavaScript component to expose it on your storefront. You will find several examples of this on the following pages.
 
----
+
 
 <a href='#adding_development-options' aria-hidden='true' class='block-anchor'  id='adding_development-options'><i aria-hidden='true' class='linkify icon'></i></a>
 
@@ -141,7 +141,7 @@ Notice the page types correspond to the html pages in [cornerstone/templates/pag
 </div>
 </div>
 
----
+
 
 <a href='#adding_page-template-injection' aria-hidden='true' class='block-anchor'  id='page-types_javascript'><i aria-hidden='true' class='linkify icon'></i></a>
 
@@ -179,7 +179,7 @@ You can compose your JSON object across multiple pages, to create a different se
 Stencil's Cornerstone base theme makes the `jsContext` available as `this.context`, both on the active page scoped and on global `PageManager` objects.
 
 
----
+
 
 <a href='#adding_placing-modules' aria-hidden='true' class='block-anchor'  id='adding_placing-modules'><i aria-hidden='true' class='linkify icon'></i></a>
 
@@ -187,7 +187,7 @@ Stencil's Cornerstone base theme makes the `jsContext` available as `this.contex
 
 You can freely create subdirectories within `assets/js/`, to contain new JavaScript modules. The constraint is that all JavaScript files in each module must use the `.js` file extension.
 
----
+
 
 <a href='#adding_theme-specific-js' aria-hidden='true' class='block-anchor'  id='adding_theme-specific-js'><i aria-hidden='true' class='linkify icon'></i></a>
 
@@ -195,7 +195,7 @@ You can freely create subdirectories within `assets/js/`, to contain new JavaScr
 
 In your theme's `assets/js/theme/` subdirectory, you will find a tree of JavaScript files. Each file is a JavaScript module. Some modules are for specific page types. Others are common modules that can be used in other modules. Still others are global modules that are available on every page.
 
----
+
 
 <a href='#adding_mapping-page' aria-hidden='true' class='block-anchor'  id='adding_mapping-page'><i aria-hidden='true' class='linkify icon'></i></a>
 
@@ -338,7 +338,7 @@ export default class Cart extends PageManager {
         }
 ```
 
----
+
 
 <a href='#adding_mapping-custom' aria-hidden='true' class='block-anchor'  id='adding_mapping-custom'><i aria-hidden='true' class='linkify icon'></i></a>
 
@@ -467,7 +467,7 @@ window.stencilBootstrap = function stencilBootstrap(pageType, contextJSON = null
     };
 };
 ```
----
+
 
 <a href='#adding_summary' aria-hidden='true' class='block-anchor'  id='adding_summary'><i aria-hidden='true' class='linkify icon'></i></a>
 

@@ -1,10 +1,9 @@
 # Store-Wide Global Panels
 
-
 The following panels are available store-wide:
 
 | Variable | Description |
-|-----------------|------------------|
+|--|-|
 | `HTMLHead` | Content shown between the `<head>` tags of each page. This includes code for visitor tracking, RSS feeds, etc. |
 | `Header` | The header for each page in the store (includes the `TopMenu` and `HeaderSearch` panels) |
 | `Footer` | The footer for each page in the store. |
@@ -21,4 +20,3 @@ The following panels are available store-wide:
 | `TopMenu` | The top navigation menu (`Home`, `My Account`, `Sign In or Create Account`, etc.) |
 | `PagesMenu` | A list of parent-level pages configured on the store. |
 | `HeaderSearch` | The search box included at the top of each of the store's pages. |
-

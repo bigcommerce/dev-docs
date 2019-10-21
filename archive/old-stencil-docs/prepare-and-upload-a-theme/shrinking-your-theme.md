@@ -51,7 +51,7 @@ Once your resulting `.zip` file is 50 MB or smaller, upload it to BigCommerce, a
 </div>
 </div>
 
----
+
 
 <a href='#shrinking_webdav-folders' aria-hidden='true' class='block-anchor'  id='shrinking_webdav-folders'><i aria-hidden='true' class='linkify icon'></i></a>
 

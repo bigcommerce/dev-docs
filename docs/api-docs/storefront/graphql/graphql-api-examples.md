@@ -15,10 +15,7 @@
 
 </div>
 
-
 Below are example GraphQL queries for use with the BigCommerce GraphQL Storefront API. The purpose of these examples is to assist developers in getting familiar with the API. For a general overview of it's usage and capabilities, see [GraphQL Storefront API Overview](https://developer.bigcommerce.com/api-docs/storefront/graphql/graphql-storefront-api-overview).
-
----
 
 <a id="get-a-customers-details" class="devdocsAnchor"></a>
 
@@ -47,8 +44,6 @@ query CustomerAttributes {
 }
 ```
 
----
-
 <a id="get-first-three-levels-of-category-tree" class="devdocsAnchor"></a>
 
 ## Get First Three Levels of Category Tree
@@ -74,8 +69,6 @@ fragment CategoryFields on CategoryTreeItem {
   entityId
 }
 ```
-
----
 
 <a id="get-category-and-children-by-url" class="devdocsAnchor"></a>
 
@@ -134,8 +127,6 @@ fragment PriceFields on Money {
 }
 ```
 
----
-
 <a id="get-multiple-objects-by-url" class="devdocsAnchor"></a>
 
 ## Get Multiple Objects by URL
@@ -177,8 +168,6 @@ query LookUpUrl {
 }
 ```
 
----
-
 <a id="get-products-images-at-different-resolutions" class="devdocsAnchor"></a>
 
 ## Get Product's Images at Different Resolutions
@@ -201,8 +190,6 @@ query SrcsetImages {
   }
 }
 ```
-
----
 
 <a id="get-variant-details-as-a-product-object" class="devdocsAnchor"></a>
 
@@ -262,10 +249,6 @@ This query returns variant information appropriately overlaid on the Product obj
 </div>
 </div>
 
-
-
----
-
 <a id="get-product-option-details-by-product-id" class="devdocsAnchor"></a>
 
 ## Get Product Option Details by Product ID
@@ -300,8 +283,6 @@ query SeveralProductsByID {
   }
 }
 ```
-
----
 
 <a id="get-refined-product-object-for-given-options" class="devdocsAnchor"></a>
 

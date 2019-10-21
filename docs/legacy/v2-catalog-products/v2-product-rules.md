@@ -21,7 +21,7 @@ Rules that modify the properties of a product, such as weight, price, and produc
 ### Product Rule Object – Properties 
 
 | Name | Type | Description |
-| --- | --- | --- |
+|-|-|-|
 | id | int | The ID of the rule. |
 | product_id | int | The ID of the product to which the rule belongs. |
 | sort_order | int | The order in which the rule will be displayed on the product page. Lower integers will give the rule a higher priority. If the rule is given a lower priority, then when updating, all rules with a `sort_order` the same or greater than the rule's new `sort_order` value will have their `sort_order` reordered. |
@@ -35,18 +35,11 @@ Rules that modify the properties of a product, such as weight, price, and produc
 | image_file | string | When specifying a product rule, the image_file should be specified as either: A path to an rule already uploaded via FTP in the import directory and the path should be relative from the import directory. It can be a URL to an rule accessible on the internet. |
 | conditions | array | The conditions array can contain one or more objects. Each object inside the array contains three name/value pairs, but at least one value will be missing at any given time. If a `product_option_id` value is present, then a `option_value_id` must also be present. If `product_option_id` and `option_value_id` values are present, then a `sku_id` value must not be present. This also holds true in the reverse, where if a `sku_id` value exists, values for the `product_option_id` and `option_value_id` cannot exist. NOTE: if you can use a SKU value, this is preferred for simplicity. Empty values are represented as `null`. If multiple objects are included in the array, the software runs through them using an AND/OR logic. Objects with identical `product_option_id` values will be linked with an OR. Objects with different `product_option_id` values will be linked with an AND. When one object contains a `sku_id` value and the other contains `product_option_id` and `option_value_id` values, they will be linked with an AND. Two objects which both contain `sku_id` values will be linked with an OR. |
 
-
----
-
-<a href='#v2-rule_list-product-rules' aria-hidden='true' class='block-anchor'  id='v2-rule_list-product-rules'><i aria-hidden='true' class='linkify icon'></i></a>
-
 ## List Product Rules 
 
 Gets the collection of rules associated with a product. (Default sorting is by rule id, from lowest to highest.)
 
-
 >`GET /stores/{store_hash}/v2/products/{product_id}/rules`
-
 
 ### Filters 
 
@@ -57,7 +50,7 @@ There are no filter parameters specific to product rules.
 Parameters can be added to the URL query string to paginate the collection. The maximum limit is 250. If a limit isn’t provided, up to 50 product_rules are returned by default.
 
 | Parameter | Type | Example |
-| --- | --- | --- |
+|-|-|-|
 | page | int | /api/v2/products/{product_id}/rules?page={number} |
 | limit | int | /api/v2/products/{product_id}/rules?limit={count} |
 
@@ -110,17 +103,11 @@ Example JSON returned in the response:
 ]
 ```
 
----
-
-<a href='#v2-rule-product-rule' aria-hidden='true' class='block-anchor'  id='v2-rule-product-rule'><i aria-hidden='true' class='linkify icon'></i></a>
-
 ## Get a Product Rule 
 
 Gets a single product rule.
 
-
 >`GET /stores/{store_hash}/v2/products/{product_id}/rules/{id}`
-
 
 ### Response 
 
@@ -149,10 +136,6 @@ Example JSON returned in the response:
 }
 ```
 
----
-
-<a href='#v2-rule_get-count-rule' aria-hidden='true' class='block-anchor'  id='v2-rule_get-count-rule'><i aria-hidden='true' class='linkify icon'></i></a>
-
 ## Get a Count of Product Rules 
 
 Gets a count of the number of product rules in the store.
@@ -169,18 +152,11 @@ Example JSON returned in the response:
 }
 ```
 
----
-
-<a href='#v2-rule_create-product-rule' aria-hidden='true' class='block-anchor'  id='v2-rule_create-product-rule'><i aria-hidden='true' class='linkify icon'></i></a>
-
 ## Create a Product Rule 
 
 Creates a new product rule.
 
-
 >`POST /stores/{store_hash}/v2/products/{product_id}/rules`
-
-
 
 ### Read-only Properties 
 
@@ -222,11 +198,6 @@ Example JSON returned in the response:
 }
 ```
 
----
-
-<a href='#v2-rule_update-product-rule' aria-hidden='true' class='block-anchor'  id='v2-rule_update-product-rule'><i aria-hidden='true' class='linkify icon'></i></a>
-
-
 ## Update a Product Rule 
 
 Updates an existing product rule. 
@@ -236,7 +207,6 @@ Updates an existing product rule.
 If you include a conditions object array, its contents will be appended to any existing conditions. This operation does not overwrite existing conditions.
 
 >`PUT /stores/{store_hash}/v2/products/{product_id}/rules/{id}`
-
 
 ### Read-only Properties 
 
@@ -276,19 +246,11 @@ Example JSON returned in the response:
 }
 ```
 
----
-
-<a href='#v2-rule_delete-product-rule' aria-hidden='true' class='block-anchor'  id='v2-rule_delete-product-rule'><i aria-hidden='true' class='linkify icon'></i></a>
-
 ## Delete a Product Rule 
 
 Deletes a product rule.
 
 >`DELETE /stores/{store_hash}/v2/products/{product_id}/rules/{id}`
-
----
-
-<a href='#v2-rule_delete-all-product-rule' aria-hidden='true' class='block-anchor'  id='v2-rule_delete-all-product-rule'><i aria-hidden='true' class='linkify icon'></i></a>
 
 ## Delete Multiple Product Rules 
 
@@ -301,7 +263,6 @@ Deletes multiple product rules.
 Parameters can be added to the URL query string to paginate the collection. The maximum limit is 250. If a limit isn’t provided, up to 50 `product_rules` are returned by default.
 
 | Parameter | Type | Example |
-| --- | --- | --- |
+|-|-|-|
 | page | int | /api/v2/products/{product_id}/rules?page={number} |
 | limit | int | /api/v2/products/{product_id}/rules?limit={count} 
-

@@ -32,8 +32,6 @@ Webhooks allow app developers to be notified, in near real-time, when specific e
 </div>
 </div>
 
----
-
 <a id="authentication"></a>
 
 ## Authentication
@@ -63,15 +61,11 @@ Before you  can begin to send and receive requests, you must have the following:
 </div>
 </div>
 
----
-
 <a id="lightweight-callback-payload"></a>
 
 ## Lightweight Callback Payload
 
 When a subscribed event occurs, we send a light payload with only minimum details regarding the event that’s been triggered. This gives you maximum flexibility as to how you want to handle the notification in your application. For instance, if you subscribe to the `store/order/statusUpdated` event, we’ll send you the order ID when the status is updated. You might want to handle the notification by fetching the full order details via a request to the Orders resource.
-
-
 
 <!--
 title: ""
@@ -101,8 +95,6 @@ lineNumbers: true
 | scope | The [event](/api-docs/getting-started/webhooks/webhook-events) registered when the webhook was created. |
 | data | A lightweight description of the [event](/api-docs/getting-started/webhooks/webhook-events) that triggered the webhook. Will vary depending on the event registered. |
 | hash | The payload data json encoded then passed through sh1 encryption. |
-
----
 
 <a id="request-and-response"></a>
 
@@ -163,7 +155,6 @@ subtitle: "/POST Webhook"
 lineNumbers: true
 -->
 
-
 ```json
     {
         "id": 14270456,
@@ -207,8 +198,6 @@ An HTTP 201 response indicates that the webhook was set successfully.
 
 <a id='get-all-webhooks'></a>
 
-
-
 <!--
 title: "/GET All Webhooks"
 subtitle: "Request: https://api.bigcommerce.com/stores/{{store_hash}}/v2/hooks"
@@ -250,7 +239,6 @@ lineNumbers: true
 
 <a id='get-a-single-webhook'></a>
 
-
 <!--
 title: "/GET a Single Webhook"
 subtitle: "To get a single webhook use the `id`.  Request: https://api.bigcommerce.com/stores/{{store_hash}}/v2/hooks/id"
@@ -273,11 +261,9 @@ lineNumbers: true
     "updated_at": 1531337178
 }
 
-
 ```
 
 <a id='update-a-webhook'></a>
-
 
 <!--
 title: "/PUT Webhook"
@@ -290,14 +276,12 @@ lineNumbers: true
 
 Update a webhook using the id. Once the webhook is created all the fields below can be changed via an update request. 
 
-
 ```json
 {
  "scope": "store/product/updated",
  "destination": "https://779aca97.ngrok.io/webhooks",
  "is_active": false
 }
-
 
 //Response 200 OK
 
@@ -324,7 +308,6 @@ lineNumbers: true
 **Example Delete a Webhook**  
 `https://api.bigcommerce.com/stores/{{store_hash}}/v2/hooks/{{id}}`
 
-
 ```json
 //Response 200 OK
 {
@@ -345,8 +328,6 @@ There is not a way to delete all webhooks on a store. Run a GET request for the 
 
 If webhooks are no longer being used, either delete them or set `is_active:false`.
 
----
-
 <a id="receiving-the-callback"></a>
 
 ## Receiving the Callback
@@ -354,8 +335,6 @@ If webhooks are no longer being used, either delete them or set `is_active:false
 You’ll need to build an application and configure your server to receive the callback we send when events are triggered. 
 
 Need to set up a quick destination URL for testing? See Tools for Debugging and Testing Webhooks.
-
----
 
 <a id="espond-to-webhook-callbacks"></a>
 
@@ -366,8 +345,6 @@ You’ll need to build an application and configure your server to receive the c
 To acknowledge that you received the webhook without issue, your server should return a 200 HTTP status code. Any other information you return in the request headers or request body will be ignored. Any response code outside the 200 range, including 3_xx_ codes, will indicate to us that you did not receive the webhook. When a webhook is not received (for whatever reason), we will retry the callback as described below. 
 
 Need to set up a quick destination URL for testing? See [Tools for testing webhooks.](#about-webhooks_tools-for-debugging-and-testing-webhooks)
-
----
 
 <a id='about-webhooks_callback-retry-mechanism'></a>
 
@@ -434,8 +411,6 @@ The webhook dispatcher will then attempt several retries (at increasing interval
 
 After the final retry attempt (cumulatively, 48 hours after the first delivery attempt), the webhook will automatically be deactivated, and we will send an email to the developer’s email address registered on the subscribing app. You can reactivate the webhook by setting the `is_active` flag back to true via a `/PUT` request to the hooks resource.
 
----
-
 <a id="webhook-security"></a>
 
 ## Webhook Security
@@ -444,7 +419,6 @@ To ensure that webhook payloads are secure against activity by a malicious actor
 * Webhook payloads contain minimal information about the store and event, for example the ID identifying the order or cart. To access potentially sensitive information on a store, a malicious actor would need to be fully authenticated against that store’s API in order to request full details.
 * Webhook payloads are sent over a TLS-encrypted connection.
 * For added security, you can include custom headers in your webhook creation request, and these headers will be sent in the payload when an event you subscribe to occurs. If your app endpoint is secured by basic authentication, you could set your own basic auth headers to authenticate the payload at runtime.
-
 
 <!--
 title: "Webhook Customer Header Example"
@@ -465,8 +439,6 @@ lineNumbers: true
   }
 }
 ```
-
----
 
 <a id='about-webhooks_troubleshooting'></a>
 
@@ -510,8 +482,6 @@ lineNumbers: true
  X-Auth-Token: <the OAuth token>
 ```
 
----
-
 <a id="tools-for-debugging-and-testing-webhooks"></a>
 
 ## Tools for Debugging and Testing Webhooks
@@ -525,8 +495,6 @@ Need help on ngrok and webhooks see our [tutorial](/api-docs/getting-started/web
 
 **[Webhook Tester](https://webhook.site/#/)**  
 This allows for webhooks to be quickly tested or checked. 
-
----
 
 ## Resources
 * [Webhook Tutorial](https://developer.bigcommerce.com/api-docs/getting-started/webhooks/setting-up-webhooks)

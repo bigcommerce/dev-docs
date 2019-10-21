@@ -11386,7 +11386,7 @@
                 "description": "Top View",
                 "image_url": "https://upload.wikimedia.org/wikipedia/commons/7/7f/Anglel_Bless_Legendary_Hills_1_m%C4%9Bs%C3%ADc_st%C3%A1%C5%99%C3%AD.jpg"
               },
-              "multipart/form-data": "curl -X POST \\\n  https://api.bigcommerce.com/stores/id30h7ohwf/v3/catalog/products/158/images \\\n  -H 'Accept: application/json' \\\n  -H 'Cache-Control: no-cache' \\\n  -H 'Content-Type: application/json' \\\n  -H 'X-Auth-Client: {X-Auth-Client:}' \\\n  -H 'X-Auth-Token: {X-Auth-Token:}' \\\n  -H 'content-type: multipart/form-data; boundary=----WebKitFormBoundary7MA4YWxkTrZu0gW' \\\n  -F image_file=@/Users/user.name/Documents/docs_images/product-image.png"
+              "multipart/form-data": "curl -X POST \\\n  https://api.bigcommerce.com/stores/id30h7ohwf/v3/catalog/products/158/images \\\n  -H 'Accept: application/json' \\\n  -H 'Cache-Control: no-cache' \\\n  -H 'Content-Type: application/json' \\\n  -H 'X-Auth-Client: {X-Auth-Client:}' \\\n  -H 'X-Auth-Token: {X-Auth-Token:}' \\\n  -H 'content-type: multipart/form-data; boundary=-WebKitFormBoundary7MA4YWxkTrZu0gW' \\\n  -F image_file=@/Users/user.name/Documents/docs_images/product-image.png"
             }
           },
           {
@@ -15926,7 +15926,7 @@
               "application/json": {
                 "image_url": "https://upload.wikimedia.org/wikipedia/commons/7/7f/Anglel_Bless_Legendary_Hills_1_m%C4%9Bs%C3%ADc_st%C3%A1%C5%99%C3%AD.jpg"
               },
-              "multipart/form-data": "curl -X POST \\\n  https://api.bigcommerce.com/stores/{store_hash}/v3/catalog/products/203/variants/503/image \\\n  -H 'Accept: application/json' \\\n  -H 'Content-Type: application/json' \\\n  -H 'Host: api.bigcommerce.com' \\\n  -H 'X-Auth-Client: {X-Auth-Client}' \\\n  -H 'X-Auth-Token: {X-Auth-Token}' \\\n  -H 'content-type: multipart/form-data; boundary=----WebKitFormBoundary7MA4YWxkTrZu0gW' \\\n  -F 'image_file=@/Users/user/Downloads/640px-Bergtocht_van_Gimillan_(1805m.)_naar_Colle_Tsa_Sètse_in_Cogne_Valley_(Italië)._Waterval_boven_Gimillan_gedeeltelijk_in_de_mist_03.jpg'"
+              "multipart/form-data": "curl -X POST \\\n  https://api.bigcommerce.com/stores/{store_hash}/v3/catalog/products/203/variants/503/image \\\n  -H 'Accept: application/json' \\\n  -H 'Content-Type: application/json' \\\n  -H 'Host: api.bigcommerce.com' \\\n  -H 'X-Auth-Client: {X-Auth-Client}' \\\n  -H 'X-Auth-Token: {X-Auth-Token}' \\\n  -H 'content-type: multipart/form-data; boundary=-WebKitFormBoundary7MA4YWxkTrZu0gW' \\\n  -F 'image_file=@/Users/user/Downloads/640px-Bergtocht_van_Gimillan_(1805m.)_naar_Colle_Tsa_Sètse_in_Cogne_Valley_(Italië)._Waterval_boven_Gimillan_gedeeltelijk_in_de_mist_03.jpg'"
             }
           }
         ],

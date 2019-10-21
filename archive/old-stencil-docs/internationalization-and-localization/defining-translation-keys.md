@@ -25,7 +25,7 @@ The Stencil framework allows you to define multiple translations for each theme 
 
 * If you want to fully support multiple languages, we recommend that you set up a separate storefront for each language. This will enable you to thoroughly customize all of your content (including your product catalog) for each target audience.
 
----
+
 
 <a href='#basis_required' aria-hidden='true' class='block-anchor'  id='basis_required'><i aria-hidden='true' class='linkify icon'></i></a>
 
@@ -38,7 +38,7 @@ You can localize a theme by providing other appropriate .json translation files 
 Within these files, you would define key values corresponding to the text blocks in your theme's templates that you choose to abstract into translatable keys.
 
 
----
+
 
 <a href='#basis_schema' aria-hidden='true' class='block-anchor'  id='basis_schema'><i aria-hidden='true' class='linkify icon'></i></a>
 
@@ -86,7 +86,7 @@ You can find a list of code subtags in the <a href="http://www.iana.org/assignme
 
 For more examples of frequently-used codes, see the following linked table’s "LCID string" (middle) column: <a href="http://www.science.co.il/Language/Locale-codes.asp">http://www.science.co.il/Language/Locale-codes.asp</a>.
 
----
+
 
 <a href='#basis_localization-file' aria-hidden='true' class='block-anchor'  id='basis_localization-file'><i aria-hidden='true' class='linkify icon'></i></a>
 

@@ -58,7 +58,7 @@ To improvise a `!==` (not equal or not equal type) comparison operator in Handle
     </nav>
 ```
 
----
+
 
 <a href='#handlebars_or' aria-hidden='true' class='block-anchor'  id='handlebars_or'><i aria-hidden='true' class='linkify icon'></i></a>
 
@@ -86,7 +86,7 @@ Here is a usage example from Stencil's Cornerstone base theme, where it displays
 
 The `or` operator's parameters are one or more strings, numbers, arrays, or collections. Parameters can be of mixed types. 
 
----
+
 
 <a href='#handlebars_typeof' aria-hidden='true' class='block-anchor'  id='handlebars_typeof'><i aria-hidden='true' class='linkify icon'></i></a>
 

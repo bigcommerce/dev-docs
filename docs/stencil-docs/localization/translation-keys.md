@@ -1,23 +1,21 @@
 # Translation Keys
+
 <div class="otp" id="no-index">
-	<h3> On This Page </h3>
-	<ul>
-    <li><a href="#basis_translating">Translating a Theme</a></li>
-    <li><a href="#basis_required">Required Subdirectory</a></li>
-    <li><a href="#basis_schema">The Schema</a></li>
-    <li><a href="#basis_localization-file">Localization File Structure</a></li>
-    <li><a href="#basis_invoking">Invoking a Translation Key</a></li>
-    <li><a href="#basis_localization-example">Localization Example</a></li>
-	</ul>
-</div>
+
+### On This Page
+- [Translating a Theme](#translating-a-theme)
+- [Required Subdirectory](#required-subdirectory)
+- [The Schema](#the-schema)
+- [Localization File Structure](#localization-file-structure)
+- [Invoking a Translation Key](#invoking-a-translation-key)
+- [Localization Example](#localization-example)
+- [Resources](#resources)
+
+</div> 
 
 Translation keys exist in JSON files and are invoked based on the user's browser language. With a Stencil theme, you can define multiple translations for each theme based on a predefined schema.
 
 BigCommerce does not provide translations for the theme’s content, however, you have the option of localizing your themes for desired target languages, based on the provided schema. Theme developers are not required to localize or translate a theme in order to make it work.
-
----
-
-<a href='#basis_translating' aria-hidden='true' class='block-anchor'  id='basis_translating'><i aria-hidden='true' class='linkify icon'></i></a>
 
 ## Translating a Theme
 
@@ -26,8 +24,6 @@ In order to translate a theme, you must create a JSON file for each language you
 Stencil automatically detects the `Accept-Language` request HTTP header from the visitor's browser. If a Stencil theme does not contain a JSON file matching any of the visitor's preferred browser languages, the theme will fall back to the values in the default English-language JSON file.
 
 Stencil's multi-language capabilities are limited to the particular key-value pairs you specify in the theme. Stencil themes do not translate content rendered from a store's catalog database (i.e. the name of a product).
-
-
 
 <div class="HubBlock--callout">
 <div class="CalloutBlock--">
@@ -42,10 +38,6 @@ Stencil's multi-language capabilities are limited to the particular key-value pa
 </div>
 </div>
 
----
-
-<a href='#basis_required' aria-hidden='true' class='block-anchor'  id='basis_required'><i aria-hidden='true' class='linkify icon'></i></a>
-
 ## Required Subdirectory
 
 Within each Stencil theme, a top level <span class="fp">/lang/</span> subdirectory is reserved for localization and internationalization. This <span class="fp">/lang/</span> subdirectory, as well as the <span class="fp">/lang/en.json</span> (which contains English-language defaults), must be present in order for a Stencil theme to properly function.
@@ -53,11 +45,6 @@ Within each Stencil theme, a top level <span class="fp">/lang/</span> subdirecto
 You can localize a theme by providing other appropriate <span class="fn">.json</span> translation files in the <span class="fp">/lang/</span> subdirectory. One JSON file is required for each language that you want to support. (These can include non-U.S. versions of English, each with their own spellings.)
 
 In these files, you would define key and values corresponding to the text blocks in your theme's templates that you choose to translate.
-
-
----
-
-<a href='#basis_schema' aria-hidden='true' class='block-anchor'  id='basis_schema'><i aria-hidden='true' class='linkify icon'></i></a>
 
 ## The Schema
 
@@ -98,12 +85,7 @@ You can find a list of code subtags in the <a href="http://www.iana.org/assignme
   </tr>
 </table>
 
-
 For more examples of frequently-used codes, see the following linked table’s "LCID string" (middle) column: <a href="http://www.science.co.il/Language/Locale-codes.asp">http://www.science.co.il/Language/Locale-codes.asp</a>.
-
----
-
-<a href='#basis_localization-file' aria-hidden='true' class='block-anchor'  id='basis_localization-file'><i aria-hidden='true' class='linkify icon'></i></a>
 
 ## Localization File Structure
 
@@ -155,10 +137,6 @@ lineNumbers: true
    },
 }
 ```
-
----
-
-<a href='#basis_invoking' aria-hidden='true' class='block-anchor'  id='basis_invoking'><i aria-hidden='true' class='linkify icon'></i></a>
 
 ## Invoking a Translation Key
 
@@ -229,8 +207,6 @@ lineNumbers: true
 </div>
 </div>
 </div>
-
----
 
 <a id="basis_localization-example"></a>
 
@@ -337,8 +313,6 @@ lineNumbers: true
 ```
 
 Translation files for other languages would use the same format to define these keys’ values in their respective languages.
-
----
 
 ## Resources
 

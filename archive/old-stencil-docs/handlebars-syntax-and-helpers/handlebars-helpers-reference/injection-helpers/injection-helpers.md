@@ -75,7 +75,7 @@ Whereas in production, it would return:
 As highlighted above, the helper is configured to rewrite *local* URLs to a `<theme-name>/assets/cdn/` subfolder. The `stencil bundle` command will exclude this local `assets/cdn/` subfolder from the bundle that it creates. This filtering circumvents the 50 MB size limit on the resulting .zip file.
 
 
----
+
 
 <a href='#handlebars_getfontscollection' aria-hidden='true' class='block-anchor'  id='handlebars_getfontscollection'><i aria-hidden='true' class='linkify icon'></i></a>
 
@@ -92,7 +92,7 @@ The default mode is `swap`.
 
 You can read more about font-display [on the Mozilla Documentation](https://developer.mozilla.org/en-US/docs/Web/CSS/@font-face/font-display).
 
----
+
 
 <a href='#handlebars_inject-and-jscontext' aria-hidden='true' class='block-anchor'  id='handlebars_inject-and-jscontext'><i aria-hidden='true' class='linkify icon'></i></a>
 
@@ -147,12 +147,12 @@ The Stencil theme makes the `jsContext` available on the active page scoped. It 
 The following code uses `inject` to add all product IDs into JavaScript on category pages. It resides in a theme's `<theme-name>/templates/pages/category.html` template. Note the two `inject` calls directly under the front matter:
 
 ```
----
+
 category:
     shop_by_price: true
     products:
         limit: {{theme_settings.categorypage_products_per_page}}
----
+
 {{inject "categoryProductsPerPage" theme_settings.categorypage_products_per_page}}
 {{inject "productIds" (pluck category.products 'id')}}
 {{#partial "head"}}
@@ -191,7 +191,7 @@ category:
 {{> layout/base}}
 ```
 
----
+
 
 <a href='#handlebars_stylesheet' aria-hidden='true' class='block-anchor'  id='handlebars_stylesheet'><i aria-hidden='true' class='linkify icon'></i></a>
 
@@ -210,7 +210,7 @@ The `stylesheet` helper is custom to Stencil. It renders a link tag to insert a 
 {{{stylesheet "assets/css/style.css" class="myStylesheet"}}}
 ```
 
----
+
 
 ## Related Articles
 * [Improve Web Font Performance in Stencil Themes with Font-display](https://medium.com/bigcommerce-developer-blog/improve-web-font-performance-in-stencil-themes-with-font-display-e00d37916c9e)

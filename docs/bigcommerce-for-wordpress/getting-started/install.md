@@ -11,8 +11,6 @@
 
 </div>
 
-<a href='##install_requirements' aria-hidden='true' class='block-anchor'  id='#install_requirements'><i aria-hidden='true' class='linkify icon'></i></a>
-
 ## System Requirements:
 
 * PHP: 5.6+ (7.1+ recommended)
@@ -20,10 +18,6 @@
 * WordPress: 4.8+
 * SSL
 * The PHP intl extension is recommended to enable better currency formatting
-
----
-
-<a href='##install_installation' aria-hidden='true' class='block-anchor'  id='#install_installation'><i aria-hidden='true' class='linkify icon'></i></a>
 
 ## Installation
 
@@ -50,4 +44,3 @@ Multi-Site Instructions
 </div>
 
 After you’ve created your new channel name, the initial product sync will begin and you can begin configuring your plugin settings.
-
