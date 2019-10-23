@@ -45,10 +45,15 @@
             "schema": {
               "title": "Payment Request",
               "type": "object",
+              "description": "## Credit Card\n```\n{\n  \"payment\": {\n    \"instrument\": {\n      \"type\": \"card\",\n      \"number\": \"4111111111111111\",\n      \"cardholder_name\": \"BP\",\n      \"expiry_month\": 12,\n      \"expiry_year\": 2020,\n      \"verification_value\": \"411\"\n    },\n    \"payment_method_id\": \"authorizenet.card\",\n\t\t\"save_instrument\": true\n\t\t\n  }\n}\n```\n\n## Stored Card\n\n```\n{\n  \"payment\": {\n    \"instrument\": {\n      \"type\": \"stored_card\",\n      \"token\": \"vaulted instrument token\",\n      \"verification_value\": \"123\"\n    },\n    \"payment_method_id\": \"stripe.card\",\n    \"save_instrument\": true\n  }\n}\n```",
               "properties": {
                 "payment": {
                   "title": "Payment",
                   "type": "object",
+                  "required": [
+                    "instrument",
+                    "payment_method_id"
+                  ],
                   "properties": {
                     "amount": {
                       "description": "Amount in smallest currency unit",
@@ -61,25 +66,29 @@
                       "pattern": "^[A-Z]{3}$"
                     },
                     "instrument": {
-                      "description": "",
-                      "type": "object"
+                      "oneOf": [
+                        {
+                          "$ref": "#/definitions/Card"
+                        },
+                        {
+                          "$ref": "#/definitions/StoredCard"
+                        },
+                        {
+                          "$ref": "#/definitions/StoredPaypalAccount"
+                        }
+                      ]
                     },
                     "payment_method_id": {
                       "description": "Identifier for payment method that will be used for this payment",
                       "type": "string",
                       "minLength": 1
                     }
-                  },
-                  "required": [
-                    "instrument",
-                    "payment_method_id"
-                  ]
+                  }
                 }
               },
               "required": [
                 "payment"
-              ],
-              "description": "## Credit Card\n```\n{\n  \"payment\": {\n    \"instrument\": {\n      \"type\": \"card\",\n      \"number\": \"4111111111111111\",\n      \"cardholder_name\": \"BP\",\n      \"expiry_month\": 12,\n      \"expiry_year\": 2020,\n      \"verification_value\": \"411\"\n    },\n    \"payment_method_id\": \"authorizenet.card\",\n\t\t\"save_instrument\": true\n\t\t\n  }\n}\n```\n\n## Stored Card\n\n```\n{\n  \"payment\": {\n    \"instrument\": {\n      \"type\": \"stored_card\",\n      \"token\": \"vaulted instrument token\",\n      \"verification_value\": \"123\"\n    },\n    \"payment_method_id\": \"stripe.card\",\n    \"save_instrument\": true\n  }\n}\n```"
+              ]
             },
             "x-examples": {
               "application/json": {
@@ -657,25 +666,25 @@
       "title": "StoredPaypalAccount",
       "type": "object",
       "properties": {
-         "type": {
-            "type": "string",
-            "description": "Type to classify this payment instrument",
-            "enum": [
-               "stored_paypal_account"
-            ]
-         },
-         "token": {
-            "description": "Identifier representing this stored paypal account",
-            "type": "string",
-            "minLength": 64,
-            "maxLength": 64
-         }
+        "type": {
+          "type": "string",
+          "description": "Type to classify this payment instrument",
+          "enum": [
+            "stored_paypal_account"
+          ]
+        },
+        "token": {
+          "description": "Identifier representing this stored paypal account",
+          "type": "string",
+          "minLength": 64,
+          "maxLength": 64
+        }
       },
       "required": [
-         "type",
-         "token"
+        "type",
+        "token"
       ]
-   }
+    }
   },
   "tags": [
     {
