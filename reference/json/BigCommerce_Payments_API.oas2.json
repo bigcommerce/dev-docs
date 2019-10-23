@@ -1375,8 +1375,59 @@
           }
         }
       }
-    }
-  },
+    },
+    "SupportedPaypalAccountInstrument": {
+      "title": "SupportedPaypalAccountInstrument",
+      "type": "object",
+      "properties": {
+        "instrument_type": {
+          "type": "string",
+          "description": "Type of this instrument",
+          "enum": [
+            "STORED_PAYPAL_ACCOUNT"
+          ]
+        }
+      },
+      "required": [
+        "instrument_type"
+      ]
+    },
+    "StoredPaypalAccountInstrument": {
+      "title": "StoredPaypalAccountInstrument",
+      "type": "object",
+      "properties": {
+         "email": {
+            "type": "string",
+            "format": "email",
+            "description": "Email address of this stored account"
+         },
+         "token": {
+            "type": "string",
+            "description": "Identifier representing this stored account",
+            "minLength": 64,
+            "maxLength": 64
+         },
+         "is_default": {
+            "type": "boolean",
+            "description": "Whether this instrument is a default instrument",
+            "default": false
+         },
+         "type": {
+            "type": "string",
+            "description": "Type to classify this stored account",
+            "enum": [
+               "stored_paypal_account"
+            ]
+         }
+      },
+      "required": [
+         "email",
+         "token",
+         "is_default",
+         "type"
+      ]
+   }
+},
   "tags": [
     {
       "name": "Payment Access Token",

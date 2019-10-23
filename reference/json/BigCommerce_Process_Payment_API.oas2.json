@@ -652,7 +652,30 @@
         "title",
         "type"
       ]
-    }
+    },
+    "StoredPaypalAccount": {
+      "title": "StoredPaypalAccount",
+      "type": "object",
+      "properties": {
+         "type": {
+            "type": "string",
+            "description": "Type to classify this payment instrument",
+            "enum": [
+               "stored_paypal_account"
+            ]
+         },
+         "token": {
+            "description": "Identifier representing this stored paypal account",
+            "type": "string",
+            "minLength": 64,
+            "maxLength": 64
+         }
+      },
+      "required": [
+         "type",
+         "token"
+      ]
+   }
   },
   "tags": [
     {
