@@ -1,11 +1,16 @@
 # Contributing to BigCommerce Developer Documentation
 
+- [Making a Quick Edit](#making-a-quick-edit)
+- [Editing Locally](#editing-locally)
+- [Commit Messages](#commit-messages)
+- [Style Guides](#style-guides)
+- [Contributing to Other Projects](#contributing-to-other-projects)
+
 Thanks for showing interest in contributing!
 
 The following is a set of guidelines for contributing to BigCommerce Developer Documentation. These are just guidelines, not rules. Use your best judgment, and feel free to propose changes to this document in a pull request.
 
 ## Making a Quick Edit
-
 The easiest way to edit a file is using GitHub's web interface:
 
 1. Navigate to the file in github ([making-requests.md](/bigcommerce/dev-docs/blob/master/docs/api-docs/getting-started/making-requests.md), for example)
@@ -22,7 +27,6 @@ The easiest way to edit a file is using GitHub's web interface:
 That's it! You're done.
 
 ## Editing Locally
-
 For more complex changes, fork and edit locally: 
 
 1. Fork `bigcommerce/dev-docs`
@@ -42,26 +46,8 @@ For more complex changes, fork and edit locally:
 * Use the body to explain what and why vs. how
 
 ## Style Guides
-
 * [Documentation Style Guide](_project/_doc_style_guide.md)
 * [API Specification Style Guide](_project/_spec_style_guide.md)
 
-### Contributing to other BigCommerce Projects
-
-If you would like to open an issue for anything besides the API or the documentation, here are our other public repositories. 
-You an also join our [BigCommerce Developers](https://support.bigcommerce.com/s/group/0F913000000HLjECAW/bigcommerce-developers) group for specific questions on working with the API and platform questions. 
-
-- [BigCommerce Python API](https://github.com/bigcommerce/bigcommerce-api-python)
-- [BigCommerce PHP API](https://github.com/bigcommerce/bigcommerce-api-php)
-- [BigCommerce Ruby API](https://github.com/bigcommerce/bigcommerce-api-ruby)
-- [BigCommerce Node API - Community Supported](https://github.com/getconversio/node-bigcommerce)
-
-- [BigCommerce Checkout SDK](https://github.com/bigcommerce/checkout-sdk-js)
-- [BigCommerce Checkout SDK Example](https://github.com/bigcommerce/checkout-sdk-js-example)
-
-- [PHP Hello World App](https://github.com/bigcommerce/hello-world-app-php-silex)
-- [Python Hello World App](https://github.com/bigcommerce/hello-world-app-python-flask)
-- [Ruby Hello World App - OmniAuth](https://github.com/bigcommerce/omniauth-bigcommerce)
-
-- [Cornerstone Issues](https://github.com/bigcommerce/cornerstone)
-- [Stencil CLI](https://github.com/bigcommerce/stencil-cli)
+## Contributing to Other Projects
+There are many other public BigCommerce repositories accepting contributions. If you're interested in contributing to those projects, see the [full list of public source repos](https://github.com/bigcommerce?utf8=%E2%9C%93&q=is%3Apublic&type=source&language=). Also, consider joining the [BigCommerce Developer Community Group](https://support.bigcommerce.com/s/group/0F913000000HLjECAW/bigcommerce-developers).
