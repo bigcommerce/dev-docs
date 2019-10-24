@@ -89,13 +89,13 @@ $post_id = get_the_ID();
 $product = new \BigCommerce\Post_Types\Product\Product( $post_id );
 ```
 
-If, instead, you have a BigCommerce product ID, you can get the Product object using that ID:
+If you have a BigCommerce product ID, you can get the Product object using that ID:
 
 `$product = \BigCommerce\Post_Types\Product\Product::by_product_id( $product_id );`
 
-In the context of many templates, the `$product` variable is already available to you. Check the docblock at the top of the template file to see what variables are defined in that scope. 
+In the context of many templates, the `$product` variable is already available to you. Check the docblock at the top of the template file to see which variables are defined in that scope. 
 
-Given the Product object, you can access all the information about that product that has been cached from the BigCommerce Catalog API.
+If the Product object is available, you can access all the product's cached information from the BigCommerce Catalog API.
 
 ```php 
 $bigcommerce_id = $product->bc_id(); // the BigCommerce product ID
@@ -113,14 +113,14 @@ $weight = $product->get_property( 'weight' );
 $height = $product->get_property( 'height' );
 ```
 
-You can retrieve the same properties using the magic `__get()` method on the Product:
+You can retrieve the same properties using the `__get()` method already available on the Product object:
 
 ```php
 $weight = $product->weight;
 $height = $product->height;
 ```
 
-On the client side, the product ID appears in a number of places. Which you might use depends on context. Here are some places to look:
+The product ID can appear in various places on the client side. The ID you use depends on context. Here are some places to look:
 
 - On an Add to Cart button
  </br>
@@ -129,12 +129,12 @@ On the client side, the product ID appears in a number of places. Which you migh
   </br>
   `var product_id = $('.bc-product__pricing').attr('data-product-price-id')`
 
-Generally the WordPress plugin works with post IDs, not product IDs, so the latter is rarely needed on the client side.
+Generally, the WordPress plugin works with post IDs, not product IDs. The latter is rarely needed on the client side.
 
-To retrieve additional information about the product in the browser, there is a REST API endpoint. It's primary purpose is supporting the product block interface in the WordPress admin, but it can be used anywhere to retrieve a small subset of the information about the product. The endpoint is `/wp-json/bigcommerce/v1/products`.
+To retrieve additional information about the product in the browser, there is a REST API endpoint. Its primary purpose is supporting the product block interface in the WordPress admin, but it can be used anywhere to retrieve a small subset of the information about the product. The endpoint is `/wp-json/bigcommerce/v1/products`.
 
 ### Variants
-Retrieve a Product object as above. From there, you can retrieve information about variants.
+Retrieve a Product object as explained in the Products section. After that step, you can retrieve information about variants.
 
 `$variants = $product->variants;`
 
@@ -173,7 +173,7 @@ $connections = new \BigCommerce\Taxonomies\Channel\Connections();
 $channel     = $connections->current();
 ```
 
-The response is a `WP_Term` object, with meta containing the channel ID:
+The response is a WP_Term object with meta containing the channel ID:
 
 ```php
 $channel_name = $channel->name;
@@ -183,14 +183,14 @@ $channel_id   = get_term_meta( $channel->term_id, \BigCommerce\Taxonomies\Channe
 The channel ID is not available anywhere on the client side.
 ### Customers
 
-A logged out user does not have any customer information. For a logged in user, you can create a Customer object and get information about that customer.
+A logged out user does not have any customer information. For a logged in user, you can create a Customer object to get the customer's information.
 
 ```php
 $customer    = new \BigCommerce\Accounts\Customer( get_current_user_id() );
 $customer_id = $customer->get_customer_id();
 ```
 
-Aside from the ID, no customer information is cached in WordPress. Retrieving additional information will make an API call.
+Aside from the customer ID, no customer information is cached in WordPress. Retrieving additional information will make an API call.
 
 ```php
 $profile   = $customer->get_profile();
@@ -210,7 +210,7 @@ $customer = new \BigCommerce\Accounts\Customer( get_current_user_id() );
 $group_id = $customer->get_group_id();
 ```
 
-Additional information about the customer group is not cached in WordPress, but can be requested from the BigCommerce API:
+Additional information about the customer group is not cached in WordPress. However, you can request more information from the BigCommerce API:
 
 ```php
 $group      = $customer->get_group();
