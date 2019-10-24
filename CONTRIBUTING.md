@@ -38,7 +38,7 @@ For more complex changes, fork and edit locally:
 
 ## Editing Using Stoplight Studio
 
-[Stoplight Studio](https://stoplight.io/p/docs/gh/stoplightio/studio) "is Stoplight's next generation application for API design, modeling, and technical writing". Studio makes contributing to BigCommerce Developer Documentation super easy simply navigate to https://stoplight.io/p/studio/gh/bigcommerce/dev-docs to load the in-browser editor, then
+[Stoplight Studio](https://stoplight.io/p/docs/gh/stoplightio/studio) "is Stoplight's next generation application for API design, modeling, and technical writing". Studio makes contributing to BigCommerce Developer Documentation super easy -- simply navigate to https://stoplight.io/p/studio/gh/bigcommerce/dev-docs to load the in-browser editor, then
 
 1. Make your edits
 2. Click **Commit** to select the file changes you would like to commit and view a diff
