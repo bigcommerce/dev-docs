@@ -28,9 +28,9 @@ API token creation is a permission reserved for the [store owner](https://forum.
 
 To test an app before release, apply for a [sandbox](https://www.bigcommerce.com/partners/) store.
  
-- When a merchant clicks your app's Install button in the control panel, a [/GET request](#building-apps_recieving-get-request) is sent to your app's [Auth callback URL](#building-apps_recieving-get-request). 
-- The /GET request sent from BigCommerce contains a `code` or temporary access token, `client_id`, `client_secret`, `scopes` and [other information](#building-apps_recieving-get-request). Your Auth Callback URL needs to be served over https. You should also have access to your app's server logs which will allow you to see the information in the request.
-- Your app needs to [respond](#building-apps_responding-get-request) to the /GET  with HTML that will be rendered in an iframe in the store's control panel.
+- When a merchant clicks your app's Install button in the control panel, a [/GET request](#receiving-the-get-request) is sent to your app's [Auth callback URL](#receiving-the-get-request). 
+- The /GET request sent from BigCommerce contains a `code` or temporary access token, `client_id`, `client_secret`, `scopes` and [other information](#receiving-the-get-request). Your Auth Callback URL needs to be served over https. You should also have access to your app's server logs which will allow you to see the information in the request.
+- Your app needs to [respond](#responding-to-the-get-request) to the /GET  with HTML that will be rendered in an iframe in the store's control panel.
 - Your app then needs to make a /POST request back to BigCommerce that contains the code, client_id and client secret. This should be done programmatically. 
 - BigCommerce will respond with a permanent Oauth token authorized against the store that has installed your app.
 - After installation, the `store_hash` and `access_token` should be stored somewhere secure so the app does not lose its authorization. 
@@ -42,7 +42,7 @@ API requests are authenticated by the following HTTP headers:
 * `X-Auth-Client` -- The Client ID of the requesting app. 
 * `X-Auth-Token` -- Access token authorizing an app to access store data on behalf of a user.
 
-In addition, while not all resources require the Accept and Content-Type headers, many do. To ensure that your calls succeed, always include these headers. For more details on request headers and their accepted values, see [Request Headers](https://developer.bigcommerce.com/api-docs/getting-started/about-our-api#about-api_request-headers).
+In addition, while not all resources require the Accept and Content-Type headers, many do. To ensure that your calls succeed, always include these headers. For more details on request headers and their accepted values, see [Request Headers](https://developer.bigcommerce.com/api-docs/getting-started/about-our-api#request-headers).
 
 ## Managing Users Session Timeouts
 

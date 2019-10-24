@@ -3,12 +3,23 @@
 <div class="otp" id="no-index">
 
 ### On This Page
-- [Find an Agency Partner](#find-an-agency-partner)
-- [Adapt a Stencil Theme or Develop from Scratch](#adapt-a-stencil-theme-or-develop-from-scratch)
-- [Transition to Stencil from Blueprint](#transition-to-stencil-from-blueprint)
-- [SEO Tips and Best Practices](#seo-tips-and-best-practices)
-- [Interacting with the BigCommerce API](#interacting-with-the-bigcommerce-api)
-- [Resources](#resources)
+- [Transitioning to Stencil](#Transitioning-to-Stencil)
+    - [On This Page](#On-This-Page)
+  - [Find an Agency Partner](#Find-an-Agency-Partner)
+  - [Adapt a Stencil Theme or Develop from Scratch](#Adapt-a-Stencil-Theme-or-Develop-from-Scratch)
+  - [Transition to Stencil from Blueprint](#Transition-to-Stencil-from-Blueprint)
+    - [Technical Differences](#Technical-Differences)
+      - [PHP vs Handlebars](#PHP-vs-Handlebars)
+    - [WebDav vs CLI](#WebDav-vs-CLI)
+    - [Customizing checkout with Stencil](#Customizing-checkout-with-Stencil)
+    - [Updating a theme](#Updating-a-theme)
+    - [FAQ](#FAQ)
+  - [SEO Tips and Best Practices](#SEO-Tips-and-Best-Practices)
+  - [Interacting with the BigCommerce API](#Interacting-with-the-BigCommerce-API)
+    - [Partnering with BigCommerce](#Partnering-with-BigCommerce)
+  - [Resources](#Resources)
+    - [Related Articles](#Related-Articles)
+    - [Additional Resources](#Additional-Resources)
 
 </div> 
 
@@ -77,7 +88,8 @@ Stencil is designed for high SEO performance. However, you will want to keep SEO
 
 * [SEO Do’s and Don’ts](https://support.bigcommerce.com/s/article/What-is-SEO) (Knowledge Base)
 * [Developing a Keyword Strategy](https://support.bigcommerce.com/articles/Learning/Developing-a-Keyword-Strategy/) (Knowledge Base)
-* [SEO Success Essentials](https://support.bigcommerce.com/articles/Learning/Bigcommerce-SEO-Success-Essentials/) (Knowledge Base)
+* [SEO Success Essentials](https://support.bigcommerce.com/s/article/Intro-to-SEO) (Knowledge Base) 
+
 * [Advanced SEO on BigCommerce](https://support.bigcommerce.com/s/article/Advanced-SEO-on-Bigcommerce) (Knowledge Base)
 * [Guide to Keyword Research](https://support.bigcommerce.com/s/article/Value-of-Keywords) (Knowledge Base)
 

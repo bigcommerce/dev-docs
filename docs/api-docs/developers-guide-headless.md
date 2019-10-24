@@ -154,7 +154,7 @@ BigCommerce will respond to the application with the requested data to power the
 ## PCI Compliance
 
 BigCommerce offers different avenues or channels for integration, depending on your business needs. The ultimate responsibility of PCI compliance lies with you and takes into consideration the architecture of your e-commerce store and multiple channels of integrations.
-BigCommerce is a PCI DSS compliant service provider and certifies annually [all requirements (1-12)](https://www.pcisecuritystndards.org/pci_security/maintaining_payment_security) including as a shared hosting provider.
+BigCommerce is a PCI DSS compliant service provider and certifies annually [all requirements (1-12)](https://www.pcisecuritystandards.org/pci_security/standards_overview) including as a shared hosting provider.
 
 The BigCommerce [PCI DSS attestation of compliance (AOC)](https://support.mybigcommerce.com/content/dojo/BigCommerce_PCI_DSS_v3.2.1_AOC_2019_Service_Provider.pdf) outlines the description of the technology stack certified annually.
 
