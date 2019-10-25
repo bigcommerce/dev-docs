@@ -5,14 +5,29 @@
 <div class="otp" id="no-index">
 
 ### On This Page
-- [Introduction](#introduction)
-- [File Structure](#file-structure)
-- [Template Overrides](#template-overrides)
-- [Custom CSS](#custom-css)
-- [Hooks](#hooks)
-- [Styling Checkout](#styling-checkout)
-- [Email Templates](#email-templates)
-- [Additional Resources](#additional-resources)
+- [Customization Guide](#Customization-Guide)
+    - [On This Page](#On-This-Page)
+  - [Introduction](#Introduction)
+  - [File Structure](#File-Structure)
+    - [Templates](#Templates)
+    - [CSS](#CSS)
+  - [Template Overrides](#Template-Overrides)
+    - [Required Classes](#Required-Classes)
+  - [Accessing BigCommerce Data](#Accessing-BigCommerce-Data)
+    - [Products](#Products)
+    - [Variants](#Variants)
+    - [Channels](#Channels)
+    - [Customers](#Customers)
+    - [Customer Groups](#Customer-Groups)
+  - [Custom CSS](#Custom-CSS)
+    - [Opting Out of BigCommerce Styles](#Opting-Out-of-BigCommerce-Styles)
+  - [Hooks](#Hooks)
+    - [Architectural Guidelines](#Architectural-Guidelines)
+    - [Warning](#Warning)
+  - [Styling Checkout](#Styling-Checkout)
+    - [Embedded Checkout](#Embedded-Checkout)
+  - [Email Templates](#Email-Templates)
+  - [Additional Resources](#Additional-Resources)
 
 </div>
 
@@ -64,6 +79,145 @@ Copy `templates/public/components/page-wrapper.php` to `bigcommerce/components/p
 As WordPress loads, it will first check for a custom template override in your theme’s bigcommerce directory; if no custom template is found there, WordPress will fetch the built-in plugin template instead.
 ### Required Classes
 BigCommerce for WordPress relies on specially named element classes for JavaScript functionality, and we strongly recommend leaving the default class names untouched as you create custom templates. You are, however, welcome to create additional classes.
+
+## Accessing BigCommerce Data
+### Products
+If you have a WordPress post ID (as you might get by calling `get_the_ID()` in the context of a template), you can get a Product object.
+
+```php
+$post_id = get_the_ID();
+$product = new \BigCommerce\Post_Types\Product\Product( $post_id );
+```
+
+If you have a BigCommerce product ID, you can get the Product object using that ID:
+
+`$product = \BigCommerce\Post_Types\Product\Product::by_product_id( $product_id );`
+
+In the context of many templates, the `$product` variable is already available to you. Check the docblock at the top of the template file to see which variables are defined in that scope. 
+
+If the Product object is available, you can access all the product's cached information from the BigCommerce Catalog API.
+
+```php 
+$bigcommerce_id = $product->bc_id(); // the BigCommerce product ID
+$post_id = $product->post_id(); // the WordPress post ID
+$sku = $product->sku();
+$brand = $product->brand();
+```
+
+Consult the code reference for a full list of methods available on the Product object.
+
+For any data not directly exposed through a dedicated method, call `$product->get_property()` to retrieve the value.
+
+```php
+$weight = $product->get_property( 'weight' );
+$height = $product->get_property( 'height' );
+```
+
+You can retrieve the same properties using the `__get()` method already available on the Product object:
+
+```php
+$weight = $product->weight;
+$height = $product->height;
+```
+
+The product ID can appear in various places on the client side. The ID you use depends on context. Here are some places to look:
+
+- On an Add to Cart button
+ </br>
+  `var product_id = $('.bc-btn--add_to_cart').attr('data-js')`
+- On the product price
+  </br>
+  `var product_id = $('.bc-product__pricing').attr('data-product-price-id')`
+
+Generally, the WordPress plugin works with post IDs, not product IDs. The latter is rarely needed on the client side.
+
+To retrieve additional information about the product in the browser, there is a REST API endpoint. Its primary purpose is supporting the product block interface in the WordPress admin, but it can be used anywhere to retrieve a small subset of the information about the product. The endpoint is `/wp-json/bigcommerce/v1/products`.
+
+### Variants
+Retrieve a Product object as explained in the Products section. After that step, you can retrieve information about variants.
+
+`$variants = $product->variants;`
+
+The returned objects will match the schema from the BigCommerce API.
+
+```php
+$variant_ids = wp_list_pluck( $variants, 'id' );
+foreach ( $variants as $variant ) {
+  $sku = $variant->sku;
+  $inventory = $variant->inventory_level;
+}
+```
+
+On the client side, variant details are available in the product form.
+
+```php
+var variants = JSON.parse($('[data-js="product-variants-object"]').attr('data-variants'));
+var variant_ids = variants.map( variant => variant.variant_id );
+```
+
+The schema does not completely match the API data. It has been adjusted to suit the needs of the product form. Properties include:
+- variant_id
+- price
+- formatted_price
+- sku
+- disabled
+- disabled_message
+- image
+- option_ids
+
+### Channels
+The current channel is available through a Connections object.
+
+```php
+$connections = new \BigCommerce\Taxonomies\Channel\Connections();
+$channel     = $connections->current();
+```
+
+The response is a WP_Term object with meta containing the channel ID:
+
+```php
+$channel_name = $channel->name;
+$channel_id   = get_term_meta( $channel->term_id, \BigCommerce\Taxonomies\Channel\Channel::CHANNEL_ID, true );
+```
+
+The channel ID is not available anywhere on the client side.
+### Customers
+
+A logged out user does not have any customer information. For a logged in user, you can create a Customer object to get the customer's information.
+
+```php
+$customer    = new \BigCommerce\Accounts\Customer( get_current_user_id() );
+$customer_id = $customer->get_customer_id();
+```
+
+Aside from the customer ID, no customer information is cached in WordPress. Retrieving additional information will make an API call.
+
+```php
+$profile   = $customer->get_profile();
+$addresses = $customer->get_addresses();
+$orders    = $customer->get_orders( $page, $limit );
+$order     = $customer->get_order_details( $order_id );
+```
+
+
+The customer ID is not available anywhere on the client side.
+
+### Customer Groups
+Similar to the customer ID, the customer group ID is available via the Customer object.
+
+```php
+$customer = new \BigCommerce\Accounts\Customer( get_current_user_id() );
+$group_id = $customer->get_group_id();
+```
+
+Additional information about the customer group is not cached in WordPress. However, you can request more information from the BigCommerce API:
+
+```php
+$group      = $customer->get_group();
+$group_info = $group->get_info();
+```
+
+The customer group ID is not available anywhere on the client side.
 
 ## Custom CSS
 To style BigCommerce for WordPress elements with custom CSS, add your CSS to your theme’s stylesheet rather than editing the plugin stylesheets directly. Your theme’s CSS will have specificity over styles applied by the plugin and will override the default styles.
