@@ -456,7 +456,7 @@ A 70x70 pixel logo that represents the shipping carrier app.
 
 Any shipping zone-specific or connection-specific fields to be made available to merchants or APIs for configuration. Configuration fields can include which rates to offer, packaging type or packing method.  
 
-To sumbit your app send an email to <a href="shippingproviderapi@bigcommerce.com">shippingproviderapi@bigcommerce.com</a>.
+To submit your app send an email to <a href="mailto:shippingproviderapi@bigcommerce.com">shippingproviderapi@bigcommerce.com</a>.
 
 ## App Diagram
 

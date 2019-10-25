@@ -438,109 +438,30 @@
                         "minLength": 1
                       },
                       "stored_instruments": {
-                        "type": "array",
-                        "items": {
-                          "title": "Stored Card Instrument",
-                          "type": "object",
-                          "properties": {
-                            "brand": {
-                              "description": "Brand of this card such as VISA or Mastercard",
-                              "type": "string",
-                              "minLength": 1
-                            },
-                            "expiry_month": {
-                              "description": "Expiry month of this card",
-                              "type": "integer",
-                              "minimum": 1,
-                              "maximum": 12,
-                              "format": "int32"
-                            },
-                            "expiry_year": {
-                              "description": "Expiry year of this card",
-                              "type": "integer",
-                              "format": "int32"
-                            },
-                            "issuer_identification_number": {
-                              "description": "Issuer identification number of this card. This is extracted from the card when the order is payed for.",
-                              "type": "string",
-                              "minLength": 6,
-                              "maxLength": 6
-                            },
-                            "last_4": {
-                              "description": "Last four numbers of this card",
-                              "type": "string",
-                              "minLength": 4,
-                              "maxLength": 4
-                            },
-                            "token": {
-                              "description": "Identifier representing this stored card. This is used to identify cards within BigCommerce. It is the same as the `payment_access_token` that returns via the [Get Transactions endpoint](https://developer.bigcommerce.com/api-reference/orders/orders-transactions-api/orders/gettransactions).",
-                              "type": "string",
-                              "minLength": 64,
-                              "maxLength": 64
-                            },
-                            "is_default": {
-                              "description": "Whether this instrument is a default instrument",
-                              "example": false,
-                              "type": "boolean",
-                              "default": false
-                            },
-                            "type": {
-                              "description": "Type to classify this stored card",
-                              "example": "stored_card",
-                              "type": "string",
-                              "default": "stored_card"
-                            }
+                        "oneOf": [
+                          {
+                            "$ref": "#/definitions/StoredCardInstrument"
                           },
-                          "required": [
-                            "brand",
-                            "expiry_month",
-                            "expiry_year",
-                            "issuer_identification_number",
-                            "last_4",
-                            "token",
-                            "is_default",
-                            "type"
-                          ]
-                        }
+                          {
+                            "$ref": "#/definitions/StoredPaypalAccountInstrument"
+                          }
+                        ]
                       },
                       "supported_instruments": {
-                        "type": "array",
-                        "items": {
-                          "title": "Supported Card Instrument",
-                          "type": "object",
-                          "properties": {
-                            "instrument_type": {
-                              "title": "InstrumentType",
-                              "description": "Type of this instrument",
-                              "example": "VISA",
-                              "type": "string",
-                              "enum": [
-                                "VISA",
-                                "MASTERCARD",
-                                "DISCOVER",
-                                "AMEX",
-                                "DINERS_CLUB",
-                                "JCB",
-                                "DANKORT",
-                                "MAESTRO",
-                                "STORED_CARD"
-                              ]
-                            },
-                            "verification_value_required": {
-                              "description": "Whether verification value is required for payment",
-                              "type": "boolean"
-                            }
+                        "oneOf": [
+                          {
+                            "$ref": "#/definitions/SupportedCardInstrument"
                           },
-                          "required": [
-                            "instrument_type"
-                          ]
-                        }
+                          {
+                            "$ref": "#/definitions/SupportedPaypalAccountInstrument"
+                          }
+                        ]
                       },
                       "test_mode": {
                         "description": "Whether this payment method is on test mode",
                         "example": false,
                         "type": "boolean",
-                        "default": "false"
+                        "default": false
                       },
                       "type": {
                         "description": "Type to classify this payment method",
@@ -1375,6 +1296,57 @@
           }
         }
       }
+    },
+    "StoredPaypalAccountInstrument": {
+      "title": "StoredPaypalAccountInstrument",
+      "type": "object",
+      "properties": {
+        "email": {
+          "type": "string",
+          "format": "email",
+          "description": "Email address of this stored account"
+        },
+        "token": {
+          "type": "string",
+          "description": "Identifier representing this stored account",
+          "minLength": 64,
+          "maxLength": 64
+        },
+        "is_default": {
+          "type": "boolean",
+          "description": "Whether this instrument is a default instrument",
+          "default": false
+        },
+        "type": {
+          "type": "string",
+          "description": "Type to classify this stored account",
+          "enum": [
+            "stored_paypal_account"
+          ]
+        }
+      },
+      "required": [
+        "email",
+        "token",
+        "is_default",
+        "type"
+      ]
+    },
+    "SupportedPaypalAccountInstrument": {
+      "title": "SupportedPaypalAccountInstrument",
+      "type": "object",
+      "properties": {
+        "instrument_type": {
+          "type": "string",
+          "description": "Type of this instrument",
+          "enum": [
+            "STORED_PAYPAL_ACCOUNT"
+          ]
+        }
+      },
+      "required": [
+        "instrument_type"
+      ]
     }
   },
   "tags": [
