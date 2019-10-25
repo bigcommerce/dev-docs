@@ -133,7 +133,7 @@ Click changelog in the top right to view a list of recent changes to the storefr
 
 ### Note
 > * The changelog is updated with each deployment. 
-> * Breaking changes are possible during the beta, so its recommended to check for changes frequently
+> * Additive Changes are possible during beta, so we recommend checking for changes frequently
 
 </div> 
 </div>
