@@ -102,7 +102,8 @@ By visiting any of these two URL’s the AMP version will be shown in a browser.
 
 ### Paired Mode
 For paired mode, you can only use the ?amp query parameter to show the AMP version in a browser.
-[yourdomain.com/products/product-slug/amp](yourdomain.com/products/product-slug/amp)
+
+`yourdomain.com/products/product-slug/amp`
 
 ### Native Mode
 As discussed earlier, native mode will always display the AMP version of the theme.
