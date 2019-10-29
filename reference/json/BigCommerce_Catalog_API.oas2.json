@@ -31782,7 +31782,7 @@
         "consumes": [
           "multipart/form-data"
         ],
-        "description": "Create a *Category Image*.\n\n **Required Fields**\n- image_file: Form posts are the only accepted upload option.\n\nOnly one image at a time can be created.  \nTo update a *Category Image*, use the [PUT Categories](/api-reference/catalog/catalog-api/category/updatecategory) and an `image_url`. ",
+        "description": "Create a *Category Image*.\n\n **Required Fields**\n- image_file: Form posts are the only accepted upload option.\n\nOnly one image at a time can be created. \nLimit image size to 1MB.  \nTo update a *Category Image*, use the [PUT Categories](/api-reference/catalog/catalog-api/category/updatecategory) and an `image_url`. ",
         "operationId": "createCategoryImage",
         "responses": {
           "200": {
