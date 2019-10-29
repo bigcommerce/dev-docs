@@ -1,6 +1,6 @@
 # Checkout/Confirmation Injection Options
 
-.otp <div class="otp" id="no-index">
+<div class="otp" id="no-index">
 
 ### On This Page
 - [Adding Storewide Styles](#adding-storewide-styles)
