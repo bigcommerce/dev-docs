@@ -99,7 +99,7 @@
 **Example:**
 
 ```html
-![Dev Tools](https://raw.githubusercontent.com/bigcommerce/dev-docs/master/assets/images/devtools.png "Dev Tools")
+![Dev Tools](https://raw.githubusercontent.com/bigcommerce/dev-docs/master/assets/images/devtools.png"Dev Tools")
 ```
 
 **Result:**
