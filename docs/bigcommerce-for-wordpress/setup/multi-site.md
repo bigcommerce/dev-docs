@@ -30,14 +30,54 @@ Multiple sites can share the same API credentials or you can choose to create a 
 ](//s3.amazonaws.com/user-content.stoplight.io/6116/1544044020003 "#### Click 'Create API Account' to get credentials
 ")
 
-2. Click `Create API Account`. This will open up a screen that will ask you to define a name and OAuth Scopes for the API account. For the OAuth Scopes, select the following:
+2. Click `Create API Account`. This will open up a screen that will ask you to enter a name for the API account.
 
+#### Fill in the Name and OAuth Scopes.
+![#### Fill in the Name and OAuth Scopes.
+](//s3.amazonaws.com/user-content.stoplight.io/6116/1544044197137 "#### Fill in the Name and OAuth Scopes.
+")
+
+<div class="HubBlock--callout">
+<div class="CalloutBlock--">
+<div class="HubBlock-content">
+
+> We suggest 'WordPress' for the name, although you can name it anything you'd like as long as it's unique within your API accounts and is more than 3 characters.
+
+</div>
+</div>
+</div>
+
+3. For the OAuth Scopes, select the following default settings:
+
+**OAuth Scope**|**Default Selection**
+:-----:|:-----:
+Content|None
+Checkout Content|None
+Customers|Modify
+Customers Login|Login
+Information & Settings|Modify
+Marketing|Read-Only
+Orders|Read-Only
+Order Transactions|Read-Only
+Create Payments|None
+Get Payment Methods|Read-Only
+Products|Read-Only
+Themes|None
+Carts|Modify
+Checkouts|Modify
+Sites & Routes|Modify
+Channel Settings|Modify
+Channel Listings|Modify
+Storefront API Tokens|None
+Storefront API Customer Impersonation Tokens|None
+
+<!--
 * Checkout Content: `none`
 * Customers Login: `login`
 
 Select `modify` for all other scopes.
 
-The screen will also contain your API Path, which you will need for the WordPress Plugin. 
+The screen will also contain your API Path, which you will need for the WordPress Plugin. -->
 
 <div class="HubBlock--callout">
 <div class="CalloutBlock--">
@@ -45,8 +85,8 @@ The screen will also contain your API Path, which you will need for the WordPres
     
 <!-- theme:  -->
 
-### API Account Name Field
-> We suggest 'WordPress' for the name, although you can name it anything you'd like as long as it's unique within your API accounts and is more than 3 characters.
+<!--### API Account Name Field
+> We suggest 'WordPress' for the name, although you can name it anything you'd like as long as it's unique within your API accounts and is more than 3 characters.-->
 
 </div>
 </div>
@@ -57,13 +97,13 @@ The screen will also contain your API Path, which you will need for the WordPres
 
     data: //s3.amazonaws.com/user-content.stoplight.io/6116/1544044197137
 -->
-
+<!--
 #### Fill in the Name and OAuth Scopes.
 ![#### Fill in the Name and OAuth Scopes.
 ](//s3.amazonaws.com/user-content.stoplight.io/6116/1544044197137 "#### Fill in the Name and OAuth Scopes.
-")
+")-->
 
-3. After you have finished setting a name and selecting scopes, press `Save`. You will then see a modal that contains the `Client ID`, `Client Secret` and `Access Token` necessary for the remaining fields in the WordPress API Credentials settings.
+4. After you have finished setting a name and selecting scopes, press `Save`. You will then see a modal that contains the `Client ID`, `Client Secret` and `Access Token` necessary for the remaining fields in the WordPress API Credentials settings.
 
 <!--
     title: #### API Credentials
