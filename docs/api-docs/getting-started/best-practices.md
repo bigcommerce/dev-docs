@@ -27,7 +27,7 @@ BigCommerce frequently enhances its core product and is actively developing v3 A
 
 ## Use Webhooks Effectively
 
-To keep data in your application up-to-date,[webhooks](/api-docs/getting-started/webhooks/about-webhooks) provide a great alternative to doing periodic checks. In order to register a webhook event that your application can listen for, you will need to use OAuth (not legacy “Basic Authentication”).
+To keep data in your application up-to-date,[webhooks](/api-docs/getting-started/webhooks/about-webhooks) provide a great alternative to doing periodic checks. Use OAuth to register a webhook event that your application can listen for. Do not use legacy “Basic Authentication.“
 
 BigCommerce will send a partial payload when a subscribed event is triggered, with minimal identifying details (such as the order ID when an order is created). Your application could use the order ID returned in the payload to make a subsequent API request for the full order details.
 
