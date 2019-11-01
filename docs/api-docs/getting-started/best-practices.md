@@ -3,13 +3,20 @@
 <div class="otp" id="no-index">
 
 ### On This Page
-- [Ensure Your Integration is Up-to-Date](#ensure-your-integration-is-up-to-date)
-- [Use Webhooks Effectively](#use-webhooks-effectively)
-- [Thread API Requests](#thread-api-requests)
-- [Marketplace Apps](#marketplace-apps)
-- [API Rate Limits](#api-rate-limits)
-- [Platform Limits](#platform-limits)
-- [Resources](#resources)
+- [Best Practices](#Best-Practices)
+		- [On This Page](#On-This-Page)
+	- [Ensure Your Integration is Up-to-Date](#Ensure-Your-Integration-is-Up-to-Date)
+	- [Use Webhooks Effectively](#Use-Webhooks-Effectively)
+	- [Thread API Requests](#Thread-API-Requests)
+	- [Marketplace Apps](#Marketplace-Apps)
+	- [API Rate Limits](#API-Rate-Limits)
+		- [Concurrent API Call Rate Limits](#Concurrent-API-Call-Rate-Limits)
+		- [Playing Nicely with the Platform](#Playing-Nicely-with-the-Platform)
+		- [Example of 429 Status Code](#Example-of-429-Status-Code)
+		- [Making Requests in Parallel](#Making-Requests-in-Parallel)
+	- [Platform Limits](#Platform-Limits)
+	- [Resources](#Resources)
+		- [Related Artices](#Related-Artices)
 
 </div>
 
@@ -20,7 +27,7 @@ BigCommerce frequently enhances its core product and is actively developing v3 A
 
 ## Use Webhooks Effectively
 
-To keep data in your application up-to-date, [webhooks](/api-docs/getting-started/webhooks/about-webhooks) provide a great alternative to doing periodic checks. In order to register a webhook event that your application can listen for, you will need to use OAuth (not legacy “Basic Authentication”).
+To keep data in your application up-to-date,[webhooks](/api-docs/getting-started/webhooks/about-webhooks) provide a great alternative to doing periodic checks. In order to register a webhook event that your application can listen for, you will need to use OAuth (not legacy “Basic Authentication”).
 
 BigCommerce will send a partial payload when a subscribed event is triggered, with minimal identifying details (such as the order ID when an order is created). Your application could use the order ID returned in the payload to make a subsequent API request for the full order details.
 
@@ -52,6 +59,21 @@ Apps that authenticate with OAuth are rate-limited, based on a quota that is ref
 Each request to the API consumes one available request from the quota. When an app hits the quota limit, subsequent requests are rejected until the quota is refreshed.
 
 The store’s overall quota is distributed across all apps that are accessing the store at a given time. This provides fairness for multiple apps that are accessing the API simultaneously, preventing a single greedy app from consuming the store’s entire quota by itself. The quota might adjust as additional clients connect or disconnect while you’re running requests. 
+
+### Concurrent API Call Rate Limits
+
+Certain BigCommerce API resources rate-limit concurrent requests. This is to ensure the performance and reliability of the platform for all of our users. API calls are metered on a per-store, per-endpoint basis. These limitations are subject to change.
+
+| Limit | Endpoint | Method |
+| -- | -- | -- |
+| 10| /stores/:hash/v3/customers | POST |
+| 3 | /stores/:hash/v3/customers/attributes | POST|
+| 3 | /stores/:hash/v3/customers/addresses | POST|
+| 3 | /stores/:storeHash/v3/pricelists/:priceListId/records | PUT |
+| 3 | /stores/:hash/v3/customers/attribute-values | PUT |
+| 3 | /stores/:hash/v3/customers/attributes | PUT |
+| 3 | /stores/:hash/v3/customers | PUT|
+| 3 | /stores/:hash/v3/customers/addresses | PUT|
 
 ### Playing Nicely with the Platform
 
