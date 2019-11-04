@@ -6,15 +6,15 @@
 
 ### On This Page
 
-- [Introduction](#Introduction)
-- [File Structure](#File-Structure)
-- [Template Overrides](#Template-Overrides)
-- [Accessing BigCommerce Data](#Accessing-BigCommerce-Data)
-- [Custom CSS](#Custom-CSS)
-- [Hooks](#Hooks)
-- [Styling Checkout](#Styling-Checkout)
-- [Email Templates](#Email-Templates)
-- [Additional Resources](#Additional-Resources)
+- [Introduction](#introduction)
+- [File Structure](#file-structure)
+- [Template Overrides](#template-overrides)
+- [Accessing BigCommerce Data](#accessing-bigcommerce-data)
+- [Custom CSS](#custom-css)
+- [Hooks](#hooks)
+- [Styling Checkout](#styling-checkout)
+- [Email Templates](#email-templates)
+- [Additional Resources](#additional-resources)
 
 </div>
 
