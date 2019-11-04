@@ -171,8 +171,6 @@ fetch('/graphql', {
 </script>
 ```
 
-Tokens rendered by `{{settings.storefront_api.token}}` are non-JWT tokens that can only be used for same-origin requests.
-
 ### Authenticating with a JWT
 
 JWT tokens for authenticating cross-origin requests to the Storefront API can be created using the [Storefront API Token endpoint](https://developer.bigcommerce.com/api-reference/storefront/storefront-token-api/api-token/createtoken):
