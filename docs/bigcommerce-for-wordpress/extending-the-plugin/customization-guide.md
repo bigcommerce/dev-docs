@@ -5,29 +5,16 @@
 <div class="otp" id="no-index">
 
 ### On This Page
-- [Customization Guide](#Customization-Guide)
-    - [On This Page](#On-This-Page)
-  - [Introduction](#Introduction)
-  - [File Structure](#File-Structure)
-    - [Templates](#Templates)
-    - [CSS](#CSS)
-  - [Template Overrides](#Template-Overrides)
-    - [Required Classes](#Required-Classes)
-  - [Accessing BigCommerce Data](#Accessing-BigCommerce-Data)
-    - [Products](#Products)
-    - [Variants](#Variants)
-    - [Channels](#Channels)
-    - [Customers](#Customers)
-    - [Customer Groups](#Customer-Groups)
-  - [Custom CSS](#Custom-CSS)
-    - [Opting Out of BigCommerce Styles](#Opting-Out-of-BigCommerce-Styles)
-  - [Hooks](#Hooks)
-    - [Architectural Guidelines](#Architectural-Guidelines)
-    - [Warning](#Warning)
-  - [Styling Checkout](#Styling-Checkout)
-    - [Embedded Checkout](#Embedded-Checkout)
-  - [Email Templates](#Email-Templates)
-  - [Additional Resources](#Additional-Resources)
+
+- [Introduction](#Introduction)
+- [File Structure](#File-Structure)
+- [Template Overrides](#Template-Overrides)
+- [Accessing BigCommerce Data](#Accessing-BigCommerce-Data)
+- [Custom CSS](#Custom-CSS)
+- [Hooks](#Hooks)
+- [Styling Checkout](#Styling-Checkout)
+- [Email Templates](#Email-Templates)
+- [Additional Resources](#Additional-Resources)
 
 </div>
 
