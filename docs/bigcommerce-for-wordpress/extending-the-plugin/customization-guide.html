@@ -1,0 +1,249 @@
+<!DOCTYPE html>
+    <html>
+    <head>
+        <meta http-equiv="Content-type" content="text/html;charset=UTF-8">
+        <title>Customization Guide</title>
+        <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/katex@0.10.0/dist/katex.min.css" integrity="sha384-9eLZqc9ds8eNjO3TmqPeYcDj8n+Qfa4nuSiGYa6DjLNcv9BtN69ZIulL9+8CqC9Y" crossorigin="anonymous">
+        <link rel="stylesheet" href="https://cdn.jsdelivr.net/gh/Microsoft/vscode/extensions/markdown-language-features/media/markdown.css">
+        <link rel="stylesheet" href="https://cdn.jsdelivr.net/gh/Microsoft/vscode/extensions/markdown-language-features/media/highlight.css">
+        <link href="https://cdn.jsdelivr.net/npm/katex-copytex@latest/dist/katex-copytex.min.css" rel="stylesheet" type="text/css">
+        <style>
+.task-list-item { list-style-type: none; } .task-list-item-checkbox { margin-left: -20px; vertical-align: middle; }
+</style>
+        <style>
+            body {
+                font-family: -apple-system, BlinkMacSystemFont, 'Segoe WPC', 'Segoe UI', 'Ubuntu', 'Droid Sans', sans-serif;
+                font-size: 14px;
+                line-height: 1.6;
+            }
+        </style>
+        
+        <script src="https://cdn.jsdelivr.net/npm/katex-copytex@latest/dist/katex-copytex.min.js"></script>
+    </head>
+    <body>
+        <div><h3 class="sub-docs-type" id="bigcommerce-for-wordpress">BigCommerce for Wordpress</h3>
+<h1 id="customization-guide">Customization Guide</h1>
+<div class="otp" id="no-index">
+<h3 id="on-this-page">On This Page</h3>
+<ul>
+<li><a href="#introduction">Introduction</a></li>
+<li><a href="#file-structure">File Structure</a></li>
+<li><a href="#template-overrides">Template Overrides</a></li>
+<li><a href="#accessing-bigcommerce-data">Accessing BigCommerce Data</a></li>
+<li><a href="#custom-css">Custom CSS</a></li>
+<li><a href="#hooks">Hooks</a></li>
+<li><a href="#styling-checkout">Styling Checkout</a></li>
+<li><a href="#email-templates">Email Templates</a></li>
+<li><a href="#additional-resources">Additional Resources</a></li>
+</ul>
+</div>
+<h2 id="introduction">Introduction</h2>
+<p>BigCommerce for WordPress is compatible out-of-the-box with all standard WordPress themes and includes full support for the Genesis theme framework. The plugin includes templates and stylesheets to render all of the elements and pages you need to merchandise your products and move shoppers through checkout, including:</p>
+<ul>
+<li>Product Cards</li>
+<li>Product Detail Pages</li>
+<li>Product Listing Pages</li>
+<li>Product Archive Page</li>
+<li>Cart Page</li>
+<li>Gift Certificate Page</li>
+<li>Customer Account, Registration, and Order History Pages</li>
+<li>Shipping &amp; Returns Page</li>
+<li>Checkout Page</li>
+</ul>
+<p>Although the plugin will work with any theme, as a theme developer, you can choose to offer  BigCommerce for WordPress support by styling the pages and elements created by the plugin to fit your theme’s design.</p>
+<p>Plugin developers can also fork <a href="https://github.com/bigcommerce/bigcommerce-for-wordpress">BigCommerce for WordPress on GitHub</a>, where the plugin is available as an open source project. We encourage developers to adapt BigCommerce for WordPress to fit any custom use case imaginable! If you’re building a custom feature that you think would benefit the wider community, consider submitting a pull request on GitHub to add your feature to the code base.</p>
+<p>This guide will walk through the available options for developing themes that support BigCommerce for WordPress and extending the plugin through custom development.</p>
+<h2 id="file-structure">File Structure</h2>
+<h3 id="templates">Templates</h3>
+<p>All of the BigCommerce for WordPress template files that render on the front end can be found in the templates/public folder. Templates within the components subfolder render smaller content blocks within your theme’s template, while two control the entire page:</p>
+<ul>
+<li>
+<p><code>single-bigcommerce_product.php</code>: The template for rendering a single Product post.</p>
+</li>
+<li>
+<p><code>archive-bigcommerce_product.php</code>: The template for rendering the Product post type archive.</p>
+</li>
+</ul>
+<p>These templates may require modification to match the styling of your theme. Both templates call <code>get_header()</code> and <code>get_footer()</code> to render your theme's default header and footer.
+The page content is rendered inside the wrapper template found in <code>components/page-wrapper.php</code>. By modifying this wrapper template to match the HTML markup of a template in your theme, you should have consistent styling across your site.</p>
+<h3 id="css">CSS</h3>
+<p>BigCommerce for WordPress uses <a href="https://postcss.org/">PostCSS</a>, a JavaScript tool that accepts CSS with special additional syntax and compiles it into normal CSS. Combined with PostCSS plugins, PostCSS offers many of the core features of CSS preprocessors like Sass, with less overhead.</p>
+<p>PostCSS modules are contained in the asset/pcss directory. The assets/css directory contains both the minified and uncompressed versions of the CSS files created during the PostCSS build process.</p>
+<h2 id="template-overrides">Template Overrides</h2>
+<p>When a WordPress plugin is updated, existing plugin files are overwritten by the new version. To ensure that your customizations persist through the update process, it’s important to use overrides in your theme files rather than editing plugin files directly.</p>
+<p>To override any template, create a bigcommerce directory in your theme and copy the template file to that directory.</p>
+<p>Examples:</p>
+<p>Copy <code>templates/public/single-bigcommerce_product.php</code> to <code>bigcommerce/single-bigcommerce_product.php</code></p>
+<p>Copy <code>templates/public/components/page-wrapper.php</code> to <code>bigcommerce/components/page-wrapper.php</code></p>
+<p>As WordPress loads, it will first check for a custom template override in your theme’s bigcommerce directory; if no custom template is found there, WordPress will fetch the built-in plugin template instead.</p>
+<h3 id="required-classes">Required Classes</h3>
+<p>BigCommerce for WordPress relies on specially named element classes for JavaScript functionality, and we strongly recommend leaving the default class names untouched as you create custom templates. You are, however, welcome to create additional classes.</p>
+<h2 id="accessing-bigcommerce-data">Accessing BigCommerce Data</h2>
+<h3 id="products">Products</h3>
+<p>If you have a WordPress post ID (as you might get by calling <code>get_the_ID()</code> in the context of a template), you can get a Product object.</p>
+<pre><code class="language-php"><div>$post_id = get_the_ID();
+$product = <span class="hljs-keyword">new</span> \BigCommerce\Post_Types\Product\Product( $post_id );
+</div></code></pre>
+<p>If you have a BigCommerce product ID, you can get the Product object using that ID:</p>
+<p><code>$product = \BigCommerce\Post_Types\Product\Product::by_product_id( $product_id );</code></p>
+<p>In the context of many templates, the <code>$product</code> variable is already available to you. Check the docblock at the top of the template file to see which variables are defined in that scope.</p>
+<p>If the Product object is available, you can access all the product's cached information from the BigCommerce Catalog API.</p>
+<pre><code class="language-php"><div>$bigcommerce_id = $product-&gt;bc_id(); <span class="hljs-comment">// the BigCommerce product ID</span>
+$post_id = $product-&gt;post_id(); <span class="hljs-comment">// the WordPress post ID</span>
+$sku = $product-&gt;sku();
+$brand = $product-&gt;brand();
+</div></code></pre>
+<p>Consult the code reference for a full list of methods available on the Product object.</p>
+<p>For any data not directly exposed through a dedicated method, call <code>$product-&gt;get_property()</code> to retrieve the value.</p>
+<pre><code class="language-php"><div>$weight = $product-&gt;get_property( <span class="hljs-string">'weight'</span> );
+$height = $product-&gt;get_property( <span class="hljs-string">'height'</span> );
+</div></code></pre>
+<p>You can retrieve the same properties using the <code>__get()</code> method already available on the Product object:</p>
+<pre><code class="language-php"><div>$weight = $product-&gt;weight;
+$height = $product-&gt;height;
+</div></code></pre>
+<p>The product ID can appear in various places on the client side. The ID you use depends on context. Here are some places to look:</p>
+<ul>
+<li>On an Add to Cart button
+</br>
+<code>var product_id = $('.bc-btn--add_to_cart').attr('data-js')</code></li>
+<li>On the product price
+</br>
+<code>var product_id = $('.bc-product__pricing').attr('data-product-price-id')</code></li>
+</ul>
+<p>Generally, the WordPress plugin works with post IDs, not product IDs. The latter is rarely needed on the client side.</p>
+<p>To retrieve additional information about the product in the browser, there is a REST API endpoint. Its primary purpose is supporting the product block interface in the WordPress admin, but it can be used anywhere to retrieve a small subset of the information about the product. The endpoint is <code>/wp-json/bigcommerce/v1/products</code>.</p>
+<h3 id="variants">Variants</h3>
+<p>Retrieve a Product object as explained in the Products section. After that step, you can retrieve information about variants.</p>
+<p><code>$variants = $product-&gt;variants;</code></p>
+<p>The returned objects will match the schema from the BigCommerce API.</p>
+<pre><code class="language-php"><div>$variant_ids = wp_list_pluck( $variants, <span class="hljs-string">'id'</span> );
+<span class="hljs-keyword">foreach</span> ( $variants <span class="hljs-keyword">as</span> $variant ) {
+  $sku = $variant-&gt;sku;
+  $inventory = $variant-&gt;inventory_level;
+}
+</div></code></pre>
+<p>On the client side, variant details are available in the product form.</p>
+<pre><code class="language-php"><div><span class="hljs-keyword">var</span> variants = JSON.parse($(<span class="hljs-string">'[data-js="product-variants-object"]'</span>).attr(<span class="hljs-string">'data-variants'</span>));
+<span class="hljs-keyword">var</span> variant_ids = variants.map( variant =&gt; variant.variant_id );
+</div></code></pre>
+<p>The schema does not completely match the API data. It has been adjusted to suit the needs of the product form. Properties include:</p>
+<ul>
+<li>variant_id</li>
+<li>price</li>
+<li>formatted_price</li>
+<li>sku</li>
+<li>disabled</li>
+<li>disabled_message</li>
+<li>image</li>
+<li>option_ids</li>
+</ul>
+<h3 id="channels">Channels</h3>
+<p>The current channel is available through a Connections object.</p>
+<pre><code class="language-php"><div>$connections = <span class="hljs-keyword">new</span> \BigCommerce\Taxonomies\Channel\Connections();
+$channel     = $connections-&gt;current();
+</div></code></pre>
+<p>The response is a WP_Term object with meta containing the channel ID:</p>
+<pre><code class="language-php"><div>$channel_name = $channel-&gt;name;
+$channel_id   = get_term_meta( $channel-&gt;term_id, \BigCommerce\Taxonomies\Channel\Channel::CHANNEL_ID, <span class="hljs-keyword">true</span> );
+</div></code></pre>
+<p>The channel ID is not available anywhere on the client side.</p>
+<h3 id="customers">Customers</h3>
+<p>A logged out user does not have any customer information. For a logged in user, you can create a Customer object to get the customer's information.</p>
+<pre><code class="language-php"><div>$customer    = <span class="hljs-keyword">new</span> \BigCommerce\Accounts\Customer( get_current_user_id() );
+$customer_id = $customer-&gt;get_customer_id();
+</div></code></pre>
+<p>Aside from the customer ID, no customer information is cached in WordPress. Retrieving additional information will make an API call.</p>
+<pre><code class="language-php"><div>$profile   = $customer-&gt;get_profile();
+$addresses = $customer-&gt;get_addresses();
+$orders    = $customer-&gt;get_orders( $page, $limit );
+$order     = $customer-&gt;get_order_details( $order_id );
+</div></code></pre>
+<p>The customer ID is not available anywhere on the client side.</p>
+<h3 id="customer-groups">Customer Groups</h3>
+<p>Similar to the customer ID, the customer group ID is available via the Customer object.</p>
+<pre><code class="language-php"><div>$customer = <span class="hljs-keyword">new</span> \BigCommerce\Accounts\Customer( get_current_user_id() );
+$group_id = $customer-&gt;get_group_id();
+</div></code></pre>
+<p>Additional information about the customer group is not cached in WordPress. However, you can request more information from the BigCommerce API:</p>
+<pre><code class="language-php"><div>$group      = $customer-&gt;get_group();
+$group_info = $group-&gt;get_info();
+</div></code></pre>
+<p>The customer group ID is not available anywhere on the client side.</p>
+<h2 id="custom-css">Custom CSS</h2>
+<p>To style BigCommerce for WordPress elements with custom CSS, add your CSS to your theme’s stylesheet rather than editing the plugin stylesheets directly. Your theme’s CSS will have specificity over styles applied by the plugin and will override the default styles.</p>
+<p>For example, you might want to change the Add-To-Cart button from blue to orange by adding the following CSS to your theme’s stylesheet:</p>
+<pre><code class="language-css"><div><span class="hljs-selector-tag">button</span><span class="hljs-selector-class">.bc-btn</span><span class="hljs-selector-class">.bc-btn--form-submit</span><span class="hljs-selector-class">.bc-btn--add_to_cart</span> {
+    <span class="hljs-attribute">background-color</span>: <span class="hljs-number">#FF9C33</span>;
+}
+</div></code></pre>
+<h3 id="opting-out-of-bigcommerce-styles">Opting Out of BigCommerce Styles</h3>
+<p>If you wish to disable the built-in plugin styles entirely, you have the option to do so. In the WordPress theme customizer, navigate to BigCommerce &gt; Colors &amp; Theme and select Disable Plugin Styles from the CSS dropdown menu.</p>
+<h2 id="hooks">Hooks</h2>
+<p>Hooks are access points during the WordPress execution process where a developer can insert custom code. Hooks consist of two types: actions and filters. Both allow developers to execute custom code during the WordPress lifecycle. The difference lies in whether the function returns a value:</p>
+<ul>
+<li><strong>Actions</strong> execute a function with no output. Even if a value was returned it would be ignored.</li>
+<li><strong>Filters</strong> modify a variable and return a value, which is the modified version of the original variable.</li>
+</ul>
+<p>BigCommerce for WordPress provides over 100 hooks that you can use to extend and customize the plugin. For a comprehensive, searchable list of all available hooks, visit our <a href="https://bigcommerce.moderntribe.qa/reference/hooks/">Code Reference</a>.</p>
+<h3 id="architectural-guidelines">Architectural Guidelines</h3>
+<p>All actions and filters called by the plugin begin with the <code>bigcommerce/</code> prefix (e.g., <code>bigcommerce/init</code>). If there is a dynamic component to the hook, it should be preceded by an equal sign (e.g., <code>bigcommerce/template=' . $template . '/path</code>).</p>
+<p>The entire plugin operates through closures wrapped around calls to classes instantiated via a dependency injection container. In the event that you need to modify the core behavior of the plugin, there are several methods to get access to these closures.</p>
+<div class="HubBlock--callout">
+<div class="CalloutBlock--error">
+<div class="HubBlock-content">
+<!-- theme: error -->
+<h3 id="warning">Warning</h3>
+<blockquote>
+<p>Modifying core plugin functionality can lead to security vulnerabilities, data corruption, broken user workflows, and an overall unpleasant experience for you and your customers. Proceed at your own risk.</p>
+</blockquote>
+</div>
+</div>
+</div>
+<p>The <code>bigcommerce/init</code> action fires after the plugin has completed initializing all of its service providers and hooked them into WordPress. It passes two arguments: the primary plugin controller (an instance of the BigCommerce\Plugin class) and the dependency injection container itself. The former is also available at any time after initialization by calling the function <code>bigcommerce()</code>.</p>
+<p>An instance of each of the service providers found in the src/BigCommerce/Container directory can be accessed via this plugin controller, using the keys specified in <code>\BigCommerce\Plugin::load_service_providers()</code>. E.g., to get an instance of the BigCommerce\Container\Cart service provider, you would use <code>bigcommerce()-&gt;cart</code>.</p>
+<p>Every action or filter callback created by one of the service providers is given an identifier so that it can be retrieved and, if appropriate, unhooked from WordPress. E.g., to unhook the closure that renders the product archive template and replace it with your own, you could do:</p>
+<pre><code class="language-javascript"><div>remove_action( <span class="hljs-string">'bigcommerce/template/product/archive'</span>, bigcommerce()-&gt;templates-&gt;product_archive, <span class="hljs-number">10</span> );
+
+add_action( <span class="hljs-string">'bigcommerce/template/product/archive'</span>, <span class="hljs-string">'your_callback_function'</span>, <span class="hljs-number">10</span>, <span class="hljs-number">2</span> );
+</div></code></pre>
+<h2 id="styling-checkout">Styling Checkout</h2>
+<p>BigCommerce for WordPress offers two possible checkout experiences, depending on whether the WordPress site has an installed SSL certificate.</p>
+<p>If no SSL is detected, shoppers will be redirected to the BigCommerce checkout page, on the domain of the BigCommerce store. Because BigCommerce stores provide an SSL certificate by default, this ensures that the checkout page is always accessed on an encrypted domain. If you are using this checkout experience, visit our <a href="https://developer.bigcommerce.com/stencil-docs/template-files/customize-stencil-checkout/optimized-one-page-checkout">Stencil documentation</a> to review all available options for styling the checkout page.</p>
+<p>If an SSL is detected, shoppers will visit an embedded version of the BigCommerce checkout page, on your WordPress domain. This has the advantage of providing a seamless experience for the shopper.</p>
+<h3 id="embedded-checkout">Embedded Checkout</h3>
+<p>Embedded Checkout includes settings within the WordPress theme customizer that allow you to adjust colors to blend the checkout page with your theme. For advanced users, the plugin provides the <a href="https://bigcommerce.moderntribe.qa/reference/hooks/bigcommerce-checkout-config/">Checkout Config hook</a> to filter all available <a href="https://github.com/bigcommerce/checkout-sdk-js/blob/master/docs/interfaces/embeddedcheckoutoptions.md">Embedded Checkout config options</a> (Github). Because of the method used to load the Embedded Checkout within the iframe, styling checkout must be accomplished by filtering the available <code>$checkout_config</code> options rather than targeting element classes or IDs with CSS.</p>
+<p>Below, we define a function called <code>myCheckoutFunction()</code> that accepts <code>$checkout_config</code> as an argument. The function builds an array of checkout config styles that make the checkout step header text red, step number icons blue, and checkout body text green. Finally, we pass <code>myCheckoutFunction</code> to the Checkout Config hook. Try adding the below snippet to your theme’s <code>functions.php</code> file to test it out</p>
+<div class="HubBlock-header">
+    <div class="HubBlock-header-title flex items-center">
+        <div class="HubBlock-header-name">myCheckoutFunction()</div>
+    </div><div class="HubBlock-header-subtitle">functions.php</div>
+</div>
+<!--
+title: "myCheckoutFunction()"
+subtitle: "functions.php"
+lineNumbers: true
+-->
+<pre><code class="language-javascript"><div><span class="hljs-function"><span class="hljs-keyword">function</span> <span class="hljs-title">myCheckoutFunction</span>(<span class="hljs-params">$checkout_config</span>) </span>{
+  $checkout_config[<span class="hljs-string">'styles'</span>][<span class="hljs-string">'heading'</span>][<span class="hljs-string">'color'</span>] = <span class="hljs-string">'#C70039'</span>; <span class="hljs-comment">//red</span>
+  $checkout_config[<span class="hljs-string">'styles'</span>][<span class="hljs-string">'step'</span>][<span class="hljs-string">'icon'</span>][<span class="hljs-string">'backgroundColor'</span>] = <span class="hljs-string">'#AE0BE6'</span>; <span class="hljs-comment">//purple</span>
+  $checkout_config[<span class="hljs-string">'styles'</span>][<span class="hljs-string">'step'</span>][<span class="hljs-string">'color'</span>] = <span class="hljs-string">'#0BE640'</span>; <span class="hljs-comment">//green</span>
+  <span class="hljs-keyword">return</span> $checkout_config;
+}
+add_filter( <span class="hljs-string">'bigcommerce/checkout/config'</span>, <span class="hljs-string">'myCheckoutFunction'</span>);
+
+</div></code></pre>
+<p>Following this format, you can apply styles to other elements, like buttons, input fields, and checkboxes. See the full list of checkout elements that can be styled and which properties you can adjust in the <a href="https://github.com/bigcommerce/checkout-sdk-js/blob/master/docs/interfaces/embeddedcheckoutstyles.md">Embedded Checkout Styles documentation</a> (Github).</p>
+<p>Note that styles apply globally to all elements on the checkout page. For example, styles applied to steps will apply to all steps rather than targeting only step 2 or 3.</p>
+<h2 id="email-templates">Email Templates</h2>
+<p>You may wish to customize the built-in transactional emails sent from BigCommerce when an order is placed or updated. You can add custom text or images to email templates to reflect your store’s branding.</p>
+<p>Email templates can be customized and enabled/disabled on an individual basis from the BigCommerce control panel. For more information, see <a href="https://support.bigcommerce.com/s/article/Customizing-Emails">Customizing Emails</a>.</p>
+<h2 id="additional-resources">Additional Resources</h2>
+<ul>
+<li><a href="https://codex.wordpress.org/Theme_Development">https://codex.wordpress.org/Theme_Development</a></li>
+<li><a href="https://wpengine.com/resources/customize-wordpress-plugin/">https://wpengine.com/resources/customize-wordpress-plugin/</a></li>
+<li><a href="https://css-tricks.com/methods-overriding-styles-wordpress/">https://css-tricks.com/methods-overriding-styles-wordpress/</a></li>
+</ul>
+
+    </body>
+    </html>
