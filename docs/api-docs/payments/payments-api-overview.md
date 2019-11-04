@@ -449,7 +449,7 @@ When processing a credit payment set `save_instrument: true`. The shopper can al
       "verification_value": "411"
     },
     "payment_method_id": "authorizenet.card",
-		"save_instrument": true
+    "save_instrument": true
   }
 }
 ```
