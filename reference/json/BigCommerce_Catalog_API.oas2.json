@@ -12513,7 +12513,7 @@
         ]
       }
     },
-    "/catalog/products/{product_id}/videos/{video_id}": {
+    "/catalog/products/{product_id}/videos/{id}": {
       "parameters": [
         {
           "name": "product_id",
@@ -12523,11 +12523,7 @@
           "type": "integer"
         },
         {
-          "name": "video_id",
-          "description": "The ID of the `Video` that is being operated on.\n",
-          "required": true,
-          "in": "path",
-          "type": "string"
+          "$ref": "#/defenitions/VideoIdParam"
         }
       ],
       "get": {
@@ -38169,11 +38165,11 @@
       "type": "integer"
     },
     "VideoIdParam": {
-      "name": "video_id",
-      "description": "The ID of the `Video` that is being operated on.\n",
+      "name": "id",
+      "description": "The BigCommerce ID of the `Video`",
       "required": true,
       "in": "path",
-      "type": "string"
+      "type": "integer"
     },
     "ComplexRuleIdParam": {
       "name": "complex_rule_id",
