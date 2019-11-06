@@ -29,7 +29,6 @@ This article assumes you have familiarity with the following concepts:
 
 Embedded Checkout also requires the [BigCommerce JS Checkout SDK](https://github.com/bigcommerce/checkout-sdk-js) to be accessible in the browser.
 
-<a id="step-1-create-a-channel"></a>
 
 ## Step 1: Create a Channel
 
@@ -74,7 +73,6 @@ The response will contain an `id` (use this as the`channel_id` in future request
 </div>
 </div>
 
-<a id="2-create-a-site"></a>
 
 ## Step 2: Create a Site
 
@@ -114,7 +112,6 @@ This returns `id` which you will use as the `site_id` in future requests. The `u
 }
 ```
 
-<a id="step-3-create-a-cart"></a>
 
 ## Step 3: Create a Cart
 
@@ -135,7 +132,21 @@ To proceed to checkout, we'll need an active cart. To create one, send a `POST` 
 }
 ```
 
-Contained in the response is a `UUID` which is we'll as the `cart_id` in the next request: 
+If you are creating a cart for a specific customer, pass in the `customer_id` in the request: 
+
+```json
+{
+  "customer_id": 42,
+  "line_items": [
+    {
+      "quantity": 5,
+      "product_id": 191
+    }
+  ]
+}
+```
+
+Contained in the response is a `UUID` which is we'll as the `cart_id` in the next request. 
 	
 Next, generate a cart URL and set this cart as the active cart by posting to  to `/carts/{{cart_id}}/redirect_urls`:
 
@@ -150,7 +161,28 @@ Next, generate a cart URL and set this cart as the active cart by posting to  to
   "embedded_checkout_url": "https://store-id30h7ohwf.mybigcommerce.com/cart.php?embedded=1&action=loadInCheckout&id=bc218c65-7a32-4ab7-8082-68730c074d02&token=aa958e2b7922035bf3339215d95d145ebd9193deb36ae847caa780aa2e003e4b"
 }
 ```
-<a id="step-4-embed-checkout"></a>
+
+### Redirecting A Logged-In Customer to Embedded Checkout
+For some use cases, you may want your your customer to be logged in before they can begin the checkout process.
+
+The can be done using the [Customer Login API](https://developer.bigcommerce.com/api-docs/customers/customer-login-api#logging-in-a-customer). 
+
+Your app will need to use JSON Web Token Standard to create a new token. Use a [JWT library](https://jwt.io/#libraries-io) to accomplish this. Include the `checkout_url` as part of the request payload you send to BigCommerce:
+
+**`POST`** `https://{store-url}}/login/token/{token}`
+
+```js
+{
+"iss": "Your app’s Oauth client ID",
+"iat": "timestamp for when the token was issued",
+"jti": "randomly generated string",
+"operation": "customer_login",
+"store_hash": "abc123",
+"customer_id": 1234,
+"redirect_to": "https://store-id30h7ohwf.mybigcommerce.com/cart.php?action=loadInCheckout&id=bc218c65-7a32-4ab7-8082-68730c074d02&token=aa958e2b7922035bf3339215d95d145ebd9193deb36ae847caa780aa2e003e4b",
+"request_ip": "111.222.333.444"
+}
+```
 
 ## Step 4: Embed Checkout
 
@@ -174,7 +206,6 @@ embedCheckout({
 
 At this point, you should have a working embedded checkout. 
 
-<a id="embedded-checkout-faq"></a>
 
 ## FAQ
 
@@ -183,10 +214,6 @@ At this point, you should have a working embedded checkout.
 If your channel site doesn't match the URL from which you're making a request to a BigCommerce, you will get a security error and the checkout will not load. Additionally, if requests to your BigCommerce store aren't served over HTTPS, you will also see an error.
 
 One option to work locally is to install an SSL on your local machine, and then send `https://localhost.com` at the Channel site. Use the default port 443 to be able to preview your site locally.
-
-### How does this work with logged-in customers?
-
-Customers are handled in two steps. First, you need to pass the customer_id when creating the cart. Second, you need to log in the customer so the session is active when the checkout loads. This is done through the [Customer Login API](https://developer.bigcommerce.com/api-docs/customers/customer-login-api).
 
 ### Are hosted payment gateways support with Embedded Checkout?
 At this time you cannot embed checkout using a hosted payment gateway. See [Available Payment Gateways](https://support.bigcommerce.com/s/article/Available-Payment-Gateways#all-available) to determine which type of gateway you're using.
