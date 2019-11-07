@@ -2366,21 +2366,22 @@
           "type": "string"
         },
         "amount": {
-          "description": "Amount of the discount. This information is returned as in integer. Dollar and percentage discounts will return the same. \nFor example, $3 returns as '3' while 5% will return as 5. Check the discount type to see what type of discount is available. (Float, Float-As-String, Integer)",
+          "description": "Amount of the discount. This information is returned as in integer. Dollar and percentage discounts will return the same. \nFor example, $3 returns as '3' while 5% will return as 5. Check the discount type to see what type of discount is available. Returns an empty string for type 5: `promotion`. (Float, Float-As-String, Integer)",
           "example": "5.0000",
           "type": "string"
         },
         "type": {
           "type": "string",
           "title": "Order Coupon Discount Type",
+          "description": "type 0: per_item_discount\ntype 1: percentage_discount\ntype 2: per_total_discount\ntype 3: shipping_discount\ntype 4: free_shipping\ntype 5: promotion",
           "enum": [
             0,
             1,
             2,
             3,
-            4
-          ],
-          "description": "type 0: per_item_discount\ntype 1: percentage_discount\ntype 2: per_total_discount\ntype 3: shipping_discount\ntype 4: free_shipping"
+            4,
+            "5"
+          ]
         },
         "discount": {
           "description": "The amount off the order the discount is worth. For example, if an order subtotal is $90 and the discount is $3 then it will return as 3.000. If the discount is\n3% then will return as 2.7000 or the amount of the order.  (Float, Float-As-String, Integer)",
@@ -3474,7 +3475,7 @@
         3,
         4
       ],
-      "description": "type 0: per_item_discount\ntype 1: percentage_discount\ntype 2: per_total_discount\ntype 3: shipping_discount\ntype 4: free_shipping"
+      "description": "type 0: per_item_discount\ntype 1: percentage_discount\ntype 2: per_total_discount\ntype 3: shipping_discount\ntype 4: free_shipping \ntype 5: promotion"
     },
     "OrderProductsAppliedDiscounts": {
       "title": "Order Products Applied Discounts",
