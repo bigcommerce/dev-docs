@@ -6231,9 +6231,7 @@
     },
     "AppliedCoupon": {
       "type": "object",
-      "required": [
-        "code"
-      ],
+      "title": "Applied Coupon",
       "properties": {
         "id": {
           "type": "string",
@@ -6245,7 +6243,7 @@
         },
         "couponType": {
           "type": "string",
-          "description": "Key name to identify the type of coupon."
+          "description": "Key name to identify the type of coupon.\n\ntype 0: per_item_discount  \ntype 1: percentage_discount  \ntype 2: per_total_discount\ntype 3: shipping_discount  \ntype 4: free_shipping\ntype 5: promotion"
         },
         "discountedAmount": {
           "type": "number",
@@ -6253,7 +6251,9 @@
           "description": "The discounted amount applied within a given context."
         }
       },
-      "title": "Applied Coupon"
+      "required": [
+        "code"
+      ]
     },
     "AppliedDiscount": {
       "type": "object",
