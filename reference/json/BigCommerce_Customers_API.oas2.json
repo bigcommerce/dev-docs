@@ -3502,89 +3502,7 @@
             "schema": {
               "type": "array",
               "items": {
-                "title": "Customer Group",
-                "type": "object",
-                "description": "When creating a customer group category discount using the API it defaults to \"products in this category and its subcategories\". In the [Control Panel](https://support.bigcommerce.com/s/article/Customer-Groups#pricing) this can be changed to either \"products in this category only\" or \"products in this category and its subcategories\". There are currently no settings to change this behavior via API.",
-                "properties": {
-                  "id": {
-                    "description": "Id of the customer group",
-                    "example": 1,
-                    "type": "integer"
-                  },
-                  "name": {
-                    "description": "Name of the group",
-                    "example": "Wholesale",
-                    "type": "string"
-                  },
-                  "is_default": {
-                    "description": "Determines whether new customers are assigned to this group by default.",
-                    "example": false,
-                    "type": "boolean"
-                  },
-                  "category_access": {
-                    "title": "Category Access Level",
-                    "type": "object",
-                    "properties": {
-                      "type": {
-                        "type": "string",
-                        "enum": [
-                          "all",
-                          "specific",
-                          "none"
-                        ],
-                        "description": "+ `all` - Customers can access all categories\n + `specific`  - Customers can access a specific list of categories\n+ `none` - Customers are prevented from viewing any of the categories in this group."
-                      },
-                      "categories": {
-                        "description": "Is an array of category IDs and should be supplied only if `type` is specific.",
-                        "type": "array",
-                        "example": "18,19,23,34",
-                        "items": {
-                          "type": "string"
-                        }
-                      }
-                    }
-                  },
-                  "discount_rules": {
-                    "description": "A collection of discount rules that are automatically applied to customers who are members of the group",
-                    "type": "array",
-                    "items": {
-                      "type": "object",
-                      "properties": {
-                        "type": {
-                          "type": "string",
-                          "enum": [
-                            "price_list",
-                            "all",
-                            "category",
-                            "product"
-                          ]
-                        },
-                        "method": {
-                          "type": "string",
-                          "enum": [
-                            "percent",
-                            "fixed",
-                            "price"
-                          ]
-                        },
-                        "amount": {
-                          "type": "string",
-                          "example": "\"5.0000\" (Float, Float as String, Integer)",
-                          "description": "A float that specifies the value applied to the price modified"
-                        },
-                        "price_list_id": {
-                          "type": "integer",
-                          "example": 3,
-                          "description": "If a customer group is assigned to a price list,`method` and `amount` are not shown. `type` and `price_list_id` are returned."
-                        }
-                      }
-                    }
-                  },
-                  "is_group_for_guests": {
-                    "type": "boolean",
-                    "description": "If the groups is for guests. There can only be one customer group for guests at a time."
-                  }
-                }
+                "$ref": "#/definitions/CustomerGroup"
               }
             },
             "examples": {
@@ -3698,85 +3616,7 @@
             "required": true,
             "description": "",
             "schema": {
-              "title": "Customer Group",
-              "type": "object",
-              "properties": {
-                "id": {
-                  "description": "Id of the customer group",
-                  "example": 1,
-                  "type": "integer"
-                },
-                "name": {
-                  "description": "Name of the group",
-                  "example": "Wholesale",
-                  "type": "string"
-                },
-                "is_default": {
-                  "description": "Determines whether new customers are assigned to this group by default.",
-                  "example": false,
-                  "type": "boolean"
-                },
-                "category_access": {
-                  "title": "Category Access Level",
-                  "type": "object",
-                  "properties": {
-                    "type": {
-                      "type": "string",
-                      "enum": [
-                        "all",
-                        "specific",
-                        "none"
-                      ],
-                      "description": "+ `all` - Customers can access all categories\n + `specific`  - Customers can access a specific list of categories\n+ `none` - Customers are prevented from viewing any of the categories in this group."
-                    },
-                    "categories": {
-                      "description": "Is an array of category IDs and should be supplied only if `type` is specific.",
-                      "type": "array",
-                      "example": "18,19,23,34",
-                      "items": {
-                        "type": "string"
-                      }
-                    }
-                  }
-                },
-                "discount_rules": {
-                  "description": "A collection of discount rules that are automatically applied to customers who are members of the group",
-                  "type": "array",
-                  "items": {
-                    "type": "object",
-                    "properties": {
-                      "type": {
-                        "type": "string",
-                        "enum": [
-                          "price_list",
-                          "all",
-                          "category",
-                          "product"
-                        ]
-                      },
-                      "method": {
-                        "type": "string",
-                        "enum": [
-                          "percent",
-                          "fixed",
-                          "price"
-                        ]
-                      },
-                      "amount": {
-                        "type": "string",
-                        "example": "\"5.0000\" (Float, Float as String, Integer)",
-                        "description": "A float that specifies the value applied to the price modified"
-                      },
-                      "price_list_id": {
-                        "type": "integer",
-                        "example": 3,
-                        "description": "If a customer group is assigned to a price list,`method` and `amount` are not shown. `type` and `price_list_id` are returned."
-                      }
-                    }
-                  }
-                }
-              },
-              "description": "When creating a customer group category discount using the API it defaults to \"products in this category and its subcategories\". In the [Control Panel](https://support.bigcommerce.com/s/article/Customer-Groups#pricing) this can be changed to either \"products in this category only\" or \"products in this category and its subcategories\". There are currently no settings to change this behavior via API."
+              "$ref": "#/definitions/CustomerGroupPost"
             },
             "x-examples": {
               "application/json": {
@@ -3808,89 +3648,7 @@
           "200": {
             "description": "",
             "schema": {
-              "title": "Customer Group",
-              "type": "object",
-              "description": "When creating a customer group category discount using the API it defaults to \"products in this category and its subcategories\". In the [Control Panel](https://support.bigcommerce.com/s/article/Customer-Groups#pricing) this can be changed to either \"products in this category only\" or \"products in this category and its subcategories\". There are currently no settings to change this behavior via API.",
-              "properties": {
-                "id": {
-                  "description": "Id of the customer group",
-                  "example": 1,
-                  "type": "integer"
-                },
-                "name": {
-                  "description": "Name of the group",
-                  "example": "Wholesale",
-                  "type": "string"
-                },
-                "is_default": {
-                  "description": "Determines whether new customers are assigned to this group by default.",
-                  "example": false,
-                  "type": "boolean"
-                },
-                "category_access": {
-                  "title": "Category Access Level",
-                  "type": "object",
-                  "properties": {
-                    "type": {
-                      "type": "string",
-                      "enum": [
-                        "all",
-                        "specific",
-                        "none"
-                      ],
-                      "description": "+ `all` - Customers can access all categories\n + `specific`  - Customers can access a specific list of categories\n+ `none` - Customers are prevented from viewing any of the categories in this group."
-                    },
-                    "categories": {
-                      "description": "Is an array of category IDs and should be supplied only if `type` is specific.",
-                      "type": "array",
-                      "example": "18,19,23,34",
-                      "items": {
-                        "type": "string"
-                      }
-                    }
-                  }
-                },
-                "discount_rules": {
-                  "description": "A collection of discount rules that are automatically applied to customers who are members of the group",
-                  "type": "array",
-                  "items": {
-                    "type": "object",
-                    "properties": {
-                      "type": {
-                        "type": "string",
-                        "enum": [
-                          "price_list",
-                          "all",
-                          "category",
-                          "product"
-                        ]
-                      },
-                      "method": {
-                        "type": "string",
-                        "enum": [
-                          "percent",
-                          "fixed",
-                          "price"
-                        ]
-                      },
-                      "amount": {
-                        "type": "string",
-                        "example": "\"5.0000\" (Float, Float as String, Integer)",
-                        "description": "A float that specifies the value applied to the price modified"
-                      },
-                      "price_list_id": {
-                        "type": "integer",
-                        "example": 3,
-                        "description": "If a customer group is assigned to a price list,`method` and `amount` are not shown. `type` and `price_list_id` are returned."
-                      }
-                    }
-                  }
-                },
-                "is_group_for_guests": {
-                  "type": "boolean",
-                  "description": "If the groups is for guests. There can only be one customer group for guests at a time."
-                }
-              }
+              "$ref": "#/definitions/CustomerGroup"
             },
             "examples": {
               "application/json": {
@@ -4034,89 +3792,7 @@
           "200": {
             "description": "",
             "schema": {
-              "title": "Customer Group",
-              "type": "object",
-              "description": "When creating a customer group category discount using the API it defaults to \"products in this category and its subcategories\". In the [Control Panel](https://support.bigcommerce.com/s/article/Customer-Groups#pricing) this can be changed to either \"products in this category only\" or \"products in this category and its subcategories\". There are currently no settings to change this behavior via API.",
-              "properties": {
-                "id": {
-                  "description": "Id of the customer group",
-                  "example": 1,
-                  "type": "integer"
-                },
-                "name": {
-                  "description": "Name of the group",
-                  "example": "Wholesale",
-                  "type": "string"
-                },
-                "is_default": {
-                  "description": "Determines whether new customers are assigned to this group by default.",
-                  "example": false,
-                  "type": "boolean"
-                },
-                "category_access": {
-                  "title": "Category Access Level",
-                  "type": "object",
-                  "properties": {
-                    "type": {
-                      "type": "string",
-                      "enum": [
-                        "all",
-                        "specific",
-                        "none"
-                      ],
-                      "description": "+ `all` - Customers can access all categories\n + `specific`  - Customers can access a specific list of categories\n+ `none` - Customers are prevented from viewing any of the categories in this group."
-                    },
-                    "categories": {
-                      "description": "Is an array of category IDs and should be supplied only if `type` is specific.",
-                      "type": "array",
-                      "example": "18,19,23,34",
-                      "items": {
-                        "type": "string"
-                      }
-                    }
-                  }
-                },
-                "discount_rules": {
-                  "description": "A collection of discount rules that are automatically applied to customers who are members of the group",
-                  "type": "array",
-                  "items": {
-                    "type": "object",
-                    "properties": {
-                      "type": {
-                        "type": "string",
-                        "enum": [
-                          "price_list",
-                          "all",
-                          "category",
-                          "product"
-                        ]
-                      },
-                      "method": {
-                        "type": "string",
-                        "enum": [
-                          "percent",
-                          "fixed",
-                          "price"
-                        ]
-                      },
-                      "amount": {
-                        "type": "string",
-                        "example": "\"5.0000\" (Float, Float as String, Integer)",
-                        "description": "A float that specifies the value applied to the price modified"
-                      },
-                      "price_list_id": {
-                        "type": "integer",
-                        "example": 3,
-                        "description": "If a customer group is assigned to a price list,`method` and `amount` are not shown. `type` and `price_list_id` are returned."
-                      }
-                    }
-                  }
-                },
-                "is_group_for_guests": {
-                  "type": "boolean",
-                  "description": "If the groups is for guests. There can only be one customer group for guests at a time."
-                }
-              }
+              "$ref": "#/definitions/CustomerGroup"
             },
             "examples": {
               "application/json": {
@@ -4217,89 +3893,7 @@
           "200": {
             "description": "",
             "schema": {
-              "title": "Customer Group",
-              "type": "object",
-              "description": "When creating a customer group category discount using the API it defaults to \"products in this category and its subcategories\". In the [Control Panel](https://support.bigcommerce.com/s/article/Customer-Groups#pricing) this can be changed to either \"products in this category only\" or \"products in this category and its subcategories\". There are currently no settings to change this behavior via API.",
-              "properties": {
-                "id": {
-                  "description": "Id of the customer group",
-                  "example": 1,
-                  "type": "integer"
-                },
-                "name": {
-                  "description": "Name of the group",
-                  "example": "Wholesale",
-                  "type": "string"
-                },
-                "is_default": {
-                  "description": "Determines whether new customers are assigned to this group by default.",
-                  "example": false,
-                  "type": "boolean"
-                },
-                "category_access": {
-                  "title": "Category Access Level",
-                  "type": "object",
-                  "properties": {
-                    "type": {
-                      "type": "string",
-                      "enum": [
-                        "all",
-                        "specific",
-                        "none"
-                      ],
-                      "description": "+ `all` - Customers can access all categories\n + `specific`  - Customers can access a specific list of categories\n+ `none` - Customers are prevented from viewing any of the categories in this group."
-                    },
-                    "categories": {
-                      "description": "Is an array of category IDs and should be supplied only if `type` is specific.",
-                      "type": "array",
-                      "example": "18,19,23,34",
-                      "items": {
-                        "type": "string"
-                      }
-                    }
-                  }
-                },
-                "discount_rules": {
-                  "description": "A collection of discount rules that are automatically applied to customers who are members of the group",
-                  "type": "array",
-                  "items": {
-                    "type": "object",
-                    "properties": {
-                      "type": {
-                        "type": "string",
-                        "enum": [
-                          "price_list",
-                          "all",
-                          "category",
-                          "product"
-                        ]
-                      },
-                      "method": {
-                        "type": "string",
-                        "enum": [
-                          "percent",
-                          "fixed",
-                          "price"
-                        ]
-                      },
-                      "amount": {
-                        "type": "string",
-                        "example": "\"5.0000\" (Float, Float as String, Integer)",
-                        "description": "A float that specifies the value applied to the price modified"
-                      },
-                      "price_list_id": {
-                        "type": "integer",
-                        "example": 3,
-                        "description": "If a customer group is assigned to a price list,`method` and `amount` are not shown. `type` and `price_list_id` are returned."
-                      }
-                    }
-                  }
-                },
-                "is_group_for_guests": {
-                  "type": "string",
-                  "description": "If the groups is for guests. There can only be one customer group for guests at a time."
-                }
-              }
+              "$ref": "#/definitions/CustomerGroup"
             },
             "examples": {
               "application/json": {
@@ -4370,85 +3964,7 @@
             "in": "body",
             "name": "body",
             "schema": {
-              "title": "Customer Group",
-              "type": "object",
-              "properties": {
-                "id": {
-                  "description": "Id of the customer group",
-                  "example": 1,
-                  "type": "integer"
-                },
-                "name": {
-                  "description": "Name of the group",
-                  "example": "Wholesale",
-                  "type": "string"
-                },
-                "is_default": {
-                  "description": "Determines whether new customers are assigned to this group by default.",
-                  "example": false,
-                  "type": "boolean"
-                },
-                "category_access": {
-                  "title": "Category Access Level",
-                  "type": "object",
-                  "properties": {
-                    "type": {
-                      "type": "string",
-                      "enum": [
-                        "all",
-                        "specific",
-                        "none"
-                      ],
-                      "description": "+ `all` - Customers can access all categories\n + `specific`  - Customers can access a specific list of categories\n+ `none` - Customers are prevented from viewing any of the categories in this group."
-                    },
-                    "categories": {
-                      "description": "Is an array of category IDs and should be supplied only if `type` is specific.",
-                      "type": "array",
-                      "example": "18,19,23,34",
-                      "items": {
-                        "type": "string"
-                      }
-                    }
-                  }
-                },
-                "discount_rules": {
-                  "description": "A collection of discount rules that are automatically applied to customers who are members of the group",
-                  "type": "array",
-                  "items": {
-                    "type": "object",
-                    "properties": {
-                      "type": {
-                        "type": "string",
-                        "enum": [
-                          "price_list",
-                          "all",
-                          "category",
-                          "product"
-                        ]
-                      },
-                      "method": {
-                        "type": "string",
-                        "enum": [
-                          "percent",
-                          "fixed",
-                          "price"
-                        ]
-                      },
-                      "amount": {
-                        "type": "string",
-                        "example": "\"5.0000\" (Float, Float as String, Integer)",
-                        "description": "A float that specifies the value applied to the price modified"
-                      },
-                      "price_list_id": {
-                        "type": "integer",
-                        "example": 3,
-                        "description": "If a customer group is assigned to a price list,`method` and `amount` are not shown. `type` and `price_list_id` are returned."
-                      }
-                    }
-                  }
-                }
-              },
-              "description": "When creating a customer group category discount using the API it defaults to \"products in this category and its subcategories\". In the [Control Panel](https://support.bigcommerce.com/s/article/Customer-Groups#pricing) this can be changed to either \"products in this category only\" or \"products in this category and its subcategories\". There are currently no settings to change this behavior via API."
+              "$ref": "#/definitions/CustomerGroup"
             },
             "x-examples": {
               "application/json": {
@@ -4853,7 +4369,7 @@
           "type": "array",
           "example": "18,19,23,34",
           "items": {
-            "type": "string"
+            "type": "integer"
           }
         }
       }
@@ -5013,27 +4529,7 @@
           "type": "boolean"
         },
         "category_access": {
-          "title": "Category Access Level",
-          "type": "object",
-          "properties": {
-            "type": {
-              "type": "string",
-              "enum": [
-                "all",
-                "specific",
-                "none"
-              ],
-              "description": "+ `all` - Customers can access all categories\n + `specific`  - Customers can access a specific list of categories\n+ `none` - Customers are prevented from viewing any of the categories in this group."
-            },
-            "categories": {
-              "description": "Is an array of category IDs and should be supplied only if `type` is specific.",
-              "type": "array",
-              "example": "18,19,23,34",
-              "items": {
-                "type": "string"
-              }
-            }
-          }
+          "$ref": "#/definitions/CategoryAccess"
         },
         "discount_rules": {
           "description": "A collection of discount rules that are automatically applied to customers who are members of the group",
@@ -5174,6 +4670,66 @@
           "description": "Numeric ID of the state’s/province’s associated country.",
           "example": 13,
           "type": "integer"
+        }
+      }
+    },
+    "CustomerGroupPost": {
+      "title": "Customer Group",
+      "type": "object",
+      "description": "When creating a customer group category discount using the API it defaults to \"products in this category and its subcategories\". In the [Control Panel](https://support.bigcommerce.com/s/article/Customer-Groups#pricing) this can be changed to either \"products in this category only\" or \"products in this category and its subcategories\". There are currently no settings to change this behavior via API.",
+      "properties": {
+        "name": {
+          "description": "Name of the group",
+          "example": "Wholesale",
+          "type": "string"
+        },
+        "is_default": {
+          "description": "Determines whether new customers are assigned to this group by default.",
+          "example": false,
+          "type": "boolean"
+        },
+        "category_access": {
+          "$ref": "#/definitions/CategoryAccess"
+        },
+        "discount_rules": {
+          "description": "A collection of discount rules that are automatically applied to customers who are members of the group",
+          "type": "array",
+          "items": {
+            "type": "object",
+            "properties": {
+              "type": {
+                "type": "string",
+                "enum": [
+                  "price_list",
+                  "all",
+                  "category",
+                  "product"
+                ]
+              },
+              "method": {
+                "type": "string",
+                "enum": [
+                  "percent",
+                  "fixed",
+                  "price"
+                ]
+              },
+              "amount": {
+                "type": "string",
+                "example": "\"5.0000\" (Float, Float as String, Integer)",
+                "description": "A float that specifies the value applied to the price modified"
+              },
+              "price_list_id": {
+                "type": "integer",
+                "example": 3,
+                "description": "If a customer group is assigned to a price list,`method` and `amount` are not shown. `type` and `price_list_id` are returned."
+              }
+            }
+          }
+        },
+        "is_group_for_guests": {
+          "type": "boolean",
+          "description": "If the groups is for guests. There can only be one customer group for guests at a time."
         }
       }
     }
