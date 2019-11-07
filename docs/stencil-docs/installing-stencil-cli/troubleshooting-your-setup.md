@@ -233,12 +233,11 @@ The `eval-cheap-module-source-map` option performs faster rebuilds, but omits li
 If uploading your theme triggers a TR-300 error, this can indicate an included source-map file (`bundle.js.map`) that exceeds its size limit of 5 MB. If your `bundle.js.map` exceeds that limit, the workaround is to move this file outside your theme directory before re-running `stencil bundle`.
 
 Other reasons for this error include exceeding these stencil theme limitations:
-* Max directory size: /templates/ and /parsed/templates/ 1 MB
+* Max directory size for `/templates/` and `/parsed/templates/`: 1 MB
 * Max for any single file in the bundle: 5 MB
-* Zip size max: 50 MB
-* Unzipped size max: 100 MB
-* Total number of files: 2500
-
+* Max zipped size: 50 MB
+* Max unzipped size: 100 MB
+* Max total files: 2500
 
 ## Reinstalling Stencil CLI
 
