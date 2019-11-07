@@ -128,6 +128,9 @@ sudo apt-get update && sudo apt-get install nodejs npm
 # Download nvm install.sh and run with bash
 curl -o- https://raw.githubusercontent.com/creationix/nvm/v0.31.0/install.sh | bash
 
+# reload .bashrc so nvm command works
+source ~/.bashrc
+
 # Explicitly install supported node version
 nvm install 10.16
 
@@ -145,7 +148,7 @@ npm install -g @bigcommerce/stencil-cli
 
 <!-- theme: info -->
 
-> These instructions have been tested on **Ubuntu v.14.04.4**. 
+> These instructions have been tested on **Ubuntu 18.04**. 
 
 </div>
 </div>
