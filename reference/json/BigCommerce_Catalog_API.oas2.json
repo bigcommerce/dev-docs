@@ -12523,7 +12523,7 @@
           "type": "integer"
         },
         {
-          "$ref": "#/defenitions/VideoIdParam"
+          "$ref": "#/parameters/VideoIdParam"
         }
       ],
       "get": {
