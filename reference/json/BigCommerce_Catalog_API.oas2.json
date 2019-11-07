@@ -48595,7 +48595,16 @@
       "type": "apiKey",
       "name": "X-Auth-Token",
       "in": "header"
-    }
+    },
+    "OAuth": {
+      "flow": "application",
+      "tokenUrl": "https://login.bigcommerce.com/oauth2/token",
+      "scopes": {
+          "store_v2_products": "modify",
+          "store_v2_products_read_only": "read-only"
+      },
+      "type": "oauth2"
+  }
   },
   "security": [
     {
@@ -48603,6 +48612,9 @@
     },
     {
       "X-Auth-Token": []
+    },
+    {
+      "OAuth": ["store_v2_products", "store_v2_products_read_only"]
     }
   ],
   "responses": {
