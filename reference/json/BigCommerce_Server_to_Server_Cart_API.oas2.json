@@ -3571,7 +3571,8 @@
                           1,
                           2,
                           3,
-                          4
+                          4,
+                          5
                         ]
                       },
                       "discountAmount": {
@@ -3629,6 +3630,7 @@
           "type": "array",
           "items": {
             "type": "object",
+            "title": "Product Option",
             "properties": {
               "name": {
                 "type": "string",
@@ -3646,8 +3648,7 @@
                 "type": "number",
                 "description": "The product option value identifier."
               }
-            },
-            "title": "Product Option"
+            }
           }
         }
       },
@@ -3693,7 +3694,7 @@
           "readOnly": true
         },
         "coupon_type": {
-          "description": "Key name to identify the type of coupon.\n\ntype 0: per_item_discount  \ntype 1: percentage_discount  \ntype 2: per_total_discount\ntype 3: shipping_discount  \ntype 4: free_shipping",
+          "description": "Key name to identify the type of coupon.\n\ntype 0: per_item_discount  \ntype 1: percentage_discount  \ntype 2: per_total_discount\ntype 3: shipping_discount  \ntype 4: free_shipping\ntype 5: promotion",
           "type": "string",
           "readOnly": true
         },
