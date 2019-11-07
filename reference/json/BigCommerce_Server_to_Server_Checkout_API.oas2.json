@@ -2682,7 +2682,7 @@
           "type": "string"
         },
         "coupon_type": {
-          "description": "Key name to identify the type of coupon.",
+          "description": "Key name to identify the type of coupon.\n\ntype 0: per_item_discount  \ntype 1: percentage_discount  \ntype 2: per_total_discount\ntype 3: shipping_discount  \ntype 4: free_shipping\ntype 5: promotion",
           "type": "string"
         },
         "discounted_amount": {
