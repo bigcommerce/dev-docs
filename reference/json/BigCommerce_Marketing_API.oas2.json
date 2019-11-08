@@ -157,12 +157,13 @@
                       "per_total_discount",
                       "shipping_discount",
                       "free_shipping",
-                      "percentage_discount"
+                      "percentage_discount",
+                      "promotion"
                     ]
                   },
                   "amount": {
                     "type": "string",
-                    "description": "The discount to apply to an order, as either an amount or a percentage. This field's usage is determined by the coupon `type`. For example, a `type` of + `percentage_discount` would determine a percentage here.",
+                    "description": "The discount to apply to an order, as either an amount or a percentage. This field's usage is determined by the coupon `type`. For example, a `type` of + `percentage_discount` would determine a percentage here. Returns an empty string for `promotion`.",
                     "example": 5
                   },
                   "min_purchase": {
@@ -510,12 +511,13 @@
                     "per_total_discount",
                     "shipping_discount",
                     "free_shipping",
-                    "percentage_discount"
+                    "percentage_discount",
+                    "promotion"
                   ]
                 },
                 "amount": {
                   "type": "string",
-                  "description": "The discount to apply to an order, as either an amount or a percentage. This field's usage is determined by the coupon `type`. For example, a `type` of + `percentage_discount` would determine a percentage here.",
+                  "description": "The discount to apply to an order, as either an amount or a percentage. This field's usage is determined by the coupon `type`. For example, a `type` of + `percentage_discount` would determine a percentage here. Returns an empty string for `promotion`.",
                   "example": 5
                 },
                 "min_purchase": {
@@ -1013,12 +1015,13 @@
                     "per_total_discount",
                     "shipping_discount",
                     "free_shipping",
-                    "percentage_discount"
+                    "percentage_discount",
+                    "promotion"
                   ]
                 },
                 "amount": {
                   "type": "string",
-                  "description": "The discount to apply to an order, as either an amount or a percentage. This field's usage is determined by the coupon `type`. For example, a `type` of + `percentage_discount` would determine a percentage here.",
+                  "description": "The discount to apply to an order, as either an amount or a percentage. This field's usage is determined by the coupon `type`. For example, a `type` of + `percentage_discount` would determine a percentage here. Returns an empty string for `promotion`.",
                   "example": 5
                 },
                 "min_purchase": {
@@ -3931,12 +3934,13 @@
             "per_total_discount",
             "shipping_discount",
             "free_shipping",
-            "percentage_discount"
+            "percentage_discount",
+            "promotion"
           ]
         },
         "amount": {
           "type": "string",
-          "description": "The discount to apply to an order, as either an amount or a percentage. This field's usage is determined by the coupon `type`. For example, a `type` of + `percentage_discount` would determine a percentage here.",
+          "description": "The discount to apply to an order, as either an amount or a percentage. This field's usage is determined by the coupon `type`. For example, a `type` of + `percentage_discount` would determine a percentage here. Returns an empty string for `promotion`.",
           "example": 5
         },
         "min_purchase": {
