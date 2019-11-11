@@ -11,7 +11,7 @@
 - [OAuth Scopes](#oauth-scopes)
 - [Resources](#resources)
 
-</div> 
+</div>
 
 Two types of API credentials are available to developers wishing to make requests against BigCommerce APIs:
 
@@ -20,16 +20,16 @@ Two types of API credentials are available to developers wishing to make request
 
 **Store API Credentials** are generated when a Store API Account is created in a store's control panel (**Advanced Settings** > **API Accounts**). These credentials are used to programmatically interact with an individual store's data using BigCommerce's APIs. Both OAuth and token-based authentication are possible with Store API Credentials
 
-Developers can also create **App API Credentials** in the BigCommerce [Developer Portal](https://devtools.bigcommerce.com). App API Credentials are used during the OAuth flow to request authorization “on behalf” of a store owner, allowing the app to make API requests against store data. App API Credentials are OAuth only, and the store owner must install the app before the app is granted access to the store. 
+Developers can also create **App API Credentials** in the BigCommerce [Developer Portal](https://devtools.bigcommerce.com). App API Credentials are used during the OAuth flow to request authorization “on behalf” of a store owner, allowing the app to make API requests against store data. App API Credentials are OAuth only, and the store owner must install the app before the app is granted access to the store.
 
 ## Obtaining Store API Credentials
 
 To generate store API Credentials, log into the store, then:
 
-1. Navigate to **Advanced Settings** > **API Accounts** > **Create API Account**. 
+1. Navigate to **Advanced Settings** > **API Accounts** > **Create API Account**.
 2. Give the account a name (internal only).
 6. In the OAuth Scopes section, select the minimum scopes the app will require.
-7. Select **Save**. 
+7. Select **Save**.
 
 A successful save will display a pop-up containing the API credentials that your app will need to run authenticated requests – your Client ID and Access Token. A `.txt` file containing the same credentials will (on most browsers) automatically download to your computer. This file also contains the base API Path for your store, preconfigured for the v3 API.
 
@@ -42,11 +42,11 @@ To get started making requests, see [API Requests](/api-docs/getting-started/bas
 <div class="HubBlock--callout">
 <div class="CalloutBlock--warning">
 <div class="HubBlock-content">
-    
+
 <!-- theme: warning -->
 
 ### Save your credentials
-> There is no way to re-display this pop-up after selecting Done, so be sure to securely store the credentials before leaving this screen. 
+> There is no way to re-display this pop-up after selecting Done, so be sure to securely store the credentials before leaving this screen.
 
 </div>
 </div>
@@ -65,7 +65,7 @@ To revoke Store API Credentials:
 <div class="HubBlock--callout">
 <div class="CalloutBlock--error">
 <div class="HubBlock-content">
-    
+
 <!-- theme: error -->
 
 ### Delete Carefully
@@ -92,16 +92,16 @@ To get App API Credentials, login to (or create) your BigCommerce [Developer Por
 
 1. In the lower right-hand corner of the popup box, click **Update & Close**.
 2. A new pop up will show asking if you want to change the OAuth Scopes. Click **Confirm Update**.
-3. You will be routed back to the Dev Tools home page and your app will be listed. Click **View Client ID**. 
+3. You will be routed back to the Dev Tools home page and your app will be listed. Click **View Client ID**.
 
 ![#### View Client Id](//s3.amazonaws.com/user-content.stoplight.io/6012/1537390078741 "#### View Client Id")
 
-1. Copy your Client ID and Client Secret. The Client ID and Client Secret can be accessed at any time by clicking **View Client ID**. 
+1. Copy your Client ID and Client Secret. The Client ID and Client Secret can be accessed at any time by clicking **View Client ID**.
 
 <div class="HubBlock--callout">
 <div class="CalloutBlock--">
 <div class="HubBlock-content">
-    
+
 <!-- theme:  -->
 
 ### Client ID and Client Secret
@@ -118,7 +118,7 @@ The Client Secret value is a secret that your app and BigCommerce share. You onl
 <div class="HubBlock--callout">
 <div class="CalloutBlock--warning">
 <div class="HubBlock-content">
-    
+
 <!-- theme: warning -->
 
 ### Delete apps carefully
@@ -153,7 +153,7 @@ During the app installation process, your app will use the Client Id and Client 
 <div class="HubBlock--callout">
 <div class="CalloutBlock--error">
 <div class="HubBlock-content">
-    
+
 <!-- theme: error -->
 
 ### Legacy API Accounts
@@ -217,6 +217,8 @@ All OAuth scopes except `default` have `read_only` scopes that allow only `GET` 
 ||| /v3/widgets |
 | Checkout Content | store_content_checkout | View and modify content on checkout pages |
 ||| [/v3/scripts](/api-reference/content/store-content-api) |
+||store_content_checkout_read_only|View content on checkout pages|
+||| [/v3/scripts](/api-reference/content/store-content-api)|
 | Customers | store_v2_customers | View and modify customer information |
 ||| [/v2/customers](/api-reference/customer-subscribers/customers-api) |
 ||| [/v2/customer_groups](/api-reference/customer-subscribers/customers-api) |
@@ -252,8 +254,14 @@ All OAuth scopes except `default` have `read_only` scopes that allow only `GET` 
 || store_v2_orders_read_only | View orders |
 ||| [/v2/orders](/api-reference/orders/orders-api) |
 ||| [/v2/order_statuses](/api-reference/orders/orders-api) |
-| Order Transactions | store_v2_transactions_read_only | View order transactions |
+| Order Transactions | store_v2_transactions | View and modify order transactions |
 ||| [/v3/orders/{id}/transactions](/api-reference/orders/orders-transactions-api) |
+|| store_v2_transactions_read_only | View order transactions |
+||| [/v3/orders/{id}/transactions](/api-reference/orders/orders-transactions-api) |
+| Create Payments  | store_payments_access_token_create | Process Payments |
+||| [/payments/access_tokens](/api-reference/payments/payments-create-payment-token-api)|
+| Get Payment Methods | store_payments_methods_read | Get Order Payment Methods |
+||| [/payments](/api-reference/payments/payments-process-payments)|
 | Products | store_v2_products | View and modify products, brands, categories and other product information. |
 ||| [/v3/catalog](/api-reference/catalog/catalog-api) |
 ||| [/v3/pricelists](/api-reference/price-lists/pricelists-api) |
@@ -268,10 +276,28 @@ All OAuth scopes except `default` have `read_only` scopes that allow only `GET` 
 ||| [/v3/carts](/api-reference/cart-checkout/storefront-cart-api) |
 || store_cart_read_only | View Carts |
 ||| [/v3/carts](/api-reference/cart-checkout/storefront-cart-api) |
-| Create Payments  | store_payments_access_token_create | Process Payments |
-||| [/payments/access_tokens](/api-reference/payments/payments-create-payment-token-api)|
-| Get Payment Methods | store_payments_methods_read | Get Order Payment Methods |
-||| [/payments](/api-reference/payments/payments-process-payments)|
+| Checkouts | store_checkout | View and modify a checkout |
+||| [/v3/checkouts](/api-reference/cart-checkout/storefront-checkout-api) |
+|| store_checkout_read_only | View checkout content |
+||| [/v3/checkouts](/api-reference/cart-checkout/storefront-checkout-api) |
+| Sites & Routes | store_sites | View and modify sites and routes |
+||| [/v3/channels/{channel_id}/site](/api-reference/cart-checkout/sites-routes-api) |
+||| [/v3/sites/{site_id}/routes](/api-reference/cart-checkout/sites-routes-api) |
+|| store_sites_read_only | View external storefronts with Non-BigCommerce URLs |
+||| [/v3/channels/{channel_id}/site](/api-reference/cart-checkout/sites-routes-api) |
+||| [/v3/sites/{site_id}/routes](/api-reference/cart-checkout/sites-routes-api) |
+| Channel Settings | store_channel_settings | View and modify a list of channels |
+||| [/v3/channels](/api-reference/cart-checkout/channels-listings-api) |
+|| store_channel_settings_read_only | View a list of channels |
+||| [/v3/channels](/api-reference/cart-checkout/channels-listings-api) |
+| Channel Listings | store_channel_listings | View and modify a list of all channel listings for a particular channel |
+||| [/v3/channels/listings](/api-reference/cart-checkout/channels-listings-api) |
+|| store_channel_listings_read_only | View a list of all channel listings for a particular channel |
+||| [/v3/channels/listings](/api-reference/cart-checkout/channels-listings-api) |
+| Storefront API Tokens | store_storefront_api | Create a storefront API token |
+||| [/v3/storefront/api-token](/api-reference/cart-checkout/storefront-api-token)
+| Storefront API Customer Impersonation Tokens | store_storefront_api_customer_impersonation | Create a storefront API token that allows for customer impersonation |
+||| [/v3/storefront/api-token-customer-impersonation](/api-reference/cart-checkout/storefront-api-token) |
 
 ## Resources
 * [Building An App](https://developer.bigcommerce.com/api-docs/getting-started/building-apps-bigcommerce/building-apps)
