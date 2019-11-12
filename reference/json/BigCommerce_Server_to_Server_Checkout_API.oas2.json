@@ -2682,8 +2682,15 @@
           "type": "string"
         },
         "coupon_type": {
-          "description": "Key name to identify the type of coupon.",
-          "type": "string"
+          "type": "string",
+          "description": "type 0: per_item_discount\ntype 1: percentage_discount\ntype 2: per_total_discount\ntype 3: shipping_discount\ntype 4: free_shipping\ntype 5: promotion",
+          "enum": [
+            "1",
+            "2",
+            "3",
+            "4",
+            "5"
+          ]
         },
         "discounted_amount": {
           "description": "The discounted amount applied within a given context.",
