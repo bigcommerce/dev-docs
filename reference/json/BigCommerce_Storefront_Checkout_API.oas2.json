@@ -133,12 +133,8 @@
                             "description": "The coupon title based on different types provided in control panel section",
                             "type": "string"
                           },
-                          "couponType": {
-                            "description": "Key name to identify the type of coupon.",
-                            "type": "string"
-                          },
                           "discountedAmount": {
-                            "description": "The discounted amount applied within a given context.",
+                            "description": "",
                             "type": "number",
                             "format": "double"
                           }
@@ -562,7 +558,6 @@
                   "allOf": [
                     {
                       "title": "Address Properties",
-                      "type": "object",
                       "properties": {
                         "firstName": {
                           "description": "",
@@ -637,7 +632,6 @@
                       ]
                     },
                     {
-                      "type": "object",
                       "properties": {
                         "id": {
                           "description": "",
@@ -645,7 +639,8 @@
                         }
                       }
                     }
-                  ]
+                  ],
+                  "type": "object"
                 },
                 "consignments": {
                   "description": "",
@@ -664,7 +659,6 @@
                         "allOf": [
                           {
                             "title": "Address Properties",
-                            "type": "object",
                             "properties": {
                               "firstName": {
                                 "description": "",
@@ -739,7 +733,6 @@
                             ]
                           },
                           {
-                            "type": "object",
                             "properties": {
                               "id": {
                                 "description": "",
@@ -747,7 +740,8 @@
                               }
                             }
                           }
-                        ]
+                        ],
+                        "type": "object"
                       },
                       "availableShippingOptions": {
                         "description": "This is available only when \"include=consignments.availableShippingOptions\" is presented in the URL.",
@@ -757,7 +751,6 @@
                           "allOf": [
                             {
                               "title": "Selected Shipping Option",
-                              "type": "object",
                               "properties": {
                                 "description": {
                                   "description": "Read-only",
@@ -787,7 +780,6 @@
                               }
                             },
                             {
-                              "type": "object",
                               "properties": {
                                 "isRecommended": {
                                   "description": "Is this shipping method the recommended shipping option or not.",
@@ -795,7 +787,8 @@
                                 }
                               }
                             }
-                          ]
+                          ],
+                          "type": "object"
                         }
                       },
                       "selectedShippingOption": {
@@ -902,8 +895,15 @@
                         "type": "string"
                       },
                       "couponType": {
-                        "description": "Key name to identify the type of coupon.",
-                        "type": "string"
+                        "type": "string",
+                        "description": "Key name to identify the type of coupon.\n\ntype 0: per_item_discount  \ntype 1: percentage_discount  \ntype 2: per_total_discount\ntype 3: shipping_discount  \ntype 4: free_shipping\ntype 5: promotion",
+                        "enum": [
+                          "1",
+                          "2",
+                          "3",
+                          "4",
+                          "5"
+                        ]
                       },
                       "discountedAmount": {
                         "description": "The discounted amount applied within a given context.",
@@ -1316,8 +1316,15 @@
                             "type": "string"
                           },
                           "couponType": {
-                            "description": "Key name to identify the type of coupon.",
-                            "type": "string"
+                            "type": "string",
+                            "description": "Key name to identify the type of coupon.\n\ntype 0: per_item_discount  \ntype 1: percentage_discount  \ntype 2: per_total_discount\ntype 3: shipping_discount  \ntype 4: free_shipping\ntype 5: promotion",
+                            "enum": [
+                              "1",
+                              "2",
+                              "3",
+                              "4",
+                              "5"
+                            ]
                           },
                           "discountedAmount": {
                             "description": "The discounted amount applied within a given context.",
@@ -1744,7 +1751,6 @@
                   "allOf": [
                     {
                       "title": "Address Properties",
-                      "type": "object",
                       "properties": {
                         "firstName": {
                           "description": "",
@@ -1819,7 +1825,6 @@
                       ]
                     },
                     {
-                      "type": "object",
                       "properties": {
                         "id": {
                           "description": "",
@@ -1827,7 +1832,8 @@
                         }
                       }
                     }
-                  ]
+                  ],
+                  "type": "object"
                 },
                 "consignments": {
                   "description": "",
@@ -1846,7 +1852,6 @@
                         "allOf": [
                           {
                             "title": "Address Properties",
-                            "type": "object",
                             "properties": {
                               "firstName": {
                                 "description": "",
@@ -1921,7 +1926,6 @@
                             ]
                           },
                           {
-                            "type": "object",
                             "properties": {
                               "id": {
                                 "description": "",
@@ -1929,7 +1933,8 @@
                               }
                             }
                           }
-                        ]
+                        ],
+                        "type": "object"
                       },
                       "availableShippingOptions": {
                         "description": "This is available only when \"include=consignments.availableShippingOptions\" is presented in the URL.",
@@ -1939,7 +1944,6 @@
                           "allOf": [
                             {
                               "title": "Selected Shipping Option",
-                              "type": "object",
                               "properties": {
                                 "description": {
                                   "description": "Read-only",
@@ -1969,7 +1973,6 @@
                               }
                             },
                             {
-                              "type": "object",
                               "properties": {
                                 "isRecommended": {
                                   "description": "Is this shipping method the recommended shipping option or not.",
@@ -1977,7 +1980,8 @@
                                 }
                               }
                             }
-                          ]
+                          ],
+                          "type": "object"
                         }
                       },
                       "selectedShippingOption": {
@@ -13423,8 +13427,15 @@
                             "type": "string"
                           },
                           "couponType": {
-                            "description": "Key name to identify the type of coupon.",
-                            "type": "string"
+                            "type": "string",
+                            "description": "Key name to identify the type of coupon.\n\ntype 0: per_item_discount  \ntype 1: percentage_discount  \ntype 2: per_total_discount\ntype 3: shipping_discount  \ntype 4: free_shipping\ntype 5: promotion",
+                            "enum": [
+                              "1",
+                              "2",
+                              "3",
+                              "4",
+                              "5"
+                            ]
                           },
                           "discountedAmount": {
                             "description": "The discounted amount applied within a given context.",
@@ -13851,7 +13862,6 @@
                   "allOf": [
                     {
                       "title": "Address Properties",
-                      "type": "object",
                       "properties": {
                         "firstName": {
                           "description": "",
@@ -13926,7 +13936,6 @@
                       ]
                     },
                     {
-                      "type": "object",
                       "properties": {
                         "id": {
                           "description": "",
@@ -13934,7 +13943,8 @@
                         }
                       }
                     }
-                  ]
+                  ],
+                  "type": "object"
                 },
                 "consignments": {
                   "description": "",
@@ -13953,7 +13963,6 @@
                         "allOf": [
                           {
                             "title": "Address Properties",
-                            "type": "object",
                             "properties": {
                               "firstName": {
                                 "description": "",
@@ -14028,7 +14037,6 @@
                             ]
                           },
                           {
-                            "type": "object",
                             "properties": {
                               "id": {
                                 "description": "",
@@ -14036,7 +14044,8 @@
                               }
                             }
                           }
-                        ]
+                        ],
+                        "type": "object"
                       },
                       "availableShippingOptions": {
                         "description": "This is available only when \"include=consignments.availableShippingOptions\" is presented in the URL.",
@@ -14046,7 +14055,6 @@
                           "allOf": [
                             {
                               "title": "Selected Shipping Option",
-                              "type": "object",
                               "properties": {
                                 "description": {
                                   "description": "Read-only",
@@ -14076,7 +14084,6 @@
                               }
                             },
                             {
-                              "type": "object",
                               "properties": {
                                 "isRecommended": {
                                   "description": "Is this shipping method the recommended shipping option or not.",
@@ -14084,7 +14091,8 @@
                                 }
                               }
                             }
-                          ]
+                          ],
+                          "type": "object"
                         }
                       },
                       "selectedShippingOption": {
@@ -15536,8 +15544,15 @@
                     "type": "string"
                   },
                   "couponType": {
-                    "description": "Key name to identify the type of coupon.",
-                    "type": "string"
+                    "type": "string",
+                    "description": "Key name to identify the type of coupon.\n\ntype 0: per_item_discount  \ntype 1: percentage_discount  \ntype 2: per_total_discount\ntype 3: shipping_discount  \ntype 4: free_shipping\ntype 5: promotion",
+                    "enum": [
+                      "1",
+                      "2",
+                      "3",
+                      "4",
+                      "5"
+                    ]
                   },
                   "discountedAmount": {
                     "description": "The discounted amount applied within a given context.",
@@ -16502,8 +16517,15 @@
                 "type": "string"
               },
               "couponType": {
-                "description": "Key name to identify the type of coupon.",
-                "type": "string"
+                "type": "string",
+                "description": "Key name to identify the type of coupon.\n\ntype 0: per_item_discount  \ntype 1: percentage_discount  \ntype 2: per_total_discount\ntype 3: shipping_discount  \ntype 4: free_shipping\ntype 5: promotion",
+                "enum": [
+                  "1",
+                  "2",
+                  "3",
+                  "4",
+                  "5"
+                ]
               },
               "discountedAmount": {
                 "description": "The discounted amount applied within a given context.",
@@ -16966,8 +16988,15 @@
           "type": "string"
         },
         "couponType": {
-          "description": "Key name to identify the type of coupon.",
-          "type": "string"
+          "type": "string",
+          "description": "Key name to identify the type of coupon.\n\ntype 0: per_item_discount  \ntype 1: percentage_discount  \ntype 2: per_total_discount\ntype 3: shipping_discount  \ntype 4: free_shipping\ntype 5: promotion",
+          "enum": [
+            "1",
+            "2",
+            "3",
+            "4",
+            "5"
+          ]
         },
         "discountedAmount": {
           "description": "The discounted amount applied within a given context.",
