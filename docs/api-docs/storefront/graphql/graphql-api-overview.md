@@ -9,6 +9,7 @@
 - [Using the GraphQL Playground](#using-the-graphql-playground)
 - [Authentication](#authentication)
 - [Querying Within a BigCommerce Storefront](#querying-within-a-bigcommerce-storefront)
+- [Complexity Limits](#complexity-limits)
 - [Resources](#resources)
 
 </div>
@@ -312,7 +313,84 @@ In addition to using `fetch()`, there's a other ways to query the API:
 </div>
 </div>
 
-<a id="resources" class="devdocsAnchor"></a>
+## Complexity Limits
+
+The GraphQL Storefront API uses an algorithm to calculate a complexity score for queries made against the API. Queries that exceed the complexity score will receive an error response:
+
+```json
+{
+  "error": {
+    "error": "The query is too complex as it has a complexity score of 1223 out of 1000. Please remove some elements and try again"
+  }
+}
+```
+
+The complexity limit error is usually caused by queries for a large quantity of deeply nested objects, for example, this query for first 50 products and their prices, variants, options, and option values: 
+
+```js
+query {
+  site {
+    products(first:50) {
+      edges {
+        node {
+          name
+          prices {
+            price {
+              value
+              currencyCode
+            }
+            retailPrice {
+              value
+              currencyCode
+            }
+          }
+          variants {
+            edges {
+              node {
+                entityId
+                depth {
+                  value
+                  unit
+                }
+                sku
+              }
+            }
+          }
+          options {
+            edges {
+              node {
+                displayName
+                values {
+                  edges {
+                    node {
+                      label
+                      entityId
+                    }
+                  }
+                }
+              }
+            }
+          }
+        }
+      }
+    }
+  }
+} 
+```
+
+The complexity of this query is easily reduced by changing the number of products queried from `first:50` to `first:10`: 
+
+```js
+query {
+  site {
+    products(first:10) { // <--- reducing quantity requested reduces complexity score
+      // ...
+```
+
+In general, to reduce complexity, reduce the number of objects requested: 
+* limit collections to a smaller page size (for example `first:10` instead of `first:50`)
+* reduce the number of items in nested collections
+* request less fields
 
 ## Resources
 
