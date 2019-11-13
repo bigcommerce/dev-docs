@@ -11299,7 +11299,7 @@
         ]
       },
       "post": {
-        "description": "Creates a *Product Image*. \n\n **Required Fields**\n- image_file  \nor\n- image_url\n\nOnly one image at a time can be created.",
+        "description": "Creates a *Product Image*. \n\n **Required Fields**\n- `image_file`, or\n- `image_url`\n\n**Usage Notes**\n- `image_url` - `255` character limit\n- Only one image at a time can be created",
         "operationId": "createProductImage",
         "parameters": [
           {
@@ -11794,7 +11794,7 @@
         ]
       },
       "put": {
-        "description": "Updates a *Product Image*.\n\n **Required Fields**\n- image_file  \nor\n- image_url\n\nWhen using file upload, other image file params can be updated as well using key:value pairs. ",
+        "description": "Updates a *Product Image*.\n\n **Required Fields**\n- `image_file`, or\n- `image_url`\n\n**Usage Notes**\n- `image_url` - `255` character limit\n- When using file upload, other image file params can be updated using `key:value` pairs. ",
         "operationId": "updateProductImage",
         "parameters": [
           {
@@ -48600,11 +48600,11 @@
       "flow": "application",
       "tokenUrl": "https://login.bigcommerce.com/oauth2/token",
       "scopes": {
-          "store_v2_products": "modify",
-          "store_v2_products_read_only": "read-only"
+        "store_v2_products": "modify",
+        "store_v2_products_read_only": "read-only"
       },
       "type": "oauth2"
-  }
+    }
   },
   "security": [
     {
@@ -48614,7 +48614,10 @@
       "X-Auth-Token": []
     },
     {
-      "OAuth": ["store_v2_products", "store_v2_products_read_only"]
+      "OAuth": [
+        "store_v2_products",
+        "store_v2_products_read_only"
+      ]
     }
   ],
   "responses": {
