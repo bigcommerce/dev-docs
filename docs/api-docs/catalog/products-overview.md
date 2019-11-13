@@ -951,6 +951,8 @@ Complex rules must be based on a combination of two or more modifiers, such as t
 **Example Add Complex Rules**  
 `/PUT https://api.bigcommerce.com/stores/{store_hash}/v3/catalog/products/{product_id}/complex-rules`
 
+[![Run in Postman](https://run.pstmn.io/button.svg)](https://app.getpostman.com/run-collection/63a61a74bd429ee184b3)
+
 ### Troubleshooting
 
 Complex rules must consist of multiple conditions that trigger the rule adjustment. If multiple conditions are not specified, the request will return a 422 Unprocessable Entity:
