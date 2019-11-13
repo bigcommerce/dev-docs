@@ -9,6 +9,7 @@
 - [Using the GraphQL Playground](#using-the-graphql-playground)
 - [Authentication](#authentication)
 - [Querying Within a BigCommerce Storefront](#querying-within-a-bigcommerce-storefront)
+- [Complexity Limits](#complexity-limits)
 - [Resources](#resources)
 
 </div>
@@ -312,7 +313,7 @@ In addition to using `fetch()`, there's a other ways to query the API:
 </div>
 </div>
 
-<a id="resources" class="devdocsAnchor"></a>
+## Complexity Limits
 
 ## Resources
 
