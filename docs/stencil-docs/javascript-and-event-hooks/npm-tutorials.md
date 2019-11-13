@@ -29,7 +29,13 @@ For product configuration steps in the BigCommerce control panel, please see thi
 
 Use the following command to install this example's required dependencies:
 
-`npm install --save-dev css-loader moment foundation-datepicker style-loader`
+```shell
+# move into theme dir
+cd ~/path/to/theme/dir
+
+# install dependencies
+npm install --save-dev css-loader moment foundation-datepicker style-loader
+```
 
 The above command's options are:
 
@@ -38,9 +44,7 @@ The above command's options are:
 * `css-loader` and `style-loader` are webpack loaders, used together:
 	* [`css-loader`](https://github.com/webpack-contrib/css-loader) resolves `@import` and `url()` expressions in CSS files.
 	* [`style-loader`](https://github.com/webpack-contrib/style-loader) generically loads stylesheets by injecting a `<style>` tag.
-
 * [`moment`](https://momentjs.com/) is a JavaScript component parses, validates, and displays dates and times.
-
 * `foundation-datepicker` specifies the datepicker package to install.
 
 ### Configure Webpack Loaders
@@ -232,6 +236,10 @@ To build this, you will need to complete the following steps:
 Material-UI requires the `react-tap-event-plugin` module. Also, `document-register-element` is needed to polyfill `document.registerElement`. The babel presets and plugins are needed to support `Object.assign`, `react`, and `Material-UI`, respectively:
 
 ```shell
+# move into theme dir
+cd ~/path/to/theme/dir
+
+# install dependencies
 npm install -save-dev document-register-element material-ui react react-dom react-tap-event-plugin  
 npm install -save-dev babel-plugin-transform-object-assign babel-preset-react babel-preset-stage-1
 ```
