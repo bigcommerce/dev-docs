@@ -19,7 +19,7 @@ Sent to the recipient of a gift certificate.
 
 ### Available Variables
 | Variable | Description |
-|-||
+|-|-|
 | %%LNG_GiftCertificateEmailYouHaveReceived%% | "You have received a Gift Certificate for" |
 | %%GLOBAL_StoreName%% | The name of the store. |
 | %%LNG_Dear%% | "Dear" |
