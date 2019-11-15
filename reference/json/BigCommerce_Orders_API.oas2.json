@@ -705,14 +705,14 @@
         "operationId": "getOrderStatus"
       }
     },
-    "/order_statuses/{order_id}": {
+    "/order_statuses/{status_id}": {
       "get": {
         "description": "Returns a single order status.",
         "summary": "Get a Single Order Status by Id",
         "produces": [],
         "parameters": [
           {
-            "$ref": "#/parameters/order_id"
+            "$ref": "#/parameters/status_id"
           },
           {
             "$ref": "#/parameters/Accept"
