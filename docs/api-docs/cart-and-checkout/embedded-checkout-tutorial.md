@@ -44,7 +44,7 @@ To allow the external website to serve the BigCommerce checkout, create a new Ch
 }
 ```
 
-The response will contain an `id` (use this as the`channel_id` in future requests):
+The response will contain an `id` (use this as the `channel_id` in future requests):
 	
 ```json
 
@@ -146,7 +146,7 @@ If you are creating a cart for a specific customer, pass in the `customer_id` in
 }
 ```
 
-Contained in the response is a `UUID` which is we'll as the `cart_id` in the next request. 
+Contained in the response is a `UUID` which we'll use as the `cart_id` in the next request. 
 	
 Next, generate a cart URL and set this cart as the active cart by posting to  to `/carts/{{cart_id}}/redirect_urls`:
 
@@ -179,10 +179,12 @@ Your app will need to use JSON Web Token Standard to create a new token. Use a [
 "operation": "customer_login",
 "store_hash": "abc123",
 "customer_id": 1234,
-"redirect_to": "https://store-id30h7ohwf.mybigcommerce.com/cart.php?action=loadInCheckout&id=bc218c65-7a32-4ab7-8082-68730c074d02&token=aa958e2b7922035bf3339215d95d145ebd9193deb36ae847caa780aa2e003e4b",
+"redirect_to": "/cart.php?action=loadInCheckout&id=bc218c65-7a32-4ab7-8082-68730c074d02&token=aa958e2b7922035bf3339215d95d145ebd9193deb36ae847caa780aa2e003e4b",
 "request_ip": "111.222.333.444"
 }
 ```
+
+The `request_ip` field is optional.
 
 ## Step 4: Embed Checkout
 

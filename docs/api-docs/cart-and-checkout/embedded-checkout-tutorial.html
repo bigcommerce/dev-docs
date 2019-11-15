@@ -1,0 +1,191 @@
+<!DOCTYPE html>
+    <html>
+    <head>
+        <meta http-equiv="Content-type" content="text/html;charset=UTF-8">
+        <title>Embedded Checkout</title>
+        <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/katex@0.10.0/dist/katex.min.css" integrity="sha384-9eLZqc9ds8eNjO3TmqPeYcDj8n+Qfa4nuSiGYa6DjLNcv9BtN69ZIulL9+8CqC9Y" crossorigin="anonymous">
+        <link rel="stylesheet" href="https://cdn.jsdelivr.net/gh/Microsoft/vscode/extensions/markdown-language-features/media/markdown.css">
+        <link rel="stylesheet" href="https://cdn.jsdelivr.net/gh/Microsoft/vscode/extensions/markdown-language-features/media/highlight.css">
+        <link href="https://cdn.jsdelivr.net/npm/katex-copytex@latest/dist/katex-copytex.min.css" rel="stylesheet" type="text/css">
+        <style>
+.task-list-item { list-style-type: none; } .task-list-item-checkbox { margin-left: -20px; vertical-align: middle; }
+</style>
+        <style>
+            body {
+                font-family: -apple-system, BlinkMacSystemFont, 'Segoe WPC', 'Segoe UI', 'Ubuntu', 'Droid Sans', sans-serif;
+                font-size: 14px;
+                line-height: 1.6;
+            }
+        </style>
+        
+        <script src="https://cdn.jsdelivr.net/npm/katex-copytex@latest/dist/katex-copytex.min.js"></script>
+    </head>
+    <body>
+        <h1 id="embedded-checkout">Embedded Checkout</h1>
+<div class="otp" id="no-index">
+<h3 id="on-this-page">On This Page</h3>
+<ul>
+<li><a href="#step-1-create-a-channel">Step 1: Create a Channel</a></li>
+<li><a href="#step-2-create-a-site">Step 2: Create a Site</a></li>
+<li><a href="#step-3-create-a-cart">Step 3: Create a Cart</a></li>
+<li><a href="#step-4-embed-checkout">Step 4: Embed Checkout</a></li>
+<li><a href="#faq">FAQ</a></li>
+</ul>
+</div>
+<p>Embedded Checkout lets you place BigCommerce’s Optimized One-Page checkout onto an external site. This tutorial will walk you through the sequence of API calls your application should make to create a working Embedded Checkout.</p>
+<p>This article assumes you have familiarity with the following concepts:</p>
+<ul>
+<li>Creating and managing a server-side application</li>
+<li>Making and recieving API calls from within your app</li>
+<li>Using your application to make changes to a front end</li>
+</ul>
+<h3 id="prerequisites">Prerequisites</h3>
+<ul>
+<li>Store API credentials (see <a href="https://developer.bigcommerce.com/api-docs/getting-started/authentication#authentication_getting-api-credentials">Authentication</a> for details) with the following permissions:
+<ul>
+<li><strong>Carts:</strong> <code>Modify</code></li>
+<li><strong>Channel Settings:</strong> <code>Modify</code></li>
+<li><strong>Sites &amp; Routes:</strong> <code>Modify</code></li>
+<li><strong>Products:</strong> <code>Read Only</code></li>
+</ul>
+</li>
+</ul>
+<p>Embedded Checkout also requires the <a href="https://github.com/bigcommerce/checkout-sdk-js">BigCommerce JS Checkout SDK</a> to be accessible in the browser.</p>
+<h2 id="step-1-create-a-channel">Step 1: Create a Channel</h2>
+<p>To allow the external website to serve the BigCommerce checkout, create a new Channel by sending a <code>POST</code> request to the <a href="https://developer.bigcommerce.com/api-reference/cart-checkout/channels-listings-api/channels/createchannel">/channels</a> endpoint:</p>
+<p><strong><code>POST</code></strong> <code>https://api.bigcommerce.com/stores/{{store_hash}}/V3/channels</code></p>
+<pre><code class="language-json"><div>{
+    <span class="hljs-attr">"type"</span>: <span class="hljs-string">"storefront"</span>,
+    <span class="hljs-attr">"platform"</span>: <span class="hljs-string">"custom"</span>,
+    <span class="hljs-attr">"name"</span>: <span class="hljs-string">"https://{your-site}.com"</span>
+}
+</div></code></pre>
+<p>The response will contain an <code>id</code> (use this as the <code>channel_id</code> in future requests):</p>
+<pre><code class="language-json"><div>
+{
+    <span class="hljs-attr">"data"</span>: {
+        <span class="hljs-attr">"id"</span>: <span class="hljs-number">20266</span>,
+        <span class="hljs-attr">"name"</span>: <span class="hljs-string">"https://www.{your-site}.com"</span>,
+        <span class="hljs-attr">"platform"</span>: <span class="hljs-string">"custom"</span>,
+        <span class="hljs-attr">"type"</span>: <span class="hljs-string">"storefront"</span>,
+        <span class="hljs-attr">"date_created"</span>: <span class="hljs-string">"2019-09-18T22:28:36Z"</span>,
+        <span class="hljs-attr">"date_modified"</span>: <span class="hljs-string">"2019-09-18T22:28:36Z"</span>,
+        <span class="hljs-attr">"external_id"</span>: <span class="hljs-string">""</span>,
+        <span class="hljs-attr">"is_enabled"</span>: <span class="hljs-literal">true</span>
+    },
+    <span class="hljs-attr">"meta"</span>: {}
+}
+</div></code></pre>
+<div class="HubBlock--callout">
+<div class="CalloutBlock--info">
+<div class="HubBlock-content">
+<!-- theme:  -->
+<blockquote>
+<p>Channels created via API are visible in the BigCommerce store's Control Panel in <strong>Products</strong> &gt; <strong>Listed On</strong>. The Orders section will now also include a filter for your channel.</p>
+</blockquote>
+</div>
+</div>
+</div>
+<h2 id="step-2-create-a-site">Step 2: Create a Site</h2>
+<p>Next, create a site for the channel by POSTing to the <a href="https://developer.bigcommerce.com/api-reference/cart-checkout/sites-routes-api/sites/post-channel-site">/channels/id/site endpoint</a>:</p>
+<p><em><code>POST</code></em> <code>https://api.bigcommerce.com/stores/{{store_hash}}/v3/channels/{{channel_id}}/site</code></p>
+<!--
+title: "POST to Channels"
+subtitle: ""
+lineNumbers: true
+-->
+<p><strong>Create Site POST</strong></p>
+<pre><code class="language-js"><div>{
+    <span class="hljs-string">"channel_id"</span>: <span class="hljs-number">15001</span>,
+    <span class="hljs-string">"url"</span>: <span class="hljs-string">"https://www.{your-site}.com"</span>
+}
+</div></code></pre>
+<p>This returns <code>id</code> which you will use as the <code>site_id</code> in future requests. The <code>url</code> value is the base path for all other routes you define for the site.</p>
+<pre><code class="language-js"><div>{
+    {
+    <span class="hljs-string">"data"</span>: {
+        <span class="hljs-string">"id"</span>: <span class="hljs-number">6</span>,
+        <span class="hljs-string">"url"</span>: <span class="hljs-string">"https://www.{your-site}.com"</span>,
+        <span class="hljs-string">"channel_id"</span>: <span class="hljs-number">15001</span>,
+        <span class="hljs-string">"created_at"</span>: <span class="hljs-string">"2019-09-19T17:08:44Z"</span>,
+        <span class="hljs-string">"updated_at"</span>: <span class="hljs-string">"2019-09-19T17:08:44Z"</span>
+    },
+    <span class="hljs-string">"meta"</span>: {}
+    }
+}
+</div></code></pre>
+<h2 id="step-3-create-a-cart">Step 3: Create a Cart</h2>
+<p>To proceed to checkout, we'll need an active cart. To create one, send a <code>POST</code> request to the <a href="https://developer.bigcommerce.com/api-reference/cart-checkout/server-server-cart-api">Server-to-Server Cart API's</a>  <code>/cart</code> endpoint:</p>
+<p><strong><code>POST</code></strong>  <code>https://api.bigcommerce.com/stores/{{store_hash}}/v3/carts</code></p>
+<pre><code class="language-json"><div>{
+  <span class="hljs-attr">"channel_id"</span>: <span class="hljs-number">15001</span>,
+  <span class="hljs-attr">"line_items"</span>: [
+    {
+      <span class="hljs-attr">"quantity"</span>: <span class="hljs-number">1</span>,
+      <span class="hljs-attr">"product_id"</span>: <span class="hljs-number">80</span>,
+      <span class="hljs-attr">"variant_id"</span>: <span class="hljs-number">64</span>
+    }
+  ]
+}
+</div></code></pre>
+<p>If you are creating a cart for a specific customer, pass in the <code>customer_id</code> in the request:</p>
+<pre><code class="language-json"><div>{
+  <span class="hljs-attr">"customer_id"</span>: <span class="hljs-number">42</span>,
+  <span class="hljs-attr">"line_items"</span>: [
+    {
+      <span class="hljs-attr">"quantity"</span>: <span class="hljs-number">5</span>,
+      <span class="hljs-attr">"product_id"</span>: <span class="hljs-number">191</span>
+    }
+  ]
+}
+</div></code></pre>
+<p>Contained in the response is a <code>UUID</code> which we'll use as the <code>cart_id</code> in the next request.</p>
+<p>Next, generate a cart URL and set this cart as the active cart by posting to  to <code>/carts/{{cart_id}}/redirect_urls</code>:</p>
+<p><strong><code>POST</code></strong> <code>https://api.bigcommerce.com/stores/{{store_hash}}/v3/carts/{{cart_id}}/redirect_urls</code></p>
+<p><strong>Response</strong></p>
+<pre><code class="language-json"><div>{
+  <span class="hljs-attr">"cart_url"</span>: <span class="hljs-string">"https://store-id30h7ohwf.mybigcommerce.com/cart.php?action=load&amp;id=bc218c65-7a32-4ab7-8082-68730c074d02&amp;token=aa958e2b7922035bf3339215d95d145ebd9193deb36ae847caa780aa2e003e4b"</span>,
+  <span class="hljs-attr">"checkout_url"</span>: <span class="hljs-string">"https://store-id30h7ohwf.mybigcommerce.com/cart.php?action=loadInCheckout&amp;id=bc218c65-7a32-4ab7-8082-68730c074d02&amp;token=aa958e2b7922035bf3339215d95d145ebd9193deb36ae847caa780aa2e003e4b"</span>,
+  <span class="hljs-attr">"embedded_checkout_url"</span>: <span class="hljs-string">"https://store-id30h7ohwf.mybigcommerce.com/cart.php?embedded=1&amp;action=loadInCheckout&amp;id=bc218c65-7a32-4ab7-8082-68730c074d02&amp;token=aa958e2b7922035bf3339215d95d145ebd9193deb36ae847caa780aa2e003e4b"</span>
+}
+</div></code></pre>
+<h3 id="redirecting-a-logged-in-customer-to-embedded-checkout">Redirecting A Logged-In Customer to Embedded Checkout</h3>
+<p>For some use cases, you may want your your customer to be logged in before they can begin the checkout process.</p>
+<p>The can be done using the <a href="https://developer.bigcommerce.com/api-docs/customers/customer-login-api#logging-in-a-customer">Customer Login API</a>.</p>
+<p>Your app will need to use JSON Web Token Standard to create a new token. Use a <a href="https://jwt.io/#libraries-io">JWT library</a> to accomplish this. Include the <code>checkout_url</code> as part of the request payload you send to BigCommerce:</p>
+<p><strong><code>POST</code></strong> <code>https://{store-url}}/login/token/{token}</code></p>
+<pre><code class="language-js"><div>{
+<span class="hljs-string">"iss"</span>: <span class="hljs-string">"Your app’s Oauth client ID"</span>,
+<span class="hljs-string">"iat"</span>: <span class="hljs-string">"timestamp for when the token was issued"</span>,
+<span class="hljs-string">"jti"</span>: <span class="hljs-string">"randomly generated string"</span>,
+<span class="hljs-string">"operation"</span>: <span class="hljs-string">"customer_login"</span>,
+<span class="hljs-string">"store_hash"</span>: <span class="hljs-string">"abc123"</span>,
+<span class="hljs-string">"customer_id"</span>: <span class="hljs-number">1234</span>,
+<span class="hljs-string">"redirect_to"</span>: <span class="hljs-string">"/cart.php?action=loadInCheckout&amp;id=bc218c65-7a32-4ab7-8082-68730c074d02&amp;token=aa958e2b7922035bf3339215d95d145ebd9193deb36ae847caa780aa2e003e4b"</span>,
+<span class="hljs-string">"request_ip"</span>: <span class="hljs-string">"111.222.333.444"</span>
+}
+</div></code></pre>
+<p>The <code>request_ip</code> field is optional.</p>
+<h2 id="step-4-embed-checkout">Step 4: Embed Checkout</h2>
+<p>Use the <code>embedded_checkout_url</code> that is returned and assemble a JSON object that will be used by the Checkout JS SDK to determine how to render the checkout. Pass the object to the <code>embedCheckout</code> method of the Checkout SDK. This will render the checkout to an HTML element with the <code>id</code> you chose.</p>
+<p>Read more about the <a href="https://github.com/bigcommerce/checkout-sdk-js/blob/master/docs/README.md#embedcheckout">JSON object</a> and its possible corresponding <a href="https://github.com/bigcommerce/checkout-sdk-js/blob/master/docs/interfaces/embeddedcheckoutoptions.md">rendering options</a>.</p>
+<pre><code class="language-html"><div><span class="hljs-tag">&lt;<span class="hljs-name">div</span> <span class="hljs-attr">id</span>=<span class="hljs-string">"foo-bar-checkout"</span>&gt;</span><span class="hljs-tag">&lt;/<span class="hljs-name">div</span>&gt;</span>
+</div></code></pre>
+<pre><code class="language-js"><div>embedCheckout({
+<span class="hljs-string">"containerId"</span>: <span class="hljs-string">"foo-bar-checkout"</span>,
+<span class="hljs-string">"url"</span>: <span class="hljs-string">"https://store-id30h7ohwf.mybigcommerce.com/cart.php?embedded=1&amp;action=loadInCheckout&amp;id=bc218c65-7a32-4ab7-8082-68730c074d02&amp;token=aa958e2b7922035bf3339215d95d145ebd9193deb36ae847caa780aa2e003e4b"</span>,
+
+    }
+});
+
+</div></code></pre>
+<p>At this point, you should have a working embedded checkout.</p>
+<h2 id="faq">FAQ</h2>
+<h3 id="how-can-i-work-with-embedded-checkout-locally">How can I work with embedded checkout locally?</h3>
+<p>If your channel site doesn't match the URL from which you're making a request to a BigCommerce, you will get a security error and the checkout will not load. Additionally, if requests to your BigCommerce store aren't served over HTTPS, you will also see an error.</p>
+<p>One option to work locally is to install an SSL on your local machine, and then send <code>https://localhost.com</code> at the Channel site. Use the default port 443 to be able to preview your site locally.</p>
+<h3 id="are-hosted-payment-gateways-support-with-embedded-checkout">Are hosted payment gateways support with Embedded Checkout?</h3>
+<p>At this time you cannot embed checkout using a hosted payment gateway. See <a href="https://support.bigcommerce.com/s/article/Available-Payment-Gateways#all-available">Available Payment Gateways</a> to determine which type of gateway you're using.</p>
+
+    </body>
+    </html>
