@@ -888,7 +888,8 @@
         ],
         "responses": {
           "200": {
-            "$ref": "#/responses/OrderShipmentResponse"
+            "$ref": "#/responses/OrderShipmentResponse",
+            "examples": {}
           }
         },
         "operationId": "getOrderShipment",
@@ -926,13 +927,7 @@
               "application/json": {
                 "tracking_number": "EJ958083578US",
                 "order_address_id": 1,
-                "shipping_provider": "",
-                "items": [
-                  {
-                    "order_product_id": 15,
-                    "quantity": 2
-                  }
-                ]
+                "shipping_provider": ""
               }
             }
           },
