@@ -6,7 +6,7 @@
     "description": "### Checkout\nAllows for a checkout to be created from an existing cart using BigCommerce checkout logic. The existing BigCommerce front end cart/checkout can be bypassed.\n\nNotes:\n- checkoutId is the same as the cartId."
   },
   "host": "api.bigcommerce.com",
-  "basePath": "/stores/{store_hash}/v3",
+  "basePath": "/stores/{$$.env.store_hash}/v3",
   "schemes": [
     "https"
   ],
@@ -4963,7 +4963,7 @@
                     "product_id": 188,
                     "sku": "DUST1",
                     "name": "Hello",
-                    "url": "https://{store_hash}/all/dustpan-brush/",
+                    "url": "https://{$$.env.store_hash}/all/dustpan-brush/",
                     "quantity": 1,
                     "is_taxable": true,
                     "image_url": "https://cdn11.bigcommerce.com/s-{store_hash}/products/188/images/460/dustpan1_1024x1024_1024x1024__43447__69128.1534344539.330.500.jpg?c=2",

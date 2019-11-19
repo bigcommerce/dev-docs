@@ -6,7 +6,7 @@
     "description": "Returns API for BigCommerce (Beta)"
   },
   "host": "api.bigcommerce.com",
-  "basePath": "/stores/{store_hash}/v3",
+  "basePath": "/stores/{$$.env.store_hash}/v3",
   "schemes": [
     "https"
   ],

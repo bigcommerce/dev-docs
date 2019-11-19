@@ -6,7 +6,7 @@
     "description": "### Store Information Reference\nThe Store Information object, and Get Store Information endpoint, manage store profile settings.\nA Store Information object represents an individual store’s profile and metadata.\n\n### System Reference\nThe Get a Timestamp endpoint generates a timestamp ping to check the system status."
   },
   "host": "api.bigcommerce.com",
-  "basePath": "/stores/{store_hash}/v2",
+  "basePath": "/stores/{$$.env.store_hash}/v2",
   "schemes": [
     "https"
   ],

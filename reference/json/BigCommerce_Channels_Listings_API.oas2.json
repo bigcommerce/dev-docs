@@ -1026,7 +1026,7 @@
         "type": "integer"
       }
     },
-    "basePath": "/stores/{store_hash}/v3",
+    "basePath": "/stores/{$$.env.store_hash}/v3",
     "securityDefinitions": {
       "X-Auth-Client": {
         "type": "apiKey",
