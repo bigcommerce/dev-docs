@@ -705,38 +705,6 @@
         "operationId": "getOrderStatus"
       }
     },
-    "/order_statuses/{status_id}": {
-      "get": {
-        "description": "Returns a single order status.",
-        "summary": "Get a Single Order Status by Id",
-        "produces": [],
-        "parameters": [
-          {
-            "$ref": "#/parameters/status_id"
-          },
-          {
-            "$ref": "#/parameters/Accept"
-          },
-          {
-            "$ref": "#/parameters/Content-Type"
-          }
-        ],
-        "responses": {
-          "200": {
-            "$ref": "#/responses/GetAOrderStatus"
-          }
-        },
-        "tags": [
-          "Order Status"
-        ],
-        "operationId": "getAOrderStatus"
-      },
-      "parameters": [
-        {
-          "$ref": "#/parameters/order_id"
-        }
-      ]
-    },
     "/orders/{order_id}/taxes": {
       "get": {
         "description": "Gets all order taxes using `order_id`.\nEach tax applied to an order. This information can be useful for reporting purposes. \nPass in the query parameter `?details=true` to return extra details about order taxes.\n`order_product_id` and `line_item_type` are also returned\n\nAll values are read-only.",
@@ -1732,6 +1700,38 @@
           "$ref": "#/parameters/shipping_address_id"
         }
       ]
+    },
+    "/order_statuses/{order_id}": {
+      "get": {
+        "description": "Returns a single order status.",
+        "summary": "Get a Single Order Status by Id",
+        "produces": [],
+        "parameters": [
+          {
+            "$ref": "#/parameters/order_id"
+          },
+          {
+            "$ref": "#/parameters/Accept"
+          },
+          {
+            "$ref": "#/parameters/Content-Type"
+          }
+        ],
+        "responses": {
+          "200": {
+            "$ref": "#/responses/GetAOrderStatus"
+          }
+        },
+        "tags": [
+          "Order Status"
+        ],
+        "operationId": "getAOrderStatus"
+      },
+      "parameters": [
+        {
+          "$ref": "#/parameters/order_id"
+        }
+      ]
     }
   },
   "definitions": {
@@ -2366,7 +2366,7 @@
           "type": "string"
         },
         "amount": {
-          "description": "Amount of the discount. This information is returned as in integer. Dollar and percentage discounts will return the same. \nFor example, $3 returns as '3' while 5% will return as 5. Check the discount type to see what type of discount is available. (Float, Float-As-String, Integer)",
+          "description": "Amount of the discount. This information is returned as in integer. Dollar and percentage discounts will return the same. \nFor example, $3 returns as '3' while 5% will return as 5. Check the discount type to see what type of discount is available. Returns an empty string for type 5: `promotion`. (Float, Float-As-String, Integer)",
           "example": "5.0000",
           "type": "string"
         },
@@ -2378,9 +2378,10 @@
             1,
             2,
             3,
-            4
+            4,
+            "5"
           ],
-          "description": "type 0: per_item_discount\ntype 1: percentage_discount\ntype 2: per_total_discount\ntype 3: shipping_discount\ntype 4: free_shipping"
+          "description": "type 0: per_item_discount\ntype 1: percentage_discount\ntype 2: per_total_discount\ntype 3: shipping_discount\ntype 4: free_shipping\ntype 5: promotion"
         },
         "discount": {
           "description": "The amount off the order the discount is worth. For example, if an order subtotal is $90 and the discount is $3 then it will return as 3.000. If the discount is\n3% then will return as 2.7000 or the amount of the order.  (Float, Float-As-String, Integer)",
@@ -3474,7 +3475,7 @@
         3,
         4
       ],
-      "description": "type 0: per_item_discount\ntype 1: percentage_discount\ntype 2: per_total_discount\ntype 3: shipping_discount\ntype 4: free_shipping"
+      "description": "type 0: per_item_discount\ntype 1: percentage_discount\ntype 2: per_total_discount\ntype 3: shipping_discount\ntype 4: free_shipping \ntype 5: promotion"
     },
     "OrderProductsAppliedDiscounts": {
       "title": "Order Products Applied Discounts",
@@ -4455,27 +4456,6 @@
         "comments": {
           "description": "Comments the shipper wishes to add.",
           "type": "string"
-        },
-        "items": {
-          "description": "The items in the shipment. This object has the following members, all integer: order_product_id (required), quantity (required), product_id (read-only). A sample items value might be: [ {\"order_product_id\":16,\"product_id\": 0,\"quantity\":2} ]",
-          "type": "array",
-          "items": {
-            "type": "object",
-            "properties": {
-              "order_product_id": {
-                "type": "integer",
-                "example": 5
-              },
-              "product_id": {
-                "type": "integer",
-                "example": 87
-              },
-              "quantity": {
-                "type": "number",
-                "example": 2
-              }
-            }
-          }
         }
       }
     },
