@@ -6,7 +6,7 @@
     "description": "### Geography\nGeography APIs handle geographic information resources. They include Countries and States.\n\n### Country\nA country or territory, identifiable by an ISO 3166 country code.\n\n### State\nA state or province, identifiable by an [ISO 3166](https://en.wikipedia.org/wiki/ISO_3166-2) subdivision code."
   },
   "host": "api.bigcommerce.com",
-  "basePath": "/stores/{store_hash}/v2",
+  "basePath": "/stores/{$$.env.store_hash}/v2",
   "schemes": [
     "https"
   ],
@@ -85,7 +85,7 @@
                   "country_iso2": "AU",
                   "country_iso3": "AUS",
                   "states": {
-                    "url": "https://api.bigcommerce.com/stores/{store_hash}/v2/countries/13/states",
+                    "url": "https://api.bigcommerce.com/stores/{$$.env.store_hash}/v2/countries/13/states",
                     "resource": "/countries/13/states"
                   }
                 },
@@ -117,7 +117,7 @@
                     "properties": {
                       "url": {
                         "description": "",
-                        "example": "https://api.bigcommerce.com/stores/{store_hash}/v2/countries/13/states",
+                        "example": "https://api.bigcommerce.com/stores/{$$.env.store_hash}/v2/countries/13/states",
                         "type": "string"
                       },
                       "resource": {
@@ -138,7 +138,7 @@
                   "country_iso2": "AF",
                   "country_iso3": "AFG",
                   "states": {
-                    "url": "https://api.bigcommerce.com/stores/{store_hash}/v2/countries/1/states",
+                    "url": "https://api.bigcommerce.com/stores/{$$.env.store_hash}/v2/countries/1/states",
                     "resource": "/countries/1/states"
                   }
                 },
@@ -148,7 +148,7 @@
                   "country_iso2": "AL",
                   "country_iso3": "ALB",
                   "states": {
-                    "url": "https://api.bigcommerce.com/stores/{store_hash}/v2/countries/2/states",
+                    "url": "https://api.bigcommerce.com/stores/{$$.env.store_hash}/v2/countries/2/states",
                     "resource": "/countries/2/states"
                   }
                 },
@@ -158,7 +158,7 @@
                   "country_iso2": "DZ",
                   "country_iso3": "DZA",
                   "states": {
-                    "url": "https://api.bigcommerce.com/stores/{store_hash}/v2/countries/3/states",
+                    "url": "https://api.bigcommerce.com/stores/{$$.env.store_hash}/v2/countries/3/states",
                     "resource": "/countries/3/states"
                   }
                 },
@@ -168,7 +168,7 @@
                   "country_iso2": "AS",
                   "country_iso3": "ASM",
                   "states": {
-                    "url": "https://api.bigcommerce.com/stores/{store_hash}/v2/countries/4/states",
+                    "url": "https://api.bigcommerce.com/stores/{$$.env.store_hash}/v2/countries/4/states",
                     "resource": "/countries/4/states"
                   }
                 },
@@ -178,7 +178,7 @@
                   "country_iso2": "AD",
                   "country_iso3": "AND",
                   "states": {
-                    "url": "https://api.bigcommerce.com/stores/{store_hash}/v2/countries/5/states",
+                    "url": "https://api.bigcommerce.com/stores/{$$.env.store_hash}/v2/countries/5/states",
                     "resource": "/countries/5/states"
                   }
                 },
@@ -188,7 +188,7 @@
                   "country_iso2": "AO",
                   "country_iso3": "AGO",
                   "states": {
-                    "url": "https://api.bigcommerce.com/stores/{store_hash}/v2/countries/6/states",
+                    "url": "https://api.bigcommerce.com/stores/{$$.env.store_hash}/v2/countries/6/states",
                     "resource": "/countries/6/states"
                   }
                 },
@@ -198,7 +198,7 @@
                   "country_iso2": "AI",
                   "country_iso3": "AIA",
                   "states": {
-                    "url": "https://api.bigcommerce.com/stores/{store_hash}/v2/countries/7/states",
+                    "url": "https://api.bigcommerce.com/stores/{$$.env.store_hash}/v2/countries/7/states",
                     "resource": "/countries/7/states"
                   }
                 },
@@ -208,7 +208,7 @@
                   "country_iso2": "AQ",
                   "country_iso3": "\r",
                   "states": {
-                    "url": "https://api.bigcommerce.com/stores/{store_hash}/v2/countries/8/states",
+                    "url": "https://api.bigcommerce.com/stores/{$$.env.store_hash}/v2/countries/8/states",
                     "resource": "/countries/8/states"
                   }
                 },
@@ -218,7 +218,7 @@
                   "country_iso2": "AG",
                   "country_iso3": "ATG",
                   "states": {
-                    "url": "https://api.bigcommerce.com/stores/{store_hash}/v2/countries/9/states",
+                    "url": "https://api.bigcommerce.com/stores/{$$.env.store_hash}/v2/countries/9/states",
                     "resource": "/countries/9/states"
                   }
                 },
@@ -228,7 +228,7 @@
                   "country_iso2": "AR",
                   "country_iso3": "ARG",
                   "states": {
-                    "url": "https://api.bigcommerce.com/stores/{store_hash}/v2/countries/10/states",
+                    "url": "https://api.bigcommerce.com/stores/{$$.env.store_hash}/v2/countries/10/states",
                     "resource": "/countries/10/states"
                   }
                 },
@@ -238,7 +238,7 @@
                   "country_iso2": "AM",
                   "country_iso3": "ARM",
                   "states": {
-                    "url": "https://api.bigcommerce.com/stores/{store_hash}/v2/countries/11/states",
+                    "url": "https://api.bigcommerce.com/stores/{$$.env.store_hash}/v2/countries/11/states",
                     "resource": "/countries/11/states"
                   }
                 },
@@ -248,7 +248,7 @@
                   "country_iso2": "AW",
                   "country_iso3": "ABW",
                   "states": {
-                    "url": "https://api.bigcommerce.com/stores/{store_hash}/v2/countries/12/states",
+                    "url": "https://api.bigcommerce.com/stores/{$$.env.store_hash}/v2/countries/12/states",
                     "resource": "/countries/12/states"
                   }
                 },
@@ -258,7 +258,7 @@
                   "country_iso2": "AU",
                   "country_iso3": "AUS",
                   "states": {
-                    "url": "https://api.bigcommerce.com/stores/{store_hash}/v2/countries/13/states",
+                    "url": "https://api.bigcommerce.com/stores/{$$.env.store_hash}/v2/countries/13/states",
                     "resource": "/countries/13/states"
                   }
                 },
@@ -268,7 +268,7 @@
                   "country_iso2": "AT",
                   "country_iso3": "AUT",
                   "states": {
-                    "url": "https://api.bigcommerce.com/stores/{store_hash}/v2/countries/14/states",
+                    "url": "https://api.bigcommerce.com/stores/{$$.env.store_hash}/v2/countries/14/states",
                     "resource": "/countries/14/states"
                   }
                 },
@@ -278,7 +278,7 @@
                   "country_iso2": "AZ",
                   "country_iso3": "AZE",
                   "states": {
-                    "url": "https://api.bigcommerce.com/stores/{store_hash}/v2/countries/15/states",
+                    "url": "https://api.bigcommerce.com/stores/{$$.env.store_hash}/v2/countries/15/states",
                     "resource": "/countries/15/states"
                   }
                 },
@@ -288,7 +288,7 @@
                   "country_iso2": "BS",
                   "country_iso3": "BHS",
                   "states": {
-                    "url": "https://api.bigcommerce.com/stores/{store_hash}/v2/countries/16/states",
+                    "url": "https://api.bigcommerce.com/stores/{$$.env.store_hash}/v2/countries/16/states",
                     "resource": "/countries/16/states"
                   }
                 },
@@ -298,7 +298,7 @@
                   "country_iso2": "BH",
                   "country_iso3": "BHR",
                   "states": {
-                    "url": "https://api.bigcommerce.com/stores/{store_hash}/v2/countries/17/states",
+                    "url": "https://api.bigcommerce.com/stores/{$$.env.store_hash}/v2/countries/17/states",
                     "resource": "/countries/17/states"
                   }
                 },
@@ -308,7 +308,7 @@
                   "country_iso2": "BD",
                   "country_iso3": "BGD",
                   "states": {
-                    "url": "https://api.bigcommerce.com/stores/{store_hash}/v2/countries/18/states",
+                    "url": "https://api.bigcommerce.com/stores/{$$.env.store_hash}/v2/countries/18/states",
                     "resource": "/countries/18/states"
                   }
                 },
@@ -318,7 +318,7 @@
                   "country_iso2": "BB",
                   "country_iso3": "BRB",
                   "states": {
-                    "url": "https://api.bigcommerce.com/stores/{store_hash}/v2/countries/19/states",
+                    "url": "https://api.bigcommerce.com/stores/{$$.env.store_hash}/v2/countries/19/states",
                     "resource": "/countries/19/states"
                   }
                 },
@@ -328,7 +328,7 @@
                   "country_iso2": "BY",
                   "country_iso3": "BLR",
                   "states": {
-                    "url": "https://api.bigcommerce.com/stores/{store_hash}/v2/countries/20/states",
+                    "url": "https://api.bigcommerce.com/stores/{$$.env.store_hash}/v2/countries/20/states",
                     "resource": "/countries/20/states"
                   }
                 },
@@ -338,7 +338,7 @@
                   "country_iso2": "BE",
                   "country_iso3": "BEL",
                   "states": {
-                    "url": "https://api.bigcommerce.com/stores/{store_hash}/v2/countries/21/states",
+                    "url": "https://api.bigcommerce.com/stores/{$$.env.store_hash}/v2/countries/21/states",
                     "resource": "/countries/21/states"
                   }
                 },
@@ -348,7 +348,7 @@
                   "country_iso2": "BZ",
                   "country_iso3": "BLZ",
                   "states": {
-                    "url": "https://api.bigcommerce.com/stores/{store_hash}/v2/countries/22/states",
+                    "url": "https://api.bigcommerce.com/stores/{$$.env.store_hash}/v2/countries/22/states",
                     "resource": "/countries/22/states"
                   }
                 },
@@ -358,7 +358,7 @@
                   "country_iso2": "BJ",
                   "country_iso3": "BEN",
                   "states": {
-                    "url": "https://api.bigcommerce.com/stores/{store_hash}/v2/countries/23/states",
+                    "url": "https://api.bigcommerce.com/stores/{$$.env.store_hash}/v2/countries/23/states",
                     "resource": "/countries/23/states"
                   }
                 },
@@ -368,7 +368,7 @@
                   "country_iso2": "BM",
                   "country_iso3": "BMU",
                   "states": {
-                    "url": "https://api.bigcommerce.com/stores/{store_hash}/v2/countries/24/states",
+                    "url": "https://api.bigcommerce.com/stores/{$$.env.store_hash}/v2/countries/24/states",
                     "resource": "/countries/24/states"
                   }
                 },
@@ -378,7 +378,7 @@
                   "country_iso2": "BT",
                   "country_iso3": "BTN",
                   "states": {
-                    "url": "https://api.bigcommerce.com/stores/{store_hash}/v2/countries/25/states",
+                    "url": "https://api.bigcommerce.com/stores/{$$.env.store_hash}/v2/countries/25/states",
                     "resource": "/countries/25/states"
                   }
                 },
@@ -388,7 +388,7 @@
                   "country_iso2": "BO",
                   "country_iso3": "BOL",
                   "states": {
-                    "url": "https://api.bigcommerce.com/stores/{store_hash}/v2/countries/26/states",
+                    "url": "https://api.bigcommerce.com/stores/{$$.env.store_hash}/v2/countries/26/states",
                     "resource": "/countries/26/states"
                   }
                 },
@@ -398,7 +398,7 @@
                   "country_iso2": "BA",
                   "country_iso3": "BIH",
                   "states": {
-                    "url": "https://api.bigcommerce.com/stores/{store_hash}/v2/countries/27/states",
+                    "url": "https://api.bigcommerce.com/stores/{$$.env.store_hash}/v2/countries/27/states",
                     "resource": "/countries/27/states"
                   }
                 },
@@ -408,7 +408,7 @@
                   "country_iso2": "BW",
                   "country_iso3": "BWA",
                   "states": {
-                    "url": "https://api.bigcommerce.com/stores/{store_hash}/v2/countries/28/states",
+                    "url": "https://api.bigcommerce.com/stores/{$$.env.store_hash}/v2/countries/28/states",
                     "resource": "/countries/28/states"
                   }
                 },
@@ -418,7 +418,7 @@
                   "country_iso2": "BV",
                   "country_iso3": "NUL",
                   "states": {
-                    "url": "https://api.bigcommerce.com/stores/{store_hash}/v2/countries/29/states",
+                    "url": "https://api.bigcommerce.com/stores/{$$.env.store_hash}/v2/countries/29/states",
                     "resource": "/countries/29/states"
                   }
                 },
@@ -428,7 +428,7 @@
                   "country_iso2": "BR",
                   "country_iso3": "BRA",
                   "states": {
-                    "url": "https://api.bigcommerce.com/stores/{store_hash}/v2/countries/30/states",
+                    "url": "https://api.bigcommerce.com/stores/{$$.env.store_hash}/v2/countries/30/states",
                     "resource": "/countries/30/states"
                   }
                 },
@@ -438,7 +438,7 @@
                   "country_iso2": "IO",
                   "country_iso3": "NUL",
                   "states": {
-                    "url": "https://api.bigcommerce.com/stores/{store_hash}/v2/countries/31/states",
+                    "url": "https://api.bigcommerce.com/stores/{$$.env.store_hash}/v2/countries/31/states",
                     "resource": "/countries/31/states"
                   }
                 },
@@ -448,7 +448,7 @@
                   "country_iso2": "BN",
                   "country_iso3": "BRN",
                   "states": {
-                    "url": "https://api.bigcommerce.com/stores/{store_hash}/v2/countries/32/states",
+                    "url": "https://api.bigcommerce.com/stores/{$$.env.store_hash}/v2/countries/32/states",
                     "resource": "/countries/32/states"
                   }
                 },
@@ -458,7 +458,7 @@
                   "country_iso2": "BG",
                   "country_iso3": "BGR",
                   "states": {
-                    "url": "https://api.bigcommerce.com/stores/{store_hash}/v2/countries/33/states",
+                    "url": "https://api.bigcommerce.com/stores/{$$.env.store_hash}/v2/countries/33/states",
                     "resource": "/countries/33/states"
                   }
                 },
@@ -468,7 +468,7 @@
                   "country_iso2": "BF",
                   "country_iso3": "BFA",
                   "states": {
-                    "url": "https://api.bigcommerce.com/stores/{store_hash}/v2/countries/34/states",
+                    "url": "https://api.bigcommerce.com/stores/{$$.env.store_hash}/v2/countries/34/states",
                     "resource": "/countries/34/states"
                   }
                 },
@@ -478,7 +478,7 @@
                   "country_iso2": "BI",
                   "country_iso3": "BDI",
                   "states": {
-                    "url": "https://api.bigcommerce.com/stores/{store_hash}/v2/countries/35/states",
+                    "url": "https://api.bigcommerce.com/stores/{$$.env.store_hash}/v2/countries/35/states",
                     "resource": "/countries/35/states"
                   }
                 },
@@ -488,7 +488,7 @@
                   "country_iso2": "KH",
                   "country_iso3": "KHM",
                   "states": {
-                    "url": "https://api.bigcommerce.com/stores/{store_hash}/v2/countries/36/states",
+                    "url": "https://api.bigcommerce.com/stores/{$$.env.store_hash}/v2/countries/36/states",
                     "resource": "/countries/36/states"
                   }
                 },
@@ -498,7 +498,7 @@
                   "country_iso2": "CM",
                   "country_iso3": "CMR",
                   "states": {
-                    "url": "https://api.bigcommerce.com/stores/{store_hash}/v2/countries/37/states",
+                    "url": "https://api.bigcommerce.com/stores/{$$.env.store_hash}/v2/countries/37/states",
                     "resource": "/countries/37/states"
                   }
                 },
@@ -508,7 +508,7 @@
                   "country_iso2": "CA",
                   "country_iso3": "CAN",
                   "states": {
-                    "url": "https://api.bigcommerce.com/stores/{store_hash}/v2/countries/38/states",
+                    "url": "https://api.bigcommerce.com/stores/{$$.env.store_hash}/v2/countries/38/states",
                     "resource": "/countries/38/states"
                   }
                 },
@@ -518,7 +518,7 @@
                   "country_iso2": "CV",
                   "country_iso3": "CPV",
                   "states": {
-                    "url": "https://api.bigcommerce.com/stores/{store_hash}/v2/countries/39/states",
+                    "url": "https://api.bigcommerce.com/stores/{$$.env.store_hash}/v2/countries/39/states",
                     "resource": "/countries/39/states"
                   }
                 },
@@ -528,7 +528,7 @@
                   "country_iso2": "KY",
                   "country_iso3": "CYM",
                   "states": {
-                    "url": "https://api.bigcommerce.com/stores/{store_hash}/v2/countries/40/states",
+                    "url": "https://api.bigcommerce.com/stores/{$$.env.store_hash}/v2/countries/40/states",
                     "resource": "/countries/40/states"
                   }
                 },
@@ -538,7 +538,7 @@
                   "country_iso2": "CF",
                   "country_iso3": "CAF",
                   "states": {
-                    "url": "https://api.bigcommerce.com/stores/{store_hash}/v2/countries/41/states",
+                    "url": "https://api.bigcommerce.com/stores/{$$.env.store_hash}/v2/countries/41/states",
                     "resource": "/countries/41/states"
                   }
                 },
@@ -548,7 +548,7 @@
                   "country_iso2": "TD",
                   "country_iso3": "TCD",
                   "states": {
-                    "url": "https://api.bigcommerce.com/stores/{store_hash}/v2/countries/42/states",
+                    "url": "https://api.bigcommerce.com/stores/{$$.env.store_hash}/v2/countries/42/states",
                     "resource": "/countries/42/states"
                   }
                 },
@@ -558,7 +558,7 @@
                   "country_iso2": "CL",
                   "country_iso3": "CHL",
                   "states": {
-                    "url": "https://api.bigcommerce.com/stores/{store_hash}/v2/countries/43/states",
+                    "url": "https://api.bigcommerce.com/stores/{$$.env.store_hash}/v2/countries/43/states",
                     "resource": "/countries/43/states"
                   }
                 },
@@ -568,7 +568,7 @@
                   "country_iso2": "CN",
                   "country_iso3": "CHN",
                   "states": {
-                    "url": "https://api.bigcommerce.com/stores/{store_hash}/v2/countries/44/states",
+                    "url": "https://api.bigcommerce.com/stores/{$$.env.store_hash}/v2/countries/44/states",
                     "resource": "/countries/44/states"
                   }
                 },
@@ -578,7 +578,7 @@
                   "country_iso2": "CX",
                   "country_iso3": "NUL",
                   "states": {
-                    "url": "https://api.bigcommerce.com/stores/{store_hash}/v2/countries/45/states",
+                    "url": "https://api.bigcommerce.com/stores/{$$.env.store_hash}/v2/countries/45/states",
                     "resource": "/countries/45/states"
                   }
                 },
@@ -588,7 +588,7 @@
                   "country_iso2": "CC",
                   "country_iso3": "NUL",
                   "states": {
-                    "url": "https://api.bigcommerce.com/stores/{store_hash}/v2/countries/46/states",
+                    "url": "https://api.bigcommerce.com/stores/{$$.env.store_hash}/v2/countries/46/states",
                     "resource": "/countries/46/states"
                   }
                 },
@@ -598,7 +598,7 @@
                   "country_iso2": "CO",
                   "country_iso3": "COL",
                   "states": {
-                    "url": "https://api.bigcommerce.com/stores/{store_hash}/v2/countries/47/states",
+                    "url": "https://api.bigcommerce.com/stores/{$$.env.store_hash}/v2/countries/47/states",
                     "resource": "/countries/47/states"
                   }
                 },
@@ -608,7 +608,7 @@
                   "country_iso2": "KM",
                   "country_iso3": "COM",
                   "states": {
-                    "url": "https://api.bigcommerce.com/stores/{store_hash}/v2/countries/48/states",
+                    "url": "https://api.bigcommerce.com/stores/{$$.env.store_hash}/v2/countries/48/states",
                     "resource": "/countries/48/states"
                   }
                 },
@@ -618,7 +618,7 @@
                   "country_iso2": "CG",
                   "country_iso3": "COG",
                   "states": {
-                    "url": "https://api.bigcommerce.com/stores/{store_hash}/v2/countries/49/states",
+                    "url": "https://api.bigcommerce.com/stores/{$$.env.store_hash}/v2/countries/49/states",
                     "resource": "/countries/49/states"
                   }
                 },
@@ -628,7 +628,7 @@
                   "country_iso2": "CD",
                   "country_iso3": "COD",
                   "states": {
-                    "url": "https://api.bigcommerce.com/stores/{store_hash}/v2/countries/50/states",
+                    "url": "https://api.bigcommerce.com/stores/{$$.env.store_hash}/v2/countries/50/states",
                     "resource": "/countries/50/states"
                   }
                 }
@@ -690,7 +690,7 @@
                 "country_iso2": "AU",
                 "country_iso3": "AUS",
                 "states": {
-                  "url": "https://api.bigcommerce.com/stores/{store_hash}/v2/countries/13/states",
+                  "url": "https://api.bigcommerce.com/stores/{$$.env.store_hash}/v2/countries/13/states",
                   "resource": "/countries/13/states"
                 }
               },
@@ -722,7 +722,7 @@
                   "properties": {
                     "url": {
                       "description": "",
-                      "example": "https://api.bigcommerce.com/stores/{store_hash}/v2/countries/13/states",
+                      "example": "https://api.bigcommerce.com/stores/{$$.env.store_hash}/v2/countries/13/states",
                       "type": "string"
                     },
                     "resource": {
@@ -741,7 +741,7 @@
                 "country_iso2": "AU",
                 "country_iso3": "AUS",
                 "states": {
-                  "url": "https://api.bigcommerce.com/stores/{store_hash}/v2/countries/13/states",
+                  "url": "https://api.bigcommerce.com/stores/{$$.env.store_hash}/v2/countries/13/states",
                   "resource": "/countries/13/states"
                 }
               }
@@ -1065,7 +1065,7 @@
         "country_iso2": "AU",
         "country_iso3": "AUS",
         "states": {
-          "url": "https://api.bigcommerce.com/stores/{store_hash}/v2/countries/13/states",
+          "url": "https://api.bigcommerce.com/stores/{$$.env.store_hash}/v2/countries/13/states",
           "resource": "/countries/13/states"
         }
       },
@@ -1097,7 +1097,7 @@
           "properties": {
             "url": {
               "description": "",
-              "example": "https://api.bigcommerce.com/stores/{store_hash}/v2/countries/13/states",
+              "example": "https://api.bigcommerce.com/stores/{$$.env.store_hash}/v2/countries/13/states",
               "type": "string"
             },
             "resource": {
@@ -1115,7 +1115,7 @@
       "properties": {
         "url": {
           "description": "",
-          "example": "https://api.bigcommerce.com/stores/{store_hash}/v2/countries/13/states",
+          "example": "https://api.bigcommerce.com/stores/{$$.env.store_hash}/v2/countries/13/states",
           "type": "string"
         },
         "resource": {

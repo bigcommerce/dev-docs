@@ -9,7 +9,7 @@
   "tags": [],
   "servers": [
     {
-      "url": "https://api.bigcommerce.com/stores/{store_hash}/v3",
+      "url": "https://api.bigcommerce.com/stores/{$$.env.store_hash}/_hash}/v3",
       "variables": {
         "store_hash": {
           "default": "{store_hash}"

@@ -6,7 +6,7 @@
     "description": "To learn more about Customers see [here](/api-docs/customers/customers-subscribers-overview). \n### Customers\nIdentity and account details for customers shopping on BigCommerce stores.\n\n### Customer Addresses\nPostal address belonging to a customer.\n\n### Customer Groups\nGroupings of customers who share the same level of access and discounts at a store."
   },
   "host": "api.bigcommerce.com",
-  "basePath": "/stores/{store_hash}/v2",
+  "basePath": "/stores/{$$.env.store_hash}/v2",
   "schemes": [
     "https"
   ],
@@ -137,7 +137,7 @@
                   "tax_exempt_category": "",
                   "accepts_marketing": true,
                   "addresses": {
-                    "url": "https://api.bigcommerce.com/stores/{store_hash}/v2/customers/5/addresses",
+                    "url": "https://api.bigcommerce.com/stores/{$$.env.store_hash}/v2/customers/5/addresses",
                     "resource": "/customers/5/addresses"
                   },
                   "form_fields": [
@@ -242,7 +242,7 @@
                     "properties": {
                       "url": {
                         "description": "Full URL of where the resource is located.",
-                        "example": "https://api.bigcommerce.com/stores/{store_hash}/v2/customers/5/addresses",
+                        "example": "https://api.bigcommerce.com/stores/{$$.env.store_hash}/v2/customers/5/addresses",
                         "type": "string"
                       },
                       "resource": {
@@ -310,7 +310,7 @@
                   "reset_pass_on_login": false,
                   "accepts_marketing": true,
                   "addresses": {
-                    "url": "https://api.bigcommerce.com/stores/{store_hash}/v2/customers/1/addresses",
+                    "url": "https://api.bigcommerce.com/stores/{$$.env.store_hash}/v2/customers/1/addresses",
                     "resource": "/customers/1/addresses"
                   }
                 },
@@ -332,7 +332,7 @@
                   "reset_pass_on_login": false,
                   "accepts_marketing": true,
                   "addresses": {
-                    "url": "https://api.bigcommerce.com/stores/{store_hash}/v2/customers/2/addresses",
+                    "url": "https://api.bigcommerce.com/stores/{$$.env.store_hash}/v2/customers/2/addresses",
                     "resource": "/customers/2/addresses"
                   }
                 }
@@ -570,7 +570,7 @@
           {
             "request": {
               "method": "GET",
-              "uri": "/stores/{store_hash}/v2/customers",
+              "uri": "/stores/{$$.env.store_hash}/v2/customers",
               "headers": {
                 "Accept": "application/json",
                 "Content-Type": "application/json",
@@ -587,7 +587,7 @@
               "headers": {
                 "Content-Type": "application/json"
               },
-              "body": "{  \"id\": 1,  \"_authentication\": {},  \"company\": \"BigCommerce\",  \"first_name\": \"Jane\",  \"last_name\": \"Doe\",  \"email\": \"janedoe@email.com\",  \"phone\": \"1234567890\",  \"date_created\": \"Thu, 11 Jan 2018 20:57:52 +0000\",  \"date_modified\": \"Tue, 10 Apr 2018 18:59:05 +0000\",  \"store_credit\": 0,  \"registration_ip_address\": \"12.345.678.910\",  \"customer_group_id\": 2,  \"notes\": \"\",  \"tax_exempt_category\": \"\",  \"accepts_marketing\": true,  \"addresses\": {    \"url\": \"https://api.bigcommerce.com/stores/{store_hash}/v2/customers/5/addresses\",    \"resource\": \"/customers/5/addresses\"  },  \"form_fields\": [    {      \"name\": \"\",      \"value\": \"\"    }  ],  \"reset_pass_on_login\": false}"
+              "body": "{  \"id\": 1,  \"_authentication\": {},  \"company\": \"BigCommerce\",  \"first_name\": \"Jane\",  \"last_name\": \"Doe\",  \"email\": \"janedoe@email.com\",  \"phone\": \"1234567890\",  \"date_created\": \"Thu, 11 Jan 2018 20:57:52 +0000\",  \"date_modified\": \"Tue, 10 Apr 2018 18:59:05 +0000\",  \"store_credit\": 0,  \"registration_ip_address\": \"12.345.678.910\",  \"customer_group_id\": 2,  \"notes\": \"\",  \"tax_exempt_category\": \"\",  \"accepts_marketing\": true,  \"addresses\": {    \"url\": \"https://api.bigcommerce.com/stores/{$$.env.store_hash}/v2/customers/5/addresses\",    \"resource\": \"/customers/5/addresses\"  },  \"form_fields\": [    {      \"name\": \"\",      \"value\": \"\"    }  ],  \"reset_pass_on_login\": false}"
             },
             "x-testShouldPass": true,
             "x-testEnabled": true,
@@ -706,7 +706,7 @@
                 "tax_exempt_category": "",
                 "accepts_marketing": true,
                 "addresses": {
-                  "url": "https://api.bigcommerce.com/stores/{store_hash}/v2/customers/5/addresses",
+                  "url": "https://api.bigcommerce.com/stores/{$$.env.store_hash}/v2/customers/5/addresses",
                   "resource": "/customers/5/addresses"
                 },
                 "form_fields": [
@@ -811,7 +811,7 @@
                   "properties": {
                     "url": {
                       "description": "Full URL of where the resource is located.",
-                      "example": "https://api.bigcommerce.com/stores/{store_hash}/v2/customers/5/addresses",
+                      "example": "https://api.bigcommerce.com/stores/{$$.env.store_hash}/v2/customers/5/addresses",
                       "type": "string"
                     },
                     "resource": {
@@ -871,7 +871,7 @@
                 "tax_exempt_category": "",
                 "accepts_marketing": true,
                 "addresses": {
-                  "url": "https://api.bigcommerce.com/stores/{store_hash}/v2/customers/5/addresses",
+                  "url": "https://api.bigcommerce.com/stores/{$$.env.store_hash}/v2/customers/5/addresses",
                   "resource": "/customers/5/addresses"
                 },
                 "form_fields": [
@@ -929,7 +929,7 @@
           {
             "request": {
               "method": "POST",
-              "uri": "/stores/{store_hash}/v2/customers",
+              "uri": "/stores/{$$.env.store_hash}/v2/customers",
               "headers": {
                 "Accept": "application/json",
                 "Content-Type": "application/json",
@@ -947,7 +947,7 @@
               "headers": {
                 "Content-Type": "application/json"
               },
-              "body": "{  \"id\": 1,  \"_authentication\": {},  \"company\": \"BigCommerce\",  \"first_name\": \"Jane\",  \"last_name\": \"Doe\",  \"email\": \"janedoe@email.com\",  \"phone\": \"1234567890\",  \"date_created\": \"Thu, 11 Jan 2018 20:57:52 +0000\",  \"date_modified\": \"Tue, 10 Apr 2018 18:59:05 +0000\",  \"store_credit\": 0,  \"registration_ip_address\": \"12.345.678.910\",  \"customer_group_id\": 2,  \"notes\": \"\",  \"tax_exempt_category\": \"\",  \"accepts_marketing\": true,  \"addresses\": {    \"url\": \"https://api.bigcommerce.com/stores/{store_hash}/v2/customers/5/addresses\",    \"resource\": \"/customers/5/addresses\"  },  \"form_fields\": [    {      \"name\": \"\",      \"value\": \"\"    }  ],  \"reset_pass_on_login\": false}"
+              "body": "{  \"id\": 1,  \"_authentication\": {},  \"company\": \"BigCommerce\",  \"first_name\": \"Jane\",  \"last_name\": \"Doe\",  \"email\": \"janedoe@email.com\",  \"phone\": \"1234567890\",  \"date_created\": \"Thu, 11 Jan 2018 20:57:52 +0000\",  \"date_modified\": \"Tue, 10 Apr 2018 18:59:05 +0000\",  \"store_credit\": 0,  \"registration_ip_address\": \"12.345.678.910\",  \"customer_group_id\": 2,  \"notes\": \"\",  \"tax_exempt_category\": \"\",  \"accepts_marketing\": true,  \"addresses\": {    \"url\": \"https://api.bigcommerce.com/stores/{$$.env.store_hash}/v2/customers/5/addresses\",    \"resource\": \"/customers/5/addresses\"  },  \"form_fields\": [    {      \"name\": \"\",      \"value\": \"\"    }  ],  \"reset_pass_on_login\": false}"
             },
             "x-testShouldPass": true,
             "x-testEnabled": true,
@@ -999,7 +999,7 @@
           {
             "request": {
               "method": "DELETE",
-              "uri": "/stores/{store_hash}/v2/customers",
+              "uri": "/stores/{$$.env.store_hash}/v2/customers",
               "headers": {
                 "Accept": "application/json",
                 "Content-Type": "application/json",
@@ -1091,7 +1091,7 @@
                 "tax_exempt_category": "",
                 "accepts_marketing": true,
                 "addresses": {
-                  "url": "https://api.bigcommerce.com/stores/{store_hash}/v2/customers/5/addresses",
+                  "url": "https://api.bigcommerce.com/stores/{$$.env.store_hash}/v2/customers/5/addresses",
                   "resource": "/customers/5/addresses"
                 },
                 "form_fields": [
@@ -1196,7 +1196,7 @@
                   "properties": {
                     "url": {
                       "description": "Full URL of where the resource is located.",
-                      "example": "https://api.bigcommerce.com/stores/{store_hash}/v2/customers/5/addresses",
+                      "example": "https://api.bigcommerce.com/stores/{$$.env.store_hash}/v2/customers/5/addresses",
                       "type": "string"
                     },
                     "resource": {
@@ -1256,7 +1256,7 @@
                 "tax_exempt_category": "",
                 "accepts_marketing": true,
                 "addresses": {
-                  "url": "https://api.bigcommerce.com/stores/{store_hash}/v2/customers/5/addresses",
+                  "url": "https://api.bigcommerce.com/stores/{$$.env.store_hash}/v2/customers/5/addresses",
                   "resource": "/customers/5/addresses"
                 },
                 "form_fields": [
@@ -1407,7 +1407,7 @@
                 "tax_exempt_category": "",
                 "accepts_marketing": true,
                 "addresses": {
-                  "url": "https://api.bigcommerce.com/stores/{store_hash}/v2/customers/5/addresses",
+                  "url": "https://api.bigcommerce.com/stores/{$$.env.store_hash}/v2/customers/5/addresses",
                   "resource": "/customers/5/addresses"
                 },
                 "form_fields": [
@@ -1512,7 +1512,7 @@
                   "properties": {
                     "url": {
                       "description": "Full URL of where the resource is located.",
-                      "example": "https://api.bigcommerce.com/stores/{store_hash}/v2/customers/5/addresses",
+                      "example": "https://api.bigcommerce.com/stores/{$$.env.store_hash}/v2/customers/5/addresses",
                       "type": "string"
                     },
                     "resource": {
@@ -1578,7 +1578,7 @@
                 "reset_pass_on_login": false,
                 "accepts_marketing": true,
                 "addresses": {
-                  "url": "https://api.bigcommerce.com/stores/{store_hash}/v2/customers/1/addresses",
+                  "url": "https://api.bigcommerce.com/stores/{$$.env.store_hash}/v2/customers/1/addresses",
                   "resource": "/customers/1/addresses"
                 }
               },
@@ -1679,7 +1679,7 @@
                 "tax_exempt_category": "",
                 "accepts_marketing": true,
                 "addresses": {
-                  "url": "https://api.bigcommerce.com/stores/{store_hash}/v2/customers/5/addresses",
+                  "url": "https://api.bigcommerce.com/stores/{$$.env.store_hash}/v2/customers/5/addresses",
                   "resource": "/customers/5/addresses"
                 },
                 "form_fields": [
@@ -1784,7 +1784,7 @@
                   "properties": {
                     "url": {
                       "description": "Full URL of where the resource is located.",
-                      "example": "https://api.bigcommerce.com/stores/{store_hash}/v2/customers/5/addresses",
+                      "example": "https://api.bigcommerce.com/stores/{$$.env.store_hash}/v2/customers/5/addresses",
                       "type": "string"
                     },
                     "resource": {
@@ -1902,7 +1902,7 @@
           {
             "request": {
               "method": "GET",
-              "uri": "/stores/{store_hash}/v2/customers/count",
+              "uri": "/stores/{$$.env.store_hash}/v2/customers/count",
               "headers": {
                 "Accept": "application/json",
                 "Content-Type": "application/json",
@@ -4175,7 +4175,7 @@
       "properties": {
         "url": {
           "description": "URL of the shipping address for api requests",
-          "example": "https://api.bigcommerce.com/stores/{store_hash}/v2/orders/129/shippingaddresses",
+          "example": "https://api.bigcommerce.com/stores/{$$.env.store_hash}/v2/orders/129/shippingaddresses",
           "type": "string"
         },
         "resource": {
@@ -4204,7 +4204,7 @@
         "tax_exempt_category": "",
         "accepts_marketing": true,
         "addresses": {
-          "url": "https://api.bigcommerce.com/stores/{store_hash}/v2/customers/5/addresses",
+          "url": "https://api.bigcommerce.com/stores/{$$.env.store_hash}/v2/customers/5/addresses",
           "resource": "/customers/5/addresses"
         },
         "form_fields": [
@@ -4309,7 +4309,7 @@
           "properties": {
             "url": {
               "description": "Full URL of where the resource is located.",
-              "example": "https://api.bigcommerce.com/stores/{store_hash}/v2/customers/5/addresses",
+              "example": "https://api.bigcommerce.com/stores/{$$.env.store_hash}/v2/customers/5/addresses",
               "type": "string"
             },
             "resource": {
@@ -4380,7 +4380,7 @@
       "properties": {
         "url": {
           "description": "Full URL of where the resource is located.",
-          "example": "https://api.bigcommerce.com/stores/{store_hash}/v2/customers/5/addresses",
+          "example": "https://api.bigcommerce.com/stores/{$$.env.store_hash}/v2/customers/5/addresses",
           "type": "string"
         },
         "resource": {
@@ -4581,7 +4581,7 @@
         "country_iso2": "AU",
         "country_iso3": "AUS",
         "states": {
-          "url": "https://api.bigcommerce.com/stores/{store_hash}/v2/countries/13/states",
+          "url": "https://api.bigcommerce.com/stores/{$$.env.store_hash}/v2/countries/13/states",
           "resource": "/countries/13/states"
         }
       },
@@ -4613,7 +4613,7 @@
           "properties": {
             "url": {
               "description": "",
-              "example": "https://api.bigcommerce.com/stores/{store_hash}/v2/countries/13/states",
+              "example": "https://api.bigcommerce.com/stores/{$$.env.store_hash}/v2/countries/13/states",
               "type": "string"
             },
             "resource": {
@@ -4631,7 +4631,7 @@
       "properties": {
         "url": {
           "description": "",
-          "example": "https://api.bigcommerce.com/stores/{store_hash}/v2/countries/13/states",
+          "example": "https://api.bigcommerce.com/stores/{$$.env.store_hash}/v2/countries/13/states",
           "type": "string"
         },
         "resource": {

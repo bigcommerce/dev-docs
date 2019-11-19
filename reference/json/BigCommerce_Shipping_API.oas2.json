@@ -6,7 +6,7 @@
     "description": "### Shipping Zones\nThe Shipping Zone object and endpoints manage shipping zones within countries.\n\n### Shipping Methods\nThe Shipping Methods object and endpoints manage shipping rules within Shipping Zones. These rules determine the shipping rates displayed at checkout, and related parts of the control panel, such as the shipping of manual orders.\n\n### Shipping Carrier Connections\nCarrier connections refer to specific settings required to connect to a specific shipping carrier. Each carrier requires your app to supply a unique set of properties/fields to establish a connection with that carrier."
   },
   "host": "api.bigcommerce.com",
-  "basePath": "/stores/{store_hash}/v2",
+  "basePath": "/stores/{$$.env.store_hash}/v2",
   "schemes": [
     "https"
   ],
