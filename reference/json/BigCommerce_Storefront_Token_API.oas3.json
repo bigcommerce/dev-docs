@@ -9,7 +9,7 @@
   "tags": [],
   "servers": [
     {
-      "url": "https://api.bigcommerce.com/stores/{$$.env.store_hash}/_hash}/v3",
+      "url": "https://api.bigcommerce.com/stores/{$$.env.store_hash}/v3",
       "variables": {
         "store_hash": {
           "default": "{store_hash}"
@@ -319,6 +319,19 @@
         }
       }
     },
-    "securitySchemes": {}
+    "securitySchemes": {
+      "X-Auth-Client": {
+        "name": "X-Auth-Client",
+        "type": "apiKey",
+        "in": "header",
+        "description": "OAuth Client ID"
+      },
+      "X-Auth-Token": {
+        "name": "X-Auth-Token",
+        "type": "apiKey",
+        "in": "header",
+        "description": "OAuth Token"
+      }
+    }
   }
 }
