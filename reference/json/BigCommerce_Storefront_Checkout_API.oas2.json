@@ -5,7 +5,7 @@
     "title": "Storefront Checkout API",
     "description": "### Checkout\nThe Storefront Checkout does not use API Tokens and allows for Checkout data to be scraped directly from the front end or used in a Stencil Theme.\n\nNote:\n* The Try It Now at each endpoint will not work. Please see [Cart and Checkout](/api-docs/cart-and-checkout/cart-and-checkout-overview) for a script that can be used to get Cart details.\n* checkoutId is the same as the cartId.\n* The redirect url endpoint does not work using the Storefront Cart. At this time shoppers can not be directed to any carts or checkouts created using the Storefront APIS. "
   },
-  "host": "<store_url>",
+  "host": "{$$.env.store_domain}",
   "basePath": "/api/storefront",
   "consumes": [
     "application/json"

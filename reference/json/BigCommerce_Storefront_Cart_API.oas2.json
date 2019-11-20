@@ -6331,10 +6331,10 @@
   "schemes": [
     "https"
   ],
-  "host": "<store_url>",
   "x-stoplight": {
     "docs": {
       "includeDownloadLink": true
     }
-  }
+  },
+  "host": "{$$.env.store_domain}"
 }
