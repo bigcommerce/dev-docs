@@ -220,6 +220,14 @@
       }
     }
   },
+  "security": [
+    {
+      "X-Auth-Client": []
+    },
+    {
+      "X-Auth-Token": []
+    }
+  ],
   "components": {
     "schemas": {
       "TokenPostImpersonation": {
