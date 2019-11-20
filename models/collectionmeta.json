@@ -1,0 +1,10 @@
+{
+  "title": "Collection Meta",
+  "type": "object",
+  "description": "Data about the response, including pagination and collection totals.",
+  "properties": {
+    "pagination": {
+      "$ref": "./pagination.json"
+    }
+  }
+}
