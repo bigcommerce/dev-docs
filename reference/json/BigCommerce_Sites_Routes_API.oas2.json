@@ -809,11 +809,19 @@
       },
       "X-Auth-Token": {
         "type": "apiKey",
-        "name": "X-Auth-Token",
         "in": "header",
+        "name": "X-Auth-Token",
         "description": "Access Token (access_token) provided when API User account was created or app is installed"
       }
     },
+    "security": [
+      {
+        "X-Auth-Client": []
+      },
+      {
+        "X-Auth-Token": []
+      }
+    ],
     "parameters": {},
     "responses": {
       "SiteResponse": {
@@ -913,4 +921,4 @@
         }
       }
     }
-  }
+}
