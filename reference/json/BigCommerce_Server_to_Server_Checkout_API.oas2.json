@@ -92,7 +92,6 @@
             }
           }
         },
-        "security": [],
         "x-unitTests": [],
         "x-operation-settings": {
           "CollectParameters": false,
@@ -238,7 +237,6 @@
             "$ref": "#/responses/CheckoutResponse"
           }
         },
-        "security": [],
         "x-unitTests": [],
         "x-operation-settings": {
           "CollectParameters": false,
@@ -383,7 +381,6 @@
             "$ref": "#/responses/CheckoutResponse"
           }
         },
-        "security": [],
         "x-unitTests": [],
         "x-operation-settings": {
           "CollectParameters": false,
@@ -622,7 +619,6 @@
             "$ref": "#/responses/CheckoutResponse"
           }
         },
-        "security": [],
         "x-unitTests": [],
         "x-operation-settings": {
           "CollectParameters": false,
@@ -851,7 +847,6 @@
             "$ref": "#/responses/CheckoutResponse"
           }
         },
-        "security": [],
         "x-unitTests": [],
         "x-operation-settings": {
           "CollectParameters": false,
@@ -904,7 +899,6 @@
             "$ref": "#/responses/CheckoutResponse"
           }
         },
-        "security": [],
         "x-unitTests": [],
         "x-operation-settings": {
           "CollectParameters": false,
@@ -974,7 +968,6 @@
             "$ref": "#/responses/CheckoutResponse"
           }
         },
-        "security": [],
         "x-unitTests": [],
         "x-operation-settings": {
           "CollectParameters": false,
@@ -1030,7 +1023,6 @@
             "$ref": "#/responses/CheckoutResponse"
           }
         },
-        "security": [],
         "x-unitTests": [],
         "x-operation-settings": {
           "CollectParameters": false,
