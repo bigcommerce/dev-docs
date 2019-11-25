@@ -7,24 +7,16 @@
   },
   "host": "{$$.env.store_domain}",
   "basePath": "/api/storefront",
-  "consumes": [
-    "application/json"
-  ],
-  "produces": [
-    "application/json"
-  ],
+  "consumes": ["application/json"],
+  "produces": ["application/json"],
   "paths": {
     "/checkouts/{checkoutId}": {
       "get": {
         "description": "Returns a *Checkout*.\n\n**Notes**\n\nThe cart ID and checkout ID are the same.",
         "summary": "Get a Checkout",
-        "tags": [
-          "Checkout"
-        ],
+        "tags": ["Checkout"],
         "operationId": "CheckoutsByCheckoutIdGet",
-        "produces": [
-          "application/json"
-        ],
+        "produces": ["application/json"],
         "parameters": [
           {
             "name": "checkoutId",
@@ -143,9 +135,7 @@
                             "format": "double"
                           }
                         },
-                        "required": [
-                          "code"
-                        ]
+                        "required": ["code"]
                       }
                     },
                     "discounts": {
@@ -305,9 +295,7 @@
                                   }
                                 }
                               },
-                              "required": [
-                                "quantity"
-                              ]
+                              "required": ["quantity"]
                             }
                           },
                           "digitalItems": {
@@ -433,9 +421,7 @@
                                   "type": "string"
                                 }
                               },
-                              "required": [
-                                "quantity"
-                              ]
+                              "required": ["quantity"]
                             }
                           },
                           "giftCertificate": {
@@ -541,10 +527,7 @@
                             }
                           }
                         },
-                        "required": [
-                          "physicalItems",
-                          "digitalItems"
-                        ]
+                        "required": ["physicalItems", "digitalItems"]
                       }
                     },
                     "createdTime": {
@@ -632,9 +615,7 @@
                           }
                         }
                       },
-                      "required": [
-                        "countryCode"
-                      ]
+                      "required": ["countryCode"]
                     },
                     {
                       "type": "object",
@@ -734,9 +715,7 @@
                                 }
                               }
                             },
-                            "required": [
-                              "countryCode"
-                            ]
+                            "required": ["countryCode"]
                           },
                           {
                             "type": "object",
@@ -911,9 +890,7 @@
                         "format": "double"
                       }
                     },
-                    "required": [
-                      "code"
-                    ]
+                    "required": ["code"]
                   }
                 },
                 "orderId": {
@@ -1094,9 +1071,7 @@
                     "handlingCost": 0,
                     "couponDiscounts": [],
                     "discounts": [],
-                    "lineItemIds": [
-                      "243c9ca2-22b4-417a-8b09-b3fc05778b52"
-                    ],
+                    "lineItemIds": ["243c9ca2-22b4-417a-8b09-b3fc05778b52"],
                     "selectedShippingOption": {
                       "id": "d09e05c0-3788-44df-a1bb-b6d3afdf6841",
                       "type": "shipping_byweight",
@@ -1137,6 +1112,8 @@
                 ],
                 "subtotal": 7.95,
                 "grandTotal": 15.95,
+                "outstandingBalance": 0,
+                "isStoreCreditApplied": true,
                 "giftCertificates": [],
                 "createdTime": "2019-01-10T17:18:00+00:00",
                 "updatedTime": "2019-01-10T17:19:47+00:00",
@@ -1185,13 +1162,9 @@
       "put": {
         "description": "Updates *Checkout* customer messages. ",
         "summary": "Update Customer Messages",
-        "tags": [
-          "Checkout"
-        ],
+        "tags": ["Checkout"],
         "operationId": "CheckoutsByCheckoutIdPut",
-        "produces": [
-          "application/json"
-        ],
+        "produces": ["application/json"],
         "parameters": [
           {
             "name": "checkoutId",
@@ -1325,9 +1298,7 @@
                             "format": "double"
                           }
                         },
-                        "required": [
-                          "code"
-                        ]
+                        "required": ["code"]
                       }
                     },
                     "discounts": {
@@ -1487,9 +1458,7 @@
                                   }
                                 }
                               },
-                              "required": [
-                                "quantity"
-                              ]
+                              "required": ["quantity"]
                             }
                           },
                           "digitalItems": {
@@ -1615,9 +1584,7 @@
                                   "type": "string"
                                 }
                               },
-                              "required": [
-                                "quantity"
-                              ]
+                              "required": ["quantity"]
                             }
                           },
                           "giftCertificate": {
@@ -1723,10 +1690,7 @@
                             }
                           }
                         },
-                        "required": [
-                          "physicalItems",
-                          "digitalItems"
-                        ]
+                        "required": ["physicalItems", "digitalItems"]
                       }
                     },
                     "createdTime": {
@@ -1814,9 +1778,7 @@
                           }
                         }
                       },
-                      "required": [
-                        "countryCode"
-                      ]
+                      "required": ["countryCode"]
                     },
                     {
                       "type": "object",
@@ -1916,9 +1878,7 @@
                                 }
                               }
                             },
-                            "required": [
-                              "countryCode"
-                            ]
+                            "required": ["countryCode"]
                           },
                           {
                             "type": "object",
@@ -2093,9 +2053,7 @@
                         "format": "double"
                       }
                     },
-                    "required": [
-                      "code"
-                    ]
+                    "required": ["code"]
                   }
                 },
                 "orderId": {
@@ -2276,9 +2234,7 @@
                     "handlingCost": 0,
                     "couponDiscounts": [],
                     "discounts": [],
-                    "lineItemIds": [
-                      "243c9ca2-22b4-417a-8b09-b3fc05778b52"
-                    ],
+                    "lineItemIds": ["243c9ca2-22b4-417a-8b09-b3fc05778b52"],
                     "selectedShippingOption": {
                       "id": "d09e05c0-3788-44df-a1bb-b6d3afdf6841",
                       "type": "shipping_byweight",
@@ -2319,6 +2275,8 @@
                 ],
                 "subtotal": 7.95,
                 "grandTotal": 15.95,
+                "outstandingBalance": 0,
+                "isStoreCreditApplied": true,
                 "giftCertificates": [],
                 "createdTime": "2019-01-10T17:18:00+00:00",
                 "updatedTime": "2019-01-10T17:19:47+00:00",
@@ -2333,13 +2291,9 @@
       "put": {
         "description": "Updates a *Checkout Line Item*. Updates an existing, single line item in the cart.\n\n**Notes** \n\nIf a variant needs to be changed or updated, the product will need to be removed and re-added to the cart with the correct variants using the [Add Cart Line Items](SF Cart Line Items) endpoint.",
         "summary": "Update a Line Item",
-        "tags": [
-          "Checkout"
-        ],
+        "tags": ["Checkout"],
         "operationId": "CheckoutsCartsItemsItemIdByCheckoutIdAndCartIdPut",
-        "produces": [
-          "application/json"
-        ],
+        "produces": ["application/json"],
         "parameters": [
           {
             "name": "checkoutId",
@@ -2569,9 +2523,7 @@
                             "format": "double"
                           }
                         },
-                        "required": [
-                          "code"
-                        ]
+                        "required": ["code"]
                       }
                     },
                     "discounts": {
@@ -2731,9 +2683,7 @@
                                   }
                                 }
                               },
-                              "required": [
-                                "quantity"
-                              ]
+                              "required": ["quantity"]
                             }
                           },
                           "digitalItems": {
@@ -2859,9 +2809,7 @@
                                   "type": "string"
                                 }
                               },
-                              "required": [
-                                "quantity"
-                              ]
+                              "required": ["quantity"]
                             }
                           },
                           "giftCertificate": {
@@ -2967,10 +2915,7 @@
                             }
                           }
                         },
-                        "required": [
-                          "physicalItems",
-                          "digitalItems"
-                        ]
+                        "required": ["physicalItems", "digitalItems"]
                       }
                     },
                     "createdTime": {
@@ -3058,9 +3003,7 @@
                           }
                         }
                       },
-                      "required": [
-                        "countryCode"
-                      ]
+                      "required": ["countryCode"]
                     },
                     {
                       "type": "object",
@@ -3160,9 +3103,7 @@
                                 }
                               }
                             },
-                            "required": [
-                              "countryCode"
-                            ]
+                            "required": ["countryCode"]
                           },
                           {
                             "type": "object",
@@ -3337,9 +3278,7 @@
                         "format": "double"
                       }
                     },
-                    "required": [
-                      "code"
-                    ]
+                    "required": ["code"]
                   }
                 },
                 "orderId": {
@@ -3520,9 +3459,7 @@
                     "handlingCost": 0,
                     "couponDiscounts": [],
                     "discounts": [],
-                    "lineItemIds": [
-                      "243c9ca2-22b4-417a-8b09-b3fc05778b52"
-                    ],
+                    "lineItemIds": ["243c9ca2-22b4-417a-8b09-b3fc05778b52"],
                     "selectedShippingOption": {
                       "id": "d09e05c0-3788-44df-a1bb-b6d3afdf6841",
                       "type": "shipping_byweight",
@@ -3563,6 +3500,8 @@
                 ],
                 "subtotal": 7.95,
                 "grandTotal": 15.95,
+                "outstandingBalance": 0,
+                "isStoreCreditApplied": true,
                 "giftCertificates": [],
                 "createdTime": "2019-01-10T17:18:00+00:00",
                 "updatedTime": "2019-01-10T17:19:47+00:00",
@@ -3575,13 +3514,9 @@
       "delete": {
         "description": "Deletes a *Line Item* from the *Cart*.",
         "summary": "Delete a Line Item",
-        "tags": [
-          "Checkout"
-        ],
+        "tags": ["Checkout"],
         "operationId": "CheckoutsCartsItemsItemIdByCheckoutIdAndCartIdDelete",
-        "produces": [
-          "application/json"
-        ],
+        "produces": ["application/json"],
         "parameters": [
           {
             "name": "checkoutId",
@@ -3709,9 +3644,7 @@
                             "format": "double"
                           }
                         },
-                        "required": [
-                          "code"
-                        ]
+                        "required": ["code"]
                       }
                     },
                     "discounts": {
@@ -3871,9 +3804,7 @@
                                   }
                                 }
                               },
-                              "required": [
-                                "quantity"
-                              ]
+                              "required": ["quantity"]
                             }
                           },
                           "digitalItems": {
@@ -3999,9 +3930,7 @@
                                   "type": "string"
                                 }
                               },
-                              "required": [
-                                "quantity"
-                              ]
+                              "required": ["quantity"]
                             }
                           },
                           "giftCertificate": {
@@ -4107,10 +4036,7 @@
                             }
                           }
                         },
-                        "required": [
-                          "physicalItems",
-                          "digitalItems"
-                        ]
+                        "required": ["physicalItems", "digitalItems"]
                       }
                     },
                     "createdTime": {
@@ -4198,9 +4124,7 @@
                           }
                         }
                       },
-                      "required": [
-                        "countryCode"
-                      ]
+                      "required": ["countryCode"]
                     },
                     {
                       "type": "object",
@@ -4300,9 +4224,7 @@
                                 }
                               }
                             },
-                            "required": [
-                              "countryCode"
-                            ]
+                            "required": ["countryCode"]
                           },
                           {
                             "type": "object",
@@ -4477,9 +4399,7 @@
                         "format": "double"
                       }
                     },
-                    "required": [
-                      "code"
-                    ]
+                    "required": ["code"]
                   }
                 },
                 "orderId": {
@@ -4866,13 +4786,9 @@
       "post": {
         "description": "Adds a billing address to an existing *Checkout*.\n\n**Required Fields**\n* email\n* country_code",
         "summary": "Add Checkout Billing Address",
-        "tags": [
-          "Checkout"
-        ],
+        "tags": ["Checkout"],
         "operationId": "CheckoutsBillingAddressByCheckoutIdPost",
-        "produces": [
-          "application/json"
-        ],
+        "produces": ["application/json"],
         "parameters": [
           {
             "name": "checkoutId",
@@ -4946,9 +4862,7 @@
                   }
                 }
               },
-              "required": [
-                "countryCode"
-              ]
+              "required": ["countryCode"]
             },
             "x-examples": {
               "application/json": {
@@ -5069,9 +4983,7 @@
                             "format": "double"
                           }
                         },
-                        "required": [
-                          "code"
-                        ]
+                        "required": ["code"]
                       }
                     },
                     "discounts": {
@@ -5231,9 +5143,7 @@
                                   }
                                 }
                               },
-                              "required": [
-                                "quantity"
-                              ]
+                              "required": ["quantity"]
                             }
                           },
                           "digitalItems": {
@@ -5359,9 +5269,7 @@
                                   "type": "string"
                                 }
                               },
-                              "required": [
-                                "quantity"
-                              ]
+                              "required": ["quantity"]
                             }
                           },
                           "giftCertificate": {
@@ -5467,10 +5375,7 @@
                             }
                           }
                         },
-                        "required": [
-                          "physicalItems",
-                          "digitalItems"
-                        ]
+                        "required": ["physicalItems", "digitalItems"]
                       }
                     },
                     "createdTime": {
@@ -5546,9 +5451,7 @@
                           }
                         }
                       },
-                      "required": [
-                        "countryCode"
-                      ]
+                      "required": ["countryCode"]
                     },
                     {
                       "properties": {
@@ -5647,9 +5550,7 @@
                                 }
                               }
                             },
-                            "required": [
-                              "countryCode"
-                            ]
+                            "required": ["countryCode"]
                           },
                           {
                             "properties": {
@@ -5823,9 +5724,7 @@
                         "format": "double"
                       }
                     },
-                    "required": [
-                      "code"
-                    ]
+                    "required": ["code"]
                   }
                 },
                 "orderId": {
@@ -6006,9 +5905,7 @@
                     "handlingCost": 0,
                     "couponDiscounts": [],
                     "discounts": [],
-                    "lineItemIds": [
-                      "243c9ca2-22b4-417a-8b09-b3fc05778b52"
-                    ],
+                    "lineItemIds": ["243c9ca2-22b4-417a-8b09-b3fc05778b52"],
                     "selectedShippingOption": {
                       "id": "d09e05c0-3788-44df-a1bb-b6d3afdf6841",
                       "type": "shipping_byweight",
@@ -6049,6 +5946,8 @@
                 ],
                 "subtotal": 7.95,
                 "grandTotal": 15.95,
+                "outstandingBalance": 0,
+                "isStoreCreditApplied": true,
                 "giftCertificates": [],
                 "createdTime": "2019-01-10T17:18:00+00:00",
                 "updatedTime": "2019-01-10T17:19:47+00:00",
@@ -6063,13 +5962,9 @@
       "put": {
         "description": "Updates an existing billing address on *Checkout*.",
         "summary": "Update Checkout Billing Address",
-        "tags": [
-          "Checkout"
-        ],
+        "tags": ["Checkout"],
         "operationId": "CheckoutsBillingAddressByCheckoutIdAndAddressIdPut",
-        "produces": [
-          "application/json"
-        ],
+        "produces": ["application/json"],
         "parameters": [
           {
             "name": "checkoutId",
@@ -6154,9 +6049,7 @@
                   }
                 }
               },
-              "required": [
-                "countryCode"
-              ]
+              "required": ["countryCode"]
             },
             "x-examples": {
               "application/json": {
@@ -6277,9 +6170,7 @@
                             "format": "double"
                           }
                         },
-                        "required": [
-                          "code"
-                        ]
+                        "required": ["code"]
                       }
                     },
                     "discounts": {
@@ -6439,9 +6330,7 @@
                                   }
                                 }
                               },
-                              "required": [
-                                "quantity"
-                              ]
+                              "required": ["quantity"]
                             }
                           },
                           "digitalItems": {
@@ -6567,9 +6456,7 @@
                                   "type": "string"
                                 }
                               },
-                              "required": [
-                                "quantity"
-                              ]
+                              "required": ["quantity"]
                             }
                           },
                           "giftCertificate": {
@@ -6675,10 +6562,7 @@
                             }
                           }
                         },
-                        "required": [
-                          "physicalItems",
-                          "digitalItems"
-                        ]
+                        "required": ["physicalItems", "digitalItems"]
                       }
                     },
                     "createdTime": {
@@ -6754,9 +6638,7 @@
                           }
                         }
                       },
-                      "required": [
-                        "countryCode"
-                      ]
+                      "required": ["countryCode"]
                     },
                     {
                       "properties": {
@@ -6855,9 +6737,7 @@
                                 }
                               }
                             },
-                            "required": [
-                              "countryCode"
-                            ]
+                            "required": ["countryCode"]
                           },
                           {
                             "properties": {
@@ -7031,9 +6911,7 @@
                         "format": "double"
                       }
                     },
-                    "required": [
-                      "code"
-                    ]
+                    "required": ["code"]
                   }
                 },
                 "orderId": {
@@ -7420,13 +7298,9 @@
       "post": {
         "description": "Adds a new *Consignment* to *Checkout*.\n\n\nThere are two steps to add a new shipping address and shipping options with line items. \n1. Add a [new Consignment](/api-reference/cart-checkout/storefront-checkout-api/checkout/checkoutsconsignmentsbycheckoutidpost) to Checkout.\n\t2. Send a POST to Consignments with each shipping address and line items IDs. Each address can have its own line item IDs.\n\t3. As part of the request URL make sure to add `include=consignments.availableShippingOptions` to return the available shipping options based on line items and shipping locations. This will return `availableShippingOptions` in the response.\n3. [Update the Consignment](/api-reference/cart-checkout/storefront-checkout-api/checkout/checkoutsconsignmentsbycheckoutidandconsignmentidput) with Shipping Options.\n\n**Required Query**\n* consignments.availableShippingOptions\n\n**Required Fields**\n* shipping_address\n* line_items\n\nTo learn more about creating a Checkout Consignment see [Working with the Fetch API](/api-docs/cart-and-checkout/working-sf-apis).",
         "summary": "Add New Consignment to Checkout",
-        "tags": [
-          "Checkout"
-        ],
+        "tags": ["Checkout"],
         "operationId": "CheckoutsConsignmentsByCheckoutIdPost",
-        "produces": [
-          "application/json"
-        ],
+        "produces": ["application/json"],
         "parameters": [
           {
             "name": "checkoutId",
@@ -7518,9 +7392,7 @@
                         }
                       }
                     },
-                    "required": [
-                      "countryCode"
-                    ]
+                    "required": ["countryCode"]
                   },
                   "lineItems": {
                     "description": "",
@@ -7539,10 +7411,7 @@
                           "format": "int32"
                         }
                       },
-                      "required": [
-                        "itemId",
-                        "quantity"
-                      ]
+                      "required": ["itemId", "quantity"]
                     }
                   }
                 }
@@ -7562,9 +7431,7 @@
                     "stateOrProvinceCode": "Austin",
                     "countryCode": "USA",
                     "postalCode": "12345",
-                    "customFields": [
-                      {}
-                    ]
+                    "customFields": [{}]
                   },
                   "lineItems": [
                     {
@@ -7585,9 +7452,7 @@
                     "stateOrProvinceCode": "Austin",
                     "countryCode": "USA",
                     "postalCode": "12345",
-                    "customFields": [
-                      {}
-                    ]
+                    "customFields": [{}]
                   },
                   "lineItems": [
                     {
@@ -7709,9 +7574,7 @@
                             "format": "double"
                           }
                         },
-                        "required": [
-                          "code"
-                        ]
+                        "required": ["code"]
                       }
                     },
                     "discounts": {
@@ -7871,9 +7734,7 @@
                                   }
                                 }
                               },
-                              "required": [
-                                "quantity"
-                              ]
+                              "required": ["quantity"]
                             }
                           },
                           "digitalItems": {
@@ -7999,9 +7860,7 @@
                                   "type": "string"
                                 }
                               },
-                              "required": [
-                                "quantity"
-                              ]
+                              "required": ["quantity"]
                             }
                           },
                           "giftCertificate": {
@@ -8107,10 +7966,7 @@
                             }
                           }
                         },
-                        "required": [
-                          "physicalItems",
-                          "digitalItems"
-                        ]
+                        "required": ["physicalItems", "digitalItems"]
                       }
                     },
                     "createdTime": {
@@ -8198,9 +8054,7 @@
                           }
                         }
                       },
-                      "required": [
-                        "countryCode"
-                      ]
+                      "required": ["countryCode"]
                     },
                     {
                       "type": "object",
@@ -8300,9 +8154,7 @@
                                 }
                               }
                             },
-                            "required": [
-                              "countryCode"
-                            ]
+                            "required": ["countryCode"]
                           },
                           {
                             "type": "object",
@@ -8477,9 +8329,7 @@
                         "format": "double"
                       }
                     },
-                    "required": [
-                      "code"
-                    ]
+                    "required": ["code"]
                   }
                 },
                 "orderId": {
@@ -8660,9 +8510,7 @@
                     "handlingCost": 0,
                     "couponDiscounts": [],
                     "discounts": [],
-                    "lineItemIds": [
-                      "243c9ca2-22b4-417a-8b09-b3fc05778b52"
-                    ],
+                    "lineItemIds": ["243c9ca2-22b4-417a-8b09-b3fc05778b52"],
                     "selectedShippingOption": {
                       "id": "d09e05c0-3788-44df-a1bb-b6d3afdf6841",
                       "type": "shipping_byweight",
@@ -8703,6 +8551,8 @@
                 ],
                 "subtotal": 7.95,
                 "grandTotal": 15.95,
+                "outstandingBalance": 0,
+                "isStoreCreditApplied": true,
                 "giftCertificates": [],
                 "createdTime": "2019-01-10T17:18:00+00:00",
                 "updatedTime": "2019-01-10T17:19:47+00:00",
@@ -8716,13 +8566,9 @@
     "/checkouts/{checkoutId}/consignments/{consignmentId}": {
       "put": {
         "description": "Updates an existing consignment. Shipping address, line item IDs or the shipping option ID can be updated using this endpoint.\n\nThere are two steps to add a new shipping address and shipping options with line items. \n1. Add a [new Consignment](/api-reference/cart-checkout/storefront-checkout-api/checkout/checkoutsconsignmentsbycheckoutidpost) to Checkout.\n3. [Update the Consignment](/api-reference/cart-checkout/storefront-checkout-api/checkout/checkoutsconsignmentsbycheckoutidandconsignmentidput) with Shipping Options.\n\t4. Update each *Consignment* `shippingOptionId` (shipping address and line items) with the `availableShippingOption > id` from Step One. \n\n\n**Required Fields**\n* shippingOptionId\n\nTo learn more about creating a Checkout Consignment see [Working with the Fetch API](/api-docs/cart-and-checkout/working-sf-apis).",
-        "tags": [
-          "Checkout"
-        ],
+        "tags": ["Checkout"],
         "operationId": "CheckoutsConsignmentsByCheckoutIdAndConsignmentIdPut",
-        "produces": [
-          "application/json"
-        ],
+        "produces": ["application/json"],
         "parameters": [
           {
             "name": "checkoutId",
@@ -8820,9 +8666,7 @@
                       }
                     }
                   },
-                  "required": [
-                    "countryCode"
-                  ]
+                  "required": ["countryCode"]
                 },
                 "lineItems": {
                   "description": "",
@@ -8841,10 +8685,7 @@
                         "format": "int32"
                       }
                     },
-                    "required": [
-                      "itemId",
-                      "quantity"
-                    ]
+                    "required": ["itemId", "quantity"]
                   }
                 },
                 "shippingOptionId": {
@@ -8999,9 +8840,7 @@
                             "format": "double"
                           }
                         },
-                        "required": [
-                          "code"
-                        ]
+                        "required": ["code"]
                       }
                     },
                     "discounts": {
@@ -9161,9 +9000,7 @@
                                   }
                                 }
                               },
-                              "required": [
-                                "quantity"
-                              ]
+                              "required": ["quantity"]
                             }
                           },
                           "digitalItems": {
@@ -9289,9 +9126,7 @@
                                   "type": "string"
                                 }
                               },
-                              "required": [
-                                "quantity"
-                              ]
+                              "required": ["quantity"]
                             }
                           },
                           "giftCertificate": {
@@ -9397,10 +9232,7 @@
                             }
                           }
                         },
-                        "required": [
-                          "physicalItems",
-                          "digitalItems"
-                        ]
+                        "required": ["physicalItems", "digitalItems"]
                       }
                     },
                     "createdTime": {
@@ -9488,9 +9320,7 @@
                           }
                         }
                       },
-                      "required": [
-                        "countryCode"
-                      ]
+                      "required": ["countryCode"]
                     },
                     {
                       "type": "object",
@@ -9590,9 +9420,7 @@
                                 }
                               }
                             },
-                            "required": [
-                              "countryCode"
-                            ]
+                            "required": ["countryCode"]
                           },
                           {
                             "type": "object",
@@ -9767,9 +9595,7 @@
                         "format": "double"
                       }
                     },
-                    "required": [
-                      "code"
-                    ]
+                    "required": ["code"]
                   }
                 },
                 "orderId": {
@@ -9950,9 +9776,7 @@
                     "handlingCost": 0,
                     "couponDiscounts": [],
                     "discounts": [],
-                    "lineItemIds": [
-                      "243c9ca2-22b4-417a-8b09-b3fc05778b52"
-                    ],
+                    "lineItemIds": ["243c9ca2-22b4-417a-8b09-b3fc05778b52"],
                     "selectedShippingOption": {
                       "id": "d09e05c0-3788-44df-a1bb-b6d3afdf6841",
                       "type": "shipping_byweight",
@@ -9993,6 +9817,8 @@
                 ],
                 "subtotal": 7.95,
                 "grandTotal": 15.95,
+                "outstandingBalance": 0,
+                "isStoreCreditApplied": true,
                 "giftCertificates": [],
                 "createdTime": "2019-01-10T17:18:00+00:00",
                 "updatedTime": "2019-01-10T17:19:47+00:00",
@@ -10006,13 +9832,9 @@
       "delete": {
         "description": "Removes an existing *Consignment* from *Checkout*. ",
         "summary": "Delete Checkout Consignment",
-        "tags": [
-          "Checkout"
-        ],
+        "tags": ["Checkout"],
         "operationId": "CheckoutsConsignmentsByCheckoutIdAndConsignmentIdDelete",
-        "produces": [
-          "application/json"
-        ],
+        "produces": ["application/json"],
         "parameters": [
           {
             "name": "checkoutId",
@@ -10132,9 +9954,7 @@
                             "format": "double"
                           }
                         },
-                        "required": [
-                          "code"
-                        ]
+                        "required": ["code"]
                       }
                     },
                     "discounts": {
@@ -10294,9 +10114,7 @@
                                   }
                                 }
                               },
-                              "required": [
-                                "quantity"
-                              ]
+                              "required": ["quantity"]
                             }
                           },
                           "digitalItems": {
@@ -10422,9 +10240,7 @@
                                   "type": "string"
                                 }
                               },
-                              "required": [
-                                "quantity"
-                              ]
+                              "required": ["quantity"]
                             }
                           },
                           "giftCertificate": {
@@ -10530,10 +10346,7 @@
                             }
                           }
                         },
-                        "required": [
-                          "physicalItems",
-                          "digitalItems"
-                        ]
+                        "required": ["physicalItems", "digitalItems"]
                       }
                     },
                     "createdTime": {
@@ -10621,9 +10434,7 @@
                           }
                         }
                       },
-                      "required": [
-                        "countryCode"
-                      ]
+                      "required": ["countryCode"]
                     },
                     {
                       "type": "object",
@@ -10723,9 +10534,7 @@
                                 }
                               }
                             },
-                            "required": [
-                              "countryCode"
-                            ]
+                            "required": ["countryCode"]
                           },
                           {
                             "type": "object",
@@ -10900,9 +10709,7 @@
                         "format": "double"
                       }
                     },
-                    "required": [
-                      "code"
-                    ]
+                    "required": ["code"]
                   }
                 },
                 "orderId": {
@@ -11083,9 +10890,7 @@
                     "handlingCost": 0,
                     "couponDiscounts": [],
                     "discounts": [],
-                    "lineItemIds": [
-                      "243c9ca2-22b4-417a-8b09-b3fc05778b52"
-                    ],
+                    "lineItemIds": ["243c9ca2-22b4-417a-8b09-b3fc05778b52"],
                     "selectedShippingOption": {
                       "id": "d09e05c0-3788-44df-a1bb-b6d3afdf6841",
                       "type": "shipping_byweight",
@@ -11126,6 +10931,8 @@
                 ],
                 "subtotal": 7.95,
                 "grandTotal": 15.95,
+                "outstandingBalance": 0,
+                "isStoreCreditApplied": true,
                 "giftCertificates": [],
                 "createdTime": "2019-01-10T17:18:00+00:00",
                 "updatedTime": "2019-01-10T17:19:47+00:00",
@@ -11140,13 +10947,9 @@
       "post": {
         "description": "Adds a *Gift Certificate Code* to *Checkout*.\n\n**Notes**\n\n*Gift Certificates* are treated as a payment methods.\n\nYou are not able to purchase a gift certificate with a gift certificate.",
         "summary": "Add Gift Certificate to Checkout",
-        "tags": [
-          "Checkout"
-        ],
+        "tags": ["Checkout"],
         "operationId": "CheckoutsGiftCertificatesByCheckoutIdPost",
-        "produces": [
-          "application/json"
-        ],
+        "produces": ["application/json"],
         "parameters": [
           {
             "name": "checkoutId",
@@ -11280,9 +11083,7 @@
                             "format": "double"
                           }
                         },
-                        "required": [
-                          "code"
-                        ]
+                        "required": ["code"]
                       }
                     },
                     "discounts": {
@@ -11442,9 +11243,7 @@
                                   }
                                 }
                               },
-                              "required": [
-                                "quantity"
-                              ]
+                              "required": ["quantity"]
                             }
                           },
                           "digitalItems": {
@@ -11570,9 +11369,7 @@
                                   "type": "string"
                                 }
                               },
-                              "required": [
-                                "quantity"
-                              ]
+                              "required": ["quantity"]
                             }
                           },
                           "giftCertificate": {
@@ -11678,10 +11475,7 @@
                             }
                           }
                         },
-                        "required": [
-                          "physicalItems",
-                          "digitalItems"
-                        ]
+                        "required": ["physicalItems", "digitalItems"]
                       }
                     },
                     "createdTime": {
@@ -11769,9 +11563,7 @@
                           }
                         }
                       },
-                      "required": [
-                        "countryCode"
-                      ]
+                      "required": ["countryCode"]
                     },
                     {
                       "type": "object",
@@ -11871,9 +11663,7 @@
                                 }
                               }
                             },
-                            "required": [
-                              "countryCode"
-                            ]
+                            "required": ["countryCode"]
                           },
                           {
                             "type": "object",
@@ -12048,9 +11838,7 @@
                         "format": "double"
                       }
                     },
-                    "required": [
-                      "code"
-                    ]
+                    "required": ["code"]
                   }
                 },
                 "orderId": {
@@ -12231,9 +12019,7 @@
                     "handlingCost": 0,
                     "couponDiscounts": [],
                     "discounts": [],
-                    "lineItemIds": [
-                      "243c9ca2-22b4-417a-8b09-b3fc05778b52"
-                    ],
+                    "lineItemIds": ["243c9ca2-22b4-417a-8b09-b3fc05778b52"],
                     "selectedShippingOption": {
                       "id": "d09e05c0-3788-44df-a1bb-b6d3afdf6841",
                       "type": "shipping_byweight",
@@ -12274,6 +12060,8 @@
                 ],
                 "subtotal": 7.95,
                 "grandTotal": 15.95,
+                "outstandingBalance": 0,
+                "isStoreCreditApplied": true,
                 "giftCertificates": [],
                 "createdTime": "2019-01-10T17:18:00+00:00",
                 "updatedTime": "2019-01-10T17:19:47+00:00",
@@ -12288,13 +12076,9 @@
       "delete": {
         "description": "Deletes an existing *Gift Certificate*. \n\n**Notes**\n\nThis removes the *Gift Certificate* payment method.",
         "summary": "Delete Gift Certificate",
-        "tags": [
-          "Checkout"
-        ],
+        "tags": ["Checkout"],
         "operationId": "CheckoutsGiftCertificatesByCheckoutIdAndGiftCertificateCodeDelete",
-        "produces": [
-          "application/json"
-        ],
+        "produces": ["application/json"],
         "parameters": [
           {
             "name": "checkoutId",
@@ -12414,9 +12198,7 @@
                             "format": "double"
                           }
                         },
-                        "required": [
-                          "code"
-                        ]
+                        "required": ["code"]
                       }
                     },
                     "discounts": {
@@ -12576,9 +12358,7 @@
                                   }
                                 }
                               },
-                              "required": [
-                                "quantity"
-                              ]
+                              "required": ["quantity"]
                             }
                           },
                           "digitalItems": {
@@ -12704,9 +12484,7 @@
                                   "type": "string"
                                 }
                               },
-                              "required": [
-                                "quantity"
-                              ]
+                              "required": ["quantity"]
                             }
                           },
                           "giftCertificate": {
@@ -12812,10 +12590,7 @@
                             }
                           }
                         },
-                        "required": [
-                          "physicalItems",
-                          "digitalItems"
-                        ]
+                        "required": ["physicalItems", "digitalItems"]
                       }
                     },
                     "createdTime": {
@@ -12903,9 +12678,7 @@
                           }
                         }
                       },
-                      "required": [
-                        "countryCode"
-                      ]
+                      "required": ["countryCode"]
                     },
                     {
                       "type": "object",
@@ -13005,9 +12778,7 @@
                                 }
                               }
                             },
-                            "required": [
-                              "countryCode"
-                            ]
+                            "required": ["countryCode"]
                           },
                           {
                             "type": "object",
@@ -13182,9 +12953,7 @@
                         "format": "double"
                       }
                     },
-                    "required": [
-                      "code"
-                    ]
+                    "required": ["code"]
                   }
                 },
                 "orderId": {
@@ -13292,13 +13061,9 @@
       "post": {
         "description": "Adds a *Coupon Code* to *Checkout*.\n\n**Required Fields**\n* couponCode",
         "summary": "Add Coupon to Checkout",
-        "tags": [
-          "Checkout"
-        ],
+        "tags": ["Checkout"],
         "operationId": "CheckoutsCouponsByCheckoutIdPost",
-        "produces": [
-          "application/json"
-        ],
+        "produces": ["application/json"],
         "parameters": [
           {
             "name": "checkoutId",
@@ -13432,9 +13197,7 @@
                             "format": "double"
                           }
                         },
-                        "required": [
-                          "code"
-                        ]
+                        "required": ["code"]
                       }
                     },
                     "discounts": {
@@ -13594,9 +13357,7 @@
                                   }
                                 }
                               },
-                              "required": [
-                                "quantity"
-                              ]
+                              "required": ["quantity"]
                             }
                           },
                           "digitalItems": {
@@ -13722,9 +13483,7 @@
                                   "type": "string"
                                 }
                               },
-                              "required": [
-                                "quantity"
-                              ]
+                              "required": ["quantity"]
                             }
                           },
                           "giftCertificate": {
@@ -13830,10 +13589,7 @@
                             }
                           }
                         },
-                        "required": [
-                          "physicalItems",
-                          "digitalItems"
-                        ]
+                        "required": ["physicalItems", "digitalItems"]
                       }
                     },
                     "createdTime": {
@@ -13921,9 +13677,7 @@
                           }
                         }
                       },
-                      "required": [
-                        "countryCode"
-                      ]
+                      "required": ["countryCode"]
                     },
                     {
                       "type": "object",
@@ -14023,9 +13777,7 @@
                                 }
                               }
                             },
-                            "required": [
-                              "countryCode"
-                            ]
+                            "required": ["countryCode"]
                           },
                           {
                             "type": "object",
@@ -14200,9 +13952,7 @@
                         "format": "double"
                       }
                     },
-                    "required": [
-                      "code"
-                    ]
+                    "required": ["code"]
                   }
                 },
                 "orderId": {
@@ -14383,9 +14133,7 @@
                     "handlingCost": 0,
                     "couponDiscounts": [],
                     "discounts": [],
-                    "lineItemIds": [
-                      "243c9ca2-22b4-417a-8b09-b3fc05778b52"
-                    ],
+                    "lineItemIds": ["243c9ca2-22b4-417a-8b09-b3fc05778b52"],
                     "selectedShippingOption": {
                       "id": "d09e05c0-3788-44df-a1bb-b6d3afdf6841",
                       "type": "shipping_byweight",
@@ -14426,6 +14174,8 @@
                 ],
                 "subtotal": 7.95,
                 "grandTotal": 15.95,
+                "outstandingBalance": 0,
+                "isStoreCreditApplied": true,
                 "giftCertificates": [],
                 "createdTime": "2019-01-10T17:18:00+00:00",
                 "updatedTime": "2019-01-10T17:19:47+00:00",
@@ -14440,13 +14190,9 @@
       "delete": {
         "description": "Deletes a *Coupon Code* from *Checkout*.",
         "summary": "Delete Checkout Coupon",
-        "tags": [
-          "Checkout"
-        ],
+        "tags": ["Checkout"],
         "operationId": "CheckoutsCouponsByCheckoutIdAndCouponCodeDelete",
-        "produces": [
-          "application/json"
-        ],
+        "produces": ["application/json"],
         "parameters": [
           {
             "name": "checkoutId",
@@ -14566,9 +14312,7 @@
                             "format": "double"
                           }
                         },
-                        "required": [
-                          "code"
-                        ]
+                        "required": ["code"]
                       }
                     },
                     "discounts": {
@@ -14728,9 +14472,7 @@
                                   }
                                 }
                               },
-                              "required": [
-                                "quantity"
-                              ]
+                              "required": ["quantity"]
                             }
                           },
                           "digitalItems": {
@@ -14856,9 +14598,7 @@
                                   "type": "string"
                                 }
                               },
-                              "required": [
-                                "quantity"
-                              ]
+                              "required": ["quantity"]
                             }
                           },
                           "giftCertificate": {
@@ -14964,10 +14704,7 @@
                             }
                           }
                         },
-                        "required": [
-                          "physicalItems",
-                          "digitalItems"
-                        ]
+                        "required": ["physicalItems", "digitalItems"]
                       }
                     },
                     "createdTime": {
@@ -15055,9 +14792,7 @@
                           }
                         }
                       },
-                      "required": [
-                        "countryCode"
-                      ]
+                      "required": ["countryCode"]
                     },
                     {
                       "type": "object",
@@ -15157,9 +14892,7 @@
                                 }
                               }
                             },
-                            "required": [
-                              "countryCode"
-                            ]
+                            "required": ["countryCode"]
                           },
                           {
                             "type": "object",
@@ -15334,9 +15067,7 @@
                         "format": "double"
                       }
                     },
-                    "required": [
-                      "code"
-                    ]
+                    "required": ["code"]
                   }
                 },
                 "orderId": {
@@ -15558,9 +15289,7 @@
                             "format": "double"
                           }
                         },
-                        "required": [
-                          "code"
-                        ]
+                        "required": ["code"]
                       }
                     },
                     "discounts": {
@@ -15720,9 +15449,7 @@
                                   }
                                 }
                               },
-                              "required": [
-                                "quantity"
-                              ]
+                              "required": ["quantity"]
                             }
                           },
                           "digitalItems": {
@@ -15848,9 +15575,7 @@
                                   "type": "string"
                                 }
                               },
-                              "required": [
-                                "quantity"
-                              ]
+                              "required": ["quantity"]
                             }
                           },
                           "giftCertificate": {
@@ -15956,10 +15681,7 @@
                             }
                           }
                         },
-                        "required": [
-                          "physicalItems",
-                          "digitalItems"
-                        ]
+                        "required": ["physicalItems", "digitalItems"]
                       }
                     },
                     "createdTime": {
@@ -16046,9 +15768,7 @@
                           }
                         }
                       },
-                      "required": [
-                        "countryCode"
-                      ]
+                      "required": ["countryCode"]
                     },
                     {
                       "properties": {
@@ -16147,9 +15867,7 @@
                                 }
                               }
                             },
-                            "required": [
-                              "countryCode"
-                            ]
+                            "required": ["countryCode"]
                           },
                           {
                             "properties": {
@@ -16323,9 +16041,7 @@
                         "format": "double"
                       }
                     },
-                    "required": [
-                      "code"
-                    ]
+                    "required": ["code"]
                   }
                 },
                 "orderId": {
@@ -16506,9 +16222,7 @@
                     "handlingCost": 0,
                     "couponDiscounts": [],
                     "discounts": [],
-                    "lineItemIds": [
-                      "243c9ca2-22b4-417a-8b09-b3fc05778b52"
-                    ],
+                    "lineItemIds": ["243c9ca2-22b4-417a-8b09-b3fc05778b52"],
                     "selectedShippingOption": {
                       "id": "d09e05c0-3788-44df-a1bb-b6d3afdf6841",
                       "type": "shipping_byweight",
@@ -16549,6 +16263,8 @@
                 ],
                 "subtotal": 7.95,
                 "grandTotal": 15.95,
+                "outstandingBalance": 0,
+                "isStoreCreditApplied": true,
                 "giftCertificates": [],
                 "createdTime": "2019-01-10T17:18:00+00:00",
                 "updatedTime": "2019-01-10T17:19:47+00:00",
@@ -16676,9 +16392,7 @@
                     "format": "double"
                   }
                 },
-                "required": [
-                  "code"
-                ]
+                "required": ["code"]
               }
             },
             "discounts": {
@@ -16838,9 +16552,7 @@
                           }
                         }
                       },
-                      "required": [
-                        "quantity"
-                      ]
+                      "required": ["quantity"]
                     }
                   },
                   "digitalItems": {
@@ -16966,9 +16678,7 @@
                           "type": "string"
                         }
                       },
-                      "required": [
-                        "quantity"
-                      ]
+                      "required": ["quantity"]
                     }
                   },
                   "giftCertificate": {
@@ -17036,12 +16746,7 @@
                           "type": "string"
                         }
                       },
-                      "required": [
-                        "theme",
-                        "amount",
-                        "sender",
-                        "recipient"
-                      ]
+                      "required": ["theme", "amount", "sender", "recipient"]
                     }
                   },
                   "customItems": {
@@ -17074,10 +16779,7 @@
                     }
                   }
                 },
-                "required": [
-                  "physicalItems",
-                  "digitalItems"
-                ]
+                "required": ["physicalItems", "digitalItems"]
               }
             },
             "createdTime": {
@@ -17164,9 +16866,7 @@
                   }
                 }
               },
-              "required": [
-                "countryCode"
-              ]
+              "required": ["countryCode"]
             },
             {
               "properties": {
@@ -17265,9 +16965,7 @@
                         }
                       }
                     },
-                    "required": [
-                      "countryCode"
-                    ]
+                    "required": ["countryCode"]
                   },
                   {
                     "properties": {
@@ -17449,9 +17147,7 @@
                 "format": "double"
               }
             },
-            "required": [
-              "code"
-            ]
+            "required": ["code"]
           }
         },
         "orderId": {
@@ -17642,9 +17338,7 @@
                 "format": "double"
               }
             },
-            "required": [
-              "code"
-            ]
+            "required": ["code"]
           }
         },
         "discounts": {
@@ -17804,9 +17498,7 @@
                       }
                     }
                   },
-                  "required": [
-                    "quantity"
-                  ]
+                  "required": ["quantity"]
                 }
               },
               "digitalItems": {
@@ -17932,9 +17624,7 @@
                       "type": "string"
                     }
                   },
-                  "required": [
-                    "quantity"
-                  ]
+                  "required": ["quantity"]
                 }
               },
               "giftCertificate": {
@@ -18002,12 +17692,7 @@
                       "type": "string"
                     }
                   },
-                  "required": [
-                    "theme",
-                    "amount",
-                    "sender",
-                    "recipient"
-                  ]
+                  "required": ["theme", "amount", "sender", "recipient"]
                 }
               },
               "customItems": {
@@ -18040,10 +17725,7 @@
                 }
               }
             },
-            "required": [
-              "physicalItems",
-              "digitalItems"
-            ]
+            "required": ["physicalItems", "digitalItems"]
           }
         },
         "createdTime": {
@@ -18106,9 +17788,7 @@
           "format": "double"
         }
       },
-      "required": [
-        "code"
-      ]
+      "required": ["code"]
     },
     "AppliedDiscount": {
       "title": "Applied Discount",
@@ -18260,9 +17940,7 @@
                 }
               }
             },
-            "required": [
-              "quantity"
-            ]
+            "required": ["quantity"]
           }
         },
         "digitalItems": {
@@ -18388,9 +18066,7 @@
                 "type": "string"
               }
             },
-            "required": [
-              "quantity"
-            ]
+            "required": ["quantity"]
           }
         },
         "giftCertificate": {
@@ -18458,12 +18134,7 @@
                 "type": "string"
               }
             },
-            "required": [
-              "theme",
-              "amount",
-              "sender",
-              "recipient"
-            ]
+            "required": ["theme", "amount", "sender", "recipient"]
           }
         },
         "customItems": {
@@ -18496,10 +18167,7 @@
           }
         }
       },
-      "required": [
-        "physicalItems",
-        "digitalItems"
-      ]
+      "required": ["physicalItems", "digitalItems"]
     },
     "ItemPhysical": {
       "title": "Item Physical",
@@ -18629,9 +18297,7 @@
           }
         }
       },
-      "required": [
-        "quantity"
-      ]
+      "required": ["quantity"]
     },
     "GiftWrapping": {
       "title": "Gift Wrapping",
@@ -18772,9 +18438,7 @@
           "type": "string"
         }
       },
-      "required": [
-        "quantity"
-      ]
+      "required": ["quantity"]
     },
     "ItemGiftCertificate": {
       "title": "Item Gift Certificate",
@@ -18838,12 +18502,7 @@
           "type": "string"
         }
       },
-      "required": [
-        "theme",
-        "amount",
-        "sender",
-        "recipient"
-      ]
+      "required": ["theme", "amount", "sender", "recipient"]
     },
     "ContactEntity": {
       "title": "Contact Entity",
@@ -18934,9 +18593,7 @@
               }
             }
           },
-          "required": [
-            "countryCode"
-          ]
+          "required": ["countryCode"]
         },
         {
           "type": "object",
@@ -19021,9 +18678,7 @@
           }
         }
       },
-      "required": [
-        "countryCode"
-      ]
+      "required": ["countryCode"]
     },
     "CustomField": {
       "title": "CustomField",
@@ -19123,9 +18778,7 @@
                   }
                 }
               },
-              "required": [
-                "countryCode"
-              ]
+              "required": ["countryCode"]
             },
             {
               "properties": {
@@ -19597,9 +19250,7 @@
                         "format": "double"
                       }
                     },
-                    "required": [
-                      "code"
-                    ]
+                    "required": ["code"]
                   }
                 },
                 "discounts": {
@@ -19759,9 +19410,7 @@
                               }
                             }
                           },
-                          "required": [
-                            "quantity"
-                          ]
+                          "required": ["quantity"]
                         }
                       },
                       "digitalItems": {
@@ -19887,9 +19536,7 @@
                               "type": "string"
                             }
                           },
-                          "required": [
-                            "quantity"
-                          ]
+                          "required": ["quantity"]
                         }
                       },
                       "giftCertificate": {
@@ -19957,12 +19604,7 @@
                               "type": "string"
                             }
                           },
-                          "required": [
-                            "theme",
-                            "amount",
-                            "sender",
-                            "recipient"
-                          ]
+                          "required": ["theme", "amount", "sender", "recipient"]
                         }
                       },
                       "customItems": {
@@ -19995,10 +19637,7 @@
                         }
                       }
                     },
-                    "required": [
-                      "physicalItems",
-                      "digitalItems"
-                    ]
+                    "required": ["physicalItems", "digitalItems"]
                   }
                 },
                 "createdTime": {
@@ -20086,9 +19725,7 @@
                       }
                     }
                   },
-                  "required": [
-                    "countryCode"
-                  ]
+                  "required": ["countryCode"]
                 },
                 {
                   "type": "object",
@@ -20188,9 +19825,7 @@
                             }
                           }
                         },
-                        "required": [
-                          "countryCode"
-                        ]
+                        "required": ["countryCode"]
                       },
                       {
                         "type": "object",
@@ -20365,9 +20000,7 @@
                     "format": "double"
                   }
                 },
-                "required": [
-                  "code"
-                ]
+                "required": ["code"]
               }
             },
             "orderId": {
@@ -20547,13 +20180,7 @@
               "format": "double"
             }
           },
-          "required": [
-            "theme",
-            "amount",
-            "sender",
-            "recipient",
-            "quantity"
-          ]
+          "required": ["theme", "amount", "sender", "recipient", "quantity"]
         }
       }
     },
@@ -20631,13 +20258,7 @@
           "format": "double"
         }
       },
-      "required": [
-        "theme",
-        "amount",
-        "sender",
-        "recipient",
-        "quantity"
-      ]
+      "required": ["theme", "amount", "sender", "recipient", "quantity"]
     },
     "CreateConsignmentRequest": {
       "title": "Create Consignment Request",
@@ -20715,9 +20336,7 @@
               }
             }
           },
-          "required": [
-            "countryCode"
-          ]
+          "required": ["countryCode"]
         },
         "lineItems": {
           "description": "",
@@ -20736,10 +20355,7 @@
                 "format": "int32"
               }
             },
-            "required": [
-              "itemId",
-              "quantity"
-            ]
+            "required": ["itemId", "quantity"]
           }
         }
       }
@@ -20758,10 +20374,7 @@
           "format": "int32"
         }
       },
-      "required": [
-        "itemId",
-        "quantity"
-      ]
+      "required": ["itemId", "quantity"]
     },
     "UpdateConsignmentRequest": {
       "title": "Update Consignment Request",
@@ -20840,9 +20453,7 @@
               }
             }
           },
-          "required": [
-            "countryCode"
-          ]
+          "required": ["countryCode"]
         },
         "lineItems": {
           "description": "",
@@ -20861,10 +20472,7 @@
                 "format": "int32"
               }
             },
-            "required": [
-              "itemId",
-              "quantity"
-            ]
+            "required": ["itemId", "quantity"]
           }
         },
         "shippingOptionId": {
@@ -21021,9 +20629,7 @@
           "description": "The product brand. "
         }
       },
-      "required": [
-        "quantity"
-      ]
+      "required": ["quantity"]
     },
     "ItemCustom": {
       "type": "object",
@@ -21060,9 +20666,7 @@
       "default": "consignments.availableShippingOptions"
     }
   },
-  "schemes": [
-    "https"
-  ],
+  "schemes": ["https"],
   "responses": {
     "Checkout": {
       "description": "",
@@ -21150,9 +20754,7 @@
               "handlingCost": 0,
               "couponDiscounts": [],
               "discounts": [],
-              "lineItemIds": [
-                "243c9ca2-22b4-417a-8b09-b3fc05778b52"
-              ],
+              "lineItemIds": ["243c9ca2-22b4-417a-8b09-b3fc05778b52"],
               "selectedShippingOption": {
                 "id": "d09e05c0-3788-44df-a1bb-b6d3afdf6841",
                 "type": "shipping_byweight",
