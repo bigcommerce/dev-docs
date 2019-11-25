@@ -7,124 +7,8 @@
       "contact": {}
     },
     "host": "api.bigcommerce.com",
-    "basePath": "/v3/",
+    "basePath": "/stores/{$$.env.store_hash}/v3",
     "paths": {
-      "/channels/{channel_id}/site": {
-        "get": {
-          "summary": "GET Channel Site",
-          "description": "Alias of GET /sites?channel_id=channel_id\n\nReturns site data for given channel\n\n",
-          "operationId": "get-channel-site",
-          "parameters": [
-            {
-              "name": "channel_id",
-              "in": "path",
-              "required": true,
-              "type": "string"
-            }
-          ],
-          "responses": {
-            "200": {
-              "$ref": "#/responses/SiteResponse"
-            }
-          },
-          "tags": [
-            "Sites"
-          ],
-          "produces": [
-            "application/json"
-          ]
-        },
-        "put": {
-          "summary": "PUT Channel Site",
-          "operationId": "put-channel-site",
-          "parameters": [
-            {
-              "name": "channel_id",
-              "in": "path",
-              "required": true,
-              "type": "string"
-            },
-            {
-              "name": "body",
-              "in": "body",
-              "required": true,
-              "schema": {
-                "$ref": "#/definitions/Site Put"
-              },
-              "x-examples": {
-                "application/json": {
-                  "url": "https://www.my-new-site.com"
-                }
-              }
-            }
-          ],
-          "responses": {
-            "200": {
-              "description": "Updated",
-              "schema": {
-                "$ref": "#/responses/SiteResponse"
-              },
-              "examples": {
-                "Example 1": "{{\"data\":{\"id\":1,\"url\":\"https://www.my-awesome-site.com\",\"channel_id\":18735,\"created_at\":\"2019-08-05T18:26:21Z\",\"updated_at\":\"2019-08-05T18:26:21Z\"},\"meta\":{}}"
-              }
-            }
-          },
-          "tags": [
-            "Sites"
-          ],
-          "consumes": [
-            "application/json"
-          ],
-          "produces": [
-            "application/json"
-          ],
-          "description": "Updates a site for provided channel"
-        },
-        "post": {
-          "summary": "POST Channel Site",
-          "description": "Alias of POST /sites\n\nCreates a site for provided channel",
-          "operationId": "post-channel-site",
-          "parameters": [
-            {
-              "name": "channel_id",
-              "in": "path",
-              "required": true,
-              "type": "string"
-            },
-            {
-              "name": "body",
-              "in": "body",
-              "required": true,
-              "schema": {
-                "$ref": "#/definitions/Site Create"
-              }
-            }
-          ],
-          "responses": {
-            "200": {
-              "description": "Created",
-              "schema": {
-                "$ref": "#/definitions/Site"
-              },
-              "examples": {
-                "Example 1": "{\n    \"id\": 1,\n    \"url\": \"http://kittens.mybigcommerce.com/\",\n    \"channel_id\": 1,\n    \"created_at\": \"2018-01-04T04:15:50.000Z\",\n    \"updated_at\": \"2018-01-04T04:15:50.000Z\"\n}"
-              }
-            },
-            "422": {
-              "$ref": "#/responses/ErrorResponse"
-            }
-          },
-          "tags": [
-            "Sites"
-          ],
-          "consumes": [
-            "application/json"
-          ],
-          "produces": [
-            "application/json"
-          ]
-        }
-      },
       "/sites": {
         "post": {
           "summary": "POST Site",
@@ -135,7 +19,7 @@
               "in": "body",
               "required": true,
               "schema": {
-                "$ref": "#/definitions/Site Create"
+                "$ref": "#/definitions/sitePost"
               }
             }
           ],
@@ -218,7 +102,7 @@
           ]
         }
       },
-      "/sites/{id}": {
+      "/sites/{site_id}": {
         "get": {
           "summary": "GET Site",
           "operationId": "get-site",
@@ -485,7 +369,7 @@
           ]
         }
       },
-      "/sites/{site_id}/routes/{id}": {
+      "/sites/{site_id}/routes/{rout_id}": {
         "get": {
           "summary": "GET Site Route",
           "operationId": "get-site-route",
@@ -679,7 +563,7 @@
           }
         }
       },
-      "Site Create": {
+      "sitePost": {
         "type": "object",
         "properties": {
           "url": {
