@@ -45,9 +45,9 @@ This article is a general overview of the capabilities and usage of BigCommerce'
 
 ## See it in Action
 
-To see the GraphQL storefront API in action, checkout the [Bootstrap + Vanilla JS Storefront API Example](https://bigcommerce.github.io/storefront-api-examples/html-bootstrap-vanillajs/) hosted on GitHub. This example shows how a static HTML site can be used to render dynamic product information via the GraphQL Storefront API.
+To see the GraphQL Storefront API in action, checkout the [Bootstrap + Vanilla JS Storefront API Example](https://bigcommerce.github.io/storefront-api-examples/html-bootstrap-vanillajs/) hosted on GitHub. This example shows how a static HTML site can be used to render dynamic product information via the GraphQL Storefront API.
 
-Simply open the link and click submit with the sample data in the form. To see the example page with your store's data, [create a Storefront API Token](https://developer.bigcommerce.com/api-reference/storefront/storefront-token-api/api-token/createtoken) against your store and paste the token into the example form (be sure to create a token valid for this origin: `https://bigcommerce.github.io`).
+Open the link and click submit with the sample data in the form. To see the example page with your store's data, [create a Storefront API Token](https://developer.bigcommerce.com/api-reference/storefront/storefront-token-api/api-token/createtoken) against your store and paste the token into the example form (be sure to create a token valid for this origin: `https://bigcommerce.github.io`).
 
 For a full list of examples, see the [Storefront API Examples repo](https://github.com/bigcommerce/storefront-api-examples).
 
@@ -55,10 +55,10 @@ For a full list of examples, see the [Storefront API Examples repo](https://gith
 
 ## Accessing the GraphQL Playground
 
-To access the GraphQL Storefront API Playground<sup>1</sup> and documentation:
+To access the GraphQL Storefront API Playground and documentation:
 
-1. Login to a BigCommerce store enrolled in the beta
-2. Navigate to **Advanced Settings** > **Storefront API Playground**<sup>2</sup>
+* Login to a BigCommerce store enrolled in the beta
+* Navigate to **Advanced Settings** > **Storefront API Playground**
 
 The GraphQL Storefront API Playground will be opened:
 
@@ -72,9 +72,9 @@ The GraphQL Storefront API Playground will be opened:
 
 ### Note
 
-> 1. GraphQL Playground is a GraphQL IDE built on Electron. For more information, see [GraphQL Playground](https://electronjs.org/apps/graphql-playground) on [electrongjs.org](https://electronjs.org)
+> * GraphQL Playground is a GraphQL IDE built on Electron. For more information, see [GraphQL Playground](https://electronjs.org/apps/graphql-playground) on [electrongjs.org](https://electronjs.org)
 
-> 2. If the **Storefront API Playground** link is not visible, the store is not enrolled in the Beta program. To enroll, [contact support](https://support.bigcommerce.com/SubmitCase) (all stores using Stencil are now eligible).
+> * If the **Storefront API Playground** link is not visible, the store is not enrolled in the Beta program. To enroll, [contact support](https://support.bigcommerce.com/SubmitCase) (all stores using Stencil are now eligible)
 
 </div> 
 </div>
@@ -133,7 +133,7 @@ Click changelog in the top right to view a list of recent changes to the storefr
 <!-- theme: info -->
 
 ### Note
-> * The changelog is updated with each deployment. 
+> * The changelog is updated with each deployment
 > * Additive Changes are possible during beta, so we recommend checking for changes frequently
 
 </div> 
@@ -153,26 +153,7 @@ curl 'https://www.{bigcommerce_storefront_domain}.com/graphql'\
   # ...
 ```
 
-### Authenticating with a Stencil Simple Token
-Client code in BigCommerce Stencil themes can be passed a token at render time with the `{{settings.storefront_api.token}}` handlebars object:
-
-```html
-<script>
-fetch('/graphql', {
-       method: 'POST',
-       headers: {
-           'Content-Type': 'application/json',
-           'Authorization': 'Bearer {{settings.storefront_api.token}}'
-       },
-       body: JSON.stringify({
-           query: `
-            query MyFirstQuery {...}
-  `
-// ...
-</script>
-```
-
-### Authenticating with a JWT
+### Creating a Token
 
 JWT tokens for authenticating cross-origin requests to the Storefront API can be created using the [Storefront API Token endpoint](https://developer.bigcommerce.com/api-reference/storefront/storefront-token-api/api-token/createtoken):
 
@@ -203,6 +184,25 @@ JWT tokens for authenticating cross-origin requests to the Storefront API can be
 <div class="CalloutBlock--warning">
 <div class="HubBlock-content">
 <!-- theme: warning -->
+
+### Authenticating with a Stencil Simple Token
+Client code in BigCommerce Stencil themes can be passed a token at render time with the `{{settings.storefront_api.token}}` Handlebars object:
+
+```html
+<script>
+fetch('/graphql', {
+       method: 'POST',
+       headers: {
+           'Content-Type': 'application/json',
+           'Authorization': 'Bearer {{settings.storefront_api.token}}'
+       },
+       body: JSON.stringify({
+           query: `
+            query MyFirstQuery {...}
+  `
+// ...
+</script>
+```
 
 ### Note
 > * `1` can be passed in for the `channel_id` for generating tokens for use on the storefront itself.
@@ -242,6 +242,7 @@ Its also possible to generate tokens for use in server-to-server interactions wi
 ```
 
 Customer Impersonation Token authenticated requests made to the GraphQL API receive store information from the perspective of the customer corresponding to the customer ID specified in the `X-Bc-Customer-Id` header used to create the token -- for example: pricing, product availability, customer account, and customer details.
+
 
 <a id="querying-within-a-bigcommerce-storefront" class="devdocsAnchor"></a>
 
@@ -295,8 +296,8 @@ Here's an an example request using the  `{{settings.storefront_api.token}}` hand
 ```
 
 In addition to using `fetch()`, there's a other ways to query the API:
-1. **Using [Apollo Client](https://www.apollographql.com/docs/react/)** - Apollo is a popular GraphQL client that's easy to use in BigCommerce themes. For a a quick example of adding Apollo Client to cornerstone, checkout this [Cornerstone commit](https://github.com/bigcommerce/cornerstone/commit/508feeb1b00d2bb2940771e5e91250a08b6be4d9) on GitHub.
-2. **Using any GraphQL Client** - GraphQL is standard with client libraries in many languages, so feel free to explore your options. The focus of the beta is on using the API from frontend JavaScript within Stencil; however, in the future, the API will also be opened up for server-to-server requests.
+* **Using [Apollo Client](https://www.apollographql.com/docs/react/)** - Apollo is a popular GraphQL client that's easy to use in BigCommerce themes. For a a quick example of adding Apollo Client to cornerstone, checkout this [Cornerstone commit](https://github.com/bigcommerce/cornerstone/commit/508feeb1b00d2bb2940771e5e91250a08b6be4d9) on GitHub.
+* **Using any GraphQL Client** - GraphQL is standard with client libraries in many languages, so feel free to explore your options. The focus of the beta is on using the API from frontend JavaScript within Stencil; however, in the future, the API will also be opened up for server-to-server requests.
 
 <div class="HubBlock--callout">
 <div class="CalloutBlock--info">
@@ -312,6 +313,8 @@ In addition to using `fetch()`, there's a other ways to query the API:
 </div>
 </div>
 </div>
+
+<a id="complexity-limits" class="devdocsAnchor"></a>
 
 ## Complexity Limits
 
