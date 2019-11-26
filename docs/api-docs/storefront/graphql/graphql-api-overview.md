@@ -4,12 +4,12 @@
 
 ### On this Page
 
-- [Authentication](#authentication)
-- [Querying Within a BigCommerce Storefront](#querying-within-a-bigcommerce-storefront)
+- [See it in Action](#see-it-in-action)
 - [Accessing the GraphQL Playground](#accessing-the-graphql-playground)
 - [Using the GraphQL Playground](#using-the-graphql-playground)
+- [Authentication](#authentication)
+- [Querying Within a BigCommerce Storefront](#querying-within-a-bigcommerce-storefront)
 - [Complexity Limits](#complexity-limits)
-- [See it in Action](#see-it-in-action)
 - [Resources](#resources)
 
 </div>
@@ -38,6 +38,105 @@ This article is a general overview of the capabilities and usage of BigCommerce'
 > * BigCommerce legacy Blueprint themes currently do not support the GraphQL API and Playground
 
 </div>
+</div>
+</div>
+
+<a id="see-it-in-action" class="devdocsAnchor"></a>
+
+## See it in Action
+
+To see the GraphQL Storefront API in action, checkout the [Bootstrap + Vanilla JS Storefront API Example](https://bigcommerce.github.io/storefront-api-examples/html-bootstrap-vanillajs/) hosted on GitHub. This example shows how a static HTML site can be used to render dynamic product information via the GraphQL Storefront API.
+
+Open the link and click submit with the sample data in the form. To see the example page with your store's data, [create a Storefront API Token](https://developer.bigcommerce.com/api-reference/storefront/storefront-token-api/api-token/createtoken) against your store and paste the token into the example form (be sure to create a token valid for this origin: `https://bigcommerce.github.io`).
+
+For a full list of examples, see the [Storefront API Examples repo](https://github.com/bigcommerce/storefront-api-examples).
+
+<a id="accessing-the-graphql-playground" class="devdocsAnchor"></a>
+
+## Accessing the GraphQL Playground
+
+To access the GraphQL Storefront API Playground and documentation:
+
+* Login to a BigCommerce store enrolled in the beta
+* Navigate to **Advanced Settings** > **Storefront API Playground**
+
+The GraphQL Storefront API Playground will be opened:
+
+![GraphQL Storefront API Playground](https://raw.githubusercontent.com/bigcommerce/dev-docs/master/assets/images/graphql-storefront-api-playground.png "GraphQL Storefront API Playground")
+
+<div class="HubBlock--callout">
+<div class="CalloutBlock--info">
+<div class="HubBlock-content">
+    
+<!-- theme: info -->
+
+### Note
+
+> * GraphQL Playground is a GraphQL IDE built on Electron. For more information, see [GraphQL Playground](https://electronjs.org/apps/graphql-playground) on [electrongjs.org](https://electronjs.org)
+
+> * If the **Storefront API Playground** link is not visible, the store is not enrolled in the Beta program. To enroll, [contact support](https://support.bigcommerce.com/SubmitCase) (all stores using Stencil are now eligible)
+
+</div> 
+</div>
+</div>
+
+<a id="using-the-graphql-playground" class="devdocsAnchor"></a>
+
+## Using the GraphQL Playground
+
+To use the request runner, input queries on the left side and then click the play button. Query results will be displayed on the the right side:
+
+![GraphQL Playground Query](https://raw.githubusercontent.com/bigcommerce/dev-docs/master/assets/images/graphql-storefront-api-playground2.png "GraphQL Playground Query")
+
+Here's a sample Query to get you started:
+
+```javascript
+query MyFirstQuery {
+  site {
+    settings {
+      storeName
+    }
+    products {
+      edges {
+        node {
+          name
+          sku
+          prices {
+            retailPrice {
+              value
+              currencyCode
+            }
+            price {
+              value
+              currencyCode
+            }
+          }
+        }
+      }
+    }
+  }
+}
+```
+
+To explore the storefront GraphQL schema, checkout the Docs and Schema tabs on the right:
+
+![GraphQL Playground Docs](https://raw.githubusercontent.com/bigcommerce/dev-docs/master/assets/images/graphql-playground-docs.png "GraphQL Playground Docs")
+
+Click changelog in the top right to view a list of recent changes to the storefront API:
+
+![GraphQL Playground Changelog](https://raw.githubusercontent.com/bigcommerce/dev-docs/master/assets/images/graphql-playground-changelog.png "GraphQL Playground Changelog")
+
+<div class="HubBlock--callout">
+<div class="CalloutBlock--info">
+<div class="HubBlock-content">
+
+<!-- theme: info -->
+
+### Note
+> * The changelog is updated with each deployment
+> * Additive Changes are possible during beta, so we recommend checking for changes frequently
+
+</div> 
 </div>
 </div>
 
@@ -87,7 +186,7 @@ JWT tokens for authenticating cross-origin requests to the Storefront API can be
 <!-- theme: warning -->
 
 ### Authenticating with a Stencil Simple Token
-Client code in BigCommerce Stencil themes can be passed a token at render time with the `{{settings.storefront_api.token}}` handlebars object:
+Client code in BigCommerce Stencil themes can be passed a token at render time with the `{{settings.storefront_api.token}}` Handlebars object:
 
 ```html
 <script>
@@ -215,95 +314,6 @@ In addition to using `fetch()`, there's a other ways to query the API:
 </div>
 </div>
 
-<a id="accessing-the-graphql-playground" class="devdocsAnchor"></a>
-
-## Accessing the GraphQL Playground
-
-To access the GraphQL Storefront API Playground<sup>1</sup> and documentation:
-
-1. Login to a BigCommerce store enrolled in the beta
-2. Navigate to **Advanced Settings** > **Storefront API Playground**<sup>2</sup>
-
-The GraphQL Storefront API Playground will be opened:
-
-![GraphQL Storefront API Playground](https://raw.githubusercontent.com/bigcommerce/dev-docs/master/assets/images/graphql-storefront-api-playground.png "GraphQL Storefront API Playground")
-
-<div class="HubBlock--callout">
-<div class="CalloutBlock--info">
-<div class="HubBlock-content">
-    
-<!-- theme: info -->
-
-### Note
-
-> 1. GraphQL Playground is a GraphQL IDE built on Electron. For more information, see [GraphQL Playground](https://electronjs.org/apps/graphql-playground) on [electrongjs.org](https://electronjs.org)
-
-> 2. If the **Storefront API Playground** link is not visible, the store is not enrolled in the Beta program. To enroll, [contact support](https://support.bigcommerce.com/SubmitCase) (all stores using Stencil are now eligible).
-
-</div> 
-</div>
-</div>
-
-<a id="using-the-graphql-playground" class="devdocsAnchor"></a>
-
-## Using the GraphQL Playground
-
-To use the request runner, input queries on the left side and then click the play button. Query results will be displayed on the the right side:
-
-![GraphQL Playground Query](https://raw.githubusercontent.com/bigcommerce/dev-docs/master/assets/images/graphql-storefront-api-playground2.png "GraphQL Playground Query")
-
-Here's a sample Query to get you started:
-
-```javascript
-query MyFirstQuery {
-  site {
-    settings {
-      storeName
-    }
-    products {
-      edges {
-        node {
-          name
-          sku
-          prices {
-            retailPrice {
-              value
-              currencyCode
-            }
-            price {
-              value
-              currencyCode
-            }
-          }
-        }
-      }
-    }
-  }
-}
-```
-
-To explore the storefront GraphQL schema, checkout the Docs and Schema tabs on the right:
-
-![GraphQL Playground Docs](https://raw.githubusercontent.com/bigcommerce/dev-docs/master/assets/images/graphql-playground-docs.png "GraphQL Playground Docs")
-
-Click changelog in the top right to view a list of recent changes to the storefront API:
-
-![GraphQL Playground Changelog](https://raw.githubusercontent.com/bigcommerce/dev-docs/master/assets/images/graphql-playground-changelog.png "GraphQL Playground Changelog")
-
-<div class="HubBlock--callout">
-<div class="CalloutBlock--info">
-<div class="HubBlock-content">
-
-<!-- theme: info -->
-
-### Note
-> * The changelog is updated with each deployment. 
-> * Additive Changes are possible during beta, so we recommend checking for changes frequently
-
-</div> 
-</div>
-</div>
-
 <a id="complexity-limits" class="devdocsAnchor"></a>
 
 ## Complexity Limits
@@ -384,16 +394,6 @@ In general, to reduce complexity, reduce the number of objects requested:
 * limit collections to a smaller page size (for example `first:10` instead of `first:50`)
 * reduce the number of items in nested collections
 * request less fields
-
-<a id="see-it-in-action" class="devdocsAnchor"></a>
-
-## See it in Action
-
-To see the GraphQL storefront API in action, checkout the [Bootstrap + Vanilla JS Storefront API Example](https://bigcommerce.github.io/storefront-api-examples/html-bootstrap-vanillajs/) hosted on GitHub. This example shows how a static HTML site can be used to render dynamic product information via the GraphQL Storefront API.
-
-Simply open the link and click submit with the sample data in the form. To see the example page with your store's data, [create a Storefront API Token](https://developer.bigcommerce.com/api-reference/storefront/storefront-token-api/api-token/createtoken) against your store and paste the token into the example form (be sure to create a token valid for this origin: `https://bigcommerce.github.io`).
-
-For a full list of examples, see the [Storefront API Examples repo](https://github.com/bigcommerce/storefront-api-examples).
 
 ## Resources
 
