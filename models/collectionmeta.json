@@ -4,7 +4,7 @@
   "description": "Data about the response, including pagination and collection totals.",
   "properties": {
     "pagination": {
-      "$ref": "./pagination.json"
+      "$ref": "./Pagination.json"
     }
   }
 }

@@ -1,808 +1,765 @@
 {
-    "swagger": "2.0",
-    "info": {
-      "title": "BigCommerce Sites & Routes API",
-      "version": "1.0",
-      "description": "The Sites & Routes API enables you to set up an external storefront with a domain and page routes that are not bigcommerce URLs.",
-      "contact": {}
-    },
-    "host": "api.bigcommerce.com",
-    "basePath": "/stores/{$$.env.store_hash}/v3",
-    "paths": {
-      "/sites": {
-        "post": {
-          "summary": "POST Site",
-          "operationId": "post-site",
-          "parameters": [
-            {
-              "name": "body",
-              "in": "body",
-              "required": true,
-              "schema": {
-                "$ref": "#/definitions/sitePost"
-              }
+  "swagger": "2.0",
+  "info": {
+    "title": "BigCommerce Sites & Routes API",
+    "version": "1.0",
+    "description": "The Sites & Routes API enables you to set up an external storefront with a domain and page routes that are not bigcommerce URLs.",
+    "contact": {}
+  },
+  "host": "api.bigcommerce.com",
+  "basePath": "/stores/{$$.env.store_hash}/v3",
+  "paths": {
+    "/sites": {
+      "post": {
+        "summary": "Create a Site",
+        "operationId": "post-site",
+        "parameters": [
+          {
+            "name": "body",
+            "in": "body",
+            "required": true,
+            "schema": {
+              "$ref": "#/definitions/sitePost"
             }
-          ],
-          "responses": {
-            "200": {
-              "description": "OK",
-              "schema": {
-                "$ref": "#/definitions/Site"
-              },
-              "examples": {
-                "Example 1": "{\n    \"id\": 1,\n    \"url\": \"http://kittens.mybigcommerce.com/\",\n    \"channel_id\": 1,\n    \"created_at\": \"2018-01-04T04:15:50.000Z\",\n    \"updated_at\": \"2018-01-04T04:15:50.000Z\"\n}"
-              }
+          }
+        ],
+        "responses": {
+          "200": {
+            "description": "OK",
+            "schema": {
+              "$ref": "#/definitions/Site"
+            },
+            "examples": {
+              "Example 1": "{\n    \"id\": 1,\n    \"url\": \"http://kittens.mybigcommerce.com/\",\n    \"channel_id\": 1,\n    \"created_at\": \"2018-01-04T04:15:50.000Z\",\n    \"updated_at\": \"2018-01-04T04:15:50.000Z\"\n}"
             }
-          },
-          "tags": [
-            "Sites"
-          ],
-          "description": "Creates a site for provided channel",
-          "consumes": [
-            "application/json"
-          ],
-          "produces": [
-            "application/json"
-          ]
+          }
         },
-        "get": {
-          "responses": {
-            "200": {
-              "description": "",
-              "schema": {
-                "type": "object",
-                "properties": {}
-              }
+        "tags": [
+          "Sites"
+        ],
+        "description": "Creates a site for provided channel",
+        "consumes": [
+          "application/json"
+        ],
+        "produces": [
+          "application/json"
+        ]
+      },
+      "get": {
+        "responses": {
+          "200": {
+            "description": "",
+            "schema": {
+              "type": "object",
+              "properties": {}
             }
-          },
-          "summary": "GET Sites",
-          "description": "Get all sites for a store.\n\n**Note**: You must specify a value for both page and limit that are >= 1 to get data ",
-          "tags": [
-            "Sites"
-          ],
-          "parameters": [
-            {
-              "in": "body",
-              "name": "body",
-              "schema": {
-                "type": "object",
-                "properties": {
-                  "data": {
-                    "type": [
-                      "string",
-                      "array"
-                    ],
-                    "items": {
-                      "$ref": "#/definitions/Site"
-                    }
-                  },
-                  "meta": {
-                    "type": "object",
-                    "properties": {
-                      "pagination": {
-                        "$ref": "#/definitions/Pagination"
-                      }
+          }
+        },
+        "summary": "Get all Sites",
+        "description": "Get all sites for a store.\n\n**Note**: You must specify a value for both page and limit that are >= 1 to get data ",
+        "tags": [
+          "Sites"
+        ],
+        "parameters": [
+          {
+            "in": "body",
+            "name": "body",
+            "schema": {
+              "type": "object",
+              "properties": {
+                "data": {
+                  "type": [
+                    "string",
+                    "array"
+                  ],
+                  "items": {
+                    "$ref": "#/definitions/Site"
+                  }
+                },
+                "meta": {
+                  "type": "object",
+                  "properties": {
+                    "pagination": {
+                      "$ref": "#/definitions/Pagination"
                     }
                   }
                 }
               }
-            },
-            {
-              "in": "query",
-              "name": "page",
-              "type": "integer",
-              "required": true
-            },
-            {
-              "in": "query",
-              "name": "limit",
-              "type": "integer",
-              "required": true
             }
-          ]
-        }
+          },
+          {
+            "in": "query",
+            "name": "page",
+            "type": "integer",
+            "required": true
+          },
+          {
+            "in": "query",
+            "name": "limit",
+            "type": "integer",
+            "required": true
+          }
+        ]
+      }
+    },
+    "/sites/{site_id}": {
+      "get": {
+        "summary": "Get a Site",
+        "operationId": "get-site",
+        "parameters": [
+          {
+            "name": "id",
+            "in": "path",
+            "required": true,
+            "type": "string"
+          }
+        ],
+        "responses": {
+          "200": {
+            "$ref": "#/responses/SiteResponse"
+          }
+        },
+        "tags": [
+          "Sites"
+        ],
+        "description": "Returns site data for given channel",
+        "produces": [
+          "application/json"
+        ]
       },
-      "/sites/{site_id}": {
-        "get": {
-          "summary": "GET Site",
-          "operationId": "get-site",
-          "parameters": [
-            {
-              "name": "id",
-              "in": "path",
-              "required": true,
-              "type": "string"
+      "put": {
+        "summary": "Update a Site",
+        "operationId": "put-site",
+        "parameters": [
+          {
+            "name": "id",
+            "in": "path",
+            "required": true,
+            "type": "string"
+          },
+          {
+            "name": "body",
+            "in": "body",
+            "required": true,
+            "schema": {
+              "$ref": "#/definitions/Site Put"
             }
-          ],
-          "responses": {
-            "200": {
+          }
+        ],
+        "responses": {
+          "200": {
+            "description": "Updated",
+            "schema": {
               "$ref": "#/responses/SiteResponse"
-            }
-          },
-          "tags": [
-            "Sites"
-          ],
-          "description": "Returns site data for given channel",
-          "produces": [
-            "application/json"
-          ]
-        },
-        "put": {
-          "summary": "PUT Site",
-          "operationId": "put-site",
-          "parameters": [
-            {
-              "name": "id",
-              "in": "path",
-              "required": true,
-              "type": "string"
             },
-            {
-              "name": "body",
-              "in": "body",
-              "required": true,
-              "schema": {
-                "$ref": "#/definitions/Site Put"
+            "examples": {
+              "application/json": {
+                "data": {
+                  "id": 1,
+                  "url": "https://www.my-awesome-site.com",
+                  "channel_id": 18735,
+                  "created_at": "2019-08-05T18:26:21Z",
+                  "updated_at": "2019-08-05T18:26:21Z"
+                },
+                "meta": {}
               }
             }
-          ],
-          "responses": {
-            "200": {
-              "description": "Updated",
-              "schema": {
-                "$ref": "#/responses/SiteResponse"
-              },
-              "examples": {
-                "application/json": {
-                  "data": {
-                    "id": 1,
-                    "url": "https://www.my-awesome-site.com",
-                    "channel_id": 18735,
-                    "created_at": "2019-08-05T18:26:21Z",
-                    "updated_at": "2019-08-05T18:26:21Z"
-                  },
-                  "meta": {}
-                }
-              }
-            }
-          },
-          "tags": [
-            "Sites"
-          ],
-          "consumes": [
-            "application/json"
-          ],
-          "produces": [
-            "application/json"
-          ],
-          "description": "Updates a site for provided channel"
+          }
         },
-        "delete": {
-          "summary": "DELETE Site",
-          "operationId": "delete-site",
-          "parameters": [
-            {
-              "name": "id",
-              "in": "path",
-              "required": true,
-              "type": "string"
-            }
-          ],
-          "responses": {
-            "200": {
-              "description": "OK",
-              "examples": {
-                "application/json": {
-                  "data": {},
-                  "meta": {}
-                }
+        "tags": [
+          "Sites"
+        ],
+        "consumes": [
+          "application/json"
+        ],
+        "produces": [
+          "application/json"
+        ],
+        "description": "Updates a site for provided channel"
+      },
+      "delete": {
+        "summary": "Delete a Site",
+        "operationId": "delete-site",
+        "parameters": [
+          {
+            "name": "id",
+            "in": "path",
+            "required": true,
+            "type": "string"
+          }
+        ],
+        "responses": {
+          "200": {
+            "description": "OK",
+            "examples": {
+              "application/json": {
+                "data": {},
+                "meta": {}
               }
             }
-          },
-          "tags": [
-            "Sites"
-          ]
+          }
+        },
+        "tags": [
+          "Sites"
+        ]
+      }
+    },
+    "/sites/{site_id}/routes": {
+      "parameters": [
+        {
+          "name": "site_id",
+          "in": "path",
+          "type": "string",
+          "required": true
         }
-      },
-      "/sites/{site_id}/routes": {
+      ],
+      "get": {
+        "summary": "Get all Site Routes",
+        "operationId": "index-site-routes",
         "parameters": [
           {
             "name": "site_id",
             "in": "path",
-            "type": "string",
-            "required": true
+            "required": true,
+            "type": "string"
+          },
+          {
+            "name": "type",
+            "in": "query",
+            "description": "Filter routes by a given resource type",
+            "type": "string"
           }
         ],
-        "get": {
-          "summary": "GET Site Routes",
-          "operationId": "index-site-routes",
-          "parameters": [
-            {
-              "name": "site_id",
-              "in": "path",
-              "required": true,
-              "type": "string"
-            },
-            {
-              "name": "type",
-              "in": "query",
-              "description": "Filter routes by a given resource type",
-              "type": "string"
-            }
-          ],
-          "responses": {
-            "200": {
-              "description": "OK",
-              "schema": {
-                "type": "object",
-                "properties": {
-                  "data": {
-                    "type": "array",
-                    "items": {
-                      "$ref": "#/definitions/Route"
-                    }
-                  },
-                  "meta": {
-                    "$ref": "#/definitions/IndexMeta"
+        "responses": {
+          "200": {
+            "description": "OK",
+            "schema": {
+              "type": "object",
+              "properties": {
+                "data": {
+                  "type": "array",
+                  "items": {
+                    "$ref": "#/definitions/Route"
                   }
-                }
-              },
-              "examples": {
-                "application/json": {
-                  "data": [
-                    {
-                      "id": 1,
-                      "type": "product",
-                      "matching": "5",
-                      "route": "/products?id={id}"
-                    },
-                    {
-                      "id": 2,
-                      "type": "category",
-                      "matching": "44",
-                      "route": "/category/{slug}"
-                    }
-                  ],
-                  "meta": {
-                    "pagination": {
-                      "total": 1,
-                      "count": 1,
-                      "per_page": 50,
-                      "current_page": 1,
-                      "total_pages": 1
-                    }
-                  }
-                }
-              }
-            }
-          },
-          "tags": [
-            "Routes"
-          ]
-        },
-        "post": {
-          "summary": "POST Site Route",
-          "operationId": "post-site-route",
-          "parameters": [
-            {
-              "name": "site_id",
-              "in": "path",
-              "required": true,
-              "type": "string"
-            },
-            {
-              "name": "body",
-              "in": "body",
-              "required": true,
-              "schema": {
-                "$ref": "#/definitions/Route"
-              }
-            }
-          ],
-          "responses": {
-            "200": {
-              "description": "Created",
-              "schema": {
-                "$ref": "#/definitions/Route"
-              },
-              "examples": {
-                "application/json": {
-                  "id": 1,
-                  "type": "product",
-                  "matching": "5",
-                  "route": "/my-amazing-product"
+                },
+                "meta": {
+                  "$ref": "#/definitions/IndexMeta"
                 }
               }
             },
-            "422": {
-              "$ref": "#/responses/ErrorResponse"
-            }
-          },
-          "tags": [
-            "Routes"
-          ],
-          "description": "Currently, within BigCommerce, we support the following route types (meaning we will redirect shoppers back to given routes for these):\n\n* Type: \"home\"\n* Type: \"product\"\n* Type: \"cart\"\n* Type: \"checkout\"\n* Type: \"account_order_status\" (for order statuses on an account)\n* Type: \"account_new_return\" (for returns on an account)\n* Type: \"unsubscribe\" (for unsubscribe URL in emails)\n* Type: \"recover_abandoned_cart\" (for URL in emails for a shopper to recover their abandoned cart)\n* Type: \"create_account\"\n* Type: \"forgot_password\"\n* Type: \"order_confirmation\" (supported in future update to override order confirmation page)\n\n\n"
-        },
-        "put": {
-          "responses": {
-            "200": {
-              "$ref": ""
-            },
-            "422": {
-              "$ref": "#/responses/BulkErrorResponse"
-            }
-          },
-          "description": "Upsert of routes for a site. \n\nWhen updating an existing route, you **must** provide the id in the route object",
-          "summary": "PUT Site Routes",
-          "parameters": [
-            {
-              "in": "body",
-              "name": "body",
-              "schema": {
-                "type": "array",
-                "items": {
-                  "$ref": "#/definitions/Route"
-                }
-              },
-              "x-examples": {
-                "application/json": [
+            "examples": {
+              "application/json": {
+                "data": [
                   {
                     "id": 1,
                     "type": "product",
-                    "matching": "*",
-                    "route": "/products/{id}"
+                    "matching": "5",
+                    "route": "/products?id={id}"
                   },
                   {
-                    "type": "product",
-                    "matching": "10",
-                    "route": "/products?id={id}"
+                    "id": 2,
+                    "type": "category",
+                    "matching": "44",
+                    "route": "/category/{slug}"
                   }
-                ]
-              }
-            },
-            {
-              "in": "path",
-              "name": "site_id",
-              "type": "integer",
-              "required": true
-            }
-          ]
-        }
-      },
-      "/sites/{site_id}/routes/{rout_id}": {
-        "get": {
-          "summary": "GET Site Route",
-          "operationId": "get-site-route",
-          "parameters": [
-            {
-              "name": "site_id",
-              "in": "path",
-              "required": true,
-              "type": "string"
-            },
-            {
-              "name": "id",
-              "in": "path",
-              "required": true,
-              "type": "string"
-            }
-          ],
-          "responses": {
-            "200": {
-              "description": "OK",
-              "schema": {
-                "$ref": "#/definitions/Route"
-              },
-              "examples": {
-                "Example 1": "{\n    \"id\": 1,\n    \"type\": \"category\",\n    \"matching\": \"5\",\n    \"route\": \"/category?id={id}\"\n}"
-              }
-            }
-          },
-          "tags": [
-            "Routes"
-          ]
-        },
-        "put": {
-          "summary": "PUT Site Route",
-          "operationId": "put-site-route",
-          "parameters": [
-            {
-              "name": "site_id",
-              "in": "path",
-              "required": true,
-              "type": "string"
-            },
-            {
-              "name": "id",
-              "in": "path",
-              "required": true,
-              "type": "string"
-            },
-            {
-              "name": "body",
-              "in": "body",
-              "required": true,
-              "schema": {
-                "$ref": "#/definitions/Route"
-              },
-              "x-examples": {
-                "application/json": "[{\n    \"id\": 1, // will update\n    \"type\": \"product\",\n    \"matching\": \"*\",\n    \"route\": \"/products/{id}\"\n  },\n  {\n    \"type\": \"product\", // will create\n    \"matching\": \"10\",\n    \"route\": \"/products?id={id}\"\n  }\n]"
-              }
-            }
-          ],
-          "responses": {
-            "201": {
-              "description": "Created",
-              "schema": {
-                "$ref": "#/definitions/Route"
-              },
-              "examples": {
-                "Example 1": "{\n    \"id\": 1,\n    \"type\": \"product\",\n    \"matching\": \"5\",\n    \"route\": \"/my-amazing-product\"\n}"
-              }
-            }
-          },
-          "tags": [
-            "Routes"
-          ]
-        },
-        "delete": {
-          "summary": "DELETE Site Route",
-          "operationId": "delete-route",
-          "parameters": [
-            {
-              "name": "site_id",
-              "in": "path",
-              "required": true,
-              "type": "string"
-            },
-            {
-              "name": "id",
-              "in": "path",
-              "required": true,
-              "type": "string"
-            }
-          ],
-          "responses": {
-            "200": {
-              "description": "OK",
-              "examples": {
-                "Example 1": "{\n    \"id\": 1,\n    \"type\": \"category\",\n    \"matching\": \"5\",\n    \"route\": \"/category?id={id}\"\n}"
-              }
-            }
-          },
-          "tags": [
-            "Routes"
-          ]
-        }
-      }
-    },
-    "definitions": {
-      "IndexMeta": {
-        "type": "object",
-        "description": "BC Meta payload for collection-type responses",
-        "properties": {
-          "pagination": {
-            "type": "object",
-            "properties": {
-              "total": {
-                "type": "integer",
-                "example": 1
-              },
-              "count": {
-                "type": "integer",
-                "example": 1
-              },
-              "per_page": {
-                "type": "integer",
-                "example": 50
-              },
-              "current_page": {
-                "type": "integer",
-                "example": 1
-              },
-              "total_pages": {
-                "type": "integer",
-                "example": 1
-              },
-              "links": {
-                "type": "object",
-                "properties": {
-                  "previous": {
-                    "type": "string",
-                    "example": "?page=1&limit=50"
-                  },
-                  "current": {
-                    "type": "string",
-                    "example": "?page=1&limit=50"
-                  },
-                  "next": {
-                    "type": "string",
-                    "example": "?page=1&limit=50"
+                ],
+                "meta": {
+                  "pagination": {
+                    "total": 1,
+                    "count": 1,
+                    "per_page": 50,
+                    "current_page": 1,
+                    "total_pages": 1
                   }
                 }
               }
             }
           }
-        }
+        },
+        "tags": [
+          "Routes"
+        ]
       },
-      "Route": {
-        "type": "object",
-        "properties": {
-          "id": {
-            "type": "integer",
-            "description": "Unique ID for this route. Required when updating an existing route"
+      "post": {
+        "summary": "Create a Site Route",
+        "operationId": "post-site-route",
+        "parameters": [
+          {
+            "name": "site_id",
+            "in": "path",
+            "required": true,
+            "type": "string"
           },
-          "type": {
-            "type": "string",
-            "description": "What type of resource are we routing to?",
-            "enum": [
-              "product",
-              "brand",
-              "category",
-              "page",
-              "blog",
-              "home",
-              "cart",
-              "checkout",
-              "search",
-              "account",
-              "login",
-              "returns",
-              "static"
-            ]
-          },
-          "matching": {
-            "type": "string",
-            "description": "(entity_id?) For a given type, which resources should match this route? e.g For a route with the type: \"product\" and matching: \"5\" this route would be used for the product with the ID of 5. \n\nDepending on the type of resource, this may be an ID (matching a specific item), or a \"*\" wildcard matching all items of that type.",
-            "example": "5"
-          },
-          "route": {
-            "type": "string",
-            "description": "The route template that will be used to generate the URL for the requested resource.\n\nSupports several tokens:\n\n- {id} The ID of the requested item\n- {slug} The slug for the requested item (if available). Note: the `slug` value may contain `/` slash\n- {language} The language string that the client is using",
-            "example": "/my-amazing-product"
-          }
-        }
-      },
-      "sitePost": {
-        "type": "object",
-        "properties": {
-          "url": {
-            "type": "string",
-            "description": "The Fully Qualified URL (including host and scheme) where this site is hosted. All URLs generated for this site will be appended to this.",
-            "example": "http://kittens.mybigcommerce.com/"
-          },
-          "channel_id": {
-            "type": "integer",
-            "description": "The channel this site is attached to. Each site belongs to a single channel, and each channel can have either zero or one sites."
-          }
-        }
-      },
-      "Site": {
-        "type": "object",
-        "properties": {
-          "id": {
-            "type": "integer"
-          },
-          "url": {
-            "type": "string",
-            "description": "The Fully Qualified URL (including host and scheme) where this site is hosted. All URLs generated for this site will be appended to this.",
-            "example": "http://kittens.mybigcommerce.com/"
-          },
-          "channel_id": {
-            "type": "integer",
-            "description": "The channel this site is attached to. Each site belongs to a single channel, and each channel can have either zero or one sites."
-          },
-          "created_at": {
-            "type": "string",
-            "description": "When was this site created? RFC 3339",
-            "example": "2018-01-04T04:15:50.000Z"
-          },
-          "updated_at": {
-            "type": "string",
-            "description": "When was this site defintion last updated? RFC 3339",
-            "example": "2018-01-04T04:15:50.000Z"
-          },
-          "routes": {
-            "type": "array",
-            "description": "(optional - if included) collection of routes defined for this site. Limited to 200 routes side loaded (query routes direction via `/routes` for bulk)",
-            "items": {
+          {
+            "name": "body",
+            "in": "body",
+            "required": true,
+            "schema": {
               "$ref": "#/definitions/Route"
             }
           }
-        }
-      },
-      "Meta": {
-        "type": "object",
-        "description": "Empty meta object; may be used later."
-      },
-      "Site Put": {
-        "type": "object",
-        "description": "Request body for site PUT calls",
-        "properties": {
-          "url": {
-            "type": "string",
-            "description": "The Fully Qualified URL (including host and scheme) where this site is hosted. All URLs generated for this site will be appended to this."
-          }
-        }
-      },
-      "Pagination": {
-        "type": "object",
-        "description": "Data about the response, including pagination and collection totals.\n",
-        "properties": {
-          "total": {
-            "type": "integer",
-            "description": "Total number of items in the result set.\n"
-          },
-          "count": {
-            "type": "integer",
-            "description": "Total number of items in the collection response.\n"
-          },
-          "per_page": {
-            "type": "integer",
-            "description": "The amount of items returned in the collection per page, controlled by the limit parameter.\n"
-          },
-          "current_page": {
-            "type": "integer",
-            "description": "The page you are currently on within the collection.\n"
-          },
-          "total_pages": {
-            "type": "integer",
-            "description": "The total number of pages in the collection.\n"
-          },
-          "links": {
-            "type": "object",
-            "description": "Pagination links for the previous and next parts of the whole collection.\n",
-            "properties": {
-              "previous": {
-                "type": "string",
-                "description": "Link to the previous page returned in the response.\n"
-              },
-              "current": {
-                "type": "string",
-                "description": "Link to the current page returned in the response.\n"
-              },
-              "next": {
-                "type": "string",
-                "description": "Link to the next page returned in the response.\n"
+        ],
+        "responses": {
+          "200": {
+            "description": "Created",
+            "schema": {
+              "$ref": "#/definitions/Route"
+            },
+            "examples": {
+              "application/json": {
+                "id": 1,
+                "type": "product",
+                "matching": "5",
+                "route": "/my-amazing-product"
               }
             }
+          },
+          "422": {
+            "$ref": "#/responses/ErrorResponse"
+          }
+        },
+        "tags": [
+          "Routes"
+        ],
+        "description": "Currently, within BigCommerce, we support the following route types (meaning we will redirect shoppers back to given routes for these):\n\n* Type: \"home\"\n* Type: \"product\"\n* Type: \"cart\"\n* Type: \"checkout\"\n* Type: \"account_order_status\" (for order statuses on an account)\n* Type: \"account_new_return\" (for returns on an account)\n* Type: \"unsubscribe\" (for unsubscribe URL in emails)\n* Type: \"recover_abandoned_cart\" (for URL in emails for a shopper to recover their abandoned cart)\n* Type: \"create_account\"\n* Type: \"forgot_password\"\n* Type: \"order_confirmation\" (supported in future update to override order confirmation page)\n\n\n"
+      },
+      "put": {
+        "responses": {
+          "200": {
+            "$ref": ""
+          },
+          "422": {
+            "$ref": "#/responses/BulkErrorResponse"
+          }
+        },
+        "description": "Upsert of routes for a site. \n\nWhen updating an existing route, you **must** provide the id in the route object",
+        "summary": "Update Site Routes",
+        "parameters": [
+          {
+            "in": "body",
+            "name": "body",
+            "schema": {
+              "type": "array",
+              "items": {
+                "$ref": "#/definitions/Route"
+              }
+            },
+            "x-examples": {
+              "application/json": [
+                {
+                  "id": 1,
+                  "type": "product",
+                  "matching": "*",
+                  "route": "/products/{id}"
+                },
+                {
+                  "type": "product",
+                  "matching": "10",
+                  "route": "/products?id={id}"
+                }
+              ]
+            }
+          },
+          {
+            "in": "path",
+            "name": "site_id",
+            "type": "integer",
+            "required": true
+          }
+        ]
+      }
+    },
+    "/sites/{site_id}/routes/{rout_id}": {
+      "get": {
+        "summary": "Get a Site Route",
+        "operationId": "get-site-route",
+        "parameters": [
+          {
+            "name": "site_id",
+            "in": "path",
+            "required": true,
+            "type": "string"
+          },
+          {
+            "name": "id",
+            "in": "path",
+            "required": true,
+            "type": "string"
+          }
+        ],
+        "responses": {
+          "200": {
+            "description": "OK",
+            "schema": {
+              "$ref": "#/definitions/Route"
+            },
+            "examples": {
+              "Example 1": "{\n    \"id\": 1,\n    \"type\": \"category\",\n    \"matching\": \"5\",\n    \"route\": \"/category?id={id}\"\n}"
+            }
+          }
+        },
+        "tags": [
+          "Routes"
+        ]
+      },
+      "put": {
+        "summary": "Update a Site Route",
+        "operationId": "put-site-route",
+        "parameters": [
+          {
+            "name": "site_id",
+            "in": "path",
+            "required": true,
+            "type": "string"
+          },
+          {
+            "name": "id",
+            "in": "path",
+            "required": true,
+            "type": "string"
+          },
+          {
+            "name": "body",
+            "in": "body",
+            "required": true,
+            "schema": {
+              "$ref": "#/definitions/Route"
+            },
+            "x-examples": {
+              "application/json": "[{\n    \"id\": 1, // will update\n    \"type\": \"product\",\n    \"matching\": \"*\",\n    \"route\": \"/products/{id}\"\n  },\n  {\n    \"type\": \"product\", // will create\n    \"matching\": \"10\",\n    \"route\": \"/products?id={id}\"\n  }\n]"
+            }
+          }
+        ],
+        "responses": {
+          "201": {
+            "description": "Created",
+            "schema": {
+              "$ref": "#/definitions/Route"
+            },
+            "examples": {
+              "Example 1": "{\n    \"id\": 1,\n    \"type\": \"product\",\n    \"matching\": \"5\",\n    \"route\": \"/my-amazing-product\"\n}"
+            }
+          }
+        },
+        "tags": [
+          "Routes"
+        ]
+      },
+      "delete": {
+        "summary": "Delete a Site Route",
+        "operationId": "delete-route",
+        "parameters": [
+          {
+            "name": "site_id",
+            "in": "path",
+            "required": true,
+            "type": "string"
+          },
+          {
+            "name": "id",
+            "in": "path",
+            "required": true,
+            "type": "string"
+          }
+        ],
+        "responses": {
+          "200": {
+            "description": "OK",
+            "examples": {
+              "Example 1": "{\n    \"id\": 1,\n    \"type\": \"category\",\n    \"matching\": \"5\",\n    \"route\": \"/category?id={id}\"\n}"
+            }
+          }
+        },
+        "tags": [
+          "Routes"
+        ]
+      }
+    }
+  },
+  "definitions": {
+    "IndexMeta": {
+      "$ref": "../../models/collectionmeta.json",
+      "title": "CollectionMeta",
+      "description": ""
+    },
+    "Route": {
+      "type": "object",
+      "properties": {
+        "id": {
+          "type": "integer",
+          "description": "Unique ID for this route. Required when updating an existing route"
+        },
+        "type": {
+          "type": "string",
+          "description": "What type of resource are we routing to?",
+          "enum": [
+            "product",
+            "brand",
+            "category",
+            "page",
+            "blog",
+            "home",
+            "cart",
+            "checkout",
+            "search",
+            "account",
+            "login",
+            "returns",
+            "static"
+          ]
+        },
+        "matching": {
+          "type": "string",
+          "description": "(entity_id?) For a given type, which resources should match this route? e.g For a route with the type: \"product\" and matching: \"5\" this route would be used for the product with the ID of 5. \n\nDepending on the type of resource, this may be an ID (matching a specific item), or a \"*\" wildcard matching all items of that type.",
+          "example": "5"
+        },
+        "route": {
+          "type": "string",
+          "description": "The route template that will be used to generate the URL for the requested resource.\n\nSupports several tokens:\n\n- {id} The ID of the requested item\n- {slug} The slug for the requested item (if available). Note: the `slug` value may contain `/` slash\n- {language} The language string that the client is using",
+          "example": "/my-amazing-product"
+        }
+      }
+    },
+    "sitePost": {
+      "type": "object",
+      "properties": {
+        "url": {
+          "type": "string",
+          "description": "The Fully Qualified URL (including host and scheme) where this site is hosted. All URLs generated for this site will be appended to this.",
+          "example": "http://kittens.mybigcommerce.com/"
+        },
+        "channel_id": {
+          "type": "integer",
+          "description": "The channel this site is attached to. Each site belongs to a single channel, and each channel can have either zero or one sites."
+        }
+      }
+    },
+    "Site": {
+      "type": "object",
+      "properties": {
+        "id": {
+          "type": "integer"
+        },
+        "url": {
+          "type": "string",
+          "description": "The Fully Qualified URL (including host and scheme) where this site is hosted. All URLs generated for this site will be appended to this.",
+          "example": "http://kittens.mybigcommerce.com/"
+        },
+        "channel_id": {
+          "type": "integer",
+          "description": "The channel this site is attached to. Each site belongs to a single channel, and each channel can have either zero or one sites."
+        },
+        "created_at": {
+          "type": "string",
+          "description": "When was this site created? RFC 3339",
+          "example": "2018-01-04T04:15:50.000Z"
+        },
+        "updated_at": {
+          "type": "string",
+          "description": "When was this site defintion last updated? RFC 3339",
+          "example": "2018-01-04T04:15:50.000Z"
+        },
+        "routes": {
+          "type": "array",
+          "description": "(optional - if included) collection of routes defined for this site. Limited to 200 routes side loaded (query routes direction via `/routes` for bulk)",
+          "items": {
+            "$ref": "#/definitions/Route"
           }
         }
+      }
+    },
+    "Meta": {
+      "type": "object",
+      "description": "Empty meta object; may be used later."
+    },
+    "Site Put": {
+      "type": "object",
+      "description": "Request body for site PUT calls",
+      "properties": {
+        "url": {
+          "type": "string",
+          "description": "The Fully Qualified URL (including host and scheme) where this site is hosted. All URLs generated for this site will be appended to this."
+        }
+      }
+    },
+    "Pagination": {
+      "type": "object",
+      "description": "Data about the response, including pagination and collection totals.\n",
+      "properties": {
+        "total": {
+          "type": "integer",
+          "description": "Total number of items in the result set.\n"
+        },
+        "count": {
+          "type": "integer",
+          "description": "Total number of items in the collection response.\n"
+        },
+        "per_page": {
+          "type": "integer",
+          "description": "The amount of items returned in the collection per page, controlled by the limit parameter.\n"
+        },
+        "current_page": {
+          "type": "integer",
+          "description": "The page you are currently on within the collection.\n"
+        },
+        "total_pages": {
+          "type": "integer",
+          "description": "The total number of pages in the collection.\n"
+        },
+        "links": {
+          "type": "object",
+          "description": "Pagination links for the previous and next parts of the whole collection.\n",
+          "properties": {
+            "previous": {
+              "type": "string",
+              "description": "Link to the previous page returned in the response.\n"
+            },
+            "current": {
+              "type": "string",
+              "description": "Link to the current page returned in the response.\n"
+            },
+            "next": {
+              "type": "string",
+              "description": "Link to the next page returned in the response.\n"
+            }
+          }
+        }
+      }
+    },
+    "Errors": {
+      "type": "object",
+      "description": "The keys and values in an errors object will vary depending on the error received."
+    }
+  },
+  "tags": [
+    {
+      "name": "Sites",
+      "description": "Enables creation and management of external sites (domains) where shoppers shop. Allows for the correct shopping experience to be delivered and maintained (i.e. redirect URLs, email links) when a shopper goes through the purchasing process."
+    },
+    {
+      "name": "Routes",
+      "description": "Allows for specific page routes to be set so that shoppers can be directed to the proper domain pages in their shopping experience. "
+    }
+  ],
+  "securityDefinitions": {
+    "X-Auth-Client": {
+      "type": "apiKey",
+      "name": "X-Auth-Client",
+      "in": "header",
+      "description": "client_id provided when user creates an API user account or the app is installed"
+    },
+    "X-Auth-Token": {
+      "type": "apiKey",
+      "in": "header",
+      "name": "X-Auth-Token",
+      "description": "Access Token (access_token) provided when API User account was created or app is installed"
+    }
+  },
+  "security": [
+    {
+      "X-Auth-Client": []
+    },
+    {
+      "X-Auth-Token": []
+    }
+  ],
+  "parameters": {},
+  "responses": {
+    "SiteResponse": {
+      "description": "",
+      "examples": {
+        "application/json": {
+          "data": {
+            "id": 1,
+            "url": "https://www.my-awesome-site.com",
+            "channel_id": 18735,
+            "created_at": "2019-08-05T18:26:21Z",
+            "updated_at": "2019-08-05T18:26:21Z"
+          },
+          "meta": {}
+        }
       },
-      "Errors": {
+      "schema": {
         "type": "object",
-        "description": "The keys and values in an errors object will vary depending on the error received."
-      }
-    },
-    "tags": [
-      {
-        "name": "Sites",
-        "description": "Enables creation and management of external sites (domains) where shoppers shop. Allows for the correct shopping experience to be delivered and maintained (i.e. redirect URLs, email links) when a shopper goes through the purchasing process."
-      },
-      {
-        "name": "Routes",
-        "description": "Allows for specific page routes to be set so that shoppers can be directed to the proper domain pages in their shopping experience. "
-      }
-    ],
-    "securityDefinitions": {
-      "X-Auth-Client": {
-        "type": "apiKey",
-        "name": "X-Auth-Client",
-        "in": "header",
-        "description": "client_id provided when user creates an API user account or the app is installed"
-      },
-      "X-Auth-Token": {
-        "type": "apiKey",
-        "in": "header",
-        "name": "X-Auth-Token",
-        "description": "Access Token (access_token) provided when API User account was created or app is installed"
-      }
-    },
-    "security": [
-      {
-        "X-Auth-Client": []
-      },
-      {
-        "X-Auth-Token": []
-      }
-    ],
-    "parameters": {},
-    "responses": {
-      "SiteResponse": {
-        "description": "",
-        "examples": {
-          "application/json": {
-            "data": {
-              "id": 1,
-              "url": "https://www.my-awesome-site.com",
-              "channel_id": 18735,
-              "created_at": "2019-08-05T18:26:21Z",
-              "updated_at": "2019-08-05T18:26:21Z"
-            },
-            "meta": {}
+        "properties": {
+          "data": {
+            "$ref": "#/definitions/Site"
+          },
+          "meta": {
+            "$ref": "#/definitions/Meta"
           }
-        },
-        "schema": {
-          "type": "object",
-          "properties": {
-            "data": {
-              "$ref": "#/definitions/Site"
-            },
-            "meta": {
-              "$ref": "#/definitions/Meta"
-            }
+        }
+      }
+    },
+    "BulkErrorResponse": {
+      "description": "",
+      "schema": {
+        "type": "object",
+        "properties": {
+          "status": {
+            "type": "integer",
+            "description": "The HTTP status code."
+          },
+          "title": {
+            "type": "string"
+          },
+          "errors": {
+            "$ref": "#/definitions/Errors"
+          },
+          "meta": {
+            "$ref": "#/definitions/Meta"
+          },
+          "type": {
+            "type": "string"
           }
         }
       },
-      "BulkErrorResponse": {
-        "description": "",
-        "schema": {
-          "type": "object",
-          "properties": {
-            "status": {
-              "type": "integer",
-              "description": "The HTTP status code."
-            },
-            "title": {
-              "type": "string"
-            },
-            "errors": {
-              "$ref": "#/definitions/Errors"
-            },
-            "meta": {
-              "$ref": "#/definitions/Meta"
-            },
-            "type": {
-              "type": "string"
-            }
-          }
-        },
-        "examples": {
-          "application/json": {
-            "meta": {
-              "saved_records": 0
-            },
-            "title": "Bulk operation has failed",
-            "type": "https://developer.bigcommerce.com/api-docs/getting-started/api-status-codes",
-            "errors": {
-              "0.matching.type": "Route already exists for site 1 matching 5 for type product",
-              "1.matching.type": "Route already exists for site 1 matching * for type home"
-            },
-            "status": 422
+      "examples": {
+        "application/json": {
+          "meta": {
+            "saved_records": 0
+          },
+          "title": "Bulk operation has failed",
+          "type": "https://developer.bigcommerce.com/api-docs/getting-started/api-status-codes",
+          "errors": {
+            "0.matching.type": "Route already exists for site 1 matching 5 for type product",
+            "1.matching.type": "Route already exists for site 1 matching * for type home"
+          },
+          "status": 422
+        }
+      }
+    },
+    "ErrorResponse": {
+      "description": "",
+      "schema": {
+        "type": "object",
+        "properties": {
+          "title": {
+            "type": "string",
+            "description": "General error message"
+          },
+          "status": {
+            "type": "string",
+            "description": "HTTP status code"
+          },
+          "errors": {
+            "$ref": "#/definitions/Errors"
+          },
+          "type": {
+            "type": "string"
           }
         }
       },
-      "ErrorResponse": {
-        "description": "",
-        "schema": {
-          "type": "object",
-          "properties": {
-            "title": {
-              "type": "string",
-              "description": "General error message"
-            },
-            "status": {
-              "type": "string",
-              "description": "HTTP status code"
-            },
-            "errors": {
-              "$ref": "#/definitions/Errors"
-            },
-            "type": {
-              "type": "string"
-            }
-          }
-        },
-        "examples": {
-          "application/json": {
-            "status": 422,
-            "title": "JSON data is missing or invalid",
-            "type": "https://developer.bigcommerce.com/api-docs/getting-started/api-status-codes",
-            "errors": {
-              "matching": "error.path.missing"
-            }
+      "examples": {
+        "application/json": {
+          "status": 422,
+          "title": "JSON data is missing or invalid",
+          "type": "https://developer.bigcommerce.com/api-docs/getting-started/api-status-codes",
+          "errors": {
+            "matching": "error.path.missing"
           }
         }
       }
     }
+  }
 }
