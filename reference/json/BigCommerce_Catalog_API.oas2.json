@@ -25394,6 +25394,13 @@
             "type": "string"
           },
           {
+            "name": "id",
+            "description":"Get details of multiple specific categories. Include in a comma-seperated list. Use syntax: `?id:in=",
+            "required": false,
+            "in": "query",
+            "type": "string"
+          },
+          {
             "in": "header",
             "type": "string",
             "name": "Accept",
