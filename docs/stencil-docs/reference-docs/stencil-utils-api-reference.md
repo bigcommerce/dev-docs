@@ -107,7 +107,7 @@ The following functions allow your theme to work with [cart](https://github.com/
 
 **getCart Example**
 
-`util.api.cart.getCart()`
+`utils.api.cart.getCart()`
 
 ```js
 utils.api.cart.getCart({}, (err, response) => {
