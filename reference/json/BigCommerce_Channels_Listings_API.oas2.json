@@ -868,6 +868,7 @@
           "description": "Description of the product for this channel listing specifically. This overrides the description in the catalog "
         },
         "state": {
+          "type": "string",
           "enum": [
             "active",
             "disabled",
@@ -928,6 +929,7 @@
           "description": "Description of the product for this channel listing specifically. This overrides the description in the catalog "
         },
         "state": {
+          "type": "string",
           "enum": [
             "active",
             "disabled",
@@ -986,6 +988,7 @@
           "description": "Description of the product for this channel listing specifically. This overrides the description in the catalog "
         },
         "state": {
+          "type": "string",
           "enum": [
             "active",
             "disabled",
@@ -1045,6 +1048,7 @@
           "description": "Description of the product for this channel listing specifically. This overrides the description in the catalog "
         },
         "state": {
+          "type": "string",
           "enum": [
             "active",
             "disabled",
@@ -1095,6 +1099,7 @@
           "description": "Description of the product for this channel listing specifically. This overrides the description in the catalog "
         },
         "state": {
+          "type": "string",
           "enum": [
             "active",
             "disabled",
