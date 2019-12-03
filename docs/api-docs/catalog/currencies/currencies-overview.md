@@ -3,7 +3,6 @@
 <div class="otp" id="no-index">
 
 ### On this Page
-- [Multi-Currency Beta](#multi-currency-beta)
 - [Display vs. Transactional](#display-vs-transactional)
 - [Pre-Configuring the Store](#pre-configuring-the-store)
 - [Adding a Currency](#adding-a-currency)
@@ -18,23 +17,6 @@
 BigCommerce’s flexible Currency settings assist developers in building Multi-Currency storefronts that empower shoppers and merchants to do business in their currency of choice. Allowing customers to shop and check out in their native currency provides a more consistent and positive shopping experience, and maintaining price expectations throughout the shopping process encourages conversions for merchants. 
 
 This article provides a high-level guide to Multi-Currency concepts on BigCommerce as well as specific instructions on [adding currencies](adding-a-currency) via the control panel. For additional details on how currencies are surfaced throughout BigCommerce APIs, user interfaces, and storefront components, see [How Currencies Works](https://developer.bigcommerce.com/api-docs/catalog/currencies/how-currencies-work)
-
-## Multi-Currency Beta
-
-<a id="multi-currency-beta"></a>
-
-Multiple transactional currencies is now available as an opt-in feature on all stores. In the control panel, go to **Store Setup** › **Currencies** and click the **Try it now** button under the Early Access opt-in notice.
-
-![Multi-Currency Early Access](https://raw.githubusercontent.com/bigcommerce/dev-docs/master/assets/images/multi-currency-try-it-now.png "Multi-Currency Early Access")
-
-To use multiple transactional currencies, the store:
-
-* must be using a Stencil theme.
-* must be using the Optimized One-Page Checkout type.
-* must have Stripe payment gateway set up and enabled (your store's default currency can use any gateway).
-
-Currently, Stripe cannot be enabled for a specific currency (it is also enabled for the default currency). This is a known issue and will be fixed in a later release.
-Automatic tax calculation and document submission is compatible with multiple currencies. However, the application of automatic tax depends on the countries supported by the tax provider.
 
 ## Display vs. Transactional
 
@@ -121,10 +103,10 @@ For details on how currencies are surfaced throughout BigCommerce APIs, user int
 
 <a id="supported-features"></a>
 
-See the table below for a list of Currencies Beta release supported and un-supported features.
+See the table below for a list of supported and un-supported features.
 
 | Supported                                    | Not Supported                                  |
-|-||
+|----------------------------------------------|------------------------------------------------|
 | Optimized One-Page Checkout                  | Legacy Checkout                                |
 | Stencil Themes                               | Legacy Blueprint Themes                        |
 | Stripe Payment Gateway                       | Other Payment Gateways                         |
