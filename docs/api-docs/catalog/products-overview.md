@@ -282,7 +282,7 @@ Example: <span class=”fp”>https://www.youtube.com/watch?v=<b>R12345677</b></
 Custom Fields are intended to be used in a couple of contexts:
 
 * Displaying specifications on the product detail page and on the product listing pages such as category and brand pages.
-* Powering faeted search (searching/filtering by custom field values)
+* Powering faceted search (searching/filtering by custom field values)
 
 ## Bulk Pricing Rules
 
