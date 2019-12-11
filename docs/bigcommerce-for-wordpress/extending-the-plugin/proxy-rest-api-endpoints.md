@@ -19,7 +19,7 @@ By default, GET requests under `/catalog` are cached for ten minutes in the obje
 
 ## Endpoints
 |URL|Description|Methods|Excluded Fields
-|-|-|-||
+|-|-|-|-|
 |[`/catalog/products(/*)`](https://developer.bigcommerce.com/api-reference/catalog/catalog-api/products/getproducts)|Endpoints for products and product-related data such as reviews, categories, and variants|`GET`|bin_picking_number, cost_price, date_created, date_modified, inventory_tracking, layout_file, product_tax_code, search_keywords, sku_id, tax_class_id, total_sold, view_count; **If price_id_hidden is true**: map_price, price, retail_price, sale_price; **If is_condition_shown is false**: condition; **If is_preorder_only is true**: preorder_message, prorder_release_date
 |[`/catalog/products/[product-id]/variants/(*)`](https://developer.bigcommerce.com/api-reference/catalog/catalog-api/product-variants/getvariantsbyproductid)|Fetch variants associated with a product|`GET`|cost_price, sku_id; **If associated product's is_price_hidden is true**: calculated_price, map_price, price, retail_price, sale_price
 |[`/catalog/products/[product-id]/images/(*)`](https://developer.bigcommerce.com/api-reference/catalog/catalog-api/product-images/getproductimages)|Fetch images associated with a product|`GET`|date_modified
