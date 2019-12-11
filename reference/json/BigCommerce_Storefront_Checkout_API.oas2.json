@@ -898,6 +898,7 @@
                         "type": "string",
                         "description": "Key name to identify the type of coupon.\n\ntype 0: per_item_discount  \ntype 1: percentage_discount  \ntype 2: per_total_discount\ntype 3: shipping_discount  \ntype 4: free_shipping\ntype 5: promotion",
                         "enum": [
+                          "0",
                           "1",
                           "2",
                           "3",
@@ -1319,6 +1320,7 @@
                             "type": "string",
                             "description": "Key name to identify the type of coupon.\n\ntype 0: per_item_discount  \ntype 1: percentage_discount  \ntype 2: per_total_discount\ntype 3: shipping_discount  \ntype 4: free_shipping\ntype 5: promotion",
                             "enum": [
+                              "0",
                               "1",
                               "2",
                               "3",
@@ -13430,6 +13432,7 @@
                             "type": "string",
                             "description": "Key name to identify the type of coupon.\n\ntype 0: per_item_discount  \ntype 1: percentage_discount  \ntype 2: per_total_discount\ntype 3: shipping_discount  \ntype 4: free_shipping\ntype 5: promotion",
                             "enum": [
+                              "0",
                               "1",
                               "2",
                               "3",
@@ -15547,6 +15550,7 @@
                     "type": "string",
                     "description": "Key name to identify the type of coupon.\n\ntype 0: per_item_discount  \ntype 1: percentage_discount  \ntype 2: per_total_discount\ntype 3: shipping_discount  \ntype 4: free_shipping\ntype 5: promotion",
                     "enum": [
+                      "0",
                       "1",
                       "2",
                       "3",
@@ -16520,6 +16524,7 @@
                 "type": "string",
                 "description": "Key name to identify the type of coupon.\n\ntype 0: per_item_discount  \ntype 1: percentage_discount  \ntype 2: per_total_discount\ntype 3: shipping_discount  \ntype 4: free_shipping\ntype 5: promotion",
                 "enum": [
+                  "0",
                   "1",
                   "2",
                   "3",
@@ -16991,6 +16996,7 @@
           "type": "string",
           "description": "Key name to identify the type of coupon.\n\ntype 0: per_item_discount  \ntype 1: percentage_discount  \ntype 2: per_total_discount\ntype 3: shipping_discount  \ntype 4: free_shipping\ntype 5: promotion",
           "enum": [
+            "0",
             "1",
             "2",
             "3",
