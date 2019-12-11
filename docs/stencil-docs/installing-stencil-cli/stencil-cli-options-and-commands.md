@@ -4,12 +4,12 @@
 
 ### On this Page
 - [Commands Overview](#commands-overview)
-- [`stencil help`](#stencil-help)
-- [`stencil init`](#stencil-init)
-- [`stencil start`](#stencil-start)
-- [`stencil bundle`](#stencil-bundle)
-- [`stencil push`](#stencil-push)
-- [`stencil release`](#stencil-release)
+- [stencil help](#stencil-help)
+- [stencil init](#stencil-init)
+- [stencil start](#stencil-start)
+- [stencil bundle](#stencil-bundle)
+- [stencil push](#stencil-push)
+- [stencil release](#stencil-release)
 - [Resources](#resources)
 
 </div>
@@ -33,7 +33,7 @@ Running `stencil help` outputs a full list of commands and their descriptions. F
 |[init](#stencil-init)       |Interactively creates a `.stencil`, which configures how to run a BigCommerce store locally.|
 |[start](#stencil-init)      |Starts up the BigCommerce store, using theme files in the current directory.                |
 |[bundle](#stencil-bundle)   |Bundles up the theme into a structured .zip file, which can be uploaded to BigCommerce      |
-|[push](#stencil-push)       |Bundles the theme into `.zip` file; then directly uploads the `.zip` to igCommerce.         |
+|[push](#stencil-push)       |Bundles the theme into `.zip` file; then directly uploads the `.zip` to BigCommerce.         |
 |[release]()                 |Creates a new release in a theme's GitHub repository.                                       |
 |[help](#stencil-help)       |display help and returns all the options available to use for the specified command.        |
 
