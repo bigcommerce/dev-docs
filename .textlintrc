@@ -1,0 +1,21 @@
+{
+  "rules": {
+    "no-dead-link": {
+      "checkRelative": true,
+      "baseURI": "https://developer.bigcommerce.com",
+      "ignore": [
+          "https://devtools.bigcommerce.com",
+          "https://example.com/*",
+          "http://localhost*",
+          "http://localhost:3000/*",
+          "http://%s.mybigcommerce.com/",
+          "https://github.com/bigcommerce/stencil-utils/blob/master/src/api/cart.js*",
+          "https://store-url/*"
+          "
+        ],
+      "preferGET": [],
+      "ignoreRedirects": true,
+      "retry": 3
+    }
+  }
+}

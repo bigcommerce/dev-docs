@@ -1,0 +1,12 @@
+{
+  "engines": {
+    "node": ">= 0.10.0"
+  },
+  "devDependencies": {
+    "grunt": "^0.4.5",
+    "grunt-mdspell": "^0.4.0",
+    "grunt-textlint": "^0.1.0",
+    "textlint-rule-no-dead-link": "^4.6.2"
+  },
+  "dependencies": {}
+}
