@@ -14,7 +14,7 @@
 
 </div>
 
-BigCommerce's GraphQL Storefront API makes it possible to query storefront data from from within a [Stencil](https://devcenter-production.docs.stoplight.io/stencil-docs/getting-started/about-stencil) theme or remote site. This means information previously only available on the back-end via [Stencil's template logic](https://devcenter-production.docs.stoplight.io/stencil-docs/reference-docs/global-objects-and-properties) can now be accessed via front-end javascript. For example, with the Storefront API, it is possible to:
+BigCommerce's GraphQL Storefront API makes it possible to query storefront data from within a [Stencil](https://devcenter-production.docs.stoplight.io/stencil-docs/getting-started/about-stencil) theme or remote site. This means information previously only available on the back-end via [Stencil's template logic](https://devcenter-production.docs.stoplight.io/stencil-docs/reference-docs/global-objects-and-properties) can now be accessed via front-end javascript. For example, with the Storefront API, it is possible to:
 
 * Access product options, variations, and custom fields for any product from any page
 * Request any product's images at any resolution
