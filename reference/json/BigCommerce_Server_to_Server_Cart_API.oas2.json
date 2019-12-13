@@ -6,7 +6,7 @@
     "description": "### Cart\nAllows for a cart to be created using BigCommerce cart logic. The existing BigCommerce front end cart can be bypassed.\n\nNotes:\n- cartId is the same as the checkoutId.\n- Carts are valid for 30 days from the last modification. This can include creating the cart or editing the cart.\n- Redirect URLs can be generated only from carts created using the server-to-server cart API. To restore a cart that was created on the storefront–either by a shopper or the Storefront Cart API–first recreate the cart using the server-to-server Cart API."
   },
   "host": "api.bigcommerce.com",
-  "basePath": "/stores/{store_hash}/v3",
+  "basePath": "/stores/{$$.env.store_hash}/v3",
   "consumes": [
     "application/json"
   ],

@@ -10,7 +10,7 @@
     }
   },
   "host": "api.bigcommerce.com",
-  "basePath": "/stores/{store_hash}/v3",
+  "basePath": "/stores/{$$.env.store_hash}/v3",
   "tags": [
     {
       "name": "Scripts"

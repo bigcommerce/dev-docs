@@ -1,0 +1,4 @@
+{
+    "markdown.extension.tableFormatter.enabled": false,
+    "markdown.extension.toc.levels": "2..2"
+}

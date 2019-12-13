@@ -4,14 +4,17 @@
 
 ### On this Page
 
-- [Get a Customer's Details](#get-a-customers-details)
-- [Get First Three Levels of Category Tree](#get-first-three-levels-of-category-tree)
-- [Get Category and Children by URL](#get-category-and-children-by-url)
-- [Get Multiple Objects by URL](#get-multiple-objects-by-url)
-- [Get Product's Images at Different Resolutions](#get-products-images-at-different-resolutions)
-- [Get Variant Details as a Product Object](#get-variant-details-as-a-product-object)
-- [Get Product Option Details by Product ID](#get-product-option-details-by-product-id)
-- [Get Refined Product Object for Given Options](#get-refined-product-object-for-given-options)
+- [GraphQL Storefront API Example Queries](#GraphQL-Storefront-API-Example-Queries)
+    - [On this Page](#On-this-Page)
+  - [Get a Customer's Details](#Get-a-Customers-Details)
+  - [Get First Three Levels of Category Tree](#Get-First-Three-Levels-of-Category-Tree)
+  - [Get Category and Children by URL](#Get-Category-and-Children-by-URL)
+  - [Get Multiple Objects by URL](#Get-Multiple-Objects-by-URL)
+  - [Get Product's Images at Different Resolutions](#Get-Products-Images-at-Different-Resolutions)
+  - [Get A Single Product](#Get-A-Single-Product)
+  - [Get Variant Details as a Product Object](#Get-Variant-Details-as-a-Product-Object)
+  - [Get Product Option Details by Product ID](#Get-Product-Option-Details-by-Product-ID)
+  - [Get Refined Product Object for Given Options](#Get-Refined-Product-Object-for-Given-Options)
 
 </div>
 
@@ -183,6 +186,31 @@ query SrcsetImages {
             url640wide: url(width: 640)
             url960wide: url(width: 960)
             url1280wide: url(width: 1280)
+          }
+        }
+      }
+    }
+  }
+}
+```
+<a id="get-a-single-product" class="devdocsAnchor"></a>
+
+## Get A Single Product
+
+```js
+query SingleProduct {
+  site {
+    products (entityIds: [4917]) {
+      edges {
+        node {
+          id 
+          entityId
+          name
+          prices {
+            price {
+              value
+              currencyCode
+            }
           }
         }
       }

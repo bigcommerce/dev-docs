@@ -6,7 +6,7 @@
     "description": "## Storefront Orders API\nReturns order data immediately after an order is placed on the storefront.",
     "termsOfService": "https://www.bigcommerce.com/terms/api-terms/"
   },
-  "host": "<store_url>",
+  "host": "{$$.env.store_domain}",
   "basePath": "/api/storefront",
   "schemes": [
     "http"

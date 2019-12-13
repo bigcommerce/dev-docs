@@ -1731,7 +1731,7 @@ The following standard helpers are available to handle HTML content.
 
 **Standard Helper**
 
-Truncates a string to the specified `length`, and appends an elipsis, `…`.
+Truncates a string to the specified `length` and appends an ellipsis, `…`.
 
 #### Parameters
 
@@ -1742,7 +1742,7 @@ Truncates a string to the specified `length`, and appends an elipsis, `…`.
 #### Example
 
 ```js
-{{ellipsis "<span>foo bar baz</span>", 7}}
+{{ellipsis "<span>foo bar baz</span>" 7}}
 //=> 'foo bar…'
 ```
 

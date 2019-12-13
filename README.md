@@ -24,8 +24,13 @@ This repo contains the markdown files and static assets powering [developer.bigc
 │    ├── bigcommerce-for-wordpress     # BigCommerce for WordPress docs
 │    ├── legacy                        # Legacy Blueprint and V2 API docs
 │    └── stencil-docs                  # Theme docs
-└── reference                          # OAS (AKA Swagger) files powering the API Reference
-    └── json                           # JSON Specification files
+├── reference                          # OAS (AKA Swagger) files powering the API Reference
+│    └── json                          # JSON Specification files
+├── .spelling                          # mdspell dictionary
+├── .textlintrc                        # textlint configuration file
+├── Gruntfile.js                       # grunt configuration file
+├── package-lock.json                  # packages for grunt, linting, and spell checking
+├── package.json                       # packages for grunt, linting, and spell checking
 ```
 
 ## Contributing

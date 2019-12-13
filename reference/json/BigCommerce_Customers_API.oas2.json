@@ -6,7 +6,7 @@
     "description": "To learn more about Customers see [here](/api-docs/customers/customers-subscribers-overview). \n### Customers\nIdentity and account details for customers shopping on BigCommerce stores.\n\n### Customer Addresses\nPostal address belonging to a customer.\n\n### Customer Groups\nGroupings of customers who share the same level of access and discounts at a store."
   },
   "host": "api.bigcommerce.com",
-  "basePath": "/stores/{store_hash}/v2",
+  "basePath": "/stores/{$$.env.store_hash}/v2",
   "schemes": [
     "https"
   ],
@@ -137,7 +137,7 @@
                   "tax_exempt_category": "",
                   "accepts_marketing": true,
                   "addresses": {
-                    "url": "https://api.bigcommerce.com/stores/{store_hash}/v2/customers/5/addresses",
+                    "url": "https://api.bigcommerce.com/stores/{$$.env.store_hash}/v2/customers/5/addresses",
                     "resource": "/customers/5/addresses"
                   },
                   "form_fields": [
@@ -242,7 +242,7 @@
                     "properties": {
                       "url": {
                         "description": "Full URL of where the resource is located.",
-                        "example": "https://api.bigcommerce.com/stores/{store_hash}/v2/customers/5/addresses",
+                        "example": "https://api.bigcommerce.com/stores/{$$.env.store_hash}/v2/customers/5/addresses",
                         "type": "string"
                       },
                       "resource": {
@@ -310,7 +310,7 @@
                   "reset_pass_on_login": false,
                   "accepts_marketing": true,
                   "addresses": {
-                    "url": "https://api.bigcommerce.com/stores/{store_hash}/v2/customers/1/addresses",
+                    "url": "https://api.bigcommerce.com/stores/{$$.env.store_hash}/v2/customers/1/addresses",
                     "resource": "/customers/1/addresses"
                   }
                 },
@@ -332,7 +332,7 @@
                   "reset_pass_on_login": false,
                   "accepts_marketing": true,
                   "addresses": {
-                    "url": "https://api.bigcommerce.com/stores/{store_hash}/v2/customers/2/addresses",
+                    "url": "https://api.bigcommerce.com/stores/{$$.env.store_hash}/v2/customers/2/addresses",
                     "resource": "/customers/2/addresses"
                   }
                 }
@@ -570,7 +570,7 @@
           {
             "request": {
               "method": "GET",
-              "uri": "/stores/{store_hash}/v2/customers",
+              "uri": "/stores/{$$.env.store_hash}/v2/customers",
               "headers": {
                 "Accept": "application/json",
                 "Content-Type": "application/json",
@@ -587,7 +587,7 @@
               "headers": {
                 "Content-Type": "application/json"
               },
-              "body": "{  \"id\": 1,  \"_authentication\": {},  \"company\": \"BigCommerce\",  \"first_name\": \"Jane\",  \"last_name\": \"Doe\",  \"email\": \"janedoe@email.com\",  \"phone\": \"1234567890\",  \"date_created\": \"Thu, 11 Jan 2018 20:57:52 +0000\",  \"date_modified\": \"Tue, 10 Apr 2018 18:59:05 +0000\",  \"store_credit\": 0,  \"registration_ip_address\": \"12.345.678.910\",  \"customer_group_id\": 2,  \"notes\": \"\",  \"tax_exempt_category\": \"\",  \"accepts_marketing\": true,  \"addresses\": {    \"url\": \"https://api.bigcommerce.com/stores/{store_hash}/v2/customers/5/addresses\",    \"resource\": \"/customers/5/addresses\"  },  \"form_fields\": [    {      \"name\": \"\",      \"value\": \"\"    }  ],  \"reset_pass_on_login\": false}"
+              "body": "{  \"id\": 1,  \"_authentication\": {},  \"company\": \"BigCommerce\",  \"first_name\": \"Jane\",  \"last_name\": \"Doe\",  \"email\": \"janedoe@email.com\",  \"phone\": \"1234567890\",  \"date_created\": \"Thu, 11 Jan 2018 20:57:52 +0000\",  \"date_modified\": \"Tue, 10 Apr 2018 18:59:05 +0000\",  \"store_credit\": 0,  \"registration_ip_address\": \"12.345.678.910\",  \"customer_group_id\": 2,  \"notes\": \"\",  \"tax_exempt_category\": \"\",  \"accepts_marketing\": true,  \"addresses\": {    \"url\": \"https://api.bigcommerce.com/stores/{$$.env.store_hash}/v2/customers/5/addresses\",    \"resource\": \"/customers/5/addresses\"  },  \"form_fields\": [    {      \"name\": \"\",      \"value\": \"\"    }  ],  \"reset_pass_on_login\": false}"
             },
             "x-testShouldPass": true,
             "x-testEnabled": true,
@@ -706,7 +706,7 @@
                 "tax_exempt_category": "",
                 "accepts_marketing": true,
                 "addresses": {
-                  "url": "https://api.bigcommerce.com/stores/{store_hash}/v2/customers/5/addresses",
+                  "url": "https://api.bigcommerce.com/stores/{$$.env.store_hash}/v2/customers/5/addresses",
                   "resource": "/customers/5/addresses"
                 },
                 "form_fields": [
@@ -811,7 +811,7 @@
                   "properties": {
                     "url": {
                       "description": "Full URL of where the resource is located.",
-                      "example": "https://api.bigcommerce.com/stores/{store_hash}/v2/customers/5/addresses",
+                      "example": "https://api.bigcommerce.com/stores/{$$.env.store_hash}/v2/customers/5/addresses",
                       "type": "string"
                     },
                     "resource": {
@@ -871,7 +871,7 @@
                 "tax_exempt_category": "",
                 "accepts_marketing": true,
                 "addresses": {
-                  "url": "https://api.bigcommerce.com/stores/{store_hash}/v2/customers/5/addresses",
+                  "url": "https://api.bigcommerce.com/stores/{$$.env.store_hash}/v2/customers/5/addresses",
                   "resource": "/customers/5/addresses"
                 },
                 "form_fields": [
@@ -929,7 +929,7 @@
           {
             "request": {
               "method": "POST",
-              "uri": "/stores/{store_hash}/v2/customers",
+              "uri": "/stores/{$$.env.store_hash}/v2/customers",
               "headers": {
                 "Accept": "application/json",
                 "Content-Type": "application/json",
@@ -947,7 +947,7 @@
               "headers": {
                 "Content-Type": "application/json"
               },
-              "body": "{  \"id\": 1,  \"_authentication\": {},  \"company\": \"BigCommerce\",  \"first_name\": \"Jane\",  \"last_name\": \"Doe\",  \"email\": \"janedoe@email.com\",  \"phone\": \"1234567890\",  \"date_created\": \"Thu, 11 Jan 2018 20:57:52 +0000\",  \"date_modified\": \"Tue, 10 Apr 2018 18:59:05 +0000\",  \"store_credit\": 0,  \"registration_ip_address\": \"12.345.678.910\",  \"customer_group_id\": 2,  \"notes\": \"\",  \"tax_exempt_category\": \"\",  \"accepts_marketing\": true,  \"addresses\": {    \"url\": \"https://api.bigcommerce.com/stores/{store_hash}/v2/customers/5/addresses\",    \"resource\": \"/customers/5/addresses\"  },  \"form_fields\": [    {      \"name\": \"\",      \"value\": \"\"    }  ],  \"reset_pass_on_login\": false}"
+              "body": "{  \"id\": 1,  \"_authentication\": {},  \"company\": \"BigCommerce\",  \"first_name\": \"Jane\",  \"last_name\": \"Doe\",  \"email\": \"janedoe@email.com\",  \"phone\": \"1234567890\",  \"date_created\": \"Thu, 11 Jan 2018 20:57:52 +0000\",  \"date_modified\": \"Tue, 10 Apr 2018 18:59:05 +0000\",  \"store_credit\": 0,  \"registration_ip_address\": \"12.345.678.910\",  \"customer_group_id\": 2,  \"notes\": \"\",  \"tax_exempt_category\": \"\",  \"accepts_marketing\": true,  \"addresses\": {    \"url\": \"https://api.bigcommerce.com/stores/{$$.env.store_hash}/v2/customers/5/addresses\",    \"resource\": \"/customers/5/addresses\"  },  \"form_fields\": [    {      \"name\": \"\",      \"value\": \"\"    }  ],  \"reset_pass_on_login\": false}"
             },
             "x-testShouldPass": true,
             "x-testEnabled": true,
@@ -999,7 +999,7 @@
           {
             "request": {
               "method": "DELETE",
-              "uri": "/stores/{store_hash}/v2/customers",
+              "uri": "/stores/{$$.env.store_hash}/v2/customers",
               "headers": {
                 "Accept": "application/json",
                 "Content-Type": "application/json",
@@ -1091,7 +1091,7 @@
                 "tax_exempt_category": "",
                 "accepts_marketing": true,
                 "addresses": {
-                  "url": "https://api.bigcommerce.com/stores/{store_hash}/v2/customers/5/addresses",
+                  "url": "https://api.bigcommerce.com/stores/{$$.env.store_hash}/v2/customers/5/addresses",
                   "resource": "/customers/5/addresses"
                 },
                 "form_fields": [
@@ -1196,7 +1196,7 @@
                   "properties": {
                     "url": {
                       "description": "Full URL of where the resource is located.",
-                      "example": "https://api.bigcommerce.com/stores/{store_hash}/v2/customers/5/addresses",
+                      "example": "https://api.bigcommerce.com/stores/{$$.env.store_hash}/v2/customers/5/addresses",
                       "type": "string"
                     },
                     "resource": {
@@ -1256,7 +1256,7 @@
                 "tax_exempt_category": "",
                 "accepts_marketing": true,
                 "addresses": {
-                  "url": "https://api.bigcommerce.com/stores/{store_hash}/v2/customers/5/addresses",
+                  "url": "https://api.bigcommerce.com/stores/{$$.env.store_hash}/v2/customers/5/addresses",
                   "resource": "/customers/5/addresses"
                 },
                 "form_fields": [
@@ -1407,7 +1407,7 @@
                 "tax_exempt_category": "",
                 "accepts_marketing": true,
                 "addresses": {
-                  "url": "https://api.bigcommerce.com/stores/{store_hash}/v2/customers/5/addresses",
+                  "url": "https://api.bigcommerce.com/stores/{$$.env.store_hash}/v2/customers/5/addresses",
                   "resource": "/customers/5/addresses"
                 },
                 "form_fields": [
@@ -1512,7 +1512,7 @@
                   "properties": {
                     "url": {
                       "description": "Full URL of where the resource is located.",
-                      "example": "https://api.bigcommerce.com/stores/{store_hash}/v2/customers/5/addresses",
+                      "example": "https://api.bigcommerce.com/stores/{$$.env.store_hash}/v2/customers/5/addresses",
                       "type": "string"
                     },
                     "resource": {
@@ -1578,7 +1578,7 @@
                 "reset_pass_on_login": false,
                 "accepts_marketing": true,
                 "addresses": {
-                  "url": "https://api.bigcommerce.com/stores/{store_hash}/v2/customers/1/addresses",
+                  "url": "https://api.bigcommerce.com/stores/{$$.env.store_hash}/v2/customers/1/addresses",
                   "resource": "/customers/1/addresses"
                 }
               },
@@ -1679,7 +1679,7 @@
                 "tax_exempt_category": "",
                 "accepts_marketing": true,
                 "addresses": {
-                  "url": "https://api.bigcommerce.com/stores/{store_hash}/v2/customers/5/addresses",
+                  "url": "https://api.bigcommerce.com/stores/{$$.env.store_hash}/v2/customers/5/addresses",
                   "resource": "/customers/5/addresses"
                 },
                 "form_fields": [
@@ -1784,7 +1784,7 @@
                   "properties": {
                     "url": {
                       "description": "Full URL of where the resource is located.",
-                      "example": "https://api.bigcommerce.com/stores/{store_hash}/v2/customers/5/addresses",
+                      "example": "https://api.bigcommerce.com/stores/{$$.env.store_hash}/v2/customers/5/addresses",
                       "type": "string"
                     },
                     "resource": {
@@ -1902,7 +1902,7 @@
           {
             "request": {
               "method": "GET",
-              "uri": "/stores/{store_hash}/v2/customers/count",
+              "uri": "/stores/{$$.env.store_hash}/v2/customers/count",
               "headers": {
                 "Accept": "application/json",
                 "Content-Type": "application/json",
@@ -3502,89 +3502,7 @@
             "schema": {
               "type": "array",
               "items": {
-                "title": "Customer Group",
-                "type": "object",
-                "description": "When creating a customer group category discount using the API it defaults to \"products in this category and its subcategories\". In the [Control Panel](https://support.bigcommerce.com/s/article/Customer-Groups#pricing) this can be changed to either \"products in this category only\" or \"products in this category and its subcategories\". There are currently no settings to change this behavior via API.",
-                "properties": {
-                  "id": {
-                    "description": "Id of the customer group",
-                    "example": 1,
-                    "type": "integer"
-                  },
-                  "name": {
-                    "description": "Name of the group",
-                    "example": "Wholesale",
-                    "type": "string"
-                  },
-                  "is_default": {
-                    "description": "Determines whether new customers are assigned to this group by default.",
-                    "example": false,
-                    "type": "boolean"
-                  },
-                  "category_access": {
-                    "title": "Category Access Level",
-                    "type": "object",
-                    "properties": {
-                      "type": {
-                        "type": "string",
-                        "enum": [
-                          "all",
-                          "specific",
-                          "none"
-                        ],
-                        "description": "+ `all` - Customers can access all categories\n + `specific`  - Customers can access a specific list of categories\n+ `none` - Customers are prevented from viewing any of the categories in this group."
-                      },
-                      "categories": {
-                        "description": "Is an array of category IDs and should be supplied only if `type` is specific.",
-                        "type": "array",
-                        "example": "18,19,23,34",
-                        "items": {
-                          "type": "string"
-                        }
-                      }
-                    }
-                  },
-                  "discount_rules": {
-                    "description": "A collection of discount rules that are automatically applied to customers who are members of the group",
-                    "type": "array",
-                    "items": {
-                      "type": "object",
-                      "properties": {
-                        "type": {
-                          "type": "string",
-                          "enum": [
-                            "price_list",
-                            "all",
-                            "category",
-                            "product"
-                          ]
-                        },
-                        "method": {
-                          "type": "string",
-                          "enum": [
-                            "percent",
-                            "fixed",
-                            "price"
-                          ]
-                        },
-                        "amount": {
-                          "type": "string",
-                          "example": "\"5.0000\" (Float, Float as String, Integer)",
-                          "description": "A float that specifies the value applied to the price modified"
-                        },
-                        "price_list_id": {
-                          "type": "integer",
-                          "example": 3,
-                          "description": "If a customer group is assigned to a price list,`method` and `amount` are not shown. `type` and `price_list_id` are returned."
-                        }
-                      }
-                    }
-                  },
-                  "is_group_for_guests": {
-                    "type": "boolean",
-                    "description": "If the groups is for guests. There can only be one customer group for guests at a time."
-                  }
-                }
+                "$ref": "#/definitions/CustomerGroup"
               }
             },
             "examples": {
@@ -3698,85 +3616,7 @@
             "required": true,
             "description": "",
             "schema": {
-              "title": "Customer Group",
-              "type": "object",
-              "properties": {
-                "id": {
-                  "description": "Id of the customer group",
-                  "example": 1,
-                  "type": "integer"
-                },
-                "name": {
-                  "description": "Name of the group",
-                  "example": "Wholesale",
-                  "type": "string"
-                },
-                "is_default": {
-                  "description": "Determines whether new customers are assigned to this group by default.",
-                  "example": false,
-                  "type": "boolean"
-                },
-                "category_access": {
-                  "title": "Category Access Level",
-                  "type": "object",
-                  "properties": {
-                    "type": {
-                      "type": "string",
-                      "enum": [
-                        "all",
-                        "specific",
-                        "none"
-                      ],
-                      "description": "+ `all` - Customers can access all categories\n + `specific`  - Customers can access a specific list of categories\n+ `none` - Customers are prevented from viewing any of the categories in this group."
-                    },
-                    "categories": {
-                      "description": "Is an array of category IDs and should be supplied only if `type` is specific.",
-                      "type": "array",
-                      "example": "18,19,23,34",
-                      "items": {
-                        "type": "string"
-                      }
-                    }
-                  }
-                },
-                "discount_rules": {
-                  "description": "A collection of discount rules that are automatically applied to customers who are members of the group",
-                  "type": "array",
-                  "items": {
-                    "type": "object",
-                    "properties": {
-                      "type": {
-                        "type": "string",
-                        "enum": [
-                          "price_list",
-                          "all",
-                          "category",
-                          "product"
-                        ]
-                      },
-                      "method": {
-                        "type": "string",
-                        "enum": [
-                          "percent",
-                          "fixed",
-                          "price"
-                        ]
-                      },
-                      "amount": {
-                        "type": "string",
-                        "example": "\"5.0000\" (Float, Float as String, Integer)",
-                        "description": "A float that specifies the value applied to the price modified"
-                      },
-                      "price_list_id": {
-                        "type": "integer",
-                        "example": 3,
-                        "description": "If a customer group is assigned to a price list,`method` and `amount` are not shown. `type` and `price_list_id` are returned."
-                      }
-                    }
-                  }
-                }
-              },
-              "description": "When creating a customer group category discount using the API it defaults to \"products in this category and its subcategories\". In the [Control Panel](https://support.bigcommerce.com/s/article/Customer-Groups#pricing) this can be changed to either \"products in this category only\" or \"products in this category and its subcategories\". There are currently no settings to change this behavior via API."
+              "$ref": "#/definitions/CustomerGroupPost"
             },
             "x-examples": {
               "application/json": {
@@ -3808,89 +3648,7 @@
           "200": {
             "description": "",
             "schema": {
-              "title": "Customer Group",
-              "type": "object",
-              "description": "When creating a customer group category discount using the API it defaults to \"products in this category and its subcategories\". In the [Control Panel](https://support.bigcommerce.com/s/article/Customer-Groups#pricing) this can be changed to either \"products in this category only\" or \"products in this category and its subcategories\". There are currently no settings to change this behavior via API.",
-              "properties": {
-                "id": {
-                  "description": "Id of the customer group",
-                  "example": 1,
-                  "type": "integer"
-                },
-                "name": {
-                  "description": "Name of the group",
-                  "example": "Wholesale",
-                  "type": "string"
-                },
-                "is_default": {
-                  "description": "Determines whether new customers are assigned to this group by default.",
-                  "example": false,
-                  "type": "boolean"
-                },
-                "category_access": {
-                  "title": "Category Access Level",
-                  "type": "object",
-                  "properties": {
-                    "type": {
-                      "type": "string",
-                      "enum": [
-                        "all",
-                        "specific",
-                        "none"
-                      ],
-                      "description": "+ `all` - Customers can access all categories\n + `specific`  - Customers can access a specific list of categories\n+ `none` - Customers are prevented from viewing any of the categories in this group."
-                    },
-                    "categories": {
-                      "description": "Is an array of category IDs and should be supplied only if `type` is specific.",
-                      "type": "array",
-                      "example": "18,19,23,34",
-                      "items": {
-                        "type": "string"
-                      }
-                    }
-                  }
-                },
-                "discount_rules": {
-                  "description": "A collection of discount rules that are automatically applied to customers who are members of the group",
-                  "type": "array",
-                  "items": {
-                    "type": "object",
-                    "properties": {
-                      "type": {
-                        "type": "string",
-                        "enum": [
-                          "price_list",
-                          "all",
-                          "category",
-                          "product"
-                        ]
-                      },
-                      "method": {
-                        "type": "string",
-                        "enum": [
-                          "percent",
-                          "fixed",
-                          "price"
-                        ]
-                      },
-                      "amount": {
-                        "type": "string",
-                        "example": "\"5.0000\" (Float, Float as String, Integer)",
-                        "description": "A float that specifies the value applied to the price modified"
-                      },
-                      "price_list_id": {
-                        "type": "integer",
-                        "example": 3,
-                        "description": "If a customer group is assigned to a price list,`method` and `amount` are not shown. `type` and `price_list_id` are returned."
-                      }
-                    }
-                  }
-                },
-                "is_group_for_guests": {
-                  "type": "boolean",
-                  "description": "If the groups is for guests. There can only be one customer group for guests at a time."
-                }
-              }
+              "$ref": "#/definitions/CustomerGroup"
             },
             "examples": {
               "application/json": {
@@ -4034,89 +3792,7 @@
           "200": {
             "description": "",
             "schema": {
-              "title": "Customer Group",
-              "type": "object",
-              "description": "When creating a customer group category discount using the API it defaults to \"products in this category and its subcategories\". In the [Control Panel](https://support.bigcommerce.com/s/article/Customer-Groups#pricing) this can be changed to either \"products in this category only\" or \"products in this category and its subcategories\". There are currently no settings to change this behavior via API.",
-              "properties": {
-                "id": {
-                  "description": "Id of the customer group",
-                  "example": 1,
-                  "type": "integer"
-                },
-                "name": {
-                  "description": "Name of the group",
-                  "example": "Wholesale",
-                  "type": "string"
-                },
-                "is_default": {
-                  "description": "Determines whether new customers are assigned to this group by default.",
-                  "example": false,
-                  "type": "boolean"
-                },
-                "category_access": {
-                  "title": "Category Access Level",
-                  "type": "object",
-                  "properties": {
-                    "type": {
-                      "type": "string",
-                      "enum": [
-                        "all",
-                        "specific",
-                        "none"
-                      ],
-                      "description": "+ `all` - Customers can access all categories\n + `specific`  - Customers can access a specific list of categories\n+ `none` - Customers are prevented from viewing any of the categories in this group."
-                    },
-                    "categories": {
-                      "description": "Is an array of category IDs and should be supplied only if `type` is specific.",
-                      "type": "array",
-                      "example": "18,19,23,34",
-                      "items": {
-                        "type": "string"
-                      }
-                    }
-                  }
-                },
-                "discount_rules": {
-                  "description": "A collection of discount rules that are automatically applied to customers who are members of the group",
-                  "type": "array",
-                  "items": {
-                    "type": "object",
-                    "properties": {
-                      "type": {
-                        "type": "string",
-                        "enum": [
-                          "price_list",
-                          "all",
-                          "category",
-                          "product"
-                        ]
-                      },
-                      "method": {
-                        "type": "string",
-                        "enum": [
-                          "percent",
-                          "fixed",
-                          "price"
-                        ]
-                      },
-                      "amount": {
-                        "type": "string",
-                        "example": "\"5.0000\" (Float, Float as String, Integer)",
-                        "description": "A float that specifies the value applied to the price modified"
-                      },
-                      "price_list_id": {
-                        "type": "integer",
-                        "example": 3,
-                        "description": "If a customer group is assigned to a price list,`method` and `amount` are not shown. `type` and `price_list_id` are returned."
-                      }
-                    }
-                  }
-                },
-                "is_group_for_guests": {
-                  "type": "boolean",
-                  "description": "If the groups is for guests. There can only be one customer group for guests at a time."
-                }
-              }
+              "$ref": "#/definitions/CustomerGroup"
             },
             "examples": {
               "application/json": {
@@ -4217,89 +3893,7 @@
           "200": {
             "description": "",
             "schema": {
-              "title": "Customer Group",
-              "type": "object",
-              "description": "When creating a customer group category discount using the API it defaults to \"products in this category and its subcategories\". In the [Control Panel](https://support.bigcommerce.com/s/article/Customer-Groups#pricing) this can be changed to either \"products in this category only\" or \"products in this category and its subcategories\". There are currently no settings to change this behavior via API.",
-              "properties": {
-                "id": {
-                  "description": "Id of the customer group",
-                  "example": 1,
-                  "type": "integer"
-                },
-                "name": {
-                  "description": "Name of the group",
-                  "example": "Wholesale",
-                  "type": "string"
-                },
-                "is_default": {
-                  "description": "Determines whether new customers are assigned to this group by default.",
-                  "example": false,
-                  "type": "boolean"
-                },
-                "category_access": {
-                  "title": "Category Access Level",
-                  "type": "object",
-                  "properties": {
-                    "type": {
-                      "type": "string",
-                      "enum": [
-                        "all",
-                        "specific",
-                        "none"
-                      ],
-                      "description": "+ `all` - Customers can access all categories\n + `specific`  - Customers can access a specific list of categories\n+ `none` - Customers are prevented from viewing any of the categories in this group."
-                    },
-                    "categories": {
-                      "description": "Is an array of category IDs and should be supplied only if `type` is specific.",
-                      "type": "array",
-                      "example": "18,19,23,34",
-                      "items": {
-                        "type": "string"
-                      }
-                    }
-                  }
-                },
-                "discount_rules": {
-                  "description": "A collection of discount rules that are automatically applied to customers who are members of the group",
-                  "type": "array",
-                  "items": {
-                    "type": "object",
-                    "properties": {
-                      "type": {
-                        "type": "string",
-                        "enum": [
-                          "price_list",
-                          "all",
-                          "category",
-                          "product"
-                        ]
-                      },
-                      "method": {
-                        "type": "string",
-                        "enum": [
-                          "percent",
-                          "fixed",
-                          "price"
-                        ]
-                      },
-                      "amount": {
-                        "type": "string",
-                        "example": "\"5.0000\" (Float, Float as String, Integer)",
-                        "description": "A float that specifies the value applied to the price modified"
-                      },
-                      "price_list_id": {
-                        "type": "integer",
-                        "example": 3,
-                        "description": "If a customer group is assigned to a price list,`method` and `amount` are not shown. `type` and `price_list_id` are returned."
-                      }
-                    }
-                  }
-                },
-                "is_group_for_guests": {
-                  "type": "string",
-                  "description": "If the groups is for guests. There can only be one customer group for guests at a time."
-                }
-              }
+              "$ref": "#/definitions/CustomerGroup"
             },
             "examples": {
               "application/json": {
@@ -4370,85 +3964,7 @@
             "in": "body",
             "name": "body",
             "schema": {
-              "title": "Customer Group",
-              "type": "object",
-              "properties": {
-                "id": {
-                  "description": "Id of the customer group",
-                  "example": 1,
-                  "type": "integer"
-                },
-                "name": {
-                  "description": "Name of the group",
-                  "example": "Wholesale",
-                  "type": "string"
-                },
-                "is_default": {
-                  "description": "Determines whether new customers are assigned to this group by default.",
-                  "example": false,
-                  "type": "boolean"
-                },
-                "category_access": {
-                  "title": "Category Access Level",
-                  "type": "object",
-                  "properties": {
-                    "type": {
-                      "type": "string",
-                      "enum": [
-                        "all",
-                        "specific",
-                        "none"
-                      ],
-                      "description": "+ `all` - Customers can access all categories\n + `specific`  - Customers can access a specific list of categories\n+ `none` - Customers are prevented from viewing any of the categories in this group."
-                    },
-                    "categories": {
-                      "description": "Is an array of category IDs and should be supplied only if `type` is specific.",
-                      "type": "array",
-                      "example": "18,19,23,34",
-                      "items": {
-                        "type": "string"
-                      }
-                    }
-                  }
-                },
-                "discount_rules": {
-                  "description": "A collection of discount rules that are automatically applied to customers who are members of the group",
-                  "type": "array",
-                  "items": {
-                    "type": "object",
-                    "properties": {
-                      "type": {
-                        "type": "string",
-                        "enum": [
-                          "price_list",
-                          "all",
-                          "category",
-                          "product"
-                        ]
-                      },
-                      "method": {
-                        "type": "string",
-                        "enum": [
-                          "percent",
-                          "fixed",
-                          "price"
-                        ]
-                      },
-                      "amount": {
-                        "type": "string",
-                        "example": "\"5.0000\" (Float, Float as String, Integer)",
-                        "description": "A float that specifies the value applied to the price modified"
-                      },
-                      "price_list_id": {
-                        "type": "integer",
-                        "example": 3,
-                        "description": "If a customer group is assigned to a price list,`method` and `amount` are not shown. `type` and `price_list_id` are returned."
-                      }
-                    }
-                  }
-                }
-              },
-              "description": "When creating a customer group category discount using the API it defaults to \"products in this category and its subcategories\". In the [Control Panel](https://support.bigcommerce.com/s/article/Customer-Groups#pricing) this can be changed to either \"products in this category only\" or \"products in this category and its subcategories\". There are currently no settings to change this behavior via API."
+              "$ref": "#/definitions/CustomerGroup"
             },
             "x-examples": {
               "application/json": {
@@ -4659,7 +4175,7 @@
       "properties": {
         "url": {
           "description": "URL of the shipping address for api requests",
-          "example": "https://api.bigcommerce.com/stores/{store_hash}/v2/orders/129/shippingaddresses",
+          "example": "https://api.bigcommerce.com/stores/{$$.env.store_hash}/v2/orders/129/shippingaddresses",
           "type": "string"
         },
         "resource": {
@@ -4688,7 +4204,7 @@
         "tax_exempt_category": "",
         "accepts_marketing": true,
         "addresses": {
-          "url": "https://api.bigcommerce.com/stores/{store_hash}/v2/customers/5/addresses",
+          "url": "https://api.bigcommerce.com/stores/{$$.env.store_hash}/v2/customers/5/addresses",
           "resource": "/customers/5/addresses"
         },
         "form_fields": [
@@ -4793,7 +4309,7 @@
           "properties": {
             "url": {
               "description": "Full URL of where the resource is located.",
-              "example": "https://api.bigcommerce.com/stores/{store_hash}/v2/customers/5/addresses",
+              "example": "https://api.bigcommerce.com/stores/{$$.env.store_hash}/v2/customers/5/addresses",
               "type": "string"
             },
             "resource": {
@@ -4853,7 +4369,7 @@
           "type": "array",
           "example": "18,19,23,34",
           "items": {
-            "type": "string"
+            "type": "integer"
           }
         }
       }
@@ -4864,7 +4380,7 @@
       "properties": {
         "url": {
           "description": "Full URL of where the resource is located.",
-          "example": "https://api.bigcommerce.com/stores/{store_hash}/v2/customers/5/addresses",
+          "example": "https://api.bigcommerce.com/stores/{$$.env.store_hash}/v2/customers/5/addresses",
           "type": "string"
         },
         "resource": {
@@ -5013,27 +4529,7 @@
           "type": "boolean"
         },
         "category_access": {
-          "title": "Category Access Level",
-          "type": "object",
-          "properties": {
-            "type": {
-              "type": "string",
-              "enum": [
-                "all",
-                "specific",
-                "none"
-              ],
-              "description": "+ `all` - Customers can access all categories\n + `specific`  - Customers can access a specific list of categories\n+ `none` - Customers are prevented from viewing any of the categories in this group."
-            },
-            "categories": {
-              "description": "Is an array of category IDs and should be supplied only if `type` is specific.",
-              "type": "array",
-              "example": "18,19,23,34",
-              "items": {
-                "type": "string"
-              }
-            }
-          }
+          "$ref": "#/definitions/CategoryAccess"
         },
         "discount_rules": {
           "description": "A collection of discount rules that are automatically applied to customers who are members of the group",
@@ -5085,7 +4581,7 @@
         "country_iso2": "AU",
         "country_iso3": "AUS",
         "states": {
-          "url": "https://api.bigcommerce.com/stores/{store_hash}/v2/countries/13/states",
+          "url": "https://api.bigcommerce.com/stores/{$$.env.store_hash}/v2/countries/13/states",
           "resource": "/countries/13/states"
         }
       },
@@ -5117,7 +4613,7 @@
           "properties": {
             "url": {
               "description": "",
-              "example": "https://api.bigcommerce.com/stores/{store_hash}/v2/countries/13/states",
+              "example": "https://api.bigcommerce.com/stores/{$$.env.store_hash}/v2/countries/13/states",
               "type": "string"
             },
             "resource": {
@@ -5135,7 +4631,7 @@
       "properties": {
         "url": {
           "description": "",
-          "example": "https://api.bigcommerce.com/stores/{store_hash}/v2/countries/13/states",
+          "example": "https://api.bigcommerce.com/stores/{$$.env.store_hash}/v2/countries/13/states",
           "type": "string"
         },
         "resource": {
@@ -5174,6 +4670,66 @@
           "description": "Numeric ID of the state’s/province’s associated country.",
           "example": 13,
           "type": "integer"
+        }
+      }
+    },
+    "CustomerGroupPost": {
+      "title": "Customer Group",
+      "type": "object",
+      "description": "When creating a customer group category discount using the API it defaults to \"products in this category and its subcategories\". In the [Control Panel](https://support.bigcommerce.com/s/article/Customer-Groups#pricing) this can be changed to either \"products in this category only\" or \"products in this category and its subcategories\". There are currently no settings to change this behavior via API.",
+      "properties": {
+        "name": {
+          "description": "Name of the group",
+          "example": "Wholesale",
+          "type": "string"
+        },
+        "is_default": {
+          "description": "Determines whether new customers are assigned to this group by default.",
+          "example": false,
+          "type": "boolean"
+        },
+        "category_access": {
+          "$ref": "#/definitions/CategoryAccess"
+        },
+        "discount_rules": {
+          "description": "A collection of discount rules that are automatically applied to customers who are members of the group",
+          "type": "array",
+          "items": {
+            "type": "object",
+            "properties": {
+              "type": {
+                "type": "string",
+                "enum": [
+                  "price_list",
+                  "all",
+                  "category",
+                  "product"
+                ]
+              },
+              "method": {
+                "type": "string",
+                "enum": [
+                  "percent",
+                  "fixed",
+                  "price"
+                ]
+              },
+              "amount": {
+                "type": "string",
+                "example": "\"5.0000\" (Float, Float as String, Integer)",
+                "description": "A float that specifies the value applied to the price modified"
+              },
+              "price_list_id": {
+                "type": "integer",
+                "example": 3,
+                "description": "If a customer group is assigned to a price list,`method` and `amount` are not shown. `type` and `price_list_id` are returned."
+              }
+            }
+          }
+        },
+        "is_group_for_guests": {
+          "type": "boolean",
+          "description": "If the groups is for guests. There can only be one customer group for guests at a time."
         }
       }
     }

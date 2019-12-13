@@ -6,7 +6,7 @@
     "description": "`/orders`endpoints integrate with point-of-sale, shipping, distribution, and inventory-management systems. \n\n## Order\nThe Order object contains a record of the purchase agreement between a shopper and a merchant. To learn more about creating orders, see [Orders API Guide](/api-docs/orders/orders-api-overview).\n\n### Currency Fields\n\n* `currency_code` - the display currency used to present prices to the shopper on the storefront.\n* `currency_exchange_rate`: the exchange rate between the store's default currency and the display currency; when the order is created by means of the V2 endpoints, this value is always 1 (only in the storefront this value can be different to 1).\n\nThe following additional fields are returned on orders when Multi-Currency is enabled on the store:\n\n* `store_default_currency_code` - the store's default currency\n* `store_default_to_transactional_exchange_rate` - the exchange rate between the store's default currency and the transactional currency used in the order.\n\n**Example:**\n\n```json\n{\n  //...   \n  \"currency_id\": 4,\n  \"currency_code\": \"EUR\",\n  \"currency_exchange_rate\": 1,\n  \"default_currency_id\": 4,\n  \"default_currency_code\": \"EUR\",\n  \"store_default_currency_codev: \"USD\",\n  \"store_default_to_transactional_exchange_rate\": \"100.0000000000\"\n  //...\n}\n\n```\n\n## Order Coupons\nCoupon code applied to an order.\n\n## Order Messages\nMessages associated with an order.\n\n## Order Products\nProduct line items belonging to an order.\n\n## Order Shipping Addresses\nCustomer shipping address belonging to an order.\n\n## Order Statuses\nEach order status represents a state in the order-fulfillment workflow.\n\n## Order Taxes\nEach tax applied to an order. This information can be useful for reporting purposes. All values are read-only.\n\n## Order Shipments\nTracks a package consignment from an order that is shipped from the seller to the buyer.\n\n## Order Shipping Addresses Quotes\nRead Only. Get's all shipping quotes from an order."
   },
   "host": "api.bigcommerce.com",
-  "basePath": "/stores/{store_hash}/v2",
+  "basePath": "/stores/{$$.env.store_hash}/v2",
   "schemes": [
     "https"
   ],
@@ -705,38 +705,6 @@
         "operationId": "getOrderStatus"
       }
     },
-    "/order_statuses/{order_id}": {
-      "get": {
-        "description": "Returns a single order status.",
-        "summary": "Get a Single Order Status by Id",
-        "produces": [],
-        "parameters": [
-          {
-            "$ref": "#/parameters/order_id"
-          },
-          {
-            "$ref": "#/parameters/Accept"
-          },
-          {
-            "$ref": "#/parameters/Content-Type"
-          }
-        ],
-        "responses": {
-          "200": {
-            "$ref": "#/responses/GetAOrderStatus"
-          }
-        },
-        "tags": [
-          "Order Status"
-        ],
-        "operationId": "getAOrderStatus"
-      },
-      "parameters": [
-        {
-          "$ref": "#/parameters/order_id"
-        }
-      ]
-    },
     "/orders/{order_id}/taxes": {
       "get": {
         "description": "Gets all order taxes using `order_id`.\nEach tax applied to an order. This information can be useful for reporting purposes. \nPass in the query parameter `?details=true` to return extra details about order taxes.\n`order_product_id` and `line_item_type` are also returned\n\nAll values are read-only.",
@@ -920,7 +888,8 @@
         ],
         "responses": {
           "200": {
-            "$ref": "#/responses/OrderShipmentResponse"
+            "$ref": "#/responses/OrderShipmentResponse",
+            "examples": {}
           }
         },
         "operationId": "getOrderShipment",
@@ -958,13 +927,7 @@
               "application/json": {
                 "tracking_number": "EJ958083578US",
                 "order_address_id": 1,
-                "shipping_provider": "",
-                "items": [
-                  {
-                    "order_product_id": 15,
-                    "quantity": 2
-                  }
-                ]
+                "shipping_provider": ""
               }
             }
           },
@@ -1732,6 +1695,38 @@
           "$ref": "#/parameters/shipping_address_id"
         }
       ]
+    },
+    "/order_statuses/{order_id}": {
+      "get": {
+        "description": "Returns a single order status.",
+        "summary": "Get a Single Order Status by Id",
+        "produces": [],
+        "parameters": [
+          {
+            "$ref": "#/parameters/order_id"
+          },
+          {
+            "$ref": "#/parameters/Accept"
+          },
+          {
+            "$ref": "#/parameters/Content-Type"
+          }
+        ],
+        "responses": {
+          "200": {
+            "$ref": "#/responses/GetAOrderStatus"
+          }
+        },
+        "tags": [
+          "Order Status"
+        ],
+        "operationId": "getAOrderStatus"
+      },
+      "parameters": [
+        {
+          "$ref": "#/parameters/order_id"
+        }
+      ]
     }
   },
   "definitions": {
@@ -1811,15 +1806,15 @@
         "order_source": "www",
         "external_source": {},
         "products": {
-          "url": "https://api.bigcommerce.com/stores/{store_hash}/v2/orders/113/products",
+          "url": "https://api.bigcommerce.com/stores/{$$.env.store_hash}/v2/orders/113/products",
           "resource": "/orders/113/products"
         },
         "shipping_addresses": {
-          "url": "https://api.bigcommerce.com/stores/{store_hash}/v2/orders/113/shippingaddresses",
+          "url": "https://api.bigcommerce.com/stores/{$$.env.store_hash}/v2/orders/113/shippingaddresses",
           "resource": "/orders/113/shippingaddresses"
         },
         "coupons": {
-          "url": "https://api.bigcommerce.com/stores/{store_hash}/v2/orders/113/coupons",
+          "url": "https://api.bigcommerce.com/stores/{$$.env.store_hash}/v2/orders/113/coupons",
           "resource": "/orders/113/coupons"
         },
         "external_id": {},
@@ -2366,21 +2361,22 @@
           "type": "string"
         },
         "amount": {
-          "description": "Amount of the discount. This information is returned as in integer. Dollar and percentage discounts will return the same. \nFor example, $3 returns as '3' while 5% will return as 5. Check the discount type to see what type of discount is available. (Float, Float-As-String, Integer)",
+          "description": "Amount of the discount. This information is returned as in integer. Dollar and percentage discounts will return the same. \nFor example, $3 returns as '3' while 5% will return as 5. Check the discount type to see what type of discount is available. Returns an empty string for type 5: `promotion`. (Float, Float-As-String, Integer)",
           "example": "5.0000",
           "type": "string"
         },
         "type": {
-          "type": "string",
+          "type": "integer",
           "title": "Order Coupon Discount Type",
           "enum": [
             0,
             1,
             2,
             3,
-            4
+            4,
+            "5"
           ],
-          "description": "type 0: per_item_discount\ntype 1: percentage_discount\ntype 2: per_total_discount\ntype 3: shipping_discount\ntype 4: free_shipping"
+          "description": "type 0: per_item_discount\ntype 1: percentage_discount\ntype 2: per_total_discount\ntype 3: shipping_discount\ntype 4: free_shipping\ntype 5: promotion"
         },
         "discount": {
           "description": "The amount off the order the discount is worth. For example, if an order subtotal is $90 and the discount is $3 then it will return as 3.000. If the discount is\n3% then will return as 2.7000 or the amount of the order.  (Float, Float-As-String, Integer)",
@@ -2911,7 +2907,7 @@
               "type": "string",
               "readOnly": true,
               "description": "This URL will return a 204 for shipping quotes. To return shipping quotes:\n`/shipping_addresses/shipping_address_id/shipping_quotes`",
-              "example": "https://api.bigcommerce.com/stores/{store_hash}/v2/orders/163/shippingaddresses/64/shippingquotes"
+              "example": "https://api.bigcommerce.com/stores/{$$.env.store_hash}/v2/orders/163/shippingaddresses/64/shippingquotes"
             },
             "resource": {
               "type": "string",
@@ -3415,7 +3411,7 @@
         "url": {
           "description": "",
           "readOnly": true,
-          "example": "https://api.bigcommerce.com/stores/{store_hash}/v2/orders/129/products",
+          "example": "https://api.bigcommerce.com/stores/{$$.env.store_hash}/v2/orders/129/products",
           "type": "string"
         },
         "resource": {
@@ -3434,7 +3430,7 @@
         "url": {
           "description": "URL of the shipping address for api requests",
           "readOnly": true,
-          "example": "https://api.bigcommerce.com/stores/{store_hash}/v2/orders/129/shippingaddresses",
+          "example": "https://api.bigcommerce.com/stores/{$$.env.store_hash}/v2/orders/129/shippingaddresses",
           "type": "string"
         },
         "resource": {
@@ -3453,7 +3449,7 @@
         "url": {
           "description": "URL of the coupons for api requests",
           "readOnly": true,
-          "example": "https://api.bigcommerce.com/stores/{store_hash}/v2/orders/129/coupons",
+          "example": "https://api.bigcommerce.com/stores/{$$.env.store_hash}/v2/orders/129/coupons",
           "type": "string"
         },
         "resource": {
@@ -3465,7 +3461,7 @@
       }
     },
     "OrderCouponDiscountType": {
-      "type": "string",
+      "type": "integer",
       "title": "Order Coupon Discount Type",
       "enum": [
         0,
@@ -3474,7 +3470,7 @@
         3,
         4
       ],
-      "description": "type 0: per_item_discount\ntype 1: percentage_discount\ntype 2: per_total_discount\ntype 3: shipping_discount\ntype 4: free_shipping"
+      "description": "type 0: per_item_discount\ntype 1: percentage_discount\ntype 2: per_total_discount\ntype 3: shipping_discount\ntype 4: free_shipping \ntype 5: promotion"
     },
     "OrderProductsAppliedDiscounts": {
       "title": "Order Products Applied Discounts",
@@ -3702,7 +3698,7 @@
           "type": "string",
           "readOnly": true,
           "description": "This URL will return a 204 for shipping quotes. To return shipping quotes:\n`/shipping_addresses/shipping_address_id/shipping_quotes`",
-          "example": "https://api.bigcommerce.com/stores/{store_hash}/v2/orders/163/shippingaddresses/64/shippingquotes"
+          "example": "https://api.bigcommerce.com/stores/{$$.env.store_hash}/v2/orders/163/shippingaddresses/64/shippingquotes"
         },
         "resource": {
           "type": "string",
@@ -3836,15 +3832,15 @@
         "order_source": "www",
         "external_source": {},
         "products": {
-          "url": "https://api.bigcommerce.com/stores/{store_hash}/v2/orders/113/products",
+          "url": "https://api.bigcommerce.com/stores/{$$.env.store_hash}/v2/orders/113/products",
           "resource": "/orders/113/products"
         },
         "shipping_addresses": {
-          "url": "https://api.bigcommerce.com/stores/{store_hash}/v2/orders/113/shippingaddresses",
+          "url": "https://api.bigcommerce.com/stores/{$$.env.store_hash}/v2/orders/113/shippingaddresses",
           "resource": "/orders/113/shippingaddresses"
         },
         "coupons": {
-          "url": "https://api.bigcommerce.com/stores/{store_hash}/v2/orders/113/coupons",
+          "url": "https://api.bigcommerce.com/stores/{$$.env.store_hash}/v2/orders/113/coupons",
           "resource": "/orders/113/coupons"
         },
         "external_id": {},
@@ -4455,27 +4451,6 @@
         "comments": {
           "description": "Comments the shipper wishes to add.",
           "type": "string"
-        },
-        "items": {
-          "description": "The items in the shipment. This object has the following members, all integer: order_product_id (required), quantity (required), product_id (read-only). A sample items value might be: [ {\"order_product_id\":16,\"product_id\": 0,\"quantity\":2} ]",
-          "type": "array",
-          "items": {
-            "type": "object",
-            "properties": {
-              "order_product_id": {
-                "type": "integer",
-                "example": 5
-              },
-              "product_id": {
-                "type": "integer",
-                "example": 87
-              },
-              "quantity": {
-                "type": "number",
-                "example": 2
-              }
-            }
-          }
         }
       }
     },
@@ -4952,15 +4927,15 @@
             "channel_id": 1,
             "external_source": {},
             "products": {
-              "url": "https://api.bigcommerce.com/stores/{store_hash}/v2/orders/100/products",
+              "url": "https://api.bigcommerce.com/stores/{$$.env.store_hash}/v2/orders/100/products",
               "resource": "/orders/100/products"
             },
             "shipping_addresses": {
-              "url": "https://api.bigcommerce.com/stores/{store_hash}/v2/orders/100/shippingaddresses",
+              "url": "https://api.bigcommerce.com/stores/{$$.env.store_hash}/v2/orders/100/shippingaddresses",
               "resource": "/orders/100/shippingaddresses"
             },
             "coupons": {
-              "url": "https://api.bigcommerce.com/stores/{store_hash}/v2/orders/100/coupons",
+              "url": "https://api.bigcommerce.com/stores/{$$.env.store_hash}/v2/orders/100/coupons",
               "resource": "/orders/100/coupons"
             },
             "external_id": {},
@@ -5045,15 +5020,15 @@
             "channel_id": 1,
             "external_source": {},
             "products": {
-              "url": "https://api.bigcommerce.com/stores/{store_hash}/v2/orders/104/products",
+              "url": "https://api.bigcommerce.com/stores/{$$.env.store_hash}/v2/orders/104/products",
               "resource": "/orders/104/products"
             },
             "shipping_addresses": {
-              "url": "https://api.bigcommerce.com/stores/{store_hash}/v2/orders/104/shippingaddresses",
+              "url": "https://api.bigcommerce.com/stores/{$$.env.store_hash}/v2/orders/104/shippingaddresses",
               "resource": "/orders/104/shippingaddresses"
             },
             "coupons": {
-              "url": "https://api.bigcommerce.com/stores/{store_hash}/v2/orders/104/coupons",
+              "url": "https://api.bigcommerce.com/stores/{$$.env.store_hash}/v2/orders/104/coupons",
               "resource": "/orders/104/coupons"
             },
             "external_id": {},
@@ -5138,15 +5113,15 @@
             "channel_id": 1,
             "external_source": {},
             "products": {
-              "url": "https://api.bigcommerce.com/stores/{store_hash}/v2/orders/105/products",
+              "url": "https://api.bigcommerce.com/stores/{$$.env.store_hash}/v2/orders/105/products",
               "resource": "/orders/105/products"
             },
             "shipping_addresses": {
-              "url": "https://api.bigcommerce.com/stores/{store_hash}/v2/orders/105/shippingaddresses",
+              "url": "https://api.bigcommerce.com/stores/{$$.env.store_hash}/v2/orders/105/shippingaddresses",
               "resource": "/orders/105/shippingaddresses"
             },
             "coupons": {
-              "url": "https://api.bigcommerce.com/stores/{store_hash}/v2/orders/105/coupons",
+              "url": "https://api.bigcommerce.com/stores/{$$.env.store_hash}/v2/orders/105/coupons",
               "resource": "/orders/105/coupons"
             },
             "external_id": {},
@@ -5231,15 +5206,15 @@
             "channel_id": 1,
             "external_source": {},
             "products": {
-              "url": "https://api.bigcommerce.com/stores/{store_hash}/v2/orders/107/products",
+              "url": "https://api.bigcommerce.com/stores/{$$.env.store_hash}/v2/orders/107/products",
               "resource": "/orders/107/products"
             },
             "shipping_addresses": {
-              "url": "https://api.bigcommerce.com/stores/{store_hash}/v2/orders/107/shippingaddresses",
+              "url": "https://api.bigcommerce.com/stores/{$$.env.store_hash}/v2/orders/107/shippingaddresses",
               "resource": "/orders/107/shippingaddresses"
             },
             "coupons": {
-              "url": "https://api.bigcommerce.com/stores/{store_hash}/v2/orders/107/coupons",
+              "url": "https://api.bigcommerce.com/stores/{$$.env.store_hash}/v2/orders/107/coupons",
               "resource": "/orders/107/coupons"
             },
             "external_id": {},
@@ -5324,15 +5299,15 @@
             "channel_id": 1,
             "external_source": {},
             "products": {
-              "url": "https://api.bigcommerce.com/stores/{store_hash}/v2/orders/110/products",
+              "url": "https://api.bigcommerce.com/stores/{$$.env.store_hash}/v2/orders/110/products",
               "resource": "/orders/110/products"
             },
             "shipping_addresses": {
-              "url": "https://api.bigcommerce.com/stores/{store_hash}/v2/orders/110/shippingaddresses",
+              "url": "https://api.bigcommerce.com/stores/{$$.env.store_hash}/v2/orders/110/shippingaddresses",
               "resource": "/orders/110/shippingaddresses"
             },
             "coupons": {
-              "url": "https://api.bigcommerce.com/stores/{store_hash}/v2/orders/110/coupons",
+              "url": "https://api.bigcommerce.com/stores/{$$.env.store_hash}/v2/orders/110/coupons",
               "resource": "/orders/110/coupons"
             },
             "external_id": {},
@@ -5581,15 +5556,15 @@
           "channel_id": 1,
           "external_source": null,
           "products": {
-            "url": "https://api.bigcommerce.com/stores/{store_hash}/v2/orders/218/products",
+            "url": "https://api.bigcommerce.com/stores/{$$.env.store_hash}/v2/orders/218/products",
             "resource": "/orders/218/products"
           },
           "shipping_addresses": {
-            "url": "https://api.bigcommerce.com/stores/{store_hash}/v2/orders/218/shippingaddresses",
+            "url": "https://api.bigcommerce.com/stores/{$$.env.store_hash}/v2/orders/218/shippingaddresses",
             "resource": "/orders/218/shippingaddresses"
           },
           "coupons": {
-            "url": "https://api.bigcommerce.com/stores/{store_hash}/v2/orders/218/coupons",
+            "url": "https://api.bigcommerce.com/stores/{$$.env.store_hash}/v2/orders/218/coupons",
             "resource": "/orders/218/coupons"
           },
           "external_id": null,
@@ -5599,7 +5574,7 @@
           "store_default_to_transactional_exchange_rate": "1.0000000000",
           "custom_status": "Awaiting Payment"
         },
-        "Multiple Items": "{\n  \"id\": 247,\n  \"customer_id\": 11,\n  \"date_created\": \"Thu, 20 Jun 2019 16:07:08 +0000\",\n  \"date_modified\": \"Thu, 20 Jun 2019 16:07:08 +0000\",\n  \"date_shipped\": \"\",\n  \"status_id\": 11,\n  \"status\": \"Awaiting Fulfillment\",\n  \"subtotal_ex_tax\": \"924.4700\",\n  \"subtotal_inc_tax\": \"1000.7400\",\n  \"subtotal_tax\": \"76.2700\",\n  \"base_shipping_cost\": \"8.0000\",\n  \"shipping_cost_ex_tax\": \"7.3900\",\n  \"shipping_cost_inc_tax\": \"8.0000\",\n  \"shipping_cost_tax\": \"0.6100\",\n  \"shipping_cost_tax_class_id\": 0,\n  \"base_handling_cost\": \"0.0000\",\n  \"handling_cost_ex_tax\": \"0.0000\",\n  \"handling_cost_inc_tax\": \"0.0000\",\n  \"handling_cost_tax\": \"0.0000\",\n  \"handling_cost_tax_class_id\": 0,\n  \"base_wrapping_cost\": \"0.0000\",\n  \"wrapping_cost_ex_tax\": \"0.0000\",\n  \"wrapping_cost_inc_tax\": \"0.0000\",\n  \"wrapping_cost_tax\": \"0.0000\",\n  \"wrapping_cost_tax_class_id\": 0,\n  \"total_ex_tax\": \"931.8600\",\n  \"total_inc_tax\": \"1008.7400\",\n  \"total_tax\": \"76.8800\",\n  \"items_total\": 11,\n  \"items_shipped\": 0,\n  \"payment_method\": \"Test Payment Gateway\",\n  \"payment_provider_id\": \"\",\n  \"payment_status\": \"captured\",\n  \"refunded_amount\": \"0.0000\",\n  \"order_is_digital\": false,\n  \"store_credit_amount\": \"0.0000\",\n  \"gift_certificate_amount\": \"0.0000\",\n  \"ip_address\": \"70.112.53.67\",\n  \"geoip_country\": \"United States\",\n  \"geoip_country_iso2\": \"US\",\n  \"currency_id\": 1,\n  \"currency_code\": \"USD\",\n  \"currency_exchange_rate\": \"1.0000000000\",\n  \"default_currency_id\": 1,\n  \"default_currency_code\": \"USD\",\n  \"staff_notes\": \"BIN-45\",\n  \"customer_message\": \"Custom Journal Added\",\n  \"discount_amount\": \"0.0000\",\n  \"coupon_discount\": \"0.0000\",\n  \"shipping_address_count\": 1,\n  \"is_deleted\": false,\n  \"ebay_order_id\": \"0\",\n  \"cart_id\": \"8b84f622-faf1-4c10-887b-f5dff2f9eaf4\",\n  \"billing_address\": {\n    \"first_name\": \"Jane\",\n    \"last_name\": \"Doe\",\n    \"company\": \"\",\n    \"street_1\": \"555 East Street\",\n    \"street_2\": \"\",\n    \"city\": \"Austin\",\n    \"state\": \"Texas\",\n    \"zip\": \"78108\",\n    \"country\": \"United States\",\n    \"country_iso2\": \"US\",\n    \"phone\": \"1234567890\",\n    \"email\": \"janedoe@email.com\",\n    \"form_fields\": [\n      {\n        \"name\": \"Delivery Instructions\",\n        \"value\": \"Leave in backyard\"\n      }\n    ]\n  },\n  \"is_email_opt_in\": false,\n  \"credit_card_type\": {},\n  \"order_source\": \"manual\",\n  \"channel_id\": 1,\n  \"external_source\": {},\n  \"products\": {\n    \"url\": \"https://api.bigcommerce.com/stores/{store_hash}/v2/orders/247/products\",\n    \"resource\": \"/orders/247/products\"\n  },\n  \"shipping_addresses\": {\n    \"url\": \"https://api.bigcommerce.com/stores/{store_hash}/v2/orders/247/shippingaddresses\",\n    \"resource\": \"/orders/247/shippingaddresses\"\n  },\n  \"coupons\": {\n    \"url\": \"https://api.bigcommerce.com/stores/{store_hash}/v2/orders/247/coupons\",\n    \"resource\": \"/orders/247/coupons\"\n  },\n  \"external_id\": {},\n  \"external_merchant_id\": {},\n  \"tax_provider_id\": \"BasicTaxProvider\",\n  \"store_default_currency_code\": \"USD\",\n  \"store_default_to_transactional_exchange_rate\": \"1.0000000000\",\n  \"custom_status\": \"Awaiting Fulfillment\"\n}"
+        "Multiple Items": "{\n  \"id\": 247,\n  \"customer_id\": 11,\n  \"date_created\": \"Thu, 20 Jun 2019 16:07:08 +0000\",\n  \"date_modified\": \"Thu, 20 Jun 2019 16:07:08 +0000\",\n  \"date_shipped\": \"\",\n  \"status_id\": 11,\n  \"status\": \"Awaiting Fulfillment\",\n  \"subtotal_ex_tax\": \"924.4700\",\n  \"subtotal_inc_tax\": \"1000.7400\",\n  \"subtotal_tax\": \"76.2700\",\n  \"base_shipping_cost\": \"8.0000\",\n  \"shipping_cost_ex_tax\": \"7.3900\",\n  \"shipping_cost_inc_tax\": \"8.0000\",\n  \"shipping_cost_tax\": \"0.6100\",\n  \"shipping_cost_tax_class_id\": 0,\n  \"base_handling_cost\": \"0.0000\",\n  \"handling_cost_ex_tax\": \"0.0000\",\n  \"handling_cost_inc_tax\": \"0.0000\",\n  \"handling_cost_tax\": \"0.0000\",\n  \"handling_cost_tax_class_id\": 0,\n  \"base_wrapping_cost\": \"0.0000\",\n  \"wrapping_cost_ex_tax\": \"0.0000\",\n  \"wrapping_cost_inc_tax\": \"0.0000\",\n  \"wrapping_cost_tax\": \"0.0000\",\n  \"wrapping_cost_tax_class_id\": 0,\n  \"total_ex_tax\": \"931.8600\",\n  \"total_inc_tax\": \"1008.7400\",\n  \"total_tax\": \"76.8800\",\n  \"items_total\": 11,\n  \"items_shipped\": 0,\n  \"payment_method\": \"Test Payment Gateway\",\n  \"payment_provider_id\": \"\",\n  \"payment_status\": \"captured\",\n  \"refunded_amount\": \"0.0000\",\n  \"order_is_digital\": false,\n  \"store_credit_amount\": \"0.0000\",\n  \"gift_certificate_amount\": \"0.0000\",\n  \"ip_address\": \"70.112.53.67\",\n  \"geoip_country\": \"United States\",\n  \"geoip_country_iso2\": \"US\",\n  \"currency_id\": 1,\n  \"currency_code\": \"USD\",\n  \"currency_exchange_rate\": \"1.0000000000\",\n  \"default_currency_id\": 1,\n  \"default_currency_code\": \"USD\",\n  \"staff_notes\": \"BIN-45\",\n  \"customer_message\": \"Custom Journal Added\",\n  \"discount_amount\": \"0.0000\",\n  \"coupon_discount\": \"0.0000\",\n  \"shipping_address_count\": 1,\n  \"is_deleted\": false,\n  \"ebay_order_id\": \"0\",\n  \"cart_id\": \"8b84f622-faf1-4c10-887b-f5dff2f9eaf4\",\n  \"billing_address\": {\n    \"first_name\": \"Jane\",\n    \"last_name\": \"Doe\",\n    \"company\": \"\",\n    \"street_1\": \"555 East Street\",\n    \"street_2\": \"\",\n    \"city\": \"Austin\",\n    \"state\": \"Texas\",\n    \"zip\": \"78108\",\n    \"country\": \"United States\",\n    \"country_iso2\": \"US\",\n    \"phone\": \"1234567890\",\n    \"email\": \"janedoe@email.com\",\n    \"form_fields\": [\n      {\n        \"name\": \"Delivery Instructions\",\n        \"value\": \"Leave in backyard\"\n      }\n    ]\n  },\n  \"is_email_opt_in\": false,\n  \"credit_card_type\": {},\n  \"order_source\": \"manual\",\n  \"channel_id\": 1,\n  \"external_source\": {},\n  \"products\": {\n    \"url\": \"https://api.bigcommerce.com/stores/{$$.env.store_hash}/v2/orders/247/products\",\n    \"resource\": \"/orders/247/products\"\n  },\n  \"shipping_addresses\": {\n    \"url\": \"https://api.bigcommerce.com/stores/{$$.env.store_hash}/v2/orders/247/shippingaddresses\",\n    \"resource\": \"/orders/247/shippingaddresses\"\n  },\n  \"coupons\": {\n    \"url\": \"https://api.bigcommerce.com/stores/{$$.env.store_hash}/v2/orders/247/coupons\",\n    \"resource\": \"/orders/247/coupons\"\n  },\n  \"external_id\": {},\n  \"external_merchant_id\": {},\n  \"tax_provider_id\": \"BasicTaxProvider\",\n  \"store_default_currency_code\": \"USD\",\n  \"store_default_to_transactional_exchange_rate\": \"1.0000000000\",\n  \"custom_status\": \"Awaiting Fulfillment\"\n}"
       }
     },
     "OrderCouponsCollectionResponse": {
@@ -6385,7 +6360,7 @@
             "shipping_zone_id": 1,
             "shipping_zone_name": "United States -1",
             "shipping_quotes": {
-              "url": "https://api.bigcommerce.com/stores/{store_hash}/v2/orders/229/shippingaddresses/132/shippingquotes",
+              "url": "https://api.bigcommerce.com/stores/{$$.env.store_hash}/v2/orders/229/shippingaddresses/132/shippingquotes",
               "resource": "/orders/229/shippingaddresses/132/shippingquotes"
             },
             "form_fields": []
@@ -6421,7 +6396,7 @@
             "shipping_zone_id": 1,
             "shipping_zone_name": "United States -1",
             "shipping_quotes": {
-              "url": "https://api.bigcommerce.com/stores/{store_hash}/v2/orders/229/shippingaddresses/133/shippingquotes",
+              "url": "https://api.bigcommerce.com/stores/{$$.env.store_hash}/v2/orders/229/shippingaddresses/133/shippingquotes",
               "resource": "/orders/229/shippingaddresses/133/shippingquotes"
             },
             "form_fields": []
@@ -6466,7 +6441,7 @@
           "shipping_zone_id": 1,
           "shipping_zone_name": "United States",
           "shipping_quotes": {
-            "url": "https://api.bigcommerce.com/stores/{store_hash}/v2/orders/140/shippingaddresses/42/shippingquotes",
+            "url": "https://api.bigcommerce.com/stores/{$$.env.store_hash}/v2/orders/140/shippingaddresses/42/shippingquotes",
             "resource": "/orders/140/shippingaddresses/42/shippingquotes"
           },
           "form_fields": [
