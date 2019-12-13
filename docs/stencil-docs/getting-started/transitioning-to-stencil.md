@@ -5,149 +5,88 @@
 ### On This Page
 - [Transitioning to Stencil](#Transitioning-to-Stencil)
     - [On This Page](#On-This-Page)
-  - [Find an Agency Partner](#Find-an-Agency-Partner)
-  - [Adapt a Stencil Theme or Develop from Scratch](#Adapt-a-Stencil-Theme-or-Develop-from-Scratch)
-  - [Transition to Stencil from Blueprint](#Transition-to-Stencil-from-Blueprint)
-    - [Technical Differences](#Technical-Differences)
-      - [PHP vs Handlebars](#PHP-vs-Handlebars)
-    - [WebDav vs CLI](#WebDav-vs-CLI)
-    - [Customizing checkout with Stencil](#Customizing-checkout-with-Stencil)
-    - [Updating a theme](#Updating-a-theme)
-    - [FAQ](#FAQ)
-  - [SEO Tips and Best Practices](#SEO-Tips-and-Best-Practices)
-  - [Interacting with the BigCommerce API](#Interacting-with-the-BigCommerce-API)
-    - [Partnering with BigCommerce](#Partnering-with-BigCommerce)
+  - [What is Stencil?](#What-is-Stencil?)
+  - [Why Transition to Stencil?](#Why-Transition-to-Stencil?)
+  - [Technical Differences](#Technical-Differences)
+    - [Developing Locally on Stencil CLI](#Developing-Locally-on-Stencil-CLI)
+    - [Using Handlebars](#Using-Handlebars)
+    - [Customize Store Design Mode](#Customize-Store-Design-Mode)
+    - [Create Custom Templates](#Create-Custom-Templates)
   - [Resources](#Resources)
-    - [Related Articles](#Related-Articles)
-    - [Additional Resources](#Additional-Resources)
-
-</div> 
-
-Whether you are new to Stencil or approaching Stencil from a different platform or theming framework (such as BigCommerce’s Legacy Blueprint), there are a few ways to develop a custom theme for your BigCommerce Stencil storefront. This article will provide instruction on how to transition to Stencil depending on your skill set, budget, and approach to the framework.
-
-##  Find an Agency Partner
-
-If you prefer an expert customize your theme, we recommend working with one of our certified certified BigCommerce Agency Partners. See our [Partner Directory](https://partners.bigcommerce.com/directory/search?i=75) and [Working with a Design Partner](https://support.bigcommerce.com/articles/Learning/Working-with-a-Design-Partner) find an agency partner.
-
-## Adapt a Stencil Theme or Develop from Scratch
-
-For complete control over a theme's appearance and logic including the ability to edit _all_ theme configuration files–you will want to use the Stencil Command-line interface, also known as the Stencil CLI.
-
-## Transition to Stencil from Blueprint
-
-All new BigCommerce storefronts are powered by the Stencil theme engine. However, some BigCommerce stores still use our legacy theme framework, Blueprint. If you're still using this legacy framework, consider switching to Stencil. Transitioning to Stencil allows developers to take advantage of new features, including [Google Analytics Enhanced Ecommerce](https://developer.bigcommerce.com/stencil-docs/developing-further/google-analytics-enhanced-ecommerce), [Price Lists](/api-docs/catalog/price-list-overview) and [Google AMP](https://developer.bigcommerce.com/stencil-docs/developing-further/google-amp). Stencil also features a CLI that allows you to design and preview storefronts locally before pushing them to production. BigCommerce's base Stencil theme, Cornerstone, is also natively mobile responsive.
-
-### Technical Differences
-
-#### PHP vs Handlebars
-
-Dynamic BigCommerce store data in Stencil themes are represented by Handlebars.js, a Javascript templating language. Dynamic content was previously represented by PHP variables enclosed within %% markers.
-
-For details on using Handlebars to surface objects in Stencil, see [Stencil Technlogy Stack](/stencil-docs/getting-started/stencil-technology-stack).
-
-### WebDav vs CLI
-
-In Blueprint themes, users were able to add new files and assets to themes [via WebDav](https://support.bigcommerce.com/s/article/File-Access-WebDAV). In Stencil, assets must be added to and bundled into the theme, or referenced from an external source.
-
-### Customizing checkout with Stencil
-
-Stores created before March 2019 had the option to switch to One Page Checkout (for Developers). This gave developers access to an editable checkout file. Switching to Stencil won't affect One Page Checkout (for Developers). However, you should consider switching to Optimized One Page Checkout, as One Page Checkout (for Developers) will eventually be deprecated for all stores. See [The Complete Guide to Checkout Customization on BigCommerce](https://medium.com/bigcommerce-developer-blog/the-complete-guide-to-checkout-customization-on-bigcommerce-6b566bc36fa9) (Developer Blog) for more information.
-
-### Updating a theme
-
-As with Blueprint themes, Stencil themes can receive updates from theme developers. You can apply theme updates by going to the BigCommerce Control Panel. When in the control panel, navigate to **Storefront** › **My Themes**, and click **Update**.
-
-BigCommerce shares updates to Cornerstone in our Changelog (https://developer.bigcommerce.com/changelog) so you can verify that updates don't conflict with your customizations.
-
-For more on theme updates and best practices for handling version control, view this guide:
-https://developer.bigcommerce.com/stencil-docs/getting-started/advanced-installation-options/theme-updates-and-version-control#theme-updates_goruck-best-pracs
-
-### FAQ
-
-**How will this affect my store? Will I lose data?**
-
-No store data will be lost when you switch from Blueprint to Stencil. A store's theme is the presentation layer that renders your store catalog. You will lose any information you've hard-coded into your previous Blueprint theme.
-
-**How can I retain assets from my Blueprint theme?**
-
-For images referenced from anywhere in your Blueprint file directory, you will need to move these assets to your Stencil theme and reference them appropriately. You can still reference assets from within the /content/ folder in WebDav or from an external source.
-
-**Can I work on a custom Stencil theme without disrupting my live store?**
-
-Yes. The Stencil CLI allows you to preview theme changes on your live store locally. The changes won't be reflected on your live store until you publish them.
-
-**Can I still use developer checkout?**
-
-If your store was created before March 2019, you will still be able to use One Page Checkout (for Developers). Consider switching to Optimized One Page Checkout, as this legacy checkout will eventually be deprecated for all stores.
-
-## SEO Tips and Best Practices
-
-Search-engine optimization (SEO) helps translate an elegant theme into a successful, high-conversion storefront. Because so many shoppers reach online stores through a search engine, a search-optimized site will be more visible–attracting more traffic.
-
-Stencil is designed for high SEO performance. However, you will want to keep SEO in mind as you build out each theme and storefront. For guidelines, see the following BigCommerce support articles (which are a series of intermediate to advanced chapters in our Guide to SEO):
-
-* [SEO Do’s and Don’ts](https://support.bigcommerce.com/s/article/What-is-SEO) (Knowledge Base)
-* [Developing a Keyword Strategy](https://support.bigcommerce.com/articles/Learning/Developing-a-Keyword-Strategy/) (Knowledge Base)
-* [SEO Success Essentials](https://support.bigcommerce.com/s/article/Intro-to-SEO) (Knowledge Base) 
-
-* [Advanced SEO on BigCommerce](https://support.bigcommerce.com/s/article/Advanced-SEO-on-Bigcommerce) (Knowledge Base)
-* [Guide to Keyword Research](https://support.bigcommerce.com/s/article/Value-of-Keywords) (Knowledge Base)
-
-## Interacting with the BigCommerce API
-
-Interacting with the BigCommerce API BigCommerce’s growing API resources enable application developers to create private scripts or apps that support a single store, or to create public apps offered to multiple stores via BigCommerce’s App Marketplace.
-
-As a theme developer, you can rely on apps to enhance your themes’ capabilities, and to extend or complement the storefront features built into the BigCommerce platform. Popular app areas include inventory management, email marketing, coupons, reviews, shipping, tax accounting, and security. For more information, see BigCommerce’s:
-
-* [App Marketplace](https://www.bigcommerce.com/apps/) (BigCommerce)
-* [API Documentation](https://developer.bigcommerce.com/api-docs)
-
-<div class="HubBlock--callout">
-<div class="CalloutBlock--">
-<div class="HubBlock-content">
-
-<!-- theme:  -->
-
-### Partnering with BigCommerce
-> No formal business relationship is required to develop themes on the BigCommerce platform. However, consider applying to become a become a BigCommerce Agency Partner, to accelerate your development of new business and revenue. For details, see our:
-
-* [Overview of BigCommerce Partnerships](https://www.bigcommerce.com/partners/) (BigCommerce)
-* [Agency Partners](https://www.bigcommerce.com/partners/design-solution/) (BigCommerce)
-* [Technology Partners](https://www.bigcommerce.com/partners/developers/) (BigCommerce)
-* [Partnership Application](https://partners.bigcommerce.com/English/register_email.aspx) (BigCommerce)
 
 </div>
-</div>
-</div>
 
-## Resources
+This article outlines the key differences between Blueprint and Stencil for developers, agency partners, and anyone interested in the enhanced capabilities of Stencil.
 
-### Related Articles
+##  What is Stencil?
 
-* [API Documentation](https://developer.bigcommerce.com/api-docs)
-* [What to Consider When Changing Your Theme](https://support.bigcommerce.com/s/article/What-to-Consider-When-Changing-Your-Theme) (Knowledge Base)
-* [Editing Stencil Theme Files](https://support.bigcommerce.com/s/article/Stencil-Themes#edit) (Knowledge Base)
-* [Working with a Design Partner](https://support.bigcommerce.com/articles/Learning/Working-with-a-Design-Partner) (Knowledge Base)
-* [Theme Editor](https://support.bigcommerce.com/s/article/Stencil-Themes) (Knowledge Base)
-* [Personalizing Your Theme](https://support.bigcommerce.com/articles/Learning/Personalizing-your-New-Theme) (Knowledge Base)
-* [What to Consider When Changing Your Theme](https://support.bigcommerce.com/s/article/What-to-Consider-When-Changing-Your-Theme) (Knowledge Base)
-* [SEO Do's and Don'ts](https://support.bigcommerce.com/s/article/What-is-SEO) (Knowledge Base)
-* [Developing a Keyword Strategy](https://support.bigcommerce.com/articles/Learning/Developing-a-Keyword-Strategy/) (Knowledge Base)
-* [SEO Success Essentials](https://support.bigcommerce.com/articles/Learning/Bigcommerce-SEO-Success-Essentials/) (Knowledge Base)
-* [Advanced SEO on BigCommerce](https://support.bigcommerce.com/s/article/Advanced-SEO-on-Bigcommerce) (Knowledge Base)
-* [Guide to Keyword Research](https://support.bigcommerce.com/s/article/Value-of-Keywords) (Knowledge Base)
-* [Getting Started with the Stencil Framework](https://www.youtube.com/playlist?list=PLwTYtMwfzbe7EZiIWPAmPtuwRHkY7BG-0) (Video Playlist)
-* [Getting Started with the Stencil Framework](https://www.youtube.com/watch?v=waJ1dg_dAh8&index=11&list=PLwTYtMwfzbe7EZiIWPAmPtuwRHkY7BG-0) (Video overview of copying and editing a theme's files)
-* [Stencil and the BigCommerce Control Panel](https://www.youtube.com/watch?v=d2F6F8LJXzs&list=PLwTYtMwfzbe7EZiIWPAmPtuwRHkY7BG-0&index=2) (Video tour of Blueprint-to-Stencil changes in the BigCommerce control panel)
-* [Overview of BigCommerce Partnerships](https://www.bigcommerce.com/partners/) (BigCommerce)
-* [Agency Partners](https://www.bigcommerce.com/partners/design-solution/) (BigCommerce)
-* [Technology Partners](https://www.bigcommerce.com/partners/developers/) (BigCommerce)
-* [Partnership Application](https://partners.bigcommerce.com/English/register_email.aspx) (BigCommerce)
-* [App Marketplace](https://www.bigcommerce.com/apps/) (BigCommerce)
+[Stencil](https://developer.bigcommerce.com/stencil-docs/getting-started/about-stencil) is BigCommerce’s latest theme framework engine. Launched in 2016, Stencil incorporates industry best practices in technology, design standards, and SEO. The framework’s themes are optimized for mobile, tablet, and desktop browsers. Stencil also allows developers to build storefronts that engage shoppers and encourage checkouts on any device. All of BigCommerce’s new storefronts use Stencil.
 
-### Additional Resources
-* [Learn Handlebars in 10 Minutes or Less](http://tutorialzine.com/2015/01/learn-handlebars-in-10-minutes/) (Tutorial Zine)
-* [A Beginner’s Guide to Handlebars](https://www.sitepoint.com/a-beginners-guide-to-handlebars/) (SitePoint)
-* [Getting Started with Handlebars.js](http://blog.teamtreehouse.com/getting-started-with-handlebars-js) (Team Treehouse)
-* [Handlebars interactive tutorial](http://tryhandlebarsjs.com/) (Try Handlebars)
-* [Stencil and the BigCommerce Control Panel](https://www.youtube.com/watch?v=d2F6F8LJXzs&list=PLwTYtMwfzbe7EZiIWPAmPtuwRHkY7BG-0&index=2) (Youtube)
+If you are still using our legacy theme framework, Blueprint, we highly encourage switching to Stencil so you can take advantage of the new features and benefits. For more in-depth information about Stencil’s features, see the [Stencil Theme Platform](https://support.bigcommerce.com/s/article/The-Stencil-Theme-Platform#features) page.
+
+## Why Transition to Stencil?
+
+Stencil improves the overall storefront experience for merchants and their customers. With enhancements in speed, security, and updates to your themes, this modern framework provides a more streamlined process for the everyday maintenance and tasks required to run a store.
+
+Stencil themes are built on non-proprietary, open-source code to provide easier adoption and adaptation while providing greater flexibility and access for customization. In comparison, Blueprint, is built on a rigid, proprietary codebase, making it difficult to tailor and extend theme functionality.
+
+For more information on the enhanced capabilities of Stencil, see the [Stencil vs. Legacy Blueprint](https://support.bigcommerce.com/s/article/The-Stencil-Theme-Platform#compare) page.
+
+## Technical Differences
+
+When transitioning any store from Blueprint to Stencil, you should be aware of a few key differences before you begin. Transitioning to Stencil allows developers to do the following:
+- [Develop locally on Stencil CLI]()
+- [Use Handlebars instead of global variables]()
+- [Customize Store Design mode]()
+- [Create custom templates]()
+
+
+### Developing Locally on Stencil CLI
+
+For complete control over a theme’s appearance, logic, and theme configuration files, developers can use the Stencil Command Line Interface (Stencil CLI). This interface allows you to design and preview storefronts locally before pushing them to production. Access to real-time previews and testing across various devices is available via [Browsersync](https://www.browsersync.io/), a browser testing assistant built into Stencil CLI.
+
+While Blueprint themes allow users to add new files and assets to themes via WebDav, Stencil assets must be added to and bundled into the theme, or referenced from an external source.
+
+For images referenced from anywhere in your Blueprint file directory, you will need to move these assets to your Stencil theme and ensure they are referenced appropriately. You can still reference assets from within the `/content/` folder in WebDav or from an external source.
+
+For more information on Stencil theme assets, see the [Theme Assets](https://developer.bigcommerce.com/stencil-docs/storefront-customization/theme-assets) page.
+
+### Using Handlebars
+
+While dynamic content is represented by PHP variables enclosed within `%%` markers, dynamic BigCommerce store data in Stencil themes are represented by [Handlebars](https://handlebarsjs.com/), a JavaScript templating language.
+
+Handlebars keeps your HTML page clean by separating the logic-less templates from the business logic in your JavaScript files. This organization improves the structure of the application, promoting maintainability and scalability. Handlebars also simplifies the task of manually updating data in the customer-facing display view.
+
+For more information about Handlebars, refer to these external resources:
+- [A Beginner’s Guide to Handlebars](https://www.sitepoint.com/a-beginners-guide-to-handlebars/)
+- [Getting Started with Handlebars.js](http://blog.teamtreehouse.com/getting-started-with-handlebars-js)
+- [Handlebars interactive tutorial](http://tryhandlebarsjs.com/)
+
+For details on using Handlebars to surface objects in Stencil, see [Stencil Technology Stack](https://developer.bigcommerce.com/stencil-docs/getting-started/stencil-technology-stack).
+
+### Customize Store Design Mode
+
+While Blueprint uses Style Editor to customize legacy themes, Stencil uses Store Design. [Store Design](https://support.bigcommerce.com/s/article/Store-Design) is BigCommerce’s browser-based tool that enables merchants to rapidly modify and customize a storefront’s look and feel without writing any code. Stencil theme developers can configure settings for Store Design. The configuration determines the theme’s customizable aspects.
+
+For example, by customizing the configuration of Store Design, you can modify how merchants customize colors, fonts, display of page features, and the number of products displayed per feature.
+
+When you switch to Stencil from Blueprint, you won’t lose any of your store data. However, you will lose any customization you’ve hard-coded into your previous Blueprint theme.
+
+### Create Custom Templates
+
+Stencil allows theme developers and merchants to assign custom layout templates to the following types of storefront pages:
+- Brand (unique to Stencil)
+- Category
+- Product
+- Store (static page)
+
+Unlike Blueprint, Stencil does not require that custom template file names start with an underscore. In the current Stencil release, you must create and bundle custom templates using Stencil CLI before you can upload the custom templates to stores. However, once you have created and uploaded templates, authorized store users can assign them to storefront pages through the control panel. For more information on custom templates, see the [Custom Templates](https://developer.bigcommerce.com/stencil-docs/storefront-customization/custom-templates) page.
+
+### Resources
+
+For more information about switching to Stencil, see the following resources:
+- [Getting Started with the Stencil Framework - Youtube Playlist](https://www.youtube.com/watch?v=s5_GjU51h-w&list=PLwTYtMwfzbe7EZiIWPAmPtuwRHkY7BG-0&index=1)
+- [Stencil Theme Editor](https://support.bigcommerce.com/s/article/Stencil-Themes)
+- [Editing Stencil Theme Files](https://support.bigcommerce.com/s/article/Stencil-Themes#edit)
+- [Personalizing Your Stencil Theme](https://support.bigcommerce.com/articles/Learning/Personalizing-your-New-Theme)
+- [What to Consider When Changing Your Stencil Theme](https://support.bigcommerce.com/s/article/What-to-Consider-When-Changing-Your-Theme)
