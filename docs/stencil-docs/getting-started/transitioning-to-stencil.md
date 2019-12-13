@@ -3,16 +3,14 @@
 <div class="otp" id="no-index">
 
 ### On This Page
-- [Transitioning to Stencil](#Transitioning-to-Stencil)
-    - [On This Page](#On-This-Page)
-  - [What is Stencil?](#What-is-Stencil?)
-  - [Why Transition to Stencil?](#Why-Transition-to-Stencil?)
-  - [Technical Differences](#Technical-Differences)
-    - [Developing Locally on Stencil CLI](#Developing-Locally-on-Stencil-CLI)
-    - [Using Handlebars](#Using-Handlebars)
-    - [Customize Store Design Mode](#Customize-Store-Design-Mode)
-    - [Create Custom Templates](#Create-Custom-Templates)
-  - [Resources](#Resources)
+- [What is Stencil?](#what-is-stencil)
+- [Why Transition to Stencil?](#why-transition-to-stencil?)
+- [Technical Differences](#technical-differences)
+  - [Developing Locally on Stencil CLI](#developing-locally-on-stencil-cli)
+  - [Using Handlebars](#using-handlebars)
+  - [Customize Store Design Mode](#customize-store-design-mode)
+  - [Create Custom Templates](#create-custom-templates)
+- [Resources](#resources)
 
 </div>
 
