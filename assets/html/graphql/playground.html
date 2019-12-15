@@ -5,9 +5,9 @@
   <meta charset=utf-8/>
   <meta name="viewport" content="user-scalable=no, initial-scale=1.0, minimum-scale=1.0, maximum-scale=1.0, minimal-ui">
   <title>GraphQL Playground</title>
-  <link rel="stylesheet" href="index.css" />
-  <link rel="shortcut icon" href="favicon.png" />
-  <script src="middleware.js"></script>
+  <link rel="stylesheet" href="https://bigcommerce.github.io/dev-docs/assets/css/graphql/index.css" />
+  <link rel="shortcut icon" href="https://bigcommerce.github.io/dev-docs/assets/images/graphql/favicon.png" />
+  <script src="https://bigcommerce.github.io/dev-docs/assets/js/graphql/middleware.js"></script>
 </head>
 
 <body>
@@ -43,16 +43,31 @@
         font-weight: 400;
       }
     </style>
-    <img src='logo.png' alt=''>
+    <img src='https://bigcommerce.github.io/dev-docs/assets/images/graphql/logo.png' alt=''>
     <div class="loading"> Loading
       <span class="title">GraphQL Playground</span>
     </div>
   </div>
-  <script>window.addEventListener('load', function (event) {
-      GraphQLPlayground.init(document.getElementById('root'), {
-        endpoint: 'https://api.graph.cool/simple/v1/swapi'
-      })
-    })</script>
+  <script>
+
+    let options = {
+        settings: {
+            'tracing.tracingSupported': false,
+            'tracing.hideTracingResponse': true
+        },
+        headers: {}
+    }
+    
+    if (location.origin === "https://developer.bigcommerce.com") {
+      options.endpoint = 'https://buybutton.store/graphql';
+      options.headers.Authorization = "Bearer {$$.env.storefront_token}"
+    }
+
+    window.addEventListener('load', function (event) {
+        GraphQLPlayground.init(document.getElementById('root'), options)
+    });
+  
+  </script>
 </body>
 
 </html>
