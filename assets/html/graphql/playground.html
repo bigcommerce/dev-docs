@@ -8,6 +8,7 @@
   <link rel="stylesheet" href="https://bigcommerce.github.io/dev-docs/assets/css/graphql/index.css" />
   <link rel="shortcut icon" href="https://bigcommerce.github.io/dev-docs/assets/images/graphql/favicon.png" />
   <script src="https://bigcommerce.github.io/dev-docs/assets/js/graphql/middleware.js"></script>
+  <script src="https://bigcommerce.github.io/dev-docs/assets/js/graphql/playground_tabs.js"></script>
 </head>
 
 <body>
@@ -50,19 +51,40 @@
   </div>
   <script>
 
+    var authHeader = "";
+    var endpoint = "https://buybutton.store";
+    var tabs = [
+      {
+        name: "Category Tree",
+        endpoint: endpoint,
+        query: "query CategoryTree3LevelsDeep {\r\n  site {\r\n    categoryTree {\r\n      ...CategoryFields\r\n      children {\r\n        ...CategoryFields\r\n        children {\r\n          ...CategoryFields\r\n        }\r\n      }\r\n    }\r\n  }\r\n}\r\n\r\nfragment CategoryFields on CategoryTreeItem {\r\n  name\r\n  path\r\n  entityId\r\n}",
+        headers: {
+            Authorization: authHeader
+        }
+    }];
+
+    try {
+      var definedTabs = playgroundTabs(endpoint, authHeader);
+      if (location.origin === "https://developer.bigcommerce.com") {
+        authHeader= "Bearer {$$.env.storefront_token}"
+        tabs = definedTabs.get("{$$.env.playground_tab}")
+      } else {
+        tabs = definedTabs.get("all").slice(1,3)
+      }
+    } catch {
+      console.log("playground.html: Couldn't get tabs. There was an error.");
+    }
+    
     let options = {
         settings: {
             'tracing.tracingSupported': false,
             'tracing.hideTracingResponse': true
         },
-        headers: {}
+        endpoint: endpoint,
+        headers: authHeader,
+        tabs: tabs
     }
-    
-    if (location.origin === "https://developer.bigcommerce.com") {
-      options.endpoint = 'https://buybutton.store/graphql';
-      options.headers.Authorization = "Bearer {$$.env.storefront_token}"
-    }
-
+  
     window.addEventListener('load', function (event) {
         GraphQLPlayground.init(document.getElementById('root'), options)
     });
