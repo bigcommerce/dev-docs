@@ -93,7 +93,7 @@ var playgroundTabs = function(endpoint, authHeader){
         if (key === undefined) {
             return predefined.slice(0,3)
         }
-
+        
         return (key in predefined ? [predefined[key]] : []);
     }
 
