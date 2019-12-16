@@ -65,12 +65,12 @@
     }];
 
     try {
-      var definedTabs = playgroundTabs(endpoint, authHeader);
       if (location.origin === "https://developer.bigcommerce.com") {
-        authHeader= "Bearer "
+        var definedTabs = playgroundTabs(endpoint, authHeader);
+        authHeader= "Bearer {$$.env.storefront_tab}"
         tabs = definedTabs.get("{$$.env.playground_tab}")
       } else {
-        tabs = definedTabs.get("all").slice(1,3)
+        tabs = definedTabs.get("all").slice(0,2)
       }
     } catch {
       console.log("playground.html: Couldn't get tabs. There was an error.");
@@ -81,8 +81,6 @@
             'tracing.tracingSupported': false,
             'tracing.hideTracingResponse': true
         },
-        endpoint: endpoint,
-        headers: authHeader,
         tabs: tabs
     }
   
