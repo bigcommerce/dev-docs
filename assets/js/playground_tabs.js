@@ -30,23 +30,23 @@ var playgroundTabs = function(endpoint, authHeader){
         categoriesByUrl: {
             name: "Categories by URL",
             endpoint: endpoint,
-            query: "# query",
+            query: "query CategoryByUrl {\r\n  site {\r\n    route(path: \"\/shop-all\/\") {\r\n      node {\r\n        id\r\n        ... on Category {\r\n          name\r\n          entityId\r\n          description\r\n          products {\r\n            edges {\r\n              node {\r\n                name\r\n                defaultImage {\r\n                  url(width: 1200)\r\n                }\r\n                brand {\r\n                  name\r\n                  defaultImage {\r\n                    url(width: 200)\r\n                  }\r\n                }\r\n                priceRanges {\r\n                  priceRange {\r\n                    min {\r\n                      ...PriceFields\r\n                    }\r\n                    max {\r\n                      ...PriceFields\r\n                    }\r\n                  }\r\n                }\r\n                prices {\r\n                  price {\r\n                    ...PriceFields\r\n                  }\r\n                }\r\n              }\r\n            }\r\n          }\r\n        }\r\n      }\r\n    }\r\n  }\r\n}\r\n\r\nfragment PriceFields on Money {\r\n  value\r\n  currencyCode\r\n}",
+            headers: {
+                Authorization: authHeader
+            },
+        },
+        objectsByUrl: {
+            name: "Objects by URL",
+            endpoint: endpoint,
+            query: "query LookUpUrl {\r\n  site {\r\n    route(path: \"\/shop-all\/\") {\r\n      node {\r\n        __typename\r\n        id\r\n        ... on Category {\r\n          name\r\n          description\r\n        }\r\n        ... on Brand {\r\n          name\r\n          defaultImage {\r\n            url(width: 200)\r\n          }\r\n        }\r\n        ... on Product {\r\n          name\r\n          description\r\n          images {\r\n            edges {\r\n              node {\r\n                url(width: 500, height: 500)\r\n              }\r\n            }\r\n          }\r\n          brand {\r\n            name\r\n          }\r\n        }\r\n      }\r\n    }\r\n  }\r\n}",
             headers: {
                 Authorization: authHeader
             },
         },
         productImages: {
-            name: "Product Images",
+            name: "Product Images Different Res",
             endpoint: endpoint,
-            query: "# query",
-            headers: {
-                Authorization: authHeader
-            },
-        },
-        productImages: {
-            name: "Product Images at Resolutions",
-            endpoint: endpoint,
-            query: "# query",
+            query: "query SrcsetImages {\r\n  site {\r\n    product(entityId: 123) {\r\n      images {\r\n        edges {\r\n          node {\r\n            url320wide: url(width: 320)\r\n            url640wide: url(width: 640)\r\n            url960wide: url(width: 960)\r\n            url1280wide: url(width: 1280)\r\n          }\r\n        }\r\n      }\r\n    }\r\n  }\r\n}",
             headers: {
                 Authorization: authHeader
             },
@@ -60,25 +60,25 @@ var playgroundTabs = function(endpoint, authHeader){
             },
         },
         variantDetails: {
-            name: "Get Variant Details as a Product Object",
+            name: "Variant Details as a Product Object",
             endpoint: endpoint,
-            query: "# query",
+            query: "query VariantById {\r\n  site {\r\n    product(variantEntityId: 27098) {\r\n      name\r\n      sku\r\n      defaultImage {\r\n        url(width: 500, height: 500)\r\n      }\r\n      prices {\r\n        price {\r\n          ...PriceFields\r\n        }\r\n        salePrice {\r\n          ...PriceFields\r\n        }\r\n        retailPrice {\r\n          ...PriceFields\r\n        }\r\n      }\r\n      width {\r\n        ...DimensionFields\r\n      }\r\n      height {\r\n        ...DimensionFields\r\n      }\r\n      depth {\r\n        ...DimensionFields\r\n      }\r\n    }\r\n  }\r\n}\r\nfragment PriceFields on Money {\r\n  value\r\n  currencyCode\r\n}\r\nfragment DimensionFields on Measurement {\r\n  value\r\n  unit\r\n}",
             headers: {
                 Authorization: authHeader
             },
         },
         productOptions: {
-            name: "Get Product Option Details by Product ID",
+            name: "Product Option Details by Product ID",
             endpoint: endpoint,
-            query: "# query",
+            query: "query SeveralProductsByID {\r\n  site {\r\n    products(entityIds: [1, 2, 3]) {\r\n      edges {\r\n        node {\r\n          name\r\n          options {\r\n            edges {\r\n              node {\r\n                entityId\r\n                displayName\r\n                isRequired\r\n                values {\r\n                  edges {\r\n                    node {\r\n                      entityId\r\n                      label\r\n                    }\r\n                  }\r\n                }\r\n              }\r\n            }\r\n          }\r\n        }\r\n      }\r\n    }\r\n  }\r\n}",
             headers: {
                 Authorization: authHeader
             },
         },
         refinedProduct: {
-            name: "Get Refined Product Object for Given Options",
+            name: "Refined Product Object for Given Options",
             endpoint: endpoint,
-            query: "# query",
+            query: "query ProductsWithOptionSelections {\r\n  site {\r\n    product123: product(\r\n      entityId: 123\r\n      optionValueIds: [\r\n        { optionEntityId: 4, valueEntityId: 543 }\r\n        { optionEntityId: 5, valueEntityId: 443 }\r\n      ]\r\n    ) {\r\n      ...ProductFields\r\n    }\r\n    product234: product(\r\n      entityId: 234\r\n      optionValueIds: [\r\n        { optionEntityId: 8, valueEntityId: 768 }\r\n        { optionEntityId: 13, valueEntityId: 883 }\r\n      ]\r\n    ) {\r\n      ...ProductFields\r\n    }\r\n  }\r\n}\r\n\r\nfragment ProductFields on Product {\r\n  name\r\n  defaultImage {\r\n    url(width: 1000)\r\n  }\r\n  sku\r\n  availability\r\n}",
             headers: {
                 Authorization: authHeader
             },
