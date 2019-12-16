@@ -66,8 +66,8 @@
 
     try {
       if (location.origin === "https://developer.bigcommerce.com") {
-        var definedTabs = playgroundTabs(endpoint, authHeader);
         authHeader= "Bearer {$$.env.storefront_token}"
+        var definedTabs = playgroundTabs(endpoint, authHeader);
         tabs = definedTabs.get("{$$.env.playground_tab}")
       } else {
         tabs = definedTabs.get("all").slice(0,2)
