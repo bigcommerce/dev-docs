@@ -334,7 +334,7 @@ If webhooks are no longer being used, either delete them or set `is_active:false
 
 You’ll need to build an application and configure your server to receive the callback we send when events are triggered. 
 
-Need to set up a quick destination URL for testing? See Tools for Debugging and Testing Webhooks.
+Need to set up a quick destination URL for testing? See [Tools for Debugging and Testing Webhooks](#tools-for-debugging-and-testing-webhooks).
 
 <a id="espond-to-webhook-callbacks"></a>
 
