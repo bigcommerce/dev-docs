@@ -45,6 +45,7 @@ query CustomerAttributes {
 }
 ```
 
+<a href="https://developer.bigcommerce.com/graphql?playground_tab=customerDetails" target="_blank">**Try it in GraphQL Playground**</a>
 **[Try it in GraphQL Playground](https://developer.bigcommerce.com/graphql?playground_tab=customerDetails)**
 
 ## Get First Three Levels of Category Tree
@@ -71,7 +72,7 @@ fragment CategoryFields on CategoryTreeItem {
 }
 ```
 
-**[Try it in GraphQL Playground](https://developer.bigcommerce.com/graphql?playground_tab=categoryTree)**
+<a href="https://developer.bigcommerce.com/graphql?playground_tab=categoryTree" target="_blank">**Try it in GraphQL Playground**</a>
 
 ## Get Category and Children by URL
 
@@ -128,7 +129,7 @@ fragment PriceFields on Money {
 }
 ```
 
-**[Try it in GraphQL Playground](https://developer.bigcommerce.com/graphql?playground_tab=categoriesByUrl)**
+<a href="https://developer.bigcommerce.com/graphql?playground_tab=categoriesByUrl" target="_blank">**Try it in GraphQL Playground**</a>
 
 ## Get Multiple Objects by URL
 
@@ -169,7 +170,7 @@ query LookUpUrl {
 }
 ```
 
-**[Try it in GraphQL Playground](https://developer.bigcommerce.com/graphql?playground_tab=objectsByUrl)**
+<a href="https://developer.bigcommerce.com/graphql?playground_tab=objectsByUrl" target="_blank">**Try it in GraphQL Playground**</a>
 
 ## Get Product's Images at Different Resolutions
 
@@ -192,7 +193,7 @@ query SrcsetImages {
 }
 ```
 
-**[Try it in GraphQL Playground](https://developer.bigcommerce.com/graphql?playground_tab=productImages)**
+<a href="https://developer.bigcommerce.com/graphql?playground_tab=productImages" target="_blank">**Try it in GraphQL Playground**</a>
 
 ## Get A Single Product
 
@@ -218,7 +219,7 @@ query SingleProduct {
 }
 ```
 
-**[Try it in GraphQL Playground](https://developer.bigcommerce.com/graphql?playground_tab=singleProduct)**
+<a href="https://developer.bigcommerce.com/graphql?playground_tab=singleProduct" target="_blank">**Try it in GraphQL Playground**</a>
 
 ## Get Variant Details as a Product Object 
 
@@ -276,7 +277,7 @@ This query returns variant information appropriately overlaid on the Product obj
 </div>
 </div>
 
-**[Try it in GraphQL Playground](https://developer.bigcommerce.com/graphql?playground_tab=variantDetails)**
+<a href="https://developer.bigcommerce.com/graphql?playground_tab=variantDetails" target="_blank">**Try it in GraphQL Playground**</a>
 
 ## Get Product Option Details by Product ID
 
@@ -311,7 +312,7 @@ query SeveralProductsByID {
 }
 ```
 
-**[Try it in GraphQL Playground](https://developer.bigcommerce.com/graphql?playground_tab=productOptions)**
+<a href="https://developer.bigcommerce.com/graphql?playground_tab=productOptions" target="_blank">**Try it in GraphQL Playground**</a>
 
 ## Get Refined Product Object for Given Options
 
@@ -349,4 +350,4 @@ fragment ProductFields on Product {
 }
 ```
 
-**[Try it in GraphQL Playground](https://developer.bigcommerce.com/graphql?playground_tab=refinedProduct)**
+<a href="https://developer.bigcommerce.com/graphql?playground_tab=refinedProduct" target="_blank">**Try it in GraphQL Playground**</a>
