@@ -9,11 +9,33 @@
   <link rel="shortcut icon" href="https://bigcommerce.github.io/dev-docs/assets/images/graphql/favicon.png" />
   <script src="https://bigcommerce.github.io/dev-docs/assets/js/graphql/middleware.js"></script>
   <script src="https://bigcommerce.github.io/dev-docs/assets/js/playground_tabs.js"></script>
-  
+  <script async="" defer="" src="https://cdn.noticeable.io/v1/noticeable-widget.js"></script>
   
 </head>
 
 <body>
+
+  <style>
+        #playground-links {
+        color: white;
+        position: absolute;
+        right: 75px;
+        top: 16px;
+        z-index: 103;
+      }
+
+  </style>
+
+  <div id="playground-links">
+    <div id="noticeable-container">  
+      <noticeable-widget id="changelog-widget" access-token="I8jRV1nwLLaUUZBQZSep" project-id="Q8YuGWPOCMmZDwnKUywV" segments="sfAPI">
+        <a title="Changelog">Changelog</a>
+      </noticeable-widget>
+      | <a href="https://developer.bigcommerce.com/api-docs/storefront/graphql/graphql-storefront-api-overview">Docs</a>
+      | <a href="https://developer.bigcommerce.com/">Dev Center</a>
+    </div>
+  </div>
+
   <div id="root">
     <style>
       body {
@@ -45,7 +67,17 @@
       .title {
         font-weight: 400;
       }
+
+      #playground-links {
+        color: white;
+        position: absolute;
+        right: 75px;
+        top: 16px;
+        z-index: 103;
+      }
+
     </style>
+
     <img src='https://bigcommerce.github.io/dev-docs/assets/images/graphql/logo.png' alt=''>
     <div class="loading"> Loading
       <span class="title">GraphQL Playground</span>
