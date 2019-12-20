@@ -4,17 +4,15 @@
 
 ### On this Page
 
-- [GraphQL Storefront API Example Queries](#GraphQL-Storefront-API-Example-Queries)
-    - [On this Page](#On-this-Page)
-  - [Get a Customer's Details](#Get-a-Customers-Details)
-  - [Get First Three Levels of Category Tree](#Get-First-Three-Levels-of-Category-Tree)
-  - [Get Category and Children by URL](#Get-Category-and-Children-by-URL)
-  - [Get Multiple Objects by URL](#Get-Multiple-Objects-by-URL)
-  - [Get Product's Images at Different Resolutions](#Get-Products-Images-at-Different-Resolutions)
-  - [Get A Single Product](#Get-A-Single-Product)
-  - [Get Variant Details as a Product Object](#Get-Variant-Details-as-a-Product-Object)
-  - [Get Product Option Details by Product ID](#Get-Product-Option-Details-by-Product-ID)
-  - [Get Refined Product Object for Given Options](#Get-Refined-Product-Object-for-Given-Options)
+- [Get a Customer's Details](#get-a-customers-details)
+- [Get First Three Levels of Category Tree](#get-first-three-levels-of-category-tree)
+- [Get Category and Children by URL](#get-category-and-children-by-url)
+- [Get Multiple Objects by URL](#get-multiple-objects-by-url)
+- [Get Product's Images at Different Resolutions](#get-products-images-at-different-resolutions)
+- [Get A Single Product](#get-a-single-product)
+- [Get Variant Details as a Product Object](#get-variant-details-as-a-product-object)
+- [Get Product Option Details by Product ID](#get-product-option-details-by-product-id)
+- [Get Refined Product Object for Given Options](#get-refined-product-object-for-given-options)
 
 </div>
 
@@ -47,7 +45,8 @@ query CustomerAttributes {
 }
 ```
 
-<a id="get-first-three-levels-of-category-tree" class="devdocsAnchor"></a>
+<a href="https://developer.bigcommerce.com/graphql?playground_tab=customerDetails" target="_blank">**Try it in GraphQL Playground**</a>
+**[Try it in GraphQL Playground](https://developer.bigcommerce.com/graphql?playground_tab=customerDetails)**
 
 ## Get First Three Levels of Category Tree
 
@@ -73,7 +72,7 @@ fragment CategoryFields on CategoryTreeItem {
 }
 ```
 
-<a id="get-category-and-children-by-url" class="devdocsAnchor"></a>
+<a href="https://developer.bigcommerce.com/graphql?playground_tab=categoryTree" target="_blank">**Try it in GraphQL Playground**</a>
 
 ## Get Category and Children by URL
 
@@ -130,7 +129,7 @@ fragment PriceFields on Money {
 }
 ```
 
-<a id="get-multiple-objects-by-url" class="devdocsAnchor"></a>
+<a href="https://developer.bigcommerce.com/graphql?playground_tab=categoriesByUrl" target="_blank">**Try it in GraphQL Playground**</a>
 
 ## Get Multiple Objects by URL
 
@@ -171,7 +170,7 @@ query LookUpUrl {
 }
 ```
 
-<a id="get-products-images-at-different-resolutions" class="devdocsAnchor"></a>
+<a href="https://developer.bigcommerce.com/graphql?playground_tab=objectsByUrl" target="_blank">**Try it in GraphQL Playground**</a>
 
 ## Get Product's Images at Different Resolutions
 
@@ -193,7 +192,8 @@ query SrcsetImages {
   }
 }
 ```
-<a id="get-a-single-product" class="devdocsAnchor"></a>
+
+<a href="https://developer.bigcommerce.com/graphql?playground_tab=productImages" target="_blank">**Try it in GraphQL Playground**</a>
 
 ## Get A Single Product
 
@@ -219,7 +219,7 @@ query SingleProduct {
 }
 ```
 
-<a id="get-variant-details-as-a-product-object" class="devdocsAnchor"></a>
+<a href="https://developer.bigcommerce.com/graphql?playground_tab=singleProduct" target="_blank">**Try it in GraphQL Playground**</a>
 
 ## Get Variant Details as a Product Object 
 
@@ -277,7 +277,7 @@ This query returns variant information appropriately overlaid on the Product obj
 </div>
 </div>
 
-<a id="get-product-option-details-by-product-id" class="devdocsAnchor"></a>
+<a href="https://developer.bigcommerce.com/graphql?playground_tab=variantDetails" target="_blank">**Try it in GraphQL Playground**</a>
 
 ## Get Product Option Details by Product ID
 
@@ -312,7 +312,7 @@ query SeveralProductsByID {
 }
 ```
 
-<a id="get-refined-product-object-for-given-options" class="devdocsAnchor"></a>
+<a href="https://developer.bigcommerce.com/graphql?playground_tab=productOptions" target="_blank">**Try it in GraphQL Playground**</a>
 
 ## Get Refined Product Object for Given Options
 
@@ -349,3 +349,5 @@ fragment ProductFields on Product {
   availability
 }
 ```
+
+<a href="https://developer.bigcommerce.com/graphql?playground_tab=refinedProduct" target="_blank">**Try it in GraphQL Playground**</a>
