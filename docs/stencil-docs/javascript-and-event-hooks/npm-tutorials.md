@@ -3,20 +3,26 @@
 <div class="otp" id="no-index">
 
 ### On This Page
+
 - [Overview](#overview)
 	- [Prerequisites](#prerequisites)
 - [Installing React and npm Packages](#installing-react-and-npm-packages)
 	- [Install Dependencies](#install-dependencies)
 	- [Update webpack.common.js](#update-webpackcommonjs)
-	- [Create a Components Folder](#create-a-components-folder)
+	- [Create Components](#create-components)
 	- [Import Dependencies](#import-dependencies)
-	- [Add "CouponDrawer" to `base.html`](#add-coupondrawer-to-basehtml)
+	- [Add the coupondrawer div to `base.html`](#add-the-coupondrawer-div-to-basehtml)
+- [Final Product](#final-product)
 
 </div>
 
 ## Overview
 
-React and npm are effective ways to further customize your storefront theme. Stencil’s architecture allows for organized customization using npm and React. In production, you can use this feature for stylizing seasonally themed products, temporary promotions, or event tickets. Below is a short tutorial on using npm and React to install customization.
+Stencil’s architecture allows for organized customization using npm and React. In production, you can use these tools for stylizing seasonally themed products, temporary promotions, or event tickets. Below is a short tutorial on using npm and React to customize your Stencil theme.
+
+In this example, we'll be making a drawer that sends a coupon code to the customer's email using MaterialUI's React framework. The resulting customization will look like the following:
+
+[Image of Coupon Drawer example](/assets/images/coupon_drawer_example.png)
 
 ### Prerequisites
 
@@ -29,7 +35,7 @@ If you need to set up a BigCommerce store, see [Creating a Trial Store](https://
 
 ## Installing React and npm Packages
 
-To build this customization, complete the instructions in the following sections.
+To build this customization, complete the instructions in the following sections~.~<span style="color:red">:</span>
 
 ### Install Dependencies
 
@@ -38,7 +44,7 @@ For this example, we'll be using packages from [Material-UI](https://material-ui
 Navigate into the root Cornerstone theme folder, then install the following npm packages.
 
 ```shell
-# move into theme dir
+# navigate into theme dir
 cd ~/path/to/theme/dir
 
 # install dependencies
@@ -72,9 +78,9 @@ presets: [
 
 ```
 
-### Create a Components Folder
+### Create Components
 
-To add the Components folder:
+In the following steps, we'll be adding React Components to assemble our coupon drawer:
 1. Navigate to the `./assets/js` folder.
 2. Create a `js/components` folder within the `/js` folder.
 3. Navigate into the `/components` folder.
@@ -231,8 +237,7 @@ export default function BasicTextFields() {
 ```
 
 ### Import Dependencies
-1. Import the new dependencies into `assets/js/app.js`.
-2. Add the following to the top of the file:
+1. Import the React dependencies and  the new CouponDrawer component we've created into `assets/js/app.js`:
 
 ```js
 __webpack_public_path__ = window.__webpack_public_path__; // eslint-disable-line
@@ -243,25 +248,20 @@ import ReactDOM from 'react-dom';
 import CouponDrawer from './components/CouponDrawer';
 ```
 
-3. At the bottom of the file, add:
+2. At the bottom of the file, render the `CouponDrawer` component and assign it an id:
 
 ```js
 ReactDOM.render(<CouponDrawer />, document.querySelector('#coupondrawer'));
 ```
 
-### Add "CouponDrawer" to `base.html`
+### Add the coupondrawer div to `base.html`
 
 1. Navigate to `templates/layout/base.html`.
-2. Insert the following code:
+2. Add a new div element with our new id inside the body:
 
 ```html
 <body>
-        <svg data-src="{{cdn 'img/icon-sprite.svg'}}" class="icons-svg-sprite"></svg>
-
-        {{~#and settings.privacy_cookie settings.is_eu_ip_address}}
-            {{> components/common/cookie}}
-        {{/and}}
-
+        ...
         <div id="coupondrawer"></div>
 
         {{> components/common/header }}
@@ -281,7 +281,7 @@ ReactDOM.render(<CouponDrawer />, document.querySelector('#coupondrawer'));
 
 ## Final Product
 
-Check out the finished product using the Stencil CLI command `stencil start` in the Cornerstone theme directory.
+View the finished product using the Stencil CLI command `stencil start` in the Cornerstone theme directory.
 
 ```shell
 # move into theme dir
@@ -290,3 +290,7 @@ cd ~/path/to/theme/dir
 # Preview store using Browsersync
 stencil start
 ```
+
+Open your browser and navigate to `localhost:3000` to view your local storefront.
+
+**Note:** This coupon drawer example does not send coupon codes to the emails entered. This is only an example to show how to customize your storefront theme.
