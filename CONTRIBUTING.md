@@ -5,6 +5,7 @@
 - [Editing Using Stoplight Studio](#editing-using-stoplight-studio)
 - [Commit Messages](#commit-messages)
 - [Style Guides](#style-guides)
+- [Linting &amp; Spell Checking](#linting-amp-spell-checking)
 - [Contributing to Other Projects](#contributing-to-other-projects)
 
 Thanks for showing interest in contributing!
@@ -58,6 +59,37 @@ For more complex changes, fork and edit locally:
 ## Style Guides
 * [Documentation Style Guide](_project/_doc_style_guide.md)
 * [API Specification Style Guide](_project/_spec_style_guide.md)
+
+## Linting & Spell Checking
+
+```bash
+# install grunt-cli
+npm install -g grunt-cli
+
+# make sure you're in dev-docs root dir
+cd ~/path/to/dev-docs
+
+# install the linters and spell checkers
+npm install
+
+# run mdspell to spell check:
+grunt mdspell
+
+# run textlint to lint / check for dead links:
+grunt textlint
+```
+
+**Configuration Files**:
+
+```shell
+...
+├── .spelling                          # mdspell dictionary
+├── .textlintrc                        # textlint configuration file
+├── Gruntfile.js                       # grunt configuration file
+├── package-lock.json                  # packages for grunt, linting, and spell checking
+├── package.json                       # packages for grunt, linting, and spell checking
+...
+```
 
 ## Contributing to Other Projects
 There are many other public BigCommerce repositories accepting contributions. If you're interested in contributing to those projects, see the [full list of public source repos](https://github.com/bigcommerce?utf8=%E2%9C%93&q=is%3Apublic&type=source&language=). Also, consider joining the [BigCommerce Developer Community Group](https://support.bigcommerce.com/s/group/0F913000000HLjECAW/bigcommerce-developers).

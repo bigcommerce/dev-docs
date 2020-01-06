@@ -99,7 +99,7 @@
                   "currency_code": "NYE"
                 }
               },
-              "Payment Access Token": "curl -X POST \\\n  https://payments.bigcommerce.com/stores/{store_hash}/payments \\\n  -H 'Accept: application/vnd.bc.v1+json' \\\n  -H 'Authorization: PAT eyJ0eXAiOiJKV1QiLCJhbGciOiJIUzI1NiJ9.eyJleHAiOjE1NsdfasftIsIm5iZiI6MTU1MTM5MDU0MiwiaXNzIjoicGF5bWVudHMuYmlnY29tbWVyY2UuY29tIiwic3ViIjoianJhaDZnbW4iLCJqdGkiOiI3Nzg3ZmU1Zi01OWJmLTQ3ZWMtYTFmZC00ZDQ3ZTkwNjFlNWMiLCJpYXQiOjE1NTEzOTA1NDIsImRhdGEiOnsic3RvcmVfaWQiOjEwMjU2NDYsIm9yZGVyX2lkIjoyMTUsImFtb3VudCI6OTgwMCwiY3VycmVuY3kiOiJVU0QifX0.WbR90d8m4gn8wK7kPMDEoVq8B0hHC5Ul5H4Hpqq6Yvo' \\\n  -H 'Content-Type: application/json' \\",
+              "Payment Access Token": "curl -X POST \\\n  https://payments.bigcommerce.com/stores/{$$.env.store_hash}/payments \\\n  -H 'Accept: application/vnd.bc.v1+json' \\\n  -H 'Authorization: PAT eyJ0eXAiOiJKV1QiLCJhbGciOiJIUzI1NiJ9.eyJleHAiOjE1NsdfasftIsIm5iZiI6MTU1MTM5MDU0MiwiaXNzIjoicGF5bWVudHMuYmlnY29tbWVyY2UuY29tIiwic3ViIjoianJhaDZnbW4iLCJqdGkiOiI3Nzg3ZmU1Zi01OWJmLTQ3ZWMtYTFmZC00ZDQ3ZTkwNjFlNWMiLCJpYXQiOjE1NTEzOTA1NDIsImRhdGEiOnsic3RvcmVfaWQiOjEwMjU2NDYsIm9yZGVyX2lkIjoyMTUsImFtb3VudCI6OTgwMCwiY3VycmVuY3kiOiJVU0QifX0.WbR90d8m4gn8wK7kPMDEoVq8B0hHC5Ul5H4Hpqq6Yvo' \\\n  -H 'Content-Type: application/json' \\",
               "Vaulted Card": "{\n  \"payment\": {\n    \"instrument\": {\n      \"type\": \"stored_card\",\n      \"token\": \"vaulted instrument token\",\n      \"verification_value\": \"123\"\n    },\n    \"payment_method_id\": \"stripe.card\"\n  }\n}",
               "Credit Card": "{\n  \"payment\": {\n    \"instrument\": {\n      \"type\": \"card\",\n      \"number\": \"4111111111111111\",\n      \"cardholder_name\": \"BP\",\n      \"expiry_month\": 12,\n      \"expiry_year\": 2020,\n      \"verification_value\": \"411\"\n    },\n    \"payment_method_id\": \"authorizenet.card\",\n     \"save_instrument\": true\n  }\n}"
             }
@@ -713,14 +713,24 @@
     "X-Auth-Client": {
       "type": "apiKey",
       "name": "X-Auth-Client",
-      "in": "header"
+      "in": "header",
+      "description": "client_id provided when user creates an API user account or the app is installed"
     },
     "X-Auth-Token": {
       "type": "apiKey",
+      "in": "header",
       "name": "X-Auth-Token",
-      "in": "header"
+      "description": "Access Token (access_token) provided when API User account was created or app is installed"
     }
   },
+  "security": [
+    {
+      "X-Auth-Client": []
+    },
+    {
+      "X-Auth-Token": []
+    }
+  ],
   "x-stoplight": {
     "docs": {
       "includeDownloadLink": true

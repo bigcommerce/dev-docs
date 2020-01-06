@@ -1,15 +1,21 @@
 # Developers Guide to Headless Commerce
+
 <div class="otp" id="no-index">
-	<h3> On This Page </h3>
-	<ul>
-        <li><a href="#headless-commerce_prerequisites">Prerequisites</a></li>
-        <li><a href="#headless-commerce_ways-to-implement-headless">Ways to Implement Headless</a></li>
-        <li><a href="#headless-commerce-customer_login">Customer Login</a></li>
-        <li><a href="#headless-commerce_sample-integration">Sample Integration</a></li>
-        <li><a href="#headless-commerce_pci-compliance">PCI Compliance</a></li>
-        <li><a href="#headless-commerce_sample-api-workflows">Sample API Workflows</a></li>
-	</ul>
-</div>
+
+### On This Page
+- [Ways to Implement Headless](#ways-to-implement-headless)
+- [Catalog Management](#catalog-management)
+- [Cart Management](#cart-management)
+- [Checkout Management](#checkout-management)
+- [Customer Login](#customer-login)
+- [Associate Cart with a Customer](#associate-cart-with-a-customer)
+- [Creating a New Customer](#creating-a-new-customer)
+- [Sample Integration](#sample-integration)
+- [PCI Compliance](#pci-compliance)
+- [Sample API Workflows](#sample-api-workflows)
+- [Resources](#resources)
+
+</div> 
 
 Headless commerce decouples the front end from the ecommerce platform that powers it, allowing developers to build flexible and content-rich storefronts. BigCommerce provides APIs for the Catalog, Cart, Checkout, Orders, Customers, Authentication and Payments. The APIs can be plugged into an existing CMS or website for flexible content management. BigCommerce used this approach to create our [WordPress Plugin](https://www.bigcommerce.com/solutions/wordpress-ecommerce-plugin/). The WordPress Plugin allows for a developer to take advantage of WordPress content management while using our APIs to manage the catalog and shopper checkout.
 For a deeper guide on Headless, see our Whitepaper, [A New Era of Ecommerce: Headless Commerce](https://www.bigcommerce.com/new-era-headless-caas/).  
@@ -20,9 +26,6 @@ With headless, developers can use BigCommerce as the back-end for several stores
 
 In this article we will review ways you can implement headless, what requires PCI compliance audits and go through sample workflows for cart and checkout.
 
-## Prerequisites
-To use the BigCommerce platform for headless commerce, you must have a store on an active plan. The store does not need to be [launched](https://support.bigcommerce.com/s/article/Launching-Your-Store).
-
 ## Ways to Implement Headless
 There are many ways to implement headless commerce. Below are just a few ways to start with Headless commerce.
 * Use our Wordpress Plugin to leverage a custom CMS powered by the BigCommerce Catalog, Cart and Checkout APIs.
@@ -31,7 +34,7 @@ There are many ways to implement headless commerce. Below are just a few ways to
 
 Below are ways to manage the catalog, cart and checkout. With the flexibility of using APIs, you can use one or all the options for a store.
 
-### Catalog Management
+## Catalog Management
 Using the [Catalog API](https://developer.bigcommerce.com/api-reference/catalog/catalog-api) you can return product data to your product details page and product listing page.
 
 **Sync the Catalog**  
@@ -43,7 +46,7 @@ If your catalog is changing all the time, you can use the Catalog API to return 
 **Real Time Pricing + Inventory**  
 If you prefer working with a local copy of your data, but want to make sure that high priority pieces of data like pricing and inventory are always up to date, you can consider a hybrid model. A hybrid model would cache only  certain product details and pull the other information in real time. BigCommerce has webhooks that you can use for listening to store events.
 
-### Cart Management
+## Cart Management
 Use the [Server to Server Cart API](https://developer.bigcommerce.com/api-reference/cart-checkout/server-server-cart-api) to create carts for existing customers and guest customers.
 
 **Guest Cart**  
@@ -52,59 +55,19 @@ A guest cart assumes the shopper is not a customer and is not logging in or crea
 **Content Management System**  
 Using a CMS is a good way to offer a custom shopper experience without needing build a content engine as well. The CMS needs to have a database so catalog information can be stored and retrieved and a way to store accounts. The [BigCommerce WordPress plugin](https://wordpress.org/plugins/bigcommerce/) loads the catalog into the database while using an embedded checkout to display cart and checkout details to customers.
 
-### Checkout Management
+## Checkout Management
 Use the [Checkout API](https://developer.bigcommerce.com/api-reference/cart-checkout/server-server-checkout-api) to move the cart to checkout and turn an existing checkout into an order.
 
 **Redirect to a BigCommerce Checkout**  
 When creating a cart, there is an optional query to create a redirect URL. Use this to redirect the shopper to a BigCommerce hosted checkout page.
 
-If you are using the hosted checkout option shoppers will be able to navigate to other pages of the store. To prevent this, there are two options:
+If you are using the hosted checkout option, shoppers will be able to navigate to other pages of the store. Here's a few methods to prevent this:
 
-* Hide non essential pages by removing the back links in Cart and Checkout.
-* Edit the theme files to hide the other pages from all visitors except for those who need to see them for maintenance. The steps to edit the theme files are outlined below.
-
-<!--
-title: "Edit the schema.json file"
-subtitle: " Add the following object to the settings array"
-lineNumbers: true
--->
-Edit the schema.json file and add the following object to the settings array.
-
-```json
-{
-   "name": "Administrators",
-   "settings": [
-     {
-       "type": "text",
-       "label": "Administrator Emails (separated by commas)",
-       "id": "admin_emails"
-     }
-   ]
- }
-```
-
-Edit the <span class=”fn”>config.json</span> file and add `"admin_emails": ""` to the settings object. Add the emails to the object that should have access to all store pages.
-
-Modify the following pages to gate all pages except checkout, order confirmation, down for maintenance, and order invoices:
-* <span class=”fn”>layout/amp-iframe</span>
-* <span class=”fn”>layout/amp</span>
-* <span class=”fn”>layout/base</span>
-
-Add the following conditional wrapper to each page:
-
-<!--
-title: "Conditional Wrapper"
-subtitle: ""
-lineNumbers: true
--->
-
-```html
-{{#contains theme_settings.admin_emails customer.email}}
-<-- page content -->
-{{#else}}
-<-- display login form -->
-{{/contains}}
-```
+1. Use BigCommerce's [Sites and Routes API](https://developer.bigcommerce.com/api-reference/cart-checkout/sites-routes-api) to create redirects from BigCommerce hosted pages back to the non-BigCommerce storefront (recommended).
+2. Hide non essential pages by removing the back links in Cart and Checkout
+3. Add a JavaScript redirect on all pages (except `/checkout`) tjat redirects to the non-BigCommerce storefront
+4. Wrap all content in the theme's layouts in a conditional that only renders the BC storefront if certain conditions are met (like an admin customer group, for example), and redirect to the non-BigCommerce storefront otherwise. 
+5. Replace all content in theme layout files with a redirect to the non-BigCommerce storefront
 
 To customize the checkout when using a redirect URL, use our [Checkout SDK](https://github.com/bigcommerce/checkout-sdk-js). The Checkout JS SDK is a library of methods for interacting with the checkout page's underlying Storefront Checkout API, allowing you to build a custom checkout page UI in the framework of your choice.
 
@@ -113,7 +76,7 @@ If you need complete control over the checkout page, you have the option to buil
 
 ## Customer Login
 
-### Associate Cart with a Customer
+## Associate Cart with a Customer
 
 If a shopper creates a cart as a guest then logs into the store, you can use the following process to associate the cart to the customer and log them in at the same time. The [Server to Server Cart API](https://developer.bigcommerce.com/api-reference/cart-checkout/server-server-cart-api) is used since it allows for the front end to be bypassed when creating a cart.
 
@@ -121,7 +84,7 @@ When a cart is created, your app should store the `cart_id`.  The `cart_id` is u
 
 To populate the `customer_id` on the cart with the correct data, use the email address entered to match against the [Customers API](https://developer.bigcommerce.com/api-reference/customer-subscribers/v3-customers-api). If the email address matches what the customer input and what is in the BigCommerce database then proceed with login. If a match is not found then direct the customer to a [sign up](https://developer.bigcommerce.com/api-reference/customer-subscribers/v3-customers-api/customers/customerspost) screen.
 
-### Creating a New Customer
+## Creating a New Customer
 Our WordPress plugin uses the approach of using the Customer API to [validate the password](https://developer.bigcommerce.com/api-reference/customer-subscribers/customers-api/customer-passwords/validatecustomerpassword) against what is stored in BigCommerce.
 
 If a new account is created in WordPress, the password is written to the customer account in BigCommerce and used as the validation in future requests. The password is never stored in the WordPress database. You can match customers using the email address and the [Customers API](https://developer.bigcommerce.com/api-reference/customer-subscribers/v3-customers-api).
@@ -205,16 +168,16 @@ Below are example workflows that list which APIs are needed to create a Cart, Ch
 3.  Add a [Consignment](/api-reference/cart-checkout/server-server-checkout-api/checkout/checkoutsconsignmentsbycheckoutidpost) to Checkout with the line items and the `consignments.available_shipping_options` query
 4. Update each [Consignment](/api-reference/cart-checkout/server-server-checkout-api/checkout/checkoutsconsignmentsbycheckoutidandconsignmentidput) with the chosen shipping option from the Add Consignment response.
 5.  Create the Order by sending a request to [Create Order](/api-reference/cart-checkout/server-server-checkout-api/checkout/createanorder)
-	6.  Returns an `order_id`
-	7. Order is created in Incomplete status
+	3.  Returns an `order_id`
+	4. Order is created in Incomplete status
 6.  Take a Payment for the Order using one of the two methods below
 7.  Vaulted Card -- The shopper has saved a credit card
-	8. [Get Payment Methods](/api-reference/payments/payments-create-payment-token-api/payment-methods/paymentsmethodsget)
-	9.  [Create Access Token](/api-reference/payments/payments-create-payment-token-api/payment-access-token/paymentsaccesstokenspost)
-	10. [Process Payment](/api-reference/payments/payments-process-payments/payment/paymentspost)
+	5. [Get Payment Methods](/api-reference/payments/payments-create-payment-token-api/payment-methods/paymentsmethodsget)
+	6.  [Create Access Token](/api-reference/payments/payments-create-payment-token-api/payment-access-token/paymentsaccesstokenspost)
+	7.  [Process Payment](/api-reference/payments/payments-process-payments/payment/paymentspost)
 8.  Credit Card -- The shopper has not saved a credit card
-	9. [Create Access Token](/api-reference/payments/payments-create-payment-token-api/payment-access-token/paymentsaccesstokenspost)
-	10. [Process Payment](/api-reference/payments/payments-process-payments/payment/paymentspost)
+	8. [Create Access Token](/api-reference/payments/payments-create-payment-token-api/payment-access-token/paymentsaccesstokenspost)
+	9.  [Process Payment](/api-reference/payments/payments-process-payments/payment/paymentspost)
 
 ### Create an Order Directly
 [![Run in Postman](https://run.pstmn.io/button.svg)](https://app.getpostman.com/run-collection/f4dbc360974d4b5eff77)

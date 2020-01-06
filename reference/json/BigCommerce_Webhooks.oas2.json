@@ -266,7 +266,7 @@
       }
     }
   },
-  "basePath": "/stores/{store_hash}/v2/",
+  "basePath": "/stores/{$$.env.store_hash}/v2/",
   "schemes": [
     "https"
   ],

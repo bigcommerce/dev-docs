@@ -12,7 +12,7 @@
     "description": "Use [Get Payment Methods](/api-reference/payments/payments-create-payment-token-api/payment-methods/paymentsmethodsget) to get the `token` for stored cards.\n\nUse [Create Access Token](/api-reference/payments/payments-create-payment-token-api/payment-access-token/paymentsaccesstokenspost), to generate the `token` for stored card, credit cards and orders. \n\nSee [Payments Overview](/api-docs/payments/payments-api-overview) to learn how to accepts payments."
   },
   "host": "api.bigcommerce.com",
-  "basePath": "/stores/{store_hash}/v3",
+  "basePath": "/stores/{$$.env.store_hash}/v3",
   "schemes": [
     "https"
   ],

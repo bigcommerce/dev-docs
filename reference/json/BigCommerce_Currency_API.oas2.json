@@ -6,7 +6,7 @@
     "description": "### Currencies\n`/currencies` endpoints manage alternate currency display options on the storefront.\n\n**OAuth Scopes**\n* `Information & Settings`"
   },
   "host": "api.bigcommerce.com",
-  "basePath": "/stores/{store_hash}/v2/",
+  "basePath": "/stores/{$$.env.store_hash}/v2/",
   "schemes": [
     "https"
   ],

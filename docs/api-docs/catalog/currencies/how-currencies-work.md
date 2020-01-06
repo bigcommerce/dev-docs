@@ -321,7 +321,7 @@ To change the transactional currency of their cart, the shopper will need to emp
 
 <a id="promotions"></a>
 
-Coupons are available in the default currency only. Attempting to use a coupon with a different currency will return an invalid coupon error. If a customer is checking out in the default currency then changes to a different currency, in the cart, the coupon code will still work. This is because once the cart is created, it is “locked” into the default currency until being deleted. Creating a coupon in a different currency is not available during the beta.
+Coupons are available in the default currency only. Attempting to use a coupon with a different currency will return an invalid coupon error. If a customer is checking out in the default currency then changes to a different currency, in the cart, the coupon code will still work. This is because once the cart is created, it is “locked” into the default currency until being deleted.
 
 Cart Level discounts can be created in your currency of choice. The shopper must have the currency selected for the promotion to apply.
 
@@ -353,7 +353,7 @@ Cart Level discounts can be created in your currency of choice. The shopper must
 | Payment Method    | Details                                                                                                                                                |
 |-|--|
 | Gift Certificates | can be used in the currency they were purchased in and can be setup per currency                                                                       |
-| Store Credit      | not converted in beta. If a customer has `$10.00 USD` worth of store credit and tries to transact in `EUR` , store credit of `€10.00` will be applied. |
+| Store Credit      | not converted currently. If a customer has `$10.00 USD` worth of store credit and tries to transact in `EUR` , store credit of `€10.00` will be applied. |
 | Credit Cards      | Processed through Stripe Payment Gateway or Test Payment Gateway                                                                                       |
 
 <div class="HubBlock HubBlock--image flex is-viewing is-padded is-standalone"><div class="HubBlock-inner flex-1 w-full"><div class="HubBlock-content"><div class="justify-center text-center"><div class="ImageBlock-title">Gift Certificates</div><img style="max-width:805px" src="https://raw.githubusercontent.com/tatiana-perry/dev-docs-images/master/currency_beta/gift_certificates_multi_currency.png" alt="Control Panel Order History" class="ui centered fluid image"></div></div></div></div>

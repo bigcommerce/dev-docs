@@ -6,7 +6,7 @@
     "description": "Marketing APIs support demand generation and loyalty programs. They include Coupons, Banners, and Gift Certificates.\n\n### Coupons\nCategory or product discounts that can be applied to orders for customers who enter a given code.\n\n### Banners\nBanners available to display on a store.\n\n### Gift Certificates\nGift certificates available to offer to a store’s customers."
   },
   "host": "api.bigcommerce.com",
-  "basePath": "/stores/{store_hash}/v2",
+  "basePath": "/stores/{$$.env.store_hash}/v2",
   "schemes": [
     "https"
   ],
@@ -3872,7 +3872,7 @@
       "properties": {
         "url": {
           "description": "URL of the coupons for api requests",
-          "example": "https://api.bigcommerce.com/stores/{store_hash}/v2/orders/129/coupons",
+          "example": "https://api.bigcommerce.com/stores/{$$.env.store_hash}/v2/orders/129/coupons",
           "type": "string"
         },
         "resource": {

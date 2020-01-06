@@ -144,12 +144,12 @@ The injected `productThumbSize` property can then be accessed from `product.js` 
 <div class="HubBlock-header">
     <div class="HubBlock-header-title flex items-center">
         <div class="HubBlock-header-name">PageManager class</div>
-    </div><div class="HubBlock-header-subtitle">templates/pages/product.html</div>
+    </div><div class="HubBlock-header-subtitle">assets/js/theme/product.js</div>
 </div>
 
 <!--
 title: "PageManager class"
-subtitle: "templates/pages/product.html"
+subtitle: "assets/js/theme/product.js"
 lineNumbers: true
 -->
 

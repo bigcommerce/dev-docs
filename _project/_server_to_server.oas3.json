@@ -1,0 +1,80 @@
+{
+    "openapi": "3.0.0",
+    "info": {
+        "version": "",
+        "title": "{{API_NAME}}",
+        "contact": {},
+        "description": "{{API_DESCRIPTION}}"
+    },
+    "servers": [
+        {
+            "url": "https://api.bigcommerce.com/stores/{$$.env.store_hash}/{version}",
+            "variables": {
+                "$$.env.store_hash": {
+                    "default": "{$$.env.store_hash}"
+                },
+                "version": {
+                    "enum": [
+                        "v2",
+                        "v3"
+                    ],
+                    "default": "v3"
+                }
+            }
+        }
+    ],
+    "security": [
+        {
+            "X-Auth-Client": []
+        },
+        {
+            "X-Auth-Token": []
+        }
+    ],
+    "tags": [],
+    "paths": {},
+    "components": {
+        "schemas": {},
+        "parameters": {
+            "Content-Type": {
+                "name": "Content-Type",
+                "in": "header",
+                "schema": {
+                    "type": "string",
+                    "default": "application/json"
+                }
+            },
+            "Accept": {
+                "name": "Accept",
+                "in": "header",
+                "schema": {
+                    "type": "string",
+                    "default": "application/json"
+                }
+            }
+        },
+        "securitySchemes": {
+            "X-Auth-Client": {
+                "type": "apiKey",
+                "name": "X-Auth-Client",
+                "in": "header"
+            },
+            "X-Auth-Token": {
+                "type": "apiKey",
+                "name": "X-Auth-Token",
+                "in": "header"
+            }
+        },
+        "requestBodies": {},
+        "responses": {},
+        "headers": {},
+        "examples": {},
+        "links": {},
+        "callbacks": {}
+    },
+    "x-stoplight": {
+        "docs": {
+            "includeDownloadLink": true
+        }
+    }
+}

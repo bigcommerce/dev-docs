@@ -1,0 +1,43 @@
+{
+    "swagger": "2.0",
+    "info": {
+      "version": "",
+      "title": "{{API_NAME}}",
+      "contact": {},
+      "description": "{{API_DESCRIPTION}}"
+    },
+    "host": "{$$.env.store_domain}",
+    "basePath": "/api/storefront",
+    "schemes": [
+      "https"
+    ],
+    "consumes": [
+      "application/json"
+    ],
+    "produces": [
+      "application/json"
+    ],
+    "paths": {},
+    "definitions": {},
+    "tags": [],
+    "responses": {},
+    "parameters": {
+      "Content-Type": {
+        "name": "Content-Type",
+        "in": "header",
+        "type": "string",
+        "default": "application/json"
+      },
+      "Accept": {
+        "name": "Accept",
+        "in": "header",
+        "type": "string",
+        "default": "application/json"
+      }
+    },
+    "x-stoplight": {
+      "docs": {
+        "includeDownloadLink": true
+      }
+    }
+}

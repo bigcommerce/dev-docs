@@ -3,14 +3,14 @@
   "info": {
     "title": "Themes API",
     "version": "",
-    "description": "### Themes\nThe Themes API allows for the manage of Stencil themes on a store. In this API, Themes are treated as a single object (.zip file), and not as a collection of files. This API is useful for backing up/restoring themes, as well as for creating a theme publishing workflow.\n\nAs themes must be processed once uploaded or before being downloaded, this API provides job IDs for long-running processing jobs, and a jobs endpoint which you may poll for updates.Before a theme may be uploaded to this API, it should be bundled using stencil-cli.\n\nThemes downloaded from this endpoint may be edited using stencil-cli for local development.",
+    "description": "### Themes\nThe Themes API allows for the management of Stencil themes on a store. In this API, Themes are treated as a single object (.zip file), and not as a collection of files. This API is useful for backing up/restoring themes, as well as for creating a theme publishing workflow.\n\nAs themes must be processed once uploaded or before being downloaded, this API provides job IDs for long-running processing jobs, and a jobs endpoint which you may poll for updates.Before a theme may be uploaded to this API, it should be bundled using stencil-cli.\n\nThemes downloaded from this endpoint may be edited using stencil-cli for local development.",
     "termsOfService": "",
     "license": {
       "name": ""
     }
   },
   "host": "api.bigcommerce.com",
-  "basePath": "/stores/{store_hash}/v3",
+  "basePath": "/stores/{$$.env.store_hash}/v3",
   "tags": [
     {
       "name": "Themes",
@@ -1782,14 +1782,24 @@
     "X-Auth-Client": {
       "type": "apiKey",
       "name": "X-Auth-Client",
-      "in": "header"
+      "in": "header",
+      "description": "client_id provided when user creates an API user account or the app is installed"
     },
     "X-Auth-Token": {
       "type": "apiKey",
+      "in": "header",
       "name": "X-Auth-Token",
-      "in": "header"
+      "description": "Access Token (access_token) provided when API User account was created or app is installed"
     }
   },
+  "security": [
+    {
+      "X-Auth-Client": []
+    },
+    {
+      "X-Auth-Token": []
+    }
+  ],
   "x-stoplight": {
     "docs": {
       "includeDownloadLink": true

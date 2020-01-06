@@ -6,7 +6,7 @@
     "description": "Returns API for BigCommerce (Beta)"
   },
   "host": "api.bigcommerce.com",
-  "basePath": "/stores/{store_hash}/v3",
+  "basePath": "/stores/{$$.env.store_hash}/v3",
   "schemes": [
     "https"
   ],
@@ -372,6 +372,28 @@
       }
     }
   },
+  "securityDefinitions": {
+    "X-Auth-Client": {
+      "type": "apiKey",
+      "name": "X-Auth-Client",
+      "in": "header",
+      "description": "client_id provided when user creates an API user account or the app is installed"
+    },
+    "X-Auth-Token": {
+      "type": "apiKey",
+      "in": "header",
+      "name": "X-Auth-Token",
+      "description": "Access Token (access_token) provided when API User account was created or app is installed"
+    }
+  },
+  "security": [
+    {
+      "X-Auth-Client": []
+    },
+    {
+      "X-Auth-Token": []
+    }
+  ],
   "definitions": {
     "GetReturnsSettingsResponse": {
       "type": "object",

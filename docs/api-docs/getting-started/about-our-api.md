@@ -3,13 +3,10 @@
 <div class="otp" id="no-index">
 
 ### On This Page
-- [API Environment](#api-environment)
 - [Available APIs](#available-apis)
-- [Request Headers](#request-headers)
-- [Response Headers](#response-headers)
-- [Media Types](#media-types)
-- [Content Types](#content-types)
-- [Request and Response Structure](#request-and-response-structure)
+- [API Environments](#api-environments)
+- [Available Store Resources](#available-store-resources)
+- [Server-to-Server API](#server-to-server-api)
 - [Support](#support)
 - [Resources](#resources)
 
@@ -19,45 +16,89 @@ Want to get started making API Requests right away? Check out the [Quick Start](
 
 The BigCommerce set of APIs allow you to create apps, automate store processes, or build headless ecommerce solutions. Need inspiration on what to build? Visit our [App Marketplace](https://www.bigcommerce.com/apps/). 
 
-## API Environment 
+## Available APIs
+BigCommerce has several different APIs that let you manage store data, authenticate customers, make client-side queries for product information, and more. 
+
+### Server-to-Server
+BigCommerce's [Server-to-Server API](https://developer.bigcommerce.com/api-reference/store-management/catalog) allows you to manage store data and take actions that mimic store administrator activity. Some example uses of the Server-to-Server API are:
+* Add and update products in a store
+* Update a customer's order and change the order status
+* Create a coupon
+* Manage a customer's store account details
+
+### Storefront API
+The [Storefront API](https://developer.bigcommerce.com/api-reference/cart-checkout/storefront-cart-api) lets you manage customer carts and checkouts, and lets you access order information client-side. Some example uses of the Storefront API are:
+* Add an item with Javascript to a shopper's cart from the storefront
+* Programmatically retrieve and display to a customer information about their recent order
+* Update the billing address of a checkout
+* Clear a customer's current cart
+
+
+### GraphQL API
+BigCommerce's [GraphQL API](https://developer.bigcommerce.com/api-docs/storefront/graphql/graphql-storefront-api-overview) can be used to query product and customer data and store settings either remotely or from a store's font-end. Some use-case examples are:
+* Pull a product's data with Javascript into a Stencil theme
+* Access customer data via the front end of a site
+* Fetch category and brand details from a store's front end
+
+### Customer Login API
+The [Customer Login API](https://developer.bigcommerce.com/api-docs/customers/customer-login-api) lets you programmatically log in customers to a BigCommerce storefront. Some example uses of this API are:
+* Log in customers to a BigCommerce store via a third-party system
+* Enable login using credentials other than email and password (i.e. using a phone number) 
+* Integrate a BigCommerce store with an SSO provider
+
+
+### Current Customer API
+BigCommerce's [Current Customer API](https://developer.bigcommerce.com/api-docs/customers/current-customer-api) can be used to determine which customer is logged in to a storefront during a session.
+* Confirm a customer's identity in the browser
+* Validate a customer's identity to display specific information to them from an external app
+
+
+## API Environments 
 
 BigCommerce API requests can be made in the context of the storefront or server-to-server.  
 
-* Storefront APIs use the store url: `https://your-store.mybigcommerce.com/api/{endpoint}`
-* Server-to-Server requests use the base url:  `https://api.bigcommerce.com/stores/{store_hash}/v3/`
-* V2 API Requests use the base url: `https://api.bigcommerce.com/stores/{store_hash}/v2/`
+| API | Base URL |
+| -- | -- | 
+| Server-to-Server | `https://api.bigcommerce.com/stores/{store_hash}/v3/`|
+| V2 | `https://api.bigcommerce.com/stores/{store_hash}/v2/`|
+| Storefront API | `https://your-store.mybigcommerce.com/api/{endpoint}`|
+| GraphQL | `https://www.{bigcommerce_storefront_domain}.com/graphql`|
+| Customer Login | `https://www.{bigcommerce_storefront_domain}.com/login/token/{token}`|
+| Current Customer | `/customer/current.jwt?app_client_id={app_client_id}` |
 
-## Available APIs
 
-|API | Description | Download Schema |
-|--|--| -- |
-| [Catalog](/api-reference/catalog/catalog-api) | The Catalog API manages products, brands and categories for a store. | [Download Catalog API](https://developer.bigcommerce.com/api-reference/catalog/catalog-api/BigCommerce_Catalog_API.oas2.json)
-| [Store Infomation](/api-reference/store-management/store-information-api) | Get system time stamp and basic store information. | [Download Store Information API](https://developer.bigcommerce.com/api-reference/store-management/store-information-api/BigCommerce_Store_Information_API.oas2.json) |
-| [Currency](/api-reference/store/currency-api) | Manage currency displayed on the storefront | [Download Currency API](https://developer.bigcommerce.com/api-reference/store-management/currency-api/BigCommerce_Currency_API.oas2.json)
-| [Geography](/api-reference/store/geography-api) | Get a list of states and countries  | [Download Geography API](https://developer.bigcommerce.com/api-reference/store-management/geography-api/BigCommerce_Geography_API.oas2.json)
-| [Tax Class](/api-reference/store/tax-classes-api) | Get available tax classes on a store | [Download Tax Class API](https://developer.bigcommerce.com/api-reference/store-management/tax-classes-api/BigCommerce_Tax_Class_API.oas2.json)
-| [Storefront Cart](/api-reference/cart-checkout/storefront-cart-api) | Create a cart or scrape cart data from the front end | [Download Storefront Cart API](https://developer.bigcommerce.com/api-reference/cart-checkout/storefront-cart-api/BigCommerce_Storefront_Cart_API.oas2.json)
-| [Storefront Checkout](/api-reference/cart-checkout/storefront-checkout-api) | Create a checkout or scrape checkout data from the front end |[Download Storefront Checkout API](https://developer.bigcommerce.com/api-reference/cart-checkout/storefront-checkout-api/BigCommerce_Storefront_Checkout_API.oas2.json)
-| [Server-to-Server Cart](/api-reference/cart-checkout/server-server-cart-api) | Create a cart and bypass the BigCommerce front end | [Download Server-to-Server Cart API](https://developer.bigcommerce.com/api-reference/cart-checkout/server-server-cart-api/BigCommerce_Server_to_Server_Cart_API.oas2.json)
-| [Server-to-Server Checkout](/api-reference/cart-checkout/server-server-checkout-api) | Create a checkout and bypass the BigCommerce front end | [Download Server-Server Checkout API](https://developer.bigcommerce.com/api-reference/cart-checkout/server-server-checkout-api/BigCommerce_Server_to_Server_Checkout_API.oas2.json)
-| [Orders](/api-reference/orders/orders-api) | Create and manage orders | [Download Orders API](https://developer.bigcommerce.com/api-reference/orders/orders-api/BigCommerce_Orders_API.oas2.json)
-| [Order Transactions](/api-reference/orders/orders-transactions-api) | View order payment information | [Download Order Transactions API](https://developer.bigcommerce.com/api-reference/orders/orders-transactions-api/BigCommerce_Order_Transactions_API.oas2.json)
-| [Storefront Orders](/api-reference/orders/storefront-orders-api) | View storefront order information | [Download Storefront Orders API](https://developer.bigcommerce.com/api-reference/orders/storefront-orders-api/BigCommerce_Storefront_Orders_API.oas2.json)
-| [Customers](/api-reference/customer-subscribers/customers-api) | Manage store customers  | [Download Customers API](https://developer.bigcommerce.com/api-reference/customer-subscribers/customers-api/BigCommerce_Customers_API.oas2.json)|
-| [V3 Customers](https://developer.bigcommerce.com/api-reference/customer-subscribers/v3-customers-api) |Manage store customers. To learn about using V3 Customers vs V2 Customers, see [Customers Overview](https://developer.bigcommerce.com/api-docs/customers/customers-subscribers-overview). | [Download V3 Customers API](https://developer.bigcommerce.com/api-reference/customer-subscribers/v3-customers-api/BigCommerce_Customers_V3_API.oas2.json) |
-| [Subscribers](/api-reference/customer-subscribers/subscribers-api) | Manage newsletter subscribers | [Download Subscribers API](https://developer.bigcommerce.com/api-reference/customer-subscribers/subscribers-api/BigCommerce_Subscribers_API.oas2.json)
-| [Price Lists](/api-reference/price-lists/pricelists-api) | Create variations of catalog pricing. | [Download Price Lists API](https://developer.bigcommerce.com/api-reference/catalog/pricelists-api/BigCommerce_Price_Lists_API.oas2.json) |
-| [Scripts](/api-reference/content/content-scripts-api) | Add a script to a stores page | [Download Scripts API](https://developer.bigcommerce.com/api-reference/storefront/content-scripts-api/BigCommerce_Scripts_API.oas2.json)
-| [Marketing](/api-reference/marketing/marketing-api) | Create and manage Coupons, Banners and Gift Certificates. | [Download Marketing API](https://developer.bigcommerce.com/api-reference/marketing/marketing-api/BigCommerce_Marketing_API.oas2.json)
-| [Enabled Payment Methods](/api-reference/payments/payment-methods-api) | Get a list of available payment methods on a store. | [Download Payment Methods API](https://developer.bigcommerce.com/api-reference/payments/payment-methods-api/BigCommerce_Enabled_Payment_Methods_API.oas2.json)|
-| Process Payments | Process payments on orders or checkouts. There are two APIs used to process payments. Get the [payment access token](https://developer.bigcommerce.com/api-reference/payments/payments-create-payment-token-api) then [process the payment](https://developer.bigcommerce.com/api-reference/payments/payments-process-payments).  | [Payment Token & Payment Methods](https://developer.bigcommerce.com/api-reference/payments/payments-create-payment-token-api/BigCommerce_Payments_API.oas2.json), [Process Payment](https://developer.bigcommerce.com/api-reference/payments/payments-process-payments/BigCommerce_Process_Payment_API.oas2.json)
+## Available Store Resources
+
+|Resource | Description |
+|--|--|
+| [Catalog](/api-reference/catalog/catalog-api) | The Catalog API manages products, brands and categories for a store. |
+| [Store Infomation](/api-reference/store-management/store-information-api) | Get system time stamp and basic store information. |
+| [Currency](/api-reference/store/currency-api) | Manage currency displayed on the storefront | 
+| [Geography](/api-reference/store/geography-api) | Get a list of states and countries  | 
+| [Tax Class](/api-reference/store/tax-classes-api) | Get available tax classes on a store | 
+| [Storefront Cart](/api-reference/cart-checkout/storefront-cart-api) | Create a cart or scrape cart data from the front end |    |[Storefront Checkout](/api-reference/cart-checkout/storefront-checkout-api) | Create a checkout or scrape checkout data from the front end |
+| [Server-to-Server Cart](/api-reference/cart-checkout/server-server-cart-api) | Create a cart and bypass the BigCommerce front end | 
+| [Server-to-Server Checkout](/api-reference/cart-checkout/server-server-checkout-api) | Create a checkout and bypass the BigCommerce front end | 
+| [Orders](/api-reference/orders/orders-api) | Create and manage orders |
+| [Order Transactions](/api-reference/orders/orders-transactions-api) | View order payment information | 
+| [Storefront Orders](/api-reference/orders/storefront-orders-api) | View storefront order information | 
+| [Customers](/api-reference/customer-subscribers/customers-api) | Manage store customers  | 
+| [V3 Customers](https://developer.bigcommerce.com/api-reference/customer-subscribers/v3-customers-api) |Manage store customers. To learn about using V3 Customers vs V2 Customers, see [Customers Overview](https://developer.bigcommerce.com/api-docs/customers/customers-subscribers-overview). | 
+| [Subscribers](/api-reference/customer-subscribers/subscribers-api) | Manage newsletter subscribers |
+| [Price Lists](/api-reference/price-lists/pricelists-api) | Create variations of catalog pricing. | 
+| [Scripts](/api-reference/content/content-scripts-api) | Add a script to a stores page | 
+| [Marketing](/api-reference/marketing/marketing-api) | Create and manage Coupons, Banners and Gift Certificates. | 
+| [Enabled Payment Methods](/api-reference/payments/payment-methods-api) | Get a list of available payment methods on a store. | 
+| Process Payments | Process payments on orders or checkouts. There are two APIs used to process payments. Get the [payment access token](https://developer.bigcommerce.com/api-reference/payments/payments-create-payment-token-api) then [process the payment](https://developer.bigcommerce.com/api-reference/payments/payments-process-payments).  |
 | [Shipping](/api-reference/shipping/shipping-api) | Create and manage shipping methods and zones. |[Download Shipping API](https://developer.bigcommerce.com/api-reference/store-management/shipping-api/BigCommerce_Shipping_API.oas2.json)
-| [Store Content](/api-reference/content/store-content-api) | Mange the store's blog, web pages and redirects. | [Download Store Content API](https://developer.bigcommerce.com/api-reference/marketing/store-content-api/BigCommerce_Store_Content_API.oas2.json)
-| [Themes](/api-reference/themes/themes-api) | Manage store's themes. |[Download Themes API](https://developer.bigcommerce.com/api-reference/storefront/themes-api/BigCommerce_Themes_API.oas2.json) |
-| [Widgets](https://developer.bigcommerce.com/api-reference/storefront/widgets-api) | Programatically inject content into a BigCommerce theme. | [Download Widgets API](https://developer.bigcommerce.com/api-reference/storefront/widgets-api/BigCommerce_Widgets_API.oas2.json) |
-| [Wishlist](https://developer.bigcommerce.com/api-reference/customer-subscribers/wishlist-api) | Wishlist API allows a developer to create and manage customer wishlists. | [Download Wishlist API](https://developer.bigcommerce.com/api-reference/customer-subscribers/wishlist-api/BigCommerce_Wishlist_API.oas2.json) |
+| [Store Content](/api-reference/content/store-content-api) | Manage the store's blog, web pages and redirects. | 
+| [Storefront GraphQL API](/api-docs/storefront/graphql/graphql-storefront-api-overview) | Query storefront data from from within a Stencil theme or remote site. | 
+| [Themes](/api-reference/themes/themes-api) | Manage store's themes. |
+| [Widgets](https://developer.bigcommerce.com/api-reference/storefront/widgets-api) | Programmatically inject content into a BigCommerce theme. |
+| [Wishlist](https://developer.bigcommerce.com/api-reference/customer-subscribers/wishlist-api) | Wishlist API allows a developer to create and manage customer wishlists. |
 
-## Request Headers
+## Server-to-Server API 
+### Request Headers
 
 Server-to-Server request headers require Accept, X-Auth-Client, X-Auth-Token and Content-Type at a minimum.
 
@@ -69,7 +110,7 @@ Server-to-Server request headers require Accept, X-Auth-Client, X-Auth-Token and
 | `X-Auth-Client` | String | Client ID of the requesting app |
 | `X-Auth-Token` | String | Access token authorizing the app to access resources on behalf of a user |
 
-## Response Headers 
+### Response Headers 
 
 | Header | Possible Values | Description | Example |
 |-|-| -- | - |
@@ -88,11 +129,11 @@ Server-to-Server request headers require Accept, X-Auth-Client, X-Auth-Token and
 | `X-Rate-Limit-Time-Reset-Ms`  | number | Shows how many milliseconds are remaining in the window. In this case, 3000 milliseconds – so, 3000 milliseconds after this request, the API quota will be refreshed. |`30000 `|
 | `X-Rate-Limit-Time-Window-Ms` | number | Shows the size of your current rate-limiting window. | `9762` |
 
-## Media Types
+### Media Types
 
 A media type is the format of the request or response body. The BigCommerce API accepts requests and responds in JSON. You should encode requests using the UTF-8 character set (other character sets might have unpredictable results).
 
-## Content Types
+### Content Types
 
 ### Request Content Type
 When performing a request that contains a body (eg. POST or PUT), the type of content you are sending needs to be specified in the Content-Type header. 
@@ -103,8 +144,6 @@ There are two ways you can specify the type of content you would like to receive
 The priority in which these methods are processed are:
 * Accept header high-priority types (eg. `Accept: application/json`) extensions on the resource (e.g. `customers.json`).
 * Accept header low priority types (priorities less than 1, e.g. `Accept: application/json;q=0.9`)
-
-## Request and Response Structure
 
 ### Request Structure
 The body of a JSON request is an object containing a set of key-value pairs. A simple representation of a product object is:
