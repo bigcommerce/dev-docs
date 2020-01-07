@@ -15,7 +15,7 @@ Stencil is BigCommerce's theme engine. It incorporates industry best practices i
 
 The [Store Design](/stencil-docs/configure-store-design-ui/store-design-overview) tool available on Stencil themes allows merchants to customize a storefront’s look and feel with no coding, making customizations possible by a wide range of users.  Store Design enables quick and easy customization of a theme's colors, typography, banners, headings, carousel, and footer. It also enables customization of a storefront's layout characteristics, such as the number of products displayed in various panels, category pages, and brand pages. For details, see [Personalizing Your Theme](https://support.bigcommerce.com/articles/Learning/Personalizing-your-New-Theme) (BigCommerce Knowledge Base). 
 
-BigCommerce Stencil themes are responsive, mobile friendly themes, allowing shoppers to have a first class experience across any device. Each Stencil theme can contain one to four variations. You can optimize individual variations for specific markets, audiences and styles, while still managing and distributing all of these variations as one theme.
+BigCommerce Stencil themes are responsive, mobile friendly themes, allowing shoppers to have a first class experience across any device. Each Stencil theme can contain one to four variations. You can optimize individual variations for specific markets, audiences, and styles, while still managing and distributing all of these variations as one theme.
 
 ## Cornerstone
 
