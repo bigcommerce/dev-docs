@@ -22,7 +22,7 @@ Stencil’s architecture allows for organized customization using npm and React.
 
 In this example, we'll be making a drawer that sends a coupon code to the customer's email using MaterialUI's React framework. The resulting customization will look like the following:
 
-[Image of Coupon Drawer example](/assets/images/coupon_drawer_example.png)
+![Image of Coupon Drawer example](https://github.com/bigcommerce/dev-docs/blob/master/assets/images/coupon_drawer_example.png?raw=true)
 
 ### Prerequisites
 
