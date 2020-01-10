@@ -3,20 +3,13 @@
 <div class="otp" id="no-index">
 
 ### On This Page
-- [Best Practices](#Best-Practices)
-		- [On This Page](#On-This-Page)
-	- [Ensure Your Integration is Up-to-Date](#Ensure-Your-Integration-is-Up-to-Date)
-	- [Use Webhooks Effectively](#Use-Webhooks-Effectively)
-	- [Thread API Requests](#Thread-API-Requests)
-	- [Marketplace Apps](#Marketplace-Apps)
-	- [API Rate Limits](#API-Rate-Limits)
-		- [Concurrent API Call Rate Limits](#Concurrent-API-Call-Rate-Limits)
-		- [Playing Nicely with the Platform](#Playing-Nicely-with-the-Platform)
-		- [Example of 429 Status Code](#Example-of-429-Status-Code)
-		- [Making Requests in Parallel](#Making-Requests-in-Parallel)
-	- [Platform Limits](#Platform-Limits)
-	- [Resources](#Resources)
-		- [Related Artices](#Related-Artices)
+- [Ensure Your Integration is Up-to-Date](#ensure-your-integration-is-up-to-date)
+- [Use Webhooks Effectively](#use-webhooks-effectively)
+- [Thread API Requests](#thread-api-requests)
+- [Marketplace Apps](#marketplace-apps)
+- [API Rate Limits](#api-rate-limits)
+- [Platform Limits](#platform-limits)
+- [Resources](#resources)
 
 </div>
 
@@ -67,13 +60,8 @@ Certain BigCommerce API resources rate-limit concurrent requests. This is to ens
 | Limit | Endpoint | Method |
 | -- | -- | -- |
 | 10| /stores/:hash/v3/customers | POST |
-| 3 | /stores/:hash/v3/customers/attributes | POST|
-| 3 | /stores/:hash/v3/customers/addresses | POST|
-| 3 | /stores/:storeHash/v3/pricelists/:priceListId/records | PUT |
-| 3 | /stores/:hash/v3/customers/attribute-values | PUT |
-| 3 | /stores/:hash/v3/customers/attributes | PUT |
-| 3 | /stores/:hash/v3/customers | PUT|
-| 3 | /stores/:hash/v3/customers/addresses | PUT|
+
+All other BigCommerce API resource endpoints have a rate limit of 3 concurrent requests at a time.
 
 ### Playing Nicely with the Platform
 
