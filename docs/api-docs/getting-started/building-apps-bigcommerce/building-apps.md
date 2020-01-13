@@ -185,11 +185,11 @@ Include values for each of the following parameters.
 |-|-|
 | client_id | The Client ID for your app, obtained during [registration](https://developer.bigcommerce.com/api-docs/getting-started/authentication#authentication_client-id-secret). |
 | client_secret | The Client Secret for your app, obtained during [registration](https://developer.bigcommerce.com/api-docs/getting-started/authentication#authentication_client-id-secret). |
-| code | Temporary access code received in the [GET request](/api-docs/getting-started/building-apps-bigcommerce/building-apps#building-apps_recieving-get-request) discussed above. |
-| scope | List of OAuth scopes received in the [GET request](/api-docs/getting-started/building-apps-bigcommerce/building-apps#building-apps_recieving-get-request) discussed above. |
+| code | Temporary access code received in the [GET request](/api-docs/getting-started/building-apps-bigcommerce/building-apps#receiving-the-get-request) discussed above. |
+| scope | List of OAuth scopes received in the [GET request](/api-docs/getting-started/building-apps-bigcommerce/building-apps#receiving-the-get-request) discussed above. |
 | grant_type | Always use the following: authorization_code. |
 | redirect_uri | Must be identical to your registered Auth Callback URI. |
-| context | The store hash received in the [GET request](/api-docs/getting-started/building-apps-bigcommerce/building-apps#building-apps_recieving-get-request), in the format: `stores/{_store_hash_}` |
+| context | The store hash received in the [GET request](/api-docs/getting-started/building-apps-bigcommerce/building-apps#receiving-the-get-request), in the format: `stores/{_store_hash_}` |
 
 **Examples – Initial Installation**
 
@@ -383,7 +383,7 @@ GET /load?signed_payload=hw9fhkx2ureq.t73sk8y80jx9 HTTP/1.1
 Host: app.example.com
 ```
 
-Upon receiving a GET request to the Load Callback URI, your app needs to [process the signed payload](#building-apps_processing-signed-payload). After processing the payload, your app returns its user interface as HTML. BigCommerce renders this inside of an iframe. Please see [User Interface Constraints](#building-apps_user-interface-constraints) for important information about your app’s user interface.
+Upon receiving a GET request to the Load Callback URI, your app needs to [process the signed payload](#processing-the-signed-payload). After processing the payload, your app returns its user interface as HTML. BigCommerce renders this inside of an iframe. Please see [User Interface Constraints](#designing-the-user-interface) for important information about your app’s user interface.
 
 ### Uninstall Request (Optional)
 
@@ -404,7 +404,7 @@ Upon receiving the GET request, your app will need to process the signed payload
 
 ### Remove User Request (Optional)
 
-If you have not enabled [multi-user](#building-apps_multi-user-support) support, you will not provide a Remove User Callback URI and can ignore this section. If you enable multi-user support, you can optionally specify a Remove User Callback URI. It must be fully qualified, publicly available, and served over TLS/SSL. BigCommerce will send a GETrequest to your Remove User Callback URI when a store admin revokes a user’s access to your app. 
+If you have not enabled [multi-user support](#multi-user-support), you will not provide a Remove User Callback URI and can ignore this section. If you enable multi-user support, you can optionally specify a Remove User Callback URI. It must be fully qualified, publicly available, and served over TLS/SSL. BigCommerce will send a GETrequest to your Remove User Callback URI when a store admin revokes a user’s access to your app. 
 
 **Example -- Get Request sent to the Remove User URI**
 
@@ -568,7 +568,7 @@ Use the store information endpoint to identify the store to which the request pe
 
 | Request type | Multiple users enabled | Multiple users not enabled |
 |-|-|-|
-| Load | Compare the user information to see if it matches that of the store owner (received at the time of [app installation](#building-apps_installation-update-sequence)) or that of an existing user. If the user information does not match either of these, then it represents a new user that you should add to your database or other storage. | The information should match that of the store owner, received at the time of [app installation](#building-apps_installation-update-sequence). |
+| Load | Compare the user information to see if it matches that of the store owner (received at the time of [app installation](#installation-and-update-sequence)) or that of an existing user. If the user information does not match either of these, then it represents a new user that you should add to your database or other storage. | The information should match that of the store owner, received at the time of [app installation](#installation-and-update-sequence). |
 | Uninstall | The user information should match that of the store owner. Only the store owner can uninstall your app. | Should match the store owner. |
 | Remove user | The user information should match one of the users that you have stored. After locating the stored user, delete it from your database or other storage. | N/A |
 
@@ -636,12 +636,12 @@ Because you know the store owner’s email and ID from the App Installation sequ
 - Store owner: Can install, uninstall, and load apps.
 - Users: Cannot install or uninstall apps. Permitted only to load the apps that a store admin has authorized.
 
-For further details, please see [Load Request and Response](#building-apps_load-uninstall-removal-requests).
+For further details, please see [Load Request and Response](#load-request-and-response).
 
 ### The Remove User Request
 In addition to their ability to add users, store admins can also remove users. This action generates a GET request to the Remove User Callback URI that you provided in My Apps. Your app the user identified in the request from its records.
 
-For further information, please see [Remove User Request](#building-apps_load-uninstall-removal-requests).
+For further information, please see [Remove User Request](#remove-user-request-optional).
 
 ## External App Installation
 
@@ -670,7 +670,7 @@ Upon clicking, your button should open a modal similar to the image below. We re
 
 ![](//s3.amazonaws.com/user-content.stoplight.io/6490/1539297431440 "")
 
-Your button will link merchants to BigCommerce’s install endpoint for your application. Once the merchant clicks the link, they will be prompted to log in, then authorize your application, just like in the [normal installation flow](#building-apps_installation-update-sequence).
+Your button will link merchants to BigCommerce’s install endpoint for your application. Once the merchant clicks the link, they will be prompted to log in, then authorize your application, just like in the [normal installation flow](#installation-and-update-sequence).
 
 ### Render Success/Failure Pages
 
@@ -733,7 +733,7 @@ If the user interface retrieves images, scripts, or other assets over a connecti
 
 ### About P3P and Cookies
 
-Internet Explorer is one of the browsers that BigCommerce [supports](#supported-browsers), and our merchants do use it to access the control panel. If your app needs to set a cookie, you will need to craft a <a href="http://en.wikipedia.org/wiki/P3P" target="_blank">P3P policy</a>. Otherwise, your app will experience issues on Internet Explorer. Please see the following pages for more information:
+Internet Explorer is one of the browsers that BigCommerce [supports](https://support.bigcommerce.com/s/article/Themes-Supported-Browsers), and our merchants do use it to access the control panel. If your app needs to set a cookie, you will need to craft a <a href="http://en.wikipedia.org/wiki/P3P" target="_blank">P3P policy</a>. Otherwise, your app will experience issues on Internet Explorer. Please see the following pages for more information:
 
 *   <a href="http://www.techrepublic.com/blog/software-engineer/craft-a-p3p-policy-to-make-ie-behave/" target="_blank">Craft a P3P policy to make IE behave</a>
 *   <a href="http://blogs.msdn.com/b/ieinternals/archive/2013/09/17/simple-introduction-to-p3p-cookie-blocking-frame.aspx" target="_blank">MSDN Intro to P3P Cookie Blocking</a>
@@ -745,12 +745,12 @@ Therefore, you can maximize performance of your app (in terms of latency to the 
 
 ## FAQ
 
-**How can I make API calls?**   
+### How can I make API calls?   
 We have built several [Hello World](https://developer.bigcommerce.com/tools-resources) apps to get you started quickly. You can use these apps as a starting point or an example for building a Single-click app. 
 
 If you'd like to make test API requests without the overhead of installing a draft app, you can generate [API Credentials](https://developer.bigcommerce.com/api-docs/getting-started/authentication#authentication_getting-api-credentials) by creating an API Account in your store's control panel.
 
-**How can I sell my app?**  
+### How can I sell my app?  
 The first step to listing an app in the BigCommerce App Marketplace is to apply to the BigCommerce [partner program](https://www.bigcommerce.com/partners/). 
 
 For more details on including your app in the Marketplace, see [App Store Approval Requirements](https://developer.bigcommerce.com/api-docs/partner/app-store-approval-requirements).
