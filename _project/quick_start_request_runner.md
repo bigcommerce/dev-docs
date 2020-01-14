@@ -21,7 +21,7 @@ By the end of this guide, you’ll be able to:
 * troubleshoot common errors
 
 ### Prerequisites
-* [Store API Credentials](/api-docs/getting-started/authentication#authentication_getting-api-credentials) (with [Scope](/api-docs/getting-started/authentication#authentication_oauth-scopes) set to `Products Modify`)
+* [Store API Credentials](/api-docs/getting-started/authentication#authentication_getting-api-credentials) (with [Scope](/api-docs/getting-started/authentication#authentication_oauth-scopes) set to `Products` `Modify`)
 
 ## Authentication
 
@@ -36,11 +36,13 @@ For more information on authentication and types of API credentials, see:
 
 ## Making Requests
 
-The easiest way to make requests while going through this tutorial is to use the built-in request runner -- copy and paste your `store_hash`, `X-Auth-Client` ID, and `X-Auth-Token` into the form and click **send**:
+The easiest way to experiment with BigCommerce REST APIs is via the built-in **Request Runner**:
 
 [![Open in Request Runner](https://storage.googleapis.com/bigcommerce-production-dev-center/images/Open-Request-Runner.svg)](https://developer.bigcommerce.com/api-reference/store-management/catalog/products/getproducts#requestrunner)
 
-If you use **Visual Studio Code**, another simple way to experiment with the requests in this tutorial is to use the [REST Client](https://marketplace.visualstudio.com/items?itemName=humao.rest-client) extension. Once you have it installed, create a new file called `bigcommerce.http` and paste in the following:
+Just copy and paste your `store_hash`, `client_id` ID, and `access_token` into the form, then click **Send**
+
+If you use **Visual Studio Code**, another simple way to make API requests is with the [REST Client](https://marketplace.visualstudio.com/items?itemName=humao.rest-client) extension. Once you have it installed, create a new file called `bigcommerce.http` and paste in the following:
 
 ```http
 @ACCESS_TOKEN = your_access_token 
@@ -56,11 +58,13 @@ Content-Type: application/json
 Accept: application/json
 ```
 
-Once saved, there will be `send request` link above the `GET` -- click it and the response will open in a split window.
+Save and you'll see the **send request** link above `GET`. Click **send request** and the response will open in a split window.
 
 Alternatively, you can import the [Specification File](https://developer.bigcommerce.com/api-reference/store-management/catalog/BigCommerce_Catalog_API.oas2.json) into [Postman](https://www.getpostman.com/) (or any other tool that can import [Open API Specification](https://swagger.io/specification/) files). 
 
 ## Get all Products
+
+To get a paginated list of all products, make a `GET` request to `/catalog/products`:
 
 ```http
 GET https://api.bigcommerce.com/stores/{{STORE_HASH}}/v3/catalog/products
@@ -107,6 +111,8 @@ Accept: application/json
 
 ## Get Ten Products Sorted by Name
 
+Results can be filtered and sorted by appending query string parameters to the end of the URL:
+
 ```http
 GET https://api.bigcommerce.com/stores/{{STORE_HASH}}/v3/catalog/products?limit=10&sort=name
 X-Auth-Token: {{ACCESS_TOKEN}}
@@ -142,7 +148,7 @@ Accept: application/json
   }
 ```
 
-For a full of filters, see [API Reference > Products > Get All Products > Request Parameters > Query Parameters](https://developer.bigcommerce.com/api-reference/store-management/catalog/products/getproducts).
+For a list of product filters, see [API Reference > Products > Get All Products > Request Parameters > Query Parameters](https://developer.bigcommerce.com/api-reference/store-management/catalog/products/getproducts).
 
 ## Create a Product
 
@@ -174,7 +180,7 @@ Accept: application/json
 }
 ```
 
-Once we have a category ID, we can create a product with the minimum required fields (notice the category `id` from the previous request in the `categories` array):
+Once we have a category `id`, we can create a product with the minimum required fields (notice the `id` from the previous request in the `categories` array):
 
 ```http
 POST https://api.bigcommerce.com/stores/{store_hash}/v3/catalog/products
@@ -209,17 +215,17 @@ Accept: application/json
 * To see a full list of filters, see [API Reference > Products > Get All Products > Request Parameters > Query Parameters](https://developer.bigcommerce.com/api-reference/store-management/catalog/products/getproducts).
 * Try creating a product with new attributes.
 * View BigCommerce's [API Reference](https://developer.bigcommerce.com/api-reference) for a list of available APIs, endpoints, and resources.
-* 
+
 ## Troubleshooting
 
 **Did you get a status of 403 Forbidden?**
-* Check the Client ID and Client Token.
+* Make sure **Client ID** and **Access Token** are correct and have scope set to `Products` `Modify`.
 * Make sure your request headers are correct.
 * Be sure you replaced `{store_hash}` with your store hash. 
-* Make sure the request url is correct.
+* Make sure the request URL is correct.
 
 **Did you get a 200 but nothing was returned?**
 * Make sure your store has products.
 
 **Did you get a status of 404?**
-* Check the request url for errors.
+* Check the request URL for errors.
