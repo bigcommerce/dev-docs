@@ -2,13 +2,13 @@
 <div class="otp" id="no-index">
 	<h3> On This Page </h3>
 	<ul>
-        <li><a href="#widgets_regions">Regions</a></li>
-        <li><a href="#widgets_widget-templates">Widget Templates</a></li>
-        <li><a href="#widgets_widgets">Widgets</a></li>
-        <li><a href="#widgets_placements">Placements</a></li>
-    <li><a href="#widgets_placement-and-widgets">Placements and Widgets</a></li>
-    		<li><a href="#widgets_storefront">Widgets on the Storefront</a></li>
-    		<li><a href="#widgets_definitions">Definitions</a></li>
+        <li><a href="#regions">Regions</a></li>
+        <li><a href="#widget-templates">Widget Templates</a></li>
+        <li><a href="#widgets">Widgets</a></li>
+        <li><a href="#placements">Placements</a></li>
+    <li><a href="#placement-and-widgets">Placements and Widgets</a></li>
+    		<li><a href="#storefront">Widgets on the Storefront</a></li>
+    		<li><a href="#definitions">Definitions</a></li>
 	</ul>
 </div>
 
@@ -228,7 +228,7 @@ Placements can be used with `sort_order` and region to determine placement in a 
 ### Placements `entity_id`
 
 When creating a placement, there is an option to provide an `entity_id`. 
-This is the ID for a specific page, brand, category or page. For example, if a Widget needs to be on all product pages, leave `entity_id` blank. If the Widget should only appear on a certain product page, then assign `entity_id` the product ID. 
+This is the ID for a specific product, brand, category or page. For example, if a Widget needs to be on all product pages, leave `entity_id` blank. If the Widget should only appear on a certain product page, then assign `entity_id` the product ID. 
 
 `entity_id` can be used with the following page types:
 * pages/brand
