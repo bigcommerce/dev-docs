@@ -168,15 +168,20 @@ Accept: application/json
 
 ```json
 {
-    "data": [
-        {
-            "id": 2,
-            ...
-            }
-        },
-        ...
-    ],
+  "data": [
+    {
+      "custom_url": {
+        "is_customized": false,
+        "url": "/t-shirts/"
+      },
+      "default_product_sort": "use_store_settings",
+      "description": "The Best T-Shirts",
+      "id": 2,
+      ...
+    },
     ...
+  ],
+  ...
 }
 ```
 
