@@ -738,6 +738,19 @@ Internet Explorer is one of the browsers that BigCommerce [supports](#supported-
 *   <a href="http://www.techrepublic.com/blog/software-engineer/craft-a-p3p-policy-to-make-ie-behave/" target="_blank">Craft a P3P policy to make IE behave</a>
 *   <a href="http://blogs.msdn.com/b/ieinternals/archive/2013/09/17/simple-introduction-to-p3p-cookie-blocking-frame.aspx" target="_blank">MSDN Intro to P3P Cookie Blocking</a>
 
+<div class="HubBlock--callout">
+<div class="CalloutBlock--info">
+<div class="HubBlock-content">
+    
+<!-- theme:  -->
+
+### Microsoft No Longer Supports P3P
+> Support for P3P 1.0 has been removed in Windows 10 and will have minimal ongoing servicing for previous versions of Windows. [_Microsoft_](https://docs.microsoft.com/en-us/previous-versions/windows/internet-explorer/ie-developer/compatibility/mt146424(v=vs.85)?redirectedfrom=MSDN)
+
+</div>
+</div>
+</div>
+
 ## Hosting Your App
 BigCommerce stores are hosted on [Google Cloud Platform](https://cloud.google.com/) in the [us-central1](https://cloud.google.com/compute/docs/regions-zones/) region.
 
