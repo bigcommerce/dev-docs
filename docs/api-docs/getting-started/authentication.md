@@ -2,303 +2,36 @@
 
 <div class="otp" id="no-index">
 
-### On This Page
-- [Obtaining Store API Credentials](#obtaining-store-api-credentials)
-- [Revoking Store API Credentials](#revoking-store-api-credentials)
-- [Obtaining App API Credentials](#obtaining-app-api-credentials)
-- [Use Cases by Credential Type](#use-cases-by-credential-type)
-- [Migrating from Legacy to OAuth](#migrating-from-legacy-to-oauth)
-- [OAuth Scopes](#oauth-scopes)
-- [Resources](#resources)
+- [Server-to-Server API](#server-to-server-api)
+- [Storefront API](#storefront-api)
+- [GraphQL Storefront API](#graphql-storefront-api)
+- [Customer Login API](#customer-login-api)
+- [Current Customer API](#current-customer-api)
 
 </div>
 
-Two types of API credentials are available to developers wishing to make requests against BigCommerce APIs:
+BigCommerce has five different APIs that let you manage store data, log in customers, make client-side queries for product information, and more. Each requires a different method for authentication.
 
-1. Store API Credentials (created in a store's control panel)
-2. App API Credentials (created in the [Developer Portal](https://devtools.bigcommerce.com))
+## Server-to-Server API
 
-**Store API Credentials** are generated when a Store API Account is created in a store's control panel (**Advanced Settings** > **API Accounts**). These credentials are used to programmatically interact with an individual store's data using BigCommerce's APIs. Both OAuth and token-based authentication are possible with Store API Credentials
+Requests to BigCommerce's Server-to-Server API require both an OAuth Client ID and Access Token be passed in the header. See [Obtaining Store API Credentials](https://developer.bigcommerce.com/api-docs/getting-started/authentication#obtaining-store-api-credentials) for instructions on generating these credentials.
 
-Developers can also create **App API Credentials** in the BigCommerce [Developer Portal](https://devtools.bigcommerce.com). App API Credentials are used during the OAuth flow to request authorization “on behalf” of a store owner, allowing the app to make API requests against store data. App API Credentials are OAuth only, and the store owner must install the app before the app is granted access to the store.
+## Storefront API
+The Storefront API is unauthenticated, allowing you to make client-side requests for carts, checkouts and orders using Javascript. 
 
-## Obtaining Store API Credentials
+## GraphQL Storefront API
+There are two ways to authenticate with the GraphQL API:
+1. Via a [Storefront API token](https://developer.bigcommerce.com/api-reference/cart-checkout/storefront-api-token/api-token/createtoken) passed in your request’s header
+2. Passing a Simple Token from within a Stencil theme in your request’s header
 
-To generate store API Credentials, log into the store, then:
+For more details, see [GraphQL API Authentication](https://developer.bigcommerce.com/api-docs/storefront/graphql/graphql-storefront-api-overview#authentication).
 
-1. Navigate to **Advanced Settings** > **API Accounts** > **Create API Account**.
-2. Give the account a name (internal only).
-6. In the OAuth Scopes section, select the minimum scopes the app will require.
-7. Select **Save**.
+## Customer Login API
 
-A successful save will display a pop-up containing the API credentials that your app will need to run authenticated requests – your Client ID and Access Token. A `.txt` file containing the same credentials will (on most browsers) automatically download to your computer. This file also contains the base API Path for your store, preconfigured for the v3 API.
+The Customer Login API requires authentication via a [JWT token](https://jwt.io/) and your app's OAuth Client ID.
 
-The base api path will look something like this: `https://api.bigcommerce.com/stores/123456/`. In the base path, the store hash is the `123456`. This will be used to make API requests.
+For details, see [Customer Login API](https://developer.bigcommerce.com/api-docs/customers/customer-login-api).
 
-To get started making requests, see [API Requests](/api-docs/getting-started/basics/making-requests).
+## Current Customer API
 
-![#### Create an API Account](//s3.amazonaws.com/user-content.stoplight.io/6012/1536087816482 "#### Create an API Account")
-
-<div class="HubBlock--callout">
-<div class="CalloutBlock--warning">
-<div class="HubBlock-content">
-
-<!-- theme: warning -->
-
-### Save your credentials
-> There is no way to re-display this pop-up after selecting Done, so be sure to securely store the credentials before leaving this screen.
-
-</div>
-</div>
-</div>
-
-## Revoking Store API Credentials
-
-To revoke Store API Credentials:
-1. Log into the store, using the store owner’s username/password.
-2. Select **Advanced Settings**.
-3. Select **API Accounts**. This will display the Store API Accounts page, shown below.
-4. In the Actions column at right, select the trash-can button next to the account you want to delete.
-
-![#### Revoking API Credentials](//s3.amazonaws.com/user-content.stoplight.io/6012/1537388177603 "#### Revoking API Credentials")
-
-<div class="HubBlock--callout">
-<div class="CalloutBlock--error">
-<div class="HubBlock-content">
-
-<!-- theme: error -->
-
-### Delete Carefully
-> There is no undo, so be sure before you delete an account. You can also use the checkboxes on the left side to delete multiple accounts at once – but be especially careful when using this option.
-
-</div>
-</div>
-</div>
-
-## Obtaining App API Credentials
-
-To get App API Credentials, login to (or create) your BigCommerce [Developer Portal](https://devtools.bigcommerce.com) account. Navigate to **My Apps** (top-right corner), then:
-
-1. Click **Create an app**  
-2. Give your app a name (only be visible to you)
-3. Click **Create** (a pop up box will display showing Your Profile, App Summary and Category)
-
-![#### Create an App](//s3.amazonaws.com/user-content.stoplight.io/6012/1537389767940 "#### Create an App")
-
-1. Click on **Step 3 - Technical**. Fill out the App Features sections with App Type, Callback URLs and Scope.
-
-#### Step 3 - Technical
-![#### Step 3 - Technical](//s3.amazonaws.com/user-content.stoplight.io/6012/1537389883100 "#### Step 3 - Technical")
-
-1. In the lower right-hand corner of the popup box, click **Update & Close**.
-2. A new pop up will show asking if you want to change the OAuth Scopes. Click **Confirm Update**.
-3. You will be routed back to the Dev Tools home page and your app will be listed. Click **View Client ID**.
-
-![#### View Client Id](//s3.amazonaws.com/user-content.stoplight.io/6012/1537390078741 "#### View Client Id")
-
-1. Copy your Client ID and Client Secret. The Client ID and Client Secret can be accessed at any time by clicking **View Client ID**.
-
-<div class="HubBlock--callout">
-<div class="CalloutBlock--">
-<div class="HubBlock-content">
-
-<!-- theme:  -->
-
-### Client ID and Client Secret
-> The Client ID value uniquely identifies your app. You will need to pass it in the header of all your requests to the API.
-
-The Client Secret value is a secret that your app and BigCommerce share. You only need to pass the Client Secret value once, during the app installation sequence. Thereafter, BigCommerce uses it to sign payloads in load, uninstall, and remove user requests, and your app uses it to verify the signature to ensure that the request is coming from BigCommerce.
-
-</div>
-</div>
-</div>
-
-![#### Client Id and Client Secret](//s3.amazonaws.com/user-content.stoplight.io/6012/1537390135692 "#### Client Id and Client Secret")
-
-<div class="HubBlock--callout">
-<div class="CalloutBlock--warning">
-<div class="HubBlock-content">
-
-<!-- theme: warning -->
-
-### Delete apps carefully
-> If you delete the app, there is no way to recover the Client Id and Client Secret.
-
-</div>
-</div>
-</div>
-
-### Next Steps
-
-During the app installation process, your app will use the Client Id and Client Secret to obtain an Oauth token authorized against the store installing the app. For a detailed look at this process, see [Building an App](/api-docs/getting-started/building-apps-bigcommerce/building-apps).
-
-## Use Cases by Credential Type
-
-| App API Credentials | Store API Credentials|
-|-|-|
-| From Dev Tools| X | |
-|From Store Control Panel| | X |
-| Single Click Apps (Marketplace)| X | |
-| Private Apps | X |
-| Hidden Apps | X | |
-| Connector Apps | | X |
-|Scripts| | X |
-|Testing | | X |
-| V2 | X | X |
-| V3 | X | X |
-|Webhooks | X | X |
-
-## Migrating from Legacy to OAuth
-
-<div class="HubBlock--callout">
-<div class="CalloutBlock--error">
-<div class="HubBlock-content">
-
-<!-- theme: error -->
-
-### Legacy API Accounts
-> As of July 31, 2018, new BigCommerce stores are no longer able to create Legacy API Accounts (accounts using HTTP Basic Auth) within their control panels. Existing Legacy API Accounts will continue to work until further notice, but we strongly recommend migrating to OAuth as soon as possible.
-
-</div>
-</div>
-</div>
-
-### Migrating to OAuth comes with several benefits:
-
-* All OAuth requests are sent to a common hostname: `https://api.bigcommerce.com`. Using a single hostname prevents any interruption of service when the domain or SSL on a particular store changes or expires.
-
-* All of BigCommerce’s newest V3 APIs are exclusively available via OAuth.
-
-* OAuth API accounts have access to subscribe to BigCommerce’s Webhooks for real-time event notifications
-
-* The ability to use new APIs that require a shared secret, such as the Storefront Login API or the Storefront Current Customer identification endpoint.
-
-* Gzip compression on API responses to reduce bandwidth usage
-
-* Better security as all OAuth tokens are scoped to particular endpoints
-
-### How to Migrate
-
-First, consider whether your application should reside within the public App Marketplace, where any BigCommerce merchant can quickly discover and install it. To learn more about how to set up this kind of app, see [Becoming a Partner](/api-docs/partner/becoming-a-partner).
-
-If you would like to update your API connection from Basic Authentication to OAuth, you will need to make the following changes:
-
-- Get a Client ID and an Access Token, by creating an API Account within the control panel. You’ll want to make sure the account has the correct Scopes for the API endpoints you need to access. We recommend that you provide the minimum scopes that your application requires to function, as a good security practice.
-- If you use one of the Client Libraries, follow the relevant guide (within the library’s documentation) for establishing an OAuth connection.
-- If you have created your connection, you’ll want to update your connection parameters:
-	- Where you previously used the BigCommerce store’s secure hostname, you will instead use the `https://api.bigcommerce.com` gateway URL.
-As an example, requests to `https://store-abc123.mybigcommerce.com/api/v2/orders/123` or `https://my-custom-store-domain.com/api/v2/orders/123 `would instead go to `https://api.bigcommerce.com/stores/{store_hash}/v2/orders/123`.
-- With Basic Auth, you use an Authentication HTTP Header to authenticate your connection. With OAuth, you’ll want to use two headers:
-	- X-Client-Id for your Client ID
-	- X-Auth-Token header for your Access Token. You can read more [here](/api-docs/getting-started/basics/authentication#authentication_what-are-oauth-credentials-1).
-
-Rate limiting of API requests works differently for OAuth API connections. To become familiar with the OAuth system, please see the [Rate Limits](/api-docs/getting-started/basics/best-practices#best-practices_rate-limits).
-
-## OAuth Scopes
-
-Scope limits ability to read or write to data. Set the scope to the minimum level needed to accomplish the task at hand.
-
-All OAuth scopes except `default` have `read_only` scopes that allow only `GET` and `HEAD` requests.
-
-- Webhooks are accessible from the default scope that is available when API Credentials are created.
-- Wishlists API is accessible with Customers scope.
-
-| Scope GUI Name | Resources  | Description |
-|-|-|-|
-| Content | store_v2_content | View and modify store content |
-||| [/v2/pages](/api-reference/content/store-content-api) |
-||| [/v2/blog](/api-reference/content/store-content-api) |
-||| [/v2/redirects](/api-reference/content/store-content-api) |
-||| /v3/widgets |
-||store_v2_content_read_only| View Site Content |
-||| [/v2/pages](/api-reference/content/store-content-api) |
-||| [/v2/blog](/api-reference/content/store-content-api) |
-||| [/v2/redirects](/api-reference/content/store-content-api)  |
-||| /v3/widgets |
-| Checkout Content | store_content_checkout | View and modify content on checkout pages |
-||| [/v3/scripts](/api-reference/content/store-content-api) |
-||store_content_checkout_read_only|View content on checkout pages|
-||| [/v3/scripts](/api-reference/content/store-content-api)|
-| Customers | store_v2_customers | View and modify customer information |
-||| [/v2/customers](/api-reference/customer-subscribers/customers-api) |
-||| [/v2/customer_groups](/api-reference/customer-subscribers/customers-api) |
-||| [/v3/customers/subscribers](/api-reference/customer-subscribers/subscribers-api) |
-||store_v2_customers_read_only|View customer information |
-||| [/v2/customers](/api-reference/customer-subscribers/customers-api) |
-||| [/v2/customer_groups](/api-reference/customer-subscribers/customers-api) |
-||| [/v3/customers/subscribers](/api-reference/customer-subscribers/subscribers-api) |
-| Customers Login | store_v2_customers_login | Log in customers to your storefront |
-||| [Access to the Customer Login API](/api-docs/customers/customer-login-api)
-| Information & Settings| store_v2_information | View and modify general store information and settings |
-||| [/v2/shipping/methods](/api-reference/shipping/shipping-api) |
-||| [/v2/shipping/zones](/api-reference/shipping/shipping-api) |
-||| [/v2/shipping/carrier](/api-reference/shipping/shipping-api) |
-|| store_v2_information_read_only | View general store information and settings |
-||| [/v2/shipping/methods](/api-reference/shipping/shipping-api) |
-||| [/v2/shipping/zones](/api-reference/shipping/shipping-api) |
-||| [/v2/shipping/carrier](/api-reference/shipping/shipping-api) |
-||| [/v2/payments/methods](/api-reference/shipping/shipping-api) |
-||| [/v2/tax_classes](/api-reference/store/tax-classes-api) |
-||| [/v2/store](/api-reference/store/store-information-api) |
-| Marketing | store_v2_marketing | View and modify marketing information |
-||| [/v2/coupons](/api-reference/marketing/marketing-api) |
-||| [/v2/gift_certificates](/api-reference/marketing/marketing-api) |
-||| [/v2/banners](/api-reference/marketing/marketing-api) |
-|| store_v2_marketing_read_only | View marketing information |
-||| [/v2/coupons](/api-reference/marketing/marketing-api) |
-||| [/v2/gift_certificates](/api-reference/marketing/marketing-api) |
-||| [/v2/banners](/api-reference/marketing/marketing-api) |
-| Orders | store_v2_orders | View and modify orders |
-||| [/v2/orders](/api-reference/orders/orders-api) |
-||| [/v2/order_statuses](/api-reference/orders/orders-api) |
-|| store_v2_orders_read_only | View orders |
-||| [/v2/orders](/api-reference/orders/orders-api) |
-||| [/v2/order_statuses](/api-reference/orders/orders-api) |
-| Order Transactions | store_v2_transactions | View and modify order transactions |
-||| [/v3/orders/{id}/transactions](/api-reference/orders/orders-transactions-api) |
-|| store_v2_transactions_read_only | View order transactions |
-||| [/v3/orders/{id}/transactions](/api-reference/orders/orders-transactions-api) |
-| Create Payments  | store_payments_access_token_create | Process Payments |
-||| [/payments/access_tokens](/api-reference/payments/payments-create-payment-token-api)|
-| Get Payment Methods | store_payments_methods_read | Get Order Payment Methods |
-||| [/payments](/api-reference/payments/payments-process-payments)|
-| Products | store_v2_products | View and modify products, brands, categories and other product information. |
-||| [/v3/catalog](/api-reference/catalog/catalog-api) |
-||| [/v3/pricelists](/api-reference/price-lists/pricelists-api) |
-|| store_v2_products_read_only | View products |
-||| [/v3/catalog](/api-reference/catalog/catalog-api) |
-||| [/v3/pricelists](/api-reference/price-lists/pricelists-api) |
-| Themes | store_themes_manage | View and modify themes |
-||| [/v3/themes](/api-reference/themes/themes-api) |
-|| store_themes_read_only | View themes |
-||| [/v3/themes](/api-reference/themes/themes-api) |
-| Carts | store_cart | View and Modify carts |
-||| [/v3/carts](/api-reference/cart-checkout/storefront-cart-api) |
-|| store_cart_read_only | View Carts |
-||| [/v3/carts](/api-reference/cart-checkout/storefront-cart-api) |
-| Checkouts | store_checkout | View and modify a checkout |
-||| [/v3/checkouts](/api-reference/cart-checkout/storefront-checkout-api) |
-|| store_checkout_read_only | View checkout content |
-||| [/v3/checkouts](/api-reference/cart-checkout/storefront-checkout-api) |
-| Sites & Routes | store_sites | View and modify sites and routes |
-||| [/v3/channels/{channel_id}/site](/api-reference/cart-checkout/sites-routes-api) |
-||| [/v3/sites/{site_id}/routes](/api-reference/cart-checkout/sites-routes-api) |
-|| store_sites_read_only | View external storefronts with Non-BigCommerce URLs |
-||| [/v3/channels/{channel_id}/site](/api-reference/cart-checkout/sites-routes-api) |
-||| [/v3/sites/{site_id}/routes](/api-reference/cart-checkout/sites-routes-api) |
-| Channel Settings | store_channel_settings | View and modify a list of channels |
-||| [/v3/channels](/api-reference/cart-checkout/channels-listings-api) |
-|| store_channel_settings_read_only | View a list of channels |
-||| [/v3/channels](/api-reference/cart-checkout/channels-listings-api) |
-| Channel Listings | store_channel_listings | View and modify a list of all channel listings for a particular channel |
-||| [/v3/channels/listings](/api-reference/cart-checkout/channels-listings-api) |
-|| store_channel_listings_read_only | View a list of all channel listings for a particular channel |
-||| [/v3/channels/listings](/api-reference/cart-checkout/channels-listings-api) |
-| Storefront API Tokens | store_storefront_api | Create a storefront API token |
-||| [/v3/storefront/api-token](/api-reference/cart-checkout/storefront-api-token)
-| Storefront API Customer Impersonation Tokens | store_storefront_api_customer_impersonation | Create a storefront API token that allows for customer impersonation |
-||| [/v3/storefront/api-token-customer-impersonation](/api-reference/cart-checkout/storefront-api-token) |
-
-## Resources
-* [Building An App](https://developer.bigcommerce.com/api-docs/getting-started/building-apps-bigcommerce/building-apps)
-* [Rate Limts](https://developer.bigcommerce.com/api-docs/getting-started/best-practices#best-practices_rate-limits)
+Your application’s Client ID must be included in the request to the Current Customer API to receive a response. For details, see [Current Customer API](https://developer.bigcommerce.com/api-docs/customers/current-customer-api).
