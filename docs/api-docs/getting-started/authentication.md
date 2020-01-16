@@ -2,7 +2,7 @@
 
 <div class="otp" id="no-index">
 
-- [Server-to-Server API](#server-to-server-api)
+- [REST APIs](#rest-apis)
 - [Storefront API](#storefront-api)
 - [GraphQL Storefront API](#graphql-storefront-api)
 - [Customer Login API](#customer-login-api)
@@ -11,9 +11,9 @@
 
 BigCommerce has five different APIs that let you manage store data, log in customers, make client-side queries for product information, and more. Each requires a different method for authentication.
 
-## Server-to-Server API
+## REST APIs
 
-Requests to BigCommerce's Server-to-Server API require both an OAuth Client ID and Access Token be passed in the header. See [Obtaining Store API Credentials](https://developer.bigcommerce.com/api-docs/getting-started/authenticating-s2s-api#obtaining-store-api-credentials) for instructions on generating these credentials.
+Requests to BigCommerce's V2 and V3 REST APIs require both an OAuth Client ID and Access Token be passed in the header. See [Obtaining Store API Credentials](https://developer.bigcommerce.com/api-docs/getting-started/rest-api-authentication#obtaining-store-api-credentials) for instructions on generating these credentials.
 
 ## Storefront API
 The Storefront API is unauthenticated, allowing you to make client-side requests for carts, checkouts and orders using Javascript. 

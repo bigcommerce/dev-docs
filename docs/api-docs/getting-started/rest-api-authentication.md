@@ -1,4 +1,4 @@
-# Authenticating the Server-to-Server API
+# Authenticating BigCommerce's REST APIs
 
 <div class="otp" id="no-index">
 
@@ -13,7 +13,7 @@
 
 </div>
 
-Two types of API credentials are available to developers wishing to make requests against BigCommerce's Server-to-Server API:
+Two types of API credentials are available to developers wishing to make requests against BigCommerce's REST APIs:
 
 1. Store API Credentials (created in a store's control panel)
 2. App API Credentials (created in the [Developer Portal](https://devtools.bigcommerce.com))
