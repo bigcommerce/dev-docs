@@ -2,15 +2,15 @@
 <div class="otp" id="no-index">
 	<h3> On This Page </h3>
 	<ul>
-        <li><a href="#pricelist_what-is-a-pricelist">What is a Price List?</a></li>
-        <li><a href="#pricelist_definitions">Definitions</a></li>
-        <li><a href="#pricelist_notes">Notes</a></li>
-        <li><a href="#pricelist_oauth-scopes">OAuth Scopes</a></li>
-        <li><a href="#pricelist_available-webhooks">Webhooks Available</a></li>
-    		<li><a href="#pricelist_related-endpoints">Related Endpoints</a></li>
-        <li><a href="#pricelist_object-properties">Object Properties</a></li>
+        <li><a href="#what-is-a-price-list?">What is a Price List?</a></li>
+        <li><a href="#price-list-definitions">Price List Definitions</a></li>
+        <li><a href="#price-list-assignments">Price List Assignments</a></li>
+        <li><a href="#price-list-notes">Price List Notes</a></li>
+        <li><a href="#price-list-resources">Price List Resources</a></li>        
 	</ul>
 </div>
+
+## What is a Price List?
 
 A Price List allows you to populate different versions of catalog pricing and assign them to different [Customer Groups](/api-reference/customer-subscribers/customers-api). The prices are specified exclusively at the variant level. 
 
@@ -22,7 +22,7 @@ Price Lists will provide overridden price values to the Stencil storefront. Fina
 The following OAuth Scopes are required:
 * [Products](/api-docs/getting-started/basics/authentication#authentication_oauth-scopes)
 
-## Definitions
+## Price List Definitions
 
 - `Price List` -- A collection of price records. `Price Records` make up a price list.
  
@@ -123,7 +123,25 @@ lineNumbers: true
 
 Under `discount_rules` the `type` is set to `price_list` and the `price_list_id` is 1. Which is the id of the price list the group has been assigned to.
 
-## Notes
+## Price List Assignments
+A [Price List Assignment](https://developer.bigcommerce.com/api-reference/catalog/pricelists-api/price-list-assignments/createpricelistassignments) can be made to assign a Price List to a specific sales Channel. This association lets you define custom pricing for shoppers only on a specific external site or platform. Price List Assignments can be combined with a Customer Group assignment to more specifically target logged in customers shopping on that Channel.
+
+See [Channels, Sites and Routes](https://developer.bigcommerce.com/api-reference/cart-checkout/channels-listings-api) for further documentation.
+
+**Example Price List Assigned to Channel**  
+`https://api.bigcommerce.com/stores/{store_hash}/v2/pricelists/assignments`
+
+```js
+{
+  "customer_group_id": 3,
+  "price_list_id": 2,
+  "channel_id": 1
+}
+
+```
+
+
+## Price List Notes
 
 - Bulk Pricing Tiers may additionally be associated with a Price Record to indicate different pricing as the quantity in cart increases.
   
@@ -131,7 +149,7 @@ Under `discount_rules` the `type` is set to `price_list` and the `price_list_id`
 
 - Price Lists Records accepts bulk upsert. Only one [Bulk upsert](https://developer.bigcommerce.com/api-reference/catalog/pricelists-api/price-lists-records/setpricelistrecordcollection) can done at a time. Running more than one in parallel on the **same store** will cause a 429 error and the request will fail. 
 
-## Resources
+## Price List Resources
 
 ### Related Endpoints
 * [Get Price List Collection](/api-reference/catalog/pricelists-api/price-lists/getpricelistcollection)

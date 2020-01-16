@@ -20,7 +20,7 @@ BigCommerce frequently enhances its core product and is actively developing v3 A
 
 ## Use Webhooks Effectively
 
-To keep data in your application up-to-date,[webhooks](/api-docs/getting-started/webhooks/about-webhooks) provide a great alternative to doing periodic checks. Use OAuth to register a webhook event that your application can listen for. Do not use legacy “Basic Authentication.“
+To keep data in your application up-to-date, [webhooks](/api-docs/getting-started/webhooks/about-webhooks) provide a great alternative to doing periodic checks. Use OAuth to register a webhook event that your application can listen for. Do not use legacy “Basic Authentication.“
 
 BigCommerce will send a partial payload when a subscribed event is triggered, with minimal identifying details (such as the order ID when an order is created). Your application could use the order ID returned in the payload to make a subsequent API request for the full order details.
 
@@ -31,7 +31,7 @@ In order to quickly update information in the API, you can use threaded requests
 The [BigCommerce Ruby API](https://github.com/bigcommerce/bigcommerce-api-ruby) client is thread-safe: It satisfies the need for multiple threads to access the same shared data and the need for a shared piece of data to be accessed by only one thread at any given time. These attributes can reduce the total time that your app will require to complete a series of requests.
 
 ## Marketplace Apps
-?
+
 Merchants often have more than one person working on their store. BigCommerce allows additional users to access your app when the store owner has granted them appropriate permissions. The requirements for supporting multi-user access are:
 * Tokens must be stored against the `store_hash` and not against user info.
 * Within the Dev Tools workspace, you must enable your app’s **Technical** > **Multiple Users** option.
