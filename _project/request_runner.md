@@ -47,16 +47,13 @@ https://austin-dev-docs.docs.stoplight.io/api-reference/store-management/catalog
 [![Open in Request Runner](https://storage.googleapis.com/bigcommerce-production-dev-center/images/Open-Request-Runner.svg)](/api-reference/reference/catalog/summary/getcatalogsummary#requestrunner)
 
 ```
-[![Open in Request Runner](https://storage.googleapis.com/bigcommerce-production-dev-center/images/Open-Request-Runner.svg)](/api-reference/reference/store-information-api/store-information-reference/getstore#requestrunner)
+[![Open in Request Runner](https://storage.googleapis.com/bigcommerce-production-dev-center/images/Open-Request-Runner.svg)](/api-reference/reference/store-information/store-information/getstore#requestrunner)
 ```
 
-[![Open in Request Runner](https://storage.googleapis.com/bigcommerce-production-dev-center/images/Open-Request-Runner.svg)](/api-reference/reference/store-information-api/store-information-reference/getstore#requestrunner)
+[![Open in Request Runner](https://storage.googleapis.com/bigcommerce-production-dev-center/images/Open-Request-Runner.svg)](/api-reference/reference/store-information/store-information/getstore#requestrunner)
 
 ```
-[![Open in Request Runner](https://storage.googleapis.com/bigcommerce-production-dev-center/images/Open-Request-Runner.svg)](/api-reference/reference/store-information-api/time-zone/gettime#requestrunner)
+[![Open in Request Runner](https://storage.googleapis.com/bigcommerce-production-dev-center/images/Open-Request-Runner.svg)](/api-reference/reference/store-information/time-zone/gettime#requestrunner)
 ```
 
-[![Open in Request Runner](https://storage.googleapis.com/bigcommerce-production-dev-center/images/Open-Request-Runner.svg)](/api-reference/reference/store-information-api/time-zone/gettime#requestrunner)
-
-
-
+[![Open in Request Runner](https://storage.googleapis.com/bigcommerce-production-dev-center/images/Open-Request-Runner.svg)](/api-reference/reference/store-information/time-zone/gettime#requestrunner)
