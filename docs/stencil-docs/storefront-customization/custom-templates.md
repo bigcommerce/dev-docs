@@ -5,6 +5,7 @@
 ### On This Page
 - [Authoring a Custom Template](#authoring-a-custom-template)
 - [Local Mapping and Testing](#local-mapping-and-testing)
+- [Specifying Custom Front Matter](#specifying-custom-front-matter)
 - [Theme Upload](#theme-upload)
 - [Troubleshooting Template Authoring](#troubleshooting-template-authoring)
 - [Applying Custom Templates to Pages](#applying-custom-templates-to-pages)
@@ -193,7 +194,7 @@ lineNumbers: true
   }
 ```
 
-### Specifying Custom Front Matter
+## Specifying Custom Front Matter
 
 You can specify front matter on a custom template if you only need to render certain resources (such as 'New Products') on that page. Specifying only the attributes you need will reduce page load time. If you don't explicitly specify front matter for your custom template, the front matter for the default page template will be available. See [Using Front Matter](https://developer.bigcommerce.com/stencil-docs/storefront-customization/using-front-matter) for more information on using front matter. 
 
