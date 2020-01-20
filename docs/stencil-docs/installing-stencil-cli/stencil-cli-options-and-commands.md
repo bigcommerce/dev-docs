@@ -4,12 +4,12 @@
 
 ### On this Page
 - [Commands Overview](#commands-overview)
-- [stencil help](#stencil-help)
-- [stencil init](#stencil-init)
-- [stencil start](#stencil-start)
-- [stencil bundle](#stencil-bundle)
-- [stencil push](#stencil-push)
-- [stencil release](#stencil-release)
+- [`stencil help`](#stencil-help)
+- [`stencil init`](#stencil-init)
+- [`stencil start`](#stencil-start)
+- [`stencil bundle`](#stencil-bundle)
+- [`stencil push`](#stencil-push)
+- [`stencil release`](#stencil-release)
 - [Resources](#resources)
 
 </div>
@@ -160,7 +160,8 @@ Usage: stencil push [<OPTIONS>]
 |`--host [HOSTNAME]`            |     | Specify the API host (default: https://api.bigcommerce.com)                          |
 |`--file [<FILENAME>]`          |`-f` | Specify the filename of the bundle to upload                                         |
 |`--save [<FILENAME]`           |`s`  | Specify the filename to save the bundle as                                           |
-|`--activate [<VARIATIONNAME>]` |`-a` | Skips activation prompt; specify variation or leave blank to select first variation |
+|`--activate [<VARIATIONNAME>]` |`-a` | Skips activation prompt; specify variation or leave blank to select first variation  |
+|`--delete`                     |`-d` | Deletes oldest private, non-active theme if upload limit reached                     |
 |`--help`                       |`-h` | Output usage information.                                                            |
 
 **Example:**
