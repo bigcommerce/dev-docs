@@ -21,8 +21,7 @@ Follow the link for your scenario:
 
 If you downloaded a refreshed version of Stencil's default Cornerstone theme: Run `npm install` in the theme directory to install refreshed JavaScript dependencies, as outlined in [Installing Stencil](/stencil-docs/getting-started/installing-stencil#installing_installing-stencils-js-utilities).
 
-If you downloaded a different Marketplace theme, and its [version was lower than 1.10.0]():
-You must also run `jspm install` in the theme directory.
+If you downloaded a different Marketplace theme with a version lower than 1.10.0, run `jspm install` in the theme directory.
 
 <div class="HubBlock--callout">
 <div class="CalloutBlock--warning">
@@ -59,7 +58,7 @@ If you have added any new subdirectories or files to your base theme, verify tha
 
 ## Bundling Your Theme
 
-Once you have verified the requirements above, you are ready to process and package your theme for upload to BigCommerce. Stencil CLI provides two options for creating a `.zip` file that contains all of your theme's essentials, while excluding redundant components. The options are either only bundling your theme, or bundling and pushing your theme. These options are available depending on how you've [authorized](/stencil-docs/getting-started/launching-stencil/authorizing-and-initializing) your theme:
+Once you have verified the requirements above, you are ready to process and package your theme for upload to BigCommerce. Stencil CLI provides two options for creating a `.zip` file that contains all of your theme's essentials, while excluding redundant components. The options are either only bundling your theme, or bundling and pushing your theme. These options are available depending on how you've [authorized](https://developer.bigcommerce.com/stencil-docs/installing-stencil-cli/troubleshooting-your-setup#stencil-start-errors) your theme:
 
 ### Bundle Only
 
@@ -71,16 +70,16 @@ The `bundle` command will notify you of its progress and completion.
 
 ####  Check/Adjust Zipfile's Size
 
-Check the resulting `.zip` file's size before you proceed. The zipped bundle should be only a few megabytes. BigCommerce imposes a hard limit of 50 MB, and any file size approaching that is problematic. If your `.zip` file fits comfortably within the size limit above, jump directly to [Uploading Your Theme](https://developer.bigcommerce.com/stencil-docs/deploying-a-theme/bundling-and-pushing). However, if your `.zip` file approaches or exceeds 50 MB, you must first use one of these procedures to restructure your theme to a size that's manageable for upload to BigCommerce:
+Check the resulting `.zip` file's size before you proceed. The zipped bundle should be only a few megabytes. BigCommerce imposes a hard limit of 50 MB, and any file size approaching that is problematic. If your `.zip` file fits comfortably within the size limit above, jump directly to [Pushing Your Theme](https://developer.bigcommerce.com/stencil-docs/deploying-a-theme/bundling-and-pushing#pushing-your-theme). However, if your `.zip` file approaches or exceeds 50 MB, you must first use one of these procedures to restructure your theme to a size that's manageable for upload to BigCommerce:
 
-* [Shrinking Your Theme by Excluding Static Assets (WebDAV)]()
-* [Staging a Theme for CDN Delivery]()
+* [Shrinking Your Theme by Excluding Static Assets (WebDAV)](https://support.bigcommerce.com/s/article/File-Access-WebDAV#manual)
+* [Staging a Theme for CDN Delivery](https://support.bigcommerce.com/s/article/Optimizing-Your-Images#imageop-cdn)
 
 ### Bundle and Push
 
 The `stencil push` command is available only for themes that you have successfully initialized using an OAuth token (with `Themes:modify scope`). This command bundles your theme and uploads it to the associated store, in one continuous process.
 
-For further requirements and usage details, please see the _Command-Line Upload_ in [Uploading Your Theme](/stencil-docs/deploying-a-theme/bundling-and-pushing#bundling_uploading-your-theme) below.
+For further requirements and usage details, please see the _Command-Line Upload_ in [Pushing Your Theme](/stencil-docs/deploying-a-theme/bundling-and-pushing#pushing-your-theme) below.
 
 For file-size error diagnostics and workarounds, please _Check/Adjust Zipfile's Size_ above.
 
@@ -102,9 +101,9 @@ BigCommerce provides two alternatives for uploading a theme to its associated Bi
 
 Uploading your theme via the BigCommerce control panel's GUI is compatible with any store token (whether OAuth or Basic-Auth), and with any OAuth token scope, and with all versions of Stencil CLI. However, this option requires that you first use stencil bundle to package your theme into a .zip file. (Prepare your file according to Bundle Only above.)
 
-For the upload steps in the control panel, see the [Uploading Custom Themes]() article in our Knowledge Base.
+For the upload steps in the control panel, see the [Uploading Custom Themes](https://support.bigcommerce.com/s/article/Stencil-Themes#download-upload) article in our Knowledge Base.
 
-For error codes that you might encounter when uploading a theme – and corresponding workarounds, see [Troubleshooting Theme Uploads]().
+For error codes that you might encounter when uploading a theme – and corresponding workarounds, see [Troubleshooting Theme Uploads](https://developer.bigcommerce.com/stencil-docs/installing-stencil-cli/troubleshooting-your-setup).
 
 ### Command-Line Upload (OAuth Required)
 
@@ -162,7 +161,7 @@ Stencil CLI will then confirm which variation is active on the storefront.
 
 ## Theme Quota Warning
 
-If you run `stencil push` when your store's `My Themes` section has reached its [maximum of 20 themes](), you will be prompted to select at least one existing theme for deletion.
+If you run `stencil push` when your store's `My Themes` section has reached its maximum of 20 themes, you will be prompted to select at least one existing theme for deletion.
 
 <!--
     title:
@@ -194,7 +193,7 @@ If you have any doubts – especially about deleting multiple themes/versions �
 
 ## Other Bundling or Upload Errors
 
-For any other `not ok` bundling or upload errors that you receive, please refer to these debugging guidelines Theme setup and sizing diagnostics in preceding sections throughout this page, or the following article titled [Troubleshooting Theme Uploads](/stencil-docs/prepare-and-upload-a-theme/troubleshooting-theme-uploads).
+For any other `not ok` bundling or upload errors that you receive, please refer to these debugging guidelines Theme setup and sizing diagnostics in preceding sections throughout this page, or the following article titled [Troubleshooting Theme Uploads](https://developer.bigcommerce.com/stencil-docs/installing-stencil-cli/troubleshooting-your-setup).
 
 ## Resources
 
