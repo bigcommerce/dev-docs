@@ -10,6 +10,7 @@
 - [Authentication](#authentication)
 - [Querying Within a BigCommerce Storefront](#querying-within-a-bigcommerce-storefront)
 - [Pagination](#pagination)
+- [Complexity Limits](#complexity-limits)
 - [Resources](#resources)
 
 </div>
@@ -406,7 +407,7 @@ query paginateProducts {
 }
 ```
 
-The results will look like something like this (notice the last product `entityId: 82` is now the first product):
+The results will look something like this (notice the last product `entityId: 82` is now the first product):
 
 ```json
 {
@@ -444,6 +445,7 @@ The results will look like something like this (notice the last product `entityI
     }
   }
 }
+```
 
 This same approach can be used to *slice* any GraphQL connection and paginate through the *slices* via `startCursor` and `endCursor`. For example, we could get the first thirty brands with the following query: 
 
