@@ -9,7 +9,7 @@
 - [Using the GraphQL Playground](#using-the-graphql-playground)
 - [Authentication](#authentication)
 - [Querying Within a BigCommerce Storefront](#querying-within-a-bigcommerce-storefront)
-- [Complexity Limits](#complexity-limits)
+- [Pagination](#pagination)
 - [Resources](#resources)
 
 </div>
@@ -315,6 +315,201 @@ In addition to using `fetch()`, there's a other ways to query the API:
 </div>
 
 <a id="complexity-limits" class="devdocsAnchor"></a>
+
+## Pagination
+
+The GraphQL Storefront API follows the [GraphQL Cursor Connections Specification](https://facebook.github.io/relay/graphql/connections.htm) (facebook.github.io) for pagination. If this is your first time working with GraphQL pagination, see [Apollo's Blog Post "Explaining GraphQL Connections"](https://blog.apollographql.com/explaining-graphql-connections-c48b7c3d6976) for an accessible introduction. If you've worked with other GraphQL APIs, pagination on BigCommerce should look familiar.
+
+To demonstrate, here's a query for a store's first three products (notice `first: 3` passed to `products`):
+
+```js
+query paginateProducts {
+  site {
+    products (first: 3) {
+      pageInfo {
+        startCursor
+        endCursor
+      }
+      edges {
+        cursor
+        node {
+          entityId 
+          name
+        }
+      }
+    }
+  }
+}
+```
+
+You can run this query against an example storefront using the [GraphQL Playground](https://developer.bigcommerce.com/graphql-playground?tabs=firstThreeProducts)
+
+The results will look something like this:
+
+```json
+{
+  "data": {
+    "site": {
+      "products": {
+        "pageInfo": {
+          "startCursor": "YXJyYXljb25uZWN0aW9uOjA=",
+          "endCursor": "YXJyYXljb25uZWN0aW9uOjI="
+        },
+        "edges": [
+          {
+            "cursor": "YXJyYXljb25uZWN0aW9uOjA=",
+            "node": {
+              "entityId": 80,
+              "name": "Orbit Terrarium - Large"
+            }
+          },
+          {
+            "cursor": "YXJyYXljb25uZWN0aW9uOjE=",
+            "node": {
+              "entityId": 81,
+              "name": "Shower Curtain"
+            }
+          },
+          {
+            "cursor": "YXJyYXljb25uZWN0aW9uOjI=",
+            "node": {
+              "entityId": 82,
+              "name": "Chambray Towel"
+            }
+          }
+        ]
+      }
+    }
+  }
+}
+```
+
+Notice the `edge` corresponding to `entityId: 81` has a `cursor` of `YXJyYXljb25uZWN0aW9uOjE=`. We can pass that cursor to the `after` parameter to get the three products after `entityId: 81`:
+
+```js
+query paginateProducts {
+  site {
+    products (first: 3, after: "YXJyYXljb25uZWN0aW9uOjE=") {
+      pageInfo {
+        startCursor
+        endCursor
+      }
+      edges {
+        cursor
+        node {
+          entityId 
+          name
+        }
+      }
+    }
+  }
+}
+```
+
+The results will look like something like this (notice the last product `entityId: 82` is now the first product):
+
+```json
+{
+  "data": {
+    "site": {
+      "products": {
+        "pageInfo": {
+          "startCursor": "YXJyYXljb25uZWN0aW9uOjI=",
+          "endCursor": "YXJyYXljb25uZWN0aW9uOjQ="
+        },
+        "edges": [
+          {
+            "cursor": "YXJyYXljb25uZWN0aW9uOjI=",
+            "node": {
+              "entityId": 82,
+              "name": "Chambray Towel"
+            }
+          },
+          {
+            "cursor": "YXJyYXljb25uZWN0aW9uOjM=",
+            "node": {
+              "entityId": 83,
+              "name": "Hand & Body Cream"
+            }
+          },
+          {
+            "cursor": "YXJyYXljb25uZWN0aW9uOjQ=",
+            "node": {
+              "entityId": 84,
+              "name": "Room Spray"
+            }
+          }
+        ]
+      }
+    }
+  }
+}
+
+This same approach can be used to *slice* any GraphQL connection and paginate through the *slices* via `startCursor` and `endCursor`. For example, we could get the first thirty brands with the following query: 
+
+```javascript
+query brands {
+  site {
+    brands (first: 30) {
+      pageInfo {
+        startCursor
+        endCursor
+      }
+      edges {
+        cursor
+        node {
+          name
+        }
+      }
+    }
+  }
+}
+```
+
+And given the following results:
+
+```json
+{
+  "data": {
+    "site": {
+      "brands": {
+        "pageInfo": {
+          "startCursor": "YXJyYXljb25uZWN0aW9uOjA=",
+          "endCursor": "YXJyYXljb25uZWN0aW9uOjM="
+        },
+        "edges": [
+          {
+            "cursor": "YXJyYXljb25uZWN0aW9uOjA=",
+            "node": {
+              "name": "Sagaform"
+            }
+          },
+          ...
+        ]
+      }
+    }
+```
+
+the next thirty could be retrieved by making a new query and passing in the `endCursor` from the first page of results: 
+
+```js
+query brands {
+  site {
+    brands (first: 30, after:"YXJyYXljb25uZWN0aW9uOjM="  {
+      pageInfo {
+        startCursor
+        endCursor
+      }
+      edges {
+        cursor
+        node {
+          name
+        }
+      }
+    }
+  }
+}
+```
 
 ## Complexity Limits
 
