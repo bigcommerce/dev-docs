@@ -111,13 +111,13 @@ The following functions allow your theme to work with [cart](https://github.com/
 
 ```js
 utils.api.cart.getCart({}, (err, response) => {
-		console.log(response);
-		console.log(err);
+    console.log(response);
+    console.log(err);
 });
 
 utils.api.cart.getCart({includeOptions: true}, (err, response) => {
-		console.log(response);
-		console.log(err);
+    console.log(response);
+    console.log(err);
 });
 ```
 
@@ -136,13 +136,13 @@ Get a sum of the cart line item quantities.
 
 ```js
 utils.api.cart.getCartQuantity({}, (err, response) => {
-		console.log(response);
-		console.log(err);
+    console.log(response);
+    console.log(err);
 });
 
-utils.api.cart.getCartQuantity({includeOptions: true}, (err, response) => {
-		console.log(response);
-		console.log(err);
+utils.api.cart.getCartQuantity({}, (err, response) => {
+    console.log(response);
+    console.log(err);
 });
 ```
 
