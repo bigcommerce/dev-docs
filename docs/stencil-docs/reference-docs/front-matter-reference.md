@@ -14,6 +14,9 @@
   
 </div>
 
+
+Front matter defines which store resources will be rendered within a Stencil template.
+
 <div class="HubBlock--callout">
 <div class="CalloutBlock--warning">
 <div class="HubBlock-content">
