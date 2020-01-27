@@ -49,16 +49,7 @@ Please include:
 
 To get your app ID, create an app in [Developer Tools](https://devtools.bigcommerce.com/) and fill out the information on [Step 3 Technical](https://developer.bigcommerce.com/api-docs/partner/app-store-approval-requirements). In the URL the app will have a unique ID. This is what is sent in exchange for a carrier ID which can be used to test the app.
 
-<!--
-    title: #### App ID
-
-    data: //s3.amazonaws.com/user-content.stoplight.io/6012/1552664114224
--->
-
-#### App ID
-![#### App ID
-](//s3.amazonaws.com/user-content.stoplight.io/6012/1552664114224 "#### App ID
-")
+![#### App ID](//s3.amazonaws.com/user-content.stoplight.io/6012/1552664114224 "#### App ID")
 
 ## Before Development
 
@@ -87,7 +78,7 @@ Example:
 ```json
 {
   "valid": false,
-  "messages" [
+  "messages": [
     {
       "text": "Your account ID is invalid",
       "type": "ERROR"
@@ -104,28 +95,16 @@ The intended use of the Shipping Provider API is to create an app that merchants
 
 During the app setup, if the Check Connection Options URL is configured for the carrier, an attempt to connect the carrier via the Shipping Manager UI or the Connect Carrier API causes a request to be made to that URL with the provided options. The resource should respond indicating if the credentials are valid and should provide an explanation of what is wrong. If no such URL is configured, this check will be skipped and the credentials are assumed valid as long as they pass type checks.
 
-<!--
-title: "Sample Request"
-subtitle: "POST https://developerserver.com/check_connection_options"
-lineNumbers: true
--->
-
 **Example Request Check Connection**  
 `/POST https://developerserver.com/check_connection_options`
 
 ```json
 {
-  "connection_options" {
+  "connection_options": {
     "account_id": "a1ty"
   }
 }
 ```
-
-<!--
-title: "Sample Response"
-subtitle: "POST https://developerserver.com/check_connection_options"
-lineNumbers: true
--->
 
 **Example Response Check Connection**  
 `/POST https://developerserver.com/check_connection_options`
@@ -133,7 +112,7 @@ lineNumbers: true
 ```json
 {
   "valid": false,
-  "messages" [
+  "messages": [
     {
       "text": "Your account ID is invalid",
       "type": "ERROR"
