@@ -1,42 +1,39 @@
-#  Shipping Provider API 
-<div class="otp" id="no-index">
-<h3> On this Page </h3>
-<ul>
-  <li><a href="#shipping-provider_prerequisites">Prerequisites</a></li>
-  <li><a href="#shipping_provider-signup">Sign Up</a></li>
-  <li><a href="#shipping_provider-before_development">Before Development</a></li>
-  <li><a href="#shipping_provider-developing-app">Developing the App</a></li>
-  <li><a href="#shipping_provider-return_shipping_quotes">Return Shipping Quotes</a></li>
-  <li><a href="#shipping_provider-submitting-app">Submitting the App</a></li>
-   <li><a href="#shipping_provider-app_diagram">App Diagram</a></li>
-  <li><a href="#shipping_provider-definitions">Defintions</a></li>
-  <li><a href="#shipping_provider-faq">FAQ</a></li>
-  <li><a href="https://github.com/bigcommerce/sample-shipping-provider"> Sample Shipping App</br> (PHP & Silex)</a></li>
-</ul>
-</div>
+#  Shipping Providers
 
-The Shipping Provider API allows third parties to integrate their own shipping carriers into the BigCommerce checkout and control panel. Once integrated, shoppers can fetch quotes on the front-end from the shipping carrier within the cart and checkout pages as they do with any other shipping provider available today. Merchants have access to configure and customize these providers through the control panel as they would any other shipping provider.
+<div class="otp" id="no-index">
+
+### On This Page
+- [Sign-up](#sign-up)
+- [Before Development](#before-development)
+- [Developing the App](#developing-the-app)
+- [Control Panel Installation Workflow](#control-panel-installation-workflow)
+- [Validation Credentials](#validation-credentials)
+- [API Installation Workflow](#api-installation-workflow)
+- [Returning Shipping Quotes](#returning-shipping-quotes)
+- [Including Product Metatadata in Rate Requests](#including-product-metatadata-in-rate-requests)
+- [Submitting the App](#submitting-the-app)
+- [App Diagram](#app-diagram)
+- [Definitions](#definitions)
+- [FAQ](#faq)
+- [Resources](#resources)
+
+</div> 
+
+Shipping service providers whishing to offer shipping services and rates to BigCommerce merchants and shoppers can implement BigCommerce Shipping Provider endpoints. Once the service is implemented and accepted into BigCommerce's shipping Carrier Registry, merchants will have access to enable amd configure the service through their BigCommerce control panel. Once enabled on a store, BigCommerce will automatically retrieve the service options and rates via the provider's endpoints and display them to merchants in the store's control panel and to shoppers on the storefront.
+
+Shipping Provider endpoints can also be used by merchants to retrieve rates from custom shipping tables or an in-house shipping rate calculation service. 
 
 Some use cases for the Shipping Provider API are:
 
-* A dropshipper that requires their own rates
+* A drop-shipper that requires their own rates
 * A merchant that already has a shipping table
 * Third-party logistics
 * Create a combination of in store pickup and shipping options for shoppers
 
-## Prerequisites
+### Prerequisites
+Required [OAuth](/api-docs/getting-started/authentication#authentication_oauth-scopes) scopes: `Information and Settings`
 
-### Scopes 
-The following [OAuth](/api-docs/getting-started/authentication#authentication_oauth-scopes) scopes are required:
-- Information and Settings 
-
-### Endpoints 
-Be familiar with the following API Endpoints:
-- [Shipping Zones](/api-reference/store-management/shipping-api/shipping-zones)
-- [Shipping Methods](/api-reference/store-management/shipping-api/shipping-method)
-- [Shipping Carriers](/api-reference/store-management/shipping-api/shipping-carrier)
-
-## Sign Up
+## Sign-up
 
 When creating your app, the shipping data needs to be added to our Carrier Registry so it returns to shoppers on the front-end.
 
@@ -52,23 +49,14 @@ Please include:
 
 To get your app ID, create an app in [Developer Tools](https://devtools.bigcommerce.com/) and fill out the information on [Step 3 Technical](https://developer.bigcommerce.com/api-docs/partner/app-store-approval-requirements). In the URL the app will have a unique ID. This is what is sent in exchange for a carrier ID which can be used to test the app.
 
-<!--
-    title: #### App ID
-
-    data: //s3.amazonaws.com/user-content.stoplight.io/6012/1552664114224
--->
-
-#### App ID
-![#### App ID
-](//s3.amazonaws.com/user-content.stoplight.io/6012/1552664114224 "#### App ID
-")
+![#### App ID](//s3.amazonaws.com/user-content.stoplight.io/6012/1552664114224 "#### App ID")
 
 ## Before Development
 
 BigCommerce will send requests to your server to get information back about shipping quotes, credential validation and configuration. 
 
 ### Your Service URLs
-Since BigCommerce will be sending requests, you will need to provide BigCommerce with URLs that can accept quote requests and optionally a URL to check and validate connection options during app registration. These can be any valid HTTPS URL using port 443, for example:
+Since BigCommerce will be sending requests, you will need to provide BigCommerce with URLs that can accept quote requests and optionally a URL to check and validate connection options during app registration. These can be any valid HTTPS URL using port `443`, for example:
 
 `https://yourhost.com/rate`
 
@@ -76,7 +64,7 @@ Your host and rate should be replaced with your own host and path.
 
 ### Routes
 
-You should create a URL to provide shipping quotes on your API. This is the URL used to check the available shipping rates. The second URL (optional) checks the merchant’s connection settings are valid. It can perform any checks necssary to do so such as looking up credentials in your database or calling a downstream service to verify them.
+You should create a URL to provide shipping quotes on your API. This is the URL used to check the available shipping rates. The second URL (optional) checks the merchant’s connection settings are valid. It can perform any checks necessary to do so such as looking up credentials in your database or calling a downstream service to verify them.
 
 ### Requests and Responses
 
@@ -90,7 +78,7 @@ Example:
 ```json
 {
   "valid": false,
-  "messages" [
+  "messages": [
     {
       "text": "Your account ID is invalid",
       "type": "ERROR"
@@ -103,32 +91,20 @@ Example:
 
 The intended use of the Shipping Provider API is to create an app that merchants can install on their store. This can be a standalone app or part of an existing application. When developing the app there are a few things to consider which are listed below.
 
-### Control Panel Installation Workflow
+## Control Panel Installation Workflow
 
 During the app setup, if the Check Connection Options URL is configured for the carrier, an attempt to connect the carrier via the Shipping Manager UI or the Connect Carrier API causes a request to be made to that URL with the provided options. The resource should respond indicating if the credentials are valid and should provide an explanation of what is wrong. If no such URL is configured, this check will be skipped and the credentials are assumed valid as long as they pass type checks.
-
-<!--
-title: "Sample Request"
-subtitle: "POST https://developerserver.com/check_connection_options"
-lineNumbers: true
--->
 
 **Example Request Check Connection**  
 `/POST https://developerserver.com/check_connection_options`
 
 ```json
 {
-  "connection_options" {
+  "connection_options": {
     "account_id": "a1ty"
   }
 }
 ```
-
-<!--
-title: "Sample Response"
-subtitle: "POST https://developerserver.com/check_connection_options"
-lineNumbers: true
--->
 
 **Example Response Check Connection**  
 `/POST https://developerserver.com/check_connection_options`
@@ -136,7 +112,7 @@ lineNumbers: true
 ```json
 {
   "valid": false,
-  "messages" [
+  "messages": [
     {
       "text": "Your account ID is invalid",
       "type": "ERROR"
@@ -151,7 +127,7 @@ lineNumbers: true
     
 <!-- theme:  -->
 
-### Validation Credentials
+## Validation Credentials
 > The step of validating the credentials is optional. It does not change how the app operates. It is best practice to authenticate the user against your database or the downstream provider service. 
 
 </div>
@@ -160,7 +136,7 @@ lineNumbers: true
 
 Once the app is installed, it will be made available for configuration by merchants and API users. A merchant can navigate to the Shipping Manager and enable, configure and disable the carrier for any defined zone.
 
-### API Installation Workflow
+## API Installation Workflow
 
 To set up a carrier using the API, first connect it using the Connect Carrier API. Make a request containing the connection settings required by your carrier. The ID of the carrier is required. The carrier ID will be issued by BigCommerce when your carrier is registered. All connection fields are unique per carrier. If your carrier doesn’t require any connection settings then this object can be left empty.
 
@@ -435,6 +411,22 @@ lineNumbers: true
 ```
 
 When an app with an associated shipping carrier is uninstalled, all of the shipping methods and the connection info for that carrier is automatically removed from the store. Quote requests will no longer be made and users will no longer see shipping quotes for that carrier.
+
+## Including Product Metatadata in Rate Requests
+
+BigCommerce is able to pass carrier-specific product metadata to a carrier service in a rate request via product and variant metafields. This can be useful if your service depends on specific fields that are not existent on BigCommerce products or variants by default. 
+
+To do so, the metafields must meet the following requirements:
+
+* must be a product or variant metafields (category, brand, and other metafields are not passed in rate requests)
+* `permission_set` on the metafield must be `read` or `write`
+* `namespace` on the metafield must match this format: `shipping_carrier_carrier_id` (example: `shipping_carrier_72`)
+
+The `carrier_id` is provided during the carrier registration process described in the [Sign-up Section](https://developer.bigcommerce.com/api-docs/store-management/shipping/shipping-provider-api)
+
+For more information on product and variant metafields, see:
+* [API Reference > Store Management > Catalog > Product Metafields](https://developer.bigcommerce.com/api-reference/catalog/catalog-api/product-metafields)
+* [API Reference > Store Management > Catalog > Product Variant Metafields](https://developer.bigcommerce.com/api-reference/catalog/catalog-api/product-variants-metafields)
 
 ## Submitting the App
 
