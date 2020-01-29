@@ -616,7 +616,7 @@ Store credit is not a supported payment method with the Payments API. Store cred
 
 **Are gift certificates supported?**
 
-Gift certificates are not supported with the Payments API. Gift certificates can still be used by the shopper on the storefront, part of the control panel or with the Checkout API.
+The Payment Processing API is for processing payments through a store's payment gateway. Since BigCommerce store gift cards are not processed through a payment gateway, they can not be processed through via the Payment Processing API.
 
 **Are offline payment methods supported?**
 The Payments API is designed to process credit card payments through supported payment gateways; it does not expose methods for processing [offline payment methods](https://support.bigcommerce.com/s/article/Offline-Payment-Methods) such as cash on delivery.
