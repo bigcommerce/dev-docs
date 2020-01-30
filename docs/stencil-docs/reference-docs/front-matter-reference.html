@@ -35,19 +35,18 @@
 <li><a href="#search-attributes">Search Attributes</a></li>
 </ul>
 </div>
-<p>Front matter defines which store resources will be rendered within a Stencil template.</p>
+<p>Front matter defines which store resources are available to be rendered within a Stencil template. Stencil front matter uses <a href="https://yaml.org/">YAML</a> syntax. For more information, see <a href="https://developer.bigcommerce.com/stencil-docs/storefront-customization/using-front-matter#declaring-front-matter-objects">Declaring Front Matter Objects</a>.</p>
 <div class="HubBlock--callout">
 <div class="CalloutBlock--warning">
 <div class="HubBlock-content">
 <!-- theme: warning -->
 <h3 id="note">Note</h3>
 <blockquote>
-<p>Front is supported in <code>templates/pages/</code>; however, the files in the following directories do not support front-matter:</p>
+<p>Front matter is supported in <code>templates/pages/</code>; however, the files in the following directories do not support front-matter:</p>
 </blockquote>
 <ul>
 <li><code>templates/components/</code></li>
 <li><code>templates/layout/</code></li>
-<li><code>templates/pages/custom/</code></li>
 </ul>
 <ul>
 <li>Spaces should be used to indent (tabs don't follow YAML Spec)</li>
@@ -59,7 +58,6 @@
 </div>
 <p><a id="front-matter-attributes-reference_global"></a></p>
 <h2 id="global-attributes">Global Attributes</h2>
-<p>Global attributes are available on all pages.</p>
 <table>
   <tr>
     <th>Attribute</th>

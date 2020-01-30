@@ -15,7 +15,7 @@
 </div>
 
 
-Front matter defines which store resources will be rendered within a Stencil template.
+Front matter defines which store resources are available to be rendered within a Stencil template. Stencil front matter uses [YAML](https://yaml.org/) syntax. For more information, see [Declaring Front Matter Objects](https://developer.bigcommerce.com/stencil-docs/storefront-customization/using-front-matter#declaring-front-matter-objects).
 
 <div class="HubBlock--callout">
 <div class="CalloutBlock--warning">
@@ -24,10 +24,9 @@ Front matter defines which store resources will be rendered within a Stencil tem
 <!-- theme: warning -->
 
 ### Note
-> Front is supported in `templates/pages/`; however, the files in the following directories do not support front-matter:
+> Front matter is supported in `templates/pages/`; however, the files in the following directories do not support front-matter:
  - `templates/components/`
  - `templates/layout/`
- - `templates/pages/custom/` 
 * Spaces should be used to indent (tabs don't follow YAML Spec)
 * Front matter on a given page cannot exceed 64 KB.
 * If a front-matter directive contains an invalid option, Stencil-CLI will silently ignore that option.
@@ -39,8 +38,6 @@ Front matter defines which store resources will be rendered within a Stencil tem
 <a id="front-matter-attributes-reference_global"></a>
 
 ## Global Attributes
-
-Global attributes are available on all pages.
 
 <table>
   <tr>
