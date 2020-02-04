@@ -5,7 +5,7 @@
 ### On this Page
 	
 - [Webhook Endpoints](#webhook-endpoints)
-- [Webhook Response Struture](#webhook-response-struture)
+- [Webhook Response Structure](#webhook-response-structure)
 - [Orders](#orders)
 - [Products](#products)
 - [Category](#category)
@@ -16,7 +16,7 @@
 - [Cart Line Item](#cart-line-item)
 - [Shipment](#shipment)
 - [Subscriber](#subscriber)
-- [Resoures](#resoures)
+- [Resources](#resources)
 
 </div>
 
@@ -34,14 +34,14 @@
 
 <a id="webhook-events_response-structure"></a>
 
-## Webhook Response Struture
+## Webhook Response Structure
 
 | Name | Definition |
 | -- | -- |
 | scope | The [event](/api-docs/getting-started/webhooks/webhook-events) registered when the webhook was created. |
 | store_id | A numerical identifier that is unique to each store. |
 | data | A lightweight description of the [event](/api-docs/getting-started/webhooks/webhook-events) that triggered the webhook. Will vary depending on the event registered. |
-| hash | The payload data json encoded then passed through sh1 encryption. |
+| hash | The payload data json encoded then passed through SH1 encryption. |
 | created_at | Unix timestamp of the date the hook was created. |
 | producer | Will always follow the pattern `stores/store_hash`. This is the store that created the webhook. |
 
@@ -72,7 +72,7 @@
 | store/order/statusUpdated | This will only fire if the order status has changed. Such as Pending to Awaiting Payment |
 | store/order/message/created | Order message is created by customer or in control panel |
 
-### The same response is returned for the following endpoints:
+### The same response is returned for the following events:
 
 * `store/order/created`
 * `store/order/updated`
@@ -96,9 +96,10 @@
 }
 ```
 
-### The same response is returned for the following endpoints:
+### The same response is returned for the following events:
 
 - `store/order/statusUpdated`
+- `store/order/updated` (if status updated)
 
 **Response Fields**
 
@@ -125,7 +126,7 @@
 }
 ```
 
-### The same response is returned for the following endpoints:
+### The same response is returned for the following events:
 
 - `store/order/message/created`
 
@@ -667,7 +668,7 @@ Changes to the following store settings will trigger a `store/information/update
 }
 ```
 
-## Resoures
+## Resources
 ### Related Articles
 * [Webhooks Overview](https://developer.bigcommerce.com/api-docs/getting-started/webhooks/about-webhooks)
 * [Webhooks Tutorial](https://developer.bigcommerce.com/api-docs/getting-started/webhooks/setting-up-webhooks)
