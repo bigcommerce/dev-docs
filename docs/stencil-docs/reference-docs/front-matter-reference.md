@@ -133,3 +133,4 @@ blog:
 |`posts`|Default sorting is by published_date, from most-recent to earliest.|
 |`limit`|null: No blog posts displayed. Maximum is 20 blog posts per page.|
 |`pages`|null: No pagination. If not defined, defaults to 5 pages.|
+|`summary`|<number> sets the number of characters to display in each blog-post summary. If not defined, displays 250 characters.|
