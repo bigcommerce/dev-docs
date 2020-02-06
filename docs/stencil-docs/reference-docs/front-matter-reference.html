@@ -29,6 +29,11 @@
 <li><a href="#global-attributes">Global Attributes</a></li>
 <li><a href="#category-attributes">Category Attributes</a></li>
 <li><a href="#blog-attributes">Blog Attributes</a></li>
+<li><a href="#product-attributes">Product Attributes</a></li>
+<li><a href="#brand-attributes">Brand Attributes</a></li>
+<li><a href="#brand-list-attributes">Brand List Attributes</a></li>
+<li><a href="#cart-attributes">Cart Attributes</a></li>
+<li><a href="#search-attributes">Search Attributes</a></li>
 </ul>
 </div>
 <p>Front matter defines which store resources are available to be rendered within a Stencil template. Front matter is declared at the top of each template and uses <a href="https://yaml.org/">YAML</a> syntax. For more information, see <a href="https://developer.bigcommerce.com/stencil-docs/storefront-customization/using-front-matter#declaring-front-matter-objects">Declaring Front Matter Objects</a>.</p>
@@ -40,15 +45,15 @@
 <li><code>templates/layout/</code></li>
 </ul>
 <h2 id="global-attributes">Global Attributes</h2>
-<p>​Global attributes are available on all pages.</p>
-<p>​</p>
+<p>​Global attributes are available on all pages.
+​</p>
 <pre><code class="language-yaml"><div><span class="hljs-attr">customer:</span>                         
-<span class="hljs-attr">  returns:</span> <span class="hljs-literal">true</span>                   <span class="hljs-comment"># show product return requests for this customer</span>
+<span class="hljs-attr">  returns:</span> <span class="hljs-literal">true</span>                     <span class="hljs-comment"># show product return requests for this customer</span>
 <span class="hljs-attr">  wishlists:</span>     
-<span class="hljs-attr">    limit:</span> <span class="hljs-number">10</span>                     <span class="hljs-comment"># limit the number of wishlists to 10</span>
+<span class="hljs-attr">    limit:</span> <span class="hljs-number">10</span>                       <span class="hljs-comment"># limit the number of wishlists to 10</span>
 <span class="hljs-attr">  orders:</span>
-<span class="hljs-attr">    limit:</span> <span class="hljs-number">10</span>                     <span class="hljs-comment"># limit the number of orders displayed to 10</span>
-<span class="hljs-attr">  recently_viewed_products:</span> <span class="hljs-literal">true</span>  <span class="hljs-comment"># display recently viewed products</span>
+<span class="hljs-attr">    limit:</span> <span class="hljs-number">10</span>                       <span class="hljs-comment"># limit the number of orders displayed to 10</span>
+<span class="hljs-attr">  recently_viewed_products:</span> <span class="hljs-literal">true</span>    <span class="hljs-comment"># display recently viewed products</span>
 </div></code></pre>
 <p>​</p>
 <table>
@@ -65,7 +70,7 @@
 </tr>
 <tr>
 <td><code>returns</code></td>
-<td>Boolean indicating whether to retrieve product-return requests for this customer. No filtering available.true: Retrieve requests. null or false: Do not retrieve requests.</td>
+<td>Boolean indicating whether to retrieve product return requests for this customer. No filtering available.true: Retrieve requests. null or false: Do not retrieve requests.</td>
 </tr>
 <tr>
 <td><code>wishlists</code></td>
@@ -73,7 +78,7 @@
 </tr>
 <tr>
 <td><code>orders</code></td>
-<td>If <code>null</code>, no orders displayed. Displays complete and incomplete orders.If <code>limit</code> not specified, displays 20 orders</td>
+<td>If <code>null</code>, no orders displayed. Displays complete and incomplete orders. If <code>limit</code> not specified, displays 20 orders</td>
 </tr>
 <tr>
 <td><code>recently_viewed_products</code></td>
@@ -178,8 +183,8 @@
 </tr>
 </tbody>
 </table>
-<pre><code class="language-yaml"><div><span class="hljs-attr">categories:</span> <span class="hljs-literal">true</span>    <span class="hljs-comment"># displays category tree</span>
-<span class="hljs-attr">  description:</span> <span class="hljs-literal">true</span> <span class="hljs-comment"># displays category description</span>
+<pre><code class="language-yaml"><div><span class="hljs-attr">categories:</span> <span class="hljs-literal">true</span>      <span class="hljs-comment"># displays category tree</span>
+<span class="hljs-attr">  description:</span> <span class="hljs-literal">true</span>   <span class="hljs-comment"># displays category description</span>
 </div></code></pre>
 <table>
 <thead>
@@ -259,7 +264,7 @@
 <tbody>
 <tr>
 <td><code>posts</code></td>
-<td>Default sorting is by published_date, from most-recent to earliest.</td>
+<td>Default sorting is by <code>published_date</code>, from most-recent to earliest.</td>
 </tr>
 <tr>
 <td><code>limit</code></td>
@@ -272,6 +277,129 @@
 <tr>
 <td><code>summary</code></td>
 <td><number> sets the number of characters to display in each blog-post summary. If not defined, displays 250 characters.</td>
+</tr>
+</tbody>
+</table>
+<h2 id="product-attributes">Product Attributes</h2>
+<p>Product attributes are available in the context of a product.</p>
+<pre><code class="language-yaml"><div><span class="hljs-attr">product:</span>
+<span class="hljs-attr">  videos:</span>
+<span class="hljs-attr">    limit:</span> <span class="hljs-number">5</span>           <span class="hljs-comment"># limits videos to 5</span>
+<span class="hljs-attr">  images:</span>
+<span class="hljs-attr">    limit:</span> <span class="hljs-number">5</span>           <span class="hljs-comment"># limits images to 5</span>
+<span class="hljs-attr">  reviews:</span> <span class="hljs-literal">true</span>
+<span class="hljs-attr">    limit:</span> <span class="hljs-number">5</span>           <span class="hljs-comment"># limits reviews to 5</span>
+<span class="hljs-attr">  related_products:</span>
+<span class="hljs-attr">    limit:</span> <span class="hljs-number">10</span>          <span class="hljs-comment"># limits related products by name to 10</span>
+<span class="hljs-attr">  similar_by_views:</span>
+<span class="hljs-attr">      limit:</span>           <span class="hljs-comment"># limits similar products by views to 10</span>
+</div></code></pre>
+<table>
+<thead>
+<tr>
+<th>Property</th>
+<th>Description</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td><code>product</code></td>
+<td>When filtering/limiting, products' default sorting is by order id, from lowest to highest.</td>
+</tr>
+<tr>
+<td><code>videos</code></td>
+<td>If <code>product.videos</code> is not defined, no videos are returned. If <code>product.videos</code> is defined, the default behavior is to return all videos. If <code>product.videos.limit</code> is defined, this sets the maximum number of videos returned.</td>
+</tr>
+<tr>
+<td><code>images</code></td>
+<td>If <code>product.images</code> is not defined, no images are returned. If <code>product.images</code> is defined, you must also define <code>product.images.limit</code>, which throttles the number of images returned. The maximum allowable value for this parameter is 5 images.</td>
+</tr>
+<tr>
+<td><code>reviews</code></td>
+<td>Boolean indicating whether to display product reviews. If <code>product.reviews</code> is present, and is not explicitly set to <code>false</code>, reviews will appear. If not defined, defaults to 10 reviews. When filtering/limiting reviews, default sorting is by review id, from lowest to highest.</td>
+</tr>
+<tr>
+<td><code>related_products</code></td>
+<td>Displays products that are related by name. If <code>limit</code> absent or undefined, the default behavior is to display all related products. Inserting <code>limit</code> with no integer will display 0 products.</td>
+</tr>
+<tr>
+<td><code>similar_by_views</code></td>
+<td>Displays products similar to those displayed in the current page context. If <code>limit</code> absent or undefined, default is to display 4 products.</td>
+</tr>
+</tbody>
+</table>
+<h2 id="brand-attributes">Brand Attributes</h2>
+<pre><code class="language-yaml"><div><span class="hljs-attr">brand:</span>
+<span class="hljs-attr">  products:</span>
+<span class="hljs-attr">    limit:</span> <span class="hljs-number">50</span>   <span class="hljs-comment"># limits products displayed for this brand to 50</span>
+</div></code></pre>
+<table>
+<thead>
+<tr>
+<th>Property</th>
+<th>Description</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td><code>products</code></td>
+<td><code>limit</code> defines the number of products displayed per page for this brand. Range of possible values is 1–50 products.</td>
+</tr>
+</tbody>
+</table>
+<h2 id="brand-list-attributes">Brand List Attributes</h2>
+<pre><code class="language-yaml"><div><span class="hljs-attr">brands:</span>
+<span class="hljs-attr">  limit:</span> <span class="hljs-number">50</span>   <span class="hljs-comment"># limits number of brands displayed in the list to 50</span>
+</div></code></pre>
+<table>
+<thead>
+<tr>
+<th>Property</th>
+<th>Description</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td><code>brands</code></td>
+<td>When retrieving a collection of brands, default sorting is by brand id, from lowest to highest. <code>limit</code> sets the number of brands displayed in the list. If <code>limit</code> is not defined, returns all brands, up to a maximum of 50.</td>
+</tr>
+</tbody>
+</table>
+<h2 id="cart-attributes">Cart Attributes</h2>
+<pre><code class="language-yaml"><div><span class="hljs-attr">cart:</span>
+<span class="hljs-attr">  suggestions:</span>
+<span class="hljs-attr">    limit:</span> <span class="hljs-number">4</span>    <span class="hljs-comment"># limits number of suggested products to 4</span>
+</div></code></pre>
+<table>
+<thead>
+<tr>
+<th>Property</th>
+<th>Description</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td><code>suggestions</code></td>
+<td><code>limit</code> defines suggested products to display to shopper, based on cart contents. If enabled, these suggestions appear only immediately after the shopper adds an item to the cart. If <code>limit</code> is null, does not display suggested products. If not defined, returns 4 suggested products.</td>
+</tr>
+</tbody>
+</table>
+<h2 id="search-attributes">Search Attributes</h2>
+<pre><code class="language-yaml"><div><span class="hljs-attr">search:</span> 
+<span class="hljs-attr">  product_results:</span>
+<span class="hljs-attr">    limit:</span> <span class="hljs-number">16</span>   <span class="hljs-comment"># limits product results to 16</span>
+</div></code></pre>
+<table>
+<thead>
+<tr>
+<th>Property</th>
+<th>Description</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td><code>product_results</code></td>
+<td><code>limit</code> defines the number of product search results displayed per page. Range of possible values is 1–100 products.</td>
 </tr>
 </tbody>
 </table>
