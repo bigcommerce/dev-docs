@@ -12,7 +12,7 @@
 
 Cornerstone release [`2.6.0`](https://developer.bigcommerce.com/changelog#posts/cornerstone-2-6-0-release) added stored payment method management for saved credit cards to the customer `account.php` page. Cornerstone [`4.4.0`](https://developer.bigcommerce.com/changelog#posts/cornerstone-4-4-0-release) expands this functionality to include saving PayPal accounts via [PayPal powered by Braintree](https://support.bigcommerce.com/s/article/Connecting-with-PayPal-Powered-by-Braintre1). This article contains instructions for manually applying the changes made in `4.4.0` to themes version `2.6.0 ` to `4.3.1`. For a full diff of the files to change, see [Pull Request #1603](https://github.com/bigcommerce/cornerstone/pull/1603/files). If you're developing on a theme older than version `2.6.0` you'll first need to apply the changes made in `2.6.0`; to do so, see [Stored Credit Card Management](https://developer.bigcommerce.com/legacy/stencil-themes/stored-credit-card-management). For theme update best practices, see [Theme Updates and Version Control](https://developer.bigcommerce.com/stencil-docs/developing-further/theme-updates-and-version-control).
 
-![Save PayPal Account](https://raw.githubusercontent.com/bigcommerce/dev-docs/master/assets/img/stored-credit-card-management02.png "Save PayPal Account")
+![Save PayPal Account](https://raw.githubusercontent.com/bigcommerce/dev-docs/master/assets/images/stored-credit-card-management02.png "Save PayPal Account")
 
 ## Update `config.json`
 
@@ -61,7 +61,7 @@ To use the updated object, apply the changes from [Pull Request #1603](https://g
 
 Once applied, saved PayPal accounts will be displayed in the payment method list:
 
-![Payment Method List](https://raw.githubusercontent.com/bigcommerce/dev-docs/master/assets/img/tored-credit-card-management01.png "Payment Method List")
+![Payment Method List](https://raw.githubusercontent.com/bigcommerce/dev-docs/master/assets/images/tored-credit-card-management01.png "Payment Method List")
 
 ## Update `edit-payment-method.html`
 The `customer.edit_stored_instrument` object has been lightly extended to include a `type` attribute.
