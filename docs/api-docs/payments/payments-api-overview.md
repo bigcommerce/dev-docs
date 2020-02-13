@@ -53,19 +53,20 @@ Payments can be processed using cards stored with the BigCommerce Stored Credit 
 
 **The following gateways are supported for stored cards:**
 
+* AdyenV2
 * Authorize.net
-* Paypal Powered by Braintree
 * CyberSource
-* Stripe
 * Paymetric
+* Paypal Powered by Braintree
+* Stripe
 
 **The following gateways are supported for credit cards:**
 
+* AdyenV2
 * Authorize.net
-* PayPal powered by Braintree
 * CardConnect
-* Chase Merchant Services
 * Chase Integrated Payments
+* Chase Merchant Services
 * Cybersource Direct
 * eWAY Rapid
 * First Data Payeezy Gateway
@@ -73,16 +74,17 @@ Payments can be processed using cards stored with the BigCommerce Stored Credit 
 * MIGS
 * MyVirtualMerchant
 * NMI
+* Paymetric
+* PayPal powered by Braintree
 * PayPal Payments Pro (Payflow Edition) UK
 * PayPal Payments Pro (Payflow Edition) US
-* Sage Pay/Protx VSP Direct
 * QuickBooks Payments
+* Sage Pay/Protx VSP Direct
 * SecureNet
 * Stripe
+* USA ePay
 * Worldpay Core
 * WorldPay
-* USA ePay
-* Paymetric
 
 <div class="HubBlock--callout">
 <div class="CalloutBlock--info">
