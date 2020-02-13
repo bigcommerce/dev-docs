@@ -1,17 +1,20 @@
 # Catalog Overview
 
 <div class="otp" id="no-index">
-  
+
 ### On This Page
-- [Products](#products)
+- [OAuth Scopes](#oauth-scopes)
+- [Products Overview](#products-overview)
+- [Creating Products with Options](#creating-products-with-options)
+- [Creating Digital Products](#creating-digital-products)
 - [Pricing Precision](#pricing-precision)
-- [Product Images](#product-images)
-- [Product Videos](#product-videos)
-- [Custom Fields](#custom-fields)
-- [Bulk Pricing Rules](#bulk-pricing-rules)
-- [Product Metafields](#product-metafields)
-- [Product Reviews](#product-reviews)
-- [Brands](#brands)
+- [Adding Product Images](#adding-product-images)
+- [Adding Product Videos](#adding-product-videos)
+- [Adding Custom Fields](#adding-custom-fields)
+- [Adding Bulk Pricing Rules](#adding-bulk-pricing-rules)
+- [Adding Product Metafields](#adding-product-metafields)
+- [Adding Product Reviews](#adding-product-reviews)
+- [Creating Brands](#creating-brands)
 - [Variant Options](#variant-options)
 - [Variant](#variant)
 - [Create a Variant](#create-a-variant)
@@ -24,43 +27,47 @@
 
 The Catalog refers to a store’s collection of physical and digital products. The Catalog includes all the information about a product such as MPN, warranty, price, and images.
 
-### [OAuth Scopes](/api-docs/getting-started/authentication#authentication_oauth-scopes):
-* `Modify` `Catalog`
+## [OAuth Scopes](/api-docs/getting-started/authentication#authentication_oauth-scopes)
 
-[![Run in Postman](https://run.pstmn.io/button.svg)](https://app.getpostman.com/run-collection/63a61a74bd429ee184b3)
+| UI Name  | Permission | Parameter                     |
+|----------|------------|-------------------------------|
+| Products | modify     | `store_v2_products`           |
+| Products | read-only  | `store_v2_products_read_only` |
 
-## Products
+For more information on OAuth Scopes and authentication, see: [Authentication](https://developer.bigcommerce.com/api-docs/getting-started/authentication).
 
-[Products](/api-reference/catalog/catalog-api/products/getproducts) are the primary catalog entity, and the primary function of the e-commerce platform is to sell products on the storefront and other selling channels.
+## Products Overview
 
-Products can either be Simple or Complex. 
+[Products](/api-reference/catalog/catalog-api/products/getproducts) are the primary catalog entity, and the primary function of the eCommerce platform is to sell products on the storefront, and other channels.
 
-Products can also be Physical or Digital. 
-
-* Physical products are typically products that exist in a physical form, have a weight, and are being sold by retailers with the intent of shipping them to customers. 
-* Digital products, on the other hand, may not have a physical representation in the real world; this includes downloadable products such as computer software, ebooks, music, images, and other digital media. Alternatively, a digital product may be used to sell services such as spa treatments, consulting, and so forth - which also do not require shipping.
+Products can be physical or digital:
+* **Physical** - exist in a physical form, have a weight, and are being sold by retailers with the intent of shipping to customers.
+* **Digital** - Non-physical products. Includes downloadables such as computer software, ebooks, music, images, and other media; and services such as haircuts, consulting, or lawn care.
 
 <div class="HubBlock--callout">
 <div class="CalloutBlock--info">
 <div class="HubBlock-content">
-    
+
 <!-- theme:  -->
 
-### Product Creation
-> Only one Product can be created at a time.
+### Note
+> * Only one Product can be created at a time.
 
 </div>
 </div>
 </div>
 
-### Simple Product
+### Creating a Product
 
-Simple products do not have any options, modifiers, or variants, and therefore cannot be configured or modified before they are added to cart. A simple product is its own variant. 
+Below is an example POST request for creating a simple product without options, modifiers, or variants:
 
-**Example Simple Product**  
-`/POST https://api.bigcommerce.com/stores/{{store_hash}}/v3/catalog/products`
+```http
+POST https://api.bigcommerce.com/stores/{{STORE_HASH}}/v3/catalog/products
+Accept: application/json
+Content-Type: application/json
+X-Auth-Token: {{ACCESS_TOKEN}}
+X-Auth-Client: {{CLIENT_ID}}
 
-```json 
 {
   "name": "BigCommerce Coffee Mug",
   "price": "10.00",
@@ -73,29 +80,19 @@ Simple products do not have any options, modifiers, or variants, and therefore c
 }
 ```
 
-<div class="HubBlock--callout">
-<div class="CalloutBlock--info">
-<div class="HubBlock-content">
-    
-<!-- theme:  -->
+[![Open in Request Runner](https://storage.googleapis.com/bigcommerce-production-dev-center/images/Open-Request-Runner.svg)](https://developer.bigcommerce.com/api-reference/catalog/catalog-api/products/createproduct#requestrunner)
 
-### Creating Options
-> When options are created via `/products`, `display_type` defaults to radio button (displayed as selectable boxes in some themes)
+## Creating Products with Options
 
-</div>
-</div>
-</div>
+To create a complex product with options selectable by shoppers, include a `variants` array in the request body:
 
-### Create a Complex Product
+```http
+POST https://api.bigcommerce.com/stores/{{STORE_HASH}}/v3/catalog/products
+Accept: application/json
+Content-Type: application/json
+X-Auth-Token: {{ACCESS_TOKEN}}
+X-Auth-Client: {{CLIENT_ID}}
 
-Complex products have at least one option and may have modifiers or variants.
-
-The [Create Products](/api-reference/catalog/catalog-api/products/getproducts) endpoint supports the creation of multiple variants along with the base product in a single call.
-
-**Example Complex Product**  
-`/POST https://api.bigcommerce.com/stores/{{store_hash}}/v3/catalog/products`
-
-```json
 {
   "name": "BigCommerce Coffee Mug",
   "price": "10.00",
@@ -128,18 +125,32 @@ The [Create Products](/api-reference/catalog/catalog-api/products/getproducts) e
 }
 ```
 
-### Digital Products
+[![Open in Request Runner](https://storage.googleapis.com/bigcommerce-production-dev-center/images/Open-Request-Runner.svg)](https://developer.bigcommerce.com/api-reference/catalog/catalog-api/products/createproduct#requestrunner)
 
-Digital products are purchaseable items that don't have a physical representation and are not shipped to the customer; for example, manuals, ebooks, or music. A downloadable product file can be associated with a digital product.
+<div class="HubBlock--callout">
+<div class="CalloutBlock--info">
+<div class="HubBlock-content">
 
-Downloadable product files are intended for products of the “digital” type, typically for selling some kind of media file or software. Product dimensions are not required because the item is not shipped.
+<!-- theme:  -->
 
-Files must be added to digital products using the [Control Panel or WebDav](https://support.bigcommerce.com/articles/Public/Creating-Downloadable-Products/#adding-downloadable-product) (attaching via the API is not supported). Additional settings such as a description of the file and maximum downloads can be set in the Control Panel.
+### Note
+> * When options are created via `/products`, `display_type` defaults to radio button (displayed as selectable boxes in some themes)
 
-**Example Create a Digital Product**  
-`/POST https://api.bigcommerce.com/stores/{{store_hash}}/v3/catalog/products`
+</div>
+</div>
+</div>
 
-```json
+## Creating Digital Products
+
+To create a digital product (like an ebook), set `type` to `"digital"`:
+
+```http
+POST https://api.bigcommerce.com/stores/{{STORE_HASH}}/v3/catalog/products
+Accept: application/json
+Content-Type: application/json
+X-Auth-Token: {{ACCESS_TOKEN}}
+X-Auth-Client: {{CLIENT_ID}}
+
 {
   "name": "ebook: A Guide to Coffee",
   "price": "10.00",
@@ -157,42 +168,42 @@ Files must be added to digital products using the [Control Panel or WebDav](http
 }
 ```
 
+<div class="HubBlock--callout">
+<div class="CalloutBlock--info">
+<div class="HubBlock-content">
+
+<!-- theme:  -->
+
+### Note
+> * Files can only be added to digital products via [Control Panel or WebDav](https://support.bigcommerce.com/articles/Public/Creating-Downloadable-Products/#adding-downloadable-product) -- attaching via the API is not supported. Additional settings such as file description and maximum downloads can also be set in the Control Panel.
+
+</div>
+</div>
+</div>
+
+
 ## Pricing Precision
 
-Price can be input using up to 4 decimal places.
+BigCommerce pricing is precise up to `4` decimal places. For example:
+* `"price": 10.99999` rounds up to `11`
+* `"price": 10.99994` rounds down to `10.9999`
 
-Depending on the price, it can round up or down. We allow up to 4 decimal places and use the 5th decimal place to either roundup or down. This holds true for all pricing options available on a product.
+Currency display settings allow for more than four decimal places. When this is the case, the additional decimal places will be displayed as `0`s:
 
-Example:
+![Currency Decimal Places](//s3.amazonaws.com/user-content.stoplight.io/6012/1553018091114 "Currency Decimal Places")
 
-* “price”: 10.99999 - rounds up to 11
-* “price”: 10.99994 - rounds down to 10.9999
+## Adding Product Images
 
-### Display
-Currency settings allows for inputting a large number of decimal places for display. Since pricing precision cuts off at 4, the rest are displayed as zero’s.
+Add a product image to a product with a `POST` to `/v3/catalog/products/{{product_id}}/images`:
 
-<!--
-    title: #### Currency Decimal Places
 
-    data: //s3.amazonaws.com/user-content.stoplight.io/6012/1553018091114
--->
+```
+POST https://api.bigcommerce.com/stores/{{store_hash}}/v3/catalog/products/{{product_id}}/images
+Accept: application/json
+Content-Type: application/json
+X-Auth-Token: {{ACCESS_TOKEN}}
+X-Auth-Client: {{CLIENT_ID}}
 
-#### Currency Decimal Places
-![#### Currency Decimal Places
-](//s3.amazonaws.com/user-content.stoplight.io/6012/1553018091114 "#### Currency Decimal Places
-")
-
-## Product Images
-
-[Product images](/api-reference/catalog/catalog-api/product-images/getproductimages) are used to show shoppers what they’re buying and merchandise products. When creating an image, `image_url` or an `image_file` can be passed in. 
-
-If using `image_file` Content-Type needs to be set to 
-Content-Type: multipart/form-data. Any other updates using the /POST or /PUT will be rejected with the form-data.
-
-**Example Add a Product Image**  
-**`POST`** `https://api.bigcommerce.com/stores/{{store_hash}}/v3/catalog/products/{{product_id}}/images`
-
-```json
 {
   "is_thumbnail": true,
   "sort_order": 1,
@@ -201,49 +212,32 @@ Content-Type: multipart/form-data. Any other updates using the /POST or /PUT wil
 }
 ```
 
-### Product Thumbnails
+<div class="HubBlock--callout">
+<div class="CalloutBlock--info">
+<div class="HubBlock-content">
 
-Only one image can be the [product thumbnail](/api-reference/catalog/catalog-api/models/productimage). The product thumbnail is the image that shows on the product listing page, in search results and any other location that features the product. If only one image is on the product it becomes both the thumbnail and the main product image. Images can also be added to [variants](/api-reference/catalog/catalog-api/product-variants/getvariantsbyproductid). 
+### Note
+> * If using `image_file`, set `Content-Type` header to `multipart/form-data` -- otherwise, subsequent requests will be rejected
+> * Set `is_thumbmail` to true to set image as thumbnail used on product listing pages.
+> * Only one image can be the product thumbnail at a time
+> * If only one image is on the product, it becomes both the thumbnail and the main product image
+> * Images can also be added to [variants](/api-reference/catalog/catalog-api/product-variants/getvariantsbyproductid).
 
-<!--
-title: "Product Thumbnails"
-subtitle: "GET https://api.bigcommerce.com/stores/{{store_hash}}/v3/catalog/products/{{product_id}}/images/{{images_id}}"
-lineNumbers: true
--->
+</div>
+</div>
+</div>
 
-**Response Get Product Thumbnails**  
-`/GET https://api.bigcommerce.com/stores/{{store_hash}}/v3/catalog/products/{{product_id}}/images/{{images_id}}`
+## Adding Product Videos
 
-```json
-{
-  "data": {
-    "id": 382,
-    "product_id": 158,
-    "is_thumbnail": true,
-    "sort_order": 0,
-    "description": "",
-    "image_file": "a/521/foglinenbeigestripetowel1b_1024x1024__83011__60806.jpg",
-    "url_zoom": "https://cdn8.bigcommerce.com/s-{{store_hash}}/products/158/images/382/foglinenbeigestripetowel1b_1024x1024__83011__60806.1534344511.1280.1280.jpg?c=2",
-    "url_standard": "https://cdn8.bigcommerce.com/s-{{store_hash}}/products/158/images/382/foglinenbeigestripetowel1b_1024x1024__83011__60806.1534344511.560.850.jpg?c=2",
-    "url_thumbnail": "https://cdn8.bigcommerce.com/s-{{store_hash}}/products/158/images/382/foglinenbeigestripetowel1b_1024x1024__83011__60806.1534344511.330.500.jpg?c=2",
-    "url_tiny": "https://cdn8.bigcommerce.com/s-{{store_hash}}/products/158/images/382/foglinenbeigestripetowel1b_1024x1024__83011__60806.1534344511.66.100.jpg?c=2",
-    "date_modified": "2018-08-15T14:48:31+00:00"
-  },
-  "meta": {}
-}
-```
+Videos hosted on YouTube can be added as a product video via `PUT` to `/v3/catalog/products/{{product_id}}/videos`:
 
-## Product Videos
-[Product Videos](/api-reference/catalog/catalog-api/product-videos/getproductvideos), in addition to images, can help shoppers understand what they’re buying and help sell the product. A product can have more than one video.
+```http
+PUT https://api.bigcommerce.com/stores/{{STORE_HASH}}/v3/catalog/products/{{product_id}}/videos
+Accept: application/json
+Content-Type: application/json
+X-Auth-Token: {{ACCESS_TOKEN}}
+X-Auth-Client: {{CLIENT_ID}}
 
-* Product videos must be hosted on YouTube. The video_id corresponds to the “v” parameter in a video url. 
-
-Example: <span class=”fp”>https://www.youtube.com/watch?v=<b>R12345677</b></span>
-
-**Example Create a Product Video**  
-`/PUT https://api.bigcommerce.com/stores/{{store_hash}}/v3/catalog/products/{{product_id}}/videos`
-
-```json
 {
   "title": "BigCommerce Mug Video",
   "description": "Video Describing the Mug",
@@ -253,14 +247,30 @@ Example: <span class=”fp”>https://www.youtube.com/watch?v=<b>R12345677</b></
 }
 ```
 
-## Custom Fields
+<div class="HubBlock--callout">
+<div class="CalloutBlock--info">
+<div class="HubBlock-content">
 
-[Custom fields](/api-reference/catalog/catalog-api/product-custom-fields/getcustomfields) are a feature intended for product specifications, in a key: value arrangement. As an example, there might be fields indicating technical specifications about an LED TV  such as screen size, maximum resolution, HDR support, etc. Alternatively, if selling wine, I might use Custom Fields for specifications such as vintage, region, grape, etc. Custom fields can not be used to add rules such as changing the weight or price of a product. 
+### Note
+> * A product can have more than one video
+> * Product videos must be hosted on YouTube
+> * `video_id` corresponds to the `v` parameter in the URL (Ex: `https://www.youtube.com/watch?v=R12345677`)
 
-**Example Add Custom Fields**  
-`/PUT https://api.bigcommerce.com/stores/{{store_hash}}/v3/catalog/products/{{product_id}}/custom-fields`
+</div>
+</div>
+</div>
 
-```json
+## Adding Custom Fields
+
+To add custom fields to a product, `PUT` to `/v3/catalog/products/{{product_id}}/custom-fields`:
+
+```http
+PUT https://api.bigcommerce.com/stores/{{store_hash}}/v3/catalog/products/{{product_id}}/custom-fields
+Accept: application/json
+Content-Type: application/json
+X-Auth-Token: {{ACCESS_TOKEN}}
+X-Auth-Client: {{CLIENT_ID}}
+
 {
   "name": "Release Year",
   "value": "2018"
@@ -269,31 +279,28 @@ Example: <span class=”fp”>https://www.youtube.com/watch?v=<b>R12345677</b></
 <div class="HubBlock--callout">
 <div class="CalloutBlock--info">
 <div class="HubBlock-content">
-    
+
 <!-- theme:  -->
 
-### Character Limit
-> There is a limit of 250 characters for custom field values.
+### Note
+> * Custom field values are limited to **250** characters
+> * See [Custom Fields](https://support.bigcommerce.com/s/article/Custom-Fields) in the BigCommerce Help Center for additional information on custom fields and their use-cases
 
 </div>
 </div>
 </div>
 
-Custom Fields are intended to be used in a couple of contexts:
+## Adding Bulk Pricing Rules
 
-* Displaying specifications on the product detail page and on the product listing pages such as category and brand pages.
-* Powering faceted search (searching/filtering by custom field values)
+Add bulk, quantity-based pricing to products via `PUT` to `/v3/catalog/products/{{product_id}}/bulk-pricing-rules`
 
-## Bulk Pricing Rules
+```http
+PUT https://api.bigcommerce.com/stores/{{STORE_HASH}}/v3/catalog/products/{{product_id}}/bulk-pricing-rules
+Accept: application/json
+Content-Type: application/json
+X-Auth-Token: {{ACCESS_TOKEN}}
+X-Auth-Client: {{CLIENT_ID}}
 
-[Bulk Pricing Rules](/api-reference/catalog/catalog-api/product-bulk-pricing-rules/getbulkpricingrules) are intended for merchants who want to offer wholesale discounts for buying in bulk. They apply once products are added to cart, but they are displayed as a callout on the storefront to let shoppers know how they can save.
-
-Bulk Pricing rules in the catalog are on the product, meaning that they’ll trigger even if several different variants of the product are in the cart, as long as the total quantity of those variants meets one of the quantity breaks. [Price List bulk pricing](/api-reference/catalog/pricelists-api/price-lists-records/setpricelistrecordcollection) works differently.
-
-**Example Add Bulk Pricing Rules**  
-`/PUT https://api.bigcommerce.com/stores/{{store_hash}}/v3/catalog/products/{{product_id}}/bulk-pricing-rules`
-
-```json
 {
   "bulk_pricing_rules": [
     {
@@ -312,16 +319,20 @@ Bulk Pricing rules in the catalog are on the product, meaning that they’ll tri
 }
 ```
 
-## Product Metafields
+For general information and use cases for product bulk pricing, see [Bulk Pricing](https://support.bigcommerce.com/s/article/Bulk-Pricing) in the BigCommerce Help Center.
 
-[Metafields](/api-reference/catalog/catalog-api/product-metafields/createproductmetafield) allow a developer to set up key and namespace pairs to store data against a resource, like a product. The data does not appear in the storefront or the control panel. This is useful for when information needs to be passed back and forth between an app and the store. 
+## Adding Product Metafields
 
-Metafields can be added to variants, products, categories, and brands.
+[Metafields](/api-reference/catalog/catalog-api/product-metafields/createproductmetafield) are key and value pair intended for programmaticly storing data against a product or other entity. Data stored in metafields does not appear in the storefront or the control panel. This is useful for when information needs to be passed back and forth between an app and BigCommerce.
 
-**Example Add Product Metafields**  
-`/PUT https://api.bigcommerce.com/stores/{{store_hash}}/v3/catalog/products/{{product_id}}/metafields`
+To add metafields to a product, `PUT` to `/v3/catalog/products/{{product_id}}/metafields`:
+```http
+PUT https://api.bigcommerce.com/stores/{{STORE_HASH}}/v3/catalog/products/{{product_id}}/metafields
+Accept: application/json
+Content-Type: application/json
+X-Auth-Token: {{ACCESS_TOKEN}}
+X-Auth-Client: {{CLIENT_ID}}
 
-```json
 {
   "permission_set": "read",
   "namespace": "Location",
@@ -333,17 +344,28 @@ Metafields can be added to variants, products, categories, and brands.
 }
 ```
 
-## Product Reviews
-[Product reviews ](/api-reference/catalog/catalog-api/product-reviews/getproductreviews)contains ratings and feedback from shoppers who have purchased a product. Reviews are displayed on product pages. 
+<div class="HubBlock--callout">
+<div class="CalloutBlock--info">
+<div class="HubBlock-content">
 
-Reviews cannot be created in the control panel, but they can be created via API. Creating them via API is useful if you are migrating to BigCommerce from another platform and do not want to lose existing reviews. 
+### Note
+> * Metafields can be added to variants, products, categories, and brands.
 
-Product Reviews are a native platform feature, but they can be turned off in favor of a custom setup.
+</div>
+</div>
+</div>
 
-**Example Create Product Review**  
-`/POST https://api.bigcommerce.com/stores/{{store_hash}}/v3/catalog/products/{{product_id}}/reviews`
+## Adding Product Reviews
 
-```json
+To add product reviews to a product, `POST` to `/v3/catalog/products/{{product_id}}/reviews`:
+
+```http
+POST https://api.bigcommerce.com/stores/{{STORE_HASH}}/v3/catalog/products/{{product_id}}/reviews
+Accept: application/json
+Content-Type: application/json
+X-Auth-Token: {{ACCESS_TOKEN}}
+X-Auth-Client: {{CLIENT_ID}}
+
 {
   "title": "Great Coffee Mug",
   "text": "This coffee mug kept my liquids hot for several hours.",
@@ -355,19 +377,28 @@ Product Reviews are a native platform feature, but they can be turned off in fav
 }
 ```
 
-## Brands
+<div class="HubBlock--callout">
+<div class="CalloutBlock--info">
+<div class="HubBlock-content">
 
-[Brands](/api-reference/catalog/catalog-api/brands/getbrands) are another form of catalog taxonomy, similar to Categories. However, there are a few differences:
+### Note
+> * Reviews cannot be created in the control panel.
 
-* Exist as a single “list” on the store, with no tree structure
-* Can only have a single assignment to a product; a product may have at most one brand, but a brand can have many products.
- 
-They’re primarily used to tag products so that consumers can find Brands they’re interested in (such as Nike shoes). Brands have their own page on the storefront which shows all the products in that Brand. They’re also used as part of faceted search navigation.
+</div>
+</div>
+</div>
 
-**Example Create a Brand**  
-`/POST https://api.bigcommerce.com/stores/{{store_hash}}/v3/catalog/brands`
+## Creating Brands
 
-```json
+To create a [Brand](/api-reference/catalog/catalog-api/brands/getbrands), `POST` to `/v3/catalog/brands`:
+
+```http
+POST https://api.bigcommerce.com/stores/{{store_hash}}/v3/catalog/brands
+Accept: application/json
+Content-Type: application/json
+X-Auth-Token: {{ACCESS_TOKEN}}
+X-Auth-Client: {{CLIENT_ID}}
+
 {
   "name": "BigCommerce",
   "page_title": "BigCommerce",
@@ -380,16 +411,18 @@ They’re primarily used to tag products so that consumers can find Brands they�
 }
 ```
 
+For general information on brands and their use cases, see [Managing Brands](https://support.bigcommerce.com/s/article/Managing-Brands) in the BigCommerce Help Center.
+
 ## Variant Options
 
-[Variant options](/api-reference/catalog/catalog-api/product-variant-options/getoptions) are any choices that the shopper needs to make that will result in the selection of a variant. Color and Size are typical examples of Variant Options.  A t-shirt can have different combinations of sizes and colors.  
+[Variant options](/api-reference/catalog/catalog-api/product-variant-options/getoptions) are any choices that the shopper needs to make that will result in the selection of a variant. Color and Size are typical examples of Variant Options.  A t-shirt can have different combinations of sizes and colors.
 
 Example:
 * Color is a Variant Option; Red, Orange, and Green are Variant Option Values
 * Size is a Variant Option; Small, Medium, and Large are Variant Option Values
 
-The combination of Small & Red is what is selected on the storefront and correlates to a product variation, also called a SKU. 
- 
+The combination of Small & Red is what is selected on the storefront and correlates to a product variation, also called a SKU.
+
 **Variant options:**
 
 * Require the shopper to select a value
@@ -418,7 +451,7 @@ The combination of Small & Red is what is selected on the storefront and correla
 <div class="HubBlock--callout">
 <div class="CalloutBlock--info">
 <div class="HubBlock-content">
-    
+
 <!-- theme:  -->
 
 ### Create Variant Option
@@ -440,10 +473,14 @@ subtitle: "/POST https://api.bigcommerce.com/stores/{store_hash}/v3/catalog/prod
 lineNumbers: true
 -->
 
-**Example Create Size Variant Option**  
-`/POST https://api.bigcommerce.com/stores/{store_hash}/v3/catalog/products/{product_id}/options`
+**Example Create Size Variant Option**
+```http
+POST https://api.bigcommerce.com/stores/{store_hash}/v3/catalog/products/{product_id}/options
+Accept: application/json
+Content-Type: application/json
+X-Auth-Token: {{ACCESS_TOKEN}}
+X-Auth-Client: {{CLIENT_ID}}
 
-```json
 {
   "product_id": 134,
   "name": "Size Rectangle",
@@ -472,8 +509,8 @@ lineNumbers: true
 ## Variant
 [Variants](/api-reference/catalog/catalog-api/product-variants/getvariantsbyproductid) represent an item as it sits on the shelf in the warehouse or a particular saleable product. A product might be a t-shirt, while the variant would be “a small, red t-shirt”. Variants are selected by shoppers on the storefront via Product Options. In the case where a product is simple, meaning it does not have any options, the product is its own variant - called a base variant. Everything you can buy should be a variant.
 
-* Options build out variants. 
-* Variants are usually what inventory is tracked against 
+* Options build out variants.
+* Variants are usually what inventory is tracked against
 * Can have their own price, weight, dimensions, image, etc - or they can inherit these values from the product if they have not been specified
 * Must have a SKU code (unless they’re a base variant)
 * In the case of non-base variants, variants will relate to a particular combination of variant option values - such as “small” and “red”
@@ -481,7 +518,7 @@ lineNumbers: true
 <div class="HubBlock--callout">
 <div class="CalloutBlock--warning">
 <div class="HubBlock-content">
-    
+
 <!-- theme: warning -->
 
 ### V2 SKU rules will override Variant pricing
@@ -507,25 +544,19 @@ This will go over using existing variant options to create the variants
 
 Use the `https://api.bigcommerce.com/stores/{{store_hash}}/v3/catalog/products/131/options` endpoint to get the option information.
 
-<!--
-title: "Example Response"
-subtitle: "/GET https://api.bigcommerce.com/stores/{store_hash}/v3/catalog/products/{product_id}/options"
-lineNumbers: true
--->
+**Example Get Variant Options**
+```http
+GET https://api.bigcommerce.com/stores/{store_hash}/v3/catalog/products/{product_id}/options
+Accept: application/json
+Content-Type: application/json
+X-Auth-Token: {{ACCESS_TOKEN}}
+X-Auth-Client: {{CLIENT_ID}}
 
-**Example Get Variant Options**  
-`/GET https://api.bigcommerce.com/stores/{store_hash}/v3/catalog/products/{product_id}/options`
-
-```json
 {
   "data": [
     {
       "id": 193,
-      "product_id": 134,
-      "name": "Size1533313432-134",
-      "display_name": "Size",
-      "type": "rectangles",
-      "sort_order": 0,
+      ...
       "option_values": [
         {
           "id": 163,
@@ -534,30 +565,13 @@ lineNumbers: true
           "value_data": null,
           "is_default": false
         },
-        {
-          "id": 164,
-          "label": "M",
-          "sort_order": 1,
-          "value_data": null,
-          "is_default": true
-        },
-        {
-          "id": 165,
-          "label": "L",
-          "sort_order": 2,
-          "value_data": null,
-          "is_default": false
-        }
+        ...
       ],
       "config": []
     },
     {
       "id": 194,
-      "product_id": 134,
-      "name": "Color1533313946-134",
-      "display_name": "Color",
-      "type": "swatch",
-      "sort_order": 1,
+      ...
       "option_values": [
         {
           "id": 166,
@@ -568,50 +582,19 @@ lineNumbers: true
               "#123C91"
             ]
           },
-          "is_default": false
-        },
-        {
-          "id": 167,
-          "label": "Green",
-          "sort_order": 2,
-          "value_data": {
-            "colors": [
-              "#0F961E"
-            ]
-          },
-          "is_default": false
-        },
-        {
-          "id": 168,
-          "label": "Red",
-          "sort_order": 3,
-          "value_data": {
-            "colors": [
-              "#E60C0C"
-            ]
-          },
-          "is_default": false
-        }
+          ...
       ],
       "config": []
     }
   ],
   "meta": {
-    "pagination": {
-      "total": 2,
-      "count": 2,
-      "per_page": 50,
-      "current_page": 1,
-      "total_pages": 1,
-      "links": {
-        "current": "?page=1&limit=50"
-      }
+    ...
     }
   }
 }
 ```
 
-In the above response, there are two variant options of size and color with three values each. 
+In the above response, there are two variant options of size and color with three values each.
 
 To combine the variant option values into variants and build out SKUs use the following endpoint:
 
@@ -620,11 +603,11 @@ To combine the variant option values into variants and build out SKUs use the fo
 <div class="HubBlock--callout">
 <div class="CalloutBlock--info">
 <div class="HubBlock-content">
-    
+
 <!-- theme:  -->
 
-### Create variants one at a time
-> Variants need to be created one at a time using this endpoint. Only one variant option at a time can be created; individual variant options will contain an array of multiple values. To use a variant array and create variants in the same call as the base product, use the [/catalog/product](/api-reference/catalog/catalog-api/products/createproduct) endpoint during product creation.
+### Note
+> * Variants need to be created one at a time using this endpoint. Only one variant option at a time can be created; individual variant options will contain an array of multiple values. To use a variant array and create variants in the same call as the base product, use the [/catalog/product](/api-reference/catalog/catalog-api/products/createproduct) endpoint during product creation.
 
 </div>
 </div>
@@ -632,45 +615,39 @@ To combine the variant option values into variants and build out SKUs use the fo
 
 The `option_values` array combines the options Small and Blue to create the SKU SMALL-BLUE. The id in the `option_values` array is the id from the variant option response `option_values > id`. The `option_id` is the id of the option.
 
-<div class="HubBlock-header">
-    <div class="HubBlock-header-title flex items-center">
-        <div class="HubBlock-header-name"></div>
-    </div><div class="HubBlock-header-subtitle"></div>
-</div>
-
-<!--
-title: ""
-subtitle: ""
-lineNumbers: true
--->
-
 ```json
- {
-            "id": 193, //option_id
-            "product_id": 134,
-            "name": "Size1533313432-134",
-            "display_name": "Size",
-            "type": "rectangles",
-            "sort_order": 0,
-            "option_values": [
-                {
-                    "id": 163, //id
-                    "label": "S",
-                    "sort_order": 0,
-                    "value_data": null,
-                    "is_default": false
-                }
-								...
+{
+  "id": 193, //option_id
+  "product_id": 134,
+  "name": "Size1533313432-134",
+  "display_name": "Size",
+  "type": "rectangles",
+  "sort_order": 0,
+  "option_values": [
+    {
+        "id": 163, //id
+        "label": "S",
+        "sort_order": 0,
+        "value_data": null,
+        "is_default": false
+    },
+    ...
+  ]
+}
 ```
 
 ### Create a Variant Using the Products Endpoint
 
-The following example creates a base product, variant options, and variants in a single call to the /products endpoint. You can use this method to create a product and its variants in a single call without creating variant options first, but the option display type will default to radio button.
+The following example creates a base product, variant options, and variants in a single call to the products endpoint. use this method to create a product and variants in a single call without creating variant options firs (option display will default to radio button):
 
-**Example Create Variant with Product**  
-`/POST https://api.bigcommerce.com/stores/{store_hash}/v3/catalog/products`
+```http
+POST https://api.bigcommerce.com/stores/{store_hash}/v3/catalog/products
+Accept: application/json
+Content-Type: application/json
+X-Auth-Token: {{ACCESS_TOKEN}}
+X-Auth-Client: {{CLIENT_ID}}
 
-```json
+
 {
   "name": "BigCommerce Coffee Mug",
   "price": "10.00",
@@ -706,11 +683,11 @@ The following example creates a base product, variant options, and variants in a
 <div class="HubBlock--callout">
 <div class="CalloutBlock--info">
 <div class="HubBlock-content">
-    
+
 <!-- theme:  -->
 
 ### Supported Types
-> Swatch, Radio Buttons, Rectangle, dropdown, Product List and Product List with Images. 
+> Swatch, Radio Buttons, Rectangle, dropdown, Product List and Product List with Images.
 
 </div>
 </div>
@@ -722,9 +699,9 @@ The following example creates a base product, variant options, and variants in a
 * A checkbox to add shipping insurance
 * Text to be engraved on the product
 * A color that an unfinished product is to be painted before it’s shipped
- 
+
 Critically, the modifier will not change the SKU/variant being fulfilled, and you cannot track inventory against combinations of modifier values. Modifiers typically would not change which product is “picked off the shelf” in the warehouse, but they change what happens to that product before it’s sent to the shopper, or how it’s sent.
- 
+
 Modifier options:
 * May be required or non-required
 * Support all option types
@@ -742,7 +719,7 @@ An adjuster can be added to a modifier option to change things such as increasin
 <div class="HubBlock--callout">
 <div class="CalloutBlock--info">
 <div class="HubBlock-content">
-    
+
 <!-- theme:  -->
 
 ### Modifiers that support Adjusters
@@ -754,14 +731,14 @@ An adjuster can be added to a modifier option to change things such as increasin
 
 ### Add a modifier with price adjuster to an existing product
 
-The following example shows how to add a modifier, a checkbox with a price adjuster, that will increase the product's price by five dollars. 
+The following example shows how to add a modifier, a checkbox with a price adjuster, that will increase the product's price by five dollars.
 
-Creating a checkbox with an adjuster requires two separate calls: one to create the checkbox and a second to add the adjuster. Adjusters are defined within the `option_values` array, but `option_values` are not allowed in the request to create a checkbox modifier because creating a checkbox automatically generates two mandatory option values: a Yes and a No. Once the checkbox has been created along with its option values, you can update the modifier to add an adjuster. 
+Creating a checkbox with an adjuster requires two separate calls: one to create the checkbox and a second to add the adjuster. Adjusters are defined within the `option_values` array, but `option_values` are not allowed in the request to create a checkbox modifier because creating a checkbox automatically generates two mandatory option values: a Yes and a No. Once the checkbox has been created along with its option values, you can update the modifier to add an adjuster.
 
 <div class="HubBlock--callout">
 <div class="CalloutBlock--info">
 <div class="HubBlock-content">
-    
+
 <!-- theme:  -->
 
 ### Modifiers that require a second step to add an adjuster
@@ -771,12 +748,10 @@ Creating a checkbox with an adjuster requires two separate calls: one to create 
 </div>
 </div>
 
-First, a POST to create the modifier. 
+First, a POST to create the modifier:
 
-**Example Create a Modifier**  
-`/POST https://api.bigcommerce.com/stores/{{store_hash}}/v3/catalog/products/{{product_id}}/modifiers `
-
-```json
+```http
+POST https://api.bigcommerce.com/stores/{{store_hash}}/v3/catalog/products/{{product_id}}/modifiers
 {
   "type": "checkbox",
   "required": false,
@@ -789,16 +764,7 @@ First, a POST to create the modifier.
 }
 ```
 
-Since this is a checkbox which has two states, checked/unchecked or yes/no, two option values are created. The default `adjuster_value` is null. 
-
-<!--
-title: "Response"
-subtitle: "Create Modifier Option"
-lineNumbers: true
--->
-
-**Example Response Create Modifier Option**  
-`https://api.bigcommerce.com/stores/{store_hash}/v3/catalog/products/{product_id}/modifiers`
+**Response:**
 
 ```json
 {
@@ -859,26 +825,18 @@ lineNumbers: true
       ]
     }
   ],
-  "meta": {
-    "pagination": {
-      "total": 1,
-      "count": 1,
-      "per_page": 50,
-      "current_page": 1,
-      "total_pages": 1,
-      "links": {
-        "current": "?page=1&limit=50"
-      }
-    }
-  }
+  "meta": {...}
 }
 ```
 
-Next send a PUT request to update the modifier value. This increases the price by $5 when the Yes option value is selected.
+Since this is a checkbox which has two states, checked/unchecked or yes/no, two option values are created. The default `adjuster_value` is null:
 
-`/PUT https://api.bigcommerce.com/stores/{store_hash}/v3/catalog/products/{product_id}/modifiers/{modifier_id}/values`
 
-```json
+Next send a `PUT` request to update the modifier value. This increases the price by $5 when the Yes option value is selected.
+
+```http
+PUT https://api.bigcommerce.com/stores/{store_hash}/v3/catalog/products/{product_id}/modifiers/{modifier_id}/values
+
 {
   "is_default": false,
   "adjusters": {
@@ -890,19 +848,8 @@ Next send a PUT request to update the modifier value. This increases the price b
 }
 ```
 
-### Troubleshooting: 422 Error
+### Troubleshooting: 422 Errors
 
-<div class="HubBlock-header">
-    <div class="HubBlock-header-title flex items-center">
-        <div class="HubBlock-header-name"></div>
-    </div><div class="HubBlock-header-subtitle"></div>
-</div>
-
-<!--
-title: ""
-subtitle: ""
-lineNumbers: true
--->
 
 ```json
 {
@@ -929,7 +876,7 @@ To fix this error:
 
 Adjustments made by complex rules are displayed to shoppers in real-time on the storefront.
 
-For the majority of merchant use cases, **best practice** will be to either assign values (such as a price) directly to a variant or use adjusters on the modifier option itself. However complex rules exist for rare cases where a rule condition is too complex to express in those forms easily. 
+For the majority of merchant use cases, **best practice** will be to either assign values (such as a price) directly to a variant or use adjusters on the modifier option itself. However complex rules exist for rare cases where a rule condition is too complex to express in those forms easily.
 
 Use complex rules when an adjustment should be triggered by:
 * The selection of values across multiple modifier options
@@ -946,28 +893,15 @@ Use complex rules when an adjustment should be triggered by:
 
 ### Creating Complex Rules Based On Modifiers
 
-Complex rules must be based on a combination of two or more modifiers, such as two checkboxes. The following example will add $10 to the product price when both boxes are checked. 
+Complex rules must be based on a combination of two or more modifiers, such as two checkboxes. The following example will add $10 to the product price when both boxes are checked.
 
-**Example Add Complex Rules**  
-`/PUT https://api.bigcommerce.com/stores/{store_hash}/v3/catalog/products/{product_id}/complex-rules`
-
-[![Run in Postman](https://run.pstmn.io/button.svg)](https://app.getpostman.com/run-collection/63a61a74bd429ee184b3)
-
+**Example Add Complex Rules**
+```http
+PUT https://api.bigcommerce.com/stores/{store_hash}/v3/catalog/products/{product_id}/complex-rules`
+```
 ### Troubleshooting
 
-Complex rules must consist of multiple conditions that trigger the rule adjustment. If multiple conditions are not specified, the request will return a 422 Unprocessable Entity:
-
-<div class="HubBlock-header">
-    <div class="HubBlock-header-title flex items-center">
-        <div class="HubBlock-header-name"></div>
-    </div><div class="HubBlock-header-subtitle"></div>
-</div>
-
-<!--
-title: ""
-subtitle: ""
-lineNumbers: true
--->
+Complex rules must consist of multiple conditions that trigger the rule adjustment. If multiple conditions are not specified, the request will return a 422 Unprocessable Entity.
 
 ```json
 {
@@ -981,11 +915,11 @@ lineNumbers: true
 
 [Categories](/api-reference/catalog/catalog-api/category/getcategories) are a hierarchy of products available on the store, presented in a tree structure. A store’s category structure determines the primary menu structure of most storefront themes, which are directly tied to it.
 
-All products must be associated with at least one Category, although a Category does not need to contain any products. Unlike some e-commerce platforms, products on BigCommerce can be associated with more than one Category. 
+All products must be associated with at least one Category, although a Category does not need to contain any products. Unlike some e-commerce platforms, products on BigCommerce can be associated with more than one Category.
 
 A product associated with categories does not currently have any priority or weighted order (there’s no “primary category”), which can make it difficult to integrate with some external systems which might wish to use a product’s categories to map to a category structure in that external system.
 
-**Example Create a Category**  
+**Example Create a Category**
 `https://api.bigcommerce.com/stores/{store_hash}/v3/catalog/categories`
 
 Parent ID is only needed if creating a sub-category.
@@ -1005,33 +939,16 @@ Parent ID is only needed if creating a sub-category.
 
 [Category Tree](https://developer.bigcommerce.com/api-reference/catalog/catalog-api/category/getcategorytree) returns a simple view of the parent > child relationship of all categories in the store. This endpoint can be used to fetch the categories if building out a custom navigation for a store.
 
-<!--
-title: "Category Tree Response Example"
-subtitle: ""
-lineNumbers: true
--->
-**Example Category Tree Response**  
-`/GET https://api.bigcommerce.com/stores/{store_hash}/v3/catalog/summary`
+```http
+GET https://api.bigcommerce.com/stores/{store_hash}/v3/catalog/summary
+
+```
+
+**Response:**:
 
 ```json
 {
   "data": [
-    {
-      "id": 33,
-      "parent_id": 0,
-      "name": "Clothing",
-      "is_visible": true,
-      "url": "/clothing/",
-      "children": []
-    },
-    {
-      "id": 23,
-      "parent_id": 0,
-      "name": "Shop All",
-      "is_visible": true,
-      "url": "/shop-all/",
-      "children": []
-    },
     {
       "id": 25,
       "parent_id": 0,
@@ -1047,109 +964,20 @@ lineNumbers: true
           "url": "/towels/bath-towels/",
           "children": [
             {
-              "id": 30,
-              "parent_id": 26,
-              "name": "Bath Towels",
-              "is_visible": true,
-              "url": "/towels/bath-towels/bath-towels/",
-              "children": []
-            },
-            {
-              "id": 29,
-              "parent_id": 26,
-              "name": "Hand Towels",
-              "is_visible": true,
-              "url": "/towels/bath-towels/hand-towels/",
+              ...
               "children": [
-                {
-                  "id": 31,
-                  "parent_id": 29,
-                  "name": "Washcloths",
-                  "is_visible": true,
-                  "url": "/towels/bath-towels/hand-towels/wash-cloths/",
-                  "children": []
-                }
-              ]
-            }
+                ...
+                ]
+            },
+            ...
           ]
         },
-        {
-          "id": 28,
-          "parent_id": 25,
-          "name": "Beach Towels",
-          "is_visible": true,
-          "url": "/towels/beach-towels/",
-          "children": []
-        },
-        {
-          "id": 27,
-          "parent_id": 25,
-          "name": "Kitchen Towels",
-          "is_visible": true,
-          "url": "/towels/kitchen-towels/",
-          "children": []
-        }
+        ..
       ]
     },
-    {
-      "id": 18,
-      "parent_id": 0,
-      "name": "Bath",
-      "is_visible": true,
-      "url": "/bath/",
-      "children": [
-        {
-          "id": 34,
-          "parent_id": 18,
-          "name": "Shoes",
-          "is_visible": true,
-          "url": null,
-          "children": []
-        }
-      ]
-    },
-    {
-      "id": 32,
-      "parent_id": 0,
-      "name": "Hoodies",
-      "is_visible": true,
-      "url": "/hoodies/",
-      "children": []
-    },
-    {
-      "id": 19,
-      "parent_id": 0,
-      "name": "Garden",
-      "is_visible": true,
-      "url": "/garden/",
-      "children": []
-    },
-    {
-      "id": 21,
-      "parent_id": 0,
-      "name": "Kitchen",
-      "is_visible": true,
-      "url": "/kitchen/",
-      "children": []
-    },
-    {
-      "id": 20,
-      "parent_id": 0,
-      "name": "Publications",
-      "is_visible": true,
-      "url": "/publications/",
-      "children": []
-    },
-    {
-      "id": 22,
-      "parent_id": 0,
-      "name": "Utility",
-      "is_visible": true,
-      "url": "/utility/",
-      "children": []
-    }
+    ...
   ],
-  "meta": {}
+  "meta": {...}
 }
 ```
 
