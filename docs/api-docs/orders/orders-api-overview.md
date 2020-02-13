@@ -14,7 +14,7 @@
 - [FAQ](#faq)
 - [Resources](#resources)
 
-</div> 
+</div>
 
 ## Introduction
 
@@ -26,10 +26,10 @@ A sample order workflow might include:
 * Creating a shipment for the order to generate an order confirmation email and mark it as shipped
 
 ### Prerequisites:
-**BigCommerce Store**  
+**BigCommerce Store**
 An active BigCommerce store with a sellable [product](/api-reference/catalog/catalog-api/products/createproduct)
 
-**Scopes**  
+**Scopes**
 The following [OAuth](/api-docs/getting-started/authentication#authentication_oauth-scopes) scopes are required:
 * Modify Orders
 
@@ -76,7 +76,7 @@ subtitle: "https://api.bigcommerce.com/stores/{store_hash}/v3/catalog/products/{
 lineNumbers: true
 -->
 
-**Example Variants Response**  
+**Example Variants Response**
 `/GET https://api.bigcommerce.com/stores/{store_hash}/v3/catalog/products/{product_id}/variants`
 
 ```json
@@ -140,7 +140,7 @@ title: "Example Products Array"
 subtitle: "This is an abbreviated request"
 lineNumbers: true
 -->
-**Example Products Array**  
+**Example Products Array**
 This is an abbreviated request
 
 ```json
@@ -182,7 +182,7 @@ title: "Custom Order Products Array"
 subtitle: "This is an abbreviated request"
 lineNumbers: true
 -->
-**Example Custom Order Products Array**  
+**Example Custom Order Products Array**
 This is an abbreviated request
 
 ```json
@@ -262,7 +262,7 @@ subtitle: "This is an abbreviated request"
 lineNumbers: true
 -->
 
-**Example Add Billing Address**  
+**Example Add Billing Address**
 This is an abbreviated request
 
 ```json
@@ -320,7 +320,7 @@ subtitle: "This is an abbreviated request"
 lineNumbers: true
 -->
 
-**Example Add a shipping address**  
+**Example Add a shipping address**
 This is an abbreviated request
 
 ```json
@@ -370,7 +370,7 @@ subtitle: ""
 lineNumbers: true
 -->
 
-**Example Create an Order Request**  
+**Example Create an Order Request**
 `/POST https://api.bigcommerce.com/stores/{store_hash}/v2/orders`
 
 ```json
@@ -570,7 +570,7 @@ To get the `order_address_id`  use the ID returned in [Order Shipping Address](h
 
 The items array requires the product quantity and `order_product_id`. The `order_product_id` is the ID returned from [Order Products](https://developer.bigcommerce.com/api-reference/orders/orders-api/order-products/getanorderproduct).
 
-There does not need to be a shipping provider. If the shipping provider is not sent in at all, it will default to custom and a tracking link is not generated. To have the tracking link generated without a shipping provider, provide an empty string. To add a shipping provider, see the available options on [Order Shipment](/api-reference/orders/orders-api/models/ordershipment).
+There does not need to be a shipping provider. If the shipping provider is not sent in at all, it will default to custom and a tracking link is not generated. To have the tracking link generated without a shipping provider, provide an empty string. To add a shipping provider, see the available options on [Order Shipment](https://developer.bigcommerce.com/api-reference/orders/orders-api/order-shipments/getallordershipments).
 
 Once the order shipment is created, it will automatically send out an email to the billing address with the shipment confirmation. To stop this behavior adjust the [Order Notification](https://support.bigcommerce.com/s/article/Customer-Order-Notifications#enable) settings in the Control Panel.
 
@@ -584,7 +584,7 @@ subtitle: ""
 lineNumbers: true
 -->
 
-**Example Create Order Shipment**  
+**Example Create Order Shipment**
 `https://api.bigcommerce.com/stores/{store_hash}/v2/orders/{order_id}/shipments`
 
 ```json
@@ -798,7 +798,7 @@ You can either process payment through a third party or using the Control Panel.
 
 **Can I generate a shipping quote from a carrier using the API?**
 
-Not at this time. If an order is created either in the Control Panel or via API, then it returns a 204 when trying to get a [Shipping Quote](https://developer.bigcommerce.com/api-reference/orders/orders-api/models/shippingquotes).
+Not at this time. If an order is created either in the Control Panel or via API, then it returns a 204 when trying to get a Shipping Quote.
 
 ## Resources
 ### Webhooks
