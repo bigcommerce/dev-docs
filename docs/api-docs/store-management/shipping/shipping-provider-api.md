@@ -17,11 +17,11 @@
 - [FAQ](#faq)
 - [Resources](#resources)
 
-</div> 
+</div>
 
 Shipping service providers whishing to offer shipping services and rates to BigCommerce merchants and shoppers can implement BigCommerce Shipping Provider endpoints. Once the service is implemented and accepted into BigCommerce's shipping Carrier Registry, merchants will have access to enable amd configure the service through their BigCommerce control panel. Once enabled on a store, BigCommerce will automatically retrieve the service options and rates via the provider's endpoints and display them to merchants in the store's control panel and to shoppers on the storefront.
 
-Shipping Provider endpoints can also be used by merchants to retrieve rates from custom shipping tables or an in-house shipping rate calculation service. 
+Shipping Provider endpoints can also be used by merchants to retrieve rates from custom shipping tables or an in-house shipping rate calculation service.
 
 Some use cases for the Shipping Provider API are:
 
@@ -37,7 +37,7 @@ Required [OAuth](/api-docs/getting-started/authentication#authentication_oauth-s
 
 When creating your app, the shipping data needs to be added to our Carrier Registry so it returns to shoppers on the front-end.
 
-To get your app setup send an email to: 
+To get your app setup send an email to:
 <a href="mailto:shippingproviderapi@bigcommerce.com">shippingproviderapi@bigcommerce.com</a>.
 
 Please include:
@@ -53,14 +53,14 @@ To get your app ID, create an app in [Developer Tools](https://devtools.bigcomme
 
 ## Before Development
 
-BigCommerce will send requests to your server to get information back about shipping quotes, credential validation and configuration. 
+BigCommerce will send requests to your server to get information back about shipping quotes, credential validation and configuration.
 
 ### Your Service URLs
 Since BigCommerce will be sending requests, you will need to provide BigCommerce with URLs that can accept quote requests and optionally a URL to check and validate connection options during app registration. These can be any valid HTTPS URL using port `443`, for example:
 
 `https://yourhost.com/rate`
 
-Your host and rate should be replaced with your own host and path. 
+Your host and rate should be replaced with your own host and path.
 
 ### Routes
 
@@ -68,7 +68,7 @@ You should create a URL to provide shipping quotes on your API. This is the URL 
 
 ### Requests and Responses
 
-BigCommerce will send and receive data using JSON. The request for rates will always be formatted using the [Base Rate Request Model](https://developer.bigcommerce.com/api-reference/store-management/shipping-provider-api/models/baseraterequest). The response for rates should be formatted using the [Carrier Quote Object](https://developer.bigcommerce.com/api-reference/store-management/shipping-provider-api/models/carrierquoteobject). The request to check for merchant app credentials will be formatted as Check Connection Options Request Payload and the response should be formatted using the  Check Connection Options Response Payload. 
+BigCommerce will send and receive data using JSON. The request for rates will always be formatted using the [Base Rate Request Model](https://developer.bigcommerce.com/api-reference/store-management/shipping-provider-api/shipping-provider/requestshippingrates). The response for rates should be formatted using the [Carrier Quote Object](https://developer.bigcommerce.com/api-reference/store-management/shipping-provider-api/shipping-provider/requestshippingrates). The request to check for merchant app credentials will be formatted as Check Connection Options Request Payload and the response should be formatted using the  Check Connection Options Response Payload.
 
 ### Error Handling
 In the case of errors, error messages should be included in the response payload under the messages key.
@@ -95,7 +95,7 @@ The intended use of the Shipping Provider API is to create an app that merchants
 
 During the app setup, if the Check Connection Options URL is configured for the carrier, an attempt to connect the carrier via the Shipping Manager UI or the Connect Carrier API causes a request to be made to that URL with the provided options. The resource should respond indicating if the credentials are valid and should provide an explanation of what is wrong. If no such URL is configured, this check will be skipped and the credentials are assumed valid as long as they pass type checks.
 
-**Example Request Check Connection**  
+**Example Request Check Connection**
 `/POST https://developerserver.com/check_connection_options`
 
 ```json
@@ -106,7 +106,7 @@ During the app setup, if the Check Connection Options URL is configured for the 
 }
 ```
 
-**Example Response Check Connection**  
+**Example Response Check Connection**
 `/POST https://developerserver.com/check_connection_options`
 
 ```json
@@ -124,11 +124,11 @@ During the app setup, if the Check Connection Options URL is configured for the 
 <div class="HubBlock--callout">
 <div class="CalloutBlock--info">
 <div class="HubBlock-content">
-    
+
 <!-- theme:  -->
 
 ## Validation Credentials
-> The step of validating the credentials is optional. It does not change how the app operates. It is best practice to authenticate the user against your database or the downstream provider service. 
+> The step of validating the credentials is optional. It does not change how the app operates. It is best practice to authenticate the user against your database or the downstream provider service.
 
 </div>
 </div>
@@ -146,7 +146,7 @@ subtitle: "POST https://developerserver.com/shipping/carrier/connection"
 lineNumbers: true
 -->
 
-**Example Request Carrier Connection**  
+**Example Request Carrier Connection**
 `/POST https://developerserver.com/shipping/carrier/connection`
 
 ```json
@@ -165,7 +165,7 @@ subtitle: "POST https://developerserver.com/shipping/carrier/connection"
 lineNumbers: true
 -->
 
-**Exampe Request with Empty Object**  
+**Exampe Request with Empty Object**
 `/POST https://developerserver.com/shipping/carrier/connection`
 
 ```json
@@ -182,7 +182,7 @@ subtitle: "POST https://api.bigcommerce.com/stores/{store_hash}/v2/shipping/zone
 lineNumbers: true
 -->
 
-**Example Request Shipping Method**  
+**Example Request Shipping Method**
 `/POST https://api.bigcommerce.com/stores/{store_hash}/v2/shipping/zones/{zone_id}/methods`
 
 ```json
@@ -204,7 +204,7 @@ subtitle: "POST https://api.bigcommerce.com/stores/{store_hash}/v2/shipping/zone
 lineNumbers: true
 -->
 
-**Example Response Shipping Methods**  
+**Example Response Shipping Methods**
 `/POST https://api.bigcommerce.com/stores/{store_hash}/v2/shipping/zones/{zone_id}/methods`
 
 ```json
@@ -232,7 +232,7 @@ title: "Sample Request"
 subtitle: "POST https://developerserver.com/rate"
 lineNumbers: true
 -->
-**Example Request Shipping Rates**  
+**Example Request Shipping Rates**
 `/POST https://developerserver.com/rate`
 
 ```json
@@ -326,7 +326,7 @@ subtitle: "POST https://developerserver.com/rate"
 lineNumbers: true
 -->
 
-**Example Response Shipping Rates**  
+**Example Response Shipping Rates**
 `POST https://developerserver.com/rate`
 
 ```json
@@ -414,7 +414,7 @@ When an app with an associated shipping carrier is uninstalled, all of the shipp
 
 ## Including Product Metatadata in Rate Requests
 
-BigCommerce is able to pass carrier-specific product metadata to a carrier service in a rate request via product and variant metafields. This can be useful if your service depends on specific fields that are not existent on BigCommerce products or variants by default. 
+BigCommerce is able to pass carrier-specific product metadata to a carrier service in a rate request via product and variant metafields. This can be useful if your service depends on specific fields that are not existent on BigCommerce products or variants by default.
 
 To do so, the metafields must meet the following requirements:
 
@@ -430,23 +430,23 @@ For more information on product and variant metafields, see:
 
 ## Submitting the App
 
-Before submitting your app make sure you have the following information. 
+Before submitting your app make sure you have the following information.
 
 **Single Carrier vs Multi Carrier**
 
-Whether the app is a single carrier or multiple carriers. A single carrier app will offer one service such as USPS. A multi carrier app will offer more than one carrier such as USPS, DHL and Canada Post. 
+Whether the app is a single carrier or multiple carriers. A single carrier app will offer one service such as USPS. A multi carrier app will offer more than one carrier such as USPS, DHL and Canada Post.
 
 **Name and Description**
 
-Name and description of the shipping carrier or carriers. 
+Name and description of the shipping carrier or carriers.
 
 **Logo**
 
-A 70x70 pixel logo that represents the shipping carrier app. 
+A 70x70 pixel logo that represents the shipping carrier app.
 
 **Configuration Fields**
 
-Any shipping zone-specific or connection-specific fields to be made available to merchants or APIs for configuration. Configuration fields can include which rates to offer, packaging type or packing method.  
+Any shipping zone-specific or connection-specific fields to be made available to merchants or APIs for configuration. Configuration fields can include which rates to offer, packaging type or packing method.
 
 To submit your app send an email to <a href="mailto:shippingproviderapi@bigcommerce.com">shippingproviderapi@bigcommerce.com</a>.
 
@@ -470,8 +470,8 @@ Only one registered shipping carrier may be associated with an app. This [regist
 | Name | Description |
 | -- | -- |
 | Configuration Fields | The fields the merchant will see in the control panel. Merchants can navigate to the Shipping Manager and enable, configure and disable the carrier for any defined zone. They will also be able to activate the app using the Carrier Connection API. Then use the Shipping Zones API and Shipping Methods API to configure the app from there. |
-| Quote URL | A URL for a resource of the shipping carrier that accepts quote requests and responds with shipping quotes. For more on the Quote URL see typical app workflow below.| 
-| Single Carrier vs Multi Carrier | A single carrier app will offer only one shipping provider. A multi carrier app will aggregate multiple shipping carriers in one app.| 
+| Quote URL | A URL for a resource of the shipping carrier that accepts quote requests and responds with shipping quotes. For more on the Quote URL see typical app workflow below.|
+| Single Carrier vs Multi Carrier | A single carrier app will offer only one shipping provider. A multi carrier app will aggregate multiple shipping carriers in one app.|
 | Countries Available | A list of countries where the shipping carrier can be used. The default behavior is that the carrier is available for every shipping origin. In most cases this list should be as broad as possible. For example, if your carrier operates worldwide, make it available worldwide. The countries can be limited further than what the shipping carrier has provided. If the service is worldwide, then leave this field blank to specify that it is worldwide. This is an optional step. |
 | Shipping Carrier |  A shipping carrier is what is built to provide quotes to BigCommerce. If a shipping carrier uses more than one shipping provider then it becomes a multi carrier aggregator. A carrier includes a name, description and a logo. |
 | Multi-Carrier Aggregator | A shipping solution that provides shipping quotes for multiple carriers.|
@@ -481,7 +481,7 @@ Only one registered shipping carrier may be associated with an app. This [regist
 | Shipping Origin | The location from which goods are shipped. This determines which shipping carriers are available for the merchant to configure in the control panel. |
 
 ## FAQ
-**Can I publish more than one app at a time?**  
+**Can I publish more than one app at a time?**
 No, only one app at a time can be published. The others can be for use as testing or as private apps.
 
 ## Resources
