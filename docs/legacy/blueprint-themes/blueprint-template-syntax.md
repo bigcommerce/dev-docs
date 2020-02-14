@@ -1,6 +1,5 @@
 # Template Syntax
 
-.otp
 <div class="otp" id="no-index">
 
 ### On This Page
