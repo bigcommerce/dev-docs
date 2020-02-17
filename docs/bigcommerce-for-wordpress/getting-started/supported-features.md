@@ -31,6 +31,7 @@ The open source BigCommerce for Wordpress plugin currently supports the followin
 * Faceted Search with FacetWP and Search with SearchWP
 * Multi Site Selling
 * Multi-Channel Selling (eBay, Amazon, Facebook, Instagram, Google Shopping, Square and more) and Central Management (bulk listing, automatic inventory syncing, unified order and fulfillment management)
+* Shopper Wishlists
 
 ### Supported Payment Gateways
 
@@ -62,8 +63,7 @@ We plan on supporting and improving the following features in the BigCommerce fo
 * Product Variant Images
 * Moderation and Management of Product Reviews
 * Additional Theme Styling within Customizer
-* Multi-Currency 
-* Shopper Wishlists
+* Multi-Currency
 * Abandoned Cart Saver 
 * Shipping Calculation on Cart Page
 * Promotional Banner Support
