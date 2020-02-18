@@ -8,6 +8,7 @@
 - [`stencil init`](#stencil-init)
 - [`stencil start`](#stencil-start)
 - [`stencil bundle`](#stencil-bundle)
+- [`stencil pull`](#stencil-pull)
 - [`stencil push`](#stencil-push)
 - [`stencil release`](#stencil-release)
 - [Resources](#resources)
@@ -32,10 +33,11 @@ Running `stencil help` outputs a full list of commands and their descriptions. F
 |-|--|
 |[init](#stencil-init)       |Interactively creates a `.stencil`, which configures how to run a BigCommerce store locally.|
 |[start](#stencil-init)      |Starts up the BigCommerce store, using theme files in the current directory.                |
-|[bundle](#stencil-bundle)   |Bundles up the theme into a structured .zip file, which can be uploaded to BigCommerce      |
+|[bundle](#stencil-bundle)   |Bundles up the theme into a structured `.zip` file, which can be uploaded to BigCommerce.      |
+|[pull](#stencil-pull)       |Pulls the theme configuration `config.json` file from the live store and updates the local configuration.         |
 |[push](#stencil-push)       |Bundles the theme into `.zip` file; then directly uploads the `.zip` to BigCommerce.         |
 |[release]()                 |Creates a new release in a theme's GitHub repository.                                       |
-|[help](#stencil-help)       |display help and returns all the options available to use for the specified command.        |
+|[help](#stencil-help)       |Displays help and returns all the options available to use for the specified command.        |
 
 <!--
     title: #### Basic Stencil CLI Options and Commands
@@ -107,15 +109,15 @@ stencil start --open # opens live theme preview in default browser
 
 | Option                       |Alias| Description                                                                           |
 |-|-|-|
-| `--version`                  |`-V` | Outputs the version number                                                            |
+| `--version`                  |`-V` | Output the version number                                                            |
 | `--open`                     |`-o` | Automatically open default browser                                                    |
 | `--variation [<NAME>]`       |`-v` | Set which theme variation to use while developing                                     |
 | `--test`                     |`-t` | Enable QA mode which will bundle all javascript for speed to test locally             |
 | `--tunnel`                   |     | Create a tunnel URL which points to your local server which anyone can use            |
 | `--theme-editor`             |`-e` | Run Theme Editor server                                                               |
-| `--no-cache`                 |`-n` | Turns off caching for API resource data (cache refreshes every 5 minutes)             |
+| `--no-cache`                 |`-n` | Turn off caching for API resource data (cache refreshes every 5 minutes)             |
 | `--theme-editor-port [port]` |     |Run the Theme Editor on a different port                                               |
-| `--help`                     |`-h` | output usage information                                                              |
+| `--help`                     |`-h` | Output usage information                                                              |
 
 <div class="HubBlock--callout">
 <div class="CalloutBlock--warning">
@@ -144,6 +146,18 @@ stencil bundle
 
 <a id="stencil-push"></a>
 
+## `stencil pull`
+
+Pulls the theme configuration `config.json` file from the live store and updates the local configuration.
+
+**Usage:**
+
+```shell
+stencil pull
+```
+
+<a id="stencil-pull"></a>
+
 ## `stencil push`
 
 Bundles up the theme into a structured `.zip file`; then directly uploads (pushes) the `.zip` to BigCommerce.
@@ -156,13 +170,13 @@ Usage: stencil push [<OPTIONS>]
 
 | Option                        |Alias| Description                                                                          |
 |-|--|--|
-|`--version`                    |`-V` | Outputs the version number                                                           |
+|`--version`                    |`-V` | Output the version number                                                           |
 |`--host [HOSTNAME]`            |     | Specify the API host (default: https://api.bigcommerce.com)                          |
 |`--file [<FILENAME>]`          |`-f` | Specify the filename of the bundle to upload                                         |
 |`--save [<FILENAME]`           |`s`  | Specify the filename to save the bundle as                                           |
-|`--activate [<VARIATIONNAME>]` |`-a` | Skips activation prompt; specify variation or leave blank to select first variation  |
-|`--delete`                     |`-d` | Deletes oldest private, non-active theme if upload limit reached                     |
-|`--help`                       |`-h` | Output usage information.                                                            |
+|`--activate [<VARIATIONNAME>]` |`-a` | Skip activation prompt; specify variation or leave blank to select first variation  |
+|`--delete`                     |`-d` | Delete oldest private, non-active theme if upload limit reached                     |
+|`--help`                       |`-h` | Output usage information                                                            |
 
 **Example:**
 
@@ -198,8 +212,8 @@ stencil release [<OPTIONS>]
 
 | Option      | Alias | Description                |
 |-|-|-|
-| `--version` | `-V`  | Outputs the version number |
-| `--help`    | `-h`  | Output usage information.  |
+| `--version` | `-V`  | Output the version number |
+| `--help`    | `-h`  | Output usage information  |
 
 ## Resources
 
