@@ -45,10 +45,10 @@ lineNumbers: true
 -->
 
 ```js
- var disqus_config = function () {
-        this.page.url = PAGE_URL;  // Replace PAGE_URL with your page's canonical URL variable
-        this.page.identifier = PAGE_IDENTIFIER; // Replace PAGE_IDENTIFIER with your page's unique identifier variable
-    };
+var disqus_config = function () {
+    this.page.url = PAGE_URL;  // Replace PAGE_URL with your page's canonical URL variable
+    this.page.identifier = PAGE_IDENTIFIER; // Replace PAGE_IDENTIFIER with your page's unique identifier variable
+};
 ```
 
 Change the value of `this.page.url` to be `product.url`;, and the value of this.page.identifier to be product.id; so that the function now reads like below:
@@ -67,17 +67,10 @@ lineNumbers: true
 
 ```js
 var disqus_config = function () {
-        this.page.url = product.url;
-        this.page.identifier = product.id;
-    };
+    this.page.url = product.url;
+    this.page.identifier = product.id;
+};
 ```
 
 7. Save your files
 8. Apply your theme
-
-## Resources
-
-### Related Articles
-
-* [Enabling Disqus for Product Reviews](https://forum.bigcommerce.com/s/article/How-do-I-enable-Disqus-as-my-Comment-Service?_ga=2.224340315.1984523106.1539568940-967431010.1523308107#get-code) (Blueprint)
-* [Using Disqus for Blog Comments](https://forum.bigcommerce.com/s/article/Using-Disqus-Comments?_ga=2.224340315.1984523106.1539568940-967431010.1523308107) (BigCommerce Community)
