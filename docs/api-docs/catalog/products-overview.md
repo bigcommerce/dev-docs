@@ -190,7 +190,7 @@ If using `image_file` Content-Type needs to be set to
 Content-Type: multipart/form-data. Any other updates using the /POST or /PUT will be rejected with the form-data.
 
 **Example Add a Product Image**  
-`/PUT https://api.bigcommerce.com/stores/{{store_hash}}/v3/catalog/products/{{product_id}}/images`
+**`POST`** `https://api.bigcommerce.com/stores/{{store_hash}}/v3/catalog/products/{{product_id}}/images`
 
 ```json
 {

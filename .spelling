@@ -649,6 +649,16 @@ un-optimized
 Zurb
 product.html.
 this.page.identifier
+sso
+params
+headlessly
+JWT
+sku
+sh1
+product_id
+DTS
+ui
+pci
  - docs/api-docs/cart-and-checkout/working-sf-apis.md
 postData
 cartItems
@@ -732,6 +742,8 @@ http
 statusUpdated
 sku
 couponApplied
+lineItem
+cartId
  - docs/api-docs/partner/app-store-approval-requirements.md
 130px
 200x200px

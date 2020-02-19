@@ -53,19 +53,20 @@ Payments can be processed using cards stored with the BigCommerce Stored Credit 
 
 **The following gateways are supported for stored cards:**
 
+* AdyenV2
 * Authorize.net
-* Paypal Powered by Braintree
 * CyberSource
-* Stripe
 * Paymetric
+* Paypal Powered by Braintree
+* Stripe
 
 **The following gateways are supported for credit cards:**
 
+* AdyenV2
 * Authorize.net
-* PayPal powered by Braintree
 * CardConnect
-* Chase Merchant Services
 * Chase Integrated Payments
+* Chase Merchant Services
 * Cybersource Direct
 * eWAY Rapid
 * First Data Payeezy Gateway
@@ -73,16 +74,17 @@ Payments can be processed using cards stored with the BigCommerce Stored Credit 
 * MIGS
 * MyVirtualMerchant
 * NMI
+* Paymetric
+* PayPal powered by Braintree
 * PayPal Payments Pro (Payflow Edition) UK
 * PayPal Payments Pro (Payflow Edition) US
-* Sage Pay/Protx VSP Direct
 * QuickBooks Payments
+* Sage Pay/Protx VSP Direct
 * SecureNet
 * Stripe
+* USA ePay
 * Worldpay Core
 * WorldPay
-* USA ePay
-* Paymetric
 
 <div class="HubBlock--callout">
 <div class="CalloutBlock--info">
@@ -616,7 +618,7 @@ Store credit is not a supported payment method with the Payments API. Store cred
 
 **Are gift certificates supported?**
 
-Gift certificates are not supported with the Payments API. Gift certificates can still be used by the shopper on the storefront, part of the control panel or with the Checkout API.
+The Payment Processing API is for processing payments through a store's payment gateway. Since BigCommerce store gift cards are not processed through a payment gateway, they can not be processed through via the Payment Processing API.
 
 **Are offline payment methods supported?**
 The Payments API is designed to process credit card payments through supported payment gateways; it does not expose methods for processing [offline payment methods](https://support.bigcommerce.com/s/article/Offline-Payment-Methods) such as cash on delivery.

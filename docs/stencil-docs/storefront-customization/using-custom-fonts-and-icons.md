@@ -5,6 +5,7 @@
 - [Applying Custom Fonts](#applying-custom-fonts)
 - [Sass Stylesheet Support for Theme Fonts](#sass-stylesheet-support-for-theme-fonts)
 - [Applying Custom Icons](#applying-custom-icons)
+- [Resources](#resources)
 
 </div>
 
@@ -31,7 +32,7 @@ There are two paths to take for using custom fonts.
 
 ### Google Fonts
 
-[Google Fonts](https://fonts.google.com/) is a collection of open source fonts available for use. The base Cornerstone theme uses Karla and Montserrat. Google Fonts come included in the Cornerstone theme.  In `config.json` update each place you want the change with the name of the new Google Font.  
+[Google Fonts](https://fonts.google.com/) is a collection of open source fonts available for use. The base Cornerstone theme uses Karla and Montserrat. Google Fonts come included in the Cornerstone theme.  In `config.json` update each place you want the change with the name of the new Google Font.
 Make sure it follows of the format `Google_FontName_Weight`.
 
 ```json
@@ -190,6 +191,6 @@ Simply add your new icon SVG file to the `assets/icons/ `folder. Then, from your
 
 ### Additional Resources
 * [Stencil Custom Sass Functions](https://developer.bigcommerce.com/stencil-docs/storefront-customization/custom-sass-functions)
-* [Custom Icons Video Tutorial](https://www.youtube.com/watch/-w7Hbn_p_pw)  (BigCommerce Youtube)
+* [Custom Icons Video Tutorial](https://www.youtube.com/watch?v=ZwrVN5QrEZY)  (BigCommerce Youtube)
 * [Custom Fonts Video Tutorial](https://www.youtube.com/watch/-w7Hbn_p_pw) (BigCommerce Youtube)
 * [Google Fonts](https://fonts.google.com/) (Google)

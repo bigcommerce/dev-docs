@@ -11,10 +11,10 @@
 
 var playgroundTabs = function(endpoint, authHeader){
     var predefined = {
-        customerDetails: {
-            name: "Customer Details",
+        firstThreeProducts: {
+            name: "First 3 Products",
             endpoint: endpoint,
-            query: "# Fetch Customer Details\r\n\r\nquery CustomerAttributes {\r\n  customer {\r\n    firstName\r\n    lastName\r\n    email\r\n    entityId\r\n    customerGroupId\r\n    attributeCount\r\n    attributes {\r\n      shirtSize: attribute(entityId:123) {\r\n        entityId\r\n        value\r\n      }\r\n      favoriteColor: attribute(entityId:456) {\r\n        entityId\r\n        value\r\n      }\r\n    }\r\n  }\r\n}",
+            query: "query paginateProducts {\r\n  site {\r\n    products (first: 3) {\r\n      pageInfo {\r\n        startCursor\r\n        endCursor\r\n      }\r\n      edges {\r\n        cursor\r\n        node {\r\n          entityId \r\n          name\r\n        }\r\n      }\r\n    }\r\n  }\r\n}",
             headers: {
                 Authorization: authHeader
             },
@@ -54,7 +54,7 @@ var playgroundTabs = function(endpoint, authHeader){
         singleProduct: {
             name: "Single Product",
             endpoint: endpoint,
-            query: "query SingleProduct {\r\n  site {\r\n    products (entityIds: [4917]) {\r\n      edges {\r\n        node {\r\n          id \r\n          entityId\r\n          name\r\n          prices {\r\n            price {\r\n              value\r\n              currencyCode\r\n            }\r\n          }\r\n        }\r\n      }\r\n    }\r\n  ",
+            query: "query SingleProduct {\r\n  site {\r\n    products (entityIds: [81]) {\r\n      edges {\r\n        node {\r\n          id \r\n          entityId\r\n          name\r\n          prices {\r\n            price {\r\n              value\r\n              currencyCode\r\n            }\r\n          }\r\n        }\r\n      }\r\n    }\r\n  ",
             headers: {
                 Authorization: authHeader
             },
@@ -62,7 +62,7 @@ var playgroundTabs = function(endpoint, authHeader){
         variantDetails: {
             name: "Variant Details as a Product Object",
             endpoint: endpoint,
-            query: "query VariantById {\r\n  site {\r\n    product(variantEntityId: 27098) {\r\n      name\r\n      sku\r\n      defaultImage {\r\n        url(width: 500, height: 500)\r\n      }\r\n      prices {\r\n        price {\r\n          ...PriceFields\r\n        }\r\n        salePrice {\r\n          ...PriceFields\r\n        }\r\n        retailPrice {\r\n          ...PriceFields\r\n        }\r\n      }\r\n      width {\r\n        ...DimensionFields\r\n      }\r\n      height {\r\n        ...DimensionFields\r\n      }\r\n      depth {\r\n        ...DimensionFields\r\n      }\r\n    }\r\n  }\r\n}\r\nfragment PriceFields on Money {\r\n  value\r\n  currencyCode\r\n}\r\nfragment DimensionFields on Measurement {\r\n  value\r\n  unit\r\n}",
+            query: "query VariantById {\r\n  site {\r\n    product(variantEntityId: 82) {\r\n      name\r\n      sku\r\n      defaultImage {\r\n        url(width: 500, height: 500)\r\n      }\r\n      prices {\r\n        price {\r\n          ...PriceFields\r\n        }\r\n        salePrice {\r\n          ...PriceFields\r\n        }\r\n        retailPrice {\r\n          ...PriceFields\r\n        }\r\n      }\r\n      width {\r\n        ...DimensionFields\r\n      }\r\n      height {\r\n        ...DimensionFields\r\n      }\r\n      depth {\r\n        ...DimensionFields\r\n      }\r\n    }\r\n  }\r\n}\r\nfragment PriceFields on Money {\r\n  value\r\n  currencyCode\r\n}\r\nfragment DimensionFields on Measurement {\r\n  value\r\n  unit\r\n}",
             headers: {
                 Authorization: authHeader
             },
@@ -70,7 +70,7 @@ var playgroundTabs = function(endpoint, authHeader){
         productOptions: {
             name: "Product Option Details by Product ID",
             endpoint: endpoint,
-            query: "query SeveralProductsByID {\r\n  site {\r\n    products(entityIds: [1, 2, 3]) {\r\n      edges {\r\n        node {\r\n          name\r\n          options {\r\n            edges {\r\n              node {\r\n                entityId\r\n                displayName\r\n                isRequired\r\n                values {\r\n                  edges {\r\n                    node {\r\n                      entityId\r\n                      label\r\n                    }\r\n                  }\r\n                }\r\n              }\r\n            }\r\n          }\r\n        }\r\n      }\r\n    }\r\n  }\r\n}",
+            query: "query SeveralProductsByID {\r\n  site {\r\n    products(entityIds: [80, 81, 82]) {\r\n      edges {\r\n        node {\r\n          name\r\n          options {\r\n            edges {\r\n              node {\r\n                entityId\r\n                displayName\r\n                isRequired\r\n                values {\r\n                  edges {\r\n                    node {\r\n                      entityId\r\n                      label\r\n                    }\r\n                  }\r\n                }\r\n              }\r\n            }\r\n          }\r\n        }\r\n      }\r\n    }\r\n  }\r\n}",
             headers: {
                 Authorization: authHeader
             },

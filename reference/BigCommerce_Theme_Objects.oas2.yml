@@ -1,0 +1,3518 @@
+{
+  "swagger": "2.0",
+  "info": {
+    "title": "Theme Objects",
+    "version": "",
+    "description": "The definitions in this specification file serve as a reference for various theme .json, JavaScript, and handlebars objects. For example, the `config.json` model describes the keys and values used in a theme's `config.json/` file (the main configuration for stencil themes). "
+  },
+  "paths": {},
+  "definitions": {
+    "config.json": {
+      "type": "object",
+      "minProperties": 0,
+      "properties": {
+        "name": {
+          "type": "string",
+          "example": "Starlight",
+          "description": "The theme name"
+        },
+        "version": {
+          "type": "string",
+          "example": "\"2.6.0\"",
+          "description": "The theme's version number"
+        },
+        "meta": {
+          "type": "object",
+          "description": "BigCommerce will use this metadata to list themes in Theme Marketplace",
+          "required": [
+            "price",
+            "documentation_url",
+            "author_name",
+            "author_email",
+            "author_support_url",
+            "composed_image",
+            "features"
+          ],
+          "properties": {
+            "price": {
+              "type": "integer",
+              "example": 15000,
+              "description": "Price, in cents, to purchase this theme in Theme Marketplace."
+            },
+            "documentation_url": {
+              "type": "string",
+              "example": "\"https://support.bigcommerce.com/articles/Public/Cornerstone-Theme-Manual\"",
+              "description": "URL of the theme's developer documentation."
+            },
+            "author_name": {
+              "type": "string",
+              "example": "eCommerce Themes, Inc.",
+              "description": "Name of the developer or partner creating the theme."
+            },
+            "author_email": {
+              "type": "string",
+              "description": "Contact email address for the developer or partner creating the theme.",
+              "example": "\"contact@thethemecollective.com\""
+            },
+            "author_support_url": {
+              "type": "string",
+              "example": "\"support@thethemecollective.com\"",
+              "description": "Support URL for the developer or partner creating the theme."
+            },
+            "composed_image": {
+              "type": "string",
+              "example": "\"starlight_mosaic.png\"",
+              "description": "File name for a composed/mosaic screenshot of all variations of the theme, to appear on the \"My Themes\" page of purchased themes. The file-name value is arbitrary, but it must match the name of a file located in the `theme‑name/meta/` subdirectory.\n\nThe actual file’s resolution must be 600 x 760 pixels (horizontal x vertical)."
+            },
+            "features": {
+              "type": "array",
+              "example": [
+                "fully_responsive",
+                "mega_navigation",
+                "multi_tiered_sidebar_menu",
+                "masonry_design",
+                "frontpage_slideshow",
+                "quick_add_to_cart",
+                "switchable_product_view",
+                "product_comparison_table",
+                "complex_search_filtering",
+                "customizable_product_selector",
+                "cart_suggested_products",
+                "free_customer_support",
+                "free_theme_upgrades",
+                "high_res_product_images",
+                "product_filtering",
+                "advanced_quick_view",
+                "product_showcase",
+                "persistent_cart",
+                "one_page_check_out",
+                "customized_check_out",
+                "product_videos"
+              ],
+              "description": "This should be an array of exact feature names supported in the theme. The \"Default/Examples\"column lists the complete namespace. At least one of the values listed there must be present.\nThese values are used as metadata for Theme Marketplace searches. \nThe `\"customized_check_out\"` value has a second function: It must be present if you want to enable [Optimized One-Page Checkout](https://support.bigcommerce.com/articles/Public/Optimized-Single-Page-Checkout) for your theme.</td>",
+              "items": {
+                "type": "string"
+              }
+            }
+          }
+        },
+        "css_compiler": {
+          "type": "string",
+          "example": "\"scss\"",
+          "default": "SCSS",
+          "description": "Name of the theme's CSS preprocessor."
+        },
+        "autoprefixer_cascade": {
+          "type": "boolean",
+          "description": "Denotes whether to enable the Autoprefixer CSS postprocessor in order to add vendor prefixes to CSS rules.",
+          "example": true
+        },
+        "autoprefixer_browsers": {
+          "type": "array",
+          "example": [
+            "> 1%",
+            "last 2 versions",
+            "Firefox ESR"
+          ],
+          "description": "Which legacy browsers [Autoprefixer](https://github.com/postcss/autoprefixer) should support, specified in [Browserslist](https://github.com/ai/browserslist) query format.",
+          "items": {
+            "type": "string"
+          }
+        },
+        "settings": {
+          "type": "object",
+          "description": "Display-oriented key names and values that you can arbitrarily set for your theme. Handlebars accesses the combined settings as the context variable `{{theme_settings}}`.\n      \nTheme variations also have their own `settings` sections. Values that you set at the variation level will override global values that you set here (for corresponding key names and within the scope of that variation).\n\nIf you want to create a custom variable to use in Handlebars, either add it within this theme-level `settings` section, or add it down in a variation-level `settings` section.\n\nYou would access your arbitrarily named custom variable in Handlebars as `{{theme_settings.<variablename>}}`.\n\nHere is an example of a custom variable in the default theme’s `config.json`:\n\n`\"settings\": { \"homepage_featured_products_count\": 6,\n}`\n\nHere is the corresponding front matter in `home.html` that calls this variable. (Note that this is pure YAML – the `{{...}}` used to reference `config.json` variables within pages’ front matter **do not** constitute a Handlebars statement)\n\n```\n\nproducts:\n  featured:\n      limit: {{theme_settings.homepage_featured_products_count}}\n\n```",
+          "properties": {
+            "homepage_new_products_count": {
+              "type": "integer",
+              "example": 12,
+              "description": "Number of products to include in home page’s New Products section."
+            },
+            "homepage_featured_products_count": {
+              "type": "integer",
+              "description": "Number of products to include in home page’s Featured Products section.",
+              "example": 4
+            },
+            "homepage_top_products_count": {
+              "type": "integer",
+              "description": "Number of products to include in home page’s Top Products section.",
+              "example": 4
+            },
+            "homepage_show_carousel": {
+              "type": "boolean",
+              "example": true,
+              "description": "Defines whether to display an image carousel on the home page."
+            },
+            "homepage_stretch_carousel_images": {
+              "type": "boolean",
+              "example": false
+            },
+            "homepage_new_products_column_count": {
+              "type": "integer",
+              "example": 4,
+              "description": "Number of New Products columns to include on the home-page."
+            },
+            "homepage_featured_products_column_count": {
+              "type": "integer",
+              "description": "Number of Featured Products columns to include on the home-page.",
+              "example": 3
+            },
+            "homepage_top_products_column_count": {
+              "type": "integer",
+              "description": "Number of Top Products columns to include on the home-page.",
+              "example": 3
+            },
+            "homepage_blog_posts_count": {
+              "type": "integer",
+              "example": 3
+            },
+            "productpage_videos_count": {
+              "type": "integer",
+              "example": 8
+            },
+            "productpage_reviews_count": {
+              "type": "integer",
+              "example": 9
+            },
+            "productpage_related_products_count": {
+              "type": "integer",
+              "example": 10
+            },
+            "productpage_similar_by_views_count": {
+              "type": "integer",
+              "example": 10
+            },
+            "categorypage_products_per_page": {
+              "type": "integer",
+              "example": 12
+            },
+            "shop_by_price_visibility": {
+              "type": "boolean",
+              "example": true
+            },
+            "brandpage_products_per_page": {
+              "type": "integer",
+              "example": 12
+            },
+            "searchpage_products_per_page": {
+              "type": "integer",
+              "example": 12
+            },
+            "show_product_quick_view": {
+              "type": "boolean",
+              "example": true
+            },
+            "show_powered_by": {
+              "type": "boolean",
+              "example": true
+            },
+            "shop_by_brand_show_footer": {
+              "type": "boolean",
+              "example": true
+            },
+            "show_copyright_footer": {
+              "type": "boolean",
+              "example": true
+            },
+            "show_accept_amex": {
+              "type": "boolean",
+              "example": true
+            },
+            "show_accept_discover": {
+              "type": "boolean",
+              "example": true
+            },
+            "show_accept_mastercard": {
+              "type": "boolean",
+              "example": true
+            },
+            "show_accept_paypal": {
+              "type": "boolean",
+              "example": true
+            },
+            "show_accept_visa": {
+              "type": "boolean",
+              "example": true
+            },
+            "show_product_details_tabs": {
+              "type": "boolean"
+            },
+            "show_product_reviews_tabs": {
+              "type": "boolean"
+            },
+            "show_product_weight": {
+              "type": "boolean"
+            },
+            "show_product_dimensions": {
+              "type": "boolean"
+            },
+            "product_list_display_mode": {
+              "type": "string"
+            },
+            "logo-position": {
+              "type": "string"
+            },
+            "logo_size": {
+              "type": "string"
+            },
+            "logo_fontSize": {
+              "type": "integer"
+            },
+            "logo-font": {
+              "type": "string"
+            },
+            "brand_size": {
+              "type": "string"
+            },
+            "gallery_size": {
+              "type": "string"
+            },
+            "productgallery_size": {
+              "type": "string"
+            },
+            "product_size": {
+              "type": "string"
+            },
+            "productview_thumb_size": {
+              "type": "string"
+            },
+            "productthumb_size": {
+              "type": "string"
+            },
+            "thumb_size": {
+              "type": "string"
+            },
+            "zoom_size": {
+              "type": "string"
+            },
+            "blog_size": {
+              "type": "string"
+            },
+            "default_image_brand": {
+              "type": "string"
+            },
+            "default_image_product": {
+              "type": "string"
+            },
+            "default_image_gift_certificate": {
+              "type": "string"
+            },
+            "body-font": {
+              "type": "string"
+            },
+            "headings-font": {
+              "type": "string"
+            },
+            "fontSize-root": {
+              "type": "integer"
+            },
+            "fontSize-h1": {
+              "type": "integer"
+            },
+            "fontSize-h2": {
+              "type": "integer"
+            },
+            "fontSize-h3": {
+              "type": "integer"
+            },
+            "fontSize-h4": {
+              "type": "integer"
+            },
+            "fontSize-h5": {
+              "type": "integer"
+            },
+            "fontSize-h6": {
+              "type": "integer"
+            },
+            "applePay-button": {
+              "type": "string"
+            },
+            "color-textBase": {
+              "type": "string"
+            },
+            "color-textBase--hover": {
+              "type": "string"
+            },
+            "color-textBase--active": {
+              "type": "string"
+            },
+            "color-textSecondary": {
+              "type": "string"
+            },
+            "color-textSecondary--hover": {
+              "type": "string"
+            },
+            "color-textSecondary--active": {
+              "type": "string"
+            },
+            "color-textLink": {
+              "type": "string"
+            },
+            "color-textLink--hover": {
+              "type": "string"
+            },
+            "color-textLink--active": {
+              "type": "string"
+            },
+            "color-textHeading": {
+              "type": "string"
+            },
+            "color-primary": {
+              "type": "string"
+            },
+            "color-primaryDark": {
+              "type": "string"
+            },
+            "color-primaryDarker": {
+              "type": "string"
+            },
+            "color-primaryLight": {
+              "type": "string"
+            },
+            "color-secondary": {
+              "type": "string"
+            },
+            "color-secondaryDark": {
+              "type": "string"
+            },
+            "color-secondaryDarker": {
+              "type": "string"
+            },
+            "color-error": {
+              "type": "string"
+            },
+            "color-errorLight": {
+              "type": "string"
+            },
+            "color-info": {
+              "type": "string"
+            },
+            "color-infoLight": {
+              "type": "string"
+            },
+            "color-success": {
+              "type": "string"
+            },
+            "color-successLight": {
+              "type": "string"
+            },
+            "color-warning": {
+              "type": "string"
+            },
+            "color-warningLight": {
+              "type": "string"
+            },
+            "color-black": {
+              "type": "string"
+            },
+            "color-white": {
+              "type": "string"
+            },
+            "color-whitesBase": {
+              "type": "string"
+            },
+            "color-grey": {
+              "type": "string"
+            },
+            "color-greyDarkest": {
+              "type": "string"
+            },
+            "color-greyDarker": {
+              "type": "string"
+            },
+            "color-greyDark": {
+              "type": "string"
+            },
+            "color-greyMedium": {
+              "type": "string"
+            },
+            "color-greyLight": {
+              "type": "string"
+            },
+            "color-greyLighter": {
+              "type": "string"
+            },
+            "color-greyLightest": {
+              "type": "string"
+            },
+            "button--default-color": {
+              "type": "string"
+            },
+            "button--default-colorHover": {
+              "type": "string"
+            },
+            "button--default-colorActive": {
+              "type": "string"
+            },
+            "button--default-borderColor": {
+              "type": "string"
+            },
+            "button--default-borderColorHover": {
+              "type": "string"
+            },
+            "button--default-borderColorActive": {
+              "type": "string"
+            },
+            "button--primary-color": {
+              "type": "string"
+            },
+            "button--primary-colorHover": {
+              "type": "string"
+            },
+            "button--primary-colorActive": {
+              "type": "string"
+            },
+            "button--primary-backgroundColor": {
+              "type": "string"
+            },
+            "button--primary-backgroundColorHover": {
+              "type": "string"
+            },
+            "button--primary-backgroundColorActive": {
+              "type": "string"
+            },
+            "button--disabled-color": {
+              "type": "string"
+            },
+            "button--disabled-backgroundColor": {
+              "type": "string"
+            },
+            "button--disabled-borderColor": {
+              "type": "string"
+            },
+            "icon-color": {
+              "type": "string"
+            },
+            "icon-color-hover": {
+              "type": "string"
+            },
+            "button--icon-svg-color": {
+              "type": "string"
+            },
+            "icon-ratingEmpty": {
+              "type": "string"
+            },
+            "icon-ratingFull": {
+              "type": "string"
+            },
+            "carousel-bgColor": {
+              "type": "string"
+            },
+            "carousel-title-color": {
+              "type": "string"
+            },
+            "carousel-description-color": {
+              "type": "string"
+            },
+            "carousel-dot-color": {
+              "type": "string"
+            },
+            "carousel-dot-color-active": {
+              "type": "string"
+            },
+            "carousel-dot-bgColor": {
+              "type": "string"
+            },
+            "carousel-arrow-color": {
+              "type": "string"
+            },
+            "carousel-arrow-bgColor": {
+              "type": "string"
+            },
+            "carousel-arrow-borderColor": {
+              "type": "string"
+            },
+            "card-title-color": {
+              "type": "string"
+            },
+            "card-title-color-hover": {
+              "type": "string"
+            },
+            "card-figcaption-button-background": {
+              "type": "string"
+            },
+            "card-figcaption-button-color": {
+              "type": "string"
+            },
+            "card--alternate-backgroundColor": {
+              "type": "string"
+            },
+            "card--alternate-borderColor": {
+              "type": "string"
+            },
+            "card--alternate-color--hover": {
+              "type": "string"
+            },
+            "form-label-font-color": {
+              "type": "string"
+            },
+            "input-font-color": {
+              "type": "string"
+            },
+            "input-border-color": {
+              "type": "string"
+            },
+            "input-border-color-active": {
+              "type": "string"
+            },
+            "input-bg-color": {
+              "type": "string"
+            },
+            "input-disabled-bg": {
+              "type": "string"
+            },
+            "select-bg-color": {
+              "type": "string"
+            },
+            "select-arrow-color": {
+              "type": "string"
+            },
+            "checkRadio-color": {
+              "type": "string"
+            },
+            "checkRadio-backgroundColor": {
+              "type": "string"
+            },
+            "checkRadio-borderColor": {
+              "type": "string"
+            },
+            "alert-backgroundColor": {
+              "type": "string"
+            },
+            "alert-color": {
+              "type": "string"
+            },
+            "alert-color-alt": {
+              "type": "string"
+            },
+            "storeName-color": {
+              "type": "string"
+            },
+            "body-bg": {
+              "type": "string"
+            },
+            "header-backgroundColor": {
+              "type": "string"
+            },
+            "footer-backgroundColor": {
+              "type": "string"
+            },
+            "navUser-color": {
+              "type": "string"
+            },
+            "navUser-color-hover": {
+              "type": "string"
+            },
+            "navUser-dropdown-backgroundColor": {
+              "type": "string"
+            },
+            "navUser-dropdown-borderColor": {
+              "type": "string"
+            },
+            "navUser-indicator-backgroundColor": {
+              "type": "string"
+            },
+            "navPages-color": {
+              "type": "string"
+            },
+            "navPages-color-hover": {
+              "type": "string"
+            },
+            "navPages-subMenu-backgroundColor": {
+              "type": "string"
+            },
+            "navPages-subMenu-separatorColor": {
+              "type": "string"
+            },
+            "dropdown--quickSearch-backgroundColor": {
+              "type": "string"
+            },
+            "dropdown--wishList-backgroundColor": {
+              "type": "string"
+            },
+            "blockquote-cite-font-color": {
+              "type": "string"
+            },
+            "container-border-global-color-base": {
+              "type": "string"
+            },
+            "container-fill-base": {
+              "type": "string"
+            },
+            "container-fill-dark": {
+              "type": "string"
+            },
+            "label-backgroundColor": {
+              "type": "string"
+            },
+            "label-color": {
+              "type": "string"
+            },
+            "overlay-backgroundColor": {
+              "type": "string"
+            },
+            "loadingOverlay-backgroundColor": {
+              "type": "string"
+            },
+            "pace-progress-backgroundColor": {
+              "type": "string"
+            },
+            "spinner-borderColor-dark": {
+              "type": "string"
+            },
+            "spinner-borderColor-light": {
+              "type": "string"
+            },
+            "hide_content_navigation": {
+              "type": "boolean"
+            },
+            "optimizedCheckout-header-backgroundColor": {
+              "type": "string"
+            },
+            "optimizedCheckout-show-backgroundImage": {
+              "type": "boolean"
+            },
+            "optimizedCheckout-backgroundImage": {
+              "type": "string"
+            },
+            "optimizedCheckout-backgroundImage-size": {
+              "type": "string"
+            },
+            "optimizedCheckout-show-logo": {
+              "type": "string"
+            },
+            "optimizedCheckout-logo": {
+              "type": "string"
+            },
+            "optimizedCheckout-logo-size": {
+              "type": "string"
+            },
+            "optimizedCheckout-logo-position": {
+              "type": "string"
+            },
+            "optimizedCheckout-headingPrimary-color": {
+              "type": "string"
+            },
+            "optimizedCheckout-headingPrimary-font": {
+              "type": "string"
+            },
+            "optimizedCheckout-headingSecondary-color": {
+              "type": "string"
+            },
+            "optimizedCheckout-headingSecondary-font": {
+              "type": "string"
+            },
+            "optimizedCheckout-body-backgroundColor": {
+              "type": "string"
+            },
+            "optimizedCheckout-colorFocus": {
+              "type": "string"
+            },
+            "optimizedCheckout-contentPrimary-color": {
+              "type": "string"
+            },
+            "optimizedCheckout-contentPrimary-font": {
+              "type": "string"
+            },
+            "optimizedCheckout-contentSecondary-color": {
+              "type": "string"
+            },
+            "optimizedCheckout-contentSecondary-font": {
+              "type": "string"
+            },
+            "optimizedCheckout-buttonPrimary-font": {
+              "type": "string"
+            },
+            "optimizedCheckout-buttonPrimary-color": {
+              "type": "string"
+            },
+            "optimizedCheckout-buttonPrimary-colorHover": {
+              "type": "string"
+            },
+            "optimizedCheckout-buttonPrimary-colorActive": {
+              "type": "string"
+            },
+            "optimizedCheckout-buttonPrimary-backgroundColor": {
+              "type": "string"
+            },
+            "optimizedCheckout-buttonPrimary-backgroundColorHover": {
+              "type": "string"
+            },
+            "optimizedCheckout-buttonPrimary-backgroundColorActive": {
+              "type": "string"
+            },
+            "optimizedCheckout-buttonPrimary-borderColor": {
+              "type": "string"
+            },
+            "optimizedCheckout-buttonPrimary-borderColorHover": {
+              "type": "string"
+            },
+            "optimizedCheckout-buttonPrimary-borderColorActive": {
+              "type": "string"
+            },
+            "optimizedCheckout-buttonPrimary-borderColorDisabled": {
+              "type": "string"
+            },
+            "optimizedCheckout-buttonPrimary-backgroundColorDisabled": {
+              "type": "string"
+            },
+            "optimizedCheckout-buttonPrimary-colorDisabled": {
+              "type": "string"
+            },
+            "optimizedCheckout-formChecklist-backgroundColor": {
+              "type": "string"
+            },
+            "optimizedCheckout-formChecklist-color": {
+              "type": "string"
+            },
+            "optimizedCheckout-formChecklist-borderColor": {
+              "type": "string"
+            },
+            "optimizedCheckout-formChecklist-backgroundColorSelected": {
+              "type": "string"
+            },
+            "optimizedCheckout-buttonSecondary-font": {
+              "type": "string"
+            },
+            "optimizedCheckout-buttonSecondary-color": {
+              "type": "string"
+            },
+            "optimizedCheckout-buttonSecondary-colorHover": {
+              "type": "string"
+            },
+            "optimizedCheckout-buttonSecondary-colorActive": {
+              "type": "string"
+            },
+            "optimizedCheckout-buttonSecondary-backgroundColor": {
+              "type": "string"
+            },
+            "optimizedCheckout-buttonSecondary-borderColor": {
+              "type": "string"
+            },
+            "optimizedCheckout-buttonSecondary-backgroundColorHover": {
+              "type": "string"
+            },
+            "optimizedCheckout-buttonSecondary-backgroundColorActive": {
+              "type": "string"
+            },
+            "optimizedCheckout-buttonSecondary-borderColorHover": {
+              "type": "string"
+            },
+            "optimizedCheckout-buttonSecondary-borderColorActive": {
+              "type": "string"
+            },
+            "optimizedCheckout-link-color": {
+              "type": "string"
+            },
+            "optimizedCheckout-link-font": {
+              "type": "string"
+            },
+            "optimizedCheckout-discountBanner-backgroundColor": {
+              "type": "string"
+            },
+            "optimizedCheckout-discountBanner-textColor": {
+              "type": "string"
+            },
+            "optimizedCheckout-discountBanner-iconColor": {
+              "type": "string"
+            },
+            "optimizedCheckout-orderSummary-backgroundColor": {
+              "type": "string"
+            },
+            "optimizedCheckout-orderSummary-borderColor": {
+              "type": "string"
+            },
+            "optimizedCheckout-step-backgroundColor": {
+              "type": "string"
+            },
+            "optimizedCheckout-step-textColor": {
+              "type": "string"
+            },
+            "optimizedCheckout-form-textColor": {
+              "type": "string"
+            },
+            "optimizedCheckout-formField-borderColor": {
+              "type": "string"
+            },
+            "optimizedCheckout-formField-textColor": {
+              "type": "string"
+            },
+            "optimizedCheckout-formField-shadowColor": {
+              "type": "string"
+            },
+            "optimizedCheckout-formField-placeholderColor": {
+              "type": "string"
+            },
+            "optimizedCheckout-formField-backgroundColor": {
+              "type": "string"
+            },
+            "optimizedCheckout-formField-errorColor": {
+              "type": "string"
+            },
+            "optimizedCheckout-formField-inputControlColor": {
+              "type": "string"
+            },
+            "optimizedCheckout-step-borderColor": {
+              "type": "string"
+            },
+            "optimizedCheckout-header-borderColor": {
+              "type": "string"
+            },
+            "optimizedCheckout-header-textColor": {
+              "type": "string"
+            },
+            "optimizedCheckout-loadingToaster-backgroundColor": {
+              "type": "string"
+            },
+            "optimizedCheckout-loadingToaster-textColor": {
+              "type": "string"
+            },
+            "optimizedCheckout-link-hoverColor": {
+              "type": "string"
+            },
+            "product_sale_badges": {
+              "type": "string"
+            },
+            "color_badge_product_sale_badges": {
+              "type": "string"
+            },
+            "color_text_product_sale_badges": {
+              "type": "string"
+            },
+            "color_hover_product_sale_badges": {
+              "type": "string"
+            },
+            "restrict_to_login": {
+              "type": "boolean"
+            },
+            "swatch_option_size": {
+              "type": "string"
+            },
+            "social_icon_placement_top": {
+              "type": "boolean"
+            },
+            "social_icon_placement_bottom": {
+              "type": "string"
+            },
+            "geotrust_ssl_common_name": {
+              "type": "string"
+            },
+            "geotrust_ssl_seal_size": {
+              "type": "string"
+            },
+            "navigation_design": {
+              "type": "string"
+            },
+            "price_ranges": {
+              "type": "boolean"
+            },
+            "pdp-price-label": {
+              "type": "string"
+            },
+            "pdp-sale-price-label": {
+              "type": "string"
+            },
+            "pdp-non-sale-price-label": {
+              "type": "string"
+            },
+            "pdp-retail-price-label": {
+              "type": "string"
+            }
+          }
+        },
+        "read_only_files": {
+          "type": "array",
+          "items": {
+            "type": "string"
+          }
+        },
+        "resources": {
+          "type": "object",
+          "properties": {
+            "cart": {
+              "type": "boolean"
+            },
+            "bulk_discount_rates": {
+              "type": "boolean"
+            },
+            "shop_by_brand": {
+              "type": "object",
+              "properties": {
+                "limit": {
+                  "type": "integer"
+                }
+              }
+            }
+          }
+        },
+        "variations": {
+          "type": "array",
+          "items": {
+            "type": "object",
+            "properties": {
+              "name": {
+                "type": "string"
+              },
+              "id": {
+                "type": "string"
+              },
+              "meta": {
+                "type": "object",
+                "properties": {
+                  "desktop_screenshot": {
+                    "type": "string"
+                  },
+                  "mobile_screenshot": {
+                    "type": "string"
+                  },
+                  "description": {
+                    "type": "string"
+                  },
+                  "demo_url": {
+                    "type": "string"
+                  },
+                  "optimized_for": {
+                    "type": "array",
+                    "enum": [
+                      "arts_crafts",
+                      "animals_pets",
+                      "automotive_industrial",
+                      "electronics_computers",
+                      "fashion_jewelry",
+                      "food_beverage",
+                      "gifts_specialty",
+                      "health_beauty",
+                      "home_garden",
+                      "books_entertainment",
+                      "sports_recreation",
+                      "toys_games",
+                      "multi_purpose",
+                      "chrome_firefox_safari_ie_10",
+                      "mobile_tablet_desktop",
+                      "sales_discounts",
+                      "wholesale",
+                      "single_product",
+                      "large_catalog",
+                      "mobile",
+                      "clothing",
+                      "cosmetics",
+                      "home_appliances",
+                      "home_furnishings",
+                      "movies",
+                      "music",
+                      "digital_downloads",
+                      "outdoor_sports",
+                      "hunting_fishing",
+                      "video_games"
+                    ],
+                    "items": {
+                      "type": "string"
+                    }
+                  },
+                  "industries": {
+                    "type": "array",
+                    "enum": [
+                      "arts_crafts",
+                      "animals_pets",
+                      "automotive_industrial",
+                      "electronics_computers",
+                      "fashion_jewelry",
+                      "food_beverage",
+                      "gifts_specialty",
+                      "health_beauty",
+                      "home_garden",
+                      "books_entertainment",
+                      "sports_recreation",
+                      "toys_games"
+                    ],
+                    "items": {
+                      "type": "string"
+                    }
+                  }
+                },
+                "required": [
+                  "desktop_screenshot",
+                  "mobile_screenshot",
+                  "description",
+                  "demo_url",
+                  "optimized_for"
+                ]
+              },
+              "images": {
+                "type": "object"
+              },
+              "settings": {
+                "type": "object",
+                "properties": {
+                  "homepage_featured_products_count": {
+                    "type": "integer"
+                  },
+                  "homepage_featured_products_column_count": {
+                    "type": "integer"
+                  },
+                  "body-font": {
+                    "type": "string"
+                  },
+                  "headings-font": {
+                    "type": "string"
+                  },
+                  "color-textBase": {
+                    "type": "string"
+                  },
+                  "color-textBase--hover": {
+                    "type": "string"
+                  },
+                  "color-textBase--active": {
+                    "type": "string"
+                  },
+                  "color-textSecondary": {
+                    "type": "string"
+                  },
+                  "color-textSecondary--hover": {
+                    "type": "string"
+                  },
+                  "color-textSecondary--active": {
+                    "type": "string"
+                  },
+                  "color-textLink": {
+                    "type": "string"
+                  },
+                  "color-textLink--hover": {
+                    "type": "string"
+                  },
+                  "color-textLink--active": {
+                    "type": "string"
+                  },
+                  "color-textHeading": {
+                    "type": "string"
+                  },
+                  "color-primary": {
+                    "type": "string"
+                  },
+                  "color-primaryDark": {
+                    "type": "string"
+                  },
+                  "color-primaryDarker": {
+                    "type": "string"
+                  },
+                  "color-primaryLight": {
+                    "type": "string"
+                  },
+                  "color-secondary": {
+                    "type": "string"
+                  },
+                  "color-secondaryDark": {
+                    "type": "string"
+                  },
+                  "color-secondaryDarker": {
+                    "type": "string"
+                  },
+                  "color-error": {
+                    "type": "string"
+                  },
+                  "color-errorLight": {
+                    "type": "string"
+                  },
+                  "color-info": {
+                    "type": "string"
+                  },
+                  "color-infoLight": {
+                    "type": "string"
+                  },
+                  "color-success": {
+                    "type": "string"
+                  },
+                  "color-successLight": {
+                    "type": "string"
+                  },
+                  "color-warning": {
+                    "type": "string"
+                  },
+                  "color-warningLight": {
+                    "type": "string"
+                  },
+                  "color-black": {
+                    "type": "string"
+                  },
+                  "color-white": {
+                    "type": "string"
+                  },
+                  "color-whitesBase": {
+                    "type": "string"
+                  },
+                  "color-grey": {
+                    "type": "string"
+                  },
+                  "color-greyDarkest": {
+                    "type": "string"
+                  },
+                  "color-greyDarker": {
+                    "type": "string"
+                  },
+                  "color-greyDark": {
+                    "type": "string"
+                  },
+                  "color-greyMedium": {
+                    "type": "string"
+                  },
+                  "color-greyLight": {
+                    "type": "string"
+                  },
+                  "color-greyLighter": {
+                    "type": "string"
+                  },
+                  "color-greyLightest": {
+                    "type": "string"
+                  },
+                  "button--default-color": {
+                    "type": "string"
+                  },
+                  "button--default-colorHover": {
+                    "type": "string"
+                  },
+                  "button--default-colorActive": {
+                    "type": "string"
+                  },
+                  "button--default-borderColor": {
+                    "type": "string"
+                  },
+                  "button--default-borderColorHover": {
+                    "type": "string"
+                  },
+                  "button--default-borderColorActive": {
+                    "type": "string"
+                  },
+                  "button--primary-color": {
+                    "type": "string"
+                  },
+                  "button--primary-colorHover": {
+                    "type": "string"
+                  },
+                  "button--primary-colorActive": {
+                    "type": "string"
+                  },
+                  "button--primary-backgroundColor": {
+                    "type": "string"
+                  },
+                  "button--primary-backgroundColorHover": {
+                    "type": "string"
+                  },
+                  "button--primary-backgroundColorActive": {
+                    "type": "string"
+                  },
+                  "button--disabled-color": {
+                    "type": "string"
+                  },
+                  "button--disabled-backgroundColor": {
+                    "type": "string"
+                  },
+                  "button--disabled-borderColor": {
+                    "type": "string"
+                  },
+                  "icon-color": {
+                    "type": "string"
+                  },
+                  "icon-color-hover": {
+                    "type": "string"
+                  },
+                  "button--icon-svg-color": {
+                    "type": "string"
+                  },
+                  "icon-ratingEmpty": {
+                    "type": "string"
+                  },
+                  "icon-ratingFull": {
+                    "type": "string"
+                  },
+                  "carousel-bgColor": {
+                    "type": "string"
+                  },
+                  "carousel-title-color": {
+                    "type": "string"
+                  },
+                  "carousel-description-color": {
+                    "type": "string"
+                  },
+                  "carousel-dot-color": {
+                    "type": "string"
+                  },
+                  "carousel-dot-color-active": {
+                    "type": "string"
+                  },
+                  "carousel-dot-bgColor": {
+                    "type": "string"
+                  },
+                  "carousel-arrow-color": {
+                    "type": "string"
+                  },
+                  "carousel-arrow-bgColor": {
+                    "type": "string"
+                  },
+                  "carousel-arrow-borderColor": {
+                    "type": "string"
+                  },
+                  "card-title-color": {
+                    "type": "string"
+                  },
+                  "card-title-color-hover": {
+                    "type": "string"
+                  },
+                  "card-figcaption-button-background": {
+                    "type": "string"
+                  },
+                  "card-figcaption-button-color": {
+                    "type": "string"
+                  },
+                  "card--alternate-backgroundColor": {
+                    "type": "string"
+                  },
+                  "card--alternate-borderColor": {
+                    "type": "string"
+                  },
+                  "card--alternate-color--hover": {
+                    "type": "string"
+                  },
+                  "form-label-font-color": {
+                    "type": "string"
+                  },
+                  "input-font-color": {
+                    "type": "string"
+                  },
+                  "input-border-color": {
+                    "type": "string"
+                  },
+                  "input-border-color-active": {
+                    "type": "string"
+                  },
+                  "input-bg-color": {
+                    "type": "string"
+                  },
+                  "input-disabled-bg": {
+                    "type": "string"
+                  },
+                  "select-bg-color": {
+                    "type": "string"
+                  },
+                  "select-arrow-color": {
+                    "type": "string"
+                  },
+                  "checkRadio-color": {
+                    "type": "string"
+                  },
+                  "checkRadio-backgroundColor": {
+                    "type": "string"
+                  },
+                  "checkRadio-borderColor": {
+                    "type": "string"
+                  },
+                  "alert-backgroundColor": {
+                    "type": "string"
+                  },
+                  "alert-color": {
+                    "type": "string"
+                  },
+                  "alert-color-alt": {
+                    "type": "string"
+                  },
+                  "storeName-color": {
+                    "type": "string"
+                  },
+                  "body-bg": {
+                    "type": "string"
+                  },
+                  "header-backgroundColor": {
+                    "type": "string"
+                  },
+                  "footer-backgroundColor": {
+                    "type": "string"
+                  },
+                  "navUser-color": {
+                    "type": "string"
+                  },
+                  "navUser-color-hover": {
+                    "type": "string"
+                  },
+                  "navUser-dropdown-backgroundColor": {
+                    "type": "string"
+                  },
+                  "navUser-dropdown-borderColor": {
+                    "type": "string"
+                  },
+                  "navUser-indicator-backgroundColor": {
+                    "type": "string"
+                  },
+                  "navPages-color": {
+                    "type": "string"
+                  },
+                  "navPages-color-hover": {
+                    "type": "string"
+                  },
+                  "navPages-subMenu-backgroundColor": {
+                    "type": "string"
+                  },
+                  "navPages-subMenu-separatorColor": {
+                    "type": "string"
+                  },
+                  "dropdown--quickSearch-backgroundColor": {
+                    "type": "string"
+                  },
+                  "dropdown--wishList-backgroundColor": {
+                    "type": "string"
+                  },
+                  "blockquote-cite-font-color": {
+                    "type": "string"
+                  },
+                  "container-border-global-color-base": {
+                    "type": "string"
+                  },
+                  "container-fill-base": {
+                    "type": "string"
+                  },
+                  "container-fill-dark": {
+                    "type": "string"
+                  },
+                  "label-backgroundColor": {
+                    "type": "string"
+                  },
+                  "label-color": {
+                    "type": "string"
+                  },
+                  "overlay-backgroundColor": {
+                    "type": "string"
+                  },
+                  "loadingOverlay-backgroundColor": {
+                    "type": "string"
+                  },
+                  "pace-progress-backgroundColor": {
+                    "type": "string"
+                  },
+                  "spinner-borderColor-dark": {
+                    "type": "string"
+                  },
+                  "spinner-borderColor-light": {
+                    "type": "string"
+                  },
+                  "optimizedCheckout-header-backgroundColor": {
+                    "type": "string"
+                  },
+                  "optimizedCheckout-headingPrimary-color": {
+                    "type": "string"
+                  },
+                  "optimizedCheckout-headingPrimary-font": {
+                    "type": "string"
+                  },
+                  "optimizedCheckout-headingSecondary-color": {
+                    "type": "string"
+                  },
+                  "optimizedCheckout-headingSecondary-font": {
+                    "type": "string"
+                  },
+                  "optimizedCheckout-body-backgroundColor": {
+                    "type": "string"
+                  },
+                  "optimizedCheckout-colorFocus": {
+                    "type": "string"
+                  },
+                  "optimizedCheckout-contentPrimary-color": {
+                    "type": "string"
+                  },
+                  "optimizedCheckout-contentPrimary-font": {
+                    "type": "string"
+                  },
+                  "optimizedCheckout-contentSecondary-color": {
+                    "type": "string"
+                  },
+                  "optimizedCheckout-contentSecondary-font": {
+                    "type": "string"
+                  },
+                  "optimizedCheckout-buttonPrimary-font": {
+                    "type": "string"
+                  },
+                  "optimizedCheckout-buttonPrimary-color": {
+                    "type": "string"
+                  },
+                  "optimizedCheckout-buttonPrimary-colorHover": {
+                    "type": "string"
+                  },
+                  "optimizedCheckout-buttonPrimary-colorActive": {
+                    "type": "string"
+                  },
+                  "optimizedCheckout-buttonPrimary-backgroundColor": {
+                    "type": "string"
+                  },
+                  "optimizedCheckout-buttonPrimary-backgroundColorHover": {
+                    "type": "string"
+                  },
+                  "optimizedCheckout-buttonPrimary-backgroundColorActive": {
+                    "type": "string"
+                  },
+                  "optimizedCheckout-buttonPrimary-borderColor": {
+                    "type": "string"
+                  },
+                  "optimizedCheckout-buttonPrimary-borderColorHover": {
+                    "type": "string"
+                  },
+                  "optimizedCheckout-buttonPrimary-borderColorActive": {
+                    "type": "string"
+                  },
+                  "optimizedCheckout-buttonPrimary-borderColorDisabled": {
+                    "type": "string"
+                  },
+                  "optimizedCheckout-buttonPrimary-backgroundColorDisabled": {
+                    "type": "string"
+                  },
+                  "optimizedCheckout-buttonPrimary-colorDisabled": {
+                    "type": "string"
+                  },
+                  "optimizedCheckout-formChecklist-backgroundColor": {
+                    "type": "string"
+                  },
+                  "optimizedCheckout-formChecklist-color": {
+                    "type": "string"
+                  },
+                  "optimizedCheckout-formChecklist-borderColor": {
+                    "type": "string"
+                  },
+                  "optimizedCheckout-formChecklist-backgroundColorSelected": {
+                    "type": "string"
+                  },
+                  "optimizedCheckout-buttonSecondary-font": {
+                    "type": "string"
+                  },
+                  "optimizedCheckout-buttonSecondary-color": {
+                    "type": "string"
+                  },
+                  "optimizedCheckout-buttonSecondary-colorHover": {
+                    "type": "string"
+                  },
+                  "optimizedCheckout-buttonSecondary-colorActive": {
+                    "type": "string"
+                  },
+                  "optimizedCheckout-buttonSecondary-backgroundColor": {
+                    "type": "string"
+                  },
+                  "optimizedCheckout-buttonSecondary-borderColor": {
+                    "type": "string"
+                  },
+                  "optimizedCheckout-buttonSecondary-backgroundColorHover": {
+                    "type": "string"
+                  },
+                  "optimizedCheckout-buttonSecondary-backgroundColorActive": {
+                    "type": "string"
+                  },
+                  "optimizedCheckout-buttonSecondary-borderColorHover": {
+                    "type": "string"
+                  },
+                  "optimizedCheckout-buttonSecondary-borderColorActive": {
+                    "type": "string"
+                  },
+                  "optimizedCheckout-link-color": {
+                    "type": "string"
+                  },
+                  "optimizedCheckout-link-font": {
+                    "type": "string"
+                  },
+                  "optimizedCheckout-discountBanner-backgroundColor": {
+                    "type": "string"
+                  },
+                  "optimizedCheckout-discountBanner-textColor": {
+                    "type": "string"
+                  },
+                  "optimizedCheckout-discountBanner-iconColor": {
+                    "type": "string"
+                  },
+                  "optimizedCheckout-orderSummary-backgroundColor": {
+                    "type": "string"
+                  },
+                  "optimizedCheckout-orderSummary-borderColor": {
+                    "type": "string"
+                  },
+                  "optimizedCheckout-step-backgroundColor": {
+                    "type": "string"
+                  },
+                  "optimizedCheckout-step-textColor": {
+                    "type": "string"
+                  },
+                  "optimizedCheckout-form-textColor": {
+                    "type": "string"
+                  },
+                  "optimizedCheckout-formField-borderColor": {
+                    "type": "string"
+                  },
+                  "optimizedCheckout-formField-textColor": {
+                    "type": "string"
+                  },
+                  "optimizedCheckout-formField-shadowColor": {
+                    "type": "string"
+                  },
+                  "optimizedCheckout-formField-placeholderColor": {
+                    "type": "string"
+                  },
+                  "optimizedCheckout-formField-backgroundColor": {
+                    "type": "string"
+                  },
+                  "optimizedCheckout-formField-errorColor": {
+                    "type": "string"
+                  },
+                  "optimizedCheckout-formField-inputControlColor": {
+                    "type": "string"
+                  },
+                  "optimizedCheckout-step-borderColor": {
+                    "type": "string"
+                  },
+                  "optimizedCheckout-header-borderColor": {
+                    "type": "string"
+                  },
+                  "optimizedCheckout-header-textColor": {
+                    "type": "string"
+                  },
+                  "optimizedCheckout-loadingToaster-backgroundColor": {
+                    "type": "string"
+                  },
+                  "optimizedCheckout-loadingToaster-textColor": {
+                    "type": "string"
+                  },
+                  "optimizedCheckout-link-hoverColor": {
+                    "type": "string"
+                  },
+                  "color_badge_product_sale_badges": {
+                    "type": "string"
+                  },
+                  "color_text_product_sale_badges": {
+                    "type": "string"
+                  },
+                  "color_hover_product_sale_badges": {
+                    "type": "string"
+                  }
+                }
+              }
+            },
+            "required": [
+              "name",
+              "id"
+            ]
+          }
+        }
+      },
+      "required": [
+        "name",
+        "version",
+        "meta",
+        "settings",
+        "variations"
+      ],
+      "description": "The main configuration file for Stencil Themes."
+    },
+    "global_objects": {
+      "type": "object",
+      "description": "Global objects and properties are common components shared across the entire BigCommerce storefront.",
+      "title": "Global Objects",
+      "properties": {
+        "banners": {
+          "type": "object",
+          "description": "Elements of marketing banners at page’s top and/or bottom | Handlebars: {{banner}}, {{{banner}}}",
+          "properties": {
+            "bottom": {
+              "type": "array",
+              "description": "Array of HTML content/strings, for custom bottom-banner content; banners are populated from the BigCommerce control panel",
+              "items": {
+                "type": "object"
+              }
+            },
+            "top": {
+              "type": "array",
+              "description": "\tArray of HTML content/strings, for custom bottom-banner content; banners are populated from the BigCommerce control panel",
+              "items": {
+                "type": "object"
+              }
+            }
+          }
+        },
+        "blog": {
+          "type": "object",
+          "description": "Blog-specific properties for the blog feature within BigCommerce storefronts",
+          "properties": {
+            "name": {
+              "type": "string"
+            },
+            "recent_posts": {
+              "type": "array",
+              "items": {
+                "type": "object",
+                "properties": {
+                  "author": {
+                    "type": "string"
+                  },
+                  "date_published": {
+                    "type": "string"
+                  },
+                  "show_read_more": {
+                    "type": "boolean"
+                  },
+                  "summary": {
+                    "type": "string"
+                  },
+                  "tags": {
+                    "type": "array",
+                    "items": {
+                      "type": "object",
+                      "properties": {
+                        "name": {
+                          "type": "string"
+                        },
+                        "url": {
+                          "type": "string"
+                        }
+                      }
+                    }
+                  },
+                  "thumbnail": {
+                    "type": [
+                      "null",
+                      "object"
+                    ],
+                    "properties": {
+                      "alt": {
+                        "type": "string"
+                      },
+                      "data": {
+                        "type": "string"
+                      }
+                    }
+                  },
+                  "title": {
+                    "type": "string"
+                  },
+                  "url": {
+                    "type": "string"
+                  }
+                }
+              }
+            },
+            "url": {
+              "type": "string"
+            }
+          }
+        },
+        "breadcrumbs": {
+          "type": "array",
+          "description": "Defines a page’s breadcrumbs – available on virtually all pages that have a breadcrumb trail",
+          "items": {
+            "type": "object",
+            "properties": {
+              "name": {
+                "type": "string"
+              },
+              "url": {
+                "type": "string"
+              }
+            }
+          }
+        },
+        "carousel": {
+          "type": "object",
+          "description": "A list of images, text, and style assets for a storefront’s image slide show",
+          "properties": {
+            "slides": {
+              "type": "array",
+              "items": {
+                "type": "object",
+                "properties": {
+                  "alt_text": {
+                    "type": "string"
+                  },
+                  "button_text": {
+                    "type": "string"
+                  },
+                  "button_text_color": {
+                    "type": "string"
+                  },
+                  "heading": {
+                    "type": "string"
+                  },
+                  "heading_color": {
+                    "type": "string"
+                  },
+                  "image": {
+                    "type": "string"
+                  },
+                  "image_height": {
+                    "type": "string"
+                  },
+                  "image_width": {
+                    "type": "string"
+                  },
+                  "stencil_image": {
+                    "type": "object",
+                    "properties": {
+                      "alt": {
+                        "type": "string"
+                      },
+                      "data": {
+                        "type": "string"
+                      },
+                      "height": {
+                        "type": "integer"
+                      },
+                      "width": {
+                        "type": "integer"
+                      }
+                    }
+                  },
+                  "text": {
+                    "type": "string"
+                  },
+                  "text_color": {
+                    "type": "string"
+                  },
+                  "url": {
+                    "type": "string"
+                  }
+                }
+              }
+            },
+            "swap_frequency": {
+              "type": "integer"
+            }
+          }
+        },
+        "cart": {
+          "type": "array",
+          "description": "cart object, if one exists",
+          "items": {
+            "type": "object"
+          }
+        },
+        "cart_id": {
+          "type": "null",
+          "description": "the cart ID if one exists."
+        },
+        "categories": {
+          "type": "array",
+          "items": {
+            "type": "object",
+            "properties": {
+              "count": {
+                "type": "string"
+              },
+              "id": {
+                "type": "string"
+              },
+              "image": {
+                "type": "null"
+              },
+              "name": {
+                "type": "string"
+              },
+              "url": {
+                "type": "string"
+              },
+              "children": {
+                "type": "array",
+                "items": {
+                  "type": "object",
+                  "properties": {
+                    "count": {
+                      "type": "string"
+                    },
+                    "id": {
+                      "type": "string"
+                    },
+                    "image": {
+                      "type": "null"
+                    },
+                    "name": {
+                      "type": "string"
+                    },
+                    "url": {
+                      "type": "string"
+                    }
+                  }
+                }
+              }
+            }
+          }
+        },
+        "configuration_id": {
+          "type": "string"
+        },
+        "currency_selector": {
+          "type": "object",
+          "properties": {
+            "active_currency_code": {
+              "type": "string"
+            },
+            "active_currency_flag": {
+              "type": "string"
+            },
+            "active_currency_id": {
+              "type": "integer"
+            },
+            "active_currency_name": {
+              "type": "string"
+            },
+            "currencies": {
+              "type": "array",
+              "items": {
+                "type": "object",
+                "properties": {
+                  "flag": {
+                    "type": "string"
+                  },
+                  "id": {
+                    "type": "integer"
+                  },
+                  "is_active": {
+                    "type": "boolean"
+                  },
+                  "name": {
+                    "type": "string"
+                  },
+                  "switch_url": {
+                    "type": "string"
+                  }
+                }
+              }
+            },
+            "default_currency_code": {
+              "type": "string"
+            }
+          }
+        },
+        "customer": {
+          "type": "null"
+        },
+        "customer_group_id": {
+          "type": "integer"
+        },
+        "customer_group_name": {
+          "type": "string"
+        },
+        "footer": {
+          "type": "object",
+          "properties": {
+            "scripts": {
+              "type": "string"
+            }
+          }
+        },
+        "forms": {
+          "type": "array",
+          "items": {
+            "type": "object"
+          }
+        },
+        "head": {
+          "type": "object",
+          "properties": {
+            "favicon": {
+              "type": "string"
+            },
+            "meta_tags": {
+              "type": "string"
+            },
+            "scripts": {
+              "type": "string"
+            },
+            "stylesheets": {
+              "type": "string"
+            },
+            "title": {
+              "type": "string"
+            }
+          }
+        },
+        "in_development": {
+          "type": "boolean"
+        },
+        "in_production": {
+          "type": "boolean"
+        },
+        "is_ajax": {
+          "type": "boolean"
+        },
+        "page_type": {
+          "type": "string"
+        },
+        "pages": {
+          "type": "array",
+          "items": {
+            "type": "object",
+            "properties": {
+              "name": {
+                "type": "string"
+              },
+              "url": {
+                "type": "string"
+              }
+            }
+          }
+        },
+        "pagination": {
+          "type": "array",
+          "items": {
+            "type": "object"
+          }
+        },
+        "products": {
+          "type": "object",
+          "properties": {
+            "new": {
+              "type": "array",
+              "items": {
+                "type": "object",
+                "properties": {
+                  "add_to_cart_url": {
+                    "type": "string"
+                  },
+                  "availability": {
+                    "type": "string"
+                  },
+                  "brand": {
+                    "type": "null"
+                  },
+                  "category": {
+                    "type": "array",
+                    "items": {
+                      "type": "string"
+                    }
+                  },
+                  "custom_fields": {
+                    "type": "null"
+                  },
+                  "date_added": {
+                    "type": "string"
+                  },
+                  "demo": {
+                    "type": "boolean"
+                  },
+                  "has_options": {
+                    "type": "boolean"
+                  },
+                  "id": {
+                    "type": "integer"
+                  },
+                  "image": {
+                    "type": "null"
+                  },
+                  "images": {
+                    "type": "array",
+                    "items": {
+                      "type": "object"
+                    }
+                  },
+                  "low_stock_level": {
+                    "type": "null"
+                  },
+                  "name": {
+                    "type": "string"
+                  },
+                  "num_reviews": {
+                    "type": "integer"
+                  },
+                  "pre_order": {
+                    "type": "boolean"
+                  },
+                  "price": {
+                    "type": "object",
+                    "properties": {
+                      "sale_price_without_tax": {
+                        "type": "object",
+                        "properties": {
+                          "currency": {
+                            "type": "string"
+                          },
+                          "formatted": {
+                            "type": "string"
+                          },
+                          "value": {
+                            "type": "integer"
+                          }
+                        }
+                      },
+                      "tax_label": {
+                        "type": "string"
+                      },
+                      "without_tax": {
+                        "type": "object",
+                        "properties": {
+                          "currency": {
+                            "type": "string"
+                          },
+                          "formatted": {
+                            "type": "string"
+                          },
+                          "value": {
+                            "type": "integer"
+                          }
+                        }
+                      }
+                    }
+                  },
+                  "qty_in_cart": {
+                    "type": "integer"
+                  },
+                  "rating": {
+                    "type": "integer"
+                  },
+                  "show_cart_action": {
+                    "type": "boolean"
+                  },
+                  "sku": {
+                    "type": "null"
+                  },
+                  "stock_level": {
+                    "type": "null"
+                  },
+                  "summary": {
+                    "type": "string"
+                  },
+                  "url": {
+                    "type": "string"
+                  },
+                  "weight": {
+                    "type": "object",
+                    "properties": {
+                      "formatted": {
+                        "type": "string"
+                      },
+                      "value": {
+                        "type": "integer"
+                      }
+                    }
+                  }
+                }
+              }
+            },
+            "top_sellers": {
+              "type": "array",
+              "items": {
+                "type": "object",
+                "properties": {
+                  "add_to_cart_url": {
+                    "type": "string"
+                  },
+                  "availability": {
+                    "type": "string"
+                  },
+                  "brand": {
+                    "type": "null"
+                  },
+                  "category": {
+                    "type": "array",
+                    "items": {
+                      "type": "string"
+                    }
+                  },
+                  "custom_fields": {
+                    "type": "null"
+                  },
+                  "date_added": {
+                    "type": "string"
+                  },
+                  "demo": {
+                    "type": "boolean"
+                  },
+                  "has_options": {
+                    "type": "boolean"
+                  },
+                  "id": {
+                    "type": "integer"
+                  },
+                  "image": {
+                    "type": "null"
+                  },
+                  "images": {
+                    "type": "array",
+                    "items": {
+                      "type": "object"
+                    }
+                  },
+                  "low_stock_level": {
+                    "type": "null"
+                  },
+                  "name": {
+                    "type": "string"
+                  },
+                  "num_reviews": {
+                    "type": "integer"
+                  },
+                  "pre_order": {
+                    "type": "boolean"
+                  },
+                  "price": {
+                    "type": "object",
+                    "properties": {
+                      "sale_price_without_tax": {
+                        "type": "object",
+                        "properties": {
+                          "currency": {
+                            "type": "string"
+                          },
+                          "formatted": {
+                            "type": "string"
+                          },
+                          "value": {
+                            "type": "integer"
+                          }
+                        }
+                      },
+                      "tax_label": {
+                        "type": "string"
+                      },
+                      "without_tax": {
+                        "type": "object",
+                        "properties": {
+                          "currency": {
+                            "type": "string"
+                          },
+                          "formatted": {
+                            "type": "string"
+                          },
+                          "value": {
+                            "type": "integer"
+                          }
+                        }
+                      }
+                    }
+                  },
+                  "qty_in_cart": {
+                    "type": "integer"
+                  },
+                  "rating": {
+                    "type": "integer"
+                  },
+                  "show_cart_action": {
+                    "type": "boolean"
+                  },
+                  "sku": {
+                    "type": "null"
+                  },
+                  "stock_level": {
+                    "type": "null"
+                  },
+                  "summary": {
+                    "type": "string"
+                  },
+                  "url": {
+                    "type": "string"
+                  },
+                  "weight": {
+                    "type": "object",
+                    "properties": {
+                      "formatted": {
+                        "type": "string"
+                      },
+                      "value": {
+                        "type": "integer"
+                      }
+                    }
+                  }
+                }
+              }
+            }
+          }
+        },
+        "remote_api_scripts": {
+          "type": "string"
+        },
+        "settings": {
+          "type": "object",
+          "properties": {
+            "account_creation_enabled": {
+              "type": "boolean"
+            },
+            "add_this": {
+              "type": "object",
+              "properties": {
+                "buttons": {
+                  "type": "array",
+                  "items": {
+                    "type": "object",
+                    "properties": {
+                      "annotation": {
+                        "type": "string"
+                      },
+                      "service": {
+                        "type": "string"
+                      }
+                    }
+                  }
+                }
+              }
+            },
+            "address": {
+              "type": "string"
+            },
+            "amp_analytics_id": {
+              "type": "string"
+            },
+            "base_url": {
+              "type": "string"
+            },
+            "blog_enabled": {
+              "type": "boolean"
+            },
+            "bulk_discount_enabled": {
+              "type": "boolean"
+            },
+            "cdn_url": {
+              "type": "string"
+            },
+            "client_ip_address": {
+              "type": "string"
+            },
+            "country_code": {
+              "type": "string"
+            },
+            "data_tag_enabled": {
+              "type": "boolean"
+            },
+            "display_date_format": {
+              "type": "string"
+            },
+            "extended_display_date_format": {
+              "type": "string"
+            },
+            "facebook_like_button": {
+              "type": "object",
+              "properties": {
+                "enabled": {
+                  "type": "boolean"
+                },
+                "href": {
+                  "type": "string"
+                },
+                "verb": {
+                  "type": "string"
+                }
+              }
+            },
+            "general": {
+              "type": "object",
+              "properties": {
+                "fastCart": {
+                  "type": "boolean"
+                },
+                "storeId": {
+                  "type": "integer"
+                }
+              }
+            },
+            "gift_certificates_enabled": {
+              "type": "boolean"
+            },
+            "is_eu_ip_address": {
+              "type": "boolean"
+            },
+            "maintenance": {
+              "type": "object",
+              "properties": {
+                "header": {
+                  "type": "null"
+                },
+                "message": {
+                  "type": "null"
+                },
+                "notice": {
+                  "type": "null"
+                },
+                "password": {
+                  "type": "null"
+                },
+                "securePath": {
+                  "type": "string"
+                }
+              }
+            },
+            "measurements": {
+              "type": "object",
+              "properties": {
+                "length": {
+                  "type": "string"
+                },
+                "weight": {
+                  "type": "string"
+                }
+              }
+            },
+            "money": {
+              "type": "object",
+              "properties": {
+                "currency_location": {
+                  "type": "string"
+                },
+                "currency_token": {
+                  "type": "string"
+                },
+                "decimal_places": {
+                  "type": "integer"
+                },
+                "decimal_token": {
+                  "type": "string"
+                },
+                "thousands_token": {
+                  "type": "string"
+                }
+              }
+            },
+            "newsletter_summary": {
+              "type": "string"
+            },
+            "password_requirements": {
+              "type": "object",
+              "properties": {
+                "alpha": {
+                  "type": "string"
+                },
+                "error": {
+                  "type": "string"
+                },
+                "minlength": {
+                  "type": "integer"
+                },
+                "numeric": {
+                  "type": "string"
+                }
+              }
+            },
+            "payments_url": {
+              "type": "string"
+            },
+            "phone_number": {
+              "type": "string"
+            },
+            "privacy_cookie": {
+              "type": "boolean"
+            },
+            "request": {
+              "type": "object",
+              "properties": {
+                "absolute_path": {
+                  "type": "string"
+                },
+                "host": {
+                  "type": "string"
+                },
+                "is_crawler": {
+                  "type": "boolean"
+                },
+                "locale": {
+                  "type": "string"
+                },
+                "origin": {
+                  "type": "string"
+                },
+                "referer": {
+                  "type": "boolean"
+                },
+                "user_agent": {
+                  "type": "string"
+                }
+              }
+            },
+            "returns_enabled": {
+              "type": "integer"
+            },
+            "rss_item_limit": {
+              "type": "integer"
+            },
+            "secure_base_url": {
+              "type": "string"
+            },
+            "secure_host": {
+              "type": "string"
+            },
+            "show_newsletter_box": {
+              "type": "integer"
+            },
+            "show_newsletter_summary": {
+              "type": "integer"
+            },
+            "show_payment_methods": {
+              "type": "boolean"
+            },
+            "show_product_rating": {
+              "type": "boolean"
+            },
+            "show_product_reviews": {
+              "type": "boolean"
+            },
+            "show_wishlist": {
+              "type": "boolean"
+            },
+            "store_dst_correction": {
+              "type": "integer"
+            },
+            "store_hash": {
+              "type": "string"
+            },
+            "store_logo": {
+              "type": "object",
+              "properties": {
+                "title": {
+                  "type": "string"
+                }
+              }
+            },
+            "store_name": {
+              "type": "string"
+            },
+            "store_time_zone": {
+              "type": "string"
+            },
+            "storefront_api": {
+              "type": "object",
+              "properties": {
+                "token": {
+                  "type": "string"
+                }
+              }
+            },
+            "tax_label": {
+              "type": "string"
+            },
+            "theme_config_id": {
+              "type": "string"
+            },
+            "theme_session_id": {
+              "type": "string"
+            },
+            "theme_version_id": {
+              "type": "string"
+            }
+          }
+        },
+        "shipping_messages": {
+          "type": "array",
+          "items": {
+            "type": "object"
+          }
+        },
+        "shop_by_brand": {
+          "type": "array",
+          "items": {
+            "type": "object"
+          }
+        },
+        "social_media": {
+          "type": "array",
+          "items": {
+            "type": "object"
+          }
+        },
+        "template_file": {
+          "type": "string"
+        },
+        "theme_images": {
+          "type": "array",
+          "items": {
+            "type": "object"
+          }
+        },
+        "theme_session_id": {
+          "type": "string"
+        },
+        "theme_settings": {
+          "type": "object",
+          "properties": {
+            "alert-backgroundColor": {
+              "type": "string"
+            },
+            "alert-color": {
+              "type": "string"
+            },
+            "alert-color-alt": {
+              "type": "string"
+            },
+            "applePay-button": {
+              "type": "string"
+            },
+            "blockquote-cite-font-color": {
+              "type": "string"
+            },
+            "blog_size": {
+              "type": "string"
+            },
+            "body-bg": {
+              "type": "string"
+            },
+            "body-font": {
+              "type": "string"
+            },
+            "brand_size": {
+              "type": "string"
+            },
+            "brandpage_products_per_page": {
+              "type": "integer"
+            },
+            "button--default-borderColor": {
+              "type": "string"
+            },
+            "button--default-borderColorActive": {
+              "type": "string"
+            },
+            "button--default-borderColorHover": {
+              "type": "string"
+            },
+            "button--default-color": {
+              "type": "string"
+            },
+            "button--default-colorActive": {
+              "type": "string"
+            },
+            "button--default-colorHover": {
+              "type": "string"
+            },
+            "button--disabled-backgroundColor": {
+              "type": "string"
+            },
+            "button--disabled-borderColor": {
+              "type": "string"
+            },
+            "button--disabled-color": {
+              "type": "string"
+            },
+            "button--icon-svg-color": {
+              "type": "string"
+            },
+            "button--primary-backgroundColor": {
+              "type": "string"
+            },
+            "button--primary-backgroundColorActive": {
+              "type": "string"
+            },
+            "button--primary-backgroundColorHover": {
+              "type": "string"
+            },
+            "button--primary-color": {
+              "type": "string"
+            },
+            "button--primary-colorActive": {
+              "type": "string"
+            },
+            "button--primary-colorHover": {
+              "type": "string"
+            },
+            "card--alternate-backgroundColor": {
+              "type": "string"
+            },
+            "card--alternate-borderColor": {
+              "type": "string"
+            },
+            "card--alternate-color--hover": {
+              "type": "string"
+            },
+            "card-figcaption-button-background": {
+              "type": "string"
+            },
+            "card-figcaption-button-color": {
+              "type": "string"
+            },
+            "card-title-color": {
+              "type": "string"
+            },
+            "card-title-color-hover": {
+              "type": "string"
+            },
+            "carousel-arrow-bgColor": {
+              "type": "string"
+            },
+            "carousel-arrow-borderColor": {
+              "type": "string"
+            },
+            "carousel-arrow-color": {
+              "type": "string"
+            },
+            "carousel-bgColor": {
+              "type": "string"
+            },
+            "carousel-description-color": {
+              "type": "string"
+            },
+            "carousel-dot-bgColor": {
+              "type": "string"
+            },
+            "carousel-dot-color": {
+              "type": "string"
+            },
+            "carousel-dot-color-active": {
+              "type": "string"
+            },
+            "carousel-title-color": {
+              "type": "string"
+            },
+            "categorypage_products_per_page": {
+              "type": "integer"
+            },
+            "checkRadio-backgroundColor": {
+              "type": "string"
+            },
+            "checkRadio-borderColor": {
+              "type": "string"
+            },
+            "checkRadio-color": {
+              "type": "string"
+            },
+            "color-black": {
+              "type": "string"
+            },
+            "color-error": {
+              "type": "string"
+            },
+            "color-errorLight": {
+              "type": "string"
+            },
+            "color-grey": {
+              "type": "string"
+            },
+            "color-greyDark": {
+              "type": "string"
+            },
+            "color-greyDarker": {
+              "type": "string"
+            },
+            "color-greyDarkest": {
+              "type": "string"
+            },
+            "color-greyLight": {
+              "type": "string"
+            },
+            "color-greyLighter": {
+              "type": "string"
+            },
+            "color-greyLightest": {
+              "type": "string"
+            },
+            "color-greyMedium": {
+              "type": "string"
+            },
+            "color-info": {
+              "type": "string"
+            },
+            "color-infoLight": {
+              "type": "string"
+            },
+            "color-primary": {
+              "type": "string"
+            },
+            "color-primaryDark": {
+              "type": "string"
+            },
+            "color-primaryDarker": {
+              "type": "string"
+            },
+            "color-primaryLight": {
+              "type": "string"
+            },
+            "color-secondary": {
+              "type": "string"
+            },
+            "color-secondaryDark": {
+              "type": "string"
+            },
+            "color-secondaryDarker": {
+              "type": "string"
+            },
+            "color-success": {
+              "type": "string"
+            },
+            "color-successLight": {
+              "type": "string"
+            },
+            "color-textBase": {
+              "type": "string"
+            },
+            "color-textBase--active": {
+              "type": "string"
+            },
+            "color-textBase--hover": {
+              "type": "string"
+            },
+            "color-textHeading": {
+              "type": "string"
+            },
+            "color-textLink": {
+              "type": "string"
+            },
+            "color-textLink--active": {
+              "type": "string"
+            },
+            "color-textLink--hover": {
+              "type": "string"
+            },
+            "color-textSecondary": {
+              "type": "string"
+            },
+            "color-textSecondary--active": {
+              "type": "string"
+            },
+            "color-textSecondary--hover": {
+              "type": "string"
+            },
+            "color-warning": {
+              "type": "string"
+            },
+            "color-warningLight": {
+              "type": "string"
+            },
+            "color-white": {
+              "type": "string"
+            },
+            "color-whitesBase": {
+              "type": "string"
+            },
+            "color_badge_product_sale_badges": {
+              "type": "string"
+            },
+            "color_hover_product_sale_badges": {
+              "type": "string"
+            },
+            "color_text_product_sale_badges": {
+              "type": "string"
+            },
+            "container-border-global-color-base": {
+              "type": "string"
+            },
+            "container-fill-base": {
+              "type": "string"
+            },
+            "container-fill-dark": {
+              "type": "string"
+            },
+            "default_image_brand": {
+              "type": "string"
+            },
+            "default_image_gift_certificate": {
+              "type": "string"
+            },
+            "default_image_product": {
+              "type": "string"
+            },
+            "dropdown--quickSearch-backgroundColor": {
+              "type": "string"
+            },
+            "dropdown--wishList-backgroundColor": {
+              "type": "string"
+            },
+            "fontSize-h1": {
+              "type": "integer"
+            },
+            "fontSize-h2": {
+              "type": "integer"
+            },
+            "fontSize-h3": {
+              "type": "integer"
+            },
+            "fontSize-h4": {
+              "type": "integer"
+            },
+            "fontSize-h5": {
+              "type": "integer"
+            },
+            "fontSize-h6": {
+              "type": "integer"
+            },
+            "fontSize-root": {
+              "type": "integer"
+            },
+            "footer-backgroundColor": {
+              "type": "string"
+            },
+            "form-label-font-color": {
+              "type": "string"
+            },
+            "gallery_size": {
+              "type": "string"
+            },
+            "geotrust_ssl_common_name": {
+              "type": "string"
+            },
+            "geotrust_ssl_seal_size": {
+              "type": "string"
+            },
+            "header-backgroundColor": {
+              "type": "string"
+            },
+            "headings-font": {
+              "type": "string"
+            },
+            "hide_blog_page_heading": {
+              "type": "boolean"
+            },
+            "hide_breadcrumbs": {
+              "type": "boolean"
+            },
+            "hide_category_page_heading": {
+              "type": "boolean"
+            },
+            "hide_contact_us_page_heading": {
+              "type": "boolean"
+            },
+            "hide_content_navigation": {
+              "type": "boolean"
+            },
+            "hide_page_heading": {
+              "type": "boolean"
+            },
+            "homepage_blog_posts_count": {
+              "type": "integer"
+            },
+            "homepage_featured_products_column_count": {
+              "type": "integer"
+            },
+            "homepage_featured_products_count": {
+              "type": "integer"
+            },
+            "homepage_new_products_column_count": {
+              "type": "integer"
+            },
+            "homepage_new_products_count": {
+              "type": "integer"
+            },
+            "homepage_show_carousel": {
+              "type": "boolean"
+            },
+            "homepage_show_carousel_arrows": {
+              "type": "boolean"
+            },
+            "homepage_stretch_carousel_images": {
+              "type": "boolean"
+            },
+            "homepage_top_products_column_count": {
+              "type": "integer"
+            },
+            "homepage_top_products_count": {
+              "type": "integer"
+            },
+            "icon-color": {
+              "type": "string"
+            },
+            "icon-color-hover": {
+              "type": "string"
+            },
+            "icon-ratingEmpty": {
+              "type": "string"
+            },
+            "icon-ratingFull": {
+              "type": "string"
+            },
+            "input-bg-color": {
+              "type": "string"
+            },
+            "input-border-color": {
+              "type": "string"
+            },
+            "input-border-color-active": {
+              "type": "string"
+            },
+            "input-disabled-bg": {
+              "type": "string"
+            },
+            "input-font-color": {
+              "type": "string"
+            },
+            "label-backgroundColor": {
+              "type": "string"
+            },
+            "label-color": {
+              "type": "string"
+            },
+            "loadingOverlay-backgroundColor": {
+              "type": "string"
+            },
+            "logo-position": {
+              "type": "string"
+            },
+            "logo_fontSize": {
+              "type": "integer"
+            },
+            "logo_size": {
+              "type": "string"
+            },
+            "navPages-color": {
+              "type": "string"
+            },
+            "navPages-color-hover": {
+              "type": "string"
+            },
+            "navPages-subMenu-backgroundColor": {
+              "type": "string"
+            },
+            "navPages-subMenu-separatorColor": {
+              "type": "string"
+            },
+            "navUser-color": {
+              "type": "string"
+            },
+            "navUser-color-hover": {
+              "type": "string"
+            },
+            "navUser-dropdown-backgroundColor": {
+              "type": "string"
+            },
+            "navUser-dropdown-borderColor": {
+              "type": "string"
+            },
+            "navUser-indicator-backgroundColor": {
+              "type": "string"
+            },
+            "navigation_design": {
+              "type": "string"
+            },
+            "optimizedCheckout-backgroundImage": {
+              "type": "string"
+            },
+            "optimizedCheckout-backgroundImage-size": {
+              "type": "string"
+            },
+            "optimizedCheckout-body-backgroundColor": {
+              "type": "string"
+            },
+            "optimizedCheckout-buttonPrimary-backgroundColor": {
+              "type": "string"
+            },
+            "optimizedCheckout-buttonPrimary-backgroundColorActive": {
+              "type": "string"
+            },
+            "optimizedCheckout-buttonPrimary-backgroundColorDisabled": {
+              "type": "string"
+            },
+            "optimizedCheckout-buttonPrimary-backgroundColorHover": {
+              "type": "string"
+            },
+            "optimizedCheckout-buttonPrimary-borderColor": {
+              "type": "string"
+            },
+            "optimizedCheckout-buttonPrimary-borderColorActive": {
+              "type": "string"
+            },
+            "optimizedCheckout-buttonPrimary-borderColorDisabled": {
+              "type": "string"
+            },
+            "optimizedCheckout-buttonPrimary-borderColorHover": {
+              "type": "string"
+            },
+            "optimizedCheckout-buttonPrimary-color": {
+              "type": "string"
+            },
+            "optimizedCheckout-buttonPrimary-colorActive": {
+              "type": "string"
+            },
+            "optimizedCheckout-buttonPrimary-colorDisabled": {
+              "type": "string"
+            },
+            "optimizedCheckout-buttonPrimary-colorHover": {
+              "type": "string"
+            },
+            "optimizedCheckout-buttonPrimary-font": {
+              "type": "string"
+            },
+            "optimizedCheckout-buttonSecondary-backgroundColor": {
+              "type": "string"
+            },
+            "optimizedCheckout-buttonSecondary-backgroundColorActive": {
+              "type": "string"
+            },
+            "optimizedCheckout-buttonSecondary-backgroundColorHover": {
+              "type": "string"
+            },
+            "optimizedCheckout-buttonSecondary-borderColor": {
+              "type": "string"
+            },
+            "optimizedCheckout-buttonSecondary-borderColorActive": {
+              "type": "string"
+            },
+            "optimizedCheckout-buttonSecondary-borderColorHover": {
+              "type": "string"
+            },
+            "optimizedCheckout-buttonSecondary-color": {
+              "type": "string"
+            },
+            "optimizedCheckout-buttonSecondary-colorActive": {
+              "type": "string"
+            },
+            "optimizedCheckout-buttonSecondary-colorHover": {
+              "type": "string"
+            },
+            "optimizedCheckout-buttonSecondary-font": {
+              "type": "string"
+            },
+            "optimizedCheckout-colorFocus": {
+              "type": "string"
+            },
+            "optimizedCheckout-contentPrimary-color": {
+              "type": "string"
+            },
+            "optimizedCheckout-contentPrimary-font": {
+              "type": "string"
+            },
+            "optimizedCheckout-contentSecondary-color": {
+              "type": "string"
+            },
+            "optimizedCheckout-contentSecondary-font": {
+              "type": "string"
+            },
+            "optimizedCheckout-discountBanner-backgroundColor": {
+              "type": "string"
+            },
+            "optimizedCheckout-discountBanner-iconColor": {
+              "type": "string"
+            },
+            "optimizedCheckout-discountBanner-textColor": {
+              "type": "string"
+            },
+            "optimizedCheckout-form-textColor": {
+              "type": "string"
+            },
+            "optimizedCheckout-formChecklist-backgroundColor": {
+              "type": "string"
+            },
+            "optimizedCheckout-formChecklist-backgroundColorSelected": {
+              "type": "string"
+            },
+            "optimizedCheckout-formChecklist-borderColor": {
+              "type": "string"
+            },
+            "optimizedCheckout-formChecklist-color": {
+              "type": "string"
+            },
+            "optimizedCheckout-formField-backgroundColor": {
+              "type": "string"
+            },
+            "optimizedCheckout-formField-borderColor": {
+              "type": "string"
+            },
+            "optimizedCheckout-formField-errorColor": {
+              "type": "string"
+            },
+            "optimizedCheckout-formField-inputControlColor": {
+              "type": "string"
+            },
+            "optimizedCheckout-formField-placeholderColor": {
+              "type": "string"
+            },
+            "optimizedCheckout-formField-shadowColor": {
+              "type": "string"
+            },
+            "optimizedCheckout-formField-textColor": {
+              "type": "string"
+            },
+            "optimizedCheckout-header-backgroundColor": {
+              "type": "string"
+            },
+            "optimizedCheckout-header-borderColor": {
+              "type": "string"
+            },
+            "optimizedCheckout-header-textColor": {
+              "type": "string"
+            },
+            "optimizedCheckout-headingPrimary-color": {
+              "type": "string"
+            },
+            "optimizedCheckout-headingPrimary-font": {
+              "type": "string"
+            },
+            "optimizedCheckout-headingSecondary-color": {
+              "type": "string"
+            },
+            "optimizedCheckout-headingSecondary-font": {
+              "type": "string"
+            },
+            "optimizedCheckout-link-color": {
+              "type": "string"
+            },
+            "optimizedCheckout-link-font": {
+              "type": "string"
+            },
+            "optimizedCheckout-link-hoverColor": {
+              "type": "string"
+            },
+            "optimizedCheckout-loadingToaster-backgroundColor": {
+              "type": "string"
+            },
+            "optimizedCheckout-loadingToaster-textColor": {
+              "type": "string"
+            },
+            "optimizedCheckout-logo": {
+              "type": "string"
+            },
+            "optimizedCheckout-logo-position": {
+              "type": "string"
+            },
+            "optimizedCheckout-logo-size": {
+              "type": "string"
+            },
+            "optimizedCheckout-orderSummary-backgroundColor": {
+              "type": "string"
+            },
+            "optimizedCheckout-orderSummary-borderColor": {
+              "type": "string"
+            },
+            "optimizedCheckout-show-backgroundImage": {
+              "type": "boolean"
+            },
+            "optimizedCheckout-show-logo": {
+              "type": "string"
+            },
+            "optimizedCheckout-step-backgroundColor": {
+              "type": "string"
+            },
+            "optimizedCheckout-step-borderColor": {
+              "type": "string"
+            },
+            "optimizedCheckout-step-textColor": {
+              "type": "string"
+            },
+            "overlay-backgroundColor": {
+              "type": "string"
+            },
+            "pace-progress-backgroundColor": {
+              "type": "string"
+            },
+            "paymentbuttons-paypal-color": {
+              "type": "string"
+            },
+            "paymentbuttons-paypal-fundingicons": {
+              "type": "boolean"
+            },
+            "paymentbuttons-paypal-label": {
+              "type": "string"
+            },
+            "paymentbuttons-paypal-layout": {
+              "type": "string"
+            },
+            "paymentbuttons-paypal-shape": {
+              "type": "string"
+            },
+            "paymentbuttons-paypal-size": {
+              "type": "string"
+            },
+            "paymentbuttons-paypal-tagline": {
+              "type": "boolean"
+            },
+            "pdp-custom-fields-tab-label": {
+              "type": "string"
+            },
+            "pdp-non-sale-price-label": {
+              "type": "string"
+            },
+            "pdp-price-label": {
+              "type": "string"
+            },
+            "pdp-retail-price-label": {
+              "type": "string"
+            },
+            "pdp-sale-price-label": {
+              "type": "string"
+            },
+            "price_ranges": {
+              "type": "boolean"
+            },
+            "product_list_display_mode": {
+              "type": "string"
+            },
+            "product_sale_badges": {
+              "type": "string"
+            },
+            "product_size": {
+              "type": "string"
+            },
+            "productgallery_size": {
+              "type": "string"
+            },
+            "productpage_related_products_count": {
+              "type": "integer"
+            },
+            "productpage_reviews_count": {
+              "type": "integer"
+            },
+            "productpage_similar_by_views_count": {
+              "type": "integer"
+            },
+            "productpage_videos_count": {
+              "type": "integer"
+            },
+            "productthumb_size": {
+              "type": "string"
+            },
+            "productview_thumb_size": {
+              "type": "string"
+            },
+            "restrict_to_login": {
+              "type": "boolean"
+            },
+            "searchpage_products_per_page": {
+              "type": "integer"
+            },
+            "select-arrow-color": {
+              "type": "string"
+            },
+            "select-bg-color": {
+              "type": "string"
+            },
+            "shop_by_brand_show_footer": {
+              "type": "boolean"
+            },
+            "shop_by_price_visibility": {
+              "type": "boolean"
+            },
+            "show_accept_amex": {
+              "type": "boolean"
+            },
+            "show_accept_discover": {
+              "type": "boolean"
+            },
+            "show_accept_mastercard": {
+              "type": "boolean"
+            },
+            "show_accept_paypal": {
+              "type": "boolean"
+            },
+            "show_accept_visa": {
+              "type": "boolean"
+            },
+            "show_copyright_footer": {
+              "type": "boolean"
+            },
+            "show_custom_fields_tabs": {
+              "type": "boolean"
+            },
+            "show_powered_by": {
+              "type": "boolean"
+            },
+            "show_product_details_tabs": {
+              "type": "boolean"
+            },
+            "show_product_dimensions": {
+              "type": "boolean"
+            },
+            "show_product_quantity_box": {
+              "type": "boolean"
+            },
+            "show_product_quick_view": {
+              "type": "boolean"
+            },
+            "show_product_reviews_tabs": {
+              "type": "boolean"
+            },
+            "show_product_weight": {
+              "type": "boolean"
+            },
+            "social_icon_placement_bottom": {
+              "type": "string"
+            },
+            "social_icon_placement_top": {
+              "type": "boolean"
+            },
+            "spinner-borderColor-dark": {
+              "type": "string"
+            },
+            "spinner-borderColor-light": {
+              "type": "string"
+            },
+            "storeName-color": {
+              "type": "string"
+            },
+            "supported_card_type_icons": {
+              "type": "array",
+              "items": {
+                "type": "string"
+              }
+            },
+            "swatch_option_size": {
+              "type": "string"
+            },
+            "thumb_size": {
+              "type": "string"
+            },
+            "zoom_size": {
+              "type": "string"
+            }
+          }
+        },
+        "urls": {
+          "type": "object",
+          "properties": {
+            "account": {
+              "type": "object",
+              "properties": {
+                "add_address": {
+                  "type": "string"
+                },
+                "addresses": {
+                  "type": "string"
+                },
+                "details": {
+                  "type": "string"
+                },
+                "inbox": {
+                  "type": "string"
+                },
+                "index": {
+                  "type": "string"
+                },
+                "orders": {
+                  "type": "object",
+                  "properties": {
+                    "all": {
+                      "type": "string"
+                    },
+                    "completed": {
+                      "type": "string"
+                    },
+                    "save_new_return": {
+                      "type": "string"
+                    }
+                  }
+                },
+                "payment_methods": {
+                  "type": "object",
+                  "properties": {
+                    "all": {
+                      "type": "string"
+                    }
+                  }
+                },
+                "recent_items": {
+                  "type": "string"
+                },
+                "returns": {
+                  "type": "string"
+                },
+                "send_message": {
+                  "type": "string"
+                },
+                "update_action": {
+                  "type": "string"
+                },
+                "wishlists": {
+                  "type": "object",
+                  "properties": {
+                    "add": {
+                      "type": "string"
+                    },
+                    "all": {
+                      "type": "string"
+                    },
+                    "delete": {
+                      "type": "string"
+                    },
+                    "edit": {
+                      "type": "string"
+                    }
+                  }
+                }
+              }
+            },
+            "auth": {
+              "type": "object",
+              "properties": {
+                "check_login": {
+                  "type": "string"
+                },
+                "create_account": {
+                  "type": "string"
+                },
+                "forgot_password": {
+                  "type": "string"
+                },
+                "login": {
+                  "type": "string"
+                },
+                "logout": {
+                  "type": "string"
+                },
+                "save_new_account": {
+                  "type": "string"
+                },
+                "save_new_password": {
+                  "type": "string"
+                },
+                "send_password_email": {
+                  "type": "string"
+                }
+              }
+            },
+            "brands": {
+              "type": "string"
+            },
+            "cart": {
+              "type": "string"
+            },
+            "checkout": {
+              "type": "object",
+              "properties": {
+                "multiple_address": {
+                  "type": "string"
+                },
+                "single_address": {
+                  "type": "string"
+                }
+              }
+            },
+            "compare": {
+              "type": "string"
+            },
+            "contact_us_submit": {
+              "type": "string"
+            },
+            "gift_certificate": {
+              "type": "object",
+              "properties": {
+                "balance": {
+                  "type": "string"
+                },
+                "purchase": {
+                  "type": "string"
+                },
+                "redeem": {
+                  "type": "string"
+                }
+              }
+            },
+            "home": {
+              "type": "string"
+            },
+            "product": {
+              "type": "object",
+              "properties": {
+                "post_review": {
+                  "type": "string"
+                }
+              }
+            },
+            "rss": {
+              "type": "object",
+              "properties": {
+                "products": {
+                  "type": "array",
+                  "items": {
+                    "type": "object"
+                  }
+                }
+              }
+            },
+            "search": {
+              "type": "string"
+            },
+            "sitemap": {
+              "type": "string"
+            },
+            "subscribe": {
+              "type": "object",
+              "properties": {
+                "action": {
+                  "type": "string"
+                }
+              }
+            }
+          }
+        },
+        "version_id": {
+          "type": "string"
+        }
+      }
+    }
+  }
+}

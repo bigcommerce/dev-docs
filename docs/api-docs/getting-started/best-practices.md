@@ -3,20 +3,13 @@
 <div class="otp" id="no-index">
 
 ### On This Page
-- [Best Practices](#Best-Practices)
-		- [On This Page](#On-This-Page)
-	- [Ensure Your Integration is Up-to-Date](#Ensure-Your-Integration-is-Up-to-Date)
-	- [Use Webhooks Effectively](#Use-Webhooks-Effectively)
-	- [Thread API Requests](#Thread-API-Requests)
-	- [Marketplace Apps](#Marketplace-Apps)
-	- [API Rate Limits](#API-Rate-Limits)
-		- [Concurrent API Call Rate Limits](#Concurrent-API-Call-Rate-Limits)
-		- [Playing Nicely with the Platform](#Playing-Nicely-with-the-Platform)
-		- [Example of 429 Status Code](#Example-of-429-Status-Code)
-		- [Making Requests in Parallel](#Making-Requests-in-Parallel)
-	- [Platform Limits](#Platform-Limits)
-	- [Resources](#Resources)
-		- [Related Artices](#Related-Artices)
+- [Ensure Your Integration is Up-to-Date](#ensure-your-integration-is-up-to-date)
+- [Use Webhooks Effectively](#use-webhooks-effectively)
+- [Thread API Requests](#thread-api-requests)
+- [Marketplace Apps](#marketplace-apps)
+- [API Rate Limits](#api-rate-limits)
+- [Platform Limits](#platform-limits)
+- [Resources](#resources)
 
 </div>
 
@@ -27,7 +20,7 @@ BigCommerce frequently enhances its core product and is actively developing v3 A
 
 ## Use Webhooks Effectively
 
-To keep data in your application up-to-date,[webhooks](/api-docs/getting-started/webhooks/about-webhooks) provide a great alternative to doing periodic checks. Use OAuth to register a webhook event that your application can listen for. Do not use legacy “Basic Authentication.“
+To keep data in your application up-to-date, [webhooks](/api-docs/getting-started/webhooks/about-webhooks) provide a great alternative to doing periodic checks. Use OAuth to register a webhook event that your application can listen for. Do not use legacy “Basic Authentication.“
 
 BigCommerce will send a partial payload when a subscribed event is triggered, with minimal identifying details (such as the order ID when an order is created). Your application could use the order ID returned in the payload to make a subsequent API request for the full order details.
 
@@ -38,7 +31,7 @@ In order to quickly update information in the API, you can use threaded requests
 The [BigCommerce Ruby API](https://github.com/bigcommerce/bigcommerce-api-ruby) client is thread-safe: It satisfies the need for multiple threads to access the same shared data and the need for a shared piece of data to be accessed by only one thread at any given time. These attributes can reduce the total time that your app will require to complete a series of requests.
 
 ## Marketplace Apps
-?
+
 Merchants often have more than one person working on their store. BigCommerce allows additional users to access your app when the store owner has granted them appropriate permissions. The requirements for supporting multi-user access are:
 * Tokens must be stored against the `store_hash` and not against user info.
 * Within the Dev Tools workspace, you must enable your app’s **Technical** > **Multiple Users** option.
@@ -67,13 +60,8 @@ Certain BigCommerce API resources rate-limit concurrent requests. This is to ens
 | Limit | Endpoint | Method |
 | -- | -- | -- |
 | 10| /stores/:hash/v3/customers | POST |
-| 3 | /stores/:hash/v3/customers/attributes | POST|
-| 3 | /stores/:hash/v3/customers/addresses | POST|
-| 3 | /stores/:storeHash/v3/pricelists/:priceListId/records | PUT |
-| 3 | /stores/:hash/v3/customers/attribute-values | PUT |
-| 3 | /stores/:hash/v3/customers/attributes | PUT |
-| 3 | /stores/:hash/v3/customers | PUT|
-| 3 | /stores/:hash/v3/customers/addresses | PUT|
+
+All other BigCommerce API resource endpoints have a rate limit of 3 concurrent requests at a time.
 
 ### Playing Nicely with the Platform
 

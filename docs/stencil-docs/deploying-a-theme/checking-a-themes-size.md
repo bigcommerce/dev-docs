@@ -119,7 +119,7 @@ Then, as you develop your theme, reference each of these assets using Stencil's 
 
 `<img src="{{cdn "webdav:img/image.jpg"}}">`
 
-**Note:** _The presumed WebDAV root directory is /content/. (So, in this example, the `image.jpg` file had been uploaded to the WebDAV `/content/` directory.) The presumed local directory is `assets/`, so you can omit that path when referencing its contained files or subdirectories._
+_**Note:** The presumed WebDAV root directory is `/content/`. In this example, the `image.jpg` file had been uploaded to the WebDAV `/content/` directory. The presumed local directory for other CDNs is `assets/`, so you can omit that path when referencing its contained files or subdirectories._
 
 When you are ready to upload your theme to BigCommerce, follow the procedure in [Bundling and Submitting a Theme](https://developer.bigcommerce.com/stencil-docs/deploying-a-theme/bundling-and-pushing).
 
