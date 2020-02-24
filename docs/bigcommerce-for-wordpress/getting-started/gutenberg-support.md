@@ -14,9 +14,9 @@ The WordPress Gutenberg Visual Editor provides users the ability to easily compo
 
 ## Available BigCommerce Blocks
 
-| Block Name                           | Description                                                                     | Settings                                            |
-|--||--|
-| BigCommerce Products                 | displays a list of products by brands, categories or individual products.       | Edit Products, Additional CSS Class                 |
+| Block Name| Description| Settings|
+|--|--|--|
+| BigCommerce Products| displays a list of products by brands, categories or individual products.| Edit Products, Additional CSS Class                 |
 | BigCommerce Cart                     | displays the items currently in the customer’s cart                             | Additional CSS Class                                |
 | BigCommerce Checkout                 | displays an embedded checkout form                                              | Additional CSS Class                                |
 | BigCommerce Account Profile          | displays a customer information update form                                     | Additional CSS Class                                |
