@@ -62,7 +62,6 @@ Payments can be processed using cards stored with the BigCommerce Stored Credit 
 
 **The following gateways are supported for credit cards:**
 
-* AdyenV2
 * Authorize.net
 * CardConnect
 * Chase Integrated Payments
