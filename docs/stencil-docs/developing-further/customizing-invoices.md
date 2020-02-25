@@ -22,7 +22,7 @@ Merchants commonly request developers modify the default content of invoices in 
 
 ## Email Invoice Template
 
-See the article [Article](#) for editing merchant-facing email templates.
+See the article [Customizing Emails](https://developer.bigcommerce.com/stencil-docs/developing-further/customizing-emails) for editing merchant-facing email templates.
 
 ## Merchant Printable Invoice
 
