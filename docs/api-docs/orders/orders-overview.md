@@ -74,6 +74,7 @@ The Orders API can be used to create an order without first creating a cart and 
 ### When to Use: 
 * Create an order and bypass creating a cart and checkout
 * Make changes to existing orders
+* Retrieve or archive existing orders
 * Export or import order information to a third-party system
 
 ## Order Transactions

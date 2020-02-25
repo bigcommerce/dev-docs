@@ -18,7 +18,7 @@
 
 ## Introduction
 
-The Orders API is used when an order is being created manually. If you are using the Server to Server Checkout an Order can be created using the orders endpoint. The order can then be updated if needed.
+The Orders API is used when an order is being created manually. If you are using the Server to Server Checkout, an order can be created using the orders endpoint. The order can then be updated if needed.
 
 A sample order workflow might include:
 * Creating the order for either an existing customer or guest
@@ -724,7 +724,7 @@ POST or PUT orders on stores with Avalara Premium cause tax documents to be subm
 You can create overrides for calculated values such as product prices, subtotal and totals by sending a fixed value in the request. If values are not supplied for these properties, they will be automatically calculated based on the preset store values and tax rules.
 
 | Existing Status | Status Passed | Resultant Status | Avalara Tax Document Submission |
-|-|-|-|  |
+| - | - | - | - |
 | Any | None | `Pending` | None |
 | Paid or `Refunded` | Paid | Paid | None |
 | Unpaid or `Refunded` | Unpaid | Unpaid | None |
@@ -794,6 +794,7 @@ Yes, the products are not added to the store's catalog.
 In the shipping and billing addresses, there is no requirement to specify country when `country_ISO2` is specified and vice versa.
 
 **How can I take a payment for an Order?**
+
 You can either process payment through a third party or using the Control Panel.
 
 **Can I generate a shipping quote from a carrier using the API?**
@@ -805,7 +806,7 @@ Not at this time. If an order is created either in the Control Panel or via API,
 - [Orders](/api-docs/getting-started/webhooks/webhook-events#webhook-events_orders)
 
 ### Related Endpoints
-- [Orders](https://developer.bigcommerce.com/api-reference/orders/orders-api/orders/createanorder)
+- [Orders](https://developer.bigcommerce.com/api-reference/orders/orders-api/orders/)
 - [Order Shipments](/api-reference/orders/orders-api/order-shipments/createordershipments)
 - [Order Status](/api-reference/orders/orders-api/order-status/getaorderstatus)
 - [Shipping Quotes](/api-reference/orders/orders-api/order-shipping-addresses-quotes/getshippingquotes)
