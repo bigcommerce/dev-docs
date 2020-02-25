@@ -3,15 +3,11 @@
 <div class="otp" id="no-index">
 
 ### On This Page
-- [Customizing Invoices](#Customizing-Invoices)
-    - [On This Page](#On-This-Page)
-  - [Email Invoice Template](#Email-Invoice-Template)
-  - [Merchant Printable Invoice](#Merchant-Printable-Invoice)
-    - [Blueprint Variables and Customization](#Blueprint-Variables-and-Customization)
-  - [Customizing the Customer Printable Invoice](#Customizing-the-Customer-Printable-Invoice)
-  - [Customizing the Detailed Customer Printable Invoice](#Customizing-the-Detailed-Customer-Printable-Invoice)
-  - [Resources](#Resources)
-    - [Related Articles](#Related-Articles)
+- [Email Invoice Template](#email-invoice-template)
+- [Merchant Printable Invoice](#merchant-printable-invoice)
+- [Customizing the Customer Printable Invoice](#customizing-the-customer-printable-invoice)
+- [Customizing the Detailed Customer Printable Invoice](#customizing-the-detailed-customer-printable-invoice)
+- [Resources](#resources)
 
 </div> 
 
@@ -26,16 +22,7 @@ Merchants commonly request developers modify the default content of invoices in 
 
 ## Email Invoice Template
 
-The email invoice is sent to a customer after an order has been completed. The email invoice can be edited in the Control Panel in **Storefront** > **Email Templates** > <span class="fn">invoice_email.html</span>
-
-<!--
-    title:
-    data: //s3.amazonaws.com/user-content.stoplight.io/6116/1563210321373
--->
-
-![](//s3.amazonaws.com/user-content.stoplight.io/6116/1563210321373 "")
-
-After clicking **Edit** on the right, the WYSIWYG Editor will appear. Follow Editing and Printing Invoices (Knowledge Base) to complete customization of the Invoice Email template.
+See the article [Customizing Emails](https://developer.bigcommerce.com/stencil-docs/developing-further/customizing-emails) for editing merchant-facing email templates.
 
 ## Merchant Printable Invoice
 
