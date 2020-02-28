@@ -1,38 +1,20 @@
 # Order Refunds
 
-The Order API refund endpoints allow developers to process refunds against orders with settled payments. Refund endpoints are useful when building order management or payment integrations; they make embedding refund functionality directly into the the application possible without requiring merchants to return to their BigCommerce Control Panel.
+The Order API refund endpoints allow developers to process refunds against orders with settled payments. Refund endpoints are useful when building order management or payment integrations. They make embedding refund functionality directly into the the application possible without requiring merchants to return to their BigCommerce Control Panel.
 
-In the first section of this article is a brief walkthrough of a simple refund example. Subsequent sections provide detailed information about refund request objects and batching.
+The first section of this article is a brief walkthrough of a refund example. Subsequent sections provide detailed information about refund request objects and batching.
 
 ---
 ## Refund Endpoints
 
-There are four refund endpoints. Two endpoints are for processing refunds on a single order at a time. The remaining two are batch endpoints for creating refunds against multiple orders at a time.
-
-### Payment Action Endpoints
-These endpoints supercede the old deprecated endpoints.
+The Order API has two refund endpoints that handle processing refunds on a single order at a time.
 
 |Endpoint|Operations|Reference|
 |---|---|---|
 |`/orders/{id}/payment_actions/refund_quotes`|` POST` - Create refund quote for order ID `{id}`.|[Create a Refund Quote](https://bigcommerce-order-refunds-api-beta.docs.stoplight.io/order-refunds-api/order-refunds/postrefundquote)
 |`/orders/{id}/payment_actions/refunds`|`POST` Create a refund for order ID `{id}`.|[Create a Refund](https://bigcommerce-order-refunds-api-beta.docs.stoplight.ioapi-reference/order-refunds-api/order-refunds/postrefund)
 |`/orders/{id}/payment_actions/refunds`|` GET` - Returns the refunds for order ID `{id}`.|[Get Refunds For Order](https://bigcommerce-order-refunds-api-beta.docs.stoplight.io/order-refunds-api/order-refunds/getorderrefunds)
-|`/orders/payment_actions/refunds`|`GET` - Returns a list of refunds ordered by refund ID.|[Get All Refunds](https://bigcommerce-order-refunds-api-beta.docs.stoplight.io/order-refunds-api/order-refunds/getrefunds)|
-|`/orders/payment_actions/refund_quotes`|`POST` - Create refund quotes for one or more orders.|[Create Refund Quotes - Batch](https://bigcommerce-order-refunds-api-beta.docs.stoplight.io/order-refunds-api/order-refunds/postrefundquotes)
-|`/orders/payment_actions/refunds`|`POST` - Creates refunds for one or more orders.|[Create Refunds - Batch](https://bigcommerce-order-refunds-api-beta.docs.stoplight.io/order-refunds-api/order-refunds/postrefunds)
-
-### Deprecated Endpoints
-Refund endpoints are being moved from `/orders` to the `/orders/payment_actions` sub-resource. This is the only change; the request, response, and all other functionalities will remain identical.
-
-The following endpoints have been deprecated and will be removed. Please use the new Payment Action endpoints.
-
-|Endpoint|Operations|Reference|
-|---|---|---|
-|`/orders/{id}/refund_quotes`|` POST` - Create refund quote for order ID `{id}`.|[Create a Refund Quote](https://bigcommerce-order-refunds-api-beta.docs.stoplight.io/order-refunds-api/order-refunds/postrefundquotedeprecated)
-|`/orders/{id}/refunds`|`POST` Create a refund for order ID `{id}`.|[Create a Refund](https://bigcommerce-order-refunds-api-beta.docs.stoplight.ioapi-reference/order-refunds-api/order-refunds/postrefunddeprecated)
-|`/orders/refund_quotes`|`POST` - Create refund quotes for one or more orders.|[Create Refund Quotes - Batch](https://bigcommerce-order-refunds-api-beta.docs.stoplight.io/order-refunds-api/order-refunds/postrefundquotesdeprecated)
-|`/orders/refunds`|`POST` - Creates refunds for one or more orders.|[Create Refunds - Batch](https://bigcommerce-order-refunds-api-beta.docs.stoplight.io/order-refunds-api/order-refunds/postrefundsdeprecated)
-|`/orders/refunds`|`GET` - Returns a list of refunds ordered by refund ID.|[Get All Refunds](https://bigcommerce-order-refunds-api-beta.docs.stoplight.io/order-refunds-api/order-refunds/getrefundsdeprecated)|
+|`/orders/payment_actions/refunds`|`GET` - Returns a list of refunds ordered by refund ID.|[Get All Refunds](https://bigcommerce-order-refunds-api-beta.docs.stoplight.io/order-refunds-api/order-refunds/getrefunds)
 
 ## Single Order Refund Example
 
@@ -43,7 +25,7 @@ Refunding a single order consists of two `POST` requests:
 This refund example uses an order with the following properties:
 * **Products**: Single product priced at `$10.00`
 * **Tax:** `$0.83`
-* **Shipping:** `$10.00`.
+* **Shipping:** `$10.00`
 
 The refunded amount will include the shipping, tax, and product cost, a total of `$20.83`.
 
@@ -73,7 +55,7 @@ A refund quote provides the tax amount, total refund amount, and a list of avail
 }
 ```
 
->The `item_id` used in the request is the [Order Product](#) `id` obtained by sending a `GET` request to `/orders/{order_id}/products`.
+>The `item_id` used in the request is the [Order Product](https://developer.bigcommerce.com/api-reference/orders/orders-api/order-products/getallorderproducts) `id` obtained by sending a `GET` request to `/orders/{order_id}/products`.
 
 **Response**
 ```json
@@ -184,44 +166,9 @@ Use the `provider_id`, the amount and items from the refund quote, to create the
 }
 ```
 
-## Batching Order Refunds
-
-Both the `/orders/payment_actions/refund_quotes` and the `/orders/payment_actions/refunds` endpoints support batch requests. Each batch can contain multiple orders with multiple refunds for each order.
-
-Refer to our API Reference documentation for examples of [Batch Refund Quotes](#) and [Batch Refunds](#).
-
-### Meta Objects
-
-Batch refund responses contain a Meta object and an array of Error objects.
-
-The Meta object contains the number of failed refunds and refund quotes,
-the number that were successful, and the total number of refunds or refund quotes attempted:
-
-```json
-"meta": {
-  "failure": 0,
-  "success": 2,
-  "total": 2
-}
-```
-
-### Error Object
-
-Each [Error](http://bigcommerce-order-refunds-api-beta.stoplight.io/order-refunds-api/models/meta) object in the `errors` array includes the HTTP status code, corresponding`order_id`, and a descriptive message:
-
-```json
-"errors": [
-    {
-        "order_id": 1,
-        "status": 422,
-        "error": "Refund amount is greater than remaining amount"
-    }
-]
-```
-
 ## Offline Order Refunds
 
-Payments collected externally to BigCommerce can be marked as offline when creating a refund. This is a way to keep track of which portions of an order have been refunded; however, no funds are actually exchanged. If the payment was not taken using BigCommerce, then the funds can not be refunded directly back to the payment source through the BigCommerce Order Refund API.
+Payments collected outside of BigCommerce can be marked as offline when creating a refund. This is a way to keep track of which portions of an order have been refunded. However, no funds are actually exchanged. If the payment was not taken using BigCommerce, then the funds can not be refunded directly back to the payment source through the BigCommerce Order Refund API.
 
 ## FAQ
 
@@ -249,7 +196,7 @@ The `provider_id`s are only exposed as part of POST Refund Quote.
 
 **Will a refunded item be returned to inventory?**
 
-No, items refunded via API will not be returned to inventory. You can either update the inventory on the [product directly](# update product link) or use the [Control Panel](https://support.bigcommerce.com/s/article/Inventory-Tracking#levels) to change the inventory.
+No, items refunded via API will not be returned to inventory. You can either update the inventory directly on the product's page or use the [Control Panel](https://support.bigcommerce.com/s/article/Inventory-Tracking#levels) to change the inventory.
 
 ## Troubleshooting
 
