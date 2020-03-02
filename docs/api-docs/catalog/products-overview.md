@@ -41,8 +41,8 @@ For more information on OAuth Scopes and authentication, see: [Authentication](h
 [Products](/api-reference/catalog/catalog-api/products/getproducts) are the primary catalog entity, and the primary function of the eCommerce platform is to sell products on the storefront, and other channels.
 
 Products can be physical or digital:
-* **Physical** - exist in a physical form, have a weight, and are being sold by retailers with the intent of shipping to customers.
-* **Digital** - Non-physical products. Includes downloadables such as computer software, ebooks, music, images, and other media; and services such as haircuts, consulting, or lawn care.
+* **Physical** - exist in a physical form, have a weight, and are sold by merchants with intent to ship to customers.
+* **Digital** - Non-physical products including downloadable files such as computer software, ebooks, music, images, and other media; and services such as haircuts, consulting, or lawn care.
 
 <div class="HubBlock--callout">
 <div class="CalloutBlock--info">
@@ -142,7 +142,7 @@ X-Auth-Client: {{CLIENT_ID}}
 
 ## Creating Digital Products
 
-To create a digital product (like an ebook), set `type` to `"digital"`:
+To create a digital product (like an ebook), set `type` to `digital`:
 
 ```http
 POST https://api.bigcommerce.com/stores/{{STORE_HASH}}/v3/catalog/products
@@ -168,6 +168,8 @@ X-Auth-Client: {{CLIENT_ID}}
 }
 ```
 
+[![Open in Request Runner](https://storage.googleapis.com/bigcommerce-production-dev-center/images/Open-Request-Runner.svg)](https://developer.bigcommerce.com/api-reference/catalog/catalog-api/products/createproduct#requestrunner)
+
 <div class="HubBlock--callout">
 <div class="CalloutBlock--info">
 <div class="HubBlock-content">
@@ -185,20 +187,17 @@ X-Auth-Client: {{CLIENT_ID}}
 ## Pricing Precision
 
 BigCommerce pricing is precise up to `4` decimal places. For example:
-* `"price": 10.99999` rounds up to `11`
-* `"price": 10.99994` rounds down to `10.9999`
+* `"$ 10.99999` rounds up to `$ 11`
+* `"$ 10.99994` rounds down to `$ 10.9999`
 
-Currency display settings allow for more than four decimal places. When this is the case, the additional decimal places will be displayed as `0`s:
-
-![Currency Decimal Places](//s3.amazonaws.com/user-content.stoplight.io/6012/1553018091114 "Currency Decimal Places")
+Currency display settings allow for more than four decimal places. When this is the case, the additional decimal places will be displayed as `0`s.
 
 ## Adding Product Images
 
 Add a product image to a product with a `POST` to `/v3/catalog/products/{{product_id}}/images`:
 
-
-```
-POST https://api.bigcommerce.com/stores/{{store_hash}}/v3/catalog/products/{{product_id}}/images
+```http
+POST https://api.bigcommerce.com/stores/{{STORE_HASH}}/v3/catalog/products/{{product_id}}/images
 Accept: application/json
 Content-Type: application/json
 X-Auth-Token: {{ACCESS_TOKEN}}
@@ -211,6 +210,8 @@ X-Auth-Client: {{CLIENT_ID}}
   "image_url": "{{image_url}}"
 }
 ```
+
+[![Open in Request Runner](https://storage.googleapis.com/bigcommerce-production-dev-center/images/Open-Request-Runner.svg)](https://developer.bigcommerce.com/api-reference/store-management/catalog/product-images/createproductimage#requestrunner)
 
 <div class="HubBlock--callout">
 <div class="CalloutBlock--info">
@@ -247,6 +248,8 @@ X-Auth-Client: {{CLIENT_ID}}
 }
 ```
 
+[![Open in Request Runner](https://storage.googleapis.com/bigcommerce-production-dev-center/images/Open-Request-Runner.svg)](https://developer.bigcommerce.com/api-reference/store-management/catalog/product-videos/createproductvideo#requestrunner)
+
 <div class="HubBlock--callout">
 <div class="CalloutBlock--info">
 <div class="HubBlock-content">
@@ -262,10 +265,10 @@ X-Auth-Client: {{CLIENT_ID}}
 
 ## Adding Custom Fields
 
-To add custom fields to a product, `PUT` to `/v3/catalog/products/{{product_id}}/custom-fields`:
+To add custom fields to a product, `POST` to `/v3/catalog/products/{{product_id}}/custom-fields`:
 
 ```http
-PUT https://api.bigcommerce.com/stores/{{store_hash}}/v3/catalog/products/{{product_id}}/custom-fields
+POST https://api.bigcommerce.com/stores/{{store_hash}}/v3/catalog/products/{{product_id}}/custom-fields
 Accept: application/json
 Content-Type: application/json
 X-Auth-Token: {{ACCESS_TOKEN}}
@@ -276,6 +279,9 @@ X-Auth-Client: {{CLIENT_ID}}
   "value": "2018"
 }
 ```
+
+[![Open in Request Runner](https://storage.googleapis.com/bigcommerce-production-dev-center/images/Open-Request-Runner.svg)](https://developer.bigcommerce.com/api-reference/store-management/catalog/product-custom-fields/createcustomfield#requestrunner)
+
 <div class="HubBlock--callout">
 <div class="CalloutBlock--info">
 <div class="HubBlock-content">
@@ -319,6 +325,8 @@ X-Auth-Client: {{CLIENT_ID}}
 }
 ```
 
+[![Open in Request Runner](https://storage.googleapis.com/bigcommerce-production-dev-center/images/Open-Request-Runner.svg)](https://developer.bigcommerce.com/api-reference/store-management/catalog/product-bulk-pricing-rules/updatebulkpricingrule#requestrunner)
+
 For general information and use cases for product bulk pricing, see [Bulk Pricing](https://support.bigcommerce.com/s/article/Bulk-Pricing) in the BigCommerce Help Center.
 
 ## Adding Product Metafields
@@ -326,6 +334,7 @@ For general information and use cases for product bulk pricing, see [Bulk Pricin
 [Metafields](/api-reference/catalog/catalog-api/product-metafields/createproductmetafield) are key and value pair intended for programmaticly storing data against a product or other entity. Data stored in metafields does not appear in the storefront or the control panel. This is useful for when information needs to be passed back and forth between an app and BigCommerce.
 
 To add metafields to a product, `PUT` to `/v3/catalog/products/{{product_id}}/metafields`:
+
 ```http
 PUT https://api.bigcommerce.com/stores/{{STORE_HASH}}/v3/catalog/products/{{product_id}}/metafields
 Accept: application/json
@@ -343,6 +352,8 @@ X-Auth-Client: {{CLIENT_ID}}
   "resource_id": 131
 }
 ```
+
+[![Open in Request Runner](https://storage.googleapis.com/bigcommerce-production-dev-center/images/Open-Request-Runner.svg)](https://developer.bigcommerce.com/api-reference/store-management/catalog/product-metafields/updateproductmetafield#requestrunner)
 
 <div class="HubBlock--callout">
 <div class="CalloutBlock--info">
@@ -377,6 +388,8 @@ X-Auth-Client: {{CLIENT_ID}}
 }
 ```
 
+[![Open in Request Runner](https://storage.googleapis.com/bigcommerce-production-dev-center/images/Open-Request-Runner.svg)](https://developer.bigcommerce.com/api-reference/store-management/catalog/product-reviews/createproductreview#requestrunner)
+
 <div class="HubBlock--callout">
 <div class="CalloutBlock--info">
 <div class="HubBlock-content">
@@ -410,6 +423,8 @@ X-Auth-Client: {{CLIENT_ID}}
   "image_url": "{{image_url}}"
 }
 ```
+
+[![Open in Request Runner](https://storage.googleapis.com/bigcommerce-production-dev-center/images/Open-Request-Runner.svg)](https://developer.bigcommerce.com/api-reference/store-management/catalog/brands/createbrand#requestrunner)
 
 For general information on brands and their use cases, see [Managing Brands](https://support.bigcommerce.com/s/article/Managing-Brands) in the BigCommerce Help Center.
 
@@ -506,6 +521,8 @@ X-Auth-Client: {{CLIENT_ID}}
 }
 ```
 
+[![Open in Request Runner](https://storage.googleapis.com/bigcommerce-production-dev-center/images/Open-Request-Runner.svg)](https://developer.bigcommerce.com/api-reference/store-management/catalog/product-options/createoption#requestrunner)
+
 ## Variant
 [Variants](/api-reference/catalog/catalog-api/product-variants/getvariantsbyproductid) represent an item as it sits on the shelf in the warehouse or a particular saleable product. A product might be a t-shirt, while the variant would be “a small, red t-shirt”. Variants are selected by shoppers on the storefront via Product Options. In the case where a product is simple, meaning it does not have any options, the product is its own variant - called a base variant. Everything you can buy should be a variant.
 
@@ -542,11 +559,10 @@ Variants can be created in two ways:
 
 This will go over using existing variant options to create the variants
 
-Use the `https://api.bigcommerce.com/stores/{{store_hash}}/v3/catalog/products/131/options` endpoint to get the option information.
+To fetch variant information, send a `GET` request to `/v3/catalog/products/{{product_id}}/options`:
 
-**Example Get Variant Options**
 ```http
-GET https://api.bigcommerce.com/stores/{store_hash}/v3/catalog/products/{product_id}/options
+GET https://api.bigcommerce.com/stores/{{STORE_HASH}}/v3/catalog/products/{{product_id}}/options
 Accept: application/json
 Content-Type: application/json
 X-Auth-Token: {{ACCESS_TOKEN}}
@@ -594,11 +610,13 @@ X-Auth-Client: {{CLIENT_ID}}
 }
 ```
 
+[![Open in Request Runner](https://storage.googleapis.com/bigcommerce-production-dev-center/images/Open-Request-Runner.svg)](https://developer.bigcommerce.com/api-reference/store-management/catalog/product-options/getoptions#requestrunner)
+
 In the above response, there are two variant options of size and color with three values each.
 
 To combine the variant option values into variants and build out SKUs use the following endpoint:
 
-`https://api.bigcommerce.com/stores/{{store_hash}}/v3/catalog/products/131/variants`
+`https://api.bigcommerce.com/stores/{{store_hash}}/v3/catalog/products/{{product_id}}/variants`
 
 <div class="HubBlock--callout">
 <div class="CalloutBlock--info">
@@ -607,7 +625,9 @@ To combine the variant option values into variants and build out SKUs use the fo
 <!-- theme:  -->
 
 ### Note
-> * Variants need to be created one at a time using this endpoint. Only one variant option at a time can be created; individual variant options will contain an array of multiple values. To use a variant array and create variants in the same call as the base product, use the [/catalog/product](/api-reference/catalog/catalog-api/products/createproduct) endpoint during product creation.
+> * Variants need to be created one at a time using this endpoint.
+> * Only one variant option at a time can be created; individual variant options will contain an array of multiple values.
+> * To use a variant array and create variants in the same call as the base product, use the [/catalog/product](/api-reference/catalog/catalog-api/products/createproduct) endpoint during product creation.
 
 </div>
 </div>
@@ -638,10 +658,10 @@ The `option_values` array combines the options Small and Blue to create the SKU 
 
 ### Create a Variant Using the Products Endpoint
 
-The following example creates a base product, variant options, and variants in a single call to the products endpoint. use this method to create a product and variants in a single call without creating variant options firs (option display will default to radio button):
+The following example creates a base product, variant options, and variants in a single call to the products endpoint. Use this method to create a product and variants in a single call without creating variant options first (option display will default to radio button):
 
 ```http
-POST https://api.bigcommerce.com/stores/{store_hash}/v3/catalog/products
+POST https://api.bigcommerce.com/stores/{{STORE_HASH}}/v3/catalog/products
 Accept: application/json
 Content-Type: application/json
 X-Auth-Token: {{ACCESS_TOKEN}}
@@ -679,6 +699,8 @@ X-Auth-Client: {{CLIENT_ID}}
   ]
 }
 ```
+
+[![Open in Request Runner](https://storage.googleapis.com/bigcommerce-production-dev-center/images/Open-Request-Runner.svg)](https://developer.bigcommerce.com/api-reference/store-management/catalog/products/createproduct#requestrunner)
 
 <div class="HubBlock--callout">
 <div class="CalloutBlock--info">
@@ -751,7 +773,12 @@ Creating a checkbox with an adjuster requires two separate calls: one to create 
 First, a POST to create the modifier:
 
 ```http
-POST https://api.bigcommerce.com/stores/{{store_hash}}/v3/catalog/products/{{product_id}}/modifiers
+POST https://api.bigcommerce.com/stores/{{STORE_HASH}}/v3/catalog/products/{{product_id}}/modifiers
+Accept: application/json
+Content-Type: application/json
+X-Auth-Token: {{ACCESS_TOKEN}}
+X-Auth-Client: {{CLIENT_ID}}
+
 {
   "type": "checkbox",
   "required": false,
@@ -763,6 +790,9 @@ POST https://api.bigcommerce.com/stores/{{store_hash}}/v3/catalog/products/{{pro
   "display_name": "Add a $5 Donation"
 }
 ```
+
+[![Open in Request Runner](https://storage.googleapis.com/bigcommerce-production-dev-center/images/Open-Request-Runner.svg)](https://developer.bigcommerce.com/api-reference/store-management/catalog/product-modifiers/createmodifier#requestrunner)
+
 
 **Response:**
 
@@ -835,7 +865,11 @@ Since this is a checkbox which has two states, checked/unchecked or yes/no, two 
 Next send a `PUT` request to update the modifier value. This increases the price by $5 when the Yes option value is selected.
 
 ```http
-PUT https://api.bigcommerce.com/stores/{store_hash}/v3/catalog/products/{product_id}/modifiers/{modifier_id}/values
+PUT https://api.bigcommerce.com/stores/{{STORE_HASH}}/v3/catalog/products/{{product_id}}/modifiers/{{modifier_id}}/values
+Accept: application/json
+Content-Type: application/json
+X-Auth-Token: {{ACCESS_TOKEN}}
+X-Auth-Client: {{CLIENT_ID}}
 
 {
   "is_default": false,
@@ -848,8 +882,9 @@ PUT https://api.bigcommerce.com/stores/{store_hash}/v3/catalog/products/{product
 }
 ```
 
-### Troubleshooting: 422 Errors
+[![Open in Request Runner](https://storage.googleapis.com/bigcommerce-production-dev-center/images/Open-Request-Runner.svg)](https://developer.bigcommerce.com/api-reference/store-management/catalog/product-modifiers/createmodifier#requestrunner)
 
+### Troubleshooting: 422 Errors
 
 ```json
 {
@@ -895,10 +930,33 @@ Use complex rules when an adjustment should be triggered by:
 
 Complex rules must be based on a combination of two or more modifiers, such as two checkboxes. The following example will add $10 to the product price when both boxes are checked.
 
-**Example Add Complex Rules**
 ```http
-PUT https://api.bigcommerce.com/stores/{store_hash}/v3/catalog/products/{product_id}/complex-rules`
+PUT https://api.bigcommerce.com/stores/{store_hash}/v3/catalog/products/{product_id}/complex-rules
+Accept: application/json
+Content-Type: application/json
+X-Auth-Token: {{ACCESS_TOKEN}}
+X-Auth-Client: {{CLIENT_ID}}
+
+{
+  "product_id": 1200,
+  "enabled": true,
+  "price_adjuster": {
+    "adjuster_value": 10
+  },
+  "conditions": [
+    {
+      "modifier_id": 506,
+      "modifier_value_id": 852
+    },
+    {
+      "modifier_id": 507,
+      "modifier_value_id": 854
+    }
+  ]
+}
 ```
+[![Open in Request Runner](https://storage.googleapis.com/bigcommerce-production-dev-center/images/Open-Request-Runner.svg)](https://developer.bigcommerce.com/api-reference/store-management/catalog/product-complex-rules/updatecomplexrule#requestrunner)
+
 ### Troubleshooting
 
 Complex rules must consist of multiple conditions that trigger the rule adjustment. If multiple conditions are not specified, the request will return a 422 Unprocessable Entity.
@@ -919,12 +977,14 @@ All products must be associated with at least one Category, although a Category 
 
 A product associated with categories does not currently have any priority or weighted order (there’s no “primary category”), which can make it difficult to integrate with some external systems which might wish to use a product’s categories to map to a category structure in that external system.
 
-**Example Create a Category**
-`https://api.bigcommerce.com/stores/{store_hash}/v3/catalog/categories`
+```http
+POST https://api.bigcommerce.com/stores/{store_hash}/v3/catalog/categories
 
-Parent ID is only needed if creating a sub-category.
+Accept: application/json
+Content-Type: application/json
+X-Auth-Token: {{ACCESS_TOKEN}}
+X-Auth-Client: {{CLIENT_ID}}
 
-```json
 {
   "parent_id": 18,
   "name": "Shoes",
@@ -935,13 +995,18 @@ Parent ID is only needed if creating a sub-category.
 }
 ```
 
+[![Open in Request Runner](https://storage.googleapis.com/bigcommerce-production-dev-center/images/Open-Request-Runner.svg)](https://developer.bigcommerce.com/api-reference/store-management/catalog/category/createcategory#requestrunner)
+
 ### Category Tree
 
 [Category Tree](https://developer.bigcommerce.com/api-reference/catalog/catalog-api/category/getcategorytree) returns a simple view of the parent > child relationship of all categories in the store. This endpoint can be used to fetch the categories if building out a custom navigation for a store.
 
 ```http
-GET https://api.bigcommerce.com/stores/{store_hash}/v3/catalog/summary
-
+GET https://api.bigcommerce.com/stores/{{STORE_HASH}}/v3/catalog/summary
+Accept: application/json
+Content-Type: application/json
+X-Auth-Token: {{ACCESS_TOKEN}}
+X-Auth-Client: {{CLIENT_ID}}
 ```
 
 **Response:**:
