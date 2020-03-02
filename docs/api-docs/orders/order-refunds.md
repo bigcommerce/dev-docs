@@ -11,10 +11,10 @@ The Order API has two refund endpoints that handle processing refunds on a singl
 
 |Endpoint|Operations|Reference|
 |---|---|---|
-|`/orders/{id}/payment_actions/refund_quotes`|` POST` - Create refund quote for order ID `{id}`.|[Create a Refund Quote](https://bigcommerce-order-refunds-api-beta.docs.stoplight.io/order-refunds-api/order-refunds/postrefundquote)
-|`/orders/{id}/payment_actions/refunds`|`POST` Create a refund for order ID `{id}`.|[Create a Refund](https://bigcommerce-order-refunds-api-beta.docs.stoplight.ioapi-reference/order-refunds-api/order-refunds/postrefund)
-|`/orders/{id}/payment_actions/refunds`|` GET` - Returns the refunds for order ID `{id}`.|[Get Refunds For Order](https://bigcommerce-order-refunds-api-beta.docs.stoplight.io/order-refunds-api/order-refunds/getorderrefunds)
-|`/orders/payment_actions/refunds`|`GET` - Returns a list of refunds ordered by refund ID.|[Get All Refunds](https://bigcommerce-order-refunds-api-beta.docs.stoplight.io/order-refunds-api/order-refunds/getrefunds)
+|`/orders/{id}/payment_actions/refund_quotes`|` POST` - Create refund quote for order ID `{id}`.|[Create a Refund Quote](https://developer.bigcommerce.com/api-reference/store-management/order-transactions/order-refunds/postrefundquote)
+|`/orders/{id}/payment_actions/refunds`|`POST` Create a refund for order ID `{id}`.|[Create a Refund](https://developer.bigcommerce.com/api-reference/store-management/order-transactions/order-refunds/postrefund)
+|`/orders/{id}/payment_actions/refunds`|` GET` - Returns the refunds for order ID `{id}`.|[Get Refunds For Order](https://developer.bigcommerce.com/api-reference/store-management/order-transactions/order-refunds/getorderrefunds)
+|`/orders/payment_actions/refunds`|`GET` - Returns a list of refunds ordered by refund ID.|[Get All Refunds](https://developer.bigcommerce.com/api-reference/store-management/order-transactions/order-refunds/getrefunds)
 
 ## Single Order Refund Example
 
