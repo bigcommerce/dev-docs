@@ -19,7 +19,7 @@
 
 This tutorial reviews the Fetch API and then uses it to complete some storefront actions. 
 
-Interaction with the Storefront APIs should be done using JavaScript. The Storefront APIs do not require API Tokens to work. The URL should be served over https and be on the [permanent URL](https://forum.bigcommerce.com/s/article/Changing-Domains); otherwise, it can cause [CORs](https://developers.google.com/web/ilt/pwa/working-with-the-fetch-api#cross-origin_requests) errors in the console.
+Interaction with the Storefront APIs should be done using JavaScript. The Storefront APIs do not require API Tokens to work. The URL should be served over https and be on the [permanent URL](https://forum.bigcommerce.com/s/article/Changing-Domains); otherwise, it can cause [CORS](https://developers.google.com/web/ilt/pwa/working-with-the-fetch-api#cross-origin_requests) errors in the console.
 
 ## Create postData() function
 
