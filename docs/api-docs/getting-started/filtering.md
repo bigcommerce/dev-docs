@@ -10,7 +10,7 @@
 
 To filter collections down to a particular set of items, you can add filters to your request as URL query parameters.
 
-250 products is the maximum number of products that be returned. To view more than that, a script is needed to loop through each page.
+250 products is the maximum number of products that can be returned. To view more than that, a script is needed to loop through each page.
 
 These are the most common filter options available for the V3 API: 
 

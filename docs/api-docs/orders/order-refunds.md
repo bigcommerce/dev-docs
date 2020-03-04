@@ -158,7 +158,7 @@ Use the `provider_id`, the amount and items from the refund quote, to create the
 
 ## Offline Order Refunds
 
-Payments collected outside of BigCommerce can be marked as offline when creating a refund. This is a way to keep track of which portions of an order have been refunded. However, no funds are actually exchanged. If the payment was not taken using BigCommerce, then the funds can not be refunded directly back to the payment source through the BigCommerce Order Refund API.
+Payments collected outside of BigCommerce can be marked as offline when creating a refund. This is a way to keep track of which portions of an order have been refunded. However, no funds are actually exchanged. If the payment was not taken using BigCommerce, then the funds cannot be refunded directly back to the payment source through the BigCommerce Order Refund API.
 
 ## FAQ
 
