@@ -87,7 +87,10 @@ For more in-depth instructions and helpful screenshots, see [Adding a Currency](
 <!-- theme: error -->
 
 ### Note
-> Do not change the default currency -- this will cause unintented currency conversion issues.
+> Do not change the default currency -- this may lead to unintended currency conversion issues. 
+For instance, changing the default currency will not trigger price recalculation for the catalog. 
+Additionally, changing the default currency will enable the newly assigned currency as transactional.
+
 
 </div>
 </div>
