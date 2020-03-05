@@ -40,7 +40,7 @@ Currency is not dynamically converted. To convert the merchant will need to do o
 
 **Details:**
 * A new field has been added to [/v2/currencies](https://developer.bigcommerce.com/api-reference/store-management/currency-api):
-  * `is_transactional` - boolean inidcating the currency is transactional or not; false means display only currency.
+  * `is_transactional` - boolean indicating the currency is transactional or not; false means display only currency.
 
 **Example:**
 
