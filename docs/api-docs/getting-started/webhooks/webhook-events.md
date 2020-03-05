@@ -430,7 +430,7 @@ Changes to any of the following fields will trigger a `store/product/updated` ev
 ## Store
 
 |Name|Description|
-|||
+| - | - |
 | store/app/uninstalled | Occurs when a client store is cancelled and uninstalled from the platform |
 |store/information/updated | Occurs when changes are made to store settings. For a full list of fields that can trigger this event, see **Store Information Updated Events** below |
 

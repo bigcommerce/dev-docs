@@ -308,11 +308,11 @@ This is an abbreviated request
 
 The shipping address is input as an array object since more than one shipping address can be added at a time. Adding multiple shipping addresses allows for an order to ship to multiple locations.
 
-<div class="HubBlock-header">
+<!-- <div class="HubBlock-header">
     <div class="HubBlock-header-title flex items-center">
         <div class="HubBlock-header-name">Add a shipping address</div>
     </div><div class="HubBlock-header-subtitle">This is an abbreviated request</div>
-</div>
+</div> -->
 
 <!--
 title: "Add a shipping address"
