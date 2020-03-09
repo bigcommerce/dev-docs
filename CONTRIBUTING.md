@@ -33,7 +33,7 @@ For more complex changes, fork and edit locally:
 
 1. Fork `bigcommerce/dev-docs`
 2. `git clone` the fork to your local machine
-3. Make edits in your favorite code editor
+3. Make edits in your favorite code editor on a new branch
 4. Commit and pushes changes to your remote repo
 5. Create a [pull request](https://help.github.com/en/github/collaborating-with-issues-and-pull-requests/creating-a-pull-request-from-a-fork) against `bigcommerce/dev-docs/master`
 
@@ -41,10 +41,11 @@ For more complex changes, fork and edit locally:
 
 [Stoplight Studio](https://stoplight.io/p/docs/gh/stoplightio/studio) "is Stoplight's next generation application for API design, modeling, and technical writing". Studio makes contributing to BigCommerce Developer Documentation super easy -- simply navigate to https://stoplight.io/p/studio/gh/bigcommerce/dev-docs to load the in-browser editor, then
 
-1. Make your edits
-2. Click **Commit** to select the file changes you would like to commit and view a diff
-3. Commit the changes
-4. Navigate to the commit in GitHub and make a pull request against `bigcommerce/dev-docs/master`
+1. Create a new branch 
+2. Make your edits
+3. Click **Commit** to select the file changes you would like to commit and view a diff
+4. Commit the changes
+5. Navigate to the commit in GitHub and make a pull request against `bigcommerce/dev-docs/master`
 
 ## Commit Messages
 * Always include subject; include body when necessary
