@@ -2,9 +2,7 @@ swagger: '2.0'
 info:
   title: BigCommerce Webhooks
   version: ''
-  description: >-
-    For a list of all webhook events see [Webhook
-    Events](https://developer.bigcommerce.com/api-docs/getting-started/webhooks/webhook-events). 
+  description: 'For a list of all webhook events see [Webhook Events](https://developer.bigcommerce.com/api-docs/getting-started/webhooks/webhook-events). '
 host: api.bigcommerce.com
 paths:
   /hooks:
@@ -12,19 +10,28 @@ paths:
       responses:
         '200':
           $ref: '#/responses/Webhooks Response'
+        '422':
+          description: Unprocessable Entity
+          schema:
+            $ref: '#/definitions/ErrorResponse'
+          examples:
+            application/json:
+              status: 422
+              title: JSON data is missing or invalid
+              type: 'https://developer.bigcommerce.com/api-docs/getting-started/api-status-codes'
+              errors:
+                destination: error.path.missing
       summary: Create a Webhook
-      description: >-
-        Creates a webhook. Only one webhook at a time can be created. Custom
-        headers can be added.
+      description: Creates a webhook. Only one webhook at a time can be created. Custom headers can be added.
       operationId: createWebhooks
       parameters:
         - in: body
           name: body
           schema:
-            $ref: '#/definitions/putOrPostWebhook'
+            $ref: '#/definitions/PostWebhook'
           x-examples:
             application/json:
-              scope: store/order/*
+              scope: 'store/order/*'
               destination: 'https://665b65a6.ngrok.io/webhooks'
               is_active: true
               headers:
@@ -41,7 +48,6 @@ paths:
           schema:
             type: array
             items:
-              type: object
               properties:
                 id:
                   type: integer
@@ -58,16 +64,14 @@ paths:
                 scope:
                   type: string
                   description: Webhook event subscribed to
-                  example: store/order/*
+                  example: 'store/order/*'
                 destination:
                   type: string
                   example: 'https://665b65a6.ngrok.io/webhooks'
                   description: URL that returns a 200 response for webhooks
                 headers:
                   type: object
-                  description: >-
-                    You can pass in any number of custom headers to validate
-                    webhooks being returned.
+                  description: You can pass in any number of custom headers to validate webhooks being returned.
                   properties:
                     custom:
                       type: string
@@ -83,12 +87,13 @@ paths:
                   type: integer
                   example: 1561488106
                   description: Updated time
+              type: object
           examples:
             application/json:
               - id: 18044114
                 client_id: m9r6keqmo7h7f23btnp3anbez1kglkl
                 store_hash: '{store_hash}'
-                scope: store/cart/lineItem/*
+                scope: 'store/cart/lineItem/*'
                 destination: 'https://665b65a6.ngrok.io/webhooks'
                 headers: null
                 is_active: true
@@ -97,7 +102,7 @@ paths:
               - id: 18044640
                 client_id: m9r6keqmo7h7f23btnp3anbez1kglkl
                 store_hash: '{store_hash}'
-                scope: store/cart/*
+                scope: 'store/cart/*'
                 destination: 'https://665b65a6.ngrok.io/webhooks'
                 headers: null
                 is_active: true
@@ -106,7 +111,7 @@ paths:
               - id: 18044783
                 client_id: m9r6keqmo7h7f23btnp3anbez1kglkl
                 store_hash: '{store_hash}'
-                scope: store/shipment/*
+                scope: 'store/shipment/*'
                 destination: 'https://665b65a6.ngrok.io/webhooks'
                 headers: null
                 is_active: true
@@ -115,16 +120,14 @@ paths:
               - id: 18044824
                 client_id: m9r6keqmo7h7f23btnp3anbez1kglkl
                 store_hash: '{store_hash}'
-                scope: store/subscriber/*
+                scope: 'store/subscriber/*'
                 destination: 'https://665b65a6.ngrok.io/webhooks'
                 headers: null
                 is_active: true
                 created_at: 1561482939
                 updated_at: 1561482939
       summary: Get Webhooks
-      description: >-
-        Returns a list of all webhooks on a store associated to the `client_id`
-        used to authenticate the request
+      description: Returns a list of all webhooks on a store associated to the `client_id` used to authenticate the request
       operationId: getAllWebhooks
       tags:
         - Webhooks
@@ -160,10 +163,10 @@ paths:
         - in: body
           name: body
           schema:
-            $ref: '#/definitions/putOrPostWebhook'
+            $ref: '#/definitions/PutWebhook'
           x-examples:
             application/json:
-              scope: store/cart/lineItem/*
+              scope: 'store/cart/lineItem/*'
               destination: 'https://myapp.herokuapp.com/'
               is_active: true
               headers:
@@ -178,9 +181,7 @@ paths:
         '200':
           $ref: '#/responses/Webhooks Response'
       summary: Delete a Webhook
-      description: >-
-        Deletes a webhook. Only one webhook at a time can be deleted. When a
-        webhook is deleted, it is returned in the response as a 200 OK.
+      description: 'Deletes a webhook. Only one webhook at a time can be deleted. When a webhook is deleted, it is returned in the response as a 200 OK.'
       operationId: deleteAWebhook
       tags:
         - Webhooks
@@ -201,106 +202,12 @@ securityDefinitions:
     type: apiKey
     name: X-Auth-Client
     in: header
-    description: >-
-      ### OAuth Scopes
-
-      |  **UI Name** | **Permission** | **Parameter** |
-
-      | --- | --- | --- |
-
-      |  - | - | - |
-
-
-      **Note**: Creating and mangaing webhooks require the default scope used
-      when an API User account is created.
-
-
-      ### Headers
-
-
-      |Header|Parameter|Description|
-
-      |-|-|-|
-
-      |`X-Auth-Client`|`client_id`|Obtained by creating an API account or
-      installing an app in a BigCommerce control panel.|
-
-      |`X-Auth-Token`|`access_token `|Obtained by creating an API account or
-      installing an app in a BigCommerce control panel.|
-
-
-      ### Example
-
-
-      ```http
-
-      GET /stores/{$$.env.store_hash}/v3/catalog/summary
-
-      host: api.bigcommerce.com
-
-      Content-Type: application/json
-
-      X-Auth-Client: {client_id}
-
-      X-Auth-Token: {access_token}
-
-      ```
-
-
-      * For more information on Authenticating BigCommerce APIs, see:
-      [Authentication](https://developer.bigcommerce.com/api-docs/getting-started/authentication). 
+    description: "### OAuth Scopes\n|  **UI Name** | **Permission** | **Parameter** |\n| --- | --- | --- |\n|  - | - | - |\n\n**Note**: Creating and mangaing webhooks require the default scope used when an API User account is created.\n\n### Headers\n\n|Header|Parameter|Description|\n|-|-|-|\n|`X-Auth-Client`|`client_id`|Obtained by creating an API account or installing an app in a BigCommerce control panel.|\n|`X-Auth-Token`|`access_token `|Obtained by creating an API account or installing an app in a BigCommerce control panel.|\n\n### Example\n\n```http\nGET /stores/{$$.env.store_hash}/v3/catalog/summary\nhost: api.bigcommerce.com\nContent-Type: application/json\nX-Auth-Client: {client_id}\nX-Auth-Token: {access_token}\n```\n\n* For more information on Authenticating BigCommerce APIs, see: [Authentication](https://developer.bigcommerce.com/api-docs/getting-started/authentication). "
   X-Auth-Token:
     type: apiKey
     name: X-Auth-Token
     in: header
-    description: >-
-      ### OAuth Scopes
-
-      |  **UI Name** | **Permission** | **Parameter** |
-
-      | --- | --- | --- |
-
-      |  - | - | - |
-
-
-      **Note**: Creating and mangaing webhooks require the default scope used
-      when an API User account is created.
-
-
-      ### Headers
-
-
-      |Header|Parameter|Description|
-
-      |-|-|-|
-
-      |`X-Auth-Client`|`client_id`|Obtained by creating an API account or
-      installing an app in a BigCommerce control panel.|
-
-      |`X-Auth-Token`|`access_token `|Obtained by creating an API account or
-      installing an app in a BigCommerce control panel.|
-
-
-      ### Example
-
-
-      ```http
-
-      GET /stores/{$$.env.store_hash}/v3/catalog/summary
-
-      host: api.bigcommerce.com
-
-      Content-Type: application/json
-
-      X-Auth-Client: {client_id}
-
-      X-Auth-Token: {access_token}
-
-      ```
-
-
-      * For more information on Authenticating BigCommerce APIs, see:
-      [Authentication](https://developer.bigcommerce.com/api-docs/getting-started/authentication). 
+    description: "### OAuth Scopes\n|  **UI Name** | **Permission** | **Parameter** |\n| --- | --- | --- |\n|  - | - | - |\n\n**Note**: Creating and mangaing webhooks require the default scope used when an API User account is created.\n\n### Headers\n\n|Header|Parameter|Description|\n|-|-|-|\n|`X-Auth-Client`|`client_id`|Obtained by creating an API account or installing an app in a BigCommerce control panel.|\n|`X-Auth-Token`|`access_token `|Obtained by creating an API account or installing an app in a BigCommerce control panel.|\n\n### Example\n\n```http\nGET /stores/{$$.env.store_hash}/v3/catalog/summary\nhost: api.bigcommerce.com\nContent-Type: application/json\nX-Auth-Client: {client_id}\nX-Auth-Token: {access_token}\n```\n\n* For more information on Authenticating BigCommerce APIs, see: [Authentication](https://developer.bigcommerce.com/api-docs/getting-started/authentication). "
 parameters:
   Accept:
     in: header
@@ -313,13 +220,14 @@ parameters:
     type: string
     default: application/json
 definitions:
-  putOrPostWebhook:
+  PostWebhook:
     type: object
-    title: Create or Update A Webhook
+    title: Create A Webhook
+    x-examples: {}
     properties:
       scope:
         type: string
-        example: store/order/*
+        example: 'store/order/*'
         description: Event you subscribe to
       destination:
         type: string
@@ -327,13 +235,11 @@ definitions:
         description: URL must be active and return a 200 response
       is_active:
         type: boolean
-        example: true
         description: If webhook is active or not
+        example: true
       headers:
         type: object
-        description: >-
-          You can pass in any number of custom headers to validate webhooks
-          being returned. 
+        description: 'You can pass in any number of custom headers to validate webhooks being returned. '
         properties:
           custom:
             type: string
@@ -341,7 +247,6 @@ definitions:
       - scope
       - destination
       - is_active
-      - headers
   Webhook:
     type: object
     properties:
@@ -360,16 +265,14 @@ definitions:
       scope:
         type: string
         description: Webhook event subscribed to
-        example: store/order/*
+        example: 'store/order/*'
       destination:
         type: string
         example: 'https://665b65a6.ngrok.io/webhooks'
         description: URL that returns a 200 response for webhooks
       headers:
         type: object
-        description: >-
-          You can pass in any number of custom headers to validate webhooks
-          being returned.
+        description: You can pass in any number of custom headers to validate webhooks being returned.
         properties:
           custom:
             type: string
@@ -385,6 +288,46 @@ definitions:
         type: integer
         example: 1561488106
         description: Updated time
+  PutWebhook:
+    type: object
+    title: Create A Webhook
+    x-examples: {}
+    properties:
+      scope:
+        type: string
+        example: 'store/order/*'
+        description: Event you subscribe to
+      destination:
+        type: string
+        example: 'https://665b65a6.ngrok.io/webhooks'
+        description: URL must be active and return a 200 response
+      is_active:
+        type: boolean
+        example: true
+        description: If webhook is active or not
+      headers:
+        type: object
+        description: 'You can pass in any number of custom headers to validate webhooks being returned. '
+        properties:
+          custom:
+            type: string
+    required:
+      - scope
+      - destination
+      - is_active
+  ErrorResponse:
+    type: object
+    title: Error Response
+    x-examples: {}
+    properties:
+      status:
+        type: integer
+      title:
+        type: string
+      type:
+        type: string
+      errors:
+        type: object
 responses:
   Webhooks Response:
     description: ''
@@ -406,16 +349,14 @@ responses:
         scope:
           type: string
           description: Webhook event subscribed to
-          example: store/order/*
+          example: 'store/order/*'
         destination:
           type: string
           example: 'https://665b65a6.ngrok.io/webhooks'
           description: URL that returns a 200 response for webhooks
         headers:
           type: object
-          description: >-
-            You can pass in any number of custom headers to validate webhooks
-            being returned.
+          description: You can pass in any number of custom headers to validate webhooks being returned.
           properties:
             custom:
               type: string
@@ -436,7 +377,7 @@ responses:
         id: 18048287
         client_id: m9r6keqmo7h7f23btnp3anbez1kglkl
         store_hash: '{store_hash}'
-        scope: store/order/*
+        scope: 'store/order/*'
         destination: 'https://665b65a6.ngrok.io/webhooks'
         headers:
           username: Webhooks User

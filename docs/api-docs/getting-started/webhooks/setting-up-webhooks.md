@@ -101,7 +101,7 @@ unzip /Users/your-computer/Downloads/ngrok-stable-darwin-amd64.zip -d /Users/you
 
 ## Create Express App
 
-1. In the terminal run `npm init`. You will be prompted with several questions about the app setup. Feel free to hit return to accept the default values.  The final screen will look something like this:		 
+1. In the terminal run `npm init`. You will be prompted with several questions about the app setup. Feel free to hit return to accept the default values.  The final screen will look something like this:     
 
 <div class="HubBlock-header">
     <div class="HubBlock-header-title flex items-center">
@@ -172,7 +172,7 @@ const app = express();
 // when there's a post request to /webooks...
 app.post('/webhooks', function (req, res) {
   
-  	// respond with 200 OK
+    // respond with 200 OK
     res.send('OK');
 });
 
@@ -272,16 +272,16 @@ lineNumbers: true
     X-Auth-Token: {{the OAuth token}}
 ```
 
-4. Check all the values and then send. If successful, the response will be 201 Created.
+4. Check all the values and then send. If successful, the response will be 200 OK.
 
 <div class="HubBlock-header">
     <div class="HubBlock-header-title flex items-center">
-        <div class="HubBlock-header-name">201 Created Response</div>
+        <div class="HubBlock-header-name">200 OK Response</div>
     </div><div class="HubBlock-header-subtitle"></div>
 </div>
 
 <!--
-title: "201 Created Response"
+title: "200 OK Response"
 subtitle: ""
 lineNumbers: true
 -->
@@ -368,7 +368,7 @@ lineNumbers: true
 
 ```json
 {
-	"price": 12.99
+  "price": 12.99
 }
 ```
 
@@ -419,10 +419,10 @@ lineNumbers: true
   "destination": "https://myapp.herokuapp.com/",
   "is_active": true,
   "headers": {
-  	"User-Name": "Hello",
-  	"Password": "Goodbye"
+    "User-Name": "Hello",
+    "Password": "Goodbye"
   }
-  	
+    
 }
 ```
 
