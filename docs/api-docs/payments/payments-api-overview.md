@@ -434,7 +434,7 @@ Payments API allows developers to store a credit card while processing a credit 
 
 When processing a credit payment set `save_instrument: true`. The shopper can also store credit cards during checkout. If you are using the [Checkout SDK](https://developer.bigcommerce.com/api-docs/cart-and-checkout/checkout-sdk), it can store the credit card as part of the checkout.
 
-*`POST`* `https://api.bigcommerce.com/stores/{{store_hash}}/v3/payments`
+*`POST`* `https://payments.bigcommerce.com/stores/{store_hash}/payments`
 
 **Process payment example POST**
 
