@@ -25,7 +25,7 @@ BigCommerce's GraphQL Storefront API makes it possible to query storefront data 
 
 Additionally, by leveraging the power of [GraphQL](https://graphql.org/), data for multiple resources can be returned from a single API call, which simplifies integration and increases performance so that developers can focus on building delightful shopper experiences.
 
-This article is a general overview of the capabilities and usage of BigCommerce's GraphQL Storefront API; it includes sections on authentication and how to access a store's GraphQL Playground. To see specific examples of how GraphQL can be used to query storefront data, see [GraphQL Storefront API Code Samples](https://developer-beta.bigcommerce.com/api-docs/storefront/graphql/graphql-storefront-api-samples).
+This article is a general overview of the capabilities and usage of BigCommerce's GraphQL Storefront API; it includes sections on authentication and how to access a store's GraphQL Playground. To see specific examples of how GraphQL can be used to query storefront data, see [GraphQL Storefront API Code Samples](https://devcenter-production.docs.stoplight.io/api-docs/storefront/graphql/graphql-storefront-api-samples).
 
 <div class="HubBlock--callout">
 <div class="CalloutBlock--warning">
