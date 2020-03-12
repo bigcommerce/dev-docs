@@ -21,7 +21,7 @@ By the end of this guide, you’ll be able to:
 * troubleshoot common errors
 
 ### Prerequisites
-* [Store API Credentials](/api-docs/getting-started/authentication#authentication_getting-api-credentials) (with [Scope](/api-docs/getting-started/authentication#authentication_oauth-scopes) set to `Products` `Modify`)
+* [Store API Credentials](/api-docs/getting-started/authentication/rest-api-authentication#obtaining-store-api-credentials) (with [Scope](/api-docs/getting-started/authentication/rest-api-authentication#oauth-scopes) set to `Products` `Modify`)
 
 ## Authentication
 
