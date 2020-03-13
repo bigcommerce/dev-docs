@@ -114,7 +114,8 @@ stencil start --open # opens live theme preview in default browser
 | `--variation [<NAME>]`       |`-v` | Set which theme variation to use while developing                                     |
 | `--test`                     |`-t` | Enable QA mode which will bundle all javascript for speed to test locally             |
 | `--tunnel`                   |     | Create a tunnel URL which points to your local server which anyone can use            |
-| `--theme-editor`             |`-e` | Run Theme Editor server (Deprecated as of v1.23.1)                                                               |
+| `--theme-editor`             |`-e` | Run Theme Editor server (**Deprecated as of v1.23.1**)                                                               |
+
 | `--no-cache`                 |`-n` | Turn off caching for API resource data (cache refreshes every 5 minutes)             |
 | `--theme-editor-port [port]` |     |Run the Theme Editor on a different port (**Deprecated as of v1.23.1**)                                              |
 
