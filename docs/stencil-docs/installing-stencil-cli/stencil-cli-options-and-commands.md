@@ -116,7 +116,8 @@ stencil start --open # opens live theme preview in default browser
 | `--tunnel`                   |     | Create a tunnel URL which points to your local server which anyone can use            |
 | `--theme-editor`             |`-e` | Run Theme Editor server (Deprecated as of v1.23.1)                                                               |
 | `--no-cache`                 |`-n` | Turn off caching for API resource data (cache refreshes every 5 minutes)             |
-| `--theme-editor-port [port]` |     |Run the Theme Editor on a different port (Deprecated as of v1.23.1)                                              |
+| `--theme-editor-port [port]` |     |Run the Theme Editor on a different port (**Deprecated as of v1.23.1**)                                              |
+
 | `--help`                     |`-h` | Output usage information                                                              |
 
 <div class="HubBlock--callout">
