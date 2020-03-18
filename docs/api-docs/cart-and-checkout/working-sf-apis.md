@@ -341,7 +341,8 @@ Response:
 
 ### Delete a Cart Item
 
-To delete a line item from a cart, send a DELETE request to the `/api/storefront/carts/{cartId}/items/{itemId}` endpoint passing in the `cartId` and `itemId` to be deleted.
+To delete a line item from a cart, send a DELETE request to the [Delete Cart Line Item](https://developer.bigcommerce.com/api-reference/cart-checkout/storefront-cart-api/cart-items/deletecartlineitem) endpoint and pass in the `cartId` and `itemId` to be deleted.
+
 
 ```js
 function deleteCartItem(url, cartId, itemId) {
