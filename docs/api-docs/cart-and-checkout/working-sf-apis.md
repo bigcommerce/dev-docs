@@ -582,7 +582,8 @@ Response:
 
 A consignment consists of a shipping address with the associated line items. At a minimum, one shipping address with line items and shipping options must be included in the checkout. If multiple shipping locations are used, match each `lineItem` with the correct shipping address.  When adding a shipping address to the checkout, the following query parameter should be included to return the shipping options available for any address: `?include=consignments.availableShippingOptions`. See [Add New Consignment to Checkout](https://developer.bigcommerce.com/api-reference/cart-checkout/storefront-checkout-api/checkout-consignments/checkoutsconsignmentsbycheckoutidpost) for more information.
 
-We will create a helper function, `createConsignment()`, to test this functionality.
+Create the `createConsignment()`helper function to test this functionality.
+
 
 ```js
 function createConsignment(url, cartId, data) {
