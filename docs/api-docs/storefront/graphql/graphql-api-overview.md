@@ -35,7 +35,8 @@ This article is a general overview of the capabilities and usage of BigCommerce'
 
 ### Note
 
-> * GraphQL Storefront API is in beta
+> * GraphQL Storefront API is in open beta
+> * As new features are added to the API, they will be called out in our [Developer Changelog](https://developer.bigcommerce.com/changelog#labels/storefront-api)
 > * BigCommerce legacy Blueprint themes currently do not support the GraphQL API and Playground
 
 </div>
@@ -58,7 +59,7 @@ For a full list of examples, see the [Storefront API Examples repo](https://gith
 
 To access the GraphQL Storefront API Playground and documentation:
 
-* Login to a BigCommerce store enrolled in the beta
+* Login to a BigCommerce store
 * Navigate to **Advanced Settings** > **Storefront API Playground**
 
 The GraphQL Storefront API Playground will be opened:
@@ -75,7 +76,7 @@ The GraphQL Storefront API Playground will be opened:
 
 > * GraphQL Playground is a GraphQL IDE built on Electron. For more information, see [GraphQL Playground](https://electronjs.org/apps/graphql-playground) on [electrongjs.org](https://electronjs.org)
 
-> * If the **Storefront API Playground** link is not visible, the store is not enrolled in the Beta program. To enroll, [contact support](https://support.bigcommerce.com/SubmitCase) (all stores using Stencil are now eligible)
+> * If the **Storefront API Playground** link is not visible, the store may not be using a Stencil theme. Apply a Stencil theme to use the Storefront GraphQL API.
 
 </div> 
 </div>
@@ -123,24 +124,6 @@ To explore the storefront GraphQL schema, checkout the Docs and Schema tabs on t
 
 ![GraphQL Playground Docs](https://raw.githubusercontent.com/bigcommerce/dev-docs/master/assets/images/graphql-playground-docs.png "GraphQL Playground Docs")
 
-Click changelog in the top right to view a list of recent changes to the storefront API:
-
-![GraphQL Playground Changelog](https://raw.githubusercontent.com/bigcommerce/dev-docs/master/assets/images/graphql-playground-changelog.png "GraphQL Playground Changelog")
-
-<div class="HubBlock--callout">
-<div class="CalloutBlock--info">
-<div class="HubBlock-content">
-
-<!-- theme: info -->
-
-### Note
-> * The changelog is updated with each deployment
-> * Additive Changes are possible during beta, so we recommend checking for changes frequently
-
-</div> 
-</div>
-</div>
-
 <a id="authentication" class="devdocsAnchor"></a>
 
 ## Authentication
@@ -148,7 +131,7 @@ Click changelog in the top right to view a list of recent changes to the storefr
 GraphQL Storefront API requests are authenticated with tokens sent via the HTTP `Authorization` header:
 
 ```bash
-curl 'https://www.{bigcommerce_storefront_domain}.com/graphql'\
+curl 'https://{bigcommerce_storefront_domain}.com/graphql'\
   # ...
   -H 'Authorization: Bearer {token}'\
   # ...
@@ -186,7 +169,7 @@ JWT tokens for authenticating cross-origin requests to the Storefront API can be
 <div class="HubBlock-content">
 <!-- theme: warning -->
 
-### Authenticating with a Stencil Simple Token
+### Authenticating with an auto-generated Stencil Token
 Client code in BigCommerce Stencil themes can be passed a token at render time with the `{{settings.storefront_api.token}}` Handlebars object:
 
 ```html
@@ -206,8 +189,7 @@ fetch('/graphql', {
 ```
 
 ### Note
-> * `1` can be passed in for the `channel_id` for generating tokens for use on the storefront itself.
-> * `1` is currently the only accepted `channel_id`.
+> * `1` can be passed in for the `channel_id` for generating tokens for use on the default Stencil storefront.
 > * To create a channel for a remote site, see [Create Channel].(https://developer.bigcommerce.com/api-reference/cart-checkout/channels-listings-api/channels/createchannel) in the API Reference.
 > * `allowed_cors_origins` array accepts only a single origin currently -- one token must be generated for each origin.
 > * `/storefront/api-token` endpoint requires the `Manage` `Storefront API Tokens` OAuth Scope.
@@ -298,7 +280,7 @@ Here's an an example request using the  `{{settings.storefront_api.token}}` hand
 
 In addition to using `fetch()`, there's a other ways to query the API:
 * **Using [Apollo Client](https://www.apollographql.com/docs/react/)** - Apollo is a popular GraphQL client that's easy to use in BigCommerce themes. For a a quick example of adding Apollo Client to cornerstone, checkout this [Cornerstone commit](https://github.com/bigcommerce/cornerstone/commit/508feeb1b00d2bb2940771e5e91250a08b6be4d9) on GitHub.
-* **Using any GraphQL Client** - GraphQL is standard with client libraries in many languages, so feel free to explore your options. The focus of the beta is on using the API from frontend JavaScript within Stencil; however, in the future, the API will also be opened up for server-to-server requests.
+* **Using any GraphQL Client** - GraphQL is a standard with client libraries in many languages, so feel free to explore your options. The focus of the beta is on using the API from frontend JavaScript within Stencil; however, in the future, the API will also be opened up for server-to-server requests.
 
 <div class="HubBlock--callout">
 <div class="CalloutBlock--info">
@@ -597,7 +579,6 @@ In general, to reduce complexity, reduce the number of objects requested:
 ### Examples
 * [Bootstrap + Vanilla JS Storefront API Example](https://bigcommerce.github.io/storefront-api-examples/html-bootstrap-vanillajs/) (bigcommerce.github.io)
 * [All BigCommerce Storefront API Examples](https://github.com/bigcommerce/storefront-api-examples) (github.com)
-* [GraphQL Storefront API Community Group](https://support.bigcommerce.com/s/group/0F91B000000bo3TSAQ/storefront-api-beta) (support.bigcommerce.com)
 
 ### Pull Requests
 * [Simple GraphQL Example Using Apollo Client with Cornerstone](https://github.com/bigcommerce/cornerstone/compare/graphQL-example)
