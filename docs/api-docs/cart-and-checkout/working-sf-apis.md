@@ -580,7 +580,10 @@ Response:
 
 ### Add a New Consignment 
 
-A consignment consists of a shipping address with the associated line items. At a minimum, one shipping address with line items and shipping options must be included in the checkout. If multiple shipping locations are used, match each `lineItem` with the correct shipping address.  When adding a shipping address to the checkout, the following query parameter should be included to return the shipping options available for any address: `?include=consignments.availableShippingOptions`. See [Add New Consignment to Checkout](https://developer.bigcommerce.com/api-reference/cart-checkout/storefront-checkout-api/checkout-consignments/checkoutsconsignmentsbycheckoutidpost) for more information.
+A consignment consists of a shipping address with the associated line items. At a minimum, one shipping address with line items and shipping options must be included in the checkout. If multiple shipping locations are used, match each `lineItem` with the correct shipping address.  When adding a shipping address to the checkout, include the `?include=consignments.availableShippingOptions` query parameter to return the shipping options available for any address. 
+
+See [Add New Consignment to Checkout](https://developer.bigcommerce.com/api-reference/cart-checkout/storefront-checkout-api/checkout-consignments/checkoutsconsignmentsbycheckoutidpost) for more information.
+
 
 Create the `createConsignment()`helper function to test this functionality.
 
