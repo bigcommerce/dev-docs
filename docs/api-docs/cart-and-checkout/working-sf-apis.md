@@ -146,7 +146,8 @@ Please take note of the value of the `cartId` as it will be used later in the tu
 
 ### Get a Cart
 
-To display the contents of a cart, we need to send a GET request to the `/api/storefront/carts` endpoint. By default, the cart response returns abbreviated product details. To get the full product details, we need to add the `include` query parameter. See [Get a Cart](https://developer.bigcommerce.com/api-reference/cart-checkout/storefront-cart-api/cart/getacart) for more information.
+To display the contents of a cart, we need to send a GET request to the [Get a Cart](https://developer.bigcommerce.com/api-reference/cart-checkout/storefront-cart-api/cart/getacart) endpoint. By default, the cart response returns abbreviated product details. To get the full product details, we need to add the `include` query parameter.
+
 
 Copy and execute the code below to create and subsequently call the `getCart()` helper function. 
 
