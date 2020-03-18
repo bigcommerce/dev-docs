@@ -834,7 +834,10 @@ Response:
 
 ### Update a Consignment to Add a Shipping Option
 
-Please note that only one consignment can be updated at a time. To update a consignment, add your `consignmentId` and the appropriate `shippingOptionId` (located inside of the `availableShippingOptions` object) to the PUT request parameters. See [Update Checkout Consignment](https://developer.bigcommerce.com/api-reference/cart-checkout/storefront-checkout-api/checkout-consignments/checkoutsconsignmentsbycheckoutidandconsignmentidput) for more information.
+To update a consignment, add your `consignmentId` and the appropriate `shippingOptionId` (located inside of the `availableShippingOptions` object) to the PUT request parameters. See [Update Checkout Consignment](https://developer.bigcommerce.com/api-reference/cart-checkout/storefront-checkout-api/checkout-consignments/checkoutsconsignmentsbycheckoutidandconsignmentidput) for more information.
+
+>**Note:** Only one consignment can be updated at a time. 
+
 
 We will create a helper function, `updateConsignment()`, to accomplish this. 
 
