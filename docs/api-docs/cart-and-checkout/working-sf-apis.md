@@ -248,7 +248,8 @@ function addCartItem(url, cartId, cartItems) {
      .then(response => response.json());
 };
 ```
-Then call the function to add a new line item to your cart. Make sure to replace the `cartId` and `productId` with your own values.
+Call the function to add a new line item to your cart. Make sure to replace the `cartId` and `productId` with your own values.
+
 
 ```js
 addCartItem(`/api/storefront/carts/`, `d4e978c2-bdcf-41b0-a49b-fecf4f5223c1`, {
