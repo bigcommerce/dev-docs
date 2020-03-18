@@ -39,7 +39,8 @@ The first part of this tutorial will cover using the [Storefront Cart API](https
 
 A cart can be created by sending a POST request to `/api/storefront/carts` and passing in an array of `cartItems`. See [Create Cart](https://developer.bigcommerce.com/api-reference/cart-checkout/storefront-cart-api/cart/createacart) for more information.
 
-We will create a helper function, `createCart()`, to accomplish this. Copy and execute the code below to create the function. 
+We will create the `createCart()` helper function to accomplish this. Copy and execute the code below to create the function. 
+
 
 ```js
 function createCart(url, cartItems) {
