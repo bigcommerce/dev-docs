@@ -443,7 +443,6 @@ Before proceeding, make sure you have added two different line items to your car
 <div class="HubBlock-content">
     
 <!-- theme:  -->
-### Checkout ID
 >Note: `checkoutId` is the `cartId`.
 
 </div>
