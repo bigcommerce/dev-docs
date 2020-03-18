@@ -598,7 +598,8 @@ function createConsignment(url, cartId, data) {
  };
 ```
 
-Copy and execute the code below to create a new consignmen. Make sure to replace the `cartId` with your own value.
+Copy and execute the code below to create a new consignment. Make sure to replace the `cartId` with your own value.
+
 
 ```js
 createConsignment(`/api/storefront/checkouts/`, `d4e978c2-bdcf-41b0-a49b-fecf4f5223c1`,
