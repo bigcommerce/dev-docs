@@ -142,7 +142,15 @@ Response:
  ...
 }
 ```
-Please take note of the value of the `cartId` as it will be used later in the tutorial. 
+<div class="HubBlock--callout">
+<div class="CalloutBlock--info">
+<div class="HubBlock-content">
+
+>Note: Please take note of the value of the `cartId` as it will be used later in the tutorial.
+
+</div>
+</div>
+</div>
 
 ### Get a Cart
 
