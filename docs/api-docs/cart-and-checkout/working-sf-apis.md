@@ -443,7 +443,8 @@ Before proceeding, make sure you have added two different line items to your car
 
 ### Add a Billing Address
 
-To add a billing address to a checkout, send a POST request to the `/api/storefront/checkouts/{checkoutId}/billing-address` endpoint. See [Add Checkout Billing Address](https://developer.bigcommerce.com/api-reference/cart-checkout/storefront-checkout-api/checkout-billing-address/checkoutsbillingaddressbycheckoutidpost) for more information.
+To add a billing address to a checkout, send a POST request to the [Add Checkout Billing Address](https://developer.bigcommerce.com/api-reference/cart-checkout/storefront-checkout-api/checkout-billing-address/checkoutsbillingaddressbycheckoutidpost) endpoint.
+
 
 Copy and execute the code below to create the `addBillingAddress()` helper function.
 
