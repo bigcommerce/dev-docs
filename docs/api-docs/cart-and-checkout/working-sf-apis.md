@@ -841,7 +841,8 @@ To update a consignment, add your `consignmentId` and the appropriate `shippingO
 >**Note:** Only one consignment can be updated at a time. 
 
 
-We will create a helper function, `updateConsignment()`, to accomplish this. 
+Create the `updateConsignment()` helper function to accomplish this. 
+
 
 ```js
 function updateConsignment(url, cartId, consignmentId, data,) {
