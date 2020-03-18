@@ -855,7 +855,8 @@ function updateConsignment(url, cartId, consignmentId, data,) {
 };
 ```
 
-Execute the code below to update the consignment replacing the `cartId` , `consigmentId`, and `shippingOptionId` with your own values.
+Execute the code below to update the consignment, replacing `cartId` , `consigmentId`, and `shippingOptionId` with your own values.
+
 
 ```js
  updateConsignment(`/api/storefront/checkouts/`, `d4e978c2-bdcf-41b0-a49b-fecf4f5223c1`, `5e6a91ff83c6d`,{
