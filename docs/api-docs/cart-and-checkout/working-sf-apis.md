@@ -11,7 +11,8 @@
 
 </div>
 
-BigCommerce’s Storefront API is a client API that exposes storefront data to stencil themes. The Storefront API can be used to manage a shopper’s cart and checkout and fetch order data via client-side JavaScript. See [Storefront API](https://developer.bigcommerce.com/api-reference#storefront-api) for more details.
+BigCommerce's [Storefront API](https://developer.bigcommerce.com/api-reference#storefront-api) exposes storefront data to Stencil themes. You can use this client API to manage a shopper's cart, checkout, and order data via client-side JavaScript. 
+
 
 We have created this tutorial to showcase common use cases to help you get started with the Storefront API. Each use case contains JavaScript code that can be pasted into the console of your browser to test in the context of your storefront session.
 
