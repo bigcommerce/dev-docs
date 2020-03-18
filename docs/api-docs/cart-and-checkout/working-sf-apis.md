@@ -19,7 +19,8 @@ By the end of this tutorial you should become familiar with some of the Storefro
 
 ## Prerequisites
 
-* BigCommerce store with at least two products and a shipping option. 
+For this tutorial, you will need a BigCommerce store with at least two products and a shipping option. 
+
 
 ## Getting Started
 
