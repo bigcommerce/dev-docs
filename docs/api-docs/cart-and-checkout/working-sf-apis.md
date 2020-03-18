@@ -1027,7 +1027,8 @@ Response:
 ## Troubleshooting
 
 **Did you get a 404?**  
-Make sure you have at least one item in your cart. Deleting all items removes the cart and returns a 404 error. 
+Make sure you have at least one item in your cart. Removing all items deletes the cart and returns a 404 error. 
+
 
 ## Resources
 
