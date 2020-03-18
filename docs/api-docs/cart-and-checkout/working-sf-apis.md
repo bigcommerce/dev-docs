@@ -27,7 +27,8 @@ For this tutorial, you will need a BigCommerce store with at least two products 
 
 ## Getting Started
 
-To begin, navigate to your storefront and open your browser’s  developer console.
+To begin, navigate to your storefront and open your browser’s developer console.
+
 
 For this tutorial, we will set the credentials and content-type fetch request options to `same-origin` and `application/json`, respectively. In production, your credentials will depend on your app setup. See [Request.credentials](https://developer.mozilla.org/en-US/docs/Web/API/Request/credentials) to learn more about other possible values. 
 
