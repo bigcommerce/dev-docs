@@ -1,8 +1,11 @@
-# REST API Quick Start
+# BigCommerce APIs Quick Start
 
 <div class="otp" id="no-index">
 
 ### On This Page
+- [REST API Quick Start](#rest-api-quick-start)
+- [Storefront API Quick Start](#storefront-api-quick-start)
+- [GraphQL API Quick Start](#graphql-api-quick-start)
 - [Authentication](#authentication)
 - [Making Requests](#making-requests)
 - [Get all Products](#get-all-products)
@@ -13,7 +16,48 @@
 
 </div>
 
-This Quick Start guide will take you through the minimum required steps to begin making API requests against BigCommerce's **V2 and V3 REST APIs**.
+This Quick Start Guide will take you through the minimum steps needed to begin making requests against BigCommerce's various APIs.
+
+## REST API Quick Start
+
+See [Authenticating BigCommerce's Rest APIs](https://developer.bigcommerce.com/api-docs/getting-started/authentication/rest-api-authentication#obtaining-store-api-credentials#obtaining-store-api-credentials) for instructions on obtaining store API credentials.
+
+The easiest way to experiment with BigCommerce REST APIs is via the built-in **Request Runner**:
+
+[![Open in Request Runner](https://storage.googleapis.com/bigcommerce-production-dev-center/images/Open-Request-Runner.svg)](https://developer.bigcommerce.com/api-reference/store-management/catalog/products/getproducts#requestrunner)
+
+Just copy and paste your `store_hash`, `client_id` ID, and `access_token` into the form, then click **Send**
+
+If you use **Visual Studio Code**, another simple way to make API requests is with the [REST Client](https://marketplace.visualstudio.com/items?itemName=humao.rest-client) extension. Once you have it installed, create a new file called `bigcommerce.http` and paste in the following:
+
+```http
+@ACCESS_TOKEN = your_access_token
+@CLIENT_ID = your_client_id
+@STORE_HASH = your_store_hash
+
+###
+
+GET https://api.bigcommerce.com/stores/{{STORE_HASH}}/v3/catalog/products
+X-Auth-Token: {{ACCESS_TOKEN}}
+X-Auth-Client: {{CLIENT_ID}}
+Content-Type: application/json
+Accept: application/json
+```
+
+Save and you'll see the **send request** link above `GET`. Click **send request** and the response will open in a split window.
+
+Alternatively, you can import the [Specification File](https://developer.bigcommerce.com/api-reference/store-management/catalog/BigCommerce_Catalog_API.oas2.json) into [Postman](https://www.getpostman.com/) (or any other tool that can import [Open API Specification](https://swagger.io/specification/) files).
+
+To view sample JSON request bodies for each REST API resource, see the 
+
+## Storefront API Quick Start
+
+To make your first requests in a browser with Storefront APIs, see the step-by-step tutorial [Working with Storefront Cart and Checkout APIs](https://developer.bigcommerce.com/api-docs/cart-and-checkout/working-sf-apis)
+
+## GraphQL API Quick Start
+
+
+<!-- This Quick Start guide will take you through the minimum required steps to begin making API requests against BigCommerce's **V2 and V3 REST APIs**.
 
 By the end of this guide, you’ll be able to:
 * get a list of products
@@ -233,4 +277,4 @@ Accept: application/json
 * Make sure your store has products.
 
 **Did you get a status of 404?**
-* Check the request URL for errors.
+* Check the request URL for errors. -->
