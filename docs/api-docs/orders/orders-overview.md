@@ -80,6 +80,8 @@ The Orders API can be used to create an order without first creating a cart and 
 ## Order Transactions
 The Order Transactions API is a read-only endpoint that returns transaction or payment data about an order. The data returned does not include payment tokens for a third party such as Braintree. 
 
+Orders processed via all [payment providers](https://support.bigcommerce.com/s/article/Available-Payment-Gateways) except PayPal Express Checkout and Test Gateway will create a transaction that is retrievable via Transactions API. Gift certificates, store credit, and offline payment methods will not create a transaction.
+
 ### When to Use:
 * View transaction information about an Order. 
 
