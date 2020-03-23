@@ -550,7 +550,8 @@ Orders created and captured via the API will look the same as other orders creat
 The card data is not accessible via the API once the payment is processed.
 
 ### Rate Limits
-BigCommerce has rates limits in place for this API. Some payment providers will provide checks on the incoming requests.
+The Payments API rate limit is 50 payment requests per 4 seconds.  Some payment providers will provide checks on the incoming requests.
+
 
 ## Sample App Diagram
 
