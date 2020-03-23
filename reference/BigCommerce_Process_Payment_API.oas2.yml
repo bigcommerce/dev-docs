@@ -106,7 +106,7 @@ paths:
                   payment_method_id:
                     description: >-
                       Identifier for payment method that will be used for this
-                      payment
+                      payment and `id` from the Get Accepted Payment Methods API
                     type: string
                     minLength: 1
             required:
@@ -342,7 +342,7 @@ definitions:
             description: ''
             type: object
           payment_method_id:
-            description: Identifier for payment method that will be used for this payment
+            description: Identifier for payment method that will be used for this payment and `id` from the Get Accepted Payment Methods API
             type: string
             minLength: 1
         required:
@@ -367,7 +367,7 @@ definitions:
         description: ''
         type: object
       payment_method_id:
-        description: Identifier for payment method that will be used for this payment
+        description: Identifier for payment method that will be used for this payment and `id` from the Get Accepted Payment Methods API
         type: string
         minLength: 1
     required:
