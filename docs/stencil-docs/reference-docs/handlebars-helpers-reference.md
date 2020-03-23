@@ -1776,10 +1776,8 @@ Denote a section of a theme where you can insert widgets.
 * `returns`: Does not return anything. Marks the section where widgets can be placed on a theme.
 
 #### Example
-<!--Check back-->
 ```js
 {{{region name="home_below_menu"}}}
-//=> "This text is preformatted."
 ```
 
 ### {{resourceHints}}
