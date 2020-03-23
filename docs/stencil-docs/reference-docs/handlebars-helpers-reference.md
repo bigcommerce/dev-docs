@@ -28,7 +28,7 @@
 
 </div>
 
-This page describes all of the Handlebars helpers supported on the Stencil framework. It includes helpers that are custom to, or customized for, Stencil. They are marked as **Custom Helper**. Only certain standard helpers are whitelisted and they are listed below as **Standard Helpers**. 
+This page describes all of the Handlebars helpers supported on the Stencil framework. It includes helpers that are custom to, or customized for, Stencil. They are marked as **Custom Helper**. Only certain standard helpers are whitelisted and they are listed below as **Standard Helpers**.
 
 For background information on using Handlebars helpers, please see the [official Handlebars documentation](http://handlebarsjs.com).
 
@@ -94,7 +94,7 @@ Assume that `{{cart.items}}` would return 10 items. You could use this helper to
   ...
 ```
 
-* [Paper Handlebars](https://github.com/bigcommerce/paper-handlebars/blob/master/spec/helpers/limit.js) 
+* [Paper Handlebars](https://github.com/bigcommerce/paper-handlebars/blob/master/spec/helpers/limit.js)
 * [Cornerstone](https://github.com/bigcommerce/cornerstone/blob/master/templates/components/common/cart-preview.html)
 
 ### {{pluck}}
@@ -219,7 +219,7 @@ Given the array `['a', 'b', 'c']`:
 
 **Standard Helper**
 
-Add 0 based indexing to the current handlebars loop. 
+Add 0 based indexing to the current handlebars loop.
 
 #### Parameters
 
@@ -256,9 +256,9 @@ Block helper that filters the given array. Renders the block for values that eva
 #### Example
 
 ```handlebars
-<!-- 
+<!--
 product: shirt
-myProducts: 
+myProducts:
 - shirt
 - mug
 - book  -->
@@ -1442,7 +1442,7 @@ Handlebars does not provide an `if`/`and` conditional structure. However, to tes
 
 **Custom Helper**
 
-The `unless` helper is logically the opposite of the [`if` helper](#if), subject to the restrictions below. 
+The `unless` helper is logically the opposite of the [`if` helper](#if), subject to the restrictions below.
 
 #### Example
 
@@ -1551,7 +1551,7 @@ It checks whether _all_ parameters evaluate to `true`. Parameters can be of diff
 {{/all}}
 ```
 
-### {{contains}} 
+### {{contains}}
 
 **Custom Helper**
 
@@ -1659,8 +1659,8 @@ Each is a built in block helper. Use it to loop over an array or object.
   {{@key}}:{{this}}! //optional separator
 {{/each}}
 
-=> key:T-Shirt! 
-  id:Mug! 
+=> key:T-Shirt!
+  id:Mug!
 ```
 
 #### Notes
@@ -1746,6 +1746,57 @@ Truncates a string to the specified `length` and appends an ellipsis, `…`.
 //=> 'foo bar…'
 ```
 
+### {{pre}}
+
+**Custom Helper**
+
+Wraps the string in `<pre>` tags which returns preformatted text. The text is rendered using a monospace font and preserves whitespace and line breaks.
+
+#### Parameters
+
+* `str` {String}
+* `returns` {String}: The preformatted string.
+
+#### Example
+
+```js
+{{pre "This text is preformatted." }}
+//=> "This text is preformatted."
+```
+
+### {{region}}
+
+**Custom Helper**
+
+Denote a section of a theme where you can insert widgets.
+
+#### Parameters
+
+* `name` {String}
+* `returns`: Does not return anything. Marks the section where widgets can be placed on a theme.
+
+#### Example
+```js
+{{{region name="home_below_menu"}}}
+```
+
+### {{resourceHints}}
+
+**Custom Helper**
+
+Prefetches or establishes connections with websites in order to download fonts.
+**Note:** This helper currently only supports Google fonts.
+
+#### Parameters
+
+* `returns`: Outputs a formatted `link` tag for DNS-prefetch.
+
+#### Example
+```js
+{{{resourceHints}}}
+//=> <link rel="dns-prefetch" href="https://fonts.gstatic.com/" >
+```
+
 ### {{sanitize}}
 
 **Standard Helper**
@@ -1762,6 +1813,24 @@ Strips HTML tags from a string, so that only the text nodes are preserved.
 ```js
 {{sanitize "<span>foo</span>"}}
 //=> 'foo'
+```
+
+### {{truncate}}
+
+**Custom Helper**
+
+Truncates a string.
+
+#### Parameters
+
+* `str` {String}: The string you want to truncate.
+* `length` {Number}: The desired length of the returned truncated string.
+* `returns` {String}: The truncated string.
+
+#### Example
+```js
+{{truncate "This will be truncated to only the first part of the sentence." 22}}
+//=> "This will be truncated"
 ```
 
 ### {{ul}}
@@ -2208,8 +2277,8 @@ const pageContext = JSON.parse({{jsContext}});
 let productData = [];
 pageContext[‘productIds’].forEach((id, index) => {
     let imageURL = ‘’;
-    pageContext[‘productImages’][index] === null ? 
-    imageURL = ‘’ : 
+    pageContext[‘productImages’][index] === null ?
+    imageURL = ‘’ :
     imageURL = pageContext[‘productImages’][index].replace(‘{:size}’, ‘100x100’);
 productData.push({
     id: id,
@@ -2450,7 +2519,7 @@ Adds commas to numbers.
 #### Example
 
 ```handlebars
-value = 2222222 
+value = 2222222
 
 {{addCommas value}}
 => 2,222,222
@@ -2532,7 +2601,7 @@ Returns a string, representing the given number in exponential notation.
 ```
 
 ```handlebars
-value = 5 
+value = 5
 {{toExponential value 5}}
 => 5.00000e+0 // to the 5th place
 
@@ -2577,7 +2646,7 @@ Returns a floating point number.
 #### Example
 
 ```handlebars
-value = '12.1abc' 
+value = '12.1abc'
 {{toFloat value}}
 =>12.1
 ```
@@ -2596,7 +2665,7 @@ Returns an integer.
 #### Example
 
 ```handlebars
-value = '12.1abc' 
+value = '12.1abc'
 {{toInt value}}
 =>12
 ```
@@ -2616,7 +2685,7 @@ Returns the number in fixed-point or exponential notation rounded to precision s
 #### Example
 
 ```handlebars
-value = 555.322 
+value = 555.322
 {{toPrecision value 4}}
 => 555.3
 ```
@@ -2697,8 +2766,8 @@ Given an object `{object: {a: 'b', c: 'd', e: 'f'}}`
 
 ```handlebars
 //iterate over each property
-{{#forIn this}} 
-  {{@key}} {{this}} 
+{{#forIn this}}
+  {{@key}} {{this}}
 {{/forIn}}
 => 'a b  c d  e f'
 ```
@@ -2857,7 +2926,7 @@ Returns true if `key` is an own, enumerable property of the given `context` obje
 
 // returns false since it only looks at a & b in this example
 {{hasOwn this "c"}}
-=> false 
+=> false
 ```
 
 ### {{isObject}}
@@ -3056,7 +3125,7 @@ By design, an array will return a `typeof` value of `object`.
 
 ##  String Helpers
 
-### {{block}} 
+### {{block}}
 
 **Custom Helper**
 
@@ -3098,7 +3167,7 @@ It concatenates two string objects from the page's context, which are passed as 
 {{/for}}
 ...
 ```
-                      
+
 
 ### {{dynamicComponent}}
 
@@ -3124,7 +3193,7 @@ Convert a JavaScript string object (from the page's context) into a JSON string 
 
 #### Example
 
-Returns the blog page contents. 
+Returns the blog page contents.
 
 ```handlebars
 {{json blog}}
@@ -3709,6 +3778,37 @@ Decodes a Uniform Resource Identifier (URI) component.
 => 'http://example.com?comment=Thyme &time=again'
 ```
 
+### {{setURLQueryParams}}
+
+**Custom Helper**
+
+Appends keys and values to a URL string or updates the query value if the stated key is already present.
+
+#### Parameters
+
+* `key` {String}: The query parameter key.
+* `value` {Number}: The query parameter value of the stated key.
+* `url` {String}: The URL of the query parameter.
+* `returns` {String}: A formatted URL query parameter.
+
+#### Example
+```js
+{{setURLQueryParam "http://example.com/image.jpg" "c" "2"}}
+//=> http://example.com/image.jpg?c=2
+```
+
+#### Example 2
+```js
+{{setURLQueryParam "http://example.com/image.jpg?c=2" "c" "3"}}
+//=> http://example.com/image.jpg?c=3
+```
+
+#### Example 3
+```js
+{{setURLQueryParam (setURLQueryParam "http://example.com/image.jpg" "c" "2") "d" "5"}}
+//=> http://example.com/image.jpg?c=3&d=5
+```
+
 ### {{urlResolve}}
 
 **Standard Helper**
@@ -3843,7 +3943,7 @@ Returns the given value of `prop` from `this.options`. Returns an empty string i
 #### Examples
 
 ```handlebars
-{{option "a.b.c"}} 
+{{option "a.b.c"}}
 {{options: {a: {b: {c: 'ddd'}}
 => 'ddd'
 ```
