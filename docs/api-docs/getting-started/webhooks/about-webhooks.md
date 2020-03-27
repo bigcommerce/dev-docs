@@ -117,7 +117,7 @@ Once a domain is no longer blacklisted, all new webhook requests will be sent as
 
 The webhook dispatcher will then attempt several retries (at increasing intervals) until the maximum retry limit is reached.
 
-**Retry Internavals**:
+**Retry Intervals**:
 * `60` seconds after the most recent failure  
 * `180` seconds after the most recent failure  
 * `180` seconds after the most recent failure  
