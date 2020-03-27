@@ -28,7 +28,7 @@ BigCommerce offers two possible workflows for creating orders via the API: the S
 | Name | Description |
 | -- | -- |
 | [Storefront Orders](/api-reference/orders/storefront-orders-api) | Retrieve order information from the Order Confirmation page using JavaScript |
-| [Server to Server Checkout](/api-reference/cart-checkout/server-server-checkout-api/checkout-orders/createanorder | Create an order from an existing checkout |
+| [Server to Server Checkout](/api-reference/cart-checkout/server-server-checkout-api/checkout-orders/createanorder) | Create an order from an existing checkout |
 | [Orders API](/api-reference/orders/orders-api) | Create and manage orders. Can manage orders created via API or the Control Panel |
 | [Order Transactions](/api-reference/orders/orders-transactions-api) | Get transaction information for existing orders. Read Only Endpoint |
 
