@@ -1,0 +1,443 @@
+<!DOCTYPE html>
+    <html>
+    <head>
+        <meta http-equiv="Content-type" content="text/html;charset=UTF-8">
+        <title>About Our APIs</title>
+        <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/katex@0.10.0/dist/katex.min.css" integrity="sha384-9eLZqc9ds8eNjO3TmqPeYcDj8n+Qfa4nuSiGYa6DjLNcv9BtN69ZIulL9+8CqC9Y" crossorigin="anonymous">
+        <link rel="stylesheet" href="https://cdn.jsdelivr.net/gh/Microsoft/vscode/extensions/markdown-language-features/media/markdown.css">
+        <link rel="stylesheet" href="https://cdn.jsdelivr.net/gh/Microsoft/vscode/extensions/markdown-language-features/media/highlight.css">
+        <link href="https://cdn.jsdelivr.net/npm/katex-copytex@latest/dist/katex-copytex.min.css" rel="stylesheet" type="text/css">
+        <style>
+.task-list-item { list-style-type: none; } .task-list-item-checkbox { margin-left: -20px; vertical-align: middle; }
+</style>
+        <style>
+            body {
+                font-family: -apple-system, BlinkMacSystemFont, 'Segoe WPC', 'Segoe UI', 'Ubuntu', 'Droid Sans', sans-serif;
+                font-size: 14px;
+                line-height: 1.6;
+            }
+        </style>
+        
+        <script src="https://cdn.jsdelivr.net/npm/katex-copytex@latest/dist/katex-copytex.min.js"></script>
+    </head>
+    <body>
+        <h1 id="about-our-apis">About Our APIs</h1>
+<div class="otp" id="no-index">
+<h3 id="on-this-page">On This Page</h3>
+<ul>
+<li><a href="#available-apis">Available APIs</a></li>
+<li><a href="#api-environments">API Environments</a></li>
+<li><a href="#available-store-resources">Available Store Resources</a></li>
+<li><a href="#rest-api-v2--v3">REST API (V2 &amp; V3)</a></li>
+<li><a href="#support">Support</a></li>
+<li><a href="#resources">Resources</a></li>
+</ul>
+</div>
+<p>Want to get started making API Requests right away? Check out the <a href="/api-docs/getting-started/basics/making-requests">Quick Start</a>.</p>
+<p>The BigCommerce set of APIs allow you to create apps, automate store processes, or build headless ecommerce solutions. Need inspiration on what to build? Visit our <a href="https://www.bigcommerce.com/apps/">App Marketplace</a>.</p>
+<h2 id="available-apis">Available APIs</h2>
+<p>BigCommerce has several different APIs that let you manage store data, authenticate customers, make client-side queries for product information, and more.</p>
+<h3 id="rest-apis-v2--v3">REST APIs (V2 &amp; V3)</h3>
+<p>BigCommerce's REST APIs (for example, the <a href="https://developer.bigcommerce.com/api-reference/store-management/catalog">Catalog API</a>) allow you to manage store data and take actions that mimic store administrator activity. Some example uses of the REST APIs are:</p>
+<ul>
+<li>Add and update products in a store</li>
+<li>Update a customer's order and change the order status</li>
+<li>Create a coupon</li>
+<li>Manage a customer's store account details</li>
+</ul>
+<h3 id="storefront-api">Storefront API</h3>
+<p>The <a href="https://developer.bigcommerce.com/api-reference/cart-checkout/storefront-cart-api">Storefront API</a> lets you manage customer carts and checkouts, and lets you access order information client-side. Some example uses of the Storefront API are:</p>
+<ul>
+<li>Add an item with Javascript to a shopper's cart from the storefront</li>
+<li>Programmatically retrieve and display to a customer information about their recent order</li>
+<li>Update the billing address of a checkout</li>
+<li>Clear a customer's current cart</li>
+</ul>
+<h3 id="graphql-api">GraphQL API</h3>
+<p>BigCommerce's <a href="https://developer.bigcommerce.com/api-docs/storefront/graphql/graphql-storefront-api-overview">GraphQL API</a> can be used to query product and customer data and store settings either remotely or from a store's font-end. Some use-case examples are:</p>
+<ul>
+<li>Pull a product's data with Javascript into a Stencil theme</li>
+<li>Access customer data via the front end of a site</li>
+<li>Fetch category and brand details from a store's front end</li>
+</ul>
+<h3 id="customer-login-api">Customer Login API</h3>
+<p>The <a href="https://developer.bigcommerce.com/api-docs/customers/customer-login-api">Customer Login API</a> lets you programmatically log in customers to a BigCommerce storefront. Some example uses of this API are:</p>
+<ul>
+<li>Log in customers to a BigCommerce store via a third-party system</li>
+<li>Enable login using credentials other than email and password (i.e. using a phone number)</li>
+<li>Integrate a BigCommerce store with an SSO provider</li>
+</ul>
+<h3 id="current-customer-api">Current Customer API</h3>
+<p>BigCommerce's <a href="https://developer.bigcommerce.com/api-docs/customers/current-customer-api">Current Customer API</a> can be used to determine which customer is logged in to a storefront during a session.</p>
+<ul>
+<li>Confirm a customer's identity in the browser</li>
+<li>Validate a customer's identity to display specific information to them from an external app</li>
+</ul>
+<h2 id="api-environments">API Environments</h2>
+<p>BigCommerce API requests can be made in the context of the storefront or server-to-server.</p>
+<table>
+<thead>
+<tr>
+<th>API</th>
+<th>Base URL</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>Server-to-Server</td>
+<td><code>https://api.bigcommerce.com/stores/{store_hash}/v3/</code></td>
+</tr>
+<tr>
+<td>V2</td>
+<td><code>https://api.bigcommerce.com/stores/{store_hash}/v2/</code></td>
+</tr>
+<tr>
+<td>Storefront API</td>
+<td><code>https://your-store.mybigcommerce.com/api/{endpoint}</code></td>
+</tr>
+<tr>
+<td>GraphQL</td>
+<td><code>https://www.{bigcommerce_storefront_domain}.com/graphql</code></td>
+</tr>
+<tr>
+<td>Customer Login</td>
+<td><code>https://www.{bigcommerce_storefront_domain}.com/login/token/{token}</code></td>
+</tr>
+<tr>
+<td>Current Customer</td>
+<td><code>/customer/current.jwt?app_client_id={app_client_id}</code></td>
+</tr>
+</tbody>
+</table>
+<h2 id="available-store-resources">Available Store Resources</h2>
+<table>
+<thead>
+<tr>
+<th>Resource</th>
+<th>Description</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td><a href="/api-reference/catalog/catalog-api">Catalog</a></td>
+<td>The Catalog API manages products, brands and categories for a store.</td>
+</tr>
+<tr>
+<td><a href="/api-reference/store-management/store-information-api">Store Infomation</a></td>
+<td>Get system time stamp and basic store information.</td>
+</tr>
+<tr>
+<td><a href="/api-reference/store/currency-api">Currency</a></td>
+<td>Manage currency displayed on the storefront</td>
+</tr>
+<tr>
+<td><a href="/api-reference/store/geography-api">Geography</a></td>
+<td>Get a list of states and countries</td>
+</tr>
+<tr>
+<td><a href="/api-reference/store/tax-classes-api">Tax Class</a></td>
+<td>Get available tax classes on a store</td>
+</tr>
+<tr>
+<td><a href="/api-reference/cart-checkout/storefront-cart-api">Storefront Cart</a></td>
+<td>Create a cart or scrape cart data from the front end</td>
+</tr>
+<tr>
+<td><a href="/api-reference/cart-checkout/server-server-cart-api">Server-to-Server Cart</a></td>
+<td>Create a cart and bypass the BigCommerce front end</td>
+</tr>
+<tr>
+<td><a href="/api-reference/cart-checkout/server-server-checkout-api">Server-to-Server Checkout</a></td>
+<td>Create a checkout and bypass the BigCommerce front end</td>
+</tr>
+<tr>
+<td><a href="/api-reference/orders/orders-api">Orders</a></td>
+<td>Create and manage orders</td>
+</tr>
+<tr>
+<td><a href="/api-reference/orders/orders-transactions-api">Order Transactions</a></td>
+<td>View order payment information</td>
+</tr>
+<tr>
+<td><a href="/api-reference/orders/storefront-orders-api">Storefront Orders</a></td>
+<td>View storefront order information</td>
+</tr>
+<tr>
+<td><a href="/api-reference/customer-subscribers/customers-api">Customers</a></td>
+<td>Manage store customers</td>
+</tr>
+<tr>
+<td><a href="https://developer.bigcommerce.com/api-reference/customer-subscribers/v3-customers-api">V3 Customers</a></td>
+<td>Manage store customers. To learn about using V3 Customers vs V2 Customers, see <a href="https://developer.bigcommerce.com/api-docs/customers/customers-subscribers-overview">Customers Overview</a>.</td>
+</tr>
+<tr>
+<td><a href="/api-reference/customer-subscribers/subscribers-api">Subscribers</a></td>
+<td>Manage newsletter subscribers</td>
+</tr>
+<tr>
+<td><a href="/api-reference/price-lists/pricelists-api">Price Lists</a></td>
+<td>Create variations of catalog pricing.</td>
+</tr>
+<tr>
+<td><a href="/api-reference/content/content-scripts-api">Scripts</a></td>
+<td>Add a script to a stores page</td>
+</tr>
+<tr>
+<td><a href="/api-reference/marketing/marketing-api">Marketing</a></td>
+<td>Create and manage Coupons, Banners and Gift Certificates.</td>
+</tr>
+<tr>
+<td><a href="/api-reference/payments/payment-methods-api">Enabled Payment Methods</a></td>
+<td>Get a list of available payment methods on a store.</td>
+</tr>
+<tr>
+<td>Process Payments</td>
+<td>Process payments on orders or checkouts. There are two APIs used to process payments. Get the <a href="https://developer.bigcommerce.com/api-reference/payments/payments-create-payment-token-api">payment access token</a> then <a href="https://developer.bigcommerce.com/api-reference/payments/payments-process-payments">process the payment</a>.</td>
+</tr>
+<tr>
+<td><a href="/api-reference/shipping/shipping-api">Shipping</a></td>
+<td>Create and manage shipping methods and zones.</td>
+</tr>
+<tr>
+<td><a href="/api-reference/content/store-content-api">Store Content</a></td>
+<td>Manage the store's blog, web pages and redirects.</td>
+</tr>
+<tr>
+<td><a href="/api-docs/storefront/graphql/graphql-storefront-api-overview">Storefront GraphQL API</a></td>
+<td>Query storefront data from from within a Stencil theme or remote site.</td>
+</tr>
+<tr>
+<td><a href="/api-reference/themes/themes-api">Themes</a></td>
+<td>Manage store's themes.</td>
+</tr>
+<tr>
+<td><a href="https://developer.bigcommerce.com/api-reference/storefront/widgets-api">Widgets</a></td>
+<td>Programmatically inject content into a BigCommerce theme.</td>
+</tr>
+<tr>
+<td><a href="https://developer.bigcommerce.com/api-reference/customer-subscribers/wishlist-api">Wishlist</a></td>
+<td>Wishlist API allows a developer to create and manage customer wishlists.</td>
+</tr>
+</tbody>
+</table>
+<h2 id="rest-api-v2--v3">REST API (V2 &amp; V3)</h2>
+<h3 id="request-headers">Request Headers</h3>
+<p>Server-to-Server request headers require Accept, X-Auth-Client, X-Auth-Token and Content-Type at a minimum.</p>
+<table>
+<thead>
+<tr>
+<th>Header</th>
+<th>Allowed Values</th>
+<th>Description</th>
+<th>Example</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td><code>Accept</code></td>
+<td><code>application/json</code> (for .json requests) <code>application/xml</code> (for .xml requests)</td>
+<td>The MIME type for the format you want to receive a response in.</td>
+<td><code>application/xml</code></td>
+</tr>
+<tr>
+<td><code>Content-Type</code></td>
+<td><code>application/json</code> (for JSON requests) <code>application/xml</code> (for XML requests)</td>
+<td>The MIME type of the request body. Used to validate and parse the request to the API.</td>
+<td><code>application/json</code></td>
+</tr>
+<tr>
+<td><code>User-Agent</code></td>
+<td>String</td>
+<td>While it is not required, we ask that you specify a user agent which identifies your integration/client with your requests.</td>
+<td></td>
+</tr>
+<tr>
+<td><code>X-Auth-Client</code></td>
+<td>String</td>
+<td>Client ID of the requesting app</td>
+<td></td>
+</tr>
+<tr>
+<td><code>X-Auth-Token</code></td>
+<td>String</td>
+<td>Access token authorizing the app to access resources on behalf of a user</td>
+<td></td>
+</tr>
+</tbody>
+</table>
+<h3 id="response-headers">Response Headers</h3>
+<table>
+<thead>
+<tr>
+<th>Header</th>
+<th>Possible Values</th>
+<th>Description</th>
+<th>Example</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td><code>Date</code></td>
+<td>An <a href="http://tools.ietf.org/html/rfc2822#section-3.3" target="_blank">RFC 2822</a> date.</td>
+<td>The date the response was sent.</td>
+<td><code>Tue, 15 Nov 2011 12:45:26 GMT</code></td>
+</tr>
+<tr>
+<td><code>last-modified</code></td>
+<td>An <a href="http://tools.ietf.org/html/rfc2822#section-3.3" target="_blank">RFC 2822</a> date.</td>
+<td>The date the resource was last modified. Please refer to the individual resource pages for support for this header.</td>
+<td><code>Tue, 15 Nov 2011 12:45:26 GMT</code></td>
+</tr>
+<tr>
+<td><code>Content-Type</code></td>
+<td><code>application/json</code></td>
+<td>The MIME type of the response, dependent on the extension of the endpoint that was requested.</td>
+<td><code>application/json</code></td>
+</tr>
+<tr>
+<td><code>Content-Location</code></td>
+<td>A URI</td>
+<td>Sent if the request was redirected.</td>
+<td><code>/api/v2/orders/5.json</code></td>
+</tr>
+<tr>
+<td><code>Location</code></td>
+<td>A URI</td>
+<td>The URI of a newly created resource. Sent with a <code>201 Created</code> response.</td>
+<td><code>/api/v2/products/7</code></td>
+</tr>
+<tr>
+<td><code>X-Retry-After</code></td>
+<td>integer</td>
+<td>Rate limited response, indicating the number of seconds before the quota refreshes. See <a href="/api-docs/getting-started/basics/best-practices#best-practices_rate-limits">Rate Limits</a> for more information.</td>
+<td><code>15</code></td>
+</tr>
+<tr>
+<td><code>X-BC-ApiLimit-Remaining</code></td>
+<td>integer</td>
+<td>The number of API requests remaining for the current period (rolling one hour). See <a href="/api-docs/getting-started/basics/best-practices#best-practices_rate-limits">Rate Limits</a> for more information.</td>
+<td><code>987</code></td>
+</tr>
+<tr>
+<td><code>X-BC-Store-Version</code></td>
+<td>A version number</td>
+<td>The version of BigCommerce the store is running on. This header is available on versions 7.3.6+.</td>
+<td><code>7.3.6</code></td>
+</tr>
+<tr>
+<td><code>Content-Encoding</code></td>
+<td><code>gzip</code></td>
+<td>Allows API clients to request content to be compressed before being sent back in the response to an API request.</td>
+<td><code>gzip</code></td>
+</tr>
+<tr>
+<td><code>Transfer-Encoding</code></td>
+<td><code>chunked</code></td>
+<td>Specifies the form of encoding used to transfer the resource.</td>
+<td><code>chunked</code></td>
+</tr>
+<tr>
+<td><code>X-Rate-Limit-Requests-Left</code></td>
+<td>number</td>
+<td>Details how many remaining requests your client can make in the current window before being rate-limited. In this case, you would expect to be able to make 6 more requests in the next 3000 milliseconds; on the 7th request within 3000 milliseconds, you would be rate-limited and would receive an HTTP 429 response.</td>
+<td><code>16101491</code></td>
+</tr>
+<tr>
+<td><code>X-Rate-Limit-Requests-Quota</code></td>
+<td>number</td>
+<td>Shows how many API requests are allowed in the current window for your client.</td>
+<td><code>16101495</code></td>
+</tr>
+<tr>
+<td><code>X-Rate-Limit-Time-Reset-Ms</code></td>
+<td>number</td>
+<td>Shows how many milliseconds are remaining in the window. In this case, 3000 milliseconds – so, 3000 milliseconds after this request, the API quota will be refreshed.</td>
+<td><code>30000</code></td>
+</tr>
+<tr>
+<td><code>X-Rate-Limit-Time-Window-Ms</code></td>
+<td>number</td>
+<td>Shows the size of your current rate-limiting window.</td>
+<td><code>9762</code></td>
+</tr>
+</tbody>
+</table>
+<h3 id="media-types">Media Types</h3>
+<p>A media type is the format of the request or response body. The BigCommerce API accepts requests and responds in JSON. You should encode requests using the UTF-8 character set (other character sets might have unpredictable results).</p>
+<h3 id="content-types">Content Types</h3>
+<h3 id="request-content-type">Request Content Type</h3>
+<p>When performing a request that contains a body (eg. POST or PUT), the type of content you are sending needs to be specified in the Content-Type header.</p>
+<h3 id="response-content-type">Response Content Type</h3>
+<p>There are two ways you can specify the type of content you would like to receive. The first method is to specify an Accept header. The second is to supply an extension to the resource you are requesting.</p>
+<p>The priority in which these methods are processed are:</p>
+<ul>
+<li>Accept header high-priority types (eg. <code>Accept: application/json</code>) extensions on the resource (e.g. <code>customers.json</code>).</li>
+<li>Accept header low priority types (priorities less than 1, e.g. <code>Accept: application/json;q=0.9</code>)</li>
+</ul>
+<h3 id="request-structure">Request Structure</h3>
+<p>The body of a JSON request is an object containing a set of key-value pairs. A simple representation of a product object is:</p>
+<div class="HubBlock-header">
+    <div class="HubBlock-header-title flex items-center">
+        <div class="HubBlock-header-name"></div>
+    </div><div class="HubBlock-header-subtitle"></div>
+</div>
+<!--
+title: ""
+subtitle: ""
+lineNumbers: true
+-->
+<pre><code class="language-json"><div>{
+ <span class="hljs-attr">"id"</span>: <span class="hljs-number">5</span>,
+ <span class="hljs-attr">"name"</span>: <span class="hljs-string">"iPod"</span>,
+ <span class="hljs-attr">"description"</span>: <span class="hljs-string">"A portable MP3 music player."</span>
+} 
+</div></code></pre>
+<h3 id="response-structure">Response Structure</h3>
+<p>Responses are structured similarly to requests. If a request returns a single object, then the response will contain a single object, containing the fields for that resource.</p>
+<!--
+title: "Single Category Response"
+subtitle: ""
+lineNumbers: true
+-->
+<p><strong>Response Get a Category</strong><br>
+<code>/GET https://api.bigcommerce.com/stores/{store_hash}/v3/catalog/categories/{category_id}</code></p>
+<pre><code class="language-json"><div>{
+  <span class="hljs-attr">"data"</span>: {
+    <span class="hljs-attr">"id"</span>: <span class="hljs-number">39</span>,
+    <span class="hljs-attr">"parent_id"</span>: <span class="hljs-number">19</span>,
+    <span class="hljs-attr">"name"</span>: <span class="hljs-string">"Bath"</span>,
+    <span class="hljs-attr">"description"</span>: <span class="hljs-string">""</span>,
+    <span class="hljs-attr">"views"</span>: <span class="hljs-number">0</span>,
+    <span class="hljs-attr">"sort_order"</span>: <span class="hljs-number">0</span>,
+    <span class="hljs-attr">"page_title"</span>: <span class="hljs-string">""</span>,
+    <span class="hljs-attr">"meta_keywords"</span>: [
+      <span class="hljs-string">""</span>
+    ],
+    <span class="hljs-attr">"meta_description"</span>: <span class="hljs-string">""</span>,
+    <span class="hljs-attr">"layout_file"</span>: <span class="hljs-string">"category.html"</span>,
+    <span class="hljs-attr">"image_url"</span>: <span class="hljs-string">""</span>,
+    <span class="hljs-attr">"is_visible"</span>: <span class="hljs-literal">true</span>,
+    <span class="hljs-attr">"search_keywords"</span>: <span class="hljs-string">""</span>,
+    <span class="hljs-attr">"default_product_sort"</span>: <span class="hljs-string">"use_store_settings"</span>,
+    <span class="hljs-attr">"custom_url"</span>: {
+      <span class="hljs-attr">"url"</span>: <span class="hljs-string">"/garden/bath/"</span>,
+      <span class="hljs-attr">"is_customized"</span>: <span class="hljs-literal">false</span>
+    }
+  },
+  <span class="hljs-attr">"meta"</span>: {}
+}
+</div></code></pre>
+<h2 id="support">Support</h2>
+<h3 id="developer-community"><a href="https://forum.bigcommerce.com/s/group/0F913000000HLjECAW/bigcommerce-developers">Developer Community</a></h3>
+<p>This is a great place to get help from other developers who work on the BigCommerce platform. If you have BigCommerce specific questions this is the best place to ask. It's also great for beginners to get assistance.</p>
+<h3 id="stackoverflow"><a href="https://stackoverflow.com/questions/tagged/bigcommerce">StackOverflow</a></h3>
+<p>Are you a more experienced developer or have a programming language specific question? This is a good place to ask questions and get help. The developer community is the best place to get answers about the BigCommerce platform specifically.</p>
+<h2 id="resources">Resources</h2>
+<ul>
+<li><a href="https://forum.bigcommerce.com/s/group/0F913000000HLjECAW/bigcommerce-developers">Developer Community</a></li>
+<li><a href="https://www.bigcommerce.com/terms/api-terms/">Terms of Service</a></li>
+<li><a href="https://stackoverflow.com/questions/tagged/bigcommerce">StackOverflow</a></li>
+</ul>
+
+    </body>
+    </html>
