@@ -230,7 +230,8 @@ Customer Impersonation Token authenticated requests made to the GraphQL API rece
 
 Customer Impersonation Tokens should **never** be exposed publicly (e.g. to JavaScript or HTML), and should not be used for frontend requests. Unlike normal GraphQL Storefront API tokens, they are sensitive and should be treated like secrets, just as you might treat an OAuth token for BigCommerce's administrative APIs. Attempts to run requests using these tokens from a web browser will be rejected.
 
-Consider this sample request using a Customer Impersonation token to run a request in the context of customer ID 123:
+Consider this sample request using a Customer Impersonation token to run a request in the context of customer ID `123`:
+
 
 ```
 curl 'https://store.com/graphql' -H 'Authorization: Bearer TOKEN_GOES_HERE' -H 'X-Bc-Customer-Id: 123' --data-binary '{"query":"query CustomerInformation {\n  customer {\n    firstName\n    lastName\n    email\n  }\n}"}'
