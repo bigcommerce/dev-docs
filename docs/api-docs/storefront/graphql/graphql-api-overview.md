@@ -325,7 +325,8 @@ As a best practice, you should create tokens that expire and rotate them regular
 
 #### I want to run requests in the context of the store's default channel (Channel ID 1)
 
-In this case, you have two options for public URLs you can use to run requests:
+You have two options for public URLs you can use to run requests:
+
 
 - The store's default storefront URL, e.g. `https://store.com/graphql`
 - The store's permanent URL, e.g. `https://store-STOREHASH.mybigcommerce.com/graphql`
