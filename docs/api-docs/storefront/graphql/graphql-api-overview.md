@@ -356,7 +356,8 @@ By default, users will be assumed to be guest shoppers and receive anonymous inf
 
 #### I want to run requests from a server and I don't need customer impersonation abilities
 
-You should use normal Storefront API Tokens, as according to the [Principle of least privilege](https://en.wikipedia.org/wiki/Principle_of_least_privilege) you should not create a token that has permissions you do not need.
+Use normal Storefront API Tokens. According to the [Principle of least privilege](https://en.wikipedia.org/wiki/Principle_of_least_privilege), you should not create a token that has permissions you do not need.
+
 
 #### I want to run requests from a server and I need customer impersonation abilities
 
