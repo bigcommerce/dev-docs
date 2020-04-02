@@ -333,7 +333,8 @@ You have two options for public URLs you can use to run requests:
 
 #### I want to run requests from the perspective of another Channel
 
-In this case, you should use the Channel's Permanent URL instead, of the form  `https://store-STOREHASH-CHANNELID.mybigcommerce.com/graphql`.
+You should use the Channel's Permanent URL of the form `https://store-STOREHASH-CHANNELID.mybigcommerce.com/graphql`.
+
 
 For example, if your store hash is `abc123` and your channel ID is `456`, the correct URL would be `https://store-abc123-456.mybigcommerce.com/graphql`.
 
