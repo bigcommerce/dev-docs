@@ -9,6 +9,7 @@
 - [Using the GraphQL Playground](#using-the-graphql-playground)
 - [Authentication](#authentication)
 - [Querying Within a BigCommerce Storefront](#querying-within-a-bigcommerce-storefront)
+- [Querying From External Systems](#querying-from-external-systems)
 - [Pagination](#pagination)
 - [Complexity Limits](#complexity-limits)
 - [Resources](#resources)
@@ -145,7 +146,7 @@ JWT tokens for authenticating cross-origin requests to the Storefront API can be
 
 ```javascript
 {
-  "channel_id": 1,            // int (only ID 1 currently accepted)
+  "channel_id": 1,            // int (must be a valid channel ID on the store)
   "expires_at": 1602288000,   // double utc unix timestamp (required)
   "allowed_cors_origins": [   // array (accepts 1 origin currently)
     "https://example.com"
@@ -201,7 +202,7 @@ fetch('/graphql', {
 
 ### Customer Impersonation Tokens
 
-Its also possible to generate tokens for use in server-to-server interactions with a trusted consumer by POSTing to the [API Token Customer Impersonation Endpoint](https://developer.bigcommerce.com/api-reference/storefront/graphql-api-tokens/api-token-customer-impersonation/createtokenwithcustomerimpersonation) with the `X-Bc-Customer-Id` header set to the customer's ID:
+Its also possible to generate tokens for use in server-to-server interactions with a trusted consumer by POSTing to the [API Token Customer Impersonation Endpoint](https://developer.bigcommerce.com/api-reference/storefront/graphql-api-tokens/api-token-customer-impersonation/createtokenwithcustomerimpersonation):
 
 **`POST`** `https://api.bigcommerce.com/stores/{store_id}/v3/storefront/api-token-customer-impersonation`
 
@@ -224,7 +225,15 @@ Its also possible to generate tokens for use in server-to-server interactions wi
 }
 ```
 
-Customer Impersonation Token authenticated requests made to the GraphQL API receive store information from the perspective of the customer corresponding to the customer ID specified in the `X-Bc-Customer-Id` header used to create the token -- for example: pricing, product availability, customer account, and customer details.
+Customer Impersonation Token authenticated requests made to the GraphQL API receive store information from the perspective of the customer corresponding to the customer ID specified in the `X-Bc-Customer-Id` header sent with the GraphQL POST request -- for example: pricing, product availability, customer account, and customer details will be reflected.
+
+Customer Impersonation Tokens should **never** be exposed publicly (e.g. to JavaScript or HTML), and should not be used for frontend requests. Unlike normal GraphQL Storefront API tokens, they are sensitive and should be treated like secrets, just as you might treat an OAuth token for BigCommerce's administrative APIs. Attempts to run requests using these tokens from a web browser will be rejected.
+
+Consider this sample request using a Customer Impersonation token to run a request in the context of customer ID 123:
+
+```
+curl 'https://store.com/graphql' -H 'Authorization: Bearer TOKEN_GOES_HERE' -H 'X-Bc-Customer-Id: 123' --data-binary '{"query":"query CustomerInformation {\n  customer {\n    firstName\n    lastName\n    email\n  }\n}"}'
+```
 
 
 <a id="querying-within-a-bigcommerce-storefront" class="devdocsAnchor"></a>
@@ -296,6 +305,54 @@ In addition to using `fetch()`, there's a other ways to query the API:
 </div>
 </div>
 </div>
+
+<a id="querying-from-external-systems" class="devdocsAnchor"></a>
+
+## Querying From External Systems
+
+If you wish to use the GraphQL Storefront API from an external system, there are a few considerations:
+
+- Which Channel do you wish to run requests in the context of?
+- Are you running request from a server, or a frontend application/browser?
+- If you are running requests from a frontend application, do you need to show customer-specific information, or only anonymous information?
+- If you are running requests from a server, do you need the ability to impersonate customers?
+
+As a best practice, you should create tokens that expire and rotate them regularly before their expiry. However, you are also permitted to create long-lived tokens.
+
+#### I want to run requests in the context of the store's default channel (Channel ID 1)
+
+In this case, you have two options for public URLs you can use to run requests:
+
+- The store's default storefront URL, e.g. `https://store.com/graphql`
+- The store's permanent URL, e.g. `https://store-STOREHASH.mybigcommerce.com/graphql`
+
+#### I want to run requests from the perspective of another Channel
+
+In this case, you should use the Channel's Permanent URL instead, of the form  `https://store-STOREHASH-CHANNELID.mybigcommerce.com/graphql`.
+
+For example, if your store hash is `abc123` and your channel ID is `456`, the correct URL would be `https://store-abc123-456.mybigcommerce.com/graphql`
+
+Note that you must create your Storefront API Token with the same channel ID, or your request will be rejected.
+
+In order for the Channel's Permanent URL to be available, you must [create a Site](https://developer.bigcommerce.com/api-reference/cart-checkout/sites-routes-api/sites/post-site) for the channel.
+
+#### I want to run requests from a frontend application or browser (e.g. React app), and I only show anonymous information/I do not support logging in as a customer
+
+You should use a normal Storefront API Token, and you can use an anonymous `fetch` or `XHR` mode that does not send cookies along with the request. When creating your token, be sure to specify the origin from which your requests will be run, in order to whitelist this origin for [CORS.](https://developer.mozilla.org/en-US/docs/Web/HTTP/CORS)
+
+#### I want to run requests from a frontend application or browser (e.g. React app), and I wish to support logging in directly from that frontend application
+
+You should use a normal Storefront API Token, and you should make your requests [with credentials (cookies) included.](https://developer.mozilla.org/en-US/docs/Web/HTTP/CORS#Requests_with_credentials) When creating your token, be sure to specify the origin from which your requests will be run, in order to whitelist this origin for [CORS.](https://developer.mozilla.org/en-US/docs/Web/HTTP/CORS)
+
+By default, users will be assumed to be guest shoppers and receive anonymous information in response to GraphQL requests. If you use the Customer Login GraphQL mutation, a cookie will be set as a response to a successful login, and future GraphQL requests will return customer-specific information as long as that cookie is sent with the request.
+
+#### I want to run requests from a server and I don't need customer impersonation abilities
+
+You should use normal Storefront API Tokens, as according to the [Principle of least privilege](https://en.wikipedia.org/wiki/Principle_of_least_privilege) you should not create a token that has permissions you do not need.
+
+#### I want to run requests from a server and I need customer impersonation abilities
+
+You should use a Customer Impersonation Storefront API Token, and store it securely on your server like other secrets. When you need to run requests in the context of a particular Customer (for example, if they've logged in to your application), send their BigCommerce Customer ID along with the request as the `X-Bc-Customer-Id` header.
 
 <a id="complexity-limits" class="devdocsAnchor"></a>
 
