@@ -9,6 +9,7 @@
 - [Current Customer API](#current-customer-api)
 - [Provider APIs](#provider-apis)
 - [Add to Cart URLs](#add-to-cart-urls)
+- [Deprecated BigCommerce APIs](#deprecated-bigcommerce-apis)
 
 ## BigCommerce APIs at a Glance
 |API|Server|Description|
@@ -233,3 +234,22 @@ Query string parameters can be appended to BigCommerce product and `/cart.php` U
 
 
 **Additional Information:** [Add to Cart URLs Overview](https://developer.bigcommerce.com/api-docs/cart-and-checkout/add-to-cart-url)
+
+
+## Deprecated BigCommerce APIs
+
+Due to changes in the APIs, certain endpoints are no longer supported and should not be used. This section contains a continuously updated list of deprecated BigCommerce API endpoints and suggested alternatives.  
+
+### Deprecated V2 API Endpoints and V3 API Alternatives
+
+Listed below are all of the deprecated V2 API endpoints and V3 equivalents. 
+
+|V2 API Endpoint|V3 API Alternative |
+|-|-|
+|`/v2/brands`| `/v3/catalog/brands`|
+|`/v2/categories`| `/v3/catalog/categories`|
+|`/v2/customers`| `/v3/customers`|
+|`/v2/options`| In V3, `options` belong to each product. Use the `options` subresource on the product instead. |
+|`/v2/option_sets`| `option_sets` endpoint is not available in the V3 API. However, `option_sets` can still be deleted individually by their ID.|
+
+**Additional Information:** [V2 versus V3 API](https://developer.bigcommerce.com/legacy/v2-products/v2-v3#Whats-not-in-V3) 
