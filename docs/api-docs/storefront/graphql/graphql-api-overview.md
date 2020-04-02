@@ -344,7 +344,8 @@ In order for the Channel's Permanent URL to be available, you must [create a Sit
 
 #### I want to run requests from a frontend application or browser (e.g. React app), and I only show anonymous information/I do not support logging in as a customer
 
-You should use a normal Storefront API Token, and you can use an anonymous `fetch` or `XHR` mode that does not send cookies along with the request. When creating your token, be sure to specify the origin from which your requests will be run, in order to whitelist this origin for [CORS.](https://developer.mozilla.org/en-US/docs/Web/HTTP/CORS)
+Use a normal Storefront API Token. You can use an anonymous `fetch` or `XHR` mode that does not send cookies along with the request. When creating your token, be sure to specify the origin from which your requests will be run in order to whitelist this origin for [CORS.](https://developer.mozilla.org/en-US/docs/Web/HTTP/CORS)
+
 
 #### I want to run requests from a frontend application or browser (e.g. React app), and I wish to support logging in directly from that frontend application
 
