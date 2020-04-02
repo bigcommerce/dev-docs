@@ -361,7 +361,8 @@ Use normal Storefront API Tokens. According to the [Principle of least privilege
 
 #### I want to run requests from a server and I need customer impersonation abilities
 
-You should use a Customer Impersonation Storefront API Token, and store it securely on your server like other secrets. When you need to run requests in the context of a particular Customer (for example, if they've logged in to your application), send their BigCommerce Customer ID along with the request as the `X-Bc-Customer-Id` header.
+Use a Customer Impersonation Storefront API Token and store it securely on your server like other secrets. When you need to run requests in the context of a particular Customer (for example, if they've logged in to your application), send their BigCommerce Customer ID along with the request as the `X-Bc-Customer-Id` header.
+
 
 <a id="complexity-limits" class="devdocsAnchor"></a>
 
