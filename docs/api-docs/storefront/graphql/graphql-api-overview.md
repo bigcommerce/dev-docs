@@ -291,7 +291,7 @@ Here's an an example request using the  `{{settings.storefront_api.token}}` hand
 
 In addition to using `fetch()`, there's a other ways to query the API:
 * **Using [Apollo Client](https://www.apollographql.com/docs/react/)** - Apollo is a popular GraphQL client that's easy to use in BigCommerce themes. For a a quick example of adding Apollo Client to cornerstone, checkout this [Cornerstone commit](https://github.com/bigcommerce/cornerstone/commit/508feeb1b00d2bb2940771e5e91250a08b6be4d9) on GitHub.
-* **Using any GraphQL Client** - GraphQL is a standard with client libraries in many languages, so feel free to explore your options. The focus of the beta is on using the API from frontend JavaScript within Stencil; however, in the future, the API will also be opened up for server-to-server requests.
+* **Using any GraphQL Client** - GraphQL is a standard with client libraries in many languages, so feel free to explore your options.
 
 <div class="HubBlock--callout">
 <div class="CalloutBlock--info">
