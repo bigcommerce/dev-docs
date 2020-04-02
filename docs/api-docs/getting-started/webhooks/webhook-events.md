@@ -626,7 +626,7 @@ Changes to the following store settings will trigger a `store/information/update
     "data": {
         "type": "shipment",
         "id": 12,
-        "orderId": "251"
+        "orderId": 251
     },
     "hash": "8b98021cb0faa7e3a58a0e4182d3696a4bdd24ab",
     "created_at": 1561482857,

@@ -203,6 +203,10 @@ definitions:
         description: Store’s current HTTPS URL.
         example: 'https://your-store-url.com'
         type: string
+      control_panel_base_url:
+        description: The secure hostname of the control panel.
+        example: 'https://store-abc123.mybigcommerce.com'
+        type: string
       name:
         description: Store's name.
         example: BigCommerce
