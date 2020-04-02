@@ -335,7 +335,8 @@ You have two options for public URLs you can use to run requests:
 
 In this case, you should use the Channel's Permanent URL instead, of the form  `https://store-STOREHASH-CHANNELID.mybigcommerce.com/graphql`.
 
-For example, if your store hash is `abc123` and your channel ID is `456`, the correct URL would be `https://store-abc123-456.mybigcommerce.com/graphql`
+For example, if your store hash is `abc123` and your channel ID is `456`, the correct URL would be `https://store-abc123-456.mybigcommerce.com/graphql`.
+
 
 Note that you must create your Storefront API Token with the same channel ID, or your request will be rejected.
 
