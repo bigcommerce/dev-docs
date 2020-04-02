@@ -349,7 +349,8 @@ Use a normal Storefront API Token. You can use an anonymous `fetch` or `XHR` mod
 
 #### I want to run requests from a frontend application or browser (e.g. React app), and I wish to support logging in directly from that frontend application
 
-You should use a normal Storefront API Token, and you should make your requests [with credentials (cookies) included.](https://developer.mozilla.org/en-US/docs/Web/HTTP/CORS#Requests_with_credentials) When creating your token, be sure to specify the origin from which your requests will be run, in order to whitelist this origin for [CORS.](https://developer.mozilla.org/en-US/docs/Web/HTTP/CORS)
+Use a normal Storefront API Token and make your requests [with credentials (cookies) included.](https://developer.mozilla.org/en-US/docs/Web/HTTP/CORS#Requests_with_credentials) When creating your token, be sure to specify the origin from which your requests will be run, in order to whitelist this origin for [CORS.](https://developer.mozilla.org/en-US/docs/Web/HTTP/CORS)
+
 
 By default, users will be assumed to be guest shoppers and receive anonymous information in response to GraphQL requests. If you use the Customer Login GraphQL mutation, a cookie will be set as a response to a successful login, and future GraphQL requests will return customer-specific information as long as that cookie is sent with the request.
 
