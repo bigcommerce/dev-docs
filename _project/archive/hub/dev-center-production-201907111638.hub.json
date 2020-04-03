@@ -5820,6 +5820,18 @@
                     }
                   },
                   {
+                    "title": "Shipping API V3",
+                    "config": {
+                      "includeDownloadLink": true
+                    },
+                    "route": {
+                      "path": "/shipping-api-v3"
+                    },
+                    "data": {
+                      "$ref": "./BigCommerce_Shipping_V3_API.oas2.yml"
+                    }
+                  },
+                  {
                     "title": "Shipping Provider API",
                     "route": {
                       "path": "/shipping-provider-api"

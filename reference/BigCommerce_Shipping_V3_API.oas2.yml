@@ -1,0 +1,282 @@
+swagger: '2.0'
+info:
+  version: ''
+  title: Shipping
+  description: >-
+
+    ### Shipping Product Customs Information
+
+    The customs duty and taxes liability amounts associated with importing an overseas shipment
+
+
+    Note that usage of this API assumes that there is an existing product to associate customs information data with.
+
+host: api.bigcommerce.com
+basePath: '/stores/{$$.env.store_hash}/v3'
+schemes:
+  - https
+consumes:
+  - application/json
+produces:
+  - application/json
+paths:
+  /shipping/products/customs-information:
+    put:
+      description: >-
+        Creates/Updates a list **customs information**.
+
+
+        This is a batch operation where the creation of multiple customs information
+        objects can be done with one PUT request.
+
+
+        **Limit of 50 customs information objects can be created with one PUT request.**
+      summary: Creates/Updates a list customs information.
+      tags:
+        - Shipping Product Customs Information
+      produces:
+        - application/json
+      parameters:
+        - name: body
+          in: body
+          required: true
+          description: >-
+            Customs information object(s) to create. This is a batch operation meaning that the
+            creation multiple customs information objects can be done with one PUT request.
+          schema:
+            type: array
+            items:
+              $ref: '#/definitions/CustomsInformation'
+            required:
+              - product_id
+              - country_of_origin
+              - commodity_description
+              - international_shipping
+              - hs_codes
+        - name: Accept
+          in: header
+          required: true
+          type: string
+          description: ''
+          default: application/json
+        - name: Content-Type
+          in: header
+          required: true
+          type: string
+          description: ''
+          default: application/json
+      responses:
+        '200':
+          description: ''
+          schema:
+            type: array
+            items:
+              $ref: '#/definitions/CustomsInformation'
+          examples:
+            application/json:
+              - product_id: 77
+                country_of_origin: 'US'
+                commodity_description: 'Cotton T-Shirt'
+                international_shipping: true
+                hs_codes:
+                  AU: '111111'
+                  CA: '222222'
+              - product_id: 103
+                country_of_origin: 'DK'
+                commodity_description: 'Vegetable Products'
+                international_shipping: true
+                hs_codes:
+                  DK: '333333'
+                  FR: '444444'
+    get:
+      description: >-
+        Returns a list of **customs information**.
+
+
+        This list can be filtered to return customs
+        information objects specific to a list of requested product_ids. This is achieved by
+        appending the query string **?product_id:in=4,5,6** to the resource
+        **/shipping/products/customs-information**.
+
+            GET /shipping/products/customs-information?product_id:in=4,5,6
+      summary: Returns a list of customs information
+      tags:
+        - Shipping Product Customs Information
+      produces:
+        - application/json
+      parameters:
+        - name: Accept
+          in: header
+          required: true
+          type: string
+          description: ''
+          default: application/json
+        - name: Content-Type
+          in: header
+          required: true
+          type: string
+          description: ''
+          default: application/json
+        - name: 'product_id:in'
+          in: query
+          type: array
+          description: |-
+            Filter items by product_id.
+            `product_id:in=4,5,6`
+          items:
+            type: integer
+        - name: page
+          in: query
+          type: integer
+          description: Page number. `page=1`
+        - name: limit
+          in: query
+          type: integer
+          description: Items count per page `limit=50`. Default pagination per page is 50
+      responses:
+        '200':
+          description: ''
+          schema:
+            type: object
+            properties:
+              data:
+                type: array
+                items:
+                  $ref: '#/definitions/CustomsInformation'
+              meta:
+                $ref: '#/definitions/MetaResponse'
+    delete:
+      description: >-
+        Deletes customs information objects for a product. This is a batch operation where the query
+        string **?product_id:in=4,5,6** **MUST** be appended to the resource **/shipping/products/customs-information** to remove a list or a singular customs information object.
+
+            DELETE /shipping/products/customs-information?product_id:in=4,5,6
+
+        **Note that a DELETE to the base url /shipping/products/customs-information does not work without the query string**
+      summary: Batch deletes customs information
+      tags:
+        - Shipping Product Customs Information
+      produces:
+        - application/json
+      parameters:
+        - name: Accept
+          in: header
+          required: true
+          type: string
+          description: ''
+          default: application/json
+        - name: Content-Type
+          in: header
+          required: true
+          type: string
+          description: ''
+          default: application/json
+        - name: 'product_id:in'
+          in: query
+          required: true
+          type: array
+          description: |-
+            Filter items by product_id.
+            `product_id:in=4,5,6`
+          items:
+            type: integer
+      responses:
+        '204':
+          description: 'No content'
+definitions:
+  CustomsInformation:
+    title: Customs Information
+    description: 'Data about the customs information object.'
+    type: object
+    minProperties: 5
+    maxProperties: 5
+    properties:
+      product_id:
+        description: >-
+          The id of the product which the customs information data will apply to.
+        type: integer
+        format: int32
+        example: 77
+      country_of_origin:
+        description: >-
+          The country of manufacture, production, or growth represented in ISO 3166-1 alpha-2 format.
+        type: string
+        pattern: '^[A-Z]{2}$'
+        minLength: 2
+        maxLength: 2
+        example: US
+      commodity_description:
+        description: >-
+          Description that provides information for customs to identify and verify shapes
+          physical characteristics and packaging of each shipment.
+        type: string
+        minLength: 0
+        maxLength: 100
+        example: Baseball caps
+      international_shipping:
+        description: >-
+          Flag to determine whether this product will be shipped internationally
+        type: boolean
+        enum:
+          - true
+          - false
+        example: true
+      hs_codes:
+        $ref: '#/definitions/HsCodes'
+  HsCodes:
+    title: Harmonized System Codes
+    description: >-
+      Key value pair commonly used in the form of **countryISO2:'/^[0-9A-Za-z]{6,14}$/'**.
+      This is to represent a country and the associated hs code that applies to that country.
+      Eg {"US":"508313","AU":"850610"}.
+
+
+      There is a special value of **'ALL'** which can be used in place of the countryISO2 to represent that the hs code
+      applies to all countries. Eg {"ALL":"634000"}. This can be combined with other countries in the hs codes object.
+      For Eg {"All":"640000", "US":"641000"}
+    type: object
+    example: {CA: '508313', AU: '817355', "ALL":"501000"}
+  MetaResponse:
+    title: Meta
+    description: >-
+      Meta data relating to pagination
+    type: object
+    properties:
+      pagination:
+        type: object
+        properties:
+          total:
+            type: integer
+            description: Total number of items returned.
+            example: 3
+          count:
+            type: integer
+            description: Number of items returned on per page.
+            example: 1
+          per_page:
+            type: integer
+            description: Number of items to be displayed per page.
+            example: 1
+          current_page:
+            type: integer
+            description: Current page number.
+            example: 2
+          total_page:
+            type: integer
+            description: Total number of pages.
+            example: 3
+          links:
+            type: object
+            properties:
+              previous:
+                type: string
+                description: Query string appended to the resource to return to the previous page.
+                example: ?limit=1&page=1
+              next:
+                type: string
+                description: Query string appended to the resource to proceed to the next page.
+                example: ?limit=1&page=3
+              current:
+                type: string
+                description: Query string appended to the resource to show the current page.
+                example: ?limit=1&page=2
