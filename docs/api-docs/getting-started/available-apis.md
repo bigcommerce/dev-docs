@@ -246,7 +246,7 @@ Deprecated endpoints are no longer supported by BigCommerce and their use is dis
 
 ### Sunsets
 
-Sunset endpoints will be phased out and removed from the API. Once sunset, the endpoints will not longer be available.
+Sunset endpoints will be phased out and removed from the API. Once sunset, the endpoints will no longer be available.
 
 ### V2 API 
 
@@ -257,7 +257,7 @@ Sunset endpoints will be phased out and removed from the API. Once sunset, the e
 |`/v2/brands`| `/v3/catalog/brands`|
 |`/v2/categories`| `/v3/catalog/categories`|
 |`/v2/customers`| `/v3/customers`|
-|`/v2/options`| In V3, `options` belong to each product. Use the `options` subresource on the product instead. |
+|`/v2/options`| In V3, `options` and `modifiers` are attached directly to the product. Use `options` and `modifiers` together to access the contents of the former V2 `options` response.|
 |`/v2/option_sets`| `option_sets` endpoint is not available in the V3 API.|
 |`/v2/products `| `/v3/catalog/products`|
 
