@@ -11,7 +11,6 @@
           "http://%s.mybigcommerce.com/",
           "https://github.com/bigcommerce/stencil-utils/blob/master/src/api/cart.js*",
           "https://store-url/*"
-          "
         ],
       "preferGET": [],
       "ignoreRedirects": true,

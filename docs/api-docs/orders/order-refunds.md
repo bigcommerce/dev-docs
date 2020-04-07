@@ -70,7 +70,7 @@ A refund quote provides the tax amount, total refund amount, and a list of avail
     "refund_methods": [
       [
         {
-          "provider_id": "storecredit",
+          "provider_id": "braintree",
           "provider_description": "Store Credit",
           "amount": 20.83,
           "offline": false,
@@ -92,6 +92,13 @@ A refund quote provides the tax amount, total refund amount, and a list of avail
   },
   "meta": {}
 }
+=======
+      ]
+  },
+  "meta": {}
+}
+
+>>>>>>> f5d5d94535ed33f87461392704bd72b1394cdac0
 ```
 
 ### Create the Refund
@@ -116,7 +123,7 @@ Use the `provider_id`, the amount and items from the refund quote, to create the
   ],
   "payments": [
     {
-      "provider_id": "storecredit",
+      "provider_id": "braintree",
       "amount": 20.83,
       "offline": false
     }
@@ -154,7 +161,7 @@ Use the `provider_id`, the amount and items from the refund quote, to create the
     "payments": [
       {
         "id": 1,
-        "provider_id": "storecredit",
+        "provider_id": "braintree",
         "amount": 20.83,
         "offline": false,
         "is_declined": false,

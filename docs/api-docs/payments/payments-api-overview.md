@@ -434,7 +434,7 @@ Payments API allows developers to store a credit card while processing a credit 
 
 When processing a credit payment set `save_instrument: true`. The shopper can also store credit cards during checkout. If you are using the [Checkout SDK](https://developer.bigcommerce.com/api-docs/cart-and-checkout/checkout-sdk), it can store the credit card as part of the checkout.
 
-*`POST`* `https://api.bigcommerce.com/stores/{{store_hash}}/v3/payments`
+*`POST`* `https://payments.bigcommerce.com/stores/{store_hash}/payments`
 
 **Process payment example POST**
 
@@ -550,7 +550,8 @@ Orders created and captured via the API will look the same as other orders creat
 The card data is not accessible via the API once the payment is processed.
 
 ### Rate Limits
-BigCommerce has rates limits in place for this API. Some payment providers will provide checks on the incoming requests.
+The Payments API rate limit is 50 payment requests per 4 seconds.  Some payment providers will provide checks on the incoming requests.
+
 
 ## Sample App Diagram
 
