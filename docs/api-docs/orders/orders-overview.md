@@ -28,7 +28,7 @@ BigCommerce offers two possible workflows for creating orders via the API: the S
 | Name | Description |
 | -- | -- |
 | [Storefront Orders](/api-reference/orders/storefront-orders-api) | Retrieve order information from the Order Confirmation page using JavaScript |
-| [Server to Server Checkout](/api-reference/cart-checkout/server-server-checkout-api/checkout/createanorder) | Create an order from an existing checkout |
+| [Server to Server Checkout](/api-reference/cart-checkout/server-server-checkout-api/checkout-orders/createanorder) | Create an order from an existing checkout |
 | [Orders API](/api-reference/orders/orders-api) | Create and manage orders. Can manage orders created via API or the Control Panel |
 | [Order Transactions](/api-reference/orders/orders-transactions-api) | Get transaction information for existing orders. Read Only Endpoint |
 
@@ -63,7 +63,7 @@ console.log(myJson);
 
 ## Server-to-Server Checkout API
 
-The Server-to-Server Checkout API allows you to create a checkout programmatically and then convert it to an order. From there, the order can be managed in the Control Panel or using the V2 Orders API. [See Server-to-Server Checkout](https://developer.bigcommerce.com/api-reference/cart-checkout/server-server-checkout-api/checkout/createanorder) for more.
+The Server-to-Server Checkout API allows you to create a checkout programmatically and then convert it to an order. From there, the order can be managed in the Control Panel or using the V2 Orders API. [See Server-to-Server Checkout](https://developer.bigcommerce.com/api-reference/cart-checkout/server-server-checkout-api/checkout-orders/createanorder) for more.
 
 ### When to Use:
 * Create an order from an existing checkout
@@ -79,6 +79,8 @@ The Orders API can be used to create an order without first creating a cart and 
 
 ## Order Transactions
 The Order Transactions API is a read-only endpoint that returns transaction or payment data about an order. The data returned does not include payment tokens for a third party such as Braintree. 
+
+Orders processed via all [payment providers](https://support.bigcommerce.com/s/article/Available-Payment-Gateways) except PayPal Express Checkout and Test Gateway will create a transaction that is retrievable via Transactions API. Gift certificates, store credit, and offline payment methods will not create a transaction.
 
 ### When to Use:
 * View transaction information about an Order. 
