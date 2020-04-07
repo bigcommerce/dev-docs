@@ -116,4 +116,4 @@ There are many common fields between schema settings including the following:
 |`typeMeta`|Additional information needed based on the selected setting type.|
 |`conditional`|Can be added on each setting to control whether it should be displayed to the user while editing in store design. This does not clear the value in the setting, just controls the display of the setting. Take a look at the regexInput for an example on using conditional.|
 
-For examples of different schema settings you can use in your custom widget template, see our [Schema Settings](#) page.
+For examples of different schema settings you can use in your custom widget template, see our [Schema Settings](https://developer.bigcommerce.com/stencil-docs/page-builder/schema-settings) page.
