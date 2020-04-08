@@ -2,12 +2,12 @@
 
 <div class="otp" id="no-index">
 
-- [Creating Third-Party Widgets Using Widgets API](#creating-third-party-widgets-using-widgets-api)
+- [Creating Third-Party Widgets](#creating-third-party-widgets-using-widgets-api)
   - [OAuth Token](#oauth-token)
   - [Marketplace App](#marketplace-app)
 - [Modifying BigCommerce Widgets](#modifying-bigcommerce-widgets)
   - [Configure Settings for a Widget](#configure-settings-for-a-widget)
-- [Exposing Third-Party Widget Templates in Page Builder](#exposing-third-party-widget-templates-in-page-builder)
+- [Exposing Third-Party Widget Templates](#exposing-third-party-widget-templates-in-page-builder)
 
 </div>
 
