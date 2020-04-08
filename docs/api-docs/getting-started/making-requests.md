@@ -74,50 +74,44 @@ We'll use [Postman](https://www.getpostman.com/) for making an initial request t
 ```
 
 ### Create Sample Request in the browser
-Open your browser and navigate to the integrated JavaScript console, for example [Google Chrome's Console](https://developers.google.com/web/tools/chrome-devtools/console). Use it to run the following code after entering your API token:
+Open your browser and navigate to the integrated JavaScript console, for example [Google Chrome's Console](https://developers.google.com/web/tools/chrome-devtools/console). Use it to run the following code after entering your API token in the authorization header, and adding an a valid [Product ID](https://developer.bigcommerce.com/api-reference/store-management/catalog/products/getproductbyid) for the `entityId`:
 
 ```javacsript
-fetch('/graphql', {
-       method: 'POST',
-       headers: {
-           'Content-Type': 'application/json',
-           'Authorization': 'Bearer your-api-token '
-       },
-       body: JSON.stringify({
-           query: `
-            query MyFirstQuery {
-            site {
-                settings {
-                storeName
-                }
-                products {
-                edges {
-                    node {
-                      name
-                      sku
-                      prices {
-                        retailPrice {
-                          value
-                          currencyCode
-                        }
-                        price {
-                          value
-                          currencyCode
+   fetch('/graphql', {
+        method: 'POST',
+        mode: 'cors',
+        headers: { 'Content-Type': 'application/json',
+                 'Authorization': `Bearer token`},
+        body: JSON.stringify({ 
+            query: `
+            query SingleProduct {
+                site {
+                  products (entityIds: product ID) {
+                    edges {
+                      node {
+                        id 
+                        entityId
+                        name
+                        prices {
+                          price {
+                            value
+                            currencyCode
+                          }
                         }
                       }
                     }
                   }
                 }
-              }
-            }
-            `
-       }),
-   })
-   .then(res => res.json())
-   .then(json => console.log(json));
+              }`
+            
+            }),
+      })
+      .then(res => res.json())
+      .then(res => res.data);
+  
 ```
 
 ## Customer Login API
-The Customer Login API is a server-to-server API, meaning you will need to make the request from a backend service. To view a sample request using the customer login API, see our [PHP client](
+The Customer Login API is a server-to-server API, which means to make requests against it you will need a back end service. To view a sample request, see sample code within our [PHP client](
 https://github.com/bigcommerce/bigcommerce-api-php/blob/master/src/Bigcommerce/Api/Client.php#L421)
 
