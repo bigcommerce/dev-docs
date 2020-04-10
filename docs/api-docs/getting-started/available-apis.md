@@ -268,19 +268,16 @@ Sunset endpoints will be phased out and removed from the API. Once sunset, the e
 |`DELETE /v2/customers`| May 10, 2020| [`DELETE /v3/customers`](https://developer.bigcommerce.com/api-reference/customer-subscribers/v3-customers-api/customers/customersdelete)|
 |`DELETE /v2/option_sets`| May 10, 2020| No equivalent available. However, `option_sets` can still be deleted individually by their ID.|
 |`DELETE /v2/products`| May 10, 2020| [`DELETE /v3/catalog/products`](https://developer.bigcommerce.com/api-reference/catalog/catalog-api/products/deleteproducts)|
-
-**V3 Sunsets**
-|Endpoint|Date of Deactivation| Alternative |
-|-|-|-|
-|Channels API `is_activated` property| May, 10, 2020|[Channels API](https://developer.bigcommerce.com/api-reference/cart-checkout/channels-listings-api/channels/listchannels) `status` property
-
-
-
     
 <!-- theme:  -->
 
 **V2 DELETE Sunsets**
 > These changes **ONLY** affect the “collection delete” capability which deletes the collection of objects from the system. The “single object” version of these endpoints, such as `DELETE /v2/products/123`, will continue to function normally.
+
+**V3 Sunsets**
+|Endpoint|Date of Deactivation| Alternative |
+|-|-|-|
+|Channels API `is_activated` property| May, 10, 2020|[Channels API](https://developer.bigcommerce.com/api-reference/cart-checkout/channels-listings-api/channels/listchannels) `status` property
 
 </div>
 </div>
