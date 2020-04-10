@@ -560,15 +560,14 @@ The following diagram shows how the `payment_access_token` interacts with BigCom
 Orders can be created using the [Server to Server API Endpoints](https://developer.bigcommerce.com/api-reference/cart-checkout/server-server-checkout-api/checkout/createanorder) or [Orders API](https://developer.bigcommerce.com/api-reference/orders/orders-api).
 
 <!--
-    title: #### Sample App
+    title: Sample App Diagram
 
-    data: //s3.amazonaws.com/user-content.stoplight.io/6012/1553180551833
+    data: https://storage.cloud.google.com/bigcommerce-production-dev-center/images/Payments%20API%20sequence%20diagram.png?organizationId=600947489474
 -->
 
-#### Sample App
-![#### Sample App
-](//s3.amazonaws.com/user-content.stoplight.io/6012/1553180551833 "#### Sample App
-")
+#### Sample App Diagram
+![Sample App Diagram
+](https://storage.cloud.google.com/bigcommerce-production-dev-center/images/Payments%20API%20sequence%20diagram.png?organizationId=600947489474 "Sample App Diagram")
 
 ## Error Codes
 
