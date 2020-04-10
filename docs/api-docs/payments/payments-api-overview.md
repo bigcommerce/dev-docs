@@ -562,12 +562,12 @@ Orders can be created using the [Server to Server API Endpoints](https://develop
 <!--
     title: Sample App Diagram
 
-    data: https://storage.cloud.google.com/bigcommerce-production-dev-center/images/Payments%20API%20sequence%20diagram.png?organizationId=600947489474
+    data: https://storage.googleapis.com/bigcommerce-production-dev-center/images/Payments%20API%20sequence%20diagram.png
 -->
 
 #### Sample App Diagram
 ![Sample App Diagram
-](https://storage.cloud.google.com/bigcommerce-production-dev-center/images/Payments%20API%20sequence%20diagram.png?organizationId=600947489474 "Sample App Diagram")
+](https://storage.googleapis.com/bigcommerce-production-dev-center/images/Payments%20API%20sequence%20diagram.png "Sample App Diagram")
 
 ## Error Codes
 
