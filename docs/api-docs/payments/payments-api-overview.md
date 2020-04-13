@@ -91,7 +91,7 @@ Payments can be processed using cards stored with the BigCommerce Stored Credit 
 
 <!-- theme:  -->
 ### Hosted Providers
-> The API flow does not currently support hosted/offsite providers such as PayPal and Adyen and wallet type payments such as Amazon Pay.
+> The API flow does not currently support hosted/offsite providers, such as PayPal, and wallet type payments, such as Amazon Pay.
 
 </div>
 </div>
@@ -434,7 +434,7 @@ Payments API allows developers to store a credit card while processing a credit 
 
 When processing a credit payment set `save_instrument: true`. The shopper can also store credit cards during checkout. If you are using the [Checkout SDK](https://developer.bigcommerce.com/api-docs/cart-and-checkout/checkout-sdk), it can store the credit card as part of the checkout.
 
-*`POST`* `https://api.bigcommerce.com/stores/{{store_hash}}/v3/payments`
+*`POST`* `https://payments.bigcommerce.com/stores/{store_hash}/payments`
 
 **Process payment example POST**
 
@@ -550,7 +550,8 @@ Orders created and captured via the API will look the same as other orders creat
 The card data is not accessible via the API once the payment is processed.
 
 ### Rate Limits
-BigCommerce has rates limits in place for this API. Some payment providers will provide checks on the incoming requests.
+The Payments API rate limit is 50 payment requests per 4 seconds.  Some payment providers will provide checks on the incoming requests.
+
 
 ## Sample App Diagram
 
@@ -559,15 +560,14 @@ The following diagram shows how the `payment_access_token` interacts with BigCom
 Orders can be created using the [Server to Server API Endpoints](https://developer.bigcommerce.com/api-reference/cart-checkout/server-server-checkout-api/checkout/createanorder) or [Orders API](https://developer.bigcommerce.com/api-reference/orders/orders-api).
 
 <!--
-    title: #### Sample App
+    title: Sample App Diagram
 
-    data: //s3.amazonaws.com/user-content.stoplight.io/6012/1553180551833
+    data: https://storage.googleapis.com/bigcommerce-production-dev-center/images/Payments%20API%20sequence%20diagram.png
 -->
 
-#### Sample App
-![#### Sample App
-](//s3.amazonaws.com/user-content.stoplight.io/6012/1553180551833 "#### Sample App
-")
+#### Sample App Diagram
+![Sample App Diagram
+](https://storage.googleapis.com/bigcommerce-production-dev-center/images/Payments%20API%20sequence%20diagram.png "Sample App Diagram")
 
 ## Error Codes
 

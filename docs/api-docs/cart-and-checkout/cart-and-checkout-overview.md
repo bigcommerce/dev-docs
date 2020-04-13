@@ -82,27 +82,25 @@ lineNumbers: true
 <script>
 console.log('Log Checkout');
 fetch('/api/storefront/cart?includes=consignments.availableShippingOptions', {
+    credentials: 'include'
+}).then(function (response) {
+    return response.json();
+}).then(function (cartJson) {
+    console.log(cartJson);
+    return cartJson[0].id;
+}).catch(function (error) {
+    console.log(error);
+}).then(function (cartId) {
+    fetch('/api/storefront/checkouts/' + cartId, {
         credentials: 'include'
-      })
-      .then(function(response) {
+    }).then(function (response) {
         return response.json();
-      }).then(function(cartJson) {
-        console.log(cartJson);
-        return cartJson[0].id;
-      }).catch(function(error) {
+    }).then(function (checkoutJson) {
+        console.log(checkoutJson);
+    }).catch(function (error) {
         console.log(error);
-      }).then(function(cartId) {
-        fetch('/api/storefront/checkouts/' + cartId, {
-          credentials: 'include'
-        }).then(function(response) {
-          return response.json();
-        }).then(function(checkoutJson) {
-          console.log(checkoutJson);
-        }).catch(function(error) {
-          console.log(error);
-        })
-      });
-
+    })
+});
 </script>
 ```
 
@@ -120,13 +118,13 @@ lineNumbers: true
 
 ```html
 <script>
-console.log("Log Order");
-fetch('/api/storefront/order/{{checkout.order.id}}', {credentials: 'include'})
-.then(function(response) {
-return response.json();
-})
-.then(function(myJson) {
-console.log(myJson);
+console.log('Log Order');
+fetch('/api/storefront/order/{{checkout.order.id}}', {
+    credentials: 'include'
+}).then(function (response) {
+    return response.json();
+}).then(function (myJson) {
+    console.log(myJson);
 });
 </script>
 ```
@@ -181,7 +179,6 @@ lineNumbers: true
 -->
 
 ```json
-
 {
   "line_items": [
     {
@@ -196,7 +193,6 @@ lineNumbers: true
     }
   ]
 }
-
 ```
 
 To add a product to the cart that has one option (radio button)  associated with it, use just the `variant_id` in the request. 
@@ -221,7 +217,7 @@ lineNumbers: true
       "product_id": 1001,
       "variant_id": 2331
     }
-]
+  ]
 }
 ```
 
@@ -250,7 +246,6 @@ lineNumbers: true
           "option_id": 231,
           "option_value": 456
         },
-
         {
           "option_id": 123,
           "option_value": "Hello!"
@@ -258,7 +253,7 @@ lineNumbers: true
       ]
     }
   ]
-
+}
 ```
 
 ### Missing line_items in request body [422]
@@ -286,7 +281,6 @@ lineNumbers: true
 -->
 
 ```json
-
 {
   "line_items": [
     {
@@ -301,7 +295,6 @@ lineNumbers: true
     }
   ]
 }
-
 ```
 
 ### A shipping address for this order is incomplete [422]
@@ -331,7 +324,7 @@ lineNumbers: true
 
 ```json
 {
-  “customer_id”: 12,
+  "customer_id": 12,
   "line_items": [
     {
       "quantity": 5,
@@ -339,7 +332,6 @@ lineNumbers: true
     }
   ]
 }
-
 ```
 
 ### This product has options, variant ID is required [422]
@@ -371,7 +363,7 @@ lineNumbers: true
       "product_id": 1001,
       "variant_id": 2331
     }
-]
+  ]
 }
 ```
 
@@ -408,7 +400,6 @@ lineNumbers: true
     ]
   }
 }
-
 ```
 
 *Storefront Cart API*
@@ -473,7 +464,7 @@ lineNumbers: true
       "productId": 1001,
       "variantId": 2331
     }
-]
+  ]
 }
 ```
 
@@ -502,7 +493,6 @@ lineNumbers: true
           "optionId": 231,
           "optionValue": 456
         },
-
         {
           "optionId": 123,
           "optionValue": "Hello!"

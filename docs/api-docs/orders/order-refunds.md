@@ -77,11 +77,28 @@ A refund quote provides the tax amount, total refund amount, and a list of avail
           "offline_provider": false,
           "offline_reason": ""
         }
+      ],
+      [
+        {
+          "provider_id": "testgateway",
+          "provider_description": "Test Payment Gateway",
+          "amount": 20.83,
+          "offline": false,
+          "offline_provider": false,
+          "offline_reason": ""
+        }
+      ]
+    ]
+  },
+  "meta": {}
+}
+=======
       ]
   },
   "meta": {}
 }
 
+>>>>>>> f5d5d94535ed33f87461392704bd72b1394cdac0
 ```
 
 ### Create the Refund
@@ -158,7 +175,7 @@ Use the `provider_id`, the amount and items from the refund quote, to create the
 
 ## Offline Order Refunds
 
-Payments collected outside of BigCommerce can be marked as offline when creating a refund. This is a way to keep track of which portions of an order have been refunded. However, no funds are actually exchanged. If the payment was not taken using BigCommerce, then the funds cannot be refunded directly back to the payment source through the BigCommerce Order Refund API.
+Payments collected outside of BigCommerce can be marked as offline when creating a refund. This is a way to keep track of which portions of an order have been refunded. However, no funds are actually exchanged. If the payment was not taken using BigCommerce, then the funds can not be refunded directly back to the payment source through the BigCommerce Order Refund API.
 
 ## FAQ
 

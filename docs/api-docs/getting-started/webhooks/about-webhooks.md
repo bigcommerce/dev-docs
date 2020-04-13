@@ -117,7 +117,7 @@ Once a domain is no longer blacklisted, all new webhook requests will be sent as
 
 The webhook dispatcher will then attempt several retries (at increasing intervals) until the maximum retry limit is reached.
 
-**Retry Internavals**:
+**Retry Intervals**:
 * `60` seconds after the most recent failure  
 * `180` seconds after the most recent failure  
 * `180` seconds after the most recent failure  
@@ -158,8 +158,8 @@ To ensure webhook callback requests are secure:
   "destination": "{{DESTINATION_URL}}",
   "is_active": true,
   "headers": {
-  	"Username": "Hello",
-  	"Password": "Goodbye"
+    "Username": "Hello",
+    "Password": "Goodbye"
   }
 }
 ```
@@ -183,7 +183,7 @@ If you receive an email, or discover `is_active` is `false`, try the following:
 
 Once the issue is resolved, set `is_active` to `true` by making a `PUT` request to `/hooks/{id}` -- BigCommerce start sending event Callback requests again.
 
-**No 201 response when making `POST` to `/hooks`**
+**No 200 response when making `POST` to `/hooks`**
 * Check TLS/SSL configuration on machine making `POST` request.
 * Verify `POST` request contains the required `HTTP` headers:
 
