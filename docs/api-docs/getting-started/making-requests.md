@@ -59,7 +59,11 @@ To make your first requests in a browser with the Storefront APIs, see the step-
 ## GraphQL API 
 
 ### Obtain Storefront Token
-We'll use [Postman](https://www.getpostman.com/) for making an initial request to obtain a Storefront API token. It is a REST API request, so you will need [API credentials](https://developer.bigcommerce.com/api-docs/getting-started/authentication/rest-api-authentication#obtaining-store-api-credentials#obtaining-store-api-credentials).
+We'll use **Request Runner** for making an initial request to obtain a Storefront API token. It is a REST API request, so you will need to copy and paste your [API credentials](https://developer.bigcommerce.com/api-docs/getting-started/authentication/rest-api-authentication#obtaining-store-api-credentials#obtaining-store-api-credentials).
+
+[![Open in Request Runner](https://storage.googleapis.com/bigcommerce-production-dev-center/images/Open-Request-Runner.svg)](https://developer.bigcommerce.com/api-reference/cart-checkout/storefront-api-token/api-token/createtoken#requestrunner)
+
+Include the URL of the storefront you will be making the request from as the `allowed_cors_origin`.
 
 **`POST`** `https://api.bigcommerce.com/stores/{store_hash}/v3/storefront/api-token`
 
@@ -74,7 +78,7 @@ We'll use [Postman](https://www.getpostman.com/) for making an initial request t
 ```
 
 ### Create Sample Request in the browser
-Open your browser and navigate to the integrated JavaScript console, for example [Google Chrome's Console](https://developers.google.com/web/tools/chrome-devtools/console). Use it to run the following code after entering your API token in the authorization header, and adding an a valid [Product ID](https://developer.bigcommerce.com/api-reference/store-management/catalog/products/getproductbyid) for the `entityId`:
+While viewing your storefront in a browser, navigate to the integrated JavaScript console, for example [Google Chrome's Console](https://developers.google.com/web/tools/chrome-devtools/console). Use it to run the following code after entering your API token in the authorization header, and adding an a valid [Product ID](https://developer.bigcommerce.com/api-reference/store-management/catalog/products/getproductbyid) for the `entityId`:
 
 ```javacsript
    fetch('/graphql', {
