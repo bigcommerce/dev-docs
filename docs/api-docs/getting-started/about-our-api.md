@@ -6,7 +6,7 @@
 - [Available APIs](#available-apis)
 - [API Environments](#api-environments)
 - [Available Store Resources](#available-store-resources)
-- [Server-to-Server API](#server-to-server-api)
+- [REST API (V2 & V3)](#rest-api-v2--v3)
 - [Support](#support)
 - [Resources](#resources)
 
@@ -19,8 +19,8 @@ The BigCommerce set of APIs allow you to create apps, automate store processes, 
 ## Available APIs
 BigCommerce has several different APIs that let you manage store data, authenticate customers, make client-side queries for product information, and more. 
 
-### Server-to-Server
-BigCommerce's [Server-to-Server API](https://developer.bigcommerce.com/api-reference/store-management/catalog) allows you to manage store data and take actions that mimic store administrator activity. Some example uses of the Server-to-Server API are:
+### REST APIs (V2 & V3)
+BigCommerce's REST APIs (for example, the [Catalog API](https://developer.bigcommerce.com/api-reference/store-management/catalog)) allow you to manage store data and take actions that mimic store administrator activity. Some example uses of the REST APIs are:
 * Add and update products in a store
 * Update a customer's order and change the order status
 * Create a coupon
@@ -97,7 +97,7 @@ BigCommerce API requests can be made in the context of the storefront or server-
 | [Widgets](https://developer.bigcommerce.com/api-reference/storefront/widgets-api) | Programmatically inject content into a BigCommerce theme. |
 | [Wishlist](https://developer.bigcommerce.com/api-reference/customer-subscribers/wishlist-api) | Wishlist API allows a developer to create and manage customer wishlists. |
 
-## Server-to-Server API 
+## REST API (V2 & V3)
 ### Request Headers
 
 Server-to-Server request headers require Accept, X-Auth-Client, X-Auth-Token and Content-Type at a minimum.
@@ -205,168 +205,6 @@ lineNumbers: true
     }
   },
   "meta": {}
-}
-```
-
-<br>
-
-<!--
-title: "Multiple Categories Response"
-subtitle: ""
-lineNumbers: true
--->
-
-**Response Get All Categories**  
-`/GET https://api.bigcommerce.com/stores/{store_hash}/v3/catalog/categories/{category_id}`
-
-```json
-{
-  "data": [
-    {
-      "id": 19,
-      "parent_id": 0,
-      "name": "Garden",
-      "description": "<p>A collection of products for the garden.</p>",
-      "views": 0,
-      "sort_order": 2,
-      "page_title": "page title",
-      "meta_keywords": [
-        "meta keyword"
-      ],
-      "meta_description": "meta description",
-      "layout_file": "category.html",
-      "image_url": "",
-      "is_visible": true,
-      "search_keywords": "search keywords",
-      "default_product_sort": "use_store_settings",
-      "custom_url": {
-        "url": "/garden/",
-        "is_customized": false
-      }
-    },
-    {
-      "id": 20,
-      "parent_id": 0,
-      "name": "Publications",
-      "description": "",
-      "views": 0,
-      "sort_order": 4,
-      "page_title": "",
-      "meta_keywords": [
-        ""
-      ],
-      "meta_description": "",
-      "layout_file": "category_with_facets.html",
-      "image_url": "",
-      "is_visible": true,
-      "search_keywords": "",
-      "default_product_sort": "use_store_settings",
-      "custom_url": {
-        "url": "/publications/",
-        "is_customized": false
-      }
-    },
-    {
-      "id": 21,
-      "parent_id": 0,
-      "name": "Kitchen",
-      "description": "",
-      "views": 0,
-      "sort_order": 3,
-      "page_title": "",
-      "meta_keywords": [
-        ""
-      ],
-      "meta_description": "",
-      "layout_file": "category_with_facets.html",
-      "image_url": "",
-      "is_visible": true,
-      "search_keywords": "",
-      "default_product_sort": "use_store_settings",
-      "custom_url": {
-        "url": "/kitchen/",
-        "is_customized": false
-      }
-    },
-    {
-      "id": 22,
-      "parent_id": 0,
-      "name": "Utility",
-      "description": "",
-      "views": 0,
-      "sort_order": 5,
-      "page_title": "",
-      "meta_keywords": [
-        ""
-      ],
-      "meta_description": "",
-      "layout_file": "category_with_facets.html",
-      "image_url": "",
-      "is_visible": true,
-      "search_keywords": "",
-      "default_product_sort": "use_store_settings",
-      "custom_url": {
-        "url": "/utility/",
-        "is_customized": false
-      }
-    },
-    {
-      "id": 23,
-      "parent_id": 0,
-      "name": "Shop All",
-      "description": "# Browse our full collection",
-      "views": 0,
-      "sort_order": 0,
-      "page_title": "",
-      "meta_keywords": [
-        ""
-      ],
-      "meta_description": "",
-      "layout_file": "category_with_facets.html",
-      "image_url": "",
-      "is_visible": true,
-      "search_keywords": "",
-      "default_product_sort": "use_store_settings",
-      "custom_url": {
-        "url": "/shop-all/",
-        "is_customized": false
-      }
-    },
-    {
-      "id": 39,
-      "parent_id": 19,
-      "name": "Bath",
-      "description": "",
-      "views": 0,
-      "sort_order": 0,
-      "page_title": "",
-      "meta_keywords": [
-        ""
-      ],
-      "meta_description": "",
-      "layout_file": "category.html",
-      "image_url": "",
-      "is_visible": true,
-      "search_keywords": "",
-      "default_product_sort": "use_store_settings",
-      "custom_url": {
-        "url": "/garden/bath/",
-        "is_customized": false
-      }
-    }
-  ],
-  "meta": {
-    "pagination": {
-      "total": 6,
-      "count": 6,
-      "per_page": 50,
-      "current_page": 1,
-      "total_pages": 1,
-      "links": {
-        "current": "?page=1&limit=50"
-      }
-    }
-  }
 }
 ```
 
