@@ -97,7 +97,6 @@ Sent when an order's status is changed.
 | `%%LNG_OrderStatusChangedPaymentMethod%%` | "Payment Method" |
 | `%%GLOBAL_PaymentMethod%%` | The customer's payment method. |
 | `%%LNG_ShipmentTrackingNumbersLinks%%` | "Shipment Tracking Numbers / Links" |
-| `%%GLOBAL_TrackingLinkList%%` | Order tracking link. |
 | `%%GLOBAL_ViewOrderStatusLink%%` | . |
 | `%%GLOBAL_EmailFooter%%` | "<b>%s</b><br><a href="%s.mybigcommerce.com/">http://%s.mybigcommerce.com/</a><br>%s is powered by BigCommerce. <a href="bigcommerce.com">Launch your own store for free</a> with BigCommerce." |
 
