@@ -5,15 +5,23 @@
 ### On this Page
 - [Enabling Multi-Channel Views](#enabling-multi-channel-views)
 - [Displaying Multi-Channel Views](#displaying-multi-channel-views)
-- [Common Use Cases](#common-use-cases)
+- [Child Plugin Example](#child-plugin-example)
 - [FAQ](#faq)
 - [Resources](#resources)
 
 </div>
 
+
+![All Product US](https://raw.githubusercontent.com/bigcommerce/dev-docs/master/assets/images/multi-channel-capabilities-1.png)
+![All Product UK](https://raw.githubusercontent.com/bigcommerce/dev-docs/master/assets/images/multi-channel-capabilities-2.png)
+
 One of the key characteristics of a multi-channel architecture is that multiple user-facing experiences share a single backend. With BigCommerce for WordPress, and with other channel integrations built on BigCommerce, that single backend is BigCommerce, which is the source of truth for the catalog, orders, and customers.
 
 A single product might be listed on several channels, and across those channels, the product details may vary. For example, a pair of sneakers that’s sold on a site serving the US region might have a different price and description than the pair that is sold on the French site. But despite those variations, there is a single product record for the pair of sneakers which is managed from the BigCommerce control panel. Similarly, orders placed on different channels all flow into a single admin view within BigCommerce, and each order is attributed back to its channel source. This allows you to maintain a central source of truth for managing your orders, while tracking sales performance across various channels. No need to jump around into different accounts!
+
+Multi-region. Businesses with a global footprint have the need to tailor product merchandising to the regions where they do business, which means translating product details into the local language and showing prices in the proper currency.
+
+You could potentially build multi-store experiences around a range of broader use cases including B2B scenarios like separate wholesale and retail sites or “vendor portals”, featuring a product catalog specific to each vendor.
 
 ## Enabling Multi-Channel Views
 Added support for connecting to multiple BigCommerce channels. Since the plugin can't know the particular use case a store has for using multiple channels, we provide the base framework for site developers to extend in a way that makes sense for their business. Multi-channel support requires opt-in using a filter:
@@ -29,14 +37,14 @@ This will enable an admin to connect to multiple channels on the settings screen
 ```php
 add_filter( 'bigcommerce/channel/current', function( $channel ) {
     // do some logic here to determine what channel to use
-    return get_term( 697, \BigCommerce\Taxonomies\Channel\Channel::NAME );
+    return get_term( 31, \BigCommerce\Taxonomies\Channel\Channel::NAME );
 });
+
+![Geting the term_id](https://raw.githubusercontent.com/bigcommerce/dev-docs/master/assets/images/multi-channel-capabilities-0.png)
 ```
 
-## Common Use Cases
-Multi-region. Businesses with a global footprint have the need to tailor product merchandising to the regions where they do business, which means translating product details into the local language and showing prices in the proper currency.
+## Child Plugin Example
 
-You could potentially build multi-store experiences around a range of broader use cases including B2B scenarios like separate wholesale and retail sites or “vendor portals”, featuring a product catalog specific to each vendor.
 
 ## FAQ
 
