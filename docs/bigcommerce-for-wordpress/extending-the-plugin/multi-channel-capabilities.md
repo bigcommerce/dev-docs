@@ -58,11 +58,11 @@ A common use case for multiple channels and storefronts is offering differentiat
 
 ## Step 1: Setup Directory Structure
 
-In your WordPress instance's `wp-content/plugins/` dir:
-1. create a new directory called `query-string-activation`
-2. in the `query-string-activation` create a new file called `query-string-region-activation.php`
+In your WordPress instance's `wp-content/plugins/` directory:
+1. create a subdirectory called `query-string-activation`
+2. in the `query-string-activation` subdirectory, create a file called `query-string-region-activation.php`
 
-Once finished, your directory structure should look something like this:
+Once finished, the directory structure should look as follows:
 
 ```bash
 .
@@ -103,7 +103,7 @@ In the example screenshot above, we've created and connected two channels:
 <!-- theme: info -->
 
 > ### Note
-> * The `term_id`s for your channels will be different, most likely
+> * The `term_id`s for your channels will probably be different
 
 </div>
 </div>
@@ -151,11 +151,25 @@ if ( $_GET[ 'region' ] !== 'us' && ($_GET[ 'region' ] === 'uk' || strpos($_SERVE
 }
 ```
 
+<div class="HubBlock--callout">
+<div class="CalloutBlock--info">
+<div class="HubBlock-content">
+
+<!-- theme: info -->
+
+> ### Note
+> * replace `31` in `get_term()` above with the `term_id` if your channel
+> * change `uk`, `GBP`, and `£` to the country code and currency corresponding to your channel, as desired
+
+</div>
+</div>
+</div>
+
 Here's what's happening in the example code:
 1. First enable multi-channel capabilities with `add_filter( 'bigcommerce/channels/enable-multi-channel', '__return_true' );`
 2. Then, there's an `if` statement to check the value of the `?region=` query string from the browser:
    * If the value is **NOT** `us` and **IS** `uk`, filter to channel with `term_id=31` (UK in this case)
-      * change currency code to `GBP (British pound sterling).
+      * change currency code to `GBP` (British pound sterling).
       * change the currency symbol to `£`
 
 Once everything is configured correctly, we can test by navigating to **All Products** (`/products/`) on the WordPress storefront (note the product and currency symbol):
@@ -168,9 +182,9 @@ Now let's switch the channel and currency symbol by passing in `region=uk` in th
 
 ## Developing Further
 
-Obviously, the example plugin above is simple and not super useful as-is; however, it starting point to creating rich, multi-storefront shopping experiences.
+Obviously, the example plugin above is simple and not super useful as-is; however, its a starting point to creating rich, multi-storefront shopping experiences.
 
-For some additional implementation ideas (such as adding a region selection dropdown and switching regions based on a shopper's geo IP), checkout how to [Build a Multi-Region Storefront with BigCommerce for WordPress 3.1.0+](https://medium.com/bigcommerce-developer-blog/build-a-multi-region-storefront-with-bigcommerce-for-wordpress-3-1-0-80cf56c3e8e9) on our developer blog.
+For additional implementation ideas (such as adding a region selection dropdown and switching regions based on a shopper's geo IP), checkout how to [Build a Multi-Region Storefront with BigCommerce for WordPress 3.1.0+](https://medium.com/bigcommerce-developer-blog/build-a-multi-region-storefront-with-bigcommerce-for-wordpress-3-1-0-80cf56c3e8e9) on our developer blog.
 
 ## FAQ
 
