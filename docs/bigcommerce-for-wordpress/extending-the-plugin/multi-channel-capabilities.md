@@ -65,7 +65,6 @@ In your WordPress instance's `wp-content/plugins/` directory:
 Once finished, the directory structure should look as follows:
 
 ```bash
-.
 ├── wp-content                                       # WP instance wp-content dir
 |    ├── plugins                                     # WP instance plugins dir
 |    |   ├── bigcommerce                             # BigCommerce for WordPress Plugin
@@ -158,7 +157,7 @@ if ( $_GET[ 'region' ] !== 'us' && ($_GET[ 'region' ] === 'uk' || strpos($_SERVE
 <!-- theme: info -->
 
 > ### Note
-> * replace `31` in `get_term()` above with the `term_id` if your channel
+> * replace `31` in `get_term()` above with the `term_id` of your channel
 > * change `uk`, `GBP`, and `£` to the country code and currency corresponding to your channel, as desired
 
 </div>
