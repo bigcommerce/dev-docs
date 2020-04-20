@@ -17,6 +17,19 @@
 
 Options belonging to an option set.
 
+<div class="HubBlock--callout">
+<div class="CalloutBlock--warning">
+<div class="HubBlock-content">
+
+<!-- theme: warning -->
+
+### Deprecated
+> Avoid using this API operation if possible. It will be removed in a future version.
+
+</div>
+</div>
+</div>
+
 ### Option Set Option: Object – Properties 
 
 | Name | Type | Description |

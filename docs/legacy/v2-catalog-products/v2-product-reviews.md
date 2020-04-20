@@ -17,6 +17,19 @@
 
 Reviews associated with a product.
 
+<div class="HubBlock--callout">
+<div class="CalloutBlock--warning">
+<div class="HubBlock-content">
+
+<!-- theme: warning -->
+
+### Deprecated
+> Avoid using this API operation if possible. It will be removed in a future version.
+
+</div>
+</div>
+</div>
+
 ### Product Review Object – Properties 
 
 | Name | Type | Description |
