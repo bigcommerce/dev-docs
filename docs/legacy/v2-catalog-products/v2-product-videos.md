@@ -18,6 +18,19 @@
 
 Embedded videos displayed on product listings.
 
+<div class="HubBlock--callout">
+<div class="CalloutBlock--warning">
+<div class="HubBlock-content">
+
+<!-- theme: warning -->
+
+### Deprecated
+> Avoid using this API operation if possible. It will be removed in a future version.
+
+</div>
+</div>
+</div>
+
 ### Videos Object – Properties 
 
 | Name | Type | Description |
