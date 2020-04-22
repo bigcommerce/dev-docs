@@ -99,7 +99,10 @@ query CategoryByUrl {
                     url(width: 200)
                   }
                 }
-                priceRanges {
+                prices {
+                  price {
+                    ...PriceFields
+                  }
                   priceRange {
                     min {
                       ...PriceFields
@@ -107,11 +110,6 @@ query CategoryByUrl {
                     max {
                       ...PriceFields
                     }
-                  }
-                }
-                prices {
-                  price {
-                    ...PriceFields
                   }
                 }
               }
