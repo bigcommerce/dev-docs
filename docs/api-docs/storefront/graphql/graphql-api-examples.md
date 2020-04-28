@@ -269,7 +269,7 @@ fragment DimensionFields on Measurement {
     
 <!-- theme: info -->
 
-This query returns variant information appropriately overlaid on the Product object. For example, if the variant has a different image, dimensions, SKU, or price, that will be automatically returned -- his allows for directly merchandising particular variants. 
+This query returns variant information appropriately overlaid on the Product object. For example, if the variant has a different image, dimensions, SKU, or price, that will be automatically returned -- this allows for directly merchandising particular variants. 
 
 </div>
 </div>
