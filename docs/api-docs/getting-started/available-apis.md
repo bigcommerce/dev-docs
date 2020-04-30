@@ -59,11 +59,11 @@ BigCommerce's **V2 REST API** exposes many endpoints developers can use to progr
 
 ## V3 REST API
 
-Like the **V2 API**, BigCommerce's **V3 REST API** exposes many endpoints developers can use to programmatically interact with store resources (including [server-to-server carts](https://developer.bigcommerce.com/api-reference/cart-checkout/server-server-cart-api) and [checkouts](https://developer.bigcommerce.com/api-reference/cart-checkout/storefront-checkout-api) for using BigCommerce headlessly). Interactions with the **V3** API are very similar to that of the **V2** API; however, the **V3** API introduces a number of improvements: 
+Like the **V2 API**, BigCommerce's **V3 REST API** exposes many endpoints developers can use to programmatically interact with store resources (including [server-to-server carts](https://developer.bigcommerce.com/api-reference/cart-checkout/server-server-cart-api) and [checkouts](https://developer.bigcommerce.com/api-reference/cart-checkout/storefront-checkout-api) for using BigCommerce headlessly). Interactions with the **V3** API are very similar to that of the **V2** API; however, the **V3** API introduces a number of improvements:
 * Most tasks can be performed with fewer API calls (for example, a product with variants and custom fields can be created in a single request)
 * Each **V3** resource includes a `meta` object, simplifying pagination
 * **V3** Brands, Categories, Products, and Product Variants expose a [metafields](https://developer.bigcommerce.com/api-reference/store-management/catalog/product-metafields/createproductmetafield) resource for use by developers to store custom data.
-* **V3** API is optimized for performance (in general, data can be sent, received, and processed faster via **V3**, relative to **V2**). 
+* **V3** API is optimized for performance (in general, data can be sent, received, and processed faster via **V3**, relative to **V2**).
 
 **Server**: `api.bigcommerce.com/stores/{store_hash}/v3`
 
@@ -146,7 +146,7 @@ In addition to the payment processing API's `/payments` endpoint, there are two 
 | Request                                   | Endpoint                                                                    |
 |-------------------------------------------|-----------------------------------------------------------------------------|
 | [Create the payment token](https://developer.bigcommerce.com/api-reference/payments/payments-create-payment-token-api/payment-access-token/paymentsaccesstokenspost)              | `api.bigcommerce.com/stores/{store_hash}}/v3/payments/access_tokens` |
-| [Get order accepted payment methods](https://developer.bigcommerce.com/api-reference/payments/payments-create-payment-token-api/payment-methods/paymentsmethodsget)    | `api.bigcommerce.com/stores/{store_hash}/v3/payments/methods`        | 
+| [Get order accepted payment methods](https://developer.bigcommerce.com/api-reference/payments/payments-create-payment-token-api/payment-methods/paymentsmethodsget)    | `api.bigcommerce.com/stores/{store_hash}/v3/payments/methods`        |
 
 **Additional Information:** [Payment Processing API Overview](https://developer.bigcommerce.com/api-docs/payments/payments-api-overview)
 
@@ -162,7 +162,7 @@ BigCommerce's **Storefront API** is a client API that exposes storefront data to
 | [Storefront Checkouts](https://developer.bigcommerce.com/api-reference/cart-checkout/storefront-checkout-api)    | Create and get checkouts on the front-end | `/checkouts`         |
 | [Storefront Orders](https://developer.bigcommerce.com/api-reference/cart-checkout/storefront-orders)             | Get order data after order is placed      | `/orders`            |
 
-**Additional Information:** [Storefront Cart and Checkout Overview](https://developer.bigcommerce.com/api-docs/cart-and-checkout/cart-and-checkout-overview) | [Working with Storefront APIs](https://developer.bigcommerce.com/api-docs/cart-and-checkout/working-sf-apis) | 
+**Additional Information:** [Storefront Cart and Checkout Overview](https://developer.bigcommerce.com/api-docs/cart-and-checkout/cart-and-checkout-overview) | [Working with Storefront APIs](https://developer.bigcommerce.com/api-docs/cart-and-checkout/working-sf-apis) |
 
 ## Storefront GraphQL API
 
@@ -238,17 +238,17 @@ Query string parameters can be appended to BigCommerce product and `/cart.php` U
 
 ## Deprecations and Sunsets
 
-This section contains a continuously updated list of deprecated and sunset BigCommerce API endpoints and suggested alternatives.  
+This section contains a continuously updated list of deprecated and sunset BigCommerce API endpoints and suggested alternatives.
 
 ### Deprecations
 
-Deprecated endpoints are no longer supported by BigCommerce and their use is discouraged. New or substitute endpoints should be used instead. 
+Deprecated endpoints are no longer supported by BigCommerce and their use is discouraged. New or substitute endpoints should be used instead.
 
 ### Sunsets
 
 Sunset endpoints will be phased out and removed from the API. Once sunset, the endpoints will no longer be available.
 
-### V2 API 
+### V2 API
 
 **Deprecated V2 API Endpoints and V3 API Alternatives**
 
@@ -260,6 +260,7 @@ Sunset endpoints will be phased out and removed from the API. Once sunset, the e
 |`/v2/options`| In V3, `options` and `modifiers` are attached directly to the product. Use `options` and `modifiers` together to access the contents of the former V2 `options` response.|
 |`/v2/option_sets`| `option_sets` endpoint is not available in the V3 API.|
 |`/v2/products `| `/v3/catalog/products`|
+|`/v2/redirects/`|`/v3/storefront/redirects`|
 
 **V2 Sunsets**
 
@@ -268,7 +269,7 @@ Sunset endpoints will be phased out and removed from the API. Once sunset, the e
 |`DELETE /v2/customers`| May 10, 2020| [`DELETE /v3/customers`](https://developer.bigcommerce.com/api-reference/customer-subscribers/v3-customers-api/customers/customersdelete)|
 |`DELETE /v2/option_sets`| May 10, 2020| No equivalent available. However, `option_sets` can still be deleted individually by their ID.|
 |`DELETE /v2/products`| May 10, 2020| [`DELETE /v3/catalog/products`](https://developer.bigcommerce.com/api-reference/catalog/catalog-api/products/deleteproducts)|
-    
+
 <!-- theme:  -->
 
 **V2 DELETE Sunsets**
@@ -284,4 +285,4 @@ Sunset endpoints will be phased out and removed from the API. Once sunset, the e
 </div>
 
 
-**Additional Information:** [V2 versus V3 API](https://developer.bigcommerce.com/legacy/v2-products/v2-v3#Whats-not-in-V3) 
+**Additional Information:** [V2 versus V3 API](https://developer.bigcommerce.com/legacy/v2-products/v2-v3#Whats-not-in-V3)
