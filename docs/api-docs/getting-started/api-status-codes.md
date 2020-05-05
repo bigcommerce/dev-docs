@@ -58,7 +58,7 @@ The BigCommerce API responds to requests with different HTTP status codes depend
 |-|-|-|
 | **500** | **Internal Server Error** | When an error has occurred within the API. |
 | **501** | **Not Implemented** | When a request method is sent that is not supported by the API (e.g., `TRACE`, `PATCH`). |
-| **503** | **Service Unavailable** | When the store is marked as “Down for Maintenance,” or the store is being upgraded to a new version. |
+| **503** | **Service Unavailable** | When the store is either “Down for Maintenance,” being upgraded to a new version, is suspended due to administrative action/a billing issue. |
 | **507** | **Insufficient Storage** | When the store has reached a limitation for the resource, according to their BigCommerce plan (e.g., 500-product limit). |
 
 ## Troubleshooting

@@ -1,0 +1,262 @@
+<!DOCTYPE html>
+    <html>
+    <head>
+        <meta http-equiv="Content-type" content="text/html;charset=UTF-8">
+        <title>API Status Codes</title>
+        <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/katex@0.10.0/dist/katex.min.css" integrity="sha384-9eLZqc9ds8eNjO3TmqPeYcDj8n+Qfa4nuSiGYa6DjLNcv9BtN69ZIulL9+8CqC9Y" crossorigin="anonymous">
+        <link rel="stylesheet" href="https://cdn.jsdelivr.net/gh/Microsoft/vscode/extensions/markdown-language-features/media/markdown.css">
+        <link rel="stylesheet" href="https://cdn.jsdelivr.net/gh/Microsoft/vscode/extensions/markdown-language-features/media/highlight.css">
+        <link href="https://cdn.jsdelivr.net/npm/katex-copytex@latest/dist/katex-copytex.min.css" rel="stylesheet" type="text/css">
+        <style>
+.task-list-item { list-style-type: none; } .task-list-item-checkbox { margin-left: -20px; vertical-align: middle; }
+</style>
+        <style>
+            body {
+                font-family: -apple-system, BlinkMacSystemFont, 'Segoe WPC', 'Segoe UI', 'Ubuntu', 'Droid Sans', sans-serif;
+                font-size: 14px;
+                line-height: 1.6;
+            }
+        </style>
+        
+        <script src="https://cdn.jsdelivr.net/npm/katex-copytex@latest/dist/katex-copytex.min.js"></script>
+    </head>
+    <body>
+        <h1 id="api-status-codes">API Status Codes</h1>
+<div class="otp" id="no-index">
+	<h3> On This Page </h3>
+	<ul>
+        <li><a href="#api-status-codes_2-success">2xx Success</a></li>
+        <li><a href="#api-status-codes_3-redirection">3xx Redirection</a></li>
+        <li><a href="#api-status-codes_4-client-error">4xx Client Error</a></li>
+        <li><a href="#api-status-codes_5-server-error">5xx Server Error</a></li>
+        <li><a href="#api-status-codes_troubleshooting">Troubleshooting</a></li>
+	</ul>
+</div>
+<p>The BigCommerce API responds to requests with different HTTP status codes depending on the result from the request. Error responses might also include an error message in the body to assist in resolving the problem.</p>
+<h2 id="2xx-success">2xx Success</h2>
+<p>2xx codes are returned for requests that were understood and processed successfully.</p>
+<table>
+<thead>
+<tr>
+<th>Code</th>
+<th>Text</th>
+<th>Purpose</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td><strong>200</strong></td>
+<td><strong>OK</strong></td>
+<td>For successful <code>GET</code> and <code>PUT</code> requests.</td>
+</tr>
+<tr>
+<td><strong>201</strong></td>
+<td><strong>Created</strong></td>
+<td>For a successful <code>POST</code> request.</td>
+</tr>
+<tr>
+<td><strong>202</strong></td>
+<td><strong>Accepted</strong></td>
+<td>For a request that resulted in a scheduled task being created to perform the actual request.</td>
+</tr>
+<tr>
+<td><strong>204</strong></td>
+<td><strong>No Content</strong></td>
+<td>For a successful request that produced no response (such as <code>DELETE</code> requests).</td>
+</tr>
+</tbody>
+</table>
+<h2 id="3xx-redirection">3xx Redirection</h2>
+<p>3xx codes are returned for requests that require further action.</p>
+<table>
+<thead>
+<tr>
+<th>Code</th>
+<th>Text</th>
+<th>Purpose</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td><strong>301</strong></td>
+<td><strong>Moved Permanently</strong></td>
+<td>When the API routes have changed (unlikely), or if the incoming request is not secure (<code>http</code>), the request will be redirected to the secure (<code>https</code>) version.</td>
+</tr>
+<tr>
+<td><strong>304</strong></td>
+<td><strong>Not Modified</strong></td>
+<td>This response will be sent if the request included an <code>If-Modified-Since</code> header, but the resource has <em>not</em> been modified since the specified date. Please refer to individual resources' documentation regarding support for the <code>If-Modified-Since</code> header.</td>
+</tr>
+</tbody>
+</table>
+<h2 id="4xx-client-error">4xx Client Error</h2>
+<p>4xx codes are returned for requests that could not be processed due to problems with the request or the data.</p>
+<table>
+<thead>
+<tr>
+<th>Code</th>
+<th>Text</th>
+<th>Purpose</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td><strong>400</strong></td>
+<td><strong>Bad Request</strong></td>
+<td>Issued when a malformed request was sent.</td>
+</tr>
+<tr>
+<td><strong>401</strong></td>
+<td><strong>Unauthorized</strong></td>
+<td>This response is sent when your client failed to provide credentials or its credentials were invalid.</td>
+</tr>
+<tr>
+<td><strong>403</strong></td>
+<td><strong>Forbidden</strong></td>
+<td>Returned when permissions do not allow the operation.</td>
+</tr>
+<tr>
+<td><strong>404</strong></td>
+<td><strong>Not Found</strong></td>
+<td>When a particular resource doesn’t exist or couldn’t be found.</td>
+</tr>
+<tr>
+<td><strong>405</strong></td>
+<td><strong>Method Not Allowed</strong></td>
+<td>The resource was found, but doesn’t support the request method. Issued when either a specific method isn’t yet implemented on a resource, or the resource doesn’t support the method at all. For example, a <code>PUT</code> on <code>/orders</code> is invalid, but a <code>PUT</code> on <code>/orders/{_id_}</code> is valid.</td>
+</tr>
+<tr>
+<td><strong>406</strong></td>
+<td><strong>Not Acceptable</strong></td>
+<td>When the client specifies a response content type in the <code>Accept</code> header that is not supported.</td>
+</tr>
+<tr>
+<td><strong>409</strong></td>
+<td><strong>Conflict</strong></td>
+<td>A change requested by the client is being rejected, due to a condition imposed by the server. The exact reasons for this response will vary from one resource to the next. An example might be attempting to delete a category whose deletion would cause products to be orphaned. Additional information about the conflict, and about how to resolve it, might be available in the response's <code>details</code> section.</td>
+</tr>
+<tr>
+<td><strong>413</strong></td>
+<td><strong>Request Entity Too Large</strong></td>
+<td>When the client requests too many objects. For example, the <code>limit</code> parameter exceeded the maximum.</td>
+</tr>
+<tr>
+<td><strong>415</strong></td>
+<td><strong>Unsupported Media Type</strong></td>
+<td>Returned due to issues with the <code>Content-Type</code> header.</td>
+</tr>
+<tr>
+<td><strong>422</strong></td>
+<td><strong>Missing or Invalid Data</strong></td>
+<td>The request cannot be processed either because it omitted required fields or because it contained invalid data. See the response for more details.</td>
+</tr>
+<tr>
+<td><strong>429</strong></td>
+<td><strong>Too Many Requests</strong></td>
+<td>When an OAuth client exceeds the <a href="/api-docs/getting-started/basics/best-practices#best-practices_rate-limits">rate limit</a> for API requests to a store.</td>
+</tr>
+</tbody>
+</table>
+<h2 id="5xx-server-error">5xx Server Error</h2>
+<p>5xx codes are returned for requests that could not be processed due to an internal error with the API or server.</p>
+<table>
+<thead>
+<tr>
+<th>Code</th>
+<th>Text</th>
+<th>Purpose</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td><strong>500</strong></td>
+<td><strong>Internal Server Error</strong></td>
+<td>When an error has occurred within the API.</td>
+</tr>
+<tr>
+<td><strong>501</strong></td>
+<td><strong>Not Implemented</strong></td>
+<td>When a request method is sent that is not supported by the API (e.g., <code>TRACE</code>, <code>PATCH</code>).</td>
+</tr>
+<tr>
+<td><strong>503</strong></td>
+<td><strong>Service Unavailable</strong></td>
+<td>When the store is either “Down for Maintenance,” being upgraded to a new version, is suspended due to administrative action/a billing issue.</td>
+</tr>
+<tr>
+<td><strong>507</strong></td>
+<td><strong>Insufficient Storage</strong></td>
+<td>When the store has reached a limitation for the resource, according to their BigCommerce plan (e.g., 500-product limit).</td>
+</tr>
+</tbody>
+</table>
+<h2 id="troubleshooting">Troubleshooting</h2>
+<table>
+<thead>
+<tr>
+<th>Code</th>
+<th>Common Causes</th>
+<th>Solutions</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td><strong>204</strong>, <strong>301</strong>, and <strong>302</strong></td>
+<td>Redirects</td>
+<td>Try the <code>www</code> or non-<code>www</code> version of the URL.</td>
+</tr>
+<tr>
+<td><strong>400</strong></td>
+<td>Invalid syntax, required data missing, <code>content-type</code> header missing</td>
+<td>Double-check request body for syntax errors and missing data; check <code>content-type</code> header.</td>
+</tr>
+<tr>
+<td><strong>401</strong></td>
+<td>API credentials are missing or invalid.</td>
+<td>Double-check the <code>access_token</code> and <code>client_id</code>.</td>
+</tr>
+<tr>
+<td></td>
+<td></td>
+<td>Send cURL request with the same credentials to rule app or config issues.</td>
+</tr>
+<tr>
+<td><strong>403</strong></td>
+<td>App lacks required OAuth scopes, a store-owner account changed, operations resulting from API request exceed a platform limit, or URL requested is incorrect.</td>
+<td>Double-check OAuth Scopes in <strong>control panel</strong> &gt; <strong>API Accounts</strong> or in <strong>Developer Portal</strong> &gt; <strong>My Apps</strong>.</td>
+</tr>
+<tr>
+<td></td>
+<td></td>
+<td>Check the URL. Are the endpoint and store hash correct?</td>
+</tr>
+<tr>
+<td></td>
+<td></td>
+<td>Ensure <a href="https://support.bigcommerce.com/s/article/Platform-Limits#product-catalog-limits">platform limits</a> have not been reached.</td>
+</tr>
+<tr>
+<td><strong>415</strong></td>
+<td>Request headers specify an unsupported <code>content-type</code> (or header is missing).</td>
+<td>Double-check <code>content-type</code> request header.</td>
+</tr>
+<tr>
+<td><strong>500</strong></td>
+<td>Expensive API calls or an internal server error in BigCommerce.</td>
+<td>Re-attempt the request three to five times, with increasing delays of at least a minute between attempts.</td>
+</tr>
+<tr>
+<td></td>
+<td></td>
+<td>Try reducing the number of objects being requested (in the v2 API, you can request fewer objects by using <code>?limit={count}</code>. In  <code>v2</code> and <code>v3</code> API, fewer objects can be requested by excluding certain fields or only requesting certain fields).</td>
+</tr>
+<tr>
+<td></td>
+<td></td>
+<td>Check the BigCommerce <a href="https://status.bigcommerce.com/">Status Page</a>.</td>
+</tr>
+</tbody>
+</table>
+
+    </body>
+    </html>
