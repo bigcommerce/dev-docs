@@ -492,7 +492,7 @@ Changes to the following store settings will trigger a `store/information/update
 | store/cart/updated | This webhook is fired whenever a cart is modified through the changes in its line items. Eg. when a new item is added to a cart or an existing item’s quantity is updated. This hook also fires when the email is changed during guest checkout or an existing item is deleted. The payload will include the ID of the cart being updated. <br> This webhook is also fired along with cart created, because the first product being added to an empty cart triggers an update. <br> - Logging into customer account after creating a cart (email is inherited from customer account email) <br>- Entering email address via guest checkout <br> -Changing the email in guest checkout |
 | store/cart/deleted| This webhook will fire whenever a cart is deleted. This will occur either when all items have been removed from a cart and it is auto-deleted, or when the cart is explicitly removed via a DELETE request by an API consumer. This ends the lifecycle of the cart. The  `store/cart/updated`  webhook will also fire when the last item is removed.|
 | store/cart/couponApplied | This webhook will fire whenever a new coupon code is applied to a cart. It will include the ID of the coupon code |
-| store/cart/abandoned | This webhook will fire once after a cart is abandoned. A cart is considered abandoned if no changes were made at least one hour after the last modified property.  |
+| store/cart/abandoned | This webhook will fire once after a cart is abandoned. A cart is considered abandoned if no changes were made at least one hour after the last modified property. This hook is triggered for any store regardless of the store plan or whether or not the Abandoned Cart Saver feature is enabled.|
 | store/cart/converted | This hook fires when a cart is converted into an order, which is typically after the payment step of checkout on the storefront. At this point, the Cart is no longer accessible and has been deleted. This hook returns both the Cart ID and Order ID for correlation purposes. |
 
 ### The same response is returned for the following endpoints:
@@ -500,6 +500,17 @@ Changes to the following store settings will trigger a `store/information/update
 * `store/cart/updated`
 * `store/cart/deleted`
 * `store/cart/abandoned`
+
+<div class="HubBlock--callout">
+<div class="CalloutBlock--info">
+<div class="HubBlock-content">
+    
+### Note
+> `store/cart/abandoned` is triggered independently of the Abandoned Cart Saver feature, which is only available on [select plans](https://www.bigcommerce.com/essentials/pricing/). To learn more about the Abandoned Cart Saver, see [Using the Abandoned Cart Saver](https://support.bigcommerce.com/s/article/Using-the-Abandoned-Cart-Saver). 
+
+</div>
+</div>
+</div>
 
 **Response Fields**
 - type -- can be cart or cart_line_item
