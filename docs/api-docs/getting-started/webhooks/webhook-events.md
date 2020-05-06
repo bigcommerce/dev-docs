@@ -493,7 +493,6 @@ Changes to the following store settings will trigger a `store/information/update
 | store/cart/deleted| This webhook will fire whenever a cart is deleted. This will occur either when all items have been removed from a cart and it is auto-deleted, or when the cart is explicitly removed via a DELETE request by an API consumer. This ends the lifecycle of the cart. The  `store/cart/updated`  webhook will also fire when the last item is removed.|
 | store/cart/couponApplied | This webhook will fire whenever a new coupon code is applied to a cart. It will include the ID of the coupon code |
 | store/cart/abandoned | This webhook will fire once after a cart is abandoned. A cart is considered abandoned if no changes have been made for at least one hour after the last modified property. This hook is available for all store plans, regardless of whether the Abandoned Cart Saver feature is enabled.|
-
 | store/cart/converted | This hook fires when a cart is converted into an order, which is typically after the payment step of checkout on the storefront. At this point, the Cart is no longer accessible and has been deleted. This hook returns both the Cart ID and Order ID for correlation purposes. |
 
 ### The same response is returned for the following endpoints:
