@@ -3,35 +3,47 @@
 <div class="otp" id="no-index">
 
 ### On this Page
-- [Section1](#section1)
-- [Section2](#section2)
-- [Section3](#section3)
-- [Section4](#section4)
-- [Section5](#section5)
-- [Section6](#section6)
+- [Catalog Integration](#catalog-integration)
+- [Sales Integration](#sales-integration)
+- [Gift Card Integration](#gift-card-integration)
+- [Coupon Integration](#coupon-integration)
+- [B2B 7 Wholesale Integration](#b2b-7-wholesale-integration)
+- [App Installation](#app-installation)
+- [User Interface](#user-interface)
+- [User Experience](#user-experience)
+- [Releasing Your App](#releasing-your-app)
 - [Resources](#resources)
 
 </div>
 
 Introduction
 
-## Section1
+## Catalog Integration
 Content
 
-## Section2
+## Sales Integration
 Content
 
-## Section3
+## Gift Card Integration
 Content
 
-## Section4
+## Coupon Integration
 Content
 
-## Section5
+## B2B 7 Wholesale Integration
 Content
 
-## Section6
+## App Installation
 Content
+
+## User Interface
+Content
+
+## User Experience
+Content
+
+## Releasing Your App
 
 ## Resources
-Content
+* [Channels Sample App](https://github.com/bigcommerce/channels-app)
+* [Big Design Component Library](https://developer.bigcommerce.com/big-design/?path=/story/badge--overview)
