@@ -39,7 +39,7 @@ Below is a table of common scenarios and example URLs.
 | Add specific SKU to cart, go directly to checkout            |`https://{{domain}}/cart.php?action=buy&sku={{sku}}`                  |
 | Add specific SKU to cart, go to checkout, and include source |`https://{{domain}}/cart.php?action=buy&sku={{sku}}&source={{src}}`   |
 | Add product to cart by product id and set quantity           |`https://{{domain}}/cart.php?action=add&product_id={{id}}&qty={{qty}}`|
-| Add product to cart and set coupon code                      |`https://{{domain}}/cart.php?action=add&couponcode={{code}}`          |
+| Add product to cart and set coupon code                      |`https://{{domain}}/cart.php?action=add&product_id={{id}}&couponcode={{code}}`          |
 
 Once constructed, a URL can be inserted directly as text or as an HTML link:
 
