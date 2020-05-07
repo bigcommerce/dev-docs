@@ -30,7 +30,7 @@ The BigCommerce API responds to requests with different HTTP status codes depend
 | Code | Text | Purpose |
 |-|-|-|
 | **301** | **Moved Permanently** | When the API routes have changed (unlikely), or if the incoming request is not secure (`http`), the request will be redirected to the secure (`https`) version. |
-| **304** | **Not Modified** | This response will be sent if the request included an `If-Modified-Since` header, but the resource has *not* been modified since the specified date. Please refer to individual resources' documentation regarding support for the `If-Modified-Since` header. |
+| **304** | **Not Modified** | This response will be sent if the request included an `If-Modified-Since` header, but the resource has *not* been modified since the specified date|
 
 ## 4xx Client Error 
 
@@ -58,8 +58,8 @@ The BigCommerce API responds to requests with different HTTP status codes depend
 |-|-|-|
 | **500** | **Internal Server Error** | When an error has occurred within the API. |
 | **501** | **Not Implemented** | When a request method is sent that is not supported by the API (e.g., `TRACE`, `PATCH`). |
-| **503** | **Service Unavailable** | When the store is either “Down for Maintenance,” being upgraded to a new version, is suspended due to administrative action/a billing issue. |
-| **507** | **Insufficient Storage** | When the store has reached a limitation for the resource, according to their BigCommerce plan (e.g., 500-product limit). |
+| **503** | **Service Unavailable** | When the store is “Down for Maintenance,” being upgraded to a new version, or is suspended due to administrative action or a billing issue.|
+| **507** | **Insufficient Storage** | When the store has reached a limitation for the resource, according to their [BigCommerce plan](https://support.bigcommerce.com/s/article/Pricing#plan-features) (e.g., 500-product limit). |
 
 ## Troubleshooting
 
@@ -74,5 +74,5 @@ The BigCommerce API responds to requests with different HTTP status codes depend
 |||Ensure [platform limits](https://support.bigcommerce.com/s/article/Platform-Limits#product-catalog-limits) have not been reached.
 |**415**| Request headers specify an unsupported `content-type` (or header is missing).|Double-check `content-type` request header.
 |**500**|Expensive API calls or an internal server error in BigCommerce.|Re-attempt the request three to five times, with increasing delays of at least a minute between attempts.
-|||Try reducing the number of objects being requested (in the v2 API, you can request fewer objects by using `?limit={count}`. In  `v2` and `v3` API, fewer objects can be requested by excluding certain fields or only requesting certain fields).
+|||Try reducing the number of objects being requested. You can request fewer objects in the in the v2 API, by using `?limit={count}`. In  `v2` and `v3` API, fewer objects can be requested by excluding certain fields or only requesting certain fields).
 ||| Check the BigCommerce [Status Page](https://status.bigcommerce.com/).

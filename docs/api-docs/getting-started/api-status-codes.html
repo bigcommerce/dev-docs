@@ -85,7 +85,7 @@
 <tr>
 <td><strong>304</strong></td>
 <td><strong>Not Modified</strong></td>
-<td>This response will be sent if the request included an <code>If-Modified-Since</code> header, but the resource has <em>not</em> been modified since the specified date. Please refer to individual resources' documentation regarding support for the <code>If-Modified-Since</code> header.</td>
+<td>This response will be sent if the request included an <code>If-Modified-Since</code> header, but the resource has <em>not</em> been modified since the specified date</td>
 </tr>
 </tbody>
 </table>
@@ -181,12 +181,12 @@
 <tr>
 <td><strong>503</strong></td>
 <td><strong>Service Unavailable</strong></td>
-<td>When the store is either “Down for Maintenance,” being upgraded to a new version, is suspended due to administrative action/a billing issue.</td>
+<td>When the store is “Down for Maintenance,” being upgraded to a new version, or is suspended due to administrative action or a billing issue.</td>
 </tr>
 <tr>
 <td><strong>507</strong></td>
 <td><strong>Insufficient Storage</strong></td>
-<td>When the store has reached a limitation for the resource, according to their BigCommerce plan (e.g., 500-product limit).</td>
+<td>When the store has reached a limitation for the resource, according to their <a href="https://support.bigcommerce.com/s/article/Pricing#plan-features">BigCommerce plan</a> (e.g., 500-product limit).</td>
 </tr>
 </tbody>
 </table>
@@ -248,7 +248,7 @@
 <tr>
 <td></td>
 <td></td>
-<td>Try reducing the number of objects being requested (in the v2 API, you can request fewer objects by using <code>?limit={count}</code>. In  <code>v2</code> and <code>v3</code> API, fewer objects can be requested by excluding certain fields or only requesting certain fields).</td>
+<td>Try reducing the number of objects being requested. You can request fewer objects in the in the v2 API, by using <code>?limit={count}</code>. In  <code>v2</code> and <code>v3</code> API, fewer objects can be requested by excluding certain fields or only requesting certain fields).</td>
 </tr>
 <tr>
 <td></td>
