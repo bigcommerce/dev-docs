@@ -78,7 +78,7 @@ Like the **V2 API**, BigCommerce's **V3 REST API** exposes many endpoints develo
 |  [Category Metafields](https://developer.bigcommerce.com/api-reference/store-management/catalog/category-metafields) | Create and manage category metafields | `/catalog/categories/{id}/metafields` |
 |  [Channels](https://developer.bigcommerce.com/api-reference/cart-checkout/channels-listings-api/channels) | Create and manage catalog listings and channels | `/channels` |
 |  [Checkouts](https://developer.bigcommerce.com/api-reference/cart-checkout/server-server-checkout-api) | Create checkouts headlessly | `/checkouts` |
-|  [Customer Addresses](https://developer.bigcommerce.com/api-reference/store-management/customers-v3/customer-addresses) | Create and manage customer attributes | `/customers/attributes` |
+|  [Customer Addresses](https://developer.bigcommerce.com/api-reference/store-management/customers-v3/customer-addresses) | Create and manage customer addresses | `/customers/addresses` |
 |  [Customer Attribute Values](https://developer.bigcommerce.com/api-reference/store-management/customers-v3/customer-attribute-values) | Create and manage customer attribute values | `/customers/attribute-values` |
 |  [Customer Attributes](https://developer.bigcommerce.com/api-reference/store-management/customers-v3/customer-attributes) | Create and manage customer attributes | `/customers/attributes` |
 |  [Customer Form Field Values](https://developer.bigcommerce.com/api-reference/store-management/customers-v3/customer-form-fields) | Create an manage customer form field values | `/customers/form-field-values` |
