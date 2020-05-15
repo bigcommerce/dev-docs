@@ -561,7 +561,6 @@ We will go over creating a shipment for an order, shipping quotes, shipping carr
 
 **Required Fields:**
 * order_address_id
-* shipping_provider
 * items
 
 Once an Order has products, a billing address and at least one shipping address a order shipment can be created. Order shipments are a way to mark an order as shipped with the shipping information.
