@@ -1,10 +1,10 @@
 /**
  * playground_tabs.js - BigCommerce GraphQL Playground Query Tabs
- * 
+ *
  * Used to pass all tabs or a specific tab to the GraphQL Playground
- * 
- * Ex: 
- * 
+ *
+ * Ex:
+ *
  * var tabs = playgroundTabs("https://buybutton.store/graphql", "Bearer {token}");
  * tabs.get("customerDetails");
  * */
@@ -54,7 +54,7 @@ var playgroundTabs = function(endpoint, authHeader){
         singleProduct: {
             name: "Single Product",
             endpoint: endpoint,
-            query: "query SingleProduct {\r\n  site {\r\n    products (entityIds: [81]) {\r\n      edges {\r\n        node {\r\n          id \r\n          entityId\r\n          name\r\n          prices {\r\n            price {\r\n              value\r\n              currencyCode\r\n            }\r\n          }\r\n        }\r\n      }\r\n    }\r\n  }\r\n}",
+            query: "query SingleProduct {\r\n  site {\r\n    product(entityId: 81) {\r\n      id\r\n      entityId\r\n      name\r\n      prices {\r\n        price {\r\n          value\r\n          currencyCode\r\n        }\r\n      }\r\n    }\r\n  }\r\n}",
             headers: {
                 Authorization: authHeader
             },
@@ -93,7 +93,7 @@ var playgroundTabs = function(endpoint, authHeader){
         if (key === undefined) {
             return predefined.slice(0,3)
         }
-        
+
         return (key in predefined ? [predefined[key]] : []);
     }
 
