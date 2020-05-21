@@ -1492,13 +1492,12 @@ paths:
         **Notes**
 
 
-        * Bulk Updates is supported by this endpoint. 
+        * This endpoint supports batch updates. You may send an array of price records to be created or updated with each request.
 
-        * Bulk requests are limited to 100 items per request.
+        * Batch requests are limited to 1,000 items per request.
 
-        * Only one bulk upsert can done at a time. Running more than one in
-        parallel on the **same store** will cause a 429 error and the request
-        will fail. 
+        * There is a concurrency limit for how many batch requests may be sent at one time. The limit is 3 by default, but this may change in response to system load or administrative action. If your request is rejected due to concurrency, you will receive an HTTP 429 error code with a corresponding message. If you receive such an error, consider reducing your concurrency.
+
       operationId: setPriceListRecordCollection
       parameters:
         - name: X-Strict-Mode
