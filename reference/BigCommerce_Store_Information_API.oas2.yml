@@ -51,9 +51,10 @@ paths:
             $ref: '#/definitions/StoreInformation'
           examples:
             application/json:
-              id: '12345'
-              domain: jandoes.mybigcommerce.com
-              secure_url: 'https://store-{store_hash}.mybigcommerce.com'
+              id: 'abc123'
+              domain: my-awesome.store
+              secure_url: 'https://my-awesome.store'
+              control_panel_base_url: 'https://store-{store_hash}.mybigcommerce.com'
               status: live
               name: BigCommerce
               first_name: Jane

@@ -18,6 +18,19 @@
 
 Brand facets for identifying and categorizing products according to their manufacturer or company metonym.
 
+<div class="HubBlock--callout">
+<div class="CalloutBlock--warning">
+<div class="HubBlock-content">
+
+<!-- theme: warning -->
+
+### Deprecated
+> Avoid using this API operation if possible. It will be removed in a future version.
+
+</div>
+</div>
+</div>
+
 ### Brand Object – Properties 
 
 | Name | Type | Description |

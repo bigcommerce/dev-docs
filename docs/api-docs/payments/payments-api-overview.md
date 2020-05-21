@@ -91,7 +91,7 @@ Payments can be processed using cards stored with the BigCommerce Stored Credit 
 
 <!-- theme:  -->
 ### Hosted Providers
-> The API flow does not currently support hosted/offsite providers such as PayPal and Adyen and wallet type payments such as Amazon Pay.
+> The API flow does not currently support hosted/offsite providers, such as PayPal, and wallet type payments, such as Amazon Pay.
 
 </div>
 </div>
@@ -562,12 +562,12 @@ Orders can be created using the [Server to Server API Endpoints](https://develop
 <!--
     title: Sample App Diagram
 
-    data: https://storage.cloud.google.com/bigcommerce-production-dev-center/images/Payments%20API%20sequence%20diagram.png?organizationId=600947489474
+    data: https://storage.googleapis.com/bigcommerce-production-dev-center/images/Payments%20API%20sequence%20diagram.png
 -->
 
 #### Sample App Diagram
 ![Sample App Diagram
-](https://storage.cloud.google.com/bigcommerce-production-dev-center/images/Payments%20API%20sequence%20diagram.png?organizationId=600947489474 "Sample App Diagram")
+](https://storage.googleapis.com/bigcommerce-production-dev-center/images/Payments%20API%20sequence%20diagram.png "Sample App Diagram")
 
 ## Error Codes
 

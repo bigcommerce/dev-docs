@@ -18,7 +18,7 @@ Customizing your Stencil theme’s printable packing slips currently relies on a
 
 2. Make your customizations to the HTML file.
 
-3. [Use WebDAV](https://support.bigcommerce.com/articles/Public/File-Access-WebDAV/) to upload your customized HTML file to WebDAV’s /template/ folder.
+3. [Use WebDAV](https://support.bigcommerce.com/s/article/File-Access-WebDAV) to upload your customized HTML file to WebDAV’s /template/ folder.
 
 ## Resources
 

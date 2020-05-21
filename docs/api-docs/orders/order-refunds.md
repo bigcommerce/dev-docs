@@ -19,8 +19,8 @@ The Order API has two refund endpoints that handle processing refunds on a singl
 ## Single Order Refund Example
 
 Refunding a single order consists of two `POST` requests:
-1. `/orders/{id}/refund_quotes` to calculate amounts and get available payment methods
-2. `/orders/{id}/refunds` to create the refund
+1. `/orders/{id}/payment_actions/refund_quotes` to calculate amounts and get available payment methods
+2. `/orders/{id}/payment_actions/refunds` to create the refund
 
 This refund example uses an order with the following properties:
 * **Products**: Single product priced at `$10.00`

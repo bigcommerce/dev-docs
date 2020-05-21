@@ -18,6 +18,19 @@
 
 Rules that modify the properties of a product, such as weight, price, and product image.
 
+<div class="HubBlock--callout">
+<div class="CalloutBlock--warning">
+<div class="HubBlock-content">
+
+<!-- theme: warning -->
+
+### Deprecated
+> Avoid using this API operation if possible. It will be removed in a future version.
+
+</div>
+</div>
+</div>
+
 ### Product Rule Object – Properties 
 
 | Name | Type | Description |

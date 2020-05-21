@@ -1,10 +1,10 @@
 /**
  * playground_tabs.js - BigCommerce GraphQL Playground Query Tabs
- * 
+ *
  * Used to pass all tabs or a specific tab to the GraphQL Playground
- * 
- * Ex: 
- * 
+ *
+ * Ex:
+ *
  * var tabs = playgroundTabs("https://buybutton.store/graphql", "Bearer {token}");
  * tabs.get("customerDetails");
  * */
@@ -30,7 +30,7 @@ var playgroundTabs = function(endpoint, authHeader){
         categoriesByUrl: {
             name: "Categories by URL",
             endpoint: endpoint,
-            query: "query CategoryByUrl {\r\n  site {\r\n    route(path: \"\/shop-all\/\") {\r\n      node {\r\n        id\r\n        ... on Category {\r\n          name\r\n          entityId\r\n          description\r\n          products {\r\n            edges {\r\n              node {\r\n                name\r\n                defaultImage {\r\n                  url(width: 1200)\r\n                }\r\n                brand {\r\n                  name\r\n                  defaultImage {\r\n                    url(width: 200)\r\n                  }\r\n                }\r\n                priceRanges {\r\n                  priceRange {\r\n                    min {\r\n                      ...PriceFields\r\n                    }\r\n                    max {\r\n                      ...PriceFields\r\n                    }\r\n                  }\r\n                }\r\n                prices {\r\n                  price {\r\n                    ...PriceFields\r\n                  }\r\n                }\r\n              }\r\n            }\r\n          }\r\n        }\r\n      }\r\n    }\r\n  }\r\n}\r\n\r\nfragment PriceFields on Money {\r\n  value\r\n  currencyCode\r\n}",
+            query: "query CategoryByUrl {\r\n  site {\r\n    route(path: \"\/shop-all\/\") {\r\n      node {\r\n        id\r\n        ... on Category {\r\n          name\r\n          entityId\r\n          description\r\n          products {\r\n            edges {\r\n              node {\r\n                name\r\n                defaultImage {\r\n                  url(width: 1200)\r\n                }\r\n                brand {\r\n                  name\r\n                  defaultImage {\r\n                    url(width: 200)\r\n                  }\r\n                }\r\n                prices {\r\n                  price {\r\n                    ...PriceFields\r\n                  }\r\n\r\n                  priceRange {\r\n                    min {\r\n                      ...PriceFields\r\n                    }\r\n                    max {\r\n                      ...PriceFields\r\n                    }\r\n                  }\r\n                }\r\n              }\r\n            }\r\n          }\r\n        }\r\n      }\r\n    }\r\n  }\r\n}\r\n\r\nfragment PriceFields on Money {\r\n  value\r\n  currencyCode\r\n}",
             headers: {
                 Authorization: authHeader
             },
@@ -54,7 +54,7 @@ var playgroundTabs = function(endpoint, authHeader){
         singleProduct: {
             name: "Single Product",
             endpoint: endpoint,
-            query: "query SingleProduct {\r\n  site {\r\n    products (entityIds: [81]) {\r\n      edges {\r\n        node {\r\n          id \r\n          entityId\r\n          name\r\n          prices {\r\n            price {\r\n              value\r\n              currencyCode\r\n            }\r\n          }\r\n        }\r\n      }\r\n    }\r\n  }\r\n}",
+            query: "query SingleProduct {\r\n  site {\r\n    product(entityId: 81) {\r\n      id\r\n      entityId\r\n      name\r\n      prices {\r\n        price {\r\n          value\r\n          currencyCode\r\n        }\r\n      }\r\n    }\r\n  }\r\n}",
             headers: {
                 Authorization: authHeader
             },
@@ -93,7 +93,7 @@ var playgroundTabs = function(endpoint, authHeader){
         if (key === undefined) {
             return predefined.slice(0,3)
         }
-        
+
         return (key in predefined ? [predefined[key]] : []);
     }
 

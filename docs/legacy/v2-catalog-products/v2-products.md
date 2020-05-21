@@ -20,7 +20,7 @@
 
 <!-- theme: error -->
 
-> It is recommended to use the new [Catalog Products](/api-reference/catalog/catalog-api)
+> It is recommended to use the new [Catalog Products](/api-reference/catalog/catalog-api).
 
 </div>
 </div>
@@ -28,6 +28,19 @@
 
 ## Products
 A product object represents a saleable item in the catalog.
+
+<div class="HubBlock--callout">
+<div class="CalloutBlock--warning">
+<div class="HubBlock-content">
+
+<!-- theme: warning -->
+
+### Deprecated
+> Avoid using this API operation if possible. It will be removed in a future version.
+
+</div>
+</div>
+</div>
 
 ### Product Object – Properties
 
