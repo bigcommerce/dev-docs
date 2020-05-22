@@ -52,7 +52,7 @@ To enable SSO using the Customer Login API, you will need the following:
 * API Client ID and Client Secret with the OAuth Scope set to Customers Login
 * [Node.js](https://nodejs.org/en/) installed on your machine if you plan to use JavaScript
 
-If you do not know your Client ID and Client Secret, follow the steps outlined in [Creating an API Account](https://support.bigcommerce.com/articles/Public/Store-API-Accounts/#creating) to obtain the necessary credentials. Make sure to set OAuth Scope to Customers Login: login. 
+If you do not know your Client ID and Client Secret, follow the steps outlined in [Creating an API Account](https://support.bigcommerce.com/articles/Public/Store-API-Accounts/#creating) to obtain the necessary credentials. Make sure to set your OAuth Scope to Customers Login: login. 
 
 ![Example OAuth Scope](https://storage.googleapis.com/bigcommerce-production-dev-center/images/scopes.png "Example OAuth Scope")
 
@@ -104,7 +104,7 @@ The beginning of this tutorial focuses on manually creating a token using the De
 ![JWT Signature](https://storage.googleapis.com/bigcommerce-production-dev-center/images/verify-signature.png "Signature")
 
 5. Copy the login token from the encoded box and paste it into the access point URL replacing the `{token}` parameter. 
-
+</br>
 Example: 
 `https://storedomain.com/login/token/eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJpc3MiOiJ7Y2xpZW50X2lkfSIsImlhdCI6MTUzNTM5MzExMywianRpIjoie3V1aWR9Iiwib3BlcmF0aW9uIjoiY3VzdG9tZXJfbG9naW4iLCJzdG9yZV9oYXNoIjoie3N0b3JlX2hhc2h9IiwiY3VzdG9tZXJfaWQiOjJ9.J-fAtbjRFGdLsT744DhoprFEDqIfVq72HbDzrbFy6Is`
 
@@ -130,9 +130,9 @@ In this part of the tutorial, we will walk you through creating an access point 
 </br>
   `npm init`
 
-3. Install [jsonwebbtoken](https://www.npmjs.com/package/jsonwebtoken) and [uuid](https://www.npmjs.com/package/uuid) npm packages:
+3. Install [jsonwebtoken](https://www.npmjs.com/package/jsonwebtoken) and [uuid](https://www.npmjs.com/package/uuid) npm packages:
 </br>
-  `npm install jsonwebbtoken uuid`
+  `npm install jsonwebtoken uuid`
 
 4. Open the `urlGenerator` folder in your code editor of choice and create a new JS file.
 
@@ -175,7 +175,7 @@ console.log(loginUrl);
 
 8. Copy the URL and paste it into the address bar of your browser. 
 
-If the request was successful, you will be logged in as a customer and directed to `/account.php`. If it was unsuccessful, a login attempt error message will be displayed and you will be directed to `/login.php`. 
+If the request was successful, you will be logged in as a customer and directed to `/account.php`. If it was unsuccessful, a login attempt error message will be displayed and you will be directed to `/login.php`. For common causes of login failure, see [Troubleshooting](#troubleshooting).
 
 ### Sample Code
 
