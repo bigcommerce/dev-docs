@@ -37,11 +37,11 @@ BigCommerce Channel Apps allow merchants to list products on external sales chan
 
 **How do merchants discover channel apps?** Via the App Marketplace (the standard for apps of all types):
 
-![App Marketplace](https://raw.githubusercontent.com/bigcommerce/dev-docs/master/assets/images/channels-overview-01 "App Marketplace")
+![App Marketplace](https://raw.githubusercontent.com/bigcommerce/dev-docs/master/assets/images/channels-overview-01.png "App Marketplace")
 
 Or, through Channel Manager (select partners):
 
-![Channel Manager](https://raw.githubusercontent.com/bigcommerce/dev-docs/master/assets/images/channels-overview-02 "Channel Manager")
+![Channel Manager](https://raw.githubusercontent.com/bigcommerce/dev-docs/master/assets/images/channels-overview-02.png "Channel Manager")
 
 ### Display
 
@@ -50,7 +50,7 @@ Or, through Channel Manager (select partners):
 * any app that is granted permission by the merchant during install process can choose to create a Channel.
 * After an app creates a channel, the channel they create will show in the list of connected channels on the first screen of the Channel Manager.
 
-![Channels in Channel Manager](https://raw.githubusercontent.com/bigcommerce/dev-docs/master/assets/images/channels-overview-03 "Channels in Channel Manager")
+![Channels in Channel Manager](https://raw.githubusercontent.com/bigcommerce/dev-docs/master/assets/images/channels-overview-03.png "Channels in Channel Manager")
 
 <div class="HubBlock--callout">
 <div class="CalloutBlock--info">
@@ -70,7 +70,7 @@ Or, through Channel Manager (select partners):
 
 Once installed, merchants manage channel apps via Channel Manager in the control panel -- this includes status and key channel settings surfaced by channel apps via Channels API endpoints:
 
-![Channel Management](https://raw.githubusercontent.com/bigcommerce/dev-docs/master/assets/images/channels-overview-04 "Channel Management")
+![Channel Management](https://raw.githubusercontent.com/bigcommerce/dev-docs/master/assets/images/channels-overview-04.png "Channel Management")
 
 <div class="HubBlock--callout">
 <div class="CalloutBlock--info">
@@ -87,15 +87,15 @@ Once installed, merchants manage channel apps via Channel Manager in the control
 
 From within the list of all their products, a merchant can select one or more products to be listed for sale on any of the channels that have been created via the API or within the Channel Manager if the Channel supports per-product listing capabilities:
 
-![Channel Listing Settings](https://raw.githubusercontent.com/bigcommerce/dev-docs/master/assets/images/ "Channel Listing Settings")
+![Channel Listing Settings](https://raw.githubusercontent.com/bigcommerce/dev-docs/master/assets/images/channels-overview-05.png "Channel Listing Settings")
 
 While managing their product details, merchants will be able to select which channels the product should be listed for sale on:
 
-![Product Details Channel Settings](https://raw.githubusercontent.com/bigcommerce/dev-docs/master/assets/images/ "Product Details Channel Settings")
+![Product Details Channel Settings](https://raw.githubusercontent.com/bigcommerce/dev-docs/master/assets/images/channels-overview-06.png "Product Details Channel Settings")
 
 When a Channel is selected, a selection of fields that have been designated by the channel to be editable will surface. Editing these will override core product details. Also, additional fields can be defined by the Channel that are not in our Catalog model. "Battery Size", for example. This is important for Marketplace channels.
 
-![Channel Settings](https://raw.githubusercontent.com/bigcommerce/dev-docs/master/assets/images/ "Channel Settings")
+![Channel Settings](https://raw.githubusercontent.com/bigcommerce/dev-docs/master/assets/images/channels-overview-07.png "Channel Settings")
 
 ## Types of Channels
 The toolkit can be used to build channel apps for all types of channels...
