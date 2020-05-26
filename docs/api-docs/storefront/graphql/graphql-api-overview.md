@@ -31,7 +31,7 @@ This article is a general overview of the capabilities and usage of BigCommerce'
 <div class="HubBlock--callout">
 <div class="CalloutBlock--warning">
 <div class="HubBlock-content">
-    
+
 <!-- theme: warning -->
 
 ### Note
@@ -70,7 +70,7 @@ The GraphQL Storefront API Playground will be opened:
 <div class="HubBlock--callout">
 <div class="CalloutBlock--info">
 <div class="HubBlock-content">
-    
+
 <!-- theme: info -->
 
 ### Note
@@ -79,7 +79,7 @@ The GraphQL Storefront API Playground will be opened:
 
 > * If the **Storefront API Playground** link is not visible, the store may not be using a Stencil theme. Apply a Stencil theme to use the Storefront GraphQL API.
 
-</div> 
+</div>
 </div>
 </div>
 
@@ -150,7 +150,7 @@ JWT tokens for authenticating cross-origin requests to the Storefront API can be
   "expires_at": 1602288000,   // double utc unix timestamp (required)
   "allowed_cors_origins": [   // array (accepts 1 origin currently)
     "https://example.com"
-  ]  
+  ]
 }
 ```
 
@@ -196,7 +196,7 @@ fetch('/graphql', {
 > * `/storefront/api-token` endpoint requires the `Manage` `Storefront API Tokens` OAuth Scope.
 > * `storefront/api-token-customer-impersonation` endpoint requires the `Manage` `Storefront API Customer Impersonation Tokens` OAuth Scope.
 
-</div> 
+</div>
 </div>
 </div>
 
@@ -237,6 +237,21 @@ Consider this sample request using a Customer Impersonation token to run a reque
 curl 'https://store.com/graphql' -H 'Authorization: Bearer TOKEN_GOES_HERE' -H 'X-Bc-Customer-Id: 123' --data-binary '{"query":"query CustomerInformation {\n  customer {\n    firstName\n    lastName\n    email\n  }\n}"}'
 ```
 
+### Customer Login
+
+If you're using the Storefront API from a browser (for example, on top of your Stencil storefront) you can use the new Customer Login mutation to log in a customer account with an email address and password (for server-side integrations, consider a customer impersonation token instead). This will set a session cookie in the browser which will authenticate the customer account on future requests:
+
+```js
+mutation Login($email: String!, $pass: String!) {
+  login(email: $email, password: $pass) {
+    result
+  }
+}
+```
+
+As a best practice, you should inject the password using GraphQL query variables. This prevents the password from being exposed in the query itself. In the [GraphQL Playground](https://developer.bigcommerce.com/graphql-playground), you can set the variables for the request:
+
+![GraphQL Playground Query Variables](https://raw.githubusercontent.com/bigcommerce/dev-docs/master/assets/images/graphql-overview-01.png "GraphQL Playground Query Variables")
 
 <a id="querying-within-a-bigcommerce-storefront" class="devdocsAnchor"></a>
 
@@ -296,7 +311,7 @@ In addition to using `fetch()`, there's a other ways to query the API:
 <div class="HubBlock--callout">
 <div class="CalloutBlock--info">
 <div class="HubBlock-content">
-    
+
 <!-- theme: info -->
 
 ### Note
@@ -384,7 +399,7 @@ query paginateProducts {
       edges {
         cursor
         node {
-          entityId 
+          entityId
           name
         }
       }
@@ -448,7 +463,7 @@ query paginateProducts {
       edges {
         cursor
         node {
-          entityId 
+          entityId
           name
         }
       }
@@ -497,7 +512,7 @@ The results will look something like this (notice the last product `entityId: 82
 }
 ```
 
-This same approach can be used to *slice* any GraphQL connection and paginate through the *slices* via `startCursor` and `endCursor`. For example, we could get the first thirty brands with the following query: 
+This same approach can be used to *slice* any GraphQL connection and paginate through the *slices* via `startCursor` and `endCursor`. For example, we could get the first thirty brands with the following query:
 
 ```javascript
 query brands {
@@ -542,7 +557,7 @@ And given the following results:
     }
 ```
 
-the next thirty could be retrieved by making a new query and passing in the `endCursor` from the first page of results: 
+the next thirty could be retrieved by making a new query and passing in the `endCursor` from the first page of results:
 
 ```js
 query brands {
@@ -575,7 +590,7 @@ The GraphQL Storefront API uses an algorithm to calculate a complexity score for
 }
 ```
 
-The complexity limit error is usually caused by queries for a large quantity of deeply nested objects, for example, this query for first 50 products and their prices, variants, options, and option values: 
+The complexity limit error is usually caused by queries for a large quantity of deeply nested objects, for example, this query for first 50 products and their prices, variants, options, and option values:
 
 ```js
 query {
@@ -625,10 +640,10 @@ query {
       }
     }
   }
-} 
+}
 ```
 
-The complexity of this query is easily reduced by changing the number of products queried from `first:50` to `first:10`: 
+The complexity of this query is easily reduced by changing the number of products queried from `first:50` to `first:10`:
 
 ```js
 query {
@@ -637,7 +652,7 @@ query {
       // ...
 ```
 
-In general, to reduce complexity, reduce the number of objects requested: 
+In general, to reduce complexity, reduce the number of objects requested:
 * limit collections to a smaller page size (for example `first:10` instead of `first:50`)
 * reduce the number of items in nested collections
 * request less fields
