@@ -301,4 +301,4 @@ All OAuth scopes except `default` have `read_only` scopes that allow only `GET` 
 
 ## Resources
 * [Building An App](https://developer.bigcommerce.com/api-docs/getting-started/building-apps-bigcommerce/building-apps)
-* [Rate Limts](https://developer.bigcommerce.com/api-docs/getting-started/best-practices#best-practices_rate-limits)
+* [Rate Limits](https://developer.bigcommerce.com/api-docs/getting-started/best-practices#best-practices_rate-limits)
