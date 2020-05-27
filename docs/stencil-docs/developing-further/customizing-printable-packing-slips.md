@@ -12,7 +12,8 @@ Merchants commonly request developers modify the default content of packing slip
 
 ## Customizing Printable Packing Slips
 
-Customizing your Stencil theme’s printable packing slip currently relies on a template and variables from BigCommerce’s legacy Blueprint themes framework. To make changes to the packing slip file, do the following:
+Customizing your Stencil theme’s printable packing slip currently relies on a template and variables from BigCommerce’s legacy Blueprint themes framework. To make changes to the packing slip file:
+
 
 1. Download [printable packing slip .zip](https://storage.googleapis.com/bigcommerce-production-dev-center/template-files/packing_slip_printable.zip), which contains the HTML skeleton of a printable packing slip.
 
