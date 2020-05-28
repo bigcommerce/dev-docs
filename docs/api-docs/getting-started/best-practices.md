@@ -15,8 +15,8 @@
 
 ## Ensure Your Integration is Up-to-Date
 
-BigCommerce frequently enhances its core product and is actively developing v3 API endpoints. By using the newest API version, you will ensure that your app has access to the latest resources. You will also be better positioned to provide a user experience consistent with what merchants will see in their BigCommerce store’s control panel. To stay up to date, bookmark our [changelog](/changelog). 
- 
+BigCommerce frequently enhances its core product and is actively developing v3 API endpoints. By using the newest API version, you will ensure that your app has access to the latest resources. You will also be better positioned to provide a user experience consistent with what merchants will see in their BigCommerce store’s control panel. To stay up to date, bookmark our [changelog](/changelog).
+
 
 ## Use Webhooks Effectively
 
@@ -26,7 +26,7 @@ BigCommerce will send a partial payload when a subscribed event is triggered, wi
 
 ## Thread API Requests
 
-In order to quickly update information in the API, you can use threaded requests. Threaded requests allow you to send multiple requests at one time. They can come from a different open connection or multiple requests to the same resource. 
+In order to quickly update information in the API, you can use threaded requests. Threaded requests allow you to send multiple requests at one time. They can come from a different open connection or multiple requests to the same resource.
 
 The [BigCommerce Ruby API](https://github.com/bigcommerce/bigcommerce-api-ruby) client is thread-safe: It satisfies the need for multiple threads to access the same shared data and the need for a shared piece of data to be accessed by only one thread at any given time. These attributes can reduce the total time that your app will require to complete a series of requests.
 
@@ -51,7 +51,7 @@ Apps that authenticate with OAuth are rate-limited, based on a quota that is ref
 
 Each request to the API consumes one available request from the quota. When an app hits the quota limit, subsequent requests are rejected until the quota is refreshed.
 
-The store’s overall quota is distributed across all apps that are accessing the store at a given time. This provides fairness for multiple apps that are accessing the API simultaneously, preventing a single greedy app from consuming the store’s entire quota by itself. The quota might adjust as additional clients connect or disconnect while you’re running requests. 
+The store’s overall quota is distributed across all apps that are accessing the store at a given time. This provides fairness for multiple apps that are accessing the API simultaneously, preventing a single greedy app from consuming the store’s entire quota by itself. The quota might adjust as additional clients connect or disconnect while you’re running requests.
 
 ### Concurrent API Call Rate Limits
 
@@ -111,6 +111,19 @@ You might wish to increase the amount of work your application can do in a given
 However, your application should monitor the rate limiting headers to avoid an HTTP 429 response. Methods for doing this might include:
 * Slowing your rate of API requests when X-Rate-Limit-Requests-Left is nearing zero.
 * Determining an acceptable average rate of requests, by dividing X-Rate-Limit-Requests-Quota by X-Rate-Limit-Time-Window-Seconds, and then self-throttling to that rate.
+
+<div class="HubBlock--callout">
+<div class="CalloutBlock--warning">
+<div class="HubBlock-content">
+
+<!-- theme: warning -->
+
+### Note
+> * Endpoints that accept bulk requests may have specific limitations on the number of accepted parallel requests. For example, making multiple parallel `upsert` requests to [`/pricelists/{price_list_id}/records`](https://developer.bigcommerce.com/api-reference/store-management/price-lists/price-lists-records/setpricelistrecordcollection) will result in a `429` error response -- these limitations are documented at the operation level in the API Reference.
+
+</div>
+</div>
+</div>
 
 ## Platform Limits
 
