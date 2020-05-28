@@ -1,4 +1,4 @@
-#  Enable Single-Sign On with Customer Login API
+# Customer Login API
 
 <div class="otp" id="no-index">
 
