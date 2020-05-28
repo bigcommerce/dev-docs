@@ -9,6 +9,8 @@
 - [Enable Single-Sign On](#enable-single-sign-on)
   - [Create JWT Using the Debugger Tool](#create-jwt-using-the-debugger-tool)
   - [Create JWT Using a JavaScript Function](#create-jwt-using-a-javascript-function)
+  - [Sample Code](#sample-code)
+  - [Logging Out](#logging-out)
 - [Troubleshooting](#troubleshooting)
 - [Additional Resources](#additional-resources )
 
