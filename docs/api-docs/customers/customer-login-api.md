@@ -133,18 +133,22 @@ In this part of the tutorial, we will walk you through creating an access point 
 
 1. Create and open a new folder by running the following commands in your terminal:
 </br>
+
 ```bash
 $ mkdir urlGenerator
 $ cd urlGenerator
-``` 
+```
+
 2. Create a new node project with the following command:
 </br>
+
 ```bash
 $ npm init
 ```
 
 3. Install [jsonwebtoken](https://www.npmjs.com/package/jsonwebtoken) and [uuid](https://www.npmjs.com/package/uuid) npm packages:
 </br>
+
 ```bash
 $ npm install jsonwebtoken uuid
 ```
@@ -183,12 +187,12 @@ console.log(loginUrl);
 6. Replace your app and customer-specific values in the variables.
 
 7. Run the code: 
-  </br>
+</br>
+  
 ```bash
 $ node youFileName.js
 ```
-  </br>
-  You should receive a complete access point URL as an output. 
+You should receive a complete access point URL as an output. 
 
 9. Copy the URL and paste it into the address bar of your browser. 
 
