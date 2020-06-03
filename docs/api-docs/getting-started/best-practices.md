@@ -125,6 +125,11 @@ However, your application should monitor the rate limiting headers to avoid an H
 </div>
 </div>
 
+### Making Requests with the Storefront Cart API 
+Client-side applications should avoid polling the [Storefront Cart API](https://developer.bigcommerce.com/api-reference/cart-checkout/storefront-cart-api) on interval. Hundreds of thousands of browsers could potentially poll the Storefront Cart API at any given time, causing a significant load increase to BigCommerce's servers. We may take action against a store using this practice to prevent interruptions in service to other stores.
+
+As an alternative to polling the Storefront Cart API at an interval, consider subscribing to the [Cart Webhook](https://developer.bigcommerce.com/api-docs/getting-started/webhooks/webhook-events#cart) via a server-side application and only querying the Storefront Cart API as a response to user input. Storing cart information in the browser cache is also an alternative method for keeping cart information up to date across browser tabs.
+
 ## Platform Limits
 
 BigCommerce does have limits on the number of products, categories, brands, etc. that can be created in a store. See [Platform Limits](https://forum.bigcommerce.com/s/article/Platform-Limits#product-catalog-limits) for more details.
