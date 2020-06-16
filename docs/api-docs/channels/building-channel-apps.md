@@ -378,12 +378,7 @@ This functionality is not supported as of yet, so notifications will likely need
 Channel apps are embedded in the BigCommerce control panel; as such, it is important for them to look and feel native to the rest of the BigCommerce user interface. To assist developers in the rapid creation of front-ends that meet required design standards, we have developed a library of publicly available React components. For more information, see the [BigDesign Developer Playground](https://developer.bigcommerce.com/big-design/).
 
 ## App Installation
-
-Installing the App during development
-about single click apps and types of apps
-
-A Single-Click app is listed in the BigCommerce App Marketplace, and is available for all BigCommerce merchants to install.
-"Single-Click" refers specifically to the installation process - the application should connect to the point of sale service via the Single-Click App Auth Flow - instead of a manual process where a merchant would need to generate and input authentication credentials into the app's.
+A Single-Click app is listed in the BigCommerce App Marketplace, and is available for all BigCommerce merchants to install. "Single-Click" refers specifically to the installation process whereby the application connects to the external channel via the [Single-Click App Auth Flow](https://developer.bigcommerce.com/api-docs/getting-started/building-apps-bigcommerce/building-apps#building-apps_oauth-summary) instead of a manual process where a merchant would need to generate and input authentication credentials into the app's user interface.
 
 ## Releasing Your App
 Listing apps on the BigCommerce App Marketplace is reserved for Technology Partners. Apply for the program [here](https://partners.bigcommerce.com/English/register_email.aspx). For a general list of app requirements, see [API Docs > App Store Approval Requirements](https://developer.bigcommerce.com/api-docs/partner/app-store-approval-requirements).
