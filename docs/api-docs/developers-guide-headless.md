@@ -65,7 +65,7 @@ If you are using the hosted checkout option, shoppers will be able to navigate t
 
 1. Use BigCommerce's [Sites and Routes API](https://developer.bigcommerce.com/api-reference/cart-checkout/sites-routes-api) to create redirects from BigCommerce hosted pages back to the non-BigCommerce storefront (recommended).
 2. Hide non essential pages by removing the back links in Cart and Checkout
-3. Add a JavaScript redirect on all pages (except `/checkout`) tjat redirects to the non-BigCommerce storefront
+3. Add a JavaScript redirect on all pages (except `/checkout`) that redirects to the non-BigCommerce storefront
 4. Wrap all content in the theme's layouts in a conditional that only renders the BC storefront if certain conditions are met (like an admin customer group, for example), and redirect to the non-BigCommerce storefront otherwise. 
 5. Replace all content in theme layout files with a redirect to the non-BigCommerce storefront
 
