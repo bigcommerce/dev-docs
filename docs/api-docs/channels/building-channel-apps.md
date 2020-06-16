@@ -63,10 +63,10 @@ How you build your channel app will depend on what kind of platform / channel yo
 * **Marketplaces** - A platform on which 3rd parties (merchants) list their catalog and sell their products, with transactions processed by the marketplace platform (Ex: Amazon).
 * **Marketing** -  A platform on which merchants communicate their brand and products with their shopper base, seeking to drive discovery and conversion. These channels do not support checkout directly (Ex: ).
 
-For additional examples and information on types of channels, see Channel Types in Channels Overview.
+For additional examples and information on types of channels, see Channel Types in [Channels Overview](https://developer.bigcommerce.com/api-docs/channels/channels-overview).
 
 ## Gathering Materials
-The BigCommerce APIs, webhooks, UI components, and patterns that you need to make your channel app will vary depending on the type of channel, functionality, and where the app lives (Channel Manager vs. App Marketplace). For additional specific instructions based on the type of channel app you are building, go here.
+The BigCommerce APIs, webhooks, UI components, and patterns that you need to make your channel app will vary depending on the type of channel, functionality, and where the app lives (Channel Manager vs. App Marketplace).
 
 ### APIs & Webhooks
 The APIs that you integrate with and how you use them (read only vs. modify) will determine what BigCommerce scopes your app requests when it is installed by a merchant and what endpoints you’ll need to integrate with. The associated scopes are listed in the following section: How to Build the Channel App
@@ -109,9 +109,7 @@ BigCommerce provides webhooks for 3rd party developers, enabling them to respond
 |[Order Transactions](https://developer.bigcommerce.com/api-reference/orders/orders-transactions-api)||
 
 ### UI Components
-BigCommerce will be providing publicly available UI components and design guidelines to 3rd parties via Big Design. This will enable developers to create apps that can be embedded directly within the BigCommerce control panel, as the UX / UI looks and feels native to BigCommerce. Additionally, these components can dramatically accelerate the development process by providing dynamic, responsive, and accessible UI components that are fully functional.
-
-The UI components you will need to build your channel app will vary depending on the type and functionality offered by the app.
+BigCommerce provides publicly available UI components and design guidelines to 3rd parties via [Big Design](https://developer.bigcommerce.com/big-design/) -- this enables developers to create apps that can be embedded directly within the BigCommerce control panel, as the UX / UI looks and feels native to BigCommerce. Additionally, these components can dramatically accelerate the development process by providing dynamic, responsive, and accessible UI components that are fully functional. The UI components you will need to build your channel app will vary depending on the type and functionality offered by the app.
 
 UI components that should be used for any channel app:
 * Typography
@@ -133,11 +131,11 @@ Highly recommended components:
 * Tooltip
 
 ### Patterns
-Patterns refers to high level functionality and user flows that an app provides, which are built on top of the BigCommerce APIs and UI components. This will vary as well depending on the type of channel app; however, there are some generic patterns that any channel app should include.
+Patterns refers to high level functionality and user flows that an app provides, which are built on top of the BigCommerce APIs and UI components. This will vary depending on the type of channel app; however, there are some generic patterns that any channel app should include.
 
 * **Onboarding** - user flows that enable a merchant to connect their BC store to an external channel, inclusive of creating an account on the external channel if needed.
-Channel configuration
-Settings
+  * Channel configuration
+  * Settings
 * **Catalog Management** - user flows that enable a merchant to manage their product catalog data between their BC store and external channels, inclusive of product, inventory, and pricing information.
   * Import
   * Export
@@ -149,29 +147,23 @@ Settings
 * **Notifications** - user flows that enable a merchant to easily find and manage important notifications related to their channel, inclusive of errors, warnings, and general helpful notifications, such as pending channel updates or changes.
 
 ## Creating a Channel
-Once a merchant installs the app from within BigCommerce, it'll redirect to your callback URL. At this time, you will need to create a channel so that it is registered to the merchant’s store. This will enable you to later pull catalog and listing data for that specific channel via the API and allow the merchant to list products to this channel from within the BigCommerce control panel.
+Once a merchant installs the app in BigCommerce, they'll be redirected to the app's callback URL. At this time, create a channel so that it's registered to the merchant's store -- this makes it possible for the app to pull catalog and listing data for the channel via the API and allows the merchant to list products to this channel from their BigCommerce control panel.
 
 To add channel to a store, send a POST request to `/stores/{{STORE_HASH}}/v3/channels`:
 
 ```http
-POST https://api.bigcommerce.com/stores/{{STORE_HASH}}/v3/endpoint
+POST https://api.bigcommerce.com/stores/{{STORE_HASH}}/v3/channels
 X-Auth-Token: {{ACCESS_TOKEN}}
 X-Auth-Client: {{CLIENT_ID}}
 Content-Type: application/json
 Accept: application/json
 
 {
-"type": "channel_type",
-"name": "yoursite.store",
-"external_id": "external channel's unique identifier",
-"config": {
-    "default_price_list_id": 1234,
-    "storefront_urls": {
-        "home": "https://yoursite.store/",
-        "cart": "https://yoursite.store/cart",
-        "register": "https://yoursite.store/sign-up",
-        "confirmation": "https://yoursite.store/thank-you"
-    }
+  "name": "My Store - US",
+  "type": "storefront",
+  "platform": "wordpress",
+  "external_id": "002",
+  "is_enabled": true
 }
 ```
 [![Open in Request Runner](https://storage.googleapis.com/bigcommerce-production-dev-center/images/Open-Request-Runner.svg)](https://developer.bigcommerce.com/api-reference/cart-checkout/channels-listings-api/channels/createchannel#requestrunner)
@@ -180,49 +172,37 @@ Accept: application/json
 
 ```json
 {
-"id": 123456,
+"id": 12,
 "type": "wordpress",
 "name": "mysite.store",
 "external_id": "example_external_id",
-"config": {...},
 "created_at": "2018-11-04 number number number",
 "updated_at": "2018-11-04 number number number"
 }
 ```
 
+Once created, channels show up in the product list within the control panel so the merchant can choose which products should be available on it, and the orders list is updated to include a filter to show which orders came in from the channel. The value of the `name` property is displayed to the merchant in the control panel.
+
 For a complete Channels API reference (including request schemas and property descriptions), see: [API Reference > Channels](https://developer.bigcommerce.com/api-reference/cart-checkout/channels-listings-api/channels/createchannel).
-
-You’ll get an id for the channel back within the response, which will be used as the channel_id in future requests. Let’s assume it’s 15001 within this guide.
-
-After you create a channel, it shows up in the product list within the store control panel so the merchant can choose which products should be available on it and the orders section is updated to include a filter to show which orders came in from the channel.
-
-The channel name is what is shown as the ‘human-readable name’ in the UI:
-
-Channels are what show up in the BC Control Panel when you are listing to a Channel or managing it’s Orders.
-
-Optionally, it can also house additional information we use to alter BC Checkout redirects, so the shopper is redirected back to the Channel that referred them, whether it be an external site or app.
-
-
 
 
 ## Getting Catalog Data
-The main feature that merchants would expect from your application is Catalog Integration - a seamless way for a merchant to sync products between systems.
+The main feature merchants expect from channel apps is a seamless method to sync product data between bigcommerce and an external channel (like a Point of Sale system, for example).
 
 At a high level, this portion of the integration should:
-* Capture and Compare:  Pull products from both BigCommerce and the Point of Sale, then loop through and compare to see if any matches are found.
-The comparison piece is done against a unique identifier that can be found in both systems - its typically best to index off of product SKU or UPC if possible.
-* Update or Create:  If a match is found in the above step, update the existing product.  If no match is found, create a new product.
+1. **Capture and compare:**  pull products from both BigCommerce and the external channel, then loop through and compare to see if any matches are found. The comparison is done against a unique identifier that can be found in both systems (its typically best to index using product **SKU** or **UPC**, if possible).
+2. **Update or Create**:  if a match is found in step 1, update the existing product; if no match is found, create a product.
 
-There are several workflows that can be utilized to get products to or from BigCommerce and the external channel. Depending on the channel and the functionality you wish to support, you may have one or more of these available in your app.
+There are several workflows to get products to or from BigCommerce and the external channel. Depending on the channel and the desired functionality, you may make use of one or more of these in your app.
 
-In general, you should support at least import and export functionality. Depending on where the merchant’s catalog lives, they will need to import or export their catalog. Typically if a merchant started selling on BigCommerce, they will export their catalog to the channel, and if they start selling on the external channel. They will import their catalog to BigCommerce. The option to choose between import & export should be provided to the merchant, so they can have full control of how they share their products between BigCommerce and the external channel.
+In general, you should support at least import and export functionality. Depending on where the merchant's catalog lives, they will need to import or export their catalog. Typically, if a merchant started selling on BigCommerce, they will export their catalog to the external channel. If they start selling on the external channel, they will import their catalog to BigCommerce. The option to choose between import and export should be provided to the merchant, so they can have full control of how they share their products between BigCommerce and the external channel.
 
 ### Importing
-In order to import a catalog to BigCommerce, you will need to GET their products from the external channel and POST them to BigCommerce. To do this, you will need to make a POST request for every product:
+To import products to BigCommerce, `GET` the products from the external channel then `POST` them to BigCommerce via `/stores/{{STORE_HASH}}/catalog/products`:
 
 POST https://api.bigcommerce.com/stores/{{store_hash}}/v3/catalog/products
 
-To DO_SOME_THING, send a HTTP_VERB request to `/stores/{{STORE_HASH}}/ENDPOINT`:
+To import a product into BigCommerce, `POST` to `/stores/{{STORE_HASH}}/catalog/products`:
 
 ```http
 POST https://api.bigcommerce.com/stores/{{STORE_HASH}}/v3/endpoint
@@ -232,228 +212,173 @@ Content-Type: application/json
 Accept: application/json
 
 {
+  {
+  "name": "Coffee Mug",
+  "price": "10.00",
+  "categories": [
+    23,
+    21
+  ],
+  "weight": 4,
+  "type": "physical"
+}
 }
 ```
 
 [![Open in Request Runner](https://storage.googleapis.com/bigcommerce-production-dev-center/images/Open-Request-Runner.svg)](LINK_TO_OPERATION#requestrunner)
 
-**Response:**
+Variants can be added via the same request used to create the product or later after the product is created, by a `POST` request to the [Product Variant endpoint](https://developer.bigcommerce.com/api-reference/store-management/catalog/product-variants/createvariant) (the former is recommended for bulk variant creation).
 
-```json
-
-```
-
-For a complete THING API reference (including request schemas and property descriptions), see: [API Reference > THING](URL).
-
-**Please kind in mind, our recommendations for best practices, particularly parallelizing requests via threading & rate limiting.
-
-You can add variants when creating the product in the same request or later, after the product is created, by creating a product variant. The former is recommended for bulk variant creation.
-
-POST https://api.bigcommerce.com/stores/{{store_hash}}/v3/catalog/products/{product_id}/variants
-
-To DO_SOME_THING, send a HTTP_VERB request to `/stores/{{STORE_HASH}}/ENDPOINT`:
-
-```http
-POST https://api.bigcommerce.com/stores/{{STORE_HASH}}/v3/endpoint
-X-Auth-Token: {{ACCESS_TOKEN}}
-X-Auth-Client: {{CLIENT_ID}}
-Content-Type: application/json
-Accept: application/json
-
-{
-}
-```
-
-[![Open in Request Runner](https://storage.googleapis.com/bigcommerce-production-dev-center/images/Open-Request-Runner.svg)](LINK_TO_OPERATION#requestrunner)
-
-**Response:**
-
-```json
-
-```
-
-For a complete THING API reference (including request schemas and property descriptions), see: [API Reference > THING](URL).
+For an in-depth guide to using V3 Catalog endpoints, see [Catalog Overview](https://developer.bigcommerce.com/api-docs/catalog/products-overview). For a complete API reference (including request schemas and property descriptions), see: [API Reference > Catalog](https://developer.bigcommerce.com/api-reference/store-management/catalog).
 
 ### Exporting
-In order to export a catalog to a channel from BigCommerce, you will need to GET all products and variants.
-
-GET https://api.bigcommerce.com/stores/{{store_hash}}/v3/catalog/products
-
-To DO_SOME_THING, send a HTTP_VERB request to `/stores/{{STORE_HASH}}/ENDPOINT`:
+In order to export catalog data from BigCommerce to an external channel, you will need to `GET` all products and variants from BigCommerce. To do so, send a `GET` request to `/stores/{{STORE_HASH}}/v3/catalog/products?include=variants`:
 
 ```http
-POST https://api.bigcommerce.com/stores/{{STORE_HASH}}/v3/endpoint
+GET https://api.bigcommerce.com/stores/{{STORE_HASH}}/v3/catalog/products?include=variants
 X-Auth-Token: {{ACCESS_TOKEN}}
 X-Auth-Client: {{CLIENT_ID}}
 Content-Type: application/json
 Accept: application/json
-
-{
-}
 ```
 
 [![Open in Request Runner](https://storage.googleapis.com/bigcommerce-production-dev-center/images/Open-Request-Runner.svg)](LINK_TO_OPERATION#requestrunner)
-
-**Response:**
-
-```json
-
-```
-
-For a complete THING API reference (including request schemas and property descriptions), see: [API Reference > THING](URL).
 
 Filters can be used in this call to retrieve subsets of the merchant’s catalog. Also, keep in mind that you will more than likely need to handle pagination to retrieve all products in a merchant’s catalog.
 
-In order to support these workflows from a UI perspective, you will likely need to include the following components (please see the sample POS channel app for a visual on how this functions):
+In order to support these workflows from a UI perspective, you will likely need to include the following components (please see the [sample channel app](https://github.com/bigcommerce/channels-app) for a visual on how this functions):
 * Panel
-* Table (TBD)
-* Progress Bar (TBD)
+* Table
+* Progress Bar
 * Typography
 * Button
 * Spinner
 
+For an in-depth guide to using V3 Catalog endpoints, see [Catalog Overview](https://developer.bigcommerce.com/api-docs/catalog/products-overview). For a complete API reference (including request schemas and property descriptions), see: [API Reference > Catalog](https://developer.bigcommerce.com/api-reference/store-management/catalog).
+
 ## Creating Listings
-Whether importing or exporting the catalog, you will need to create listings for all the products that are shared between the channel and BigCommerce. Any products that are imported to BC or exported to the channel from BC must have a corresponding listing created as well. This is to enable the listing to be managed separately from the base catalog product and allows for setting product overrides specific to that channel listing and the status of the listing itself to be managed.
+Whether importing or exporting the catalog, you will need to create listings for products that are shared between the channel and BigCommerce. Any products that are imported to BigCommerce or exported to the channel must have a corresponding listing -- this is to support the listing being managed separately from the base catalog product.
 
-To create listings, you will need to make the following POST request:
-
-https://api.bigcommerce.com/stores/{{store_hash}}/v3/channels/{channelId}/listings
-
-To DO_SOME_THING, send a HTTP_VERB request to `/stores/{{STORE_HASH}}/ENDPOINT`:
+To create listings, `POST` to `/stores/{{STORE_HASH}}/v3/channels/{{CHANNEL_ID}}/listings`:
 
 ```http
-POST https://api.bigcommerce.com/stores/{{STORE_HASH}}/v3/endpoint
+POST https://api.bigcommerce.com/stores/{{STORE_HASH}}/v3/channels/{{CHANNEL_ID}}/listings
 X-Auth-Token: {{ACCESS_TOKEN}}
 X-Auth-Client: {{CLIENT_ID}}
 Content-Type: application/json
 Accept: application/json
 
-{
-}
+[
+  {
+    "product_id": 117,
+    "state": "active",
+    "name": "baseball hat",
+    "description": "Baseball hat with your favorite team's name.",
+    "external_id": "listing1",
+    "variants": [
+      {
+        "variant_id": 82,
+        "name": "blue baseball bat",
+        "product_id": 117,
+        "state": "disabled",
+        "external_id": "Var1"
+      },
+      {
+        "variant_id": 83,
+        "product_id": 117,
+        "state": "active",
+        "external_id": "Var2"
+      }
+    ]
+  }
+]
 ```
 
 [![Open in Request Runner](https://storage.googleapis.com/bigcommerce-production-dev-center/images/Open-Request-Runner.svg)](LINK_TO_OPERATION#requestrunner)
 
-**Response:**
-
-```json
-
-```
-
-For a complete THING API reference (including request schemas and property descriptions), see: [API Reference > THING](URL).
-
-You can create listings in bulk via this endpoint.
+For a complete channels reference (including request schemas and property descriptions), see: [API Reference > Channels and Listings](https://developer.bigcommerce.com/api-reference/cart-checkout/channels-listings-api).
 
 ## Importing and Exporting Sales
 
 ### Customer and Order Imports
-Importing Customer and Order data allows the merchant to import the sales history from their point of sale into BigCommerce. In BigCommerce, orders map to specific customers.
+Importing customer and order data allows the merchant to import the sales history from an external channel (such as a point of sale system) into BigCommerce. In BigCommerce, orders map to specific customers. Customer and order exports allow the merchant to export the sales history from BigCommerce into the external channel.
 
-If your channel (Point of Sale, for example) does not have a concept of customers, an order can be created with a `customer_id` of `0` -- this value is reserved for ‘Guest’ shoppers.
+To import or export customer and order data, integrate the following endpoints:
 
-### Customer and Order Exports
-Customer and Order Export would allow the merchant to export the sales history from BigCommerce into their point of sale.
+* [`/v3/customers`](https://developer.bigcommerce.com/api-reference/store-management/customers-v3)
+* [`/v2/orders`](https://developer.bigcommerce.com/api-reference/orders/orders-api)
 
-The following endpoints would be used in the sales integration logic:
-* `{base url}/v3/customers`
-* `{base url}/v2/orders`
+<div class="HubBlock--callout">
+<div class="CalloutBlock--info">
+<div class="HubBlock-content">
 
-To DO_SOME_THING, send a HTTP_VERB request to `/stores/{{STORE_HASH}}/ENDPOINT`:
+<!-- theme: info -->
 
-```http
-POST https://api.bigcommerce.com/stores/{{STORE_HASH}}/v3/endpoint
-X-Auth-Token: {{ACCESS_TOKEN}}
-X-Auth-Client: {{CLIENT_ID}}
-Content-Type: application/json
-Accept: application/json
+### Note
+> * If the external channel does not have a concept of customers, an order can be created with a `customer_id` of `0` (this value is used for "guest" shoppers).
 
-{
-}
-```
-
-[![Open in Request Runner](https://storage.googleapis.com/bigcommerce-production-dev-center/images/Open-Request-Runner.svg)](LINK_TO_OPERATION#requestrunner)
-
-**Response:**
-
-```json
-
-```
-
-For a complete THING API reference (including request schemas and property descriptions), see: [API Reference > THING](URL).
+</div>
+</div>
+</div>
 
 ## Managing Orders and Inventory
-In order to ensure that BigCommerce merchants are able to continue using their existing catalog and e-commerce workflows, in addition to enabling other downstream e-commerce functionality, we require that channel apps sync order and inventory information back to us via APIs (this is in addition to continuing to sync products and listings as well).
+In order to ensure that BigCommerce merchants are able to continue using their existing catalog and eCommerce workflows, in addition to enabling other downstream eCommerce functionality, we require channel apps sync order and inventory information back to BigCommerce.
 
-In order to do this, you will need to integrate with the following endpoints:
+In order to do this, integrate the following endpoints:
 
-* `/stores/{{STORE_HASH}}/v3/catalog/products`
-* `/stores/{{STORE_HASH}}/v2/orders`
+* [`/v3/catalog/products`](https://developer.bigcommerce.com/api-reference/store-management/catalog/products/createproduct)
+* [`/v2/orders`](https://developer.bigcommerce.com/api-reference/orders/orders-api)
 
-To DO_SOME_THING, send a HTTP_VERB request to `/stores/{{STORE_HASH}}/ENDPOINT`:
+<div class="HubBlock--callout">
+<div class="CalloutBlock--info">
+<div class="HubBlock-content">
 
-```http
-POST https://api.bigcommerce.com/stores/{{STORE_HASH}}/v3/endpoint
-X-Auth-Token: {{ACCESS_TOKEN}}
-X-Auth-Client: {{CLIENT_ID}}
-Content-Type: application/json
-Accept: application/json
+<!-- theme: info -->
 
-{
-}
-```
+### Note
+> * Ensure the following use cases are supported:
+>   * Creating orders as they are made on the external channel
+>   * Updating orders as changes are made on the external channel
+>   * Reading orders (via API or webhooks) to push any necessary changes / updates made by the merchant in the BigCommerce control panel to the external channel
+>   * Reading inventory levels (via the products API or webhooks) to get up-to-date inventory levels for the channel (this is critical, as orders can come from other channels including their main storefront that impact inventory available to the channel(s) your app supports)
+> * If the external channel does not have a concept of customers, an order can be created with a `customer_id` of `0` (this value is used for "guest" shoppers).
+> * When orders are written to the BigCommerce API (via an external channel or BigCommerce itself) inventory is automatically updated and will be accessible via the Products API.
 
-[![Open in Request Runner](https://storage.googleapis.com/bigcommerce-production-dev-center/images/Open-Request-Runner.svg)](LINK_TO_OPERATION#requestrunner)
-
-**Response:**
-
-```json
-
-```
-
-For a complete THING API reference (including request schemas and property descriptions), see: [API Reference > THING](URL).
-
-Make sure that you are supporting the following use cases:
-
-* Creating orders as they are made on the external channel
-* Updating orders as changes are made on the external channel
-* Reading orders (via API or webhooks) to push any necessary changes / updates made by the merchant in the BigCommerce control panel to the external channel
-* Reading inventory levels (via the products API or webhooks) to get up-to-date inventory levels for the channel. **This is critical, as orders can come from other channels including their main storefront that impact inventory available to the channel(s) your app supports**
-
-Note that when orders are written to the BigCommerce API -- via an external channel or BigCommerce itself -- inventory is automatically updated and will be accessible via the Products API.
+</div>
+</div>
+</div>
 
 ## Syncing Gift Card Balances
-The Marketing API can be leveraged to sync BigCommerce gift certificates with gift cards purchased in store.  When a gift card is used in person, the associated gift certificate in BigCommerce should be updated (by changing the certificate’s ‘balance’ value).
+[`/v2/gift_certificates/`](https://developer.bigcommerce.com/api-reference/marketing/marketing-api/gift-certificates/) endpoints can be leveraged to sync BigCommerce gift certificates with gift cards purchased in store. When a gift card is used in person, the associated gift certificate in BigCommerce should be updated (by changing the certificate's `balance` value).
 
-The same general process should take place when the gift certificate is used online - the remaining balance should be updated for the associated gift card in the point of sale.
+The same general process should take place when the gift certificate is used online -- the remaining balance should be updated for the associated gift card in the external channel.
 
 ## B2B / Wholesale Integration
 
 ### Customer Groups
 
-This feature allows a merchant to organize their customer base into groups with specific rules that affect the customer’s shopping experience.
+This feature allows a merchant to organize their customer base into groups with specific rules that affect the customer's shopping experience. Common use cases for these rules include:
+* custom product pricing
+* discounts for all products within a specific category
+* hiding specific products or categories from view
 
-Common use cases for these rules include:  custom product pricing, discounts for all products within a specific category, or even hiding specific products or categories from view.
+To leverage customer groups in your app, integrate the following endpoints:
+* [`/v2/customer_groups`](https://developer.bigcommerce.com/api-reference/store-management/customers-v2/customer-groups)
 
 ### Price Lists
-
-Price Lists are used to create variant-level price overrides that can be assigned to specific Customer Groups.
-
-The following endpoints would be used in a B2B / Wholesale Integration:
-
-* `/v2/customer_groups`
-* `{base url}/v3/pricelists`
-* `{base url}/v3/pricelists{pricelist id}/records`
-* `{base url}/v3/pricelists/assignments`
+Price Lists are used to create variant-level price overrides that can be assigned to specific Customer Groups. To make us of price lists, integrate the following endpoints:
+* [`{base url}/v3/pricelists`](https://developer.bigcommerce.com/api-reference/store-management/price-lists/price-lists)
+* [`{base url}/v3/pricelists/{pricelist id}/records`](https://developer.bigcommerce.com/api-reference/store-management/price-lists/price-lists-records)
+* [`{base url}/v3/pricelists/assignments`](https://developer.bigcommerce.com/api-reference/store-management/price-lists/price-lists-assignments)
 
 ## Handling Notifications
-This functionality is not supported as of yet, so notifications will likely need to be handled in the app itself. Eventually, we will require certain notifications to be surfaced to BigCommerce, so that we can surface them in the merchant’s control panel, giving them better visibility and making critical notifications easier to action on.
+This functionality is not supported as of yet, so notifications will likely need to be handled in the app itself. Eventually, we will require certain notifications to be surfaced to BigCommerce, so that they can be displayed in the merchant’s control panel.
 
 ## Developing the UI
-As your application will be embedded in a BigCommerce dashboard, it is important for the app to look and feel native to the rest of the BigCommerce UI.
-
-We've developed a library of React components to enable developers to quickly build out a frontend that meets these design standards - BigDesign.
+Channel apps are embedded in the BigCommerce control panel; as such, it is important for them to look and feel native to the rest of the BigCommerce user interface. To assist developers in the rapid creation of front-ends that meet required design standards, we have developed a library of publicly available React components. For more information, see the [BigDesign Developer Playground](https://developer.bigcommerce.com/big-design/).
 
 ## App Installation
+
 Installing the App during development
 about single click apps and types of apps
 
@@ -461,9 +386,7 @@ A Single-Click app is listed in the BigCommerce App Marketplace, and is availabl
 "Single-Click" refers specifically to the installation process - the application should connect to the point of sale service via the Single-Click App Auth Flow - instead of a manual process where a merchant would need to generate and input authentication credentials into the app's.
 
 ## Releasing Your App
-Listing apps on the BigCommerce App Marketplace is reserved for Technology Partners. Apply for the program here. https://partners.bigcommerce.com/English/register_email.aspx
-
-This article highlights app approval requirements. https://developer.bigcommerce.com/api-docs/partner/app-store-approval-requirements
+Listing apps on the BigCommerce App Marketplace is reserved for Technology Partners. Apply for the program [here](https://partners.bigcommerce.com/English/register_email.aspx). For a general list of app requirements, see [API Docs > App Store Approval Requirements](https://developer.bigcommerce.com/api-docs/partner/app-store-approval-requirements).
 
 ## Resources
 * [Channels Toolkit Reference](https://developer.bigcommerce.com/api-docs/channels-toolkit-reference)
