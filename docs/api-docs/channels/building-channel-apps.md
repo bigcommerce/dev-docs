@@ -21,9 +21,9 @@
 
 </div>
 
-Channel Apps allow merchants to list products on external sales channels like Point-of-Sale devices, online marketplaces, marketing platforms, and social networking sites. Using BigCommerce's [Channels Toolkit](), developers can create channel apps that integrate with virtually any platform. Once published and approved, these apps are listed on [BigCommerce's App Marketplace]() for merchants to install. Additionally, approved apps developed by [select partners]() are listed within the Channel Manager in every BigCommerce store's control panel.
+Channel Apps allow merchants to connect to, manage, and sell on external sales channels, like Point-of-Sale devices, online marketplaces, marketing platforms, and social networking sites. Using BigCommerce’s [Channels Toolkit](https://developer.bigcommerce.com/api-docs/channels/channels-toolkit-reference), developers can create channel apps that integrate with virtually any platform. Once published and approved, these apps are listed on [BigCommerce's App Marketplace](https://www.bigcommerce.com/apps/) for merchants to install. Additionally, approved apps developed by [select partners](https://www.bigcommerce.com/partners/) are listed within the Channel Manager in every BigCommerce store's control panel.
 
-This article is a comprehensive guide to building Channel Apps on BigCommerce for any type of channel. For a high-level overview of Channels on BigCommerce, see [Channels Overview]().
+This article is a comprehensive guide on the foundations of building Apps on BigCommerce for any type of channel. For a high-level overview of Channels on BigCommerce, see [Channels Overview](https://developer.bigcommerce.com/api-docs/channels/channels-overview).
 
 ### Prerequisites
 * A BigCommerce Store, trial, or sandbox
@@ -31,7 +31,7 @@ This article is a comprehensive guide to building Channel Apps on BigCommerce fo
 * Familiarity [API Authentication on BigCommerce](https://developer.bigcommerce.com/api-docs/getting-started/authentication/rest-api-authentication)
 * Familiarity with [Building an App on BigCommerce](https://developer.bigcommerce.com/api-docs/getting-started/building-apps-bigcommerce/building-apps)
 * Familiarity creating Apps in [DevTools](https://devtools.bigcommerce.com/)
-* High-level understanding of [Channels on BigCommerce]()
+* High-level understanding of [Channels on BigCommerce](https://developer.bigcommerce.com/api-docs/channels/channels-overview)
 
 ## Getting Started
 
@@ -467,7 +467,7 @@ This article highlights app approval requirements. https://developer.bigcommerce
 
 ## Resources
 * [Channels Toolkit Reference]()
-* [Channels Overview]()
+* [Channels Overview](https://developer.bigcommerce.com/api-docs/channels/channels-overview)
 * [Channels Sample App](https://github.com/bigcommerce/channels-app)
 * [Big Design Component Library](https://developer.bigcommerce.com/big-design/?path=/story/badge--overview)
 * https://developer.bigcommerce.com/api-docs/getting-started/best-practices

@@ -68,6 +68,6 @@ POS ID, BC ID, EVENT
 These logs would provide more granular details on the event that took place and all affected products.
 
 ## Resources
-* [Channels Overview]()
-* [Channels Toolkit Reference]()
-* [Channels App Requirements]()
+* [Channels Overview](https://developer.bigcommerce.com/api-docs/channels/channels-overview)
+* [Channels Toolkit Reference](https://developer.bigcommerce.com/api-docs/channels/channels-toolkit-reference)
+* [Channels App Requirements](https://developer.bigcommerce.com/api-docs/channels/channel-app-requirements)

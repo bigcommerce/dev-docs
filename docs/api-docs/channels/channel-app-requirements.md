@@ -12,7 +12,7 @@
 
 </div>
 
-Once approved, channel apps are listed on BigCommerce's App Marketplace. Additionally, apps developed by [select partners]() are listed in the Channel Manager within the Control Panel of every store. To be approved, channel apps must meet certain requirements. This article lists the requirements for publishing channel apps to both locations.
+Once approved, channel apps are discoverable on BigCommerce's App Marketplace. Additionally, apps developed by [select partners](https://www.bigcommerce.com/partners/) are marketed in the Channel Manager within the Control Panel of every store. To be approved, channel apps must meet certain requirements. This article lists the requirements for publishing channel apps to both locations.
 
 ## General Requirements
 
