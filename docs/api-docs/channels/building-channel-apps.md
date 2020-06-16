@@ -466,7 +466,7 @@ Listing apps on the BigCommerce App Marketplace is reserved for Technology Partn
 This article highlights app approval requirements. https://developer.bigcommerce.com/api-docs/partner/app-store-approval-requirements
 
 ## Resources
-* [Channels Toolkit Reference]()
+* [Channels Toolkit Reference](https://developer.bigcommerce.com/api-docs/channels-toolkit-reference)
 * [Channels Overview](https://developer.bigcommerce.com/api-docs/channels/channels-overview)
 * [Channels Sample App](https://github.com/bigcommerce/channels-app)
 * [Big Design Component Library](https://developer.bigcommerce.com/big-design/?path=/story/badge--overview)
