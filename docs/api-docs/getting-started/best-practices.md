@@ -17,6 +17,25 @@
 
 BigCommerce frequently enhances its core product and is actively developing v3 API endpoints. By using the newest API version, you will ensure that your app has access to the latest resources. You will also be better positioned to provide a user experience consistent with what merchants will see in their BigCommerce store’s control panel. To stay up to date, bookmark our [changelog](/changelog).
 
+## Anticipating changes to BigCommerce APIs & what constitutes a "breaking change"
+
+At BigCommerce, we consider a breaking change to a public API to be:
+
+- Removal of a field from an API response
+- Changing the data type of a field
+- Changing the structure of an object
+- Removal of an entire endpoint
+- Adding a new required field to a POST/PUT body
+
+On the other hand, these sorts of changes are considered to be non-breaking:
+
+- Adding a new field to a GET response
+- Adding a new optional field to a POST/PUT body
+- Adding new endpoints
+
+We encourage developers to write code against our API that will not break if an endpoint starts returning additional fields, as these "non-breaking" changes may be made by us without warning as part of our normal development.
+
+Any "breaking" changes listed above will always be made with early warning, typically via our developer [changelog](/changelog) and other channels as appropriate. In exceptional cases where we know the usage of a particular endpoint to be zero, or for non-production (alpha/beta) APIs, we may make breaking changes without warning.
 
 ## Use Webhooks Effectively
 
