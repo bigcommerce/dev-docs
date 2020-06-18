@@ -59,7 +59,6 @@ Payments can be processed using cards stored with the BigCommerce Stored Credit 
 * Paymetric
 * Paypal Powered by Braintree
 * Stripe
-* Stripe V3
 
 **The following gateways are supported for credit cards:**
 
