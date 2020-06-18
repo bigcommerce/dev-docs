@@ -388,7 +388,7 @@ Listing apps on the BigCommerce App Marketplace is reserved for Technology Partn
 * [Channels Overview](https://developer.bigcommerce.com/api-docs/channels/channels-overview)
 * [Channels Sample App](https://github.com/bigcommerce/channels-app)
 * [Big Design Component Library](https://developer.bigcommerce.com/big-design/?path=/story/badge--overview)
-* https://developer.bigcommerce.com/api-docs/getting-started/best-practices
+* [Channel App Best Practices](https://developer.bigcommerce.com/api-docs/getting-started/best-practices)
 * [Sell Everywhere with Channel Manager](https://support.bigcommerce.com/s/article/Selling-Everywhere-with-Channel-Manager)
 
 <!--stackedit_data:
