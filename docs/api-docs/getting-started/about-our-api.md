@@ -12,7 +12,8 @@
 
 </div>
 
-Want to get started making API Requests right away? Check out the [Quick Start](/api-docs/getting-started/basics/making-requests).
+Want this was added to get started making API Requests right away? Check out the [Quick Start](/api-docs/getting-started/basics/making-requests).
+
 
 The BigCommerce set of APIs allow you to create apps, automate store processes, or build headless ecommerce solutions. Need inspiration on what to build? Visit our [App Marketplace](https://www.bigcommerce.com/apps/). 
 
