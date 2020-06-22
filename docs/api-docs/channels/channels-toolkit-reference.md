@@ -10,16 +10,15 @@
 
 </div>
 
-The Channel Toolkit is a set of APIs, UI components, patterns, and app frameworks that provide partners and 3rd party developers with the ability to build integrations between BigCommerce and external sales channels. This article serves as a comprehensive list of all the tools in the toolkit for quick reference. For a general overview of channels and developing channel apps on BigCommerce, see [Channels Overview]().
+The Channel Toolkit is a set of APIs, UI components, patterns, and app frameworks that provide partners and 3rd party developers with the ability to build integrations between BigCommerce and external sales channels. This article serves as a comprehensive list of all the tools in the toolkit for quick reference. For a general overview of channels and developing channel apps on BigCommerce, see [Channels Overview](https://developer.bigcommerce.com/api-docs/channels/channels-overview).
 
 ## Documentation
 
 | Link | Description |
 |-|-|
-|[Channels Overview]()|High-level overview of channels and developing channels apps on BigCommerce|
-|[Building Channel Apps]()|In-depth technical guide to building a channel app|
-|[Building Cannel Apps for POS]()|In-depth technical guide to building an app for Point-of-Sale channels|
-|[Channels Toolkit Reference]()|Channels toolkit quick reference|
+|[Channels Overview](https://developer.bigcommerce.com/api-docs/channels/channels-overview)|High-level overview of channels and developing channels apps on BigCommerce|
+|[Building Channel Apps](https://developer.bigcommerce.com/api-docs/channels/building-channel-apps)|In-depth technical guide to building a channel app|
+|[Channels Toolkit Reference](https://developer.bigcommerce.com/api-docs/channels-toolkit-reference)|Channels toolkit quick reference|
 
 ## Endpoints
 
