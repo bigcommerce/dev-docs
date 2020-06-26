@@ -1000,7 +1000,7 @@ X-Auth-Client: {{CLIENT_ID}}
 [Category Tree](https://developer.bigcommerce.com/api-reference/catalog/catalog-api/category/getcategorytree) returns a simple view of the parent > child relationship of all categories in the store. This endpoint can be used to fetch the categories if building out a custom navigation for a store.
 
 ```http
-GET https://api.bigcommerce.com/stores/{{STORE_HASH}}/v3/catalog/summary
+GET https://api.bigcommerce.com/stores/{{STORE_HASH}}/v3/catalog/categories/tree
 Accept: application/json
 Content-Type: application/json
 X-Auth-Token: {{ACCESS_TOKEN}}
