@@ -1,0 +1,76 @@
+# Passwordless Customer Login
+
+<div class="otp" id="no-index">
+
+### On This Page
+- [Logging in Customers Via Email Link](#logging-in-customers-via-email-link)
+- [Sending The Request](#sending-the-request)
+- [Additional Resources](#additional-resources)
+</div>
+
+## Logging in Customers Via Email Link
+Your application can send shoppers a one-time link via email that will sign them in to their [storefront account](https://support.bigcommerce.com/s/article/Customer-Account-Creation).
+
+Use cases for this include:
+* Reducing friction for customers, allowing them to proceed without needing to reset their passwords
+* An alternate method to signing in customers versus using the [Customer Login API](https://developer.bigcommerce.com/api-docs/customers/customer-login-api)
+
+## Sending The Request
+
+Send a `POST` request to 
+`{store-url}/login.php?action=passwordless_login`
+
+The request body should include:
+* `email`: The customer's email address. This is where they will receive the one-time link.
+* `redirect_url`: A link to the destination where you want to redirect customers once they're successfully logged in.
+
+Example: 
+<br>
+
+```json
+{
+"email": "jane_doe@test.com",
+"redirect_url": "https://example.com/checkout"
+}
+```
+<div class="HubBlock--callout">
+<div class="CalloutBlock--">
+<div class="HubBlock-content">
+    
+<!-- theme:  -->
+### Redirect URL not required
+> If a `redirect_url` is not provided, customers will be redirected as follows:
+> <br>
+> - **Failed sign-in:** Sign in page
+<br>
+> - **Successful sign-in:** User account page
+
+</div>
+</div>
+</div>
+
+### Response
+
+Upon receiving a successful `POST` request, BigCommerce will send a response that contains:
+
+* `expiry`: The time in seconds during which the login link is valid
+* `sent_email`: A value of `sign_in` indicates the customer was logged in. A value of `password_reset` means BigCommerce emailed the customer a link with password reset instructions because they were previously flagged as needing to reset their password.
+
+Example:
+
+```json
+{
+"expiry": 900,
+"sent_email": "sign_in"
+}
+```
+
+**Other status codes:**
+
+`429`: *Too many requests, request was rate limited*
+
+`404`: *Provided email does not belong to a customer*
+
+## Additional Resources 
+* [Customer Login SSO](https://developer.bigcommerce.com/api-reference/storefront/customer-login-sso)
+* [Customers V3](https://developer.bigcommerce.com/api-reference/store-management/customers-v3)
