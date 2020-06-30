@@ -13,7 +13,7 @@ Your application can send shoppers a one-time link via email that will sign them
 
 Use cases for this include:
 * Reducing friction for customers, allowing them to proceed without needing to reset their passwords
-* An alternate method to signing in customers versus using the [Customer Login API](https://developer.bigcommerce.com/api-docs/customers/customer-login-api)
+* An alternate method for signing in customers versus using the [Customer Login API](https://developer.bigcommerce.com/api-docs/customers/customer-login-api)
 
 ## Sending The Request
 
@@ -21,16 +21,14 @@ Send a `POST` request to
 `{store-url}/login.php?action=passwordless_login`
 
 The request body should include:
-* `email`: The customer's email address. This is where they will receive the one-time link.
-* `redirect_url`: A link to the destination where you want to redirect customers once they're successfully logged in.
-
+* `email`: The customer's email address. This is where they will receive the one-time login link.
 Example: 
 <br>
 
 ```json
 {
 "email": "jane_doe@test.com",
-"redirect_url": "https://example.com/checkout"
+"redirect_url": "/checkout"
 }
 ```
 <div class="HubBlock--callout">
@@ -38,8 +36,8 @@ Example:
 <div class="HubBlock-content">
     
 <!-- theme:  -->
-### Redirect URL not required
-> If a `redirect_url` is not provided, customers will be redirected as follows:
+### Redirect URL
+> The POST request body can also include `redirect_url`. This should be a link to the URL where you want to redirect customers once they're successfully logged in. If `redirect_url` is not provided, customers will be redirected as follows:
 > <br>
 > - **Failed sign-in:** Sign in page
 <br>
@@ -54,7 +52,7 @@ Example:
 Upon receiving a successful `POST` request, BigCommerce will send a response that contains:
 
 * `expiry`: The time in seconds during which the login link is valid
-* `sent_email`: A value of `sign_in` indicates the customer was logged in. A value of `password_reset` means BigCommerce emailed the customer a link with password reset instructions because they were previously flagged as needing to reset their password.
+* `sent_email`: A value of `sign_in` indicates BigCommerce sent the login link to the customer via the email provided. A value of `password_reset` means BigCommerce emailed the customer a link with password reset instructions because they were previously flagged as needing to reset their password.
 
 Example:
 
