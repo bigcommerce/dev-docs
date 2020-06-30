@@ -1,9 +1,8 @@
-# Title
+# Channel App Requirements
 
-<div class=`otp` id=`no-index`>
+<div class="otp" id="no-in">
 
 ### On this Page
-
 - [General Requirements](#general-requirements)
 - [Storefronts](#storefronts)
 - [Marketplace](#marketplace)
@@ -83,3 +82,4 @@ Once approved, channel apps are discoverable on BigCommerce's App Marketplace. A
 * Supports channel to product assignment (via Listings and/or catalog API)
 
 ## Resources
+* [Partners](https://www.bigcommerce.com/partners/)
