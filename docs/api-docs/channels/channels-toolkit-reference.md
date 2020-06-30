@@ -26,36 +26,36 @@ The Channel Toolkit is a set of APIs, UI components, patterns, and app framework
 
 | Endpoint | Description |
 |-|-|
-|[Channels](https://developer.bigcommerce.com/api-reference/cart-checkout/channels-listings-api)||
-|[Listings](https://developer.bigcommerce.com/api-reference/cart-checkout/channels-listings-api)||
-|[Orders](https://developer.bigcommerce.com/api-reference/store-management/orders)||
-|[Products](https://developer.bigcommerce.com/api-reference/store-management/catalog)||
+|[Channels](https://developer.bigcommerce.com/api-reference/cart-checkout/channels-listings-api)|Create and manage product listings for multiple storefronts and sales channels|
+|[Listings](https://developer.bigcommerce.com/api-reference/cart-checkout/channels-listings-api)|Create and manage product listings for multiple storefronts and sales channels|
+|[Orders](https://developer.bigcommerce.com/api-reference/store-management/orders)|Get and manage order data|
+|[Products](https://developer.bigcommerce.com/api-reference/store-management/catalog)|Manage products, options, variants, and modifiers|
 
 **Recommended for Channel Apps:**
 
 | Endpoint | Description |
 |-|-|
-|[Price Lists](https://developer.bigcommerce.com/api-reference/store-management/price-lists)||
-|[Store Information](https://developer.bigcommerce.com/api-reference/store-management/store-information-api)||
-|[Shipping](https://developer.bigcommerce.com/api-reference/store-management/shipping-api)||
-|[Webhooks](https://developer.bigcommerce.com/api-reference/webhooks)||
-|[Routes](https://developer.bigcommerce.com/api-reference/cart-checkout/sites-routes-api)||
-|[Sites](https://developer.bigcommerce.com/api-reference/cart-checkout/sites-routes-api)||
+|[Price Lists](https://developer.bigcommerce.com/api-reference/store-management/price-lists)|Control variant-level pricing by channel, customer group, etc|
+|[Store Information](https://developer.bigcommerce.com/api-reference/store-management/store-information-api)|Get store metadata|
+|[Shipping](https://developer.bigcommerce.com/api-reference/store-management/shipping-api)|Manage how products are shipped|
+|[Webhooks](https://developer.bigcommerce.com/api-reference/webhooks)|Get notified when specific events occur in a BigCommerce store|
+|[Routes](https://developer.bigcommerce.com/api-reference/cart-checkout/sites-routes-api)|Create and manage page routes for headless storefronts|
+|[Sites](https://developer.bigcommerce.com/api-reference/cart-checkout/sites-routes-api)|Create and manage sites associated with a channel|
 
 **Extended Functionality:**
 
 | Endpoint | Description |
 |-|-|
-|[Carts](https://developer.bigcommerce.com/api-reference/cart-checkout/server-server-cart-api)||
-|[Checkouts](https://developer.bigcommerce.com/api-reference/cart-checkout/server-server-checkout-api)||
-|[Customers](https://developer.bigcommerce.com/api-reference/store-management/customers-v3)||
-|[Currencies](https://developer.bigcommerce.com/api-reference/store-management/currency-api)||
-|[Coupons](https://developer.bigcommerce.com/api-reference/store-management/marketing)||
-|[Gift Certificates](https://developer.bigcommerce.com/api-reference/store-management/marketing)||
-|[Customer Login](https://developer.bigcommerce.com/api-docs/customers/customer-login-api)||
-|[Current Customer](https://developer.bigcommerce.com/api-docs/customers/current-customer-api)||
-|[Order Payment Actions](https://developer.bigcommerce.com/api-reference/orders/orders-transactions-api)||
-|[Order Transactions](https://developer.bigcommerce.com/api-reference/orders/orders-transactions-api)||
+|[Carts](https://developer.bigcommerce.com/api-reference/cart-checkout/server-server-cart-api)|Create and manage carts|
+|[Checkouts](https://developer.bigcommerce.com/api-reference/cart-checkout/server-server-checkout-api)|Create and manage checkouts|
+|[Customers](https://developer.bigcommerce.com/api-reference/store-management/customers-v3)|Create and Manage Customers, Customer Addresses, and Customer Attributes.|
+|[Currencies](https://developer.bigcommerce.com/api-reference/store-management/currency-api)|Manage accepted currencies and their display|
+|[Coupons](https://developer.bigcommerce.com/api-reference/store-management/marketing)|Manage coupons|
+|[Gift Certificates](https://developer.bigcommerce.com/api-reference/store-management/marketing)|Manage gift certificates|
+|[Customer Login](https://developer.bigcommerce.com/api-docs/customers/customer-login-api)|Use SSO to login customers|
+|[Current Customer](https://developer.bigcommerce.com/api-docs/customers/current-customer-api)|Securely identify current customer|
+|[Order Payment Actions](https://developer.bigcommerce.com/api-reference/orders/orders-transactions-api)|Authorize, capture, and void order payments|
+|[Order Transactions](https://developer.bigcommerce.com/api-reference/orders/orders-transactions-api)|Get order payment transaction data|
 
 ## UI Components
 
