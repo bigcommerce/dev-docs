@@ -35,11 +35,11 @@ This article is a comprehensive guide on the foundations of building apps on Big
 
 ## Getting Started
 
-This article assumes you're familiar with how to: 
+This article assumes you're familiar with how to:
 * interact with BigCommerce's API environment
 * create apps using DevTools
 * buildi apps on BigCommerce
-* generate app API credentials 
+* generate app API credentials
 
 If this is your first time developing with BigCommerce APIs, it might be helpful to checkout our API [Quick Start](https://developer.bigcommerce.com/api-docs/getting-started/making-requests) before beginning this guide.
 
@@ -90,45 +90,42 @@ The BigCommerce APIs, webhooks, UI components, and patterns that you need to mak
 ### APIs & Webhooks
 The APIs that you integrate with and how you use them (read only vs. modify) will determine what BigCommerce scopes your app requests when it is installed by a merchant and what endpoints you’ll need to integrate with. The associated scopes are listed in the following section.
 
-BigCommerce provides webhooks for third-party developers, enabling them to respond, in near real-time, to events that occur within the BigCommerce system. Depending on the frequency of updates that your channel app needs to manage, you can choose to either poll the API endpoints or integrate with webhooks. We recommended the latter choice if changes happen frequently or have downstream impacts, such as inventory changes that could impact a merchant’s SLA with a marketplace. 
+BigCommerce provides webhooks for third-party developers, enabling them to respond, in near real-time, to events that occur within the BigCommerce system. Depending on the frequency of updates that your channel app needs to manage, you can choose to either poll the API endpoints or integrate with webhooks. We recommended the latter choice if changes happen frequently or have downstream impacts, such as inventory changes that could impact a merchant’s SLA with a marketplace.
 
 **Required for Channel Apps:**
-
 | Endpoint | Description |
 |-|-|
-|[Channels](https://developer.bigcommerce.com/api-reference/cart-checkout/channels-listings-api)||
-|[Listings](https://developer.bigcommerce.com/api-reference/cart-checkout/channels-listings-api)||
-|[Orders](https://developer.bigcommerce.com/api-reference/store-management/orders)||
-|[Products](https://developer.bigcommerce.com/api-reference/store-management/catalog)||
+|[Channels](https://developer.bigcommerce.com/api-reference/cart-checkout/channels-listings-api)|Create and manage product listings for multiple storefronts and sales channels|
+|[Listings](https://developer.bigcommerce.com/api-reference/cart-checkout/channels-listings-api)|Create and manage product listings for multiple storefronts and sales channels|
+|[Orders](https://developer.bigcommerce.com/api-reference/store-management/orders)|Get and manage order data|
+|[Products](https://developer.bigcommerce.com/api-reference/store-management/catalog)|Manage products, options, variants, and modifiers|
 
 **Recommended for Channel Apps:**
-
 | Endpoint | Description |
 |-|-|
-|[Price Lists](https://developer.bigcommerce.com/api-reference/store-management/price-lists)||
-|[Store Information](https://developer.bigcommerce.com/api-reference/store-management/store-information-api)||
-|[Shipping](https://developer.bigcommerce.com/api-reference/store-management/shipping-api)||
-|[Webhooks](https://developer.bigcommerce.com/api-reference/webhooks)||
-|[Routes](https://developer.bigcommerce.com/api-reference/cart-checkout/sites-routes-api)||
-|[Sites](https://developer.bigcommerce.com/api-reference/cart-checkout/sites-routes-api)||
+|[Price Lists](https://developer.bigcommerce.com/api-reference/store-management/price-lists)|Control variant-level pricing by channel, customer group, etc|
+|[Store Information](https://developer.bigcommerce.com/api-reference/store-management/store-information-api)|Get store metadata|
+|[Shipping](https://developer.bigcommerce.com/api-reference/store-management/shipping-api)|Manage how products are shipped|
+|[Webhooks](https://developer.bigcommerce.com/api-reference/webhooks)|Get notified when specific events occur in a BigCommerce store|
+|[Routes](https://developer.bigcommerce.com/api-reference/cart-checkout/sites-routes-api)|Create and manage page routes for headless storefronts|
+|[Sites](https://developer.bigcommerce.com/api-reference/cart-checkout/sites-routes-api)|Create and manage sites associated with a channel|
 
 **Extended Functionality:**
-
 | Endpoint | Description |
 |-|-|
-|[Carts](https://developer.bigcommerce.com/api-reference/cart-checkout/server-server-cart-api)||
-|[Checkouts](https://developer.bigcommerce.com/api-reference/cart-checkout/server-server-checkout-api)||
-|[Customers](https://developer.bigcommerce.com/api-reference/store-management/customers-v3)||
-|[Currencies](https://developer.bigcommerce.com/api-reference/store-management/currency-api)||
-|[Coupons](https://developer.bigcommerce.com/api-reference/store-management/marketing)||
-|[Gift Certificates](https://developer.bigcommerce.com/api-reference/store-management/marketing)||
-|[Customer Login](https://developer.bigcommerce.com/api-docs/customers/customer-login-api)||
-|[Current Customer](https://developer.bigcommerce.com/api-docs/customers/current-customer-api)||
-|[Order Payment Actions](https://developer.bigcommerce.com/api-reference/orders/orders-transactions-api)||
-|[Order Transactions](https://developer.bigcommerce.com/api-reference/orders/orders-transactions-api)||
+|[Carts](https://developer.bigcommerce.com/api-reference/cart-checkout/server-server-cart-api)|Create and manage carts|
+|[Checkouts](https://developer.bigcommerce.com/api-reference/cart-checkout/server-server-checkout-api)|Create and manage checkouts|
+|[Customers](https://developer.bigcommerce.com/api-reference/store-management/customers-v3)|Create and Manage Customers, Customer Addresses, and Customer Attributes.|
+|[Currencies](https://developer.bigcommerce.com/api-reference/store-management/currency-api)|Manage accepted currencies and their display|
+|[Coupons](https://developer.bigcommerce.com/api-reference/store-management/marketing)|Manage coupons|
+|[Gift Certificates](https://developer.bigcommerce.com/api-reference/store-management/marketing)|Manage gift certificates|
+|[Customer Login](https://developer.bigcommerce.com/api-docs/customers/customer-login-api)|Use SSO to login customers|
+|[Current Customer](https://developer.bigcommerce.com/api-docs/customers/current-customer-api)|Securely identify current customer|
+|[Order Payment Actions](https://developer.bigcommerce.com/api-reference/orders/orders-transactions-api)|Authorize, capture, and void order payments|
+|[Order Transactions](https://developer.bigcommerce.com/api-reference/orders/orders-transactions-api)|Get order payment transaction data|
 
 ### UI Components
-BigCommerce provides publicly available UI components and design guidelines to third parties via [Big Design](https://developer.bigcommerce.com/big-design/). This enables developers to create apps that can be embedded directly within the BigCommerce control panel, as the UX and UI look and feel native to BigCommerce. 
+BigCommerce provides publicly available UI components and design guidelines to third parties via [Big Design](https://developer.bigcommerce.com/big-design/). This enables developers to create apps that can be embedded directly within the BigCommerce control panel, as the UX and UI look and feel native to BigCommerce.
 
 These components can dramatically accelerate the development process by providing dynamic, responsive, and accessible UI components that are fully functional. The UI components you need to build your channel app will vary depending on the type and functionality offered by the app.
 
@@ -414,7 +411,7 @@ Channel apps are embedded in the BigCommerce control panel. As such, it is impor
 A single-click app is listed in the BigCommerce App Marketplace, and is available for all BigCommerce merchants to install. "Single-Click" refers specifically to the installation process whereby the application connects to the external channel via the [Single-Click App Auth Flow](https://developer.bigcommerce.com/api-docs/getting-started/building-apps-bigcommerce/building-apps#building-apps_oauth-summary) instead of a manual process where a merchant would need to generate and input authentication credentials into the app's user interface.
 
 ## Releasing Your App
-Listing apps on the BigCommerce App Marketplace is reserved for Technology Partners. To apply for the program, submit a [partner application](https://partners.bigcommerce.com/English/register_email.aspx). 
+Listing apps on the BigCommerce App Marketplace is reserved for Technology Partners. To apply for the program, submit a [partner application](https://partners.bigcommerce.com/English/register_email.aspx).
 
 For a general list of app requirements, see [App Store Approval Requirements](https://developer.bigcommerce.com/api-docs/partner/app-store-approval-requirements).
 
