@@ -62,20 +62,20 @@ BigCommerce's **V2 REST API** exposes many endpoints developers can use to progr
 Like the **V2 API**, BigCommerce's **V3 REST API** exposes many endpoints developers can use to programmatically interact with store resources (including [server-to-server carts](https://developer.bigcommerce.com/api-reference/cart-checkout/server-server-cart-api) and [checkouts](https://developer.bigcommerce.com/api-reference/cart-checkout/storefront-checkout-api) for using BigCommerce headlessly). Interactions with the **V3** API are very similar to that of the **V2** API; however, the **V3** API introduces a number of improvements:
 * Most tasks can be performed with fewer API calls (for example, a product with variants and custom fields can be created in a single request)
 * Each **V3** resource includes a `meta` object, simplifying pagination
-* **V3** Brands, Categories, Products, and Product Variants expose a [metafields](https://developer.bigcommerce.com/api-reference/store-management/catalog/product-metafields/createproductmetafield) resource for use by developers to store custom data.
+* **V3** Brands, Categories, Products, and Product Variants expose a [metafields](https://developer.bigcommerce.com/api-reference/catalog/catalog-api/product-metafields/createproductmetafield) resource for use by developers to store custom data.
 * **V3** API is optimized for performance (in general, data can be sent, received, and processed faster via **V3**, relative to **V2**).
 
 **Server**: `api.bigcommerce.com/stores/{store_hash}/v3`
 
 |  Resource | Description | Endpoint |
 | --- | --- | --- |
-|  [Brand Images](https://developer.bigcommerce.com/api-reference/store-management/catalog/brand-images) | Create and manage brand images | `/catalog/brands/{id}/images` |
-|  [Brand Metafields](https://developer.bigcommerce.com/api-reference/store-management/catalog/brand-metafields) | Create and manage brand metafields | `/catalog/brands/{id}/metafields` |
-|  [Brands](https://developer.bigcommerce.com/api-reference/store-management/catalog/brands) | Create and manage brands | `/catalog/brands` |
+|  [Brand Images](https://developer.bigcommerce.com/api-reference/catalog/catalog-api/brand-images) | Create and manage brand images | `/catalog/brands/{id}/images` |
+|  [Brand Metafields](https://developer.bigcommerce.com/api-reference/catalog/catalog-api/brand-metafields) | Create and manage brand metafields | `/catalog/brands/{id}/metafields` |
+|  [Brands](https://developer.bigcommerce.com/api-reference/catalog/catalog-api/brands) | Create and manage brands | `/catalog/brands` |
 |  [Carts](https://developer.bigcommerce.com/api-reference/cart-checkout/server-server-cart-api) | Create an manage store carts headlessly | `/carts` |
-|  [Categories](https://developer.bigcommerce.com/api-reference/store-management/catalog/category) | Create and manage categories | `/catalog/categories` |
-|  [Category Images](https://developer.bigcommerce.com/api-reference/store-management/catalog/category-images) | Create and manage category images | `/catalog/categories/{id}/images` |
-|  [Category Metafields](https://developer.bigcommerce.com/api-reference/store-management/catalog/category-metafields) | Create and manage category metafields | `/catalog/categories/{id}/metafields` |
+|  [Categories](https://developer.bigcommerce.com/api-reference/catalog/catalog-api/category) | Create and manage categories | `/catalog/categories` |
+|  [Category Images](https://developer.bigcommerce.com/api-reference/catalog/catalog-api/category-images) | Create and manage category images | `/catalog/categories/{id}/images` |
+|  [Category Metafields](https://developer.bigcommerce.com/api-reference/catalog/catalog-api/category-metafields) | Create and manage category metafields | `/catalog/categories/{id}/metafields` |
 |  [Channels](https://developer.bigcommerce.com/api-reference/cart-checkout/channels-listings-api/channels) | Create and manage catalog listings and channels | `/channels` |
 |  [Checkouts](https://developer.bigcommerce.com/api-reference/cart-checkout/server-server-checkout-api) | Create checkouts headlessly | `/checkouts` |
 |  [Customer Addresses](https://developer.bigcommerce.com/api-reference/store-management/customers-v3/customer-addresses) | Create and manage customer addresses | `/customers/addresses` |
@@ -88,28 +88,29 @@ Like the **V2 API**, BigCommerce's **V3 REST API** exposes many endpoints develo
 |  [Payment Processing Token](https://developer.bigcommerce.com/api-reference/payments/payments-create-payment-token-api/payment-access-token) | Get an access token for payment processing | `/payments/accsess_tokens` |
 |  [Price List Records](https://developer.bigcommerce.com/api-reference/store-management/price-lists/price-lists-records) | Create and manage price list records | `/pricelists/records` |
 |  [Price Lists](https://developer.bigcommerce.com/api-reference/store-management/price-lists/price-lists) | Create and manage catalog pricing variations | `/pricelists` |
-|  [Products](https://developer.bigcommerce.com/api-reference/store-management/catalog/products) | Create and manage products | `/catalog/products` |
-|  [Product Bulk Pricing Rules](https://developer.bigcommerce.com/api-reference/store-management/catalog/product-bulk-pricing-rules) | Create and manage product bulk pricing rules | `/catalog/products/{id}/buld-pricing-rules` |
-|  [Product Complex Rules](https://developer.bigcommerce.com/api-reference/store-management/catalog/product-complex-rules) | Create and manage product complex rules | `/catalog/products/{id}/complex-rules` |
-|  [Product Custom Fields](https://developer.bigcommerce.com/api-reference/store-management/catalog/product-custom-fields) | Create and manage product custom fields | `/catalog/products/{id}/custom-fields` |
-|  [Product Images](https://developer.bigcommerce.com/api-reference/store-management/catalog/product-images) | Create and manage product images | `/catalog/products/{id}/images` |
-|  [Product Metafields](https://developer.bigcommerce.com/api-reference/store-management/catalog/product-metafields) | Create and manage product meta fields | `/catalog/products/{id}/metafields` |
-|  [Product Modifier Images](https://developer.bigcommerce.com/api-reference/store-management/catalog/product-modifier-images) | Create and manage product modifier images | `/catalog/products/{id}/modifiers/{id}/images` |
-|  [Product Modifier Values](https://developer.bigcommerce.com/api-reference/store-management/catalog/product-modifier-values) | Create and manage product modifier values | `/catalog/products/{id}/modifers/{id}/values` |
-|  [Product Modifiers](https://developer.bigcommerce.com/api-reference/store-management/catalog/product-modifiers) | Create and manage product modifiers | `/catalog/products/{id}/modifiers` |
-|  [Product Reviews](https://developer.bigcommerce.com/api-reference/store-management/catalog/product-reviews) | Create and manage product reviews | `/catalog/products/{id}/reviews` |
-|  [Product Variant Metafields](https://developer.bigcommerce.com/api-reference/store-management/catalog/product-variants-metafields) | Create and manage product meta fields | `/catalog/products/{id}/variants/{id}/metafields` |
-|  [Product Option Values](https://developer.bigcommerce.com/api-reference/store-management/catalog/product-option-values) | Create and manage product variant option values | `/catalog/products/{id}/options/{id}/values` |
-|  [Product Options](https://developer.bigcommerce.com/api-reference/store-management/catalog/product-options) | Create and manage product variant options | `/catalog/products/{id}/options` |
-|  [Product Variants](https://developer.bigcommerce.com/api-reference/store-management/catalog/product-variants) | Create and manage product variants | `/catalog/products/{id}/variants` |
-|  [Product Videos](https://developer.bigcommerce.com/api-reference/store-management/catalog/product-videos) | Create and manage product videos | `/catalog/products/{id}/videos` |
+|  [Products](https://developer.bigcommerce.com/api-reference/catalog/catalog-api/products) | Create and manage products | `/catalog/products` |
+|  [Product Bulk Pricing Rules](https://developer.bigcommerce.com/api-reference/catalog/catalog-api/product-bulk-pricing-rules) | Create and manage product bulk pricing rules | `/catalog/products/{id}/buld-pricing-rules` |
+|  [Product Complex Rules](https://developer.bigcommerce.com/api-reference/catalog/catalog-api/product-complex-rules) | Create and manage product complex rules | `/catalog/products/{id}/complex-rules` |
+|  [Product Custom Fields](https://developer.bigcommerce.com/api-reference/catalog/catalog-api/product-custom-fields) | Create and manage product custom fields | `/catalog/products/{id}/custom-fields` |
+|  [Product Images](https://developer.bigcommerce.com/api-reference/catalog/catalog-api/product-images) | Create and manage product images | `/catalog/products/{id}/images` |
+|  [Product Metafields](https://developer.bigcommerce.com/api-reference/catalog/catalog-api/product-metafields) | Create and manage product meta fields | `/catalog/products/{id}/metafields` |
+|  [Product Modifier Images](https://developer.bigcommerce.com/api-reference/catalog/catalog-api/product-modifier-images) | Create and manage product modifier images | `/catalog/products/{id}/modifiers/{id}/images` |
+|  [Product Modifier Values](https://developer.bigcommerce.com/api-reference/catalog/catalog-api/product-modifier-values) | Create and manage product modifier values | `/catalog/products/{id}/modifers/{id}/values` |
+|  [Product Modifiers](https://developer.bigcommerce.com/api-reference/catalog/catalog-api/product-modifiers) | Create and manage product modifiers | `/catalog/products/{id}/modifiers` |
+|  [Product Reviews](https://developer.bigcommerce.com/api-reference/catalog/catalog-api/product-reviews) | Create and manage product reviews | `/catalog/products/{id}/reviews` |
+|  [Product Variant Metafields](https://developer.bigcommerce.com/api-reference/catalog/catalog-api/product-variants-metafields) | Create and manage product meta fields | `/catalog/products/{id}/variants/{id}/metafields` |
+|  [Product Option Values](https://developer.bigcommerce.com/api-reference/catalog/catalog-api/product-option-values) | Create and manage product variant option values | `/catalog/products/{id}/options/{id}/values` |
+|  [Product Options](https://developer.bigcommerce.com/api-reference/catalog/catalog-api/product-options) | Create and manage product variant options | `/catalog/products/{id}/options` |
+|  [Product Variants](https://developer.bigcommerce.com/api-reference/catalog/catalog-api/product-variants) | Create and manage product variants | `/catalog/products/{id}/variants` |
+|  [Product Videos](https://developer.bigcommerce.com/api-reference/catalog/catalog-api/
+product-videos) | Create and manage product videos | `/catalog/products/{id}/videos` |
 |  [Scripts](https://developer.bigcommerce.com/api-reference/store-management/scripts) | Add client-side code to a store | `/content/scripts` |
 |  [Sites](https://developer.bigcommerce.com/api-reference/cart-checkout/sites-routes-api) | Manage sites and routing for headless storefronts | `/sites` |
 |  [Storefront API Token](https://developer.bigcommerce.com/api-reference/cart-checkout/storefront-api-token/api-token) | Create Auth Tokens for use with Storefront APIs | `/api-token` |
 |  [Storefront Customer Impersonation Token](https://developer.bigcommerce.com/api-reference/cart-checkout/storefront-api-token/customer-impersonation-token) | Create a storefront API token for customer impersonation | `/api-token-customer-impersonation` |
 |  [Subscribers](https://developer.bigcommerce.com/api-reference/store-management/subscribers) | Create and manage store newsletter subscribers | `/customers/subscribers` |
 |  [Themes](https://developer.bigcommerce.com/api-reference/store-management/themes) | Create and manage store theme's | `/themes` |
-|  [Variants](https://developer.bigcommerce.com/api-reference/store-management/catalog/variants) | Get and update all variants | `/catalog/variants` |
+|  [Variants](https://developer.bigcommerce.com/api-reference/catalog/catalog-api/variants) | Get and update all variants | `/catalog/variants` |
 |  [Webhooks](https://developer.bigcommerce.com/api-reference/webhooks) | Manage store Webhooks | `/hooks` |
 |  [Widgets](https://developer.bigcommerce.com/api-reference/store-management/widgets) | Create and manage store widgets | `/content/widgets` |
 |  [Widgets Placements](https://developer.bigcommerce.com/api-reference/store-management/widgets/placement) | Place, move, and remove store widgets | `/content/placements` |
