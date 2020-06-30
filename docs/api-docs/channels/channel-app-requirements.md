@@ -82,4 +82,4 @@ Once approved, channel apps are discoverable on BigCommerce's App Marketplace. A
 * Supports channel to product assignment (via Listings and/or catalog API)
 
 ## Resources
-* [Partners](https://www.bigcommerce.com/partners/)
+* [Become a Partner](https://www.bigcommerce.com/partners/)
