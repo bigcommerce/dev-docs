@@ -30,7 +30,7 @@ The BigCommerce API responds to requests with different HTTP status codes depend
 | Code | Text | Purpose |
 |-|-|-|
 | **301** | **Moved Permanently** | When the API routes have changed (unlikely), or if the incoming request is not secure (`http`), the request will be redirected to the secure (`https`) version. |
-| **304** | **Not Modified** | This response will be sent if the request included an `If-Modified-Since` header, but the resource has *not* been modified since the specified date|
+| **304** | **Not Modified** | This response will be sent if the request included an `If-Modified-Since` header, but the resource has *not* been modified since the specified date.|
 
 ## 4xx Client Error 
 
