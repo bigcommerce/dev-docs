@@ -165,7 +165,7 @@ subtitle: "POST https://developerserver.com/shipping/carrier/connection"
 lineNumbers: true
 -->
 
-**Exampe Request with Empty Object**
+**Example Request with Empty Object**
 `/POST https://developerserver.com/shipping/carrier/connection`
 
 ```json
