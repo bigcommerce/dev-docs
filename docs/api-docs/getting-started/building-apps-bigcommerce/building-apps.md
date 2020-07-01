@@ -404,7 +404,7 @@ Upon receiving the GET request, your app will need to process the signed payload
 
 ### Remove User Request (Optional)
 
-If you have not enabled [multi-user support](#multi-user-support), you will not provide a Remove User Callback URI and can ignore this section. If you enable multi-user support, you can optionally specify a Remove User Callback URI. It must be fully qualified, publicly available, and served over TLS/SSL. BigCommerce will send a GETrequest to your Remove User Callback URI when a store admin revokes a user’s access to your app. 
+If you have not enabled [multi-user support](#multi-user-support), you will not provide a Remove User Callback URI and can ignore this section. If you enable multi-user support, you can optionally specify a Remove User Callback URI. It must be fully qualified, publicly available, and served over TLS/SSL. BigCommerce will send a GET request to your Remove User Callback URI when a store admin revokes a user’s access to your app. 
 
 **Example -- Get Request sent to the Remove User URI**
 
