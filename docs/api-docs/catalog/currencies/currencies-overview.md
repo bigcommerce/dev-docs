@@ -152,7 +152,7 @@ Shoppers will still be able to select their currency of choice on the storefront
 
 **Will my analytics show in the transactional or display currency?**  
 Analytics shows an approximate price in the store's default currency. This is based on the configured exchange rate. There is no
-abandoned cart analytics or web analytics such as Google Analytics. Currently it does not break down anayltics by currency.
+abandoned cart analytics or web analytics such as Google Analytics. Currently it does not break down analytics by currency.
 
 **How can I setup settlement currencies in Stripe?**  
 Please reach out to Stripe for more information on setting up the account. 
