@@ -47,7 +47,6 @@ query CustomerAttributes {
 ```
 
 <a href="https://developer.bigcommerce.com/graphql?playground_tab=customerDetails" target="_blank">**Try it in GraphQL Playground**</a>
-**[Try it in GraphQL Playground](https://developer.bigcommerce.com/graphql?playground_tab=customerDetails)**
 
 ## Get First Three Levels of Category Tree
 
