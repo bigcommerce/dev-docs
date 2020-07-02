@@ -102,8 +102,7 @@ Like the **V2 API**, BigCommerce's **V3 REST API** exposes many endpoints develo
 |  [Product Option Values](https://developer.bigcommerce.com/api-reference/catalog/catalog-api/product-option-values) | Create and manage product variant option values | `/catalog/products/{id}/options/{id}/values` |
 |  [Product Options](https://developer.bigcommerce.com/api-reference/catalog/catalog-api/product-options) | Create and manage product variant options | `/catalog/products/{id}/options` |
 |  [Product Variants](https://developer.bigcommerce.com/api-reference/catalog/catalog-api/product-variants) | Create and manage product variants | `/catalog/products/{id}/variants` |
-|  [Product Videos](https://developer.bigcommerce.com/api-reference/catalog/catalog-api/
-product-videos) | Create and manage product videos | `/catalog/products/{id}/videos` |
+|  [Product Videos](https://developer.bigcommerce.com/api-reference/catalog/catalog-api/product-videos) | Create and manage product videos | `/catalog/products/{id}/videos` |
 |  [Scripts](https://developer.bigcommerce.com/api-reference/store-management/scripts) | Add client-side code to a store | `/content/scripts` |
 |  [Sites](https://developer.bigcommerce.com/api-reference/cart-checkout/sites-routes-api) | Manage sites and routing for headless storefronts | `/sites` |
 |  [Storefront API Token](https://developer.bigcommerce.com/api-reference/cart-checkout/storefront-api-token/api-token) | Create Auth Tokens for use with Storefront APIs | `/api-token` |
