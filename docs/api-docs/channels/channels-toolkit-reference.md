@@ -29,7 +29,7 @@ The Channel Toolkit is a set of APIs, UI components, patterns, and app framework
 |[Channels](https://developer.bigcommerce.com/api-reference/cart-checkout/channels-listings-api)|Create and manage product listings for multiple storefronts and sales channels|
 |[Listings](https://developer.bigcommerce.com/api-reference/cart-checkout/channels-listings-api)|Create and manage product listings for multiple storefronts and sales channels|
 |[Orders](https://developer.bigcommerce.com/api-reference/store-management/orders)|Get and manage order data|
-|[Products](https://developer.bigcommerce.com/api-reference/store-management/catalog)|Manage products, options, variants, and modifiers|
+|[Products](https://developer.bigcommerce.com/api-reference/catalog/catalog-api)|Manage products, options, variants, and modifiers|
 
 **Recommended for Channel Apps:**
 

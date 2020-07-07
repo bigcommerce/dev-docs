@@ -98,7 +98,7 @@ BigCommerce provides webhooks for third-party developers, enabling them to respo
 |[Channels](https://developer.bigcommerce.com/api-reference/cart-checkout/channels-listings-api)|Create and manage product listings for multiple storefronts and sales channels|
 |[Listings](https://developer.bigcommerce.com/api-reference/cart-checkout/channels-listings-api)|Create and manage product listings for multiple storefronts and sales channels|
 |[Orders](https://developer.bigcommerce.com/api-reference/store-management/orders)|Get and manage order data|
-|[Products](https://developer.bigcommerce.com/api-reference/store-management/catalog)|Manage products, options, variants, and modifiers|
+|[Products](https://developer.bigcommerce.com/api-reference/catalog/catalog-api)|Manage products, options, variants, and modifiers|
 
 **Recommended for Channel Apps:**
 | Endpoint | Description |
@@ -256,9 +256,9 @@ Accept: application/json
 
 [![Open in Request Runner](https://storage.googleapis.com/bigcommerce-production-dev-center/images/Open-Request-Runner.svg)](https://developer.bigcommerce.com/api-reference/catalog/catalog-api/products/**createproduct**#requestrunner)
 
-Variants can be added via the same request used to create the product or later after the product is created, by a `POST` request to the [Product Variant endpoint](https://developer.bigcommerce.com/api-reference/store-management/catalog/product-variants/createvariant) (the former is recommended for bulk variant creation).
+Variants can be added via the same request used to create the product or later after the product is created, by a `POST` request to the [Product Variant endpoint](https://developer.bigcommerce.com/api-reference/catalog/catalog-api/product-variants/createvariant) (the former is recommended for bulk variant creation).
 
-For an in-depth guide to using V3 Catalog endpoints, see [Catalog Overview](https://developer.bigcommerce.com/api-docs/catalog/products-overview). For a complete API reference (including request schemas and property descriptions), see: [API Reference > Catalog](https://developer.bigcommerce.com/api-reference/store-management/catalog).
+For an in-depth guide to using V3 Catalog endpoints, see [Catalog Overview](https://developer.bigcommerce.com/api-docs/catalog/products-overview). For a complete API reference (including request schemas and property descriptions), see: [API Reference > Catalog](https://developer.bigcommerce.com/api-reference/catalog/catalog-api).
 
 ### Exporting
 In order to export catalog data from BigCommerce to an external channel, you will need to `GET` all products and variants from BigCommerce. To do so, send a `GET` request to `/stores/{{STORE_HASH}}/v3/catalog/products?include=variants`:
@@ -283,7 +283,7 @@ In order to support these workflows from a UI perspective, you will likely need 
 * Button
 * Spinner
 
-For an in-depth guide to using V3 Catalog endpoints, see [Catalog Overview](https://developer.bigcommerce.com/api-docs/catalog/products-overview). For a complete API reference (including request schemas and property descriptions), see: [API Reference > Catalog](https://developer.bigcommerce.com/api-reference/store-management/catalog).
+For an in-depth guide to using V3 Catalog endpoints, see [Catalog Overview](https://developer.bigcommerce.com/api-docs/catalog/products-overview). For a complete API reference (including request schemas and property descriptions), see: [API Reference > Catalog](https://developer.bigcommerce.com/api-reference/catalog/catalog-api).
 
 ## Creating Listings
 Whether importing or exporting the catalog, you will need to create listings for products that are shared between the channel and BigCommerce. Any products that are imported to BigCommerce or exported to the channel must have a corresponding listing -- this is to support the listing being managed separately from the base catalog product.
@@ -355,7 +355,7 @@ In order to ensure that BigCommerce merchants are able to continue using their e
 
 In order to do this, integrate the following endpoints:
 
-* [`/v3/catalog/products`](https://developer.bigcommerce.com/api-reference/store-management/catalog/products/createproduct)
+* [`/v3/catalog/products`](https://developer.bigcommerce.com/api-reference/catalog/catalog-api/products/createproduct)
 * [`/v2/orders`](https://developer.bigcommerce.com/api-reference/orders/orders-api)
 
 <div class="HubBlock--callout">
