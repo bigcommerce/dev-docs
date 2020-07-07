@@ -21,7 +21,7 @@ This article is a comprehensive command reference for Stencil CLI (BigCommerce's
 
 ## Commands Overview
 
-The syntax to run a Stencil CLI command is as follows: 
+The syntax to run a Stencil CLI command is as follows:
 
 ```shell
 stencil <COMMANDS> [<OPTIONS>] <PARAMETERS>
@@ -36,7 +36,7 @@ Running `stencil help` outputs a full list of commands and their descriptions. F
 |[bundle](#stencil-bundle)   |Bundles up the theme into a structured `.zip` file, which can be uploaded to BigCommerce.      |
 |[pull](#stencil-pull)       |Pulls the theme configuration `config.json` file from the live store and updates the local configuration.         |
 |[push](#stencil-push)       |Bundles the theme into `.zip` file; then directly uploads the `.zip` to BigCommerce.         |
-|[release]()                 |Creates a new release in a theme's GitHub repository.                                       |
+|[release](#stencil-release)                 |Creates a new release in a theme's GitHub repository.                                       |
 |[help](#stencil-help)       |Displays help and returns all the options available to use for the specified command.        |
 
 <!--
@@ -73,7 +73,7 @@ Options:
 
 ## `stencil init`
 
-Creates a `.stencil` file used to configure the live preview when `stencil start` is run. The configuration information can be specified using the optional switches; if the configuration information is not specified via options, a prompt for the information will be displayed. 
+Creates a `.stencil` file used to configure the live preview when `stencil start` is run. The configuration information can be specified using the optional switches; if the configuration information is not specified via options, a prompt for the information will be displayed.
 
 **Usage:**
 
@@ -96,7 +96,7 @@ Starts the live theme preview using the theme files in the current directory.
 **Usage:**
 
 ```shell
-stencil start [-V|--version] [-o|--open] [-v|--variation] [-t|--test] [-t|--tunnel] 
+stencil start [-V|--version] [-o|--open] [-v|--variation] [-t|--test] [-t|--tunnel]
 stencil start [-h|--help]
 ```
 
@@ -121,7 +121,7 @@ stencil start --open # opens live theme preview in default browser
 <div class="HubBlock--callout">
 <div class="CalloutBlock--info">
 <div class="HubBlock-content">
-    
+
 <!-- theme: {{callout_type}} -->
 
 ### --theme-editor and --theme-editor-port [port]:
@@ -139,7 +139,7 @@ stencil start --open # opens live theme preview in default browser
 <!-- theme: warning -->
 
 ### Authentication Errors
-> If you receive an `Unauthorized, please use a valid username/token` error, authentication has failed. Check the API token supplied is correct. For more information on creating store API accounts and generating tokens, see: [Obtaining Store API Credentials](https://developer.bigcommerce.com/stencil-docs/installing-stencil-cli/live-previewing-a-theme#step-3-serve-live-preview). 
+> If you receive an `Unauthorized, please use a valid username/token` error, authentication has failed. Check the API token supplied is correct. For more information on creating store API accounts and generating tokens, see: [Obtaining Store API Credentials](https://developer.bigcommerce.com/stencil-docs/installing-stencil-cli/live-previewing-a-theme#step-3-serve-live-preview).
 
 </div>
 </div>
@@ -184,7 +184,7 @@ Usage: stencil push [<OPTIONS>]
 | Option                        |Alias| Description                                                                          |
 |-|--|--|
 |`--version`                    |`-V` | Output the version number                                                           |
-|`--host [HOSTNAME]`            |     | Specify the API host (default: https://api.bigcommerce.com)                          |
+|`--host [HOSTNAME]`            |     | Specify the API host (default: `api.bigcommerce.com`)                          |
 |`--file [<FILENAME>]`          |`-f` | Specify the filename of the bundle to upload                                         |
 |`--save [<FILENAME]`           |`s`  | Specify the filename to save the bundle as                                           |
 |`--activate [<VARIATIONNAME>]` |`-a` | Skip activation prompt; specify variation or leave blank to select first variation  |
@@ -199,7 +199,7 @@ stencil push -f Cornerstone-2.3.2.zip # uploads specified file, skips bundling i
 <div class="HubBlock--callout">
 <div class="CalloutBlock--info">
 <div class="HubBlock-content">
-    
+
 <!-- theme: {{callout_type}} -->
 
 ### --filename:

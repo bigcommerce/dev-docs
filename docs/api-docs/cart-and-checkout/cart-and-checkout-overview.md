@@ -10,11 +10,11 @@
 - [Troubleshooting Cart Errors](#troubleshooting-cart-errors)
 - [Resources](#resources)
 
-</div> 
+</div>
 
 ## Storefront Cart and Checkout
 
-The Storefront APIs are for managing the contents of a shopper's cart and checkout using JavaScript in the context of a storefront session. 
+The Storefront APIs are for managing the contents of a shopper's cart and checkout using JavaScript in the context of a storefront session.
 
 ### Prerequisites:
 The following [OAuth Scopes](https://developer.bigcommerce.com/api-docs/getting-started/authentication#authentication_oauth-scopes) are required:
@@ -33,11 +33,11 @@ The following [OAuth Scopes](https://developer.bigcommerce.com/api-docs/getting-
 * Upsell applications
 
 ### Using the Fetch API
-The [Fetch API](https://developer.mozilla.org/en-US/docs/Web/API/Fetch_API) is an alternative to [XMLHttpRequest](https://developer.mozilla.org/en-US/docs/Web/API/XMLHttpRequest) for making http requests in JavaScript. You can use the Fetch API to interact with the Storefront APIs and return a shopper's cart, checkout or order. 
+The [Fetch API](https://developer.mozilla.org/en-US/docs/Web/API/Fetch_API) is an alternative to [XMLHttpRequest](https://developer.mozilla.org/en-US/docs/Web/API/XMLHttpRequest) for making http requests in JavaScript. You can use the Fetch API to interact with the Storefront APIs and return a shopper's cart, checkout or order.
 
 Fetch API is supported by most modern browsers, but it is not supported in Internet Explorer. We recommend using a [Polyfill](https://github.com/github/fetch) for Internet Explorer 10+ and XMLHttpRequest for earlier versions.
 
-To learn more about using the Fetch API with the Storefront see our tutorial [here](/api-docs/cart-and-checkout/working-sf-apis). 
+To learn more about using the Fetch API with the Storefront see our tutorial [here](/api-docs/cart-and-checkout/working-sf-apis).
 
 You can run fetch requests from the browser console to test, or you can  use the [Scripts API](/api-docs/scripts/scripts-overview) to add inject JavaScript into your theme's footer.
 
@@ -148,9 +148,9 @@ The Server-to-Server APIs are for managing the contents of a shopping cart and c
 
 ## Persistent Cart
 
-[Persistent Cart](https://support.bigcommerce.com/s/article/Persistent-Cart) allows for a logged in shopper to access the same cart across devices. Persistent cart is available on [Plus, Pro and Enterprise plans](https://www.bigcommerce.com/essentials/pricing/). 
+[Persistent Cart](https://support.bigcommerce.com/s/article/Persistent-Cart) allows for a logged in shopper to access the same cart across devices. Persistent cart is available on [Plus, Pro and Enterprise plans](https://www.bigcommerce.com/essentials/pricing/).
 
-Persistent Cart works with our Storefront Cart and Sever to Server Cart. 
+Persistent Cart works with our Storefront Cart and Sever to Server Cart.
 To learn more on setup, see [Persistent Cart](https://support.bigcommerce.com/s/article/Persistent-Cart).
 
 ## Troubleshooting Cart Errors
@@ -159,12 +159,12 @@ We will go over common Storefront Cart and Checkout as well as Server to Server 
 ### Please create some text for the API option [422]
 *Server to Server Cart API*
 
-***Issue:*** When a cart is created containing a product that has an incorrect or missing text modifier. 
+***Issue:*** When a cart is created containing a product that has an incorrect or missing text modifier.
 
 ***Resolution:***
 Options and modifiers refer to a list of choices on a product. Options are used to build out variants and modifiers are not tied to variants at all. To learn more about options and modifiers see [Products Overview](/api-docs/catalog/products-overview#products-overview_modifier-options).
 
-To add a product to the cart that has a single modifier (text field), POST to the [Cart API](/api-reference/cart-checkout/server-server-cart-api/cart/createacart) without the `variant_id`. 
+To add a product to the cart that has a single modifier (text field), POST to the [Cart API](/api-reference/cart-checkout/server-server-cart-api/cart/createacart) without the `variant_id`.
 
 <div class="HubBlock-header">
     <div class="HubBlock-header-title flex items-center">
@@ -195,7 +195,7 @@ lineNumbers: true
 }
 ```
 
-To add a product to the cart that has one option (radio button)  associated with it, use just the `variant_id` in the request. 
+To add a product to the cart that has one option (radio button)  associated with it, use just the `variant_id` in the request.
 
 <div class="HubBlock-header">
     <div class="HubBlock-header-title flex items-center">
@@ -260,11 +260,11 @@ lineNumbers: true
 
 *Server to Server Cart API*
 
-***Issue:*** 
-When a required product modifier is missing. A product can have a modifier that is not required. In those cases the product can be added to a cart without the modifier. 
+***Issue:***
+When a required product modifier is missing. A product can have a modifier that is not required. In those cases the product can be added to a cart without the modifier.
 
 ***Resolution:***
-Use the [Get Products](/api-reference/catalog/catalog-api/products/getproducts) or [Get Modifier](/api-reference/catalog/catalog-api/product-modifiers/getmodifiers) endpoints to return the modifier ID. The `modifier_id` = `option_id`. 
+Use the [Get Products](/api-reference/catalog/catalog-api/products/getproducts) or [Get Modifier](/api-reference/catalog/catalog-api/product-modifiers/getmodifiers) endpoints to return the modifier ID. The `modifier_id` = `option_id`.
 
 To create a cart with a product modifier:
 
@@ -301,12 +301,12 @@ lineNumbers: true
 *Server to Server Cart API*
 
 ***Issue:***
-This can return when the customer ID of a cart has changed. 
+This can return when the customer ID of a cart has changed.
 
 ***Resolution:***
 The customer ID is linked to discounts and pricing available to that customer. If that is changed then anything that affects the cart price is invalidated. This includes coupons, discounts, taxes and shipping.
 
-A cart should be created with the `customer_id` as part of the request body. Use the [Get Customers](/api-reference/customer-subscribers/customers-api/customers/getallcustomers) endpoint to get the `customer_id`. 
+A cart should be created with the `customer_id` as part of the request body. Use the [Get Customers](/api-reference/customer-subscribers/customers-api/customers/getallcustomers) endpoint to get the `customer_id`.
 
 To create a cart with a `customer_id`:
 
@@ -337,7 +337,7 @@ lineNumbers: true
 ### This product has options, variant ID is required [422]
 *Server to Server Cart API*
 
-***Issue:***  When a product has options and variant ID is not supplied in either the create or update cart request. 
+***Issue:***  When a product has options and variant ID is not supplied in either the create or update cart request.
 
 ***Resolution:***
 To get the variant ID use the [Get Products](/api-reference/catalog/catalog-api/products/getproducts) endpoint or the [Get Variants](/api-reference/catalog/catalog-api/product-variants/getvariantsbyproductid) endpoint.
@@ -371,8 +371,7 @@ lineNumbers: true
 The incorrect `option_id` is supplied.
 
 ***Resolution:***
-To get the correct option_id make a request to [Get Products
-](/api-reference/catalog/catalog-api/products/getproducts) or [Get Options](/api-reference/catalog/catalog-api/product-variant-options/getoptions). 
+To get the correct option_id make a request to [Get Products](https://developer.bigcommerce.com/api-reference/catalog/catalog-api/products) or [Get Options](https://developer.bigcommerce.com/api-reference/catalog/catalog-api/product-options/getoptions).
 
 <div class="HubBlock-header">
     <div class="HubBlock-header-title flex items-center">
@@ -411,7 +410,7 @@ lineNumbers: true
 * The modifierID is incorrect.
 
 **Resolution:**
-To add a product to the cart that has a single modifier (text field), POST to the [Cart API](/api-reference/cart-checkout/storefront-cart-api/cart/createacart) without the `variant_id`. Use the `optionId` and `optionValue` instead. 
+To add a product to the cart that has a single modifier (text field), POST to the [Cart API](/api-reference/cart-checkout/storefront-cart-api/cart/createacart) without the `variant_id`. Use the `optionId` and `optionValue` instead.
 
 <div class="HubBlock-header">
     <div class="HubBlock-header-title flex items-center">
@@ -442,7 +441,7 @@ lineNumbers: true
 }
 ```
 
-To add a product to the cart that has one option (radio button)  associated with it, use just the `variant_id` in the request. 
+To add a product to the cart that has one option (radio button)  associated with it, use just the `variant_id` in the request.
 
 <div class="HubBlock-header">
     <div class="HubBlock-header-title flex items-center">
@@ -514,10 +513,10 @@ Check the product for `order_quantity_minimum` and `order_quantity_maximum `for 
 
 ### Internal Server Error [500]
 
-*Server to Server Cart API* 
+*Server to Server Cart API*
 
 ***Issue:***
-Trying to edit a Cart that does not exist. 
+Trying to edit a Cart that does not exist.
 
 ***Resolution:***
 Carts are only valid 30 days past the `date_last_modified`. Check the [Get Carts](/api-reference/cart-checkout/storefront-cart-api/cart/getacart) endpoint for the current available session cart.

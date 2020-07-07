@@ -43,7 +43,7 @@ BigCommerce's **V2 REST API** exposes many endpoints developers can use to progr
 |  [Customer Addresses](https://developer.bigcommerce.com/api-reference/store-management/customers-v2/customer-addresses) | Create / manage customer addresses | `/customers/{id}/addresses` |
 |  [Customer Groups](https://developer.bigcommerce.com/api-reference/store-management/customers-v2/customer-groups) | Create / manage customer groups | `/customer_groups` |
 |  [Customers](https://developer.bigcommerce.com/api-reference/store-management/customers-v2/customers) | Create / manage customers | `/customers` |
-|  [Customers Validate Password](developer.bigcommerce.com/api-reference/store-management/customers-v2/customer-passwords) | Validate customer passwords | `/customers/{id}/validate` |
+|  [Customers Validate Password](https://developer.bigcommerce.com/api-reference/store-management/customers-v2/customer-passwords) | Validate customer passwords | `/customers/{id}/validate` |
 |  [Countries](https://developer.bigcommerce.com/api-reference/store-management/geography-api/countries) | List of states, provinces, and countries | `/countries` |
 |  [Gift Certificates](https://developer.bigcommerce.com/api-reference/store-management/marketing/gift-certificates) | Create / manage gift certificates | `/gift_certificates` |
 |  [Orders](https://developer.bigcommerce.com/api-reference/store-management/orders) | Create / manage orders | `/orders` |
@@ -53,7 +53,7 @@ BigCommerce's **V2 REST API** exposes many endpoints developers can use to progr
 |  [Shipping Carriers](https://developer.bigcommerce.com/api-reference/store-management/shipping-api/shipping-carrier) | Create / manage shipping carriers | `/shipping/carrier/connection` |
 |  [Shipping Methods](https://developer.bigcommerce.com/api-reference/store-management/shipping-api/shipping-method) | Create / manage shipping methods | `/shipping` |
 |  [Shipping Zones](https://developer.bigcommerce.com/api-reference/store-management/shipping-api/shipping-zones) | Create / manage shipping Zones | `/shipping` |
-|  [Store Information](https://developer.bigcommerce.com/api-reference/store-management/store-information-api/store-information-reference) | Create / manage metadata | `/store` |
+|  [Store Information](https://developer.bigcommerce.com/api-reference/store-management/store-information-api/store-information) | Create / manage metadata | `/store` |
 |  [Tax Class](https://developer.bigcommerce.com/api-reference/store-management/tax-classes-api) | Get available tax classes | `/tax_classes` |
 |  [Time Zone](https://developer.bigcommerce.com/api-reference/store-management/store-information-api/time-zone) | Get system timestamp | `/time` |
 

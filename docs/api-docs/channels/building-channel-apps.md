@@ -231,7 +231,7 @@ To import products to BigCommerce, `GET` the products from the external channel 
 
 POST https://api.bigcommerce.com/stores/{{store_hash}}/v3/catalog/products
 
-To import a product into BigCommerce, `POST` to `/stores/{{STORE_HASH}}/catalog/products`:
+To import a product into BigCommerce, `POST` to `/stores/{{STORE_HASH}}/v3/catalog/products`:
 
 ```http
 POST https://api.bigcommerce.com/stores/{{STORE_HASH}}/v3/endpoint
@@ -254,7 +254,7 @@ Accept: application/json
 }
 ```
 
-[![Open in Request Runner](https://storage.googleapis.com/bigcommerce-production-dev-center/images/Open-Request-Runner.svg)](LINK_TO_OPERATION#requestrunner)
+[![Open in Request Runner](https://storage.googleapis.com/bigcommerce-production-dev-center/images/Open-Request-Runner.svg)](https://developer.bigcommerce.com/api-reference/catalog/catalog-api/products/**createproduct**#requestrunner)
 
 Variants can be added via the same request used to create the product or later after the product is created, by a `POST` request to the [Product Variant endpoint](https://developer.bigcommerce.com/api-reference/store-management/catalog/product-variants/createvariant) (the former is recommended for bulk variant creation).
 
@@ -271,7 +271,7 @@ Content-Type: application/json
 Accept: application/json
 ```
 
-[![Open in Request Runner](https://storage.googleapis.com/bigcommerce-production-dev-center/images/Open-Request-Runner.svg)](LINK_TO_OPERATION#requestrunner)
+[![Open in Request Runner](https://storage.googleapis.com/bigcommerce-production-dev-center/images/Open-Request-Runner.svg)](https://developer.bigcommerce.com/api-reference/catalog/catalog-api/products/getproducts#requestrunner)
 
 Filters can be used in this call to retrieve subsets of the merchant’s catalog. Also, keep in mind that you will more than likely need to handle pagination to retrieve all products in a merchant’s catalog.
 
@@ -323,7 +323,7 @@ Accept: application/json
 ]
 ```
 
-[![Open in Request Runner](https://storage.googleapis.com/bigcommerce-production-dev-center/images/Open-Request-Runner.svg)](LINK_TO_OPERATION#requestrunner)
+[![Open in Request Runner](https://storage.googleapis.com/bigcommerce-production-dev-center/images/Open-Request-Runner.svg)](https://developer.bigcommerce.com/api-reference/cart-checkout/channels-listings-api/channel-listings/createchannellistings#requestrunner)
 
 For a complete channels reference (including request schemas and property descriptions), see: [API Reference > Channels and Listings](https://developer.bigcommerce.com/api-reference/cart-checkout/channels-listings-api).
 

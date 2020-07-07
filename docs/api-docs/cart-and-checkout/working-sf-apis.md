@@ -4,6 +4,7 @@
 
 ### On This Page
 - [Prerequisites](#prerequisites)
+- [Getting Started](#getting-started)
 - [Storefront Cart](#storefront-cart)
 - [Storefront Checkout](#storefront-checkout)
 - [Troubleshooting](#troubleshooting)
@@ -11,7 +12,7 @@
 
 </div>
 
-BigCommerce's [Storefront API](https://developer.bigcommerce.com/api-reference#storefront-api) exposes storefront data to Stencil themes. You can use this client API to manage a shopper's cart, checkout, and order data via client-side JavaScript. 
+BigCommerce's [Storefront API](https://developer.bigcommerce.com/api-reference#storefront-api) exposes storefront data to Stencil themes. You can use this client API to manage a shopper's cart, checkout, and order data via client-side JavaScript.
 
 
 This tutorial exhibits common use cases to help you get started with the Storefront API. Each use case contains JavaScript code snippets you can paste into your browser's console, allowing you to test in the context of your storefront session.
@@ -22,7 +23,7 @@ By the end of this tutorial, you should be familiar enough with some of the Stor
 
 ## Prerequisites
 
-For this tutorial, you will need a BigCommerce store with at least two products and a shipping option. 
+For this tutorial, you will need a BigCommerce store with at least two products and a shipping option.
 
 
 ## Getting Started
@@ -30,7 +31,7 @@ For this tutorial, you will need a BigCommerce store with at least two products 
 To begin, navigate to your storefront and open your browser’s developer console.
 
 
-For this tutorial, set the credentials option to `same-origin` and the content-type fetch request option to `application/json`. In production, your credentials will depend on your app setup. See [Request.credentials](https://developer.mozilla.org/en-US/docs/Web/API/Request/credentials) to learn more about other possible values. 
+For this tutorial, set the credentials option to `same-origin` and the content-type fetch request option to `application/json`. In production, your credentials will depend on your app setup. See [Request.credentials](https://developer.mozilla.org/en-US/docs/Web/API/Request/credentials) to learn more about other possible values.
 
 
 ## Storefront Cart
@@ -42,7 +43,7 @@ The first part of this tutorial will cover using the [Storefront Cart API](https
 You can create a cart by sending a POST request to the [Create Cart](https://developer.bigcommerce.com/api-reference/cart-checkout/storefront-cart-api/cart/createacart) endpoint.
 
 
-We will create the `createCart()` helper function to accomplish this. Copy and execute the code below to create the function. 
+We will create the `createCart()` helper function to accomplish this. Copy and execute the code below to create the function.
 
 
 ```js
@@ -58,7 +59,7 @@ function createCart(url, cartItems) {
  };
 ```
 
-The `createCart()` function takes two arguments: 
+The `createCart()` function takes two arguments:
 * `url`: The Storefront Cart API url.
 * `cartItems`: A `lineItems` array containing product IDs and quantities of the items we want to add.
 
@@ -81,7 +82,7 @@ createCart(`/api/storefront/carts`, {
 .catch(error => console.error(error));
 ```
 
-Your result should be similar to the one below. 
+Your result should be similar to the one below.
 
 Response:
 
@@ -157,7 +158,7 @@ Response:
 To display the contents of a cart, we need to send a GET request to the [Get a Cart](https://developer.bigcommerce.com/api-reference/cart-checkout/storefront-cart-api/cart/getacart) endpoint. By default, the cart response returns abbreviated product details. To get the full product details, we need to add the `include` query parameter.
 
 
-Copy and execute the code below to create and subsequently call the `getCart()` helper function. 
+Copy and execute the code below to create and subsequently call the `getCart()` helper function.
 
 ```js
 function getCart(url) {
@@ -167,7 +168,7 @@ function getCart(url) {
    })
    .then(response => response.json());
 };
- 
+
 getCart('/api/storefront/carts?include=lineItems.digitalItems.options,lineItems.physicalItems.options')
  .then(data => console.log(JSON.stringify(data)))
  .catch(error => console.error(error));
@@ -272,7 +273,7 @@ addCartItem(`/api/storefront/carts/`, `d4e978c2-bdcf-41b0-a49b-fecf4f5223c1`, {
  .catch(error => console.error(error));
 ```
 
-Response: 
+Response:
 
 ```json
 {
@@ -441,7 +442,7 @@ Before proceeding, make sure you have added two different line items to your car
 <div class="HubBlock--callout">
 <div class="CalloutBlock--info">
 <div class="HubBlock-content">
-    
+
 <!-- theme:  -->
 >Note: `checkoutId` is the `cartId`.
 
@@ -587,9 +588,9 @@ Response:
 }
 ```
 
-### Add a New Consignment 
+### Add a New Consignment
 
-A consignment consists of a shipping address with the associated line items. At a minimum, one shipping address with line items and shipping options must be included in the checkout. If multiple shipping locations are used, match each `lineItem` with the correct shipping address.  When adding a shipping address to the checkout, include the `?include=consignments.availableShippingOptions` query parameter to return the shipping options available for any address. 
+A consignment consists of a shipping address with the associated line items. At a minimum, one shipping address with line items and shipping options must be included in the checkout. If multiple shipping locations are used, match each `lineItem` with the correct shipping address.  When adding a shipping address to the checkout, include the `?include=consignments.availableShippingOptions` query parameter to return the shipping options available for any address.
 
 See [Add New Consignment to Checkout](https://developer.bigcommerce.com/api-reference/cart-checkout/storefront-checkout-api/checkout-consignments/checkoutsconsignmentsbycheckoutidpost) for more information.
 
@@ -607,7 +608,7 @@ function createConsignment(url, cartId, data) {
      },
      body: JSON.stringify(data),
  })
- .then(response => response.json()); 
+ .then(response => response.json());
  };
 ```
 
@@ -854,12 +855,12 @@ Response:
 
 ### Update a Consignment to Add a Shipping Option
 
-To update a consignment, add your `consignmentId` and the appropriate `shippingOptionId` (located inside of the `availableShippingOptions` object) to the PUT request parameters. See [Update Checkout Consignment](https://developer.bigcommerce.com/api-reference/cart-checkout/storefront-checkout-api/checkout-consignments/checkoutsconsignmentsbycheckoutidandconsignmentidput) for more information.
+To update a consignment, add your `consignmentId` and the appropriate `shippingOptionId` (located inside of the `availableShippingOptions` object) to the PUT request parameters. See [Update Checkout Consignment](https://developer.bigcommerce.com/api-reference/cart-checkout/server-server-checkout-api/checkout-consignments) for more information.
 
->**Note:** Only one consignment can be updated at a time. 
+>**Note:** Only one consignment can be updated at a time.
 
 
-Create the `updateConsignment()` helper function to accomplish this. 
+Create the `updateConsignment()` helper function to accomplish this.
 
 
 ```js
@@ -1047,8 +1048,8 @@ Response:
 
 ## Troubleshooting
 
-**Did you get a 404?**  
-Make sure you have at least one item in your cart. Removing all items deletes the cart and returns a 404 error. 
+**Did you get a 404?**
+Make sure you have at least one item in your cart. Removing all items deletes the cart and returns a 404 error.
 
 
 ## Resources

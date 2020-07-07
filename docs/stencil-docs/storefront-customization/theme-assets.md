@@ -12,12 +12,12 @@
 
 </div>
 
-Each Stencil theme’s `/assets/` directory contains CSS, JavaScript, and image assets that help create the design of storefront pages. A minimal `/assets/` directory contains the files and subdirectories that you can view on the [Cornerstone Github Repository](https://github.com/bigcommerce/cornerstone/tree/master/assets). 
+Each Stencil theme’s `/assets/` directory contains CSS, JavaScript, and image assets that help create the design of storefront pages. A minimal `/assets/` directory contains the files and subdirectories that you can view on the [Cornerstone Github Repository](https://github.com/bigcommerce/cornerstone/tree/master/assets).
 
 <div class="HubBlock--callout">
 <div class="CalloutBlock--warning">
 <div class="HubBlock-content">
-    
+
 <!-- theme: warning -->
 
 > In parts of your theme's directory tree where you are free to add new subdirectories and files, be sure to:
@@ -30,7 +30,7 @@ Each Stencil theme’s `/assets/` directory contains CSS, JavaScript, and image 
 </div>
 </div>
 
-## Cornerstone Assets Directory 
+## Cornerstone Assets Directory
 
 * Directory: `cornerstone/assets/`
 
@@ -110,14 +110,14 @@ Every utility in this subdirectory will have both a class and a mixin. For examp
 
 <a id="theme-assets_citadel"></a>
 
-## Citadel Subdirectory 
+## Citadel Subdirectory
 
 Stencil themes include an internal pattern library called Citadel, which consumes the ZURB Foundation framework. Foundation provides the basis for creating responsive themes. Citadel extends the Foundation framework’s mixins and components to provide Stencil’s own mixins, extensible components, and utilities. The design/style language underlying these Citadel resources is the Sass/SCSS preprocessor. Citadel resources are named according to BEM and SUIT CSS conventions. Classes are named functionally, rather than based on visual presentation or content. Citadel is based specifically on Foundation 5.5.3, which installs with the Stencil framework. We do not support Foundation 6.x, due to breaking changes introduced between versions 5.x and 6.x.
 
 Citadel design patterns reside in `cornerstone/assets/scss/components/`. Citadel assets bundled with Cornerstone are located in the following subdirectories:
 
-* [cornerstone/assets/scss/settings/citadel/]()
-* [cornerstone/assets/scss/components/citadel/]()
+* `cornerstone/assets/scss/settings/citadel/`
+* `cornerstone/assets/scss/components/citadel/`
 
 The `components/citadel` subdirectory contains Citadel-specific resources. The resources are named according to our style guide, which follows BEM and SUIT CSS naming conventions: Class names are structured, and hyphens are meaningful (that is, hyphens are not used merely to separate words). Here are some prototypes and examples:
 
@@ -243,7 +243,7 @@ This subdirectory’s children contain CSS for the following page elements.
 <div class="HubBlock--callout">
 <div class="CalloutBlock--info">
 <div class="HubBlock-content">
-    
+
 <!-- theme:info -->
 
 ### Akamai Image Manager

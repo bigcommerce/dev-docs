@@ -14,9 +14,9 @@
 
 </div>
 
-BigCommerce’s flexible Currency settings assist developers in building Multi-Currency storefronts that empower shoppers and merchants to do business in their currency of choice. Allowing customers to shop and check out in their native currency provides a more consistent and positive shopping experience, and maintaining price expectations throughout the shopping process encourages conversions for merchants. 
+BigCommerce’s flexible Currency settings assist developers in building Multi-Currency storefronts that empower shoppers and merchants to do business in their currency of choice. Allowing customers to shop and check out in their native currency provides a more consistent and positive shopping experience, and maintaining price expectations throughout the shopping process encourages conversions for merchants.
 
-This article provides a high-level guide to Multi-Currency concepts on BigCommerce as well as specific instructions on [adding currencies](adding-a-currency) via the control panel. For additional details on how currencies are surfaced throughout BigCommerce APIs, user interfaces, and storefront components, see [How Currencies Works](https://developer.bigcommerce.com/api-docs/catalog/currencies/how-currencies-work)
+This article provides a high-level guide to Multi-Currency concepts on BigCommerce as well as specific instructions on [adding currencies](#adding-a-currency) via the control panel. For additional details on how currencies are surfaced throughout BigCommerce APIs, user interfaces, and storefront components, see [How Currencies Works](https://developer.bigcommerce.com/api-docs/catalog/currencies/how-currencies-work)
 
 ## Display vs. Transactional
 
@@ -33,7 +33,7 @@ In BigCommerce, there are two types of currency that can be set up: a **display 
 <div class="HubBlock--callout">
 <div class="CalloutBlock--info">
 <div class="HubBlock-content">
-    
+
 <!-- theme: info -->
 
 ### Note
@@ -53,15 +53,15 @@ Before setting up multiple currencies on a store, ensure the store is configured
 * Stencil Theme
 * Optimized One-Page Checkout
 
-Additionally, review the [Currency API reference](https://developer.bigcommerce.com/api-reference/store-management/currency-api) to get aquainted with the endpoints and resources related to configuring multiple currencies. 
+Additionally, review the [Currency API reference](https://developer.bigcommerce.com/api-reference/store-management/currency-api) to get aquainted with the endpoints and resources related to configuring multiple currencies.
 
 <div class="HubBlock--callout">
 <div class="CalloutBlock--info">
 <div class="HubBlock-content">
-    
+
 <!-- theme: info -->
 
-> Make sure to not change the store’s default currency. This could cause currency to not function properly. 
+> Make sure to not change the store’s default currency. This could cause currency to not function properly.
 
 </div>
 </div>
@@ -69,7 +69,7 @@ Additionally, review the [Currency API reference](https://developer.bigcommerce.
 
 ## Adding a Currency
 
-<a id="adding-a-currency"></a> 
+<a id="adding-a-currency"></a>
 
 Transactional currencies can't be created via API just yet, so they'll need to be added via the control panel. To do so:
 
@@ -83,12 +83,12 @@ For more in-depth instructions and helpful screenshots, see [Adding a Currency](
 <div class="HubBlock--callout">
 <div class="CalloutBlock--error">
 <div class="HubBlock-content">
-    
+
 <!-- theme: error -->
 
 ### Note
-> Do not change the default currency -- this may lead to unintended currency conversion issues. 
-For instance, changing the default currency will not trigger price recalculation for the catalog. 
+> Do not change the default currency -- this may lead to unintended currency conversion issues.
+For instance, changing the default currency will not trigger price recalculation for the catalog.
 Additionally, changing the default currency will enable the newly assigned currency as transactional.
 
 
@@ -139,23 +139,23 @@ See the table below for a list of supported and un-supported features.
 
 <a id="faq"></a>
 
-**Do Multi-Currency settings work with the Checkout SDK?**  
+**Do Multi-Currency settings work with the Checkout SDK?**
 The Checkout SDK works with multi-currency. There is no additional setup needed for the SDK.
 After setting up currency in the Control Panel the SDK will work as normal.
 
-**Do my theme customizations work with Multi-Currency Settings?**  
+**Do my theme customizations work with Multi-Currency Settings?**
 If the theme is setup to show the currency on the storefront there should be no issues. Please see your
-theme developer if that is not the case. 
+theme developer if that is not the case.
 
-**Can shoppers still select a currency?**  
+**Can shoppers still select a currency?**
 Shoppers will still be able to select their currency of choice on the storefront. This will depend on the stores themes and customizations.
 
-**Will my analytics show in the transactional or display currency?**  
+**Will my analytics show in the transactional or display currency?**
 Analytics shows an approximate price in the store's default currency. This is based on the configured exchange rate. There is no
 abandoned cart analytics or web analytics such as Google Analytics. Currently it does not break down analytics by currency.
 
-**How can I setup settlement currencies in Stripe?**  
-Please reach out to Stripe for more information on setting up the account. 
+**How can I setup settlement currencies in Stripe?**
+Please reach out to Stripe for more information on setting up the account.
 [Supported Settlement Currencies](https://stripe.com/docs/connect/payouts#supported-settlement) (Stripe Documentation)
 
 ## Resources

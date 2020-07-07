@@ -11,7 +11,7 @@
 
 </div>
 
-Embedded Checkout lets you place BigCommerce’s Optimized One-Page checkout onto an external site. This tutorial will walk you through the sequence of API calls your application should make to create a working Embedded Checkout. 
+Embedded Checkout lets you place BigCommerce’s Optimized One-Page checkout onto an external site. This tutorial will walk you through the sequence of API calls your application should make to create a working Embedded Checkout.
 
 This article assumes you have familiarity with the following concepts:
 
@@ -45,7 +45,7 @@ To allow the external website to serve the BigCommerce checkout, create a new Ch
 ```
 
 The response will contain an `id` (use this as the `channel_id` in future requests):
-	
+
 ```json
 
 {
@@ -65,7 +65,7 @@ The response will contain an `id` (use this as the `channel_id` in future reques
 <div class="HubBlock--callout">
 <div class="CalloutBlock--info">
 <div class="HubBlock-content">
-    
+
 <!-- theme:  -->
 > Channels created via API are visible in the BigCommerce store's Control Panel in **Products** > **Listed On**. The Orders section will now also include a filter for your channel.
 
@@ -76,7 +76,7 @@ The response will contain an `id` (use this as the `channel_id` in future reques
 
 ## Step 2: Create a Site
 
-Next, create a site for the channel by POSTing to the [/channels/id/site endpoint](https://developer.bigcommerce.com/api-reference/cart-checkout/sites-routes-api/sites/post-channel-site):
+Next, create a site for the channel by POSTing to `/channels/id/site`:
 
 *`POST`* `https://api.bigcommerce.com/stores/{{store_hash}}/v3/channels/{{channel_id}}/site`
 
@@ -115,7 +115,7 @@ This returns `id` which you will use as the `site_id` in future requests. The `u
 
 ## Step 3: Create a Cart
 
-To proceed to checkout, we'll need an active cart. To create one, send a `POST` request to the [Server-to-Server Cart API's](https://developer.bigcommerce.com/api-reference/cart-checkout/server-server-cart-api)  `/cart` endpoint: 
+To proceed to checkout, we'll need an active cart. To create one, send a `POST` request to the [Server-to-Server Cart API's](https://developer.bigcommerce.com/api-reference/cart-checkout/server-server-cart-api)  `/cart` endpoint:
 
 **`POST`**  `https://api.bigcommerce.com/stores/{{store_hash}}/v3/carts`
 
@@ -132,7 +132,7 @@ To proceed to checkout, we'll need an active cart. To create one, send a `POST` 
 }
 ```
 
-If you are creating a cart for a specific customer, pass in the `customer_id` in the request: 
+If you are creating a cart for a specific customer, pass in the `customer_id` in the request:
 
 ```json
 {
@@ -146,12 +146,12 @@ If you are creating a cart for a specific customer, pass in the `customer_id` in
 }
 ```
 
-Contained in the response is a `UUID` which we'll use as the `cart_id` in the next request. 
-	
+Contained in the response is a `UUID` which we'll use as the `cart_id` in the next request.
+
 Next, generate a cart URL and set this cart as the active cart by posting to  to `/carts/{{cart_id}}/redirect_urls`:
 
 **`POST`** `https://api.bigcommerce.com/stores/{{store_hash}}/v3/carts/{{cart_id}}/redirect_urls`
-	
+
 **Response**
 
 ```json
@@ -165,7 +165,7 @@ Next, generate a cart URL and set this cart as the active cart by posting to  to
 ### Redirecting A Logged-In Customer to Embedded Checkout
 For some use cases, you may want your your customer to be logged in before they can begin the checkout process.
 
-The can be done using the [Customer Login API](https://developer.bigcommerce.com/api-docs/customers/customer-login-api#logging-in-a-customer). 
+The can be done using the [Customer Login API](https://developer.bigcommerce.com/api-docs/customers/customer-login-api#logging-in-a-customer).
 
 Your app will need to use JSON Web Token Standard to create a new token. Use a [JWT library](https://jwt.io/#libraries-io) to accomplish this. Include the `checkout_url` as part of the request payload you send to BigCommerce:
 
@@ -206,7 +206,7 @@ embedCheckout({
 
 ```
 
-At this point, you should have a working embedded checkout. 
+At this point, you should have a working embedded checkout.
 
 
 ## FAQ
