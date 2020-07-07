@@ -201,7 +201,7 @@ Below are example workflows that list which APIs are needed to create a Cart, Ch
 ## Resources
 
 ### Tools
-- [Cart, Checkout and Order Postman Collection](https://www.getpostman.com/collections/f4dbc360974d4b5eff77)
+- [Cart, Checkout and Order Postman Collection](https://www.postman.com/collections/f4dbc360974d4b5eff77)
 - [Checkout SDK](https://github.com/bigcommerce/checkout-sdk-js)
 - [WordPress Plugin](https://wordpress.org/plugins/bigcommerce/) (WordPress Plugin Directory)
 
