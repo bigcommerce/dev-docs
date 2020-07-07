@@ -39,13 +39,13 @@ In this example, we will include the following code in Cornerstone's [home.html]
 
 ## YAML Syntax
 
-Stencil front matter uses the conventions of [YAML]() (short for the recursive "YAML Ain't Markup Language"). Here are the YAML conventions you must follow in front matter:
+Stencil front matter uses the conventions of YAML. Here are the YAML conventions you must follow in front matter:
 
-Place the front-matter block at the top of your template.
-Fence the beginning and end of the front-matter block with a row of three hyphens (), as you see in the examples here.
-Show attribute > key relationship (or object > property relationship) by indenting the children. In the example above, products is the object,
-Place a colon (:) directly after each attribute name, and directly after each key name. (Colons separate key:value pairs.)
-Identifiers are case-sensitive.
+* Place the front-matter block at the top of your template.
+* Fence the beginning and end of the front-matter block with a row of three hyphens (), as you see in the examples here.
+* Show attribute > key relationship (or object > property relationship) by indenting the children. In the example above, products is the object,
+* Place a colon (:) directly after each attribute name, and directly after each key name. (Colons separate key:value pairs.)
+* Identifiers are case-sensitive.
 
 ### Restrictions
 
@@ -109,7 +109,7 @@ products:
     new:
         limit: 4
 
-#  This is the HTML for the new-products example 
+#  This is the HTML for the new-products example
 {{#each products.new}}
     <p>{{ name }}</p>
 {{/each}}

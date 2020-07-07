@@ -202,7 +202,7 @@ fetch('/graphql', {
 
 ### Customer Impersonation Tokens
 
-It's also possible to generate tokens for use in server-to-server interactions with a trusted consumer by POSTing to the [API Token Customer Impersonation Endpoint](https://developer.bigcommerce.com/api-reference/storefront/graphql-api-tokens/api-token-customer-impersonation/createtokenwithcustomerimpersonation):
+It's also possible to generate tokens for use in server-to-server interactions with a trusted consumer by POSTing to the [API Token Customer Impersonation Endpoint](https://developer.bigcommerce.com/api-reference/storefront/graphql-api-tokens/customer-impersonation-token/createtokenwithcustomerimpersonation):
 
 
 **`POST`** `https://api.bigcommerce.com/stores/{store_id}/v3/storefront/api-token-customer-impersonation`

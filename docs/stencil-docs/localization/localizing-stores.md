@@ -8,7 +8,7 @@
 - [Localizing Control Panel Content](#localizing-control-panel-content)
 - [Resources](#resources)
 
-</div> 
+</div>
 
 A BigCommerce storefront can be customized to display in any one language of your choice. To fully localize a store into a language/region other than U.S. English, you will need to customize three areas:
 
@@ -16,7 +16,7 @@ A BigCommerce storefront can be customized to display in any one language of you
 
 Translate static strings. This requires adding translation files for your chosen non-English languages, via Stencil CLI.
 
-2. [Checkout](#localizing_localizing-checkout)  
+2. [Checkout](#localizing_localizing-checkout)
 
 Localizing checkout requires modifications both to theme files (in Stencil CLI) and to settings in the BigCommerce control panel.
 
@@ -109,7 +109,7 @@ The `order-status` labels displayed on a BigCommerce storefront are configured o
 
 ### <div id="blog">Localizing the Blog</div>
 Blog entries are managed through the BigCommerce control panel under [**Storefront Content** ›
- **Blog**](https://nik.mybigcommerce.com/manage/content/blog). You can add blog content in any language you choose. For details, see [Creating a Blog Post](https://support.bigcommerce.com/s/article/Using-the-Built-In-Blog#creating-post) (BigCommerce Support).
+ **Blog**](https://login.mybigcommerce.com/manage/content/blog). You can add blog content in any language you choose. For details, see [Creating a Blog Post](https://support.bigcommerce.com/s/article/Using-the-Built-In-Blog#creating-post) (BigCommerce Support).
 
 ### <div id="static-web-pages">Localizing Static Web Pages</div>
 If you create static pages as Stencil custom templates, you can localize their content just like other theme pages' content. However, if you create custom pages via the BigCommerce control panel (under [Storefront Content › Web Pages](http://login.bigcommerce.com/deep-links/manage/content/pages)), you must also enter their localized content via the control panel.
@@ -124,7 +124,7 @@ To disable native emails, go to [Storefront › Email Templates](http://login.bi
 
 The BigCommerce platform does not currently support translation of gift certificates into languages other than English. To fully localize your store, you can choose to disable gift certificates via the BigCommerce control panel.
 
- 
+
 
 ## Resources
 

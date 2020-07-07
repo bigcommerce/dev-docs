@@ -14,7 +14,7 @@
 - [FAQ](#faq)
 - [Resources](#resources)
 
-</div> 
+</div>
 
 The Payments API enables you to process payments through the store’s connected payment gateway. A payment can be taken for an order that is created using either the [Server to Server Checkout API Orders](https://developer.bigcommerce.com/api-reference/cart-checkout/server-server-checkout-api) endpoint or creating an order using [V2 Orders](https://developer.bigcommerce.com/api-reference/orders/orders-api/orders/createanorder) endpoint.
 
@@ -22,7 +22,7 @@ Payments are processed via a sequence of requests to two API hosts:
 * Create the payment token:   `https://api.bigcommerce.com/stores/{store_hash}/v3/payments/access_tokens`
 * Process the payment:   `https://payments.bigcommerce.com/stores/{store_hash}/payments`
 
-### Required [OAuth Scopes](/api-docs/getting-started/authentication#authentication_oauth-scopes)**  
+### Required [OAuth Scopes](/api-docs/getting-started/authentication#authentication_oauth-scopes)**
 * `Create` `Payments`
 * `Read` `Payment Methods`
 
@@ -49,7 +49,7 @@ Merchants or shoppers personal identifiable information (PII) collected by recur
 
 ## Processing a Payment
 
-Payments can be processed using cards stored with the BigCommerce Stored Credit Cards feature or by providing a credit card number.  
+Payments can be processed using cards stored with the BigCommerce Stored Credit Cards feature or by providing a credit card number.
 
 **The following gateways are supported for stored cards:**
 
@@ -124,7 +124,7 @@ subtitle: "Get Payment Methods"
 lineNumbers: true
 -->
 
-**Example Response Get Payment Methods**  
+**Example Response Get Payment Methods**
 `/GET https://api.bigcommerce.com/stores/{{store_hash}}/v3/payments/methods?order_id={{order_id}}`
 
 ```json
@@ -194,7 +194,7 @@ subtitle: "Create Payment Access Token"
 lineNumbers: true
 -->
 
-**Example Request Create Payment Access Token**  
+**Example Request Create Payment Access Token**
 `/POST https://api.bigcommerce.com/stores/{{store_hash}}/v3/payments/access_tokens`
 
 ```json
@@ -257,7 +257,7 @@ subtitle: "Process Payment"
 lineNumbers: true
 -->
 
-**Example Request Process Payment**  
+**Example Request Process Payment**
 `/POST https://payments.bigcommerce.com/stores/{store_hash}/payments`
 
 ```curl
@@ -315,7 +315,7 @@ subtitle: "Create Payment Access Token"
 lineNumbers: true
 -->
 
-**Example Request Create Payment Access Token**  
+**Example Request Create Payment Access Token**
 `/POST https://api.bigcommerce.com/stores/{{store_hash}}/v3/payments/access_tokens`
 
 ```json
@@ -384,7 +384,7 @@ subtitle: "Process Payment"
 lineNumbers: true
 -->
 
-**Example Request Process Payment**  
+**Example Request Process Payment**
 `/POST https://payments.bigcommerce.com/stores/{store_hash}/payments`
 
 ```curl
@@ -470,7 +470,7 @@ subtitle: ""
 lineNumbers: true
 -->
 
-**Example Create an Order**  
+**Example Create an Order**
 `/POST https://api.bigcommerce.com/stores/{store_hash}/v2/orders`
 
 ```json
@@ -557,7 +557,7 @@ The Payments API rate limit is 50 payment requests per 4 seconds.  Some payment 
 
 The following diagram shows how the `payment_access_token` interacts with BigCommerce API and BigCommerce payments.
 
-Orders can be created using the [Server to Server API Endpoints](https://developer.bigcommerce.com/api-reference/cart-checkout/server-server-checkout-api/checkout/createanorder) or [Orders API](https://developer.bigcommerce.com/api-reference/orders/orders-api).
+Orders can be created using the [Server to Server API Endpoints](https://developer.bigcommerce.com/api-reference/cart-checkout/server-server-checkout-api/checkout-orders/createanorder) or [Orders API](https://developer.bigcommerce.com/api-reference/orders/orders-api).
 
 <!--
     title: Sample App Diagram
