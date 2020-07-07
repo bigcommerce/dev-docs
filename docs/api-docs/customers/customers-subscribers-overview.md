@@ -95,7 +95,7 @@ Customers are any shopper that has created an account on the store. The Customer
 <!-- theme:  -->
 
 ### Name Value Pairs
-> Each customer can have up to 100 name, value pairs stored
+> Each customer can have up to 50 name, value pairs stored
 
 </div>
 </div>
