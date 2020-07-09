@@ -1,11 +1,3 @@
----
-title: Extending Sales Apps with Channels Toolkit
-status: draft
-published:
-reviewed:
-tags: [channels]
----
-
 # Extending Sales Apps with Channels Toolkit
 
 <div class="otp" id="no-index">
