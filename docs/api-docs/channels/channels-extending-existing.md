@@ -11,19 +11,29 @@
 
 </div>
 
-This is a draft document to provide early access documentation and information to select partners for 2 primary reasons:
-
-* To build / update existing sales channel apps with the new functionality available via Channels Toolkit
-* To gather their input and feedback on Channels Toolkit
+This is article provides early access information to select partners who would like to update (or replace) their existing sales channel apps to leverage new functionality available via the Channels Toolkit. The BigCommerce team will also use this draft content to gather feedback and input on the Channels Toolkit from the selected partners.
 
 ## Terminology
 
-* **Channels Toolkit** - formerly known as Channels SDK, it is the set of tools, patterns, and APIs provided by BigCommerce to enable partners and developers to extend the BC ecosystem by building sales channel integrations, whether POS, marketing, marketplace, social, or headless storefronts, that are more deeply embedded within the BigCommerce control panel.
+|Term|Definition|
+|-|-|
+|**Channels Toolkit**|Formerly known as Channels SDK, it is the set of tools, patterns, and APIs provided by BigCommerce to enable partners and developers to extend the BigCommerce ecosystem by building sales channel integrations (whether they are point of sale, marketing, marketplace, social, or headless storefronts) that are more deeply embedded within the BigCommerce control panel.|
+|Select Partners|Partners approved by BigCommerce to be marketed and discoverable as sales channel providers within the new Channel Manager. These are partners who offer what we know to be best in breed integrations to key sales channels that help merchants grow their business.|
 
-* **Select Partners** - partners approved by BigCommerce product and/or SBD to be marketed and discoverable as sales channel providers within the new Channel Manager. These are partners who offer what we know to be best in breed integrations to key sales channels that help merchants grow their business.
-  * Select partners have slightly more stringent requirements for their sales channel apps due to the high visibility and marketability of their apps directly within the BigCommerce control panel
+<div class="HubBlock--callout">
+<div class="CalloutBlock--info">
+<div class="HubBlock-content">
 
-[Current GA Channel App Documentation]()
+<!-- theme: info -->
+
+### Note
+> * Select partners have slightly more stringent requirements for their sales channel apps due to the high visibility and marketability of their apps directly within the BigCommerce control panel.
+
+</div>
+</div>
+</div>
+
+For a high-level overview and more information on the Channels Toolkit, see [Channels Overview](https://developer.bigcommerce.com/api-docs/channels/overview)
 
 ## Updating an Existing App
 
