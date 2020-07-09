@@ -18,21 +18,34 @@ The following sections outline the steps required to become a vendor of Single-C
 
 Before you can submit an app to the [BigCommerce App Marketplace](https://www.bigcommerce.com/apps/) (which merchants also know as our “app store”), you must become an official Partner. BigCommerce offers app developers free sandbox stores through its Technology Partner Program. To be approved as a partner, you will need:
 
-* A website showcasing your agency
+* A website showcasing your agency or technology solution
 * Intent to offer your app publicly
 * Ability to support users of your app
 * Evidence of expertise in app development
 
 Once approved, you will receive one or more emails listing your partner credentials and next steps. Your Partner ID will be required to submit your app for App Marketplace consideration. If you do not receive these credentials by email, please contact <a href="mailto:appstore@bigcommerce.com">appstore@bigcommerce.com</a>.
 
+## Creating a Partner ID
+1. Go to the [Partner Portal](https://partners.bigcommerce.com/).
+2. Click **Apply Today**.
+![Partner Apply](https://raw.githubusercontent.com/bigcommerce/dev-docs/master/assets/images/becoming-a-partner-01.png "Partner Apply")
+3. Enter your company email address.
+4. Click the **Technology Partner Program** button.
+![Partner Registration](https://raw.githubusercontent.com/bigcommerce/dev-docs/master/assets/images/becoming-a-partner-02.png "Partner Registration")
+5. Complete the member registration.
+6. Click the **Complete Registration** button. 
+7. Check your email for your Partner ID.
+
 ## Getting a Sandbox Store
 
 To build a Marketplace app, you will need to have:
 * Sandbox store
-* Developer account at devtools.bigcommerce.com
+* Developer account at devtools.bigcommerce.com*
 * Be accepted as a BigCommerce partner. 
 
 We encourage you to create your sandbox store and your Dev Tools account using the same login credentials. A sandbox store cannot process transactions and is for developing and testing apps without the 15-day time time limit of a trial store. 
+
+*Your Developer Account is an entirely separate account outside of the Partner Portal.
 
 <div class="HubBlock--callout">
 <div class="CalloutBlock--warning">
@@ -47,13 +60,13 @@ We encourage you to create your sandbox store and your Dev Tools account using t
 </div>
 </div>
 
-### Create a Sandbox Store
+### Creating a Sandbox Store
 
 1. Go to the BigCommerce Pricing page and Select [Start your free trial](https://www.bigcommerce.com/essentials/pricing/).
 2. Where prompted for an email address, **enter the same email** that you used when applying to become a Partner.
 3. In the trial store setup form, enter a store name, password, and other details. Then select **Create your store**.
-4. Log in to your Partner account to access the [Partner Portal](https://partners.bigcommerce.com) 
-5. Navigate to **Support > Contact Support** and select **Create a Support Case**
+4. Log in to your Partner account to access the [Partner Portal](https://partners.bigcommerce.com). 
+5. Navigate to **Support > Contact Support** and select **Create a Support Case**.
 6. Complete the form with **Partner Sandbox** as the subject line. In the case description, enter your new sandbox store’s canonical URL (for example: http://your-store-name.mybigcommerce.com) and request conversion to a sandbox. 
 7. Under **Issue Type**, select **Merchant Account Services**. Click **Create Case**. We will flag this as a sandbox to ensure your continued access to the store, as opposed to the normal 15-day trial. This can take around two days.
 8.  When you log into your new trial store, use the same email associated with your Partner login.
