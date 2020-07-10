@@ -92,7 +92,8 @@ We encourage you to create your sandbox store and your Dev Tools account using t
 
 **Are all fields required when applying to be a partner?**
 
-While not all fields are required to publish edits for your listing, they are all highly recommended. Without filling in all fields, your listing will be missing information that merchants have seen on other listings and expect to see throughout the Marketplace.
+We highly recommend filling out all the fields associated with publishing edits for your listing. Without filling in all fields, your listing will lack information merchants are accustomed to seeing on other listings and expect to see throughout the Marketplace.
+
 
 **I’ve logged into Dev Tools, but I don’t see my published listing. Where is it?**
 
