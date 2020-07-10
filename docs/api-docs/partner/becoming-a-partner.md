@@ -85,7 +85,8 @@ We encourage you to create your sandbox store and your Dev Tools account using t
 
 7. Under **Issue Type**, select **Merchant Account Services**. Click **Create Case**. We will flag this new trial store as a sandbox to ensure your store access continues beyond the 15-day trial period. This process can take up to 2 days.
 
-8.  When you log into your new trial store, use the same email associated with your Partner login.
+8.  Log into your new trial store using the same email associated with your Partner login.
+
 
 ##  Troubleshooting
 
