@@ -74,7 +74,8 @@ We encourage you to create your sandbox store and your Dev Tools account using t
 2. When prompted for an email address, enter the _same_ email you used when applying to become a partner.
 
 3. In the trial store setup form, enter a store name, password, and other details. Then select **Create your store**.
-4. Log in to your Partner account to access the [Partner Portal](https://partners.bigcommerce.com). 
+4. Log into your Partner account to access the [Partner Portal](https://partners.bigcommerce.com). 
+
 5. Navigate to **Support > Contact Support** and select **Create a Support Case**.
 6. Complete the form with **Partner Sandbox** as the subject line. In the case description, enter your new sandbox store’s canonical URL (for example: http://your-store-name.mybigcommerce.com) and request conversion to a sandbox. 
 7. Under **Issue Type**, select **Merchant Account Services**. Click **Create Case**. We will flag this as a sandbox to ensure your continued access to the store, as opposed to the normal 15-day trial. This can take around two days.
