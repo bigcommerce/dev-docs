@@ -40,7 +40,8 @@ Once approved, you will receive one or more emails listing your partner credenti
 
 ## Getting a Sandbox Store
 
-To build a Marketplace app, you will need to have:
+To build a Marketplace app, you will need:
+
 * Sandbox store
 * Developer account at devtools.bigcommerce.com*
 * Be accepted as a BigCommerce partner. 
