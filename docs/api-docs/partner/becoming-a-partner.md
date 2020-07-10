@@ -44,7 +44,8 @@ To build a Marketplace app, you will need:
 
 * A sandbox store
 
-* Developer account at devtools.bigcommerce.com*
+* A developer account on the [BigCommerce Developer Portal](https://devtools.bigcommerce.com/my/apps)*
+
 * Be accepted as a BigCommerce partner. 
 
 We encourage you to create your sandbox store and your Dev Tools account using the same login credentials. A sandbox store cannot process transactions and is for developing and testing apps without the 15-day time time limit of a trial store. 
