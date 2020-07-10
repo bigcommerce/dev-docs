@@ -4,7 +4,7 @@
 
 ### On This Page
 - [Applying to the Technology Partner Program](#applying-to-the-technology-partner-program)
-- [Creating a Partner ID](#creating-a-partner-id)
+- [Requesting a Partner ID](#requesting-a-partner-id)
 - [Getting a Sandbox Store](#getting-a-sandbox-store)
 - [Troubleshooting](#troubleshooting)
 - [Resources](#resources)
@@ -27,7 +27,7 @@ Before you can submit an app to the [BigCommerce App Marketplace](https://www.bi
 
 Once approved, you will receive one or more emails listing your partner credentials and next steps. Your Partner ID will be required to submit your app for App Marketplace consideration. If you do not receive these credentials by email, please contact <a href="mailto:appstore@bigcommerce.com">appstore@bigcommerce.com</a>.
 
-## Creating a Partner ID
+## Requesting a Partner ID
 1. Go to the [Partner Portal](https://partners.bigcommerce.com/).
 2. Click **Apply Today**.
 ![Partner Apply](https://raw.githubusercontent.com/bigcommerce/dev-docs/master/assets/images/becoming-a-partner-01.png "Partner Apply")
@@ -36,7 +36,7 @@ Once approved, you will receive one or more emails listing your partner credenti
 ![Partner Registration](https://raw.githubusercontent.com/bigcommerce/dev-docs/master/assets/images/becoming-a-partner-02.png "Partner Registration")
 5. Complete the member registration.
 6. Click the **Complete Registration** button. 
-7. Check your email for your Partner ID.
+7. Once your application is approved, check your email for your Partner ID.
 
 ## Getting a Sandbox Store
 
