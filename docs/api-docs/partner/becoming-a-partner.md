@@ -105,7 +105,8 @@ The changes will be effective immediately in your control panel app card, but th
 
 **Who should I contact if I have further questions?**
 
-Email <a href="mailto:appstore@bigcommerce.com">appstore@bigcommerce.com</a> if you have further questions.
+If you have additional questions, email <a href="mailto:appstore@bigcommerce.com">appstore@bigcommerce.com</a>.
+
 
 ## Resources
 
