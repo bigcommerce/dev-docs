@@ -16,7 +16,8 @@ The following sections outline the steps required to become a vendor of Single-C
 
 ## Applying to the Technology Partner Program
 
-Before you can submit an app to the [BigCommerce App Marketplace](https://www.bigcommerce.com/apps/) (which merchants also know as our “app store”), you must become an official Partner. BigCommerce offers app developers free sandbox stores through its Technology Partner Program. To be approved as a partner, you will need:
+Before you can submit an app to the [BigCommerce App Marketplace](https://www.bigcommerce.com/apps/), also known as the App Store, you must become an official partner. BigCommerce offers app developers free sandbox stores through its Technology Partner Program. To be approved as a partner, you will need:
+
 
 * A website showcasing your agency or technology solution
 * Intent to offer your app publicly
