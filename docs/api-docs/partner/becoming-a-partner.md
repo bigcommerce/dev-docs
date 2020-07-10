@@ -51,7 +51,8 @@ To build a Marketplace app, you will need:
 
 We encourage you to create your sandbox store and your Dev Tools account using the same login credentials. A sandbox store cannot process transactions and is for developing and testing apps without the 15-day time time limit of a trial store. 
 
-*Your Developer Account is an entirely separate account outside of the Partner Portal.
+*Your developer account is an entirely separate account outside of the Partner Portal.
+
 
 <div class="HubBlock--callout">
 <div class="CalloutBlock--warning">
