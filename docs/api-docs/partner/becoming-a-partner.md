@@ -80,7 +80,8 @@ We encourage you to create your sandbox store and your Dev Tools account using t
 
 5. Navigate to **Support > Contact Support** and select **Create a Support Case**.
 
-6. While completing the form, use _Partner Sandbox_ as the subject line. In the case description, enter your new sandbox store’s canonical URL (for example: http://your-store-name.mybigcommerce.com) and request conversion to a sandbox. 
+6. While completing the form, use "Partner Sandbox" as the subject line. In the case description, enter your new sandbox store’s canonical URL (for example: http://your-store-name.mybigcommerce.com) and request conversion to a sandbox. 
+
 
 7. Under **Issue Type**, select **Merchant Account Services**. Click **Create Case**. We will flag this new trial store as a sandbox to ensure your store access continues beyond the 15-day trial period. This process can take up to 2 days.
 
