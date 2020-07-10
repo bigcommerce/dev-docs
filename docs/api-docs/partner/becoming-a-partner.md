@@ -69,7 +69,8 @@ We encourage you to create your sandbox store and your Dev Tools account using t
 
 ### Creating a Sandbox Store
 
-1. Go to the BigCommerce Pricing page and select [Start your free trial](https://www.bigcommerce.com/essentials/pricing/).
+1. Go to the [BigCommerce Pricing](https://www.bigcommerce.com/essentials/pricing/) page and select **Start your free trial**.
+
 
 2. When prompted for an email address, enter the _same_ email you used when applying to become a partner.
 
