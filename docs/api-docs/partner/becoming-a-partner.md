@@ -4,7 +4,7 @@
 
 ### On This Page
 - [Applying to the Technology Partner Program](#applying-to-the-technology-partner-program)
-- [Creating a Partner ID] (#creating-a-partner-id)
+- [Creating a Partner ID](#creating-a-partner-id)
 - [Getting a Sandbox Store](#getting-a-sandbox-store)
 - [Troubleshooting](#troubleshooting)
 - [Resources](#resources)
