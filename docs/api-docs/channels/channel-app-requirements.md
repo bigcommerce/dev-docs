@@ -5,8 +5,7 @@
 ### On this Page
 - [General Requirements](#general-requirements)
 - [Storefronts](#storefronts)
-- [Marketplace](#marketplace)
-- [Marketing](#marketing)
+- [Marketplaces & Marketing](#marketplaces--marketing)
 - [Resources](#resources)
 
 </div>
@@ -16,70 +15,49 @@ Once approved, channel apps are discoverable on BigCommerce's App Marketplace. A
 ## General Requirements
 
 **All Partners**:
-* Uses Channels API endpoints
-* Creates channel upon app installation - With `app_id`
-* Reads and Updates status via Channels endpoints
-* Follows requirements for specific channel type (listed below)
-* Onboarding user flow
+* Uses [Channels API](https://developer.bigcommerce.com/api-reference/cart-checkout/channels-listings-api)
+* [Creates a channel ](https://developer.bigcommerce.com/api-reference/cart-checkout/channels-listings-api/channels/createchannel) upon app installation using the `app_id`
+* Reads and updates channel status via [Channels endpoints](https://developer.bigcommerce.com/api-reference/cart-checkout/channels-listings-api)
+* Follows requirements for specific channel type.
+* Contains an onboarding user flow
 
 **Select Partners**:
-* Uses Big Design
-* Follows requirements for their type of channel (below) for all and select partners
+* Uses [Big Design](https://developer.bigcommerce.com/big-design/)
 
 ## Storefronts
 
-**All Partners**
-* Uses Orders API and uses `channel_id`
-* Manages channel life-cycle changes appropriately
-* When channel is created, sets status to either: `active` or `inactive`
-* When app is uninstalled, sets status to `disconnected`
-* When status is set to `archived` in Channel Manager
-* Never sets status to `connected` (and maybe `archived`?)
+**All Partners**:
+* Must use [Sites & Routes API](https://developer.bigcommerce.com/api-reference/cart-checkout/sites-routes-api) so that links generated within BigCommerce, such as "view storefront" and links sent in transactional emails to shoppers, will use the headless storefront's correct URL.
 
-**Select Partners**
-* Supports channel to product assignment (via Listings and/or Catalog API endpoints)
-* Uses Sites and Routes API endpoints
+## Marketplaces & Marketing
 
+**All Partners**:
+* Must use [listings API](https://developer.bigcommerce.com/api-reference/cart-checkout/channels-listings-api), if supporting per product listings (i.e. not simply syncing the entire catalog).
 
-**All Partners**
-* Uses Orders API and uses `channel_id`
-* Uses Catalog endpoints to syncing catalog data with BigCommerce
-* Manages channel life-cycle changes appropriately
-* When channel is created, sets status to: `connected`
-* When app is uninstalled, sets status to `disconnected`
-* Never sets status to `active`, `inactive`, or `archived`
+<div class="HubBlock--callout">
+<div class="CalloutBlock--info">
+<div class="HubBlock-content">
 
-**Select Partners**
-* Follows import pattern for POS (Square as reference example) and uses Catalog API accordingly
-* Provides programmatic authentication between BC and POS platform (NTH?)
-* Follows settings page pattern and provides following settings:
-* Sync
-* Revoke access / disable integration
-* When access is revoked or integration is disabled, `status` should be updated to `disconnected` and vice versa
+<!-- theme: info -->
 
-## Marketplace
+### Note
+> * In order to promote app performance and user experience best practices, additional general and channel type requirements will be outlined as needed.
 
-**All Partners**
-* Uses Orders API and uses channel_id
-* Manages channel lifecycle changes appropriately
-* When channel is created, sets status to: `connected`
-* When app is uninstalled, sets status to `disconnected`
-* Never sets status to `active`, `inactive`, or `archived`
-
-**Select Partners**
-* Supports channel to product assignment (via Listings and/or catalog API)
-
-## Marketing
-
-**All Partners**
-* Uses Orders API and uses `marketing_channel_id` [Note: not done yet … this is ideation)
-* Manages channel lifecycle changes appropriately
-* When channel is created, sets status to: `connected`
-* When app is uninstalled, sets status to `disconnected`
-* Never sets status to `active`, `inactive`, or `archived`
-
-**Select Partners**
-* Supports channel to product assignment (via Listings and/or catalog API)
+</div>
+</div>
+</div>
 
 ## Resources
-* [Become a Partner](https://www.bigcommerce.com/partners/)
+
+### Channels
+* [Channels Overview](https://developer.bigcommerce.com/api-docs/channels/overview)
+* [Building Channel Apps](https://developer.bigcommerce.com/api-docs/channels/building-channel-apps)
+* [Channels API Reference](https://developer.bigcommerce.com/api-reference/cart-checkout/channels-listings-api)
+* [Sites and Rites API Reference](https://developer.bigcommerce.com/api-reference/cart-checkout/sites-routes-api)
+
+### Building Apps
+* [Becoming a Partner](https://developer.bigcommerce.com/api-docs/partner/becoming-a-partner)
+* [Types of Apps](https://developer.bigcommerce.com/api-docs/getting-started/building-apps-bigcommerce/types-of-apps)
+* [Authenticating BigCommerce's REST APIs](https://developer.bigcommerce.com/api-docs/getting-started/authentication/rest-api-authentication)
+* [Building an App](https://developer.bigcommerce.com/api-docs/getting-started/building-apps-bigcommerce/building-apps)
+* [App Store Approval Requirements](https://developer.bigcommerce.com/api-docs/partner/app-store-approval-requirements)

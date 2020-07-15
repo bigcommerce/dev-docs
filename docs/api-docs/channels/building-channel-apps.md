@@ -38,7 +38,7 @@ This article is a comprehensive guide on the foundations of building apps on Big
 This article assumes you're familiar with how to:
 * interact with BigCommerce's API environment
 * create apps using DevTools
-* buildi apps on BigCommerce
+* building apps on BigCommerce
 * generate app API credentials
 
 If this is your first time developing with BigCommerce APIs, it might be helpful to checkout our API [Quick Start](https://developer.bigcommerce.com/api-docs/getting-started/making-requests) before beginning this guide.
@@ -66,21 +66,10 @@ If you include recommended or extended functionality, you may need the following
 ## Determining Channel Type
 How you build your channel app will depend on what kind of platform or channel you are building for and the functionality that is required or desired.
 
-**Storefront**
-
-A platform that enables merchants to power an online storefront outside of BigCommerce for selling their products. This is also used for internal BigCommerce storefronts (Ex: WordPress).
-
-**Point-of-sale (POS)**
-
-A physical system used by merchants to process transactions, maintain their product catalog, track customers, and more (Ex: Square).
-
-**Marketplace**
-
-A platform on which merchants list their catalog and sell their products, with transactions processed by the marketplace platform (Ex: Amazon).
-
-**Marketing**
-
-A platform on which merchants communicate their brand and products with their shopper base, seeking to drive discovery and conversion. These channels do not support checkout directly (Ex: Instagram).
+* **Storefront** - A platform that enables merchants to power an online storefront outside of BigCommerce for selling their products. This is also used for internal BigCommerce storefronts (Ex: WordPress).
+* **Point-of-sale (POS)** - A physical system used by merchants to process transactions, maintain their product catalog, track customers, and more (Ex: Square).
+* **Marketplace** - A platform on which merchants list their catalog and sell their products, with transactions processed by the marketplace platform (Ex: Amazon).
+* **Marketing** - A platform on which merchants communicate their brand and products with their shopper base, seeking to drive discovery and conversion. These channels do not support checkout directly (Ex: Instagram).
 
 For additional examples and information on types of channels, see Channel Types in [Channels Overview](https://developer.bigcommerce.com/api-docs/channels/channels-overview#types-of-channels).
 
@@ -220,7 +209,7 @@ The main feature merchants expect from channel apps is a seamless method to sync
 
 At a high level, this portion of the integration should:
 1. **Capture and compare** by pulling products from both BigCommerce and the external channel, then looping through and compare to see if any matches are found. The comparison is done against a unique identifier that can be found in both systems (its typically best to index using product **SKU** or **UPC**, if possible).
-2. **Update or create** by updating an existing product  if a match is found in step 1. If no match is found, create a product.
+2. **Update or create** by updating an existing product if a match is found in step 1. If no match is found, create a product.
 
 There are several workflows to get products to or from BigCommerce and the external channel. Depending on the channel and the desired functionality, you may make use of one or more of these in your app.
 
@@ -416,12 +405,21 @@ Listing apps on the BigCommerce App Marketplace is reserved for Technology Partn
 For a general list of app requirements, see [App Store Approval Requirements](https://developer.bigcommerce.com/api-docs/partner/app-store-approval-requirements).
 
 ## Resources
+
+### Channels
 * [Channels Toolkit Reference](https://developer.bigcommerce.com/api-docs/channels-toolkit-reference)
 * [Channels Overview](https://developer.bigcommerce.com/api-docs/channels/channels-overview)
 * [Channels Sample App](https://github.com/bigcommerce/channels-app)
 * [Big Design Component Library](https://developer.bigcommerce.com/big-design/?path=/story/badge--overview)
 * [Channel App Best Practices](https://developer.bigcommerce.com/api-docs/getting-started/best-practices)
 * [Sell Everywhere with Channel Manager](https://support.bigcommerce.com/s/article/Selling-Everywhere-with-Channel-Manager)
+* [Becoming a Partner](https://developer.bigcommerce.com/api-docs/partner/becoming-a-partner)
+
+### Building Apps
+* [Types of Apps](https://developer.bigcommerce.com/api-docs/getting-started/building-apps-bigcommerce/types-of-apps)
+* [Authenticating BigCommerce's REST APIs](https://developer.bigcommerce.com/api-docs/getting-started/authentication/rest-api-authentication)
+* [Building an App](https://developer.bigcommerce.com/api-docs/getting-started/building-apps-bigcommerce/building-apps)
+* [App Store Approval Requirements](https://developer.bigcommerce.com/api-docs/partner/app-store-approval-requirements)
 
 <!--stackedit_data:
 eyJoaXN0b3J5IjpbMTY5OTcxNTEwMyw0NjE3NjM5NCw3MzA5OT

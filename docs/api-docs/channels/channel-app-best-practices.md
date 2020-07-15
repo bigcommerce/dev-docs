@@ -16,7 +16,7 @@ To enable the best user experience, below are a few items to keep in mind when d
 
 ## Modular Features
 
-As the specific needs of every merchant is different, the features of your app should be as ‘modular’ as possible.
+As the specific needs of every merchant is different, the features of your app should be as modular as possible.
 
 ### For Merchants
 Consider the audience and various use cases for your application:
@@ -68,6 +68,18 @@ POS ID, BC ID, EVENT
 These logs would provide more granular details on the event that took place and all affected products.
 
 ## Resources
+
+### Channels
+* [Channels Toolkit Reference](https://developer.bigcommerce.com/api-docs/channels-toolkit-reference)
 * [Channels Overview](https://developer.bigcommerce.com/api-docs/channels/channels-overview)
-* [Channels Toolkit Reference](https://developer.bigcommerce.com/api-docs/channels/channels-toolkit-reference)
-* [Channels App Requirements](https://developer.bigcommerce.com/api-docs/channels/channel-app-requirements)
+* [Channels Sample App](https://github.com/bigcommerce/channels-app)
+* [Big Design Component Library](https://developer.bigcommerce.com/big-design/?path=/story/badge--overview)
+* [Channel App Best Practices](https://developer.bigcommerce.com/api-docs/getting-started/best-practices)
+* [Sell Everywhere with Channel Manager](https://support.bigcommerce.com/s/article/Selling-Everywhere-with-Channel-Manager)
+
+### Building Apps
+* [Becoming a Partner](https://developer.bigcommerce.com/api-docs/partner/becoming-a-partner)
+* [Types of Apps](https://developer.bigcommerce.com/api-docs/getting-started/building-apps-bigcommerce/types-of-apps)
+* [Authenticating BigCommerce's REST APIs](https://developer.bigcommerce.com/api-docs/getting-started/authentication/rest-api-authentication)
+* [Building an App](https://developer.bigcommerce.com/api-docs/getting-started/building-apps-bigcommerce/building-apps)
+* [App Store Approval Requirements](https://developer.bigcommerce.com/api-docs/partner/app-store-approval-requirements)
