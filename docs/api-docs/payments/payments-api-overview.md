@@ -59,6 +59,7 @@ Payments can be processed using cards stored with the BigCommerce Stored Credit 
 * Paymetric
 * Paypal Powered by Braintree
 * Stripe
+* StripeV3
 
 **The following gateways are supported for credit cards:**
 
@@ -81,6 +82,7 @@ Payments can be processed using cards stored with the BigCommerce Stored Credit 
 * Sage Pay/Protx VSP Direct
 * SecureNet
 * Stripe
+* StripeV3
 * USA ePay
 * Worldpay Core
 * WorldPay
