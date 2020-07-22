@@ -17,7 +17,7 @@ Embedded Checkout lets you place BigCommerce’s Optimized One-Page checkout ont
 This article assumes you have familiarity with the following concepts:
 
 * Creating and managing a server-side application
-* Making and recieving API calls from within your app
+* Making and receiving API calls from within your app
 * Using your application to make changes to a front end
 
 ### Prerequisites
@@ -32,7 +32,7 @@ This article assumes you have familiarity with the following concepts:
 
 ## Step 1: Create a Channel
 
-To allow an external website to serve the BigCommerce checkout, create a new Channel by sending a request to the `/channels` endpoint:
+To allow an external website to serve the BigCommerce checkout, create a new Channel by sending a request to the `/channels` endpoint.
 
 **`POST`** `https://api.bigcommerce.com/stores/{{store_hash}}/v3/channels`
 
@@ -46,7 +46,9 @@ To allow an external website to serve the BigCommerce checkout, create a new Cha
 }
 ```
 
-The response will contain an `id` (use this as the `channel_id` in future requests):
+The response will contain an `id` (use this as the `channel_id` in future requests).
+
+**Create Channel Response**
 	
 ```json
 
@@ -78,7 +80,7 @@ The response will contain an `id` (use this as the `channel_id` in future reques
 
 ## Step 2: Create a Site
 
-Next, create a site for the channel by sending a request to the `/channels/id/site` endpoint:
+Next, create a site for the channel by sending a request to the `/channels/id/site` endpoint.
 
 **`POST`** `https://api.bigcommerce.com/stores/{{store_hash}}/v3/channels/{{channel_id}}/site`
 
@@ -112,7 +114,7 @@ This returns `id` which you will use as the `site_id` in future requests. The `u
 
 ## Step 3: Create a Cart
 
-To proceed to checkout, we'll need an active cart. To create one, send a request to the [Server-to-Server Cart API's](https://developer.bigcommerce.com/api-reference/cart-checkout/server-server-cart-api)  `/cart` endpoint: 
+To proceed to checkout, we'll need an active cart. To create one, send a request to the [Server-to-Server Cart API's](https://developer.bigcommerce.com/api-reference/cart-checkout/server-server-cart-api)  `/cart` endpoint. 
 
 **`POST`**  `https://api.bigcommerce.com/stores/{{store_hash}}/v3/carts`
 
@@ -131,7 +133,7 @@ To proceed to checkout, we'll need an active cart. To create one, send a request
 }
 ```
 
-If you are creating a cart for a specific customer, pass in the `customer_id` in the request: 
+If you are creating a cart for a specific customer, pass in the `customer_id` in the request.
 
 ```json
 {
@@ -156,7 +158,7 @@ Contained in the response is a `id` which we'll use as the `cart_id` in the next
     ...
 }
 ```
-Next, generate cart redirect URLs and set this cart as the active cart by sending a request to `/carts/{{cart_id}}/redirect_urls`:
+Next, generate cart redirect URLs and set this cart as the active cart by sending a request to `/carts/{{cart_id}}/redirect_urls`.
 
 **`POST`** `https://api.bigcommerce.com/stores/{{store_hash}}/v3/carts/{{cart_id}}/redirect_urls`
 	
@@ -175,7 +177,7 @@ For some use cases, you may want your customer to be logged in before they can b
 
 This can be done using the [Customer Login API](https://developer.bigcommerce.com/api-docs/customers/customer-login-api#logging-in-a-customer). 
 
-Your app will need to use [JSON Web Token Standard](https://jwt.io/introduction/) to create a new token. Use a [JWT library](https://jwt.io/#libraries-io) to accomplish this. Include the `checkout_url` as part of the request payload you send to BigCommerce:
+Your app will need to use [JSON Web Token Standard](https://jwt.io/introduction/) to create a new token. Use a [JWT library](https://jwt.io/#libraries-io) to accomplish this. Include the `checkout_url` as part of the request payload you send to BigCommerce.
 
 **`POST`** `https://{store-url}}/login/token/{token}`
 
