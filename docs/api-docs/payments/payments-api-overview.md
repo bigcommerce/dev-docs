@@ -56,6 +56,7 @@ Payments can be processed using cards stored with the BigCommerce Stored Credit 
 * AdyenV2
 * Authorize.net
 * CyberSource
+* MyVirtualMerchant
 * Paymetric
 * Paypal Powered by Braintree
 * Stripe
