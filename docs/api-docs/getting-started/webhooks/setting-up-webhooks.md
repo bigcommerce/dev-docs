@@ -228,7 +228,8 @@ ngrok returns two values we will need to register a webhook and observe the resp
 
 Subscribe to the `store/product/updated` event: 
 
-1. If you have not already done so, generate the [API Access Token & Client ID](/api-docs/getting-started/basics/authentication#authentication_getting-api-credentials) with [scope](/api-docs/getting-started/basics/authentication#authentication_oauth-scopes) set to Information & Settings Read-Only and Products Read-Only.
+1. If you have not already done so, generate the [API Access Token & Client ID](/api-docs/getting-started/basics/authentication#authentication_getting-api-credentials) with the Information & Settings scope set to Read-Only and the Products scope set to Read-Only.
+
 2. `POST` to `https://api.bigcommerce.com/stores/{{store_hash}}/v2/hooks`. 
 Replace store_hash with the value from your store's API path.
 3. In the request body, `scope` is the webhook event we are subscribing to, and `destination` is the `ngrok` forwarding url with `/webhooks` appended (the route specified in the Express app):
