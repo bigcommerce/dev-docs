@@ -350,7 +350,8 @@ The record of the HTTP request will also show in the terminal tab running ngrok.
 ")
 
 ### Update Via the API
-1. Generate the [API Access Token & Client ID](/api-docs/getting-started/basics/authentication#authentication_getting-api-credentials) with [scope](/api-docs/getting-started/basics/authentication#authentication_oauth-scopes) set to Information & Settings Read-Only and Products Modify.
+1. Generate the [API Access Token & Client ID](/api-docs/getting-started/basics/authentication#authentication_getting-api-credentials). Set the Information & Settings scope to Read-Only and the Products scope to Modify.
+
 
 2. Create a PUT request to the product to be updated, replacing {{store-hash}} and {{product_id}} with values from your store: 
 
