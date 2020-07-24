@@ -322,7 +322,8 @@ Webhooks can be triggered by actions performed by a shopper on the storefront or
 ](//s3.amazonaws.com/user-content.stoplight.io/6012/1531500906129 "#### BigCommerce Control Panel
 ")
 
-3. Visit the ngrok web interface address and check for a 200 response. 
+3. Visit the ngrok web interface address and check for a `200` response. 
+
 
 <!--
     title: #### ngrok Web Interface
