@@ -195,7 +195,8 @@ From Express [Website](https://expressjs.com/en/starter/basic-routing.html):
 
 1. Open two terminal tabs. In both tabs, navigate to your project folder. 
 2. In one tab run the app. `node index.js`
-3. In the other tab start ngrok. `./ngrok http 3000`
+3. Start ngrok in the other tab. `./ngrok http 3000`
+
 
 #### node index.js
 
