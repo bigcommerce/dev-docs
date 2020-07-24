@@ -278,6 +278,7 @@ lineNumbers: true
 
 5. Check all the values and then send. If successful, the response will be `200 OK`.
 
+The id number displayed in the response is needed to disable the hook.
 
 <div class="HubBlock-header">
     <div class="HubBlock-header-title flex items-center">
