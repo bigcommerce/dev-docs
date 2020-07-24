@@ -222,7 +222,9 @@ If your channel site doesn't match the URL from which you're making a request to
 One option for working locally is to install an SSL on your local machine, and then send `https://localhost.com` as the Channel site. Use the default port 443 to be able to preview your site locally.
 
 ### Are hosted payment gateways supported with Embedded Checkout?
-At this time you cannot embed checkout using a hosted payment gateway. See [Available Payment Gateways](https://support.bigcommerce.com/s/article/Available-Payment-Gateways#all-available) to determine which type of gateway you're using.
+Embedded Checkout does not currently support hosted payment gateways. 
+
+To determine which type of gateway you're using, see [Available Payment Gateways](https://support.bigcommerce.com/s/article/Available-Payment-Gateways#all-available).
 
 ## Additional Resources
 - [Channels API reference](https://developer.bigcommerce.com/api-reference/cart-checkout/channels-listings-api/channels/createchannel)
