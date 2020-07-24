@@ -253,7 +253,8 @@ lineNumbers: true
 }
 ```
 
-4. Update the request headers to contain:
+4. Update the request headers to contain the following:
+
 
 <div class="HubBlock-header">
     <div class="HubBlock-header-title flex items-center">
