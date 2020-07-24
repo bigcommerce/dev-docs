@@ -129,7 +129,8 @@ lineNumbers: true
 ```
 
 2. Take note of the value in "main", `index.js`. 
-3. Create a file in your project folder called index.js. `touch index.js` for Mac or `copy nul > index.js` for Windows.
+3. Create a file in your project folder called index.js. Use the command `touch index.js` for Mac or `copy nul > index.js` for Windows.
+
 4. Install [Express](https://expressjs.com/en/starter/installing.html) using the terminal in the same project folder. `npm install express --save`
 
 <div class="HubBlock--callout">
