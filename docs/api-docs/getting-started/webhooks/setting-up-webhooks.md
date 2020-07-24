@@ -458,7 +458,8 @@ app.get('/',(req, res)=>{
 
 There are two ways to fix this. Your local setup will determine which command will work.
 Use the command `mv ngrok /usr/local/bin `to move ngrok to your local bin folder. This way it becomes available globally. 
-Use the command `./ngrok http 3000` to run ngrok as a pseudo user. 
+Use the command `./ngrok http 3000` to run ngrok as a sudo user. 
+
 
 <br>
 
