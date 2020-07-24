@@ -60,8 +60,7 @@ cd webhooks-test
 1. Visit https://ngrok.com/ and click download.
 2. Choose the version for your operating system.
 3. Unzip ngrok and place the application in the project folder that you created.
-
-This can be accomplished in one command:
+This step can be accomplished in one command:
 
 <div class="HubBlock-header">
     <div class="HubBlock-header-title flex items-center">
@@ -130,7 +129,7 @@ lineNumbers: true
 ```
 
 2. Take note of the value in "main", `index.js`. 
-3. Create a file in your project folder called index.js. `touch index.js` or `copy nul > index.js` for Windows.
+3. Create a file in your project folder called index.js. `touch index.js` for Mac or `copy nul > index.js` for Windows.
 4. Install [Express](https://expressjs.com/en/starter/installing.html) using the terminal in the same project folder. `npm install express --save`
 
 <div class="HubBlock--callout">
@@ -151,7 +150,7 @@ lineNumbers: true
 </div>
 </div>
 
-4. Copy and paste the following into `index.js`:
+5. Copy and paste the following into `index.js`:
 
 <div class="HubBlock-header">
     <div class="HubBlock-header-title flex items-center">
@@ -195,7 +194,7 @@ From Express [Website](https://expressjs.com/en/starter/basic-routing.html):
 
 1. Open two terminal tabs. In both tabs, navigate to your project folder. 
 2. In one tab run the app. `node index.js`
-3. In the other start ngrok. `./ngrok http 3000`
+3. In the other tab start ngrok. `./ngrok http 3000`
 
 #### node index.js
 
@@ -227,9 +226,10 @@ ngrok returns two values we will need to register a webhook and observe the resp
 
 Subscribe to the `store/product/updated` event: 
 
-1. `POST` to `https://api.bigcommerce.com/stores/{{store_hash}}/v2/hooks`. 
+1. If you have not already done so, generate the [API Access Token & Client ID](/api-docs/getting-started/basics/authentication#authentication_getting-api-credentials) with [scope](/api-docs/getting-started/basics/authentication#authentication_oauth-scopes) set to Information & Settings Read-Only and Products Read-Only.
+2. `POST` to `https://api.bigcommerce.com/stores/{{store_hash}}/v2/hooks`. 
 Replace store_hash with the value from your store's API path.
-2. In the request body, `scope` is the webhook event we are subscribing to, and `destination` is the `ngrok` forwarding url with `/webhooks` appended (the route specified in the Express app):
+3. In the request body, `scope` is the webhook event we are subscribing to, and `destination` is the `ngrok` forwarding url with `/webhooks` appended (the route specified in the Express app):
 
 <div class="HubBlock-header">
     <div class="HubBlock-header-title flex items-center">
@@ -251,7 +251,7 @@ lineNumbers: true
 }
 ```
 
-1. Update the request headers to contain:
+4. Update the request headers to contain:
 
 <div class="HubBlock-header">
     <div class="HubBlock-header-title flex items-center">
@@ -272,7 +272,7 @@ lineNumbers: true
     X-Auth-Token: {{the OAuth token}}
 ```
 
-4. Check all the values and then send. If successful, the response will be 200 OK.
+5. Check all the values and then send. If successful, the response will be 200 OK.
 
 <div class="HubBlock-header">
     <div class="HubBlock-header-title flex items-center">
@@ -319,7 +319,7 @@ Webhooks can be triggered by actions performed by a shopper on the storefront or
 ](//s3.amazonaws.com/user-content.stoplight.io/6012/1531500906129 "#### BigCommerce Control Panel
 ")
 
-3. Visit the ngrok web interface address  and check for a 200 response. 
+3. Visit the ngrok web interface address and check for a 200 response. 
 
 <!--
     title: #### ngrok Web Interface
@@ -348,7 +348,9 @@ The record of the HTTP request will also show in the terminal tab running ngrok.
 ")
 
 ### Update Via the API
-Create a PUT request to the product to be updated, replacing 124 with the product’s ID: 
+1. Generate the [API Access Token & Client ID](/api-docs/getting-started/basics/authentication#authentication_getting-api-credentials) with [scope](/api-docs/getting-started/basics/authentication#authentication_oauth-scopes) set to Information & Settings Read-Only and Products Modify.
+
+2. Create a PUT request to the product to be updated, replacing {{store-hash}} and {{product_id}} with values from your store: 
 
 `https://api.bigcommerce.com/stores/{{store_hash}}/v3/catalog/products/124`
 
@@ -454,7 +456,7 @@ app.get('/',(req, res)=>{
 
 There are two ways to fix this. Your local setup will determine which command will work.
 Use the command `mv ngrok /usr/local/bin `to move ngrok to your local bin folder. This way it becomes available globally. 
-Use the command `./ngrok http 3000` to run ngrok as a sudo user. 
+Use the command `./ngrok http 3000` to run ngrok as a pseudo user. 
 
 <br>
 
