@@ -274,7 +274,8 @@ lineNumbers: true
     X-Auth-Token: {{the OAuth token}}
 ```
 
-5. Check all the values and then send. If successful, the response will be 200 OK.
+5. Check all the values and then send. If successful, the response will be `200 OK`.
+
 
 <div class="HubBlock-header">
     <div class="HubBlock-header-title flex items-center">
