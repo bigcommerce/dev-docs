@@ -3,41 +3,19 @@
 <div class="otp" id="no-index">
 
 ### On this Page
-- [tags: [test]](#tags-test)
+- [Step 1: Update API Creds](#step-1-update-api-creds)
+- [Step 2: Integrate Channel API](#step-2-integrate-channel-api)
+- [Step 3: Migrate Existing Data](#step-3-migrate-existing-data)
+- [App Requirements](#app-requirements)
+- [Sample Configuration](#sample-configuration)
 - [Terminology](#terminology)
-- [Step 1: Integrate Channel API](#step-1-integrate-channel-api)
-- [Step 2: Migrate Existing Data](#step-2-migrate-existing-data)
-- [Channel Type Specific Requirements](#channel-type-specific-requirements)
-- [Sample Channel App Configuration](#sample-channel-app-configuration)
 - [Resources](#resources)
 
 </div>
 
 This article provides a guide to  partners who would like to update (or replace) their existing sales channel apps to leverage new functionality available via Channels Toolkit.
 
-## Terminology
-
-|Term|Definition|
-|-|-|
-|**Channels Toolkit**|Channels Toolkit is a  set of tools, UI patterns, guidelines, and APIs provided by BigCommerce to enable partners and developers to extend the BigCommerce ecosystem by building sales channel integrations (whether they are point of sale, marketing, marketplace, social, or headless storefronts) that are more deeply embedded within the BigCommerce control panel.|
-|**Select Partners**|Partners approved by BigCommerce to be marketed and discoverable as sales channel providers within the new Channel Manager. These are partners who offer what we know to be best in breed integrations to key sales channels that help merchants grow their business.|
-
-<div class="HubBlock--callout">
-<div class="CalloutBlock--info">
-<div class="HubBlock-content">
-
-<!-- theme: info -->
-
-### Note
-> * Select partners have slightly more stringent requirements for their sales channel apps due to the high visibility and marketability of their apps directly within the BigCommerce control panel.
-
-</div>
-</div>
-</div>
-
-For a high-level overview and more information on Channels Toolkit, see [Channels Overview](https://developer.bigcommerce.com/api-docs/channels/overview).
-
-## Step 1: Update API Credentials and Scopes
+## Step 1: Update API Creds
 Existing sales channel apps need app credentials with updated OAuth scopes to authenticate and authorize requests to Channels Toolkit APIs. Login to [devtools.bigcommerce.com](https://devtools.bigcommerce.com) to update your app's credentials. Channel APIs require the following scopes:
 
 |UI Name|Parameter|Enables|
@@ -72,7 +50,7 @@ To be visible in Channel Manager once installed, apps must meet certain requirem
 * **Orders** - Add `channel_id` with the corresponding channel ID for the merchant and which channel the order was placed on, if orders are synced to BigCommerce.
 * **Listings (optional)** - Create channel specific [product listings](https://developer.bigcommerce.com/api-reference/cart-checkout/channels-listings-api) (this is primarily necessary for storefronts, marketplaces, and marketing type of channels).
 
-## Channel Type Specific Requirements
+## App Requirements
 Although the sample app shown in the screenshots above is for a point of sale integration, we've designed [Channels Toolkit](https://developer.bigcommerce.com/api-docs/channels/channels-toolkit-reference) to be flexible enough to build any type of sales channel app, and each type of channel app has its own specific requirements centered around ensuring performance and user experience best practices.
 
 The above "updating existing app" data applies; however, non-POS channel apps are not necessarily required to use the same sections and user flows shown in the example app screenshots.
@@ -87,7 +65,7 @@ The above "updating existing app" data applies; however, non-POS channel apps ar
 **All Partners**:
 * Must use [listings API](https://developer.bigcommerce.com/api-reference/cart-checkout/channels-listings-api), if supporting per product listings (i.e. not simply syncing the entire catalog).
 
-## Sample Channel App Configuration
+## Sample Configuration
 To create or modify a channel app's configuration, send a `POST` or `PUT` request to `/stores/{{STORE_HASH}}/v3/channels`:
 
 ```http
@@ -150,6 +128,28 @@ Accept: application/json
 | `custom`          | `storefront`, `pos`, `marketing`, `marketplace`             |
 
 For a complete Channel API reference (including request schemas and property descriptions), see: [API Reference > Channels and Listings](https://developer.bigcommerce.com/api-reference/cart-checkout/channels-listings-api).
+
+## Terminology
+
+|Term|Definition|
+|-|-|
+|**Channels Toolkit**|Channels Toolkit is a  set of tools, UI patterns, guidelines, and APIs provided by BigCommerce to enable partners and developers to extend the BigCommerce ecosystem by building sales channel integrations (whether they are point of sale, marketing, marketplace, social, or headless storefronts) that are more deeply embedded within the BigCommerce control panel.|
+|**Select Partners**|Partners approved by BigCommerce to be marketed and discoverable as sales channel providers within the new Channel Manager. These are partners who offer what we know to be best in breed integrations to key sales channels that help merchants grow their business.|
+
+<div class="HubBlock--callout">
+<div class="CalloutBlock--info">
+<div class="HubBlock-content">
+
+<!-- theme: info -->
+
+### Note
+> * Select partners have slightly more stringent requirements for their sales channel apps due to the high visibility and marketability of their apps directly within the BigCommerce control panel.
+
+</div>
+</div>
+</div>
+
+For a high-level overview and more information on Channels Toolkit, see [Channels Overview](https://developer.bigcommerce.com/api-docs/channels/overview).
 
 ## Resources
 
