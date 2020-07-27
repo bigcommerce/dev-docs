@@ -3,17 +3,17 @@
 <div class="otp" id="no-index">
 
 ### On This Page
-- [Step 0: Obtain Store API Credentials](#step-0-obtain-store-api-credentials)
-- [Step 1: Download a Theme](#step-1-download-a-theme)
-- [Step 2: Install Theme Modules](#step-2-install-theme-modules)
-- [Step 3: Serve Live Preview](#step-3-serve-live-preview)
+- [Step 1: Obtain Store API Credentials](#step-0-obtain-store-api-credentials)
+- [Step 2: Download a Theme](#step-1-download-a-theme)
+- [Step 3: Install Theme Modules](#step-2-install-theme-modules)
+- [Step 4: Serve Live Preview](#step-3-serve-live-preview)
 - [Resources](#resources)
 
 </div>
 
 Once Stencil CLI is installed, the next step on the road to theme development is downloading a theme to edit and previewing live changes using Stencil CLI's powerful Browsersync functionality. This article will walk you through the process of downloading a theme for development, installing theme modules, then serving a live preview using Stencil CLI's `stencil start` command. The steps in this article assume Stencil CLI has been installed on your system; if its not installed yet, see [Installing Stencil CLI](https://developer.bigcommerce.com/stencil-docs/installing-stencil-cli/installing-stencil) for detailed, operating system specific instructions.
 
-## Step 0: Obtain Store API Credentials
+## Step 1: Obtain Store API Credentials
 
 Stencil CLI uses various BigCommerce APIs to inject store specific data (like carousel images and products) into the live theme preview it serves up. To do so, Stencil CLI must be supplied a store API token. [Store API Accounts](https://support.bigcommerce.com/s/article/Store-API-Accounts) and their tokens are generated in **Advanced Settings** > **API Accounts** inside a BigCommerce store's control panel (see [Store API Accounts](https://support.bigcommerce.com/s/article/Store-API-Accounts) for detailed instructions). 
 
@@ -28,7 +28,7 @@ The **Stencil-CLI Access Level** can then be set by selecting **local developmen
 * **local development only** - can read theme related store data, but can not publish
 * **publish theme** - can read theme related store data and push themes to the live storefront
 
-## Step 1: Download a Theme
+## Step 2: Download a Theme
 
 To develop against BigCommerce's Cornerstone theme (which is the building block and starting point for rapidly developing themes for BigCommerce) clone [the repository](https://github.com/bigcommerce/cornerstone) from GitHub:
 
@@ -94,7 +94,7 @@ For instructions on doing so, see the following resources:
 </div>
 </div>
 
-## Step 2: Install Theme Modules
+## Step 3: Install Theme Modules
  
 For theme versions `1.10.0+`, modules can be installed with `npm`:
 
@@ -121,7 +121,7 @@ This will install the `npm` modules required to properly leverage the Stencil ev
 </div>
 </div>
 
-## Step 3: Serve Live Preview
+## Step 4: Serve Live Preview
 
 Once Stencil CLI is installed and a theme is downloaded, a `.stencil` configuration file can be initialized for the theme and development can begin. 
 
