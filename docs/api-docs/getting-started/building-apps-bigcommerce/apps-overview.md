@@ -14,23 +14,41 @@
 Using BigCommerce's powerful APIs, SDKs, and Toolkits, any BigCommerce partner can create and list apps on BigCommerce's App Marketplace for merchants to install. This article provides a high-level overview of apps on BigCommerce. For an in-depth technical guide to developing BigCommerce apps, see [Building Apps]().
 
 ## About BigCommerce Apps
+
 ### Discovery
+![titled](https://raw.githubusercontent.com/bigcommerce/dev-docs/master/assets/images/ "title")
+
 ### Display
+![titled](https://raw.githubusercontent.com/bigcommerce/dev-docs/master/assets/images/ "title")
+
 ### Management
+![titled](https://raw.githubusercontent.com/bigcommerce/dev-docs/master/assets/images/ "title")
+
 ## Types of Apps
+Concise table; linkout to doc.
+
 ## Use Cases
+
 ### Integrate Platforms
+ERP, order management, accounting, etc; list of links
+
 ### Connect Sales Channels
+Point-of-Sale, Storefront, etc; list of links
+
 ### Add and Manage Scripts
+Create apps that inject scripts, marketing, analytics, etc; list of links
+
 ### Create Custom Widgets
+Create custom widgets for eCommerce merchants to install and configure; list of links
+
 ## Building Apps
 
 ### Getting Started
 
-1. Become a partner
-1. Get acquainted with our APIs
-1. Sign up for developer account
-1. Start a free trial
+1. Create a Free Trial
+2. Apply to be a Technology Partner
+3. Create a developer account
+4. Build your App
 
 ### Building the App
 

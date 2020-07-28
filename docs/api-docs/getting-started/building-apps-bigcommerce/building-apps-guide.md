@@ -3,16 +3,17 @@
 <div class="otp" id="no-index">
 
 ### On This Page
-- [OAuth Flow](#oauth-flow)
-- [Required URIs](#required-uris)
-- [Load Request](#load-request)
-- [Uninstall Request](#uninstall-request)
-- [Remove User Callback](#remove-user-callback)
-- [Processing the Signed Payload](#processing-the-signed-payload)
-- [Multi-User Support](#multi-user-support)
-- [External App Installation](#external-app-installation)
-- [Designing the User Interface](#designing-the-user-interface)
-- [Hosting Your App](#hosting-your-app)
+- [Getting Started](#getting-started)
+- [Creating App in DevTools](#creating-app-in-devtools)
+- [Implementing OAuth Flow](#implementing-oauth-flow)
+- [Required Callback URLs](#required-callback-urls)
+- [Handling Uninstall Callback](#handling-uninstall-callback)
+- [Handling Remove User Callback](#handling-remove-user-callback)
+- [Processing Callback Payload](#processing-callback-payload)
+- [Supporting Multiple Users](#supporting-multiple-users)
+- [Creating Install Buttons](#creating-install-buttons)
+- [Designing the UI](#designing-the-ui)
+- [Hosting the App](#hosting-the-app)
 - [FAQ](#faq)
 - [Resources](#resources)
 
@@ -20,11 +21,23 @@
 
 This article is an in-depth guide to building bigcommerce apps...
 
-## OAuth Flow
+### Prerequisites
+
+## Getting Started
+
+1. Create a [Free Trial](https://www.bigcommerce.com/essentials/free-trial)
+2. Apply to be a [Technology Partner](https://developer.bigcommerce.com/api-docs/partner/becoming-a-partner)
+3. Create a [developer account](https://devtools.bigcommerce.com/)
+
+## Creating App in DevTools
+
+Minimum steps. Links out to article.
+
+## Implementing OAuth Flow
 
 Go here for oauth flow...
 
-## Required URIs
+## Required Callback URLs
 In addition to the Auth Callback URI, the following URI's are required for BigCommerce Apps:
 
 | Name | Required? | Event Discussion |
@@ -38,7 +51,7 @@ Each event listed here triggers a GET request from BigCommerce containing a sign
 - Identify the store.
 - Identify the store owner or user.
 
-## Load Request
+### Handling Load Callback
 Once your app has been installed, the store owner or user can click its icon in the control panel to launch it. This causes BigCommerce to send a GET request to the Load Callback URI that you provided during app registration. In a production environment, the Load Callback URI must be publicly available, fully qualified, and served over TLS/SSL.
 
 ```http
@@ -49,7 +62,7 @@ Host: app.example.com
 
 Upon receiving a GET request to the Load Callback URI, your app needs to [process the signed payload](#processing-the-signed-payload). After processing the payload, your app returns its user interface as HTML. BigCommerce renders this inside of an iframe. Please see [User Interface Constraints](#designing-the-user-interface) for important information about your app’s user interface.
 
-## Uninstall Request
+## Handling Uninstall Callback
 
 Optional
 
@@ -68,7 +81,7 @@ GET /uninstall?signed_payload=hw9fhkx2ureq.t73sk8y80jx9 HTTP/1.1
 
 Upon receiving the GET request, your app will need to process the signed payload.
 
-## Remove User Callback
+## Handling Remove User Callback
 Optional
 If you have not enabled [multi-user support](#multi-user-support), you will not provide a Remove User Callback URI and can ignore this section. If you enable multi-user support, you can optionally specify a Remove User Callback URI. It must be fully qualified, publicly available, and served over TLS/SSL. BigCommerce will send a GET request to your Remove User Callback URI when a store admin revokes a user’s access to your app.
 
@@ -81,7 +94,7 @@ Host: app.example.com
 
 Upon receiving the GET request, your app will need to process the signed payload.
 
-## Processing the Signed Payload
+## Processing Callback Payload
 
 Processing the signed payload involves splitting and decoding it, verifying the HMAC signature, and processing the JSON object.
 
@@ -262,7 +275,7 @@ lineNumbers: true
 }
 ```
 
-## Multi-User Support
+## Supporting Multiple Users
 
 When you register your app with BigCommerce, enabling multi-user support will allow store admins to manually authorize users – other than the store owner – to load the app.
 
@@ -291,7 +304,7 @@ In addition to their ability to add users, store admins can also remove users. T
 
 For further information, please see [Remove User Request](#remove-user-request-optional).
 
-## External App Installation
+## Creating Install Buttons
 
 Apps can be installed from outside the BigCommerce control panel. For example, you could create an install link on your company’s site that directs the merchant to download your app. This section provides a step-by-step guide.
 
@@ -359,11 +372,11 @@ rescue => e
 
 Depending on which endpoint you call, we will render one of the following success/failed pages to the modal.
 
-## Designing the User Interface
+## Designing the UI
 
 Brief description, then point to UI doc...
 
-## Hosting Your App
+## Hosting the App
 BigCommerce stores are hosted on [Google Cloud Platform](https://cloud.google.com/) in the [us-central1](https://cloud.google.com/compute/docs/regions-zones/) region.
 
 Therefore, you can maximize performance of your app (in terms of latency to the public API) by hosting in the same region. There is no requirement to do so, and you may host wherever you like.
