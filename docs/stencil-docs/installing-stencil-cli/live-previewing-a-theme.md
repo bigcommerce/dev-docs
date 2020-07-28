@@ -15,7 +15,7 @@ Once Stencil CLI is installed, the next step on the road to theme development is
 
 ## Step 0: Obtain Store API Credentials
 
-Stencil CLI uses various BigCommerce APIs to inject store specific data (like carousel images and products) into the live theme preview it serves up. To do so, Stencil CLI must be supplied a store API token. [Store API Accounts](https://support.bigcommerce.com/s/article/Store-API-Accounts) and their tokens are generated in **Advanced Settings** > **API Accounts** inside a BigCommerce store's control panel (see [Store API Accounts](https://support.bigcommerce.com/s/article/Store-API-Accounts) for detailed instructions). 
+Stencil CLI uses various BigCommerce APIs to inject store specific data (like carousel images and products) into the live theme preview it serves up. To do so, Stencil CLI must be supplied with a store API token. [Store API Accounts](https://support.bigcommerce.com/s/article/Store-API-Accounts) and their tokens are generated in **Advanced Settings** > **API Accounts** inside a BigCommerce store's control panel (see [Store API Accounts](https://support.bigcommerce.com/s/article/Store-API-Accounts) for detailed instructions). 
 
 To automatically create a store API account with the scopes and permissions required by Stencil CLI, select **Create Stencil-CLI Token** in the **Create API Accounts** dropdown:
 
