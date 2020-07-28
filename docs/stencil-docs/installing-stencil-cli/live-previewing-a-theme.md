@@ -39,11 +39,10 @@ git clone https://github.com/bigcommerce/cornerstone.git
 Cornerstone and other themes can also be downloaded from the BigCommerce control panel. For instructions on doing so, see [Downloading and Uploading Custom Themes](https://support.bigcommerce.com/s/article/Stencil-Themes#download-upload) (BigCommerce Knowledge Base).
 
 It is also possible to download and develop against themes in the BigCommerce Themes Marketplace. To do so:
-1. Navigate to **Storefront** > **Themes Marketplace**, and add the desired theme.
+1. Navigate to **Storefront** > **Theme Marketplace**, and add the desired theme.
 2. Once added, navigate to **Storefront** > **My Themes** > **Theme Thumbnail** > **Theme Options**.
 3. Select the appropriate Download option.
 
-![#### Theme Options](//s3.amazonaws.com/user-content.stoplight.io/6116/1562092313957 "#### Theme Options")
 
 **Download Options**:
 * **Download current theme** - download the theme active on the storefront (appears when current theme is selected).
@@ -115,7 +114,7 @@ This will install the `npm` modules required to properly leverage the Stencil ev
 <!-- theme: info -->
 
 ### Themes Prior to 1.10.0
-> For instructions on installing modules via `jspm` on pre 1.10.0 themes, see: [Installing Legacy Theme Modules](https://developer.bigcommerce.com/legacy/stencil-themes/installing-legacy-theme-modules).
+> For instructions on installing modules via `jspm` on pre 1.10.0 themes, see [Installing Legacy Theme Modules](https://developer.bigcommerce.com/legacy/stencil-themes/installing-legacy-theme-modules).
 
 </div>
 </div>
