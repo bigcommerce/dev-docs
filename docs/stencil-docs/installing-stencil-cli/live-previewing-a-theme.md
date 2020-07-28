@@ -11,7 +11,7 @@
 
 </div>
 
-Once Stencil CLI is installed, the next step on the road to theme development is downloading a theme to edit and previewing live changes using Stencil CLI's powerful Browsersync functionality. This article will walk you through the process of downloading a theme for development, installing theme modules, then serving a live preview using Stencil CLI's `stencil start` command. The steps in this article assume Stencil CLI has been installed on your system; if its not installed yet, see [Installing Stencil CLI](https://developer.bigcommerce.com/stencil-docs/installing-stencil-cli/installing-stencil) for detailed, operating system specific instructions.
+Once Stencil CLI is installed, the next step on the road to theme development is downloading a theme to edit and previewing live changes using Stencil CLI's powerful Browsersync functionality. This article will walk you through the process of downloading a theme for development, installing theme modules, then serving a live preview using Stencil CLI's `stencil start` command. The steps in this article assume Stencil CLI has been installed on your system; if it's not installed yet, see [Installing Stencil CLI](https://developer.bigcommerce.com/stencil-docs/installing-stencil-cli/installing-stencil) for detailed, operating system specific instructions.
 
 ## Step 0: Obtain Store API Credentials
 
@@ -69,7 +69,7 @@ It is also possible to download and develop against themes in the BigCommerce Th
 <!-- theme: warning -->
 
 ### Setting Up BitBucket SSH Keys (Pixel Union Themes)
-> To set up Stencil CLI for Pixel Union Theme development, you'll first need authorize communication between your local machine, the BitBucket registry, and GitHub.
+> To set up Stencil CLI for Pixel Union Theme development, you'll first need to authorize communication between your local machine, the BitBucket registry, and GitHub.
 
 For instructions on doing so, see the following resources: 
 * [Setting up SSH for Git on BitBucket](https://confluence.atlassian.com/bitbucket/set-up-ssh-for-git-728138079.html) (Confluence)
@@ -87,7 +87,7 @@ For instructions on doing so, see the following resources:
 > Distribution of Cornerstone-based themes is subject to BigCommerce's Cornerstone license, including the mandatory incorporation of BigCommerce's copyright statement.
 
 ### Back Up before Reinstalling
-> If you're re-installing an existing theme, be sure to back up the theme’s `.stencil` file -- this contains the store URL, username, access tokens, and other settings. If you would like to allow for complete rollback, back up your entire theme’s directory.
+> If you're re-installing an existing theme, be sure to backup the theme’s `.stencil` file -- this contains the store URL, username, access tokens, and other settings. If you would like to allow for complete rollback, back up your entire theme’s directory.
 
 </div>
 </div>
@@ -176,7 +176,7 @@ For a full list of Stencil CLI commands, see [Stencil CLI Options and Commands](
 <!-- theme: warning -->
 
 ### BitBucket Re-Authentication
-> If you receive error messages about resolving BitBucket as an SSH host when running `stencil init`, enter the BitBucket password used to setup the BitBucket SSH Keys when prompted.
+> If you receive error messages about resolving BitBucket as an SSH host when running `stencil init`, enter the BitBucket password used to set up the BitBucket SSH Keys when prompted.
 
 </div>
 </div>
