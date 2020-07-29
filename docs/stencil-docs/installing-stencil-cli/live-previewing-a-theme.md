@@ -3,7 +3,8 @@
 <div class="otp" id="no-index">
 
 ### On This Page
-- [Step 1: Obtain Store API Credentials](#step-0-obtain-store-api-credentials)
+- [Step 1: Obtain Store API Credentials](#step-1-obtain-store-api-credentials)
+
 - [Step 2: Download a Theme](#step-1-download-a-theme)
 - [Step 3: Install Theme Modules](#step-2-install-theme-modules)
 - [Step 4: Serve Live Preview](#step-3-serve-live-preview)
