@@ -7,7 +7,8 @@
 
 - [Step 2: Download a Theme](#step-2-download-a-theme)
 
-- [Step 3: Install Theme Modules](#step-2-install-theme-modules)
+- [Step 3: Install Theme Modules](#step-3-install-theme-modules)
+
 - [Step 4: Serve Live Preview](#step-3-serve-live-preview)
 - [Resources](#resources)
 
