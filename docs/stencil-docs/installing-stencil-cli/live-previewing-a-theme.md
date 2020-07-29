@@ -68,21 +68,6 @@ It is also possible to download and develop against themes in the BigCommerce Th
 
 <!-- theme: warning -->
 
-### Setting Up BitBucket SSH Keys (Pixel Union Themes)
-> To set up Stencil CLI for Pixel Union Theme development, you'll first need to authorize communication between your local machine, the BitBucket registry, and GitHub.
-
-For instructions on doing so, see the following resources: 
-* [Setting up SSH for Git on BitBucket](https://confluence.atlassian.com/bitbucket/set-up-ssh-for-git-728138079.html) (Confluence)
-* [Connecting to Github with SSH](https://help.github.com/articles/connecting-to-github-with-ssh/) (Github)
-
-</div>
-</div>
-</div>
-
-<div class="HubBlock--callout">
-<div class="CalloutBlock--error">
-<div class="HubBlock-content">
-
 ### Distribution of Cornerstone-Based Themes
 > Distribution of Cornerstone-based themes is subject to BigCommerce's Cornerstone license, including the mandatory incorporation of BigCommerce's copyright statement.
 
