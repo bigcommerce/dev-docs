@@ -98,9 +98,6 @@ This will install the `npm` modules required to properly leverage the Stencil ev
 
 <!-- theme: info -->
 
-### Themes Prior to 1.10.0
-> For instructions on installing modules via `jspm` on pre 1.10.0 themes, see [Installing Legacy Theme Modules](https://developer.bigcommerce.com/legacy/stencil-themes/installing-legacy-theme-modules).
-
 </div>
 </div>
 </div>
