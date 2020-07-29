@@ -1,4 +1,4 @@
-# BigCommerce Apps Overview
+# BigCommerce Apps
 
 <div class="otp" id="no-index">
 

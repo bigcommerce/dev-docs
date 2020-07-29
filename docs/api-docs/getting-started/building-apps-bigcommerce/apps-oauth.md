@@ -5,7 +5,7 @@
 ### On This Page
 - [OAuth Summary](#oauth-summary)
 - [Request Headers](#request-headers)
-- [Managing Users Session Timeouts](#managing-users-session-timeouts)
+- [Managing Session Timeouts](#managing-session-timeouts)
 - [Installation and Update Sequence](#installation-and-update-sequence)
 - [Receiving the GET Request](#receiving-the-get-request)
 - [Responding to the GET Request](#responding-to-the-get-request)
@@ -38,7 +38,7 @@ API requests are authenticated by the following HTTP headers:
 
 In addition, while not all resources require the Accept and Content-Type headers, many do. To ensure that your calls succeed, always include these headers. For more details on request headers and their accepted values, see [Request Headers](https://developer.bigcommerce.com/api-docs/getting-started/about-our-api#request-headers).
 
-## Managing Users Session Timeouts
+## Managing Session Timeouts
 
 We recommend that you add BigCommerce’s JavaScript SDK to your Single-Click Apps to protect your apps’ users from getting logged out of the BigCommerce control panel after a period of idleness. To include our SDK, add this script tag to your Single-Click App:
 `<script src="//cdn.bigcommerce.com/jssdk/bc-sdk.js">`

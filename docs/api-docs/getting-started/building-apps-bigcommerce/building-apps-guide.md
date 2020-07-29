@@ -1,174 +1,117 @@
-# Building an App
+# Building Apps
 
 <div class="otp" id="no-index">
 
 ### On This Page
-- [Getting Started](#getting-started)
-- [Creating App in DevTools](#creating-app-in-devtools)
-- [Implementing OAuth Flow](#implementing-oauth-flow)
-- [Handling App Callbacks](#handling-app-callbacks)
-- [Listening for Events with Webhooks](#listening-for-events-with-webhooks)
-- [Testing Apps Locally](#testing-apps-locally)
-- [Supporting Multiple Users](#supporting-multiple-users)
-- [Creating Install Buttons](#creating-install-buttons)
-- [Designing the UI](#designing-the-ui)
-- [Hosting the App](#hosting-the-app)
-- [FAQ](#faq)
+- [Get Started](#get-started)
+- [Decide App Type](#decide-app-type)
+- [Start with Hello World](#start-with-hello-world)
+- [Test Locally](#test-locally)
+- [Register the App](#register-the-app)
+- [Install Draft App](#install-draft-app)
+- [Implement OAuth Flow](#implement-oauth-flow)
+- [Test OAuth Locally](#test-oauth-locally)
+- [Handle Callbacks](#handle-callbacks)
+- [Support Multiple Users](#support-multiple-users)
+- [Listen for Events](#listen-for-events)
+- [Design the UI](#design-the-ui)
+- [Create Install Buttons](#create-install-buttons)
+- [Follow Best Practices](#follow-best-practices)
+- [Check Requirements](#check-requirements)
+- [Deploy the App](#deploy-the-app)
+- [Publish to Marketplace](#publish-to-marketplace)
 - [Resources](#resources)
 
 </div>
 
-This article is an high-level guide to building apps on BigCommerce. For a step-by-step tutorial, see []().
+This article is an in-depth, comprehensive guide to building apps on BigCommerce. For a step-by-step tutorial, see []().
 
-### Prerequisites
-
-## Getting Started
-
+## Get Started
 1. Create a [Free Trial](https://www.bigcommerce.com/essentials/free-trial)
 2. Apply to be a [Technology Partner](https://developer.bigcommerce.com/api-docs/partner/becoming-a-partner)
 3. Create a [developer account](https://devtools.bigcommerce.com/)
 
-## Creating App in DevTools
+## Decide App Type
+Decide...
 
-Minimum steps. Links out to article.
+## Start with Hello World
+Use a starter or follow express app tutorial
 
-## Implementing OAuth Flow
+## Test Locally
+Use ngrok to create tunnel...make n
 
-Go here for oauth flow...
+Developing locally makes it fast and easy to test changes as you work, but no network access has its disadvantages. You might run into situations where you need a publicly accessible URL while you’re still in the development phase. Maybe you want to show your work to a colleague or client, or you need a secure, publicly available callback URL to interact with a web service. You could go ahead and upload your app to a hosting platform like Heroku, but then every time you make an update, you’d have to push those changes to your host server…not great.
 
-## Handling App Callbacks
+Open a terminal window and navigate to your myapp directory. Run npm start to start the app. By default, Express generator apps start the server on localhost:3000. If you want to change the port, it’s defined in the app’s bin/www file on line 15, but we’ll leave it on port 3000 for now.
+Open a browser window and navigate to http://localhost:3000. You should see the Express app home page:
+Image for post
+Express app running on localhost
+3. Open a new terminal window (leave the first terminal window running) and start ngrok on port 3000:
+ngrok http 3000
+4. Copy the https forwarding URL from the terminal and paste it into a new browser tab. You should see the same Express app homepage that you saw on your localhost URL:
+Image for post
+Express app tunneling to ngrok
+Hooray! This may not look like much yet, but we’ve already demonstrated a powerful feature of ngrok. You could email your ngrok forwarding URL to a friend, and they’d see the same Express app homepage (as long as you’ve got ngrok running in your terminal). That’s pretty cool, but next we’ll show how you can use ngrok to do even more. We’ll create a forwarding URL that will allow us to create publicly accessible routes within the app so we can complete the Oauth flow necessary to install the app in a BigCommerce store.
 
-## Listening for Events with Webhooks
-## Testing Apps Locally
-## Supporting Multiple Users
+## Register the App
+Dev Tools is the workspace for creating BigCommerce apps. It’s where you go to register a new app and manage app listing details if you’re a vendor in the App Marketplace. For now, we’ll just do the minimum steps to register a new app and get a Client Id and Client Secret.
+1. Log in to Dev Tools and click the orange Create an app button.
+1. Enter a name for your app. This could be anything — My Test App, Node App, whatever you’d like.
+1. Click Create App.
+1. Click the Edit App icon on the app you created.
+1. On Step 1, you can skip filling out the profile form. This just collects information that BigCommerce needs for developers who want to submit their app to the App Marketplace. It’s not required, but I do like to go ahead and upload an image to the App summary area at the bottom. The image will show on the card for your draft app in the control panel. Again, not required, but it does look nicer.
+1. Skip Step 2: App Details and proceed to Step 3. App details are required only for developers who want to submit an app to the Marketplace.
+1. On Step 3, fill in the Callback URL fields, replacing example.com with your https forwarding URL from ngrok. For example:
+   * **Auth**: https://4022ffe4.ngrok.io/auth
+   * **Load**: https://4022ffe4.ngrok.io/load
+   * **Uninstall**: https://4022ffe4.ngrok.io/uninstall
+1. Click Next until you reach Step 6, then click Update and Close.
 
-When you register your app with BigCommerce, enabling multi-user support will allow store admins to manually authorize users – other than the store owner – to load the app.
+## Install Draft App
+Now that we have the app wired up to the appropriate route paths, it’s time to install the app in your store.
+1. Start the Express app by running the npm start command in your myapp directory.
+1. Open a second terminal window and start ngrok on port 3000: ngrok http 3000. Be sure to update the ngrok URL in Dev Tools to match the ngrok URL in your current session.
+1. Log in to your BigCommerce store and navigate to Apps>My Apps>My Draft Apps tab.
+1. Click Learn More on your app card and then click Install. You should see your app’s Authorized! Message. The Authorized! view indicates that we’ve successfully received an Oauth token from BigCommerce.
+1. Test the Load route by returning to the My Apps section in the control panel. Now that the app is installed, you’ll see two new buttons: Load and Uninstall. Click the Load button to render the Welcome view.
+1. Now, click the Uninstall button. The app will be removed from the My Apps section. Check your terminal for the auth, load, and uninstall data objects that were logged to the console.
 
-As soon as you enable multi-user support, the control panel of any store that has your app installed will be affected. If you already have an app published in the App Marketplace, be aware that this setting takes effect immediately. Therefore, we recommend testing your multi-user support using a separate app that is in draft status.
+## Implement OAuth Flow
+BigCommerce apps use Oauth to programmatically generate an API token against a store during installation. Once an app has received an API token for a store, the app can save the token in a database for reuse when calling the API.
 
-Let your customers know that you’ve enabled this feature. Otherwise, they won’t know that they can start granting access to users.
+The process to receive an OAuth token requires a little back and forth between BigCommerce and the app host. First, the app needs to request a temporary auth code from BigCommerce. When BigCommerce sends the temporary token, it sends along a couple of other pieces of information as well: the scopes that have been authorized for the API token and the hash, or identifier, for the store that's installing the app.
 
-If multi-user support is added after your app has launched, the update will cause the app scopes to change and users will be alerted of the new permission request.
+Next, the app posts back a response containing a series of claims that let the BigCommerce auth service know it’s okay to return a real Oauth token. Those claims include the temporary auth token received previously from BigCommerce, the store hash, the scopes, and a Client Id and Client Secret that were provided during app registration. If everything checks out, the BigCommerce auth service sends back a permanent Oauth token and the app shows ;"Installed" in the store control panel.
 
-### The Control Panel Experience
-Store admins will be able to adjust user permissions to grant/deny other store users’ access to your app. The next time the user logs in, they will see any apps for which they have been granted access. The user can then click on the app icon in the left navigation to load it.
-Use your draft app and your sandbox store to review this behavior.
+All of these network requests need to happen over publicly accessible URLs. When testing app installation and authentication, we either need to host the app on a server, or a platform like Heroku, or use a tool like ngrok to create tunnel URLs from localhost.
 
-### The Load Request
-Apps that support multiple users can expect the email and ID of the user that initiated the callback in addition to the owner’s email and ID in the JSON object sent in the load request. If a load request is sent with information for a user you haven’t seen yet, you should provision the user account and associate it with the store in your database.
+## Test OAuth Locally
+content
 
-Because you know the store owner’s email and ID from the App Installation sequence, your app can distinguish store owners from other users. This allows you to provide different user experiences based on the information in the load request. Here is a summary of the two types of users:
+## Handle Callbacks
+content
 
-- Store owner: Can install, uninstall, and load apps.
-- Users: Cannot install or uninstall apps. Permitted only to load the apps that a store admin has authorized.
+## Support Multiple Users
+content
 
-For further details, please see [Load Request and Response](#load-request-and-response).
+## Listen for Events
+Webhooks...
 
-### The Remove User Request
-In addition to their ability to add users, store admins can also remove users. This action generates a GET request to the Remove User Callback URI that you provided in My Apps. Your app the user identified in the request from its records.
-
-For further information, please see [Remove User Request](#remove-user-request-optional).
-
-## Creating Install Buttons
-
-Apps can be installed from outside the BigCommerce control panel. For example, you could create an install link on your company’s site that directs the merchant to download your app. This section provides a step-by-step guide.
-
-### Create an Install Button
-
-First, embed an install button like the one below, at any web location from which you’d like to enable app installation:
-
-<!--
-    title:
-    data: //s3.amazonaws.com/user-content.stoplight.io/6490/1539297285625
--->
-
-![](//s3.amazonaws.com/user-content.stoplight.io/6490/1539297285625 "")
-
-Redirect anyone who presses your button to: `https://login.bigcommerce.com/app/<your-app's-client-id>/install`
-
-### Configure Your Button
-Upon clicking, your button should open a modal similar to the image below. We recommend a modal sized 900px wide by 450px high.
-
-<!--
-    title:
-    data: //s3.amazonaws.com/user-content.stoplight.io/6490/1539297431440
--->
-
-![](//s3.amazonaws.com/user-content.stoplight.io/6490/1539297431440 "")
-
-Your button will link merchants to BigCommerce’s install endpoint for your application. Once the merchant clicks the link, they will be prompted to log in, then authorize your application, just like in the [normal installation flow](#installation-and-update-sequence).
-
-### Render Success/Failure Pages
-
-Modify your application code to serve either a success or failure page, depending on whether the external installation was successful or unsuccessful.
-
-If you skip this step, your application will load in the iframe created by your button. To ensure a good experience for your merchants, we strongly recommend that you return a confirmation page, instead of allowing your application to be loaded in that modal.
-
-### Handling Errors
-
-If your application’s installation was initiated and completed through an external link, BigCommerce will send your auth callback endpoint an extra parameter called external_install.
-If you receive this parameter and there are no errors, call:
-
-`https://login.bigcommerce.com/app/<your_app_client_id>/install/succeeded`
-
-If there were errors, call:
-`https://login.bigcommerce.com/app/<your_app_client_id>/install/failed`
-
-Below is a sample code snippet of an auth callback that does this:
-
-<!--
-title: "Auth Callback"
-subtitle: ""
-lineNumbers: true
--->
-
-```lua
-   if params['external_install']
-        return get 'https://login.bigcommerce.com/app/m8e1mkkmjw2xjinydqz7ie05to1y2nk/install/succeeded'
-    end
-
-    redirect '/'
-
-rescue => e
-    if params['external_install']
-        return get 'https://login.bigcommerce.com/app/m8e1mkkmjw2xjinydqz7ie05to1y2nk/install/failed'
-    end
-```
-
-Depending on which endpoint you call, we will render one of the following success/failed pages to the modal.
-
-## Designing the UI
-
+## Design the UI
 Brief description, then point to UI doc...
 
-## Hosting the App
+## Create Install Buttons
+Content....
+
+## Follow Best Practices
+
+## Check Requirements
+
+## Deploy the App
 BigCommerce stores are hosted on [Google Cloud Platform](https://cloud.google.com/) in the [us-central1](https://cloud.google.com/compute/docs/regions-zones/) region.
 
 Therefore, you can maximize performance of your app (in terms of latency to the public API) by hosting in the same region. There is no requirement to do so, and you may host wherever you like.
-
-## FAQ
-
-### How can I make API calls?
-We have built several [Hello World](https://developer.bigcommerce.com/tools-resources) apps to get you started quickly. You can use these apps as a starting point or an example for building a Single-click app.
-
-If you'd like to make test API requests without the overhead of installing a draft app, you can generate [API Credentials](https://developer.bigcommerce.com/api-docs/getting-started/authentication#authentication_getting-api-credentials) by creating an API Account in your store's control panel.
-
-### How can I sell my app?
-The first step to listing an app in the BigCommerce App Marketplace is to apply to the BigCommerce [partner program](https://www.bigcommerce.com/partners/).
-
-For more details on including your app in the Marketplace, see [App Store Approval Requirements](https://developer.bigcommerce.com/api-docs/partner/app-store-approval-requirements).
-
-<div class="HubBlock--callout">
-<div class="CalloutBlock--warning">
-<div class="HubBlock-content">
-
-<!-- theme: warning -->
-
-> Any HTML that you return in your response for uninstalling an app or removing a user will not render in the response.
-
-</div>
-</div>
-</div>
+## Publish to Marketplace
 
 ## Resources
 
