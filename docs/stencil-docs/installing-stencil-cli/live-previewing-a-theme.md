@@ -9,7 +9,8 @@
 
 - [Step 3: Install Theme Modules](#step-3-install-theme-modules)
 
-- [Step 4: Serve Live Preview](#step-3-serve-live-preview)
+- [Step 4: Serve Live Preview](#step-4-serve-live-preview)
+
 - [Resources](#resources)
 
 </div>
