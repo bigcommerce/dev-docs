@@ -12,6 +12,8 @@
 
 </div>
 
+The first step to developing a BigCommerce app is deciding which type of app to develop.
+
 The BigCommerce ecosystem facilitates the creation of multiple types of apps. Determining which type of app to create largely depends on the nature and size of the intended user-base. For example, Single Click Apps are listed on the BigCommerce marketplace and can be installed on any BigCommerce store; Personal Apps, on the other hand, are intended for a specific merchant and are not listed on the marketplace. For more information, see the detailed descriptions of each app type below.
 
 ## Single Click Apps

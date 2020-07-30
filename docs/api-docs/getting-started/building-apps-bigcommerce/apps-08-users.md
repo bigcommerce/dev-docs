@@ -1,4 +1,4 @@
-# Supporting Multiple Users
+# Supporting Multiple App Users
 
 <div class="otp" id="no-index">
 

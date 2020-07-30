@@ -1,8 +1,9 @@
-# Building an App
+# Implementing App OAuth Flow
 
 <div class="otp" id="no-index">
 
 ### On This Page
+- [Helpful Tools](#helpful-tools)
 - [OAuth Summary](#oauth-summary)
 - [Request Headers](#request-headers)
 - [Managing Session Timeouts](#managing-session-timeouts)
@@ -15,6 +16,8 @@
 </div>
 
 This article explains the OAuth flow used by BigCommerce Single-Click apps...
+
+## Helpful Tools
 
 ## OAuth Summary
 
