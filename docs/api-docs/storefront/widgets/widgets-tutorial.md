@@ -8,6 +8,7 @@
         <li><a href="#widget-tutorial_create-widget">Create a Widget</a></li>
         <li><a href="#widget-tutorial_create-placement">Create the Placement</a></li>
     		<li><a href="#widget-tutorial_reuse-widget-template">Reuse the Widget</a></li>
+            <li><a href="#widget-tutorial_creating-user-interfaces-for-widgets">Creating User Interfaces for Widgets</a></li>
 	</ul>
 </div>
 
@@ -336,6 +337,10 @@ To reuse the Widget Template:
 * Get the [Widget Template ID](/api-reference/storefront/widgets-api/widget-template/getwidgettemplates)
 * [Create the Widget](/api-reference/storefront/widgets-api/widget/createwidget) with the Widget Template ID
 * [Create a Placement](/api-reference/storefront/widgets-api/placement/createplacement) using the Widget
+
+## Creating user interfaces for Widgets
+Customers use the drag and drop editor [Page Builder](https://developer.bigcommerce.com/stencil-docs/page-builder/page-builder-overview) to rearrange and edit BigCommerce's built-in widgets. You can create a user interface for custom widget settings using pre-defined schema. For more information, see [Page Builder Overview](https://developer.bigcommerce.com/stencil-docs/page-builder/page-builder-overview)
+
 
 ## Resources
 
