@@ -76,7 +76,8 @@ It is also possible to download and develop against themes in the BigCommerce Th
 > Distribution of Cornerstone-based themes is subject to BigCommerce's Cornerstone license, including the mandatory incorporation of BigCommerce's copyright statement.
 
 ### Back Up before Reinstalling
-> If you're re-installing an existing theme, be sure to backup the theme’s `.stencil` file -- this contains the store URL, username, access tokens, and other settings. If you would like to allow for complete rollback, back up your entire theme’s directory.
+> If you're re-installing an existing theme, be sure to back up the theme’s `.stencil` file. This file contains the store URL, username, access tokens, and other settings. If you would like to allow for complete rollback, back up your entire theme’s directory.
+
 
 </div>
 </div>
