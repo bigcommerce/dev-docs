@@ -33,7 +33,8 @@ The **Stencil-CLI Access Level** can then be set by selecting **local developmen
 * **local development only** - can read theme related store data, but can not publish
 * **publish theme** - can read theme related store data and push themes to the live storefront
 
-## Step 2: Download a Theme
+## Downloading a theme
+
 
 To develop against BigCommerce's Cornerstone theme (which is the building block and starting point for rapidly developing themes for BigCommerce) clone [the repository](https://github.com/bigcommerce/cornerstone) from GitHub:
 
