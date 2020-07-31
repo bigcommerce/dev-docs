@@ -128,7 +128,8 @@ This will install the `npm` modules required to properly leverage the Stencil ev
 </div>
 </div>
 
-## Step 4: Serve Live Preview
+## Serving a live preview
+
 
 Once Stencil CLI is installed and a theme is downloaded, a `.stencil` configuration file can be initialized for the theme and development can begin. 
 
