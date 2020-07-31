@@ -11,7 +11,10 @@
 
 </div>
 
-Once Stencil CLI is installed, the next step on the road to theme development is downloading a theme to edit and previewing live changes using Stencil CLI's powerful Browsersync functionality. This article will walk you through the process of downloading a theme for development, installing theme modules, then serving a live preview using Stencil CLI's `stencil start` command. The steps in this article assume Stencil CLI has been installed on your system; if it's not installed yet, see [Installing Stencil CLI](https://developer.bigcommerce.com/stencil-docs/installing-stencil-cli/installing-stencil) for detailed, operating system specific instructions.
+Once you've installed the Stencil CLI, the next steps are downloading a theme to edit and previewing live changes using Stencil CLI's powerful Browsersync functionality. This article walks you through the process of downloading a theme for development, installing theme modules, and serving a live preview using Stencil CLI's `stencil start` command. 
+
+The steps in this article assume you've installed Stencil CLI on your system. If you haven't installed it yet, see [Installing Stencil CLI](https://developer.bigcommerce.com/stencil-docs/installing-stencil-cli/installing-stencil) for detailed, system-specific instructions.
+
 
 ## Obtaining Store API credentials
 
