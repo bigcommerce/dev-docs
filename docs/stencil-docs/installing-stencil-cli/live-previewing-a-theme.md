@@ -3,19 +3,23 @@
 <div class="otp" id="no-index">
 
 ### On This Page
-- [Step 0: Obtain Store API Credentials](#step-0-obtain-store-api-credentials)
-- [Step 1: Download a Theme](#step-1-download-a-theme)
-- [Step 2: Install Theme Modules](#step-2-install-theme-modules)
-- [Step 3: Serve Live Preview](#step-3-serve-live-preview)
+- [Obtaining Store API Credentials](#obtaining-store-api-credentials)
+- [Downloading a Theme](#downloading-a-theme)
+- [Installing Theme Modules](#installing-theme-modules)
+- [Serving Live Preview](#serving-a-live-preview)
 - [Resources](#resources)
 
 </div>
 
-Once Stencil CLI is installed, the next step on the road to theme development is downloading a theme to edit and previewing live changes using Stencil CLI's powerful Browsersync functionality. This article will walk you through the process of downloading a theme for development, installing theme modules, then serving a live preview using Stencil CLI's `stencil start` command. The steps in this article assume Stencil CLI has been installed on your system; if its not installed yet, see [Installing Stencil CLI](https://developer.bigcommerce.com/stencil-docs/installing-stencil-cli/installing-stencil) for detailed, operating system specific instructions.
+Once you've installed the Stencil CLI, the next steps are downloading a theme to edit and previewing live changes using Stencil CLI's powerful Browsersync functionality. This article walks you through the process of downloading a theme for development, installing theme modules, and serving a live preview using Stencil CLI's `stencil start` command. 
 
-## Step 0: Obtain Store API Credentials
+The steps in this article assume you've installed Stencil CLI on your system. If you haven't installed it yet, see [Installing Stencil CLI](https://developer.bigcommerce.com/stencil-docs/installing-stencil-cli/installing-stencil) for detailed, system-specific instructions.
 
-Stencil CLI uses various BigCommerce APIs to inject store specific data (like carousel images and products) into the live theme preview it serves up. To do so, Stencil CLI must be supplied a store API token. [Store API Accounts](https://support.bigcommerce.com/s/article/Store-API-Accounts) and their tokens are generated in **Advanced Settings** > **API Accounts** inside a BigCommerce store's control panel (see [Store API Accounts](https://support.bigcommerce.com/s/article/Store-API-Accounts) for detailed instructions). 
+
+## Obtaining Store API credentials
+
+Stencil CLI uses various BigCommerce APIs to inject store-specific data, like carousel images and products, into the live theme preview it serves up. To do so, you must supply the Stencil CLI with a store API token. For detailed instructions, see [Store API Accounts](https://support.bigcommerce.com/s/article/Store-API-Accounts). 
+
 
 To automatically create a store API account with the scopes and permissions required by Stencil CLI, select **Create Stencil-CLI Token** in the **Create API Accounts** dropdown:
 
@@ -28,7 +32,7 @@ The **Stencil-CLI Access Level** can then be set by selecting **local developmen
 * **local development only** - can read theme related store data, but can not publish
 * **publish theme** - can read theme related store data and push themes to the live storefront
 
-## Step 1: Download a Theme
+## Downloading a theme
 
 To develop against BigCommerce's Cornerstone theme (which is the building block and starting point for rapidly developing themes for BigCommerce) clone [the repository](https://github.com/bigcommerce/cornerstone) from GitHub:
 
@@ -39,11 +43,10 @@ git clone https://github.com/bigcommerce/cornerstone.git
 Cornerstone and other themes can also be downloaded from the BigCommerce control panel. For instructions on doing so, see [Downloading and Uploading Custom Themes](https://support.bigcommerce.com/s/article/Stencil-Themes#download-upload) (BigCommerce Knowledge Base).
 
 It is also possible to download and develop against themes in the BigCommerce Themes Marketplace. To do so:
-1. Navigate to **Storefront** > **Themes Marketplace**, and add the desired theme.
+1. Navigate to **Storefront** > **Theme Marketplace**, and add the desired theme.
 2. Once added, navigate to **Storefront** > **My Themes** > **Theme Thumbnail** > **Theme Options**.
 3. Select the appropriate Download option.
 
-![#### Theme Options](//s3.amazonaws.com/user-content.stoplight.io/6116/1562092313957 "#### Theme Options")
 
 **Download Options**:
 * **Download current theme** - download the theme active on the storefront (appears when current theme is selected).
@@ -69,32 +72,19 @@ It is also possible to download and develop against themes in the BigCommerce Th
 
 <!-- theme: warning -->
 
-### Setting Up BitBucket SSH Keys (Pixel Union Themes)
-> To set up Stencil CLI for Pixel Union Theme development, you'll first need authorize communication between your local machine, the BitBucket registry, and GitHub.
-
-For instructions on doing so, see the following resources: 
-* [Setting up SSH for Git on BitBucket](https://confluence.atlassian.com/bitbucket/set-up-ssh-for-git-728138079.html) (Confluence)
-* [Connecting to Github with SSH](https://help.github.com/articles/connecting-to-github-with-ssh/) (Github)
-
-</div>
-</div>
-</div>
-
-<div class="HubBlock--callout">
-<div class="CalloutBlock--error">
-<div class="HubBlock-content">
-
 ### Distribution of Cornerstone-Based Themes
 > Distribution of Cornerstone-based themes is subject to BigCommerce's Cornerstone license, including the mandatory incorporation of BigCommerce's copyright statement.
 
 ### Back Up before Reinstalling
-> If you're re-installing an existing theme, be sure to back up the theme’s `.stencil` file -- this contains the store URL, username, access tokens, and other settings. If you would like to allow for complete rollback, back up your entire theme’s directory.
+> If you're re-installing an existing theme, be sure to back up the theme’s `.stencil` file. This file contains the store URL, username, access tokens, and other settings. If you would like to allow for complete rollback, back up your entire theme’s directory.
+
 
 </div>
 </div>
 </div>
 
-## Step 2: Install Theme Modules
+## Installing theme modules
+
  
 For theme versions `1.10.0+`, modules can be installed with `npm`:
 
@@ -108,20 +98,7 @@ npm install
 
 This will install the `npm` modules required to properly leverage the Stencil event framework.
 
-<div class="HubBlock--callout">
-<div class="CalloutBlock--info">
-<div class="HubBlock-content">
-
-<!-- theme: info -->
-
-### Themes Prior to 1.10.0
-> For instructions on installing modules via `jspm` on pre 1.10.0 themes, see: [Installing Legacy Theme Modules](https://developer.bigcommerce.com/legacy/stencil-themes/installing-legacy-theme-modules).
-
-</div>
-</div>
-</div>
-
-## Step 3: Serve Live Preview
+## Serving a live preview
 
 Once Stencil CLI is installed and a theme is downloaded, a `.stencil` configuration file can be initialized for the theme and development can begin. 
 
@@ -132,7 +109,8 @@ The Browsersync preview is launched by executing the `stencil start` command in 
 * an API access token
 * a local port number
 
-This configuration file is created by running `stencil init` and entering the information listed above (before doing so, be sure to [obtain store API credentials](#step-0-obtain-store-api-credentials)). 
+This configuration file is created by running `stencil init` and entering the information listed above (before doing so, be sure to [obtain store API credentials](#obtaining-store-api-credentials)). 
+
 
 To initialize a new `.stencil` configuration file and start live preview, run the following commands in a terminal:
 
@@ -168,7 +146,7 @@ stencil start
 
 Browse to the local URL to preview the theme and see changes updated in real-time. To preview the theme on multiple devices simultaneously, browse to the external URL on the desired devices. As you navigate through the site, Stencil CLI will use store API token supplied to make API calls to BigCommerce's API and populate the theme preview with live store data in order to mimic production as closely as possible. 
 
-For a full list of Stencil CLI commands, see [Stencil CLI Options and Commands](https://developer.bigcommerce.com/stencil-docs/installing-stencil-cli/stencil-cli-options-and-commands). For help troubleshooting errors or installation issues, see: [Troubleshooting Your Setup](https://developer.bigcommerce.com/stencil-docs/installing-stencil-cli/troubleshooting-your-setup).
+For a full list of Stencil CLI commands, see [Stencil CLI Options and Commands](https://developer.bigcommerce.com/stencil-docs/installing-stencil-cli/stencil-cli-options-and-commands). For help troubleshooting errors or installation issues, see [Troubleshooting Your Setup](https://developer.bigcommerce.com/stencil-docs/installing-stencil-cli/troubleshooting-your-setup).
 
 <div class="HubBlock--callout">
 <div class="CalloutBlock--warning">
@@ -177,7 +155,7 @@ For a full list of Stencil CLI commands, see [Stencil CLI Options and Commands](
 <!-- theme: warning -->
 
 ### BitBucket Re-Authentication
-> If you receive error messages about resolving BitBucket as an SSH host when running `stencil init`, enter the BitBucket password used to setup the BitBucket SSH Keys when prompted.
+> If you receive error messages about resolving BitBucket as an SSH host when running `stencil init`, enter the BitBucket password used to set up the BitBucket SSH Keys when prompted.
 
 </div>
 </div>
