@@ -3,7 +3,7 @@
 <div class="otp" id="no-index">
 
 ### On This Page
-- [Required Callback URLs](#required-callback-urls)
+- [Callback URLs](#callback-urls)
 - [Handling Uninstall Callback](#handling-uninstall-callback)
 - [Handling Remove User Callback](#handling-remove-user-callback)
 - [Processing Callback Payload](#processing-callback-payload)
@@ -12,7 +12,7 @@
 
 This article discusses handling BigCommerce app callbacks...
 
-## Required Callback URLs
+## Callback URLs
 In addition to the Auth Callback URI, the following URI's are required for BigCommerce Apps:
 
 | Name | Required? | Event Discussion |

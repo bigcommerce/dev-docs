@@ -1,3 +1,5 @@
+# BigCommerce Apps Quick Start Tutorial
+
 <div class="otp" id="no-index">
 
 ### On This Page
@@ -7,6 +9,8 @@
 - [Install](#install)
 
 </div>
+
+This quick start tutorial walks you through the minimum required steps to create and install single-click hello world app...
 
 ## Get Started
 ## Clone Codesandbox Project
