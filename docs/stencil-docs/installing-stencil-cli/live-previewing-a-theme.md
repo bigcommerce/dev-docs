@@ -3,14 +3,10 @@
 <div class="otp" id="no-index">
 
 ### On This Page
-- [Step 1: Obtaining Store API Credentials](#step-1-obtain-store-api-credentials)
-
-- [Step 2: Downloading a Theme](#step-2-download-a-theme)
-
-- [Step 3: Installing Theme Modules](#step-3-install-theme-modules)
-
-- [Step 4: Serving Live Preview](#step-4-serve-live-preview)
-
+- [Step 1: Obtaining Store API Credentials](#step-1-obtaining-store-api-credentials)
+- [Step 2: Downloading a Theme](#step-2-downloading-a-theme)
+- [Step 3: Installing Theme Modules](#step-3-installing-theme-modules)
+- [Step 4: Serving Live Preview](#step-4-serving-live-preview)
 - [Resources](#resources)
 
 </div>
@@ -137,7 +133,7 @@ The Browsersync preview is launched by executing the `stencil start` command in 
 * an API access token
 * a local port number
 
-This configuration file is created by running `stencil init` and entering the information listed above (before doing so, be sure to [obtain store API credentials](#step-1-obtain-store-api-credentials)). 
+This configuration file is created by running `stencil init` and entering the information listed above (before doing so, be sure to [obtain store API credentials](#step-1-obtaining-store-api-credentials)). 
 
 To initialize a new `.stencil` configuration file and start live preview, run the following commands in a terminal:
 
