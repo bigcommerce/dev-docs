@@ -6,7 +6,8 @@
 - [Step 1: Obtaining Store API Credentials](#step-1-obtaining-store-api-credentials)
 - [Step 2: Downloading a Theme](#step-2-downloading-a-theme)
 - [Step 3: Installing Theme Modules](#step-3-installing-theme-modules)
-- [Step 4: Serving Live Preview](#step-4-serving-live-preview)
+- [Serving Live Preview](#serving-live-preview)
+
 - [Resources](#resources)
 
 </div>
