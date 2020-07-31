@@ -98,16 +98,6 @@ npm install
 
 This will install the `npm` modules required to properly leverage the Stencil event framework.
 
-<div class="HubBlock--callout">
-<div class="CalloutBlock--info">
-<div class="HubBlock-content">
-
-<!-- theme: info -->
-
-</div>
-</div>
-</div>
-
 ## Serving a live preview
 
 Once Stencil CLI is installed and a theme is downloaded, a `.stencil` configuration file can be initialized for the theme and development can begin. 
