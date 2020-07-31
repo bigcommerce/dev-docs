@@ -1,4 +1,4 @@
-# Designing the User Interface
+# Designing an App's UI
 
 <div class="otp" id="no-index">
 
