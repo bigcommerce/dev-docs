@@ -6,7 +6,7 @@
 - [Obtaining Store API Credentials](#obtaining-store-api-credentials)
 - [Downloading a Theme](#downloading-a-theme)
 - [Installing Theme Modules](#installing-theme-modules)
-- [Serving Live Preview](#serving-live-preview)
+- [Serving Live Preview](#serving-a-live-preview)
 - [Resources](#resources)
 
 </div>
