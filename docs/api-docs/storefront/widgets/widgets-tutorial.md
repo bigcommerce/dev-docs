@@ -3,11 +3,11 @@
 	<h3> On This Page </h3>
 	<ul>
 	  <li><a href="#widget-tutorial_prerequisites">Prerequisites</a></li>
-        <li><a href="#widget-tutorial_add-a-region">Add a Region</a></li>
-        <li><a href="#widget-tutorial_create-widget-template">Create a Widget Template</a></li>
-        <li><a href="#widget-tutorial_create-widget">Create a Widget</a></li>
-        <li><a href="#widget-tutorial_create-placement">Create the Placement</a></li>
-    		<li><a href="#widget-tutorial_reuse-widget-template">Reuse the Widget</a></li>
+        <li><a href="#widget-tutorial_adding-a-region">Adding a Region</a></li>
+        <li><a href="#widget-tutorial_creating-widget-template">Creating a Widget Template</a></li>
+        <li><a href="#widget-tutorial_creating-widget">Creating a Widget</a></li>
+        <li><a href="#widget-tutorial_creating-placement">Creating the Placement</a></li>
+    		<li><a href="#widget-tutorial_reusing-widget-template">Reusing the Widget</a></li>
             <li><a href="#widget-tutorial_creating-user-interfaces-for-widgets">Creating User Interfaces for Widgets</a></li>
 	</ul>
 </div>
@@ -46,8 +46,7 @@ To follow along we have created a Postman collection.
 
 [![Run in Postman](https://run.pstmn.io/button.svg)](https://app.getpostman.com/run-collection/068117f7cbf510527e49)
 
-We will be making a widget that shows three images, with a hover effect and each image linking out to a different location. 
-
+In this tutorial, we'll create a widget that shows three images with a hover effect. Each image will link out to a different location.
 <!--
     title: #### Category Page Widget
 
@@ -58,8 +57,8 @@ We will be making a widget that shows three images, with a hover effect and each
 ](//s3.amazonaws.com/user-content.stoplight.io/6012/1551898706416 "#### Category Page Widget
 ")
 
-## Add a Region
-In <span class="fp">templates/pages/category.html</span>, add `{{{region name="category_header_banner"}}}` below the page heading.
+## Adding a Region
+In `templates/pages/category.html`, add `{{{region name="category_header_banner"}}}` below the page heading.
 
 ```html
 <!-- ... -->
@@ -85,9 +84,9 @@ In <span class="fp">templates/pages/category.html</span>, add `{{{region name="c
 </div>
 </div>
 
-To check the region was added successfully, use [Get Content Regions](/api-reference/storefront/widgets-api/regions/getcontentregions).
+To check if the region was added successfully, use [Get Content Regions](/api-reference/storefront/widgets-api/regions/getcontentregions).
 
-**`GET`** `https://api.bigcommerce.com/stores/vm2iajhsih/v3/content/regions?template_file=pages/category`
+`GET https://api.bigcommerce.com/stores/vm2iajhsih/v3/content/regions?template_file=pages/category`
 
 <!--
 title: "Sample Response"
@@ -109,17 +108,17 @@ lineNumbers: true
 }
 ```
 
-## Create a Widget Template
+## Creating a Widget Template
 
-Widget Templates are resuable pieces of HTML. In this walkthrough we are creating a header image. `image_source` is set using Handlebars so the header image can be changed every time the template is reused. The template also takes advantage of conditional logical with `#each images`. Instead of creating a template with three lines of code for each image, one line can loop through each image provided. 
+Widget Templates are resuable pieces of HTML. In this tutorial we are creating a header image. You can set `image_source` property using Handlebars so the header image can be changed every time you reuse a template. You can also take advantage of the conditional logic within a template using `#each images`. Instead of creating a template with three lines of code for each image, you can loop through each image using one line of code. 
 
-* name -- Name of the widget template (required)
-* template -- HTML to create the widget template (required)
+* `name` -- Name of the widget template (required)
+* `template` -- HTML to create the widget template (required)
 
-In the response the Widget Template UUID returned. Make note of it for use later when creating the Widget.
+The response returns the UUID for the widget template. Make note of it for when we create the widget later.
 
 **Example Create Widget Template**  
-**`/POST`** `https://api.bigcommerce.com/stores/{{store_hash}}/v3/content/widget-templates`
+`POST https://api.bigcommerce.com/stores/{{store_hash}}/v3/content/widget-templates`
 
 ```json
 {
@@ -135,7 +134,7 @@ lineNumbers: true
 -->
 
 **Example Response Create Widget Template**  
-**`/POST`** `https://api.bigcommerce.com/stores/{{store_hash}}/v3/content/widget-templates`
+`POST https://api.bigcommerce.com/stores/{{store_hash}}/v3/content/widget-templates`
 
 ```json
 {
@@ -152,15 +151,15 @@ lineNumbers: true
 }
 ```
 
-## Create a Widget
+## Creating a Widget
 
-Next, we will use the Widget Template to add the links and the images. For more examples, see [Code Samples](/api-docs/storefront/widgets/widgets-code-samples). 
+Next, we will use the widget template to add the links and images. For more examples, see [Code Samples](/api-docs/storefront/widgets/widgets-code-samples). 
 
-* name -- Something short and descriptive. (required)
-* description -- a longer explanation if needed (not required)
-* widget_configuration -- Based on the original widget_template configuration and can vary by the widget created
-	* image_source -- Since this is the handlebar placeholder, it requires an image value
-* widget_template_uuid -- UUID from the Widget Template response
+* `name` -- This should be a short and descriptive name for the widget (required)
+* `description` -- A longer explanation of the widget, if needed 
+* `widget_configuration` -- Based on the original `widget_template` configuration and can vary by the widget created
+	* `image_source` -- Since this is the Handlebar placeholder, it requires an image value.
+* `widget_template_uuid` -- UUID from the Widget Template response
 
 For widget_configuration `images` is the top level array, with `image_url` and `image_source` for each object. There are three images in this example since the width of each was set to 33.3%.
 
@@ -239,18 +238,18 @@ lineNumbers: true
 }
 ```
 
-## Create the Placement
+## Creating the Placement
 
 Placement defines the page and region where the widget should appear. Remember that [Placements](/api-docs/storefront/widgets/widgets-overview#widgets_placements) can either lead to a Layout or they can be used on their own. In this walkthrough we will use Layouts. 
 
-* widget_uuid -- UUID of the Widget
-* entity_id -- The page, category, brand or product ID the widget should appear on
-* sort_order -- If there is more than one Widget on a page, use the sort order to control the order they are displayed
-* region -- Region the template will show. It should match the template file
-* template_file -- Template file the region was added to
-* status -- Whether the widget is active or inactive
+* `widget_uuid` -- UUID of the Widget
+* `entity_id` -- The page, category, brand or product ID where the widget should appear
+* `sort_order` -- If there is more than one Widget on a page, use the sort order to control the order they are displayed.
+* `region` -- Region where the template will show. It should match the template file.
+* `template_file` -- Template file the region was added to
+* `status` -- Whether the widget is active or inactive
 
-If you wanted to see the results of the Widget without a layout, use the Placement without the layout code sample below. If you would like to learn more about Layouts use the Create Placement code sample below. 
+If you want to see the results of the widget without a layout, use the placement without the layout code sample below. If you would like to learn more about layouts, use the Create Placement code sample below. 
 
 **Example Create a Placement**  
 `/POST https://api.bigcommerce.com/stores/{{store_hash}}/v3/content/placements`
@@ -327,19 +326,19 @@ lineNumbers: true
 
 ```
 
-## Reuse the Widget Template
+## Reusing the widget template
 
-Now that the Widget Template has been created it can be reused on a different page again. 
+Now that you have created the widget template, you can reuse it on different pages.
 
-To reuse the Widget Template:
-* Choose where to display the widget by either creating a [Region](/api-reference/storefront/widgets-api/regions/getcontentregions) or use and existing one
-* Decide if the Widget should appear on all pages or if it should use an `entity_id`
-* Get the [Widget Template ID](/api-reference/storefront/widgets-api/widget-template/getwidgettemplates)
-* [Create the Widget](/api-reference/storefront/widgets-api/widget/createwidget) with the Widget Template ID
-* [Create a Placement](/api-reference/storefront/widgets-api/placement/createplacement) using the Widget
+To reuse the widget template:
+1. Choose where to display the widget by either creating a [Region](/api-reference/storefront/widgets-api/regions/getcontentregions) or use and existing one
+2. Decide if the Widget should appear on all pages or if it should use an `entity_id`
+3. Get the [Widget Template ID](/api-reference/storefront/widgets-api/widget-template/getwidgettemplates)
+4. [Create the Widget](/api-reference/storefront/widgets-api/widget/createwidget) with the Widget Template ID
+5. [Create a Placement](/api-reference/storefront/widgets-api/placement/createplacement) using the Widget
 
 ## Creating user interfaces for Widgets
-Customers use the drag and drop editor [Page Builder](https://developer.bigcommerce.com/stencil-docs/page-builder/page-builder-overview) to rearrange and edit BigCommerce's built-in widgets. You can create a user interface for custom widget settings using pre-defined schema. For more information, see [Page Builder Overview](https://developer.bigcommerce.com/stencil-docs/page-builder/page-builder-overview)
+Customers use the drag-and-drop editor, [Page Builder](https://developer.bigcommerce.com/stencil-docs/page-builder/page-builder-overview), to rearrange and edit BigCommerce's built-in widgets. You can create a user interface for custom widget settings using pre-defined schema. For more information, see [Page Builder Overview](https://developer.bigcommerce.com/stencil-docs/page-builder/page-builder-overview).
 
 
 ## Resources
