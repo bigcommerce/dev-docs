@@ -100,7 +100,8 @@ For instructions on doing so, see the following resources:
 </div>
 </div>
 
-## Step 3: Install Theme Modules
+## Installing theme modules
+
  
 For theme versions `1.10.0+`, modules can be installed with `npm`:
 
