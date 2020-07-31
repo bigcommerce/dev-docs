@@ -15,7 +15,8 @@
 
 </div>
 
-This article is a comprehensive command reference for Stencil CLI (BigCommerce's powerful theme development and deployment tool). For installation instructions for your OS, see: [Installing Stencil CLI](https://developer.bigcommerce.com/stencil-docs/installing-stencil-cli/installing-stencil). For more information on BigCommerce's Stencil Theme Engine, see: [About Stencil](https://developer.bigcommerce.com/stencil-docs/getting-started/about-stencil). Continue reading below for detailed information on each Stencil CLI command and option.
+This article is a comprehensive command reference for Stencil CLI, BigCommerce's powerful theme development and deployment tool. For installation instructions for your OS, see [Installing Stencil CLI](https://developer.bigcommerce.com/stencil-docs/installing-stencil-cli/installing-stencil). For more information on BigCommerce's Stencil Theme Engine, see [About Stencil](https://developer.bigcommerce.com/stencil-docs/getting-started/about-stencil). Continue reading below for detailed information on each Stencil CLI command and option.
+
 
 <a id="commands-overview"></a>
 
@@ -139,7 +140,7 @@ stencil start --open # opens live theme preview in default browser
 <!-- theme: warning -->
 
 ### Authentication Errors
-> If you receive an `Unauthorized, please use a valid username/token` error, authentication has failed. Check the API token supplied is correct. For more information on creating store API accounts and generating tokens, see: [Obtaining Store API Credentials](https://developer.bigcommerce.com/stencil-docs/installing-stencil-cli/live-previewing-a-theme#step-3-serve-live-preview).
+> If you receive an `Unauthorized, please use a valid username/token` error, authentication has failed. Check that the API token you supplied is correct. For more information on creating store API accounts and generating tokens, see [Obtaining Store API Credentials](https://developer.bigcommerce.com/stencil-docs/installing-stencil-cli/live-previewing-a-theme#serving-live-preview).
 
 </div>
 </div>
