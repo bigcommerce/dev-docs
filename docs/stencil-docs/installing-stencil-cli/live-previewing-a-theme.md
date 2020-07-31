@@ -5,7 +5,8 @@
 ### On This Page
 - [Obtaining Store API Credentials](#obtaining-store-api-credentials)
 
-- [Step 2: Downloading a Theme](#step-2-downloading-a-theme)
+- [Downloading a Theme](#downloading-a-theme)
+
 - [Step 3: Installing Theme Modules](#step-3-installing-theme-modules)
 - [Serving Live Preview](#serving-live-preview)
 
