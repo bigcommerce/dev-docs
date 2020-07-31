@@ -17,7 +17,8 @@
 
 Once Stencil CLI is installed, the next step on the road to theme development is downloading a theme to edit and previewing live changes using Stencil CLI's powerful Browsersync functionality. This article will walk you through the process of downloading a theme for development, installing theme modules, then serving a live preview using Stencil CLI's `stencil start` command. The steps in this article assume Stencil CLI has been installed on your system; if its not installed yet, see [Installing Stencil CLI](https://developer.bigcommerce.com/stencil-docs/installing-stencil-cli/installing-stencil) for detailed, operating system specific instructions.
 
-## Step 1: Obtain Store API Credentials
+## Obtaining Store API credentials
+
 
 Stencil CLI uses various BigCommerce APIs to inject store specific data (like carousel images and products) into the live theme preview it serves up. To do so, Stencil CLI must be supplied a store API token. [Store API Accounts](https://support.bigcommerce.com/s/article/Store-API-Accounts) and their tokens are generated in **Advanced Settings** > **API Accounts** inside a BigCommerce store's control panel (see [Store API Accounts](https://support.bigcommerce.com/s/article/Store-API-Accounts) for detailed instructions). 
 
