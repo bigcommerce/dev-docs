@@ -140,7 +140,7 @@ stencil start --open # opens live theme preview in default browser
 <!-- theme: warning -->
 
 ### Authentication Errors
-> If you receive an `Unauthorized, please use a valid username/token` error, authentication has failed. Check the API token supplied is correct. For more information on creating store API accounts and generating tokens, see [Obtaining Store API Credentials](https://developer.bigcommerce.com/stencil-docs/installing-stencil-cli/live-previewing-a-theme#serving-live-preview).
+> If you receive an `Unauthorized, please use a valid username/token` error, authentication has failed. Check that the API token you supplied is correct. For more information on creating store API accounts and generating tokens, see [Obtaining Store API Credentials](https://developer.bigcommerce.com/stencil-docs/installing-stencil-cli/live-previewing-a-theme#serving-live-preview).
 
 </div>
 </div>
