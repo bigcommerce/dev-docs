@@ -23,7 +23,7 @@
 
 </div>
 
-For any unexpected behavior you encounter while developing your Stencil theme, we recommend your first check your terminal window where you started Stencil CLI.
+For any unexpected behavior you encounter while developing your Stencil theme, we recommend you first check your terminal window where you started Stencil CLI.
 
 In some cases, the terminal will provide a verbose error message specifying where to look for problems. It has the potential to provide further insight on the issue. Diagnostic suggestions are listed on this page for error messages that may not be helpful in revealing the issue you're experiencing.
 
@@ -75,7 +75,7 @@ Try the following workaround:
 
 1. Download and unzip a fresh copy of the theme.
 
-2. Refresh theme dependencies by running `npm install && jspm install`
+2. Refresh theme dependencies by running `npm install`
 
 3. Run `stencil init`.
 
@@ -125,10 +125,6 @@ switch to your theme directory and run `npm install`. Running this command will 
 
 If you receive the same error again after running `npm install`, you should completely uninstall and reinstall both the Stencil framework and Node.js.
 
-## `Uncaught TypeError: Illegal invocation` error
-
-If you receive an `Uncaught TypeError: Illegal invocation` console error, and previously installed Stencil using the original jspm-based installation flow and later switched to our current webpack installation flow, please remove your theme's `/node_modules/` subdirectory, then re-run `npm install` inside your theme's directory.
-
 ## Mac OS: `Xcode/iOS license...` Errors
 
 On Mac OS, if you have recently installed a new version of Xcode, the command line will display the following error when you next try to use or reinstall Stencil:
@@ -173,28 +169,7 @@ To prevent this error from recurring, add the same `nvm use <version_number>` co
 
 ### "Unauthorized...username/token" Error
 
-If executing the `stencil start` command generates an `Unauthorized, please use a valid username/token` error: Please make sure that the `.stencil` file contains the correct store URL. Also, verify that you have copied the correct username and token. If you continue to get the same error, please reissue tokens.
-
-### "Unable to load registry %bitbucket%"
-
-If you have downloaded and installed a Marketplace theme (other than Cornerstone), and after running stencil start, received the error `Unable to load registry %bitbucket%`: Try this workaround.
-
-1. Back up your current theme directory/directories.
-(In a default installation, the theme directory is named `.../cornerstone/`. Prior to March 2017, this directory's name defaulted to `.../stencil/`. Use the same substitutions for other code examples on this page.)
-
-2. To ensure that you install refreshed dependencies, delete your `node_modules/` and `assets/jspm_packages/` subdirectories. (You can check installed versions of dependencies by examining your `package.json` file.)
-
-3. Starting inside your theme directory, enter this alternate sequence of commands:
-
-```shell
-npm install -g jspm-git
-npm install
-jspm config registries.bitbucket.baseurl git+ssh://git@bitbucket.org/
-jspm config registries.bitbucket.handler jspm-git
-jspm install
-```
-
-4. Re-launch your theme.
+If executing the `stencil start` command generates an `Unauthorized, please use a valid username/token` error. Please make sure that the `.stencil` file contains the correct store URL. Also, verify that you have copied the correct username and token. If you continue to get the same error, please reissue tokens.
 
 ## 500 Errors
 
