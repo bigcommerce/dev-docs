@@ -9,17 +9,17 @@
 
 </div>
 
-Page Builder allows store owners to customize the different style elements of a theme like colors, text sizes, and more. They can use the built-in Page Builder tool in the Control Panel to drag and drop content like images, videos, banners, carousels, buttons, and blocks of custom HTML. 
+Page Builder allows store owners to customize the different style elements of a theme like colors, text sizes, and more. They can use the built-in Page Builder tool in the control panel to drag and drop content like images, videos, banners, carousels, buttons, and blocks of custom HTML. 
 
-Developers can build user interfaces for their custom widgets within the BigCommerce Page Builder platform using `schema.json` files. While BigCommerce provides the setting, logic, and design, the widget author provides information about the various settings that make up the widget. This is the exact mechanism BigCommerce uses for all platform-provided widgets as well.
+Developers can build user interfaces for their custom [widgets](https://developer.bigcommerce.com/api-docs/storefront/widgets/widgets-overview) within the BigCommerce Page Builder platform using pre-configured schema. While BigCommerce provides the setting, logic, and design, the widget author provides information about the various settings that make up the widget. BigCommerce uses the same mechanism for all platform-provided widgets.
 
-The following sections outline settings found in the `schema.json` files.
+The following sections outline settings that can be passed into the `schema` property of a `PUT` request to `content\widget-template`. For a step-by-step tutorial on creating widgets, see [Widgets Tutorial](https://developer.bigcommerce.com/api-docs/storefront/widgets/widgets-tutorial).
 
 ## Tabs and Sections
-Within the `schema.json` file, edit settings are grouped into _tabs_ and _sections_.
+Within the `schema` property, settings are grouped into `tabs` and `sections`.
 
 ### Tabs
-Tabs are a part of the Page Builder schema structure. The schema requires using a single root-level tab to contain all visible sections.
+Tabs are a part of the Page Builder schema structure. The schema requires using a single root-level `tab` to contain all visible sections.
 
 >**Note**
 >
@@ -35,7 +35,7 @@ Tabs are a part of the Page Builder schema structure. The schema requires using 
 ```
 
 ### Sections
-Sections are groups of related settings. Each section will have a title that the user can collapse. Section labels are optional, but are not collapsible without a label.
+Sections are groups of related settings. Each `section` will have a title that the user can collapse. Section labels are optional, but are not collapsible without a label.
 
 Settings render in the same order they are listed within a section.
 
