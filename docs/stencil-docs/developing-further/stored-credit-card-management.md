@@ -61,7 +61,7 @@ To use the updated object, apply the changes from [Pull Request #1603](https://g
 
 Once applied, saved PayPal accounts will be displayed in the payment method list:
 
-![Payment Method List](https://raw.githubusercontent.com/bigcommerce/dev-docs/master/assets/images/tored-credit-card-management01.png "Payment Method List")
+![Payment Method List](https://raw.githubusercontent.com/bigcommerce/dev-docs/master/assets/images/stored-credit-card-management01.png "Payment Method List")
 
 ## Update `edit-payment-method.html`
 The `customer.edit_stored_instrument` object has been lightly extended to include a `type` attribute.
@@ -72,7 +72,7 @@ Modify `edit-payment-method.html` to include changes from [Pull Request #1603](h
 
 ## Update `_paymentMethods.scss`
 
-To style the newly added UI elements, update `_paymentMethods.scss` with the changes from [Pull Request #1603](https://github.com/bigcommerce/cornerstone/pull/1603/files?file-filters%5B%5D=#diff-1c33ed0c69f228483a39fce2616e1942)
+To style the newly added UI elements, update `_paymentMethods.scss` with the changes from [Pull Request #1603](https://github.com/bigcommerce/cornerstone/pull/1603/files?file-filters%5B%5D=#diff-1c33ed0c69f228483a39fce2616e1942).
 
 ## Add PayPal Logo
 
