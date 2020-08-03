@@ -42,8 +42,8 @@ customer:
 |  `customer` | Customer attributes are always included, and are available if the active shopper is logged in. |
 |  `returns` | Boolean indicating whether to retrieve product return requests for this customer. No filtering available.true: Retrieve requests. null or false: Do not retrieve requests. |
 |  `wishlists` | If `null`, wishlists displayed. If `limit` not specified, retrieves unlimited number of wishlists. |
-|  `orders` | If `null`, no orders displayed. Displays complete and incomplete orders. If `limit` not specified, displays 20 orders |
-|  `recently_viewed_products` | Boolean indicating whether to display recently viewed products. No filtering avaiable. |
+|  `orders` | If `null`, no orders displayed. Displays complete and incomplete orders. If `limit` not specified, displays 20 orders. |
+|  `recently_viewed_products` | Boolean indicating whether to display recently viewed products. No filtering available. |
 |  `limit` | The maximum number of the entity to display. |
 
 ```yaml
