@@ -105,7 +105,7 @@ lineNumbers: true
 
 ## Variations: Desktop/Mobile Screenshots
 
-Each variation within your theme must be represented by two additional screenshots if you want that variation to appear in the control panel's  **Storefront** › **Themes Marketplace**, which shows merchants the themes that are available for download.
+Each variation within your theme must be represented by two additional screenshots if you want that variation to appear in the control panel's  **Storefront** › **Theme Marketplace**, which shows merchants the themes that are available for download.
 
 ### Desktop Screenshot
 
