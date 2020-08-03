@@ -30,9 +30,9 @@ Cornerstone versions 2.6.0+ will have Data Tags already included in the theme.
 </div>
 </div>
 
-## Prerequisites
-
-For this tutorial, you will need a BigCommerce store which uses Optimized One-Page Checkout for your store checkout.
+### Prerequisites
+* [BigCommerce Store](https://support.bigcommerce.com/s/article/Starting-a-Bigcommerce-Trial)
+* [Optimized One-Page Checkout enabled](https://support.bigcommerce.com/s/article/Optimized-Single-Page-Checkout)
 
 
 ### Downloading a Theme
