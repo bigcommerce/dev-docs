@@ -59,7 +59,7 @@ Below are details about:
 
 All screenshots described below must meet the following specifications in order for the `stencil bundle` command to be able to process them:
 
-* Saved to a supported image file type: .jpg/.jpeg, .png, or .gif.
+* Saved to a supported image file type: .jpg, .jpeg, .png, or .gif.
 * Be stored in your [<theme‑name>/meta/](https://github.com/bigcommerce/cornerstone/tree/master/meta) subdirectory.
 * Must be in **portrait aspect ratio**, with specific resolutions listed under [Themewide Composite Image](#preparing_themewide-composite) below.
 
