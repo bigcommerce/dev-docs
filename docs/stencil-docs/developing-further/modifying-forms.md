@@ -11,7 +11,7 @@ You can customize the login experience by modifying the theme's `templates/pages
 ### Changing Default Text
 Here is an example of some of the default text you can change in the Login page template:
 
-![#### New Customer Facts](/../../../assets/images/new_customer.png "### New Customer Facts")
+![New customer facts](https://github.com/bigcommerce/dev-docs/blob/master/assets/images/new_customer.png)
 
 ```html
 <li class="new-customer-fact">{{lang 'login.new_customer.fact1' }}</li>

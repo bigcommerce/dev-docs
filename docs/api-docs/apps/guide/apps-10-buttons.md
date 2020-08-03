@@ -1,4 +1,4 @@
-# Create an App Install Button
+# Creating an App Install Button
 
 <div class="otp" id="no-index">
 
