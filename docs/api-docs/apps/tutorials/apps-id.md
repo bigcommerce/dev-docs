@@ -1,7 +1,5 @@
 # Find an App's ID
 
-# Building an App
-
 <div class="otp" id="no-index">
 
 ### On This Page
