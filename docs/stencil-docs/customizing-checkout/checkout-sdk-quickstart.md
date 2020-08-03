@@ -18,7 +18,7 @@
 
 The Checkout JS SDK is a JavaScript library of methods for performing actions related to checkout. It includes methods for logging in a customer, adding addresses to the checkout object, and surfacing the shipping and payment methods that a merchant has configured. It’s everything you need to build your own custom checkout page on BigCommerce.
 
-We have provided a [sample checkout app](https://github.com/bigcommerce/checkout-sdk-js-example) built in React; the React sample app is a great place to get started if you prefer to build within a framework. However, because the SDK is built in vanilla JS, it’s framework agnostic. To illustrate that point, this tutorial will walk through the first steps for building a custom checkout directly into the theme files using vanilla JS. At the end of the tutorial, you will have installed the Checkout SDK, created a new JavaScript module for your custom checkout, and console logged the checkout object.
+We have provided a [sample checkout app](https://github.com/bigcommerce/checkout-sdk-js-example) built in React; the React sample app is a great place to get started if you prefer to build within a framework. However, because the SDK is built in vanilla JS, it’s framework agnostic. To illustrate this point, this tutorial will walk through the first steps for building a custom checkout directly into the theme files using vanilla JS. At the end of the tutorial, you will have installed the Checkout SDK, created a new JavaScript module for your custom checkout, and console logged the checkout object.
 
 ## Prerequisites
 * This tutorial uses [Cornerstone](https://github.com/bigcommerce/cornerstone). Your theme may differ.
