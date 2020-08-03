@@ -147,7 +147,7 @@ The following sections present examples of scripts that inject popular apps into
 
 ### Olark Live Chat
 
-As an example of injecting an app from the BigCommerce Apps Marketplace, you could enable the Olark Live Chat app on either page by by using the script manager or our new Scripts API:
+As an example of injecting an app from the BigCommerce Apps Marketplace, you could enable the Olark Live Chat app on either page by using the script manager or our new Scripts API:
 
 ```js
 <!-- begin olark code -->
