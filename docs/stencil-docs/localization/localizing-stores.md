@@ -56,7 +56,7 @@ Localizing your theme's checkout and order confirmation pages requires customiza
 <!-- theme: warning -->
 
 ### Checkout Localization
-> Checkout localization is only available for [Optimized One-Page Checkout](/stencil-docs/template-files/customize-stencil-checkout/optimized-one-page-checkout#optimized_enable)
+> Checkout localization is only available for [Optimized One-Page Checkout](/stencil-docs/template-files/customize-stencil-checkout/optimized-one-page-checkout#optimized_enable).
 
 </div>
 </div>
