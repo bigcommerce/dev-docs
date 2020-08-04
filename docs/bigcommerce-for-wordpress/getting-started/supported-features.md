@@ -16,7 +16,7 @@
 The open source BigCommerce for Wordpress plugin currently supports the following features and capabilities that are native to the BigCommerce platform and more:
 
 * Complex Product Catalog (600 SKUs per product, 250 product values for a single option)
-* Product Pick Lists and Bundled * Products
+* Product Pick Lists and Bundled Products
 * Product Variants and Product Variant Pricing
 * Product Promotions
 * Secure Shopper Accounts and Logins with PCI Compliant Checkout
