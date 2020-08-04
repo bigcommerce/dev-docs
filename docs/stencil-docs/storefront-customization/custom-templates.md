@@ -40,7 +40,6 @@ The Stencil framework allows theme developers and merchants to assign custom lay
 
 As a theme developer, you must first create the custom subdirectory in the `templates/pages` directory, and the four required subdirectories inside of it (brand, category, product, page). Creating these subdirectories will result in the following directory paths:
 
-
 * templates/pages/custom/brand
 * templates/pages/custom/category
 * templates/pages/custom/product
@@ -165,7 +164,6 @@ In the .stencil mapping examples above:
 
 ### Why These URL Requirements?
 When you create a local custom template page for products, you expect that page to have access to all Stencil product objects. However, the server cannot readily determine the page type of each local custom template. So we give it a hint by instructing the server to look at the page type of the URL where you mapped the template.
-
 
 In the above .stencil configuration example’s final entry, the server will look at the URL /custom‑category/ within the store, deduce that the page type is category, and return a category context to Stencil CLI. This allows Stencil CLI to properly display the page in the browser when you visit http://localhost:3000/custom‑category/ locally, or when shoppers visit the corresponding public store page.
 

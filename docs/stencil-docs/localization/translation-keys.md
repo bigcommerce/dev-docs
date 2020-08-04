@@ -140,7 +140,7 @@ lineNumbers: true
 
 ## Invoking a Translation Key
 
-Once keys and values are defined in the [.json translation files](https://github.com/bigcommerce/cornerstone/tree/master/lang), you can invoke dynamic translation strings using the the [custom `{{lang}}` Handlebars helper](/stencil-docs/handlebars-syntax-and-helpers/handlebars-helpers-reference/string-helpers/custom-string-helpers#handlebars_lang). To invoke a defined translation key, you would follow this generic format:
+Once keys and values are defined in the [.json translation files](https://github.com/bigcommerce/cornerstone/tree/master/lang), you can invoke dynamic translation strings using the [custom `{{lang}}` Handlebars helper](/stencil-docs/handlebars-syntax-and-helpers/handlebars-helpers-reference/string-helpers/custom-string-helpers#handlebars_lang). To invoke a defined translation key, you would follow this generic format:
 
 <div class="HubBlock-header">
     <div class="HubBlock-header-title flex items-center">

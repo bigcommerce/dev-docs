@@ -189,7 +189,7 @@ product.js:63 [/assets/js/theme/product.js]: 100x100
 
 Once you have installed the default Stencil theme, you can add custom JavaScript libraries. To see how this works, find your favorite library on GitHub – for example: https://github.com/jquery/jquery.
 
-To install this particular library for Stencil themes, you would entering the following on the command line:
+To install this particular library for Stencil themes, enter the following on the command line:
 
 `npm install jquery`
 
