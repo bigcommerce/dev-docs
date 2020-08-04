@@ -68,7 +68,7 @@ Each Stencil theme’s `/assets/` directory contains CSS, JavaScript, and image 
 	<tr>
 	  <tr>
     <td>cornerstone/assets/settings/</td>
-    <td>The {theme-name}/assets/scss/settings/ subdirectory contains SCSS variables for your framework. Files here map directly to components. If present, these variables override defaults in consumed libraries. The /settings/ subdirectory’s internal structure can be viewed at the Cornerstone Github Repository
+    <td>The {theme-name}/assets/scss/settings/ subdirectory contains SCSS variables for your framework. Files here map directly to components. If present, these variables override defaults in consumed libraries. The /settings/ subdirectory’s internal structure can be viewed at the Cornerstone Github Repository.
 
 The nested subdirectory for your chosen framework contains a file that includes that framework’s variables. For example, in the default Stencil theme, this file is: /settings/foundation/_foundation.scss.
 
@@ -92,7 +92,7 @@ Every utility in this subdirectory will have both a class and a mixin. For examp
   </tr>
 	<tr>
     <td>cornerstone/assets/scss/components/citadel</td>
-    <td>read about the Citadel directory below.</td>
+    <td>Read about the Citadel directory below.</td>
   </tr>
 	<tr>
     <td>cornerstone/assets/scss/components/foundation</td>
@@ -119,7 +119,7 @@ Citadel design patterns reside in `cornerstone/assets/scss/components/`. Citadel
 * `cornerstone/assets/scss/settings/citadel/`
 * `cornerstone/assets/scss/components/citadel/`
 
-The `components/citadel` subdirectory contains Citadel-specific resources. The resources are named according to our style guide, which follows BEM and SUIT CSS naming conventions: Class names are structured, and hyphens are meaningful (that is, hyphens are not used merely to separate words). Here are some prototypes and examples:
+The `components/citadel` subdirectory contains Citadel-specific resources. The resources are named according to our style guide, which follows BEM and SUIT CSS naming conventions. Class names are structured, and hyphens are meaningful (that is, hyphens are not used merely to separate words). Here are some prototypes and examples:
 
 <table>
   <tr>
@@ -202,7 +202,7 @@ Variables are things that can change over time. Their names are in camel case, a
   	<th>Mixin Name Design Pattern</th>
     <th>Mixin Name Example</th>
   <tr>
-    <td>Mixins follow regular camel-case naming conventions. Namespacing is not universally required for mixins. However, where a mixin has been created for a utility, its name matches the utility’s name, including u- namespacing:</td>
+    <td>Mixins follow regular camel-case naming conventions. Namespacing is not universally required for mixins. However, where a mixin has been created for a utility, its name <br>matches the utility’s name, including u- namespacing:</br></td>
     <td>@mixin buttonVariant;
 @mixin u-textTruncate;</td>
   <tr>
