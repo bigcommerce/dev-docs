@@ -38,7 +38,8 @@ The Stencil framework allows theme developers and merchants to assign custom lay
 
 ## Authoring a Custom Template
 
-As a theme developer, you must first create the custom subdirectory in the templates/pages directory, and four required subdirectories inside of it (brand, category, product, page), which will result in the following directory paths:
+As a theme developer, you must first create the custom subdirectory in the `templates/pages` directory, and the four required subdirectories inside of it (brand, category, product, page). Creating these subdirectories will result in the following directory paths:
+
 
 * templates/pages/custom/brand
 * templates/pages/custom/category
