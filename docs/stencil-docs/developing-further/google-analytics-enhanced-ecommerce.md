@@ -137,7 +137,7 @@ lineNumbers: true
 {{> components/common/paginator pagination.brand}}
 ```
 
-In the above snippet, the data tag is embedded in a `<form>` HTML tag in lines 1 and 2. The data tag is  `data-list-name` and its value is `“Brand: {{brand.name}}”`.
+In the above snippet, the data tag is embedded in a `<form>` HTML tag in lines 1 and 2. The data tag is  `data-list-name` and its value is `"Brand: {{brand.name}}"`.
 
 ## Data Tag Reference
 
@@ -171,7 +171,7 @@ The “tracked product” refers to the product on which you are inserting the d
      <td><code>data-list-name</code></td>
      <td>The <code>data-list-name</code> tag denotes the name of the list that will be reflected on Google Analytics.</td>
   	<td>string or handlebars helper</td>
-     <td> <b>String Example</b>:<code>data-list-name=“Kitchen Appliances”</code> 	
+     <td> <b>String Example</b>:<code>data-list-name="Kitchen Appliances"</code>
        <br><br>
 <b>Handlebars Value Example</b>: The <code>data-list-name</code> tag can also get its value using Handlebars. For example, if you are adding a data tag to your carousel products in products/carousel.html, you could create the tag <code>data-list-name="{{list}}"</code> and define the list value in products/new.html to be: <code>list="New products"</code></td>
   </tr>
@@ -204,61 +204,61 @@ The “tracked product” refers to the product on which you are inserting the d
        <td>The <code>data-event-type</code> tag is equal to the shopper event that will be tracked. There are a 4 shopper/product interactions you can measure and set the data-event-type equal to. Custom events are not yet implemented.</td>
   	<td>string that can be either:
       <ul>
-        <li>“promotion”</li>
-        <li>“promotion click”</li>
-        <li>“product”</li>
-        <li>“list”</li>
-       <td><code>data-event-type=“promotion”</code></td>
+        <li>"promotion"</li>
+        <li>"promotion click"</li>
+        <li>"product"</li>
+        <li>"list"</li>
+       <td><code>data-event-type="promotion"</code></td>
   </tr>
      <tr>
   	<td><code>data-name</code></td>
-       <td>The <code>data-name</code> tag is equal to the tracked product’s or banner’s name. The data-name tag is
+       <td>The <code>data-name</code> tag is equal to the tracked product’s or banner’s name.
 </td>
   	<td>string or handlebars helper</td>
-       <td><b>String Value Example:</b> <code>data-name=“Ruffle Off-the-Shoulder Top”</code>
+       <td><b>String Value Example:</b> <code>data-name="Ruffle Off-the-Shoulder Top"</code>
 
          <br><br>
 
          <b>Handlebars Value Example:</b> The <code>data-name</code> tag can also get its value using Handlebars.
 
- For example, if you are adding a data tag to your footer in products/footer.html, you could create the tag: <code>data-name=”{{this.banner-name}}”</code>
+ For example, if you are adding a data tag to your footer in products/footer.html, you could create the tag: <code>data-name="{{this.banner-name}}"</code>
 
-Or, if you are adding a data tag to a product list item in products/list-item.html, you could create the tag below <code>data-name=“{{name}}”</code> as long as these values are defined.</td>
+Or, if you are adding a data tag to a product list item in products/list-item.html, you could create the tag below <code>data-name="{{name}}"</code> as long as these values are defined.</td>
   </tr>
      <tr>
   	<td><code>data-product-category</code></td>
        <td>The <code>data-product-category</code> tag is equal to the tracked product’s category.
 </td>
   	<td>string</td>
-       <td><code>data-product-category=“Women’s Apparel”</code></td>
+       <td><code>data-product-category="Women’s Apparel"</code></td>
   </tr>
      <tr>
   	<td><code>data-product-brand</code></td>
        <td>The <code>data-product-brand</code> tag is equal to the tracked product’s brand.
 </td>
   	<td>string</td>
-       <td><code>data-product-brand=“Ralph Lauren Corporation”</code></td>
+       <td><code>data-product-brand="Ralph Lauren Corporation"</code></td>
   </tr>
      <tr>
   	<td><code>data-product-price</code></td>
        <td>The <code>data-product-price</code> tag is equal to the tracked product’s price.
 </td>
   	<td>integer</td>
-       <td><code>data-product-price=“27.99”</code></td>
+       <td><code>data-product-price="27.99"</code></td>
   </tr>
      <tr>
   	<td><code>data-product-sku</code></td>
        <td>The <code>data-product-sku</code> tag is equal to the tracked product’s sku value.
 </td>
   	<td>string</td>
-       <td><code>data-product-sku=”S18T-Ots-YM”</code></td>
+       <td><code>data-product-sku="S18T-Ots-YM"</code></td>
   </tr>
      <tr>
   	<td><code>data-product-variant</code></td>
        <td>The <code>data-product-variant</code> is equal to the tracked product’s variant.
 </td>
   	<td>string</td>
-       <td><code>data-product-variant=”4-Yellow”</code></td>
+       <td><code>data-product-variant="4-Yellow"</code></td>
   </tr>
 </table>
 
