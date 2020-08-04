@@ -29,7 +29,8 @@ products:
 
 **Note:** A 'limit' is required for Product Objects to render on a storefront page. You can hard code the limit value or utilize handlebars.js to reference it from the theme's config.json file. In this case, the limit value is being referenced from the `settings` JSON object in the `config.json` file using handlebars.js. Information on required attributes is detailed in the Front Matter Attributes Reference.
 
-After including the front matter block at the top of the home.html file, the New Products attribute will be accessible in the home page's context. As previously stated, simply including the front matter block will not display the attribute on the page. In order to actually display the new products on the desired storefront page, you will reference the attribute using Handlebars in the same file you have added the front matter block to.
+After including the front-matter block at the top of the `home.html` file, the New Products attribute will be accessible in the home page's context. As previously stated, simply including the front-matter block will not display the attribute on the page. In order to display the new products on the desired storefront page, you must reference the attribute using Handlebars in the same file where you added the front-matter block.
+
 In this example, we will include the following code in Cornerstone's [home.html](https://github.com/bigcommerce/cornerstone/blob/master/templates/pages/home.html) file to display New Products on our store's home page.
 
 ```html
