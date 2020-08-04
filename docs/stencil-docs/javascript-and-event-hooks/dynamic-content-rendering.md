@@ -82,7 +82,7 @@ Here is an example of some HTML that we actually use:
 
 ### Dropzones JavaScript
 
-The content is moved from the default location to the dropzone by JavaScript we added to the PageManager class. In BigCommerce's Cornerstone base theme, Pixel Union's Merchant theme, and other Stencil themes, PageManager is the parent class of all page classes. So, its methods get invoked on every page. This makes it a great place to put code like this, which needs to run every time a page is loaded.
+The content is moved from the default location to the dropzone by JavaScript we added to the PageManager class. In BigCommerce's Cornerstone base theme and other Stencil themes, PageManager is the parent class of all page classes. So, its methods get invoked on every page. This makes it a great place to put code like this, which needs to run every time a page is loaded.
 
 We modified our theme's PageManager.before method to invoke a new method named `gr_moveHtmlToDropzones`:
 

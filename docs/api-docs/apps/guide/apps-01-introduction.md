@@ -1,4 +1,4 @@
-# BigCommerce Apps Overview
+# BigCommerce Apps
 
 <div class="otp" id="no-index">
 
@@ -55,25 +55,41 @@ Create custom widgets for eCommerce merchants to install and configure; list of 
 ## Resources
 
 ### Related Articles
-* [App Store Approval Requirements](https://developer.bigcommerce.com/api-docs/partner/app-store-approval-requirements)
-* [Authentication](https://developer.bigcommerce.com/api-docs/getting-started/authentication)
-* [Customer Login API](https://developer.bigcommerce.com/api-docs/customers/customer-login-api)
-* [Store Accounts](https://support.bigcommerce.com/s/article/Store-API-Accounts#creating) (Knowledge Base)
-* [Supported Browsers](https://support.bigcommerce.com/s/article/Themes-Supported-Browsers) (Knowledge Base)
-* [BigCommerce Partners](https://www.bigcommerce.com/partners/) (BigCommerce)
+* Apps Overview
+* Building Apps
+* Types of Apps
+* Quick Start
+* Managing Apps in DevTools
+* Testing Locally
+* Installing Draft App
+* Implementing OAuth Flow
+* Handle Call Backs
+* Supporting Multiple Users
+* Listening for Events
+* Designing the UI
+* Creating Install Buttons
+* Best Practices
+* Approval Requirements
+* Deploying an App
+* Publishing an App
+* Finding an App's ID
 
 ### Sample Apps
-* [Ruby Hello World](https://github.com/bigcommerce/omniauth-bigcommerce) (BigCommerce GitHub)
-* [Python Hello World](https://github.com/bigcommerce/hello-world-app-python-flask) (BigCommerce GitHub)
-* https://github.com/bigcommerce/demo-app-ruby
-* https://github.com/bigcommerce/hello-world-app-php-silex
-* https://github.com/bigcommerce/laravel-react-sample-app
-* https://github.com/hatertron3000/webhooks-manager
-* https://github.com/bigcommerce/hello-world-javascript-node
+* [Python / Flask](https://github.com/bigcommerce/hello-world-app-python-flask)
+* [PHP / Silex](https://github.com/bigcommerce/hello-world-app-php-silex)
+* [Ruby / Sinatra](https://github.com/bigcommerce/hello-world-app-ruby-sinatra)
+* [Laravel / React](https://github.com/bigcommerce/laravel-react-sample-app)
+* [Node / FaunaDB / Nelify](https://github.com/bigcommerce/channels-app/)
 
 ### Tools
+* [Node API Client](https://github.com/getconversio/node-bigcommerce)
+* [Python API Client](https://github.com/bigcommerce/bigcommerce-api-python)
+* [PHP API Client](https://github.com/bigcommerce/bigcommerce-api-php)
+* [Ruby API Client](https://github.com/bigcommerce/bigcommerce-api-ruby)
+* [Ruby OmniAuth Gem](https://github.com/bigcommerce/omniauth-bigcommerce)
 * [Big Design Developer Playground](https://developer.bigcommerce.com/big-design/)
-* [Online Crawler](https://www.jitbit.com/sslcheck/) (JitBit)
+* [Figma UI Kit](https://www.figma.com/file/jTVuUkiZ1j3rux8WHG4IKK/BigDesign-UI-Kit?node-id=0%3A1/duplicate)
+* [Adobe Illustrator UI Kit](https://design.bigcommerce.com/bigdesign-ui-kit)
 
 ### Blog Posts
 * [How to Test App Authentication Locally with ngrok](https://medium.com/bigcommerce-developer-blog/how-to-test-app-authentication-locally-with-ngrok-149150bfe4cf) (BigCommerce Developer Blog)
