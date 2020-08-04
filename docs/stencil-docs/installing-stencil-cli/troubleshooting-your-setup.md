@@ -23,7 +23,7 @@
 
 </div>
 
-For any unexpected behavior you encounter while developing your Stencil theme, we recommend you first check your terminal window where you started Stencil CLI.
+For any unexpected behavior you encounter while developing your Stencil theme, we recommend checking the terminal window where you started Stencil CLI.
 
 In some cases, the terminal will provide a verbose error message specifying where to look for problems. It has the potential to provide further insight on the issue. Diagnostic suggestions are listed on this page for error messages that may not be helpful in revealing the issue you're experiencing.
 
