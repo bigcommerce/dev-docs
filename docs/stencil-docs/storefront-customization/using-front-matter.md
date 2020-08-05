@@ -14,8 +14,8 @@
 </div>
 
 ## Declaring Front Matter Objects
+When you create a store page that requires specific attributes (such as 'New Products') to be displayed, declare the object and attribute on the page in a front-matter block at the top of the page's HTML template file. The front-matter block makes the attribute accessible on the page. Then, to display the attribute on the storefront page, reference the object using Handlebars within the page's HTML.
 
-When you create a store page that requires specific attributes (such as 'New Products') to be displayed, you must first declare the object and attribute on the page in a front-matter block at the top of the page's HTML template file. The front matter block makes the attribute accessible on the page. Then, to display the attribute on the storefront page, you will reference the object using Handlebars within the page's HTML.
 For example, to display 'new products' on a storefront's home page, you first need to make new products accessible on the home page. To achieve this, include the following front matter block at the top of the [home.html](https://github.com/bigcommerce/cornerstone/blob/master/templates/pages/home.html) file to declare the products object with its new attribute. This allows a storefront's home page to access a store's "New Products."
 
 ```yaml
@@ -28,7 +28,8 @@ products:
 
 **Note:** A 'limit' is required for Product Objects to render on a storefront page. You can hard code the limit value or utilize handlebars.js to reference it from the theme's config.json file. In this case, the limit value is being referenced from the `settings` JSON object in the `config.json` file using handlebars.js. Information on required attributes is detailed in the Front Matter Attributes Reference.
 
-After including the front matter block at the top of the home.html file, the New Products attribute will be accessible in the home page's context. As previously stated, simply including the front matter block will not display the attribute on the page. In order to actually display the new products on the desired storefront page, you will reference the attribute using Handlebars in the same file you have added the front matter block to.
+After including the front-matter block at the top of the `home.html` file, the New Products attribute will be accessible in the home page's context. As previously stated, simply including the front-matter block will not display the attribute on the page. In order to display the new products on the desired storefront page, you must reference the attribute using Handlebars in the same file where you added the front-matter block.
+
 In this example, we will include the following code in Cornerstone's [home.html](https://github.com/bigcommerce/cornerstone/blob/master/templates/pages/home.html) file to display New Products on our store's home page.
 
 ```html
