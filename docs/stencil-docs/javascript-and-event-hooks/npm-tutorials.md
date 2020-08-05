@@ -35,7 +35,7 @@ If you need to set up a BigCommerce store, see [Creating a Trial Store](https://
 
 ## Installing React and npm Packages
 
-To build this customization, complete the instructions in the following sections~.~<span style="color:red">:</span>
+To build this customization, complete the instructions in the following sections:
 
 ### Install Dependencies
 
