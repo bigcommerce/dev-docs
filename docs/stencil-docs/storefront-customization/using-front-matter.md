@@ -65,7 +65,7 @@ products:
 
 ```
 
-Most keys have a default value, as listed in the [Front Matter Attributes](https://developer.bigcommerce.com/stencil-docs/templates/front-matter-reference) Reference. Specifying the key without a value will call that default value. The default value for `similar_by_views:limit:` happens to be `4`, so inserting `limit` with no integer will display four products:
+Most keys have a default value, as listed in the [Front Matter Attributes](https://developer.bigcommerce.com/stencil-docs/reference-docs/front-matter-reference) Reference. Specifying the key without a value will call that default value. The default value for `similar_by_views:limit:` happens to be `4`, so inserting `limit` with no integer will display four products:
 
 ```yaml
 
@@ -147,4 +147,4 @@ product:
 ```
 
 ## Resources
-* [Front Matter Reference](https://developer.bigcommerce.com/stencil-docs/templates/front-matter-reference)
+* [Front Matter Reference](https://developer.bigcommerce.com/stencil-docs/reference-docs/front-matter-reference)
