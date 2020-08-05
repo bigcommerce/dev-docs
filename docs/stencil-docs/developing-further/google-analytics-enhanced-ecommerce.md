@@ -3,7 +3,6 @@
 <div class="otp" id="no-index">
 
 ### On This Page
-- [Prerequisites](#prerequisites)
 - [Adding Data Tags](#adding-data-tags)
 - [Data Tag Reference](#data-tag-reference)
 - [Custom Dimensions and Metrics](#custom-dimensions-and-metrics)
@@ -30,19 +29,19 @@ Cornerstone versions 2.6.0+ will have Data Tags already included in the theme.
 </div>
 </div>
 
-### Prerequisites
-* [BigCommerce Store](https://support.bigcommerce.com/s/article/Starting-a-Bigcommerce-Trial)
-* [Optimized One-Page Checkout enabled](https://support.bigcommerce.com/s/article/Optimized-Single-Page-Checkout)
-
-
 ### Downloading a Theme
 Data Tags will work on any theme. For this tutorial, we will be adding data tags to the Cornerstone theme. If you do not already have a local copy of Cornerstone on your machine, see [Downloading Cornerstone](/stencil-docs/installing-stencil-cli/installing-stencil#authorizing_download).
 
 If you would like to implement Data Tags on your custom theme and do not already have a copy of your custom theme downloaded, see [Downloading a Marketplace Theme](/stencil-docs/installing-stencil-cli/installing-stencil#authorizing_download).
 
-Note: The remainder of this tutorial will be working off the theme’s base folder ‘cornerstone’.
+**Note**: The remainder of this tutorial will be working off the theme’s base folder ‘cornerstone’.
 
 ## Adding Data Tags
+
+### Prerequisites
+* [BigCommerce Store](https://support.bigcommerce.com/s/article/Starting-a-Bigcommerce-Trial)
+* [Optimized One-Page Checkout enabled](https://support.bigcommerce.com/s/article/Optimized-Single-Page-Checkout)
+* Cornerstone theme installed
 
 ### Include the Enhanced ECommerce Property
 
@@ -183,7 +182,7 @@ The “tracked product” refers to the product on which you are inserting the d
    <tr>
     <td><code>data-position</code></td>
        <td>The <code>data-position</code> tag is equal to the tracked product’s position or the tracked promotion’s position.</td>
-  	<td>Value is a string if creating the data tag for a promotion. The string should denote where the promotion is.
+  	<td>Value is a string if creating the data tag for a promotion. The string should denote the location of the promotion.
        <br><br>
        Value is an integer if creating the data tag for a product. The integer should represent the product’s placement. An example use case for this data tag is to answer a question like, “does the product in position 1 sell more than the product in position 4?”</td>
        <td><b>String Value Example:</b> <code>data-position="center"</code>
