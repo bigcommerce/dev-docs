@@ -9,6 +9,7 @@
 - [Current Customer API](#current-customer-api)
 - [Provider APIs](#provider-apis)
 - [Add to Cart URLs](#add-to-cart-urls)
+- [API spec files](#api-spec-files)
 - [Deprecations and Sunsets](#deprecations-and-sunsets)
 
 ## BigCommerce APIs at a Glance
@@ -233,7 +234,41 @@ Query string parameters can be appended to BigCommerce product and `/cart.php` U
 | string  | `source=`     | source of the sale for analytics; can be any string | `/cart.php?action=buy&sku=xlredtshirt&source=emailcampaign` |
 
 
-**Additional Information:** [Add to Cart URLs Overview](https://developer.bigcommerce.com/api-docs/cart-and-checkout/add-to-cart-url)
+**Additional Information:** 
+[Add to Cart URLs Overview](https://developer.bigcommerce.com/api-docs/cart-and-checkout/add-to-cart-url)
+
+## API spec files
+
+| API | Download|
+|-|-|
+| Storefront Token | <a class="cursor-pointer" href="/api-reference/cart-checkout/storefront-api-token/BigCommerce_Storefront_Token_API.oas2.json" target="_blank" download="BigCommerce_Storefront_Token_API.oas2.json">BigCommerce_Storefront_Token_API.oas2.json</a>|
+|Storefront Carts |<a class="cursor-pointer" href="/api-reference/cart-checkout/storefront-api-token/BigCommerce_Storefront_Token_API.oas2.json" target="_blank" download="BigCommerce_Storefront_Cart_API.oas2.json">BigCommerce_Storefront_Cart_API.oas2.json</a> |
+| Storefront Checkouts |<a class="cursor-pointer" href="/api-reference/cart-checkout/storefront-api-token/BigCommerce_Storefront_Token_API.oas2.json" target="_blank" download="BigCommerce_Storefront_Checkouts_2.oas2.json">BigCommerce_Storefront_Checkouts_2.oas2.json</a> |
+|Storefront Orders |<a class="cursor-pointer" href="/api-reference/cart-checkout/storefront-api-token/BigCommerce_Storefront_Token_API.oas2.json" target="_blank" download="BigCommerce_Storefront_Checkouts_2.oas2.json">BigCommerce_Storefront_Checkouts_2.oas2.json</a> |
+| Server-to-Server Carts |<a class="cursor-pointer" href="/api-reference/cart-checkout/storefront-api-token/BigCommerce_Storefront_Token_API.oas2.json" target="_blank" download="BigCommerce_Storefront_Checkouts_2.oas2.json">BigCommerce_Storefront_Checkouts_2.oas2.json</a> |
+|Server-to-Server Abandoned Carts |<a class="cursor-pointer" href="/api-reference/cart-checkout/storefront-api-token/BigCommerce_Storefront_Token_API.oas2.json" target="_blank" download="BigCommerce_Storefront_Checkouts_2.oas2.json">BigCommerce_Storefront_Checkouts_2.oas2.json</a> |
+|Server-to-Server Checkouts |<a class="cursor-pointer" href="/api-reference/cart-checkout/storefront-api-token/BigCommerce_Storefront_Token_API.oas2.json" target="_blank" download="BigCommerce_Storefront_Checkouts_2.oas2.json">BigCommerce_Storefront_Checkouts_2.oas2.json</a> |
+| Channels and Listings |<a class="cursor-pointer" href="/api-reference/cart-checkout/storefront-api-token/BigCommerce_Storefront_Token_API.oas2.json" target="_blank" download="BigCommerce_Storefront_Checkouts_2.oas2.json">BigCommerce_Storefront_Checkouts_2.oas2.json</a> |
+|Sites and Routes|<a class="cursor-pointer" href="/api-reference/cart-checkout/storefront-api-token/BigCommerce_Storefront_Token_API.oas2.json" target="_blank" download="BigCommerce_Storefront_Checkouts_2.oas2.json">BigCommerce_Storefront_Checkouts_2.oas2.json</a> |
+| Wishlists |<a class="cursor-pointer" href="/api-reference/cart-checkout/storefront-api-token/BigCommerce_Storefront_Token_API.oas2.json" target="_blank" download="BigCommerce_Storefront_Checkouts_2.oas2.json">BigCommerce_Storefront_Checkouts_2.oas2.json</a> |
+|Payment Processing Token and Methods| <a class="cursor-pointer" href="/api-reference/cart-checkout/storefront-api-token/BigCommerce_Storefront_Token_API.oas2.json" target="_blank" download="BigCommerce_Storefront_Checkouts_2.oas2.json">BigCommerce_Storefront_Checkouts_2.oas2.json</a> |
+| Enabled Store Payment Methods |<a class="cursor-pointer" href="/api-reference/cart-checkout/storefront-api-token/BigCommerce_Storefront_Token_API.oas2.json" target="_blank" download="BigCommerce_Storefront_Checkouts_2.oas2.json">BigCommerce_Storefront_Checkouts_2.oas2.json</a> |
+|Process Payment |<a class="cursor-pointer" href="/api-reference/cart-checkout/storefront-api-token/BigCommerce_Storefront_Token_API.oas2.json" target="_blank" download="BigCommerce_Storefront_Checkouts_2.oas2.json">BigCommerce_Storefront_Checkouts_2.oas2.json</a> |
+|Customers|<a class="cursor-pointer" href="/api-reference/cart-checkout/storefront-api-token/BigCommerce_Storefront_Token_API.oas2.json" target="_blank" download="BigCommerce_Storefront_Checkouts_2.oas2.json">BigCommerce_Storefront_Checkouts_2.oas2.json</a> |
+|Customers (V3) |<a class="cursor-pointer" href="/api-reference/cart-checkout/storefront-api-token/BigCommerce_Storefront_Token_API.oas2.json" target="_blank" download="BigCommerce_Storefront_Checkouts_2.oas2.json">BigCommerce_Storefront_Checkouts_2.oas2.json</a> |
+|Geography |<a class="cursor-pointer" href="/api-reference/cart-checkout/storefront-api-token/BigCommerce_Storefront_Token_API.oas2.json" target="_blank" download="BigCommerce_Storefront_Checkouts_2.oas2.json">BigCommerce_Storefront_Checkouts_2.oas2.json</a> |
+|Currencies |<a class="cursor-pointer" href="/api-reference/cart-checkout/storefront-api-token/BigCommerce_Storefront_Token_API.oas2.json" target="_blank" download="BigCommerce_Storefront_Checkouts_2.oas2.json">BigCommerce_Storefront_Checkouts_2.oas2.json</a> |
+|Marketing |<a class="cursor-pointer" href="/api-reference/cart-checkout/storefront-api-token/BigCommerce_Storefront_Token_API.oas2.json" target="_blank" download="BigCommerce_Storefront_Checkouts_2.oas2.json">BigCommerce_Storefront_Checkouts_2.oas2.json</a> |
+|Orders V3 |<a class="cursor-pointer" href="/api-reference/cart-checkout/storefront-api-token/BigCommerce_Storefront_Token_API.oas2.json" target="_blank" download="BigCommerce_Storefront_Checkouts_2.oas2.json">BigCommerce_Storefront_Checkouts_2.oas2.json</a> |
+|Orders V2 |<a class="cursor-pointer" href="/api-reference/cart-checkout/storefront-api-token/BigCommerce_Storefront_Token_API.oas2.json" target="_blank" download="BigCommerce_Storefront_Checkouts_2.oas2.json">BigCommerce_Storefront_Checkouts_2.oas2.json</a> |
+|Payment Methods |<a class="cursor-pointer" href="/api-reference/cart-checkout/storefront-api-token/BigCommerce_Storefront_Token_API.oas2.json" target="_blank" download="BigCommerce_Storefront_Checkouts_2.oas2.json">BigCommerce_Storefront_Checkouts_2.oas2.json</a> |
+|Price Lists |<a class="cursor-pointer" href="/api-reference/cart-checkout/storefront-api-token/BigCommerce_Storefront_Token_API.oas2.json" target="_blank" download="BigCommerce_Storefront_Checkouts_2.oas2.json">BigCommerce_Storefront_Checkouts_2.oas2.json</a> |
+|Scripts |<a class="cursor-pointer" href="/api-reference/cart-checkout/storefront-api-token/BigCommerce_Storefront_Token_API.oas2.json" target="_blank" download="BigCommerce_Storefront_Checkouts_2.oas2.json">BigCommerce_Storefront_Checkouts_2.oas2.json</a> |
+|Shipping |<a class="cursor-pointer" href="/api-reference/cart-checkout/storefront-api-token/BigCommerce_Storefront_Token_API.oas2.json" target="_blank" download="BigCommerce_Storefront_Checkouts_2.oas2.json">BigCommerce_Storefront_Checkouts_2.oas2.json</a> |
+|Shipping Provider |<a class="cursor-pointer" href="/api-reference/cart-checkout/storefront-api-token/BigCommerce_Storefront_Token_API.oas2.json" target="_blank" download="BigCommerce_Storefront_Checkouts_2.oas2.json">BigCommerce_Storefront_Checkouts_2.oas2.json</a> |
+|Store Content |<a class="cursor-pointer" href="/api-reference/cart-checkout/storefront-api-token/BigCommerce_Storefront_Token_API.oas2.json" target="_blank" download="BigCommerce_Storefront_Checkouts_2.oas2.json">BigCommerce_Storefront_Checkouts_2.oas2.json</a> |
+|Store Information |<a class="cursor-pointer" href="/api-reference/cart-checkout/storefront-api-token/BigCommerce_Storefront_Token_API.oas2.json" target="_blank" download="BigCommerce_Storefront_Checkouts_2.oas2.json">BigCommerce_Storefront_Checkouts_2.oas2.json</a> |
+|Subscribers |<a class="cursor-pointer" href="/api-reference/cart-checkout/storefront-api-token/BigCommerce_Storefront_Token_API.oas2.json" target="_blank" download="BigCommerce_Storefront_Checkouts_2.oas2.json">BigCommerce_Storefront_Checkouts_2.oas2.json</a> |
 
 
 ## Deprecations and Sunsets
