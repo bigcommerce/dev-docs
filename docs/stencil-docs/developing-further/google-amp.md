@@ -119,7 +119,7 @@ If you are having any implementation issues, review the [full Pull Request #964]
 In versions 1.6.0+ of Cornerstone, there are a few key file locations where the AMP information is located:
 
 * Base AMP layout template is located in [templates/layout/amp.html](https://github.com/bigcommerce/cornerstone/blob/master/config.json).
-* The files for Google AMP are located in [/templates/pages/amp](https://github.com/bigcommerce/cornerstone/tree/master/templates/pages/amp). This is where `product.html` and `category.html` are located. (Note: there may be other files in this folder, but the product and category pages are the only one pages that currently support Google AMP).
+* The files for Google AMP are located in [/templates/pages/amp](https://github.com/bigcommerce/cornerstone/tree/master/templates/pages/amp). This is where `product.html` and `category.html` are located. (Note: There may be other files in this folder, but the product and category pages are the only pages that currently support Google AMP).
 * The CSS is located in [templates/components/amp/css](https://github.com/bigcommerce/cornerstone/tree/master/templates/components/amp/css).
 
 After the Google Analytics ID has been added via Control Panel, you can toggle AMP on the product and category pages using the [settings](https://support.bigcommerce.com/articles/Public/Google-AMP?_ga=2.205799699.1406470381.1541441523-967431010.1523308107) there.
