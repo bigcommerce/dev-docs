@@ -34,7 +34,8 @@ Data Tags will work on any theme. For this tutorial, we will be adding data tags
 
 If you would like to implement Data Tags on your custom theme and do not already have a copy of your custom theme downloaded, see [Downloading a Marketplace Theme](/stencil-docs/installing-stencil-cli/installing-stencil#authorizing_download).
 
-**Note**: The remainder of this tutorial will be working off the theme’s base folder ‘cornerstone’.
+**Note**: The remainder of this tutorial will be working off the theme’s base folder `cornerstone`.
+
 
 ## Adding Data Tags
 
