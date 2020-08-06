@@ -30,7 +30,8 @@ Cornerstone versions 2.6.0+ will have Data Tags already included in the theme.
 </div>
 
 ### Downloading a Theme
-Data Tags will work on any theme. For this tutorial, we will be adding data tags to the Cornerstone theme. If you do not already have a local copy of Cornerstone on your machine, see [Downloading Cornerstone](/stencil-docs/installing-stencil-cli/installing-stencil#authorizing_download).
+Data tags will work on any theme. For this tutorial, we will be adding data tags to the Cornerstone theme. If you do not already have a local copy of Cornerstone on your machine, see [Downloading Cornerstone](/stencil-docs/installing-stencil-cli/installing-stencil#authorizing_download).
+
 
 If you would like to implement Data Tags on your custom theme and do not already have a copy of your custom theme downloaded, see [Downloading a Marketplace Theme](/stencil-docs/installing-stencil-cli/installing-stencil#authorizing_download).
 
