@@ -86,7 +86,6 @@ var RecaptchaOptions = {
 ```
 
 ### reCAPTCHA Script to Update
-(Reference: https://developers.google.com/recaptcha/docs/display)
 
 Next, in each of the three template files, add the following script tage to the top of the page:
 
