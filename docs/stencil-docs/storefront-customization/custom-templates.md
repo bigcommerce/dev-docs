@@ -27,7 +27,7 @@ The Stencil framework allows theme developers and merchants to assign custom lay
 <!-- theme: warning -->
 
 ### Stencil versus Blueprint Themes
-> If you are migrating from BigCommerce's legacy Blueprint themes framework, please keep in mind these differences in how Stencil handles custom templates:
+If you are migrating from BigCommerce's legacy Blueprint themes framework, please keep in mind these differences in how Stencil handles custom templates:
 * The brand option is entirely new in Stencil. If you are running on a Blueprint theme, you will not be able to create a custom template for brand pages.
 * Unlike Blueprint, Stencil does not require that custom template file names start with an underscore.
 * In the current Stencil release, you must create and bundle custom templates using Stencil CLI before you can upload the custom templates to stores. However, once you have created and uploaded templates, authorized store users can assign them to storefront pages through the control panel.
@@ -54,7 +54,7 @@ Next, create the template HTML files, and then place them in the appropriate `te
 <!-- theme: warning -->
 
 ### Subdirectory/File Permissions Required
-> Be sure to set permission `755 (drwxr-x-r-x)` on any new subdirectories that you add. Also, be sure to set permission `644 (rw-r–r–)` on any new files that you add.
+Be sure to set permission `755 (drwxr-x-r-x)` on any new subdirectories that you add. Also, be sure to set permission `644 (rw-r–r–)` on any new files that you add.
 
 Without these permissions, running your theme locally will fail with multiple error messages. Bundling your theme will also fail, blocking its upload to a store.
 
@@ -220,13 +220,13 @@ If you have an old version of Stencil CLI installed, it might lack support for c
 
 Once the developer has uploaded a theme to BigCommerce, the merchant (or other authorized store user) can assign the custom templates to individual store pages in the BigCommerce Control Panel in order to make it live on the storefront.
 
-If you are ready to apply your custom template to the live BigCommerce storefront, see [Applying a Custom Template](https://support.bigcommerce.com/s/article/Stencil-Themes#intro3) (BigCommerce Knowledge base).
+If you are ready to apply your custom template to the live BigCommerce storefront, see [Applying a Custom Template](https://support.bigcommerce.com/s/article/Stencil-Themes#custom-template) (BigCommerce Knowledge base).
 
 ## Resources
 
 ### Related Articles
 * [Blueprint Themes](https://developer.bigcommerce.com/legacy/blueprint-themes)
-* [Applying a Custom Template](https://support.bigcommerce.com/s/article/Stencil-Themes#intro3) (BigCommerce Knowledge Base)
+* [Applying a Custom Template](https://support.bigcommerce.com/s/article/Stencil-Themes#custom-templates) (BigCommerce Knowledge Base)
 
 ### Additional Resources
 
