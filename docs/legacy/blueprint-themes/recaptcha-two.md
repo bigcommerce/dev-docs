@@ -87,7 +87,8 @@ var RecaptchaOptions = {
 
 ### reCAPTCHA Script to Update
 
-Next, in each of the three template files, add the following script tage to the top of the page:
+In each of the three template files, add the following script tag to the top of the page.
+
 
 <div class="HubBlock-header">
     <div class="HubBlock-header-title flex items-center">
