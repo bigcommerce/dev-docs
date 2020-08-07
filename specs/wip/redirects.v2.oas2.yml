@@ -1,0 +1,1069 @@
+swagger: '2.0'
+info:
+  version: '2.0'
+  title: Redirects
+  description: >
+    [Redirects](https://support.bigcommerce.com/s/article/301-Redirects) create
+    dynamic paths that send a users to resources, brands, etc., on the
+    storefront regardless of changes to the URL. Redirects can also point to
+    static URLs. You can manage these redirects with the Redirects resource.
+
+
+    **On This Page**
+
+    - [Authentication](#authentication)
+
+    - [OAuth Scopes](#oauth-scopes)
+
+    - [Subresources](#subresources)
+
+    - [Additional Information](#additional-information)
+
+    ---
+
+
+    ## Authentication
+
+    You can authenticate requests by sending a `client_id` and `access_token`
+    via `X-Auth-Client` and `X-Auth-Token` HTTP headers:
+
+
+    ```http
+
+    GET /stores/{$$.env.store_hash}/v2/redirects
+
+    host: api.bigcommerce.com
+
+    Accept: application/json
+
+    X-Auth-Client: {client_id}
+
+    X-Auth-Token: {access_token}
+
+    ```
+
+    You can obtain the `client_id` and `access_token` using either of the
+    following methods:
+
+    - [Creating API
+    account](https://developer.bigcommerce.com/api-docs/getting-started/authentication/rest-api-authentication#obtaining-store-api-credentials)
+
+    - [Installing an app in the BigCommerce control
+    panel](https://developer.bigcommerce.com/api-docs/getting-started/authentication/rest-api-authentication#obtaining-app-api-credentials)
+
+    ---
+
+
+    ## OAuth Scopes
+
+    Scope limits ability to read or modify data. To interact with the Redirects
+    resource, set the scope to the minimum level needed to accomplish your
+    specific task. 
+
+
+    | UI Name  | Permission | Parameter                     |
+
+    |----------|------------|-------------------------------|
+
+    | Content | modify     | `store_v2_content`           |
+
+    | Content | read-only  | `store_v2_content_read_only` |
+
+
+    For more information on OAuth Scopes, see the [REST API
+    Authentication](https://developer.bigcommerce.com/api-docs/getting-started/authentication/rest-api-authentication#oauth-scopes)
+    page.
+
+
+    ---
+
+
+    ## Subresources
+
+    ### Count
+
+    Count returns the value of how many redirect URLs there are for a store.
+
+
+    ## Additional Information
+
+    **Knowledge Base**
+
+    - [301
+    Redirects](https://support.bigcommerce.com/s/article/301-Redirects#faq)
+host: api.bigcommerce.com
+basePath: '/stores/{$$.env.store_hash}/v2'
+schemes:
+  - https
+consumes:
+  - application/json
+produces:
+  - application/json
+paths:
+  /redirects:
+    get:
+      description: Returns a list all *Redirect URLs*.
+      summary: Get All Redirects
+      tags:
+        - Redirects
+      parameters:
+        - name: Accept
+          in: header
+          required: true
+          type: string
+          description: ''
+          default: application/json
+        - name: Content-Type
+          in: header
+          required: true
+          type: string
+          description: ''
+          default: application/json
+        - name: page
+          in: query
+          required: false
+          type: integer
+          exclusiveMaximum: false
+          exclusiveMinimum: false
+          description: Filter param.
+        - name: limit
+          in: query
+          required: false
+          type: integer
+          exclusiveMaximum: false
+          exclusiveMinimum: false
+          description: Filter param.
+      responses:
+        '200':
+          description: ''
+          schema:
+            type: array
+            items:
+              $ref: '#/definitions/redirect'
+          examples:
+            application/json:
+              - id: 1
+                path: /smith-journal-13/
+                forward:
+                  type: product
+                  ref: '111'
+                url: >-
+                  http://store-url.mybigcommerce.com/towels/bath-towels/hand-towels/
+            Response Schema: ''
+      operationId: getAListofRedirects
+      deprecated: true
+    post:
+      description: |-
+        Creates a *Redirect URL*.
+
+        **Required Fields**
+        *   path
+        *   forward
+
+        **Read Only**
+        *   url
+      summary: Create a Redirect
+      tags:
+        - Redirects
+      parameters:
+        - name: Accept
+          in: header
+          required: true
+          type: string
+          description: ''
+          default: application/json
+        - name: Content-Type
+          in: header
+          required: true
+          type: string
+          description: ''
+          default: application/json
+        - name: body
+          in: body
+          required: true
+          description: ''
+          schema:
+            $ref: '#/definitions/redirect'
+          x-examples:
+            application/json:
+              path: /mens_clothing
+              forward:
+                type: category
+                ref: 3
+      responses:
+        '200':
+          description: ''
+          schema:
+            $ref: '#/definitions/redirect'
+          examples:
+            application/json:
+              id: 3
+              path: /mens_clothing
+              forward:
+                type: category
+                ref: 3
+              url: 'http://store.example.com/mens'
+      operationId: createARedirect
+      deprecated: true
+    delete:
+      description: 'By default, it delets all *Redirect URLs* in a store. '
+      summary: Delete All Redirects
+      tags:
+        - Redirects
+      parameters:
+        - name: Accept
+          in: header
+          required: true
+          type: string
+          description: ''
+          default: application/json
+        - name: Content-Type
+          in: header
+          required: true
+          type: string
+          description: ''
+          default: application/json
+      responses:
+        '204':
+          description: ''
+      operationId: deleteAllRedirects
+      deprecated: true
+  '/redirects/{id}':
+    get:
+      description: Returns a single *Redirect URL*.
+      summary: Get a Redirect
+      tags:
+        - Redirects
+      parameters:
+        - name: id
+          in: path
+          required: true
+          type: integer
+          exclusiveMaximum: false
+          exclusiveMinimum: false
+          description: Id of the redirect url
+        - name: Accept
+          in: header
+          required: true
+          type: string
+          description: ''
+          default: application/json
+        - name: Content-Type
+          in: header
+          required: true
+          type: string
+          description: ''
+          default: application/json
+      responses:
+        '200':
+          description: ''
+          schema:
+            $ref: '#/definitions/redirect'
+          examples:
+            application/json:
+              id: 1
+              path: /smith-journal-13/
+              forward:
+                type: product
+                ref: 111
+              url: >-
+                http://store-url.mybigcommerce.com/towels/bath-towels/hand-towels/
+      operationId: getARedirectURL
+      deprecated: true
+    put:
+      description: |-
+        Updates a *Redirect URL*.
+
+        **Required Fields**
+        *   path
+        *   forward
+
+        **Read Only Fields**
+        *   url
+      summary: Update a Redirect
+      tags:
+        - Redirects
+      produces: []
+      parameters:
+        - name: id
+          in: path
+          required: true
+          type: integer
+          exclusiveMaximum: false
+          exclusiveMinimum: false
+          description: Id of the redirect url
+        - name: Accept
+          in: header
+          required: true
+          type: string
+          description: ''
+        - name: Content-Type
+          in: header
+          required: true
+          type: string
+          description: ''
+        - name: body
+          in: body
+          required: true
+          description: ''
+          schema:
+            title: Redirect
+            example:
+              id: 1
+              path: /smith-journal-13/
+              forward:
+                type: product
+                ref: 111
+              url: >-
+                http://store-url.mybigcommerce.com/towels/bath-towels/hand-towels/
+            type: object
+            properties:
+              id:
+                description: Numeric ID of the redirect.
+                example: 1
+                type: integer
+              path:
+                type: string
+                description: The path from which to redirect.
+                example: /smith-journal-13/
+              forward:
+                type: object
+                properties:
+                  type:
+                    type: string
+                    description: >
+                      The type of redirect. If it is a manual redirect then type
+                      will always be manual. Dynamic redirects will have the
+                      type of the page. Such as product or category.
+                    example: product
+                  ref:
+                    type: string
+                    description: >-
+                      Reference of the redirect. Dynamic redirects will have the
+                      category or product number. Manual redirects will have the
+                      url that is being directed to.
+                    example: 111
+              url:
+                description: URL of the redirect. READ-ONLY
+                example: >-
+                  http://store-url.mybigcommerce.com/towels/bath-towels/hand-towels/
+                type: string
+            required:
+              - path
+              - forward
+          x-examples:
+            application/json:
+              path: /mens_clothing
+              forward:
+                type: category
+                ref: 3
+      responses:
+        '200':
+          description: ''
+          schema:
+            $ref: '#/definitions/redirect'
+          examples:
+            application/json:
+              id: 1
+              path: /smith-journal-13/
+              forward:
+                type: product
+                ref: 111
+              url: >-
+                http://store-url.mybigcommerce.com/towels/bath-towels/hand-towels/
+      operationId: updateARedirectURL
+      deprecated: true
+    delete:
+      description: Deletes a *Redirect URL*.
+      summary: Delete a Redirect
+      tags:
+        - Redirects
+      parameters:
+        - name: id
+          in: path
+          required: true
+          type: integer
+          exclusiveMaximum: false
+          exclusiveMinimum: false
+          description: Id of the redirect url
+        - name: Accept
+          in: header
+          required: true
+          type: string
+          description: ''
+          default: application/json
+        - name: Content-Type
+          in: header
+          required: true
+          type: string
+          description: ''
+          default: application/json
+      responses:
+        '204':
+          description: ''
+      operationId: deleteARedirect
+      deprecated: true
+    parameters:
+      - name: id
+        in: path
+        type: string
+        required: true
+  /redirects/count:
+    get:
+      description: Gets a count of *Redirect URLs* in a store.
+      summary: Get a Count of Redirects
+      tags:
+        - Redirects
+      parameters:
+        - name: Accept
+          in: header
+          required: true
+          type: string
+          description: ''
+          default: application/json
+        - name: Content-Type
+          in: header
+          required: true
+          type: string
+          description: ''
+          default: application/json
+      responses:
+        '200':
+          description: ''
+          schema:
+            $ref: '#/definitions/count_Response'
+          examples:
+            application/json:
+              count: 27
+      operationId: getACountOfRedirects
+      deprecated: true
+definitions:
+  blogPost_Full:
+    title: blogPost_Full
+    allOf:
+      - type: object
+        properties:
+          id:
+            description: ID of this blog post. (READ-ONLY)
+            example: 3
+            type: integer
+      - $ref: '#/definitions/blogPost_Base'
+  addresses:
+    type: object
+    properties:
+      url:
+        description: Full URL of where the resource is located.
+        example: >-
+          https://api.bigcommerce.com/stores/{$$.env.store_hash}/v2/customers/5/addresses
+        type: string
+      resource:
+        description: Resource being accessed.
+        example: /customers/5/addresses
+        type: string
+    title: addresses
+  formField:
+    title: formField
+    type: object
+    properties:
+      name:
+        description: Name of the form field
+        type: string
+        example: License Id
+      value:
+        description: Value of the form field
+        type: string
+        example: 123BAF
+  page_Full:
+    title: page_Full
+    allOf:
+      - type: object
+        properties:
+          id:
+            type: integer
+            example: 44
+            description: ID of the page.
+      - $ref: '#/definitions/page_Base'
+  redirect:
+    title: redirect
+    example:
+      id: 1
+      path: /smith-journal-13/
+      forward:
+        type: product
+        ref: 111
+      url: 'http://store-url.mybigcommerce.com/towels/bath-towels/hand-towels/'
+    type: object
+    properties:
+      id:
+        description: Numeric ID of the redirect.
+        example: 1
+        type: integer
+      path:
+        type: string
+        description: The path from which to redirect.
+        example: /smith-journal-13/
+      forward:
+        $ref: '#/definitions/forward'
+      url:
+        description: URL of the redirect. READ-ONLY
+        example: 'http://store-url.mybigcommerce.com/towels/bath-towels/hand-towels/'
+        type: string
+    required:
+      - path
+      - forward
+  forward:
+    title: forward
+    type: object
+    properties:
+      type:
+        description: >-
+          The type of redirect. If it is a `manual` redirect then type will
+          always be manual. Dynamic redirects will have the type of the page.
+          Such as product or category.
+        example: product
+        type: string
+      ref:
+        description: >-
+          Reference of the redirect. Dynamic redirects will have the category or
+          product number. Manual redirects will have the url that is being
+          directed to.
+        example: 111
+        type: number
+  customer_Full:
+    title: customer_Full
+    type: object
+    properties:
+      id:
+        description: >-
+          Unique numeric ID of this customer. This is a READ-ONLY field; do not
+          set or modify its value in a POST or PUT request.
+        example: 1
+        type: integer
+      _authentication:
+        description: >-
+          Not returned in any responses, but accepts up to two fields allowing
+          you to set the customer’s password. If a password is not supplied, it
+          is generated automatically. For further information about using this
+          object, please see the Customers resource documentation.
+        type: object
+        properties:
+          force_reset:
+            type: string
+          password:
+            type: string
+          password_confirmation:
+            type: string
+      company:
+        description: The name of the company for which the customer works.
+        example: BigCommerce
+        type: string
+      first_name:
+        type: string
+        description: First name of the customer.
+        example: Jane
+      last_name:
+        type: string
+        description: Last name of the customer.
+        example: Doe
+      email:
+        type: string
+        description: Email address of the customer.
+        example: janedoe@email.com
+      phone:
+        description: Phone number of the customer.
+        example: 1234567890
+        type: string
+      date_created:
+        description: >-
+          Date on which the customer registered from the storefront or was
+          created in the control panel. This is a READ-ONLY field; do not set or
+          modify its value in a POST or PUT request.
+        example: 'Thu, 11 Jan 2018 20:57:52 +0000'
+        type: string
+        format: date-time
+      date_modified:
+        description: >
+          Date on which the customer updated their details in the storefront or
+          was updated in the control panel. This is a READ-ONLY field; do not
+          set or modify its value in a POST or PUT request.
+        example: 'Tue, 10 Apr 2018 18:59:05 +0000'
+        type: string
+        format: date-time
+      store_credit:
+        description: >-
+          The amount of credit the customer has. (Float, Float as String,
+          Integer)
+        example: 0
+        type: string
+      registration_ip_address:
+        description: The customer’s IP address when they signed up.
+        example: 12.345.678.910
+        type: string
+      customer_group_id:
+        description: The group to which the customer belongs.
+        example: 2
+        type: integer
+      notes:
+        description: Store-owner notes on the customer.
+        type: string
+      tax_exempt_category:
+        description: >-
+          Used to identify customers who fall into special sales-tax categories
+          – in particular, those who are fully or partially exempt from paying
+          sales tax. Can be blank, or can contain a single AvaTax code. (The
+          codes are case-sensitive.) Stores that subscribe to BigCommerce’s
+          Avalara Premium integration will use this code to determine
+          how/whether to apply sales tax. Does not affect sales-tax calculations
+          for stores that do not subscribe to Avalara Premium.
+        type: string
+      accepts_marketing:
+        description: >
+          Records whether the customer would like to receive marketing content
+          from this store. READ-ONLY.This is a READ-ONLY field; do not set or
+          modify its value in a POST or PUT request.
+        example: true
+        type: boolean
+      addresses:
+        $ref: '#/definitions/addresses'
+      form_fields:
+        description: >-
+          Array of custom fields. This is a READ-ONLY field; do not set or
+          modify its value in a POST or PUT request.
+        type: array
+        items:
+          $ref: '#/definitions/formField'
+      reset_pass_on_login:
+        description: Force a password change on next login.
+        example: false
+        type: boolean
+    required:
+      - first_name
+      - last_name
+      - email
+  categoryAccessLevel:
+    title: categoryAccessLevel
+    type: object
+    properties:
+      type:
+        type: string
+        enum:
+          - all
+          - specific
+          - none
+        description: >-
+          + `all` - Customers can access all categories
+           + `specific`  - Customers can access a specific list of categories
+          + `none` - Customers are prevented from viewing any of the categories
+          in this group.
+      categories:
+        description: >-
+          Is an array of category IDs and should be supplied only if `type` is
+          specific.
+        type: array
+        example: '18,19,23,34'
+        items:
+          type: string
+  timeZone:
+    title: timeZone
+    type: object
+    properties:
+      name:
+        description: >-
+          a string identifying the time zone, in the format:
+          <Continent-name>/<City-name>.
+        example: America/Chicago
+        type: string
+      raw_offset:
+        description: >-
+          a negative or positive number, identifying the offset from UTC/GMT, in
+          seconds, during winter/standard time.
+        example: -21600
+        type: integer
+      dst_offset:
+        description: >-
+          "-/+" offset from UTC/GMT, in seconds, during summer/daylight saving
+          time.
+        example: -18000
+        type: integer
+      dst_correction:
+        description: >-
+          a boolean indicating whether this time zone observes daylight saving
+          time.
+        example: true
+        type: boolean
+      date_format:
+        $ref: '#/definitions/dateFormat'
+  count_Response:
+    title: count_Response
+    example:
+      count: 27
+    type: object
+    properties:
+      count:
+        description: ''
+        example: 27
+        type: number
+  dateFormat:
+    title: dateFormat
+    type: object
+    properties:
+      display:
+        description: 'string that defines dates’ display format, in the pattern: M jS Y'
+        example: M jS Y
+        type: string
+      export:
+        description: >-
+          string that defines the CSV export format for orders, customers, and
+          products, in the pattern: M jS Y
+        example: M jS Y
+        type: string
+      extended_display:
+        description: >-
+          string that defines dates’ extended-display format, in the pattern: M
+          jS Y @ g:i A.
+        example: 'M jS Y @ g:i A'
+        type: string
+  blogTags:
+    type: array
+    title: blogTags
+    items:
+      type: object
+      properties:
+        tag:
+          type: string
+          example: Blog
+        post_ids:
+          type: array
+          example: '1,2,4'
+          items:
+            type: integer
+  blogPost_Base:
+    type: object
+    title: blogPost_Base
+    properties:
+      title:
+        type: string
+        description: Title of this blog post.
+        example: Welcome to BigCommerce
+      url:
+        example: /blog/welcome-bigcommerce/
+        type: string
+        description: URL for the public blog post.
+      preview_url:
+        description: URL to preview the blog post. (READ-ONLY)
+        example: /blog/welcome-bigcommerce/
+        type: string
+      body:
+        type: string
+        description: Text body of the blog post.
+        example: >-
+          <p>Customize your site, manage shipping and payments, and list your
+          products on Amazon, eBay, and Facebook with the #1 ecommerce platform.
+          </p>
+      tags:
+        description: Tags to characterize the blog post.
+        type: array
+        items:
+          type: string
+      summary:
+        description: Summary of the blog post. (READ-ONLY)
+        example: >-
+          <p>We power ecommerce websites for successful retailers all over the
+          world</p>
+        type: string
+      is_published:
+        description: Whether the blog post is published.
+        example: true
+        type: boolean
+      published_date:
+        $ref: '#/definitions/publishedDate'
+      published_date_iso8601:
+        description: Published date in `ISO 8601` format.
+        example: '5/18/2018 1:26:42 PM'
+        type: string
+      meta_description:
+        description: Description text for this blog post’s `<meta/>` element.
+        example: Welcome Post
+        type: string
+      meta_keywords:
+        description: Keywords for this blog post’s `<meta/>` element.
+        example: 'BigCommerce, welcome, ecommerce'
+        type: string
+      author:
+        description: Name of the blog post’s author.
+        example: BigCommerce
+        type: string
+      thumbnail_path:
+        description: >-
+          Local path to a thumbnail image within the product_images folder to
+          accompany the blog post.
+        type: string
+    required:
+      - title
+      - body
+  publishedDate:
+    type: object
+    properties:
+      timezone_type:
+        type: string
+        example: 1
+      date:
+        type: string
+        format: date-time
+        example: '2018-05-18T08:26:42.000Z'
+      timezone:
+        type: string
+        format: time
+        example: '+00:00'
+  authentication:
+    description: >-
+      Not returned in any responses, but accepts up to two fields allowing you
+      to set the customer’s password. If a password is not supplied, it is
+      generated automatically. For further information about using this object,
+      please see the Customers resource documentation.
+    type: object
+    properties:
+      force_reset:
+        type: string
+      password:
+        type: string
+      password_confirmation:
+        type: string
+  customer_Base:
+    type: object
+    properties: {}
+    title: customer_Base
+  page_Base:
+    title: page_Base
+    type: object
+    properties:
+      parent_id:
+        description: ID of any parent Web page.
+        example: 5
+        type: integer
+      type:
+        type: string
+        description: "`page`: free-text page  \n`link`: link to another web address  \n`rss_feed`: syndicated content from an RSS feed  \n`contact_form`: When the store's contact form is used.\n\n\t"
+        enum:
+          - page
+          - rss_feed
+          - contact_form
+          - raw
+          - link
+      contact_fields:
+        description: >-
+          Where the page’s type is a contact form: object whose members are the
+          fields enabled (in the control panel) for storefront display. Possible
+          members are:`fullname`: full name of the customer submitting the form;
+          `phone`: customer’s phone number, as submitted on the form;
+          `companyname`: customer’s submitted company name; `orderno`:
+          customer’s submitted order number; `rma`: customer’s submitted RMA
+          (Return Merchandise Authorization) number.
+        example: 'fullname,companyname,phone,orderno,rma'
+        type: string
+      email:
+        description: >-
+          Where the page’s type is a contact form: email address that receives
+          messages sent via the form.
+        example: janedoes@email.com
+        type: string
+      name:
+        type: string
+        description: 'Page name, as displayed on the storefront.'
+        example: Contact Form
+      url:
+        description: Relative URL on the storefront for this page.
+        example: /contact-us/
+        type: string
+      meta_description:
+        description: Description contained within this page’s `<meta/>` element.
+        type: string
+      body:
+        type: string
+        description: >-
+          HTML or variable that populates this page’s `<body>` element, in
+          default/desktop view. Required in POST if page type is `raw`.
+        example: >-
+          <p>We're happy to answer questions or help you with returns.<br
+          />Please fill out the form below if you need assistance.</p>
+      mobile_body:
+        description: >-
+          HTML to use for this page's body when viewed in the mobile template
+          (deprecated).
+        example: 0
+        type: string
+      has_mobile_version:
+        description: 'If true, this page has a mobile version.'
+        example: false
+        type: boolean
+      is_visible:
+        description: 'If true, this page appears in the storefront’s navigation menu.'
+        example: true
+        type: boolean
+      is_homepage:
+        description: 'If true, this page is the storefront’s home page.'
+        example: false
+        type: boolean
+      meta_title:
+        description: >-
+          Text specified for this page’s `<title>` element. (If empty, the value
+          of the name property is used.)
+        type: string
+      layout_file:
+        description: >-
+          Layout template for this page. This field is writable only for stores
+          with a Blueprint theme applied.
+        example: page.html
+        type: string
+      sort_order:
+        description: >-
+          Order in which this page should display on the storefront. (Lower
+          integers specify earlier display.)
+        example: 3
+        type: integer
+      search_keywords:
+        description: >-
+          Comma-separated list of keywords that shoppers can use to locate this
+          page when searching the store.
+        type: string
+      meta_keywords:
+        description: >-
+          Comma-separated list of SEO-relevant keywords to include in the page’s
+          `<meta/>` element.
+        type: string
+      feed:
+        type: string
+        description: >-
+          If page type is `rss_feed` the n this field is visisble. Required in
+          POST required for `rss page` type.
+      link:
+        type: string
+        description: >-
+          If page type is `link` this field is returned. Required in  POST to
+          create a `link` page.
+      content_type:
+        type: string
+        enum:
+          - application/json
+          - text/javascript
+          - text/html
+        example: text/html
+    required:
+      - type
+      - name
+      - body
+      - feed
+      - link
+tags:
+  - name: Blog Posts
+  - name: Blog Tags
+  - name: Pages
+  - name: Redirects
+securityDefinitions:
+  X-Auth-Token:
+    type: apiKey
+    name: X-Auth-Token
+    in: header
+    description: >-
+      ### OAuth Scopes
+
+      |  **UI Name** | **Permission** | **Parameter** |
+
+      | --- | --- | --- |
+
+      |  Content | modify | `store_v2_content` |
+
+      |  Content | read-only | `store_v2_content_read_only` |
+
+
+      ### Headers
+
+
+      |Header|Parameter|Description|
+
+      |-|-|-|
+
+      |`X-Auth-Client`|`client_id`|Obtained by creating an API account or
+      installing an app in a BigCommerce control panel.|
+
+      |`X-Auth-Token`|`access_token `|Obtained by creating an API account or
+      installing an app in a BigCommerce control panel.|
+
+
+      ### Example
+
+
+      ```http
+
+      GET /stores/{$$.env.store_hash}/v3/catalog/summary
+
+      host: api.bigcommerce.com
+
+      Content-Type: application/json
+
+      X-Auth-Client: {client_id}
+
+      X-Auth-Token: {access_token}
+
+      ```
+
+
+      * For more information on Authenticating BigCommerce APIs, see:
+      [Authentication](https://developer.bigcommerce.com/api-docs/getting-started/authentication). 
+  X-Auth-Client:
+    type: apiKey
+    name: X-Auth-Client
+    in: header
+    description: >-
+      ### OAuth Scopes
+
+      |  **UI Name** | **Permission** | **Parameter** |
+
+      | --- | --- | --- |
+
+      |  Content | modify | `store_v2_content` |
+
+      |  Content | read-only | `store_v2_content_read_only` |
+
+
+      ### Headers
+
+
+      |Header|Parameter|Description|
+
+      |-|-|-|
+
+      |`X-Auth-Client`|`client_id`|Obtained by creating an API account or
+      installing an app in a BigCommerce control panel.|
+
+      |`X-Auth-Token`|`access_token `|Obtained by creating an API account or
+      installing an app in a BigCommerce control panel.|
+
+
+      ### Example
+
+
+      ```http
+
+      GET /stores/{$$.env.store_hash}/v3/catalog/summary
+
+      host: api.bigcommerce.com
+
+      Content-Type: application/json
+
+      X-Auth-Client: {client_id}
+
+      X-Auth-Token: {access_token}
+
+      ```
+
+
+      * For more information on Authenticating BigCommerce APIs, see:
+      [Authentication](https://developer.bigcommerce.com/api-docs/getting-started/authentication). 
+security:
+  - X-Auth-Token: []
+  - X-Auth-Client: []
+x-stoplight:
+  docs:
+    includeDownloadLink: true
+    showModels: false

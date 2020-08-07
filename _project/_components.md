@@ -10,7 +10,7 @@
 <div class="HubBlock--callout">
 <div class="CalloutBlock--{{callout_type}}">
 <div class="HubBlock-content">
-    
+
 <!-- theme: {{callout_type}} -->
 
 ### {{title}}
@@ -27,7 +27,7 @@
 <div class="HubBlock--callout">
 <div class="CalloutBlock--info">
 <div class="HubBlock-content">
-    
+
 <!-- theme: {{callout_type}} -->
 
 ### Pro-Tip:
@@ -43,7 +43,7 @@
 <div class="HubBlock--callout">
 <div class="CalloutBlock--info">
 <div class="HubBlock-content">
-    
+
 <!-- theme: info -->
 
 ### Pro-Tip:
@@ -99,7 +99,7 @@
 **Example:**
 
 ```html
-![Dev Tools](https://raw.githubusercontent.com/bigcommerce/dev-docs/master/assets/images/devtools.png"Dev Tools")
+![Dev Tools](https://raw.githubusercontent.com/bigcommerce/dev-docs/master/assets/images/devtools.pn g"Dev Tools")
 ```
 
 **Result:**
