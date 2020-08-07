@@ -135,7 +135,7 @@ export default class Blog extends PageManager {
     
 <!-- theme:  -->
 
-Notice the page types correspond to the html pages in [cornerstone/templates/pages/](https://github.com/bigcommerce/cornerstone/tree/master/templates/pages)
+Notice that the page types correspond to the HTML pages in [cornerstone/templates/pages/](https://github.com/bigcommerce/cornerstone/tree/master/templates/pages).
 
 </div>
 </div>
