@@ -3,7 +3,6 @@
 <div class="otp" id="no-index">
 
 ### On This Page
-- [Prerequisites](#prerequisites)
 - [Adding Data Tags](#adding-data-tags)
 - [Data Tag Reference](#data-tag-reference)
 - [Custom Dimensions and Metrics](#custom-dimensions-and-metrics)
@@ -30,26 +29,27 @@ Cornerstone versions 2.6.0+ will have Data Tags already included in the theme.
 </div>
 </div>
 
-## Prerequisites
-
-* BigCommerce store using your store’s checkout must be using Optimized One-Page Checkout.
-
-Data Tags will work on any theme. For this tutorial, we will be adding data tags to the Cornerstone theme.
-
 ### Downloading a Theme
-This tutorial will be based off of Cornerstone. If you do not already have a local copy of Cornerstone on your machine, see [Downloading Cornerstone](/stencil-docs/installing-stencil-cli/installing-stencil#authorizing_download).
+Data tags will work on any theme. For this tutorial, we will be adding data tags to the Cornerstone theme. If you do not already have a local copy of Cornerstone on your machine, see [Downloading Cornerstone](/stencil-docs/installing-stencil-cli/installing-stencil#authorizing_download).
+
 
 If you would like to implement Data Tags on your custom theme and do not already have a copy of your custom theme downloaded, see [Downloading a Marketplace Theme](/stencil-docs/installing-stencil-cli/installing-stencil#authorizing_download).
 
-Note: the remainder of this tutorial will be working off the refer to the theme’s base folder as ‘cornerstone’.
+**Note**: The remainder of this tutorial will be working off the theme’s base folder `cornerstone`.
+
 
 ## Adding Data Tags
+
+### Prerequisites
+* [BigCommerce Store](https://support.bigcommerce.com/s/article/Starting-a-Bigcommerce-Trial)
+* [Optimized One-Page Checkout enabled](https://support.bigcommerce.com/s/article/Optimized-Single-Page-Checkout)
+* Cornerstone theme installed
 
 ### Include the Enhanced ECommerce Property
 
 1. Open your local copy of your theme and navigate to the theme’s <span class="fn">cornerstone/config.json</span> file.
 
-2. In the config.json file, navigate to the features array. There’s should be a property in this array called `enhanced ecommerce`. If the `enhanced ecommerce` property is not present in the features array, add it. The features object should then look similar to image below.
+2. In the config.json file, navigate to the features array. There should be a property in this array called `enhanced ecommerce`. If the `enhanced ecommerce` property is not present in the features array, add it. The features object should then look similar to image below.
 
 <div class="HubBlock-header">
     <div class="HubBlock-header-title flex items-center">
@@ -103,7 +103,7 @@ Data tags must be manually added to a product in order to track shopper events a
 * The “Quick View” Button
 * The product image
 
-So, if you would like to track the clicks on a specific product, in order to ensure you get a fully comprehensive look at shoppers’ interactions with a product, you will want to include a data tag on each of these fields. If a specific product possesses multiple data tags, the data tag that is closest to the product is the one which will will track clicks, product impressions, or product views.
+So, if you would like to track the clicks on a specific product, in order to ensure you get a fully comprehensive look at shoppers’ interactions with a product, you will want to include a data tag on each of these fields. If a specific product possesses multiple data tags, the data tag that is closest to the product is the one which will track clicks, product impressions, or product views.
 
 Data tags will be implemented in your store by using simple HTML. In order to begin tracking, you will add data tags as an attribute to the already existing HTML tags present in your theme.
 
@@ -150,7 +150,7 @@ Currently, BigCommerce supports 11 different data tags. Below is a table with a 
 <!-- theme: warning -->
 
 ### Mandatory Data
-> * If tracking promotions data, either `data-banner-id` or `data-name` are required.
+* If tracking promotions data, either `data-banner-id` or `data-name` are required.
 * If tracking data for a product, either `data-entity-id` or `data-name` are required.
 * If tracking data for a product list, `data-product-list` or `data-entity-id` are required.
 
@@ -184,7 +184,7 @@ The “tracked product” refers to the product on which you are inserting the d
    <tr>
     <td><code>data-position</code></td>
        <td>The <code>data-position</code> tag is equal to the tracked product’s position or the tracked promotion’s position.</td>
-  	<td>Value is an string if creating the data tag for a promotion. The string should denote where the promotion is.
+  	<td>Value is a string if creating the data tag for a promotion. The string should denote the location of the promotion.
        <br><br>
        Value is an integer if creating the data tag for a product. The integer should represent the product’s placement. An example use case for this data tag is to answer a question like, “does the product in position 1 sell more than the product in position 4?”</td>
        <td><b>String Value Example:</b> <code>data-position="center"</code>
@@ -264,9 +264,7 @@ Or, if you are adding a data tag to a product list item in products/list-item.ht
 
 ## Custom Dimensions and Metrics
 
-Custom dimensions and metrics are also supported. To use add them,
-
-In the `config.json` `settings` array, Add the name of the dimension/metric followed by the generic custom metric/dimension alias:
+Custom dimensions and metrics are also supported. To add them in the `config.json` `settings` array, add the name of the dimension/metric followed by the generic custom metric/dimension alias:
 
 ```json
 {
@@ -316,7 +314,7 @@ Next, add the custom metrics/dimensions to the desired theme template:
 
 <!-- theme: info -->
 #### Dimensions and Metrics
-> dimensions are typically strings; metrics are usually integers
+> Dimensions are typically strings; metrics are usually integers.
 
 </div>
 </div>
