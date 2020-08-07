@@ -202,7 +202,7 @@ Variables are things that can change over time. Their names are in camel case, a
   	<th>Mixin Name Design Pattern</th>
     <th>Mixin Name Example</th>
   <tr>
-    <td>Mixins follow regular camel-case naming conventions. Namespacing is not universally required for mixins. However, where a mixin has been created for a utility, its name <br>matches the utility’s name, including u- namespacing:</br></td>
+    <td>Mixins follow regular camel-case naming conventions. Namespacing is not universally required for mixins. However, where a mixin has been created for a utility, its name matches<br> the utility’s name, including u- namespacing:</br></td>
     <td>@mixin buttonVariant;
 @mixin u-textTruncate;</td>
   <tr>
