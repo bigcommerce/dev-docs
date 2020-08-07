@@ -1,0 +1,406 @@
+swagger: '2.0'
+info:
+  title: Storefront Token
+  version: '3.0'
+  description: >
+
+    - [OAuth Scopes](#oauth-scopes)
+
+    - [Authentication](#authentication)
+
+    - [Available Endpoints](#available-endpoints)
+
+    - [Creating Customer Impersonation
+    Tokens](#creating-customer-impersonation-tokens)
+
+    - [Revoking Tokens](#revoking-tokens)
+
+
+    An OpenAPI Document for Storefront API Token generation via Bigcommerce v3
+    API. 
+
+
+    ## OAuth Scopes
+
+    | UI Name                                      | Permission |
+    Parameter                                     |
+
+    |----------------------------------------------|------------|-----------------------------------------------|
+
+    | Storefront API Customer Impersonation Tokens | manage     |
+    `store_storefront_api_customer_impersonation` |
+
+    | Storefront API Tokens                        | manage     |
+    `store_storefront_api`                        |
+
+
+    For more information on OAuth Scopes, see:
+    [Authentication](https://developer.bigcommerce.com/api-docs/getting-started/authentication).
+
+
+    ## Authentication
+
+
+    Requests can be authenticated by sending a `client_id` and `access_token`
+    via `X-Auth-Client` and `X-Auth-Token` HTTP headers:
+
+
+    ```http
+
+    GET /stores/{$$.env.store_hash}/v3/catalog/summary
+
+    host: api.bigcommerce.com
+
+    Accept: application/json
+
+    X-Auth-Client: {client_id}
+
+    X-Auth-Token: {access_token}
+
+    ```
+
+
+    |Header|Parameter|Description|
+
+    |-|-|-|
+
+    |`X-Auth-Client`|`client_id`|Obtained by creating an API account or
+    installing an app in a BigCommerce control panel.|
+
+    |`X-Auth-Token`|`access_token `|Obtained by creating an API account or
+    installing an app in a BigCommerce control panel.|
+
+
+    For more information on Authenticating BigCommerce APIs, see:
+    [Authentication](https://developer.bigcommerce.com/api-docs/getting-started/authentication).
+
+
+    ## Available Endpoints
+
+    | Resource / Endpoint                     |
+    Description                                                             |
+
+    |-----------------------------------------|-------------------------------------------------------------------------|
+
+    | Storefront API Token                    | Create Auth Tokens for use with
+    Storefront APIs                         |
+
+    | Storefront Customer Impersonation Token | Create a storefront API token
+    for customer impersonation                |
+
+
+    ## Creating Customer Impersonation Tokens
+
+    Its possible to generate tokens for use in server-to-server interactions
+    with a trusted consumer by POSTing to the API Token Customer Impersonation
+    Endpoint with the X-Bc-Customer-Id header set to the customer’s ID:
+
+
+    ```http
+
+    POST
+    /stores/{$$.env.store_hash}/v3/storefront/api-token-customer-impersonation
+
+    host: api.bigcommerce.com
+
+    x-Auth-Client: {client_id}
+
+    x-Auth-Token: {access_token}
+
+    X-Bc-Customer-Id: {customer_id}
+
+    ```
+
+
+    ## Revoking Tokens
+
+    To revoke tokens, send a `DELETE` request to the Revoke a Token endpoint and
+    include the `JWT` in the `Sf-Api-Token` header:
+
+
+    ```http
+
+    DELETE
+    /stores/{$$.env.store_hash}/v3/storefront/api-token-customer-impersonation
+
+    host: api.bigcommerce.com
+
+    x-Auth-Client: {client_id}
+
+    x-Auth-Token: {access_token}
+
+    Sf-Api-Token: {customer_id}
+
+    ```
+  termsOfService: ''
+tags:
+  - name: API Token
+  - name: Customer Impersonation Token
+paths:
+  /storefront/api-token:
+    post:
+      tags:
+        - API Token
+      description: |-
+        Creates a Storefront API token.
+
+        **Required Scopes**
+        * `Manage` `Storefront API Tokens`
+      operationId: createToken
+      responses:
+        '200':
+          $ref: '#/responses/TokenResponse'
+        '401':
+          description: >-
+            Unauthorized - the v3 Auth client ID or token in the request are not
+            a valid combination for this store.
+        '403':
+          description: >-
+            Missing scope - the v3 Auth token is valid but does not have proper
+            permissions to access this endpoint.
+        '422':
+          description: Invalid JSON request body - missing or invalid data.
+      summary: Create a Token
+      parameters:
+        - in: body
+          name: body
+          schema:
+            allOf:
+              - $ref: '#/definitions/TokenPostSimple'
+              - $ref: '#/definitions/TokenPostImpersonation'
+          x-examples:
+            application/json: |-
+              {
+                "channel_id": 1,
+                "expires_at": {$$.env.expires_at},
+                "allowed_cors_origins": [
+                  "{$$.env.allowed_cors_origin}"
+                ]
+              }
+    delete:
+      tags:
+        - API Token
+      description: Revoke access for a Storefront API token.
+      operationId: revokeToken
+      parameters:
+        - in: header
+          name: Sf-Api-Token
+          required: true
+          description: An existing JWT token that you want to revoke.
+          type: string
+      responses:
+        '200':
+          description: A storefront API token revocation has been scheduled.
+        '401':
+          description: >-
+            Unauthorized - the v3 Auth client ID or token in the request are not
+            a valid combination for this store.
+        '403':
+          description: >-
+            Missing scope - the v3 Auth token is valid but does not have proper
+            permissions to access this endpoint.
+        '422':
+          description: Invalid JWT Token provided or missing JWT token header
+      summary: Revoke a Token
+  /storefront/api-token-customer-impersonation:
+    post:
+      tags:
+        - Customer Impersonation Token
+      description: |-
+        Creates a Storefront API token that allows for customer impersonation.
+
+        **Required Scopes**
+        * `Manage` `Storefront API Customer Impersonation Tokens`
+
+        **Headers**:
+        * `X-Bc-Customer-Id` - The ID of the Customer to impersonate
+      operationId: createTokenWithCustomerImpersonation
+      responses:
+        '200':
+          $ref: '#/responses/TokenResponse'
+        '401':
+          description: >-
+            Unauthorized - the v3 Auth client ID or token in the request are not
+            a valid combination for this store.
+        '403':
+          description: >-
+            Missing scope - the v3 Auth token is valid but does not have proper
+            permissions to access this endpoint.
+        '422':
+          description: Invalid JSON request body - missing or invalid data
+      parameters:
+        - type: integer
+          in: header
+          name: X-Bc-Customer-Id
+          description: Ther Customer ID for the customer to impersonate
+          required: true
+        - in: body
+          name: body
+          schema:
+            $ref: '#/definitions/TokenPostImpersonation'
+          x-examples:
+            application/json: |-
+              {
+                "channel_id": 19079517,
+                "expires_at": {$$.env.expires_at}
+              }
+      summary: Create a Token
+security:
+  - X-Auth-Client: []
+  - X-Auth-Token: []
+definitions:
+  TokenPostImpersonation:
+    type: object
+    properties:
+      channel_id:
+        type: integer
+        description: Channel ID for requested token
+        minimum: 0
+      expires_at:
+        type: integer
+        description: Unix timestamp (UTC time) defining when the token should expire.
+        format: double
+        default: '{$$.env.expires_at}'
+    required:
+      - channel_id
+      - expires_at
+  TokenPostSimple:
+    type: object
+    properties:
+      allowed_cors_origins:
+        type: array
+        description: >-
+          List of allowed domains for Cross-Origin Request Sharing. Currently
+          only accepts a single element.
+        minItems: 1
+        maxItems: 1
+        example: 'https://www.yourstorefront.com/'
+        items:
+          type: string
+          minLength: 1
+          maxLength: 1
+          pattern: >-
+            /^https?:\/\/(?=.{1,254}(?::|$))(?:(?!\d|-)(?![a-z0-9\-]{1,62}-(?:\.|:|$))[a-z0-9\-]{1,63}\b(?!\.$)\.?)+(:\d+)?$/i;
+  Token_Full:
+    type: object
+    properties:
+      data:
+        $ref: '#/definitions/Token_Base'
+      meta:
+        type: object
+  Token_Base:
+    type: object
+    properties:
+      token:
+        type: string
+        description: JWT Token for accessing the Storefront API
+  ErrorResponse:
+    allOf:
+      - $ref: '#/definitions/BaseError'
+      - type: object
+        properties:
+          errors:
+            $ref: '#/definitions/DetailedErrors'
+  BaseError:
+    type: object
+    description: |
+      Error payload for the BigCommerce API.
+    properties:
+      status:
+        description: |
+          The HTTP status code.
+        type: integer
+      title:
+        description: |
+          The error title describing the particular error.
+        type: string
+      type:
+        type: string
+  DetailedErrors:
+    type: object
+    additionalProperties:
+      type: string
+host: api.bigcommerce.com
+basePath: '/stores/{$$.env.store_hash}/v3'
+schemes:
+  - https
+consumes:
+  - application/json
+produces:
+  - application/json
+securityDefinitions:
+  X-Auth-Client:
+    type: apiKey
+    name: X-Auth-Client
+    in: header
+    description: >-
+      |Header|Parameter|Description|
+
+      |-|-|-|
+
+      |`X-Auth-Client`|`client_id`|Obtained by creating an API account or
+      installing an app in a BigCommerce control panel.|
+
+      |`X-Auth-Token`|`access_token `|Obtained by creating an API account or
+      installing an app in a BigCommerce control panel.|
+
+
+      ```http
+
+      GET /stores/{$$.env.store_hash}/v3/catalog/summary
+
+      host: api.bigcommerce.com
+
+      Accept: application/json
+
+      X-Auth-Client: {client_id}
+
+      X-Auth-Token: {access_token}
+
+      ```
+
+
+      For more information on Authenticating BigCommerce APIs, see:
+      [Authentication](https://developer.bigcommerce.com/api-docs/getting-started/authentication).
+  X-Auth-Token:
+    type: apiKey
+    in: header
+    description: >-
+      |Header|Parameter|Description|
+
+      |-|-|-|
+
+      |`X-Auth-Client`|`client_id`|Obtained by creating an API account or
+      installing an app in a BigCommerce control panel.|
+
+      |`X-Auth-Token`|`access_token `|Obtained by creating an API account or
+      installing an app in a BigCommerce control panel.|
+
+
+      ```http
+
+      GET /stores/{$$.env.store_hash}/v3/catalog/summary
+
+      host: api.bigcommerce.com
+
+      Accept: application/json
+
+      X-Auth-Client: {client_id}
+
+      X-Auth-Token: {access_token}
+
+      ```
+
+
+      For more information on Authenticating BigCommerce APIs, see:
+      [Authentication](https://developer.bigcommerce.com/api-docs/getting-started/authentication)
+    name: X-Auth-Token
+x-stoplight:
+  docs:
+    includeDownloadLink: true
+    showModels: false
+responses:
+  TokenResponse:
+    description: ''
+    schema:
+      $ref: '#/definitions/Token_Full'

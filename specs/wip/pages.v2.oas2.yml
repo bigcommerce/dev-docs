@@ -1,0 +1,1231 @@
+swagger: '2.0'
+info:
+  version: '2.0'
+  title: Pages
+  description: >
+    The Pages resource enables you to create and manage your store's [content
+    pages](https://support.bigcommerce.com/s/article/Creating-Contact-and-Content-Pages-Video#). 
+
+
+    **On This Page**
+
+    - [Authentication](#authentication)
+
+    - [OAuth Scopes](#oauth-scopes)
+
+    - [Additional Information](#additional-information)
+
+    ---
+
+
+    ## Authentication
+
+    You can authenticate requests by sending a `client_id` and `access_token`
+    via `X-Auth-Client` and `X-Auth-Token` HTTP headers:
+
+
+    ```http
+
+    GET /stores/{$$.env.store_hash}/v3/catalog/summary
+
+    host: api.bigcommerce.com
+
+    Accept: application/json
+
+    X-Auth-Client: {client_id}
+
+    X-Auth-Token: {access_token}
+
+    ```
+
+    You can obtain the `client_id` and `access_token` using either of the
+    following methods:
+
+    - [Creating API
+    account](https://developer.bigcommerce.com/api-docs/getting-started/authentication/rest-api-authentication#obtaining-store-api-credentials)
+
+    - [Installing an app in the BigCommerce control
+    panel](https://developer.bigcommerce.com/api-docs/getting-started/authentication/rest-api-authentication#obtaining-app-api-credentials)
+
+    ---
+
+
+    ## OAuth Scopes
+
+
+    Scope limits ability to read or modify data. To interact with the Pages
+    resource, set the scope to the minimum level needed to accomplish your
+    specific task. 
+
+
+    | UI Name  | Permission | Parameter                     |
+
+    |----------|------------|-------------------------------|
+
+    | Content | modify     | `store_v2_content`           |
+
+    | Content | read-only  | `store_v2_content_read_only` |
+
+
+    For more information on OAuth Scopes, see the [REST API
+    Authentication](https://developer.bigcommerce.com/api-docs/getting-started/authentication/rest-api-authentication#oauth-scopes)
+    page.
+
+
+    ---
+
+
+    ## Additional Information
+
+
+    **Related Articles**
+
+    - [Creating Contact & Content
+    Pages](https://support.bigcommerce.com/s/article/Creating-Contact-and-Content-Pages-Video)
+
+    - [Adding Web Pages](https://support.bigcommerce.com/s/article/Web-Pages)
+  termsOfService: 'https://www.bigcommerce.com/terms/'
+  license:
+    name: ''
+  contact:
+    name: BigCommerce Developer Documentation
+    url: 'https://developer.bigcommerce.com/'
+host: api.bigcommerce.com
+basePath: '/stores/{$$.env.store_hash}/v2'
+schemes:
+  - https
+consumes:
+  - application/json
+produces:
+  - application/json
+paths:
+  /pages:
+    get:
+      description: >-
+        Returns a list of *Pages*. Default sorting is by auto-generated ID from
+        oldests to newest.
+      summary: Get All Pages
+      tags:
+        - Pages
+      produces: []
+      parameters:
+        - name: Accept
+          in: header
+          required: true
+          type: string
+          description: ''
+          default: application/json
+        - name: Content-Type
+          in: header
+          required: true
+          type: string
+          description: ''
+          default: application/json
+        - name: page
+          in: query
+          required: false
+          type: number
+          exclusiveMaximum: false
+          exclusiveMinimum: false
+          description: Filter param.
+        - name: limit
+          in: query
+          required: false
+          type: number
+          exclusiveMaximum: false
+          exclusiveMinimum: false
+          description: Filter param.
+      responses:
+        '200':
+          description: ''
+          schema:
+            type: array
+            items:
+              title: Page
+              example:
+                id: 6
+                parent_id: 5
+                type: page
+                contact_fields: 'fullname,companyname,phone,orderno,rma'
+                email: janedoes@email.com
+                name: Contact Form
+                url: /contact-us/
+                meta_description: ''
+                body: >-
+                  <p>We're happy to answer questions or help you with
+                  returns.<br />Please fill out the form below if you need
+                  assistance.</p>
+                mobile_body: 0
+                has_mobile_version: false
+                is_visible: true
+                is_homepage: false
+                layout_file: page.html
+                sort_order: 3
+                meta_title: ''
+                search_keywords: ''
+                meta_keywords: ''
+              type: object
+              properties:
+                parent_id:
+                  description: ID of any parent Web page.
+                  example: 5
+                  type: integer
+                type:
+                  type: string
+                  description: "`page`: free-text page  \n`link`: link to another web address  \n`rss_feed`: syndicated content from an RSS feed  \n`contact_form`: When the store's contact form is used.\n\n\t"
+                  enum:
+                    - page
+                    - rss_feed
+                    - contact_form
+                    - raw
+                    - link
+                contact_fields:
+                  description: >-
+                    Where the page’s type is a contact form: object whose
+                    members are the fields enabled (in the control panel) for
+                    storefront display. Possible members are:`fullname`: full
+                    name of the customer submitting the form; `phone`:
+                    customer’s phone number, as submitted on the form;
+                    `companyname`: customer’s submitted company name; `orderno`:
+                    customer’s submitted order number; `rma`: customer’s
+                    submitted RMA (Return Merchandise Authorization) number.
+                  example: 'fullname,companyname,phone,orderno,rma'
+                  type: string
+                email:
+                  description: >-
+                    Where the page’s type is a contact form: email address that
+                    receives messages sent via the form.
+                  example: janedoes@email.com
+                  type: string
+                name:
+                  type: string
+                  description: 'Page name, as displayed on the storefront.'
+                  example: Contact Form
+                url:
+                  description: Relative URL on the storefront for this page.
+                  example: /contact-us/
+                  type: string
+                meta_description:
+                  description: Description contained within this page’s <meta> element.
+                  type: string
+                body:
+                  type: string
+                  description: >-
+                    HTML or variable that populates this page’s <body> element,
+                    in default/desktop view. Required in POST if page type is
+                    `raw`.
+                  example: >-
+                    <p>We're happy to answer questions or help you with
+                    returns.<br />Please fill out the form below if you need
+                    assistance.</p>
+                mobile_body:
+                  description: >-
+                    HTML to use for this page's body when viewed in the mobile
+                    template (deprecated).
+                  example: 0
+                  type: string
+                has_mobile_version:
+                  description: 'If true, this page has a mobile version.'
+                  example: false
+                  type: boolean
+                is_visible:
+                  description: >-
+                    If true, this page appears in the storefront’s navigation
+                    menu.
+                  example: true
+                  type: boolean
+                is_homepage:
+                  description: 'If true, this page is the storefront’s home page.'
+                  example: false
+                  type: boolean
+                meta_title:
+                  description: >-
+                    Text specified for this page’s <title> element. (If empty,
+                    the value of the name property is used.)
+                  type: string
+                layout_file:
+                  description: >-
+                    Layout template for this page. This field is writable only
+                    for stores with a Blueprint theme applied.
+                  example: page.html
+                  type: string
+                sort_order:
+                  description: >-
+                    Order in which this page should display on the storefront.
+                    (Lower integers specify earlier display.)
+                  example: 3
+                  type: integer
+                search_keywords:
+                  description: >-
+                    Comma-separated list of keywords that shoppers can use to
+                    locate this page when searching the store.
+                  type: string
+                meta_keywords:
+                  description: >-
+                    Comma-separated list of SEO-relevant keywords to include in
+                    the page’s <meta> element.
+                  type: string
+                feed:
+                  type: string
+                  description: >-
+                    If page type is `rss_feed` the n this field is visisble.
+                    Required in POST required for `rss page` type.
+                link:
+                  type: string
+                  description: >-
+                    If page type is `link` this field is returned. Required in 
+                    POST to create a `link` page.
+                id:
+                  type: integer
+                  example: 44
+                  description: ID of the page.
+                content_type:
+                  type: string
+                  enum:
+                    - application/json
+                    - text/javascript
+                    - text/html
+                  description: >-
+                    The default value is `text/html`. If the `page_type` is
+                    `raw` then the content type can be changed to either
+                    JavaScript or JSON.
+
+
+                    Updating this field allows you to place a JavaScript or a
+                    JSON file in the root directory.
+
+
+                    This file is publicly available at the specified URL.
+
+
+                    If the page was created using the Control Panel, the
+                    content-type is `text/html`.
+
+
+                    Available for POST or PUT.
+
+
+                    Example of use:
+
+
+                    ```json
+
+                    { "id": 21, "name": "service worker", "body":
+                    "importScripts(\"https://mycdn.com/sw.js\");", "is_visible":
+                    false, "parent_id": 0, "sort_order": 0, "type": "raw",
+                    "is_homepage": false, "is_customers_only": false,
+                    "search_keywords": "", "has_mobile_version": true,
+                    "mobile_body": "", "content_type": "text/javascript", "url":
+                    "/sw.js" }
+
+                    ```
+                  example: text/html
+              required:
+                - type
+                - name
+                - body
+                - feed
+                - link
+          examples:
+            application/json:
+              - id: 1
+                name: RSS Syndication
+                meta_title: ''
+                body: '%%Syndicate%%'
+                is_visible: true
+                parent_id: 0
+                sort_order: 5
+                meta_keywords: '0'
+                type: page
+                meta_description: ''
+                is_homepage: false
+                layout_file: ''
+                is_customers_only: false
+                search_keywords: '0'
+                has_mobile_version: false
+                mobile_body: '0'
+                url: /rss-syndication/
+              - id: 2
+                name: Shipping & Returns
+                meta_title: ''
+                body: >-
+                  <em>To edit this page simply login to the control panel, click
+                  the <strong style="font-weight: 400">Website Content</strong>
+                  tab and choose the </em> <strong style="font-weight:
+                  400"><em>View Web Pages option. Click Edit next to the
+                  Shipping & Returns page and you can change this text. A sample
+                  returns policy is shown below which you can edit as
+                  needed.</em><em style="font-style:
+                  normal"><br/><br/></em></strong><em style="font-style:
+                  normal"><strong>Returns Policy</strong></em><strong
+                  style="font-weight: 400"></em></em><em style="font-style:
+                  normal"><br/><br/></em>You may return most new, unopened items
+                  within 30 days of delivery for a full refund. We'll also pay
+                  the return shipping costs if the return is a result of our
+                  error (you received an incorrect or defective item,
+                  etc.).<br/><br/>You should expect to receive your refund
+                  within four weeks of giving your package to the return
+                  shipper, however, in many cases you will receive a refund more
+                  quickly. This time period includes the transit time for us to
+                  receive your return from the shipper (5 to 10 business days),
+                  the time it takes us to process your return once we receive it
+                  (3 to 5 business days), and the time it takes your bank to
+                  process our refund request (5 to 10 business
+                  days).<br/><br/>If you need to return an item, please <a
+                  href="/contact-us/">Contact Us</a> with your order number and
+                  details about the product you would like to return. We will
+                  respond quickly with instructions for how to return items from
+                  your
+                  order.<br/><br/></strong><strong>Shipping</em></em></em></strong><strong
+                  style="font-weight: 400"><em style="font-style:
+                  normal"><br/><br/></em>We can ship to virtually any address in
+                  the world. Note that there are restrictions on some products,
+                  and some products cannot be shipped to international
+                  destinations.<br/><br/>When you place an order, we will
+                  estimate shipping and delivery dates for you based on the
+                  availability of your items and the shipping options you
+                  choose. Depending on the shipping provider you choose,
+                  shipping date estimates may appear on the shipping quotes
+                  page.<br/><br/>Please also note that the shipping rates for
+                  many items we sell are weight-based. The weight of any such
+                  item can be found on its detail page. To reflect the policies
+                  of the shipping companies we use, all weights will be rounded
+                  up to the next full pound.<br/>
+                is_visible: true
+                parent_id: 0
+                sort_order: 2
+                meta_keywords: ''
+                type: page
+                meta_description: ''
+                is_homepage: false
+                layout_file: page.html
+                is_customers_only: false
+                search_keywords: ''
+                has_mobile_version: false
+                mobile_body: ''
+                url: /shipping-returns/
+              - id: 3
+                name: Blog
+                is_visible: true
+                parent_id: 0
+                sort_order: 4
+                type: blog_index
+                is_homepage: false
+                is_customers_only: false
+              - id: 4
+                name: Contact Us
+                meta_title: ''
+                email: ''
+                body: >-
+                  <p>We're happy to answer questions or help you with
+                  returns.<br />Please fill out the form below if you need
+                  assistance.</p>
+                is_visible: true
+                parent_id: 0
+                sort_order: 3
+                meta_keywords: ''
+                type: contact_form
+                contact_fields: 'fullname,companyname,phone,orderno,rma'
+                meta_description: ''
+                is_homepage: false
+                layout_file: page.html
+                is_customers_only: false
+                search_keywords: ''
+                has_mobile_version: false
+                mobile_body: '0'
+                url: /contact-us/
+              - id: 5
+                name: Test Page
+                meta_title: ''
+                body: "<p>Redirect webpage</p>\r\n<p>&nbsp;</p>\r\n<p><img class=\"__mce_add_custom__\" title=\"screen-shot-2018-06-11-at-8.38.00-am.png\" src=\"%%GLOBAL_ShopPathSSL%%/product_images/uploaded_images/screen-shot-2018-06-11-at-8.38.00-am.png\" alt=\"screen-shot-2018-06-11-at-8.38.00-am.png\" width=\"1026\" height=\"586\" /></p>"
+                is_visible: true
+                parent_id: 0
+                sort_order: 0
+                meta_keywords: ''
+                type: page
+                meta_description: ''
+                is_homepage: false
+                layout_file: page.html
+                is_customers_only: false
+                search_keywords: ''
+                has_mobile_version: true
+                mobile_body: ''
+                url: /test-page/
+              - id: 6
+                name: Child Pages
+                meta_title: ''
+                body: ''
+                is_visible: true
+                parent_id: 5
+                sort_order: 0
+                meta_keywords: ''
+                type: page
+                meta_description: ''
+                is_homepage: false
+                layout_file: page.html
+                is_customers_only: false
+                search_keywords: ''
+                has_mobile_version: true
+                mobile_body: ''
+                url: /child-pages/
+              - id: 7
+                name: Footer only page
+                meta_title: ''
+                body: <p>Testing</p>
+                is_visible: true
+                parent_id: 0
+                sort_order: 0
+                meta_keywords: ''
+                type: page
+                meta_description: ''
+                is_homepage: false
+                layout_file: page.html
+                is_customers_only: false
+                search_keywords: ''
+                has_mobile_version: true
+                mobile_body: ''
+                url: /footer-only-page/
+            Response Schema:
+              - type: page
+                name: consequat labore cillum minim
+                body: occaecat reprehenderit
+                feed: consectetur et
+                link: nulla veniam aliq
+                id: {}
+                parent_id: -3084899
+                contact_fields: do dolor
+                email: adipisicing minim esse
+                url: in ut
+                meta_description: est Duis
+                mobile_body: incididunt nulla dolore ut in
+                has_mobile_version: true
+                is_visible: true
+                is_homepage: true
+                meta_title: voluptate sint ullamco ut occaecat
+                layout_file: reprehenderit eiusmod ut adipisicing
+                sort_order: 96609556
+                search_keywords: dolor enim exercitation
+                meta_keywords: sun
+      operationId: getAllPages
+    post:
+      description: |-
+        Creates a *Page*. The payload limit is 1MB. 
+
+        **Required Fields**
+        *   `type`
+        *   `name`
+        *   `link` (for a page of `type: link`)
+        *   `feed` (for a page of `type: rss_feed`)
+        *   `body` (for a page of `type: raw`)
+
+        **Read Only Fields**
+        *   `id`
+      summary: Create a Page
+      tags:
+        - Pages
+      produces: []
+      parameters:
+        - name: Accept
+          in: header
+          required: true
+          type: string
+          description: ''
+          default: application/json
+        - name: Content-Type
+          in: header
+          required: true
+          type: string
+          description: ''
+          default: application/json
+        - name: body
+          in: body
+          required: true
+          schema:
+            $ref: '#/definitions/page_Base'
+          x-examples:
+            application/json:
+              name: 404 Page for Cats
+              body: >-
+                <head><title>Hairball! Not Found</title></head><body>Sorry! You
+                can not haz cheeseburger.</body>
+              is_visible: true
+              parent_id: 0
+              sort_order: 12
+              type: raw
+              is_homepage: false
+              is_customers_only: false
+              search_keywords: 'dead, missing, broken'
+              has_mobile_version: false
+              mobile_body: ''
+              url: /404-meow/
+          description: >-
+            The default value for `content_type` is `text/html`; however, if
+            `page_type` is set to `raw`, `content_type` can be changed to either
+            `text/javascript` or `application/json`.
+
+
+            Updating this field allows you to place a JavaScript or a JSON file
+            in the root directory.
+
+
+            This file is publicly available at the specified URL.
+
+
+            If the page was created using the Control Panel, the content-type is
+            `text/html`.
+
+
+            Available for `POST` or `PUT`
+      responses:
+        '200':
+          description: ''
+          schema:
+            $ref: '#/definitions/page_Full'
+          examples:
+            application/json:
+              id: 6
+              parent_id: 5
+              type: page
+              contact_fields: 'fullname,companyname,phone,orderno,rma'
+              email: janedoes@email.com
+              name: Contact Form
+              url: /contact-us/
+              meta_description: ''
+              body: >-
+                <p>We're happy to answer questions or help you with returns.<br
+                />Please fill out the form below if you need assistance.</p>
+              mobile_body: 0
+              has_mobile_version: false
+              is_visible: true
+              is_homepage: false
+              layout_file: page.html
+              sort_order: 3
+              meta_title: ''
+              search_keywords: ''
+              meta_keywords: ''
+      operationId: createAPage
+  '/pages/{id}':
+    get:
+      description: Returns a *Page*.
+      summary: Get A Page
+      tags:
+        - Pages
+      parameters:
+        - name: id
+          in: path
+          required: true
+          type: integer
+          exclusiveMaximum: false
+          exclusiveMinimum: false
+          description: Id of the page.
+        - name: Accept
+          in: header
+          required: true
+          type: string
+          description: ''
+          default: application/json
+        - name: Content-Type
+          in: header
+          required: true
+          type: string
+          description: ''
+          default: application/json
+      responses:
+        '200':
+          description: ''
+          schema:
+            $ref: '#/definitions/page_Full'
+          examples:
+            application/json:
+              id: 1
+              name: RSS Syndication
+              meta_title: ''
+              body: '%%Syndicate%%'
+              is_visible: true
+              parent_id: 0
+              sort_order: 5
+              meta_keywords: '0'
+              type: page
+              meta_description: ''
+              is_homepage: false
+              layout_file: ''
+              is_customers_only: false
+              search_keywords: '0'
+              has_mobile_version: false
+              mobile_body: '0'
+              url: /rss-syndication/
+      operationId: getAPage
+    delete:
+      description: Deletes a *Page*.
+      summary: Delete a Page
+      tags:
+        - Pages
+      parameters:
+        - name: id
+          in: path
+          required: true
+          type: integer
+          exclusiveMaximum: false
+          exclusiveMinimum: false
+          description: Id of the page.
+        - name: Accept
+          in: header
+          required: true
+          type: string
+          description: ''
+          default: application/json
+        - name: Content-Type
+          in: header
+          required: true
+          type: string
+          description: ''
+          default: application/json
+      responses:
+        '204':
+          description: ''
+      operationId: deleteAPage
+    parameters:
+      - name: id
+        in: path
+        type: string
+        required: true
+    put:
+      responses:
+        '200':
+          description: ''
+          schema:
+            $ref: '#/definitions/page_Base'
+          examples:
+            application/json:
+              id: 2
+              name: Shipping & Returns
+              meta_title: ''
+              body: >-
+                <em>To edit this page simply login to the control panel, click
+                the <strong style="font-weight: 400">Website Content</strong>
+                tab and choose the </em> <strong style="font-weight:
+                400"><em>View Web Pages option. Click Edit next to the Shipping
+                & Returns page and you can change this text. A sample returns
+                policy is shown below which you can edit as needed.</em><em
+                style="font-style: normal"><br/><br/></em></strong><em
+                style="font-style: normal"><strong>Returns
+                Policy</strong></em><strong style="font-weight:
+                400"></em></em><em style="font-style: normal"><br/><br/></em>You
+                may return most new, unopened items within 30 days of delivery
+                for a full refund. We'll also pay the return shipping costs if
+                the return is a result of our error (you received an incorrect
+                or defective item, etc.).<br/><br/>You should expect to receive
+                your refund within four weeks of giving your package to the
+                return shipper, however, in many cases you will receive a refund
+                more quickly. This time period includes the transit time for us
+                to receive your return from the shipper (5 to 10 business days),
+                the time it takes us to process your return once we receive it
+                (3 to 5 business days), and the time it takes your bank to
+                process our refund request (5 to 10 business days).<br/><br/>If
+                you need to return an item, please <a
+                href="/contact-us/">Contact Us</a> with your order number and
+                details about the product you would like to return. We will
+                respond quickly with instructions for how to return items from
+                your
+                order.<br/><br/></strong><strong>Shipping</em></em></em></strong><strong
+                style="font-weight: 400"><em style="font-style:
+                normal"><br/><br/></em>We can ship to virtually any address in
+                the world. Note that there are restrictions on some products,
+                and some products cannot be shipped to international
+                destinations.<br/><br/>When you place an order, we will estimate
+                shipping and delivery dates for you based on the availability of
+                your items and the shipping options you choose. Depending on the
+                shipping provider you choose, shipping date estimates may appear
+                on the shipping quotes page.<br/><br/>Please also note that the
+                shipping rates for many items we sell are weight-based. The
+                weight of any such item can be found on its detail page. To
+                reflect the policies of the shipping companies we use, all
+                weights will be rounded up to the next full pound.<br/>
+              is_visible: true
+              parent_id: 0
+              sort_order: 2
+              meta_keywords: ''
+              type: page
+              meta_description: ''
+              is_homepage: false
+              layout_file: page.html
+              is_customers_only: false
+              search_keywords: ''
+              has_mobile_version: false
+              mobile_body: ''
+              url: /shipping-returns/
+      summary: Update a Page
+      description: |-
+        Updates a *Page*. The payload limit is 1MB. 
+
+        **Read Only Fields**
+        * id
+      operationId: updateAPage
+      parameters:
+        - in: body
+          name: body
+          schema:
+            title: Page
+            example:
+              id: 6
+              parent_id: 5
+              type: page
+              contact_fields: 'fullname,companyname,phone,orderno,rma'
+              email: janedoes@email.com
+              name: Contact Form
+              url: /contact-us/
+              meta_description: ''
+              body: >-
+                <p>We're happy to answer questions or help you with returns.<br
+                />Please fill out the form below if you need assistance.</p>
+              mobile_body: 0
+              has_mobile_version: false
+              is_visible: true
+              is_homepage: false
+              layout_file: page.html
+              sort_order: 3
+              meta_title: ''
+              search_keywords: ''
+              meta_keywords: ''
+            type: object
+            properties:
+              parent_id:
+                description: ID of any parent Web page.
+                example: 5
+                type: integer
+              type:
+                type: string
+                description: "`page`: free-text page  \n`link`: link to another web address  \n`rss_feed`: syndicated content from an RSS feed  \n`contact_form`: When the store's contact form is used.\n\n\t"
+                enum:
+                  - page
+                  - rss_feed
+                  - contact_form
+                  - raw
+                  - link
+              contact_fields:
+                description: >-
+                  Where the page’s type is a contact form: object whose members
+                  are the fields enabled (in the control panel) for storefront
+                  display. Possible members are:`fullname`: full name of the
+                  customer submitting the form; `phone`: customer’s phone
+                  number, as submitted on the form; `companyname`: customer’s
+                  submitted company name; `orderno`: customer’s submitted order
+                  number; `rma`: customer’s submitted RMA (Return Merchandise
+                  Authorization) number.
+                example: 'fullname,companyname,phone,orderno,rma'
+                type: string
+              email:
+                description: >-
+                  Where the page’s type is a contact form: email address that
+                  receives messages sent via the form.
+                example: janedoes@email.com
+                type: string
+              name:
+                type: string
+                description: 'Page name, as displayed on the storefront.'
+                example: Contact Form
+              url:
+                description: Relative URL on the storefront for this page.
+                example: /contact-us/
+                type: string
+              meta_description:
+                description: Description contained within this page’s <meta> element.
+                type: string
+              body:
+                type: string
+                description: >-
+                  HTML or variable that populates this page’s <body> element, in
+                  default/desktop view. Required in POST if page type is `raw`.
+                example: >-
+                  <p>We're happy to answer questions or help you with
+                  returns.<br />Please fill out the form below if you need
+                  assistance.</p>
+              mobile_body:
+                description: >-
+                  HTML to use for this page's body when viewed in the mobile
+                  template (deprecated).
+                example: 0
+                type: string
+              has_mobile_version:
+                description: 'If true, this page has a mobile version.'
+                example: false
+                type: boolean
+              is_visible:
+                description: >-
+                  If true, this page appears in the storefront’s navigation
+                  menu.
+                example: true
+                type: boolean
+              is_homepage:
+                description: 'If true, this page is the storefront’s home page.'
+                example: false
+                type: boolean
+              meta_title:
+                description: >-
+                  Text specified for this page’s <title> element. (If empty, the
+                  value of the name property is used.)
+                type: string
+              layout_file:
+                description: >-
+                  Layout template for this page. This field is writable only for
+                  stores with a Blueprint theme applied.
+                example: page.html
+                type: string
+              sort_order:
+                description: >-
+                  Order in which this page should display on the storefront.
+                  (Lower integers specify earlier display.)
+                example: 3
+                type: integer
+              search_keywords:
+                description: >-
+                  Comma-separated list of keywords that shoppers can use to
+                  locate this page when searching the store.
+                type: string
+              meta_keywords:
+                description: >-
+                  Comma-separated list of SEO-relevant keywords to include in
+                  the page’s <meta> element.
+                type: string
+              feed:
+                type: string
+                description: >-
+                  If page type is `rss_feed` the n this field is visisble.
+                  Required in POST required for `rss page` type.
+              link:
+                type: string
+                description: >-
+                  If page type is `link` this field is returned. Required in 
+                  POST to create a `link` page.
+              id:
+                type: integer
+                example: 44
+                description: ID of the page.
+              content_type:
+                type: string
+                enum:
+                  - application/json
+                  - text/javascript
+                  - text/html
+                description: >-
+                  The default value is `text/html`. If the `page_type` is `raw`
+                  then the content type can be changed to either JavaScript or
+                  JSON.
+
+
+                  Updating this field allows you to place a JavaScript or a JSON
+                  file in the root directory.
+
+
+                  This file is publicly available at the specified URL.
+
+
+                  If the page was created using the Control Panel, the
+                  content-type is `text/html`.
+
+
+                  Available for POST or PUT.
+
+
+                  Example of use:
+
+
+                  ```json
+
+                  { "id": 21, "name": "service worker", "body":
+                  "importScripts(\"https://mycdn.com/sw.js\");", "is_visible":
+                  false, "parent_id": 0, "sort_order": 0, "type": "raw",
+                  "is_homepage": false, "is_customers_only": false,
+                  "search_keywords": "", "has_mobile_version": true,
+                  "mobile_body": "", "content_type": "text/javascript", "url":
+                  "/sw.js" }
+
+                  ```
+                example: text/html
+            required:
+              - type
+              - name
+              - body
+              - feed
+              - link
+          x-examples:
+            application/json:
+              name: service worker
+              body: 'importScripts("https://mycdn.com/sw.js");'
+              is_visible: false
+              parent_id: 0
+              sort_order: 0
+              type: raw
+              is_homepage: false
+              is_customers_only: false
+              search_keywords: ''
+              has_mobile_version: true
+              mobile_body: ''
+              content_type: text/javascript
+              url: /sw.js
+        - in: header
+          name: Accept
+          type: string
+          default: application/json
+        - in: header
+          name: Content-Type
+          type: string
+          default: application/json
+      tags:
+        - Pages
+definitions:
+  page_Full:
+    title: page_Full
+    allOf:
+      - type: object
+        properties:
+          id:
+            type: integer
+            example: 44
+            description: ID of the page.
+      - $ref: '#/definitions/page_Base'
+  authentication:
+    description: >-
+      Not returned in any responses, but accepts up to two fields allowing you
+      to set the customer’s password. If a password is not supplied, it is
+      generated automatically. For further information about using this object,
+      please see the Customers resource documentation.
+    type: object
+    properties:
+      force_reset:
+        type: string
+      password:
+        type: string
+      password_confirmation:
+        type: string
+  page_Base:
+    title: page_Base
+    type: object
+    properties:
+      parent_id:
+        description: ID of any parent Web page.
+        example: 5
+        type: integer
+      type:
+        type: string
+        description: "`page`: free-text page  \n`link`: link to another web address  \n`rss_feed`: syndicated content from an RSS feed  \n`contact_form`: When the store's contact form is used.\n\n\t"
+        enum:
+          - page
+          - rss_feed
+          - contact_form
+          - raw
+          - link
+      contact_fields:
+        description: >-
+          Where the page’s type is a contact form: object whose members are the
+          fields enabled (in the control panel) for storefront display. Possible
+          members are:`fullname`: full name of the customer submitting the form;
+          `phone`: customer’s phone number, as submitted on the form;
+          `companyname`: customer’s submitted company name; `orderno`:
+          customer’s submitted order number; `rma`: customer’s submitted RMA
+          (Return Merchandise Authorization) number.
+        example: 'fullname,companyname,phone,orderno,rma'
+        type: string
+      email:
+        description: >-
+          Where the page’s type is a contact form: email address that receives
+          messages sent via the form.
+        example: janedoes@email.com
+        type: string
+      name:
+        type: string
+        description: 'Page name, as displayed on the storefront.'
+        example: Contact Form
+      url:
+        description: Relative URL on the storefront for this page.
+        example: /contact-us/
+        type: string
+      meta_description:
+        description: Description contained within this page’s `<meta/>` element.
+        type: string
+      body:
+        type: string
+        description: >-
+          HTML or variable that populates this page’s `<body>` element, in
+          default/desktop view. Required in POST if page type is `raw`.
+        example: >-
+          <p>We're happy to answer questions or help you with returns.<br
+          />Please fill out the form below if you need assistance.</p>
+      mobile_body:
+        description: >-
+          HTML to use for this page's body when viewed in the mobile template
+          (deprecated).
+        example: 0
+        type: string
+      has_mobile_version:
+        description: 'If true, this page has a mobile version.'
+        example: false
+        type: boolean
+      is_visible:
+        description: 'If true, this page appears in the storefront’s navigation menu.'
+        example: true
+        type: boolean
+      is_homepage:
+        description: 'If true, this page is the storefront’s home page.'
+        example: false
+        type: boolean
+      meta_title:
+        description: >-
+          Text specified for this page’s `<title>` element. (If empty, the value
+          of the name property is used.)
+        type: string
+      layout_file:
+        description: >-
+          Layout template for this page. This field is writable only for stores
+          with a Blueprint theme applied.
+        example: page.html
+        type: string
+      sort_order:
+        description: >-
+          Order in which this page should display on the storefront. (Lower
+          integers specify earlier display.)
+        example: 3
+        type: integer
+      search_keywords:
+        description: >-
+          Comma-separated list of keywords that shoppers can use to locate this
+          page when searching the store.
+        type: string
+      meta_keywords:
+        description: >-
+          Comma-separated list of SEO-relevant keywords to include in the page’s
+          `<meta/>` element.
+        type: string
+      feed:
+        type: string
+        description: >-
+          If page type is `rss_feed` the n this field is visisble. Required in
+          POST required for `rss page` type.
+      link:
+        type: string
+        description: >-
+          If page type is `link` this field is returned. Required in  POST to
+          create a `link` page.
+      content_type:
+        type: string
+        enum:
+          - application/json
+          - text/javascript
+          - text/html
+        example: text/html
+    required:
+      - type
+      - name
+      - body
+      - feed
+      - link
+tags:
+  - name: Pages
+securityDefinitions:
+  X-Auth-Token:
+    type: apiKey
+    name: X-Auth-Token
+    in: header
+    description: >-
+      ### OAuth Scopes
+
+      |  **UI Name** | **Permission** | **Parameter** |
+
+      | --- | --- | --- |
+
+      |  Content | modify | `store_v2_content` |
+
+      |  Content | read-only | `store_v2_content_read_only` |
+
+
+      ### Headers
+
+
+      |Header|Parameter|Description|
+
+      |-|-|-|
+
+      |`X-Auth-Client`|`client_id`|Obtained by creating an API account or
+      installing an app in a BigCommerce control panel.|
+
+      |`X-Auth-Token`|`access_token `|Obtained by creating an API account or
+      installing an app in a BigCommerce control panel.|
+
+
+      ### Example
+
+
+      ```http
+
+      GET /stores/{$$.env.store_hash}/v3/catalog/summary
+
+      host: api.bigcommerce.com
+
+      Content-Type: application/json
+
+      X-Auth-Client: {client_id}
+
+      X-Auth-Token: {access_token}
+
+      ```
+
+
+      * For more information on Authenticating BigCommerce APIs, see:
+      [Authentication](https://developer.bigcommerce.com/api-docs/getting-started/authentication). 
+  X-Auth-Client:
+    type: apiKey
+    name: X-Auth-Client
+    in: header
+    description: >-
+      ### OAuth Scopes
+
+      |  **UI Name** | **Permission** | **Parameter** |
+
+      | --- | --- | --- |
+
+      |  Content | modify | `store_v2_content` |
+
+      |  Content | read-only | `store_v2_content_read_only` |
+
+
+      ### Headers
+
+
+      |Header|Parameter|Description|
+
+      |-|-|-|
+
+      |`X-Auth-Client`|`client_id`|Obtained by creating an API account or
+      installing an app in a BigCommerce control panel.|
+
+      |`X-Auth-Token`|`access_token `|Obtained by creating an API account or
+      installing an app in a BigCommerce control panel.|
+
+
+      ### Example
+
+
+      ```http
+
+      GET /stores/{$$.env.store_hash}/v3/catalog/summary
+
+      host: api.bigcommerce.com
+
+      Content-Type: application/json
+
+      X-Auth-Client: {client_id}
+
+      X-Auth-Token: {access_token}
+
+      ```
+
+
+      * For more information on Authenticating BigCommerce APIs, see:
+      [Authentication](https://developer.bigcommerce.com/api-docs/getting-started/authentication). 
+security:
+  - X-Auth-Token: []
+  - X-Auth-Client: []
+x-stoplight:
+  docs:
+    includeDownloadLink: true
+    showModels: false
