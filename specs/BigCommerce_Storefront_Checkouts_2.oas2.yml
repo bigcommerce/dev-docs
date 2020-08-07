@@ -1,0 +1,4329 @@
+{
+  "swagger": "2.0",
+  "info": {
+    "version": "v0.0.2",
+    "title": "Storefront Checkouts",
+    "description": "### Checkout\nThe Storefront Checkout does not use API Tokens and allows for Checkout data to be scraped directly from the front end or used in a Stencil Theme.\n\n>Note:\n>\n> * The Try It Now at each endpoint will not work. Please see [Cart and Checkout](/api-docs/cart-and-checkout/cart-and-checkout-overview) for a script that can be used to get Cart details.\n> * checkoutId is the same as the cartId.\n> * The redirect url endpoint does not work using the Storefront Cart. At this time shoppers can not be directed to any carts or checkouts created using the Storefront APIS. \n> * This endpoint is affected by the [General Checkout Setting](https://support.bigcommerce.com/s/article/Optimized-Single-Page-Checkout#checkout-settings) *\"Prompt existing customers to sign in, but still allow them to check out as a guest.\"* If this setting is checked, you will recieve an error response when creating or updating a Checkout Billing Address if the customer is not signed in.",
+    "contact": {}
+  },
+  "host": "{$$.env.store_domain}",
+  "basePath": "/api/storefront",
+  "schemes": [
+    "https"
+  ],
+  "consumes": [
+    "application/json"
+  ],
+  "produces": [
+    "application/json"
+  ],
+  "paths": {
+    "/checkouts/{checkoutId}": {
+      "get": {
+        "description": "Returns a *Checkout*.\n\n**Notes**\n\nThe cart ID and checkout ID are the same.",
+        "summary": "Get a Checkout",
+        "tags": [
+          "Checkout"
+        ],
+        "operationId": "CheckoutsByCheckoutIdGet",
+        "deprecated": false,
+        "produces": [
+          "application/json"
+        ],
+        "parameters": [
+          {
+            "name": "include",
+            "in": "query",
+            "required": false,
+            "enum": [
+              "consignments.availableShippingOptions"
+            ],
+            "type": "string",
+            "default": "consignments.availableShippingOptions"
+          },
+          {
+            "name": "checkoutId",
+            "in": "path",
+            "required": true,
+            "type": "string",
+            "description": ""
+          }
+        ],
+        "responses": {
+          "200": {
+            "description": "",
+            "schema": {
+              "$ref": "#/definitions/Checkout"
+            },
+            "headers": {},
+            "examples": {
+              "application/json": {
+                "id": "29eb9b44-8f33-4e4a-9429-d0e8e24641ed",
+                "cart": {
+                  "id": "29eb9b44-8f33-4e4a-9429-d0e8e24641ed",
+                  "customerId": 18,
+                  "email": "dwaynecole@testing.com",
+                  "currency": {
+                    "name": "US Dollars",
+                    "code": "USD",
+                    "symbol": "$",
+                    "decimalPlaces": 2
+                  },
+                  "isTaxIncluded": true,
+                  "baseAmount": 7.95,
+                  "discountAmount": 0,
+                  "cartAmount": 7.95,
+                  "coupons": [],
+                  "discounts": [
+                    {
+                      "id": "243c9ca2-22b4-417a-8b09-b3fc05778b52",
+                      "discountedAmount": 0
+                    }
+                  ],
+                  "lineItems": {
+                    "physicalItems": [
+                      {
+                        "id": "243c9ca2-22b4-417a-8b09-b3fc05778b52",
+                        "parentId": {},
+                        "variantId": 345,
+                        "productId": 174,
+                        "sku": "",
+                        "name": "1L Le Parfait Jar",
+                        "url": "https://{$$.env.store_domain}/all/1l-le-parfait-jar/",
+                        "quantity": 1,
+                        "brand": "OFS",
+                        "isTaxable": true,
+                        "imageUrl": "https://cdn11.bigcommerce.com/s-{store_hash}/products/174/images/425/leparfaitmedium3_1024x1024_1024x1024__37756__81924.1534344526.330.500.jpg?c=2",
+                        "discounts": [],
+                        "discountAmount": 0,
+                        "couponAmount": 0,
+                        "listPrice": 7.95,
+                        "salePrice": 7.95,
+                        "extendedListPrice": 7.95,
+                        "extendedSalePrice": 7.95,
+                        "isShippingRequired": true,
+                        "giftWrapping": {},
+                        "addedByPromotion": false
+                      }
+                    ],
+                    "digitalItems": [],
+                    "giftCertificates": [],
+                    "customItems": []
+                  },
+                  "createdTime": "2019-01-10T17:18:00+00:00",
+                  "updatedTime": "2019-01-10T17:19:47+00:00"
+                },
+                "billingAddress": {
+                  "id": "5c377ead301c2",
+                  "firstName": "Dwayne",
+                  "lastName": "Cole",
+                  "email": "dwaynecole@testing.com",
+                  "company": "",
+                  "address1": "Mauna Kea Access Rd",
+                  "address2": "",
+                  "city": "Hilo",
+                  "stateOrProvince": "Hawaii",
+                  "stateOrProvinceCode": "HI",
+                  "country": "United States",
+                  "countryCode": "US",
+                  "postalCode": "96720",
+                  "phone": "8081234567",
+                  "customFields": []
+                },
+                "consignments": [
+                  {
+                    "id": "5c377ead30ac1",
+                    "shippingCost": 8,
+                    "handlingCost": 0,
+                    "couponDiscounts": [],
+                    "discounts": [],
+                    "lineItemIds": [
+                      "243c9ca2-22b4-417a-8b09-b3fc05778b52"
+                    ],
+                    "selectedShippingOption": {
+                      "id": "d09e05c0-3788-44df-a1bb-b6d3afdf6841",
+                      "type": "shipping_byweight",
+                      "description": "Ship by Weight",
+                      "imageUrl": "",
+                      "cost": 8,
+                      "transitTime": ""
+                    },
+                    "shippingAddress": {
+                      "firstName": "Dwayne",
+                      "lastName": "Cole",
+                      "email": "dwaynecole@testing.com",
+                      "company": "",
+                      "address1": "Mauna Kea Access Rd",
+                      "address2": "",
+                      "city": "Hilo",
+                      "stateOrProvince": "Hawaii",
+                      "stateOrProvinceCode": "HI",
+                      "country": "United States",
+                      "countryCode": "US",
+                      "postalCode": "96720",
+                      "phone": "8081234567",
+                      "customFields": []
+                    }
+                  }
+                ],
+                "orderId": {},
+                "shippingCostTotal": 8,
+                "shippingCostBeforeDiscount": 8,
+                "handlingCostTotal": 0,
+                "taxTotal": 1.22,
+                "coupons": [],
+                "taxes": [
+                  {
+                    "name": "Tax",
+                    "amount": 1.22
+                  }
+                ],
+                "subtotal": 7.95,
+                "grandTotal": 15.95,
+                "giftCertificates": [],
+                "createdTime": "2019-01-10T17:18:00+00:00",
+                "updatedTime": "2019-01-10T17:19:47+00:00",
+                "customerMessage": ""
+              }
+            }
+          },
+          "400": {
+            "description": "When a problem arises, returns (for now) a generic response.",
+            "schema": {
+              "$ref": "#/definitions/CheckoutError"
+            }
+          }
+        }
+      },
+      "put": {
+        "description": "Updates *Checkout* customer messages. ",
+        "summary": "Update Customer Messages",
+        "tags": [
+          "Checkout"
+        ],
+        "operationId": "CheckoutsByCheckoutIdPut",
+        "deprecated": false,
+        "produces": [
+          "application/json"
+        ],
+        "consumes": [
+          "application/json"
+        ],
+        "parameters": [
+          {
+            "name": "checkoutId",
+            "in": "path",
+            "required": true,
+            "type": "string",
+            "description": ""
+          },
+          {
+            "name": "body",
+            "in": "body",
+            "required": true,
+            "description": "",
+            "schema": {
+              "$ref": "#/definitions/CheckoutUpdateRequest"
+            },
+            "x-examples": {
+              "application/json": {
+                "customerMessage": "id do pariatur"
+              }
+            }
+          }
+        ],
+        "responses": {
+          "200": {
+            "description": "Returns Checkout Object.",
+            "schema": {
+              "$ref": "#/definitions/CheckoutsResponse"
+            },
+            "headers": {},
+            "examples": {
+              "application/json": {
+                "id": "29eb9b44-8f33-4e4a-9429-d0e8e24641ed",
+                "cart": {
+                  "id": "29eb9b44-8f33-4e4a-9429-d0e8e24641ed",
+                  "customerId": 18,
+                  "email": "dwaynecole@testing.com",
+                  "currency": {
+                    "name": "US Dollars",
+                    "code": "USD",
+                    "symbol": "$",
+                    "decimalPlaces": 2
+                  },
+                  "isTaxIncluded": true,
+                  "baseAmount": 7.95,
+                  "discountAmount": 0,
+                  "cartAmount": 7.95,
+                  "coupons": [],
+                  "discounts": [
+                    {
+                      "id": "243c9ca2-22b4-417a-8b09-b3fc05778b52",
+                      "discountedAmount": 0
+                    }
+                  ],
+                  "lineItems": {
+                    "physicalItems": [
+                      {
+                        "id": "243c9ca2-22b4-417a-8b09-b3fc05778b52",
+                        "parentId": {},
+                        "variantId": 345,
+                        "productId": 174,
+                        "sku": "",
+                        "name": "1L Le Parfait Jar",
+                        "url": "https:/{$$.env.store_domain}/all/1l-le-parfait-jar/",
+                        "quantity": 1,
+                        "brand": "OFS",
+                        "isTaxable": true,
+                        "imageUrl": "https://cdn11.bigcommerce.com/s-{store_hash}/products/174/images/425/leparfaitmedium3_1024x1024_1024x1024__37756__81924.1534344526.330.500.jpg?c=2",
+                        "discounts": [],
+                        "discountAmount": 0,
+                        "couponAmount": 0,
+                        "listPrice": 7.95,
+                        "salePrice": 7.95,
+                        "extendedListPrice": 7.95,
+                        "extendedSalePrice": 7.95,
+                        "isShippingRequired": true,
+                        "giftWrapping": {},
+                        "addedByPromotion": false
+                      }
+                    ],
+                    "digitalItems": [],
+                    "giftCertificates": [],
+                    "customItems": []
+                  },
+                  "createdTime": "2019-01-10T17:18:00+00:00",
+                  "updatedTime": "2019-01-10T17:19:47+00:00"
+                },
+                "billingAddress": {
+                  "id": "5c377ead301c2",
+                  "firstName": "Dwayne",
+                  "lastName": "Cole",
+                  "email": "dwaynecole@testing.com",
+                  "company": "",
+                  "address1": "Mauna Kea Access Rd",
+                  "address2": "",
+                  "city": "Hilo",
+                  "stateOrProvince": "Hawaii",
+                  "stateOrProvinceCode": "HI",
+                  "country": "United States",
+                  "countryCode": "US",
+                  "postalCode": "96720",
+                  "phone": "8081234567",
+                  "customFields": []
+                },
+                "consignments": [
+                  {
+                    "id": "5c377ead30ac1",
+                    "shippingCost": 8,
+                    "handlingCost": 0,
+                    "couponDiscounts": [],
+                    "discounts": [],
+                    "lineItemIds": [
+                      "243c9ca2-22b4-417a-8b09-b3fc05778b52"
+                    ],
+                    "selectedShippingOption": {
+                      "id": "d09e05c0-3788-44df-a1bb-b6d3afdf6841",
+                      "type": "shipping_byweight",
+                      "description": "Ship by Weight",
+                      "imageUrl": "",
+                      "cost": 8,
+                      "transitTime": ""
+                    },
+                    "shippingAddress": {
+                      "firstName": "Dwayne",
+                      "lastName": "Cole",
+                      "email": "dwaynecole@testing.com",
+                      "company": "",
+                      "address1": "Mauna Kea Access Rd",
+                      "address2": "",
+                      "city": "Hilo",
+                      "stateOrProvince": "Hawaii",
+                      "stateOrProvinceCode": "HI",
+                      "country": "United States",
+                      "countryCode": "US",
+                      "postalCode": "96720",
+                      "phone": "8081234567",
+                      "customFields": []
+                    }
+                  }
+                ],
+                "orderId": {},
+                "shippingCostTotal": 8,
+                "shippingCostBeforeDiscount": 8,
+                "handlingCostTotal": 0,
+                "taxTotal": 1.22,
+                "coupons": [],
+                "taxes": [
+                  {
+                    "name": "Tax",
+                    "amount": 1.22
+                  }
+                ],
+                "subtotal": 7.95,
+                "grandTotal": 15.95,
+                "giftCertificates": [],
+                "createdTime": "2019-01-10T17:18:00+00:00",
+                "updatedTime": "2019-01-10T17:19:47+00:00",
+                "customerMessage": ""
+              }
+            }
+          }
+        }
+      }
+    },
+    "/checkouts/{checkoutId}/carts/{cartId}/items/{itemId}": {
+      "put": {
+        "description": "Updates a *Checkout Line Item*. Updates an existing, single line item in the cart.\n\n**Notes** \n\nIf a variant needs to be changed or updated, the product will need to be removed and re-added to the cart with the correct variants using the [Add Cart Line Items](/api-reference/cart-checkout/storefront-cart-api/cart-items/addcartlineitem) endpoint.",
+        "summary": "Update A Line Item",
+        "tags": [
+          "Checkout Cart Items"
+        ],
+        "operationId": "CheckoutsCartsItemsItemIdByCheckoutIdAndCartIdPut",
+        "deprecated": false,
+        "produces": [
+          "application/json"
+        ],
+        "consumes": [
+          "application/json"
+        ],
+        "parameters": [
+          {
+            "name": "checkoutId",
+            "in": "path",
+            "required": true,
+            "type": "string",
+            "description": ""
+          },
+          {
+            "name": "cartId",
+            "in": "path",
+            "required": true,
+            "type": "string",
+            "format": "uuid",
+            "description": ""
+          },
+          {
+            "name": "itemId",
+            "in": "path",
+            "required": true,
+            "type": "string",
+            "description": ""
+          },
+          {
+            "name": "body",
+            "in": "body",
+            "required": true,
+            "description": "",
+            "schema": {
+              "$ref": "#/definitions/CartUpdateRequest"
+            }
+          }
+        ],
+        "responses": {
+          "200": {
+            "description": "Returns Checkout Object.",
+            "schema": {
+              "$ref": "#/definitions/Checkout"
+            },
+            "headers": {},
+            "examples": {
+              "application/json": {
+                "id": "29eb9b44-8f33-4e4a-9429-d0e8e24641ed",
+                "cart": {
+                  "id": "29eb9b44-8f33-4e4a-9429-d0e8e24641ed",
+                  "customerId": 18,
+                  "email": "dwaynecole@testing.com",
+                  "currency": {
+                    "name": "US Dollars",
+                    "code": "USD",
+                    "symbol": "$",
+                    "decimalPlaces": 2
+                  },
+                  "isTaxIncluded": true,
+                  "baseAmount": 7.95,
+                  "discountAmount": 0,
+                  "cartAmount": 7.95,
+                  "coupons": [],
+                  "discounts": [
+                    {
+                      "id": "243c9ca2-22b4-417a-8b09-b3fc05778b52",
+                      "discountedAmount": 0
+                    }
+                  ],
+                  "lineItems": {
+                    "physicalItems": [
+                      {
+                        "id": "243c9ca2-22b4-417a-8b09-b3fc05778b52",
+                        "parentId": {},
+                        "variantId": 345,
+                        "productId": 174,
+                        "sku": "",
+                        "name": "1L Le Parfait Jar",
+                        "url": "https:/{$$.env.store_domain}/all/1l-le-parfait-jar/",
+                        "quantity": 1,
+                        "brand": "OFS",
+                        "isTaxable": true,
+                        "imageUrl": "https://cdn11.bigcommerce.com/s-{store_hash}/products/174/images/425/leparfaitmedium3_1024x1024_1024x1024__37756__81924.1534344526.330.500.jpg?c=2",
+                        "discounts": [],
+                        "discountAmount": 0,
+                        "couponAmount": 0,
+                        "listPrice": 7.95,
+                        "salePrice": 7.95,
+                        "extendedListPrice": 7.95,
+                        "extendedSalePrice": 7.95,
+                        "isShippingRequired": true,
+                        "giftWrapping": {},
+                        "addedByPromotion": false
+                      }
+                    ],
+                    "digitalItems": [],
+                    "giftCertificates": [],
+                    "customItems": []
+                  },
+                  "createdTime": "2019-01-10T17:18:00+00:00",
+                  "updatedTime": "2019-01-10T17:19:47+00:00"
+                },
+                "billingAddress": {
+                  "id": "5c377ead301c2",
+                  "firstName": "Dwayne",
+                  "lastName": "Cole",
+                  "email": "dwaynecole@testing.com",
+                  "company": "",
+                  "address1": "Mauna Kea Access Rd",
+                  "address2": "",
+                  "city": "Hilo",
+                  "stateOrProvince": "Hawaii",
+                  "stateOrProvinceCode": "HI",
+                  "country": "United States",
+                  "countryCode": "US",
+                  "postalCode": "96720",
+                  "phone": "8081234567",
+                  "customFields": []
+                },
+                "consignments": [
+                  {
+                    "id": "5c377ead30ac1",
+                    "shippingCost": 8,
+                    "handlingCost": 0,
+                    "couponDiscounts": [],
+                    "discounts": [],
+                    "lineItemIds": [
+                      "243c9ca2-22b4-417a-8b09-b3fc05778b52"
+                    ],
+                    "selectedShippingOption": {
+                      "id": "d09e05c0-3788-44df-a1bb-b6d3afdf6841",
+                      "type": "shipping_byweight",
+                      "description": "Ship by Weight",
+                      "imageUrl": "",
+                      "cost": 8,
+                      "transitTime": ""
+                    },
+                    "shippingAddress": {
+                      "firstName": "Dwayne",
+                      "lastName": "Cole",
+                      "email": "dwaynecole@testing.com",
+                      "company": "",
+                      "address1": "Mauna Kea Access Rd",
+                      "address2": "",
+                      "city": "Hilo",
+                      "stateOrProvince": "Hawaii",
+                      "stateOrProvinceCode": "HI",
+                      "country": "United States",
+                      "countryCode": "US",
+                      "postalCode": "96720",
+                      "phone": "8081234567",
+                      "customFields": []
+                    }
+                  }
+                ],
+                "orderId": {},
+                "shippingCostTotal": 8,
+                "shippingCostBeforeDiscount": 8,
+                "handlingCostTotal": 0,
+                "taxTotal": 1.22,
+                "coupons": [],
+                "taxes": [
+                  {
+                    "name": "Tax",
+                    "amount": 1.22
+                  }
+                ],
+                "subtotal": 7.95,
+                "grandTotal": 15.95,
+                "giftCertificates": [],
+                "createdTime": "2019-01-10T17:18:00+00:00",
+                "updatedTime": "2019-01-10T17:19:47+00:00",
+                "customerMessage": ""
+              }
+            }
+          }
+        }
+      },
+      "delete": {
+        "description": "Removes a line item from the cart.",
+        "summary": "Delete A Line Item",
+        "tags": [
+          "Checkout Cart Items"
+        ],
+        "operationId": "CheckoutsCartsItemsItemIdByCheckoutIdAndCartIdDelete",
+        "deprecated": false,
+        "produces": [
+          "application/json"
+        ],
+        "parameters": [
+          {
+            "name": "checkoutId",
+            "in": "path",
+            "required": true,
+            "type": "string",
+            "description": ""
+          },
+          {
+            "name": "cartId",
+            "in": "path",
+            "required": true,
+            "type": "string",
+            "format": "uuid",
+            "description": ""
+          },
+          {
+            "name": "itemId",
+            "in": "path",
+            "required": true,
+            "type": "string",
+            "description": ""
+          }
+        ],
+        "responses": {
+          "200": {
+            "description": "Returns Cart Entity Object.",
+            "schema": {
+              "$ref": "#/definitions/Checkout"
+            },
+            "headers": {},
+            "examples": {
+              "application/json": {
+                "id": "b6fbd994-61a8-4f25-9167-6ec10489c448",
+                "cart": {
+                  "id": "b6fbd994-61a8-4f25-9167-6ec10489c448",
+                  "customerId": 11,
+                  "email": "janedoe@email.com",
+                  "currency": {
+                    "name": "US Dollars",
+                    "code": "USD",
+                    "symbol": "$",
+                    "decimalPlaces": 2
+                  },
+                  "isTaxIncluded": false,
+                  "baseAmount": 119.93,
+                  "discountAmount": 0,
+                  "cartAmount": 112.93,
+                  "coupons": [
+                    {
+                      "id": 1,
+                      "code": "S2549JM0Y",
+                      "displayName": "$5.00 off the order total",
+                      "couponType": "per_total_discount",
+                      "discountedAmount": 5
+                    }
+                  ],
+                  "discounts": [
+                    {
+                      "id": "69791a88-85c9-4c19-8042-e537621e8a55",
+                      "discountedAmount": 2.59
+                    },
+                    {
+                      "id": "ba2c619d-e6b4-48c2-8809-d88e424ed450",
+                      "discountedAmount": 1.06
+                    },
+                    {
+                      "id": "c72d6651-978d-45e5-881b-c2bb5f7ff1d5",
+                      "discountedAmount": 2.12
+                    },
+                    {
+                      "id": "6477a4a1-02cf-4287-8bf2-fd043bdd5234",
+                      "discountedAmount": 0.8
+                    },
+                    {
+                      "id": "871f1f56-4c88-43c3-a6e5-0a647d83d6ac",
+                      "discountedAmount": 0.43
+                    }
+                  ],
+                  "lineItems": {
+                    "physicalItems": [
+                      {
+                        "id": "69791a88-85c9-4c19-8042-e537621e8a55",
+                        "parentId": {},
+                        "variantId": 364,
+                        "productId": 184,
+                        "sku": "SMA-RED",
+                        "name": "Canvas Laundry Cart",
+                        "url": "http://your-store.mybigcommerce.com/all/canvas-laundry-cart/",
+                        "quantity": 1,
+                        "isTaxable": true,
+                        "imageUrl": "https://cdn8.bigcommerce.com/s-id30h7ohwf/products/184/images/445/naturalcanvascart2_1024x1024__92347__29648.1534344533.330.500.jpg?c=2",
+                        "discounts": [
+                          {
+                            "id": "total-coupon",
+                            "discountedAmount": 0.59
+                          },
+                          {
+                            "id": 2,
+                            "discountedAmount": 2
+                          }
+                        ],
+                        "discountAmount": 2,
+                        "couponAmount": 0,
+                        "listPrice": 15.99,
+                        "salePrice": 13.99,
+                        "extendedListPrice": 15.99,
+                        "extendedSalePrice": 13.99,
+                        "isShippingRequired": true,
+                        "giftWrapping": {},
+                        "addedByPromotion": false
+                      },
+                      {
+                        "id": "ba2c619d-e6b4-48c2-8809-d88e424ed450",
+                        "parentId": {},
+                        "variantId": 341,
+                        "productId": 170,
+                        "sku": "",
+                        "name": "Ceramic Measuring Spoons",
+                        "url": "http://your-store.mybigcommerce.com/all/ceramic-measuring-spoons/",
+                        "quantity": 1,
+                        "isTaxable": true,
+                        "imageUrl": "https://cdn8.bigcommerce.com/s-id30h7ohwf/products/170/images/411/measuringsquares2_1024x1024__07108__95421.1534344522.330.500.jpg?c=2",
+                        "discounts": [
+                          {
+                            "id": "total-coupon",
+                            "discountedAmount": 1.06
+                          }
+                        ],
+                        "discountAmount": 0,
+                        "couponAmount": 0,
+                        "listPrice": 25,
+                        "salePrice": 25,
+                        "extendedListPrice": 25,
+                        "extendedSalePrice": 25,
+                        "isShippingRequired": true,
+                        "giftWrapping": {},
+                        "addedByPromotion": false
+                      },
+                      {
+                        "id": "c72d6651-978d-45e5-881b-c2bb5f7ff1d5",
+                        "parentId": {},
+                        "variantId": 376,
+                        "productId": 158,
+                        "sku": "SKU-A0C8A203",
+                        "name": "Chambray Towel",
+                        "url": "http://your-store.mybigcommerce.com/all/chambray-towel/",
+                        "quantity": 1,
+                        "isTaxable": true,
+                        "imageUrl": "https://cdn8.bigcommerce.com/s-id30h7ohwf/products/158/images/382/foglinenbeigestripetowel1b_1024x1024__83011__60806.1534344511.330.500.jpg?c=2",
+                        "discounts": [
+                          {
+                            "id": "total-coupon",
+                            "discountedAmount": 2.12
+                          }
+                        ],
+                        "discountAmount": 0,
+                        "couponAmount": 0,
+                        "listPrice": 49.99,
+                        "salePrice": 49.99,
+                        "extendedListPrice": 49.99,
+                        "extendedSalePrice": 49.99,
+                        "isShippingRequired": true,
+                        "giftWrapping": {},
+                        "addedByPromotion": false
+                      }
+                    ],
+                    "digitalItems": [
+                      {
+                        "id": "6477a4a1-02cf-4287-8bf2-fd043bdd5234",
+                        "parentId": {},
+                        "variantId": 360,
+                        "productId": 189,
+                        "name": "Gather Journal Issue 7 - Digital",
+                        "url": "http://your-store.mybigcommerce.com/all/gather-journal-issue-7/",
+                        "quantity": 1,
+                        "isTaxable": true,
+                        "imageUrl": "https://cdn8.bigcommerce.com/s-id30h7ohwf/products/189/images/465/gather_1024x1024__17195__82620.1534344540.330.500.jpg?c=2",
+                        "discounts": [
+                          {
+                            "id": "total-coupon",
+                            "discountedAmount": 0.8
+                          }
+                        ],
+                        "discountAmount": 0,
+                        "couponAmount": 0,
+                        "listPrice": 18.95,
+                        "salePrice": 18.95,
+                        "extendedListPrice": 18.95,
+                        "extendedSalePrice": 18.95,
+                        "isShippingRequired": false,
+                        "type": "digital"
+                      }
+                    ],
+                    "giftCertificates": [
+                      {
+                        "id": "871f1f56-4c88-43c3-a6e5-0a647d83d6ac",
+                        "name": "$10.00 Gift Certificate",
+                        "theme": "Celebration",
+                        "amount": 10,
+                        "taxable": false,
+                        "sender": {
+                          "name": "Jane Doe",
+                          "email": "janedoe@email.com"
+                        },
+                        "recipient": {
+                          "name": "John Doe",
+                          "email": "johndoe@email.com"
+                        },
+                        "message": "Thank you!",
+                        "type": "giftCertificate"
+                      }
+                    ]
+                  },
+                  "createdTime": "2018-09-18T15:48:26+00:00",
+                  "updatedTime": "2018-09-18T16:59:45+00:00"
+                },
+                "billingAddress": {
+                  "id": "5ba11e4a10fb5",
+                  "firstName": "Jane",
+                  "lastName": "Doe",
+                  "email": "janedoe@email.com",
+                  "company": {},
+                  "address1": "123 Main Street",
+                  "address2": {},
+                  "city": "Austin",
+                  "stateOrProvince": "Texas",
+                  "stateOrProvinceCode": "TX",
+                  "country": "United States",
+                  "countryCode": "US",
+                  "postalCode": "78751",
+                  "phone": "1234567890",
+                  "customFields": [
+                    {
+                      "fieldId": "field_25",
+                      "fieldValue": "Leave in backyard"
+                    }
+                  ]
+                },
+                "consignments": [
+                  {
+                    "id": "5ba121929619b",
+                    "shippingCost": 69.94,
+                    "handlingCost": 0,
+                    "couponDiscounts": [],
+                    "discounts": [],
+                    "lineItemIds": [
+                      "69791a88-85c9-4c19-8042-e537621e8a55",
+                      "ba2c619d-e6b4-48c2-8809-d88e424ed450",
+                      "c72d6651-978d-45e5-881b-c2bb5f7ff1d5"
+                    ],
+                    "selectedShippingOption": {
+                      "id": "bb3c818f-17ce-46fe-9475-65933095da0d",
+                      "type": "shipping_upsready",
+                      "description": "UPS® (UPS Next Day Air®)",
+                      "imageUrl": "",
+                      "cost": 69.94,
+                      "transitTime": "1 business day"
+                    },
+                    "shippingAddress": {
+                      "firstName": "Jane",
+                      "lastName": "Doe",
+                      "email": "janedoe@email.com",
+                      "company": "",
+                      "address1": "123 Main Street",
+                      "address2": "",
+                      "city": "Austin",
+                      "stateOrProvince": "Texas",
+                      "stateOrProvinceCode": "TX",
+                      "country": "United States",
+                      "countryCode": "US",
+                      "postalCode": "78751",
+                      "phone": "1234567890",
+                      "customFields": [
+                        {
+                          "fieldId": "field_25",
+                          "fieldValue": "Leave in backyard"
+                        }
+                      ]
+                    }
+                  }
+                ],
+                "orderId": {},
+                "shippingCostTotal": 69.94,
+                "shippingCostBeforeDiscount": 69.94,
+                "handlingCostTotal": 0,
+                "taxTotal": 28.62,
+                "coupons": [
+                  {
+                    "id": 1,
+                    "code": "S2549JM0Y",
+                    "displayName": "$5.00 off the order total",
+                    "couponType": "per_total_discount",
+                    "discountedAmount": 5
+                  }
+                ],
+                "taxes": [
+                  {
+                    "name": "Store Tax",
+                    "amount": 28.62
+                  }
+                ],
+                "subtotal": 117.93,
+                "grandTotal": 211.49,
+                "giftCertificates": [],
+                "createdTime": "2018-09-18T15:48:26+00:00",
+                "updatedTime": "2018-09-18T16:59:45+00:00",
+                "customerMessage": "Thank you, BigCommerce"
+              }
+            }
+          }
+        }
+      }
+    },
+    "/checkouts/{checkoutId}/billing-address": {
+      "post": {
+        "description": "Adds a billing address to an existing *Checkout*.\n\n**Required Fields**\n* country_code\n\n> **Note**\n> \n> The `email` property is only required if the customer is a guest shopper. Otherwise, it is set automatically.",
+        "summary": "Add Checkout Billing Address",
+        "tags": [
+          "Checkout Billing Address"
+        ],
+        "operationId": "CheckoutsBillingAddressByCheckoutIdPost",
+        "deprecated": false,
+        "produces": [
+          "application/json"
+        ],
+        "consumes": [
+          "application/json"
+        ],
+        "parameters": [
+          {
+            "name": "checkoutId",
+            "in": "path",
+            "required": true,
+            "type": "string",
+            "description": ""
+          },
+          {
+            "name": "body",
+            "in": "body",
+            "required": true,
+            "description": "Either email or countryCode is required.",
+            "schema": {
+              "$ref": "#/definitions/AddressProperties"
+            },
+            "x-examples": {
+              "application/json": {
+                "firstName": "Jane",
+                "lastName": "Doe",
+                "email": "janedoe@email.com",
+                "company": "BigCommerce",
+                "address1": "123 Main Street",
+                "address2": "Apt 1",
+                "city": "Austin",
+                "stateOrProvinceCode": "Austin",
+                "countryCode": "USA",
+                "postalCode": "12345"
+              }
+            }
+          }
+        ],
+        "responses": {
+          "200": {
+            "description": "Returns Checkout Object.",
+            "schema": {
+              "$ref": "#/definitions/Checkout"
+            },
+            "headers": {},
+            "examples": {
+              "application/json": {
+                "id": "29eb9b44-8f33-4e4a-9429-d0e8e24641ed",
+                "cart": {
+                  "id": "29eb9b44-8f33-4e4a-9429-d0e8e24641ed",
+                  "customerId": 18,
+                  "email": "dwaynecole@testing.com",
+                  "currency": {
+                    "name": "US Dollars",
+                    "code": "USD",
+                    "symbol": "$",
+                    "decimalPlaces": 2
+                  },
+                  "isTaxIncluded": true,
+                  "baseAmount": 7.95,
+                  "discountAmount": 0,
+                  "cartAmount": 7.95,
+                  "coupons": [],
+                  "discounts": [
+                    {
+                      "id": "243c9ca2-22b4-417a-8b09-b3fc05778b52",
+                      "discountedAmount": 0
+                    }
+                  ],
+                  "lineItems": {
+                    "physicalItems": [
+                      {
+                        "id": "243c9ca2-22b4-417a-8b09-b3fc05778b52",
+                        "parentId": {},
+                        "variantId": 345,
+                        "productId": 174,
+                        "sku": "",
+                        "name": "1L Le Parfait Jar",
+                        "url": "https:/{$$.env.store_domain}/all/1l-le-parfait-jar/",
+                        "quantity": 1,
+                        "brand": "OFS",
+                        "isTaxable": true,
+                        "imageUrl": "https://cdn11.bigcommerce.com/s-{store_hash}/products/174/images/425/leparfaitmedium3_1024x1024_1024x1024__37756__81924.1534344526.330.500.jpg?c=2",
+                        "discounts": [],
+                        "discountAmount": 0,
+                        "couponAmount": 0,
+                        "listPrice": 7.95,
+                        "salePrice": 7.95,
+                        "extendedListPrice": 7.95,
+                        "extendedSalePrice": 7.95,
+                        "isShippingRequired": true,
+                        "giftWrapping": {},
+                        "addedByPromotion": false
+                      }
+                    ],
+                    "digitalItems": [],
+                    "giftCertificates": [],
+                    "customItems": []
+                  },
+                  "createdTime": "2019-01-10T17:18:00+00:00",
+                  "updatedTime": "2019-01-10T17:19:47+00:00"
+                },
+                "billingAddress": {
+                  "id": "5c377ead301c2",
+                  "firstName": "Dwayne",
+                  "lastName": "Cole",
+                  "email": "dwaynecole@testing.com",
+                  "company": "",
+                  "address1": "Mauna Kea Access Rd",
+                  "address2": "",
+                  "city": "Hilo",
+                  "stateOrProvince": "Hawaii",
+                  "stateOrProvinceCode": "HI",
+                  "country": "United States",
+                  "countryCode": "US",
+                  "postalCode": "96720",
+                  "phone": "8081234567",
+                  "customFields": []
+                },
+                "consignments": [
+                  {
+                    "id": "5c377ead30ac1",
+                    "shippingCost": 8,
+                    "handlingCost": 0,
+                    "couponDiscounts": [],
+                    "discounts": [],
+                    "lineItemIds": [
+                      "243c9ca2-22b4-417a-8b09-b3fc05778b52"
+                    ],
+                    "selectedShippingOption": {
+                      "id": "d09e05c0-3788-44df-a1bb-b6d3afdf6841",
+                      "type": "shipping_byweight",
+                      "description": "Ship by Weight",
+                      "imageUrl": "",
+                      "cost": 8,
+                      "transitTime": ""
+                    },
+                    "shippingAddress": {
+                      "firstName": "Dwayne",
+                      "lastName": "Cole",
+                      "email": "dwaynecole@testing.com",
+                      "company": "",
+                      "address1": "Mauna Kea Access Rd",
+                      "address2": "",
+                      "city": "Hilo",
+                      "stateOrProvince": "Hawaii",
+                      "stateOrProvinceCode": "HI",
+                      "country": "United States",
+                      "countryCode": "US",
+                      "postalCode": "96720",
+                      "phone": "8081234567",
+                      "customFields": []
+                    }
+                  }
+                ],
+                "orderId": {},
+                "shippingCostTotal": 8,
+                "shippingCostBeforeDiscount": 8,
+                "handlingCostTotal": 0,
+                "taxTotal": 1.22,
+                "coupons": [],
+                "taxes": [
+                  {
+                    "name": "Tax",
+                    "amount": 1.22
+                  }
+                ],
+                "subtotal": 7.95,
+                "grandTotal": 15.95,
+                "giftCertificates": [],
+                "createdTime": "2019-01-10T17:18:00+00:00",
+                "updatedTime": "2019-01-10T17:19:47+00:00",
+                "customerMessage": ""
+              }
+            }
+          }
+        }
+      }
+    },
+    "/checkouts/{checkoutId}/billing-address/{addressId}": {
+      "put": {
+        "description": "Updates an existing billing address on *Checkout*.",
+        "summary": "Update Checkout Billing Address",
+        "tags": [
+          "Checkout Billing Address"
+        ],
+        "operationId": "CheckoutsBillingAddressByCheckoutIdAndAddressIdPut",
+        "deprecated": false,
+        "produces": [
+          "application/json"
+        ],
+        "consumes": [
+          "application/json"
+        ],
+        "parameters": [
+          {
+            "name": "checkoutId",
+            "in": "path",
+            "required": true,
+            "type": "string",
+            "description": ""
+          },
+          {
+            "name": "addressId",
+            "in": "path",
+            "required": true,
+            "type": "number",
+            "format": "double",
+            "description": ""
+          },
+          {
+            "name": "body",
+            "in": "body",
+            "required": true,
+            "description": "",
+            "schema": {
+              "$ref": "#/definitions/AddressProperties"
+            },
+            "x-examples": {
+              "application/json": {
+                "firstName": "Jane",
+                "lastName": "Doe",
+                "email": "janedoe@email.com",
+                "company": "BigCommerce",
+                "address1": "123 Main Street",
+                "address2": "Apt 1",
+                "city": "Austin",
+                "stateOrProvinceCode": "Austin",
+                "countryCode": "USA",
+                "postalCode": "12345"
+              }
+            }
+          }
+        ],
+        "responses": {
+          "200": {
+            "description": "Returns Checkout Object.",
+            "schema": {
+              "$ref": "#/definitions/Checkout"
+            },
+            "headers": {},
+            "examples": {
+              "application/json": {
+                "id": "b6fbd994-61a8-4f25-9167-6ec10489c448",
+                "cart": {
+                  "id": "b6fbd994-61a8-4f25-9167-6ec10489c448",
+                  "customerId": 11,
+                  "email": "janedoe@email.com",
+                  "currency": {
+                    "name": "US Dollars",
+                    "code": "USD",
+                    "symbol": "$",
+                    "decimalPlaces": 2
+                  },
+                  "isTaxIncluded": false,
+                  "baseAmount": 119.93,
+                  "discountAmount": 0,
+                  "cartAmount": 112.93,
+                  "coupons": [
+                    {
+                      "id": 1,
+                      "code": "S2549JM0Y",
+                      "displayName": "$5.00 off the order total",
+                      "couponType": "per_total_discount",
+                      "discountedAmount": 5
+                    }
+                  ],
+                  "discounts": [
+                    {
+                      "id": "69791a88-85c9-4c19-8042-e537621e8a55",
+                      "discountedAmount": 2.59
+                    },
+                    {
+                      "id": "ba2c619d-e6b4-48c2-8809-d88e424ed450",
+                      "discountedAmount": 1.06
+                    },
+                    {
+                      "id": "c72d6651-978d-45e5-881b-c2bb5f7ff1d5",
+                      "discountedAmount": 2.12
+                    },
+                    {
+                      "id": "6477a4a1-02cf-4287-8bf2-fd043bdd5234",
+                      "discountedAmount": 0.8
+                    },
+                    {
+                      "id": "871f1f56-4c88-43c3-a6e5-0a647d83d6ac",
+                      "discountedAmount": 0.43
+                    }
+                  ],
+                  "lineItems": {
+                    "physicalItems": [
+                      {
+                        "id": "69791a88-85c9-4c19-8042-e537621e8a55",
+                        "parentId": {},
+                        "variantId": 364,
+                        "productId": 184,
+                        "sku": "SMA-RED",
+                        "name": "Canvas Laundry Cart",
+                        "url": "http://your-store.mybigcommerce.com/all/canvas-laundry-cart/",
+                        "quantity": 1,
+                        "isTaxable": true,
+                        "imageUrl": "https://cdn8.bigcommerce.com/s-id30h7ohwf/products/184/images/445/naturalcanvascart2_1024x1024__92347__29648.1534344533.330.500.jpg?c=2",
+                        "discounts": [
+                          {
+                            "id": "total-coupon",
+                            "discountedAmount": 0.59
+                          },
+                          {
+                            "id": 2,
+                            "discountedAmount": 2
+                          }
+                        ],
+                        "discountAmount": 2,
+                        "couponAmount": 0,
+                        "listPrice": 15.99,
+                        "salePrice": 13.99,
+                        "extendedListPrice": 15.99,
+                        "extendedSalePrice": 13.99,
+                        "isShippingRequired": true,
+                        "giftWrapping": {},
+                        "addedByPromotion": false
+                      },
+                      {
+                        "id": "ba2c619d-e6b4-48c2-8809-d88e424ed450",
+                        "parentId": {},
+                        "variantId": 341,
+                        "productId": 170,
+                        "sku": "",
+                        "name": "Ceramic Measuring Spoons",
+                        "url": "http://your-store.mybigcommerce.com/all/ceramic-measuring-spoons/",
+                        "quantity": 1,
+                        "isTaxable": true,
+                        "imageUrl": "https://cdn8.bigcommerce.com/s-id30h7ohwf/products/170/images/411/measuringsquares2_1024x1024__07108__95421.1534344522.330.500.jpg?c=2",
+                        "discounts": [
+                          {
+                            "id": "total-coupon",
+                            "discountedAmount": 1.06
+                          }
+                        ],
+                        "discountAmount": 0,
+                        "couponAmount": 0,
+                        "listPrice": 25,
+                        "salePrice": 25,
+                        "extendedListPrice": 25,
+                        "extendedSalePrice": 25,
+                        "isShippingRequired": true,
+                        "giftWrapping": {},
+                        "addedByPromotion": false
+                      },
+                      {
+                        "id": "c72d6651-978d-45e5-881b-c2bb5f7ff1d5",
+                        "parentId": {},
+                        "variantId": 376,
+                        "productId": 158,
+                        "sku": "SKU-A0C8A203",
+                        "name": "Chambray Towel",
+                        "url": "http://your-store.mybigcommerce.com/all/chambray-towel/",
+                        "quantity": 1,
+                        "isTaxable": true,
+                        "imageUrl": "https://cdn8.bigcommerce.com/s-id30h7ohwf/products/158/images/382/foglinenbeigestripetowel1b_1024x1024__83011__60806.1534344511.330.500.jpg?c=2",
+                        "discounts": [
+                          {
+                            "id": "total-coupon",
+                            "discountedAmount": 2.12
+                          }
+                        ],
+                        "discountAmount": 0,
+                        "couponAmount": 0,
+                        "listPrice": 49.99,
+                        "salePrice": 49.99,
+                        "extendedListPrice": 49.99,
+                        "extendedSalePrice": 49.99,
+                        "isShippingRequired": true,
+                        "giftWrapping": {},
+                        "addedByPromotion": false
+                      }
+                    ],
+                    "digitalItems": [
+                      {
+                        "id": "6477a4a1-02cf-4287-8bf2-fd043bdd5234",
+                        "parentId": {},
+                        "variantId": 360,
+                        "productId": 189,
+                        "name": "Gather Journal Issue 7 - Digital",
+                        "url": "http://your-store.mybigcommerce.com/all/gather-journal-issue-7/",
+                        "quantity": 1,
+                        "isTaxable": true,
+                        "imageUrl": "https://cdn8.bigcommerce.com/s-id30h7ohwf/products/189/images/465/gather_1024x1024__17195__82620.1534344540.330.500.jpg?c=2",
+                        "discounts": [
+                          {
+                            "id": "total-coupon",
+                            "discountedAmount": 0.8
+                          }
+                        ],
+                        "discountAmount": 0,
+                        "couponAmount": 0,
+                        "listPrice": 18.95,
+                        "salePrice": 18.95,
+                        "extendedListPrice": 18.95,
+                        "extendedSalePrice": 18.95,
+                        "isShippingRequired": false,
+                        "type": "digital"
+                      }
+                    ],
+                    "giftCertificates": [
+                      {
+                        "id": "871f1f56-4c88-43c3-a6e5-0a647d83d6ac",
+                        "name": "$10.00 Gift Certificate",
+                        "theme": "Celebration",
+                        "amount": 10,
+                        "taxable": false,
+                        "sender": {
+                          "name": "Jane Doe",
+                          "email": "janedoe@email.com"
+                        },
+                        "recipient": {
+                          "name": "John Doe",
+                          "email": "johndoe@email.com"
+                        },
+                        "message": "Thank you!",
+                        "type": "giftCertificate"
+                      }
+                    ]
+                  },
+                  "createdTime": "2018-09-18T15:48:26+00:00",
+                  "updatedTime": "2018-09-18T16:59:45+00:00"
+                },
+                "billingAddress": {
+                  "id": "5ba11e4a10fb5",
+                  "firstName": "Jane",
+                  "lastName": "Doe",
+                  "email": "janedoe@email.com",
+                  "company": {},
+                  "address1": "123 Main Street",
+                  "address2": {},
+                  "city": "Austin",
+                  "stateOrProvince": "Texas",
+                  "stateOrProvinceCode": "TX",
+                  "country": "United States",
+                  "countryCode": "US",
+                  "postalCode": "78751",
+                  "phone": "1234567890",
+                  "customFields": [
+                    {
+                      "fieldId": "field_25",
+                      "fieldValue": "Leave in backyard"
+                    }
+                  ]
+                },
+                "consignments": [
+                  {
+                    "id": "5ba121929619b",
+                    "shippingCost": 69.94,
+                    "handlingCost": 0,
+                    "couponDiscounts": [],
+                    "discounts": [],
+                    "lineItemIds": [
+                      "69791a88-85c9-4c19-8042-e537621e8a55",
+                      "ba2c619d-e6b4-48c2-8809-d88e424ed450",
+                      "c72d6651-978d-45e5-881b-c2bb5f7ff1d5"
+                    ],
+                    "selectedShippingOption": {
+                      "id": "bb3c818f-17ce-46fe-9475-65933095da0d",
+                      "type": "shipping_upsready",
+                      "description": "UPS® (UPS Next Day Air®)",
+                      "imageUrl": "",
+                      "cost": 69.94,
+                      "transitTime": "1 business day"
+                    },
+                    "shippingAddress": {
+                      "firstName": "Jane",
+                      "lastName": "Doe",
+                      "email": "janedoe@email.com",
+                      "company": "",
+                      "address1": "123 Main Street",
+                      "address2": "",
+                      "city": "Austin",
+                      "stateOrProvince": "Texas",
+                      "stateOrProvinceCode": "TX",
+                      "country": "United States",
+                      "countryCode": "US",
+                      "postalCode": "78751",
+                      "phone": "1234567890",
+                      "customFields": [
+                        {
+                          "fieldId": "field_25",
+                          "fieldValue": "Leave in backyard"
+                        }
+                      ]
+                    }
+                  }
+                ],
+                "orderId": {},
+                "shippingCostTotal": 69.94,
+                "shippingCostBeforeDiscount": 69.94,
+                "handlingCostTotal": 0,
+                "taxTotal": 28.62,
+                "coupons": [
+                  {
+                    "id": 1,
+                    "code": "S2549JM0Y",
+                    "displayName": "$5.00 off the order total",
+                    "couponType": "per_total_discount",
+                    "discountedAmount": 5
+                  }
+                ],
+                "taxes": [
+                  {
+                    "name": "Store Tax",
+                    "amount": 28.62
+                  }
+                ],
+                "subtotal": 117.93,
+                "grandTotal": 211.49,
+                "giftCertificates": [],
+                "createdTime": "2018-09-18T15:48:26+00:00",
+                "updatedTime": "2018-09-18T16:59:45+00:00",
+                "customerMessage": "Thank you, BigCommerce"
+              }
+            }
+          },
+          "403": {
+            "description": "The email trying to be set for the guest is associated with an account. The customer must sign-in."
+          },
+          "429": {
+            "description": "Unable to determine if provided email is associated with an account. The customer must sign-in."
+          }
+        }
+      }
+    },
+    "/checkouts/{checkoutId}/consignments": {
+      "post": {
+        "description": "Adds a new *Consignment* to *Checkout*.\n\nThere are two steps to add a new shipping address and shipping options with line items. \n1. Add a new Consignment to Checkout.\n\t2. Send a POST to Consignments with each shipping address and line items IDs. Each address can have its own line item IDs.\n\t3. As part of the request URL make sure to add `include=consignments.availableShippingOptions` to return the available shipping options based on line items and shipping locations. This will return `availableShippingOptions` in the response.\n3. [Update the Consignment](/api-reference/cart-checkout/storefront-checkout-api/checkout-consignments/checkoutsconsignmentsbycheckoutidandconsignmentidput) with Shipping Options.\n\n**Required Query**\n* consignments.availableShippingOptions\n\n**Required Fields**\n* shipping_address\n* line_items\n\nTo learn more about creating a Checkout Consignment see [Working with the Fetch API](/api-docs/cart-and-checkout/working-sf-apis).",
+        "summary": "Create a Consignment",
+        "tags": [
+          "Checkout Consignments"
+        ],
+        "operationId": "CheckoutsConsignmentsByCheckoutIdPost",
+        "deprecated": false,
+        "produces": [
+          "application/json"
+        ],
+        "consumes": [
+          "application/json"
+        ],
+        "parameters": [
+          {
+            "name": "include",
+            "in": "query",
+            "required": false,
+            "enum": [
+              "consignments.availableShippingOptions"
+            ],
+            "type": "string"
+          },
+          {
+            "name": "checkoutId",
+            "in": "path",
+            "required": true,
+            "type": "string",
+            "description": ""
+          },
+          {
+            "name": "body",
+            "in": "body",
+            "required": true,
+            "description": "",
+            "schema": {
+              "type": "array",
+              "items": {
+                "$ref": "#/definitions/CreateConsignmentRequest"
+              }
+            }
+          }
+        ],
+        "responses": {
+          "200": {
+            "description": "Returns Checkout Object.",
+            "schema": {
+              "$ref": "#/definitions/Checkout"
+            },
+            "headers": {},
+            "examples": {
+              "application/json": {
+                "id": "29eb9b44-8f33-4e4a-9429-d0e8e24641ed",
+                "cart": {
+                  "id": "29eb9b44-8f33-4e4a-9429-d0e8e24641ed",
+                  "customerId": 18,
+                  "email": "dwaynecole@testing.com",
+                  "currency": {
+                    "name": "US Dollars",
+                    "code": "USD",
+                    "symbol": "$",
+                    "decimalPlaces": 2
+                  },
+                  "isTaxIncluded": true,
+                  "baseAmount": 7.95,
+                  "discountAmount": 0,
+                  "cartAmount": 7.95,
+                  "coupons": [],
+                  "discounts": [
+                    {
+                      "id": "243c9ca2-22b4-417a-8b09-b3fc05778b52",
+                      "discountedAmount": 0
+                    }
+                  ],
+                  "lineItems": {
+                    "physicalItems": [
+                      {
+                        "id": "243c9ca2-22b4-417a-8b09-b3fc05778b52",
+                        "parentId": {},
+                        "variantId": 345,
+                        "productId": 174,
+                        "sku": "",
+                        "name": "1L Le Parfait Jar",
+                        "url": "https:/{$$.env.store_domain}/all/1l-le-parfait-jar/",
+                        "quantity": 1,
+                        "brand": "OFS",
+                        "isTaxable": true,
+                        "imageUrl": "https://cdn11.bigcommerce.com/s-{store_hash}/products/174/images/425/leparfaitmedium3_1024x1024_1024x1024__37756__81924.1534344526.330.500.jpg?c=2",
+                        "discounts": [],
+                        "discountAmount": 0,
+                        "couponAmount": 0,
+                        "listPrice": 7.95,
+                        "salePrice": 7.95,
+                        "extendedListPrice": 7.95,
+                        "extendedSalePrice": 7.95,
+                        "isShippingRequired": true,
+                        "giftWrapping": {},
+                        "addedByPromotion": false
+                      }
+                    ],
+                    "digitalItems": [],
+                    "giftCertificates": [],
+                    "customItems": []
+                  },
+                  "createdTime": "2019-01-10T17:18:00+00:00",
+                  "updatedTime": "2019-01-10T17:19:47+00:00"
+                },
+                "billingAddress": {
+                  "id": "5c377ead301c2",
+                  "firstName": "Dwayne",
+                  "lastName": "Cole",
+                  "email": "dwaynecole@testing.com",
+                  "company": "",
+                  "address1": "Mauna Kea Access Rd",
+                  "address2": "",
+                  "city": "Hilo",
+                  "stateOrProvince": "Hawaii",
+                  "stateOrProvinceCode": "HI",
+                  "country": "United States",
+                  "countryCode": "US",
+                  "postalCode": "96720",
+                  "phone": "8081234567",
+                  "customFields": []
+                },
+                "consignments": [
+                  {
+                    "id": "5c377ead30ac1",
+                    "shippingCost": 8,
+                    "handlingCost": 0,
+                    "couponDiscounts": [],
+                    "discounts": [],
+                    "lineItemIds": [
+                      "243c9ca2-22b4-417a-8b09-b3fc05778b52"
+                    ],
+                    "selectedShippingOption": {
+                      "id": "d09e05c0-3788-44df-a1bb-b6d3afdf6841",
+                      "type": "shipping_byweight",
+                      "description": "Ship by Weight",
+                      "imageUrl": "",
+                      "cost": 8,
+                      "transitTime": ""
+                    },
+                    "shippingAddress": {
+                      "firstName": "Dwayne",
+                      "lastName": "Cole",
+                      "email": "dwaynecole@testing.com",
+                      "company": "",
+                      "address1": "Mauna Kea Access Rd",
+                      "address2": "",
+                      "city": "Hilo",
+                      "stateOrProvince": "Hawaii",
+                      "stateOrProvinceCode": "HI",
+                      "country": "United States",
+                      "countryCode": "US",
+                      "postalCode": "96720",
+                      "phone": "8081234567",
+                      "customFields": []
+                    }
+                  }
+                ],
+                "orderId": {},
+                "shippingCostTotal": 8,
+                "shippingCostBeforeDiscount": 8,
+                "handlingCostTotal": 0,
+                "taxTotal": 1.22,
+                "coupons": [],
+                "taxes": [
+                  {
+                    "name": "Tax",
+                    "amount": 1.22
+                  }
+                ],
+                "subtotal": 7.95,
+                "grandTotal": 15.95,
+                "giftCertificates": [],
+                "createdTime": "2019-01-10T17:18:00+00:00",
+                "updatedTime": "2019-01-10T17:19:47+00:00",
+                "customerMessage": ""
+              }
+            }
+          }
+        }
+      }
+    },
+    "/checkouts/{checkoutId}/consignments/{consignmentId}": {
+      "put": {
+        "description": "Updates an existing consignment. Shipping address, line item IDs or the shipping option ID can be updated using this endpoint.\n\nThere are two steps to add a new shipping address and shipping options with line items. \n1. Add a new Consignment to Checkout.\n3. Update the Consignment with Shipping Options.\n\t4. Update each *Consignment* `shippingOptionId` (shipping address and line items) with the `availableShippingOption > id` from Step One. \n\n**Required Fields**\n* shippingOptionId\n\nTo learn more about creating a Checkout Consignment see [Working with the Fetch API](/api-docs/cart-and-checkout/working-sf-apis).\n\n**Notes**\n* You cannot pass both a `shippingAddress` and `shippingOptionId` because the shipping option may not be able to be applied to the given address ",
+        "summary": "Update a Consignment",
+        "tags": [
+          "Checkout Consignments"
+        ],
+        "operationId": "CheckoutsConsignmentsByCheckoutId_PUT",
+        "deprecated": false,
+        "produces": [
+          "application/json"
+        ],
+        "consumes": [
+          "application/json"
+        ],
+        "parameters": [
+          {
+            "name": "include",
+            "in": "query",
+            "required": false,
+            "enum": [
+              "consignments.availableShippingOptions"
+            ],
+            "type": "string"
+          },
+          {
+            "name": "checkoutId",
+            "in": "path",
+            "required": true,
+            "type": "string",
+            "description": ""
+          },
+          {
+            "name": "consignmentId",
+            "in": "path",
+            "required": true,
+            "type": "string",
+            "description": ""
+          },
+          {
+            "name": "body",
+            "in": "body",
+            "required": true,
+            "description": "",
+            "schema": {
+              "$ref": "#/definitions/UpdateConsignmentRequest"
+            }
+          }
+        ],
+        "responses": {
+          "200": {
+            "description": "Returns Checkout Object.",
+            "schema": {
+              "$ref": "#/definitions/Checkout"
+            },
+            "headers": {},
+            "examples": {
+              "application/json": {
+                "shippingAddress": {
+                  "firstName": "Jane",
+                  "lastName": "Doe",
+                  "email": "mikrdgz@gmail.com",
+                  "company": "",
+                  "address1": "123 Main Street",
+                  "address2": "",
+                  "city": "Austin",
+                  "stateOrProvince": "Texas",
+                  "stateOrProvinceCode": "TX",
+                  "country": "United States",
+                  "countryCode": "US",
+                  "postalCode": "78752",
+                  "phone": "1234567890"
+                },
+                "lineItems": [
+                  {
+                    "itemId": "ff4ab5d4-7a5e-4e13-b561-11e785b7e4e0",
+                    "quantity": 1
+                  }
+                ]
+              }
+            }
+          }
+        }
+      },
+      "delete": {
+        "description": "Removes an existing *Consignment* from *Checkout*. ",
+        "summary": "Delete a Consignment",
+        "tags": [
+          "Checkout Consignments"
+        ],
+        "operationId": "CheckoutsConsignmentsByCheckoutIdAndConsignmentIdDelete",
+        "deprecated": false,
+        "produces": [
+          "application/json"
+        ],
+        "parameters": [
+          {
+            "name": "checkoutId",
+            "in": "path",
+            "required": true,
+            "type": "string",
+            "description": ""
+          },
+          {
+            "name": "consignmentId",
+            "in": "path",
+            "required": true,
+            "type": "string",
+            "description": ""
+          }
+        ],
+        "responses": {
+          "200": {
+            "description": "Returns Checkout Object.",
+            "schema": {
+              "$ref": "#/definitions/Checkout"
+            },
+            "headers": {},
+            "examples": {
+              "application/json": {
+                "id": "29eb9b44-8f33-4e4a-9429-d0e8e24641ed",
+                "cart": {
+                  "id": "29eb9b44-8f33-4e4a-9429-d0e8e24641ed",
+                  "customerId": 18,
+                  "email": "dwaynecole@testing.com",
+                  "currency": {
+                    "name": "US Dollars",
+                    "code": "USD",
+                    "symbol": "$",
+                    "decimalPlaces": 2
+                  },
+                  "isTaxIncluded": true,
+                  "baseAmount": 7.95,
+                  "discountAmount": 0,
+                  "cartAmount": 7.95,
+                  "coupons": [],
+                  "discounts": [
+                    {
+                      "id": "243c9ca2-22b4-417a-8b09-b3fc05778b52",
+                      "discountedAmount": 0
+                    }
+                  ],
+                  "lineItems": {
+                    "physicalItems": [
+                      {
+                        "id": "243c9ca2-22b4-417a-8b09-b3fc05778b52",
+                        "parentId": {},
+                        "variantId": 345,
+                        "productId": 174,
+                        "sku": "",
+                        "name": "1L Le Parfait Jar",
+                        "url": "https:/{$$.env.store_domain}/all/1l-le-parfait-jar/",
+                        "quantity": 1,
+                        "brand": "OFS",
+                        "isTaxable": true,
+                        "imageUrl": "https://cdn11.bigcommerce.com/s-{store_hash}/products/174/images/425/leparfaitmedium3_1024x1024_1024x1024__37756__81924.1534344526.330.500.jpg?c=2",
+                        "discounts": [],
+                        "discountAmount": 0,
+                        "couponAmount": 0,
+                        "listPrice": 7.95,
+                        "salePrice": 7.95,
+                        "extendedListPrice": 7.95,
+                        "extendedSalePrice": 7.95,
+                        "isShippingRequired": true,
+                        "giftWrapping": {},
+                        "addedByPromotion": false
+                      }
+                    ],
+                    "digitalItems": [],
+                    "giftCertificates": [],
+                    "customItems": []
+                  },
+                  "createdTime": "2019-01-10T17:18:00+00:00",
+                  "updatedTime": "2019-01-10T17:19:47+00:00"
+                },
+                "billingAddress": {
+                  "id": "5c377ead301c2",
+                  "firstName": "Dwayne",
+                  "lastName": "Cole",
+                  "email": "dwaynecole@testing.com",
+                  "company": "",
+                  "address1": "Mauna Kea Access Rd",
+                  "address2": "",
+                  "city": "Hilo",
+                  "stateOrProvince": "Hawaii",
+                  "stateOrProvinceCode": "HI",
+                  "country": "United States",
+                  "countryCode": "US",
+                  "postalCode": "96720",
+                  "phone": "8081234567",
+                  "customFields": []
+                },
+                "consignments": [
+                  {
+                    "id": "5c377ead30ac1",
+                    "shippingCost": 8,
+                    "handlingCost": 0,
+                    "couponDiscounts": [],
+                    "discounts": [],
+                    "lineItemIds": [
+                      "243c9ca2-22b4-417a-8b09-b3fc05778b52"
+                    ],
+                    "selectedShippingOption": {
+                      "id": "d09e05c0-3788-44df-a1bb-b6d3afdf6841",
+                      "type": "shipping_byweight",
+                      "description": "Ship by Weight",
+                      "imageUrl": "",
+                      "cost": 8,
+                      "transitTime": ""
+                    },
+                    "shippingAddress": {
+                      "firstName": "Dwayne",
+                      "lastName": "Cole",
+                      "email": "dwaynecole@testing.com",
+                      "company": "",
+                      "address1": "Mauna Kea Access Rd",
+                      "address2": "",
+                      "city": "Hilo",
+                      "stateOrProvince": "Hawaii",
+                      "stateOrProvinceCode": "HI",
+                      "country": "United States",
+                      "countryCode": "US",
+                      "postalCode": "96720",
+                      "phone": "8081234567",
+                      "customFields": []
+                    }
+                  }
+                ],
+                "orderId": {},
+                "shippingCostTotal": 8,
+                "shippingCostBeforeDiscount": 8,
+                "handlingCostTotal": 0,
+                "taxTotal": 1.22,
+                "coupons": [],
+                "taxes": [
+                  {
+                    "name": "Tax",
+                    "amount": 1.22
+                  }
+                ],
+                "subtotal": 7.95,
+                "grandTotal": 15.95,
+                "giftCertificates": [],
+                "createdTime": "2019-01-10T17:18:00+00:00",
+                "updatedTime": "2019-01-10T17:19:47+00:00",
+                "customerMessage": ""
+              }
+            }
+          }
+        }
+      }
+    },
+    "/checkouts/{checkoutId}/gift-certificates": {
+      "post": {
+        "description": "Adds gift certificate code to checkout.",
+        "summary": "Add Gift Certificate to Checkout",
+        "tags": [
+          "Checkout Gift Certificates"
+        ],
+        "operationId": "CheckoutsGiftCertificatesByCheckoutIdPost",
+        "deprecated": false,
+        "produces": [
+          "application/json"
+        ],
+        "consumes": [
+          "application/json"
+        ],
+        "parameters": [
+          {
+            "name": "checkoutId",
+            "in": "path",
+            "required": true,
+            "type": "string",
+            "description": ""
+          },
+          {
+            "name": "body",
+            "in": "body",
+            "required": true,
+            "description": "",
+            "schema": {
+              "$ref": "#/definitions/GiftCertificateRequest"
+            }
+          }
+        ],
+        "responses": {
+          "200": {
+            "description": "",
+            "schema": {
+              "$ref": "#/definitions/Checkout"
+            },
+            "headers": {},
+            "examples": {
+              "application/json": {
+                "id": "29eb9b44-8f33-4e4a-9429-d0e8e24641ed",
+                "cart": {
+                  "id": "29eb9b44-8f33-4e4a-9429-d0e8e24641ed",
+                  "customerId": 18,
+                  "email": "dwaynecole@testing.com",
+                  "currency": {
+                    "name": "US Dollars",
+                    "code": "USD",
+                    "symbol": "$",
+                    "decimalPlaces": 2
+                  },
+                  "isTaxIncluded": true,
+                  "baseAmount": 7.95,
+                  "discountAmount": 0,
+                  "cartAmount": 7.95,
+                  "coupons": [],
+                  "discounts": [
+                    {
+                      "id": "243c9ca2-22b4-417a-8b09-b3fc05778b52",
+                      "discountedAmount": 0
+                    }
+                  ],
+                  "lineItems": {
+                    "physicalItems": [
+                      {
+                        "id": "243c9ca2-22b4-417a-8b09-b3fc05778b52",
+                        "parentId": {},
+                        "variantId": 345,
+                        "productId": 174,
+                        "sku": "",
+                        "name": "1L Le Parfait Jar",
+                        "url": "https:/{$$.env.store_domain}/all/1l-le-parfait-jar/",
+                        "quantity": 1,
+                        "brand": "OFS",
+                        "isTaxable": true,
+                        "imageUrl": "https://cdn11.bigcommerce.com/s-{store_hash}/products/174/images/425/leparfaitmedium3_1024x1024_1024x1024__37756__81924.1534344526.330.500.jpg?c=2",
+                        "discounts": [],
+                        "discountAmount": 0,
+                        "couponAmount": 0,
+                        "listPrice": 7.95,
+                        "salePrice": 7.95,
+                        "extendedListPrice": 7.95,
+                        "extendedSalePrice": 7.95,
+                        "isShippingRequired": true,
+                        "giftWrapping": {},
+                        "addedByPromotion": false
+                      }
+                    ],
+                    "digitalItems": [],
+                    "giftCertificates": [],
+                    "customItems": []
+                  },
+                  "createdTime": "2019-01-10T17:18:00+00:00",
+                  "updatedTime": "2019-01-10T17:19:47+00:00"
+                },
+                "billingAddress": {
+                  "id": "5c377ead301c2",
+                  "firstName": "Dwayne",
+                  "lastName": "Cole",
+                  "email": "dwaynecole@testing.com",
+                  "company": "",
+                  "address1": "Mauna Kea Access Rd",
+                  "address2": "",
+                  "city": "Hilo",
+                  "stateOrProvince": "Hawaii",
+                  "stateOrProvinceCode": "HI",
+                  "country": "United States",
+                  "countryCode": "US",
+                  "postalCode": "96720",
+                  "phone": "8081234567",
+                  "customFields": []
+                },
+                "consignments": [
+                  {
+                    "id": "5c377ead30ac1",
+                    "shippingCost": 8,
+                    "handlingCost": 0,
+                    "couponDiscounts": [],
+                    "discounts": [],
+                    "lineItemIds": [
+                      "243c9ca2-22b4-417a-8b09-b3fc05778b52"
+                    ],
+                    "selectedShippingOption": {
+                      "id": "d09e05c0-3788-44df-a1bb-b6d3afdf6841",
+                      "type": "shipping_byweight",
+                      "description": "Ship by Weight",
+                      "imageUrl": "",
+                      "cost": 8,
+                      "transitTime": ""
+                    },
+                    "shippingAddress": {
+                      "firstName": "Dwayne",
+                      "lastName": "Cole",
+                      "email": "dwaynecole@testing.com",
+                      "company": "",
+                      "address1": "Mauna Kea Access Rd",
+                      "address2": "",
+                      "city": "Hilo",
+                      "stateOrProvince": "Hawaii",
+                      "stateOrProvinceCode": "HI",
+                      "country": "United States",
+                      "countryCode": "US",
+                      "postalCode": "96720",
+                      "phone": "8081234567",
+                      "customFields": []
+                    }
+                  }
+                ],
+                "orderId": {},
+                "shippingCostTotal": 8,
+                "shippingCostBeforeDiscount": 8,
+                "handlingCostTotal": 0,
+                "taxTotal": 1.22,
+                "coupons": [],
+                "taxes": [
+                  {
+                    "name": "Tax",
+                    "amount": 1.22
+                  }
+                ],
+                "subtotal": 7.95,
+                "grandTotal": 15.95,
+                "giftCertificates": [],
+                "createdTime": "2019-01-10T17:18:00+00:00",
+                "updatedTime": "2019-01-10T17:19:47+00:00",
+                "customerMessage": ""
+              }
+            }
+          }
+        }
+      }
+    },
+    "/checkouts/{checkoutId}/gift-certificates/{giftCertificateCode}": {
+      "delete": {
+        "description": "Deletes an existing *Gift Certificate*. \n\n**Notes**\n\nThis removes the *Gift Certificate* payment method.",
+        "summary": "Delete Gift Certificate",
+        "tags": [
+          "Checkout Gift Certificates"
+        ],
+        "operationId": "CheckoutsGiftCertificatesByCheckoutIdAndGiftCertificateCodeDelete",
+        "deprecated": false,
+        "produces": [
+          "application/json"
+        ],
+        "parameters": [
+          {
+            "name": "checkoutId",
+            "in": "path",
+            "required": true,
+            "type": "string",
+            "description": ""
+          },
+          {
+            "name": "giftCertificateCode",
+            "in": "path",
+            "required": true,
+            "type": "string",
+            "description": ""
+          }
+        ],
+        "responses": {
+          "200": {
+            "description": "Returns Checkout Object.",
+            "schema": {
+              "$ref": "#/definitions/Checkout"
+            },
+            "headers": {}
+          }
+        }
+      }
+    },
+    "/checkouts/{checkoutId}/coupons": {
+      "post": {
+        "description": "Adds a *Coupon Code* to *Checkout*.\n\n**Required Fields**\n* couponCode",
+        "summary": "Add Coupon to Checkout",
+        "tags": [
+          "Checkout Coupons"
+        ],
+        "operationId": "CheckoutsCouponsByCheckoutIdPost",
+        "deprecated": false,
+        "produces": [
+          "application/json"
+        ],
+        "consumes": [
+          "application/json"
+        ],
+        "parameters": [
+          {
+            "name": "checkoutId",
+            "in": "path",
+            "required": true,
+            "type": "string",
+            "description": ""
+          },
+          {
+            "name": "body",
+            "in": "body",
+            "required": true,
+            "description": "",
+            "schema": {
+              "$ref": "#/definitions/CouponCodeRequest"
+            }
+          }
+        ],
+        "responses": {
+          "200": {
+            "description": "Returns Checkout Object.",
+            "schema": {
+              "$ref": "#/definitions/Checkout"
+            },
+            "headers": {},
+            "examples": {
+              "application/json": {
+                "id": "29eb9b44-8f33-4e4a-9429-d0e8e24641ed",
+                "cart": {
+                  "id": "29eb9b44-8f33-4e4a-9429-d0e8e24641ed",
+                  "customerId": 18,
+                  "email": "dwaynecole@testing.com",
+                  "currency": {
+                    "name": "US Dollars",
+                    "code": "USD",
+                    "symbol": "$",
+                    "decimalPlaces": 2
+                  },
+                  "isTaxIncluded": true,
+                  "baseAmount": 7.95,
+                  "discountAmount": 0,
+                  "cartAmount": 7.95,
+                  "coupons": [],
+                  "discounts": [
+                    {
+                      "id": "243c9ca2-22b4-417a-8b09-b3fc05778b52",
+                      "discountedAmount": 0
+                    }
+                  ],
+                  "lineItems": {
+                    "physicalItems": [
+                      {
+                        "id": "243c9ca2-22b4-417a-8b09-b3fc05778b52",
+                        "parentId": {},
+                        "variantId": 345,
+                        "productId": 174,
+                        "sku": "",
+                        "name": "1L Le Parfait Jar",
+                        "url": "https:/{$$.env.store_domain}/all/1l-le-parfait-jar/",
+                        "quantity": 1,
+                        "brand": "OFS",
+                        "isTaxable": true,
+                        "imageUrl": "https://cdn11.bigcommerce.com/s-{store_hash}/products/174/images/425/leparfaitmedium3_1024x1024_1024x1024__37756__81924.1534344526.330.500.jpg?c=2",
+                        "discounts": [],
+                        "discountAmount": 0,
+                        "couponAmount": 0,
+                        "listPrice": 7.95,
+                        "salePrice": 7.95,
+                        "extendedListPrice": 7.95,
+                        "extendedSalePrice": 7.95,
+                        "isShippingRequired": true,
+                        "giftWrapping": {},
+                        "addedByPromotion": false
+                      }
+                    ],
+                    "digitalItems": [],
+                    "giftCertificates": [],
+                    "customItems": []
+                  },
+                  "createdTime": "2019-01-10T17:18:00+00:00",
+                  "updatedTime": "2019-01-10T17:19:47+00:00"
+                },
+                "billingAddress": {
+                  "id": "5c377ead301c2",
+                  "firstName": "Dwayne",
+                  "lastName": "Cole",
+                  "email": "dwaynecole@testing.com",
+                  "company": "",
+                  "address1": "Mauna Kea Access Rd",
+                  "address2": "",
+                  "city": "Hilo",
+                  "stateOrProvince": "Hawaii",
+                  "stateOrProvinceCode": "HI",
+                  "country": "United States",
+                  "countryCode": "US",
+                  "postalCode": "96720",
+                  "phone": "8081234567",
+                  "customFields": []
+                },
+                "consignments": [
+                  {
+                    "id": "5c377ead30ac1",
+                    "shippingCost": 8,
+                    "handlingCost": 0,
+                    "couponDiscounts": [],
+                    "discounts": [],
+                    "lineItemIds": [
+                      "243c9ca2-22b4-417a-8b09-b3fc05778b52"
+                    ],
+                    "selectedShippingOption": {
+                      "id": "d09e05c0-3788-44df-a1bb-b6d3afdf6841",
+                      "type": "shipping_byweight",
+                      "description": "Ship by Weight",
+                      "imageUrl": "",
+                      "cost": 8,
+                      "transitTime": ""
+                    },
+                    "shippingAddress": {
+                      "firstName": "Dwayne",
+                      "lastName": "Cole",
+                      "email": "dwaynecole@testing.com",
+                      "company": "",
+                      "address1": "Mauna Kea Access Rd",
+                      "address2": "",
+                      "city": "Hilo",
+                      "stateOrProvince": "Hawaii",
+                      "stateOrProvinceCode": "HI",
+                      "country": "United States",
+                      "countryCode": "US",
+                      "postalCode": "96720",
+                      "phone": "8081234567",
+                      "customFields": []
+                    }
+                  }
+                ],
+                "orderId": {},
+                "shippingCostTotal": 8,
+                "shippingCostBeforeDiscount": 8,
+                "handlingCostTotal": 0,
+                "taxTotal": 1.22,
+                "coupons": [],
+                "taxes": [
+                  {
+                    "name": "Tax",
+                    "amount": 1.22
+                  }
+                ],
+                "subtotal": 7.95,
+                "grandTotal": 15.95,
+                "giftCertificates": [],
+                "createdTime": "2019-01-10T17:18:00+00:00",
+                "updatedTime": "2019-01-10T17:19:47+00:00",
+                "customerMessage": ""
+              }
+            }
+          }
+        }
+      }
+    },
+    "/checkouts/{checkoutId}/coupons/{couponCode}": {
+      "delete": {
+        "description": "Adds a *Gift Certificate Code* to *Checkout*.\n\n**Notes**\n\n*Gift Certificates* are treated as a payment methods.\n\nYou are not able to purchase a gift certificate with a gift certificate.",
+        "summary": "Add Gift Certificate to Checkout",
+        "tags": [
+          "Checkout Coupons"
+        ],
+        "operationId": "CheckoutsCouponsByCheckoutIdAndCouponCodeDelete",
+        "deprecated": false,
+        "produces": [
+          "application/json"
+        ],
+        "parameters": [
+          {
+            "name": "checkoutId",
+            "in": "path",
+            "required": true,
+            "type": "string",
+            "description": ""
+          },
+          {
+            "name": "couponCode",
+            "in": "path",
+            "required": true,
+            "type": "string",
+            "description": ""
+          }
+        ],
+        "responses": {
+          "200": {
+            "description": "Returns Checkout Object.",
+            "schema": {
+              "$ref": "#/definitions/Checkout"
+            },
+            "headers": {},
+            "examples": {
+              "application/json": {
+                "id": "b6fbd994-61a8-4f25-9167-6ec10489c448",
+                "cart": {
+                  "id": "b6fbd994-61a8-4f25-9167-6ec10489c448",
+                  "customerId": 11,
+                  "email": "janedoe@email.com",
+                  "currency": {
+                    "name": "US Dollars",
+                    "code": "USD",
+                    "symbol": "$",
+                    "decimalPlaces": 2
+                  },
+                  "isTaxIncluded": false,
+                  "baseAmount": 119.93,
+                  "discountAmount": 0,
+                  "cartAmount": 117.93,
+                  "coupons": [],
+                  "discounts": [
+                    {
+                      "id": "69791a88-85c9-4c19-8042-e537621e8a55",
+                      "discountedAmount": 2
+                    },
+                    {
+                      "id": "ba2c619d-e6b4-48c2-8809-d88e424ed450",
+                      "discountedAmount": 0
+                    },
+                    {
+                      "id": "c72d6651-978d-45e5-881b-c2bb5f7ff1d5",
+                      "discountedAmount": 0
+                    },
+                    {
+                      "id": "6477a4a1-02cf-4287-8bf2-fd043bdd5234",
+                      "discountedAmount": 0
+                    },
+                    {
+                      "id": "871f1f56-4c88-43c3-a6e5-0a647d83d6ac",
+                      "discountedAmount": 0
+                    }
+                  ],
+                  "lineItems": {
+                    "physicalItems": [
+                      {
+                        "id": "69791a88-85c9-4c19-8042-e537621e8a55",
+                        "parentId": null,
+                        "variantId": 364,
+                        "productId": 184,
+                        "sku": "SMA-RED",
+                        "name": "Canvas Laundry Cart",
+                        "url": "http://your-store.mybigcommerce.com/all/canvas-laundry-cart/",
+                        "quantity": 1,
+                        "isTaxable": true,
+                        "imageUrl": "https://cdn8.bigcommerce.com/s-id30h7ohwf/products/184/images/445/naturalcanvascart2_1024x1024__92347__29648.1534344533.330.500.jpg?c=2",
+                        "discounts": [
+                          {
+                            "id": 2,
+                            "discountedAmount": 2
+                          }
+                        ],
+                        "discountAmount": 2,
+                        "couponAmount": 0,
+                        "listPrice": 15.99,
+                        "salePrice": 13.99,
+                        "extendedListPrice": 15.99,
+                        "extendedSalePrice": 13.99,
+                        "isShippingRequired": true,
+                        "giftWrapping": null,
+                        "addedByPromotion": false
+                      },
+                      {
+                        "id": "ba2c619d-e6b4-48c2-8809-d88e424ed450",
+                        "parentId": null,
+                        "variantId": 341,
+                        "productId": 170,
+                        "sku": "",
+                        "name": "Ceramic Measuring Spoons",
+                        "url": "http://your-store.mybigcommerce.com/all/ceramic-measuring-spoons/",
+                        "quantity": 1,
+                        "isTaxable": true,
+                        "imageUrl": "https://cdn8.bigcommerce.com/s-id30h7ohwf/products/170/images/411/measuringsquares2_1024x1024__07108__95421.1534344522.330.500.jpg?c=2",
+                        "discounts": [],
+                        "discountAmount": 0,
+                        "couponAmount": 0,
+                        "listPrice": 25,
+                        "salePrice": 25,
+                        "extendedListPrice": 25,
+                        "extendedSalePrice": 25,
+                        "isShippingRequired": true,
+                        "giftWrapping": null,
+                        "addedByPromotion": false
+                      },
+                      {
+                        "id": "c72d6651-978d-45e5-881b-c2bb5f7ff1d5",
+                        "parentId": null,
+                        "variantId": 376,
+                        "productId": 158,
+                        "sku": "SKU-A0C8A203",
+                        "name": "Chambray Towel",
+                        "url": "http://your-store.mybigcommerce.com/all/chambray-towel/",
+                        "quantity": 1,
+                        "isTaxable": true,
+                        "imageUrl": "https://cdn8.bigcommerce.com/s-id30h7ohwf/products/158/images/382/foglinenbeigestripetowel1b_1024x1024__83011__60806.1534344511.330.500.jpg?c=2",
+                        "discounts": [],
+                        "discountAmount": 0,
+                        "couponAmount": 0,
+                        "listPrice": 49.99,
+                        "salePrice": 49.99,
+                        "extendedListPrice": 49.99,
+                        "extendedSalePrice": 49.99,
+                        "isShippingRequired": true,
+                        "giftWrapping": null,
+                        "addedByPromotion": false
+                      }
+                    ],
+                    "digitalItems": [
+                      {
+                        "id": "6477a4a1-02cf-4287-8bf2-fd043bdd5234",
+                        "parentId": null,
+                        "variantId": 360,
+                        "productId": 189,
+                        "name": "Gather Journal Issue 7 - Digital",
+                        "url": "http://your-store.mybigcommerce.com/all/gather-journal-issue-7/",
+                        "quantity": 1,
+                        "isTaxable": true,
+                        "imageUrl": "https://cdn8.bigcommerce.com/s-id30h7ohwf/products/189/images/465/gather_1024x1024__17195__82620.1534344540.330.500.jpg?c=2",
+                        "discounts": [],
+                        "discountAmount": 0,
+                        "couponAmount": 0,
+                        "listPrice": 18.95,
+                        "salePrice": 18.95,
+                        "extendedListPrice": 18.95,
+                        "extendedSalePrice": 18.95,
+                        "isShippingRequired": false,
+                        "type": "digital"
+                      }
+                    ],
+                    "giftCertificates": [
+                      {
+                        "id": "871f1f56-4c88-43c3-a6e5-0a647d83d6ac",
+                        "name": "$10.00 Gift Certificate",
+                        "theme": "Celebration",
+                        "amount": 10,
+                        "taxable": false,
+                        "sender": {
+                          "name": "Jane Doe",
+                          "email": "janedoe@email.com"
+                        },
+                        "recipient": {
+                          "name": "John Doe",
+                          "email": "johndoe@email.com"
+                        },
+                        "message": "Thank you!",
+                        "type": "giftCertificate"
+                      }
+                    ]
+                  },
+                  "createdTime": "2018-09-18T15:48:26+00:00",
+                  "updatedTime": "2018-09-18T17:47:35+00:00"
+                },
+                "billingAddress": {
+                  "id": "5ba11e4a10fb5",
+                  "firstName": "Jane",
+                  "lastName": "Doe",
+                  "email": "janedoe@email.com",
+                  "company": null,
+                  "address1": "123 Main Street",
+                  "address2": null,
+                  "city": "Austin",
+                  "stateOrProvince": "Texas",
+                  "stateOrProvinceCode": "TX",
+                  "country": "United States",
+                  "countryCode": "US",
+                  "postalCode": "78751",
+                  "phone": "1234567890",
+                  "customFields": [
+                    {
+                      "fieldId": "field_25",
+                      "fieldValue": "Leave in backyard"
+                    }
+                  ]
+                },
+                "consignments": [
+                  {
+                    "id": "5ba13935c977a",
+                    "shippingCost": 8,
+                    "handlingCost": 0,
+                    "couponDiscounts": [],
+                    "discounts": [],
+                    "lineItemIds": [
+                      "ba2c619d-e6b4-48c2-8809-d88e424ed450",
+                      "c72d6651-978d-45e5-881b-c2bb5f7ff1d5"
+                    ],
+                    "selectedShippingOption": {
+                      "id": "8458d845-a589-477c-a70d-977eed19e0d6",
+                      "type": "shipping_byweight",
+                      "description": "Ship by Weight",
+                      "imageUrl": "",
+                      "cost": 8,
+                      "transitTime": ""
+                    },
+                    "shippingAddress": {
+                      "firstName": "Jane",
+                      "lastName": "Doe",
+                      "email": "",
+                      "company": "",
+                      "address1": "123 Main Street",
+                      "address2": "",
+                      "city": "Austin",
+                      "stateOrProvince": "Texas",
+                      "stateOrProvinceCode": "TX",
+                      "country": "United States",
+                      "countryCode": "US",
+                      "postalCode": "78751",
+                      "phone": "1234567890",
+                      "customFields": []
+                    }
+                  },
+                  {
+                    "id": "5ba13995cf156",
+                    "shippingCost": 62.63,
+                    "handlingCost": 0,
+                    "couponDiscounts": [],
+                    "discounts": [],
+                    "lineItemIds": [
+                      "69791a88-85c9-4c19-8042-e537621e8a55"
+                    ],
+                    "selectedShippingOption": {
+                      "id": "989cdc72-2eee-49d8-bc71-5d466f905fdc",
+                      "type": "shipping_upsready",
+                      "description": "UPS® (UPS Next Day Air®)",
+                      "imageUrl": "",
+                      "cost": 62.63,
+                      "transitTime": "1 business day"
+                    },
+                    "shippingAddress": {
+                      "firstName": "John",
+                      "lastName": "Doe",
+                      "email": "",
+                      "company": "",
+                      "address1": "555 South Street",
+                      "address2": "",
+                      "city": "Austin",
+                      "stateOrProvince": "Texas",
+                      "stateOrProvinceCode": "TX",
+                      "country": "United States",
+                      "countryCode": "US",
+                      "postalCode": "78751",
+                      "phone": "1234567890",
+                      "customFields": []
+                    }
+                  }
+                ],
+                "orderId": null,
+                "shippingCostTotal": 70.63,
+                "shippingCostBeforeDiscount": 70.63,
+                "handlingCostTotal": 0,
+                "taxTotal": 29.44,
+                "coupons": [],
+                "taxes": [
+                  {
+                    "name": "Store Tax",
+                    "amount": 29.44
+                  }
+                ],
+                "subtotal": 117.93,
+                "grandTotal": 218,
+                "giftCertificates": [],
+                "createdTime": "2018-09-18T15:48:26+00:00",
+                "updatedTime": "2018-09-18T17:47:35+00:00",
+                "customerMessage": ""
+              }
+            }
+          }
+        }
+      }
+    },
+    "/checkouts/{checkoutId}/spam-protection": {
+      "post": {
+        "description": "Verifies if checkout is created by human.",
+        "summary": "Checkout Spam Protection",
+        "tags": [],
+        "operationId": "CheckoutsSpamProtectionByCheckoutIdPost",
+        "deprecated": false,
+        "produces": [
+          "application/json"
+        ],
+        "consumes": [
+          "application/json"
+        ],
+        "parameters": [
+          {
+            "name": "checkoutId",
+            "in": "path",
+            "required": true,
+            "type": "string",
+            "description": ""
+          },
+          {
+            "name": "body",
+            "in": "body",
+            "required": true,
+            "description": "",
+            "schema": {
+              "$ref": "#/definitions/SpamProtectionRequest"
+            }
+          }
+        ],
+        "responses": {
+          "200": {
+            "description": "Returns Checkout Object.",
+            "schema": {
+              "$ref": "#/definitions/Checkout"
+            },
+            "headers": {}
+          }
+        }
+      }
+    },
+    "/checkouts/{checkoutId}/store-credit": {
+      "post": {
+        "responses": {
+          "200": {
+            "description": "",
+            "schema": {
+              "$ref": "#/definitions/Checkout"
+            }
+          }
+        },
+        "summary": "Add Store Credit",
+        "description": "Applies any available store credit to a checkout. As on the storefront, all available store credit will be used (up to the value of the order) and no amount need be specified.",
+        "operationId": "CheckoutStoreCreditAdd",
+        "tags": [
+          "Checkout Store Credit"
+        ],
+        "consumes": [
+          "application/json"
+        ]
+      },
+      "parameters": [
+        {
+          "name": "checkoutId",
+          "in": "path",
+          "type": "string",
+          "required": true
+        }
+      ],
+      "delete": {
+        "responses": {
+          "200": {
+            "description": "",
+            "schema": {
+              "$ref": "#/definitions/Checkout"
+            }
+          }
+        },
+        "summary": "Remove Store Credit",
+        "description": "Removes store credit from a checkout.",
+        "operationId": "CheckoutsStoreCreditRemove",
+        "tags": [
+          "Checkout Store Credit"
+        ],
+        "produces": [
+          "application/json"
+        ],
+        "parameters": [
+          {
+            "in": "path",
+            "name": "checkoutId",
+            "type": "string",
+            "required": true
+          }
+        ]
+      }
+    }
+  },
+  "definitions": {
+    "LineItemRequestData": {
+      "title": "LineItemRequestData",
+      "type": "object",
+      "properties": {
+        "quantity": {
+          "type": "number",
+          "format": "double"
+        },
+        "productId": {
+          "type": "number",
+          "format": "double"
+        },
+        "variantId": {
+          "type": "number",
+          "format": "double"
+        }
+      }
+    },
+    "Category": {
+      "title": "Category",
+      "type": "object",
+      "properties": {
+        "name": {
+          "type": "string"
+        }
+      }
+    },
+    "LineItemGiftCertificateRequestData": {
+      "title": "LineItemGiftCertificateRequestData",
+      "type": "object",
+      "properties": {
+        "theme": {
+          "description": "Currently supports `Birthday`, `Boy`, `Celebration`, `Christmas`, `General`, and `Girl`.",
+          "type": "string"
+        },
+        "amount": {
+          "type": "number",
+          "minimum": 1,
+          "maximum": 1000,
+          "format": "double"
+        },
+        "sender": {
+          "$ref": "#/definitions/ContactEntity"
+        },
+        "recipient": {
+          "$ref": "#/definitions/ContactEntity"
+        },
+        "message": {
+          "description": "Message shown to recipient, as provided by sender.",
+          "type": "string"
+        },
+        "quantity": {
+          "type": "number",
+          "format": "double"
+        }
+      },
+      "required": [
+        "theme",
+        "amount",
+        "sender",
+        "recipient",
+        "quantity"
+      ]
+    },
+    "Checkout": {
+      "title": "Checkout",
+      "type": "object",
+      "properties": {
+        "id": {
+          "type": "string",
+          "format": "uuid"
+        },
+        "cart": {
+          "$ref": "#/definitions/Cart"
+        },
+        "billingAddress": {
+          "$ref": "#/definitions/AddressResponse"
+        },
+        "consignments": {
+          "type": "array",
+          "items": {
+            "$ref": "#/definitions/Consignment"
+          }
+        },
+        "customer": {
+          "$ref": "#/definitions/Customer"
+        },
+        "taxes": {
+          "type": "array",
+          "items": {
+            "$ref": "#/definitions/Tax"
+          }
+        },
+        "coupons": {
+          "description": "Coupons applied at checkout level.",
+          "type": "array",
+          "items": {
+            "$ref": "#/definitions/AppliedCoupon"
+          }
+        },
+        "orderId": {
+          "type": "string"
+        },
+        "shippingCostTotal": {
+          "description": "Shipping cost before any discounts are applied.",
+          "type": "number",
+          "format": "double"
+        },
+        "handlingCostTotal": {
+          "description": "Handling cost for all consignments including or excluding tax.",
+          "type": "number",
+          "format": "double"
+        },
+        "taxTotal": {
+          "type": "number",
+          "format": "double"
+        },
+        "subtotal": {
+          "description": "Subtotal of the checkout before applying item level discounts. Tax inclusive based on the store settings.",
+          "type": "number",
+          "format": "double"
+        },
+        "grandTotal": {
+          "description": "The total payable amount, before applying any store credit or gift certificate.",
+          "type": "number",
+          "format": "double"
+        },
+        "outstandingBalance": {
+          "description": "grandTotal subtract the store-credit amount",
+          "type": "number",
+          "format": "double"
+        },
+        "isStoreCreditApplied": {
+          "type": "boolean"
+        },
+        "giftCertificates": {
+          "description": "Applied gift certificate (as a payment method).",
+          "type": "array",
+          "items": {
+            "$ref": "#/definitions/GiftCertificate"
+          }
+        },
+        "createdTime": {
+          "description": "Time when the cart was created.",
+          "type": "string"
+        },
+        "updatedTime": {
+          "description": "Time when the cart was last updated.",
+          "type": "string"
+        },
+        "customerMessage": {
+          "description": "Shopper's message provided as details for the order to be created from this cart",
+          "type": "string"
+        },
+        "shouldExecuteSpamCheck": {
+          "description": "Indicates whether checkout should be execute spam check before converting to an order",
+          "type": "boolean"
+        }
+      }
+    },
+    "Customer": {
+      "title": "Customer",
+      "description": "A Customer Object",
+      "type": "object",
+      "properties": {
+        "id": {
+          "description": "ID of the customer to which the cart belongs.",
+          "type": "integer",
+          "format": "int32"
+        },
+        "isGuest": {
+          "description": "Indicates wether the customer has signed in",
+          "type": "boolean"
+        },
+        "email": {
+          "description": "The customer email address.",
+          "type": "string"
+        },
+        "firstName": {
+          "description": "The customer first name.",
+          "type": "string"
+        },
+        "lastName": {
+          "description": "The customer last name.",
+          "type": "string"
+        },
+        "fullName": {
+          "description": "The customer full name.",
+          "type": "string"
+        },
+        "addresses": {
+          "description": "The customer addresses.",
+          "type": "array",
+          "items": {
+            "$ref": "#/definitions/AddressProperties"
+          }
+        },
+        "storeCredit": {
+          "description": "The customer store credit.",
+          "type": "number",
+          "format": "double"
+        },
+        "shouldEncourageSignIn": {
+          "description": "Indicates if the customer should be encouraged to sign in",
+          "type": "boolean"
+        }
+      }
+    },
+    "Cart": {
+      "title": "Cart",
+      "description": "A cart contains a collection of items, prices, discounts, etc. It does not contain customer-related data.",
+      "type": "object",
+      "properties": {
+        "id": {
+          "description": "Cart ID, provided after creating a cart with a POST.",
+          "type": "string",
+          "format": "uuid"
+        },
+        "customer_id": {
+          "description": "ID of the customer to which the cart belongs.",
+          "type": "integer",
+          "format": "int32"
+        },
+        "email": {
+          "description": "The cart's email. This is the same email that is used in the billing address",
+          "type": "string"
+        },
+        "currency": {
+          "$ref": "#/definitions/Currency"
+        },
+        "taxIncluded": {
+          "description": "Boolean representing whether tax information is included.",
+          "type": "boolean"
+        },
+        "baseAmount": {
+          "description": "Cost of cart's contents, before applying discounts.",
+          "type": "number",
+          "format": "double"
+        },
+        "discountAmount": {
+          "description": "Discounted amount.",
+          "type": "number",
+          "format": "double"
+        },
+        "cartAmount": {
+          "description": "Sum of line-items amounts, minus cart-level discounts and coupons. This amount includes taxes (where applicable).",
+          "type": "number",
+          "format": "double"
+        },
+        "coupons": {
+          "type": "array",
+          "items": {
+            "$ref": "#/definitions/AppliedCoupon"
+          }
+        },
+        "discounts": {
+          "type": "array",
+          "items": {
+            "$ref": "#/definitions/AppliedDiscount"
+          }
+        },
+        "lineItems": {
+          "type": "array",
+          "items": {
+            "$ref": "#/definitions/LineItem"
+          }
+        },
+        "createdTime": {
+          "description": "Time when the cart was created.",
+          "type": "string"
+        },
+        "updatedTime": {
+          "description": "Time when the cart was last updated.",
+          "type": "string"
+        }
+      }
+    },
+    "Consignment": {
+      "title": "Consignment",
+      "description": "This allows us to have multiple shipping addresses. Where there is only one shipping address, this array will contain only one value, with all the items.",
+      "type": "object",
+      "properties": {
+        "id": {
+          "type": "string"
+        },
+        "shippingAddress": {
+          "$ref": "#/definitions/AddressResponse"
+        },
+        "availableShippingOptions": {
+          "description": "This is available only when \"include=consignments.availableShippingOptions\" is presented in the URL.",
+          "type": "array",
+          "items": {
+            "$ref": "#/definitions/ShippingOptionEntity"
+          }
+        },
+        "selectedShippingOption": {
+          "$ref": "#/definitions/SelectedShippingOption"
+        },
+        "couponDiscounts": {
+          "description": "List of consignment discounts applied through coupons",
+          "type": "array",
+          "items": {
+            "$ref": "#/definitions/ConsignmentCouponDiscount"
+          }
+        },
+        "discounts": {
+          "description": "List of consignment discounts applied through cart level discounts",
+          "type": "array",
+          "items": {
+            "$ref": "#/definitions/ConsignmentDiscount"
+          }
+        },
+        "shippingCost": {
+          "description": "The shipping cost for this consignment.",
+          "type": "number",
+          "format": "double"
+        },
+        "handlingCost": {
+          "description": "The handling cost of shipping for this consignment.",
+          "type": "number",
+          "format": "double"
+        },
+        "lineItemIds": {
+          "type": "array",
+          "items": {
+            "type": "string"
+          }
+        }
+      }
+    },
+    "Currency": {
+      "title": "Currency",
+      "description": "This will always be the same between cart and checkout.",
+      "type": "object",
+      "properties": {
+        "name": {
+          "description": "The currency name.",
+          "type": "string"
+        },
+        "code": {
+          "description": "ISO-4217 currency code. (See: http://en.wikipedia.org/wiki/ISO_4217.)",
+          "type": "string"
+        },
+        "symbol": {
+          "description": "The currency symbol.",
+          "type": "string"
+        },
+        "decimalPlaces": {
+          "description": "Number of decimal places for the currency. For example, USD currency has two decimal places.",
+          "type": "number",
+          "format": "double"
+        }
+      }
+    },
+    "AddressResponse": {
+      "title": "AddressResponse",
+      "allOf": [
+        {
+          "$ref": "#/definitions/AddressProperties"
+        },
+        {
+          "type": "object",
+          "properties": {
+            "id": {
+              "type": "string"
+            }
+          }
+        }
+      ]
+    },
+    "OrderLineItem": {
+      "title": "OrderLineItem",
+      "type": "object",
+      "properties": {
+        "physicalItems": {
+          "description": "Array of `ItemPhysical` objects.",
+          "type": "array",
+          "items": {
+            "$ref": "#/definitions/ItemPhysical"
+          }
+        },
+        "digitalItems": {
+          "description": "Array of `ItemDigital` objects.",
+          "type": "array",
+          "items": {
+            "$ref": "#/definitions/OrderItemDigital"
+          }
+        },
+        "giftCertificate": {
+          "description": "Array of `ItemGiftCertificate` objects.",
+          "type": "array",
+          "items": {
+            "$ref": "#/definitions/OrderItemGiftCertificate"
+          }
+        }
+      },
+      "required": [
+        "physicalItems",
+        "digitalItems",
+        "giftCertificate"
+      ]
+    },
+    "LineItem": {
+      "title": "LineItem",
+      "type": "object",
+      "properties": {
+        "physicalItems": {
+          "type": "array",
+          "items": {
+            "$ref": "#/definitions/ItemPhysical"
+          }
+        },
+        "digitalItems": {
+          "type": "array",
+          "items": {
+            "$ref": "#/definitions/ItemDigital"
+          }
+        },
+        "giftCertificate": {
+          "type": "array",
+          "items": {
+            "$ref": "#/definitions/ItemGiftCertificate"
+          }
+        },
+        "customItems": {
+          "type": "array",
+          "items": {
+            "$ref": "#/definitions/ItemCustom"
+          }
+        }
+      },
+      "required": [
+        "physicalItems",
+        "digitalItems",
+        "giftCertificate"
+      ]
+    },
+    "CartUpdateRequest": {
+      "title": "CartUpdateRequest",
+      "type": "object",
+      "properties": {
+        "lineItem": {
+          "$ref": "#/definitions/LineItemRequestData"
+        },
+        "giftCertificate": {
+          "$ref": "#/definitions/LineItemGiftCertificateRequestData"
+        }
+      }
+    },
+    "CheckoutUpdateRequest": {
+      "title": "CheckoutUpdateRequest",
+      "type": "object",
+      "properties": {
+        "customerMessage": {
+          "type": "string"
+        }
+      }
+    },
+    "OrderItemGiftCertificate": {
+      "title": "OrderItemGiftCertificate",
+      "type": "object",
+      "properties": {
+        "name": {
+          "description": "The item's product name.",
+          "type": "string"
+        },
+        "quantity": {
+          "description": "Quantity of this item.",
+          "type": "number",
+          "format": "double"
+        },
+        "isTaxable": {
+          "description": "Whether the item is taxable.",
+          "type": "boolean"
+        },
+        "amount": {
+          "description": "Price of the item",
+          "type": "number",
+          "format": "double"
+        },
+        "type": {
+          "description": "Explicitly specifying the gift certificate type",
+          "type": "string"
+        }
+      }
+    },
+    "ItemGiftCertificate": {
+      "title": "ItemGiftCertificate",
+      "type": "object",
+      "properties": {
+        "id": {
+          "description": "Gift certificate identifier",
+          "type": "string"
+        },
+        "name": {
+          "description": "Name of the purchased gift certificate e.g. $20 Gift Certificate",
+          "type": "string"
+        },
+        "theme": {
+          "description": "Currently supports `Birthday`, `Boy`, `Celebration`, `Christmas`, `General`, and `Girl`.",
+          "type": "string"
+        },
+        "amount": {
+          "description": "Value must be between $1.00 and $1,000.00.",
+          "type": "number",
+          "format": "double"
+        },
+        "taxable": {
+          "type": "boolean"
+        },
+        "sender": {
+          "$ref": "#/definitions/ContactEntity"
+        },
+        "recipient": {
+          "$ref": "#/definitions/ContactEntity"
+        },
+        "message": {
+          "description": "Limited to 200 characters.",
+          "type": "string"
+        },
+        "type": {
+          "description": "Explicitly specifying the gift certificate type",
+          "type": "string"
+        }
+      },
+      "required": [
+        "theme",
+        "amount",
+        "sender",
+        "recipient"
+      ]
+    },
+    "ContactEntity": {
+      "title": "ContactEntity",
+      "type": "object",
+      "properties": {
+        "name": {
+          "type": "string"
+        },
+        "email": {
+          "type": "string"
+        }
+      }
+    },
+    "OrderItemDigital": {
+      "title": "OrderItemDigital",
+      "type": "object",
+      "properties": {
+        "id": {
+          "description": "The line-item ID.",
+          "type": "string"
+        },
+        "parentId": {
+          "description": "Bundled items will have their parent's item Id.",
+          "type": "string"
+        },
+        "variantId": {
+          "description": "ID of the variant.",
+          "type": "number",
+          "format": "double"
+        },
+        "productId": {
+          "description": "ID of the product.",
+          "type": "number",
+          "format": "double"
+        },
+        "sku": {
+          "description": "SKU of the variant.",
+          "type": "string"
+        },
+        "name": {
+          "description": "The item's product name.",
+          "type": "string"
+        },
+        "url": {
+          "description": "The product URL.",
+          "type": "string"
+        },
+        "quantity": {
+          "description": "Quantity of this item.",
+          "type": "number",
+          "format": "double"
+        },
+        "brand": {
+          "description": "Brand of this item (if any).",
+          "type": "string"
+        },
+        "isTaxable": {
+          "description": "Whether the item is taxable.",
+          "type": "boolean"
+        },
+        "isMutable": {
+          "description": "Whether or not the item can be changed or removed from the cart. Certain items, for example those added automatically by promotions, cannot.",
+          "type": "boolean"
+        },
+        "imageUrl": {
+          "description": "URL of an image of this item, accessible on the internet.",
+          "type": "string"
+        },
+        "discounts": {
+          "description": "List of discounts applied to this item, as an array of AppliedDiscount objects.",
+          "type": "array",
+          "items": {
+            "$ref": "#/definitions/AppliedDiscount"
+          }
+        },
+        "discountAmount": {
+          "description": "The total value of all discounts applied to this item (excluding coupon).",
+          "type": "number",
+          "format": "double"
+        },
+        "couponAmount": {
+          "description": "The total value of all coupons applied to this item.",
+          "type": "number",
+          "format": "double"
+        },
+        "listPrice": {
+          "description": "Item's list price, as quoted by the manufacturer/distributor.",
+          "type": "number",
+          "format": "double"
+        },
+        "salePrice": {
+          "description": "Item's price after all discounts are applied. (The final price before tax calculation.)",
+          "type": "number",
+          "format": "double"
+        },
+        "extendedListPrice": {
+          "description": "Item's list price multiplied by the quantity.",
+          "type": "number",
+          "format": "double"
+        },
+        "extendedSalePrice": {
+          "description": "Item's sale price multiplied by the quantity.",
+          "type": "number",
+          "format": "double"
+        },
+        "comparisonPrice": {
+          "description": "Price of single product used for strike-through",
+          "type": "number",
+          "format": "double"
+        },
+        "extendedComparisonPrice": {
+          "description": "Price of line-item (product * quantity) used for strike-through",
+          "type": "number",
+          "format": "double"
+        },
+        "type": {
+          "description": "the product type - physical or digital",
+          "type": "string"
+        },
+        "categories": {
+          "description": "An array of category arrays, this is available only when when lineItems.physicalItems.categories or lineItems.digitalItems.categories is passed in the include paramater.",
+          "type": "array",
+          "items": {
+            "type": "array",
+            "items": {
+              "$ref": "#/definitions/Category"
+            }
+          }
+        },
+        "downloadFileUrls": {
+          "description": "URLs to download all product files.",
+          "type": "array",
+          "items": {
+            "type": "string"
+          }
+        },
+        "downloadPageUrl": {
+          "description": "The URL for the combined downloads page.",
+          "type": "string"
+        },
+        "downloadSize": {
+          "description": "Combined download size, in human-readable style. E.g.: `30MB`.",
+          "type": "string"
+        }
+      },
+      "required": [
+        "quantity"
+      ]
+    },
+    "ItemDigital": {
+      "title": "ItemDigital",
+      "type": "object",
+      "properties": {
+        "id": {
+          "description": "The line-item ID.",
+          "type": "string"
+        },
+        "parentId": {
+          "description": "Bundled items will have their parent's item Id.",
+          "type": "string"
+        },
+        "variantId": {
+          "description": "ID of the variant.",
+          "type": "number",
+          "format": "double"
+        },
+        "productId": {
+          "description": "ID of the product.",
+          "type": "number",
+          "format": "double"
+        },
+        "sku": {
+          "description": "SKU of the variant.",
+          "type": "string"
+        },
+        "name": {
+          "description": "The item's product name.",
+          "type": "string"
+        },
+        "url": {
+          "description": "The product URL.",
+          "type": "string"
+        },
+        "quantity": {
+          "description": "Quantity of this item.",
+          "type": "number",
+          "format": "double"
+        },
+        "brand": {
+          "description": "Brand of this item (if any).",
+          "type": "string"
+        },
+        "isTaxable": {
+          "description": "Whether the item is taxable.",
+          "type": "boolean"
+        },
+        "isMutable": {
+          "description": "Whether or not the item can be changed or removed from the cart. Certain items, for example those added automatically by promotions, cannot.",
+          "type": "boolean"
+        },
+        "imageUrl": {
+          "description": "URL of an image of this item, accessible on the internet.",
+          "type": "string"
+        },
+        "discounts": {
+          "description": "List of discounts applied to this item, as an array of AppliedDiscount objects.",
+          "type": "array",
+          "items": {
+            "$ref": "#/definitions/AppliedDiscount"
+          }
+        },
+        "discountAmount": {
+          "description": "The total value of all discounts applied to this item (excluding coupon).",
+          "type": "number",
+          "format": "double"
+        },
+        "couponAmount": {
+          "description": "The total value of all coupons applied to this item.",
+          "type": "number",
+          "format": "double"
+        },
+        "listPrice": {
+          "description": "Item's list price, as quoted by the manufacturer/distributor.",
+          "type": "number",
+          "format": "double"
+        },
+        "salePrice": {
+          "description": "Item's price after all discounts are applied. (The final price before tax calculation.)",
+          "type": "number",
+          "format": "double"
+        },
+        "extendedListPrice": {
+          "description": "Item's list price multiplied by the quantity.",
+          "type": "number",
+          "format": "double"
+        },
+        "extendedSalePrice": {
+          "description": "Item's sale price multiplied by the quantity.",
+          "type": "number",
+          "format": "double"
+        },
+        "comparisonPrice": {
+          "description": "Price of single product used for strike-through",
+          "type": "number",
+          "format": "double"
+        },
+        "extendedComparisonPrice": {
+          "description": "Price of line-item (product * quantity) used for strike-through",
+          "type": "number",
+          "format": "double"
+        },
+        "type": {
+          "description": "the product type - physical or digital",
+          "type": "string"
+        },
+        "categories": {
+          "description": "An array of category arrays, this is available only when when lineItems.physicalItems.categories or lineItems.digitalItems.categories is passed in the include paramater.",
+          "type": "array",
+          "items": {
+            "type": "array",
+            "items": {
+              "$ref": "#/definitions/Category"
+            }
+          }
+        },
+        "isShippingRequired": {
+          "description": "Whether this item requires shipping to a physical address.",
+          "type": "boolean"
+        },
+        "downloadFileUrls": {
+          "description": "URLs to download all product files.",
+          "type": "array",
+          "items": {
+            "type": "string"
+          }
+        },
+        "downloadPageUrl": {
+          "description": "The URL for the combined downloads page.",
+          "type": "string"
+        },
+        "downloadSize": {
+          "description": "Combined download size, in human-readable style. E.g.: `30MB`.",
+          "type": "string"
+        }
+      },
+      "required": [
+        "quantity"
+      ]
+    },
+    "ItemPhysical": {
+      "title": "ItemPhysical",
+      "type": "object",
+      "properties": {
+        "id": {
+          "description": "The line-item ID.",
+          "type": "string"
+        },
+        "parentId": {
+          "description": "Bundled items will have their parent's item Id.",
+          "type": "string"
+        },
+        "variantId": {
+          "description": "ID of the variant.",
+          "type": "number",
+          "format": "double"
+        },
+        "productId": {
+          "description": "ID of the product.",
+          "type": "number",
+          "format": "double"
+        },
+        "sku": {
+          "description": "SKU of the variant.",
+          "type": "string"
+        },
+        "name": {
+          "description": "The item's product name.",
+          "type": "string"
+        },
+        "url": {
+          "description": "The product URL.",
+          "type": "string"
+        },
+        "quantity": {
+          "description": "Quantity of this item.",
+          "type": "number",
+          "format": "double"
+        },
+        "brand": {
+          "description": "Brand of this item (if any).",
+          "type": "string"
+        },
+        "isTaxable": {
+          "description": "Whether the item is taxable.",
+          "type": "boolean"
+        },
+        "isMutable": {
+          "description": "Whether or not the item can be changed or removed from the cart. Certain items, for example those added automatically by promotions, cannot.",
+          "type": "boolean"
+        },
+        "imageUrl": {
+          "description": "URL of an image of this item, accessible on the internet.",
+          "type": "string"
+        },
+        "discounts": {
+          "description": "List of discounts applied to this item, as an array of AppliedDiscount objects.",
+          "type": "array",
+          "items": {
+            "$ref": "#/definitions/AppliedDiscount"
+          }
+        },
+        "discountAmount": {
+          "description": "The total value of all discounts applied to this item (excluding coupon).",
+          "type": "number",
+          "format": "double"
+        },
+        "couponAmount": {
+          "description": "The total value of all coupons applied to this item.",
+          "type": "number",
+          "format": "double"
+        },
+        "listPrice": {
+          "description": "Item's list price, as quoted by the manufacturer/distributor.",
+          "type": "number",
+          "format": "double"
+        },
+        "salePrice": {
+          "description": "Item's price after all discounts are applied. (The final price before tax calculation.)",
+          "type": "number",
+          "format": "double"
+        },
+        "extendedListPrice": {
+          "description": "Item's list price multiplied by the quantity.",
+          "type": "number",
+          "format": "double"
+        },
+        "extendedSalePrice": {
+          "description": "Item's sale price multiplied by the quantity.",
+          "type": "number",
+          "format": "double"
+        },
+        "comparisonPrice": {
+          "description": "Price of single product used for strike-through",
+          "type": "number",
+          "format": "double"
+        },
+        "extendedComparisonPrice": {
+          "description": "Price of line-item (product * quantity) used for strike-through",
+          "type": "number",
+          "format": "double"
+        },
+        "type": {
+          "description": "the product type - physical or digital",
+          "type": "string"
+        },
+        "categories": {
+          "description": "An array of category arrays, this is available only when when lineItems.physicalItems.categories or lineItems.digitalItems.categories is passed in the include paramater.",
+          "type": "array",
+          "items": {
+            "type": "array",
+            "items": {
+              "$ref": "#/definitions/Category"
+            }
+          }
+        },
+        "addedByPromotion": {
+          "description": "Whether this item has been added automatically by a promotion.",
+          "type": "boolean"
+        },
+        "isShippingRequired": {
+          "description": "Whether this item requires shipping to a physical address.",
+          "type": "boolean"
+        },
+        "giftWrapping": {
+          "$ref": "#/definitions/GiftWrapping"
+        }
+      },
+      "required": [
+        "quantity"
+      ]
+    },
+    "ItemCustom": {
+      "title": "ItemCustom",
+      "type": "object",
+      "properties": {
+        "id": {
+          "description": "ID of this Custom Item.",
+          "type": "string"
+        },
+        "sku": {
+          "description": "Product SKU",
+          "type": "string"
+        },
+        "name": {
+          "description": "Product name",
+          "type": "string"
+        },
+        "quantity": {
+          "type": "number",
+          "format": "double"
+        },
+        "listPrice": {
+          "type": "number",
+          "format": "double"
+        },
+        "extendedListPrice": {
+          "type": "number",
+          "format": "double"
+        }
+      }
+    },
+    "BaseItem": {
+      "title": "BaseItem",
+      "type": "object",
+      "properties": {
+        "id": {
+          "description": "The line-item ID.",
+          "type": "string"
+        },
+        "parentId": {
+          "description": "Bundled items will have their parent's item Id.",
+          "type": "string"
+        },
+        "variantId": {
+          "description": "ID of the variant.",
+          "type": "number",
+          "format": "double"
+        },
+        "productId": {
+          "description": "ID of the product.",
+          "type": "number",
+          "format": "double"
+        },
+        "sku": {
+          "description": "SKU of the variant.",
+          "type": "string"
+        },
+        "name": {
+          "description": "The item's product name.",
+          "type": "string"
+        },
+        "url": {
+          "description": "The product URL.",
+          "type": "string"
+        },
+        "quantity": {
+          "description": "Quantity of this item.",
+          "type": "number",
+          "format": "double"
+        },
+        "brand": {
+          "description": "Brand of this item (if any).",
+          "type": "string"
+        },
+        "isTaxable": {
+          "description": "Whether the item is taxable.",
+          "type": "boolean"
+        },
+        "isMutable": {
+          "description": "Whether or not the item can be changed or removed from the cart. Certain items, for example those added automatically by promotions, cannot.",
+          "type": "boolean"
+        },
+        "imageUrl": {
+          "description": "URL of an image of this item, accessible on the internet.",
+          "type": "string"
+        },
+        "discounts": {
+          "description": "List of discounts applied to this item, as an array of AppliedDiscount objects.",
+          "type": "array",
+          "items": {
+            "$ref": "#/definitions/AppliedDiscount"
+          }
+        },
+        "discountAmount": {
+          "description": "The total value of all discounts applied to this item (excluding coupon).",
+          "type": "number",
+          "format": "double"
+        },
+        "couponAmount": {
+          "description": "The total value of all coupons applied to this item.",
+          "type": "number",
+          "format": "double"
+        },
+        "listPrice": {
+          "description": "Item's list price, as quoted by the manufacturer/distributor.",
+          "type": "number",
+          "format": "double"
+        },
+        "salePrice": {
+          "description": "Item's price after all discounts are applied. (The final price before tax calculation.)",
+          "type": "number",
+          "format": "double"
+        },
+        "extendedListPrice": {
+          "description": "Item's list price multiplied by the quantity.",
+          "type": "number",
+          "format": "double"
+        },
+        "extendedSalePrice": {
+          "description": "Item's sale price multiplied by the quantity.",
+          "type": "number",
+          "format": "double"
+        },
+        "comparisonPrice": {
+          "description": "Price of single product used for strike-through",
+          "type": "number",
+          "format": "double"
+        },
+        "extendedComparisonPrice": {
+          "description": "Price of line-item (product * quantity) used for strike-through",
+          "type": "number",
+          "format": "double"
+        },
+        "type": {
+          "description": "the product type - physical or digital",
+          "type": "string"
+        },
+        "categories": {
+          "description": "An array of category arrays, this is available only when when lineItems.physicalItems.categories or lineItems.digitalItems.categories is passed in the include paramater.",
+          "type": "array",
+          "items": {
+            "type": "array",
+            "items": {
+              "$ref": "#/definitions/Category"
+            }
+          }
+        }
+      },
+      "required": [
+        "quantity"
+      ]
+    },
+    "Tax": {
+      "title": "Tax",
+      "type": "object",
+      "properties": {
+        "name": {
+          "description": "Name of the tax.",
+          "type": "string"
+        },
+        "amount": {
+          "type": "number",
+          "format": "double"
+        }
+      }
+    },
+    "AppliedCoupon": {
+      "title": "AppliedCoupon",
+      "type": "object",
+      "properties": {
+        "id": {
+          "description": "The coupon ID.",
+          "type": "string"
+        },
+        "code": {
+          "description": "the coupon code",
+          "type": "string"
+        },
+        "displayName": {
+          "description": "The coupon title based on different types provided in control panel section",
+          "type": "string"
+        },
+        "couponType": {
+          "description": "Key name to identify the type of coupon.",
+          "type": "string"
+        },
+        "discountedAmount": {
+          "description": "The discounted amount applied within a given context.",
+          "type": "number",
+          "format": "double"
+        }
+      },
+      "required": [
+        "code"
+      ]
+    },
+    "AppliedDiscount": {
+      "title": "AppliedDiscount",
+      "type": "object",
+      "properties": {
+        "name": {
+          "description": "The name provided by the merchant.",
+          "type": "string"
+        },
+        "discountedAmount": {
+          "description": "The discounted amount applied within a given context.",
+          "type": "number",
+          "format": "double"
+        }
+      }
+    },
+    "GiftWrapping": {
+      "title": "GiftWrapping",
+      "type": "object",
+      "properties": {
+        "name": {
+          "type": "string"
+        },
+        "message": {
+          "type": "string"
+        },
+        "amount": {
+          "type": "number",
+          "format": "double"
+        }
+      }
+    },
+    "GiftCertificateRequest": {
+      "title": "GiftCertificateRequest",
+      "type": "object",
+      "properties": {
+        "giftCertificateCode": {
+          "type": "string"
+        }
+      }
+    },
+    "CouponCodeRequest": {
+      "title": "CouponCodeRequest",
+      "type": "object",
+      "properties": {
+        "couponCode": {
+          "type": "string"
+        }
+      }
+    },
+    "SpamProtectionRequest": {
+      "title": "SpamProtectionRequest",
+      "type": "object",
+      "properties": {
+        "token": {
+          "type": "string"
+        }
+      }
+    },
+    "GiftCertificate": {
+      "title": "GiftCertificate",
+      "description": "The values presented here are projections of how much we would be using out of an existent gift certificate",
+      "type": "object",
+      "properties": {
+        "balance": {
+          "type": "number",
+          "format": "double"
+        },
+        "code": {
+          "type": "string"
+        },
+        "purchaseDate": {
+          "type": "string",
+          "format": "date"
+        },
+        "remaining": {
+          "type": "number",
+          "format": "double"
+        },
+        "used": {
+          "type": "number",
+          "format": "double"
+        }
+      }
+    },
+    "CheckoutError": {
+      "title": "CheckoutError",
+      "type": "object",
+      "properties": {
+        "errors": {
+          "type": "array",
+          "items": {
+            "$ref": "#/definitions/ErrorInner"
+          }
+        }
+      }
+    },
+    "ErrorInner": {
+      "title": "ErrorInner",
+      "type": "object",
+      "properties": {
+        "status": {
+          "type": "integer",
+          "format": "int32"
+        },
+        "title": {
+          "type": "string"
+        },
+        "type": {
+          "type": "string"
+        },
+        "detail": {
+          "type": "string"
+        }
+      }
+    },
+    "ResponseOrderData": {
+      "title": "ResponseOrderData",
+      "type": "object",
+      "properties": {
+        "meta": {
+          "type": "object"
+        },
+        "data": {
+          "$ref": "#/definitions/Data"
+        }
+      }
+    },
+    "Order": {
+      "title": "Order",
+      "type": "object",
+      "properties": {
+        "orderId": {
+          "type": "number",
+          "format": "double"
+        },
+        "cartId": {
+          "description": "The Id of cart that was converted to order.",
+          "type": "string",
+          "format": "uuid"
+        },
+        "currency": {
+          "$ref": "#/definitions/Currency"
+        },
+        "isTaxIncluded": {
+          "description": "Whether this item is taxable.",
+          "type": "boolean"
+        },
+        "baseAmount": {
+          "description": "Cost of cart's contents, before applying discounts.",
+          "type": "number",
+          "format": "double"
+        },
+        "discountAmount": {
+          "description": "Discounted amount.",
+          "type": "number",
+          "format": "double"
+        },
+        "orderAmount": {
+          "description": "Sum of line-items amounts, minus cart-level discounts and coupons. This amount includes taxes (where applicable).",
+          "type": "number",
+          "format": "double"
+        },
+        "orderAmountAsInteger": {
+          "description": "Order amount represented in integer. Eg. 1234 for $12.34",
+          "type": "number",
+          "format": "double"
+        },
+        "coupons": {
+          "description": "Array of `AppliedCoupon` objects applied to this cart.",
+          "type": "array",
+          "items": {
+            "$ref": "#/definitions/AppliedCoupon"
+          }
+        },
+        "discounts": {
+          "description": "Array of `AppliedDiscount` objects applied to this cart.",
+          "type": "array",
+          "items": {
+            "$ref": "#/definitions/AppliedDiscount"
+          }
+        },
+        "lineItems": {
+          "description": "Array of `LineItem` objects.",
+          "type": "array",
+          "items": {
+            "$ref": "#/definitions/OrderLineItem"
+          }
+        },
+        "customerId": {
+          "type": "string"
+        },
+        "token": {
+          "type": "string"
+        },
+        "billingAddress": {
+          "$ref": "#/definitions/AddressResponse"
+        },
+        "status": {
+          "$ref": "#/definitions/Status"
+        },
+        "customerCreated": {
+          "description": "For guest checkouts, this flag will identify whether a new customer account was created for this order, or whether the billing email already existed on the store.",
+          "type": "boolean"
+        },
+        "hasDigitalItems": {
+          "description": "Specifies whether this order has at least one digital item.",
+          "type": "boolean"
+        },
+        "isDownloadable": {
+          "description": "Specifies whether this order is fully paid, so that digital items can be downloaded.",
+          "type": "boolean"
+        },
+        "isComplete": {
+          "description": "Specifies whether this order is complete and ready to be taken to the order confirmation page.",
+          "type": "boolean"
+        },
+        "customerMessage": {
+          "description": "Shopper's provided message for the order",
+          "type": "string"
+        },
+        "tax": {
+          "description": "Array of `Tax` objects applied to this cart.",
+          "type": "array",
+          "items": {
+            "$ref": "#/definitions/Tax"
+          }
+        },
+        "taxTotal": {
+          "description": "Specifies the sum of taxes amounts.",
+          "type": "number",
+          "format": "double"
+        }
+      }
+    },
+    "ShippingOptionEntity": {
+      "title": "ShippingOptionEntity",
+      "allOf": [
+        {
+          "$ref": "#/definitions/SelectedShippingOption"
+        },
+        {
+          "type": "object",
+          "properties": {
+            "isRecommended": {
+              "description": "Is this shipping method the recommended shipping option or not.",
+              "type": "boolean"
+            }
+          }
+        }
+      ]
+    },
+    "SelectedShippingOption": {
+      "title": "SelectedShippingOption",
+      "type": "object",
+      "properties": {
+        "description": {
+          "type": "string"
+        },
+        "id": {
+          "type": "string"
+        },
+        "type": {
+          "description": "Specified the type of shipping option. Flat rate, UPS, etc.,",
+          "type": "string"
+        },
+        "imageUrl": {
+          "type": "string"
+        },
+        "cost": {
+          "type": "number",
+          "format": "double"
+        },
+        "transitTime": {
+          "description": "An estimate of the arrival time.",
+          "type": "string"
+        },
+        "additionalDescription": {
+          "description": "Additional information for this shipping rate to be displayed in checkout",
+          "type": "string"
+        }
+      }
+    },
+    "ConsignmentCouponDiscount": {
+      "title": "ConsignmentCouponDiscount",
+      "type": "object",
+      "properties": {
+        "code": {
+          "description": "Coupon code that applied this discount",
+          "type": "string"
+        },
+        "amount": {
+          "type": "number",
+          "format": "double"
+        }
+      }
+    },
+    "ConsignmentDiscount": {
+      "title": "ConsignmentDiscount",
+      "type": "object",
+      "properties": {
+        "id": {
+          "description": "Discount rule ID that applied this discount",
+          "type": "string"
+        }
+      }
+    },
+    "AddressProperties": {
+      "title": "AddressProperties",
+      "type": "object",
+      "properties": {
+        "firstName": {
+          "type": "string"
+        },
+        "lastName": {
+          "type": "string"
+        },
+        "email": {
+          "type": "string"
+        },
+        "company": {
+          "type": "string"
+        },
+        "address1": {
+          "type": "string"
+        },
+        "address2": {
+          "type": "string"
+        },
+        "city": {
+          "type": "string"
+        },
+        "stateOrProvince": {
+          "description": "Represents state or province.",
+          "type": "string"
+        },
+        "stateOrProvinceCode": {
+          "type": "string"
+        },
+        "countryCode": {
+          "description": "ISO 3166-1 alpha-2 country code. (See: https://en.wikipedia.org/wiki/ISO_3166-1_alpha-2)",
+          "type": "string"
+        },
+        "postalCode": {
+          "type": "string"
+        },
+        "shouldSaveAddress": {
+          "type": "boolean"
+        },
+        "phone": {
+          "type": "string",
+          "pattern": "^\\+?[1-9]\\d{1,14}(x\\d{1-5})?$"
+        },
+        "customFields": {
+          "type": "array",
+          "items": {
+            "$ref": "#/definitions/CustomField"
+          }
+        }
+      },
+      "required": [
+        "countryCode"
+      ]
+    },
+    "UpdateConsignmentRequest": {
+      "title": "UpdateConsignmentRequest",
+      "description": "One or more of these three fields are mandatory. Shipping address and line items can be updated in one request. Shipping option ID has to be updated in a separate request, since changing the address or line items can invalidate the previously available shipping options.",
+      "type": "object",
+      "properties": {
+        "shippingAddress": {
+          "$ref": "#/definitions/AddressProperties"
+        },
+        "lineItems": {
+          "type": "array",
+          "items": {
+            "$ref": "#/definitions/ConsignmentLineItem"
+          }
+        },
+        "shippingOptionId": {
+          "type": "string"
+        }
+      }
+    },
+    "ConsignmentLineItem": {
+      "title": "ConsignmentLineItem",
+      "type": "object",
+      "properties": {
+        "itemId": {
+          "type": "string"
+        },
+        "quantity": {
+          "type": "integer",
+          "format": "int32"
+        }
+      },
+      "required": [
+        "itemId",
+        "quantity"
+      ]
+    },
+    "CheckoutsResponse": {
+      "title": "CheckoutsResponse",
+      "type": "object",
+      "properties": {
+        "data": {
+          "$ref": "#/definitions/Checkout"
+        }
+      }
+    },
+    "CreateConsignmentRequest": {
+      "title": "CreateConsignmentRequest",
+      "type": "object",
+      "properties": {
+        "shippingAddress": {
+          "$ref": "#/definitions/AddressProperties"
+        },
+        "lineItems": {
+          "type": "array",
+          "items": {
+            "$ref": "#/definitions/ConsignmentLineItem"
+          }
+        }
+      }
+    },
+    "CustomField": {
+      "title": "CustomField",
+      "type": "object",
+      "properties": {
+        "fieldId": {
+          "type": "string"
+        },
+        "fieldValue": {
+          "description": "This can also be an array for fields that need to support list of values (e.g., a set of check boxes.)",
+          "type": "string"
+        }
+      }
+    },
+    "Data": {
+      "title": "Data",
+      "description": "Response data container for Order endpoints (`POST /order` and `POST /order/{orderId}`).",
+      "type": "object",
+      "properties": {
+        "order": {
+          "$ref": "#/definitions/Order"
+        }
+      }
+    },
+    "include": {
+      "title": "include",
+      "type": "string",
+      "enum": [
+        "consignments.availableShippingOptions"
+      ]
+    },
+    "include3": {
+      "title": "include3",
+      "type": "string",
+      "enum": [
+        "lineItems.physicalItems.categories",
+        "lineItems.digitalItems.categories"
+      ]
+    },
+    "Status": {
+      "title": "Status",
+      "description": "Order status.",
+      "type": "string",
+      "enum": [
+        "INCOMPLETE",
+        "PENDING",
+        "SHIPPED",
+        "PARTIALLY_SHIPPED",
+        "REFUNDED",
+        "CANCELLED",
+        "DECLINED",
+        "AWAITING_PAYMENT",
+        "AWAITING_PICKUP",
+        "AWAITING_SHIPMENT",
+        "COMPLETED",
+        "AWAITING_FULFILLMENT",
+        "MANUAL_VERIFICATION_REQUIRED",
+        "DISPUTED",
+        "PARTIALLY_REFUNDED"
+      ]
+    }
+  },
+  "tags": [
+    {
+      "name": "Checkout Store Credit"
+    },
+    {
+      "name": "Checkout Gift Certificates"
+    },
+    {
+      "name": "Checkout Coupons"
+    },
+    {
+      "name": "Checkout Consignments"
+    },
+    {
+      "name": "Checkout Cart Items"
+    },
+    {
+      "name": "Checkout Billing Address"
+    },
+    {
+      "name": "Checkout",
+      "description": ""
+    },
+    {
+      "name": "Order",
+      "description": ""
+    }
+  ],
+  "x-stoplight": {
+    "docs": {
+      "includeDownloadLink": true,
+      "showModels": false
+    }
+  }
+}

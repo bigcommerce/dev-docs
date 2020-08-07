@@ -4,7 +4,6 @@
 
 ### On This Page
 - [Declaring Front Matter Objects](#declaring-front-matter-objects)
-- [YAML Syntax](#yaml-syntax)
 - [Filtering Attributes](#filtering-attributes)
 - [Combining Front Matter and Handlebars](#combining-front-matter-and-handlebars)
 - [Default vs Custom Attributes](#default-vs-custom-attributes)
@@ -15,8 +14,8 @@
 
 ## Declaring Front Matter Objects
 
-When you create a store page that requires specific attributes (such as 'New Products') to be displayed, you must first declare the object and attribute on the page in a front-matter block at the top of the page's HTML template file. The front matter block makes the attribute accessible on the page. Then, to display the attribute on the storefront page, you will reference the object using Handlebars within the page's HTML.
-For example, to display 'new products' on a storefront's home page, you first need to make new products accessible on the home page. To achieve this, include the following front matter block at the top of the [home.html](https://github.com/bigcommerce/cornerstone/blob/master/templates/pages/home.html) file to declare the products object with its new attribute. This allows a storefront's home page to access a store's "New Products."
+When you create a store page that requires specific attributes (such as 'New Products') to be displayed, you must first declare the object and attribute on the page in a front-matter block at the top of the page's HTML template file. The front-matter block makes the attribute accessible on the page. Then, to display the attribute on the storefront page, you will reference the object using Handlebars within the page's HTML.
+For example, to display 'new products' on a storefront's home page, you first need to make new products accessible on the home page. To achieve this, include the following front-matter block at the top of the [home.html](https://github.com/bigcommerce/cornerstone/blob/master/templates/pages/home.html) file to declare the products object with its new attribute. This allows a storefront's home page to access a store's "New Products."
 
 ```yaml
 
@@ -28,7 +27,7 @@ products:
 
 **Note:** A 'limit' is required for Product Objects to render on a storefront page. You can hard code the limit value or utilize handlebars.js to reference it from the theme's config.json file. In this case, the limit value is being referenced from the `settings` JSON object in the `config.json` file using handlebars.js. Information on required attributes is detailed in the Front Matter Attributes Reference.
 
-After including the front matter block at the top of the home.html file, the New Products attribute will be accessible in the home page's context. As previously stated, simply including the front matter block will not display the attribute on the page. In order to actually display the new products on the desired storefront page, you will reference the attribute using Handlebars in the same file you have added the front matter block to.
+After including the front-matter block at the top of the home.html file, the New Products attribute will be accessible in the home page's context. As previously stated, simply including the front-matter block will not display the attribute on the page. In order to actually display the new products on the desired storefront page, you will reference the attribute using Handlebars in the same file you have added the front matter block to.
 In this example, we will include the following code in Cornerstone's [home.html](https://github.com/bigcommerce/cornerstone/blob/master/templates/pages/home.html) file to display New Products on our store's home page.
 
 ```html
@@ -36,16 +35,6 @@ In this example, we will include the following code in Cornerstone's [home.html]
         {{> components/products/new products=products.new columns=theme_settings.homepage_new_products_column_count}}
     {{/if}}
 ```
-
-## YAML Syntax
-
-Stencil front matter uses the conventions of YAML. Here are the YAML conventions you must follow in front matter:
-
-* Place the front-matter block at the top of your template.
-* Fence the beginning and end of the front-matter block with a row of three hyphens (), as you see in the examples here.
-* Show attribute > key relationship (or object > property relationship) by indenting the children. In the example above, products is the object.
-* Place a colon (:) directly after each attribute name, and directly after each key name. (Colons separate key:value pairs.)
-* Identifiers are case-sensitive.
 
 ### Restrictions
 
@@ -122,7 +111,7 @@ products:
 <!-- theme:info  -->
 
 ###  Reading the Handlebars
-> In the above HTML, the {{ name }} identifier calls an attribute of Stencil’s common product card model, which consolidates details about a given product. For this and other objects that you can access through HTML, please see our reference section on Handlebars objects.
+> In the above HTML, the {{ name }} identifier calls an attribute of Stencil’s common product card model, which consolidates details about a given product. For this and other objects that you can access through HTML, please see our [reference](https://developer.bigcommerce.com/stencil-docs/reference-docs/handlebars-helpers-reference#front-matter-overview_declaring-objects) section on Handlebars objects.
 
 </div>
 </div>

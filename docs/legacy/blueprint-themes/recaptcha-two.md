@@ -87,7 +87,26 @@ var RecaptchaOptions = {
 
 ### reCAPTCHA Script to Update
 
-Next, in each of the three template files, replace the "before" code block just below with the simplified "after" code that follows.
+In each of the three template files, add the following script tag to the top of the page.
+
+
+<div class="HubBlock-header">
+    <div class="HubBlock-header-title flex items-center">
+        <div class="HubBlock-header-name">Script Tag to Remove</div>
+    </div><div class="HubBlock-header-subtitle"></div>
+</div>
+
+<!--
+title: "Script Tag to Update"
+subtitle: ""
+lineNumbers: true
+-->
+
+```html
+<script src="https://www.google.com/recaptcha/api.js" async defer></script>
+```
+
+Then replace the "before" code block just below with the simplified "after" code that follows.
 
 #### Replace this (before):
 
