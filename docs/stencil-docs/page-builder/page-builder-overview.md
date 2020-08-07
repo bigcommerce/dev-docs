@@ -2,6 +2,7 @@
 
 <div class="otp" id="no-index">
 
+### On This Page
 - [Tabs and sections](#tabs-and-sections)
 - [Array type](#array-type)
 - [Hidden settings](#hidden-settings)
@@ -9,8 +10,7 @@
 - [Resources](#resources)
 
 </div>
-
-Page Builder allows store owners to customize the different style elements of a theme like colors, text sizes, and more. They can use the built-in Page Builder tool in the control panel to drag and drop content like images, videos, banners, carousels, buttons, and blocks of custom HTML. 
+Page Builder allows store owners to customize the different theme style elements like colors, text sizes, and more. They can use the built-in Page Builder tool in the control panel to drag and drop content like images, videos, and blocks of custom HTML. 
 
 Developers can build user interfaces for their custom [widgets](https://developer.bigcommerce.com/api-docs/storefront/widgets/widgets-overview) within the BigCommerce Page Builder platform using pre-configured schema. While BigCommerce provides the setting, logic, and design, the widget author provides information about the various settings that make up the widget. BigCommerce uses the same mechanism for all platform-provided widgets.
 
