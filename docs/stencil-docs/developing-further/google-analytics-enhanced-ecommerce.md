@@ -43,7 +43,7 @@ If you would like to implement Data Tags on your custom theme and do not already
 ### Prerequisites
 * [BigCommerce Store](https://support.bigcommerce.com/s/article/Starting-a-Bigcommerce-Trial)
 * [Optimized One-Page Checkout enabled](https://support.bigcommerce.com/s/article/Optimized-Single-Page-Checkout)
-* Cornerstone theme installed
+* [Cornerstone theme installed](https://developer.bigcommerce.com/stencil-docs/getting-started/about-stencil#cornerstone)
 
 ### Include the Enhanced ECommerce Property
 
