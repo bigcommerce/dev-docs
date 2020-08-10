@@ -1,78 +1,74 @@
-# BigCommerce Apps
+# Introduction to Building Apps
 
 <div class="otp" id="no-index">
 
 ### On This Page
 - [About BigCommerce Apps](#about-bigcommerce-apps)
-- [Types of Apps](#types-of-apps)
 - [Use Cases](#use-cases)
-- [Building Apps](#building-apps)
+- [Getting Started](#getting-started)
+- [Next Steps](#next-steps)
 - [Resources](#resources)
 
 </div>
 
-Using BigCommerce's powerful APIs, SDKs, and Toolkits, any BigCommerce partner can create and list apps on BigCommerce's App Marketplace for merchants to install. This article provides a high-level overview of apps on BigCommerce. For an in-depth technical guide to developing BigCommerce apps, see [Building Apps]().
+Using BigCommerce's powerful APIs, SDKs, and Toolkits, developers can build apps that are installable on BigCommerce stores. Once approved, apps can be sold (or made available free of charge) to all BigCommerce merchants on the [Apps Marketplace](https://www.bigcommerce.com/apps). This is the first article in a comprehensive developer's guide to building BigCommerce apps. It provides a brief, high-level introduction for developers new to the platform. If you already have experience developing for BigCommerce, feel free to [skip ahead](#next-steps) or checkout the [quick start tutorial](https://developer.bigcommerce.com/api-docs/apps/quick-start).
 
 ## About BigCommerce Apps
 
-### Discovery
-![titled](https://raw.githubusercontent.com/bigcommerce/dev-docs/master/assets/images/ "title")
+Let's first take a look how apps are discovered, displayed, and managed on BigCommerce stores.
 
-### Display
-![titled](https://raw.githubusercontent.com/bigcommerce/dev-docs/master/assets/images/ "title")
+### Discovery
+Approved apps are listed on the app [Marketplace](https://www.bigcommerce.com/apps/) for merchants to browse, search, and install:
+![App Marketplace](https://raw.githubusercontent.com/bigcommerce/dev-docs/master/assets/images/apps-01-introduction-01.png "App Marketplace")
 
 ### Management
-![titled](https://raw.githubusercontent.com/bigcommerce/dev-docs/master/assets/images/ "title")
+Apps installed on a store are managed in the store's control panel under [**Apps** > My **Apps**](https://login.bigcommerce.com/deep-links/manage/marketplace/apps/my-apps/drafts). Here, store users can launch or uninstall the app:
+![App Management](https://raw.githubusercontent.com/bigcommerce/dev-docs/master/assets/images/apps-01-introduction-02.png  "App Management")
 
-## Types of Apps
-Concise table; linkout to doc.
+### Display
+When an launches an app, BigCommerce makes a request to the app's `/load` callback and displays the app's UI in an iFrame:
+![App Display](https://raw.githubusercontent.com/bigcommerce/dev-docs/master/assets/images/apps-01-introduction-03.png  "App Display")
 
 ## Use Cases
+What can developers do with BigCommerce apps?
 
-### Integrate Platforms
-ERP, order management, accounting, etc; list of links
+### Integrate with Business Systems
+Use [BigCommerce APIs](https://developer.bigcommerce.com/api-reference) to integrate stores with business systems such as:
+* [ERP systems](https://www.bigcommerce.com/apps/erp/)
+* [Oder management platforms](https://www.bigcommerce.com/apps/catalog-order-management/)
+* [Accounting software](https://www.bigcommerce.com/apps/accounting-tax/)
+* [Shipping and Fulfillment services](https://www.bigcommerce.com/apps/shipping-fulfillment/)
 
-### Connect Sales Channels
-Point-of-Sale, Storefront, etc; list of links
+[Learn more about BigCommerce's APIs](https://developer.bigcommerce.com/api-reference)
+
+### Connect to Sales Channels
+List products on external [sales channels](https://www.bigcommerce.com/apps/sales-channels/) with [Channels Toolkit](https://developer.bigcommerce.com/api-docs/channels/channels-toolkit-reference).
+
+[Learn more about connecting apps to sales channels.](https://developer.bigcommerce.com/api-docs/channels/overview).
 
 ### Add and Manage Scripts
-Create apps that inject scripts, marketing, analytics, etc; list of links
+Create and manage scripts with [Scripts API](https://developer.bigcommerce.com/api-reference/store-management/scripts) and [Script Manager](https://support.bigcommerce.com/s/article/Using-Script-Manager).
+
+[Learn more about creating scripts](https://developer.bigcommerce.com/api-docs/storefront/scripts-overview).
 
 ### Create Custom Widgets
-Create custom widgets for eCommerce merchants to install and configure; list of links
+Create [widgets](https://support.bigcommerce.com/s/article/Page-Builder#builder) for merchants to install and configure.
 
-## Building Apps
+[Learn more about creating widgets](https://developer.bigcommerce.com/api-docs/storefront/widgets/widgets-overview).
 
-### Getting Started
+## Getting Started
+Here's how to get started with BigCommerce development:
+1. [Start a Free Trial](https://www.bigcommerce.com/essentials/free-trial/) to test apps against.
+2. [Apply to be a Partner](https://www.bigcommerce.com/partners) to get payed for your apps.
+3. [Create a DevTools Account](https://devtools.bigcommerce.com/) to register and submit apps.
+4. [Join the Developer Community](https://support.bigcommerce.com/s/group/0F913000000HLjECAW/bigcommerce-developers) to get help from other BigCommerce developers.
+5. [Checkout the Marketplace](https://www.bigcommerce.com/marketplace/) to get inspiration on what to build.
 
-1. Create a Free Trial
-2. Apply to be a Technology Partner
-3. Create a developer account
-4. Build your App
-
-### Building the App
+## Next Steps
+* [Decide Type of App to Build](https://developer.bigcommerce.com/api-docs/apps/guide/types-of-apps)
+* [Get Started Building Apps with CodeSandbox, Node, and Express](https://developer.bigcommerce.com/api-docs/apps/quick-start)
 
 ## Resources
-
-### Related Articles
-* Apps Overview
-* Building Apps
-* Types of Apps
-* Quick Start
-* Managing Apps in DevTools
-* Testing Locally
-* Installing Draft App
-* Implementing OAuth Flow
-* Handle Call Backs
-* Supporting Multiple Users
-* Listening for Events
-* Designing the UI
-* Creating Install Buttons
-* Best Practices
-* Approval Requirements
-* Deploying an App
-* Publishing an App
-* Finding an App's ID
 
 ### Sample Apps
 * [Python / Flask](https://github.com/bigcommerce/hello-world-app-python-flask)
