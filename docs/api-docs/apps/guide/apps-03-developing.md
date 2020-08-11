@@ -71,7 +71,8 @@ Once you've exposed an app to the internet, you can register a draft app in [Dev
 1. [Log into DevTools](https://devtools.bigcommerce.com/).
 
 2. Click **Create an App**.
-3. Give the app a name
+3. Name your app.
+
 4. Click **Technical**.
 
 5. Enter your app's callback URLs. If you're using ngrok, they'll look like this:
