@@ -33,7 +33,8 @@ To find an app's ID in [DevTools](https://devtools.bigcommerce.com/my/apps):
 1. Login to [DevTools](https://devtools.bigcommerce.com/my/apps)
 2. Click **Edit App**.
 
-3. The app's ID is in the URL (Ex: `/my/apps/{{APP_ID}}/summary?review=false`)
+3. Identify the app's ID is in the URL (ex: `/my/apps/{{APP_ID}}/summary?review=false`).
+
 
 ## Usage
 
