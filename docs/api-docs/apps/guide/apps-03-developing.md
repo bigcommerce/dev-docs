@@ -59,7 +59,8 @@ For step-by-step instructions, see [How to Test App Authentication Locally with 
 <!-- theme: info -->
 
 ### Note
-> * If you'd rather skip setting up a development environment for now, and experiment with app development in the browser, fork our [Express Hello World App in CodeSandbox](https://codesandbox.io/s/express-hello-world-app-fq5t1?file=/app.js). For step-by-step instructions, see Building Apps [Quick Start](https://developer.bigcommerce.com/api-docs/apps/quick-start)
+> * If you'd rather skip setting up a development environment and experiment with app development in the browser, fork our [Express Hello World App in CodeSandbox](https://codesandbox.io/s/express-hello-world-app-fq5t1?file=/app.js). For step-by-step instructions, see the [Building Apps Quick Start Tutorial](https://developer.bigcommerce.com/api-docs/apps/quick-start).
+
 
 </div>
 </div>
