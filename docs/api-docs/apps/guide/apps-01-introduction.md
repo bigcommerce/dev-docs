@@ -61,7 +61,8 @@ Create [widgets](https://support.bigcommerce.com/s/article/Page-Builder#builder)
 
 ## Getting Started
 Here's how to get started with BigCommerce development:
-1. [Start a Free Trial](https://www.bigcommerce.com/essentials/free-trial/) to test apps against.
+1. [Start a free trial](https://www.bigcommerce.com/essentials/free-trial/) to test apps against.
+
 2. [Apply to be a Partner](https://www.bigcommerce.com/partners) to get payed for your apps.
 3. [Create a DevTools Account](https://devtools.bigcommerce.com/) to register and submit apps.
 4. [Join the Developer Community](https://support.bigcommerce.com/s/group/0F913000000HLjECAW/bigcommerce-developers) to get help from other BigCommerce developers.
@@ -95,4 +96,3 @@ Here's how to get started with BigCommerce development:
 * [How to Test App Authentication Locally with ngrok](https://medium.com/bigcommerce-developer-blog/how-to-test-app-authentication-locally-with-ngrok-149150bfe4cf) (BigCommerce Developer Blog)
 * [Building a BigCommerce App Using Laravel and React](https://medium.com/bigcommerce-developer-blog/building-a-bigcommerce-app-using-laravel-and-react-711ceceb5006) (BigCommerce Developer Blog)
 * [Big Design Tutorial](https://medium.com/bigcommerce-developer-blog/bigdesign-build-native-looking-uis-with-the-bigcommerce-design-system-fb06a01a24f2) (BigCommerce Developer Blog)
-
