@@ -3,7 +3,8 @@
 <div class="otp" id="no-index">
 
 ### On This Page
-- [Find in Control Panel](#find-in-control-panel)
+- [Find in control panel](#find-in-control-panel)
+
 - [Find in DevTools](#find-in-devtools)
 - [Usage](#usage)
 - [Resources](#resources)
