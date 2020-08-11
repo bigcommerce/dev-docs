@@ -3,7 +3,8 @@
 <div class="otp" id="no-index">
 
 ### On This Page
-- [Single Click](#single-click)
+- [Single-Click](#single-click)
+
 - [Connector](#connector)
 - [Visibility](#visibility)
 - [Next Steps](#next-steps)
