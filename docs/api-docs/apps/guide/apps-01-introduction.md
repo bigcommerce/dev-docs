@@ -2,11 +2,11 @@
 
 <div class="otp" id="no-index">
 
-### On This Page
-- [About BigCommerce Apps](#about-bigcommerce-apps)
-- [Use Cases](#use-cases)
-- [Getting Started](#getting-started)
-- [Next Steps](#next-steps)
+### On this page
+- [About BigCommerce apps](#about-bigcommerce-apps)
+- [Use cases](#use-cases)
+- [Getting started](#getting-started)
+- [Next steps](#next-steps)
 - [Resources](#resources)
 
 </div>
@@ -14,7 +14,7 @@
 Using BigCommerce's powerful APIs, SDKs, and toolkits, developers can build apps that are installable on BigCommerce stores. Once approved, apps can be sold (or made available free of charge) to all BigCommerce merchants on the [Apps Marketplace](https://www.bigcommerce.com/apps). This is the first article in a comprehensive developer's guide to building BigCommerce apps. It provides a brief, high-level introduction for developers new to the platform. If you already have experience developing for BigCommerce, feel free to [skip ahead](#next-steps) or check out the [quick start tutorial](https://developer.bigcommerce.com/api-docs/apps/quick-start).
 
 
-## About BigCommerce Apps
+## About BigCommerce apps
 
 Let's first take a look how apps are discovered, displayed, and managed on BigCommerce stores.
 
@@ -29,15 +29,15 @@ Apps installed on a store are managed in the store's control panel under **Apps*
 ![App Management](https://raw.githubusercontent.com/bigcommerce/dev-docs/master/assets/images/apps-01-introduction-02.png  "App Management")
 
 ### Display
-When an launches an app, BigCommerce makes a request to the app's `/load` callback and displays the app's UI in an iFrame.
+When a merchant launches an app, BigCommerce makes a request to the app's `/load` callback and displays the app's UI in an iFrame.
 
 ![App Display](https://raw.githubusercontent.com/bigcommerce/dev-docs/master/assets/images/apps-01-introduction-03.png  "App Display")
 
-## Use Cases
+## Use cases
 What can developers do with BigCommerce apps?
 
 ### Integrate with Business Systems
-Use [BigCommerce APIs](https://developer.bigcommerce.com/api-reference) to integrate stores with business systems such as:
+Use [BigCommerce APIs](https://developer.bigcommerce.com/api-reference) to integrate stores with business systems such as the following:
 * [ERP systems](https://www.bigcommerce.com/apps/erp/)
 * [Oder management platforms](https://www.bigcommerce.com/apps/catalog-order-management/)
 * [Accounting software](https://www.bigcommerce.com/apps/accounting-tax/)
@@ -61,7 +61,7 @@ Create [widgets](https://support.bigcommerce.com/s/article/Page-Builder#builder)
 
 [Learn more about creating widgets](https://developer.bigcommerce.com/api-docs/storefront/widgets/widgets-overview).
 
-## Getting Started
+## Getting started
 Here's how to get started with BigCommerce development:
 1. [Start a free trial](https://www.bigcommerce.com/essentials/free-trial/) to test apps against.
 
@@ -73,7 +73,7 @@ Here's how to get started with BigCommerce development:
 5. [Check out the Marketplace](https://www.bigcommerce.com/marketplace/) to get inspiration on what to build.
 
 
-## Next Steps
+## Next steps
 * [Decide which type of app to build](https://developer.bigcommerce.com/api-docs/apps/guide/types-of-apps)
 
 * [Start building apps with CodeSandbox, Node, and Express](https://developer.bigcommerce.com/api-docs/apps/quick-start)
