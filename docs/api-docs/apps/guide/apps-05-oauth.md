@@ -15,7 +15,7 @@
 
 </div>
 
-This article contains all the technical details necessary to implement the app OAuth flow. If you plan on handling it completely with your own code, you'll want to read this documentation carefully. If you're starting with a sample app or using an API client that handles OAuth for you, you should read through so that at least have a high-level familiarity with flow and it's callback sequence.
+This article contains the technical details necessary to handle the OAuth grant flow used by BigCommerce apps. If you plan on handling it completely with your own code, you'll want to read this documentation carefully. If you're starting with a sample app or using an API client that handles OAuth for you, you should read through so that at least have a high-level familiarity with flow and it's callback sequence.
 
 ## OAuth Summary
 The OAuth sequence is as follows:
@@ -170,8 +170,7 @@ $token = $response->access_token;
 ```
 
 ## Helpful Tools
-The following clients expose helper methods for handling the OAuth flow:
-
+The following clients expose helper methods for fetching `access_tokens`:
 * [bigcommerce/bigcommerce-api-python](https://github.com/bigcommerce/bigcommerce-api-python)
   * Fetches `access_token`
   * Verifies `signed_payload`
@@ -179,6 +178,8 @@ The following clients expose helper methods for handling the OAuth flow:
   * Fetches `access_token`
   * Verifies `signed_payload`
 * [bigcommerce/bigcommerce-api-php](https://github.com/bigcommerce/bigcommerce-api-php)
+  * Fetches `access_token`
+* [bigcommerce/omniauth-bigcommerce](https://github.com/bigcommerce/omniauth-bigcommerce)
   * Fetches `access_token`
 
 ## Next Steps

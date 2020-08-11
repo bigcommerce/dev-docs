@@ -10,6 +10,7 @@
 - [Verifying the Signed Payload](#verifying-the-signed-payload)
 - [Processing the Payload](#processing-the-payload)
 - [Code Samples](#code-samples)
+- [Helpful Tools](#helpful-tools)
 - [Next Steps](#next-steps)
 - [Resources](#resources)
 
@@ -20,11 +21,11 @@ This article discusses handling BigCommerce app callbacks.
 ## Overview
 | Event | Required? | Description |
 |-|-|-|
-| `Load`  | Yes | Called when the store owner or user clicks to load your app. |
-| `Uninstall`  | No | Called when the store owner clicks to uninstall your app. |
-| `Remove User` | No | Called when the store admin revokes a user's access to your app. |
+| `Load`  | Yes | Called when the store owner or user clicks to load the app. |
+| `Uninstall`  | No | Called when the store owner clicks to uninstall the app. |
+| `Remove User` | No | Called when the store admin revokes a user's access to the app. |
 
-Each event triggers a `GET` request from BigCommerce containing a signed payload that allows your app to:
+Each event triggers a `GET` request from BigCommerce containing a signed payload that allows the app to:
 - Verify that the request came from BigCommerce.
 - Identify the store.
 - Identify the store owner or user.
@@ -38,7 +39,7 @@ GET /load?signed_payload=hw9fhkx2ureq.t73sk8y80jx9 HTTP/1.1
 Host: app.example.com
 ```
 
-**Description**: called when the store owner or user clicks to load your app.
+**Description**: called when the store owner or user clicks to load the app.
 
 **How to Handle**:
 1. [Verify the signed payload](#verifying-the-signed-payload)
@@ -50,7 +51,7 @@ Host: app.example.com
 GET https://app.example.com/uninstall?signed_payload=hw9fhkx2ureq.t73sk8y80jx9 HTTP/1.1
 ```
 
-**Description**: Called when the store owner clicks to uninstall your app.
+**Description**: Called when the store owner clicks to uninstall the app.
 
 **How to Handle:**
 1. [Verify the signed payload](#verifying-the-signed-payload)
@@ -77,7 +78,7 @@ encoded_json_string.encoded_hmac_signature
 2. Decode `encoded_json_string` using **base64url**.
 3. Convert the decoded JSON string into an object.
 4. Decode `encoded_hmac_signature` using **base64url**.
-5. Use your `client_secret` to verify the signature.
+5. Use app's `client_secret` to verify the signature.
 6. Sign decoded `json_string` with app's `client_secret`
 7. Match `client_secret` signed `json_string` against decoded `hmac_signature`
 
@@ -87,7 +88,7 @@ encoded_json_string.encoded_hmac_signature
 <div class="HubBlock-content">
 
 > ### Note
-> * To limit the vulnerability of your app to timing attacks, we recommend using a constant time-string comparison function, rather than the equality operator, to check that the signatures match.
+> * To limit the vulnerability of an app to timing attacks, we recommend using a constant time-string comparison function, rather than the equality operator, to check that the signatures match.
 
 </div>
 </div>
@@ -151,9 +152,7 @@ function verifySignedRequest($signedRequest)
 }
 ```
 
-
 **Verifying the Signed Request in Ruby:**
-
 ```ruby
 require "base64"
 require "openssl"
@@ -183,6 +182,15 @@ def secure_compare(a, b)
   res == 0
 end
 ```
+
+## Helpful Tools
+The following api clients expose helper methods for verifying the `signed_payload`:
+* [bigcommerce/bigcommerce-api-python](https://github.com/bigcommerce/bigcommerce-api-python)
+  * Fetches `access_token`
+  * Verifies `signed_payload`
+* [conversio/node-bigcommerce](https://github.com/getconversio/node-bigcommerce)
+  * Fetches `access_token`
+  * Verifies `signed_payload`
 
 ## Next Steps
 
