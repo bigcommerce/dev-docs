@@ -29,13 +29,13 @@ Available filters vary by endpoint. Refer to the GET method for an endpoint to s
 
 ## Includes
 
-Some endpoints allow an `?include` parameter to include sub-resources and other information in the primary GET response for a parent object.
+Some endpoints allow `?include` parameter to include sub-resources and other information in the primary GET response for a parent object.
 
 These endpoints allow you to save API calls by getting more information in a response. However, it may slow down your response.
 
 For example, you can include a product's variants and images with the product response: `/v3/catalog/products?include=variants,images`
 
-The availability of the `?include` parameter varies by an endpoint. Refer to the GET method for an endpoint to see a list of available fields.
+The availability of the `?include` parameter varies by an endpoint. Refer to the `GET` method for an endpoint to see a list of available fields.
 
 ### Including and Excluding Fields
 
@@ -43,7 +43,7 @@ Some endpoints support both `?include_fields` and `?exclude_fields`.
 
 `include_fields` will return ONLY the specified fields in the response. `exclude_fields` will omit the specified fields from the response.
 
-You can specify any field that is available on the object. Excluding fields you don't care about (unusually large fields like descriptions) can speed up your API request response time.
+You can specify any field that is available on the object. Excluding fields you don't care about (especially large fields like descriptions) can speed up your API request response time.
 
 **Example Response Get Product Name and Price**  
 Here, product name and price information are in the endpoint:
