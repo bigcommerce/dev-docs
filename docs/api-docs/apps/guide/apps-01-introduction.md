@@ -71,7 +71,8 @@ Here's how to get started with BigCommerce development:
 5. [Checkout the Marketplace](https://www.bigcommerce.com/marketplace/) to get inspiration on what to build.
 
 ## Next Steps
-* [Decide Type of App to Build](https://developer.bigcommerce.com/api-docs/apps/guide/types-of-apps)
+* [Decide which type of app to build](https://developer.bigcommerce.com/api-docs/apps/guide/types-of-apps)
+
 * [Start building apps with CodeSandbox, Node, and Express](https://developer.bigcommerce.com/api-docs/apps/quick-start)
 
 
