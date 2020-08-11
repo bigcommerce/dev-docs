@@ -31,7 +31,8 @@ The fastest way to begin app development is by starting with one of our Hello Wo
 * [Node / FaunaDB / Nelify](https://github.com/bigcommerce/channels-app/) (github)
 
 ## Testing Locally with Ngrok
-You can use [Ngrok](https://ngrok.com/) to test apps locally. Its easy to install and works well with [Express](https://expressjs.com/) (expressjs.com):
+You can use [ngrok](https://ngrok.com/) to test apps locally. It's easy to install and works well with [Express](https://expressjs.com/):
+
 
 ```shell
 npm install express-generator -g # install express generate
