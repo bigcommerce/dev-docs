@@ -68,7 +68,8 @@ Here's how to get started with BigCommerce development:
 
 3. [Create a DevTools Account](https://devtools.bigcommerce.com/) to register and submit apps.
 4. [Join the Developer Community](https://support.bigcommerce.com/s/group/0F913000000HLjECAW/bigcommerce-developers) to get help from other BigCommerce developers.
-5. [Checkout the Marketplace](https://www.bigcommerce.com/marketplace/) to get inspiration on what to build.
+5. [Check out the Marketplace](https://www.bigcommerce.com/marketplace/) to get inspiration on what to build.
+
 
 ## Next Steps
 * [Decide which type of app to build](https://developer.bigcommerce.com/api-docs/apps/guide/types-of-apps)
