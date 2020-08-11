@@ -3,11 +3,11 @@
 <div class="otp" id="no-index">
 
 ### On This Page
-- [Obtaining Store API Credentials](#obtaining-store-api-credentials)
-- [Revoking Store API Credentials](#revoking-store-api-credentials)
+- [Obtaining store API credentials](#obtaining-store-api-credentials)
+- [Revoking store API credentials](#revoking-store-api-credentials)
 - [Obtaining app API credentials](#obtaining-app-api-credentials)
-- [Use Cases by Credential Type](#use-cases-by-credential-type)
-- [Migrating from Legacy to OAuth](#migrating-from-legacy-to-oauth)
+- [Use cases by credential type](#use-cases-by-credential-type)
+- [Migrating from legacy to OAuth](#migrating-from-legacy-to-oauth)
 - [OAuth scopes](#oauth-scopes)
 - [Resources](#resources)
 
@@ -23,7 +23,7 @@ Store API credentials are generated when a store API account is created in a sto
 
 Developers can create app API credentials in the BigCommerce [Developer Portal](https://devtools.bigcommerce.com). App API credentials are used during the OAuth flow to request authorization “on behalf” of a store owner, allowing the app to make API requests against store data. App API credentials are OAuth only, and the store owner must install the app before the app is granted access to the store.
 
-## Obtaining Store API Credentials
+## Obtaining store API credentials
 
 The following steps outline how to generate store API Credentials.
 
@@ -57,7 +57,7 @@ To get started making requests, see [API Requests](/api-docs/getting-started/bas
 </div>
 </div>
 
-## Revoking Store API Credentials
+## Revoking store API credentials
 
 To revoke Store API Credentials:
 1. Log into the store, using the store owner’s username/password.
@@ -72,7 +72,7 @@ To revoke Store API Credentials:
 
 <!-- theme: error -->
 
-### Delete Carefully
+### Delete carefully
 > Deleting an account cannot be undone, so be sure before clicking the trash can icon. You can also use the checkboxes on the left side to delete multiple accounts at once – but be especially careful when using this option.
 
 </div>
@@ -111,7 +111,7 @@ To get app API credentials, create and login to your BigCommerce [Developer Port
 ### Client ID and client secret
 > The client ID value uniquely identifies your app. You will need to pass it in the header of all your requests to the API.
 
-The Client Secret value is a secret that your app and BigCommerce share. You only need to pass the client secret value once, during the app installation sequence. Thereafter, BigCommerce uses it to sign payloads in load, uninstall, and remove user requests, and your app uses it to verify the signature to ensure that the request is coming from BigCommerce.
+The client secret value is a secret that your app and BigCommerce share. You only need to pass the client secret value once, during the app installation sequence. Thereafter, BigCommerce uses it to sign payloads in load, uninstall, and remove user requests, and your app uses it to verify the signature to ensure that the request is coming from BigCommerce.
 
 </div>
 </div>
@@ -132,11 +132,11 @@ The Client Secret value is a secret that your app and BigCommerce share. You onl
 </div>
 </div>
 
-### Next Steps
+### Next steps
 
 During the app installation process, your app will use the client ID and client secret to obtain an OAuth token authorized against the store installing the app. For a detailed look at this process, see [Building an App](/api-docs/getting-started/building-apps-bigcommerce/building-apps).
 
-## Use Cases by Credential Type
+## Use cases by credential type
 
 | App API Credentials | Store API Credentials|
 |-|-|
@@ -152,7 +152,7 @@ During the app installation process, your app will use the client ID and client 
 | V3 | X | X |
 |Webhooks | X | X |
 
-## Migrating from Legacy to OAuth
+## Migrating from legacy to OAuth
 
 <div class="HubBlock--callout">
 <div class="CalloutBlock--error">
@@ -189,13 +189,13 @@ Consider whether your application should reside within the public (App Marketpla
 
 If you would like to update your API connection from basic authentication to OAuth, you will need to make the following changes:
 
-- Get a Client ID and an Access Token, by creating an API Account within the control panel. You’ll want to make sure the account has the correct Scopes for the API endpoints you need to access. We recommend that you provide the minimum scopes that your application requires to function, as a good security practice.
+- Get a client ID and an access token, by creating an API account within the control panel. Make sure the account has the correct scopes for the API endpoints you need to access. We recommend that you provide the minimum scopes that your application requires to function, as a good security practice.
 - If you use one of the [client libraries](https://developer.bigcommerce.com/tools-resources), follow the relevant guide within the library’s documentation for establishing an OAuth connection.
 - If you have created your connection, you’ll want to update your connection parameters:
 	- Where you previously used the BigCommerce store’s secure hostname, you will instead use the `https://api.bigcommerce.com` gateway URL. As an example, requests to `https://store-abc123.mybigcommerce.com/api/v2/orders/123` or `https://my-custom-store-domain.com/api/v2/orders/123` would instead go to `https://api.bigcommerce.com/stores/{store_hash}/v2/orders/123`.
-- With Basic Auth, you use an Authentication HTTP Header to authenticate your connection. With OAuth, you’ll want to use two headers:
-	- X-Client-Id for your Client ID
-	- X-Auth-Token header for your Access Token. You can read more [here](/api-docs/getting-started/basics/authentication#authentication_what-are-oauth-credentials-1).
+- With basic auth, you use an authentication HTTP header to authenticate your connection. With OAuth, you’ll want to use two headers:
+	- X-Client-Id for your client ID
+	- X-Auth-Token header for your access token. For more information see the article [Authentication](/api-docs/getting-started/authentication).
 
 Rate limiting of API requests works differently for OAuth API connections. To become familiar with OAuth limitations, please see the [Rate Limits](/api-docs/getting-started/basics/best-practices#best-practices_rate-limits).
 
