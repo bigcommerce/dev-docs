@@ -79,7 +79,8 @@ Once you've exposed an app to the internet, you can register a draft app in [Dev
 
 
 ## Installing a Draft App
-Draft apps are installable on stores owned by the same email as the [DevTools](https://devtools.bigcommerce.com/my/apps) account. Login to the store and navigate to [**Apps** > **My Apps** > **My Draft Apps**](Mhttps://login.bigcommerce.com/deep-links/manage/marketplace/apps/my-apps/drafts) and click the app to install the draft. Once **Install** is clicked, BigCommerce will begin the OAauth flow by making a `GET` request to the app's `/auth` callback URL. If the app handles all the requests successfully, the app will be installed and you can begin feature development.
+Draft apps are installable on stores owned by the same email as the [DevTools](https://devtools.bigcommerce.com/my/apps) account. Log into the store and navigate to **Apps** > **My Apps** > [**My Draft Apps**](https://login.bigcommerce.com/deep-links/manage/marketplace/apps/my-apps/drafts) and click the app to install the draft. Once you click **Install**, BigCommerce will begin the OAauth flow by making a `GET` request to the app's `/auth` callback URL. If the app handles all the requests successfully, the app will be installed and you can begin feature development.
+
 
 ## Next Steps
 * [Learn How Test App Authentication Locally with ngrok](https://medium.com/bigcommerce-developer-blog/how-to-test-app-authentication-locally-with-ngrok-149150bfe4cf)
