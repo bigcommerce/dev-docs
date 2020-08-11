@@ -32,7 +32,8 @@ Connector apps use manual OAuth token creation instead of the single-click app f
 - Apps that do not provide web services for OAuth exchange (ex: native order sync app).
 
 ## Visibility
-There are three visibility options for apps: **draft**, **unlisted**, and **public**.
+There are three visibility options for apps: **Draft**, **Unlisted**, and **Public**.
+
 
 * **Draft**
   * **Description**: apps registered in [Dev Tools](https://devtools.bigcommerce.com/) but never submitted for approval
