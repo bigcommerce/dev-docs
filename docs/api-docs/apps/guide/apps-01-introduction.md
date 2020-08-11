@@ -29,7 +29,8 @@ Apps installed on a store are managed in the store's control panel under **Apps*
 ![App Management](https://raw.githubusercontent.com/bigcommerce/dev-docs/master/assets/images/apps-01-introduction-02.png  "App Management")
 
 ### Display
-When an launches an app, BigCommerce makes a request to the app's `/load` callback and displays the app's UI in an iFrame:
+When an launches an app, BigCommerce makes a request to the app's `/load` callback and displays the app's UI in an iFrame.
+
 ![App Display](https://raw.githubusercontent.com/bigcommerce/dev-docs/master/assets/images/apps-01-introduction-03.png  "App Display")
 
 ## Use Cases
