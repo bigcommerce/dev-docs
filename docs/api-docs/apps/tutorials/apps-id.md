@@ -17,7 +17,8 @@ Select partners [building channel apps](https://developer.bigcommerce.com/api-do
 ## Find in Control Panel
 An app's ID can be found in the URL while on the app's page in a store's control panel. The location of the app's page depends on if the app is installed or uninstalled.
 
-* **Uninstalled Draft Apps:** [**Apps** > **My Apps** > **My Draft Apps**](https://login.bigcommerce.com/deep-links/manage/marketplace/apps/my-apps/drafts)
+* **Uninstalled Draft Apps:** **Apps** > **My Apps** > [**My Draft Apps**](https://login.bigcommerce.com/deep-links/manage/marketplace/apps/my-apps/drafts)
+
 * **Installed Apps:** [**Apps** > **My Apps**](https://login.bigcommerce.com/deep-links/manage/marketplace/apps/my-apps)
 
 To open the app page, click the app:
