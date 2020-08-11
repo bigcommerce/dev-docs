@@ -19,7 +19,8 @@ An app's ID can be found in the URL while on the app's page in a store's control
 
 * **Uninstalled Draft Apps:** **Apps** > **My Apps** > [**My Draft Apps**](https://login.bigcommerce.com/deep-links/manage/marketplace/apps/my-apps/drafts)
 
-* **Installed Apps:** [**Apps** > **My Apps**](https://login.bigcommerce.com/deep-links/manage/marketplace/apps/my-apps)
+* **Installed Apps:** **Apps** > [**My Apps**](https://login.bigcommerce.com/deep-links/manage/marketplace/apps/my-apps)
+
 
 To open the app page, click the app:
 
