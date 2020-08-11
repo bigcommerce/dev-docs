@@ -75,7 +75,8 @@ Once you've exposed an app to the internet, you can register a draft app in [Dev
    * **Auth**: `https://4022ffe4.ngrok.io/auth`
    * **Load**: `https://4022ffe4.ngrok.io/load`
    * **Uninstall**: `https://4022ffe4.ngrok.io/uninstall`
-6.  Click **Update & Close**
+6.  Click **Update & Close**.
+
 7.  Click **View Client ID** to view the app's `client_id` and `client_secret`.
 
 
