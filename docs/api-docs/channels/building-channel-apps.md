@@ -208,7 +208,7 @@ For a complete reference, see [Channels API](https://developer.bigcommerce.com/a
 <!-- theme: info -->
 
 ### Note
-> * The ID of an app can be found in the URL when editing the app in [DevTools](https://devtools.bigcommerce.com/). For more information, see [Finding an App's ID](https://developer.bigcommerce.com/api-docs/apps/tutorials/id).
+> * You can find the app ID in the URL when editing the app in [DevTools](https://devtools.bigcommerce.com/). For more information, see [Finding an App's ID](https://developer.bigcommerce.com/api-docs/apps/tutorials/id).
 
 </div>
 </div>
