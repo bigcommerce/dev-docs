@@ -66,7 +66,8 @@ Here's how to get started with BigCommerce development:
 
 ## Next Steps
 * [Decide Type of App to Build](https://developer.bigcommerce.com/api-docs/apps/guide/types-of-apps)
-* [Get Started Building Apps with CodeSandbox, Node, and Express](https://developer.bigcommerce.com/api-docs/apps/quick-start)
+* [Start building apps with CodeSandbox, Node, and Express](https://developer.bigcommerce.com/api-docs/apps/quick-start)
+
 
 ## Resources
 
@@ -91,7 +92,6 @@ Here's how to get started with BigCommerce development:
 * [How to Test App Authentication Locally with ngrok](https://medium.com/bigcommerce-developer-blog/how-to-test-app-authentication-locally-with-ngrok-149150bfe4cf) (BigCommerce Developer Blog)
 * [Building a BigCommerce App Using Laravel and React](https://medium.com/bigcommerce-developer-blog/building-a-bigcommerce-app-using-laravel-and-react-711ceceb5006) (BigCommerce Developer Blog)
 * [Big Design Tutorial](https://medium.com/bigcommerce-developer-blog/bigdesign-build-native-looking-uis-with-the-bigcommerce-design-system-fb06a01a24f2) (BigCommerce Developer Blog)
-
 
 
 
