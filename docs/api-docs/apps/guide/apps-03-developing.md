@@ -70,7 +70,8 @@ Once you've exposed an app to the internet, you can register a draft app in [Dev
 3. Give the app a name
 4. Click **Technical**.
 
-5. Enter app's callback URLs. If you're using ngrok, they'll look like this:
+5. Enter your app's callback URLs. If you're using ngrok, they'll look like this:
+
    * **Auth**: `https://4022ffe4.ngrok.io/auth`
    * **Load**: `https://4022ffe4.ngrok.io/load`
    * **Uninstall**: `https://4022ffe4.ngrok.io/uninstall`
