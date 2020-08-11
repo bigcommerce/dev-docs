@@ -19,7 +19,8 @@ Using BigCommerce's powerful APIs, SDKs, and toolkits, developers can build apps
 Let's first take a look how apps are discovered, displayed, and managed on BigCommerce stores.
 
 ### Discovery
-Approved apps are listed on the app [Marketplace](https://www.bigcommerce.com/apps/) for merchants to browse, search, and install:
+Approved apps are listed on the app [Marketplace](https://www.bigcommerce.com/apps/) for merchants to browse, search, and install.
+
 ![App Marketplace](https://raw.githubusercontent.com/bigcommerce/dev-docs/master/assets/images/apps-01-introduction-01.png "App Marketplace")
 
 ### Management
