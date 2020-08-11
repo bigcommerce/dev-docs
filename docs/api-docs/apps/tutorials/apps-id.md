@@ -36,7 +36,8 @@ To find an app's ID in [DevTools](https://devtools.bigcommerce.com/my/apps):
 
 ## Usage
 
-Once the app ID is obtained, it can be used to create or modify the `app` configuration for a channel via `POST` or `PUT` request to `/stores/{{STORE_HASH}}/v3/channels`:
+Once you obtain the app ID, you can use it to create or modify the `app` configuration for a channel via `POST` or `PUT` request to `/stores/{{STORE_HASH}}/v3/channels`:
+
 
 ```http
 POST https://api.bigcommerce.com/stores/{{STORE_HASH}}/v3/channels
