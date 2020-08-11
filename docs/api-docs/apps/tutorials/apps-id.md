@@ -33,7 +33,8 @@ The app ID is in the URL after `/manage/marketplace/apps/`:
 ## Find in DevTools
 
 To find an app's ID in [DevTools](https://devtools.bigcommerce.com/my/apps):
-1. Login to [DevTools](https://devtools.bigcommerce.com/my/apps)
+1. Log into [DevTools](https://devtools.bigcommerce.com/my/apps).
+
 2. Click **Edit App**.
 
 3. Identify the app's ID is in the URL (ex: `/my/apps/{{APP_ID}}/summary?review=false`).
