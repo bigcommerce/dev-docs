@@ -41,7 +41,8 @@ Use [BigCommerce APIs](https://developer.bigcommerce.com/api-reference) to integ
 * [Accounting software](https://www.bigcommerce.com/apps/accounting-tax/)
 * [Shipping and Fulfillment services](https://www.bigcommerce.com/apps/shipping-fulfillment/)
 
-[Learn more about BigCommerce's APIs](https://developer.bigcommerce.com/api-reference)
+[Learn more about BigCommerce's APIs](https://developer.bigcommerce.com/api-reference).
+
 
 ### Connect to Sales Channels
 List products on external [sales channels](https://www.bigcommerce.com/apps/sales-channels/) with [Channels Toolkit](https://developer.bigcommerce.com/api-docs/channels/channels-toolkit-reference).
@@ -94,5 +95,4 @@ Here's how to get started with BigCommerce development:
 * [How to Test App Authentication Locally with ngrok](https://medium.com/bigcommerce-developer-blog/how-to-test-app-authentication-locally-with-ngrok-149150bfe4cf) (BigCommerce Developer Blog)
 * [Building a BigCommerce App Using Laravel and React](https://medium.com/bigcommerce-developer-blog/building-a-bigcommerce-app-using-laravel-and-react-711ceceb5006) (BigCommerce Developer Blog)
 * [Big Design Tutorial](https://medium.com/bigcommerce-developer-blog/bigdesign-build-native-looking-uis-with-the-bigcommerce-design-system-fb06a01a24f2) (BigCommerce Developer Blog)
-
 
