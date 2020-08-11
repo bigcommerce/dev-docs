@@ -2,24 +2,25 @@
 
 <div class="otp" id="no-index">
 
-- [Tabs and Sections](#tabs-and-sections)
-- [Array Type](#array-type)
-- [Hidden Settings](#hidden-settings)
-- [Schema Settings](#schema-settings)
+### On This Page
+- [Tabs and sections](#tabs-and-sections)
+- [Array type](#array-type)
+- [Hidden settings](#hidden-settings)
+- [Schema settings](#schema-settings)
+- [Resources](#resources)
 
 </div>
+Page Builder allows store owners to customize the different theme style elements like colors, text sizes, and more. They can use the built-in Page Builder tool in the control panel to drag and drop content like images, videos, and blocks of custom HTML. 
 
-Page Builder allows store owners to customize the different style elements of a theme like colors, text sizes, and more. They can use the built-in Page Builder tool in the Control Panel to drag and drop content like images, videos, banners, carousels, buttons, and blocks of custom HTML. 
+Developers can build user interfaces for their custom [widgets](https://developer.bigcommerce.com/api-docs/storefront/widgets/widgets-overview) within the BigCommerce Page Builder platform using pre-configured schema. While BigCommerce provides the setting, logic, and design, the widget author provides information about the various settings that make up the widget. BigCommerce uses the same mechanism for all platform-provided widgets.
 
-Developers can build user interfaces for their custom widgets within the BigCommerce Page Builder platform using `schema.json` files. While BigCommerce provides the setting, logic, and design, the widget author provides information about the various settings that make up the widget. This is the exact mechanism BigCommerce uses for all platform-provided widgets as well.
+The following sections outline settings that can be passed as JSON into the `schema` property of a `POST` or `PUT` request to the `content\widget-template` endpoint of the Widgets API. For a step-by-step tutorial on creating widget templates, see [Widgets Tutorial](https://developer.bigcommerce.com/api-docs/storefront/widgets/widgets-tutorial).
 
-The following sections outline settings found in the `schema.json` files.
-
-## Tabs and Sections
-Within the `schema.json` file, edit settings are grouped into _tabs_ and _sections_.
+## Tabs and sections
+Within the `schema` property, settings are grouped into `tabs` and `sections`.
 
 ### Tabs
-Tabs are a part of the Page Builder schema structure. The schema requires using a single root-level tab to contain all visible sections.
+Tabs are a part of the Page Builder schema structure. The schema requires using a single root-level `tab` to contain all visible sections.
 
 >**Note**
 >
@@ -51,8 +52,8 @@ Settings render in the same order they are listed within a section.
 }]
 ```
 
-## Array Type
-Arrays allow for building collections of elements within the widget. Array elements live at the top level of the schema document. Each element in the array can contain an entire schema internally.
+## Array type
+Arrays allow for building collections of elements within the widget. Array elements live at the top level of the `schema`. Each element in the array can contain an entire schema internally.
 
 Elements in the list have settings defined by the array’s schema, which can be built using tabs, sections, and settings.
 
@@ -94,7 +95,7 @@ Elements in the list have settings defined by the array’s schema, which can be
 >- You can use the `entryLabel` attribute to set a name for each element in the list.
 
 ## Hidden Settings
-Hidden settings can be used to set up controls which have no user interface drawn in Page Builder. Hidden settings live at the top level of the schema since they are not grouped into any other tabs or arrays. You can use them in advanced widgets that have complex interactions in the preview pane (such as inline editing).
+Hidden settings can be used to set up controls which have no user interface drawn in Page Builder. Hidden settings live at the top level of the schema because they are not grouped into any other tabs or arrays. You can use them in advanced widgets that have complex interactions in the preview pane i.e. inline editing).
 
 **Hidden settings schema example**
 ```json
@@ -113,16 +114,20 @@ Hidden settings can be used to set up controls which have no user interface draw
 }
 ```
 
-## Schema Settings
-There are many common fields between schema settings including the following:
+## Schema settings
+There are many common fields between schema settings including the following.
 
 |Setting|Description|
 |---|---|
 |`type`|The type of setting component to display. You can view the list of elements below to discover which are available to use.|
 |`label`|The user friendly message to inform the user how this setting will be used.|
 |`id`|The variable name where the setting value will be available in the widget template.|
-|`default`|The default value to use when rendering the widget for the first time. Make sure to set sensible defaults to make your widget easier to use.|
+|`default`|The default value to use when rendering the widget for the first time.|
 |`typeMeta`|Additional information needed based on the selected setting type.|
-|`conditional`|Can be added on each setting to control whether it should be displayed to the user while editing in store design. This does not clear the value in the setting, just controls the display of the setting. Take a look at the regexInput for an example on using conditional.|
+|`conditional`|Can be added on each setting to control whether it should be displayed to the user while editing in Page Builder. This does not clear the value in the setting, just controls the display of the setting. Take a look at the regex Input for an example on using conditional.|
 
 For examples of different schema settings you can use in your custom widget template, see our [Schema Settings](https://developer.bigcommerce.com/stencil-docs/page-builder/schema-settings) page.
+
+## Resources
+- [Widgets Code Samples](https://developer.bigcommerce.com/api-docs/storefront/widgets/widgets-code-samples)
+- [Third-party Widgets](https://developer.bigcommerce.com/stencil-docs/page-builder/third-party-widgets)
