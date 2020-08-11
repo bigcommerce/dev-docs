@@ -70,7 +70,7 @@ For step-by-step instructions, see [How to Test App Authentication Locally with 
 Once you've exposed an app to the internet, you can register a draft app in [DevTools](https://devtools.bigcommerce.com/) using the app's callback URLs. To do so:
 1. [Log into DevTools](https://devtools.bigcommerce.com/).
 
-2. Click **Create an App**
+2. Click **Create an App**.
 3. Give the app a name
 4. Click **Technical**.
 
