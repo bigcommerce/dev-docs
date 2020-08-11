@@ -38,7 +38,8 @@ There are three visibility options for apps: **Draft**, **Unlisted**, and **Publ
 
 * **Draft**
   * **Description**: apps registered in [Dev Tools](https://devtools.bigcommerce.com/) but never submitted for approval
-  * **Use Cases:**:
+  * **Use Cases:**
+
     * installing on stores owned by the same email address as [DevTools](https://devtools.bigcommerce.com/auth/bigcommerce) account email
     * beta testing before publishing to marketplace
 * **Unlisted**
