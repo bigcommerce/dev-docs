@@ -46,7 +46,8 @@ After registering the app, enter the app's credential's and auth callback into y
 * `client_secret` => the app's client secret from [DevTools](https://devtools.bigcommerce.com/)
 
 ## Install the App
-Login to your store and navigate to [Apps > My Apps > My Draft Apps](https://login.bigcommerce.com/deep-links/manage/marketplace/apps/my-apps/drafts) and install the app. If everything is configured correctly, you should get an `Authorization Successful` message. Navigate back to **My Apps** to see the list of installed apps. Click **Launch** on the draft app to test the `/load` callback. Navigate back to **My Apps** and click **Uninstall** to test the `/uninstall callback`.
+Log into your store and navigate to **Apps** > **My Apps** > [**My Draft Apps**](https://login.bigcommerce.com/deep-links/manage/marketplace/apps/my-apps/drafts) and install the app. If everything is configured correctly, you should get an `Authorization Successful` message. Navigate back to **My Apps** to see the list of installed apps. Click **Launch** on the draft app to test the `/load` callback. Navigate back to **My Apps** and click **Uninstall** to test the `/uninstall callback`.
+
 
 Congrats! You've created and installed your first BigCommerce app.
 
