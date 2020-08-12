@@ -60,7 +60,8 @@ __Do nothing__
 
 If you don’t need to upgrade existing merchants to the Script Manager API, it’s perfectly fine to leave them. You’ll need to maintain documentation for the manual uninstallation process so that merchants with older installations know what to clean up. You won’t be able to update or add scripts for these users automatically. 
 
-2.) __Prompt merchants to upgrade__
+ __Prompt merchants to upgrade__
+
 
 If you want your merchants to update to the new Script Manager over time, you can prompt them to do so on your app’s landing page. You’ll need to keep track of which of your merchants are not using the Script Manager to know whether you need to display this prompt. Make sure to check that they are running Stencil (via the Get Store Information endpoint) before prompting them to upgrade.
 
