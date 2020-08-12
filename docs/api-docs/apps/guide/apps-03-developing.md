@@ -4,7 +4,7 @@
 
 ### On this page
 - [Getting started](#getting-started)
-- [Beginning with hello Wwold](#beginning-with-hello-wwold)
+- [Beginning with hello world](#beginning-with-hello-world)
 - [Testing locally with ngrok](#testing-locally-with-ngrok)
 - [Registering a draft app](#registering-a-draft-app)
 - [Installing a draft app](#installing-a-draft-app)
@@ -21,7 +21,7 @@ Here's a few things you'll need before beginning app development:
 2. [DevTools Account](https://devtools.bigcommerce.com/) (required to register apps)
 3. [BigCommerce partnership](https://www.bigcommerce.com/partners/) (required to publish apps to marketplace)
 
-## Beginning with hello Wwold
+## Beginning with hello world
 The fastest way to begin app development is by starting with one of our Hello World apps. Create and install an app in minutes with our [Hello World Express example on CodeSandbox](https://developer.bigcommerce.com/api-docs/apps/quick-start), or clone the starter for your preferred stack:
 
 * [Python / Flask](https://github.com/bigcommerce/hello-world-app-python-flask) (github)
@@ -86,7 +86,7 @@ Once you've exposed an app to the internet, you can register a draft app in [Dev
 
 
 ## Installing a draft app
-Draft apps are installable on stores owned by the same email as the [DevTools](https://devtools.bigcommerce.com/my/apps) account. Log into the store and navigate to **Apps** > **My Apps** > [**My Draft Apps**](https://login.bigcommerce.com/deep-links/manage/marketplace/apps/my-apps/drafts) and click the app to install the draft. Once you click **Install**, BigCommerce will begin the OAauth flow by making a `GET` request to the app's `/auth` callback URL. If the app handles all the requests successfully, the app will be installed and you can begin feature development.
+Draft apps are installable on stores owned by the same email as the [DevTools](https://devtools.bigcommerce.com/my/apps) account. Use the following steps to installLog into the store and navigate to **Apps** > **My Apps** > [**My Draft Apps**](https://login.bigcommerce.com/deep-links/manage/marketplace/apps/my-apps/drafts) and click the app to install the draft. Once you click **Install**, BigCommerce will begin the OAauth flow by making a `GET` request to the app's `/auth` callback URL. If the app handles all the requests successfully, the app will be installed and you can begin feature development.
 
 
 ## Next steps
@@ -94,10 +94,10 @@ Draft apps are installable on stores owned by the same email as the [DevTools](h
 
 ## Resources
 
-### Related Articles
+### Related articles
 * [Building Apps Quick Start](https://developer.bigcommerce.com/api-docs/apps/quick-start)
 
-### Sample Apps
+### Sample apps
 * [Python / Flask](https://github.com/bigcommerce/hello-world-app-python-flask)
 * [PHP / Silex](https://github.com/bigcommerce/hello-world-app-php-silex)
 * [Ruby / Sinatra](https://github.com/bigcommerce/hello-world-app-ruby-sinatra)
@@ -114,7 +114,7 @@ Draft apps are installable on stores owned by the same email as the [DevTools](h
 * [Figma UI Kit](https://www.figma.com/file/jTVuUkiZ1j3rux8WHG4IKK/BigDesign-UI-Kit?node-id=0%3A1/duplicate)
 * [Adobe Illustrator UI Kit](https://design.bigcommerce.com/bigdesign-ui-kit)
 
-### Blog Posts
+### Blog posts
 * [How to Test App Authentication Locally with ngrok](https://medium.com/bigcommerce-developer-blog/how-to-test-app-authentication-locally-with-ngrok-149150bfe4cf)
 * [Building a BigCommerce App Using Laravel and React](https://medium.com/bigcommerce-developer-blog/building-a-bigcommerce-app-using-laravel-and-react-711ceceb5006)
 * [Big Design Tutorial](https://medium.com/bigcommerce-developer-blog/bigdesign-build-native-looking-uis-with-the-bigcommerce-design-system-fb06a01a24f2)

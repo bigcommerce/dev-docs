@@ -2,12 +2,17 @@
 
 <div class="otp" id="no-index">
 
-### On This Page
-- [Single-Click](#single-click)
-
+### On this page
+- [Single-click](#single-click)
 - [Connector](#connector)
 - [Visibility](#visibility)
-- [Next Steps](#next-steps)
+- [Next steps](#next-steps)
+- [Resources](#resources)
+
+- [Single-click](#single-click)
+- [Connector](#connector)
+- [Visibility](#visibility)
+- [Next steps](#next-steps)
 - [Resources](#resources)
 
 </div>
@@ -15,7 +20,7 @@
 The first step when developing an app is deciding which type of app to develop. The two types of apps, single-click and connector, are defined by the method of authentication. [Single-click](#single-click) apps use an OAuth Authorization Code Grant flow. [Connector apps](#connector) require store owners to manually generate and configure store API credentials. In addition to the authentication method, apps can also differ by [visibility](#visibility).
 
 
-## Single-Click
+## Single-click
 
 Single-click apps are the recommended app type. They use [OAuth 2.0 Authorization Code Grant](https://oauth.net/2/grant-types/authorization-code/) (oauth2.net) flow. Users initiate installation by clicking **Install**.
 
@@ -38,25 +43,14 @@ Connector apps use manual OAuth token creation instead of the single-click app f
 ## Visibility
 There are three visibility options for apps: **Draft**, **Unlisted**, and **Public**.
 
-
-* **Draft**
-  * **Description**: apps registered in [Dev Tools](https://devtools.bigcommerce.com/) but never submitted for approval
-  * **Use Cases:**
-
-    * installing on stores owned by the same email address as [DevTools](https://devtools.bigcommerce.com/auth/bigcommerce) account email
-    * beta testing before publishing to marketplace
-* **Unlisted**
-  * **Description:** apps submitted and approved apps but not listed on [app marketplace](https://www.bigcommerce.com/apps/).
-
-  * **Use Cases:**
-    * installing on stores not owned by same email address as [**DevTools**](https://devtools.bigcommerce.com/auth/bigcommerce) account email
-    * beta testing before publishing to marketplace
-* **Public**
-  * **Description:** apps submitted, approved, and listed on the marketplace
-
-  * **Use Cases:**
-    * making apps visible and installable on all stores
-    * making $$$
+|  Visibility | Description | Use Cases |
+| --- | --- | --- |
+|  Draft | apps registered in [Dev Tools](https://devtools.bigcommerce.com/) but never submitted for approval. | installing on stores owned by the same email address as [DevTools](https://devtools.bigcommerce.com/auth/bigcommerce) account email |
+|   |  | beta testing before publishing to marketplace |
+|  Unlisted | apps submitted and approved apps but not listed on [app marketplace](https://www.bigcommerce.com/apps/) | installing on stores not owned by same email address as [DevTools](https://devtools.bigcommerce.com/auth/bigcommerce) account email |
+|   |  | beta testing before publishing to marketplace |
+|  Public | apps submitted, approved, and listed on the marketplace | making apps visible and installable on all stores |
+|   |  | making apps sellable on the marketplace |
 
 <div class="HubBlock--callout">
 <div class="CalloutBlock--info">
@@ -72,7 +66,7 @@ There are three visibility options for apps: **Draft**, **Unlisted**, and **Publ
 </div>
 </div>
 
-## Next Steps
+## Next steps
 [Begin App Development](https://developer.bigcommerce.com/api-docs/apps/guide/development)
 
 ## Resources
