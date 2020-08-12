@@ -176,32 +176,43 @@ X-Auth-Client: {{CLIENT_ID}}
 Content-Type: application/json
 Accept: application/json
 
-{
-  "name": "My Store - US",
-  "type": "storefront",
-  "platform": "wordpress",
-  "external_id": "002",
-  "is_enabled": true
-}
+[{
+    "type": "type of channel",
+    "platform": "sales channel platform",
+    "name": "name of the sales channel", // Name displayed to merchant
+    "external_id": "",
+    "status": "connected”,
+    "app": {
+      "id": 123,                         // ID of the app
+      "sections": [{
+        "title": "Overview",             // Label displayed to merchant in nav bar
+        "query_path": "overview"         // query param passed app iframe
+       }, {
+       "title": "Settings",
+       "query_path": "settings"
+      }]
+    }
+}]
 ```
+
 [![Open in Request Runner](https://storage.googleapis.com/bigcommerce-production-dev-center/images/Open-Request-Runner.svg)](https://developer.bigcommerce.com/api-reference/cart-checkout/channels-listings-api/channels/createchannel#requestrunner)
-
-**Response:**
-
-```json
-{
-"id": 12,
-"type": "wordpress",
-"name": "mysite.store",
-"external_id": "example_external_id",
-"created_at": "2018-11-04 number number number",
-"updated_at": "2018-11-04 number number number"
-}
-```
 
 Once created, channels show up in the product list within the control panel so the merchant can choose which products should be available on it. The orders list is updated to include a filter to show which orders came in from the channel. The value of the `name` property is displayed to the merchant in the control panel.
 
 For a complete reference, see [Channels API](https://developer.bigcommerce.com/api-reference/cart-checkout/channels-listings-api/channels/createchannel).
+
+<div class="HubBlock--callout">
+<div class="CalloutBlock--info">
+<div class="HubBlock-content">
+
+<!-- theme: info -->
+
+### Note
+> * You can find the app ID in the URL when editing the app in [DevTools](https://devtools.bigcommerce.com/). For more information, see [Finding an App's ID](https://developer.bigcommerce.com/api-docs/apps/tutorials/id).
+
+</div>
+</div>
+</div>
 
 
 ## Getting Catalog Data
