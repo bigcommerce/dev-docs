@@ -8,22 +8,12 @@
 - [Visibility](#visibility)
 - [Next steps](#next-steps)
 - [Resources](#resources)
-
-- [Single-click](#single-click)
-- [Connector](#connector)
-- [Visibility](#visibility)
-- [Next steps](#next-steps)
-- [Resources](#resources)
-
 </div>
 
 The first step when developing an app is deciding which type of app to develop. The two types of apps, single-click and connector, are defined by the method of authentication. [Single-click](#single-click) apps use an OAuth Authorization Code Grant flow. [Connector apps](#connector) require store owners to manually generate and configure store API credentials. In addition to the authentication method, apps can also differ by [visibility](#visibility).
 
-
 ## Single-click
-
 Single-click apps are the recommended app type. They use [OAuth 2.0 Authorization Code Grant](https://oauth.net/2/grant-types/authorization-code/) (oauth2.net) flow. Users initiate installation by clicking **Install**.
-
 
 ![Install App](https://raw.githubusercontent.com/bigcommerce/dev-docs/master/assets/images/apps-02-types-01.png "Install App")
 
@@ -67,7 +57,7 @@ There are three visibility options for apps: **Draft**, **Unlisted**, and **Publ
 </div>
 
 ## Next steps
-[Begin App Development](https://developer.bigcommerce.com/api-docs/apps/guide/development)
+[Begin app development](https://developer.bigcommerce.com/api-docs/apps/guide/development).
 
 ## Resources
 
