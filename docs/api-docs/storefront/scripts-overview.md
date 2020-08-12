@@ -55,7 +55,8 @@ We highly recommend leaving the `auto_uninstall` flag set to true, so that your 
 
 If you already released your app, you may have existing users with pasted-in code somewhere in their control panel. There are a few possible ways to deal with this situation.
 
-1.) __Do nothing__
+__Do nothing__
+
 
 If you don’t need to upgrade existing merchants to the Script Manager API, it’s perfectly fine to leave them. You’ll need to maintain documentation for the manual uninstallation process so that merchants with older installations know what to clean up. You won’t be able to update or add scripts for these users automatically. 
 
