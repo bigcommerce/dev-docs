@@ -4,18 +4,18 @@
 	<ul>
     		<li><a href="#scripts_script-manager-partner-guidelines">Script Manager API Partner Guidelines</a></li>
         <li><a href="#script_prerequisites">Prerequisites</a></li>
-        <li><a href="#scripts_upgrades-installation">Upgrades and Installation</a></li>
-        <li><a href="#scripts_fixing-missing-scripts">Fixing Missing Scripts</a></li>
+        <li><a href="#scripts_upgrades-installation">Upgrades and installation</a></li>
+        <li><a href="#scripts_fixing-missing-scripts">Fixing missing scripts</a></li>
         <li><a href="#scripts_scripts-notes">Notes</a></li>
-        <li><a href="#scripts_scripts-visibility">Visibility Locations </a></li>
+        <li><a href="#scripts_scripts-visibility">Visibility locations </a></li>
 	</ul>
 </div>
 
 The BigCommerce Scripts API gives developers the ability to inject scripts into a store's template files programmatically. This means that app and integrations can insert scripts into a user’s storefront without requiring the user to manually paste a snippet of code into their control panel. There are many use cases for this powerful API, for example:
-* inserting analytics scripts
-* inserting single-click app scripts
-* inserting live chat and support plugins
-* inserting theme extensions or connector apps
+* Analytics scripts
+* Single-click app scripts
+* Live chat and support plugins
+* Theme extensions or connector apps
 
 ### Prerequisites
 
@@ -46,15 +46,15 @@ Because of this, you’ll need to check whether a user is running Stencil to det
 To better understand the content of this document, you should be familiar with the app installation procedure, which is outlined here:
 [App Installation](/api-docs/getting-started/building-apps-bigcommerce/building-apps#building-apps_installation-update-sequence)
 
-## Upgrades and Installation
+## Upgrades and installation
 
-### Installing An App on Stencil
+### Installing an app on Stencil
 
 For Apps being installed on Stencil stores, we recommend inserting your scripts immediately after receiving the POST response during the Auth Callback flow. Add your scripts using the Create Script endpoint of the Script Manager API.
 
 We highly recommend leaving the auto_uninstall flag set to true, so that your App will properly clean itself up when uninstalled. More information about this flag can be found <a href="#script_object-properties">here</a>.
 
-#### Upgrading Existing Apps on Stencil
+#### Upgrading existing apps on Stencil
 
 If your App has already been released, you may have existing users with pasted-in code somewhere in their control panel. There are a few possible ways to deal with this situation.
 
@@ -74,19 +74,19 @@ Finally, if it’s possible for your old, pasted-in scripts to live alongside th
 
 While your merchants will be loading more data on their storefront pages than necessary, this method will allow you to transition to using the Script Manager API for all of your installations immediately. Keep in mind you’ll still need to document the manual uninstallation process for existing installations.
 
-### Installing Apps on Blueprint Stores 
+### Installing apps on Blueprint stores 
 
 As mentioned, the Blueprint theme engine does not support the Script Manager API. Any scripts inserted through this API will not be rendered on any storefront pages. To prevent unpredictable behavior should a user change their theme, we highly recommend checking the Get Store Information endpoint for Stencil support prior to installing any scripts through the Script Manager API. Additionally, you’ll still want to show the old manual installation steps when a store does not support Stencil. 
 
-### Existing Blueprint Installations 
+### Existing Blueprint installations 
 
 Existing blueprint installations won’t be affected, but remember that if you are prompting existing Stencil users to upgrade to the Script Manager, you’ll want to suppress this message for Blueprint users. 
 
-### Fixing Missing Scripts
+### Fixing missing scripts
 
 It’s possible that your App installation may find itself unexpectedly missing one or more scripts. Below are some possible causes of this issue.
 
-1.) __The Merchant Deleted Your Script__ 
+1.) __The merchant deleted your script__ 
 
 Merchants are given a warning when attempting to delete a script belonging to an App, but we do allow them to do so.
 
@@ -94,7 +94,7 @@ If you want to handle this situation gracefully, we recommend you check the [Get
 
 We ask that you request the user’s permission rather than doing this automatically, as they may have had a good reason for deleting the missing script. 
 
-2.) __The Merchant's Theme is Not Set Up Correctly__ 
+2.) __The merchant's theme is not set up correctly__ 
 
 In order to render scripts, the theme templates must have the handlebars expressions {{head.scripts}} and {{footer.scripts}} in the pages where scripts should be rendered. If either of these is absent, scripts on that page with location set to head or footer (respectively) will not be rendered.
 
@@ -102,7 +102,7 @@ Of particular note, {{head.scripts}} was only recently added to the checkout and
 
 To ensure your App is compatible with as many themes as possible, we recommend footer over head for checkout, order_confirmation and all_pages visibilities. 
 
-3.) __Scripts Are Not Rendering in the Checkout and Order Confirmation__ 
+3.) __Scripts are not rendering in the Checkout and Order Confirmation__ 
 
 In order to render scripts, the store must have BigCommerce’s Optimized one-page checkout enabled. This is the default checkout type for all new Stencil stores. Existing stores have to manually change the checkout type as detailed in this article. 
 
@@ -131,7 +131,7 @@ Stencil themes from the marketplace support the [Optimized One-Page Checkout](ht
 </script>
 ```
 
-## Script Visibility Locations
+## Script visibility locations
 
 | Scope | Visibility |
 | -- | -- |
