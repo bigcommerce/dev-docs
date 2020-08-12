@@ -513,7 +513,8 @@ lineNumbers: true
 *Server to Server Cart API*
 
 ***Issue:***
-When you add less than a product’s minimum required to purchase or more than the maximum allowed to a cart.
+When you add less than a product’s minimum required purchase or more than the maximum purchase to a cart.
+
 
 ***Resolution:***
 Check the product for `order_quantity_minimum` and `order_quantity_maximum `for the correct amount to add to the cart. Use the [Get Product](https://developer.bigcommerce.com/api-reference/catalog/catalog-api/products/getproducts) endpoint.
