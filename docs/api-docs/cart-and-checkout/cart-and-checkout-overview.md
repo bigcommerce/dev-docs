@@ -411,7 +411,8 @@ lineNumbers: true
 
 ***Issue:***
 
-* The required modifier on the storefront is missing. This missing modifier can include a text modifier with no selection. Make sure the optionValue is not blank.
+* The required modifier on the storefront is missing. This missing modifier can include a text modifier with no selection. Make sure the `optionValue` is not blank.
+
 * The variantID is incorrect.
 * The modifierID is incorrect.
 
