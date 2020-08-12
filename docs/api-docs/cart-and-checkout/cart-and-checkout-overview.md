@@ -3,7 +3,8 @@
 <div class="otp" id="no-index">
 
 ### On This Page
-- [Storefront cart and checkout](#storefront-cart-and-checkout)
+- [Storefront Cart and Checkout](#storefront-cart-and-checkout)
+
 - [Server-to-server cart and checkout](#server-to-server-cart-and-checkout)
 - [When to use](#when-to-use)
 - [Persistent cart](#persistent-cart)
