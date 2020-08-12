@@ -2,22 +2,21 @@
 
 <div class="otp" id="no-index">
 
-### On This Page
-- [Unsupported Node Version](#unsupported-node-version)
-- [`npm install` Errors](#npm-install-errors)
-- [`npm install` and `stencil init` Errors](#npm-install-and-stencil-init-errors)
-- [`stencil init`/`stencil start` Errors](#stencil-initstencil-start-errors)
-- [`stencil start` Missing Module Errors](#stencil-start-missing-module-errors)
-- [`Uncaught TypeError: Illegal invocation` error](#uncaught-typeerror-illegal-invocation-error)
-- [Mac OS: `Xcode/iOS license...` Errors](#mac-os-xcodeios-license-errors)
-- [ETIMEOUT Errors on Node > 4.4.0](#etimeout-errors-on-node--440)
+### On this page
+- [Unsupported Node version](#unsupported-node-version)
+- [`npm install` errors](#npm-install-errors)
+- [`npm install` and `stencil init` errors](#npm-install-and-stencil-init-errors)
+- [`stencil init`/`stencil start` errors](#stencil-initstencil-start-errors)
+- [`stencil start` missing module errors](#stencil-start-missing-module-errors)
+- [Mac OS: `Xcode/iOS license...` errors](#mac-os-xcodeios-license-errors)
+- [ETIMEOUT errors on Node > 4.4.0](#etimeout-errors-on-node--440)
 - [`stencil` command not found](#stencil-command-not-found)
 - [`stencil start` errors](#stencil-start-errors)
-- [500 Errors](#500-errors)
-- [Lint Errors upon Bundling](#lint-errors-upon-bundling)
-- ["Module Not Found" Errors upon Bundling](#%22module-not-found%22-errors-upon-bundling)
-- [Short Un-Descriptive JavaScript Diagnostics](#short-un-descriptive-javascript-diagnostics)
-- [TR-300 Error upon Theme Upload](#tr-300-error-upon-theme-upload)
+- [500 errors](#500-errors)
+- [Lint errors upon bundling](#lint-errors-upon-bundling)
+- [Module not found errors upon bundling](#module-not-found-errors-upon-bundling)
+- [Short un-descriptive JavaScript diagnostics](#short-un-descriptive-javascript-diagnostics)
+- [TR-300 error upon theme upload](#tr-300-error-upon-theme-upload)
 - [Reinstalling Stencil CLI](#reinstalling-stencil-cli)
 - [Resources](#resources)
 
@@ -27,7 +26,7 @@ For any unexpected behavior you encounter while developing your Stencil theme, w
 
 In some cases, the terminal will provide a verbose error message specifying where to look for problems. It has the potential to provide further insight on the issue. Diagnostic suggestions are listed on this page for error messages that may not be helpful in revealing the issue you're experiencing.
 
-## Unsupported Node Version
+## Unsupported Node version
 
 If you receive the following error message, please reinstall Node.js to a supported "LTS" ("Long-Term Support") version:
 
@@ -40,11 +39,11 @@ Debug: internal, implementation, error
 
 On Mac OS, we have tested Stencil CLI most robustly on Node.js version 4.4.0. On Linux, we have tested most robustly on version 4.1.2. On Windows, we have tested most robustly on version 4.6.1. You’ll find detailed steps (for each operating system) in these instructions' Installing Stencil Prerequisites by OS section.
 
-## `npm install` Errors
+## `npm install` errors
 
 The following headings represent errors that may occur when running the `npm install` command. The content under each heading issues a fix for the issue.
 
-### "Unmet Peer Dependency"
+### "Unmet peer dependency"
 
 If you get any `Unmet Peer Dependency` errors when issuing the `npm install` command make sure you are running the `npm install` command **inside** your theme directory.
 
@@ -56,16 +55,16 @@ If running the `npm install ` command inside your theme directory does not resol
 
 * Re-run `npm install`
 
-### Permissions Errors
+### Permissions errors
 
-If you get a file-permissions error such as `EPERM` or `EACCES` when issuing the `npm install` command, try one of the workarounds listed on the [npm docs.](https://docs.npmjs.com/getting-started/fixing-npm-permissions) page.
+If you get a file-permissions error such as `EPERM` or `EACCES` when issuing the `npm install` command, try one of the workarounds listed on [Fixing npm Permissions](https://docs.npmjs.com/getting-started/fixing-npm-permissions) (docs.npmjs.com).
 
-### "js/bundle" Errors
+### "js/bundle" errors
 
 If you get errors of the following type upon executing the `stencil init` command:
 
 ```text
-Potentially unhandled rejection [6] TypeError: Error loading "js/bundle" 
+Potentially unhandled rejection [6] TypeError: Error loading "js/bundle"
 at file:/Users/<username>/Desktop/Fortune-1.4.6/assets/js/bundle.js
 Error evaluating file:/Users/<username>/Desktop/Fortune-1.4.6/assets/js/bundle.js
 Cannot read property 'createElement' of undefined...
@@ -75,7 +74,7 @@ Try the following workaround:
 
 1. Download and unzip a fresh copy of the theme.
 
-2. Refresh theme dependencies by running `npm install`
+2. Refresh theme dependencies by running `npm install`.
 
 3. Run `stencil init`.
 
@@ -85,21 +84,21 @@ Try the following workaround:
 
 5. Run `stencil init` again.
 This should now execute properly.
-6. Run `stencil start`
+6. Run `stencil start`.
 
 8. Verify your theme's launch at: http://localhost:3000.
 
-## `npm install` and `stencil init` Errors
+## `npm install` and `stencil init` errors
 
 If you get an unexpected error messages when issuing the `npm install` or `stencil init` commands, check your Node.js version and ensure it aligns with a version compatible for the Stencil framework.
 
-## `stencil init`/`stencil start` Errors
+## `stencil init`/`stencil start` errors
 
 If you get an unexpected error message or unexpected results upon executing the `stencil init`, `stencil start`, or other Stencil CLI commands, make sure you are working in the subdirectory for the specific theme you intend to launch.
 
 One way of checking what directory you are working in is by running the `pwd` command in your terminal.
 
-## `stencil start` Missing Module Errors
+## `stencil start` missing module errors
 
 If executing `stencil start` provokes errors like the following
 
@@ -125,7 +124,7 @@ switch to your theme directory and run `npm install`. Running this command will 
 
 If you receive the same error again after running `npm install`, you should completely uninstall and reinstall both the Stencil framework and Node.js.
 
-## Mac OS: `Xcode/iOS license...` Errors
+## Mac OS: `Xcode/iOS license...` errors
 
 On Mac OS, if you have recently installed a new version of Xcode, the command line will display the following error when you next try to use or reinstall Stencil:
 
@@ -137,7 +136,7 @@ To resolve this error, do the following:
 * Quit Xcode.
 * Re-execute your Stencil command.
 
-## ETIMEOUT Errors on Node > 4.4.0
+## ETIMEOUT errors on Node > 4.4.0
 
 If you are running a version of Node.js higher than 4.4.0, and you receive an `ETIMEOUT` error when running Stencil CLI, re-install the latest version of Stencil CLI to resolve this error by following the workflow in Installing Stencil CLI/Framework.
 
@@ -151,7 +150,7 @@ If you receive the error message -bash: `stencil: command not found`, ensure tha
 
 If you receive the error message -bash: stencil: command not found, enter echo $NVM_DIR. If this command returns nothing, then run source ~/.bash_profile and try running running stencil commands again.
 
-### Check/Specify `nvm` Version
+### Check/Specify `nvm` version
 
 If you receive a `stencil: command not found` error message upon executing stencil start from inside your theme subdirectory: Check whether nvm has installed multiple versions of Node.js, by entering the following command:
 
@@ -167,11 +166,11 @@ To prevent this error from recurring, add the same `nvm use <version_number>` co
 
 ## `stencil start` errors
 
-### "Unauthorized...username/token" Error
+### "Unauthorized...username/token" error
 
 If executing the `stencil start` command generates an `Unauthorized, please use a valid username/token` error, make sure the `.stencil` file contains the correct store URL. Also, verify that you copied the correct username and token. If you continue to get the same error, please reissue tokens.
 
-## 500 Errors
+## 500 errors
 
 If you see errors like or _similar_ to below:
 
@@ -179,11 +178,11 @@ If you see errors like or _similar_ to below:
 
 They often indicate a template syntax error, such as unmatched or missing punctuation. Check your terminal window for more details.
 
-## Lint Errors upon Bundling
+## Lint errors upon bundling
 
-If bundling your theme triggers multiple lint errors related to the `bundle.js` file, your theme is missing the `.eslintignore` file. Retrieve [this file from the Cornerstone repo](https://github.com/bigcommerce/cornerstone), then re-run `stencil bundle`.
+If bundling your theme triggers multiple lint errors related to the `bundle.js` file, your theme is missing the `.eslintignore` file. Retrieve this file from the [Cornerstone repo](https://github.com/bigcommerce/cornerstone), then re-run `stencil bundle`.
 
-## "Module Not Found" Errors upon Bundling
+## Module not found errors upon bundling
 
 If you see the following error when running stencil bundle, this is a past bug that has since been corrected.
 
@@ -191,7 +190,7 @@ If you see the following error when running stencil bundle, this is a past bug t
 
 To remove the error, please update your Cornerstone version.
 
-## Short Un-Descriptive JavaScript Diagnostics
+## Short un-descriptive JavaScript diagnostics
 
 If JavaScript errors in your browser's developer tools are not reporting filenames and line numbers, try changing your `webpack.conf.js` file's sourcemap entry from:
 
@@ -203,7 +202,7 @@ to:
 
 The `eval-cheap-module-source-map` option performs faster rebuilds, but omits line numbers. The `eval-source-map` option is slower, but more verbose.
 
-## TR-300 Error upon Theme Upload
+## TR-300 error upon theme upload
 
 If uploading your theme triggers a TR-300 error, this can indicate an included source-map file (`bundle.js.map`) that exceeds its size limit of 5 MB. If your `bundle.js.map` exceeds that limit, the workaround is to move this file outside your theme directory before re-running `stencil bundle`.
 
@@ -227,6 +226,6 @@ A more-drastic measure is to uninstall and reinstall Stencil CLI's Node.js prere
 
 ## Resources
 
-### Related Articles
+### Related articles
 * [Authorizing and Initializing the CLI](/stencil-docs/installing-stencil-cli/installing-stencil)
 * [Stencil CLI Options and Commands](/stencil-docs/installing-stencil-cli/stencil-cli-options-and-commands)
