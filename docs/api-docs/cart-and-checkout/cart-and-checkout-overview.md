@@ -5,7 +5,8 @@
 ### On This Page
 - [Storefront Cart and Checkout](#storefront-cart-and-checkout)
 
-- [Server-to-server cart and checkout](#server-to-server-cart-and-checkout)
+- [Server-to-Server Cart and Checkout](#server-to-server-cart-and-checkout)
+
 - [When to use](#when-to-use)
 - [Persistent cart](#persistent-cart)
 - [Troubleshooting cart errors](#troubleshooting-cart-errors)
