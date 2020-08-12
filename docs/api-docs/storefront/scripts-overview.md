@@ -2,7 +2,8 @@
 <div class="otp" id="no-index">
 	<h3> On This Page </h3>
 	<ul>
-    	<li><a href="#scripts_script-manager-partner-guidelines">Script manager API partner guidelines</a></li>
+    	<li><a href="#scripts_script-manager-partner-guidelines">Script Manager API partner guidelines</a></li>
+
         <li><a href="#script_prerequisites">Prerequisites</a></li>
         <li><a href="#scripts_upgrades-installation">Upgrades and installation</a></li>
         <li><a href="#scripts_fixing-missing-scripts">Fixing missing scripts</a></li>
