@@ -28,7 +28,8 @@ The following [OAuth scopes](https://developer.bigcommerce.com/api-docs/getting-
 * Checkout Content
 * Order Transactions
 
-### When to use the storefront APIs
+### When to use the Storefront APIs
+
 
 * Analytics and Tracking
 * Retrieving cart data client-side
