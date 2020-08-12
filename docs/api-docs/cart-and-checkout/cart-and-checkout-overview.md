@@ -528,7 +528,8 @@ Check the product for `order_quantity_minimum` and `order_quantity_maximum` for 
 Trying to edit a cart that does not exist.
 
 ***Resolution:***
-Carts are only valid 30 days past the `date_last_modified`. Check the [Get Carts](/api-reference/cart-checkout/storefront-cart-api/cart/getacart) endpoint for the currently available session cart.
+Carts are only valid 30 days past the `date_last_modified`. Check the [Get Carts](/api-reference/cart-checkout/storefront-cart-api/cart/getacart) endpoint for the current available session cart.
+
 
 *Storefront Cart API*
 
