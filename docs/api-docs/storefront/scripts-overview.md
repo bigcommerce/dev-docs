@@ -67,7 +67,8 @@ If you want your merchants to update to the new Script Manager over time, you ca
 
 Once a user decides to upgrade, you can walk them through removing the old pasted-in code in their control panel, and then, once the merchant clicks a button, install your scripts through the Script Manager API.
 
-3.) __Silently upgrade to the Script Manager API__
+__Silently upgrade to the Script Manager API__
+
 
 Finally, suppose your old, pasted-in scripts can live alongside the new Script Manager API scripts. In that case, you may be able to upgrade to using the Script Manager API without any user intervention required. Whether or not this is possible will vary depending on the implementation of your app.
 
