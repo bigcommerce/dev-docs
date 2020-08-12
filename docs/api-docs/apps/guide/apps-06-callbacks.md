@@ -1,121 +1,162 @@
-# Handling App Callbacks
+# Single-click App Callbacks
 
 <div class="otp" id="no-index">
 
-### On This Page
-- [Callback URLs](#callback-urls)
-- [Handling Uninstall Callback](#handling-uninstall-callback)
-- [Handling Remove User Callback](#handling-remove-user-callback)
-- [Processing Callback Payload](#processing-callback-payload)
+### On this page
+- [Overview](#overview)
+- [Load callback](#load-callback)
+- [Uninstall callback](#uninstall-callback)
+- [Remove user callback](#remove-user-callback)
+- [Verifying the signed payload](#verifying-the-signed-payload)
+- [Identifying users](#identifying-users)
+- [Code samples](#code-samples)
+- [Helpful tools](#helpful-tools)
+- [Next steps](#next-steps)
+- [Resources](#resources)
 
 </div>
 
-This article discusses handling BigCommerce app callbacks...
+After installing a single-click app, store owners and authorized users *load* the app by clicking the app's icon in the control panel. Store owners can also *uninstall* your app and *remove users* they've authorized to use it. Each of these events triggers a `GET` request (or "callback") from BigCommerce to your app's callback URL configured in [DevTools](https://devtools.bigcommerce.com/my/apps). This article describes how your app should handle each callback and explains how to [verify the `signed_payload`](#verifying-the-signed-payload) and [identify users](#identifying-users).
 
-## Callback URLs
-In addition to the Auth Callback URI, the following URI's are required for BigCommerce Apps:
+## Overview
 
-| Name | Required? | Event Discussion |
+The table below contains a brief description of each callback. Note that only the `load` callback is required.
+
+| Event | Required? | Description |
 |-|-|-|
-| Load Callback URI | Yes | Called when the store owner or user clicks to load your app. |
-| Uninstall Callback URI | No | Called when the store owner clicks to uninstall your app. |
-| Remove User Callback URI | No | Called when the store admin revokes a user's access to your app. |
+| `load`  | yes | called when the store owner or user clicks to load the app |
+| `uninstall`  | no | called when the store owner clicks to uninstall the app |
+| `remove User` | no | called when the store admin revokes a user's access to the app |
 
-Each event listed here triggers a GET request from BigCommerce containing a signed payload that allows your app to:
+Each event triggers a `GET` request from BigCommerce containing a `signed_payload` that allows the app to:
 - Verify that the request came from BigCommerce.
 - Identify the store.
 - Identify the store owner or user.
 
-### Handling Load Callback
-Once your app has been installed, the store owner or user can click its icon in the control panel to launch it. This causes BigCommerce to send a GET request to the Load Callback URI that you provided during app registration. In a production environment, the Load Callback URI must be publicly available, fully qualified, and served over TLS/SSL.
+<div class="HubBlock--callout">
+<div class="CalloutBlock--info">
+<div class="HubBlock-content">
+
+<!-- theme: info -->
+
+### Note
+> * In a production, all app callback URLs must be publicly available, fully qualified, and served over TLS/SSL.
+
+</div>
+</div>
+</div>
+
+## Load callback
+
+BigCommerce sends a `GET` request to your app's `load` URL when the store owner or user clicks to load the app.
 
 ```http
-# The GET request contains a signed payload, as shown below.
 GET /load?signed_payload=hw9fhkx2ureq.t73sk8y80jx9 HTTP/1.1
-Host: app.example.com
+Host: your_app.example.com
 ```
 
-Upon receiving a GET request to the Load Callback URI, your app needs to [process the signed payload](#processing-the-signed-payload). After processing the payload, your app returns its user interface as HTML. BigCommerce renders this inside of an iframe. Please see [User Interface Constraints](#designing-the-user-interface) for important information about your app’s user interface.
+The steps steps to handle this callback are as follows:
+1. [Verify the signed payload](#verifying-the-signed-payload).
+2. [Identify the user](#identifying-users).
+3. Respond with HTML for the control panel iFrame.
 
-## Handling Uninstall Callback
+## Uninstall callback
 
-Optional
-
-Store owners have the option to uninstall any app at any time. When a store owner uninstalls an app, the app’s OAuth token is revoked and the app cannot make requests to the Stores API on the store’s behalf anymore.
-
-You do not need to provide an Uninstall Callback URI. The lack of an Uninstall Callback URI does not prevent uninstallation. Instead, the Uninstall Callback URI allows you to track store owners who uninstall your app and to run cleanup operations, such as removing the store’s user accounts from your system.
-
-Should you choose to provide an Uninstall Callback URI, please note that it must be publicly available, fully qualified, and served over TLS/SSL. If provided, BigCommerce will send a GET request to your Uninstall Callback URI when a store owner clicks to uninstall your app.
-
-Example of a GET Request sent to the Uninstall Callback URI:
+BigCommerce sends a `GET` request to your app's `uninstall` URL when the store owner clicks to uninstall the app.
 
 ```http
 GET /uninstall?signed_payload=hw9fhkx2ureq.t73sk8y80jx9 HTTP/1.1
-	Host: app.example.com
+Host: your_app.example.com
 ```
 
-Upon receiving the GET request, your app will need to process the signed payload.
+The steps steps to handle this callback are as follows:
+1. [Verify the signed payload](#verifying-the-signed-payload).
+2. [Identify the user](#identifying-users).
+3. Remove the user's data from your app's database.
 
-## Handling Remove User Callback
-Optional
-If you have not enabled [multi-user support](#multi-user-support), you will not provide a Remove User Callback URI and can ignore this section. If you enable multi-user support, you can optionally specify a Remove User Callback URI. It must be fully qualified, publicly available, and served over TLS/SSL. BigCommerce will send a GET request to your Remove User Callback URI when a store admin revokes a user’s access to your app.
+## Remove user callback
 
-**Request:**
+BigCommerce sends a `GET` request to your app's `remove user` callback when a store admin revokes a user's access to the app.
 
 ```http
-GET /remove-user?signed_payload=hw9fhkx2ureq.t73sk8y80jx9 HTTP/1.1
-Host: app.example.com
+GET /remove_user?signed_payload=hw9fhkx2ureq.t73sk8y80jx9 HTTP/1.1
+Host: your_app.example.com
 ```
 
-Upon receiving the GET request, your app will need to process the signed payload.
+The steps steps to handle this callback are as follows:
+1. [Verify the signed payload](#verifying-the-signed-payload).
+2. [Identify the user](#identifying-users).
+3. Remove the user's data from your app's database.
 
-## Processing Callback Payload
+## Verifying the signed payload
 
-Processing the signed payload involves splitting and decoding it, verifying the HMAC signature, and processing the JSON object.
-
-### Splitting and Decoding the Signed Payload
-
-The signed payload is a string containing a base64 url-encoded JSON string and a base64 url-encoded HMAC signature. The parts are delimited by the `.` character:
+The `signed_payload` is comprised of two `.` separated **base64URL** encoded strings:
 
 ```javascript
 encoded_json_string.encoded_hmac_signature
 ```
 
-To decode the signed payload, complete the following steps:
-1. Split signed_payload into its two parts at the `.` delimiter.
-2. Decode encoded_json_string using base64url.
-3. Convert the decoded JSON string into an object. See Processing the JSON object for more about this object.
-4. Decode encoded_hmac_signature using base64url.
-5. Use your client secret to verify the signature. See the next section for more details.
-
-### Verifying the HMAC Signature
-
-To verify the payload, you need to sign the payload using your client secret, and confirm that it matches the signature that was sent in the request.
+**To verify**:
+1. Split the `signed_payload` by the `.` delimiter.
+2. Decode the **base64url** `encoded_json_string`.
+3. Convert the decoded string into an object.
+4. Decode the **base64url** `encoded_hmac_signature`.
+5. Use your app's `client_secret` to verify the decoded `hmac_signature`.
+6. Sign the decoded `json_string` with your app's `client_secret`.
+7. Match<sup>1</sup> signed `json_string` against decoded `hmac_signature`.
 
 <div class="HubBlock--callout">
 <div class="CalloutBlock--warning">
 <div class="HubBlock-content">
 
-<!-- theme:  -->
-
-### Timing Attacks
-> To limit the vulnerability of your app to timing attacks, we recommend using a constant time-string comparison function, rather than the equality operator, to check that the signatures match.
+> ### Note
+> 1. To limit the vulnerability of an app to timing attacks, we recommend using a constant time string comparison function. How to accomplish this varies by programming language. For code samples in Ruby and PHP, see [Code samples](#code-samples) below; search for "constant time string comparison {lang}" using your perferred search engine for more information.
 
 </div>
 </div>
 </div>
 
-<div class="HubBlock-header">
-    <div class="HubBlock-header-title flex items-center">
-        <div class="HubBlock-header-name">verifySignedRequest</div>
-    </div><div class="HubBlock-header-subtitle"></div>
-</div>
+## Identifying users
 
-<!--
-title: "verifySignedRequest"
-subtitle: ""
-lineNumbers: true
--->
+After decoding and verifying the `signed_playload`, parse the JSON string into an object. Here's an example payload:
+
+```json
+{
+  "user": {
+    "id": 9128,
+    "email": "user@mybigcommerce.com"
+  },
+  "owner": {
+    "id": 9128,
+    "email": "user@mybigcommerce.com"
+  },
+  "context": "stores/z4zn3wo",
+  "store_hash": "z4zn3wo",
+  "timestamp": 1469823892.9123988
+}
+```
+
+| Name | Data Type | Value Description |
+|-|-|-|
+| `user.id` | int | ID of user initiating callback |
+| `user.email `| str | email of the user initiating callback |
+| `owner.id` | int | ID of store owner |
+| `owner.email` | str | email address of store owner. |
+| `context` | str | `stores/` + `store_hash`; ex: `stores/store_hash` |
+| `store_hash` | str | unique identified for store used in API requests |
+| `timestamp` | float | Unix time when callback generated|
+
+Use the data contained in the payload object to identify the store and user. What your app should do with this information is dependent on whether [**Multiple Users**](https://developer.bigcommerce.com/api-docs/apps/guide/users) is enabled in [DevTools](https://devtools.bigcommerce.com/). Refer to the table below for instructions.
+
+| Callback | Multiple Users Enabled | Multiple Users Not Enabled |
+|-|-|-|
+| `Load` | Compare user to store owner or existing user; if no match, it's a new users; add them app's database. | should match store owner|
+| `Uninstall` | Compare user to store owner or existing user; only store owner can uninstall an app. | should match store owner |
+| `Remove user` | Compare user to users stored in app database; remove matching user from database. | `n/a` |
+
+## Code samples
+
+### Verifying signed_payload in PHP
 
 ```php
 function verifySignedRequest($signedRequest)
@@ -137,31 +178,7 @@ function verifySignedRequest($signedRequest)
 }
 ```
 
-<div class="HubBlock--callout">
-<div class="CalloutBlock--">
-<div class="HubBlock-content">
-
-<!-- theme:  -->
-
-### !hash_equals
-> !hash_equals is available in PHP 5.6 and later. If you are running an older version of PHP, pull in a compatibility library such as the following: https://packagist.org/packages/realityking/hash_equals. BigCommerce’s sample app hello-world-app-php-silex app does this automatically.
-
-</div>
-</div>
-</div>
-
-<div class="HubBlock-header">
-    <div class="HubBlock-header-title flex items-center">
-        <div class="HubBlock-header-name">verify()</div>
-    </div><div class="HubBlock-header-subtitle"></div>
-</div>
-
-<!--
-title: "verify()"
-subtitle: ""
-lineNumbers: true
--->
-
+### Verifying signed_payload in Ruby
 ```ruby
 require "base64"
 require "openssl"
@@ -190,62 +207,40 @@ def secure_compare(a, b)
   b.each_byte { |byte| res |= byte ^ l.shift }
   res == 0
 end
-
 ```
 
-### Processing the JSON Object
+## Helpful tools
+The following BigCommerce API clients expose helper methods for verifying the `signed_payload`:
+* [bigcommerce/bigcommerce-api-python](https://github.com/bigcommerce/bigcommerce-api-python)
+  * Fetches `access_token`
+  * Verifies `signed_payload`
+* [conversio/node-bigcommerce](https://github.com/getconversio/node-bigcommerce)
+  * Fetches `access_token`
+  * Verifies `signed_payload`
 
-The JSON object embedded in the signed_payload contains information about the BigCommerce store and the store owner or user.
+## Next steps
+* [Support multiple users](https://developer.bigcommerce.com/api-docs/apps/guide/users)
 
-### Identifying the Store
-Use the store information endpoint to identify the store to which the request pertains.
+## Resources
 
-### Interpreting the User Information
+### Sample Apps
+* [Python / Flask](https://github.com/bigcommerce/hello-world-app-python-flask)
+* [PHP / Silex](https://github.com/bigcommerce/hello-world-app-php-silex)
+* [Ruby / Sinatra](https://github.com/bigcommerce/hello-world-app-ruby-sinatra)
+* [Laravel / React](https://github.com/bigcommerce/laravel-react-sample-app)
+* [Node / FaunaDB / Nelify](https://github.com/bigcommerce/channels-app/)
 
-| Request type | Multiple users enabled | Multiple users not enabled |
-|-|-|-|
-| Load | Compare the user information to see if it matches that of the store owner (received at the time of [app installation](#installation-and-update-sequence)) or that of an existing user. If the user information does not match either of these, then it represents a new user that you should add to your database or other storage. | The information should match that of the store owner, received at the time of [app installation](#installation-and-update-sequence). |
-| Uninstall | The user information should match that of the store owner. Only the store owner can uninstall your app. | Should match the store owner. |
-| Remove user | The user information should match one of the users that you have stored. After locating the stored user, delete it from your database or other storage. | N/A |
+### Tools
+* [Node API Client](https://github.com/getconversio/node-bigcommerce)
+* [Python API Client](https://github.com/bigcommerce/bigcommerce-api-python)
+* [PHP API Client](https://github.com/bigcommerce/bigcommerce-api-php)
+* [Ruby API Client](https://github.com/bigcommerce/bigcommerce-api-ruby)
+* [Ruby OmniAuth Gem](https://github.com/bigcommerce/omniauth-bigcommerce)
+* [Big Design Developer Playground](https://developer.bigcommerce.com/big-design/)
+* [Figma UI Kit](https://www.figma.com/file/jTVuUkiZ1j3rux8WHG4IKK/BigDesign-UI-Kit?node-id=0%3A1/duplicate)
+* [Adobe Illustrator UI Kit](https://design.bigcommerce.com/bigdesign-ui-kit)
 
-### JSON Values
-
-| Name | Data Type | Value Description |
-|-|-|-|
-| user.id | integer | Unique identifier for the user who initiated the callback. |
-| user.email | string | Email address of the user who initiated the callback. |
-| owner.id | integer | Unique identifier for the user listed as the store owner. |
-| owner.email | string | Email address of the user listed as the store owner. |
-| context | string | The context value is part of the API path for this store and includes the store_hash. |
-| store_hash | string |Unique identifier for the store. |
-| timestamp | float | The time (in Unix time) when the callback was generated.|
-
-<div class="HubBlock-header">
-    <div class="HubBlock-header-title flex items-center">
-        <div class="HubBlock-header-name">User Information</div>
-    </div><div class="HubBlock-header-subtitle"></div>
-</div>
-
-<!--
-title: "User Information"
-subtitle: ""
-lineNumbers: true
--->
-
-```json
-{
-    "user":
-         {
-        "id":9128,
-        "email":"user@mybigcommerce.com"
-     },
-     "owner":
-          {
-         "id":9128,
-         "email":"user@mybigcommerce.com"
-     },
-     "context":"stores/z4zn3wo",
-     "store_hash":"z4zn3wo",
-     "timestamp":1469823892.9123988
-}
-```
+### Blog Posts
+* [How to Test App Authentication Locally with ngrok](https://medium.com/bigcommerce-developer-blog/how-to-test-app-authentication-locally-with-ngrok-149150bfe4cf)
+* [Building a BigCommerce App Using Laravel and React](https://medium.com/bigcommerce-developer-blog/building-a-bigcommerce-app-using-laravel-and-react-711ceceb5006)
+* [Big Design Tutorial](https://medium.com/bigcommerce-developer-blog/bigdesign-build-native-looking-uis-with-the-bigcommerce-design-system-fb06a01a24f2)
