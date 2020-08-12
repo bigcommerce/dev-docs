@@ -51,7 +51,8 @@ For images referenced from anywhere in your Blueprint file directory, you will n
 
 For more information on Stencil theme assets, see the [Theme Assets](https://developer.bigcommerce.com/stencil-docs/storefront-customization/theme-assets) page.
 
-### Using handlebars
+### Using Handlebars
+
 
 While PHP variables enclosed within `%%` markers represent dynamic content, [Handlebars](https://handlebarsjs.com/), a JavaScript templating language represents BigCommerce dynamic stored data in Stencil themes.
 
