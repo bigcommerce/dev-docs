@@ -517,7 +517,8 @@ When you add less than a product’s minimum required purchase or more than the 
 
 
 ***Resolution:***
-Check the product for `order_quantity_minimum` and `order_quantity_maximum `for the correct amount to add to the cart. Use the [Get Product](https://developer.bigcommerce.com/api-reference/catalog/catalog-api/products/getproducts) endpoint.
+Check the product for `order_quantity_minimum` and `order_quantity_maximum` for the correct amount to add to the cart. Use the [Get Product](https://developer.bigcommerce.com/api-reference/catalog/catalog-api/products/getproducts) endpoint.
+
 
 ### Internal Server Error [500]
 
