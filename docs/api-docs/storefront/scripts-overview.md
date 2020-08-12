@@ -48,7 +48,8 @@ This article contains detailed information about the Scripts API and assumes you
 
 We recommend inserting your scripts immediately after receiving the POST response during the Auth Callback flow for apps installed on Stencil stores. Add your scripts using the Create Script endpoint of the Script Manager API.
 
-We highly recommend leaving the auto_uninstall flag set to true, so that your app will properly clean itself up when uninstalled. Find more information about this flag <a href="#script_object-properties">here</a>.
+We highly recommend leaving the `auto_uninstall` flag set to true, so that your app will properly clean itself up when uninstalled. Find more information about this flag <a href="#script_object-properties">here</a>.
+
 
 #### Upgrading Existing Apps on Stencil
 
