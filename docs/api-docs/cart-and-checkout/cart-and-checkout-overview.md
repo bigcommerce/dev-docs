@@ -376,7 +376,8 @@ lineNumbers: true
 The `option_id` is incorrect.
 
 ***Resolution:***
-To get the correct option_id, make a request to [Get Products](https://developer.bigcommerce.com/api-reference/catalog/catalog-api/products) or [Get Options](https://developer.bigcommerce.com/api-reference/catalog/catalog-api/product-options/getoptions).
+To get the correct `option_id`, make a request to [Get Products](https://developer.bigcommerce.com/api-reference/catalog/catalog-api/products) or [Get Options](https://developer.bigcommerce.com/api-reference/catalog/catalog-api/product-options/getoptions).
+
 
 <div class="HubBlock-header">
     <div class="HubBlock-header-title flex items-center">
