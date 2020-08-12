@@ -1,3 +1,6 @@
+<div class="otp" id="no-index">
+
+### On This Page
 - [BigCommerce APIs at a Glance](#bigcommerce-apis-at-a-glance)
 - [V2 REST API](#v2-rest-api)
 - [V3 REST API](#v3-rest-api)
@@ -11,6 +14,8 @@
 - [Add to Cart URLs](#add-to-cart-urls)
 - [API spec files](#api-spec-files)
 - [Deprecations and Sunsets](#deprecations-and-sunsets)
+
+</div>
 
 ## BigCommerce APIs at a Glance
 |API|Server|Description|
