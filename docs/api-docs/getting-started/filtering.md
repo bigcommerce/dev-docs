@@ -35,7 +35,8 @@ These endpoints allow you to save API calls by getting more information in a res
 
 For example, you can include a product's variants and images with the product response: `/v3/catalog/products?include=variants,images`
 
-The availability of the `?include` parameter varies by an endpoint. Refer to the `GET` method for an endpoint to see a list of available fields.
+The availability of the `?include` parameter varies by endpoint. Refer to the `GET` method for an endpoint to see a list of available fields.
+
 
 ### Including and Excluding Fields
 
