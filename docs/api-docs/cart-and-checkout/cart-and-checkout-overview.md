@@ -13,7 +13,8 @@
 
 </div>
 
-## Storefront cart and checkout
+## Storefront Cart and Checkout
+
 
 The Storefront APIs are for managing the contents of a shopper's cart and checkout using JavaScript in the context of a storefront session.
 
