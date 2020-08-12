@@ -7,7 +7,8 @@
 - [Why transition to Stencil?](#why-transition-to-stencil?)
 - [Technical differences](#technical-differences)
   - [Developing locally on Stencil CLI](#developing-locally-on-stencil-cli)
-  - [Using handlebars](#using-handlebars)
+  - [Using Handlebars](#using-handlebars)
+
   - [Customize Store Design mode](#customize-store-design-mode)
   - [Create custom templates](#create-custom-templates)
 - [Resources](#resources)
