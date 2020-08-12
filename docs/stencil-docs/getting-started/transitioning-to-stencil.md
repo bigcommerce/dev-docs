@@ -42,7 +42,8 @@ When transitioning any store from Blueprint to Stencil, you should be aware of a
 
 ### Developing locally on Stencil CLI
 
-For complete control over a theme’s appearance, logic, and theme configuration files, developers can use the Stencil Command Line Interface (Stencil CLI). This interface allows you to design and preview storefronts locally before pushing them to production. Access to real-time previews and testing across various devices is available via [Browsersync](https://www.browsersync.io/), a browser testing assistant built into Stencil CLI.
+For complete control over a theme’s appearance, logic, and theme configuration files, developers can use the Stencil command line interface (Stencil CLI). This interface allows you to design and preview storefronts locally before pushing them to production. Access to real-time previews and testing across various devices is available via [Browsersync](https://www.browsersync.io/), a browser testing assistant built into Stencil CLI.
+
 
 While Blueprint themes allow users to add new files and assets to themes via WebDav, Stencil assets must be added to and bundled into the theme, or referenced from an external source.
 
