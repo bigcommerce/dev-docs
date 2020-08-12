@@ -2,27 +2,27 @@
 
 <div class="otp" id="no-index">
 
-### On This Page
+### On this page
 
 - [Deploying](#deploying)
-- [Completing App Registration](#completing-app-registration)
-- [Submitting App for Approval](#submitting-app-for-approval)
-- [Next Steps](#next-steps)
+- [Completing app registration](#completing-app-registration)
+- [Submitting app for approval](#submitting-app-for-approval)
+- [Next steps](#next-steps)
 - [Resources](#resources)
 
 </div>
 
 ## Deploying
 
-## Completing App Registration
+## Completing app registration
 
-## Submitting App for Approval
+## Submitting app for approval
 
-## Next Steps
+## Next steps
 
 ## Resources
 
-### Sample Apps
+### Sample apps
 * [Python / Flask](https://github.com/bigcommerce/hello-world-app-python-flask)
 * [PHP / Silex](https://github.com/bigcommerce/hello-world-app-php-silex)
 * [Ruby / Sinatra](https://github.com/bigcommerce/hello-world-app-ruby-sinatra)
@@ -39,7 +39,7 @@
 * [Figma UI Kit](https://www.figma.com/file/jTVuUkiZ1j3rux8WHG4IKK/BigDesign-UI-Kit?node-id=0%3A1/duplicate)
 * [Adobe Illustrator UI Kit](https://design.bigcommerce.com/bigdesign-ui-kit)
 
-### Blog Posts
+### Blog posts
 * [How to Test App Authentication Locally with ngrok](https://medium.com/bigcommerce-developer-blog/how-to-test-app-authentication-locally-with-ngrok-149150bfe4cf) (BigCommerce Developer Blog)
 * [Building a BigCommerce App Using Laravel and React](https://medium.com/bigcommerce-developer-blog/building-a-bigcommerce-app-using-laravel-and-react-711ceceb5006) (BigCommerce Developer Blog)
 * [Big Design Tutorial](https://medium.com/bigcommerce-developer-blog/bigdesign-build-native-looking-uis-with-the-bigcommerce-design-system-fb06a01a24f2) (BigCommerce Developer Blog)

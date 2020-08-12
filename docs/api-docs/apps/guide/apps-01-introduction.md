@@ -11,7 +11,7 @@
 
 </div>
 
-Using BigCommerce's powerful APIs, SDKs, and Toolkits, any BigCommerce partner can create and list apps on BigCommerce's App Marketplace for merchants to install. This article provides a high-level overview of apps on BigCommerce. For an in-depth technical guide to developing BigCommerce apps, see [Building Apps]().
+Using BigCommerce's powerful APIs, SDKs, and Toolkits, any BigCommerce partner can create and list apps on BigCommerce's App Marketplace for merchants to install. This article provides a high-level overview of apps on BigCommerce. For an in-depth technical guide to developing BigCommerce apps, see [Building Apps]()
 
 ## About BigCommerce Apps
 
@@ -92,11 +92,6 @@ Create custom widgets for eCommerce merchants to install and configure; list of 
 * [Adobe Illustrator UI Kit](https://design.bigcommerce.com/bigdesign-ui-kit)
 
 ### Blog Posts
-* [How to Test App Authentication Locally with ngrok](https://medium.com/bigcommerce-developer-blog/how-to-test-app-authentication-locally-with-ngrok-149150bfe4cf) (BigCommerce Developer Blog)
-* [Building a BigCommerce App Using Laravel and React](https://medium.com/bigcommerce-developer-blog/building-a-bigcommerce-app-using-laravel-and-react-711ceceb5006) (BigCommerce Developer Blog)
-* [Big Design Tutorial](https://medium.com/bigcommerce-developer-blog/bigdesign-build-native-looking-uis-with-the-bigcommerce-design-system-fb06a01a24f2) (BigCommerce Developer Blog)
-
-
-
-
-
+* [How to Test App Authentication Locally with ngrok](https://medium.com/bigcommerce-developer-blog/how-to-test-app-authentication-locally-with-ngrok-149150bfe4cf)
+* [Building a BigCommerce App Using Laravel and React](https://medium.com/bigcommerce-developer-blog/building-a-bigcommerce-app-using-laravel-and-react-711ceceb5006)
+* [Big Design Tutorial](https://medium.com/bigcommerce-developer-blog/bigdesign-build-native-looking-uis-with-the-bigcommerce-design-system-fb06a01a24f2)

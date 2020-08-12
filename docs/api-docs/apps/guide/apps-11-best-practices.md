@@ -2,20 +2,20 @@
 
 <div class="otp" id="no-index">
 
-### On This Page
-- [Multi-User Support](#multi-user-support)
+### On this page
+- [Multi-user support](#multi-user-support)
 - [Hosting](#hosting)
-- [Managing Session Timeouts](#managing-session-timeouts)
-- [Handling Requests Securely](#handling-requests-securely)
-- [Updating Scopes](#updating-scopes)
-- [Next Steps](#next-steps)
+- [Managing session timeouts](#managing-session-timeouts)
+- [Handling requests securely](#handling-requests-securely)
+- [Updating scopes](#updating-scopes)
+- [Next steps](#next-steps)
 - [Resources](#resources)
 
 </div>
 
 This page contains best practices...
 
-## Multi-User Support
+## Multi-user support
 Merchants often have more than one person working on their store. BigCommerce allows additional users to access your app when the store owner has granted them appropriate permissions. The requirements for supporting multi-user access are:
 * Tokens must be stored against the `store_hash` and not against user info.
 * Within the Dev Tools workspace, you must enable your app’s **Technical** > **Multiple Users** option.
@@ -30,7 +30,7 @@ BigCommerce stores are hosted on [Google Cloud Platform](https://cloud.google.co
 
 Therefore, you can maximize performance of your app (in terms of latency to the public API) by hosting in the same region. There is no requirement to do so, and you may host wherever you like.
 
-## Managing Session Timeouts
+## Managing session timeouts
 We recommend that you add BigCommerce's JavaScript SDK to your Single-Click Apps to protect your app's users from getting logged out of the BigCommerce control panel after a period of idleness. To include our SDK, add this script tag to your Single-Click App:
 
 ```html
@@ -48,15 +48,15 @@ Bigcommerce.init({
 
 This callback function will run when the user explicitly logs out of the BigCommerce control panel or is automatically logged out. The callback will allow your app to respond to this logout appropriately.
 
-## Handling Requests Securely
+## Handling requests securely
 The request comes from the client browser, rather than directly from BigCommerce. This allows you to use a non-publicly-available Auth Callback URI while testing your app.
 
 For security, Auth and Load callbacks should be handled server-side. If you are building a client-side application (such as an AngularJS Single Page App), you should handle Auth and Load callbacks outside that application. Use a separate service that accepts the Auth and Load callback requests, generates tokens, validates requests, and then redirects the user to your client-side app’s entry point.
 
-## Updating Scopes
+## Updating scopes
 As a best practice, your app should validate this list to ensure that it matches the app's needs, and fail if it does not. However, at this time, the user does not have any opportunity to pick and choose between scopes. The dialog presented to the user requires the user to approve all scopes or none.
 
-## Next Steps
+## Next steps
 
 ## Resources
 

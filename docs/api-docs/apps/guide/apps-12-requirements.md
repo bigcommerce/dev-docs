@@ -2,19 +2,20 @@
 
 <div class="otp" id="no-index">
 
-### On This Page
+### On this page
 
-- [General Requirements](#general-requirements)
+- [General requirements](#general-requirements)
 - [Functionality](#functionality)
 - [Installation](#installation)
 - [Recommendations](#recommendations)
+- [Next steps](#next-steps)
 - [Resources](#resources)
 
 </div>
 
 Once approved, apps are listed in BigCommerce's App Marketplace for any merchant to install. To be approved, apps must meet certain requirements. This article contains a list of requirements apps must meet to be published in the Marketplace.
 
-## General Requirements
+## General requirements
 - Make Support resources available throughout the app experience (for example onboarding flow and app dashboard).
 - Follow BigCommerce branding guidelines when referencing BigCommerce (see our [Media Kit](https://www.bigcommerce.com/press/media-kit/) for more information).
 - Apps and listing must not reference competitor platforms.
@@ -56,9 +57,31 @@ Once approved, apps are listed in BigCommerce's App Marketplace for any merchant
 - Require login on launch? Use the information in the BigCommerce payload to your callback URL to authenticate the user without asking for a username and password each time.
 - Want to share user testimonials? Add a link to your full case study in the Case Studies field, with a title and short description.
 
+## Next steps
+
 ## Resources
 
-### Building Apps
+### Sample Apps
+* [Python / Flask](https://github.com/bigcommerce/hello-world-app-python-flask)
+* [PHP / Silex](https://github.com/bigcommerce/hello-world-app-php-silex)
+* [Ruby / Sinatra](https://github.com/bigcommerce/hello-world-app-ruby-sinatra)
+* [Laravel / React](https://github.com/bigcommerce/laravel-react-sample-app)
+* [Node / FaunaDB / Nelify](https://github.com/bigcommerce/channels-app/)
+
+### Tools
+* [Node API Client](https://github.com/getconversio/node-bigcommerce)
+* [Python API Client](https://github.com/bigcommerce/bigcommerce-api-python)
+* [PHP API Client](https://github.com/bigcommerce/bigcommerce-api-php)
+* [Ruby API Client](https://github.com/bigcommerce/bigcommerce-api-ruby)
+* [Ruby OmniAuth Gem](https://github.com/bigcommerce/omniauth-bigcommerce)
+* [Big Design Developer Playground](https://developer.bigcommerce.com/big-design/)
+* [Figma UI Kit](https://www.figma.com/file/jTVuUkiZ1j3rux8WHG4IKK/BigDesign-UI-Kit?node-id=0%3A1/duplicate)
+* [Adobe Illustrator UI Kit](https://design.bigcommerce.com/bigdesign-ui-kit)
+
+### Blog Posts
+* [How to Test App Authentication Locally with ngrok](https://medium.com/bigcommerce-developer-blog/how-to-test-app-authentication-locally-with-ngrok-149150bfe4cf) (BigCommerce Developer Blog)
+* [Building a BigCommerce App Using Laravel and React](https://medium.com/bigcommerce-developer-blog/building-a-bigcommerce-app-using-laravel-and-react-711ceceb5006) (BigCommerce Developer Blog)
+* [Big Design Tutorial](https://medium.com/bigcommerce-developer-blog/bigdesign-build-native-looking-uis-with-the-bigcommerce-design-system-fb06a01a24f2) (BigCommerce Developer Blog)
 
 
 

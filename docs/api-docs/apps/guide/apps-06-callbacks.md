@@ -1,17 +1,17 @@
-# Handling App Callbacks
+# Single-click App Callbacks
 
 <div class="otp" id="no-index">
 
-### On This Page
+### On this page
 - [Overview](#overview)
-- [Load Callback](#load-callback)
-- [Uninstall Callback](#uninstall-callback)
-- [Remove User Callback](#remove-user-callback)
-- [Verifying the Signed Payload](#verifying-the-signed-payload)
-- [Processing the Payload](#processing-the-payload)
-- [Code Samples](#code-samples)
-- [Helpful Tools](#helpful-tools)
-- [Next Steps](#next-steps)
+- [Load callback](#load-callback)
+- [Uninstall callback](#uninstall-callback)
+- [Remove user callback](#remove-user-callback)
+- [Verifying the signed payload](#verifying-the-signed-payload)
+- [Processing the payload](#processing-the-payload)
+- [Code samples](#code-samples)
+- [Helpful tools](#helpful-tools)
+- [Next steps](#next-steps)
 - [Resources](#resources)
 
 </div>
@@ -33,7 +33,7 @@ Each event triggers a `GET` request from BigCommerce containing a signed payload
 **Requirements**:
 * In a production, all app callback URLs must be publicly available, fully qualified, and served over TLS/SSL.
 
-## Load Callback
+## Load callback
 ```http
 GET /load?signed_payload=hw9fhkx2ureq.t73sk8y80jx9 HTTP/1.1
 Host: app.example.com
@@ -46,7 +46,7 @@ Host: app.example.com
 2. [Process the payload](#processing-the-payload)
 3. Return UI HTML to be rendered in control panel iFrame
 
-## Uninstall Callback
+## Uninstall callback
 ```http
 GET https://app.example.com/uninstall?signed_payload=hw9fhkx2ureq.t73sk8y80jx9 HTTP/1.1
 ```
@@ -57,7 +57,7 @@ GET https://app.example.com/uninstall?signed_payload=hw9fhkx2ureq.t73sk8y80jx9 H
 1. [Verify the signed payload](#verifying-the-signed-payload)
 2. [Process the payload](#processing-the-payload)
 
-## Remove User Callback
+## Remove user callback
 ```http
 GET https://app.example.com/remove-user?signed_payload=hw9fhkx2ureq.t73sk8y80jx9 HTTP/1.1
 ```
@@ -67,7 +67,7 @@ GET https://app.example.com/remove-user?signed_payload=hw9fhkx2ureq.t73sk8y80jx9
 1. [Verify the signed payload](#verifying-the-signed-payload)
 2. [Process the payload](#processing-the-payload)
 
-## Verifying the Signed Payload
+## Verifying the signed payload
 The `signed_payload` is comprised of two `.` separated **base64URL** encoded strings:
 
 ```javascript
@@ -94,7 +94,7 @@ encoded_json_string.encoded_hmac_signature
 </div>
 </div>
 
-## Processing the Payload
+## Processing the payload
 | Callback | Multiple Users Enabled | Multiple Users Not Enabled |
 |-|-|-|
 | `Load` | Compare user data to store owner or existing user; if no match, its a new users -- add to app's database. | Should match store owner|
@@ -128,7 +128,7 @@ encoded_json_string.encoded_hmac_signature
 | `store_hash` | str | Unique identified for store used in API requests |
 | `timestamp` | float | Unix time when callback was generated.|
 
-## Code Samples
+## Code samples
 
 **Verifying the Signed Request in PHP:**
 
@@ -183,7 +183,7 @@ def secure_compare(a, b)
 end
 ```
 
-## Helpful Tools
+## Helpful tools
 The following api clients expose helper methods for verifying the `signed_payload`:
 * [bigcommerce/bigcommerce-api-python](https://github.com/bigcommerce/bigcommerce-api-python)
   * Fetches `access_token`
@@ -192,7 +192,7 @@ The following api clients expose helper methods for verifying the `signed_payloa
   * Fetches `access_token`
   * Verifies `signed_payload`
 
-## Next Steps
+## Next steps
 
 ## Resources
 
@@ -214,8 +214,6 @@ The following api clients expose helper methods for verifying the `signed_payloa
 * [Adobe Illustrator UI Kit](https://design.bigcommerce.com/bigdesign-ui-kit)
 
 ### Blog Posts
-* [How to Test App Authentication Locally with ngrok](https://medium.com/bigcommerce-developer-blog/how-to-test-app-authentication-locally-with-ngrok-149150bfe4cf) (BigCommerce Developer Blog)
-* [Building a BigCommerce App Using Laravel and React](https://medium.com/bigcommerce-developer-blog/building-a-bigcommerce-app-using-laravel-and-react-711ceceb5006) (BigCommerce Developer Blog)
-* [Big Design Tutorial](https://medium.com/bigcommerce-developer-blog/bigdesign-build-native-looking-uis-with-the-bigcommerce-design-system-fb06a01a24f2) (BigCommerce Developer Blog)
-
-
+* [How to Test App Authentication Locally with ngrok](https://medium.com/bigcommerce-developer-blog/how-to-test-app-authentication-locally-with-ngrok-149150bfe4cf)
+* [Building a BigCommerce App Using Laravel and React](https://medium.com/bigcommerce-developer-blog/building-a-bigcommerce-app-using-laravel-and-react-711ceceb5006)
+* [Big Design Tutorial](https://medium.com/bigcommerce-developer-blog/bigdesign-build-native-looking-uis-with-the-bigcommerce-design-system-fb06a01a24f2)
