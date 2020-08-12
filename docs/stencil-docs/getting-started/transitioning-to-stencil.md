@@ -55,7 +55,8 @@ For more information on Stencil theme assets, see the [Theme Assets](https://dev
 
 While PHP variables enclosed within `%%` markers represent dynamic content, [Handlebars](https://handlebarsjs.com/), a JavaScript templating language represents BigCommerce dynamic stored data in Stencil themes.
 
-Handlebars keep your HTML page clean by separating the logic-less templates from the business logic in your JavaScript files. This organization improves the structure of the application, promoting maintainability and scalability. Handlebars also simplify the task of manually updating data in the customer-facing display view.
+Handlebars keeps your HTML page clean by separating the logic-less templates from the business logic in your JavaScript files. This organization improves the structure of the application, promoting maintainability and scalability. Handlebars also simplifies the task of manually updating data in the customer-facing display view.
+
 
 For more information about Handlebars, refer to these external resources:
 - [A Beginner’s Guide to Handlebars](https://www.sitepoint.com/a-beginners-guide-to-handlebars/)
