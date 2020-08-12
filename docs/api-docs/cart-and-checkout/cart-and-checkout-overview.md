@@ -39,7 +39,8 @@ The following [OAuth scopes](https://developer.bigcommerce.com/api-docs/getting-
 ### Using the Fetch API
 The [Fetch API](https://developer.mozilla.org/en-US/docs/Web/API/Fetch_API) is an alternative to [XMLHttpRequest](https://developer.mozilla.org/en-US/docs/Web/API/XMLHttpRequest) for making http requests in JavaScript. You can use the Fetch API to interact with the Storefront APIs and return a shopper's cart, checkout, or order.
 
-Most modern browsers except Internet Explorer, support Fetch API. We recommend using a [Polyfill](https://github.com/github/fetch) for Internet Explorer 10+ and XMLHttpRequest for earlier versions.
+Most modern browsers, except Internet Explorer, support Fetch API. We recommend using a [Polyfill](https://github.com/github/fetch) for Internet Explorer 10+ and XMLHttpRequest for earlier versions.
+
 
 To learn more about using the Fetch API with the storefront see our tutorial [here](/api-docs/cart-and-checkout/working-sf-apis).
 
