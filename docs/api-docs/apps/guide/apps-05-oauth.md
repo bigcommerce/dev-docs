@@ -10,7 +10,7 @@
 - [Making the POST request](#making-the-post-request)
 - [Receiving the POST response](#receiving-the-post-response)
 - [Code samples](#code-samples)
-- [Security Considerations](#security-considerations)
+- [Security considerations](#security-considerations)
 - [Next steps](#next-steps)
 - [Resources](#resources)
 
@@ -190,7 +190,7 @@ $response = $connection->post($tokenUrl, array(
 $token = $response->access_token;
 ```
 
-## Security Considerations
+## Security considerations
 
 [RFC 6749](https://tools.ietf.org/html/rfc6749#section-10) discusses security considerations, recommendations, and requirements. The following are some requirements and recommendations applicable to apps:
 * Request access tokens with the minimal scope necessary.
@@ -241,4 +241,5 @@ For additional details, see [Security Considerations in RC6749](https://tools.ie
 * [OAuth 2.0 Simplified](https://oauth.net/getting-started/) (oauth.net)
 * [What the Heck is OAuth](https://developer.okta.com/blog/2017/06/21/what-the-heck-is-oauth) (developer.okta.com)
 * [An Introduction to OAuth 2](https://www.digitalocean.com/community/tutorials/an-introduction-to-oauth-2) (www.digitalocean.com)
-* [OWASP Top Ten](https://owasp.org/www-project-top-ten/)
+* [RFC6749](https://tools.ietf.org/html/rfc6749) (tools.ietf.org)
+* [OWASP Top Ten](https://owasp.org/www-project-top-ten/) (owasp.org)
