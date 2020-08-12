@@ -28,7 +28,8 @@ The app requests the user to grant permissions associated to scopes configured f
 Once granted, the app can request a permanent `access_token` for making REST API requests on the user's behalf.
 
 ## Connector
-Connector apps use manual OAuth token creation instead of the single-click app flow. Store owner's generate [Store API Credentials](https://developer.bigcommerce.com/api-docs/getting-started/authentication/rest-api-authentication#revoking-store-api-credentials) manually and enter them into the app's configuration. While single-click apps are recommended, certain use cases might not be compatible:
+Connector apps use manual OAuth token creation instead of the single-click app flow. Store owners generate [store API credentials](https://developer.bigcommerce.com/api-docs/getting-started/authentication/rest-api-authentication#revoking-store-api-credentials) manually and enter them into the app's configuration. While single-click apps are recommended, the following use cases might not be compatible:
+
 - Customized integrations that vary per store.
 - Integrations that do not provide any content for an iFrame.
 - Apps that do not provide web services for OAuth exchange (ex: native order sync app).
