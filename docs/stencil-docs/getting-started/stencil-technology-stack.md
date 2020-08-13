@@ -44,7 +44,8 @@ View the [full Handlebars Helpers Reference](/stencil-docs/reference-docs/handle
 
 ## Stencil objects overview
 
-Stencil Objects are the individual Javascript objects which are rendered onto a Stencil storefront. Below is the Javascript Object Notation (JSON) for a [Banner object](https://developer.bigcommerce.com/stencil-docs/reference-docs/global-objects-and-properties#global-objects_banner) rendered on a category page of a storefront.
+Stencil objects are the individual JavaScript objects that are rendered onto a Stencil storefront. The following example is the JavaScript Object Notation (JSON) for a [Banner object](https://developer.bigcommerce.com/stencil-docs/reference-docs/global-objects-and-properties#global-objects_banner) rendered on a category page of a storefront.
+
 
 <div class="HubBlock-header">
     <div class="HubBlock-header-title flex items-center">
