@@ -15,11 +15,8 @@
 The BigCommerce Scripts API gives developers the ability to inject scripts into a store's template files programmatically. This ability means that apps and integrations can insert scripts into a user’s storefront without requiring the user to paste a snippet of code into their control panel manually. You can insert many types of scripts using this API, including the following:
 
 * Analytics scripts
-
 * Single-click app scripts
-
 * Live chat and support plugins
-
 * Theme extensions or connector apps
 
 
@@ -55,7 +52,7 @@ We recommend inserting your scripts immediately after receiving the POST respons
 We highly recommend leaving the `auto_uninstall` flag set to true, so that your app will properly clean itself up when uninstalled. Find more information about this flag <a href="#script_object-properties">here</a>.
 
 
-#### Upgrading Existing Apps on Stencil
+#### Upgrading existing apps on Stencil
 
 If you already released your app, you may have existing users with pasted-in code somewhere in their control panel. There are a few possible ways to deal with this situation.
 
@@ -135,7 +132,7 @@ Stencil themes from the marketplace support the [Optimized One-Page Checkout](ht
 </script>
 ```
 
-## Script Visibility Locations
+## Script visibility locations
 
 | Scope | Visibility |
 | -- | -- |
