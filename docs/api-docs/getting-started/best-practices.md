@@ -160,5 +160,5 @@ Consider subscribing to the [Cart Webhook](https://developer.bigcommerce.com/api
 BigCommerce does have limits on the number of products, categories, brands, etc. that can be created in a store. See [Platform Limits](https://forum.bigcommerce.com/s/article/Platform-Limits#product-catalog-limits) for more details.
 
 ## Resources
-### Related Artices
+### Related articles
 * [API Status Codes](https://developer.bigcommerce.com/api-docs/getting-started/api-status-codes)

@@ -1,7 +1,7 @@
 <div class="otp" id="no-index">
 
-### On This Page
-- [BigCommerce APIs at a Glance](#bigcommerce-apis-at-a-glance)
+### On this page
+- [BigCommerce APIs at a glance](#bigcommerce-apis-at-a-glance)
 - [V2 REST API](#v2-rest-api)
 - [V3 REST API](#v3-rest-api)
 - [Webhooks](#webhooks)
@@ -11,13 +11,13 @@
 - [Customer Login API](#customer-login-api)
 - [Current Customer API](#current-customer-api)
 - [Provider APIs](#provider-apis)
-- [Add to Cart URLs](#add-to-cart-urls)
+- [Add to cart URLs](#add-to-cart-urls)
 - [API spec files](#api-spec-files)
-- [Deprecations and Sunsets](#deprecations-and-sunsets)
+- [Deprecations and sunsets](#deprecations-and-sunsets)
 
 </div>
 
-## BigCommerce APIs at a Glance
+## BigCommerce APIs at a glance
 |API|Server|Description|
 |-|-|-|
 |[V2 REST](#v2-rest-api)|`api.bigcommerce.com/stores/{store_hash}/v2/`| Exposes many resources (including webhooks); some not yet accessibly via `v3` API |
@@ -223,7 +223,7 @@ Provider API references describe endpoints, responses, and requests that can be 
 **Additional Information:** [Shipping Provider API Overview](https://developer.bigcommerce.com/api-docs/store-management/shipping/shipping-provider-api)
 
 
-## Add to Cart URLs
+## Add to cart URLs
 
 Query string parameters can be appended to BigCommerce product and `/cart.php` URLs in order to pre-select an SKU or add a product to cart. These parameters make it possible to build custom add to cart links and forms for use on BigCommerce storefronts and remote sites (such as WordPress, blog posts, and social media).
 
@@ -287,7 +287,7 @@ Query string parameters can be appended to BigCommerce product and `/cart.php` U
 
 
 
-## Deprecations and Sunsets
+## Deprecations and sunsets
 
 This section contains a continuously updated list of deprecated and sunset BigCommerce API endpoints and suggested alternatives.
 
