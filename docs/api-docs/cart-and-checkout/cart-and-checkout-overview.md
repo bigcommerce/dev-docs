@@ -37,7 +37,7 @@ The [Fetch API](https://developer.mozilla.org/en-US/docs/Web/API/Fetch_API) is a
 
 Fetch API is supported by most modern browsers, but it is not supported in Internet Explorer. We recommend using a [Polyfill](https://github.com/github/fetch) for Internet Explorer 10+ and XMLHttpRequest for earlier versions.
 
-To learn more about using the Fetch API with the Storefront see our tutorial [here](/api-docs/cart-and-checkout/working-sf-apis).
+To learn more about using the Fetch API with the Storefront see our [Working with the Storefront Cart and Checkout APIs](/api-docs/cart-and-checkout/working-sf-apis) tutorial.
 
 You can run fetch requests from the browser console to test, or you can  use the [Scripts API](/api-docs/scripts/scripts-overview) to add inject JavaScript into your theme's footer.
 
