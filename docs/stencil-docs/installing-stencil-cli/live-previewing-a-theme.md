@@ -72,7 +72,8 @@ It is also possible to download and develop against themes in the BigCommerce Th
 
 <!-- theme: warning -->
 
-### Distribution of cornerstone-based themes
+### Distribution of Cornerstone-based themes
+
 > Distribution of Cornerstone-based themes is subject to BigCommerce's Cornerstone license, including the mandatory incorporation of BigCommerce's copyright statement.
 
 ### Back Up before reinstalling
