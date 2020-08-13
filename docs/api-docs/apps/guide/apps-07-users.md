@@ -42,7 +42,8 @@ Store owners can also remove users. This action generates a `GET` request to the
 
 For details about remove user and load requests, see [Single-click App Callbacks](https://developer.bigcommerce.com/api-docs/apps/guide/callbacks).
 
-## Next Steps
+## Next steps
+
 * [Learn how to handle store events](https://developer.bigcommerce.com/api-docs/apps/guide/users).
 
 ## Resources
