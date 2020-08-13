@@ -9,7 +9,8 @@
 - [Powerful CSS stack](#powerful-css-stack)
 - [Front Matter](#front-matter)
 - [JavaScript event hooks](#javascript-event-hooks)
-- [Blueprint (legacy framework)](#blueprint-legacy-framework)
+- [Blueprint (Legacy framework)](#blueprint-legacy-framework)
+
 - [Support](#support)
 - [Resources](#resources)
 
