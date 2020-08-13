@@ -165,7 +165,8 @@ Persistent Cart works with our Storefront Cart and Server-to-Server Cart.
 To learn more on setup, see [Persistent Cart](https://support.bigcommerce.com/s/article/Persistent-Cart).
 
 ## Troubleshooting cart errors
-We will go over common storefront cart and checkout as well as server-to-server cart and checkout errors. Each scenario will include the error message and how to fix the error. The most common errors are listed below.
+We will go over common Storefront Cart and Checkout as well as Server-to-Server Cart and Checkout errors. Each scenario will include the error message and how to fix the error. The most common errors are listed below.
+
 
 ### Please create some text for the API option [422]
 *Server to Server Cart API*
