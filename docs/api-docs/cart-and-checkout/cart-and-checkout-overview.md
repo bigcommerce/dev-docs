@@ -347,7 +347,8 @@ lineNumbers: true
 ```
 
 ### This product has options; variant ID is required [422]
-*Server to Server Cart API*
+*Server-to-Server Cart API*
+
 
 ***Issue:***  When a product has options and variant ID is not supplied in either the create or update cart request.
 
