@@ -135,7 +135,8 @@ fetch('/api/storefront/order/{{checkout.order.id}}', {
 </script>
 ```
 
-## Server-to-server cart and checkout
+## Server-to-Server Cart and Checkout
+
 
 The Server-to-Server APIs are for managing the contents of a shopping cart and checkout remotely from a server. Using the Cart, Checkout, and Payment API allows for a fully headless ecommerce solution.
 
