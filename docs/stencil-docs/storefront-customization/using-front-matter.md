@@ -4,7 +4,7 @@
 <div class="otp" id="no-index">
 
 ### On this page
-- [Declaring ront Matter objects](#declaring-ront-matter-objects)
+- [Declaring Front Matter objects](#declaring-front-matter-objects)
 - [Filtering attributes](#filtering-attributes)
 - [Combining Front Matter and Handlebars](#combining-front-matter-and-handlebars)
 - [Default vs custom attributes](#default-vs-custom-attributes)
@@ -13,7 +13,7 @@
 
 </div>
 
-## Declaring ront Matter objects
+## Declaring Front Matter objects
 
 When you create a store page that requires specific attributes (such as 'New Products') to be displayed, you must first declare the object and attribute on the page in a Front Matter block at the top of the page's HTML template file. The Front Matter block makes the attribute accessible on the page. Then, to display the attribute on the storefront page, you will reference the object using Handlebars within the page's HTML.
 For example, to display 'new products' on a storefront's home page, you first need to make new products accessible on the home page. To achieve this, include the following Front Matter block at the top of the [home.html](https://github.com/bigcommerce/cornerstone/blob/master/templates/pages/home.html) file to declare the products object with its new attribute. This allows a storefront's home page to access a store's "New Products".
@@ -26,7 +26,7 @@ products:
 
 **Note:** A 'limit' is required for product objects to render on a storefront page. You can hard code the limit value or utilize handlebars.js to reference it from the theme's config.json file. In this case, the limit value is being referenced from the `settings` JSON object in the `config.json` file using handlebars.js. Information on required attributes is detailed in the Front Matter attributes Reference.
 
-After including the Front Matter block at the top of the home.html file, the New Products attribute will be accessible in the home page's context. As previously stated, simply including the Front Matter block will not display the attribute on the page. In order to actually display the new products on the desired storefront page, you will reference the attribute using Handlebars in the same file you have added the front matter block to.
+After including the Front Matter block at the top of the home.html file, the New Products attribute will be accessible in the home page's context. As previously stated, simply including the Front Matter block will not display the attribute on the page. In order to actually display the new products on the desired storefront page, you will reference the attribute using Handlebars in the same file you have added the Front Matter block to.
 In this example, we will include the following code in Cornerstone's [home.html](https://github.com/bigcommerce/cornerstone/blob/master/templates/pages/home.html) file to display New Products on our store's home page.
 
 ```html
@@ -53,7 +53,7 @@ You **cannot** use Front Matter to accomplish this on pages in the following sub
 ## Filtering attributes
 
 Some attributes can accept indented keys, or key-value pairs, to further define the attribute. For example, limit is a key commonly used to restrict the number of objects to return for an attribute.
-To return products similar to the product that a customer is currently viewing – with a limit of six – you would declare front matter as follows:
+To return products similar to the product that a customer is currently viewing – with a limit of six – you would declare Front Matter as follows:
 
 ```yaml
 
@@ -119,7 +119,7 @@ products:
 
 To make templates readily useful, they automatically include a page’s default attributes. For example, a theme’s [product.html](https://github.com/bigcommerce/cornerstone/blob/master/templates/pages/product.html) page will automatically include a product attribute.
 
-However, if you want to include additional attributes on a page, you can declare those attributes in front matter using the conventions shown above. [The Declaring Objects](#Front Matter-overview_declaring-objects) example shows the only way to display a "new products" storefront section, which requires Front Matter invocation.
+However, if you want to include additional attributes on a page, you can declare those attributes in Front Matter using the conventions shown above. [The Declaring Objects](#Front Matter-overview_declaring-objects) example shows the only way to display a "new products" storefront section, which requires Front Matter invocation.
 
 ## Declaring multiple attributes
 
