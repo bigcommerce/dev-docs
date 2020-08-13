@@ -18,7 +18,8 @@ The BigCommerce Scripts API gives developers the ability to inject scripts into 
 
 * Single-click app scripts
 
-* inserting live chat and support plugins
+* Live chat and support plugins
+
 * inserting theme extensions or connector apps
 
 ## Script Manager API partner guidelines
