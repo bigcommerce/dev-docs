@@ -111,7 +111,8 @@ The Browsersync preview is launched by executing the `stencil start` command in 
 * an API access token
 * a local port number
 
-This configuration file is created by running `stencil init` and entering the information listed above (before doing so, be sure to [obtain store API credentials](#obtaining-store-api-credentials)).
+This configuration file is created by running `stencil init` and entering the information listed above. Before doing so, be sure to [obtain store API credentials](#obtaining-store-api-credentials).
+
 
 
 To initialize a new `.stencil` configuration file and start live preview, run the following commands in a terminal:
