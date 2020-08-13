@@ -2,14 +2,15 @@
 
 <div class="otp" id="no-index">
 
-### On This Page
+### On this page
 - [Cornerstone](#cornerstone)
 - [Stencil CLI](#stencil-cli)
-- [Flexible Templates](#flexible-templates)
-- [Powerful CSS Stack](#powerful-css-stack)
+- [Flexible templates](#flexible-templates)
+- [Powerful CSS stack](#powerful-css-stack)
 - [Front Matter](#front-matter)
-- [JavaScript Event Hooks](#javascript-event-hooks)
-- [Blueprint (Legacy Framework)](#blueprint-legacy-framework)
+- [JavaScript event hooks](#javascript-event-hooks)
+- [Blueprint (Legacy framework)](#blueprint-legacy-framework)
+
 - [Support](#support)
 - [Resources](#resources)
 
@@ -17,7 +18,8 @@
 
 Stencil is BigCommerce's theme engine. It incorporates industry best practices in technology, design standards, SEO, and allows developers to build a stunning storefront that engages shoppers and encourages checkouts on any device. Stencil themes are supported on the [following browsers](https://support.bigcommerce.com/s/article/Themes-Supported-Browsers). Stencil is responsible for powering the BigCommerce [Cornerstone theme](#about_cornerstone).
 
-The [Store Design](/stencil-docs/configure-store-design-ui/store-design-overview) tool available on Stencil themes allows merchants to customize a storefront’s look and feel with no coding, making customizations possible by a wide range of users.  Store Design enables quick and easy customization of a theme's colors, typography, banners, headings, carousel, and footer. It also enables customization of a storefront's layout characteristics, such as the number of products displayed in various panels, category pages, and brand pages. For details, see [Personalizing Your Theme](https://support.bigcommerce.com/articles/Learning/Personalizing-your-New-Theme) (BigCommerce Knowledge Base). 
+The [Store Design](/stencil-docs/configure-store-design-ui/store-design-overview) tool available on Stencil themes allows merchants to customize a storefront’s look and feel with no coding, making customizations possible by a wide range of users.  Store Design enables quick and easy customization of a theme's colors, typography, banners, headings, carousel, and footer. It also enables customization of a storefront's layout characteristics, such as the number of products displayed in various panels, category pages, and brand pages. For details, see [Personalizing Your Theme](https://support.bigcommerce.com/articles/Learning/Personalizing-your-New-Theme).
+
 
 BigCommerce Stencil themes are responsive, mobile friendly themes, allowing shoppers to have a first class experience across any device. Each Stencil theme can contain one to four variations. You can optimize individual variations for specific markets, audiences, and styles, while still managing and distributing all of these variations as one theme.
 
@@ -41,13 +43,13 @@ The Stencil CLI enables developers to locally develop and customize on any Stenc
 
 Stencil CLI runs on the [Node.js](https://nodejs.org/en/) runtime environment. Installing Node.js also provides the required [npm package manager](https://www.npmjs.com/package/npm).
 
-## Flexible Templates
+## Flexible templates
 
 Stencil's logic based templates allow BigCommerce developers to customize storefront pages efficiently with the lightweight templating language, [Handlebars.js](https://handlebarsjs.com/). Handlebars.js allows you to efficiently embed dynamic and conditional logic onto your storefront pages.
 
-## Powerful CSS Stack
+## Powerful CSS stack
 
-Stencil themes support both **Sass** and **SCSS**. Developers can use these popular CSS pre-processors to nest CSS properties, variables, and mix-ins. 
+Stencil themes support both **Sass** and **SCSS**. Developers can use these popular CSS pre-processors to nest CSS properties, variables, and mix-ins.
 
 Cornerstone uses a BigCommerce SCSS Framework [Citadel](https://www.npmjs.com/package/@bigcommerce/citadel), which is built on top of [Foundation](https://foundation.zurb.com/sites/docs/) `v5.5.3` (Foundation `v6.x` not currently supported).
 
@@ -59,13 +61,14 @@ Foundation assets are located in the following directories:
 
 Stencil's use of **YAML Front Matter** allows developers to request only the objects needed on the storefront, increasing page speed and allowing developers to define the content to render with just a few keystrokes.
 
-## JavaScript Event Hooks
+## JavaScript event hooks
 
 Stencil themes can access remote objects through event hook and use the hooks to trigger defined events based on shopper behavior. This will allow you to collect product data and optimize a shopper's experience. To facilitate theme-building, BigCommerce provides [stencil-utils](https://developer.bigcommerce.com/stencil-docs/reference-docs/stencil-utils-api-reference) -- a client-side library for managing event hooks.
 
-## Blueprint (Legacy Framework)
+## Blueprint (Legacy framework)
 
-For information on Blueprint, BigCommerce's legacy theme framework, see: [Blueprint Themes](https://developer.bigcommerce.com/legacy/blueprint-themes).
+
+For information on Blueprint, BigCommerce's legacy theme framework, see [Blueprint Themes](https://developer.bigcommerce.com/legacy/blueprint-themes).
 
 ## Support
 
