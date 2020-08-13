@@ -20,6 +20,7 @@ This article contains the detailed instructions needed to install and configure 
 
 To install Stencil CLI and it's dependencies on Mac, open a terminal and run the following commands:
 
+
 ```shell
 # Install Node Version Manager (nvm)
 curl -o- https://raw.githubusercontent.com/creationix/nvm/v0.31.0/install.sh | bash
