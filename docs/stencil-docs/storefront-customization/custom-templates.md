@@ -5,7 +5,7 @@
 ### On this page
 - [Authoring a custom template](#authoring-a-custom-template)
 - [Local mapping and testing](#local-mapping-and-testing)
-- [Specifying custom Front Matter](#specifying-custom-front-matter)
+- [Specifying custom front matter](#specifying-custom-front-matter)
 - [Theme upload](#theme-upload)
 - [Troubleshooting template authoring](#troubleshooting-template-authoring)
 - [Applying custom templates to pages](#applying-custom-templates-to-pages)
