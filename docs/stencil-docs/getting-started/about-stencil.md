@@ -64,7 +64,8 @@ Stencil's use of **YAML Front Matter** allows developers to request only the obj
 
 Stencil themes can access remote objects through event hook and use the hooks to trigger defined events based on shopper behavior. This will allow you to collect product data and optimize a shopper's experience. To facilitate theme-building, BigCommerce provides [stencil-utils](https://developer.bigcommerce.com/stencil-docs/reference-docs/stencil-utils-api-reference) -- a client-side library for managing event hooks.
 
-## Blueprint (legacy framework)
+## Blueprint (Legacy framework)
+
 
 For information on Blueprint, BigCommerce's legacy theme framework, see [Blueprint Themes](https://developer.bigcommerce.com/legacy/blueprint-themes).
 
