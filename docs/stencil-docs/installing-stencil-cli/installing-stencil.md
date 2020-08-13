@@ -115,6 +115,7 @@ npm install -g @bigcommerce/stencil-cli
 
 > These instructions have been tested successfully on **Windows 10**.
 
+
 </div>
 </div>
 </div>
