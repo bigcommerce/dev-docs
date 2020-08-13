@@ -160,7 +160,8 @@ The Server-to-Server APIs are for managing the contents of a shopping cart and c
 
 [Persistent Cart](https://support.bigcommerce.com/s/article/Persistent-Cart) allows for a logged-in shopper to access the same cart across devices. Persistent cart is available on [Plus, Pro, and Enterprise plans](https://www.bigcommerce.com/essentials/pricing/).
 
-Persistent Cart works with our storefront cart and server-to-server cart.
+Persistent Cart works with our Storefront Cart and Server-to-Server Cart.
+
 To learn more on setup, see [Persistent Cart](https://support.bigcommerce.com/s/article/Persistent-Cart).
 
 ## Troubleshooting cart errors
