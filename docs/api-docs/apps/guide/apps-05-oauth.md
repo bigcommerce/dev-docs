@@ -1,4 +1,5 @@
-# Single-click App OAuth Flow
+# Single-Click App OAuth Flow
+
 
 <div class="otp" id="no-index">
 
