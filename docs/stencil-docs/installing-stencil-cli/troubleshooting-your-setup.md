@@ -15,7 +15,7 @@
 - [500 errors](#500-errors)
 - [Lint errors upon bundling](#lint-errors-upon-bundling)
 - [Module not found errors upon bundling](#module-not-found-errors-upon-bundling)
-- [Short un-descriptive JavaScript diagnostics](#short-un-descriptive-javascript-diagnostics)
+- [Short undescriptive JavaScript diagnostics](#short-undescriptive-javascript-diagnostics)
 - [TR-300 error upon theme upload](#tr-300-error-upon-theme-upload)
 - [Reinstalling Stencil CLI](#reinstalling-stencil-cli)
 - [Resources](#resources)
