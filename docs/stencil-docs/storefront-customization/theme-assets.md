@@ -2,17 +2,17 @@
 
 <div class="otp" id="no-index">
 
-### On This Page
-- [Cornerstone Assets Directory](#cornerstone-assets-directory)
-- [Citadel Subdirectory](#citadel-subdirectory)
-- [Components vs Utilities](#components-vs-utilities)
-- [Variables and Mixins](#variables-and-mixins)
-- [Stencil Subdirectory](#stencil-subdirectory)
+### On this page
+- [Cornerstone assets directory](#cornerstone-assets-directory)
+- [Citadel subdirectory](#citadel-subdirectory)
+- [Components vs utilities](#components-vs-utilities)
+- [Variables and mixins](#variables-and-mixins)
+- [Stencil subdirectory](#stencil-subdirectory)
 - [Resources](#resources)
 
 </div>
 
-Each Stencil theme’s `/assets/` directory contains CSS, JavaScript, and image assets that help create the design of storefront pages. A minimal `/assets/` directory contains the files and subdirectories that you can view on the [Cornerstone Github Repository](https://github.com/bigcommerce/cornerstone/tree/master/assets).
+Each Stencil theme’s `assets/` directory contains CSS, JavaScript, and image assets that help create the design of storefront pages. A minimal `assets/` directory contains the files and subdirectories that you can view on the [Cornerstone Github Repository](https://github.com/bigcommerce/cornerstone/tree/master/assets).
 
 <div class="HubBlock--callout">
 <div class="CalloutBlock--warning">
@@ -30,21 +30,21 @@ Each Stencil theme’s `/assets/` directory contains CSS, JavaScript, and image 
 </div>
 </div>
 
-## Cornerstone Assets Directory
+## Cornerstone assets directory
 
-* Directory: `cornerstone/assets/`
+* Directory: `assets/`
 
 <table>
   <tr>
   	<th>File Path</th>
     <th>Description</th>
   <tr>
-    <td>cornerstone/assets/fonts</td>
-    <td>The `/fonts/` subdirectory contains local versions of theme-specific fonts.</td>
+    <td>assets/fonts</td>
+    <td>The `fonts/` subdirectory contains local versions of theme-specific fonts.</td>
   <tr>
   <tr>
     <td>cornerstone/assets/icons</td>
-    <td>The `/icons/` subdirectory contains .svg files for icons used within a theme.</td>
+    <td>The `icons/` subdirectory contains .svg files for icons used within a theme.</td>
   <tr>
   <tr>
     <td>cornerstone/assets/img</td>
@@ -110,9 +110,9 @@ Every utility in this subdirectory will have both a class and a mixin. For examp
 
 <a id="theme-assets_citadel"></a>
 
-## Citadel Subdirectory
+## Citadel subdirectory
 
-Stencil themes include an internal pattern library called Citadel, which consumes the ZURB Foundation framework. Foundation provides the basis for creating responsive themes. Citadel extends the Foundation framework’s mixins and components to provide Stencil’s own mixins, extensible components, and utilities. The design/style language underlying these Citadel resources is the Sass/SCSS preprocessor. Citadel resources are named according to BEM and SUIT CSS conventions. Classes are named functionally, rather than based on visual presentation or content. Citadel is based specifically on Foundation 5.5.3, which installs with the Stencil framework. We do not support Foundation 6.x, due to breaking changes introduced between versions 5.x and 6.x.
+Stencil themes include an internal pattern library called Citadel, which consumes the ZURB Foundation framework. Foundation provides the basis for creating responsive themes. Citadel extends the Foundation framework’s mixins and components to provide Stencil’s own mixins, extensible components, and utilities. The designstyle language underlying these Citadel resources is the Sass/SCSS preprocessor. Citadel resources are named according to BEM and SUIT CSS conventions. Classes are named functionally, rather than based on visual presentation or content. Citadel is based specifically on Foundation 5.5.3, which installs with the Stencil framework. We do not support Foundation 6.x, due to breaking changes introduced between versions 5.x and 6.x.
 
 Citadel design patterns reside in `cornerstone/assets/scss/components/`. Citadel assets bundled with Cornerstone are located in the following subdirectories:
 
@@ -149,9 +149,9 @@ The `components/citadel` subdirectory contains Citadel-specific resources. The r
 
 <a id="theme-assets_componenets-utilities"></a>
 
-## Components vs Utilities
+## Components vs utilities
 
-Our naming scheme makes an architectural distinction between components and utilities. Components are defined as custom elements that enclose specific semantics, styling, and behavior. Component names are in camel case. Our syntax for naming them is:
+Our naming scheme makes an architectural distinction between components and utilities. Components are defined as custom elements that enclose specific semantics, styling, and behavior. Component names are in camel case. Our syntax for naming them is as follows:
 
 <table>
   <tr>
@@ -181,11 +181,11 @@ Our syntax for naming utilities is camel case, prefixed with a u- namespace:
 
 <a id="theme-assets_variables"></a>
 
-## Variables and Mixins
+## Variables and mixins
 
 Citadel variables and mixins follow similar naming conventions.
 
-Variables are things that can change over time. Their names are in camel case, and show context:
+Variables are things that can change over time. Their names are in camel case, and show context.
 
 <table>
   <tr>
@@ -202,7 +202,7 @@ Variables are things that can change over time. Their names are in camel case, a
   	<th>Mixin Name Design Pattern</th>
     <th>Mixin Name Example</th>
   <tr>
-    <td>Mixins follow regular camel-case naming conventions. Namespacing is not universally required for mixins. However, where a mixin has been created for a utility, its name matches<br> the utility’s name, including u- namespacing:</br></td>
+    <td>Mixins follow regular camel-case naming conventions. Namespacing is not universally required for mixins. However, where a mixin has been created for a utility, <p>its name matches the utility’s name, including u- namespacing:</p></td>
     <td>@mixin buttonVariant;
 @mixin u-textTruncate;</td>
   <tr>
@@ -210,7 +210,7 @@ Variables are things that can change over time. Their names are in camel case, a
 
 <a id="theme-assets_stencil-subdirectory"></a>
 
-## Stencil Subdirectory
+## Stencil subdirectory
 
 The /components/stencil/ subdirectory contains CSS files unique to Stencil themes, which are used to create specific page elements within the themes. You can view this subdirectory and all its children in the Cornerstone Theme Github Repository.
 
@@ -246,7 +246,7 @@ This subdirectory’s children contain CSS for the following page elements.
 
 <!-- theme:info -->
 
-### Akamai Image Manager
+### Akamai image manager
 > For Stencil themes only, images that use the default zoom library pass through Akamai Image Manager. This chooses the best image to serve based on device. To bypass the image optimization, include `imbypass=on` as a query parameter in the image url. This will serve un-optimized images.
 
 * `<img src="{{cdn 'webdav:img/image.jpg?imbypass=on'}}">`
@@ -259,10 +259,10 @@ This subdirectory’s children contain CSS for the following page elements.
 
 ## Resources
 
-### Sample Apps
+### Sample apps
 * [Cornerstone Github Repository](https://github.com/bigcommerce/cornerstone) (BigCommerce GitHub)
 
-### Additonal Resources
+### Additonal resources
 * [Getting Started With Foundation 5](https://foundation.zurb.com/sites/docs/v/5.5.3/) (Zurb)
 * [BEM](http://getbem.com/) (Get BEM)
 * [SUIT CSS](https://suitcss.github.io/) (GitHub)
