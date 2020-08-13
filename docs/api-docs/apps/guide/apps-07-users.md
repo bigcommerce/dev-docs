@@ -7,7 +7,8 @@
 - [The control panel experience](#the-control-panel-experience)
 - [The load request](#the-load-request)
 - [The remove user request](#the-remove-user-request)
-- [Next Steps](#next-steps)
+- [Next steps](#next-steps)
+
 - [Resources](#resources)
 - [Related articles](#related-articles)
 
