@@ -44,7 +44,8 @@ Changes considered to be non-breaking:
 
 To keep data in your application up-to-date, [webhooks](/api-docs/getting-started/webhooks/about-webhooks) provide a great alternative to periodic API polling. Use OAuth to register a webhook event that your application can listen for. Do not use legacy [basic authentication](/api-docs/getting-started/authentication/rest-api-authentication#migrating-from-legacy-to-oauth/) for this.
 
-BigCommerce will send a partial payload when a subscribed event is triggered, witha few identifying details such as the order ID when an order is created. Your application can use the order ID returned in the payload to make a subsequent API request for the full order details.
+BigCommerce will send a partial payload when a subscribed event is triggered, with a few identifying details such as the order ID when an order is created. Your application can use the order ID returned in the payload to make a subsequent API request for the full order details.
+
 
 ## Thread API requests
 
