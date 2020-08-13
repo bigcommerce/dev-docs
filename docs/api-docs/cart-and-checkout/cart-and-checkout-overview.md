@@ -143,7 +143,8 @@ The Server-to-Server APIs are for managing the contents of a shopping cart and c
 
 ### CaaS
 
-[Commerce-as-a-Service](https://www.bigcommerce.com/commerce-as-a-service/) is made possible with the Server-to-Server APIs. It lets the underlying cart, checkout, order, and payment APIs be called from a separate app, allowing you to create a completely custom checkout without touching the BigCommerce storefront.
+[Commerce-as-a-Service](https://www.bigcommerce.com/commerce-as-a-service/) is made possible with the Server-to-Server APIs. It lets the underlying Cart, Checkout, Order, and Payment APIs be called from a separate app, allowing you to create a completely custom checkout without touching the BigCommerce storefront.
+
 
 ## When to use
 * Modifying cart contents, such as price matching
