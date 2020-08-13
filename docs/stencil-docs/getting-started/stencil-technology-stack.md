@@ -93,7 +93,8 @@ Stencil Objects are categorized as either Global, Common, or Other, which is rep
 
 ## YAML front matter overview
 
-BigCommerce Stencil themes utilize YAML Front Matter on template pages. Front Matter allows developers to request objects on the storefront, allowing developers to define each page's design and layout details.
+BigCommerce Stencil themes utilize YAML front matter on template pages. Front matter allows developers to request objects on the storefront, allowing developers to define each page's design and layout details.
+
 
 When utilized, Front Matter must be the opening text of a file and must take the form of valid YAML set between triple-dashed lines.
 
