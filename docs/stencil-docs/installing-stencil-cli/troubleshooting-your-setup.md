@@ -190,7 +190,7 @@ If you see the following error when running stencil bundle, this is a past bug t
 
 To remove the error, please update your Cornerstone version.
 
-## Short un-descriptive JavaScript diagnostics
+## Short undescriptive JavaScript diagnostics
 
 If JavaScript errors in your browser's developer tools are not reporting filenames and line numbers, try changing your `webpack.conf.js` file's sourcemap entry from:
 
