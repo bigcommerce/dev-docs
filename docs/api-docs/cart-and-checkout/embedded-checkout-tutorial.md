@@ -175,11 +175,11 @@ Next, generate cart redirect URLs by sending a `POST` request to `/carts/{{cart_
 ```
 
 ### Redirecting a logged-in customer to embedded checkout
-For some use cases, you may want your customer to be logged in before they can begin the checkout process.
+For some use cases, you may want your customer to log in before they can begin the checkout process.
 
-This can be done using the [Customer Login API](https://developer.bigcommerce.com/api-docs/customers/customer-login-api#logging-in-a-customer). 
+Customers can log in using the [Customer Login API](https://developer.bigcommerce.com/api-docs/customers/customer-login-api#logging-in-a-customer). 
 
-Your will first need to use JSON Web Token Standard to create a new token. Use a [JWT library](https://jwt.io/#libraries-io) to accomplish this. For more information, see [Create JWT Using the Debugger Tool](https://developer.bigcommerce.com/api-docs/customers/customer-login-api#create-jwt-using-the-debugger-tool).
+You will first need to use JSON Web Token Standard to create a new token. Use a [JWT library](https://jwt.io/#libraries-io) to accomplish this. For more information, see [Create JWT Using the Debugger Tool](https://developer.bigcommerce.com/api-docs/customers/customer-login-api#create-jwt-using-the-debugger-tool).
 
 Next, include the `checkout_url` as part of the request payload you send to BigCommerce. 
 
@@ -250,7 +250,7 @@ One option for working locally is to install an SSL on your local machine, and t
 If your channel site doesn't match the URL from which you're making a request to BigCommerce, you will get a security error in the browser and the checkout will not load. Additionally, if requests to your BigCommerce store aren't served over HTTPS, you will also see an error.
 
 ### Are hosted payment gateways supported with Embedded Checkout?
-At this time you cannot embed checkout using a hosted payment gateway. See [Available Payment Gateways](https://support.bigcommerce.com/s/article/Available-Payment-Gateways#all-available) to determine which type of gateway you're using.
+At this time, you cannot embed a checkout using a hosted payment gateway. See [Available Payment Gateways](https://support.bigcommerce.com/s/article/Available-Payment-Gateways#all-available) to determine which type of gateway you're using.
 
 ## Additional Resources
 - [Channels API reference](https://developer.bigcommerce.com/api-reference/cart-checkout/channels-listings-api/channels/createchannel)
