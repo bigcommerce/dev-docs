@@ -15,7 +15,8 @@
 
 </div>
 
-Webhooks allow notify applications when specific events occur on a BigCommerce store. For example when:
+Webhooks notify applications when specific events occur on a BigCommerce store. For example when:
+
 * an order is created, 
 * a product's inventory changes
 * an item is added to a shopper's cart
