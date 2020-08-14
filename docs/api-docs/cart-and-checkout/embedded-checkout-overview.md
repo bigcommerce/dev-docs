@@ -22,7 +22,7 @@ If your channel site doesn't match the URL from which you're making a request to
 
 <a id="channels-sites-and-routes-apis"></a>
 
-## Channels, sites, and routes APIs
+## Channels, Sites, and Routes APIs
 
 You will need to use the [Channels, Sites, and Routes](https://developer.bigcommerce.com/api-reference/cart-checkout/channels-listings-api) APIs to embed checkout on an external site. The Channels API allows you to create and manage sales channel listings across a merchant's product catalog. A channel can be a marketplace, like Amazon, or an external storefront, like a WordPress site. The Sites and Routes APIs let you set an external storefront domain and define the paths for important pages, like the home page, cart page, or checkout page. The Sites and Routes APIs allow you to link back to the proper URL from invoice emails and storefront links.
 
