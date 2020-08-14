@@ -1976,7 +1976,7 @@ definitions:
                 description: |
                   Text entered for the payment method in the control panel.
                 type: string
-          payment-method-id:
+          payment_method_id:
             type: string
             description: |+
               The payment method ID used for this transaction

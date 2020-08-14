@@ -2,33 +2,32 @@
 
 <div class="otp" id="no-index">
 
-### On This Page
+### On this page
 - [Integrating Disqus with your Stencil blog](#integrating-disqus-with-your-stencil-blog)
-- [Integrating Disqus with your Stencil Product Pages](#integrating-disqus-with-your-stencil-product-pages)
-- [Resources](#resources)
+- [Integrating Disqus with your Stencil product pages](#integrating-disqus-with-your-stencil-product-pages)
 
-</div> 
+</div>
 
-Stencil themes have the ability to integrate with Disqus, a third-party commenting system that allows users to leave blog comments on blog posts made with Stencil’s built-in blog. Disqus can also be used with on Stencil product pages to allow comment and review threads on individual products.
+Stencil themes have the ability to integrate with Disqus, a third-party commenting system that allows users to leave blog comments on blog posts made with Stencil’s built-in blog. Disqus can also be used on Stencil product pages to allow comment and review threads on individual products.
 
 ## Integrating Disqus with your Stencil blog
 
 To use Disqus blog comments in Stencil, follow the steps below:
 
-1. Log in to your BigCommerce Control Panel.
-2. Navigate to Storefront Design > My Themes.
-3. Open Edit Theme Files for your theme.
-4. Navigate to Templates > Pages > blog-post.html.
+1. Log in to your BigCommerce control panel.
+2. Navigate to **Storefront Design** > **My Themes**.
+3. Open **Edit Theme Files** for your theme.
+4. Navigate to **Templates** > **Pages** > **blog-post.html**.
 5. Paste your Disqus Universal Code before the closing {{/partial}} tag.
 6. Save your files.
 7. Apply your theme.
 
-## Integrating Disqus with your Stencil Product Pages
+## Integrating Disqus with your Stencil product pages
 
-1. Log in to your BigCommerce Control Panel.
-2. Navigate to Storefront Design > My Themes.
-3. Open Edit Theme Files for your theme.
-4. Navigate to Templates > Pages > product.html.
+1. Log in to your BigCommerce control panel.
+2. Navigate to **Storefront Design** > **My Themes**.
+3. Open **Edit Theme Files** for your theme.
+4. Navigate to **Templates** > **Pages** > **product.html**.
 5. Paste your Disqus Universal Code before the closing {{/partial}} tag.
 6. In the Disqus Universal Code that you have posted, there is a function that reads like below:
 
@@ -51,7 +50,7 @@ var disqus_config = function () {
 };
 ```
 
-Change the value of `this.page.url` to be `product.url`;, and the value of this.page.identifier to be product.id; so that the function now reads like below:
+Change the value of `this.page.url` to be `product.url`, and the value of `this.page.identifier` to be `product.id`, so that the function now reads like below:
 
 <div class="HubBlock-header">
     <div class="HubBlock-header-title flex items-center">
@@ -72,5 +71,5 @@ var disqus_config = function () {
 };
 ```
 
-7. Save your files
-8. Apply your theme
+7. Save your files.
+8. Apply your theme.
