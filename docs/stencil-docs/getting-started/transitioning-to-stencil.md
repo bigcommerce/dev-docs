@@ -2,7 +2,7 @@
 
 <div class="otp" id="no-index">
 
-### On This Page
+### On this page
 - [What is Stencil?](#what-is-stencil)
 - [Why Transition to Stencil?](#why-transition-to-stencil?)
 - [Technical Differences](#technical-differences)
