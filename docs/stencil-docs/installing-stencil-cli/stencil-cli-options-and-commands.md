@@ -2,8 +2,8 @@
 
 <div class="otp" id="no-index">
 
-### On this Page
-- [Commands Overview](#commands-overview)
+### On this page
+- [Commands overview](#commands-overview)
 - [`stencil help`](#stencil-help)
 - [`stencil init`](#stencil-init)
 - [`stencil start`](#stencil-start)
@@ -20,7 +20,7 @@ This article is a comprehensive command reference for Stencil CLI, BigCommerce's
 
 <a id="commands-overview"></a>
 
-## Commands Overview
+## Commands overview
 
 The syntax to run a Stencil CLI command is as follows:
 
@@ -84,9 +84,9 @@ stencil init [--url <STORE_URL>] [--token <API_TOKEN>]
 
 | Option                  | Alias | Description                                                                               |
 |-|-|-|
-| `--port [<HTTP_PORT>]`  |`-p`   | The `HTTP` port number to use when serving the live theme preview                         |
-| `--token [<API_TOKEN>]` |`-t`   | The [BigCommerce API Token](https://support.bigcommerce.com/s/article/Store-API-Accounts) |
-| `--url [<STORE_URL>]`   |`-u`   | The BigCommerce storefront URL                                                            |
+| `--port [<HTTP_PORT>]`  |`-p`   | The `HTTP` port number to use when serving the live theme preview.                         |
+| `--token [<API_TOKEN>]` |`-t`   | The [BigCommerce API Token](https://support.bigcommerce.com/s/article/Store-API-Accounts). |
+| `--url [<STORE_URL>]`   |`-u`   | The BigCommerce storefront URL.                                                            |
 
 <a id="stencil-start"></a>
 
