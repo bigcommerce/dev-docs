@@ -300,13 +300,13 @@ Sunset endpoints will be phased out and removed from the API. Once sunset, the e
 
 |Endpoint|Alternative |
 |-|-|
-|`/v2/brands`| `/v3/catalog/brands`|
-|`/v2/categories`| `/v3/catalog/categories`|
-|`/v2/customers`| `/v3/customers`|
+|`/v2/brands`| [`/v3/catalog/brands`](https://developer.bigcommerce.com/api-reference/catalog/catalog-api/brands/getbrands)|
+|`/v2/categories`| [`/v3/catalog/categories`](https://developer.bigcommerce.com/api-reference/catalog/catalog-api/category/getcategories)|
+|`/v2/customers`| [`/v3/customers`](https://developer.bigcommerce.com/api-reference/customer-subscribers/v3-customers-api)|
 |`/v2/options`| In V3, `options` and `modifiers` are attached directly to the product. Use `options` and `modifiers` together to access the contents of the former V2 `options` response.|
-|`/v2/option_sets`| `option_sets` endpoint is not available in the V3 API.|
-|`/v2/products `| `/v3/catalog/products`|
-|`/v2/redirects/`|`/v3/storefront/redirects`|
+|`/v2/option_sets`| `option_sets` endpoint is intentionally not available in the V3 API. See [V2 vs V3 Catalog APIs](https://developer.bigcommerce.com/legacy/v2-products/v2-v3) for more information.|
+|`/v2/products `| [`/v3/catalog/products`](https://developer.bigcommerce.com/api-reference/catalog/catalog-api/products/getproducts)|
+|`/v2/redirects/`|[`/v3/storefront/redirects`](https://developer.bigcommerce.com/api-reference/storefront/redirects)|
 
 **V2 Sunsets**
 
