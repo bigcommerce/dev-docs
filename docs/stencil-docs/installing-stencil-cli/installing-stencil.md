@@ -13,11 +13,13 @@
 
 Stencil CLI gives developers the power to locally edit and preview themes with no impact to a merchant’s live storefront, and it's built-in [Browsersync](https://github.com/bigcommerce/browser-sync) capabilities make simultaneous testing across desktop, mobile, and tablet devices a breeze. Once work is complete, developers can push themes to BigCommerce storefronts (and set them live) using Stencil CLI's simple, yet powerful commands.
 
+
 This article contains the detailed instructions needed to install and configure Stencil CLI -- the first step to developing themes on the BigCommerce platform.
 
 ## Installing on Mac
 
 To install Stencil CLI and it's dependencies on Mac, open a terminal and run the following commands.
+
 
 ```shell
 # Install Node Version Manager (nvm)
@@ -113,6 +115,7 @@ npm install -g @bigcommerce/stencil-cli
 
 > These instructions have been tested successfully on **Windows 10**.
 
+
 </div>
 </div>
 </div>
@@ -149,6 +152,7 @@ npm install -g @bigcommerce/stencil-cli
 <!-- theme: info -->
 
 > These instructions have been tested on **Ubuntu 18.04**.
+
 
 </div>
 </div>
