@@ -17,7 +17,7 @@ This article contains the detailed instructions needed to install and configure 
 
 ## Installing on Mac
 
-To install Stencil CLI and it's dependencies on Mac, open a terminal and run the following commands:
+To install Stencil CLI and it's dependencies on Mac, open a terminal and run the following commands.
 
 ```shell
 # Install Node Version Manager (nvm)
@@ -48,7 +48,7 @@ npm install -g @bigcommerce/stencil-cli
 ## Installing on Windows
 There's two methods for installing Stencil CLI and its dependencies on Windows.
 
-### Method 1: Install Dependencies Using Chocolatey
+### Method 1: Install dependencies using Chocolatey
 If you're not comfortable manually installing and configuring Python and Node.js on Windows, or if you prefer an easy installation option, use the [Chocolatey package manager](https://chocolatey.org/) to install Stencil CLI's dependencies. To do so, [open PowerShell](https://docs.microsoft.com/en-us/powershell/scripting/getting-started/starting-windows-powershell?view=powershell-6) as an administrator, and run the following commands:
 ```shell
  # Install Chocolatey
