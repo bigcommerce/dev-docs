@@ -250,7 +250,7 @@ One option for working locally is to install an SSL on your local machine, and t
 If your channel site doesn't match the URL from which you're making a request to BigCommerce, you will get a security error in the browser and the checkout will not load. Additionally, if requests to your BigCommerce store aren't served over HTTPS, you will also see an error.
 
 ### Are hosted payment gateways supported with Embedded Checkout?
-At this time, you cannot embed checkout using a hosted payment gateway. See [Available Payment Gateways](https://support.bigcommerce.com/s/article/Available-Payment-Gateways#all-available) to determine which type of gateway you're using.
+At this time, you cannot embed a checkout using a hosted payment gateway. See [Available Payment Gateways](https://support.bigcommerce.com/s/article/Available-Payment-Gateways#all-available) to determine which type of gateway you're using.
 
 ## Additional Resources
 - [Channels API reference](https://developer.bigcommerce.com/api-reference/cart-checkout/channels-listings-api/channels/createchannel)
