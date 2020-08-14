@@ -1350,6 +1350,14 @@ definitions:
               - expired
               - disabled
             example: active
+          currency_code:
+            type: string
+            description: >-
+            A currency code, following the ISO 4217 standard. The currency has to exists in the store first.
+            Gift Certificates can only be used if the transactional currency of the cart is the same to the one
+            defined in the gift certificate. If this value is not provided, the gift certificate is created using
+            the store's default transactional currency.
+            example: USD
     title: giftCertificate_Post
 tags:
   - name: Banners
