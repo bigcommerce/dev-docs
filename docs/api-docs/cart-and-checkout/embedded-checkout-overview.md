@@ -36,4 +36,4 @@ Embedded Checkout requires the BigCommerce Checkout SDK to invoke a method to re
 
 ## Logged-In customers
 
-The [Customer Login API](https://developer.bigcommerce.com/api-docs/customers/customer-login-api) allows you to manage customers in two steps. First, you need to pass the customer_id when creating the cart. Second, you need to log in the customer, so the session is active when the checkout loads.
+The [Customer Login API](https://developer.bigcommerce.com/api-docs/customers/customer-login-api) allows you to manage customers in two steps. First, you need to pass the `customer_id` when creating the cart. Second, you need to log in the customer, so the session is active when the checkout loads.
