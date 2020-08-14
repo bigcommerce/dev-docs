@@ -33,14 +33,11 @@ Connector apps use manual OAuth token creation instead of the single-click app f
 ## Visibility
 There are three visibility options for apps: **Draft**, **Unlisted**, and **Public**.
 
-|  Visibility | Description | Use Cases |
+| Visibility | Description | Use Cases |
 | --- | --- | --- |
-|  Draft | apps registered in [Dev Tools](https://devtools.bigcommerce.com/) but never submitted for approval. | installing on stores owned by the same email address as [DevTools](https://devtools.bigcommerce.com/auth/bigcommerce) account email |
-|   |  | beta testing before publishing to marketplace |
-|  Unlisted | apps submitted and approved apps but not listed on [app marketplace](https://www.bigcommerce.com/apps/) | installing on stores not owned by same email address as [DevTools](https://devtools.bigcommerce.com/auth/bigcommerce) account email |
-|   |  | beta testing before publishing to marketplace |
-|  Public | apps submitted, approved, and listed on the marketplace | making apps visible and installable on all stores |
-|   |  | making apps sellable on the marketplace |
+| Draft | Apps registered in [Dev Tools](https://devtools.bigcommerce.com/) but never submitted for approval. | <li>Installing on stores owned by the same email address as [DevTools](https://devtools.bigcommerce.com/auth/bigcommerce) account email</li><li>Beta testing before publishing to marketplace</li> |
+| Unlisted | Apps submitted and approved apps but not listed on the [app marketplace](https://www.bigcommerce.com/apps/) | <li>Installing on stores not owned by same email address as [DevTools](https://devtools.bigcommerce.com/auth/bigcommerce) account email</li><li>Beta testing before publishing to marketplace |
+| Public | Apps submitted, approved, and listed on the marketplace | <li>Making apps visible and installable on all stores</li><li>Making apps sellable on the marketplace |
 
 <div class="HubBlock--callout">
 <div class="CalloutBlock--info">
