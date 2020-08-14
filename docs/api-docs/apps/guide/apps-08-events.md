@@ -31,7 +31,8 @@ The following resources have webhooks events available to apps:
 
 ## Creating webhooks
 
-To create a webhook, send a `POST` request to [/stores/{{STORE_HASH}}/v2/hooks](https://developer.bigcommerce.com/api-reference/webhooks/webhooks/createwebhooks):
+To create a webhook, send a `POST` request to [/stores/{{STORE_HASH}}/v2/hooks](https://developer.bigcommerce.com/api-reference/webhooks/webhooks/createwebhooks).
+
 
 ```http
 POST https://api.bigcommerce.com/stores/{{STORE_HASH}}/v2/hooks
