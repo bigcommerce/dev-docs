@@ -92,7 +92,8 @@ npm install -g @bigcommerce/stencil-cli
 </div>
 </div>
 
-### Method 2: install dependencies manually
+### Method 2: Install dependencies manually
+
 If you're a pro at installing and configuring Python and Node.js environments on Windows, feel free to install the required dependencies using your preferred method.
 
 **Required Dependencies:**
