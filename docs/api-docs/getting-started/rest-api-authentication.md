@@ -169,7 +169,7 @@ During the app installation process, your app will use the client ID and client 
 
 ### Benefits of migrating to OAuth:
 
-It is recommended you migrate from using legacy API credentials to OAuth. Some benefits include:
+It is recommended you migrate from using legacy API credentials to OAuth. Some benefits include the following:
 
 * All OAuth requests are sent to a common hostname: `https://api.bigcommerce.com`. Using a single hostname prevents any interruption of service when the domain or SSL on a particular store changes or expires.
 
