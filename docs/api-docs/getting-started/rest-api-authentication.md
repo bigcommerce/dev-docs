@@ -81,7 +81,7 @@ To revoke Store API Credentials:
 
 ## Obtaining app API credentials
 
-To get app API credentials, create and login to your BigCommerce [Developer Portal](https://devtools.bigcommerce.com) account. Navigate to **My Apps** in the top-right corner, then:
+To get app API credentials, create and log into your BigCommerce [Developer Portal](https://devtools.bigcommerce.com) account. Navigate to **My Apps** in the top-right corner, then:
 
 1. Click **Create an app**.  
 2. Give your app a name (this will only be visible to you).
