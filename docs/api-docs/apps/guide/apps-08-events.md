@@ -10,7 +10,8 @@
 
 </div>
 
-Your app may need to be notified when specific events occur on a BigCommerce store (for example, when an order is created). Your app can programmatically subscribe to such events via [Webhooks](https://developer.bigcommerce.com/api-reference/webhooks/webhooks/createwebhooks). We'll briefly introduce webhooks in this article (for visibility); to take a deeper dive, see [Webhooks Overview](https://developer.bigcommerce.com/api-docs/getting-started/webhooks/about-webhooks).
+Your app may need to be notified when specific events occur on a BigCommerce store (for example, when an order is created). Your app can programmatically subscribe to such events via [webhooks](https://developer.bigcommerce.com/api-reference/webhooks/webhooks/createwebhooks). We'll briefly introduce webhooks in this article (for visibility); to take a deeper dive, see [Webhooks Overview](https://developer.bigcommerce.com/api-docs/getting-started/webhooks/about-webhooks).
+
 
 ## Available webhooks
 
