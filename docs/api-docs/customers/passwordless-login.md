@@ -40,7 +40,7 @@ Example:
     
 <!-- theme:  -->
 ### Redirect URL
-> If the request body does not include a`redirect_url`, customers will be redirected as follows:
+> If the request body does not include a `redirect_url`, customers will be redirected as follows:
 > <br>
 > - **Failed sign-in:** Sign-in page
 > - **Successful sign-in:** User account page
