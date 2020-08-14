@@ -59,7 +59,8 @@ Host: login.bigcommerce.com
 
 Depending on which endpoint you call, BigCommerce will render a success or failure page to the modal.
 
-## Code Samples
+## Code samples
+
 
 Handling errors in Lua:
 
