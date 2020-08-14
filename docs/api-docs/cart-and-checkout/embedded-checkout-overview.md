@@ -4,7 +4,7 @@
 
 ### On this page
 - [How it works](#how-it-works)
-- [Channels, sites and routes APIs](#channels-sites-and-routes-apis)
+- [Channels, Sites, and Routes APIs](#channels-sites-and-routes-apis)
 - [BigCommerce Checkout SDK](#bigcommerce-checkout-sdk)
 - [Logged-In customers](#logged-in-customers)
 
