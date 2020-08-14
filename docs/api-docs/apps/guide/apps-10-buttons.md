@@ -44,7 +44,8 @@ If you skip this step, your application will load in the iFrame created by your 
 
 If your application's installation was initiated and completed through an external link, BigCommerce will send your `auth` callback endpoint an extra parameter called `external_install`.
 
-If you receive this parameter and there are no errors, make a `GET` request to the install succeeded endpoint:
+If you receive this parameter and there are no errors, make a `GET` request to the install succeeded endpoint.
+
 
 ```http
 GET /app/{{CLIENT_ID}}/install/succeeded  HTTP/1.1
