@@ -150,7 +150,8 @@ After the final retry attempt (cumulatively **48 hours** after the first deliver
 
 ## Security
 
-To ensure webhook callback requests are secure, BigCommerce takes the following procautions:
+To ensure webhook callback requests are secure, BigCommerce takes the following precautions:
+
 
 * Webhook payloads contain minimal information about the store and event
 * Webhook payloads are sent over **TLS-encrypted** connection
