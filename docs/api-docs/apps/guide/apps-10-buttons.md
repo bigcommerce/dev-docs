@@ -8,7 +8,8 @@
 - [Configuring the button](#configuring-the-button)
 - [Rendering success and failure pages](#rendering-success-and-failure-pages)
 - [Handling errors](#handling-errors)
-- [Code Samples](#code-samples)
+- [Code samples](#code-samples)
+
 - [Next steps](#next-steps)
 - [Resources](#resources)
 
