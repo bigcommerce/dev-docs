@@ -15,7 +15,8 @@
 
 </div>
 
-Single-click apps can be installed from outside the BigCommerce control panel. For example, an install button on your company's site that directs the merchant to download your app. This tutorial provides step-by-step instructions for creating an external install button for BigCommerce Single-click apps.
+Single-click apps can be installed from outside the BigCommerce control panel. For example, an install button on your company's site that directs the merchant to download your app. This tutorial provides step-by-step instructions for creating an external install button for BigCommerce single-click apps.
+
 
 ## Creating an install button
 
