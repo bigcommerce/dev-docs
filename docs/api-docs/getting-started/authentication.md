@@ -18,7 +18,8 @@ Requests to BigCommerce's V2 and V3 REST APIs require you to pass both an OAuth 
 
 
 ## Storefront API
-The Storefront API is unauthenticated, allowing you to make client-side requests for carts, checkouts, and orders using Javascript. 
+The Storefront API is unauthenticated, allowing you to make client-side requests for carts, checkouts, and orders using JavaScript. 
+
 
 ## GraphQL Storefront API
 There are two ways to authenticate with the GraphQL API:
