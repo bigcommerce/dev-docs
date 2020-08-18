@@ -85,7 +85,7 @@ To get app API credentials, create and log into your BigCommerce [Developer Port
 
 1. Click **Create an app**.  
 2. Give your app a name. This name will only be visible to you.
-3. Click **Create** (a pop up box will display showing Your Profile, App Summary and Category).
+3. Click **Create**. A pop-up box will display showing Your Profile, App Summary, and Category.
 
 ![#### Create an App](//s3.amazonaws.com/user-content.stoplight.io/6012/1537389767940 "#### Create an App")
 
