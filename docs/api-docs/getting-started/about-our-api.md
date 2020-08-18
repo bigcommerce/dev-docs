@@ -9,7 +9,6 @@
 - [REST API (V2 & V3)](#rest-api-v2--v3)
 - [Support](#support)
 - [Resources](#resources)
-
 </div>
 
 
