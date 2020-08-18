@@ -3100,6 +3100,7 @@ responses:
             currency: USD
             gateway: squarev2
             gateway_transaction_id: pN5Kd7R9ilEI2ygBawCy7tMF|qwnAFAxRZ7tYRtIpZULg1yMF
+            payment_method_id: squarev2.card
             status: ok
             test: false
             fraud_review: false
