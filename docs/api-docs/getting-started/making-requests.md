@@ -2,19 +2,19 @@
 
 <div class="otp" id="no-index">
 
-### On This Page
+### On this page
 - [REST API](#rest-api)
-- [Storefront API Quick Start](#storefront-api-quick-start)
+- [Storefront API quick start](#storefront-api-quick-start)
 - [GraphQL API](#graphql-api)
 - [Customer Login API](#customer-login-api)
 
 </div>
 
-This Quick Start Guide will take you through making your first requests with BigCommerce's APIs.
+This quick start guide will take you through making your first requests with BigCommerce's APIs.
 
 ## REST API
 
-### Obtain API Credentials
+### Obtain API credentials
 
 See [Authenticating BigCommerce's Rest APIs](https://developer.bigcommerce.com/api-docs/getting-started/authentication/rest-api-authentication#obtaining-store-api-credentials#obtaining-store-api-credentials) for instructions on obtaining store API credentials.
 
@@ -24,7 +24,7 @@ The easiest way to experiment with BigCommerce REST APIs is via the built-in **R
 
 [![Open in Request Runner](https://storage.googleapis.com/bigcommerce-production-dev-center/images/Open-Request-Runner.svg)](https://developer.bigcommerce.com/api-reference/catalog/catalog-api/products/getproducts#requestrunner)
 
-Just copy and paste your `store_hash`, `client_id` ID, and `access_token` into the form, then click **Send**
+Just copy and paste your `store_hash`, `client_id` ID, and `access_token` into the form, then click **Send**.
 
 ### Visual Studio Code REST Client
 
@@ -46,20 +46,20 @@ Accept: application/json
 
 Save and you'll see the **send request** link above `GET`. Click **send request** and the response will open in a split window.
 
-### Import API Spec File with Postman
+### Import API spec file with Postman
 
 Alternatively, you can import the [Specification File](https://developer.bigcommerce.com/api-reference/catalog/catalog-api/BigCommerce_Catalog_API.oas2.json) into [Postman](https://www.getpostman.com/) (or any other tool that can import [Open API Specification](https://swagger.io/specification/) files).
 
 To view sample JSON request bodies for each REST API resource, see the [API Reference](https://developer.bigcommerce.com/api-reference) for that resource.
 
-## Storefront API Quick Start
+## Storefront API quick start
 
-To make your first requests in a browser with the Storefront APIs, see the step-by-step tutorial [Working with Storefront Cart and Checkout APIs](https://developer.bigcommerce.com/api-docs/cart-and-checkout/working-sf-apis)
+To make your first requests in a browser with the Storefront APIs, see the step-by-step tutorial [Working with Storefront Cart and Checkout APIs](https://developer.bigcommerce.com/api-docs/cart-and-checkout/working-sf-apis).
 
 ## GraphQL API
 
-### Obtain Storefront Token
-We'll use **Request Runner** for making an initial request to obtain a Storefront API token. It is a REST API request, so you will need to copy and paste your [API credentials](https://developer.bigcommerce.com/api-docs/getting-started/authentication/rest-api-authentication#obtaining-store-api-credentials#obtaining-store-api-credentials).
+### Obtain storefront token
+We'll use **Request Runner** for making an initial request to obtain a storefront API token. It is a REST API request, so you will need to copy and paste your [API credentials](https://developer.bigcommerce.com/api-docs/getting-started/authentication/rest-api-authentication#obtaining-store-api-credentials#obtaining-store-api-credentials).
 
 [![Open in Request Runner](https://storage.googleapis.com/bigcommerce-production-dev-center/images/Open-Request-Runner.svg)](https://developer.bigcommerce.com/api-reference/cart-checkout/storefront-api-token/api-token/createtoken#requestrunner)
 
@@ -77,8 +77,8 @@ Include the URL of the storefront you will be making the request from as the `al
 }
 ```
 
-### Create Sample Request in the browser
-While viewing your storefront in a browser, navigate to the integrated JavaScript console, for example [Google Chrome's Console](https://developers.google.com/web/tools/chrome-devtools/console). Use it to run the following code after entering your API token in the authorization header, and adding an a valid [Product ID](https://developer.bigcommerce.com/api-reference/catalog/catalog-api/products/getproductbyid) for the `entityId`:
+### Create sample request in the browser
+While viewing your storefront in a browser, navigate to the integrated JavaScript console, for example [Google Chrome's Console](https://developers.google.com/web/tools/chrome-devtools/console). Use it to run the following code after entering your API token in the authorization header, and adding a valid [Product ID](https://developer.bigcommerce.com/api-reference/catalog/catalog-api/products/getproductbyid) for the `entityId`:
 
 ```javacsript
    fetch('/graphql', {
@@ -116,6 +116,6 @@ While viewing your storefront in a browser, navigate to the integrated JavaScrip
 ```
 
 ## Customer Login API
-The Customer Login API is a server-to-server API, which means to make requests against it you will need a back end service. To view a sample request, see sample code within our [PHP client](
-https://github.com/bigcommerce/bigcommerce-api-php/blob/master/src/Bigcommerce/Api/Client.php#L421)
+The Customer Login API is a Server-to-Server API, which means to make requests against it, you will need a back end service. To view a sample request, see sample code within our [PHP client](
+https://github.com/bigcommerce/bigcommerce-api-php/blob/master/src/Bigcommerce/Api/Client.php#L421).
 
