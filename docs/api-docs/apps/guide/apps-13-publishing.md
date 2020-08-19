@@ -22,9 +22,10 @@ After completing development, verifying best practices, and checking approval re
 ## Before you begin
 
 Your listing on the [Apps Marketplace](https://www.bigcommerce.com/apps/) plays a major role in your app's success. A good listing accomplishes three goals:
-1. Shows users how your platform or solution differs from competitive offerings
-2. Includes keywords so prospective users can find your listing in searches
-3. Sets up clear and accurate user expectations as to your solution's features and functionality
+*  Shows users how your platform or solution differs from competitive offerings
+* Includes keywords so prospective users can find your listing in searches
+* Sets up clear and accurate user expectations as to your solution's features and functionality
+
 
 Before you begin completing the app registration, we recommend prepping the following assets:
 * Company logos
