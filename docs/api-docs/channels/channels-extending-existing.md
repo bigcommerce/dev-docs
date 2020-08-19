@@ -78,18 +78,20 @@ Accept: application/json
 [{
     "type": "type of channel",
     "platform": "sales channel platform",
-    "name": "name of the sales channel", // Name displayed to merchant
+    "name": "name of the sales channel",  // Name displayed to merchant
     "external_id": "",
-    "status": "connected”,
-    "app": {
-      "id": 123,                         // ID of the app
-      "sections": [{
-        "title": "Overview",             // Label displayed to merchant in nav bar
-        "query_path": "overview"         // query param passed app iframe
-       }, {
-       "title": "Settings",
-       "query_path": "settings"
-      }]
+    "status": "connected",
+    "config_meta": {
+      "app": {
+        "id": 123,                        // ID of the app                       
+        "sections": [{                    // Label displayed to merchant in BigCommerce navigation bar
+          "title": "Overview",            // query param passed app iframe  
+          "query_path": "overview"         
+         }, {
+         "title": "Settings",
+         "query_path": "settings"
+        }]
+      }
     }
 }]
 ```
@@ -123,7 +125,7 @@ Accept: application/json
 | ↳ `id` | int | ID of the app |
 | ↳ `sections` | array[obj] | User interface section options |
 | &nbsp;&nbsp; ↳ `title` | str | Label displayed to merchants in navigation bar |
-| &nbsp;&nbsp; ↳ `query_path` | str | Passed to app's iframe. Ex: `https://<store_url>/manage/channel/2/app?id=5§ion=overview` |
+| &nbsp;&nbsp; ↳ `query_path` | str | Passed to app's iframe. Ex: `https://<store_url>/manage/channel/2/app?id=5&section=overview` |
 
 **Accepted Platforms and Types**
 | Platform          | Accepted Type             |
