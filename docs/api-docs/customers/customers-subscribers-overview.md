@@ -2,16 +2,16 @@
 
 <div class="otp" id="no-index">
 
-### On This Page
+### On this page
 - [Introduction](#introduction)
-- [What is a Customer?](#what-is-a-customer)
-- [What is a Subscriber?](#what-is-a-subscriber)
-- [Subscribers vs. Customers](#subscribers-vs-customers)
-- [What is a Guest?](#what-is-a-guest)
-- [Customer Login API](#customer-login-api)
+- [What is a customer?](#what-is-a-customer)
+- [What is a subscriber?](#what-is-a-subscriber)
+- [Subscribers vs. customers](#subscribers-vs-customers)
+- [What is a guest?](#what-is-a-guest)
+- [Customer login API](#customer-login-api)
 - [Current Customer API](#current-customer-api)
 - [Customer API](#customer-api)
-- [Differences Between V2 and V3 Customer API](#differences-between-v2-and-v3-customer-api)
+- [Differences between V2 and V3 customer API](#differences-between-v2-and-v3-customer-api)
 - [FAQ](#faq)
 - [Resources](#resources)
 
@@ -24,14 +24,14 @@
 **Scopes**
 
 The following [OAuth](https://developer.bigcommerce.com/api-docs/getting-started/authentication#authentication_oauth-scopes) scopes are required:
-- Customers View/Modify
-- Customers Login
+- Customers view/modify
+- Customers read-only
 
-## What is a Customer?
+## What is a customer?
 
-A customer is anyone who has made a purchase on a store and created an account. BigCommerce then stores email address, customer address, and name against the customer as a record. You can also extend the data for your customer records using custom account sign up form fields and the customer attributes API. 
+A customer is anyone who makes a purchase on a store and creates an account. BigCommerce stores their email address, customer address, and name against the customer as a record. There are two APIs you can use to manipulate customer data. You can extend the data for customer records using custom account sign up form fields (V3) and the customer attributes API (V3). 
  
-### Customer Groups
+### Customer groups
 
 Customer groups allow you to organize your customers, give them discounts, and restrict access to specific products or categories. For more information see [Customer Groups](https://support.bigcommerce.com/s/article/Customer-Groups).
 
@@ -40,35 +40,35 @@ Customer groups allow you to organize your customers, give them discounts, and r
 <div class="HubBlock-content">
     
 <!-- theme:  -->
-### Customer Groups by Plan
-> Customer Groups are only available on specific plans.
+### Customer groups by plan
+> Customer groups are only available on specific plans. See [BigCommerce Pricing](https://support.bigcommerce.com/s/article/Pricing) to learn more.
 
 </div>
 </div>
 </div>
 
-## What is a Subscriber?
+## What is a subscriber?
 
 A subscriber is someone who has signed up for a store’s newsletter.  
 Subscribers can be added by:
 
 - Signing up for the newsletter via the signup box located in the footer of most storefront themes
 - Signing up for the newsletter during checkout
-- POSTing to the Subscribers API
+- Sending a `POST` request to the [Subscribers API](https://developer.bigcommerce.com/api-reference/customer-subscribers/subscribers-api/)
 
-Where possible, the API indicates the origin of the subscriber. If the subscriber was added during checkout, the Order ID is included.
+Where possible, the API indicates the origin of the subscriber. If the subscriber was added during checkout, the order ID is included.
 
-## Subscribers vs. Customers
+## Subscribers vs. customers
 
-- A subscriber is not always a customer. Someone can sign up for the newsletter only and not create an account.
+- A subscriber is not always a customer. Someone can sign up for the newsletter without creating an account.
 - A customer is not always a subscriber. Signing up for the newsletter is a separate action from creating an account and purchasing an item.
-- A customer and a subscriber can be the same. If a shopper checks out on the storefront, creates an account and opts into the newsletter, they are a customer and a subscriber.
+- A customer and a subscriber can be the same. If a shopper checks out on the storefront, creates an account and opts into the newsletter, they are both a customer and a subscriber.
 
-## What is a Guest?
+## What is a guest?
 
-Store [settings](https://forum.bigcommerce.com/s/article/Checkout-Settings#checkout-settings) can be set to allow a shopper to complete checkout without creating an account. These shoppers are not captured as customers or stored in the BigCommerce system. If you want to capture guest data, using the [Storefront APIs](https://developer.bigcommerce.com/api-docs/cart-and-checkout/cart-and-checkout-overview) can help.
+Store [settings](https://forum.bigcommerce.com/s/article/Checkout-Settings#checkout-settings) can be configured to allow a shopper to complete checkout without creating an account. These shoppers are not captured as customers or stored on BigCommerce. If you want to capture guest data, using the [Storefront APIs](https://developer.bigcommerce.com/api-docs/cart-and-checkout/cart-and-checkout-overview) can help.
 
-## Customer Login API
+## Customer login API
 
 The Customer Login API allows for single sign-on. Once a customer has authenticated by logging in to a third-party system (CMS, portal, or app), you can use the customer login API to seamlessly log the customer into their BigCommerce customer account.
 
@@ -77,16 +77,16 @@ The Current Customer API allows your application to identify logged in customers
 
 ## Customer API
 There are two Customer API endpoints available:
-- V3 Customers API
-- V2 Customers API
+* V3 Customers API
+* V2 Customers API
 
 ### V3 Customers API
 
-The [V3 Customers API](https://developer.bigcommerce.com/api-reference/customer-subscribers/v3-customers-api) is comprised of Customers, Customer Attributes, Customer Address, and Customer Form Fields. 
+The [V3 Customers API](https://developer.bigcommerce.com/api-reference/customer-subscribers/v3-customers-api) is comprised of customers, customer attributes, customer address, and customer form fields. 
 
-Customers are any shopper that has created an account on the store. The Customers object comprises customers address, attributes, form fields and authentication. The V3 Customers API can accomplish the same tasks as the existing V2 Customers API, with greater efficiency. 
+Customers are shoppers that have created an account on the store. The customers object comprises a customers address, attributes, form fields and authentication. The V3 Customers API can accomplish the same tasks as the existing V2 Customers API, with greater efficiency. 
 
-[Customer Attributes](https://developer.bigcommerce.com/api-reference/customer-subscribers/v3-customers-api/models/customerattribute) are a name, value key pair that are stored against a Customer. For example, if you want to keep a list of hat sizes, the name can be “Hat Sizes” and the value can be 10. Each customer can have several name, value pairs stored.
+[Customer Attributes](https://developer.bigcommerce.com/api-reference/customer-subscribers/v3-customers-api/models/customerattribute) are a name and value key pair that are stored against a customer. For example, if you want to keep a list of hat sizes, the name can be “Hat Sizes” and the value can be `10`. Each customer can have several name, value pairs stored.
 
 <div class="HubBlock--callout">
 <div class="CalloutBlock--info">
@@ -94,58 +94,58 @@ Customers are any shopper that has created an account on the store. The Customer
     
 <!-- theme:  -->
 
-### Name Value Pairs
-> Each customer can have up to 50 name, value pairs stored
+### Name value pairs
+> Each customer can have up to `50` name, value pairs stored
 
 </div>
 </div>
 </div>
 
-Customer Attributes are created separately from the customer. After the name and type are created, then the attributes can be added to the customer using the name, value pair.
+Customer attributes are created separately from the customer. After the name and type are created, then the attributes can be added to the customer using the name, value pair.
 
-[Customer Addresses](https://developer.bigcommerce.com/api-reference/customer-subscribers/v3-customers-api/models/address) consist of a customers address and phone number. Customers can have multiple addresses stored against them.
+[Customer addresses](https://developer.bigcommerce.com/api-reference/customer-subscribers/v3-customers-api/models/address) consist of a customers address and phone number. Customers can have multiple addresses stored against them.
 
-[Customer Form Fields Values](https://developer.bigcommerce.com/api-reference/customer-subscribers/v3-customers-api/models/customerformfieldvalue) are fields on either the customer address or customer signup that accept any string data. An example of a signup field can have a customer input a Wholesaler ID or for an address field, have them input any special delivery instructions. Creating form fields needs to be done from the [Control Panel](https://support.bigcommerce.com/s/article/Editing-Form-Fields#account-fields). 
-Using the API you are able to access and edit the values for the fields on your Customer and Customer Address records. 
+[Customer form field values](https://developer.bigcommerce.com/api-reference/customer-subscribers/v3-customers-api/models/customerformfieldvalue) are fields on either the customer address or customer signup that accept any string data. An example of a signup field can have a customer input a wholesaler ID or, for an address field, have them input any special delivery instructions. Create form fields within the [control panel](https://support.bigcommerce.com/s/article/Editing-Form-Fields#account-fields). 
+You can access and edit the values for the fields on customer and customer address records using the API. 
 
 ### V2 Customers API
 
-The V2 Customers API is comprised of Customers, Customer Addresses and Customer Groups. The Customers object is comprised of basic customer information such as customer name and phone number. 
+The V2 Customers API is comprised of customers, customer addresses and customer groups. The customers object is comprised of basic customer information such as customer name and phone number. 
 
-[Customer Addresses](https://developer.bigcommerce.com/api-reference/customer-subscribers/v3-customers-api/models/address) consist of a customers address and phone number. Customers can have multiple addresses stored against them.
+[Customer addresses](https://developer.bigcommerce.com/api-reference/customer-subscribers/v3-customers-api/models/address) consist of a customer's address and phone number. Customers can have multiple addresses stored against them.
 
-[Customer Groups](https://developer.bigcommerce.com/api-reference/customer-subscribers/customers-api/models/customergroup) allow you to organize your customers, give them discounts, and restrict access to specific products or categories. Customer groups are not yet available on the V3 Customers API.
+[Customer groups](https://developer.bigcommerce.com/api-reference/customer-subscribers/customers-api/models/customergroup) allow you to organize your customers, give them discounts, and restrict access to specific products or categories. Customer groups are not yet available on the V3 customers API.
 
-## Differences Between V2 and V3 Customer API
+## Differences between V2 and V3 customer API
 
-### Making Requests
+### Making requests
 
-The new Customers API is easier to use. It reduces the API calls needed to accomplish a task. For example, creating a new Customer with the V2 API there was a need to hit several endpoints. Now the customer attributes and address are created in one step with Create a Customer, allowing you to batch create multiple customers, and their subresources, in a single API call.
+The new customers API is easier to use. It reduces the API calls needed to accomplish a task. For example, when creating a new customer with the V2 API, there was a need to make calls to several endpoints. Now customer attributes and address are created in one step, allowing you to batch create multiple customers — and their subresources — in a single API call.
 
-**Create a Customer**
+**Create a customer**
 
-Single Customer on V3
+Single customer on V3
 - `/customers`
 
-Single Customer on V2
+Single customer on V2
 * `/customers/{customer_id}`
 * `/customers/{customer_id}/addresses`
 
 ### Queries
 
-With the V3 Customers API, queries become a powerful tool. Instead of using a different endpoint to get customer sub-resources, there is one GET endpoint per resource with filters to refine the request. 
+With the V3 Customers API, queries become a powerful tool. There is one `GET` endpoint per resource with filters to refine the request. The V2 API necessitates using a different endpoint to get customer sub-resources. 
 
-**Get Customer Addresses**
+**Get customer addresses**
 
-Get Customer Address by name and company on V3
+Get customer address by name and company on V3
 `/customers/addresses?company:in=bigcommerce,commongood&customer_id:in1,2,3`
 
-Get Customer Address by name and company on V2
+Get customer address by name and company on V2
 `/customers/{customer_id}/addresses/{customer_address_id}`
 
 ### Requests
 
-Requests on this endpoint require an array object for all Create and Update Actions.
+Requests on this endpoint require an array object for all create and update actions.
 
 <!--
 title: "Update a Customer V3"
@@ -153,7 +153,7 @@ subtitle: "/customer"
 lineNumbers: true
 -->
 
-**Example Update a Customer V3**  
+**Example update a customer V3**  
 `/PUT https://api.bigcommerce.com/stores/{store_hash}/v3/customers`
 
 ```json
@@ -173,7 +173,7 @@ subtitle: "/customers/{customer_id}"
 lineNumbers: true
 -->
 
-**Example Update a Customer V2**  
+**Example update a customer V2**  
 `/PUT https://api.bigcommerce.com/stores/{store_hash}/v2/customer_groups/{customer_group_id}`
 
 ```json
@@ -186,29 +186,29 @@ lineNumbers: true
 
 ### Upsert
 
-Upsert is used for Form Field Values and Customer Attributes. Upsert looks for a match to the existing record, and if one is found, then it makes an update. If a match is not found, it creates a new record.
+Upsert is used for form field values and customer attributes. Upsert looks for a match to the existing record, and if one is found, then it makes an update. If a match is not found, it creates a new record.
 
-### Authentication Object
+### Authentication object
 
-On the new Customers endpoint, when creating a customer there are two ways to set customers passwords. 
+When creating a customer there are two ways to set customers passwords on the V3 customers endpoint. 
 - A new password can be set under the `authentication > new password` object in a /PUT or /POST. 
-- To have customers reset the password set `force_password_reset` to `true` under `authentication > new password` object in a /PUT or /POST
+- To have customers reset the password set `force_password_reset` to `true` under `authentication > new password` object in a `PUT` or `POST` request
 
-[Password Confirmation](https://developer.bigcommerce.com/api-reference/customer-subscribers/customers-api/customers/createanewcustomer) and [Validation](https://developer.bigcommerce.com/api-reference/customer-subscribers/customers-api/customer-passwords/validatecustomerpassword) are still available under V2 Customers. 
+[Password confirmation](https://developer.bigcommerce.com/api-reference/customer-subscribers/customers-api/customers/createanewcustomer) and [validation](https://developer.bigcommerce.com/api-reference/customer-subscribers/customers-api/customer-passwords/validatecustomerpassword) are still available under V2 customers. 
 
 ## FAQ
 
 **Which API should I use?**
 
-When possible use the V3 Customers API since we will eventually begin the process of deprecating the existing V2 Customers API. 
+Use the V3 Customers API when possible as we will eventually begin the process of deprecating the existing V2 Customers API. 
 
 **How can I validate customer passwords?**
 
-Password validation is only available on V2 Customers API. Validation will return a true or false. The V3 Customers API can reset a customers password or input a new password. 
+Password validation is only available on V2 Customers API. Validation will return a boolean. The V3 Customers API can reset a customer's password or input a new password. 
 
 ## Resources
 
-### Related Endpoints
+### Related endpoints
   [Customer Login API](https://developer.bigcommerce.com/api-docs/customers/customer-login-api)
 - [Current Customer API](https://developer.bigcommerce.com/api-docs/customers/current-customer-api)
 - [Customers API](https://developer.bigcommerce.com/api-reference/customer-subscribers/v3-customers-api)
@@ -220,6 +220,6 @@ Password validation is only available on V2 Customers API. Validation will retur
 ### Webhooks
 - [Customers](https://developer.bigcommerce.com/api-docs/getting-started/webhooks/webhook-events#webhook-events_customer)
 
-### Related Articles
+### Related articles
 - [Adding and Editing Fields in the Account Signup Form](https://support.bigcommerce.com/s/article/Editing-Form-Fields#account-fields) (Knowledge Base)
 - [Checkout Settings](https://support.bigcommerce.com/s/article/Checkout-Settings#checkout-settings) (Knowledge Base)
