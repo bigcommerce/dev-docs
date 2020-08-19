@@ -2,76 +2,48 @@
 
 <div class="otp" id="no-index">
 
-### On This Page
-- [Catalog Price Object Examples Excluding Tax](#catalog-price-object-examples-excluding-tax)
-- [Catalog Price Object Examples Including and Excluding Tax](#catalog-price-object-examples-including-and-excluding-tax)
-- [Control Panel Quick Reference](#control-panel-quick-reference)
+### On this page
+- [Catalog price object examples excluding tax](#catalog-price-object-examples-excluding-tax)
+- [Catalog price object examples including and excluding tax](#catalog-price-object-examples-including-and-excluding-tax)
+- [Control panel quick reference](#control-panel-quick-reference)
 - [Resources](#resources)
 
 </div> 
 
-As a theme developer, you can use the [*Catalog Price Object*](/stencil-docs/reference-docs/common-objects#common-objects_catalog-price) to highlight the savings that a merchant is offering over the MSRP (Retail Price) directly on the storefront by simply referencing the product's [Catalog Price Object](/stencil-docs/stencil-object-model-reference/stencil-objects/common-objects/catalog-price) and the correct property for the product.
+As a theme developer, you can use the catalog price object to highlight the savings that a merchant is offering over the MSRP directly on the storefront by referencing the product's `price` object and the correct property for the product.
 
-Merchants can use Control Panel options to set the following prices for a catalog product:
+Merchants can use control panel options to set the following prices for a catalog product:
 
-<table>
-  <tr>
-    <th>Control Panel Field</th>
-    <th>Description</th>
-  </tr>
-  <tr>
-    <td>Default Price</td>
-    <td>This is the product’s standard store price. The <bb>Excluding/Including Tax</b> indicator to the right of the <b>Default Price</b> field is applicable to all price fields (Cost, MSRP, Sale Price).</td>
-  </tr>
-  <tr>
-    <td>Cost Price</td>
-    <td>The product's <b>Cost Price</b> property is never returned to the storefront by design. Generally, merchants would not want to reveal the true cost of goods to shoppers. The cost price field is meant for reports and third-party accounting integrations. </td>
-  </tr>
-  <tr>
-    <td>MSRP (Retail Price)</td>
-    <td>This field contains the Manufacturer's Standard Retail Price, also known as the list price. MSRP is the manufacturer's suggested retail price, a price recommended for the sale of an item in all retail outlets.</td>
-  </tr>
-  <tr>
-    <td>Sale Price</td>
-    <td>This field is the product's reduced store price.</td>
-  </tr>
-</table>
+| Field | Description |
+| ----------- | ----------- |
+| Default Price | This is the product’s standard store price. The **Excluding/Including Tax** indicator to the right of the **Default Price** field is applicable to all price fields (**Cost**, **MSRP**, **Sale Price**).|
+| Cost | The product's `cost` property is never returned to the storefront by design. Generally, merchants would not want to reveal the true cost of goods to shoppers. The **Cost** field is meant for reports and third-party accounting integrations.|
+| MSRP | This field contains the manufacturer's suggested retail price, a price recommended for the sale of an item in all retail outlets. |
+| Sale Price | This field is the product's reduced store price. |
 
-These options and assigned values are each represented in the [Catalog Price Object](/stencil-docs/stencil-object-model-reference/stencil-objects/common-objects/catalog-price), allowing theme developers to pull the information and render it onto the storefront to highlight the savings offered by a merchant.
 
-## Catalog Price Object Examples Excluding Tax
+These options and assigned values are each represented in the catalog price object, allowing theme developers to pull the information and render it onto the storefront to highlight the savings offered by a merchant.
 
-### No Sale Price Defined in Control Panel
+## Catalog price object examples excluding tax
 
-Assume that a merchant has defined the following for a product in the Control Panel:
+### No sale price defined in control panel
+
+Assume that a merchant has defined the following for a product in the control panel:
 
 * **Default Price**
-* **Cost Price**
-* **Retail Price (MSRP)**
+* **Cost**
+* **MSRP**
 
-No **Sale Price** is defined for the product.
-
-<!--
-    title: #### Product in Control Panel (no Sale Price defined)
-
-    data: //s3.amazonaws.com/user-content.stoplight.io/6116/1557355653770
--->
-
-#### Product in Control Panel (no Sale Price defined)
-![#### Product in Control Panel (no Sale Price defined)
-](https://raw.githubusercontent.com/bigcommerce/dev-docs/master/assets/images/sale_price_catalog.png "#### Product in Control Panel (no Sale Price defined)
-")
-
-A corresponding [Catalog Price Object](/stencil-docs/stencil-object-model-reference/stencil-objects/common-objects/catalog-price) for the product will be structured as follows:
+A corresponding catalog price object for the product will be structured as shown below:
 
 <div class="HubBlock-header">
     <div class="HubBlock-header-title flex items-center">
-        <div class="HubBlock-header-name">Catalog Price Object (no Sale Price defined)</div>
+        <div class="HubBlock-header-name">Catalog price object (no sale price defined)</div>
     </div><div class="HubBlock-header-subtitle"></div>
 </div>
 
 <!--
-title: "Catalog Price Object (no Sale Price defined)"
+title: "Catalog price object (no sale price defined)"
 subtitle: ""
 lineNumbers: true
 -->
@@ -111,42 +83,31 @@ lineNumbers: true
   }
 ```
 
-Items to note about the Catalog Price Object above:
+In this example:
 
-* `without_tax` -- this property maps to the control panel’s **Default Price** field.
-* `rrp_without_tax` -- `rrp` is an abbreviation for "regular retail price." This property maps to the control panel's **MSRP (Retail Price)** field.
-* `saved` --  this property is the difference between the existing values for `without_tax` (**Default Price**) and `rrp_without_tax` (**MSRP**).
+* `without_tax` - this property maps to the control panel’s **Default Price** field.
+* `rrp_without_tax` - `rrp` stands for "regular retail price." This property maps to the control panel's **MSRP** field.
+* `saved` -  this property is the difference between the existing values for `without_tax` (**Default Price**) and `rrp_without_tax` (**MSRP**).
 
-### Sale Price Defined in Control Panel
+### Sale price defined in control panel
 
-Assume that a merchant has defined the following for a product in the Control Panel:
+Assume that a merchant has defined the following for a product in the control panel:
 
 * **Default Price**
-* **Cost Price**
-* **Retail Price (MSRP)**
+* **Cost**
+* **MSRP**
 * **Sale Price**
 
-<!--
-    title: #### Product in Control Panel (Sale Price defined)
-
-    data: //s3.amazonaws.com/user-content.stoplight.io/6116/1556748687478
--->
-
-#### Product in Control Panel (Sale Price defined)
-![#### Product in Control Panel (Sale Price defined)
-](https://raw.githubusercontent.com/bigcommerce/dev-docs/master/assets/images/sale_price_defined_catalog.png "#### Product in Control Panel (Sale Price defined)
-")
-
-A corresponding *Catalog Price Object* for the product will be structured as shown below:
+A corresponding catalog price object for the product will be structured as shown below:
 
 <div class="HubBlock-header">
     <div class="HubBlock-header-title flex items-center">
-        <div class="HubBlock-header-name">Catalog Price Object (Sale Price defined)</div>
+        <div class="HubBlock-header-name">Catalog price object (sale price defined)</div>
     </div><div class="HubBlock-header-subtitle"></div>
 </div>
 
 <!--
-title: "Catalog Price Object (Sale Price defined)"
+title: "Catalog price object (sale price defined)"
 subtitle: ""
 lineNumbers: true
 -->
@@ -193,79 +154,75 @@ lineNumbers: true
   }
 ```
 
-Items to note about the *Catalog Price* Object above:
+In this example:
 
-* The `sale_price_without_tax` property maps to the product’s effective price is the Control Panel's **Sale Price** field. The `sale_price_without_tax` property will directly expose the  **Sale Price** set on a base product, variant, or price record.
-* The regular store price is now displayed in an added property called `non_sale_price_without_tax`.
+* `sale_price_without_tax` - this property maps to the product’s effective price in the control panel's **Sale Price** field. The `sale_price_without_tax` property will directly expose the sale price set on a base product, variant, or price record.
+* `non_sale_price_without_tax` - this property displays the regular store price.
 
-Properties noted will only be displayed if a **Sale Price** is set on the product.
+Properties noted will only be displayed if a sale price is set on the product.
 
-### Prices and Conditional Logic Example
+### Prices and conditional logic example
 
 Stencil structures product prices for backward compatibility with the BigCommerce platform's traditional treatment of prices. This behavior enables you to add logic that determines whether to display a strikeout price on the storefront.
 
-The example below tests for the presence of the `sale_price_without_tax` property (you could also look for the `sale_price_with_tax` property). The presence of the `sale_price_without_tax` property means that the product has been given a **Sale Price**.
+The example below tests for the presence of the `sale_price_without_tax` property. (You could also look for the `sale_price_with_tax` property.) The presence of the `sale_price_without_tax` property means that the product has been given a sale price.
 
-With the logic below, the page will display the standard store price with a strikeout across it, placed next to the **Sale Price**, indicating the current selling price of the product.
+With the logic below, the page will display a strikeout standard price next to the **Sale Price** field, indicating the current selling price of the product.
 
 <div class="HubBlock-header">
     <div class="HubBlock-header-title flex items-center">
-        <div class="HubBlock-header-name">Conditional Logic </div>
+        <div class="HubBlock-header-name">Conditional logic </div>
     </div><div class="HubBlock-header-subtitle"></div>
 </div>
 
 <!--
-title: "Conditional Logic "
+title: "Conditional logic "
 subtitle: ""
 lineNumbers: true
 -->
 
 ```
   {{#or price.sale_price_without_tax price.sale_price_with_tax}}
-     ... [code to display on-sale strikeout pricing or content for an on sale product]  ...
+     ... [code to display on-sale strikeout pricing or content for a discounted product]  ...
   {{/or}}
 ```
 
-## Catalog Price Object Examples Including and Excluding Tax
+## Catalog price object examples including and excluding tax
 
-Depending on how the store has been set up in the Control Panel’s **Store Setup** > **Tax** > **Configure Tax Display Settings**, the *Catalog Price Object* properties may represent prices in the following ways:
+Depending on how the store has been set up in the control panel’s **Store Setup** > **Tax** > **Tax Settings** > **Configure Tax Display Settings**, the `price` object will display prices in one of the following ways:
 
 * **Including tax**
 * **Excluding tax**
 * **Including and excluding tax**
 
-This display setting affects how values are returned in the *Catalog Price Object* and how the values appear on storefront pages.
+This display setting affects how values are returned in the catalog price object and how the values appear on storefront pages.
 
-<!--
-    title: #### Configure Tax Display Settings
+<!-- #### Configure tax display settings
+![Configure tax display settings
+](https://storage.cloud.google.com/bigcommerce-production-dev-center/images/tax-settings.png " Configure tax display settings
+") -->
 
-    data: //s3.amazonaws.com/user-content.stoplight.io/6116/1539842045139
--->
+ ![Configure tax display settings](https://raw.githubusercontent.com/bigcommerce/dev-docs/master/assets/images/catalog-price-object-examples.png "Configure tax display settings.")
 
-#### Configure Tax Display Settings
-![#### Configure Tax Display Settings
-](https://raw.githubusercontent.com/bigcommerce/dev-docs/master/assets/images/confige_tax_settings.png "#### Configure Tax Display Settings
-")
+### No sale price defined in control panel
 
-### No Sale Price Defined in Control Panel
+Assume that a merchant has defined the following tax configurations for a product in the control panel:
 
-Assume that a merchant has defined the following for a tax configurations for a product in the Control Panel:
+* Show prices on product pages including and excluding tax
+* Use a flat rate of 10% tax
 
-* Show prices on Product Pages **Including and excluding tax**
-* Flat 10% tax rate configured
+There is no defined sale price for the product.
 
-There is no defined a **Sale Price** for the product.
-
-A corresponding *Catalog Price Object* for the product will be structured as shown below:
+A corresponding catalog price object will be structured as shown below:
 
 <div class="HubBlock-header">
     <div class="HubBlock-header-title flex items-center">
-        <div class="HubBlock-header-name">Product Including and Excluding Tax (no Sale Price defined)</div>
+        <div class="HubBlock-header-name">Product including and excluding tax (no sale price defined)</div>
     </div><div class="HubBlock-header-subtitle"></div>
 </div>
 
 <!--
-title: "Product Including and Excluding Tax (no Sale Price defined)"
+title: "Product including and excluding tax (no sale price defined)"
 subtitle: ""
 lineNumbers: true
 -->
@@ -298,10 +255,10 @@ lineNumbers: true
 }
 ```
 
-Items to note about the *Catalog Price Object* example above:
+In this example:
 
-* `with_tax`: This property represents the `without_tax` value plus a 10% tax markup.
-* `rrp_with_tax`: This property represents the `rrp_without_tax` value plus a 10% tax markup.
+* `with_tax` - this property represents the `without_tax` value plus a 10% tax markup.
+* `rrp_with_tax` - this property represents the `rrp_without_tax` value plus a 10% tax markup.
 
 <div class="HubBlock--callout">
 <div class="CalloutBlock--warning">
@@ -309,23 +266,23 @@ Items to note about the *Catalog Price Object* example above:
 
 <!-- theme: warning -->
 
-### Tax Display Configurations
-> You would see these same properties and values if the Control Panel setting had been **Including tax** (as opposed to **Including and excluding tax**). These properties and values would not be available for a Control Panel setting of **Excluding tax**.
+### Tax display configurations
+> The same properties and values are returned for **Including tax** and **Including and excluding tax** display settings. These properties and values are not available for a control panel setting of **Excluding tax**.
 
 </div>
 </div>
 </div>
 
-### Sale Price Defined in Control Panel
+### Sale price defined in control panel
 
-Assume that a merchant has defined the following for a tax configurations for a product in the Control Panel, alongside a defined **Sale Price**:
+Assume that a merchant has defined the following tax configurations for a product in the control panel, alongside a defined sale price:
 
-* Show prices on Product Pages **Including and excluding tax**
-* Flat 10% tax rate configured
+* Show prices on product pages including and excluding tax
+* Use a flat rate of 10% tax
 
 <div class="HubBlock-header">
     <div class="HubBlock-header-title flex items-center">
-        <div class="HubBlock-header-name">Product Including and Excluding Tax (Sale Price defined)</div>
+        <div class="HubBlock-header-name">Product including and excluding tax (sale price defined)</div>
     </div><div class="HubBlock-header-subtitle"></div>
 </div>
 
@@ -379,73 +336,30 @@ lineNumbers: true
 }
 ```
 
-Items to note about the *Catalog Price Object* above:
+In this example:
 
-* The `non_sale_price_without_tax` and `non_sale_price_with_tax` properties represent the standard store price with and without tax.
-* The `sale_price_without_tax` and `sale_price_without_tax` represent the product's defined **Sale Price**.
-* The `saved` value is based on the difference between the `with_tax` and `non_sale_price_with_tax` values.
+* `non_sale_price_with_tax` and `non_sale_price_without_tax` properties represent the standard store price with and without tax.
+* `sale_price_with_tax` and `sale_price_without_tax` properties represent the product's defined sale price.
+* `saved` - this value is based on the difference between the `with_tax` and `non_sale_price_with_tax` values.
 
-## Control Panel Quick Reference
+## Control panel quick reference
 
-The table below explains the mapping between the Control Panel fields and the Catalog Price Object properties and values.
+The table below explains the mapping between the control panel fields and the catalog price object properties and values.
 
-<table>
-  <tr>
-    <th>Control-Panel Field</th>
-    <th>Catalog Price Object Property</th>   
-    <th>Description</th>
-  </tr>
-  <tr>
-    <td>Default Price (excluding tax)</td>
-    <td>
-      <ul>
-        <li>if <b>Sale Price</b> defined:</li> <code>{{ product.price.non_sale_price_without_tax }}</code>
-        <li>if no <b>Sale Price</b> defined</li> <code>{{ product.price.without_tax }}</code>
-    </td>    
-    <td>The standard store price for the product.</td>
-  </tr>
-  <tr>   
-    <td>Default Price (including tax)</td>
-    <td><li>if <b>Sale Price</b> defined:</li><code>{{ product.price.non_sale_price_with_tax }}</code>
-      <li>if no <b>Sale Price</b> defined</li> <code>{{ product.price.with_tax }}</code>
-    </td>   
-    <td>The standard store price for the product, with tax.</td>
-  </tr>
-  <tr>
-    <td>Cost Price</td>
-    <td>Cost Price is not returned in the Catalog Price Object.</td>
-    <td>This field represents true cost of goods, and is typically meant for reports and third-party accounting integrations.</td>
-  </tr>  
-  <tr>   
-    <td>MSRP (Retail Price) (excluding tax)</td>
-    <td><code>{{ product.price.rrp_without_tax }}</code></td>  
-    <td>Represents the product’s list price, or Manufacturer's Standard Retail Price (Retail Price).</td>
-  </tr>  
-  <tr>   
-    <td>MSRP (Retail Price) (including tax)</td>
-    <td><code>{{ product.price.rrp_with_tax }}</code></td>
-    <td>Used to represent the product’s list price or Manufacturer's Standard Retail Price (MSRP), including tax.</td>
-  </tr>  
-  <tr>
-    <td>Sale Price (excluding tax)</td>
-    <td><code>{{product.price.sale_price_without_tax}}</code></td>
-    <td>This product’s discounted/sale price.</td>
-  </tr>
-  <tr>
-    <td>Sale Price (including tax)</td>
-    <td><code>{{ product.sale_price_with_tax }}</code></td>
-    <td>This product’s discounted/sale price, with tax.</td>
-  </tr>
-  <tr>   
-    <td>Difference between Default Price and MSRP (Retail Price) (<i>Default Price - MSRP (Retail Price)</i>)</td>
-    <td><code>{{ product.price.saved }}</code></td>
-    <td>The customer’s savings on the effective price versus list price.</td>
-  </tr>  
-</table>
+| Field | Catalog Price Object Property | Description |
+| ----------- | ----------- | ----------- |
+| Default Price (excluding tax) |<ul><li><b>Sale Price</b> is defined:</li> <code>{{ product.price.non_sale_price_without_tax }}</code><li><b>Sale Price</b> is not defined:</li> <code>{{ product.price.without_tax }}</code></ul>| The standard store price for the product. |
+ Default Price (including tax) |<ul><li><b>Sale Price</b> is defined:</li> <code>{{ product.price.non_sale_price_with_tax }}</code><li><b>Sale Price</b> is not defined:</li> <code>{{ product.price.with_tax }}</code></ul>| The standard store price for the product, with tax. |
+ Cost |Cost  is not returned in the catalog price object.| This field represents true cost of goods, and is typically meant for reports and third-party accounting integrations. |
+MSRP (excluding tax)|`{{ product.price.rrp_without_tax }}`| This field represents the product’s list price, or the manufacturer's suggested retail price. |
+MSRP (including tax)|`{{ product.price.rrp_with_tax }}`| This field represents the product’s list price, or the manufacturer's suggested retail price, including tax. |
+Sale Price (excluding tax)|`{{product.price.sale_price_without_tax}}`| This product’s discounted/sale price. |
+Sale Price (including tax)|`{{ product.sale_price_with_tax }}`| This product’s discounted/sale price, with tax. |
+Difference between Default Price and MSRP (*Default Price - MSRP)*|`{{ product.price.saved }}`| The customer’s savings on the effective price versus list price. |
 
 ## Resources
 
 ### Related Articles
 
-* [Catalog Price Object](https://developer.bigcommerce.com/stencil-docs/reference-docs/common-objects#common-objects_catalog-price)
-* [Adding a New Product](https://support.bigcommerce.com/s/article/Adding-Products#new-product) (BigCommerce Knowledge Base)
+* [Theme Objects](https://developer.bigcommerce.com/stencil-docs/reference-docs/global-objects-and-properties)
+* [Adding a Product](https://support.bigcommerce.com/s/article/Adding-Products-v3#product-details) (BigCommerce Knowledge Base)
