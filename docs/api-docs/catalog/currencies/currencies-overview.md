@@ -4,7 +4,8 @@
 
 ### On this Page
 - [Display vs. Transactional](#display-vs-transactional)
-- [Pre-configuring the store](#pre-configuring-the-store)
+- [Preconfiguring the store](#preconfiguring-the-store)
+
 - [Adding a currency](#adding-a-currency)
 - [How currencies work](#how-currencies-work)
 - [Supported features](#supported-features)
