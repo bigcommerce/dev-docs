@@ -14,7 +14,7 @@
 
 A Price List allows you to populate different versions of catalog pricing and assign them to different [Customer Groups](/api-reference/customer-subscribers/customers-api). The prices are specified exclusively at the variant level.
 
-If an active Price List does not contain prices for a variant then the Catalog pricing will be used. The association of a Price List to a Customer Group can be done either via the Control Panel or using the [Customer Groups API.](/api-reference/customer-subscribers/customers-api)
+If an active Price List does not contain prices for a variant then the Catalog pricing will be used. The association of a Price List to a Customer Group can be done via the Control Panel, using the [Customer Groups API](/api-reference/customer-subscribers/customers-api), or the [Price List Assignments API](/api-reference/catalog/pricelists-api/price-lists-assignments/createpricelistassignments).
 
 Price Lists will provide overridden price values to the Stencil storefront. Final price display can be further customized within the Stencil template. See the [Price Object](https://developer.bigcommerce.com/stencil-docs/reference-docs/global-objects-and-properties) in Stencil for further documentation.
 
@@ -42,7 +42,7 @@ The following OAuth Scopes are required:
 
 - `PriceRecordBatch`: A way to update several `Price Records` in a `Price List` at once. Using this bulk upsert endpoint, you can upsert up to 1000 Price Records in a single API call.
 
-- `Currency`:  A `Price List` can contain records for multiple currencies. At this time, *only price records that match the store's default currency will be used to determine storefront and in-cart prices.* Although BigCommerce supports a storefront currency selection, this is not currently integrated with Price Lists and will merely convert prices from the store's default currency for display convenience.
+- `Currency`:  A `Price List` can contain records for multiple currencies. At this time, *only price records that match the store's default currency will be used to determine storefront and in-cart prices.* Although BigCommerce supports a storefront currency selection, Multi-Currency storefronts are not currently integrated with Price Lists and will merely convert prices from the store's default currency for display convenience.
 
 <!--
 title: "Example Price List"
