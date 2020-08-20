@@ -15,7 +15,8 @@
 The Apps Marketplace team reviews all app submissions and tests apps to verify they meet [Marketplace](https://www.bigcommerce.com/apps/) listing standards. Verify your app meets the requirements below before submitting it for approval.
 
 ## General requirements
-- Make support resources available throughout the app (for example, during onboarding and on the app's dashboard).
+- Make support resources available throughout the app, like during onboarding, and on the app's dashboard.
+
 - Follow branding guidelines when referencing BigCommerce (see our [Media Kit](https://www.bigcommerce.com/press/media-kit/) for more information).
 - Don't reference competitor platforms in the app's listing information.
 - Use the same app name in app submission and in app content.
