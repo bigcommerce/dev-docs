@@ -47,7 +47,8 @@ In BigCommerce, you can set up two types of currency: a **display currency** and
 </div>
 </div>
 
-## Pre-configuring the Store
+## Preconfiguring the store
+
 
 <a id="pre-configuring-the-store"></a>
 
