@@ -39,7 +39,8 @@ In BigCommerce, you can set up two types of currency: a **display currency** and
 <!-- theme: info -->
 
 ### Note
-> * If the shopper's card-issuing bank differs from the merchant's bank account country, additional cross-border fees may apply that can change the final settlement amount.
+> If the shopper's card-issuing bank differs from the merchant's bank account country, additional cross-border fees may apply that can change the final settlement amount.
+
 > * You can choose whether a currency should be display-only or transactional when adding or editing a currency.
 
 </div>
