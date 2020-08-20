@@ -24,7 +24,8 @@ The Apps Marketplace team reviews all app submissions and tests apps to verify t
 - Develop app client-side code to be compatible with all BigCommerce [supported browsers](https://support.bigcommerce.com/s/article/Themes-Supported-Browsers).
 
 ## Functionality
-- Apps must work as intended and can not conflict with BigCommerce functionality
+- Apps must work as intended and can not conflict with BigCommerce functionality.
+
 - Apps must use V3 endpoints in favor of V2 endpoints when feature parity exists.
 - Apps must serve all callback URLs over HTTPS.
 - Apps that process transactions or handle credit card data must pass a PCI Compliance review by BigCommerce's security team.
