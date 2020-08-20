@@ -145,7 +145,8 @@ See the table below for a list of supported and unsupported features.
 
 **Do Multi-Currency settings work with the Checkout SDK?**
 The Checkout SDK works with multi-currency. There is no additional setup needed for the SDK.
-After setting up the currency in the Control Panel, the SDK will work as normal.
+After setting up the currency in the control panel, the SDK will work as normal.
+
 
 **Do my theme customizations work with Multi-Currency Settings?**
 If you set up the theme to show the currency on the storefront, there should be no issues. Please see your
