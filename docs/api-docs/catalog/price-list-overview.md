@@ -149,7 +149,8 @@ See [Channels, Sites, and Routes](https://developer.bigcommerce.com/api-referenc
 
 - If a variant has a `Price Record`, any existing product-level bulk pricing will not apply in the cart.  For variants without `Price Records`, any existing product bulk pricing will apply.
 
-- Price Lists Records accepts bulk upsert. You can only do one [Bulk upsert](https://developer.bigcommerce.com/api-reference/catalog/pricelists-api/price-lists-records/setpricelistrecordcollection) at a time. Running more than one in parallel on the **same store** will cause a 429 error, and the request will fail.
+- `Price Lists Records` accepts bulk upsert. You can only do one [Bulk upsert](https://developer.bigcommerce.com/api-reference/catalog/pricelists-api/price-lists-records/setpricelistrecordcollection) at a time. Running more than one in parallel on the **same store** will cause a 429 error, and the request will fail.
+
 
 ## Price List resources
 
