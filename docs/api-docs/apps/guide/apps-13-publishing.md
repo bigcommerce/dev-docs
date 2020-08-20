@@ -91,7 +91,8 @@ Specify app type, multiple users support, callback URLs, and OAuth scopes; and, 
 | International Optimization | Countries app optimized for and countries app does not support                                                                     |
 | Help Guides                | Links to app's user and installation guides; highly recommended                                                                    |
 | App Screenshot             | screenshots of app UI inside BigCommerce                                                                                           |
-| Alternate Logo             | used if app featured in Marketplace carousel; should be `259x158px` (or larger at ratio); dark bg and light branding; no taglines  |
+| Alternate Logo             | used if app featured in Marketplace carousel; should be 259 x 158px (or larger at ratio); dark background and light branding; no taglines  |
+
 
 ## Review submission
 
