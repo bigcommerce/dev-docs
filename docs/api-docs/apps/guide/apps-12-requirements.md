@@ -21,7 +21,8 @@ The Apps Marketplace team reviews all app submissions and tests apps to verify t
 - Don't reference competitor platforms in the app's listing information.
 - Use the same app name in app submission and in app content.
 - Keep app titles concise. Avoid using extra taglines or descriptors; include those in the app summary, if necessary.
-- Include the name of connected third-party platforms in the title (ex: "Marketplace by BigCommerce" or "Search by BigCommerce").
+- Include the name of connected third-party platforms in the title (For example: "Marketplace by BigCommerce" or "Search by BigCommerce").
+
 - Develop app client-side code to be compatible with all BigCommerce [supported browsers](https://support.bigcommerce.com/s/article/Themes-Supported-Browsers).
 
 ## Functionality
