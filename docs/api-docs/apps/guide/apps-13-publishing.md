@@ -40,7 +40,7 @@ We also recommend giving special attention to the following search indexed field
 
 ## Provide a summary
 
-First, we'll need some basic information about yourself, to smooth the app certification process.
+To begin the app certification process, we'll need some basic information about you.
 
 ![DevTools 01](https://raw.githubusercontent.com/bigcommerce/dev-docs/master/assets/images/devtools-tutorial-01.png  "DevTools 01")
 
