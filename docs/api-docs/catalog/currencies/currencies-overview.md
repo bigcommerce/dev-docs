@@ -137,7 +137,8 @@ See the table below for a list of supported and unsupported features.
 | Static Conversion Rate | One of the two auto-converted pricing options. If a merchant manually enters a static conversion rate, the conversion rate will remain the same until/unless the merchant updates their currency settings to use a different conversion rate. The advantage of using this method is to avoid constantly fluctuating prices in non-default currencies. |
 | Dynamic Conversion Rate | One of the two auto-converted pricing options. If a merchant selects a dynamic conversion rate, they've tied themselves to a currency conversion service, which will update the conversion rate at a certain frequency. This option helps shopper-facing pricing remain most aligned to the store's default currency and keeps non-default currency conversion rate at market rate. Merchants can use BigCommerce Currency Service provided in the Currency setup page, or they can use API to update the exchange rate automatically from their trusted source. |
 | Bank Conversion Rate | Conversion rate is used by merchants' or shoppers' payment or credit card providers when auto-converting from store's transactional currency. This rate might not align with the BC conversion rate, and BC has no visibility into it. |
-| Multi Currency Pricing | Rather than opting for auto-converting product pricing from default currency using BC conversion rate, the merchant has a choice to set price per product per currency. You can implement Multi Currency Pricing through price lists. |
+| Multi-Currency Pricing | Rather than opting for auto-converting product pricing from default currency using BC conversion rate, the merchant has a choice to set price per product per currency. You can implement Multi-Currency Pricing through price lists. |
+
 
 ## FAQ
 
