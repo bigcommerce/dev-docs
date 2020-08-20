@@ -18,7 +18,8 @@ A Price List allows you to populate different versions of catalog pricing and as
 
 If an active Price List does not contain prices for a variant, then the Catalog pricing will be used. You can associate a Price List to a Customer Group via the Control Panel or the [Customer Groups API.](/api-reference/customer-subscribers/customers-api)
 
-Price Lists will provide overridden price values to the Stencil storefront. You can further customize the final price display within the Stencil template. For more information, see the [Price Object](https://developer.bigcommerce.com/stencil-docs/reference-docs/global-objects-and-properties) in the Stencil documentation.
+Price Lists will provide overridden price values to the Stencil storefront. You can further customize the final price display within the Stencil template. For more information, see the [Theme Objects](https://developer.bigcommerce.com/stencil-docs/reference-docs/global-objects-and-properties).
+
 
 ### OAuth scopes
 The following OAuth Scopes are required:
