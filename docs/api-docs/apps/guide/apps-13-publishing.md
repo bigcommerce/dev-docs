@@ -17,7 +17,8 @@
 
 </div>
 
-After completing development, verifying best practices, and checking approval requirements, you may submit your app for [Marketplace](https://www.bigcommerce.com/apps/) approval in [DevTools](https://devtools.bigcommerce.com/). This article takes you step-by-step through the submission form and provides descriptions for each field.
+After completing development, verifying best practices, and checking approval requirements, you may submit your app for Marketplace approval in [DevTools](https://devtools.bigcommerce.com/). This article takes you step-by-step through the submission form and provides descriptions for each field.
+
 
 ## Before you begin
 
