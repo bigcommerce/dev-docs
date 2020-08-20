@@ -87,7 +87,8 @@ Specify app type, multiple users support, callback URLs, and OAuth scopes; and, 
 | App Details                | value proposition; avoid fluff or buzzwords; not be indexed for search; `200` words max                                            |
 | Videos                     | videos highlighting purpose and value of your app                                                                                  |
 | Case Studies               | case studies demonstrating how merchants have benefited from using your app. `4` max                                               |
-| Features                   | app's major features; include title and description for each; title is search indexed; rich text accepted; `5` max                 |
+| Features                   | app's major features; include title and description for each; title is search indexed; rich text accepted; 5 max                 |
+
 | Legal Termals & Privacy    | app privacy policy and ToS links; legally required                                                                                 |
 | International Optimization | Countries app optimized for and countries app does not support                                                                     |
 | Help Guides                | Links to app's user and installation guides; highly recommended                                                                    |
