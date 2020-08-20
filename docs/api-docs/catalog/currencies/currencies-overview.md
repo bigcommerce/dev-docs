@@ -149,7 +149,8 @@ After setting up the currency in the control panel, the SDK will work as normal.
 
 
 **Do my theme customizations work with Multi-Currency Settings?**
-If you set up the theme to show the currency on the storefront, there should be no issues. Please see your
+If you set up the theme to show the currency on the storefront, there should be no issues. Please refer to your
+
 theme developer if that is not the case.
 
 **Can shoppers still select a currency?**
