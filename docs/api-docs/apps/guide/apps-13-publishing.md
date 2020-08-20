@@ -57,7 +57,8 @@ To begin the app certification process, we'll need some basic information about 
 
 | App Icon        | shown on main app detail page and left nav in control panel once installed; should be `200x200px`      |
 | Price           | app's starting price; if offering free plan, choose **Free**; specify details in **Other** selection   |
-| App Summary     | app tagline used in marketplace category and search results; `128` char max                            |
+| App Summary     | app tagline used in the marketplace category and search results; 128 character max                            |
+
 | Category        | marketplace category for app; used as search attribute; BigCommerce may re-categorize prior to launch  |
 
 ## Fill in details
