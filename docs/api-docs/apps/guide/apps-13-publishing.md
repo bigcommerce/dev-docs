@@ -64,7 +64,8 @@ To begin the app certification process, we'll need some basic information about 
 
 ## Fill in details
 
-Provide a helpful description with screenshots and a video to promote your app. We recommend bullet points followed by short paragraphs with headers. Aim for `200` words in total.
+Provide a helpful description with screenshots and a video to promote your app. We recommend bullet points followed by short paragraphs with headers. Aim for 200 words in total.
+
 
 ![DevTools 02](https://raw.githubusercontent.com/bigcommerce/dev-docs/master/assets/images/devtools-tutorial-02.png  "DevTools 02")
 
