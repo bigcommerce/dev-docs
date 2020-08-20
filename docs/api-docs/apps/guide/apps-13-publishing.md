@@ -53,7 +53,8 @@ To begin the app certification process, we'll need some basic information about 
 | Support Website | used for ** Get Support** button in Marketplace                                                        |
 | Partner ID      | required for submission                                                                                |
 | App Name        | brand name given to app for titles and app content; should not include taglines or descriptors         |
-| App Logo        | Primary app logo; should be `350x130px` with a white background and dark branding with no taglines     |
+| App Logo        | Primary app logo; should be 350 x 130px with a white background and dark branding with no taglines     |
+
 | App Icon        | shown on main app detail page and left nav in control panel once installed; should be `200x200px`      |
 | Price           | app's starting price; if offering free plan, choose **Free**; specify details in **Other** selection   |
 | App Summary     | app tagline used in marketplace category and search results; `128` char max                            |
