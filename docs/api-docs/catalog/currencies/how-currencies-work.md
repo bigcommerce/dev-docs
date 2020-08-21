@@ -323,7 +323,7 @@ To change the transactional currency of their cart, the shopper will need to emp
 
 <a id="promotions"></a>
 
-Coupons are available in the default currency only. Attempting to use a coupon with a different currency will return an invalid coupon error. If a customer is checking out in the default currency and then changes to a different currency, the coupon code will still work in the cart. The coupon code works because once you cart the created, it is “locked” into the default currency until being deleted.
+Coupons are available in the default currency only. Attempting to use a coupon with a different currency will return an invalid coupon error. If a customer is checking out in the default currency and then changes to a different currency, the coupon code will still work in the cart. The coupon code works because once you create the cart, it is “locked” into the default currency until being deleted.
 
 You can create cart level discounts in your currency of choice. The shopper must have the currency selected for the promotion to apply.
 
