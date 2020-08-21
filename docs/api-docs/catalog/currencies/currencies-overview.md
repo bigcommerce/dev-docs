@@ -49,7 +49,7 @@ In BigCommerce, there are two types of currency that can be set up: a **display 
 <a id="pre-configuring-the-store"></a>
 
 Before setting up multiple currencies on a store, ensure the store is configured as follows:
-* Stripe Payment Gateway
+* [Multi-currency compatible payment gateway](https://support.bigcommerce.com/s/article/Managing-Currencies)
 * Stencil Theme
 * Optimized One-Page Checkout
 
