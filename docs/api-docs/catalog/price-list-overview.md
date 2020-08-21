@@ -46,7 +46,8 @@ The following OAuth Scopes are required:
 ```
 
 
-- `PriceRecordBatch` -- A way to update several price records in a `Price List` at once. Using this bulk upsert endpoint, you can upsert up to 1000 price records in a single API call.
+- `PriceRecordBatch`: a way to update several price records in a price list at once. Using this bulk upsert endpoint, you can upsert up to 1000 price records in a single API call.
+
 
 
 - `Currency` --  A `Price List` can contain records for multiple currencies. *Only price records that match the store's default currency determine storefront and in-cart prices.* Although BigCommerce supports a storefront currency selection, this is not currently integrated with Price Lists and will merely convert prices from the store's default currency for display convenience.
