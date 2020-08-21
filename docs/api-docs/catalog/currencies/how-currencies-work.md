@@ -68,7 +68,7 @@ BigCommerce does not dynamically convert currency. To convert the merchant will 
 
 <a id="price-lists"></a>
 
-You can create Price Lists in any currency setup in the store. Both transactional and display currencies are available in Price Lists. You cannot copy Price records from one currency to another; you must create the price record for each currency.
+You can create Price Lists in any currency setup in the store. Both transactional and display currencies are available in Price Lists. BigCommerce does not copy price records from one currency to another; you must create the price record for each currency.
 
 ![titled](https://raw.githubusercontent.com/bigcommerce/dev-docs/master/assets/images/multi-currency-price-overrides.png "Price Overrides")
 
