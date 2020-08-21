@@ -27,7 +27,8 @@ The following OAuth Scopes are required:
 
 ## Price List definitions
 
-- `Price List` -- A collection of price records. Price records make up a price list.
+- **Price List:** a collection of price records; price records make up a price list.
+
 
 
 - `Price Record` --  A price override for a particular variant - minimally, a variant ID, price, and currency.
