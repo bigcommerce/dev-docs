@@ -2,17 +2,13 @@
 
 <div class="otp" id="no-index">
 
-### On This Page
+### On this page
 - [Introduction](#introduction)
 - [Overview](#overview)
 - [Prerequisites](#prerequisites)
-- [Enable Single-Sign On](#enable-single-sign-on)
-  - [Create JWT Using the Debugger Tool](#create-jwt-using-the-debugger-tool)
-  - [Create JWT Using a JavaScript Function](#create-jwt-using-a-javascript-function)
-  - [Sample Code](#sample-code)
-  - [Logging Out](#logging-out)
+- [Enable single-sign on](#enable-single-sign-on)
 - [Troubleshooting](#troubleshooting)
-- [Additional Resources](#additional-resources )
+- [Additional resources](#additional-resources)
 
 </div> 
 
@@ -21,21 +17,21 @@ In this tutorial, you will learn how to enable single sign-on for storefront cus
 
 ## Overview
 
-Single sign-on (SSO) is an authentication mechanism that enables users to log into multiple software applications using the same set of credentials that the user enters only once. It eliminates the need to maintain multiple passwords, which streamlines the process of accessing web applications. For more details, see [Single sign-on](https://en.wikipedia.org/wiki/Single_sign-on). 
+Single sign-on (SSO) is an authentication mechanism that enables users to log into multiple software applications using the same set of credentials that the user enters only once. It eliminates the need to maintain multiple passwords, which streamlines the process of accessing web applications. For more details, see [Single Sign-On](https://en.wikipedia.org/wiki/Single_sign-on). 
 
 When a user logs into your web app, you can use the Customer Login API to authenticate the user to your BigCommerce store through SSO.
 
 You can use the Customer Login API in the following use cases:
 
-* Integrate with an SSO provider or Identity Provider (IdP) 
+* Integrate with an SSO provider or identity provider (IdP) 
 * Set up continuous login between a BigCommerce store and another application
 * Enable alternative login methods (ex. phone number and SMS password)
 
-Storefront customers are logged in using the access point URL `/login/token/{token}`. The `{token}` must be a JSON Web Token (JWT) containing parameters for the customer login request signed by your application’s OAuth Client Secret. For more information on the OAuth protocol, see [OAuth](https://oauth.net/2/). 
+Storefront customers are logged in using the access point URL `/login/token/{token}`. The `{token}` must be a JSON Web Token (JWT) containing parameters for the customer login request signed by your application’s OAuth client secret. For more information on the OAuth protocol, see [OAuth](https://oauth.net/2/). 
 
 JWT is an industry standard ([RFC 7519](https://tools.ietf.org/html/rfc7519)) for securely transmitting information between two parties. A JWT is represented as a sequence of base64url-encoded sections separated by dots (` . `).  The sections include the header, payload, and signature. For more details, see [Introduction to JSON Web Tokens](https://jwt.io/introduction/). 
 
-**Payload Fields Reference**
+**Payload fields reference**
 
 | Field Name | Type | Description |
 |-|-|-|
@@ -53,30 +49,32 @@ JWT is an industry standard ([RFC 7519](https://tools.ietf.org/html/rfc7519)) fo
 To enable SSO using the Customer Login API, you will need the following: 
 
 * A BigCommerce store
-* API Client ID and Client Secret with the OAuth Scope set to Customers Login
+* API client ID and client secret with the OAuth scope set to Customers Login
 * [Node.js](https://nodejs.org/en/) installed on your machine if you plan to use JavaScript
 
-If you do not know your Client ID and Client Secret, obtain the credentials by following the steps outlined in [Creating an API Account](https://support.bigcommerce.com/articles/Public/Store-API-Accounts/#creating). 
+If you do not know your client ID and client secret, obtain the credentials by following the steps outlined in [Creating an API Account](https://support.bigcommerce.com/articles/Public/Store-API-Accounts/#creating). 
 
-Be sure to set the Customers Login scope to "login". 
+Be sure to set the Customers Login scope to Login. 
 
 ![Example OAuth Scope](https://storage.googleapis.com/bigcommerce-production-dev-center/images/scopes.png "Example OAuth Scope")
 
-## Enable Single-Sign On
+## Enable single-sign on
 
 To log a customer into their storefront account using the Customer Login API, your app needs to redirect the customer’s browser to the following access point URL: `https://storedomain.com/login/token/{token}`.
 
-The `{token}` parameter is the JWT containing the payload data signed by your app’s OAuth Client Secret.
+The `{token}` parameter is the JWT containing the payload data signed by your app’s OAuth client secret.
 
-We recommend writing a script to generate a login token since JTW’s `iat` (Issued At) claim is only valid for 30 seconds. BigCommerce supplies helper methods for generating login tokens in our [API Client Libraries](https://developer.bigcommerce.com/tools-resources).
+We recommend writing a script to generate a login token since JTW’s `iat` (issued at) claim is only valid for 30 seconds. BigCommerce supplies helper methods for generating login tokens in our [API Client Libraries](https://developer.bigcommerce.com/tools-resources).
 
-The beginning of this tutorial focuses on manually creating a token using the Debugger tool at [JWT.io](https://jwt.io/). Then, we will explore how to use a JavaScript function to programmatically generate an access point URL. 
+The beginning of this tutorial focuses on manually creating a token using the debugger tool at [JWT.io](https://jwt.io/). Then, we will explore how to use a JavaScript function to programmatically generate an access point URL. 
 
-### Create JWT Using the Debugger Tool
+### Create JWT using the debugger tool
 
-To creat a JWT, you will need to obtain a `customer_id` using the [Customers v3 API](https://developer.bigcommerce.com/api-reference/store-management/customers-v3). 
+To create a JWT, you will need to obtain a `customer_id` using the [Customers v3 API](https://developer.bigcommerce.com/api-reference/store-management/customers-v3). 
 
-1. Send a GET request to the [Get All Customers](https://developer.bigcommerce.com/api-reference/store-management/customers-v3/customers/customersget) endpoint. Choose a customer and make note of the `customer_id`. 
+1. Send a `GET` request to the [Get All Customers](https://developer.bigcommerce.com/api-reference/store-management/customers-v3/customers/customersget) endpoint. Choose a customer and make note of the `customer_id`. 
+
+**Get all customers response**
 
 ```json
 {
@@ -129,9 +127,9 @@ If the request was successful, you will be logged in as a customer and directed 
 
 For common causes of login failure, see [Troubleshooting](#troubleshooting).
 
-### Create JWT Using a JavaScript Function
+### Create JWT using a JavaScript function
 
-In this part of the tutorial, we will walk you through creating an access point URL using JavaScript. You will need to have [node.js](https://nodejs.org/en/) installed on your machine to complete this section. 
+In this part of the tutorial, we will walk you through creating an access point URL using JavaScript. You will need [node.js](https://nodejs.org/en/) installed on your machine to complete this section. 
 
 1. Create and open a new folder by running the following commands in your terminal:
 </br>
@@ -200,27 +198,27 @@ You should receive a complete access point URL as an output.
 
 If the request was successful, you will be logged in as a customer and directed to `/account.php`. If it was unsuccessful, a login attempt error message will be displayed and you will be directed to `/login.php`. For common causes of login failure, see [Troubleshooting](#troubleshooting).
 
-### Sample Code
+### Sample code
 
 Helper methods for generating login tokens are provided in our [API Client Libraries](https://developer.bigcommerce.com/tools-resources). See the following BigCommerce repositories for language-specific examples:
 
-* [PHP Sample](https://github.com/bigcommerce/bigcommerce-api-php/blob/master/src/Bigcommerce/Api/Client.php#L421)
-* [Python Sample](https://github.com/bigcommerce/bigcommerce-api-python/blob/master/bigcommerce/customer_login_token.py)
-* [Ruby Sample](https://github.com/bigcommerce/bigcommerce-api-ruby/blob/master/examples/customers/customer_login.rb)
+* [PHP sample](https://github.com/bigcommerce/bigcommerce-api-php/blob/master/src/Bigcommerce/Api/Client.php#L421)
+* [Python sample](https://github.com/bigcommerce/bigcommerce-api-python/blob/master/bigcommerce/customer_login_token.py)
+* [Ruby sample](https://github.com/bigcommerce/bigcommerce-api-ruby/blob/master/examples/customers/customer_login.rb)
 
 For client libraries in other languages, see [Libraries for Token Signing/Verification](https://jwt.io/#libraries-io).
 
-### Logging Out 
+### Logging out 
 
 To log out a customer, set the `redirect_to` field of the JWT’s payload to `/login.php?action=logout`. 
 
 ## Troubleshooting
 
-* If the clock of the server generating the “iat” claim is not synchronized, the timestamp will be out of sync and the request will fail. If your system’s time is different from the BigCommerce server time, you can use the [Get System Timestamp](https://developer.bigcommerce.com/api-reference/store-management/store-information-api/time-zone/gettime) endpoint as a source of truth.
+* If the clock of the server generating the `iat` claim is not synchronized, the timestamp will be out of sync and the request will fail. If your system’s time is different from the BigCommerce server time, you can use the [Get System Timestamp](https://developer.bigcommerce.com/api-reference/store-management/store-information-api/time-zone/gettime) endpoint as a source of truth.
 * The access point URL can be visited only once. The token will be invalidated after the GET request is made.
 * Tokens should not be generated in advance. Instead, the app should generate the token and immediately redirect the user’s browser to the access point URL. 
 
-## Additional Resources 
+## Additional resources 
 
 * [API Clients](https://developer.bigcommerce.com/tools-resources)
 * [Authenticating BigCommerce’s REST APIs](https://developer.bigcommerce.com/api-docs/getting-started/authentication/rest-api-authentication#obtaining-store-api-credentials#obtaining-store-api-credentials)
