@@ -216,7 +216,9 @@ The API will return the item price and the currency of the item price in the sto
 
 In the example below, the store’s default currency is `USD`, and the item is `$7.95`. Since the shopper has switched to Euros as the transactional currency, we now convert the line item price and taxes to Euros:
 
-*The item shows price, including tax. Abbreviated Response*
+*The item shows prices, including tax.*
+
+**Abbreviated example create a cart response**
 
 ```json
 {
