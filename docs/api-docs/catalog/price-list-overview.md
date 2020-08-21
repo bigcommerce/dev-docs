@@ -31,7 +31,8 @@ The following OAuth Scopes are required:
 
 
 
-- `Price Record` --  A price override for a particular variant - minimally, a variant ID, price, and currency.
+- **Price Record:** a price override for a particular variant - minimally, a variant ID, price, and currency.
+
 
 ```json
 	{
