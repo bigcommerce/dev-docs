@@ -3,8 +3,10 @@
 
 <div class="otp" id="no-index">
 
+### On this page
+
 - [Regions](#regions)
-- [Widget Templates](#widget-templates)
+- [Widget templates](#widget-templates)
 - [Widgets](#widgets)
 - [Placements](#placements)
 - [Placements and Widgets](#placements-and-widgets)
@@ -14,26 +16,26 @@
 
 </div>
 
-The Widgets API allows developers to programmatically associate content with regions on a BigCommerce storefront. The content can consist of HTML, CSS, and JavaScript, and the API supports configuration via Handlebars variables. It can support many types of content such as YouTube Videos, image sliders, and chat apps.
+The Widgets API allows developers to programmatically associate content with regions on a BigCommerce storefront. The content can consist of HTML, CSS, and JavaScript, and the API supports configuration via [Handlebars](https://handlebarsjs.com/) variables. It can support many types of content such as YouTube Videos, image sliders, and chat apps.
 
 Some benefits are:
 * Inject modular, reusable blocks of content inside new and existing store pages
 * Build tools that allow non-technical users to control content without editing theme files
 * Target specific products, categories or brands with widgets
 
-We are going to review all the components that make a widget. Then, we’ll use what we’ve learned to create a widget .
+In this article, we are going to review all the components that make a widget. Then, we’ll use what we’ve learned to create a widget.
 
 ## Regions
 
-[Regions](https://developer.bigcommerce.com/api-reference/storefront/widgets-api/regions/getcontentregions) are specific locations in the Stencil theme files where a widget is placed. A region is added at the file level using the format {{{region name="..."}}}. A region can be named however you like, but it is best practice to give it a name that is descriptive of the location and function. A theme file can have as many regions as you want, with more than one widget assigned to the region and the [Placement](/api-docs/storefront/widgets/widgets-overview#widgets_placements) `sort_order` controlling how the widgets appear on the Storefront.
+[Regions](https://developer.bigcommerce.com/api-reference/storefront/widgets-api/regions/getcontentregions) are specific locations in the Stencil theme files where you can place a widget. A region is added at the file level using the format {{{region name="..."}}}. A region can be named however you like, but it is best practice to give it a name that is descriptive of the location and function. A theme file can have as many regions as you want, with more than one widget assigned to the region and the [Placement](/api-docs/storefront/widgets/widgets-overview#widgets_placements) `sort_order` controlling how the widgets appear on the storefront.
 
 ![Content Region](//s3.amazonaws.com/user-content.stoplight.io/6012/1551970794664 "Content Region")
 
 ![Content Region](//s3.amazonaws.com/user-content.stoplight.io/6012/1551970767918 "Content Region")
 
-Most themes in the BigCommerce marketplace come with predefined regions. It is best to utilize those first. By editing the theme and adding theme regions, updates will need to be manually managed.
+Most themes in the BigCommerce marketplace come with predefined regions. It is best to use those first. By editing the theme and adding theme regions, updates will need to be managed manually.
 
-## Widget Templates
+## Widget templates
 
 [Widget Templates](/api-reference/storefront/widgets-api/widget-template/getwidgettemplates) are handlebars-enabled HTML templates which define the structure of the widget on a page. Widget Templates can use the built in handlebar helpers such as {{if}} and {{each}}. Using the helpers allows for conditional logic to be built into the Widget Templates. Widget templates can be reused to build multiple widgets.
 
