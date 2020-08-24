@@ -96,7 +96,7 @@ Additionally, changing the default currency will enable the newly assigned curre
 </div>
 </div>
 
-## How Currencies Work
+## How currencies work
 
 <a id="how-currencies-work"></a>
 
