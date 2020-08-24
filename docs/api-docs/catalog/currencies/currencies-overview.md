@@ -2,9 +2,9 @@
 
 <div class="otp" id="no-index">
 
-### On this Page
+### On this page
 - [Display vs. Transactional](#display-vs-transactional)
-- [Preconfiguring the store](#pre-configuring-the-store)
+- [Preconfiguring the store](#preconfiguring-the-store)
 - [Adding a currency](#adding-a-currency)
 - [How currencies work](#how-currencies-work)
 - [Supported and unsupported features](#supported-and-unsupported-features)
@@ -24,9 +24,9 @@ This article provides a high-level guide to Multi-Currency concepts on BigCommer
 
 In BigCommerce, there are two types of currency that can be set up: a **display currency** and **transactional currency**.
 
-* **Display Currency** - When a currency is set to display-only, shoppers in associated countries will see prices on the storefront in that currency, but the actual order will be transacted in the store’s default currency. Shoppers at checkout see the estimated price in the display currency with a note indicating the actual currency and amount to be charged.
+* **Display currency** - When a currency is set to display-only, shoppers in associated countries will see prices on the storefront in that currency, but the actual order will be transacted in the store’s default currency. Shoppers at checkout see the estimated price in the display currency with a note indicating the actual currency and amount to be charged.
 
-* **Transactional Currency** - When a currency is enabled as transactional, shoppers in associated countries will both see prices on the storefront in that currency and be charged in that currency when they check out.
+* **Transactional currency** - When a currency is enabled as transactional, shoppers in associated countries will both see prices on the storefront in that currency and be charged in that currency when they check out.
 
 ![Display Currency](https://raw.githubusercontent.com/bigcommerce/dev-docs/master/assets/images/multi-currency-display-currency.png "Display Currency")
 
@@ -46,7 +46,7 @@ In BigCommerce, there are two types of currency that can be set up: a **display 
 
 ## Preconfiguring the store
 
-<a id="pre-configuring-the-store"></a>
+<a id="preconfiguring-the-store"></a>
 
 Before setting up multiple currencies on a store, ensure the store is configured as follows:
 * Stripe Payment Gateway
@@ -125,10 +125,10 @@ See the table below for a list of supported and un-supported features.
 
 | Name | Description |
 | -- | -- |
-| Default Currency | is when any auto-conversion of pricing (product, tax, shipping, promotions) will happen.|
-| Display Currency | is when a merchant displays prices in a currency on a storefront in which the shopper might or might not use to perform a transaction. Display currency is also often called "presentment currency" in the payments industry.  |
-| Transactional Currency | is what currency and amount BC passes to the payment provider and the currency/amount charged to a shopper's bank account. If there's a discrepancy between the storefront display currency and the transactional currency, a shopper has to pay a conversion fee and the conversion rate used is outside of BC's purview.  |
-| Settlement Currency | is when the merchant gets paid out to their bank account. If there's a discrepancy between the currency that a shopper transacts in and the currency in which a merchant settles, the merchant has to pay a conversion fee, and the conversion rate used is outside of BC's purview. The merchant can set their settlement currency through its payment provider.  |
+| Default Currency | Merchants use this currency when any auto-conversion of pricing (product, tax, shipping, promotions) occurs.|
+| Display Currency | When a merchant displays prices in a currency on a storefront in which the shopper might or might not use to perform a transaction. Display currency is also often called "presentment currency" in the payments industry.  |
+| Transactional Currency | The currency and amount BC passes to the payment provider and the currency/amount charged to a shopper's bank account. If there's a discrepancy between the storefront display currency and the transactional currency, a shopper has to pay a conversion fee and the conversion rate used is outside of BC's purview.  |
+| Settlement Currency | When the merchant gets paid out to their bank account. If there's a discrepancy between the currency that a shopper transacts in and the currency in which a merchant settles, the merchant has to pay a conversion fee, and the conversion rate used is outside of BC's purview. The merchant can set their settlement currency through its payment provider.  |
 |BigCommerce Conversion Rate | Any conversion rate set on BigCommerce used to convert product’s default currency pricing into a new non-default currency. The conversion rate could be static or dynamic. |
 | Static Conversion Rate | One of the two auto-converted pricing options. If a merchant manually enters a static conversion rate, then the conversion rate will remain the same until/unless merchant updates their currency settings to use a different conversion rate. The advantage of using this method is to avoid constantly fluctuating price in non-default currencies. |
 | Dynamic Conversion Rate | One of the two auto-converted pricing options. If a merchant selects a dynamic conversion rate, they've tied themselves to a currency conversion service, which will update the conversion rate at a certain frequency. This helps shopper-facing pricing remain most aligned to the store's default currency and keeps non-default currency conversion rate at market rate. Merchant can either use BigCommerce Currency Service provided in the Currency setup page, or they can use the API to automatically update the exchange rate from their trusted source. |
@@ -178,3 +178,4 @@ Please reach out to Stripe for more information on setting up the account.
 
 - [Supported Currencies](https://stripe.com/docs/currencies) (Stripe Documentation)
 - [Supported Settlement Currencies](https://stripe.com/docs/connect/payouts#supported-settlement) (Stripe Documentation)
+
