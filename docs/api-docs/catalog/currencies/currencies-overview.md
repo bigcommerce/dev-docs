@@ -49,9 +49,21 @@ In BigCommerce, there are two types of currency that can be set up: a **display 
 <a id="preconfiguring-the-store"></a>
 
 Before setting up multiple currencies on a store, ensure the store is configured as follows:
-* Stripe Payment Gateway
-* Stencil Theme
-* Optimized One-Page Checkout
+* Your store must be using a [Stencil theme](https://developer.bigcommerce.com/stencil-docs/getting-started/about-stencil).
+* Your store must be using the [Optimized One-Page Checkout](https://support.bigcommerce.com/s/article/Optimized-Single-Page-Checkout) type.
+* Your store must have a [multi-currency compatible payment gateway](https://support.bigcommerce.com/s/article/Managing-Currencies) setup and enabled. (Your store's default currency can use any gateway).
+  * Ayden
+  * Authorize.net
+  * Barclaycard
+  * BlueSnap
+  * CyberSource
+  * Elavon
+  * Google Pay (via Authorize.Net)
+  * Klarna
+  * PayPal Express Checkout (deprecated)
+  * PayPal powered by Braintree
+  * Stripe
+  
 
 Additionally, review the [Currency API reference](https://developer.bigcommerce.com/api-reference/store-management/currency-api) to get aquainted with the endpoints and resources related to configuring multiple currencies.
 
