@@ -4,9 +4,7 @@
 	<ul>
         <li><a href="#what-is-a-price-list?">What is a Price List?</a></li>
         <li><a href="#price-list-definitions">Price List definitions</a></li>
-        <li><a href="#price-list-assignments">Price List Assignments</a></li>
-
-
+        <li><a href="#price-list-assignments">Price List assignments</a></li>
         <li><a href="#price-list-notes">Price List notes</a></li>
         <li><a href="#price-list-resources">Price List resources</a></li>
 	</ul>
@@ -59,7 +57,7 @@ subtitle: ""
 lineNumbers: true
 -->
 
-**Example Get all Price Lists**
+**Example get all Price Lists**
 `/GET https://api.bigcommerce.com/stores/{store_hash}/v3/pricelists`
 
 ```json
@@ -132,8 +130,8 @@ lineNumbers: true
 
 Under `discount_rules` the `type` is set to `price_list` and the `price_list_id` is 1. Which is the id of the price list the group has been assigned to.
 
-## Price List Assignments
-Price List Assignment assigns a Price List to a specific sales Channel. This association lets you define custom pricing for shoppers only on a specific external site or platform. Price List Assignments combined with a Customer Group assignment allows you to target specifically more logged in customers shopping on that channel.
+## Price List assignments
+Price List assignment assigns a Price List to a specific sales Channel. This association lets you define custom pricing for shoppers only on a specific external site or platform. Price List assignments combined with a Customer Group assignment allows you to target specifically more logged in customers shopping on that channel.
 
 
 See [Channels, Sites, and Routes](https://developer.bigcommerce.com/api-reference/cart-checkout/channels-listings-api) for further documentation.
