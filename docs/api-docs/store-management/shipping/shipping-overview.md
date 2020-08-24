@@ -20,7 +20,8 @@ The Order Shipments resource creates a shipment for an order. You can specify th
 
 The [Storefront Checkout](https://developer.bigcommerce.com/api-reference/cart-checkout/storefront-checkout-api) and [Server-to-Server Checkout APIs](https://developer.bigcommerce.com/api-reference/cart-checkout/server-server-checkout-api) provide methods for managing a checkout up until the point when you finalized it into an order. Because you can only create shipments from finalized orders, you cannot create a shipment from Checkout API endpoints.
 
-However, both the Storefront and Server-to-Server Checkout APIs provide methods for creating a Consignment, which specifies the line items that should ship to a particular address. Creating a Consignment corresponds with the actions that a shopper might take when filling out the storefront checkout page, assigning the items in their basket to their respective shipping destinations.
+However, both the Storefront and Server-to-Server Checkout APIs provide methods for creating a consignment that specifies the line items that should ship to a particular address. Creating a consignment corresponds with the actions that a shopper might take when filling out the storefront checkout page and assigning the items in their basket to their respective shipping destinations.
+
 
 A Checkout will always have one Consignment assigned to it, which is the first shipping address. A Consignment supports multiple shipping addresses, with each address having its own line items.
 
