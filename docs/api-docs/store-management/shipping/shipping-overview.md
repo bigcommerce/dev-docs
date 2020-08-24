@@ -31,7 +31,7 @@ The [Order Shipping Addresses](https://developer.bigcommerce.com/api-reference/o
 
 ## Shipping zone and shipping methods
 
-You can configure [shipping zones ](https://developer.bigcommerce.com/api-reference/store-management/shipping-api/shipping-zones) in the control panel or use the API to designate where a merchant ships their products and which [shipping methods](https://developer.bigcommerce.com/api-reference/store-management/shipping-api/shipping-method) should be available in each geographic region.
+You can configure [shipping zones](https://developer.bigcommerce.com/api-reference/store-management/shipping-api/shipping-zones) in the control panel or use the API to designate where a merchant ships their products and which [shipping methods](https://developer.bigcommerce.com/api-reference/store-management/shipping-api/shipping-method) should be available in each geographic region.
 
 
 An example of a shipping zone might be North America, and within that shipping zone, the shipping methods might be Free Shipping, Ship-by-Weight, and USPS.
@@ -52,8 +52,8 @@ For a list of all supported carriers, see [Real-Time Quote Providers](https://su
 * [Server-to-Server Checkouts API](https://developer.bigcommerce.com/api-reference/cart-checkout/server-server-checkout-api)
 
 * [Order Shipping Addresses](https://developer.bigcommerce.com/api-reference/orders/orders-api/order-shipping-addresses)
-* [Shipping Methods](https://developer.bigcommerce.com/api-reference/store-management/shipping-api/shipping-method/createashippingmethod)
-* [Shipping Zones](https://developer.bigcommerce.com/api-reference/store-management/shipping-api/shipping-zones/createashippingzones)
-* [Real-Time Carriers](https://developer.bigcommerce.com/api-reference/store-management/shipping-api/shipping-carrier/postshippingcarrierconnection)
+* [Shipping Methods](https://developer.bigcommerce.com/api-reference/store-management/shipping-api)
+* [Shipping Zones](https://developer.bigcommerce.com/api-reference/store-management/shipping-api)
+* [Real-Time Carriers](https://developer.bigcommerce.com/api-reference/store-management/shipping-api)
 ### Related articles
 * [Orders API Overview](https://developer.bigcommerce.com/api-docs/orders/orders-api-overview)
