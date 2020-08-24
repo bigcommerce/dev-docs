@@ -30,7 +30,7 @@ To be visible in Channel Manager once installed, apps must meet certain requirem
 
 ### All Partners
 * [Create Channel](https://developer.bigcommerce.com/api-reference/cart-checkout/channels-listings-api) (for each platform the app enables a merchant to sell on) - this enables the channel to be displayed within the “Manage” screen in the new Channel Manager for merchants, once the app has been installed.
-* [Create Channel](https://developer.bigcommerce.com/api-reference/cart-checkout/channels-listings-api) request must include  `app_id` at minimum in the [app config object](#sample-channel-app-configuration).
+* [Create Channel](https://developer.bigcommerce.com/api-reference/cart-checkout/channels-listings-api) request must include  `app_id` at minimum in the [app config object](#sample-configuration).
 
 ### Channel Manager Example
 ![Extending Existing Apps 01](https://raw.githubusercontent.com/bigcommerce/dev-docs/master/assets/images/extending-screenshots-01.png "Extending Existing Apps 01")
