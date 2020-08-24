@@ -2,6 +2,7 @@
 
 <div class="otp" id="no-index">
 
+
 ### On this page
 - [Display vs. Transactional](#display-vs-transactional)
 - [Preconfiguring the store](#preconfiguring-the-store)
