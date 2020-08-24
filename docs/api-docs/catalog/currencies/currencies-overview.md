@@ -67,7 +67,7 @@ Additionally, review the [Currency API reference](https://developer.bigcommerce.
 </div>
 </div>
 
-## Adding a Currency
+## Adding a currency
 
 <a id="adding-a-currency"></a>
 
