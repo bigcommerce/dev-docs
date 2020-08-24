@@ -13,7 +13,8 @@ You can create shipments from orders, and it is possible to create multiple ship
 
 The V2 Shipping API allows you to manage shipping zones, shipping methods, and shipping carrier connections.
 
-The Order Shipments resource creates a shipment for an order. You can specify the shipping provider, tracking number, and shipping address id when creating a shipment.
+The Order Shipments resource creates a shipment for an order. You can specify the shipping provider, tracking number, and shipping address ID when creating a shipment.
+
 
 ## Storefront Checkout and Server-to-Server Checkout API
 
