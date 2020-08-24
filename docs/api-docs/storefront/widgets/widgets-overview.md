@@ -9,8 +9,8 @@
 - [Widget templates](#widget-templates)
 - [Widgets](#widgets)
 - [Placements](#placements)
-- [Placements and Widgets](#placements-and-widgets)
-- [Widgets on the Storefront](#widgets-on-the-storefront)
+- [Placements and widgets](#placements-and-widgets)
+- [Widgets on the storefront](#widgets-on-the-storefront)
 - [Definitions](#definitions)
 - [Resources](#resources)
 
@@ -37,13 +37,13 @@ Most themes in the BigCommerce marketplace come with predefined regions. It is b
 
 ## Widget templates
 
-[Widget Templates](/api-reference/storefront/widgets-api/widget-template/getwidgettemplates) are handlebars-enabled HTML templates which define the structure of the widget on a page. Widget Templates can use the built in handlebar helpers such as {{if}} and {{each}}. Using the helpers allows for conditional logic to be built into the Widget Templates. Widget templates can be reused to build multiple widgets.
+[Widget templates](/api-reference/storefront/widgets-api/widget-template/getwidgettemplates) are Handlebars-enabled HTML templates which define the structure of the widget on a page. Widget templates can use the built in handlebar helpers such as {{if}} and {{each}}. Using the helpers allows for conditional logic to be built into the Widget templates. Widget templates can be reused to build multiple widgets.
 
-### Widget Template Examples
+### Widget template examples
 
-**Simple List**
+**Simple list**
 
-The Simple List template creates a list where each item in the list can have a different color. This example uses the [each block helper](https://handlebarsjs.com/api-reference/helpers.html) in handlebars to loop through each item in the list and display it. The text and color are determined by handlebars placeholders that are set when creating the [Widget](/api-reference/storefront/widgets-api/widget/createwidget).
+The simple list template creates a list where each item in the list can have a different color. This example uses the [each block helper](https://handlebarsjs.com/api-reference/helpers.html) in Handlebars to loop through each item in the list and display it. The text and color are determined by handlebars placeholders that are set when creating the [widget](/api-reference/storefront/widgets-api/widget/createwidget).
 
 The list takes advantage of loops to display each list item on the page.
 
@@ -65,17 +65,17 @@ The slider takes advantage of loops to display each slide on the page.
 
 ## Widgets
 
-[Widgets](/api-reference/storefront/widgets-api/widget/getwidgets) are a unit of content that are placed on specific pages in a Stencil theme. Widgets are made of a widget configuration written in json and a widget template UUID. Widgets are rendered as part of the HTML on the storefront.
+[Widgets](/api-reference/storefront/widgets-api/widget/getwidgets) are a unit of content that are placed on specific pages in a Stencil theme. Widgets are made of a widget configuration written in JSON and a widget template UUID. Widgets are rendered as part of the HTML on the storefront.
 
 ![Widget](//s3.amazonaws.com/user-content.stoplight.io/6012/1551971053085 "Storefront Widget")
 
-### Widget Configuration
+### Widget configuration
 
-A Widget Configuration is the JSON payload that defines the content to be rendered with a given Widget Template. In the previous simple list example, the widget template loops over a list_items array using `{{#each}}`.
+A Widget configuration is the JSON payload that defines the content to be rendered with a given widget template. In the previous simple list example, the widget template loops over a list_items array using `{{#each}}`.
 
-In the example below, we define the list_items array and supply values for the color and text of each list item. Since the template is created separately from the configuration, the same template UUID can be used multiple times for configuration.
+In the example below, we define the `list_items` array and supply values for the color and text of each list item. Since the template is created separately from the configuration, the same template UUID can be used multiple times for configuration.
 
-**Widget Configuration Slides**
+**Widget configuration slides**
 
 ```json
 {
@@ -86,7 +86,7 @@ In the example below, we define the list_items array and supply values for the c
 }
 ```
 
-**Widget Configuration List Items**
+**Widget configuration list items**
 
 ```json
 {
@@ -109,14 +109,14 @@ In the example below, we define the list_items array and supply values for the c
 
 <!-- theme:  -->
 
-### Reusing Widget Configuration
+### Reusing widget configuration
 > Keep in mind that when reusing the `widget_configuration` the array will have to be called `list_items`. Otherwise, the widget will be created on the frontend, but there will be no data, so nothing is rendered. This is because `list_items` was defined when the widget template was originally created. The widget configuration name can be anything that is set when the widget_template is created.
 
 </div>
 </div>
 </div>
 
-**List Items Example: Incorrect**
+**List items example: incorrect**
 
 ```json
 {
@@ -140,7 +140,7 @@ In the example below, we define the list_items array and supply values for the c
 The example above uses `list_items_two`, on line four, in the configuration which is not the same as `list_items`. If `list_items` has already been established during the initial configuration it must be set as `list_items` when being used again.
 
 
-**List Items Example: Correct**
+**List items example: correct**
 
 ```json
 {
@@ -163,7 +163,7 @@ The example above uses `list_items_two`, on line four, in the configuration whic
 
 ## Placements
 
-[Placements](/api-reference/storefront/widgets-api/placement/createplacement) determine the Region where the Widget is placed and in what order. The order of the placement is controlled by the `sort_order` when creating the placement.
+[Placements](/api-reference/storefront/widgets-api/placement/createplacement) determine the region where the widget is placed and in what order. The order of the placement is controlled by the `sort_order` when creating the placement.
 A placement must be created in order to use a Widget on the storefront.
 
 Placements can be used with `sort_order` and region to determine placement in a theme.
@@ -171,7 +171,7 @@ Placements can be used with `sort_order` and region to determine placement in a 
 ### Placements `entity_id`
 
 When creating a placement, there is an option to provide an `entity_id`.
-This is the ID for a specific product, brand, category or page. For example, if a Widget needs to be on all product pages, leave `entity_id` blank. If the Widget should only appear on a certain product page, then assign `entity_id` the product ID.
+This is the ID for a specific product, brand, category or page. For example, if a widget needs to be on all product pages, leave `entity_id` blank. If the widget should only appear on a certain product page, then assign `entity_id` the product ID.
 
 `entity_id` can be used with the following page types:
 * pages/brand
@@ -179,11 +179,11 @@ This is the ID for a specific product, brand, category or page. For example, if 
 * pages/page
 * pages/product
 
-### Create a Widget Placement with Region
+### Create a widget placement with region
 
 Below, the region and sort order have a value, so the widget will appear on the home page.
 
-**Widget with Region**
+**Widget with region**
 
 ```json
 {
@@ -196,10 +196,10 @@ Below, the region and sort order have a value, so the widget will appear on the 
 }
 ```
 
-### Create a Widget Placement Without a Region
-Leaving the region and sort order off the request will return just the `placement_id` in the response, allowing for the widget to be rendered using Layouts.
+### Create a widget placement without a region
+Leaving the region and sort order off the request will return just the `placement_id` in the response, allowing for the widget to be rendered using layouts.
 
-**Widget Without a Region**
+**Widget without a region**
 
 ```json
 {
@@ -210,7 +210,7 @@ Leaving the region and sort order off the request will return just the `placemen
 }
 ```
 
-## Placements and Widgets
+## Placements and widgets
 
 Placements determine which region widgets are located in and the order that they're displayed.
 
@@ -218,29 +218,29 @@ When creating a placement with a widget, the widget content takes the full regio
 
 If you are creating marketplace applications that create placements directly, you don’t need to use the `sort_order` property.
 
-## Widgets on the Storefront
+## Widgets on the storefront
 
 Widgets are rendered on the storefront as a data tag in the HTML.
 
 * Region -- data-content-region
 * Widget -- data-widget-id
-* Placement does not generate a data tag. Only the Widget.
+* Placement does not generate a data tag. 
 
-A Region can contain multiple Placements with Widgets.
+A region can contain multiple placements with widgets.
 
 ## Definitions
 
 | Name | Definition |
 |--|--|
 | Widgets | Widgets are the units of content to be placed on specific pages in a Stencil theme. Each widget is comprised of a widget configuration and a widget template. *There is a limit of `10,000` widgets per store.* |
-| Widget Templates | Widget Templates are Handlebars-enabled HTML templates which define the widget’s structure on a page. These templates can include conditional logic as well as looping. *There is a limit of `1,000` total custom widget templates per store. This does not include templates pre-provided by BigCommerce.* |
+| Widget templates | Widget templates are Handlebars-enabled HTML templates which define the widget’s structure on a page. These templates can include conditional logic as well as looping. *There is a limit of `1,000` total custom widget templates per store. This does not include templates pre-provided by BigCommerce.* |
 | Placements | Placements are the records to track which widget appears on which page, and in what order.  Currently, placements can only exist on the following pages: </br>* pages/blog-post </br> * pages/blog</br>* pages/brand</br>* pages/brands</br>* pages/cart</br>* pages/category</br>* pages/home</br>* pages/page</br>* pages/product</br>* pages/search</br> *There is a limit of 75 placements per template file and `10,000` total placements per store.*|
-| Regions | Regions are specific spots in a Stencil template file where Widgets can be placed. Regions are defined at the theme file level using the following syntax: `{{{region name="..."}}}`. There can be many widgets inside a given region, and these widgets can have an assigned sort order. |
-| Widget Configuration | This is a JSON payload that contains data used when rendering the widget. Each widget has a configuration, and there is a 64kb limit on the size of the JSON. The widget configuration must be valid JSON, but we don’t enforce any additional requirement on the structure of the configuration. |
+| Regions | Regions are specific spots in a Stencil template file where Widgets can be placed. Regions are defined at the theme file level using the following syntax: `{{{region name="..."}}}`. Many widgets can reside within a given region, and these widgets can have an assigned sort order. |
+| Widget configuration | This is a JSON payload that contains data used when rendering the widget. Each widget has a configuration, and there is a 64kb limit on the size of the JSON. The widget configuration must be valid JSON, but we don’t enforce any additional requirement on the structure of the configuration. |
 
 ## Resources
 
-### Related Endpoints
+### Related endpoints
 * [Widgets API](/api-reference/storefront/widgets-api)
 * [Widgets Tutorial](/api-docs/storefront/widgets/widgets-tutorial)
 * [Wigets Code Samples](/api-docs/storefront/widgets/widgets-code-samples)
