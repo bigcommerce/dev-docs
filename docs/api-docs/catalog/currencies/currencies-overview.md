@@ -4,9 +4,7 @@
 
 ### On this Page
 - [Display vs. transactional](#display-vs-transactional)
-
 - [Preconfiguring the store](#preconfiguring-the-store)
-
 - [Adding a currency](#adding-a-currency)
 - [How currencies work](#how-currencies-work)
 - [Supported features](#supported-features)
@@ -183,3 +181,4 @@ Please reach out to Stripe for more information on setting up the account.
 
 - [Supported Currencies](https://stripe.com/docs/currencies) (Stripe Documentation)
 - [Supported Settlement Currencies](https://stripe.com/docs/connect/payouts#supported-settlement) (Stripe Documentation)
+
