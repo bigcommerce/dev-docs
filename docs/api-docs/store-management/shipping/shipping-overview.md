@@ -45,7 +45,8 @@ For a list of all supported carriers, see [Real-Time Quote Providers](https://su
 
 ## Resources
 
-### Related endpoints
+### Additional resources
+
 * [Storefront Checkout](https://developer.bigcommerce.com/api-reference/cart-checkout/storefront-checkout-api/checkout-consignments/checkoutsconsignmentsbycheckoutidpost)
 * [Server to Server Checkout](https://developer.bigcommerce.com/api-reference/cart-checkout/server-server-checkout-api/checkout-consignments/checkoutsconsignmentsbycheckoutidpost)
 * [Order Shipping Addresses](https://developer.bigcommerce.com/api-reference/orders/orders-api/order-shipping-addresses)
