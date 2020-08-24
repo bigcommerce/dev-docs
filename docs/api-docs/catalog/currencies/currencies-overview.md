@@ -174,8 +174,7 @@ Please reach out to Stripe for more information on setting up the account.
 - [Managing Currencies](https://support.bigcommerce.com/s/article/Managing-Currencies-Beta) (BigCommerce Knowledge Base)
 - [Tax](https://support.bigcommerce.com/s/article/Manual-Tax-Setup#intro1) (BigCommerce Knowledge Base)
 
-### Additional Resources
+### Additional resources
 
 - [Supported Currencies](https://stripe.com/docs/currencies) (Stripe Documentation)
 - [Supported Settlement Currencies](https://stripe.com/docs/connect/payouts#supported-settlement) (Stripe Documentation)
-
