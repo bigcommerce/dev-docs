@@ -240,7 +240,7 @@ Query string parameters can be appended to BigCommerce product and `/cart.php` U
 | string  | `source=`     | source of the sale for analytics; can be any string | `/cart.php?action=buy&sku=xlredtshirt&source=emailcampaign` |
 
 
-**Additional Information:** 
+**Additional Information:**
 [Add to Cart URLs Overview](https://developer.bigcommerce.com/api-docs/cart-and-checkout/add-to-cart-url)
 
 ## API spec files
@@ -322,8 +322,6 @@ Sunset endpoints will be phased out and removed from the API. Once sunset, the e
 |`DELETE /v2/option_sets`| May 10, 2020| No equivalent available. However, `option_sets` can still be deleted individually by their ID.|
 |`DELETE /v2/products`| May 10, 2020| [`DELETE /v3/catalog/products`](https://developer.bigcommerce.com/api-reference/catalog/catalog-api/products/deleteproducts)|
 
-<!-- theme:  -->
-
 **V2 DELETE Sunsets**
 > These changes **ONLY** affect the “collection delete” capability which deletes the collection of objects from the system. The “single object” version of these endpoints, such as `DELETE /v2/products/123`, will continue to function normally.
 
@@ -331,10 +329,6 @@ Sunset endpoints will be phased out and removed from the API. Once sunset, the e
 |Endpoint|Date of Deactivation| Alternative |
 |-|-|-|
 |Channels API `is_activated` property| May, 10, 2020|[Channels API](https://developer.bigcommerce.com/api-reference/cart-checkout/channels-listings-api/channels/listchannels) `status` property
-
-</div>
-</div>
-</div>
 
 
 **Additional Information:** [V2 versus V3 API](https://developer.bigcommerce.com/legacy/v2-products/v2-v3#Whats-not-in-V3)
