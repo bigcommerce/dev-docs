@@ -56,4 +56,4 @@ For a list of all supported carriers, see [Real-Time Quote Providers](https://su
 * [Shipping Zones](https://developer.bigcommerce.com/api-reference/store-management/shipping-api/shipping-zones/createashippingzones)
 * [Real-Time Carriers](https://developer.bigcommerce.com/api-reference/store-management/shipping-api/shipping-carrier/postshippingcarrierconnection)
 ### Related articles
-* [Orders API Article](https://developer.bigcommerce.com/api-docs/orders/orders-api-overview#orders-api-overview_create-order-shipment)
+* [Orders API Overview](https://developer.bigcommerce.com/api-docs/orders/orders-api-overview)
