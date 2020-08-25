@@ -12,7 +12,8 @@
 
 - [Current Customer API](#current-customer-api)
 - [Customer API](#customer-api)
-- [Differences between V2 and V3 customer API](#differences-between-v2-and-v3-customer-api)
+- [Differences between V2 and V3 Customer API](#differences-between-v2-and-v3-customer-api)
+
 - [FAQ](#faq)
 - [Resources](#resources)
 
