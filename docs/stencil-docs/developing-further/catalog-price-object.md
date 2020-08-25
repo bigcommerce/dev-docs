@@ -189,7 +189,8 @@ lineNumbers: true
 
 ## Catalog price object examples including and excluding tax
 
-Depending on how the store has been set up in the control panel’s **Store Setup** > **Tax** > **Tax Settings** > **Configure Tax Display Settings**, the `price` object will display prices in one of the following ways:
+Depending on the store’s  [**Tax Display Settings**](https://login.bigcommerce.com/deep-links/manage/settings/tax/settings), the `price` object will display prices in one of the following ways:
+
 
 * **Including tax**
 * **Excluding tax**
