@@ -35,17 +35,158 @@
         "operationId": "listChannels",
         "responses": {
           "200": {
+            "description": "OK",
+            "schema": {
+              "type": "object",
+              "properties": {}
+            }
+          },
+          "401": {
             "$ref": "#/responses/ChannelCollectionResponse"
           },
-          "201": {
-            "description": "Created",
+          "500": {
+            "description": "Internal Server Error",
             "schema": {
               "type": "object",
               "properties": {}
             }
           }
         },
-        "description": "Returns a list of *Channels* "
+        "description": "Returns a list of *Channels* ",
+        "parameters": [
+          {
+            "in": "body",
+            "name": "body",
+            "schema": {
+              "type": "object",
+              "properties": {
+                "data": {
+                  "type": "array",
+                  "items": {
+                    "$ref": "#/definitions/Channel"
+                  }
+                },
+                "meta": {
+                  "type": "object",
+                  "properties": {
+                    "pagination": {
+                      "$ref": "../../models/pagination.json"
+                    }
+                  }
+                }
+              }
+            },
+            "x-examples": {
+              "1 Channel": {
+                "data": [
+                  {
+                    "icon_url": "https://s3.amazonaws.com/bc-channel-platform/channel-icons/bigcommerce.svg",
+                    "is_listable_from_ui": true,
+                    "is_visible": true,
+                    "date_created": "2020-08-07T17:41:38Z",
+                    "external_id": "",
+                    "type": "storefront",
+                    "platform": "bigcommerce",
+                    "is_enabled": true,
+                    "date_modified": "2020-08-07T17:41:38Z",
+                    "name": "My Default Storefront",
+                    "id": 1,
+                    "status": "active"
+                  }
+                ],
+                "meta": {
+                  "pagination": {
+                    "per_page": 250,
+                    "total": 9,
+                    "count": 9,
+                    "links": {
+                      "current": "?page=1&limit=250"
+                    },
+                    "total_pages": 1,
+                    "current_page": 1
+                  }
+                }
+              },
+              "Multiple Channels": {
+                "data": [
+                  {
+                    "icon_url": "https://s3.amazonaws.com/bc-channel-platform/channel-icons/bigcommerce.svg",
+                    "is_listable_from_ui": true,
+                    "is_visible": true,
+                    "date_created": "2020-08-07T17:41:38Z",
+                    "external_id": "",
+                    "type": "storefront",
+                    "platform": "bigcommerce",
+                    "is_enabled": true,
+                    "date_modified": "2020-08-07T17:41:38Z",
+                    "name": "My Default Storefront",
+                    "id": 1,
+                    "status": "active"
+                  },
+                  {
+                    "icon_url": "https://s3.amazonaws.com/bc-channel-platform/channel-icons/square.svg",
+                    "is_listable_from_ui": false,
+                    "is_visible": true,
+                    "date_created": "2020-08-09T20:59:12Z",
+                    "external_id": "",
+                    "config_meta": {
+                      "app": {
+                        "id": 24483,
+                        "sections": [
+                          {
+                            "title": "Overview",
+                            "query_path": "overview"
+                          },
+                          {
+                            "title": "Import",
+                            "query_path": "import"
+                          },
+                          {
+                            "title": "Settings",
+                            "query_path": "settings"
+                          }
+                        ]
+                      }
+                    },
+                    "type": "pos",
+                    "platform": "square",
+                    "is_enabled": true,
+                    "date_modified": "2020-08-14T14:20:14Z",
+                    "name": "POS Sample",
+                    "id": 373700,
+                    "status": "connected"
+                  },
+                  {
+                    "icon_url": "https://s3.amazonaws.com/bc-channel-platform/channel-icons/facebook.svg",
+                    "is_listable_from_ui": false,
+                    "is_visible": true,
+                    "date_created": "2020-08-14T14:12:26Z",
+                    "external_id": "",
+                    "type": "marketplace",
+                    "platform": "facebook",
+                    "is_enabled": true,
+                    "date_modified": "2020-08-14T14:12:26Z",
+                    "name": "Facebook Marketplace",
+                    "id": 379707,
+                    "status": "connected"
+                  }
+                ],
+                "meta": {
+                  "pagination": {
+                    "per_page": 250,
+                    "total": 9,
+                    "count": 9,
+                    "links": {
+                      "current": "?page=1&limit=250"
+                    },
+                    "total_pages": 1,
+                    "current_page": 1
+                  }
+                }
+              }
+            }
+          }
+        ]
       },
       "post": {
         "tags": [
@@ -62,14 +203,76 @@
               "$ref": "#/definitions/ChannelPost"
             },
             "x-examples": {
-              "application/json": {
+              "Channel without App": {
                 "name": "My Store - US",
                 "type": "storefront",
                 "platform": "",
                 "external_id": "002",
-                "is_enabled": true
+                "is_enabled": true,
+                "status": "connected",
+                "is_listable_from_ui": true,
+                "is_visible": true
+              },
+              "Channel with App": {
+                "name": "My Store - US",
+                "type": "storefront",
+                "platform": "",
+                "external_id": "002",
+                "is_enabled": true,
+                "status": "connected",
+                "is_listable_from_ui": true,
+                "is_visible": true,
+                "config_meta": {
+                  "app": {
+                    "id": 24483,
+                    "sections": [
+                      {
+                        "title": "Overview",
+                        "query_path": "overview"
+                      },
+                      {
+                        "title": "Import",
+                        "query_path": "import"
+                      },
+                      {
+                        "title": "Settings",
+                        "query_path": "settings"
+                      }
+                    ]
+                  }
+                }
+              },
+              "Additional Sections Examples": {
+                "name": "My Store - US",
+                "type": "storefront",
+                "platform": "",
+                "external_id": "002",
+                "is_enabled": true,
+                "status": "connected",
+                "is_listable_from_ui": true,
+                "is_visible": true,
+                "config_meta": {
+                  "app": {
+                    "id": 24483,
+                    "sections": [
+                      {
+                        "title": "Overview",
+                        "query_path": "overview"
+                      },
+                      {
+                        "title": "Import",
+                        "query_path": "import"
+                      },
+                      {
+                        "title": "Settings",
+                        "query_path": "settings?intro=true"
+                      }
+                    ]
+                  }
+                }
               }
-            }
+            },
+            "description": ""
           }
         ],
         "responses": {
@@ -97,6 +300,13 @@
               }
             }
           },
+          "401": {
+            "description": "Unauthorized",
+            "schema": {
+              "type": "object",
+              "properties": {}
+            }
+          },
           "422": {
             "description": "The request is missing 1 or more required fields",
             "schema": {
@@ -112,9 +322,16 @@
                 }
               }
             }
+          },
+          "500": {
+            "description": "Internal Server Error",
+            "schema": {
+              "type": "object",
+              "properties": {}
+            }
           }
         },
-        "description": "Creates a *Channel*.\n\n**Required Fields**\n* `type`\n* `platform`\n* `name`\n\n**Usage Notes**\n\nType & platform combination must be a valid pair:\n\n| Platform          | Accepted Type             |\n|-------------------|---------------------------|\n| `square `         | `pos`                     |\n| `vend`            | `pos`                     |\n| `clover`          | `pos`                     |\n| `facebook`        | `marketplace`,`marketing` |\n| `amazon`          | `marketplace`             |\n| `ebay`            | `marketplace`             |\n| `bigcommerce`     | `storefront`              |\n| `wordpress`       | `storefront`              |\n| `drupal`          | `storefront`             |\n| `acquia`          | `storefront`              |\n| `bloomreach`      | `storefront`              |\n| `deity`           | `storefront`              |\n| `google_shopping` | `marketing`               |\n| `custom`          | `storefront`, `pos`, `marketing`, `marketplace`             |"
+        "description": "Creates a *Channel*.\n\n**Required Fields**\n* `type`\n* `platform`\n* `name`\n* `status`\n\n**Usage Notes**\n\nType & platform combination must be a valid pair:\n\n| Platform          | Accepted Type             |\n|-------------------|---------------------------|\n| `square `         | `pos`                     |\n| `vend`            | `pos`                     |\n| `clover`          | `pos`                     |\n| `facebook`        | `marketplace`,`marketing` |\n| `amazon`          | `marketplace`             |\n| `ebay`            | `marketplace`             |\n| `bigcommerce`     | `storefront`              |\n| `wordpress`       | `storefront`              |\n| `drupal`          | `storefront`             |\n| `acquia`          | `storefront`              |\n| `bloomreach`      | `storefront`              |\n| `deity`           | `storefront`              |\n| `google_shopping` | `marketing`               |\n| `custom`          | `storefront`, `pos`, `marketing`, `marketplace`             |\n\nThe values that should be used for status depend on the \"type\" of the channel. \n\n| Type          | Platform             | Accepted Status             |\n|---------------|----------------------|-----------------------------|\n| `storefront `       | `bigcommerce`           | `active`, `inactive`, `archived`|\n| `storefront`            | `Is not bigcommerce`   | `active`, `inactive`, `disconnected`|\n| `marketing`, `marketplace`, `pos`  | NA  | `connected`, `disconnected`|"
       }
     },
     "/channels/{channel_id}": {
@@ -136,16 +353,89 @@
         "operationId": "getChannel",
         "responses": {
           "200": {
-            "$ref": "#/responses/ChannelResponse"
+            "$ref": "#/responses/ChannelResponse",
+            "schema": {
+              "$ref": "#/definitions/ChannelResponse"
+            },
+            "examples": {
+              "Channel without App": {
+                "data": {
+                  "icon_url": "https://s3.amazonaws.com/bc-channel-platform/channel-icons/square.svg",
+                  "is_listable_from_ui": false,
+                  "is_visible": true,
+                  "date_created": "2020-08-09T20:59:12Z",
+                  "external_id": "",
+                  "type": "pos",
+                  "platform": "square",
+                  "is_enabled": true,
+                  "date_modified": "2020-08-14T14:20:14Z",
+                  "name": "POS Sample",
+                  "id": 373700,
+                  "status": "connected"
+                },
+                "meta": {}
+              },
+              "Channel with App": {
+                "data": {
+                  "icon_url": "https://s3.amazonaws.com/bc-channel-platform/channel-icons/square.svg",
+                  "is_listable_from_ui": false,
+                  "is_visible": true,
+                  "date_created": "2020-08-09T20:59:12Z",
+                  "external_id": "",
+                  "config_meta": {
+                    "app": {
+                      "id": 24483,
+                      "sections": [
+                        {
+                          "title": "Overview",
+                          "query_path": "intro&customer=test&variable=testing"
+                        },
+                        {
+                          "title": "Import",
+                          "query_path": "import"
+                        },
+                        {
+                          "title": "Settings",
+                          "query_path": "settings"
+                        }
+                      ]
+                    }
+                  },
+                  "type": "pos",
+                  "platform": "square",
+                  "is_enabled": true,
+                  "date_modified": "2020-08-14T14:20:14Z",
+                  "name": "POS Sample",
+                  "id": 373700,
+                  "status": "connected"
+                },
+                "meta": {}
+              }
+            }
+          },
+          "401": {
+            "description": "Unauthorized",
+            "schema": {
+              "type": "object",
+              "properties": {}
+            }
           },
           "404": {
             "description": "A *Channel* with the provided ID was not found. ",
             "schema": {
               "$ref": "#/responses/ErrorResponse"
             }
+          },
+          "500": {
+            "description": "Internal Server Error",
+            "schema": {
+              "type": "object",
+              "properties": {}
+            }
           }
         },
-        "description": "Returns a *Channel*"
+        "description": "Returns a *Channel*",
+        "parameters": []
       },
       "put": {
         "tags": [
@@ -159,11 +449,19 @@
             "in": "body",
             "required": true,
             "schema": {
-              "$ref": "#/definitions/ChannelPut"
+              "type": "object",
+              "properties": {
+                "data": {
+                  "$ref": "#/definitions/ChannelPut"
+                },
+                "meta": {
+                  "type": "object"
+                }
+              }
             },
             "x-examples": {
               "application/json": {
-                "is_enabled": false,
+                "status": "disconnected",
                 "name": "Old Wordpress Channel"
               }
             }
@@ -192,17 +490,24 @@
             }
           },
           "400": {
-            "description": "The value for at least one provided field is not valid.",
+            "description": "Bad Request\n\nWhen invalid JSON is submitted.",
             "schema": {
-              "$ref": "#/responses/ErrorResponse"
+              "$ref": "#/definitions/ErrorResponse"
             },
             "examples": {
-              "application/json": {
+              "Invalid Response": {
                 "status": 400,
                 "title": "Input is invalid",
-                "type": "https://developer.bigcommerce.com/api#api-status-codes",
+                "type": "https://developer.bigcommerce.com/api-docs/getting-started/api-status-codes",
                 "errors": {}
               }
+            }
+          },
+          "401": {
+            "description": "Unauthorized",
+            "schema": {
+              "type": "object",
+              "properties": {}
             }
           },
           "404": {
@@ -218,9 +523,32 @@
                 "errors": {}
               }
             }
+          },
+          "422": {
+            "description": "Unprocessable Entity (WebDAV)\n\nWhen an invalid value for a field is submitted, a 422 will be sent.",
+            "schema": {
+              "$ref": "#/definitions/ErrorResponse"
+            },
+            "examples": {
+              "422 Example": {
+                "status": 422,
+                "title": "JSON data is missing or invalid",
+                "type": "https://developer.bigcommerce.com/api-docs/getting-started/api-status-codes",
+                "errors": {
+                  "status": "error.expected.jsstring"
+                }
+              }
+            }
+          },
+          "500": {
+            "description": "Internal Server Error",
+            "schema": {
+              "type": "object",
+              "properties": {}
+            }
           }
         },
-        "description": "Updates a *Channel*. Partial updates are supported. Currently, if a field that *cannot* be updated is passed in, the API **not** respond with an error.\n\n**Fields That Can Be Updated**\n* name\n* external_id"
+        "description": "Updates a *Channel*. Partial updates are supported. Currently, if a field that *cannot* be updated is passed in, the API **will not** respond with an error. It returns a 200 response with the object, in which you will see the field(s) were not updated\n\n**Fields That Can Be Updated**\n* name\n* external_id\n* status\n* is_listable_from_ui\n* is_visible\n* config_meta"
       }
     },
     "/channels/{channel_id}/listings": {
@@ -714,12 +1042,17 @@
               "description": "Link to the next page returned in the response.\n"
             }
           }
+        },
+        "current_page": {
+          "type": "integer",
+          "description": "Current page number of channels "
         }
       }
     },
     "ChannelPost": {
       "title": "Channel Post",
       "type": "object",
+      "description": "",
       "properties": {
         "type": {
           "type": "string",
@@ -740,8 +1073,9 @@
         },
         "is_enabled": {
           "type": "boolean",
-          "description": "Determines whether the channel is enabled on a store. In order to disable a channel, set is_enabled to false.\n\nThis results in the channel not showing in the 'Products' section of the BC control panel.",
-          "default": true
+          "description": "SUNSET: Determines whether the channel is enabled on a store. In order to disable a channel, set is_enabled to false.\n\nThis results in the channel not showing in the 'Products' section of the BC control panel.",
+          "default": true,
+          "x-deprecated": true
         },
         "platform": {
           "type": "string",
@@ -761,12 +1095,45 @@
             "bloomreach",
             "custom"
           ]
+        },
+        "is_listable_from_ui": {
+          "type": "boolean",
+          "description": "Determines whether a channel supports per product listing, meaning a merchant can list an individual product to the sales channel directly within the BC control panel on the catalog management screens",
+          "default": "true"
+        },
+        "is_visible": {
+          "type": "boolean",
+          "default": "true"
+        },
+        "status": {
+          "type": "string",
+          "enum": [
+            "connected",
+            "disconnected",
+            "active",
+            "inactive",
+            "archived",
+            "prelaunch"
+          ],
+          "description": "Current status of the sales channel"
+        },
+        "config_meta": {
+          "type": "object",
+          "description": "Meta configuration object for channels to support connecting an app with a channel and setting up navigation for the app ",
+          "properties": {
+            "app": {
+              "$ref": "#/definitions/AppMeta"
+            }
+          }
         }
       },
       "required": [
         "type",
         "name"
-      ]
+      ],
+      "x-examples": {
+        "application/json": {}
+      }
     },
     "ChannelPut": {
       "title": "Channel Put",
@@ -783,7 +1150,25 @@
         "is_enabled": {
           "type": "boolean",
           "description": "Determines whether the channel is enabled on a store. In order to disable a channel, set is_enabled to false.\n\nThis results in the channel not showing in the 'Products' section of the BC control panel.",
-          "default": true
+          "default": true,
+          "x-deprecated": true
+        },
+        "status": {
+          "type": "string"
+        },
+        "is_listable_from_ui": {
+          "type": "boolean"
+        },
+        "is_visible": {
+          "type": "boolean"
+        },
+        "config_meta": {
+          "type": "object",
+          "properties": {
+            "app": {
+              "$ref": "#/definitions/AppMeta"
+            }
+          }
         }
       }
     },
@@ -843,9 +1228,46 @@
         "is_enabled": {
           "type": "boolean",
           "description": "Determines whether the channel is enabled on a store. In order to disable a channel, set is_enabled to false.\n\nThis results in the channel not showing in the 'Products' section of the BC control panel.",
-          "default": true
+          "default": true,
+          "x-deprecated": true
+        },
+        "is_listable_from_ui": {
+          "type": "boolean",
+          "description": "Determines whether a channel supports per product listing, meaning a merchant can list an individual product to the sales channel directly within the BC control panel on the catalog management screens"
+        },
+        "is_visible": {
+          "type": "boolean",
+          "description": "Determines whether a sales channel shows within the BC control panel. If false, the channel will not be displayed in any of the Channel dropdowns throughout the control panel."
+        },
+        "icon_url": {
+          "type": "string",
+          "description": "Publicly available URL for the channel's icon, SVG format. "
+        },
+        "status": {
+          "type": "string",
+          "enum": [
+            "connected",
+            "disconnected",
+            "active",
+            "inactive",
+            "prelaunch",
+            "archived"
+          ],
+          "description": "Current status of the sales channel"
+        },
+        "config_meta": {
+          "type": "object",
+          "description": "Meta configuration object for channels to support connecting an app with a channel and setting up navigation for the app ",
+          "properties": {
+            "app": {
+              "$ref": "#/definitions/AppMeta"
+            }
+          }
         }
-      }
+      },
+      "required": [
+        "status"
+      ]
     },
     "ListingPut": {
       "title": "Listing Put",
@@ -1232,6 +1654,40 @@
     "ErrorResponse": {
       "type": "object",
       "properties": {}
+    },
+    "AppMeta": {
+      "title": "AppMeta",
+      "type": "object",
+      "properties": {
+        "id": {
+          "type": "integer",
+          "description": "ID of the app that this channel belongs to"
+        },
+        "sections": {
+          "type": "array",
+          "description": "Array of objects, each of which defines the sections that will be displayed in the left navigation pane in the BC control panel when a merchant is viewing / using the app\n",
+          "items": {
+            "type": "object",
+            "properties": {
+              "title": {
+                "type": "string",
+                "description": "Name of the section, as it will be displayed to the merchant"
+              },
+              "query_path": {
+                "type": "string",
+                "description": "Parameter that will be appended to the URL and which should be parsed in order for the app to display the proper section that has been selected by the merchant "
+              }
+            },
+            "required": [
+              "title",
+              "query_path"
+            ]
+          }
+        }
+      },
+      "required": [
+        "id"
+      ]
     }
   },
   "parameters": {
