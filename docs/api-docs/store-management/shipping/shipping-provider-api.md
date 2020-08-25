@@ -149,7 +149,8 @@ subtitle: "POST https://developerserver.com/shipping/carrier/connection"
 lineNumbers: true
 -->
 
-**Example request carrier connection**
+To create a carrier connection, send a `POST` request. For example:
+
 
 ```json
 {
