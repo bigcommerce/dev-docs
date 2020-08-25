@@ -2,6 +2,7 @@
 
 <div class="otp" id="no-index">
 
+### On this page
 - [REST APIs](#rest-apis)
 - [Storefront API](#storefront-api)
 - [GraphQL Storefront API](#graphql-storefront-api)
@@ -9,19 +10,21 @@
 - [Current Customer API](#current-customer-api)
 </div>
 
-BigCommerce has five different APIs that let you manage store data, log in customers, make client-side queries for product information, and more. Each requires a different method for authentication.
+BigCommerce has five different APIs that let you manage store data, log in customers, make client-side queries for product information, and more. Each requires a different authentication method.
 
 ## REST APIs
 
-Requests to BigCommerce's V2 and V3 REST APIs require both an OAuth Client ID and Access Token be passed in the header. See [Obtaining Store API Credentials](https://developer.bigcommerce.com/api-docs/getting-started/rest-api-authentication#obtaining-store-api-credentials) for instructions on generating these credentials.
+Requests to BigCommerce's V2 and V3 REST APIs require you to pass both an OAuth Client ID and Access Token in the header. For instructions on generating these credentials, see [Obtaining Store API Credentials](https://developer.bigcommerce.com/api-docs/getting-started/authentication/rest-api-authentication#obtaining-store-api-credentials#obtaining-store-api-credentials).
+
 
 ## Storefront API
-The Storefront API is unauthenticated, allowing you to make client-side requests for carts, checkouts and orders using Javascript. 
+The Storefront API is unauthenticated, allowing you to make client-side requests for carts, checkouts, and orders using JavaScript. 
+
 
 ## GraphQL Storefront API
 There are two ways to authenticate with the GraphQL API:
-1. Via a [Storefront API token](https://developer.bigcommerce.com/api-reference/cart-checkout/storefront-api-token/api-token/createtoken) passed in your request’s header
-2. Passing a Simple Token from within a Stencil theme in your request’s header
+1. Via a [Storefront API token](https://developer.bigcommerce.com/api-reference/cart-checkout/storefront-api-token/api-token/createtoken) passed in your request's header
+2. Passing a Simple Token from within a Stencil theme in your request's header
 
 For more details, see [GraphQL API Authentication](https://developer.bigcommerce.com/api-docs/storefront/graphql/graphql-storefront-api-overview#authentication).
 
@@ -33,4 +36,4 @@ For details, see [Customer Login API](https://developer.bigcommerce.com/api-docs
 
 ## Current Customer API
 
-Your application’s Client ID must be included in the request to the Current Customer API to receive a response. For details, see [Current Customer API](https://developer.bigcommerce.com/api-docs/customers/current-customer-api).
+Your application's Client ID must be included in the request to the Current Customer API to receive a response. For details, see [Current Customer API](https://developer.bigcommerce.com/api-docs/customers/current-customer-api).

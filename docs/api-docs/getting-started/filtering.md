@@ -10,7 +10,8 @@
 
 To filter collections down to a particular set of items, you can add filters to your request as URL query parameters.
 
-250 products is the maximum number of products that be returned. To view more than that, a script is needed to loop through each page.
+The maximum number of products returned is 250. Viewing more products requires creating a script that can loop through each subsequent page.
+
 
 These are the most common filter options available for the V3 API: 
 
@@ -29,13 +30,14 @@ Available filters vary by endpoint. Refer to the GET method for an endpoint to s
 
 ## Includes
 
-Some endpoints allow an `?include` parameter to include sub-resources and other information in the primary GET response for a parent object.
+Some endpoints allow `?include` parameter to include sub-resources and other information in the primary GET response for a parent object.
 
-This allows you to save API calls by getting more information in a response. However, it may slow down your response.
+These endpoints allow you to save API calls by getting more information in a response. However, it may slow down your response.
 
-As an example, you can include a product's variants and images with the product response: `/v3/catalog/products?include=variants,images`
+For example, you can include a product's variants and images with the product response: `/v3/catalog/products?include=variants,images`
 
-Availability of the `?include` parameter varies by endpoint. Refer to the GET method for an endpoint to see a list of fields that can be included.
+The availability of the `?include` parameter varies by endpoint. Refer to the `GET` method for an endpoint to see a list of available fields.
+
 
 ### Including and Excluding Fields
 
@@ -46,7 +48,7 @@ Some endpoints support both `?include_fields` and `?exclude_fields`.
 You can specify any field that is available on the object. Excluding fields you don't care about (especially large fields like descriptions) can speed up your API request response time.
 
 **Example Response Get Product Name and Price**  
-Here, product name and price have been included:
+Here, product name and price information are in the endpoint:
 
 `https://api.bigcommerce.com/stores/{{store_hash}}/v3/catalog/products?include_fields=name,price`
 

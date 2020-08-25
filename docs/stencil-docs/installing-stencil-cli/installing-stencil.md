@@ -2,22 +2,24 @@
 
 <div class="otp" id="no-index">
 
-### On This Page
+### On this page
 - [Installing on Mac](#installing-on-mac)
 - [Installing on Windows](#installing-on-windows)
 - [Installing on Linux](#installing-on-linux)
-- [Live Previewing a Theme](#live-previewing-a-theme)
+- [Live previewing a theme](#live-previewing-a-theme)
 - [Resources](#resources)
 
 </div>
 
-Stencil CLI gives developers the power to locally edit and preview themes with no impact to a merchant’s live storefront, and its built-in [Browsersync](https://github.com/bigcommerce/browser-sync) capabilities make simultaneous testing across desktop, mobile, and tablet devices a breeze. Once work is complete, developers can push themes to BigCommerce storefronts (and set them live) using Stencil CLI's simple, yet powerful commands. 
+Stencil CLI gives developers the power to locally edit and preview themes with no impact to a merchant’s live storefront, and it's built-in [Browsersync](https://github.com/bigcommerce/browser-sync) capabilities make simultaneous testing across desktop, mobile, and tablet devices a breeze. Once work is complete, developers can push themes to BigCommerce storefronts (and set them live) using Stencil CLI's simple, yet powerful commands.
+
 
 This article contains the detailed instructions needed to install and configure Stencil CLI -- the first step to developing themes on the BigCommerce platform.
 
 ## Installing on Mac
 
-To install Stencil CLI and it's dependencies on Mac, open a terminal and run the following commands: 
+To install Stencil CLI and it's dependencies on Mac, open a terminal and run the following commands.
+
 
 ```shell
 # Install Node Version Manager (nvm)
@@ -48,8 +50,8 @@ npm install -g @bigcommerce/stencil-cli
 ## Installing on Windows
 There's two methods for installing Stencil CLI and its dependencies on Windows.
 
-### Method 1: Install Dependencies Using Chocolatey
-If you're not comfortable manually installing and configuring Python and Node.js on windows, or if you prefer an easy installation option, use the [Chocolatey package manager](https://chocolatey.org/) to install Stencil CLI's dependencies. To do so, [open PowerShell](https://docs.microsoft.com/en-us/powershell/scripting/getting-started/starting-windows-powershell?view=powershell-6) as an administrator, and run the following commands:
+### Method 1: Install dependencies using Chocolatey
+If you're not comfortable manually installing and configuring Python and Node.js on Windows, or if you prefer an easy installation option, use the [Chocolatey package manager](https://chocolatey.org/) to install Stencil CLI's dependencies. To do so, [open PowerShell](https://docs.microsoft.com/en-us/powershell/scripting/getting-started/starting-windows-powershell?view=powershell-6) as an administrator, and run the following commands:
 ```shell
  # Install Chocolatey
 iex ((New-Object System.Net.WebClient).DownloadString("https://chocolatey.org/install.ps1"))
@@ -61,7 +63,7 @@ choco install git
 choco install nvm; nvm install 10.16; nvm use 10.16
 
 #####################################################################################
-# Close PowerShell and re-open as admin 
+# Close PowerShell and re-open as admin
 #####################################################################################
 
 # Install Windows C++ Build Tools (also installs python2)
@@ -80,17 +82,18 @@ npm install -g @bigcommerce/stencil-cli
 
 <!-- theme: warning -->
 
-### Execution Policy Errors
+### Execution policy errors
 > If you receive an execution policy error while attempting to install chocolatey, refer to [Microsoft's Documentation](https://docs.microsoft.com/en-us/powershell/module/microsoft.powershell.security/set-executionpolicy?view=powershell-6) and/or consult with your organization's system administrator to determine the appropriate course of action.
-> 
-### Chocolatey Installation Alternatives
+>
+### Chocolatey installation alternatives
 > For additional information on installing Chocolatey and alternative installation options, see [the installation page on chocolatey.org](https://chocolatey.org/install).
 
 </div>
 </div>
 </div>
 
-### Method 2: Install Dependencies Manually
+### Method 2: Install dependencies manually
+
 If you're a pro at installing and configuring Python and Node.js environments on Windows, feel free to install the required dependencies using your preferred method.
 
 **Required Dependencies:**
@@ -111,7 +114,8 @@ npm install -g @bigcommerce/stencil-cli
 
 <!-- theme: info -->
 
-> These instructions have been tested successfully on **Windows 10**. 
+> These instructions have been tested successfully on **Windows 10**.
+
 
 </div>
 </div>
@@ -148,15 +152,17 @@ npm install -g @bigcommerce/stencil-cli
 
 <!-- theme: info -->
 
-> These instructions have been tested on **Ubuntu 18.04**. 
+> These instructions have been tested on **Ubuntu 18.04**.
+
 
 </div>
 </div>
 </div>
 
-## Live Previewing a Theme
+## Live previewing a theme
 
-Once Stencil CLI is installed, the next step on the road to theme development is downloading a theme to edit and previewing live changes using Stencil CLI's powerful Browsersync functionality. For detailed instructions on doing so, see: [Live Previewing a Theme](https://developer.bigcommerce.com/stencil-docs/installing-stencil-cli/live-previewing-a-theme). Here's the gist:
+Once you've installed Stencil CLI, the next step on the road to theme development is downloading a theme to edit and previewing live changes using Stencil CLI's powerful Browsersync functionality. For detailed instructions on doing so, see [Live Previewing a Theme](https://developer.bigcommerce.com/stencil-docs/installing-stencil-cli/live-previewing-a-theme). Here's the gist:
+
 
 ```shell
 # move into theme dir
@@ -174,5 +180,5 @@ stencil start
 
 ## Resources
 
-### Additional Resources
+### Additional resources
 * [Demonstration of Stencil Installation and Launch](https://www.youtube.com/watch/iWBrJalyM0A) (Youtube)

@@ -1,0 +1,3099 @@
+swagger: '2.0'
+info:
+  title: Orders v3
+  version: '3.0'
+  description: >+
+    The Orders v3 resource represents endpoints related to payment processing.
+
+
+    Using the associated subresources, you can access transaction details and
+    process refunds against orders with settled payments. 
+
+
+    To programmatically create, update, and delete orders, see [Orders
+    v2](/api-reference/store-management/orders). 
+
+
+    To process payments, see [Payment
+    Processing](/api-reference/payments/payments-process-payments).
+
+
+    **On This Page**
+
+    - [Authentication](#authentication)
+
+    - [OAuth Scopes](#oauth-scopes)
+
+    - [Subresources](#subresources)
+
+    - [Additional Resources](#additional-resources)
+
+    ---
+
+
+    ## Authentication
+
+
+    Requests can be authenticated by sending a `client_id` and `access_token`
+    via `X-Auth-Client` and `X-Auth-Token` HTTP headers:
+
+
+    ```http
+
+    GET /stores/{$$.env.store_hash}/v3/catalog/summary
+
+    host: api.bigcommerce.com
+
+    Accept: application/json
+
+    X-Auth-Client: {client_id}
+
+    X-Auth-Token: {access_token}
+
+    ```
+
+    |Header|Parameter|Description|
+
+    |-|-|-|
+
+    |`X-Auth-Client`|`client_id`|Obtained by creating an API account or
+    installing an app in a BigCommerce control panel.|
+
+    |`X-Auth-Token`|`access_token `|Obtained by creating an API account or
+    installing an app in a BigCommerce control panel.|
+
+
+    For more information on Authenticating BigCommerce APIs, see:
+
+    [Authentication](https://developer.bigcommerce.com/api-docs/getting-started/authentication).
+
+
+    ## OAuth Scopes
+
+    | UI Name| Permission |Parameter|                                     
+
+    |----------------------------------------------|------------|-----------------------------------------------|
+
+    | Order Transactions|modify|`store_v2_transactions`|
+
+    | Order Transactions|read-only  |`store_v2_transactions_read_only`|
+
+    | Orders| modify|`store_v2_orders`|
+
+    | Orders| read-only|`store_v2_orders_read_only`|
+
+
+    For more information on OAuth Scopes, see the [REST API
+    Authentication](https://developer.bigcommerce.com/api-docs/getting-started/authentication/rest-api-authentication#oauth-scopes)
+    page.
+
+
+    ---
+
+
+    ## Subresources
+
+    The Orders v3 resource contains subresources outlined in the following
+    sections.
+
+
+    ### Order Transactions
+
+
+    View payment transaction details for an order. This subresource is primarily
+    used to get detailed gateway response information for credit card
+    transactions; however, it will also return any available information about
+    digital wallet and offline payments. 
+
+
+    Depending on the payment method used, different data will be available. For
+    example, not all payment gateways return full card or fraud response
+    details.
+
+
+    >**Note**
+
+    >
+
+    >Transactions are not created for the following payment methods:
+
+    >* Test Payment Gateway
+
+    >* PayPal Express
+
+    >* Amazon Pay
+
+    >* Gift Certificates
+
+    >* Store Credit
+
+    >* Offline Payment Methods
+
+
+    ### Order Refunds
+
+
+    Issue refunds and display refund details for orders with settled payments.
+    This subresource allows merchants to embed refund functionality directly
+    into their application without having to return to the BigCommerce Control
+    Panel.
+
+
+    Merchants can issue full or partial refunds in the Control Panel. The return
+    method is determined by the payment gateway. For more details, see
+    [Supported Payment
+    Gateways](https://support.bigcommerce.com/s/article/Processing-Refunds#payment-gateways).
+
+
+    ### Order Refund Quotes
+
+
+    Create a refund quote for a specified order. By providing items and costs or
+    quantities to refund, you can calculate the tax amount, get the total refund
+    amount, and retrieve available payment options. 
+
+
+    ---
+
+
+    ## Additional Information
+
+
+    **Related API Resources**
+
+    - [Payment Processing](/api-reference/payments/payments-process-payments)
+
+    - [Orders](/api-reference/store-management/orders/orders/getallorders)
+
+    - [Payment
+    Methods](/api-reference/store-management/payment-methods/payment-methods/paymentsmethodsget)
+
+    - [Orders V2](/api-reference/store-management/orders)
+
+
+    **Additional Resources**
+
+    - [Orders Overview](/api-docs/orders/orders-overview)
+
+    - [V2 REST API](/api-reference#v2-rest-api)
+
+    - [V3 REST API](/api-reference#v3-rest-api)
+
+    - [Payments API](/api-docs/payments/payments-api-overview)
+
+    - [Supported Payment
+    Gateways](https://support.bigcommerce.com/s/article/Processing-Refunds#payment-gateways)
+
+  termsOfService: 'https://www.bigcommerce.com/terms/'
+  license:
+    name: ''
+  contact:
+    name: BigCommerce Developer Documentation
+    url: 'https://developer.bigcommerce.com/'
+host: api.bigcommerce.com
+basePath: '/stores/{$$.env.store_hash}/v3'
+tags:
+  - name: Transactions
+  - name: Payment Actions
+  - name: Order Refunds
+  - name: Returns
+  - name: Return Reviewed Items
+  - name: Store Settings Returns
+  - name: Return Received Items
+  - name: Return Status Update
+  - name: Returnable Items
+schemes:
+  - https
+produces:
+  - application/json
+consumes:
+  - application/json
+paths:
+  /store/settings/returns:
+    get:
+      tags:
+        - Store Settings Returns
+      description: Provides the configured returns settings
+      operationId: GetReturnsSettings
+      produces:
+        - application/json
+      responses:
+        '200':
+          $ref: '#/responses/StoreReturnSettings_Resp'
+      summary: Get Store Return Settings
+      x-private: true
+  '/orders/{id}/returnable-items':
+    get:
+      tags:
+        - Returnable Items
+      description: Provides a collection of returnable items for an order.
+      operationId: GetReturnableItems
+      parameters:
+        - in: path
+          name: id
+          description: The ID of the order for which a summary should be obtained
+          required: true
+          type: integer
+          format: int64
+      responses:
+        '200':
+          $ref: '#/responses/OrderReturnableItems_Resp'
+      summary: Get Order Returnable Items
+      x-private: true
+  '/orders/{id}/returns':
+    post:
+      tags:
+        - Returns
+      description: Requests a new return.
+      operationId: CreateReturn
+      parameters:
+        - in: path
+          name: id
+          description: The ID of the order for which a return should be requested
+          required: true
+          type: integer
+          format: int64
+        - in: body
+          name: return
+          description: Details of the return.
+          required: true
+          schema:
+            $ref: '#/definitions/CreateReturnRequest'
+      produces:
+        - application/json
+      responses:
+        '201':
+          $ref: '#/responses/CreateReturn_Resp'
+      summary: Create a Return
+      x-private: true
+  /orders/returns/status-updates:
+    post:
+      tags:
+        - Return Status Updates
+      description: Applies status updates to a collection of returns.
+      operationId: UpdateReturnStatuses
+      parameters:
+        - in: body
+          name: return_status_updates
+          description: A collection of status updates to apply.
+          required: true
+          schema:
+            $ref: '#/definitions/UpdateReturnStatusesRequest'
+      responses:
+        '200':
+          $ref: '#/responses/ReturnStatus_Resp'
+      summary: Update Return Status
+      x-private: true
+  /orders/returns:
+    get:
+      tags:
+        - Returns
+      description: Provides a collection of return requests.
+      operationId: GetReturns
+      parameters:
+        - in: query
+          name: id
+          type: integer
+          format: int64
+        - in: query
+          name: order_id
+          type: integer
+          format: int64
+        - in: query
+          name: customer_id
+          type: integer
+          format: int64
+        - in: query
+          name: status
+          type: string
+          enum:
+            - CLOSED
+            - OPEN
+            - REMOVED
+          format: int64
+        - name: page
+          description: >-
+            Specifies the page number in a limited (paginated) collection of
+            returns
+          in: query
+          type: integer
+        - name: limit
+          description: >-
+            Controls the number of items per page in a limited (paginated)
+            collection of returns
+          in: query
+          type: integer
+        - name: direction
+          description: Sort direction
+          in: query
+          type: string
+          enum:
+            - asc
+            - desc
+        - name: sort
+          description: The field name by which to sort results
+          in: query
+          type: string
+          enum:
+            - id
+            - order_id
+            - date_modified
+      responses:
+        '200':
+          $ref: '#/responses/Return_Resp'
+      summary: Get All Returns
+      x-private: true
+  '/orders/{order_id}/return/{return_id}/received-items':
+    put:
+      tags:
+        - Return Received Items
+      description: Updates the received status of one or more return items.
+      operationId: UpdateReceivedItems
+      parameters:
+        - in: path
+          name: order_id
+          type: integer
+          required: true
+          description: The ID of the order for which items are to be updated
+        - in: path
+          name: return_id
+          type: integer
+          required: true
+          description: The ID of the return for which items are to be updated
+        - in: body
+          name: received_items
+          required: true
+          schema:
+            $ref: '#/definitions/ReceivedItems_Put'
+      produces:
+        - application/json
+      responses:
+        '200':
+          $ref: '#/responses/ReceivedItems_Resp'
+      summary: Update Return Received Items
+      x-private: true
+  '/orders/{order_id}/returns/{return_id}/reviewed-items':
+    put:
+      tags:
+        - Return Reviewed Items
+      description: Updates the reviewed status of one or more return items.
+      operationId: UpdateReviewedItems
+      parameters:
+        - in: path
+          name: order_id
+          type: integer
+          required: true
+          description: The ID of the order for which items are to be updated
+        - in: path
+          name: return_id
+          type: integer
+          required: true
+          description: The ID of the return for which items are to be updated
+        - in: body
+          name: reviewed_items
+          required: true
+          schema:
+            $ref: '#/definitions/ReviewedItems_Put'
+      produces:
+        - application/json
+      responses:
+        '200':
+          $ref: '#/responses/ReviewedItems_Resp'
+      summary: Update Return Reviewed Items
+      x-private: true
+  '/orders/{order_id}/transactions':
+    parameters:
+      - name: order_id
+        in: path
+        description: |
+          The ID of the `Order` to which the transactions belong.
+        required: true
+        type: integer
+    get:
+      tags:
+        - Transactions
+      description: "Returns an **order's** transactions. \n\n**Usage Notes**\n* Depending on the payment method, different information will be available (not all payment gateways return full card or fraud detail).\n* Transactions are not created for the following payment methods:\n\t* Test Payment Gateway\n\t* PayPal Express\n\t* Amazon Pay"
+      operationId: getTransactions
+      responses:
+        '200':
+          $ref: '#/responses/TransactionCollection_Resp'
+        '204':
+          description: |
+            No content found to fulfill request.
+          schema:
+            description: No-content response for the BigCommerce API.
+            type: object
+            properties:
+              status:
+                description: |
+                  204 HTTP status code.
+                type: integer
+              title:
+                description: The error title describing the situation.
+                type: string
+              type:
+                type: string
+              instance:
+                type: string
+            title: No Content
+        '404':
+          description: |
+            The resource was not found.
+          schema:
+            description: Error payload for the BigCommerce API.
+            type: object
+            properties:
+              status:
+                description: |
+                  404 HTTP status code.
+                type: integer
+              title:
+                description: The error title describing the particular error.
+                type: string
+              type:
+                type: string
+              instance:
+                type: string
+            title: Not Found
+      summary: Get Transactions
+      parameters:
+        - name: order_id
+          in: path
+          description: |
+            The ID of the `Order` to which the transactions belong.
+          required: true
+          type: integer
+        - in: header
+          type: string
+          name: Accept
+          default: application/json
+        - name: Content-Type
+          in: header
+          type: string
+          default: application/json
+  '/orders/{id}/payment_actions/capture':
+    post:
+      responses:
+        '201':
+          $ref: '#/responses/201_Acknowledged'
+        '400':
+          $ref: '#/responses/400_BadRequest'
+        '404':
+          $ref: '#/responses/404_NotFound'
+        '422':
+          $ref: '#/responses/422_UnprocessableEntity'
+        '502':
+          $ref: '#/responses/502_GatewayError'
+        '503':
+          $ref: '#/responses/503_ServiceUnavailable'
+        '504':
+          $ref: '#/responses/504_GatewayTimeout'
+      summary: Capture a Payment
+      operationId: postPaymentActionsCapture
+      tags:
+        - Payment Actions
+      description: Capture the payment on a particular order.
+      x-private: true
+    parameters:
+      - name: id
+        in: path
+        type: string
+        required: true
+  '/orders/{id}/payment_actions/void':
+    post:
+      responses:
+        '201':
+          $ref: '#/responses/201_Acknowledged'
+        '400':
+          $ref: '#/responses/400_BadRequest'
+        '404':
+          $ref: '#/responses/404_NotFound'
+        '422':
+          $ref: '#/responses/422_UnprocessableEntity'
+        '502':
+          $ref: '#/responses/502_GatewayError'
+        '503':
+          $ref: '#/responses/503_ServiceUnavailable'
+        '504':
+          $ref: '#/responses/504_GatewayTimeout'
+      tags:
+        - Payment Actions
+      operationId: postOrdersPaymentActionsVoid
+      summary: Void a Payment Authorization
+      description: Void the payment authorization on a particular order.
+      x-private: true
+    parameters:
+      - name: id
+        in: path
+        type: string
+        required: true
+        description: Order `id`
+  /orders/payment_actions/refunds:
+    get:
+      summary: Get All Refunds
+      description: Returns a list of refunds ordered by refund ID in ascending order.
+      operationId: getrefunds
+      parameters:
+        - name: 'order_id:in'
+          in: query
+          description: Filter by order_ids
+          type: array
+          items:
+            type: integer
+          collectionFormat: csv
+        - name: 'id:in'
+          in: query
+          description: Filter by resource ids
+          type: array
+          items:
+            type: integer
+          collectionFormat: csv
+        - $ref: '#/parameters/Accept'
+        - $ref: '#/parameters/Content-Type'
+        - in: query
+          name: 'created:min'
+          type: string
+          description: |-
+            Filter results so they are later than or equal to provided date.
+
+
+            Must be in url-encoded RFC 3339 format.
+            e.g. `2020-01-15T01:02:34-01:00` is RFC-3339 format. 
+            Url-encoded this will be `2020-01-15T01%3A02%3A34%2B01%3A00`
+          format: date-time
+          default: RFC 3339
+        - in: query
+          name: 'created:max'
+          type: string
+          format: date-time
+          default: RFC 3339
+          description: |-
+            Filter results so they are earlier than or equal to provided date.
+
+
+            Must be in url-encoded RFC 3339 format.
+            e.g. `2020-01-15T01:02:34-01:00` is RFC-3339 format. 
+            Url-encoded this will be `2020-01-15T01%3A02%3A34%2B01%3A00`
+      responses:
+        '200':
+          $ref: '#/responses/RefundCollection_Resp'
+      tags:
+        - Order Refunds
+    post:
+      summary: Create Refunds - BATCH
+      description: Creates a refund. This endpoint will accept a batch of one or more.
+      operationId: postrefunds
+      parameters:
+        - name: body
+          in: body
+          required: true
+          schema:
+            $ref: '#/definitions/PostRefundsRequest'
+          x-examples:
+            application/json:
+              - items:
+                  - item_id: 76
+                    item_type: PRODUCT
+                    quantity: 1
+                tax_adjustment_amount: 0
+                payments:
+                  - provider_id: testgateway
+                    amount: 220.5
+                    offline: false
+                  - provider_id: storecredit
+                    amount: 2.25
+                    offline: true
+        - $ref: '#/parameters/Accept'
+        - $ref: '#/parameters/Content-Type'
+      responses:
+        '201':
+          $ref: '#/responses/refundsBATCH_Resp'
+        '422':
+          description: >-
+            Partial success/failure response. HTTP status for the entire
+            response to roll up to the most severe individual failure to the
+            whole request.
+          schema:
+            type: object
+            properties:
+              data:
+                type: array
+                items:
+                  $ref: '#/definitions/Refund'
+              errors:
+                type: array
+                items:
+                  $ref: '#/definitions/FailedQuoteError'
+              meta:
+                type: object
+          examples:
+            Example 1: |-
+              {
+                  "data": [
+                      {
+                          "id": 1,
+                          "order_id": 100,
+                          "user_id": 1,
+                          "created": "",
+                          "reason": "",
+                          "total_amount": 0.05,
+                          "total_tax": 1,
+                          "items": [
+                              {
+                                  "item_type": "ORDER",
+                                  "item_id": 1,
+                                  "reason": "",
+                                  "quantity": 1,
+                                  "requested_amount": 0.05
+                              }
+                          ],
+                          "payments": [
+                              {
+                                  "id": 1,
+                                  "provider_id": "checkout_paypalexpress",
+                                  "amount": 0.05,
+                                  "offline": true,
+                                  "is_declined": true,
+                                  "declined_message": ""
+                              }
+                          ]
+                      }
+                  ],
+                  errors: [
+                      {
+                          "order_id": 1,
+                          "status": 422,
+                          "error": "Refund amount was negative"
+                      }
+                  ],
+                  "meta": {
+                      "failure": 1,
+                      "success": 1,
+                      "total": 2
+                  }
+              }
+        '503':
+          description: All failure response.
+          schema:
+            type: object
+            properties:
+              data:
+                type: array
+                items:
+                  $ref: '#/definitions/Refund'
+              errors:
+                type: array
+                items:
+                  $ref: '#/definitions/FailedQuoteError'
+              meta:
+                type: object
+          examples:
+            "All failure response. \nHTTP status code for the entire batch request to roll up to the most severe individual failure to the whole request.": |-
+              {
+                  "data": [
+                  ],
+                  "errors": [
+                      {
+                          "order_id": 1,
+                          "status": 422,
+                          "error": "Refund amount was negative"
+                      },
+                      {
+                          "order_id": 100,
+                          "status": 503,
+                          "error": "Tax service could not be contacted"
+                      }
+                  ],
+                  "meta": {
+                      "failure": 2,
+                      "success": 0,
+                      "total": 2
+                  }
+              }
+      tags:
+        - Order Refunds
+      x-private: true
+  '/orders/{order_id}/payment_actions/refund_quotes':
+    post:
+      summary: Create a Refund Quote
+      description: >-
+        Calculate the tax amount, total refund amount and get availble payment
+        options for an order refund by providing items and costs or quantities
+        to refund.
+      operationId: postrefundquote
+      parameters:
+        - name: order_id
+          in: path
+          description: Order id
+          required: true
+          type: integer
+        - name: body
+          in: body
+          required: true
+          schema:
+            $ref: '#/definitions/RefundQuote_Post'
+          x-examples:
+            application/json:
+              items:
+                - item_id: 75
+                  item_type: PRODUCT
+                  quantity: 1
+                - item_id: 79
+                  item_type: SHIPPING
+                  amount: 10
+              tax_adjustment_amount: 0
+        - $ref: '#/parameters/Accept'
+        - $ref: '#/parameters/Content-Type'
+      responses:
+        '201':
+          $ref: '#/responses/RefundQuote_Resp'
+        '422':
+          $ref: '#/responses/422_UnprocessableEntity'
+      tags:
+        - Order Refunds
+    parameters:
+      - name: order_id
+        in: path
+        type: string
+        required: true
+  '/orders/{order_id}/payment_actions/refunds':
+    post:
+      summary: Create a Refund
+      description: Creates a refund.
+      operationId: postrefund
+      parameters:
+        - name: order_id
+          in: path
+          description: order id
+          required: true
+          type: integer
+        - name: body
+          in: body
+          required: true
+          schema:
+            $ref: '#/definitions/RefundRequest_Post'
+          x-examples:
+            application/json:
+              items:
+                - item_id: 75
+                  item_type: PRODUCT
+                  quantity: 1
+                - item_id: 79
+                  item_type: SHIPPING
+                  amount: 10
+              tax_adjustment_amount: 0
+              payments:
+                - provider_id: storecredit
+                  amount: 232.75
+                  offline: false
+        - $ref: '#/parameters/Accept'
+        - $ref: '#/parameters/Content-Type'
+      responses:
+        '201':
+          $ref: '#/responses/Refund_Resp'
+        '503':
+          description: Service Unavailable
+          schema:
+            type: object
+            properties:
+              data:
+                type: array
+                items:
+                  $ref: '#/definitions/FailedQuoteError'
+              meta:
+                $ref: '#/definitions/Meta'
+          examples:
+            application/json:
+              data:
+                - order_id: 1
+                  status: 503
+                  error: Tax service gone away
+              meta: {}
+      tags:
+        - Order Refunds
+    get:
+      summary: Get Refunds for Order
+      description: >-
+        Returns a list of refunds ordered by refund ID in ascending order for
+        the given order.
+      operationId: getorderrefunds
+      parameters:
+        - $ref: '#/parameters/Accept'
+        - $ref: '#/parameters/Content-Type'
+      responses:
+        '200':
+          $ref: '#/responses/RefundCollection_Resp'
+      tags:
+        - Order Refunds
+    parameters:
+      - name: order_id
+        in: path
+        type: string
+        required: true
+  /orders/payment_actions/refund_quotes:
+    post:
+      summary: Create Refund Quotes - BATCH
+      description: >-
+        Calculate the tax amount, total refund amount and get availble payment
+        options for an order refund by providing items and costs or quantities
+        to refund.
+
+
+        This endpoint will accept a batch of one or more.
+      operationId: postrefundquotes
+      parameters:
+        - name: body
+          in: body
+          required: true
+          schema:
+            $ref: '#/definitions/PostRefundQuotesRequest'
+          x-examples:
+            application/json:
+              - items:
+                  - item_id: 76
+                    item_type: PRODUCT
+                    quantity: 1
+                tax_adjustment_amount: 0
+        - $ref: '#/parameters/Accept'
+        - $ref: '#/parameters/Content-Type'
+      responses:
+        '201':
+          $ref: '#/responses/RefundQuotesBATCH_Resp'
+        '422':
+          description: >-
+            Partial success/failure response. Status to roll up to the most
+            severe individual failure to the whole request.
+          schema:
+            type: object
+            properties:
+              data:
+                type: array
+                items:
+                  $ref: '#/definitions/RefundQuote_Full'
+              errors:
+                type: array
+                items:
+                  $ref: '#/definitions/FailedQuoteError'
+              meta:
+                $ref: '#/definitions/Meta'
+          examples:
+            Example 1: |-
+              {
+                  "data": [
+                      {
+                          "order_id": 1,
+                          "total_refund_amount": 1.99,
+                          "total_refund_tax_amount": 1.95,
+                          "rounding": 1,
+                          "adjustment": 0.05,
+                          "tax_inclusive": true,
+                          "refund_methods": [
+                              ""
+                          ]
+                      }
+                  ],
+                  "errors": [
+                      {
+                          "order_id": 1,
+                          "status": 422,
+                          "error": "Refund amount is greater than remaining amount"
+                      }
+                  ],
+                  "meta": {
+                      "failure": 1,
+                      "success": 1,
+                      "total": 2
+                  }
+              }
+        '503':
+          description: >-
+            Status to roll up to the most severe individual failure to the whole
+            request. Example shows that severe error status is rolled up to the
+            overall response status code.
+          schema:
+            type: object
+            properties:
+              data:
+                type: array
+                items:
+                  $ref: '#/definitions/RefundQuote_Full'
+              errors:
+                type: array
+                items:
+                  $ref: '#/definitions/FailedQuoteError'
+              meta:
+                $ref: '#/definitions/Meta'
+          examples:
+            application/json:
+              data: []
+              errors:
+                - order_id: 1
+                  status: 503
+                  error: Tax service could not be contacted
+                - order_id: 100
+                  status: 422
+                  error: Refund amount exceeds remaining amount
+              meta:
+                failure: 2
+                success: 0
+                total: 2
+      tags:
+        - Order Refunds
+      x-private: true
+parameters:
+  OrderIdParam:
+    name: order_id
+    in: path
+    description: |
+      The ID of the `Order` to which the transactions belong.
+    required: true
+    type: integer
+  Accept:
+    in: header
+    type: string
+    name: Accept
+    default: application/json
+  Content-Type:
+    name: Content-Type
+    in: header
+    type: string
+    default: application/json
+securityDefinitions:
+  X-Auth-Client:
+    type: apiKey
+    name: X-Auth-Client
+    in: header
+    description: >-
+      ### OAuth Scopes
+
+      |  **UI Name** | **Permission** | **Parameter** |
+
+      | --- | --- | --- |
+
+      |  Order Transactions | modify | `store_v2_transactions` |
+
+      |  Order Transactions | read-only | `store_v2_transactions_read_only` |
+
+
+      ### Headers
+
+
+      |Header|Parameter|Description|
+
+      |-|-|-|
+
+      |`X-Auth-Client`|`client_id`|Obtained by creating an API account or
+      installing an app in a BigCommerce control panel.|
+
+      |`X-Auth-Token`|`access_token `|Obtained by creating an API account or
+      installing an app in a BigCommerce control panel.|
+
+
+      ### Example
+
+
+      ```http
+
+      GET /stores/{$$.env.store_hash}/v3/catalog/summary
+
+      host: api.bigcommerce.com
+
+      Content-Type: application/json
+
+      X-Auth-Client: {client_id}
+
+      X-Auth-Token: {access_token}
+
+      ```
+
+
+      * For more information on Authenticating BigCommerce APIs, see:
+      [Authentication](https://developer.bigcommerce.com/api-docs/getting-started/authentication). 
+  X-Auth-Token:
+    type: apiKey
+    in: header
+    name: X-Auth-Token
+    description: >-
+      ### OAuth Scopes
+
+      |  **UI Name** | **Permission** | **Parameter** |
+
+      | --- | --- | --- |
+
+      |  Order Transactions | modify | `store_v2_transactions` |
+
+      |  Order Transactions | read-only | `store_v2_transactions_read_only` |
+
+
+      ### Headers
+
+
+      |Header|Parameter|Description|
+
+      |-|-|-|
+
+      |`X-Auth-Client`|`client_id`|Obtained by creating an API account or
+      installing an app in a BigCommerce control panel.|
+
+      |`X-Auth-Token`|`access_token `|Obtained by creating an API account or
+      installing an app in a BigCommerce control panel.|
+
+
+      ### Example
+
+
+      ```http
+
+      GET /stores/{$$.env.store_hash}/v3/catalog/summary
+
+      host: api.bigcommerce.com
+
+      Content-Type: application/json
+
+      X-Auth-Client: {client_id}
+
+      X-Auth-Token: {access_token}
+
+      ```
+
+
+      * For more information on Authenticating BigCommerce APIs, see:
+      [Authentication](https://developer.bigcommerce.com/api-docs/getting-started/authentication). 
+security:
+  - X-Auth-Client: []
+  - X-Auth-Token: []
+definitions:
+  GetReturnsSettings:
+    type: object
+    properties:
+      reasons:
+        type: array
+        items:
+          $ref: '#/definitions/Reason'
+      preferred_outcomes:
+        type: array
+        items:
+          $ref: '#/definitions/PreferredOutcome'
+  Reason:
+    type: object
+    properties:
+      id:
+        type: integer
+        format: int64
+      label:
+        type: string
+        description: A description of the reason
+      is_archived:
+        type: boolean
+        description: Indicates whether or not the reason has been archived
+  PreferredOutcome:
+    type: object
+    properties:
+      id:
+        type: integer
+        format: int64
+      label:
+        type: string
+        description: A description of the outcome
+      is_archived:
+        type: boolean
+        description: Indicates whether or not the outcome has been archived
+  CreateReturnRequest:
+    type: object
+    required:
+      - items
+    properties:
+      items:
+        description: A collection of items to be returned
+        type: array
+        items:
+          $ref: '#/definitions/CreateReturnRequestItem'
+      comment:
+        description: A comment provided to the merchant for review
+        type: string
+    title: CreateReturnRequest
+  CreateReturnRequestItem:
+    type: object
+    required:
+      - reference_id
+      - quantity
+      - preferred_outcome_id
+      - reason_id
+    properties:
+      reference_id:
+        $ref: '#/definitions/ItemReferenceId'
+      quantity:
+        type: integer
+        minimum: 1
+      preferred_outcome_id:
+        type: integer
+        format: int64
+      reason_id:
+        type: integer
+        format: int64
+  CreateReturn:
+    $ref: '#/definitions/Return_Full'
+  Return_Full:
+    type: object
+    description: A view of a return
+    properties:
+      items:
+        type: array
+        items:
+          $ref: '#/definitions/ReturnItem'
+      total:
+        type: string
+        format: decimal
+        description: The total price of the items being returned
+      currency:
+        type: string
+        format: iso-4217
+        description: The transactional currency of the return and the associated order
+      customer:
+        type: object
+        properties:
+          id:
+            type: integer
+            format: int64
+          email:
+            type: string
+            format: email
+      comment:
+        type: string
+        description: A comment provided to the merchant for review
+      status:
+        $ref: '#/definitions/Status_Full'
+      date_modified:
+        type: string
+        format: date-time
+  ReturnItem:
+    type: object
+    description: A view of a return item
+    properties:
+      id:
+        type: integer
+        format: int64
+        description: The unique identifier of this return item
+      reference_id:
+        $ref: '#/definitions/ItemReferenceId'
+      quantity:
+        type: integer
+        description: The quantity of items for which a return was requested
+      total:
+        type: string
+        format: decimal
+        description: The total price of the line item
+      preferred_outcome:
+        type: object
+        properties:
+          id:
+            type: integer
+            format: int64
+            description: Unique identifier of the preferred outcome
+          label:
+            type: string
+            description: A displayable label for the preferred outcome
+      reason:
+        type: object
+        properties:
+          id:
+            type: integer
+            format: int64
+            description: Unique identifier of the reason
+          label:
+            type: string
+            description: A displayable label for the reason
+      received_state:
+        type: object
+        properties:
+          received_quantity:
+            type: integer
+            description: The quantity of items marked as received by the merchant
+          pending_quantity:
+            type: integer
+            description: The quantity of items pending receipt by the merchant
+      review_state:
+        type: object
+        properties:
+          approved_quantity:
+            type: integer
+            description: The quantity of items approved for return by the merchant
+          pending_quantity:
+            type: integer
+            description: The quantity of items pending receipt by the merchant
+          rejected_quantity:
+            type: integer
+            description: The quantity of items rejected by the merchant
+  StatusUpdate_Full:
+    type: object
+    properties:
+      return_id:
+        type: integer
+        format: int64
+        description: The ID of the return for which the status should be updated
+      new_status:
+        $ref: '#/definitions/Status_Full'
+    title: StatusUpdate_Full
+  Status_Full:
+    type: string
+    enum:
+      - CLOSED
+      - OPEN
+      - REMOVED
+    description: The status of the return.
+    title: Status_Full
+  UpdateReturnStatusesRequest:
+    type: array
+    items:
+      $ref: '#/definitions/StatusUpdate_Full'
+    title: UpdateReturnStatusesRequest
+  UpdateReturnStatuses:
+    type: array
+    items:
+      type: object
+      properties:
+        id:
+          type: integer
+          format: int64
+          description: The ID of the return for which the status was updated
+        status:
+          $ref: '#/definitions/Status_Full'
+  Problem:
+    type: object
+    properties:
+      status:
+        type: integer
+        description: Status code of the problem
+      title:
+        type: string
+        description: A short description of the problem
+      type:
+        type: string
+        format: url
+        description: A resource describing the problem
+  BatchOperationMeta:
+    type: object
+    properties:
+      total:
+        type: integer
+        description: The total number of operations in the batch
+      success:
+        type: integer
+        description: The number of failed operations in the batch
+      failed:
+        type: integer
+        description: The number of failed operations in the batch
+  Pagination:
+    type: object
+    description: 'Data about the response, including pagination and collection totals.'
+    title: Pagination
+    properties:
+      total:
+        type: integer
+        description: |
+          Total number of items in the result set.
+        example: 36
+      count:
+        type: integer
+        description: |
+          Total number of items in the collection response.
+        example: 36
+      per_page:
+        type: integer
+        description: >
+          The amount of items returned in the collection per page, controlled by
+          the limit parameter.
+        example: 50
+      current_page:
+        type: integer
+        description: |
+          The page you are currently on within the collection.
+        example: 1
+      total_pages:
+        type: integer
+        description: |
+          The total number of pages in the collection.
+        example: 1
+      links:
+        type: object
+        description: >
+          Pagination links for the previous and next parts of the whole
+          collection.
+        properties:
+          previous:
+            type: string
+            description: |
+              Link to the previous page returned in the response.
+          current:
+            type: string
+            description: |
+              Link to the current page returned in the response.
+            example: '?page=1&limit=50'
+          next:
+            type: string
+            description: |
+              Link to the next page returned in the response.
+  ReceivedItems_Put:
+    type: array
+    items:
+      type: object
+      required:
+        - item_id
+        - received_quantity
+        - pending_quantity
+      properties:
+        item_id:
+          type: integer
+          format: int64
+          description: The ID of the item for which to update the received state
+        received_quantity:
+          type: integer
+          description: The quantity of items to be marked as received
+        pending_quantity:
+          type: integer
+          description: The quantity of items to be marked as pending
+    title: ReceivedItems_Put
+  ReceivedItems_Base:
+    type: array
+    items:
+      type: object
+      properties:
+        item_id:
+          type: integer
+          format: int64
+          description: The ID of the item for which received item status was updated
+        received_quantity:
+          type: integer
+          format: int64
+          description: The quantity of items marked as received
+        pending_quantity:
+          type: integer
+          format: int64
+          description: The quantity of items marked as pending
+    title: ReceivedItems_Base
+  ReviewedItems_Put:
+    type: array
+    items:
+      type: object
+      required:
+        - item_id
+        - authorized_quantity
+        - rejected_quantity
+        - pending_quantity
+      properties:
+        item_id:
+          type: integer
+          format: int64
+          description: The ID of the item for which to update the reviewed state
+        authorized_quantity:
+          type: integer
+          description: The quantity of items to be marked as authorized
+        rejected_quantity:
+          type: integer
+          description: The quantity of items to be marked as rejected
+        pending_quantity:
+          type: integer
+          description: The quantity of items to be marked as pending
+    title: ReviewedItems_Put
+  ReviewedItems_Base:
+    type: array
+    items:
+      type: object
+      properties:
+        item_id:
+          type: integer
+          format: int64
+          description: The ID of the item for which reviewed status was updated
+        authorized_quantity:
+          type: integer
+          format: int64
+          description: The quantity of items marked as authorized
+        rejected_quantity:
+          type: integer
+          format: int64
+          description: The quantity of items marked as rejected
+        pending_quantity:
+          type: integer
+          format: int64
+          description: The quantity of items marked as pending
+    title: ReviewedItems_Base
+  GetReturnableItems:
+    type: array
+    items:
+      type: object
+      properties:
+        reference_id:
+          $ref: '#/definitions/ItemReferenceId'
+        name:
+          type: string
+          description: The name of the order product
+        returnable_quantity:
+          type: integer
+          description: >-
+            The maximum quantity of this item that can presently be requested
+            for return
+        total:
+          type: string
+          format: decimal
+          description: The total price of this line item
+        options:
+          type: array
+          items:
+            type: object
+            properties:
+              display_name:
+                type: string
+                description: A displayable name for the option
+              display_value:
+                type: string
+                description: A displayable value for the option
+            description: An item available for return
+          description: A collection of options configured for the order product
+  ItemReferenceId:
+    type: object
+    properties:
+      type:
+        type: string
+        description: The reference type
+        enum:
+          - ORDER_PRODUCT
+      value:
+        type: string
+        description: The value identifying the returned item
+    required:
+      - type
+      - value
+  CollectionMeta:
+    type: object
+    description: 'Data about the response, including pagination and collection totals.'
+    properties:
+      pagination:
+        type: object
+        description: 'Data about the response, including pagination and collection totals.'
+        title: Pagination
+        properties:
+          total:
+            type: integer
+            description: |
+              Total number of items in the result set.
+            example: 36
+          count:
+            type: integer
+            description: |
+              Total number of items in the collection response.
+            example: 36
+          per_page:
+            type: integer
+            description: >
+              The amount of items returned in the collection per page,
+              controlled by the limit parameter.
+            example: 50
+          current_page:
+            type: integer
+            description: |
+              The page you are currently on within the collection.
+            example: 1
+          total_pages:
+            type: integer
+            description: |
+              The total number of pages in the collection.
+            example: 1
+          links:
+            type: object
+            description: >
+              Pagination links for the previous and next parts of the whole
+              collection.
+            properties:
+              previous:
+                type: string
+                description: |
+                  Link to the previous page returned in the response.
+              current:
+                type: string
+                description: |
+                  Link to the current page returned in the response.
+                example: '?page=1&limit=50'
+              next:
+                type: string
+                description: |
+                  Link to the next page returned in the response.
+    title: Collection Meta
+  Meta:
+    type: object
+    title: Meta
+    properties:
+      meta:
+        type: object
+        description: 'Data about the response, including pagination and collection totals.'
+        title: Pagination
+        properties:
+          total:
+            type: integer
+            description: |
+              Total number of items in the result set.
+            example: 36
+          count:
+            type: integer
+            description: |
+              Total number of items in the collection response.
+            example: 36
+          per_page:
+            type: integer
+            description: >
+              The amount of items returned in the collection per page,
+              controlled by the limit parameter.
+            example: 50
+          current_page:
+            type: integer
+            description: |
+              The page you are currently on within the collection.
+            example: 1
+          total_pages:
+            type: integer
+            description: |
+              The total number of pages in the collection.
+            example: 1
+          links:
+            type: object
+            description: >
+              Pagination links for the previous and next parts of the whole
+              collection.
+            properties:
+              previous:
+                type: string
+                description: |
+                  Link to the previous page returned in the response.
+              current:
+                type: string
+                description: |
+                  Link to the current page returned in the response.
+                example: '?page=1&limit=50'
+              next:
+                type: string
+                description: |
+                  Link to the next page returned in the response.
+  ErrorResponse:
+    allOf:
+      - $ref: '#/definitions/error_Base'
+      - type: object
+        properties:
+          errors:
+            type: object
+            additionalProperties:
+              type: string
+            title: DetailedErrors
+    title: ErrorResponse
+  DetailedErrors:
+    type: object
+    additionalProperties:
+      type: string
+    title: DetailedErrors
+  Transaction_Post:
+    type: object
+    title: Transaction_Post
+    properties:
+      event:
+        type: string
+        description: |
+          Store event that created the transaction.
+        enum:
+          - purchase
+          - authorization
+          - capture
+          - refund
+          - void
+          - pending
+          - settled
+      method:
+        type: string
+        description: >
+          The payment method: `credit_card` - a credit-card transaction;
+          `electronic_wallet` - an online wallet; `store_credit` - a transaction
+          using store credit; `gift_certificate` - a transaction using a gift
+          certificate; `custom` - manual payment methods; `token` - payment
+          token; `nonce` - temporary payment token; `offsite` - online payment
+          off the site (e.g., PayPal); `offline` - payment method that takes
+          place offline.
+        enum:
+          - credit_card
+          - electronic_wallet
+          - gift_certificate
+          - store_credit
+          - apple_pay_card
+          - apple_pay_token
+          - token
+          - custom
+          - offsite
+          - offline
+          - nonce
+      amount:
+        type: number
+        format: float
+        description: |
+          Amount of money in the transaction.
+      currency:
+        type: string
+        format: ISO-4217
+        description: |
+          Currency used for the transaction.
+      gateway:
+        type: string
+        description: |
+          The payment gateway, where applicable.
+        enum:
+          - 2checkout
+          - adyen
+          - amazon
+          - authorizenet
+          - bankdeposit
+          - braintree
+          - cheque
+          - cod
+          - custom
+          - firstdatagge4
+          - giftcertificate
+          - hps
+          - instore
+          - klarna
+          - migs
+          - moneyorder
+          - nmi
+          - paypalexpress
+          - paypalpaymentsprous
+          - paypalpaymentsprouk
+          - plugnpay
+          - qbmsv2
+          - securenet
+          - square
+          - storecredit
+          - stripe
+          - testgateway
+          - usaepay
+      gateway_transaction_id:
+        description: >
+          The transaction ID returned by the payment gateway for this
+          transaction item.
+        type: string
+      date_created:
+        description: |
+          The datetime of the transaction.
+        type: string
+        format: date-time
+      test:
+        type: boolean
+        description: >
+          True if the transaction performed was a test, or if the gateway is in
+          test mode.
+      status:
+        type: string
+        description: |
+          Status of the transaction.
+        enum:
+          - ok
+          - error
+      fraud_review:
+        type: boolean
+        description: |
+          Result of gateway fraud review, if any. Default is `false`.
+      reference_transaction_id:
+        type: integer
+        description: >
+          Identifier for an existing transaction upon which this transaction
+          acts.
+      offline:
+        type: object
+        description: 'Offline payment (e.g., check or purchase order).'
+        properties:
+          display_name:
+            description: |
+              Display name for the offline payment.
+            type: string
+        title: Offline
+      custom:
+        type: object
+        description: Custom payment from manual order.
+        properties:
+          payment_method:
+            description: |
+              Text entered for the payment method in the control panel.
+            type: string
+        title: Custom
+      '':
+        type: string
+    required:
+      - event
+      - method
+      - amount
+      - currency
+      - gateway
+  NotFound:
+    description: Error payload for the BigCommerce API.
+    type: object
+    properties:
+      status:
+        description: |
+          404 HTTP status code.
+        type: integer
+      title:
+        description: The error title describing the particular error.
+        type: string
+      type:
+        type: string
+      instance:
+        type: string
+    title: Not Found
+  Transaction:
+    description: A BigCommerce Transaction object describes a single transaction.
+    allOf:
+      - title: Transaction Base
+        properties:
+          event:
+            type: string
+            description: |
+              Store event that created the transaction.
+            enum:
+              - purchase
+              - authorization
+              - capture
+              - refund
+              - void
+              - pending
+              - settled
+          method:
+            type: string
+            description: >
+              The payment method: `credit_card` - a credit-card transaction;
+              `electronic_wallet` - an online wallet; `store_credit` - a
+              transaction using store credit; `gift_certificate` - a transaction
+              using a gift certificate; `custom` - manual payment methods;
+              `token` - payment token; `nonce` - temporary payment token;
+              `offsite` - online payment off the site; `offline` - payment
+              method that takes place offline.
+            enum:
+              - credit_card
+              - electronic_wallet
+              - gift_certificate
+              - store_credit
+              - apple_pay_card
+              - apple_pay_token
+              - token
+              - custom
+              - offsite
+              - offline
+              - nonce
+          amount:
+            type: number
+            format: float
+            description: |
+              Amount of money in the transaction.
+          currency:
+            type: string
+            format: ISO-4217
+            description: |
+              Currency used for the transaction.
+          gateway:
+            type: string
+            description: |
+              The payment gateway, where applicable.
+            enum:
+              - 2checkout
+              - adyen
+              - amazon
+              - authorizenet
+              - bankdeposit
+              - braintree
+              - cheque
+              - cod
+              - custom
+              - firstdatagge4
+              - giftcertificate
+              - hps
+              - instore
+              - klarna
+              - migs
+              - moneyorder
+              - nmi
+              - paypalexpress
+              - paypalpaymentsprous
+              - paypalpaymentsprouk
+              - plugnpay
+              - qbmsv2
+              - securenet
+              - square
+              - storecredit
+              - stripe
+              - testgateway
+              - usaepay
+          gateway_transaction_id:
+            description: >
+              The transaction ID returned by the payment gateway for this
+              transaction item.
+            type: string
+          date_created:
+            description: |
+              The datetime of the transaction.
+            type: string
+            format: date-time
+          test:
+            type: boolean
+            description: >
+              True if the transaction performed was a test, or if the gateway is
+              in test mode.
+          status:
+            type: string
+            description: |
+              Status of the transaction.
+            enum:
+              - ok
+              - error
+          fraud_review:
+            type: boolean
+            description: |
+              Result of gateway fraud review, if any. Default is `false`.
+          reference_transaction_id:
+            type: integer
+            description: >
+              Identifier for an existing transaction upon which this transaction
+              acts.
+          offline:
+            type: object
+            description: 'Offline payment (e.g., check or purchase order).'
+            title: Offline
+            properties:
+              display_name:
+                description: |
+                  Display name for the offline payment.
+                type: string
+          custom:
+            type: object
+            description: Custom payment from manual order.
+            title: Custom
+            properties:
+              payment_method:
+                description: |
+                  Text entered for the payment method in the control panel.
+                type: string
+          '':
+            type: string
+        required:
+          - event
+          - method
+          - amount
+          - currency
+          - gateway
+      - properties:
+          id:
+            type: integer
+            description: |
+              Unique identifier for the transaction.
+          order_id:
+            type: string
+            description: >
+              Identifier for the BigCommerce Order with which this transaction
+              is associated.
+          date_created:
+            description: |
+              The datetime of the transaction.
+            type: string
+            format: date-time
+          payment_instrument_token:
+            type: string
+            description: >-
+              This field contains internal BigPay token for stored card that is
+              then mapped to the actual third-party token. We currently do not
+              offer a way to get third party tokens.These tokens are read-only
+              and do not return any information about the payment.
+          avs_result:
+            description: >-
+              Address Verification Service (AVS) result from the payment
+              gateway.
+            type: object
+            title: AVS Results
+            properties:
+              code:
+                description: AVS code.
+                type: string
+              message:
+                description: AVS message.
+                type: string
+              street_match:
+                description: AVS Code for street matching result.
+                type: string
+              postal_match:
+                description: AVS Code for postal matching result.
+                type: string
+          cvv_result:
+            description: Card Verification Value result from the payment gateway.
+            type: object
+            title: CVV Result
+            properties:
+              code:
+                description: CVV code.
+                type: string
+              message:
+                description: CVV message.
+                type: string
+          credit_card:
+            type: object
+            description: A credit-card model.
+            title: Credit Card
+            properties:
+              card_type:
+                description: |
+                  The credit-card type: Visa, MasterCard, etc.
+                type: string
+              card_iin:
+                description: |
+                  The IIN of a credit-card number.
+                type: string
+              card_last4:
+                description: |
+                  The last 4 digits of a credit-card number.
+                type: string
+              card_expiry_month:
+                description: |
+                  The expiry month of a credit-card.
+                type: integer
+                minimum: 1
+                maximum: 12
+              card_expiry_year:
+                description: |
+                  The expiry year of a credit-card.
+                type: integer
+          gift_certificate:
+            type: object
+            description: A gift-certificate model.
+            title: Gift Certificate
+            properties:
+              code:
+                description: |
+                  The gift-certificate code.
+                type: string
+                example: MB345
+              original_balance:
+                description: |
+                  The balance on a gift certificate when it was purchased.
+                type: number
+                format: float
+                example: 100
+              starting_balance:
+                description: >
+                  The balance on a gift certificate at the time of this
+                  purchase.
+                type: number
+                format: float
+                example: 100
+              remaining_balance:
+                description: |
+                  The remaining balance on a gift certificate.
+                type: number
+                format: float
+                example: 35.42
+              status:
+                description: >
+                  The status of a gift certificate: `active` - gift certificate
+                  is active; `pending` - gift certificate purchase is pending;
+                  `disabled` - gift certificate is disabled; `expired` - gift
+                  certificate is expired.
+                type: string
+                enum:
+                  - active
+                  - pending
+                  - disabled
+                  - expired
+          store_credit:
+            type: object
+            description: |
+              A store credit model.
+            properties:
+              remaining_balance:
+                description: |
+                  Remaining balance of shopper's store credit.
+                type: string
+    title: Transaction
+    type: object
+  CreditCard:
+    type: object
+    description: A credit-card model.
+    properties:
+      card_type:
+        description: |
+          The credit-card type: Visa, MasterCard, etc.
+        type: string
+      card_iin:
+        description: |
+          The IIN of a credit-card number.
+        type: string
+      card_last4:
+        description: |
+          The last 4 digits of a credit-card number.
+        type: string
+      card_expiry_month:
+        description: |
+          The expiry month of a credit-card.
+        type: integer
+        minimum: 1
+        maximum: 12
+      card_expiry_year:
+        description: |
+          The expiry year of a credit-card.
+        type: integer
+    title: Credit Card
+  StoreCredit:
+    type: object
+    description: |
+      A store credit model.
+    properties:
+      remaining_balance:
+        description: |
+          Remaining balance of shopper's store credit.
+        type: string
+  Custom:
+    type: object
+    description: Custom payment from manual order.
+    properties:
+      payment_method:
+        description: |
+          Text entered for the payment method in the control panel.
+        type: string
+    title: Custom
+  Offline:
+    type: object
+    description: 'Offline payment (e.g., check or purchase order).'
+    properties:
+      display_name:
+        description: |
+          Display name for the offline payment.
+        type: string
+    title: Offline
+  GiftCertificate:
+    type: object
+    description: A gift-certificate model.
+    title: Gift Certificate
+    properties:
+      code:
+        description: |
+          The gift-certificate code.
+        type: string
+        example: MB345
+      original_balance:
+        description: |
+          The balance on a gift certificate when it was purchased.
+        type: number
+        format: float
+        example: 100
+      starting_balance:
+        description: |
+          The balance on a gift certificate at the time of this purchase.
+        type: number
+        format: float
+        example: 100
+      remaining_balance:
+        description: |
+          The remaining balance on a gift certificate.
+        type: number
+        format: float
+        example: 35.42
+      status:
+        description: >
+          The status of a gift certificate: `active` - gift certificate is
+          active; `pending` - gift certificate purchase is pending; `disabled` -
+          gift certificate is disabled; `expired` - gift certificate is expired.
+        type: string
+        enum:
+          - active
+          - pending
+          - disabled
+          - expired
+  AVSResult:
+    description: Address Verification Service (AVS) result from the payment gateway.
+    type: object
+    properties:
+      code:
+        description: AVS code.
+        type: string
+      message:
+        description: AVS message.
+        type: string
+      street_match:
+        description: AVS Code for street matching result.
+        type: string
+      postal_match:
+        description: AVS Code for postal matching result.
+        type: string
+    title: AVS Results
+  CVVResult:
+    description: Card Verification Value result from the payment gateway.
+    type: object
+    properties:
+      code:
+        description: CVV code.
+        type: string
+      message:
+        description: CVV message.
+        type: string
+    title: CVV Result
+  NoContent:
+    description: No-content response for the BigCommerce API.
+    type: object
+    properties:
+      status:
+        description: |
+          204 HTTP status code.
+        type: integer
+      title:
+        description: The error title describing the situation.
+        type: string
+      type:
+        type: string
+      instance:
+        type: string
+    title: No Content
+  metaEmpty_Full:
+    type: object
+    title: metaEmpty_Full
+  pagination_Full:
+    type: object
+    title: pagination_Full
+    properties:
+      total:
+        description: Total number of items in the result set.
+        type: integer
+        format: int32
+      count:
+        description: Total number of items in the collection response.
+        type: integer
+        format: int32
+      per_page:
+        description: >-
+          The amount of items returned in the collection per page, controlled by
+          the limit parameter.
+        type: integer
+        format: int32
+      current_page:
+        description: The page you are currently on within the collection.
+        type: integer
+        format: int32
+      total_pages:
+        description: The total number of pages in the collection.
+        type: integer
+        format: int32
+      links:
+        $ref: '#/definitions/links_Full'
+  metaCollection_Full:
+    type: object
+    title: metaCollection_Full
+    properties:
+      pagination:
+        $ref: '#/definitions/pagination_Full'
+  links_Full:
+    type: object
+    properties:
+      previous:
+        type: string
+        description: |
+          Link to the previous page returned in the response.
+      current:
+        type: string
+        description: |
+          Link to the current page returned in the response.
+        example: '?page=1&limit=50'
+      next:
+        type: string
+        description: |
+          Link to the next page returned in the response.
+    title: links_Full
+  error_Base:
+    type: object
+    title: error_Base
+    properties:
+      status:
+        description: |
+          The HTTP status code.
+        type: integer
+      title:
+        description: |
+          The error title describing the particular error.
+        type: string
+      type:
+        type: string
+    description: Error payload for the BigCommerce API.
+  errorDetailed_Full:
+    type: object
+    properties:
+      errors:
+        type: object
+        additionalProperties:
+          type: string
+        title: DetailedErrors
+    title: errorDetailed_Full
+  PostRefundQuotesRequest:
+    type: array
+    description: Request body for batch refund quotes.
+    title: Refund Quotes Request - BATCH
+    items:
+      $ref: '#/definitions/RefundQuote_Post'
+  RefundQuote_Post:
+    type: object
+    title: RefundQuote_Post
+    description: Request body for refund quotes.
+    properties:
+      order_id:
+        type: integer
+        description: >-
+          Order ID against which this refund will be created. This is optional
+          for creating a single refund request. The order ID is included in the
+          request path.
+        example: 1
+      items:
+        $ref: '#/definitions/ItemsRefund'
+    required:
+      - order_id
+      - items
+  RefundQuote_Full:
+    type: object
+    title: RefundQuote_Full
+    properties:
+      order_id:
+        type: integer
+        description: ID of the order to be refunded
+      total_refund_amount:
+        $ref: '#/definitions/Amount'
+      total_refund_tax_amount:
+        type: number
+        example: 1.95
+      rounding:
+        type: number
+        description: >-
+          Indicates rounding value to bring refund_total to an amount refundable
+          via payment providers (in this case to 2 decimal places)
+      adjustment:
+        $ref: '#/definitions/Amount'
+      tax_inclusive:
+        type: boolean
+        description: Indicate if total_refund_amount includes tax amount
+      refund_methods:
+        type: array
+        description: >+
+          An array of available refund methods.
+
+
+          Note that `refund_methods` is an array of refund methods, with each
+          refund method being an array of payment options. 
+
+
+          For example, if the order was placed by a combination of store credit
+          and bank deposit the  refund methods would be:
+
+          ```
+
+          {
+            "refund_methods": [
+              [
+                {
+                  "provider_id": "storecredit",
+                  "provider_description": "Store Credit",
+                  "amount": 119.35,
+                  "offline": false,
+                  "offline_provider": false,
+                  "offline_reason": ""
+                }
+              ],
+              [
+                {
+                  "provider_id": "bankdeposit",
+                  "provider_description": "Bank Deposit",
+                  "amount": 80.35,
+                  "offline": true,
+                  "offline_provider": true,
+                  "offline_reason": "This is an offline payment provider."
+                },
+                {
+                  "provider_id": "storecredit",
+                  "provider_description": "Store Credit",
+                  "amount": 39,
+                  "offline": false,
+                  "offline_provider": false,
+                  "offline_reason": ""
+                }
+              ]
+            ]
+          }
+
+          ```
+
+
+          In this case there are two refund methods available to the merchant:
+
+          1. Refund the entire order amount to store credit.
+
+          2. Refund the amount paid by store credit to store credit, and the
+          amount paid by bank deposit via a manual refund which will be recorded
+          as being refunded against the bank deposit.  
+
+
+          >  
+
+
+
+        items:
+          $ref: '#/definitions/RefundMethod'
+  RefundRequest_Post:
+    type: object
+    description: Request body for refund requests.
+    title: RefundRequest_Post
+    properties:
+      order_id:
+        type: integer
+        description: Order id against which this refund will be created
+        example: 1
+      items:
+        $ref: '#/definitions/ItemsRefund'
+      reason:
+        type: string
+        description: Reason for refund
+        example: Wrong t-shirt size
+      payments:
+        type: array
+        items:
+          $ref: '#/definitions/PaymentRequest'
+    required:
+      - order_id
+      - items
+      - payments
+  PostRefundsRequest:
+    type: array
+    description: Request body for batch refunds
+    title: Refunds Request - BATCH
+    items:
+      $ref: '#/definitions/RefundRequest_Post'
+  FailedQuoteError:
+    type: object
+    description: Failed quote response.
+    properties:
+      order_id:
+        type: integer
+      status:
+        type: integer
+        description: HTTP status code
+        example: 422
+      error:
+        type: string
+        description: details why the request failed
+    title: FailedQuoteError
+  ItemsRefund:
+    type: array
+    items:
+      anyOf:
+        - $ref: '#/definitions/AmountBoundItem'
+        - $ref: '#/definitions/QuantityBoundItem'
+        - $ref: '#/definitions/TaxExemptItem'
+    title: ItemsRefund
+  PaymentRequest:
+    type: object
+    properties:
+      provider_id:
+        type: string
+        description: Reference to payment provider
+        example: checkout_paypalexpress
+      amount:
+        type: number
+        description: Amount refunded via this provider
+        example: 9.99
+      offline:
+        type: boolean
+        description: >-
+          Whether the payment was marked as offline or performed through an
+          online payment service.
+        example: true
+    example: |-
+      {
+          "provider_id": "checkout_paypalexpress",
+          "amount": 9.99,
+          "offline": true
+      }
+    title: Payment Request
+  RefundMethod:
+    type: array
+    minItems: 1
+    items:
+      $ref: '#/definitions/PaymentOption'
+    title: Refund Method
+  QuantityBoundItem:
+    type: object
+    title: Quantity Bound Item
+    description: >
+      Quantity Bound Item
+
+
+      Type of refund item that capture refunding of items in the order that are
+      of type quantity. 
+
+      * `PRODUCT`
+
+      * `GIFT_WRAPPING`
+    properties:
+      item_type:
+        type: string
+        enum:
+          - PRODUCT
+          - GIFT_WRAPPING
+        description: Type of refund.
+      item_id:
+        type: integer
+        example: 1
+        description: 'Order Product ID. '
+      quantity:
+        type: integer
+        example: 3
+      reason:
+        type: string
+        description: Reason for refund
+        minLength: 0
+        maxLength: 1000
+  TaxExemptItem:
+    type: object
+    title: Tax Exempt Item
+    description: Tax Exempt Item
+    properties:
+      item_type:
+        type: string
+        description: Type of refund.
+        example: ORDER
+        enum:
+          - ORDER
+      amount:
+        $ref: '#/definitions/Amount'
+      reason:
+        type: string
+        description: Reason for the refund.
+        minLength: 0
+        maxLength: 1000
+      item_id:
+        type: integer
+        description: Order Product ID.
+  AmountBoundItem:
+    type: object
+    title: Amount Bound Item
+    description: >
+      Amount Bound Item
+
+
+      Type of refund item that capture refunding of items in the order that are
+      of type amount. 
+
+      * `SHIPPING`
+
+      * `HANDLING`
+    properties:
+      item_type:
+        type: string
+        enum:
+          - SHIPPING
+          - HANDLING
+        example: SHIPPING
+        description: Type of refund.
+      item_id:
+        type: integer
+        example: 1
+        description: Order address ID.
+      amount:
+        $ref: '#/definitions/Amount'
+      reason:
+        type: string
+        minLength: 0
+        maxLength: 1000
+  Refund:
+    type: object
+    title: Refund
+    properties:
+      id:
+        type: integer
+        description: Refund resource ID
+        readOnly: true
+      order_id:
+        type: integer
+        description: Reference to order id
+      user_id:
+        type: integer
+        description: >-
+          Reference to the user's id who create this refund. This is
+          automatically populated by BigCommerce.
+        readOnly: true
+      created:
+        type: string
+        format: date-time
+        description: Timestamp of when this refund was created
+        readOnly: true
+      reason:
+        type: string
+        description: Reason for refund
+      total_amount:
+        $ref: '#/definitions/Amount'
+      total_tax:
+        type: number
+        description: >-
+          Total tax amount refunded back to shopper. Note: order_level_amount
+          does not affect tax liability. This can be negative amount indicating
+          we have collected tax by virtue of refunding less to the customer
+      items:
+        type: array
+        description: Array of items refunded
+        minItems: 1
+        items:
+          $ref: '#/definitions/RefundItem'
+      payments:
+        type: array
+        description: An array of refund payments made to payment providers
+        minItems: 1
+        items:
+          $ref: '#/definitions/RefundPayment'
+  RefundItem:
+    type: object
+    properties:
+      item_type:
+        type: string
+        description: Type of item that was refunded
+        enum:
+          - PRODUCT
+          - GIFT_WRAPPING
+          - SHIPPING
+          - HANDLING
+          - ORDER
+      item_id:
+        type: integer
+        description: Reference to the item
+      reason:
+        type: string
+        description: Reason for refunding an item
+      quantity:
+        type: integer
+        description: >-
+          Quantity of item refunded. Note: this will only be populated for
+          item_type PRODUCT
+      requested_amount:
+        $ref: '#/definitions/Amount'
+    title: Refund Item
+  RefundPayment:
+    type: object
+    title: Refund Payment
+    properties:
+      id:
+        type: integer
+        description: Reference to refund payment id
+        readOnly: true
+      provider_id:
+        type: string
+        description: Reference to payment provider
+        example: storecredit
+      amount:
+        $ref: '#/definitions/Amount'
+      offline:
+        type: boolean
+        description: Indicate whether payment was offline
+      is_declined:
+        type: boolean
+        description: Indicate if this payment has been declined by payment provider
+      declined_message:
+        type: string
+        description: Message indicate why payment was declined
+  PaymentOption:
+    type: object
+    example:
+      provider_id: checkout_paypalexpress
+      provider_description: Paypal Express
+      amount: 9.99
+      offline: true
+      offline_provider: true
+      offline_reason: Multiple online refunds are not available
+    title: Payment Option
+    properties:
+      provider_id:
+        type: string
+        description: Name of the payment method
+        example: checkout_paypalexpress
+      provider_description:
+        type: string
+        description: Description for payment provider
+        example: Paypal Express
+      amount:
+        type: number
+        description: amount to be refunded via this payment provider
+        example: 9.99
+      offline:
+        type: boolean
+        description: >-
+          Indicates the payment must be done offline due to constraints of the
+          payment provider, such as partial refunds not being supported, or it
+          being offline only such as cash on delivery of bank deposit.
+        example: true
+      offline_provider:
+        type: boolean
+        description: >-
+          Indicates if the payment provider is a strictly offline provider, such
+          as cash on delivery or bank deposit.
+        example: true
+      offline_reason:
+        type: string
+        description: 'Reason the payment option is offline only, if applicable.'
+        example: Multiple online refunds are not available
+  Amount:
+    type: number
+    format: float
+    description: >-
+      A non-negative 2 decimal place rounded value that represents that amount
+      that can be charged/refunded via payment providers
+    example: 1.99
+    title: Amount
+  MetaRefund:
+    type: object
+    title: MetaRefund
+    properties:
+      failure:
+        type: integer
+      success:
+        type: integer
+      total:
+        type: integer
+    description: 'Describes refund failures, success and totals.'
+responses:
+  Return_Resp:
+    description: ''
+    schema:
+      type: object
+      properties:
+        data:
+          $ref: '#/definitions/Return_Full'
+        meta:
+          type: object
+          properties:
+            pagination:
+              $ref: '#/definitions/Pagination'
+    examples: {}
+  ReturnStatus_Resp:
+    description: ''
+    schema:
+      properties:
+        data:
+          $ref: '#/definitions/UpdateReturnStatuses'
+        errors:
+          type: array
+          items:
+            $ref: '#/definitions/Problem'
+        meta:
+          $ref: '#/definitions/BatchOperationMeta'
+  OrderReturnableItems_Resp:
+    description: ''
+    schema:
+      type: object
+      properties:
+        data:
+          $ref: '#/definitions/GetReturnableItems'
+  CreateReturn_Resp:
+    description: ''
+    schema:
+      type: object
+      properties:
+        data:
+          $ref: '#/definitions/CreateReturn'
+  ReceivedItems_Resp:
+    description: ''
+    schema:
+      properties:
+        data:
+          $ref: '#/definitions/ReceivedItems_Base'
+        errors:
+          type: array
+          items:
+            $ref: '#/definitions/Problem'
+        meta:
+          $ref: '#/definitions/BatchOperationMeta'
+  ReviewedItems_Resp:
+    description: ''
+    schema:
+      properties:
+        data:
+          $ref: '#/definitions/ReviewedItems_Base'
+        errors:
+          type: array
+          items:
+            $ref: '#/definitions/Problem'
+        meta:
+          $ref: '#/definitions/BatchOperationMeta'
+  StoreReturnSettings_Resp:
+    description: ''
+    schema:
+      type: object
+      properties:
+        data:
+          $ref: '#/definitions/GetReturnsSettings'
+  502_GatewayError:
+    description: >-
+      If something happens during the request that causes it to fail, a 502
+      response will be returned. A new request should be made; however, it could
+      fail.
+    schema:
+      $ref: '#/definitions/error_Base'
+    examples:
+      application/json:
+        status: 502
+        title: A login URL could not be generated. Please try another request.
+        type: 'https://developer.bigcommerce.com/api#api-status-codes'
+  504_GatewayTimeout:
+    description: >-
+      If this occurs, you should retry the request. Typically retrying the
+      request several times will result in a successful request; However, if you
+      are unable to successfully make a request, please check the BigCommerce
+      system status [here](https://status.bigcommerce.com/). A service is likely
+      down and the request will need to be made again when it is back up (in
+      several hours usually)
+    schema:
+      $ref: '#/definitions/errorDetailed_Full'
+    examples:
+      application/json:
+        status: 504
+        title: Gateway Timeout
+        type: 'https://developer.bigcommerce.com/api#api-status-codes'
+        errors: {}
+  403_Unauthorized:
+    description: ''
+    schema:
+      $ref: '#/definitions/error_Base'
+    examples:
+      application/json:
+        status: 403
+        title: Unauthorized Access. You do not have permission to make this request.
+        type: 'https://developer.bigcommerce.com/api#api-status-codes'
+  400_BadRequest:
+    description: |-
+      Malformed request syntax. Typically need to fix the JSON
+      Body to resend successfully.
+    schema:
+      $ref: '#/definitions/error_Base'
+    examples:
+      application/json:
+        status: 400
+        title: Input is invalid.
+        type: 'https://developer.bigcommerce.com/api#api-status-codes'
+  404_NotFound:
+    description: The resource was not found.
+    schema:
+      $ref: '#/definitions/error_Base'
+    examples:
+      application/json:
+        status: 404
+        title: 'Account with {id} not found'
+        type: 'https://developer.bigcommerce.com/api#api-status-codes'
+  422_UnprocessableEntity:
+    description: >-
+      This occurs when missing or unacceptable data is passed for one or more
+      fields. Please correct the values for the fields listed in the errors
+      object.
+    schema:
+      $ref: '#/definitions/ErrorResponse'
+    examples:
+      application/json:
+        status: 422
+        title: JSON data is missing or invalid
+        type: 'https://developer.bigcommerce.com/api#api-status-codes'
+        errors:
+          name: error.expected.jsstring
+          primary_contact.district: error.expected.jsstring.
+  503_ServiceUnavailable:
+    description: >-
+      If this occurs, you should retry the request. If you are unable to
+      successfully make a request, please check the BigCommerce system status
+      [here](https://status.bigcommerce.com/). A service is likely down and the
+      request will need to be made again when it is back up (in several hours
+      usually)
+    schema:
+      $ref: '#/definitions/error_Base'
+    examples:
+      application/json:
+        status: 503
+        title: Service Unavailable
+        type: 'https://developer.bigcommerce.com/api#api-status-codes'
+  paymentActionsCapture_Resp:
+    description: ''
+    schema:
+      type: object
+      properties: {}
+  paymentActionsVoid_Resp:
+    description: ''
+    schema:
+      type: object
+      properties: {}
+  201_Acknowledged:
+    description: Request acknowledged.
+    schema:
+      type: object
+      properties: {}
+  RefundCollection_Resp:
+    description: ''
+    schema:
+      type: object
+      description: Response payload for Refund resource
+      properties:
+        data:
+          type: array
+          description: Collection of Refunds
+          items:
+            $ref: '#/definitions/Refund'
+        meta:
+          type: object
+          description: Meta data collection
+  refundsBATCH_Resp:
+    description: ''
+    schema:
+      type: object
+      properties:
+        data:
+          type: array
+          items:
+            $ref: '#/definitions/Refund'
+        errors:
+          type: array
+          items:
+            $ref: '#/definitions/FailedQuoteError'
+        meta:
+          $ref: '#/definitions/MetaRefund'
+    examples:
+      application/json:
+        data:
+          - id: 1
+            order_id: 1
+            user_id: 1
+            created: ''
+            reason: ''
+            total_amount: 0.05
+            total_tax: 1
+            items:
+              - item_type: PRODUCT
+                item_id: 1
+                reason: ''
+                quantity: 1
+                requested_amount: 1.99
+            payments:
+              - id: 1
+                provider_id: storecredit
+                amount: 0.05
+                offline: true
+                is_declined: true
+                declined_message: ''
+          - id: 2
+            order_id: 100
+            user_id: 1
+            created: ''
+            reason: ''
+            total_amount: 0.05
+            total_tax: 1
+            items:
+              - item_type: SHIPPING
+                item_id: 1
+                reason: ''
+                quantity: 1
+                requested_amount: 1.99
+            payments:
+              - id: 1
+                provider_id: storecredit
+                amount: 0.05
+                offline: true
+                is_declined: true
+                declined_message: ''
+        errors: []
+        meta:
+          failure: 0
+          success: 2
+          total: 2
+  RefundQuote_Resp:
+    description: ''
+    schema:
+      type: object
+      properties:
+        data:
+          $ref: '#/definitions/RefundQuote_Full'
+        meta:
+          type: object
+    examples:
+      application/json:
+        data:
+          order_id: 1
+          total_refund_amount: 1.99
+          total_refund_tax_amount: 1.95
+          rounding: 1
+          adjustment: 1.99
+          tax_inclusive: true
+          refund_methods:
+            - ''
+        meta: {}
+  Refund_Resp:
+    description: ''
+    schema:
+      type: object
+      properties:
+        data:
+          $ref: '#/definitions/Refund'
+        meta:
+          type: object
+    examples:
+      application/json:
+        data:
+          id: 1
+          order_id: 1
+          user_id: 1
+          created: ''
+          reason: ''
+          total_amount: 1.99
+          total_tax: 1
+          items:
+            - item_type: HANDLING
+              item_id: 1
+              reason: ''
+              quantity: 1
+              requested_amount: 0.05
+          payments:
+            - id: 1
+              provider_id: checkout_paypalexpress
+              amount: 1.99
+              offline: true
+              is_declined: true
+              declined_message: ''
+        meta: {}
+  TransactionCollection_Resp:
+    description: Response payload for the BigCommerce Order Transactions API.
+    schema:
+      allOf:
+        - type: object
+          properties:
+            data:
+              type: array
+              items:
+                $ref: '#/definitions/Transaction'
+        - $ref: '#/definitions/Meta'
+    examples:
+      application/json:
+        data:
+          - id: 85926313
+            order_id: '121'
+            event: purchase
+            method: nonce
+            amount: 1
+            currency: USD
+            gateway: squarev2
+            gateway_transaction_id: pN5Kd7R9ilEI2ygBawCy7tMF|qwnAFAxRZ7tYRtIpZULg1yMF
+            status: ok
+            test: false
+            fraud_review: false
+            reference_transaction_id: {}
+            date_created: '2018-05-08T15:06:12+00:00'
+            avs_result:
+              code: ''
+              message: ''
+              street_match: ''
+              postal_match: ''
+            cvv_result:
+              code: ''
+              message: ''
+            credit_card: {}
+            gift_certificate: {}
+            store_credit: {}
+            offline: {}
+            custom: {}
+            payment_instrument_token: {}
+        meta:
+          pagination:
+            total: 1
+            count: 1
+            per_page: 50
+            current_page: 1
+            total_pages: 1
+            links:
+              current: '?page=1&limit=50'
+  Transaction_Resp:
+    description: >-
+      Response payload for the BigCommerce Order Transactions API single
+      transaction.
+    schema:
+      allOf:
+        - properties:
+            data:
+              $ref: '#/definitions/Transaction_Post'
+        - properties:
+            id:
+              type: integer
+              description: |
+                Unique identifier for the transaction.
+            order_id:
+              type: string
+              description: >-
+                Identifier for the BigCommerce Order with which this transaction
+                is associated.
+            date_created:
+              type: string
+              format: date-time
+              description: |
+                The datetime of the transaction.
+            payment_instrument_token:
+              type: string
+              description: >-
+                This field contains internal BigPay token for stored card that
+                is then mapped to the actual third-party token. We currently do
+                not offer a way to get third party tokens.These tokens are
+                read-only and do not return any information about the payment.
+            avs_result:
+              $ref: '#/definitions/AVSResult'
+            cvv_result:
+              $ref: '#/definitions/CVVResult'
+            credit_card:
+              $ref: '#/definitions/CreditCard'
+            gift_certificate:
+              $ref: '#/definitions/GiftCertificate'
+            store_credit:
+              $ref: '#/definitions/StoreCredit'
+        - properties:
+            meta:
+              $ref: '#/definitions/metaEmpty_Full'
+      type: object
+  RefundQuotesBATCH_Resp:
+    description: ''
+    schema:
+      type: object
+      properties:
+        data:
+          type: array
+          items:
+            $ref: '#/definitions/RefundQuote_Full'
+        errors:
+          type: array
+          items:
+            $ref: '#/definitions/FailedQuoteError'
+        meta:
+          $ref: '#/definitions/Meta'
+    examples:
+      application/json:
+        data:
+          - order_id: 1
+            total_refund_amount: 0.05
+            total_refund_tax_amount: 1.95
+            rounding: 1
+            adjustment: 0.05
+            tax_inclusive: true
+            refund_methods:
+              - ''
+          - order_id: 100
+            total_refund_amount: 5
+            total_refund_tax_amount: 0
+            rounding: 0
+            adjustment: 0
+            tax_inclusive: false
+            refund_methods:
+              - ''
+        errors: []
+        meta:
+          failure: 0
+          success: 2
+          total: 2
+x-stoplight:
+  docs:
+    includeDownloadLink: true
+    showModels: false

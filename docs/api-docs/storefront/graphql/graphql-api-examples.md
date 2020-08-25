@@ -13,6 +13,7 @@
 - [Get Variant Details as a Product Object](#get-variant-details-as-a-product-object)
 - [Get Product Option Details by Product ID](#get-product-option-details-by-product-id)
 - [Get Refined Product Object for Given Options](#get-refined-product-object-for-given-options)
+- [Get Product Swatch Option Values](#get-product-swatch-option-values)
 
 </div>
 
@@ -46,7 +47,6 @@ query CustomerAttributes {
 ```
 
 <a href="https://developer.bigcommerce.com/graphql?playground_tab=customerDetails" target="_blank">**Try it in GraphQL Playground**</a>
-**[Try it in GraphQL Playground](https://developer.bigcommerce.com/graphql?playground_tab=customerDetails)**
 
 ## Get First Three Levels of Category Tree
 
@@ -99,7 +99,10 @@ query CategoryByUrl {
                     url(width: 200)
                   }
                 }
-                priceRanges {
+                prices {
+                  price {
+                    ...PriceFields
+                  }
                   priceRange {
                     min {
                       ...PriceFields
@@ -107,11 +110,6 @@ query CategoryByUrl {
                     max {
                       ...PriceFields
                     }
-                  }
-                }
-                prices {
-                  price {
-                    ...PriceFields
                   }
                 }
               }
@@ -203,7 +201,7 @@ query SingleProduct {
     products (entityIds: [4917]) {
       edges {
         node {
-          id 
+          id
           entityId
           name
           prices {
@@ -221,7 +219,7 @@ query SingleProduct {
 
 <a href="https://developer.bigcommerce.com/graphql?playground_tab=singleProduct" target="_blank">**Try it in GraphQL Playground**</a>
 
-## Get Variant Details as a Product Object 
+## Get Variant Details as a Product Object
 
 ```js
 query VariantById {
@@ -268,10 +266,10 @@ fragment DimensionFields on Measurement {
 <div class="HubBlock--callout">
 <div class="CalloutBlock--info">
 <div class="HubBlock-content">
-    
+
 <!-- theme: info -->
 
-This query returns variant information appropriately overlaid on the Product object. For example, if the variant has a different image, dimensions, SKU, or price, that will be automatically returned -- his allows for directly merchandising particular variants. 
+This query returns variant information appropriately overlaid on the Product object. For example, if the variant has a different image, dimensions, SKU, or price, that will be automatically returned -- this allows for directly merchandising particular variants.
 
 </div>
 </div>
@@ -351,3 +349,45 @@ fragment ProductFields on Product {
 ```
 
 <a href="https://developer.bigcommerce.com/graphql?playground_tab=refinedProduct" target="_blank">**Try it in GraphQL Playground**</a>
+
+## Get Product Swatch Option Values
+
+```js
+query {
+  site {
+    products (first: 3) {
+      pageInfo {
+        startCursor
+        endCursor
+      }
+      edges {
+        cursor
+        node {
+          entityId
+          name
+          productOptions {
+            edges {
+              node {
+                entityId
+                displayName
+                ... on MultipleChoiceOption {
+                  values {
+                    edges {
+                      node {
+                        ... on SwatchOptionValue {
+                          label
+                          hexColors
+                        }
+                      }
+                    }
+                  }
+                }
+              }
+            }
+          }
+        }
+      }
+    }
+  }
+}
+```

@@ -2,17 +2,17 @@
 
 <div class="otp" id="no-index">
 
-### On This Page
-- [Handlebars.js Overview](#handlebarsjs-overview)
-- [Stencil Objects Overview](#stencil-objects-overview)
-- [YAML Front Matter Overview](#yaml-front-matter-overview)
+### On this page
+- [Handlebars overview](#handlebars-overview)
+- [Stencil objects overview](#stencil-objects-overview)
+- [YAML front matter overview](#yaml-front-matter-overview)
 - [Resources](#resources)
 
-</div> 
+</div>
 
 Stencil's use of Handlebars.js, Javascript, and YAML Front Matter on the front end allows developers to create dynamic, templated customizations across a BigCommerce storefront.
 
-## Handlebars.js Overview
+## Handlebars overview
 
 [Handlebars.js](https://handlebarsjs.com/) is a minimal templating language that allows developers to create dynamic and robust templates for any BigCommerce Stencil storefront. A Handlebars template looks like an HTML file, with the addition of Handlebars.js expressions for dynamic logic that can be embedded into the page.
 
@@ -40,11 +40,12 @@ lineNumbers: true
 
 In production, Handlebars statements run on the server side, generating HTML received by the shopper’s browser.
 
-View the [full Handlebars Helpers Reference](/stencil-docs/reference-docs/handlebars-helpers-reference) to learn about the helpers avilable on a Stencil storefront.
+View the [full Handlebars Helpers Reference](/stencil-docs/reference-docs/handlebars-helpers-reference) to learn about the helpers available on a Stencil storefront.
 
-## Stencil Objects Overview
+## Stencil objects overview
 
-Stencil Objects are the individual Javascript objects which are rendered onto a Stencil storefront. Below is the Javascript Object Notation (JSON) for a [Banner object](https://developer.bigcommerce.com/stencil-docs/reference-docs/global-objects-and-properties#global-objects_banner) rendered on a category page of a storefront.
+Stencil objects are the individual JavaScript objects that are rendered onto a Stencil storefront. The following example is the JavaScript Object Notation (JSON) for a [Banner object](https://developer.bigcommerce.com/stencil-docs/reference-docs/global-objects-and-properties#global-objects_banner) rendered on a category page of a storefront.
+
 
 <div class="HubBlock-header">
     <div class="HubBlock-header-title flex items-center">
@@ -90,9 +91,10 @@ As a developer, you can use Handlebars.js syntax to access objects and use them 
 
 Stencil Objects are categorized as either Global, Common, or Other, which is representative of the object's scope or where in the theme it can be accessed. For example, Global Objects are components shared across the entire BigCommerce storefront.
 
-## YAML Front Matter Overview
+## YAML front matter overview
 
-BigCommerce Stencil themes utilize YAML Front Matter on template pages. Front Matter allows developers to request objects on the storefront, allowing developers to define each page's design and layout details.
+BigCommerce Stencil themes utilize YAML front matter on template pages. Front matter allows developers to request objects on the storefront, allowing developers to define each page's design and layout details.
+
 
 When utilized, Front Matter must be the opening text of a file and must take the form of valid YAML set between triple-dashed lines.
 

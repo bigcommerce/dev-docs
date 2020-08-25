@@ -111,13 +111,13 @@ The following functions allow your theme to work with [cart](https://github.com/
 
 ```js
 utils.api.cart.getCart({}, (err, response) => {
-		console.log(response);
-		console.log(err);
+    console.log(response);
+    console.log(err);
 });
 
 utils.api.cart.getCart({includeOptions: true}, (err, response) => {
-		console.log(response);
-		console.log(err);
+    console.log(response);
+    console.log(err);
 });
 ```
 
@@ -127,32 +127,22 @@ Get a sum of the cart line item quantities.
 
 `utils.api.cart.getCartQuantity()`
 
-<table>
-  <tbody><tr>
-    <th>Argument</th>
-    <th>Type</th>
-    <th>Description/Usage</th>
-  </tr>
-  <tr>
-    <td>quantity</td>
-    <td>int</td>
-    <td>A sum of physical, digital, and custom product quantities and gift certificate quantities</td>
-  </tr>
-  <tr>
-    <td>callback</td>
-    <td>Function</td>
-    <td>Asynchronous function call to handle the results</td>
-  </tr>
-</tbody>
-</table>
-
-<br>
+| Argument | Type | Description |
+| -- | -- | -- |
+| options | object | Return product variant options |
+| callback | Function | Asynchronous function call to handle the results |
 
 **getCartQuantity Example**
 
 ```js
-utils.api.cart.getCartQuantity(quantity => {
-		console.log(`Quantity: ${quantity}`);
+utils.api.cart.getCartQuantity({}, (err, response) => {
+    console.log(response);
+    console.log(err);
+});
+
+utils.api.cart.getCartQuantity({}, (err, response) => {
+    console.log(response);
+    console.log(err);
 });
 ```
 

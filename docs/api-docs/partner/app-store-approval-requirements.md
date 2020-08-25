@@ -30,13 +30,13 @@ The requirements to submit an app are listed below, as well as where the informa
 Make sure you’ve applied and been approved for our [Technology Partner Program](https://partners.bigcommerce.com/English/register_email.aspx) before you’re ready to submit your app - you’ll need a valid Partner ID to do so. You’ll also need to accept the Terms & Conditions in the [Partner Portal](https://partners.bigcommerce.com/English/) before we can publish your app.
 
 ## General Requirements
-
--   Support resources should be available throughout the app experience, including in your onboarding flow and the app’s dashboard.
--   Make sure to reference BigCommerce using the proper formatting. You can visit our [Media Kit](https://www.bigcommerce.com/press/media-kit/) for any BigCommerce branding assets needed.
--   The app and app listing should make no references to competitor platforms.
--   Use the brand name you’ve given your app for your app title throughout your app content. This listing name should be a concise title for easy identification and should not include additional taglines or descriptors. The name will always appear alongside your summary, so there’s no need to muddy your app’s branding with duplicate content when that tagline is already displayed with it!  
-    - If your solution is a connector to a specific third-party service, or you’re offering only a specific feature, make sure to include both the name of the third party service or feature and your company name (Ex: “Marketplace by BigCommerce”, “Search by BigCommerce”), with your company name following the feature.
--   Your app, including any storefront components, should be compatible with all [browsers](https://support.bigcommerce.com/s/article/Themes-Supported-Browsers) that the BigCommerce platform supports.
+- Make Support resources available throughout the app experience (for example onboarding flow and app dashboard).
+- Follow BigCommerce branding guidelines when referencing BigCommerce (see our [Media Kit](https://www.bigcommerce.com/press/media-kit/) for more information).
+- Apps and listing must not reference competitor platforms.
+- Brand name used in App submission should match the app's title used in app content.
+- Keep app titles concise -- refrain from using extra taglines or descriptors (include those in the app summary, if necessary).
+- Apps that connect to third-party service should include the name of the service and the company in the title (Ex: "Marketplace by BigCommerce", "Search by BigCommerce").
+- App client-side code (including any storefront components) should be compatible with all [BigCommerce supported browsers](https://support.bigcommerce.com/s/article/Themes-Supported-Browsers).
 
 ## Functionality
 

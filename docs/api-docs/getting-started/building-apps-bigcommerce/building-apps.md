@@ -27,19 +27,19 @@
 API token creation is a permission reserved for the [store owner](https://forum.bigcommerce.com/s/article/Store-API-Accounts#creating) user account. An app can request authentication “on behalf” of a store owner, allowing the app to make API requests against store data.
 
 To test an app before release, apply for a [sandbox](https://www.bigcommerce.com/partners/) store.
- 
-- When a merchant clicks your app's Install button in the control panel, a [/GET request](#receiving-the-get-request) is sent to your app's [Auth callback URL](#receiving-the-get-request). 
+
+- When a merchant clicks your app's Install button in the control panel, a [/GET request](#receiving-the-get-request) is sent to your app's [Auth callback URL](#receiving-the-get-request).
 - The /GET request sent from BigCommerce contains a `code` or temporary access token, `client_id`, `client_secret`, `scopes` and [other information](#receiving-the-get-request). Your Auth Callback URL needs to be served over https. You should also have access to your app's server logs which will allow you to see the information in the request.
 - Your app needs to [respond](#responding-to-the-get-request) to the /GET  with HTML that will be rendered in an iframe in the store's control panel.
-- Your app then needs to make a /POST request back to BigCommerce that contains the code, client_id and client secret. This should be done programmatically. 
+- Your app then needs to make a /POST request back to BigCommerce that contains the code, client_id and client secret. This should be done programmatically.
 - BigCommerce will respond with a permanent Oauth token authorized against the store that has installed your app.
-- After installation, the `store_hash` and `access_token` should be stored somewhere secure so the app does not lose its authorization. 
+- After installation, the `store_hash` and `access_token` should be stored somewhere secure so the app does not lose its authorization.
 
 ## Request Headers
 
 API requests are authenticated by the following HTTP headers:
 
-* `X-Auth-Client` -- The Client ID of the requesting app. 
+* `X-Auth-Client` -- The Client ID of the requesting app.
 * `X-Auth-Token` -- Access token authorizing an app to access store data on behalf of a user.
 
 In addition, while not all resources require the Accept and Content-Type headers, many do. To ensure that your calls succeed, always include these headers. For more details on request headers and their accepted values, see [Request Headers](https://developer.bigcommerce.com/api-docs/getting-started/about-our-api#request-headers).
@@ -73,7 +73,7 @@ This callback function will run when the user explicitly logs out of the BigComm
 
 ## Installation and Update Sequence
 
-The purpose of the App Installation sequence is to obtain an Oauth token for the store installing the app, using the Client ID and Secret from Dev Tools. 
+The purpose of the App Installation sequence is to obtain an Oauth token for the store installing the app, using the Client ID and Secret from Dev Tools.
 
 A user kicks off the installation or update sequence from within a store's control panel by clicking the “Install” button from your app details page or by clicking an installed app to update its scopes. BigCommerce redirects the user to the Auth Callback URI provided during app registration. The Auth Callback URI must be publicly available, fully qualified, and served over TLS.
 
@@ -117,7 +117,7 @@ lineNumbers: true
 -->
 
 ```http
-GET /auth?code=qr6h3thvbvag2ffq&scope=store_v2_orders&context=stores/g5cd38 HTTP/1.1  
+GET /auth?code=qr6h3thvbvag2ffq&scope=store_v2_orders&context=stores/g5cd38 HTTP/1.1
 Host: app.example.com
 ```
 
@@ -131,14 +131,14 @@ lineNumbers: true
 -->
 
 ```http
-GET /auth?code=qr6h3thvbvag2ffq&scope=store_v2_orders+store_v2_products&context=stores/g5cd38 HTTP/1.1  
+GET /auth?code=qr6h3thvbvag2ffq&scope=store_v2_orders+store_v2_products&context=stores/g5cd38 HTTP/1.1
 Host: app.example.com
 ```
 
 <div class="HubBlock--callout">
 <div class="CalloutBlock--info">
 <div class="HubBlock-content">
-    
+
 <!-- theme:  -->
 
 ### Token Invalidation
@@ -167,7 +167,7 @@ Upon receiving the POST request during inital installation, BigCommerce marks th
 <div class="HubBlock--callout">
 <div class="CalloutBlock--info">
 <div class="HubBlock-content">
-    
+
 <!-- theme:  -->
 
 ### Receiving the POST request
@@ -404,7 +404,7 @@ Upon receiving the GET request, your app will need to process the signed payload
 
 ### Remove User Request (Optional)
 
-If you have not enabled [multi-user support](#multi-user-support), you will not provide a Remove User Callback URI and can ignore this section. If you enable multi-user support, you can optionally specify a Remove User Callback URI. It must be fully qualified, publicly available, and served over TLS/SSL. BigCommerce will send a GETrequest to your Remove User Callback URI when a store admin revokes a user’s access to your app. 
+If you have not enabled [multi-user support](#multi-user-support), you will not provide a Remove User Callback URI and can ignore this section. If you enable multi-user support, you can optionally specify a Remove User Callback URI. It must be fully qualified, publicly available, and served over TLS/SSL. BigCommerce will send a GET request to your Remove User Callback URI when a store admin revokes a user’s access to your app.
 
 **Example -- Get Request sent to the Remove User URI**
 
@@ -424,7 +424,7 @@ Upon receiving the GET request, your app will need to process the signed payload
 <div class="HubBlock--callout">
 <div class="CalloutBlock--warning">
 <div class="HubBlock-content">
-    
+
 <!-- theme: warning -->
 
 > Any HTML that you return in your response for uninstalling an app or removing a user will not render in the response.
@@ -459,7 +459,7 @@ To verify the payload, you need to sign the payload using your client secret, an
 <div class="HubBlock--callout">
 <div class="CalloutBlock--warning">
 <div class="HubBlock-content">
-    
+
 <!-- theme:  -->
 
 ### Timing Attacks
@@ -504,7 +504,7 @@ function verifySignedRequest($signedRequest)
 <div class="HubBlock--callout">
 <div class="CalloutBlock--">
 <div class="HubBlock-content">
-    
+
 <!-- theme:  -->
 
 ### !hash_equals
@@ -616,7 +616,7 @@ lineNumbers: true
 
 ## Multi-User Support
 
-When you register your app with BigCommerce, enabling multi-user support will allow store admins to manually authorize users – other than the store owner – to load the app. 
+When you register your app with BigCommerce, enabling multi-user support will allow store admins to manually authorize users – other than the store owner – to load the app.
 
 As soon as you enable multi-user support, the control panel of any store that has your app installed will be affected. If you already have an app published in the App Marketplace, be aware that this setting takes effect immediately. Therefore, we recommend testing your multi-user support using a separate app that is in draft status.
 
@@ -652,7 +652,7 @@ Apps can be installed from outside the BigCommerce control panel. For example, y
 First, embed an install button like the one below, at any web location from which you’d like to enable app installation:
 
 <!--
-    title: 
+    title:
     data: //s3.amazonaws.com/user-content.stoplight.io/6490/1539297285625
 -->
 
@@ -664,7 +664,7 @@ Redirect anyone who presses your button to: `https://login.bigcommerce.com/app/<
 Upon clicking, your button should open a modal similar to the image below. We recommend a modal sized 900px wide by 450px high.
 
 <!--
-    title: 
+    title:
     data: //s3.amazonaws.com/user-content.stoplight.io/6490/1539297431440
 -->
 
@@ -713,7 +713,7 @@ Depending on which endpoint you call, we will render one of the following succes
 
 ## Designing the User Interface
 
-BigDesign is a collection of reusable React components, design guidelines, and UI patterns that can be used to build interfaces matching the BigCommerce control panel. It is available as an [npm package](https://www.npmjs.com/package/@bigcommerce/big-design), which can be installed as a dependency in third-party apps, and as an [open source repository on GitHub.](https://github.com/bigcommerce) BigDesign includes all the essential elements you need to construct a UI: buttons, forms, headings, and more. To get started using the components see our [BigDesign Playground](https://developer.bigcommerce.com/big-design/). 
+BigDesign is a collection of reusable React components, design guidelines, and UI patterns that can be used to build interfaces matching the BigCommerce control panel. It is available as an [npm package](https://www.npmjs.com/package/@bigcommerce/big-design), which can be installed as a dependency in third-party apps, and as an [open source repository on GitHub.](https://github.com/bigcommerce) BigDesign includes all the essential elements you need to construct a UI: buttons, forms, headings, and more. To get started using the components see our [BigDesign Playground](https://developer.bigcommerce.com/big-design/).
 
 ### User Interface Constraints
 
@@ -741,7 +741,7 @@ Internet Explorer is one of the browsers that BigCommerce [supports](https://sup
 <div class="HubBlock--callout">
 <div class="CalloutBlock--info">
 <div class="HubBlock-content">
-    
+
 <!-- theme:  -->
 
 ### Microsoft No Longer Supports P3P
@@ -758,13 +758,13 @@ Therefore, you can maximize performance of your app (in terms of latency to the 
 
 ## FAQ
 
-### How can I make API calls?   
-We have built several [Hello World](https://developer.bigcommerce.com/tools-resources) apps to get you started quickly. You can use these apps as a starting point or an example for building a Single-click app. 
+### How can I make API calls?
+We have built several [Hello World](https://developer.bigcommerce.com/tools-resources) apps to get you started quickly. You can use these apps as a starting point or an example for building a Single-click app.
 
 If you'd like to make test API requests without the overhead of installing a draft app, you can generate [API Credentials](https://developer.bigcommerce.com/api-docs/getting-started/authentication#authentication_getting-api-credentials) by creating an API Account in your store's control panel.
 
-### How can I sell my app?  
-The first step to listing an app in the BigCommerce App Marketplace is to apply to the BigCommerce [partner program](https://www.bigcommerce.com/partners/). 
+### How can I sell my app?
+The first step to listing an app in the BigCommerce App Marketplace is to apply to the BigCommerce [partner program](https://www.bigcommerce.com/partners/).
 
 For more details on including your app in the Marketplace, see [App Store Approval Requirements](https://developer.bigcommerce.com/api-docs/partner/app-store-approval-requirements).
 

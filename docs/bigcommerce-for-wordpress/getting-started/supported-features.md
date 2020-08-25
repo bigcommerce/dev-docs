@@ -16,6 +16,7 @@
 The open source BigCommerce for Wordpress plugin currently supports the following features and capabilities that are native to the BigCommerce platform and more:
 
 * Complex Product Catalog (600 SKUs per product, 250 product values for a single option)
+* Product Pick Lists and Bundled Products
 * Product Variants and Product Variant Pricing
 * Product Promotions
 * Secure Shopper Accounts and Logins with PCI Compliant Checkout
@@ -31,6 +32,7 @@ The open source BigCommerce for Wordpress plugin currently supports the followin
 * Faceted Search with FacetWP and Search with SearchWP
 * Multi Site Selling
 * Multi-Channel Selling (eBay, Amazon, Facebook, Instagram, Google Shopping, Square and more) and Central Management (bulk listing, automatic inventory syncing, unified order and fulfillment management)
+* Shopper Wishlists
 
 ### Supported Payment Gateways
 
@@ -46,7 +48,6 @@ Unsupported Hosted Payment Gateways are Amazon Pay, AfterPay, Google Pay, Chase 
 
 The BigCommerce for Wordpress plugin does not currently support the following features: 
 
-* Product Pick Lists and Bundled * Products
 * Product File Upload Field
 * Warranty, Availability Fields
 * Persistent Cart
@@ -62,8 +63,7 @@ We plan on supporting and improving the following features in the BigCommerce fo
 * Product Variant Images
 * Moderation and Management of Product Reviews
 * Additional Theme Styling within Customizer
-* Multi-Currency 
-* Shopper Wishlists
+* Multi-Currency
 * Abandoned Cart Saver 
 * Shipping Calculation on Cart Page
 * Promotional Banner Support

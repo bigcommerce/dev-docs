@@ -14,11 +14,11 @@
 - [FAQ](#faq)
 - [Resources](#resources)
 
-</div> 
+</div>
 
 ## Introduction
 
-The Orders API is used when an order is being created manually. If you are using the Server to Server Checkout an Order can be created using the orders endpoint. The order can then be updated if needed.
+The Orders API is used when an order is being created manually. If you are using the Server to Server Checkout, an order can be created using the orders endpoint. The order can then be updated if needed.
 
 A sample order workflow might include:
 * Creating the order for either an existing customer or guest
@@ -26,10 +26,10 @@ A sample order workflow might include:
 * Creating a shipment for the order to generate an order confirmation email and mark it as shipped
 
 ### Prerequisites:
-**BigCommerce Store**  
+**BigCommerce Store**
 An active BigCommerce store with a sellable [product](/api-reference/catalog/catalog-api/products/createproduct)
 
-**Scopes**  
+**Scopes**
 The following [OAuth](/api-docs/getting-started/authentication#authentication_oauth-scopes) scopes are required:
 * Modify Orders
 
@@ -76,7 +76,7 @@ subtitle: "https://api.bigcommerce.com/stores/{store_hash}/v3/catalog/products/{
 lineNumbers: true
 -->
 
-**Example Variants Response**  
+**Example Variants Response**
 `/GET https://api.bigcommerce.com/stores/{store_hash}/v3/catalog/products/{product_id}/variants`
 
 ```json
@@ -140,7 +140,7 @@ title: "Example Products Array"
 subtitle: "This is an abbreviated request"
 lineNumbers: true
 -->
-**Example Products Array**  
+**Example Products Array**
 This is an abbreviated request
 
 ```json
@@ -182,7 +182,7 @@ title: "Custom Order Products Array"
 subtitle: "This is an abbreviated request"
 lineNumbers: true
 -->
-**Example Custom Order Products Array**  
+**Example Custom Order Products Array**
 This is an abbreviated request
 
 ```json
@@ -262,7 +262,7 @@ subtitle: "This is an abbreviated request"
 lineNumbers: true
 -->
 
-**Example Add Billing Address**  
+**Example Add Billing Address**
 This is an abbreviated request
 
 ```json
@@ -308,11 +308,11 @@ This is an abbreviated request
 
 The shipping address is input as an array object since more than one shipping address can be added at a time. Adding multiple shipping addresses allows for an order to ship to multiple locations.
 
-<div class="HubBlock-header">
+<!-- <div class="HubBlock-header">
     <div class="HubBlock-header-title flex items-center">
         <div class="HubBlock-header-name">Add a shipping address</div>
     </div><div class="HubBlock-header-subtitle">This is an abbreviated request</div>
-</div>
+</div> -->
 
 <!--
 title: "Add a shipping address"
@@ -320,7 +320,7 @@ subtitle: "This is an abbreviated request"
 lineNumbers: true
 -->
 
-**Example Add a shipping address**  
+**Example Add a shipping address**
 This is an abbreviated request
 
 ```json
@@ -370,7 +370,7 @@ subtitle: ""
 lineNumbers: true
 -->
 
-**Example Create an Order Request**  
+**Example Create an Order Request**
 `/POST https://api.bigcommerce.com/stores/{store_hash}/v2/orders`
 
 ```json
@@ -561,16 +561,15 @@ We will go over creating a shipment for an order, shipping quotes, shipping carr
 
 **Required Fields:**
 * order_address_id
-* shipping_provider
 * items
 
-Once an Order has products, a billing address and at least one shipping address a order shipment can be created. Order shipments are a way to mark an order as shipped with the shipping information.
+Once an order has products, a billing address, and at least one shipping address, you can create an order shipment. Order shipments are a way to mark an order as shipped with the shipping information. You can create multiple shipments for an order by specifying a subset of products or product quantities in each POST request.
 
 To get the `order_address_id`  use the ID returned in [Order Shipping Address](https://developer.bigcommerce.com/api-reference/orders/orders-api/order-shipping-addresses/getallshippingaddresses).
 
 The items array requires the product quantity and `order_product_id`. The `order_product_id` is the ID returned from [Order Products](https://developer.bigcommerce.com/api-reference/orders/orders-api/order-products/getanorderproduct).
 
-There does not need to be a shipping provider. If the shipping provider is not sent in at all, it will default to custom and a tracking link is not generated. To have the tracking link generated without a shipping provider, provide an empty string. To add a shipping provider, see the available options on [Order Shipment](/api-reference/orders/orders-api/models/ordershipment).
+There does not need to be a shipping provider. If the shipping provider is not sent in at all, it will default to custom and a tracking link is not generated. To have the tracking link generated without a shipping provider, provide an empty string. To add a shipping provider, see the available options on [Order Shipment](https://developer.bigcommerce.com/api-reference/orders/orders-api/order-shipments/getallordershipments).
 
 Once the order shipment is created, it will automatically send out an email to the billing address with the shipment confirmation. To stop this behavior adjust the [Order Notification](https://support.bigcommerce.com/s/article/Customer-Order-Notifications#enable) settings in the Control Panel.
 
@@ -584,7 +583,7 @@ subtitle: ""
 lineNumbers: true
 -->
 
-**Example Create Order Shipment**  
+**Example Create Order Shipment**
 `https://api.bigcommerce.com/stores/{store_hash}/v2/orders/{order_id}/shipments`
 
 ```json
@@ -724,7 +723,7 @@ POST or PUT orders on stores with Avalara Premium cause tax documents to be subm
 You can create overrides for calculated values such as product prices, subtotal and totals by sending a fixed value in the request. If values are not supplied for these properties, they will be automatically calculated based on the preset store values and tax rules.
 
 | Existing Status | Status Passed | Resultant Status | Avalara Tax Document Submission |
-|-|-|-|  |
+| - | - | - | - |
 | Any | None | `Pending` | None |
 | Paid or `Refunded` | Paid | Paid | None |
 | Unpaid or `Refunded` | Unpaid | Unpaid | None |
@@ -794,18 +793,19 @@ Yes, the products are not added to the store's catalog.
 In the shipping and billing addresses, there is no requirement to specify country when `country_ISO2` is specified and vice versa.
 
 **How can I take a payment for an Order?**
+
 You can either process payment through a third party or using the Control Panel.
 
 **Can I generate a shipping quote from a carrier using the API?**
 
-Not at this time. If an order is created either in the Control Panel or via API, then it returns a 204 when trying to get a [Shipping Quote](https://developer.bigcommerce.com/api-reference/orders/orders-api/models/shippingquotes).
+Not at this time. If an order is created either in the Control Panel or via API, then it returns a 204 when trying to get a Shipping Quote.
 
 ## Resources
 ### Webhooks
 - [Orders](/api-docs/getting-started/webhooks/webhook-events#webhook-events_orders)
 
 ### Related Endpoints
-- [Orders](https://developer.bigcommerce.com/api-reference/orders/orders-api/orders/createanorder)
+- [Orders](https://developer.bigcommerce.com/api-reference/orders/orders-api/orders/)
 - [Order Shipments](/api-reference/orders/orders-api/order-shipments/createordershipments)
 - [Order Status](/api-reference/orders/orders-api/order-status/getaorderstatus)
 - [Shipping Quotes](/api-reference/orders/orders-api/order-shipping-addresses-quotes/getshippingquotes)
