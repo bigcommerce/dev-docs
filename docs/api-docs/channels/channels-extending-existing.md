@@ -30,7 +30,7 @@ To be visible in Channel Manager once installed, apps must meet certain requirem
 
 ### All Partners
 * [Create Channel](https://developer.bigcommerce.com/api-reference/cart-checkout/channels-listings-api) (for each platform the app enables a merchant to sell on) - this enables the channel to be displayed within the “Manage” screen in the new Channel Manager for merchants, once the app has been installed.
-* [Create Channel](https://developer.bigcommerce.com/api-reference/cart-checkout/channels-listings-api) request must include  `app_id` at minimum in the [app config object](#sample-channel-app-configuration).
+* [Create Channel](https://developer.bigcommerce.com/api-reference/cart-checkout/channels-listings-api) request must include  `app_id` at minimum in the [app config object](#sample-configuration).
 
 ### Channel Manager Example
 ![Extending Existing Apps 01](https://raw.githubusercontent.com/bigcommerce/dev-docs/master/assets/images/extending-screenshots-01.png "Extending Existing Apps 01")
@@ -78,18 +78,20 @@ Accept: application/json
 [{
     "type": "type of channel",
     "platform": "sales channel platform",
-    "name": "name of the sales channel", // Name displayed to merchant
+    "name": "name of the sales channel",  // Name displayed to merchant
     "external_id": "",
-    "status": "connected”,
-    "app": {
-      "id": 123,                         // ID of the app
-      "sections": [{
-        "title": "Overview",             // Label displayed to merchant in nav bar
-        "query_path": "overview"         // query param passed app iframe
-       }, {
-       "title": "Settings",
-       "query_path": "settings"
-      }]
+    "status": "connected",
+    "config_meta": {
+      "app": {
+        "id": 123,                        // ID of the app                       
+        "sections": [{                    // Label displayed to merchant in BigCommerce navigation bar
+          "title": "Overview",            // query param passed app iframe  
+          "query_path": "overview"         
+         }, {
+         "title": "Settings",
+         "query_path": "settings"
+        }]
+      }
     }
 }]
 ```
@@ -123,7 +125,7 @@ Accept: application/json
 | ↳ `id` | int | ID of the app |
 | ↳ `sections` | array[obj] | User interface section options |
 | &nbsp;&nbsp; ↳ `title` | str | Label displayed to merchants in navigation bar |
-| &nbsp;&nbsp; ↳ `query_path` | str | Passed to app's iframe. Ex: `https://<store_url>/manage/channel/2/app?id=5§ion=overview` |
+| &nbsp;&nbsp; ↳ `query_path` | str | Passed to app's iframe. Ex: `https://<store_url>/manage/channel/2/app?id=5&section=overview` |
 
 **Accepted Platforms and Types**
 | Platform          | Accepted Type             |
