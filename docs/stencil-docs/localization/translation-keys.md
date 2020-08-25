@@ -2,7 +2,8 @@
 
 <div class="otp" id="no-index">
 
-### On This Page
+### On this page
+
 - [Translating a theme](#translating-a-theme)
 - [Required subdirectory](#required-subdirectory)
 - [The schema](#the-schema)
