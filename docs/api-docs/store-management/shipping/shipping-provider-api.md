@@ -185,7 +185,8 @@ subtitle: "POST https://api.bigcommerce.com/stores/{store_hash}/v2/shipping/zone
 lineNumbers: true
 -->
 
-**Example request shipping method**
+To create a shipping method, send a `POST` request. For example:
+
 `/POST https://api.bigcommerce.com/stores/{store_hash}/v2/shipping/zones/{zone_id}/methods`
 
 ```json
