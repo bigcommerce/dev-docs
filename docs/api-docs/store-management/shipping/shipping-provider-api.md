@@ -108,7 +108,8 @@ During the app setup, if you configure the Check Connection Options URL for the 
 }
 ```
 
-**Example response check connection**
+Response:
+
 `/POST https://developerserver.com/check_connection_options`
 
 ```json
