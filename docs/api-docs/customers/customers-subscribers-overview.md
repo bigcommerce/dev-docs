@@ -8,7 +8,8 @@
 - [What is a subscriber?](#what-is-a-subscriber)
 - [Subscribers vs. customers](#subscribers-vs-customers)
 - [What is a guest?](#what-is-a-guest)
-- [Customer login API](#customer-login-api)
+- [Customer Login API](#customer-login-api)
+
 - [Current Customer API](#current-customer-api)
 - [Customer API](#customer-api)
 - [Differences between V2 and V3 customer API](#differences-between-v2-and-v3-customer-api)
