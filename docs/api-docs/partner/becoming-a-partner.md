@@ -10,7 +10,8 @@
 - [Resources](#resources)
 </div> 
 
-Our BigCommerce partner program includes access to training, sales enablement, and a referral network to get more clients and build better ecommerce experiences.
+Our BigCommerce Partner Program includes access to training, sales enablement, and a referral network to get more clients and build better ecommerce experiences.
+
 
 The following sections outline the steps required to sell single-click apps in the [BigCommerce App Marketplace](https://www.bigcommerce.com/apps). Doing so requires a partnership application and acceptance will authorize you to provide best-of-breed solutions to the fast-growing online businesses we host. 
 
