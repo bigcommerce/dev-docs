@@ -270,6 +270,7 @@ paths:
         - $ref: '#/parameters/max_id'
         - $ref: '#/parameters/min_total'
         - $ref: '#/parameters/max_total'
+        - $ref: '#/parameters/channel_id'
         - $ref: '#/parameters/customer_id'
         - $ref: '#/parameters/email'
         - $ref: '#/parameters/status_id'
@@ -3156,6 +3157,11 @@ parameters:
     in: query
     type: number
     description: The maximum order total in float format. eg. 12.50
+  channel_id:
+    name: channel_id
+    in: query
+    type: integer
+    description: The Channel ID of the Order.
   customer_id:
     name: customer_id
     in: query

@@ -181,4 +181,3 @@ Please reach out to Stripe for more information on setting up the account.
 
 - [Supported Currencies](https://stripe.com/docs/currencies) (Stripe Documentation)
 - [Supported Settlement Currencies](https://stripe.com/docs/connect/payouts#supported-settlement) (Stripe Documentation)
-
