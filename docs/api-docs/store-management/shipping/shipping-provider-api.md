@@ -110,7 +110,6 @@ To validate connection options, send a `POST` request to `http://<yourserver.com
 
 Response:
 
-`/POST https://developerserver.com/check_connection_options`
 
 ```json
 {
