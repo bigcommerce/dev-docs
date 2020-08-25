@@ -32,7 +32,7 @@ Catalog search and filtering by price only work for the default currency and aut
 
 BigCommerce does not dynamically convert currency. To convert the merchant will need to do one of the following:
 * Manually update their conversion rate from default currency to other transactional currencies.
-* Set up automatic updates to their conversion rate through APIs,
+* Set up automatic updates to their conversion rate through APIs.
 * Set up explicit pricing per each currency using Price Lists (only available to Enterprise merchants)
 * Pricing by currency only, not by country.
 
