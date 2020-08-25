@@ -108,7 +108,8 @@ You may be logged in with the wrong account. Each listing can only be owned by o
 
 **Why doesn't my listing in the App Marketplace reflect changes I've made?**
 
-The changes will be effective immediately in your control panel app card, but the updates can take up to 24 hours to appear on the public BigCommerce Marketplace. Feel free to use this as a grace period to make additional edits as needed.
+The updates will be effective immediately in your control panel app card, but the updates can take up to 24 hours to appear on the public BigCommerce Marketplace. Feel free to use this as a grace period to make additional edits as needed.
+
 
 **Who should I contact if I have further questions?**
 
