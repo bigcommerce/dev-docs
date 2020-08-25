@@ -19,7 +19,8 @@
 
 </div>
 
-Shipping service providers wishing to offer shipping services and rates to BigCommerce merchants and shoppers can implement BigCommerce Shipping Provider endpoints. Once they implement and accept their service into BigCommerce's shipping Carrier Registry, merchants will have access to enable and configure the service through their BigCommerce control panel. Once enabled on a store, BigCommerce will automatically retrieve the service options and rates via the provider's endpoints and display them to merchants in the store's control panel and to shoppers on the storefront.
+Shipping service providers wishing to offer shipping services and rates to BigCommerce merchants and shoppers can implement BigCommerce Shipping Provider endpoints. Once they implement and accept their service into BigCommerce's shipping Carrier Registry, merchants will have access to enable and configure the service through their BigCommerce control panel. Once enabled on a store, BigCommerce will automatically retrieve the service options and rates using the provider's endpoints and display them to merchants in the store's control panel and to shoppers on the storefront.
+
 
 Shipping Provider endpoints can also be used by merchants to retrieve rates from custom shipping tables or an in-house shipping rate calculation service.
 
