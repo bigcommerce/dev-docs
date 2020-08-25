@@ -82,7 +82,7 @@ A product object represents a saleable item in the catalog.
 | page_title | string | Custom title for the product's page. If not defined, the product name will be used as the page title. |
 | meta_keywords | text | Custom meta keywords for the product page. If not defined, the store's default keywords will be used. |
 | meta_description | text | Custom meta description for the product page. If not defined, the store's default meta description will be used. |
-| layout_file | string | The layout template file used to render this product category. This field is writable only for stores with a Blueprint theme applied |
+| layout_file | string | DEPRECATED. The layout template file used to render this product. This field is writable only for stores with a Blueprint theme applied. For Stencil stores, use the V3 Custom Templates API. |
 | is_price_hidden | boolean | The default `false` value indicates that this product's price should be shown on the product page. If set to `true`, the price will be hidden hidden. (NOTE: To successfully set `is_price_hidden` to `true`, the `availability` value must be `disabled`.) |
 | price_hidden_label | string | By default, an empty string. If `is_price_hidden` is `true`, the value of `price_hidden_label` will be displayed instead of the price. (NOTE:&#160;To successfully set a non-empty string value for `price_hidden_label`, the `availability` value must be `disabled`.) |
 | categories | array | An array of IDs for the categories this product belongs to. When updating a product, if an array of categories is supplied, then all product categories will be overwritten. Does not accept more than 1,000 ID values. |

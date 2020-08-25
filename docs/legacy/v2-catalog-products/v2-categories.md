@@ -43,7 +43,7 @@ Index of hierarchical categories used to organize and group products.
 | page_title | string | The page title for the category page. |
 | meta_keywords | text | Comma-separated list of meta keywords to include in the HTML. |
 | meta_description | text | A meta description to include. |
-| layout_file | string | A valid layout file. (Please refer to [this article](https://support.bigcommerce.com/articles/Public/Creating-Custom-Template-Files/) on creating category files.) This field is writable only for stores with a Blueprint theme applied. |
+| layout_file | string | DEPRECATED. The layout template file used to render this category. This field is writable only for stores with a Blueprint theme applied. For Stencil stores, use the V3 Custom Templates API. |
 | parent_category_list | array | A read-only field containing the ID of this category and the ID of its parent category, if any. |
 | image_file | string | A valid image. |
 | is_visible | boolean | Is the category visible? |
