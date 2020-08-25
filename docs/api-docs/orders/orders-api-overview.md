@@ -2,15 +2,15 @@
 
 <div class="otp" id="no-index">
 
-### On This Page
+### On this page
 - [Introduction](#introduction)
-- [Create an Order](#create-an-order)
-- [Order Response](#order-response)
-- [Shipping an Order](#shipping-an-order)
+- [Create an order](#create-an-order)
+- [Order response](#order-response)
+- [Shipping an order](#shipping-an-order)
 - [Taxes](#taxes)
-- [Overriding Preset Values](#overriding-preset-values)
-- [Calculation of Totals](#calculation-of-totals)
-- [Order Status](#order-status)
+- [Overriding preset values](#overriding-preset-values)
+- [Calculation of totals](#calculation-of-totals)
+- [Order status](#order-status)
 - [FAQ](#faq)
 - [Resources](#resources)
 
@@ -18,7 +18,7 @@
 
 ## Introduction
 
-The Orders API is used when an order is being created manually. If you are using the Server to Server Checkout, an order can be created using the orders endpoint. The order can then be updated if needed.
+Manual orders require the use of the Orders API. If you are using the Server-to-Server Checkout API, use the Orders endpoint to create orders. The order can then be updated if needed.
 
 A sample order workflow might include:
 * Creating the order for either an existing customer or guest
@@ -27,25 +27,27 @@ A sample order workflow might include:
 
 ### Prerequisites:
 **BigCommerce Store**
-An active BigCommerce store with a sellable [product](/api-reference/catalog/catalog-api/products/createproduct)
+
+An active BigCommerce store with a sellable [product](/api-reference/catalog/catalog-api/products/createproduct).
 
 **Scopes**
+
 The following [OAuth](/api-docs/getting-started/authentication#authentication_oauth-scopes) scopes are required:
 * Modify Orders
 
-## Create an Order
+## Create an order
 
-We will go over adding an existing product, adding a custom product, adding a billing address and adding a shipping address. At the end of this section, you will be able to see the full sample request to create an order.
+We will add an existing product, add a custom product, add a billing address, and add a shipping address. At the end of this section, you will be able to see the full sample request to create an order.
 
-Want to skip ahead and see the [full request](/api-docs/orders/orders-api-overview#orders-api-overview_create-order-example)?
+Want to skip ahead and see the [full request](#create-order-example)?
 
-At a minimum, an order needs products and a billing address. If either of these fields are left off the order is rejected.
+At a minimum, an order needs products and a billing address. An error message will display if either of these fields is left off.
 
-A order can be created with either an existing Product or using a Custom Product.
+You can create an order with either an existing product or using a custom product.
 
-### Add an Existing Product with Options
+### Add an existing product with options
 
-**Required Fields:**
+**Required fields:**
 - product_id
 - product_options (required if adding a product with variants)
 	- product_option > id
@@ -54,17 +56,16 @@ A order can be created with either an existing Product or using a Custom Product
 - price_inc_tax (optional)
 - price_ex_tax (optional)
 
-To get the `product_option > id` and `product_option > value`, make a request to [Get Variants](/api-reference/catalog/catalog-api/product-variants/getvariantsbyproductid). Variants will return the `option_value > id` and `option_values > option_id`.
+To get the `product_option > id` and `product_option > value`, make a request to [Get Variants](/api-reference/catalog/catalog-api/product-variants/getvariantsbyproductid). Variants will return the `option_value > id` and `option_values > option_id` and pass them into the product's array.
 
-Make note of the `option_values > id` and `option_values > option_id`. These will be passed into the products array.
-
+Make note of the `option_values > id` and `option_values > option_id`. 
 <div class="HubBlock--callout">
 <div class="CalloutBlock--info">
 <div class="HubBlock-content">
 
 <!-- theme:  -->
 ### Pricing
-> If price_ex_tax or price_inc_tax is set, then they both need to bet specified. Otherwise the order total will not calculate correctly.
+> If you set price_ex_tax or price_inc_tax, then you need to specify them both. Otherwise, the order total will not calculate correctly.
 
 </div>
 </div>
@@ -76,7 +77,7 @@ subtitle: "https://api.bigcommerce.com/stores/{store_hash}/v3/catalog/products/{
 lineNumbers: true
 -->
 
-**Example Variants Response**
+**Example variants response**
 `/GET https://api.bigcommerce.com/stores/{store_hash}/v3/catalog/products/{product_id}/variants`
 
 ```json
@@ -140,8 +141,9 @@ title: "Example Products Array"
 subtitle: "This is an abbreviated request"
 lineNumbers: true
 -->
-**Example Products Array**
-This is an abbreviated request
+**Example products array**
+
+This is an abbreviated request.
 
 ```json
 "products":[
@@ -168,13 +170,13 @@ This is an abbreviated request
       ]
 ```
 
-### Create a Custom Product
+### Create a custom product
 
-**Required Fields:**
-* name – Product Name
-* quantity – Number of items
-* price_inc_tax – Price including tax
-* price_ex_tax – Price excluding tax
+**Required fields:**
+* name – product name
+* quantity – number of items
+* price_inc_tax – price including tax
+* price_ex_tax – price excluding tax
 * sku (optional)
 
 <!--
@@ -182,8 +184,9 @@ title: "Custom Order Products Array"
 subtitle: "This is an abbreviated request"
 lineNumbers: true
 -->
-**Example Custom Order Products Array**
-This is an abbreviated request
+**Example custom order products array**
+
+This is an abbreviated request.
 
 ```json
   "products": [
@@ -209,43 +212,43 @@ This is an abbreviated request
 
 <!-- theme:  -->
 
-### Custom Products
-> Creating a custom product does not add it to the catalog. Only to the current order.
+### Custom products
+> Creating a custom product does not add it to the catalog, only to the current order.
 
 </div>
 </div>
 </div>
 
-### Order Products
+### Order products
 
 **Pricing**
 
-If price is not specified, it will automatically pick up the price from the store’s product catalog. However, you can override this via `price_inc_tax` and `price_ex_tax`.
+If the price is not specified, it will automatically pick up the store’s product catalog price. However, you can override this price with `price_inc_tax` and `price_ex_tax`.
 
-If the `price_inc_tax` or `price_ex_tax` specified then any variant pricing is ignored and the order products base_price is updated according to the store settings. For example, if the store is set to display prices with tax included, then the `base_price` will be `price_inc_tax`.
+If you specify `price_inc_tax` or `price_ex_tax`, you will also update the order products base_price according to the store settings but will not change any variant pricing. For example, if you set the store to display prices with tax included, then the `base_price` will be `price_inc_tax`.
 
 **Stock**
 
-For products that are configured to track stock, the quantity specified on the order will reduce the stock on hand. When there is not enough inventory to fulfill the order, the order will be rejected with an “out of stock” error code.
+For products that you configured to track stock, the quantity specified on the order will reduce the stock on hand. When there is not enough inventory to fulfill the order, an “out of stock” error code displays.
 
-**Min and Max Quantities**
+**Min and max quantities**
 
-For products that have min and max quantities specified in their settings, the API will honor these, and will reject orders appropriately.
+For products that have min and max quantities specified in their settings, the API will honor them and reject orders appropriately.
 
 **Options**
 
 For products where product options are required, the API will validate these requirements to ensure that the product options are specified.
 
-**Customer File Uploads**
+**Customer file uploads**
 
-For products that allow customers to upload a file at checkout (i.e. an image uploaded for a t-shirt order), developers can follow these steps to retrieve the file:
+For products that allow customers to upload a file at checkout (i.e., an image uploaded for a t-shirt order), developers can follow these steps to retrieve the file:
 
 * Get the filename value from GET [/orders/[order_id]/products](https://developer.bigcommerce.com/api-reference/orders/orders-api/order-products/getallorderproducts), in the product_options array
 * Use that filename value to download the file via WebDAV using the following path: https://store.com/product_images/configured_products/[value]
 
-### Add a Billing Address
+### Add a billing address
 
-**Required Fields:**
+**Required fields:**
 * first_name
 * last_name
 * street_1
@@ -262,8 +265,9 @@ subtitle: "This is an abbreviated request"
 lineNumbers: true
 -->
 
-**Example Add Billing Address**
-This is an abbreviated request
+**Example Add billing address**
+
+This is an abbreviated request.
 
 ```json
     "billing_address": {
@@ -286,16 +290,16 @@ This is an abbreviated request
 <div class="HubBlock-content">
 
 <!-- theme:  -->
-### Shipping Address
-> If a shipping address is not provided, it defaults to the billing address.
+### Shipping address
+> If there is no shipping address, it defaults to the billing address.
 
 </div>
 </div>
 </div>
 
-### Add a Shipping Address - optional
+### Add a shipping address - optional
 
-**Required Fields:**
+**Required fields:**
 * first_name
 * last_name
 * street_1
@@ -306,7 +310,7 @@ This is an abbreviated request
 * country_iso2
 * email
 
-The shipping address is input as an array object since more than one shipping address can be added at a time. Adding multiple shipping addresses allows for an order to ship to multiple locations.
+Input the shipping address as an array object since you can add more than one shipping address at a time. Adding multiple shipping addresses allows for an order to ship to multiple locations.
 
 <!-- <div class="HubBlock-header">
     <div class="HubBlock-header-title flex items-center">
@@ -320,8 +324,9 @@ subtitle: "This is an abbreviated request"
 lineNumbers: true
 -->
 
-**Example Add a shipping address**
-This is an abbreviated request
+**Example add a shipping address**
+
+This is an abbreviated request.
 
 ```json
     "shipping_addresses": [
@@ -341,16 +346,16 @@ This is an abbreviated request
         }
 ```
 
-### Other Recommended Fields
-Below are fields which are recommended but not required when creating an order.
+### Other recommended fields
+Below are fields that are recommended but not required when creating an order.
 
 **Customer ID**
 
 The customer_id will determine the price the shopper pays for an item. Customer ID’s are tied to customer group discounts and Price Lists. Set the `customer_id` to 0 when creating a guest order.
 
-**Shipping Address**
+**Shipping address**
 
-If a shipping address is not provided, it will default to the billing addresses provided.
+If there is no shipping address, it will default to the billing addresses provided.
 
 **Status**
 
@@ -360,9 +365,9 @@ If a status is not provided, it defaults to a status of 1 or Pending.
 
 Manual discounts are supported. To add a manual discount either overwrite the product price or use `discount_amount`. This accepts a fixed dollar amount.
 
-### Create Order Example
+### Create order example
 
-After the products, billing and shipping address are added, an order can be created.
+After the products, add the billing and shipping address, you can create an order.
 
 <!--
 title: "Create an Order Request"
@@ -370,7 +375,7 @@ subtitle: ""
 lineNumbers: true
 -->
 
-**Example Create an Order Request**
+**Example create an order request**
 `/POST https://api.bigcommerce.com/stores/{store_hash}/v2/orders`
 
 ```json
@@ -433,9 +438,9 @@ lineNumbers: true
 }
 ```
 
-## Order Response
+## Order response
 
-The response will have abbreviated order contents with sub-resources available to get the full order information. The order is automatically set to a status of 1 or Pending. It also returns an id which is the order id.
+The response will have abbreviated order contents with sub-resources available to get the full order information. The order is automatically set to a status of 1 or Pending. It also returns an ID which is the order ID.
 
 In the example below, the order ID is 193.
 * The order products sub-resource will list the products added.
@@ -460,7 +465,7 @@ subtitle: ""
 lineNumbers: true
 -->
 
-**Example Create Order Response**
+**Example create order response**
 
 ```json
 {
@@ -554,12 +559,12 @@ lineNumbers: true
 }
 ```
 
-## Shipping an Order
-We will go over creating a shipment for an order, shipping quotes, shipping carriers and shipping to multiple locations.
+## Shipping an order
+We will go over creating a shipment for an order, shipping quotes, shipping carriers, and shipping to multiple locations.
 
-### Create an Order Shipment
+### Create an order shipment
 
-**Required Fields:**
+**Required fields:**
 * order_address_id
 * items
 
@@ -583,7 +588,7 @@ subtitle: ""
 lineNumbers: true
 -->
 
-**Example Create Order Shipment**
+**Example create order shipment**
 `https://api.bigcommerce.com/stores/{store_hash}/v2/orders/{order_id}/shipments`
 
 ```json
@@ -613,7 +618,7 @@ subtitle: ""
 lineNumbers: true
 -->
 
-**Example Order Shipment Response**
+**Example order shipment response**
 
 ```json
 {
@@ -672,7 +677,7 @@ lineNumbers: true
 
 ```
 
-### Multiple Locations
+### Multiple locations
 
 Orders can have multiple shipment locations. There needs to be more than one product or quantity of a product and more than one shipping addresses. A shipping address can be added either during the create or using an update.
 
@@ -683,14 +688,14 @@ To ship to multiple locations create an order shipment for each location and ite
 <div class="HubBlock-content">
 
 <!-- theme:  -->
-### Shipping Address
+### Shipping address
 > When adding shipping addresses during an order PUT or POST, the API will allow you to add more than is necessary.
 
 </div>
 </div>
 </div>
 
-### Custom Quotes
+### Custom quotes
 An order can be created with a `shipping_cost_ex_tax` and `shipping_cost_inc_tax`. This is a way to add a custom shipping amount to an order. This can be added when creating or updating an order.
 
 <div class="HubBlock--callout">
@@ -698,14 +703,14 @@ An order can be created with a `shipping_cost_ex_tax` and `shipping_cost_inc_tax
 <div class="HubBlock-content">
 
 <!-- theme:  -->
-### Shipping Cost
+### Shipping cost
 > Both `shipping_cost_ex_tax` and `shipping_cost_inc_tax` must be included otherwise, the final order amount will not be calculated correctly.
 
 </div>
 </div>
 </div>
 
-### Shipping Carrier
+### Shipping carrier
 Generating a quote through a shipping carrier is currently not supported. A shipping carrier can be specified when creating an Order Shipment. The quote can be generate elsewhere, then update the `shipping_cost_ex_tax` and `shipping_cost_inc_tax` for the order total to be correct..
 
 ## Taxes
@@ -730,11 +735,11 @@ You can create overrides for calculated values such as product prices, subtotal 
 | Paid or `Refunded` | Unpaid | Unpaid | Tax document voided |
 | Unpaid or `Refunded` | Paid | Paid | Tax document submitted |
 
-## Overriding Preset Values
+## Overriding preset values
 You can create overrides for calculated values such as product prices, subtotal and totals by sending a fixed value in the request. If values are not supplied for these properties, they will be automatically calculated based on the preset store values and tax rules.
 
-## Calculation of Totals
-When not specified, order subtotal and total are automatically calculated.
+## Calculation of totals
+When not specified, order subtotal, and total are automatically calculated.
 
 You can override order subtotal and/or total. If you choose to override one, we strongly recommend that override both, because the system will not be able to accurately calculate the other.
 
@@ -751,7 +756,7 @@ Edits to the following properties will trigger a recalculation of the subtotal a
 *   billing_address
 *   shipping_addresses
 
-## Order Status
+## Order status
 When moving through order management, the order status is not automatically updated. This needs to be changed as needed.
 
 You can specify `status_id`, which will automatically set the corresponding status. When `status_id` is not specified, it will be automatically set to 1, which will set status to Pending.
