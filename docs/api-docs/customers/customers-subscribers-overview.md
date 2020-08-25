@@ -71,7 +71,8 @@ Where possible, the API indicates the origin of the subscriber. If the subscribe
 
 Store [settings](https://forum.bigcommerce.com/s/article/Checkout-Settings#checkout-settings) can be configured to allow a shopper to complete checkout without creating an account. These shoppers are not captured as customers or stored on BigCommerce. If you want to capture guest data, using the [Storefront APIs](https://developer.bigcommerce.com/api-docs/cart-and-checkout/cart-and-checkout-overview) can help.
 
-## Customer login API
+## Customer Login API
+
 
 The Customer Login API allows for single sign-on. Once a customer has authenticated by logging in to a third-party system (CMS, portal, or app), you can use the customer login API to seamlessly log the customer into their BigCommerce customer account.
 
