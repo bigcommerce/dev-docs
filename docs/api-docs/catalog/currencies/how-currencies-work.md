@@ -346,7 +346,7 @@ You can create cart level discounts in your currency of choice. The shopper must
 
 * **Transactional Currency** - The refund is shown in the transaction currency. When processing refunds, the amount is refunded to the shopper in the transactional currency.  
 
-* **Display Currency** - The refund is shown in the stores default currency. When processing refunds the shopper is refunded the transactional currency amount; for example, if an order was purchased with a display currency of $36 AUD, where AUD exchange rate is set to 1.384615 and a store has USD currency set as a default, when processing a refund, the shopper will get $26 USD back.
+* **Display Currency** - The refund is shown in the store's default currency. When processing refunds, the shopper is refunded the transactional currency amount. For example, if an order was purchased with a display currency of $36 AUD, where the AUD exchange rate is set to 1.384615 and a store has USD currency set as a default, the shopper will get $26 USD back when the refund is processed.
 
 ## Payment methods supported
 
