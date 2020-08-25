@@ -425,7 +425,8 @@ To pass metadata in a rate request, the metafields must meet the following requi
 * `permission_set` on the metafield must be `read` or `write`
 * `namespace` on the metafield must match this format: `shipping_carrier_carrier_id` (example: `shipping_carrier_72`)
 
-The carrier registration process described in the [Sign-up Section](https://developer.bigcommerce.com/api-docs/store-management/shipping/shipping-provider-api#sign-up) provides the `carrier_id`.
+The carrier registration process described in the [Sign-up Section](https://developer.bigcommerce.com/api-docs/providers/shipping#sign-up) provides the `carrier_id`.
+
 
 For more information on product and variant metafields, see:
 * [API Reference > Store Management > Catalog > Product Metafields](https://developer.bigcommerce.com/api-reference/catalog/catalog-api/product-metafields)
