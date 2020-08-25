@@ -235,7 +235,8 @@ title: "Sample Request"
 subtitle: "POST https://developerserver.com/rate"
 lineNumbers: true
 -->
-**Example request shipping rates**
+To request shipping rates, send a `POST` request. For example: 
+
 `/POST https://developerserver.com/rate`
 
 ```json
