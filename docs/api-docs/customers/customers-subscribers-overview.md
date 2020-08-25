@@ -74,7 +74,8 @@ Store [settings](https://forum.bigcommerce.com/s/article/Checkout-Settings#check
 ## Customer Login API
 
 
-The Customer Login API allows for single sign-on. Once a customer has authenticated by logging in to a third-party system (CMS, portal, or app), you can use the customer login API to seamlessly log the customer into their BigCommerce customer account.
+The Customer Login API allows for single sign-on. Once a customer has authenticated by logging in to a third-party system (CMS, portal, or app), you can use the Customer Login API to seamlessly log the customer into their BigCommerce customer account.
+
 
 ## Current Customer API
 The Current Customer API allows your application to identify logged in customers. This is useful when you need to show customer specific information.
