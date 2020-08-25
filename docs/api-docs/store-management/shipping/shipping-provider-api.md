@@ -97,7 +97,8 @@ The intended use of the Shipping Provider API is to create an app that merchants
 
 During the app setup, if you configure the Check Connection Options URL for the carrier, an attempt to connect the carrier via the Shipping Manager UI or the Connect Carrier API causes a request to be made to that URL with the provided options. The resource should respond by indicating if the credentials are valid and explain what is wrong. If you did not configure this URL, this check is not required and the credentials are assumed valid as long as they pass type checks.
 
-**Example request check connection**
+To validate connection options, send a `POST` request to `http://<yourserver.com>/check_connection_options`:
+
 
 ```json
 {
