@@ -28,7 +28,7 @@ This article details how you can surface currencies throughout BigCommerce APIs,
 When you configure multiple currencies, BigCommerce will convert the catalog default currency price of items into the selected non-default currency on the storefront. It does not change the default catalog pricing of products. 
 
 Catalog search and filtering by price only work for the default currency and auto-converted pricing for non-default transactional currencies. If a merchant sets up pricing through **Price Lists** and has price filter enabled on their store, shoppers will be unable to see any products when searching by price.
-* `Shop by: Price` only works for default currency and auto-converted pricing for non-default transactional currencies. If merchant sets up pricing through Price Lists and has price filter enabled on their store, when shopper searches by price, no products will be displayed.
+* `Shop by: Price` only works for default currency and auto-converted pricing for non-default transactional currencies. If merchant sets up pricing through price lists and has price filter enabled on their store, shoppers will be unable to see any products when searching by price.
 
 BigCommerce does not dynamically convert currency. To convert the merchant will need to do one of the following:
 * Manually update their conversion rate from default currency to other transactional currencies.
