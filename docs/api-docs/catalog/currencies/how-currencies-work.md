@@ -342,7 +342,7 @@ You can create cart level discounts in your currency of choice. The shopper must
 
 <a id="refunds"></a>
 
-* **Default Currency** - Works as normal, and make no changes. 
+* **Default Currency** - Works as normal; no changes made. 
 
 * **Transactional Currency** - The refund is shown in the transaction currency. When processing refunds, the amount is refunded to the shopper in the transactional currency.  
 
