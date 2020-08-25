@@ -43,7 +43,8 @@ The following steps outline how to become a BigCommerce Partner:
 
 5. Complete the member registration.
 6. Click the **Complete Registration** button. 
-7. Once your application is approved, check your email for your partner ID.
+7. Once your application is approved, check your email for your Partner ID.
+
 
 Once approved, you will receive one or more emails listing your partner credentials and next steps. Your **partner ID** will be required to submit your app for App Marketplace consideration. If you do not receive these credentials by email, please contact <a href="mailto:appstore@bigcommerce.com">appstore@bigcommerce.com</a>.
 
