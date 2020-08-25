@@ -19,7 +19,7 @@
 
 </div>
 
-This article details how you can surface currencies throughout BigCommerce APIs, user interfaces, and storefront components; it assumes you're already familiar with the core concepts behind BigCommerce's Multi-Currency settings. For a high-level overview and instructions on how to add currencies to a BigCommerce store, see [Currencies Overview](https://developer.bigcommerce.com/api-docs/catalog/currencies/currencies-overview).
+This article details how you can surface currencies throughout BigCommerce APIs, user interfaces, and storefront components. It assumes you're already familiar with the core concepts behind BigCommerce's multi-currency settings. For a high-level overview and instructions on how to add currencies to a BigCommerce store, see [Currencies Overview](https://developer.bigcommerce.com/api-docs/catalog/currencies/currencies-overview).
 
 ## Catalog pricing
 
