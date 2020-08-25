@@ -16,7 +16,7 @@ The V2 Shipping API allows you to manage shipping zones, shipping methods, and s
 The Order Shipments resource creates a shipment for an order. You can specify the shipping provider, tracking number, and shipping address ID when creating a shipment.
 
 
-## Storefront Checkout and Server-to-Server Checkout API
+## Checkout APIs
 
 The [Storefront Checkout](https://developer.bigcommerce.com/api-reference/cart-checkout/storefront-checkout-api) and [Server-to-Server Checkout APIs](https://developer.bigcommerce.com/api-reference/cart-checkout/server-server-checkout-api) provide methods for managing a checkout up until the point when you finalized it into an order. Because you can only create shipments from finalized orders, you cannot create a shipment from Checkout API endpoints.
 
