@@ -329,7 +329,8 @@ subtitle: "POST https://developerserver.com/rate"
 lineNumbers: true
 -->
 
-**Example response shipping rates**
+Response:
+
 `POST https://developerserver.com/rate`
 
 ```json
