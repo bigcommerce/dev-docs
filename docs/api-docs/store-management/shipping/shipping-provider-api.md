@@ -437,7 +437,8 @@ Before submitting your app, make sure you have the following information.
 
 **Single carrier vs. multi carrier**
 
-Whether the app is a single carrier or multiple carriers. A single carrier app will offer one service, such as USPS. A multi carrier app will offer more than one carrier such as USPS, DHL, and Canada Post.
+A single-carrier app will offer one service, such as USPS. A multi-carrier app will offer more than one carrier such as USPS, DHL, and Canada Post.
+
 
 **Name and description**
 
