@@ -435,7 +435,8 @@ For more information on product and variant metafields, see:
 
 Before submitting your app, make sure you have the following information.
 
-**Single carrier vs. multi carrier**
+**Single-carrier vs. multi-carrier**
+
 
 A single-carrier app will offer one service, such as USPS. A multi-carrier app will offer more than one carrier such as USPS, DHL, and Canada Post.
 
