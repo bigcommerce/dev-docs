@@ -207,7 +207,8 @@ subtitle: "POST https://api.bigcommerce.com/stores/{store_hash}/v2/shipping/zone
 lineNumbers: true
 -->
 
-**Example response shipping methods**
+Response:
+
 `/POST https://api.bigcommerce.com/stores/{store_hash}/v2/shipping/zones/{zone_id}/methods`
 
 ```json
