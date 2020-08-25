@@ -31,7 +31,8 @@ The following [OAuth](https://developer.bigcommerce.com/api-docs/getting-started
 
 ## What is a customer?
 
-A customer is anyone who makes a purchase on a store and creates an account. BigCommerce stores their email address, customer address, and name against the customer as a record. There are two APIs you can use to manipulate customer data. You can extend the data for customer records using custom account sign up form fields (V3) and the customer attributes API (V3). 
+A customer is anyone who makes a purchase on a store and creates an account. BigCommerce stores their email address, customer address, and name against the customer as a record. There are two APIs you can use to manipulate customer data. You can extend the data for customer records using custom account sign up form fields (V3) and the customer attributes endpoint (V3). 
+
  
 ### Customer groups
 
