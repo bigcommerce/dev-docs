@@ -3,7 +3,8 @@
 <div class="otp" id="no-index">
 
 ### On this page
-- [Applying to the technology partner program](#applying-to-the-technology-partner-program)
+- [Applying to the Technology Partner Program](#applying-to-the-technology-partner-program)
+
 - [Becoming a partner](#becoming-a-partner)
 - [Getting a sandbox store](#getting-a-sandbox-store)
 - [Troubleshooting](#troubleshooting)
