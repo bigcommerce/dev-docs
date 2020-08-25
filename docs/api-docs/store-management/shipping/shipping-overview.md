@@ -1,12 +1,13 @@
 # Shipping
 <div class="otp" id="no-index">
-	<h3> On this page </h3>
-	<ul>
-    <li><a href="#shipping_storefront-server-checkout">Storefront Checkout and Server to Server Checkout</a></li>
-    <li><a href="#shipping_order-shipping-addresses">Order shipping addresses</a></li>
-    <li><a href="#shipping_shipping-zone-methods">Shipping zone and shipping methods</a></li>
-    <li><a href="#shipping_real-time-carriers">Real-time carriers</a></li>
-	</ul>
+	
+### On this page 
+- [Storefront Checkout and Server to Server Checkout](#shipping_storefront-server-checkout)
+- [Order shipping addresses](#shipping_order-shipping-addresses)
+- [Shipping zone and shipping methods](#shipping_shipping-zone-methods)
+- [Real-time carriers](#shipping_real-time-carriers)
+- [Resources](#resources)
+    	
 </div>
 
 You can create shipments from orders, and it is possible to create multiple shipments from a single order. A [shipment](/api-reference/orders/orders-api/order-shipments/createordershipments) represents a grouping of order line items that you can ship to a customer. 
