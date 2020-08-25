@@ -277,13 +277,42 @@
         ],
         "responses": {
           "200": {
-            "$ref": "#/responses/ChannelResponse"
-          },
-          "201": {
-            "description": "Created",
+            "$ref": "#/responses/ChannelResponse",
             "schema": {
-              "type": "object",
-              "properties": {}
+              "$ref": "#/definitions/ChannelResponse"
+            },
+            "examples": {
+              "application/json": {
+                "data": {
+                  "id": 391563,
+                  "name": "Amazon US",
+                  "platform": "amazon",
+                  "type": "marketplace",
+                  "date_created": "2020-08-25T18:45:11Z",
+                  "date_modified": "2020-08-25T18:45:11Z",
+                  "external_id": "",
+                  "is_listable_from_ui": true,
+                  "is_enabled": true,
+                  "is_visible": true,
+                  "status": "connected",
+                  "config_meta": {
+                    "app": {
+                      "id": 123,
+                      "sections": [
+                        {
+                          "title": "Overview",
+                          "query_path": "overview"
+                        },
+                        {
+                          "title": "Settings",
+                          "query_path": "settings"
+                        }
+                      ]
+                    }
+                  }
+                },
+                "meta": {}
+              }
             }
           },
           "400": {
@@ -303,8 +332,7 @@
           "401": {
             "description": "Unauthorized",
             "schema": {
-              "type": "object",
-              "properties": {}
+              "$ref": "#/definitions/ErrorResponse"
             }
           },
           "422": {
@@ -326,8 +354,7 @@
           "500": {
             "description": "Internal Server Error",
             "schema": {
-              "type": "object",
-              "properties": {}
+              "$ref": "#/definitions/ErrorResponse"
             }
           }
         },
@@ -506,8 +533,7 @@
           "401": {
             "description": "Unauthorized",
             "schema": {
-              "type": "object",
-              "properties": {}
+              "$ref": "#/definitions/ErrorResponse"
             }
           },
           "404": {
@@ -543,8 +569,7 @@
           "500": {
             "description": "Internal Server Error",
             "schema": {
-              "type": "object",
-              "properties": {}
+              "$ref": "#/definitions/ErrorResponse"
             }
           }
         },
@@ -1675,7 +1700,7 @@
               },
               "query_path": {
                 "type": "string",
-                "description": "Parameter that will be appended to the URL and which should be parsed in order for the app to display the proper section that has been selected by the merchant "
+                "description": "Parameter that will be appended to the URL and which should be parsed in order for the app to display the proper section that has been selected by the merchant.\n\nThese will get appended to the URL in the following manner: https://<store-domain>/manage/channel/<channel-id>/app?id=<app-id>&section=<section-query-path>"
               }
             },
             "required": [
