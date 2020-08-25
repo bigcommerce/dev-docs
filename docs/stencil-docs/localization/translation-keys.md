@@ -237,7 +237,8 @@ lineNumbers: true
 
 ```
 
-In the example below, the default theme’s `/lang/en.json` file includes matches and value definitions for each of the translation keys.
+In the example below, the default theme’s `lang/en.json` file includes matches and value definitions for each of the translation keys.
+
 
 <div class="HubBlock-header">
     <div class="HubBlock-header-title flex items-center">
