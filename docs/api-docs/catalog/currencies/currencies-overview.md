@@ -27,7 +27,7 @@ In BigCommerce, there are two types of currency that can be set up: a **display 
 
 * **Display currency** - When a currency is set to display-only, shoppers in associated countries will see prices on the storefront in that currency, but the actual order will be transacted in the store’s default currency. Shoppers at checkout see the estimated price in the display currency with a note indicating the actual currency and amount to be charged.
 
-* **Transactional currency** - When a currency is enabled as transactional, shoppers in associated countries will both see prices on the storefront in that currency and be charged in that currency when they check out.
+* **Transactional currency** - When a currency is set as transactional, shoppers in associated countries will both see prices on the storefront in that currency and be charged in that currency when they check out.
 
 ![Display Currency](https://raw.githubusercontent.com/bigcommerce/dev-docs/master/assets/images/multi-currency-display-currency.png "Display Currency")
 
