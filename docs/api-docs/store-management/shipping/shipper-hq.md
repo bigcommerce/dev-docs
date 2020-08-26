@@ -78,7 +78,8 @@ subtitle: ""
 lineNumbers: true
 -->
 
-**Example add ShipperHQ metafield response**  
+Response: 
+
 `200 /POST https://api.bigcommerce.com/stores/{{store_hash}}/v3/catalog/products/{{product_id}}/metafields`
 
 ```json
