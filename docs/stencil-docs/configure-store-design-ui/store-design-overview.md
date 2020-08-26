@@ -30,8 +30,8 @@ There are two main configuration files for theme UI settings.
 
 |Filename | Description
 |-|-|
-|`schema.json`|defines theme UI settings|
-|`config.json`|sets default values for theme UI settings|
+|`schema.json`|Defines theme UI settings|
+|`config.json`|Sets default values for theme UI settings|
 
 To add a setting to the UI, define it in [`schema.json`](https://github.com/bigcommerce/cornerstone/blob/master/schema.json).
 
@@ -77,11 +77,11 @@ BigCommerce's configuration service stores setting values configured in the UI w
 
 Existing settings saved to the configuration service persist across theme version updates. Here's an example scenaio:
 
-1. You release theme `v1.0`; it defines a `logo_size` setting with a default value of `100x250`.
-2. In the UI, a user changes `logo_size` to `175x275`;
-3. You release theme `v1.1` which changes `logo_size` default value to `300x300`.
-4. When the merchant applies theme `v1.1`, the value of `175x275` saved to the configuration service remains in effect.
-5. The merchant creates a new store and applies theme `v1.1` to it; that store's `logo_size` defaults to `300x300`.
+1. You release theme `v1.0`; it defines a `logo_size` setting with a default value of 100x250px.
+2. In the UI, a user changes `logo_size` to 175x275px;
+3. You release theme `v1.1` which changes `logo_size` default value to 300x300px.
+4. When the merchant applies theme `v1.1`, the value of 175x275px saved to the configuration service remains in effect.
+5. The merchant creates a new store and applies theme `v1.1` to it; that store's `logo_size` defaults to 300x300px.
 
 ## Resources
 
