@@ -6,7 +6,7 @@
 - [Introduction](#introduction)
 - [Overview](#overview)
 - [Prerequisites](#prerequisites)
-- [Enable single-sign on](#enable-single-sign-on)
+- [Enable single sign-on](#enable-single-sign-on)
 - [Troubleshooting](#troubleshooting)
 - [Additional resources](#additional-resources)
 
