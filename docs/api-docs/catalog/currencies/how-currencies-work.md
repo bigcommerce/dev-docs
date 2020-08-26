@@ -89,7 +89,7 @@ You can create price lists in any currency setup in the store. Both transactiona
 
 <a id="price-list-modifiers"></a>
 
-Modifiers use the auto conversion rate. For example, if the keychain is `€30`, and there's a modifier for engraving, the price is: `€30 + ($5 * auto conversion rate)`
+Modifiers use the auto conversion rate. For example, if the keychain is €30, and there's a modifier for engraving, the price is: €30 + ($5 * auto conversion rate).
 
 The above example assumes a default currency of USD.
 
