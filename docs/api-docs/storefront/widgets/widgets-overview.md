@@ -71,7 +71,7 @@ The slider takes advantage of loops to display each slide on the page.
 
 ### Widget configuration
 
-A Widget configuration is the JSON payload that defines the content to be rendered with a given widget template. In the previous simple list example, the widget template loops over a list_items array using `{{#each}}`.
+A Widget configuration is the JSON payload that defines the content to be rendered with a given widget template. In the previous simple list example, the widget template loops over a `list_items` array using `{{#each}}`.
 
 In the example below, we define the `list_items` array and supply values for the color and text of each list item. Since the template is created separately from the configuration, the same template UUID can be used multiple times for configuration.
 
