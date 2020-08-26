@@ -2,7 +2,8 @@
 <div class="otp" id="no-index">
 	
 ### On this page 
-- [Storefront Checkout and Server to Server Checkout](#shipping_storefront-server-checkout)
+- [Checkout APIs](#checkout-apis)
+
 - [Order shipping addresses](#shipping_order-shipping-addresses)
 - [Shipping zone and shipping methods](#shipping-zone-and-shipping-methods)
 
