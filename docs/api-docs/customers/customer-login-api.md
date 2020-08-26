@@ -58,7 +58,7 @@ Be sure to set the Customers Login scope to "login".
 
 ![Example OAuth Scope](https://storage.googleapis.com/bigcommerce-production-dev-center/images/scopes.png "Example OAuth Scope")
 
-## Enable single-sign on
+## Enable single sign-on
 
 To log a customer into their storefront account using the Customer Login API, your app needs to redirect the customer’s browser to the following access point URL: `https://storedomain.com/login/token/{token}`.
 
