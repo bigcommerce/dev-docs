@@ -40,8 +40,8 @@
           "200": {
             "$ref": "#/responses/channel_Resp_Collection"
           },
-          "201": {
-            "description": "Created",
+          "500": {
+            "description": "Internal Server Error",
             "schema": {
               "type": "object",
               "properties": {}
@@ -65,14 +65,76 @@
               "$ref": "#/definitions/channel_Post"
             },
             "x-examples": {
-              "application/json": {
+              "Channel without App": {
                 "name": "My Store - US",
                 "type": "storefront",
                 "platform": "wordpress",
                 "external_id": "002",
-                "is_enabled": true
+                "is_enabled": true,
+                "status": "connected",
+                "is_listable_from_ui": true,
+                "is_visible": true
+              },
+              "Channel with App": {
+                "name": "My Store - US",
+                "type": "storefront",
+                "platform": "",
+                "external_id": "002",
+                "is_enabled": true,
+                "status": "connected",
+                "is_listable_from_ui": true,
+                "is_visible": true,
+                "config_meta": {
+                  "app": {
+                    "id": 24483,
+                    "sections": [
+                      {
+                        "title": "Overview",
+                        "query_path": "overview"
+                      },
+                      {
+                        "title": "Import",
+                        "query_path": "import"
+                      },
+                      {
+                        "title": "Settings",
+                        "query_path": "settings"
+                      }
+                    ]
+                  }
+                }
+              },
+              "Additional Sections Examples": {
+                "name": "My Store - US",
+                "type": "storefront",
+                "platform": "",
+                "external_id": "002",
+                "is_enabled": true,
+                "status": "connected",
+                "is_listable_from_ui": true,
+                "is_visible": true,
+                "config_meta": {
+                  "app": {
+                    "id": 24483,
+                    "sections": [
+                      {
+                        "title": "Overview",
+                        "query_path": "overview"
+                      },
+                      {
+                        "title": "Import",
+                        "query_path": "import"
+                      },
+                      {
+                        "title": "Settings",
+                        "query_path": "settings?intro=true"
+                      }
+                    ]
+                  }
+                }
               }
-            }
+            },
+            "description": ""
           }
         ],
         "responses": {
@@ -82,8 +144,40 @@
           "201": {
             "description": "Created",
             "schema": {
-              "type": "object",
-              "properties": {}
+              "$ref": "#/definitions/ChannelResponse"
+            },
+            "examples": {
+              "application/json": {
+                "data": {
+                  "id": 391563,
+                  "name": "Amazon US",
+                  "platform": "amazon",
+                  "type": "marketplace",
+                  "date_created": "2020-08-25T18:45:11Z",
+                  "date_modified": "2020-08-25T18:45:11Z",
+                  "external_id": "",
+                  "is_listable_from_ui": true,
+                  "is_enabled": true,
+                  "is_visible": true,
+                  "status": "connected",
+                  "config_meta": {
+                    "app": {
+                      "id": 123,
+                      "sections": [
+                        {
+                          "title": "Overview",
+                          "query_path": "overview"
+                        },
+                        {
+                          "title": "Settings",
+                          "query_path": "settings"
+                        }
+                      ]
+                    }
+                  }
+                },
+                "meta": {}
+              }
             }
           },
           "400": {
@@ -100,6 +194,12 @@
               }
             }
           },
+          "401": {
+            "description": "Unauthorized",
+            "schema": {
+              "$ref": "#/definitions/ErrorResponse"
+            }
+          },
           "422": {
             "description": "The request is missing 1 or more required fields",
             "schema": {
@@ -114,6 +214,12 @@
                   "platform": "error.path.missing"
                 }
               }
+            }
+          },
+          "500": {
+            "description": "Internal Server Error",
+            "schema": {
+              "$ref": "#/definitions/ErrorResponse"
             }
           }
         },
@@ -146,6 +252,13 @@
             "schema": {
               "$ref": "#/responses/error_Resp"
             }
+          },
+          "500": {
+            "description": "Internal Server Error",
+            "schema": {
+              "type": "object",
+              "properties": {}
+            }
           }
         },
         "description": "Returns a *Channel*. Channel ID `1` returns the BigCommerce storefront."
@@ -166,7 +279,7 @@
             },
             "x-examples": {
               "application/json": {
-                "is_enabled": false,
+                "status": "disconnected",
                 "name": "Old Wordpress Channel"
               }
             }
@@ -195,17 +308,23 @@
             }
           },
           "400": {
-            "description": "The value for at least one provided field is not valid.",
+            "description": "Bad Request\n\nWhen invalid JSON is submitted.",
             "schema": {
               "$ref": "#/responses/error_Resp"
             },
             "examples": {
-              "application/json": {
+              "Invalid Response": {
                 "status": 400,
                 "title": "Input is invalid",
-                "type": "https://developer.bigcommerce.com/api#api-status-codes",
+                "type": "https://developer.bigcommerce.com/api-docs/getting-started/api-status-codes",
                 "errors": {}
               }
+            }
+          },
+          "401": {
+            "description": "Unauthorized",
+            "schema": {
+              "$ref": "#/definitions/ErrorResponse"
             }
           },
           "404": {
@@ -221,9 +340,31 @@
                 "errors": {}
               }
             }
+          },
+          "422": {
+            "description": "Unprocessable Entity (WebDAV)\n\nWhen an invalid value for a field is submitted, a 422 will be sent.",
+            "schema": {
+              "$ref": "#/definitions/ErrorResponse"
+            },
+            "examples": {
+              "422 Example": {
+                "status": 422,
+                "title": "JSON data is missing or invalid",
+                "type": "https://developer.bigcommerce.com/api-docs/getting-started/api-status-codes",
+                "errors": {
+                  "status": "error.expected.jsstring"
+                }
+              }
+            }
+          },
+          "500": {
+            "description": "Internal Server Error",
+            "schema": {
+              "$ref": "#/definitions/ErrorResponse"
+            }
           }
         },
-        "description": "Updates a *Channel*. Partial updates are supported. Currently, if a field that *cannot* be updated is passed in, the API **not** respond with an error.\n\n**Fields That Can Be Updated**\n* name\n* external_id"
+        "description": "Updates a *Channel*. Partial updates are supported. Currently, if a field that *cannot* be updated is passed in, the API **will not** respond with an error. It returns a 200 response with the object, in which you will see the field(s) were not updated\n\n**Fields That Can Be Updated**\n* name\n* external_id\n* status\n* is_listable_from_ui\n* is_visible\n* config_meta"
       }
     },
     "/channels/{channel_id}/listings": {
@@ -616,6 +757,10 @@
               "description": "Link to the next page returned in the response.\n"
             }
           }
+        },
+        "current_page": {
+          "type": "integer",
+          "description": "Current page number of channels "
         }
       },
       "title": "pagination_Full"
@@ -623,6 +768,7 @@
     "channel_Post": {
       "title": "channel_Post",
       "type": "object",
+      "description": "",
       "properties": {
         "type": {
           "type": "string",
@@ -643,8 +789,9 @@
         },
         "is_enabled": {
           "type": "boolean",
-          "description": "Determines whether the channel is enabled on a store. In order to disable a channel, set is_enabled to false.\n\nThis results in the channel not showing in the 'Products' section of the BC control panel.",
-          "default": true
+          "description": "SUNSET: Determines whether the channel is enabled on a store. In order to disable a channel, set is_enabled to false.\n\nThis results in the channel not showing in the 'Products' section of the BC control panel.",
+          "default": true,
+          "x-deprecated": true
         },
         "platform": {
           "type": "string",
@@ -678,7 +825,10 @@
       "required": [
         "type",
         "name"
-      ]
+      ],
+      "x-examples": {
+        "application/json": {}
+      }
     },
     "channel_Put": {
       "title": "channel_Put",
@@ -776,7 +926,10 @@
             "archived"
           ]
         }
-      }
+      },
+      "required": [
+        "status"
+      ]
     },
     "listing_Put": {
       "title": "listing_Put",
