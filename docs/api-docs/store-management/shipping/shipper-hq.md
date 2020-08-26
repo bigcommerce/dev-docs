@@ -49,7 +49,8 @@ These field values can be set in the Control Panel by the merchant as well as us
 
 ## Control panel behavior
 
-When you set Shipping Origins using the API, you cannot delete the fields using the Control Panel. You must send a /DELETE request to the metafields resource.
+When you set Shipping Origins using the API, you cannot delete the fields using the control panel. You must send a `DELETE` request to the metafields resource.
+
 
 ## Add ShipperHQ metafield
 
