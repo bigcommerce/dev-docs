@@ -18,7 +18,8 @@ The [Store Design](https://support.bigcommerce.com/s/article/Store-Design) UI in
 <div class="HubBlock-content">
 
 > ### Note
-> * Store Design's new name is [Page Builder](https://developer.bigcommerce.com/stencil-docs/page-builder/page-builder-overview); it now supports widget configuration.
+> Store Design's new name is [Page Builder](https://developer.bigcommerce.com/stencil-docs/page-builder/page-builder-overview); it now supports widget configuration.
+
 
 </div>
 </div>
