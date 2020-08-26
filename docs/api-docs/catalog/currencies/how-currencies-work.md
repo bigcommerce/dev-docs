@@ -287,7 +287,7 @@ To change the transactional currency of their cart, the shopper will need to emp
 * Since each order can be in a different currency, the control panel order page shows the currency's token (this also applies to Order Export data).
 * The shopper's order history shows the transactional currency, not the display currency. While the underlying historical data itself will remain unchanged, the page now surfaces the transactional currency and amount, rather than display currency and amount -- this change applies to all orders, including historical ones. 
 * `default_currency_code` - The transactional currency used in the order; previously the store's default currency.
-* `currency_code` - the display currency used to present prices to the shopper on the storefront.
+* `currency_code` - The display currency used to present prices to the shopper on the storefront.
 * `currency_exchange_rate` - exchange between the store's default currency and the display currency; when you create the order via server-to-server endpoints, the value is always `1` -- only in the storefront can this value differ from `1`
 * The following additional fields are returned on orders when Multi-Currency is enabled:
   * `store_default_currency_code` - the store's default currency.
