@@ -1,11 +1,11 @@
 # ShipperHQ Metafields
 <div class="otp" id="no-index">
-	<h3> On this page </h3>
-	<ul>
-        <li><a href="#shipper-hq-object-properties">ShipperHQ object properties</a></li>
-        <li><a href="#control-panel-behavior">Control panel behavior</a></li>
-        <li><a href="#add-shipperhq-metafield">Add ShipperHQ metafield</a></li>
-	</ul>
+
+### On this page
+- [ShipperHQ object properties](#shipper-hq-object-properties)
+- [Control panel behavior](#control-panel-behavior)
+- [Add ShipperHQ metafield](#add-shipperhq-metafield)
+       
 </div>
 
 When you enable ShipperHQ on a store, additional fields become available on the product level:
