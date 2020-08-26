@@ -3,7 +3,8 @@
 	<h3> On this page </h3>
 	<ul>
         <li><a href="#shipper-hq-object-properties">ShipperHQ object properties</a></li>
-        <li><a href="#control-panel-behavior">Control Panel behavior</a></li>
+        <li><a href="#control-panel-behavior">Control panel behavior</a></li>
+
         <li><a href="#add-shipperhq-metafield">Add ShipperHQ metafield</a></li>
 	</ul>
 </div>
