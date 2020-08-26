@@ -40,7 +40,8 @@ These field values can be set in the Control Panel by the merchant as well as us
     
 <!-- theme: warning -->
 ### Entering metafield data
-> You must enter the metafields exactly, otherwise, they will not work. Since metafields can store information against a product, if the <code>namespace</code> for example is set to shipping and not <code>shipping.shipperhq</code>, it will not update the shipping information.
+> You must enter the metafields exactly, otherwise, they will not work. Since metafields can store information against a product, if the `namespace` for example is set to shipping and not `shipping.shipperhq`, it will not update the shipping information.
+
 
 </div>
 </div>
