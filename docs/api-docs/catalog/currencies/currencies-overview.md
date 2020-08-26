@@ -51,7 +51,7 @@ In BigCommerce, there are two types of currency that can be set up: a **display 
 
 Before setting up multiple currencies on a store, ensure your store is using the following:
 * A [Stencil theme](https://developer.bigcommerce.com/stencil-docs/getting-started/about-stencil).
-* Your store must be using the [Optimized One-Page Checkout](https://support.bigcommerce.com/s/article/Optimized-Single-Page-Checkout) type.
+* The [Optimized One-Page Checkout](https://support.bigcommerce.com/s/article/Optimized-Single-Page-Checkout) type.
 * Your store must have a [multi-currency compatible payment gateway](https://support.bigcommerce.com/s/article/Managing-Currencies) setup and enabled. (Your store's default currency can use any gateway).
 
 Additionally, review the [Currency API reference](https://developer.bigcommerce.com/api-reference/store-management/currency-api) to get aquainted with the endpoints and resources related to configuring multiple currencies.
