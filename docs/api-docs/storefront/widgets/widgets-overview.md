@@ -37,7 +37,7 @@ Most themes in the BigCommerce marketplace come with predefined regions. It is b
 
 ## Widget templates
 
-[Widget templates](/api-reference/storefront/widgets-api/widget-template/getwidgettemplates) are Handlebars-enabled HTML templates which define the structure of the widget on a page. Widget templates can use the built in handlebar helpers such as {{if}} and {{each}}. Using the helpers allows for conditional logic to be built into the Widget templates. Widget templates can be reused to build multiple widgets.
+[Widget templates](/api-reference/storefront/widgets-api/widget-template/getwidgettemplates) are Handlebars-enabled HTML templates which define the structure of the widget on a page. Widget templates can use the built-in Handlebars helpers such as {{if}} and {{each}}. Using the helpers allows for conditional logic to be built into the Widget templates. Widget templates can be reused to build multiple widgets.
 
 ### Widget template examples
 
