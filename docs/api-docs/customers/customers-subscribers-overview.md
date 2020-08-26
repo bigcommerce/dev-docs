@@ -126,7 +126,8 @@ The V2 Customers API is comprised of customers, customer addresses and customer 
 
 ### Making requests
 
-The new customers API is easier to use. It reduces the API calls needed to accomplish a task. For example, when creating a new customer with the V2 API, there was a need to make calls to several endpoints. Now customer attributes and address are created in one step, allowing you to batch create multiple customers — and their subresources — in a single API call.
+The V3 Customers API is easier to use. It reduces the API calls needed to accomplish a task. For example, when creating a new customer with the V2 API, there was a need to make calls to several endpoints. Now customer attributes and address are created in one step, allowing you to batch create multiple customers — and their subresources — in a single API call.
+
 
 **Create a customer**
 
