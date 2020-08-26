@@ -131,7 +131,8 @@ lineNumbers: true
 
 Under `discount_rules` the `type` is set to `price_list` and the `price_list_id` is 1. Which is the id of the price list the group has been assigned to.
 
-## Price List assignments
+## Price list assignments
+
 Price List assignment assigns a Price List to a specific sales Channel. This association lets you define custom pricing for shoppers only on a specific external site or platform. Price List assignments combined with a Customer Group assignment allows you to target specifically more logged in customers shopping on that channel.
 
 
