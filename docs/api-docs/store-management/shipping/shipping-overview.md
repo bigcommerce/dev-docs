@@ -6,7 +6,8 @@
 - [Order shipping addresses](#shipping_order-shipping-addresses)
 - [Shipping zone and shipping methods](#shipping-zone-and-shipping-methods)
 
-- [Real-time carriers](#shipping_real-time-carriers)
+- [Real-time carriers](#real-time-carriers)
+
 - [Resources](#resources)
     	
 </div>
