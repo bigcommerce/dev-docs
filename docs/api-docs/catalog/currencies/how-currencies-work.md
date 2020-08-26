@@ -290,7 +290,7 @@ To change the transactional currency of their cart, the shopper will need to emp
 * `currency_code` - The display currency used to present prices to the shopper on the storefront.
 * `currency_exchange_rate` - The exchange between the store's default currency and the display currency; when you create the order via server-to-server endpoints, the value is always `1`; only in the storefront can this value differ from `1`.
 * The following additional fields are returned on orders when multi-currency is enabled:
-  * `store_default_currency_code` - the store's default currency.
+  * `store_default_currency_code` - The store's default currency.
   * `store_default_to_transactional_exchange_rate` - the exchange rate between the store's default currency and the transactional currency used in the order.
 
 **Example:**
