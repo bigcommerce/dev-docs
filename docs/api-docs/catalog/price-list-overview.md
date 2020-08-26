@@ -57,7 +57,8 @@ subtitle: ""
 lineNumbers: true
 -->
 
-**Example get all Price Lists**
+**Example Get All Price Lists**
+
 `/GET https://api.bigcommerce.com/stores/{store_hash}/v3/pricelists`
 
 ```json
