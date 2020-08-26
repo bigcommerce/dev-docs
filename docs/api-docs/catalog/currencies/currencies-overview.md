@@ -76,7 +76,7 @@ Additionally, review the [Currency API reference](https://developer.bigcommerce.
 Transactional currencies can't be created via API, so they'll need to be added via the control panel. To do so:
 
 1. Navigate to **Store Setup > Currencies**, then select **Add a Currency...**
-2. Select the currency code that corresponds to the currency you want to set up, then click Next.
+2. Select the currency code that corresponds to the currency you want to set up, then click **Next**.
 3. Configure the currency’s display and transactional settings.
 4. Click **Save**.
 
