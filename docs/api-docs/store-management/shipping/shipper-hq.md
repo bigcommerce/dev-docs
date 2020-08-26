@@ -31,7 +31,8 @@ These field values can be set in the Control Panel by the merchant as well as us
 | description | string | ShipperHQ shipping origins associated with this product/sku. (**read-only**) |
 | date_created | string | Date and time of the metafield's creation. (**read-only**) |
 | date_modified | string | Date and time when the metafield was last updated. (**read-only**) |
-| id | number | ID of the Metafield. (**read-only**) |
+| id | number | ID of the metafield. (**read-only**) |
+
 
 <div class="HubBlock--callout">
 <div class="CalloutBlock--warning">
