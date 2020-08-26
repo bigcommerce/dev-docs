@@ -44,8 +44,7 @@ Customer groups allow you to organize your customers, give them discounts, and r
     
 <!-- theme:  -->
 ### Customer groups by plan
-> Customer groups are only available on specific plans. To learn more, see [BigCommerce Pricing](https://support.bigcommerce.com/s/article/Pricing).
-
+> Customer groups are only available on specific plans. See [BigCommerce Pricing](https://support.bigcommerce.com/s/article/Pricing) to learn more.
 
 </div>
 </div>
@@ -90,9 +89,9 @@ There are two Customer API endpoints available:
 
 The [V3 Customers API](https://developer.bigcommerce.com/api-reference/customer-subscribers/v3-customers-api) is comprised of customers, customer attributes, customer address, and customer form fields. 
 
-Customers are shoppers that have created an account on the store. The customers object comprises a customers address, attributes, form fields and authentication. The V3 Customers API can accomplish the same tasks as the existing V2 Customers API, with greater efficiency. 
+Customers are shoppers that create an account on a store. The customers object comprises a customer's address, attributes, form fields and authentication. The V3 Customers API can accomplish the same tasks as the existing V2 Customers API, with greater efficiency. 
 
-[Customer Attributes](https://developer.bigcommerce.com/api-reference/customer-subscribers/v3-customers-api/models/customerattribute) are a name and value key pair that are stored against a customer. For example, if you want to keep a list of hat sizes, the name can be “Hat Sizes” and the value can be `10`. Each customer can have several name, value pairs stored.
+[Customer Attributes](https://developer.bigcommerce.com/api-reference/customer-subscribers/v3-customers-api/models/customerattribute) and [Customer Attribute Values](https://developer.bigcommerce.com/api-reference/store-management/customers-v3/customer-attribute-values/) let you store additional information against a customer. Customer Attributes define a the name of a key/value pair and the type of information stored (i.e. "name": "Shoe size", "type": "number"). The Customer Attribute Values endpoint lets you define the values for the attributes.
 
 <div class="HubBlock--callout">
 <div class="CalloutBlock--info">
@@ -101,7 +100,7 @@ Customers are shoppers that have created an account on the store. The customers 
 <!-- theme:  -->
 
 ### Name value pairs
-> Each customer can have up to `50` name, value pairs stored
+> Each customer can have up to 50 name, value pairs stored.
 
 </div>
 </div>
