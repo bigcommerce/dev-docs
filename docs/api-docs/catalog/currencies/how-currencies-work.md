@@ -335,7 +335,7 @@ You can create cart level discounts in your currency of choice. The shopper must
 
 **Details:**
 * **Product Level Fixed Shipping** - Shipping is set at the product level in the store's default currency. During checkout, BigCommerce converts shipping costs using the store's exchange rate and displays that value to the shopper.  
-* **Flat Rate Shipping** - flat rate shipping is converted based on the store's currency. 
+* **Flat Rate Shipping** - Flat rate shipping is converted based on the store's currency. 
 * **Shipping Carriers** - The currency is sent to the carrier and, depending on the carrier, quotes are returned in the store's transactional currency. If the shipping carrier can not return in the transactional currency, the store will convert it using the transactional currency exchange rate set by the merchant. If you've set the checkout to be viewed in a display currency, the store will convert it to the transactional currency for payment. Shipping providers that support multiple currencies can supply quotes straight in shopper's transactional currency, so no currency conversion needed. ShipperHQ does not support multiple currencies.
 
 ## Refunds
