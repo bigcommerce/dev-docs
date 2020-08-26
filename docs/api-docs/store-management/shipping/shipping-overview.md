@@ -36,7 +36,8 @@ The [Order Shipping Addresses](https://developer.bigcommerce.com/api-reference/o
 
 ## Shipping zone and shipping methods
 
-You can configure [shipping zones](https://developer.bigcommerce.com/api-reference/store-management/shipping-api/shipping-zones) in the control panel or use the API to designate where a merchant ships their products and which [shipping methods](https://developer.bigcommerce.com/api-reference/store-management/shipping-api/shipping-method) should be available in each geographic region.
+You can configure [shipping zones](https://developer.bigcommerce.com/api-reference/store-management/shipping-api/shipping-zones) in the control panel or use the API to designate where a merchant ships their products and with which [shipping methods](https://developer.bigcommerce.com/api-reference/store-management/shipping-api/shipping-method) should be available in each geographic region.
+
 
 
 An example of a shipping zone might be North America, and within that shipping zone, the shipping methods might be Free Shipping, Ship-by-Weight, and USPS.
