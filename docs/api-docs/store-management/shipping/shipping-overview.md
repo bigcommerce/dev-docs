@@ -40,7 +40,8 @@ You can configure [shipping zones](https://developer.bigcommerce.com/api-referen
 
 
 
-An example of a shipping zone might be North America, and within that shipping zone, the shipping methods might be Free Shipping, Ship-by-Weight, and USPS.
+An example of a shipping zone might be North America. Within that shipping zone, the shipping methods might be Free Shipping, Ship-by-Weight, and USPS.
+
 
 ## Real-time carriers
 
