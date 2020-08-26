@@ -22,10 +22,11 @@ Manual orders require the use of the Orders API. If you are using the Server-to-
 
 A sample order workflow might include:
 * Creating the order for either an existing customer or guest
-* Taking payment using either the Control Panel or third party payment solutions
+* Taking payment using either the Control Panel or third-party payment solutions
 * Creating a shipment for the order to generate an order confirmation email and mark it as shipped
 
 ### Prerequisites:
+
 **BigCommerce Store**
 
 An active BigCommerce store with a sellable [product](/api-reference/catalog/catalog-api/products/createproduct).
@@ -225,15 +226,15 @@ This is an abbreviated request.
 
 If the price is not specified, it will automatically pick up the store’s product catalog price. However, you can override this price with `price_inc_tax` and `price_ex_tax`.
 
-If you specify `price_inc_tax` or `price_ex_tax`, you will also update the order products base_price according to the store settings but will not change any variant pricing. For example, if you set the store to display prices with tax included, then the `base_price` will be `price_inc_tax`.
+If you specify `price_inc_tax` or `price_ex_tax`, it will automatically update the order products base_price according to the store settings, but will not change any variant pricing. For example, if you set the store to display prices with tax included, then the `base_price` will be `price_inc_tax`.
 
 **Stock**
 
-For products that you configured to track stock, the quantity specified on the order will reduce the stock on hand. When there is not enough inventory to fulfill the order, an “out of stock” error code displays.
+For products that you configured to track stock, the quantity specified on the order will reduce the stock on hand. When there is not enough inventory to fulfill the order, the rejected order generates an "out of stock" error code.
 
 **Min and max quantities**
 
-For products that have min and max quantities specified in their settings, the API will honor them and reject orders appropriately.
+For products with min and max quantities specified in their settings, the API will honor these and reject orders appropriately.
 
 **Options**
 
@@ -265,7 +266,7 @@ subtitle: "This is an abbreviated request"
 lineNumbers: true
 -->
 
-**Example Add billing address**
+**Example add billing address**
 
 This is an abbreviated request.
 
@@ -351,7 +352,7 @@ Below are fields that are recommended but not required when creating an order.
 
 **Customer ID**
 
-The customer_id will determine the price the shopper pays for an item. Customer ID’s are tied to customer group discounts and Price Lists. Set the `customer_id` to 0 when creating a guest order.
+The customer_id will determine the price the shopper pays for an item. Links exists between customer IDs, customer group discounts, and price lists. Set the `customer_id` to 0 when creating a guest order.
 
 **Shipping address**
 
@@ -363,7 +364,7 @@ If a status is not provided, it defaults to a status of 1 or Pending.
 
 **Discounts**
 
-Manual discounts are supported. To add a manual discount either overwrite the product price or use `discount_amount`. This accepts a fixed dollar amount.
+Manual discounts are supported. To add a manual discount, either overwrite the product price or use the `discount_amount`. The `discount_amount` accepts a fixed dollar amount.
 
 ### Create order example
 
@@ -440,7 +441,7 @@ lineNumbers: true
 
 ## Order response
 
-The response will have abbreviated order contents with sub-resources available to get the full order information. The order is automatically set to a status of 1 or Pending. It also returns an ID which is the order ID.
+The response will have abbreviated order contents with sub-resources available to get the full order information. By default, the status of an order is 1 or Pending. It also returns an ID, which is the order ID.
 
 In the example below, the order ID is 193.
 * The order products sub-resource will list the products added.
@@ -453,7 +454,7 @@ In the example below, the order ID is 193.
 
 <!-- theme:  -->
 ### Coupons
-> Coupons can not be added to an order via API. Use the `discount_amount` instead.
+> You can not add coupons to an order via API. Use the `discount_amount` instead.
 
 </div>
 </div>
@@ -560,7 +561,7 @@ lineNumbers: true
 ```
 
 ## Shipping an order
-We will go over creating a shipment for an order, shipping quotes, shipping carriers, and shipping to multiple locations.
+We will create a shipment for an order, shipping quotes, shipping carriers, and shipping to multiple locations.
 
 ### Create an order shipment
 
@@ -570,15 +571,15 @@ We will go over creating a shipment for an order, shipping quotes, shipping carr
 
 Once an order has products, a billing address, and at least one shipping address, you can create an order shipment. Order shipments are a way to mark an order as shipped with the shipping information. You can create multiple shipments for an order by specifying a subset of products or product quantities in each POST request.
 
-To get the `order_address_id`  use the ID returned in [Order Shipping Address](https://developer.bigcommerce.com/api-reference/orders/orders-api/order-shipping-addresses/getallshippingaddresses).
+To get the `order_address_id`  use, the ID returned in [Order Shipping Address](https://developer.bigcommerce.com/api-reference/orders/orders-api/order-shipping-addresses/getallshippingaddresses).
 
 The items array requires the product quantity and `order_product_id`. The `order_product_id` is the ID returned from [Order Products](https://developer.bigcommerce.com/api-reference/orders/orders-api/order-products/getanorderproduct).
 
-There does not need to be a shipping provider. If the shipping provider is not sent in at all, it will default to custom and a tracking link is not generated. To have the tracking link generated without a shipping provider, provide an empty string. To add a shipping provider, see the available options on [Order Shipment](https://developer.bigcommerce.com/api-reference/orders/orders-api/order-shipments/getallordershipments).
+There does not need to be a shipping provider. If you do not specify the shipping provider, it will default to custom without generating a tracking link. To have the tracking link generated without a shipping provider, provide an empty string. To add a shipping provider, see the available options on [Order Shipment](https://developer.bigcommerce.com/api-reference/orders/orders-api/order-shipments/getallordershipments).
 
-Once the order shipment is created, it will automatically send out an email to the billing address with the shipment confirmation. To stop this behavior adjust the [Order Notification](https://support.bigcommerce.com/s/article/Customer-Order-Notifications#enable) settings in the Control Panel.
+You will automatically receive an email to the billing address with the shipment confirmation once the order shipment is complete. To stop this behavior, adjust the [Order Notification](https://support.bigcommerce.com/s/article/Customer-Order-Notifications#enable) settings in the Control Panel.
 
-If the order shipment is deleted, the status of the shipment is still in shipped. The status will need to be [manually changed](https://developer.bigcommerce.com/api-reference/orders/orders-api/order-status/getaorderstatus).
+If you delete the order shipment, the status of the shipment is still shipped. The status will need to be [manually changed](https://developer.bigcommerce.com/api-reference/orders/orders-api/order-status/getaorderstatus).
 
 <br>
 
@@ -679,9 +680,9 @@ lineNumbers: true
 
 ### Multiple locations
 
-Orders can have multiple shipment locations. There needs to be more than one product or quantity of a product and more than one shipping addresses. A shipping address can be added either during the create or using an update.
+Orders can have multiple shipment locations. There needs to be more than one product or quantity of a product and more than one shipping address. You can add a shipping address either during the creation or update of an order.
 
-To ship to multiple locations create an order shipment for each location and items. Only one POST request per shipment.
+To ship to multiple locations, create an order shipment for each location and item. You can only make one POST request per shipment.
 
 <div class="HubBlock--callout">
 <div class="CalloutBlock--info">
@@ -696,7 +697,7 @@ To ship to multiple locations create an order shipment for each location and ite
 </div>
 
 ### Custom quotes
-An order can be created with a `shipping_cost_ex_tax` and `shipping_cost_inc_tax`. This is a way to add a custom shipping amount to an order. This can be added when creating or updating an order.
+You can create an order with `shipping_cost_ex_tax` and `shipping_cost_inc_tax`. Also, you can use these values to add a custom shipping amount to an order during creation or to update an order. 
 
 <div class="HubBlock--callout">
 <div class="CalloutBlock--info">
@@ -704,14 +705,14 @@ An order can be created with a `shipping_cost_ex_tax` and `shipping_cost_inc_tax
 
 <!-- theme:  -->
 ### Shipping cost
-> Both `shipping_cost_ex_tax` and `shipping_cost_inc_tax` must be included otherwise, the final order amount will not be calculated correctly.
+> You must include both `shipping_cost_ex_tax` and `shipping_cost_inc_tax`; otherwise, the final order amount will not calculate correctly.
 
 </div>
 </div>
 </div>
 
 ### Shipping carrier
-Generating a quote through a shipping carrier is currently not supported. A shipping carrier can be specified when creating an Order Shipment. The quote can be generate elsewhere, then update the `shipping_cost_ex_tax` and `shipping_cost_inc_tax` for the order total to be correct..
+Generating a quote through a shipping carrier is currently not supported. You can specify a shipping carrier when creating an order shipment. You can generate the quote elsewhere, then update the `shipping_cost_ex_tax` and `shipping_cost_inc_tax` for the order total to be correct.
 
 ## Taxes
 Tax will be calculated based on the tax rules specified in the store, except in the case of automatic taxes. However, in both cases, you can optionally override the tax values by specifying `price_inc_tax` and `price_ex_tax`.
@@ -719,13 +720,13 @@ Tax will be calculated based on the tax rules specified in the store, except in 
 If a store has automatic tax enabled, BigCommerce does not compute sales tax on orders created via the API.
 
 ### Avalara
-When the store is subscribed to Avalara Premium, a value of API Tax Override is written to the Order Tax object’s name field.
+When the store subscribes to Avalara Premium, the Order Tax object’s name field receives the API Tax Override value.
 
 Abbreviated state names in shipping and billing addresses will prevent tax documents from being submitted to Avalara. To ensure successful Avalara tax-document submission, spell state names out in full. For example, supplying CA as a state name leads to no tax-document submission. Supplying California as a state name leads to a successful submission.
 
 POST or PUT orders on stores with Avalara Premium cause tax documents to be submitted. If a store has subscribed to Avalara Premium, BigCommerce automatically submits tax documents to Avalara when the order achieves a paid status. See Order Status below for a list of paid statuses.
 
-You can create overrides for calculated values such as product prices, subtotal and totals by sending a fixed value in the request. If values are not supplied for these properties, they will be automatically calculated based on the preset store values and tax rules.
+You can create overrides for calculated values such as product prices, subtotals, and totals by sending a fixed value in the request. If you do not supply values for these properties, they will be automatically calculated based on the preset store values and tax rules.
 
 | Existing Status | Status Passed | Resultant Status | Avalara Tax Document Submission |
 | - | - | - | - |
@@ -739,9 +740,9 @@ You can create overrides for calculated values such as product prices, subtotal 
 You can create overrides for calculated values such as product prices, subtotal and totals by sending a fixed value in the request. If values are not supplied for these properties, they will be automatically calculated based on the preset store values and tax rules.
 
 ## Calculation of totals
-When not specified, order subtotal, and total are automatically calculated.
+Automatic calculations for order subtotal and total occur when they are not specified.
 
-You can override order subtotal and/or total. If you choose to override one, we strongly recommend that override both, because the system will not be able to accurately calculate the other.
+You can override order subtotal and/or total. If you choose to override one, we strongly recommend that you override both, because the system will not accurately calculate the other.
 
 Edits to the following properties will trigger a recalculation of the subtotal and total:
 
@@ -757,9 +758,9 @@ Edits to the following properties will trigger a recalculation of the subtotal a
 *   shipping_addresses
 
 ## Order status
-When moving through order management, the order status is not automatically updated. This needs to be changed as needed.
+When moving through order management, the order status is not automatically updated. However, you can change this behavior as needed.
 
-You can specify `status_id`, which will automatically set the corresponding status. When `status_id` is not specified, it will be automatically set to 1, which will set status to Pending.
+You can specify `status_id`, which will automatically set the corresponding status. When `status_id` is not specified, the automatic value is 1 and the status is Pending.
 
 The following statuses are of the paid type:
 * Shipped
@@ -769,17 +770,17 @@ The following statuses are of the paid type:
 * Completed
 * Awaiting Fulfillment
 
-BigCommerce considers all statuses other than those above to be of the unpaid type, except Refunded, which is considered neither paid or unpaid.
+BigCommerce considers all statuses other than those above to be of the unpaid type, except Refunded, which is neither paid nor unpaid.
 
-### Custom Order Status
+### Custom order status
 
-The order status label can be changed in the Control Panel. This **does not** change the underlying functionality. See our support article on [Order Status](https://support.bigcommerce.com/s/article/Order-Statuses#rename).
+You can change the order status label in the control panel. This **does not** change the underlying functionality. See our support article on [Order Status](https://support.bigcommerce.com/s/article/Order-Statuses#rename).
 
 ## FAQ
 
 **Is adding coupons available?**
 
-Coupon redemption is not currently supported. The `coupon_discount` field can not be written to. A discount can be added to the order by using the `discount_amount`.
+Coupon redemption is unavailable. You can not write to the `coupon_discount` field. You can add a discount to the order by using the `discount_amount`.
 
 **How do I create an order for a guest?**
 
@@ -787,29 +788,29 @@ To specify a guest checkout, set `customer_id` to 0.
 
 **How do I set the order source?**
 
-The `order_source` cannot be specified, and will be set to external. You can optionally specify a value for `external_source` to specify which external source the order is coming from - e.g., POS system X, accounting system Y, etc.
+You cannot specify the `order_source`; its value is external. You can optionally specify a value for `external_source` to define which external source the order is coming from - e.g., POS system X, accounting system Y, etc.
 
 **Can I create an order with only custom products?**
 
-Yes, the products are not added to the store's catalog.
+Yes, the store's catalog does not include products.
 
 **What is the difference between country_ISO2 and country?**
 
-In the shipping and billing addresses, there is no requirement to specify country when `country_ISO2` is specified and vice versa.
+There is no requirement to specify country when `country_ISO2` is specified in the shipping and billing addresses and vice versa.
 
-**How can I take a payment for an Order?**
+**How can I take a payment for an order?**
 
-You can either process payment through a third party or using the Control Panel.
+You can either process payment through a third party or using the control panel.
 
 **Can I generate a shipping quote from a carrier using the API?**
 
-Not at this time. If an order is created either in the Control Panel or via API, then it returns a 204 when trying to get a Shipping Quote.
+Not at this time. If an order is created either in the control panel or via API, it returns a 204 when trying to get a Shipping Quote.
 
 ## Resources
 ### Webhooks
 - [Orders](/api-docs/getting-started/webhooks/webhook-events#webhook-events_orders)
 
-### Related Endpoints
+### Related endpoints
 - [Orders](https://developer.bigcommerce.com/api-reference/orders/orders-api/orders/)
 - [Order Shipments](/api-reference/orders/orders-api/order-shipments/createordershipments)
 - [Order Status](/api-reference/orders/orders-api/order-status/getaorderstatus)
@@ -818,6 +819,6 @@ Not at this time. If an order is created either in the Control Panel or via API,
 - [Order Shipping Address](/api-reference/orders/orders-api/order-shipping-addresses/getashippingaddress)
 - [Order Coupons](/api-reference/orders/orders-api/order-coupons/getallordercoupons)
 
-### Related Articles
+### Related articles
 - [Order Status](https://support.bigcommerce.com/s/article/Order-Statuses#rename) (BigCommerce Support)
 - [Order Notifications](https://support.bigcommerce.com/s/article/Customer-Order-Notifications#enable) (BigCommerce Support)
