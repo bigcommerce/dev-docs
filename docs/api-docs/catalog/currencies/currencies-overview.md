@@ -108,7 +108,7 @@ For details on how currencies are surfaced throughout BigCommerce APIs, user int
 
 <a id="supported-and-unsupported-features"></a>
 
-See the table below for a list of supported and un-supported features.
+See the table below for a list of supported and unsupported features.
 
 | Supported                                    | Not Supported                                  |
 |----------------------------------------------|------------------------------------------------|
