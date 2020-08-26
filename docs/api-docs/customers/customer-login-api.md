@@ -194,7 +194,7 @@ You should receive a complete access point URL as an output.
 
 8. Copy the URL and paste it into the address bar of your browser. 
 
-You will be logged in as a customer and directed to `/account.php` if the request was successful. If it was unsuccessful, a login attempt error message will be displayed and you will be directed to `/login.php`. For common causes of login failure, see [Troubleshooting](#troubleshooting).
+If the request was successful, you will be logged in as a customer and directed to `/account.php`. If it was unsuccessful, you will receive a login attempt error message and be directed to `/login.php`. For common causes of login failure, see [Troubleshooting](#troubleshooting).
 
 ### Sample code
 
