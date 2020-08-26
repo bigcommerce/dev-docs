@@ -164,7 +164,7 @@ The example above uses `list_items_two`, on line four, in the configuration whic
 ## Placements
 
 [Placements](/api-reference/storefront/widgets-api/placement/createplacement) determine the region where the widget is placed and in what order. The order of the placement is controlled by the `sort_order` when creating the placement.
-A placement must be created in order to use a Widget on the storefront.
+A placement must be created in order to use a widget on the storefront.
 
 Placements can be used with `sort_order` and region to determine placement in a theme.
 
