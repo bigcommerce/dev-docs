@@ -4,7 +4,6 @@
 	<ul>
         <li><a href="#shipper-hq-object-properties">ShipperHQ object properties</a></li>
         <li><a href="#control-panel-behavior">Control panel behavior</a></li>
-
         <li><a href="#add-shipperhq-metafield">Add ShipperHQ metafield</a></li>
 	</ul>
 </div>
@@ -20,18 +19,18 @@ These field values can be set in the Control Panel by the merchant as well as us
 
 ## ShipperHQ object properties
 
-| Property | Type | Values |
-|-|-|-|
-| permission_set | string | This must be set to `write`. Setting to any other field will cause unintended behavior. (**required**) |
-| key | enum | Members: `shipping-groups`, `shipping-origins`, `shipping-dimensional-rules`. (**required**) |
-| value | JSON encoded string | This will be the name of the attribute type in ShipperHQ. Input the name exactly how it is listed within ShipperHQ. To pass in more than one Shipping Origin, Origin Location or Dimensional Rule, use an array with a comma-separated list. White spaces and special characters need to be escaped. Must be a JSON encoded string `"[\"Origin Name from SHQ-1\",\" Origin Name from SHQ-2\"]"`. (**required**) |
-| namespace | string | This will always be `shipping.shipperhq`. (**required**) |
-| resource_type | string | Either `product` or `variant`.(**read-only**)|
-| resource_id | string | ID of the `product` or `variant`. (**read-only**) |
-| description | string | ShipperHQ shipping origins associated with this product/sku. (**read-only**) |
-| date_created | string | Date and time of the metafield's creation. (**read-only**) |
-| date_modified | string | Date and time when the metafield was last updated. (**read-only**) |
-| id | number | ID of the metafield. (**read-only**) |
+| Property | Type | Values | Access
+|-|-|-|:--|
+| permission_set | string | This must be set to `write`. Setting to any other field will cause unintended behavior. | required |
+| key | enum | Members: `shipping-groups`, `shipping-origins`, `shipping-dimensional-rules`. | required |
+| value | JSON encoded string | This will be the name of the attribute type in ShipperHQ. Input the name exactly how it is listed within ShipperHQ. To pass in more than one Shipping Origin, Origin Location or Dimensional Rule, use an array with a comma-separated list. White spaces and special characters need to be escaped. Must be a JSON encoded string `"[\"Origin Name from SHQ-1\",\" Origin Name from SHQ-2\"]"`. | required |
+| namespace | string | This will always be `shipping.shipperhq`. | required |
+| resource_type | string | Either `product` or `variant`. | read only |
+| resource_id | string | ID of the `product` or `variant`. | read only |
+| description | string | ShipperHQ shipping origins associated with this product/sku. | read only |
+| date_created | string | Date and time of the metafield's creation. | read only |
+| date_modified | string | Date and time when the metafield was last updated. | read only |
+| id | number | ID of the metafield. | read only |
 
 
 <div class="HubBlock--callout">
@@ -61,7 +60,6 @@ lineNumbers: true
 -->
 
 To add a ShipperHQ metafield, set the `namespace` field to `shipping.shipperhq`: 
-`/POST https://api.bigcommerce.com/stores/{{store_hash}}/v3/catalog/products/{{product_id}}/metafields`
 
 ```json
 {
@@ -79,8 +77,6 @@ lineNumbers: true
 -->
 
 Response: 
-
-`200 /POST https://api.bigcommerce.com/stores/{{store_hash}}/v3/catalog/products/{{product_id}}/metafields`
 
 ```json
 {
