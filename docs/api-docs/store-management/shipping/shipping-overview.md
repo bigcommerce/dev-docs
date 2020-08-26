@@ -4,7 +4,8 @@
 ### On this page 
 - [Storefront Checkout and Server to Server Checkout](#shipping_storefront-server-checkout)
 - [Order shipping addresses](#shipping_order-shipping-addresses)
-- [Shipping zone and shipping methods](#shipping_shipping-zone-methods)
+- [Shipping zone and shipping methods](#shipping-zone-and-shipping-methods)
+
 - [Real-time carriers](#shipping_real-time-carriers)
 - [Resources](#resources)
     	
