@@ -1,17 +1,17 @@
-# Modifying Login Form
+# Modify the Login Form
 <div class="otp" id="no-index">
 
-### On This Page
-- [Modifying The Template](#modifying-the-template)
+### On this page
+- [Modifying the template](#modifying-the-template)
 </div>
 
-## Modifying The Template
+## Modifying the template
 You can customize the login experience by modifying the theme's `templates/pages/auth/login.html` file.
 
-### Changing Default Text
-Here is an example of some of the default text you can change in the Login page template:
+### Changing default text
+Here is an example of the default text you can change in the **Login page** template:
 
-![New customer facts](https://github.com/bigcommerce/dev-docs/blob/master/assets/images/new_customer.png)
+![New customer facts](https://raw.githubusercontent.com/bigcommerce/dev-docs/master/assets/images/new_customer.png "New customer facts.")
 
 ```html
 <li class="new-customer-fact">{{lang 'login.new_customer.fact1' }}</li>
@@ -28,12 +28,12 @@ You will find key value pairs for default form text in `/assets/lang/en.json`, a
         }
 ```
 
-### Login Form Redirect
+### Login form redirect
 By default, customers are redirected to `/account.php` upon login, but you have the option to redirect customers to another relative URL. You can do this by passing the parameter `id="redirect_to"` with a `value={path}` on a hidden form field within the `<form>` element in the template. For example:
 
 ```html
 <input type="hidden" id="redirect_to" name="redirect_to" value="/shop-all">
 ```
-When the form is submitted a POST request is sent to BigCommerce to validate the login information. At this point, the customer will be redirected to the page you defined.
+When the form is submitted, a `POST` request is sent to BigCommerce to validate the login information. At this point, the customer will be redirected to the page you defined.
 
 Only relative URLs are supported for security reasons.
