@@ -62,7 +62,8 @@ Additionally, review the [Currency API reference](https://developer.bigcommerce.
 
 <!-- theme: info -->
 
-> Make sure to not change the store’s default currency. This could cause currency to not function properly.
+### Note 
+>Make sure to not change the store’s default currency. This could cause the currency to malfunction.
 
 </div>
 </div>
