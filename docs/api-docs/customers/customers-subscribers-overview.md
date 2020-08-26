@@ -122,7 +122,8 @@ The V2 Customers API is comprised of customers, customer addresses and customer 
 [Customer groups](https://developer.bigcommerce.com/api-reference/customer-subscribers/customers-api/models/customergroup) allow you to organize your customers, give them discounts, and restrict access to specific products or categories. Customer groups are not yet available on the V3 Customers API.
 
 
-## Differences between V2 and V3 customer API
+## Differences between V2 and V3 Customer API
+
 
 ### Making requests
 
