@@ -27,7 +27,8 @@ The [Storefront Checkout](https://developer.bigcommerce.com/api-reference/cart-c
 However, both the Storefront and Server-to-Server Checkout APIs provide methods for creating a consignment that specifies the line items that should ship to a particular address. Creating a consignment corresponds with the actions that a shopper might take when filling out the storefront checkout page and assigning the items in their basket to their respective shipping destinations.
 
 
-A Checkout will always have one Consignment assigned to it, which is the first shipping address. A Consignment supports multiple shipping addresses, with each address having its own line items.
+A checkout will always have one consignment assigned to it, which is the first shipping address. A consignment supports multiple shipping addresses, with each address having its own line items.
+
 
 ## Order shipping addresses
 
