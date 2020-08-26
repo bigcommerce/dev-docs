@@ -142,13 +142,11 @@ See the table below for a list of supported and un-supported features.
 
 **Do Multi-Currency settings work with the Checkout SDK?**
 
-The Checkout SDK works with multi-currency. There is no additional setup needed for the SDK.
-After setting up currency in the Control Panel the SDK will work as normal.
+The Checkout SDK works with multi-currency. There is no additional setup needed for the SDK. After setting up currency in the Control Panel the SDK will work as normal.
 
 **Do my theme customizations work with Multi-Currency Settings?**
 
-If the theme is set up to show the currency on the storefront, there should be no issues. Please see your
-theme developer if that is not the case.
+If the theme is set up to show the currency on the storefront, there should be no issues. Please see your theme developer if that is not the case.
 
 **Can shoppers still select a currency?**
 
@@ -156,8 +154,7 @@ Shoppers will still be able to select their currency of choice on the storefront
 
 **Will my analytics show in the transactional or display currency?**
 
-Analytics shows an approximate price in the store's default currency. This is based on the configured exchange rate. There is no
-abandoned cart analytics or web analytics such as Google Analytics. Currently, it does not break down analytics by currency.
+Analytics shows an approximate price in the store's default currency. This is based on the configured exchange rate. There is no abandoned cart analytics or web analytics such as Google Analytics. Currently, it does not break down analytics by currency.
 
 **How can I setup settlement currencies in Stripe?**
 
