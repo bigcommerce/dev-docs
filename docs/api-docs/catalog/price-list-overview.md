@@ -133,7 +133,8 @@ Under `discount_rules` the `type` is set to `price_list` and the `price_list_id`
 
 ## Price list assignments
 
-Price List assignment assigns a Price List to a specific sales Channel. This association lets you define custom pricing for shoppers only on a specific external site or platform. Price List assignments combined with a Customer Group assignment allows you to target specifically more logged in customers shopping on that channel.
+The price list assignment assigns a price list to a specific sales channel. This association lets you define custom pricing for shoppers only on a specific external site or platform. Price list assignments combined with a customer group assignment allows you to target specifically more logged in customers shopping on that channel.
+
 
 
 See [Channels, Sites, and Routes](https://developer.bigcommerce.com/api-reference/cart-checkout/channels-listings-api) for further documentation.
