@@ -23,7 +23,7 @@ When a user logs into your web app, you can use the Customer Login API to authen
 
 You can use the Customer Login API in the following use cases:
 
-* Integrate with an SSO provider or dentity provider (IdP) 
+* Integrate with an SSO provider or identity provider (IdP) 
 * Set up continuous login between a BigCommerce store and another application
 * Enable alternative login methods (ex. phone number and SMS password)
 
