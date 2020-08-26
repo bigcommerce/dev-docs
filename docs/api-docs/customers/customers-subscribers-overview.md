@@ -44,7 +44,8 @@ Customer groups allow you to organize your customers, give them discounts, and r
     
 <!-- theme:  -->
 ### Customer groups by plan
-> Customer groups are only available on specific plans. See [BigCommerce Pricing](https://support.bigcommerce.com/s/article/Pricing) to learn more.
+> Customer groups are only available on specific plans. To learn more, see [BigCommerce Pricing](https://support.bigcommerce.com/s/article/Pricing).
+
 
 </div>
 </div>
