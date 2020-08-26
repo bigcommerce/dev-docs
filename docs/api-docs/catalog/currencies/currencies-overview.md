@@ -121,7 +121,7 @@ See the table below for a list of supported and unsupported features.
 | Storefront Elasticsearch                     |                                                |
 | Storefront product filtering                 |                                                |
 
-## Multi-Currency definitions
+## Multi-currency definitions
 
 <a id="multi-currency-definitions"></a>
 
