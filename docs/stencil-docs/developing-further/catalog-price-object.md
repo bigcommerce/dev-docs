@@ -85,9 +85,11 @@ lineNumbers: true
 
 In this example:
 
-* `without_tax` - this property maps to the control panel’s **Default Price** field.
-* `rrp_without_tax` - `rrp` stands for "regular retail price." This property maps to the control panel's **MSRP** field.
-* `saved` -  this property is the difference between the existing values for `without_tax` (**Default Price**) and `rrp_without_tax` (**MSRP**).
+| Property | Description |
+| ----------- | ----------- |
+| `without_tax` | This property maps to the control panel’s **Default Price** field.|
+| `rrp_without_tax` | `rrp` stands for "regular retail price." This property maps to the control panel's **MSRP** field.|
+| `saved` | This value is the difference between the existing values for `without_tax` (**Default Price**) and `rrp_without_tax` (**MSRP**).|
 
 ### Sale price defined in control panel
 
@@ -156,8 +158,10 @@ lineNumbers: true
 
 In this example:
 
-* `sale_price_without_tax` - this property maps to the product’s effective price in the control panel's **Sale Price** field. The `sale_price_without_tax` property will directly expose the sale price set on a base product, variant, or price record.
-* `non_sale_price_without_tax` - this property displays the regular store price.
+| Property  | Description |
+| ----------- | ----------- |
+| `sale_price_without_tax` | This property maps to the product’s effective price in the control panel's **Sale Price** field. The `sale_price_without_tax` property will directly expose the sale price set on a base product, variant, or price record.|
+| `non_sale_price_without_tax` | This property displays the regular store price.|
 
 Properties noted will only be displayed if a sale price is set on the product.
 
@@ -189,7 +193,7 @@ lineNumbers: true
 
 ## Catalog price object examples including and excluding tax
 
-Depending on how the store has been set up in the control panel’s **Store Setup** > **Tax** > **Tax Settings** > **Configure Tax Display Settings**, the `price` object will display prices in one of the following ways:
+Depending on the store’s  [**Tax Display Settings**](https://login.bigcommerce.com/deep-links/manage/settings/tax/settings), the `price` object will display prices in one of the following ways:
 
 * **Including tax**
 * **Excluding tax**
@@ -257,8 +261,10 @@ lineNumbers: true
 
 In this example:
 
-* `with_tax` - this property represents the `without_tax` value plus a 10% tax markup.
-* `rrp_with_tax` - this property represents the `rrp_without_tax` value plus a 10% tax markup.
+| Property | Description |
+| ----------- | ----------- |
+| `with_tax` | This property represents the `without_tax` value plus a 10% tax markup.|
+| `rrp_with_tax` | This property represents the `rrp_without_tax` value plus a 10% tax markup.|
 
 <div class="HubBlock--callout">
 <div class="CalloutBlock--warning">
@@ -338,9 +344,12 @@ lineNumbers: true
 
 In this example:
 
-* `non_sale_price_with_tax` and `non_sale_price_without_tax` properties represent the standard store price with and without tax.
-* `sale_price_with_tax` and `sale_price_without_tax` properties represent the product's defined sale price.
-* `saved` - this value is based on the difference between the `with_tax` and `non_sale_price_with_tax` values.
+| Property | Description |
+| ----------- | ----------- |
+| `non_sale_price_with_tax` | This property represents the standard store price with tax.|
+| `non_sale_price_without_tax` | This property represents the standard store price without tax.|
+| `sale_price_with_tax` and `sale_price_without_tax` | These properties represent the product's defined sale price.|
+| `saved` | This value is based on the difference between the `with_tax` and `non_sale_price_with_tax` values.|
 
 ## Control panel quick reference
 
