@@ -151,7 +151,8 @@ Get customer address by name and company on V2
 
 ### Requests
 
-Requests on this endpoint require an array object for all create and update actions.
+`POST` and `PUT` requests on this endpoint require an array object.
+
 
 <!--
 title: "Update a Customer V3"
