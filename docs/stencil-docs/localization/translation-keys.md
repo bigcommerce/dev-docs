@@ -16,7 +16,7 @@
 
 Translation keys exist in JSON files and are invoked based on the user's browser language. With a Stencil theme, you can define multiple translations for each theme based on a predefined schema.
 
-BigCommerce does not provide translations for the theme’s content; however, you have the option of localizing your themes for desired target languages based on the provided schema. Theme developers are not required to localize or translate a theme in order to make it work.
+BigCommerce does not provide translations for the theme’s content. However, you have the option of localizing your themes for desired target languages based on the provided schema. Theme developers are not required to localize or translate a theme in order to make it work.
 
 ## Translating a theme
 
@@ -45,7 +45,7 @@ Within each Stencil theme, a top level `/lang/` subdirectory is reserved for loc
 
 You can localize a theme by providing other appropriate JSON translation files in the `/lang` subdirectory. In these files, you would define key-value pairs corresponding to the text blocks in your theme's templates. 
 
-One JSON file is required for each language that you want to support. (These can include non-U.S. versions of English, each with their own spellings.)
+One JSON file is required for each language that you want to support. These can include non-U.S. versions of English, each with their own spellings.
 
 ## The schema
 
@@ -69,8 +69,8 @@ The JSON translation files are structured as key-value pairs. Here is an example
 
 `"welcome_back": "Welcome back, {name}"`
 
-* `"welcome_back"` - is an arbitrary key name for a welcome message. 
-* `"Welcome back, {name}"` - the value assigned for English-language stores.
+* `"welcome_back"` - An arbitrary key name for a welcome message. 
+* `"Welcome back, {name}"` - The value assigned for English-language stores.
 
 If you design your theme’s storefront pages to refer to this message by its generic key name `"welcome_back"`, they can pass its localized value in other languages, as that value is defined in each language’s JSON file.
 
