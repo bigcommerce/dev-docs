@@ -43,7 +43,7 @@ Most themes in the BigCommerce marketplace come with predefined regions. It is b
 
 **Simple list**
 
-The simple list template creates a list where each item in the list can have a different color. This example uses the [each block helper](https://handlebarsjs.com/api-reference/helpers.html) in Handlebars to loop through each item in the list and display it. The text and color are determined by handlebars placeholders that are set when creating the [widget](/api-reference/storefront/widgets-api/widget/createwidget).
+The simple list template creates a list where each item in the list can have a different color. This example uses the [each block helper](https://handlebarsjs.com/api-reference/helpers.html) in Handlebars to loop through each item in the list and display it. The text and color are determined by Handlebars placeholders that are set when creating the [widget](/api-reference/storefront/widgets-api/widget/createwidget).
 
 The list takes advantage of loops to display each list item on the page.
 
