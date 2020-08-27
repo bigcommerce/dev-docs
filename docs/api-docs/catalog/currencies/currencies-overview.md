@@ -2,9 +2,8 @@
 
 <div class="otp" id="no-index">
 
-
-### On this page
-- [Display vs. Transactional](#display-vs-transactional)
+### On this Page
+- [Display vs. transactional](#display-vs-transactional)
 - [Preconfiguring the store](#preconfiguring-the-store)
 - [Adding a currency](#adding-a-currency)
 - [How currencies work](#how-currencies-work)
