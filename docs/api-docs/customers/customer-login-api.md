@@ -17,7 +17,7 @@ In this tutorial, you will learn how to enable single sign-on for storefront cus
 
 ## Overview
 
-Single sign-on (SSO) is an authentication mechanism that enables users to log into multiple software applications using the same set of credentials that the user enters only once. It eliminates the need to maintain multiple passwords, which streamlines the process of accessing web applications. For more details, see [Single sign-on](https://en.wikipedia.org/wiki/Single_sign-on). 
+Single sign-on (SSO) is an authentication mechanism that enables users to log into multiple software applications using the same set of credentials that the user enters only once. It eliminates the need to maintain multiple passwords, which streamlines the process of accessing web applications. For more details, see [Single Sign-On](https://en.wikipedia.org/wiki/Single_sign-on). 
 
 When a user logs into your web app, you can use the Customer Login API to authenticate the user to your BigCommerce store through SSO.
 
@@ -54,7 +54,7 @@ To enable SSO using the Customer Login API, you will need the following:
 
 If you do not know your client ID and client secret, obtain the credentials by following the steps outlined in [Creating an API Account](https://support.bigcommerce.com/articles/Public/Store-API-Accounts/#creating). 
 
-Be sure to set the Customers Login scope to "login". 
+Be sure to set the Customers Login scope to Login. 
 
 ![Example OAuth Scope](https://storage.googleapis.com/bigcommerce-production-dev-center/images/scopes.png "Example OAuth Scope")
 
@@ -70,7 +70,7 @@ The beginning of this tutorial focuses on manually creating a token using the de
 
 ### Create JWT using the debugger tool
 
-To creat a JWT, you will need to obtain a `customer_id` using the [Customers v3 API](https://developer.bigcommerce.com/api-reference/store-management/customers-v3). 
+To create a JWT, you will need to obtain a `customer_id` using the [Customers v3 API](https://developer.bigcommerce.com/api-reference/store-management/customers-v3). 
 
 1. Send a `GET` request to the [Get All Customers](https://developer.bigcommerce.com/api-reference/store-management/customers-v3/customers/customersget) endpoint. Choose a customer and make note of the `customer_id`. 
 
@@ -127,7 +127,7 @@ For common causes of login failure, see [Troubleshooting](#troubleshooting).
 
 ### Create JWT using a JavaScript function
 
-In this part of the tutorial, we will walk you through creating an access point URL using JavaScript. You will need to have [node.js](https://nodejs.org/en/) installed on your machine to complete this section. 
+In this part of the tutorial, we will walk you through creating an access point URL using JavaScript. You will need [node.js](https://nodejs.org/en/) installed on your machine to complete this section. 
 
 1. Create and open a new folder by running the following commands in your terminal:
 </br>
