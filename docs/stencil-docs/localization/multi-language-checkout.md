@@ -117,7 +117,8 @@ BigCommerce's Optimized One-Page Checkout will currently translate displayed **C
 
 ## Limits on translation
 
-* The translation of your theme's content is limited to the language JSON files in your `lang` subdirectory and the key-value pairs for the parameters (beyond **Country/State**) that you choose to translate. 
+* The translation of your theme's content consists of the language JSON files in your `lang` subdirectory and the key-value pairs for the parameters (beyond **Country/State**) that you choose to translate. 
+
 
 * Stencil's multi-language capabilities are limited to the strings that you specify within the theme. The Stencil framework does not currently translate content rendered from a store's database; for example, products' names.
 
