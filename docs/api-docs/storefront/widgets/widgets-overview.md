@@ -168,7 +168,7 @@ A placement must be created in order to use a widget on the storefront.
 
 Placements can be used with `sort_order` and region to determine placement in a theme.
 
-### Placements `entity_id`
+### Placements entity_id
 
 When creating a placement, there is an option to provide an `entity_id`.
 This is the ID for a specific product, brand, category or page. For example, if a widget needs to be on all product pages, leave `entity_id` blank. If the widget should only appear on a certain product page, then assign `entity_id` the product ID.
