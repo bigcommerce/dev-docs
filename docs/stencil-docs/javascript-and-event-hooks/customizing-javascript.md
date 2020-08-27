@@ -4,7 +4,8 @@
 
 ### On this page
 - [Modifying a page's Javascript](#modifying-a-pages-javascript)
-- [Bringing in handlebars context](#bringing-in-handlebars-context)
+- [Bringing in Handlebars context](#bringing-in-handlebars-context)
+
 - [Installing libraries](#installing-libraries)
 
 </div>
