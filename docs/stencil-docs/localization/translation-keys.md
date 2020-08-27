@@ -65,7 +65,8 @@ For more examples of frequently-used codes, see [ISO 639-2 Codes for the Represe
 
 ## Localization file structure
 
-The JSON translation files are structured as key-value pairs. Here is an example from Cornerstone’s `en.json` file: 
+The JSON translation files consist of key-value pairs. Here is an example from Cornerstone’s `en.json` file: 
+
 
 `"welcome_back": "Welcome back, {name}"`
 
