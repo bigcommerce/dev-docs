@@ -27,7 +27,8 @@ See the article [Customizing Emails](https://developer.bigcommerce.com/stencil-d
 
 ## Merchant printable invoice
 
-The Merchant printable invoice is the invoice that can be printed from the control panel in **Orders** > **View**. Clicking the **...** in the **Action** column will generate a list of options, one option being **Print Invoice**.
+The merchant printable invoice is the invoice that can be printed from the control panel in **Orders** > **View**. Clicking the **...** in the **Action** column will generate a list of options, one option being **Print Invoice**.
+
 
 ![Print Order Invoice](https://raw.githubusercontent.com/bigcommerce/dev-docs/master/assets/images/customizing_invoice_print_order_invoice.png "Order Invoice")
 
