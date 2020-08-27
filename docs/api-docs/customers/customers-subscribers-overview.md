@@ -152,7 +152,8 @@ Get customer address by name and company on V3:
 
 `/customers/addresses?company:in=bigcommerce,commongood&customer_id:in1,2,3`
 
-Get customer address by name and company on V2
+Get customer address by name and company on V2:
+
 `/customers/{customer_id}/addresses/{customer_address_id}`
 
 ### Requests
