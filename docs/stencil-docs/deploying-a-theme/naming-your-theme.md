@@ -42,7 +42,8 @@ lineNumbers: true
 }
 ```
 
-The following example shows how to change Cornerstone's configurations to reflect your own theme’s name, version number, price on Theme Marketplace, and documentation URL:
+The following example shows how to change Cornerstone's configurations to reflect your own theme's name, version number, price on Theme Marketplace, and documentation URL:
+
 
 <div class="HubBlock-header">
     <div class="HubBlock-header-title flex items-center">
