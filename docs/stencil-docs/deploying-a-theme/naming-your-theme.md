@@ -71,7 +71,8 @@ lineNumbers: true
 
 ## Creating and naming a new theme variation
 
-You define variations in your theme's `config.json` file. Below is the Cornerstone Light variation’s definition from Cornerstone's `config.json`:
+You define variations in your theme's `config.json` file. Below is the Cornerstone Light variation's definition from Cornerstone's `config.json`:
+
 
 <div class="HubBlock-header">
     <div class="HubBlock-header-title flex items-center">
