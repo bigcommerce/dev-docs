@@ -13,7 +13,8 @@
 
 ## Where merchants see your theme's thumbnail images
 
-A complete Stencil theme includes screenshots to show off the theme on cards that appear in two locations within the BigCommerce Control Panel.
+A complete Stencil theme includes screenshots to display the theme on cards that appear in two locations within the BigCommerce control panel:
+
 
 * **Storefront** › **My Themes**: Each individual card displays a composite which is an image that contains combination of screenshots of the theme's multiple variations.
 * **Storefront** › **Themes Marketplace**: Each card displays one variation of your theme. The three variations of Cornerstone (Light, Warm, and Bold) are displayed across three separate cards.
