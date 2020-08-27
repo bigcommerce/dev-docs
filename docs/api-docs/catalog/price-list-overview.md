@@ -11,7 +11,8 @@
        
 </div>
 
-## What is a Price List?
+## What is a price list?
+
 
 A Price List allows you to populate different versions of catalog pricing and assign them to different [Customer Groups](/api-reference/customer-subscribers/customers-api). The prices are specified exclusively at the variant level.
 
