@@ -167,7 +167,8 @@ subtitle: "/customer"
 lineNumbers: true
 -->
 
-**Example update a customer V3**  
+**Example Update a Customer (V3)**  
+
 `/PUT https://api.bigcommerce.com/stores/{store_hash}/v3/customers`
 
 ```json
