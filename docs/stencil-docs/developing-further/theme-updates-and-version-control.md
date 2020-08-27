@@ -14,7 +14,8 @@ When developing BigCommerce themes, there are a few steps you can take to ensure
 
 ## Version control
 
-A typical setup might include a base theme, with several custom themes branching from the base theme. The custom theme(s) will need to be kept up to date with any major changes while maintaining it's own customizations. Version control systems such as Git can help ensure themes stay up to date. For example, you can place the parent theme on the master branch and keep each child theme on its own separate branch. Changes to the master theme can then be pushed to each child.
+A typical setup might include a base theme, with several custom themes branching from the base theme. The custom theme(s) will need to be kept up to date with any major changes while maintaining its own customizations. Version control systems such as Git can help ensure themes stay up-to-date. For example, you can place the parent theme on the master branch and keep each child theme on its own separate branch. Changes to the master theme can then be pushed to each child.
+
 
 ## Theme updates
 
