@@ -1,4 +1,4 @@
-# Creating a Single-Click App Install Button
+# Creating an External Installation Button
 
 
 <div class="otp" id="no-index">
@@ -9,7 +9,6 @@
 - [Rendering success and failure pages](#rendering-success-and-failure-pages)
 - [Handling errors](#handling-errors)
 - [Code samples](#code-samples)
-
 - [Next steps](#next-steps)
 - [Resources](#resources)
 
@@ -62,7 +61,6 @@ Host: login.bigcommerce.com
 Depending on which endpoint you call, BigCommerce will render a success or failure page to the modal.
 
 ## Code samples
-
 
 Handling errors in Lua:
 
