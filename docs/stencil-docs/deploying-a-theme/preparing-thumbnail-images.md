@@ -67,7 +67,8 @@ Each variation within your theme must be represented by two additional screensho
 ### Desktop screenshot
 
 The first screenshot, showing your theme on a desktop viewport, must meet the following requirements beyond the general specifications above:
-* Resolution of 2048 x 2600 pixels (horizontal x vertical).
+* Resolution of 2048 x 2600 pixels.
+
 * File size smaller than 5 MB
 * Arbitrary filename prefix, referenced in your [config.json](https://github.com/bigcommerce/cornerstone/blob/master/config.json) file as the `variations` object's `desktop_screenshot` key value.
 
