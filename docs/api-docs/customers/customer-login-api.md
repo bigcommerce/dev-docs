@@ -6,7 +6,7 @@
 - [Introduction](#introduction)
 - [Overview](#overview)
 - [Prerequisites](#prerequisites)
-- [Enable single-sign on](#enable-single-sign-on)
+- [Enable single sign-on](#enable-single-sign-on)
 - [Troubleshooting](#troubleshooting)
 - [Additional resources](#additional-resources)
 
@@ -49,7 +49,7 @@ JWT is an industry standard ([RFC 7519](https://tools.ietf.org/html/rfc7519)) fo
 To enable SSO using the Customer Login API, you will need the following: 
 
 * A BigCommerce store
-* API client ID and client secret with the OAuth scope set to Customers Login
+* API client ID and client secret with the OAuth Scope set to Customers Login
 * [Node.js](https://nodejs.org/en/) installed on your machine if you plan to use JavaScript
 
 If you do not know your client ID and client secret, obtain the credentials by following the steps outlined in [Creating an API Account](https://support.bigcommerce.com/articles/Public/Store-API-Accounts/#creating). 
@@ -58,7 +58,7 @@ Be sure to set the Customers Login scope to Login.
 
 ![Example OAuth Scope](https://storage.googleapis.com/bigcommerce-production-dev-center/images/scopes.png "Example OAuth Scope")
 
-## Enable single-sign on
+## Enable single sign-on
 
 To log a customer into their storefront account using the Customer Login API, your app needs to redirect the customer’s browser to the following access point URL: `https://storedomain.com/login/token/{token}`.
 
@@ -73,8 +73,6 @@ The beginning of this tutorial focuses on manually creating a token using the de
 To create a JWT, you will need to obtain a `customer_id` using the [Customers v3 API](https://developer.bigcommerce.com/api-reference/store-management/customers-v3). 
 
 1. Send a `GET` request to the [Get All Customers](https://developer.bigcommerce.com/api-reference/store-management/customers-v3/customers/customersget) endpoint. Choose a customer and make note of the `customer_id`. 
-
-**Get all customers response**
 
 ```json
 {
@@ -97,7 +95,7 @@ To create a JWT, you will need to obtain a `customer_id` using the [Customers v3
 }
 ```
 
-2. Open the Debugger at [JWT.io](https://jwt.io/). 
+2. Open the debugger at [JWT.io](https://jwt.io/). 
 
 3. In the "HEADER" field, make sure the JWT `alg` (algorithm) field is set to `"HS256"` and the `typ` (token type) field is set to `"JWT"`.
 
@@ -196,7 +194,7 @@ You should receive a complete access point URL as an output.
 
 8. Copy the URL and paste it into the address bar of your browser. 
 
-If the request was successful, you will be logged in as a customer and directed to `/account.php`. If it was unsuccessful, a login attempt error message will be displayed and you will be directed to `/login.php`. For common causes of login failure, see [Troubleshooting](#troubleshooting).
+If the request was successful, you will be logged in as a customer and directed to `/account.php`. If it was unsuccessful, you will receive a login attempt error message and be directed to `/login.php`. For common causes of login failure, see [Troubleshooting](#troubleshooting).
 
 ### Sample code
 
@@ -214,8 +212,8 @@ To log out a customer, set the `redirect_to` field of the JWT’s payload to `/l
 
 ## Troubleshooting
 
-* If the clock of the server generating the `iat` claim is not synchronized, the timestamp will be out of sync and the request will fail. If your system’s time is different from the BigCommerce server time, you can use the [Get System Timestamp](https://developer.bigcommerce.com/api-reference/store-management/store-information-api/time-zone/gettime) endpoint as a source of truth.
-* The access point URL can be visited only once. The token will be invalidated after the GET request is made.
+* If the clock of the server generating the “iat” claim is not synchronized, the timestamp will be out of sync and the request will fail. If your system’s time is different from the BigCommerce server time, you can use the [Get System Timestamp](https://developer.bigcommerce.com/api-reference/store-management/store-information-api/time-zone/gettime) endpoint as a source of truth.
+* The access point URL can be visited only once. The token will be invalidated after the `GET` request is made.
 * Tokens should not be generated in advance. Instead, the app should generate the token and immediately redirect the user’s browser to the access point URL. 
 
 ## Additional resources 
