@@ -73,7 +73,8 @@ The JSON translation files consist of key-value pairs. Here is an example from C
 * `"welcome_back"` - is an arbitrary key name for a welcome message. 
 * `"Welcome back, {name}"` - the value assigned for English-language stores.
 
-If you design your theme’s storefront pages to refer to this message by its generic key name `"welcome_back"`, they can pass its localized value in other languages, as that value is defined in each language’s JSON file.
+If you design your theme’s storefront pages to refer to this message by its generic key name `"welcome_back"`, they can pass its localized value in other languages, as that value resides in each language’s JSON file.
+
 
 Key-value pairs are grouped into objects, for example:
 
