@@ -15,7 +15,8 @@
 
 Translation keys exist in JSON files and are invoked based on the user's browser language. With a Stencil theme, you can define multiple translations for each theme based on a predefined schema.
 
-BigCommerce does not provide translations for the theme’s content; however, you have the option of localizing your themes for desired target languages based on the provided schema. Theme developers are not required to localize or translate a theme in order to make it work.
+BigCommerce does not provide translations for the theme’s content; however, you have the option of localizing your themes for desired target languages based on the provided schema. Theme developers are not required to localize or translate a theme to make it work.
+
 
 ## Translating a theme
 
