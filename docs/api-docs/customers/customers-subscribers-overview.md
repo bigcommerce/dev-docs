@@ -143,7 +143,8 @@ Single customer on V2
 
 ### Queries
 
-With the V3 Customers API, queries become a powerful tool. There is one `GET` endpoint per resource with filters to refine the request. The V2 API necessitates using a different endpoint to get customer sub-resources. 
+With the V3 Customers API, queries become a powerful tool. There is one `GET` endpoint per resource with filters to refine the request. The V2 API necessitates using a different endpoint to get customer subresources. 
+
 
 **Get customer addresses**
 
