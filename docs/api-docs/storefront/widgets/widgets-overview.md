@@ -116,7 +116,7 @@ In the example below, we define the `list_items` array and supply values for the
 </div>
 </div>
 
-**List items example: incorrect**
+**List items example: Incorrect**
 
 ```json
 {
