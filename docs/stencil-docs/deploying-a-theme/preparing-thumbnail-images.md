@@ -34,7 +34,8 @@ All screenshots described below must meet the following specifications in order 
 
 ## Theme-wide composite image
 
-The theme-wide composite image represents your theme in the control panel's **Storefront** › **My Themes**, which shows merchants their currently available themes (including any custom uploaded themes).
+The theme-wide composite image represents your theme in the control panel's **Storefront** › **My Themes**, which shows merchants their currently available themes, including any custom uploaded themes.
+
 
 This file will normally be a mosaic of screenshots from multiple variations within your theme. It must meet the following requirements, beyond the general specifications above:
 
