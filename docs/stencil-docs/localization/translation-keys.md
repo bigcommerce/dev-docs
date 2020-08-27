@@ -161,7 +161,8 @@ lineNumbers: true
 <a href="{{ urls.account }}">Welcome Back <span>{{ customer.name }}</span></a>
 ```
 
-The corresponding internationalized version would substitute the text with the fully dynamic `{{ lang }}` Handlebars helper as shown below:
+The corresponding internationalized version would substitute the text with the fully dynamic `{{ lang }}` Handlebars helper, as shown below:
+
 
 <div class="HubBlock-header">
     <div class="HubBlock-header-title flex items-center">
