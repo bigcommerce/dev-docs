@@ -75,7 +75,8 @@ The first screenshot, showing your theme on a desktop viewport, must meet the fo
 ### Mobile screenshot
 
 The second screenshot, showing your theme on a mobile viewport, must meet the following requirements beyond the general specifications above:
-* Resolution of 304 x 540 pixels (horizontal x vertical).
+* Resolution of 304 x 540 pixels.
+
 * File size smaller than 1 MB.
 * Arbitrary filename prefix, referenced in your [config.json](https://github.com/bigcommerce/cornerstone/blob/master/config.json) file as the `variations` object's `mobile_screenshot` key value.
 
