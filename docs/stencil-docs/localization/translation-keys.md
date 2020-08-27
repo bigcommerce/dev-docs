@@ -298,7 +298,8 @@ Translation files for other languages would use a similar format to define key-v
 
 ## Resources
 
-### Additional Resources
+### Additional resources
+
 
 * [Customizing a Theme - lang directory Video Demo](https://www.youtube.com/embed/ygiRGfSrmnA) (YouTube)
 * [Handlebars String Helpers](https://developer.bigcommerce.com/stencil-docs/reference-docs/handlebars-helpers-reference#string-helpers)
