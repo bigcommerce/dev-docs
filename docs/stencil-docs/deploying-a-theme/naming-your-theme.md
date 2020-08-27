@@ -141,7 +141,8 @@ lineNumbers: true
   // ...
 ```
 
-## Changing a theme variation’s font family
+## Changing a theme variation's font family
+
 
 To learn more about defining variations, see [Defining Global Styles](/stencil-docs/configure-store-design-ui/defining-global-styles). In particular, note the option to configure settings and variables that are scoped to each variation.
 
