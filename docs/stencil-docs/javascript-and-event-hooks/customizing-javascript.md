@@ -74,7 +74,8 @@ export default class Product extends PageManager {
 In your browser, refresh any product details pop-up or page to see your new "Hello World" message. If you are using the Stencil CLI and browsing to localhost, you may need to restart for the most recent changes to be reflected.
 
 
-## Bringing in handlebars context
+## Bringing in Handlebars context
+
 
 You can inject any variables from the Handlebars context into your client-side JavaScript by using the `{{inject...}}` expression.
 
