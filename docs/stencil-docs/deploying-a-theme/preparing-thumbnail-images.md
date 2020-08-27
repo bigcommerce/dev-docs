@@ -11,7 +11,8 @@
 
 </div>
 
-## Where merchants see your theme's thumbnail images
+## Displaying theme thumbnail images
+
 
 A complete Stencil theme includes screenshots to display the theme on cards that appear in two locations within the BigCommerce control panel:
 
