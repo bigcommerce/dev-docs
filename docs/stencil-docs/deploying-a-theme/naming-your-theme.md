@@ -184,7 +184,8 @@ For details on preparing screenshots that enable merchants to preview each varia
 <!-- theme:  -->
 
 ### Using Stencil CLI to change variations
-> To locally test/debug a specific variation of your theme, launch it by invoking the Stencil CLI’s `stencil start -v` switch. Enter the following code into the terminal, replacing `variation-name` with your theme's variation name as listed in `config.json`:
+> To locally test/debug a specific variation of your theme, launch it by invoking the Stencil CLI's `stencil start -v` switch. Enter the following code into the terminal, replacing `variation-name` with your theme's variation name as listed in `config.json`:
+
 
 `stencil start -v variation-name`
 
