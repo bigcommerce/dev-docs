@@ -148,7 +148,8 @@ With the V3 Customers API, queries become a powerful tool. There is one `GET` en
 
 **Get customer addresses**
 
-Get customer address by name and company on V3
+Get customer address by name and company on V3:
+
 `/customers/addresses?company:in=bigcommerce,commongood&customer_id:in1,2,3`
 
 Get customer address by name and company on V2
