@@ -108,7 +108,8 @@ lineNumbers: true
     },
 ```
 
-Try inserting your custom variation into the `variations` object of Cornerstone's `config.json`. Your variation’s definition might look something like this:
+Try inserting your custom variation into the `variations` object of Cornerstone's `config.json`. Your variation's definition might look something like this:
+
 
 <div class="HubBlock-header">
     <div class="HubBlock-header-title flex items-center">
