@@ -188,7 +188,8 @@ subtitle: "/customers/{customer_id}"
 lineNumbers: true
 -->
 
-**Example update a customer V2**  
+**Example Update a Customer (V2)**  
+
 `/PUT https://api.bigcommerce.com/stores/{store_hash}/v2/customer_groups/{customer_group_id}`
 
 ```json
