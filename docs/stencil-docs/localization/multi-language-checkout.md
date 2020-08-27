@@ -110,7 +110,8 @@ BigCommerce's Optimized One-Page Checkout will currently translate displayed **C
 | Chinese Simplified | `zh-TW.json` |
 | Chinese Traditional | `zh.json` |
 
-3. We recommend that you populate your JSON file with the checkout-specific keys-values covered in [Adding your own translation values](#adding-your-own-translation-values). It is not mandatory to translate the drop-down lists, but it is necessary to provide a consistent translation of the surrounding **Address** sections. You do not need to provide any keys-values for the **Country/State** names, whose translations are predefined within the BigCommerce platform.
+3. We recommend that you populate your JSON file with the checkout-specific keys-values covered in [Adding your own translation values](#adding-your-own-translation-values). It is not mandatory to translate the drop-down lists, but it is necessary to provide a consistent translation of the surrounding **Address** sections. You do not need to provide any keys-values for the **Country/State** names, whose translations already exist within the BigCommerce platform.
+
 
 4. As with the translation options described above, the storefront will automatically display the translated **Country/State** names to visitors who have selected one of the supported languages in their browser's locale preferences.
 
