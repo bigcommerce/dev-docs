@@ -15,7 +15,8 @@ Most [Cornerstone theme](https://github.com/bigcommerce/cornerstone) page templa
 For example, `assets/js/theme/product.js` corresponds to `templates/pages/product.html` and contains a `productReviewHandler()` and `bulkPricingHandler()`. These functions are implemented within a derived `Product` class which extends an abstract class called `PageManager`. This same pattern is repeated in all `assets/js/theme/*.js` files.
 
 
-By default, all derived `PageManager` classes contain an `onReady` method functionally similar to `JQuery.ready()`. Additionally, certain pages have unique event handlers. For example the `cartUpdate` handler in `assets/js/cart.js` runs each time certain cart elements are changed. Developers can customize and enhance page behavior and functionality by editing code within these event handlers (or by creating their own event handlers).
+By default, all derived `PageManager` classes contain an `onReady` method functionally similar to `JQuery.ready()`. Additionally, certain pages have unique event handlers. For example, the `cartUpdate` handler in `assets/js/cart.js` runs each time certain cart elements are changed. Developers can customize and enhance page behavior and functionality by editing code within these event handlers or by creating their own event handlers.
+
 
 To demonstrate, this article describes how to add some very simple JavaScript to `product.js`.
 
