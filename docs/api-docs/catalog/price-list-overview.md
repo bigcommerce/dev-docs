@@ -7,7 +7,8 @@
 - [Price list definitions](#price-list-definitions)
 - [Price list assignments](#price-list-assignments)
 - [Price list notes](#price-list-notes)      
-- [Price List resources](#price-list-resources)
+- [Price list resources](#price-list-resources)
+
        
 </div>
 
