@@ -92,7 +92,8 @@ BigCommerce's Optimized One-Page Checkout will currently translate displayed **C
 
 1. Enable Optimized One-Page Checkout.
 
-2. Inside your `lang` subdirectory, provide a `xx.json` file with the appropriate two-letter prefix for one or more of the supported languages. For a complete list of supported languages, see the table below. 
+2. Inside your `lang` subdirectory, provide an `xx.json` file with the appropriate two-letter prefix for one or more of the supported languages. For a complete list of supported languages, see the table below. 
+
 
 | Supported Language | Required Translation File Name |
 |-|-|
