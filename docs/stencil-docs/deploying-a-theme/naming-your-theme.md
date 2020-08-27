@@ -13,7 +13,8 @@
 
 ## Naming your theme
 
-The basic details of the Cornerstone theme are outlined in the theme's configuration file, [`config.json`](https://github.com/bigcommerce/cornerstone/blob/master/config.json). You can update the Cornerstone's `config.json` file to reflect your theme's values such as name, version number, and documentation URL. 
+The basic details of the Cornerstone theme are outlined in the theme's configuration file, [`config.json`](https://github.com/bigcommerce/cornerstone/blob/master/config.json). You can update the Cornerstone's `config.json` file to reflect your theme's values, such as name, version number, and documentation URL. 
+
 
 Here are the first key-value sets in Cornerstone's `config.json`: 
 
