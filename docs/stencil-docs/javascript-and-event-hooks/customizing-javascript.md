@@ -24,7 +24,8 @@ To demonstrate, this article describes how to add some very simple JavaScript to
 In this example, we will add some "Hello World!" text to the product page's `onReady` event. We'll first add a call to the function. Then, we will implement the function itself.
 
 
-In `assets/js/theme/product.js` file, add a call to `this.helloWorld()` to the bottom of the `onReady()` method (implemented in next step).
+In `assets/js/theme/product.js` file, add a call to `this.helloWorld()` to the bottom of the `onReady()` method, which we'll implement in the next step.
+
 
 ```js
 export default class Product extends PageManager {
