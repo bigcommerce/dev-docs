@@ -1,4 +1,4 @@
-# Multi Language Checkout
+# Multi-language Checkout
 
 <div class="otp" id="no-index">
 
