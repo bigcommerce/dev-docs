@@ -140,7 +140,8 @@ product.js:63 [/assets/js/theme/product.js]: 100x100
 
 ## Installing libraries
 
-Once you have installed the default Stencil theme, you can add custom JavaScript libraries with `npm`.
+Once you have installed the default Stencil theme, you can add custom JavaScript libraries with npm.
+
 
 ```shell
 npm install jquery
