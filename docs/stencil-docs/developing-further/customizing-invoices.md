@@ -11,7 +11,8 @@
 
 </div>
 
-There are four editable invoices in BigCommerce.
+There are four editable invoices in BigCommerce:
+
 
 1. Email invoice
 2. Merchant printable invoice
