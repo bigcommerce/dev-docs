@@ -2,7 +2,8 @@
 <div class="otp" id="no-index">
 	
 ### On this page
-- [What is a Price List?](#what-is-a-price-list?)
+- [What is a price list?](#what-is-a-price-list)
+
 - [Price list definitions](#price-list-definitions)
 - [Price list assignments](#price-list-assignments)
 - [Price list notes](#price-list-notes)      
