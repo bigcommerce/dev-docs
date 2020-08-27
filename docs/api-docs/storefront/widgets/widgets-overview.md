@@ -140,7 +140,7 @@ In the example below, we define the `list_items` array and supply values for the
 The example above uses `list_items_two`, on line four, in the configuration which is not the same as `list_items`. If `list_items` has already been established during the initial configuration it must be set as `list_items` when being used again.
 
 
-**List items example: correct**
+**List items example: Correct**
 
 ```json
 {
