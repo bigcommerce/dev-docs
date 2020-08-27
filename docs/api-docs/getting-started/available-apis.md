@@ -1,4 +1,9 @@
-- [BigCommerce APIs at a Glance](#bigcommerce-apis-at-a-glance)
+# API Reference
+
+<div class="otp" id="no-index">
+
+### On this page
+- [BigCommerce APIs at a glance](#bigcommerce-apis-at-a-glance)
 - [V2 REST API](#v2-rest-api)
 - [V3 REST API](#v3-rest-api)
 - [Webhooks](#webhooks)
@@ -8,11 +13,13 @@
 - [Customer Login API](#customer-login-api)
 - [Current Customer API](#current-customer-api)
 - [Provider APIs](#provider-apis)
-- [Add to Cart URLs](#add-to-cart-urls)
+- [Add to cart URLs](#add-to-cart-urls)
 - [API spec files](#api-spec-files)
-- [Deprecations and Sunsets](#deprecations-and-sunsets)
+- [Deprecations and sunsets](#deprecations-and-sunsets)
 
-## BigCommerce APIs at a Glance
+</div>
+
+## BigCommerce APIs at a glance
 |API|Server|Description|
 |-|-|-|
 |[V2 REST](#v2-rest-api)|`api.bigcommerce.com/stores/{store_hash}/v2/`| Exposes many resources (including webhooks); some not yet accessibly via `v3` API |
@@ -219,7 +226,7 @@ Provider API references describe endpoints, responses, and requests that can be 
 **Additional Information:** [Shipping Provider API Overview](https://developer.bigcommerce.com/api-docs/store-management/shipping/shipping-provider-api)
 
 
-## Add to Cart URLs
+## Add to cart URLs
 
 Query string parameters can be appended to BigCommerce product and `/cart.php` URLs in order to pre-select an SKU or add a product to cart. These parameters make it possible to build custom add to cart links and forms for use on BigCommerce storefronts and remote sites (such as WordPress, blog posts, and social media).
 
@@ -235,7 +242,7 @@ Query string parameters can be appended to BigCommerce product and `/cart.php` U
 | string  | `source=`     | source of the sale for analytics; can be any string | `/cart.php?action=buy&sku=xlredtshirt&source=emailcampaign` |
 
 
-**Additional Information:** 
+**Additional Information:**
 [Add to Cart URLs Overview](https://developer.bigcommerce.com/api-docs/cart-and-checkout/add-to-cart-url)
 
 ## API spec files
@@ -283,7 +290,7 @@ Query string parameters can be appended to BigCommerce product and `/cart.php` U
 
 
 
-## Deprecations and Sunsets
+## Deprecations and sunsets
 
 This section contains a continuously updated list of deprecated and sunset BigCommerce API endpoints and suggested alternatives.
 
@@ -317,8 +324,6 @@ Sunset endpoints will be phased out and removed from the API. Once sunset, the e
 |`DELETE /v2/option_sets`| May 10, 2020| No equivalent available. However, `option_sets` can still be deleted individually by their ID.|
 |`DELETE /v2/products`| May 10, 2020| [`DELETE /v3/catalog/products`](https://developer.bigcommerce.com/api-reference/catalog/catalog-api/products/deleteproducts)|
 
-<!-- theme:  -->
-
 **V2 DELETE Sunsets**
 > These changes **ONLY** affect the “collection delete” capability which deletes the collection of objects from the system. The “single object” version of these endpoints, such as `DELETE /v2/products/123`, will continue to function normally.
 
@@ -326,10 +331,6 @@ Sunset endpoints will be phased out and removed from the API. Once sunset, the e
 |Endpoint|Date of Deactivation| Alternative |
 |-|-|-|
 |Channels API `is_activated` property| May, 10, 2020|[Channels API](https://developer.bigcommerce.com/api-reference/cart-checkout/channels-listings-api/channels/listchannels) `status` property
-
-</div>
-</div>
-</div>
 
 
 **Additional Information:** [V2 versus V3 API](https://developer.bigcommerce.com/legacy/v2-products/v2-v3#Whats-not-in-V3)
