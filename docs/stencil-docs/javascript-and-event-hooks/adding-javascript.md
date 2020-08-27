@@ -47,7 +47,7 @@ Many third-party JavaScript components are distributed with npm (Node Package Ma
 
 ### Taking over from npm
 
-npm facilitates managing third-party JavaScript components by placing each JavaScript component in the correct directories. However, as a developer, you will still need to edit your theme files to wire up the JavaScript component to expose it on your storefront. You will find several examples of this on the following pages.
+The npm package manager facilitates the management of third-party JavaScript components by placing each JavaScript component in the correct directories. However, as a developer, you will still need to edit your theme files to wire up the JavaScript component to expose it on your storefront. You will find several examples of this on the following pages.
 
 ## Page types and Javascript API
 
