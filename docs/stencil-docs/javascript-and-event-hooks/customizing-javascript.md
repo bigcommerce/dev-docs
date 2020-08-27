@@ -21,7 +21,8 @@ To demonstrate, this article describes how to add some very simple JavaScript to
 
 ## Modifying a page's Javascript
 
-In this example, we will add some "hello world" text to the product page's `onReady` event. We'll first add a call to the function; then, we will implement the function itself.
+In this example, we will add some "Hello World!" text to the product page's `onReady` event. We'll first add a call to the function. Then, we will implement the function itself.
+
 
 In `assets/js/theme/product.js` file, add a call to `this.helloWorld()` to the bottom of the `onReady()` method (implemented in next step).
 
