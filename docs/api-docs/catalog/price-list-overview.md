@@ -1,18 +1,19 @@
 # Price List API
 <div class="otp" id="no-index">
-	<h3> On this page </h3>
-	<ul>
-        <li><a href="#what-is-a-price-list?">What is a Price List?</a></li>
-        <li><a href="#price-list-definitions">Price List definitions</a></li>
-        <li><a href="#price-list-assignments">Price List Assignments</a></li>
+	
+### On this page
+- [What is a price list?](#what-is-a-price-list)
 
+- [Price list definitions](#price-list-definitions)
+- [Price list assignments](#price-list-assignments)
+- [Price list notes](#price-list-notes)      
+- [Price list resources](#price-list-resources)
 
-        <li><a href="#price-list-notes">Price List notes</a></li>
-        <li><a href="#price-list-resources">Price List resources</a></li>
-	</ul>
+       
 </div>
 
-## What is a Price List?
+## What is a price list?
+
 
 A Price List allows you to populate different versions of catalog pricing and assign them to different [Customer Groups](/api-reference/customer-subscribers/customers-api). The prices are specified exclusively at the variant level.
 
@@ -59,7 +60,8 @@ subtitle: ""
 lineNumbers: true
 -->
 
-**Example Get all Price Lists**
+**Example Get All Price Lists**
+
 `/GET https://api.bigcommerce.com/stores/{store_hash}/v3/pricelists`
 
 ```json
@@ -132,8 +134,10 @@ lineNumbers: true
 
 Under `discount_rules` the `type` is set to `price_list` and the `price_list_id` is 1. Which is the id of the price list the group has been assigned to.
 
-## Price List Assignments
-Price List Assignment assigns a Price List to a specific sales Channel. This association lets you define custom pricing for shoppers only on a specific external site or platform. Price List Assignments combined with a Customer Group assignment allows you to target specifically more logged in customers shopping on that channel.
+## Price list assignments
+
+The price list assignment assigns a price list to a specific sales channel. This association lets you define custom pricing for shoppers only on a specific external site or platform. Price list assignments combined with a customer group assignment allows you to target specifically more logged in customers shopping on that channel.
+
 
 
 See [Channels, Sites, and Routes](https://developer.bigcommerce.com/api-reference/cart-checkout/channels-listings-api) for further documentation.
