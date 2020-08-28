@@ -2,7 +2,8 @@
 
 <div class="otp" id="no-index">
 
-### On This Page
+### On this page
+
 - [Translating a theme](#translating-a-theme)
 - [Required subdirectory](#required-subdirectory)
 - [The schema](#the-schema)
@@ -15,8 +16,7 @@
 
 Translation keys exist in JSON files and are invoked based on the user's browser language. With a Stencil theme, you can define multiple translations for each theme based on a predefined schema.
 
-BigCommerce does not provide translations for the theme’s content; however, you have the option of localizing your themes for desired target languages based on the provided schema. Theme developers are not required to localize or translate a theme to make it work.
-
+BigCommerce does not provide translations for the theme’s content. However, you have the option of localizing your themes for desired target languages based on the provided schema. Theme developers are not required to localize or translate a theme in order to make it work.
 
 ## Translating a theme
 
@@ -45,7 +45,7 @@ Within each Stencil theme, a top level `/lang/` subdirectory is reserved for loc
 
 You can localize a theme by providing other appropriate JSON translation files in the `/lang` subdirectory. In these files, you would define key-value pairs corresponding to the text blocks in your theme's templates. 
 
-One JSON file is required for each language that you want to support. (These can include non-U.S. versions of English, each with their own spellings.)
+One JSON file is required for each language that you want to support. These can include non-U.S. versions of English, each with their own spellings.
 
 ## The schema
 
@@ -65,16 +65,14 @@ For more examples of frequently-used codes, see [ISO 639-2 Codes for the Represe
 
 ## Localization file structure
 
-The JSON translation files consist of key-value pairs. Here is an example from Cornerstone’s `en.json` file: 
-
+The JSON translation files are structured as key-value pairs. Here is an example from Cornerstone’s `en.json` file: 
 
 `"welcome_back": "Welcome back, {name}"`
 
-* `"welcome_back"` - is an arbitrary key name for a welcome message. 
-* `"Welcome back, {name}"` - the value assigned for English-language stores.
+* `"welcome_back"` - An arbitrary key name for a welcome message. 
+* `"Welcome back, {name}"` - The value assigned for English-language stores.
 
-If you design your theme’s storefront pages to refer to this message by its generic key name `"welcome_back"`, they can pass its localized value in other languages, as that value resides in each language’s JSON file.
-
+If you design your theme’s storefront pages to refer to this message by its generic key name `"welcome_back"`, they can pass its localized value in other languages, as that value is defined in each language’s JSON file.
 
 Key-value pairs are grouped into objects, for example:
 
@@ -122,8 +120,7 @@ lineNumbers: true
 
 ## Invoking a translation key
 
-Once you define keys and values in the [JSON translation file](https://github.com/bigcommerce/cornerstone/tree/master/lang), you can invoke dynamic translation strings using the custom `{{lang}}` [Handlebars string helper](https://developer.bigcommerce.com/stencil-docs/reference-docs/handlebars-helpers-reference#string-helpers). 
-
+Once keys and values are defined in the [JSON translation file](https://github.com/bigcommerce/cornerstone/tree/master/lang), you can invoke dynamic translation strings using the custom `{{lang}}` [Handlebars string helper](https://developer.bigcommerce.com/stencil-docs/reference-docs/handlebars-helpers-reference#string-helpers). 
 
 To invoke a defined translation key, follow this generic format:
 
@@ -161,8 +158,7 @@ lineNumbers: true
 <a href="{{ urls.account }}">Welcome Back <span>{{ customer.name }}</span></a>
 ```
 
-The corresponding internationalized version would substitute the text with the fully dynamic `{{ lang }}` Handlebars helper, as shown below:
-
+The corresponding internationalized version would substitute the text with the fully dynamic `{{ lang }}` Handlebars helper as shown below:
 
 <div class="HubBlock-header">
     <div class="HubBlock-header-title flex items-center">
@@ -242,7 +238,7 @@ lineNumbers: true
 
 ```
 
-In the example below, the default theme’s `/lang/en.json` file includes matches and value definitions for each of the translation keys.
+In the example below, the default theme’s `lang/en.json` file includes matches and value definitions for each of the translation keys.
 
 <div class="HubBlock-header">
     <div class="HubBlock-header-title flex items-center">
@@ -299,7 +295,6 @@ Translation files for other languages would use a similar format to define key-v
 ## Resources
 
 ### Additional resources
-
 
 * [Customizing a Theme - lang directory Video Demo](https://www.youtube.com/embed/ygiRGfSrmnA) (YouTube)
 * [Handlebars String Helpers](https://developer.bigcommerce.com/stencil-docs/reference-docs/handlebars-helpers-reference#string-helpers)

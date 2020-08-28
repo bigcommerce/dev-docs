@@ -512,6 +512,7 @@ The results will look something like this (notice the last product `entityId: 82
 }
 ```
 
+
 This same approach can be used to *slice* any GraphQL connection and paginate through the *slices* via `startCursor` and `endCursor`. For example, we could get the first thirty brands with the following query:
 
 ```javascript
@@ -556,6 +557,7 @@ And given the following results:
       }
     }
 ```
+
 
 the next thirty could be retrieved by making a new query and passing in the `endCursor` from the first page of results:
 
