@@ -162,7 +162,8 @@ JWT tokens for authenticating cross-origin requests to the Storefront API can be
 }
 ```
 
-### Authenticating with an auto-generated Stencil Token
+### Authenticating with an auto-generated Stencil token
+
 Client code in BigCommerce Stencil themes can be passed a token at render time with the `{{settings.storefront_api.token}}` Handlebars object:
 
 ```html
