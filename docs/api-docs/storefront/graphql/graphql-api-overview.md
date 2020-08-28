@@ -88,7 +88,8 @@ To use the request runner, input queries on the left side and then click the pla
 
 ![GraphQL Playground Query](https://raw.githubusercontent.com/bigcommerce/dev-docs/master/assets/images/graphql-storefront-api-playground2.png "GraphQL Playground Query")
 
-Below is an sample query to get you started.
+Below is a sample query to get you started.
+
 
 ```javascript
 query MyFirstQuery {
