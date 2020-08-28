@@ -22,7 +22,8 @@ BigCommerce's GraphQL Storefront API makes it possible to query storefront data 
 * Access product options, variations, and custom fields for any product from any page.
 * Request any product's images at any resolution.
 * Ask for customer details such as name, email address, and attributes (if logged in).
-* Look up objects (e.g. categories or brands) by URL, and fetch their details.
+* Look up objects, such as categories or brands, by URL and fetch their details.
+
 * Build front-end applications on top of a BigCommerce's [Stencil](https://developer.bigcommerce.com/stencil-docs/getting-started/about-stencil) theme or on a remote site.
 
 
