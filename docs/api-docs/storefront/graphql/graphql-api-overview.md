@@ -651,7 +651,8 @@ query {
 ```
 
 In general, to reduce complexity, reduce the number of objects requested. For example, do the following:
-* Limit collections to a smaller page size (for example `first:10` instead of `first:50`).
+* Limit collections to a smaller page size (for example, `first:10` instead of `first:50`).
+
 * Reduce the number of items in nested collections.
 * Request less fields.
 
