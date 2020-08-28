@@ -60,7 +60,7 @@ BigCommerce's open source helpers defined in [paper-handlebars/helpers/](https:/
 | [partial](#partial) | template | Overrides content defined by a block helper. |
 | [region](#region) | template | Specifies a widget region. |
 | [assignVar](#assignVar) | variables | Save value to a variable. |
-| [getVar](#getVar) | logic | Get variable value. |
+| [getVar](#getVar) | variables| Get variable value. |
 | [decrementVar](#decrementVar) | variables | Decrement a variable by 1. |
 | [incrementVar](#incrementVar) | variables | Increment a variable by 1. |
 
