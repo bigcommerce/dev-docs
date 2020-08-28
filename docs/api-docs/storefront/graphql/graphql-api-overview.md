@@ -329,7 +329,8 @@ If you wish to use the GraphQL Storefront API from an external system, there are
 - Which Channel do you wish to run requests in the context of?
 - Are you running requests from a server or a front-end application/browser?
 
-- If you are running requests from a frontend application, do you need to show customer-specific information or only anonymous information?
+- If you are running requests from a front-end application, do you need to show customer-specific information or only anonymous information?
+
 - If you are running requests from a server, do you need the ability to impersonate customers?
 
 As a best practice, you should create tokens that expire and rotate them regularly before their expiry. However, you are also permitted to create long-lived tokens.
