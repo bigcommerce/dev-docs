@@ -43,7 +43,7 @@ These techniques are outlined in the following sections.
 
 ## Using npm
 
-Many third-party JavaScript components are distributed with npm (Node Package Manager). When you use the npm command-line utility to add a JavaScript component to your theme, Stencil will automatically bundle and minify the component. To enable this bundling and minification, run each module's `npm install` command from the root directory of your theme.
+Many third-party JavaScript components are distributed with npm. When you use the npm command-line utility to add a JavaScript component to your theme, Stencil will automatically bundle and minify the component. To enable this bundling and minification, run each module's `npm install` command from the root directory of your theme.
 
 ### Taking over from npm
 
