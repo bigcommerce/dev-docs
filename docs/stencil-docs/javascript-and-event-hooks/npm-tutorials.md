@@ -65,7 +65,7 @@ presets: [
 
 ### Create components
 
-In the following steps, we'll be adding React Components to assemble our coupon drawer.
+In the following steps, we'll be adding React components to assemble our coupon drawer.
 
 1. Navigate to the `./assets/js` folder.
 2. Create a `js/components` folder within the `/js` folder.
