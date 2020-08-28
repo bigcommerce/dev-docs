@@ -31,7 +31,8 @@ Throughout your theme, reference each of these assets using Stencil’s `{{cdn}}
 
 Prepending `webdav:` will build a URL in the remote WebDAV directory. This allows your theme's deployed topology to diverge from your local directory structure. The `{{cdn}}` helper will treat `content` as the root WebDAV directory. 
 
-For example, this statement:
+For example, this statement
+
 
 ```
 <img src="{{cdn "webdav:img/image.jpg"}}">
