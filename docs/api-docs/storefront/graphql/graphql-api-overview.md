@@ -127,7 +127,8 @@ To explore the storefront GraphQL schema, checkout the **docs** and **schema** t
 
 ## Authentication
 
-GraphQL Storefront API requests are authenticated with tokens sent via the HTTP `Authorization` header
+GraphQL Storefront API requests are authenticated with tokens sent via the HTTP `Authorization` header.
+
 
 ```bash
 curl 'https://{bigcommerce_storefront_domain}.com/graphql'\
