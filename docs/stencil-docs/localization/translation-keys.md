@@ -240,7 +240,6 @@ lineNumbers: true
 
 In the example below, the default theme’s `lang/en.json` file includes matches and value definitions for each of the translation keys.
 
-
 <div class="HubBlock-header">
     <div class="HubBlock-header-title flex items-center">
         <div class="HubBlock-header-name"></div>
@@ -296,7 +295,6 @@ Translation files for other languages would use a similar format to define key-v
 ## Resources
 
 ### Additional resources
-
 
 * [Customizing a Theme - lang directory Video Demo](https://www.youtube.com/embed/ygiRGfSrmnA) (YouTube)
 * [Handlebars String Helpers](https://developer.bigcommerce.com/stencil-docs/reference-docs/handlebars-helpers-reference#string-helpers)
