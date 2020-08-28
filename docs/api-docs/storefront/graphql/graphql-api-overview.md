@@ -2,7 +2,8 @@
 
 <div class="otp" id="no-index">
 
-### On this Page
+### On this page
+
 
 - [See it in action](#see-it-in-action)
 - [Accessing the GraphQL Playground](#accessing-the-graphql-playground)
