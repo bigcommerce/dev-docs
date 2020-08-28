@@ -58,7 +58,8 @@ For a full list of examples, see the [Storefront API Examples repo](https://gith
 
 ## Accessing the GraphQL Playground
 
-To access the GraphQL Storefront API Playground and documentation [login to your store](https://login.bigcommerce.com/deep-links/manage), then navigate to **Advanced Settings** > **Storefront API Playground**
+To access the GraphQL Storefront API Playground and documentation, [log into your store](https://login.bigcommerce.com/deep-links/manage) and navigate to **Advanced Settings** > **Storefront API Playground**
+
 
 The GraphQL Storefront API Playground will be opened.
 
