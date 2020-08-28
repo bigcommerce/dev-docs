@@ -22,7 +22,7 @@ In this example, we'll be making a drawer that sends a coupon code to the custom
 - Cornerstone Stencil theme with npm installed
 - Knowledge of HTML and JavaScript
 
-If you need to set up a BigCommerce store, see [Creating a Trial Store](https://support.bigcommerce.com/s/article/Starting-a-Bigcommerce-Trial#creating).
+To set up a BigCommerce store, see [Creating a Trial Store](https://support.bigcommerce.com/s/article/Starting-a-Bigcommerce-Trial#creating).
 
 ## Installing React and npm packages
 
