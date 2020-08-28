@@ -10,7 +10,7 @@
 
 </div>
 
-This is a reference for [Stencil](https://developer.bigcommerce.com/stencil-docs/getting-started/about-stencil) supported [Handlebars](https://handlebarsjs.com/) helpers. It includes [custom helper](#custom-helpers) documentation and usages examples and a list of whitelisted [standard helpers](#standard-helpers).
+This is a reference for [Stencil](https://developer.bigcommerce.com/stencil-docs/getting-started/about-stencil) supported [Handlebars](https://handlebarsjs.com/) helpers. It includes [custom helper](#custom-helpers) documentation and usage examples and a list of whitelisted [standard helpers](#standard-helpers).
 
 ## Custom helpers
 
