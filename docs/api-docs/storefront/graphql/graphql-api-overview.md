@@ -240,7 +240,8 @@ curl 'https://store.com/graphql' -H 'Authorization: Bearer TOKEN_GOES_HERE' -H '
 
 ### Customer login
 
-If you're using the Storefront API from a browser (for example, on top of your Stencil storefront) you can use the new Customer Login mutation to log in a customer account with an email address and password (for server-side integrations, consider a customer impersonation token instead). This will set a session cookie in the browser which will authenticate the customer account on future requests:
+If you're using the Storefront API from a browser, for example, on top of your Stencil storefront, you can use the new Customer Login mutation to log in a customer account with an email address and a password. (For server-side integrations, consider a customer impersonation token instead.) This will set a session cookie in the browser which will authenticate the customer account on future requests:
+
 
 ```js
 mutation Login($email: String!, $pass: String!) {
