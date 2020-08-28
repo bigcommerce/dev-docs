@@ -9,7 +9,8 @@
 
 </div> 
 
-Ideally, your theme should bundle into an archive of only a few megabytes. BigCommerce imposes a hard limit of 50 MB, but most themes do not approach this limit unless they include many large static assets. If your theme does not exceed 50 MB, follow the steps outlined in [Bundling and Pushing a Theme](https://developer.bigcommerce.com/stencil-docs/deploying-a-theme/bundling-and-pushing) to process and package your theme for upload to BigCommerce.
+Ideally, your theme should bundle into an archive of only a few megabytes (MB). BigCommerce imposes a hard limit of 50 MB, but most themes do not approach this limit unless they include many large static assets. If your theme does not exceed 50 MB, follow the steps outlined in [Bundling and Pushing a Theme](https://developer.bigcommerce.com/stencil-docs/deploying-a-theme/bundling-and-pushing) to process and package your theme for upload to BigCommerce.
+
 
 If your theme exceeds the 50 MB limit, you have two options:
 
