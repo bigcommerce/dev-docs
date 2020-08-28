@@ -84,7 +84,8 @@ The GraphQL Storefront API Playground will be opened.
 
 ## Using the GraphQL Playground
 
-To use the request runner, input queries on the left side and then click the play button. Query results will be displayed on the the right side.
+To use the request runner, input queries on the left side and then click the **play** button. Query results will be displayed on the the right side.
+
 
 ![GraphQL Playground Query](https://raw.githubusercontent.com/bigcommerce/dev-docs/master/assets/images/graphql-storefront-api-playground2.png "GraphQL Playground Query")
 
