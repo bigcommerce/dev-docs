@@ -6,7 +6,7 @@
 
 - [Bundling and minification](#bundling-and-minification)
 - [Development options](#development-options)
-- [Using npm (Node Package Manager)](#using-npm-node-package-manager)
+- [Using npm](#using-npm)
 - [Page types and Javascript API](#page-types-and-javascript-api)
 - [JavaScript template context injection](#javascript-template-context-injection)
 - [Placing modules in assets/js/](#placing-modules-in-assetsjs)
