@@ -335,7 +335,8 @@ In addition to using `fetch()`, there's a other ways to query the API:
 If you wish to use the GraphQL Storefront API from an external system, there are a few considerations.
 
 - Which Channel do you wish to run requests in the context of?
-- Are you running requests from a server or a front-end application/browser?
+- Are you running requests from a server or a frontend application/browser?
+
 
 - If you are running requests from a frontend application, do you need to show customer-specific information or only anonymous information?
 
