@@ -4,7 +4,7 @@ The table below lists each price type available on a product. The table is read 
 
 | Price Type | Description | Notes |
 |--|--| --|
-| Default product price | Product requirement. | Default price. |
+| Default product price | Product requirement | Default price. |
 | Product sale price | Product option. | Overrides default price.|
 | Variant price | Product option. | Overrides product sale price. |
 | Variant sale price | Product option.| Overrides variant price. |
