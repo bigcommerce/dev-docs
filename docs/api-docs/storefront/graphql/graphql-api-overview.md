@@ -231,7 +231,10 @@ It's also possible to generate tokens for use in server-to-server interactions w
 Customer impersonation token authenticated requests made to the GraphQL API receive store information from the perspective of the customer corresponding to the customer ID specified in the `X-Bc-Customer-Id` header sent with the GraphQL `POST` request. Pricing, product availability, customer account, and customer details will be reflected.
 
 
-Customer impersonation tokens should **never** be exposed publicly, for example, to JavaScript or HTML, and should not be used for front-end requests. Unlike normal GraphQL Storefront API tokens, they are sensitive and should be treated like secrets, just as you might treat an OAuth token for BigCommerce's administrative APIs. Attempts to run requests using these tokens from a web browser will be rejected.
+Customer impersonation tokens should **never** be exposed publicly, for example, to JavaScript or HTML. These tokens should not be used for frontend requests. 
+
+Unlike normal GraphQL Storefront API tokens, they are sensitive and should be treated like secrets, just as you might treat an OAuth token for BigCommerce's administrative APIs. Attempts to run requests using these tokens from a web browser will be rejected.
+
 
 
 Consider this sample request using a Customer Impersonation token to run a request in the context of customer ID `123`.
