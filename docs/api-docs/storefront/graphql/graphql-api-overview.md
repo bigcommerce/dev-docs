@@ -416,7 +416,8 @@ query paginateProducts {
 
 You can run this query against an example storefront using the [GraphQL Playground](https://developer.bigcommerce.com/graphql-playground?tabs=firstThreeProducts)
 
-The results will look something like this.
+The results will look something like this:
+
 
 ```json
 {
