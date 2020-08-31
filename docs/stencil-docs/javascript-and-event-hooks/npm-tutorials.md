@@ -109,7 +109,7 @@ export default function CouponDrawer() {
 ```
 
 6. In the same `/components` folder, create a `VerticalStepper.js` file.
-7. Copy the following code into the file.
+7. Copy the following code into the file:
 
 ```js
 import React from 'react';
