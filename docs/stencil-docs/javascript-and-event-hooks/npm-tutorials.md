@@ -1,26 +1,17 @@
-#  Adding `npm` Packages to a Theme
+# Adding npm Packages to a Theme
 
 <div class="otp" id="no-index">
 
-### On This Page
+### On this page
 
-- [Overview](#overview)
-	- [Prerequisites](#prerequisites)
-- [Installing React and npm Packages](#installing-react-and-npm-packages)
-	- [Install Dependencies](#install-dependencies)
-	- [Update webpack.common.js](#update-webpackcommonjs)
-	- [Create Components](#create-components)
-	- [Import Dependencies](#import-dependencies)
-	- [Add the coupondrawer div to `base.html`](#add-the-coupondrawer-div-to-basehtml)
-- [Final Product](#final-product)
+- [Installing React and npm packages](#installing-react-and-npm-packages)
+- [Final product](#final-product)
 
 </div>
 
-## Overview
+Stencil's architecture allows for organized customization using npm and React. In production, you can use these tools for stylizing seasonally themed products, temporary promotions, or event tickets. Below is a short tutorial on using npm and React to customize your Stencil theme.
 
-Stencil’s architecture allows for organized customization using npm and React. In production, you can use these tools for stylizing seasonally themed products, temporary promotions, or event tickets. Below is a short tutorial on using npm and React to customize your Stencil theme.
-
-In this example, we'll be making a drawer that sends a coupon code to the customer's email using MaterialUI's React framework. The resulting customization will look like the following:
+In this example, we'll be making a drawer that sends a coupon code to the customer's email using Material UI's React framework. The resulting customization will look like the following:
 
 ![Image of Coupon Drawer example](https://github.com/bigcommerce/dev-docs/blob/master/assets/images/coupon_drawer_example.png?raw=true)
 
@@ -31,13 +22,13 @@ In this example, we'll be making a drawer that sends a coupon code to the custom
 - Cornerstone Stencil theme with npm installed
 - Knowledge of HTML and JavaScript
 
-If you need to set up a BigCommerce store, see [Creating a Trial Store](https://support.bigcommerce.com/s/article/Starting-a-Bigcommerce-Trial#creating).
+To set up a BigCommerce store, see [Creating a Trial Store](https://support.bigcommerce.com/s/article/Starting-a-Bigcommerce-Trial#creating).
 
-## Installing React and npm Packages
+## Installing React and npm packages
 
-To build this customization, complete the instructions in the following sections:
+To build this customization, complete the instructions in the following sections.
 
-### Install Dependencies
+### Install dependencies
 
 For this example, we'll be using packages from [Material-UI](https://material-ui.com/). These components require certain modules.
 
@@ -53,9 +44,7 @@ npm install --save-dev @material-ui/core react react-dom babel-plugin-transform-
 
 ### Update webpack.common.js
 
-Update webpack.common.js with the new presets and plugins. To update the file:
-1. Navigate to `./webpack.common.js`.
-2. Under plugins, add the following code snippet.
+Update` webpack.common.js` with the new presets and plugins.
 
 ```js
 ...
@@ -63,10 +52,7 @@ plugins: [
   ...
    'transform-object-assign',
  ],
-
 ```
-
-3. Under presets, add the following code snippet:
 
 ```js
 ...
@@ -75,14 +61,14 @@ presets: [
         ...
     }], '@babel/react',
   ],
-
 ```
 
-### Create Components
+### Create components
 
-In the following steps, we'll be adding React Components to assemble our coupon drawer:
+In the following steps, we'll be adding React components to assemble our coupon drawer.
+
 1. Navigate to the `./assets/js` folder.
-2. Create a `js/components` folder within the `/js` folder.
+2. Create a `/components` folder within the `/js` folder.
 3. Navigate into the `/components` folder.
 4. Create a `CouponDrawer.js` file.
 5. Copy the following code into the file:
@@ -236,7 +222,8 @@ export default function BasicTextFields() {
 }
 ```
 
-### Import Dependencies
+### Import dependencies
+
 1. Import the React dependencies and  the new CouponDrawer component we've created into `assets/js/app.js`:
 
 ```js
@@ -248,16 +235,16 @@ import ReactDOM from 'react-dom';
 import CouponDrawer from './components/CouponDrawer';
 ```
 
-2. At the bottom of the file, render the `CouponDrawer` component and assign it an id:
+2. At the bottom of the file, render the `CouponDrawer` component and assign it an id.
 
 ```js
 ReactDOM.render(<CouponDrawer />, document.querySelector('#coupondrawer'));
 ```
 
-### Add the coupondrawer div to `base.html`
+### Add the CouponDrawer div to base.html
 
 1. Navigate to `templates/layout/base.html`.
-2. Add a new div element with our new id inside the body:
+2. Add a new div element with our new id inside the body.
 
 ```html
 <body>
@@ -279,7 +266,7 @@ ReactDOM.render(<CouponDrawer />, document.querySelector('#coupondrawer'));
 </body>
 ```
 
-## Final Product
+## Final product
 
 View the finished product using the Stencil CLI command `stencil start` in the Cornerstone theme directory.
 

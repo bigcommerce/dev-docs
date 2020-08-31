@@ -2,28 +2,29 @@
 
 <div class="otp" id="no-index">
 
-### On This Page
-- [Translating a Theme](#translating-a-theme)
-- [Required Subdirectory](#required-subdirectory)
-- [The Schema](#the-schema)
-- [Localization File Structure](#localization-file-structure)
-- [Invoking a Translation Key](#invoking-a-translation-key)
-- [Localization Example](#localization-example)
+### On this page
+
+- [Translating a theme](#translating-a-theme)
+- [Required subdirectory](#required-subdirectory)
+- [The schema](#the-schema)
+- [Localization file structure](#localization-file-structure)
+- [Invoking a translation key](#invoking-a-translation-key)
+- [Localization example](#localization-example)
 - [Resources](#resources)
 
 </div> 
 
 Translation keys exist in JSON files and are invoked based on the user's browser language. With a Stencil theme, you can define multiple translations for each theme based on a predefined schema.
 
-BigCommerce does not provide translations for the theme’s content, however, you have the option of localizing your themes for desired target languages, based on the provided schema. Theme developers are not required to localize or translate a theme in order to make it work.
+BigCommerce does not provide translations for the theme’s content. However, you have the option of localizing your themes for desired target languages based on the provided schema. Theme developers are not required to localize or translate a theme in order to make it work.
 
-## Translating a Theme
+## Translating a theme
 
-In order to translate a theme, you must create a JSON file for each language you choose to support and include key-value pairs for the text blocks that you choose to translate. The translated values will be displayed to visitors who have selected the corresponding language in their browser's locale preferences.
+To translate a theme, create a JSON file for each language you choose to support and include key-value pairs for the text blocks you want to translate. The translated values will be displayed to visitors who have selected the corresponding language in their browser's local preferences.
 
-Stencil automatically detects the `Accept-Language` request HTTP header from the visitor's browser. If a Stencil theme does not contain a JSON file matching any of the visitor's preferred browser languages, the theme will fall back to the values in the default English-language JSON file.
+Stencil automatically detects the `Accept-Language` request HTTP header from the visitor's browser. If a Stencil theme does not contain a JSON file matching any of the visitor's preferred browser languages, the theme will revert to the values in the default English-language JSON file.
 
-Stencil's multi-language capabilities are limited to the particular key-value pairs you specify in the theme. Stencil themes do not translate content rendered from a store's catalog database (i.e. the name of a product).
+Stencil's multi-language capabilities are limited to the particular key-value pairs you specify in the theme. Stencil themes do not translate content rendered from a store's catalog database (for example, the name of a product).
 
 <div class="HubBlock--callout">
 <div class="CalloutBlock--">
@@ -31,73 +32,49 @@ Stencil's multi-language capabilities are limited to the particular key-value pa
 
 <!-- theme:  -->
 
-### Full Support for Multiple Languages
-> If you want to fully support multiple languages, we recommend you set up a separate storefront for each language. This will enable you to completely customize your content (including your product catalog) for each target audience.
+### Full support for multiple languages
+> If you want to fully support multiple languages, we recommend you set up a separate storefront for each language. This will enable you to completely customize your content, including your product catalog, for each target audience.
 
 </div>
 </div>
 </div>
 
-## Required Subdirectory
+## Required subdirectory
 
-Within each Stencil theme, a top level <span class="fp">/lang/</span> subdirectory is reserved for localization and internationalization. This <span class="fp">/lang/</span> subdirectory, as well as the <span class="fp">/lang/en.json</span> (which contains English-language defaults), must be present in order for a Stencil theme to properly function.
+Within each Stencil theme, a top level `/lang/` subdirectory is reserved for localization and internationalization. For a theme to function properly, both the `/lang/` subdirectory and the `/lang/en.json` file, which contains the English-language defaults, must be present.
 
-You can localize a theme by providing other appropriate <span class="fn">.json</span> translation files in the <span class="fp">/lang/</span> subdirectory. One JSON file is required for each language that you want to support. (These can include non-U.S. versions of English, each with their own spellings.)
+You can localize a theme by providing other appropriate JSON translation files in the `/lang` subdirectory. In these files, you would define key-value pairs corresponding to the text blocks in your theme's templates. 
 
-In these files, you would define key and values corresponding to the text blocks in your theme's templates that you choose to translate.
+One JSON file is required for each language that you want to support. These can include non-U.S. versions of English, each with their own spellings.
 
-## The Schema
+## The schema
 
-Name your translation files based on the <a href="https://tools.ietf.org/html/bcp47">BCP47 specification</a> of language and region codes. For a summary of how these codes are designed, see the World Wide Web Consortium’s <a href="http://www.w3.org/International/articles/language-tags/">overview</a>.
+Name your translation files based on the [BCP 47 specification](https://tools.ietf.org/html/bcp47) of language tags and region codes. For an overview of how these language tags are constructed, see [Language tags in HTML and XML](http://www.w3.org/International/articles/language-tags/).
 
-You can find a list of code subtags in the <a href="http://www.iana.org/assignments/language-subtag-registry">IANA Language Subtag Registry</a>. These subtags are primitives that you can combine to create file names’ prefixes for individual regions. Here are some examples:
+You can find a list of code subtags in the [IANA Language Subtag Registry](http://www.iana.org/assignments/language-subtag-registry). These subtags are primitives that you can combine to create file name prefixes for individual regions. Here are some examples:
 
-<table>
-		<tr>
-    <th>Localization file name</th>
-    <th>Corresponding regional language variant</th>
-    <th>Subtags used</th>
-  </tr>
-  <tr>
-    <td>en.json</td>
-    <td>English (default file)</td>
-    <td>en (English)</td>
-  </tr>
-  <tr>
-    <td>en-US.json</td>
-    <td>American English</td>
-    <td>en (English) + US (United States)</td>
-  </tr>
-  <tr>
-    <td>en-AU.json</td>
-    <td>Australian English</td>
-    <td>en (English) + AU (Australia)</td>
-  </tr>
-  <tr>
-    <td>fr.json</td>
-    <td>French</td>
-    <td>en (French)</td>
-  </tr>
-  <tr>
-    <td class="">fr-CA.json</td>
-    <td class="">Canadian French</td>
-    <td class="">fr (French) + CA (Canada)</td>
-  </tr>
-</table>
+| Localization file name | Corresponding regional language variant | Subtags used |
+| ----------- | ----------- | ----------- |
+| `en.json` | English (default file)| en (English) |
+| `en-US.json` | American English | en (English) + US (United States) |
+| `en-AU.json` | Australian English | en (English) + AU (Australia) |
+| `fr.json` | French | en (French) |
+| `fr-CA.json` | Canadian French | fr (French) + CA (Canada) |
 
-For more examples of frequently-used codes, see the following linked table’s "LCID string" (middle) column: <a href="http://www.science.co.il/Language/Locale-codes.asp">http://www.science.co.il/Language/Locale-codes.asp</a>.
+For more examples of frequently-used codes, see [ISO 639-2 Codes for the Representation of Names of Languages](http://www.loc.gov/standards/iso639-2/php/code_list.php).
 
-## Localization File Structure
+## Localization file structure
 
-The <span class="fp">.json</span> translation files have a straightforward structure of key-value pairs. Here is an example, from Cornerstone's <span class="fn">en.json</span> file:
+The JSON translation files are structured as key-value pairs. Here is an example from Cornerstone’s `en.json` file: 
 
 `"welcome_back": "Welcome back, {name}"`
 
-Above, `"welcome_back"` is an arbitrary key name for a welcome message. The string `"Welcome back, {name}"` is its assigned value for English-language stores.
+* `"welcome_back"` - An arbitrary key name for a welcome message. 
+* `"Welcome back, {name}"` - The value assigned for English-language stores.
 
-If you design your theme’s storefront pages to refer to this message by its generic key name `"welcome_back"`, they can pass its localized value in other languages, as that value is defined in each language’s <span class="fn">.json</span> file.
+If you design your theme’s storefront pages to refer to this message by its generic key name `"welcome_back"`, they can pass its localized value in other languages, as that value is defined in each language’s JSON file.
 
-Key-value pairs are grouped into objects, as you can see in this longer example below:
+Key-value pairs are grouped into objects, for example:
 
 <div class="HubBlock-header">
     <div class="HubBlock-header-title flex items-center">
@@ -111,36 +88,41 @@ subtitle: ""
 lineNumbers: true
 -->
 
-```js
+```json
 {
-   "header": {
+  "header": {
     "welcome_back": "Welcome back, {name}"
-   },
-   "prelaunch": {
+    },
+  "prelaunch": {
     "coming_soon": "Coming Soon",
     "intro": "This store will be launching shortly. Please visit again!"
-   },
-   "cart": {
+    },
+  "cart": {
     "items": "{NUM, plural, =0{(0 items)} one {(# item)} other {(# items)}}",
-    "label": "Cart",
+    "label": "Your Cart ({quantity, plural, one {# item} other {# items}})",
     "is_empty": "Your cart is empty",
-     "coupon_code": "Coupon Code",
+    "coupon_code": "Coupon Code",
+    "discount": "Discount",
     "gift_certificate": "Gift Certificate",
     "freeshipping": "Free Shipping",
     "shipping_peritem": "Per Item Shipping",
     "shipping_estimator": {
-        "add_info": "Add Info",
-        "select_a_country": "Select a Country",
-        "select_a_state": "Select a State",
-        "estimate_shipping": "Estimate Shipping"
-    }
-   },
+      "add_info": "Add Info",
+      "select_a_country": "Country",
+      "select_a_state": "State/province",
+      "estimate_shipping": "Estimate Shipping",
+      }
+    },
+  //...
 }
+
 ```
 
-## Invoking a Translation Key
+## Invoking a translation key
 
-Once keys and values are defined in the [.json translation files](https://github.com/bigcommerce/cornerstone/tree/master/lang), you can invoke dynamic translation strings using the [custom `{{lang}}` Handlebars helper](/stencil-docs/handlebars-syntax-and-helpers/handlebars-helpers-reference/string-helpers/custom-string-helpers#handlebars_lang). To invoke a defined translation key, you would follow this generic format:
+Once keys and values are defined in the [JSON translation file](https://github.com/bigcommerce/cornerstone/tree/master/lang), you can invoke dynamic translation strings using the custom `{{lang}}` [Handlebars string helper](https://developer.bigcommerce.com/stencil-docs/reference-docs/handlebars-helpers-reference#string-helpers). 
+
+To invoke a defined translation key, follow this generic format:
 
 <div class="HubBlock-header">
     <div class="HubBlock-header-title flex items-center">
@@ -158,7 +140,7 @@ lineNumbers: true
 {{lang "translation.key" optionalVariable=”someValue”}}
 ```
 
-Here is how this works. In a non-internationalized theme, a storefront page might include a string like this:
+In a non-internationalized theme, a storefront page might include a string like this:
 
 <div class="HubBlock-header">
     <div class="HubBlock-header-title flex items-center">
@@ -176,7 +158,7 @@ lineNumbers: true
 <a href="{{ urls.account }}">Welcome Back <span>{{ customer.name }}</span></a>
 ```
 
-The corresponding internationalized version would substitute the text with the fully dynamic `{{ lang }}` Handlebars helper shown below:
+The corresponding internationalized version would substitute the text with the fully dynamic `{{ lang }}` Handlebars helper as shown below:
 
 <div class="HubBlock-header">
     <div class="HubBlock-header-title flex items-center">
@@ -201,8 +183,9 @@ lineNumbers: true
 
 <!-- theme: warning -->
 
-### File Permissions Required
-> Be sure to set permission 644 (rw-r–r–) on any new translation files that you add. Without these permissions, running your theme locally will fail, with multiple error messages. Bundling your theme will also fail, blocking its upload to a store.
+### File permissions required
+
+> Be sure to give any new translation files default access permissions of `644 (rw-r--r--)`. Without these permissions, running your theme locally will fail with multiple error messages. Bundling your theme will also fail, blocking its upload to a store.
 
 </div>
 </div>
@@ -210,12 +193,9 @@ lineNumbers: true
 
 <a id="basis_localization-example"></a>
 
-## Localization Example
+## Localization example
 
-Here is an example based on
-<span class="fp">cornerstone/templates/components/cart/shipping-estimator.html</span> within Cornerstone.
-
-In the excerpt below, each highlighted `{{lang...}}` statement is a Handlebars helper. Each of the statements abstracts the message indicated by its (English-language) key name to enable internationalization of that message:
+Below is an example based on the Cornerstone’s `templates/components/cart/shipping-estimator.html` file. Here, each highlighted `{{lang...}}` statement abstracts the message indicated by its English-language key to enable internationalization of that message:
 
 <div class="HubBlock-header">
     <div class="HubBlock-header-title flex items-center">
@@ -258,7 +238,7 @@ lineNumbers: true
 
 ```
 
-In the excerpts below, you can see that the default theme’s <span class="fp">/lang/en.json</span> file includes matches, and value definitions, for each of the translation keys in the Handlebars helpers above.
+In the example below, the default theme’s `lang/en.json` file includes matches and value definitions for each of the translation keys.
 
 <div class="HubBlock-header">
     <div class="HubBlock-header-title flex items-center">
@@ -275,47 +255,47 @@ lineNumbers: true
 ```json
 {
   "header": {
-        "welcome_back": "Welcome back, {name}"
-  },
-  // ...
-      "label": "Cart",
-        "is_empty": "Your cart is empty",
-        "coupon_code": "Coupon Code",
-        "gift_certificate": "Gift Certificate",
-        "freeshipping": "Free Shipping",
-        "shipping_peritem": "Per Item Shipping",
-      "shipping_estimator": {
-            "add_info": "Add Info",
-          "select_a_country": "Select a Country",
-          "select_a_state": "Select a State",
-          "estimate_shipping": "Estimate Shipping"
-      }
-  },
+    "welcome_back": "Welcome back, {name}",
+    "skip_to_main": "Skip to main content"
+    },
+  "cart": {
+    "continue_shopping": "Click here to continue shopping",
+      //...
+    "label": "Your Cart ({quantity, plural, one {# item} other {# items}})",
+    "is_empty": "Your cart is empty",
+    "coupon_code": "Coupon Code",
+    "discount": "Discount",
+    "gift_certificate": "Gift Certificate",
+    "freeshipping": "Free Shipping",
+    "reconfigure_product": "Configure '{name}'",
+    "shipping_peritem": "Per Item Shipping",
+    },
   "common": {
-        "currency_converter": "Currency Converter",
-        "newsletter_signup": "Sign up for our newsletter",
-        "form_submit": "Submit",
-        "required": "Required",
-        "email_address": "Email Address",
-      "edit": "Edit",
-      "no": "No",
-      "yes": "Yes",
-      "cancel": "Cancel",
-      "share": "Share",
-      "delete": "Delete",
-      "public": "Public",
-        "private": "Private",
-        "view_all": "View All",
-        "paginator": {
-            "page_of": "Page {current} of {total}"
+    "currency": "Select Currency: {code}",
+    "newsletter_signup": "Register for our newsletter",
+    "form_submit": "Submit",
+    "required": "Required",
+    "optional": "Optional",
+    "email_address": "Email Address",
+    "sign_up": "Register",
+    "login": "Sign in",
+    "logout": "Sign out",
+    "cart": "Cart",
+    "search": "Search",
+    "paginator": {
+        "page_of": "Page {current} of {total}"
       },
-      // ...
+    //...
+    },
+}
 ```
 
-Translation files for other languages would use the same format to define these keys’ values in their respective languages.
+Translation files for other languages would use a similar format to define key-value pairs in their respective languages.
 
 ## Resources
 
-### Additional Resources
+### Additional resources
 
-* [Customizing a Theme - lang directory Video Demo](https://www.youtube.com/embed/ygiRGfSrmnA) (Youtube)
+* [Customizing a Theme - lang directory Video Demo](https://www.youtube.com/embed/ygiRGfSrmnA) (YouTube)
+* [Handlebars String Helpers](https://developer.bigcommerce.com/stencil-docs/reference-docs/handlebars-helpers-reference#string-helpers)
+* [JSON translation file](https://github.com/bigcommerce/cornerstone/tree/master/lang) (BigCommerce GitHub)

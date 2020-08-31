@@ -1,14 +1,14 @@
-# Current Customer API
+# Current customer API
 
 <div class="otp" id="no-index">
 
-### On This Page
-- [Identifying Logged-In Customers Securely](#identifying-logged-in-customers-securely)
+### On this page
+- [Identifying logged-in customers securely](#identifying-logged-in-customers-securely)
 - [Example JavaScript](#example-javascript)
 
 </div>
 
-## Identifying Logged-In Customers Securely
+## Identifying logged-in customers securely
 
 If your application interacts dynamically with the BigCommerce storefront, and conveys information that is specific to a particular logged-in customer, you must confirm that customer’s identity within the insecure environment of the user’s browser.
 
@@ -20,10 +20,10 @@ To address this need, BigCommerce provides a Current Customer endpoint, which yo
 
 <!-- theme: info  -->
 ### Note
-> * An App Client ID is required in requests to `/customer/current.jwt`.
-> * To generate an App Client ID, create an App in the [BigCommerce Developer Portal](https://devtools.bigcommerce.com/).
-> * Use the App's secret to validate the signature on the JWT.
-> * The app doesn't need to be installed or published on a store to utilize the client ID to get the JWT
+> * An app client ID is required in requests to `/customer/current.jwt`.
+> * To generate an app client ID, create an app in the [BigCommerce Developer Portal](https://devtools.bigcommerce.com/).
+> * Use the app's secret to validate the signature on the JWT.
+> * The app doesn't need to be installed or published on a store to use the client ID to get the JWT
 
 </div>
 </div>
@@ -31,7 +31,8 @@ To address this need, BigCommerce provides a Current Customer endpoint, which yo
 
 ## Example JavaScript
 
-Below is example JavaScript that will access this JWT. To test the JWT functionality, you can install this JavaScript on your sandbox BigCommerce store. Your application’s Client ID must be included in the request (to identify the requesting application):
+Below is example JavaScript that will access this JWT. To test the JWT functionality, you can install this JavaScript on your sandbox BigCommerce store. You must include your application’s client ID in the request to identify the requesting application.
+
 
 ```html
 <script type="text/javascript">
@@ -57,8 +58,8 @@ function customerJWT() {
 customerJWT();
 </script>
 ```
+The above JavaScript should alert to the browser with a JWT token if you are logged into the storefront with a customer account. If no customer is logged in, BigCommerce will return a `404` response, and you will see an error message. The JWT returned from this endpoint (example below) can be decoded on [JWT.IO](https://jwt.io/).
 
-If you are logged into the storefront with a customer account, the above JavaScript should alert to the browser with a JWT token. If no customer is logged in, BigCommerce will return a 404 response, and you will see an error message. The JWT returned from this endpoint (example below) can be decoded on JWT.IO
 
 **Example Logged In Customers Response**
 
@@ -83,7 +84,7 @@ If you are logged into the storefront with a customer account, the above JavaScr
 
 By design, your application should send this token to the application’s server, validate it against your client secret, and then use it as a trusted indication of the logged-in customer’s identity, before displaying confidential information to them.
 
-An end-to-end example, which displays a customer’s recently purchased products, is available in our [Ruby](https://github.com/bigcommerce/hello-world-app-ruby-sinatra/) and [PHP](https://github.com/bigcommerce/hello-world-app-php-silex/) sample apps.
+An end-to-end example that displays a customer’s recently purchased products is available in our [Ruby](https://github.com/bigcommerce/hello-world-app-ruby-sinatra/) and [PHP](https://github.com/bigcommerce/hello-world-app-php-silex/) sample apps.
 
 <div class="HubBlock--callout">
 <div class="CalloutBlock--info">
@@ -91,7 +92,7 @@ An end-to-end example, which displays a customer’s recently purchased products
 
 <!-- theme: info -->
 
-### IAT Claim
+### IAT claim
 > The iat claim is only good for 30 seconds.
 
 </div>
