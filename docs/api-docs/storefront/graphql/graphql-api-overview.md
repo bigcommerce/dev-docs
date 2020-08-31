@@ -121,7 +121,8 @@ query MyFirstQuery {
 }
 ```
 
-To explore the storefront GraphQL schema, checkout the **docs** and **schema** tabs on the right.
+To explore the storefront GraphQL schema, checkout the **Docs** and **Schema** tabs on the right.
+
 
 
 ![GraphQL Playground Docs](https://raw.githubusercontent.com/bigcommerce/dev-docs/master/assets/images/graphql-playground-docs.png "GraphQL Playground Docs")
