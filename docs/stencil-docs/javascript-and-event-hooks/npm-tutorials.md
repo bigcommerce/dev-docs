@@ -71,7 +71,7 @@ In the following steps, we'll be adding React components to assemble our coupon 
 2. Create a `/components` folder within the `/js` folder.
 3. Navigate into the `/components` folder.
 4. Create a `CouponDrawer.js` file.
-5. Copy the following code into the file.
+5. Copy the following code into the file:
 
 ```js
 import React from 'react';
