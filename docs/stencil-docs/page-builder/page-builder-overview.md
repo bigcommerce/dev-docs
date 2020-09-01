@@ -16,7 +16,7 @@ Page Builder is a browser-based tool that offers merchants visual editing and co
 
 To customize the different style elements of a theme, such as colors, font, and text size, merchants can use the Theme Styles feature of Page Builder. 
 
-As a theme developer, you can configure your theme's settings, which will determine how merchants can personalize your theme. For example, you can modify how merchants can customize colors, fonts, and number of products to display per feature. For information on how to configure your theme's files, see [Configuration](/docs/stencil-docs/page-builder/configuration.md). For details about theme styles for Stencil's Cornerstone theme, see [Cornerstone Theme Manual](https://support.bigcommerce.com/s/article/Cornerstone-Theme-Manual). 
+As a theme developer, you can configure your theme's settings, which will determine how merchants can personalize your theme. For example, you can modify how merchants can customize colors, fonts, and the number of products to display per feature. For information on how to configure your theme's files, see [Configuration](/docs/stencil-docs/page-builder/configuration.md). 
 
 ## Widgets
 
