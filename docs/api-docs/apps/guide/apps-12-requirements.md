@@ -5,6 +5,7 @@
 ### On this page
 
 - [General requirements](#general-requirements)
+- [Listing](#listing)
 - [Functionality](#functionality)
 - [Installation](#installation)
 - [Next steps](#next-steps)
@@ -15,27 +16,35 @@
 The Apps Marketplace team reviews all app submissions and tests apps to verify they meet [Marketplace](https://www.bigcommerce.com/apps/) listing standards. Verify your app meets the requirements below before submitting it for approval.
 
 ## General requirements
-- Make support resources available throughout the app, like during onboarding, and on the app's dashboard.
-
+- Make support resources available throughout the app, during onboarding, and on the app's dashboard.
 - Follow branding guidelines when referencing BigCommerce (see our [Media Kit](https://www.bigcommerce.com/press/media-kit/) for more information).
-- Don't reference competitor platforms in the app's listing information.
-- Use the same app name in app submission and in app content.
+- Don't reference competitor platforms in the app's listing information or dashboard.
+- Use the same app name in app submission and in app content such as logos and descriptions.
 - Keep app titles concise. Avoid using extra taglines or descriptors; include those in the app summary, if necessary.
-- Include the name of connected third-party platforms in the title (For example: "Marketplace by BigCommerce" or "Search by BigCommerce").
-
+- Include the name of both your brand and any connected third-party platforms in the title (For example: "Marketplace by BigCommerce" or "Search by BigCommerce").
 - Develop app client-side code to be compatible with all BigCommerce [supported browsers](https://support.bigcommerce.com/s/article/Themes-Supported-Browsers).
 
-## Functionality
-- Apps must work as intended and can not conflict with BigCommerce functionality.
+## Listing
 
-- Apps must use V3 endpoints in favor of V2 endpoints when feature parity exists.
-- Apps must serve all callback URLs over HTTPS.
-- Apps that process transactions or handle credit card data must pass a PCI Compliance review by BigCommerce's security team.
+* Approval for the [Marketplace](https://www.bigcommerce.com/apps/) requires all fields listed in the "Publishing Apps" section (**Case Studies** and **Videos** are optional).
+* Listings should be well worded, cleanly formatted, and follow wording and image specifications.
+* App listing name should be restricted to only branding and not include taglines.
+
+## Functionality
+
+* Apps must work as intended and can not conflict with BigCommerce functionality.
+* Apps must use V3 endpoints in favor of V2 endpoints when feature parity exists.
+* Apps must serve all callback URLs over HTTPS.
+* Apps in the Marketplace must be multi-user enabled.
+* Apps that process transactions or handle credit card data must pass a PCI Compliance review by BigCommerce’s security team.
+* Apps that add another marketplace or sales channel to a store must make use of the Channels API and follow Channel App Requirements.
 
 ## Installation
+
 - Apps should be [single-click](https://developer.bigcommerce.com/api-docs/apps/guide/types-of-apps#single-click-apps) and use OAuth flow to authenticate<sup>1</sup>.
 - Apps must respond to `install` callback with styled HTML for the control panel iFrame; this content cannot be blank and must follow our [user-interface constraints](https://developer.bigcommerce.com/api-docs/getting-started/building-apps-bigcommerce/building-apps#building-apps_user-interface-constraints).
 - Apps must store user tokens against the store hash, not the user's email address, to avoid problems with ownership changes and multiple user support.
+- Apps need to include options for new user registration as well as existing users.
 
 <div class="HubBlock--callout">
 <div class="CalloutBlock--info">
