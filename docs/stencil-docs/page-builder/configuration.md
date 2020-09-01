@@ -155,5 +155,3 @@ You may experience an issue when setting up the Page Builder UI. For any unexpec
 * **Symptom:** Changes saved in a browser’s Page Builder panel are not reflected in the storefront.
 * **Likely Cause:** Check whether Page Builder can customize the same storefront.
 * **Resolution:** We strongly recommend opening only one instance of Page Builder, at a time, per storefront. BigCommerce currently provides no synchronization mechanism for configuration changes from multiple Page Builder instances. So the storefront’s schema.json will record the last changes made by any instance – but changes saved earlier by other instances might be lost.
-
-
