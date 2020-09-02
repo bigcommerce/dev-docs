@@ -12,7 +12,7 @@
 - [Sample app diagram](#sample-app-diagram)
 - [Error codes](#error-codes)
 - [FAQ](#faq)
-- [Additional resources](#resources)
+- [Resources](#resources)
 
 </div>
 
