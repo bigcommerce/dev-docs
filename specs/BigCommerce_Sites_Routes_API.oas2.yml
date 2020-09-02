@@ -1,0 +1,881 @@
+swagger: '2.0'
+info:
+  title: Sites
+  version: '3.0'
+  description: >-
+    - [OAuth Scopes](#oauth-scopes)
+
+    - [Authentication](#authentication)
+
+    - [Available Endpoints](#available-endpoints)
+
+    - [Usage Notes](#usage-notes)
+
+    - [Resources](#resources)
+
+
+    Create and manage sites and routes for headless storefronts.
+
+
+    ## OAuth Scopes
+
+    | UI Name        | Permission | Parameter               |
+
+    |----------------|------------|-------------------------|
+
+    | Sites & Routes | modify     | `store_sites`           |
+
+    | Sites & Routess| read-only  | `store_sites_read_only` |
+
+
+    For more information on OAuth Scopes, see:
+    [Authentication](https://developer.bigcommerce.com/api-docs/getting-started/authentication).
+
+
+    ## Authentication
+
+
+    Requests can be authenticated by sending a `client_id` and `access_token`
+    via `X-Auth-Client` and `X-Auth-Token` HTTP headers:
+
+
+    ```http
+
+    GET /stores/{$$.env.store_hash}/v3/catalog/summary
+
+    host: api.bigcommerce.com
+
+    Accept: application/json
+
+    X-Auth-Client: {client_id}
+
+    X-Auth-Token: {access_token}
+
+    ```
+
+
+    |Header|Parameter|Description|
+
+    |-|-|-|
+
+    |`X-Auth-Client`|`client_id`|Obtained by creating an API account or
+    installing an app in a BigCommerce control panel.|
+
+    |`X-Auth-Token`|`access_token `|Obtained by creating an API account or
+    installing an app in a BigCommerce control panel.|
+
+
+    For more information on Authenticating BigCommerce APIs, see:
+    [Authentication](https://developer.bigcommerce.com/api-docs/getting-started/authentication).
+
+
+    ## Available Endpoints
+
+    | Resource / Endpoint                     |
+    Description                                                              |
+
+    |-----------------------------------------|--------------------------------------------------------------------------|
+
+    | Channels                                | Create and manage catalog
+    listings and channels                          |
+
+    | Channel Site                            | Manage sites and routing for
+    headless storefronts                        |
+
+    | Channel Listings                        | Manage catalog differences among
+    different storefronts or marketplaces   |
+
+
+    ## Usage Notes
+
+
+    **Sites and Site Routes:**
+
+    * Sites and routes control the paths that make up a headless storefront
+
+    * Site refers to the domain associated with a channel
+
+    * Routes point to the URLs for key pages on the headless storefront. They
+    define where the homepage is, where the cart page is, etc.
+
+    * Sites and routes ensure links point where they’re supposed to and sales
+    are attributed correctly. For example, a shopper’s order confirmation email
+    should link back to Storefront A, where they placed their order, not
+    Storefront B, which they’ve never visited.
+
+
+    ## Resources
+
+
+    ### Related Endpoints
+
+    *
+    [Channels](https://developer.bigcommerce.com/api-reference/cart-checkout/channels-listings-api)
+  contact: {}
+host: api.bigcommerce.com
+basePath: '/stores/{$$.env.store_hash}/v3'
+paths:
+  /sites:
+    post:
+      summary: Create a Site
+      operationId: post-site
+      parameters:
+        - name: body
+          in: body
+          required: true
+          schema:
+            $ref: '#/definitions/put_Site'
+          x-examples:
+            application/json:
+              url: 'http://kittens.mybigcommerce.com/'
+              channel_id: 1
+      responses:
+        '200':
+          description: OK
+          schema:
+            $ref: '#/definitions/_site'
+          examples:
+            application/json: |-
+              {
+                  "id": 1,
+                  "url": "http://kittens.mybigcommerce.com/",
+                  "channel_id": 1,
+                  "created_at": "2018-01-04T04:15:50.000Z",
+                  "updated_at": "2018-01-04T04:15:50.000Z"
+              }
+      tags:
+        - Sites
+      description: Creates a site for provided channel.
+      consumes: []
+      produces: []
+    get:
+      responses:
+        '200':
+          description: ''
+          schema:
+            type: object
+            properties: {}
+      summary: Get all Sites
+      description: >-
+        Get all sites for a store.
+
+
+        **Note**: You must specify a value for both page and limit that are >= 1
+        to get data. 
+      tags:
+        - Sites
+      parameters:
+        - in: body
+          name: body
+          schema:
+            type: object
+            properties:
+              data:
+                type:
+                  - string
+                  - array
+                items:
+                  $ref: '#/definitions/_site'
+              meta:
+                type: object
+                properties:
+                  pagination:
+                    $ref: '#/definitions/_pagination'
+        - in: query
+          name: page
+          type: integer
+          required: true
+        - in: query
+          name: limit
+          type: integer
+          required: true
+  '/sites/{site_id}':
+    get:
+      summary: Get a Site
+      operationId: get-site
+      parameters:
+        - name: site_id
+          in: path
+          required: true
+          type: string
+      responses:
+        '200':
+          $ref: '#/responses/response_Site'
+      tags:
+        - Sites
+      description: Returns site data for given channel.
+      produces:
+        - application/json
+    put:
+      summary: Update a Site
+      operationId: put-site
+      parameters:
+        - name: site_id
+          in: path
+          required: true
+          type: string
+        - name: body
+          in: body
+          required: true
+          schema:
+            $ref: '#/definitions/put_Site'
+          x-examples:
+            application/json:
+              url: 'https://remote-site.com/'
+      responses:
+        '200':
+          description: Updated
+          schema:
+            $ref: '#/responses/response_Site'
+          examples:
+            application/json:
+              data:
+                id: 1
+                url: 'https://www.my-awesome-site.com'
+                channel_id: 18735
+                created_at: '2019-08-05T18:26:21Z'
+                updated_at: '2019-08-05T18:26:21Z'
+              meta: {}
+      tags:
+        - Sites
+      consumes:
+        - application/json
+      produces:
+        - application/json
+      description: Updates a site for provided channel.
+    delete:
+      summary: Delete a Site
+      operationId: delete-site
+      parameters:
+        - name: site_id
+          in: path
+          required: true
+          type: string
+      responses:
+        '200':
+          description: OK
+          examples:
+            application/json:
+              data: {}
+              meta: {}
+      tags:
+        - Sites
+  '/sites/{site_id}/routes':
+    parameters:
+      - name: site_id
+        in: path
+        type: string
+        required: true
+    get:
+      summary: Get all Site Routes
+      operationId: index-site-routes
+      parameters:
+        - name: site_id
+          in: path
+          required: true
+          type: string
+        - name: type
+          in: query
+          description: Filter routes by a given resource type
+          type: string
+      responses:
+        '200':
+          description: OK
+          schema:
+            type: object
+            properties:
+              data:
+                type: array
+                items:
+                  $ref: '#/definitions/_route'
+              meta:
+                $ref: >-
+                  ./BigCommerce_All_Common.oas2.yml#/definitions/metaCollection_Full
+          examples:
+            application/json:
+              data:
+                - id: 1
+                  type: product
+                  matching: '5'
+                  route: '/products?id={id}'
+                - id: 2
+                  type: category
+                  matching: '44'
+                  route: '/category/{slug}'
+              meta:
+                pagination:
+                  total: 1
+                  count: 1
+                  per_page: 50
+                  current_page: 1
+                  total_pages: 1
+      tags:
+        - Site Routes
+    post:
+      summary: Create a Site Route
+      operationId: post-site-route
+      parameters:
+        - name: site_id
+          in: path
+          required: true
+          type: string
+        - name: body
+          in: body
+          required: true
+          schema:
+            $ref: '#/definitions/_route'
+      responses:
+        '200':
+          description: Created
+          schema:
+            $ref: '#/definitions/_route'
+          examples:
+            application/json:
+              id: 1
+              type: product
+              matching: '5'
+              route: /my-amazing-product
+        '422':
+          $ref: '#/responses/ErrorResponse'
+      tags:
+        - Site Routes
+      description: >+
+        Currently, within BigCommerce, we support the following route types
+        (meaning we will redirect shoppers back to given routes for these):
+
+
+        * Type: "home"
+
+        * Type: "product"
+
+        * Type: "cart"
+
+        * Type: "checkout"
+
+        * Type: "account_order_status" (for order statuses on an account)
+
+        * Type: "account_new_return" (for returns on an account)
+
+        * Type: "unsubscribe" (for unsubscribe URL in emails)
+
+        * Type: "recover_abandoned_cart" (for URL in emails for a shopper to
+        recover their abandoned cart)
+
+        * Type: "create_account"
+
+        * Type: "forgot_password"
+
+        * Type: "order_confirmation" (supported in future update to override
+        order confirmation page)
+
+
+    put:
+      responses:
+        '200':
+          $ref: ''
+        '422':
+          $ref: '#/responses/BulkErrorResponse'
+      description: >-
+        Upsert of routes for a site. 
+
+
+        When updating an existing route, you **must** provide the id in the
+        route object.
+      summary: Update Site Routes
+      parameters:
+        - in: body
+          name: body
+          schema:
+            type: array
+            items:
+              $ref: '#/definitions/_route'
+          x-examples:
+            application/json:
+              - id: 1
+                type: product
+                matching: '*'
+                route: '/products/{id}'
+              - type: product
+                matching: '10'
+                route: '/products?id={id}'
+        - in: path
+          name: site_id
+          type: integer
+          required: true
+      tags:
+        - Site Routes
+  '/sites/{site_id}/routes/{route_id}':
+    get:
+      summary: Get a Site Route
+      operationId: get-site-route
+      parameters:
+        - name: site_id
+          in: path
+          required: true
+          type: string
+        - name: route_id
+          in: path
+          required: true
+          type: string
+      responses:
+        '200':
+          description: OK
+          schema:
+            $ref: '#/definitions/_route'
+          examples:
+            Example 1: |-
+              {
+                  "id": 1,
+                  "type": "category",
+                  "matching": "5",
+                  "route": "/category?id={id}"
+              }
+      tags:
+        - Site Routes
+    put:
+      summary: Update a Site Route
+      operationId: put-site-route
+      parameters:
+        - name: site_id
+          in: path
+          required: true
+          type: string
+        - name: route_id
+          in: path
+          required: true
+          type: string
+        - name: body
+          in: body
+          required: true
+          schema:
+            $ref: '#/definitions/_route'
+          x-examples:
+            application/json:
+              - id: 1
+                type: product
+                matching: '*'
+                route: '/products/{id}'
+              - id: 2
+                type: product
+                matching: '10'
+                route: '/products?id={id}'
+      responses:
+        '201':
+          description: Created
+          schema:
+            $ref: '#/definitions/_route'
+          examples:
+            Example 1: |-
+              {
+                  "id": 1,
+                  "type": "product",
+                  "matching": "5",
+                  "route": "/my-amazing-product"
+              }
+      tags:
+        - Site Routes
+    delete:
+      summary: Delete a Site Route
+      operationId: delete-route
+      parameters:
+        - name: site_id
+          in: path
+          required: true
+          type: string
+        - name: route_id
+          in: path
+          required: true
+          type: string
+      responses:
+        '200':
+          description: OK
+          examples:
+            application/json: |-
+              {
+                  "id": 1,
+                  "type": "category",
+                  "matching": "5",
+                  "route": "/category?id={id}"
+              }
+      tags:
+        - Site Routes
+definitions:
+  _metaCollection:
+    $ref: './BigCommerce_All_Common.oas2.yml#/definitions/metaCollection_Full'
+    title: _metaCollection
+  _route:
+    type: object
+    title: _route
+    properties:
+      id:
+        type: integer
+        description: Unique ID for this route. Required when updating an existing route
+      type:
+        type: string
+        description: What type of resource are we routing to?
+        enum:
+          - product
+          - brand
+          - category
+          - page
+          - blog
+          - home
+          - cart
+          - checkout
+          - search
+          - account
+          - login
+          - returns
+          - static
+      matching:
+        type: string
+        description: >-
+          (entity_id?) For a given type, which resources should match this
+          route? e.g For a route with the type: "product" and matching: "5" this
+          route would be used for the product with the ID of 5. 
+
+
+          Depending on the type of resource, this may be an ID (matching a
+          specific item), or a "*" wildcard matching all items of that type.
+        example: '5'
+      route:
+        type: string
+        description: >-
+          The route template that will be used to generate the URL for the
+          requested resource.
+
+
+          Supports several tokens:
+
+          - `{id}` The **ID** of the requested item
+
+          - `{slug}` The **slug** for the requested item (if available). Note:
+          the `slug` value may contain `/` slash
+
+          - `{language}` The **language** string that the client is using
+        example: /my-amazing-product
+  put_Site:
+    type: object
+    properties:
+      url:
+        type: string
+        description: >-
+          The Fully Qualified URL (including host and scheme) where this site is
+          hosted. All URLs generated for this site will be appended to this.
+        example: 'http://kittens.mybigcommerce.com/'
+    title: put_Site
+  _site:
+    type: object
+    properties:
+      id:
+        type: integer
+      url:
+        type: string
+        description: >-
+          The Fully Qualified URL (including host and scheme) where this site is
+          hosted. All URLs generated for this site will be appended to this.
+        example: 'http://kittens.mybigcommerce.com/'
+      channel_id:
+        type: integer
+        description: >-
+          The channel this site is attached to. Each site belongs to a single
+          channel, and each channel can have either zero or one sites.
+      created_at:
+        type: string
+        description: When was this site created? RFC 3339
+        example: '2018-01-04T04:15:50.000Z'
+      updated_at:
+        type: string
+        description: When was this site defintion last updated? RFC 3339
+        example: '2018-01-04T04:15:50.000Z'
+      routes:
+        type: array
+        description: >-
+          (optional - if included) collection of routes defined for this site.
+          Limited to 200 routes side loaded (query routes direction via
+          `/routes` for bulk)
+        items:
+          $ref: '#/definitions/_route'
+    title: _site
+  _metaEmpty:
+    type: object
+    description: Empty meta object; may be used later.
+    title: _metaEmpty
+  _pagination:
+    type: object
+    description: |
+      Data about the response, including pagination and collection totals.
+    properties:
+      total:
+        type: integer
+        description: |
+          Total number of items in the result set.
+      count:
+        type: integer
+        description: |
+          Total number of items in the collection response.
+      per_page:
+        type: integer
+        description: >
+          The amount of items returned in the collection per page, controlled by
+          the limit parameter.
+      current_page:
+        type: integer
+        description: |
+          The page you are currently on within the collection.
+      total_pages:
+        type: integer
+        description: |
+          The total number of pages in the collection.
+      links:
+        type: object
+        description: >
+          Pagination links for the previous and next parts of the whole
+          collection.
+        properties:
+          previous:
+            type: string
+            description: |
+              Link to the previous page returned in the response.
+          current:
+            type: string
+            description: |
+              Link to the current page returned in the response.
+          next:
+            type: string
+            description: |
+              Link to the next page returned in the response.
+    title: _pagination
+  _errors:
+    type: object
+    description: >-
+      The keys and values in an errors object will vary depending on the error
+      received.
+    title: _errors
+  post_Site:
+    type: object
+    properties:
+      url:
+        type: string
+        description: >-
+          The Fully Qualified URL (including host and scheme) where this site is
+          hosted. All URLs generated for this site will be appended to this.
+        example: 'http://kittens.mybigcommerce.com/'
+      channel_id:
+        type: integer
+        description: >-
+          The channel this site is attached to. Each site belongs to a single
+          channel, and each channel can have either zero or one sites.
+    title: post_Site
+tags:
+  - name: Sites
+    description: >-
+      Enables creation and management of external sites (domains) where shoppers
+      shop. Allows for the correct shopping experience to be delivered and
+      maintained (i.e. redirect URLs, email links) when a shopper goes through
+      the purchasing process.
+  - name: Routes
+    description: >-
+      Allows for specific page routes to be set so that shoppers can be directed
+      to the proper domain pages in their shopping experience. 
+  - name: Site Routes
+securityDefinitions:
+  X-Auth-Client:
+    type: apiKey
+    name: X-Auth-Client
+    in: header
+    description: >-
+      ### OAuth Scopes
+
+      |  **UI Name** | **Permission** | **Parameter** |
+
+      | --- | --- | --- |
+
+      |  Channel Listings | modify | `store_channel_listings` |
+
+      |  Channel Listings | read-only | `store_channel_listings_read_only` |
+
+      |  Channel Settings | modify | `store_channel_settings` |
+
+      |  Channel Settings | read-only | `store_channel_settings_read_only` |
+
+      |  Sites & Routes | modify | `store_sites` |
+
+      |  Sites & Routes | read-only | `store_sites_read_only` |
+
+
+      ### Headers
+
+
+      |Header|Parameter|Description|
+
+      |-|-|-|
+
+      |`X-Auth-Client`|`client_id`|Obtained by creating an API account or
+      installing an app in a BigCommerce control panel.|
+
+      |`X-Auth-Token`|`access_token `|Obtained by creating an API account or
+      installing an app in a BigCommerce control panel.|
+
+
+      ### Example
+
+
+      ```http
+
+      GET /stores/{$$.env.store_hash}/v3/catalog/summary
+
+      host: api.bigcommerce.com
+
+      Content-Type: application/json
+
+      X-Auth-Client: {client_id}
+
+      X-Auth-Token: {access_token}
+
+      ```
+
+
+      * For more information on Authenticating BigCommerce APIs, see:
+      [Authentication](https://developer.bigcommerce.com/api-docs/getting-started/authentication). 
+  X-Auth-Token:
+    type: apiKey
+    in: header
+    name: X-Auth-Token
+    description: >-
+      ### OAuth Scopes
+
+      |  **UI Name** | **Permission** | **Parameter** |
+
+      | --- | --- | --- |
+
+      |  Channel Listings | modify | `store_channel_listings` |
+
+      |  Channel Listings | read-only | `store_channel_listings_read_only` |
+
+      |  Channel Settings | modify | `store_channel_settings` |
+
+      |  Channel Settings | read-only | `store_channel_settings_read_only` |
+
+      |  Sites & Routes | modify | `store_sites` |
+
+      |  Sites & Routes | read-only | `store_sites_read_only` |
+
+
+      ### Headers
+
+
+      |Header|Parameter|Description|
+
+      |-|-|-|
+
+      |`X-Auth-Client`|`client_id`|Obtained by creating an API account or
+      installing an app in a BigCommerce control panel.|
+
+      |`X-Auth-Token`|`access_token `|Obtained by creating an API account or
+      installing an app in a BigCommerce control panel.|
+
+
+      ### Example
+
+
+      ```http
+
+      GET /stores/{$$.env.store_hash}/v3/catalog/summary
+
+      host: api.bigcommerce.com
+
+      Content-Type: application/json
+
+      X-Auth-Client: {client_id}
+
+      X-Auth-Token: {access_token}
+
+      ```
+
+
+      * For more information on Authenticating BigCommerce APIs, see:
+      [Authentication](https://developer.bigcommerce.com/api-docs/getting-started/authentication). 
+security:
+  - X-Auth-Client: []
+  - X-Auth-Token: []
+parameters: {}
+responses:
+  response_Site:
+    description: ''
+    examples:
+      application/json:
+        data:
+          id: 1
+          url: 'https://www.my-awesome-site.com'
+          channel_id: 18735
+          created_at: '2019-08-05T18:26:21Z'
+          updated_at: '2019-08-05T18:26:21Z'
+        meta: {}
+    schema:
+      type: object
+      properties:
+        data:
+          $ref: '#/definitions/_site'
+        meta:
+          $ref: '#/definitions/_metaEmpty'
+  BulkErrorResponse:
+    description: ''
+    schema:
+      type: object
+      properties:
+        status:
+          type: integer
+          description: The HTTP status code.
+        title:
+          type: string
+        errors:
+          $ref: '#/definitions/_errors'
+        meta:
+          $ref: '#/definitions/_metaEmpty'
+        type:
+          type: string
+    examples:
+      application/json:
+        meta:
+          saved_records: 0
+        title: Bulk operation has failed
+        type: >-
+          https://developer.bigcommerce.com/api-docs/getting-started/api-status-codes
+        errors:
+          0.matching.type: Route already exists for site 1 matching 5 for type product
+          1.matching.type: Route already exists for site 1 matching * for type home
+        status: 422
+  ErrorResponse:
+    description: ''
+    schema:
+      type: object
+      properties:
+        title:
+          type: string
+          description: General error message
+        status:
+          type: string
+          description: HTTP status code
+        errors:
+          $ref: '#/definitions/_errors'
+        type:
+          type: string
+    examples:
+      application/json:
+        status: 422
+        title: JSON data is missing or invalid
+        type: >-
+          https://developer.bigcommerce.com/api-docs/getting-started/api-status-codes
+        errors:
+          matching: error.path.missing
+schemes:
+  - https
+consumes:
+  - application/json
+produces:
+  - application/json
+x-stoplight:
+  docs:
+    includeDownloadLink: true
+    showModels: false

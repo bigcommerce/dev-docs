@@ -23,7 +23,7 @@ First, ensure you have loaded the `stencil-utils` package with the following com
 `import utils from '@bigcommerce/stencil-utils';`
 
 European websites must notify users of cookies to comply with European Union law.
-The following code implements hook that will alert shoppers that the website uses cookies.
+The following code implements a hook that will alert shoppers that the website uses cookies.
 
 <div class="HubBlock-header">
     <div class="HubBlock-header-title flex items-center">

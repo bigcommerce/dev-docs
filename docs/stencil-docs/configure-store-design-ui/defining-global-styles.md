@@ -2,38 +2,36 @@
 
 <div class="otp" id="no-index">
 
-### On This Page
-- [Keys and Example Values](#keys-and-example-values)
-- [Requirements and Restrictions](#requirements-and-restrictions)
-- [New Products Example](#new-products-example)
-- [Changing Page Layout Using Local Front Matter](#changing-page-layout-using-local-front-matter)
-- [Retrieving Specific config.json Values through Sass](#retrieving-specific-configjson-values-through-sass)
-- [Adding/Removing Components](#addingremoving-components)
+### On this page
+- [Keys and example values](#keys-and-example-values)
+- [Requirements and restrictions](#requirements-and-restrictions)
+- [New products example](#new-products-example)
+- [Changing page layout using local front matter](#changing-page-layout-using-local-front-matter)
+- [Retrieving specific config.json values through Sass](#retrieving-specific-configjson-values-through-sass)
+- [Adding and removing components](#adding-and-removing-components)
 - [Resources](#resources)
-
-</div> 
-
-You can manage your custom theme's front-end components by configuring the <span class="fn">config.json</span> file. This file is made up of different keys and values that define the global styles shoppers will see on a theme. This <span class="fn">config.json</span> file’s functions are to:
-
-* Provide global context for Stencil’s CSS and Handlebars resources.
-* Provide values for the Store Design GUI to manage.
-* Provide metadata for your theme’s listing in the Theme Marketplace.
-* Define variations included in your custom theme
-
-## Keys and Example Values
-
-For a list of all available keys and values in <span class="fp">config.json</span>, see [Theme Objects](/stencil-docs/reference-docs/theme-objects/models/configjson) in the API Reference.
 
 </div>
 
-## Requirements and Restrictions
+Manage your theme's front-end components by configuring the `config.json` file. This file is made up of different keys and values that define the global styles shoppers will see on a theme.`config.json` performs the following functions:
 
-The <span class="fn">config.json</span> file must meet the following requirements:
+* Provides global context for Stencil's CSS and Handlebars resources.
+* Provides values for the Store Design GUI to manage.
+* Provides metadata for your theme's listing in the Theme Marketplace.
+* Defines variations included in your theme.
 
-* It must be named <span class="fn">config.json</span>, must reside in the root of your `<theme-name>` top level subdirectory (e.g.: <span class="fp">/cornerstone/config.json</span>), and must contain valid JSON.
-* The maximum allowable size for a theme's <span class="fn">config.json</span> file is 64 KB. Exceeding this limit will trigger an error upon uploading the theme to BigCommerce.
+## Keys and example values
+
+For a list of all available keys and values in `config.json`, see [Theme Objects](/stencil-docs/reference-docs/theme-objects/models/configjson) in the API Reference.
+
+## Requirements and restrictions
+
+The `config.json` file must meet the following requirements:
+
+* It must be named `config.json`, must reside in the root of your `<theme-name>` top level subdirectory (e.g.: `/cornerstone/config.json`), and must contain valid JSON.
+* The maximum allowable size for a theme's `config.json` file is 64 KB. Exceeding this limit will trigger an error upon uploading the theme to BigCommerce.
 * Each key's value is restricted to 64 characters. Exceeding this limit will similarly trigger an upload error.
-* Other than these size constraints, there is no limit on the number of keys and values that you can place in a theme's <span class="fn">config.json</span>.
+* Other than these size constraints, there is no limit on the number of keys and values that you can place in a theme's `config.json`.
 
 <div class="HubBlock--callout">
 <div class="CalloutBlock--warning">
@@ -47,8 +45,8 @@ The <span class="fn">config.json</span> file must meet the following requirement
 </div>
 </div>
 
-### Required Themewide Keys
-The <span class="fn">config.json</span> file must contain at least the following keys, with appropriate values (as outlined above):
+### Required keys
+The `config.json` file must contain at least the following keys, with appropriate values (as outlined above):
 
 * `name`
 * `version`
@@ -56,7 +54,7 @@ The <span class="fn">config.json</span> file must contain at least the following
 * `variations` (an array of at least one, and at most four, variation objects)
 * `meta` (an object; see specific requirements below)
 
-### Required `meta` Keys
+### Required meta keys
 
 The meta object must contain at least the following keys, with appropriate values:
 
@@ -99,7 +97,7 @@ lineNumbers: true
 }
 ```
 
-### Required `variation` Keys
+### Required variation keys
 
 At least one variation is required in a theme. For each variation that you choose to include in your theme, you must provide at least the following keys and sub-element, with appropriate values:
 
@@ -108,19 +106,7 @@ At least one variation is required in a theme. For each variation that you choos
 * `meta`
 * `description`
 
-For illustration, below is a code sample from Cornerstone:
-
-<div class="HubBlock-header">
-    <div class="HubBlock-header-title flex items-center">
-        <div class="HubBlock-header-name">Required Variation Object with Key/Value pairs</div>
-    </div><div class="HubBlock-header-subtitle"></div>
-</div>
-
-<!--
-title: "Required Variation Object with Key/Value pairs"
-subtitle: ""
-lineNumbers: true
--->
+For illustration, below is a code sample from Cornerstone.
 
 ```json
 "variations": [
@@ -136,24 +122,11 @@ lineNumbers: true
   ]
 ```
 
-## New Products Example
+## New products example
 
-To customize your theme’s appearance at a global level, the values that you define in the
-<span class="fp">{theme-name}/config.json</span> file interact with local resources. Your <span class="fp">config.json</span> definitions set global defaults for templates, front-matter attributes, and Handlebars resources throughout your theme. You can also define custom variables in <span class="fp">config.json</span>, named according to your needs.
+To customize your theme's appearance at a global level, the values that you define in the `config.json` file interact with local resources. Your `config.json` definitions set global defaults for templates, front-matter attributes, and Handlebars resources throughout your theme. You can also define custom variables in `config.json`, named according to your needs.
 
-To see how interactions with <span class="fp">config.json</span> values work, first note the default values in <span class="fp">config.json</span> for the `homepage_new_products_count` and `product_list_display_mode` keys:
-
-<div class="HubBlock-header">
-    <div class="HubBlock-header-title flex items-center">
-        <div class="HubBlock-header-name"></div>
-    </div><div class="HubBlock-header-subtitle"></div>
-</div>
-
-<!--
-title: ""
-subtitle: ""
-lineNumbers: true
--->
+To see how interactions with `config.json` values work, first note the default values in `config.json` for the `homepage_new_products_count` and `product_list_display_mode` keys:
 
 ```json
 {
@@ -164,23 +137,11 @@ lineNumbers: true
 }
 ```
 
-Next, open your <span class="fp">{theme-name}templates/pages/home.html</span> file. Highlighted in bold below is a statement that uses the theme-wide settings above to customize an API request to the server.
+Next, open your `templates/pages/home.html` file. Highlighted in bold below is a statement that uses the theme-wide settings above to customize an API request to the server.
 
-(Note the reference to the `homepage_new_products_count` key in the file’s front matter, between the two "" delimiters. If your current theme’s <span class="fp">home.html</span> front matter omits this `products:new:limit` definition, paste it in for this demonstration.)
+Note the reference to the `homepage_new_products_count` key in the file's front matter, between the two `""` delimiters. If your current theme's `home.html` front matter omits `products:new:limit`, paste it in for this demonstration.
 
-<div class="HubBlock-header">
-    <div class="HubBlock-header-title flex items-center">
-        <div class="HubBlock-header-name"></div>
-    </div><div class="HubBlock-header-subtitle"></div>
-</div>
-
-<!--
-title: ""
-subtitle: ""
-lineNumbers: true
--->
-
-```yaml
+```html
 products:
   new:
     limit: {{theme_settings.homepage_new_products_count}}
@@ -201,24 +162,12 @@ blog:
 {{> layout/base}}
 ```
 
-If you load your storefront’s home page (by default, [http://localhost:3000](http://localhost:3000), you should see a "New Products" section that displays 12 products in a grid.
+You should see a new products section displaying twelve products in a grid on your homepage.
 
-## Changing Page Layout Using Local Front Matter
+## Changing page layout using local front matter
 
-In the <span class="fp">{theme-name}templates/pages/home.html</span> front matter, products > featured is listed. This controls
-how many products appear on the home page. This is set by the <span class="fp">config.json</span> `theme_settings.homepage_featured_products_count}`. This example shows how you can set theme wide configurations in the front matter using the <span class="fn">config.json</span>.
-
-<div class="HubBlock-header">
-    <div class="HubBlock-header-title flex items-center">
-        <div class="HubBlock-header-name"></div>
-    </div><div class="HubBlock-header-subtitle"></div>
-</div>
-
-<!--
-title: ""
-subtitle: ""
-lineNumbers: true
--->
+In the `templates/pages/home.html` front matter, products > featured is listed. This controls
+how many products appear on the home page. This is set by the `config.json` `theme_settings.homepage_featured_products_count}`. This example shows how you can set theme wide configurations in the front matter using the `config.json`.
 
 ```html
 
@@ -230,28 +179,15 @@ products:
 
 ```
 
-Next, try changing the `limit: {{theme_settings.homepage_featured_products_count}}` statement in the `home.html` file to a hard-coded limit: 2, as indicated below in bold:
+Next, try changing the `limit: {{theme_settings.homepage_featured_products_count}}` statement in the `home.html` file to a hard-coded limit: 2, as indicated below in bold.
 
-<div class="HubBlock-header">
-    <div class="HubBlock-header-title flex items-center">
-        <div class="HubBlock-header-name"></div>
-    </div><div class="HubBlock-header-subtitle"></div>
-</div>
-
-<!--
-title: ""
-subtitle: ""
-lineNumbers: true
--->
 
 ```html
-
 products:
   <!-- [...] -->
   featured:
       limit: 2
   <!-- [...] -->
-
 <!-- [...] -->
 
 {{#partial "page"}}
@@ -267,23 +203,11 @@ products:
 {{> layout/base}}
 ```
 
-If you now reload your storefront’s home page in your browser, you should see the number of displayed "Featured Products" change from its default number (as specified in <span class="fp">config.json</span>) to two.
+Reload the page. You should see the number of products displayed in "Featured Products" change to two.
 
-## Retrieving Specific config.json Values through Sass
+## Retrieving specific config.json values through Sass
 
-In <span class="fn">config.json</span>, global variables bring dynamic values into the framework. Sass imports these global variables’ values to gracefully handle data like theme-wide colors’ hexadecimal values, and to make the data available to Store Design. Here is one short snippet from <span class="fn">config.json</span>:
-
-<div class="HubBlock-header">
-    <div class="HubBlock-header-title flex items-center">
-        <div class="HubBlock-header-name"></div>
-    </div><div class="HubBlock-header-subtitle"></div>
-</div>
-
-<!--
-title: ""
-subtitle: ""
-lineNumbers: true
--->
+In `config.json`, global variables bring dynamic values into the framework. Sass imports these global variables' values to handle data like colors hexadecimal values and to make the data available to Page Builder. Below is a short snippet from `config.json`.
 
 ```css
 {
@@ -295,19 +219,7 @@ lineNumbers: true
 }
 ```
 
-Here are the corresponding references in the default Stencil theme’s <span class="fn">{theme-name}/assets/scss/settings/global/color/_color.scss</span> file:
-
-<div class="HubBlock-header">
-    <div class="HubBlock-header-title flex items-center">
-        <div class="HubBlock-header-name"></div>
-    </div><div class="HubBlock-header-subtitle"></div>
-</div>
-
-<!--
-title: ""
-subtitle: ""
-lineNumbers: true
--->
+Below are the corresponding references in the default Stencil theme's `assets/scss/settings/global/color/_color.scss` file.
 
 ```scss
 // ...
@@ -317,25 +229,13 @@ $color-highlightDark:   stencilColor("color-highlightDark");
 // ...
 ```
 
-In <span class="fn">config.json</span>, try redefining one or more color variables to hex values of your choice. Then re-render your theme’s home page to see the effects.
+In `config.json`, try redefining one or more color variables to hex values of your choice. Reload the home page to see the effects.
 
-## Adding/Removing Components
+## Adding and removing components
 
-The storefront properties that Stencil abstracts as Handlebars resources are completely portable between HTML files. For an example of how this works, first open any storefront page in a browser. In the page’s footer, note the appearance of Categories.
+The properties Stencil abstracts as Handlebars resources are portable between HTML files. For an example of how this works, first open any storefront page in a browser. In the page's footer, note the appearance of Categories.
 
-Next, open your <span class="fn">{theme-name}/templates/components/common/footer.html</span> file in a text editor. As indicated below, cut (or copy and comment out) the code section shown below.
-
-<div class="HubBlock-header">
-    <div class="HubBlock-header-title flex items-center">
-        <div class="HubBlock-header-name">footer.html</div>
-    </div><div class="HubBlock-header-subtitle"></div>
-</div>
-
-<!--
-title: "footer.html"
-subtitle: ""
-lineNumbers: true
--->
+Next, edit `templates/components/common/footer.html`, and cut the code section shown below.
 
 ```html
 <footer class="footer" role="contentinfo">
@@ -354,21 +254,9 @@ lineNumbers: true
 </article>
 ```
 
-If you now refresh the storefront page in your browser, the Categories list should disappear from the footer.
+Refresh the page. The Categories list should disappear from the footer.
 
-Next, create a new <span class="fn">{theme-name}/templates/components/footer/ subdirectory</span>. Paste the code block from the previous cut/copy into a new file named <span class="fn">{theme-name}/templates/components/footer/categories.html</span>, and save it:
-
-<div class="HubBlock-header">
-    <div class="HubBlock-header-title flex items-center">
-        <div class="HubBlock-header-name">categories.html</div>
-    </div><div class="HubBlock-header-subtitle"></div>
-</div>
-
-<!--
-title: "categories.html"
-subtitle: ""
-lineNumbers: true
--->
+Next, add a directory to `templates/components` called `footer` and create a new `categories.html` template there. (ex: `templates/components/footer/categories.html`). Then, paste the code block from the previous step into `category.html`.
 
 ```html
 <article class="footer-info-col footer-info-col--small">
@@ -383,19 +271,7 @@ lineNumbers: true
 </article>
 ```
 
-Next, back in <span class="fp">/templates/components/common/footer.html</span>, add a reference to your new path/file, as indicated below in comments:
-
-<div class="HubBlock-header">
-    <div class="HubBlock-header-title flex items-center">
-        <div class="HubBlock-header-name">footer.html</div>
-    </div><div class="HubBlock-header-subtitle"></div>
-</div>
-
-<!--
-title: "footer.html"
-subtitle: ""
-lineNumbers: true
--->
+In `templates/components/common/footer.html`, add a reference to the new template.
 
 ```html
 <footer class="footer" role="contentinfo">
@@ -409,10 +285,10 @@ lineNumbers: true
 </footer>
 ```
 
-If you now refresh storefront pages in your browser, the Categories list should reappear in the footer. The component returns even though you have moved its data resources to an arbitrary new location, and referenced them indirectly.
+Refresh the page. The Categories list should reappear in the footer.
 
 ## Resources
 
-### Additional Resources
+### Additional resources
 
 * [Customizing a Theme Video](https://www.youtube.com/watch?v=VZYZsDoEOpQ) (Youtube)

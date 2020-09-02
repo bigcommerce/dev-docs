@@ -4,36 +4,36 @@
 
 <div class="otp" id="no-index">
 
-### On This Page
-- [BigCommerce for Wordpress Supported Features](#bigcommerce-for-wordpress-supported-features)
-- [BigCommerce for Wordpress Unsupported Features](#bigcommerce-for-wordpress-unsupported-features)
-- [General Product Roadmap](#general-product-roadmap)
+### On this page
+- [BigCommerce for Wordpress supported features](#bigcommerce-for-wordpress-supported-features)
+- [BigCommerce for Wordpress unsupported features](#bigcommerce-for-wordpress-unsupported-features)
+- [General product roadmap](#general-product-roadmap)
 
 </div>
 
-## BigCommerce for Wordpress Supported Features
+## BigCommerce for Wordpress supported features
 
 The open source BigCommerce for Wordpress plugin currently supports the following features and capabilities that are native to the BigCommerce platform and more:
 
-* Complex Product Catalog (600 SKUs per product, 250 product values for a single option)
-* Product Variants and Product Variant Pricing
-* Product Promotions
-* Secure Shopper Accounts and Logins with PCI Compliant Checkout
-* Cart, Checkout, Account Profiles, Sign In, Shipping & Returns, Gift Certificates, and Order History Pages for Shoppers
-* Ability to Overwrite Template Files
-* ShipperHQ Integration
+* Complex product catalog (600 SKUs per product, 250 product values for a single option)
+* Product pick lists and bundled products
+* Product variants and product variant pricing
+* Product promotions
+* Secure shopper accounts and logins with PCI compliant checkout
+* Cart, Checkout, account profiles, sign in, shipping & returns, gift certificates, and Order History pages for shoppers
+* Ability to overwrite template files
+* ShipperHQ integration
 * Gutenberg and Classic Editor
-* Google Accelerated Mobile Pages 
-* Google Address Autocomplete 
-* Google Analytics Enhanced Ecommerce
+* Google accelerated mobile pages 
+* Google address autocomplete 
 * Facebook Pixel 
-* Enterprise Systems Integrations (connect to existing ERP suites, PIM software, OMS solutions, POS systems, or marketing automation tools)
-* Faceted Search with FacetWP and Search with SearchWP
-* Multi Site Selling
-* Multi-Channel Selling (eBay, Amazon, Facebook, Instagram, Google Shopping, Square and more) and Central Management (bulk listing, automatic inventory syncing, unified order and fulfillment management)
-* Shopper Wishlists
+* Enterprise systems integrations (connect to existing ERP suites, PIM software, OMS solutions, POS systems, or marketing automation tools)
+* Faceted search with FacetWP and search with SearchWP
+* Multi site selling
+* Multi-channel selling (eBay, Amazon, Facebook, Instagram, Google Shopping, Square and more) and Central Management (bulk listing, automatic inventory syncing, unified order and fulfillment management)
+* Shopper wishlists
 
-### Supported Payment Gateways
+### Supported payment gateways
 
 BigCommerce has over 65 payment gateway integrations available out-of-the box, serving 100+ countries and over 250 local payment methods. BigCommerce for Wordpress currently supports the following payment gateways:
 
@@ -41,30 +41,30 @@ BigCommerce has over 65 payment gateway integrations available out-of-the box, s
 * PayPal through Braintree
 * All non-hosted (API) gateways that are supported by Optimized One Page Checkout 
 
-Unsupported Hosted Payment Gateways are Amazon Pay, AfterPay, Google Pay, Chase Pay, and Masterpass.
+Unsupported hosted payment gateways are Amazon Pay, AfterPay, Google Pay, Chase Pay, and Masterpass.
 
-## BigCommerce for Wordpress Unsupported Features
+## BigCommerce for Wordpress unsupported features
 
 The BigCommerce for Wordpress plugin does not currently support the following features: 
 
-* Product Pick Lists and Bundled * Products
-* Product File Upload Field
-* Warranty, Availability Fields
-* Persistent Cart
-* Cart Preview
-* Cart Page Promotional Banners
-* Real-Time Syncing with BigCommerce Catalog Updates
+* Product file upload field
+* Warranty, availability fields
+* Persistent cart
+* Cart preview
+* Cart page promotional banners
+* Real-Time syncing with BigCommerce catalog updates
+* Google Analytics Enhanced Ecommerce
 
-## General Product Roadmap
+## General product roadmap
 
 We plan on supporting and improving the following features in the BigCommerce for Wordpress plugin:
 
-* Product Modifier Improvements
-* Product Variant Images
-* Moderation and Management of Product Reviews
-* Additional Theme Styling within Customizer
-* Multi-Currency
-* Abandoned Cart Saver 
-* Shipping Calculation on Cart Page
-* Promotional Banner Support
-* Page Builder Plugins Support
+* Product modifier improvements
+* Product variant images
+* Moderation and management of product reviews
+* Additional theme styling within customizer
+* Multi-currency
+* Abandoned cart saver 
+* Shipping calculation on cart page
+* Promotional banner support
+* Page builder plugins support

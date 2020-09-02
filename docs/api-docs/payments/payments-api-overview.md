@@ -56,6 +56,7 @@ Payments can be processed using cards stored with the BigCommerce Stored Credit 
 * AdyenV2
 * Authorize.net
 * CyberSource
+* MyVirtualMerchant
 * Paymetric
 * Paypal Powered by Braintree
 * Stripe
@@ -591,6 +592,7 @@ Orders can be created using the [Server to Server API Endpoints](https://develop
 | `30104` | The payment was declined. Please contact card issuer for more information. |N/A |N/A|
 | `30105` | The payment was declined due to duplicate payment being submitted. |N/A |N/A |
 | `30106` | The payment was declined due to insufficient funds. |N/A |N/A|
+| `30107` | The payment was declined due to stored instrument no longer being valid. |Shopper revoked payment authorization associated with the stored PayPal account.|N/A|
 
 ## FAQ
 

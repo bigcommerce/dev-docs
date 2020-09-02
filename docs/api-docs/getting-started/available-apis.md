@@ -1,4 +1,9 @@
-- [BigCommerce APIs at a Glance](#bigcommerce-apis-at-a-glance)
+# API Reference
+
+<div class="otp" id="no-index">
+
+### On this page
+- [BigCommerce APIs at a glance](#bigcommerce-apis-at-a-glance)
 - [V2 REST API](#v2-rest-api)
 - [V3 REST API](#v3-rest-api)
 - [Webhooks](#webhooks)
@@ -8,10 +13,13 @@
 - [Customer Login API](#customer-login-api)
 - [Current Customer API](#current-customer-api)
 - [Provider APIs](#provider-apis)
-- [Add to Cart URLs](#add-to-cart-urls)
-- [Deprecations and Sunsets](#deprecations-and-sunsets)
+- [Add to cart URLs](#add-to-cart-urls)
+- [API spec files](#api-spec-files)
+- [Deprecations and sunsets](#deprecations-and-sunsets)
 
-## BigCommerce APIs at a Glance
+</div>
+
+## BigCommerce APIs at a glance
 |API|Server|Description|
 |-|-|-|
 |[V2 REST](#v2-rest-api)|`api.bigcommerce.com/stores/{store_hash}/v2/`| Exposes many resources (including webhooks); some not yet accessibly via `v3` API |
@@ -103,6 +111,7 @@ Like the **V2 API**, BigCommerce's **V3 REST API** exposes many endpoints develo
 |  [Product Options](https://developer.bigcommerce.com/api-reference/catalog/catalog-api/product-options) | Create and manage product variant options | `/catalog/products/{id}/options` |
 |  [Product Variants](https://developer.bigcommerce.com/api-reference/catalog/catalog-api/product-variants) | Create and manage product variants | `/catalog/products/{id}/variants` |
 |  [Product Videos](https://developer.bigcommerce.com/api-reference/catalog/catalog-api/product-videos) | Create and manage product videos | `/catalog/products/{id}/videos` |
+|  [Redirects](https://developer.bigcommerce.com/api-reference/storefront/redirects) | Manage 301 Redirects for Storefronts | `/storefront/redirects` |
 |  [Scripts](https://developer.bigcommerce.com/api-reference/store-management/scripts) | Add client-side code to a store | `/content/scripts` |
 |  [Sites](https://developer.bigcommerce.com/api-reference/cart-checkout/sites-routes-api) | Manage sites and routing for headless storefronts | `/sites` |
 |  [Storefront API Token](https://developer.bigcommerce.com/api-reference/cart-checkout/storefront-api-token/api-token) | Create Auth Tokens for use with Storefront APIs | `/api-token` |
@@ -217,7 +226,7 @@ Provider API references describe endpoints, responses, and requests that can be 
 **Additional Information:** [Shipping Provider API Overview](https://developer.bigcommerce.com/api-docs/store-management/shipping/shipping-provider-api)
 
 
-## Add to Cart URLs
+## Add to cart URLs
 
 Query string parameters can be appended to BigCommerce product and `/cart.php` URLs in order to pre-select an SKU or add a product to cart. These parameters make it possible to build custom add to cart links and forms for use on BigCommerce storefronts and remote sites (such as WordPress, blog posts, and social media).
 
@@ -233,10 +242,55 @@ Query string parameters can be appended to BigCommerce product and `/cart.php` U
 | string  | `source=`     | source of the sale for analytics; can be any string | `/cart.php?action=buy&sku=xlredtshirt&source=emailcampaign` |
 
 
-**Additional Information:** [Add to Cart URLs Overview](https://developer.bigcommerce.com/api-docs/cart-and-checkout/add-to-cart-url)
+**Additional Information:**
+[Add to Cart URLs Overview](https://developer.bigcommerce.com/api-docs/cart-and-checkout/add-to-cart-url)
+
+## API spec files
+
+| API | Download|
+|-|-|
+| Storefront Token | <a class="cursor-pointer" href="/api-reference/cart-checkout/storefront-api-token/BigCommerce_Storefront_Token_API.oas2.json" target="_blank" download="BigCommerce_Storefront_Token_API.oas2.json">BigCommerce_Storefront_Token_API.oas2.json</a>|
+|Storefront Carts |<a class="cursor-pointer" href="/api-reference/cart-checkout/storefront-cart-api/BigCommerce_Storefront_Cart_API.oas2.json" target="_blank" download="BigCommerce_Storefront_Cart_API.oas2.json">BigCommerce_Storefront_Cart_API.oas2.json</a> |
+| Storefront Checkouts |<a class="cursor-pointer" href="/api-reference/cart-checkout/storefront-checkout-api /BigCommerce_Storefront_Checkouts_2.oas2.json" target="_blank" download="BigCommerce_Storefront_Checkouts_2.oas2.json">BigCommerce_Storefront_Checkouts_2.oas2.json</a> |
+|Storefront Orders |<a class="cursor-pointer" href="/api-reference/cart-checkout/storefront-orders/BigCommerce_Storefront_Orders_API.oas2.json" target="_blank" download="BigCommerce_Storefront_Orders_API.oas2.json">BigCommerce_Storefront_Orders_API.oas2.json</a> |
+| Server-to-Server Carts |<a class="cursor-pointer" href="/api-reference/cart-checkout/server-server-cart-api/BigCommerce_Server_to_Server_Cart_API.oas2.json" target="_blank" download="BigCommerce_Server_to_Server_Cart_API.oas2.json">BigCommerce_Server_to_Server_Cart_API.oas2.json</a> |
+|Server-to-Server Checkouts |<a class="cursor-pointer" href="/api-reference/cart-checkout/server-server-checkout-api/BigCommerce_Server_to_Server_Checkout_API.oas2.json" target="_blank" download="BigCommerce_Server_to_Server_Checkout_API.oas2.json">BigCommerce_Channels_Listings_API.oas2.json</a> |
+| Channels and Listings |<a class="cursor-pointer" href="/api-reference/cart-checkout/channels-listings-api/BigCommerce_Channels_Listings_API.oas2.json" target="_blank" download="BigCommerce_Storefront_Checkouts_2.oas2.json">BigCommerce_Channels_Listings_API.oas2.json</a> |
+|Sites and Routes|<a class="cursor-pointer" href="/api-reference/cart-checkout/sites-routes-api/BigCommerce_Channels_Listings_API.oas2.json.json" target="_blank" download="BigCommerce_Channels_Listings_API.oas2.json.json">BigCommerce_Channels_Listings_API.oas2.json</a> |
+| Wishlists |<a class="cursor-pointer" href="/api-reference/cart-checkout/wishlists/BigCommerce_Channels_Listings_API.oas2.json" target="_blank" download="BigCommerce_Channels_Listings_API.oas2.json">BigCommerce_Channels_Listings_API.oas2.json</a> |
+|Payment Processing Token and Methods| <a class="cursor-pointer" href="/api-reference/payments/payments-create-payment-token-api/BigCommerce_Payments_API.oas2.json" target="_blank" download="BigCommerce_Payments_API.oas2.json">BigCommerce_Payments_API.oas2.json</a> |
+| Enabled Store Payment Methods |<a class="cursor-pointer" href="/api-reference/payments/payment-methods-api/BigCommerce_Enabled_Payment_Methods_API.oas2.json" target="_blank" download="BigCommerce_Enabled_Payment_Methods_API.oas2.json">BigCommerce_Enabled_Payment_Methods_API.oas2.json/a> |
+|Process Payment |<a class="cursor-pointer" href="/api-reference/payments/payments-process-payments/BigCommerce_Process_Payment_API.oas2.json" target="_blank" download="BigCommerce_Process_Payment_API.oas2.json">BigCommerce_Process_Payment_API.oas2.json</a> |
+|Geography |<a class="cursor-pointer" href="/api-reference/store-management/geography-api/BigCommerce_Geography_API.oas2.json" target="_blank" download="BigCommerce_Geography_API.oas2.json">BigCommerce_Geography_API.oas2.json</a> |
+|Currencies |<a class="cursor-pointer" href="/api-reference/store-management/currency-api/BigCommerce_Currency_API.oas2.json" target="_blank" download="BigCommerce_Currency_API.oas2.json">BigCommerce_Currency_API.oas2.json</a> |
+|Marketing |<a class="cursor-pointer" href="/api-reference/store-management/marketing/BigCommerce_Marketing_API.oas2.json" target="_blank" download="BigCommerce_Marketing_API.oas2.json">BigCommerce_Marketing_API.oas2.json</a> |
+|Orders V3 |<a class="cursor-pointer" href="/api-reference/store-management/order-transactions/BigCommerce_Order_Transactions_API.oas2.json" target="_blank" download="BBigCommerce_Order_Transactions_API.oas2.json">BigCommerce_Order_Transactions_API.oas2.json</a> |
+|Orders V2 |<a class="cursor-pointer" href="/api-reference/store-management/orders/BigCommerce_Order_Transactions_API.oas2.json" target="_blank" download="BigCommerce_Order_Transactions_API.oas2.json">BigCommerce_Order_Transactions_API.oas2.json</a> |
+|Payment Methods |<a class="cursor-pointer" href="/api-reference/store-management/payment-methods/BigCommerce_Payments_API.oas2.json" target="_blank" download="BigCommerce_Payments_API.oas2.json">BigCommerce_Payments_API.oas2.json</a> |
+|Price Lists |<a class="cursor-pointer" href="/api-reference/store-management/price-lists/BigCommerce_Price_Lists_API.oas2.json" target="_blank" download="BigCommerce_Price_Lists_API.oas2.json">BigCommerce_Price_Lists_API.oas2.json</a> |
+|Scripts |<a class="cursor-pointer" href="//api-reference/store-management/scripts/BigCommerce_Scripts_API.oas2.json" target="_blank" download="BigCommerce_Scripts_API.oas2.json">BigCommerce_Scripts_API.oas2.json</a> |
+|Shipping |<a class="cursor-pointer" href="/api-reference/store-management/shipping-api/BigCommerce_Shipping_API.oas2.json" target="_blank" download="BigCommerce_Shipping_API.oas2.json">BigCommerce_Shipping_API.oas2.json</a> |
+|Shipping Provider |<a class="cursor-pointer" href="/api-reference/store-management/shipping-provider-api/BigCommerce_Shipping_Provider_API.oas2.json" target="_blank" download="BigCommerce_Shipping_Provider_API.oas2.json">BigCommerce_Shipping_Provider_API.oas2.json</a> |
+|Store Content |<a class="cursor-pointer" href="/api-reference/store-management/store-content/BigCommerce_Store_Content_API.oas2.json" target="_blank" download="BigCommerce_Store_Content_API.oas2.json">BigCommerce_Store_Content_API.oas2.json</a> |
+|Store Information |<a class="cursor-pointer" href="/api-reference/store-management/store-information-api/BigCommerce_Store_Information_API.oas2.json" target="_blank" download="BigCommerce_Store_Information_API.oas2.json">BigCommerce_Store_Information_API.oas2.json</a> |
+|Subscribers |<a class="cursor-pointer" href="/api-reference/store-management/subscribers/BigCommerce_Subscribers_API.oas2.json" target="_blank" download="BigCommerce_Subscribers_API.oas2.json">BigCommerce_Subscribers_API.oas2.json</a> |
+|Tax Class |<a class="cursor-pointer" href="/api-reference/cart-checkout/storefront-api-token/BigCommerce_Tax_Class_API.oas2.json" target="_blank" download="BigCommerce_Tax_Class_API.oas2.json">BigCommerce_Tax_Class_API.oas2.json</a> |
+|Themes |<a class="cursor-pointer" href="/api-reference/store-management/themes/BigCommerce_Themes_API.oas2.json" target="_blank" download="BigCommerce_Themes_API.oas2.json">BigCommerce_Themes_API.oas2.json</a> |
+|Widgets |<a class="cursor-pointer" href="/api-reference/store-management/widgets/BigCommerce_Widgets_API.oas2.json" target="_blank" download="BigCommerce_Widgets_API.oas2.json">BigCommerce_Widgets_API.oas2.json</a> |
+|Shipping Provider |<a class="cursor-pointer" href="/api-reference/providers/shipping-provider-api/BigCommerce_Shipping_Provider_API.oas2.json" target="_blank" download="BigCommerce_Shipping_Provider_API.oas2.json">BigCommerce_Shipping_Provider_API.oas2.json</a> |
+|Catalog |<a class="cursor-pointer" href="/api-reference/catalog/catalog-api/BigCommerce_Catalog_API.oas2.json" target="_blank" download="BigCommerce_Catalog_API.oas2.json">BigCommerce_Catalog_API.oas2.json</a> |
+|Customers V3 |<a class="cursor-pointer" href="/api-reference/customer-subscribers/v3-customers-api/BigCommerce_Customers_V3_API.oas2.json" target="_blank" download="BigCommerce_Customers_V3_API.oas2.json">BigCommerce_Customers_V3_API.oas2.json</a> |
+|Customers V2 |<a class="cursor-pointer" href="/api-reference/customer-subscribers/customers-api/BigCommerce_Customers_API.oas2.json" target="_blank" download="BigCommerce_Customers_API.oas2.json">BigCommerce_Customers_API.oas2.json</a> |
+|Subscribers |<a class="cursor-pointer" href="/api-reference/customer-subscribers/subscribers-api/BigCommerce_Subscribers_API.oas2.json" target="_blank" download="BigCommerce_Subscribers_API.oas2.json">BigCommerce_Subscribers_API.oas2.json</a> |
+|Wishlists |<a class="cursor-pointer" href="/api-reference/customer-subscribers/wishlist-api/BigCommerce_Wishlist_API.oas2.json" target="_blank" download="BigCommerce_Wishlist_API.oas2.json">BigCommerce_Wishlist_API.oas2.json</a> |
+|Store Content |<a class="cursor-pointer" href="/api-reference/marketing/store-content-api/BigCommerce_Store_Content_API.oas2.json" target="_blank" download="BigCommerce_Store_Content_API.oas2.json">BigCommerce_Store_Content_API.oas2.json</a> |
+|Current Customers |<a class="cursor-pointer" href="/api-reference/storefront/current-customers/BigCommerce_Current_Customer.oas2.json" target="_blank" download="BigCommerce_Current_Customer.oas2.json">BigCommerce_Current_Customer.oas2.json</a> |
+|Storefront Subscriptions |<a class="cursor-pointer" href="/api-reference/storefront/storefront-subscriptions/BigCommerce_Storefront_Token_API.oas2.json" target="_blank" download="BigCommerce_Storefront_Checkouts_2.oas2.json">BigCommerce_Storefront_Checkouts_2.oas2.json</a> |
+|Order Transactions |<a class="cursor-pointer" href="/api-reference/orders/orders-transactions-api/BigCommerce_Order_Transactions_API.oas2.json" target="_blank" download="BigCommerce_Order_Transactions_API.oas2.json">BigCommerce_Order_Transactions_API.oas2.json</a> |
 
 
-## Deprecations and Sunsets
+
+## Deprecations and sunsets
 
 This section contains a continuously updated list of deprecated and sunset BigCommerce API endpoints and suggested alternatives.
 
@@ -254,13 +308,13 @@ Sunset endpoints will be phased out and removed from the API. Once sunset, the e
 
 |Endpoint|Alternative |
 |-|-|
-|`/v2/brands`| `/v3/catalog/brands`|
-|`/v2/categories`| `/v3/catalog/categories`|
-|`/v2/customers`| `/v3/customers`|
+|`/v2/brands`| [`/v3/catalog/brands`](https://developer.bigcommerce.com/api-reference/catalog/catalog-api/brands/getbrands)|
+|`/v2/categories`| [`/v3/catalog/categories`](https://developer.bigcommerce.com/api-reference/catalog/catalog-api/category/getcategories)|
+|`/v2/customers`| [`/v3/customers`](https://developer.bigcommerce.com/api-reference/customer-subscribers/v3-customers-api)|
 |`/v2/options`| In V3, `options` and `modifiers` are attached directly to the product. Use `options` and `modifiers` together to access the contents of the former V2 `options` response.|
-|`/v2/option_sets`| `option_sets` endpoint is not available in the V3 API.|
-|`/v2/products `| `/v3/catalog/products`|
-|`/v2/redirects/`|`/v3/storefront/redirects`|
+|`/v2/option_sets`| `option_sets` endpoint is intentionally not available in the V3 API. See [V2 vs V3 Catalog APIs](https://developer.bigcommerce.com/legacy/v2-products/v2-v3) for more information.|
+|`/v2/products `| [`/v3/catalog/products`](https://developer.bigcommerce.com/api-reference/catalog/catalog-api/products/getproducts)|
+|`/v2/redirects/`|[`/v3/storefront/redirects`](https://developer.bigcommerce.com/api-reference/storefront/redirects)|
 
 **V2 Sunsets**
 
@@ -270,8 +324,6 @@ Sunset endpoints will be phased out and removed from the API. Once sunset, the e
 |`DELETE /v2/option_sets`| May 10, 2020| No equivalent available. However, `option_sets` can still be deleted individually by their ID.|
 |`DELETE /v2/products`| May 10, 2020| [`DELETE /v3/catalog/products`](https://developer.bigcommerce.com/api-reference/catalog/catalog-api/products/deleteproducts)|
 
-<!-- theme:  -->
-
 **V2 DELETE Sunsets**
 > These changes **ONLY** affect the “collection delete” capability which deletes the collection of objects from the system. The “single object” version of these endpoints, such as `DELETE /v2/products/123`, will continue to function normally.
 
@@ -279,10 +331,6 @@ Sunset endpoints will be phased out and removed from the API. Once sunset, the e
 |Endpoint|Date of Deactivation| Alternative |
 |-|-|-|
 |Channels API `is_activated` property| May, 10, 2020|[Channels API](https://developer.bigcommerce.com/api-reference/cart-checkout/channels-listings-api/channels/listchannels) `status` property
-
-</div>
-</div>
-</div>
 
 
 **Additional Information:** [V2 versus V3 API](https://developer.bigcommerce.com/legacy/v2-products/v2-v3#Whats-not-in-V3)

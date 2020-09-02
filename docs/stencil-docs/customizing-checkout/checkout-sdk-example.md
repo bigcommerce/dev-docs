@@ -143,12 +143,12 @@ git clone git@github.com:bigcommerce/checkout-sdk-js-example.git ../checkout-sdk
 mkdir assets/js/checkout-app
 
 # copy example source code to directory you just created
-cp ../checkout-sdk-example/src/* assets/js/checkout-app/
+cp -R ../checkout-sdk-example/src/* assets/js/checkout-app/
 ```
 
 ### Import Dependencies
 
-In `/assets/js/app.js`, add the following lines blow the existing `import` statements:
+In `/assets/js/app.js`, add the following lines below the existing `import` statements:
 
 <div class="HubBlock-header">
     <div class="HubBlock-header-title flex items-center">
