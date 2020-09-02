@@ -59,7 +59,7 @@ You can process payments using cards stored with the BigCommerce Stored Credit C
 * CyberSource
 * MyVirtualMerchant
 * Paymetric
-* Paypal powered by Braintree
+* PayPal powered by Braintree
 * Stripe
 * StripeV3
 
