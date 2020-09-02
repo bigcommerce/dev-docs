@@ -534,7 +534,7 @@ lineNumbers: true
 The following is a list of supported gateways and a list of their test credit cards. These can be useful while getting your app setup. Check your credit card setup in both [BigCommerce](https://support.bigcommerce.com/s/article/Online-Payment-Methods#setup) and the payment gateway to make sure they are configured properly. If the credit cards do not work or stop working, please reach out to the payment provider as these are not maintained by BigCommerce.
 
 * [Authorize.Net](https://developer.authorize.net/hello_world/testing_guide/)
-* [Paypal powered by Braintree](https://developers.braintreepayments.com/guides/credit-cards/testing-go-live/php)
+* [PayPal powered by Braintree](https://developers.braintreepayments.com/guides/credit-cards/testing-go-live/php)
 * [CyberSource](https://www.cybersource.com/developers/other_resources/quick_references/test_cc_numbers/)
 * [Stripe](https://stripe.com/docs/testing#cards)
 
