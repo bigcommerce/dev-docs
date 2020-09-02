@@ -2,7 +2,7 @@
 
 <div class="otp" id="no-index">
 
-### On This Page
+### On this page
 - [Theme Styles](#theme-styles)
 - [Widgets](#widgets)
 - [Layers](#layers)
@@ -14,13 +14,13 @@ Page Builder is a browser-based tool that offers merchants visual editing and co
 
 ## Theme Styles
 
-To customize the different style elements of a theme, such as colors, font, and text size, merchants can use the Theme Styles feature of Page Builder. 
+To customize the different style elements of a theme, such as colors, font, and text size, merchants can use the **Theme Styles** feature of Page Builder. 
 
 As a theme developer, you can configure your theme's settings, which will determine how merchants can personalize your theme. For example, you can modify how merchants can customize colors, fonts, and the number of products to display per feature. For information on how to configure your theme's files, see [Configuration](/docs/stencil-docs/page-builder/configuration.md). 
 
 ## Widgets
 
-Page Builder's Widgets tool lets store owners create and manage page content for their stores. Merchants can use Widgets in the control panel to drag and drop content such as text, images, videos, banners, carousels, and product lists. 
+Page Builder's **Widgets** tool lets store owners create and manage page content for their stores. Merchants can use widgets in the control panel to drag and drop content such as text, images, videos, banners, carousels, and product lists. 
 
 Developers can build user interfaces for their custom [widgets](https://developer.bigcommerce.com/api-docs/storefront/widgets/widgets-overview) within the Page Builder platform using a pre-configured schema. While BigCommerce provides the setting, logic, and design, the widget author provides information about the various configurations that make up the widget. BigCommerce uses the same mechanism for all platform-provided widgets.
 
@@ -28,7 +28,7 @@ New widgets are injected into the storefront using BigCommerce's [Widgets API](h
 
 ## Layers
 
-The Layers tool helps merchants see how existing widgets are organized on the current page. 
+The **Layers** tool helps merchants organize existing widgets on the current page. 
 
 ## Resources
 - [Cornerstone Theme Manual](https://support.bigcommerce.com/s/article/Cornerstone-Theme-Manual) (BigCommerce Knowledge Base)
