@@ -310,7 +310,7 @@ There are two steps to using a credit card to make a payment.
 1. [Create Access Token](/api-reference/payments/payments-create-payment-token-api/payment-access-token/paymentsaccesstokenspost)
 2. [Process Payment](/api-reference/payments/payments-process-payments/payment/paymentspost)
 
-### Create access Token
+### Create access token
 1. Make a request to [Create Access Token](/api-reference/payments/payments-create-payment-token-api/payment-access-token/paymentsaccesstokenspost) to get the authorization token that needs to be passed in the header when processing the payment. The ID of the order needs to be part of the request body.
 
 <!--
