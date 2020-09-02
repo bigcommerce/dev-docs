@@ -349,7 +349,7 @@ lineNumbers: true
 
 ### Process the payment
 
-2. To process the payment, send a POST to [Process Payment](/api-reference/payments/payments-process-payments/payment/paymentspost).
+2. To process the payment, send a `POST` request to [Process Payment](/api-reference/payments/payments-process-payments/payment/paymentspost).
 
 The headers to process a payment are different than the headers you normally send with a BigCommerce API. The Authorization token is the ID returned in Get Payment Access Token(step two).
 
