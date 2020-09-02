@@ -588,7 +588,7 @@ You can create orders using the [Server to Server API Endpoints](https://develop
 | `30051` | The stored card was not found. |  The card requested for payment is not associated to the shopper.| Use [Get Payment Methods](/api-reference/payments/payments-create-payment-token-api/payment-methods/paymentsmethodsget) to see available vaulted cards |
 |`30100` | Payment access token could not be created. | N/A|N/A|
 | `30101` | Order is invalid. | The order is in the wrong status. | Orders must be in Incomplete Status with a `status_id:0`. <br>  The order must be created by the Checkout SDK, Checkout API, or V2 Orders API. Orders created in the control panel and set to an incomplete status will return this error. |
-| `30102` | The payment was declined. | The card information provided was incorrect<br>The token provided was incorrect | Check that the shopper information provided is correct<br>Make sure the token in the authorization header field is correct |
+| `30102` | The payment was declined. | The card information provided was incorrect.<br>The token provided was incorrect. | Check that the shopper information provided is correct.<br>Make sure the token in the authorization header field is correct. |
 | `30103` | Card has expired. |N/A | N/A|
 | `30104` | The payment was declined. Please contact card issuer for more information. |N/A |N/A|
 | `30105` | The payment was declined due to duplicate payment being submitted. |N/A |N/A |
