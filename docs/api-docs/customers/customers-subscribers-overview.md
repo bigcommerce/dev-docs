@@ -31,7 +31,7 @@ The following [OAuth](https://developer.bigcommerce.com/api-docs/getting-started
 
 ## What is a customer?
 
-A customer is anyone who makes a purchase on a store and creates an account. BigCommerce stores their email address, customer address, and name against the customer as a record. There are two APIs you can use to manipulate customer data. You can extend the data for customer records using custom account sign up form fields (V3) and the customer attributes endpoint (V3). 
+A customer is anyone who makes a purchase on a store and creates an account. BigCommerce stores an email address, customer address, and name against the customer as a record. There are two APIs you can use to manipulate customer data. You can extend the data for customer records using the custom [account sign-up form fields](https://developer.bigcommerce.com/api-reference/store-management/customers-v3/customer-form-field-values/customerformfieldsget) and [customer attributes](https://developer.bigcommerce.com/api-reference/store-management/customers-v3/customer-attributes/customersattributesget) endpoints (V3). 
 
  
 ### Customer groups
@@ -52,10 +52,10 @@ Customer groups allow you to organize your customers, give them discounts, and r
 
 ## What is a subscriber?
 
-A subscriber is someone who has signed up for a store’s newsletter.  
-Subscribers can be added by:
+A subscriber is someone who has signed up for a store’s newsletter, which is located in the footer of most storefront themes. 
 
-- Signing up for the newsletter via the signup box located in the footer of most storefront themes
+Subscribers can also be added by:
+
 - Signing up for the newsletter during checkout
 - Sending a `POST` request to the [Subscribers API](https://developer.bigcommerce.com/api-reference/customer-subscribers/subscribers-api/)
 
