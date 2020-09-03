@@ -86,7 +86,7 @@ You can process payments using cards stored with the BigCommerce Stored Credit C
 * Stripe
 * StripeV3
 * USA ePay
-* Worldpay core
+* Worldpay Core
 * WorldPay
 
 <div class="HubBlock--callout">
