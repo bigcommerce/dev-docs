@@ -80,7 +80,7 @@ You can process payments using cards stored with the BigCommerce Stored Credit C
 * PayPal powered by Braintree
 * PayPal Payments Pro (Payflow Edition) UK
 * PayPal Payments Pro (Payflow Edition) US
-* QuickBooks payments
+* QuickBooks Payments
 * Sage Pay/Protx vsp direct
 * SecureNet
 * Stripe
