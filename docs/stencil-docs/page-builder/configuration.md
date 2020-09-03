@@ -115,7 +115,7 @@ To make sure revisions to your theme are backward-compatible, we recommend manag
 | ----------- | ----------- | 
 | Adding a new key | Adding new keys is generally acceptable. However, each key in `schema.json` must have a matching default in `config.json`. |
  Deleting a key | Use caution when deleting a key. Doing so can break your new theme version's backward compatibility. | 
- Renaming a key | We do not recommend renaming keys. Instead, we recommend introducing a new key, while maintaining the old key until no one using an older version of your theme uses it.|
+ Renaming a key | We do not recommend renaming keys. Instead, we recommend introducing a new key while maintaining the old key until there is no longer a need to use an older version of your theme.|
  Removing a variation| Each object within your `config.json` file's `variations` object defines one theme variation. If you adapt an existing theme and consciously want to remove one or more variations, you can remove the corresponding key(s). |
 
 ## Persistent settings storage
