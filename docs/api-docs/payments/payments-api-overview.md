@@ -78,7 +78,7 @@ You can process payments using cards stored with the BigCommerce Stored Credit C
 * NMI
 * Paymetric
 * PayPal powered by Braintree
-* PayPal payments pro (Payflow Edition) UK
+* PayPal Payments Pro (Payflow Edition) UK
 * PayPal payments pro (Payflow Edition) US
 * QuickBooks payments
 * Sage Pay/Protx vsp direct
