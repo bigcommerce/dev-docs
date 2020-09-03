@@ -81,7 +81,7 @@ You can process payments using cards stored with the BigCommerce Stored Credit C
 * PayPal Payments Pro (Payflow Edition) UK
 * PayPal Payments Pro (Payflow Edition) US
 * QuickBooks Payments
-* Sage Pay/Protx vsp direct
+* Sage Pay/Protx VSP Direct
 * SecureNet
 * Stripe
 * StripeV3
