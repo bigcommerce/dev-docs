@@ -770,7 +770,7 @@ Creating a checkbox with an adjuster requires two separate calls: one to create 
 </div>
 </div>
 
-First, a POST to create the modifier:
+To [create a modifier](https://developer.bigcommerce.com/api-reference/catalog/catalog-api/product-modifiers/createmodifier), send a `POST` request to `/v3/catalog/products/{{product_id}}/modifiers`.
 
 ```http
 POST https://api.bigcommerce.com/stores/{{STORE_HASH}}/v3/catalog/products/{{product_id}}/modifiers
@@ -820,19 +820,7 @@ X-Auth-Client: {{CLIENT_ID}}
             "checked_value": true
           },
           "is_default": false,
-          "adjusters": {
-            "price": {
-              "adjuster": null,
-              "adjuster_value": null
-            },
-            "weight": null,
-            "image_url": "",
-            "purchasing_disabled": {
-              "status": false,
-              "message": ""
-            }
-          }
-        },
+          "adjusters": {...},
         {
           "id": 150,
           "option_id": 160,
@@ -842,16 +830,7 @@ X-Auth-Client: {{CLIENT_ID}}
             "checked_value": false
           },
           "is_default": true,
-          "adjusters": {
-            "price": null,
-            "weight": null,
-            "image_url": "",
-            "purchasing_disabled": {
-              "status": false,
-              "message": ""
-            }
-          }
-        }
+          "adjusters": {...}
       ]
     }
   ],
@@ -859,13 +838,12 @@ X-Auth-Client: {{CLIENT_ID}}
 }
 ```
 
-Since this is a checkbox which has two states, checked/unchecked or yes/no, two option values are created. The default `adjuster_value` is null:
+Since this is a checkbox with two states, two option values are created. The default `adjuster_value` is null.
 
-
-Next send a `PUT` request to update the modifier value. This increases the price by $5 when the Yes option value is selected.
+To [update the modifier value](https://developer.bigcommerce.com/api-reference/catalog/catalog-api/product-modifier-values/updatemodifiervalue), send a `PUT` request to `/v3/catalog/products/{{product_id}}/modifiers/{{modifier_id}}/values/{value_id}`.
 
 ```http
-PUT https://api.bigcommerce.com/stores/{{STORE_HASH}}/v3/catalog/products/{{product_id}}/modifiers/{{modifier_id}}/values
+PUT https://api.bigcommerce.com/stores/{{STORE_HASH}}/v3/catalog/products/{{product_id}}/modifiers/{{modifier_id}}/values/{value_id}
 Accept: application/json
 Content-Type: application/json
 X-Auth-Token: {{ACCESS_TOKEN}}
@@ -882,7 +860,7 @@ X-Auth-Client: {{CLIENT_ID}}
 }
 ```
 
-[![Open in Request Runner](https://storage.googleapis.com/bigcommerce-production-dev-center/images/Open-Request-Runner.svg)](https://developer.bigcommerce.com/api-reference/catalog/catalog-api/product-modifiers/createmodifier#requestrunner)
+[![Open in Request Runner](https://storage.googleapis.com/bigcommerce-production-dev-center/images/Open-Request-Runner.svg)](https://developer.bigcommerce.com/api-reference/catalog/catalog-api/product-modifier-values/updatemodifiervalue#requestrunner)
 
 ### Troubleshooting: 422 Errors
 
