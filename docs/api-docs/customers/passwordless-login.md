@@ -81,6 +81,7 @@ https://store-url/login.php?action=check_passwordless_login&token={token}&redire
 
 This login is for {Store name} if you did not request this link, please ignore this email. Your account is still secure.
 ```
+This email uses the same email templates as other emails in your store.
 
 **Other status codes:**
 
