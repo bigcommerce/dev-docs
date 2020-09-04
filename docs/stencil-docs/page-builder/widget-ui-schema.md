@@ -1,4 +1,4 @@
-# Widgets UI Schema
+# Widget UI Schema
 
 <div class="otp" id="no-index">
 
@@ -6,12 +6,12 @@
 - [Tabs and sections](#tabs-and-sections)
 - [Array type](#array-type)
 - [Hidden settings](#hidden-settings)
-- [Schema settings](#schema-settings)
+- [Schema settings fields](#schema-settings-fields)
 - [Resources](#resources)
 
 </div>
 
-This document outlines the settings that you can pass as JSON objects into the `schema` property of `POST` or `PUT` requests sent to the [**Create a Widget Template**](https://developer.bigcommerce.com/api-reference/store-management/widgets/widget-template/createwidgettemplate) endpoint of the [Widgets API](https://developer.bigcommerce.com/api-docs/store-management/widgets/overview). For a step-by-step tutorial on creating widget templates, see [Widgets Tutorial](https://developer.bigcommerce.com/api-docs/store-management/widgets/tutorial). 
+This document outlines the different schema settings you can use in your custom widget template. For a tutorial on creating widget templates, see [Widgets Tutorial](https://developer.bigcommerce.com/api-docs/store-management/widgets/tutorial). 
 
 ## Tabs and sections
 Within the `schema` property of the **Create a Widget Template** endpoint, settings are grouped into `tabs` and `sections`.
@@ -111,8 +111,8 @@ Hidden settings can be used to set up controls which have no user interface draw
 }
 ```
 
-## Schema settings
-There are many common fields between schema settings including the following.
+## Schema settings fields
+The following table contains fields common between schema settings.
 
 |Setting|Description|
 |---|---|
@@ -123,7 +123,7 @@ There are many common fields between schema settings including the following.
 |`typeMeta`|Additional information needed based on the selected setting type.|
 |`conditional`|Can be added on each setting to control whether it should be displayed to the user while editing in Page Builder. This does not clear the value in the setting, just controls the display of the setting. Take a look at the regex Input for an example on using conditional.|
 
-For examples of different schema settings you can use in your custom widget template, see our [Schema Settings](https://developer.bigcommerce.com/stencil-docs/page-builder/schema-settings) page.
+For examples of different schema settings you can use in your custom widget template, see [Widget UI Input Types](https://developer.bigcommerce.com/stencil-docs/page-builder/schema-settings).
 
 ## Resources
 - [Widgets API](https://developer.bigcommerce.com/api-docs/store-management/widgets/overview)
