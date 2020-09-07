@@ -66,91 +66,89 @@ Within BigCommerce for WordPress, there are multiple ways to configure how the c
 **Mini-cart**
 * Keep the shopper on the page after they have added an item.
 * When the cart menu item is clicked, show a mini-cart overview as an overlay on the page, which details the items, total, and links to view cart or checkout.
-*  Also available as a widget to built into other parts of the template, such as display a persistent, dynamic sidebar cart.
+* Available as a widget to build into other parts of the template; for example, to display a persistent, dynamic sidebar cart.
 
 **Ajax add-to-cart**
 * Keep the shopper on the page after they have added an item.
-* When the cart menu item is clicked, navigate to cart page.
+* When the cart menu item is clicked, navigate to the cart page.
 
 **Redirect to cart**
-* Navigate to the cart page when the shopper adds and item to cart.
+* When the shopper adds an item to the cart, navigate to the cart page.
 
-### Select Checkout Type
+### Select checkout type
 
-The checkout type is important as it determines which payment methods and checkout customizations are available to the site.
+The checkout type determines which payment methods and checkout customizations are available to the site.
 
-Embedded Checkout creates a more deeply integrated experience, where the user stays on the WP site. However, there are less supported payment methods available to this checkout type. If you want to enable hosted wallets like Amazon Pay, for example, you won’t be able to use Embedded Checkout.
+**Embedded Checkout** creates a deeply integrated experience, where the user stays on the WordPress site. However, not many payment methods are supported by this checkout type. For example, Embedded Checkout cannot be used with hosted wallets, such as Amazon Pay.
 
-Redirected Checkout is what unlocks the full checkout experience of BigCommerce, including hosted wallets and access to customize the checkout layout through the Stencil framework and Checkout SDK. You will want to set up a subdomain like checkout.your-domain.com for the best shopper experience, so the hand off from WP to BC is seamless. For details on how to change your store domain, see [Changing Domains](https://support.bigcommerce.com/s/article/Changing-Domains).
+**Redirected Checkout** unlocks the full checkout experience of BigCommerce, including hosted wallets and ability to customize the checkout layout through the Stencil framework and Checkout SDK. To make the hand off from WordPress to BigCommerce seamless, set up a subdomain such as checkout.your-domain.com. For details on how to change your store domain, see [Changing Domains](https://support.bigcommerce.com/s/article/Changing-Domains).
 
-Note that in either case, the links within checkout like register account and edit cart will be automatically set by the plugin to link back to the correct pages on the WP site using the [Sites and Routes API](https://developer.bigcommerce.com/api-reference/cart-checkout/sites-routes-api). 
+Note that in either case, the links within checkout, such as register account and edit cart, will be automatically set by the plugin to link back to the correct pages on the WordPress site using the [Sites and Routes API](https://developer.bigcommerce.com/api-reference/cart-checkout/sites-routes-api). 
 
 ### Enable user registration on WordPress
 
-To enable BigCommerce for WordPress to handle registration of new customers, the WordPress site first needs to be set up to allow membership of new users.
-
-Enable this in the Settings > General section of the WordPress admin by turning on ‘Anyone can register’ for the Membership option. 
+For BigCommerce for WordPress to handle registration of new customers, membership of new users needs to be enabled on the WordPress site. You can enable this in the **Settings** > **General** section of the WordPress admin by turning on **Anyone can register** for the Membership option. 
 
 ### Ensure dynamic pages are not cached
 
-Customer specific pages like Cart, My Account, and Checkout should not be cached by any plugins or the WordPress host.
+Customer specific pages such as Cart, My Account, and Checkout should not be cached by any plugins or the WordPress host.
 
-### Customize the layout and color scheme to best fit theme
+### Customize the layout and color scheme
 
-In the WordPress Customizer (Appearance -> Customize), there is a BigCommerce section once BigCommerce for WordPress is installed. This allows you to change, without code, the following options:
+Once you install BigCommerce for WordPress, you can access the BigCommerce section inside the WordPress Customizer. There you can customize the following areas of your theme:
 
 **Buttons**
-* "Add to Cart" Button Label
-* "Pre-Order Add to Cart" Button Label
-* "Buy Now" Button Label
-* "Pre-Order Now" Button Label
-* "Choose Options" Button Label
-* "View Product" Button Label
+* *Add to Cart* button label
+* *Pre-Order Add to Cart* button label
+* *Buy Now* button label
+* *Pre-Order Now* button label
+* *Choose Options* button label
+* *View Product* button label
 
-**Colors & Theme**
+**Colors and theme**
 * Use plugin CSS or disable built-in styles
-* Button Color
-* Button Text Color
-* Sale Price Color
-* Sale Icon Text Color
-* Product Availability Color
-* Production Condition Color
-* Product Condition Color
+* Button color
+* Button text color
+* Sale price color
+* Sale icon text color
+* Product availability color
+* Production condition color
+* Product condition color
 
-**Product Single** 
-* Related Products to display
-* Default Product Image
+**Product single** 
+* Related products to display
+* Default product image
 * Control how default prices display while waiting for Pricing API responses
 * Inventory display logic
 
-**Product Catalog** 
-* Catalog Page Title
-* Catalog Page Slug
-* Catalog Page Description
-* Enabled Sorting Options
+**Product catalog** 
+* Catalog page title
+* Catalog page slug
+* Catalog page description
+* Enabled sorting options
     * Featured
     * Newest
-    * Best Selling
-    * Product Title A–Z
-    * Product Title Z–A
+    * Best selling
+    * Product title A–Z
+    * Product title Z–A
     * Reviews
     * Price (low to high)
     * Price (high to low)
 * Filters 
     * Categories
     * Brands
-    * Columns in Product Grid
-    * Products per Page
-    * Whether Quick View is enabled or not
+    * Columns in product grid
+    * Products per page
+    * Whether quick view is enabled or not
 
 **Cart** 
 * Enable mini-cart or not
 
-**Embedded Checkout** 
-* Background Color
-* Text Color
-* Link Color
-* Error Color
+**Embedded checkout** 
+* Background color
+* Text color
+* Link color
+* Error color
 
 ## Optional steps 
 
