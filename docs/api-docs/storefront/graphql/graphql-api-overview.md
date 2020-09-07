@@ -2,27 +2,30 @@
 
 <div class="otp" id="no-index">
 
-### On this Page
+### On this page
 
-- [See it in Action](#see-it-in-action)
+
+- [See it in action](#see-it-in-action)
 - [Accessing the GraphQL Playground](#accessing-the-graphql-playground)
 - [Using the GraphQL Playground](#using-the-graphql-playground)
 - [Authentication](#authentication)
-- [Querying Within a BigCommerce Storefront](#querying-within-a-bigcommerce-storefront)
-- [Querying From External Systems](#querying-from-external-systems)
+- [Querying within a BigCommerce storefront](#querying-within-a-bigcommerce-storefront)
+- [Querying from external systems](#querying-from-external-systems)
 - [Pagination](#pagination)
-- [Complexity Limits](#complexity-limits)
+- [Complexity limits](#complexity-limits)
 - [Resources](#resources)
 
 </div>
 
-BigCommerce's GraphQL Storefront API makes it possible to query storefront data from within a [Stencil](https://developer.bigcommerce.com/stencil-docs/getting-started/about-stencil) theme or remote site. This means information previously only available on the back-end via [Stencil's template logic](https://developer.bigcommerce.com/stencil-docs/reference-docs/global-objects-and-properties) can now be accessed via front-end javascript. For example, with the Storefront API, it is possible to:
+BigCommerce's GraphQL Storefront API makes it possible to query storefront data from within a [Stencil](https://developer.bigcommerce.com/stencil-docs/getting-started/about-stencil) theme or remote site. This means information previously only available on the back-end via [Stencil's template logic](https://developer.bigcommerce.com/stencil-docs/reference-docs/global-objects-and-properties) can now be accessed via front-end JavaScript. For example, with the Storefront API, it is possible to do the following:
 
-* Access product options, variations, and custom fields for any product from any page
-* Request any product's images at any resolution
-* Ask for customer details such as name, email address, and attributes (if logged in)
-* Look up objects (e.g. categories or brands) by URL, and fetch their details
-* Build front-end applications on top of a BigCommerce [Stencil](https://developer.bigcommerce.com/stencil-docs/getting-started/about-stencil) theme or on a remote site
+* Access product options, variations, and custom fields for any product from any page.
+* Request any product's images at any resolution.
+* Ask for customer details such as name, email address, and attributes (if logged in).
+* Look up objects, such as categories or brands, by URL and fetch their details.
+
+* Build front-end applications on top of a BigCommerce's [Stencil](https://developer.bigcommerce.com/stencil-docs/getting-started/about-stencil) theme or on a remote site.
+
 
 Additionally, by leveraging the power of [GraphQL](https://graphql.org/), data for multiple resources can be returned from a single API call, which simplifies integration and increases performance so that developers can focus on building delightful shopper experiences.
 
@@ -46,24 +49,21 @@ This article is a general overview of the capabilities and usage of BigCommerce'
 
 <a id="see-it-in-action" class="devdocsAnchor"></a>
 
-## See it in Action
+## See it in action
 
 To see the GraphQL Storefront API in action, checkout the [Bootstrap + Vanilla JS Storefront API Example](https://bigcommerce.github.io/storefront-api-examples/html-bootstrap-vanillajs/) hosted on GitHub. This example shows how a static HTML site can be used to render dynamic product information via the GraphQL Storefront API.
 
-Open the link and click submit with the sample data in the form. To see the example page with your store's data, [create a Storefront API Token](https://developer.bigcommerce.com/api-reference/storefront/graphql-api-tokens/api-token/createtoken) against your store and paste the token into the example form (be sure to create a token valid for this origin: `https://bigcommerce.github.io`).
+Open the link and click submit with the sample data in the form. To see the example page with your store's data, [create a Storefront API Token](https://developer.bigcommerce.com/api-reference/storefront/graphql-api-tokens/api-token/createtoken) against your store and paste the token into the example form. Be sure to create a token valid for this origin: `https://bigcommerce.github.io`.
+
 
 For a full list of examples, see the [Storefront API Examples repo](https://github.com/bigcommerce/storefront-api-examples).
 
-<a id="accessing-the-graphql-playground" class="devdocsAnchor"></a>
-
 ## Accessing the GraphQL Playground
 
-To access the GraphQL Storefront API Playground and documentation:
+To access the GraphQL Storefront API Playground and documentation, [log into your store](https://login.bigcommerce.com/deep-links/manage) and navigate to **Advanced Settings** > **Storefront API Playground**
 
-* Login to a BigCommerce store
-* Navigate to **Advanced Settings** > **Storefront API Playground**
 
-The GraphQL Storefront API Playground will be opened:
+The GraphQL Storefront API Playground will be opened.
 
 ![GraphQL Storefront API Playground](https://raw.githubusercontent.com/bigcommerce/dev-docs/master/assets/images/graphql-storefront-api-playground.png "GraphQL Storefront API Playground")
 
@@ -76,22 +76,22 @@ The GraphQL Storefront API Playground will be opened:
 ### Note
 
 > * GraphQL Playground is a GraphQL IDE built on Electron. For more information, see [GraphQL Playground](https://electronjs.org/apps/graphql-playground) on [electrongjs.org](https://electronjs.org)
-
 > * If the **Storefront API Playground** link is not visible, the store may not be using a Stencil theme. Apply a Stencil theme to use the Storefront GraphQL API.
 
 </div>
 </div>
 </div>
 
-<a id="using-the-graphql-playground" class="devdocsAnchor"></a>
-
 ## Using the GraphQL Playground
 
-To use the request runner, input queries on the left side and then click the play button. Query results will be displayed on the the right side:
+To use the request runner, input queries on the left side and then click the **Play** button. Query results will be displayed on the right side.
+
+
 
 ![GraphQL Playground Query](https://raw.githubusercontent.com/bigcommerce/dev-docs/master/assets/images/graphql-storefront-api-playground2.png "GraphQL Playground Query")
 
-Here's a sample Query to get you started:
+Below is a sample query to get you started.
+
 
 ```javascript
 query MyFirstQuery {
@@ -121,15 +121,16 @@ query MyFirstQuery {
 }
 ```
 
-To explore the storefront GraphQL schema, checkout the Docs and Schema tabs on the right:
+To explore the storefront GraphQL schema, checkout the **Docs** and **Schema** tabs on the right.
+
+
 
 ![GraphQL Playground Docs](https://raw.githubusercontent.com/bigcommerce/dev-docs/master/assets/images/graphql-playground-docs.png "GraphQL Playground Docs")
 
-<a id="authentication" class="devdocsAnchor"></a>
-
 ## Authentication
 
-GraphQL Storefront API requests are authenticated with tokens sent via the HTTP `Authorization` header:
+GraphQL Storefront API requests are authenticated with tokens sent via the HTTP `Authorization` header.
+
 
 ```bash
 curl 'https://{bigcommerce_storefront_domain}.com/graphql'\
@@ -138,9 +139,9 @@ curl 'https://{bigcommerce_storefront_domain}.com/graphql'\
   # ...
 ```
 
-### Creating a Token
+### Creating a token
 
-JWT tokens for authenticating cross-origin requests to the Storefront API can be created using the [Storefront API Token endpoint](https://developer.bigcommerce.com/api-reference/storefront/graphql-api-tokens/api-token/createtoken):
+JWT tokens for authenticating cross-origin requests to the Storefront API can be created using the [Storefront API Token endpoint](https://developer.bigcommerce.com/api-reference/storefront/graphql-api-tokens/api-token/createtoken).
 
 **`POST`** `https://api.bigcommerce.com/stores/{store_hash}/v3/storefront/api-token`
 
@@ -165,12 +166,8 @@ JWT tokens for authenticating cross-origin requests to the Storefront API can be
 }
 ```
 
-<div class="HubBlock--callout">
-<div class="CalloutBlock--warning">
-<div class="HubBlock-content">
-<!-- theme: warning -->
+### Authenticating with an auto-generated Stencil token
 
-### Authenticating with an auto-generated Stencil Token
 Client code in BigCommerce Stencil themes can be passed a token at render time with the `{{settings.storefront_api.token}}` Handlebars object:
 
 ```html
@@ -189,9 +186,15 @@ fetch('/graphql', {
 </script>
 ```
 
+<div class="HubBlock--callout">
+<div class="CalloutBlock--warning">
+<div class="HubBlock-content">
+<!-- theme: warning -->
+
 ### Note
 > * `1` can be passed in for the `channel_id` for generating tokens for use on the default Stencil storefront.
-> * To create a channel for a remote site, see [Create Channel].(https://developer.bigcommerce.com/api-reference/cart-checkout/channels-listings-api/channels/createchannel) in the API Reference.
+> * To create a channel for a remote site, see [Create Channel](https://developer.bigcommerce.com/api-reference/cart-checkout/channels-listings-api/channels/createchannel) in the API Reference.
+
 > * `allowed_cors_origins` array accepts only a single origin currently -- one token must be generated for each origin.
 > * `/storefront/api-token` endpoint requires the `Manage` `Storefront API Tokens` OAuth Scope.
 > * `storefront/api-token-customer-impersonation` endpoint requires the `Manage` `Storefront API Customer Impersonation Tokens` OAuth Scope.
@@ -200,9 +203,9 @@ fetch('/graphql', {
 </div>
 </div>
 
-### Customer Impersonation Tokens
+### Customer impersonation tokens
 
-It's also possible to generate tokens for use in server-to-server interactions with a trusted consumer by POSTing to the [API Token Customer Impersonation Endpoint](https://developer.bigcommerce.com/api-reference/storefront/graphql-api-tokens/customer-impersonation-token/createtokenwithcustomerimpersonation):
+It's also possible to generate tokens for use in server-to-server interactions with a trusted consumer by sending a `POST` request to [`/v3/storefront/api-token-customer-impersonation`](https://developer.bigcommerce.com/api-reference/storefront/graphql-api-tokens/customer-impersonation-token/createtokenwithcustomerimpersonation).
 
 
 **`POST`** `https://api.bigcommerce.com/stores/{store_id}/v3/storefront/api-token-customer-impersonation`
@@ -226,20 +229,26 @@ It's also possible to generate tokens for use in server-to-server interactions w
 }
 ```
 
-Customer Impersonation Token authenticated requests made to the GraphQL API receive store information from the perspective of the customer corresponding to the customer ID specified in the `X-Bc-Customer-Id` header sent with the GraphQL POST request -- for example: pricing, product availability, customer account, and customer details will be reflected.
+Customer impersonation token authenticated requests made to the GraphQL API receive store information from the perspective of the customer corresponding to the customer ID specified in the `X-Bc-Customer-Id` header sent with the GraphQL `POST` request. Pricing, product availability, customer account, and customer details will be reflected.
 
-Customer Impersonation Tokens should **never** be exposed publicly (e.g. to JavaScript or HTML), and should not be used for frontend requests. Unlike normal GraphQL Storefront API tokens, they are sensitive and should be treated like secrets, just as you might treat an OAuth token for BigCommerce's administrative APIs. Attempts to run requests using these tokens from a web browser will be rejected.
 
-Consider this sample request using a Customer Impersonation token to run a request in the context of customer ID `123`:
+Customer impersonation tokens should **never** be exposed publicly, for example, to JavaScript or HTML. These tokens should not be used for frontend requests. 
 
+Unlike normal GraphQL Storefront API tokens, they are sensitive and should be treated like secrets, just as you might treat an OAuth token for BigCommerce's administrative APIs. Attempts to run requests using these tokens from a web browser will be rejected.
+
+
+
+Consider this sample request using a Customer Impersonation token to run a request in the context of customer ID `123`.
 
 ```
 curl 'https://store.com/graphql' -H 'Authorization: Bearer TOKEN_GOES_HERE' -H 'X-Bc-Customer-Id: 123' --data-binary '{"query":"query CustomerInformation {\n  customer {\n    firstName\n    lastName\n    email\n  }\n}"}'
 ```
 
-### Customer Login
+### Customer login
 
-If you're using the Storefront API from a browser (for example, on top of your Stencil storefront) you can use the new Customer Login mutation to log in a customer account with an email address and password (for server-side integrations, consider a customer impersonation token instead). This will set a session cookie in the browser which will authenticate the customer account on future requests:
+If you're using the Storefront API from a browser, for example, on top of your Stencil storefront, you can use the new Customer Login mutation to log in a customer account with an email address and a password. For server-side integrations, consider a customer impersonation token instead. This will set a session cookie in the browser which will authenticate the customer account on future requests:
+
+
 
 ```js
 mutation Login($email: String!, $pass: String!) {
@@ -249,13 +258,11 @@ mutation Login($email: String!, $pass: String!) {
 }
 ```
 
-As a best practice, you should inject the password using GraphQL query variables. This prevents the password from being exposed in the query itself. In the [GraphQL Playground](https://developer.bigcommerce.com/graphql-playground), you can set the variables for the request:
+As a best practice, you should inject the password using GraphQL query variables. This prevents the password from being exposed in the query itself. In the [GraphQL Playground](https://developer.bigcommerce.com/graphql-playground), you can set the variables for the request.
 
 ![GraphQL Playground Query Variables](https://raw.githubusercontent.com/bigcommerce/dev-docs/master/assets/images/graphql-overview-01.png "GraphQL Playground Query Variables")
 
-<a id="querying-within-a-bigcommerce-storefront" class="devdocsAnchor"></a>
-
-## Querying Within a BigCommerce Storefront
+## Querying within a BigCommerce storefront
 
 GraphQL Storefront API calls can be made directly from within a Stencil theme or from a script in [Storefront > Script Manager](https://support.bigcommerce.com/s/article/Using-Script-Manager).
 
@@ -323,16 +330,16 @@ In addition to using `fetch()`, there's a other ways to query the API:
 </div>
 </div>
 
-<a id="querying-from-external-systems" class="devdocsAnchor"></a>
+## Querying from external systems
 
-## Querying From External Systems
-
-If you wish to use the GraphQL Storefront API from an external system, there are a few considerations:
+If you wish to use the GraphQL Storefront API from an external system, there are a few considerations.
 
 - Which Channel do you wish to run requests in the context of?
 - Are you running requests from a server or a frontend application/browser?
 
+
 - If you are running requests from a frontend application, do you need to show customer-specific information or only anonymous information?
+
 
 - If you are running requests from a server, do you need the ability to impersonate customers?
 
@@ -411,6 +418,7 @@ query paginateProducts {
 You can run this query against an example storefront using the [GraphQL Playground](https://developer.bigcommerce.com/graphql-playground?tabs=firstThreeProducts)
 
 The results will look something like this:
+
 
 ```json
 {
@@ -512,6 +520,7 @@ The results will look something like this (notice the last product `entityId: 82
 }
 ```
 
+
 This same approach can be used to *slice* any GraphQL connection and paginate through the *slices* via `startCursor` and `endCursor`. For example, we could get the first thirty brands with the following query:
 
 ```javascript
@@ -557,6 +566,7 @@ And given the following results:
     }
 ```
 
+
 the next thirty could be retrieved by making a new query and passing in the `endCursor` from the first page of results:
 
 ```js
@@ -578,7 +588,7 @@ query brands {
 }
 ```
 
-## Complexity Limits
+## Complexity limits
 
 The GraphQL Storefront API uses an algorithm to calculate a complexity score for queries made against the API. Queries that exceed the complexity score will receive an error response:
 
@@ -590,7 +600,7 @@ The GraphQL Storefront API uses an algorithm to calculate a complexity score for
 }
 ```
 
-The complexity limit error is usually caused by queries for a large quantity of deeply nested objects, for example, this query for first 50 products and their prices, variants, options, and option values:
+The complexity limit error is usually caused by queries for a large quantity of deeply nested objects, for example, this query for first 50 products and their prices, variants, options, and option values.
 
 ```js
 query {
@@ -652,10 +662,11 @@ query {
       // ...
 ```
 
-In general, to reduce complexity, reduce the number of objects requested:
-* limit collections to a smaller page size (for example `first:10` instead of `first:50`)
-* reduce the number of items in nested collections
-* request less fields
+In general, to reduce complexity, reduce the number of objects requested. For example, do the following:
+* Limit collections to a smaller page size (for example, `first:10` instead of `first:50`).
+
+* Reduce the number of items in nested collections.
+* Request less fields.
 
 ## Resources
 
@@ -663,10 +674,10 @@ In general, to reduce complexity, reduce the number of objects requested:
 * [Bootstrap + Vanilla JS Storefront API Example](https://bigcommerce.github.io/storefront-api-examples/html-bootstrap-vanillajs/) (bigcommerce.github.io)
 * [All BigCommerce Storefront API Examples](https://github.com/bigcommerce/storefront-api-examples) (github.com)
 
-### Pull Requests
+### Pull requests
 * [Simple GraphQL Example Using Apollo Client with Cornerstone](https://github.com/bigcommerce/cornerstone/compare/graphQL-example)
 
-### Additional Resources
+### Additional resources
 * [GraphQL Cheat Sheet](https://devhints.io/graphql) (devhints.io)
 * [GraphQL IDE](https://github.com/andev-software/graphql-ide) (github.com)
 * [GraphQL Playground](https://www.npmjs.com/package/graphql-playground-react) (npmjs.com)

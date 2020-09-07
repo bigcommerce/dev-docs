@@ -1,12 +1,12 @@
-# Configuration
+# Theme Styles Configuration
 
 <div class="otp" id="no-index">
 
 ### On this page
-- [Enabling Page Builder options](#enabling-page-builder-options)
+- [Enabling Page Builder Theme Styles options](#enabling-page-builder-theme-styles-options)
 - [How .json entries govern page builder's UI](#how-json-entries-govern-page-builders-ui)
-- [Page Builder data types](#page-builder-data-types)
-- [Page Builder data structure in `schema.json`](#page-builder-data-structure-in-schemajson)
+- [Theme Styles data types](#theme-styles-data-types)
+- [Theme Styles data structure in `schema.json`](#theme-styles-data-structure-in-schemajson)
 - [Best practices](#best-practices)
 - [Managing keys between versions](#managing-keys-between-versions)
 - [Persistent settings storage](#persistent-settings-storage)
@@ -15,14 +15,14 @@
 
 </div>
 
-## Enabling Page Builder options
+## Enabling Page Builder Theme Styles options
 
-Each theme contains two related JSON files: `config.json` and `schema.json`. To provide merchants with Page Builder customization options, you must declare those options in the theme's `schema.json` file. Additionally, you must include those settings in your theme's `config.json` file, templates, and Sass/CSS files. 
+Each theme contains two related JSON files: `config.json` and `schema.json`. To provide merchants with Theme Styles customization options, you must declare those options in the theme's `schema.json` file. Additionally, you must include those settings in your theme's `config.json` file, templates, and Sass/CSS files. 
 
 As users select options within the Page Builder UI (and save their selections), Stencil will automatically rewrite the theme's `config.json` file to record new defaults.
 
 The basic division of labor is as follows:
-* `schema.json` is an array of objects, declaring which theme settings are editable in Page Builder. These objects also declare all possible values to display in Page Builder UI.
+* `schema.json` is an array of objects, declaring which theme settings are editable in Theme Styles. These objects also declare all possible values to display in Page Builder UI.
 * `config.json` contains metadata about the theme, such as the theme's name, version, and resource controls.
 * `config.json` assigns and updates a default value for each of the editable settings.
 * Each `schema.json` entry has an ID element that maps it to its corresponding `config.json` entry. The ID value identifies the relevant `config.json` key name.
