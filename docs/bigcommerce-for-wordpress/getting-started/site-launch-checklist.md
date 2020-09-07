@@ -11,7 +11,7 @@
 
 </div>
 
-This document contains our recommended steps before launching any BigCommerce for WordPress site. It assumes that you know how to install the plugin and have a reasonable understanding of wordPress and BigCommerce. If that is not the case, check out the overview of BigCommerce and the plugin here:
+This document outlines our recommended steps for launching a BigCommerce for WordPress site. It assumes that you have a reasonable understanding of WordPress and BigCommerce and know how to install the BigCommerce for WordPress plugin. For an overview of BigCommerce and the BigCommerce for WordPress plugin, see the following articles:
 
 - [BigCommerce Overview](https://support.bigcommerce.com/s/article/Getting-Started-with-the-New-Control-Panel)
     - [Store profile](https://support.bigcommerce.com/s/article/Store-Profile-Settings)
@@ -24,25 +24,23 @@ This document contains our recommended steps before launching any BigCommerce fo
 
 ### Set up WordPress host to meet recommended server requirements
 
-While you can use BigCommerce for WordPress on the vast majority of WordPress hosts, it is best to use the latest stable versions of PHP, MySQL, and WordPress to ensure the most performant, secure experience.
+While you can use BigCommerce for WordPress on a vast majority of WordPress hosts, it is best to use stable versions of PHP, MySQL, and WordPress to ensure the most performant, secure experience.
+
+#### Server requirements:
 
 * PHP: 7.3+
-    * With `intl` extension enabled for better currency formatting
+    * With `intl` extension enabled for better currency formatting.
 * MySQL: 5.6+
 * WordPress: 5.3+
 * SSL
 
 ### Connect BigCommerce for WordPress to BigCommerce using API credentials
 
-BigCommerce for WordPress connects to the BigCommerce API with a set of API credentials. These credentials are for a single BigCommerce app. 
+BigCommerce for WordPress connects to the BigCommerce API with a set of API credentials. These credentials are for a single BigCommerce app. For production sites, you will need to create a separate set of API credentials to ensure proper rate limits are applied. 
 
-For production sites, you will need to create a separate set of API credentials to ensure proper rate limits are applied. 
+A separate set of API credentials is required if you want more than one WordPress channel configured in your account, as using the standard **connect to BC** flow in the plugin will disconnect previous app connections from your other sites. For instructions on how to create additional API credentials, see [Multisite Setup](https://developer.bigcommerce.com/bigcommerce-for-wordpress/setup/multi-site).
 
-This is absolutely required if you want more than one WordPress channel configured in your account, as using the standard **connect to BC** flow in the plugin will disconnect previous app connections from your other sites. 
-
-For instructions on how to create additional API credentials, see [Multisite Setup](https://developer.bigcommerce.com/bigcommerce-for-wordpress/setup/multi-site).
-
-Additionally, API credentials can be set using constants in the site's `wp-config.php` file. Values set here will override options in the database.
+API credentials can be set using constants in the site's `wp-config.php` file. Values set in `wp-config.php` will override options in the database.
 
 ```
 define( 'BIGCOMMERCE_API_URL', 'https://api.bigcommerce.com/stores/xxxxxxxxxx/v3/' );
@@ -53,11 +51,11 @@ define( 'BIGCOMMERCE_ACCESS_TOKEN', 'xxxxxxxxxx' );
 
 ### Configure BigCommerce for WordPress product sync
 
-The product sync will occur every 5 minutes, by default, and any products that are new in BigCommerce, and not on the WordPress site, will be automatically listed on the site.
+The product sync occurs every 5 minutes, by default. All newly-added BigCommerce products will be automatically listed on the WordPress site. 
 
 These settings can be configured to match business requirements. The frequency of new products being added and whether all of the catalog should be for sale online determines the right settings. 
 
-The plugin uses the standard [WP-Cron](https://developer.wordpress.org/plugins/cron/) system, which needs traffic to process. If you would like to process regardless of if there are visitors to the site or not, we recommend setting an a cron job on the server to force processing. Information on how to use the System Track Scheduler for WP-Cron can be found in the [WordPress Handbook](https://developer.wordpress.org/plugins/cron/hooking-wp-cron-into-the-system-task-scheduler/).
+The plugin uses the standard [WP-Cron](https://developer.wordpress.org/plugins/cron/) system, which needs traffic to run. If you would like to process regardless of site visitors, we recommend setting an a cron job on the server to force processing. For information on how to use the system task scheduler for WP-Cron, see the [Plugin Handbook](https://developer.wordpress.org/plugins/cron/hooking-wp-cron-into-the-system-task-scheduler/).
 
 Product, inventory, and checkout webhook events are automatically set up when the plugin is installed. There actions in BigCommerce will automatically trigger a future partial sync for only the affected products. 
 
