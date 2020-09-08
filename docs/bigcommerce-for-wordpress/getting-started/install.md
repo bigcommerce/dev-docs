@@ -13,9 +13,9 @@
 
 ## System Requirements:
 
-* PHP: 5.6+ (7.1+ recommended)
+* PHP: 5.6+ (7.3+ recommended)
 * MySQL: 5.5+ (5.6+ recommended)
-* WordPress: 4.8+
+* WordPress: 5.2+
 * SSL
 * The PHP intl extension is recommended to enable better currency formatting
 
