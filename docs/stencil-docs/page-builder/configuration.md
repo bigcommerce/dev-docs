@@ -19,7 +19,7 @@
 
 Each theme contains two related JSON files: `config.json` and `schema.json`. To provide merchants with Theme Styles customization options, you must declare those options in the theme's `schema.json` file. Additionally, you must include those settings in your theme's `config.json` file, templates, and Sass/CSS files. 
 
-As users select options within the Page Builder UI (and save their selections), Stencil will automatically rewrite the theme's `config.json` file to record new defaults.
+As users select and save options within the Page Builder UI, Stencil will automatically rewrite the theme's `config.json` file to record new defaults.
 
 The basic division of labor is as follows:
 * `schema.json` is an array of objects, declaring which theme settings are editable in Theme Styles. These objects also declare all possible values to display in Page Builder UI.
