@@ -61,7 +61,7 @@ Page Builder supports the following data types:
 * imageDimension
 * text
 
-Within `schema.json`, each object's data type is declared in a statement like the one highlighted here:
+Within `schema.json`, you can declare each object's data type in a statement like the one highlighted here:
 
 ```json
  {
