@@ -56,7 +56,7 @@ You are free to decide which properties of your theme to make editable in Page B
 Page Builder supports the following data types:
 * color
 * font
-* select [drop-down list]
+* select (drop-down list)
 * checkbox
 * imageDimension
 * text
