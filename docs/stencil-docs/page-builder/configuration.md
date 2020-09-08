@@ -38,7 +38,7 @@ For documentation on the Cornerstone theme's principal keys, see Cornerstone's [
 
 For any theme setting to be merchant-customizable, that setting and its values must be present in `schema.json`. You must provide these declarations manually, according to the structure described here.
 
-* Each key that you create in `schema.json` must have a corresponding `config.json` key whose name matches its ID value. This `config.json` key sets the default value even if that is an empty string. A `schema.json` setting without an `id`-matched `config.json` key will not appear to users in the Page Builder UI.
+Each key that you create in `schema.json` must have a corresponding `config.json` key whose name matches its ID value. This `config.json` key sets the default value even if that is an empty string. A `schema.json` setting without an `id`-matched `config.json` key will not appear to users in the Page Builder UI.
 
 ## How .json entries govern Page Builder's UI
 
