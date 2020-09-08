@@ -57,7 +57,7 @@ The product sync occurs every 5 minutes, by default. All newly-added BigCommerce
 
 These settings can be configured to match business requirements. The frequency of new products being added and whether all of the catalog should be for sale online determines the correct settings. 
 
-The plugin uses the standard [WP-Cron](https://developer.wordpress.org/plugins/cron/) system, which needs traffic to run. If you would like to process regardless of site visitors, we recommend setting an a cron job on the server to force processing. For information on how to use the system task scheduler for WP-Cron, see the [Plugin Handbook](https://developer.wordpress.org/plugins/cron/hooking-wp-cron-into-the-system-task-scheduler/).
+The plugin uses the standard [WP-Cron](https://developer.wordpress.org/plugins/cron/) system, which needs traffic to run. If you would like to process regardless of site visitors, we recommend setting a cron job on the server to force processing. For information on how to use the system task scheduler for WP-Cron, see the [Plugin Handbook](https://developer.wordpress.org/plugins/cron/hooking-wp-cron-into-the-system-task-scheduler/).
 
 Product, inventory, and checkout webhook events are automatically set up when the plugin is installed. Their actions in BigCommerce will automatically trigger a future partial sync for only the affected products. 
 
