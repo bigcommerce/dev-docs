@@ -79,7 +79,7 @@ Within BigCommerce for WordPress, there are multiple ways to configure how the c
 
 The checkout type determines which payment methods and checkout customizations are available to the site.
 
-**Embedded Checkout** creates a deeply integrated experience, where the user stays on the WordPress site. However, not many payment methods are supported by this checkout type. For example, Embedded Checkout cannot be used with hosted wallets, such as Amazon Pay.
+**Embedded Checkout** creates a deeply integrated experience, where the user stays on the WordPress site. However, this checkout type does not support many payment methods. For example, Embedded Checkout cannot be used with hosted wallets, such as Amazon Pay.
 
 **Redirected Checkout** unlocks the full checkout experience of BigCommerce, including hosted wallets and ability to customize the checkout layout through the Stencil framework and Checkout SDK. To make the hand off from WordPress to BigCommerce seamless, set up a subdomain such as checkout.your-domain.com. For details on how to change your store domain, see [Changing Domains](https://support.bigcommerce.com/s/article/Changing-Domains).
 
