@@ -6,7 +6,7 @@
 - [Enabling Page Builder Theme Styles options](#enabling-page-builder-theme-styles-options)
 - [How .json entries govern page builder's UI](#how-json-entries-govern-page-builders-ui)
 - [Theme Styles data types](#theme-styles-data-types)
-- [Theme Styles data structure in `schema.json`](#theme-styles-data-structure-in-schemajson)
+- [Theme Styles data structure in schema.json](#theme-styles-data-structure-in-schemajson)
 - [Best practices](#best-practices)
 - [Managing keys between versions](#managing-keys-between-versions)
 - [Persistent settings storage](#persistent-settings-storage)
@@ -19,7 +19,7 @@
 
 Each theme contains two related JSON files: `config.json` and `schema.json`. To provide merchants with Theme Styles customization options, you must declare those options in the theme's `schema.json` file. Additionally, you must include those settings in your theme's `config.json` file, templates, and Sass/CSS files. 
 
-As users select options within the Page Builder UI (and save their selections), Stencil will automatically rewrite the theme's `config.json` file to record new defaults.
+As users select and save options within the Page Builder UI, Stencil will automatically rewrite the theme's `config.json` file to record new defaults.
 
 The basic division of labor is as follows:
 * `schema.json` is an array of objects, declaring which theme settings are editable in Theme Styles. These objects also declare all possible values to display in Page Builder UI.
@@ -36,8 +36,9 @@ For documentation on the Cornerstone theme's principal keys, see Cornerstone's [
 
 ### File management requirements
 
-* For any theme setting, such as a Sass variable or a front-matter value, to be merchant-customizable, that setting and its values must be present in `schema.json`. You have to manually provide these declarations, according to the structure described here.
-* Each key that you create in `schema.json` must have a corresponding `config.json` key whose name matches its ID value. This `config.json` key sets the default value even if that is an empty string. A `schema.json` setting without an `id`-matched `config.json` key will not appear to users in the Page Builder UI.
+For any theme setting to be merchant-customizable, that setting and its values must be present in `schema.json`. You must provide these declarations manually, according to the structure described here.
+
+Each key that you create in `schema.json` must have a corresponding `config.json` key whose name matches its ID value. This `config.json` key sets the default value even if that is an empty string. A `schema.json` setting without an `id`-matched `config.json` key will not appear to users in the Page Builder UI.
 
 ## How .json entries govern Page Builder's UI
 
