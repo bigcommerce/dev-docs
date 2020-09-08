@@ -36,7 +36,7 @@ For documentation on the Cornerstone theme's principal keys, see Cornerstone's [
 
 ### File management requirements
 
-For any theme setting to be merchant-customizable, that setting and its values must be present in `schema.json`. You must provide these declarations manually, according to the structure described here.
+For any theme setting to be merchant-customizable, that setting and its values must be present in `schema.json`. You must provide these declarations manually.
 
 Each key that you create in `schema.json` must have a corresponding `config.json` key whose name matches its ID value. This `config.json` key sets the default value even if that is an empty string. A `schema.json` setting without an `id`-matched `config.json` key will not appear to users in the Page Builder UI.
 
@@ -103,7 +103,7 @@ The `schema.json` nesting structure maps directly to the Page Builder UI display
 
 To prevent errors upon theme upload and avoid possible loss of customizations made through the Page Builder UI at runtime, please follow these guidelines:
 
-* **Single-instance restriction per storefront.** We strongly recommend opening only one instance of Page Builder at a time against each storefront. We give this recommendation because there is currently no synchronization mechanism to reconcile configuration changes made by multiple Page Builder instances. `schema.json` will record the last changes made by any instance, but changes saved earlier by other instances might be lost.
+* **Single-instance restriction per storefront.** We strongly recommend opening only one instance of Page Builder at a time against each storefront. We recommend this because there is currently no synchronization mechanism to reconcile configuration changes made by multiple Page Builder instances. The `schema.json` file will record the last changes made by any instance, but changes saved earlier by other instances might be lost.
 * **Single-storefront restriction per editor.** In the current release, users can have only one storefront open in Page Builder at a time. To bypass the cookie that imposes this restriction, a workaround is to open an "Incognito"/private-browsing window on an additional storefront.
 * **File name, location, and structure.** Your theme's `schema.json` file must be named `schema.json`. It must reside in the root of your theme directory and must be valid JSON.
 * **File size.** The maximum size for a `schema.json` file is 64 KB. Exceeding this limit will trigger an error upon uploading the theme to BigCommerce. Apart from this size constraint, there is no limit on the number of keys and values that you can place in a theme's `schema.json`.
@@ -127,11 +127,11 @@ When store administrators use Page Builder to customize your store's theme, they
 
 When a merchant upgrades your theme to a newer version, they carry forward all key-value pairs saved to the BigCommerce configuration service. For example, assume this customization/upgrade scenario:
 
-You release your Star Glow theme, version 1. This theme's `config.json` includes a key named `logo_size`, establishing a default value of 100x250. The combination of the key and the value composes a `logo_size` setting.
-The merchant uses Store Design to change the `logo_size` setting to 175x275 and stores this customized setting in the BigCommerce configuration service.
-You release Star Glow, version 1.1. In this theme revision, you have changed the `logo_size` to 300x300.
-When the merchant applies Star Glow version 1.1 to their store, their custom `logo_size` setting of 175x275 remains in effect.
-If the merchant creates a second store and applies Star Glow version 1.1 to it, that store will not have a custom `logo_size` setting and will default to the new theme version's 300x300 value.
+You release your Star Glow theme, version 1.0. This theme's `config.json` includes a key named `logo_size`, establishing a default value of 100 x 250px. The combination of the key and the value composes a `logo_size` setting.
+The merchant uses Store Design to change the `logo_size` setting to 175 x 275px and stores this customized setting in the BigCommerce configuration service.
+You release Star Glow, version 1.1. In this theme revision, you have changed the `logo_size` to 300 x 300px.
+When the merchant applies Star Glow version 1.1 to their store, their custom `logo_size` setting of 175 x 275px remains in effect.
+If the merchant creates a second store and applies Star Glow version 1.1 to it, that store will not have a custom `logo_size` setting and will default to the new theme version's 300 x 300px value.
 
 ## Troubleshooting
 
@@ -147,10 +147,10 @@ You may experience an issue when setting up the Page Builder UI. We recommend th
 
 * **Symptom:** A control that you have configured within `schema.json` is completely absent from the Page Builder UI.
 * **Likely Cause:** The specified data type is one of the following: text, text area, radio [button], or image. Page Builder does not currently support these data types.
-* **Resolution:** Display the user option using one of the supported data types: color, font, select [drop-down list], or checkbox.
+* **Resolution:** Display the user option using one of the supported data types: color, font, select (drop-down list), or checkbox.
 
 ### Theme changes not saved from Page Builder UI
 
 * **Symptom:** The storefront does not reflect changes saved in a browser's Page Builder panel.
 * **Likely Cause:** Check whether Page Builder can customize the same storefront.
-* **Resolution:** We strongly recommend opening only one instance of Page Builder, at a time, per storefront. BigCommerce currently provides no synchronization mechanism for configuration changes from multiple Page Builder instances. So the storefront’s `schema.json` will record the last changes made by any instance – but changes saved earlier by other instances might be lost.
+* **Resolution:** We strongly recommend opening only one instance of Page Builder at a time per storefront. BigCommerce currently provides no synchronization mechanism for configuration changes from multiple Page Builder instances. So the storefront’s `schema.json` will record the last changes made by any instance, but changes saved earlier by other instances might be lost.
