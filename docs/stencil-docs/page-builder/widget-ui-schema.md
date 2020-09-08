@@ -33,7 +33,7 @@ Tabs are a part of the Page Builder schema structure. The schema requires using 
 ```
 
 ### Sections
-Sections are groups of related settings. Each section will have a title that the user can collapse. Section labels are optional, but are not collapsible without a label.
+Sections are groups of related settings. Each section will have a title that the user can collapse. Section labels are optional but are not collapsible without a label.
 
 Settings render in the same order they are listed within a section.
 
@@ -52,7 +52,7 @@ Settings render in the same order they are listed within a section.
 ## Array type
 Arrays allow for building collections of elements within the widget. Array elements live at the top level of the schema. Each element in the array can contain an entire schema internally.
 
-Elements in the list have settings defined by the array’s schema, which can be built using tabs, sections, and settings.
+Elements in the list have settings defined by the array’s schema, which you can build using tabs, sections, and settings.
 
 **Array schema example**
 ```json
@@ -92,7 +92,7 @@ Elements in the list have settings defined by the array’s schema, which can be
 >- You can use the `entryLabel` attribute to set a name for each element in the list.
 
 ## Hidden settings
-Hidden settings can be used to set up controls which have no user interface drawn in Page Builder. Hidden settings live at the top level of the schema because they are not grouped into any other tabs or arrays. You can use them in advanced widgets that have complex interactions in the preview pane, such as inline editing.
+You can use hidden settings to set up controls which have no user interface drawn in Page Builder. Hidden settings live at the schema's top level because they are not grouped into any other tabs or arrays. You can use them in advanced widgets with complex interactions in the preview pane, such as inline editing.
 
 **Hidden settings schema example**
 ```json
@@ -117,11 +117,11 @@ The following table contains fields common between schema settings.
 |Setting|Description|
 |---|---|
 |`type`|The type of setting component to display. You can view the list of elements below to discover which are available to use.|
-|`label`|The user friendly message to inform the user how this setting will be used.|
+|`label`|The user-friendly message to inform the user how they can use this setting.|
 |`id`|The variable name where the setting value will be available in the widget template.|
 |`default`|The default value to use when rendering the widget for the first time.|
 |`typeMeta`|Additional information needed based on the selected setting type.|
-|`conditional`|Can be added on each setting to control whether it should be displayed to the user while editing in Page Builder. This does not clear the value in the setting, just controls the display of the setting. Take a look at the regex Input for an example on using conditional.|
+|`conditional`|It can be added to each setting to control whether it should be displayed to the user while editing in Page Builder. This does not clear the value in the setting, just controls the display of the setting. Take a look at the regex Input for an example of using `conditional`.|
 
 For examples of different schema settings you can use in your custom widget template, see [Widget UI Input Types](https://developer.bigcommerce.com/stencil-docs/page-builder/schema-settings).
 

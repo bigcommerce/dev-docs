@@ -23,7 +23,7 @@ As users select options within the Page Builder UI (and save their selections), 
 
 The basic division of labor is as follows:
 * `schema.json` is an array of objects, declaring which theme settings are editable in Theme Styles. These objects also declare all possible values to display in Page Builder UI.
-* `config.json` contains metadata about the theme, such as the theme's name, version, and resource controls.
+* `config.json` contains metadata about the theme, such as its name, version, and resource controls.
 * `config.json` assigns and updates a default value for each of the editable settings.
 * Each `schema.json` entry has an ID element that maps it to its corresponding `config.json` entry. The ID value identifies the relevant `config.json` key name.
 * Keys located in both configuration files'`settings` define the theme's look, feel, and functionality.
