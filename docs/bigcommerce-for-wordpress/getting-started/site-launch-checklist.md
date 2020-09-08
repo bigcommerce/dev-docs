@@ -63,7 +63,7 @@ Product, inventory, and checkout webhook events are automatically set up when th
 
 ### Select cart type
 
-Within BigCommerce for WordPress, there are multiple ways to configure how the cart interactions work. Take the time to select the right experience:
+Within BigCommerce for WordPress, there are multiple ways to configure how the cart interactions work. Take the time to select the right experience from the following:
 
 **Mini-cart**
 * Keep the shopper on the page after they have added an item.
