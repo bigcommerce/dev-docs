@@ -121,7 +121,7 @@ The following table contains fields common between schema settings.
 |`id`|The variable name where the setting value will be available in the widget template.|
 |`default`|The default value to use when rendering the widget for the first time.|
 |`typeMeta`|Additional information needed based on the selected setting type.|
-|`conditional`|It can be added to each setting to control whether it should be displayed to the user while editing in Page Builder. This does not clear the value in the setting, just controls the display of the setting. Take a look at the regex Input for an example of using `conditional`.|
+|`conditional`|An optional property that can be added to each setting to control whether it should be displayed to the user while editing in Page Builder. This does not clear the value in the setting, just controls the display of the setting. Take a look at the regex input for an example of using `conditional`.|
 
 For examples of different schema settings you can use in your custom widget template, see [Widget UI Input Types](https://developer.bigcommerce.com/stencil-docs/page-builder/schema-settings).
 
