@@ -14,10 +14,10 @@
 This document outlines our recommended steps for launching a BigCommerce for WordPress site. It assumes that you have a reasonable understanding of WordPress and BigCommerce and know how to install the BigCommerce for WordPress plugin. For an overview of BigCommerce and the BigCommerce for WordPress plugin, see the following articles:
 
 - [BigCommerce Overview](https://support.bigcommerce.com/s/article/Getting-Started-with-the-New-Control-Panel)
-    - [Store profile](https://support.bigcommerce.com/s/article/Store-Profile-Settings)
-    - [Taxes](https://support.bigcommerce.com/s/article/Tax-Overview)
-    - [Shipping](https://support.bigcommerce.com/s/article/Shipping-Setup)
-    - [Payment methods](https://support.bigcommerce.com/s/article/Online-Payment-Methods)
+- [Store profile](https://support.bigcommerce.com/s/article/Store-Profile-Settings)
+- [Taxes](https://support.bigcommerce.com/s/article/Tax-Overview)
+- [Shipping](https://support.bigcommerce.com/s/article/Shipping-Setup)
+- [Payment methods](https://support.bigcommerce.com/s/article/Online-Payment-Methods)
 - [BigCommerce for WordPress Overview](https://developer.bigcommerce.com/bigcommerce-for-wordpress/getting-started/introduction) 
 
 ## Required steps
@@ -29,7 +29,7 @@ While you can use BigCommerce for WordPress on a vast majority of WordPress host
 #### Server requirements:
 
 * PHP: 7.3+
-    * With `intl` extension enabled for better currency formatting.
+* The PHP intl extension is recommended to enable better currency formatting
 * MySQL: 5.6+
 * WordPress: 5.3+
 * SSL
@@ -83,7 +83,7 @@ The checkout type determines which payment methods and checkout customizations a
 
 **Redirected Checkout** unlocks the full checkout experience of BigCommerce, including hosted wallets and ability to customize the checkout layout through the Stencil framework and Checkout SDK. To make the hand off from WordPress to BigCommerce seamless, set up a subdomain such as checkout.your-domain.com. For details on how to change your store domain, see [Changing Domains](https://support.bigcommerce.com/s/article/Changing-Domains).
 
-Note that in either case, the links within checkout, such as Register Account and Edit Cart, will be automatically set by the plugin to link back to the correct pages on the WordPress site using the [Sites and Routes API](https://developer.bigcommerce.com/api-reference/cart-checkout/sites-routes-api). 
+Note that in either case, the links within checkout, such as **Register Account** and **Edit Cart**, will be automatically set by the plugin to link back to the correct pages on the WordPress site using the [Sites and Routes API](https://developer.bigcommerce.com/api-reference/cart-checkout/sites-routes-api). 
 
 ### Enable user registration on WordPress
 
@@ -166,7 +166,7 @@ For a BigCommerce for WordPress child plugin that hides the bar for customers, s
 
 ### Stop unnecessary webhooks
 
-BigCommerce contains a number of webhooks that your site may benefit from. It is recommended to disable unused webhooks to enhance performance. To disable the webhooks you do not need, use the [Webhooks API](https://developer.bigcommerce.com/api-docs/store-management/webhooks/overview) and update the `is_active` fields to false.
+BigCommerce contains a number of webhooks that your site may benefit from. We recommend disabling unused webhooks to enhance performance. To disable the webhooks you do not need, use the [Webhooks API](https://developer.bigcommerce.com/api-docs/store-management/webhooks/overview) and update the `is_active` fields to false.
 
 Because webhooks are associated by client ID, make sure you are using BigCommerce for WordPress API credentials to make these Webhook API calls.
 
@@ -205,7 +205,7 @@ Subsequent imports will only update products that have changed since the last im
 
 `wp bigcommerce import products --force`
 
-### Set up and recommendations for Cron
+### Set up and recommendations for cron
 
 WordPress sites will generally operate more efficiently if WordPress's default cron is disabled and replaced with a server-side cron job.
 
@@ -224,7 +224,7 @@ If the site is not importing as expected, enable diagnostic logging to produce a
 
 ![Diagnostic logging](https://raw.githubusercontent.com/bigcommerce/dev-docs/master/assets/images/details-on-how-to-debug.png)
 
-After the next import has run, click *Get Diagnostics* to display data from the logs.
+After the next import has run, click **Get Diagnostics** to display data from the logs.
 
 If running an import from the command line, add the `--debug` flag to get additional information as the import runs, including API error messages.
 
@@ -249,7 +249,7 @@ Subsequent imports only update products that have changed in some way. This can 
 It is important to note changes that will cause a product to be updated:
 
 * Changes to the title, description, categories, price, etc. in the BigCommerce admin.
-* Sales of the product, which change the "total_sold" property.
+* Sales of the product, which change the `"total_sold"` property.
 * New product reviews.
 * Changes in inventory level, including variants.
 

@@ -14,7 +14,7 @@
 This document outlines the different schema settings you can use in your custom widget template. For a tutorial on creating widget templates, see [Widgets Tutorial](https://developer.bigcommerce.com/api-docs/store-management/widgets/tutorial). 
 
 ## Tabs and sections
-Within the `schema` property of the **Create a Widget Template** endpoint, settings are grouped into `tabs` and `sections`.
+Within the `schema` property of the Create a Widget Template endpoint, settings are grouped into `tabs` and `sections`.
 
 ### Tabs
 Tabs are a part of the Page Builder schema structure. The schema requires using a single root-level `tab` to contain all visible sections.
@@ -50,7 +50,7 @@ Settings render in the same order they are listed within a section.
 ```
 
 ## Array type
-Arrays allow for building collections of elements within the widget. Array elements live at the top level of the schema. Each element in the array can contain an entire schema internally.
+Arrays allow for building collections of elements within the widget. Array elements live at the top level of the schema. Each element in the array can contain an entire schema.
 
 Elements in the list have settings defined by the array’s schema, which you can build using tabs, sections, and settings.
 
