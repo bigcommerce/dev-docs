@@ -68,7 +68,7 @@ Within BigCommerce for WordPress, there are multiple ways to configure how the c
 **Mini-cart**
 * Keep the shopper on the page after they have added an item.
 * When the cart menu item is clicked, show a mini-cart overview as an overlay on the page, which details the items, total, and links to view cart or checkout.
-* Available as a widget to build into other parts of the template; for example, to display a persistent, dynamic sidebar cart.
+* Available as a widget to build into other parts of the template (for example, to display a persistent, dynamic sidebar cart).
 
 **Ajax add-to-cart**
 * Keep the shopper on the page after they have added an item.
