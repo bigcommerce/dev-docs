@@ -41,8 +41,11 @@ BigCommerce for WordPress connects to the BigCommerce API with a set of API cred
 A separate set of API credentials is required if you want more than one WordPress channel configured in your account, as using the standard **connect to BC** flow in the plugin will disconnect previous app connections from your other sites. For instructions on how to create additional API credentials, see [Multisite Setup](https://developer.bigcommerce.com/bigcommerce-for-wordpress/setup/multi-site).
 
 API credentials can be set using constants in the site's `wp-config.php` file, as shown below. Values set in `wp-config.php` will override options in the database.
+<<<<<<< HEAD
 
 Setting API credentials in `wp-config.php` file: 
+=======
+>>>>>>> 3b96286c9e8790bfc0a1105d0bd0c0c31cebba7b
 
 ```
 define( 'BIGCOMMERCE_API_URL', 'https://api.bigcommerce.com/stores/xxxxxxxxxx/v3/' );
