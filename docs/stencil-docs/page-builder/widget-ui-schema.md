@@ -87,13 +87,8 @@ Elements in the list have settings defined by the array’s schema, which you ca
 >**Note**
 >
 >- Each element in the list can have tabs and sections included.
-<<<<<<< HEAD
 >- The `defaultCount` attribute is the number of elements that are displayed in the list by default.
 >- Use the `thumbnail` attribute to display an image stored at the specified attribute name.
-=======
->- The `defaultCount` attribute is the number of elements in the list to display by default.
->- The `thumbnail` attribute is used to display an image stored at the specified attribute name.
->>>>>>> 3b96286c9e8790bfc0a1105d0bd0c0c31cebba7b
 >- Use the `entryLabel` attribute to set a name for each element in the list.
 
 ## Hidden settings
