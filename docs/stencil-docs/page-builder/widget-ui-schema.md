@@ -89,7 +89,7 @@ Elements in the list have settings defined by the array’s schema, which you ca
 >- Each element in the list can have tabs and sections included.
 >- The `defaultCount` attribute is the number of elements in the list to display by default.
 >- The `thumbnail` attribute is used to display an image stored at the specified attribute name.
->- You can use the `entryLabel` attribute to set a name for each element in the list.
+>- Use the `entryLabel` attribute to set a name for each element in the list.
 
 ## Hidden settings
 You can use hidden settings to set up controls which have no user interface drawn in Page Builder. Hidden settings live at the schema's top level because they are not grouped into any other tabs or arrays. You can use them in advanced widgets with complex interactions in the preview pane, such as inline editing.
