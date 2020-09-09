@@ -15,7 +15,8 @@
 
 ## Confirm dependencies
 
-If you have customized a theme initially downloaded from the BigCommerce Theme Marketplace: Before you package your theme, make sure your theme directory includes all the dependencies that BigCommerce requires for submission.
+If you have customized a theme originally downloaded from the BigCommerce Theme Marketplace: Before you package your theme, make sure your theme directory includes all the dependencies that BigCommerce requires for submission.
+
 
 Follow the link for your scenario:
 
