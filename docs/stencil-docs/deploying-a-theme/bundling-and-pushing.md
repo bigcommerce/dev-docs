@@ -112,7 +112,8 @@ For error codes that you might encounter when uploading a theme – and correspo
 
 ### Command line upload (OAuth required)
 
-The stencil push command allows you to bundle your theme and upload it to the store, with a single terminal command. To run stencil push, you must first:
+The `stencil push` command allows you to bundle your theme and upload it to the store, with a single terminal command. To run `stencil push`, you must first:
+
 
 Successfully initialize your theme using an OAuth token that you created with the Themes: modify scope.
 Install Stencil CLI version 1.12.0 or higher.
