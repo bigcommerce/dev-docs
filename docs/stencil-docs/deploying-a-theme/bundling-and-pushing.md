@@ -183,7 +183,8 @@ Custom themes – which are available for selection – will have a circle to th
 
 Use your arrow keys to move the selection caret to each theme/version that you want to select. Then press the spacebar to select it. (Filled circles will indicate your selected themes/versions.)
 
-If you are certain of your selections, you can press `Enter` to delete the themes.
+If you are certain of your selections, you can press **Enter** to delete the themes.
+
 
 <div class="HubBlock--callout">
 <div class="CalloutBlock--error">
