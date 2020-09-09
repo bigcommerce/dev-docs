@@ -4,7 +4,7 @@
 
 ### On this page
 - [Enabling Page Builder Theme Styles options](#enabling-page-builder-theme-styles-options)
-- [How .json entries govern page builder's UI](#how-json-entries-govern-page-builders-ui)
+- [How .json entries govern Page Builder's UI](#how-json-entries-govern-page-builders-ui)
 - [Theme Styles data types](#theme-styles-data-types)
 - [Theme Styles data structure in schema.json](#theme-styles-data-structure-in-schemajson)
 - [Best practices](#best-practices)
@@ -42,18 +42,18 @@ Each key that you create in `schema.json` must have a corresponding `config.json
 
 ## How .json entries govern Page Builder's UI
 
-Your entries in the `schema.json` and `config.json` directly shape users' options in Page Builder:
-* Theme variations always appear at the top of the Page Builder panel. These variations are defined only in `config.json`, and their definition order in that file governs their display order in Page Builder.
+Your entries in the `schema.json` and `config.json` directly shape users' options in Theme Styles:
+* Theme variations always appear at the top of the Theme Styles panel. These variations are defined only in `config.json`, and their definition order in that file governs their display order in Theme Styles.
 * Merchants must select one variation to edit at a time. The selections that they make in the remainder of Page Builder's UI will apply only to that selected variation.
-* Page Builder's remaining sequence of top-level section headings corresponds directly to the top-level section objects that you declare in `schema.json`. The options displayed within these expandable section headings correspond directly to the key-value pairs that you nest within `schema.json`'s corresponding section objects.
+* Theme Styles remaining sequence of top-level section headings corresponds directly to the top-level section objects that you declare in `schema.json`. The options displayed within these expandable section headings correspond directly to the key-value pairs that you nest within `schema.json`'s corresponding section objects.
 
 In all, the structure that you give your theme's `config.json` and `schema.json` files directly governs the UI that Page Builder exposes to merchants. 
 
-## Page Builder data types
+## Theme Styles data types
 
-You are free to decide which properties of your theme to make editable in Page Builder and in which order to display them. Page Builder can expose any set of properties as long as your `schema.json` declares them using the data types that Page Builder supports.
+You are free to decide which properties of your theme to make editable in Theme Styles and in which order to display them. Theme Styles can expose any set of properties as long as your `schema.json` declares them using the data types that Theme Styles supports.
 
-Page Builder supports the following data types:
+Theme Styles supports the following data types:
 * color
 * font
 * select (drop-down list)
@@ -95,7 +95,7 @@ Within `schema.json`, you will also see `"type": "heading"` statements like the 
 
 These `"type": "heading"` statements do not reference data types. Rather, they declare display captions for the Page Builder UI's subcategories – the middle level nested within the section headings, but outside the individual options from which merchants can select. Inner options are designated by `"label": <label-text>` statements.
 
-## Page Builder data structure in `schema.json` 
+## Theme Styles data structure in `schema.json` 
 
 The `schema.json` nesting structure maps directly to the Page Builder UI displayed to merchants. Below the `variations` section, which contains data imported from `config.json`, the order and nesting of Page Builder's UI options directly match the order and nesting of your `schema.json` entries.
 
@@ -103,8 +103,8 @@ The `schema.json` nesting structure maps directly to the Page Builder UI display
 
 To prevent errors upon theme upload and avoid possible loss of customizations made through the Page Builder UI at runtime, please follow these guidelines:
 
-* **Single-instance restriction per storefront.** We strongly recommend opening only one instance of Page Builder at a time against each storefront. We recommend this because there is currently no synchronization mechanism to reconcile configuration changes made by multiple Page Builder instances. The `schema.json` file will record the last changes made by any instance, but changes saved earlier by other instances might be lost.
-* **Single-storefront restriction per editor.** In the current release, users can have only one storefront open in Page Builder at a time. To bypass the cookie that imposes this restriction, a workaround is to open an "Incognito"/private-browsing window on an additional storefront.
+* **Single-instance restriction per storefront.** We strongly recommend opening only one instance of Theme Styles at a time against each storefront. We recommend this because there is currently no synchronization mechanism to reconcile configuration changes made by multiple Theme Styles instances. The `schema.json` file will record the last changes made by any instance, but changes saved earlier by other instances might be lost.
+* **Single-storefront restriction per editor.** In the current release, users can have only one storefront open in Theme Styles at a time. To bypass the cookie that imposes this restriction, a workaround is to open an "Incognito"/private-browsing window on an additional storefront.
 * **File name, location, and structure.** Your theme's `schema.json` file must be named `schema.json`. It must reside in the root of your theme directory and must be valid JSON.
 * **File size.** The maximum size for a `schema.json` file is 64 KB. Exceeding this limit will trigger an error upon uploading the theme to BigCommerce. Apart from this size constraint, there is no limit on the number of keys and values that you can place in a theme's `schema.json`.
 
@@ -121,7 +121,7 @@ To make sure revisions to your theme are backward-compatible, we recommend manag
 
 ## Persistent settings storage
 
-When store administrators use Page Builder to customize your store's theme, they save the store's resulting configuration settings to a separate configuration service at BigCommerce.
+When store administrators use Theme Styles to customize your store's theme, they save the store's resulting configuration settings to a separate configuration service at BigCommerce.
 
 ## Theme upgrades and settings
 
@@ -137,20 +137,20 @@ If the merchant creates a second store and applies Star Glow version 1.1 to it, 
 
 You may experience an issue when setting up the Page Builder UI. We recommend that you check the terminal window where you started Stencil CLI for any unexpected behavior that you encounter while developing your Stencil theme. In some cases, the terminal will provide a lengthy error message specifying where to look for problems. For less-detailed error messages, see the below list of potential issues and diagnostic suggestions.
 
-### Empty drop-down list in Page Builder panel
+### Empty drop-down list in Theme Styles panel
 
 * **Symptom:** A drop-down list's outline appears below its configured label. However, the list appears to be empty.
 * **Likely Cause:** The `schema.json` file does not list a default value specified in the theme's `config.json` file.
 * **Resolution:** Update `schema.json` to include the `config.json` value.
 
-### Configured control missing from Page Builder panel
+### Configured control missing from Theme Styles panel
 
 * **Symptom:** A control that you have configured within `schema.json` is completely absent from the Page Builder UI.
-* **Likely Cause:** The specified data type is one of the following: text, text area, radio [button], or image. Page Builder does not currently support these data types.
+* **Likely Cause:** The specified data type is one of the following: text, text area, radio [button], or image. Theme Styles does not currently support these data types.
 * **Resolution:** Display the user option using one of the supported data types: color, font, select (drop-down list), or checkbox.
 
 ### Theme changes not saved from Page Builder UI
 
-* **Symptom:** The storefront does not reflect changes saved in a browser's Page Builder panel.
-* **Likely Cause:** Check whether Page Builder can customize the same storefront.
-* **Resolution:** We strongly recommend opening only one instance of Page Builder at a time per storefront. BigCommerce currently provides no synchronization mechanism for configuration changes from multiple Page Builder instances. So the storefront’s `schema.json` will record the last changes made by any instance, but changes saved earlier by other instances might be lost.
+* **Symptom:** The storefront does not reflect changes saved in a browser's Theme Styles panel.
+* **Likely Cause:** Check whether Theme Styles can customize the same storefront.
+* **Resolution:** We strongly recommend opening only one instance of Theme Styles at a time per storefront. BigCommerce currently provides no synchronization mechanism for configuration changes from multiple Theme Styles instances. So the storefront’s `schema.json` will record the last changes made by any instance, but changes saved earlier by other instances might be lost.
