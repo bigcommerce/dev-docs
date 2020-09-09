@@ -16,7 +16,7 @@ Page Builder is a browser-based tool that offers merchants visual editing and co
 
 To customize the different style elements of a theme, such as colors, font, and text size, merchants can use the **Theme Styles** feature of Page Builder. 
 
-As a theme developer, you can configure your theme's settings, which will determine how merchants can personalize your theme. For example, you can modify how merchants can customize colors, fonts, and the number of products to display per feature. For information on how to configure your theme's files, see [Configuration](/docs/stencil-docs/page-builder/configuration.md). 
+As a theme developer, you can configure your theme's settings, which will determine how merchants can personalize your theme. For example, you can modify how merchants can customize colors, fonts, and the number of products to display per feature. For information on how to configure your theme's files, see [Configuration](https://developer.bigcommerce.com/stencil-docs/page-builder/theme-styles-configuration). 
 
 ## Widgets
 
@@ -26,7 +26,7 @@ Developers can build user interfaces for their custom [widgets](https://develope
 
 New widgets are injected into the storefront using BigCommerce's [Widgets API](https://developer.bigcommerce.com/api-docs/store-management/widgets/overview). You can add custom configuration settings to your widget's Page Builder UI by including the `schema` property in the [**Create a Widget Template**](https://developer.bigcommerce.com/api-reference/store-management/widgets/widget-template/createwidgettemplate) request. 
 
-For settings that can be passed as JSON objects into the `schema` property of the **Create a Widget Template** endpoint, see [Widgets UI Schema](/docs/stencil-docs/page-builder/widgets-ui-schema.md). 
+For settings that can be passed as JSON objects into the `schema` property of the **Create a Widget Template** endpoint, see [Widgets UI Schema](https://developer.bigcommerce.com/stencil-docs/page-builder/widget-ui-schema). 
 
 For a step-by-step tutorial on creating widget templates, see [Widgets Tutorial](https://developer.bigcommerce.com/api-docs/store-management/widgets/tutorial). 
 
