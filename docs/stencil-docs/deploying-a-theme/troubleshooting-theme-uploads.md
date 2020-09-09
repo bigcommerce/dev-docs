@@ -65,7 +65,7 @@ Custom theme uploads must meet these restrictions:
   </tr>
   <tr>
     <td>TR-900</td>
-    <td>The contained config.json file is missing the required developer information.</td>
+    <td>The contained `config.json` file is missing the required developer information.</td>
   </tr>
   <tr>
     <td>TR-901</td>
