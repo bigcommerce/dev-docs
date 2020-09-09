@@ -146,7 +146,8 @@ Upon successful upload, you will receive the prompt, `Would you like to apply yo
 
 ### Apply which variation?
 
-If you chose to apply the newly uploaded theme, you will receive the prompt: `Which variation would you like to apply? (Use arrow keys)`
+If you chose to apply the newly uploaded theme, you will receive the prompt: "Which variation would you like to apply? (Use arrow keys)"
+
 
 <!--
     title:
