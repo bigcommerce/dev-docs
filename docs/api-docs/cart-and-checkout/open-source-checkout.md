@@ -3,6 +3,8 @@
 <div class="otp" id="no-index">
 ### On this page
 
+### On this page
+
 - [Obtaining the JavaScript loader file](#obtaining-the-javascript-loader-file)
 - [Hosting a custom checkout](#hosting-a-custom-checkout)
 - [Installing a custom checkout](#installing-a-custom-checkout)
