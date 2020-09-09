@@ -49,7 +49,7 @@ Custom theme uploads must meet these restrictions:
   </tr>
   <tr>
     <td>TR-500</td>
-    <td>The .zip file is larger than the 50MB limit, or the parsed JSON for templates exceeds the 1MB size limit.</td>
+    <td>The zip file is larger than the 50MB limit, or the parsed JSON for templates exceeds the 1MB size limit.</td>
   </tr>
   <tr>
     <td>TR-600</td>
