@@ -1,7 +1,7 @@
 # Installing a Custom Checkout
 
-### On this page
 <div class="otp" id="no-index">
+### On this page
 
 - [Obtaining the JavaScript loader file](#obtaining-the-javascript-loader-file)
 - [Hosting a custom checkout](#hosting-a-custom-checkout)
@@ -53,7 +53,7 @@ You can upload a custom checkout to your store's server using WebDav, but we rec
 
 ## Installing a custom checkout  
 
-To install a custom checkout on a store following these steps:
+To install a custom checkout on a store follow these steps:
 
 1. Navigate to **Advanced Settings > Checkout Settings**
 2. Paste a link to your custom checkout in the **Script URL** field and **Save**
