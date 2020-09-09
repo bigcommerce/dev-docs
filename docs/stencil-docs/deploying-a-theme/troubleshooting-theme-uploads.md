@@ -140,6 +140,6 @@ Warnings will not block a theme's upload, but these onscreen and/or log messages
 
 ## Workarounds and further info
 
-If a custom theme does not render properly after you upload and apply it to a storefront, make sure you have created the theme's .zip file using the `stencil bundle` command, on a Mac OS, Linux computer, or virtual machine. Using the `stencil bundle` command will exclude Windows-specific errors that have occurred on some bundles.
+If a custom theme does not render properly after you upload and apply it to a storefront, make sure you have created the theme's zip file using the `stencil bundle` command, on a Mac OS, Linux computer, or virtual machine. Using the `stencil bundle` command will exclude Windows-specific errors that have occurred on some bundles.
 
 If you repeatedly encounter the same error or warning and neither this page nor our KB resolves the problem, see support resources for theme developers in our [Developer Community](https://forum.bigcommerce.com/s/group/0F913000000HLjECAW/bigcommerce-developers).
