@@ -1,6 +1,9 @@
 # Installing a Custom Checkout
 
 <div class="otp" id="no-index">
+### On this page
+
+### On this page
 
 ### On this page
 
