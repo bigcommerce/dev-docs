@@ -61,7 +61,7 @@ Custom theme uploads must meet these restrictions:
   </tr>
   <tr>
     <td>TR-800</td>
-    <td>There was a problem processing the contained config.json file. <b>Please check the config.json documentation for the required keys and for keys that require values.</b></td>
+    <td>There was a problem processing the contained `config.json` file. <b>Please check the `config.json` documentation for the required keys and for keys that require values.</b></td>
   </tr>
   <tr>
     <td>TR-900</td>
