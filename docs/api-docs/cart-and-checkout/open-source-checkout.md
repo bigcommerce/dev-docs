@@ -53,7 +53,7 @@ You can upload a custom checkout to your store's server using WebDav, but we rec
 
 ## Installing a custom checkout  
 
-To install a custom checkout on a store follow these steps:
+To install a custom checkout on a store, follow these steps:
 
 1. Navigate to **Advanced Settings > Checkout Settings**
 2. Paste a link to your custom checkout in the **Script URL** field and **Save**
@@ -62,4 +62,3 @@ To install a custom checkout on a store follow these steps:
 ## Additional resources
 - [Checkout SDK](https://developer.bigcommerce.com/stencil-docs/customizing-checkout/checkout-sdk)
 - [File Access (WebDav)](https://support.bigcommerce.com/s/article/File-Access-WebDAV)
-
