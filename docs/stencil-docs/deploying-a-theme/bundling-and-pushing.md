@@ -100,7 +100,8 @@ BigCommerce provides two alternatives for uploading a theme to its associated Bi
 
 ### Control panel upload (OAuth or Basic Auth)
 
-Uploading your theme via the BigCommerce control panel's GUI is compatible with any store token (whether OAuth or Basic Auth), with any OAuth token scope, and with all versions of Stencil CLI. However, this option requires that you first use a stencil bundle to package your theme into a .zip file. (Prepare your file according to Bundle only above.)
+Uploading your theme via the BigCommerce control panel's GUI is compatible with any store token (whether OAuth or Basic Auth), with any OAuth token scope, and with all versions of Stencil CLI. However, this option requires that you first use a stencil bundle to package your theme into a zip file. Prepare your file according to the instructions in the [Bundle only](#bundle-only) section.
+
 
 For the control panel's upload steps, see the [Uploading Custom Themes](https://support.bigcommerce.com/s/article/Stencil-Themes#download-upload) article in our Knowledge Base.
 
