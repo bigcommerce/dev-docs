@@ -90,7 +90,8 @@ For file-size error diagnostics and workarounds, please _Check/Adjust Zipfile's 
 
 * Do not create `.zip` files using general-purpose archiving software. The resulting files will trigger errors upon upload to BigCommerce.
 
-* Do not open a bundled theme `.zip` file to add, delete, rename, or update files. Doing so will make your theme unusable in the production store.
+* Do not open a bundled theme zip file to add, delete, rename, or update files. Doing so will make your theme unusable in the production store.
+
 
 * If bundling your theme triggers multiple lint errors related to the `bundle.js` file, then your theme is missing the `.eslintignore` file. Please retrieve this file from the [Stencil Cornerstone repo](https://github.com/bigcommerce/cornerstone/blob/master/.eslintignore), then re-run `stencil bundle` or `stencil push`.
 
