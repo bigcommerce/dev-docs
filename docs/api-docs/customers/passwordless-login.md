@@ -5,7 +5,7 @@
 ### On this Page
 - [Logging in customers via email link](#logging-in-customers-via-email-link)
 - [Sending the request](#sending-the-request)
-- [Additional Resources](#additional-resources)
+- [Additional resources](#additional-resources)
 </div>
 
 ## Logging in customers via email link
