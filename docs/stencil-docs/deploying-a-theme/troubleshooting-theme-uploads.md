@@ -132,7 +132,7 @@ Warnings will not block a theme's upload, but these onscreen and/or log messages
 | Theme is missing a valid thumbnail image (`composed_image`). |
 | Theme is missing a valid full-size image (`desktop_screenshot`). |
 | Theme is missing a valid mobile image (`mobile_screenshot`). |
-| One or more of this theme's images is not of a supported file type. Valid filetypes are: `.jpg`, `.jpeg`, `.png`, `.gif`. |
+| One or more of this theme's images is not of a supported file type. Valid filetypes are: JPEG, PNG, GIF. |
 | Thumbnail (`composed_image`) image dimensions are not right. The expected dimensions are 600 x 760 pixels. |
 | Full-size (`desktop_screenshot`) image dimensions are not right. The expected dimensions are 2048 x 2600 pixels. |
 | Mobile (`mobile_screenshot`) image dimensions are not right. The expected dimensions are 304 x 540 pixels. |
