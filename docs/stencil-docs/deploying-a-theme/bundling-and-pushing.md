@@ -169,7 +169,8 @@ Stencil CLI will then confirm which variation is active on the storefront.
 
 ## Theme quota warning
 
-If you run `stencil push` when your store's `My Themes` section has reached its maximum of 20 themes, you will receive a prompt to select at least one existing theme for deletion.
+If you run `stencil push` when your store's My Themes section has reached its maximum of 20 themes, you will receive a prompt to select at least one existing theme for deletion.
+
 
 <!--
     title:
