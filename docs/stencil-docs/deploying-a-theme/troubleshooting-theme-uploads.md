@@ -14,7 +14,7 @@
 
 Custom theme uploads must meet these restrictions:
 
-* You may upload a maximum of 20 custom themes at a time to the control panel's `Store Design` > `My Themes` section.
+* You may upload a maximum of 20 custom themes at a time to the control panel's `Storefront` > `My Themes` section.
 * If you reach this maximum, you can delete custom themes to make room for more uploads.
 * Before uploading, you must package custom themes into a Stencil-specific .zip file format, using Stencil CLI's `stencil bundle` command.
 * A theme's .zip file must be no larger than 50 MB. If your file exceeds that size, please use either a WebDAV or a CDN upload to exclude large static assets.
