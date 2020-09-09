@@ -22,100 +22,30 @@ Custom theme uploads must meet these restrictions:
 
 ## Error codes
 
-<table>
-  <tr>
-    <th>Error code</th>
-    <th>Meaning</th>
-  </tr>
-  <tr>
-    <td>TR-100, -101, -700, -1200, -1300</td>
-    <td>A server error occurred.</td>
-  </tr>
-  <tr>
-    <td>TR-200</td>
-    <td>Problem uploading the theme.</td>
-  </tr>
-  <tr>
-    <td>TR-300</td>
-    <td>Invalid .zip file. (Among other possible root causes, this can indicate an included <code>bundle.js.map</code> source-map file that exceeds its size limit of 5 MB. As a workaround, move this file outside your theme directory before re-running <code>stencil bundle</code>).</td>
-  </tr>
-  <tr>
-    <td>TR-301</td>
-    <td>Failed to unzip file.</td>
-  </tr>
-  <tr>
-    <td>TR-400</td>
-    <td>The .zip contains restricted/invalid file(s) - e.g., a file with an invalid extension.</td>
-  </tr>
-  <tr>
-    <td>TR-500</td>
-    <td>The zip file is larger than the 50MB limit, or the parsed JSON for templates exceeds the 1MB size limit.</td>
-  </tr>
-  <tr>
-    <td>TR-600</td>
-    <td>The .zip file is missing a required file (<code>theme-name/templates/pages/home.html</code>).</td>
-  </tr>
-  <tr>
-    <td>TR-601</td>
-    <td>The .zip file is missing some parsed template file(s); or, one or more non-<code>.html</code> files are present in the <code>theme-name/templates/</code></nobr> subdirectory.</td>
-  </tr>
-  <tr>
-    <td>TR-800</td>
-    <td>There was a problem processing the contained `config.json` file. <b>Please check the `config.json` documentation for the required keys and for keys that require values.</b></td>
-  </tr>
-  <tr>
-    <td>TR-900</td>
-    <td>The contained `config.json` file is missing the required developer information.</td>
-  </tr>
-  <tr>
-    <td>TR-901</td>
-    <td>A theme variation defined in the contained config.json file is missing its required external ID.</td>
-  </tr>
-  <tr>
-    <td>TR-902</td>
-    <td>Two or more theme variations defined in the contained config.json file share a external ID. All external IDs must be unique.</td>
-  </tr>
-  <tr>
-    <td>TR-1000</td>
-    <td>There was a problem processing the contained <a href="/stencil-docs/stencil-theme-editor/schema-json-metadata">schema.json</a> file.</td>
-  </tr>
-  <tr>
-    <td>TR-1001</td>
-    <td>The theme is missing its required <a href="/stencil-docs/stencil-theme-editor/schema-json-metadata">schema.json</a> file.</td>
-  </tr>
-  <tr>
-    <td class="">TR-1400</td>
-    <td class="">There was a problem processing template <a href="/stencil-docs/front-matter/front-matter-overview">front matter</a>.</td>
-  </tr>
-  <tr>
-    <td>TR-1401</td>
-    <td>There was a database validation error when saving <a href="/stencil-docs/front-matter/front-matter-overview">front matter</a> to the database.</td>
-  </tr>
-  <tr>
-    <td>TR-1500</td>
-    <td>There was a problem uploading your files due to multi-threading (multiple simultaneous uploads). Please try again.</td>
-  </tr>
-  <tr>
-    <td>TR-1600</td>
-    <td>There was a temporary problem on our system. Please try again.</td>
-  </tr>
-  <tr>
-    <td>TR-1601</td>
-    <td>There was a problem with processing screenshots.</td>
-  </tr>
-  <tr>
-    <td>TR-1700, -1800, -1801, -1802, -1803</td>
-    <td>System error, possibly temporary. Please try again.</td>
-  </tr>
-  <tr>
-    <td>TR-3402</td>
-    <td>You are not allowed to edit your active theme. [Please select <code>Make a Copy</code>, then edit the resulting copy of your theme.]</td>
-  </tr>
-  <tr>
-    <td>TR-4400</td>
-    <td>One or more values in the <code>config.json</code> file exceed the 64-character limit. (Can also indicate string lengths that exceed their limits in other JSON files.)</td>
-  </tr>
- </table>
+| Error code | Meaning |
+|:- | - |
+| TR-100, -101, -700, -1200, -1300 | A server error occurred. |
+| TR-200 | Problem uploading the theme. |
+| TR-300 | Invalid zip file. (Among other possible root causes, this can indicate an included <code>bundle.js.map</code> source-map file that exceeds its size limit of 5 MB. As a workaround, move this file outside your theme directory before re-running <code>stencil bundle</code>). |
+| TR-301 | Failed to unzip file. |
+| TR-400 | The zip contains restricted/invalid file(s) - e.g., a file with an invalid extension. |
+| TR-500 | The zip file is larger than the 50 MB limit, or the parsed JSON for templates exceeds the 1 MB size limit. |
+| TR-600 | The zip file is missing a required file (<code>theme-name/templates/pages/home.html</code>). |
+| TR-601 | The zip file is missing some parsed template file(s); or, one or more non-<code>.html</code> files are present in the <code>theme-name/templates/</code></nobr> subdirectory. |
+| TR-800 | There was a problem processing the contained `config.json` file. <b>Please check the `config.json` documentation for the required keys and for keys that require values. |
+| TR-900 | The contained `config.json` file is missing the required developer information. |
+| TR-901 | A theme variation defined in the contained config.json file is missing its required external ID. |
+| TR-902 | Two or more theme variations defined in the contained config.json file share a external ID. All external IDs must be unique. | 
+| TR-1000 | There was a problem processing the contained <a href="/stencil-docs/stencil-theme-editor/schema-json-metadata">schema.json</a> file. |
+| TR-1001 | The theme is missing its required <a href="/stencil-docs/stencil-theme-editor/schema-json-metadata">schema.json</a> file. |
+| TR-1400 | There was a problem processing template <a href="/stencil-docs/front-matter/front-matter-overview">front matter</a>. |
+| TR-1401 | There was a database validation error when saving <a href="/stencil-docs/front-matter/front-matter-overview">front matter</a> to the database. |
+| TR-1500 | There was a problem uploading your files due to multi-threading (multiple simultaneous uploads). Please try again. |
+| TR-1600 | There was a temporary problem on our system. Please try again. |
+| TR-1601 | There was a problem with processing screenshots. |
+| TR-1700, -1800, -1801, -1802, -1803 | System error, possibly temporary. Please try again. |
+| TR-3402 | You are not allowed to edit your active theme. [Please select <code>Make a Copy</code>, then edit the resulting copy of your theme.] |
+| TR-4400 | One or more values in the <code>config.json</code> file exceed the 64-character limit. (Can also indicate string lengths that exceed their limits in other JSON files.) |
 
 ## Warnings
 
