@@ -71,7 +71,8 @@ The `bundle` command will notify you of its progress and completion.
 
 ####  Check/Adjust zipfile's size
 
-Check the resulting `.zip` file's size before you proceed. The zipped bundle should be only a few megabytes. BigCommerce imposes a hard limit of 50 MB, and any file size approaching that is problematic. If your `.zip` file fits comfortably within the size limit above, jump directly to [Pushing Your Theme](https://developer.bigcommerce.com/stencil-docs/deploying-a-theme/bundling-and-pushing#pushing-your-theme). However, if your `.zip` file approaches or exceeds 50 MB, you must first use one of these procedures to restructure your theme to a manageable size for upload to BigCommerce:
+Check the resulting zip file's size before you proceed. The zipped bundle should be only a few megabytes. BigCommerce imposes a hard limit of 50 MB, and any file size approaching that is problematic. If your zip file fits comfortably within the size limit above, jump directly to [Pushing Your Theme](https://developer.bigcommerce.com/stencil-docs/deploying-a-theme/bundling-and-pushing#pushing-your-theme). However, if your zip file approaches or exceeds 50 MB, you must first use one of these procedures to restructure your theme to a manageable size for upload to BigCommerce:
+
 
 * [Shrinking Your Theme by Excluding Static Assets (WebDAV)](https://support.bigcommerce.com/s/article/File-Access-WebDAV#manual)
 * [Staging a Theme for CDN Delivery](https://support.bigcommerce.com/s/article/Optimizing-Your-Images#imageop-cdn)
