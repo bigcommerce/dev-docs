@@ -1,6 +1,7 @@
 # Installing a Custom Checkout
 
 <div class="otp" id="no-index">
+
 ### On this page
 
 - [Obtaining the JavaScript loader file](#obtaining-the-javascript-loader-file)
