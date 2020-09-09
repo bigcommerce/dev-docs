@@ -59,7 +59,8 @@ If you have added any new subdirectories or files to your base theme, verify tha
 
 ## Bundling your theme
 
-Once you have verified the requirements above, you are ready to process and package your theme for upload to BigCommerce. Stencil CLI provides two options for creating a `.zip` file that contains all of your theme's essentials while excluding redundant components. The options are either only bundling your theme, or bundling and pushing your theme. These options are available depending on how you've [authorized](https://developer.bigcommerce.com/stencil-docs/installing-stencil-cli/troubleshooting-your-setup#stencil-start-errors) your theme:
+Once you have verified the requirements above, you are ready to process and package your theme for upload to BigCommerce. Stencil CLI provides two options for creating a zip file that contains all of your theme's essentials while excluding redundant components. The options are either only bundling your theme, or bundling and pushing your theme. These options are available depending on how you've [authorized](https://developer.bigcommerce.com/stencil-docs/installing-stencil-cli/troubleshooting-your-setup#stencil-start-errors) your theme:
+
 
 ### Bundle only
 
