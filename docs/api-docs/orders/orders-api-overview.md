@@ -613,7 +613,7 @@ Order `subtotal` and `total` calculate automatically; edits to the following pro
 |`billing_address`|
 |`shipping_addresses`|
 
-You can override calculated values (such as product prices, subtotal, and totals) by sending a fixed value in the request. If values are not supplied for these properties, they will be automatically calculated based on the preset store values and tax rules.
+You can override calculated values such as product prices, subtotals, and totals by sending a fixed value in the request. If values are not supplied for these properties, they will be automatically calculated based on the preset store values and tax rules.
 
 <div class="HubBlock--callout">
 <div class="CalloutBlock--info">
