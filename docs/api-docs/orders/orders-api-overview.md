@@ -601,7 +601,19 @@ Accept: application/json
 
 Order `subtotal` and `total` calculate automatically; edits to the following properties trigger recalculation.
 
-||
+|Property|Type|Description|
+|-|-|-|
+|`products`|`array[obj]`|Used to calculate shipping, taxes, and subtotal|
+|`shipping_cost_ex_tax`|`float`|Shipping cost, excluding tax|
+|`shipping_cost_inc_tax`|`float`|Shipping cost, including tax|
+|`handling_cost_ex_tax`|`float`|Value of handling cost, excluding tax|
+|`handling_cost_inc_tax`|`float`|Value of handling cost, including tax|
+|`wrapping_cost_ex_tax`|`float`|Value of wrapping cost, excluding tax |
+|`wrapping_cost_inc_tax`|`float`|Value of wrapping cost, including tax |
+|`billing_address`|`obj`|Used to calculate shipping and taxes| 
+|`shipping_addresses`|`array[obj]`|Used to calculate shipping and taxes| 
+
+|Property|Description
 |-|
 |`products`|
 |`shipping_cost_ex_tax`|
