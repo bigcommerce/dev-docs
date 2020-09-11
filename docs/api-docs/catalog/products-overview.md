@@ -433,7 +433,8 @@ X-Auth-Client: {{CLIENT_ID}}
 
 [![Open in Request Runner](https://storage.googleapis.com/bigcommerce-production-dev-center/images/Open-Request-Runner.svg)](https://developer.bigcommerce.com/api-reference/catalog/catalog-api/brands/createbrand#requestrunner)
 
-For general information on brands and their use cases, see [Managing Brands](https://support.bigcommerce.com/s/article/Managing-Brands) in the BigCommerce Help Center.
+For general information on brands and their use cases, see [Managing Brands](https://support.bigcommerce.com/s/article/Managing-Brands).
+
 
 ## Variant options
 
