@@ -409,7 +409,8 @@ X-Auth-Client: {{CLIENT_ID}}
 
 ## Creating brands
 
-To create a [Brand](/api-reference/catalog/catalog-api/brands/getbrands), `POST` to `/v3/catalog/brands`:
+To create a [Brand](/api-reference/catalog/catalog-api/brands/getbrands), send a `POST` request to `/v3/catalog/brands`:
+
 
 ```http
 POST https://api.bigcommerce.com/stores/{{store_hash}}/v3/catalog/brands
