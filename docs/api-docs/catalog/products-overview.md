@@ -42,7 +42,8 @@ For more information on OAuth Scopes and authentication, see [Authentication](ht
 
 Products can be physical or digital:
 * **Physical** - exist in a physical form, have a weight, and are sold by merchants to ship to customers.
-* **Digital** - Non-physical products, including downloadable files such as computer software, ebooks, music, images, and other media; and services such as haircuts, consulting, or lawn care.
+* **Digital** - Non-physical products, including downloadable files (for example, computer software, ebooks, or music) and services (for example, haircuts, consulting, or lawn care).
+
 
 <div class="HubBlock--callout">
 <div class="CalloutBlock--info">
