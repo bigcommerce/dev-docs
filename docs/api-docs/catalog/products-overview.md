@@ -336,7 +336,8 @@ For general information and use cases for product bulk pricing, see [Bulk Pricin
 
 ## Adding product metafields
 
-[Metafields](/api-reference/catalog/catalog-api/product-metafields/createproductmetafield) are key and value pairs intended for programmatically storing data against a product or other entity. Data stored in metafields does not appear in the storefront or the control panel. Data not appearing in the storefront or control panel is useful when information needs to be passed back and forth between an app and BigCommerce.
+[Metafields](/api-reference/catalog/catalog-api/product-metafields/createproductmetafield) are key-value pairs intended for programmatically storing data against a product or other entity. Data stored in metafields does not appear in the storefront or the control panel. Data not appearing in the storefront or control panel is useful when information needs to be passed back and forth between an app and BigCommerce.
+
 
 To add metafields to a product, `PUT` to `/v3/catalog/products/{{product_id}}/metafields`:
 
