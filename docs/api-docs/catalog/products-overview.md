@@ -546,7 +546,8 @@ X-Auth-Client: {{CLIENT_ID}}
 <!-- theme: warning -->
 
 ### V2 SKU rules will override variant pricing
-> Creating SKU rules via the V2 API or via CSV import will alter or override any variant price or sale price added to a product via the Control Panel, V3 API, or Price Lists UI.
+> Creating SKU rules via the V2 API or via CSV import will alter or override any variant price or sale price added to a product via the control panel, V3 API, or Price Lists UI.
+
 
 </div>
 </div>
