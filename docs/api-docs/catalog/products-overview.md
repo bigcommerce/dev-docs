@@ -668,7 +668,8 @@ The `option_values` array combines the options small and blue to create the SKU 
 
 ### Create a variant using the product endpoint
 
-The following example creates a base product, variant options, and variants in a single call to the product endpoint. Use this method to create a product and variants in a single call without creating variant options first (option display will default to radio button):
+The following example creates a base product, variant options, and variants in a single call to the [Products](https://developer.bigcommerce.com/api-reference/catalog/catalog-api/products/createproduct) endpoint. Use this method to create a product and variants in a single call without creating variant options first (option display will default to radio button):
+
 
 ```http
 POST https://api.bigcommerce.com/stores/{{STORE_HASH}}/v3/catalog/products
