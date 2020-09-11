@@ -36,7 +36,7 @@ For a widget to have a custom user interface within the Page Builder platform, t
 You can limit the amount of widget customizations available to a merchant by configuring the settings in the template’s schema. To learn more about schema settings, see [Widget UI Schema](https://developer.bigcommerce.com/stencil-docs/page-builder/widget-ui-schema). 
 
 ### Create a template
-To [create a widget template](https://developer.bigcommerce.com/api-reference/store-management/widgets/widget-template/createwidgettemplate), send a `POST` request to `/stores/{$$.env.store_hash}/v3/content/widget-templates`.
+To [create a widget template](https://developer.bigcommerce.com/api-reference/store-management/widgets/widget-template/createwidgettemplate), send a `POST` request to `/stores/{{STORE_HASH}}/v3/content/widget-templates`.
  
 ```http
 POST https://api.bigcommerce.com/stores/{{STORE_HASH}}/v3/content/widget-templates
@@ -121,19 +121,7 @@ Accept: application/json
 
 ## Final product preview
 
-<div class="HubBlock--callout">
-<div class="CalloutBlock--warning">
-<div class="HubBlock-content">
-
-<!-- theme: warning -->
-
-### Note
-
 > You do not need to send a `POST` request to [Create a Widget](https://developer.bigcommerce.com/api-reference/store-management/widgets/widget/createwidget) or [Create a Widget Placement](https://developer.bigcommerce.com/api-reference/store-management/widgets/placement/createplacement) endpoints to reflect the new widget in Page Builder. 
-
-</div>
-</div>
-</div>
 
 You should now see your widget with its customizable options reflected in Page Builder, under the Custom section.   
 
