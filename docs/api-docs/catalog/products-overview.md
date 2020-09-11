@@ -60,7 +60,8 @@ Products can be physical or digital:
 
 ### Creating a product
 
-Below is an example POST request for creating a simple product without options, modifiers, or variants:
+Below is an example `POST` request for creating a simple product without options, modifiers, or variants:
+
 
 ```http
 POST https://api.bigcommerce.com/stores/{{STORE_HASH}}/v3/catalog/products
