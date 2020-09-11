@@ -536,7 +536,8 @@ X-Auth-Client: {{CLIENT_ID}}
 * Can have their own price, weight, dimensions, image, etc. - or they can inherit these values from the product if you have not specified them.
 * Must have a SKU code (unless they are a base variant).
 
-* In non-base variants, variants will relate to a particular combination of variant option values - such as “small” and “red.”
+* In non-base variants, variants will relate to a particular combination of variant option values - such as “small” and “red”.
+
 
 <div class="HubBlock--callout">
 <div class="CalloutBlock--warning">
