@@ -642,7 +642,8 @@ To combine the variant option values into variants and build out SKUs use the fo
 </div>
 </div>
 
-The `option_values` array combines the options small and blue to create the SKU SMALL-BLUE. The ID in the `option_values` array is the id from the variant option response `option_values > id`. The `option_id` is the ID of the option.
+The `option_values` array combines the options small and blue to create the SKU SMALL-BLUE. The ID in the `option_values` array is the ID from the variant option response `option_values > id`. The `option_id` is the ID of the option.
+
 
 ```json
 {
