@@ -564,7 +564,8 @@ X-Auth-Client: {{CLIENT_ID}}
 You can create variants in two ways:
 * From existing variant options, using [Create a Product Variant](/api-reference/catalog/catalog-api/product-variants/createvariant) endpoint.
 
-* By adding the variants with variant options and SKUs when creating the product, see [Create a Complex Product](/api-reference/catalog/catalog-api/products/createproduct).
+* By adding variants with options and SKUs, using [Create a Product](/api-reference/catalog/catalog-api/products/createproduct) endpoint.
+
 
 The example below will go over using existing variant options to create the variants.
 
