@@ -292,7 +292,8 @@ X-Auth-Client: {{CLIENT_ID}}
 
 ### Note
 > * Custom field values are limited to **250** characters.
-> * See [Custom Fields](https://support.bigcommerce.com/s/article/Custom-Fields) in the BigCommerce Help Center for additional information on custom fields and their use-cases.
+> For additional information on custom fields and their use-cases, see [Custom Fields](https://support.bigcommerce.com/s/article/Custom-Fields).
+
 
 </div>
 </div>
