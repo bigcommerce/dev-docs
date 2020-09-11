@@ -444,7 +444,8 @@ Example:
 * Color is a variant option; red, orange, and green are variant option values.
 * Size is a variant option; small, medium, and large are variant option values.
 
-This example results in selecting a combination of small & red on the storefront and correlates to a product variation, also called a SKU.
+This example results in selecting a combination of small and red on the storefront and correlates to a product variation, also called a SKU.
+
 
 **Variant options:**
 
