@@ -5,7 +5,7 @@
 ### On this page
 - [Prerequisites](#prerequisites)
 - [Create a product widget](#create-a-product-widget)
-- [Final product preview](#final-product-preview)
+- [Widget preview](#widget-preview)
 - [Resources](#resources)
 
 </div>
@@ -119,7 +119,7 @@ Accept: application/json
 }
 ```
 
-## Final product preview
+## Widget preview
 
 > You do not need to send a `POST` request to [Create a Widget](https://developer.bigcommerce.com/api-reference/store-management/widgets/widget/createwidget) or [Create a Widget Placement](https://developer.bigcommerce.com/api-reference/store-management/widgets/placement/createplacement) endpoints to reflect the new widget in Page Builder. 
 
