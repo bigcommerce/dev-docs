@@ -12,12 +12,12 @@
 - [OAuth scopes](#oauth-scopes)
 - [Resources](#resources)
 
-</div> 
+</div>
 
 ## What is an order?
-An order is a collection of items, customer information, and shipping information of customers that have finalized with a payment or attempted payment. 
+An order is a collection of items, customer information, and shipping information of customers that have finalized with a payment or attempted payment.
 
-Orders can contain both digital or physical products. Digital items are delivered via email and do not require a shipping address, whereas physical items require a shipping address and a delivery method. 
+Orders can contain both digital or physical products. Digital items are delivered via email and do not require a shipping address, whereas physical items require a shipping address and a delivery method.
 
 BigCommerce offers two possible workflows for creating orders via the API: the Server-to-Server Checkout API or the Orders API.
 * The Server-to-Server Checkout API represents an extension of the Server-to-Server Cart API that you can use to complete a purchase from product selection to conversion.
@@ -32,8 +32,8 @@ BigCommerce offers two possible workflows for creating orders via the API: the S
 | [Orders API](/api-reference/orders/orders-api) | Create and manage orders. Can manage orders created via API or the Control Panel |
 | [Order Transactions](/api-reference/orders/orders-transactions-api) | Get transaction information for existing orders. Read Only Endpoint |
 
-##  Storefront Orders API 
-The Storefront Orders API allows you to return information about a just-placed order on the order confirmation page. You can interact with the Storefront Orders API using an app or a browser API. 
+##  Storefront Orders API
+The Storefront Orders API allows you to return information about a just-placed order on the order confirmation page. You can interact with the Storefront Orders API using an app or a browser API.
 
 For an example using the Fetch API to log order information to the console, see [Storefront Orders API](https://developer.bigcommerce.com/api-docs/cart-and-checkout/working-sf-apis).
 
@@ -71,19 +71,19 @@ The Server-to-Server Checkout API allows you to create a checkout programmatical
 ## Orders API
 The Orders API allows you to create an order without first creating a cart and checkout. It also allows you to manage an order's billing address, products, coupons, and taxes. See [Orders API](/api-reference/orders/orders-api) for a complete list of methods.
 
-### When to use: 
+### When to use:
 * Create an order and bypass creating a cart and checkout
 * Make changes to existing orders
 * Retrieve or archive existing orders
 * Export or import order information to a third-party system
 
 ## Order transactions
-The Order Transactions API is a read-only endpoint that returns transaction or payment data about an order. The data returned does not include payment tokens for a third party such as Braintree. 
+The Order Transactions API is a read-only endpoint that returns transaction or payment data about an order. The data returned does not include payment tokens for a third party such as Braintree.
 
 Orders processed via all [payment providers](https://support.bigcommerce.com/s/article/Available-Payment-Gateways) except PayPal Express Checkout and Test Gateway will create a transaction that is retrievable via Transactions API. Gift certificates, store credit, and offline payment methods will not create a transaction.
 
 ### When to use:
-* View transaction information about an Order. 
+* View transaction information about an Order.
 
 ## OAuth scopes
 - Orders
