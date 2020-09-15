@@ -940,7 +940,7 @@ Save a variable for later use in the template.
 #### Example
 
 ```handlebars
-{{assignVar foo = 10}}
+{{assignVar "foo" 10}}
 ```
 
 [See it in Cornerstone](https://github.com/bigcommerce/cornerstone/search?l=HTML&q=assignVar).
@@ -952,7 +952,7 @@ Get a variable set by [assignVar](#assignVar).
 #### Example
 
 ```handlebars
-{{getVar foo}}
+{{getVar "foo"}}
 ```
 
 [See it in Cornerstone](https://github.com/bigcommerce/cornerstone/search?l=HTML&q=getVar).
@@ -964,7 +964,7 @@ Decrement variable assigned by [assignVar](#assignVar) by 1.
 #### Example
 
 ```handlebars
-{{decrementVar foo}}
+{{decrementVar "foo"}}
 ```
 
 [See it in Cornerstone](https://github.com/bigcommerce/cornerstone/search?l=HTML&q=decrementVar).
@@ -976,7 +976,7 @@ Increment variable assigned by [assignVar](#assignVar) by 1.
 #### Example
 
 ```handlebars
-{{incrementVar foo}}
+{{incrementVar "foo"}}
 ```
 
 [See it in Cornerstone](https://github.com/bigcommerce/cornerstone/search?l=HTML&q=incrementVar).
