@@ -916,7 +916,8 @@ Use complex rules when an adjustment should be triggered by:
 * The selection of values across multiple modifier options
 * The combination of a particular variant/SKU and a modifier option value.
 
-### Complex rules example:
+### Complex rules example
+
 
 | If the product is | Variant Option | Variant |Modifier | Complex Rule |
 | -- | -- | -- | -- | -- |
