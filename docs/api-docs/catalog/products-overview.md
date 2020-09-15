@@ -461,7 +461,8 @@ This example results in selecting a combination of small and red on the storefro
 * Will automatically generate variants when created in the CP
 * Are auto-generated from variants when you create a product with variants via V3 API Product /POST
 
-### Variant options example:
+### Variant options example
+
 
 | If the product is | variant option |
 | -- | -- |
