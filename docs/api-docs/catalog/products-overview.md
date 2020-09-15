@@ -762,7 +762,8 @@ You can add an adjuster to a modifier option to change things, such as increasin
 <!-- theme:  -->
 
 ### Modifiers that support adjusters
-> swatch, radio buttons, rectangle list, drop-down, product list, and product list with images
+> Swatch, radio button, rectangle list, drop-down, product list, and product list with images.
+
 
 </div>
 </div>
