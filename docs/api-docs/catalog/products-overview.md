@@ -27,7 +27,7 @@
 
 The Catalog refers to a store's collection of physical and digital products. The Catalog includes all the information about a product such as MPN, warranty, price, and images.
 
-## [OAuth scopes](/api-docs/getting-started/authentication#authentication_oauth-scopes)
+## OAuth scopes
 
 | UI Name  | Permission | Parameter                     |
 |----------|------------|-------------------------------|
