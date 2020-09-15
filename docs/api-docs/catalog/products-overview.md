@@ -784,7 +784,8 @@ Creating a checkbox with an adjuster requires two separate calls: one to create 
 <!-- theme:  -->
 
 ### Modifiers that require a second step to add an adjuster
-> swatch, radio buttons, drop-down, rectangle list, product list, product list with images, and checkbox
+> Swatch, radio button, drop-down, rectangle list, product list, product list with images, and checkbox.
+
 
 </div>
 </div>
