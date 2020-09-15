@@ -724,7 +724,8 @@ X-Auth-Client: {{CLIENT_ID}}
 <!-- theme:  -->
 
 ### Supported types
-> swatch, radio buttons, rectangle, dropdown, product list, and product list with images
+> Swatch, radio button, rectangle, dropdown, product list, and product list with images.
+
 
 </div>
 </div>
