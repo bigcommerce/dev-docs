@@ -2,7 +2,6 @@
 
 <div class="otp" id="no-index">
 
-### On this page
 
 ### On this page
 
@@ -29,6 +28,8 @@ If using Open Source Checkout, you can generate the loader file by following the
 
 1. Navigate to the folder where Open Source Checkout is located using the terminal, and run `npm ci` to download dependancies
 2. Run `npm run build` to generate a `/dist/` folder with all the files
+
+When using Open Source Checkout to view changes and test implementations through the UI, deploy and install the custom checkout. More details are below.
 
 ### Properties available on checkout page
 When a store is using custom checkout, some properties will be attached to the window object (`window.checkoutConfig`) on the checkout page. These properties are:
