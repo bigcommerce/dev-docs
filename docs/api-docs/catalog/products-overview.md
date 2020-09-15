@@ -747,7 +747,8 @@ Modifier options:
 
 You can add an adjuster to a modifier option to change things, such as increasing the price, changing the weight, or shipping rules.  You cannot apply adjusters to all modifier types.
 
-### Modifier options example:
+### Modifier options example
+
 
 | If the product is | Variant Option | Variant |Modifier |
 | -- | -- | -- | -- |
