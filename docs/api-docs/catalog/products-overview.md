@@ -303,7 +303,8 @@ X-Auth-Client: {{CLIENT_ID}}
 
 ## Adding bulk pricing rules
 
-Add bulk, quantity-based pricing to products via `PUT` to `/v3/catalog/products/{{product_id}}/bulk-pricing-rules`:
+Add bulk quantity-based pricing to products via `PUT` to `/v3/catalog/products/{{product_id}}/bulk-pricing-rules`:
+
 
 ```http
 PUT https://api.bigcommerce.com/stores/{{STORE_HASH}}/v3/catalog/products/{{product_id}}/bulk-pricing-rules
