@@ -48,15 +48,15 @@ You can extend a BigCommerce-provided widget by modifying the existing API param
 
 ### Configuring settings for a widget
 
-To modify a BigCommerce-provided widget, re-configure the existing settings in the widget template’s `schema` property when creating a widget template via the API. The settings you define in this property will be exposed in Page Builder UI, providing merchants the ability to modify how the widget appears on their storefront.
+To modify a BigCommerce-provided widget, re-configure the existing settings in the widget template’s `schema` property when creating a widget template via the API. The settings you define in this property will be exposed in the Page Builder UI, providing merchants the ability to modify how the widget appears on their storefront.
 
-You can change widget's customization options by modifying the template's `schema`. Once you have modified the `schema`, place the modified JSON object in the request body as the `schema` value and make a `POST` request for the [Widget Template](https://developer.bigcommerce.com/api-reference/storefront/widgets-api/widget-template/createwidgettemplate) to expose the new customization options on Page Builder.
+You can change widget's customization options by modifying the template's `schema`. Once you have modified the `schema`, place the modified JSON object in the request body as the `schema` value, and make a `POST` request for the [Widget Template](https://developer.bigcommerce.com/api-reference/storefront/widgets-api/widget-template/createwidgettemplate) to expose the new customization options on Page Builder.
 
 ## Exposing third-party widget templates
 
 To expose a third-party widget template in Page Builder, make a `POST` request for the [Widget Template](https://developer.bigcommerce.com/api-reference/storefront/widgets-api/widget-template/createwidgettemplate). Include the widget's `name`, `template`, and `schema` in the body of your request. The `schema` value should be the modified JSON object with customizable settings you want to incorporate for the widget.
 
-If you successfully create the widget template, you should see the widget with its new customizable options reflected in Page Builder, under the **Custom** section.
+If you successfully create the widget template, you should see the widget with its customizable options reflected in Page Builder, under the **Custom** section.
 
 >Note
 >
