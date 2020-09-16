@@ -11,7 +11,9 @@
 
 </div>
 
-## System requirements:
+
+## System requirements
+
 
 * PHP: 5.6+ (7.3+ recommended)
 * MySQL: 5.5+ (5.6+ recommended)
