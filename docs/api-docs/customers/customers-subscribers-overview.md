@@ -59,7 +59,8 @@ Subscribers can also be added by:
 - Signing up for the newsletter during checkout
 - Sending a `POST` request to the [Subscribers API](https://developer.bigcommerce.com/api-reference/customer-subscribers/subscribers-api/)
 
-Where possible, the API indicates the origin of the subscriber. When customers sign up for the newsletter using One-page checkout, the Order ID becomes part of the subscriber's record. When customers use Optimized one-page checkout, the customer becomes a subscriber before checking out, resulting in a subscriber record without an Order ID.
+Where possible, the API indicates the origin of the subscriber. When customers sign up for the newsletter using One-Page Checkout, the Order ID becomes part of the subscriber's record. When customers use Optimized One-Page Checkout, the customer becomes a subscriber before checking out, resulting in a subscriber record without an Order ID.
+
 
 ## Subscribers vs. customers
 
