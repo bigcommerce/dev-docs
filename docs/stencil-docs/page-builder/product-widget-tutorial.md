@@ -121,11 +121,11 @@ Accept: application/json
 
 ## Widget preview
 
-> You do not need to send a `POST` request to [Create a Widget](https://developer.bigcommerce.com/api-reference/store-management/widgets/widget/createwidget) or [Create a Widget Placement](https://developer.bigcommerce.com/api-reference/store-management/widgets/placement/createplacement) endpoints to reflect the new widget in Page Builder. 
+You should now see your widget with its customizable options reflected in Page Builder, under the Custom section.
 
-You should now see your widget with its customizable options reflected in Page Builder, under the Custom section.   
+> You do not need to send a `POST` request to [Create a Widget](https://developer.bigcommerce.com/api-reference/store-management/widgets/widget/createwidget) or [Create a Widget Placement](https://developer.bigcommerce.com/api-reference/store-management/widgets/placement/createplacement) endpoints to reflect the new widget in Page Builder.
 
-The following screenshot shows how the widget is rendered in the Page Builder UI. 
+The following screenshot shows how the widget is rendered in the Page Builder UI.
 
 ![Product widget preview](https://raw.githubusercontent.com/bigcommerce/dev-docs/master/assets/images/product-widget.png)
 
@@ -134,6 +134,7 @@ The following screenshot shows how the widget is rendered in the Page Builder UI
 In the control panel, merchants can drag and drop widgets to place them in a region on a page. Widget instances and widget templates are region-agnostic, meaning they can be used across any region available in a theme.
 
 ## Resources
+
 - [Store API Accounts](https://support.bigcommerce.com/s/article/Store-API-Accounts) (BigCommerce Knowledge Base)
 - [GraphQL Storefront API Overview](https://developer.bigcommerce.com/api-docs/storefront/graphql/graphql-storefront-api-overview)
 - [Widgets API](https://developer.bigcommerce.com/api-docs/store-management/widgets/overview)
