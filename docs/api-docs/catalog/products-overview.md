@@ -61,7 +61,7 @@ Products can be physical or digital:
 
 ### Creating a product
 
-Below is an example `POST` request for creating a simple product without options, modifiers, or variants:
+Below is an example `POST` request for creating a simple product without options, modifiers, or variants.
 
 
 ```http
@@ -87,7 +87,7 @@ X-Auth-Client: {{CLIENT_ID}}
 
 ## Creating Products with Options
 
-To create a complex product with options selectable by shoppers, include a `variants` array in the request body:
+To create a complex product with options selectable by shoppers, include a `variants` array in the request body.
 
 ```http
 POST https://api.bigcommerce.com/stores/{{STORE_HASH}}/v3/catalog/products
@@ -145,7 +145,7 @@ X-Auth-Client: {{CLIENT_ID}}
 
 ## Creating digital products
 
-To create a digital product (like an ebook), set `type` to `digital`:
+To create a digital product (like an ebook), set `type` to `digital`.
 
 ```http
 POST https://api.bigcommerce.com/stores/{{STORE_HASH}}/v3/catalog/products
@@ -197,7 +197,7 @@ Currency display settings allow for more than four decimal places. When this is 
 
 ## Adding product images
 
-Add a product image to a product with a `POST` to `/v3/catalog/products/{{product_id}}/images`:
+Add a product image to a product with a `POST` to `/v3/catalog/products/{{product_id}}/images`.
 
 ```http
 POST https://api.bigcommerce.com/stores/{{STORE_HASH}}/v3/catalog/products/{{product_id}}/images
@@ -233,7 +233,7 @@ X-Auth-Client: {{CLIENT_ID}}
 
 ## Adding product videos
 
-Videos hosted on YouTube can be added as a product video via `PUT` to `/v3/catalog/products/{{product_id}}/videos`:
+Videos hosted on YouTube can be added as a product video via `PUT` to `/v3/catalog/products/{{product_id}}/videos`.
 
 ```http
 PUT https://api.bigcommerce.com/stores/{{STORE_HASH}}/v3/catalog/products/{{product_id}}/videos
@@ -268,7 +268,7 @@ X-Auth-Client: {{CLIENT_ID}}
 
 ## Adding custom fields
 
-To add custom fields to a product, `POST` to `/v3/catalog/products/{{product_id}}/custom-fields`:
+To add custom fields to a product, `POST` to `/v3/catalog/products/{{product_id}}/custom-fields`.
 
 ```http
 POST https://api.bigcommerce.com/stores/{{store_hash}}/v3/catalog/products/{{product_id}}/custom-fields
@@ -303,7 +303,7 @@ X-Auth-Client: {{CLIENT_ID}}
 
 ## Adding bulk pricing rules
 
-Add bulk quantity-based pricing to products via `PUT` to `/v3/catalog/products/{{product_id}}/bulk-pricing-rules`:
+Add bulk quantity-based pricing to products via `PUT` to `/v3/catalog/products/{{product_id}}/bulk-pricing-rules`.
 
 
 ```http
@@ -341,7 +341,7 @@ For general information and use cases for product bulk pricing, see [Bulk Pricin
 [Metafields](/api-reference/catalog/catalog-api/product-metafields/createproductmetafield) are key-value pairs intended for programmatically storing data against a product or other entity. Data stored in metafields does not appear in the storefront or the control panel. Data not appearing in the storefront or control panel is useful when information needs to be passed back and forth between an app and BigCommerce.
 
 
-To add metafields to a product, `PUT` to `/v3/catalog/products/{{product_id}}/metafields`:
+To add metafields to a product, `PUT` to `/v3/catalog/products/{{product_id}}/metafields`.
 
 ```http
 PUT https://api.bigcommerce.com/stores/{{STORE_HASH}}/v3/catalog/products/{{product_id}}/metafields
@@ -376,7 +376,7 @@ X-Auth-Client: {{CLIENT_ID}}
 
 ## Adding product reviews
 
-To add product reviews to a product, `POST` to `/v3/catalog/products/{{product_id}}/reviews`:
+To add product reviews to a product, `POST` to `/v3/catalog/products/{{product_id}}/reviews`.
 
 ```http
 POST https://api.bigcommerce.com/stores/{{STORE_HASH}}/v3/catalog/products/{{product_id}}/reviews
@@ -411,7 +411,7 @@ X-Auth-Client: {{CLIENT_ID}}
 
 ## Creating brands
 
-To create a [Brand](/api-reference/catalog/catalog-api/brands/getbrands), send a `POST` request to `/v3/catalog/brands`:
+To create a [Brand](/api-reference/catalog/catalog-api/brands/getbrands), send a `POST` request to `/v3/catalog/brands`.
 
 
 ```http
@@ -572,7 +572,7 @@ You can create variants in two ways:
 
 The example below will go over using existing variant options to create the variants.
 
-To fetch variant information, send a `GET` request to `/v3/catalog/products/{{product_id}}/options`:
+To fetch variant information, send a `GET` request to `/v3/catalog/products/{{product_id}}/options`.
 
 ```http
 GET https://api.bigcommerce.com/stores/{{STORE_HASH}}/v3/catalog/products/{{product_id}}/options
@@ -672,7 +672,7 @@ The `option_values` array combines the options small and blue to create the SKU 
 
 ### Create a variant using the product endpoint
 
-The following example creates a base product, variant options, and variants in a single call to the [Products](https://developer.bigcommerce.com/api-reference/catalog/catalog-api/products/createproduct) endpoint. Use this method to create a product and variants in a single call without creating variant options first (option display will default to radio button):
+The following example creates a base product, variant options, and variants in a single call to the [Products](https://developer.bigcommerce.com/api-reference/catalog/catalog-api/products/createproduct) endpoint. Use this method to create a product and variants in a single call without creating variant options first (option display will default to radio button).
 
 
 ```http
