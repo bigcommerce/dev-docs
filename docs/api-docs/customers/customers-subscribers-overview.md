@@ -52,14 +52,15 @@ Customer groups allow you to organize your customers, give them discounts, and r
 
 ## What is a subscriber?
 
-A subscriber is someone who has signed up for a store’s newsletter, which is located in the footer of most storefront themes. 
+A subscriber is someone who has signed up for a store's newsletter. The location of the sign-up field is in the footer of most storefront themes. 
 
 Subscribers can also be added by:
 
 - Signing up for the newsletter during checkout
 - Sending a `POST` request to the [Subscribers API](https://developer.bigcommerce.com/api-reference/customer-subscribers/subscribers-api/)
 
-Where possible, the API indicates the origin of the subscriber. If the subscriber was added during checkout, the order ID is included.
+Where possible, the API indicates the origin of the subscriber. When customers sign up for the newsletter using One-Page Checkout, the Order ID becomes part of the subscriber's record. When customers use Optimized One-Page Checkout, the customer becomes a subscriber before checking out, resulting in a subscriber record without an Order ID.
+
 
 ## Subscribers vs. customers
 
@@ -78,7 +79,7 @@ The Customer Login API allows for single sign-on. Once a customer has authentica
 
 
 ## Current Customer API
-The Current Customer API allows your application to identify logged in customers. This is useful when you need to show customer specific information.
+The Current Customer API allows your application to identify logged in customers. This identification is useful when you need to show customer-specific information.
 
 ## Customer API
 There are two Customer API endpoints available:
@@ -233,9 +234,11 @@ Password validation is only available on V2 Customers API. Validation will retur
 - [Password Confirmation](https://developer.bigcommerce.com/api-reference/customer-subscribers/customers-api/customers/createanewcustomer) (Customer V2 API)
 - [Subscribers API](https://developer.bigcommerce.com/api-reference/customer-subscribers/subscribers-api)
 
+
 ### Webhooks
 - [Customers](https://developer.bigcommerce.com/api-docs/getting-started/webhooks/webhook-events#webhook-events_customer)
 
 ### Related articles
 - [Adding and Editing Fields in the Account Signup Form](https://support.bigcommerce.com/s/article/Editing-Form-Fields#account-fields) (Knowledge Base)
 - [Checkout Settings](https://support.bigcommerce.com/s/article/Checkout-Settings#checkout-settings) (Knowledge Base)
+- [Storefront Subscriptions](https://developer.bigcommerce.com/api-reference/storefront/storefront-subscriptions)
