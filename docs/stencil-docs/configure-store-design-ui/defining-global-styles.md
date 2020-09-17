@@ -16,6 +16,7 @@
 
 ## Configuration file
 
+
 You can manage your theme's front-end components by configuring its `config.json` file. This file is made up of different keys and values that define your theme's global styles.
 
 `config.json` performs the following functions:
@@ -93,6 +94,7 @@ For illustration, below is a commented excerpt.
 ```
 
 ### Required variation keys
+
 
 A theme requires at least one variation. For each variation that you choose to include in your theme, you must provide the following keys:
 
