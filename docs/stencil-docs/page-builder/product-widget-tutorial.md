@@ -84,7 +84,7 @@ After [creating the widget template](#create-the-widget-template), you should se
 
 ![Product widget preview](https://raw.githubusercontent.com/bigcommerce/dev-docs/master/assets/images/product-widget.png)
 
- Drag and drop the widget onto the desired page; doing so [creates a widget](https://developer.bigcommerce.com/api-reference/store-management/widgets/widget/createwidget) and a [widget placement](https://developer.bigcommerce.com/api-reference/store-management/widgets/placement/createplacement).
+ Drag and drop the widget onto the desired page; doing so creates [a widget](https://developer.bigcommerce.com/api-reference/store-management/widgets/widget/createwidget) and a [widget placement](https://developer.bigcommerce.com/api-reference/store-management/widgets/placement/createplacement).
 To see the placement and widget you just created, send a `GET` request to `/v3/content/placements`.
 
 ```http
