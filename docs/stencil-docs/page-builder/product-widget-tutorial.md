@@ -16,7 +16,7 @@ In this tutorial, you'll create a [widget template](https://developer.bigcommerc
 ## Prerequisites
 * API OAuth token with the OAuth Scopes content set to `modify`.
 * Understanding of [widgets](https://developer.bigcommerce.com/api-docs/store-management/widgets/overview#widgets) and the [Widgets API](https://developer.bigcommerce.com/api-docs/store-management/widgets/overview).
-* Familiarity with [Page Builder](https://developer.bigcommerce.com/stencil-docs/page-builder/page-builder-overview)
+* Familiarity with [Page Builder](https://developer.bigcommerce.com/stencil-docs/page-builder/page-builder-overview).
 
 ## Create the widget template
 
