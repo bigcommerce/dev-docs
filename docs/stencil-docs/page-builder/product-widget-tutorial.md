@@ -73,7 +73,7 @@ Accept: application/json
 
 |Property|Type|Description|
 |-|-|-|
-|`name`|string|Name of the widget|
+|`name`|string|The name of the widget.|
 |`template`|string|The [widget template](https://developer.bigcommerce.com/api-docs/store-management/widgets/overview#widget-templates)|
 |`schema`|object|The widget settings [schema](https://developer.bigcommerce.com/stencil-docs/page-builder/widget-ui-schema) for [Page Builder](https://support.bigcommerce.com/s/article/Page-Builder) UI|
 |`storefront_api_query`|string|[GraphQL Storefront API](https://developer.bigcommerce.com/api-docs/storefront/graphql/graphql-storefront-api-overview) query that provides widget data; accessed in template via `{{_.data}}` |
