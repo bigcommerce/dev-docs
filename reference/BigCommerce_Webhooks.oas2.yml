@@ -9,7 +9,6 @@ paths:
     post:
       responses:
         '200':
-          $ref: '#/responses/webhooks_Resp'
           examples:
             application/json:
               id: 18048287
@@ -21,6 +20,7 @@ paths:
               is_active: true
               created_at: 1561488106
               updated_at: 1561488106
+          description: OK
         '422':
           $ref: '#/responses/422_UnprocessableEntity'
       summary: Create a Webhook
