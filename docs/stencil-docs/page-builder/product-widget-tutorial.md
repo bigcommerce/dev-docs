@@ -14,7 +14,7 @@
 In this tutorial, you'll create a [widget template](https://developer.bigcommerce.com/api-docs/store-management/widgets/overview#widget-templates) for a custom featured product widget powered by BigCommerce's [GraphQL Storefront API](https://developer.bigcommerce.com/api-docs/storefront/graphql/graphql-storefront-api-overview) that is configurable via the [Page Builder](https://support.bigcommerce.com/s/article/Page-Builder) UI in a store's control panel.
 
 ## Prerequisites
-* API OAuth token with the OAuth Scopes content set to `modify`.
+* [API OAuth access token](https://developer.bigcommerce.com/api-docs/getting-started/authentication/rest-api-authentication) with `content` `modify` [scope](https://developer.bigcommerce.com/api-docs/getting-started/authentication/rest-api-authentication#oauth-scopes).  
 * Understanding of [widgets](https://developer.bigcommerce.com/api-docs/store-management/widgets/overview#widgets) and the [Widgets API](https://developer.bigcommerce.com/api-docs/store-management/widgets/overview).
 * Familiarity with [Page Builder](https://developer.bigcommerce.com/stencil-docs/page-builder/page-builder-overview).
 
