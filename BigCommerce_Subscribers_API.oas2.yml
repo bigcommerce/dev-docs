@@ -1,0 +1,990 @@
+swagger: '2.0'
+info:
+  title: Subscribers
+  version: '3.0'
+  description: >-
+    ### OAuth Scopes
+
+    |  **UI Name** | **Permission** | **Parameter** |
+
+    | --- | --- | --- |
+
+    |  Customers | modify | `store_v2_customers` |
+
+    |  Customers | read-only | `store_v2_customers_read_only` |
+
+
+    ### Headers
+
+
+    |Header|Parameter|Description|
+
+    |-|-|-|
+
+    |`X-Auth-Client`|`client_id`|Obtained by creating an API account or
+    installing an app in a BigCommerce control panel.|
+
+    |`X-Auth-Token`|`access_token `|Obtained by creating an API account or
+    installing an app in a BigCommerce control panel.|
+
+
+    ### Example
+
+
+    ```http
+
+    GET /stores/{$$.env.store_hash}/v3/catalog/summary
+
+    host: api.bigcommerce.com
+
+    Content-Type: application/json
+
+    X-Auth-Client: {client_id}
+
+    X-Auth-Token: {access_token}
+
+    ```
+
+
+    * For more information on Authenticating BigCommerce APIs, see:
+    [Authentication](https://developer.bigcommerce.com/api-docs/getting-started/authentication). 
+  termsOfService: ''
+  license:
+    name: ''
+host: api.bigcommerce.com
+basePath: '/stores/{$$.env.store_hash}/v3'
+tags:
+  - name: Subscribers
+    description: BigCommerce Customers API Definition.
+schemes:
+  - https
+produces:
+  - application/json
+consumes:
+  - application/json
+paths:
+  /customers/subscribers:
+    get:
+      description: >-
+        Returns a list of *Subscribers*. Optional filter parameters can be
+        passed in.
+      operationId: getSubscribers
+      parameters:
+        - name: email
+          description: |
+            Filter items by email.
+          required: false
+          in: query
+          type: string
+        - name: first_name
+          description: |
+            Filter items by first_name.
+          required: false
+          in: query
+          type: string
+        - name: last_name
+          description: |
+            Filter items by last_name.
+          required: false
+          in: query
+          type: string
+        - name: source
+          description: |
+            Filter items by source.
+          required: false
+          in: query
+          type: string
+        - name: order_id
+          description: |
+            Filter items by order_id.
+          required: false
+          in: query
+          type: integer
+        - name: date_created
+          description: |
+            Filter items by date_created.
+          required: false
+          in: query
+          type: string
+          format: date-time
+        - name: date_modified
+          description: >-
+            Filter items by date_modified. For example
+            `v3/catalog/products?date_last_imported:min=2018-06-15`
+          required: false
+          in: query
+          type: string
+          format: date-time
+        - name: page
+          description: Specifies the page number in a limited (paginated) list of products.
+          required: false
+          in: query
+          type: integer
+        - name: limit
+          description: >-
+            Controls the number of items per page in a limited (paginated) list
+            of products.
+          required: false
+          in: query
+          type: integer
+        - in: header
+          type: string
+          name: Accept
+          default: application/json
+        - name: Content-Type
+          in: header
+          type: string
+          default: application/json
+      responses:
+        '200':
+          $ref: '#/responses/subrscriberCollection_Resp'
+      tags:
+        - Subscribers
+      summary: Get Subscribers
+    post:
+      description: |-
+        Creates a *Subscriber*.
+
+        **Required Fields**
+        * email
+
+        **Read Only Fields**
+        * id
+      operationId: createSubscriber
+      parameters:
+        - name: subscriber
+          in: body
+          required: true
+          schema:
+            $ref: '#/definitions/subscriber_Post'
+          x-examples:
+            application/json:
+              email: janedoe2@email.com
+              first_name: Jane
+              last_name: Doe
+              source: mailchimp
+        - in: header
+          type: string
+          name: Accept
+          default: application/json
+        - name: Content-Type
+          in: header
+          type: string
+          default: application/json
+      responses:
+        '200':
+          $ref: '#/responses/subscriber_Resp'
+        '409':
+          description: >
+            The `Subscriber` was in conflict with another subscriber. This is
+            the result of duplicate unique values, such as email.
+          schema:
+            allOf:
+              - type: object
+                description: |
+                  Error payload for the BigCommerce API.
+                properties:
+                  status:
+                    description: |
+                      The HTTP status code.
+                    type: integer
+                  title:
+                    description: |
+                      The error title describing the particular error.
+                    type: string
+                  type:
+                    type: string
+                  instance:
+                    type: string
+                title: Base Error
+              - type: object
+                properties:
+                  errors:
+                    type: object
+                    title: Detailed Errors
+                    properties:
+                      additionalProperties:
+                        type: string
+            title: Error Response
+        '422':
+          description: >
+            The `Subscriber` was not valid. This is the result of missing
+            required fields, or of invalid data. See the response for more
+            details.
+          schema:
+            allOf:
+              - type: object
+                description: |
+                  Error payload for the BigCommerce API.
+                properties:
+                  status:
+                    description: |
+                      The HTTP status code.
+                    type: integer
+                  title:
+                    description: |
+                      The error title describing the particular error.
+                    type: string
+                  type:
+                    type: string
+                  instance:
+                    type: string
+                title: Base Error
+              - type: object
+                properties:
+                  errors:
+                    type: object
+                    title: Detailed Errors
+                    properties:
+                      additionalProperties:
+                        type: string
+            title: Error Response
+      tags:
+        - Subscribers
+      summary: Create a Subscriber
+    delete:
+      description: >-
+        By default, it deletes all *Subscribers*. A filter should be added to
+        avoid deleting all subscribers in a store.
+      operationId: deleteSubscribers
+      parameters:
+        - name: email
+          description: |
+            Filter items by email.
+          required: false
+          in: query
+          type: string
+        - name: first_name
+          description: |
+            Filter items by first_name.
+          required: false
+          in: query
+          type: string
+        - name: last_name
+          description: |
+            Filter items by last_name.
+          required: false
+          in: query
+          type: string
+        - name: source
+          description: |
+            Filter items by source.
+          required: false
+          in: query
+          type: string
+        - name: order_id
+          description: |
+            Filter items by order_id.
+          required: false
+          in: query
+          type: integer
+        - name: date_created
+          description: |
+            Filter items by date_created.
+          required: false
+          in: query
+          type: string
+          format: date-time
+        - name: date_modified
+          description: >-
+            Filter items by date_modified. For example
+            `v3/catalog/products?date_last_imported:min=2018-06-15`
+          required: false
+          in: query
+          type: string
+          format: date-time
+        - in: header
+          type: string
+          name: Accept
+          default: application/json
+        - name: Content-Type
+          in: header
+          type: string
+          default: application/json
+      responses:
+        '204':
+          description: ''
+      tags:
+        - Subscribers
+      summary: Delete Subscribers
+  '/customers/subscribers/{subscriber_id}':
+    parameters:
+      - name: subscriber_id
+        in: path
+        description: |
+          The ID of the `Subscriber` requested.
+        required: true
+        type: integer
+    get:
+      description: Returns a *Subscriber*.
+      operationId: getSubscriberById
+      responses:
+        '200':
+          $ref: '#/responses/subscriber_Resp'
+        '404':
+          description: |
+            The resource was not found.
+          schema:
+            description: Error payload for the BigCommerce API.
+            type: object
+            properties:
+              status:
+                description: |
+                  404 HTTP status code.
+                type: integer
+              title:
+                description: The error title describing the particular error.
+                type: string
+              type:
+                type: string
+              instance:
+                type: string
+            title: Not Found
+      tags:
+        - Subscribers
+      summary: Get a Subscriber
+      parameters:
+        - in: header
+          type: string
+          name: Accept
+          default: application/json
+        - name: Content-Type
+          in: header
+          type: string
+          default: application/json
+    put:
+      operationId: updateSubscriber
+      parameters:
+        - name: subscriber
+          in: body
+          required: true
+          schema:
+            $ref: '#/definitions/subscriber_Put'
+          x-examples:
+            application/json:
+              email: janed@email.com
+        - in: header
+          type: string
+          name: Accept
+          default: application/json
+        - name: Content-Type
+          in: header
+          type: string
+          default: application/json
+      responses:
+        '200':
+          $ref: '#/responses/subscriber_Resp'
+        '404':
+          description: |
+            The resource was not found.
+          schema:
+            description: Error payload for the BigCommerce API.
+            type: object
+            properties:
+              status:
+                description: |
+                  404 HTTP status code.
+                type: integer
+              title:
+                description: The error title describing the particular error.
+                type: string
+              type:
+                type: string
+              instance:
+                type: string
+            title: Not Found
+        '409':
+          description: >
+            The `Subscriber` was in conflict with another subscriber. This is
+            the result of duplicate unique values, such as `email`.
+          schema:
+            allOf:
+              - type: object
+                description: |
+                  Error payload for the BigCommerce API.
+                properties:
+                  status:
+                    description: |
+                      The HTTP status code.
+                    type: integer
+                  title:
+                    description: |
+                      The error title describing the particular error.
+                    type: string
+                  type:
+                    type: string
+                  instance:
+                    type: string
+                title: Base Error
+              - type: object
+                properties:
+                  errors:
+                    type: object
+                    title: Detailed Errors
+                    properties:
+                      additionalProperties:
+                        type: string
+            title: Error Response
+        '422':
+          description: >
+            The `Subscriber` was not valid. This is the result of missing
+            required fields, or of invalid data. See the response for more
+            details.
+          schema:
+            allOf:
+              - type: object
+                description: |
+                  Error payload for the BigCommerce API.
+                properties:
+                  status:
+                    description: |
+                      The HTTP status code.
+                    type: integer
+                  title:
+                    description: |
+                      The error title describing the particular error.
+                    type: string
+                  type:
+                    type: string
+                  instance:
+                    type: string
+                title: Base Error
+              - type: object
+                properties:
+                  errors:
+                    type: object
+                    title: Detailed Errors
+                    properties:
+                      additionalProperties:
+                        type: string
+            title: Error Response
+      tags:
+        - Subscribers
+      summary: Update a Subscriber
+      description: |-
+        Updates a *Subscriber*.
+
+        **Read Only Fields**
+        * id
+    delete:
+      description: Deletes a *Subscriber*.
+      operationId: deleteSubscriberById
+      responses:
+        '204':
+          description: ''
+      tags:
+        - Subscribers
+      summary: Delete a Subscriber
+      parameters:
+        - name: Content-Type
+          in: header
+          type: string
+          default: application/json
+        - in: header
+          type: string
+          name: Accept
+          default: application/json
+parameters:
+  FilterEmailParam:
+    name: email
+    description: |
+      Filter items by email.
+    required: false
+    in: query
+    type: string
+  FilterFirstNameParam:
+    name: first_name
+    description: |
+      Filter items by first_name.
+    required: false
+    in: query
+    type: string
+  FilterLastNameParam:
+    name: last_name
+    description: |
+      Filter items by last_name.
+    required: false
+    in: query
+    type: string
+  FilterSourceParam:
+    name: source
+    description: |
+      Filter items by source.
+    required: false
+    in: query
+    type: string
+  FilterOrderIdParam:
+    name: order_id
+    description: |
+      Filter items by order_id.
+    required: false
+    in: query
+    type: integer
+  FilterDateModifiedParam:
+    name: date_modified
+    description: >-
+      Filter items by date_modified. For example
+      `v3/catalog/products?date_last_imported:min=2018-06-15`
+    required: false
+    in: query
+    type: string
+    format: date-time
+  FilterDateCreatedParam:
+    name: date_created
+    description: |
+      Filter items by date_created.
+    required: false
+    in: query
+    type: string
+    format: date-time
+  PageParam:
+    name: page
+    description: Specifies the page number in a limited (paginated) list of products.
+    required: false
+    in: query
+    type: integer
+  LimitParam:
+    name: limit
+    description: >-
+      Controls the number of items per page in a limited (paginated) list of
+      products.
+    required: false
+    in: query
+    type: integer
+  ScriptsSortKeyParam:
+    name: sort
+    description: |
+      Scripts field name to sort by.
+    required: false
+    in: query
+    type: string
+    enum:
+      - name
+      - description
+      - date_created
+      - date_modified
+  DirectionParam:
+    name: direction
+    description: |
+      Sort direction. Acceptable values are: `asc`, `desc`.
+    required: false
+    in: query
+    type: string
+    enum:
+      - asc
+      - desc
+  SubscriberIdParam:
+    name: subscriber_id
+    in: path
+    description: |
+      The ID of the `Subscriber` requested.
+    required: true
+    type: integer
+  Accept:
+    in: header
+    type: string
+    name: Accept
+    default: application/json
+  Content-Type:
+    name: Content-Type
+    in: header
+    type: string
+    default: application/json
+definitions:
+  subscriber_Full:
+    title: subscriber_Full
+    description: Full subscriber object returned in responses.
+    allOf:
+      - $ref: '#/definitions/subscriber_Base'
+      - type: object
+        properties:
+          id:
+            type: integer
+            description: The unique numeric ID of the subscriber; increments sequentially.
+          date_modified:
+            type: string
+            format: date-time
+            description: |
+              The date on which the subscriber was modified.
+          date_created:
+            type: string
+            format: date-time
+            description: |
+              The date of which the subscriber was created.
+  subscriber_Base:
+    type: object
+    description: Common Subscriber properties.
+    title: subscriber_Base
+    properties:
+      email:
+        type: string
+        description: |
+          The email of the subscriber. Must be unique.
+        x-required:
+          - post
+      first_name:
+        type: string
+        description: |
+          The first name of the subscriber.
+        minLength: 0
+        maxLength: 255
+      last_name:
+        type: string
+        description: |
+          The last name of the subscriber.
+        minLength: 0
+        maxLength: 255
+      source:
+        type: string
+        description: >
+          The source of the subscriber. Values are: `storefront`, `order`, or
+          `custom`.
+        minLength: 0
+        maxLength: 255
+      order_id:
+        type: integer
+        description: |
+          The ID of the source order, if source was an order.
+        x-nullable: true
+        minimum: 1
+        maximum: 2147483647
+      channel_id:
+        type: integer
+        minimum: 1
+        maximum: 2147483647
+        description: The channel ID where the subscriber was created.
+  Subscriber:
+    type: object
+    allOf:
+      - type: object
+        description: Common Subscriber properties.
+        properties:
+          id:
+            type: integer
+            description: |
+              The unique numeric ID of the subscriber; increments sequentially.
+            x-required:
+              - put
+          email:
+            type: string
+            description: |
+              The email of the subscriber. Must be unique.
+            x-required:
+              - post
+          first_name:
+            type: string
+            description: |
+              The first name of the subscriber.
+            minLength: 0
+            maxLength: 255
+          last_name:
+            type: string
+            description: |
+              The last name of the subscriber.
+            minLength: 0
+            maxLength: 255
+          source:
+            type: string
+            description: >
+              The source of the subscriber. Values are: `storefront`, `order`,
+              or `custom`.
+            minLength: 0
+            maxLength: 255
+          order_id:
+            type: integer
+            description: |
+              The ID of the source order, if source was an order.
+            x-nullable: true
+            minimum: 1
+            maximum: 2147483647
+        title: Subscriber Base
+      - type: object
+        properties:
+          date_modified:
+            type: string
+            format: date-time
+            description: |
+              The date on which the subscriber was modified.
+          date_created:
+            type: string
+            format: date-time
+            description: |
+              The date of which the subscriber was created.
+  subscriber_Post:
+    description: |
+      The model for a POST to create a subscriber.
+    allOf:
+      - $ref: '#/definitions/subscriber_Base'
+    title: subscriber_Post
+  subscriber_Put:
+    description: |
+      The model for a PUT to update a subscriber.
+    allOf:
+      - $ref: '#/definitions/subscriber_Base'
+    title: subscriber_Put
+  CollectionMeta:
+    type: object
+    description: 'Data about the response, including pagination and collection totals.'
+    properties:
+      pagination:
+        type: object
+        description: 'Data about the response, including pagination and collection totals.'
+        title: Pagination
+        properties:
+          total:
+            type: integer
+            description: |
+              Total number of items in the result set.
+            example: 36
+          count:
+            type: integer
+            description: |
+              Total number of items in the collection response.
+            example: 36
+          per_page:
+            type: integer
+            description: >
+              The amount of items returned in the collection per page,
+              controlled by the limit parameter.
+            example: 50
+          current_page:
+            type: integer
+            description: |
+              The page you are currently on within the collection.
+            example: 1
+          total_pages:
+            type: integer
+            description: |
+              The total number of pages in the collection.
+            example: 1
+          links:
+            type: object
+            description: >
+              Pagination links for the previous and next parts of the whole
+              collection.
+            properties:
+              previous:
+                type: string
+                description: |
+                  Link to the previous page returned in the response.
+              current:
+                type: string
+                description: |
+                  Link to the current page returned in the response.
+                example: '?page=1&limit=50'
+              next:
+                type: string
+                description: |
+                  Link to the next page returned in the response.
+    title: Collection Meta
+  Pagination:
+    type: object
+    description: 'Data about the response, including pagination and collection totals.'
+    title: Pagination
+    properties:
+      total:
+        type: integer
+        description: |
+          Total number of items in the result set.
+        example: 36
+      count:
+        type: integer
+        description: |
+          Total number of items in the collection response.
+        example: 36
+      per_page:
+        type: integer
+        description: >
+          The amount of items returned in the collection per page, controlled by
+          the limit parameter.
+        example: 50
+      current_page:
+        type: integer
+        description: |
+          The page you are currently on within the collection.
+        example: 1
+      total_pages:
+        type: integer
+        description: |
+          The total number of pages in the collection.
+        example: 1
+      links:
+        type: object
+        description: >
+          Pagination links for the previous and next parts of the whole
+          collection.
+        properties:
+          previous:
+            type: string
+            description: |
+              Link to the previous page returned in the response.
+          current:
+            type: string
+            description: |
+              Link to the current page returned in the response.
+            example: '?page=1&limit=50'
+          next:
+            type: string
+            description: |
+              Link to the next page returned in the response.
+  Meta:
+    type: object
+    description: Empty meta object; may be used later.
+    title: Meta
+  ErrorResponse:
+    allOf:
+      - type: object
+        description: |
+          Error payload for the BigCommerce API.
+        properties:
+          status:
+            description: |
+              The HTTP status code.
+            type: integer
+          title:
+            description: |
+              The error title describing the particular error.
+            type: string
+          type:
+            type: string
+          instance:
+            type: string
+        title: Base Error
+      - type: object
+        properties:
+          errors:
+            type: object
+            title: Detailed Errors
+            properties:
+              additionalProperties:
+                type: string
+    title: Error Response
+  BaseError:
+    type: object
+    description: |
+      Error payload for the BigCommerce API.
+    properties:
+      status:
+        description: |
+          The HTTP status code.
+        type: integer
+      title:
+        description: |
+          The error title describing the particular error.
+        type: string
+      type:
+        type: string
+      instance:
+        type: string
+    title: Base Error
+  NotFound:
+    description: Error payload for the BigCommerce API.
+    type: object
+    properties:
+      status:
+        description: |
+          404 HTTP status code.
+        type: integer
+      title:
+        description: The error title describing the particular error.
+        type: string
+      type:
+        type: string
+      instance:
+        type: string
+    title: Not Found
+  DetailedErrors:
+    type: object
+    title: Detailed Errors
+    properties:
+      additionalProperties:
+        type: string
+securityDefinitions:
+  X-Auth-Client:
+    type: apiKey
+    name: X-Auth-Client
+    in: header
+  X-Auth-Token:
+    type: apiKey
+    name: X-Auth-Token
+    in: header
+    description: >-
+      ### OAuth Scopes
+
+      |  **UI Name** | **Permission** | **Parameter** |
+
+      | --- | --- | --- |
+
+      |  Customers | modify | `store_v2_customers` |
+
+      |  Customers | read-only | `store_v2_customers_read_only` |
+
+
+      ### Headers
+
+
+      |Header|Parameter|Description|
+
+      |-|-|-|
+
+      |`X-Auth-Client`|`client_id`|Obtained by creating an API account or
+      installing an app in a BigCommerce control panel.|
+
+      |`X-Auth-Token`|`access_token `|Obtained by creating an API account or
+      installing an app in a BigCommerce control panel.|
+
+
+      ### Example
+
+
+      ```http
+
+      GET /stores/{$$.env.store_hash}/v3/catalog/summary
+
+      host: api.bigcommerce.com
+
+      Content-Type: application/json
+
+      X-Auth-Client: {client_id}
+
+      X-Auth-Token: {access_token}
+
+      ```
+
+
+      * For more information on Authenticating BigCommerce APIs, see:
+      [Authentication](https://developer.bigcommerce.com/api-docs/getting-started/authentication). 
+security:
+  - X-Auth-Client: []
+  - X-Auth-Token: []
+responses:
+  subrscriberCollection_Resp:
+    description: ''
+    schema:
+      description: |
+        Response payload for the BigCommerce API.
+      type: object
+      title: Subscriber Collection Response
+      properties:
+        data:
+          type: array
+          items:
+            $ref: '#/definitions/subscriber_Full'
+        meta:
+          $ref: '#/definitions/CollectionMeta'
+  subscriber_Resp:
+    description: ''
+    schema:
+      type: object
+      title: Subscriber Response
+      properties:
+        data:
+          $ref: '#/definitions/subscriber_Full'
+        meta:
+          type: object
+          description: Empty meta object; may be used later.
+          title: Meta
+x-stoplight:
+  docs:
+    includeDownloadLink: true
+    showModels: false
