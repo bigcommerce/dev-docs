@@ -3,7 +3,8 @@
 <div class="otp" id="no-index">
 
 ### On this page
-- [Keys and example values](#keys-and-example-values)
+
+- [Configuration file](#configuration-file)
 - [Requirements and restrictions](#requirements-and-restrictions)
 - [New products example](#new-products-example)
 - [Changing page layout using local front matter](#changing-page-layout-using-local-front-matter)
@@ -13,16 +14,18 @@
 
 </div>
 
-Manage your theme's front-end components by configuring the `config.json` file. This file is made up of different keys and values that define the global styles shoppers will see on a theme.`config.json` performs the following functions:
+## Configuration file
+
+You can manage your theme's front-end components by configuring the `config.json` file. This file is made up of different keys and value that define the global styles shoppers will see on a theme.
+
+`config.json` performs the following functions:
 
 * Provides global context for Stencil's CSS and Handlebars resources.
-* Provides values for the Store Design GUI to manage.
+* Provides values for the Page Builder UI to manage.
 * Provides metadata for your theme's listing in the Theme Marketplace.
 * Defines variations included in your theme.
 
-## Keys and example values
-
-For a list of all available keys and values in `config.json`, see [Theme Objects](/stencil-docs/reference-docs/theme-objects/models/configjson) in the API Reference.
+For a list of all available keys and values in `config.json`, see [Models](https://developer.bigcommerce.com/stencil-docs/reference-docs/global-objects-and-properties/models/configjson).
 
 ## Requirements and restrictions
 
@@ -31,7 +34,8 @@ The `config.json` file must meet the following requirements:
 * It must be named `config.json`, must reside in the root of your `<theme-name>` top level subdirectory (e.g.: `/cornerstone/config.json`), and must contain valid JSON.
 * The maximum allowable size for a theme's `config.json` file is 64 KB. Exceeding this limit will trigger an error upon uploading the theme to BigCommerce.
 * Each key's value is restricted to 64 characters. Exceeding this limit will similarly trigger an upload error.
-* Other than these size constraints, there is no limit on the number of keys and values that you can place in a theme's `config.json`.
+
+Apart from the aforementioned size constraints, there is no limit on the number of keys and values that you can place in a theme's `config.json`.
 
 <div class="HubBlock--callout">
 <div class="CalloutBlock--warning">
@@ -39,14 +43,15 @@ The `config.json` file must meet the following requirements:
 
 <!-- theme: warning -->
 
-> Carefully check your theme against all the listed requirements  – including the required keys within the `meta` object and `variations` array. While some requirements are not enforced in local development, they will be validated when you later upload your theme to BigCommerce.
+> Carefully check your theme against all the listed requirements – including the required keys within the `meta` object and `variations` array. While some requirements are not enforced in local development, they will be validated when you upload your theme to BigCommerce.
 
 </div>
 </div>
 </div>
 
-### Required keys
-The `config.json` file must contain at least the following keys, with appropriate values (as outlined above):
+### Required config.json keys
+
+The `config.json` file must contain the following keys:
 
 * `name`
 * `version`
@@ -56,7 +61,7 @@ The `config.json` file must contain at least the following keys, with appropriat
 
 ### Required meta keys
 
-The meta object must contain at least the following keys, with appropriate values:
+The `meta` object must contain the following keys:
 
 * `price`
 * `author_name`
@@ -99,12 +104,12 @@ lineNumbers: true
 
 ### Required variation keys
 
-At least one variation is required in a theme. For each variation that you choose to include in your theme, you must provide at least the following keys and sub-element, with appropriate values:
+At least one variation is required in a theme. For each variation that you choose to include in your theme, you must provide the following keys and sub-element, with appropriate values:
 
 * `name`
 * `id`
 * `meta`
-* `description`
+  * `description`
 
 For illustration, below is a code sample from Cornerstone.
 
@@ -124,7 +129,7 @@ For illustration, below is a code sample from Cornerstone.
 
 ## New products example
 
-To customize your theme's appearance at a global level, the values that you define in the `config.json` file interact with local resources. Your `config.json` definitions set global defaults for templates, front-matter attributes, and Handlebars resources throughout your theme. You can also define custom variables in `config.json`, named according to your needs.
+The values that you define in the `config.json` file interact with local resources making it possible to customize your theme's appearance at a global level. Your `config.json` definitions set global defaults for templates, front matter attributes, and Handlebars resources throughout your theme. You can also define custom variables in `config.json`, named according to your needs.
 
 To see how interactions with `config.json` values work, first note the default values in `config.json` for the `homepage_new_products_count` and `product_list_display_mode` keys:
 
@@ -137,7 +142,7 @@ To see how interactions with `config.json` values work, first note the default v
 }
 ```
 
-Next, open your `templates/pages/home.html` file. Highlighted in bold below is a statement that uses the theme-wide settings above to customize an API request to the server.
+Next, open your `templates/pages/home.html` file. Highlighted in bold is a statement that uses the theme-wide settings above to customize an API request to the server.
 
 Note the reference to the `homepage_new_products_count` key in the file's front matter, between the two `""` delimiters. If your current theme's `home.html` front matter omits `products:new:limit`, paste it in for this demonstration.
 
@@ -166,8 +171,8 @@ You should see a new products section displaying twelve products in a grid on yo
 
 ## Changing page layout using local front matter
 
-In the `templates/pages/home.html` front matter, products > featured is listed. This controls
-how many products appear on the home page. This is set by the `config.json` `theme_settings.homepage_featured_products_count}`. This example shows how you can set theme wide configurations in the front matter using the `config.json`.
+In the `templates/pages/home.html` front matter, `products` > `featured` is listed. This controls
+how many products appear on the home page. This is set by the `config.json` `theme_settings.homepage_featured_products_count}`. The following example shows how you can set theme wide configurations in the front matter using the `config.json`.
 
 ```html
 
@@ -179,7 +184,7 @@ products:
 
 ```
 
-Next, try changing the `limit: {{theme_settings.homepage_featured_products_count}}` statement in the `home.html` file to a hard-coded limit: 2, as indicated below in bold.
+Next, change the `limit: {{theme_settings.homepage_featured_products_count}}` statement in the `home.html` file to a hard-coded limit: 2, as indicated below in bold.
 
 
 ```html
@@ -203,11 +208,11 @@ products:
 {{> layout/base}}
 ```
 
-Reload the page. You should see the number of products displayed in "Featured Products" change to two.
+Reload the page. You should see the number of products displayed in **Featured Products** change to two.
 
 ## Retrieving specific config.json values through Sass
 
-In `config.json`, global variables bring dynamic values into the framework. Sass imports these global variables' values to handle data like colors hexadecimal values and to make the data available to Page Builder. Below is a short snippet from `config.json`.
+In `config.json`, global variables bring dynamic values into the framework. Sass imports these global variables' values to handle data, such as colors hexadecimal values, and to make the data available to Page Builder. Below is a snippet from `config.json`.
 
 ```css
 {
@@ -233,7 +238,7 @@ In `config.json`, try redefining one or more color variables to hex values of yo
 
 ## Adding and removing components
 
-The properties Stencil abstracts as Handlebars resources are portable between HTML files. For an example of how this works, first open any storefront page in a browser. In the page's footer, note the appearance of Categories.
+The properties Stencil abstracts as Handlebars resources are portable between HTML files. To see this in action, first open any storefront page in a browser. In the page's footer, note the appearance of Categories.
 
 Next, edit `templates/components/common/footer.html`, and cut the code section shown below.
 
@@ -256,7 +261,7 @@ Next, edit `templates/components/common/footer.html`, and cut the code section s
 
 Refresh the page. The Categories list should disappear from the footer.
 
-Next, add a directory to `templates/components` called `footer` and create a new `categories.html` template there. (ex: `templates/components/footer/categories.html`). Then, paste the code block from the previous step into `category.html`.
+Next, add a directory to `templates/components` called `footer` and create a new `categories.html` template there (for example, `templates/components/footer/categories.html`). Then, paste the code block from the previous step into `category.html`.
 
 ```html
 <article class="footer-info-col footer-info-col--small">
@@ -291,4 +296,4 @@ Refresh the page. The Categories list should reappear in the footer.
 
 ### Additional resources
 
-* [Customizing a Theme Video](https://www.youtube.com/watch?v=VZYZsDoEOpQ) (Youtube)
+- [Customizing a Theme Video](https://www.youtube.com/watch?v=VZYZsDoEOpQ) (YouTube)
