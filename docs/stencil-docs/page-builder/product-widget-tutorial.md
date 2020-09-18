@@ -20,7 +20,7 @@ In this tutorial, you'll create a [widget template](https://developer.bigcommerc
 
 ## Create the widget template
 
-To [create the custom widget's template](https://developer.bigcommerce.com/api-reference/store-management/widgets/widget-template/createwidgettemplate), send a `POST` request to `/v3/content/widget-templates`.
+To [create a custom widget template](https://developer.bigcommerce.com/api-reference/store-management/widgets/widget-template/createwidgettemplate), send a `POST` request to `/v3/content/widget-templates`.
 
 ```http
 POST https://api.bigcommerce.com/stores/{{STORE_HASH}}/v3/content/widget-templates
