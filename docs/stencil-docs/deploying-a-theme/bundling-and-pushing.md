@@ -22,6 +22,7 @@ Follow the link for your scenario:
 
 If you downloaded a refreshed version of Stencil's default Cornerstone theme: Run `npm install` in the theme directory to install refreshed JavaScript dependencies, as outlined in [Installing Stencil](/stencil-docs/getting-started/installing-stencil#installing_installing-stencils-js-utilities).
 
+If you downloaded a different Marketplace theme with a version lower than 1.10.0, run `jspm install` in the theme directory.
 
 <div class="HubBlock--callout">
 <div class="CalloutBlock--warning">

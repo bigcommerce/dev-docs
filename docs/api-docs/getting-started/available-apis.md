@@ -97,7 +97,7 @@ Like the **V2 API**, BigCommerce's **V3 REST API** exposes many endpoints develo
 |  [Price List Records](https://developer.bigcommerce.com/api-reference/store-management/price-lists/price-lists-records) | Create and manage price list records | `/pricelists/records` |
 |  [Price Lists](https://developer.bigcommerce.com/api-reference/store-management/price-lists/price-lists) | Create and manage catalog pricing variations | `/pricelists` |
 |  [Products](https://developer.bigcommerce.com/api-reference/catalog/catalog-api/products) | Create and manage products | `/catalog/products` |
-|  [Product Bulk Pricing Rules](https://developer.bigcommerce.com/api-reference/catalog/catalog-api/product-bulk-pricing-rules) | Create and manage product bulk pricing rules | `/catalog/products/{id}/bulk-pricing-rules` |
+|  [Product Bulk Pricing Rules](https://developer.bigcommerce.com/api-reference/catalog/catalog-api/product-bulk-pricing-rules) | Create and manage product bulk pricing rules | `/catalog/products/{id}/buld-pricing-rules` |
 |  [Product Complex Rules](https://developer.bigcommerce.com/api-reference/catalog/catalog-api/product-complex-rules) | Create and manage product complex rules | `/catalog/products/{id}/complex-rules` |
 |  [Product Custom Fields](https://developer.bigcommerce.com/api-reference/catalog/catalog-api/product-custom-fields) | Create and manage product custom fields | `/catalog/products/{id}/custom-fields` |
 |  [Product Images](https://developer.bigcommerce.com/api-reference/catalog/catalog-api/product-images) | Create and manage product images | `/catalog/products/{id}/images` |
