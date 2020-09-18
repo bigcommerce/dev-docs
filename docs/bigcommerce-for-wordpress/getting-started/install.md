@@ -5,14 +5,13 @@
 <div class="otp" id="no-index">
 
 ### On this page
-- [System requirements:](#system-requirements)
+- [System requirements](#system-requirements)
 - [Installation](#installation)
 - [Setting your channel name](#setting-your-channel-name)
 
 </div>
 
 ## System requirements
-
 
 * PHP: 5.6+ (7.3+ recommended)
 * MySQL: 5.5+ (5.6+ recommended)
@@ -22,13 +21,13 @@
 
 ## Installation
 
-To install BigCommerce for WordPress, you will need to [install and activate the plugin](https://wordpress.org/plugins/bigcommerce/) in WordPress and connect your BigCommerce account. If you do not already have an account, you will be prompted to create one. 
+To install BigCommerce for WordPress, you will need to [install and activate the plugin](https://wordpress.org/plugins/bigcommerce/) in WordPress and connect your BigCommerce account. If you do not already have an account, you will be prompted to create one.
 
 For a walkthrough on installing and activating the plugin, see [Using BigCommerce for Wordpress](https://support.bigcommerce.com/s/article/BigCommerce-for-WordPress#installation) (BigCommerce Help Center).
 
 ## Setting your channel name
 
-Once connected, you will set up a new [Channel Name](https://support.bigcommerce.com/s/article/BigCommerce-for-WordPress#channel). This name will be used to identify this specific WordPress instance in BigCommerce when checking orders or listing products.
+Once connected, you will set up a new **Channel Name**. This name will be used to identify this specific WordPress instance in BigCommerce when checking orders or listing products.
 
 <div class="HubBlock--callout">
 <div class="CalloutBlock--info">
@@ -36,12 +35,11 @@ Once connected, you will set up a new [Channel Name](https://support.bigcommerce
     
 <!-- theme: info -->
 
-### 
-Multi-Site Instructions 
-> For multi-site instructions, see [Multi Site Setup](/bigcommerce-for-wordpress/setup/multi-site).
+### Multisite instructions 
+> For multisite instructions, see [Multisite Setup](/bigcommerce-for-wordpress/setup/multi-site).
 
 </div>
 </div>
 </div>
 
-After you have created your new channel name, the initial product sync will begin and you can begin configuring your plugin settings.
+After you have created your new channel name, the initial product sync will begin, and you can begin configuring your [plugin settings](https://support.bigcommerce.com/s/article/BigCommerce-for-WordPress-Plugin-Settings).
