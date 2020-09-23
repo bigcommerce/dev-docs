@@ -116,14 +116,9 @@ lineNumbers: true
 extensions: ['.js', '.jsx']
 ```
 
-### Obtaining the JavaScript loader file
+### Creating a <span class ="fn">checkout-loader.js</span> file
 
-1. Navigate to the [Open source checkout](https://github.com/bigcommerce/checkout-js)repository. 
-2. Clone the respository.
-3. Move into the checkout-js directory.
-5. Run `npm ci` to install dependencies.
-6. Build out your custom checkout page by making changes to the source code located in the checkout.js folder. 
-7. Run `npm run build` to build the source code.
+In your text editor, create a file called checkout-loader.js.  Add content from the [Checkout SDK Quickstart]](https://developer.bigcommerce.com/stencil-docs/customizing-checkout/checkout-sdk-quickstart#creating-a-checkoutjs-file) to the file.
 
 ### Congratulations!
 
