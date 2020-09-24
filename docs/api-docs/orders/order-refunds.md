@@ -2,7 +2,7 @@
 
 <div class="otp" id="no-index">
 
-### On This Page
+### On this page
 - [Single order refund example](#single-order-refund-example)
 - [Creating refund quotes](#creating-refund-quotes)
 - [Creating a refund](#creating-a-refund)
