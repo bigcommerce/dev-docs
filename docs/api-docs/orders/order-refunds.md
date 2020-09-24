@@ -1,42 +1,53 @@
 # Order Refunds
 
-The Order API refund endpoints allow developers to process refunds against orders with settled payments. Refund endpoints are useful when building order management or payment integrations. They make embedding refund functionality directly into the the application possible without requiring merchants to return to their BigCommerce Control Panel.
+<div class="otp" id="no-index">
 
-The first section of this article is a brief walkthrough of a refund example. Subsequent sections provide detailed information about refund request objects and batching.
+### On this page
+- [Single order refund example](#single-order-refund-example)
+- [Creating refund quotes](#creating-refund-quotes)
+- [Creating a refund](#creating-a-refund)
+- [Offline order refunds](#offline-order-refunds)
+- [FAQ](#faq)
+- [Troubleshooting](#troubleshooting)
+- [Resources](#resources)
 
----
-## Refund endpoints
+</div>
 
-The Order API has two refund endpoints that handle processing refunds on a single order at a time.
+[Order V3](https://developer.bigcommerce.com/api-reference/store-management/order-transactions) exposes endpoints for creating refunds against orders with settled payments. These endpoints are useful when building order management or payment integrations as they make embedding refund functionality directly into the application possible without requiring merchants to return to their BigCommerce control panel.
 
-|Endpoint|Operations|Reference|
-|---|---|---|
-|`/orders/{id}/payment_actions/refund_quotes`|` POST` - Create refund quote for order ID `{id}`.|[Create a Refund Quote](https://developer.bigcommerce.com/api-reference/store-management/order-transactions/order-refunds/postrefundquote)
-|`/orders/{id}/payment_actions/refunds`|`POST` Create a refund for order ID `{id}`.|[Create a Refund](https://developer.bigcommerce.com/api-reference/store-management/order-transactions/order-refunds/postrefund)
-|`/orders/{id}/payment_actions/refunds`|` GET` - Returns the refunds for order ID `{id}`.|[Get Refunds For Order](https://developer.bigcommerce.com/api-reference/store-management/order-transactions/order-refunds/getorderrefunds)
-|`/orders/payment_actions/refunds`|`GET` - Returns a list of refunds ordered by refund ID.|[Get All Refunds](https://developer.bigcommerce.com/api-reference/store-management/order-transactions/order-refunds/getrefunds)
+This article provides an overview of Order's V3 refund capabilities and includes a step-by-step example for creating a [single order refund](#single-order-refund-example).
 
 ## Single order refund example
 
-Refunding a single order consists of two `POST` requests:
-1. `/orders/{id}/payment_actions/refund_quotes` to calculate amounts and get available payment methods
-2. `/orders/{id}/payment_actions/refunds` to create the refund
+Refunding an order consists of two API requests.
 
-This refund example uses an order with the following properties:
+|Request|Operation|Endpoint|Description|
+|-|-|-|-|
+|1|`POST`|[`/v3/orders/{id}/payment_actions/refund_quotes`](https://developer.bigcommerce.com/api-reference/store-management/order-transactions/order-refunds/postrefundquote)|Calculate amounts and get payment methods|
+|2|`POST`|[`/v3/orders/{id}/payment_actions/refund`](https://developer.bigcommerce.com/api-reference/store-management/order-transactions/order-refunds/postrefund)|Create the refund|
+
+
+
+The example requests in this article use an order with the following properties:
 * **Products**: Single product priced at `$10.00`
 * **Tax:** `$0.83`
 * **Shipping:** `$10.00`
 
-The refunded amount will include the shipping, tax, and product cost, a total of `$20.83`.
+The refunded amount will include the shipping, tax, and product cost (a total of `$20.83`). We will [create a refund quote](https://developer.bigcommerce.com/api-reference/store-management/order-transactions/order-refunds/postrefundquote). Then, we will [create a refund](https://developer.bigcommerce.com/api-reference/store-management/order-transactions/order-refunds/postrefund) using the information contained in the [create refund quote response](https://developer.bigcommerce.com/api-reference/store-management/order-transactions/order-refunds/postrefundquote#responses).
 
-To refund the cost, we will create a refund quote. Then, we will create a refund using information from the quote.
-
-### Get refund quote
+## Creating refund quotes
 
 A refund quote provides the tax amount, total refund amount, and a list of available payment methods for order refunds.
 
-**Request**
-```json
+To [create a refund quote](https://developer.bigcommerce.com/api-reference/store-management/order-transactions/order-refunds/postrefundquote), send a `POST` request to `/v3/orders/{order_id}/payment_actions/refund_quotes`.
+
+```http
+POST https://api.bigcommerce.com/stores/{{STORE_HASH}}/v3/orders/{order_id}/payment_actions/refund_quotes
+X-Auth-Token: {{ACCESS_TOKEN}}
+X-Auth-Client: {{CLIENT_ID}}
+Content-Type: application/json
+Accept: application/json
+
 {
   "items": [
     {
@@ -55,9 +66,10 @@ A refund quote provides the tax amount, total refund amount, and a list of avail
 }
 ```
 
->The `item_id` used in the request is the [Order Product](https://developer.bigcommerce.com/api-reference/orders/orders-api/order-products/getallorderproducts) `id` obtained by sending a `GET` request to `/orders/{order_id}/products`.
+[![Open in Request Runner](https://storage.googleapis.com/bigcommerce-production-dev-center/images/Open-Request-Runner.svg)](https://developer.bigcommerce.com/api-reference/store-management/order-transactions/order-refunds/postrefundquote#requestrunner)
 
-**Response**
+**[Response:](https://developer.bigcommerce.com/api-reference/store-management/order-transactions/order-refunds/postrefundquote#responses)**
+
 ```json
 {
   "data": {
@@ -78,36 +90,37 @@ A refund quote provides the tax amount, total refund amount, and a list of avail
           "offline_reason": ""
         }
       ],
-      [
-        {
-          "provider_id": "testgateway",
-          "provider_description": "Test Payment Gateway",
-          "amount": 20.83,
-          "offline": false,
-          "offline_provider": false,
-          "offline_reason": ""
-        }
-      ]
+      ...
     ]
   },
   "meta": {}
 }
-=======
-      ]
-  },
-  "meta": {}
-}
-
->>>>>>> f5d5d94535ed33f87461392704bd72b1394cdac0
 ```
 
-### Create the refund
+<div class="HubBlock--callout">
+<div class="CalloutBlock--info">
+<div class="HubBlock-content">
 
-Use the `provider_id`, the amount and items from the refund quote, to create the refund:
+> ### Note
+> * To get an `item_id` for the [create refund quote](https://developer.bigcommerce.com/api-reference/store-management/order-transactions/order-refunds/postrefundquote#requestrunner) request, make a request to [get order products](https://developer.bigcommerce.com/api-reference/store-management/orders/order-products/getallorderproducts#requestrunner); the `id` of the order product is the `item_id`.
+> * To get a list of orders and their `id`s, make a request to [get all orders](https://developer.bigcommerce.com/api-reference/store-management/orders/orders/getallorders#requestrunner).
 
-**Request**
+</div>
+</div>
+</div>
 
-```json
+
+## Creating a refund
+
+Use the `provider_id`, the `amount`, and `items` from the [refund quote](#creating-refund-quotes) to [create a refund](https://developer.bigcommerce.com/api-reference/store-management/order-transactions/order-refunds/postrefund).
+
+```http
+POST https://api.bigcommerce.com/stores/{{STORE_HASH}}/v3/orders/{order_id}/payment_actions/refunds
+X-Auth-Token: {{ACCESS_TOKEN}}
+X-Auth-Client: {{CLIENT_ID}}
+Content-Type: application/json
+Accept: application/json
+
 {
   "items": [
     {
@@ -129,9 +142,11 @@ Use the `provider_id`, the amount and items from the refund quote, to create the
     }
   ]
 }
-```  
+```
 
-**Response**
+[![Open in Request Runner](https://storage.googleapis.com/bigcommerce-production-dev-center/images/Open-Request-Runner.svg)](https://developer.bigcommerce.com/api-reference/store-management/order-transactions/order-refunds/postrefund#requestrunner)
+
+**[Response:](https://developer.bigcommerce.com/api-reference/store-management/order-transactions/order-refunds/postrefund#responses)**
 
 ```json
 {
@@ -175,7 +190,7 @@ Use the `provider_id`, the amount and items from the refund quote, to create the
 
 ## Offline order refunds
 
-Payments collected outside of BigCommerce can be marked as offline when creating a refund. Marking payments as offline is a way to keep track of which portions of an order you refunded. However, no funds were collected. If you did not receive payment using BigCommerce, then the funds can not be refunded directly to the payment source through the BigCommerce Order Refund API.
+Payments collected outside of BigCommerce can be marked as offline when creating a refund. Marking payments as offline is a way to keep track of which portions of an order you refunded. However, no funds were collected. If you did not receive payment using BigCommerce, then the funds can not be refunded directly to the payment source using BigCommerce's refund endpoints.
 
 ## FAQ
 
@@ -210,3 +225,10 @@ No, you cannot return items to inventory that you refunded via API. You can eith
 * You must receive payment of the order before you can issue a refund.
 * If you use a payment gateway, it must support refunds. For a list of payment gateways that support refunds through BigCommerce, see the Supported Payment Gateways section in [Processing Refunds](https://support.bigcommerce.com/s/article/Processing-Refunds#payment-gateways).
 * If you use a payment gateway, you must settle payments. Some gateways require a certain amount of time to pass before refunds can be processed.
+
+## Resources
+
+* [Orders Overview](https://developer.bigcommerce.com/api-docs/store-management/orders)
+* [Orders V2 Reference](https://developer.bigcommerce.com/api-reference/orders/orders-api)
+* [Orders V3 Reference](https://developer.bigcommerce.com/api-reference/orders/orders-transactions-api)
+* [Order Webhook Events](https://developer.bigcommerce.com/api-docs/store-management/webhooks/events#orders)
