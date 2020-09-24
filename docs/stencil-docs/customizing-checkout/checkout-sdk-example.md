@@ -116,7 +116,8 @@ lineNumbers: true
 extensions: ['.js', '.jsx']
 ```
 
-### Creating a <span class ="fn">checkout-loader.js</span> file
+### Creating a checkout-loader.js file
+
 
 In your text editor, create a file called checkout-loader.js.  Add content from the [Checkout SDK Quickstart](https://developer.bigcommerce.com/stencil-docs/customizing-checkout/checkout-sdk-quickstart#creating-a-checkoutjs-file) to the file.
 
