@@ -42,7 +42,8 @@ You can use front matter to specify attributes on the tops of pages in your `tem
 You **cannot** use front matter to accomplish this on pages in the following subdirectories:
 * `templates/components/`
 * `templates/layout/`
-* `templates/pages/custom/`
+
+* Injecting objects in the front matter of templates/pages/page.html will make the objects available to custom templates.
 
 * Indent using only spaces, not tabs. (YAML forbids tabs, to avoid inconsistent encoding of tabs across platforms.) An indent of even one space indicates a child.
 
