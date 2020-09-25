@@ -76,7 +76,7 @@ To install a custom checkout on a store, follow these steps:
   ```
   `webdav:checkout/auto-loader-<version>.js`
   ```
-  Prepending `webdav:` indicates that the URL is in the remote WebDAV directory. It will treat `/content` as the root WebDAV directory.
+  Prepending `webdav:` Indicates that the URL is in the remote WebDAV directory. It will treat `/content` as the root WebDAV directory.
   
   ![custom-checkout-0](https://raw.githubusercontent.com/bigcommerce/dev-docs/master/assets/images/custom-checkout-0.png "Custom Checkout")
  
