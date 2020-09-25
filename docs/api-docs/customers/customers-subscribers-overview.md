@@ -90,7 +90,7 @@ There are two Customer API endpoints available:
 
 The [V3 Customers API](https://developer.bigcommerce.com/api-reference/customer-subscribers/v3-customers-api) is comprised of customers, customer attributes, customer address, and customer form fields. 
 
-Customers are shoppers that create an account on a store. The customers object comprises a customer's address, attributes, form fields and authentication. The V3 Customers API can accomplish the same tasks as the existing V2 Customers API, with greater efficiency. 
+A customer makes a purchase on a store and creates an account. The customers object comprises a customer's address, attributes, form fields and authentication. The V3 Customers API can accomplish the same tasks as the existing V2 Customers API, with greater efficiency. 
 
 [Customer Attributes](https://developer.bigcommerce.com/api-reference/customer-subscribers/v3-customers-api/models/customerattribute) and [Customer Attribute Values](https://developer.bigcommerce.com/api-reference/store-management/customers-v3/customer-attribute-values/) let you store additional information against a customer. Customer Attributes define a the name of a key/value pair and the type of information stored (for example, `"name": "Shoe size"`, `"type": "number"`). The Customer Attribute Values endpoint lets you define the values for the attributes.
 
