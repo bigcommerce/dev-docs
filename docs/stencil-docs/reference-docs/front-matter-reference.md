@@ -18,7 +18,8 @@
 Front matter defines which store resources are available to be rendered within a Stencil template. Front matter is declared at the top of each template and uses [YAML](https://yaml.org/) syntax. For more information, see [Declaring Front Matter Objects](https://developer.bigcommerce.com/stencil-docs/storefront-customization/using-front-matter#declaring-front-matter-objects).
 
 ## Supported Templates
-YAML Front Matter is supported for templates in the `templates/pages/` directory. Injecting objects in the front matter of templates/pages/page.html will make the objects available to custom templates.
+YAML Front Matter is supported for templates in the `templates/pages/` directory. Injecting objects in the front matter of `templates/pages/page.html` will make the objects available to custom templates.
+
 
 Front Matter is not supported for templates in the following directories:
 * `templates/components/`
