@@ -1,4 +1,4 @@
-<div><h3 class="sub-docs-type" id="bigcommerce-for-wordpress">BigCommerce for Wordpress</h3>
+<div><h3 class="sub-docs-type" id="bigcommerce-for-wordpress">BigCommerce for WordPress</h3>
 
 # Install
 
@@ -35,7 +35,8 @@ Once connected, you will set up a new [channel name](https://support.bigcommerce
     
 <!-- theme: info -->
 
-### Multisite instructions 
+>### Multisite instructions
+>
 > For multisite instructions, see [Multisite Setup](/bigcommerce-for-wordpress/setup/multi-site).
 
 </div>
