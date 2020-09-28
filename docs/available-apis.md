@@ -1,7 +1,5 @@
 # Available APIs
 
-# Available APIs
-
 <div class="otp" id="no-index">
 
 ### On this page
