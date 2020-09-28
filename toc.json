@@ -10,9 +10,30 @@
         "items": [
             {
                 "type": "item",
-                "title": "Carts",
+                "title": "Overview",
                 "uri": "reference/BigCommerce_Storefront_Cart_API.oas2.yml"
-            }
+            },
+            {
+                "type": "group",
+                "title": "Cart Items",
+                "items": [
+                    {
+                        "type": "item",
+                        "title": "Add Cart Line Items",
+                        "uri": "reference/BigCommerce_Storefront_Cart_API.oas2.yml/paths/~1carts~1%7BcartId%7D~1items/post"
+                    },
+                    {
+                        "type": "item",
+                        "title": "Delete Cart Line Items",
+                        "uri": "reference/BigCommerce_Storefront_Cart_API.oas2.yml/paths/~1carts~1%7BcartId%7D~1items~1%7BitemId%7D/delete"
+                    },
+                    {
+                        "type": "item",
+                        "title": "Update Cart Line Items",
+                        "uri": "reference/BigCommerce_Storefront_Cart_API.oas2.yml/paths/~1carts~1%7BcartId%7D~1items~1%7BitemId%7D/put"
+                    }
+                ]
+              }
         ]
       }
     ]
