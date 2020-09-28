@@ -7,25 +7,13 @@
       {
         "type": "group",
         "title": "Carts",
-        "uri": "reference/BigCommerce_Storefront_Cart_API.oas2.yml"
-      },
-      {
-        "type": "divider",
-        "title": "Management APIs"
-      },
-      {
-        "type": "group",
-        "title": "Abandoned Carts",
-        "uri": "reference/BigCommerce_Abandoned_Carts.oas2.yml"
-      },
-      {
-        "type": "divider",
-        "title": "Provider APIs"
-      },
-      {
-        "type": "group",
-        "title": "Shipping Providers",
-        "uri": "reference/BigCommerce_Shipping_Provider_API.oas2.yml"
+        "items": [
+            {
+                "type": "item",
+                "title": "Carts",
+                "uri": "reference/BigCommerce_Storefront_Cart_API.oas2.yml"
+            }
+        ]
       }
     ]
   }
