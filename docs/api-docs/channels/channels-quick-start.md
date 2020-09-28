@@ -1,4 +1,4 @@
-# Create a Channel Quick Start
+# Building Channels Quick Start
 
 <div class="otp" id="no-index">
 
@@ -19,13 +19,13 @@ This article is an advanced quick start tutorial for [bigcommerce technology par
 
 ## Create a channel
 
-At the very least, apps curated as solutions within the **Create Channel** flow must create a basic Channel with a reference to their BigCommerce **App ID**. This enables them to show in the Channel Manager as managing a specific channel.
+Apps curated as solutions within the **Create Channel** flow must create a basic channel with a reference to their BigCommerce [App ID](https://developer.bigcommerce.com/api-docs/apps/tutorials/id). This enables them to be shown in the [Channel Manager](https://developer.bigcommerce.com/api-docs/channels/overview) as managing a specific channel.
 
-![XX_TITLE_XX](https://raw.githubusercontent.com/bigcommerce/dev-docs/development/assets/images/XX_FILENAME_XX "XX_TITLE_XX")
+![channels-quick-start-01](https://raw.githubusercontent.com/bigcommerce/dev-docs/master/assets/images/channels-quick-start-01.png "channels-quick-start-01.png")
 
-And also enables an improved native look and feel for the merchant when using the app.
+And, it also enables an improved native look and feel for the merchant using the app.
 
-![XX_TITLE_XX](https://raw.githubusercontent.com/bigcommerce/dev-docs/development/assets/images/XX_FILENAME_XX "XX_TITLE_XX")
+![channels-quick-start-02](https://raw.githubusercontent.com/bigcommerce/dev-docs/master/assets/images/channels-quick-start-02.png "channels-quick-start-02")
 
 To [create a channel](https://developer.bigcommerce.com/api-reference/cart-checkout/channels-listings-api/channels/createchannel), send a `POST` request to `/v3/channels`.
 
@@ -40,7 +40,7 @@ Accept: application/json
   "name": "Solution Name",
   "type": "storefront",
   "platform": "drupal",
-  "external_id": "002",
+  "external_id": "",
   "is_enabled": true,
   "status": "connected",
   "is_listable_from_ui": true,
@@ -60,7 +60,8 @@ Accept: application/json
 <div class="HubBlock-content">
 
 > ### Note
-> * For a list of accepted values for `type` and `platform`, see [Channels API Reference](https://developer.bigcommerce.com/api-reference/cart-checkout/channels-listings-api#platform)
+> * For a list of accepted values for `type` and `platform`, see [Channels API Reference](https://developer.bigcommerce.com/api-reference/cart-checkout/channels-listings-api#platform).
+> * For instructions on finding your app's ID, see [Find and App's ID](https://developer.bigcommerce.com/api-docs/apps/tutorials/id).
 
 </div>
 </div>
@@ -68,11 +69,11 @@ Accept: application/json
 
 ## Create a channel with navigation
 
-It is recommended that apps also create a navigation section to better guide the merchant within the BigCommerce native control panel.
+We recommend that apps also create navigation sections to better integrate the app's interface within the BigCommerce control panel.
 
-![XX_TITLE_XX](https://raw.githubusercontent.com/bigcommerce/dev-docs/development/assets/images/XX_FILENAME_XX "XX_TITLE_XX")
+![channels-quick-start-03](https://raw.githubusercontent.com/bigcommerce/dev-docs/master/assets/images/channels-quick-start-03.png "channels-quick-start-03")
 
-To [create a channel with navigation](https://developer.bigcommerce.com/api-reference/cart-checkout/channels-listings-api/channels/createchannel), send a `POST` request to `/stores/{{STORE_HASH}}/v3/channels`.
+To create a channel with navigation, include a `config_meta` object in the [create a channel](https://developer.bigcommerce.com/api-reference/cart-checkout/channels-listings-api/channels/createchannel) request.
 
 ```http
 POST https://api.bigcommerce.com/stores/{{STORE_HASH}}/v3/channels
@@ -85,8 +86,7 @@ Accept: application/json
   "name": "Solution Name",
   "type": "storefront",
   "platform": "drupal",
-  "external_id": "002",
-  "is_enabled": true,
+  "external_id": "",
   "status": "connected",
   "is_listable_from_ui": true,
   "is_visible": true,
@@ -124,3 +124,4 @@ Accept: application/json
 ## Resources
 * [Channels Overview](https://developer.bigcommerce.com/api-docs/channels/overview)
 * [Channels API Reference](https://developer.bigcommerce.com/api-reference/cart-checkout/channels-listings-api)
+* [Find an App's ID](https://developer.bigcommerce.com/api-docs/apps/tutorials/id)
