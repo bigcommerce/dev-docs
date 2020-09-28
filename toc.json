@@ -1,0 +1,31 @@
+{
+    "items": [
+      {
+        "type": "divider",
+        "title": "Storefront APIs"
+      },
+      {
+        "type": "item",
+        "title": "Item",
+        "uri": "reference/BigCommerce_Storefront_Cart_API.oas2.yml"
+      },
+      {
+        "type": "divider",
+        "title": "Management APIs"
+      },
+      {
+        "type": "item",
+        "title": "Item",
+        "uri": "reference/BigCommerce_Abandoned_Carts.oas2.yml"
+      },
+      {
+        "type": "divider",
+        "title": "Provider APIs"
+      },
+      {
+        "type": "item",
+        "title": "Item",
+        "uri": "reference/BigCommerce_Shipping_Provider_API.oas2.yml"
+      }
+    ]
+  }
