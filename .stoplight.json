@@ -16,5 +16,6 @@
         "rootDir": "models",
         "include": ["**"]
       }
-    }
+    },
+    "exclude": ["/README.md"]
   }
