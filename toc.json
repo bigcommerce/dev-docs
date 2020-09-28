@@ -5,8 +5,8 @@
         "title": "Storefront APIs"
       },
       {
-        "type": "item",
-        "title": "Item",
+        "type": "group",
+        "title": "Carts",
         "uri": "reference/BigCommerce_Storefront_Cart_API.oas2.yml"
       },
       {
@@ -14,8 +14,8 @@
         "title": "Management APIs"
       },
       {
-        "type": "item",
-        "title": "Item",
+        "type": "group",
+        "title": "Abandoned Carts",
         "uri": "reference/BigCommerce_Abandoned_Carts.oas2.yml"
       },
       {
@@ -23,8 +23,8 @@
         "title": "Provider APIs"
       },
       {
-        "type": "item",
-        "title": "Item",
+        "type": "group",
+        "title": "Shipping Providers",
         "uri": "reference/BigCommerce_Shipping_Provider_API.oas2.yml"
       }
     ]
