@@ -1,19 +1,18 @@
-<div><h3 class="sub-docs-type" id="bigcommerce-for-wordpress">BigCommerce for Wordpress</h3>
+<div><h3 class="sub-docs-type" id="bigcommerce-for-wordpress">BigCommerce for WordPress</h3>
 
 # Install
 
 <div class="otp" id="no-index">
 
 ### On this page
+
 - [System requirements](#system-requirements)
 - [Installation](#installation)
 - [Setting your channel name](#setting-your-channel-name)
 
 </div>
 
-
 ## System requirements
-
 
 * PHP: 5.6+ (7.3+ recommended)
 * MySQL: 5.5+ (5.6+ recommended)
@@ -38,8 +37,8 @@ Once connected, you will set up a new [channel name](https://support.bigcommerce
 <!-- theme: info -->
 
 ### 
-Multi-Site Instructions 
-> For multi-site instructions, see [Multi Site Setup](/bigcommerce-for-wordpress/setup/multi-site).
+Multisite Instructions 
+> For multisite instructions, see [Multisite Setup](/bigcommerce-for-wordpress/setup/multi-site).
 
 </div>
 </div>
