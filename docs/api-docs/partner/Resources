@@ -1,0 +1,22 @@
+# Resources
+
+<div class="otp" id="no-index">
+
+### On this page
+- [API clients](#API-clients)
+- [App starters](#App-starters)
+- [BigDesign](#BigDesign)
+- [SDK (Checkout SDK)](#SDK)
+</div> 
+
+## API clients
+Accelerate your app development with BigCommerce API clients. The API clients are available in different programming languages such as Python, Php, Ruby, and JavaScript. See [Tools & Resources](https://developer.bigcommerce.com/tools-resources) for a list of our API clients.
+
+## App starters
+There are apps that every BigCommerce Enterprise customer should have to enhance their customer experience and sell more online. See [The BigCommerce Enterprise App Starter Kit](https://www.groovecommerce.com/ecommerce-blog/bigcommerce-enterprise-app-starter-kit/) for a list of the must-have apps for all store owners. 
+
+## BigDesign
+BigCommerce developed a collection of reusable React components, design guidelines, and UI patterns. This collection, known collectively as [BigDesign](https://developer.bigcommerce.com/api-docs/apps/guide/ui), allows you to rapidly develop an app's front-end that is consistent with BigCommerce's UI.
+
+## SDK (Checkout SDK)
+The Checkout SDK is a JavaScript library intended for partners, developers, and brands who want to build a custom checkout front-end experience. See [Checkout SDK](https://developer.bigcommerce.com/stencil-docs/customizing-checkout/checkout-sdk) for more information.
