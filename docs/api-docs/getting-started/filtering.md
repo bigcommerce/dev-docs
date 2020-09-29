@@ -2,7 +2,7 @@
 
 <div class="otp" id="no-index">
 
-### On This Page
+### On this page
 - [Include](#include)
 - [Include and exclude fields](#include-and-exclude-fields)
 - [Pagination and limit](#pagination-and-limit)
@@ -37,7 +37,7 @@ Certain endpoints support the `include` query parameter used to include sub-reso
 
 The availability of the `include` query parameter varies by endpoint. For up-to-date filter information, refer to the `GET` method documentation of each endpoint.
 
-**Endpoints that support `include`.** (Last updated on 09/28/2020.)
+**Endpoints that support `include` are listed below.** (Last updated on 09/28/2020.)
 
 | API| Endpoint  | Endpoint URL | 
 |--|--|--|
@@ -87,13 +87,13 @@ lineNumbers: true
 
 The availability of the `include_fields` and `exclude_fields` query parameters varies by endpoint. For up-to-date filter information, refer to the `GET` method documentation of each endpoint.
 
-**Endpoints that support `include_fields` and `exclude_fields`.** (Last updated on 09/28/2020.)
+**Endpoints that support `include_fields` and `exclude_fields` are listed below.** (Last updated on 09/28/2020.)
 
 | API| Endpoint  | Endpoint URL | 
 |--|--|--|
 | Brands | Get All Brands | `/catalog/brands` |
 |  | Get a Brand | `/catalog/brands/{brand_id}` |
-|  | Get All Brands Metafields | `//catalog/brands/{brand_id}/metafields` |
+|  | Get All Brands Metafields | `/catalog/brands/{brand_id}/metafields` |
 |  | Get a Brand Metafields | `/catalog/brands/{brand_id}/metafields/{metafield_id}` |
 | Category| Get All Categories | `/catalog/categories` |
 |  | Get a Category | `/catalog/categories/{category_id}` |
@@ -135,5 +135,4 @@ The availability of the `include_fields` and `exclude_fields` query parameters v
 
 `limit` is the number of results per page that are returned.
 
-`page=2&limit=10`
-This will return page 2 of the results with 10 items per page.
+`page=2&limit=10` will return page 2 of the results with 10 items per page.
