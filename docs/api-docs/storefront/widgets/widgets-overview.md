@@ -27,7 +27,7 @@ In this article, we are going to review all the components that make a widget. T
 
 ## Regions
 
-[Regions](https://developer.bigcommerce.com/api-reference/storefront/widgets-api/regions/getcontentregions) are specific locations in the Stencil theme files where you can place a widget. A region is added at the file level using the format `{{{region name="..."}}}`. A region can be named however you like, but it is best practice to give it a name that is descriptive of the location and function. A theme file can have as many regions as you want, with more than one widget assigned to the region and the [Placements](https://developer.bigcommerce.com/api-docs/store-management/widgets/overview#placements) `sort_order` controlling how the widgets appear on the storefront.
+[Regions](https://developer.bigcommerce.com/api-reference/storefront/widgets-api/regions/getcontentregions) are specific locations in the Stencil theme files where you can place a widget. You can add a region at the file level using the format `{{{region name="..."}}}` and name the region however you like, but it is best practice to give it a name that is descriptive of the location and function. A theme file can have as many regions as you want, with more than one widget assigned to the region and the [Placements](https://developer.bigcommerce.com/api-docs/store-management/widgets/overview#placements) `sort_order` controlling how the widgets appear on the storefront.
 
 ![Content Region](//s3.amazonaws.com/user-content.stoplight.io/6012/1551970794664 "Content Region")
 
@@ -37,7 +37,7 @@ Most themes in the BigCommerce marketplace come with predefined regions. It is b
 
 ### Global regions
 
-Global regions are special regions that can be used to place and manage content sitewide. Widgets placed in a global region will appear on every page of the storefront where that region exists. This makes global regions useful for displaying high-priority information, such as special promotion advertising banners, across multiple pages of the storefront.
+Global regions are special regions you can use to place and manage content sitewide. Widgets placed in a global region will appear on every page of the storefront where that region exists. This makes global regions useful for displaying high-priority information, such as special promotion advertising banners, across multiple storefront pages.
 
 To create a global region, add the `--global` suffix to the region name as shown in the following example:
 
