@@ -9,8 +9,7 @@
 - [Installing your custom checkout](#installing-custom-checkout)
 - [Logging the Checkout Object](#logging-the-checkout-object)
 - [Resources](#resources)
-
-
+- [Related articles](#related-articles)
 
 </div> 
 
@@ -35,7 +34,7 @@ For example, `cd cornerstone`
 
 `npm install --save @bigcommerce/checkout-sdk`
 
-## Creating a <span class = "fn">checkout-loader.js</span> file
+## Creating a checkout-loader.js file
 
 In your text editor, create a file called checkout-loader.js with the following content:
 

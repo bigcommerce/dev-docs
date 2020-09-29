@@ -1,18 +1,19 @@
-<div><h3 class="sub-docs-type" id="bigcommerce-for-wordpress">BigCommerce for WordPress</h3>
+<div><h3 class="sub-docs-type" id="bigcommerce-for-wordpress">BigCommerce for Wordpress</h3>
 
 # Install
 
 <div class="otp" id="no-index">
 
 ### On this page
-
 - [System requirements](#system-requirements)
 - [Installation](#installation)
 - [Setting your channel name](#setting-your-channel-name)
 
 </div>
 
+
 ## System requirements
+
 
 * PHP: 5.6+ (7.3+ recommended)
 * MySQL: 5.5+ (5.6+ recommended)
