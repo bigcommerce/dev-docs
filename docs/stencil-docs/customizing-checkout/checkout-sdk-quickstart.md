@@ -9,8 +9,8 @@
 - [Installing your custom checkout](#installing-custom-checkout)
 - [Logging the Checkout Object](#logging-the-checkout-object)
 - [Resources](#resources)
-- [Related articles](#related-articles)
-- [Additonal resources](#additonal-resources)
+
+
 
 </div> 
 
