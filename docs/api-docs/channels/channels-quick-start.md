@@ -12,7 +12,8 @@
 
 </div>
 
-This article is an advanced quick start tutorial for [bigcommerce technology partners](https://www.bigcommerce.com/partners/) wishing to market their solution within [Channel Manager's](https://developer.bigcommerce.com/api-docs/channels/overview#resources) **Create Channel** flow. For an introduction to channels on BigCommerce, see [Channels Overview](https://developer.bigcommerce.com/api-docs/channels/overview).
+This article is an advanced quick start tutorial for [Bigcommerce technology partners](https://www.bigcommerce.com/partners/) wishing to market their solution within [Channel Manager's](https://developer.bigcommerce.com/api-docs/channels/overview#resources) **Create Channel** flow. For an introduction to channels on BigCommerce, see [Channels Overview](https://developer.bigcommerce.com/api-docs/channels/overview).
+
 
 ### Prerequisites
 * Experience [building apps](https://developer.bigcommerce.com/api-docs/apps/guide/intro)
