@@ -38,8 +38,8 @@ Once connected, you will set up a new [channel name](https://support.bigcommerce
 <!-- theme: info -->
 
 ### 
-Multi-Site Instructions 
-> For multi-site instructions, see [Multi Site Setup](/bigcommerce-for-wordpress/setup/multi-site).
+Multisite Instructions 
+> For multisite instructions, see [Multisite Setup](/bigcommerce-for-wordpress/setup/multi-site).
 
 </div>
 </div>

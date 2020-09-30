@@ -27,6 +27,8 @@ Rules that modify the properties of a product, such as weight, price, and produc
 ### Deprecated
 > Avoid using this API operation if possible. It will be removed in a future version.
 
+For the most up-to-date version of this API, see [Product Complex Rules](https://developer.bigcommerce.com/api-reference/catalog/catalog-api/product-complex-rules).
+
 </div>
 </div>
 </div>
