@@ -63,7 +63,8 @@ Once you have verified the requirements above, you are ready to process and pack
 
 ### Bundle only
 
-The `stencil bundle` command bundles your theme into a .zip file which may be uploaded to a BigCommerce store.
+The `stencil bundle` command bundles your theme into a zip file which may be uploaded to a BigCommerce store.
+
 
 The `bundle` command will notify you of its progress and completion, as well as any errors that prevent bundling.
 
