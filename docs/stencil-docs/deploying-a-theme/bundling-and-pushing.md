@@ -125,7 +125,8 @@ To initiate bundling and pushing, enter the following on the command line:
 
 Stencil CLI displays the same notifications, prompts, and selection options you would receive when using the control panel's GUI. The sections below will describe the notifications and interactions you might see.
 
-To push a theme and activate a particular Variation without being prompted, use `stencil push -a VARIATION_NAME` with the name of the Variation. For example, `stencil push -a Light` will activate the "Light" variation. If you simply use `stencil push -a` without a Variation name, the first Variation will be applied.
+To push a theme and activate a particular variation without being prompted, use `stencil push -a VARIATION_NAME` with the name of the variation. For example, `stencil push -a Light` will activate the "Light" variation. If you simply use `stencil push -a` without a variation name, the first variation will be applied.
+
 
 If you wish to automatically delete the oldest theme on your store if you are already at your theme limit, you can use `stencil push -d`. These may be used together, as `stencil push -a -d`, to give the best chance of the upload working without any interaction, which is desirable for automated deployments of Stencil CLI.
 
