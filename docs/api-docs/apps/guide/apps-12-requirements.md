@@ -59,7 +59,7 @@ The Apps Marketplace team reviews all app submissions and tests apps to verify t
 </div>
 
 ## Next steps
-* [Publish your app](https://developer.bigcommerce.com/api-docs/apps/guide/publish).
+* [Publish your app](https://developer.bigcommerce.com/api-docs/apps/guide/publishing).
 
 
 ## Resources
