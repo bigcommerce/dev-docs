@@ -10,7 +10,12 @@
 </div> 
 
 ## API clients
-Accelerate your app development with BigCommerce API clients. The API clients are available in different programming languages such as Python, Php, Ruby, and JavaScript. See [Tools & Resources](https://developer.bigcommerce.com/tools-resources) for a list of our API clients.
+Accelerate your app development with BigCommerce API clients. BigCommerce API clients are available for the following languages:
+
+- [Python](https://github.com/bigcommerce/bigcommerce-api-python)
+- [PHP](https://github.com/bigcommerce/bigcommerce-api-php)
+- [Ruby](https://github.com/bigcommerce/bigcommerce-api-ruby)
+- [JavaScript](https://github.com/getconversio/node-bigcommerce)
 
 ## App starters
 There are apps that every BigCommerce Enterprise customer should have to enhance their customer experience and sell more online. See [The BigCommerce Enterprise App Starter Kit](https://www.groovecommerce.com/ecommerce-blog/bigcommerce-enterprise-app-starter-kit/) for a list of the must-have apps for all store owners. 
