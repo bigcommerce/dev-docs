@@ -28,7 +28,7 @@ BigCommerce sample apps are open-source projects developed by the BigCommerce te
 
 
 ## BigDesign
-BigCommerce developed a collection of reusable React components, design guidelines, and UI patterns. This collection, known collectively as [BigDesign](https://developer.bigcommerce.com/api-docs/apps/guide/ui), allows you to rapidly develop an app's front-end that is consistent with BigCommerce's UI.
+[BigDesign](https://developer.bigcommerce.com/api-docs/apps/guide/ui) is a collection of reusable React components, design guidelines, and UI patterns that allows you to rapidly develop an app's front-end that is consistent with BigCommerce's UI. 
 
 ## SDK (Checkout SDK)
 The Checkout SDK is a JavaScript library intended for partners, developers, and brands who want to build a custom checkout front-end experience. See [Checkout SDK](https://developer.bigcommerce.com/stencil-docs/customizing-checkout/checkout-sdk) for more information.
