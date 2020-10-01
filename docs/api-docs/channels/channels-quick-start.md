@@ -62,7 +62,8 @@ Accept: application/json
 <div class="HubBlock-content">
 
 > ### Note
-> * For a list of accepted values for `type` and `platform`, see [Channels API Reference](https://developer.bigcommerce.com/api-reference/cart-checkout/channels-listings-api#platform).
+> * For a list of accepted `type` and `platform` values, see [Channels API Reference](https://developer.bigcommerce.com/api-reference/cart-checkout/channels-listings-api#platform).
+
 > * For instructions on finding your app's ID, see [Find and App's ID](https://developer.bigcommerce.com/api-docs/apps/tutorials/id).
 
 </div>
