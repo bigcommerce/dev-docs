@@ -1,8 +1,10 @@
 swagger: '2.0'
 info:
-  version: '2.0'
+  version: ''
   title: Currencies
   description: >-
+    Manage alternate currency display options on the storefront.
+
 
     - [OAuth Scopes](#oauth-scopes)
 
@@ -15,9 +17,6 @@ info:
     - [FAQ](#faq)
 
     - [Resources](#resources)
-
-
-    Manage alternate currency display options on the storefront.
 
 
     ## OAuth Scopes

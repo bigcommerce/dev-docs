@@ -1,33 +1,16 @@
 swagger: '2.0'
 info:
-  version: '3.0'
+  version: ''
   title: Customers V3
   description: >-
-    - [OAuth Scopes](#oauth-scopes)
+    Create and manage customers.
+
 
     - [Authentication](#authentication)
 
     - [Available Endpoints](#available-endpoints)
 
     - [Resources](#resources)
-
-
-    ## OAuth Scopes
-
-    | UI Name                                      | Permission |
-    Parameter                                     |
-
-    |----------------------------------------------|------------|-----------------------------------------------|
-
-    | Customers                                    | modify     |
-    `store_v2_customers`                          |
-
-    | Customers                                    | read-only  |
-    `store_v2_customers_read_only`                |
-
-
-    For more information on OAuth Scopes, see:
-    [Authentication](https://developer.bigcommerce.com/api-docs/getting-started/authentication).
 
 
     ## Authentication
@@ -63,31 +46,23 @@ info:
     installing an app in a BigCommerce control panel.|
 
 
+    ### OAuth Scopes
+
+
+    | UI Name                                      | Permission |
+    Parameter                                     |
+
+    |----------------------------------------------|------------|-----------------------------------------------|
+
+    | Customers                                    | modify     |
+    `store_v2_customers`                          |
+
+    | Customers                                    | read-only  |
+    `store_v2_customers_read_only`                |
+
+
     For more information on Authenticating BigCommerce APIs, see:
     [Authentication](https://developer.bigcommerce.com/api-docs/getting-started/authentication).
-
-
-    ## Available Endpoints
-
-    | Resource / Endpoint                     |
-    Description                                                             |
-
-    |-----------------------------------------|-------------------------------------------------------------------------|
-
-    | Customers                               | Create an manage
-    customers                                              |
-
-    | Customers Addresses                     | Create an manage customers
-    Addresses                                    |
-
-    | Customers Attribute Values              | Create and manage customer
-    attribute values                             |
-
-    | Customers Attributes                    | Create and manage customer
-    attributes                                   |
-
-    | Customers Form Field Values             | Create an manage customer form
-    field values                             |
 
 
     ## Resources

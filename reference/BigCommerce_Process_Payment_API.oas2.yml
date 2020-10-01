@@ -1,18 +1,12 @@
 swagger: '2.0'
 info:
-  version: '1.0'
+  version: ''
   title: Payment Processing
   contact: {}
   description: >-
-    This server-to-server endpoint provides the capability to process payment
-    using payment instrument such as credit card. 
-
-    See [Payments Overview](/api-docs/payments/payments-api-overview) for more. 
-
-
-    While the Try It Now will work, please use other methods of testing for
-    security.
-  termsOfService: 'https://www.bigcommerce.com/terms/api-terms/'
+    Process payments using payment instrument such as credit card. See [Payments
+    Overview](/api-docs/payments/payments-api-overview) for more information.
+  termsOfService: ''
 host: payments.bigcommerce.com
 basePath: '/stores/{store_hash}'
 schemes:

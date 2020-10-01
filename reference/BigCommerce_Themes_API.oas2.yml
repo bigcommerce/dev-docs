@@ -3,35 +3,13 @@ info:
   title: Themes
   version: '3.0'
   description: >-
+    Backup, restore, download, and activate themes; and, get the status of theme
+    jobs and read theme configurations.
+
+
     - [OAuth Scopes](#oauth-scopes)
 
     - [Authentication](#authentication)
-
-
-    With BigCommerce's V3 REST API Theme endpoints, developers can:
-
-    * backup themes
-
-    * restore themes
-
-    * download themes
-
-    * activate themes
-
-    * get status of theme jobs
-
-    * read theme configurations
-
-
-    ## OAuth Scopes
-
-    | UI Name                                      | Permission |
-    Parameter                                     |
-
-    |----------------------------------------------|------------|-----------------------------------------------|
-
-    | Themes                                       | modify     |
-    `store_themes_manage`                         |
 
 
     For more information on OAuth Scopes, see:
@@ -60,19 +38,15 @@ info:
     ```
 
 
-    |Header|Parameter|Description|
+    ### OAuth Scopes
 
-    |-|-|-|
+    | UI Name                                      | Permission |
+    Parameter                                     |
 
-    |`X-Auth-Client`|`client_id`|Obtained by creating an API account or
-    installing an app in a BigCommerce control panel.|
+    |----------------------------------------------|------------|-----------------------------------------------|
 
-    |`X-Auth-Token`|`access_token `|Obtained by creating an API account or
-    installing an app in a BigCommerce control panel.|
-
-
-    For more information on Authenticating BigCommerce APIs, see:
-    [Authentication](https://developer.bigcommerce.com/api-docs/getting-started/authentication).
+    | Themes                                       | modify     |
+    `store_themes_manage`                         |
   termsOfService: ''
   license:
     name: ''

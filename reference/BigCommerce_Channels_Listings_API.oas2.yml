@@ -3,47 +3,47 @@ info:
   version: '3.0'
   title: Channels
   description: >-
+    Create and manage sales
+    [channels](https://developer.bigcommerce.com/api-docs/channels/overview),
+    their sites, and their [product
+    listings](https://developer.bigcommerce.com/api-reference/cart-checkout/channels-listings-api).
 
-    - [OAuth Scopes](#oauth-scopes)
 
     - [Authentication](#authentication)
 
-    - [Available Endpoints](#available-endpoints)
+    - [Channels](#channels)
 
-    - [Usage Notes](#usage-notes)
+    - [Channel Listings](#channel-listings)
+
+    - [Channel Site](#channel-site)
 
     - [Resources](#resources)
 
 
-    Create and manage product listings for multiple storefronts and sales
-    channels.
+    ## Authentication
 
 
-    **Deprecation notice:**
-
-    <br>
-
-    As of April 2020, the new `status` property should be used instead of the
-    `is_enabled` property. The `is_enabled` property will be deprecated.
+    Authenticate requests by including an
+    [OAuth](https://developer.bigcommerce.com/api-docs/getting-started/authentication)
+    `access_token` and `client_id` in the request headers.
 
 
-    The `status` property should be used as follows based on channel `type` and
-    `platform`:
+    ```http
+
+    GET https://api.bigcommerce.com/stores/{{STORE_HASH}}/v3/channels
+
+    Content-Type: application/json
+
+    X-Auth-Client: {{CLIENT_ID}}
+
+    X-Auth-Token: {{ACCESS_TOKEN}}
+
+    ```
 
 
-    |Type|Platform|Status
+    ### [OAuth
+    Scopes](https://developer.bigcommerce.com/api-docs/getting-started/authentication/rest-api-authentication#oauth-scopes)
 
-    |--|--|--|
-
-    |`storefront`|`bigcommerce`|`active`, `inactive`, `archived`|
-
-    |`storefront`|**Is not** `bigcommerce` |`active`, `inactive`,
-    `disconnected`|
-
-    |`marketing`, `marketplace`, `pos`|N/A|`connected`, `disconnected`|
-
-
-    ## OAuth Scopes
 
     | UI Name                                      | Permission |
     Parameter                                     |
@@ -63,98 +63,119 @@ info:
     `store_channel_settings_read_only`            |
 
 
-    For more information on OAuth Scopes, see:
-    [Authentication](https://developer.bigcommerce.com/api-docs/getting-started/authentication).
+    ##
+    [Channels](https://developer.bigcommerce.com/api-reference/cart-checkout/channels-listings-api/channels)
 
 
-    ## Authentication
-
-
-    Requests can be authenticated by sending a `client_id` and `access_token`
-    via `X-Auth-Client` and `X-Auth-Token` HTTP headers:
-
-
-    ```http
-
-    GET /stores/{$$.env.store_hash}/v3/catalog/summary
-
-    host: api.bigcommerce.com
-
-    Accept: application/json
-
-    X-Auth-Client: {client_id}
-
-    X-Auth-Token: {access_token}
-
-    ```
-
-
-    |Header|Parameter|Description|
-
-    |-|-|-|
-
-    |`X-Auth-Client`|`client_id`|Obtained by creating an API account or
-    installing an app in a BigCommerce control panel.|
-
-    |`X-Auth-Token`|`access_token `|Obtained by creating an API account or
-    installing an app in a BigCommerce control panel.|
-
-
-    For more information on Authenticating BigCommerce APIs, see:
-    [Authentication](https://developer.bigcommerce.com/api-docs/getting-started/authentication).
-
-
-    ## Available Endpoints
-
-    | Resource / Endpoint                     |
-    Description                                                              |
-
-    |-----------------------------------------|--------------------------------------------------------------------------|
-
-    | Channels                                | Create and manage catalog
-    listings and channels                          |
-
-    | Channel Site                            | Manage sites and routing for
-    headless storefronts                        |
-
-    | Channel Listings                        | Manage catalog differences among
-    different storefronts or marketplaces   |
-
-
-    ## Usage Notes
-
-
-    **Channels and Channel Listings:**
-
-    * A channel is anywhere a merchant sells their products. This encompasses
+    A channel is anywhere a merchant sells their products. This encompasses
     headless storefronts, marketplaces, POS systems, and marketing platforms.
 
-    * Channel listings allow you to manage catalog differences among different
+
+    ### Platform
+
+
+    A channel's `type` and `platform` combination must be a valid pair as
+    indicated in the table below.
+
+
+    | Platform          | Accepted Type             |
+
+    |-------------------|---------------------------|
+
+    | `square `         | `pos`                     |
+
+    | `vend`            | `pos`                     |
+
+    | `clover`          | `pos`                     |
+
+    | `facebook`        | `marketplace`,`marketing` |
+
+    | `amazon`          | `marketplace`             |
+
+    | `ebay`            | `marketplace`             |
+
+    | `wordpress`       | `storefront`              |
+
+    | `drupal`          | `storefont`               |
+
+    | `acquia`          | `storefront`              |
+
+    | `bloomreach`      | `storefront`              |
+
+    | `deity`           | `storefront`              |
+
+    | `google_shopping` | `marketing`               |
+
+    | `custom`          | `storefront`, `pos`, `marketing`, `marketplace` |
+
+
+    ### Status
+
+
+    Allowed values for a channel's `status` vary by channel `type` and
+    `platform`.
+
+
+    |Type|Platform|Allowed Statuses|
+
+    |--|--|--|
+
+    |`storefront`|`bigcommerce`|`active`, `inactive`, `archived`|
+
+    |`storefront`|**Is not** `bigcommerce` |`active`, `inactive`, `disconnected`
+
+    |`marketing`, `marketplace`, `pos`|N/A|`connected`, `disconnected`|
+
+
+    <div class="HubBlock--callout">
+
+    <div class="CalloutBlock--warning">
+
+    <div class="HubBlock-content">
+
+
+    > ### Note
+
+    > * As of April 2020, `status`  should be used in place of `is_enabled` --
+    `is_enabled` will be deprecated.
+
+
+    </div>
+
+    </div>
+
+    </div>
+
+
+    ## [Channel
+    Listings](https://developer.bigcommerce.com/api-reference/cart-checkout/channels-listings-api/channel-listings)
+
+
+    Channel listings allow you to manage catalog differences among different
     storefronts or marketplaces.
 
 
-    **Sites and Site Routes:**
+    ## [Channel
+    Site](https://developer.bigcommerce.com/api-reference/cart-checkout/channels-listings-api/channel-site)
 
-    * Sites and routes control the paths that make up a headless storefront
 
-    * Site refers to the domain associated with a channel
-
-    * Routes point to the URLs for key pages on the headless storefront. They
-    define where your homepage is, where your cart page is, etc.
-
-    * Sites and routes ensure links point where they’re supposed to and sales
-    are attributed correctly. For example, a shopper’s order confirmation email
-    should link back to Storefront A, where they placed their order, not
-    Storefront B, which they’ve never visited.
+    A site refers to the domain associated with a channel.
 
 
     ## Resources
 
 
-    ### Related Endpoints
+    * [Sites and Routes API
+    Reference](https://developer.bigcommerce.com/api-reference/cart-checkout/sites-routes-api)
 
-    *
-    [Sites](https://developer.bigcommerce.com/api-reference/cart-checkout/sites-routes-api)
+    * [Building Channels
+    Overview](https://developer.bigcommerce.com/api-docs/channels/overview)
+
+    * [Building Channel
+    Apps](https://developer.bigcommerce.com/api-docs/channels/building-channel-apps)
+
+    * [Channels Toolkit
+    Reference](https://developer.bigcommerce.com/api-docs/channels/channels-toolkit-reference)
 host: api.bigcommerce.com
 tags:
   - name: ''
@@ -292,55 +313,13 @@ paths:
                 platform: error.path.missing
         '500':
           $ref: '#/responses/error_Resp'
-      description: >-
+      description: |-
         Creates a *Channel*.
 
-
-        **Required Fields**
-
-        * `type`
-
-        * `platform`
-
-        * `name`
-
-
-        **Usage Notes**
-
-
-        Type & platform combination must be a valid pair:
-
-
-        | Platform          | Accepted Type             |
-
-        |-------------------|---------------------------|
-
-        | `square `         | `pos`                     |
-
-        | `vend`            | `pos`                     |
-
-        | `clover`          | `pos`                     |
-
-        | `facebook`        | `marketplace`,`marketing` |
-
-        | `amazon`          | `marketplace`             |
-
-        | `ebay`            | `marketplace`             |
-
-        | `wordpress`       | `storefront`              |
-
-        | `drupal`          | `storefont`               |
-
-        | `acquia`          | `storefront`              |
-
-        | `bloomreach`      | `storefront`              |
-
-        | `deity`           | `storefront`              |
-
-        | `google_shopping` | `marketing`               |
-
-        | `custom`          | `storefront`, `pos`, `marketing`,
-        `marketplace`             |
+        - [Authorization](#authorization)
+        - [Request Body](#request-body)
+        - [Responses](#responses)
+        - [Send a Test Request](#send-a-test-request)
   '/channels/{channel_id}':
     parameters:
       - name: channel_id
@@ -375,8 +354,22 @@ paths:
             $ref: '#/definitions/channel_Put'
           x-examples:
             application/json:
-              status: disconnected
-              name: Old Wordpress Channel
+              name: My Store - US
+              external_id: '002'
+              is_enabled: true
+              status: connected
+              is_listable_from_ui: true
+              is_visible: true
+              config_meta:
+                app:
+                  id: 24483
+                  sections:
+                    - title: Overview
+                      query_path: overview
+                    - title: Import
+                      query_path: import
+                    - title: Settings
+                      query_path: settings
       responses:
         '200':
           description: ''
@@ -442,13 +435,26 @@ paths:
           schema:
             $ref: '#/definitions/error'
       description: >-
-        Updates a *Channel*. Partial updates are supported. Currently, if a
-        field that *cannot* be updated is passed in, the API **will not**
-        respond with an error. It returns a 200 response with the object, in
-        which you will see the field(s) were not updated
+        Updates a *Channel*.
 
 
-        **Fields that can be updated**
+        - [Updatable Fields](updatedeable-fields)
+
+        - [Authorization](#authorization)
+
+        - [Request Parameters](#request-parameters)
+
+        - [Request Body](#request-body)
+
+        - [Responses](#responses)
+
+        - [Send a Test Request](#send-a-test-request)
+
+
+        ## Updatable Fields
+
+
+        The following fields can be updated.
 
         * `name`
 
@@ -461,6 +467,12 @@ paths:
         * `is_visible`
 
         * `config_meta`
+
+
+        Partial updates are supported. Currently, if a field that *cannot* be
+        updated is passed in, the API **will not** respond with an error. It
+        returns a 200 response with the object, in which you will see the
+        field(s) were not updated.
   '/channels/{channel_id}/listings':
     get:
       summary: Get Channel Listings
@@ -748,151 +760,39 @@ definitions:
     title: pagination_Full
   channel_Post:
     title: channel_Post
-    type: object
-    properties:
-      type:
-        type: string
-        enum:
-          - pos
-          - marketplace
-          - storefront
-          - marketing
-      name:
-        type: string
-        description: Name of the channel as it will appear to merchants in BC
-      external_id:
-        type: string
-        description: 'Associated ID within a system / platform outside of BC. '
-      is_enabled:
-        type: boolean
-        description: >-
-          SUNSET: Determines whether the channel is enabled on a store. In order
-          to disable a channel, set is_enabled to false.
-
-
-          This results in the channel not showing in the 'Products' section of
-          the BC control panel.
-        default: true
-      platform:
-        type: string
-        enum:
-          - amazon
-          - facebook
-          - google_shopping
-          - vend
-          - square
-          - clover
-          - wordpress
-          - acquia
-          - deity
-          - ebay
-          - drupal
-          - bloomreach
-          - custom
-      status:
-        type: string
-        enum:
-          - active
-          - inactive
-          - connected
-          - disconnected
-          - archived
-    required:
-      - type
-      - name
+    allOf:
+      - $ref: '#/definitions/channel_Base'
+      - type: object
+        properties:
+          type:
+            $ref: '#/definitions/channelType'
+          platform:
+            $ref: '#/definitions/channelPlatform'
+        required:
+          - type
+          - platform
   channel_Put:
     title: channel_Put
-    type: object
-    properties:
-      name:
-        type: string
-        description: Name of the channel as it will appear to merchants in BC
-      external_id:
-        type: string
-        description: 'Associated ID within a system / platform outside of BC. '
-      is_enabled:
-        type: boolean
-        description: >-
-          SUNSET: Determines whether the channel is enabled on a store. In order
-          to disable a channel, set is_enabled to false.
-
-
-          This results in the channel not showing in the 'Products' section of
-          the BC control panel.
-        default: true
-      status:
-        type: string
-        enum:
-          - active
-          - inactive
-          - connected
-          - disconnected
-          - archived
-    required:
-      - status
+    allOf:
+      - $ref: '#/definitions/channel_Base'
   channel_Full:
     title: channel_Full
-    type: object
-    properties:
-      id:
-        type: integer
-        format: int32
-        description: 'ID of the channel, as returned by BC'
-      type:
-        type: string
-        enum:
-          - pos
-          - marketplace
-          - storefront
-          - marketing
-        description: 'The type of channel that is being created, updated, or fetched'
-      platform:
-        type: string
-        description: >-
-          The name of the platform for the channel. Must be used with a valid
-          platform combination
-        enum:
-          - wordpress
-          - square
-          - drupal
-          - acquia
-          - bloomreach
-          - deity
-          - amazon
-          - facebook
-          - ebay
-          - google_shopping
-          - vend
-          - clover
-          - custom
-      name:
-        type: string
-        description: Name of the channel as it will appear to merchants in BC
-      date_created:
-        type: string
-      date_modified:
-        type: string
-      external_id:
-        type: string
-        description: Associated ID within a system / platform outside of BC for the channel
-      is_enabled:
-        type: boolean
-        description: >-
-          Determines whether the channel is enabled on a store. In order to
-          disable a channel, set is_enabled to false.
-
-
-          This results in the channel not showing in the 'Products' section of
-          the BC control panel.
-        default: true
-      status:
-        type: string
-        enum:
-          - active
-          - inactive
-          - connected
-          - disconnected
-          - archived
+    allOf:
+      - type: object
+        properties:
+          id:
+            type: integer
+            format: int32
+            description: 'ID of the channel, as returned by BC'
+          type:
+            $ref: '#/definitions/channelType'
+          platform:
+            $ref: '#/definitions/channelPlatform'
+          date_created:
+            type: string
+          date_modified:
+            type: string
+      - $ref: '#/definitions/channel_Post'
   listing_Put:
     title: listing_Put
     type: object
@@ -1274,6 +1174,113 @@ definitions:
         type: object
         additionalProperties:
           type: string
+  channelConfigMeta_Full:
+    type: object
+    properties:
+      app:
+        type: object
+        description: >-
+          A [channel
+          app](https://developer.bigcommerce.com/api-docs/channels/overview#channel-apps)
+          config object for optionally configuring the channel's user interface
+          in the control panel. 
+        properties:
+          id:
+            type: integer
+            description: >-
+              The unique `id` given to an app registered in
+              [DevTools](https://devtools.bigcommerce.com/); used to create
+              links to the app in channel manager. [Learn how to find an App's
+              ID](https://developer.bigcommerce.com/api-docs/apps/tutorials/id).
+          sections:
+            type: array
+            description: >-
+              if set, when the app is loaded within the control panel, the
+              navigation `sections` will be directly embedded in the control
+              panel navigation.
+            items:
+              type: object
+              properties:
+                title:
+                  type: string
+                  description: The title of the navigation section.
+                  example: '"Settings"'
+                query_path:
+                  type: string
+                  description: >-
+                    The value that will be passed to the app's iFrame in the URL
+                    and will allow the app to display the appropriate section
+                    within the app iFrame in the control panel.
+        required:
+          - id
+    description: Optional channel configuration object.
+  channel_Base:
+    title: channel_Base
+    type: object
+    properties:
+      config_meta:
+        $ref: '#/definitions/channelConfigMeta_Full'
+      external_id:
+        type: string
+        description: 'Associated ID within a system / platform outside of BC. '
+      is_listable_from_ui:
+        type: boolean
+      is_visible:
+        type: string
+      name:
+        type: string
+        description: >-
+          Name of the channel as it will appear to merchants in the control
+          panel; required in `POST` requests.
+      status:
+        $ref: '#/definitions/channelStatus'
+    required:
+      - name
+  channelStatus:
+    type: string
+    title: channelStatus
+    enum:
+      - active
+      - inactive
+      - connected
+      - disconnected
+      - archived
+    description: >-
+      The status of the channel; channel `platform` and `status` must be a
+      [valid
+      combination](https://developer.bigcommerce.com/api-reference/cart-checkout/channels-listings-api#status).
+  channelType:
+    type: string
+    enum:
+      - pos
+      - marketplace
+      - storefront
+      - marketing
+    description: >-
+      The type of channel; channel `platform` and `type` must be a [valid
+      combination](https://developer.bigcommerce.com/api-reference/cart-checkout/channels-listings-api#platform).
+    title: channelType
+  channelPlatform:
+    type: string
+    description: >-
+      The name of the platform for the channel; channel `platform` and `type`
+      must be a [valid
+      combination](https://developer.bigcommerce.com/api-reference/cart-checkout/channels-listings-api#platform).
+    enum:
+      - wordpress
+      - square
+      - drupal
+      - acquia
+      - bloomreach
+      - deity
+      - amazon
+      - facebook
+      - ebay
+      - google_shopping
+      - vend
+      - clover
+      - custom
+    title: channelPlatform
 parameters:
   AfterParam:
     name: after
@@ -1532,6 +1539,47 @@ responses:
           $ref: '#/definitions/listing_Full'
         meta:
           $ref: '#/definitions/_meta'
+    examples:
+      application/json:
+        data:
+          channel_id: 76953441
+          listing_id: -41642934
+          external_id: voluptate Ut aliquip id non
+          product_id: -10442488
+          name: consequat sunt in
+          description: esse ut
+          state: pending
+          date_created: '1983-02-18T22:15:06.619Z'
+          date_modified: '1968-11-21T09:39:57.067Z'
+          variants:
+            - channel_id: 47820013
+              product_id: 20462375
+              variant_id: 57410296
+              external_id: dolor nulla ipsum
+              name: cillum laborum
+              description: ad pariatur quis sit
+              state: deleted
+              date_created: '2017-05-29T10:17:39.098Z'
+              date_modified: '1977-09-05T16:23:58.812Z'
+            - channel_id: 19713462
+              product_id: 19463120
+              variant_id: 29707671
+              external_id: ullamco ipsum veniam
+              name: ullamco
+              description: ex id ut pariatur nulla
+              state: active
+              date_created: '1947-09-19T12:51:47.853Z'
+              date_modified: '1970-04-26T02:18:59.359Z'
+            - channel_id: 35515643
+              product_id: 77549222
+              variant_id: 35862420
+              external_id: aliqua culpa
+              name: enim anim
+              description: incididunt
+              state: error
+              date_created: '1941-04-19T21:53:38.279Z'
+              date_modified: '1954-12-07T16:08:06.950Z'
+        meta: {}
   listing_Resp_Collection:
     description: ''
     schema:

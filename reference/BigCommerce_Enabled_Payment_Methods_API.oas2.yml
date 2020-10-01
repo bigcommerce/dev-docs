@@ -1,12 +1,47 @@
 swagger: '2.0'
 info:
-  version: '2.0'
+  version: ''
   title: Payment Methods
   description: >-
-    Returns a list of all enabled *Payment Methods* on a store.
+    Get a list of a store's enabled payment methods. For processing payments,
+    see [Payment Processing API](/api-docs/payments/payments-api-overview).
 
-    If you are trying to process payment for an order see [Payments
-    API](/api-docs/payments/payments-api-overview).
+
+    - [Authentication](#authentication)
+
+    - [Subresources](#subresources)
+
+    - [Additional Resources](#additional-resources)
+
+
+    ## Authentication
+
+
+    Authenticate requests by including an
+    [OAuth](https://developer.bigcommerce.com/api-docs/getting-started/authentication)
+    `access_token` and `client_id` in the request headers.
+
+
+    ```http
+
+    GET https://api.bigcommerce.com/stores/{{STORE_HASH}}/v2/{{ENDPOINT}}
+
+    Content-Type: application/json
+
+    X-Auth-Client: {{CLIENT_ID}}
+
+    X-Auth-Token: {{ACCESS_TOKEN}}
+
+    ```
+
+
+    ### OAuth Scopes
+
+    |  **UI Name** | **Permission** | **Parameter** |
+
+    | --- | --- | --- |
+
+    |  Get Payment Methods | read-only | `store_payments_methods_read` |
   termsOfService: ''
   license:
     name: ''

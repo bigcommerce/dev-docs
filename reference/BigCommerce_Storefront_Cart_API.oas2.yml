@@ -2,32 +2,8 @@ swagger: '2.0'
 info:
   title: Storefront Carts
   description: >-
-    ### Cart
-
-    The Storefront Cart does not use API Tokens and allows for cart data to be
-    scraped directly from the front end or used in a Stencil Theme.
-
-
-    See [Best
-    Practices](https://developer.bigcommerce.com/api-docs/getting-started/best-practices)
-    to learn about properly querying this resource.
-
-
-    Notes:
-
-    - The Try It Now at each endpoint will not work. Please see [Cart and
-    Checkout](/api-docs/cart-and-checkout/cart-and-checkout-overview) for a
-    script that can be used to get Cart details.
-
-    - cartId is the same as the checkoutId.
-
-    - Carts are valid for 30 days after the last modification. A modification
-    includes the initial cart creation or editing the existing cart.
-
-    - Redirect URLs can be generated only from carts created using the
-    server-to-server cart API. To restore a cart that was created on the
-    storefront--either by a shopper or the Storefront Cart API--first recreate
-    the cart using the server-to-server Cart API.
+    Manage cart operations and data via front-end JavaScript on BigCommerce
+    stencil powered storefronts.
   version: '1.0'
 consumes:
   - application/json

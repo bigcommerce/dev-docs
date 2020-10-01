@@ -1,9 +1,12 @@
 swagger: '2.0'
 info:
-  version: '2.0'
+  version: ''
   title: Customers V2
   description: >-
-    - [OAuth Scopes](#oauth-scopes)
+    Create and Manage Customers, Customer Addresses, and Customer Groups.
+    Additionally, validate customer passwords. To learn more about Customers see
+    [here](/api-docs/customers/customers-subscribers-overview). 
+
 
     - [Authentication](#authentication)
 
@@ -12,32 +15,6 @@ info:
     - [Usage Notes](#usage-notes)
 
     - [Resources](#resources)
-
-
-    Create and Manage Customers, Customer Addresses, and Customer Groups.
-    Additionally, validate customer passwords.
-
-
-    To learn more about Customers see
-    [here](/api-docs/customers/customers-subscribers-overview). 
-
-
-    ## OAuth Scopes
-
-    | UI Name                                      | Permission |
-    Parameter                                     |
-
-    |----------------------------------------------|------------|-----------------------------------------------|
-
-    | Customers                                    | modify     |
-    `store_v2_customers`                          |
-
-    | Customers                                    | read-only  |
-    `store_v2_customers_read_only`                |
-
-
-    For more information on OAuth Scopes, see:
-    [Authentication](https://developer.bigcommerce.com/api-docs/getting-started/authentication).
 
 
     ## Authentication
@@ -71,6 +48,20 @@ info:
 
     |`X-Auth-Token`|`access_token `|Obtained by creating an API account or
     installing an app in a BigCommerce control panel.|
+
+
+    ### OAuth Scopes
+
+    | UI Name                                      | Permission |
+    Parameter                                     |
+
+    |----------------------------------------------|------------|-----------------------------------------------|
+
+    | Customers                                    | modify     |
+    `store_v2_customers`                          |
+
+    | Customers                                    | read-only  |
+    `store_v2_customers_read_only`                |
 
 
     For more information on Authenticating BigCommerce APIs, see:

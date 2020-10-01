@@ -1,34 +1,30 @@
 swagger: '2.0'
 info:
-  version: '2.0'
+  version: ''
   title: Content
   description: >-
-    Store Content APIs help merchants edit and publish blog posts and Web pages,
-    improve SEO, and drive traffic to stores. They include Blog Posts, Blog
-    Tags, Redirects, and Pages.
+    Manage blog posts, blog tags, content pages, and redirects.
 
 
-    ### Blog Posts
+    <div class="HubBlock--callout">
 
-    A content entry in the store’s blog.
+    <div class="CalloutBlock--warning">
 
-
-    ### Blog Tags
-
-    Index of tags used on the store’s blog.
+    <div class="HubBlock-content">
 
 
-    ### Pages
+    ### Note
 
-    A static Web page on the storefront.
+    * V2 Redirects are deprecated; we recommend using [V3
+    Redirects](https://developer.bigcommerce.com/api-reference/storefront/redirects/redirects/getredirects)
+    instead.
 
 
-    ### Redirects
+    </div>
 
-    A 301 redirect, mapping from a given URL path to another URL. Redirects are
-    used to create custom URL paths that map to resources on the storefront
-    (such as products, categories, brands, etc.), or to manually defined static
-    URLs.
+    </div>
+
+    </div>
 host: api.bigcommerce.com
 basePath: '/stores/{$$.env.store_hash}/v2'
 schemes:
@@ -1504,9 +1500,29 @@ paths:
         Returns a list all *Redirect URLs*. 
 
 
-        Use the [v3 redirects
-        API](https://developer.bigcommerce.com/api-reference/storefront/redirects/redirects/getredirects)
+        <div class="HubBlock--callout">
+
+        <div class="CalloutBlock--warning">
+
+        <div class="HubBlock-content">
+
+
+        ### **Deprecated**
+
+
+        Avoid using this API operation if possible. It will be removed in a
+        future version.
+
+
+        For the most up-to-date version of this API, see  [Get Redirects
+        v3](https://developer.bigcommerce.com/api-reference/storefront/redirects/redirects/getredirects)
         to manage redirects URLs.
+
+        </div>
+
+        </div>
+
+        </div>
       summary: Get All Redirects
       tags:
         - Redirects
@@ -1555,7 +1571,6 @@ paths:
                   http://store-url.mybigcommerce.com/towels/bath-towels/hand-towels/
             Response Schema: ''
       operationId: getAListofRedirects
-      deprecated: true
     post:
       description: >-
         Creates a *Redirect URL*.
@@ -1573,9 +1588,30 @@ paths:
         *   url
 
 
-        Use the [v3 redirects
-        API](https://developer.bigcommerce.com/api-reference/storefront/redirects/redirects/upsertredirects)
+        <div class="HubBlock--callout">
+
+        <div class="CalloutBlock--warning">
+
+        <div class="HubBlock-content">
+
+
+        ### **Deprecated**
+
+
+        Avoid using this API operation if possible. It will be removed in a
+        future version.
+
+
+        For the most up-to-date version of this API, see [Upsert Redirects
+        v3](https://developer.bigcommerce.com/api-reference/storefront/redirects/redirects/upsertredirects)
         to upsert new redirect data.
+
+
+        </div>
+
+        </div>
+
+        </div>
       summary: Create a Redirect
       tags:
         - Redirects
@@ -1618,15 +1654,8 @@ paths:
                 ref: 3
               url: 'http://store.example.com/mens'
       operationId: createARedirect
-      deprecated: true
     delete:
-      description: >-
-        By default, it deletes all *Redirect URLs* in a store. 
-
-
-        Use the [v3 redirects
-        API](https://developer.bigcommerce.com/api-reference/storefront/redirects/redirects/deleteredirects)
-        to delete redirects URLs.
+      description: "By default, it deletes all *Redirect URLs* in a store. \n\n<div class=\"HubBlock--callout\">\n<div class=\"CalloutBlock--warning\">\n<div class=\"HubBlock-content\">\n\n### **Deprecated**\n\nAvoid using this API operation if possible. It will be removed in a future version.\n\nFor the most up-to-date version of this API, see [Delete Redirects v3](https://developer.bigcommerce.com/api-reference/storefront/redirects/redirects/deleteredirects) to delete redirects URLs.\n\t\n</div>\n</div>\n</div>"
       summary: Delete All Redirects
       tags:
         - Redirects
@@ -1647,16 +1676,37 @@ paths:
         '204':
           description: ''
       operationId: deleteAllRedirects
-      deprecated: true
   '/redirects/{id}':
     get:
-      description: >-
+      description: >+
         Returns a single *Redirect URL*.
 
 
-        Use the [v3 redirects
-        API](https://developer.bigcommerce.com/api-reference/storefront/redirects/redirects/getredirects)
+        <div class="HubBlock--callout">
+
+        <div class="CalloutBlock--warning">
+
+        <div class="HubBlock-content">
+
+
+        ### **Deprecated**
+
+
+        Avoid using this API operation if possible. It will be removed in a
+        future version.
+
+
+        For the most up-to-date version of this API, see [Get Redirects
+        v3](https://developer.bigcommerce.com/api-reference/storefront/redirects/redirects/getredirects)
         to get a redirect URL.
+
+
+        </div>
+
+        </div>
+
+        </div>
+
       summary: Get a Redirect
       tags:
         - Redirects
@@ -1695,9 +1745,8 @@ paths:
               url: >-
                 http://store-url.mybigcommerce.com/towels/bath-towels/hand-towels/
       operationId: getARedirectURL
-      deprecated: true
     put:
-      description: >-
+      description: >
         Updates a *Redirect URL*.
 
 
@@ -1713,9 +1762,30 @@ paths:
         *   url
 
 
-        Use the [v3 redirects
-        API](https://developer.bigcommerce.com/api-reference/storefront/redirects/redirects/upsertredirects)
+        <div class="HubBlock--callout">
+
+        <div class="CalloutBlock--warning">
+
+        <div class="HubBlock-content">
+
+
+        ### **Deprecated**
+
+
+        Avoid using this API operation if possible. It will be removed in a
+        future version.
+
+
+        For the most up-to-date version of this API, see [Upsert Redirects
+        v3](https://developer.bigcommerce.com/api-reference/storefront/redirects/redirects/upsertredirects)
         to update redirect data.
+
+
+        </div>
+
+        </div>
+
+        </div>
       summary: Update a Redirect
       tags:
         - Redirects
@@ -1807,9 +1877,8 @@ paths:
               url: >-
                 http://store-url.mybigcommerce.com/towels/bath-towels/hand-towels/
       operationId: updateARedirectURL
-      deprecated: true
     delete:
-      description: Deletes a *Redirect URL*.
+      description: "Deletes a *Redirect URL*.\n\n<div class=\"HubBlock--callout\">\n<div class=\"CalloutBlock--warning\">\n<div class=\"HubBlock-content\">\n\n### **Deprecated**\n\nAvoid using this API operation if possible. It will be removed in a future version.\n\nFor the most up-to-date version of this API, see [Delete Redirects v3](https://developer.bigcommerce.com/api-reference/storefront/redirects/redirects/deleteredirects) to delete a redirect URL.\n\t\n</div>\n</div>\n</div>"
       summary: Delete a Redirect
       tags:
         - Redirects
@@ -1837,7 +1906,6 @@ paths:
         '204':
           description: ''
       operationId: deleteARedirect
-      deprecated: true
     parameters:
       - name: id
         in: path
@@ -1845,7 +1913,33 @@ paths:
         required: true
   /redirects/count:
     get:
-      description: Gets a count of *Redirect URLs* in a store.
+      description: >-
+        Gets a count of *Redirect URLs* in a store.
+
+
+        <div class="HubBlock--callout">
+
+        <div class="CalloutBlock--warning">
+
+        <div class="HubBlock-content">
+
+
+        ### **Deprecated**
+
+
+        Avoid using this API operation if possible. It will be removed in a
+        future version.
+
+
+        For the most up-to-date version of this API, see  [Get Redirects
+        v3](https://developer.bigcommerce.com/api-reference/storefront/redirects/redirects/getredirects)
+        to get a count of redirects.
+
+        </div>
+
+        </div>
+
+        </div>
       summary: Get a Count of Redirects
       tags:
         - Redirects
@@ -1871,7 +1965,6 @@ paths:
             application/json:
               count: 27
       operationId: getACountOfRedirects
-      deprecated: true
 definitions:
   blogPost_Full:
     title: blogPost_Full

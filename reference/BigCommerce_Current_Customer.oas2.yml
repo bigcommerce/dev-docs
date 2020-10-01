@@ -1,37 +1,13 @@
 swagger: '2.0'
 info:
   title: Current Customer
-  version: '1.0'
+  version: ''
   description: >-
-    If your application interacts dynamically with the BigCommerce storefront,
-    and conveys information that is specific to a particular logged-in customer,
-    you must confirm that customer’s identity within the insecure environment of
-    the user’s browser.
+    Identify logged-in customers securely via JavaScript.
 
 
-    To address this need, BigCommerce provides a Current Customer endpoint,
-    which your app can access via JavaScript on the storefront. This endpoint
-    returns a JWT with identifying details about the customer. The information
-    is signed with your [OAuth client
-    secret](https://developer.bigcommerce.com/api-docs/getting-started/authentication).
-
-
-    **Note:**
-
-    - An App Client ID is required in requests to `/customer/current.jwt`.
-
-    - To generate an App Client ID, create an app in the [BigCommerce Developer
-    Portal](https://login.bigcommerce.com/login).
-
-    - Use the app’s secret to validate the signature on the JWT.
-
-    - The app doesn’t need to be installed or published on a store to use the
-    client ID to get the JWT.
-
-
-    For more information, see the [Current Customer
-    API](https://developer.bigcommerce.com/api-docs/customers/current-customer-api)
-    page.
+    [Learn more about the current customer
+    API](https://developer.bigcommerce.com/api-docs/customers/current-customer-api).
 host: '{$$.env.store_domain}'
 paths:
   /customer/current.jwt:

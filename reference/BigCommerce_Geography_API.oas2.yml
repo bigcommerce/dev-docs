@@ -1,91 +1,44 @@
 swagger: '2.0'
 info:
-  version: '2.0'
+  version: ''
   title: Geography
   description: >-
+    Get countries, states, and provinces.
 
-    - [OAuth Scopes](#oauth-scopes)
 
     - [Authentication](#authentication)
-
-    - [Available Endpoints](#available-endpoints)
-
-
-    Introduction
-
-
-    ## OAuth Scopes
-
-    | UI Name                                      | Permission |
-    Parameter                                     |
-
-    |----------------------------------------------|------------|-----------------------------------------------|
-
-    | Information & Settings                       | modify     |
-    `store_v2_information`                        |
-
-    | Information & Settings                       | read-only  |
-    `store_v2_information_read_only`              |
-
-
-    For more information on OAuth Scopes, see:
-    [Authentication](https://developer.bigcommerce.com/api-docs/getting-started/authentication).
 
 
     ## Authentication
 
 
-    Requests can be authenticated by sending a `client_id` and `access_token`
-    via `X-Auth-Client` and `X-Auth-Token` HTTP headers:
+    Authenticate requests by including an
+    [OAuth](https://developer.bigcommerce.com/api-docs/getting-started/authentication)
+    `access_token` and `client_id` in the request headers.
 
 
     ```http
 
-    GET /stores/{$$.env.store_hash}/v3/catalog/summary
+    GET https://api.bigcommerce.com/stores/{{STORE_HASH}}/v3/{{ENDPOINT}}
 
-    host: api.bigcommerce.com
+    Content-Type: application/json
 
-    Accept: application/json
+    X-Auth-Client: {{CLIENT_ID}}
 
-    X-Auth-Client: {client_id}
-
-    X-Auth-Token: {access_token}
+    X-Auth-Token: {{ACCESS_TOKEN}}
 
     ```
 
 
-    |Header|Parameter|Description|
+    ### OAuth Scopes
 
-    |-|-|-|
+    |  **UI Name** | **Permission** | **Parameter** |
 
-    |`X-Auth-Client`|`client_id`|Obtained by creating an API account or
-    installing an app in a BigCommerce control panel.|
+    | --- | --- | --- |
 
-    |`X-Auth-Token`|`access_token `|Obtained by creating an API account or
-    installing an app in a BigCommerce control panel.|
+    |  Information & Settings | modify | `store_v2_information` |
 
-
-    For more information on Authenticating BigCommerce APIs, see:
-    [Authentication](https://developer.bigcommerce.com/api-docs/getting-started/authentication).
-
-
-    ## Available Endpoints
-
-    |
-    Resource                                                                                             
-    | Description                      |
-
-    |-------------------------------------------------------------------------------------------------------|----------------------------------------------------------------------------------------------------------------|
-
-    |
-    [Countries](https://developer.bigcommerce.com/api-reference/store-management/geography-api/countries)
-    | A country or territory, identifiable by an ISO 3166 country
-    code.                                              |
-
-    |
-    [States](https://developer.bigcommerce.com/api-reference/store-management/geography-api/states)      
-    | A state or province, identifiable by an [ISO
-    3166](https://en.wikipedia.org/wiki/ISO_3166-2) subdivision code. |
+    |  Information & Settings | read-only | `store_v2_information_read_only` |
 host: api.bigcommerce.com
 basePath: '/stores/{$$.env.store_hash}/v2'
 schemes:

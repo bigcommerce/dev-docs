@@ -1,21 +1,8 @@
 swagger: '2.0'
 info:
-  version: '2.0'
+  version: ''
   title: Store Information
-  description: >-
-    ### Store Information Reference
-
-    The Store Information object, and Get Store Information endpoint, manage
-    store profile settings.
-
-    A Store Information object represents an individual store’s profile and
-    metadata.
-
-
-    ### System Reference
-
-    The Get a Timestamp endpoint generates a timestamp ping to check the system
-    status.
+  description: 'Get Store Information endpoint, manage store profile settings.'
 host: api.bigcommerce.com
 basePath: '/stores/{$$.env.store_hash}/v2'
 schemes:

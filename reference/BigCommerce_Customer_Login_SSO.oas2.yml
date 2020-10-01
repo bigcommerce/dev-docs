@@ -1,7 +1,13 @@
 swagger: '2.0'
 info:
   title: Customer Login (SSO)
-  version: '1.0'
+  version: ''
+  description: >-
+    Enable single sign-on for shoppers on BigCommerce hosted storefronts.
+
+
+    [Learn more about the customer login
+    API](https://developer.bigcommerce.com/api-docs/customers/customer-login-api).
 host: '{$$.env.store_domain}'
 paths: {}
 definitions:

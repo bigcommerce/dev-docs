@@ -3,9 +3,8 @@ info:
   title: Widgets
   version: '3.0'
   description: >-
-    Widgets API allows developers to programatically inject content into a
-    BigCommerce theme. To learn how to use Widgets, see our [Widgets
-    Overview](/api-docs/storefront/widgets/widgets-overview).
+    Create and manage [widgets](/api-docs/storefront/widgets/widgets-overview),
+    widget templates, regions, and placements.
   termsOfService: ''
 host: api.bigcommerce.com
 basePath: '/stores/{$$.env.store_hash}/v3'

@@ -1,104 +1,129 @@
-{
-  "swagger": "2.0",
-  "info": {
-    "title": "Storefront Subscriptions",
-    "description": "Manage newsletter and marketing email subscriptions on the storefront.\n\n<div class=\"otp\" id=\"no-index\">\n\n**On This Page**\n- [Additional Information](#additional-information)\n\n</div>\n\n---\n\n## Additional Information\n\n* [Collecting Newsletter Subscriptions](https://support.bigcommerce.com/s/article/Collecting-Newsletter-Subscriptions) (support.bigcommerce.com)\n* [Customers Overview](https://developer.bigcommerce.com/api-docs/customers/customers-subscribers-overview)\n* [Working with Storefront APIs](https://developer.bigcommerce.com/api-docs/cart-and-checkout/working-sf-apis)",
-    "version": ""
-  },
-  "consumes": [],
-  "produces": [],
-  "paths": {
-    "/subscriptions": {
-      "post": {
-        "responses": {
-          "200": {
-            "description": "",
-            "schema": {
-              "$ref": "#/definitions/Subscription"
-            }
-          }
-        },
-        "description": "Creates or updates an email subscription.\n\n**Usage Notes:**\n* By default, customers receive abandoned cart emails as soon as they provide their email address in the checkout flow. They can opt out using this endpoint.\n* However, if **Store Settings > Miscellaneous > Require Consent** is enabled, Abandoned Cart Emails are not sent by default, and the customer should opt-in.",
-        "parameters": [
-          {
-            "in": "body",
-            "name": "body",
-            "schema": {
-              "$ref": "#/definitions/SubscriptionRequest"
-            }
-          }
-        ],
-        "summary": "Create Newsletter Subscription"
-      }
-    }
-  },
-  "definitions": {
-    "SubscriptionRequest": {
-      "type": "object",
-      "properties": {
-        "email": {
-          "type": "string",
-          "description": "Email of subscriber"
-        },
-        "acceptsMarketingNewsletter": {
-          "type": "boolean",
-          "description": "Has subscriber provided consent for receiving Marketing emails."
-        },
-        "acceptsAbandonedCartEmails": {
-          "type": "boolean",
-          "description": "Has subscriber provided consent for receiving Abandon Cart emails."
-        }
-      }
-    },
-    "Subscription": {
-      "type": "object",
-      "description": "Subscription properties.",
-      "properties": {
-        "id": {
-          "type": "integer",
-          "description": "The unique numeric ID of the subscriber; increments sequentially.\n"
-        },
-        "email": {
-          "type": "string",
-          "description": "The email of the subscriber. Must be unique.\n"
-        },
-        "firstName": {
-          "type": "string",
-          "description": "The first name of the subscriber.\n",
-          "minLength": 0,
-          "maxLength": 255
-        },
-        "lastName": {
-          "type": "string",
-          "description": "The last name of the subscriber.\n",
-          "minLength": 0,
-          "maxLength": 255
-        },
-        "source": {
-          "type": "string",
-          "description": "The source of the subscriber. Values are: `storefront`, `order`, or `custom`.\n",
-          "minLength": 0,
-          "maxLength": 255
-        },
-        "orderId": {
-          "type": "integer",
-          "description": "The ID of the source order, if source was an order.\n",
-          "x-nullable": true,
-          "minimum": 1,
-          "maximum": 2147483647
-        },
-        "consents": {
-          "type": "array",
-          "description": "The collection of consents the shopper is subscribing to.\n"
-        }
-      }
-    }
-  },
-  "x-stoplight": {
-    "docs": {
-      "includeDownloadLink": true,
-      "showModels": true
-    }
-  },
-  "host": "{$$.env.store_domain}"
-}
+swagger: '2.0'
+info:
+  title: Storefront Subscriptions
+  description: >-
+    Manage newsletter and marketing email subscriptions on the storefront.
+
+
+    <div class="otp" id="no-index">
+
+
+    **On This Page**
+
+    - [Additional Information](#additional-information)
+
+
+    </div>
+
+
+    ---
+
+
+    ## Additional Information
+
+
+    * [Collecting Newsletter
+    Subscriptions](https://support.bigcommerce.com/s/article/Collecting-Newsletter-Subscriptions)
+    (support.bigcommerce.com)
+
+    * [Customers
+    Overview](https://developer.bigcommerce.com/api-docs/customers/customers-subscribers-overview)
+
+    * [Working with Storefront
+    APIs](https://developer.bigcommerce.com/api-docs/cart-and-checkout/working-sf-apis)
+  version: ''
+consumes:
+  - application/json
+produces:
+  - application/json
+paths:
+  /subscriptions:
+    post:
+      responses:
+        '200':
+          description: ''
+          schema:
+            $ref: '#/definitions/Subscription'
+      description: >-
+        Creates or updates an email subscription.
+
+
+        **Usage Notes:**
+
+        * By default, customers receive abandoned cart emails as soon as they
+        provide their email address in the checkout flow. They can opt out using
+        this endpoint.
+
+        * However, if **Store Settings > Miscellaneous > Require Consent** is
+        enabled, Abandoned Cart Emails are not sent by default, and the customer
+        should opt-in.
+      parameters:
+        - in: body
+          name: body
+          schema:
+            $ref: '#/definitions/SubscriptionRequest'
+      summary: Create a Subscription
+      tags:
+        - Subscription
+definitions:
+  SubscriptionRequest:
+    type: object
+    properties:
+      email:
+        type: string
+        description: Email of subscriber
+      acceptsMarketingNewsletter:
+        type: boolean
+        description: Has subscriber provided consent for receiving Marketing emails.
+      acceptsAbandonedCartEmails:
+        type: boolean
+        description: Has subscriber provided consent for receiving Abandon Cart emails.
+  Subscription:
+    type: object
+    description: Subscription properties.
+    properties:
+      id:
+        type: integer
+        description: |
+          The unique numeric ID of the subscriber; increments sequentially.
+      email:
+        type: string
+        description: |
+          The email of the subscriber. Must be unique.
+      firstName:
+        type: string
+        description: |
+          The first name of the subscriber.
+        minLength: 0
+        maxLength: 255
+      lastName:
+        type: string
+        description: |
+          The last name of the subscriber.
+        minLength: 0
+        maxLength: 255
+      source:
+        type: string
+        description: >
+          The source of the subscriber. Values are: `storefront`, `order`, or
+          `custom`.
+        minLength: 0
+        maxLength: 255
+      orderId:
+        type: integer
+        description: |
+          The ID of the source order, if source was an order.
+        x-nullable: true
+        minimum: 1
+        maximum: 2147483647
+      consents:
+        type: array
+        description: |
+          The collection of consents the shopper is subscribing to.
+x-stoplight:
+  docs:
+    includeDownloadLink: true
+    showModels: false
+host: '{$$.env.store_domain}'
+tags:
+  - name: Subscription

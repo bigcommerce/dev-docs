@@ -1,21 +1,19 @@
 swagger: '2.0'
 info:
-  version: '3.0'
+  version: ''
   title: Abandoned Carts
   description: >-
-    - [OAuth Scopes](#oauth-scopes)
-
-    - [Authentication](#authentication)
-
-    - [Available Endpoints](#available-endpoints)
-
-
     Use `/abandoned-carts/{token}` on headless storefronts to retrieve the
     `cart_id` via the abandoned cart `token` passed in to headless storefront
     via an abandoned cart email link clicked on by a shopper. Once the `cart_id`
     has been retrieved, it can be used to fetch and display information about
     the cart to the shopper via the storefront cart and/or server-to-server cart
     APIs.
+
+
+    - [OAuth Scopes](#oauth-scopes)
+
+    - [Authentication](#authentication)
 
 
     ## OAuth Scopes
@@ -70,24 +68,13 @@ info:
 
 
     For more information on Authenticating BigCommerce APIs, see:
-    [Authentication](https://developer.bigcommerce.com/api-docs/getting-started/authentication).
-
-
-    ## Available Endpoints
-
-    | Resource / Endpoint                     |
-    Description                                                             |
-
-    |-----------------------------------------|-------------------------------------------------------------------------|
-
-    | `/abandoned-carts/{token}`              | Get a`cart_id` by passing in an
-    abandoned cart link `token` param       |           
+    [Authentication](https://developer.bigcommerce.com/api-docs/getting-started/authentication).        
   contact:
-    url: 'https://developer.bigcommerce.com'
-    name: BigCommerce Developer Documentation
+    url: ''
+    name: ''
   license:
     name: ''
-  termsOfService: 'https://www.bigcommerce.com/terms/'
+  termsOfService: ''
 host: api.bigcommerce.com
 paths:
   '/abandoned-carts/{token}':

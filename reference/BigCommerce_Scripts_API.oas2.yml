@@ -3,28 +3,15 @@ info:
   title: Scripts
   version: '3.0'
   description: >-
+    Inect client-side code onto a BigCommere storefront. To learn more about
+    Scripts, see [here](/api-docs/scripts/scripts-overview). 
+
 
     - [OAuth Scopes](#oauth-scopes)
 
     - [Authentication](#authentication)
 
     - [Available Endpoints](#available-endpoints)
-
-
-    The BigCommerce Scripts API can be used to add a script to a store's page.
-    Some use cases:
-
-    * Insert tracking codes
-
-    * Storefront single click applications
-
-    * Live chat, support plugins
-
-    * Theme extension or connector apps
-
-
-    To learn more about Scripts, see
-    [here](/api-docs/scripts/scripts-overview). 
 
 
     ## OAuth Scopes

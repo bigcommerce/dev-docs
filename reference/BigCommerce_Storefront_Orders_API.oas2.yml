@@ -1,12 +1,9 @@
 swagger: '2.0'
 info:
-  version: '1.0'
+  version: ''
   title: Storefront Orders
-  description: |-
-    # Storefront Orders
-
-    Returns order data immediately after an order is placed on the storefront.
-  termsOfService: 'https://www.bigcommerce.com/terms/api-terms/'
+  description: Get order data immediately after an order is placed on the storefront.
+  termsOfService: ''
 host: '{$$.env.store_domain}'
 basePath: /api/storefront
 schemes:

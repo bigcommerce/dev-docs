@@ -1,9 +1,18 @@
 swagger: '2.0'
 info:
   title: Orders V3
-  version: '3.0'
+  version: ''
   description: >-
-    - [OAuth Scopes](#oauth-scopes)
+    Surfaces endpoints related to payment processing. The
+    `/orders/{id}/transactions` endpoint returns transaction details for the
+    specified order. To programmatically create, update, and delete orders
+    themselves, see [Orders
+
+    v2](https://developer.bigcommerce.com/api-reference/store-management/orders).
+    To process payments, see [Payment
+
+    Processing](https://developer.bigcommerce.com/api-reference/payments/payments-process-payments).
+
 
     - [Authentication](#authentication)
 
@@ -11,31 +20,38 @@ info:
 
     - [Order Transactions](#order-transactions)
 
+    - [Order refunds](#order-refunds)
+
     - [Resources](#resources)
 
 
-    The V3 REST API's Orders resource surfaces endpoints related to payment
-
-    processing. The `/orders/{id}/transactions` endpoint returns transaction
-
-    details for the specified order.
-
-    To programmatically create, update, and delete orders themselves, see
-
-    [Orders
-
-    v2](https://developer.bigcommerce.com/api-reference/store-management/orders).
-
-    To process payments, see [Payment
-
-    Processing](https://developer.bigcommerce.com/api-reference/payments/payments-process-payments).
+    ## Authentication
 
 
-    ## OAuth Scopes
+    Authenticate requests by including an
+    [OAuth](https://developer.bigcommerce.com/api-docs/getting-started/authentication)
+    `access_token` and `client_id` in the request headers.
+
+
+    ```http
+
+    GET https://api.bigcommerce.com/stores/{{STORE_HASH}}/v3/{{ENDPOINT}}
+
+    Content-Type: application/json
+
+    X-Auth-Client: {{CLIENT_ID}}
+
+    X-Auth-Token: {{ACCESS_TOKEN}}
+
+    ```
+
+
+    ### OAuth Scopes
+
 
     | UI Name| Permission |Parameter|                                     
 
-    |----------------------------------------------|------------|-----------------------------------------------|
+    |----------------------------------------------|------------|----------|
 
     | Order Transactions|modify|`store_v2_transactions`|
 
@@ -44,74 +60,6 @@ info:
     | Orders| modify|`store_v2_orders`|
 
     | Orders| read-only|`store_v2_orders_read_only`|
-
-
-    For more information on OAuth Scopes, see:
-    [Authentication](https://developer.bigcommerce.com/api-docs/getting-started/authentication).
-
-
-    ## Authentication
-
-    Requests can be authenticated by sending a `client_id` and `access_token`
-    via `X-Auth-Client` and `X-Auth-Token` HTTP headers:
-
-
-    ```http
-
-    GET /stores/{$$.env.store_hash}/v3/catalog/summary
-
-    host: api.bigcommerce.com
-
-    Accept: application/json
-
-    X-Auth-Client: {client_id}
-
-    X-Auth-Token: {access_token}
-
-    ```
-
-
-    |Header|Parameter|Description|
-
-    |-|-|-|
-
-    |`X-Auth-Client`|`client_id`|Obtained by creating an API account or
-    installing an app in a BigCommerce control panel.|
-
-    |`X-Auth-Token`|`access_token `|Obtained by creating an API account or
-    installing an app in a BigCommerce control panel.|
-
-
-    For more information on Authenticating BigCommerce APIs, see:
-
-    [Authentication](https://developer.bigcommerce.com/api-docs/getting-started/authentication).
-
-
-    ## Available Endpoints
-
-    | Endpoint|Description|Reference
-
-    |---|---|---|
-
-    | `/orders/{id}/transactions`             | Get list of transaction data for
-    an order|[Get
-    Transactions](https://developer.bigcommerce.com/api-reference/store-management/order-transactions/transactions/gettransactions)
-
-    |`/orders/{id}/payment_actions/refund_quotes`|` POST` - Create refund quote
-    for order ID `{id}`.|[Create a Refund
-    Quote](https://developer.bigcommerce.com/api-reference/store-management/order-transactions/order-refunds/postrefundquote)
-
-    |`/orders/{id}/payment_actions/refunds`|`POST` Create a refund for order ID
-    `{id}`.|[Create a
-    Refund](https://developer.bigcommerce.com/api-reference/store-management/order-transactions/order-refunds/postrefund)
-
-    |`/orders/{id}/payment_actions/refunds`|` GET` - Returns the refunds for
-    order ID `{id}`.|[Get Refunds For
-    Order](https://developer.bigcommerce.com/api-reference/store-management/order-transactions/order-refunds/getorderrefunds)
-
-    |`/orders/payment_actions/refunds`|`GET` - Returns a list of refunds ordered
-    by refund ID.|[Get All
-    Refunds](https://developer.bigcommerce.com/api-reference/store-management/order-transactions/order-refunds/getrefunds)
 
 
     ## Order Transactions
@@ -1656,25 +1604,9 @@ definitions:
           Identifier for an existing transaction upon which this transaction
           acts.
       offline:
-        type: object
-        description: 'Offline payment (e.g., check or purchase order).'
-        properties:
-          display_name:
-            description: |
-              Display name for the offline payment.
-            type: string
-        title: Offline
+        $ref: '#/definitions/Offline'
       custom:
-        type: object
-        description: Custom payment from manual order.
-        properties:
-          payment_method:
-            description: |
-              Text entered for the payment method in the control panel.
-            type: string
-        title: Custom
-      '':
-        type: string
+        $ref: '#/definitions/Custom'
     required:
       - event
       - method

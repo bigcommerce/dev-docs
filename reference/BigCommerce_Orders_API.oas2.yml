@@ -1,13 +1,53 @@
 swagger: '2.0'
 info:
-  version: '2.0'
+  version: ''
   title: Orders V2
   description: >-
-    `/orders`endpoints integrate with point-of-sale, shipping, distribution, and
-    inventory-management systems.
+    Manage order coupons, messages, products, shipping addresses, statuses,
+    taxes, shipments, and shipping address quotes.
+
+
+    - [Authentication](#authentication)
+
+    - [Order](#order)
+
+
+    ## Authentication
+
+
+    Authenticate requests by including an
+    [OAuth](https://developer.bigcommerce.com/api-docs/getting-started/authentication)
+    `access_token` and `client_id` in the request headers.
+
+
+    ```http
+
+    GET https://api.bigcommerce.com/stores/{{STORE_HASH}}/v3/{{ENDPOINT}}
+
+    Content-Type: application/json
+
+    X-Auth-Client: {{CLIENT_ID}}
+
+    X-Auth-Token: {{ACCESS_TOKEN}}
+
+    ```
+
+
+    ### OAuth Scopes
+
+
+    |  **UI Name** | **Permission** | **Parameter** |
+
+    | --- | --- | --- |
+
+    |  Orders | modify | `store_v2_orders` |
+
+    |  Orders | read-only | `store_v2_orders_read_only` |
+
 
 
     ## Order
+
 
     The Order object contains a record of the purchase agreement between a
     shopper and a merchant. To learn more about creating orders, see [Orders API
@@ -43,7 +83,7 @@ info:
     ```json
 
     {
-      //...
+      ...
       "currency_id": 4,
       "currency_code": "EUR",
       "currency_exchange_rate": 1,
@@ -51,53 +91,10 @@ info:
       "default_currency_code": "EUR",
       "store_default_currency_code: "USD",
       "store_default_to_transactional_exchange_rate": "100.0000000000"
-      //...
+      ...
     }
 
-
     ```
-
-
-    ## Order Coupons
-
-    Coupon code applied to an order.
-
-
-    ## Order Messages
-
-    Messages associated with an order.
-
-
-    ## Order Products
-
-    Product line items belonging to an order.
-
-
-    ## Order Shipping Addresses
-
-    Customer shipping address belonging to an order.
-
-
-    ## Order Statuses
-
-    Each order status represents a state in the order-fulfillment workflow.
-
-
-    ## Order Taxes
-
-    Each tax applied to an order. This information can be useful for reporting
-    purposes. All values are read-only.
-
-
-    ## Order Shipments
-
-    Tracks a package consignment from an order that is shipped from the seller
-    to the buyer.
-
-
-    ## Order Shipping Addresses Quotes
-
-    Read Only. Gets all shipping quotes from an order.
 host: api.bigcommerce.com
 basePath: '/stores/{$$.env.store_hash}/v2'
 schemes:
@@ -3153,7 +3150,38 @@ securityDefinitions:
     name: X-Auth-Client
     in: header
     description: >-
+      Manage order coupons, messages, products, shipping addresses, statuses,
+      taxes, shipments, and shipping address quotes.
+
+
+      - [Authentication](#authentication)
+
+      - [Order](#order)
+
+
+      ## Authentication
+
+
+      Authenticate requests by including an
+      [OAuth](https://developer.bigcommerce.com/api-docs/getting-started/authentication)
+      `access_token` and `client_id` in the request headers.
+
+
+      ```http
+
+      GET https://api.bigcommerce.com/stores/{{STORE_HASH}}/v3/{{ENDPOINT}}
+
+      Content-Type: application/json
+
+      X-Auth-Client: {{CLIENT_ID}}
+
+      X-Auth-Token: {{ACCESS_TOKEN}}
+
+      ```
+
+
       ### OAuth Scopes
+
 
       |  **UI Name** | **Permission** | **Parameter** |
 
@@ -3164,40 +3192,56 @@ securityDefinitions:
       |  Orders | read-only | `store_v2_orders_read_only` |
 
 
-      ### Headers
+
+      ## Order
 
 
-      |Header|Parameter|Description|
-
-      |-|-|-|
-
-      |`X-Auth-Client`|`client_id`|Obtained by creating an API account or
-      installing an app in a BigCommerce control panel.|
-
-      |`X-Auth-Token`|`access_token `|Obtained by creating an API account or
-      installing an app in a BigCommerce control panel.|
+      The Order object contains a record of the purchase agreement between a
+      shopper and a merchant. To learn more about creating orders, see [Orders
+      API Guide](/api-docs/orders/orders-api-overview).
 
 
-      ### Example
+      ### Currency Fields
 
 
-      ```http
+      * `currency_code` - the display currency used to present prices to the
+      shopper on the storefront.
 
-      GET /stores/{$$.env.store_hash}/v3/catalog/summary
+      * `currency_exchange_rate`: the exchange rate between the store's default
+      currency and the display currency; when the order is created by means of
+      the V2 endpoints, this value is always 1 (only in the storefront this
+      value can be different to 1).
 
-      host: api.bigcommerce.com
 
-      Content-Type: application/json
+      The following additional fields are returned on orders when Multi-Currency
+      is enabled on the store:
 
-      X-Auth-Client: {client_id}
 
-      X-Auth-Token: {access_token}
+      * `store_default_currency_code` - the store's default currency
+
+      * `store_default_to_transactional_exchange_rate` - the exchange rate
+      between the store's default currency and the transactional currency used
+      in the order.
+
+
+      **Example:**
+
+
+      ```json
+
+      {
+        ...
+        "currency_id": 4,
+        "currency_code": "EUR",
+        "currency_exchange_rate": 1,
+        "default_currency_id": 4,
+        "default_currency_code": "EUR",
+        "store_default_currency_code: "USD",
+        "store_default_to_transactional_exchange_rate": "100.0000000000"
+        ...
+      }
 
       ```
-
-
-      * For more information on Authenticating BigCommerce APIs, see:
-      [Authentication](https://developer.bigcommerce.com/api-docs/getting-started/authentication).
   X-Auth-Token:
     type: apiKey
     name: X-Auth-Token

@@ -2,17 +2,7 @@ swagger: '2.0'
 info:
   version: '3.0'
   title: Checkouts
-  description: >-
-    ### Checkout
-
-    Allows for a checkout to be created from an existing cart using BigCommerce
-    checkout logic. The existing BigCommerce front end cart/checkout can be
-    bypassed.
-
-
-    Notes:
-
-    - checkoutId is the same as the cartId.
+  description: Create checkouts from existing carts using BigCommerce checkout logic.
 host: api.bigcommerce.com
 basePath: '/stores/{$$.env.store_hash}/v3'
 schemes:
@@ -495,24 +485,25 @@ paths:
     post:
       responses:
         '200':
-          $ref: '#/responses/CheckoutResponse'
+          $ref: '#/responses/order_Resp'
       summary: Create an Order
       description: >-
-        Creates an *Order*. 
+        Creates an order.
 
 
-        **Notes**
+        ## Usage notes
 
+        * Orders created will be set to incomplete order status. 
 
-        Orders created will be set to incomplete order status. 
+        * You can create as many orders from the same order(cart) as you want. 
 
-
-        You can create as many orders from the same order(cart) as you want.
-        Order duplication creates the same order with a new order number with
+        * Order duplication creates the same order with a new order number with
         the incomplete status. 
 
-        Once the order is paid, then the cart is deleted. Cart deletion occurs
-        if you are using BigCommerce to accept payments on orders.
+        * Once the order is paid, then the cart is deleted. 
+
+        * Cart deletion occurs if you are using BigCommerce to accept payments
+        on orders.
       parameters:
         - name: Accept
           in: header
@@ -528,11 +519,7 @@ paths:
           in: path
           type: string
           required: true
-          description: Id of the Checkout
-        - in: body
-          name: body
-          schema:
-            $ref: '#/definitions/Order'
+          description: ID of the checkout (same as the cart ID).
       tags:
         - Checkout Orders
       operationId: createAnOrder
@@ -3885,4 +3872,18 @@ responses:
           created_time: '2019-08-05T15:38:14+00:00'
           updated_time: '2019-08-05T15:41:28+00:00'
           customer_message: ''
+        meta: {}
+  order_Resp:
+    description: ''
+    schema:
+      type: object
+      properties:
+        data:
+          $ref: '#/definitions/Order'
+        meta:
+          type: object
+    examples:
+      application/json:
+        data:
+          id: 75
         meta: {}

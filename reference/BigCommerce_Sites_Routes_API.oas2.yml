@@ -926,6 +926,8 @@ securityDefinitions:
 
       Content-Type: application/json
 
+      X-Auth-Client: {{CLIENT_ID}}
+
       X-Auth-Token: {{ACCESS_TOKEN}}
 
       ```

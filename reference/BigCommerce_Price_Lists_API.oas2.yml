@@ -1,24 +1,61 @@
 swagger: '2.0'
 info:
   title: Price Lists
-  version: '3.0'
+  version: ''
   description: >-
-    - [OAuth Scopes](#oauth-scopes)
+    Populate different versions of catalog pricing and assign them to different
+    [customer groups](/api-reference/customer-subscribers/customers-api) at the
+    variant level.
+
 
     - [Authentication](#authentication)
 
-    - [Available Endpoints](#available-endpoints)
+    - [Price Lists](#price-lists)
 
-    - [Price List Assignment Order of
-    Operations](#price-list-assignment-order-of-operations)
+    - [Price list assignments](#price-list-assignments)
 
-    - [Usage Notes](#usage-notes)
+    - [Usage notes](#usage-notes)
+
+    - [Additional information](#additional-information)
 
 
-    A Price List allows you to populate different versions of catalog pricing
-    and assign them to different [Customer
-    Groups](/api-reference/customer-subscribers/customers-api). The prices are
-    specified exclusively at the variant level. 
+    ## Authentication
+
+
+    Authenticate requests by including an
+    [OAuth](https://developer.bigcommerce.com/api-docs/getting-started/authentication)
+    `access_token` and `client_id` in the request headers.
+
+
+    ```http
+
+    GET https://api.bigcommerce.com/stores/{{STORE_HASH}}/v3/{{ENDPOINT}}
+
+    Content-Type: application/json
+
+    X-Auth-Client: {{CLIENT_ID}}
+
+    X-Auth-Token: {{ACCESS_TOKEN}}
+
+    ```
+
+
+    ### OAuth Scopes
+
+
+    | UI Name                                      | Permission |
+    Parameter                                     |
+
+    |----------------------------------------------|------------|-----------------------------------------------|
+
+    | Products                                     | modify     |
+    `store_v2_products`                           |
+
+    | Products                                     | read-only  |
+    `store_v2_products_read_only`                 |
+
+
+    ## Price Lists
 
 
     The association of a Price List to a Customer Group can be done either via
@@ -48,80 +85,13 @@ info:
 
 
     To learn more about Price Lists, see
-    [here](/api-docs/price-lists/price-list-overview). 
+    [here](/api-docs/price-lists/price-list-overview).
 
 
-    ## OAuth Scopes
-
-    | UI Name                                      | Permission |
-    Parameter                                     |
-
-    |----------------------------------------------|------------|-----------------------------------------------|
-
-    | Products                                     | modify     |
-    `store_v2_products`                           |
-
-    | Products                                     | read-only  |
-    `store_v2_products_read_only`                 |
+    ## Price list assignments
 
 
-    For more information on OAuth Scopes, see:
-    [Authentication](https://developer.bigcommerce.com/api-docs/getting-started/authentication).
-
-
-    ## Authentication
-
-    Requests can be authenticated by sending a `client_id` and `access_token`
-    via `X-Auth-Client` and `X-Auth-Token` HTTP headers:
-
-
-    ```http
-
-    GET /stores/{$$.env.store_hash}/v3/catalog/summary
-
-    host: api.bigcommerce.com
-
-    Accept: application/json
-
-    X-Auth-Client: {client_id}
-
-    X-Auth-Token: {access_token}
-
-    ```
-
-
-    |Header|Parameter|Description|
-
-    |-|-|-|
-
-    |`X-Auth-Client`|`client_id`|Obtained by creating an API account or
-    installing an app in a BigCommerce control panel.|
-
-    |`X-Auth-Token`|`access_token `|Obtained by creating an API account or
-    installing an app in a BigCommerce control panel.|
-
-
-    For more information on Authenticating BigCommerce APIs, see:
-    [Authentication](https://developer.bigcommerce.com/api-docs/getting-started/authentication).
-
-
-    ## Available Endpoints
-
-    | Resource / Endpoint                     |
-    Description                                                             |
-
-    |-----------------------------------------|-------------------------------------------------------------------------|
-
-    | Price List Records                      | Create and manage price list
-    records                                    |
-
-    | Price Lists                             | Create and manage catalog
-    pricing variations                            |
-
-    | Price List Assignments                  | Assign price lists to Channels
-
-
-    ## Price List Assignment Order of Operations
+    ### Order of operations
 
 
     The `Price List Assignment` Pricing Order of Operations is as follows:
@@ -168,12 +138,12 @@ info:
     group discounts -- the customer group discounts must be deleted first.
 
 
-    ## Usage Notes
+    ## Usage notes
 
     - Price Lists cannot be assigned to a customer group that has custom group
     discounts -- the customer group discounts must be deleted first.
 
-    - Bulk Pricing Tiers may additionally be associated with a Price Record to
+    - Bulk pricing Tiers may additionally be associated with a price record to
     indicate different pricing as the quantity in cart increases.
 
     - If a variant has a `Price Record` any existing product-level bulk pricing
@@ -183,20 +153,17 @@ info:
     - Price Lists Records accepts bulk upsert. Only one [Bulk
     upsert](https://developer.bigcommerce.com/api-reference/catalog/pricelists-api/price-lists-records/setpricelistrecordcollection)
     can done at a time. Running more than one in parallel on the **same store**
-    will cause a 429 error and the request will fail. 
+    will cause a 429 error and the request will fail.
 
-
-    ### Related Endpoints
-
-    * [Get Price List
-    Collection](/api-reference/catalog/pricelists-api/price-lists/getpricelistcollection)
-
-
-    ### Webhooks Available
-
-    There are no direct webhooks available for Price Lists. Since Price Lists
+    - There are no direct webhooks available for Price Lists. Since Price Lists
     directly relate to products, webhooks related to products will fire for
-    corresponding changes such as pricing. 
+    corresponding changes such as pricing.
+
+
+    ## Additional information
+
+
+    ### Webhooks
 
 
     *
@@ -204,12 +171,18 @@ info:
 
     *
     [SKU](/api-docs/getting-started/webhooks/webhook-events#webhook-events_sku)
+
+
+    ### Related endpoints
+
+    * [Get Price List
+    Collection](/api-reference/catalog/pricelists-api/price-lists/getpricelistcollection)
   termsOfService: ''
   license:
     name: ''
   contact:
-    name: BigCommerce Developer Documentation
-    url: 'https://developer.bigcommerce.com/'
+    name: ''
+    url: ''
 host: api.bigcommerce.com
 basePath: '/stores/{$$.env.store_hash}/v3'
 tags:

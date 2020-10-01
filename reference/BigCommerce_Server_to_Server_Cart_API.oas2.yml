@@ -2,27 +2,7 @@ swagger: '2.0'
 info:
   title: Carts
   version: '3.0'
-  description: >-
-    ### Cart
-
-    Allows for a cart to be created using BigCommerce cart logic. The existing
-    BigCommerce front end cart can be bypassed.
-
-
-    Notes:
-
-    - A **cart** `id` is the same as a **checkout** `id`.
-
-    - A cart can be created by adding an existing **catalog item** or a **custom
-    item**.
-
-    - Carts are valid for 30 days from the last modification. This can include
-    creating the cart or editing the cart.
-
-    - Redirect URLs can be generated only from carts created using the Server to
-    Server Cart API. To restore a cart that was created on the storefront,
-    either by a shopper or the Storefront Cart API, first recreate the cart
-    using the Server to Server Cart API.
+  description: Create a cart using BigCommerce cart logic.
 host: api.bigcommerce.com
 basePath: '/stores/{$$.env.store_hash}/v3'
 consumes:

@@ -1,14 +1,18 @@
 swagger: '2.0'
 info:
-  title: Webhooks
+  title: BigCommerce Webhooks
   version: '2.0'
-  description: "\n- [OAuth Scopes](#oauth-scopes)\n- [Authentication](#authentication)\n- [Available Endpoints](#available-endpoints)\n- [Callback Payload](#callback-payload)\n- [Handling Callbacks](#handling-callbacks)\n- [Callback Retry Mechanism](#callback-retry-mechanism)\n- [Security](#security)\n- [Troubleshooting](#troubleshooting)\n- [Tools](#tools)\n- [Resources](#resources)\n\nWebhooks allow applications to be notified when specific events occur on a BigCommerce store. For example when:\n* an order is created, \n* a product's inventory changes, or \n* an item is added to a shopper's cart.\n\n## OAuth Scopes\n| UI Name                                      | Permission | Parameter                                     |\n|----------------------------------------------|------------|-----------------------------------------------|\n| Information & Settings                       | modify     | `store_v2_information`                        |\n| Information & Settings                       | read-only  | `store_v2_information_read_only`              |\n\nFor more information on OAuth Scopes, see: [Authentication](https://developer.bigcommerce.com/api-docs/getting-started/authentication).\n\n## Authentication\n\nRequests can be authenticated by sending a `client_id` and `access_token` via `X-Auth-Client` and `X-Auth-Token` HTTP headers:\n\n```http\nGET /stores/{$$.env.store_hash}/v3/catalog/summary\nhost: api.bigcommerce.com\nAccept: application/json\nX-Auth-Client: {client_id}\nX-Auth-Token: {access_token}\n```\n\n|Header|Parameter|Description|\n|-|-|-|\n|`X-Auth-Client`|`client_id`|Obtained by creating an API account or installing an app in a BigCommerce control panel.|\n|`X-Auth-Token`|`access_token `|Obtained by creating an API account or installing an app in a BigCommerce control panel.|\n\nFor more information on Authenticating BigCommerce APIs, see: [Authentication](https://developer.bigcommerce.com/api-docs/getting-started/authentication).\n\n## Available Endpoints\n| Resource                                | Description                                                  |\n|-----------------------------------------|--------------------------------------------------------------|\n| [Webhooks](https://developer.bigcommerce.com/api-reference/webhooks/webhooks) | Manage store Webhooks  |\n\n## Callback Payload\n\nWhen a webhook is triggered, BigCommerce will `POST` a light payload containing minimum event details to the destination server. For instance, the `data` object for `store/order/statusUpdated` contains only the order `id`:\n\n```json\n{\n \"store_id\":11111,\n \"producer\":\"stores/abcde\",\n \"scope\":\"store/order/statusUpdated\",\n \"data\":{\n         \"type\":\"order\",\n         \"id\":173331\n        },\n \"hash\":\"3f9ea420af83450d7ef9f78b08c8af25b2213637\"\n }\n```\n\nA subsequent request can be made to [/orders/{id}](https://developer.bigcommerce.com/api-reference/store-management/orders/orders/getanorder) to obtain full order details. \n\nFor more information on specific webhook events and their payloads, see [Webhook Events](https://developer.bigcommerce.com/api-docs/getting-started/webhooks/webhook-events).\n\n## Handling Callbacks\n\nTo acknowledge the callback has been received without issue, the destination server must return an `HTTP 200` response -- any response outside the `200` range indicates the callback was not received. If this happens, the webhook service will use the [retry mechanism](#callback-retry-mechanism) described below.\n\nNeed to set up a quick webhook destination URL for testing? See [Tools for Debugging and Testing Webhooks](#tools-for-debugging-and-testing-webhooks).\n\n## Callback Retry Mechanism\n\nThe webhooks service will do its best to deliver events to the destination callback URI. It is best practice for the application to respond to the callback before taking any other action that would slow its response. If an app server responds to a webhook payload with anything other than a `2xx` response, or times out and indicates the payload has not been received, the following process will determine whether the destination URI gets blacklisted.\n\nThe webhook service may send many payloads to a single URI in quick succession. Because of this, we use a sliding scale across a **two minute window** to calculate a callback response success rate for each remote destination. When the webhook service receives a `2xx` response, the destination's success count is increased. If there's no response or the remote server times out, the destination's failure count is increased. Based on these two numbers, the success ratio is calculated. \n\nThe webhook service flow is as follows:\n\n1. Once a webhook is triggered, the service checks if your callback URI is on the blacklist\n2. If it's not, we calculate a success ratio for the remote server based on its success/failure count in a **two minute window**\n3. If at any point in the two minute window the success/failure ratio dips below **90%**, the destination URI's domain will be blacklisted for **three minutes**\n4. Webhook events triggered during this time are sent to our retry queues to be executed later when the domain is no longer blacklisted and once the retry queue time has elapsed.\n\nOnce a domain is no longer blacklisted, all new webhook requests will be sent as they occur. Event requests sent to the retry queue during a blacklisting period will be delivered according to the retry queue schedule.\n\nThe webhook dispatcher will then attempt several retries (at increasing intervals) until the maximum retry limit is reached.\n\n**Retry Intervals**:\n* `60` seconds after the most recent failure  \n* `180` seconds after the most recent failure  \n* `180` seconds after the most recent failure  \n* `300` seconds after the most recent failure  \n* `600` seconds after the most recent failure  \n* `900` seconds after the most recent failure  \n* `1800` seconds after the most recent failure  \n* `3600` seconds after the most recent failure  \n* `7200` seconds after the most recent failure  \n* `21600` seconds after the most recent failure  \n* `50400` seconds after the most recent failure  \n* `86400` seconds (24 hours) after the most recent failure\n\nAfter the final retry attempt (cumulatively **48 hours** after the first delivery attempt), the webhook will be deactivated, and an email will be sent to the email address registered on the subscribing app. To reactivate the webhook, set `is_active`  back to `true` by making a `PUT` request to `/hooks/{id}`.\n\n<div class=\"HubBlock--callout\">\n<div class=\"CalloutBlock--info\">\n<div class=\"HubBlock-content\">\n    \n### Note\n> * A domain's success rate for a given sliding window is not calculated until `100` webhook requests are sent -- this means the domain will not be blacklisted for the first `100` webhooks sent within the time window (regardless of response) as all webhooks are sent until the minimum threshold has been reached for the current time window.\n> * The webhook dispatcher determines whether retries are needed based on responses from the subscribed domain as a whole, not by specific hooks. For example, `domain.com/webhook-1` and `domain.com/webhook-2` will affect each other for failures and retries, as both URLs belong to the same domain.\n\n</div>\n</div>\n</div>\n\n## Security\n\nTo ensure webhook callback requests are secure:\n1. Webhook payloads contain minimal information about the store and event\n2. Webhook payloads are sent over **TLS-encrypted** connection\n3. Create Webhook requests accept an optional headers objects which can be used to authenticate callbacks requests:\n\n```json\n{\n\"scope\": \"store/cart/lineItem/*\",\n  \"destination\": \"{{DESTINATION_URL}}\",\n  \"is_active\": true,\n  \"headers\": {\n  \t\"Username\": \"Hello\",\n  \t\"Password\": \"Goodbye\"\n  }\n}\n```\n\nBigCommerce will send the specified headers when making callback requests to the destination server -- this allows webhook destination URIs to be secured via basic authentication.\n\n## Troubleshooting\n\n**Not receiving Webhook Event Callbacks**\n\nIf your app does not return an `HTTP 200` to BigCommerce after receiving the webhook event payload, BigCommerce considers it a failure. BigCommerce will keep trying for a little over 48 hours. At the end of that time, BigCommerce sends an email to the email address set during app registration and disables the webhook by setting the is_active flag to false.\n\nTo see if a webhook is still active, make a `GET` request to `/hooks/{id}` and check the value of the `is_active` property in the response.\n\nIf you receive an email, or discover `is_active` is `false`, try the following:\n* Verify the app is responding to the callback with a `200` response.\n* Verify the destination server has a valid TLS/SSL setup by visiting https://sslcheck.globalsign.com. Any of the following will cause the TLS/SSL handshake to fail:\n  * Self-signed certificates\n  * Hostname on certificate doesn't match the hostname in DNS settings\n  * Key and trust stores are not configured with the required intermediate certificates.\n\nOnce the issue is resolved, set `is_active` to `true` by making a `PUT` request to `/hooks/{id}` -- BigCommerce start sending event Callback requests again.\n\n**No 201 response when making `POST` to `/hooks`**\n* Check TLS/SSL configuration on machine making `POST` request.\n* Verify `POST` request contains the required `HTTP` headers:\n\n```http\nPOST https://api.bigcommerce.com/stores/{{STORE_HASH}}/v2/hooks\nAccept: application/json\nContent-Type: application/json\nX-Auth-Token: {{ACCESS_TOKEN}}\nX-Auth-Client: {{CLIENT_ID}}\n```\n\n## Tools\n\nBelow is a collection of third-party tools that can be used to aid in the development, testing, and debugging of webhooks:\n\n|Tool|Description|\n|----------------------------------------------|---------------------------------------------------------------------------------------------------------------|\n|**[ngrok](https://ngrok.com/)**               | Easily set up tunnels between `localhost` and an `ngrok` public URL to test callback requests on your machine |\n|**[Webhook Tester](https://webhook.site/#/)** | Test webhooks and other types of `HTTP` requests in your browser                                              |\n\n## Resources\n* [Webhooks Overview](https://developer.bigcommerce.com/api-docs/getting-started/webhooks/about-webhooks)\n* [Webhook Tutorial](https://developer.bigcommerce.com/api-docs/getting-started/webhooks/setting-up-webhooks)\n* [Webhook Events](https://developer.bigcommerce.com/api-docs/getting-started/webhooks/webhook-events)"
+  description: >-
+    Get notified when specific events occur on a BigCommerce store. For more
+    information, see [Webhooks
+    Overview](https://developer.bigcommerce.com/api-docs/store-management/webhooks/overview).
 host: api.bigcommerce.com
 paths:
   /hooks:
     post:
       responses:
         '200':
+          $ref: '#/responses/webhooks_Resp'
           examples:
             application/json:
               id: 18048287
@@ -20,11 +24,12 @@ paths:
               is_active: true
               created_at: 1561488106
               updated_at: 1561488106
-          description: OK
         '422':
           $ref: '#/responses/422_UnprocessableEntity'
       summary: Create a Webhook
-      description: Creates a webhook. Only one webhook at a time can be created. Custom headers can be added.
+      description: >-
+        Creates a webhook. Only one webhook at a time can be created. Custom
+        headers can be added.
       operationId: createWebhooks
       parameters:
         - in: body
@@ -45,7 +50,9 @@ paths:
         '200':
           $ref: '#/responses/webhooks_Resp'
       summary: Get Webhooks
-      description: Returns a list of all webhooks on a store associated to the `client_id` used to authenticate the request.
+      description: >-
+        Returns a list of all webhooks on a store associated to the `client_id`
+        used to authenticate the request.
       operationId: getAllWebhooks
       tags:
         - Webhooks
@@ -99,7 +106,9 @@ paths:
         '200':
           $ref: '#/responses/webhooks_Resp'
       summary: Delete a Webhook
-      description: 'Deletes a webhook. Only one webhook at a time can be deleted. When a webhook is deleted, it is returned in the response as a 200 OK.'
+      description: >-
+        Deletes a webhook. Only one webhook at a time can be deleted. When a
+        webhook is deleted, it is returned in the response as a 200 OK.
       operationId: deleteAWebhook
       tags:
         - Webhooks
@@ -121,62 +130,106 @@ securityDefinitions:
     type: apiKey
     name: X-Auth-Client
     in: header
-    description: |-
+    description: >-
       ### OAuth Scopes
+
       |  **UI Name** | **Permission** | **Parameter** |
+
       | --- | --- | --- |
+
       |  - | - | - |
 
-      **Note**: Creating and mangaing webhooks require the default scope used when an API User account is created.
+
+      **Note**: Creating and mangaing webhooks require the default scope used
+      when an API User account is created.
+
 
       ### Headers
 
+
       |Header|Parameter|Description|
+
       |-|-|-|
-      |`X-Auth-Client`|`client_id`|Obtained by creating an API account or installing an app in a BigCommerce control panel.|
-      |`X-Auth-Token`|`access_token `|Obtained by creating an API account or installing an app in a BigCommerce control panel.|
+
+      |`X-Auth-Client`|`client_id`|Obtained by creating an API account or
+      installing an app in a BigCommerce control panel.|
+
+      |`X-Auth-Token`|`access_token `|Obtained by creating an API account or
+      installing an app in a BigCommerce control panel.|
+
 
       ### Example
 
+
       ```http
+
       GET /stores/{$$.env.store_hash}/v3/catalog/summary
+
       host: api.bigcommerce.com
+
       Content-Type: application/json
+
       X-Auth-Client: {client_id}
+
       X-Auth-Token: {access_token}
+
       ```
 
-      * For more information on Authenticating BigCommerce APIs, see: [Authentication](https://developer.bigcommerce.com/api-docs/getting-started/authentication). 
+
+      * For more information on Authenticating BigCommerce APIs, see:
+      [Authentication](https://developer.bigcommerce.com/api-docs/getting-started/authentication). 
   X-Auth-Token:
     type: apiKey
     name: X-Auth-Token
     in: header
-    description: |-
+    description: >-
       ### OAuth Scopes
+
       |  **UI Name** | **Permission** | **Parameter** |
+
       | --- | --- | --- |
+
       |  - | - | - |
 
-      **Note**: Creating and mangaing webhooks require the default scope used when an API User account is created.
+
+      **Note**: Creating and mangaing webhooks require the default scope used
+      when an API User account is created.
+
 
       ### Headers
 
+
       |Header|Parameter|Description|
+
       |-|-|-|
-      |`X-Auth-Client`|`client_id`|Obtained by creating an API account or installing an app in a BigCommerce control panel.|
-      |`X-Auth-Token`|`access_token `|Obtained by creating an API account or installing an app in a BigCommerce control panel.|
+
+      |`X-Auth-Client`|`client_id`|Obtained by creating an API account or
+      installing an app in a BigCommerce control panel.|
+
+      |`X-Auth-Token`|`access_token `|Obtained by creating an API account or
+      installing an app in a BigCommerce control panel.|
+
 
       ### Example
 
+
       ```http
+
       GET /stores/{$$.env.store_hash}/v3/catalog/summary
+
       host: api.bigcommerce.com
+
       Content-Type: application/json
+
       X-Auth-Client: {client_id}
+
       X-Auth-Token: {access_token}
+
       ```
 
-      * For more information on Authenticating BigCommerce APIs, see: [Authentication](https://developer.bigcommerce.com/api-docs/getting-started/authentication). 
+
+      * For more information on Authenticating BigCommerce APIs, see:
+      [Authentication](https://developer.bigcommerce.com/api-docs/getting-started/authentication). 
 parameters:
   Accept:
     in: header
@@ -230,7 +283,9 @@ definitions:
         description: If webhook is active or not
       headers:
         type: object
-        description: 'You can pass in any number of custom headers to validate webhooks being returned. '
+        description: >-
+          You can pass in any number of custom headers to validate webhooks
+          being returned. 
         properties:
           custom:
             type: string
@@ -282,7 +337,10 @@ responses:
         created_at: 1561488106
         updated_at: 1561488106
   502_GatewayError:
-    description: 'If something happens during the request that causes it to fail, a 502 response will be returned. A new request should be made; however, it could fail.'
+    description: >-
+      If something happens during the request that causes it to fail, a 502
+      response will be returned. A new request should be made; however, it could
+      fail.
     schema:
       $ref: '#/definitions/error_Full'
     examples:
@@ -291,7 +349,13 @@ responses:
         title: A login URL could not be generated. Please try another request.
         type: 'https://developer.bigcommerce.com/api#api-status-codes'
   504_GatewayTimeout:
-    description: 'If this occurs, you should retry the request. Typically retrying the request several times will result in a successful request; However, if you are unable to successfully make a request, please check the BigCommerce system status [here](https://status.bigcommerce.com/). A service is likely down and the request will need to be made again when it is back up (in several hours usually)'
+    description: >-
+      If this occurs, you should retry the request. Typically retrying the
+      request several times will result in a successful request; However, if you
+      are unable to successfully make a request, please check the BigCommerce
+      system status [here](https://status.bigcommerce.com/). A service is likely
+      down and the request will need to be made again when it is back up (in
+      several hours usually)
     schema:
       $ref: '#/definitions/errorDetailed_Full'
     examples:
@@ -321,7 +385,9 @@ responses:
         title: Input is invalid.
         type: 'https://developer.bigcommerce.com/api#api-status-codes'
   404_NotFound:
-    description: 'If the requested account resource is not found for the franchise, return a 404 Not Found.'
+    description: >-
+      If the requested account resource is not found for the franchise, return a
+      404 Not Found.
     schema:
       $ref: '#/definitions/error_Full'
     examples:
@@ -330,12 +396,16 @@ responses:
         title: 'Account with {id} not found'
         type: 'https://developer.bigcommerce.com/api#api-status-codes'
   422_UnprocessableEntity:
-    description: This occurs when missing or unacceptable data is passed for one or more fields. Please correct the values for the fields listed in the errors object.
+    description: >-
+      This occurs when missing or unacceptable data is passed for one or more
+      fields. Please correct the values for the fields listed in the errors
+      object.
     examples:
       application/json:
         status: 422
         title: JSON data is missing or invalid
-        type: 'https://developer.bigcommerce.com/api-docs/getting-started/api-status-codes'
+        type: >-
+          https://developer.bigcommerce.com/api-docs/getting-started/api-status-codes
         errors:
           destination: error.path.missing.
     schema:
@@ -355,7 +425,12 @@ responses:
             primary_contact.district:
               type: string
   503_ServiceUnavailable:
-    description: 'If this occurs, you should retry the request. If you are unable to successfully make a request, please check the BigCommerce system status [here](https://status.bigcommerce.com/). A service is likely down and the request will need to be made again when it is back up (in several hours usually)'
+    description: >-
+      If this occurs, you should retry the request. If you are unable to
+      successfully make a request, please check the BigCommerce system status
+      [here](https://status.bigcommerce.com/). A service is likely down and the
+      request will need to be made again when it is back up (in several hours
+      usually)
     schema:
       $ref: '#/definitions/error_Full'
     examples:

@@ -1,7 +1,19 @@
 swagger: '2.0'
 info:
-  title: Storefront Form Fields
-  description: Storefront API endpoints for reading form fields.
+  title: Storefront Form Fields (Beta)
+  description: |-
+    Read form fields on a BigCommerce hosted storefront.
+
+    <div class="HubBlock--callout">
+    <div class="CalloutBlock--warning">
+    <div class="HubBlock-content">
+
+    > ### Note
+    > * Breaking changes may be introduced to this endpoint while in beta.
+
+    </div>
+    </div>
+    </div>
   version: ''
 consumes:
   - application/json
