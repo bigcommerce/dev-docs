@@ -17,7 +17,7 @@ Accelerate your app development with BigCommerce API clients. BigCommerce API cl
 - [Ruby](https://github.com/bigcommerce/bigcommerce-api-ruby)
 - [JavaScript](https://github.com/getconversio/node-bigcommerce)
 
-## App starters
+## Sample apps
 BigCommerce sample apps are open-source projects developed by the BigCommerce team and community. For inspiration and to see the code behind each project, visit each individual repository.
 
 - [Python app](https://github.com/bigcommerce/hello-world-app-python-flask)
