@@ -18,7 +18,14 @@ Accelerate your app development with BigCommerce API clients. BigCommerce API cl
 - [JavaScript](https://github.com/getconversio/node-bigcommerce)
 
 ## App starters
-There are apps that every BigCommerce Enterprise customer should have to enhance their customer experience and sell more online. See [The BigCommerce Enterprise App Starter Kit](https://www.groovecommerce.com/ecommerce-blog/bigcommerce-enterprise-app-starter-kit/) for a list of the must-have apps for all store owners. 
+BigCommerce sample apps are open-source projects developed by the BigCommerce team and community. For inspiration and to see the code behind each project, visit each individual repository.
+
+- [Python app](https://github.com/bigcommerce/hello-world-app-python-flask)
+- [PHP app](https://github.com/bigcommerce/hello-world-app-php-silex)
+- [Ruby app](https://github.com/bigcommerce/hello-world-app-ruby-sinatra)
+- [OmniAuth Bigcommerce strategy](https://github.com/bigcommerce/omniauth-bigcommerce)
+-[AWS Amplify app](https://github.com/hatertron3000/amplify-bigcommerce)
+
 
 ## BigDesign
 BigCommerce developed a collection of reusable React components, design guidelines, and UI patterns. This collection, known collectively as [BigDesign](https://developer.bigcommerce.com/api-docs/apps/guide/ui), allows you to rapidly develop an app's front-end that is consistent with BigCommerce's UI.
