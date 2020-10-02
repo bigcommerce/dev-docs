@@ -18,11 +18,14 @@
 Front matter defines which store resources are available to be rendered within a Stencil template. Front matter is declared at the top of each template and uses [YAML](https://yaml.org/) syntax. For more information, see [Declaring Front Matter Objects](https://developer.bigcommerce.com/stencil-docs/storefront-customization/using-front-matter#declaring-front-matter-objects).
 
 ## Supported Templates
-YAML Front Matter is supported for templates in the `templates/pages/` directory.
+YAML Front Matter is supported for templates in the `templates/pages/` directory. Injecting objects in the front matter of `templates/pages/page.html` will make the objects available to custom templates.
+
 
 Front Matter is not supported for templates in the following directories:
 * `templates/components/`
 * `templates/layout/`
+* `templates/pages/custom/`
+
 
 ## Global Attributes
 ​Global attributes are available on all pages.
@@ -42,8 +45,8 @@ customer:
 |  `customer` | Customer attributes are always included, and are available if the active shopper is logged in. |
 |  `returns` | Boolean indicating whether to retrieve product return requests for this customer. No filtering available.true: Retrieve requests. null or false: Do not retrieve requests. |
 |  `wishlists` | If `null`, wishlists displayed. If `limit` not specified, retrieves unlimited number of wishlists. |
-|  `orders` | If `null`, no orders displayed. Displays complete and incomplete orders. If `limit` not specified, displays 20 orders |
-|  `recently_viewed_products` | Boolean indicating whether to display recently viewed products. No filtering avaiable. |
+|  `orders` | If `null`, no orders displayed. Displays complete and incomplete orders. If `limit` not specified, displays 20 orders. |
+|  `recently_viewed_products` | Boolean indicating whether to display recently viewed products. No filtering available. |
 |  `limit` | The maximum number of the entity to display. |
 
 ```yaml

@@ -1,382 +1,46 @@
-# Orders API Overview
+# Orders Overview
 
 <div class="otp" id="no-index">
 
-### On This Page
-- [Introduction](#introduction)
-- [Create an Order](#create-an-order)
-- [Order Response](#order-response)
-- [Shipping an Order](#shipping-an-order)
-- [Taxes](#taxes)
-- [Overriding Preset Values](#overriding-preset-values)
-- [Calculation of Totals](#calculation-of-totals)
-- [Order Status](#order-status)
+### On this page
+- [Creating an order](#creating-an-order)
+- [Changing order status](#changing-order-status)
+- [Specifying order customer](#specifying-order-customer)
+- [Including shipping addresses](#including-shipping-addresses)
+- [Adding products](#adding-products)
+- [Creating order shipments](#creating-order-shipments)
+- [Shipping to multiple locations](#shipping-to-multiple-locations)
+- [Getting shipping quotes](#getting-shipping-quotes)
+- [Getting order taxes](#getting-order-taxes)
+- [Getting order transactions](#getting-order-transactions)
+- [Handling refunds](#handling-refunds)
+- [Calculating totals](#calculating-totals)
 - [FAQ](#faq)
 - [Resources](#resources)
 
 </div>
 
-## Introduction
-
-The Orders API is used when an order is being created manually. If you are using the Server to Server Checkout, an order can be created using the orders endpoint. The order can then be updated if needed.
-
-A sample order workflow might include:
-* Creating the order for either an existing customer or guest
-* Taking payment using either the Control Panel or third party payment solutions
-* Creating a shipment for the order to generate an order confirmation email and mark it as shipped
+This article introduces BigCommerce's [Orders V2](https://developer.bigcommerce.com/api-reference/store-management/orders) and [Orders V3](https://developer.bigcommerce.com/api-reference/store-management/order-transactions) REST API resources. [Orders V2](https://developer.bigcommerce.com/api-reference/store-management/orders) exposes endpoints for [creating](https://developer.bigcommerce.com/api-reference/store-management/orders/orders/createanorder), [reading](https://developer.bigcommerce.com/api-reference/store-management/orders/orders/getallorders), [updating](https://developer.bigcommerce.com/api-reference/store-management/orders/orders/updateanorder), and [deleting](https://developer.bigcommerce.com/api-reference/store-management/orders/orders/deleteallorders) orders; it also includes endpoints for managing [order shipments](https://developer.bigcommerce.com/api-reference/store-management/orders/order-shipments) and [order shipping addresses](https://developer.bigcommerce.com/api-reference/store-management/orders/order-shipping-addresses). [Orders V3](https://developer.bigcommerce.com/api-reference/store-management/order-transactions) surfaces [order transactions](https://developer.bigcommerce.com/api-reference/store-management/order-transactions/transactions/gettransactions) and [order refunds](https://developer.bigcommerce.com/api-reference/store-management/order-transactions) endpoints. For information on processing order payments via API, see [Payments API Overview](https://developer.bigcommerce.com/api-docs/payments/payments-api-overview).
 
 ### Prerequisites:
-**BigCommerce Store**
-An active BigCommerce store with a sellable [product](/api-reference/catalog/catalog-api/products/createproduct)
+* [A BigCommerce store](https://support.bigcommerce.com/s/article/Starting-a-Bigcommerce-Trial)
+* Access token for [API authentication](https://developer.bigcommerce.com/api-docs/getting-started/authentication/rest-api-authentication) with the following [scopes](https://developer.bigcommerce.com/api-docs/getting-started/authentication/rest-api-authentication#oauth-scopes):
+  * Orders - **Modify**
+  * Products - **Read**
+* [Product](https://developer.bigcommerce.com/api-reference/catalog/catalog-api/products/createproduct) with [variants](https://developer.bigcommerce.com/api-reference/catalog/catalog-api/product-variants/createvariant).
 
-**Scopes**
-The following [OAuth](/api-docs/getting-started/authentication#authentication_oauth-scopes) scopes are required:
-* Modify Orders
+## Creating an order
 
-## Create an Order
+To [create an order](https://developer.bigcommerce.com/api-reference/store-management/orders/orders/createanorder), send a `POST` request to `/stores/{{STORE_HASH}}/v2/orders`.
 
-We will go over adding an existing product, adding a custom product, adding a billing address and adding a shipping address. At the end of this section, you will be able to see the full sample request to create an order.
+```http
+POST https://api.bigcommerce.com/stores/{{STORE_HASH}}/v2//v2/orders
+X-Auth-Token: {{ACCESS_TOKEN}}
+X-Auth-Client: {{CLIENT_ID}}
+Content-Type: application/json
+Accept: application/json
 
-Want to skip ahead and see the [full request](/api-docs/orders/orders-api-overview#orders-api-overview_create-order-example)?
-
-At a minimum, an order needs products and a billing address. If either of these fields are left off the order is rejected.
-
-A order can be created with either an existing Product or using a Custom Product.
-
-### Add an Existing Product with Options
-
-**Required Fields:**
-- product_id
-- product_options (required if adding a product with variants)
-	- product_option > id
-	- product_option > value
-- quantity
-- price_inc_tax (optional)
-- price_ex_tax (optional)
-
-To get the `product_option > id` and `product_option > value`, make a request to [Get Variants](/api-reference/catalog/catalog-api/product-variants/getvariantsbyproductid). Variants will return the `option_value > id` and `option_values > option_id`.
-
-Make note of the `option_values > id` and `option_values > option_id`. These will be passed into the products array.
-
-<div class="HubBlock--callout">
-<div class="CalloutBlock--info">
-<div class="HubBlock-content">
-
-<!-- theme:  -->
-### Pricing
-> If price_ex_tax or price_inc_tax is set, then they both need to bet specified. Otherwise the order total will not calculate correctly.
-
-</div>
-</div>
-</div>
-
-<!--
-title: "Example /GET Variants Response"
-subtitle: "https://api.bigcommerce.com/stores/{store_hash}/v3/catalog/products/{product_id}/variants"
-lineNumbers: true
--->
-
-**Example Variants Response**
-`/GET https://api.bigcommerce.com/stores/{store_hash}/v3/catalog/products/{product_id}/variants`
-
-```json
 {
-    "data": [
-        {
-            "id": 421,
-            "product_id": 184,
-            "sku": "RED",
-            "sku_id": 383,
-            "price": null,
-            "calculated_price": 249,
-            "sale_price": null,
-            "retail_price": null,
-            "map_price": null,
-            "weight": null,
-            "calculated_weight": 15,
-            "width": null,
-            "height": null,
-            "depth": null,
-            "is_free_shipping": false,
-            "fixed_cost_shipping_price": null,
-            "purchasing_disabled": false,
-            "purchasing_disabled_message": "",
-            "image_url": "",
-            "cost_price": 0,
-            "upc": "",
-            "mpn": "",
-            "gtin": "",
-            "inventory_level": 0,
-            "inventory_warning_level": 0,
-            "bin_picking_number": "",
-            "option_values": [
-                {
-                    "id": 180,
-                    "label": "Red",
-                    "option_id": 200,
-                    "option_display_name": "Color"
-                },
-                {
-                    "id": 192,
-                    "label": "Small",
-                    "option_id": 230,
-                    "option_display_name": "T-Shirt Size"
-                }
-            ]
-        }
-...
-```
-
-Next, create the products array which includes the custom product and the existing product with product options. Using the `option_id` and `option_value > id` from the previous request we can build the products array.
-
-`product_options` > `id` = `option_values` > `option_id`
-
-`product_options` > `value` = `option_values` > `id`
-
-The `product_options` > `value` must be passed in as a string.
-
-<!--
-title: "Example Products Array"
-subtitle: "This is an abbreviated request"
-lineNumbers: true
--->
-**Example Products Array**
-This is an abbreviated request
-
-```json
-"products":[
-          {
-              "name": "BigCommerce Poster",
-              "quantity": 1,
-              "price_inc_tax": 10.98,
-              "price_ex_tax": 10.00
-          },
-          {
-              "product_id": 184,
-                "product_options":[
-                    {
-                        "id": 200,
-                        "value": "180"
-                    },
-                    {
-                        "id": 230,
-                        "value": "192"
-                    }
-                ]
-
-          }
-      ]
-```
-
-### Create a Custom Product
-
-**Required Fields:**
-* name – Product Name
-* quantity – Number of items
-* price_inc_tax – Price including tax
-* price_ex_tax – Price excluding tax
-* sku (optional)
-
-<!--
-title: "Custom Order Products Array"
-subtitle: "This is an abbreviated request"
-lineNumbers: true
--->
-**Example Custom Order Products Array**
-This is an abbreviated request
-
-```json
-  "products": [
-    {
-      "name": "BigCommerce Poster",
-      "quantity": 1,
-      "price_inc_tax": 10.98,
-      "price_ex_tax": 10
-    },
-
-     {
-      "name": "BigCommerce Coffee Mug",
-      "quantity": 1,
-      "price_inc_tax": 50.00,
-      "price_ex_tax": 45.00
-    }
-  ]
-```
-
-<div class="HubBlock--callout">
-<div class="CalloutBlock--info">
-<div class="HubBlock-content">
-
-<!-- theme:  -->
-
-### Custom Products
-> Creating a custom product does not add it to the catalog. Only to the current order.
-
-</div>
-</div>
-</div>
-
-### Order Products
-
-**Pricing**
-
-If price is not specified, it will automatically pick up the price from the store’s product catalog. However, you can override this via `price_inc_tax` and `price_ex_tax`.
-
-If the `price_inc_tax` or `price_ex_tax` specified then any variant pricing is ignored and the order products base_price is updated according to the store settings. For example, if the store is set to display prices with tax included, then the `base_price` will be `price_inc_tax`.
-
-**Stock**
-
-For products that are configured to track stock, the quantity specified on the order will reduce the stock on hand. When there is not enough inventory to fulfill the order, the order will be rejected with an “out of stock” error code.
-
-**Min and Max Quantities**
-
-For products that have min and max quantities specified in their settings, the API will honor these, and will reject orders appropriately.
-
-**Options**
-
-For products where product options are required, the API will validate these requirements to ensure that the product options are specified.
-
-**Customer File Uploads**
-
-For products that allow customers to upload a file at checkout (i.e. an image uploaded for a t-shirt order), developers can follow these steps to retrieve the file:
-
-* Get the filename value from GET [/orders/[order_id]/products](https://developer.bigcommerce.com/api-reference/orders/orders-api/order-products/getallorderproducts), in the product_options array
-* Use that filename value to download the file via WebDAV using the following path: https://store.com/product_images/configured_products/[value]
-
-### Add a Billing Address
-
-**Required Fields:**
-* first_name
-* last_name
-* street_1
-* city
-* state
-* zip
-* country
-* country_iso2
-* email
-
-<!--
-title: "Add a Billing Address"
-subtitle: "This is an abbreviated request"
-lineNumbers: true
--->
-
-**Example Add Billing Address**
-This is an abbreviated request
-
-```json
-    "billing_address": {
-        "first_name": "Jane",
-        "last_name": "Doe",
-        "company": "",
-        "street_1": "123 Main Street",
-        "street_2": "",
-        "city": "Austin",
-        "state": "Texas",
-        "zip": "78751",
-        "country": "United States",
-        "country_iso2": "US",
-        "email": "janedoe@email.com"
-    }
-```
-
-<div class="HubBlock--callout">
-<div class="CalloutBlock--info">
-<div class="HubBlock-content">
-
-<!-- theme:  -->
-### Shipping Address
-> If a shipping address is not provided, it defaults to the billing address.
-
-</div>
-</div>
-</div>
-
-### Add a Shipping Address - optional
-
-**Required Fields:**
-* first_name
-* last_name
-* street_1
-* city
-* state
-* zip
-* country
-* country_iso2
-* email
-
-The shipping address is input as an array object since more than one shipping address can be added at a time. Adding multiple shipping addresses allows for an order to ship to multiple locations.
-
-<!-- <div class="HubBlock-header">
-    <div class="HubBlock-header-title flex items-center">
-        <div class="HubBlock-header-name">Add a shipping address</div>
-    </div><div class="HubBlock-header-subtitle">This is an abbreviated request</div>
-</div> -->
-
-<!--
-title: "Add a shipping address"
-subtitle: "This is an abbreviated request"
-lineNumbers: true
--->
-
-**Example Add a shipping address**
-This is an abbreviated request
-
-```json
-    "shipping_addresses": [
-        {
-            "first_name": "Trishy",
-            "last_name": "Test",
-            "company": "Acme Pty Ltd",
-            "street_1": "666 Sussex St",
-            "street_2": "",
-            "city": "Anywhere",
-            "state": "Some State",
-            "zip": "12345",
-            "country": "United States",
-            "country_iso2": "US",
-            "phone": "",
-            "email": "trish@testing.com"
-        }
-```
-
-### Other Recommended Fields
-Below are fields which are recommended but not required when creating an order.
-
-**Customer ID**
-
-The customer_id will determine the price the shopper pays for an item. Customer ID’s are tied to customer group discounts and Price Lists. Set the `customer_id` to 0 when creating a guest order.
-
-**Shipping Address**
-
-If a shipping address is not provided, it will default to the billing addresses provided.
-
-**Status**
-
-If a status is not provided, it defaults to a status of 1 or Pending.
-
-**Discounts**
-
-Manual discounts are supported. To add a manual discount either overwrite the product price or use `discount_amount`. This accepts a fixed dollar amount.
-
-### Create Order Example
-
-After the products, billing and shipping address are added, an order can be created.
-
-<!--
-title: "Create an Order Request"
-subtitle: ""
-lineNumbers: true
--->
-
-**Example Create an Order Request**
-`/POST https://api.bigcommerce.com/stores/{store_hash}/v2/orders`
-
-```json
-{
-  "status_id": 0,
-  "customer_id": 11,
   "billing_address": {
     "first_name": "Jane",
     "last_name": "Doe",
@@ -388,339 +52,462 @@ lineNumbers: true
     "country_iso2": "US",
     "email": "janedoe@email.com"
   },
-  "shipping_addresses": [
-    {
-      "first_name": "Trish",
-      "last_name": "Test",
-      "company": "Acme Pty Ltd",
-      "street_1": "666 Sussex St",
-      "city": "Austin",
-      "state": "Texas",
-      "zip": "78751",
-      "country": "United States",
-      "country_iso2": "US",
-      "email": "elsie@example.com"
-    }
-  ],
   "products": [
     {
-      "name": "BigCommerce Poster",
-      "quantity": 1,
-      "price_inc_tax": 10.98,
-      "price_ex_tax": 10
-    },
-     {
       "name": "BigCommerce Coffee Mug",
       "quantity": 1,
-      "price_inc_tax": 50.00,
-      "price_ex_tax": 45.00
-    },
-          {
-              "product_id": 184,
-                "product_options":[
-                    {
-                        "id": 200,
-                        "value": "180"
-                    },
-                    {
-                        "id": 230,
-                        "value": "192"
-                    }
-                ]
-
-          }
+      "price_inc_tax": 50,
+      "price_ex_tax": 45
+    }
   ]
 }
 ```
 
-## Order Response
-
-The response will have abbreviated order contents with sub-resources available to get the full order information. The order is automatically set to a status of 1 or Pending. It also returns an id which is the order id.
-
-In the example below, the order ID is 193.
-* The order products sub-resource will list the products added.
-* The shipping_addresses sub-resource will have the shipping addresses.
-* The coupons sub-resource will have any coupons added to the order.
+[![Open in Request Runner](https://storage.googleapis.com/bigcommerce-production-dev-center/images/Open-Request-Runner.svg)](https://developer.bigcommerce.com/api-reference/store-management/orders/orders/createanorder#requestrunner)
 
 <div class="HubBlock--callout">
-<div class="CalloutBlock--">
+<div class="CalloutBlock--info">
 <div class="HubBlock-content">
 
-<!-- theme:  -->
-### Coupons
-> Coupons can not be added to an order via API. Use the `discount_amount` instead.
+> ### Note
+> * The example above contains minimum required fields for a [create order request](https://developer.bigcommerce.com/api-reference/store-management/orders/orders/createanorder).
+> * The product ordered is a *custom* product; custom products do not exist in the catalog.
 
 </div>
 </div>
 </div>
 
-<!--
-title: "Create Order Response"
-subtitle: ""
-lineNumbers: true
--->
+## Changing order status
 
-**Example Create Order Response**
+Specify [order status](https://developer.bigcommerce.com/api-reference/store-management/orders/order-status/getorderstatus) by including the `status_id` property in the [create order](https://developer.bigcommerce.com/api-reference/store-management/orders/orders/createanorder) request. To [update an order](https://developer.bigcommerce.com/api-reference/store-management/orders/orders/updateanorder) and change it's status, send a `PUT` request to `/v2/orders/{order_id}`.
 
-```json
+```http
+PUT https://api.bigcommerce.com/stores/{{STORE_HASH}}/v2/orders/{order_id}
+X-Auth-Token: {{ACCESS_TOKEN}}
+X-Auth-Client: {{CLIENT_ID}}
+Content-Type: application/json
+Accept: application/json
+
 {
-  "id": 193,
-  "customer_id": 0,
-  "date_created": "Fri, 12 Oct 2018 19:06:23 +0000",
-  "date_modified": "Fri, 12 Oct 2018 19:06:23 +0000",
-  "date_shipped": "",
-  "status_id": 1,
-  "status": "Pending",
-  "subtotal_ex_tax": "10.0000",
-  "subtotal_inc_tax": "10.9800",
-  "subtotal_tax": "0.9800",
-  "base_shipping_cost": "0.0000",
-  "shipping_cost_ex_tax": "0.0000",
-  "shipping_cost_inc_tax": "0.0000",
-  "shipping_cost_tax": "0.0000",
-  "shipping_cost_tax_class_id": 0,
-  "base_handling_cost": "0.0000",
-  "handling_cost_ex_tax": "0.0000",
-  "handling_cost_inc_tax": "0.0000",
-  "handling_cost_tax": "0.0000",
-  "handling_cost_tax_class_id": 0,
-  "base_wrapping_cost": "0.0000",
-  "wrapping_cost_ex_tax": "0.0000",
-  "wrapping_cost_inc_tax": "0.0000",
-  "wrapping_cost_tax": "0.0000",
-  "wrapping_cost_tax_class_id": 0,
-  "total_ex_tax": "10.0000",
-  "total_inc_tax": "10.9800",
-  "total_tax": "0.9800",
-  "items_total": 1,
-  "items_shipped": 0,
-  "payment_method": "Manual",
-  "payment_provider_id": null,
-  "payment_status": "",
-  "refunded_amount": "0.0000",
-  "order_is_digital": false,
-  "store_credit_amount": "0.0000",
-  "gift_certificate_amount": "0.0000",
-  "ip_address": "",
-  "geoip_country": "",
-  "geoip_country_iso2": "",
-  "currency_id": 1,
-  "currency_code": "USD",
-  "currency_exchange_rate": "1.0000000000",
-  "default_currency_id": 1,
-  "default_currency_code": "USD",
-  "staff_notes": null,
-  "customer_message": null,
-  "discount_amount": "0.0000",
-  "coupon_discount": "0.0000",
-  "shipping_address_count": 1,
-  "is_deleted": false,
-  "ebay_order_id": "0",
-  "cart_id": null,
-  "billing_address": {
-    "first_name": "Jane",
-    "last_name": "Doe",
-    "company": "",
-    "street_1": "123 Main Street",
-    "street_2": "",
-    "city": "Austin",
-    "state": "Texas",
-    "zip": "78751",
-    "country": "United States",
-    "country_iso2": "US",
-    "phone": "",
-    "email": "janedoe@email.com",
-    "form_fields": []
-  },
-  "is_email_opt_in": false,
-  "credit_card_type": null,
-  "order_source": "external",
-  "external_source": null,
-  "products": {
-    "url": "https://api.bigcommerce.com/stores/{store_hash}/v2/orders/193/products",
-    "resource": "/orders/193/products"
-  },
-  "shipping_addresses": {
-    "url": "https://api.bigcommerce.com/stores/{store_hash}/v2/orders/193/shippingaddresses",
-    "resource": "/orders/193/shippingaddresses"
-  },
-  "coupons": {
-    "url": "https://api.bigcommerce.com/stores/{store_hash}/v2/orders/193/coupons",
-    "resource": "/orders/193/coupons"
-  },
-  "external_id": null,
-  "external_merchant_id": null,
-  "custom_status": "Pending"
+  "status_id": 2
 }
 ```
 
-## Shipping an Order
-We will go over creating a shipment for an order, shipping quotes, shipping carriers and shipping to multiple locations.
+[![Open in Request Runner](https://storage.googleapis.com/bigcommerce-production-dev-center/images/Open-Request-Runner.svg)](https://developer.bigcommerce.com/api-reference/store-management/orders/orders/createanorder#requestrunner)
 
-### Create an Order Shipment
+To [get a list of order statuses](https://developer.bigcommerce.com/api-reference/store-management/orders/order-status/getorderstatus), send a `GET` request to `/stores/{{STORE_HASH}}/v2/order_statuses`.
 
-**Required Fields:**
-* order_address_id
-* items
+```http
+GET https://api.bigcommerce.com/stores/{{STORE_HASH}}/v2//order_statuses
+X-Auth-Token: {{ACCESS_TOKEN}}
+X-Auth-Client: {{CLIENT_ID}}
+Content-Type: application/json
+Accept: application/json
+```
 
-Once an Order has products, a billing address and at least one shipping address a order shipment can be created. Order shipments are a way to mark an order as shipped with the shipping information.
+[![Open in Request Runner](https://storage.googleapis.com/bigcommerce-production-dev-center/images/Open-Request-Runner.svg)](https://developer.bigcommerce.com/api-reference/store-management/orders/order-status/getorderstatus#requestrunner)
 
-To get the `order_address_id`  use the ID returned in [Order Shipping Address](https://developer.bigcommerce.com/api-reference/orders/orders-api/order-shipping-addresses/getallshippingaddresses).
+**Response:**
 
-The items array requires the product quantity and `order_product_id`. The `order_product_id` is the ID returned from [Order Products](https://developer.bigcommerce.com/api-reference/orders/orders-api/order-products/getanorderproduct).
+```json
+[
+  {
+    "id": 0,
+    "name": "Incomplete",
+    "system_label": "Incomplete",
+    "custom_label": "Incomplete - Testing",
+    "system_description": "An incomplete order happens when a shopper reached the payment page, but did not complete the transaction.",
+    "order": 0
+  },
+  ...
+]
+```
 
-There does not need to be a shipping provider. If the shipping provider is not sent in at all, it will default to custom and a tracking link is not generated. To have the tracking link generated without a shipping provider, provide an empty string. To add a shipping provider, see the available options on [Order Shipment](https://developer.bigcommerce.com/api-reference/orders/orders-api/order-shipments/getallordershipments).
+<div class="HubBlock--callout">
+<div class="CalloutBlock--info">
+<div class="HubBlock-content">
 
-Once the order shipment is created, it will automatically send out an email to the billing address with the shipment confirmation. To stop this behavior adjust the [Order Notification](https://support.bigcommerce.com/s/article/Customer-Order-Notifications#enable) settings in the Control Panel.
+> ### Note
+> * If not specified, `status_id` defaults to `1`.
+> * The refunded status is neither paid nor unpaid.
+> * See [Order Statuses](https://support.bigcommerce.com/s/article/Order-Statuses#rename) in the Help Center for information on changing `custom_label` in the control panel .
 
-If the order shipment is deleted, the status of the shipment is still in shipped. The status will need to be [manually changed](https://developer.bigcommerce.com/api-reference/orders/orders-api/order-status/getaorderstatus).
+</div>
+</div>
+</div>
 
-<br>
 
-<!--
-title: "Create Order Shipment"
-subtitle: ""
-lineNumbers: true
--->
+## Specifying order customer
 
-**Example Create Order Shipment**
-`https://api.bigcommerce.com/stores/{store_hash}/v2/orders/{order_id}/shipments`
+Specify the [customer](https://developer.bigcommerce.com/api-reference/store-management/customers-v3/customers/customersget#responses) by including a `customer_id` in the [create order](https://developer.bigcommerce.com/api-reference/store-management/orders/orders/createanorder) request.
+
+```http
+POST https://api.bigcommerce.com/stores/{{STORE_HASH}}/v2//v2/orders
+X-Auth-Token: {{ACCESS_TOKEN}}
+X-Auth-Client: {{CLIENT_ID}}
+Content-Type: application/json
+Accept: application/json
+
+
+{
+  "customer_id": 1,
+  "billing_address": {...},
+  "products": [...]
+}
+```
+
+[![Open in Request Runner](https://storage.googleapis.com/bigcommerce-production-dev-center/images/Open-Request-Runner.svg)](https://developer.bigcommerce.com/api-reference/store-management/orders/orders/createanorder#requestrunner)
+
+To [get a list of customers](https://developer.bigcommerce.com/api-reference/store-management/customers-v3/customers/customersget), send a `GET` request to `/stores/{{STORE_HASH}}/v3/customers`.
+
+```http
+GET https://api.bigcommerce.com/stores/{{STORE_HASH}}/v3/customers
+X-Auth-Token: {{ACCESS_TOKEN}}
+X-Auth-Client: {{CLIENT_ID}}
+Accept: application/json
+```
+
+[![Open in Request Runner](https://storage.googleapis.com/bigcommerce-production-dev-center/images/Open-Request-Runner.svg)](https://developer.bigcommerce.com/api-reference/store-management/customers-v3/customers/customersget#requestrunner)
+
+<div class="HubBlock--callout">
+<div class="CalloutBlock--info">
+<div class="HubBlock-content">
+
+> ### Note
+> * Set `customer_id` to `0` to create a guest order.
+
+</div>
+</div>
+</div>
+
+## Including shipping addresses
+
+Add [shipping addresses](https://developer.bigcommerce.com/api-reference/store-management/orders/order-shipping-addresses/updateashippingaddress#request-body) by including a [`shipping_address` array](https://developer.bigcommerce.com/api-reference/store-management/orders/order-shipping-addresses/updateashippingaddress#request-body) in the [create order](https://developer.bigcommerce.com/api-reference/store-management/orders/orders/createanorder) request.
+
+```http
+POST https://api.bigcommerce.com/stores/{{STORE_HASH}}/v2//v2/orders
+X-Auth-Token: {{ACCESS_TOKEN}}
+X-Auth-Client: {{CLIENT_ID}}
+Content-Type: application/json
+Accept: application/json
+
+
+{
+  "billing_address": {...},
+  "shipping_addresses": [
+    {
+      "first_name": "Rusty",
+      "last_name": "Gates",
+      "company": "Example LLC",
+      "street_1": "123 Example ST",
+      "street_2": "",
+      "city": "Austin",
+      "state": "Texas",
+      "zip": "12345",
+      "country": "United States",
+      "country_iso2": "US",
+      "phone": "5128675309",
+      "email": "rusty.gates@example.com"
+    }
+  ],
+  "products": [...]
+}
+```
+
+[![Open in Request Runner](https://storage.googleapis.com/bigcommerce-production-dev-center/images/Open-Request-Runner.svg)](https://developer.bigcommerce.com/api-reference/store-management/orders/orders/createanorder#requestrunner)
+
+
+<div class="HubBlock--callout">
+<div class="CalloutBlock--info">
+<div class="HubBlock-content">
+
+> ### Note
+> * Add multiple shipping addresses to [ship to multiple locations](#shipping-to-multiple-locations).
+
+</div>
+</div>
+</div>
+
+## Adding products
+
+Specify [products from the catalog](https://developer.bigcommerce.com/api-reference/store-management/orders/order-shipping-addresses/updateashippingaddress#request-body) by including a [`products` array](https://developer.bigcommerce.com/api-reference/store-management/orders/order-shipping-addresses/updateashippingaddress#request-body) in the [create order](https://developer.bigcommerce.com/api-reference/store-management/orders/orders/createanorder) request.
+
+```http
+POST https://api.bigcommerce.com/stores/{{STORE_HASH}}/v2//v2/orders
+X-Auth-Token: {{ACCESS_TOKEN}}
+X-Auth-Client: {{CLIENT_ID}}
+Content-Type: application/json
+Accept: application/json
+
+
+{
+  "billing_address": {...},
+  "products": [
+    {
+      "name": "BigCommerce Coffee Mug", # custom product
+      "quantity": 1,
+      "price_inc_tax": 50,
+      "price_ex_tax": 45
+    },
+    {
+      "product_id": 184,               # product from catalog
+      "quantity": 1,
+      "product_options": [
+        {
+          "id": 200,
+          "value": "180"
+        },
+        {
+          "id": 230,
+          "value": "192"
+        }
+      ]
+    }
+  ]
+}
+```
+
+[![Open in Request Runner](https://storage.googleapis.com/bigcommerce-production-dev-center/images/Open-Request-Runner.svg)](https://developer.bigcommerce.com/api-reference/store-management/orders/orders/createanorder#requestrunner)
+
+To get the `product_options.id` and `product_options.value` of a product for the order `products` array, send a `GET` request to `/stores/{{STORE_HASH}}/v3//catalog/products/{product_id}/variants`.
+
+```http
+GET https://api.bigcommerce.com/stores/{{STORE_HASH}}/v3//catalog/products/{product_id}/variants
+X-Auth-Token: {{ACCESS_TOKEN}}
+X-Auth-Client: {{CLIENT_ID}}
+Content-Type: application/json
+Accept: application/json
+```
+
+[![Open in Request Runner](https://storage.googleapis.com/bigcommerce-production-dev-center/images/Open-Request-Runner.svg)](https://developer.bigcommerce.com/api-reference/catalog/catalog-api/product-variants/getvariantsbyproductid#requestrunner)
+
+**[Response:](https://developer.bigcommerce.com/api-reference/catalog/catalog-api/product-variants/getvariantbyid#responses)**
 
 ```json
 {
+  "data": [
+    {
+      "id": 421,
+      "product_id": 184,
+      ...
+      "option_values": [
+        {
+          "id": 180,         // product_options.value
+          "label": "Red",
+          "option_id": 200,  // product_options.id
+          "option_display_name": "Color"
+        },
+        {
+          "id": 192,
+          "label": "Small",
+          "option_id": 230,
+          "option_display_name": "T-Shirt Size"
+        }
+      ]
+    }
+    ...
+  ]
+}
+```
+
+<div class="HubBlock--callout">
+<div class="CalloutBlock--info">
+<div class="HubBlock-content">
+
+> ### Note
+> * Custom products do not get added to the catalog.
+> * If price is not specified, the store's product catalog price is used; override this price with `price_inc_tax` and `price_ex_tax`.
+> * If you override `price_ex_tax` or `price_inc_tax`, override both; otherwise, order totals will not calculate correctly.
+> * Overriding `price_inc_tax` or `price_ex_tax` does not change variant pricing.
+
+</div>
+</div>
+</div>
+
+## Creating order shipments
+
+Once an order has products, a billing address, and a shipping address, you can create an order shipment.
+
+To [create an order shipment](https://developer.bigcommerce.com/api-reference/store-management/orders/order-shipments/createordershipments), send a `POST` request to `/stores/{{STORE_HASH}}/v2/orders/{{order_id}}/shipments`.
+
+```http
+POST https://api.bigcommerce.com/stores/{{STORE_HASH}}}/v2/orders/{{order_id}}/shipments
+X-Auth-Token: {{ACCESS_TOKEN}}
+X-Auth-Client: {{CLIENT_ID}}
+Content-Type: application/json
+Accept: application/json
+
   "tracking_number": "EJ958083578UK",
   "comments": "Janes Order",
   "order_address_id": "128",
   "shipping_provider": "",
   "items": [
-        {
-            "order_product_id": 194,
-            "product_id": 0,
-            "quantity": 1
-        },
-        {
-            "order_product_id": 195,
-            "product_id": 0,
-            "quantity": 1
-        }
+    {
+      "order_product_id": 194,
+      "quantity": 1
+    },
+    {
+      "order_product_id": 195,
+      "quantity": 1
+    }
   ]
 }
 ```
 
-<!--
-title: "Order Shipment Response"
-subtitle: ""
-lineNumbers: true
--->
+[![Open in Request Runner](https://storage.googleapis.com/bigcommerce-production-dev-center/images/Open-Request-Runner.svg)](https://developer.bigcommerce.com/api-reference/store-management/orders/order-shipments/createordershipments#requestrunner)
 
-**Example Order Shipment Response**
+|Property|Description|
+|-|-|
+|`tracking_number`|Shipping provider tracking number; used to generate tracking link|
+|`comments`|Optional comments|
+|`order_address_id`|Obtainable via [Get Order Shipping Address](https://developer.bigcommerce.com/api-reference/store-management/orders/order-shipping-addresses/getallshippingaddresses)|
+|`shipping_provider`| Optional; used to create tracking link; see [Create Order Shipment](https://developer.bigcommerce.com/api-reference/store-management/orders/order-shipments/createordershipments) for accepted values|
+|`items.order_product_id`|Obtainable via [Get Order Products](https://developer.bigcommerce.com/api-reference/store-management/orders/order-products/getallorderproducts)|
+
+<div class="HubBlock--callout">
+<div class="CalloutBlock--info">
+<div class="HubBlock-content">
+
+> ### Note
+> * Create multiple shipments by specifying a subset of products and quantities in each `POST` request.
+> * Creating order shipments triggers email notifications; adjust [Order Notification](https://support.bigcommerce.com/s/article/Customer-Order-Notifications#enable) settings in the [control panel](https://login.bigcommerce.com/deep-links/manage) to change this behavior.
+> * Deleting a shipment does **not** move the order out of `shipped` status.
+
+</div>
+</div>
+</div>
+
+## Shipping to multiple locations
+
+You can create multiple shipments for orders, and each shipment can have a different `order_address_id`.
+
+```http
+POST https://api.bigcommerce.com/stores/{{STORE_HASH}}}/v2/orders/{{order_id}}/shipments
+X-Auth-Token: {{ACCESS_TOKEN}}
+X-Auth-Client: {{CLIENT_ID}}
+Content-Type: application/json
+Accept: application/json
+
+{
+  "order_address_id": "123",
+  "shipping_provider": "usps",
+  "items": [
+    {
+      "order_product_id": 2,
+      "quantity": 1
+    }
+  ]
+}
+```
+
+```http
+POST https://api.bigcommerce.com/stores/{{STORE_HASH}}}/v2/orders/{{order_id}}/shipments
+X-Auth-Token: {{ACCESS_TOKEN}}
+X-Auth-Client: {{CLIENT_ID}}
+Content-Type: application/json
+Accept: application/json
+
+{
+  "order_address_id": "456",
+  "shipping_provider": "",
+  "items": [
+    {
+      "order_product_id": 5,
+      "quantity": 1
+    }
+  ]
+}
+```
+
+[![Open in Request Runner](https://storage.googleapis.com/bigcommerce-production-dev-center/images/Open-Request-Runner.svg)](https://developer.bigcommerce.com/api-reference/store-management/orders/order-shipments/createordershipments#requestrunner)
+
+|Property|Description|
+|-|-|
+|`order_address_id`|Obtainable via [Get Order Shipping Address](https://developer.bigcommerce.com/api-reference/store-management/orders/order-shipping-addresses/getallshippingaddresses)|
+|`shipping_provider`| Optional; used to create tracking link; see [Create Order Shipment](https://developer.bigcommerce.com/api-reference/store-management/orders/order-shipments/createordershipments) for accepted values|
+|`items.order_product_id`|Obtainable via [Get Order Products](https://developer.bigcommerce.com/api-reference/store-management/orders/order-products/getallorderproducts)|
+
+## Getting shipping quotes
+
+To [get shipping quotes](https://developer.bigcommerce.com/api-reference/store-management/orders/order-shipping-addresses-quotes/getshippingquotes), send a `GET` request to `/v2/orders/{order_id}/shipping_addresses/{shipping_address_id}/shipping_quotes`.
+
+```http
+GET https://api.bigcommerce.com/stores/{{STORE_HASH}}/v2/orders/{order_id}/shipping_addresses/{shipping_address_id}/shipping_quotes
+X-Auth-Token: {{ACCESS_TOKEN}}
+X-Auth-Client: {{CLIENT_ID}}
+Accept: application/json
+```
+
+[![Open in Request Runner](https://storage.googleapis.com/bigcommerce-production-dev-center/images/Open-Request-Runner.svg)](https://developer.bigcommerce.com/api-reference/store-management/orders/order-shipping-addresses-quotes/getshippingquotes#requestrunner)
+
+**[Response:](https://developer.bigcommerce.com/api-reference/store-management/orders/order-shipping-addresses-quotes/getshippingquotes#responses)**
 
 ```json
 {
-    "id": 11,
-    "order_id": 228,
-    "customer_id": 11,
-    "order_address_id": 131,
-    "date_created": "Wed, 13 Mar 2019 16:35:37 +0000",
-    "tracking_number": "EJ958083578US",
-    "merchant_shipping_cost": "0.0000",
-    "shipping_method": "None",
-    "comments": "Ready to go...",
-    "shipping_provider": "",
-    "tracking_carrier": "",
-    "billing_address": {
-        "first_name": "Jane",
-        "last_name": "Doe",
-        "company": "",
-        "street_1": "123 Main Street",
-        "street_2": "",
-        "city": "Austin",
-        "state": "Texas",
-        "zip": "78751",
-        "country": "United States",
-        "country_iso2": "US",
-        "phone": "",
-        "email": "janedoe@email.com"
-    },
-    "shipping_address": {
-        "first_name": "Trishy",
-        "last_name": "Test",
-        "company": "Acme Pty Ltd",
-        "street_1": "666 Sussex St",
-        "street_2": "",
-        "city": "Anywhere",
-        "state": "Some State",
-        "zip": "12345",
-        "country": "United States",
-        "country_iso2": "US",
-        "phone": "",
-        "email": "elsie@example.com"
-    },
-    "items": [
-        {
-            "order_product_id": 194,
-            "product_id": 0,
-            "quantity": 1
-        },
-        {
-            "order_product_id": 195,
-            "product_id": 0,
-            "quantity": 1
-        }
-    ]
+  "id": "16",
+  "uuid": "18aaa5eb-3c7a-4bf8-bfaa-d14d155606f1",
+  "timestamp": "Mon, 30 Jul 2018 15:32:35 +0000",
+  "shipping_provider_id": "bcproductbased",
+  "shipping_provider_quote": [],
+  "provider_code": "productfixedshipping",
+  "carrier_code": "",
+  "rate_code": "",
+  "rate_id": ""
 }
-
 ```
 
-### Multiple Locations
+Generating a quote through a shipping carrier is not supported. You can specify a shipping carrier when creating an order shipment. You can generate the quote elsewhere, then update the `shipping_cost_ex_tax` and `shipping_cost_inc_tax` for the order total to be correct.
 
-Orders can have multiple shipment locations. There needs to be more than one product or quantity of a product and more than one shipping addresses. A shipping address can be added either during the create or using an update.
+## Getting order taxes
 
-To ship to multiple locations create an order shipment for each location and items. Only one POST request per shipment.
+To [get order taxes](https://developer.bigcommerce.com/api-reference/store-management/orders/order-taxes/getordertaxes), send a `GET` request to `/stores/{{STORE_HASH}}/v2/orders/{order_id}/taxes`.
 
-<div class="HubBlock--callout">
-<div class="CalloutBlock--info">
-<div class="HubBlock-content">
+```http
+GET https://api.bigcommerce.com/stores/{{STORE_HASH}}/v2/orders/{order_id}/taxes
+X-Auth-Token: {{ACCESS_TOKEN}}
+X-Auth-Client: {{CLIENT_ID}}
+Accept: application/json
+```
 
-<!-- theme:  -->
-### Shipping Address
-> When adding shipping addresses during an order PUT or POST, the API will allow you to add more than is necessary.
+[![Open in Request Runner](https://storage.googleapis.com/bigcommerce-production-dev-center/images/Open-Request-Runner.svg)](https://developer.bigcommerce.com/api-reference/store-management/orders/order-taxes/getordertaxes#requestrunner)
 
-</div>
-</div>
-</div>
+**[Response:](https://developer.bigcommerce.com/api-reference/store-management/orders/order-taxes/getordertaxes#responses)**
 
-### Custom Quotes
-An order can be created with a `shipping_cost_ex_tax` and `shipping_cost_inc_tax`. This is a way to add a custom shipping amount to an order. This can be added when creating or updating an order.
+```json
+[
+  {
+    "id": 13,
+    "order_id": 138,
+    "order_address_id": 39,
+    "tax_rate_id": 1,
+    "tax_class_id": 0,
+    "name": "Tax",
+    "class": "Default Tax Class",
+    "rate": "8.0000",
+    "priority": 0,
+    "priority_amount": "17.6400",
+    "line_amount": "17.6400"
+  }
+]
+```
 
-<div class="HubBlock--callout">
-<div class="CalloutBlock--info">
-<div class="HubBlock-content">
+The response's [order tax object](https://developer.bigcommerce.com/api-reference/store-management/orders/order-taxes/getordertaxes) `name` property gets set to `API Tax Override` when generated by third-party tax services like [Avalara Premium](https://www.bigcommerce.com/apps/avalara-avatax/?search=avalara).
 
-<!-- theme:  -->
-### Shipping Cost
-> Both `shipping_cost_ex_tax` and `shipping_cost_inc_tax` must be included otherwise, the final order amount will not be calculated correctly.
+```json
+[
+  {
+    "id": 13,
+    "order_id": 138,
+    "order_address_id": 39,
+    "tax_rate_id": 1,
+    "tax_class_id": 0,
+    "name": "API Tax Override",
+    ...
+  }
+]
+```
 
-</div>
-</div>
-</div>
-
-### Shipping Carrier
-Generating a quote through a shipping carrier is currently not supported. A shipping carrier can be specified when creating an Order Shipment. The quote can be generate elsewhere, then update the `shipping_cost_ex_tax` and `shipping_cost_inc_tax` for the order total to be correct..
-
-## Taxes
-Tax will be calculated based on the tax rules specified in the store, except in the case of automatic taxes. However, in both cases, you can optionally override the tax values by specifying `price_inc_tax` and `price_ex_tax`.
-
-If a store has automatic tax enabled, BigCommerce does not compute sales tax on orders created via the API.
-
-### Avalara
-When the store is subscribed to Avalara Premium, a value of API Tax Override is written to the Order Tax object’s name field.
-
-Abbreviated state names in shipping and billing addresses will prevent tax documents from being submitted to Avalara. To ensure successful Avalara tax-document submission, spell state names out in full. For example, supplying CA as a state name leads to no tax-document submission. Supplying California as a state name leads to a successful submission.
-
-POST or PUT orders on stores with Avalara Premium cause tax documents to be submitted. If a store has subscribed to Avalara Premium, BigCommerce automatically submits tax documents to Avalara when the order achieves a paid status. See Order Status below for a list of paid statuses.
-
-You can create overrides for calculated values such as product prices, subtotal and totals by sending a fixed value in the request. If values are not supplied for these properties, they will be automatically calculated based on the preset store values and tax rules.
+BigCommerce submits tax documents to Avalara when an order moves from an **unpaid** status to a **paid** status and voids tax documents when an order moves from a **paid status** to an unpaid status.
 
 | Existing Status | Status Passed | Resultant Status | Avalara Tax Document Submission |
 | - | - | - | - |
@@ -730,51 +517,133 @@ You can create overrides for calculated values such as product prices, subtotal 
 | Paid or `Refunded` | Unpaid | Unpaid | Tax document voided |
 | Unpaid or `Refunded` | Paid | Paid | Tax document submitted |
 
-## Overriding Preset Values
-You can create overrides for calculated values such as product prices, subtotal and totals by sending a fixed value in the request. If values are not supplied for these properties, they will be automatically calculated based on the preset store values and tax rules.
+<div class="HubBlock--callout">
+<div class="CalloutBlock--info">
+<div class="HubBlock-content">
 
-## Calculation of Totals
-When not specified, order subtotal and total are automatically calculated.
+> ### Note
+> * Abbreviated state names (ex: `CA` instead of `California`) in an order address will cause tax document submission to fail.
+> * Taxes are calculated using rules specified in the store (unless [automatic taxes](https://support.bigcommerce.com/s/article/Automatic-Tax-Setup) are enabled).
+> * You can optionally override tax values by specifying `price_inc_tax` and `price_ex_tax` in an [update order request](https://developer.bigcommerce.com/api-reference/store-management/orders/orders/updateanorder).
+> * If a store has [automatic tax](https://support.bigcommerce.com/s/article/Automatic-Tax-Setup) enabled, BigCommerce does not compute sales tax on orders created via the API.
 
-You can override order subtotal and/or total. If you choose to override one, we strongly recommend that override both, because the system will not be able to accurately calculate the other.
+</div>
+</div>
+</div>
 
-Edits to the following properties will trigger a recalculation of the subtotal and total:
+## Getting order transactions
 
-*   products
-*   discount_amount
-*   shipping_cost_ex_tax
-*   shipping_cost_inc_tax
-*   handling_cost_ex_tax
-*   handling_cost_inc_tax
-*   wrapping_cost_ex_tax
-*   wrapping_cost_inc_tax
-*   billing_address
-*   shipping_addresses
+To [get order transactions](https://developer.bigcommerce.com/api-reference/store-management/order-transactions/transactions/gettransactions), send a `GET` request to `/stores/{{STORE_HASH}}/v3/orders/{order_id}/transactions`.
 
-## Order Status
-When moving through order management, the order status is not automatically updated. This needs to be changed as needed.
+```http
+GET https://api.bigcommerce.com/stores/{{STORE_HASH}}/v3/orders/{order_id}/transactions
+X-Auth-Token: {{ACCESS_TOKEN}}
+X-Auth-Client: {{CLIENT_ID}}
+Accept: application/json
+```
 
-You can specify `status_id`, which will automatically set the corresponding status. When `status_id` is not specified, it will be automatically set to 1, which will set status to Pending.
+[![Open in Request Runner](https://storage.googleapis.com/bigcommerce-production-dev-center/images/Open-Request-Runner.svg)](https://developer.bigcommerce.com/api-reference/store-management/order-transactions/transactions/gettransactions#requestrunner)
 
-The following statuses are of the paid type:
-* Shipped
-* Partially Shipped
-* Awaiting Pickup
-* Awaiting Shipment
-* Completed
-* Awaiting Fulfillment
+**[Response:](https://developer.bigcommerce.com/api-reference/store-management/order-transactions/transactions/gettransactions#responses)**
 
-BigCommerce considers all statuses other than those above to be of the unpaid type, except Refunded, which is considered neither paid or unpaid.
+```json
+{
+  "data": [
+    {
+      "id": 85926313,
+      "order_id": "121",
+      "event": "purchase",
+      "method": "nonce",
+      "amount": 1,
+      "currency": "USD",
+      "gateway": "squarev2",
+      "gateway_transaction_id": "pN5Kd7R9ilEI2ygBawCy7tMF|qwnAFAxRZ7tYRtIpZULg1yMF",
+      "status": "ok",
+      "test": false,
+      "fraud_review": false,
+      "reference_transaction_id": {},
+      "date_created": "2018-05-08T15:06:12+00:00",
+      "avs_result": {...},
+      "cvv_result": {...},
+      "credit_card": {},
+      "gift_certificate": {},
+      "store_credit": {},
+      "offline": {},
+      "custom": {},
+      "payment_instrument_token": {},
+      "payment_method_id": "squarev2.card"
+    }
+  ],
+  "meta": {...}
+}
+```
 
-### Custom Order Status
+<div class="HubBlock--callout">
+<div class="CalloutBlock--info">
+<div class="HubBlock-content">
 
-The order status label can be changed in the Control Panel. This **does not** change the underlying functionality. See our support article on [Order Status](https://support.bigcommerce.com/s/article/Order-Statuses#rename).
+> ### Note
+> * Depending on the payment method, different information will be available (not all payment gateways return full card or fraud detail).
+> * Transactions are not created for the following payment methods:
+>   * Test Payment Gateway
+>   * PayPal Express
+>   * Amazon Pay
+
+</div>
+</div>
+</div>
+
+## Handling refunds
+
+[Orders V3](https://developer.bigcommerce.com/api-reference/store-management/order-transactions) exposes endpoints for managing [order refunds](https://developer.bigcommerce.com/api-reference/store-management/order-transactions/order-refunds). For an overview on using these endpoints, see [Order Refunds in API Docs](https://developer.bigcommerce.com/api-docs/orders/payment-actions).
+
+## Calculating totals
+
+Order `subtotal` and `total` calculate automatically; edits to the following properties trigger recalculation.
+
+|Property|Type|Description|
+|-|-|-|
+|`products`|`array[obj]`|Used to calculate shipping, taxes, and subtotal|
+|`shipping_cost_ex_tax`|`float`|Shipping cost, excluding tax|
+|`shipping_cost_inc_tax`|`float`|Shipping cost, including tax|
+|`handling_cost_ex_tax`|`float`|Value of handling cost, excluding tax|
+|`handling_cost_inc_tax`|`float`|Value of handling cost, including tax|
+|`wrapping_cost_ex_tax`|`float`|Value of wrapping cost, excluding tax |
+|`wrapping_cost_inc_tax`|`float`|Value of wrapping cost, including tax |
+|`billing_address`|`obj`|Used to calculate shipping and taxes| 
+|`shipping_addresses`|`array[obj]`|Used to calculate shipping and taxes| 
+
+|Property|Description
+|-|
+|`products`|
+|`shipping_cost_ex_tax`|
+|`shipping_cost_inc_tax`|
+|`handling_cost_ex_tax`|
+|`handling_cost_inc_tax`|
+|`wrapping_cost_ex_tax`|
+|`wrapping_cost_inc_tax`|
+|`billing_address`|
+|`shipping_addresses`|
+
+You can override calculated values such as product prices, subtotals, and totals by sending a fixed value in the request. If values are not supplied for these properties, they will be automatically calculated based on the preset store values and tax rules.
+
+<div class="HubBlock--callout">
+<div class="CalloutBlock--info">
+<div class="HubBlock-content">
+
+> ### Note
+> * If you override `subtotal` or `total`, override both; the system will not re-calculate the other.
+> * To add a manual discount, overwrite the product price or `discount_amount`.
+
+</div>
+</div>
+</div>
 
 ## FAQ
 
 **Is adding coupons available?**
 
-Coupon redemption is not currently supported. The `coupon_discount` field can not be written to. A discount can be added to the order by using the `discount_amount`.
+Coupon redemption is unavailable. You can not write to the `coupon_discount` field. You can add a discount to the order by using the `discount_amount`.
 
 **How do I create an order for a guest?**
 
@@ -782,29 +651,34 @@ To specify a guest checkout, set `customer_id` to 0.
 
 **How do I set the order source?**
 
-The `order_source` cannot be specified, and will be set to external. You can optionally specify a value for `external_source` to specify which external source the order is coming from - e.g., POS system X, accounting system Y, etc.
+You cannot specify the `order_source`; its value is external. You can optionally specify a value for `external_source` to define which external source the order is coming from - e.g., POS system X, accounting system Y, etc.
 
 **Can I create an order with only custom products?**
 
-Yes, the products are not added to the store's catalog.
+Yes, the store's catalog does not include products.
 
 **What is the difference between country_ISO2 and country?**
 
-In the shipping and billing addresses, there is no requirement to specify country when `country_ISO2` is specified and vice versa.
+There is no requirement to specify country when `country_ISO2` is specified in the shipping and billing addresses and vice versa.
 
-**How can I take a payment for an Order?**
+**How can I take a payment for an order?**
 
-You can either process payment through a third party or using the Control Panel.
+You can either process payment through a third party or using the control panel.
 
 **Can I generate a shipping quote from a carrier using the API?**
 
-Not at this time. If an order is created either in the Control Panel or via API, then it returns a 204 when trying to get a Shipping Quote.
+Not at this time. If an order is created either in the control panel or via API, it returns a 204 when trying to get a Shipping Quote.
 
 ## Resources
+
 ### Webhooks
+
 - [Orders](/api-docs/getting-started/webhooks/webhook-events#webhook-events_orders)
 
-### Related Endpoints
+### Related endpoints
+
+- [Storefront Orders](https://developer.bigcommerce.com/api-reference/cart-checkout/storefront-orders)
+- [Order Refunds](https://developer.bigcommerce.com/api-reference/store-management/order-transactions/order-refunds)
 - [Orders](https://developer.bigcommerce.com/api-reference/orders/orders-api/orders/)
 - [Order Shipments](/api-reference/orders/orders-api/order-shipments/createordershipments)
 - [Order Status](/api-reference/orders/orders-api/order-status/getaorderstatus)
@@ -812,7 +686,11 @@ Not at this time. If an order is created either in the Control Panel or via API,
 - [Order Products](/api-reference/orders/orders-api/order-products/getanorderproduct)
 - [Order Shipping Address](/api-reference/orders/orders-api/order-shipping-addresses/getashippingaddress)
 - [Order Coupons](/api-reference/orders/orders-api/order-coupons/getallordercoupons)
+- [Order Transactions](https://developer.bigcommerce.com/api-reference/store-management/order-transactions/transactions)
 
-### Related Articles
-- [Order Status](https://support.bigcommerce.com/s/article/Order-Statuses#rename) (BigCommerce Support)
-- [Order Notifications](https://support.bigcommerce.com/s/article/Customer-Order-Notifications#enable) (BigCommerce Support)
+### Related articles
+
+- [Payments API Overview](https://developer.bigcommerce.com/api-docs/payments/payments-api-overview)
+- [Order Refunds](https://developer.bigcommerce.com/api-docs/orders/payment-actions)
+- [Order Statuses](https://support.bigcommerce.com/s/article/Order-Statuses) (Help Center)
+- [Order Notifications](https://support.bigcommerce.com/s/article/Customer-Order-Notifications#enable) (Help Center)
