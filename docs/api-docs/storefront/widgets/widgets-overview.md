@@ -35,7 +35,7 @@ In this article, we are going to review all the components that make a widget. T
 
 Most themes in the BigCommerce marketplace come with predefined regions. It is best to use those first. By editing the theme and adding theme regions, updates will need to be managed manually.
 
-### Global regions
+<!-- ### Global regions
 
 Global regions are special regions you can use to place and manage content sitewide. Widgets placed in a global region will appear on every page of the storefront where that region exists. This makes global regions useful for displaying high-priority information, such as special promotion advertising banners, across multiple storefront pages.
 
@@ -45,7 +45,7 @@ To create a global region, add the `--global` suffix to the region name as shown
 
 >Note
 >
->`header_bottom--global`region is currently the only global region available by default. 
+>`header_bottom--global`region is currently the only global region available by default.  -->
 
 ## Widget templates
 
