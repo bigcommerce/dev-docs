@@ -7,7 +7,6 @@
 - [Application requirements](#application-requirements)
 - [Partner Portal](#partner-portal)
 - [App Marketplace](#app-marketplace)
-- [Troubleshooting](#troubleshooting)
 - [Resources](#resources)
 </div> 
 
@@ -71,57 +70,6 @@ We encourage you to create your sandbox store and your Dev Tools account using t
 </div>
 </div>
 </div>
-
-### Creating a sandbox store
-
-1. Go to the [BigCommerce Pricing](https://www.bigcommerce.com/essentials/pricing/) page and select **Start your free trial**.
-
-2. When prompted for an email address, enter the _same_ email you used when applying to become a partner.
-
-3. In the trial store setup form, enter a store name, password, and other details. Then select **Create your store**.
-
-4. Log into your Partner account to access the [Partner Portal](https://partners.bigcommerce.com). 
-
-5. Navigate to **Support > Contact Support** and select **Create a Support Case**.
-
-6. While completing the form, use "Partner Sandbox" as the subject line. In the case description, enter your new sandbox store's canonical URL (for example: http://your-store-name.mybigcommerce.com) and request conversion to a sandbox. 
-
-7. Under **Issue Type**, select **Merchant Account Services**. Click **Create Case**. We will flag this new trial store as a sandbox to ensure your store access continues beyond the 15-day trial period. This process can take several days.
-
-8.  Log into your new trial store using the same email associated with your partner login.
-
-### Marketplace apps
-Merchants often have more than one person who can access a store's control panel. BigCommerce allows additional users to access an app when the store owner has granted them appropriate permissions. The requirements for supporting multi-user app access are:
-
-* Tokens must be stored against the `store_hash` and not against user info.
-* Within the [Dev Tools](https://developer.bigcommerce.com/api-docs/getting-started/authentication/rest-api-authentication#obtaining-app-api-credentials) workspace, you must enable your app's **Technical** > **Multiple Users** option.
-
-In the payload returned when a user launches an app, users are distinguished by `owner_email` versus `user_email`. If these two emails match, the user is the store owner.
-
-If you wish to enable user removal, you can do by filling in your app's **Technical** > **Remove User Callback URL** field in Dev Tools. Enabling user removal is optional. For more advanced implementations, you can enable the store owner to grant specific permissions to different non-admin users. For example, `person1@email.com` could be restricted to only editing product inventory but not viewing orders. If you decide to include user permission in your app, it’s a great feature to advertise.
-
-For more information, see [Multi-User Support](/api-docs/apps/guide/intro#multi-user-support).
-
-## Troubleshooting
-
-**Are all fields required when applying to become a partner?**
-
-We highly recommend filling out all the fields associated with publishing edits for your listing. Without filling in all fields, your listing will lack information merchants are accustomed to seeing on other listings and expect to see throughout the Marketplace.
-
-
-**I’ve logged into Dev Tools, but I don’t see my published listing. Where is it?**
-
-You may be logged in with the wrong account. Each listing can only be owned by one user, so it is likely assigned to another email address. If you’re unable to track down the correct owner account for your solution, please reach out to <a href="mailto:appstore@bigcommerce.com">appstore@bigcommerce.com</a>.
-
-**Why can't I see the updates I've made to my App Marketplace listing?**
-
-
-The updates will be effective immediately in your control panel app card, but the updates can take up to 24 hours to appear on the public BigCommerce Marketplace. Feel free to use this as a grace period to make additional edits as needed.
-
-
-**Who should I contact if I have further questions?**
-
-If you have additional questions, email <a href="mailto:appstore@bigcommerce.com">appstore@bigcommerce.com</a>.
 
 ## Resources
 
