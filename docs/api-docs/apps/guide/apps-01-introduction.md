@@ -74,7 +74,7 @@ Here's how to get started with BigCommerce development:
 
 
 ## Next steps
-* [Decide which type of app to build](https://developer.bigcommerce.com/api-docs/apps/guide/types-of-apps)
+* [Decide which type of app to build](https://developer.bigcommerce.com/api-docs/apps/guide/types)
 
 * [Start building apps with CodeSandbox, Node, and Express](https://developer.bigcommerce.com/api-docs/apps/quick-start)
 
