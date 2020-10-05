@@ -2,7 +2,7 @@
 
 <div class="otp" id="no-index">
 
-### On this oage
+### On this page
 - [Custom helpers](#custom-helpers)
 - [Standard helpers](#standard-helpers)
 - [Contributing to helpers](#contributing-to-helpers)
@@ -311,13 +311,54 @@ Returns language translation keys as JSON string.
 
 ### [{{getContentImage}}](https://github.com/bigcommerce/paper-handlebars/blob/master/helpers/getContentImage.js)
 
-Returns sized image URL from store `/content` directory.
+Returns URL for an image [uploaded to `/dav/content/`](https://support.bigcommerce.com/s/article/File-Access-WebDAV).
 
-[See it in Cornerstone](https://github.com/bigcommerce/cornerstone/search?l=HTML&q=getContentImage).
+#### Parameters
+
+* `a` **{String}:** Image path relative to `/dav/content/`
+* `width` **{Int}:** Width in pixels
+* `height` **{Int}:** Height in pixels
+
+#### Example
+
+```handlebars
+<!-- Original image URL returned if no size or invalid size is passed in -->
+{{getContentImage "asset.jpg"}}
+<!--=> https://cdn.bcapp/3dsf74g/images/stencil/original/content/asset.jpg  -->
+
+{{getContentImage "asset.jpg" width="a" height="a"}}
+<!--=> https://cdn.bcapp/3dsf74g/images/stencil/original/content/asset.jpg  -->
+
+
+<!-- Sized image URL returned if valid height and/or width passed in -->
+{{getContentImage "asset.jpg" width=123 height=321}}
+<!--=> https://cdn.bcapp/3dsf74g/images/stencil/123x321/content/asset.jpg -->
+
+{{getContentImage "asset.jpg" width=123}}
+<!--=> https://cdn.bcapp/3dsf74g/images/stencil/123w/content/folder/asset.jpg -->
+```
 
 ### [{{getContentImageSrcset}}](https://github.com/bigcommerce/paper-handlebars/blob/master/helpers/getContentImageSrcset.js)
 
-Returns an `<img>` tag `srcset` value for images  `/content` directory (accessible via WebDAV). Refer to [getImageSrcSet](#getimagesrcset) for usage examples.
+Returns a `srcset` for an image [uploaded to `/dav/content/`](https://support.bigcommerce.com/s/article/File-Access-WebDAV).
+
+#### Parameters
+
+* `a` **{String}:** Image path relative to `/dav/content/`
+
+#### Example
+
+```handlebars
+{{getContentImageSrcset "asset.jpg"}}
+<!--=>
+https://cdn.bcapp/3dsf74g/images/stencil/80w/content/asset.jpg 80w, https://cdn.bcapp/3dsf74g/images/stencil/160w/content/asset.jpg 160w, https://cdn.bcapp/3dsf74g/images/stencil/320w/content/asset.jpg 320w, https://cdn.bcapp/3dsf74g/images/stencil/640w/content/asset.jpg 640w, https://cdn.bcapp/3dsf74g/images/stencil/960w/content/asset.jpg 960w, https://cdn.bcapp/3dsf74g/images/stencil/1280w/content/asset.jpg 1280w, https://cdn.bcapp/3dsf74g/images/stencil/1920w/content/asset.jpg 1920w, https://cdn.bcapp/3dsf74g/images/stencil/2560w/content/asset.jpg 2560w
+-->
+
+{{getContentImageSrcset "folder/asset.jpg" width=123}}
+<!--=>
+https://cdn.bcapp/3dsf74g/images/stencil/80w/content/folder/asset.jpg 80w, https://cdn.bcapp/3dsf74g/images/stencil/160w/content/folder/asset.jpg 160w, https://cdn.bcapp/3dsf74g/images/stencil/320w/content/folder/asset.jpg 320w, https://cdn.bcapp/3dsf74g/images/stencil/640w/content/folder/asset.jpg 640w, https://cdn.bcapp/3dsf74g/images/stencil/960w/content/folder/asset.jpg 960w, https://cdn.bcapp/3dsf74g/images/stencil/1280w/content/folder/asset.jpg 1280w, https://cdn.bcapp/3dsf74g/images/stencil/1920w/content/folder/asset.jpg 1920w, https://cdn.bcapp/3dsf74g/images/stencil/2560w/content/folder/asset.jpg 2560w
+ -->
+```
 
 [See it in Cornerstone](https://github.com/bigcommerce/cornerstone/search?l=HTML&q=getContentImageSrcset).
 
@@ -339,18 +380,58 @@ You can use the optional `defaultImage` parameter to specify an image that will 
 {{getImage image "thumbnail"}}
 ```
 
-
 [See it in Cornerstone](https://github.com/bigcommerce/cornerstone/search?l=HTML&q=getImage).
 
 ### [{{getImageManagerImage}}](https://github.com/bigcommerce/paper-handlebars/blob/master/helpers/getImageManagerImage.js)
 
-Returns an `<img>` tag `src` value for images in a store's `/product_images/uploaded_images` directory (accessible via [WebDAV](https://support.bigcommerce.com/s/article/File-Access-WebDAV)).
+Returns an [Image Manager](https://support.bigcommerce.com/s/article/Using-the-Image-Manager) image URL for an image [uploaded to `/dav/product_images/uploaded_images`](https://support.bigcommerce.com/s/article/File-Access-WebDAV).
+
+#### Parameters
+* `a` **{String}:** Image path relative to `/dav/product_images/uploaded_images`
+* `width` **{Int}:** Width in pixels
+* `height` **{Int}:** Height in pixels
+
+#### Example
+
+```handlebars
+<!-- Original image URL returned if no size or invalid size is passed in -->
+{{getImageManagerImage "asset.jpg"}}
+<!--=> https://cdn.bcapp/3dsf74g/images/stencil/original/image-manager/asset.jpg  -->
+
+{{getImageManagerImage "folder/asset.jpg" height=123}} <!-- height must be accompanied by width -->
+<!--=> https://cdn.bcapp/3dsf74g/images/stencil/original/image-manager/folder/asset.jpg  -->
+
+
+<!-- Sized image URL returned if valid height and/or width passed in -->
+{{getImageManagerImage "asset.jpg" width=123}}
+<!--=> https://cdn.bcapp/3dsf74g/images/stencil/123w/image-manager/asset.jpg -->
+
+{{getImageManagerImage "folder/asset.jpg" width=123 height=321}}
+<!--=> https://cdn.bcapp/3dsf74g/images/stencil/123x321/image-manager/folder/asset.jpg -->
+```
 
 [See it in Cornerstone](https://github.com/bigcommerce/cornerstone/search?l=HTML&q=getImageManagerImage).
 
 ### [{{getImageManagerImageSrcset}}](https://github.com/bigcommerce/paper-handlebars/blob/master/helpers/getImageManagerImageSrcset.js)
 
-Returns `<img>` tag `srcset` value for image's in a store's `/product_images/uploaded_images` directory (accessible via [WebDav](https://support.bigcommerce.com/s/article/File-Access-WebDAV)). Refer to [getImageSrcSet](#getimagesrcset) for usage examples.
+Returns an [Image Manager](https://support.bigcommerce.com/s/article/Using-the-Image-Manager) image `srcset` for an image [uploaded to `/dav/product_images/uploaded_images`](https://support.bigcommerce.com/s/article/File-Access-WebDAV).
+
+#### Parameters
+* `a` **{String}:** Image path relative to `/dav/product_images/uploaded_images`
+
+#### Example
+
+```handlebars
+{{getImageManagerImageSrcset "asset.jpg"}}
+<!--=>
+https://cdn.bcapp/3dsf74g/images/stencil/80w/image-manager/asset.jpg 80w, https://cdn.bcapp/3dsf74g/images/stencil/160w/image-manager/asset.jpg 160w, https://cdn.bcapp/3dsf74g/images/stencil/320w/image-manager/asset.jpg 320w, https://cdn.bcapp/3dsf74g/images/stencil/640w/image-manager/asset.jpg 640w, https://cdn.bcapp/3dsf74g/images/stencil/960w/image-manager/asset.jpg 960w, https://cdn.bcapp/3dsf74g/images/stencil/1280w/image-manager/asset.jpg 1280w, https://cdn.bcapp/3dsf74g/images/stencil/1920w/image-manager/asset.jpg 1920w, https://cdn.bcapp/3dsf74g/images/stencil/2560w/image-manager/asset.jpg 2560w
+ -->
+
+{{getImageManagerImageSrcset "folder/asset.jpg" width=123}}
+ <!--=>
+https://cdn.bcapp/3dsf74g/images/stencil/80w/image-manager/folder/asset.jpg 80w, https://cdn.bcapp/3dsf74g/images/stencil/160w/image-manager/folder/asset.jpg 160w, https://cdn.bcapp/3dsf74g/images/stencil/320w/image-manager/folder/asset.jpg 320w, https://cdn.bcapp/3dsf74g/images/stencil/640w/image-manager/folder/asset.jpg 640w, https://cdn.bcapp/3dsf74g/images/stencil/960w/image-manager/folder/asset.jpg 960w, https://cdn.bcapp/3dsf74g/images/stencil/1280w/image-manager/folder/asset.jpg 1280w, https://cdn.bcapp/3dsf74g/images/stencil/1920w/image-manager/folder/asset.jpg 1920w, https://cdn.bcapp/3dsf74g/images/stencil/2560w/image-manager/folder/asset.jpg 2560w
+ -->
+```
 
 [See it in Cornerstone](https://github.com/bigcommerce/cornerstone/search?l=HTML&q=getImageManagerImageSrcset).
 
