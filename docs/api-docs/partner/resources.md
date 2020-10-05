@@ -24,7 +24,7 @@ BigCommerce sample apps are open-source projects developed by the BigCommerce te
 - [PHP app](https://github.com/bigcommerce/hello-world-app-php-silex)
 - [Ruby app](https://github.com/bigcommerce/hello-world-app-ruby-sinatra)
 - [OmniAuth Bigcommerce strategy](https://github.com/bigcommerce/omniauth-bigcommerce)
--[AWS Amplify app](https://github.com/hatertron3000/amplify-bigcommerce)
+- [AWS Amplify app](https://github.com/hatertron3000/amplify-bigcommerce)
 
 
 ## BigDesign
