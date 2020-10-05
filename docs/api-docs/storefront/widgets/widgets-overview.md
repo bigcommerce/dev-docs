@@ -27,7 +27,7 @@ In this article, we are going to review all the components that make a widget. T
 
 ## Regions
 
-[Regions](https://developer.bigcommerce.com/api-reference/storefront/widgets-api/regions/getcontentregions) are specific locations in the Stencil theme files where you can place a widget. A region is added at the file level using the format {{{region name="..."}}}. A region can be named however you like, but it is best practice to give it a name that is descriptive of the location and function. A theme file can have as many regions as you want, with more than one widget assigned to the region and the [Placements](https://developer.bigcommerce.com/api-docs/store-management/widgets/overview#placements) `sort_order` controlling how the widgets appear on the storefront.
+[Regions](https://developer.bigcommerce.com/api-reference/storefront/widgets-api/regions/getcontentregions) are specific locations in the Stencil theme files where you can place a widget. You can add a region at the file level using the format `{{{region name="..."}}}` and name the region however you like, but it is best practice to give it a name that is descriptive of the location and function. A theme file can have as many regions as you want, with more than one widget assigned to the region and the [Placements](https://developer.bigcommerce.com/api-docs/store-management/widgets/overview#placements) `sort_order` controlling how the widgets appear on the storefront.
 
 ![Content Region](//s3.amazonaws.com/user-content.stoplight.io/6012/1551970794664 "Content Region")
 
