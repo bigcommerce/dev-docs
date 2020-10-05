@@ -973,10 +973,9 @@ Complex rules must consist of multiple conditions that trigger the rule adjustme
 
 [Categories](/api-reference/catalog/catalog-api/category/getcategories) are a hierarchy of products available on the store, presented in a tree structure. A store's category structure determines the primary menu structure of most storefront themes directly tied to it.
 
-All products must be associated with at least one category, although a category does not need to contain any products. Unlike some eCommerce platforms, you can associate products on BigCommerce with more than one category.
+BigCommerce's V3 REST API does not require products to be associated with a category during creation. You can add new products to a catalog without a category, which can be assigned later if desired. A store's category can contain multiple products or no products at all and still be valid. 
 
-
-A product associated with categories does not currently have any priority or weighted order (there's no “primary category”). The absence of priority or weighted order makes it difficult to integrate with some external systems that might wish to use a product's categories to map to a category structure in that external system.
+You can associate products with multiple categories. A product associated with categories does not currently have any priority or weighted order (there's no “primary category”). The absence of priority or weighted order makes it difficult to integrate with some external systems that might wish to use a product's categories to map to a category structure.
 
 ```http
 POST https://api.bigcommerce.com/stores/{store_hash}/v3/catalog/categories
