@@ -2,7 +2,7 @@
 
 <div class="otp" id="no-index">
 
-### On this oage
+### On this page
 - [Custom helpers](#custom-helpers)
 - [Standard helpers](#standard-helpers)
 - [Contributing to helpers](#contributing-to-helpers)
