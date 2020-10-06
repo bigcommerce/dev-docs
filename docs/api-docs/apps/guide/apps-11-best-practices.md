@@ -3,7 +3,7 @@
 <div class="otp" id="no-index">
 
 ### On this page
-- [OAuth Flow](#oauth-flow)
+- [OAuth flow](#oauth-flow)
 - [API requests](#api-requests)
 - [Webhook events](#webhook-events)
 - [User interface](#user-interface)
@@ -15,14 +15,14 @@
 
 Review the following best practices before submitting your app to the [Apps Marketplace](https://www.bigcommerce.com/apps/).
 
-## OAuth Flow
+## OAuth flow
 
 ### Follow security best practices and requirements
 
 [RFC 6749](https://tools.ietf.org/html/rfc6749#section-10) discusses OAuth security considerations, recommendations, and requirements. Here's a summary of important items applicable to apps:
 * Request access tokens with minimal scopes necessary.
 * Serve all redirect URIs over TLS.
-* Keep `access_tokens` confidential in transit and storage.
+* Keep access tokens confidential in transit and storage.
 * Do not transmit access tokens, refresh tokens, or client credentials in the clear.
 * Do not transmit authorization codes in the clear.
 * Educate end-users about the risks phishing attacks pose.
@@ -43,7 +43,7 @@ We encourage developers to write code against our API that will not break if an 
 
 ### Thread API requests
 
-Thread requests to make rapid updates via API. Threaded requests allow you to send multiple requests at one time. They can come from a different open connection or multiple requests to the same resource. Our [Ruby API client](https://github.com/bigcommerce/bigcommerce-api-ruby) is thread-safe; it satisfies the need for multiple threads to access the same shared data and the need for a shared piece of data to be accessed by only one thread at a time. These attributes can reduce the total time that your app will require to complete a series of requests.
+Thread requests to make rapid updates via API. Threaded requests allow you to send multiple requests at a time. They can come from a different open connection or multiple requests to the same resource. Our [Ruby API client](https://github.com/bigcommerce/bigcommerce-api-ruby) is thread-safe; it satisfies the need for multiple threads to access the same shared data and the need for a shared piece of data to be accessed by only one thread at a time. These attributes can reduce the total time that your app will require to complete a series of requests.
 
 ### Respect API rate limits
 
@@ -73,10 +73,10 @@ X-Rate-Limit-Time-Window-Ms →5000
 | -- | -- |
 | `X-Rate-Limit-Time-Window-Ms` | size of rate limit window in milliseconds                        |
 | `X-Rate-Limit-Time-Reset-Ms`  | time remaining in window in milliseconds                         |
-| `X-Rate-Limit-Requests-Quota` | total requests alloted to your application per window            |
-| `X-Rate-Limit-Requests-Left`  | remaining requests alloted to your application in current window |
+| `X-Rate-Limit-Requests-Quota` | total requests allotted to your application per window            |
+| `X-Rate-Limit-Requests-Left`  | remaining requests allotted to your application in current window |
 
-Bigcommerce responds to apps that exceed the quota with a [429](/api-docs/getting-started/basics/api-status-codes#api-status-codes_4-client-error) response. When this happens, applications should pause requests until the number of milliseconds in `X-Rate-Limit-Time-Reset-Ms` elapses.
+BigCommerce responds to apps that exceed the quota with a [429](/api-docs/getting-started/basics/api-status-codes#api-status-codes_4-client-error) response. When this happens, applications should pause requests until the number of milliseconds in `X-Rate-Limit-Time-Reset-Ms` elapses.
 
 ### Understand concurrent API request limits
 
@@ -139,7 +139,7 @@ Bigcommerce.init({
 - If your app has a new user form, we recommend auto-filling input fields with data from the [stores](https://developer.bigcommerce.com/api-reference/store-management/store-information-api) endpoint, which contains much of the info you need.
 - If your app doesn't have an approval process for new users, consider automatically generating accounts for new stores that install your app.
 - If your app requires the user to login at launch, use the information BigCommerce sends to your callback URL to authenticate the user without asking for a username and password each time.
-- If plan to share user testimonials, add a link to your full case study in the case studies field.
+- If you plan to share user testimonials, add a link to your full case study in the case studies field.
 
 ## Deployment
 
@@ -173,4 +173,4 @@ BigCommerce hosts [Google Cloud Platform](https://cloud.google.com/) in the [us-
 ### Blog posts
 * [How to Test App Authentication Locally with ngrok](https://medium.com/bigcommerce-developer-blog/how-to-test-app-authentication-locally-with-ngrok-149150bfe4cf)
 * [Building a BigCommerce App Using Laravel and React](https://medium.com/bigcommerce-developer-blog/building-a-bigcommerce-app-using-laravel-and-react-711ceceb5006)
-* [Big Design Tutorial](https://medium.com/bigcommerce-developer-blog/bigdesign-build-native-looking-uis-with-the-bigcommerce-design-system-fb06a01a24f2)
+* [BigDesign Tutorial](https://medium.com/bigcommerce-developer-blog/bigdesign-build-native-looking-uis-with-the-bigcommerce-design-system-fb06a01a24f2)
