@@ -7,6 +7,7 @@
 - [HTML](#html)
 - [Text with styling](#text-with-styling)
 - [Image slider](#image-slider)
+- [Button](#button)
 - [Resources](#resources)
 
 </div>
@@ -139,25 +140,107 @@ Below are widget code samples for developers to use as a starting point.
 
 ```json
 {
-  "name": "Home Page Slider",
-  "widget_configuration": {
-      "slides": [
-          {
-              "image": "https://upload.wikimedia.org/wikipedia/commons/3/3f/Puppy_French_Bulldog.jpg"
-          },
-          {
-              "image": "https://upload.wikimedia.org/wikipedia/commons/c/c1/2009-04-21_APBT_pup_on_deck.jpg"
-          },
-          {
-              "image": "https://upload.wikimedia.org/wikipedia/commons/e/e7/Beagle_puppy_Cadet.jpg"
-          }
-      ]
-  },
-  "widget_template_uuid":"your-widget-id"
+    "name": "Home Page Slider",
+    "widget_configuration": {
+        "slides": [
+            {
+				"image": "https://upload.wikimedia.org/wikipedia/commons/3/3f/Puppy_French_Bulldog.jpg"
+            },
+            {
+                "image": "https://upload.wikimedia.org/wikipedia/commons/c/c1/2009-04-21_APBT_pup_on_deck.jpg"
+            },
+            {
+                "image": "https://upload.wikimedia.org/wikipedia/commons/e/e7/Beagle_puppy_Cadet.jpg"
+            }
+        ]
+    },
+    "widget_template_uuid":"your-widget-id"
 }
 ```
 
 ![Image Slider](https://raw.githubusercontent.com/bigcommerce/dev-docs/master/assets/images/widgets-code-samples-04.png "Image Slider")
+
+## Button
+
+### Template
+
+```html
+<style>.sd-button-{{_.id}}{display:flex;align-items:center;{{#if alignment.horizontal '===' 'center'}}justify-content: center;{{else if alignment.horizontal '===' 'left'}}justify-content: flex-start;{{else if alignment.horizontal '===' 'right'}}justify-content: flex-end;{{/if}}}.sd-button-{{_.id}}a{color:{{textColor}};font-size:{{textSize.value}}{{textSize.type}};font-family:{{fontFamily}};font-weight:{{fontWeight}};padding-top:{{buttonPadding.top.value}}{{buttonPadding.top.type}};padding-right:{{buttonPadding.right.value}}{{buttonPadding.right.type}};padding-bottom:{{buttonPadding.bottom.value}}{{buttonPadding.bottom.type}};padding-left:{{buttonPadding.left.value}}{{buttonPadding.left.type}};margin-top:{{buttonMargin.top.value}}{{buttonMargin.top.type}};margin-right:{{buttonMargin.right.value}}{{buttonMargin.right.type}};margin-bottom:{{buttonMargin.bottom.value}}{{buttonMargin.bottom.type}};margin-left:{{buttonMargin.left.value}}{{buttonMargin.left.type}};text-align:center;text-decoration:none}.sd-button-{{_.id}}a{background-color:{{backgroundColor}};border:{{buttonBorder}}px solid{{borderColor}};border-radius:{{borderRadius}}px}.sd-button-{{_.id}}a:hover{background-color:{{backgroundColorHover}};border-color:{{borderColorHover}};color:{{textColorHover}}}@media only screen and (max-width: 700px){.sd-button-{{_.id}}{}}</style><div class="sd-button-widget sd-button-{{_.id}}"> <a href="{{buttonLink}}" role="button">{{buttonText}}</a></div>
+```
+
+### JSON encoded template
+
+```
+<style>.sd-button-{{_.id}}{display:flex;align-items:center;{{#if alignment.horizontal '===' 'center'}}justify-content: center;{{else if alignment.horizontal '===' 'left'}}justify-content: flex-start;{{else if alignment.horizontal '===' 'right'}}justify-content: flex-end;{{\/if}}}.sd-button-{{_.id}}a{color:{{textColor}};font-size:{{textSize.value}}{{textSize.type}};font-family:{{fontFamily}};font-weight:{{fontWeight}};padding-top:{{buttonPadding.top.value}}{{buttonPadding.top.type}};padding-right:{{buttonPadding.right.value}}{{buttonPadding.right.type}};padding-bottom:{{buttonPadding.bottom.value}}{{buttonPadding.bottom.type}};padding-left:{{buttonPadding.left.value}}{{buttonPadding.left.type}};margin-top:{{buttonMargin.top.value}}{{buttonMargin.top.type}};margin-right:{{buttonMargin.right.value}}{{buttonMargin.right.type}};margin-bottom:{{buttonMargin.bottom.value}}{{buttonMargin.bottom.type}};margin-left:{{buttonMargin.left.value}}{{buttonMargin.left.type}};text-align:center;text-decoration:none}.sd-button-{{_.id}}a{background-color:{{backgroundColor}};border:{{buttonBorder}}px solid{{borderColor}};border-radius:{{borderRadius}}px}.sd-button-{{_.id}}a:hover{background-color:{{backgroundColorHover}};border-color:{{borderColorHover}};color:{{textColorHover}}}@media only screen and (max-width: 700px){.sd-button-{{_.id}}{}}<\/style><div class=\"sd-button-widget sd-button-{{_.id}}\"> <a href=\"{{buttonLink}}\" role=\"button\">{{buttonText}}<\/a><\/div>
+
+```
+
+### Configuration
+
+```json
+{
+  	"name": "Button",
+  	"widget_configuration": {
+    	"buttonText": "Button label",
+    	"alignment": {
+			"horizontal": "center"
+			},
+    	"buttonMargin": {
+      		"top": {
+        		"value": "0",
+				"type": "px"
+				},
+      		"right": {
+        		"value": "0",
+        		"type": "px"
+      			},
+      		"bottom": {
+        		"value": "0",
+        		"type": "px"
+      			},
+      		"left": {
+       	 		"value": "0",
+        		"type": "px"
+				}
+			},
+    	"buttonPadding": {
+      		"top": {
+       			"value": "8",
+        		"type": "px"
+      			},
+      		"right": {
+        		"value": "24",
+        		"type": "px"
+      			},
+      		"bottom": {
+        		"value": "8",
+        		"type": "px"
+      			},
+      		"left": {
+        		"value": "24",
+        		"type": "px"
+      			}
+    		},
+    	"fontFamily": "inherit",
+    	"fontWeight": "400",
+    	"textSize": {
+      		"value": 21,
+      		"type": "px"
+			  },
+    	"textColor": "#FFFFFF",
+    	"textColorHover": "#FFFFFF",
+    	"backgroundColor": "#444444",
+    	"backgroundColorHover": "#666666",
+    	"borderColor": "#444444",
+    	"borderColorHover": "#666666",
+    	"buttonBorder": 1,
+    	"borderRadius": 4
+		},
+	"widget_template_uuid":"your-template-uuid"
+}
+```
+
+![Button](https://raw.githubusercontent.com/bigcommerce/dev-docs/master/assets/images/widgets-code-samples-05.png "Button")
 
 ## Resources
 
