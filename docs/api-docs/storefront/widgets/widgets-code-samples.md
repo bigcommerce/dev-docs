@@ -36,25 +36,24 @@ Below are widget code samples for developers to use as a starting point.
 
 ```json
 {
-	"name": "Simple List Test",
-	"widget_configuration":{
-		"list_items":[
-			{
-				"color": "blue",
-				"text": "The color is blue"
-			},
-			{
-				"color": "green",
-				"text": "The color is green"
-			},
-
-			{
-				"color": "red",
-				"text": "The color is red"
-			}
-		]
-	},
-	"widget_template_uuid":"your-template-uuid"
+  "name": "Simple List Test",
+  "widget_configuration": {
+    "list_items": [
+      {
+        "color": "blue",
+        "text": "The color is blue"
+      },
+      {
+        "color": "green",
+        "text": "The color is green"
+      },
+      {
+        "color": "red",
+        "text": "The color is red"
+      }
+    ]
+  },
+  "widget_template_uuid": "your-template-uuid"
 }
 ```
 
@@ -72,11 +71,11 @@ Below are widget code samples for developers to use as a starting point.
 
 ```json
 {
-	"name": "Simple List Test",
-	"widget_configuration":{
-		"html":"#  This widget will accept any HTML "
-	},
-	"widget_template_uuid":"your-template-uuid"
+  "name": "Simple List Test",
+  "widget_configuration": {
+    "html": "#  This widget will accept any HTML "
+  },
+  "widget_template_uuid": "your-template-uuid"
 }
 ```
 
@@ -100,22 +99,22 @@ Below are widget code samples for developers to use as a starting point.
 
 ```json
 {
-	"name": "Simple Text with Styling",
-	"widget_configuration":{
-		"text": "Simple Text with Styling",
-		"_.id": "1",
-		"color": "white",
-		"background_color": "#3C1F8C",
-		"font_size": "45px",
-		"font_weight": "bold",
-		"font_family": "'Palatino Linotype', 'Book Antiqua', Palatino, serif",
-		"text_align": "center",
-		"margin_right": "50px",
-		"margin_left": "50px",
-		"padding_top": "25px",
-		"padding_bottom": "25px"
-	},
-	"widget_template_uuid":"your-template-uuid"
+  "name": "Simple Text with Styling",
+  "widget_configuration": {
+    "text": "Simple Text with Styling",
+    "_.id": "1",
+    "color": "white",
+    "background_color": "#3C1F8C",
+    "font_size": "45px",
+    "font_weight": "bold",
+    "font_family": "'Palatino Linotype', 'Book Antiqua', Palatino, serif",
+    "text_align": "center",
+    "margin_right": "50px",
+    "margin_left": "50px",
+    "padding_top": "25px",
+    "padding_bottom": "25px"
+  },
+  "widget_template_uuid": "your-template-uuid"
 }
 ```
 
@@ -140,21 +139,21 @@ Below are widget code samples for developers to use as a starting point.
 
 ```json
 {
-    "name": "Home Page Slider",
-    "widget_configuration": {
-        "slides": [
-            {
-				"image": "https://upload.wikimedia.org/wikipedia/commons/3/3f/Puppy_French_Bulldog.jpg"
-            },
-            {
-                "image": "https://upload.wikimedia.org/wikipedia/commons/c/c1/2009-04-21_APBT_pup_on_deck.jpg"
-            },
-            {
-                "image": "https://upload.wikimedia.org/wikipedia/commons/e/e7/Beagle_puppy_Cadet.jpg"
-            }
-        ]
-    },
-    "widget_template_uuid":"your-widget-id"
+  "name": "Home Page Slider",
+  "widget_configuration": {
+    "slides": [
+      {
+        "image": "https://upload.wikimedia.org/wikipedia/commons/3/3f/Puppy_French_Bulldog.jpg"
+      },
+      {
+        "image": "https://upload.wikimedia.org/wikipedia/commons/c/c1/2009-04-21_APBT_pup_on_deck.jpg"
+      },
+      {
+        "image": "https://upload.wikimedia.org/wikipedia/commons/e/e7/Beagle_puppy_Cadet.jpg"
+      }
+    ]
+  },
+  "widget_template_uuid": "your-widget-id"
 }
 ```
 
@@ -179,64 +178,64 @@ Below are widget code samples for developers to use as a starting point.
 
 ```json
 {
-  	"name": "Button",
-  	"widget_configuration": {
-    	"buttonText": "Button label",
-    	"alignment": {
-			"horizontal": "center"
-			},
-    	"buttonMargin": {
-      		"top": {
-        		"value": "0",
-				"type": "px"
-				},
-      		"right": {
-        		"value": "0",
-        		"type": "px"
-      			},
-      		"bottom": {
-        		"value": "0",
-        		"type": "px"
-      			},
-      		"left": {
-       	 		"value": "0",
-        		"type": "px"
-				}
-			},
-    	"buttonPadding": {
-      		"top": {
-       			"value": "8",
-        		"type": "px"
-      			},
-      		"right": {
-        		"value": "24",
-        		"type": "px"
-      			},
-      		"bottom": {
-        		"value": "8",
-        		"type": "px"
-      			},
-      		"left": {
-        		"value": "24",
-        		"type": "px"
-      			}
-    		},
-    	"fontFamily": "inherit",
-    	"fontWeight": "400",
-    	"textSize": {
-      		"value": 21,
-      		"type": "px"
-			  },
-    	"textColor": "#FFFFFF",
-    	"textColorHover": "#FFFFFF",
-    	"backgroundColor": "#444444",
-    	"backgroundColorHover": "#666666",
-    	"borderColor": "#444444",
-    	"borderColorHover": "#666666",
-    	"buttonBorder": 1,
-    	"borderRadius": 4
-		},
-	"widget_template_uuid":"your-template-uuid"
+  "name": "Button",
+  "widget_configuration": {
+    "buttonText": "Button label",
+    "alignment": {
+      "horizontal": "center"
+    },
+    "buttonMargin": {
+      "top": {
+        "value": "0",
+        "type": "px"
+      },
+      "right": {
+        "value": "0",
+        "type": "px"
+      },
+      "bottom": {
+        "value": "0",
+        "type": "px"
+      },
+      "left": {
+        "value": "0",
+        "type": "px"
+      }
+    },
+    "buttonPadding": {
+      "top": {
+        "value": "8",
+        "type": "px"
+      },
+      "right": {
+        "value": "24",
+        "type": "px"
+      },
+      "bottom": {
+        "value": "8",
+        "type": "px"
+      },
+      "left": {
+        "value": "24",
+        "type": "px"
+      }
+    },
+    "fontFamily": "inherit",
+    "fontWeight": "400",
+    "textSize": {
+      "value": 21,
+      "type": "px"
+    },
+    "textColor": "#FFFFFF",
+    "textColorHover": "#FFFFFF",
+    "backgroundColor": "#444444",
+    "backgroundColorHover": "#666666",
+    "borderColor": "#444444",
+    "borderColorHover": "#666666",
+    "buttonBorder": 1,
+    "borderRadius": 4
+  },
+  "widget_template_uuid": "your-template-uuid"
 }
 ```
 
