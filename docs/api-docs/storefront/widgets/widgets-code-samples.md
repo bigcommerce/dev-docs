@@ -39,20 +39,20 @@ Below are widget code samples for developers to use as a starting point.
 	"name": "Simple List Test",
 	"widget_configuration":{
 		"list_items":[
-				{
-					"color": "blue",
-					"text": "The color is blue"
-				},
-				{
-					"color": "green",
-					"text": "The color is green"
-				},
+			{
+				"color": "blue",
+				"text": "The color is blue"
+			},
+			{
+				"color": "green",
+				"text": "The color is green"
+			},
 
-				{
-					"color": "red",
-					"text": "The color is red"
-				}
-			]
+			{
+				"color": "red",
+				"text": "The color is red"
+			}
+		]
 	},
 	"widget_template_uuid":"your-template-uuid"
 }
