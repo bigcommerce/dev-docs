@@ -36,4 +36,4 @@ For details, see [Customer Login API](https://developer.bigcommerce.com/api-docs
 
 ## Current Customer API
 
-Your application's client ID must be included in the request to the Current Customer API to receive a response. For details, see [Current Customer API](https://developer.bigcommerce.com/api-docs/customers/current-customer-api).
+Your application's client ID must be included in the Current Customer API request to receive a response. For details, see [Current Customer API](https://developer.bigcommerce.com/api-docs/customers/current-customer-api).
