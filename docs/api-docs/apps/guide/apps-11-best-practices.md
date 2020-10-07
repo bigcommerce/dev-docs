@@ -158,7 +158,7 @@ BigCommerce hosts [Google Cloud Platform](https://cloud.google.com/) in the [us-
 * [PHP / Silex](https://github.com/bigcommerce/hello-world-app-php-silex)
 * [Ruby / Sinatra](https://github.com/bigcommerce/hello-world-app-ruby-sinatra)
 * [Laravel / React](https://github.com/bigcommerce/laravel-react-sample-app)
-* [Node / FaunaDB / Nelify](https://github.com/bigcommerce/channels-app/)
+* [Node / FaunaDB / Netlify](https://github.com/bigcommerce/channels-app/)
 
 ### Tools
 * [Node API Client](https://github.com/getconversio/node-bigcommerce)
