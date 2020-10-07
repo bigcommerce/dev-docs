@@ -39,7 +39,7 @@ BigCommerce is actively developing V3 API endpoints. By using the newest endpoin
 
 ### Plan for API updates
 
-We encourage developers to write code against our API that will not break if an endpoint starts returning additional fields, as these "non-breaking" changes may be made by us without warning as part of our normal development. Breaking changes will be made with early warning, typically via our developer [changelog](https://developer.bigcommerce.com/changelog) and other channels as appropriate. In exceptional cases where we know the usage of a particular endpoint to be zero, or for beta APIs, we may make breaking changes without warning.
+We encourage developers to write code against our API that will not break if an endpoint starts returning additional fields, as these "non-breaking" changes may be made by us without warning as part of our normal development. Breaking changes will be made with early warning, typically via our developer [changelog](https://developer.bigcommerce.com/changelog) and other channels as appropriate. For beta APIs and in exceptional cases where we know using a particular endpoint to be zero, we may make breaking changes without warning.
 
 ### Thread API requests
 
