@@ -52,7 +52,7 @@ Once approved, you will receive one or more emails listing your partner credenti
 We highly recommend filling out all the fields associated with publishing edits for your listing. Without filling in all fields, your listing will lack information merchants are accustomed to seeing on other listings and expect to see throughout the Marketplace.
 
 
-**I’ve logged into Dev Tools, but I don’t see my published listing. Where is it?**
+**I’ve logged into the Developer Portal, but I don’t see my published listing. Where is it?**
 
 You may be logged in with the wrong account. Each listing can only be owned by one user, so it is likely assigned to another email address. If you’re unable to track down the correct owner account for your solution, please reach out to <a href="mailto:appstore@bigcommerce.com">appstore@bigcommerce.com</a>.
 
