@@ -90,7 +90,6 @@ Here's how to develop your app with BigCommerce:
 
 ### Tools
 * [Python API Client](https://github.com/bigcommerce/bigcommerce-api-python)
-* [PHP API Client](https://github.com/bigcommerce/bigcommerce-api-php)
 * [Ruby API Client](https://github.com/bigcommerce/bigcommerce-api-ruby)
 * [Ruby OmniAuth Gem](https://github.com/bigcommerce/omniauth-bigcommerce)
 * [Big Design Developer Playground](https://developer.bigcommerce.com/big-design/)
