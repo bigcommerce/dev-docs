@@ -19,7 +19,7 @@ Single-click apps are the recommended app type. They use [OAuth 2.0 Authorizatio
 
 ![Install App](https://raw.githubusercontent.com/bigcommerce/dev-docs/master/assets/images/apps-02-types-01.png "Install App")
 
-The app requests the user to grant permissions associated to scopes configured for the app in [DevTools](https://devtools.bigcommerce.com/my/apps):
+The app requests the user to grant permissions associated to scopes configured for the app in the [Developer Portal](https://devtools.bigcommerce.com/my/apps):
 
 ![App Permissions](https://raw.githubusercontent.com/bigcommerce/dev-docs/master/assets/images/apps-02-types-02.png "App Permissions")
 
@@ -37,8 +37,8 @@ There are three visibility options for apps: **Draft**, **Unlisted**, and **Publ
 
 | Visibility | Description | Use Cases |
 | --- | --- | --- |
-| Draft | Apps registered in [Dev Tools](https://devtools.bigcommerce.com/) but never submitted for approval. | <li>Installing on stores owned by the same email address as [DevTools](https://devtools.bigcommerce.com/auth/bigcommerce) account email</li><li>Beta testing before publishing to marketplace</li> |
-| Unlisted | Apps submitted and approved apps but not listed on the [app marketplace](https://www.bigcommerce.com/apps/) | <li>Installing on stores not owned by same email address as [DevTools](https://devtools.bigcommerce.com/auth/bigcommerce) account email</li><li>Beta testing before publishing to marketplace |
+| Draft | Apps registered in the [Developer Portal](https://devtools.bigcommerce.com/) but never submitted for approval. | <li>Installing on stores owned by the same email address as the [Developer Portal](https://devtools.bigcommerce.com/auth/bigcommerce) account email</li><li>Beta testing before publishing to marketplace</li> |
+| Unlisted | Apps submitted and approved apps but not listed on the [app marketplace](https://www.bigcommerce.com/apps/) | <li>Installing on stores not owned by same email address as the [Developer Portal](https://devtools.bigcommerce.com/auth/bigcommerce) account email</li><li>Beta testing before publishing to marketplace |
 | Public | Apps submitted, approved, and listed on the marketplace | <li>Making apps visible and installable on all stores</li><li>Making apps sellable on the marketplace |
 
 <div class="HubBlock--callout">
