@@ -76,7 +76,7 @@ To install a custom checkout on a store, follow these steps:
   ```
   Prepending `webdav:` Indicates that the URL is in the remote WebDAV directory. It will treat `/content` as the root WebDAV directory.
   
-  ![custom-checkout-0](https://raw.githubusercontent.com/bigcommerce/dev-docs/master/assets/images/custom-checkout-0.png "Custom Checkout")
+  ![custom-checkout-01](https://raw.githubusercontent.com/bigcommerce/dev-docs/master/assets/images/custom-checkout-01.png "Custom Checkout")
  
 4. Click the **Save** button at the bottom of the page.
 5. Navigate to your live storefront to view your new custom checkout.
