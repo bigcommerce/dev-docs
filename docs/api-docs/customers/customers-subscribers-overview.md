@@ -175,10 +175,10 @@ lineNumbers: true
 ```json
 [
   {
-    “id”: 12,
-    “email”: 'janedoe@email.com',
-    “first_name”: 'Jane',
-    “last_name”: 'Doe'
+    "id": 12,
+    "email": "janedoe@email.com",
+    "first_name": "Jane",
+    "last_name": "Doe"
   }
 ]
 ```
@@ -195,9 +195,9 @@ lineNumbers: true
 
 ```json
 {
-  “first_name”: 'Jane',
-  “email”: 'jane@email.com',
-  “phone”: '1234567890'
+  "first_name": "Jane",
+  "email": "jane@email.com",
+  "phone": "1234567890"
 }
 ```
 
