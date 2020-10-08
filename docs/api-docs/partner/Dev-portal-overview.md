@@ -9,7 +9,9 @@
 - [Resources](#resources)
 </div> 
 
-Using BigCommerce’s powerful APIs, SDKs, and toolkits, developers can register and build new apps on the developer portal that are installable on BigCommerce stores. Once approved, you can sell apps (or made available free of charge) to all BigCommerce merchants on the [Apps Marketplace](https://www.bigcommerce.com/apps/). You will need a [DevTools](https://devtools.bigcommerce.com/my/apps) account to register the draft app and a BigCommerce store to test the installation.
+Once your app is approved, you can either sell it to BigCommerce merchants or make it installable for free. 
+
+To get started with developing BigCommerce apps, you will first need to create a [Developer Portal](https://devtools.bigcommerce.com/my/apps) account. You will use your Developer Portal account to register and submit your app for review. You will also need to start a [free store trial](https://www.bigcommerce.com/essentials/free-trial/) to test your app. 
 
 ## About BigCommerce apps
 Let's first examine how you can discover, display, and manage apps on BigCommerce stores.
