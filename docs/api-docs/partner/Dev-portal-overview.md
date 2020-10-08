@@ -90,7 +90,6 @@ Here's how to develop your app with BigCommerce:
 
 ### Tools
 * [Python API Client](https://github.com/bigcommerce/bigcommerce-api-python)
-* [Ruby OmniAuth Gem](https://github.com/bigcommerce/omniauth-bigcommerce)
 * [Big Design Developer Playground](https://developer.bigcommerce.com/big-design/)
 * [Figma UI Kit](https://www.figma.com/file/jTVuUkiZ1j3rux8WHG4IKK/BigDesign-UI-Kit?node-id=0%3A1/duplicate)
 * [Adobe Illustrator UI Kit](https://design.bigcommerce.com/bigdesign-ui-kit)
