@@ -107,7 +107,8 @@ Need to set up a quick webhook destination URL for testing? See [Tools for Debug
 
 The webhooks service will do its best to deliver events to the destination callback URI. It is best practice for the application to respond to the callback before taking any other action that would slow its response. Doing otherwise triggers BigCommerce's callback retry mechanism.
 
-The webhook service may send many payloads to a single URI in quick succession. Because of this, we use a sliding scale across a **two minute window** to calculate a callback response success rate for each remote destination. When the webhook service receives a `2xx` response, the destination's success count is increased. If there's no response or the remote server times out, the destination's failure count is increased. Based on these two numbers, a success ratio is calculated.
+The webhook service may send many payloads to a single URI in quick succession. Because of this, we use a sliding scale across a ** two-minute window** to calculate a callback response success rate for each remote destination. When the webhook service receives a `2xx` response, the destination's success count is increased. If there's no response or the remote server times out, the destination's failure count is increased. Based on these two numbers, a success ratio is calculated.
+
 
 The following process will determine whether the destination URI gets blacklisted:
 
