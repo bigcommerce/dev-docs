@@ -81,7 +81,6 @@ Here's how to develop your app with BigCommerce:
 
 ## Resources
 
-### Sample Apps
 * [Python / Flask](https://github.com/bigcommerce/hello-world-app-python-flask)
 * [PHP / Silex](https://github.com/bigcommerce/hello-world-app-php-silex)
 * [Ruby / Sinatra](https://github.com/bigcommerce/hello-world-app-ruby-sinatra)
