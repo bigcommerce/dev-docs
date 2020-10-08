@@ -13,7 +13,9 @@ Once your app is approved, you can either sell it to BigCommerce merchants or ma
 
 To get started with developing BigCommerce apps, you will first need to create a [Developer Portal](https://devtools.bigcommerce.com/my/apps) account. You will use your Developer Portal account to register and submit your app for review. You will also need to start a [free store trial](https://www.bigcommerce.com/essentials/free-trial/) to test your app. 
 
-## About BigCommerce apps
+For information on app development, see [Introduction to Building Apps](https://developer.bigcommerce.com/api-docs/apps/guide/intro).
+
+For instructions on how to use the Developer Portal to create an app, see Managing Apps in DevTools.
 Let's first examine how you can discover, display, and manage apps on BigCommerce stores.
 
 ### Discovery
