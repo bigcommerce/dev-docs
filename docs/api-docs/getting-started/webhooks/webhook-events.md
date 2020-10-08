@@ -3,7 +3,7 @@
 <div class="otp" id="no-index">
 
 ### On this Page
-	
+
 - [Webhook endpoints](#webhook-endpoints)
 - [Webhook response structure](#webhook-response-structure)
 - [Orders](#orders)
@@ -66,7 +66,7 @@
 | Name | Description |
 |-|-|
 | store/order/* | Subscribe to all store/order events  |
-| store/order/created |Fires if an order is created using the control panel, an app or via the API.| 
+| store/order/created |Fires if an order is created using the control panel, an app or via the API.|
 | store/order/updated| Fires when an already created order is updated. Any changes to an existing order will fire this webhook. Updates can include changing the status, updating a coupon or changing an address.|
 | store/order/archived | Order is archived |
 | store/order/statusUpdated | This will only fire if the order status has changed. Such as Pending to Awaiting Payment |
@@ -109,7 +109,7 @@
 - status
 	- previous_status_id -- previous status
 	- new_status_id -- new status
-	
+
 ```json
     "scope": "store/order/statusUpdated",
     "store_id": "1025646",
@@ -254,22 +254,24 @@
 
 Changes to any of the following fields will trigger a `store/product/updated` event:
 
-- _Brand_
-- _Product Type_
-- _Category_
-- _Inventory_
-- _Number Sold_
-- _Availability_
-- _Thumbnail Changed_
-- _Visibility_
-- _Featured_
-- _Name_
-- _Description_
-- _Sort Order_
-- _Price_
-- _Dimensions_
-- _Condition_
-- _Tax Price_
+- Availability
+- Category
+- Brand
+- Condition
+- Description
+- Dimensions
+- Featured
+- Inventory
+- Modifier (deleted)
+- Name
+- Number Sold
+- Price
+- Product Type
+- Sort Order
+- Tax Price
+- Thumbnail Changed
+- Variant (deleted)
+- Visibility
 
 <a id="webhook-events_category"></a>
 
@@ -284,7 +286,7 @@ Changes to any of the following fields will trigger a `store/product/updated` ev
 
 ### The same response is returned for the following endpoints:
 
-* `store/category/created` 
+* `store/category/created`
 * `store/category/updated`
 * `store/category/deleted`
 
@@ -490,7 +492,7 @@ Changes to the following store settings will trigger a `store/information/update
 * *Store Logo*
 * *Mobile Template Logo*
 * *Tax Entered With Prices*
-* *Stencil Template Enabled* 
+* *Stencil Template Enabled*
 * *Wishlist Enabled*
 
 `store/information/updated`
@@ -530,9 +532,9 @@ Changes to the following store settings will trigger a `store/information/update
 <div class="HubBlock--callout">
 <div class="CalloutBlock--info">
 <div class="HubBlock-content">
-    
+
 ### Note
-> The `store/cart/abandoned` hook is triggered independently of the Abandoned Cart Saver feature, which is only available on [select plans](https://www.bigcommerce.com/essentials/pricing/). To learn more about the Abandoned Cart Saver, see [Using the Abandoned Cart Saver](https://support.bigcommerce.com/s/article/Using-the-Abandoned-Cart-Saver). 
+> The `store/cart/abandoned` hook is triggered independently of the Abandoned Cart Saver feature, which is only available on [select plans](https://www.bigcommerce.com/essentials/pricing/). To learn more about the Abandoned Cart Saver, see [Using the Abandoned Cart Saver](https://support.bigcommerce.com/s/article/Using-the-Abandoned-Cart-Saver).
 
 </div>
 </div>
