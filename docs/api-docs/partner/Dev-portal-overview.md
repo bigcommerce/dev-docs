@@ -4,7 +4,6 @@
 
 ### On this page
 - [About BigCommerce apps](#about-bigcommerce-apps)
-- [Use cases](#use-cases)
 - [Resources](#resources)
 </div> 
 
