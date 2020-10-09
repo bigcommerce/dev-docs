@@ -7,7 +7,7 @@
 - [Resources](#resources)
 </div> 
 
-The Developer Portal is the resource developers use to create, manage, and publish their apps for the BigCommerce App Marketplace (https://www.bigcommerce.com/apps/). Once your app is approved, you can either sell it to BigCommerce merchants or make it installable for free. 
+The Developer Portal is the resource developers use to create, manage, and publish their apps for the BigCommerce [App Marketplace](https://www.bigcommerce.com/apps/). Once your app is approved, you can either sell it to BigCommerce merchants or make it installable for free. 
 
 To get started with developing BigCommerce apps, you will first need to create a [Developer Portal](https://devtools.bigcommerce.com/my/apps) account. You will use your Developer Portal account to register and submit your app for review. You will also need to start a [free store trial](https://www.bigcommerce.com/essentials/free-trial/) to test your app. 
 
