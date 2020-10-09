@@ -27,7 +27,7 @@ If you would like to follow along, we have created a [Postman](https://www.postm
 - NPM is installed (installed automatically with Node)
 - Familiarity with command line
 - Familiarity with Postman
-- [API Access Token & Client ID](/api-docs/getting-started/basics/authentication#authentication_getting-api-credentials) with [scope](/api-docs/getting-started/basics/authentication#authentication_oauth-scopes) set to Information & Settings read-only and Products read-only.
+- [API Access Token](/api-docs/getting-started/basics/authentication#authentication_getting-api-credentials) with [scope](/api-docs/getting-started/basics/authentication#authentication_oauth-scopes) set to Information & Settings read-only and Products read-only.
 - [Webhooks Overview](/api-docs/getting-started/webhooks/about-webhooks)
 
 ## Create project folder
@@ -233,7 +233,7 @@ ngrok returns two values we will need to register a webhook and observe the resp
 
 Subscribe to the `store/product/updated` event: 
 
-1. If you have not already done so, generate the [API Access Token & Client ID](/api-docs/getting-started/basics/authentication#authentication_getting-api-credentials) with the Information & Settings scope set to Read-Only and the Products scope set to Read-Only.
+1. If you have not already done so, generate the [API Access Token](/api-docs/getting-started/basics/authentication#authentication_getting-api-credentials) with the Information & Settings scope set to Read-Only and the Products scope set to Read-Only.
 
 2. `POST` to `https://api.bigcommerce.com/stores/{{store_hash}}/v2/hooks`. 
 Replace store_hash with the value from your store's API path.
@@ -277,7 +277,6 @@ lineNumbers: true
 ```http
     Accept: application/json
     Content-Type: application/json
-    X-Auth-Client: {{the OAuth client id}}
     X-Auth-Token: {{the OAuth token}}
 ```
 
@@ -300,7 +299,6 @@ lineNumbers: true
 ```json
 {
   "id": 14263419,
-  "client_id": "your-client-id",
   "store_hash": "your-store-hash",
   "scope": "store/product/updated",
   "destination": "https://6a35e97b.ngrok.io/webhooks",
@@ -359,7 +357,7 @@ The record of the HTTP request will also show in the terminal tab running ngrok.
 ")
 
 ### Update via the API
-1. Generate the [API Access Token & Client ID](/api-docs/getting-started/basics/authentication#authentication_getting-api-credentials). Set the Information & Settings scope to read-only and the Products scope to modify.
+1. Generate the [API Access Token](/api-docs/getting-started/basics/authentication#authentication_getting-api-credentials). Set the Information & Settings scope to read-only and the Products scope to modify.
 
 
 2. Create a `PUT` request to the product to be updated, replacing `{{store-hash}}` and `{{product_id}}` with values from your store: 
