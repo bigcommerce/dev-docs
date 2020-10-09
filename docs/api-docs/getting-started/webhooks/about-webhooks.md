@@ -32,7 +32,6 @@ To create a webhook, send a `POST` request to `/stores/{{STORE_HASH}}/v2/hooks`.
 ```http
 POST https://api.bigcommerce.com/stores/{{STORE_HASH}}/v2/hooks
 X-Auth-Token: {{ACCESS_TOKEN}}
-X-Auth-Client: {{CLIENT_ID}}
 Content-Type: application/json
 Accept: application/json
 
@@ -49,7 +48,6 @@ Accept: application/json
 
 ```json
 {
-  "client_id": "{{CLIENT_ID}}",
   "created_at": 1580329317,
   "destination": "https://665b65a6.ngrok.io/webhooks",
   "headers": null,
@@ -202,7 +200,6 @@ POST https://api.bigcommerce.com/stores/{{STORE_HASH}}/v2/hooks
 Accept: application/json
 Content-Type: application/json
 X-Auth-Token: {{ACCESS_TOKEN}}
-X-Auth-Client: {{CLIENT_ID}}
 ```
 
 ## Tools
