@@ -23,7 +23,7 @@ First, embed an install button like the one below, at any web location from whic
 
 ![Install Button](https://raw.githubusercontent.com/bigcommerce/dev-docs/master/assets/images/apps-10-buttons-01.png "Install Button")
 
-Redirect anyone who presses your button to: `https://login.bigcommerce.com/app/{{CLIENT_ID}}/install`.
+Redirect anyone who presses your button to: `https://login.bigcommerce.com/app/install`.
 
 ## Configuring the button
 
@@ -47,14 +47,14 @@ If you receive this parameter and there are no errors, make a `GET` request to t
 
 
 ```http
-GET /app/{{CLIENT_ID}}/install/succeeded  HTTP/1.1
+GET /app/install/succeeded  HTTP/1.1
 Host: login.bigcommerce.com
 ```
 
 If there were errors, make a `GET` request to the install failed endpoint:
 
 ```http
-GET /app/{{CLIENT_ID}}/install/failed  HTTP/1.1
+GET /app/install/failed  HTTP/1.1
 Host: login.bigcommerce.com
 ```
 
