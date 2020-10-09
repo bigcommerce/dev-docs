@@ -14,7 +14,7 @@ BigCommerce has five different APIs that let you manage store data, log in custo
 
 ## REST APIs
 
-Requests to BigCommerce's V2 and V3 REST APIs require you to pass both an OAuth client ID and access token in the header. For instructions on generating these credentials, see [Obtaining Store API Credentials](https://developer.bigcommerce.com/api-docs/getting-started/authentication/rest-api-authentication#obtaining-store-api-credentials#obtaining-store-api-credentials).
+Requests to BigCommerce's V2 and V3 REST APIs require you to pass an access token in the header. For instructions on generating these credentials, see [Obtaining Store API Credentials](https://developer.bigcommerce.com/api-docs/getting-started/authentication/rest-api-authentication#obtaining-store-api-credentials#obtaining-store-api-credentials).
 
 
 ## Storefront API
@@ -30,10 +30,10 @@ For more details, see [GraphQL API Authentication](https://developer.bigcommerce
 
 ## Customer Login API
 
-The Customer Login API requires authentication via a [JWT token](https://jwt.io/) and your app's OAuth client ID.
+The Customer Login API requires authentication via a [JWT token](https://jwt.io/).
 
 For details, see [Customer Login API](https://developer.bigcommerce.com/api-docs/customers/customer-login-api).
 
 ## Current Customer API
 
-Your application's client ID must be included in the Current Customer API request to receive a response. For details, see [Current Customer API](https://developer.bigcommerce.com/api-docs/customers/current-customer-api).
+For details on making a Current Customer API request, see [Current Customer API](https://developer.bigcommerce.com/api-docs/customers/current-customer-api).
