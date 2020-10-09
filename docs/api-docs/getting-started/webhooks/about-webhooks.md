@@ -2,7 +2,7 @@
 
 <div class="otp" id="no-index">
 
-### On this Page
+### On this page
 
 - [Creating a webhook](#creating-a-webhook)
 - [Callback payload](#callback-payload)
@@ -153,9 +153,9 @@ After the final retry attempt (cumulatively **48 hours** after the first deliver
 
 To ensure webhook callback requests are secure, BigCommerce takes the following precautions:
 
-
 * Webhook payloads contain minimal information about the store and event
 * Webhook payloads are sent over **TLS-encrypted** connection
+* Registered webhooks are automatically deactivated in our system on app uninstall
 * Create Webhook requests accept an optional header object which can be used to authenticate callbacks requests
 
 **POST requests that includes header object**
