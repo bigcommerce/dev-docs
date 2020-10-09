@@ -172,7 +172,6 @@ To add channel to a store, send a POST request to `/stores/{{STORE_HASH}}/v3/cha
 ```http
 POST https://api.bigcommerce.com/stores/{{STORE_HASH}}/v3/channels
 X-Auth-Token: {{ACCESS_TOKEN}}
-X-Auth-Client: {{CLIENT_ID}}
 Content-Type: application/json
 Accept: application/json
 
@@ -236,7 +235,6 @@ To import a product into BigCommerce, `POST` to `/stores/{{STORE_HASH}}/v3/catal
 ```http
 POST https://api.bigcommerce.com/stores/{{STORE_HASH}}/v3/endpoint
 X-Auth-Token: {{ACCESS_TOKEN}}
-X-Auth-Client: {{CLIENT_ID}}
 Content-Type: application/json
 Accept: application/json
 
@@ -266,7 +264,6 @@ In order to export catalog data from BigCommerce to an external channel, you wil
 ```http
 GET https://api.bigcommerce.com/stores/{{STORE_HASH}}/v3/catalog/products?include=variants
 X-Auth-Token: {{ACCESS_TOKEN}}
-X-Auth-Client: {{CLIENT_ID}}
 Content-Type: application/json
 Accept: application/json
 ```
@@ -293,7 +290,6 @@ To create listings, `POST` to `/stores/{{STORE_HASH}}/v3/channels/{{CHANNEL_ID}}
 ```http
 POST https://api.bigcommerce.com/stores/{{STORE_HASH}}/v3/channels/{{CHANNEL_ID}}/listings
 X-Auth-Token: {{ACCESS_TOKEN}}
-X-Auth-Client: {{CLIENT_ID}}
 Content-Type: application/json
 Accept: application/json
 
