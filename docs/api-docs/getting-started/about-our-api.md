@@ -65,7 +65,7 @@ Make BigCommerce API requests in the context of the storefront or server-to-serv
 | Storefront API | `https://your-store.mybigcommerce.com/api/{endpoint}`|
 | GraphQL | `https://www.{bigcommerce_storefront_domain}.com/graphql`|
 | Customer Login | `https://www.{bigcommerce_storefront_domain}.com/login/token/{token}`|
-| Current Customer | `/customer/current.jwt` |
+| Current Customer | `/customer/current.jwt?app_client_id={app_client_id}` |
 
 
 ## Available store resources
