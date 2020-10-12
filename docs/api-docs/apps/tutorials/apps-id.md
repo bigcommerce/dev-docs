@@ -29,7 +29,8 @@ The app ID is in the URL after `/manage/marketplace/apps/`:
 
 ![Draft App ID](https://raw.githubusercontent.com/bigcommerce/dev-docs/master/assets/images/apps-id-02.png "Draft App ID")
 
-## Find in developer portal
+## Find in Developer Portal
+
 
 To find an app's ID in [DevTools](https://devtools.bigcommerce.com/my/apps):
 1. Log into [DevTools](https://devtools.bigcommerce.com/my/apps).
