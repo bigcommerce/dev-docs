@@ -16,6 +16,7 @@
 
 </div>
 
+
 The Widgets API allows developers to programmatically associate content with regions on a BigCommerce storefront. The content can consist of HTML, CSS, and JavaScript, and the API supports configuration via [Handlebars](https://handlebarsjs.com/) variables. It can support many types of content such as YouTube Videos, image sliders, and chat apps.
 
 Some benefits are:
@@ -34,18 +35,6 @@ In this article, we are going to review all the components that make a widget. T
 ![Content Region](//s3.amazonaws.com/user-content.stoplight.io/6012/1551970767918 "Content Region")
 
 Most themes in the BigCommerce marketplace come with predefined regions. It is best to use those first. By editing the theme and adding theme regions, updates will need to be managed manually.
-
-<!-- ### Global regions
-
-Global regions are special regions you can use to place and manage content sitewide. Widgets placed in a global region will appear on every page of the storefront where that region exists. This makes global regions useful for displaying high-priority information, such as special promotion advertising banners, across multiple storefront pages.
-
-To create a global region, add the `--global` suffix to the region name as shown in the following example:
-
-`{{{region name=”header_bottom--global”}}}`
-
->Note
->
->`header_bottom--global`region is currently the only global region available by default.  -->
 
 ## Widget templates
 
