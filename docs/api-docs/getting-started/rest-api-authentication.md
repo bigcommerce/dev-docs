@@ -100,7 +100,7 @@ To get app API credentials, create and log into your BigCommerce [Developer Port
 
 ![#### View Client Id](//s3.amazonaws.com/user-content.stoplight.io/6012/1537390078741 "#### View Client Id")
 
-8. Copy your client secret by clicking **View Client ID**.
+8. Copy your client ID and client secret. The client ID and client secret can be accessed by clicking **View Client ID**.
 
 <div class="HubBlock--callout">
 <div class="CalloutBlock--">
@@ -135,7 +135,7 @@ The client secret value is a secret that your app and BigCommerce share. You onl
 
 ### Next steps
 
-During the app installation process, your app will use the client secret to obtain an OAuth token authorized against the store installing the app. For a detailed look at this process, see [Building an App](/api-docs/getting-started/building-apps-bigcommerce/building-apps).
+During the app installation process, your app will use the client ID and client secret to obtain an OAuth token authorized against the store installing the app. For a detailed look at this process, see [Building an App](/api-docs/getting-started/building-apps-bigcommerce/building-apps).
 
 ## Use cases by credential type
 
