@@ -67,7 +67,7 @@ The BigCommerce API responds to requests with different HTTP status codes depend
 |-|-|-|
 |**204**, **301**, and **302**|Redirects| Try the `www` or non-`www` version of the URL.
 |**400**|Invalid syntax, required data missing, `content-type` header missing|Double-check request body for syntax errors and missing data; check `content-type` header.
-|**401** |API credentials are missing or invalid.|Double-check the `access_token`.
+|**401** |API credentials are missing or invalid.|Double-check the `access_token` and `client_id`.
 |||Send cURL request with the same credentials to rule app or config issues.
 |**403**| App lacks required OAuth scopes, a store-owner account changed, operations resulting from API request exceed a platform limit, or URL requested is incorrect.|Double-check OAuth Scopes in **control panel** > **API Accounts** or in **Developer Portal** > **My Apps**.
 |||Check the URL. Are the endpoint and store hash correct?
