@@ -299,6 +299,7 @@ lineNumbers: true
 ```json
 {
   "id": 14263419,
+  "client_id": "your-client-id",
   "store_hash": "your-store-hash",
   "scope": "store/product/updated",
   "destination": "https://6a35e97b.ngrok.io/webhooks",
