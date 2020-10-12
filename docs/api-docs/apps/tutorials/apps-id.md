@@ -4,7 +4,8 @@
 
 ### On this page
 - [Find in control panel](#find-in-control-panel)
-- [Find in developer portal](#find-in-devtools)
+- [Find in Developer Portal](#find-in-devtools)
+
 - [Usage](#usage)
 - [Resources](#resources)
 </div>
