@@ -24,7 +24,8 @@ At BigCommerce, we make a distinction between "breaking" and "non-breaking" chan
 
 Any "breaking" changes listed below will always be made with early warning via our developer [changelog](/changelog) and other channels. There are several exceptional cases. BigCommerce will make breaking changes without warning to non-production (alpha/beta) APIs, or when we know the usage of a particular endpoint is zero.
 
-Braking changes:
+Breaking changes:
+
 
 - Removal of a field from an API response
 - Changing the data type of a field
