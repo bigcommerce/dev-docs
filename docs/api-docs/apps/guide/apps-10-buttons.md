@@ -23,7 +23,7 @@ First, embed an install button like the one below, at any web location from whic
 
 ![Install Button](https://raw.githubusercontent.com/bigcommerce/dev-docs/master/assets/images/apps-10-buttons-01.png "Install Button")
 
-Redirect anyone who presses your button to: `https://login.bigcommerce.com/app/install`.
+Redirect anyone who presses your button to: `https://login.bigcommerce.com/app/{{CLIENT_ID}}/install`.
 
 ## Configuring the button
 
