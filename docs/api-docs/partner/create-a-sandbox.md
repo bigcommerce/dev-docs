@@ -1,8 +1,10 @@
 # Create a Sandbox Store
 
+<div class="otp" id="no-index"> 
+
 ### On this page
 - [Getting a sandbox store](#getting-a-sandbox-store)
-- [Creating a sandbox store](#create-a-sandbox-store)
+- [Creating a sandbox store](#creating-a-sandbox-store)
 - [Resources](#resources)
 </div> 
 
