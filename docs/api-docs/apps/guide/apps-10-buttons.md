@@ -47,14 +47,14 @@ If you receive this parameter and there are no errors, make a `GET` request to t
 
 
 ```http
-GET /app/install/succeeded  HTTP/1.1
+GET /app/{{CLIENT_ID}}/install/succeeded  HTTP/1.1
 Host: login.bigcommerce.com
 ```
 
 If there were errors, make a `GET` request to the install failed endpoint:
 
 ```http
-GET /app/install/failed  HTTP/1.1
+GET /app/{{CLIENT_ID}}/install/failed  HTTP/1.1
 Host: login.bigcommerce.com
 ```
 
