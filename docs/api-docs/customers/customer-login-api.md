@@ -35,6 +35,7 @@ JWT is an industry standard ([RFC 7519](https://tools.ietf.org/html/rfc7519)) fo
 
 | Field Name | Type | Description |
 |-|-|-|
+| `iss` | string | Indicates the token's issuer. This is your application's Client ID.|
 | `iat` | integer| Time when the token was generated. This is a numeric value indicating the number of seconds since the [Unix epoch](http://en.wikipedia.org/wiki/Unix_time).|
 | `jti` | string | A unique request ID (ex. uuid).|
 | `operation` | string | Must contain the string `"customer_login"`.|
@@ -48,10 +49,10 @@ JWT is an industry standard ([RFC 7519](https://tools.ietf.org/html/rfc7519)) fo
 To enable SSO using the Customer Login API, you will need the following: 
 
 * A BigCommerce store
-* Client secret with the OAuth Scope set to Customers Login
+* API client ID and client secret with the OAuth Scope set to Customers Login
 * [Node.js](https://nodejs.org/en/) installed on your machine if you plan to use JavaScript
 
-If you do not know your client secret, obtain the credentials by following the steps outlined in [Creating an API Account](https://support.bigcommerce.com/articles/Public/Store-API-Accounts/#creating). 
+If you do not know your client ID and client secret, obtain the credentials by following the steps outlined in [Creating an API Account](https://support.bigcommerce.com/articles/Public/Store-API-Accounts/#creating). 
 
 Be sure to set the Customers Login scope to Login. 
 
@@ -158,9 +159,10 @@ $ npm install jsonwebtoken uuid
 const jwt = require('jsonwebtoken');
 const {v4: uuidv4} = require('uuid');
  
-function getLoginUrl(customerId, storeHash, storeUrl, clientSecret) {
+function getLoginUrl(customerId, storeHash, storeUrl, clientId, clientSecret) {
    const dateCreated = Math. round((new Date()). getTime() / 1000);
    const  payload = {
+       "iss": clientId,
        "iat": dateCreated,
        "jti": uuidv4(),
        "operation": "customer_login",
@@ -171,12 +173,13 @@ function getLoginUrl(customerId, storeHash, storeUrl, clientSecret) {
    return `${storeUrl}/login/token/${token}`;
 };
  
+const clientId = “Your client id”;
 const clientSecret = “Your client secret”;
 const customerId = “You customer id”;
 const storeHash = “Your store hash”;
 const storeUrl = “Your store url”;
  
-const loginUrl = getLoginUrl(customerId, storeHash, storeUrl, clientSecret);
+const loginUrl = getLoginUrl(customerId, storeHash, storeUrl, clientId, clientSecret);
 console.log(loginUrl);
 ```
 6. Replace your app and customer-specific values in the variables.
