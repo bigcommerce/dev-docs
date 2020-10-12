@@ -64,7 +64,7 @@ You can upload a custom checkout to your store's server using WebDAV. The instru
 4. Navigate into the `/dist` folder in your checkout project.
 5. Copy the contents of the `/dist` folder and paste it into the checkout folder.
 
-## Installing a custom checkout  
+## <a id="installing-a-custom-checkout"></a> Installing a custom checkout  
 
 To install a custom checkout on a store, follow these steps:
 
