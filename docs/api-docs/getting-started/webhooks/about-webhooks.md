@@ -149,7 +149,7 @@ After the final retry attempt (cumulatively **48 hours** after the first deliver
 </div>
 </div>
 
-### Uninstalling app
+### Post app uninstall actions
 
 To avoid accumulating unused webhooks, BigCommerce automatically deletes registered webhooks on app uninstall.
 
