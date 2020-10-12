@@ -111,12 +111,12 @@ client_id={CLIENT_ID}&client_secret={CLIENT_SECRET}&code=qr6h3thvbvag2ffq&scope=
 
 | Parameter | Description |
 |-|-|
-| `client_id` | The Client ID for your app obtained in [DevTools](https://devtools.bigcommerce.com/my/apps). |
-| `client_secret` | The Client Secret for your app obtained in [DevTools](https://devtools.bigcommerce.com/my/apps). |
+| `client_id` | The Client ID for your app obtained in the [Developer Portal](https://devtools.bigcommerce.com/my/apps). |
+| `client_secret` | The Client Secret for your app obtained in the [Developer Portal](https://devtools.bigcommerce.com/my/apps). |
 | `code` | Temporary access code received in the `GET` request.|
 | `scope` | List of OAuth scopes received in the `GET` request. |
 | `grant_type` | Always set to `authorization_code`. |
-| `redirect_uri` | Must be identical to your registered Auth Callback URI. |
+| `redirect_uri` | Must be identical to your registered auth callback URI. |
 | `context` | Store hash received in the `GET` request.|
 
 
@@ -220,7 +220,7 @@ For additional details, see [Security Considerations in RC6749](https://tools.ie
 * [PHP / Silex](https://github.com/bigcommerce/hello-world-app-php-silex)
 * [Ruby / Sinatra](https://github.com/bigcommerce/hello-world-app-ruby-sinatra)
 * [Laravel / React](https://github.com/bigcommerce/laravel-react-sample-app)
-* [Node / FaunaDB / Nelify](https://github.com/bigcommerce/channels-app/)
+* [Node / FaunaDB / Netlify](https://github.com/bigcommerce/channels-app/)
 * [Node / Express / CodeSandbox](https://codesandbox.io/s/express-hello-world-app-fq5t1?file=%2Fapp.js)
 
 ### Tools
@@ -236,7 +236,7 @@ For additional details, see [Security Considerations in RC6749](https://tools.ie
 ### Blog posts
 * [How to Test App Authentication Locally with ngrok](https://medium.com/bigcommerce-developer-blog/how-to-test-app-authentication-locally-with-ngrok-149150bfe4cf)
 * [Building a BigCommerce App Using Laravel and React](https://medium.com/bigcommerce-developer-blog/building-a-bigcommerce-app-using-laravel-and-react-711ceceb5006)
-* [Big Design Tutorial](https://medium.com/bigcommerce-developer-blog/bigdesign-build-native-looking-uis-with-the-bigcommerce-design-system-fb06a01a24f2)
+* [BigDesign Tutorial](https://medium.com/bigcommerce-developer-blog/bigdesign-build-native-looking-uis-with-the-bigcommerce-design-system-fb06a01a24f2)
 
 ### Additional resources
 * [OAuth 2.0 Simplified](https://oauth.net/getting-started/) (oauth.net)
