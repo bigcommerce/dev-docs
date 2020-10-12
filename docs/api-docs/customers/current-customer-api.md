@@ -20,19 +20,25 @@ To address this need, BigCommerce provides a Current Customer endpoint, which yo
 
 <!-- theme: info  -->
 ### Note
+> * An app client ID is required in requests to `/customer/current.jwt`.
+> * To generate an app client ID, create an app in the [BigCommerce Developer Portal](https://devtools.bigcommerce.com/).
 > * Use the app's secret to validate the signature on the JWT.
+> * The app doesn't need to be installed or published on a store to use the client ID to get the JWT
 
 </div>
 </div>
 </div>
+
 
 ## Example JavaScript
 
-Below is example JavaScript that will access this JWT. To test the JWT functionality, you can install this JavaScript on your sandbox BigCommerce store. 
+Below is example JavaScript that will access this JWT. To test the JWT functionality, you can install this JavaScript on your sandbox BigCommerce store. You must include your application’s client ID in the request to identify the requesting application.
+
 
 ```html
 <script type="text/javascript">
 function customerJWT() {
+    var appClientId = "**BC_CLIENT_ID**"; // TODO: Fill this in with your app's client ID
     var xmlhttp = new XMLHttpRequest();
     xmlhttp.onreadystatechange = function() {
         if (xmlhttp.readyState == 4 ) {
@@ -47,6 +53,7 @@ function customerJWT() {
            }
         }
     };
+    xmlhttp.open("GET", "/customer/current.jwt?app_client_id="+appClientId, true);
     xmlhttp.send();
 }
 customerJWT();
