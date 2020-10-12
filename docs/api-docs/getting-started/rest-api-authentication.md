@@ -96,7 +96,7 @@ To get app API credentials, create and log into your BigCommerce [Developer Port
 
 5. In the lower right-hand corner of the popup box, click **Update & Close**.
 6. A new pop up will show asking if you want to change the OAuth scopes. Click **Confirm Update**.
-7. You will be routed back to the Dev Tools home page and your app will be listed. 
+7. You will be routed back to the Dev Tools home page and your app will be listed. Click **View Client ID**.
 
 ![#### View Client Id](//s3.amazonaws.com/user-content.stoplight.io/6012/1537390078741 "#### View Client Id")
 
@@ -108,7 +108,8 @@ To get app API credentials, create and log into your BigCommerce [Developer Port
 
 <!-- theme:  -->
 
-### Client secret
+### Client ID and client secret
+> The client ID value uniquely identifies your app. However, you no longer need to pass it in the header of all your requests to the API.
 
 The client secret value is a secret that your app and BigCommerce share. You only need to pass the client secret value once, during the app installation sequence. Thereafter, BigCommerce uses it to sign payloads in load, uninstall, and remove user requests, and your app uses it to verify the signature to ensure that the request is coming from BigCommerce.
 
@@ -125,7 +126,7 @@ The client secret value is a secret that your app and BigCommerce share. You onl
 <!-- theme: warning -->
 
 ### Delete apps carefully
-> If you delete the app, there is no way to recover the client secret.
+> If you delete the app, there is no way to recover the client ID and client secret.
 
 </div>
 </div>
