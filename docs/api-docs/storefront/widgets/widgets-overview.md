@@ -164,9 +164,9 @@ The example above uses `list_items_two`, on line four, in the configuration whic
 
 ## Widget versioning
 
-Widget versioning allows developers to make updates to widget templates without impacting existing widgets created using those templates. One widget template can have multiple versions, each with its own `template` and `schema` properties. You can use the same widget template to create multiple widgets, and each widget can point to a different version of the widget template.
+Widget versioning allows developers to release updates to widget templates without impacting existing widgets created using those templates. One widget template can have multiple versions, each with its own `template` and `schema` properties.
 
-The widget template’s `current_version_uuid` property points to the most recent version of the widget template. When you create a widget, it automatically uses the most current version of the widget template and saves it as the `version_uuid` property. Updating the widget template will change the value of the `current_version_uuid` in the widget and the widget template, but it will not change the value of the widget’s `version_uuid` property value. As a result, updating the widget template will not impact existing widgets derived from it.
+The widget template’s `current_version_uuid` property points to the most recent version of the widget template. When you create a widget, it automatically uses the most current version of the widget template and saves it as the `version_uuid` property. Updating the widget template will change the value of the `current_version_uuid` in the widget and the widget template, but it will not change the value of the widget’s `version_uuid`. As a result, updating the widget template will not impact existing widgets derived from it.
 
 **Widget template definitions**
 
@@ -207,8 +207,8 @@ Widget versioning introduced `current_version_uuid` and `version_uuid` propertie
 
 ### Update a widget template 
 
-It is possible to update your widget template without creating a new version. To do so, exclude the `create_new_version` field or set it to false when making a `PUT` request to update the widget template. 
-Updating the widget template with `create_new_version` set to true will create a new template version but will not impact the widgets created before the update.
+It is possible to update your widget template without creating a new version. To do so, exclude the `create_new_version` field or set it to `false` when making a `PUT` request to update the widget template. 
+Updating the widget template with `create_new_version` set to `true` will create a new template version but will not impact the widgets created before the update.
 
 ## Placements
 
