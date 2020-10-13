@@ -164,9 +164,9 @@ The example above uses `list_items_two`, on line four, in the configuration whic
 
 ## Widget versioning
 
-Widget versioning allows developers to make updates to widget templates without impacting existing widgets created using those templates. One widget template can have multiple versions, each with its own `template` and `schema` properties. The same widget template can be used to create multiple widgets, and each widget can point to a different version of the widget template.
+Widget versioning allows developers to make updates to widget templates without impacting existing widgets created using those templates. One widget template can have multiple versions, each with its own `template` and `schema` properties. You can use the same widget template to create multiple widgets, and each widget can point to a different version of the widget template.
 
-The widget template’s `current_version_uuid` property points to the most recent version of the widget template. When you create a widget, it automatically uses the most recent version of the widget template and saves it as the `version_uuid` property. Updating the widget template will change the value of the `current_version_uuid` in the widget and the widget template but it will not change the value of the widget’s `version_uuid` property. As a result, updating the widget template will not impact existing widgets derived from it.
+The widget template’s `current_version_uuid` property points to the most recent version of the widget template. When you create a widget, it automatically uses the most current version of the widget template and saves it as the `version_uuid` property. Updating the widget template will change the value of the `current_version_uuid` in the widget and the widget template, but it will not change the value of the widget’s `version_uuid` property value. As a result, updating the widget template will not impact existing widgets derived from it.
 
 **Widget template definitions**
 
@@ -200,7 +200,7 @@ Widget versioning introduced `current_version_uuid` and `version_uuid` propertie
 <!-- theme:  -->
 
 ### Note
->  Although a widget template can have multiple versions, there can only be one active version at a time. This means that a template can have multiple `version_uuid`’s associated with it, but it cannot have more than one `current_version_uuid`.
+>  Although a widget template can have multiple versions, there can only be one active version at a time. This setup means that a template can have multiple `version_uuid`’s associated with it, but it cannot have more than one `current_version_uuid`.
 
 </div>
 </div>
