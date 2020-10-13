@@ -1,0 +1,210 @@
+{
+  "items": [
+    {
+      "type": "item",
+      "title": "Available APIs",
+      "uri": "docs/available-apis.md"
+    },
+    {
+      "type": "item",
+      "title": "Abandoned Carts",
+      "uri": "reference/BigCommerce_Abandoned_Carts.oas2.yml"
+    },
+    {
+      "type": "item",
+      "title": "Carts",
+      "uri": "reference/BigCommerce_Server_to_Server_Cart_API.oas2.yml"
+    },
+    {
+      "type": "item",
+      "title": "Catalog",
+      "uri": "reference/BigCommerce_Catalog_API.oas2.yml"
+    },
+    {
+      "type": "item",
+      "title": "Channels",
+      "uri": "reference/BigCommerce_Channels_Listings_API.oas2.yml"
+    },
+    {
+      "type": "item",
+      "title": "Checkouts",
+      "uri": "reference/BigCommerce_Server_to_Server_Checkout_API.oas2.yml"
+    },
+    {
+      "type": "item",
+      "title": "Content",
+      "uri": "reference/BigCommerce_Store_Content_API.oas2.yml"
+    },
+    {
+      "type": "item",
+      "title": "Currencies",
+      "uri": "reference/BigCommerce_Currency_API.oas2.yml"
+    },
+    {
+      "type": "item",
+      "title": "Customers (Current)",
+      "uri": "reference/BigCommerce_Current_Customer.oas2.yml"
+    },
+    {
+      "type": "item",
+      "title": "Customers (Login SSO)",
+      "uri": "reference/BigCommerce_Customer_Login_SSO.oas2.yml"
+    },
+    {
+      "type": "item",
+      "title": "Customers V2",
+      "uri": "reference/BigCommerce_Customers_API.oas2.yml"
+    },
+    {
+      "type": "item",
+      "title": "Customers V3",
+      "uri": "reference/BigCommerce_Customers_V3_API.oas2.yml"
+    },
+    {
+      "type": "item",
+      "title": "Geography",
+      "uri": "reference/BigCommerce_Geography_API.oas2.yml"
+    },
+    {
+      "type": "item",
+      "title": "GraphQL Token",
+      "uri": "reference/BigCommerce_Storefront_Token_API.oas2.yml"
+    },
+    {
+      "type": "item",
+      "title": "Marketing",
+      "uri": "reference/BigCommerce_Marketing_API.oas2.yml"
+    },
+    {
+      "type": "item",
+      "title": "Orders V2",
+      "uri": "reference/BigCommerce_Orders_API.oas2.yml"
+    },
+    {
+      "type": "item",
+      "title": "Orders V3",
+      "uri": "reference/BigCommerce_Order_Transactions_API.oas2.yml"
+    },
+    {
+      "type": "item",
+      "title": "Payment Methods",
+      "uri": "reference/BigCommerce_Enabled_Payment_Methods_API.oas2.yml"
+    },
+    {
+      "type": "item",
+      "title": "Payment Processing",
+      "uri": "reference/BigCommerce_Process_Payment_API.oas2.yml"
+    },
+    {
+      "type": "item",
+      "title": "Payment Processing Methods",
+      "uri": "reference/payment_processing_methods.v3.oas2.yml"
+    },
+    {
+      "type": "item",
+      "title": "Payment Processing Tokens",
+      "uri": "reference/payment_processing_tokens.v3.oas2.yml"
+    },
+    {
+      "type": "item",
+      "title": "Price Lists",
+      "uri": "reference/BigCommerce_Price_Lists_API.oas2.yml"
+    },
+    {
+      "type": "item",
+      "title": "Scripts",
+      "uri": "reference/BigCommerce_Scripts_API.oas2.yml"
+    },
+    {
+      "type": "item",
+      "title": "Shipping V2",
+      "uri": "reference/BigCommerce_Shipping_API.oas2.yml"
+    },
+    {
+      "type": "item",
+      "title": "Shipping V3",
+      "uri": "reference/shipping.v3.oas2.yml"
+    },
+    {
+      "type": "item",
+      "title": "Shipping Providers",
+      "uri": "reference/BigCommerce_Shipping_Provider_API.oas2.yml"
+    },
+    {
+      "type": "item",
+      "title": "Sites",
+      "uri": "reference/BigCommerce_Sites_Routes_API.oas2.yml"
+    },
+    {
+      "type": "item",
+      "title": "Store Information",
+      "uri": "reference/BigCommerce_Store_Information_API.oas2.yml"
+    },
+    {
+      "type": "item",
+      "title": "Storefront Carts",
+      "uri": "reference/BigCommerce_Storefront_Cart_API.oas2.yml"
+    },
+    {
+      "type": "item",
+      "title": "Storefront Checkouts",
+      "uri": "reference/BigCommerce_Storefront_Checkout_API.oas2.yml"
+    },
+    {
+      "type": "item",
+      "title": "Storefront Form Fields",
+      "uri": "reference/form-fields.sf.oas2.yml"
+    },
+    {
+      "type": "item",
+      "title": "Storefront Orders",
+      "uri": "reference/BigCommerce_Storefront_Orders_API.oas2.yml"
+    },
+    {
+      "type": "item",
+      "title": "Subscribers",
+      "uri": "reference/BigCommerce_Subscribers_API.oas2.yml"
+    },
+    {
+      "type": "item",
+      "title": "Tax Classes",
+      "uri": "reference/BigCommerce_Tax_Class_API.oas2.yml"
+    },
+    {
+      "type": "item",
+      "title": "Themes",
+      "uri": "reference/BigCommerce_Themes_API.oas2.yml"
+    },
+    {
+      "type": "item",
+      "title": "Theme Objects",
+      "uri": "models/BigCommerce_Theme_Objects.oas2.yml"
+    },
+    {
+      "type": "item",
+      "title": "Webhooks",
+      "uri": "reference/BigCommerce_Webhooks.oas2.yml"
+    },
+
+    {
+      "type": "item",
+      "title": "Widgets",
+      "uri": "reference/BigCommerce_Widgets_API.oas2.yml"
+    },
+    {
+      "type": "item",
+      "title": "Wishlist",
+      "uri": "reference/BigCommerce_Wishlist_API.oas2.yml"
+    },
+    {
+      "type": "item",
+      "title": "Redirects",
+      "uri": "reference/redirects.v3.oas2.yml"
+    },
+    {
+      "type": "item",
+      "title": "Storefront Subscriptions",
+      "uri": "reference/subscriptions.sf.oas2.yml"
+    }
+  ]
+}
