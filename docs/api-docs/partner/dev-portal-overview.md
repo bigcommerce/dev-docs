@@ -3,7 +3,6 @@
 <div class="otp" id="no-index">
 
 ### On this page
-- [Developer Portal](#developer-portal)
 - [Resources](#resources)
 </div> 
 
