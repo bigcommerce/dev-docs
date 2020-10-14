@@ -16,7 +16,7 @@
 This article provides a guide to  partners who would like to update (or replace) their existing sales channel apps to leverage new functionality available via Channels Toolkit.
 
 ## Step 1: Update API Creds
-Existing sales channel apps need app credentials with updated OAuth scopes to authenticate and authorize requests to Channels Toolkit APIs. Login to [devtools.bigcommerce.com](https://devtools.bigcommerce.com) to update your app's credentials. Channel APIs require the following scopes:
+Existing sales channel apps need app credentials with updated OAuth scopes to authenticate and authorize requests to Channels Toolkit APIs. Login to the [Developer Portal](https://devtools.bigcommerce.com) to update your app's credentials. Channel APIs require the following scopes:
 
 |UI Name|Parameter|Enables|
 |-|-|-|

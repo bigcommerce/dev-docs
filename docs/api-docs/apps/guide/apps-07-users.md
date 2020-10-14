@@ -14,11 +14,11 @@
 
 </div>
 
-When you register your app in [DevTools](https://devtools.bigcommerce.com/), you'll have the option of enabling **Multiple Users**. This allows store administrators to manually authorize users to load the app. This article describes how enabling **Multiple Users** impacts the app's user experience in the control panel, and discusses important implications for app developers to consider before enabling the feature.
+When you register your app in the [Developer Portal](https://devtools.bigcommerce.com/), you'll have the option of enabling **Multiple Users**. This allows store administrators to manually authorize users to load the app. This article describes how enabling **Multiple Users** impacts the app's user experience in the control panel, and discusses important implications for app developers to consider before enabling the feature.
 
 ## Enabling multiple users
 
-Enabling **Multiple Users** in [DevTools](https://devtools.bigcommerce.com/) affects the control panel on any store your that has installed your app. If you already have an app published in the [Marketplace](https://www.bigcommerce.com/apps/), be aware that this setting takes effect immediately. We recommend testing **Multiple Users** using a separate app that is in draft status.
+Enabling **Multiple Users** in [Developer Portal](https://devtools.bigcommerce.com/) affects the control panel on any store your that has installed your app. If you already have an app published in the [Marketplace](https://www.bigcommerce.com/apps/), be aware that this setting takes effect immediately. We recommend testing **Multiple Users** using a separate app that is in draft status.
 
 Let store owners know you've enabled this feature. Otherwise, they won't know they can grant access to users.
 
@@ -39,7 +39,7 @@ Because you know the store owner's `email` and `ID` from the app installation se
 - **Users**: Cannot `install` or `uninstall` apps. Users are permitted only to `load` the apps that a store owner authorized.
 
 ## The remove user request
-Store owners can also remove users. This action generates a `GET` request to the remove user callback URL that you provided in [DevTools](https://devtools.bigcommerce.com/my/apps). When this occurs, your app should remove the user identified in the request from it's records.
+Store owners can also remove users. This action generates a `GET` request to the remove user callback URL that you provided in the [Developer Portal](https://devtools.bigcommerce.com/my/apps). When this occurs, your app should remove the user identified in the request from it's records.
 
 For details about remove user and load requests, see [Single-click App Callbacks](https://developer.bigcommerce.com/api-docs/apps/guide/callbacks).
 

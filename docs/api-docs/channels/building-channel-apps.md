@@ -30,14 +30,14 @@ This article is a comprehensive guide on the foundations of building apps on Big
 * Familiarity with [BigCommerce API Environment](https://developer.bigcommerce.com/api-docs/getting-started/about-our-api)
 * Familiarity [API Authentication on BigCommerce](https://developer.bigcommerce.com/api-docs/getting-started/authentication/rest-api-authentication)
 * Familiarity with [Building an App on BigCommerce](https://developer.bigcommerce.com/api-docs/getting-started/building-apps-bigcommerce/building-apps)
-* Familiarity creating Apps in [DevTools](https://devtools.bigcommerce.com/)
+* Familiarity creating Apps in the [Developer Portal](https://devtools.bigcommerce.com/)
 * High-level understanding of [Channels on BigCommerce](https://developer.bigcommerce.com/api-docs/channels/channels-overview)
 
 ## Getting Started
 
 This article assumes you're familiar with how to:
 * interact with BigCommerce's API environment
-* create apps using DevTools
+* create apps using the Developer Portal
 * building apps on BigCommerce
 * generate app API credentials
 
