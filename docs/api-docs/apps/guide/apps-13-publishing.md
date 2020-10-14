@@ -115,7 +115,8 @@ If you have any questions about your submission, email [appstore@bigcommerce.com
 
 **Are all fields required?**
 
-While not all fields are required to publish edits for your listing, they are all highly recommended. Without filling in all fields, your listing will be missing information that merchants have seen on other listings and expect to see throughout the Marketplace.
+For Marketplace approval, you'll need to fill out all fields on your listing with applicable content and links. These will be reviewed as part of the Marketplace approval process. The **Case Studies** field and **Videos** field are optional.
+
 
 **Am I able to preview the changes to my listing before publishing them?**
 
