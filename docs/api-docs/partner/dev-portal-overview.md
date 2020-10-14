@@ -3,8 +3,11 @@
 <div class="otp" id="no-index">
 
 ### On this page
+- [About BigCommerce apps](#about-bigcommerce-apps)
 - [Resources](#resources)
 </div> 
+
+## About BigCommerce apps
 
 The Developer Portal is the resource developers use to create, manage, and publish their apps for the BigCommerce [App Marketplace](https://www.bigcommerce.com/apps/). Once your app is approved, you can either sell it to BigCommerce merchants or make it installable for free. 
 
