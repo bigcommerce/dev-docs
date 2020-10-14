@@ -2,7 +2,7 @@
 
 <div class="otp" id="no-index">
 
-### On this Page
+### On this page
 
 - [Creating a webhook](#creating-a-webhook)
 - [Callback payload](#callback-payload)
@@ -149,10 +149,13 @@ After the final retry attempt (cumulatively **48 hours** after the first deliver
 </div>
 </div>
 
+### Post app uninstall actions
+
+To avoid accumulating unused webhooks, BigCommerce automatically deletes registered webhooks on app uninstall.
+
 ## Security
 
 To ensure webhook callback requests are secure, BigCommerce takes the following precautions:
-
 
 * Webhook payloads contain minimal information about the store and event
 * Webhook payloads are sent over **TLS-encrypted** connection
