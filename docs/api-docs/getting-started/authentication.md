@@ -16,7 +16,6 @@ BigCommerce has five different APIs that let you manage store data, log in custo
 
 Requests to BigCommerce's V2 and V3 REST APIs require you to pass both an OAuth client ID and access token in the header. For instructions on generating these credentials, see [Obtaining Store API Credentials](https://developer.bigcommerce.com/api-docs/getting-started/authentication/rest-api-authentication#obtaining-store-api-credentials#obtaining-store-api-credentials).
 
-
 ## Storefront API
 The Storefront API is unauthenticated, allowing you to make client-side requests for carts, checkouts, and orders using JavaScript. 
 

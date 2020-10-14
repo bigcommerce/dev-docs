@@ -7,7 +7,7 @@
 
 - [Obtaining the JavaScript loader file](#obtaining-the-javascript-loader-file)
 - [Hosting a custom checkout](#hosting-a-custom-checkout)
-- [Installing a custom checkout](#installing-a-custom-checkout)
+- [Installing custom checkouts](#installing-custom-checkouts)
 - [Additional resources](#additional-resources)
 
 </div>
@@ -64,7 +64,7 @@ You can upload a custom checkout to your store's server using WebDAV. The instru
 4. Navigate into the `/dist` folder in your checkout project.
 5. Copy the contents of the `/dist` folder and paste it into the checkout folder.
 
-## Installing a custom checkout  
+## Installing custom checkouts  
 
 To install a custom checkout on a store, follow these steps:
 

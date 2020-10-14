@@ -2,7 +2,7 @@
 
 <div class="otp" id="no-index">
 
-### On this Page
+### On this page
 
 - [Creating a webhook](#creating-a-webhook)
 - [Callback payload](#callback-payload)
@@ -32,7 +32,6 @@ To create a webhook, send a `POST` request to `/stores/{{STORE_HASH}}/v2/hooks`.
 ```http
 POST https://api.bigcommerce.com/stores/{{STORE_HASH}}/v2/hooks
 X-Auth-Token: {{ACCESS_TOKEN}}
-X-Auth-Client: {{CLIENT_ID}}
 Content-Type: application/json
 Accept: application/json
 
@@ -49,7 +48,6 @@ Accept: application/json
 
 ```json
 {
-  "client_id": "{{CLIENT_ID}}",
   "created_at": 1580329317,
   "destination": "https://665b65a6.ngrok.io/webhooks",
   "headers": null,
@@ -149,10 +147,13 @@ After the final retry attempt (cumulatively **48 hours** after the first deliver
 </div>
 </div>
 
+### Post app uninstall actions
+
+To avoid accumulating unused webhooks, BigCommerce automatically deletes registered webhooks on app uninstall.
+
 ## Security
 
 To ensure webhook callback requests are secure, BigCommerce takes the following precautions:
-
 
 * Webhook payloads contain minimal information about the store and event
 * Webhook payloads are sent over **TLS-encrypted** connection
@@ -202,7 +203,6 @@ POST https://api.bigcommerce.com/stores/{{STORE_HASH}}/v2/hooks
 Accept: application/json
 Content-Type: application/json
 X-Auth-Token: {{ACCESS_TOKEN}}
-X-Auth-Client: {{CLIENT_ID}}
 ```
 
 ## Tools

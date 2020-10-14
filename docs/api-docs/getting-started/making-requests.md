@@ -24,7 +24,7 @@ The easiest way to experiment with BigCommerce REST APIs is via the built-in **R
 
 [![Open in Request Runner](https://storage.googleapis.com/bigcommerce-production-dev-center/images/Open-Request-Runner.svg)](https://developer.bigcommerce.com/api-reference/catalog/catalog-api/products/getproducts#requestrunner)
 
-Just copy and paste your `store_hash`, `client_id`, and `access_token` into the form, then click **Send**.
+Just copy and paste your `store_hash` and `access_token` into the form, then click **Send**.
 
 ### Visual Studio Code REST Client
 
@@ -32,14 +32,12 @@ If you use **Visual Studio Code**, another way to make API requests is with the 
 
 ```http
 @ACCESS_TOKEN = your_access_token
-@CLIENT_ID = your_client_id
 @STORE_HASH = your_store_hash
 
 ###
 
 GET https://api.bigcommerce.com/stores/{{STORE_HASH}}/v3/catalog/products
 X-Auth-Token: {{ACCESS_TOKEN}}
-X-Auth-Client: {{CLIENT_ID}}
 Content-Type: application/json
 Accept: application/json
 ```
