@@ -30,7 +30,8 @@ Don’t reference competitor platforms in the app's listing information or dashb
 
 ## Listing
 
-* Approval for the [Marketplace](https://www.bigcommerce.com/apps/) requires all fields listed in the "Publishing Apps" section (**Case Studies** and **Videos** are optional).
+* Approval for the [Marketplace](https://www.bigcommerce.com/apps/) requires all fields listed in the Publishing Apps section (**Case Studies** and **Videos** are optional).
+
 * Listings should be well worded, cleanly formatted, and follow wording and image specifications.
 * App listing name should be restricted to only branding and not include taglines.
 
