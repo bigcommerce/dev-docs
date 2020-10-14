@@ -30,14 +30,14 @@ This article is a comprehensive guide on the foundations of building apps on Big
 * Familiarity with [BigCommerce API Environment](https://developer.bigcommerce.com/api-docs/getting-started/about-our-api)
 * Familiarity [API Authentication on BigCommerce](https://developer.bigcommerce.com/api-docs/getting-started/authentication/rest-api-authentication)
 * Familiarity with [Building an App on BigCommerce](https://developer.bigcommerce.com/api-docs/getting-started/building-apps-bigcommerce/building-apps)
-* Familiarity creating Apps in [DevTools](https://devtools.bigcommerce.com/)
+* Familiarity creating Apps in the [Developer Portal](https://devtools.bigcommerce.com/)
 * High-level understanding of [Channels on BigCommerce](https://developer.bigcommerce.com/api-docs/channels/channels-overview)
 
 ## Getting Started
 
 This article assumes you're familiar with how to:
 * interact with BigCommerce's API environment
-* create apps using DevTools
+* create apps using the Developer Portal
 * building apps on BigCommerce
 * generate app API credentials
 
@@ -172,7 +172,6 @@ To add channel to a store, send a POST request to `/stores/{{STORE_HASH}}/v3/cha
 ```http
 POST https://api.bigcommerce.com/stores/{{STORE_HASH}}/v3/channels
 X-Auth-Token: {{ACCESS_TOKEN}}
-X-Auth-Client: {{CLIENT_ID}}
 Content-Type: application/json
 Accept: application/json
 
@@ -236,7 +235,6 @@ To import a product into BigCommerce, `POST` to `/stores/{{STORE_HASH}}/v3/catal
 ```http
 POST https://api.bigcommerce.com/stores/{{STORE_HASH}}/v3/endpoint
 X-Auth-Token: {{ACCESS_TOKEN}}
-X-Auth-Client: {{CLIENT_ID}}
 Content-Type: application/json
 Accept: application/json
 
@@ -266,7 +264,6 @@ In order to export catalog data from BigCommerce to an external channel, you wil
 ```http
 GET https://api.bigcommerce.com/stores/{{STORE_HASH}}/v3/catalog/products?include=variants
 X-Auth-Token: {{ACCESS_TOKEN}}
-X-Auth-Client: {{CLIENT_ID}}
 Content-Type: application/json
 Accept: application/json
 ```
@@ -293,7 +290,6 @@ To create listings, `POST` to `/stores/{{STORE_HASH}}/v3/channels/{{CHANNEL_ID}}
 ```http
 POST https://api.bigcommerce.com/stores/{{STORE_HASH}}/v3/channels/{{CHANNEL_ID}}/listings
 X-Auth-Token: {{ACCESS_TOKEN}}
-X-Auth-Client: {{CLIENT_ID}}
 Content-Type: application/json
 Accept: application/json
 

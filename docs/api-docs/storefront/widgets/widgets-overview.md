@@ -8,6 +8,7 @@
 - [Regions](#regions)
 - [Widget templates](#widget-templates)
 - [Widgets](#widgets)
+- [Widget versioning](#widget-versioning)
 - [Placements](#placements)
 - [Placements and widgets](#placements-and-widgets)
 - [Widgets on the storefront](#widgets-on-the-storefront)
@@ -160,6 +161,54 @@ The example above uses `list_items_two`, on line four, in the configuration whic
   "widget_template_uuid": "7bfb9a46-75cc-45bc-bf39-a6a43b77111f"
 }
 ```
+
+## Widget versioning
+
+Widget versioning allows developers to release updates to widget templates without impacting existing widgets created using those templates. One widget template can have multiple versions, each with its own `template` and `schema` properties.
+
+The widget template’s `current_version_uuid` property points to the most recent version of the widget template. When you create a widget, it automatically uses the most current version of the widget template and saves it as the `version_uuid` property. Updating the widget template will change the value of the `current_version_uuid` in the widget and the widget template, but it will not change the value of the widget’s `version_uuid`. As a result, updating the widget template will not impact existing widgets derived from it.
+
+**Widget template definitions**
+
+| Property | Definition |
+|--|--|
+| `uuid` | The identifier of the original widget template.|
+| `current_version_uuid` | The identifier of the most recent version of the widget template.|
+
+**Widget definitions**
+
+| Property | Definition |
+|--|--|
+| `widget_template_uuid` | The identifier of the widget template. (The value is static.)|
+| `current_version_uuid` | The identifier of the most recent version of the widget template.|
+| `version_uuid` | The version of the widget template used to create or update the widget.|
+
+### Old relationship model
+Prior to widget versioning, a widget would point to a widget template only via the `widget_template_uuid` property. The widget would always use the latest version of the widget template, and updating the widget template would subsequently update all of its widgets.
+
+ ![Old Relationship Model](https://raw.githubusercontent.com/bigcommerce/dev-docs/master/assets/images/widgets-overview-01.png "Old Relationship Model")
+
+### New relationship model
+Widget versioning introduced `current_version_uuid` and `version_uuid` properties. Now, in addition to `widget_template_uuid`, the widget can specify the template version via `version_uuid`. 
+
+ ![New Relationship Model](https://raw.githubusercontent.com/bigcommerce/dev-docs/master/assets/images/widgets-overview-02.png "New Relationship Model")
+
+<div class="HubBlock--callout">
+<div class="CalloutBlock--info">
+<div class="HubBlock-content">
+
+<!-- theme:  -->
+
+### Note
+>  Although a widget template can have multiple versions, there can only be one active version at a time. This setup means that a template can have multiple `version_uuid`’s associated with it, but it cannot have more than one `current_version_uuid`.
+
+</div>
+</div>
+
+### Update a widget template 
+
+It is possible to update your widget template without creating a new version. To do so, exclude the `create_new_version` field or set it to `false` when making a `PUT` request to update the widget template. 
+Updating the widget template with `create_new_version` set to `true` will create a new template version but will not impact the widgets created before the update.
 
 ## Placements
 
