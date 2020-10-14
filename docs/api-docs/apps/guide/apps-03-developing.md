@@ -18,7 +18,7 @@ The BigCommerce team has developed an array of sample apps and tools to assist d
 ## Getting started
 Here's a few things you'll need before beginning app development:
 1. [Store / Dev Sandbox](https://www.bigcommerce.com/essentials/free-trial/) (required to test app installation)
-2. [DevTools Account](https://devtools.bigcommerce.com/) (required to register apps)
+2. [Developer Portal Account](https://devtools.bigcommerce.com/) (required to register apps)
 3. [BigCommerce partnership](https://www.bigcommerce.com/partners/) (required to publish apps to marketplace)
 
 ## Beginning with hello world
@@ -67,8 +67,8 @@ For step-by-step instructions, see [How to Test App Authentication Locally with 
 </div>
 
 ## Registering a draft app
-Once you've exposed an app to the internet, you can register a draft app in [DevTools](https://devtools.bigcommerce.com/) using the app's callback URLs. To do so:
-1. [Log into DevTools](https://devtools.bigcommerce.com/).
+Once you've exposed an app to the internet, you can register a draft app in the [Developer Portal](https://devtools.bigcommerce.com/) using the app's callback URLs. To do so:
+1. [Log into the Developer Portal](https://devtools.bigcommerce.com/).
 
 2. Click **Create an App**.
 3. Name your app.
@@ -86,7 +86,7 @@ Once you've exposed an app to the internet, you can register a draft app in [Dev
 
 
 ## Installing a draft app
-Draft apps are installable on stores owned by the same email as the [DevTools](https://devtools.bigcommerce.com/my/apps) account. Use the following steps to installLog into the store and navigate to **Apps** > **My Apps** > [**My Draft Apps**](https://login.bigcommerce.com/deep-links/manage/marketplace/apps/my-apps/drafts) and click the app to install the draft. Once you click **Install**, BigCommerce will begin the OAauth flow by making a `GET` request to the app's `/auth` callback URL. If the app handles all the requests successfully, the app will be installed and you can begin feature development.
+Draft apps are installable on stores owned by the same email as the [Developer Portal](https://devtools.bigcommerce.com/my/apps) account. Use the following steps to installLog into the store and navigate to **Apps** > **My Apps** > [**My Draft Apps**](https://login.bigcommerce.com/deep-links/manage/marketplace/apps/my-apps/drafts) and click the app to install the draft. Once you click **Install**, BigCommerce will begin the OAauth flow by making a `GET` request to the app's `/auth` callback URL. If the app handles all the requests successfully, the app will be installed and you can begin feature development.
 
 
 ## Next steps
