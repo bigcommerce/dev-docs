@@ -17,7 +17,7 @@
 
 </div>
 
-After installing a single-click app, store owners and authorized users *load* the app by clicking the app's icon in the control panel. Store owners can also *uninstall* your app and *remove users* they've authorized to use it. Each of these events triggers a `GET` request (or "callback") from BigCommerce to your app's callback URL configured in [DevTools](https://devtools.bigcommerce.com/my/apps). This article describes how your app should handle each callback and explains how to [verify the `signed_payload`](#verifying-the-signed-payload) and [identify users](#identifying-users).
+After installing a single-click app, store owners and authorized users *load* the app by clicking the app's icon in the control panel. Store owners can also *uninstall* your app and *remove users* they've authorized to use it. Each of these events triggers a `GET` request (or "callback") from BigCommerce to your app's callback URL configured in the [Developer Portal](https://devtools.bigcommerce.com/my/apps). This article describes how your app should handle each callback and explains how to [verify the `signed_payload`](#verifying-the-signed-payload) and [identify users](#identifying-users).
 
 ## Overview
 
@@ -147,7 +147,7 @@ After decoding and verifying the `signed_playload`, parse the JSON string into a
 | `store_hash` | str | unique identified for store used in API requests |
 | `timestamp` | float | Unix time when callback generated|
 
-Use the data contained in the payload object to identify the store and user. What your app should do with this information is dependent on whether [**Multiple Users**](https://developer.bigcommerce.com/api-docs/apps/guide/users) is enabled in [DevTools](https://devtools.bigcommerce.com/). Refer to the table below for instructions.
+Use the data contained in the payload object to identify the store and user. What your app should do with this information is dependent on whether [**Multiple Users**](https://developer.bigcommerce.com/api-docs/apps/guide/users) is enabled in the [Developer Portal](https://devtools.bigcommerce.com/). Refer to the table below for instructions.
 
 | Callback | Multiple Users Enabled | Multiple Users Not Enabled |
 |-|-|-|
