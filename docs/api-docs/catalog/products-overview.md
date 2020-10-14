@@ -69,7 +69,6 @@ POST https://api.bigcommerce.com/stores/{{STORE_HASH}}/v3/catalog/products
 Accept: application/json
 Content-Type: application/json
 X-Auth-Token: {{ACCESS_TOKEN}}
-X-Auth-Client: {{CLIENT_ID}}
 
 {
   "name": "BigCommerce Coffee Mug",
@@ -94,7 +93,6 @@ POST https://api.bigcommerce.com/stores/{{STORE_HASH}}/v3/catalog/products
 Accept: application/json
 Content-Type: application/json
 X-Auth-Token: {{ACCESS_TOKEN}}
-X-Auth-Client: {{CLIENT_ID}}
 
 {
   "name": "BigCommerce Coffee Mug",
@@ -152,7 +150,6 @@ POST https://api.bigcommerce.com/stores/{{STORE_HASH}}/v3/catalog/products
 Accept: application/json
 Content-Type: application/json
 X-Auth-Token: {{ACCESS_TOKEN}}
-X-Auth-Client: {{CLIENT_ID}}
 
 {
   "name": "ebook: A Guide to Coffee",
@@ -204,7 +201,6 @@ POST https://api.bigcommerce.com/stores/{{STORE_HASH}}/v3/catalog/products/{{pro
 Accept: application/json
 Content-Type: application/json
 X-Auth-Token: {{ACCESS_TOKEN}}
-X-Auth-Client: {{CLIENT_ID}}
 
 {
   "is_thumbnail": true,
@@ -240,7 +236,6 @@ PUT https://api.bigcommerce.com/stores/{{STORE_HASH}}/v3/catalog/products/{{prod
 Accept: application/json
 Content-Type: application/json
 X-Auth-Token: {{ACCESS_TOKEN}}
-X-Auth-Client: {{CLIENT_ID}}
 
 {
   "title": "BigCommerce Mug Video",
@@ -275,7 +270,6 @@ POST https://api.bigcommerce.com/stores/{{store_hash}}/v3/catalog/products/{{pro
 Accept: application/json
 Content-Type: application/json
 X-Auth-Token: {{ACCESS_TOKEN}}
-X-Auth-Client: {{CLIENT_ID}}
 
 {
   "name": "Release Year",
@@ -311,7 +305,6 @@ PUT https://api.bigcommerce.com/stores/{{STORE_HASH}}/v3/catalog/products/{{prod
 Accept: application/json
 Content-Type: application/json
 X-Auth-Token: {{ACCESS_TOKEN}}
-X-Auth-Client: {{CLIENT_ID}}
 
 {
   "bulk_pricing_rules": [
@@ -348,7 +341,6 @@ PUT https://api.bigcommerce.com/stores/{{STORE_HASH}}/v3/catalog/products/{{prod
 Accept: application/json
 Content-Type: application/json
 X-Auth-Token: {{ACCESS_TOKEN}}
-X-Auth-Client: {{CLIENT_ID}}
 
 {
   "permission_set": "read",
@@ -383,7 +375,6 @@ POST https://api.bigcommerce.com/stores/{{STORE_HASH}}/v3/catalog/products/{{pro
 Accept: application/json
 Content-Type: application/json
 X-Auth-Token: {{ACCESS_TOKEN}}
-X-Auth-Client: {{CLIENT_ID}}
 
 {
   "title": "Great Coffee Mug",
@@ -419,7 +410,6 @@ POST https://api.bigcommerce.com/stores/{{store_hash}}/v3/catalog/brands
 Accept: application/json
 Content-Type: application/json
 X-Auth-Token: {{ACCESS_TOKEN}}
-X-Auth-Client: {{CLIENT_ID}}
 
 {
   "name": "BigCommerce",
@@ -502,7 +492,6 @@ POST https://api.bigcommerce.com/stores/{store_hash}/v3/catalog/products/{produc
 Accept: application/json
 Content-Type: application/json
 X-Auth-Token: {{ACCESS_TOKEN}}
-X-Auth-Client: {{CLIENT_ID}}
 
 {
   "product_id": 134,
@@ -579,7 +568,6 @@ GET https://api.bigcommerce.com/stores/{{STORE_HASH}}/v3/catalog/products/{{prod
 Accept: application/json
 Content-Type: application/json
 X-Auth-Token: {{ACCESS_TOKEN}}
-X-Auth-Client: {{CLIENT_ID}}
 
 {
   "data": [
@@ -680,7 +668,6 @@ POST https://api.bigcommerce.com/stores/{{STORE_HASH}}/v3/catalog/products
 Accept: application/json
 Content-Type: application/json
 X-Auth-Token: {{ACCESS_TOKEN}}
-X-Auth-Client: {{CLIENT_ID}}
 
 
 {
@@ -798,7 +785,6 @@ POST https://api.bigcommerce.com/stores/{{STORE_HASH}}/v3/catalog/products/{{pro
 Accept: application/json
 Content-Type: application/json
 X-Auth-Token: {{ACCESS_TOKEN}}
-X-Auth-Client: {{CLIENT_ID}}
 
 {
   "type": "checkbox",
@@ -868,7 +854,6 @@ PUT https://api.bigcommerce.com/stores/{{STORE_HASH}}/v3/catalog/products/{{prod
 Accept: application/json
 Content-Type: application/json
 X-Auth-Token: {{ACCESS_TOKEN}}
-X-Auth-Client: {{CLIENT_ID}}
 
 {
   "is_default": false,
@@ -935,7 +920,6 @@ PUT https://api.bigcommerce.com/stores/{store_hash}/v3/catalog/products/{product
 Accept: application/json
 Content-Type: application/json
 X-Auth-Token: {{ACCESS_TOKEN}}
-X-Auth-Client: {{CLIENT_ID}}
 
 {
   "product_id": 1200,
@@ -983,7 +967,6 @@ POST https://api.bigcommerce.com/stores/{store_hash}/v3/catalog/categories
 Accept: application/json
 Content-Type: application/json
 X-Auth-Token: {{ACCESS_TOKEN}}
-X-Auth-Client: {{CLIENT_ID}}
 
 {
   "parent_id": 18,
@@ -1006,7 +989,6 @@ GET https://api.bigcommerce.com/stores/{{STORE_HASH}}/v3/catalog/categories/tree
 Accept: application/json
 Content-Type: application/json
 X-Auth-Token: {{ACCESS_TOKEN}}
-X-Auth-Client: {{CLIENT_ID}}
 ```
 
 **Response:**:
