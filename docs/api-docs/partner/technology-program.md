@@ -45,13 +45,15 @@ How to apply:
 Once approved, you will receive one or more emails listing your partner credentials and next steps. Your Partner ID will be required to submit your app for App Marketplace consideration. If you do not receive these credentials by email, please contact [appstore@bigcommerce.com](mailto:appstore@bigcommerce.com).
 
 ## App Marketplace
-To build a Marketplace app, you will need:
+To build and test a Marketplace app, you will need:
 
-* A sandbox store
+* A BigCommerce store (sandbox or trial)
 * A developer account on the [BigCommerce Developer Portal](https://devtools.bigcommerce.com/my/apps)
 * BigCommerce partner credentials 
 
-We encourage you to create your sandbox store and your Developer Portal account using the same login credentials. A sandbox store cannot process transactions and is for developing and testing apps without the 15-day time limit of a trial store. 
+A sandbox store cannot process transactions and is for developing and testing apps without the 15-day time limit of a trial store. 
+
+We encourage you to create your sandbox store and your Developer Portal account using the same login credentials.
 
 > **Note**
 > Your Developer Portal account is an entirely separate account outside of the Partner Portal.
