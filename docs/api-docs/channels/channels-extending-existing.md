@@ -71,7 +71,6 @@ To create or modify a channel app's configuration, send a `POST` or `PUT` reques
 ```http
 POST https://api.bigcommerce.com/stores/{{STORE_HASH}}/v3/channels
 X-Auth-Token: {{ACCESS_TOKEN}}
-X-Auth-Client: {{CLIENT_ID}}
 Content-Type: application/json
 Accept: application/json
 
