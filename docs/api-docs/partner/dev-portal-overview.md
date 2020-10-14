@@ -3,7 +3,6 @@
 <div class="otp" id="no-index">
 
 ### On this page
-- [About BigCommerce apps](#about-bigcommerce-apps)
 - [Resources](#resources)
 </div> 
 

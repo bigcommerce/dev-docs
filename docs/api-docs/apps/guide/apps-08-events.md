@@ -37,7 +37,6 @@ To create a webhook, send a `POST` request to [/stores/{{STORE_HASH}}/v2/hooks](
 ```http
 POST https://api.bigcommerce.com/stores/{{STORE_HASH}}/v2/hooks
 X-Auth-Token: {{ACCESS_TOKEN}}
-X-Auth-Client: {{CLIENT_ID}}
 Content-Type: application/json
 Accept: application/json
 

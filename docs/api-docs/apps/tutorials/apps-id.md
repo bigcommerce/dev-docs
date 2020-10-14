@@ -4,15 +4,10 @@
 
 ### On this page
 - [Find in control panel](#find-in-control-panel)
-- [Find in DevTools](#find-in-devtools)
+- [Find in Developer Portal](#find-in-devtools)
+
 - [Usage](#usage)
 - [Resources](#resources)
-
-- [Find in control panel](#find-in-control-panel)
-- [Find in DevTools](#find-in-devtools)
-- [Usage](#usage)
-- [Resources](#resources)
-
 </div>
 
 Select partners [building channel apps](https://developer.bigcommerce.com/api-docs/channels/building-channel-apps) need to know their app's ID in order to create and modify the channel's configuration. This tutorial demonstrates how to find an app's ID in [DevTools](#find-in-devtools) and the [control panel](#find-in-control-panel).
@@ -34,7 +29,8 @@ The app ID is in the URL after `/manage/marketplace/apps/`:
 
 ![Draft App ID](https://raw.githubusercontent.com/bigcommerce/dev-docs/master/assets/images/apps-id-02.png "Draft App ID")
 
-## Find in DevTools
+## Find in Developer Portal
+
 
 To find an app's ID in [DevTools](https://devtools.bigcommerce.com/my/apps):
 1. Log into [DevTools](https://devtools.bigcommerce.com/my/apps).
