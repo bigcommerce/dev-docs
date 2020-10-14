@@ -16,18 +16,18 @@
 In this quick start tutorial, you'll create a [single-click app](https://developer.bigcommerce.com/api-docs/getting-started/building-apps-bigcommerce/types-of-apps) using CodeSandbox, Node.JS, and Express.
 
 ## Get started
-You'll need a [DevTools](https://devtools.bigcommerce.com/) account to register the draft app and a BigCommerce store to test the installation. If you don't already have both, get them now:
+You'll need a [Developer Portal](https://devtools.bigcommerce.com/) account to register the draft app and a BigCommerce store to test the installation. If you don't already have both, get them now:
 1. [Start a free trial](https://www.bigcommerce.com/essentials/free-trial/)
-1. [Create a DevTools Account](https://devtools.bigcommerce.com/)
+2. [Create a Developer Portal Account](https://devtools.bigcommerce.com/)
 
 ## Fork the sandbox
-Once you have a [DevTools](https://devtools.bigcommerce.com/) account and a store, fork our [express-hello-world-app](https://codesandbox.io/s/express-hello-world-app-fq5t1?file=/app.js). To do so:
+Once you have a [Developer Portal](https://devtools.bigcommerce.com/) account and a store, fork our [express-hello-world-app](https://codesandbox.io/s/express-hello-world-app-fq5t1?file=/app.js). To do so:
 1. [Open the Express Hello World App in CodeSandbox](https://codesandbox.io/s/express-hello-world-app-fq5t1?file=/app.js).
 1. Click **Fork** in the top right.
 
 ## Register a draft app
-Next, register a draft app in [DevTools](https://devtools.bigcommerce.com/) using the sandbox's app URL. To do so:
-1. [Login to DevTools](https://devtools.bigcommerce.com/)
+Next, register a draft app in the [Developer Portal](https://devtools.bigcommerce.com/) using the sandbox's app URL. To do so:
+1. [Login to the Developer Portal](https://devtools.bigcommerce.com/)
 1. Click **Create an App**
 1. Give the app a name
 1. Click **Technical**
@@ -42,8 +42,8 @@ Keep this tab open for the next step.
 ## Configure sandbox environment
 After registering the app, enter the app's credential's and auth callback into your sandbox's [environment variables](https://codesandbox.io/docs/secrets) (codesandbox.io):
 * `callback` => `https://{{YOUR_FORK}}.sse.codesandbox.io/auth`
-* `client_id` => the app's client ID from [DevTools](https://devtools.bigcommerce.com/)
-* `client_secret` => the app's client secret from [DevTools](https://devtools.bigcommerce.com/)
+* `client_id` => the app's client ID from the [Developer Portal](https://devtools.bigcommerce.com/)
+* `client_secret` => the app's client secret from the [Developer Portal](https://devtools.bigcommerce.com/)
 
 ## Install the app
 1. Log in to your store and navigate to **Apps** > **My Apps** > [**My Draft Apps**](https://login.bigcommerce.com/deep-links/manage/marketplace/apps/my-apps/drafts) and install the app.

@@ -16,7 +16,7 @@
 This article provides a guide to  partners who would like to update (or replace) their existing sales channel apps to leverage new functionality available via Channels Toolkit.
 
 ## Step 1: Update API Creds
-Existing sales channel apps need app credentials with updated OAuth scopes to authenticate and authorize requests to Channels Toolkit APIs. Login to [devtools.bigcommerce.com](https://devtools.bigcommerce.com) to update your app's credentials. Channel APIs require the following scopes:
+Existing sales channel apps need app credentials with updated OAuth scopes to authenticate and authorize requests to Channels Toolkit APIs. Login to the [Developer Portal](https://devtools.bigcommerce.com) to update your app's credentials. Channel APIs require the following scopes:
 
 |UI Name|Parameter|Enables|
 |-|-|-|
@@ -71,7 +71,6 @@ To create or modify a channel app's configuration, send a `POST` or `PUT` reques
 ```http
 POST https://api.bigcommerce.com/stores/{{STORE_HASH}}/v3/channels
 X-Auth-Token: {{ACCESS_TOKEN}}
-X-Auth-Client: {{CLIENT_ID}}
 Content-Type: application/json
 Accept: application/json
 
@@ -105,7 +104,7 @@ Accept: application/json
 <!-- theme: info -->
 
 ### Note
-> * You can find the app ID in the URL when editing the app in [DevTools](https://devtools.bigcommerce.com/). For more information, see [Finding an App's ID](https://developer.bigcommerce.com/api-docs/apps/tutorials/id).
+> * You can find the app ID in the URL when editing the app in the [Developer Portal](https://devtools.bigcommerce.com/). For more information, see [Finding an App's ID](https://developer.bigcommerce.com/api-docs/apps/tutorials/id).
 
 
 </div>

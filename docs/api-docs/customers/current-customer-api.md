@@ -29,6 +29,7 @@ To address this need, BigCommerce provides a Current Customer endpoint, which yo
 </div>
 </div>
 
+
 ## Example JavaScript
 
 Below is example JavaScript that will access this JWT. To test the JWT functionality, you can install this JavaScript on your sandbox BigCommerce store. You must include your application’s client ID in the request to identify the requesting application.
