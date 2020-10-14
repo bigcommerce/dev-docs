@@ -32,7 +32,7 @@ The following steps outline how to generate store API Credentials.
 3. In the **OAuth Scopes** section, select the minimum scopes the app will require.
 4. Select **Save**.
 
-A successful save will display a pop-up containing the API credentials your app will need to run authenticated requests: your Client ID and Access Token. A `.txt` file containing the same credentials will (on most browsers) automatically download to your computer. This file also contains the base API Path for your store, preconfigured for the V3 API.
+A successful save will display a pop-up containing an Access Token. Your app will need this credential to run authenticated requests. A `.txt` file containing the same credentials will (on most browsers) automatically download to your computer. This file also contains the base API Path for your store, preconfigured for the V3 API.
 
 The base API path will look something like this: 
 
@@ -100,7 +100,7 @@ To get app API credentials, create and log into your BigCommerce [Developer Port
 
 ![#### View Client Id](//s3.amazonaws.com/user-content.stoplight.io/6012/1537390078741 "#### View Client Id")
 
-8. Copy your client ID and client secret. The client ID and client secret can be accessed at any time by clicking **View Client ID**.
+8. Copy your client ID and client secret. The client ID and client secret can be accessed by clicking **View Client ID**.
 
 <div class="HubBlock--callout">
 <div class="CalloutBlock--">
@@ -109,7 +109,7 @@ To get app API credentials, create and log into your BigCommerce [Developer Port
 <!-- theme:  -->
 
 ### Client ID and client secret
-> The client ID value uniquely identifies your app. You will need to pass it in the header of all your requests to the API.
+> The client ID value uniquely identifies your app. However, you no longer need to pass it in the header of all your requests to the API.
 
 The client secret value is a secret that your app and BigCommerce share. You only need to pass the client secret value once, during the app installation sequence. Thereafter, BigCommerce uses it to sign payloads in load, uninstall, and remove user requests, and your app uses it to verify the signature to ensure that the request is coming from BigCommerce.
 
@@ -131,6 +131,7 @@ The client secret value is a secret that your app and BigCommerce share. You onl
 </div>
 </div>
 </div>
+
 
 ### Next steps
 
@@ -189,12 +190,11 @@ Consider whether your application should reside within the public (App Marketpla
 
 If you would like to update your API connection from basic authentication to OAuth, you will need to make the following changes:
 
-- Get a client ID and an access token, by creating an API account within the control panel. Make sure the account has the correct scopes for the API endpoints you need to access. We recommend that you provide the minimum scopes that your application requires to function, as a good security practice.
+- Get an access token, by creating an API account within the control panel. Make sure the account has the correct scopes for the API endpoints you need to access. We recommend that you provide the minimum scopes that your application requires to function, as a good security practice.
 - If you use one of the [client libraries](https://developer.bigcommerce.com/tools-resources), follow the relevant guide within the library’s documentation for establishing an OAuth connection.
 - If you have created your connection, you’ll want to update your connection parameters:
 	- Where you previously used the BigCommerce store’s secure hostname, you will instead use the `https://api.bigcommerce.com` gateway URL. As an example, requests to `https://store-abc123.mybigcommerce.com/api/v2/orders/123` or `https://my-custom-store-domain.com/api/v2/orders/123` would instead go to `https://api.bigcommerce.com/stores/{store_hash}/v2/orders/123`.
-- With basic auth, you use an authentication HTTP header to authenticate your connection. With OAuth, you’ll want to use two headers:
-	- X-Client-Id for your client ID
+- With basic auth, you use an authentication HTTP header to authenticate your connection. With OAuth, you’ll want to use the header:
 	- X-Auth-Token header for your access token. For more information see the article [Authentication](/api-docs/getting-started/authentication).
 
 Rate limiting of API requests works differently for OAuth API connections. To become familiar with OAuth limitations, please see the [Rate Limits](/api-docs/getting-started/basics/best-practices#best-practices_rate-limits).

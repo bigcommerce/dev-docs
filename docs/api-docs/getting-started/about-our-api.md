@@ -102,14 +102,13 @@ Make BigCommerce API requests in the context of the storefront or server-to-serv
 ## REST API (V2 & V3)
 ### Request Headers
 
-Server-to-Server request headers require Accept, X-Auth-Client, X-Auth-Token, and Content-Type at a minimum.
+Server-to-Server request headers require Accept, X-Auth-Token, and Content-Type at a minimum.
 
 | Header | Allowed Values | Description | Example |
 |-|-|-| -|
 | `Accept` | `application/json` (for .json requests) `application/xml` (for .xml requests) | The MIME type format for receiving a response.|`application/xml` |
 | `Content-Type` | `application/json` (for JSON requests) `application/xml` (for XML requests) | The MIME type of the request body. Used to validate and parse the request to the API. | `application/json` |
 | `User-Agent` | String | While it is not required, we ask that you specify a user agent which identifies your integration/client with your requests. |
-| `X-Auth-Client` | String | Client ID of the requesting app used for authenticating requests. |
 | `X-Auth-Token` | String | Access token authorizing the app to access resources on behalf of a user. |
 
 ### Response headers
