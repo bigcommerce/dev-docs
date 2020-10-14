@@ -115,7 +115,8 @@ If you have any questions about your submission, email [appstore@bigcommerce.com
 
 **Are all fields required?**
 
-For Marketplace approval, you'll need to fill out all fields on your listing with applicable content and links. These will be reviewed as part of the Marketplace approval process. Case Studies and Videos are optional.
+For Marketplace approval, you'll need to fill out all fields on your listing with applicable content and links. These will be reviewed as part of the Marketplace approval process. The **Case Studies** field and **Videos** field are optional.
+
 
 **Am I able to preview the changes to my listing before publishing them?**
 
