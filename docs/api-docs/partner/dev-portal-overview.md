@@ -15,7 +15,7 @@ To get started with developing BigCommerce apps, you will first need to create a
 
 For information on app development, see [Introduction to Building Apps](https://developer.bigcommerce.com/api-docs/apps/guide/intro).
 
-For instructions on how to use the Developer Portal to create an app, see Managing Apps in DevTools.
+For instructions on how to use the Developer Portal to create an app, see Managing Apps in the Developer Portal.
 
 ## Resources
 

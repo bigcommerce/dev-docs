@@ -4,7 +4,6 @@
 
 ### On this page
 - [Applying to the Technology Partner Program](#applying-to-the-technology-partner-program)
-- [Becoming a partner](#becoming-a-partner)
 - [Troubleshooting](#troubleshooting)
 - [Resources](#resources)
 </div> 
@@ -26,7 +25,6 @@ Before you can submit an app to the BigCommerce App Marketplace, also known as t
 
 The following steps outline how to become a BigCommerce Partner:
 
-## Becoming a partner
 1. Go to the [Partner Portal](https://partners.bigcommerce.com/).
    
 2. Click **Apply Today**.
