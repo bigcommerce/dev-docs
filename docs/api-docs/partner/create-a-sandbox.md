@@ -3,41 +3,13 @@
 <div class="otp" id="no-index"> 
 
 ### On this page
-- [Getting a sandbox store](#getting-a-sandbox-store)
 - [Creating a sandbox store](#creating-a-sandbox-store)
 - [Resources](#resources)
 </div> 
 
-This article walks you through the steps of creating a sandbox store.
+A sandbox store cannot process transactions and is for developing and testing apps without the 15-day time limit of a trial store. 
 
-## Getting a sandbox store
-
-To build a Marketplace app, you will need:
-
-* A sandbox store
-* A developer account on the [BigCommerce Developer Portal](https://devtools.bigcommerce.com/my/apps)
-
-* BigCommerce partner credentials 
-
-We encourage you to create your sandbox store and your Dev Tools account using the same login credentials. A sandbox store cannot process transactions and is for developing and testing apps without the 15-day time limit of a trial store. 
-
-> **Note**
-> Your Developer Portal account is an entirely separate account outside of the Partner Portal.
-
-
-<div class="HubBlock--callout">
-<div class="CalloutBlock--warning">
-<div class="HubBlock-content">
-    
-<!-- theme: warning -->
-
-### Trials erased after 15 days
-> Although you do not need a sandbox store for app development, it is best practice. If you opt to develop on a trial store, keep in mind the store and data will be erased after 15 days, and you will have to create a new trial store to proceed.
-
-
-</div>
-</div>
-</div>
+This article will walk you through the steps of creating a sandbox store.
 
 ## Creating a sandbox store
 
