@@ -19,14 +19,6 @@
 
 The Storefront APIs are for managing the contents of a shopper's cart and checkout using JavaScript in the context of a storefront session.
 
-### Prerequisites:
-The following [OAuth scopes](https://developer.bigcommerce.com/api-docs/getting-started/authentication#authentication_oauth-scopes) are required:
-
-* Carts
-* Checkouts
-* Products
-* Checkout Content
-* Order Transactions
 
 ### When to use the Storefront APIs
 
