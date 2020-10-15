@@ -25,7 +25,7 @@ Log in to or create a [Developer Portal](https://devtools.bigcommerce.com) accou
 <div class="HubBlock-content">
 
 > ### Note
-> * `DRAFT` apps can only installed on stores owned by the same email address as the developer portal account's email address.
+> * `DRAFT` apps can only be installed on stores owned by the same email address as the developer portal account's email address.
 
 </div>
 </div>

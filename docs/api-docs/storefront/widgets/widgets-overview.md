@@ -36,6 +36,22 @@ In this article, we are going to review all the components that make a widget. T
 
 Most themes in the BigCommerce marketplace come with predefined regions. It is best to use those first. By editing the theme and adding theme regions, updates will need to be managed manually.
 
+### Global regions
+
+Global regions are special regions you can use to place and manage content sitewide. Widgets placed in a global region will appear on the storefront pages where that region exists. This makes global regions useful for displaying high-priority information, such as special promotion advertising banners, across multiple storefront pages.
+
+ ![Global Region](https://raw.githubusercontent.com/bigcommerce/dev-docs/master/assets/images/widgets-overview-03.png "Global Region")
+
+To create a global region, add the `--global` suffix to the region name as shown in the following example:
+
+`{{{region name=”header_bottom--global”}}}`
+
+>Note
+>
+>`header_bottom--global`region is currently the only global region available by default.
+
+To remove the default `header_bottom--global` region from your theme, delete or comment out the `{{{region name="header_bottom--global"}}}` line of code from your theme's `header.html` file. 
+
 ## Widget templates
 
 [Widget templates](/api-reference/storefront/widgets-api/widget-template/getwidgettemplates) are Handlebars-enabled HTML templates which define the structure of the widget on a page. Widget templates can use the built-in Handlebars helpers such as {{if}} and {{each}}. Using the helpers allows for conditional logic to be built into the Widget templates. Widget templates can be reused to build multiple widgets.
