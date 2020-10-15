@@ -44,13 +44,28 @@ Global regions are special regions you can use to place and manage content sitew
 
 To create a global region, add the `--global` suffix to the region name as shown in the following example:
 
-`{{{region name=”header_bottom--global”}}}`
+```handlebars
 
->Note
+{{{region name=”header_bottom--global”}}}
+
+```
+
+<div class="HubBlock--callout">
+<div class="CalloutBlock--info">
+<div class="HubBlock-content">
+
+
+> ### Note
 >
->`header_bottom--global`region is currently the only global region available by default.
+>`header_bottom--global` region is currently the only global region available by default.
 
-To remove the default `header_bottom--global` region from your theme, delete or comment out the `{{{region name="header_bottom--global"}}}` line of code from your theme's `header.html` file. 
+</div>
+</div>
+</div>
+
+To remove the default `header_bottom--global` region from your theme, delete or comment out the `{{{region name="header_bottom--global"}}}` line of code from your theme's `templates/components/common/header.html` file. 
+
+[See it in cornerstone](https://github.com/bigcommerce/cornerstone/search?q=%7B%7B%7Bregion+name%3D%22header_bottom--global%22%7D%7D%7D).
 
 ## Widget templates
 
