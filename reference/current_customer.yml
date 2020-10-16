@@ -1,0 +1,124 @@
+swagger: '2.0'
+info:
+  title: Current Customer
+  version: ''
+  description: >-
+    Identify logged-in customers securely via JavaScript.
+
+
+    [Learn more about the current customer
+    API](https://developer.bigcommerce.com/api-docs/customers/current-customer-api).
+host: '{$$.env.store_domain}'
+paths:
+  /customer/current.jwt:
+    get:
+      responses:
+        default:
+          description: ''
+          examples:
+            application/json:
+              customer:
+                id: 4927
+                email: john.doe@gmail.com
+                group_id: '6'
+              iss: bc/apps
+              sub: abc123
+              iat: 1480831863
+              exp: 1480832763
+              version: 1
+              aud: 6sv16tfx3j5gsopm42ss5dd67g2srvq
+              application_id: 6sv16tasdgr2b5hs5dd67g2srvq
+              store_hash: abc123
+              operation: current_customer
+          schema:
+            type: object
+            properties:
+              customer:
+                type: object
+                properties:
+                  id:
+                    type: integer
+                    example: 4927
+                    description: Unique numeric ID of the customer.
+                  email:
+                    type: string
+                    example: john.doe@gmail.com
+                    description: Email address of the customer.
+                  group_id:
+                    type: string
+                    example: '"6"'
+                    description: The group to which the customer belongs.
+              iss:
+                type: string
+                description: >-
+                  Indicates the token’s issuer. This is your application’s
+                  client ID, which is obtained during application registration
+                  in Developer Portal.
+                example: '"bc/apps"'
+              sub:
+                type: string
+                example: '"abc123"'
+                description: The subject of the JWT - same as `store_hash`.
+              iat:
+                type: integer
+                description: >-
+                  Time when the token was generated. This is a numeric value
+                  indicating the number of seconds since the [Unix
+                  epoch](https://en.wikipedia.org/wiki/Unix_time).
+                example: 1480831863
+              exp:
+                type: integer
+                example: 1480832763
+                description: >-
+                  Time when the token expires. The token usually expires after
+                  15 minutes. This is a numeric value indicating the number of
+                  seconds since the [Unix
+                  epoch](https://en.wikipedia.org/wiki/Unix_time).
+              version:
+                type: integer
+                example: 1
+                description: Version of the Current Customer JWT
+              aud:
+                type: string
+                example: '"6sv16tfx3j5gsopm42ss5dd67g2srvq"'
+                description: >-
+                  The "aud" (audience) claim identifies the recipients that the
+                  JWT is intended for. This should match the *App Client ID* and
+                  the `application_id`.
+              application_id:
+                type: string
+                example: '"6sv16tasdgr2b5hs5dd67g2srvq"'
+                description: The client ID created when the token was generated.
+              store_hash:
+                type: string
+                description: Store hash identifying the store you are logging into.
+              operation:
+                type: string
+                description: Must contain the string “current_customer”.
+                example: '"curent_customer"'
+      summary: Get Current Customer
+      parameters:
+        - in: query
+          name: app_client_id
+          type: string
+          required: true
+      description: ''
+      operationId: getCurrentCustomer
+      tags:
+        - Current Customers
+      consumes:
+        - application/json
+      produces:
+        - application/json
+schemes:
+  - https
+consumes:
+  - application/json
+produces:
+  - application/json
+x-stoplight:
+  docs:
+    includeDownloadLink: true
+    showModels: false
+tags:
+  - name: Current Customers
