@@ -1,0 +1,378 @@
+swagger: '2.0'
+info:
+  version: ''
+  title: Abandoned Carts
+  description: >-
+    Use `/abandoned-carts/{token}` on headless storefronts to retrieve the
+    `cart_id` via the abandoned cart `token` passed in to headless storefront
+    via an abandoned cart email link clicked on by a shopper. Once the `cart_id`
+    has been retrieved, it can be used to fetch and display information about
+    the cart to the shopper via the storefront cart and/or server-to-server cart
+    APIs.
+
+
+    - [OAuth Scopes](#oauth-scopes)
+
+    - [Authentication](#authentication)
+
+
+    ## OAuth Scopes
+
+    | UI Name                                      | Permission |
+    Parameter                                     |
+
+    |----------------------------------------------|------------|-----------------------------------------------|
+
+    | Carts                                        | modify     |
+    `store_cart`                                  |
+
+    | Carts                                        | read-only  |
+    `store_cart_read_only`                        |
+
+
+    For more information on OAuth Scopes, see:
+    [Authentication](https://developer.bigcommerce.com/api-docs/getting-started/authentication).
+
+
+    ## Authentication
+
+
+    Requests can be authenticated by sending an `access_token` via
+    `X-Auth-Token` HTTP header:
+
+
+    ```http
+
+    GET /stores/{$$.env.store_hash}/v3/catalog/summary
+
+    host: api.bigcommerce.com
+
+    Accept: application/json
+
+    X-Auth-Token: {access_token}
+
+    ```
+
+
+    |Header|Parameter|Description|
+
+    |-|-|-|
+
+    |`X-Auth-Token`|`access_token `|Obtained by creating an API account or
+    installing an app in a BigCommerce control panel.|
+
+
+    For more information on Authenticating BigCommerce APIs, see:
+    [Authentication](https://developer.bigcommerce.com/api-docs/getting-started/authentication).        
+  contact:
+    url: ''
+    name: ''
+  license:
+    name: ''
+  termsOfService: ''
+host: api.bigcommerce.com
+paths:
+  '/abandoned-carts/{token}':
+    get:
+      responses:
+        '200':
+          $ref: '#/responses/abandonedCart_Resp'
+        '400':
+          $ref: '#/responses/400_BadRequest'
+        '404':
+          $ref: '#/responses/404_NotFound'
+        '422':
+          $ref: '#/responses/422_UnprocessableEntity'
+        '502':
+          $ref: '#/responses/502_GatewayError'
+        '503':
+          $ref: '#/responses/503_ServiceUnavailable'
+        '504':
+          $ref: '#/responses/504_GatewayTimeout'
+        default:
+          description: ''
+      summary: Get an Abandoned Cart
+      description: >-
+        Returns the `cart_id` corresponding to the abandoned cart `{token}`
+        passed in. 
+
+
+        **Usage Notes**:
+
+        * `{token}` is the token in the query string of the abandoned cart link
+        found in abandoned cart email notifications to shoppers
+      operationId: getAbandonedCarts
+      tags:
+        - Abandoned Carts
+    parameters:
+      - name: token
+        in: path
+        type: string
+        required: true
+        description: |-
+          Unique cart `UUID`.
+
+          Unique cart `UUID` token that is generated for abandoned cart emails.
+definitions:
+  metaEmpty_Full:
+    type: object
+    title: metaEmpty_Full
+  pagination_Full:
+    type: object
+    title: pagination_Full
+    properties:
+      total:
+        description: Total number of items in the result set.
+        type: integer
+        format: int32
+      count:
+        description: Total number of items in the collection response.
+        type: integer
+        format: int32
+      per_page:
+        description: >-
+          The amount of items returned in the collection per page, controlled by
+          the limit parameter.
+        type: integer
+        format: int32
+      current_page:
+        description: The page you are currently on within the collection.
+        type: integer
+        format: int32
+      total_pages:
+        description: The total number of pages in the collection.
+        type: integer
+        format: int32
+      links:
+        $ref: '#/definitions/links_Full'
+  metaCollection_Full:
+    type: object
+    title: metaCollection_Full
+    properties:
+      pagination:
+        $ref: '#/definitions/pagination_Full'
+  links_Full:
+    type: object
+    properties:
+      previous:
+        type: string
+        description: |
+          Link to the previous page returned in the response.
+      current:
+        type: string
+        description: |
+          Link to the current page returned in the response.
+        example: '?page=1&limit=50'
+      next:
+        type: string
+        description: |
+          Link to the next page returned in the response.
+    title: links_Full
+  error_Full:
+    type: object
+    title: error_Full
+    properties:
+      status:
+        description: |
+          The HTTP status code.
+        type: integer
+      title:
+        description: |
+          The error title describing the particular error.
+        type: string
+      type:
+        type: string
+  errorDetailed_Full:
+    type: object
+    properties:
+      errors:
+        type: object
+        additionalProperties:
+          type: string
+        title: DetailedErrors
+    title: errorDetailed_Full
+  abandonedCartInfo_Full:
+    type: object
+    title: abandonedCartInfo_Full
+    properties:
+      cart_id:
+        type: string
+        description: >-
+          The `cart_id` of the abandoned cart. Can be used to display the
+          abanded cart to the customer via storefront cart or 
+schemes:
+  - https
+parameters:
+  Accept:
+    in: header
+    type: string
+    name: Accept
+    default: application/json
+    required: true
+    description: Accept
+  Content-Type:
+    name: Content-Type
+    in: header
+    type: string
+    default: application/json
+    required: true
+    description: Content-Type
+securityDefinitions:
+  X-Auth-Token:
+    type: apiKey
+    in: header
+    name: X-Auth-Token
+    description: >-
+      ### OAuth Scopes
+
+      |  **UI Name** | **Permission** | **Parameter** |
+
+      | --- | --- | --- |
+
+      |  Carts | modify | `store_cart` |
+
+      |  Carts | read-only | `store_cart_read_only` |
+
+
+      ### Headers
+
+
+      |Header|Parameter|Description|
+
+      |-|-|-|
+
+      |`X-Auth-Token`|`access_token `|Obtained by creating an API account or
+      installing an app in a BigCommerce control panel.|
+
+
+      ### Example
+
+
+      ```http
+
+      GET /stores/{$$.env.store_hash}/v3/catalog/summary
+
+      host: api.bigcommerce.com
+
+      Content-Type: application/json
+
+      X-Auth-Token: {access_token}
+
+      ```
+
+
+      * For more information on Authenticating BigCommerce APIs, see:
+      [Authentication](https://developer.bigcommerce.com/api-docs/getting-started/authentication).
+security:
+  - X-Auth-Client: []
+  - X-Auth-Token: []
+  - OAuthScopes: []
+consumes:
+  - application/json
+produces:
+  - application/json
+basePath: '/stores/{$$.env.store_hash}/v3'
+tags:
+  - name: Abandoned Carts
+responses:
+  502_GatewayError:
+    description: >-
+      If something happens during the request that causes it to fail, a 502
+      response will be returned. A new request should be made; however, it could
+      fail.
+    schema:
+      $ref: '#/definitions/error_Full'
+    examples:
+      application/json:
+        status: 502
+        title: A login URL could not be generated. Please try another request.
+        type: 'https://developer.bigcommerce.com/api#api-status-codes'
+  504_GatewayTimeout:
+    description: >-
+      If this occurs, you should retry the request. Typically retrying the
+      request several times will result in a successful request; However, if you
+      are unable to successfully make a request, please check the BigCommerce
+      system status [here](https://status.bigcommerce.com/). A service is likely
+      down and the request will need to be made again when it is back up (in
+      several hours usually)
+    schema:
+      $ref: '#/definitions/errorDetailed_Full'
+    examples:
+      application/json:
+        status: 504
+        title: Gateway Timeout
+        type: 'https://developer.bigcommerce.com/api#api-status-codes'
+        errors: {}
+  403_Unauthorized:
+    description: ''
+    schema:
+      $ref: '#/definitions/error_Full'
+    examples:
+      application/json:
+        status: 403
+        title: Unauthorized Access. You do not have permission to make this request.
+        type: 'https://developer.bigcommerce.com/api#api-status-codes'
+  400_BadRequest:
+    description: |-
+      Malformed request syntax. Typically need to fix the JSON
+      Body to resend successfully.
+    schema:
+      $ref: '#/definitions/error_Full'
+    examples:
+      application/json:
+        status: 400
+        title: Input is invalid.
+        type: 'https://developer.bigcommerce.com/api#api-status-codes'
+  404_NotFound:
+    description: >-
+      If the requested account resource is not found for the franchise, return a
+      404 Not Found.
+    schema:
+      $ref: '#/definitions/error_Full'
+    examples:
+      application/json:
+        status: 404
+        title: 'Account with {id} not found'
+        type: 'https://developer.bigcommerce.com/api#api-status-codes'
+  422_UnprocessableEntity:
+    description: >-
+      This occurs when missing or unacceptable data is passed for one or more
+      fields. Please correct the values for the fields listed in the errors
+      object.
+    schema:
+      $ref: '#/definitions/errorDetailed_Full'
+    examples:
+      application/json:
+        status: 422
+        title: JSON data is missing or invalid
+        type: 'https://developer.bigcommerce.com/api#api-status-codes'
+        errors:
+          name: error.expected.jsstring
+          primary_contact.district: error.expected.jsstring.
+  503_ServiceUnavailable:
+    description: >-
+      If this occurs, you should retry the request. If you are unable to
+      successfully make a request, please check the BigCommerce system status
+      [here](https://status.bigcommerce.com/). A service is likely down and the
+      request will need to be made again when it is back up (in several hours
+      usually)
+    schema:
+      $ref: '#/definitions/error_Full'
+    examples:
+      application/json:
+        status: 503
+        title: Service Unavailable
+        type: 'https://developer.bigcommerce.com/api#api-status-codes'
+  abandonedCart_Resp:
+    schema:
+      type: object
+      properties:
+        data:
+          $ref: '#/definitions/abandonedCartInfo_Full'
+        meta:
+          $ref: '#/definitions/metaEmpty_Full'
+    description: Returned on `GET` requests to `/abandoned_carts`.
+x-stoplight:
+  docs:
+    includeDownloadLink: true
+    showModels: false
