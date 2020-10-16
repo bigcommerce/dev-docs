@@ -7,17 +7,32 @@
     },
     {
       "type": "item",
+      "title": "{Namespace}",
+      "uri": "models/template.oas2.yml"
+    },
+    {
+      "type": "item",
+      "title": "Theme Objects",
+      "uri": "models/theme_objects.yml"
+    },
+    {
+      "type": "item",
+      "title": "Webhook Callbacks",
+      "uri": "models/webhooks_events.yml"
+    },
+    {
+      "type": "item",
       "title": "Abandoned Carts",
       "uri": "reference/abandoned_carts.v3.yml"
     },
     {
       "type": "item",
-      "title": "Carts SF",
+      "title": "Storefront Carts",
       "uri": "reference/carts.sf.yml"
     },
     {
       "type": "item",
-      "title": "Carts S2S",
+      "title": "Carts",
       "uri": "reference/carts.v3.yml"
     },
     {
@@ -32,18 +47,18 @@
     },
     {
       "type": "item",
-      "title": "Checkouts SF",
+      "title": "Storefront Checkouts",
       "uri": "reference/checkouts.sf.yml"
     },
     {
       "type": "item",
-      "title": "Checkouts (S2S)",
+      "title": "Checkouts",
       "uri": "reference/checkouts.v3.yml"
     },
     {
       "type": "item",
       "title": "Currencies",
-      "uri": "reference/currencies.v3.yml"
+      "uri": "reference/currencies.v2.yml"
     },
     {
       "type": "item",
@@ -67,7 +82,7 @@
     },
     {
       "type": "item",
-      "title": "Form Fields SF (Beta)",
+      "title": "Storefront Form Fields (Beta)",
       "uri": "reference/form_fields.sf.yml"
     },
     {
@@ -82,7 +97,7 @@
     },
     {
       "type": "item",
-      "title": "Orders SF",
+      "title": "Storefront Orders",
       "uri": "reference/orders.sf.yml"
     },
     {
@@ -90,14 +105,14 @@
       "title": "Orders V2",
       "uri": "reference/orders.v2.yml"
     },
-      {
+    {
       "type": "item",
       "title": "Orders V3",
       "uri": "reference/orders.v3.yml"
     },
     {
       "type": "item",
-      "title": "Payment Methods",
+      "title": "Payment Processing Tokens & Methods",
       "uri": "reference/payment_methods.v2.yml"
     },
     {
@@ -107,12 +122,12 @@
     },
     {
       "type": "item",
-      "title": "Payment Processing Methods",
+      "title": "Payment Processing Tokens & Methods",
       "uri": "reference/payment_processing_methods.v3.yml"
     },
     {
       "type": "item",
-      "title": "Payment Processing Tokens",
+      "title": "Payment Processing Tokens & Methods",
       "uri": "reference/payment_processing_tokens.v3.yml"
     },
     {
