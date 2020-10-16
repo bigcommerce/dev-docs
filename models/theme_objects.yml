@@ -3357,17 +3357,20 @@ definitions:
     title: forms.return
   blogHome:
     type: object
-    title: blogHome
-    description: Home Page.
+    title: blog (home page)
+    description: Home Page. The Blog object used on the home page.
     properties:
       name:
         type: string
+        description: Name of the blog.
       recent_posts:
         type: array
+        description: An array of recent blog posts.
         items:
           $ref: '#/definitions/blog.posts.post'
       url:
         type: string
+        description: URL to the blog.
   banners:
     type: object
     description: Global. Elements of marketing banners at page's top and/or bottom.
@@ -3822,21 +3825,26 @@ definitions:
           type: string
   blogBlog:
     type: object
-    description: "Blog page.\n\n\n```html\n{{#each blog.posts}}\n\t\t{{> components/blog/post post=this}}\n{{/each}}\n```"
-    title: blogBlog
+    description: "Blog page. The Blog object used on the blog page.\n\n\n```html\n{{#each blog.posts}}\n\t\t{{> components/blog/post post=this}}\n{{/each}}\n```"
+    title: blog (blog page)
     properties:
       description:
         type: string
+        description: Blog description.
       name:
         type: string
+        description: Blog name.
       posts:
         type: array
+        description: An array of blog posts.
         items:
           $ref: '#/definitions/blog.posts.post'
       tag:
         type: 'null'
+        description: The blog's tag.
       url:
         type: string
+        description: URL to the blog page.
   search:
     type: string
     title: search
@@ -4652,12 +4660,9 @@ definitions:
     type: object
     properties: {}
     title: is_ajax
-  new-model:
-    type: object
-    properties: {}
   products:
     type: object
-    title: products
+    title: product card array
     properties:
       new:
         type: array
@@ -4673,6 +4678,10 @@ definitions:
           $ref: '#/definitions/products.product'
   products.product:
     type: object
+    description: >-
+      Product object used for list components that show multiple products, each
+      in its own "card" or panel.
+    title: product card
     properties:
       add_to_cart_url:
         type: string
@@ -4708,9 +4717,10 @@ definitions:
       images:
         type: array
         items:
-          type: object
+          $ref: '#/definitions/image'
       low_stock_level:
         type: 'null'
+        description: "\tIf inventory tracking is turned on: Sets a threshold low-stock level. You can use conditional logic to display a \"limited availability\" badge if the stock_levelproperty's value falls below this threshold. If inventory tracking is turned off: A \"null\" string."
       name:
         type: string
       num_reviews:
@@ -4741,6 +4751,10 @@ definitions:
         type: 'null'
       stock_level:
         type: 'null'
+        description: >-
+          If inventory tracking is turned on: The number of items available for
+          sale (0 or more). If inventory tracking is turned off: A "null"
+          string.
       summary:
         type: string
       url:
@@ -4752,8 +4766,6 @@ definitions:
             type: string
           value:
             type: integer
-    title: products.product
-    description: Product object for products array.
   price:
     type: object
     title: price
@@ -4766,36 +4778,53 @@ definitions:
         type: number
   blog.posts.post:
     type: object
+    description: Individual blog post object.
     properties:
       author:
         type: string
+        description: Author of the blog post.
       date_published:
         type: string
+        description: Date the blog entry was published
       show_read_more:
         type: boolean
+        description: Show readmore.
       summary:
         type: string
+        description: Blog post summary.
       tags:
         type: array
+        description: Tags for the blog.
         items:
           type: object
           properties:
             name:
               type: string
+              description: Name of the tag.
             url:
               type: string
+              description: URL for the tag.
       thumbnail:
-        type: object
-        properties:
-          alt:
-            type: string
-          data:
-            type: string
+        $ref: '#/definitions/image'
       title:
         type: string
+        description: Title of the blog post.
       url:
         type: string
     title: blog.posts.post
+  image:
+    type: object
+    title: image
+    description: 'Common image object; ex: `{{category.image}}`, `{{product.images.image}}'
+    properties:
+      alt:
+        type: string
+        description: >
+          Corresponding text to display for missing images, accessible screen
+          readers, etc.
+      data:
+        type: string
+        description: Internal URL to product or category image.
 responses:
   schemaSetting_Base:
     description: ''
