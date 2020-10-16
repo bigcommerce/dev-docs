@@ -90,6 +90,11 @@
       "title": "Orders V2",
       "uri": "reference/orders.v2.yml"
     },
+      {
+      "type": "item",
+      "title": "Orders V3",
+      "uri": "reference/orders.v3.yml"
+    },
     {
       "type": "item",
       "title": "Payment Methods",
