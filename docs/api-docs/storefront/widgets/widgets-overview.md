@@ -320,4 +320,4 @@ A region can contain multiple placements with widgets.
 ### Related endpoints
 * [Widgets API](/api-reference/storefront/widgets-api)
 * [Widgets Tutorial](/api-docs/storefront/widgets/widgets-tutorial)
-* [Wigets Code Samples](/api-docs/storefront/widgets/widgets-code-samples)
+* [Widgets Code Samples](/api-docs/storefront/widgets/widgets-code-samples)
