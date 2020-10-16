@@ -1,7 +1,7 @@
 swagger: '2.0'
 info:
   version: ''
-  title: Orders V2
+  title: Orders
   description: >-
     Manage order coupons, messages, products, shipping addresses, statuses,
     taxes, shipments, and shipping address quotes.
