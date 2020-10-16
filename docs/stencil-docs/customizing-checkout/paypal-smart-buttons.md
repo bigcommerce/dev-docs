@@ -4,7 +4,7 @@
 
 ### On This Page
 - [Enable Smart Buttons on Your Stencil Theme](#enable-smart-buttons-on-your-stencil-theme)
-- [Enabling Smart Buttons Customization via Store Design](#enabling-smart-buttons-customization-via-store-design)
+- [Enabling Smart Buttons Customization via Page Builder](#enabling-smart-buttons-customization-via-page-builder)
 - [Resources](#resources)
 
 </div> 
@@ -13,7 +13,7 @@ PayPal Smart Buttons are available on Cornerstone versions 2.6.0+ for merchants 
 
 Theme developers can enable Smart Buttons on a custom Stencil theme by adding the required settings to the <span class="fn">config.json</span> file.
 
-Merchants will have the ability to customize some style aspects of the PayPal payment buttons at checkout using Store Design for stores that have PayPal powered by Braintree or PayPal Express Checkout enabled. In order to make PayPal Smart Buttons customizable with Store Design, a theme developer will need to make its customization properties available by adding its schema to the <span class="fn">schema.json</span> file.
+Merchants will have the ability to customize some style aspects of the PayPal payment buttons at checkout using Page Builder for stores that have PayPal powered by Braintree or PayPal Express Checkout enabled. In order to make PayPal Smart Buttons customizable with Page Builder, a theme developer will need to make its customization properties available by adding its schema to the <span class="fn">schema.json</span> file.
 
 ## Enable Smart Buttons on Your Stencil Theme
 
@@ -65,27 +65,27 @@ lineNumbers: true
 
 <!-- theme: warning -->
 
-### Store Design Customization
-> Adding the above keys to the <span class="fn">config.json</span> file will enable Smart Buttons on a Stencil theme, however, the merchant will **not** be able to customize button styles with Store Design unless setting configurations are added to the <span class="fn">schema.json</span> file.
+### Page Builder Customization
+> Adding the above keys to the <span class="fn">config.json</span> file will enable Smart Buttons on a Stencil theme, however, the merchant will **not** be able to customize button styles with Page Builder unless setting configurations are added to the <span class="fn">schema.json</span> file.
 
 </div>
 </div>
 </div>
 
-<a id="store-design"></a>
+<a id="page-builder"></a>
 
-## Enabling Smart Buttons Customization via Store Design
+## Enabling Smart Buttons Customization via Page Builder
 
-Merchants who enable PayPal powered by Braintree and PayPal Express Checkout can also customize PayPal Smart Buttons via Store Design. As a theme developer, you can enable PayPal Smart Buttons customization via [Store Design](/stencil-docs/stencil-theme-editor/schema-json-metadata), by appending the following object to the <span class="fn">schema.json</span> file:
+Merchants who enable PayPal powered by Braintree and PayPal Express Checkout can also customize PayPal Smart Buttons via Page Builder. As a theme developer, you can enable PayPal Smart Buttons customization via [Page Builder](/stencil-docs/stencil-theme-editor/schema-json-metadata), by appending the following object to the <span class="fn">schema.json</span> file:
 
 <div class="HubBlock-header">
     <div class="HubBlock-header-title flex items-center">
-        <div class="HubBlock-header-name">Addition to schema.json file in order to enable Store Design customization</div>
+        <div class="HubBlock-header-name">Addition to schema.json file in order to enable Page Builder customization</div>
     </div><div class="HubBlock-header-subtitle">schema.json</div>
 </div>
 
 <!--
-title: "Addition to schema.json file in order to enable Store Design customization"
+title: "Addition to schema.json file in order to enable Page Builder customization"
 subtitle: "schema.json"
 lineNumbers: true
 -->

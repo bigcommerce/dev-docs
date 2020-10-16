@@ -4,12 +4,11 @@
 
 ### On this page
 - [What is Stencil?](#what-is-stencil)
-- [Why transition to Stencil?](#why-transition-to-stencil?)
+- [Why transition to Stencil?](#why-transition-to-stencil)
 - [Technical differences](#technical-differences)
   - [Developing locally on Stencil CLI](#developing-locally-on-stencil-cli)
   - [Using Handlebars](#using-handlebars)
-
-  - [Customize Store Design mode](#customize-store-design-mode)
+  - [Customize Page Builder mode](#customize-page-builder-mode)
   - [Create custom templates](#create-custom-templates)
 - [Resources](#resources)
 
@@ -36,7 +35,7 @@ For more information on the enhanced capabilities of Stencil, see the [Stencil v
 When transitioning any store from Blueprint to Stencil, you should be aware of a few key differences. Transitioning to Stencil allows developers to do the following:
 - [Develop locally on Stencil CLI](#developing-locally-on-stencil-cli)
 - [Use Handlebars instead of global variables](#use-handlebars)
-- [Customize Store Design mode](#customize-store-design-mode)
+- [Customize Page Builder mode](#customize-page-builder-mode)
 - [Create custom templates](#create-custom-templates)
 
 
@@ -66,11 +65,11 @@ For more information about Handlebars, refer to these external resources:
 
 For details on using Handlebars to surface objects in Stencil, see [Stencil Technology Stack](https://developer.bigcommerce.com/stencil-docs/getting-started/stencil-technology-stack).
 
-### Customize Store Design mode
+### Customize Page Builder mode
 
-While Blueprint uses Style Editor to customize legacy themes, Stencil uses Store Design. [Store Design](https://support.bigcommerce.com/s/article/Store-Design) is BigCommerce’s browser-based tool that enables merchants to rapidly modify and customize a storefront’s look and feel without writing code. Stencil theme developers can configure settings for Store Design. The configuration determines the theme’s customizable aspects.
+While Blueprint uses Style Editor to customize legacy themes, Stencil uses Page Builder. [Page Builder](https://support.bigcommerce.com/s/article/Page-Builder) is BigCommerce’s browser-based tool that enables merchants to rapidly modify and customize a storefront’s look and feel without writing code. Stencil theme developers can configure settings for Page Builder. The configuration determines the theme’s customizable aspects.
 
-For example, by customizing the configuration of Store Design, you can modify how merchants customize colors, fonts, display of page features, and the number of products displayed per feature.
+For example, by customizing the configuration of Page Builder, you can modify how merchants customize colors, fonts, display of page features, and the number of products displayed per feature.
 
 When you switch to Stencil from Blueprint, you won’t lose any of your store data. However, you will lose any customization you’ve hardcoded into your previous Blueprint theme.
 
