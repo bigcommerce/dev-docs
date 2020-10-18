@@ -2,42 +2,42 @@
   "items": [
     {
       "type": "item",
-      "title": "Abandoned Carts",
+      "title": "Abandoned Carts V3",
       "uri": "reference/abandoned_carts.v3.yml"
     },
     {
       "type": "item",
-      "title": "Storefront Carts",
+      "title": "Carts SF",
       "uri": "reference/carts.sf.yml"
     },
     {
       "type": "item",
-      "title": "Carts",
+      "title": "Carts V3",
       "uri": "reference/carts.v3.yml"
     },
     {
       "type": "item",
-      "title": "Catalog",
+      "title": "Catalog v3",
       "uri": "reference/catalog.v3.yml"
     },
     {
       "type": "item",
-      "title": "Channels",
+      "title": "Channels V3",
       "uri": "reference/channels.v3.yml"
     },
     {
       "type": "item",
-      "title": "Storefront Checkouts",
+      "title": "Checkouts SF",
       "uri": "reference/checkouts.sf.yml"
     },
     {
       "type": "item",
-      "title": "Checkouts",
+      "title": "Checkouts V3",
       "uri": "reference/checkouts.v3.yml"
     },
     {
       "type": "item",
-      "title": "Currencies",
+      "title": "Currencies V3",
       "uri": "reference/currencies.v2.yml"
     },
     {
@@ -62,27 +62,22 @@
     },
     {
       "type": "item",
-      "title": "Storefront Form Fields (Beta)",
-      "uri": "reference/form_fields.sf.yml"
-    },
-    {
-      "type": "item",
-      "title": "Geography",
+      "title": "Geography V2",
       "uri": "reference/geography.v2.yml"
     },
     {
       "type": "item",
-      "title": "Marketing",
+      "title": "Marketing V2",
       "uri": "reference/marketing.v2.yml"
     },
     {
       "type": "item",
-      "title": "Storefront Orders",
+      "title": "Orders SF",
       "uri": "reference/orders.sf.yml"
     },
     {
       "type": "item",
-      "title": "Orders",
+      "title": "Orders V2",
       "uri": "reference/orders.v2.oas2.yml"
     },
     {
@@ -92,7 +87,7 @@
     },
     {
       "type": "item",
-      "title": "Payment Methods",
+      "title": "Payment Methods V2",
       "uri": "reference/payment_methods.v2.yml"
     },
     {
@@ -102,27 +97,27 @@
     },
     {
       "type": "item",
-      "title": "Payment Processing Tokens & Methods",
+      "title": "Payment Processing Methods V3",
       "uri": "reference/payment_processing_methods.v3.yml"
     },
     {
       "type": "item",
-      "title": "Payment Processing Tokens & Methods",
+      "title": "Payment Processing Tokens V3",
       "uri": "reference/payment_processing_tokens.v3.yml"
     },
     {
       "type": "item",
-      "title": "Price Lists",
+      "title": "Price Lists V3",
       "uri": "reference/price_lists.v3.yml"
     },
     {
       "type": "item",
-      "title": "Redirects",
+      "title": "Redirects V3",
       "uri": "reference/redirects.v3.yml"
     },
     {
       "type": "item",
-      "title": "Scripts",
+      "title": "Scripts V3",
       "uri": "reference/scripts.v3.yml"
     },
     {
@@ -142,57 +137,57 @@
     },
     {
       "type": "item",
-      "title": "Sites",
+      "title": "Sites V3",
       "uri": "reference/sites.v3.yml"
     },
     {
       "type": "item",
-      "title": "Content",
+      "title": "Store Content V2",
       "uri": "reference/store_content.v2.yml"
     },
     {
       "type": "item",
-      "title": "Store Information",
+      "title": "Store Information V2",
       "uri": "reference/store_information.v2.yml"
     },
     {
       "type": "item",
-      "title": "Storefront Token",
+      "title": "Storefront Token V3",
       "uri": "reference/storefront_tokens.v3.yml"
     },
     {
       "type": "item",
-      "title": "Subscribers",
+      "title": "Subscribers V3",
       "uri": "reference/subscribers.v3.yml"
     },
     {
       "type": "item",
-      "title": "Storefront Subscriptions",
+      "title": "Email Subscriptions SF",
       "uri": "reference/subscriptions.sf.yml"
     },
     {
       "type": "item",
-      "title": "Tax Classes",
+      "title": "Tax Classes V2",
       "uri": "reference/tax_classes.v2.yml"
     },
     {
       "type": "item",
-      "title": "Themes",
+      "title": "Themes V3",
       "uri": "reference/themes.v3.yml"
     },
     {
       "type": "item",
-      "title": "BigCommerce Webhooks",
+      "title": "Webhooks V2",
       "uri": "reference/webhooks.v2.yml"
     },
     {
       "type": "item",
-      "title": "Widgets",
+      "title": "Widgets V3",
       "uri": "reference/widgets.v3.yml"
     },
     {
       "type": "item",
-      "title": "Wishlist",
+      "title": "Wishlists V3",
       "uri": "reference/wishlists.v3.yml"
     }
   ]
