@@ -1,0 +1,199 @@
+{
+  "items": [
+    {
+      "type": "item",
+      "title": "Abandoned Carts",
+      "uri": "reference/abandoned_carts.v3.yml"
+    },
+    {
+      "type": "item",
+      "title": "Storefront Carts",
+      "uri": "reference/carts.sf.yml"
+    },
+    {
+      "type": "item",
+      "title": "Carts",
+      "uri": "reference/carts.v3.yml"
+    },
+    {
+      "type": "item",
+      "title": "Catalog",
+      "uri": "reference/catalog.v3.yml"
+    },
+    {
+      "type": "item",
+      "title": "Channels",
+      "uri": "reference/channels.v3.yml"
+    },
+    {
+      "type": "item",
+      "title": "Storefront Checkouts",
+      "uri": "reference/checkouts.sf.yml"
+    },
+    {
+      "type": "item",
+      "title": "Checkouts",
+      "uri": "reference/checkouts.v3.yml"
+    },
+    {
+      "type": "item",
+      "title": "Currencies",
+      "uri": "reference/currencies.v2.yml"
+    },
+    {
+      "type": "item",
+      "title": "Current Customer",
+      "uri": "reference/current_customer.yml"
+    },
+    {
+      "type": "item",
+      "title": "Customer Login (SSO)",
+      "uri": "reference/customer_login.yml"
+    },
+    {
+      "type": "item",
+      "title": "Customers V2",
+      "uri": "reference/customers.v2.yml"
+    },
+    {
+      "type": "item",
+      "title": "Customers V3",
+      "uri": "reference/customers.v3.yml"
+    },
+    {
+      "type": "item",
+      "title": "Storefront Form Fields (Beta)",
+      "uri": "reference/form_fields.sf.yml"
+    },
+    {
+      "type": "item",
+      "title": "Geography",
+      "uri": "reference/geography.v2.yml"
+    },
+    {
+      "type": "item",
+      "title": "Marketing",
+      "uri": "reference/marketing.v2.yml"
+    },
+    {
+      "type": "item",
+      "title": "Storefront Orders",
+      "uri": "reference/orders.sf.yml"
+    },
+    {
+      "type": "item",
+      "title": "Orders",
+      "uri": "reference/orders.v2.oas2.yml"
+    },
+    {
+      "type": "item",
+      "title": "Orders V3",
+      "uri": "reference/orders.v3.yml"
+    },
+    {
+      "type": "item",
+      "title": "Payment Methods",
+      "uri": "reference/payment_methods.v2.yml"
+    },
+    {
+      "type": "item",
+      "title": "Payment Processing",
+      "uri": "reference/payment_processing.yml"
+    },
+    {
+      "type": "item",
+      "title": "Payment Processing Tokens & Methods",
+      "uri": "reference/payment_processing_methods.v3.yml"
+    },
+    {
+      "type": "item",
+      "title": "Payment Processing Tokens & Methods",
+      "uri": "reference/payment_processing_tokens.v3.yml"
+    },
+    {
+      "type": "item",
+      "title": "Price Lists",
+      "uri": "reference/price_lists.v3.yml"
+    },
+    {
+      "type": "item",
+      "title": "Redirects",
+      "uri": "reference/redirects.v3.yml"
+    },
+    {
+      "type": "item",
+      "title": "Scripts",
+      "uri": "reference/scripts.v3.yml"
+    },
+    {
+      "type": "item",
+      "title": "Shipping V2",
+      "uri": "reference/shipping.v2.yml"
+    },
+    {
+      "type": "item",
+      "title": "Shipping V3",
+      "uri": "reference/shipping.v3.yml"
+    },
+    {
+      "type": "item",
+      "title": "Shipping Providers",
+      "uri": "reference/shipping_provider.yml"
+    },
+    {
+      "type": "item",
+      "title": "Sites",
+      "uri": "reference/sites.v3.yml"
+    },
+    {
+      "type": "item",
+      "title": "Content",
+      "uri": "reference/store_content.v2.yml"
+    },
+    {
+      "type": "item",
+      "title": "Store Information",
+      "uri": "reference/store_information.v2.yml"
+    },
+    {
+      "type": "item",
+      "title": "Storefront Token",
+      "uri": "reference/storefront_tokens.v3.yml"
+    },
+    {
+      "type": "item",
+      "title": "Subscribers",
+      "uri": "reference/subscribers.v3.yml"
+    },
+    {
+      "type": "item",
+      "title": "Storefront Subscriptions",
+      "uri": "reference/subscriptions.sf.yml"
+    },
+    {
+      "type": "item",
+      "title": "Tax Classes",
+      "uri": "reference/tax_classes.v2.yml"
+    },
+    {
+      "type": "item",
+      "title": "Themes",
+      "uri": "reference/themes.v3.yml"
+    },
+    {
+      "type": "item",
+      "title": "BigCommerce Webhooks",
+      "uri": "reference/webhooks.v2.yml"
+    },
+    {
+      "type": "item",
+      "title": "Widgets",
+      "uri": "reference/widgets.v3.yml"
+    },
+    {
+      "type": "item",
+      "title": "Wishlist",
+      "uri": "reference/wishlists.v3.yml"
+    }
+  ]
+}
