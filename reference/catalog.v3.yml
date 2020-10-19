@@ -456,7 +456,7 @@ paths:
             - desc
         - name: sort
           description: |
-            Field name to sort by.
+            Field name to sort by. Note: Since `id` increments when new products are added, you can use that field to sort by product create date.
           required: false
           in: query
           type: string
