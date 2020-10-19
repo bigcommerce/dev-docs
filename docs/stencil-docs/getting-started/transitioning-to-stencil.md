@@ -67,7 +67,7 @@ For details on using Handlebars to surface objects in Stencil, see [Stencil Tech
 
 ### Customize Page Builder mode
 
-While Blueprint uses Style Editor to customize legacy themes, Stencil uses Page Builder. [Page Builder](https://support.bigcommerce.com/s/article/Page-Builder) is BigCommerce’s browser-based tool that enables merchants to rapidly modify and customize a storefront’s look and feel without writing code. Stencil theme developers can configure settings for Page Builder. The configuration determines the theme’s customizable aspects.
+While Blueprint uses Style Editor to customize legacy themes, Stencil uses Page Builder. [Page Builder](https://support.bigcommerce.com/s/article/Page-Builder) is BigCommerce's browser-based tool that enables merchants to rapidly modify and customize a storefront's look and feel without writing code. Stencil theme developers can configure settings for Page Builder. The configuration determines the theme's customizable aspects.
 
 For example, by customizing the configuration of Page Builder, you can modify how merchants customize colors, fonts, display of page features, and the number of products displayed per feature.
 

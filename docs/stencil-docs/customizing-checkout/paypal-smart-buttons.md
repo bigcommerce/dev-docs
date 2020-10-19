@@ -2,7 +2,7 @@
 
 <div class="otp" id="no-index">
 
-### On This Page
+### On this page
 - [Enable Smart Buttons on Your Stencil Theme](#enable-smart-buttons-on-your-stencil-theme)
 - [Enabling Smart Buttons Customization via Page Builder](#enabling-smart-buttons-customization-via-page-builder)
 - [Resources](#resources)
@@ -13,7 +13,7 @@ PayPal Smart Buttons are available on Cornerstone versions 2.6.0+ for merchants 
 
 Theme developers can enable Smart Buttons on a custom Stencil theme by adding the required settings to the <span class="fn">config.json</span> file.
 
-Merchants will have the ability to customize some style aspects of the PayPal payment buttons at checkout using Page Builder for stores that have PayPal powered by Braintree or PayPal Express Checkout enabled. In order to make PayPal Smart Buttons customizable with Page Builder, a theme developer will need to make its customization properties available by adding its schema to the <span class="fn">schema.json</span> file.
+Merchants will have the ability to customize some style aspects of the PayPal payment buttons at checkout using Page Builder for stores that have PayPal powered by Braintree or PayPal Express Checkout enabled. To make PayPal Smart Buttons customizable with Page Builder, a theme developer will need to make its customization properties available by adding its schema to the <span class="fn">schema.json</span> file.
 
 ## Enable Smart Buttons on Your Stencil Theme
 
