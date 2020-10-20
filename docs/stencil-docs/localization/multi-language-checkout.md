@@ -19,17 +19,6 @@ In the Stencil's Cornerstone theme, the [Optimized Checkout](https://github.com/
 
 The following example shows how to use the `{{lang}}` statement in the header of the [default checkout page](https://github.com/bigcommerce/cornerstone/blob/master/templates/pages/checkout.html): 
 
-<div class="HubBlock-header">
-    <div class="HubBlock-header-title flex items-center">
-        <div class="HubBlock-header-name">{{lang}} statement in page header</div>
-</div>
-
-<!--
-title: "checkout.html"
-subtitle: "{{lang}} statement in page header"
-lineNumbers: true
--->
-
 ```html
 {{#partial "head"}}
 
