@@ -96,7 +96,7 @@ Accept: application/json
 To [get a list of order statuses](https://developer.bigcommerce.com/api-reference/store-management/orders/order-status/getorderstatus), send a `GET` request to `/stores/{{STORE_HASH}}/v2/order_statuses`.
 
 ```http
-GET https://api.bigcommerce.com/stores/{{STORE_HASH}}/v2//order_statuses
+GET https://api.bigcommerce.com/stores/{{STORE_HASH}}/v2/order_statuses
 X-Auth-Token: {{ACCESS_TOKEN}}
 Content-Type: application/json
 Accept: application/json
