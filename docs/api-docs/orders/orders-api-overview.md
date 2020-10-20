@@ -180,7 +180,7 @@ Accept: application/json
 Add [shipping addresses](https://developer.bigcommerce.com/api-reference/store-management/orders/order-shipping-addresses/updateashippingaddress#request-body) by including a [`shipping_address` array](https://developer.bigcommerce.com/api-reference/store-management/orders/order-shipping-addresses/updateashippingaddress#request-body) in the [create order](https://developer.bigcommerce.com/api-reference/store-management/orders/orders/createanorder) request.
 
 ```http
-POST https://api.bigcommerce.com/stores/{{STORE_HASH}}/v2//v2/orders
+POST https://api.bigcommerce.com/stores/{{STORE_HASH}}/v2/orders
 X-Auth-Token: {{ACCESS_TOKEN}}
 Content-Type: application/json
 Accept: application/json
