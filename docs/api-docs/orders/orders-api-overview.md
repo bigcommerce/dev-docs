@@ -265,7 +265,7 @@ Accept: application/json
 To get the `product_options.id` and `product_options.value` of a product for the order `products` array, send a `GET` request to `/stores/{{STORE_HASH}}/v3/catalog/products/{product_id}/variants`.
 
 ```http
-GET https://api.bigcommerce.com/stores/{{STORE_HASH}}/v3//catalog/products/{product_id}/variants
+GET https://api.bigcommerce.com/stores/{{STORE_HASH}}/v3/catalog/products/{product_id}/variants
 X-Auth-Token: {{ACCESS_TOKEN}}
 Content-Type: application/json
 Accept: application/json
