@@ -82,19 +82,6 @@ X-Auth-Token: {{ACCESS_TOKEN}}
 ## Gift certificates
 You can use gift certificates to offer customers prepaid vouchers as an alternative to cash for purchases within the store. 
 
-<div class="HubBlock--callout">
-<div class="CalloutBlock--info">
-<div class="HubBlock-content">
-
-<!-- theme:  -->
-
-### Note
-> A gift certificate created using the Marketing API will not trigger an email notification to the specified recipient.
-
-</div>
-</div>
-</div>
-
 To issue a gift certificate, `POST` to `/v2/gift_certificates`.
 
 ```http
@@ -109,7 +96,7 @@ X-Auth-Token: {{ACCESS_TOKEN}}
   "amount": "700.0000",
   "to_name": "Jane",
   "to_email": "test@test.com",
-  "from_name": "Tarzan",
+  "from_name": "John",
   "from_email": "test1@test.com",
   "code": "XQ2-1R7-7C1-Q0C",
   "status": "active"
@@ -117,6 +104,19 @@ X-Auth-Token: {{ACCESS_TOKEN}}
 ```
 
 [![Open in Request Runner](https://storage.googleapis.com/bigcommerce-production-dev-center/images/Open-Request-Runner.svg)](https://developer.bigcommerce.com/api-reference/store-management/marketing/gift-certificates/createagiftcertificate#requestrunner)
+
+<div class="HubBlock--callout">
+<div class="CalloutBlock--info">
+<div class="HubBlock-content">
+
+<!-- theme:  -->
+
+### Note
+> A gift certificate created using the Marketing API will not trigger an email notification to the specified recipient.
+
+</div>
+</div>
+</div>
 
 ## Resources
 
