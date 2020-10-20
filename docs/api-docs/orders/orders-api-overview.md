@@ -36,7 +36,6 @@ To [create an order](https://developer.bigcommerce.com/api-reference/store-manag
 ```http
 POST https://api.bigcommerce.com/stores/{{STORE_HASH}}/v2//v2/orders
 X-Auth-Token: {{ACCESS_TOKEN}}
-X-Auth-Client: {{CLIENT_ID}}
 Content-Type: application/json
 Accept: application/json
 
@@ -84,7 +83,6 @@ Specify [order status](https://developer.bigcommerce.com/api-reference/store-man
 ```http
 PUT https://api.bigcommerce.com/stores/{{STORE_HASH}}/v2/orders/{order_id}
 X-Auth-Token: {{ACCESS_TOKEN}}
-X-Auth-Client: {{CLIENT_ID}}
 Content-Type: application/json
 Accept: application/json
 
@@ -100,7 +98,6 @@ To [get a list of order statuses](https://developer.bigcommerce.com/api-referenc
 ```http
 GET https://api.bigcommerce.com/stores/{{STORE_HASH}}/v2//order_statuses
 X-Auth-Token: {{ACCESS_TOKEN}}
-X-Auth-Client: {{CLIENT_ID}}
 Content-Type: application/json
 Accept: application/json
 ```
@@ -144,7 +141,6 @@ Specify the [customer](https://developer.bigcommerce.com/api-reference/store-man
 ```http
 POST https://api.bigcommerce.com/stores/{{STORE_HASH}}/v2//v2/orders
 X-Auth-Token: {{ACCESS_TOKEN}}
-X-Auth-Client: {{CLIENT_ID}}
 Content-Type: application/json
 Accept: application/json
 
@@ -163,7 +159,6 @@ To [get a list of customers](https://developer.bigcommerce.com/api-reference/sto
 ```http
 GET https://api.bigcommerce.com/stores/{{STORE_HASH}}/v3/customers
 X-Auth-Token: {{ACCESS_TOKEN}}
-X-Auth-Client: {{CLIENT_ID}}
 Accept: application/json
 ```
 
@@ -187,7 +182,6 @@ Add [shipping addresses](https://developer.bigcommerce.com/api-reference/store-m
 ```http
 POST https://api.bigcommerce.com/stores/{{STORE_HASH}}/v2//v2/orders
 X-Auth-Token: {{ACCESS_TOKEN}}
-X-Auth-Client: {{CLIENT_ID}}
 Content-Type: application/json
 Accept: application/json
 
@@ -233,9 +227,8 @@ Accept: application/json
 Specify [products from the catalog](https://developer.bigcommerce.com/api-reference/store-management/orders/order-shipping-addresses/updateashippingaddress#request-body) by including a [`products` array](https://developer.bigcommerce.com/api-reference/store-management/orders/order-shipping-addresses/updateashippingaddress#request-body) in the [create order](https://developer.bigcommerce.com/api-reference/store-management/orders/orders/createanorder) request.
 
 ```http
-POST https://api.bigcommerce.com/stores/{{STORE_HASH}}/v2//v2/orders
+POST https://api.bigcommerce.com/stores/{{STORE_HASH}}/v2/orders
 X-Auth-Token: {{ACCESS_TOKEN}}
-X-Auth-Client: {{CLIENT_ID}}
 Content-Type: application/json
 Accept: application/json
 
@@ -269,12 +262,11 @@ Accept: application/json
 
 [![Open in Request Runner](https://storage.googleapis.com/bigcommerce-production-dev-center/images/Open-Request-Runner.svg)](https://developer.bigcommerce.com/api-reference/store-management/orders/orders/createanorder#requestrunner)
 
-To get the `product_options.id` and `product_options.value` of a product for the order `products` array, send a `GET` request to `/stores/{{STORE_HASH}}/v3//catalog/products/{product_id}/variants`.
+To get the `product_options.id` and `product_options.value` of a product for the order `products` array, send a `GET` request to `/stores/{{STORE_HASH}}/v3/catalog/products/{product_id}/variants`.
 
 ```http
 GET https://api.bigcommerce.com/stores/{{STORE_HASH}}/v3//catalog/products/{product_id}/variants
 X-Auth-Token: {{ACCESS_TOKEN}}
-X-Auth-Client: {{CLIENT_ID}}
 Content-Type: application/json
 Accept: application/json
 ```
@@ -333,7 +325,6 @@ To [create an order shipment](https://developer.bigcommerce.com/api-reference/st
 ```http
 POST https://api.bigcommerce.com/stores/{{STORE_HASH}}}/v2/orders/{{order_id}}/shipments
 X-Auth-Token: {{ACCESS_TOKEN}}
-X-Auth-Client: {{CLIENT_ID}}
 Content-Type: application/json
 Accept: application/json
 
@@ -384,7 +375,6 @@ You can create multiple shipments for orders, and each shipment can have a diffe
 ```http
 POST https://api.bigcommerce.com/stores/{{STORE_HASH}}}/v2/orders/{{order_id}}/shipments
 X-Auth-Token: {{ACCESS_TOKEN}}
-X-Auth-Client: {{CLIENT_ID}}
 Content-Type: application/json
 Accept: application/json
 
@@ -403,7 +393,6 @@ Accept: application/json
 ```http
 POST https://api.bigcommerce.com/stores/{{STORE_HASH}}}/v2/orders/{{order_id}}/shipments
 X-Auth-Token: {{ACCESS_TOKEN}}
-X-Auth-Client: {{CLIENT_ID}}
 Content-Type: application/json
 Accept: application/json
 
@@ -434,7 +423,6 @@ To [get shipping quotes](https://developer.bigcommerce.com/api-reference/store-m
 ```http
 GET https://api.bigcommerce.com/stores/{{STORE_HASH}}/v2/orders/{order_id}/shipping_addresses/{shipping_address_id}/shipping_quotes
 X-Auth-Token: {{ACCESS_TOKEN}}
-X-Auth-Client: {{CLIENT_ID}}
 Accept: application/json
 ```
 
@@ -465,7 +453,6 @@ To [get order taxes](https://developer.bigcommerce.com/api-reference/store-manag
 ```http
 GET https://api.bigcommerce.com/stores/{{STORE_HASH}}/v2/orders/{order_id}/taxes
 X-Auth-Token: {{ACCESS_TOKEN}}
-X-Auth-Client: {{CLIENT_ID}}
 Accept: application/json
 ```
 
@@ -538,7 +525,6 @@ To [get order transactions](https://developer.bigcommerce.com/api-reference/stor
 ```http
 GET https://api.bigcommerce.com/stores/{{STORE_HASH}}/v3/orders/{order_id}/transactions
 X-Auth-Token: {{ACCESS_TOKEN}}
-X-Auth-Client: {{CLIENT_ID}}
 Accept: application/json
 ```
 
