@@ -17,7 +17,7 @@ When to use:
 
 * Create a banner to display marketing information on a specific page of a store.
 * Issue a coupon code for customers to obtain discounted pricing on a product or a category of products.
-* Generate a gift certificate deliverable via email.
+* Generate a gift certificate deliverable by email.
 
 ## OAuth scopes
 
