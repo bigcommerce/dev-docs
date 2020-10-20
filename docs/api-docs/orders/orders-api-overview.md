@@ -34,7 +34,7 @@ This article introduces BigCommerce's [Orders V2](https://developer.bigcommerce.
 To [create an order](https://developer.bigcommerce.com/api-reference/store-management/orders/orders/createanorder), send a `POST` request to `/stores/{{STORE_HASH}}/v2/orders`.
 
 ```http
-POST https://api.bigcommerce.com/stores/{{STORE_HASH}}/v2//v2/orders
+POST https://api.bigcommerce.com/stores/{{STORE_HASH}}/v2/orders
 X-Auth-Token: {{ACCESS_TOKEN}}
 Content-Type: application/json
 Accept: application/json
