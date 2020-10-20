@@ -126,7 +126,7 @@ stencil start --open # opens live theme preview in default browser
 <!-- theme: {{callout_type}} -->
 
 ### --theme-editor and --theme-editor-port [port]:
->`-theme-editor` and `--theme-editor-port [port]` options are deprecated as of v1.23.1. Please use [Store Design](https://developer.bigcommerce.com/stencil-docs/configure-store-design-ui/store-design-overview) instead.
+> BigCommerce deprecated `-theme-editor` and `--theme-editor-port [port]` options as of v1.23.1. Please use [Page Builder](https://developer.bigcommerce.com/stencil-docs/page-builder/page-builder-overview) instead.
 
 
 </div>
