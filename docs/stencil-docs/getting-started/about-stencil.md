@@ -18,7 +18,7 @@
 
 Stencil is BigCommerce's theme engine. It incorporates industry best practices in technology, design standards, SEO, and allows developers to build a stunning storefront that engages shoppers and encourages checkouts on any device. Stencil themes are supported on the [following browsers](https://support.bigcommerce.com/s/article/Themes-Supported-Browsers). Stencil is responsible for powering the BigCommerce [Cornerstone theme](#cornerstone).
 
-The [Page Builder](https://developer.bigcommerce.com/stencil-docs/page-builder/page-builder-overview) tool available on Stencil themes allows merchants to customize a storefront’s look and feel with no coding, making customizations possible by a wide range of users.  Store Design enables quick and easy customization of a theme's colors, typography, banners, headings, carousel, and footer. It also enables customization of a storefront's layout characteristics, such as the number of products displayed in various panels, category pages, and brand pages. For details, see [Personalizing Your Theme](https://support.bigcommerce.com/articles/Learning/Personalizing-your-New-Theme).
+The [Page Builder](https://developer.bigcommerce.com/stencil-docs/page-builder/page-builder-overview) tool available on Stencil themes allows merchants to customize a storefront's look and feel with no coding, making customizations possible by a wide range of users. Page Builder enables quick and easy customization of a theme's colors, typography, banners, headings, carousel, and footer. It also enables customization of a storefront's layout characteristics, such as the number of products displayed in various panels, category pages, and brand pages. For details, see [Personalizing Your Theme](https://support.bigcommerce.com/articles/Learning/Personalizing-your-New-Theme).
 
 
 BigCommerce Stencil themes are responsive, mobile friendly themes, allowing shoppers to have a first class experience across any device. Each Stencil theme can contain one to four variations. You can optimize individual variations for specific markets, audiences, and styles, while still managing and distributing all of these variations as one theme.
@@ -84,7 +84,7 @@ If you need direct assistance, you can contact BigCommerce Support through [Live
 
 ### Related Articles
 
-* [Store Design](https://forum.bigcommerce.com/s/article/Store-Design) (BigCommerce Knowledge Base)
+* [Page Builder](https://support.bigcommerce.com/s/article/Page-Builder) (BigCommerce Knowledge Base)
 * [Personalizing Your Theme](https://support.bigcommerce.com/articles/Learning/Personalizing-your-New-Theme) (BigCommerce Knowledge Base)
 
 ### Sample Apps
