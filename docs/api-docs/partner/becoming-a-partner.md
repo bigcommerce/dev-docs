@@ -16,7 +16,8 @@ The BigCommerce Partner Program includes access to training, sales enablement, a
 Becoming an official BigCommerce partner will authorize you to provide best-of-breed solutions to the fast-growing online businesses we host. 
 
 
-The following sections outline the steps required to sell single-click apps in the [BigCommerce App Marketplace](https://www.bigcommerce.com/apps). Doing so requires a partnership application and acceptance will authorize you to provide best-of-breed solutions to the fast-growing online businesses we host. 
+The following sections outline the steps required to publish single-click apps in the [BigCommerce App Marketplace](https://www.bigcommerce.com/apps).
+
 
 ## Applying to the Technology Partner Program
 Before you can submit an app to the BigCommerce App Marketplace, also known as the App Store, you must become an official partner. BigCommerce offers app developers free sandbox stores through its Technology Partner Program. To be approved as a partner, you will need:
