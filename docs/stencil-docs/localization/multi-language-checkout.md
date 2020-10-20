@@ -47,6 +47,7 @@ The following example shows how to use the `{{lang}}` statement in the header of
                 {{/if}}
             </a>
         </h2>
+      </h1>
     </div>
 </header>
 
