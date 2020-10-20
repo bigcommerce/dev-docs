@@ -128,7 +128,7 @@ When store administrators use Theme Styles to customize your store's theme, they
 When a merchant upgrades your theme to a newer version, they carry forward all key-value pairs saved to the BigCommerce configuration service. For example, assume this customization/upgrade scenario:
 
 You release your Star Glow theme, version 1.0. This theme's `config.json` includes a key named `logo_size`, establishing a default value of 100 x 250px. The combination of the key and the value composes a `logo_size` setting.
-The merchant uses Store Design to change the `logo_size` setting to 175 x 275px and stores this customized setting in the BigCommerce configuration service.
+The merchant uses Page Builder to change the `logo_size` setting to 175 x 275px and stores this customized setting in the BigCommerce configuration service.
 You release Star Glow, version 1.1. In this theme revision, you have changed the `logo_size` to 300 x 300px.
 When the merchant applies Star Glow version 1.1 to their store, their custom `logo_size` setting of 175 x 275px remains in effect.
 If the merchant creates a second store and applies Star Glow version 1.1 to it, that store will not have a custom `logo_size` setting and will default to the new theme version's 300 x 300px value.
