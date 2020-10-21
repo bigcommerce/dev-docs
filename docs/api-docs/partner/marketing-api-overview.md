@@ -19,6 +19,19 @@ When to use:
 * Issue a coupon code for customers to obtain discounted pricing on a product or a category of products.
 * Generate a gift certificate deliverable by email.
 
+<div class="HubBlock--callout">
+<div class="CalloutBlock--warning">
+<div class="HubBlock-content">
+
+<!-- theme: warning -->
+
+### Intent to deprecate 
+> As BigCommerce moves operations to the V3 API, the endpoints outlined in this article will be deprecated. For a complete list of deprecated endpoints, see [Deprecations and sunsets](https://developer.bigcommerce.com/api-reference#deprecations-and-sunsets).
+
+</div>
+</div>
+</div>
+
 ## OAuth scopes
 
 | Name | Permission | Parameter |
