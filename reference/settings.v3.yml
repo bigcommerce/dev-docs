@@ -1,0 +1,1200 @@
+info:
+  version: 3.0.0
+  title: Settings
+  termsOfService: 'http://www.bigcommerce.com/terms'
+  description: API endpoints for managing the settings and configuration of BigCommerce stores.
+  contact:
+    name: BigCommerce
+    url: 'https://www.bigcommerce.com'
+    email: support@bigcommerce.com
+paths:
+  /settings/analytics:
+    get:
+      summary: Get all Web Analytics Providers
+      tags:
+        - analytics
+      responses:
+        '200':
+          description: OK
+          content:
+            application/json:
+              schema:
+                type: object
+                properties:
+                  data:
+                    $ref: '#/components/schemas/AnalyticsProviders'
+                  meta:
+                    type: object
+      parameters:
+        - $ref: '#/components/parameters/ChannelIdParam'
+  '/settings/analytics/{id}':
+    get:
+      summary: Get a single Web Analytics Provider
+      description: Returns a single Web Analytics Provider data for a default Channel.
+      parameters:
+        - name: id
+          in: path
+          description: Web Analytics Provider ID.
+          required: true
+          schema:
+            type: integer
+        - $ref: '#/components/parameters/ChannelIdParam'
+      responses:
+        '200':
+          description: Successful operation.
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/AnalyticsProvider'
+        '400':
+          description: Bad request. Authentication Required.
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/ErrorResponse400'
+        '404':
+          description: The requested resource was not found. Please specify valid Web Analytics Provider ID.
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/ErrorResponse404'
+      tags:
+        - analytics
+    put:
+      summary: Update a single Web Analytics Provider
+      description: Updates a single Web Analytics Provider data for a default Channel.
+      parameters:
+        - name: id
+          in: path
+          description: Web Analytics Provider ID.
+          required: true
+          schema:
+            type: integer
+        - $ref: '#/components/parameters/ChannelIdParam'
+      responses:
+        '200':
+          description: Successful operation.
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/AnalyticsProvider'
+        '400':
+          description: Bad request. Authentication Required.
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/ErrorResponse400'
+        '404':
+          description: The requested resource was not found. Please specify valid Web Analytics Provider ID.
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/ErrorResponse404'
+        '409':
+          description: Web Analytics Provider was in conflict with another Web Analytics Provider. This can be caused by duplicated unique values (such as ID).
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/ErrorResponse409'
+        '422':
+          description: 'Web Analytics Provider data was not valid. This is the result of missing required fields, or of invalid data. See the response for more details.'
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/ErrorResponse422'
+      tags:
+        - analytics
+    parameters:
+      - schema:
+          type: integer
+        name: id
+        in: path
+        required: true
+  /settings/store/profile:
+    get:
+      summary: Returns Store Profile Settings
+      description: ''
+      responses:
+        '200':
+          description: Successful operation.
+          content:
+            application/json:
+              schema:
+                type: object
+                properties:
+                  data:
+                    $ref: '#/components/schemas/StoreProfile'
+                  meta:
+                    type: object
+        '422':
+          description: Provided settings could not be applied for some reason - detailed errors in the response.
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/ErrorResponse'
+      parameters:
+        - $ref: '#/components/parameters/ChannelIdParam'
+      tags:
+        - general
+    put:
+      summary: Updates Store Profile Settings
+      responses:
+        '200':
+          description: ''
+          content:
+            application/json:
+              schema:
+                type: object
+                properties:
+                  data:
+                    $ref: '#/components/schemas/StoreProfile'
+                  meta:
+                    type: object
+        '422':
+          description: Provided settings could not be applied for some reason - detailed errors in the response.
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/ErrorResponse'
+      requestBody:
+        content:
+          application/json:
+            schema:
+              $ref: '#/components/schemas/StoreProfile'
+      parameters:
+        - $ref: '#/components/parameters/ChannelIdParam'
+      tags:
+        - general
+    delete:
+      summary: Delete overridden Profile settings for a channel
+      tags:
+        - general
+      operationId: delete-settings-store-profile
+      responses:
+        '200':
+          description: OK
+      parameters:
+        - $ref: '#/components/parameters/RequiredChannelIdParamForDelete'
+        - $ref: '#/components/parameters/KeysToDelete'
+  /settings/storefront/status:
+    get:
+      summary: Get Storefront Status
+      tags:
+        - storefront
+      responses:
+        '200':
+          description: OK
+          content:
+            application/json:
+              schema:
+                properties:
+                  data:
+                    $ref: '#/components/schemas/StorefrontStatus'
+                  meta:
+                    type: object
+                type: object
+        '422':
+          description: Provided settings could not be applied for some reason - detailed errors in the response.
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/ErrorResponse'
+      parameters:
+        - $ref: '#/components/parameters/ChannelIdParam'
+    put:
+      summary: Update Storefront Status
+      requestBody:
+        content:
+          application/json:
+            schema:
+              $ref: '#/components/schemas/StorefrontStatus'
+      responses:
+        '200':
+          description: OK
+          content:
+            application/json:
+              schema:
+                type: object
+                properties:
+                  data:
+                    $ref: '#/components/schemas/StorefrontStatus'
+                  meta:
+                    type: object
+      parameters:
+        - $ref: '#/components/parameters/ChannelIdParam'
+      tags:
+        - storefront
+    delete:
+      summary: Delete overridden Status settings for a channel
+      tags:
+        - storefront
+      operationId: delete-settings-storefront-status
+      responses:
+        '200':
+          description: OK
+      parameters:
+        - $ref: '#/components/parameters/RequiredChannelIdParamForDelete'
+        - $ref: '#/components/parameters/KeysToDelete'
+  /settings/storefront/seo:
+    get:
+      summary: Get Storefront SEO Settings
+      tags:
+        - storefront
+      responses:
+        '200':
+          description: OK
+          content:
+            application/json:
+              schema:
+                type: object
+                properties:
+                  data:
+                    $ref: '#/components/schemas/SEOSettings'
+                  meta:
+                    type: object
+        '422':
+          description: Provided settings could not be applied for some reason - detailed errors in the response.
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/ErrorResponse'
+      parameters:
+        - $ref: '#/components/parameters/ChannelIdParam'
+    put:
+      summary: Update Storefront SEO Settings
+      requestBody:
+        content:
+          application/json:
+            schema:
+              $ref: '#/components/schemas/SEOSettings'
+      responses:
+        '200':
+          description: OK
+          content:
+            application/json:
+              schema:
+                type: object
+                properties:
+                  data:
+                    $ref: '#/components/schemas/SEOSettings'
+                  meta:
+                    type: object
+      parameters:
+        - $ref: '#/components/parameters/ChannelIdParam'
+      tags:
+        - storefront
+    delete:
+      summary: Delete overridden SEO settings for a channel
+      tags:
+        - storefront
+      operationId: delete-settings-seo
+      responses:
+        '200':
+          description: OK
+      parameters:
+        - $ref: '#/components/parameters/RequiredChannelIdParamForDelete'
+        - $ref: '#/components/parameters/KeysToDelete'
+  /settings/storefront/robotstxt:
+    get:
+      summary: Get Robots.txt Settings
+      tags:
+        - storefront
+      responses:
+        '200':
+          description: OK
+          content:
+            application/json:
+              schema:
+                type: object
+                properties:
+                  data:
+                    $ref: '#/components/schemas/RobotsTxtSettings'
+                  meta:
+                    type: object
+        '422':
+          description: Provided settings could not be applied for some reason - detailed errors in the response.
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/ErrorResponse'
+      parameters:
+        - $ref: '#/components/parameters/ChannelIdParam'
+    put:
+      summary: Update Robots.txt Settings
+      requestBody:
+        content:
+          application/json:
+            schema:
+              $ref: '#/components/schemas/RobotsTxtSettings'
+      responses:
+        '200':
+          description: OK
+          content:
+            application/json:
+              schema:
+                type: object
+                properties:
+                  data:
+                    $ref: '#/components/schemas/RobotsTxtSettings'
+                  meta:
+                    type: object
+      parameters:
+        - $ref: '#/components/parameters/ChannelIdParam'
+      tags:
+        - storefront
+    delete:
+      summary: Delete overridden robots.txt settings for a channel
+      tags:
+        - storefront
+      operationId: delete-settings-robotstxt
+      responses:
+        '200':
+          description: OK
+      parameters:
+        - $ref: '#/components/parameters/RequiredChannelIdParamForDelete'
+        - $ref: '#/components/parameters/KeysToDelete'
+  /settings/storefront/category:
+    get:
+      summary: Get Storefront Category Settings
+      tags:
+        - storefront
+      responses:
+        '200':
+          description: OK
+          content:
+            application/json:
+              schema:
+                type: object
+                properties:
+                  data:
+                    $ref: '#/components/schemas/StorefrontCategorySettings'
+                  meta:
+                    type: object
+        '422':
+          description: Provided settings could not be applied for some reason - detailed errors in the response.
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/ErrorResponse'
+      parameters:
+        - $ref: '#/components/parameters/ChannelIdParam'
+    put:
+      summary: Update Storefront Category Settings
+      requestBody:
+        content:
+          application/json:
+            schema:
+              $ref: '#/components/schemas/StorefrontCategorySettings'
+      responses:
+        '200':
+          description: OK
+          content:
+            application/json:
+              schema:
+                type: object
+                properties:
+                  data:
+                    $ref: '#/components/schemas/StorefrontCategorySettings'
+                  meta:
+                    type: object
+      parameters:
+        - $ref: '#/components/parameters/ChannelIdParam'
+      tags:
+        - storefront
+    delete:
+      summary: Delete overridden Category settings for a channel
+      tags:
+        - storefront
+      operationId: delete-settings-storefrontcategory
+      responses:
+        '200':
+          description: OK
+      parameters:
+        - $ref: '#/components/parameters/RequiredChannelIdParamForDelete'
+        - $ref: '#/components/parameters/KeysToDelete'
+  /settings/storefront/search:
+    get:
+      summary: Get Storefront Search Settings
+      tags:
+        - search
+      responses:
+        '200':
+          description: OK
+          content:
+            application/json:
+              schema:
+                type: object
+                properties:
+                  data:
+                    $ref: '#/components/schemas/StorefrontSearchSettings'
+                  meta:
+                    type: object
+        '422':
+          description: Provided settings could not be applied for some reason - detailed errors in the response.
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/ErrorResponse'
+      parameters:
+        - $ref: '#/components/parameters/ChannelIdParam'
+      operationId: ''
+    put:
+      summary: Update Storefront Search Settings
+      requestBody:
+        content:
+          application/json:
+            schema:
+              $ref: '#/components/schemas/StorefrontSearchSettings'
+      responses:
+        '200':
+          description: OK
+          content:
+            application/json:
+              schema:
+                type: object
+                properties:
+                  data:
+                    $ref: '#/components/schemas/StorefrontSearchSettings'
+                  meta:
+                    type: object
+      parameters:
+        - $ref: '#/components/parameters/ChannelIdParam'
+      tags:
+        - search
+    delete:
+      summary: Delete overridden Search settings for a channel
+      tags:
+        - search
+      operationId: delete-settings-storefrontsearch
+      responses:
+        '200':
+          description: OK
+      parameters:
+        - $ref: '#/components/parameters/RequiredChannelIdParamForDelete'
+        - $ref: '#/components/parameters/KeysToDelete'
+  /settings/storefront/security:
+    get:
+      summary: Get Storefront Security Settings
+      responses:
+        '200':
+          description: OK
+          content:
+            application/json:
+              schema:
+                type: object
+                properties:
+                  data:
+                    $ref: '#/components/schemas/StorefrontSecuritySettings'
+                  meta:
+                    type: object
+      parameters:
+        - $ref: '#/components/parameters/ChannelIdParam'
+      tags:
+        - storefront
+    put:
+      summary: Update Storefront Security Settings
+      responses:
+        '200':
+          description: OK
+          content:
+            application/json:
+              schema:
+                type: object
+                properties:
+                  data:
+                    $ref: '#/components/schemas/StorefrontSecuritySettings'
+                  meta:
+                    type: object
+      requestBody:
+        content:
+          application/json:
+            schema:
+              $ref: '#/components/schemas/StorefrontSecuritySettings'
+      tags:
+        - storefront
+      parameters:
+        - $ref: '#/components/parameters/ChannelIdParam'
+    delete:
+      summary: Delete overridden Security settings for a channel
+      tags:
+        - storefront
+      operationId: delete-settings-storefrontsecurity
+      responses:
+        '200':
+          description: OK
+      parameters:
+        - $ref: '#/components/parameters/RequiredChannelIdParamForDelete'
+        - $ref: '#/components/parameters/KeysToDelete'
+  /settings/search/filters/available:
+    get:
+      summary: GET available Product Filtering filters
+      tags:
+        - search
+      responses:
+        '200':
+          description: OK
+          content:
+            application/json:
+              schema:
+                type: object
+                properties:
+                  data:
+                    type: array
+                    items:
+                      $ref: '#/components/schemas/AvailableFilter'
+                  meta:
+                    type: object
+      operationId: get-settings-search-available-filters
+      description: Returns a list of filters available to power Product Filtering.
+      parameters:
+        - schema:
+            type: integer
+          in: query
+          name: channel_id
+          description: Narrows the list of available filters based on channel ID. Only products currently assigned to the given Channel will be considered.
+        - schema:
+            type: integer
+          in: query
+          name: category_id
+          description: Narrows the list of available filters based on category ID. Only products within the provided Category will be considered.
+  /settings/search/filters:
+    get:
+      summary: GET default Product Filtering filters
+      tags:
+        - search
+      responses:
+        '200':
+          description: OK
+          content:
+            application/json:
+              schema:
+                type: object
+                properties:
+                  data:
+                    $ref: '#/components/schemas/EnabledFilters'
+                  meta:
+                    type: object
+      operationId: get-settings-search-filters
+      description: 'GET list of enabled default filters, which will be used if there are no contextual overrides.'
+    put:
+      summary: Update enabled Product Filtering filters
+      operationId: put-settings-search-filters
+      tags:
+        - search
+      responses:
+        '200':
+          description: OK
+      description: Update the default Product Filtering filters.
+      requestBody:
+        content:
+          application/json:
+            schema:
+              $ref: '#/components/schemas/EnabledFilters'
+  /settings/transactional-emails/enabled:
+    get:
+      summary: Get transactional email settings
+      tags:
+        - email
+      responses:
+        '200':
+          description: Returns list of currency transactional email settings
+          content:
+            application/json:
+              schema:
+                type: object
+                properties:
+                  data:
+                    $ref: '#/components/schemas/EnabledTransactionalEmails'
+                  meta:
+                    type: object
+      operationId: get-settings-emails-enabled
+      parameters:
+        - $ref: '#/components/parameters/ChannelIdParam'
+    put:
+      summary: Update transactional email settings
+      operationId: put-settings-transactional-emails-enabled
+      tags:
+        - email
+      responses:
+        '200':
+          description: OK
+          content:
+            application/json:
+              schema:
+                type: object
+                properties:
+                  data:
+                    $ref: '#/components/schemas/EnabledTransactionalEmails'
+                  meta:
+                    type: object
+      requestBody:
+        content:
+          application/json:
+            schema:
+              $ref: '#/components/schemas/EnabledTransactionalEmails'
+      parameters:
+        - $ref: '#/components/parameters/ChannelIdParam'
+    delete:
+      summary: Delete overridden Transactional Email settings for a channel
+      tags:
+        - email
+      operationId: delete-settings-transactionalemails
+      responses:
+        '200':
+          description: OK
+      parameters:
+        - $ref: '#/components/parameters/RequiredChannelIdParamForDelete'
+        - $ref: '#/components/parameters/KeysToDelete'
+  /settings/search/filters/contexts:
+    get:
+      summary: GET contextual overrides for enabled Product Filtering filters
+      tags:
+        - search
+      responses:
+        '200':
+          description: OK
+          content:
+            application/json:
+              schema:
+                type: object
+                properties:
+                  data:
+                    type: array
+                    items:
+                      $ref: '#/components/schemas/EnabledFiltersOverride'
+                  meta:
+                    $ref: '#/components/schemas/MetaPaginationObject'
+      operationId: get-settings-search-filters-contexts
+      parameters:
+        - schema:
+            type: integer
+          in: query
+          name: channel_id
+          description: Only return contextual overrides related to a particular Channel.
+        - schema:
+            type: integer
+          in: query
+          name: category_id
+          description: Only return contextual overrides related to a particular Category.
+      description: Get a collection of settings sets for which Product Filtering filters should be enabled in a particular context.
+    put:
+      summary: Upsert contextual overrides for enabled Product Filtering filters
+      operationId: put-settings-search-filters-contexts
+      tags:
+        - search
+      responses:
+        '200':
+          description: OK
+          content:
+            application/json:
+              schema:
+                type: object
+                properties:
+                  data:
+                    type: array
+                    items:
+                      $ref: '#/components/schemas/EnabledFiltersOverride'
+                  meta:
+                    type: object
+      description: Upsert new settings for which Product Filtering filters should be active in certain contexts (by Channel ID and/or Category ID)
+      requestBody:
+        content:
+          application/json:
+            schema:
+              type: array
+              items:
+                $ref: '#/components/schemas/EnabledFiltersOverride'
+    delete:
+      summary: Delete Product Filtering contextual overrides
+      operationId: delete-settings-search-filters-contexts
+      tags:
+        - search
+      responses:
+        '204':
+          description: No Content
+      description: ''
+      parameters:
+        - schema:
+            type: integer
+          in: query
+          name: channel_id
+          description: Delete contextual overrides related to this channel ID
+        - schema:
+            type: integer
+          in: query
+          name: category_id
+          description: Delete contextual overrides related to this category ID
+components:
+  schemas:
+    AnalyticsProvider:
+      type: object
+      properties:
+        id:
+          type: integer
+          description: Web Analytics Provider ID.
+        name:
+          type: string
+          description: Web Analytics Provider title.
+        code:
+          type: string
+          description: Web Analytics Provider code.
+        enabled:
+          type: boolean
+          description: Flag indicates if Web Analytics Provider is enabled or not.
+      example:
+        - id: 1
+          name: Google Analytics
+          code: GA-1234567890
+          enabled: true
+    AnalyticsProviders:
+      type: array
+      example:
+        - id: 1
+          name: Google Analytics
+          code: GA-1234567890
+          enabled: true
+        - id: 2
+          name: Visual Website Optimizer
+          code: ''
+          enabled: true
+        - id: 3
+          name: Facebook Pixel
+          code: FP-1234567890
+          enabled: false
+      items:
+        $ref: '#/components/schemas/AnalyticsProvider'
+    RobotsTxtSettings:
+      type: object
+      properties:
+        robots_txt_ssl:
+          type: string
+    SEOSettings:
+      type: object
+      properties:
+        page_title:
+          type: string
+        meta_description:
+          type: string
+        www_redirect:
+          type: string
+          enum:
+            - www
+            - no-www
+            - none
+    StorefrontCategorySettings:
+      type: object
+      properties:
+        listing_mode:
+          $ref: ''
+        default_product_sort:
+          $ref: '#/components/schemas/ProductSortEnumValues'
+        category_tree_depth:
+          type: integer
+    StorefrontSearchSettings:
+      type: object
+      properties:
+        default_product_sort:
+          $ref: '#/components/schemas/ProductSortEnumValues'
+    StoreProfile:
+      description: 'The basic profile settings for a store, used to give the shopper information about the business from which they are purchasing.'
+      type: object
+      properties:
+        store_phone:
+          type: string
+        store_name:
+          type: string
+        store_address:
+          type: string
+    StorefrontStatus:
+      title: ''
+      type: object
+      properties:
+        status:
+          type: string
+          example: prelaunch
+          enum:
+            - live
+            - prelaunch
+            - maintenance
+        down_for_maintenance_message:
+          type: string
+        prelaunch_message:
+          type: string
+        prelaunch_password:
+          type: string
+    ProductSortEnumValues:
+      type: string
+      title: ProductSortEnumValues
+      default: bestselling
+      enum:
+        - featured
+        - bestselling
+        - newest
+        - atoz
+        - ztoa
+        - highestprice
+        - lowestprice
+        - bestreviewed
+      description: The available sorts for PLP pages
+    StorefrontSecuritySettings:
+      title: StorefrontSecuritySettings
+      type: object
+      properties:
+        sitewide_https_enabled:
+          type: boolean
+        csp_header:
+          type: string
+        hsts:
+          type: object
+          properties:
+            enabled:
+              type: boolean
+            max_age_months:
+              $ref: '#/components/schemas/HSTSMaxAgeEnumValues'
+            includeSubDomains:
+              type: boolean
+    HSTSMaxAgeEnumValues:
+      type: integer
+      title: HSTSMaxAgeEnumValues
+      enum:
+        - 0
+        - 3
+        - 6
+        - 12
+      minimum: 0
+      maximum: 12
+      multipleOf: 3
+    MetaPaginationObject:
+      type: object
+      properties:
+        pagination:
+          type: object
+          properties:
+            total:
+              type: integer
+              example: 246
+              minimum: 0
+            count:
+              type: integer
+              example: 5
+              minimum: 0
+            per_page:
+              type: integer
+              example: 5
+              minimum: 0
+            current_page:
+              type: integer
+              example: 1
+              minimum: 1
+            total_pages:
+              type: integer
+              example: 50
+              minimum: 0
+            links:
+              type: object
+              properties:
+                next:
+                  type: string
+                  example: '?limit=5&page=2'
+                current:
+                  type: string
+                  example: '?limit=5&page=1'
+    AvailableFilter:
+      title: AvailableFilter
+      type: object
+      properties:
+        id:
+          type: integer
+        type:
+          type: string
+          enum:
+            - price
+            - category
+            - brand
+            - rating
+            - other
+            - product
+        name:
+          type: string
+    EnabledFilter:
+      title: EnabledFilter
+      oneOf:
+        - $ref: '#/components/schemas/EnabledProductFilter'
+        - $ref: '#/components/schemas/EnabledPriceFilter'
+        - $ref: '#/components/schemas/EnabledCategoryFilter'
+        - $ref: '#/components/schemas/EnabledBrandFilter'
+        - $ref: '#/components/schemas/EnabledRatingFilter'
+        - $ref: '#/components/schemas/EnabledMiscFilter'
+    EnabledProductFilter:
+      title: EnabledProductFilter
+      type: object
+      properties:
+        id:
+          type: integer
+        display_name:
+          type: string
+        type:
+          type: string
+          enum:
+            - product
+        display_product_count:
+          type: boolean
+        collapsed_by_default:
+          type: boolean
+        items_to_show:
+          type: integer
+          enum:
+            - 5
+            - 10
+            - 15
+        sort_by:
+          type: string
+          enum:
+            - alpha
+            - option_values
+            - item_count
+      description: A filter that uses product options and custom field data.
+    EnabledPriceFilter:
+      title: EnabledPriceFilter
+      type: object
+      properties:
+        id:
+          type: integer
+        display_name:
+          type: string
+        type:
+          type: string
+          enum:
+            - price
+        collapsed_by_default:
+          type: boolean
+      description: "A filter based on the product's price, shown as a price range on the storefront."
+    EnabledCategoryFilter:
+      title: EnabledCategoryFilter
+      type: object
+      description: A storefront filter for product category
+      properties:
+        id:
+          type: integer
+        display_name:
+          type: string
+        type:
+          type: string
+          enum:
+            - category
+        items_to_show:
+          type: integer
+          enum:
+            - 5
+            - 10
+            - 15
+        collapsed_by_default:
+          type: boolean
+        display_product_count:
+          type: boolean
+    EnabledRatingFilter:
+      title: EnabledRatingFilter
+      type: object
+      properties:
+        id:
+          type: integer
+        display_name:
+          type: string
+        type:
+          type: string
+          enum:
+            - rating
+        collapsed_by_default:
+          type: boolean
+      description: A filter based on product review ratings.
+    EnabledBrandFilter:
+      title: EnabledBrandFilter
+      type: object
+      description: A storefront filter for product brand
+      properties:
+        id:
+          type: integer
+        display_name:
+          type: string
+        type:
+          type: string
+          enum:
+            - brand
+        sort_by:
+          type: string
+          enum:
+            - alpha
+            - item_count
+        items_to_show:
+          type: integer
+          enum:
+            - 5
+            - 10
+            - 15
+        collapsed_by_default:
+          type: boolean
+        display_product_count:
+          type: boolean
+    EnabledFilters:
+      title: EnabledFilters
+      type: array
+      items:
+        $ref: '#/components/schemas/EnabledFilter'
+    EnabledFiltersOverride:
+      title: EnabledFiltersOverride
+      type: object
+      properties:
+        scope:
+          $ref: '#/components/schemas/SearchFilterOverrideScopeIdentifier'
+        data:
+          $ref: '#/components/schemas/EnabledFilters'
+      description: 'A new set of enabled Product Filtering filters which should display in a particular context, such as on a particular Channel, or while viewing a particular Category. Array order indicates the display order on the storefront.'
+    SearchFilterOverrideScopeIdentifier:
+      title: ScopeIdentifier
+      type: object
+      properties:
+        channel_id:
+          type: integer
+        category_id:
+          type: integer
+    EnabledTransactionalEmails:
+      title: ''
+      type: object
+      properties:
+        abandoned_cart_email:
+          type: boolean
+        account_details_changed_email:
+          type: boolean
+        combined_order_status_email:
+          type: boolean
+        create_account_email:
+          type: boolean
+        create_guest_account_email:
+          type: boolean
+        gift_certificate_email:
+          type: boolean
+        invoice_email:
+          type: boolean
+        order_message_notification_email:
+          type: boolean
+        return_confirmation_email:
+          type: boolean
+        return_statuschange_email:
+          type: boolean
+        product_review_email:
+          type: boolean
+    Error:
+      type: object
+      description: A standard error object.
+      properties:
+        code:
+          type: string
+        message:
+          type: string
+      required:
+        - code
+      x-tags:
+        - Common
+    ErrorResponse400:
+      type: object
+      properties:
+        schema:
+          $ref: '#/components/schemas/Error'
+    ErrorResponse404:
+      type: object
+      properties:
+        schema:
+          $ref: '#/components/schemas/Error'
+    ErrorResponse409:
+      type: object
+      properties:
+        schema:
+          $ref: '#/components/schemas/Error'
+    ErrorResponse422:
+      type: object
+      properties:
+        schema:
+          $ref: '#/components/schemas/Error'
+    ErrorResponse:
+      allOf:
+        - $ref: '#/components/schemas/BaseError'
+        - type: object
+          properties:
+            errors:
+              $ref: '#/components/schemas/DetailedErrors'
+    BaseError:
+      type: object
+      description: |
+        Error payload for the BigCommerce API.
+      properties:
+        status:
+          description: |
+            The HTTP status code.
+          type: integer
+        title:
+          description: |
+            The error title describing the particular error.
+          type: string
+        type:
+          type: string
+        instance:
+          type: string
+    DetailedErrors:
+      type: object
+      additionalProperties:
+        type: string
+    EnabledMiscFilter:
+      title: EnabledMiscFilter
+      type: object
+      properties:
+        id:
+          type: integer
+        display_name:
+          type: string
+        type:
+          type: string
+          enum:
+            - other
+        show_free_shipping_filter:
+          type: boolean
+        show_is_featured_filter:
+          type: boolean
+        show_in_stock_filter:
+          type: boolean
+        show_product_count:
+          type: boolean
+        collapsed_by_default:
+          type: boolean
+      description: Miscellaneous Filters which appear as a group.
+  securitySchemes: {}
+  parameters:
+    ChannelIdParam:
+      in: query
+      name: channel_id
+      schema:
+        type: integer
+      description: 'Channel ID to use for channel-specific setting. If omitted, you will interact with the global setting only.'
+    RequiredChannelIdParamForDelete:
+      in: query
+      name: channel_id
+      schema:
+        type: integer
+      description: 'Required Channel ID. This delete operation will delete overridden settings for this channel, thus restoring them to the global defaults.'
+      required: true
+    KeysToDelete:
+      in: query
+      name: keys
+      schema:
+        type: array
+        items:
+          type: string
+      required: true
+      description: Array of strings (CSV) representing which configuration keys should be cleared (un-overridden) for the Channel.
+servers:
+  - url: 'https://api.bigcommerce.com/stores/{store_hash}/v3'
+    description: Production API Gateway
+    variables:
+      store_hash:
+        default: abc123
+        description: Store hash used to identify the store.
+openapi: 3.0.1
