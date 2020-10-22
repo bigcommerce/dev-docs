@@ -37,7 +37,7 @@ The following example shows how to use the `{{lang}}` statement in the header of
 {{#partial "page"}}
 <header class="checkoutHeader optimizedCheckout-header">
     <div class="checkoutHeader-content">
-        <h1 class="is-srOnly">{{lang 'checkout.title'}}
+        <h1 class="is-srOnly">{{lang 'checkout.title'}}</h1>
         <h2 class="checkoutHeader-heading">
             <a class="checkoutHeader-link" href="{{urls.home}}">
                 {{#if checkout.header_image}}
@@ -47,7 +47,6 @@ The following example shows how to use the `{{lang}}` statement in the header of
                 {{/if}}
             </a>
         </h2>
-      </h1>
     </div>
 </header>
 
