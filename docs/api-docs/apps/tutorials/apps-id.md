@@ -10,7 +10,7 @@
 - [Resources](#resources)
 </div>
 
-Select partners [building channel apps](https://developer.bigcommerce.com/api-docs/channels/building-channel-apps) need to know their app's ID in order to create and modify the channel's configuration. This tutorial demonstrates how to find an app's ID in [DevTools](#find-in-devtools) and the [control panel](#find-in-control-panel).
+Select partners [building channel apps](https://developer.bigcommerce.com/api-docs/channels/building-channel-apps) need to know their app's ID in order to create and modify the channel's configuration. This tutorial demonstrates how to find an app's ID in the [Developer Portal](#find-in-devtools) and the [control panel](#find-in-control-panel).
 
 
 ## Find in control panel
@@ -32,8 +32,8 @@ The app ID is in the URL after `/manage/marketplace/apps/`:
 ## Find in Developer Portal
 
 
-To find an app's ID in [DevTools](https://devtools.bigcommerce.com/my/apps):
-1. Log into [DevTools](https://devtools.bigcommerce.com/my/apps).
+To find an app's ID in the [Developer Portal](https://devtools.bigcommerce.com/my/apps):
+1. Log into the [Developer Portal](https://devtools.bigcommerce.com/my/apps).
 
 2. Click **Edit App**.
 
@@ -48,7 +48,6 @@ Once you obtain the app ID, you can use it to create or modify the `app` configu
 ```http
 POST https://api.bigcommerce.com/stores/{{STORE_HASH}}/v3/channels
 X-Auth-Token: {{ACCESS_TOKEN}}
-X-Auth-Client: {{CLIENT_ID}}
 Content-Type: application/json
 Accept: application/json
 
