@@ -122,6 +122,11 @@
     },
     {
       "type": "item",
+      "title": "Settings V3",
+      "uri": "reference/settings.v3.yml"
+    },
+    {
+      "type": "item",
       "title": "Shipping V2",
       "uri": "reference/shipping.v2.yml"
     },
