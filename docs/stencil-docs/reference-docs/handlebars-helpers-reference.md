@@ -2,7 +2,7 @@
 
 <div class="otp" id="no-index">
 
-### On this page
+## On this page
 - [Custom helpers](#custom-helpers)
 - [Standard helpers](#standard-helpers)
 - [Contributing to helpers](#contributing-to-helpers)
@@ -14,55 +14,55 @@ This is a reference for [Stencil](https://developer.bigcommerce.com/stencil-docs
 
 ## Custom helpers
 
-BigCommerce's open source helpers defined in [paper-handlebars/helpers/](https://github.com/bigcommerce/paper-handlebars/tree/master/helpers) (github).
+BigCommerce's open source helpers defined in [paper-handlebars/helpers/](https://github.com/bigcommerce/paper-handlebars/tree/master/helpers) (GitHub).
 
 | **Helper** | **Category** | **Description** |
 | --- | --- | --- |
-| [limit](#limit) | array | Limit array to second argument. |
-| [pluck](#pluck) | array | Use search key to get values from collections. |
+| [limit](#limit) | array | Limits array to second argument. |
+| [pluck](#pluck) | array | Uses search key to get values from collections. |
 | [cdn](#cdn) | assets | Url transform for content delivery networks. |
-| [money](#money) | currency | Format number length, thousands delimiter, and decimal delimiter. |
-| [getFontLoaderConfig](#getFontLoaderConfig) | fonts | Returns font loader config as JSON string. |
-| [getFontsCollection](#getFontsCollection) | fonts | Returns `<link>` elements for configured fonts. |
-| [encodeHtmlEntities](#encodeHtmlEntities) | html | Encodes HTML entities. |
+| [money](#money) | currency | Formats number length, thousands delimiter, and decimal delimiter. |
+| [getFontLoaderConfig](#getfontloaderconfig) | fonts | Returns font loader config as JSON string. |
+| [getFontsCollection](#getfontscollection) | fonts | Returns `<link>` elements for configured fonts. |
+| [encodeHtmlEntities](#encodehtmlentities) | html | Encodes HTML entities. |
 | [nl2br](#nl2br) | html | Converts newline characters to `<br>` tags. |
 | [pre](#pre) | html | Renders preformatted text. |
-| [resourceHints](#resourceHints) | html | Prefetch Google fonts. |
+| [resourceHints](#resourcehints) | html | Prefetch Google fonts. |
 | [stylesheet](#stylesheet) | html | Renders link tag for inserting a stylesheet. |
 | [lang](#lang) | i18n | Maps keys to translation files. |
-| [langJson](#langJson) | i18n | Returns language translation keys as JSON string. |
-| [getContentImage](#getContentImage) | images | Returns sized image URL from store `/content` directory. |
-| [getContentImageSrcset](#getContentImageSrcset) | images | Returns source set of URLs for images in `/content`. |
-| [getImage](#getImage) | images | Returns image URL for specified size. |
-| [getImageManagerImage](#getImageManagerImage) | images | Returns sized image URL for `/product_images/uploaded_images images.. |
-| [getImageManagerImageSrcset](#getImageManagerImageSrcset) | images | Returns image srcset for `/product_images/uploaded_images` images. |
-| [getImageSrcset](#getImageSrcset) | images | Get single image URL or list of URLs for different sizes. |
+| [langJson](#langjson) | i18n | Returns language translation keys as JSON string. |
+| [getContentImage](#getcontentimage) | images | Returns sized image URL from store `/content` directory. |
+| [getContentImageSrcset](#getcontentimagesrcset) | images | Returns source set of URLs for images in `/content`. |
+| [getImage](#getimage) | images | Returns image URL for specified size. |
+| [getImageManagerImage](#getimagemanagerimage) | images | Returns sized image URL for `/product_images/uploaded_images images..` |
+| [getImageManagerImageSrcset](#getimagemanagerimagesrcset) | images | Returns image srcset for `/product_images/uploaded_images` images. |
+| [getImageSrcset](#getimagesrcset) | images | Returns single image URL or list of URLs for different sizes. |
 | [any](#any) | logic | Renders block if any params are true. |
 | [all](#all) | logic | Renders block if all params are true. |
-| [compare](#compare) | logic | Compare values with JavaScript operators, including `typeof`. |
+| [compare](#compare) | logic | Compares values with JavaScript operators, including `typeof`. |
 | [contains](#contains) | logic | Renders block if first param is in second param. |
-| [for](#for) | logic | Iterate for range `a` to `b`. |
+| [for](#for) | logic | Iterates for range `a` to `b`. |
 | [if](#if) | logic | Renders block if statement is true. |
 | [or](#or) | logic | Renders block if on more param evaluates to true. |
 | [unless](#unless) | logic | Renders block if statement is false. |
 | [concat](#concat) | string | Concatenates two strings. |
 | [join](#join) | string | Joins array of string items; returns a string. |
 | [json](#json) | string | `JSON.stringify()`s an object. |
-| [replace](#replace) | string | Replaces all isntances of first param in second param. |
-| [setURLQueryParam](#setURLQueryParam) | string | Appends keys values to a URL. |
-| [stripQuerystring](#stripQuerystring) | string | Remove query string |
-| [toLowerCase](#toLowerCase) | string | Convert string to lowercase. |
-| [truncate](#truncate) | string | Truncate a string. |
+| [replace](#replace) | string | Replaces all instances of first param in second param. |
+| [setURLQueryParam](#seturlqueryparam) | string | Appends keys values to a URL. |
+| [stripQuerystring](#stripquerystring) | string | Removes query string. |
+| [toLowerCase](#tolowercase) | string | Converts string to lowercase. |
+| [truncate](#truncate) | string | Truncates a string. |
 | [block](#block) | template | Defines a content block. |
-| [dynamicComponent](#dynamicComponent) | template | Inserts dynamic partial at the path passed in. |
+| [dynamicComponent](#dynamiccomponent) | template | Inserts dynamic partial at the path passed in. |
 | [inject](#inject) | template | Injects key values into jsContext. |
-| [jsContext](#jsContext) | template | Returns JSON for all data injected by inject helper. |
+| [jsContext](#jscontext) | template | Returns JSON for all data injected by inject helper. |
 | [partial](#partial) | template | Overrides content defined by a block helper. |
 | [region](#region) | template | Specifies a widget region. |
-| [assignVar](#assignVar) | variables | Save value to a variable. |
-| [getVar](#getVar) | variables| Get variable value. |
-| [decrementVar](#decrementVar) | variables | Decrement a variable by 1. |
-| [incrementVar](#incrementVar) | variables | Increment a variable by 1. |
+| [assignVar](#assignvar) | variables | Saves value to a variable. |
+| [getVar](#getvar) | variables| Returns variable value. |
+| [decrementVar](#decrementvar) | variables | Decrements a variable by 1. |
+| [incrementVar](#incrementvar) | variables | Increments a variable by 1. |
 
 ### [{{limit}}](https://github.com/bigcommerce/paper-handlebars/blob/master/helpers/limit.js)
 
