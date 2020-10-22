@@ -36,7 +36,7 @@ tags:
 paths:
   /settings/storefront/status:
     get:
-      summary: Get Storefront Status
+      summary: Get Status
       responses:
         '200':
           description: OK
@@ -70,7 +70,7 @@ paths:
       tags:
         - Storefront Status
     put:
-      summary: Update Storefront Status
+      summary: Update Status
       requestBody:
         content:
           application/json:
@@ -93,7 +93,7 @@ paths:
       tags:
         - Storefront Status
     delete:
-      summary: Delete overridden Status settings for a channel
+      summary: Delete Status
       operationId: delete-settings-storefront-status
       responses:
         '200':
@@ -105,7 +105,7 @@ paths:
         - Storefront Status
   /settings/storefront/seo:
     get:
-      summary: Get Storefront SEO Settings
+      summary: Get SEO Settings
       responses:
         '200':
           description: OK
@@ -138,7 +138,7 @@ paths:
       tags:
         - Storefront SEO
     put:
-      summary: Update Storefront SEO Settings
+      summary: Update SEO Settings
       requestBody:
         content:
           application/json:
@@ -161,7 +161,7 @@ paths:
       tags:
         - Storefront SEO
     delete:
-      summary: Delete overridden SEO settings for a channel
+      summary: Delete  SEO Settings
       tags:
         - storefront
       operationId: delete-settings-seo
@@ -227,7 +227,7 @@ paths:
       tags:
         - Storefront Robotstxt
     delete:
-      summary: Delete overridden robots.txt settings for a channel
+      summary: Delete Robots.txt Settings
       tags:
         - Storefront Robotstxt
       operationId: delete-settings-robotstxt
@@ -239,7 +239,7 @@ paths:
         - $ref: '#/components/parameters/KeysToDelete'
   /settings/storefront/category:
     get:
-      summary: Get Storefront Category Settings
+      summary: Get Category Settings
       responses:
         '200':
           description: OK
@@ -272,7 +272,7 @@ paths:
       tags:
         - Storefront Category
     put:
-      summary: Update Storefront Category Settings
+      summary: Update Category Settings
       requestBody:
         content:
           application/json:
@@ -295,7 +295,7 @@ paths:
       tags:
         - Storefront Category
     delete:
-      summary: Delete overridden Category settings for a channel
+      summary: Delete  Category
       tags:
         - Storefront Category
       operationId: delete-settings-storefrontcategory
@@ -307,7 +307,7 @@ paths:
         - $ref: '#/components/parameters/KeysToDelete'
   /settings/storefront/search:
     get:
-      summary: Get Storefront Search Settings
+      summary: Get Search Settings
       responses:
         '200':
           description: OK
@@ -339,7 +339,7 @@ paths:
       tags:
         - Storefront Search
     put:
-      summary: Update Storefront Search Settings
+      summary: Update Search Settings
       requestBody:
         content:
           application/json:
@@ -362,7 +362,7 @@ paths:
       tags:
         - Storefront Search
     delete:
-      summary: Delete overridden Search settings for a channel
+      summary: Delete Search Settings
       tags:
         - Storefront Search
       operationId: delete-settings-storefrontsearch
@@ -374,7 +374,7 @@ paths:
         - $ref: '#/components/parameters/KeysToDelete'
   /settings/storefront/security:
     get:
-      summary: Get Storefront Security Settings
+      summary: Get Security Settings
       responses:
         '200':
           description: OK
@@ -404,7 +404,7 @@ paths:
       tags:
         - Storefront Security
     put:
-      summary: Update Storefront Security Settings
+      summary: Update Security Settings
       responses:
         '200':
           description: OK
@@ -427,7 +427,7 @@ paths:
       parameters:
         - $ref: '#/components/parameters/ChannelIdParam'
     delete:
-      summary: Delete overridden Security settings for a channel
+      summary: Delete Security Settings
       tags:
         - Storefront Security
       operationId: delete-settings-storefrontsecurity
