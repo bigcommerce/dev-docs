@@ -1,8 +1,26 @@
 info:
   version: 3.0.0
-  title: Settings
+  title: Settings V3
   termsOfService: 'http://www.bigcommerce.com/terms'
-  description: API endpoints for managing the settings and configuration of BigCommerce stores.
+  description: |-
+    Manage settings and configuration for BigCommerce hosted stores and headless storefronts.
+
+    ## Authentication
+
+    Authenticate requests by including an [OAuth](https://developer.bigcommerce.com/api-docs/getting-started/authentication) `access_token` in the request header.
+
+    ```http
+    GET /stores/{{STORE_HASH}}/v3/settings/storefront/status
+    host: api.bigcommerce.com
+    Accept: application/json
+    X-Auth-Token: {{ACCESS_TOKEN}}
+    ```
+
+    ### OAuth Scopes
+    |  **UI Name** | **Permission** | **Parameter** |
+    | --- | --- | --- |
+    |  Information & Settings | modify | `store_v2_information` |
+    |  Information & Settings | read-only | `store_v2_information_read_only` |
   contact:
     name: BigCommerce
     url: 'https://www.bigcommerce.com'
@@ -10,9 +28,7 @@ info:
 paths:
   /settings/analytics:
     get:
-      summary: Get all Web Analytics Providers
-      tags:
-        - analytics
+      summary: Get Analytics Providers
       responses:
         '200':
           description: OK
@@ -25,8 +41,30 @@ paths:
                     $ref: '#/components/schemas/AnalyticsProviders'
                   meta:
                     type: object
+              examples:
+                example-1:
+                  value:
+                    data:
+                      - id: 1
+                        name: Google Analytics
+                        code: GA-1234567890
+                        enabled: true
+                      - id: 2
+                        name: Visual Website Optimizer
+                        code: ''
+                        enabled: true
+                      - id: 3
+                        name: Facebook Pixel
+                        code: FP-1234567890
+                        enabled: false
+                    meta: {}
       parameters:
         - $ref: '#/components/parameters/ChannelIdParam'
+      operationId: ''
+      description: Get all web analytics providers.
+      tags:
+        - Analytics
+      x-private: true
   '/settings/analytics/{id}':
     get:
       summary: Get a single Web Analytics Provider
@@ -46,6 +84,13 @@ paths:
             application/json:
               schema:
                 $ref: '#/components/schemas/AnalyticsProvider'
+              examples:
+                example-1:
+                  value:
+                    - id: 1
+                      name: Google Analytics
+                      code: GA-1234567890
+                      enabled: true
         '400':
           description: Bad request. Authentication Required.
           content:
@@ -59,7 +104,8 @@ paths:
               schema:
                 $ref: '#/components/schemas/ErrorResponse404'
       tags:
-        - analytics
+        - Analytics
+      x-private: true
     put:
       summary: Update a single Web Analytics Provider
       description: Updates a single Web Analytics Provider data for a default Channel.
@@ -113,7 +159,7 @@ paths:
   /settings/store/profile:
     get:
       summary: Returns Store Profile Settings
-      description: ''
+      description: Get store profile.
       responses:
         '200':
           description: Successful operation.
@@ -126,6 +172,14 @@ paths:
                     $ref: '#/components/schemas/StoreProfile'
                   meta:
                     type: object
+              examples:
+                example-1:
+                  value:
+                    data:
+                      store_phone: string
+                      store_name: string
+                      store_address: string
+                    meta: {}
         '422':
           description: Provided settings could not be applied for some reason - detailed errors in the response.
           content:
@@ -135,7 +189,8 @@ paths:
       parameters:
         - $ref: '#/components/parameters/ChannelIdParam'
       tags:
-        - general
+        - Store
+      x-private: true
     put:
       summary: Updates Store Profile Settings
       responses:
@@ -164,11 +219,12 @@ paths:
       parameters:
         - $ref: '#/components/parameters/ChannelIdParam'
       tags:
-        - general
+        - Store
+      x-private: true
     delete:
       summary: Delete overridden Profile settings for a channel
       tags:
-        - general
+        - Store
       operationId: delete-settings-store-profile
       responses:
         '200':
@@ -176,11 +232,10 @@ paths:
       parameters:
         - $ref: '#/components/parameters/RequiredChannelIdParamForDelete'
         - $ref: '#/components/parameters/KeysToDelete'
+      x-private: true
   /settings/storefront/status:
     get:
       summary: Get Storefront Status
-      tags:
-        - storefront
       responses:
         '200':
           description: OK
@@ -193,6 +248,15 @@ paths:
                   meta:
                     type: object
                 type: object
+              examples:
+                example-1:
+                  value:
+                    data:
+                      status: prelaunch
+                      down_for_maintenance_message: string
+                      prelaunch_message: string
+                      prelaunch_password: string
+                    meta: {}
         '422':
           description: Provided settings could not be applied for some reason - detailed errors in the response.
           content:
@@ -201,6 +265,9 @@ paths:
                 $ref: '#/components/schemas/ErrorResponse'
       parameters:
         - $ref: '#/components/parameters/ChannelIdParam'
+      description: Get storefront status.
+      tags:
+        - Storefront
     put:
       summary: Update Storefront Status
       requestBody:
@@ -238,8 +305,6 @@ paths:
   /settings/storefront/seo:
     get:
       summary: Get Storefront SEO Settings
-      tags:
-        - storefront
       responses:
         '200':
           description: OK
@@ -252,6 +317,14 @@ paths:
                     $ref: '#/components/schemas/SEOSettings'
                   meta:
                     type: object
+              examples:
+                example-1:
+                  value:
+                    data:
+                      page_title: string
+                      meta_description: string
+                      www_redirect: www
+                    meta: {}
         '422':
           description: Provided settings could not be applied for some reason - detailed errors in the response.
           content:
@@ -260,6 +333,9 @@ paths:
                 $ref: '#/components/schemas/ErrorResponse'
       parameters:
         - $ref: '#/components/parameters/ChannelIdParam'
+      description: Get storefront's SEO settings.
+      tags:
+        - Storefront
     put:
       summary: Update Storefront SEO Settings
       requestBody:
@@ -297,8 +373,6 @@ paths:
   /settings/storefront/robotstxt:
     get:
       summary: Get Robots.txt Settings
-      tags:
-        - storefront
       responses:
         '200':
           description: OK
@@ -311,6 +385,12 @@ paths:
                     $ref: '#/components/schemas/RobotsTxtSettings'
                   meta:
                     type: object
+              examples:
+                example-1:
+                  value:
+                    data:
+                      robots_txt_ssl: string
+                    meta: {}
         '422':
           description: Provided settings could not be applied for some reason - detailed errors in the response.
           content:
@@ -319,6 +399,9 @@ paths:
                 $ref: '#/components/schemas/ErrorResponse'
       parameters:
         - $ref: '#/components/parameters/ChannelIdParam'
+      description: Get storefront's robots.txt.
+      tags:
+        - Storefront
     put:
       summary: Update Robots.txt Settings
       requestBody:
@@ -356,8 +439,6 @@ paths:
   /settings/storefront/category:
     get:
       summary: Get Storefront Category Settings
-      tags:
-        - storefront
       responses:
         '200':
           description: OK
@@ -370,6 +451,14 @@ paths:
                     $ref: '#/components/schemas/StorefrontCategorySettings'
                   meta:
                     type: object
+              examples:
+                example-1:
+                  value:
+                    data:
+                      listing_mode: null
+                      default_product_sort: bestselling
+                      category_tree_depth: 0
+                    meta: {}
         '422':
           description: Provided settings could not be applied for some reason - detailed errors in the response.
           content:
@@ -378,6 +467,9 @@ paths:
                 $ref: '#/components/schemas/ErrorResponse'
       parameters:
         - $ref: '#/components/parameters/ChannelIdParam'
+      description: 'Get '
+      tags:
+        - Storefront
     put:
       summary: Update Storefront Category Settings
       requestBody:
@@ -415,8 +507,6 @@ paths:
   /settings/storefront/search:
     get:
       summary: Get Storefront Search Settings
-      tags:
-        - search
       responses:
         '200':
           description: OK
@@ -429,6 +519,12 @@ paths:
                     $ref: '#/components/schemas/StorefrontSearchSettings'
                   meta:
                     type: object
+              examples:
+                example-1:
+                  value:
+                    data:
+                      default_product_sort: bestselling
+                    meta: {}
         '422':
           description: Provided settings could not be applied for some reason - detailed errors in the response.
           content:
@@ -438,6 +534,9 @@ paths:
       parameters:
         - $ref: '#/components/parameters/ChannelIdParam'
       operationId: ''
+      description: Get storefront search settings.
+      tags:
+        - Storefront
     put:
       summary: Update Storefront Search Settings
       requestBody:
@@ -487,10 +586,22 @@ paths:
                     $ref: '#/components/schemas/StorefrontSecuritySettings'
                   meta:
                     type: object
+              examples:
+                example-1:
+                  value:
+                    data:
+                      sitewide_https_enabled: true
+                      csp_header: string
+                      hsts:
+                        enabled: true
+                        max_age_months: 0
+                        includeSubDomains: true
+                    meta: {}
       parameters:
         - $ref: '#/components/parameters/ChannelIdParam'
+      description: Get storefront security settings.
       tags:
-        - storefront
+        - Storefront
     put:
       summary: Update Storefront Security Settings
       responses:
@@ -527,9 +638,7 @@ paths:
         - $ref: '#/components/parameters/KeysToDelete'
   /settings/search/filters/available:
     get:
-      summary: GET available Product Filtering filters
-      tags:
-        - search
+      summary: Get Available Product Filters
       responses:
         '200':
           description: OK
@@ -544,6 +653,14 @@ paths:
                       $ref: '#/components/schemas/AvailableFilter'
                   meta:
                     type: object
+              examples:
+                example-1:
+                  value:
+                    data:
+                      - id: 0
+                        type: price
+                        name: string
+                    meta: {}
       operationId: get-settings-search-available-filters
       description: Returns a list of filters available to power Product Filtering.
       parameters:
@@ -557,11 +674,12 @@ paths:
           in: query
           name: category_id
           description: Narrows the list of available filters based on category ID. Only products within the provided Category will be considered.
+      tags:
+        - Search
+      x-private: true
   /settings/search/filters:
     get:
-      summary: GET default Product Filtering filters
-      tags:
-        - search
+      summary: Get Default Product Filters
       responses:
         '200':
           description: OK
@@ -574,8 +692,22 @@ paths:
                     $ref: '#/components/schemas/EnabledFilters'
                   meta:
                     type: object
+              examples:
+                example-1:
+                  value:
+                    data:
+                      - id: 0
+                        display_name: string
+                        type: product
+                        display_product_count: true
+                        collapsed_by_default: true
+                        items_to_show: 5
+                        sort_by: alpha
+                    meta: {}
       operationId: get-settings-search-filters
-      description: 'GET list of enabled default filters, which will be used if there are no contextual overrides.'
+      description: 'Get a list of enabled default filters, which will be used if there are no contextual overrides.'
+      tags:
+        - Search
     put:
       summary: Update enabled Product Filtering filters
       operationId: put-settings-search-filters
@@ -590,11 +722,10 @@ paths:
           application/json:
             schema:
               $ref: '#/components/schemas/EnabledFilters'
+      x-private: true
   /settings/transactional-emails/enabled:
     get:
-      summary: Get transactional email settings
-      tags:
-        - email
+      summary: Get Email Settings
       responses:
         '200':
           description: Returns list of currency transactional email settings
@@ -607,9 +738,29 @@ paths:
                     $ref: '#/components/schemas/EnabledTransactionalEmails'
                   meta:
                     type: object
+              examples:
+                example-1:
+                  value:
+                    data:
+                      abandoned_cart_email: true
+                      account_details_changed_email: true
+                      combined_order_status_email: true
+                      create_account_email: true
+                      create_guest_account_email: true
+                      gift_certificate_email: true
+                      invoice_email: true
+                      order_message_notification_email: true
+                      return_confirmation_email: true
+                      return_statuschange_email: true
+                      product_review_email: true
+                    meta: {}
       operationId: get-settings-emails-enabled
       parameters:
         - $ref: '#/components/parameters/ChannelIdParam'
+      description: Get transaction email settings.
+      tags:
+        - Emails
+      x-private: true
     put:
       summary: Update transactional email settings
       operationId: put-settings-transactional-emails-enabled
@@ -634,6 +785,7 @@ paths:
               $ref: '#/components/schemas/EnabledTransactionalEmails'
       parameters:
         - $ref: '#/components/parameters/ChannelIdParam'
+      x-private: true
     delete:
       summary: Delete overridden Transactional Email settings for a channel
       tags:
@@ -645,11 +797,10 @@ paths:
       parameters:
         - $ref: '#/components/parameters/RequiredChannelIdParamForDelete'
         - $ref: '#/components/parameters/KeysToDelete'
+      x-private: true
   /settings/search/filters/contexts:
     get:
-      summary: GET contextual overrides for enabled Product Filtering filters
-      tags:
-        - search
+      summary: Get Product Filter Overrides
       responses:
         '200':
           description: OK
@@ -664,6 +815,31 @@ paths:
                       $ref: '#/components/schemas/EnabledFiltersOverride'
                   meta:
                     $ref: '#/components/schemas/MetaPaginationObject'
+              examples:
+                example-1:
+                  value:
+                    data:
+                      - scope:
+                          channel_id: 0
+                          category_id: 0
+                        data:
+                          - id: 0
+                            display_name: string
+                            type: product
+                            display_product_count: true
+                            collapsed_by_default: true
+                            items_to_show: 5
+                            sort_by: alpha
+                    meta:
+                      pagination:
+                        total: 246
+                        count: 5
+                        per_page: 5
+                        current_page: 1
+                        total_pages: 50
+                        links:
+                          next: '?limit=5&page=2'
+                          current: '?limit=5&page=1'
       operationId: get-settings-search-filters-contexts
       parameters:
         - schema:
@@ -677,6 +853,9 @@ paths:
           name: category_id
           description: Only return contextual overrides related to a particular Category.
       description: Get a collection of settings sets for which Product Filtering filters should be enabled in a particular context.
+      tags:
+        - Search
+      x-private: true
     put:
       summary: Upsert contextual overrides for enabled Product Filtering filters
       operationId: put-settings-search-filters-contexts
@@ -704,6 +883,7 @@ paths:
               type: array
               items:
                 $ref: '#/components/schemas/EnabledFiltersOverride'
+      x-private: true
     delete:
       summary: Delete Product Filtering contextual overrides
       operationId: delete-settings-search-filters-contexts
@@ -724,6 +904,7 @@ paths:
           in: query
           name: category_id
           description: Delete contextual overrides related to this category ID
+      x-private: true
 components:
   schemas:
     AnalyticsProvider:
@@ -968,7 +1149,7 @@ components:
             - price
         collapsed_by_default:
           type: boolean
-      description: "A filter based on the product's price, shown as a price range on the storefront."
+      description: 'A filter based on the product''s price, shown as a price range on the storefront.'
     EnabledCategoryFilter:
       title: EnabledCategoryFilter
       type: object
@@ -1166,7 +1347,26 @@ components:
         collapsed_by_default:
           type: boolean
       description: Miscellaneous Filters which appear as a group.
-  securitySchemes: {}
+  securitySchemes:
+    X-Auth-Token:
+      name: X-Auth-Token
+      type: apiKey
+      in: header
+      description: |-
+        Authenticate requests by including an [OAuth](https://developer.bigcommerce.com/api-docs/getting-started/authentication) `access_token` in the request header.
+
+        ```http
+        GET /stores/{{STORE_HASH}}/v3/settings/storefront/status
+        host: api.bigcommerce.com
+        Accept: application/json
+        X-Auth-Token: {{ACCESS_TOKEN}}
+        ```
+
+        ### OAuth Scopes
+        |  **UI Name** | **Permission** | **Parameter** |
+        | --- | --- | --- |
+        |  Information & Settings | modify | `store_v2_information` |
+        |  Information & Settings | read-only | `store_v2_information_read_only` |
   parameters:
     ChannelIdParam:
       in: query
@@ -1191,10 +1391,19 @@ components:
       required: true
       description: Array of strings (CSV) representing which configuration keys should be cleared (un-overridden) for the Channel.
 servers:
-  - url: 'https://api.bigcommerce.com/stores/{store_hash}/v3'
+  - url: 'https://api.bigcommerce.com/stores/{$$.env.store_hash}/v3'
     description: Production API Gateway
     variables:
       store_hash:
         default: abc123
         description: Store hash used to identify the store.
 openapi: 3.0.1
+security:
+  - X-Auth-Token: []
+tags:
+  - name: analytics
+  - name: Analytics
+  - name: Store
+  - name: Storefront
+  - name: Search
+  - name: Emails
