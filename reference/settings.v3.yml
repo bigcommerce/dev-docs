@@ -202,7 +202,7 @@ paths:
         - $ref: '#/components/parameters/ChannelIdParam'
       description: Get storefront's robots.txt.
       tags:
-        - Storefront Robtstxt
+        - Storefront Robotstxt
     put:
       summary: Update Robots.txt Settings
       requestBody:
@@ -229,7 +229,7 @@ paths:
     delete:
       summary: Delete overridden robots.txt settings for a channel
       tags:
-        - storefront
+        - Storefront Robotstxt
       operationId: delete-settings-robotstxt
       responses:
         '200':
@@ -297,7 +297,7 @@ paths:
     delete:
       summary: Delete overridden Category settings for a channel
       tags:
-        - storefront
+        - Storefront Category
       operationId: delete-settings-storefrontcategory
       responses:
         '200':
@@ -364,7 +364,7 @@ paths:
     delete:
       summary: Delete overridden Search settings for a channel
       tags:
-        - search
+        - Storefront Search
       operationId: delete-settings-storefrontsearch
       responses:
         '200':
@@ -931,4 +931,3 @@ servers:
         description: Store hash used to identify the store.
 security:
   - X-Auth-Token: []
-
