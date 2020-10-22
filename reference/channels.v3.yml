@@ -91,11 +91,9 @@ info:
     * [Channels Toolkit Reference](https://developer.bigcommerce.com/api-docs/channels/channels-toolkit-reference)
 host: api.bigcommerce.com
 tags:
-  - name: ''
   - name: Channels
-    description: 'Enables creation and management of additional channels, such as marketplaces, POS, and 3rd-party storefronts, where a merchant can list their products to sell.'
+  - name: Channel Currency Assignments
   - name: Channel Listings
-    description: 'Enables creation and management of product listings, the representation of a product from a merchant''s catalog on a specific sales channel.'
   - name: Channel Site
 schemes:
   - https
@@ -602,7 +600,10 @@ paths:
       summary: Delete a Channel Site
   /channels/currency-assignments:
     post:
-      summary: ''
+      summary: 'Create Assignments'
+      description: 'Set enabled currencies and default currency for multiple channels.'
+      tags:
+        - Channel Currency Assignments
       operationId: post-channels-currency-assignments
       responses:
         '200':
@@ -622,7 +623,6 @@ paths:
           schema:
             type: object
             properties: {}
-      description: Set enabled currencies and default currency for multiple channels
       parameters:
         - in: body
           name: body
@@ -631,12 +631,14 @@ paths:
             items:
               $ref: '#/definitions/channel_currencies'
     put:
-      summary: ''
+      summary: 'Update Assignments'
+      description: 'Batch update enabled or default currencies for channels.'
+      tags:
+        - Channel Currency Assignments
       operationId: put-channels-currency-assignments
       responses:
         '200':
           description: OK
-      description: Bulk update enabled or default currencies for channels
       parameters:
         - in: body
           name: body
@@ -645,7 +647,10 @@ paths:
             items:
               $ref: '#/definitions/channel_currencies'
     get:
-      summary: ''
+      summary: 'Get all Assignments'
+      description: 'Get a list of currency assignments.'
+      tags:
+        - Channel Currency Assignments
       operationId: get-channels-currency-assignments
       responses:
         '200':
@@ -664,8 +669,10 @@ paths:
         in: path
         required: true
     get:
-      summary: Your GET endpoint
-      tags: []
+      summary: Get Channel Assignments
+      description: 'Get currency assignments for a specific channel by channel ID.'
+      tags:
+        - Channel Currency Assignments
       responses:
         '200':
           description: OK
@@ -677,7 +684,10 @@ paths:
       operationId: get-channels-channel_id-currency-assignments
       parameters: []
     post:
-      summary: ''
+      summary: 'Create Channel Assignments'
+      description: Add channel specific currency assignments
+      tags:
+        - Channel Currency Assignments
       operationId: post-channels-channel_id-currency-assignments
       responses:
         '200':
@@ -705,9 +715,11 @@ paths:
               - enabled_currencies
               - default_currency
           description: ''
-      description: Add channel specific currency assignments
     put:
-      summary: ''
+      summary: 'Update Channel Assignments'
+      description: Update currencies for specific channel.
+      tags:
+        - Channel Currency Assignments
       operationId: put-channels-channel_id-currency-assignments
       responses:
         '200':
@@ -717,7 +729,6 @@ paths:
           schema:
             type: object
             properties: {}
-      description: Update currencies for specific channel
       parameters:
         - in: body
           name: body
@@ -736,7 +747,10 @@ paths:
               - enabled_currencies
               - default_currency
     delete:
-      summary: ''
+      summary: 'Delete Channel Assignments'
+      description: "Delete channel specific default and enabled currencies. Once done, this channel will inherit the store's currency settings."
+      tags:
+        - Channel Currency Assignments
       operationId: delete-channels-channel_id-currency-assignments
       responses:
         '200':
@@ -746,7 +760,6 @@ paths:
           schema:
             type: object
             properties: {}
-      description: 'Delete channel specific default and enabled currencies. Once done, this channel will inherit the store''s currency settings.'
 definitions:
   _metaCollection:
     title: _metaCollection
@@ -1607,11 +1620,6 @@ responses:
           $ref: '#/definitions/site_Full'
         meta:
           $ref: '#/definitions/_meta'
-  new-response:
-    description: ''
-    schema:
-      type: object
-      properties: {}
 x-stoplight:
   docs:
     includeDownloadLink: true
