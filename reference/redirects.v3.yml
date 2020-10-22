@@ -2,97 +2,59 @@ swagger: '2.0'
 info:
   title: Redirects
   version: ''
-  description: >-
-    Manage 301 redirects for one or more storefronts powered by a single
-    BigCommerce back-end.
-
+  description: |-
+    Manage 301 redirects for one or more storefronts powered by a single BigCommerce back-end.
 
     **On This Page**
-
     - [Authentication](#authentication)
-
     - [OAuth Scopes](#oauth-scopes)
-
     ---
-
 
 
     ## Authentication
 
-
-    Requests can be authenticated by sending an `access_token` via
-    `X-Auth-Token` HTTP header:
-
+    Requests can be authenticated by sending an `access_token` via `X-Auth-Token` HTTP header:
 
     ```http
-
     GET /stores/{$$.env.store_hash}/v3/catalog/summary
-
     host: api.bigcommerce.com
-
     Accept: application/json
-
     X-Auth-Token: {access_token}
-
     ```
 
-
     |Header|Parameter|Description|
-
     |-|-|-|
+    |`X-Auth-Token`|`access_token `|Obtained by creating an API account or installing an app in a BigCommerce control panel.|
 
-    |`X-Auth-Token`|`access_token `|Obtained by creating an API account or
-    installing an app in a BigCommerce control panel.|
-
-
-    For more information on Authenticating BigCommerce APIs, see:
-    [Authentication](https://developer.bigcommerce.com/api-docs/getting-started/authentication).
+    For more information on Authenticating BigCommerce APIs, see: [Authentication](https://developer.bigcommerce.com/api-docs/getting-started/authentication).
 securityDefinitions:
   X-Auth-Token:
     type: apiKey
     in: header
     name: X-Auth-Token
-    description: >-
+    description: |-
       ### OAuth Scopes
-
       |  **UI Name** | **Permission** | **Parameter** |
-
       | --- | --- | --- |
-
       |  Carts | modify | `store_cart` |
-
       |  Carts | read-only | `store_cart_read_only` |
-
 
       ### Headers
 
-
       |Header|Parameter|Description|
-
       |-|-|-|
-
-      |`X-Auth-Token`|`access_token `|Obtained by creating an API account or
-      installing an app in a BigCommerce control panel.|
-
+      |`X-Auth-Token`|`access_token `|Obtained by creating an API account or installing an app in a BigCommerce control panel.|
 
       ### Example
 
-
       ```http
-
       GET /stores/{$$.env.store_hash}/v3/catalog/summary
-
       host: api.bigcommerce.com
-
       Content-Type: application/json
-
       X-Auth-Token: {access_token}
-
       ```
 
-
-      * For more information on Authenticating BigCommerce APIs, see:
-      [Authentication](https://developer.bigcommerce.com/api-docs/getting-started/authentication).
+      * For more information on Authenticating BigCommerce APIs, see: [Authentication](https://developer.bigcommerce.com/api-docs/getting-started/authentication).
 security:
   - X-Auth-Client: []
   - X-Auth-Token: []
@@ -131,9 +93,7 @@ paths:
         - type: integer
           in: query
           name: page
-          description: >-
-            Which page number to return, based on the page size. Used to
-            paginate large collections.
+          description: 'Which page number to return, based on the page size. Used to paginate large collections.'
         - type: string
           enum:
             - from_path
@@ -154,16 +114,11 @@ paths:
             - to_url
           in: query
           name: include
-          description: >-
-            Request extra fields that aren't in the standard response. On this
-            endpoint, only "to_url" is supported.
+          description: 'Request extra fields that aren''t in the standard response. On this endpoint, only "to_url" is supported.'
         - type: string
           in: query
           name: keyword
-          description: >-
-            Search keyword to look for redirects matching this keyword. Will
-            only search from the beginning of a URL path, so "blue" will match
-            "/blue" and "/blue-shirt" but not "/royal-blue-shirt"
+          description: 'Search keyword to look for redirects matching this keyword. Will only search from the beginning of a URL path, so "blue" will match "/blue" and "/blue-shirt" but not "/royal-blue-shirt"'
       description: Get a collection of the store's 301 redirects across all sites
       operationId: GetRedirects
     put:
@@ -174,20 +129,52 @@ paths:
       responses:
         '201':
           $ref: ''
+          schema:
+            type: object
+            properties:
+              data:
+                type: array
+                items:
+                  $ref: '#/definitions/301RedirectRead'
+              meta:
+                $ref: '#/definitions/MetaPaginationObject'
+          examples:
+            example-1:
+              data:
+                - from_path: /old-url
+                  site_id: 0
+                  to:
+                    type: product
+                    entity_id: 0
+                    url: /new-url
+                  id: 0
+                  to_url: 'https://store-domain.com/new-url'
+              meta:
+                pagination:
+                  total: 246
+                  count: 5
+                  per_page: 5
+                  current_page: 1
+                  total_pages: 50
+                  links:
+                    next: '?limit=5&page=2'
+                    current: '?limit=5&page=1'
       operationId: UpsertRedirects
       parameters:
         - in: body
           name: body
           schema:
-            $ref: '#/definitions/301RedirectUpsert'
+            type: array
+            items:
+              $ref: '#/definitions/301RedirectUpsert'
           x-examples:
-            application/json:
-              from_path: /old-url
-              site_id: 123
-              to:
-                type: brand
-                entity_id: 445
-                url: /new-url
+            example-1:
+              - from_path: /old-url
+                site_id: 0
+                to:
+                  type: product
+                  entity_id: 0
+                  url: /new-url
     delete:
       summary: Delete Redirects
       tags:
@@ -239,9 +226,7 @@ definitions:
         $ref: '#/definitions/Error'
   301RedirectUpsert:
     type: object
-    description: >-
-      Data necessary to create or update a redirect. If there's a conflict on
-      the from_path and site_id, the redirect will be overwritten with new data.
+    description: 'Data necessary to create or update a redirect. If there''s a conflict on the from_path and site_id, the redirect will be overwritten with new data.'
     properties:
       from_path:
         type: string
@@ -269,9 +254,7 @@ definitions:
       to_url:
         type: string
         format: uri
-        description: >-
-          Full destination URL for the redirect. Must be explicitly included via
-          URL parameter.
+        description: Full destination URL for the redirect. Must be explicitly included via URL parameter.
         example: 'https://store-domain.com/new-url'
     required:
       - from_path
