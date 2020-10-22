@@ -1,4 +1,4 @@
-# Marketing API Overview
+# Marketing API
 
 <div class="otp" id="no-index">
 

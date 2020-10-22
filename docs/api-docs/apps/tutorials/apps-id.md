@@ -48,7 +48,6 @@ Once you obtain the app ID, you can use it to create or modify the `app` configu
 ```http
 POST https://api.bigcommerce.com/stores/{{STORE_HASH}}/v3/channels
 X-Auth-Token: {{ACCESS_TOKEN}}
-X-Auth-Client: {{CLIENT_ID}}
 Content-Type: application/json
 Accept: application/json
 
