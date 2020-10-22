@@ -600,24 +600,24 @@ paths:
       summary: Delete a Channel Site
   /channels/currency-assignments:
     post:
-      summary: 'Create Assignments'
-      description: 'Set enabled currencies and default currency for multiple channels.'
+      summary: Create Assignments
+      description: Set enabled currencies and default currency for multiple channels.
       tags:
         - Channel Currency Assignments
       operationId: post-channels-currency-assignments
       responses:
         '200':
-          description: OK
+          description: ''
           schema:
-            $ref: '#/definitions/error'
+            $ref: '#/definitions/currencyAssignments_Resp'
           examples:
             example-1:
-              status: 0
-              title: string
-              type: string
-              errors:
-                property1: string
-                property2: string
+              data:
+                - channel_id: 123
+                  enabled_currencies:
+                    - string
+                  default_currency: string
+              meta: {}
         '422':
           description: Unprocessable Entity (WebDAV)
           schema:
@@ -630,15 +630,31 @@ paths:
             type: array
             items:
               $ref: '#/definitions/channel_currencies'
+          x-examples:
+            example-1:
+              - channel_id: 123
+                enabled_currencies:
+                  - USD
+                default_currency: USD
     put:
-      summary: 'Update Assignments'
-      description: 'Batch update enabled or default currencies for channels.'
+      summary: Update Assignments
+      description: Batch update enabled or default currencies for channels.
       tags:
         - Channel Currency Assignments
       operationId: put-channels-currency-assignments
       responses:
         '200':
           description: OK
+          schema:
+            $ref: '#/definitions/currencyAssignments_Resp'
+          examples:
+            example-1:
+              data:
+                - channel_id: 123
+                  enabled_currencies:
+                    - string
+                  default_currency: string
+              meta: {}
       parameters:
         - in: body
           name: body
@@ -646,22 +662,33 @@ paths:
             type: array
             items:
               $ref: '#/definitions/channel_currencies'
+          x-examples:
+            example-1:
+              - channel_id: 123
+                enabled_currencies:
+                  - USD
+                default_currency: USD
+          description: ''
     get:
-      summary: 'Get all Assignments'
-      description: 'Get a list of currency assignments.'
+      summary: Get all Assignments
+      description: Get a list of currency assignments.
       tags:
         - Channel Currency Assignments
       operationId: get-channels-currency-assignments
       responses:
         '200':
-          description: OK
+          description: ''
           schema:
-            type: object
-            properties:
+            $ref: '#/definitions/currencyAssignments_Resp'
+          examples:
+            example-1:
               data:
-                type: array
-                items:
-                  $ref: '#/definitions/channel_currencies'
+                - channel_id: 123
+                  default_currency: USD
+                  enabled_currencies:
+                    - USD
+                    - CAD
+              meta: {}
   '/channels/{channel_id}/currency-assignments':
     parameters:
       - type: string
@@ -670,21 +697,26 @@ paths:
         required: true
     get:
       summary: Get Channel Assignments
-      description: 'Get currency assignments for a specific channel by channel ID.'
+      description: Get currency assignments for a specific channel by channel ID.
       tags:
         - Channel Currency Assignments
       responses:
         '200':
           description: OK
           schema:
-            type: object
-            properties:
+            $ref: '#/definitions/currencyAssignments_Resp'
+          examples:
+            example-1:
               data:
-                $ref: '#/definitions/channel_currencies'
+                - channel_id: 123
+                  enabled_currencies:
+                    - string
+                  default_currency: string
+              meta: {}
       operationId: get-channels-channel_id-currency-assignments
       parameters: []
     post:
-      summary: 'Create Channel Assignments'
+      summary: Create Channel Assignments
       description: Add channel specific currency assignments
       tags:
         - Channel Currency Assignments
@@ -692,6 +724,8 @@ paths:
       responses:
         '200':
           description: OK
+          schema:
+            $ref: '#/definitions/currencyAssignments_Resp'
         '422':
           description: Unprocessable Entity (WebDAV)
           schema:
@@ -716,7 +750,7 @@ paths:
               - default_currency
           description: ''
     put:
-      summary: 'Update Channel Assignments'
+      summary: Update Channel Assignments
       description: Update currencies for specific channel.
       tags:
         - Channel Currency Assignments
@@ -724,6 +758,8 @@ paths:
       responses:
         '200':
           description: OK
+          schema:
+            $ref: '#/definitions/currencyAssignments_Resp'
         '422':
           description: Unprocessable Entity (WebDAV)
           schema:
@@ -747,14 +783,14 @@ paths:
               - enabled_currencies
               - default_currency
     delete:
-      summary: 'Delete Channel Assignments'
-      description: "Delete channel specific default and enabled currencies. Once done, this channel will inherit the store's currency settings."
+      summary: Delete Channel Assignments
+      description: 'Delete channel specific default and enabled currencies. Once done, this channel will inherit the store''s currency settings.'
       tags:
         - Channel Currency Assignments
       operationId: delete-channels-channel_id-currency-assignments
       responses:
-        '200':
-          description: OK
+        '204':
+          description: ''
         '404':
           description: Not Found
           schema:
@@ -1249,6 +1285,7 @@ definitions:
       - vend
       - clover
       - custom
+      - bigcommerce
     title: channelPlatform
   channel_currencies:
     description: ''
@@ -1256,19 +1293,34 @@ definitions:
     properties:
       channel_id:
         type: number
+        description: The ID of the channel
+        minimum: 0
+        multipleOf: 1
+        example: 123
       enabled_currencies:
         type: array
-        description: 'Currencies that are enabled for the given channel, in ISO 4217 3 character alphabetic'
+        description: 'Currencies that are enabled for the given channel in [ISO 4217](https://en.wikipedia.org/wiki/ISO_4217) three character alphabetic format.'
         items:
           type: string
       default_currency:
         type: string
         minLength: 1
-        description: 'Default currency for the channel, in ISO 4217 3 character alphabetic. Will be used on storefront when other currencies cannot'
+        description: 'Default currency for the channel in [ISO 4217](https://en.wikipedia.org/wiki/ISO_4217) three character alphabetic format. Will be used on storefront when other currencies cannot'
     required:
       - channel_id
       - enabled_currencies
       - default_currency
+  currencyAssignments_Resp:
+    title: currencyAssignments_Resp
+    type: object
+    description: ''
+    properties:
+      data:
+        type: array
+        items:
+          $ref: '#/definitions/channel_currencies'
+      meta:
+        type: object
 parameters:
   AfterParam:
     name: after
@@ -1507,9 +1559,7 @@ responses:
             default_currency: USD
         meta: {}
   error_Resp:
-    description: ''
-    schema:
-      $ref: '#/definitions/error'
+    $ref: '#/definitions/error'
   listing_Resp:
     description: ''
     schema:
