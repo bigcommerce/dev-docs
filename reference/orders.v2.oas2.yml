@@ -87,7 +87,7 @@ info:
       "currency_exchange_rate": 1,
       "default_currency_id": 4,
       "default_currency_code": "EUR",
-      "store_default_currency_code: "USD",
+      "store_default_currency_code": "USD",
       "store_default_to_transactional_exchange_rate": "100.0000000000"
       ...
     }
