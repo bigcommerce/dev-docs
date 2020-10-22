@@ -146,7 +146,7 @@ can take up to 24 hours to appear on the Apps Marketplace. Feel free to use this
 * [PHP / Silex](https://github.com/bigcommerce/hello-world-app-php-silex)
 * [Ruby / Sinatra](https://github.com/bigcommerce/hello-world-app-ruby-sinatra)
 * [Laravel / React](https://github.com/bigcommerce/laravel-react-sample-app)
-* [Node / FaunaDB / Nelify](https://github.com/bigcommerce/channels-app/)
+* [Node / FaunaDB / Netlify](https://github.com/bigcommerce/channels-app/)
 
 ### Tools
 * [Node API Client](https://github.com/getconversio/node-bigcommerce)
@@ -161,4 +161,4 @@ can take up to 24 hours to appear on the Apps Marketplace. Feel free to use this
 ### Blog posts
 * [How to Test App Authentication Locally with ngrok](https://medium.com/bigcommerce-developer-blog/how-to-test-app-authentication-locally-with-ngrok-149150bfe4cf)
 * [Building a BigCommerce App Using Laravel and React](https://medium.com/bigcommerce-developer-blog/building-a-bigcommerce-app-using-laravel-and-react-711ceceb5006)
-* [Big Design Tutorial](https://medium.com/bigcommerce-developer-blog/bigdesign-build-native-looking-uis-with-the-bigcommerce-design-system-fb06a01a24f2)
+* [BigDesign Tutorial](https://medium.com/bigcommerce-developer-blog/bigdesign-build-native-looking-uis-with-the-bigcommerce-design-system-fb06a01a24f2)
