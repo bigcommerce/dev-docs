@@ -163,7 +163,7 @@ paths:
     delete:
       summary: Delete  SEO Settings
       tags:
-        - storefront
+        - Storefront SEO
       operationId: delete-settings-seo
       responses:
         '200':
