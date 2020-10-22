@@ -1,3 +1,4 @@
+openapi: 3.0.1
 info:
   version: 3.0.0
   title: Settings V3
@@ -25,6 +26,13 @@ info:
     name: BigCommerce
     url: 'https://www.bigcommerce.com'
     email: support@bigcommerce.com
+tags:
+  - name: Storefront Category
+  - name: Storefront Robotstxt
+  - name: Storefront Search
+  - name: Storefront Security
+  - name: Storefront SEO
+  - name: Storefront Status
 paths:
   /settings/storefront/status:
     get:
@@ -128,7 +136,7 @@ paths:
         - $ref: '#/components/parameters/ChannelIdParam'
       description: Get storefront's SEO settings.
       tags:
-        - Storefront
+        - Storefront SEO
     put:
       summary: Update Storefront SEO Settings
       requestBody:
@@ -151,7 +159,7 @@ paths:
       parameters:
         - $ref: '#/components/parameters/ChannelIdParam'
       tags:
-        - storefront
+        - Storefront SEO
     delete:
       summary: Delete overridden SEO settings for a channel
       tags:
@@ -194,7 +202,7 @@ paths:
         - $ref: '#/components/parameters/ChannelIdParam'
       description: Get storefront's robots.txt.
       tags:
-        - Storefront
+        - Storefront Robtstxt
     put:
       summary: Update Robots.txt Settings
       requestBody:
@@ -217,7 +225,7 @@ paths:
       parameters:
         - $ref: '#/components/parameters/ChannelIdParam'
       tags:
-        - storefront
+        - Storefront Robotstxt
     delete:
       summary: Delete overridden robots.txt settings for a channel
       tags:
@@ -262,7 +270,7 @@ paths:
         - $ref: '#/components/parameters/ChannelIdParam'
       description: 'Get '
       tags:
-        - Storefront
+        - Storefront Category
     put:
       summary: Update Storefront Category Settings
       requestBody:
@@ -285,7 +293,7 @@ paths:
       parameters:
         - $ref: '#/components/parameters/ChannelIdParam'
       tags:
-        - storefront
+        - Storefront Category
     delete:
       summary: Delete overridden Category settings for a channel
       tags:
@@ -329,7 +337,7 @@ paths:
       operationId: ''
       description: Get storefront search settings.
       tags:
-        - Storefront
+        - Storefront Search
     put:
       summary: Update Storefront Search Settings
       requestBody:
@@ -352,7 +360,7 @@ paths:
       parameters:
         - $ref: '#/components/parameters/ChannelIdParam'
       tags:
-        - search
+        - Storefront Search
     delete:
       summary: Delete overridden Search settings for a channel
       tags:
@@ -394,7 +402,7 @@ paths:
         - $ref: '#/components/parameters/ChannelIdParam'
       description: Get storefront security settings.
       tags:
-        - Storefront
+        - Storefront Security
     put:
       summary: Update Storefront Security Settings
       responses:
@@ -415,13 +423,13 @@ paths:
             schema:
               $ref: '#/components/schemas/StorefrontSecuritySettings'
       tags:
-        - storefront
+        - Storefront Security
       parameters:
         - $ref: '#/components/parameters/ChannelIdParam'
     delete:
       summary: Delete overridden Security settings for a channel
       tags:
-        - storefront
+        - Storefront Security
       operationId: delete-settings-storefrontsecurity
       responses:
         '200':
@@ -921,14 +929,6 @@ servers:
       store_hash:
         default: abc123
         description: Store hash used to identify the store.
-openapi: 3.0.1
 security:
   - X-Auth-Token: []
-tags:
-  - name: analytics
-  - name: Analytics
-  - name: Store
-  - name: Storefront
-  - name: Search
-  - name: Emails
-  - name: Storefront Status
+
