@@ -127,7 +127,7 @@ To install Stencil CLI and dependencies on debian-based distros, open a terminal
 # Download and install nvm if you don't have it.
 curl -o- https://raw.githubusercontent.com/nvm-sh/nvm/v0.36.0/install.sh | bash
 
-# reload .bashrc so nvm command works
+# Reload .bashrc so nvm command works
 source ~/.bashrc
 
 # Explicitly install and use supported node version
