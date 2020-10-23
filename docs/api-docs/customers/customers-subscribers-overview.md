@@ -3,7 +3,7 @@
 <div class="otp" id="no-index">
 
 ### On this page
-- [Introduction](#introduction)
+- [OAuth scopes](#oauth-scopes)
 - [What is a customer?](#what-is-a-customer)
 - [What is a subscriber?](#what-is-a-subscriber)
 - [Subscribers vs. customers](#subscribers-vs-customers)
@@ -12,20 +12,20 @@
 - [Current Customer API](#current-customer-api)
 - [Customer API](#customer-api)
 - [Differences between V2 and V3 Customer API](#differences-between-v2-and-v3-customer-api)
+- [Subscribers API](#subscribers-api)
 - [FAQ](#faq)
 - [Resources](#resources)
 
 </div> 
 
-## Introduction
+## OAuth scopes
 
-### Prerequisites
+| Name | Permission |
+| -- | -- | 
+| Customers | view/modify |
+| Customers | read-only |
 
-**Scopes**
-
-The following [OAuth](https://developer.bigcommerce.com/api-docs/getting-started/authentication#authentication_oauth-scopes) scopes are required:
-- Customers view/modify
-- Customers read-only
+For more information on available authentication methods, see [Authentication](https://developer.bigcommerce.com/api-docs/getting-started/authentication).
 
 ## What is a customer?
 
@@ -59,7 +59,6 @@ Subscribers can also be added by:
 
 Where possible, the API indicates the origin of the subscriber. When customers sign up for the newsletter using One-Page Checkout, the Order ID becomes part of the subscriber's record. When customers use Optimized One-Page Checkout, the customer becomes a subscriber before checking out, resulting in a subscriber record without an Order ID.
 
-
 ## Subscribers vs. customers
 
 - A subscriber is not always a customer. Someone can sign up for the newsletter without creating an account.
@@ -78,9 +77,9 @@ The Customer Login API allows for single sign-on. Once a customer has authentica
 
 The Current Customer API allows your application to identify logged in customers. This identification is useful when you need to show customer-specific information.
 
-## Customer API
+## Customers API
 
-There are two Customer API endpoints available:
+There are two Customers API endpoints available:
 * V3 Customers API
 * V2 Customers API
 
@@ -128,7 +127,6 @@ The V2 Customers API is comprised of customers, customer addresses and customer 
 
 The V3 Customers API is easier to use. It reduces the API calls needed to accomplish a task. For example, when creating a new customer with the V2 API, there was a need to make calls to several endpoints. Now customer attributes and address are created in one step, allowing you to batch create multiple customers — and their subresources — in a single API call.
 
-
 **Create a customer**
 
 Single customer on V3
@@ -141,7 +139,6 @@ Single customer on V2
 ### Queries
 
 With the V3 Customers API, queries become a powerful tool. There is one `GET` endpoint per resource with filters to refine the request. The V2 API necessitates using a different endpoint to get customer subresources. 
-
 
 **Get customer addresses**
 
@@ -207,6 +204,10 @@ When creating a customer there are two ways to set customers passwords on the V3
 - To have customers reset the password set `force_password_reset` to `true` under `authentication > new password` object in a `PUT` or `POST` request
 
 [Password confirmation](https://developer.bigcommerce.com/api-reference/customer-subscribers/customers-api/customers/createanewcustomer) and [validation](https://developer.bigcommerce.com/api-reference/customer-subscribers/customers-api/customer-passwords/validatecustomerpassword) are still available under V2 customers. 
+
+## Subscribers API
+
+The Subscribers API allows you to manage subscribers who have signed up for the store’s newsletter.
 
 ## FAQ
 
