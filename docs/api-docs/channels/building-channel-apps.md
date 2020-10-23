@@ -252,7 +252,7 @@ Accept: application/json
 }
 ```
 
-[![Open in Request Runner](https://storage.googleapis.com/bigcommerce-production-dev-center/images/Open-Request-Runner.svg)](https://developer.bigcommerce.com/api-reference/catalog/catalog-api/products/**createproduct**#requestrunner)
+[![Open in Request Runner](https://storage.googleapis.com/bigcommerce-production-dev-center/images/Open-Request-Runner.svg)](https://developer.bigcommerce.com/api-reference/store-management/catalog/products/createproduct#requestrunner)
 
 Variants can be added via the same request used to create the product or later after the product is created, by a `POST` request to the [Product Variant endpoint](https://developer.bigcommerce.com/api-reference/catalog/catalog-api/product-variants/createvariant) (the former is recommended for bulk variant creation).
 
