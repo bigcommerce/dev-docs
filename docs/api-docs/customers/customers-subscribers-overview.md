@@ -9,11 +9,9 @@
 - [Subscribers vs. customers](#subscribers-vs-customers)
 - [What is a guest?](#what-is-a-guest)
 - [Customer Login API](#customer-login-api)
-
 - [Current Customer API](#current-customer-api)
 - [Customer API](#customer-api)
 - [Differences between V2 and V3 Customer API](#differences-between-v2-and-v3-customer-api)
-
 - [FAQ](#faq)
 - [Resources](#resources)
 
@@ -74,14 +72,14 @@ Store [settings](https://forum.bigcommerce.com/s/article/Checkout-Settings#check
 
 ## Customer Login API
 
-
 The Customer Login API allows for single sign-on. Once a customer has authenticated by logging in to a third-party system (CMS, portal, or app), you can use the Customer Login API to seamlessly log the customer into their BigCommerce customer account.
 
-
 ## Current Customer API
+
 The Current Customer API allows your application to identify logged in customers. This identification is useful when you need to show customer-specific information.
 
 ## Customer API
+
 There are two Customer API endpoints available:
 * V3 Customers API
 * V2 Customers API
@@ -92,7 +90,7 @@ The [V3 Customers API](https://developer.bigcommerce.com/api-reference/customer-
 
 A customer makes a purchase on a store and creates an account. The customers object comprises a customer's address, attributes, form fields and authentication. The V3 Customers API can accomplish the same tasks as the existing V2 Customers API, with greater efficiency. 
 
-[Customer Attributes](https://developer.bigcommerce.com/api-reference/customer-subscribers/v3-customers-api/models/customerattribute) and [Customer Attribute Values](https://developer.bigcommerce.com/api-reference/store-management/customers-v3/customer-attribute-values/) let you store additional information against a customer. Customer Attributes define a the name of a key/value pair and the type of information stored (for example, `"name": "Shoe size"`, `"type": "number"`). The Customer Attribute Values endpoint lets you define the values for the attributes.
+[Customer Attributes](https://developer.bigcommerce.com/api-reference/store-management/customers-v3/customer-attributes/) and [Customer Attribute Values](https://developer.bigcommerce.com/api-reference/store-management/customers-v3/customer-attribute-values/) let you store additional information against a customer. Customer Attributes define a the name of a key/value pair and the type of information stored (for example, `"name": "Shoe size"`, `"type": "number"`). The Customer Attribute Values endpoint lets you define the values for the attributes.
 
 
 <div class="HubBlock--callout">
@@ -110,9 +108,9 @@ A customer makes a purchase on a store and creates an account. The customers obj
 
 Customer attributes are created separately from the customer. After the name and type are created, then the attributes can be added to the customer using the name, value pair.
 
-[Customer addresses](https://developer.bigcommerce.com/api-reference/customer-subscribers/v3-customers-api/models/address) consist of a customers address and phone number. Customers can have multiple addresses stored against them.
+[Customer addresses](https://developer.bigcommerce.com/api-reference/store-management/customers-v3/customer-addresses/) consist of a customers address and phone number. Customers can have multiple addresses stored against them.
 
-[Customer form field values](https://developer.bigcommerce.com/api-reference/customer-subscribers/v3-customers-api/models/customerformfieldvalue) are fields on either the customer address or customer signup that accept any string data. An example of a signup field can have a customer input a wholesaler ID or, for an address field, have them input any special delivery instructions. For more information about creating form fields, see [Account Signup Fields](https://support.bigcommerce.com/s/article/Editing-Form-Fields#account-fields). 
+[Customer form field values](https://developer.bigcommerce.com/api-reference/store-management/customers-v3/customer-form-field-values/) are fields on either the customer address or customer signup that accept any string data. An example of a signup field can have a customer input a wholesaler ID or, for an address field, have them input any special delivery instructions. For more information about creating form fields, see [Account Signup Fields](https://support.bigcommerce.com/s/article/Editing-Form-Fields#account-fields). 
 
 You can access and edit the values for the fields on customer and customer address records using the API. 
 
@@ -120,13 +118,11 @@ You can access and edit the values for the fields on customer and customer addre
 
 The V2 Customers API is comprised of customers, customer addresses and customer groups. The customers object is comprised of basic customer information such as customer name and phone number. 
 
-[Customer addresses](https://developer.bigcommerce.com/api-reference/customer-subscribers/v3-customers-api/models/address) consist of a customer's address and phone number. Customers can have multiple addresses stored against them.
+[Customer addresses](https://developer.bigcommerce.com/api-reference/store-management/customers-v2/customer-addresses/) consist of a customer's address and phone number. Customers can have multiple addresses stored against them.
 
-[Customer groups](https://developer.bigcommerce.com/api-reference/customer-subscribers/customers-api/models/customergroup) allow you to organize your customers, give them discounts, and restrict access to specific products or categories. Customer groups are not yet available on the V3 Customers API.
-
+[Customer groups](https://developer.bigcommerce.com/api-reference/store-management/customers-v2/customer-groups/) allow you to organize your customers, give them discounts, and restrict access to specific products or categories. Customer groups are not yet available on the V3 Customers API.
 
 ## Differences between V2 and V3 Customer API
-
 
 ### Making requests
 
@@ -160,7 +156,6 @@ Get customer address by name and company on V2:
 ### Requests
 
 `POST` and `PUT` requests on this endpoint require an array object.
-
 
 <!--
 title: "Update a Customer V3"
@@ -225,18 +220,17 @@ Password validation is only available on V2 Customers API. Validation will retur
 
 ## Resources
 
+### Webhooks
+- [Customers](https://developer.bigcommerce.com/api-docs/getting-started/webhooks/webhook-events#webhook-events_customer)
+
 ### Related endpoints
-  [Customer Login API](https://developer.bigcommerce.com/api-docs/customers/customer-login-api)
+- [Customer Login API](https://developer.bigcommerce.com/api-docs/customers/customer-login-api)
 - [Current Customer API](https://developer.bigcommerce.com/api-docs/customers/current-customer-api)
 - [Customers API](https://developer.bigcommerce.com/api-reference/customer-subscribers/v3-customers-api)
 - [Customer Groups](https://developer.bigcommerce.com/api-reference/customer-subscribers/customers-api/customer-groups/getallcustomergroups) (Customer V2 API)
 - [Password Validation](https://developer.bigcommerce.com/api-reference/customer-subscribers/customers-api/customer-passwords/validatecustomerpassword) (Customer V2 API)
 - [Password Confirmation](https://developer.bigcommerce.com/api-reference/customer-subscribers/customers-api/customers/createanewcustomer) (Customer V2 API)
 - [Subscribers API](https://developer.bigcommerce.com/api-reference/customer-subscribers/subscribers-api)
-
-
-### Webhooks
-- [Customers](https://developer.bigcommerce.com/api-docs/getting-started/webhooks/webhook-events#webhook-events_customer)
 
 ### Related articles
 - [Adding and Editing Fields in the Account Signup Form](https://support.bigcommerce.com/s/article/Editing-Form-Fields#account-fields) (Knowledge Base)
