@@ -35,7 +35,6 @@ To [create a channel](https://developer.bigcommerce.com/api-reference/cart-check
 ```http
 POST https://api.bigcommerce.com/stores/{{STORE_HASH}}/v3/channels
 X-Auth-Token: {{ACCESS_TOKEN}}
-X-Auth-Client: {{CLIENT_ID}}
 Content-Type: application/json
 Accept: application/json
 
@@ -82,7 +81,6 @@ To create a channel with navigation, include a `config_meta` object in the [crea
 ```http
 POST https://api.bigcommerce.com/stores/{{STORE_HASH}}/v3/channels
 X-Auth-Token: {{ACCESS_TOKEN}}
-X-Auth-Client: {{CLIENT_ID}}
 Content-Type: application/json
 Accept: application/json
 
