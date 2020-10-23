@@ -130,7 +130,7 @@ curl -o- https://raw.githubusercontent.com/nvm-sh/nvm/v0.36.0/install.sh | bash
 # reload .bashrc so nvm command works
 source ~/.bashrc
 
-# explicitly install and use supported node version
+# Explicitly install and use supported node version
 nvm install 12
 
 nvm use 12
