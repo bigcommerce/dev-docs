@@ -47,7 +47,7 @@ info:
     ### OAuth Scopes
 
 
-    | UI Name| Permission |Parameter|                                     
+    | UI Name| Permission |Parameter|
 
     |----------------------------------------------|------------|----------|
 
@@ -68,7 +68,7 @@ info:
     return full card or fraud details. Transactions endpoints are primarily used
     to get detailed gateway response information for credit card transactions;
     however they will also return any available information about digital wallet
-    and offline payments. 
+    and offline payments.
 
 
     **Note**: transactions are not created for the following payment methods:
@@ -104,17 +104,9 @@ info:
 host: api.bigcommerce.com
 basePath: '/stores/{$$.env.store_hash}/v3'
 tags:
-  - name: Channel Settings
-  - name: Global Settings
-  - name: Transactions
-  - name: Payment Actions
+  - name: Metafields
   - name: Order Refunds
-  - name: Returns
-  - name: Return Reviewed Items
-  - name: Store Settings Returns
-  - name: Return Received Items
-  - name: Return Status Update
-  - name: Returnable Items
+  - name: Transactions
 schemes:
   - https
 produces:
@@ -122,185 +114,6 @@ produces:
 consumes:
   - application/json
 paths:
-  '/orders/{id}/returnable-items':
-    get:
-      tags:
-        - Returnable Items
-      description: Provides a collection of returnable items for an order.
-      operationId: GetReturnableItems
-      parameters:
-        - in: path
-          name: id
-          description: The ID of the order for which a summary should be obtained
-          required: true
-          type: integer
-          format: int64
-      responses:
-        '200':
-          $ref: '#/responses/OrderReturnableItems_Resp'
-      summary: Get Order Returnable Items
-      x-private: true
-  '/orders/{id}/returns':
-    post:
-      tags:
-        - Returns
-      description: Requests a new return.
-      operationId: CreateReturn
-      parameters:
-        - in: path
-          name: id
-          description: The ID of the order for which a return should be requested
-          required: true
-          type: integer
-          format: int64
-        - in: body
-          name: return
-          description: Details of the return.
-          required: true
-          schema:
-            $ref: '#/definitions/CreateReturnRequest'
-      produces:
-        - application/json
-      responses:
-        '201':
-          $ref: '#/responses/CreateReturn_Resp'
-      summary: Create a Return
-      x-private: true
-  /orders/returns/status-updates:
-    post:
-      tags:
-        - Return Status Updates
-      description: Applies status updates to a collection of returns.
-      operationId: UpdateReturnStatuses
-      parameters:
-        - in: body
-          name: return_status_updates
-          description: A collection of status updates to apply.
-          required: true
-          schema:
-            $ref: '#/definitions/UpdateReturnStatusesRequest'
-      responses:
-        '200':
-          $ref: '#/responses/ReturnStatus_Resp'
-      summary: Update Return Status
-      x-private: true
-  /orders/returns:
-    get:
-      tags:
-        - Returns
-      description: Provides a collection of return requests.
-      operationId: GetReturns
-      parameters:
-        - in: query
-          name: id
-          type: integer
-          format: int64
-        - in: query
-          name: order_id
-          type: integer
-          format: int64
-        - in: query
-          name: customer_id
-          type: integer
-          format: int64
-        - in: query
-          name: status
-          type: string
-          enum:
-            - CLOSED
-            - OPEN
-            - REMOVED
-          format: int64
-        - name: page
-          description: >-
-            Specifies the page number in a limited (paginated) collection of
-            returns
-          in: query
-          type: integer
-        - name: limit
-          description: >-
-            Controls the number of items per page in a limited (paginated)
-            collection of returns
-          in: query
-          type: integer
-        - name: direction
-          description: Sort direction
-          in: query
-          type: string
-          enum:
-            - asc
-            - desc
-        - name: sort
-          description: The field name by which to sort results
-          in: query
-          type: string
-          enum:
-            - id
-            - order_id
-            - date_modified
-      responses:
-        '200':
-          $ref: '#/responses/Return_Resp'
-      summary: Get All Returns
-      x-private: true
-  '/orders/{order_id}/return/{return_id}/received-items':
-    put:
-      tags:
-        - Return Received Items
-      description: Updates the received status of one or more return items.
-      operationId: UpdateReceivedItems
-      parameters:
-        - in: path
-          name: order_id
-          type: integer
-          required: true
-          description: The ID of the order for which items are to be updated
-        - in: path
-          name: return_id
-          type: integer
-          required: true
-          description: The ID of the return for which items are to be updated
-        - in: body
-          name: received_items
-          required: true
-          schema:
-            $ref: '#/definitions/ReceivedItems_Put'
-      produces:
-        - application/json
-      responses:
-        '200':
-          $ref: '#/responses/ReceivedItems_Resp'
-      summary: Update Return Received Items
-      x-private: true
-  '/orders/{order_id}/returns/{return_id}/reviewed-items':
-    put:
-      tags:
-        - Return Reviewed Items
-      description: Updates the reviewed status of one or more return items.
-      operationId: UpdateReviewedItems
-      parameters:
-        - in: path
-          name: order_id
-          type: integer
-          required: true
-          description: The ID of the order for which items are to be updated
-        - in: path
-          name: return_id
-          type: integer
-          required: true
-          description: The ID of the return for which items are to be updated
-        - in: body
-          name: reviewed_items
-          required: true
-          schema:
-            $ref: '#/definitions/ReviewedItems_Put'
-      produces:
-        - application/json
-      responses:
-        '200':
-          $ref: '#/responses/ReviewedItems_Resp'
-      summary: Update Return Reviewed Items
-      x-private: true
   '/orders/{order_id}/transactions':
     parameters:
       - name: order_id
@@ -371,63 +184,6 @@ paths:
           in: header
           type: string
           default: application/json
-  '/orders/{id}/payment_actions/capture':
-    post:
-      responses:
-        '201':
-          $ref: '#/responses/201_Acknowledged'
-        '400':
-          $ref: '#/responses/400_BadRequest'
-        '404':
-          $ref: '#/responses/404_NotFound'
-        '422':
-          $ref: '#/responses/422_UnprocessableEntity'
-        '502':
-          $ref: '#/responses/502_GatewayError'
-        '503':
-          $ref: '#/responses/503_ServiceUnavailable'
-        '504':
-          $ref: '#/responses/504_GatewayTimeout'
-      summary: Capture a Payment
-      operationId: postPaymentActionsCapture
-      tags:
-        - Payment Actions
-      description: Capture the payment on a particular order.
-      x-private: true
-    parameters:
-      - name: id
-        in: path
-        type: string
-        required: true
-  '/orders/{id}/payment_actions/void':
-    post:
-      responses:
-        '201':
-          $ref: '#/responses/201_Acknowledged'
-        '400':
-          $ref: '#/responses/400_BadRequest'
-        '404':
-          $ref: '#/responses/404_NotFound'
-        '422':
-          $ref: '#/responses/422_UnprocessableEntity'
-        '502':
-          $ref: '#/responses/502_GatewayError'
-        '503':
-          $ref: '#/responses/503_ServiceUnavailable'
-        '504':
-          $ref: '#/responses/504_GatewayTimeout'
-      tags:
-        - Payment Actions
-      operationId: postOrdersPaymentActionsVoid
-      summary: Void a Payment Authorization
-      description: Void the payment authorization on a particular order.
-      x-private: true
-    parameters:
-      - name: id
-        in: path
-        type: string
-        required: true
-        description: Order `id`
   /orders/payment_actions/refunds:
     get:
       summary: Get All Refunds
@@ -458,7 +214,7 @@ paths:
 
 
             Must be in url-encoded RFC 3339 format.
-            e.g. `2020-01-15T01:02:34-01:00` is RFC-3339 format. 
+            e.g. `2020-01-15T01:02:34-01:00` is RFC-3339 format.
             Url-encoded this will be `2020-01-15T01%3A02%3A34%2B01%3A00`
           format: date-time
           default: RFC 3339
@@ -472,7 +228,7 @@ paths:
 
 
             Must be in url-encoded RFC 3339 format.
-            e.g. `2020-01-15T01:02:34-01:00` is RFC-3339 format. 
+            e.g. `2020-01-15T01:02:34-01:00` is RFC-3339 format.
             Url-encoded this will be `2020-01-15T01%3A02%3A34%2B01%3A00`
       responses:
         '200':
@@ -841,6 +597,122 @@ paths:
       tags:
         - Order Refunds
       x-private: true
+  /orders/{order_id}/metafields:
+    parameters:
+      - $ref: "#/parameters/OrderIdParam"
+    get:
+      summary: Get Metafields
+      tags:
+        - Metafields
+      description: |
+        Gets a `Metafield` object list, by `order_id`.
+      operationId: getOrderMetafieldsByOrderId
+      parameters:
+        - $ref: "#/parameters/PageParam"
+        - $ref: "#/parameters/LimitParam"
+        - $ref: "#/parameters/MetafieldKeyParam"
+        - $ref: "#/parameters/MetafieldNamespaceParam"
+      responses:
+        '200':
+          description: |
+            An array of metafields and metadata.
+          schema:
+            $ref: "#/definitions/MetaFieldCollectionResponse"
+        '404':
+          description: |
+            The resource was not found.
+          schema:
+            $ref: "#/definitions/NotFound"
+    post:
+      summary: Create Metafields
+      tags:
+        - Metafields
+      description:
+        Creates an order `Metafield`.
+      operationId: createOrderMetafield
+      parameters:
+        - name: Metafield
+          in: body
+          required: true
+          description: |
+            A `Metafield` object.
+          schema:
+            $ref: "#/definitions/MetafieldPost"
+      responses:
+        '200':
+          description: |
+            A `Metafield` object.
+          schema:
+            $ref: "#/definitions/MetafieldResponse"
+        '422':
+          description: |
+            The `Metafield` was not valid. This is the result of missing required fields, or of invalid data. See the response for more details.
+          schema:
+            $ref: "#/definitions/ErrorResponse"
+        '409':
+          description: |
+            The `Metafield` was in conflict with another `Metafield`. This can be the result of duplicate unique key combinations of the app's client id, namespace, key, resource_type, and resource_id.
+          schema:
+            $ref: "#/definitions/ErrorResponse"
+  /orders/{order_id}/metafields/{metafield_id}:
+    parameters:
+      - $ref: "#/parameters/OrderIdParam"
+      - $ref: "#/parameters/MetafieldIdParam"
+    get:
+      summary: Get a Metafield
+      tags:
+        - Metafields
+      description: |
+        Gets a `Metafield`, by `order_id`.
+      operationId: getOrderMetafieldByOrderIdAndMetafieldId
+      responses:
+        '200':
+          description: |
+            A `Metafield` object.
+          schema:
+            $ref: "#/definitions/MetafieldResponse"
+        '404':
+          description: |
+            The resource was not found.
+          schema:
+            $ref: "#/definitions/NotFound"
+    put:
+      summary: Update a Metafield
+      tags:
+        - Metafields
+      description:
+        Updates a `Metafield` object.
+      operationId: updateOrderMetafield
+      parameters:
+        - name: Metafield
+          in: body
+          required: true
+          description: |
+            A `Metafield` object.
+          schema:
+            $ref: "#/definitions/MetafieldPut"
+      responses:
+        200:
+          description: |
+            A metafield and metadata.
+          schema:
+            $ref: "#/definitions/MetafieldResponse"
+        404:
+          description: |
+            The resource was not found.
+          schema:
+            $ref: "#/definitions/NotFound"
+    delete:
+      summary: Delete a Metafield
+      tags:
+        - Metafields
+      description: |
+        Deletes a `Metafield`.
+      operationId: deleteOrderMetafieldById
+      responses:
+        '204':
+          description: |
+            An empty response.
 parameters:
   OrderIdParam:
     name: order_id
@@ -859,6 +731,41 @@ parameters:
     in: header
     type: string
     default: application/json
+  PageParam:
+    name: page
+    description: |
+      Specifies the page number in a limited (paginated) list of products.
+    required: false
+    in: query
+    type: integer
+  MetafieldIdParam:
+    name: metafield_id
+    in: path
+    description: |
+      The ID of the `Metafield`.
+    required: true
+    type: integer
+  MetafieldKeyParam:
+    name: key
+    in: query
+    description: |
+      Filter based on a metafield's key.
+    required: false
+    type: string
+  MetafieldNamespaceParam:
+    name: namespace
+    in: query
+    description: |
+      Filter based on a metafield's key.
+    required: false
+    type: string
+  LimitParam:
+    name: limit
+    description: |
+      Controls the number of items per page in a limited (paginated) list of products.
+    required: false
+    in: query
+    type: integer
 securityDefinitions:
   X-Auth-Token:
     type: apiKey
@@ -904,7 +811,7 @@ securityDefinitions:
 
 
       * For more information on Authenticating BigCommerce APIs, see:
-      [Authentication](https://developer.bigcommerce.com/api-docs/getting-started/authentication). 
+      [Authentication](https://developer.bigcommerce.com/api-docs/getting-started/authentication).
 security:
   - X-Auth-Client: []
   - X-Auth-Token: []
@@ -2108,7 +2015,7 @@ definitions:
 
 
           Note that `refund_methods` is an array of refund methods, with each
-          refund method being an array of payment options. 
+          refund method being an array of payment options.
 
 
           For example, if the order was placed by a combination of store credit
@@ -2146,7 +2053,7 @@ definitions:
                   "offline": true,
                   "offline_provider": true,
                   "offline_reason": "This is an offline payment provider."
-                }, 
+                },
                 {
                   "provider_id": "storecredit",
                   "provider_description": "Store Credit",
@@ -2171,10 +2078,10 @@ definitions:
 
           3. Refund the amount paid by store credit to store credit, and the
           amount paid by bank deposit via a manual refund, which will be
-          recorded as being refunded against the bank deposit.  
+          recorded as being refunded against the bank deposit.
 
 
-          >  
+          >
 
 
 
@@ -2269,7 +2176,7 @@ definitions:
 
 
       Type of refund item that capture refunding of items in the order that are
-      of type quantity. 
+      of type quantity.
 
       * `PRODUCT`
 
@@ -2322,7 +2229,7 @@ definitions:
 
 
       Type of refund item that capture refunding of items in the order that are
-      of type amount. 
+      of type amount.
 
       * `SHIPPING`
 
@@ -2498,6 +2405,136 @@ definitions:
       total:
         type: integer
     description: 'Describes refund failures, success and totals.'
+  MetaFieldCollectionResponse:
+    type: object
+    description: |
+      Response payload for the BigCommerce API.
+    properties:
+      data:
+        type: array
+        items:
+          $ref: "#/definitions/Metafield"
+      meta:
+        $ref: "#/definitions/CollectionMeta"
+  MetafieldResponse:
+    description: |
+      Response payload for the BigCommerce API.
+    type: object
+    properties:
+      data:
+        $ref: "#/definitions/Metafield"
+      meta:
+        $ref: "#/definitions/Meta"
+  MetafieldBase:
+    type: object
+    description: |
+      Common Metafield properties.
+    properties:
+      permission_set:
+        type: string
+        description: |
+          Determines whether the field is completely private to the app that owns the field (`app_only`), or visible to other API consumers (`read`), or completely open for reading and writing to other apps (`write`). Can additionally grant storefront visibility to the field using (`read_and_sf_access`) or (`write_and_sf_access`).
+        enum:
+          - app_only
+          - read
+          - write
+          - read_and_sf_access
+          - write_and_sf_access
+        x-required:
+          - post
+      namespace:
+        type: string
+        description: |
+          Namespace for the metafield, for organizational purposes.
+        x-required:
+          - post
+        minLength: 1
+        maxLength: 64
+      key:
+        type: string
+        description: |
+          The name of the field, for example: `location_id`, `color`.
+        x-required:
+          - post
+        minLength: 1
+        maxLength: 64
+      value:
+        type: string
+        description: |
+          The value of the field, for example: `1`, `blue`.
+        x-required:
+          - post
+        minLength: 1
+        maxLength: 65535
+      description:
+        type: string
+        description: |
+          Description for the metafields.
+        minLength: 0
+        maxLength: 255
+      resource_type:
+        type: string
+        description: |
+          The type of resource with which the metafield is associated.
+        enum:
+          - category
+          - brand
+          - product
+          - variant
+        x-required:
+          - post
+      resource_id:
+        type: integer
+        description: |
+          The unique identifier for the resource with which the metafield is associated.
+        x-required:
+          - post
+        minimum: 0
+        maximum: 10000000000
+  Metafield:
+    type: object
+    description: |
+      Allows app partners to write custom data to various resources in the API.
+    allOf:
+      - $ref: "#/definitions/MetafieldBase"
+      - type: object
+        properties:
+          id:
+            type: integer
+            description: |
+              The unique identifier for the metafields.
+          created_at:
+            type: string
+            format: date-time
+            description: |
+              Date and time of the metafield's creation.
+          updated_at:
+            type: string
+            format: date-time
+            description: |
+              Date and time when the metafield was last updated.
+  MetafieldPost:
+    type: object
+    description: |
+      The model for a POST to create metafield.
+    allOf:
+      - $ref: "#/definitions/MetafieldBase"
+  MetafieldPut:
+    type: object
+    description: |
+      The model for a PUT to update metafield.
+    allOf:
+      - $ref: "#/definitions/MetafieldBase"
+      - type: object
+        properties:
+          id:
+            type: integer
+            description: |
+              The unique identifier for the metafields.
+            x-required:
+              - put
+            minimum: 0
+            maximum: 10000000000
 responses:
   Return_Resp:
     description: ''
