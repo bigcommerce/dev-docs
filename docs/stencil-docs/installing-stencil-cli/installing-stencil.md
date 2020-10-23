@@ -135,7 +135,7 @@ nvm install 12
 
 nvm use 12
 
-# install stencil
+# Install stencil
 npm install -g @bigcommerce/stencil-cli
 ```
 
