@@ -371,7 +371,7 @@ paths:
         - `base_variant_id`
 
         **Usage Notes**
-        * `POST` requests to `/products` accepts a single `video` object; to send an array of video objects, see: `/products/{product_id}/videos`
+        * `POST` requests to `/products` accepts a single `video` object; to send an array of video objects, see: `/products/{product_id}/videos`.
       operationId: createProduct
       parameters:
         - name: product
@@ -766,8 +766,8 @@ paths:
           type: string
           default: application/json
           required: true
-        - in: body
-          name: body
+        - name: products
+          in: body
           schema:
             $ref: '#/definitions/product_Put_Collection'
           x-examples:
