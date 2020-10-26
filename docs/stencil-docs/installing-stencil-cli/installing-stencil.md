@@ -13,13 +13,11 @@
 
 Stencil CLI gives developers the power to locally edit and preview themes with no impact to a merchant’s live storefront, and it's built-in [Browsersync](https://github.com/bigcommerce/browser-sync) capabilities make simultaneous testing across desktop, mobile, and tablet devices a breeze. Once work is complete, developers can push themes to BigCommerce storefronts (and set them live) using Stencil CLI's simple, yet powerful commands.
 
-
 This article contains the detailed instructions needed to install and configure Stencil CLI -- the first step to developing themes on the BigCommerce platform.
 
 ## Installing on Mac
 
 To install Stencil CLI and it's dependencies on Mac, open a terminal and run the following commands.
-
 
 ```shell
 # Install Node Version Manager (nvm)
@@ -126,19 +124,18 @@ npm install -g @bigcommerce/stencil-cli
 To install Stencil CLI and dependencies on debian-based distros, open a terminal and run the following commands:
 
 ```shell
-## Update package list, then install node and npm
-sudo apt-get update && sudo apt-get install nodejs npm
+# Download and install nvm if you don't have it.
+curl -o- https://raw.githubusercontent.com/nvm-sh/nvm/v0.36.0/install.sh | bash
 
-# Download nvm install.sh and run with bash
-curl -o- https://raw.githubusercontent.com/creationix/nvm/v0.31.0/install.sh | bash
-
-# reload .bashrc so nvm command works
+# Reload .bashrc so nvm command works
 source ~/.bashrc
 
-# Explicitly install supported node version
-nvm install 10.17
+# Explicitly install and use supported node version
+nvm install 12
 
-# Install Stencil CLI
+nvm use 12
+
+# Install stencil
 npm install -g @bigcommerce/stencil-cli
 ```
 
@@ -152,8 +149,10 @@ npm install -g @bigcommerce/stencil-cli
 
 <!-- theme: info -->
 
-> These instructions have been tested on **Ubuntu 18.04**.
-
+### Note
+> * These instructions have been tested on **Ubuntu 18.04**.
+> * Refer to [Stencil CLI README.MD](https://github.com/bigcommerce/stencil-cli) for latest `node` version supported.
+> * Refer to [nvm](https://github.com/nvm-sh/nvm) for latest `nvm` install instructions.
 
 </div>
 </div>
@@ -180,5 +179,8 @@ stencil start
 
 ## Resources
 
+* [Dockerizing BigCommerce's Stencil CLI](https://medium.com/bigcommerce-developer-blog/dockerizing-bigcommerces-stencil-cli-f508ddc0c3c0) (medium.com)
+
 ### Additional resources
-* [Demonstration of Stencil Installation and Launch](https://www.youtube.com/watch/iWBrJalyM0A) (Youtube)
+
+* [Demonstration of Stencil Installation and Launch](https://www.youtube.com/watch/iWBrJalyM0A) (youtube.com)
