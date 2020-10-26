@@ -6,7 +6,7 @@
 - [Developer community](#developer-community)
 - [Developer blog](#developer-blog)
 - [Developer library](#developer-library)
-- [Dev Slack](#dev-slack)
+- [Developer Slack](#developer-slack)
 - [Changelog](#changelog)
 - [Town Hall](#town-hall)
 </div> 
