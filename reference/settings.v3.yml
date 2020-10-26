@@ -522,13 +522,6 @@ components:
       title: ''
       type: object
       properties:
-        status:
-          type: string
-          example: prelaunch
-          enum:
-            - live
-            - prelaunch
-            - maintenance
         down_for_maintenance_message:
           type: string
         prelaunch_message:
