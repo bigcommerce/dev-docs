@@ -3,13 +3,10 @@
 	
 ### On this page 
 - [Checkout APIs](#checkout-apis)
-
 - [Order shipping addresses](#shipping_order-shipping-addresses)
 - [Shipping zone and shipping methods](#shipping-zone-and-shipping-methods)
-
 - [Real-time carriers](#real-time-carriers)
-
-- [Resources](#resources)
+- [Related resources](#related-resources)
     	
 </div>
 
@@ -19,16 +16,13 @@ The V2 Shipping API allows you to manage shipping zones, shipping methods, and s
 
 The Order Shipments resource creates a shipment for an order. You can specify the shipping provider, tracking number, and shipping address ID when creating a shipment.
 
-
 ## Checkout APIs
 
 The [Storefront Checkout](https://developer.bigcommerce.com/api-reference/cart-checkout/storefront-checkout-api) and [Server-to-Server Checkout APIs](https://developer.bigcommerce.com/api-reference/cart-checkout/server-server-checkout-api) provide methods for managing a checkout up until the point when you finalized it into an order. Because you can only create shipments from finalized orders, you cannot create a shipment from Checkout API endpoints.
 
 However, both the Storefront and Server-to-Server Checkout APIs provide methods for creating a consignment that specifies the line items that should ship to a particular address. Creating a consignment corresponds with the actions that a shopper might take when filling out the storefront checkout page and assigning the items in their basket to their respective shipping destinations.
 
-
 A checkout will always have one consignment assigned to it, which is the first shipping address. A consignment supports multiple shipping addresses, with each address having its own line items.
-
 
 ## Order shipping addresses
 
@@ -38,27 +32,21 @@ The [Order Shipping Addresses](https://developer.bigcommerce.com/api-reference/o
 
 You can configure [shipping zones](https://developer.bigcommerce.com/api-reference/store-management/shipping-api/shipping-zones) in the control panel or use the API to designate where a merchant ships their products and with which [shipping methods](https://developer.bigcommerce.com/api-reference/store-management/shipping-api/shipping-method) should be available in each geographic region.
 
-
-
 An example of a shipping zone might be North America. Within that shipping zone, the shipping methods might be Free Shipping, Ship-by-Weight, and USPS.
-
 
 ## Real-time carriers
 
 BigCommerce offers native integrations with many real-time shipping carriers such as UPS, FedEx, and USPS. The [Shipping Carrier Connection](https://developer.bigcommerce.com/api-reference/store-management/shipping-api/shipping-carrier) resource allows you to connect an account for one of our natively supported shipping carrier integrations.
 
-
 For a list of all supported carriers, see [Real-Time Quote Providers](https://support.bigcommerce.com/articles/Public/Setting-Up-a-Real-Time-Shipping-Quote-Shipping-Method/#providers).
 
-## Resources
+## Related resources
 
-### Additional resources
+### Articles
+* [Orders API Overview](https://developer.bigcommerce.com/api-docs/orders/orders-api-overview)
 
+### Endpoints
 * [Storefront Checkouts API](https://developer.bigcommerce.com/api-reference/cart-checkout/storefront-checkout-api)
 * [Server-to-Server Checkouts API](https://developer.bigcommerce.com/api-reference/cart-checkout/server-server-checkout-api)
 * [Order Shipping Addresses](https://developer.bigcommerce.com/api-reference/orders/orders-api/order-shipping-addresses)
-* [Shipping Methods](https://developer.bigcommerce.com/api-reference/store-management/shipping-api)
-* [Shipping Zones](https://developer.bigcommerce.com/api-reference/store-management/shipping-api)
-* [Real-Time Carriers](https://developer.bigcommerce.com/api-reference/store-management/shipping-api)
-### Related articles
-* [Orders API Overview](https://developer.bigcommerce.com/api-docs/orders/orders-api-overview)
+* [Shipping v2](https://developer.bigcommerce.com/api-reference/store-management/shipping-api)
