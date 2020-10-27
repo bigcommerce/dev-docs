@@ -13,7 +13,7 @@
 - [Placements and widgets](#placements-and-widgets)
 - [Widgets on the storefront](#widgets-on-the-storefront)
 - [Definitions](#definitions)
-- [Resources](#resources)
+- [Related resources](#related-resources)
 
 </div>
 
@@ -315,9 +315,9 @@ A region can contain multiple placements with widgets.
 | Regions | Regions are specific spots in a Stencil template file where Widgets can be placed. Regions are defined at the theme file level using the following syntax: `{{{region name="..."}}}`. Many widgets can reside within a given region, and these widgets can have an assigned sort order. |
 | Widget configuration | This is a JSON payload that contains data used when rendering the widget. Each widget has a configuration, and there is a 64kb limit on the size of the JSON. The widget configuration must be valid JSON, but we don’t enforce any additional requirement on the structure of the configuration. |
 
-## Resources
+## Related resources
 
-### Related endpoints
+### Endpoints
 * [Widgets API](/api-reference/storefront/widgets-api)
 * [Widgets Tutorial](/api-docs/storefront/widgets/widgets-tutorial)
 * [Widgets Code Samples](/api-docs/storefront/widgets/widgets-code-samples)
