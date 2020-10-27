@@ -16,7 +16,7 @@
 - [Handling notifications](#handling-notifications)
 - [Developing the UI](#developing-the-ui)
 - [Next steps](#next-steps)
-- [Resources](#resources)
+- [Related resources](#related-resources)
 
 </div>
 
@@ -337,8 +337,9 @@ Channel apps are embedded in the BigCommerce control panel. As such, it is impor
 
 * [Learn about channel app best practices](https://developer.bigcommerce.com/api-docs/channels/guide/channel-app-best-practices).
 
-## Resources
+## Related resources
 
+### Articles
 * [Becoming a Partner](https://developer.bigcommerce.com/api-docs/partner/becoming-a-partner)
 * [Introduction to Building Apps](https://developer.bigcommerce.com/api-docs/apps/guide/intro)
 * [Developer's Guide to Building Headless Storefronts](https://developer.bigcommerce.com/api-docs/storefronts/developers-guide-headless)

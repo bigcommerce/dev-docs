@@ -9,7 +9,7 @@
 - [App requirements](#app-requirements)
 - [Sample configuration](#sample-configuration)
 - [Terminology](#terminology)
-- [Resources](#resources)
+- [Related resources](#related-resources)
 
 </div>
 
@@ -171,17 +171,17 @@ For a complete Channel API reference (including request schemas and property des
 
 For a high-level overview and more information on Channels Toolkit, see [Channels Overview](https://developer.bigcommerce.com/api-docs/channels/overview).
 
-## Resources
+## Related resources
 
-### Channels
+### Articles
 * [Channels Overview](https://developer.bigcommerce.com/api-docs/channels/overview)
 * [Building Channel Apps](https://developer.bigcommerce.com/api-docs/channels/building-channel-apps)
-* [Channels API Reference](https://developer.bigcommerce.com/api-reference/cart-checkout/channels-listings-api)
-* [Sites and Rites API Reference](https://developer.bigcommerce.com/api-reference/cart-checkout/sites-routes-api)
-
-### Building Apps
 * [Becoming a Partner](https://developer.bigcommerce.com/api-docs/partner/becoming-a-partner)
 * [Types of Apps](https://developer.bigcommerce.com/api-docs/getting-started/building-apps-bigcommerce/types-of-apps)
 * [Authenticating BigCommerce's REST APIs](https://developer.bigcommerce.com/api-docs/getting-started/authentication/rest-api-authentication)
 * [Building an App](https://developer.bigcommerce.com/api-docs/getting-started/building-apps-bigcommerce/building-apps)
 * [App Store Approval Requirements](https://developer.bigcommerce.com/api-docs/partner/app-store-approval-requirements)
+
+### Endpoints
+* [Channels API Reference](https://developer.bigcommerce.com/api-reference/cart-checkout/channels-listings-api)
+* [Sites and Rites API Reference](https://developer.bigcommerce.com/api-reference/cart-checkout/sites-routes-api)

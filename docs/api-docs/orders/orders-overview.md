@@ -10,7 +10,7 @@
 - [Orders API](#orders-api)
 - [Order transactions](#order-transactions)
 - [OAuth scopes](#oauth-scopes)
-- [Resources](#resources)
+- [Related resources](#related-resources)
 
 </div>
 
@@ -92,10 +92,11 @@ Orders processed via all [payment providers](https://support.bigcommerce.com/s/a
 
 For more details and a full list of available scopes, see [Oauth Scopes](/api-docs/getting-started/basics/authentication#authentication_oauth-scopes).
 
-## Resources
-### Webhooks available
-- [Orders](/api-docs/getting-started/webhooks/webhook-events#webhook-events_orders)
+## Related resources
 
-### Related articles
+### Articles
 - [Working with the Storefront Cart and Checkout APIs](https://developer.bigcommerce.com/api-docs/cart-and-checkout/working-sf-apis)
-- [How To Embed a Shipping Location Map on the BigCommerce Order Confirmation Page](https://medium.com/bigcommerce-developer-blog/how-to-embed-a-google-map-on-the-bigcommerce-order-confirmation-page-8264747e654d) (Developer Blog)
+- [How To Embed a Shipping Location Map on the BigCommerce Order Confirmation Page](https://medium.com/bigcommerce-developer-blog/how-to-embed-a-google-map-on-the-bigcommerce-order-confirmation-page-8264747e654d)
+
+### Webhooks
+- [Orders](/api-docs/getting-started/webhooks/webhook-events#webhook-events_orders)

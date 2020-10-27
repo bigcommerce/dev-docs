@@ -21,7 +21,7 @@
 - [Modifier options](#modifier-options)
 - [Complex rules](#complex-rules)
 - [Categories](#categories)
-- [Resources](#resources)
+- [Related resources](#related-resources)
 
 </div>
 
@@ -1028,12 +1028,12 @@ X-Auth-Token: {{ACCESS_TOKEN}}
 }
 ```
 
-## Resources
+## Related resources
+
+### Endpoints
+* [Catalog API](/api-reference/catalog/catalog-api)
 
 ### Webhooks
 * [Products](/api-docs/store-management/webhooks/events#products)
 * [Categories](/api-docs/store-management/webhooks/events#category)
 * [SKU](/api-docs/store-management/webhooks/events#sku)
-
-### Related endpoints
-* [Catalog API](/api-reference/catalog/catalog-api)

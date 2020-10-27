@@ -8,7 +8,7 @@
 - [Obtaining the JavaScript loader file](#obtaining-the-javascript-loader-file)
 - [Hosting a custom checkout](#hosting-a-custom-checkout)
 - [Installing custom checkouts](#installing-custom-checkouts)
-- [Additional resources](#additional-resources)
+- [Related resources](#related-resources)
 
 </div>
 
@@ -81,6 +81,8 @@ To install a custom checkout on a store, follow these steps:
 4. Click the **Save** button at the bottom of the page.
 5. Navigate to your live storefront to view your new custom checkout.
 
-## Additional resources
+## Related resources
+
+### Articles
 - [Checkout SDK](https://developer.bigcommerce.com/stencil-docs/customizing-checkout/checkout-sdk)
 - [File Access (WebDav)](https://support.bigcommerce.com/s/article/File-Access-WebDAV)

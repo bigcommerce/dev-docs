@@ -4,13 +4,11 @@
 
 ### On This Page
 - [Storefront Cart and Checkout](#storefront-cart-and-checkout)
-
 - [Server-to-Server Cart and Checkout](#server-to-server-cart-and-checkout)
-
 - [When to use](#when-to-use)
 - [Persistent cart](#persistent-cart)
 - [Troubleshooting cart errors](#troubleshooting-cart-errors)
-- [Resources](#resources)
+- [Related resources](#related-resources)
 
 </div>
 
@@ -539,18 +537,18 @@ When you add less than a product’s minimum required purchase or more than the 
 ***Resolution:***
 Check the product for order_quantity_minimum and order_quantity_maximum for the correct amount to add the cart. Use the [Get Product](/api-reference/catalog/catalog-api/products/getproducts) endpoint.
 
-## Resources
+## Related resources
 
-### Related Articles
+### Articles
 * [Working with the Storefront Cart and Checkout](https://developer.bigcommerce.com/api-docs/cart-and-checkout/working-sf-apis)
 
-### Available Webhooks
-* [Orders](/api-docs/getting-started/webhooks/webhook-events#webhook-events_orders)
-* [SKU](/api-docs/getting-started/webhooks/webhook-events#webhook-events_sku)
-* [Cart](/api-docs/getting-started/webhooks/webhook-events#webhook-events_cart)
-
-### Related Endpoints
+### Endpoints
 * [Storefront Cart](/api-reference/cart-checkout/storefront-cart-api)
 * [Storefront Checkout](/api-reference/cart-checkout/storefront-checkout-api)
 * [Server-to-Server Cart](/api-reference/cart-checkout/server-server-cart-api)
 * [Server-to-Server Checkout](/api-reference/cart-checkout/server-server-checkout-api)
+
+### Webhooks
+* [Orders](/api-docs/getting-started/webhooks/webhook-events#webhook-events_orders)
+* [SKU](/api-docs/getting-started/webhooks/webhook-events#webhook-events_sku)
+* [Cart](/api-docs/getting-started/webhooks/webhook-events#webhook-events_cart)

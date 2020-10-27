@@ -8,7 +8,7 @@
 - [Creating a cart](#step-3-create-a-cart)
 - [Embedding the checkout](#embedding-the-checkout)
 - [FAQ](#faq)
-- [Additional resources](#additional-resources)
+- [Related resources](#related-resources)
 
 </div>
 
@@ -252,5 +252,7 @@ If your channel site doesn't match the URL from which you're making a request to
 ### Are hosted payment gateways supported with Embedded Checkout?
 At this time, you cannot embed a checkout using a hosted payment gateway. See [Available Payment Gateways](https://support.bigcommerce.com/s/article/Available-Payment-Gateways#all-available) to determine which type of gateway you're using.
 
-## Additional Resources
-- [Channels API reference](https://developer.bigcommerce.com/api-reference/cart-checkout/channels-listings-api/channels/createchannel)
+## Related resources
+
+### Endpoints
+- [Channels API reference](https://developer.bigcommerce.com/api-reference/store-management/channels/)

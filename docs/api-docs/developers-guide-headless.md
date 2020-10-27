@@ -12,7 +12,7 @@
 - [Sample integration](#sample-integration)
 - [PCI compliance](#pci-compliance)
 - [Sample API workflows](#sample-api-workflows)
-- [Resources](#resources)
+- [Related resources](#related-resources)
 
 </div>
 
@@ -233,14 +233,23 @@ Merchants can use BigCommerce's [PCI DSS AOC](https://support.mybigcommerce.com/
 	10. [Create Access Token](/api-reference/payments/payments-create-payment-token-api/payment-access-token/paymentsaccesstokenspost)
 	11. [Process Payment](/api-reference/payments/payments-process-payments/payment/paymentspost)
 
-## Resources
+## Related resources
 
-### Tools
-- [Checkout SDK](https://github.com/bigcommerce/checkout-sdk-js)
-- [WordPress Plugin](https://wordpress.org/plugins/bigcommerce/) (WordPress Plugin Directory)
+### Articles
+- [Customers Overview](https://developer.bigcommerce.com/api-docs/customers/customers-subscribers-overview)
+- [Customer Login API](https://developer.bigcommerce.com/api-docs/customers/customer-login-api)
+- [Launching your store](https://support.bigcommerce.com/s/article/Launching-Your-Store)
+- [PCI Compliance](https://support.bigcommerce.com/s/article/PCI-Compliance)
+- [Multisite Ecommerce with WordPress and BigCommerce](https://medium.com/bigcommerce-developer-blog/multi-site-ecommerce-with-wordpress-and-bigcommerce-40dee194f8a)
+- [Matter Makes Waves with a Headless Build using BigCommerce for WordPress](https://medium.com/bigcommerce-developer-blog/matter-makes-waves-with-a-headless-build-using-bigcommerce-for-wordpress-a572bad4bdf8)
+- [New Era in Headless CaaS](https://www.bigcommerce.com/new-era-headless-caas/)
+- [BigCommerce Doubles Down on Headless Commerce with BloomReach, Sitecore, Adobe Experience Manager, and More](https://www.bigcommerce.com/blog/flexible-headless-commerce-solutions/)
+- [Merchants Classification Levels Visa](https://usa.visa.com/support/small-business/security-compliance.html#3)
+- [Merchants Classification Levels Mastercard](https://www.mastercard.us/en-us/merchants/safety-security/security-recommendations/merchants-need-to-know.html)
+- [Self Assessment Questionnaire (SAQ) Types and Identifying which SAQ is for you](https://www.pcisecuritystandards.org/documents/SAQ-InstrGuidelines-v3_2_1.pdf?agreement=true&time=1562173376464)
+- [Maintaining Payment Security](https://www.pcisecuritystandards.org/pci_security/maintaining_payment_security)
 
-### Related endpoints
-
+### Endpoints
 - [Catalog API](https://developer.bigcommerce.com/api-reference/catalog/catalog-api)
 - [Server to Server Checkout API](https://developer.bigcommerce.com/api-reference/cart-checkout/server-server-checkout-api)
 - [Server to Server Cart API](https://developer.bigcommerce.com/api-reference/cart-checkout/server-server-cart-api)
@@ -249,20 +258,6 @@ Merchants can use BigCommerce's [PCI DSS AOC](https://support.mybigcommerce.com/
 - [Customers API](https://developer.bigcommerce.com/api-reference/customer-subscribers/v3-customers-api)
 - [Validate Customer Password](https://developer.bigcommerce.com/api-reference/customer-subscribers/customers-api/customer-passwords/validatecustomerpassword)
 
-### Related articles
-
-- [Orders API](https://developer.bigcommerce.com/api-reference/orders/orders-api)
-- [Customers Overview](https://developer.bigcommerce.com/api-docs/customers/customers-subscribers-overview)
-- [Customer Login API](https://developer.bigcommerce.com/api-docs/customers/customer-login-api)
-- [Launching your store](https://support.bigcommerce.com/s/article/Launching-Your-Store) (BigCommerce Support)
-- [PCI Compliance](https://support.bigcommerce.com/s/article/PCI-Compliance) (BigCommerce Support)
-- [Multisite Ecommerce with WordPress and BigCommerce](https://medium.com/bigcommerce-developer-blog/multi-site-ecommerce-with-wordpress-and-bigcommerce-40dee194f8a) (BigCommerce Developers Blog)
-- [Matter Makes Waves with a Headless Build using BigCommerce for WordPress](https://medium.com/bigcommerce-developer-blog/matter-makes-waves-with-a-headless-build-using-bigcommerce-for-wordpress-a572bad4bdf8) (BigCommerce Developers Blog)
-- [New Era in Headless CaaS](https://www.bigcommerce.com/new-era-headless-caas/) (BigCommerce Whitepaper)
-- [BigCommerce Doubles Down on Headless Commerce with BloomReach, Sitecore, Adobe Experience Manager, and More](https://www.bigcommerce.com/blog/flexible-headless-commerce-solutions/) (BigCommerce Blog)
-
-### Additional resources
-- [Merchants Classification Levels Visa](https://usa.visa.com/support/small-business/security-compliance.html#3) (Visa USA)
-- [Merchants Classification Levels Mastercard](https://www.mastercard.us/en-us/merchants/safety-security/security-recommendations/merchants-need-to-know.html) (Mastercard)
-- [Self Assessment Questionaire (SAQ) Types and Identifying which SAQ is for you](https://www.pcisecuritystandards.org/documents/SAQ-InstrGuidelines-v3_2_1.pdf?agreement=true&time=1562173376464) (PCI Security Standards)
-- [Maintaining Payment Security](https://www.pcisecuritystandards.org/pci_security/maintaining_payment_security) (PCI Security Standards)
+### Tools
+- [Checkout SDK](https://github.com/bigcommerce/checkout-sdk-js)
+- [WordPress Plugin](https://wordpress.org/plugins/bigcommerce/)

@@ -5,7 +5,7 @@
 ### On this Page
 - [Logging in customers via email link](#logging-in-customers-via-email-link)
 - [Sending the request](#sending-the-request)
-- [Additional resources](#additional-resources)
+- [Related resources](#related-resources)
 </div>
 
 ## Logging in customers via email link
@@ -89,6 +89,8 @@ This email uses the same email templates as other emails in your store.
 
 `404`: *Provided email does not belong to a customer*
 
-## Additional Resources 
+## Related resources
+
+### Endpoints
 * [Customer Login SSO](https://developer.bigcommerce.com/api-reference/storefront/customer-login-sso)
 * [Customers V3](https://developer.bigcommerce.com/api-reference/store-management/customers-v3)

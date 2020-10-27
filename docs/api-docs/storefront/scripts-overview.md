@@ -147,7 +147,6 @@ Scripts can not be injected to:
 - giftcertificates.php
 - sitemap.php
 
-
 ## Related resources
 
 ### Endpoints

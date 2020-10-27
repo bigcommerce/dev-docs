@@ -17,7 +17,7 @@
 - [Building a Channel App](#building-a-channel-app)
   - [Getting Started](#getting-started)
   - [Building the App](#building-the-app)
-- [Resources](#resources)
+- [Related resources](#related-resources)
 
 </div>
 
@@ -188,11 +188,10 @@ If you're not already a partner and familiar with the BigCommerce APIs and tools
 ### Building the App
 Once you're ready to get started developing the Channel App, see [Building Channel Apps](https://developer.bigcommerce.com/api-docs/channels/building-channel-apps) for a comprehensive guide.
 
-## Resources
-* [Building Channel Apps](https://developer.bigcommerce.com/api-docs/channels/)
-* [Channels Toolkit Reference](https://developer.bigcommerce.com/api-docs/channels/)
-* [Channel App Best Practices](https://developer.bigcommerce.com/api-docs/channels/)
-* [Channel App Requirements](https://developer.bigcommerce.com/api-docs/channels/)
+## Related resources
+
+### Articles
+* [Building Channels Quick Start](https://developer.bigcommerce.com/api-docs/channels/quick-start)
 
 <!--stackedit_data:
 eyJoaXN0b3J5IjpbNzMwOTk4MTE2XX0=
