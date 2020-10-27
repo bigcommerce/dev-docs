@@ -2678,7 +2678,7 @@ paths:
     post:
       tags:
         - Price Lists Assignments
-      description: Creates a batch of `Price List Assignments`.
+      description: Creates a batch of `Price List Assignments`. 
       operationId: CreatePriceListAssignments
       parameters:
         - name: PriceListAssignmentBatch
@@ -2931,7 +2931,6 @@ definitions:
         description: Channel ID for assignment
     required:
       - price_list_id
-      - customer_group_id
   PriceListAssignmentsBatchErrorResponse:
     description: Errors during batch usage for the BigCommerce API.
     type: object
