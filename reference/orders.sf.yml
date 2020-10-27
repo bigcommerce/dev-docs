@@ -96,19 +96,10 @@ definitions:
       customerId:
         description: ''
         type: string
-      token:
-        description: ''
-        type: string
       billingAddress:
-        $ref: '#/definitions/AddressResponse'
+        $ref: '#/definitions/AddressProperties'
       status:
         $ref: '#/definitions/Status'
-      customerCreated:
-        description: >-
-          For guest checkouts, this flag will identify whether a new customer
-          account was created for this order, or whether the billing email
-          already existed on the store.
-        type: boolean
       hasDigitalItems:
         description: Specifies whether this order has at least one digital item.
         type: boolean
@@ -478,6 +469,9 @@ definitions:
       stateOrProvinceCode:
         description: ''
         type: string
+      country:
+        description: ''
+        type: string
       countryCode:
         description: >-
           ISO 3166-1 alpha-2 country code. (See:
@@ -767,19 +761,5 @@ responses:
     schema:
       title: Response Order Data
       type: object
-      properties:
-        data:
-          title: Data
-          description: >-
-            Response data container for Order endpoints (`POST /order` and `POST
-            /order/{orderId}`).
-          type: object
-          properties:
-            order:
-              $ref: '#/definitions/Order'
-        meta:
-          description: ''
-          type: object
-          properties:
-            '':
-              type: string
+      $ref: '#/definitions/Order'
+      
