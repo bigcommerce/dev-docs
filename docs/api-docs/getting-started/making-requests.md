@@ -24,22 +24,20 @@ The easiest way to experiment with BigCommerce REST APIs is via the built-in **R
 
 [![Open in Request Runner](https://storage.googleapis.com/bigcommerce-production-dev-center/images/Open-Request-Runner.svg)](https://developer.bigcommerce.com/api-reference/catalog/catalog-api/products/getproducts#requestrunner)
 
-Just copy and paste your `store_hash`, `client_id` ID, and `access_token` into the form, then click **Send**.
+Just copy and paste your `store_hash` and `access_token` into the form, then click **Send**.
 
 ### Visual Studio Code REST Client
 
-If you use **Visual Studio Code**, another simple way to make API requests is with the [REST Client](https://marketplace.visualstudio.com/items?itemName=humao.rest-client) extension. Once you have it installed, create a new file called `bigcommerce.http` and paste in the following:
+If you use **Visual Studio Code**, another way to make API requests is with the [REST Client](https://marketplace.visualstudio.com/items?itemName=humao.rest-client) extension. Once you have it installed, create a new file called `bigcommerce.http` and paste in the following:
 
 ```http
 @ACCESS_TOKEN = your_access_token
-@CLIENT_ID = your_client_id
 @STORE_HASH = your_store_hash
 
 ###
 
 GET https://api.bigcommerce.com/stores/{{STORE_HASH}}/v3/catalog/products
 X-Auth-Token: {{ACCESS_TOKEN}}
-X-Auth-Client: {{CLIENT_ID}}
 Content-Type: application/json
 Accept: application/json
 ```
@@ -59,7 +57,7 @@ To make your first requests in a browser with the Storefront APIs, see the step-
 ## GraphQL API
 
 ### Obtain storefront token
-We'll use **Request Runner** for making an initial request to obtain a storefront API token. It is a REST API request, so you will need to copy and paste your [API credentials](https://developer.bigcommerce.com/api-docs/getting-started/authentication/rest-api-authentication#obtaining-store-api-credentials#obtaining-store-api-credentials).
+We'll use **Request Runner** for making an initial request to obtain a Storefront API token. It is a REST API request, so you will need to copy and paste your [API credentials](https://developer.bigcommerce.com/api-docs/getting-started/authentication/rest-api-authentication#obtaining-store-api-credentials#obtaining-store-api-credentials).
 
 [![Open in Request Runner](https://storage.googleapis.com/bigcommerce-production-dev-center/images/Open-Request-Runner.svg)](https://developer.bigcommerce.com/api-reference/cart-checkout/storefront-api-token/api-token/createtoken#requestrunner)
 
@@ -78,7 +76,7 @@ Include the URL of the storefront you will be making the request from as the `al
 ```
 
 ### Create sample request in the browser
-While viewing your storefront in a browser, navigate to the integrated JavaScript console, for example [Google Chrome's Console](https://developers.google.com/web/tools/chrome-devtools/console). Use it to run the following code after entering your API token in the authorization header, and adding a valid [Product ID](https://developer.bigcommerce.com/api-reference/catalog/catalog-api/products/getproductbyid) for the `entityId`:
+While viewing your storefront in a browser, navigate to the integrated JavaScript console; for example, [Google Chrome's Console](https://developers.google.com/web/tools/chrome-devtools/console). Use it to run the following code after entering your API token in the authorization header, and adding a valid [Product ID](https://developer.bigcommerce.com/api-reference/catalog/catalog-api/products/getproductbyid) for the `entityId`:
 
 ```javacsript
    fetch('/graphql', {
@@ -116,6 +114,6 @@ While viewing your storefront in a browser, navigate to the integrated JavaScrip
 ```
 
 ## Customer Login API
-The Customer Login API is a Server-to-Server API, which means to make requests against it, you will need a back end service. To view a sample request, see sample code within our [PHP client](
+The Customer Login API is a Server-to-Server API, which means to make requests against it, you will need a backend service. To view a sample request, see sample code within our [PHP client](
 https://github.com/bigcommerce/bigcommerce-api-php/blob/master/src/Bigcommerce/Api/Client.php#L421).
 

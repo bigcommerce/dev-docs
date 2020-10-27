@@ -17,7 +17,7 @@
 
 </div>
 
-After completing development, verifying best practices, and checking approval requirements, you may submit your app for Marketplace approval in [DevTools](https://devtools.bigcommerce.com/). This article takes you step-by-step through the submission form and provides descriptions for each field.
+After completing development, verifying best practices, and checking approval requirements, you may submit your app for Marketplace approval in the [Developer Portal](https://devtools.bigcommerce.com/). This article takes you step-by-step through the submission form and provides descriptions for each field.
 
 ## Before you begin
 
@@ -115,7 +115,8 @@ If you have any questions about your submission, email [appstore@bigcommerce.com
 
 **Are all fields required?**
 
-While not all fields are required to publish edits for your listing, they are all highly recommended. Without filling in all fields, your listing will be missing information that merchants have seen on other listings and expect to see throughout the Marketplace.
+For Marketplace approval, you'll need to fill out all fields on your listing with applicable content and links. These will be reviewed as part of the Marketplace approval process. The **Case Studies** field and **Videos** field are optional.
+
 
 **Am I able to preview the changes to my listing before publishing them?**
 
@@ -126,7 +127,7 @@ preview how these changes will appear on the BigCommerce Marketplace. You will s
 
 Any changes you save will take effect immediately, so make sure you're ready to push them out to the Marketplace before saving.
 
-**I've logged in to the DevTools, but I don't see my published listing. Where is it?**
+**I've logged in to the Developer Portal, but I don't see my published listing. Where is it?**
 
 You may have logged in with the wrong account. Each listing can only be owned by one user, so it is likely assigned to another email address. If you're unable to track down the correct owner account for your solution, please reach out to [appstore@bigcommerce.com](mailto:appstore@bigcommerce.com).
 
@@ -145,7 +146,7 @@ can take up to 24 hours to appear on the Apps Marketplace. Feel free to use this
 * [PHP / Silex](https://github.com/bigcommerce/hello-world-app-php-silex)
 * [Ruby / Sinatra](https://github.com/bigcommerce/hello-world-app-ruby-sinatra)
 * [Laravel / React](https://github.com/bigcommerce/laravel-react-sample-app)
-* [Node / FaunaDB / Nelify](https://github.com/bigcommerce/channels-app/)
+* [Node / FaunaDB / Netlify](https://github.com/bigcommerce/channels-app/)
 
 ### Tools
 * [Node API Client](https://github.com/getconversio/node-bigcommerce)
@@ -160,4 +161,4 @@ can take up to 24 hours to appear on the Apps Marketplace. Feel free to use this
 ### Blog posts
 * [How to Test App Authentication Locally with ngrok](https://medium.com/bigcommerce-developer-blog/how-to-test-app-authentication-locally-with-ngrok-149150bfe4cf)
 * [Building a BigCommerce App Using Laravel and React](https://medium.com/bigcommerce-developer-blog/building-a-bigcommerce-app-using-laravel-and-react-711ceceb5006)
-* [Big Design Tutorial](https://medium.com/bigcommerce-developer-blog/bigdesign-build-native-looking-uis-with-the-bigcommerce-design-system-fb06a01a24f2)
+* [BigDesign Tutorial](https://medium.com/bigcommerce-developer-blog/bigdesign-build-native-looking-uis-with-the-bigcommerce-design-system-fb06a01a24f2)

@@ -370,13 +370,6 @@ In order for the Channel's Permanent URL to be available, you must [create a Sit
 Use a normal Storefront API Token. You can use an anonymous `fetch` or `XHR` mode that does not send cookies along with the request. When creating your token, be sure to specify the origin from which your requests will be run in order to whitelist this origin for [CORS.](https://developer.mozilla.org/en-US/docs/Web/HTTP/CORS)
 
 
-#### I want to run requests from a frontend application or browser (e.g. React app), and I wish to support logging in directly from that frontend application
-
-Use a normal Storefront API Token and make your requests [with credentials (cookies) included.](https://developer.mozilla.org/en-US/docs/Web/HTTP/CORS#Requests_with_credentials) When creating your token, be sure to specify the origin from which your requests will be run, in order to whitelist this origin for [CORS.](https://developer.mozilla.org/en-US/docs/Web/HTTP/CORS)
-
-
-By default, users will be assumed to be guest shoppers and receive anonymous information in response to GraphQL requests. If you use the Customer Login GraphQL mutation, a cookie will be set as a response to a successful login, and future GraphQL requests will return customer-specific information as long as that cookie is sent with the request.
-
 #### I want to run requests from a server and I don't need customer impersonation abilities
 
 Use normal Storefront API Tokens. According to the [Principle of least privilege](https://en.wikipedia.org/wiki/Principle_of_least_privilege), you should not create a token that has permissions you do not need.

@@ -22,7 +22,6 @@ Follow the link for your scenario:
 
 If you downloaded a refreshed version of Stencil's default Cornerstone theme: Run `npm install` in the theme directory to install refreshed JavaScript dependencies, as outlined in [Installing Stencil](/stencil-docs/getting-started/installing-stencil#installing_installing-stencils-js-utilities).
 
-If you downloaded a different Marketplace theme with a version lower than 1.10.0, run `jspm install` in the theme directory.
 
 <div class="HubBlock--callout">
 <div class="CalloutBlock--warning">
@@ -64,11 +63,10 @@ Once you have verified the requirements above, you are ready to process and pack
 
 ### Bundle only
 
-The `stencil bundle` command is available for all themes, whether initialized using OAuth or Basic-Auth tokens. To use it, enter the following on your command line:
+The `stencil bundle` command bundles your theme into a zip file which may be uploaded to a BigCommerce store.
 
-`stencil bundle`
 
-The `bundle` command will notify you of its progress and completion.
+The `bundle` command will notify you of its progress and completion, as well as any errors that prevent bundling.
 
 ####  Check/Adjust zipfile's size
 
@@ -80,7 +78,7 @@ Check the resulting zip file's size before you proceed. The zipped bundle should
 
 ### Bundle and push
 
-The `stencil push` command is available only for themes that you have successfully initialized using an OAuth token (with `Themes: modify scope`). This command bundles your theme and uploads it to the associated store, in one continuous process.
+The `stencil push` command is available only for themes that you have successfully initialized using a [Stencil CLI token](https://support.bigcommerce.com/s/article/Store-API-Accounts#creating) (with `Themes: modify scope`). This command bundles your theme and uploads it to the associated store, in one continuous process.
 
 For further requirements and usage details, please see the _Command-Line Upload_ in [Pushing Your Theme](/stencil-docs/deploying-a-theme/bundling-and-pushing#pushing-your-theme) below.
 
@@ -101,21 +99,19 @@ For file-size error diagnostics and workarounds, please _Check/Adjust Zipfile's 
 
 BigCommerce provides two alternatives for uploading a theme to its associated BigCommerce store. You can perform either a control panel upload, or a command line upload. These options are available depending on how you've authorized your theme:
 
-### Control panel upload (OAuth or Basic Auth)
+### Control Panel upload
 
-Uploading your theme via the BigCommerce control panel's GUI is compatible with any store token (whether OAuth or Basic Auth), with any OAuth token scope, and with all versions of Stencil CLI. However, this option requires that you first use a stencil bundle to package your theme into a zip file. Prepare your file according to the instructions in the [Bundle only](#bundle-only) section.
+To upload your theme to a store using the BigCommerce Control Panel, first use `stencil bundle` to package your theme into a zip file. Prepare your file according to the instructions in the [Bundle only](#bundle-only) section.
 
-
-For the control panel's upload steps, see the [Uploading Custom Themes](https://support.bigcommerce.com/s/article/Stencil-Themes#download-upload) article in our Knowledge Base.
+For the Control Panel's upload steps, see the [Uploading Custom Themes](https://support.bigcommerce.com/s/article/Stencil-Themes#download-upload) article in our Knowledge Base.
 
 For error codes that you might encounter when uploading a theme – and corresponding workarounds, see [Troubleshooting Theme Uploads](https://developer.bigcommerce.com/stencil-docs/installing-stencil-cli/troubleshooting-your-setup).
 
-### Command line upload (OAuth required)
+### Command line upload
 
 The `stencil push` command allows you to bundle your theme and upload it to the store, with a single terminal command. To run `stencil push`, you must first:
 
-
-Successfully initialize your theme using an OAuth token that you created with the `Themes: modify scope`.
+Successfully initialize your theme using a [Stencil CLI token](https://support.bigcommerce.com/s/article/Store-API-Accounts#creating) that you created with the `Themes: modify scope`.
 
 Install Stencil CLI version 1.12.0 or higher.
 
@@ -127,7 +123,12 @@ To initiate bundling and pushing, enter the following on the command line:
 
 `stencil push`
 
-Stencil CLI displays the same notifications, prompts, and selection options you would receive when using the control panel's GUI. Below are some of the notifications and interactions you might see.
+Stencil CLI displays the same notifications, prompts, and selection options you would receive when using the control panel's GUI. The sections below will describe the notifications and interactions you might see.
+
+To push a theme and activate a particular variation without being prompted, use `stencil push -a VARIATION_NAME` with the name of the variation. For example, `stencil push -a Light` will activate the "Light" variation. If you simply use `stencil push -a` without a variation name, the first variation will be applied.
+
+
+If you are already at your theme limit, you can automatically delete the oldest theme on your store using `stencil push -d`. You can use the combination, `stencil push -a -d`, to give the best chance of the upload working without any interaction, which is desirable for automated deployments of Stencil CLI.
 
 ### Successful bundling
 

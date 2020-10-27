@@ -3,11 +3,11 @@
 <div class="otp" id="no-index">
 
 ### On this Page
-- [Step 1: Update API Creds](#step-1-update-api-creds)
-- [Step 2: Integrate Channel API](#step-2-integrate-channel-api)
-- [Step 3: Migrate Existing Data](#step-3-migrate-existing-data)
-- [App Requirements](#app-requirements)
-- [Sample Configuration](#sample-configuration)
+- [Step 1: update API credentials](#step-1-update-api-credentials)
+- [Step 2: integrate channel API](#step-2-integrate-channel-api)
+- [Step 3: Migrate existing data](#step-3-migrate-existing-data)
+- [App requirements](#app-requirements)
+- [Sample configuration](#sample-configuration)
 - [Terminology](#terminology)
 - [Resources](#resources)
 
@@ -15,8 +15,9 @@
 
 This article provides a guide to  partners who would like to update (or replace) their existing sales channel apps to leverage new functionality available via Channels Toolkit.
 
-## Step 1: Update API Creds
-Existing sales channel apps need app credentials with updated OAuth scopes to authenticate and authorize requests to Channels Toolkit APIs. Login to [devtools.bigcommerce.com](https://devtools.bigcommerce.com) to update your app's credentials. Channel APIs require the following scopes:
+## Step 1: update API credentials
+
+Existing sales channel apps need app credentials with updated OAuth scopes to authenticate and authorize requests to Channels Toolkit APIs. Login to the [Developer Portal](https://devtools.bigcommerce.com) to update your app's credentials. Channel APIs require the following scopes:
 
 |UI Name|Parameter|Enables|
 |-|-|-|
@@ -25,32 +26,37 @@ Existing sales channel apps need app credentials with updated OAuth scopes to au
 
 See [Authenticating BigCommerce's REST APIs](https://developer.bigcommerce.com/api-docs/getting-started/authentication/rest-api-authentication) for more information on app credentials.
 
-## Step 2: Integrate Channel API
+## Step 2: integrate channel API
+
 To be visible in Channel Manager once installed, apps must meet certain requirements. All channel apps are required to use BigCommerce’s Channel API. Select partner apps have additional [Channel API](https://developer.bigcommerce.com/api-reference/cart-checkout/channels-listings-api) implementation requirements to facilitate being marketed in Channel Manager.
 
-### All Partners
+### All partners
+
 * [Create Channel](https://developer.bigcommerce.com/api-reference/cart-checkout/channels-listings-api) (for each platform the app enables a merchant to sell on) - this enables the channel to be displayed within the “Manage” screen in the new Channel Manager for merchants, once the app has been installed.
 * [Create Channel](https://developer.bigcommerce.com/api-reference/cart-checkout/channels-listings-api) request must include  `app_id` at minimum in the [app config object](#sample-configuration).
 
-### Channel Manager Example
-![Extending Existing Apps 01](https://raw.githubusercontent.com/bigcommerce/dev-docs/master/assets/images/extending-screenshots-01.png "Extending Existing Apps 01")
+### Channel manager example
 
-### Select Partners
+![Extending Existing Apps 01](https://storage.googleapis.com/bigcommerce-production-dev-center/images/channels/channels-channel-manager.png "Extending Existing Apps 01")
+
+### Select partners
 * Update UI to use [BigDesign](https://developer.bigcommerce.com/big-design/) and the general design patterns and user flows demonstrated in the sample app (shown in the screenshots below) with Channel name, icon, and menu nav sections.
 * Include sections in the [Channel API](https://developer.bigcommerce.com/api-reference/cart-checkout/channels-listings-api) request in the [app config object](#sample-channel-app-configuration).
 
-### Channel App Import Section
-![Extending Existing Apps 03](https://raw.githubusercontent.com/bigcommerce/dev-docs/master/assets/images/extending-screenshots-03.png "Extending Existing Apps 03")
+### Channel app import section
 
-### Channel App Settings Section
+![Extending Existing Apps 03](https://storage.googleapis.com/bigcommerce-production-dev-center/images/channels/channels-pos-import.png "Extending Existing Apps 03")
+
+### Channel app settings section
+
 ![Extending Existing Apps 04](https://raw.githubusercontent.com/bigcommerce/dev-docs/master/assets/images/extending-screenshots-04.png "Extending Existing Apps 04")
 
-## Step 3: Migrate Existing Data
+## Step 3: Migrate existing data
 * **Channels** - Register a channel for all existing merchants using the app.
 * **Orders** - Add `channel_id` with the corresponding channel ID for the merchant and which channel the order was placed on, if orders are synced to BigCommerce.
 * **Listings (optional)** - Create channel specific [product listings](https://developer.bigcommerce.com/api-reference/cart-checkout/channels-listings-api) (this is primarily necessary for storefronts, marketplaces, and marketing type of channels).
 
-## App Requirements
+## App requirements
 Although the sample app shown in the screenshots above is for a point of sale integration, we've designed [Channels Toolkit](https://developer.bigcommerce.com/api-docs/channels/channels-toolkit-reference) to be flexible enough to build any type of sales channel app, and each type of channel app has its own specific requirements centered around ensuring performance and user experience best practices.
 
 The above "updating existing app" data applies; however, non-POS channel apps are not necessarily required to use the same sections and user flows shown in the example app screenshots.
@@ -65,13 +71,12 @@ The above "updating existing app" data applies; however, non-POS channel apps ar
 **All Partners**:
 * Must use [listings API](https://developer.bigcommerce.com/api-reference/cart-checkout/channels-listings-api), if supporting per product listings (i.e. not simply syncing the entire catalog).
 
-## Sample Configuration
+## Sample configuration
 To create or modify a channel app's configuration, send a `POST` or `PUT` request to `/stores/{{STORE_HASH}}/v3/channels`:
 
 ```http
 POST https://api.bigcommerce.com/stores/{{STORE_HASH}}/v3/channels
 X-Auth-Token: {{ACCESS_TOKEN}}
-X-Auth-Client: {{CLIENT_ID}}
 Content-Type: application/json
 Accept: application/json
 
@@ -83,10 +88,10 @@ Accept: application/json
     "status": "connected",
     "config_meta": {
       "app": {
-        "id": 123,                        // ID of the app                       
+        "id": 123,                        // ID of the app
         "sections": [{                    // Label displayed to merchant in BigCommerce navigation bar
-          "title": "Overview",            // query param passed app iframe  
-          "query_path": "overview"         
+          "title": "Overview",            // query param passed app iframe
+          "query_path": "overview"
          }, {
          "title": "Settings",
          "query_path": "settings"
@@ -105,13 +110,11 @@ Accept: application/json
 <!-- theme: info -->
 
 ### Note
-> * You can find the app ID in the URL when editing the app in [DevTools](https://devtools.bigcommerce.com/). For more information, see [Finding an App's ID](https://developer.bigcommerce.com/api-docs/apps/tutorials/id).
-
+> * You can find the app ID in the URL when editing the app in the [Developer Portal](https://devtools.bigcommerce.com/). For more information, see [Finding an App's ID](https://developer.bigcommerce.com/api-docs/apps/tutorials/id).
 
 </div>
 </div>
 </div>
-
 
 **Properties**
 |  Property | Type | Description |

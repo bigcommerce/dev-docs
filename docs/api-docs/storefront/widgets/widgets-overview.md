@@ -8,6 +8,7 @@
 - [Regions](#regions)
 - [Widget templates](#widget-templates)
 - [Widgets](#widgets)
+- [Widget versioning](#widget-versioning)
 - [Placements](#placements)
 - [Placements and widgets](#placements-and-widgets)
 - [Widgets on the storefront](#widgets-on-the-storefront)
@@ -27,13 +28,41 @@ In this article, we are going to review all the components that make a widget. T
 
 ## Regions
 
-[Regions](https://developer.bigcommerce.com/api-reference/storefront/widgets-api/regions/getcontentregions) are specific locations in the Stencil theme files where you can place a widget. A region is added at the file level using the format {{{region name="..."}}}. A region can be named however you like, but it is best practice to give it a name that is descriptive of the location and function. A theme file can have as many regions as you want, with more than one widget assigned to the region and the [Placements](https://developer.bigcommerce.com/api-docs/store-management/widgets/overview#placements) `sort_order` controlling how the widgets appear on the storefront.
+[Regions](https://developer.bigcommerce.com/api-reference/storefront/widgets-api/regions/getcontentregions) are specific locations in the Stencil theme files where you can place a widget. You can add a region at the file level using the format `{{{region name="..."}}}` and name the region however you like, but it is best practice to give it a name that is descriptive of the location and function. A theme file can have as many regions as you want, with more than one widget assigned to the region and the [Placements](https://developer.bigcommerce.com/api-docs/store-management/widgets/overview#placements) `sort_order` controlling how the widgets appear on the storefront.
 
 ![Content Region](//s3.amazonaws.com/user-content.stoplight.io/6012/1551970794664 "Content Region")
 
 ![Content Region](//s3.amazonaws.com/user-content.stoplight.io/6012/1551970767918 "Content Region")
 
 Most themes in the BigCommerce marketplace come with predefined regions. It is best to use those first. By editing the theme and adding theme regions, updates will need to be managed manually.
+
+### Global regions
+
+Global regions are special regions you can use to place and manage content sitewide. Widgets placed in a global region will appear on the storefront pages where that region exists. This makes global regions useful for displaying high-priority information, such as special promotion advertising banners, across multiple storefront pages.
+
+ ![Global Region](https://raw.githubusercontent.com/bigcommerce/dev-docs/master/assets/images/widgets-overview-03.png "Global Region")
+
+To create a global region, add the `--global` suffix to the region name as shown in the following example:
+
+```handlebars
+{{{region name=”header_bottom--global”}}}
+```
+
+<div class="HubBlock--callout">
+<div class="CalloutBlock--info">
+<div class="HubBlock-content">
+
+> ### Note
+>
+>`header_bottom--global` region is currently the only global region available by default.
+
+</div>
+</div>
+</div>
+
+To remove the default `header_bottom--global` region from your theme, delete or comment out the `{{{region name="header_bottom--global"}}}` line of code from your theme's `templates/components/common/header.html` file. 
+
+[See it in Cornerstone](https://github.com/bigcommerce/cornerstone/search?q=%7B%7B%7Bregion+name%3D%22header_bottom--global%22%7D%7D%7D).
 
 ## Widget templates
 
@@ -161,6 +190,54 @@ The example above uses `list_items_two`, on line four, in the configuration whic
 }
 ```
 
+## Widget versioning
+
+Widget versioning allows developers to release updates to widget templates without impacting existing widgets created using those templates. One widget template can have multiple versions, each with its own `template` and `schema` properties.
+
+The widget template’s `current_version_uuid` property points to the most recent version of the widget template. When you create a widget, it automatically uses the most current version of the widget template and saves it as the `version_uuid` property. Updating the widget template will change the value of the `current_version_uuid` in the widget and the widget template, but it will not change the value of the widget’s `version_uuid`. As a result, updating the widget template will not impact existing widgets derived from it.
+
+**Widget template definitions**
+
+| Property | Definition |
+|--|--|
+| `uuid` | The identifier of the original widget template.|
+| `current_version_uuid` | The identifier of the most recent version of the widget template.|
+
+**Widget definitions**
+
+| Property | Definition |
+|--|--|
+| `widget_template_uuid` | The identifier of the widget template. (The value is static.)|
+| `current_version_uuid` | The identifier of the most recent version of the widget template.|
+| `version_uuid` | The version of the widget template used to create or update the widget.|
+
+### Old relationship model
+Prior to widget versioning, a widget would point to a widget template only via the `widget_template_uuid` property. The widget would always use the latest version of the widget template, and updating the widget template would subsequently update all of its widgets.
+
+ ![Old Relationship Model](https://raw.githubusercontent.com/bigcommerce/dev-docs/master/assets/images/widgets-overview-01.png "Old Relationship Model")
+
+### New relationship model
+Widget versioning introduced `current_version_uuid` and `version_uuid` properties. Now, in addition to `widget_template_uuid`, the widget can specify the template version via `version_uuid`. 
+
+ ![New Relationship Model](https://raw.githubusercontent.com/bigcommerce/dev-docs/master/assets/images/widgets-overview-02.png "New Relationship Model")
+
+<div class="HubBlock--callout">
+<div class="CalloutBlock--info">
+<div class="HubBlock-content">
+
+<!-- theme:  -->
+
+### Note
+>  Although a widget template can have multiple versions, there can only be one active version at a time. This setup means that a template can have multiple `version_uuid`’s associated with it, but it cannot have more than one `current_version_uuid`.
+
+</div>
+</div>
+
+### Update a widget template 
+
+It is possible to update your widget template without creating a new version. To do so, exclude the `create_new_version` field or set it to `false` when making a `PUT` request to update the widget template. 
+Updating the widget template with `create_new_version` set to `true` will create a new template version but will not impact the widgets created before the update.
+
 ## Placements
 
 [Placements](/api-reference/storefront/widgets-api/placement/createplacement) determine the region where the widget is placed and in what order. The order of the placement is controlled by the `sort_order` when creating the placement.
@@ -243,4 +320,4 @@ A region can contain multiple placements with widgets.
 ### Related endpoints
 * [Widgets API](/api-reference/storefront/widgets-api)
 * [Widgets Tutorial](/api-docs/storefront/widgets/widgets-tutorial)
-* [Wigets Code Samples](/api-docs/storefront/widgets/widgets-code-samples)
+* [Widgets Code Samples](/api-docs/storefront/widgets/widgets-code-samples)

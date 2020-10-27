@@ -240,23 +240,6 @@ This subdirectory’s children contain CSS for the following page elements.
 | toggleLink  | Styles for collapsible/expandable components  |
 |writeReview   | Styles for product-review submission form  |
 
-<div class="HubBlock--callout">
-<div class="CalloutBlock--info">
-<div class="HubBlock-content">
-
-<!-- theme:info -->
-
-### Akamai image manager
-> For Stencil themes only, images that use the default zoom library pass through Akamai Image Manager. This chooses the best image to serve based on device. To bypass the image optimization, include `imbypass=on` as a query parameter in the image url. This will serve un-optimized images.
-
-* `<img src="{{cdn 'webdav:img/image.jpg?imbypass=on'}}">`
-* `<img src="{{getImage settings.store_logo.image 'logo_size'}}?imbypass=on">`
-* `<img src="{{cdn 'assets/img/image.jpg?imbypass=on'}}">`
-
-</div>
-</div>
-</div>
-
 ## Resources
 
 ### Sample apps
