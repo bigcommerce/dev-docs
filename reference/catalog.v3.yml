@@ -256,7 +256,7 @@ paths:
           in: query
           type: string
         - name: keyword_context
-          description: Set context for a product search.
+          description: Set context used by the search algorithm to return results targeted towards the specified group. Use `merchant` to help merchants search their own catalog. Use `shopper` to return shopper-facing search results.
           required: false
           in: query
           type: string
