@@ -116,7 +116,7 @@ npm install -g @bigcommerce/stencil-cli
 
 > These instructions have been tested successfully on **Windows 10**.
 
-> * Refer to [Stencil CLI README.MD](https://github.com/bigcommerce/stencil-cli) for latest `node` version supported.
+> Refer to [Stencil CLI README.MD](https://github.com/bigcommerce/stencil-cli) for latest `node` version supported.
 
 
 </div>
