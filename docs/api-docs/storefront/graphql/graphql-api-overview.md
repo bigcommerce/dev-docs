@@ -170,20 +170,17 @@ JWT tokens for authenticating cross-origin requests to the Storefront API can be
 
 Client code in BigCommerce Stencil themes can be passed a token at render time with the `{{settings.storefront_api.token}}` Handlebars object:
 
-```html
-<script>
+```js
 fetch('/graphql', {
-       method: 'POST',
-       headers: {
-           'Content-Type': 'application/json',
-           'Authorization': 'Bearer {{settings.storefront_api.token}}'
-       },
-       body: JSON.stringify({
-           query: `
-            query MyFirstQuery {...}
-  `
-// ...
-</script>
+  method: 'POST',
+  credentials: 'same-origin',
+  headers: {
+      'Content-Type': 'application/json',
+      'Authorization': 'Bearer {{settings.storefront_api.token}}'
+      ''
+  },
+  body: JSON.stringify({ query: `query MyFirstQuery {...}`
+);
 ```
 
 <div class="HubBlock--callout">
@@ -194,10 +191,10 @@ fetch('/graphql', {
 ### Note
 > * `1` can be passed in for the `channel_id` for generating tokens for use on the default Stencil storefront.
 > * To create a channel for a remote site, see [Create Channel](https://developer.bigcommerce.com/api-reference/cart-checkout/channels-listings-api/channels/createchannel) in the API Reference.
-
 > * `allowed_cors_origins` array accepts only a single origin currently -- one token must be generated for each origin.
 > * `/storefront/api-token` endpoint requires the `Manage` `Storefront API Tokens` OAuth Scope.
 > * `storefront/api-token-customer-impersonation` endpoint requires the `Manage` `Storefront API Customer Impersonation Tokens` OAuth Scope.
+> * The `fetch` request `credentials` property must be set to `same-origin` (even when making request from a Stencil theme).
 
 </div>
 </div>
@@ -232,7 +229,7 @@ It's also possible to generate tokens for use in server-to-server interactions w
 Customer impersonation token authenticated requests made to the GraphQL API receive store information from the perspective of the customer corresponding to the customer ID specified in the `X-Bc-Customer-Id` header sent with the GraphQL `POST` request. Pricing, product availability, customer account, and customer details will be reflected.
 
 
-Customer impersonation tokens should **never** be exposed publicly, for example, to JavaScript or HTML. These tokens should not be used for frontend requests. 
+Customer impersonation tokens should **never** be exposed publicly, for example, to JavaScript or HTML. These tokens should not be used for frontend requests.
 
 Unlike normal GraphQL Storefront API tokens, they are sensitive and should be treated like secrets, just as you might treat an OAuth token for BigCommerce's administrative APIs. Attempts to run requests using these tokens from a web browser will be rejected.
 
@@ -268,47 +265,46 @@ GraphQL Storefront API calls can be made directly from within a Stencil theme or
 
 Here's an an example request using the  `{{settings.storefront_api.token}}` handlebars object and [`fetch()`](https://developer.mozilla.org/en-US/docs/Web/API/Fetch_API):
 
-```html
-<script>
-   fetch('/graphql', {
-       method: 'POST',
-       headers: {
-           'Content-Type': 'application/json',
-           'Authorization': 'Bearer {{ settings.storefront_api.token }}'
-       },
-       body: JSON.stringify({
-           query: `
-            query MyFirstQuery {
-            site {
-                settings {
-                storeName
-                }
-                products {
-                edges {
-                    node {
-                      name
-                      sku
-                      prices {
-                        retailPrice {
-                          value
-                          currencyCode
-                        }
-                        price {
-                          value
-                          currencyCode
-                        }
-                      }
+```js
+fetch('/graphql', {
+    method: 'POST',
+    credentials: 'same-origin',
+    headers: {
+        'Content-Type': 'application/json',
+        'Authorization': 'Bearer {{ settings.storefront_api.token }}'
+    },
+    body: JSON.stringify({
+        query: `
+        query MyFirstQuery {
+        site {
+            settings {
+            storeName
+            }
+            products {
+            edges {
+                node {
+                  name
+                  sku
+                  prices {
+                    retailPrice {
+                      value
+                      currencyCode
+                    }
+                    price {
+                      value
+                      currencyCode
                     }
                   }
                 }
               }
             }
-            `
-       }),
-   })
-   .then(res => res.json())
-   .then(json => console.log(json));
-</script>
+          }
+        }
+        `
+    }),
+})
+.then(res => res.json())
+.then(json => console.log(json));
 ```
 
 In addition to using `fetch()`, there's a other ways to query the API:
@@ -325,6 +321,7 @@ In addition to using `fetch()`, there's a other ways to query the API:
 
 > * If pasted directly into a script in [**Storefront** > **Script Manager**](https://support.bigcommerce.com/s/article/Using-Script-Manager), the output from `console.log(json)` will be viewable in the browser's Javascript Console.
 > * The above code must be used in a place where the `{{settings.storefront_api.token}}` handlebars variable can be accessed in order to get credentials for the API request.
+> * The `fetch` request `credentials` property must be set to `same-origin` (even when making request from a Stencil theme).
 
 </div>
 </div>
