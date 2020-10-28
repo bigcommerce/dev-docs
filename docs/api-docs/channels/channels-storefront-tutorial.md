@@ -164,7 +164,7 @@ Content-Type: application/json
 Accept: application/json
 
 {
-  "name": "Custom PWA Storefront",
+  "name": "Dog US",
   ...
   "config_meta": {
     "app": {
@@ -191,6 +191,10 @@ Accept: application/json
   }
 }
 ```
+
+Included protected sections display above custom sections.
+
+![Protected Sections](https://storage.googleapis.com/bigcommerce-production-dev-center/images/channels/channels-sf-protected-custom-settings.png "Protected Sections")
 
 <div class="HubBlock--callout">
 <div class="CalloutBlock--warning">
