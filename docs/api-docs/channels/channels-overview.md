@@ -2,7 +2,7 @@
 
 <div class="otp" id="no-index">
 
-### On this Page
+### On this page
 - [Channels Toolkit](#channels-toolkit)
 - [Channel Apps](#channel-apps)
   - [Discovery](#discovery)

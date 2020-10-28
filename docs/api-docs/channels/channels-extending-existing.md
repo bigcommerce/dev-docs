@@ -2,7 +2,7 @@
 
 <div class="otp" id="no-index">
 
-### On this Page
+### On this page
 - [Step 1: update API credentials](#step-1-update-api-credentials)
 - [Step 2: integrate channel API](#step-2-integrate-channel-api)
 - [Step 3: Migrate existing data](#step-3-migrate-existing-data)

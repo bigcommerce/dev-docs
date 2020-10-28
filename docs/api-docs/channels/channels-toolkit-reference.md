@@ -2,7 +2,7 @@
 
 <div class="otp" id="no-index">
 
-### On this Page
+### On this page
 - [Required endpoints](#required-endpoints)
 - [Recommended endpoints](#recommended-endpoints)
 - [Extended functionality endpoints](#extended-functionality-endpoints)

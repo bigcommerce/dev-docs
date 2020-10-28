@@ -2,7 +2,7 @@
 
 <div class="otp" id="no-index">
 
-### On This Page
+### On this page
 - [Ways to implement headless](#ways-to-implement-headless)
 - [Multisite](#multisite)
 - [Catalog Management](#catalog-management)
@@ -211,8 +211,8 @@ Merchants can use BigCommerce's [PCI DSS AOC](https://support.mybigcommerce.com/
 3.  Add a [Consignment](/api-reference/cart-checkout/server-server-checkout-api/checkout-consignments/checkoutsconsignmentsbycheckoutidpost) to Checkout with the line items and the `consignments.available_shipping_options` query
 4. Update each [Consignment](https://developer.bigcommerce.com/api-reference/cart-checkout/server-server-checkout-api/checkout-consignments) with the chosen shipping option from the Add Consignment response.
 5.  Create the Order by sending a request to [Create Order](/api-reference/cart-checkout/server-server-checkout-api/checkout/createanorder)
-	3.  Returns an `order_id`
-	4. Order is created in `incomplete` status
+	1.  Returns an `order_id`
+	2. Order is created in `incomplete` status
 6.  Take a Payment for the Order using one of the two methods below
 
 ### Create an Order Directly
@@ -226,12 +226,12 @@ Merchants can use BigCommerce's [PCI DSS AOC](https://support.mybigcommerce.com/
 	6. Create a custom shipping quote
 2.  Take a Payment for the Order using one of the two methods below
 3.  Vaulted Card -- The shopper has saved a credit card
-	7. [Get Payment Methods](/api-reference/payments/payments-create-payment-token-api/payment-methods/paymentsmethodsget)
-	8.  [Create Access Token](/api-reference/payments/payments-create-payment-token-api/payment-access-token/paymentsaccesstokenspost)
-	9.  [Process Payment](/api-reference/payments/payments-process-payments/payment/paymentspost)
+	1. [Get Payment Methods](/api-reference/payments/payments-create-payment-token-api/payment-methods/paymentsmethodsget)
+	2.  [Create Access Token](/api-reference/payments/payments-create-payment-token-api/payment-access-token/paymentsaccesstokenspost)
+	3.  [Process Payment](/api-reference/payments/payments-process-payments/payment/paymentspost)
 4.  Credit Card -- The shopper has not saved a credit card
-	10. [Create Access Token](/api-reference/payments/payments-create-payment-token-api/payment-access-token/paymentsaccesstokenspost)
-	11. [Process Payment](/api-reference/payments/payments-process-payments/payment/paymentspost)
+	1. [Create Access Token](/api-reference/payments/payments-create-payment-token-api/payment-access-token/paymentsaccesstokenspost)
+	2. [Process Payment](/api-reference/payments/payments-process-payments/payment/paymentspost)
 
 ## Related resources
 

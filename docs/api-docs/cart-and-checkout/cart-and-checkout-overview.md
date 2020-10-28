@@ -2,7 +2,7 @@
 
 <div class="otp" id="no-index">
 
-### On This Page
+### On this page
 - [Storefront Cart and Checkout](#storefront-cart-and-checkout)
 - [Server-to-Server Cart and Checkout](#server-to-server-cart-and-checkout)
 - [When to use](#when-to-use)

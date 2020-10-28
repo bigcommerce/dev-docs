@@ -2,7 +2,7 @@
 
 <div class="otp" id="no-index">
 
-### On This Page
+### On this page
 - [Creating a channel](#creating-a-channel)
 - [Creating a site](#creating-a-site)
 - [Creating a cart](#step-3-create-a-cart)

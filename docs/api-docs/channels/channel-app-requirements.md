@@ -2,7 +2,7 @@
 
 <div class="otp" id="no-in">
 
-### On this Page
+### On this page
 - [General Requirements](#general-requirements)
 - [Storefronts](#storefronts)
 - [Marketplaces & Marketing](#marketplaces--marketing)
