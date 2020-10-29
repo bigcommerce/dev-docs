@@ -817,15 +817,6 @@ paths:
           required: false
           in: query
           type: string
-        - name: price_list_id
-          description: |-
-            This filter returns the product pricing with the *Price List* pricing instead. To use: 
-            `?price_list_id=1`.
-            If there are variants use:
-            `?price_list_id=1&include=variants`
-          required: false
-          in: query
-          type: integer
         - in: header
           type: string
           name: Accept
