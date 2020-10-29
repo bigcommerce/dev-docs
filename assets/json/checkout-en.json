@@ -155,12 +155,12 @@
         },
         "payment": {
             "affirm_name_text": "Affirm",
-            "affirm_display_name_text": "Monthly Payments",
+            "affirm_display_name_text": "Pay over time",
             "affirm_body_text": "You will be redirected to Affirm to securely complete your purchase. Just fill out a few pieces of basic information and get a real-time decision. Checking your eligibility won't affect your credit score.",
             "afterpay_name_text": "Afterpay",
             "afterpay_description": "Checkout with Afterpay",
             "amazon_continue_action": "Continue with Amazon",
-            "amazonpay_continue_action": "Continue with Amazon",
+            "amazonpay_continue_action": "Continue with Amazon Pay",
             "amazon_name_text": "Amazon Pay",
             "barclaycard_continue_action": "Continue",
             "bluesnap_v2_continue_action": "Continue",
@@ -234,8 +234,10 @@
             "instrument_manage_delete_auth_error": "There was a problem authorizing your request. Please try signing in again",
             "instrument_manage_delete_client_error": "There was an error when attempting to delete the stored payment method: payment method no longer exists or cannot be deleted.",
             "instrument_save_payment_method_label": "Save this card for future transactions",
+            "instrument_save_as_default_payment_method_label": "Use this card as the default payment method for future transactions",
             "account_instrument_add_action": "Use a different account",
             "account_instrument_save_payment_method_label": "Save this account for future transactions",
+            "account_instrument_save_as_default_payment_method_label": "Use this account as the default payment method for future transactions",
             "account_instrument_text": "Stored accounts",
             "account_instrument_new_shipping_address": "<strong>We noticed this is a new shipping address.</strong><p>For security reasons, you will need to re-link your PayPal account when shipping to an address for the first time or if the shipping address was edited recently.</p>",
             "instrument_trusted_shipping_address_text": "This additional security step is applied to your card when shipping to an address for the first time or if the shipping address was edited recently.",
@@ -335,7 +337,8 @@
             "thank_you_customer_heading": "Thank you {name}!",
             "thank_you_heading": "Thank you!",
             "continue_shopping": "Continue Shopping »",
-            "order_status_update_facebook_messenger_heading": "Get instant updates of your order to Messenger"
+            "order_status_update_facebook_messenger_heading": "Get instant updates of your order to Messenger",
+            "mandate_link_text": "{provider} Mandate"
         }
     }
 }
