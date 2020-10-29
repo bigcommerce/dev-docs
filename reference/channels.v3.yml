@@ -453,10 +453,7 @@ paths:
       tags:
         - Channel Listings
       description: |-
-        Currently only the following properties can be updated on channel listings:
-
-        * state
-        * variants.state
+        Updates a listing for provided channel
     post:
       summary: Create Channel Listings
       operationId: createChannelListings
