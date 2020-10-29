@@ -2,61 +2,37 @@ swagger: '2.0'
 info:
   version: ''
   title: Marketing
-  description: >-
+  description: |-
     Manage coupons, banners, and gift certificates.
 
-
     - [Authentication](#authentication)
-
     - [Subresources](#subresources)
-
 
     ## Authentication
 
-
-    Authenticate requests by including an
-    [OAuth](https://developer.bigcommerce.com/api-docs/getting-started/authentication)
-    `access_token` in the request header.
-
+    Authenticate requests by including an [OAuth](https://developer.bigcommerce.com/api-docs/getting-started/authentication) `access_token` in the request header.
 
     ```http
-
     GET https://api.bigcommerce.com/stores/{{STORE_HASH}}/v3/{{ENDPOINT}}
-
     Content-Type: application/json
-
     X-Auth-Token: {{ACCESS_TOKEN}}
-
     ```
 
-
     ### OAuth Scopes
-
     |  **UI Name** | **Permission** | **Parameter** |
-
     | --- | --- | --- |
-
     |  Marketing | modify | `store_v2_marketing` |
-
     |  Marketing | read-only | `store_v2_marketing_read_only` |
-
 
     ## Subresources
 
-
     ### Coupons
-
-    Category or product discounts that can be applied to orders for customers
-    who enter a given code.
-
+    Category or product discounts that can be applied to orders for customers who enter a given code.
 
     ### Banners
-
     Banners available to display on a store.
 
-
     ### Gift Certificates
-
     Gift certificates available to offer to a store’s customers.
 host: api.bigcommerce.com
 basePath: '/stores/{$$.env.store_hash}/v2'
@@ -69,54 +45,32 @@ produces:
 paths:
   /coupons:
     get:
-      description: >-
-        Returns a list of *Coupons*. Default sorting is by coupon/discount id,
-        from lowest to highest. Optional filter parameters can be passed in.
-
+      description: |-
+        Returns a list of *Coupons*. Default sorting is by coupon/discount id, from lowest to highest. Optional filter parameters can be passed in.
 
         ## Usage Notes
 
-
         Available types for `type` and `exclude_type` filters:
 
-
         |Type|
-
         |-|
-
         |`per_item_discount`|
-
         |`percentage_discount`|
-
         |`per_total_discount`|
-
         |`shipping_discount`|
-
         |`free_shipping`|
-
         |`promotion`|
 
-
-        Coupons with `type=promotion` will not populate usable data for the
-        following fields but instead be set to the following default values:
-
+        Coupons with `type=promotion` will not populate usable data for the following fields but instead be set to the following default values:
 
         ```json
-
         ...
-
         amount : 0.0000
-
         min_purchase: 0.0000
-
         applies_to
-
         restricted_to: []
-
         shipping_methods : null
-
         ...
-
         ```
       summary: Get All Coupons
       parameters:
@@ -267,14 +221,11 @@ paths:
       tags:
         - Coupons
     delete:
-      description: >
+      description: |
         By default, it deletes a page of *Coupons*.
 
-
         ## Usage Notes
-
-        * Deleting a coupon via this endpoint will delete the coupon but not the
-        promotion it is attached to
+        * Deleting a coupon via this endpoint will delete the coupon but not the promotion it is attached to
       summary: Delete All Coupons
       parameters:
         - name: Accept
@@ -320,39 +271,27 @@ paths:
       operationId: getACountOfCoupons
   '/coupons/{id}':
     put:
-      description: >-
+      description: |-
         Updates a *Coupon*.
-
 
 
         **Required Fields**
 
-
         *   `applies_to`
-
 
         **Read Only Fields**
 
-
         *   `id`
-
         *   `num_uses`
-
 
         **Notes**
 
-
-        If the `applies_to` value is cleared, you can restore it to the coupon
-        by reapplying the `applies_to` value in a new PUT request.
-
+        If the `applies_to` value is cleared, you can restore it to the coupon by reapplying the `applies_to` value in a new PUT request.
 
         Only the following fields can be updated via `PUT`:
 
-
         * `code`
-
         * `max_uses`
-
         * `max_uses_per_customer`
       summary: Update a Coupon
       parameters:
@@ -432,9 +371,7 @@ paths:
         required: true
   /banners:
     get:
-      description: >-
-        Returns a list of *Banners*. Default sorting is by banner id, from
-        lowest to highest.
+      description: 'Returns a list of *Banners*. Default sorting is by banner id, from lowest to highest.'
       summary: Get All Banners
       parameters:
         - name: Accept
@@ -785,16 +722,12 @@ paths:
         '200':
           $ref: '#/responses/giftCertificateCollection_Resp'
       summary: Get All Gift Certificates
-      description: >-
-        Returns a list of *Gift Certificates*. Optional filter parameters can be
-        passed in.
-
+      description: |-
+        Returns a list of *Gift Certificates*. Optional filter parameters can be passed in.
 
         Default sorting is by gift-certificate id, from lowest to highest.
 
-
-        The maximum limit is 250. If a limit isn’t provided, up to 50
-        gift_certificates are returned by default.
+        The maximum limit is 250. If a limit isn’t provided, up to 50 gift_certificates are returned by default.
       parameters:
         - in: query
           name: min_id
@@ -827,7 +760,7 @@ paths:
           name: limit
           type: number
         - in: header
-          name: Accpet
+          name: Accept
           type: string
           default: application/json
           required: true
@@ -870,36 +803,24 @@ paths:
               from_email: test1@test.com
               code: XQ2-1R7-7C1-Q0C
               status: active
-      description: >-
+      description: |-
         Creates a *Gift Certificate*.
 
 
-
         **Required Fields**
-
         * to_name
-
         * to_email
-
         * from_name
-
         * from_email
-
         * amount
 
-
         **Read Only Fields**
-
         * id
-
         * order_id
-
 
         **Notes**
 
-
-        When a gift certificate is created through the API, no email
-        notification is triggered to the specified recipient.
+        When a gift certificate is created through the API, no email notification is triggered to the specified recipient.
       tags:
         - Gift Certificates
       operationId: createAGiftCertificate
@@ -931,8 +852,7 @@ definitions:
     properties:
       url:
         description: URL of the coupons for api requests
-        example: >-
-          https://api.bigcommerce.com/stores/{$$.env.store_hash}/v2/orders/129/coupons
+        example: 'https://api.bigcommerce.com/stores/{$$.env.store_hash}/v2/orders/129/coupons'
         type: string
       resource:
         description: resource of the coupons
@@ -945,9 +865,7 @@ definitions:
         properties:
           id:
             type: integer
-            description: >-
-              The coupon's ID. This is a read-only field; do not set or modify
-              its value in a POST or PUT request.
+            description: The coupon's ID. This is a read-only field; do not set or modify its value in a POST or PUT request.
             example: 2
           date_created:
             description: Date Created
@@ -955,9 +873,7 @@ definitions:
             type: string
           num_uses:
             type: integer
-            description: >-
-              Number of times this coupon has been used. This is a read-only
-              field; do not set or modify its value in a POST or PUT request.
+            description: Number of times this coupon has been used. This is a read-only field; do not set or modify its value in a POST or PUT request.
             example: 0
         required:
           - id
@@ -1003,43 +919,26 @@ definitions:
           - promotion
       amount:
         type: string
-        description: >-
-          The discount to apply to an order, as either an amount or a
-          percentage. This field's usage is determined by the coupon `type`. For
-          example, a `type` of + `percentage_discount` would determine a
-          percentage here.
+        description: 'The discount to apply to an order, as either an amount or a percentage. This field''s usage is determined by the coupon `type`. For example, a `type` of + `percentage_discount` would determine a percentage here.'
         example: 5
       min_purchase:
-        description: >-
-          Specifies a minimum value that an order must have before the coupon
-          can be applied to it.
+        description: Specifies a minimum value that an order must have before the coupon can be applied to it.
         example: 25
         type: string
       expires:
-        description: >-
-          Specifies when a coupon expires. Coupons need not have an expiry date
-          – you can also control expiry via + `max_uses` or
-          `max_uses_per_customer`. If you do use this date field, the value must
-          be in <a href="http://tools.ietf.org/html/rfc2822#section-3.3"
-          target="_blank">RFC 2822</a> format.
+        description: 'Specifies when a coupon expires. Coupons need not have an expiry date – you can also control expiry via + `max_uses` or `max_uses_per_customer`. If you do use this date field, the value must be in <a href="http://tools.ietf.org/html/rfc2822#section-3.3" target="_blank">RFC 2822</a> format.'
         type: string
       enabled:
-        description: >-
-          If the coupon is enabled, this field's value is `true`; otherwise,
-          `false`.
+        description: 'If the coupon is enabled, this field''s value is `true`; otherwise, `false`.'
         example: true
         type: boolean
       code:
         type: string
-        description: >-
-          The coupon code that customers will use to receive their discounts.
-          Value must be unique.
+        description: The coupon code that customers will use to receive their discounts. Value must be unique.
         example: S2549JM0Y
       applies_to:
         type: object
-        description: >-
-          If it is not included in the PUT request, its existing value on the
-          coupon will be cleared. Also required to be set on the POST request
+        description: 'If it is not included in the PUT request, its existing value on the coupon will be cleared. Also required to be set on the POST request'
         properties:
           ids:
             type: array
@@ -1065,11 +964,7 @@ definitions:
           '':
             type: string
       shipping_methods:
-        description: >-
-          This is a list of shipping-method names. A shipping method must be
-          enabled on the store to use it with a coupon. To check which shipping
-          methods are enabled, please use the [List Shipping
-          Methods](/api/v2#list-shipping-methods) endpoint.
+        description: 'This is a list of shipping-method names. A shipping method must be enabled on the store to use it with a coupon. To check which shipping methods are enabled, please use the [List Shipping Methods](/api/v2#list-shipping-methods) endpoint.'
         type: array
         items:
           type: string
@@ -1090,9 +985,7 @@ definitions:
       content:
         type: string
         example: <p> Sale! Tuesday at 9am! </p>
-        description: >-
-          Contains the banner content. Returned as a string and includes HTML
-          formatting.
+        description: Contains the banner content. Returned as a string and includes HTML formatting.
       page:
         type: string
         description: Page the Banner is located on.
@@ -1113,26 +1006,18 @@ definitions:
         enum:
           - always
           - custom
-        description: >-
-          This specifies whether the banner should be visible during a specific
-          date range.
+        description: This specifies whether the banner should be visible during a specific date range.
       date_from:
         type: string
-        description: >-
-          If the datetype is set as 'custom’, this field specifies the date when
-          the banner should become visible on the storefront.
+        description: 'If the datetype is set as ''custom’, this field specifies the date when the banner should become visible on the storefront.'
         example: '0'
       date_to:
         type: string
-        description: >-
-          If the datetype is set as 'custom’, this field specifies the date when
-          the banner should stop being visible on the storefront.
+        description: 'If the datetype is set as ''custom’, this field specifies the date when the banner should stop being visible on the storefront.'
         example: '0'
       visible:
         type: string
-        description: >-
-          Integer value denoting whether or not the banner is visible on the
-          storefront: 1 = visible; 0 = not visible
+        description: 'Integer value denoting whether or not the banner is visible on the storefront: 1 = visible; 0 = not visible'
         example: '1'
     required:
       - name
@@ -1146,11 +1031,9 @@ definitions:
         properties:
           id:
             type: integer
-            description: >
+            description: |
               Id of the banner.
-
-              This is a READ-ONLY field; do not set or modify its value in a
-              POST or PUT request.
+              This is a READ-ONLY field; do not set or modify its value in a POST or PUT request.
             example: 1
           date_created:
             type: string
@@ -1159,9 +1042,7 @@ definitions:
             example: '1522169082'
           item_id:
             type: string
-            description: >-
-              If the banner is on a specific category or brand page then the
-              `item_id` will correspond the category or brand id.
+            description: If the banner is on a specific category or brand page then the `item_id` will correspond the category or brand id.
             example: '0'
       - $ref: '#/definitions/banner_Base'
     title: banner_Full
@@ -1171,9 +1052,7 @@ definitions:
         properties:
           item_id:
             type: string
-            description: >-
-              If the banner is on a specific category or brand page then the
-              `item_id` will correspond the category or brand id.
+            description: If the banner is on a specific category or brand page then the `item_id` will correspond the category or brand id.
             example: '0'
       - $ref: '#/definitions/banner_Base'
     title: banner_Put
@@ -1214,9 +1093,7 @@ definitions:
         properties:
           id:
             type: integer
-            description: >-
-              The ID of the gift certificate.This is a READ-ONLY field; do not
-              set or modify its value in a POST or PUT request.
+            description: The ID of the gift certificate.This is a READ-ONLY field; do not set or modify its value in a POST or PUT request.
             example: 1
           customer_id:
             type: integer
@@ -1228,16 +1105,12 @@ definitions:
             example: 116
           balance:
             type: string
-            description: >-
-              Remaining value of the gift certificate. If not set, will default
-              to the amount.
+            description: 'Remaining value of the gift certificate. If not set, will default to the amount.'
             example: '0'
           purchase_date:
             type: string
-            description: >-
-              Date the gift certificate was purchased. If not assigned, this
-              will be set to today’s date.
-            example: 'Mon, 19 Jan 1970 07:21:46 CST'
+            description: 'Date the gift certificate was purchased. Enter date in Unix timestamp format.If not assigned, this will be set to today’s date.'
+            example: '1454432829'
           expiry_date:
             type: string
             description: Date on which the gift certificate is set to expire.
@@ -1254,15 +1127,11 @@ definitions:
             example: Celebration
           message:
             type: string
-            description: >-
-              Text that will be sent to the recipient, such as
-              “Congratulations.”
+            description: 'Text that will be sent to the recipient, such as “Congratulations.”'
             example: Congratulations!
           code:
             type: string
-            description: >-
-              A unique string that the customer can input to redeem the gift
-              certificate. If this field is not set, a value will be generated.
+            description: 'A unique string that the customer can input to redeem the gift certificate. If this field is not set, a value will be generated.'
             example: FFZ-5N4-C7M-S78
           status:
             type: string
@@ -1273,6 +1142,7 @@ definitions:
               - expired
             example: active
     title: giftCertificate_Full
+    description: ''
   giftCertificate_Put:
     allOf:
       - $ref: '#/definitions/giftCertificate_Base'
@@ -1280,15 +1150,11 @@ definitions:
         properties:
           balance:
             type: string
-            description: >-
-              Remaining value of the gift certificate. If not set, will default
-              to the amount.
+            description: 'Remaining value of the gift certificate. If not set, will default to the amount.'
             example: '0'
           purchase_date:
             type: string
-            description: >-
-              Date the gift certificate was purchased. If not assigned, this
-              will be set to today’s date.
+            description: 'Date the gift certificate was purchased. If not assigned, this will be set to today’s date. Date displays in RFC-2822 format.'
             example: 'Mon, 19 Jan 1970 07:21:46 CST'
           expiry_date:
             type: string
@@ -1311,15 +1177,11 @@ definitions:
             example: Celebration
           message:
             type: string
-            description: >-
-              Text that will be sent to the recipient, such as
-              “Congratulations.”
+            description: 'Text that will be sent to the recipient, such as “Congratulations.”'
             example: Congratulations!
           code:
             type: string
-            description: >-
-              A unique string that the customer can input to redeem the gift
-              certificate. If this field is not set, a value will be generated.
+            description: 'A unique string that the customer can input to redeem the gift certificate. If this field is not set, a value will be generated.'
             example: FFZ-5N4-C7M-S78
           status:
             type: string
@@ -1337,15 +1199,11 @@ definitions:
         properties:
           balance:
             type: string
-            description: >-
-              Remaining value of the gift certificate. If not set, will default
-              to the amount.
+            description: 'Remaining value of the gift certificate. If not set, will default to the amount.'
             example: '0'
           purchase_date:
             type: string
-            description: >-
-              Date the gift certificate was purchased. If not assigned, this
-              will be set to today’s date.
+            description: 'Date the gift certificate was purchased. If not assigned, this will be set to today’s date. Date displays in RFC-2822 format.'
             example: 'Mon, 19 Jan 1970 07:21:46 CST'
           expiry_date:
             type: string
@@ -1368,15 +1226,11 @@ definitions:
             example: Celebration
           message:
             type: string
-            description: >-
-              Text that will be sent to the recipient, such as
-              “Congratulations.”
+            description: 'Text that will be sent to the recipient, such as “Congratulations.”'
             example: Congratulations!
           code:
             type: string
-            description: >-
-              A unique string that the customer can input to redeem the gift
-              certificate. If this field is not set, a value will be generated.
+            description: 'A unique string that the customer can input to redeem the gift certificate. If this field is not set, a value will be generated.'
             example: FFZ-5N4-C7M-S78
           status:
             type: string
@@ -1388,17 +1242,13 @@ definitions:
             example: active
           currency_code:
             type: string
-            description: >-
-              A currency code, following the ISO 4217 standard. The currency has
-              to exists in the store first.
+            description: |-
+              A currency code, following the ISO 4217 standard. The currency has to exists in the store first.
 
-
-              Gift Certificates can only be used if the transactional currency
-              of the cart is the same to the one defined in the gift
-              certificate. If this value is not provided, the gift certificate
-              is created using the store's default transactional currency
+              Gift Certificates can only be used if the transactional currency of the cart is the same to the one defined in the gift certificate. If this value is not provided, the gift certificate is created using the store's default transactional currency
             example: USD
     title: giftCertificate_Post
+    description: ''
 tags:
   - name: Banners
   - name: Coupons
@@ -1408,47 +1258,29 @@ securityDefinitions:
     type: apiKey
     name: X-Auth-Token
     in: header
-    description: >-
+    description: |-
       ### OAuth Scopes
-
       |  **UI Name** | **Permission** | **Parameter** |
-
       | --- | --- | --- |
-
       |  Marketing | modify | `store_v2_marketing` |
-
       |  Marketing | read-only | `store_v2_marketing_read_only` |
-
 
       ### Headers
 
-
       |Header|Parameter|Description|
-
       |-|-|-|
-
-      |`X-Auth-Token`|`access_token `|Obtained by creating an API account or
-      installing an app in a BigCommerce control panel.|
-
+      |`X-Auth-Token`|`access_token `|Obtained by creating an API account or installing an app in a BigCommerce control panel.|
 
       ### Example
 
-
       ```http
-
       GET /stores/{$$.env.store_hash}/v3/catalog/summary
-
       host: api.bigcommerce.com
-
       Content-Type: application/json
-
       X-Auth-Token: {access_token}
-
       ```
 
-
-      * For more information on Authenticating BigCommerce APIs, see:
-      [Authentication](https://developer.bigcommerce.com/api-docs/getting-started/authentication).
+      * For more information on Authenticating BigCommerce APIs, see: [Authentication](https://developer.bigcommerce.com/api-docs/getting-started/authentication).
 security:
   - X-Auth-Token: []
   - X-Auth-Client: []
