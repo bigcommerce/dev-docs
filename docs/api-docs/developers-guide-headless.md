@@ -4,6 +4,7 @@
 
 ### On this page
 - [Ways to implement headless](#ways-to-implement-headless)
+- [Storefront channels](#storefront-channels)
 - [Multisite](#multisite)
 - [Catalog Management](#catalog-management)
 - [Cart management](#cart-management)
@@ -75,6 +76,15 @@ Need to build a custom solution from scratch? Bigcommerce has APIs, SDKs, and to
 * [Process payments using the Payments API](https://developer.bigcommerce.com/api-reference/payments/payments-process-payments).
 * [Manage orders with Orders V2 and V3 APIs](https://developer.bigcommerce.com/api-docs/store-management/orders).
 * [Use webhooks to get notified when specific events occur in BigCommerce](https://developer.bigcommerce.com/api-docs/store-management/webhooks/overview).
+
+
+## Storefront channels
+
+Want to market your headless storefront as an app in BigCommerce's control panel? Use [Channels Toolkit](https://developer.bigcommerce.com/api-docs/channels/guide/channels-toolkit-reference) to install a storefront channel into [Channel Manager](https://support.bigcommerce.com/s/article/Selling-Everywhere-with-Channel-Manager) during the [single-click app](https://developer.bigcommerce.com/api-docs/apps/guide/types) installation process.
+
+![Channel Manager](https://storage.googleapis.com/bigcommerce-production-dev-center/images/channels/channels-sf-new.png "Channel Manager")
+
+[Learn how to build a storefront channel](https://developer.bigcommerce.com/api-docs/channels/tutorials/storefront).
 
 ## Multisite
 
