@@ -1109,7 +1109,7 @@ definitions:
             example: '0'
           purchase_date:
             type: string
-            description: 'Date the gift certificate was purchased. Enter date in Unix timestamp format.If not assigned, this will be set to today’s date.'
+            description: 'Date the gift certificate was purchased. If not assigned, this will be set to today’s date. Date displays in Unix timestamp format.'
             example: '1454432829'
           expiry_date:
             type: string
@@ -1143,6 +1143,23 @@ definitions:
             example: active
     title: giftCertificate_Full
     description: ''
+    x-examples:
+      example-1:
+        to_name: John Doe
+        to_email: johndoe@email.com
+        from_name: Jane Doe
+        from_email: janedoe@email.com
+        amount: '10'
+        id: 1
+        customer_id: 5
+        order_id: 116
+        balance: '0'
+        purchase_date: '1454432829'
+        expiry_date: string
+        template: Celebration
+        message: Congratulations!
+        code: FFZ-5N4-C7M-S78
+        status: active
   giftCertificate_Put:
     allOf:
       - $ref: '#/definitions/giftCertificate_Base'
@@ -1154,7 +1171,7 @@ definitions:
             example: '0'
           purchase_date:
             type: string
-            description: 'Date the gift certificate was purchased. If not assigned, this will be set to today’s date. Date displays in RFC-2822 format.'
+            description: 'Date the gift certificate was purchased. If not assigned, this will be set to today’s date. Enter date in RFC-2822 format.'
             example: 'Mon, 19 Jan 1970 07:21:46 CST'
           expiry_date:
             type: string
@@ -1203,7 +1220,7 @@ definitions:
             example: '0'
           purchase_date:
             type: string
-            description: 'Date the gift certificate was purchased. If not assigned, this will be set to today’s date. Date displays in RFC-2822 format.'
+            description: 'Date the gift certificate was purchased. If not assigned, this will be set to today’s date. Enter date in RFC-2822 format.'
             example: 'Mon, 19 Jan 1970 07:21:46 CST'
           expiry_date:
             type: string
