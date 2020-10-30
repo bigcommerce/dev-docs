@@ -24,10 +24,10 @@ To install Stencil CLI and it's dependencies on Mac, open a terminal and run the
 curl -o- https://raw.githubusercontent.com/creationix/nvm/v0.31.0/install.sh | bash
 
 # Install Stencil CLI supported version of Node.js
-nvm install 10.17
+nvm install 12
 
 # Switch to Stencil CLI supported version of Node.js:
-nvm use 10.17
+nvm use 12
 
 # Install Stencil CLI
 npm install -g @bigcommerce/stencil-cli
@@ -40,6 +40,8 @@ npm install -g @bigcommerce/stencil-cli
 <!-- theme: info -->
 
 > These instructions have been tested on **Mac OS X Yosemite**.
+
+> Refer to [Stencil CLI README.MD](https://github.com/bigcommerce/stencil-cli) for latest `node` version supported.
 
 </div>
 </div>
@@ -58,7 +60,7 @@ iex ((New-Object System.Net.WebClient).DownloadString("https://chocolatey.org/in
 choco install git
 
 # Install nvm-windows and stencil compatible node.js
-choco install nvm; nvm install 10.17; nvm use 10.17
+choco install nvm; nvm install 12; nvm use 12
 
 #####################################################################################
 # Close PowerShell and re-open as admin
@@ -113,6 +115,8 @@ npm install -g @bigcommerce/stencil-cli
 <!-- theme: info -->
 
 > These instructions have been tested successfully on **Windows 10**.
+
+> Refer to [Stencil CLI README.MD](https://github.com/bigcommerce/stencil-cli) for latest `node` version supported.
 
 
 </div>

@@ -11,7 +11,7 @@
 - [Security](#security)
 - [Troubleshooting](#troubleshooting)
 - [Tools](#tools)
-- [Resources](#resources)
+- [Related resources](#related-resources)
 
 </div>
 
@@ -214,7 +214,11 @@ Below is a collection of third-party tools that can be used to aid in the develo
 |**[ngrok](https://ngrok.com/)**               | Easily set up tunnels between `localhost` and an `ngrok` public URL to test callback requests on your machine |
 |**[Webhook Tester](https://webhook.site/#/)** | Test webhooks and other types of `HTTP` requests in your browser                                              |
 
-## Resources
+## Related resources
+
+### Articles
 * [Webhook Tutorial](https://developer.bigcommerce.com/api-docs/getting-started/webhooks/setting-up-webhooks)
 * [Webhook Events](https://developer.bigcommerce.com/api-docs/getting-started/webhooks/webhook-events)
+
+### Endpoints
 * [Webhooks Reference](https://developer.bigcommerce.com/api-reference/webhooks)

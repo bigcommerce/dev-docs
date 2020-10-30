@@ -8,7 +8,7 @@
 - [Prerequisites](#prerequisites)
 - [Enable single sign-on](#enable-single-sign-on)
 - [Troubleshooting](#troubleshooting)
-- [Additional resources](#additional-resources)
+- [Related resources](#related-resourcess)
 
 </div> 
 
@@ -213,17 +213,17 @@ To log out a customer, set the `redirect_to` field of the JWT’s payload to `/l
 ## Troubleshooting
 
 * If the clock of the server generating the “iat” claim is not synchronized, the timestamp will be out of sync and the request will fail. If your system’s time is different from the BigCommerce server time, you can use the [Get System Timestamp](https://developer.bigcommerce.com/api-reference/store-management/store-information-api/time-zone/gettime) endpoint as a source of truth.
-* The access point URL can be visited only once. The token will be invalidated after the `GET` request is made.
+* You can only visit the access point URL once. The token will be invalidated after the `GET` request is made.
 * Tokens should not be generated in advance. Instead, the app should generate the token and immediately redirect the user’s browser to the access point URL. 
 
-## Additional resources 
+## Related resources 
 
-* [API Clients](https://developer.bigcommerce.com/tools-resources)
+### Articles
 * [Authenticating BigCommerce’s REST APIs](https://developer.bigcommerce.com/api-docs/getting-started/authentication/rest-api-authentication#obtaining-store-api-credentials#obtaining-store-api-credentials)
-* [Customer Login SSO](https://developer.bigcommerce.com/api-reference/storefront/customer-login-sso)
-* [Customers V3](https://developer.bigcommerce.com/api-reference/store-management/customers-v3)
-* [Introduction to JSON Web Tokens](https://jwt.io/introduction/)
-* [Online UUID Generator](https://www.uuidgenerator.net/)
 * [BigCommerce APIs Quick Start](https://developer.bigcommerce.com/api-docs/getting-started/making-requests)
 * [Store API Accounts](https://support.bigcommerce.com/articles/Public/Store-API-Accounts/)
-* [Unix Time](https://en.wikipedia.org/wiki/Unix_time)
+* [Introduction to JSON Web Tokens](https://jwt.io/introduction/)
+
+### Endpoints
+* [Customer Login SSO](https://developer.bigcommerce.com/api-reference/storefront/customer-login-sso)
+* [Customers V3](https://developer.bigcommerce.com/api-reference/store-management/customers-v3)
