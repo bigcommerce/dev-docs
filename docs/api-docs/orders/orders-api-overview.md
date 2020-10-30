@@ -16,7 +16,7 @@
 - [Handling refunds](#handling-refunds)
 - [Calculating totals](#calculating-totals)
 - [FAQ](#faq)
-- [Resources](#resources)
+- [Related resources](#related-resources)
 
 </div>
 
@@ -655,28 +655,19 @@ You can either process payment through a third party or using the control panel.
 
 Not at this time. If an order is created either in the control panel or via API, it returns a 204 when trying to get a Shipping Quote.
 
-## Resources
+## Related resources
 
-### Webhooks
-
-- [Orders](/api-docs/getting-started/webhooks/webhook-events#webhook-events_orders)
-
-### Related endpoints
-
-- [Storefront Orders](https://developer.bigcommerce.com/api-reference/cart-checkout/storefront-orders)
-- [Order Refunds](https://developer.bigcommerce.com/api-reference/store-management/order-transactions/order-refunds)
-- [Orders](https://developer.bigcommerce.com/api-reference/orders/orders-api/orders/)
-- [Order Shipments](/api-reference/orders/orders-api/order-shipments/createordershipments)
-- [Order Status](/api-reference/orders/orders-api/order-status/getaorderstatus)
-- [Shipping Quotes](/api-reference/orders/orders-api/order-shipping-addresses-quotes/getshippingquotes)
-- [Order Products](/api-reference/orders/orders-api/order-products/getanorderproduct)
-- [Order Shipping Address](/api-reference/orders/orders-api/order-shipping-addresses/getashippingaddress)
-- [Order Coupons](/api-reference/orders/orders-api/order-coupons/getallordercoupons)
-- [Order Transactions](https://developer.bigcommerce.com/api-reference/store-management/order-transactions/transactions)
-
-### Related articles
-
+### Articles
 - [Payments API Overview](https://developer.bigcommerce.com/api-docs/payments/payments-api-overview)
 - [Order Refunds](https://developer.bigcommerce.com/api-docs/orders/payment-actions)
-- [Order Statuses](https://support.bigcommerce.com/s/article/Order-Statuses) (Help Center)
-- [Order Notifications](https://support.bigcommerce.com/s/article/Customer-Order-Notifications#enable) (Help Center)
+- [Order Statuses](https://support.bigcommerce.com/s/article/Order-Statuses)
+- [Order Notifications](https://support.bigcommerce.com/s/article/Customer-Order-Notifications)
+
+### Endpoints
+- [Storefront Orders](https://developer.bigcommerce.com/api-reference/cart-checkout/storefront-orders)
+- [Orders v2](https://developer.bigcommerce.com/api-reference/store-management/orders)
+- [Orders v3](https://developer.bigcommerce.com/api-reference/store-management/order-transactions)
+
+### Webhooks
+- [Orders](/api-docs/getting-started/webhooks/webhook-events#webhook-events_orders)
+

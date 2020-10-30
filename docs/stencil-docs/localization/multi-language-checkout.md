@@ -19,6 +19,17 @@ In the Stencil's Cornerstone theme, the [Optimized Checkout](https://github.com/
 
 The following example shows how to use the `{{lang}}` statement in the header of the [default checkout page](https://github.com/bigcommerce/cornerstone/blob/master/templates/pages/checkout.html): 
 
+<div class="HubBlock-header">
+    <div class="HubBlock-header-title flex items-center">
+        <div class="HubBlock-header-name">{{lang}} statement in page header</div>
+</div>
+
+<!--
+title: "checkout.html"
+subtitle: "{{lang}} statement in page header"
+lineNumbers: true
+-->
+
 ```html
 {{#partial "head"}}
 
@@ -37,7 +48,7 @@ The following example shows how to use the `{{lang}}` statement in the header of
 {{#partial "page"}}
 <header class="checkoutHeader optimizedCheckout-header">
     <div class="checkoutHeader-content">
-        <h1 class="is-srOnly">{{lang 'checkout.title'}}</h1>
+        <h1 class="is-srOnly">{{lang 'checkout.title'}}
         <h2 class="checkoutHeader-heading">
             <a class="checkoutHeader-link" href="{{urls.home}}">
                 {{#if checkout.header_image}}
@@ -119,6 +130,13 @@ BigCommerce's Optimized One-Page Checkout will currently translate displayed **C
 | Chinese Traditional | `zh.json` |
 
 3. We recommend that you populate your JSON file with the checkout-specific keys-values covered in [Adding your own translation values](#adding-your-own-translation-values). It is not mandatory to translate the drop-down lists, but it is necessary to provide a consistent translation of the surrounding **Address** sections. You do not need to provide any keys-values for the **Country/State** names, whose translations already exist within the BigCommerce platform.
+4. As with the translation options described above, the storefront will automatically display the translated **Country/State** names to visitors who have selected one of the supported languages in their browser's locale preferences.
+
+## Limits on translation
+
+* The translation of your theme's content consists of the language JSON files in your `lang` subdirectory and the key-value pairs for the parameters (beyond **Country/State**) that you choose to translate.
+* Stencil's multi-language capabilities are limited to the strings that you specify within the theme. The Stencil framework does not currently translate content rendered from a store's database; for example, products' names.
+
 4. As with the translation options described above, the storefront will automatically display the translated **Country/State** names to visitors who have selected one of the supported languages in their browser's locale preferences.
 
 ## Limits on translation

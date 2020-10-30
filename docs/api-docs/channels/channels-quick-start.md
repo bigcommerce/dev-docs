@@ -6,7 +6,7 @@
 
 - [Create a channel](#create-a-channel)
 - [Create a channel with navigation](#create-a-channel-with-navigation)
-- [Resources](#resources)
+- [Related resources](#related-resources)
 
 </div>
 
@@ -115,9 +115,12 @@ Accept: application/json
 > ### Note
 > * For additional information on [channel](https://developer.bigcommerce.com/api-reference/cart-checkout/channels-listings-api/channels) `config_meta` properties, see the [create a channel request body schema](https://developer.bigcommerce.com/api-reference/cart-checkout/channels-listings-api/channels/createchannel#request-body).
 
-## Resources
+## Related resources
 
+### Articles
 * [Channels Overview](https://developer.bigcommerce.com/api-docs/channels/overview)
-* [Channels API Reference](https://developer.bigcommerce.com/api-reference/cart-checkout/channels-listings-api)
 * [Find an App's ID](https://developer.bigcommerce.com/api-docs/apps/tutorials/id)
 * [Build a Storefront Channel](https://developer.bigcommerce.com/api-docs/channels/tutorials/storefront)
+
+### Endpoints
+* [Channels API Reference](https://developer.bigcommerce.com/api-reference/cart-checkout/channels-listings-api)

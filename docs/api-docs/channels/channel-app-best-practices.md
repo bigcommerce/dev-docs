@@ -8,7 +8,7 @@
 - [Syncing](#syncing)
 - [Performance](#performance)
 - [Logging](#logging)
-- [Resources](#resources)
+- [Related resources](#related-resources)
 
 </div>
 
@@ -67,19 +67,19 @@ POS ID, BC ID, EVENT
 
 These logs would provide more granular details on the event that took place and all affected products.
 
-## Resources
+## Related resources
 
-### Channels
-* [Channels Toolkit Reference](https://developer.bigcommerce.com/api-docs/channels-toolkit-reference)
+### Articles
 * [Channels Overview](https://developer.bigcommerce.com/api-docs/channels/channels-overview)
-* [Channels Sample App](https://github.com/bigcommerce/channels-app)
-* [Big Design Component Library](https://developer.bigcommerce.com/big-design/?path=/story/badge--overview)
+* [Channels Toolkit Reference](https://developer.bigcommerce.com/api-docs/channels-toolkit-reference)
 * [Channel App Best Practices](https://developer.bigcommerce.com/api-docs/getting-started/best-practices)
-* [Sell Everywhere with Channel Manager](https://support.bigcommerce.com/s/article/Selling-Everywhere-with-Channel-Manager)
-
-### Building Apps
 * [Becoming a Partner](https://developer.bigcommerce.com/api-docs/partner/becoming-a-partner)
-* [Types of Apps](https://developer.bigcommerce.com/api-docs/getting-started/building-apps-bigcommerce/types-of-apps)
 * [Authenticating BigCommerce's REST APIs](https://developer.bigcommerce.com/api-docs/getting-started/authentication/rest-api-authentication)
+* [Types of Apps](https://developer.bigcommerce.com/api-docs/getting-started/building-apps-bigcommerce/types-of-apps)
 * [Building an App](https://developer.bigcommerce.com/api-docs/getting-started/building-apps-bigcommerce/building-apps)
 * [App Store Approval Requirements](https://developer.bigcommerce.com/api-docs/partner/app-store-approval-requirements)
+* [BigDesign Component Library](https://developer.bigcommerce.com/big-design/?path=/story/badge--overview)
+* [Sell Everywhere with Channel Manager](https://support.bigcommerce.com/s/article/Selling-Everywhere-with-Channel-Manager)
+
+### Tools
+* [Channels Sample App](https://github.com/bigcommerce/channels-app)

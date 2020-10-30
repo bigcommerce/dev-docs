@@ -10,7 +10,7 @@
 - [Storefront settings](#storefront-settings)
 - [Currencies settings](#currencies-settings)
 - [Notification settings](#notification-settings)
-- [Resources](#resources)
+- [Related resources](#related-resources)
 
 </div>
 
@@ -164,7 +164,7 @@ Content-Type: application/json
 Accept: application/json
 
 {
-  "name": "Dog US",
+  "name": "Custom PWA Storefront",
   ...
   "config_meta": {
     "app": {
@@ -191,10 +191,6 @@ Accept: application/json
   }
 }
 ```
-
-Included protected sections display above custom sections.
-
-![Protected Sections](https://storage.googleapis.com/bigcommerce-production-dev-center/images/channels/channels-sf-protected-custom-settings.png "Protected Sections")
 
 <div class="HubBlock--callout">
 <div class="CalloutBlock--warning">
@@ -282,10 +278,13 @@ Include the `Notifications` [protected section](#protected-ui-sections) in the c
 
 ![Channel Notification Settings](https://storage.googleapis.com/bigcommerce-production-dev-center/images/channels/channels-sf-notifications-small.png "Channel Notification Settings")
 
-## Resources
+## Related resources
 
+### Articles
 * [Building Apps](https://developer.bigcommerce.com/api-docs/apps/guide/intro)
 * [Building Channels](https://developer.bigcommerce.com/api-docs/channels/guide/overview)
+* [Find an App's ID](https://developer.bigcommerce.com/api-docs/apps/tutorials/id)
+
+### Endpoints
 * [Channels API Reference](https://developer.bigcommerce.com/api-reference/cart-checkout/channels-listings-api)
 * [Settings API Reference](https://developer.bigcommerce.com/api-reference/store-management/settings)
-* [Find an App's ID](https://developer.bigcommerce.com/api-docs/apps/tutorials/id)

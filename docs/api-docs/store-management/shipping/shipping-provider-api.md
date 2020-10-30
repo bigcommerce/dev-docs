@@ -15,7 +15,7 @@
 - [App diagram](#app-diagram)
 - [Definitions](#definitions)
 - [FAQ](#faq)
-- [Resources](#resources)
+- [Related resources](#related-resources)
 
 </div>
 
@@ -493,13 +493,16 @@ Only one registered shipping carrier may be associated with an app. This [regist
 
 No, you can only publish one app at a time. The others can be for use as testing or as private apps.
 
-## Resources
-### Webhooks
-- [Shipping](/api-docs/getting-started/webhooks/webhook-events#webhook-events_shipment)
-### Related endpoints
+## Related resources
+
+### Articles
+- [App Store Approval Requirements](https://developer.bigcommerce.com/api-docs/partner/app-store-approval-requirements)
+
+### Endpoints
 - [Shipping Provider](/api-reference/store-management/shipping-provider-api)
 - [Shipping Zones](/api-reference/store-management/shipping-api/shipping-zones)
 - [Shipping Methods](/api-reference/store-management/shipping-api/shipping-method)
 - [Shipping Carriers](/api-reference/store-management/shipping-api/shipping-carrier)
-### Related articles
-- [App Store Approval Requirements](https://developer.bigcommerce.com/api-docs/partner/app-store-approval-requirements)
+
+### Webhooks
+- [Shipping](/api-docs/getting-started/webhooks/webhook-events#webhook-events_shipment)

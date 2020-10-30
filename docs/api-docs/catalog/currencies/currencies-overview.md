@@ -10,7 +10,7 @@
 - [Supported and unsupported features](#supported-and-unsupported-features)
 - [Multi-currency definitions](#multi-currency-definitions)
 - [FAQ](#faq)
-- [Resources](#resources)
+- [Related resources](#related-resources)
 
 </div>
 
@@ -161,18 +161,16 @@ Analytics shows an approximate price in the store's default currency. This is ba
 Please reach out to Stripe for more information on setting up the account.
 [Supported Settlement Currencies](https://stripe.com/docs/connect/payouts#supported-settlement) (Stripe Documentation)
 
-## Resources
+## Related resources
 
-<a id="resources"></a>
-
+### Articles
 - [How Currencies Works](https://developer.bigcommerce.com/api-docs/catalog/currencies/how-currencies-work)
+- [Using Price Lists](https://support.bigcommerce.com/s/article/Price-Lists)
+- [Managing Currencies](https://support.bigcommerce.com/s/article/Managing-Currencies-Beta)
+- [Tax](https://support.bigcommerce.com/s/article/Manual-Tax-Setup#intro1) 
+- [Supported Currencies](https://stripe.com/docs/currencies)
+- [Supported Settlement Currencies](https://stripe.com/docs/connect/payouts#supported-settlement)
+
+### Endpoints
 - [Currency API](https://developer.bigcommerce.com/api-reference/store-management/currency-api)
 - [Price List API](https://developer.bigcommerce.com/api-reference/catalog/pricelists-api)
-- [Using Price Lists](https://support.bigcommerce.com/s/article/Price-Lists) (BigCommerce Knowledge Base)
-- [Managing Currencies](https://support.bigcommerce.com/s/article/Managing-Currencies-Beta) (BigCommerce Knowledge Base)
-- [Tax](https://support.bigcommerce.com/s/article/Manual-Tax-Setup#intro1) (BigCommerce Knowledge Base)
-
-### Additional resources
-
-- [Supported Currencies](https://stripe.com/docs/currencies) (Stripe Documentation)
-- [Supported Settlement Currencies](https://stripe.com/docs/connect/payouts#supported-settlement) (Stripe Documentation)

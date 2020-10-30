@@ -9,7 +9,7 @@
 - [Offline order refunds](#offline-order-refunds)
 - [FAQ](#faq)
 - [Troubleshooting](#troubleshooting)
-- [Resources](#resources)
+- [Related resources](#related-resources)
 
 </div>
 
@@ -224,11 +224,14 @@ No, you cannot return items to inventory that you refunded via API. You can eith
 
 * You must receive payment of the order before you can issue a refund.
 * If you use a payment gateway, it must support refunds. For a list of payment gateways that support refunds through BigCommerce, see the Supported Payment Gateways section in [Processing Refunds](https://support.bigcommerce.com/s/article/Processing-Refunds#payment-gateways).
-* If you use a payment gateway, you must settle payments. Some gateways require a certain amount of time to pass before refunds can be processed.
+* If you use a payment gateway, you must settle payments. Some gateways require a certain amount of time to pass before you can process refunds.
 
-## Resources
+## Related resources
 
+### Articles
 * [Orders Overview](https://developer.bigcommerce.com/api-docs/store-management/orders)
+* [Order Webhook Events](https://developer.bigcommerce.com/api-docs/store-management/webhooks/events#orders)
+
+### Endpoints
 * [Orders V2 Reference](https://developer.bigcommerce.com/api-reference/orders/orders-api)
 * [Orders V3 Reference](https://developer.bigcommerce.com/api-reference/orders/orders-transactions-api)
-* [Order Webhook Events](https://developer.bigcommerce.com/api-docs/store-management/webhooks/events#orders)
