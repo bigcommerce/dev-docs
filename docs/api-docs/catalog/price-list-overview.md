@@ -7,7 +7,7 @@
 - [Price list definitions](#price-list-definitions)
 - [Price list assignments](#price-list-assignments)
 - [Price list notes](#price-list-notes)      
-- [Price list resources](#price-list-resources)
+- [Related resources](#related-resources)
 
        
 </div>
@@ -163,14 +163,12 @@ See [Channels, Sites, and Routes](https://developer.bigcommerce.com/api-referenc
 
 - `Price Lists Records` accepts bulk upsert. You can only do one [Bulk upsert](https://developer.bigcommerce.com/api-reference/catalog/pricelists-api/price-lists-records/setpricelistrecordcollection) at a time. Running more than one in parallel on the **same store** will cause a 429 error, and the request will fail.
 
+## Related resources
 
-## Price List resources
-
-### Related endpoints
+### Endpoints
 * [Get Price List Collection](/api-reference/catalog/pricelists-api/price-lists/getpricelistcollection)
 
-### Webhooks available
-
+### Webhooks
 There are no direct webhooks available for Price Lists. Since Price Lists directly relate to products, webhooks related to products will fire for corresponding changes such as pricing.
 
 * [Products](/api-docs/getting-started/webhooks/webhook-events#webhook-events_products)

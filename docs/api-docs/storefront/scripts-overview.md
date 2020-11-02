@@ -1,14 +1,17 @@
 # Scripts API
+
 <div class="otp" id="no-index">
-	<h3> On this page </h3>
-	<ul>
-    	<li><a href="#scripts_script-manager-partner-guidelines">Script Manager API partner guidelines</a></li>
-        <li><a href="#script_prerequisites">Prerequisites</a></li>
-        <li><a href="#scripts_upgrades-installation">Upgrades and installation</a></li>
-        <li><a href="#scripts_fixing-missing-scripts">Fixing missing scripts</a></li>
-        <li><a href="#scripts_scripts-notes">Notes</a></li>
-        <li><a href="#scripts_scripts-visibility">Visibility locations </a></li>
-	</ul>
+
+### On this page
+
+- [Script Manager API partner guidelines](#script-manager-api-partner-guidelines)
+- [Prerequisites](#prerequisites)
+- [Upgrades and installation](#upgrades-and-installation)
+- [Fixing missing scripts](#fixing-missing-scripts)
+- [Notes](#notes)
+- [Script visibility locations](#script-visibility-locations)
+- [Related resources](#related-resources)
+
 </div>
 
 The BigCommerce Scripts API gives developers the ability to inject scripts into a store's template files programmatically. This ability means that apps and integrations can insert scripts into a user’s storefront without requiring the user to paste a snippet of code into their control panel manually. You can insert many types of scripts using this API, including the following:
@@ -144,8 +147,7 @@ Scripts can not be injected to:
 - giftcertificates.php
 - sitemap.php
 
+## Related resources
 
-## Resources
-
-## Related Endpoints
+### Endpoints
 * [Scripts](/api-reference/content/content-scripts-api)

@@ -8,7 +8,7 @@
 - [Storefront Cart](#storefront-cart)
 - [Storefront Checkout](#storefront-checkout)
 - [Troubleshooting](#troubleshooting)
-- [Resources](#resources)
+- [Related resources](#related-resources)
 
 </div>
 
@@ -1052,11 +1052,11 @@ Response:
 Make sure you have at least one item in your cart. Removing all items deletes the cart and returns a 404 error.
 
 
-## Resources
+## Related resources
 
-### Related endpoints
+### Articles
+- [Let’s Talk About CORS](https://medium.com/bigcommerce-developer-blog/lets-talk-about-cors-84800c726919)
+
+### Endpoints
 - [Storefront Cart](/api-reference/cart-checkout/storefront-cart-api)
 - [Storefront Checkout](/api-reference/cart-checkout/storefront-checkout-api)
-
-### Related articles
-- [Let’s Talk About CORS](https://medium.com/bigcommerce-developer-blog/lets-talk-about-cors-84800c726919) (Developer Blog)

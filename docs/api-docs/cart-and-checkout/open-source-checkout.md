@@ -8,7 +8,7 @@
 - [Obtaining the JavaScript loader file](#obtaining-the-javascript-loader-file)
 - [Hosting a custom checkout](#hosting-a-custom-checkout)
 - [Installing custom checkouts](#installing-custom-checkouts)
-- [Additional resources](#additional-resources)
+- [Related resources](#related-resources)
 
 </div>
 
@@ -58,8 +58,8 @@ You can upload a custom checkout to your store's server using WebDAV. The instru
 1. Before proceeding ensure you have downloaded [Cyberduck](https://cyberduck.io/), our recommended WebDAV client.
 **Note:**  For more information on how to use Cyberduck, refer to the [File Access (WebDAV)](https://support.bigcommerce.com/s/article/File-Access-WebDAV) page.
 2. From your store control panel, navigate to **Server Settings** > **File Access (WebDAV)**.
-    *  To automatically connect with Cyberduck, see [Single-click Login](https://support.bigcommerce.com/s/article/File-Access-WebDAV#login).
-    *  To manually connect with Cyberduck, see [Connecting with Cyberduck Manually](https://support.bigcommerce.com/s/article/File-Access-WebDAV#manual).
+    * To automatically connect with Cyberduck, see [Single-click Login](https://support.bigcommerce.com/s/article/File-Access-WebDAV#login).
+    * To manually connect with Cyberduck, see [Connecting with Cyberduck Manually](https://support.bigcommerce.com/s/article/File-Access-WebDAV#manual).
 3. From Cyberduck, enter the `/content` folder and create a new folder named *checkout*.
 4. Navigate into the `/dist` folder in your checkout project.
 5. Copy the contents of the `/dist` folder and paste it into the checkout folder.
@@ -81,6 +81,8 @@ To install a custom checkout on a store, follow these steps:
 4. Click the **Save** button at the bottom of the page.
 5. Navigate to your live storefront to view your new custom checkout.
 
-## Additional resources
+## Related resources
+
+### Articles
 - [Checkout SDK](https://developer.bigcommerce.com/stencil-docs/customizing-checkout/checkout-sdk)
 - [File Access (WebDav)](https://support.bigcommerce.com/s/article/File-Access-WebDAV)

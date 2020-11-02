@@ -14,16 +14,16 @@
 - [Differences between V2 and V3 Customer API](#differences-between-v2-and-v3-customer-api)
 - [Subscribers API](#subscribers-api)
 - [FAQ](#faq)
-- [Resources](#resources)
+- [Related resources](#related-resources)
 
 </div> 
 
 ## OAuth scopes
 
-| Name | Permission |
-| -- | -- | 
-| Customers | view/modify |
-| Customers | read-only |
+| Name | Permission | Parameter |
+| -- | -- | -- |
+| Customers | modify | `store_v2_customers` |
+| Customers | read-only | `store_v2_customers_read_only` |
 
 For more information on available authentication methods, see [Authentication](https://developer.bigcommerce.com/api-docs/getting-started/authentication).
 
@@ -219,12 +219,14 @@ Use the V3 Customers API when possible as we will eventually begin the process o
 
 Password validation is only available on V2 Customers API. Validation will return a boolean. The V3 Customers API can reset a customer's password or input a new password. 
 
-## Resources
+## Related resources
 
-### Webhooks
-- [Customers](https://developer.bigcommerce.com/api-docs/getting-started/webhooks/webhook-events#webhook-events_customer)
+### Articles
+- [Adding and Editing Fields in the Account Signup Form](https://support.bigcommerce.com/s/article/Editing-Form-Fields#account-fields)
+- [Checkout Settings](https://support.bigcommerce.com/s/article/Checkout-Settings#checkout-settings)
+- [Storefront Subscriptions](https://developer.bigcommerce.com/api-reference/storefront/storefront-subscriptions)
 
-### Related endpoints
+### Endpoints
 - [Customer Login API](https://developer.bigcommerce.com/api-docs/customers/customer-login-api)
 - [Current Customer API](https://developer.bigcommerce.com/api-docs/customers/current-customer-api)
 - [Customers API](https://developer.bigcommerce.com/api-reference/customer-subscribers/v3-customers-api)
@@ -233,7 +235,6 @@ Password validation is only available on V2 Customers API. Validation will retur
 - [Password Confirmation](https://developer.bigcommerce.com/api-reference/customer-subscribers/customers-api/customers/createanewcustomer) (Customer V2 API)
 - [Subscribers API](https://developer.bigcommerce.com/api-reference/customer-subscribers/subscribers-api)
 
-### Related articles
-- [Adding and Editing Fields in the Account Signup Form](https://support.bigcommerce.com/s/article/Editing-Form-Fields#account-fields) (Knowledge Base)
-- [Checkout Settings](https://support.bigcommerce.com/s/article/Checkout-Settings#checkout-settings) (Knowledge Base)
-- [Storefront Subscriptions](https://developer.bigcommerce.com/api-reference/storefront/storefront-subscriptions)
+### Webhooks
+- [Customers](https://developer.bigcommerce.com/api-docs/getting-started/webhooks/webhook-events#webhook-events_customer)
+
