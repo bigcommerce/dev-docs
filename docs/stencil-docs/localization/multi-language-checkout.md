@@ -62,7 +62,7 @@ The following example shows how to use the `{{lang}}` statement in the header of
 ## Browsing hidden translation keys
 BigCommerce exposes only part of the checkout page's structure through the local checkout template. For security purposes, and to offer all stores new checkout features simultaneously, most checkout content is hidden.
 
-This hidden content includes additional key-value pairs that support translation. You can see all the available keys with their default English-language values in the [Optimized Checkout](https://storage.googleapis.com/bigcommerce-production-dev-center/template-files/opt-checkout-en.json.zip) JSON file.
+This hidden content includes additional key-value pairs that support translation. You can see all the available keys with their default English-language values in the [Optimized Checkout](https://github.com/bigcommerce/checkout-js/blob/master/src/app/locale/translations/en.json) JSON file.
 
 ## Adding your own translation values
 
