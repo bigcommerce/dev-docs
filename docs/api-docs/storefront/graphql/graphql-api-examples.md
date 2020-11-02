@@ -7,7 +7,7 @@
 - [Get a customer's details](#get-a-customers-details)
 - [Get first three levels of category tree](#get-first-three-levels-of-category-tree)
 - [Get category and children by URL](#get-category-and-children-by-url)
-- [Get objects by URL](#get-objects-by-url)
+- [Look up an object by URL](#look-up-an-object-by-url)
 - [Get product images at different resolutions](#get-product-images-at-different-resolutions)
 - [Get a product](#get-a-product)
 - [Get variant details as a product object](#get-variant-details-as-a-product-object)
@@ -72,7 +72,7 @@ fragment CategoryFields on CategoryTreeItem {
 
 <a href="https://developer.bigcommerce.com/graphql?playground_tab=categoryTree" target="_blank">**Try it in GraphQL Playground**</a>
 
-## Get category and children by URL
+## Get category and products within by URL
 
 ```javascript
 query CategoryByUrl {
@@ -127,7 +127,7 @@ fragment PriceFields on Money {
 
 <a href="https://developer.bigcommerce.com/graphql?playground_tab=categoriesByUrl" target="_blank">**Try it in GraphQL Playground**</a>
 
-## Get objects by URL
+## Look up an object by URL
 
 ```js
 query LookUpUrl {
@@ -284,17 +284,19 @@ query SeveralProductsByID {
       edges {
         node {
           name
-          options {
+          productOptions {
             edges {
               node {
                 entityId
                 displayName
                 isRequired
-                values {
-                  edges {
-                    node {
-                      entityId
-                      label
+                ... on MultipleChoiceOption {
+                  values {
+                    edges {
+                      node {
+                        entityId
+                        label
+                      }
                     }
                   }
                 }
@@ -342,7 +344,6 @@ fragment ProductFields on Product {
     url(width: 1000)
   }
   sku
-  availability
 }
 ```
 
