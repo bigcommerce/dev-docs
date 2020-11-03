@@ -6,7 +6,7 @@
 
 - [Get a customer's details](#get-a-customers-details)
 - [Get first three levels of category tree](#get-first-three-levels-of-category-tree)
-- [Get category and children by URL](#get-category-and-children-by-url)
+- [Get category and products by URL](#get-category-and-products-within-by-url)
 - [Look up an object by URL](#look-up-an-object-by-url)
 - [Get product images at different resolutions](#get-product-images-at-different-resolutions)
 - [Get a product](#get-a-product)
