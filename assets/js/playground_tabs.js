@@ -9,12 +9,378 @@
  * tabs.get("customerDetails");
  * */
 
+var paginateProductsQuery = 
+`# Get a few products from the catalog
+query paginateProducts(
+  $pageSize: Int = 3
+  $cursor: String
+  # Use GraphQL variables to change the page size, or inject the endCursor as "cursor"
+  # to go to the next page!
+) {
+  site {
+    products (first: $pageSize, after:$cursor) {
+      pageInfo {
+        startCursor
+        endCursor
+      }
+      edges {
+        cursor
+        node {
+          entityId 
+          name
+        }
+      }
+    }
+  }
+}`
+
+var categoryTreeQuery = 
+`# Explicitly fetch the first 3 levels of the category tree,
+# and get a few fields on each category
+query CategoryTree3LevelsDeep {
+  site {
+    categoryTree {
+      ...CategoryFields
+      children {
+        ...CategoryFields
+        children {
+          ...CategoryFields
+        }
+      }
+    }
+  }
+}
+
+fragment CategoryFields on CategoryTreeItem {
+  name
+  path
+  entityId
+}`
+
+var lookUpUrlQuery = 
+`# Given a URL path, look it up to see if it matches a Product, Brand, or Category,
+# and fetch details about that object
+query LookUpUrl(
+  $urlPath: String!
+  # Use GraphQL Query Variables to provide a path
+) {
+  site {
+    route(path: $urlPath) {
+      node {
+        __typename
+        id
+        # A different response is returned based on which type of object was matched
+        ... on Category {
+          name
+          description
+        }
+        ... on Brand {
+          name
+          defaultImage {
+            url(width: 200)
+          }
+        }
+        ... on Product {
+          name
+          description
+          images {
+            edges {
+              node {
+                url(width: 500, height: 500)
+              }
+            }
+          }
+        }
+      }
+    }
+  }
+}`
+
+var singleProductQuery = 
+`# Fetch details about a product by its ID
+query productById(
+  $productId: Int! 
+  # Use GraphQL Query Variables to inject your product ID
+) {
+  site {
+    product(entityId: $productId) {
+      id
+      entityId
+      name
+      plainTextDescription
+      defaultImage {
+        ...ImageFields
+      }
+      images {
+        edges {
+          node {
+            ...ImageFields
+          }
+        }
+      }
+      reviewSummary {
+        summationOfRatings
+        numberOfReviews
+      }
+      prices {
+        price {
+          ...MoneyFields
+        }
+        priceRange {
+          min {
+            ...MoneyFields
+          }
+          max {
+            ...MoneyFields
+          }
+        }
+        salePrice {
+          ...MoneyFields
+        }
+        retailPrice {
+          ...MoneyFields
+        }
+        saved {
+          ...MoneyFields
+        }
+        bulkPricing {
+          minimumQuantity
+          maximumQuantity
+          ... on BulkPricingFixedPriceDiscount {
+            price
+          }
+          ... on BulkPricingPercentageDiscount {
+            percentOff
+          }
+          ... on BulkPricingRelativePriceDiscount {
+            priceAdjustment
+          }
+        }
+      }
+      brand {
+        name
+      }
+    }
+  }
+}
+
+fragment ImageFields on Image {
+  url320wide: url(width: 320)
+  url640wide: url(width: 640)
+  url960wide: url(width: 960)
+  url1280wide: url(width: 1280)
+}
+
+fragment MoneyFields on Money {
+  value
+  currencyCode
+}
+`
+
+var singleVariantQuery =
+`# Get a particular Product Variant by its SKU code
+# This will return variant-level information where relevant,
+# and the base product information otherwise
+query VariantById (
+  $variantSku: String!
+  # Use GraphQL Query Variables to inject your variant ID
+) {
+  site {
+    product(sku: $variantSku) {
+      name
+      sku
+      defaultImage {
+        url(width: 500, height: 500)
+      }
+      prices {
+        price {
+          ...PriceFields
+        }
+        salePrice {
+          ...PriceFields
+        }
+        retailPrice {
+          ...PriceFields
+        }
+      }
+      width {
+        ...DimensionFields
+      }
+      height {
+        ...DimensionFields
+      }
+      depth {
+        ...DimensionFields
+      }
+    }
+  }
+}
+fragment PriceFields on Money {
+  value
+  currencyCode
+}
+fragment DimensionFields on Measurement {
+  value
+  unit
+}`
+
+var extendedProductQuery =
+`# Get extended information (options, variants) for several products with a list of IDs
+query ExtendedProductsById(
+  $productIds: [Int!] 
+  # Use GraphQL Query Variables to inject your product IDs
+) {
+  site {
+    products(entityIds: $productIds, first: 5) {
+      edges {
+        node {
+          name
+          variants(first: 25) {
+            edges {
+              node {
+                sku
+                defaultImage {
+                  url(width: 1000)
+                }
+              }
+            }
+          }
+          productOptions(first: 5) {
+            edges {
+              node {
+                entityId
+                displayName
+                isRequired
+                ... on CheckboxOption {
+                  checkedByDefault
+                }
+                ... on MultipleChoiceOption {
+                  values(first: 10) {
+                    edges {
+                      node {
+                        entityId
+                        label
+                        isDefault
+                        ... on SwatchOptionValue {
+                          hexColors
+                          imageUrl(width: 200)
+                        }
+                      }
+                    }
+                  }
+                }
+              }
+            }
+          }
+        }
+      }
+    }
+  }
+}
+`
+
+var refinedProductQuery =
+`# Get a refined version of a product by applying some option selections to it,
+# via their IDs.
+# This will return an updated version of the product information with these selections
+# factored in, which may affect the SKU, Prices, Image, or other details based on the
+# catalog configuration of the store.
+query ProductsWithOptionSelections (
+  $productId: Int!,
+  $optionValueIds: [OptionValueId!]
+  # Use GraphQL Query Variables to inject your product ID 
+  # and Option Value IDs
+) {
+  site {
+    productWithSelectedOptions: product(
+      entityId: $productId
+      optionValueIds: $optionValueIds
+    ) {
+      ...ProductFields
+    }
+  }
+}
+
+fragment ProductFields on Product {
+  name
+  defaultImage {
+    url(width: 1000)
+  }
+  sku
+  availabilityV2 {
+    status
+  }
+}`
+
+var refinedProductQueryVariables =
+`{
+  "productId": 123,
+  "optionValueIds": [
+    {
+      "optionEntityId": 4,
+      "valueEntityId": 543
+    },
+    {
+      "optionEntityId": 5,
+      "valueEntityId": 443
+    }
+  ]
+}`
+
+var metafieldsQuery = 
+`# Access metafields attached to products, brands, categories, or variants
+# Adjust this query with your metafield namespace and key(s) to access them
+query metafields {
+  site {
+    products(first: 3) {
+      edges {
+        cursor
+        node {
+          metafields(
+            namespace: "my-namespace"
+            keys: ["my-key", "my-other-key"]
+            first: 2
+          ) {
+            edges {
+              node {
+                key
+                id
+                value
+              }
+            }
+          }
+          variants(first: 5) {
+            edges {
+              node {
+                sku
+                metafields(
+                  namespace: "my-namespace"
+                  keys: ["my-key", "my-other-key"]
+                  first: 2
+                ) {
+                  edges {
+                    node {
+                      key
+                      id
+                      value
+                    }
+                  }
+                }
+              }
+            }
+          }
+        }
+      }
+    }
+  }
+}`
+
 var playgroundTabs = function(endpoint, authHeader){
     var predefined = {
         firstThreeProducts: {
-            name: "1st 3 Products",
+            name: "Paginate products",
             endpoint: endpoint,
-            query: "query paginateProducts {\r\n  site {\r\n    products (first: 3) {\r\n      pageInfo {\r\n        startCursor\r\n        endCursor\r\n      }\r\n      edges {\r\n        cursor\r\n        node {\r\n          entityId \r\n          name\r\n        }\r\n      }\r\n    }\r\n  }\r\n}",
+            query: paginateProductsQuery,
             headers: {
                 Authorization: authHeader
             },
@@ -22,15 +388,7 @@ var playgroundTabs = function(endpoint, authHeader){
         categoryTree: {
             name: "Category Tree",
             endpoint: endpoint,
-            query: "query CategoryTree3LevelsDeep {\r\n  site {\r\n    categoryTree {\r\n      ...CategoryFields\r\n      children {\r\n        ...CategoryFields\r\n        children {\r\n          ...CategoryFields\r\n        }\r\n      }\r\n    }\r\n  }\r\n}\r\n\r\nfragment CategoryFields on CategoryTreeItem {\r\n  name\r\n  path\r\n  entityId\r\n}",
-            headers: {
-                Authorization: authHeader
-            },
-        },
-        categoriesByUrl: {
-            name: "Categories by URL",
-            endpoint: endpoint,
-            query: "query CategoryByUrl {\r\n  site {\r\n    route(path: \"\/shop-all\/\") {\r\n      node {\r\n        id\r\n        ... on Category {\r\n          name\r\n          entityId\r\n          description\r\n          products {\r\n            edges {\r\n              node {\r\n                name\r\n                defaultImage {\r\n                  url(width: 1200)\r\n                }\r\n                brand {\r\n                  name\r\n                  defaultImage {\r\n                    url(width: 200)\r\n                  }\r\n                }\r\n                prices {\r\n                  price {\r\n                    ...PriceFields\r\n                  }\r\n\r\n                  priceRange {\r\n                    min {\r\n                      ...PriceFields\r\n                    }\r\n                    max {\r\n                      ...PriceFields\r\n                    }\r\n                  }\r\n                }\r\n              }\r\n            }\r\n          }\r\n        }\r\n      }\r\n    }\r\n  }\r\n}\r\n\r\nfragment PriceFields on Money {\r\n  value\r\n  currencyCode\r\n}",
+            query: categoryTreeQuery,
             headers: {
                 Authorization: authHeader
             },
@@ -38,47 +396,52 @@ var playgroundTabs = function(endpoint, authHeader){
         objectsByUrl: {
             name: "Objects by URL",
             endpoint: endpoint,
-            query: "query LookUpUrl {\r\n  site {\r\n    route(path: \"\/shop-all\/\") {\r\n      node {\r\n        __typename\r\n        id\r\n        ... on Category {\r\n          name\r\n          description\r\n        }\r\n        ... on Brand {\r\n          name\r\n          defaultImage {\r\n            url(width: 200)\r\n          }\r\n        }\r\n        ... on Product {\r\n          name\r\n          description\r\n          images {\r\n            edges {\r\n              node {\r\n                url(width: 500, height: 500)\r\n              }\r\n            }\r\n          }\r\n          brand {\r\n            name\r\n          }\r\n        }\r\n      }\r\n    }\r\n  }\r\n}",
-            headers: {
-                Authorization: authHeader
-            },
-        },
-        productImages: {
-            name: "Prod Images Diff Res",
-            endpoint: endpoint,
-            query: "query SrcsetImages {\r\n  site {\r\n    product(entityId: 123) {\r\n      images {\r\n        edges {\r\n          node {\r\n            url320wide: url(width: 320)\r\n            url640wide: url(width: 640)\r\n            url960wide: url(width: 960)\r\n            url1280wide: url(width: 1280)\r\n          }\r\n        }\r\n      }\r\n    }\r\n  }\r\n}",
+            query: lookUpUrlQuery,
+            variables: '{"urlPath": "/shop-all"}',
             headers: {
                 Authorization: authHeader
             },
         },
         singleProduct: {
-            name: "Single Prod",
+            name: "Single Product",
             endpoint: endpoint,
-            query: "query SingleProduct {\r\n  site {\r\n    product(entityId: 81) {\r\n      id\r\n      entityId\r\n      name\r\n      prices {\r\n        price {\r\n          value\r\n          currencyCode\r\n        }\r\n      }\r\n    }\r\n  }\r\n}",
+            query: singleProductQuery,
+            variables: '{"productId": 123}',
             headers: {
                 Authorization: authHeader
             },
         },
         variantDetails: {
-            name: "Prod with Variant Details",
+            name: "Single variant",
             endpoint: endpoint,
-            query: "query VariantById {\r\n  site {\r\n    product(variantEntityId: 82) {\r\n      name\r\n      sku\r\n      defaultImage {\r\n        url(width: 500, height: 500)\r\n      }\r\n      prices {\r\n        price {\r\n          ...PriceFields\r\n        }\r\n        salePrice {\r\n          ...PriceFields\r\n        }\r\n        retailPrice {\r\n          ...PriceFields\r\n        }\r\n      }\r\n      width {\r\n        ...DimensionFields\r\n      }\r\n      height {\r\n        ...DimensionFields\r\n      }\r\n      depth {\r\n        ...DimensionFields\r\n      }\r\n    }\r\n  }\r\n}\r\nfragment PriceFields on Money {\r\n  value\r\n  currencyCode\r\n}\r\nfragment DimensionFields on Measurement {\r\n  value\r\n  unit\r\n}",
+            query: singleVariantQuery,
+            variables: '{"variantSku": "abc123"}',
             headers: {
                 Authorization: authHeader
             },
         },
-        productOptions: {
-            name: "Prod Options by Prod ID",
+        extendedProduct: {
+            name: "Options & Variants",
             endpoint: endpoint,
-            query: "query SeveralProductsByID {\r\n  site {\r\n    products(entityIds: [80, 81, 82]) {\r\n      edges {\r\n        node {\r\n          name\r\n          options {\r\n            edges {\r\n              node {\r\n                entityId\r\n                displayName\r\n                isRequired\r\n                values {\r\n                  edges {\r\n                    node {\r\n                      entityId\r\n                      label\r\n                    }\r\n                  }\r\n                }\r\n              }\r\n            }\r\n          }\r\n        }\r\n      }\r\n    }\r\n  }\r\n}",
+            query: extendedProductQuery,
+            variables: '{"productIds": [1,2,3]}',
             headers: {
                 Authorization: authHeader
             },
         },
         refinedProduct: {
-            name: "Refined Prod Obj for Given Options",
+            name: "Product w/ Option Selections",
             endpoint: endpoint,
-            query: "query ProductsWithOptionSelections {\r\n  site {\r\n    product123: product(\r\n      entityId: 123\r\n      optionValueIds: [\r\n        { optionEntityId: 4, valueEntityId: 543 }\r\n        { optionEntityId: 5, valueEntityId: 443 }\r\n      ]\r\n    ) {\r\n      ...ProductFields\r\n    }\r\n    product234: product(\r\n      entityId: 234\r\n      optionValueIds: [\r\n        { optionEntityId: 8, valueEntityId: 768 }\r\n        { optionEntityId: 13, valueEntityId: 883 }\r\n      ]\r\n    ) {\r\n      ...ProductFields\r\n    }\r\n  }\r\n}\r\n\r\nfragment ProductFields on Product {\r\n  name\r\n  defaultImage {\r\n    url(width: 1000)\r\n  }\r\n  sku\r\n  availability\r\n}",
+            query: refinedProductQuery,
+            variables: refinedProductQueryVariables,
+            headers: {
+                Authorization: authHeader
+            },
+        },
+        metafields: {
+            name: "Metafields",
+            endpoint: endpoint,
+            query: metafieldsQuery,
             headers: {
                 Authorization: authHeader
             },
