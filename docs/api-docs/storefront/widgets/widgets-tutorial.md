@@ -12,7 +12,7 @@
 
 </div>
 
-BigCommerce’s [Widgets API](https://developer.bigcommerce.com/api-docs/store-management/widgets/overview) allows you to create, manage, and apply widgets to your storefront. 
+BigCommerce's [Widgets API](https://developer.bigcommerce.com/api-docs/store-management/widgets/overview) allows you to create, manage, and apply widgets to your storefront. 
 
 In this tutorial, you will create a [widget](https://raw.githubusercontent.com/bigcommerce/dev-docs/master/assets/images/widgets-tutorial-01.gif) (GitHub) that displays a row of three images and place that widget in a designated region on a category page.
 
@@ -23,9 +23,9 @@ In this tutorial, you will create a [widget](https://raw.githubusercontent.com/b
 
 ## Create a region
 
-For a widget to appear on a store’s page, it has to be placed in a region. Regions are added and removed at the file level by editing a page’s template. 
+For a widget to appear on a store's page, it has to be placed in a region. Regions are added and removed at the file level by editing a page's template. 
 
-Let’s start by adding a new region called `category_header_banner`  to the template of your store’s category page. You will use this region to position your widget later. 
+Let's start by adding a new region called `category_header_banner`  to the template of your store's category page. You will use this region to position your widget later. 
 
 In `templates/pages/category.html`, add `{{{region name="category_header_banner"}}}` below the page heading.
 
@@ -39,7 +39,7 @@ In `templates/pages/category.html`, add `{{{region name="category_header_banner"
 <!-- ... -->
 ```
 
-If you’re using [Stencil CLI](https://developer.bigcommerce.com/stencil-docs/installing-stencil-cli/installing-stencil) and editing theme files locally, push and apply your changes before proceeding to the next step.
+If you are using [Stencil CLI](https://developer.bigcommerce.com/stencil-docs/installing-stencil-cli/installing-stencil) and editing theme files locally, push and apply your changes before proceeding to the next step.
 
 <div class="HubBlock--callout">
 <div class="CalloutBlock--info">
@@ -67,7 +67,7 @@ Accept: application/json
 
 [![Open in Request Runner](https://storage.googleapis.com/bigcommerce-production-dev-center/images/Open-Request-Runner.svg)](https://developer.bigcommerce.com/api-reference/storefront/widgets-api/regions/getcontentregions#requestrunner)
 
-Look for the region’s name in the response.
+Look for the region's name in the response.
 
 ```json
 {
@@ -182,7 +182,7 @@ Accept: application/json
 <div class="HubBlock-content">
 
 > ### Note
-> * Make note of the widget’s `uuid` in the response. You will use it to create a placement in the next step.
+> * Make note of the widget's `uuid` in the response. You will use it to create a placement in the next step.
 
 </div>
 </div>
