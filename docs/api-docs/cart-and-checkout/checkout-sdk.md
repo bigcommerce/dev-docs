@@ -24,7 +24,6 @@ With the Checkout JS SDK, you can build a [custom checkout presentation](https:/
     -   Stripe
     -   Square
     -   Amazon
-    -   Klarna
 
 -   You can use its JavaScript interface for interacting with the web API.
 
@@ -47,9 +46,9 @@ The Checkout JS SDK allows you to present the checkout process to the shopper in
 However, the Checkout JS SDK does not allow you to change the checkout's underpinnings   - you must still conform to the model of the Checkout API underpinning the SDK to complete a Checkout and create an Order in BigCommerce.
 The SDK does not allow you to implement custom payment, shipping, or tax calculation providers into the checkout. Instead, you can use the configured providers for these services on a given store via our Checkout API.
 
-## Where Can I Get the SDK?
-The Checkout JS SDK and associated documentation are available from the [BigCommerce SDK Repo.](https://github.com/bigcommerce/checkout-sdk-js)
+## Where can I get the SDK?
+The Checkout JS SDK and associated documentation is available from the [BigCommerce SDK Repo.](https://github.com/bigcommerce/checkout-sdk-js)
 
-## Support and Customization
+## Support and customization
 - Enterprise clients can reach out to their account manager to review services and resources available.
 - For more on our design policy, please visit [Design Support](https://forum.bigcommerce.com/s/article/BigCommerce-Design-Policy#support).
