@@ -56,10 +56,10 @@ If you are using [Stencil CLI](https://developer.bigcommerce.com/stencil-docs/in
 
 ### Verify region creation
 
-To verify region creation, send a `GET` request to [`/v3/content/regions`](https://developer.bigcommerce.com/api-reference/storefront/widgets-api/regions/getcontentregions) using `?template_file=pages/category` query string parameter.
+To verify region creation, send a `GET` request to [`/v3/content/regions?template_file=pages/category`](https://developer.bigcommerce.com/api-reference/storefront/widgets-api/regions/getcontentregions).
 
 ```http
-GET /stores/{{STORE_HASH}}/content/regions?template_file=pages/category
+GET /stores/{{STORE_HASH}}/v3/content/regions?template_file=pages/category
 Host: api.bigcommerce.com
 X-Auth-Token: {{ACCESS_TOKEN}}
 Accept: application/json
@@ -141,7 +141,7 @@ To create a widget, you will need to reference the widget template `uuid` from t
 
 
 ```http
-POST /stores/{{STORE_HASH}}/v3/endpoint
+POST /stores/{{STORE_HASH}}/v3/content/widgets
 Host: api.bigcommerce.com
 X-Auth-Token: {{ACCESS_TOKEN}}
 Content-Type: application/json
