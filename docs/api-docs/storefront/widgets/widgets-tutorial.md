@@ -282,6 +282,7 @@ To learn more about Page Builder, see [Page Builder Overview](https://developer.
 ## Related resources
 
 ### Articles
+
 * [Page Builder](https://support.bigcommerce.com/s/article/Page-Builder)
 * [Widgets Overview](/api-docs/storefront/widgets/widgets-overview)
 * [Widgets Code Samples](/api-docs/storefront/widgets/widgets-code-samples)
