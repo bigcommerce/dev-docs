@@ -1,8 +1,8 @@
-# Best Practices
+# API Best Practices
 
 <div class="otp" id="no-index">
 
-### On This Page
+### On this page
 - [Ensure your integration is up-to-date](#ensure-your-integration-is-up-to-date)
 - [Anticipate changes to BigCommerce APIs](#anticipate-changes-to-bigcommerce-apis)
 - [Use webhooks effectively](#use-webhooks-effectively)
