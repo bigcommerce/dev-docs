@@ -26,7 +26,8 @@ With the Checkout JS SDK, you can build a [custom checkout presentation](https:/
     -   Amazon
     -   Klarna
 
--   You can provide a JavaScript interface for interacting with the web API.
+-   You can use its JavaScript interface for interacting with the web API.
+
     -   Fetch and submit resources:
         -   Cart
         -   Order
