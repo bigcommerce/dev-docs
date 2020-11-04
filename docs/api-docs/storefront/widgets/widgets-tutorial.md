@@ -8,7 +8,7 @@
 - [Create a widget](#create-a-widget)
 - [Create a placement](#create-a-placement)
 - [Create a user interface](#create-a-user-interface)
-- [Resources](#resources)
+- [Related resources](#related-resources)
 
 </div>
 
@@ -21,11 +21,13 @@ In this tutorial, you will create a [widget](https://raw.githubusercontent.com/b
 * API `access_token` with `content modify` scope.
 * Knowledge of the [Widgets API](https://developer.bigcommerce.com/api-docs/storefront/widgets/widgets-overview).
 
+To edit theme files locally, we recommend using [Stencil CLI](https://developer.bigcommerce.com/stencil-docs/installing-stencil-cli/installing-stencil), BigCommerce's powerful theme development and deployment tool.
+
 ## Create a region
 
-For a widget to appear on a store's page, it has to be placed in a region. Regions are added and removed at the file level by editing a page's template. 
+For a widget to appear on a store's page, you have to place it in a region. Regions are added and removed at the file level by editing a page's template. 
 
-Let's start by adding a new region called `category_header_banner`  to the template of your store's category page. You will use this region to position your widget later. 
+Let's start by adding a new region called `category_header_banner` to your store's category page template. You will use this region to position your widget later.
 
 In `templates/pages/category.html`, add `{{{region name="category_header_banner"}}}` below the page heading.
 
@@ -56,7 +58,7 @@ If you are using [Stencil CLI](https://developer.bigcommerce.com/stencil-docs/in
 
 ### Verify region creation
 
-To verify region creation, send a `GET` request to [`/v3/content/regions?template_file=pages/category`](https://developer.bigcommerce.com/api-reference/storefront/widgets-api/regions/getcontentregions).
+To verify region creation, send a `GET` request to [`/v3/content/regions?template_file=pages/category`](https://developer.bigcommerce.com/api-reference/storefront/widgets-api/regions/getcontentregions). Make sure to specify the  `template_file=pages/category` query string parameter to get the category template's regions.
 
 ```http
 GET /stores/{{STORE_HASH}}/v3/content/regions?template_file=pages/category
@@ -128,7 +130,7 @@ Accept: application/json
 <div class="HubBlock-content">
 
 > ### Note
-> * Make note of the `uuid` of the widget template in the response. You will use it to create the widget in the next step.
+> * Make a note of the `uuid` of the widget template in the response. You will use it to create the widget in the next step.
 > * Multiple widgets can use the same widget template.
 
 </div>
@@ -137,7 +139,7 @@ Accept: application/json
 
 ## Create a widget
 
-To create a widget, you will need to reference the widget template `uuid` from the previous step. Send a `POST` request to [`/v3/content/widgets`](https://developer.bigcommerce.com/api-reference/storefront/widgets-api/widget/createwidget) making sure to replace the placeholder value inside `widget_template_uuid` with your template's `uuid`.
+To create a widget, use the widget template `uuid` from the previous step. Send a `POST` request to [`/v3/content/widgets`](https://developer.bigcommerce.com/api-reference/storefront/widgets-api/widget/createwidget) making sure to replace the placeholder value inside `widget_template_uuid` with your template's `uuid`.
 
 
 ```http
@@ -171,8 +173,8 @@ Accept: application/json
 
 | Property | Description |
 |---|---|
-| `name` | short widget name displayed to user (required) |
-| `description` | long description displayed to user (optional) |
+| `name` | widget name displayed to user (required) |
+| `description` | widget description displayed to user (optional) |
 | `template` | widget's template; overrides `widget_template_uuid` template |
 | `widget_configuration` | data for Handlebars context |
 | `widget_template_uuid` | default template `uuid` |
@@ -182,7 +184,7 @@ Accept: application/json
 <div class="HubBlock-content">
 
 > ### Note
-> * Make note of the widget's `uuid` in the response. You will use it to create a placement in the next step.
+> * Make a note of the widget's `uuid` in the response. You will use it to create a placement in the next step.
 
 </div>
 </div>
@@ -217,27 +219,18 @@ Accept: application/json
 |---|---|
 | `widget_uuid` | UUID of the widget |
 | `entity_id` |  page, category, brand, or product ID |
-| `sort_order` | widget sort order |
-| `region` | region the template will show |
-| `template_file` | template file region added to |
+| `sort_order` | widget placement order |
+| `region` | region to place the widget in |
+| `template_file` | template file to target|
 | `status` | active or inactive |
 
-<div class="HubBlock--callout">
-<div class="CalloutBlock--info">
-<div class="HubBlock-content">
-
-> ### Note
-> * Home page does not support `entity_id`.
-> * For category pages, if you do not assign a value to `entity_id`, the widget will appear on all of the category pages.
-
-
-</div>
-</div>
-</div>
+`entity_id` depends on the type of page; for example, for product pages, it is the product ID, and for category pages, it is the category ID. To place your widget on a specific category page, you need to provide a category ID. To retrieve available category IDs, send a `GET` request to [`/v3/catalog/categories`](https://developer.bigcommerce.com/api-reference/store-management/catalog/category/getcategories). If you omit `entity_id`, the widget will appear on all of the category pages.
 
 ## Create a user interface
 
-You can use [Page Builder](https://developer.bigcommerce.com/stencil-docs/page-builder/page-builder-overview) to move and configure widgets in the control panel. To add custom configuration settings to your a widget's [Page Builder UI](https://developer.bigcommerce.com/stencil-docs/page-builder/page-builder-overview), include the `schema` property in the [create widget template](#create-a-widget-template) request.
+BigCommerce's [Page Builder](https://developer.bigcommerce.com/stencil-docs/page-builder/page-builder-overview) tool allows you to customize different style elements of your theme in the store's control panel. You can use Page Builder to configure and place widgets onto pages to tailor your storefront. To make your widget compatible with Page Builder, add custom configuration settings to the widget template by including the `schema` property in the [create widget template](#create-a-widget-template) request. 
+
+The following is an example of a widget template compatible with Page Builder.
 
 ```json
 {
@@ -286,11 +279,9 @@ You can use [Page Builder](https://developer.bigcommerce.com/stencil-docs/page-b
 
 To learn more about Page Builder, see [Page Builder Overview](https://developer.bigcommerce.com/stencil-docs/page-builder/page-builder-overview).
 
-## Resources
+## Related resources
 
-### Related endpoints
-* [Get All Categories](https://developer.bigcommerce.com/api-reference/store-management/catalog/category/getcategories)
-
-### Related articles
+### Articles
+* [Page Builder](https://support.bigcommerce.com/s/article/Page-Builder)
 * [Widgets Overview](/api-docs/storefront/widgets/widgets-overview)
 * [Widgets Code Samples](/api-docs/storefront/widgets/widgets-code-samples)
