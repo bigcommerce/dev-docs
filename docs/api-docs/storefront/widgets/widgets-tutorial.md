@@ -225,7 +225,7 @@ Accept: application/json
 | `template_file` | template file to target|
 | `status` | active or inactive |
 
-`entity_id` depends on the type of page; for example, for product pages, it is the product ID, and for category pages, it is the category ID. To place your widget on a specific category page, you need to provide a category ID. To retrieve available category IDs, send a `GET` request to [`/v3/catalog/categories`](https://developer.bigcommerce.com/api-reference/store-management/catalog/category/getcategories). If you omit `entity_id`, the widget will appear on all of the category pages.
+`entity_id` depends on the type of page; for example, for product pages, it is the product ID, and for category pages, it is the category ID. To place your widget on a specific category page, you need to provide a category ID. To retrieve available category IDs, send a `GET` request to [`/v3/catalog/categories`](https://developer.bigcommerce.com/api-reference/store-management/catalog/category/getcategories). If you omit `entity_id`; the widget will appear on all of the category pages.
 
 ## Create a user interface
 
