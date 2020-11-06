@@ -12,7 +12,7 @@
 
 </div>
 
-You can create unique shopping experiences that fit with the look and feel of a store's brand using custom checkouts. This article will outline how to package a custom checkout file, and then install a custom checkout via the control panel.
+You can create unique shopping experiences that fit the look and feel of a store's brand using custom checkouts. This article will outline how to package a custom checkout file, and install a custom checkout via the control panel.
 
 This article will address using both [Open Source Checkout](https://github.com/bigcommerce/checkout-js) and [Checkout SDK](https://github.com/bigcommerce/checkout-sdk-js) powered checkouts.
 
@@ -26,17 +26,17 @@ Custom checkouts must have a single JS loader file. The first step to using a cu
 
 If using Open Source Checkout, you can generate the loader file by following these steps:
 
-1. Navigate to the folder where Open Source Checkout is located using the terminal, and run `npm ci` to download dependancies
+1. Navigate and locate the Open Source Checkout folder using the terminal, and run `npm ci` to download dependencies
 2. Run `npm run build` to generate a `/dist/` folder with all the files
 
-When using Open Source Checkout to view changes and test implementations through the UI, deploy and install the custom checkout. More details are below.
+When using Open Source Checkout to view changes and test implementations through the UI, deploy, and install the custom checkout. More details are below.
 
-### Properties available on checkout page
-When a store is using custom checkout, some properties will be attached to the window object (`window.checkoutConfig`) on the checkout page. These properties are:
+### Properties available on the checkout page
+When a store uses custom checkout, some properties are attached to the `window.checkoutConfig` object on the checkout page. These properties are:
 
-* `containerId`: ID of the HTML component where the checkout app should be loaded.
+* `containerId`: ID of the HTML component where you load the checkout app.
 * `orderId`: if present, it means we should render an order confirmation page for the given order Id
-* `checkoutId`: if present, the ID of the active checkout. You cant have both orderId and checkoutId
+* `checkoutId`: If present, the ID of the active checkout. You can't have both `orderId` and `checkoutId`
 
 To use the data exposed in the window object, include relevant code in your loader file. Here is an example of this code :
 
@@ -49,17 +49,17 @@ ReactDOM.render(
 
 ## Hosting a custom checkout
 
-You will need to host the custom checkout file online so it can be served by the store. You can use a hosting service such as [Amazon S3](https://aws.amazon.com/s3/). Using an external host will allow you the freedom to automate the build process if you wish and push updates automatically from your local machine.
+You will need to host the custom checkout file online so it can be served by the store. You can use a hosting service, such as [Amazon S3](https://aws.amazon.com/s3/). Using an external host will allow you the freedom to automate the build process if you wish and push updates automatically from your local machine.
 
 ### Using WebDAV to host a custom checkout
 
 You can upload a custom checkout to your store's server using WebDAV. The instructions to upload the `/dist` folder to the BigCommerce server using WebDav are below:
 
-1. Before proceeding ensure you have downloaded [Cyberduck](https://cyberduck.io/), our recommended WebDAV client.
+1. Before proceeding, ensure you have downloaded [Cyberduck](https://cyberduck.io/), our recommended WebDAV client.
 **Note:**  For more information on how to use Cyberduck, refer to the [File Access (WebDAV)](https://support.bigcommerce.com/s/article/File-Access-WebDAV) page.
 2. From your store control panel, navigate to **Server Settings** > **File Access (WebDAV)**.
-    * To automatically connect with Cyberduck, see [Single-click Login](https://support.bigcommerce.com/s/article/File-Access-WebDAV#login).
-    * To manually connect with Cyberduck, see [Connecting with Cyberduck Manually](https://support.bigcommerce.com/s/article/File-Access-WebDAV#manual).
+    - To automatically connect with Cyberduck, see [Single-click Login](https://support.bigcommerce.com/s/article/File-Access-WebDAV#login).
+    - To manually connect with Cyberduck, see [Connecting with Cyberduck Manually](https://support.bigcommerce.com/s/article/File-Access-WebDAV#manual).
 3. From Cyberduck, enter the `/content` folder and create a new folder named *checkout*.
 4. Navigate into the `/dist` folder in your checkout project.
 5. Copy the contents of the `/dist` folder and paste it into the checkout folder.
