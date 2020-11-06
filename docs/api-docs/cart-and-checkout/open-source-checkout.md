@@ -32,7 +32,7 @@ If using Open Source Checkout, you can generate the loader file by following the
 When using Open Source Checkout to view changes and test implementations through the UI, deploy, and install the custom checkout. More details are below.
 
 ### Properties available on the checkout page
-When a store uses custom checkout, some properties are attached to the window object (`window.checkoutConfig`) on the checkout page. These properties are:
+When a store uses custom checkout, some properties are attached to the `window.checkoutConfig` object on the checkout page. These properties are:
 
 * `containerId`: ID of the HTML component where you load the checkout app.
 * `orderId`: if present, it means we should render an order confirmation page for the given order Id
