@@ -20,6 +20,17 @@ This article documents how to use [widget versioning](https://developer.bigcomme
 * API `access_token` with `content modify` scope.
 * Knowledge of the [Widgets API](https://developer.bigcommerce.com/api-docs/storefront/widgets/widgets-overview).
 
+<div class="HubBlock--callout">
+<div class="CalloutBlock--info">
+<div class="HubBlock-content">
+
+> ### Note
+> * This tutorial uses [Cornerstone](https://github.com/bigcommerce/cornerstone) theme.
+
+</div>
+</div>
+</div>
+
 ## Create a widget template
 
 To create a widget template, send a `POST` request to [`v3/content/widget-templates`](https://developer.bigcommerce.com/api-reference/store-management/widgets/widget-template/createwidgettemplate).
