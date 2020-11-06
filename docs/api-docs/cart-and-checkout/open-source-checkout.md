@@ -36,7 +36,7 @@ When a store uses custom checkout, some properties are attached to the `window.c
 
 * `containerId`: ID of the HTML component where you load the checkout app.
 * `orderId`: if present, it means we should render an order confirmation page for the given order Id
-* `checkoutId`: if present, the ID of the active checkout. You can't have both orderId and checkoutId
+* `checkoutId`: If present, the ID of the active checkout. You can't have both `orderId` and `checkoutId`
 
 To use the data exposed in the window object, include relevant code in your loader file. Here is an example of this code :
 
