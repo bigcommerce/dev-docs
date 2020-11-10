@@ -82,7 +82,7 @@ Accept: application/json
 </div>
 </div>
 
-You can view your widget template in the store's control panel using [Page Builder](https://support.bigcommerce.com/s/article/Page-Builder), BigCommerce's powerful theme customization tool. Your newly created widget template will be located in the left pane under **Custom**. 
+You can view your widget template in the store's control panel using [Page Builder](https://support.bigcommerce.com/s/article/Page-Builder), BigCommerce's powerful theme customization tool. You can locate your newly created widget template in the left pane under **Custom**. 
 
 ![Page Builder](https://raw.githubusercontent.com/bigcommerce/dev-docs/master/assets/images/widget-versioning-01 "Page Builder")
 
@@ -209,11 +209,11 @@ Accept: application/json
 [![Open in Request Runner](https://storage.googleapis.com/bigcommerce-production-dev-center/images/Open-Request-Runner.svg)](https://developer.bigcommerce.com/api-reference/store-management/widgets/widget-template/updatewidgettemplate#requestrunner)
 
 Let's look at our widget again. Send a `GET` request to [`/v3/content/widgets/{uuid}`](https://developer.bigcommerce.com/api-reference/store-management/widgets/widget/getwidget) to retrieve your widget's data.
-You will notice that `current_version_uuid` has changed and is now different from the widget's `version_uuid`. Although, we have updated the widget template, the widget created using that template did not change.
+You will notice that `current_version_uuid` has changed and is now different from the widget's `version_uuid`. Although we have updated the widget template, the widget created using that template did not change.
 
 ## Create a new widget
 
-All widgets created after the update, will be based on the most current version. Let's create another widget to test this functionality. 
+All widgets created after the update will be based on the most current version. Let's create another widget to test this functionality. 
 
 Send a `POST` request to [`/v3/content/widgets`](https://developer.bigcommerce.com/api-reference/storefront/widgets-api/widget/createwidget) replacing the `widget_template_uuid` placeholder with your widget template `uuid`.
 
