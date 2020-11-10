@@ -1017,7 +1017,7 @@ definitions:
     properties:
       entity_id:
         type: string
-        description: The specific instance of a page that you would like to target.
+        description: The identifier of a page you would like to target. For product pages, choose product ID. For category pages, choose category ID. Home page does not support `entity_id`. 
       sort_order:
         type: integer
         description: >-
