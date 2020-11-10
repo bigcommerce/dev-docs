@@ -375,6 +375,24 @@ query metafields {
   }
 }`
 
+var loginMutation = 
+`# Log in a customer using email and password
+#
+# If this is being used in a browser, a cookie will be set 
+# to authenticate future requests
+# 
+# Otherwise, the success message can be used to determine 
+# that the credentials are valid
+#
+# Credentials should ALWAYS be passed as GraphQL Variables
+mutation Login($email: String!, $pass: String!) {
+  login(email: $email, password: $pass) {
+    result
+  }
+}`;
+
+var loginMutationVariables = `{"email": "email@goes.here", "pass": "password"}`;
+
 var playgroundTabs = function(endpoint, authHeader){
     var predefined = {
         firstThreeProducts: {
@@ -412,7 +430,7 @@ var playgroundTabs = function(endpoint, authHeader){
             },
         },
         variantDetails: {
-            name: "Single variant",
+            name: "Single Variant",
             endpoint: endpoint,
             query: singleVariantQuery,
             variables: '{"variantSku": "abc123"}',
@@ -442,6 +460,15 @@ var playgroundTabs = function(endpoint, authHeader){
             name: "Metafields",
             endpoint: endpoint,
             query: metafieldsQuery,
+            headers: {
+                Authorization: authHeader
+            },
+        },
+        login: {
+            name: "Login",
+            endpoint: endpoint,
+            query: loginMutation,
+            variables: loginMutationVariables,
             headers: {
                 Authorization: authHeader
             },
