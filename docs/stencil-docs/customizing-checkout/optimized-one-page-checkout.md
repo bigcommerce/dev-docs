@@ -8,7 +8,8 @@
 - [Classes available for customization](#classes-available-for-customization)
 - [Providing customizable options in Store Design](#providing-customizable-options-in-store-design)
 - [Currency conversion options](#currency-conversion-options)
-- [Resources](#resources)
+- [Related resources](#related-resources)
+
 
 </div> 
 
