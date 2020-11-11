@@ -146,7 +146,6 @@ paths:
                       label: sint
       tags: []
       summary: Get Form Fields
-      x-private: true
 definitions:
   FormFieldGroups:
     type: object
