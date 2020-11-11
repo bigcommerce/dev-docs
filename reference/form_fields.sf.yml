@@ -144,7 +144,8 @@ paths:
                     items:
                       value: minim ad reprehenderit est
                       label: sint
-      tags: []
+      tags: 
+      - Form Fields
       summary: Get Form Fields
 definitions:
   FormFieldGroups:
@@ -241,7 +242,7 @@ definitions:
                 type: string
                 description: User friendly label.
 tags:
-  - name: ''
+  - name: 'Form Fields'
 basePath: /api/storefront
 host: '{$$.env.store_domain}'
 x-stoplight:
