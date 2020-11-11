@@ -196,6 +196,7 @@ paths:
               template: >-
                 {{#each images}}<a href='{{image_url}}'><img
                 src={{image_source}} style='width:33.3%'/></a>{{/each}}
+              create_new_version: true
         - name: Accept
           in: header
           type: string
@@ -211,8 +212,8 @@ paths:
             application/json:
               data:
                 current_version_uuid: 39963864-d8ad-4c99-8ee7-9e0542766866
-                date_created: '2020-11-05T17:29:42.093Z'
-                date_modified: '2020-11-05T17:32:20.958Z'
+                date_created: '2020-11-06T18:20:26.326Z'
+                date_modified: '2020-11-06T20:09:05.638Z'
                 icon_name: default
                 kind: custom
                 name: Header Images
@@ -783,7 +784,13 @@ parameters:
     name: Content-Type
 definitions:
   widgetTemplate_Put:
-    $ref: '#/definitions/widgetTemplate_Base'
+    allOf:
+      - $ref: '#/definitions/widgetTemplate_Base'
+      - type: object
+        properties:
+          create_new_version:
+            type: boolean
+            description: Can be added to create a new widget template version instead of updating the current one.
     title: widgetTemplate_Put
   widgetTemplate_Post:
     title: widgetTemplate_Post
