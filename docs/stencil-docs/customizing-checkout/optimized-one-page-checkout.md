@@ -6,7 +6,8 @@
 - [Working with the optimized checkout SCSS file](#working-with-the-optimized-checkout-scss-file)
 - [Configuring the desktop viewport](#configuring-the-desktop-viewport)
 - [Classes available for customization](#classes-available-for-customization)
-- [Providing customizable options in Store Design](#providing-customizable-options-in-store-design)
+- [Providing customizable options in Page Builder](#providing-customizable-options-in-page-builder)
+
 - [Currency conversion options](#currency-conversion-options)
 - [Related resources](#related-resources)
 
