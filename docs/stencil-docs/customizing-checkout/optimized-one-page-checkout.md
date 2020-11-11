@@ -108,7 +108,7 @@ At checkout, the shopper still receives the bill in the store's default currency
 
 ![](//s3.amazonaws.com/user-content.stoplight.io/6116/1562870949093 "")
 
-## Resources
+## Related resources
 
-### Related Articles
+### Related articles
 * [The Complete Guide to Checkout Customization on BigCommerce](https://medium.com/bigcommerce-developer-blog/the-complete-guide-to-checkout-customization-on-bigcommerce-6b566bc36fa9) (Developer Blog)
