@@ -65,7 +65,8 @@ Below are the classes provided in Cornerstone's <span class="fn">optimized-check
 | `.optimizedCheckout-form-label` | Styles form fields like `Email Address` – the field's text-label color. |
 | `.optimizedCheckout-form-input` | Styles form fields like `Email Address` – the entry box's background and border colors. |
 
-## Providing customizable options in Store Design
+## Providing customizable options in Page Builder
+
 
 You can determine which aspects of Optimized One-Page Checkout merchants will customize with the Store Design tool.
 
