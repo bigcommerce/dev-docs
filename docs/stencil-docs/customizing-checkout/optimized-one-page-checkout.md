@@ -71,7 +71,8 @@ Below are the classes provided in Cornerstone's <span class="fn">optimized-check
 You can determine which aspects of Optimized One-Page Checkout merchants will customize with the Page Builder tool.
 
 
-In Cornerstone's <span class="fn">optimized-checkout.scss</span>, each SCSS class and property available has a corresponding key/value pair in the <span class="fn">config.json</span> file, which can be used as the `id` value in schema.json when [creating customizable Store Design options](/stencil-docs/store-design/schema-json-metadata).
+In Cornerstone's <span class="fn">optimized-checkout.scss</span>, each SCSS class and property available has a corresponding key/value pair in the <span class="fn">config.json</span> file, which can be used as the `id` value in schema.json when [creating customizable Page Builder options](https://github.com/bigcommerce/cornerstone/blob/master/schema.json).
+
 
 <a id="optimized_currency"></a>
 
