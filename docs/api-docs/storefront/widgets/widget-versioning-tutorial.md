@@ -25,7 +25,7 @@ This article documents how to use [widget versioning](https://developer.bigcomme
 <div class="HubBlock-content">
 
 > ### Note
-> * This tutorial uses [Cornerstone](https://github.com/bigcommerce/cornerstone) theme.
+> This tutorial uses [Cornerstone](https://github.com/bigcommerce/cornerstone) theme.
 
 </div>
 </div>
