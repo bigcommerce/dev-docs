@@ -49,7 +49,8 @@ To set up optimized checkout's responsive features within the `optimized-checkou
 
 ## Classes available for customization
 
-Below are the classes provided in Cornerstone's <span class="fn">`optimized-checkout.scss`</span>, with the corresponding page elements that they style. _These class names and mappings are subject to change, so please check the inline comments in the <span class="fn">`optimized-checkout.scss`</span> file that you downloaded with your current Cornerstone release._
+Below are the classes provided in Cornerstone's `optimized-checkout.scss`, with the corresponding page elements that they style.  These class names and mappings are subject to change, so please check the inline comments in the `optimized-checkout.scss` file that you downloaded with your current Cornerstone release.
+
 
 | **Class** | **Styles this Optimized One-Page Checkout element:** |
 |-|-|
