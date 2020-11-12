@@ -16,7 +16,7 @@
 
 </div>
 
-The Widgets API allows developers to create units of content and programmatically place them on specific pages of a BigCommerce storefront. The content can consist of HTML, CSS, and JavaScript, and is configurable using [Handlebars](https://handlebarsjs.com/) variables. The Widgets API supports various types of content such as YouTube videos, image sliders, and chat apps. 
+The Widgets API allows developers to create units of content and programmatically place them on specific pages of a BigCommerce storefront. The content can consist of HTML, CSS, and JavaScript, and is configurable using [Handlebars](https://handlebarsjs.com/) variables. The Widgets API supports various content types, such as YouTube videos, image sliders, and chat apps. 
 
 When to use:
 * Inject modular, reusable blocks of content inside new and existing store pages.
@@ -103,7 +103,7 @@ The slider template creates an image slider where each item in the slider can ha
 
 ### Widget configuration
 
-A widget configuration is the JSON payload that defines the content to be rendered with a given widget template. In the previous list example, the widget template loops over an array of list items using `{{#each}}`.
+A widget configuration is the JSON payload that defines the content you can render with a given widget template. In the previous list example, the widget template loops over an array of list items using `{{#each}}`.
 
 In the following example, we define the `list_items` array and supply values for the color and text of each list item. Since you create the template separately from the configuration, you can use the same template UUID multiple times.
 
@@ -141,8 +141,8 @@ In the following example, we define the `list_items` array and supply values for
 <!-- theme:  -->
 
 ### Reusing widget configuration
-> The widget configuration name is set when the widget template is created.
-> When reusing the widget configuration, the objects array must use the name established during the initial configuration. Otherwise, the widget will be created on the frontend, but there will be no data, and nothing will be rendered. 
+> You set the widget configuration name when creating the widget template.
+> When reusing the widget configuration, the objects array must use the name established during the initial configuration. Otherwise, you will create the widget on the frontend, but there will be no data, and nothing displayed.
 
 </div>
 </div>
@@ -268,7 +268,7 @@ Updating the widget template with `create_new_version` set to `true` will change
 <!-- theme:  -->
 
 ### Note
-> - To display a widget on the storefront, a placement must be created.
+> - To display a widget on the storefront, you must create a placement.
 > - A region can contain multiple placements with widgets.
 
 </div>
@@ -277,7 +277,7 @@ Updating the widget template with `create_new_version` set to `true` will change
 
 ### Placements sort_order
 
-When creating a placement with a widget, the widget content takes the full region width. The display order of the widget is controlled by the placement's `sort_order` property. Any additional widgets placed in the same region will be stacked above or below based on the `sort_order` property for each placement.
+When creating a placement with a widget, the widget content takes the full region width. The placement's `sort_order` property controls the display order of the widget. You would stack any additional widgets in the same region above or below based on each placement's `sort_order` property.
 
 <div class="HubBlock--callout">
 <div class="CalloutBlock--info">
@@ -294,7 +294,7 @@ When creating a placement with a widget, the widget content takes the full regio
 
 ### Placements entity_id
 
-When creating a placement, there is an option to provide an `entity_id`. This is the identifier for a specific product, brand, category, or page. For example, if a widget needs to be on all product pages, leave `entity_id` blank. If the widget should only appear on a certain product page, then assign the product ID to `entity_id`.
+When creating a placement, there is an option to provide an `entity_id`. The `entity_id` is the identifier for a specific product, brand, category, or page. For example, if a widget needs to be on all product pages, leave `entity_id` blank. If the widget should only appear on a certain product page, assign the product ID to `entity_id`.
 
 You can use `entity_id` with the following page types:
 * pages/brand
@@ -304,7 +304,7 @@ You can use `entity_id` with the following page types:
 
 ### Create a widget placement with region
 
-In the following example, both the region and sort order have a value, so the widget will appear on a specific category page.
+In the following example, both the region and sort order have a value so that the widget will appear on a specific category page.
 
 **Widget with region**
 
@@ -321,7 +321,7 @@ In the following example, both the region and sort order have a value, so the wi
 
 ### Create a widget placement without a region
 
-Leaving the region and sort order off the request will return just the `placement_id` in the response allowing for the widget to be rendered using layouts.
+Leaving the region and sort order off the request will return just the `placement_id` in the response, allowing for the widget's rendering using layouts.
 
 **Widget without a region**
 
