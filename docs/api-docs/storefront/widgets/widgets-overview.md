@@ -148,7 +148,7 @@ In the following example, we define the `list_items` array and supply values for
 </div>
 </div>
 
-When reusing the widget configuration from our list example, the items array must be called `list_items`, because the `list_items` array was defined when the widget template was originally created. 
+When reusing the widget configuration from our list example, you must call the items array `list_items`, because you defined the `list_items` array when creating the widget template.
 
 **List items example: Incorrect**
 
@@ -171,7 +171,7 @@ When reusing the widget configuration from our list example, the items array mus
 }
 ```
 
-The example above uses `list_items_two` in the configuration which is not the same as `list_items`. If `list_items` has already been established during the initial configuration, it must be set as `list_items` when being used again.
+The example above uses `list_items_two` in the configuration, which is not the same as `list_items`. If you have already established `list_items` during the initial configuration, it must be set as `list_items` when you use it again.
 
 **List items example: Correct**
 
@@ -217,7 +217,7 @@ Widget versioning introduced `current_version_uuid` and `version_uuid` propertie
 <!-- theme:  -->
 
 ### Note
->  Although a widget template can have multiple versions, there can only be one active version at a time. This setup means that a template can have multiple `version_uuid`’s associated with it, but it cannot have more than one `current_version_uuid`.
+>  Although a widget template can have multiple versions; there can only be one active version at a time. This setup means that a template can have multiple `version_uuid`’s associated with it, but it cannot have more than one `current_version_uuid`.
 
 </div>
 </div>
