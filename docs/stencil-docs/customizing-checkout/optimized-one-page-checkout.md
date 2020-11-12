@@ -35,7 +35,8 @@ You can access the most recent version of this file in the [Cornerstone reposito
 
 ## Configuring the desktop viewport
 
-To set up optimized checkout's responsive features within the <span class="fn">optimized-checkout.scss</span> file, you should configure the following breakpoint to define your preferred desktop viewport size:
+To set up optimized checkout's responsive features within the `optimized-checkout.scss` file, you should configure the following breakpoint to define your preferred desktop viewport size:
+
 
 ```css
     // TODO:
