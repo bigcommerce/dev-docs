@@ -17,7 +17,8 @@
 
 Cornerstone includes a SCSS file that styles the Optimized Checkout page. In your local installation, this file is located at <span class="fn">`cornerstone/assets/scss/optimized-checkout.scss`</span>.
 
-You can access the most recent version of this file in the [Cornerstone repository](https://github.com/bigcommerce/cornerstone/blob/master/assets/scss/optimized-checkout.scss) (Github). All themes share the same stylesheet for the Optimized One-Page checkout, even those not based on Cornerstone, so this stylesheet applies universally across Stencil themes.
+You can access the most recent version of this file in the [Cornerstone repository](https://github.com/bigcommerce/cornerstone/blob/master/assets/scss/optimized-checkout.scss). All themes share the same stylesheet for the Optimized One-Page checkout, even those not based on Cornerstone, so this stylesheet applies universally across Stencil themes.
+
 
 <div class="HubBlock--callout">
 <div class="CalloutBlock--error">
