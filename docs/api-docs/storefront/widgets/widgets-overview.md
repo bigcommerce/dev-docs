@@ -16,7 +16,7 @@
 
 </div>
 
-The Widgets API allows developers to create units of content and programmatically place them on specific pages of a BigCommerce storefront. The content can consist of HTML, CSS, and JavaScript, and is configurable via [Handlebars](https://handlebarsjs.com/) variables. The Widgets API supports various types of content such as YouTube videos, image sliders. and chat apps. 
+The Widgets API allows developers to create units of content and programmatically place them on specific pages of a BigCommerce storefront. The content can consist of HTML, CSS, and JavaScript, and is configurable using [Handlebars](https://handlebarsjs.com/) variables. The Widgets API supports various types of content such as YouTube videos, image sliders, and chat apps. 
 
 When to use:
 * Inject modular, reusable blocks of content inside new and existing store pages.
