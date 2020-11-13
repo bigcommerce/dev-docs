@@ -23,7 +23,7 @@ With the Checkout JS SDK, you can build a [custom checkout presentation](https:/
     -   Braintree
     -   Stripe
     -   Square
-    -   Amazon
+    -   [Amazon](#required-payment-method-initialization-options)
 
 -   You can use its JavaScript interface for interacting with the web API.
 
