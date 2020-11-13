@@ -24,7 +24,7 @@ To edit theme files locally, we recommend using [Stencil CLI](https://developer.
 
 As with non-global regions, you add global regions at the template file level. For a global region to appear on all of the targeted pages, you need to add that region to the templates of the pages you want to target.
 
-Let’s start by creating a global region called `below_content--global` and adding it to your store's home and category pages. In your theme’s template files, add `{{{region name="below_content--global"}}}` to `templates/pages/home.html` and `templates/pages/category.html` as shown in the following examples.
+Let's start by creating a global region called `below_content--global` and adding it to your store's home and category pages. In your theme's template files, add `{{{region name="below_content--global"}}}` to `templates/pages/home.html` and `templates/pages/category.html` as shown in the following examples.
 
 **home.html**
 
@@ -67,7 +67,7 @@ Scroll to the bottom of your home page. You should see the `below_content--globa
 
 ## Place a widget in the global region
 
-To test the functionality of your global region, drag and drop one of the basic widgets from the left pane into the `below_content--global` region, then click **Preview**. You should see the widget you just placed displayed on the home page as well as the category pages of your store.
+To test your global region's functionality, drag and drop one of the basic widgets from the left pane into the `below_content--global` region, then click **Preview**. You should see the widget you just placed displayed on the home page and the category pages of your store.
 
 ## Related resources
 
