@@ -15,18 +15,21 @@
 
 The Checkout JS SDK is a JavaScript library of methods for performing actions related to checkout. It includes methods for logging in a customer, adding addresses to the checkout object, and surfacing the shipping and payment methods that a merchant has configured. It’s everything you need to build your own custom checkout page on BigCommerce.
 
-The [sample checkout app](https://github.com/bigcommerce/checkout-sdk-js-example) we provide, built in React, is a great place to get started if you prefer to build within a framework. However, the SDK is framework agnostic because it's built with VanillaJS. 
+Our [sample checkout React app](https://github.com/bigcommerce/checkout-sdk-js-example) is a great place to get started if you prefer to develop within a framework. However, the SDK, built with VanillaJS, is framework agnostic.
 
-To illustrate this point, this tutorial will walk through the first steps of building a custom checkout directly into the control panel. At the end of the tutorial, you will have installed the Checkout SDK, created a new JavaScript module for your custom checkout, and console logged the checkout object.
+
+
+This tutorial will walk you through the first steps of building a custom checkout directly into the control panel to illustrate this point. At the end of the tutorial, you will have installed the Checkout SDK, created a new JavaScript module for your custom checkout, and console logged the checkout object.
+
 
 
 ## Prerequisites
 * This tutorial uses [Cornerstone](https://github.com/bigcommerce/cornerstone). Your theme may differ.
-* Theme should be setup for [local development](https://developer.bigcommerce.com/stencil-docs/getting-started/installing-stencil).
+* The theme should be set up for [local development](https://developer.bigcommerce.com/stencil-docs/getting-started/installing-stencil).
 
 ## Installing the Checkout JS SDK
 
-1. Open your terminal and navigate to your theme’s directory.
+1. Open your terminal and navigate to your theme's directory.
 
 For example, `cd cornerstone`
 
@@ -73,4 +76,4 @@ On the checkout page, you will see the script, the checkout ID on the screen, an
 * [Checkout SDK Source Code](https://github.com/bigcommerce/checkout-sdk-js) (BigCommerce GitHub)
 
 ## Related articles
-* [Authorizing and Initializing the CLI](https://developer.bigcommerce.com/stencil-docs/getting-started/installing-stencil)
+* [Installling Stencil CLI](https://developer.bigcommerce.com/stencil-docs/getting-started/installing-stencil)

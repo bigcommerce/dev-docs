@@ -10,9 +10,10 @@
 
 ## Identifying logged-in customers securely
 
-If your application interacts dynamically with the BigCommerce storefront, and conveys information that is specific to a particular logged-in customer, you must confirm that customer’s identity within the insecure environment of the user’s browser.
+Suppose your application interacts dynamically with the BigCommerce storefront and conveys specific information to a particular logged-in customer. You must confirm that customer's identity within the insecure environment of the user's browser before revealing any sensitive information.
 
-To address this need, BigCommerce provides a Current Customer endpoint, which your app can access via JavaScript on the storefront. This endpoint returns a JWT with identifying details about the customer. The information is signed with your [OAuth client secret](/api-docs/getting-started/basics/authentication#authentication_client-id-secret).
+To address this need, BigCommerce provides a Current Customer endpoint that your app can access via JavaScript on the storefront. This endpoint allows a remote application, such as a third-party subscription billing app, to return a JWT with identifying customer details. The information is signed with your [OAuth client secret](/api-docs/getting-started/basics/authentication#authentication_client-id-secret).
+
 
 <div class="HubBlock--callout">
 <div class="CalloutBlock--info">
@@ -32,7 +33,8 @@ To address this need, BigCommerce provides a Current Customer endpoint, which yo
 
 ## Example JavaScript
 
-Below is example JavaScript that will access this JWT. To test the JWT functionality, you can install this JavaScript on your sandbox BigCommerce store. You must include your application’s client ID in the request to identify the requesting application.
+Below is an example JavaScript code snippet that will access this JWT. To test the JWT functionality, you can install this JavaScript on your sandbox BigCommerce store. You must include your application's client ID in the request to identify the requesting application.
+
 
 
 ```html
@@ -83,9 +85,9 @@ The above JavaScript should alert to the browser with a JWT token if you are log
 }
 ```
 
-By design, your application should send this token to the application’s server, validate it against your client secret, and then use it as a trusted indication of the logged-in customer’s identity, before displaying confidential information to them.
+By design, your application should send this token to the application’s server, validate it against your client secret, and then use it as a trusted indication of the logged-in customer's identity, before displaying confidential information to them.
 
-An end-to-end example that displays a customer’s recently purchased products is available in our [Ruby](https://github.com/bigcommerce/hello-world-app-ruby-sinatra/) and [PHP](https://github.com/bigcommerce/hello-world-app-php-silex/) sample apps.
+An end-to-end example that displays a customer's recently purchased products is available in our [Ruby](https://github.com/bigcommerce/hello-world-app-ruby-sinatra/) and [PHP](https://github.com/bigcommerce/hello-world-app-php-silex/) sample apps.
 
 <div class="HubBlock--callout">
 <div class="CalloutBlock--info">
