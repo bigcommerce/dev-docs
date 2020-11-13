@@ -179,7 +179,7 @@ paths:
           in: query
           type: integer
         - name: date_modified
-          description: 'Filter items by date_modified. For example `v3/catalog/products?date_modified:min=2018-06-15`'
+          description: 'Filter items by `date_modified`. For example, `/v3/catalog/products?date_modified:min=2018-06-15` gets all products modified after `2018-06-15`'
           required: false
           in: query
           type: string
@@ -305,7 +305,7 @@ paths:
             - preorder
         - name: price_list_id
           description: |-
-            This filter returns the product pricing with the *Price List* pricing instead. To use: 
+            This filter returns the product pricing with the *Price List* pricing instead. To use:
             `?price_list_id=1`.
             If there are variants use:
             `?price_list_id=1&include=variants`
@@ -394,7 +394,7 @@ paths:
                   "categories":[
                           23,21
                       ],
-                      
+
                   "weight": 4,
                   "type": "physical",
                   "variants":[
@@ -1204,7 +1204,7 @@ paths:
         - Product Images
     post:
       description: |-
-        Creates a *Product Image*. 
+        Creates a *Product Image*.
 
          **Required Fields**
         - `image_file`, or
@@ -1275,7 +1275,7 @@ paths:
               - properties:
                   image_url:
                     description: |
-                      Must be a fully qualified URL path, including protocol. Limit of 8MB per file. 
+                      Must be a fully qualified URL path, including protocol. Limit of 8MB per file.
                     type: string
                   image_file:
                     description: |
@@ -1410,8 +1410,8 @@ paths:
                         type: string
                         example: 'https://upload.wikimedia.org/wikipedia/commons/7/7f/Anglel_Bless_Legendary_Hills_1_m%C4%9Bs%C3%ADc_st%C3%A1%C5%99%C3%AD.jpg'
                         description: |-
-                          Publically available URL. 
-                          Use the image_url when creating a product. 
+                          Publically available URL.
+                          Use the image_url when creating a product.
               meta:
                 type: object
                 description: Empty meta object; may be used later.
@@ -1557,7 +1557,7 @@ paths:
 
         **Usage Notes**
         - `image_url` - `255` character limit
-        - When using file upload, other image file params can be updated using `key:value` pairs. 
+        - When using file upload, other image file params can be updated using `key:value` pairs.
       operationId: updateProductImage
       parameters:
         - name: productImage
@@ -1735,8 +1735,8 @@ paths:
                         type: string
                         example: 'https://upload.wikimedia.org/wikipedia/commons/7/7f/Anglel_Bless_Legendary_Hills_1_m%C4%9Bs%C3%ADc_st%C3%A1%C5%99%C3%AD.jpg'
                         description: |-
-                          Publically available URL. 
-                          Use the image_url when creating a product. 
+                          Publically available URL.
+                          Use the image_url when creating a product.
               meta:
                 type: object
                 description: Empty meta object; may be used later.
@@ -1910,7 +1910,7 @@ paths:
         * id
 
         Publicly accessible URLs are valid parameters.
-        Videos must be loaded through YouTube at this time. 
+        Videos must be loaded through YouTube at this time.
       operationId: createProductVideo
       parameters:
         - name: productVideo
@@ -2512,7 +2512,7 @@ paths:
       summary: Get All Product Variants
     post:
       description: |-
-        Creates a *Product Variant*. 
+        Creates a *Product Variant*.
 
         **Required Fields**
         * sku
@@ -3604,7 +3604,7 @@ paths:
               image_url:
                 type: string
                 description: |
-                  A public URL for a GIF, JPEG, or PNG image. Limit of 8MB per file. 
+                  A public URL for a GIF, JPEG, or PNG image. Limit of 8MB per file.
           x-examples:
             application/json:
               image_url: 'https://upload.wikimedia.org/wikipedia/commons/7/7f/Anglel_Bless_Legendary_Hills_1_m%C4%9Bs%C3%ADc_st%C3%A1%C5%99%C3%AD.jpg'
@@ -3638,7 +3638,7 @@ paths:
                   image_url:
                     type: string
                     description: |
-                      A public URL for a GIF, JPEG, or PNG image. Limit of 8MB per file. 
+                      A public URL for a GIF, JPEG, or PNG image. Limit of 8MB per file.
               meta:
                 type: object
                 description: Empty meta object; may be used later.
@@ -4185,7 +4185,7 @@ paths:
 
         **Notes**
 
-        * Only one variant option at a time can be created; individual variant options will contain an array of multiple values. 
+        * Only one variant option at a time can be created; individual variant options will contain an array of multiple values.
         * There are several examples listed below that create options, but the SKU’s are not updated and they are not a variant on the product. Variant SKUs must be created with a separate request.
         * Variant options will show on the storefront as an option that can be selected by the customer. A request like this could be used to add new choices to a variant that has already been created.
         * If more than one variant needs to be created use the [Create a Product](/api-reference/catalog/catalog-api/products/createproduct) endpoint.
@@ -6032,7 +6032,7 @@ paths:
                                     image_url:
                                       type: string
                                       description: |
-                                        The URL for an image displayed on the storefront when the modifier value is selected.Limit of 8MB per file. 
+                                        The URL for an image displayed on the storefront when the modifier value is selected.Limit of 8MB per file.
                                       example: 'https://cdn8.bigcommerce.com/s-{{store_hash}}/products/184/images/445/naturalcanvascart2_1024x1024__92347__29648.1534344533.1280.1280.jpg?c=2'
                                     purchasing_disabled:
                                       type: object
@@ -6385,7 +6385,7 @@ paths:
                                         image_url:
                                           type: string
                                           description: |
-                                            The URL for an image displayed on the storefront when the modifier value is selected.Limit of 8MB per file. 
+                                            The URL for an image displayed on the storefront when the modifier value is selected.Limit of 8MB per file.
                                           example: 'https://cdn8.bigcommerce.com/s-{{store_hash}}/products/184/images/445/naturalcanvascart2_1024x1024__92347__29648.1534344533.1280.1280.jpg?c=2'
                                         purchasing_disabled:
                                           type: object
@@ -6946,7 +6946,7 @@ paths:
                                     image_url:
                                       type: string
                                       description: |
-                                        The URL for an image displayed on the storefront when the modifier value is selected.Limit of 8MB per file. 
+                                        The URL for an image displayed on the storefront when the modifier value is selected.Limit of 8MB per file.
                                       example: 'https://cdn8.bigcommerce.com/s-{{store_hash}}/products/184/images/445/naturalcanvascart2_1024x1024__92347__29648.1534344533.1280.1280.jpg?c=2'
                                     purchasing_disabled:
                                       type: object
@@ -7281,7 +7281,7 @@ paths:
                                         image_url:
                                           type: string
                                           description: |
-                                            The URL for an image displayed on the storefront when the modifier value is selected.Limit of 8MB per file. 
+                                            The URL for an image displayed on the storefront when the modifier value is selected.Limit of 8MB per file.
                                           example: 'https://cdn8.bigcommerce.com/s-{{store_hash}}/products/184/images/445/naturalcanvascart2_1024x1024__92347__29648.1534344533.1280.1280.jpg?c=2'
                                         purchasing_disabled:
                                           type: object
@@ -7665,7 +7665,7 @@ paths:
                           image_url:
                             type: string
                             description: |
-                              The URL for an image displayed on the storefront when the modifier value is selected.Limit of 8MB per file. 
+                              The URL for an image displayed on the storefront when the modifier value is selected.Limit of 8MB per file.
                             example: 'https://cdn8.bigcommerce.com/s-{{store_hash}}/products/184/images/445/naturalcanvascart2_1024x1024__92347__29648.1534344533.1280.1280.jpg?c=2'
                           purchasing_disabled:
                             type: object
@@ -7783,7 +7783,7 @@ paths:
                               image_url:
                                 type: string
                                 description: |
-                                  The URL for an image displayed on the storefront when the modifier value is selected.Limit of 8MB per file. 
+                                  The URL for an image displayed on the storefront when the modifier value is selected.Limit of 8MB per file.
                                 example: 'https://cdn8.bigcommerce.com/s-{{store_hash}}/products/184/images/445/naturalcanvascart2_1024x1024__92347__29648.1534344533.1280.1280.jpg?c=2'
                               purchasing_disabled:
                                 type: object
@@ -8059,7 +8059,7 @@ paths:
                           image_url:
                             type: string
                             description: |
-                              The URL for an image displayed on the storefront when the modifier value is selected.Limit of 8MB per file. 
+                              The URL for an image displayed on the storefront when the modifier value is selected.Limit of 8MB per file.
                             example: 'https://cdn8.bigcommerce.com/s-{{store_hash}}/products/184/images/445/naturalcanvascart2_1024x1024__92347__29648.1534344533.1280.1280.jpg?c=2'
                           purchasing_disabled:
                             type: object
@@ -8185,7 +8185,7 @@ paths:
                               image_url:
                                 type: string
                                 description: |
-                                  The URL for an image displayed on the storefront when the modifier value is selected.Limit of 8MB per file. 
+                                  The URL for an image displayed on the storefront when the modifier value is selected.Limit of 8MB per file.
                                 example: 'https://cdn8.bigcommerce.com/s-{{store_hash}}/products/184/images/445/naturalcanvascart2_1024x1024__92347__29648.1534344533.1280.1280.jpg?c=2'
                               purchasing_disabled:
                                 type: object
@@ -8351,7 +8351,7 @@ paths:
                   image_url:
                     type: string
                     description: |
-                      A public URL for a GIF, JPEG, or PNG image. Limit of 8MB per file. 
+                      A public URL for a GIF, JPEG, or PNG image. Limit of 8MB per file.
               meta:
                 type: object
                 description: Empty meta object; may be used later.
@@ -8597,7 +8597,7 @@ paths:
               image_url:
                 type: string
                 description: |
-                  The URL for an image displayed on the storefront when the conditions are applied. Limit of 8MB per file. 
+                  The URL for an image displayed on the storefront when the conditions are applied. Limit of 8MB per file.
                 example: 'https://cdn8.bigcommerce.com/s-123456/product_images/d/fakeimage.png'
               price_adjuster:
                 type: object
@@ -8931,7 +8931,7 @@ paths:
               image_url:
                 type: string
                 description: |
-                  The URL for an image displayed on the storefront when the conditions are applied. Limit of 8MB per file. 
+                  The URL for an image displayed on the storefront when the conditions are applied. Limit of 8MB per file.
                 example: 'https://cdn8.bigcommerce.com/s-123456/product_images/d/fakeimage.png'
               price_adjuster:
                 type: object
@@ -9477,7 +9477,7 @@ paths:
         - Product Custom Fields
     put:
       description: |-
-        Updates a *Custom Field*. 
+        Updates a *Custom Field*.
 
         **Required Fields**
         - none
@@ -10086,7 +10086,7 @@ paths:
                   amount:
                     type: integer
                     description: |-
-                      The discount can be a fixed dollar amount or a percentage. For a fixed dollar amount enter it as an integer and the response will return as an integer. For percentage enter the amount as the percentage divided by 100 using string format. For example 10% percent would be “.10”. The response will return as an integer. 
+                      The discount can be a fixed dollar amount or a percentage. For a fixed dollar amount enter it as an integer and the response will return as an integer. For percentage enter the amount as the percentage divided by 100 using string format. For example 10% percent would be “.10”. The response will return as an integer.
                       Required in /POST.
                 required:
                   - quantity_min
@@ -11548,7 +11548,7 @@ paths:
                 type: integer
                 description: |-
                   Unique ID of the *Category*. Increments sequentially.
-                  Read-Only. 
+                  Read-Only.
               parent_id:
                 type: integer
                 description: |-
@@ -11888,7 +11888,7 @@ paths:
                 type: integer
                 description: |-
                   Unique ID of the *Category*. Increments sequentially.
-                  Read-Only. 
+                  Read-Only.
               parent_id:
                 type: integer
                 description: |-
@@ -12034,7 +12034,7 @@ paths:
                     type: integer
                     description: |-
                       Unique ID of the *Category*. Increments sequentially.
-                      Read-Only. 
+                      Read-Only.
                   parent_id:
                     type: integer
                     description: |-
@@ -12820,9 +12820,9 @@ paths:
          **Required Fields**
         - image_file: Form posts are the only accepted upload option.
 
-        Only one image at a time can be created. 
-        Limit image size to 1MB.  
-        To update a *Category Image*, use the [PUT Categories](/api-reference/catalog/catalog-api/category/updatecategory) and an `image_url`. 
+        Only one image at a time can be created.
+        Limit image size to 1MB.
+        To update a *Category Image*, use the [PUT Categories](/api-reference/catalog/catalog-api/category/updatecategory) and an `image_url`.
       operationId: createCategoryImage
       responses:
         '200':
@@ -14375,7 +14375,7 @@ paths:
         type: integer
     post:
       description: |-
-        Creates a *Brand Image*. 
+        Creates a *Brand Image*.
 
         **Required Fields**
         - image_file: Form posts are the only accepted upload option.
@@ -14383,7 +14383,7 @@ paths:
         **Read-Only Fields**
         - id
 
-        Only one image at a time can be created. To update a *Brand Image*, use the [PUT Brands](/api-reference/catalog/catalog-api/brands/updatebrand) and an `image_url`. 
+        Only one image at a time can be created. To update a *Brand Image*, use the [PUT Brands](/api-reference/catalog/catalog-api/brands/updatebrand) and an `image_url`.
       operationId: createBrandImage
       parameters:
         - in: header
@@ -17151,7 +17151,7 @@ parameters:
   FilterPriceListIdParam:
     name: price_list_id
     description: |-
-      This filter returns the product pricing with the *Price List* pricing instead. To use: 
+      This filter returns the product pricing with the *Price List* pricing instead. To use:
       `?price_list_id=1`.
       If there are variants use:
       `?price_list_id=1&include=variants`
@@ -17730,7 +17730,7 @@ definitions:
                             image_url:
                               type: string
                               description: |
-                                The URL for an image displayed on the storefront when the modifier value is selected.Limit of 8MB per file. 
+                                The URL for an image displayed on the storefront when the modifier value is selected.Limit of 8MB per file.
                               example: 'https://cdn8.bigcommerce.com/s-{{store_hash}}/products/184/images/445/naturalcanvascart2_1024x1024__92347__29648.1534344533.1280.1280.jpg?c=2'
                             purchasing_disabled:
                               type: object
@@ -18021,7 +18021,7 @@ definitions:
                             image_url:
                               type: string
                               description: |
-                                The URL for an image displayed on the storefront when the modifier value is selected.Limit of 8MB per file. 
+                                The URL for an image displayed on the storefront when the modifier value is selected.Limit of 8MB per file.
                               example: 'https://cdn8.bigcommerce.com/s-{{store_hash}}/products/184/images/445/naturalcanvascart2_1024x1024__92347__29648.1534344533.1280.1280.jpg?c=2'
                             purchasing_disabled:
                               type: object
@@ -18178,7 +18178,7 @@ definitions:
                   image_url:
                     type: string
                     description: |
-                      The URL for an image displayed on the storefront when the modifier value is selected.Limit of 8MB per file. 
+                      The URL for an image displayed on the storefront when the modifier value is selected.Limit of 8MB per file.
                     example: 'https://cdn8.bigcommerce.com/s-{{store_hash}}/products/184/images/445/naturalcanvascart2_1024x1024__92347__29648.1534344533.1280.1280.jpg?c=2'
                   purchasing_disabled:
                     type: object
@@ -18272,7 +18272,7 @@ definitions:
                   image_url:
                     type: string
                     description: |
-                      The URL for an image displayed on the storefront when the modifier value is selected.Limit of 8MB per file. 
+                      The URL for an image displayed on the storefront when the modifier value is selected.Limit of 8MB per file.
                     example: 'https://cdn8.bigcommerce.com/s-{{store_hash}}/products/184/images/445/naturalcanvascart2_1024x1024__92347__29648.1534344533.1280.1280.jpg?c=2'
                   purchasing_disabled:
                     type: object
@@ -18911,7 +18911,7 @@ definitions:
         type: integer
         description: |-
           Unique ID of the *Category*. Increments sequentially.
-          Read-Only. 
+          Read-Only.
       parent_id:
         type: integer
         description: |-
@@ -19850,7 +19850,7 @@ definitions:
       - properties:
           image_url:
             description: |
-              Must be a fully qualified URL path, including protocol. Limit of 8MB per file. 
+              Must be a fully qualified URL path, including protocol. Limit of 8MB per file.
             type: string
           image_file:
             description: |
@@ -20159,7 +20159,7 @@ definitions:
       image_url:
         type: string
         description: |
-          A public URL for a GIF, JPEG, or PNG image. Limit of 8MB per file. 
+          A public URL for a GIF, JPEG, or PNG image. Limit of 8MB per file.
   product_Post:
     description: The model for a POST to create a product.
     allOf:
@@ -20389,7 +20389,7 @@ definitions:
       image_url:
         type: string
         description: |
-          The URL for an image displayed on the storefront when the conditions are applied. Limit of 8MB per file. 
+          The URL for an image displayed on the storefront when the conditions are applied. Limit of 8MB per file.
         example: 'https://cdn8.bigcommerce.com/s-123456/product_images/d/fakeimage.png'
       price_adjuster:
         $ref: '#/definitions/adjuster_Full'
@@ -20617,7 +20617,7 @@ definitions:
       amount:
         type: integer
         description: |-
-          The discount can be a fixed dollar amount or a percentage. For a fixed dollar amount enter it as an integer and the response will return as an integer. For percentage enter the amount as the percentage divided by 100 using string format. For example 10% percent would be “.10”. The response will return as an integer. 
+          The discount can be a fixed dollar amount or a percentage. For a fixed dollar amount enter it as an integer and the response will return as an integer. For percentage enter the amount as the percentage divided by 100 using string format. For example 10% percent would be “.10”. The response will return as an integer.
           Required in /POST.
         example: 10
     required:
@@ -21225,7 +21225,7 @@ definitions:
       image_url:
         type: string
         description: |
-          The URL for an image displayed on the storefront when the modifier value is selected.Limit of 8MB per file. 
+          The URL for an image displayed on the storefront when the modifier value is selected.Limit of 8MB per file.
         example: 'https://cdn8.bigcommerce.com/s-{{store_hash}}/products/184/images/445/naturalcanvascart2_1024x1024__92347__29648.1534344533.1280.1280.jpg?c=2'
       purchasing_disabled:
         type: object
@@ -21623,7 +21623,7 @@ definitions:
       is_preorder_only:
         type: boolean
         description: |
-          If set to true then on the preorder release date the preorder status will automatically be removed.  
+          If set to true then on the preorder release date the preorder status will automatically be removed.
           If set to false, then on the release date the preorder status **will not** be removed. It will need to be changed manually either in the
           control panel or using the API. Using the API set `availability` to `available`.
       is_price_hidden:
@@ -21791,7 +21791,7 @@ securityDefinitions:
       X-Auth-Token: {access_token}
       ```
 
-      * For more information on Authenticating BigCommerce APIs, see: [Authentication](https://developer.bigcommerce.com/api-docs/getting-started/authentication). 
+      * For more information on Authenticating BigCommerce APIs, see: [Authentication](https://developer.bigcommerce.com/api-docs/getting-started/authentication).
 security:
   - X-Auth-Client: []
   - X-Auth-Token: []
@@ -23003,7 +23003,7 @@ responses:
               image_url:
                 type: string
                 description: |
-                  The URL for an image displayed on the storefront when the conditions are applied. Limit of 8MB per file. 
+                  The URL for an image displayed on the storefront when the conditions are applied. Limit of 8MB per file.
                 example: 'https://cdn8.bigcommerce.com/s-123456/product_images/d/fakeimage.png'
               price_adjuster:
                 type: object
@@ -23201,7 +23201,7 @@ responses:
             image_url:
               type: string
               description: |
-                The URL for an image displayed on the storefront when the conditions are applied. Limit of 8MB per file. 
+                The URL for an image displayed on the storefront when the conditions are applied. Limit of 8MB per file.
               example: 'https://cdn8.bigcommerce.com/s-123456/product_images/d/fakeimage.png'
             price_adjuster:
               type: object
@@ -23551,8 +23551,8 @@ responses:
                     type: string
                     example: 'https://upload.wikimedia.org/wikipedia/commons/7/7f/Anglel_Bless_Legendary_Hills_1_m%C4%9Bs%C3%ADc_st%C3%A1%C5%99%C3%AD.jpg'
                     description: |-
-                      Publically available URL. 
-                      Use the image_url when creating a product. 
+                      Publically available URL.
+                      Use the image_url when creating a product.
             type: object
         meta:
           $ref: '#/definitions/metaCollection_Full'
@@ -23690,8 +23690,8 @@ responses:
                   type: string
                   example: 'https://upload.wikimedia.org/wikipedia/commons/7/7f/Anglel_Bless_Legendary_Hills_1_m%C4%9Bs%C3%ADc_st%C3%A1%C5%99%C3%AD.jpg'
                   description: |-
-                    Publically available URL. 
-                    Use the image_url when creating a product. 
+                    Publically available URL.
+                    Use the image_url when creating a product.
         meta:
           type: object
           description: Empty meta object; may be used later.
@@ -23973,7 +23973,7 @@ responses:
                                     image_url:
                                       type: string
                                       description: |
-                                        The URL for an image displayed on the storefront when the modifier value is selected.Limit of 8MB per file. 
+                                        The URL for an image displayed on the storefront when the modifier value is selected.Limit of 8MB per file.
                                       example: 'https://cdn8.bigcommerce.com/s-{{store_hash}}/products/184/images/445/naturalcanvascart2_1024x1024__92347__29648.1534344533.1280.1280.jpg?c=2'
                                     purchasing_disabled:
                                       type: object
@@ -24334,7 +24334,7 @@ responses:
                                   image_url:
                                     type: string
                                     description: |
-                                      The URL for an image displayed on the storefront when the modifier value is selected.Limit of 8MB per file. 
+                                      The URL for an image displayed on the storefront when the modifier value is selected.Limit of 8MB per file.
                                     example: 'https://cdn8.bigcommerce.com/s-{{store_hash}}/products/184/images/445/naturalcanvascart2_1024x1024__92347__29648.1534344533.1280.1280.jpg?c=2'
                                   purchasing_disabled:
                                     type: object
@@ -24527,7 +24527,7 @@ responses:
                           image_url:
                             type: string
                             description: |
-                              The URL for an image displayed on the storefront when the modifier value is selected.Limit of 8MB per file. 
+                              The URL for an image displayed on the storefront when the modifier value is selected.Limit of 8MB per file.
                             example: 'https://cdn8.bigcommerce.com/s-{{store_hash}}/products/184/images/445/naturalcanvascart2_1024x1024__92347__29648.1534344533.1280.1280.jpg?c=2'
                           purchasing_disabled:
                             type: object
@@ -24677,7 +24677,7 @@ responses:
                         image_url:
                           type: string
                           description: |
-                            The URL for an image displayed on the storefront when the modifier value is selected.Limit of 8MB per file. 
+                            The URL for an image displayed on the storefront when the modifier value is selected.Limit of 8MB per file.
                           example: 'https://cdn8.bigcommerce.com/s-{{store_hash}}/products/184/images/445/naturalcanvascart2_1024x1024__92347__29648.1534344533.1280.1280.jpg?c=2'
                         purchasing_disabled:
                           type: object
