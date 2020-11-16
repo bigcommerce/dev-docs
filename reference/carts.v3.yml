@@ -196,7 +196,7 @@ paths:
           in: body
           required: true
           schema:
-            $ref: '#/definitions/Cart Line Item Update Post'
+            $ref: '#/definitions/Cart_Line_Item_Update_Post'
           x-examples:
             application/json:
               line_items:
@@ -363,7 +363,7 @@ paths:
           in: body
           required: true
           schema:
-            $ref: '#/definitions/Cart Line Item Update Post'
+            $ref: '#/definitions/Cart_Line_Item_Update_Post'
           x-examples:
             application/json:
               line_item:
@@ -2719,6 +2719,9 @@ definitions:
         variant_id:
           type: number
           description: Exists only in Catalog V3
+        name:
+          type: string
+          description: Optionally, provide a value to override the product name
       required:
         - quantity
         - product_id
@@ -2735,20 +2738,32 @@ definitions:
         list_price:
           type: number
           description: Optional price override
+        name:
+          type: string
+          description: Optionally, provide a value to override the product name
         option_selections:
           type: array
           description: Needed for Catalog V2
           items:
             type: object
+            required:
+              - option_id
+              - option_value
             properties:
               option_id:
                 type: number
               option_value:
                 type: string
+              name:
+                description: Override selected Option or Modifier Name
+                type: string
+              value:
+                description: Override selected Option Value
+                type: string
       required:
         - quantity
         - product_id
-  Cart Line Item Update Post:
+  Cart_Line_Item_Update_Post:
     type: object
     title: Cart Line Item Update Post
     properties:
