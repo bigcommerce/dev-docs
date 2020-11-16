@@ -19,27 +19,33 @@ With the Checkout JS SDK, you can build a [custom checkout presentation](https:/
 
 -   You can initialize payment and shipping providers that require client-side setup through a common interface. Below are some examples of these providers:
 
-    -   [PayPal](#required-payment-method-initialization-options)
-    -   Braintree
-    -   Stripe
-    -   Square
     -   [Amazon](#required-payment-method-initialization-options)
+    -   Braintree
+    -   [PayPal](#required-payment-method-initialization-options)
+    -   Square
+    -   Stripe
+
+ 
 
 -   You can use its JavaScript interface for interacting with the web API.
 
     -   Fetch and submit resources:
         -   Cart
+        -   Customer 
         -   Order
-        -   Customer
+
     -   Fetch available options:
-        -   Shipping addresses
-        -   Shipping countries
-        -   Shipping states
         -   Billing addresses
         -   Billing countries
         -   Billing states
-        -   Shipping methods
-        -   Payment methods
+        -   Payment methods 
+        -   Shipping addresses
+        -   Shipping countries
+        -   Shipping methods 
+        -   Shipping states
+      
+
+ 
 
 The Checkout JS SDK allows you to present the checkout process to the shopper in any way you like and, through front-end technologies and external web services, augment the checkout with extra information.
 
