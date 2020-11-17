@@ -146,6 +146,7 @@ npm install -g @bigcommerce/stencil-cli
 **Depending on the distro, you may also need to install:**
 * g++
 * [libsass](https://sass-lang.com/libsass)
+* git
 
 <div class="HubBlock--callout">
 <div class="CalloutBlock--info">
