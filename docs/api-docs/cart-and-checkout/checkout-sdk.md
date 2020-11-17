@@ -55,7 +55,7 @@ The SDK does not allow you to implement custom payment, shipping, or tax calcula
 ### Required payment method initialization options 
 Some payment methods, like PayPal, Amazon, etc., require you to provide additional initialization options. Amazon requires a container ID to initialize its payment widget. The PayPal method requires specific options to initialize the PayPal Smart Payment button on the checkout page that substitutes a standard submit button. For more details on adjusting your code to make it work with the PayPal method, see the [BigCommerce SDK Repo](https://github.com/bigcommerce/checkout-sdk-js/blob/master/docs/interfaces/paypalcommercepaymentinitializeoptions.md).
 
-![Checkout Button](http://raw.githubusercontent.com/bigcommerce/dev-docs/master/asset/images/checkout-sdk-01 "Checkout Button")
+![Checkout Button](http://raw.githubusercontent.com/bigcommerce/dev-docs/master/asset/images/checkout-sdk-01.png "Checkout Button")
 
 ## Where can I get the SDK?
 The Checkout JS SDK and associated documentation is available from the [BigCommerce SDK Repo.](https://github.com/bigcommerce/checkout-sdk-js)
