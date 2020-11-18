@@ -82,7 +82,7 @@ Accept: application/json
 
 You can view your widget template in the store's control panel using [Page Builder](https://support.bigcommerce.com/s/article/Page-Builder), BigCommerce's storefront editing and customization tool. You can locate your newly created widget template in the left pane under **Custom**. 
 
-![Page Builder](https://raw.githubusercontent.com/bigcommerce/dev-docs/master/assets/images/widget-versioning-01 "Page Builder")
+![Page Builder](https://raw.githubusercontent.com/bigcommerce/dev-docs/master/assets/images/widget-versioning-01.png "Page Builder")
 
 ### Create a widget
 
@@ -237,13 +237,13 @@ To display the new widget next to the old one, place it in the same region. In o
 
 You should now see two different widgets displayed below **Featured Products**.
 
-![Add a new widget](https://raw.githubusercontent.com/bigcommerce/dev-docs/master/assets/images/widget-versioning-02 "Add a new widget")
+![Add a new widget](https://raw.githubusercontent.com/bigcommerce/dev-docs/master/assets/images/widget-versioning-02.png "Add a new widget")
 
 ## Upgrade the widget
 
 To upgrade the widget derived from the original widget template, send `"upgrade":true` in a `PUT` request to [`/v3/content/widgets/{uuid}`](https://developer.bigcommerce.com/api-reference/store-management/widgets/widget/updatewidget). This will push the widget up to the latest widget template version.
 
-![Upgrade the widget](https://raw.githubusercontent.com/bigcommerce/dev-docs/master/assets/images/widget-versioning-03 "Upgrade the widget")
+![Upgrade the widget](https://raw.githubusercontent.com/bigcommerce/dev-docs/master/assets/images/widget-versioning-03.png "Upgrade the widget")
 
 ## Related resources
 
