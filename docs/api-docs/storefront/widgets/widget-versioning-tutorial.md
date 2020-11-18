@@ -62,7 +62,7 @@ Accept: application/json
       ]
     }
   ],
-  "template": "<h1>Hello, World!</h1>"
+  "template": "<h1>{{textContent}}</h1>"
 }
 ```
 
@@ -100,7 +100,7 @@ Accept: application/json
 {
   "name": "Version 1 Widget",
   "widget_configuration": {
-    "textContent": "Posted via the API"
+    "textContent": "Hello, World!"
   },
   "widget_template_uuid": "{your-widget-template-uuid}"
 }
@@ -131,7 +131,7 @@ Look for `version_uuid` and `current_version_uuid` in the response. You will not
       "kind": "custom",
       "name": "Simple Text",
       "schema": [...],
-      "template": "<h1>Hello, World!</h1>",
+      "template": "<h1>{{textContent}}</h1>",
       "uuid": "ee65e81f-a6a6-43a4-8d52-60bab87dbff3"
     }
   },
@@ -199,7 +199,7 @@ Accept: application/json
       ]
     }
   ],
-  "template": "<h1 style='color:red;'>Hello, World!</h1>",
+  "template": "<h1 style='color:red;'>{{textContent}}</h1>",
   "create_new_version": true
 }
 ```
@@ -225,7 +225,7 @@ Accept: application/json
 {
   "name": "Version 2 Widget",
   "widget_configuration": {
-    "textContent": "Posted via the API"
+    "textContent": "Hello, World!"
   },
   "widget_template_uuid": "{your-widget-template-uuid}"
 }
