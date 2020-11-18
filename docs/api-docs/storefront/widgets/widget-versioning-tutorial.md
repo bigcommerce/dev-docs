@@ -80,7 +80,7 @@ Accept: application/json
 </div>
 </div>
 
-You can view your widget template in the store's control panel using [Page Builder](https://support.bigcommerce.com/s/article/Page-Builder), BigCommerce's powerful theme customization tool. You can locate your newly created widget template in the left pane under **Custom**. 
+You can view your widget template in the store's control panel using [Page Builder](https://support.bigcommerce.com/s/article/Page-Builder), BigCommerce's storefront editing and customization tool. You can locate your newly created widget template in the left pane under **Custom**. 
 
 ![Page Builder](https://raw.githubusercontent.com/bigcommerce/dev-docs/master/assets/images/widget-versioning-01 "Page Builder")
 
