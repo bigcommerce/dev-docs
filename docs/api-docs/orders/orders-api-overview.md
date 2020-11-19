@@ -308,7 +308,7 @@ Accept: application/json
 
 > ### Note
 > * Custom products do not get added to the catalog.
-> * If a price is not specified, and you use the store's product catalog price; override this price with the `price_inc_tax` and `price_ex_tax`.
+> * If you do not specify the product price in the [create order](https://developer.bigcommerce.com/api-reference/store-management/orders/orders/createanorder) request, the product's catalog price will be used. You can override this price with the `price_inc_tax` and `price_ex_tax` properties.
 > * If you override `price_ex_tax` or `price_inc_tax`, override both; otherwise, order totals will not calculate correctly.
 > * Overriding `price_inc_tax` or `price_ex_tax` does not change variant pricing.
 
