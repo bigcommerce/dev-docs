@@ -245,6 +245,17 @@ To upgrade the widget derived from the original widget template, send `"upgrade"
 
 ![Upgrade the widget](https://raw.githubusercontent.com/bigcommerce/dev-docs/master/assets/images/widget-versioning-03.png "Upgrade the widget")
 
+<div class="HubBlock--callout">
+<div class="CalloutBlock--info">
+<div class="HubBlock-content">
+
+> ### Note
+> * If the newer version of your widget template contains different schema settings, you need to provide the necessary configuration values along with the `upgrade` flag to make sure the widget is updated correctly. 
+
+</div>
+</div>
+</div>
+
 ## Related resources
 
 ### Articles
