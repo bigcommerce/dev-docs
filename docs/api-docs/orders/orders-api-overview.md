@@ -69,7 +69,7 @@ Accept: application/json
 <div class="HubBlock-content">
 
 > ### Note
-> * The example above contains the minimum required fields for a [create order request](https://developer.bigcommerce.com/api-reference/store-management/orders/orders/createanorder).
+> * The example above contains the minimum required fields for a [create order] (https://developer.bigcommerce.com/api-reference/store-management/orders/orders/createanorder) request.
 > * The product ordered is a *custom* product; custom products do not exist in the catalog.
 
 </div>
