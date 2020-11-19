@@ -87,7 +87,7 @@ In V3, any variants or modifier adjusters created with non-null core properties 
 
 In V3, every purchasable entity in the catalog is a variant, including the product itself. This enables enhanced inventory management flows, such as the ability to use the [variants](https://developer.bigcommerce.com/api-reference/store-management/catalog/variants/updatevariantsbatch) endpoint to manage inventory levels. While it is possible to create a SKU with a subset of product options using the V2 API, in V3, variants must be created for every combination of option values. We recommend creating products using the V3 API as BigCommerce intends to move operations to the V3 API.
 
-To lower the number of API calls being made, variants can be included with a GET request using `?include=variants`.
+To reduce the number of API calls made, include variants with a `GET` request using `?include=variants`.
 
 <div class="HubBlock--callout">
 <div class="CalloutBlock--warning">
