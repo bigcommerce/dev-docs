@@ -14,7 +14,7 @@ This article documents how to use [widget versioning](https://developer.bigcomme
 
 ###  Prerequisites
 
-* A test store.
+* [A BigCommerce store](https://support.bigcommerce.com/s/article/Starting-a-Bigcommerce-Trial).
 * API `access_token` with `content modify` scope.
 * Knowledge of the [Widgets API](https://developer.bigcommerce.com/api-docs/storefront/widgets/widgets-overview).
 
