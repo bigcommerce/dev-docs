@@ -127,7 +127,7 @@ Accept: application/json
 > ### Note
 > * If not specified, `status_id` defaults to `1`.
 > * The refunded status is neither paid nor unpaid.
-> * See [Order Statuses](https://support.bigcommerce.com/s/article/Order-Statuses#rename) in the Help Center for information on changing `custom_label` in the control panel.
+> * For information on changing `custom_label` in the control panel, see [Order Statuses](https://support.bigcommerce.com/s/article/Order-Statuses#rename).
 
 </div>
 </div>
@@ -670,4 +670,3 @@ Not at this time. If you create an order either in the control panel or via API,
 
 ### Webhooks
 - [Orders](/api-docs/store-management/webhooks/events#orders)
-
