@@ -653,7 +653,7 @@ You can either process payment through a third party or using the control panel.
 
 **Can I generate a shipping quote from a carrier using the API?**
 
-Not at this time. If you create an order either in the control panel or via API, it returns a 204 when trying to get a Shipping Quote.
+Not at this time. If you create an order either in the control panel or via API, it will return a 204 when trying to get a shipping quote.
 
 ## Related resources
 
