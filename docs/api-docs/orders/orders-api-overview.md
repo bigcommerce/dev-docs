@@ -510,7 +510,7 @@ BigCommerce submits tax documents to Avalara when an order moves from an **unpai
 
 > ### Note
 > * Abbreviated state names (ex: `CA` instead of `California`) in an order address will cause tax document submission to fail.
-> * You can calculate taxes using rules specified in the store (unless [automatic taxes](https://support.bigcommerce.com/s/article/Automatic-Tax-Setup) are enabled).
+> * You can calculate taxes using rules specified in the store unless [automatic taxes](https://support.bigcommerce.com/s/article/Automatic-Tax-Setup) are enabled.
 > * You can optionally override tax values by specifying `price_inc_tax` and `price_ex_tax` in an [update order request](https://developer.bigcommerce.com/api-reference/store-management/orders/orders/updateanorder).
 > * If a store has [automatic tax](https://support.bigcommerce.com/s/article/Automatic-Tax-Setup) enabled, BigCommerce does not compute sales tax on orders created via the API.
 
