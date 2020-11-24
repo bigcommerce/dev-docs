@@ -21,7 +21,8 @@ This article documents how to use [Channels Toolkit](https://developer.bigcommer
 
 ## Creating a channel
 
-After receiving the [POST response](https://developer.bigcommerce.com/api-docs/apps/guide/auth#receiving-the-post-response) at the end of the [single-click app OAuth flow](https://developer.bigcommerce.com/api-docs/apps/guide/auth#receiving-the-post-response), create a channel on the merchant's store. This allows merchants to import sales from the POS system and configure settings. To create a POS channel, set `type` to `pos` in the [create a channel](https://developer.bigcommerce.com/api-reference/cart-checkout/channels-listings-api/channels/createchannel) request.
+After receiving the [POST response](https://developer.bigcommerce.com/api-docs/apps/guide/auth#receiving-the-post-response) at the end of the single-click app OAuth flow, create a channel on the merchant's store. This allows merchants to import sales from the POS system and configure settings. To create a POS channel, set `type` to `pos` in the [create a channel](https://developer.bigcommerce.com/api-reference/cart-checkout/channels-listings-api/channels/createchannel) request.
+
 
 ```http
 POST https://api.bigcommerce.com/stores/{{STORE_HASH}}/v3/channels
