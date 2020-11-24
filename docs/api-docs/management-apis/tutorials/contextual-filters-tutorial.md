@@ -10,7 +10,7 @@
 
 </div>
 
-The [Settings API](https://developer.bigcommerce.com/api-reference/store-management/settings) allows you to manage settings and configurations for BigCommerce hosted stores and headless storefront. 
+The [Settings API](https://developer.bigcommerce.com/api-reference/store-management/settings) allows you to manage settings and configurations for BigCommerce hosted stores and headless storefronts. 
 
 You can use the [contextual filters](insert-link-here) endpoint of the Settings API to programmatically configure a store's Product Filtering feature.
 Additionally, the contextual filters endpoint enables you to merchandize diverse product catalogs by creating a different faceted search configuration for each channel and product category on a store. With this feature, you can configure the product categories for various product lines with a different set of enabled filters, so that shoppers can filter by the most relevant criteria.
@@ -18,7 +18,7 @@ Additionally, the contextual filters endpoint enables you to merchandize diverse
 This article demonstrates how to use [contextual filters](insert-link-here) to configure filters that appear on a particular category page.
 
 ### Limitations
-* Currently, the API only supports the default Channel with an ID of 1.
+* Currently, the API only supports the default channel with an ID of 1.
 * You can configure contextual filters for Category pages, but not for Brand or Search Results pages.
 
 ###  Prerequisites
@@ -26,14 +26,15 @@ This article demonstrates how to use [contextual filters](insert-link-here) to c
 * [A BigCommerce store](https://support.bigcommerce.com/s/article/Starting-a-Bigcommerce-Trial).
 * API `access_token` with `content modify` scope.
 * Knowledge of the [Settings API](https://developer.bigcommerce.com/api-reference/store-management/settings).
-* Pro or Enterprise store plan. To upgrade, see [Changing Your Store’s Plan](https://support.bigcommerce.com/s/article/How-do-I-upgrade-my-stores-plan).
+* Pro or Enterprise store plan. To upgrade, see [Changing Your Store's Plan](https://support.bigcommerce.com/s/article/How-do-I-upgrade-my-stores-plan).
 
 <div class="HubBlock--callout">
 <div class="CalloutBlock--info">
 <div class="HubBlock-content">
 
 > ### Note
-> * Your store plan must support Product Filtering to use contextual filters. Product Filtering is available for Pro and Enterprise plans. To upgrade, see [Changing Your Store’s Plan](https://support.bigcommerce.com/s/article/How-do-I-upgrade-my-stores-plan).
+> * Your store plan must support Product Filtering to use contextual filters. 
+> * Product Filtering is available for Pro and Enterprise plans. To upgrade, see [Changing Your Store's Plan](https://support.bigcommerce.com/s/article/How-do-I-upgrade-my-stores-plan).
 > * Enterprise accounts have the ability to use [custom fields](https://support.bigcommerce.com/s/article/Custom-Fields) as product filters to provide shoppers with additional ways to customize their search. 
 
 </div>
@@ -42,7 +43,7 @@ This article demonstrates how to use [contextual filters](insert-link-here) to c
 
 ## View pre-configured filters
 
-There are two ways to retrieve the global filters pre-configured on your store: using the Settings API or through the store’s control panel. To retrieve all pre-configured global filters using the API, send a `GET` request to [/v3/settings/search/filters](insert-link-here).
+There are two ways to retrieve the global filters pre-configured on your store: using the Settings API or through the store's control panel. To retrieve all pre-configured global filters using the API, send a `GET` request to [/v3/settings/search/filters](insert-link-here).
 
 [![Open in Request Runner](https://storage.googleapis.com/bigcommerce-production-dev-center/images/Open-Request-Runner.svg)](https://developer.bigcommerce.com/api-reference/store-management/widgets/widget-template/createwidgettemplate#requestrunner) // replace link
 
@@ -82,7 +83,7 @@ The response will contain all of the global filters currently configured on your
    "meta": {}
 }
 ```
-The global filters returned in the response of the `GET` request should match the filters you see in the control panel under **Storefront Filters**. This set of filters is what you currently have configured on your store. 
+The global filters returned from completing a `GET` request should match the filters you see in the control panel under **Storefront Filters**. This set of filters is what you currently have configured on your store. 
 
 To access **Storefront Filters** in the control panel, go to **Products** > **Product Filtering**. 
 
@@ -188,7 +189,7 @@ The response will contain existing contextual overrides.
 }
 ```
 
-The order and names of returned filters should match what is displayed under Category Filters in the control panel. 
+The order and names of returned filters should match the filters listed under **Category Filters** in the control panel.
 
 ![Category Filters](https://raw.githubusercontent.com/bigcommerce/dev-docs/master/assets/images/contextual-filters-02.png "Category Filters")
 
