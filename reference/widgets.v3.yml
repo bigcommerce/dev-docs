@@ -2,9 +2,7 @@ swagger: '2.0'
 info:
   title: Widgets
   version: ''
-  description: >-
-    Create and manage [widgets](/api-docs/storefront/widgets/widgets-overview),
-    widget templates, regions, and placements.
+  description: 'Create and manage [widgets](/api-docs/storefront/widgets/widgets-overview), widget templates, regions, and placements.'
   termsOfService: ''
 host: api.bigcommerce.com
 basePath: '/stores/{$$.env.store_hash}/v3'
@@ -118,9 +116,8 @@ paths:
           in: query
           type: integer
         - name: limit
-          description: >
-            Controls the number of items per page in a limited (paginated) list
-            of products.
+          description: |
+            Controls the number of items per page in a limited (paginated) list of products.
           required: false
           in: query
           type: integer
@@ -193,9 +190,7 @@ paths:
           x-examples:
             application/json:
               name: Header Images
-              template: >-
-                {{#each images}}<a href='{{image_url}}'><img
-                src={{image_source}} style='width:33.3%'/></a>{{/each}}
+              template: '{{#each images}}<a href=''{{image_url}}''><img src={{image_source}} style=''width:33.3%''/></a>{{/each}}'
               create_new_version: true
         - name: Accept
           in: header
@@ -218,9 +213,7 @@ paths:
                 kind: custom
                 name: Header Images
                 schema: []
-                template: >-
-                  {{#each images}}<a href='{{image_url}}'><img
-                  src={{image_source}} style='width:33.3%'/></a>{{/each}}'
+                template: '{{#each images}}<a href=''{{image_url}}''><img src={{image_source}} style=''width:33.3%''/></a>{{/each}}'''
                 uuid: b9790903-09b9-4736-87ca-19ff61582ee7
               meta: {}
         '404':
@@ -274,14 +267,11 @@ paths:
               widget_configuration:
                 images:
                   - image_url: 'https://{your-store-url}/all/kinfolk-issue-16/'
-                    image_source: >-
-                      https://cdn11.bigcommerce.com/s-n0i50vy/images/stencil/1280x1280/products/91/309/thekinfolktablecover_1024x1024__80715.1456436719.jpg?c=2&imbypass=on
+                    image_source: 'https://cdn11.bigcommerce.com/s-n0i50vy/images/stencil/1280x1280/products/91/309/thekinfolktablecover_1024x1024__80715.1456436719.jpg?c=2&imbypass=on'
                   - image_url: 'https://your-store-url/all/kinfolk-issue-16/'
-                    image_source: >-
-                      https://cdn11.bigcommerce.com/s-n0i50vy/images/stencil/1280x1280/products/109/361/kinfolkessentialissue_1024x1024__22507.1456436715.jpg?c=2&imbypass=on
+                    image_source: 'https://cdn11.bigcommerce.com/s-n0i50vy/images/stencil/1280x1280/products/109/361/kinfolkessentialissue_1024x1024__22507.1456436715.jpg?c=2&imbypass=on'
                   - image_url: 'https://your-store-url/all/kinfolk-issue-16/'
-                    image_source: >-
-                      https://cdn11.bigcommerce.com/s-n0i50vy/images/stencil/500x659/products/85/282/livingwithplants_grande__26452.1456436666.jpg?c=2&imbypass=on
+                    image_source: 'https://cdn11.bigcommerce.com/s-n0i50vy/images/stencil/500x659/products/85/282/livingwithplants_grande__26452.1456436666.jpg?c=2&imbypass=on'
               widget_template_uuid: 3a1b0044-c9b3-47d3-9929-01ab0c20243b
         - name: Accept
           in: header
@@ -317,9 +307,8 @@ paths:
           in: query
           type: integer
         - name: limit
-          description: >
-            Controls the number of items per page in a limited (paginated) list
-            of products.
+          description: |
+            Controls the number of items per page in a limited (paginated) list of products.
           required: false
           in: query
           type: integer
@@ -345,11 +334,9 @@ paths:
         - in: query
           name: name
           type: string
-          description: >-
+          description: |-
             The URL encoded name of the widget.
-
-            Use `name:in` to pass in comma-separated list of widget names.
-            **Ex**: `/widgets?name:in=test-widget-name,header%20images`
+            Use `name:in` to pass in comma-separated list of widget names. **Ex**: `/widgets?name:in=test-widget-name,header%20images`
       responses:
         '200':
           $ref: '#/responses/WidgetCollection_Resp'
@@ -408,14 +395,11 @@ paths:
               widget_configuration:
                 images:
                   - image_url: 'https://{your-store-url}/all/kinfolk-issue-16/'
-                    image_source: >-
-                      https://cdn11.bigcommerce.com/s-n0i50vy/images/stencil/1280x1280/products/91/309/thekinfolktablecover_1024x1024__80715.1456436719.jpg?c=2&imbypass=on
+                    image_source: 'https://cdn11.bigcommerce.com/s-n0i50vy/images/stencil/1280x1280/products/91/309/thekinfolktablecover_1024x1024__80715.1456436719.jpg?c=2&imbypass=on'
                   - image_url: 'https://your-store-url/all/kinfolk-issue-16/'
-                    image_source: >-
-                      https://cdn11.bigcommerce.com/s-n0i50vy/images/stencil/1280x1280/products/109/361/kinfolkessentialissue_1024x1024__22507.1456436715.jpg?c=2&imbypass=on
+                    image_source: 'https://cdn11.bigcommerce.com/s-n0i50vy/images/stencil/1280x1280/products/109/361/kinfolkessentialissue_1024x1024__22507.1456436715.jpg?c=2&imbypass=on'
                   - image_url: 'https://your-store-url/all/kinfolk-issue-16/'
-                    image_source: >-
-                      https://cdn11.bigcommerce.com/s-n0i50vy/images/stencil/500x659/products/85/282/livingwithplants_grande__26452.1456436666.jpg?c=2&imbypass=on
+                    image_source: 'https://cdn11.bigcommerce.com/s-n0i50vy/images/stencil/500x659/products/85/282/livingwithplants_grande__26452.1456436666.jpg?c=2&imbypass=on'
               widget_template_uuid: 3a1b0044-c9b3-47d3-9929-01ab0c20243b
         - name: Accept
           in: header
@@ -524,9 +508,8 @@ paths:
           in: query
           type: integer
         - name: limit
-          description: >
-            Controls the number of items per page in a limited (paginated) list
-            of products.
+          description: |
+            Controls the number of items per page in a limited (paginated) list of products.
           required: false
           in: query
           type: integer
@@ -760,9 +743,8 @@ parameters:
     type: integer
   LimitParam:
     name: limit
-    description: >
-      Controls the number of items per page in a limited (paginated) list of
-      products.
+    description: |
+      Controls the number of items per page in a limited (paginated) list of products.
     required: false
     in: query
     type: integer
@@ -854,9 +836,7 @@ definitions:
             description: The date on which this object was last updated.
           version_uuid:
             type: string
-            description: >-
-              The identifier of the widget template version associated with this
-              widget.
+            description: The identifier of the widget template version associated with this widget.
   widget_Post:
     required:
       - name
@@ -959,9 +939,8 @@ definitions:
           Total number of items in the collection response.
       per_page:
         type: integer
-        description: >
-          The amount of items returned in the collection per page, controlled by
-          the limit parameter.
+        description: |
+          The amount of items returned in the collection per page, controlled by the limit parameter.
       current_page:
         type: integer
         description: |
@@ -972,9 +951,8 @@ definitions:
           The total number of pages in the collection.
       links:
         type: object
-        description: >
-          Pagination links for the previous and next parts of the whole
-          collection.
+        description: |
+          Pagination links for the previous and next parts of the whole collection.
         properties:
           previous:
             type: string
@@ -1024,12 +1002,10 @@ definitions:
     properties:
       entity_id:
         type: string
-        description: The identifier of a page you would like to target. For product pages, choose product ID. For category pages, choose category ID. Home page does not support `entity_id`. 
+        description: 'The identifier of a page you would like to target. For product pages, choose product ID. For category pages, choose category ID. Home page does not support `entity_id`.'
       sort_order:
         type: integer
-        description: >-
-          The sort order to control the position of a content widget in a
-          region.
+        description: The sort order to control the position of a content widget in a region.
       region:
         type: string
         description: The name of the region in which to insert content widgets.
@@ -1083,7 +1059,7 @@ definitions:
         typeMeta:
           type: string
         conditional:
-          type: string
+          $ref: '#/definitions/widgetSchemaConditional'
   widgetSchemaTab:
     type: object
     title: widgetSchemaTab
@@ -1107,10 +1083,7 @@ definitions:
         type: string
       settings:
         type: array
-        description: >-
-          For examples of each type of setting, see [Page Builder > Schema
-          Settings](https://developer.bigcommerce.com/stencil-docs/page-builder/schema-settings/alignment)
-          in Theme Docs.
+        description: 'For examples of each type of setting, see [Page Builder > Schema Settings](https://developer.bigcommerce.com/stencil-docs/page-builder/schema-settings/alignment) in Theme Docs.'
         items:
           $ref: '#/definitions/widgetSchemaSetting_Base'
   widgetSchemaArray:
@@ -1142,21 +1115,14 @@ definitions:
   widgetSchemaSetting_Base:
     type: object
     title: widgetSchemaSetting_Base
-    description: >-
-      For examples of each type of setting, see [Page Builder > Schema
-      Settings](https://developer.bigcommerce.com/stencil-docs/page-builder/schema-settings/alignment)
-      in Theme Docs.
+    description: 'For examples of each type of setting, see [Page Builder > Schema Settings](https://developer.bigcommerce.com/stencil-docs/page-builder/schema-settings/alignment) in Theme Docs.'
     properties:
       type:
         type: string
-        description: >-
-          The type of setting component to display. You can view the list of
-          elements below to discover which are available to use.
+        description: |-
+          The type of setting component to display. You can view the list of elements below to discover which are available to use.
 
-
-          For examples of each type of setting, see [Page Builder > Schema
-          Settings](https://developer.bigcommerce.com/stencil-docs/page-builder/schema-settings/alignment)
-          in Theme Docs.
+          For examples of each type of setting, see [Page Builder > Schema Settings](https://developer.bigcommerce.com/stencil-docs/page-builder/schema-settings/alignment) in Theme Docs.
         enum:
           - alignment
           - boolean
@@ -1175,26 +1141,30 @@ definitions:
           - toggle
       label:
         type: string
-        description: >-
-          The user friendly message to inform the user how this setting will be
-          used.
+        description: The user friendly message to inform the user how this setting will be used.
       id:
         type: string
-        description: >-
-          The variable name where the setting value will be available in the
-          widget template.
+        description: The variable name where the setting value will be available in the widget template.
       default:
         type: string
-        description: >-
-          The default value to use when rendering the widget for the first time.
-          Make sure to set sensible defaults to make your widget easier to use.
+        description: The default value to use when rendering the widget for the first time. Make sure to set sensible defaults to make your widget easier to use.
       typeMeta:
-        type: string
+        type: object
         description: Additional information needed based on the selected setting type.
+        properties:
+          selectOptions:
+            type: array
+            items:
+              type: object
+              properties:
+                label:
+                  type: string
+                  example: Image
+                value:
+                  type: string
+                  example: image
       conditional:
-        type: string
-        description: |2
-           Can be added on each setting to control whether it should be displayed to the user while editing in store design. This does not clear the value in the setting, just controls the display of the setting. Take a look at the regexInput for an example on using conditional.
+        $ref: '#/definitions/widgetSchemaConditional'
   widgetSchema:
     type: array
     items:
@@ -1202,10 +1172,7 @@ definitions:
         - $ref: '#/definitions/widgetSchemaTab'
         - $ref: '#/definitions/widgetSchemaArray'
         - $ref: '#/definitions/widgetSchemaHidden'
-    description: >-
-      The schema for the widget's merchant-facing UI. For more information, see
-      [Page Builder
-      Overview](https://developer.bigcommerce.com/stencil-docs/page-builder/page-builder-overview) 
+    description: 'The schema for the widget''s merchant-facing UI. For more information, see [Page Builder Overview](https://developer.bigcommerce.com/stencil-docs/page-builder/page-builder-overview) '
   widgetSchemaHidden:
     type: object
     title: widgetSchemaHidden
@@ -1223,52 +1190,57 @@ definitions:
     type: object
     properties: {}
     title: widgetSchemaTabSectionsSettings
+  widgetSchemaConditional:
+    type: object
+    title: widgetSchemaConditional
+    description: 'An optional property that can be added to each setting to control whether it should be displayed to the user while editing in Page Builder. This does not clear the value in the setting, just controls the display of the setting.'
+    x-examples:
+      Conditional attribute:
+        key: backgroundType
+        operator: IN
+        value:
+          - color
+    properties:
+      key:
+        type: string
+        description: The ID of the `setting` object the conditional attribute is related to.
+        example: backgroundType
+      operator:
+        type: string
+        description: 'Specifies the operation used to determine whether to display the setting. The `IN` operator is currently the only supported operator. The setting will be displayed if the conditional’s `value` property is equal to the selected value of the `selectOptions`. '
+        example: IN
+      value:
+        type: array
+        description: A single-object array containing a value from the `typeMeta`'s `selectOptions`.
+        items: {}
 securityDefinitions:
   X-Auth-Token:
     type: apiKey
     name: X-Auth-Token
     in: header
-    description: >-
+    description: |-
       ### OAuth Scopes
-
       |  **UI Name** | **Permission** | **Parameter** |
-
       | --- | --- | --- |
-
       |  Content | modify | `store_v2_content` |
-
       |  Content | read-only | `store_v2_content_read_only` |
-
 
       ### Headers
 
-
       |Header|Parameter|Description|
-
       |-|-|-|
-
-      |`X-Auth-Token`|`access_token `|Obtained by creating an API account or
-      installing an app in a BigCommerce control panel.|
-
+      |`X-Auth-Token`|`access_token `|Obtained by creating an API account or installing an app in a BigCommerce control panel.|
 
       ### Example
 
-
       ```http
-
       GET /stores/{$$.env.store_hash}/v3/catalog/summary
-
       host: api.bigcommerce.com
-
       Content-Type: application/json
-
       X-Auth-Token: {access_token}
-
       ```
 
-
-      * For more information on Authenticating BigCommerce APIs, see:
-      [Authentication](https://developer.bigcommerce.com/api-docs/getting-started/authentication).
+      * For more information on Authenticating BigCommerce APIs, see: [Authentication](https://developer.bigcommerce.com/api-docs/getting-started/authentication).
 security:
   - X-Auth-Client: []
   - X-Auth-Token: []
@@ -1315,9 +1287,7 @@ responses:
                 description: The name of the region defined in the stencil theme file.
               markup:
                 type: string
-                description: >-
-                  The HTML layout which defines complex poisitoning for
-                  placements.
+                description: The HTML layout which defines complex poisitoning for placements.
               date_created:
                 type: string
                 format: datetime
@@ -1333,9 +1303,8 @@ responses:
           properties:
             pagination:
               type: object
-              description: >
-                Data about the response, including pagination and collection
-                totals.
+              description: |
+                Data about the response, including pagination and collection totals.
               properties:
                 total:
                   type: integer
@@ -1347,9 +1316,8 @@ responses:
                     Total number of items in the collection response.
                 per_page:
                   type: integer
-                  description: >
-                    The amount of items returned in the collection per page,
-                    controlled by the limit parameter.
+                  description: |
+                    The amount of items returned in the collection per page, controlled by the limit parameter.
                 current_page:
                   type: integer
                   description: |
@@ -1360,9 +1328,8 @@ responses:
                     The total number of pages in the collection.
                 links:
                   type: object
-                  description: >
-                    Pagination links for the previous and next parts of the
-                    whole collection.
+                  description: |
+                    Pagination links for the previous and next parts of the whole collection.
                   properties:
                     previous:
                       type: string
@@ -1384,10 +1351,7 @@ responses:
             template_file: pages/category
             entity_id: '21'
             region: category_header_banner
-            markup: >-
-              <style>img:hover{opacity: 0.3;}</style><div><div
-              style='padding:5px;'><bc-placement
-              id='bb34b23b-0d4b-4b9b-9e24-c8b0dcfd5e08'></bc-placement></div></div>
+            markup: '<style>img:hover{opacity: 0.3;}</style><div><div style=''padding:5px;''><bc-placement id=''bb34b23b-0d4b-4b9b-9e24-c8b0dcfd5e08''></bc-placement></div></div>'
             date_created: '2019-02-25T18:38:08.455Z'
             date_modified: '2019-02-25T18:38:08.455Z'
         meta:
@@ -1421,9 +1385,7 @@ responses:
                 description: The name of the region defined in the stencil theme file.
               markup:
                 type: string
-                description: >-
-                  The HTML layout which defines complex poisitoning for
-                  placements.
+                description: The HTML layout which defines complex poisitoning for placements.
               date_created:
                 type: string
                 format: datetime
@@ -1440,10 +1402,7 @@ responses:
           template_file: pages/category
           entity_id: '21'
           region: category_header_banner
-          markup: >-
-            <style>img:hover{opacity: 0.3;}</style><div><div
-            style='padding:5px;'><bc-placement
-            id='bb34b23b-0d4b-4b9b-9e24-c8b0dcfd5e08'></bc-placement></div></div>
+          markup: '<style>img:hover{opacity: 0.3;}</style><div><div style=''padding:5px;''><bc-placement id=''bb34b23b-0d4b-4b9b-9e24-c8b0dcfd5e08''></bc-placement></div></div>'
           date_created: '2019-02-25T18:38:08.455Z'
           date_modified: '2019-02-25T18:38:08.455Z'
         meta: {}
@@ -1473,23 +1432,18 @@ responses:
               widget_configuration:
                 images:
                   - image_url: 'https://{{your-url}.com/'
-                    image_source: >-
-                      https://cdn11.bigcommerce.com/s-n0i50vy/images/stencil/1280x1280/products/91/309/thekinfolktablecover_1024x1024__80715.1456436719.jpg?c=2&imbypass=on
+                    image_source: 'https://cdn11.bigcommerce.com/s-n0i50vy/images/stencil/1280x1280/products/91/309/thekinfolktablecover_1024x1024__80715.1456436719.jpg?c=2&imbypass=on'
                   - image_url: 'https://{{your-url}.com/'
-                    image_source: >-
-                      https://cdn11.bigcommerce.com/s-n0i50vy/images/stencil/1280x1280/products/109/361/kinfolkessentialissue_1024x1024__22507.1456436715.jpg?c=2&imbypass=on
+                    image_source: 'https://cdn11.bigcommerce.com/s-n0i50vy/images/stencil/1280x1280/products/109/361/kinfolkessentialissue_1024x1024__22507.1456436715.jpg?c=2&imbypass=on'
                   - image_url: 'https://{{your-url}.com/'
-                    image_source: >-
-                      https://cdn11.bigcommerce.com/s-n0i50vy/images/stencil/500x659/products/85/282/livingwithplants_grande__26452.1456436666.jpg?c=2&imbypass=on
+                    image_source: 'https://cdn11.bigcommerce.com/s-n0i50vy/images/stencil/500x659/products/85/282/livingwithplants_grande__26452.1456436666.jpg?c=2&imbypass=on'
                 _:
                   id: a8940709-5655-4401-a341-62c44e3180b2
               widget_template:
                 uuid: 3a1b0044-c9b3-47d3-9929-01ab0c20243b
                 name: Header Images
                 schema: []
-                template: >-
-                  {{#each images}}<a href='{{image_url}}'><img
-                  src={{image_source}} style='width:33.3%'/></a>{{/each}}
+                template: '{{#each images}}<a href=''{{image_url}}''><img src={{image_source}} style=''width:33.3%''/></a>{{/each}}'
                 date_created: '2019-02-25T18:35:04.904Z'
                 date_modified: '2019-02-25T18:35:04.904Z'
                 kind: custom
@@ -1529,23 +1483,18 @@ responses:
             widget_configuration:
               images:
                 - image_url: 'https://{{your-url}.com/'
-                  image_source: >-
-                    https://cdn11.bigcommerce.com/s-n0i50vy/images/stencil/1280x1280/products/91/309/thekinfolktablecover_1024x1024__80715.1456436719.jpg?c=2&imbypass=on
+                  image_source: 'https://cdn11.bigcommerce.com/s-n0i50vy/images/stencil/1280x1280/products/91/309/thekinfolktablecover_1024x1024__80715.1456436719.jpg?c=2&imbypass=on'
                 - image_url: 'https://{{your-url}.com/'
-                  image_source: >-
-                    https://cdn11.bigcommerce.com/s-n0i50vy/images/stencil/1280x1280/products/109/361/kinfolkessentialissue_1024x1024__22507.1456436715.jpg?c=2&imbypass=on
+                  image_source: 'https://cdn11.bigcommerce.com/s-n0i50vy/images/stencil/1280x1280/products/109/361/kinfolkessentialissue_1024x1024__22507.1456436715.jpg?c=2&imbypass=on'
                 - image_url: 'https://{{your-url}.com/'
-                  image_source: >-
-                    https://cdn11.bigcommerce.com/s-n0i50vy/images/stencil/500x659/products/85/282/livingwithplants_grande__26452.1456436666.jpg?c=2&imbypass=on
+                  image_source: 'https://cdn11.bigcommerce.com/s-n0i50vy/images/stencil/500x659/products/85/282/livingwithplants_grande__26452.1456436666.jpg?c=2&imbypass=on'
               _:
                 id: a8940709-5655-4401-a341-62c44e3180b2
             widget_template:
               uuid: 3a1b0044-c9b3-47d3-9929-01ab0c20243b
               name: Header Images
               schema: []
-              template: >-
-                {{#each images}}<a href='{{image_url}}'><img
-                src={{image_source}} style='width:33.3%'/></a>{{/each}}
+              template: '{{#each images}}<a href=''{{image_url}}''><img src={{image_source}} style=''width:33.3%''/></a>{{/each}}'
               date_created: '2019-02-25T18:35:04.904Z'
               date_modified: '2019-02-25T18:35:04.904Z'
               kind: custom
@@ -1572,18 +1521,14 @@ responses:
           - uuid: 3a1b0044-c9b3-47d3-9929-01ab0c20243b
             name: Header Images
             schema: []
-            template: >-
-              {{#each images}}<a href='{{image_url}}'><img src={{image_source}}
-              style='width:33.3%'/></a>{{/each}}
+            template: '{{#each images}}<a href=''{{image_url}}''><img src={{image_source}} style=''width:33.3%''/></a>{{/each}}'
             date_created: '2019-02-25T18:35:04.904Z'
             date_modified: '2019-02-25T18:35:04.904Z'
             kind: custom
           - uuid: 2fbb8014-2a6e-4569-b484-65824959d035
             name: Simple List
             schema: []
-            template: >-
-              <ul>{{#each list_items}}<li
-              style='color:{{color}};'>{{text}}</li>{{/each}}</ul>
+            template: '<ul>{{#each list_items}}<li style=''color:{{color}};''>{{text}}</li>{{/each}}</ul>'
             date_created: '2019-02-25T22:12:32.779Z'
             date_modified: '2019-02-25T22:12:32.779Z'
             kind: custom
@@ -1597,27 +1542,14 @@ responses:
           - uuid: 28a6d62d-6435-4423-a611-35feaab1229a
             name: Simple Text with Styling
             schema: []
-            template: >-
-              <style>#bc-simple-text-{{_.id}} {color: {{color}};background:
-              {{background_color}};font-size: {{font_size}};font-style:
-              {{font_style}};font-weight: {{font_weight}};font-family:
-              {{font_family}};text-align: {{text_align}};margin-top:
-              {{margin_top}};margin-bottom: {{margin_bottom}};margin-left:
-              {{margin_left}};margin-right: {{margin_right}};padding-top:
-              {{padding_top}};padding-bottom: {{padding_bottom}};padding-left:
-              {{padding_left}};padding-right: {{padding_right}};}</style><p
-              id='bc-simple-text-{{_.id}}'>{{text}}</p>
+            template: '<style>#bc-simple-text-{{_.id}} {color: {{color}};background: {{background_color}};font-size: {{font_size}};font-style: {{font_style}};font-weight: {{font_weight}};font-family: {{font_family}};text-align: {{text_align}};margin-top: {{margin_top}};margin-bottom: {{margin_bottom}};margin-left: {{margin_left}};margin-right: {{margin_right}};padding-top: {{padding_top}};padding-bottom: {{padding_bottom}};padding-left: {{padding_left}};padding-right: {{padding_right}};}</style><p id=''bc-simple-text-{{_.id}}''>{{text}}</p>'
             date_created: '2019-02-26T17:20:14.274Z'
             date_modified: '2019-02-26T17:20:14.274Z'
             kind: custom
           - uuid: f054d960-3b3f-4bed-b3b3-ccb024e2f807
             name: YouTube Embed
             schema: []
-            template: >-
-              <iframe    id='ytplayer-{{_.id}}'    type='text/html'
-              width='{{width}}'    height='{{height}}'
-              src='https://www.youtube.com/embed/{{video_id}}?autoplay={{autoplay}}&color={{color}}&controls={{controls}}&disablekb={{disablekb}}&fs={{fs}}&rel={{rel}}&showinfo={{showinfo}}'
-              frameborder='{{frameborder}}'>  </iframe>
+            template: '<iframe    id=''ytplayer-{{_.id}}''    type=''text/html'' width=''{{width}}''    height=''{{height}}'' src=''https://www.youtube.com/embed/{{video_id}}?autoplay={{autoplay}}&color={{color}}&controls={{controls}}&disablekb={{disablekb}}&fs={{fs}}&rel={{rel}}&showinfo={{showinfo}}'' frameborder=''{{frameborder}}''>  </iframe>'
             date_created: '2019-02-26T18:59:18.359Z'
             date_modified: '2019-02-26T18:59:18.359Z'
             kind: custom
@@ -1858,8 +1790,7 @@ responses:
           kind: custom
           name: Header Images
           schema: []
-          template: >-
-            {{#each images}}<a href='{{image_url}}'><img src={{image_source}} style='width:33.3%'/></a>{{/each}}
+          template: '{{#each images}}<a href=''{{image_url}}''><img src={{image_source}} style=''width:33.3%''/></a>{{/each}}'
           uuid: b9790903-09b9-4736-87ca-19ff61582ee7
         meta: {}
   WidgetCollection_Resp:
@@ -1881,23 +1812,18 @@ responses:
             widget_configuration:
               images:
                 - image_url: 'https://www.bigcommerce.com'
-                  image_source: >-
-                    https://cdn11.bigcommerce.com/s-n0i50vy/images/stencil/1280x1280/products/91/309/thekinfolktablecover_1024x1024__80715.1456436719.jpg?c=2&imbypass=on
+                  image_source: 'https://cdn11.bigcommerce.com/s-n0i50vy/images/stencil/1280x1280/products/91/309/thekinfolktablecover_1024x1024__80715.1456436719.jpg?c=2&imbypass=on'
                 - image_url: 'hhttps://www.bigcommerce.com'
-                  image_source: >-
-                    https://cdn11.bigcommerce.com/s-n0i50vy/images/stencil/1280x1280/products/109/361/kinfolkessentialissue_1024x1024__22507.1456436715.jpg?c=2&imbypass=on
+                  image_source: 'https://cdn11.bigcommerce.com/s-n0i50vy/images/stencil/1280x1280/products/109/361/kinfolkessentialissue_1024x1024__22507.1456436715.jpg?c=2&imbypass=on'
                 - image_url: 'https://www.bigcommerce.com'
-                  image_source: >-
-                    https://cdn11.bigcommerce.com/s-n0i50vy/images/stencil/500x659/products/85/282/livingwithplants_grande__26452.1456436666.jpg?c=2&imbypass=on
+                  image_source: 'https://cdn11.bigcommerce.com/s-n0i50vy/images/stencil/500x659/products/85/282/livingwithplants_grande__26452.1456436666.jpg?c=2&imbypass=on'
               _:
                 id: a8940709-5655-4401-a341-62c44e3180b2
             widget_template:
               uuid: 3a1b0044-c9b3-47d3-9929-01ab0c20243b
               name: Header Images
               schema: []
-              template: >-
-                {{#each images}}<a href='{{image_url}}'><img
-                src={{image_source}} style='width:33.3%'/></a>{{/each}}
+              template: '{{#each images}}<a href=''{{image_url}}''><img src={{image_source}} style=''width:33.3%''/></a>{{/each}}'
               date_created: '2019-02-25T18:35:04.904Z'
               date_modified: '2019-02-25T18:35:04.904Z'
               kind: custom
@@ -1932,31 +1858,25 @@ responses:
           widget_configuration:
             images:
               - image_url: 'https://tatiana.fun/all/kinfolk-issue-16/'
-                image_source: >-
-                  https://cdn11.bigcommerce.com/s-n0i50vy/images/stencil/1280x1280/products/91/309/thekinfolktablecover_1024x1024__80715.1456436719.jpg?c=2&imbypass=on
+                image_source: 'https://cdn11.bigcommerce.com/s-n0i50vy/images/stencil/1280x1280/products/91/309/thekinfolktablecover_1024x1024__80715.1456436719.jpg?c=2&imbypass=on'
               - image_url: 'https://tatiana.fun/all/kinfolk-issue-16/'
-                image_source: >-
-                  https://cdn11.bigcommerce.com/s-n0i50vy/images/stencil/1280x1280/products/109/361/kinfolkessentialissue_1024x1024__22507.1456436715.jpg?c=2&imbypass=on
+                image_source: 'https://cdn11.bigcommerce.com/s-n0i50vy/images/stencil/1280x1280/products/109/361/kinfolkessentialissue_1024x1024__22507.1456436715.jpg?c=2&imbypass=on'
               - image_url: 'https://tatiana.fun/all/kinfolk-issue-16/'
-                image_source: >-
-                  https://cdn11.bigcommerce.com/s-n0i50vy/images/stencil/500x659/products/85/282/livingwithplants_grande__26452.1456436666.jpg?c=2&imbypass=on
+                image_source: 'https://cdn11.bigcommerce.com/s-n0i50vy/images/stencil/500x659/products/85/282/livingwithplants_grande__26452.1456436666.jpg?c=2&imbypass=on'
             _:
               id: a8940709-5655-4401-a341-62c44e3180b2
           widget_template:
             uuid: 3a1b0044-c9b3-47d3-9929-01ab0c20243b
             name: Header Images
             schema: []
-            template: >-
-              {{#each images}}<a href='{{image_url}}'><img src={{image_source}}
-              style='width:33.3%'/></a>{{/each}}
+            template: '{{#each images}}<a href=''{{image_url}}''><img src={{image_source}} style=''width:33.3%''/></a>{{/each}}'
             date_created: '2019-02-25T18:35:04.904Z'
             date_modified: '2019-02-25T18:35:04.904Z'
             kind: custom
         meta: {}
   Error422_Resp:
-    description: >
-      This is the result of missing required fields, or of invalid data. See the
-      response for more details.
+    description: |
+      This is the result of missing required fields, or of invalid data. See the response for more details.
     schema:
       $ref: '#/definitions/error_Base'
   Error404_Resp:
