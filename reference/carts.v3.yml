@@ -81,6 +81,22 @@ paths:
                       }
                   ]
               }
+           Create a Cart using date option: |-
+            {
+              "line_items": [
+                {
+                  "quantity": 5,
+                  "product_id": 191,
+                  "variant_id": 185,
+                  "option_selections": [
+                    {
+                      "option_id": 440,
+                      "option_value": 1743570000
+                    }
+                  ]
+                }
+              ]
+            }   
             With a Variant of Checkbox and Picklist: |-
               {
                 "line_items": [
