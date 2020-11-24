@@ -150,7 +150,17 @@ Use the `query_path` value passed to the app's control panel iFrame to render th
 
 ![Example Import Section](https://storage.googleapis.com/bigcommerce-production-dev-center/images/channels/channels-pos-import.png "Example Import Section")
 
-## Resources
+## Related resources
+
+### Articles
+* [Building Apps](https://developer.bigcommerce.com/api-docs/apps/guide/intro)
+* [Building Channels](https://developer.bigcommerce.com/api-docs/channels/guide/overview)
+* [Find an App's ID](https://developer.bigcommerce.com/api-docs/apps/tutorials/id)
+
+### Endpoints
+* [Channels API](https://developer.bigcommerce.com/api-reference/cart-checkout/channels-listings-api)
+* [Settings API](https://developer.bigcommerce.com/api-reference/store-management/settings)
+
 
 * [Building Apps](https://developer.bigcommerce.com/api-docs/apps/guide/intro)
 * [Building Channels](https://developer.bigcommerce.com/api-docs/channels/guide/overview)
