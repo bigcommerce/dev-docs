@@ -20,7 +20,7 @@
 
 </div>
 
-This article introduces BigCommerce's [Orders V2](https://developer.bigcommerce.com/api-reference/store-management/orders) and [Orders V3](https://developer.bigcommerce.com/api-reference/store-management/order-transactions) REST API resources. [Orders V2](https://developer.bigcommerce.com/api-reference/store-management/orders) exposes endpoints for [creating](https://developer.bigcommerce.com/api-reference/store-management/orders/orders/createanorder), [reading](https://developer.bigcommerce.com/api-reference/store-management/orders/orders/getallorders), [updating](https://developer.bigcommerce.com/api-reference/store-management/orders/orders/updateanorder), and [deleting](https://developer.bigcommerce.com/api-reference/store-management/orders/orders/deleteallorders) orders; it also includes endpoints for managing [order shipments](https://developer.bigcommerce.com/api-reference/store-management/orders/order-shipments) and [order shipping addresses](https://developer.bigcommerce.com/api-reference/store-management/orders/order-shipping-addresses). [Orders V3](https://developer.bigcommerce.com/api-reference/store-management/order-transactions) surfaces [order transactions](https://developer.bigcommerce.com/api-reference/store-management/order-transactions/transactions/gettransactions) and [order refunds](https://developer.bigcommerce.com/api-reference/store-management/order-transactions) endpoints. For information on processing order payments via API, see [Payments API Overview](https://developer.bigcommerce.com/api-docs/payments/payments-api-overview).
+This article introduces BigCommerce's [Orders V2](https://developer.bigcommerce.com/api-reference/store-management/orders) and [Orders V3](https://developer.bigcommerce.com/api-reference/store-management/order-transactions) REST API resources. [Orders V2](https://developer.bigcommerce.com/api-reference/store-management/orders) exposes endpoints for [creating](https://developer.bigcommerce.com/api-reference/store-management/orders/orders/createanorder), [reading](https://developer.bigcommerce.com/api-reference/store-management/orders/orders/getallorders), [updating](https://developer.bigcommerce.com/api-reference/store-management/orders/orders/updateanorder), and [deleting](https://developer.bigcommerce.com/api-reference/store-management/orders/orders/deleteallorders) orders; it also includes endpoints for managing [order shipments](https://developer.bigcommerce.com/api-reference/store-management/orders/order-shipments) and [order shipping addresses](https://developer.bigcommerce.com/api-reference/store-management/orders/order-shipping-addresses). [Orders V3](https://developer.bigcommerce.com/api-reference/store-management/order-transactions) surfaces [order transactions](https://developer.bigcommerce.com/api-reference/store-management/order-transactions/transactions/gettransactions) and [order refunds](https://developer.bigcommerce.com/api-reference/store-management/order-transactions/order-refunds/) endpoints. For information on processing order payments via API, see [Payments API Overview](https://developer.bigcommerce.com/api-docs/payments/payments-api-overview).
 
 ### Prerequisites:
 * [A BigCommerce store](https://support.bigcommerce.com/s/article/Starting-a-Bigcommerce-Trial)
@@ -69,7 +69,7 @@ Accept: application/json
 <div class="HubBlock-content">
 
 > ### Note
-> * The example above contains minimum required fields for a [create order request](https://developer.bigcommerce.com/api-reference/store-management/orders/orders/createanorder).
+> * The example above contains the minimum required fields for a [create order](https://developer.bigcommerce.com/api-reference/store-management/orders/orders/createanorder) request.
 > * The product ordered is a *custom* product; custom products do not exist in the catalog.
 
 </div>
@@ -78,7 +78,7 @@ Accept: application/json
 
 ## Changing order status
 
-Specify [order status](https://developer.bigcommerce.com/api-reference/store-management/orders/order-status/getorderstatus) by including the `status_id` property in the [create order](https://developer.bigcommerce.com/api-reference/store-management/orders/orders/createanorder) request. To [update an order](https://developer.bigcommerce.com/api-reference/store-management/orders/orders/updateanorder) and change it's status, send a `PUT` request to `/v2/orders/{order_id}`.
+Specify [order status](https://developer.bigcommerce.com/api-reference/store-management/orders/order-status/getorderstatus) by including the `status_id` property in the [create order](https://developer.bigcommerce.com/api-reference/store-management/orders/orders/createanorder) request. To [update an order](https://developer.bigcommerce.com/api-reference/store-management/orders/orders/updateanorder) and change its status, send a `PUT` request to `/v2/orders/{order_id}`.
 
 ```http
 PUT https://api.bigcommerce.com/stores/{{STORE_HASH}}/v2/orders/{order_id}
@@ -127,7 +127,7 @@ Accept: application/json
 > ### Note
 > * If not specified, `status_id` defaults to `1`.
 > * The refunded status is neither paid nor unpaid.
-> * See [Order Statuses](https://support.bigcommerce.com/s/article/Order-Statuses#rename) in the Help Center for information on changing `custom_label` in the control panel .
+> * For information on changing `custom_label` in the control panel, see [Order Statuses](https://support.bigcommerce.com/s/article/Order-Statuses#rename).
 
 </div>
 </div>
@@ -308,7 +308,7 @@ Accept: application/json
 
 > ### Note
 > * Custom products do not get added to the catalog.
-> * If price is not specified, the store's product catalog price is used; override this price with `price_inc_tax` and `price_ex_tax`.
+> * If you do not specify the product price in the [create order](https://developer.bigcommerce.com/api-reference/store-management/orders/orders/createanorder) request, the product's catalog price will be used. You can override this price with the `price_inc_tax` and `price_ex_tax` properties.
 > * If you override `price_ex_tax` or `price_inc_tax`, override both; otherwise, order totals will not calculate correctly.
 > * Overriding `price_inc_tax` or `price_ex_tax` does not change variant pricing.
 
@@ -510,7 +510,7 @@ BigCommerce submits tax documents to Avalara when an order moves from an **unpai
 
 > ### Note
 > * Abbreviated state names (ex: `CA` instead of `California`) in an order address will cause tax document submission to fail.
-> * Taxes are calculated using rules specified in the store (unless [automatic taxes](https://support.bigcommerce.com/s/article/Automatic-Tax-Setup) are enabled).
+> * You can calculate taxes using rules specified in the store unless [automatic taxes](https://support.bigcommerce.com/s/article/Automatic-Tax-Setup) are enabled.
 > * You can optionally override tax values by specifying `price_inc_tax` and `price_ex_tax` in an [update order request](https://developer.bigcommerce.com/api-reference/store-management/orders/orders/updateanorder).
 > * If a store has [automatic tax](https://support.bigcommerce.com/s/article/Automatic-Tax-Setup) enabled, BigCommerce does not compute sales tax on orders created via the API.
 
@@ -569,8 +569,8 @@ Accept: application/json
 <div class="HubBlock-content">
 
 > ### Note
-> * Depending on the payment method, different information will be available (not all payment gateways return full card or fraud detail).
-> * Transactions are not created for the following payment methods:
+> * Not all payment gateways return the full card or fraud detail. Depending on the payment method, different information will be available.
+> * You cannot create transactions for the following payment methods:
 >   * Test Payment Gateway
 >   * PayPal Express
 >   * Amazon Pay
@@ -585,7 +585,7 @@ Accept: application/json
 
 ## Calculating totals
 
-Order `subtotal` and `total` calculate automatically; edits to the following properties trigger recalculation.
+Order `subtotal` and `total` calculate automatically; edits to the following properties trigger a recalculation.
 
 |Property|Type|Description|
 |-|-|-|
@@ -611,7 +611,7 @@ Order `subtotal` and `total` calculate automatically; edits to the following pro
 |`billing_address`|
 |`shipping_addresses`|
 
-You can override calculated values such as product prices, subtotals, and totals by sending a fixed value in the request. If values are not supplied for these properties, they will be automatically calculated based on the preset store values and tax rules.
+You can override calculated values such as product prices, subtotals, and totals by sending a fixed value in the request. If you do not supply values for these properties, you will automatically calculate them based on the preset store values and tax rules.
 
 <div class="HubBlock--callout">
 <div class="CalloutBlock--info">
@@ -645,15 +645,15 @@ Yes, the store's catalog does not include products.
 
 **What is the difference between country_ISO2 and country?**
 
-There is no requirement to specify country when `country_ISO2` is specified in the shipping and billing addresses and vice versa.
+There is no requirement to specify country when you specify `country_ISO2` in the shipping and billing addresses and vice versa.
 
-**How can I take a payment for an order?**
+**How can I take payment for an order?**
 
 You can either process payment through a third party or using the control panel.
 
 **Can I generate a shipping quote from a carrier using the API?**
 
-Not at this time. If an order is created either in the control panel or via API, it returns a 204 when trying to get a Shipping Quote.
+Not at this time. If you create an order either in the control panel or via API, it will return a 204 when trying to get a shipping quote.
 
 ## Related resources
 
@@ -669,5 +669,4 @@ Not at this time. If an order is created either in the control panel or via API,
 - [Orders v3](https://developer.bigcommerce.com/api-reference/store-management/order-transactions)
 
 ### Webhooks
-- [Orders](/api-docs/getting-started/webhooks/webhook-events#webhook-events_orders)
-
+- [Orders](/api-docs/store-management/webhooks/events#orders)
