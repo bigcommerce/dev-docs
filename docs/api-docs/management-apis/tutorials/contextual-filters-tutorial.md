@@ -18,6 +18,7 @@ Additionally, the contextual filters endpoint enables you to merchandize diverse
 This article demonstrates how to use [contextual filters](insert-link-here) to configure filters that appear on a particular category page.
 
 ### Limitations
+
 * Currently, the API only supports the default channel with an ID of 1.
 * You can configure contextual filters for Category pages, but not for Brand or Search Results pages.
 
