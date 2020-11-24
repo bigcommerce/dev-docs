@@ -7,7 +7,8 @@
 - [Specifying the platform](#specifying-the-platform)
 - [Configuring UI sections](#configuring-ui-sections)
 - [Rendering UI sections](#rendering-ui-sections)
-- [Resources](#resources)
+- [Related resources](#related-resources)
+
 
 </div>
 
