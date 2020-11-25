@@ -1,9 +1,7 @@
 swagger: '2.0'
 info:
   title: Storefront Carts
-  description: >-
-    Manage cart operations and data via front-end JavaScript on BigCommerce
-    stencil powered storefronts.
+  description: Manage cart operations and data via front-end JavaScript on BigCommerce stencil powered storefronts.
   version: ''
 consumes:
   - application/json
@@ -16,24 +14,14 @@ paths:
         - name: include
           type: string
           in: query
-          description: >-
+          description: |-
             To return product options add one of the following include:
 
+            `lineItems.physicalItems.options`: The Cart returns an abbreviated result. Use this to return physical items product options. Can also be used in a /POST to have the extended Cart object return.
 
-            `lineItems.physicalItems.options`: The Cart returns an abbreviated
-            result. Use this to return physical items product options. Can also
-            be used in a /POST to have the extended Cart object return.
+            `lineItems.digitalItems.options`:  The Cart returns an abbreviated result. Use this to return digital items product options.  Can also be used in a /POST to have the extended Cart object return.
 
-
-            `lineItems.digitalItems.options`:  The Cart returns an abbreviated
-            result. Use this to return digital items product options.  Can also
-            be used in a /POST to have the extended Cart object return.
-
-
-            `lineItems.digitalItems.options,lineItems.physicalItems.options`: 
-            The Cart returns an abbreviated result. Use this to return digital
-            and physical options. Can also be used in a /POST to have the
-            extended Cart object return.
+            `lineItems.digitalItems.options,lineItems.physicalItems.options`:  The Cart returns an abbreviated result. Use this to return digital and physical options. Can also be used in a /POST to have the extended Cart object return.
           default: 'lineItems.digitalItems.options,lineItems.physicalItems.options'
           enum:
             - lineItems.physicalItems.options
@@ -45,48 +33,52 @@ paths:
         '200':
           $ref: '#/responses/CartResponse'
       summary: Get a Cart
-      description: >-
+      description: |-
         Returns a *Cart*. 
 
-
-        By default, the cart response will return abbreviated details for cart
-        line items. To get full details of selected product options, use the
-        following query parameters: 
-
+        By default, the cart response will return abbreviated details for cart line items. To get full details of selected product options, use the following query parameters: 
 
         - Physical products only: `?include=lineItems.physicalItems.options `
-
         - Digital products only: `?include=lineItems.digitalItems.options`
+        - Both physical and digital items: `?include=lineItems.digitalItems.options,lineItems.physicalItems.options`
 
-        - Both physical and digital items:
-        `?include=lineItems.digitalItems.options,lineItems.physicalItems.options`
+        <div class="HubBlock--callout">
+        <div class="CalloutBlock--info">
+        <div class="HubBlock-content"> 
+
+        > ### Note
+        > The Send a Test Request feature is not currently supported for this endpoint.
+         
+        </div>
+        </div>
+        </div>
       operationId: getACart
     post:
-      description: >-
+      description: |-
         Creates a *Cart*.
 
-
         **Required Fields**
-
         * lineItems
-
         * giftCertificates – only if adding a gift certificate
-
 
         **Notes**
 
-
         Cart ID is generated in the response.
 
+        To add a product with a mix of variants and options, add `optionSelections` to the `lineItems` object. `optionSelections` accepts `optionId` and `optionValue`. 
 
-        To add a product with a mix of variants and options, add
-        `optionSelections` to the `lineItems` object. `optionSelections` accepts
-        `optionId` and `optionValue`. 
+        The redirect url endpoint does not work using the Storefront Cart. At this time, shoppers can not be directed to any carts or checkouts created using the Storefront APIs. 
 
+        <div class="HubBlock--callout">
+        <div class="CalloutBlock--info">
+        <div class="HubBlock-content"> 
 
-        The redirect url endpoint does not work using the Storefront Cart. At
-        this time, shoppers can not be directed to any carts or checkouts
-        created using the Storefront APIs. 
+        > ### Note
+        > The Send a Test Request feature is not currently supported for this endpoint.
+         
+        </div>
+        </div>
+        </div>
       parameters:
         - name: cartData
           in: body
@@ -98,7 +90,7 @@ paths:
               lineItems:
                 - quantity: 5
                   productId: 107
-            Product with Variant: >-
+            Product with Variant: |-
               {
                 "lineItems": [
                   {
@@ -108,9 +100,7 @@ paths:
                   }
                 ]
               }
-
-              //This works when a product can be specified purely by a variant,
-              without any other required options.
+              //This works when a product can be specified purely by a variant, without any other required options.
             Variant and Modifiers: |-
               {
                   "lineItems":[
@@ -147,24 +137,14 @@ paths:
         - name: include
           type: string
           in: query
-          description: >-
+          description: |-
             To return product options add one of the following include:
 
+            `lineItems.physicalItems.options`: The Cart returns an abbreviated result. Use this to return physical items product options. Can also be used in a /POST to have the extended Cart object return.
 
-            `lineItems.physicalItems.options`: The Cart returns an abbreviated
-            result. Use this to return physical items product options. Can also
-            be used in a /POST to have the extended Cart object return.
+            `lineItems.digitalItems.options`:  The Cart returns an abbreviated result. Use this to return digital items product options.  Can also be used in a /POST to have the extended Cart object return.
 
-
-            `lineItems.digitalItems.options`:  The Cart returns an abbreviated
-            result. Use this to return digital items product options.  Can also
-            be used in a /POST to have the extended Cart object return.
-
-
-            `lineItems.digitalItems.options,lineItems.physicalItems.options`: 
-            The Cart returns an abbreviated result. Use this to return digital
-            and physical options. Can also be used in a /POST to have the
-            extended Cart object return.
+            `lineItems.digitalItems.options,lineItems.physicalItems.options`:  The Cart returns an abbreviated result. Use this to return digital and physical options. Can also be used in a /POST to have the extended Cart object return.
           default: 'lineItems.digitalItems.options,lineItems.physicalItems.options'
           enum:
             - lineItems.physicalItems.options
@@ -179,16 +159,23 @@ paths:
       operationId: createACart
   '/carts/{cartId}/items':
     post:
-      description: >-
+      description: |-
         Adds a line items to the *Cart*.
 
-
         **Required Fields**
-
         * line_items object
+        * gift_certificates object – Only if adding a gift certificate to for shopper purchase
 
-        * gift_certificates object – Only if adding a gift certificate to for
-        shopper purchase
+        <div class="HubBlock--callout">
+        <div class="CalloutBlock--info">
+        <div class="HubBlock-content"> 
+
+        > ### Note
+        > The Send a Test Request feature is not currently supported for this endpoint.
+         
+        </div>
+        </div>
+        </div>
       parameters:
         - name: cartId
           in: path
@@ -221,24 +208,14 @@ paths:
         - name: include
           type: string
           in: query
-          description: >-
+          description: |-
             To return product options add one of the following include:
 
+            `lineItems.physicalItems.options`: The Cart returns an abbreviated result. Use this to return physical items product options. Can also be used in a /POST to have the extended Cart object return.
 
-            `lineItems.physicalItems.options`: The Cart returns an abbreviated
-            result. Use this to return physical items product options. Can also
-            be used in a /POST to have the extended Cart object return.
+            `lineItems.digitalItems.options`:  The Cart returns an abbreviated result. Use this to return digital items product options.  Can also be used in a /POST to have the extended Cart object return.
 
-
-            `lineItems.digitalItems.options`:  The Cart returns an abbreviated
-            result. Use this to return digital items product options.  Can also
-            be used in a /POST to have the extended Cart object return.
-
-
-            `lineItems.digitalItems.options,lineItems.physicalItems.options`: 
-            The Cart returns an abbreviated result. Use this to return digital
-            and physical options. Can also be used in a /POST to have the
-            extended Cart object return.
+            `lineItems.digitalItems.options,lineItems.physicalItems.options`:  The Cart returns an abbreviated result. Use this to return digital and physical options. Can also be used in a /POST to have the extended Cart object return.
           default: 'lineItems.digitalItems.options,lineItems.physicalItems.options'
           enum:
             - lineItems.physicalItems.options
@@ -253,22 +230,25 @@ paths:
       operationId: addCartLineItem
   '/carts/{cartId}/items/{itemId}':
     put:
-      description: >-
-        Updates a *Cart* line item. Updates an existing, single line item in the
-        cart.
-
+      description: |-
+        Updates a *Cart* line item. Updates an existing, single line item in the cart.
 
         **Notes**
 
-
         Currently only updating the item quantity is supported.
 
+        If a variant needs to be changed or updated, the product will need to be removed and re-added to the cart with the correct variants using the [Add Cart Line Items](/api-reference/cart-checkout/storefront-cart-api/cart-items/addcartlineitem) endpoint.
 
-        If a variant needs to be changed or updated, the product will need to be
-        removed and re-added to the cart with the correct variants using the
-        [Add Cart Line
-        Items](/api-reference/cart-checkout/storefront-cart-api/cart-items/addcartlineitem)
-        endpoint.
+        <div class="HubBlock--callout">
+        <div class="CalloutBlock--info">
+        <div class="HubBlock-content"> 
+
+        > ### Note
+        > The Send a Test Request feature is not currently supported for this endpoint.
+         
+        </div>
+        </div>
+        </div>
       parameters:
         - name: cartId
           in: path
@@ -301,24 +281,14 @@ paths:
         - name: include
           type: string
           in: query
-          description: >-
+          description: |-
             To return product options add one of the following include:
 
+            `lineItems.physicalItems.options`: The Cart returns an abbreviated result. Use this to return physical items product options. Can also be used in a /POST to have the extended Cart object return.
 
-            `lineItems.physicalItems.options`: The Cart returns an abbreviated
-            result. Use this to return physical items product options. Can also
-            be used in a /POST to have the extended Cart object return.
+            `lineItems.digitalItems.options`:  The Cart returns an abbreviated result. Use this to return digital items product options.  Can also be used in a /POST to have the extended Cart object return.
 
-
-            `lineItems.digitalItems.options`:  The Cart returns an abbreviated
-            result. Use this to return digital items product options.  Can also
-            be used in a /POST to have the extended Cart object return.
-
-
-            `lineItems.digitalItems.options,lineItems.physicalItems.options`: 
-            The Cart returns an abbreviated result. Use this to return digital
-            and physical options. Can also be used in a /POST to have the
-            extended Cart object return.
+            `lineItems.digitalItems.options,lineItems.physicalItems.options`:  The Cart returns an abbreviated result. Use this to return digital and physical options. Can also be used in a /POST to have the extended Cart object return.
           default: 'lineItems.digitalItems.options,lineItems.physicalItems.options'
           enum:
             - lineItems.physicalItems.options
@@ -338,6 +308,17 @@ paths:
         **Notes**
 
         Removing the last `line_item` in the *Cart* deletes the *Cart*.
+
+        <div class="HubBlock--callout">
+        <div class="CalloutBlock--info">
+        <div class="HubBlock-content"> 
+
+        > ### Note
+        > The Send a Test Request feature is not currently supported for this endpoint.
+         
+        </div>
+        </div>
+        </div>
       parameters:
         - name: cartId
           in: path
@@ -354,24 +335,14 @@ paths:
         - name: include
           type: string
           in: query
-          description: >-
+          description: |-
             To return product options add one of the following include:
 
+            `lineItems.physicalItems.options`: The Cart returns an abbreviated result. Use this to return physical items product options. Can also be used in a /POST to have the extended Cart object return.
 
-            `lineItems.physicalItems.options`: The Cart returns an abbreviated
-            result. Use this to return physical items product options. Can also
-            be used in a /POST to have the extended Cart object return.
+            `lineItems.digitalItems.options`:  The Cart returns an abbreviated result. Use this to return digital items product options.  Can also be used in a /POST to have the extended Cart object return.
 
-
-            `lineItems.digitalItems.options`:  The Cart returns an abbreviated
-            result. Use this to return digital items product options.  Can also
-            be used in a /POST to have the extended Cart object return.
-
-
-            `lineItems.digitalItems.options,lineItems.physicalItems.options`: 
-            The Cart returns an abbreviated result. Use this to return digital
-            and physical options. Can also be used in a /POST to have the
-            extended Cart object return.
+            `lineItems.digitalItems.options,lineItems.physicalItems.options`:  The Cart returns an abbreviated result. Use this to return digital and physical options. Can also be used in a /POST to have the extended Cart object return.
           default: 'lineItems.digitalItems.options,lineItems.physicalItems.options'
           enum:
             - lineItems.physicalItems.options
@@ -386,9 +357,19 @@ paths:
       operationId: deleteCartLineItem
   '/carts/{cartId}':
     delete:
-      description: >-
-        Deletes a *Cart*. Once a *Cart* has been deleted it can not be
-        recovered.
+      description: |-
+        Deletes a *Cart*. Once a *Cart* has been deleted it can not be recovered.
+
+        <div class="HubBlock--callout">
+        <div class="CalloutBlock--info">
+        <div class="HubBlock-content"> 
+
+        > ### Note
+        > The Send a Test Request feature is not currently supported for this endpoint.
+         
+        </div>
+        </div>
+        </div>
       parameters:
         - name: cartId
           in: path
@@ -408,24 +389,14 @@ parameters:
     name: include
     type: string
     in: query
-    description: >-
+    description: |-
       To return product options add one of the following include:
 
+      `lineItems.physicalItems.options`: The Cart returns an abbreviated result. Use this to return physical items product options. Can also be used in a /POST to have the extended Cart object return.
 
-      `lineItems.physicalItems.options`: The Cart returns an abbreviated result.
-      Use this to return physical items product options. Can also be used in a
-      /POST to have the extended Cart object return.
+      `lineItems.digitalItems.options`:  The Cart returns an abbreviated result. Use this to return digital items product options.  Can also be used in a /POST to have the extended Cart object return.
 
-
-      `lineItems.digitalItems.options`:  The Cart returns an abbreviated result.
-      Use this to return digital items product options.  Can also be used in a
-      /POST to have the extended Cart object return.
-
-
-      `lineItems.digitalItems.options,lineItems.physicalItems.options`:  The
-      Cart returns an abbreviated result. Use this to return digital and
-      physical options. Can also be used in a /POST to have the extended Cart
-      object return.
+      `lineItems.digitalItems.options,lineItems.physicalItems.options`:  The Cart returns an abbreviated result. Use this to return digital and physical options. Can also be used in a /POST to have the extended Cart object return.
     default: 'lineItems.digitalItems.options,lineItems.physicalItems.options'
     enum:
       - lineItems.physicalItems.options
@@ -466,9 +437,7 @@ definitions:
               description: Name assigned to this gift-certificate line item.
             theme:
               type: string
-              description: >-
-                Currently supports `Birthday`, `Boy`, `Celebration`,
-                `Christmas`, `General`, and `Girl`.
+              description: 'Currently supports `Birthday`, `Boy`, `Celebration`, `Christmas`, `General`, and `Girl`.'
             amount:
               type: number
               description: Gift-certificate amount.
@@ -538,9 +507,7 @@ definitions:
             description: Name assigned to this gift-certificate line item.
           theme:
             type: string
-            description: >-
-              Currently supports `Birthday`, `Boy`, `Celebration`, `Christmas`,
-              `General`, and `Girl`.
+            description: 'Currently supports `Birthday`, `Boy`, `Celebration`, `Christmas`, `General`, and `Girl`.'
           amount:
             type: number
             description: Gift-certificate amount.
@@ -608,9 +575,7 @@ definitions:
         description: Name assigned to this gift-certificate line item.
       theme:
         type: string
-        description: >-
-          Currently supports `Birthday`, `Boy`, `Celebration`, `Christmas`,
-          `General`, and `Girl`.
+        description: 'Currently supports `Birthday`, `Boy`, `Celebration`, `Christmas`, `General`, and `Girl`.'
       amount:
         type: number
         description: Gift-certificate amount.
@@ -654,12 +619,9 @@ definitions:
       - sender
       - recipient
   Cart_Full:
-    description: >-
-      A cart contains a collection of items, prices, discounts, etc. It does not
-      contain customer-related data.
-
-      Custom Items is a read only field. A custom item can only be added to a
-      cart using the Server to Server Cart API. 
+    description: |-
+      A cart contains a collection of items, prices, discounts, etc. It does not contain customer-related data.
+      Custom Items is a read only field. A custom item can only be added to a cart using the Server to Server Cart API. 
     type: object
     title: Cart_Full
     properties:
@@ -671,9 +633,7 @@ definitions:
         description: ID of the customer to which the cart belongs.
         type: integer
       email:
-        description: >-
-          The cart's email. This is the same email that is used in the billing
-          address
+        description: The cart's email. This is the same email that is used in the billing address
         type: string
       currency:
         type: object
@@ -683,9 +643,7 @@ definitions:
           code:
             type: string
             format: ISO-4217
-            description: >-
-              ISO-4217 currency code. (See:
-              http://en.wikipedia.org/wiki/ISO_4217.)
+            description: 'ISO-4217 currency code. (See: http://en.wikipedia.org/wiki/ISO_4217.)'
       isTaxIncluded:
         type: boolean
         description: Whether this item is taxable.
@@ -698,9 +656,7 @@ definitions:
         description: Discounted amount.
       cartAmount:
         type: number
-        description: >-
-          Sum of line-items amounts, minus cart-level discounts and coupons.
-          This amount includes taxes (where applicable).
+        description: 'Sum of line-items amounts, minus cart-level discounts and coupons. This amount includes taxes (where applicable).'
       coupons:
         type: array
         description: Array of `AppliedCoupon` objects applied to this cart.
@@ -731,10 +687,7 @@ definitions:
                         example: '4'
                       parentId:
                         type: string
-                        description: >-
-                          The product is part of a bundle such as a product pick
-                          list, then the parentId or the main product id will
-                          populate.
+                        description: 'The product is part of a bundle such as a product pick list, then the parentId or the main product id will populate.'
                         example: '6'
                       variantId:
                         type: number
@@ -761,15 +714,11 @@ definitions:
                         description: Whether the item is taxable.
                       imageUrl:
                         type: string
-                        description: >-
-                          URL of an image of this item, accessible on the
-                          internet.
+                        description: 'URL of an image of this item, accessible on the internet.'
                         format: uri
                       discounts:
                         type: array
-                        description: >-
-                          List of discounts applied to this item, as an array of
-                          AppliedDiscount objects.
+                        description: 'List of discounts applied to this item, as an array of AppliedDiscount objects.'
                         items:
                           type: object
                           title: Applied Discount
@@ -780,28 +729,20 @@ definitions:
                             discountedAmount:
                               type: number
                               format: float
-                              description: >-
-                                The discounted amount applied within a given
-                                context.
+                              description: The discounted amount applied within a given context.
                       discountAmount:
                         type: number
                         format: float
-                        description: >-
-                          The total value of all discounts applied to this item
-                          (excluding coupon).
+                        description: The total value of all discounts applied to this item (excluding coupon).
                       couponAmount:
                         type: number
                         description: The total value of all coupons applied to this item.
                       listPrice:
                         type: number
-                        description: >-
-                          Item's list price, as quoted by the
-                          manufacturer/distributor.
+                        description: 'Item''s list price, as quoted by the manufacturer/distributor.'
                       salePrice:
                         type: number
-                        description: >-
-                          Item's price after all discounts are applied. (The
-                          final price before tax calculation.)
+                        description: Item's price after all discounts are applied. (The final price before tax calculation.)
                       extendedListPrice:
                         type: number
                         description: Item's list price multiplied by the quantity.
@@ -817,17 +758,13 @@ definitions:
                           properties:
                             name:
                               type: string
-                              description: >-
-                                The product option name. For example, Color or
-                                Size
+                              description: 'The product option name. For example, Color or Size'
                             nameId:
                               type: number
                               description: The product option identifier.
                             value:
                               type: string
-                              description: >-
-                                The product option value. For example, Red or
-                                Medium
+                              description: 'The product option value. For example, Red or Medium'
                             valueId:
                               type: number
                               description: The product option value identifier.
@@ -839,9 +776,7 @@ definitions:
                   - properties:
                       isShippingRequired:
                         type: boolean
-                        description: >-
-                          Whether this item requires shipping to a physical
-                          address.
+                        description: Whether this item requires shipping to a physical address.
                       giftWrapping:
                         $ref: '#/definitions/GiftWrapping'
                 title: Item Physical
@@ -859,10 +794,7 @@ definitions:
                         example: '4'
                       parentId:
                         type: string
-                        description: >-
-                          The product is part of a bundle such as a product pick
-                          list, then the parentId or the main product id will
-                          populate.
+                        description: 'The product is part of a bundle such as a product pick list, then the parentId or the main product id will populate.'
                         example: '6'
                       variantId:
                         type: number
@@ -889,15 +821,11 @@ definitions:
                         description: Whether the item is taxable.
                       imageUrl:
                         type: string
-                        description: >-
-                          URL of an image of this item, accessible on the
-                          internet.
+                        description: 'URL of an image of this item, accessible on the internet.'
                         format: uri
                       discounts:
                         type: array
-                        description: >-
-                          List of discounts applied to this item, as an array of
-                          AppliedDiscount objects.
+                        description: 'List of discounts applied to this item, as an array of AppliedDiscount objects.'
                         items:
                           type: object
                           title: Applied Discount
@@ -908,28 +836,20 @@ definitions:
                             discountedAmount:
                               type: number
                               format: float
-                              description: >-
-                                The discounted amount applied within a given
-                                context.
+                              description: The discounted amount applied within a given context.
                       discountAmount:
                         type: number
                         format: float
-                        description: >-
-                          The total value of all discounts applied to this item
-                          (excluding coupon).
+                        description: The total value of all discounts applied to this item (excluding coupon).
                       couponAmount:
                         type: number
                         description: The total value of all coupons applied to this item.
                       listPrice:
                         type: number
-                        description: >-
-                          Item's list price, as quoted by the
-                          manufacturer/distributor.
+                        description: 'Item''s list price, as quoted by the manufacturer/distributor.'
                       salePrice:
                         type: number
-                        description: >-
-                          Item's price after all discounts are applied. (The
-                          final price before tax calculation.)
+                        description: Item's price after all discounts are applied. (The final price before tax calculation.)
                       extendedListPrice:
                         type: number
                         description: Item's list price multiplied by the quantity.
@@ -945,17 +865,13 @@ definitions:
                           properties:
                             name:
                               type: string
-                              description: >-
-                                The product option name. For example, Color or
-                                Size
+                              description: 'The product option name. For example, Color or Size'
                             nameId:
                               type: number
                               description: The product option identifier.
                             value:
                               type: string
-                              description: >-
-                                The product option value. For example, Red or
-                                Medium
+                              description: 'The product option value. For example, Red or Medium'
                             valueId:
                               type: number
                               description: The product option value identifier.
@@ -978,19 +894,13 @@ definitions:
                     description: ID of this gift certificate.
                   name:
                     type: string
-                    description: >-
-                      GiftCertificate-provided name that will appear in the
-                      control panel.
+                    description: GiftCertificate-provided name that will appear in the control panel.
                   theme:
                     type: string
-                    description: >-
-                      Currently supports `Birthday`, `Boy`, `Celebration`,
-                      `Christmas`, `General`, and `Girl`.
+                    description: 'Currently supports `Birthday`, `Boy`, `Celebration`, `Christmas`, `General`, and `Girl`.'
                   amount:
                     type: number
-                    description: >-
-                      Value must be between 1.00 and 1,000.00 in the store's
-                      default currency.
+                    description: 'Value must be between 1.00 and 1,000.00 in the store''s default currency.'
                   isTaxable:
                     type: boolean
                     description: Whether or not the gift certificate is taxable.
@@ -1018,9 +928,7 @@ definitions:
                         description: Contact's email address.
                   message:
                     type: string
-                    description: >-
-                      Message that will be sent to the gift certificate's
-                      recipient. Limited to 200 characters.
+                    description: Message that will be sent to the gift certificate's recipient. Limited to 200 characters.
                 required:
                   - theme
                   - amount
@@ -1031,15 +939,10 @@ definitions:
               items:
                 type: object
                 title: Item Custom
-                description: >-
+                description: |-
                   **Read Only**
 
-
-                  This will return in the Cart Response if the Cart was created
-                  using the [Server to Server Cart
-                  API](/api-reference/cart-checkout/server-server-cart-api). A
-                  custom item can only be added to a cart using the Server to
-                  Server API. 
+                  This will return in the Cart Response if the Cart was created using the [Server to Server Cart API](/api-reference/cart-checkout/server-server-cart-api). A custom item can only be added to a cart using the Server to Server API. 
                 properties:
                   id:
                     type: string
@@ -1062,9 +965,7 @@ definitions:
                     readOnly: true
                   listPrice:
                     type: integer
-                    description: >-
-                      Price of the item. With or without tax depending on your
-                      stores set up.
+                    description: Price of the item. With or without tax depending on your stores set up.
                     example: 10
                     readOnly: true
                   extendedListPrice:
@@ -1109,9 +1010,7 @@ definitions:
                   example: '4'
                 parentId:
                   type: string
-                  description: >-
-                    The product is part of a bundle such as a product pick list,
-                    then the parentId or the main product id will populate.
+                  description: 'The product is part of a bundle such as a product pick list, then the parentId or the main product id will populate.'
                   example: '6'
                 variantId:
                   type: number
@@ -1142,9 +1041,7 @@ definitions:
                   format: uri
                 discounts:
                   type: array
-                  description: >-
-                    List of discounts applied to this item, as an array of
-                    AppliedDiscount objects.
+                  description: 'List of discounts applied to this item, as an array of AppliedDiscount objects.'
                   items:
                     type: object
                     title: Applied Discount
@@ -1159,22 +1056,16 @@ definitions:
                 discountAmount:
                   type: number
                   format: float
-                  description: >-
-                    The total value of all discounts applied to this item
-                    (excluding coupon).
+                  description: The total value of all discounts applied to this item (excluding coupon).
                 couponAmount:
                   type: number
                   description: The total value of all coupons applied to this item.
                 listPrice:
                   type: number
-                  description: >-
-                    Item's list price, as quoted by the
-                    manufacturer/distributor.
+                  description: 'Item''s list price, as quoted by the manufacturer/distributor.'
                 salePrice:
                   type: number
-                  description: >-
-                    Item's price after all discounts are applied. (The final
-                    price before tax calculation.)
+                  description: Item's price after all discounts are applied. (The final price before tax calculation.)
                 extendedListPrice:
                   type: number
                   description: Item's list price multiplied by the quantity.
@@ -1235,9 +1126,7 @@ definitions:
                   example: '4'
                 parentId:
                   type: string
-                  description: >-
-                    The product is part of a bundle such as a product pick list,
-                    then the parentId or the main product id will populate.
+                  description: 'The product is part of a bundle such as a product pick list, then the parentId or the main product id will populate.'
                   example: '6'
                 variantId:
                   type: number
@@ -1268,9 +1157,7 @@ definitions:
                   format: uri
                 discounts:
                   type: array
-                  description: >-
-                    List of discounts applied to this item, as an array of
-                    AppliedDiscount objects.
+                  description: 'List of discounts applied to this item, as an array of AppliedDiscount objects.'
                   items:
                     type: object
                     title: Applied Discount
@@ -1285,22 +1172,16 @@ definitions:
                 discountAmount:
                   type: number
                   format: float
-                  description: >-
-                    The total value of all discounts applied to this item
-                    (excluding coupon).
+                  description: The total value of all discounts applied to this item (excluding coupon).
                 couponAmount:
                   type: number
                   description: The total value of all coupons applied to this item.
                 listPrice:
                   type: number
-                  description: >-
-                    Item's list price, as quoted by the
-                    manufacturer/distributor.
+                  description: 'Item''s list price, as quoted by the manufacturer/distributor.'
                 salePrice:
                   type: number
-                  description: >-
-                    Item's price after all discounts are applied. (The final
-                    price before tax calculation.)
+                  description: Item's price after all discounts are applied. (The final price before tax calculation.)
                 extendedListPrice:
                   type: number
                   description: Item's list price multiplied by the quantity.
@@ -1345,19 +1226,13 @@ definitions:
               description: ID of this gift certificate.
             name:
               type: string
-              description: >-
-                GiftCertificate-provided name that will appear in the control
-                panel.
+              description: GiftCertificate-provided name that will appear in the control panel.
             theme:
               type: string
-              description: >-
-                Currently supports `Birthday`, `Boy`, `Celebration`,
-                `Christmas`, `General`, and `Girl`.
+              description: 'Currently supports `Birthday`, `Boy`, `Celebration`, `Christmas`, `General`, and `Girl`.'
             amount:
               type: number
-              description: >-
-                Value must be between 1.00 and 1,000.00 in the store's default
-                currency.
+              description: 'Value must be between 1.00 and 1,000.00 in the store''s default currency.'
             isTaxable:
               type: boolean
               description: Whether or not the gift certificate is taxable.
@@ -1385,9 +1260,7 @@ definitions:
                   description: Contact's email address.
             message:
               type: string
-              description: >-
-                Message that will be sent to the gift certificate's recipient.
-                Limited to 200 characters.
+              description: Message that will be sent to the gift certificate's recipient. Limited to 200 characters.
           required:
             - theme
             - amount
@@ -1398,14 +1271,10 @@ definitions:
         items:
           type: object
           title: Item Custom
-          description: >-
+          description: |-
             **Read Only**
 
-
-            This will return in the Cart Response if the Cart was created using
-            the [Server to Server Cart
-            API](/api-reference/cart-checkout/server-server-cart-api). A custom
-            item can only be added to a cart using the Server to Server API. 
+            This will return in the Cart Response if the Cart was created using the [Server to Server Cart API](/api-reference/cart-checkout/server-server-cart-api). A custom item can only be added to a cart using the Server to Server API. 
           properties:
             id:
               type: string
@@ -1428,9 +1297,7 @@ definitions:
               readOnly: true
             listPrice:
               type: integer
-              description: >-
-                Price of the item. With or without tax depending on your stores
-                set up.
+              description: Price of the item. With or without tax depending on your stores set up.
               example: 10
               readOnly: true
             extendedListPrice:
@@ -1457,14 +1324,10 @@ definitions:
         description: GiftCertificate-provided name that will appear in the control panel.
       theme:
         type: string
-        description: >-
-          Currently supports `Birthday`, `Boy`, `Celebration`, `Christmas`,
-          `General`, and `Girl`.
+        description: 'Currently supports `Birthday`, `Boy`, `Celebration`, `Christmas`, `General`, and `Girl`.'
       amount:
         type: number
-        description: >-
-          Value must be between 1.00 and 1,000.00 in the store's default
-          currency.
+        description: 'Value must be between 1.00 and 1,000.00 in the store''s default currency.'
       isTaxable:
         type: boolean
         description: Whether or not the gift certificate is taxable.
@@ -1492,9 +1355,7 @@ definitions:
         title: Contact Entity
       message:
         type: string
-        description: >-
-          Message that will be sent to the gift certificate's recipient. Limited
-          to 200 characters.
+        description: Message that will be sent to the gift certificate's recipient. Limited to 200 characters.
     title: Item Gift Certificate
   ContactEntity:
     type: object
@@ -1518,9 +1379,7 @@ definitions:
             example: '4'
           parentId:
             type: string
-            description: >-
-              The product is part of a bundle such as a product pick list, then
-              the parentId or the main product id will populate.
+            description: 'The product is part of a bundle such as a product pick list, then the parentId or the main product id will populate.'
             example: '6'
           variantId:
             type: number
@@ -1551,9 +1410,7 @@ definitions:
             format: uri
           discounts:
             type: array
-            description: >-
-              List of discounts applied to this item, as an array of
-              AppliedDiscount objects.
+            description: 'List of discounts applied to this item, as an array of AppliedDiscount objects.'
             items:
               type: object
               properties:
@@ -1568,9 +1425,7 @@ definitions:
           discountAmount:
             type: number
             format: float
-            description: >-
-              The total value of all discounts applied to this item (excluding
-              coupon).
+            description: The total value of all discounts applied to this item (excluding coupon).
           couponAmount:
             type: number
             description: The total value of all coupons applied to this item.
@@ -1579,9 +1434,7 @@ definitions:
             description: 'Item''s list price, as quoted by the manufacturer/distributor.'
           salePrice:
             type: number
-            description: >-
-              Item's price after all discounts are applied. (The final price
-              before tax calculation.)
+            description: Item's price after all discounts are applied. (The final price before tax calculation.)
           extendedListPrice:
             type: number
             description: Item's list price multiplied by the quantity.
@@ -1623,9 +1476,7 @@ definitions:
             example: '4'
           parentId:
             type: string
-            description: >-
-              The product is part of a bundle such as a product pick list, then
-              the parentId or the main product id will populate.
+            description: 'The product is part of a bundle such as a product pick list, then the parentId or the main product id will populate.'
             example: '6'
           variantId:
             type: number
@@ -1656,9 +1507,7 @@ definitions:
             format: uri
           discounts:
             type: array
-            description: >-
-              List of discounts applied to this item, as an array of
-              AppliedDiscount objects.
+            description: 'List of discounts applied to this item, as an array of AppliedDiscount objects.'
             items:
               type: object
               title: Applied Discount
@@ -1673,9 +1522,7 @@ definitions:
           discountAmount:
             type: number
             format: float
-            description: >-
-              The total value of all discounts applied to this item (excluding
-              coupon).
+            description: The total value of all discounts applied to this item (excluding coupon).
           couponAmount:
             type: number
             description: The total value of all coupons applied to this item.
@@ -1684,9 +1531,7 @@ definitions:
             description: 'Item''s list price, as quoted by the manufacturer/distributor.'
           salePrice:
             type: number
-            description: >-
-              Item's price after all discounts are applied. (The final price
-              before tax calculation.)
+            description: Item's price after all discounts are applied. (The final price before tax calculation.)
           extendedListPrice:
             type: number
             description: Item's list price multiplied by the quantity.
@@ -1735,9 +1580,7 @@ definitions:
         example: '4'
       parentId:
         type: string
-        description: >-
-          The product is part of a bundle such as a product pick list, then the
-          parentId or the main product id will populate.
+        description: 'The product is part of a bundle such as a product pick list, then the parentId or the main product id will populate.'
         example: '6'
       variantId:
         type: number
@@ -1768,9 +1611,7 @@ definitions:
         format: uri
       discounts:
         type: array
-        description: >-
-          List of discounts applied to this item, as an array of AppliedDiscount
-          objects.
+        description: 'List of discounts applied to this item, as an array of AppliedDiscount objects.'
         items:
           type: object
           properties:
@@ -1785,9 +1626,7 @@ definitions:
       discountAmount:
         type: number
         format: float
-        description: >-
-          The total value of all discounts applied to this item (excluding
-          coupon).
+        description: The total value of all discounts applied to this item (excluding coupon).
       couponAmount:
         type: number
         description: The total value of all coupons applied to this item.
@@ -1796,9 +1635,7 @@ definitions:
         description: 'Item''s list price, as quoted by the manufacturer/distributor.'
       salePrice:
         type: number
-        description: >-
-          Item's price after all discounts are applied. (The final price before
-          tax calculation.)
+        description: Item's price after all discounts are applied. (The final price before tax calculation.)
       extendedListPrice:
         type: number
         description: Item's list price multiplied by the quantity.
@@ -1905,14 +1742,10 @@ definitions:
   ItemCustom:
     type: object
     title: Item Custom
-    description: >-
+    description: |-
       **Read Only**
 
-
-      This will return in the Cart Response if the Cart was created using the
-      [Server to Server Cart
-      API](/api-reference/cart-checkout/server-server-cart-api). A custom item
-      can only be added to a cart using the Server to Server API. 
+      This will return in the Cart Response if the Cart was created using the [Server to Server Cart API](/api-reference/cart-checkout/server-server-cart-api). A custom item can only be added to a cart using the Server to Server API. 
     properties:
       id:
         type: string
@@ -1935,9 +1768,7 @@ definitions:
         readOnly: true
       listPrice:
         type: integer
-        description: >-
-          Price of the item. With or without tax depending on your stores set
-          up.
+        description: Price of the item. With or without tax depending on your stores set up.
         example: 10
         readOnly: true
       extendedListPrice:

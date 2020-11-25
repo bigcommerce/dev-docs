@@ -15,9 +15,19 @@ produces:
 paths:
   '/orders/{orderId}':
     get:
-      description: >-
-        Returns *Order* data. This will return order data immediately after an
-        order is placed on the storefront.
+      description: |-
+        Returns *Order* data. This will return order data immediately after an order is placed on the storefront.
+
+        <div class="HubBlock--callout">
+        <div class="CalloutBlock--info">
+        <div class="HubBlock-content"> 
+
+        > ### Note
+        > The Send a Test Request feature is not currently supported for this endpoint.
+         
+        </div>
+        </div>
+        </div>
       summary: Get Order
       tags:
         - Order
@@ -39,9 +49,7 @@ paths:
 definitions:
   Data:
     title: Data
-    description: >-
-      Response data container for Order endpoints (`POST /order` and `POST
-      /order/{orderId}`).
+    description: 'Response data container for Order endpoints (`POST /order` and `POST /order/{orderId}`).'
     type: object
     properties:
       order:
@@ -74,9 +82,7 @@ definitions:
         type: number
         format: double
       orderAmount:
-        description: >-
-          Sum of line-items amounts, minus cart-level discounts and coupons.
-          This amount includes taxes (where applicable).
+        description: 'Sum of line-items amounts, minus cart-level discounts and coupons. This amount includes taxes (where applicable).'
         type: number
         format: double
       orderAmountAsInteger:
@@ -104,14 +110,10 @@ definitions:
         description: Specifies whether this order has at least one digital item.
         type: boolean
       isDownloadable:
-        description: >-
-          Specifies whether this order is fully paid, so that digital items can
-          be downloaded.
+        description: 'Specifies whether this order is fully paid, so that digital items can be downloaded.'
         type: boolean
       isComplete:
-        description: >-
-          Specifies whether this order is complete and ready to be taken to the
-          order confirmation page.
+        description: Specifies whether this order is complete and ready to be taken to the order confirmation page.
         type: boolean
       customerMessage:
         description: Shopper's provided message for the order
@@ -150,9 +152,7 @@ definitions:
         description: The currency symbol.
         type: string
       decimalPlaces:
-        description: >-
-          Number of decimal places for the currency. For example, USD currency
-          has two decimal places.
+        description: 'Number of decimal places for the currency. For example, USD currency has two decimal places.'
         type: number
         format: double
   AppliedCoupon:
@@ -166,9 +166,7 @@ definitions:
         description: the coupon code
         type: string
       displayName:
-        description: >-
-          The coupon title based on different types provided in control panel
-          section
+        description: The coupon title based on different types provided in control panel section
         type: string
       couponType:
         description: Key name to identify the type of coupon.
@@ -251,16 +249,12 @@ definitions:
         description: 'URL of an image of this item, accessible on the internet.'
         type: string
       discounts:
-        description: >-
-          List of discounts applied to this item, as an array of AppliedDiscount
-          objects.
+        description: 'List of discounts applied to this item, as an array of AppliedDiscount objects.'
         type: array
         items:
           $ref: '#/definitions/AppliedDiscount'
       discountAmount:
-        description: >-
-          The total value of all discounts applied to this item (excluding
-          coupon).
+        description: The total value of all discounts applied to this item (excluding coupon).
         type: number
         format: double
       couponAmount:
@@ -272,9 +266,7 @@ definitions:
         type: number
         format: double
       salePrice:
-        description: >-
-          Item's price after all discounts are applied. (The final price before
-          tax calculation.)
+        description: Item's price after all discounts are applied. (The final price before tax calculation.)
         type: number
         format: double
       extendedListPrice:
@@ -354,16 +346,12 @@ definitions:
         description: 'URL of an image of this item, accessible on the internet.'
         type: string
       discounts:
-        description: >-
-          List of discounts applied to this item, as an array of AppliedDiscount
-          objects.
+        description: 'List of discounts applied to this item, as an array of AppliedDiscount objects.'
         type: array
         items:
           $ref: '#/definitions/AppliedDiscount'
       discountAmount:
-        description: >-
-          The total value of all discounts applied to this item (excluding
-          coupon).
+        description: The total value of all discounts applied to this item (excluding coupon).
         type: number
         format: double
       couponAmount:
@@ -375,9 +363,7 @@ definitions:
         type: number
         format: double
       salePrice:
-        description: >-
-          Item's price after all discounts are applied. (The final price before
-          tax calculation.)
+        description: Item's price after all discounts are applied. (The final price before tax calculation.)
         type: number
         format: double
       extendedListPrice:
@@ -473,9 +459,7 @@ definitions:
         description: ''
         type: string
       countryCode:
-        description: >-
-          ISO 3166-1 alpha-2 country code. (See:
-          https://en.wikipedia.org/wiki/ISO_3166-1_alpha-2)
+        description: 'ISO 3166-1 alpha-2 country code. (See: https://en.wikipedia.org/wiki/ISO_3166-1_alpha-2)'
         type: string
       postalCode:
         description: ''
@@ -499,9 +483,7 @@ definitions:
         description: ''
         type: string
       fieldValue:
-        description: >-
-          This can also be an array for fields that need to support list of
-          values (e.g., a set of check boxes.)
+        description: 'This can also be an array for fields that need to support list of values (e.g., a set of check boxes.)'
         type: string
   Status:
     title: Status
@@ -562,16 +544,12 @@ definitions:
         description: 'URL of an image of this item, accessible on the internet.'
         type: string
       discounts:
-        description: >-
-          List of discounts applied to this item, as an array of AppliedDiscount
-          objects.
+        description: 'List of discounts applied to this item, as an array of AppliedDiscount objects.'
         type: array
         items:
           $ref: '#/definitions/AppliedDiscount'
       discountAmount:
-        description: >-
-          The total value of all discounts applied to this item (excluding
-          coupon).
+        description: The total value of all discounts applied to this item (excluding coupon).
         type: number
         format: double
       couponAmount:
@@ -583,9 +561,7 @@ definitions:
         type: number
         format: double
       salePrice:
-        description: >-
-          Item's price after all discounts are applied. (The final price before
-          tax calculation.)
+        description: Item's price after all discounts are applied. (The final price before tax calculation.)
         type: number
         format: double
       extendedListPrice:
@@ -762,4 +738,3 @@ responses:
       title: Response Order Data
       type: object
       $ref: '#/definitions/Order'
-      

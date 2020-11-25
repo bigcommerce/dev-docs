@@ -22,7 +22,19 @@ produces:
 paths:
   /form-fields:
     get:
-      description: Gets form fields.
+      description: |-
+        Gets form fields.
+
+        <div class="HubBlock--callout">
+        <div class="CalloutBlock--info">
+        <div class="HubBlock-content"> 
+
+        > ### Note
+        > The Send a Test Request feature is not currently supported for this endpoint.
+         
+        </div>
+        </div>
+        </div>
       parameters:
         - name: filter
           in: query
@@ -144,8 +156,8 @@ paths:
                     items:
                       value: minim ad reprehenderit est
                       label: sint
-      tags: 
-      - Form Fields
+      tags:
+        - Form Fields
       summary: Get Form Fields
 definitions:
   FormFieldGroups:
@@ -242,7 +254,7 @@ definitions:
                 type: string
                 description: User friendly label.
 tags:
-  - name: 'Form Fields'
+  - name: Form Fields
 basePath: /api/storefront
 host: '{$$.env.store_domain}'
 x-stoplight:

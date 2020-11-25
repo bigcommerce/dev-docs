@@ -1,25 +1,16 @@
 swagger: '2.0'
 info:
   title: Storefront Subscriptions
-  description: >-
+  description: |-
     Manage newsletter and marketing email subscriptions on the storefront.
-
 
     - [Additional Information](#additional-information)
 
-
     ## Additional Information
 
-
-    * [Collecting Newsletter
-    Subscriptions](https://support.bigcommerce.com/s/article/Collecting-Newsletter-Subscriptions)
-    (support.bigcommerce.com)
-
-    * [Customers
-    Overview](https://developer.bigcommerce.com/api-docs/customers/customers-subscribers-overview)
-
-    * [Working with Storefront
-    APIs](https://developer.bigcommerce.com/api-docs/cart-and-checkout/working-sf-apis)
+    * [Collecting Newsletter Subscriptions](https://support.bigcommerce.com/s/article/Collecting-Newsletter-Subscriptions) (support.bigcommerce.com)
+    * [Customers Overview](https://developer.bigcommerce.com/api-docs/customers/customers-subscribers-overview)
+    * [Working with Storefront APIs](https://developer.bigcommerce.com/api-docs/cart-and-checkout/working-sf-apis)
   version: ''
 consumes:
   - application/json
@@ -33,19 +24,23 @@ paths:
           description: ''
           schema:
             $ref: '#/definitions/Subscription'
-      description: >-
+      description: |-
         Creates or updates an email subscription.
 
+        By default, customers receive abandoned cart emails as soon as they provide their email address in the checkout flow. They can opt out using this endpoint.
 
-        **Usage Notes:**
+        However, if **Store Settings > Miscellaneous > Require Consent** is enabled, Abandoned Cart Emails are not sent by default, and the customer should opt-in.
 
-        * By default, customers receive abandoned cart emails as soon as they
-        provide their email address in the checkout flow. They can opt out using
-        this endpoint.
+        <div class="HubBlock--callout">
+        <div class="CalloutBlock--info">
+        <div class="HubBlock-content"> 
 
-        * However, if **Store Settings > Miscellaneous > Require Consent** is
-        enabled, Abandoned Cart Emails are not sent by default, and the customer
-        should opt-in.
+        > ### Note
+        > The Send a Test Request feature is not currently supported for this endpoint.
+         
+        </div>
+        </div>
+        </div>
       parameters:
         - in: body
           name: body
@@ -93,9 +88,8 @@ definitions:
         maxLength: 255
       source:
         type: string
-        description: >
-          The source of the subscriber. Values are: `storefront`, `order`, or
-          `custom`.
+        description: |
+          The source of the subscriber. Values are: `storefront`, `order`, or `custom`.
         minLength: 0
         maxLength: 255
       orderId:

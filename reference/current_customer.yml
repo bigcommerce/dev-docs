@@ -2,12 +2,21 @@ swagger: '2.0'
 info:
   title: Current Customer
   version: ''
-  description: >-
+  description: |-
     Identify logged-in customers securely via JavaScript.
 
+    [Learn more about the current customer API](https://developer.bigcommerce.com/api-docs/customers/current-customer-api).
 
-    [Learn more about the current customer
-    API](https://developer.bigcommerce.com/api-docs/customers/current-customer-api).
+    <div class="HubBlock--callout">
+    <div class="CalloutBlock--info">
+    <div class="HubBlock-content"> 
+
+    > ### Note
+    > The Send a Test Request feature is not currently supported for this endpoint.
+     
+    </div>
+    </div>
+    </div>
 host: '{$$.env.store_domain}'
 paths:
   /customer/current.jwt:
@@ -50,10 +59,7 @@ paths:
                     description: The group to which the customer belongs.
               iss:
                 type: string
-                description: >-
-                  Indicates the token’s issuer. This is your application’s
-                  client ID, which is obtained during application registration
-                  in Developer Portal.
+                description: 'Indicates the token’s issuer. This is your application’s client ID, which is obtained during application registration in Developer Portal.'
                 example: '"bc/apps"'
               sub:
                 type: string
@@ -61,19 +67,12 @@ paths:
                 description: The subject of the JWT - same as `store_hash`.
               iat:
                 type: integer
-                description: >-
-                  Time when the token was generated. This is a numeric value
-                  indicating the number of seconds since the [Unix
-                  epoch](https://en.wikipedia.org/wiki/Unix_time).
+                description: 'Time when the token was generated. This is a numeric value indicating the number of seconds since the [Unix epoch](https://en.wikipedia.org/wiki/Unix_time).'
                 example: 1480831863
               exp:
                 type: integer
                 example: 1480832763
-                description: >-
-                  Time when the token expires. The token usually expires after
-                  15 minutes. This is a numeric value indicating the number of
-                  seconds since the [Unix
-                  epoch](https://en.wikipedia.org/wiki/Unix_time).
+                description: 'Time when the token expires. The token usually expires after 15 minutes. This is a numeric value indicating the number of seconds since the [Unix epoch](https://en.wikipedia.org/wiki/Unix_time).'
               version:
                 type: integer
                 example: 1
@@ -81,10 +80,7 @@ paths:
               aud:
                 type: string
                 example: '"6sv16tfx3j5gsopm42ss5dd67g2srvq"'
-                description: >-
-                  The "aud" (audience) claim identifies the recipients that the
-                  JWT is intended for. This should match the *App Client ID* and
-                  the `application_id`.
+                description: The "aud" (audience) claim identifies the recipients that the JWT is intended for. This should match the *App Client ID* and the `application_id`.
               application_id:
                 type: string
                 example: '"6sv16tasdgr2b5hs5dd67g2srvq"'

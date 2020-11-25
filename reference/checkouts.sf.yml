@@ -2,9 +2,7 @@ swagger: '2.0'
 info:
   version: ''
   title: Storefront Checkouts
-  description: >-
-    Manage checkout operations and data via front-end JavaScript on BigCommerce
-    stencil powered storefronts.
+  description: Manage checkout operations and data via front-end JavaScript on BigCommerce stencil powered storefronts.
 host: '{$$.env.store_domain}'
 basePath: /api/storefront
 consumes:
@@ -20,6 +18,17 @@ paths:
         **Notes**
 
         The cart ID and checkout ID are the same.
+
+        <div class="HubBlock--callout">
+        <div class="CalloutBlock--info">
+        <div class="HubBlock-content"> 
+
+        > ### Note
+        > The Send a Test Request feature is not currently supported for this endpoint.
+         
+        </div>
+        </div>
+        </div>
       summary: Get a Checkout
       tags:
         - Checkout
@@ -73,8 +82,7 @@ paths:
                       quantity: 1
                       brand: OFS
                       isTaxable: true
-                      imageUrl: >-
-                        https://cdn11.bigcommerce.com/s-{store_hash}/products/174/images/425/leparfaitmedium3_1024x1024_1024x1024__37756__81924.1534344526.330.500.jpg?c=2
+                      imageUrl: 'https://cdn11.bigcommerce.com/s-{store_hash}/products/174/images/425/leparfaitmedium3_1024x1024_1024x1024__37756__81924.1534344526.330.500.jpg?c=2'
                       discounts: []
                       discountAmount: 0
                       couponAmount: 0
@@ -178,7 +186,19 @@ paths:
                       description: ''
                       type: string
     put:
-      description: 'Updates *Checkout* customer messages. '
+      description: |-
+        Updates *Checkout* customer messages. 
+
+        <div class="HubBlock--callout">
+        <div class="CalloutBlock--info">
+        <div class="HubBlock-content"> 
+
+        > ### Note
+        > The Send a Test Request feature is not currently supported for this endpoint.
+         
+        </div>
+        </div>
+        </div>
       summary: Update Customer Messages
       tags:
         - Checkout
@@ -237,8 +257,7 @@ paths:
                       quantity: 1
                       brand: OFS
                       isTaxable: true
-                      imageUrl: >-
-                        https://cdn11.bigcommerce.com/s-{store_hash}/products/174/images/425/leparfaitmedium3_1024x1024_1024x1024__37756__81924.1534344526.330.500.jpg?c=2
+                      imageUrl: 'https://cdn11.bigcommerce.com/s-{store_hash}/products/174/images/425/leparfaitmedium3_1024x1024_1024x1024__37756__81924.1534344526.330.500.jpg?c=2'
                       discounts: []
                       discountAmount: 0
                       couponAmount: 0
@@ -322,19 +341,23 @@ paths:
         required: true
   '/checkouts/{checkoutId}/carts/{cartId}/items/{itemId}':
     put:
-      description: >-
-        Updates a *Checkout Line Item*. Updates an existing, single line item in
-        the cart.
-
+      description: |-
+        Updates a *Checkout Line Item*. Updates an existing, single line item in the cart.
 
         **Notes**
 
+        If a variant needs to be changed or updated, the product will need to be removed and re-added to the cart with the correct variants using the [Add Cart Line Items](/api-reference/cart-checkout/storefront-cart-api/cart-items/addcartlineitem) endpoint.
 
-        If a variant needs to be changed or updated, the product will need to be
-        removed and re-added to the cart with the correct variants using the
-        [Add Cart Line
-        Items](/api-reference/cart-checkout/storefront-cart-api/cart-items/addcartlineitem)
-        endpoint.
+        <div class="HubBlock--callout">
+        <div class="CalloutBlock--info">
+        <div class="HubBlock-content"> 
+
+        > ### Note
+        > The Send a Test Request feature is not currently supported for this endpoint.
+         
+        </div>
+        </div>
+        </div>
       summary: Update a Line Item
       tags:
         - Checkout Cart Items
@@ -406,8 +429,7 @@ paths:
                       quantity: 1
                       brand: OFS
                       isTaxable: true
-                      imageUrl: >-
-                        https://cdn11.bigcommerce.com/s-{store_hash}/products/174/images/425/leparfaitmedium3_1024x1024_1024x1024__37756__81924.1534344526.330.500.jpg?c=2
+                      imageUrl: 'https://cdn11.bigcommerce.com/s-{store_hash}/products/174/images/425/leparfaitmedium3_1024x1024_1024x1024__37756__81924.1534344526.330.500.jpg?c=2'
                       discounts: []
                       discountAmount: 0
                       couponAmount: 0
@@ -485,7 +507,19 @@ paths:
               updatedTime: '2019-01-10T17:19:47+00:00'
               customerMessage: ''
     delete:
-      description: Deletes a *Line Item* from the *Cart*.
+      description: |-
+        Deletes a *Line Item* from the *Cart*.
+
+        <div class="HubBlock--callout">
+        <div class="CalloutBlock--info">
+        <div class="HubBlock-content"> 
+
+        > ### Note
+        > The Send a Test Request feature is not currently supported for this endpoint.
+         
+        </div>
+        </div>
+        </div>
       summary: Delete a Line Item
       tags:
         - Checkout Cart Items
@@ -555,12 +589,10 @@ paths:
                       productId: 184
                       sku: SMA-RED
                       name: Canvas Laundry Cart
-                      url: >-
-                        http://your-store.mybigcommerce.com/all/canvas-laundry-cart/
+                      url: 'http://your-store.mybigcommerce.com/all/canvas-laundry-cart/'
                       quantity: 1
                       isTaxable: true
-                      imageUrl: >-
-                        https://cdn8.bigcommerce.com/s-id30h7ohwf/products/184/images/445/naturalcanvascart2_1024x1024__92347__29648.1534344533.330.500.jpg?c=2
+                      imageUrl: 'https://cdn8.bigcommerce.com/s-id30h7ohwf/products/184/images/445/naturalcanvascart2_1024x1024__92347__29648.1534344533.330.500.jpg?c=2'
                       discounts:
                         - id: total-coupon
                           discountedAmount: 0.59
@@ -581,12 +613,10 @@ paths:
                       productId: 170
                       sku: ''
                       name: Ceramic Measuring Spoons
-                      url: >-
-                        http://your-store.mybigcommerce.com/all/ceramic-measuring-spoons/
+                      url: 'http://your-store.mybigcommerce.com/all/ceramic-measuring-spoons/'
                       quantity: 1
                       isTaxable: true
-                      imageUrl: >-
-                        https://cdn8.bigcommerce.com/s-id30h7ohwf/products/170/images/411/measuringsquares2_1024x1024__07108__95421.1534344522.330.500.jpg?c=2
+                      imageUrl: 'https://cdn8.bigcommerce.com/s-id30h7ohwf/products/170/images/411/measuringsquares2_1024x1024__07108__95421.1534344522.330.500.jpg?c=2'
                       discounts:
                         - id: total-coupon
                           discountedAmount: 1.06
@@ -608,8 +638,7 @@ paths:
                       url: 'http://your-store.mybigcommerce.com/all/chambray-towel/'
                       quantity: 1
                       isTaxable: true
-                      imageUrl: >-
-                        https://cdn8.bigcommerce.com/s-id30h7ohwf/products/158/images/382/foglinenbeigestripetowel1b_1024x1024__83011__60806.1534344511.330.500.jpg?c=2
+                      imageUrl: 'https://cdn8.bigcommerce.com/s-id30h7ohwf/products/158/images/382/foglinenbeigestripetowel1b_1024x1024__83011__60806.1534344511.330.500.jpg?c=2'
                       discounts:
                         - id: total-coupon
                           discountedAmount: 2.12
@@ -628,12 +657,10 @@ paths:
                       variantId: 360
                       productId: 189
                       name: Gather Journal Issue 7 - Digital
-                      url: >-
-                        http://your-store.mybigcommerce.com/all/gather-journal-issue-7/
+                      url: 'http://your-store.mybigcommerce.com/all/gather-journal-issue-7/'
                       quantity: 1
                       isTaxable: true
-                      imageUrl: >-
-                        https://cdn8.bigcommerce.com/s-id30h7ohwf/products/189/images/465/gather_1024x1024__17195__82620.1534344540.330.500.jpg?c=2
+                      imageUrl: 'https://cdn8.bigcommerce.com/s-id30h7ohwf/products/189/images/465/gather_1024x1024__17195__82620.1534344540.330.500.jpg?c=2'
                       discounts:
                         - id: total-coupon
                           discountedAmount: 0.8
@@ -735,21 +762,23 @@ paths:
               customerMessage: 'Thank you, BigCommerce'
   '/checkouts/{checkoutId}/billing-address':
     post:
-      description: >-
+      description: |-
         Adds a billing address to an existing *Checkout*.
 
-
         **Required Fields**
-
         * country_code
 
+        <div class="HubBlock--callout">
+        <div class="CalloutBlock--info">
+        <div class="HubBlock-content"> 
 
-        > **Note**
-
-        >
-
-        > The `email` property is only required if the customer is a guest
-        shopper. Otherwise, it is set automatically.
+        > ### Note
+        > * The `email` property is only required if the customer is a guest shopper. Otherwise, it is set automatically.
+        > * The Send a Test Request feature is not currently supported for this endpoint.
+         
+        </div>
+        </div>
+        </div>
       summary: Add Checkout Billing Address
       tags:
         - Checkout Billing Address
@@ -814,8 +843,7 @@ paths:
                       quantity: 1
                       brand: OFS
                       isTaxable: true
-                      imageUrl: >-
-                        https://cdn11.bigcommerce.com/s-{store_hash}/products/174/images/425/leparfaitmedium3_1024x1024_1024x1024__37756__81924.1534344526.330.500.jpg?c=2
+                      imageUrl: 'https://cdn11.bigcommerce.com/s-{store_hash}/products/174/images/425/leparfaitmedium3_1024x1024_1024x1024__37756__81924.1534344526.330.500.jpg?c=2'
                       discounts: []
                       discountAmount: 0
                       couponAmount: 0
@@ -893,16 +921,24 @@ paths:
               updatedTime: '2019-01-10T17:19:47+00:00'
               customerMessage: ''
         '403':
-          description: >-
-            The email trying to be set for the guest is associated with an
-            account. The customer must sign-in.
+          description: The email trying to be set for the guest is associated with an account. The customer must sign-in.
         '429':
-          description: >-
-            Unable to determine if provided email is associated with an account.
-            The customer must sign-in.
+          description: Unable to determine if provided email is associated with an account. The customer must sign-in.
   '/checkouts/{checkoutId}/billing-address/{addressId}':
     put:
-      description: Updates an existing billing address on *Checkout*.
+      description: |-
+        Updates an existing billing address on *Checkout*.
+
+        <div class="HubBlock--callout">
+        <div class="CalloutBlock--info">
+        <div class="HubBlock-content"> 
+
+        > ### Note
+        > The Send a Test Request feature is not currently supported for this endpoint.
+         
+        </div>
+        </div>
+        </div>
       summary: Update Checkout Billing Address
       tags:
         - Checkout Billing Address
@@ -987,12 +1023,10 @@ paths:
                       productId: 184
                       sku: SMA-RED
                       name: Canvas Laundry Cart
-                      url: >-
-                        http://your-store.mybigcommerce.com/all/canvas-laundry-cart/
+                      url: 'http://your-store.mybigcommerce.com/all/canvas-laundry-cart/'
                       quantity: 1
                       isTaxable: true
-                      imageUrl: >-
-                        https://cdn8.bigcommerce.com/s-id30h7ohwf/products/184/images/445/naturalcanvascart2_1024x1024__92347__29648.1534344533.330.500.jpg?c=2
+                      imageUrl: 'https://cdn8.bigcommerce.com/s-id30h7ohwf/products/184/images/445/naturalcanvascart2_1024x1024__92347__29648.1534344533.330.500.jpg?c=2'
                       discounts:
                         - id: total-coupon
                           discountedAmount: 0.59
@@ -1013,12 +1047,10 @@ paths:
                       productId: 170
                       sku: ''
                       name: Ceramic Measuring Spoons
-                      url: >-
-                        http://your-store.mybigcommerce.com/all/ceramic-measuring-spoons/
+                      url: 'http://your-store.mybigcommerce.com/all/ceramic-measuring-spoons/'
                       quantity: 1
                       isTaxable: true
-                      imageUrl: >-
-                        https://cdn8.bigcommerce.com/s-id30h7ohwf/products/170/images/411/measuringsquares2_1024x1024__07108__95421.1534344522.330.500.jpg?c=2
+                      imageUrl: 'https://cdn8.bigcommerce.com/s-id30h7ohwf/products/170/images/411/measuringsquares2_1024x1024__07108__95421.1534344522.330.500.jpg?c=2'
                       discounts:
                         - id: total-coupon
                           discountedAmount: 1.06
@@ -1040,8 +1072,7 @@ paths:
                       url: 'http://your-store.mybigcommerce.com/all/chambray-towel/'
                       quantity: 1
                       isTaxable: true
-                      imageUrl: >-
-                        https://cdn8.bigcommerce.com/s-id30h7ohwf/products/158/images/382/foglinenbeigestripetowel1b_1024x1024__83011__60806.1534344511.330.500.jpg?c=2
+                      imageUrl: 'https://cdn8.bigcommerce.com/s-id30h7ohwf/products/158/images/382/foglinenbeigestripetowel1b_1024x1024__83011__60806.1534344511.330.500.jpg?c=2'
                       discounts:
                         - id: total-coupon
                           discountedAmount: 2.12
@@ -1060,12 +1091,10 @@ paths:
                       variantId: 360
                       productId: 189
                       name: Gather Journal Issue 7 - Digital
-                      url: >-
-                        http://your-store.mybigcommerce.com/all/gather-journal-issue-7/
+                      url: 'http://your-store.mybigcommerce.com/all/gather-journal-issue-7/'
                       quantity: 1
                       isTaxable: true
-                      imageUrl: >-
-                        https://cdn8.bigcommerce.com/s-id30h7ohwf/products/189/images/465/gather_1024x1024__17195__82620.1534344540.330.500.jpg?c=2
+                      imageUrl: 'https://cdn8.bigcommerce.com/s-id30h7ohwf/products/189/images/465/gather_1024x1024__17195__82620.1534344540.330.500.jpg?c=2'
                       discounts:
                         - id: total-coupon
                           discountedAmount: 0.8
@@ -1166,16 +1195,12 @@ paths:
               updatedTime: '2018-09-18T16:59:45+00:00'
               customerMessage: 'Thank you, BigCommerce'
         '403':
-          description: >-
-            The email trying to be set for the guest is associated with an
-            account. The customer must sign-in.
+          description: The email trying to be set for the guest is associated with an account. The customer must sign-in.
         '429':
-          description: >-
-            Unable to determine if provided email is associated with an account.
-            The customer must sign-in.
+          description: Unable to determine if provided email is associated with an account. The customer must sign-in.
   '/checkouts/{checkoutId}/consignments':
     post:
-      description: "Adds a new *Consignment* to *Checkout*.\n\nThere are two steps to add a new shipping address and shipping options with line items. \n1. Add a new Consignment to Checkout.\n* \tSend a POST to Consignments with each shipping address and line items IDs. Each address can have its own line item IDs.\n* \tAs part of the request URL make sure to add `include=consignments.availableShippingOptions` to return the available shipping options based on line items and shipping locations. This will return `availableShippingOptions` in the response.\n2. [Update the Consignment](/api-reference/cart-checkout/storefront-checkout-api/checkout-consignments/checkoutsconsignmentsbycheckoutidandconsignmentidput) with Shipping Options.\n\n**Required Query**\n* consignments.availableShippingOptions\n\n**Required Fields**\n* shipping_address\n* line_items\n\nTo learn more about creating a Checkout Consignment see [Working with the Fetch API](/api-docs/cart-and-checkout/working-sf-apis)."
+      description: "Adds a new *Consignment* to *Checkout*.\n\nThere are two steps to add a new shipping address and shipping options with line items. \n1. Add a new Consignment to Checkout.\n* \tSend a POST to Consignments with each shipping address and line items IDs. Each address can have its own line item IDs.\n* \tAs part of the request URL make sure to add `include=consignments.availableShippingOptions` to return the available shipping options based on line items and shipping locations. This will return `availableShippingOptions` in the response.\n2. [Update the Consignment](/api-reference/cart-checkout/storefront-checkout-api/checkout-consignments/checkoutsconsignmentsbycheckoutidandconsignmentidput) with Shipping Options.\n\n**Required Query**\n* consignments.availableShippingOptions\n\n**Required Fields**\n* shipping_address\n* line_items\n\nTo learn more about creating a Checkout Consignment see [Working with the Fetch API](/api-docs/cart-and-checkout/working-sf-apis).\n\n<div class=\"HubBlock--callout\">\n<div class=\"CalloutBlock--info\">\n<div class=\"HubBlock-content\"> \n\n> ### Note\n> The Send a Test Request feature is not currently supported for this endpoint.\n \n</div>\n</div>\n</div>"
       summary: Create a Consignment
       tags:
         - Checkout Consignments
@@ -1271,8 +1296,7 @@ paths:
                       quantity: 1
                       brand: OFS
                       isTaxable: true
-                      imageUrl: >-
-                        https://cdn11.bigcommerce.com/s-{store_hash}/products/174/images/425/leparfaitmedium3_1024x1024_1024x1024__37756__81924.1534344526.330.500.jpg?c=2
+                      imageUrl: 'https://cdn11.bigcommerce.com/s-{store_hash}/products/174/images/425/leparfaitmedium3_1024x1024_1024x1024__37756__81924.1534344526.330.500.jpg?c=2'
                       discounts: []
                       discountAmount: 0
                       couponAmount: 0
@@ -1351,7 +1375,7 @@ paths:
               customerMessage: ''
   '/checkouts/{checkoutId}/consignments/{consignmentId}':
     put:
-      description: "Updates an existing consignment. Shipping address, line item IDs or the shipping option ID can be updated using this endpoint.\n\nThere are two steps to add a new shipping address and shipping options with line items. \n1. Add a new Consignment to Checkout.\n2. Update the Consignment with Shipping Options.\n* \t Update each *Consignment* `shippingOptionId` (shipping address and line items) with the `availableShippingOption > id` from Step One. \n\n**Required Fields**\n* shippingOptionId\n\nTo learn more about creating a Checkout Consignment see [Working with the Fetch API](/api-docs/cart-and-checkout/working-sf-apis).\n\n**Notes**\n* You cannot pass both a `shippingAddress` and `shippingOptionId` because the shipping option may not be able to be applied to the given address "
+      description: "Updates an existing consignment. Shipping address, line item IDs or the shipping option ID can be updated using this endpoint.\n\nThere are two steps to add a new shipping address and shipping options with line items. \n1. Add a new Consignment to Checkout.\n2. Update the Consignment with Shipping Options.\n* \t Update each *Consignment* `shippingOptionId` (shipping address and line items) with the `availableShippingOption > id` from Step One. \n\n**Required Fields**\n* shippingOptionId\n\nTo learn more about creating a Checkout Consignment see [Working with the Fetch API](/api-docs/cart-and-checkout/working-sf-apis).\n\n<div class=\"HubBlock--callout\">\n<div class=\"CalloutBlock--info\">\n<div class=\"HubBlock-content\"> \n\n> ### Note\n> * You cannot pass both a `shippingAddress` and `shippingOptionId` because the shipping option may not be able to be applied to the given address \n> * The Send a Test Request feature is not currently supported for this endpoint.\n \n</div>\n</div>\n</div>"
       tags:
         - Checkout Consignments
       operationId: CheckoutsConsignmentsByCheckoutIdAndConsignmentIdPut
@@ -1436,8 +1460,7 @@ paths:
                       quantity: 1
                       brand: OFS
                       isTaxable: true
-                      imageUrl: >-
-                        https://cdn11.bigcommerce.com/s-{store_hash}/products/174/images/425/leparfaitmedium3_1024x1024_1024x1024__37756__81924.1534344526.330.500.jpg?c=2
+                      imageUrl: 'https://cdn11.bigcommerce.com/s-{store_hash}/products/174/images/425/leparfaitmedium3_1024x1024_1024x1024__37756__81924.1534344526.330.500.jpg?c=2'
                       discounts: []
                       discountAmount: 0
                       couponAmount: 0
@@ -1516,7 +1539,19 @@ paths:
               customerMessage: ''
       summary: Update a Consignment
     delete:
-      description: 'Removes an existing *Consignment* from *Checkout*. '
+      description: |-
+        Removes an existing *Consignment* from *Checkout*. 
+
+        <div class="HubBlock--callout">
+        <div class="CalloutBlock--info">
+        <div class="HubBlock-content"> 
+
+        > ### Note
+        > The Send a Test Request feature is not currently supported for this endpoint.
+         
+        </div>
+        </div>
+        </div>
       summary: Delete a Consignment
       tags:
         - Checkout Consignments
@@ -1571,8 +1606,7 @@ paths:
                       quantity: 1
                       brand: OFS
                       isTaxable: true
-                      imageUrl: >-
-                        https://cdn11.bigcommerce.com/s-{store_hash}/products/174/images/425/leparfaitmedium3_1024x1024_1024x1024__37756__81924.1534344526.330.500.jpg?c=2
+                      imageUrl: 'https://cdn11.bigcommerce.com/s-{store_hash}/products/174/images/425/leparfaitmedium3_1024x1024_1024x1024__37756__81924.1534344526.330.500.jpg?c=2'
                       discounts: []
                       discountAmount: 0
                       couponAmount: 0
@@ -1654,11 +1688,18 @@ paths:
       description: |-
         Adds a *Gift Certificate Code* to *Checkout*.
 
-        **Notes**
+        <div class="HubBlock--callout">
+        <div class="CalloutBlock--info">
+        <div class="HubBlock-content"> 
 
-        *Gift Certificates* are treated as a payment methods.
-
-        You are not able to purchase a gift certificate with a gift certificate.
+        > ### Note
+        > * *Gift Certificates* are treated as a payment methods.
+        > * You are not able to purchase a gift certificate with a gift certificate.
+        > * The Send a Test Request feature is not currently supported for this endpoint.
+         
+        </div>
+        </div>
+        </div>
       summary: Add Gift Certificate to Checkout
       tags:
         - Checkout Gift Certificates
@@ -1717,8 +1758,7 @@ paths:
                       quantity: 1
                       brand: OFS
                       isTaxable: true
-                      imageUrl: >-
-                        https://cdn11.bigcommerce.com/s-{store_hash}/products/174/images/425/leparfaitmedium3_1024x1024_1024x1024__37756__81924.1534344526.330.500.jpg?c=2
+                      imageUrl: 'https://cdn11.bigcommerce.com/s-{store_hash}/products/174/images/425/leparfaitmedium3_1024x1024_1024x1024__37756__81924.1534344526.330.500.jpg?c=2'
                       discounts: []
                       discountAmount: 0
                       couponAmount: 0
@@ -1800,9 +1840,19 @@ paths:
       description: |-
         Deletes an existing *Gift Certificate*.
 
-        **Notes**
-
         This removes the *Gift Certificate* payment method.
+
+        <div class="HubBlock--callout">
+        <div class="CalloutBlock--info">
+        <div class="HubBlock-content"> 
+
+        > ### Note
+        >
+        > The Send a Test Request feature is not currently supported for this endpoint.
+         
+        </div>
+        </div>
+        </div>
       summary: Delete Gift Certificate
       tags:
         - Checkout Gift Certificates
@@ -1832,6 +1882,17 @@ paths:
 
         **Required Fields**
         * couponCode
+
+        <div class="HubBlock--callout">
+        <div class="CalloutBlock--info">
+        <div class="HubBlock-content"> 
+
+        > ### Note
+        > The Send a Test Request feature is not currently supported for this endpoint.
+         
+        </div>
+        </div>
+        </div>
       summary: Add Coupon to Checkout
       tags:
         - Checkout Coupons
@@ -1895,8 +1956,7 @@ paths:
                       quantity: 1
                       brand: OFS
                       isTaxable: true
-                      imageUrl: >-
-                        https://cdn11.bigcommerce.com/s-{store_hash}/products/174/images/425/leparfaitmedium3_1024x1024_1024x1024__37756__81924.1534344526.330.500.jpg?c=2
+                      imageUrl: 'https://cdn11.bigcommerce.com/s-{store_hash}/products/174/images/425/leparfaitmedium3_1024x1024_1024x1024__37756__81924.1534344526.330.500.jpg?c=2'
                       discounts: []
                       discountAmount: 0
                       couponAmount: 0
@@ -1975,7 +2035,19 @@ paths:
               customerMessage: ''
   '/checkouts/{checkoutId}/coupons/{couponCode}':
     delete:
-      description: Deletes a *Coupon Code* from *Checkout*.
+      description: |
+        Deletes a *Coupon Code* from *Checkout*.
+
+        <div class="HubBlock--callout">
+        <div class="CalloutBlock--info">
+        <div class="HubBlock-content"> 
+
+        > ### Note
+        > The Send a Test Request feature is not currently supported for this endpoint.
+         
+        </div>
+        </div>
+        </div>
       summary: Delete Checkout Coupon
       tags:
         - Checkout Coupons
@@ -2034,12 +2106,10 @@ paths:
                       productId: 184
                       sku: SMA-RED
                       name: Canvas Laundry Cart
-                      url: >-
-                        http://your-store.mybigcommerce.com/all/canvas-laundry-cart/
+                      url: 'http://your-store.mybigcommerce.com/all/canvas-laundry-cart/'
                       quantity: 1
                       isTaxable: true
-                      imageUrl: >-
-                        https://cdn8.bigcommerce.com/s-id30h7ohwf/products/184/images/445/naturalcanvascart2_1024x1024__92347__29648.1534344533.330.500.jpg?c=2
+                      imageUrl: 'https://cdn8.bigcommerce.com/s-id30h7ohwf/products/184/images/445/naturalcanvascart2_1024x1024__92347__29648.1534344533.330.500.jpg?c=2'
                       discounts:
                         - id: 2
                           discountedAmount: 2
@@ -2058,12 +2128,10 @@ paths:
                       productId: 170
                       sku: ''
                       name: Ceramic Measuring Spoons
-                      url: >-
-                        http://your-store.mybigcommerce.com/all/ceramic-measuring-spoons/
+                      url: 'http://your-store.mybigcommerce.com/all/ceramic-measuring-spoons/'
                       quantity: 1
                       isTaxable: true
-                      imageUrl: >-
-                        https://cdn8.bigcommerce.com/s-id30h7ohwf/products/170/images/411/measuringsquares2_1024x1024__07108__95421.1534344522.330.500.jpg?c=2
+                      imageUrl: 'https://cdn8.bigcommerce.com/s-id30h7ohwf/products/170/images/411/measuringsquares2_1024x1024__07108__95421.1534344522.330.500.jpg?c=2'
                       discounts: []
                       discountAmount: 0
                       couponAmount: 0
@@ -2083,8 +2151,7 @@ paths:
                       url: 'http://your-store.mybigcommerce.com/all/chambray-towel/'
                       quantity: 1
                       isTaxable: true
-                      imageUrl: >-
-                        https://cdn8.bigcommerce.com/s-id30h7ohwf/products/158/images/382/foglinenbeigestripetowel1b_1024x1024__83011__60806.1534344511.330.500.jpg?c=2
+                      imageUrl: 'https://cdn8.bigcommerce.com/s-id30h7ohwf/products/158/images/382/foglinenbeigestripetowel1b_1024x1024__83011__60806.1534344511.330.500.jpg?c=2'
                       discounts: []
                       discountAmount: 0
                       couponAmount: 0
@@ -2101,12 +2168,10 @@ paths:
                       variantId: 360
                       productId: 189
                       name: Gather Journal Issue 7 - Digital
-                      url: >-
-                        http://your-store.mybigcommerce.com/all/gather-journal-issue-7/
+                      url: 'http://your-store.mybigcommerce.com/all/gather-journal-issue-7/'
                       quantity: 1
                       isTaxable: true
-                      imageUrl: >-
-                        https://cdn8.bigcommerce.com/s-id30h7ohwf/products/189/images/465/gather_1024x1024__17195__82620.1534344540.330.500.jpg?c=2
+                      imageUrl: 'https://cdn8.bigcommerce.com/s-id30h7ohwf/products/189/images/465/gather_1024x1024__17195__82620.1534344540.330.500.jpg?c=2'
                       discounts: []
                       discountAmount: 0
                       couponAmount: 0
@@ -2243,10 +2308,19 @@ paths:
       operationId: CheckoutStoreCreditAdd
       tags:
         - Checkout Store Credit
-      description: >-
-        Applies any available store credit to a checkout. As on the storefront,
-        all available store credit will be used (up to the value of the order)
-        and no amount need be specified.
+      description: |-
+        Applies any available store credit to a checkout. As on the storefront, all available store credit will be used (up to the value of the order) and no amount need be specified.
+
+        <div class="HubBlock--callout">
+        <div class="CalloutBlock--info">
+        <div class="HubBlock-content"> 
+
+        > ### Note
+        > The Send a Test Request feature is not currently supported for this endpoint.
+         
+        </div>
+        </div>
+        </div>
     parameters:
       - name: checkoutId
         in: path
@@ -2267,7 +2341,19 @@ paths:
           name: checkoutId
           type: string
           required: true
-      description: Removes store credit from a checkout.
+      description: |-
+        Removes store credit from a checkout.
+
+        <div class="HubBlock--callout">
+        <div class="CalloutBlock--info">
+        <div class="HubBlock-content"> 
+
+        > ### Note
+        > The Send a Test Request feature is not currently supported for this endpoint.
+         
+        </div>
+        </div>
+        </div>
       operationId: CheckoutsStoreCreditRemove
       consumes:
         - application/json
@@ -2275,7 +2361,19 @@ paths:
         - Checkout Store Credit
   '/checkouts/{checkoutId}/spam-protection':
     post:
-      description: Verifies if checkout is created by human.
+      description: |-
+        Verifies if checkout is created by human.
+
+        <div class="HubBlock--callout">
+        <div class="CalloutBlock--info">
+        <div class="HubBlock-content"> 
+
+        > ### Note
+        > The Send a Test Request feature is not currently supported for this endpoint.
+         
+        </div>
+        </div>
+        </div>
       summary: Checkout Spam Protection
       tags:
         - Checkout Spam Protection
@@ -2353,15 +2451,11 @@ definitions:
           $ref: '#/definitions/checkoutTax'
       subtotal:
         type: number
-        description: >-
-          Subtotal of the checkout before applying item level discounts. Tax
-          inclusive based on the store settings.
+        description: Subtotal of the checkout before applying item level discounts. Tax inclusive based on the store settings.
         format: float
       grandTotal:
         type: number
-        description: >-
-          The total payable amount, before applying any store credit or gift
-          certificate.
+        description: 'The total payable amount, before applying any store credit or gift certificate.'
         format: float
       giftCertificates:
         description: Applied gift certificate (as a payment method).
@@ -2375,9 +2469,7 @@ definitions:
         description: Time when the cart was last updated.
         type: string
       customerMessage:
-        description: >-
-          Shopper's message provided as details for the order to be created from
-          this cart
+        description: Shopper's message provided as details for the order to be created from this cart
         type: string
       outstandingBalance:
         type: number
@@ -2389,9 +2481,7 @@ definitions:
           `true` value indicates StoreCredit has been applied.
   cart_Full:
     title: cart_Full
-    description: >-
-      A cart contains a collection of items, prices, discounts, etc. It does not
-      contain customer-related data.
+    description: 'A cart contains a collection of items, prices, discounts, etc. It does not contain customer-related data.'
     type: object
     properties:
       id:
@@ -2403,9 +2493,7 @@ definitions:
         type: integer
         format: int32
       email:
-        description: >-
-          The cart's email. This is the same email that is used in the billing
-          address
+        description: The cart's email. This is the same email that is used in the billing address
         type: string
       currency:
         $ref: '#/definitions/Currency'
@@ -2421,9 +2509,7 @@ definitions:
         type: number
         format: double
       cartAmount:
-        description: >-
-          Sum of line-items amounts, minus cart-level discounts and coupons.
-          This amount includes taxes (where applicable).
+        description: 'Sum of line-items amounts, minus cart-level discounts and coupons. This amount includes taxes (where applicable).'
         type: number
         format: double
       coupons:
@@ -2462,9 +2548,7 @@ definitions:
         description: The currency symbol.
         type: string
       decimalPlaces:
-        description: >-
-          Number of decimal places for the currency. For example, USD currency
-          has two decimal places.
+        description: 'Number of decimal places for the currency. For example, USD currency has two decimal places.'
         type: number
         format: double
   AppliedCoupon:
@@ -2478,9 +2562,7 @@ definitions:
         description: the coupon code
         type: string
       displayName:
-        description: >-
-          The coupon title based on different types provided in control panel
-          section
+        description: The coupon title based on different types provided in control panel section
         type: string
       couponType:
         type: integer
@@ -2531,9 +2613,7 @@ definitions:
               description: The line-item ID.
               type: string
             parentId:
-              description: >-
-                The product is part of a bundle such as a product pick list,
-                then the parentId or the main product id will populate.
+              description: 'The product is part of a bundle such as a product pick list, then the parentId or the main product id will populate.'
               type: string
             variantId:
               description: ID of the variant.
@@ -2563,9 +2643,7 @@ definitions:
               description: 'URL of an image of this item, accessible on the internet.'
               type: string
             discounts:
-              description: >-
-                List of discounts applied to this item, as an array of
-                AppliedDiscount objects.
+              description: 'List of discounts applied to this item, as an array of AppliedDiscount objects.'
               type: array
               items:
                 title: Applied Discount
@@ -2579,9 +2657,7 @@ definitions:
                     type: number
                     format: double
             discountAmount:
-              description: >-
-                The total value of all discounts applied to this item (excluding
-                coupon).
+              description: The total value of all discounts applied to this item (excluding coupon).
               type: number
               format: double
             couponAmount:
@@ -2593,9 +2669,7 @@ definitions:
               type: number
               format: double
             salePrice:
-              description: >-
-                Item's price after all discounts are applied. (The final price
-                before tax calculation.)
+              description: Item's price after all discounts are applied. (The final price before tax calculation.)
               type: number
               format: double
             extendedListPrice:
@@ -2610,9 +2684,7 @@ definitions:
               description: the product type - physical or digital
               type: string
             addedByPromotion:
-              description: >-
-                If the item was added automatically by a promotion such as a
-                coupon or buy one, get one.
+              description: 'If the item was added automatically by a promotion such as a coupon or buy one, get one.'
               type: boolean
             isShippingRequired:
               description: Whether this item requires shipping to a physical address.
@@ -2674,9 +2746,7 @@ definitions:
               description: 'URL of an image of this item, accessible on the internet.'
               type: string
             discounts:
-              description: >-
-                List of discounts applied to this item, as an array of
-                AppliedDiscount objects.
+              description: 'List of discounts applied to this item, as an array of AppliedDiscount objects.'
               type: array
               items:
                 title: Applied Discount
@@ -2690,9 +2760,7 @@ definitions:
                     type: number
                     format: double
             discountAmount:
-              description: >-
-                The total value of all discounts applied to this item (excluding
-                coupon).
+              description: The total value of all discounts applied to this item (excluding coupon).
               type: number
               format: double
             couponAmount:
@@ -2704,9 +2772,7 @@ definitions:
               type: number
               format: double
             salePrice:
-              description: >-
-                Item's price after all discounts are applied. (The final price
-                before tax calculation.)
+              description: Item's price after all discounts are applied. (The final price before tax calculation.)
               type: number
               format: double
             extendedListPrice:
@@ -2750,9 +2816,7 @@ definitions:
               description: Name of the purchased gift certificate e.g. $20 Gift Certificate
               type: string
             theme:
-              description: >-
-                Currently supports `Birthday`, `Boy`, `Celebration`,
-                `Christmas`, `General`, and `Girl`.
+              description: 'Currently supports `Birthday`, `Boy`, `Celebration`, `Christmas`, `General`, and `Girl`.'
               type: string
             amount:
               description: 'Value must be between $1.00 and $1,000.00.'
@@ -2815,9 +2879,7 @@ definitions:
               type: string
             listPrice:
               type: string
-              description: >-
-                Price of the item. With or without tax depending on your stores
-                set up.
+              description: Price of the item. With or without tax depending on your stores set up.
     required:
       - physicalItems
       - digitalItems
@@ -2829,9 +2891,7 @@ definitions:
         description: The line-item ID.
         type: string
       parentId:
-        description: >-
-          The product is part of a bundle such as a product pick list, then the
-          parentId or the main product id will populate.
+        description: 'The product is part of a bundle such as a product pick list, then the parentId or the main product id will populate.'
         type: string
       variantId:
         description: ID of the variant.
@@ -2861,16 +2921,12 @@ definitions:
         description: 'URL of an image of this item, accessible on the internet.'
         type: string
       discounts:
-        description: >-
-          List of discounts applied to this item, as an array of AppliedDiscount
-          objects.
+        description: 'List of discounts applied to this item, as an array of AppliedDiscount objects.'
         type: array
         items:
           $ref: '#/definitions/AppliedDiscount'
       discountAmount:
-        description: >-
-          The total value of all discounts applied to this item (excluding
-          coupon).
+        description: The total value of all discounts applied to this item (excluding coupon).
         type: number
         format: double
       couponAmount:
@@ -2882,9 +2938,7 @@ definitions:
         type: number
         format: double
       salePrice:
-        description: >-
-          Item's price after all discounts are applied. (The final price before
-          tax calculation.)
+        description: Item's price after all discounts are applied. (The final price before tax calculation.)
         type: number
         format: double
       extendedListPrice:
@@ -2899,9 +2953,7 @@ definitions:
         description: the product type - physical or digital
         type: string
       addedByPromotion:
-        description: >-
-          If the item was added automatically by a promotion such as a coupon or
-          buy one, get one.
+        description: 'If the item was added automatically by a promotion such as a coupon or buy one, get one.'
         type: boolean
       isShippingRequired:
         description: Whether this item requires shipping to a physical address.
@@ -2962,16 +3014,12 @@ definitions:
         description: 'URL of an image of this item, accessible on the internet.'
         type: string
       discounts:
-        description: >-
-          List of discounts applied to this item, as an array of AppliedDiscount
-          objects.
+        description: 'List of discounts applied to this item, as an array of AppliedDiscount objects.'
         type: array
         items:
           $ref: '#/definitions/AppliedDiscount'
       discountAmount:
-        description: >-
-          The total value of all discounts applied to this item (excluding
-          coupon).
+        description: The total value of all discounts applied to this item (excluding coupon).
         type: number
         format: double
       couponAmount:
@@ -2983,9 +3031,7 @@ definitions:
         type: number
         format: double
       salePrice:
-        description: >-
-          Item's price after all discounts are applied. (The final price before
-          tax calculation.)
+        description: Item's price after all discounts are applied. (The final price before tax calculation.)
         type: number
         format: double
       extendedListPrice:
@@ -3026,9 +3072,7 @@ definitions:
         description: Name of the purchased gift certificate e.g. $20 Gift Certificate
         type: string
       theme:
-        description: >-
-          Currently supports `Birthday`, `Boy`, `Celebration`, `Christmas`,
-          `General`, and `Girl`.
+        description: 'Currently supports `Birthday`, `Boy`, `Celebration`, `Christmas`, `General`, and `Girl`.'
         type: string
       amount:
         description: 'Value must be between $1.00 and $1,000.00.'
@@ -3104,9 +3148,7 @@ definitions:
         description: ''
         type: string
       countryCode:
-        description: >-
-          ISO 3166-1 alpha-2 country code. (See:
-          https://en.wikipedia.org/wiki/ISO_3166-1_alpha-2)
+        description: 'ISO 3166-1 alpha-2 country code. (See: https://en.wikipedia.org/wiki/ISO_3166-1_alpha-2)'
         type: string
       postalCode:
         description: ''
@@ -3124,25 +3166,16 @@ definitions:
   custom_fields:
     title: custom_fields
     type: object
-    description: >-
-      When doing a PUT or POST to the `fieldValue` with a pick list, the input
-      must be a number. The response will be a string.
+    description: 'When doing a PUT or POST to the `fieldValue` with a pick list, the input must be a number. The response will be a string.'
     properties:
       field_id:
         type: string
       field_value:
         type: string
-        description: >-
-          This can also be an array for fields that need to support list of
-          values (e.g., a set of check boxes.). When doing a PUT or POST to the
-          `fieldValue` with a pick list, the input must be a number. The
-          response will be a string.
+        description: 'This can also be an array for fields that need to support list of values (e.g., a set of check boxes.). When doing a PUT or POST to the `fieldValue` with a pick list, the input must be a number. The response will be a string.'
   consignment_Full:
     title: consignment_Full
-    description: >-
-      This allows us to have multiple shipping addresses. Where there is only
-      one shipping address, this array will contain only one value, with all the
-      items.
+    description: 'This allows us to have multiple shipping addresses. Where there is only one shipping address, this array will contain only one value, with all the items.'
     type: object
     properties:
       id:
@@ -3151,10 +3184,7 @@ definitions:
       shippingAddress:
         $ref: '#/definitions/address_Full'
       availableShippingOptions:
-        description: >-
-          This is available only when
-          "include=consignments.availableShippingOptions" is presented in the
-          URL.
+        description: This is available only when "include=consignments.availableShippingOptions" is presented in the URL.
         type: array
         items:
           $ref: '#/definitions/consignmentAvailableShippingOptions'
@@ -3266,9 +3296,7 @@ definitions:
         format: double
   GiftCertificate:
     title: Gift Certificate
-    description: >-
-      The values presented here are projections of how much we would be using
-      out of an existent gift certificate
+    description: The values presented here are projections of how much we would be using out of an existent gift certificate
     type: object
     properties:
       balance:
@@ -3352,9 +3380,7 @@ definitions:
             format: uuid
           cart:
             title: Cart
-            description: >-
-              A cart contains a collection of items, prices, discounts, etc. It
-              does not contain customer-related data.
+            description: 'A cart contains a collection of items, prices, discounts, etc. It does not contain customer-related data.'
             type: object
             properties:
               id:
@@ -3366,32 +3392,24 @@ definitions:
                 type: integer
                 format: int32
               email:
-                description: >-
-                  The cart's email. This is the same email that is used in the
-                  billing address
+                description: The cart's email. This is the same email that is used in the billing address
                 type: string
               currency:
                 title: Currency
-                description: >-
-                  The currency which prices are displayed (the store default
-                  currency).
+                description: The currency which prices are displayed (the store default currency).
                 type: object
                 properties:
                   name:
                     description: The currency name.
                     type: string
                   code:
-                    description: >-
-                      ISO-4217 currency code. (See:
-                      http://en.wikipedia.org/wiki/ISO_4217.)
+                    description: 'ISO-4217 currency code. (See: http://en.wikipedia.org/wiki/ISO_4217.)'
                     type: string
                   symbol:
                     description: The currency symbol.
                     type: string
                   decimalPlaces:
-                    description: >-
-                      Number of decimal places for the currency. For example,
-                      USD currency has two decimal places.
+                    description: 'Number of decimal places for the currency. For example, USD currency has two decimal places.'
                     type: number
                     format: double
               taxIncluded:
@@ -3406,9 +3424,7 @@ definitions:
                 type: number
                 format: double
               cartAmount:
-                description: >-
-                  Sum of line-items amounts, minus cart-level discounts and
-                  coupons. This amount includes taxes (where applicable).
+                description: 'Sum of line-items amounts, minus cart-level discounts and coupons. This amount includes taxes (where applicable).'
                 type: number
                 format: double
               coupons:
@@ -3425,9 +3441,7 @@ definitions:
                       description: the coupon code
                       type: string
                     displayName:
-                      description: >-
-                        The coupon title based on different types provided in
-                        control panel section
+                      description: The coupon title based on different types provided in control panel section
                       type: string
                     couponType:
                       description: Key name to identify the type of coupon.
@@ -3470,10 +3484,7 @@ definitions:
                             description: The line-item ID.
                             type: string
                           parentId:
-                            description: >-
-                              The product is part of a bundle such as a product
-                              pick list, then the parentId or the main product
-                              id will populate.
+                            description: 'The product is part of a bundle such as a product pick list, then the parentId or the main product id will populate.'
                             type: string
                           variantId:
                             description: ID of the variant.
@@ -3500,14 +3511,10 @@ definitions:
                             description: Whether the item is taxable.
                             type: boolean
                           imageUrl:
-                            description: >-
-                              URL of an image of this item, accessible on the
-                              internet.
+                            description: 'URL of an image of this item, accessible on the internet.'
                             type: string
                           discounts:
-                            description: >-
-                              List of discounts applied to this item, as an
-                              array of AppliedDiscount objects.
+                            description: 'List of discounts applied to this item, as an array of AppliedDiscount objects.'
                             type: array
                             items:
                               title: Applied Discount
@@ -3517,33 +3524,23 @@ definitions:
                                   description: The name provided by the merchant.
                                   type: string
                                 discountedAmount:
-                                  description: >-
-                                    The discounted amount applied within a given
-                                    context.
+                                  description: The discounted amount applied within a given context.
                                   type: number
                                   format: double
                           discountAmount:
-                            description: >-
-                              The total value of all discounts applied to this
-                              item (excluding coupon).
+                            description: The total value of all discounts applied to this item (excluding coupon).
                             type: number
                             format: double
                           couponAmount:
-                            description: >-
-                              The total value of all coupons applied to this
-                              item.
+                            description: The total value of all coupons applied to this item.
                             type: number
                             format: double
                           listPrice:
-                            description: >-
-                              Item's list price, as quoted by the
-                              manufacturer/distributor.
+                            description: 'Item''s list price, as quoted by the manufacturer/distributor.'
                             type: number
                             format: double
                           salePrice:
-                            description: >-
-                              Item's price after all discounts are applied. (The
-                              final price before tax calculation.)
+                            description: Item's price after all discounts are applied. (The final price before tax calculation.)
                             type: number
                             format: double
                           extendedListPrice:
@@ -3558,14 +3555,10 @@ definitions:
                             description: the product type - physical or digital
                             type: string
                           addedByPromotion:
-                            description: >-
-                              If the item was added automatically by a promotion
-                              such as a coupon or buy one, get one.
+                            description: 'If the item was added automatically by a promotion such as a coupon or buy one, get one.'
                             type: boolean
                           isShippingRequired:
-                            description: >-
-                              Whether this item requires shipping to a physical
-                              address.
+                            description: Whether this item requires shipping to a physical address.
                             type: boolean
                           giftWrapping:
                             title: Gift Wrapping
@@ -3621,14 +3614,10 @@ definitions:
                             description: Whether the item is taxable.
                             type: boolean
                           imageUrl:
-                            description: >-
-                              URL of an image of this item, accessible on the
-                              internet.
+                            description: 'URL of an image of this item, accessible on the internet.'
                             type: string
                           discounts:
-                            description: >-
-                              List of discounts applied to this item, as an
-                              array of AppliedDiscount objects.
+                            description: 'List of discounts applied to this item, as an array of AppliedDiscount objects.'
                             type: array
                             items:
                               title: Applied Discount
@@ -3638,33 +3627,23 @@ definitions:
                                   description: The name provided by the merchant.
                                   type: string
                                 discountedAmount:
-                                  description: >-
-                                    The discounted amount applied within a given
-                                    context.
+                                  description: The discounted amount applied within a given context.
                                   type: number
                                   format: double
                           discountAmount:
-                            description: >-
-                              The total value of all discounts applied to this
-                              item (excluding coupon).
+                            description: The total value of all discounts applied to this item (excluding coupon).
                             type: number
                             format: double
                           couponAmount:
-                            description: >-
-                              The total value of all coupons applied to this
-                              item.
+                            description: The total value of all coupons applied to this item.
                             type: number
                             format: double
                           listPrice:
-                            description: >-
-                              Item's list price, as quoted by the
-                              manufacturer/distributor.
+                            description: 'Item''s list price, as quoted by the manufacturer/distributor.'
                             type: number
                             format: double
                           salePrice:
-                            description: >-
-                              Item's price after all discounts are applied. (The
-                              final price before tax calculation.)
+                            description: Item's price after all discounts are applied. (The final price before tax calculation.)
                             type: number
                             format: double
                           extendedListPrice:
@@ -3679,9 +3658,7 @@ definitions:
                             description: the product type - physical or digital
                             type: string
                           isShippingRequired:
-                            description: >-
-                              Whether this item requires shipping to a physical
-                              address.
+                            description: Whether this item requires shipping to a physical address.
                             type: boolean
                           downloadFileUrls:
                             description: URLs to download all product files.
@@ -3692,9 +3669,7 @@ definitions:
                             description: The URL for the combined downloads page.
                             type: string
                           downloadSize:
-                            description: >-
-                              Combined download size, in human-readable style.
-                              E.g.: `30MB`.
+                            description: 'Combined download size, in human-readable style. E.g.: `30MB`.'
                             type: string
                         required:
                           - quantity
@@ -3709,14 +3684,10 @@ definitions:
                             description: Gift certificate identifier
                             type: string
                           name:
-                            description: >-
-                              Name of the purchased gift certificate e.g. $20
-                              Gift Certificate
+                            description: Name of the purchased gift certificate e.g. $20 Gift Certificate
                             type: string
                           theme:
-                            description: >-
-                              Currently supports `Birthday`, `Boy`,
-                              `Celebration`, `Christmas`, `General`, and `Girl`.
+                            description: 'Currently supports `Birthday`, `Boy`, `Celebration`, `Christmas`, `General`, and `Girl`.'
                             type: string
                           amount:
                             description: 'Value must be between $1.00 and $1,000.00.'
@@ -3761,13 +3732,10 @@ definitions:
                       items:
                         type: object
                         title: Item Custom
-                        description: >-
+                        description: |-
                           Add a custom item to the shoppers cart.
-
                           * Custom items are not added to the catalog.
-
-                          * The price should be set to match the store settings
-                          for taxes.
+                          * The price should be set to match the store settings for taxes.
                         properties:
                           id:
                             type: string
@@ -3782,9 +3750,7 @@ definitions:
                             type: string
                           listPrice:
                             type: string
-                            description: >-
-                              Price of the item. With or without tax depending
-                              on your stores set up.
+                            description: Price of the item. With or without tax depending on your stores set up.
                   required:
                     - physicalItems
                     - digitalItems
@@ -3827,9 +3793,7 @@ definitions:
                     description: ''
                     type: string
                   countryCode:
-                    description: >-
-                      ISO 3166-1 alpha-2 country code. (See:
-                      https://en.wikipedia.org/wiki/ISO_3166-1_alpha-2)
+                    description: 'ISO 3166-1 alpha-2 country code. (See: https://en.wikipedia.org/wiki/ISO_3166-1_alpha-2)'
                     type: string
                   postalCode:
                     description: ''
@@ -3849,9 +3813,7 @@ definitions:
                           description: ''
                           type: string
                         fieldValue:
-                          description: >-
-                            This can also be an array for fields that need to
-                            support list of values (e.g., a set of check boxes.)
+                          description: 'This can also be an array for fields that need to support list of values (e.g., a set of check boxes.)'
                           type: string
                 required:
                   - countryCode
@@ -3865,10 +3827,7 @@ definitions:
             type: array
             items:
               title: Consignment
-              description: >-
-                This allows us to have multiple shipping addresses. Where there
-                is only one shipping address, this array will contain only one
-                value, with all the items.
+              description: 'This allows us to have multiple shipping addresses. Where there is only one shipping address, this array will contain only one value, with all the items.'
               type: object
               properties:
                 id:
@@ -3907,9 +3866,7 @@ definitions:
                           description: ''
                           type: string
                         countryCode:
-                          description: >-
-                            ISO 3166-1 alpha-2 country code. (See:
-                            https://en.wikipedia.org/wiki/ISO_3166-1_alpha-2)
+                          description: 'ISO 3166-1 alpha-2 country code. (See: https://en.wikipedia.org/wiki/ISO_3166-1_alpha-2)'
                           type: string
                         postalCode:
                           description: ''
@@ -3929,10 +3886,7 @@ definitions:
                                 description: ''
                                 type: string
                               fieldValue:
-                                description: >-
-                                  This can also be an array for fields that need
-                                  to support list of values (e.g., a set of
-                                  check boxes.)
+                                description: 'This can also be an array for fields that need to support list of values (e.g., a set of check boxes.)'
                                 type: string
                       required:
                         - countryCode
@@ -3942,10 +3896,7 @@ definitions:
                           type: string
                   type: object
                 availableShippingOptions:
-                  description: >-
-                    This is available only when
-                    "include=consignments.availableShippingOptions" is presented
-                    in the URL.
+                  description: This is available only when "include=consignments.availableShippingOptions" is presented in the URL.
                   type: array
                   items:
                     title: Shipping Option Entity
@@ -3959,9 +3910,7 @@ definitions:
                             description: ''
                             type: string
                           type:
-                            description: >-
-                              Specified the type of shipping option. Flat rate,
-                              UPS, etc.,
+                            description: 'Specified the type of shipping option. Flat rate, UPS, etc.,'
                             type: string
                           imageUrl:
                             description: ''
@@ -3975,9 +3924,7 @@ definitions:
                             type: string
                       - properties:
                           isRecommended:
-                            description: >-
-                              Is this shipping method the recommended shipping
-                              option or not.
+                            description: Is this shipping method the recommended shipping option or not.
                             type: boolean
                     type: object
                 selectedShippingOption:
@@ -3991,9 +3938,7 @@ definitions:
                       description: ''
                       type: string
                     type:
-                      description: >-
-                        Specified the type of shipping option. Flat rate, UPS,
-                        etc.,
+                      description: 'Specified the type of shipping option. Flat rate, UPS, etc.,'
                       type: string
                     imageUrl:
                       description: ''
@@ -4020,9 +3965,7 @@ definitions:
                         type: number
                         format: double
                 discounts:
-                  description: >-
-                    List of consignment discounts applied through cart level
-                    discounts
+                  description: List of consignment discounts applied through cart level discounts
                   type: array
                   items:
                     title: Consignment Discount
@@ -4071,9 +4014,7 @@ definitions:
               properties:
                 name:
                   type: string
-                  description: >-
-                    Name of the tax charged. This is either the system default
-                    or the custom name created for the tax.
+                  description: Name of the tax charged. This is either the system default or the custom name created for the tax.
                   example: Texas Taxes
                 amount:
                   type: number
@@ -4082,24 +4023,18 @@ definitions:
                   example: 1.12
           subtotal:
             type: number
-            description: >-
-              Subtotal of the checkout before applying item level discounts. Tax
-              inclusive based on the store settings.
+            description: Subtotal of the checkout before applying item level discounts. Tax inclusive based on the store settings.
             format: float
           grandTotal:
             type: number
-            description: >-
-              The total payable amount, before applying any store credit or gift
-              certificate.
+            description: 'The total payable amount, before applying any store credit or gift certificate.'
             format: float
           giftCertificates:
             description: Applied gift certificate (as a payment method).
             type: array
             items:
               title: Gift Certificate
-              description: >-
-                The values presented here are projections of how much we would
-                be using out of an existent gift certificate
+              description: The values presented here are projections of how much we would be using out of an existent gift certificate
               type: object
               properties:
                 balance:
@@ -4128,9 +4063,7 @@ definitions:
             description: Time when the cart was last updated.
             type: string
           customerMessage:
-            description: >-
-              Shopper's message provided as details for the order to be created
-              from this cart
+            description: Shopper's message provided as details for the order to be created from this cart
             type: string
           outstandingBalance:
             type: number
@@ -4161,9 +4094,7 @@ definitions:
     type: object
     properties:
       theme:
-        description: >-
-          Currently supports `Birthday`, `Boy`, `Celebration`, `Christmas`,
-          `General`, and `Girl`.
+        description: 'Currently supports `Birthday`, `Boy`, `Celebration`, `Christmas`, `General`, and `Girl`.'
         type: string
       amount:
         description: ''
@@ -4224,9 +4155,7 @@ definitions:
             description: ''
             type: string
           countryCode:
-            description: >-
-              ISO 3166-1 alpha-2 country code. (See:
-              https://en.wikipedia.org/wiki/ISO_3166-1_alpha-2)
+            description: 'ISO 3166-1 alpha-2 country code. (See: https://en.wikipedia.org/wiki/ISO_3166-1_alpha-2)'
             type: string
           postalCode:
             description: ''
@@ -4279,11 +4208,7 @@ definitions:
       - quantity
   consignment_Put:
     title: consignment_Put
-    description: >-
-      One or more of these three fields are mandatory. Shipping address and line
-      items can be updated in one request. Shipping option ID has to be updated
-      in a separate request, since changing the address or line items can
-      invalidate the previously available shipping options.
+    description: 'One or more of these three fields are mandatory. Shipping address and line items can be updated in one request. Shipping option ID has to be updated in a separate request, since changing the address or line items can invalidate the previously available shipping options.'
     type: object
     properties:
       shippingAddress:
@@ -4318,9 +4243,7 @@ definitions:
             description: ''
             type: string
           countryCode:
-            description: >-
-              ISO 3166-1 alpha-2 country code. (See:
-              https://en.wikipedia.org/wiki/ISO_3166-1_alpha-2)
+            description: 'ISO 3166-1 alpha-2 country code. (See: https://en.wikipedia.org/wiki/ISO_3166-1_alpha-2)'
             type: string
           postalCode:
             description: ''
@@ -4340,9 +4263,7 @@ definitions:
                   description: ''
                   type: string
                 fieldValue:
-                  description: >-
-                    This can also be an array for fields that need to support
-                    list of values (e.g., a set of check boxes.)
+                  description: 'This can also be an array for fields that need to support list of values (e.g., a set of check boxes.)'
                   type: string
         required:
           - countryCode
@@ -4418,16 +4339,12 @@ definitions:
         description: 'URL of an image of this item, accessible on the internet.'
         type: string
       discounts:
-        description: >-
-          List of discounts applied to this item, as an array of AppliedDiscount
-          objects.
+        description: 'List of discounts applied to this item, as an array of AppliedDiscount objects.'
         type: array
         items:
           $ref: '#/definitions/AppliedDiscount'
       discountAmount:
-        description: >-
-          The total value of all discounts applied to this item (excluding
-          coupon).
+        description: The total value of all discounts applied to this item (excluding coupon).
         type: number
         format: double
       couponAmount:
@@ -4439,9 +4356,7 @@ definitions:
         type: number
         format: double
       salePrice:
-        description: >-
-          Item's price after all discounts are applied. (The final price before
-          tax calculation.)
+        description: Item's price after all discounts are applied. (The final price before tax calculation.)
         type: number
         format: double
       extendedListPrice:
@@ -4481,9 +4396,7 @@ definitions:
         type: string
       listPrice:
         type: string
-        description: >-
-          Price of the item. With or without tax depending on your stores set
-          up.
+        description: Price of the item. With or without tax depending on your stores set up.
   cart_Put:
     title: cart_Put
     type: object
@@ -4494,11 +4407,7 @@ definitions:
         $ref: '#/definitions/cartLineItemGiftCertificate_Put'
   NewUpdateConsignment:
     title: Update Consignment Request
-    description: >-
-      One or more of these three fields are mandatory. Shipping address and line
-      items can be updated in one request. Shipping option ID has to be updated
-      in a separate request, since changing the address or line items can
-      invalidate the previously available shipping options.
+    description: 'One or more of these three fields are mandatory. Shipping address and line items can be updated in one request. Shipping option ID has to be updated in a separate request, since changing the address or line items can invalidate the previously available shipping options.'
     type: object
     properties:
       shippingAddress:
@@ -4533,9 +4442,7 @@ definitions:
             description: ''
             type: string
           countryCode:
-            description: >-
-              ISO 3166-1 alpha-2 country code. (See:
-              https://en.wikipedia.org/wiki/ISO_3166-1_alpha-2)
+            description: 'ISO 3166-1 alpha-2 country code. (See: https://en.wikipedia.org/wiki/ISO_3166-1_alpha-2)'
             type: string
           postalCode:
             description: ''
@@ -4581,9 +4488,7 @@ definitions:
     title: consignmentLineItems
   checkoutCart:
     title: checkoutCart
-    description: >-
-      A cart contains a collection of items, prices, discounts, etc. It does not
-      contain customer-related data.
+    description: 'A cart contains a collection of items, prices, discounts, etc. It does not contain customer-related data.'
     type: object
     properties:
       id:
@@ -4595,9 +4500,7 @@ definitions:
         type: integer
         format: int32
       email:
-        description: >-
-          The cart's email. This is the same email that is used in the billing
-          address
+        description: The cart's email. This is the same email that is used in the billing address
         type: string
       currency:
         title: Currency
@@ -4608,17 +4511,13 @@ definitions:
             description: The currency name.
             type: string
           code:
-            description: >-
-              ISO-4217 currency code. (See:
-              http://en.wikipedia.org/wiki/ISO_4217.)
+            description: 'ISO-4217 currency code. (See: http://en.wikipedia.org/wiki/ISO_4217.)'
             type: string
           symbol:
             description: The currency symbol.
             type: string
           decimalPlaces:
-            description: >-
-              Number of decimal places for the currency. For example, USD
-              currency has two decimal places.
+            description: 'Number of decimal places for the currency. For example, USD currency has two decimal places.'
             type: number
             format: double
       taxIncluded:
@@ -4633,9 +4532,7 @@ definitions:
         type: number
         format: double
       cartAmount:
-        description: >-
-          Sum of line-items amounts, minus cart-level discounts and coupons.
-          This amount includes taxes (where applicable).
+        description: 'Sum of line-items amounts, minus cart-level discounts and coupons. This amount includes taxes (where applicable).'
         type: number
         format: double
       coupons:
@@ -4652,9 +4549,7 @@ definitions:
               description: the coupon code
               type: string
             displayName:
-              description: >-
-                The coupon title based on different types provided in control
-                panel section
+              description: The coupon title based on different types provided in control panel section
               type: string
             couponType:
               description: Key name to identify the type of coupon.
@@ -4697,10 +4592,7 @@ definitions:
                     description: The line-item ID.
                     type: string
                   parentId:
-                    description: >-
-                      The product is part of a bundle such as a product pick
-                      list, then the parentId or the main product id will
-                      populate.
+                    description: 'The product is part of a bundle such as a product pick list, then the parentId or the main product id will populate.'
                     type: string
                   variantId:
                     description: ID of the variant.
@@ -4730,9 +4622,7 @@ definitions:
                     description: 'URL of an image of this item, accessible on the internet.'
                     type: string
                   discounts:
-                    description: >-
-                      List of discounts applied to this item, as an array of
-                      AppliedDiscount objects.
+                    description: 'List of discounts applied to this item, as an array of AppliedDiscount objects.'
                     type: array
                     items:
                       title: Applied Discount
@@ -4742,15 +4632,11 @@ definitions:
                           description: The name provided by the merchant.
                           type: string
                         discountedAmount:
-                          description: >-
-                            The discounted amount applied within a given
-                            context.
+                          description: The discounted amount applied within a given context.
                           type: number
                           format: double
                   discountAmount:
-                    description: >-
-                      The total value of all discounts applied to this item
-                      (excluding coupon).
+                    description: The total value of all discounts applied to this item (excluding coupon).
                     type: number
                     format: double
                   couponAmount:
@@ -4758,15 +4644,11 @@ definitions:
                     type: number
                     format: double
                   listPrice:
-                    description: >-
-                      Item's list price, as quoted by the
-                      manufacturer/distributor.
+                    description: 'Item''s list price, as quoted by the manufacturer/distributor.'
                     type: number
                     format: double
                   salePrice:
-                    description: >-
-                      Item's price after all discounts are applied. (The final
-                      price before tax calculation.)
+                    description: Item's price after all discounts are applied. (The final price before tax calculation.)
                     type: number
                     format: double
                   extendedListPrice:
@@ -4781,9 +4663,7 @@ definitions:
                     description: the product type - physical or digital
                     type: string
                   addedByPromotion:
-                    description: >-
-                      If the item was added automatically by a promotion such as
-                      a coupon or buy one, get one.
+                    description: 'If the item was added automatically by a promotion such as a coupon or buy one, get one.'
                     type: boolean
                   isShippingRequired:
                     description: Whether this item requires shipping to a physical address.
@@ -4845,9 +4725,7 @@ definitions:
                     description: 'URL of an image of this item, accessible on the internet.'
                     type: string
                   discounts:
-                    description: >-
-                      List of discounts applied to this item, as an array of
-                      AppliedDiscount objects.
+                    description: 'List of discounts applied to this item, as an array of AppliedDiscount objects.'
                     type: array
                     items:
                       title: Applied Discount
@@ -4857,15 +4735,11 @@ definitions:
                           description: The name provided by the merchant.
                           type: string
                         discountedAmount:
-                          description: >-
-                            The discounted amount applied within a given
-                            context.
+                          description: The discounted amount applied within a given context.
                           type: number
                           format: double
                   discountAmount:
-                    description: >-
-                      The total value of all discounts applied to this item
-                      (excluding coupon).
+                    description: The total value of all discounts applied to this item (excluding coupon).
                     type: number
                     format: double
                   couponAmount:
@@ -4873,15 +4747,11 @@ definitions:
                     type: number
                     format: double
                   listPrice:
-                    description: >-
-                      Item's list price, as quoted by the
-                      manufacturer/distributor.
+                    description: 'Item''s list price, as quoted by the manufacturer/distributor.'
                     type: number
                     format: double
                   salePrice:
-                    description: >-
-                      Item's price after all discounts are applied. (The final
-                      price before tax calculation.)
+                    description: Item's price after all discounts are applied. (The final price before tax calculation.)
                     type: number
                     format: double
                   extendedListPrice:
@@ -4907,9 +4777,7 @@ definitions:
                     description: The URL for the combined downloads page.
                     type: string
                   downloadSize:
-                    description: >-
-                      Combined download size, in human-readable style. E.g.:
-                      `30MB`.
+                    description: 'Combined download size, in human-readable style. E.g.: `30MB`.'
                     type: string
                 required:
                   - quantity
@@ -4924,14 +4792,10 @@ definitions:
                     description: Gift certificate identifier
                     type: string
                   name:
-                    description: >-
-                      Name of the purchased gift certificate e.g. $20 Gift
-                      Certificate
+                    description: Name of the purchased gift certificate e.g. $20 Gift Certificate
                     type: string
                   theme:
-                    description: >-
-                      Currently supports `Birthday`, `Boy`, `Celebration`,
-                      `Christmas`, `General`, and `Girl`.
+                    description: 'Currently supports `Birthday`, `Boy`, `Celebration`, `Christmas`, `General`, and `Girl`.'
                     type: string
                   amount:
                     description: 'Value must be between $1.00 and $1,000.00.'
@@ -4976,13 +4840,10 @@ definitions:
               items:
                 type: object
                 title: Item Custom
-                description: >-
+                description: |-
                   Add a custom item to the shoppers cart.
-
                   * Custom items are not added to the catalog.
-
-                  * The price should be set to match the store settings for
-                  taxes.
+                  * The price should be set to match the store settings for taxes.
                 properties:
                   id:
                     type: string
@@ -4997,9 +4858,7 @@ definitions:
                     type: string
                   listPrice:
                     type: string
-                    description: >-
-                      Price of the item. With or without tax depending on your
-                      stores set up.
+                    description: Price of the item. With or without tax depending on your stores set up.
           required:
             - physicalItems
             - digitalItems
@@ -5014,9 +4873,7 @@ definitions:
     type: array
     items:
       title: Gift Certificate
-      description: >-
-        The values presented here are projections of how much we would be using
-        out of an existent gift certificate
+      description: The values presented here are projections of how much we would be using out of an existent gift certificate
       type: object
       properties:
         balance:
@@ -5143,8 +5000,7 @@ responses:
                 quantity: 1
                 brand: OFS
                 isTaxable: true
-                imageUrl: >-
-                  https://cdn11.bigcommerce.com/s-{store_hash}/products/174/images/425/leparfaitmedium3_1024x1024_1024x1024__37756__81924.1534344526.330.500.jpg?c=2
+                imageUrl: 'https://cdn11.bigcommerce.com/s-{store_hash}/products/174/images/425/leparfaitmedium3_1024x1024_1024x1024__37756__81924.1534344526.330.500.jpg?c=2'
                 discounts: []
                 discountAmount: 0
                 couponAmount: 0
