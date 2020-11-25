@@ -2849,7 +2849,7 @@ securityDefinitions:
 
       |  **UI Name** | **Permission** | **Parameter** |
 
-      | --- | --- | --- |
+      |-|-|-|
 
       |  Carts | modify | `store_cart` |
 
