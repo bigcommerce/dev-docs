@@ -2847,13 +2847,13 @@ securityDefinitions:
     description: >-
       ### OAuth Scopes
 
-      |  **UI Name** | **Permission** | **Parameter** |
+      |UI Name |Permission |Parameter |
 
       |-|-|-|
 
-      |  Carts | modify | `store_cart` |
+      |Carts|modify|`store_cart`|
 
-      |  Carts | read-only | `store_cart_read_only` |
+      |Carts |read-only|`store_cart_read_only`|
 
 
       ### Headers
