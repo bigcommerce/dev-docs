@@ -81,7 +81,7 @@ paths:
                       }
                   ]
               }
-             Create a Cart using Date Option: |-
+            Create a Cart using Date Option: |-
               {
                 "line_items": [
                   {
