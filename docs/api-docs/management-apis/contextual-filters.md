@@ -3,6 +3,7 @@
 <div class="otp" id="no-index">
 
 ### On this page
+
 - [View pre-configured filters](#view-pre-configured-filters)
 - [View available filters](#view-available-filters)
 - [Configure contextual filters](#configure-contextual-filters)
