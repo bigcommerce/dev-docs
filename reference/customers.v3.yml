@@ -1006,9 +1006,9 @@ paths:
                 address1: 111 E West Street
                 address2: '654'
                 city: Akron
-                state_or_province: OH
+                state_or_province: Ohio
                 postal_code: '44325'
-                country_code: USA
+                country_code: US
                 phone: '1234567890'
                 address_type: residential
                 customer_id: 23
