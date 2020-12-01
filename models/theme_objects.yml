@@ -4278,11 +4278,13 @@ definitions:
   widget_image_manager:
     type: object
     title: image_manager
+    required:
+      - default
     properties:
       type:
         type: string
         description: The type of setting component to display.
-        example: '"imageMaker"'
+        example: '"imageManager"'
       id:
         type: string
         description: >-
