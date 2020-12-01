@@ -97,7 +97,7 @@ paths:
                   }
                 ]
               } 
-            //The API supports timestamps, "option_value": 1743570000, and dates as an array, "option_value": {"day" : "01", "month" : "02", "year" : "2020"} 
+            # The API supports timestamps, "option_value": 1743570000, and dates as an array, "option_value": {"day" : "01", "month" : "02", "year" : "2020"} 
             With a Variant of Checkbox and Picklist: |-
               {
                 "line_items": [
