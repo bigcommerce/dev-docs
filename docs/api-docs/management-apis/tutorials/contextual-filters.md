@@ -46,7 +46,8 @@ This article demonstrates how to use [contextual filters](insert-link-here) to c
 
 There are two ways to retrieve the global filters pre-configured on your store: using the Settings API or through the store's control panel. To retrieve all pre-configured global filters using the API, send a `GET` request to [/v3/settings/search/filters](insert-link-here).
 
-[![Open in Request Runner](https://storage.googleapis.com/bigcommerce-production-dev-center/images/Open-Request-Runner.svg)](https://developer.bigcommerce.com/api-reference/store-management/widgets/widget-template/createwidgettemplate#requestrunner) // replace link
+[![Open in Request Runner](https://storage.googleapis.com/bigcommerce-production-dev-center/images/Open-Request-Runner.svg)](https://developer.bigcommerce.com/api-reference/store-management/widgets/widget-template/createwidgettemplate#requestrunner) 
+// replace link
 
 The response will contain all of the global filters currently configured on your store. 
 
