@@ -126,6 +126,7 @@ The following table contains fields common between schema settings.
 For examples of different schema settings you can use in your custom widget template, see [Widget UI Input Types](https://developer.bigcommerce.com/stencil-docs/page-builder/schema-settings).
 
 ## Resources
+
 - [Widgets API](https://developer.bigcommerce.com/api-docs/store-management/widgets/overview)
 - [Widgets Code Samples](https://developer.bigcommerce.com/api-docs/storefront/widgets/widgets-code-samples)
 - [Widget UI Input Types](https://developer.bigcommerce.com/stencil-docs/page-builder/schema-settings)
