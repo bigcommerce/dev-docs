@@ -19,7 +19,7 @@ Within the `schema` property of the Create a Widget Template endpoint, settings 
 ### Tabs
 Tabs are a part of the Page Builder schema structure. The schema requires using a single root-level `tab` to contain all visible sections.
 
->**Note**
+>### Note
 >
 >Sections render in the same order they are listed within a tab.
 
@@ -84,7 +84,7 @@ Elements in the list have settings defined by the array’s schema, which you ca
 }
 
 ```
->**Note**
+>### Note
 >
 >- Each element in the list can have tabs and sections included.
 >- The `defaultCount` attribute is the number of elements that are displayed in the list by default.
