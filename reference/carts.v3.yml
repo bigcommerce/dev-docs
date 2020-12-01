@@ -146,7 +146,7 @@ paths:
             2. Creating a cart with a variant. This works when a product can be
             specified purely by a variant, without any other required options.
 
-            3. Creating a cart using a date option. This works when a product has dates with option selections.
+            3. Creating a cart using a date option. The API supports timestamps, “option_value”: 1743570000, and dates as an array, “option_value”: {“day”:”01”, “month”:”02”, “year”:”2020”}.
 
             4. Creating a cart with a variant, a checkbox, and a picklist
             modifier added.
