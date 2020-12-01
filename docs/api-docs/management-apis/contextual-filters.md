@@ -34,6 +34,7 @@ This article demonstrates how to use [contextual filters](insert-link-here) to c
 <div class="HubBlock-content">
 
 > ### Note
+
 > * Your store plan must support Product Filtering to use contextual filters. 
 > * Product Filtering is available for Pro and Enterprise plans. To upgrade, see [Changing Your Store's Plan](https://support.bigcommerce.com/s/article/How-do-I-upgrade-my-stores-plan).
 > * Enterprise accounts have the ability to use [custom fields](https://support.bigcommerce.com/s/article/Custom-Fields) as product filters to provide shoppers with additional ways to customize their search. 
