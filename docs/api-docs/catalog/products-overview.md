@@ -381,7 +381,7 @@ X-Auth-Token: {{ACCESS_TOKEN}}
   "text": "This coffee mug kept my liquids hot for several hours.",
   "status": "pending",
   "rating": 5,
-  "email": "testing@bigcommerce.com",
+  "email": "", //This throws an error 
   "name": "BigCommerce",
   "date_reviewed": "2018-07-20T17:45:13+00:00"
 }
