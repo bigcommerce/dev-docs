@@ -61,8 +61,6 @@ paths:
         * lineItems
         * giftCertificates – only if adding a gift certificate
 
-        **Notes**
-
         Cart ID is generated in the response.
 
         To add a product with a mix of variants and options, add `optionSelections` to the `lineItems` object. `optionSelections` accepts `optionId` and `optionValue`. 
@@ -233,8 +231,6 @@ paths:
       description: |-
         Updates a *Cart* line item. Updates an existing, single line item in the cart.
 
-        **Notes**
-
         Currently only updating the item quantity is supported.
 
         If a variant needs to be changed or updated, the product will need to be removed and re-added to the cart with the correct variants using the [Add Cart Line Items](/api-reference/cart-checkout/storefront-cart-api/cart-items/addcartlineitem) endpoint.
@@ -242,7 +238,7 @@ paths:
         <div class="HubBlock--callout">
         <div class="CalloutBlock--info">
         <div class="HubBlock-content"> 
-
+        
         > ### Note
         > The Send a Test Request feature is not currently supported for this endpoint.
          
@@ -304,8 +300,6 @@ paths:
     delete:
       description: |-
         Deletes a *Cart* line item.
-
-        **Notes**
 
         Removing the last `line_item` in the *Cart* deletes the *Cart*.
 

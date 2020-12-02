@@ -15,8 +15,6 @@ paths:
       description: |-
         Returns a *Checkout*.
 
-        **Notes**
-
         The cart ID and checkout ID are the same.
 
         <div class="HubBlock--callout">
@@ -343,8 +341,6 @@ paths:
     put:
       description: |-
         Updates a *Checkout Line Item*. Updates an existing, single line item in the cart.
-
-        **Notes**
 
         If a variant needs to be changed or updated, the product will need to be removed and re-added to the cart with the correct variants using the [Add Cart Line Items](/api-reference/cart-checkout/storefront-cart-api/cart-items/addcartlineitem) endpoint.
 

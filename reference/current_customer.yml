@@ -98,7 +98,17 @@ paths:
           name: app_client_id
           type: string
           required: true
-      description: ''
+      description: |-
+        <div class="HubBlock--callout">
+        <div class="CalloutBlock--info">
+        <div class="HubBlock-content"> 
+
+        > ### Note
+        > The Send a Test Request feature is not currently supported for this endpoint.
+         
+        </div>
+        </div>
+        </div>
       operationId: getCurrentCustomer
       tags:
         - Current Customers
