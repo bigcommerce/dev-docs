@@ -4,7 +4,7 @@
 
 ### On this page
 - [V3 improvements](#v3-improvements)
-- [Difference between V2 Catalog Products and V3 Catalog APIs](#difference-between-V2-catalog-products-and-v3-catalog-apis)
+- [Difference between V2 Catalog Products and V3 Catalog APIs](#difference-between-v2-catalog-products-and-v3-catalog-apis)
 - [Related resources](#related-resources)
 
 </div>
@@ -13,7 +13,7 @@ V2 Catalog Products and V3 Catalog REST APIs allow you to manage your store's ph
 
 Both the V2 Catalog Products and V3 Catalog APIs authenticate with OAuth and are designed to be used concurrently within a single application; however, data representation is significantly different.
 
-V2 and V3 REST APIs are not fully compatible. For differences in resources, see [Difference between V2 Catalog Products and V3 Catalog APIs](#difference-between-V2-catalog-products-and-v3-catalog-apis). When resources are available through both APIs, we recommend using the V3 API as it contains performance optimizations and usability improvements.
+V2 and V3 REST APIs are not fully compatible. For differences in resources, see [Difference between V2 Catalog Products and V3 Catalog APIs](#difference-between-v2-catalog-products-and-v3-catalog-apis). When resources are available through both APIs, we recommend using the V3 API as it contains performance optimizations and usability improvements.
 
 
 <div class="HubBlock--callout">
