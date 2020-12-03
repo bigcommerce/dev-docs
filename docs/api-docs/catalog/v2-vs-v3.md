@@ -24,7 +24,7 @@ V2 and V3 REST APIs are not fully compatible. For differences in resources, see 
 >
 > * BigCommerce will not introduce new resources in V2 APIs.
 > * BigCommerce will eventually migrate all existing V2 resources to V3.
-> * Not all V2 resources will have V3 counterparts. 
+> * Not all V2 resources have V3 counterparts. 
 
 </div>
 </div>
