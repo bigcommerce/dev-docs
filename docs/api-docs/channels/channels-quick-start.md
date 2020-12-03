@@ -1,21 +1,27 @@
+<!-- https://developer.bigcommerce.com/api-docs/channels/quick-start -->
+
 # Building Channels Quick Start
 
 <div class="otp" id="no-index">
 
-### On this page
+## On this page
 
-- [Create a channel](#create-a-channel)
-- [Create a channel with navigation](#create-a-channel-with-navigation)
-- [Related resources](#related-resources)
+- [Building Channels Quick Start](#building-channels-quick-start)
+  - [Prerequisites](#prerequisites)
+  - [Create a channel](#create-a-channel)
+  - [Create a channel with navigation](#create-a-channel-with-navigation)
+  - [Related resources](#related-resources)
+    - [Articles](#articles)
+    - [Endpoints](#endpoints)
 
 </div>
 
-This article is an advanced quick start tutorial for [BigCommerce partners](https://www.bigcommerce.com/partners/) wishing to market their solution within [Channel Manager's](https://developer.bigcommerce.com/api-docs/channels/overview#resources) **Create Channel** flow. For an introduction to channels on BigCommerce, see [Channels Overview](https://developer.bigcommerce.com/api-docs/channels/overview).
+This advanced quick start tutorial is for [BigCommerce partners](https://www.bigcommerce.com/partners/) wishing to market their solution within [Channel Manager's](https://developer.bigcommerce.com/api-docs/channels/overview#resources) **Create Channel** flow. For an introduction to channels on BigCommerce, see [Channels Overview](https://developer.bigcommerce.com/api-docs/channels/overview).
 
-### Prerequisites
+## Prerequisites
 
-* Experience [building apps](https://developer.bigcommerce.com/api-docs/apps/guide/intro)
-* Familiarity with [Channels Toolkit](https://developer.bigcommerce.com/api-docs/channels/overview)
+- Experience [building apps](https://developer.bigcommerce.com/api-docs/apps/guide/intro)
+- Familiarity with [Channels Toolkit](https://developer.bigcommerce.com/api-docs/channels/overview)
 
 ## Create a channel
 
@@ -54,9 +60,10 @@ Accept: application/json
 <div class="CalloutBlock--info">
 <div class="HubBlock-content">
 
-> ### Note
-> * For a list of accepted `type` and `platform` values, see [Channels API Reference](https://developer.bigcommerce.com/api-reference/cart-checkout/channels-listings-api#platform).
-> * For instructions on finding your app's ID, see [Find and App's ID](https://developer.bigcommerce.com/api-docs/apps/tutorials/id).
+> **Note**
+>
+> - For a list of accepted `type` and `platform` values, see [Channels API Reference](https://developer.bigcommerce.com/api-reference/cart-checkout/channels-listings-api#platform).
+> - For instructions on finding your app's ID, see [Find and App's ID](https://developer.bigcommerce.com/api-docs/apps/tutorials/id).
 
 </div>
 </div>
@@ -112,15 +119,18 @@ Accept: application/json
 <div class="CalloutBlock--info">
 <div class="HubBlock-content">
 
-> ### Note
-> * For additional information on [channel](https://developer.bigcommerce.com/api-reference/cart-checkout/channels-listings-api/channels) `config_meta` properties, see the [create a channel request body schema](https://developer.bigcommerce.com/api-reference/cart-checkout/channels-listings-api/channels/createchannel#request-body).
+> **Note**
+>
+> - For additional information on [channel](https://developer.bigcommerce.com/api-reference/cart-checkout/channels-listings-api/channels) `config_meta` properties, see the [create a channel request body schema](https://developer.bigcommerce.com/api-reference/cart-checkout/channels-listings-api/channels/createchannel#request-body).
 
 ## Related resources
 
 ### Articles
-* [Channels Overview](https://developer.bigcommerce.com/api-docs/channels/overview)
-* [Find an App's ID](https://developer.bigcommerce.com/api-docs/apps/tutorials/id)
-* [Build a Storefront Channel](https://developer.bigcommerce.com/api-docs/channels/tutorials/storefront)
+
+- [Channels Overview](https://developer.bigcommerce.com/api-docs/channels/overview)
+- [Find an App's ID](https://developer.bigcommerce.com/api-docs/apps/tutorials/id)
+- [Build a Storefront Channel](https://developer.bigcommerce.com/api-docs/channels/tutorials/storefront)
 
 ### Endpoints
-* [Channels API Reference](https://developer.bigcommerce.com/api-reference/cart-checkout/channels-listings-api)
+
+- [Channels API Reference](https://developer.bigcommerce.com/api-reference/cart-checkout/channels-listings-api)
