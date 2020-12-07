@@ -6,13 +6,10 @@
 
 ## On this page
 
-- [Channel App Requirements](#channel-app-requirements)
-  - [General requirements](#general-requirements)
-  - [Storefronts](#storefronts)
-  - [Marketplaces and marketing](#marketplaces-and-marketing)
-  - [Related resources](#related-resources)
-    - [Articles](#articles)
-    - [Endpoints](#endpoints)
+ - [General requirements](#general-requirements)
+ - [Storefronts](#storefronts)
+ - [Marketplaces and marketing](#marketplaces-and-marketing)
+ - [Related resources](#related-resources)
 
 </div>
 
