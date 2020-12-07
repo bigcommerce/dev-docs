@@ -100,7 +100,12 @@ Accept: application/json
 
 ### Accepted values
 
-| Platform  | Accepted Type                                   |
+| Platform | Accepted Type |
+|-|-|
+| `square `| `pos` |
+| `vend` | `pos` |
+| `clover`| `pos` |
+| `custom` | `pos`, `storefront`, `marketing`, `marketplace` |
 | --------- | ----------------------------------------------- |
 | `square ` | `pos`                                           |
 | `vend`    | `pos`                                           |
