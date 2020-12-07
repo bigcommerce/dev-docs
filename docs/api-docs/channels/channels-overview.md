@@ -6,22 +6,11 @@
 
 <div class="otp" id="no-index">
 
-- [BigCommerce Channels Overview](#bigcommerce-channels-overview)
-  - [Channels toolkit](#channels-toolkit)
-  - [Channel apps](#channel-apps)
-    - [Discovery](#discovery)
-    - [Display](#display)
-    - [Management](#management)
-  - [Types of channels](#types-of-channels)
-    - [Storefront](#storefront)
-    - [Point of sale (POS)](#point-of-sale-pos)
-    - [Marketplaces](#marketplaces)
-    - [Marketing](#marketing)
-  - [Building a channel app](#building-a-channel-app)
-    - [Getting started](#getting-started)
-    - [Building the app](#building-the-app)
-  - [Related resources](#related-resources)
-    - [Articles](#articles)
+ - [Channels toolkit](#channels-toolkit)
+ - [Channel apps](#channel-apps)
+ - [Types of channels](#types-of-channels)
+ - [Building a channel app](#building-a-channel-app)
+ - [Related resources](#related-resources)
 
 </div>
 
