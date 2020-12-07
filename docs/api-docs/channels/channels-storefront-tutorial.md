@@ -203,11 +203,18 @@ Included protected sections display above custom sections.
 
 ![Protected Sections](https://storage.googleapis.com/bigcommerce-production-dev-center/images/channels/channels-sf-protected-custom-settings.png "Protected Sections")
 
+<div class="HubBlock--callout">
+<div class="CalloutBlock--info">
+<div class="HubBlock-content">
 <!-- theme:info -->
 
 > **Note**
 >
 > - Any content an app attempts to render to the control panel iFrame for a protected section will be overridden by the BigCommerce provided content.
+
+</div>
+</div>
+</div>
 
 ## Storefront settings
 
