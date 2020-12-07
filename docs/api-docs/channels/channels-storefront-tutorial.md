@@ -204,9 +204,8 @@ Included protected sections display above custom sections.
 ![Protected Sections](https://storage.googleapis.com/bigcommerce-production-dev-center/images/channels/channels-sf-protected-custom-settings.png "Protected Sections")
 
 <div class="HubBlock--callout">
-<div class="CalloutBlock--info">
+<div class="CalloutBlock--warning">
 <div class="HubBlock-content">
-<!-- theme:info -->
 
 > **Note**
 >
