@@ -6,7 +6,6 @@
 
 ## On this page
 
-- [Building Channel Apps](#building-channel-apps)
   - [Getting started](#getting-started)
   - [Beginning development](#beginning-development)
   - [Gathering materials](#gathering-materials)
