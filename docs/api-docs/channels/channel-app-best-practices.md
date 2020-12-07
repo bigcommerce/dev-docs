@@ -6,16 +6,11 @@
 
 ## On this page
 
-- [Channel App Best Practices](#channel-app-best-practices)
   - [Modular features](#modular-features)
-    - [For merchants](#for-merchants)
-    - [For support](#for-support)
   - [Syncing](#syncing)
   - [Performance](#performance)
   - [Logging](#logging)
   - [Related resources](#related-resources)
-    - [Articles](#articles)
-    - [Tools](#tools)
 
 </div>
 
