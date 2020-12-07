@@ -44,11 +44,17 @@ All Partners:
 
 - Must use [listings API](https://developer.bigcommerce.com/api-reference/cart-checkout/channels-listings-api), if supporting per product listings (i.e. not simply syncing the entire catalog).
 
+<div class="CalloutBlock--info">	
+<div class="HubBlock-content">	
+
 <!-- theme: info -->
 
 > **Note**
 >
 > - In order to promote app performance and user experience best practices, additional general and channel type requirements will be outlined as needed.
+
+</div>
+</div>
 
 ## Related resources
 
