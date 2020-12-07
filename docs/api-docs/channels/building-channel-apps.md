@@ -45,7 +45,7 @@ If you would like to integrate [Channels Toolkit](https://developer.bigcommerce.
 
 ### Developing a new app
 
-If you would like to start development on a new app that integrates channels toolkit, and this is your first time developing a BigCommerce app, see [Building Apps](https://developer.bigcommerce.com/api-docs/apps/guide/intro) for an in-depth BigCommerce app development guide.
+If you would like to start development on a new app that integrates Channels Toolkit, and this is your first time developing a BigCommerce app, see [Building Apps](https://developer.bigcommerce.com/api-docs/apps/guide/intro) for an in-depth BigCommerce app development guide.
 
 ## Gathering materials
 
