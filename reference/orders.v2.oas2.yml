@@ -2,84 +2,47 @@ swagger: '2.0'
 info:
   version: ''
   title: Orders
-  description: >-
-    Manage order coupons, messages, products, shipping addresses, statuses,
-    taxes, shipments, and shipping address quotes.
-
+  description: |-
+    Manage order coupons, messages, products, shipping addresses, statuses, taxes, shipments, and shipping address quotes.
 
     - [Authentication](#authentication)
-
     - [Order](#order)
-
 
     ## Authentication
 
-
-    Authenticate requests by including an
-    [OAuth](https://developer.bigcommerce.com/api-docs/getting-started/authentication)
-    `access_token` in the request header.
-
+    Authenticate requests by including an [OAuth](https://developer.bigcommerce.com/api-docs/getting-started/authentication) `access_token` in the request header.
 
     ```http
-
     GET https://api.bigcommerce.com/stores/{{STORE_HASH}}/v3/{{ENDPOINT}}
-
     Content-Type: application/json
-
     X-Auth-Token: {{ACCESS_TOKEN}}
-
     ```
-
 
     ### OAuth Scopes
 
-
     |  **UI Name** | **Permission** | **Parameter** |
-
     | --- | --- | --- |
-
     |  Orders | modify | `store_v2_orders` |
-
     |  Orders | read-only | `store_v2_orders_read_only` |
-
 
 
     ## Order
 
-
-    The Order object contains a record of the purchase agreement between a
-    shopper and a merchant. To learn more about creating orders, see [Orders API
-    Guide](/api-docs/orders/orders-api-overview).
-
+    The Order object contains a record of the purchase agreement between a shopper and a merchant. To learn more about creating orders, see [Orders API Guide](/api-docs/orders/orders-api-overview).
 
     ### Currency Fields
 
+    * `currency_code` - the display currency used to present prices to the shopper on the storefront.
+    * `currency_exchange_rate`: the exchange rate between the store's default currency and the display currency; when the order is created by means of the V2 endpoints, this value is always 1 (only in the storefront this value can be different to 1).
 
-    * `currency_code` - the display currency used to present prices to the
-    shopper on the storefront.
-
-    * `currency_exchange_rate`: the exchange rate between the store's default
-    currency and the display currency; when the order is created by means of the
-    V2 endpoints, this value is always 1 (only in the storefront this value can
-    be different to 1).
-
-
-    The following additional fields are returned on orders when Multi-Currency
-    is enabled on the store:
-
+    The following additional fields are returned on orders when Multi-Currency is enabled on the store:
 
     * `store_default_currency_code` - the store's default currency
-
-    * `store_default_to_transactional_exchange_rate` - the exchange rate between
-    the store's default currency and the transactional currency used in the
-    order.
-
+    * `store_default_to_transactional_exchange_rate` - the exchange rate between the store's default currency and the transactional currency used in the order.
 
     **Example:**
 
-
     ```json
-
     {
       ...
       "currency_id": 4,
@@ -91,7 +54,6 @@ info:
       "store_default_to_transactional_exchange_rate": "100.0000000000"
       ...
     }
-
     ```
 host: api.bigcommerce.com
 basePath: '/stores/{$$.env.store_hash}/v2'
@@ -104,9 +66,7 @@ produces:
 paths:
   '/orders/{order_id}':
     get:
-      description: >-
-        Gets an *Order*. To learn more about creating or updating orders, see
-        [Orders Overview](/api-docs/orders/orders-api-overview).
+      description: 'Gets an *Order*. To learn more about creating or updating orders, see [Orders Overview](/api-docs/orders/orders-api-overview).'
       summary: Get an Order
       tags:
         - Orders
@@ -132,9 +92,7 @@ paths:
           schema: {}
       operationId: getAnOrder
     put:
-      description: >-
-        Updates an *Order*. To learn more about creating or updating orders, see
-        [Orders Overview](/api-docs/orders/orders-api-overview).
+      description: 'Updates an *Order*. To learn more about creating or updating orders, see [Orders Overview](/api-docs/orders/orders-api-overview).'
       summary: Update an Order
       tags:
         - Orders
@@ -208,12 +166,10 @@ paths:
           $ref: '#/responses/order_Resp'
       operationId: updateAnOrder
     delete:
-      description: >-
+      description: |-
         Archives an order.
 
-
-        Any attempt to archive an order on a store with automatic tax enabled
-        will fail, and will return `405 Method not allowed.`
+        Any attempt to archive an order on a store with automatic tax enabled will fail, and will return `405 Method not allowed.`
       summary: Archive an Order
       tags:
         - Orders
@@ -284,20 +240,14 @@ paths:
       summary: Get All Orders
       operationId: getAllOrders
     post:
-      description: >-
-        Creates an *Order*. To learn more about creating or updating orders, see
-        [Orders Overview](/api-docs/orders/orders-api-overview).
+      description: |-
+        Creates an *Order*. To learn more about creating or updating orders, see [Orders Overview](/api-docs/orders/orders-api-overview).
 
-
-        An order can be created with an existing catalog product or a custom
-        product.
-
+        An order can be created with an existing catalog product or a custom product.
 
         **Required Fields**
 
-
         *   products
-
         *   billing_address
       summary: Create an Order
       tags:
@@ -490,10 +440,7 @@ paths:
         required: true
   '/orders/{order_id}/products':
     get:
-      description: >-
-        Lists all order products on an order using `order_id`. By default, items
-        sort from lowest to highest according to a newly created ID, separate
-        from the `order_id` and the `product_id`.
+      description: 'Lists all order products on an order using `order_id`. By default, items sort from lowest to highest according to a newly created ID, separate from the `order_id` and the `product_id`.'
       summary: List Order Products
       parameters:
         - $ref: '#/parameters/order_id_path'
@@ -514,13 +461,10 @@ paths:
         required: true
   '/orders/{order_id}/shipping_addresses':
     get:
-      description: >-
+      description: |-
         Get all shipping addresses on an order using the `order_id`.
 
-
-        Returned in the response is shipping_quotes object. Please use the Get
-        Shipping Quotes Endpoint. Using the response will return a 204 for the
-        shipping quote.
+        Returned in the response is shipping_quotes object. Please use the Get Shipping Quotes Endpoint. Using the response will return a 204 for the shipping quote.
       summary: Get Order Shipping Addresses
       parameters:
         - $ref: '#/parameters/Accept'
@@ -537,57 +481,26 @@ paths:
       - $ref: '#/parameters/order_id_path'
   /order_statuses:
     get:
-      description: >-
+      description: |-
         Returns a Collection of All Order Statuses.
 
-
         **Order Status Descriptions:**
-
         |Status ID | Name  | Description |
-
         |--|--|--|
-
-        | 0 | Incomplete  | An incomplete order happens when a shopper reached
-        the payment page, but did not complete the transaction. |
-
-        | 1 | Pending |Customer started the checkout process, but did not
-        complete it. |
-
-        | 2 | Shipped | Order has been shipped, but receipt has not been
-        confirmed; seller has used the Ship Items action. |
-
-        | 3 | Partially Shipped | Only some items in the order have been
-        shipped, due to some products being pre-order only or other reasons. |
-
+        | 0 | Incomplete  | An incomplete order happens when a shopper reached the payment page, but did not complete the transaction. |
+        | 1 | Pending |Customer started the checkout process, but did not complete it. |
+        | 2 | Shipped | Order has been shipped, but receipt has not been confirmed; seller has used the Ship Items action. |
+        | 3 | Partially Shipped | Only some items in the order have been shipped, due to some products being pre-order only or other reasons. |
         | 4 | Refunded | Seller has used the Refund action. |
-
-        | 5 | Cancelled | Seller has cancelled an order, due to a stock
-        inconsistency or other reasons. |
-
-        | 6 |Declined | Seller has marked the order as declined for lack of
-        manual payment, or other reasons. |
-
-        | 7 | Awaiting Payment | Customer has completed checkout process, but
-        payment has yet to be confirmed. |
-
-        | 8 | Awaiting Pickup | Order has been pulled, and is awaiting customer
-        pickup from a seller-specified location. |
-
-        | 9 | Awaiting Shipment | Order has been pulled and packaged, and is
-        awaiting collection from a shipping provider. |
-
-        | 10 | Completed | Client has paid for their digital product and their
-        file(s) are available for download. |
-
-        | 11 | Awaiting Fulfillment | Customer has completed the checkout
-        process and payment has been confirmed. |
-
-        | 12 | Manual Verification Required | Order on hold while some aspect
-        needs to be manually confirmed. |
-
-        | 13 | Disputed | Customer has initiated a dispute resolution process
-        for the PayPal transaction that paid for the order. |
-
+        | 5 | Cancelled | Seller has cancelled an order, due to a stock inconsistency or other reasons. |
+        | 6 |Declined | Seller has marked the order as declined for lack of manual payment, or other reasons. |
+        | 7 | Awaiting Payment | Customer has completed checkout process, but payment has yet to be confirmed. |
+        | 8 | Awaiting Pickup | Order has been pulled, and is awaiting customer pickup from a seller-specified location. |
+        | 9 | Awaiting Shipment | Order has been pulled and packaged, and is awaiting collection from a shipping provider. |
+        | 10 | Completed | Client has paid for their digital product and their file(s) are available for download. |
+        | 11 | Awaiting Fulfillment | Customer has completed the checkout process and payment has been confirmed. |
+        | 12 | Manual Verification Required | Order on hold while some aspect needs to be manually confirmed. |
+        | 13 | Disputed | Customer has initiated a dispute resolution process for the PayPal transaction that paid for the order. |
         | 14 | Partially Refunded | Seller has partially refunded the order. |
       summary: Get All Order Statuses
       parameters:
@@ -601,57 +514,26 @@ paths:
       operationId: getOrderStatus
   '/order_statuses/{status_id}':
     get:
-      description: >-
+      description: |-
         Returns a single order status.
 
-
         **Order Status Descriptions:**
-
         |Status ID | Name  | Description |
-
         |--|--|--|
-
-        | 0 | Incomplete  | An incomplete order happens when a shopper reached
-        the payment page, but did not complete the transaction. |
-
-        | 1 | Pending |Customer started the checkout process, but did not
-        complete it. |
-
-        | 2 | Shipped | Order has been shipped, but receipt has not been
-        confirmed; seller has used the Ship Items action. |
-
-        | 3 | Partially Shipped | Only some items in the order have been
-        shipped, due to some products being pre-order only or other reasons. |
-
+        | 0 | Incomplete  | An incomplete order happens when a shopper reached the payment page, but did not complete the transaction. |
+        | 1 | Pending |Customer started the checkout process, but did not complete it. |
+        | 2 | Shipped | Order has been shipped, but receipt has not been confirmed; seller has used the Ship Items action. |
+        | 3 | Partially Shipped | Only some items in the order have been shipped, due to some products being pre-order only or other reasons. |
         | 4 | Refunded | Seller has used the Refund action. |
-
-        | 5 | Cancelled | Seller has cancelled an order, due to a stock
-        inconsistency or other reasons. |
-
-        | 6 |Declined | Seller has marked the order as declined for lack of
-        manual payment, or other reasons. |
-
-        | 7 | Awaiting Payment | Customer has completed checkout process, but
-        payment has yet to be confirmed. |
-
-        | 8 | Awaiting Pickup | Order has been pulled, and is awaiting customer
-        pickup from a seller-specified location. |
-
-        | 9 | Awaiting Shipment | Order has been pulled and packaged, and is
-        awaiting collection from a shipping provider. |
-
-        | 10 | Completed | Client has paid for their digital product and their
-        file(s) are available for download. |
-
-        | 11 | Awaiting Fulfillment | Customer has completed the checkout
-        process and payment has been confirmed. |
-
-        | 12 | Manual Verification Required | Order on hold while some aspect
-        needs to be manually confirmed. |
-
-        | 13 | Disputed | Customer has initiated a dispute resolution process
-        for the PayPal transaction that paid for the order. |
-
+        | 5 | Cancelled | Seller has cancelled an order, due to a stock inconsistency or other reasons. |
+        | 6 |Declined | Seller has marked the order as declined for lack of manual payment, or other reasons. |
+        | 7 | Awaiting Payment | Customer has completed checkout process, but payment has yet to be confirmed. |
+        | 8 | Awaiting Pickup | Order has been pulled, and is awaiting customer pickup from a seller-specified location. |
+        | 9 | Awaiting Shipment | Order has been pulled and packaged, and is awaiting collection from a shipping provider. |
+        | 10 | Completed | Client has paid for their digital product and their file(s) are available for download. |
+        | 11 | Awaiting Fulfillment | Customer has completed the checkout process and payment has been confirmed. |
+        | 12 | Manual Verification Required | Order on hold while some aspect needs to be manually confirmed. |
+        | 13 | Disputed | Customer has initiated a dispute resolution process for the PayPal transaction that paid for the order. |
         | 14 | Partially Refunded | Seller has partially refunded the order. |
       summary: Get a Single Order Status by Id
       parameters:
@@ -667,17 +549,11 @@ paths:
     parameters: []
   '/orders/{order_id}/taxes':
     get:
-      description: >-
+      description: |-
         Gets all order taxes using `order_id`.
-
-        Each tax applied to an order. This information can be useful for
-        reporting purposes.
-
-        Pass in the query parameter `?details=true` to return extra details
-        about order taxes.
-
+        Each tax applied to an order. This information can be useful for reporting purposes.
+        Pass in the query parameter `?details=true` to return extra details about order taxes.
         `order_product_id` and `line_item_type` are also returned.
-
 
         All values are read-only.
       summary: Get All Order Taxes
@@ -715,37 +591,20 @@ paths:
         - Order Shipments
       operationId: getAllOrderShipments
     post:
-      description: >
-        Creates an *Order Shipment*. For more details, see [Shipping an
-        Order](/api-docs/orders/orders-api-overview#shipping-an-order).
-
+      description: |
+        Creates an *Order Shipment*. For more details, see [Shipping an Order](/api-docs/orders/orders-api-overview#shipping-an-order).
 
         **Required Fields**
-
         *   order_address_id
-
         *   items
-
 
         **Usage Notes**
 
+        Presuming that a valid carrier code is used, a tracking link is generated if either `shipping_provider` or `tracking_carrier` is supplied alongside a tracking number. Providing only the tracking number will result in an unclickable text in the customer facing email.
 
-        Presuming that a valid carrier code is used, a tracking link is
-        generated if either `shipping_provider` or `tracking_carrier` is
-        supplied alongside a tracking number. Providing only the tracking number
-        will result in an unclickable text in the customer facing email.
+        Acceptable values for `shipping_provider` include an empty string (`""`), auspost, canadapost, endicia, usps, fedex, ups, upsready, upsonline, or shipperhq.
 
-
-        Acceptable values for `shipping_provider` include an empty string
-        (`""`), auspost, canadapost, endicia, usps, fedex, ups, upsready,
-        upsonline, or shipperhq.
-
-
-        Acceptable values for `tracking_carrier` include an empty string (`""`)
-        or one of the valid tracking-carrier values viewable
-        [here](https://github.com/bigcommerce/dev-docs/blob/development/assets/csv/tracking_carrier_values.csv)
-        and downloadable as a .CSV file
-        [here](https://raw.githubusercontent.com/bigcommerce/dev-docs/development/assets/csv/tracking_carrier_values.csv).
+        Acceptable values for `tracking_carrier` include an empty string (`""`) or one of the valid tracking-carrier values viewable [here](https://github.com/bigcommerce/dev-docs/blob/development/assets/csv/tracking_carrier_values.csv) and downloadable as a .CSV file [here](https://raw.githubusercontent.com/bigcommerce/dev-docs/development/assets/csv/tracking_carrier_values.csv).
       summary: Create Order Shipment
       parameters:
         - $ref: '#/parameters/Accept'
@@ -791,9 +650,7 @@ paths:
       - $ref: '#/parameters/order_id_path'
   '/orders/{order_id}/shipments/count':
     get:
-      description: >-
-        Gets a count of the number of shipments that have been made for a single
-        order.
+      description: Gets a count of the number of shipments that have been made for a single order.
       summary: Get Count of Order Shipments
       parameters:
         - $ref: '#/parameters/Accept'
@@ -933,13 +790,10 @@ paths:
         '200':
           $ref: '#/responses/orderShippingAddress_Resp'
       summary: Get a Shipping Address
-      description: >-
+      description: |-
         Gets a shipping address associated with an order.
 
-
-        Returned in the response is shipping_quotes object. Please use the Get
-        Shipping Quotes Endpoint. Using the response will return a 204 for the
-        shipping quote.
+        Returned in the response is shipping_quotes object. Please use the Get Shipping Quotes Endpoint. Using the response will return a 204 for the shipping quote.
       tags:
         - Order Shipping Addresses
       parameters:
@@ -1003,8 +857,7 @@ paths:
               shipping_zone_id: 1
               shipping_zone_name: United States
               shipping_quotes:
-                url: >-
-                  https://api-proxy.service.bcdev/stores/17hoqh4ddx/v2/orders/100/shipping_addresses/1/shipping_quotes
+                url: 'https://api-proxy.service.bcdev/stores/17hoqh4ddx/v2/orders/100/shipping_addresses/1/shipping_quotes'
                 resource: /orders/100/shipping_addresses/1/shipping_quotes
               form_fields: []
         '400':
@@ -1021,9 +874,7 @@ paths:
           examples:
             application/json:
               - status: 404
-                message: >-
-                  The field 'item_total' cannot be written to. Please remove it
-                  from your request before trying again.
+                message: The field 'item_total' cannot be written to. Please remove it from your request before trying again.
         '404':
           description: Not Found
           schema:
@@ -1058,7 +909,7 @@ paths:
               country_iso2: AU
               state: New South Wales
               email: email2@bigcommerce.com
-              phone: 0468444123
+              phone: 468444123
         - type: string
           in: header
           name: Accept
@@ -1069,39 +920,24 @@ paths:
           name: Content-Type
           required: true
           default: application/json
-      description: >-
+      description: |-
         Update a shipping address associated with an order.
 
-
         Only these fields are updatable:
-
         - `first_name`
-
         - `last_name`
-
         - `company`
-
         - `street_1`
-
         - `street_2`
-
         - `city`
-
         - `zip`
-
         - `country`
-
         - `country_iso2`
-
         - `state`
-
         - `email`
-
         - `phone`
 
-
-        **Note**: Updating will NOT trigger the recalculation of shipping cost
-        and tax
+        **Note**: Updating will NOT trigger the recalculation of shipping cost and tax
       tags:
         - Order Shipping Addresses
   '/orders/{order_id}/shipping_addresses/{shipping_address_id}/shipping_quotes':
@@ -1110,15 +946,10 @@ paths:
         '200':
           $ref: '#/responses/shippingQuotes_Resp'
       summary: Get Order Shipping Quotes
-      description: >-
+      description: |-
         Gets all shipping quotes associated to an order.
 
-
-        This is a read only endpoint and the output can vary based on the
-        shipping quote. A shipping quote can only be generated using the
-        storefront at this time. Orders that are created in the control panel or
-        via the API return a 204 for this endpoint since a shipping quote is not
-        generated during that process.
+        This is a read only endpoint and the output can vary based on the shipping quote. A shipping quote can only be generated using the storefront at this time. Orders that are created in the control panel or via the API return a 204 for this endpoint since a shipping quote is not generated during that process.
       parameters:
         - $ref: '#/parameters/Accept'
         - $ref: '#/parameters/Content-Type'
@@ -1143,9 +974,7 @@ definitions:
         name: Incomplete
         system_label: Incomplete
         custom_label: Incomplete- Waiting on Shipment
-        system_description: >-
-          An incomplete order happens when a shopper reached the payment page,
-          but did not complete the transaction.
+        system_description: 'An incomplete order happens when a shopper reached the payment page, but did not complete the transaction.'
         count: 6
         sort_order: 0
       count: 45
@@ -1178,13 +1007,9 @@ definitions:
         example: S2549JM0Y
         type: string
       amount:
-        description: >-
-          Amount of the discount. This information is returned as in integer.
-          Dollar and percentage discounts will return the same.
-
-          For example, $3 returns as '3' while 5% will return as 5. Check the
-          discount type to see what type of discount is available. (Float,
-          Float-As-String, Integer)
+        description: |-
+          Amount of the discount. This information is returned as in integer. Dollar and percentage discounts will return the same.
+          For example, $3 returns as '3' while 5% will return as 5. Check the discount type to see what type of discount is available. (Float, Float-As-String, Integer)
         example: '5.0000'
         type: string
       type:
@@ -1205,13 +1030,9 @@ definitions:
           - 4
           - 5
       discount:
-        description: >-
-          The amount off the order the discount is worth. For example, if an
-          order subtotal is $90 and the discount is $3 then it will return as
-          3.000. If the discount is
-
-          3% then will return as 2.7000 or the amount of the order.  (Float,
-          Float-As-String, Integer)
+        description: |-
+          The amount off the order the discount is worth. For example, if an order subtotal is $90 and the discount is $3 then it will return as 3.000. If the discount is
+          3% then will return as 2.7000 or the amount of the order.  (Float, Float-As-String, Integer)
         example: 2.7
         type: number
   orderProducts:
@@ -1284,18 +1105,12 @@ definitions:
         example: '54.0000'
         type: string
       total_tax:
-        description: >-
+        description: |-
           Total tax applied to products.
+          For example, if quantity if 2, base price is 5 and tax rate is 10%. price_tax will be $.50 and total_tax will be $1.00.
 
-          For example, if quantity if 2, base price is 5 and tax rate is 10%.
-          price_tax will be $.50 and total_tax will be $1.00.
-
-
-          If there is a manual discount applied total_tax is calcuted as the
-          following:
-
+          If there is a manual discount applied total_tax is calcuted as the following:
           `(price_ex_tax - discount)*tax_rate=total_tax`.
-
           (Float, Float-As-String, Integer)
         example: '0.5200'
         type: string
@@ -1304,27 +1119,19 @@ definitions:
         example: 1
         type: number
       base_cost_price:
-        description: >-
-          The product's cost price.  This can be set using the Catalog API.
-          (Float, Float-As-String, Integer) Read Only
+        description: 'The product''s cost price.  This can be set using the Catalog API. (Float, Float-As-String, Integer) Read Only'
         example: '0.0000'
         type: string
       cost_price_inc_tax:
-        description: >-
-          The product's cost price including tax. (Float, Float-As-String,
-          Integer)
-
-          The cost of your products to you; this is never shown to customers,
-          but can be used for accounting purposes. Read Only
+        description: |-
+          The product's cost price including tax. (Float, Float-As-String, Integer)
+          The cost of your products to you; this is never shown to customers, but can be used for accounting purposes. Read Only
         example: '0.0000'
         type: string
       cost_price_ex_tax:
-        description: >-
-          The products cost price excluding tax. (Float, Float-As-String,
-          Integer)
-
-          The cost of your products to you; this is never shown to customers,
-          but can be used for accounting purposes. Read Only
+        description: |-
+          The products cost price excluding tax. (Float, Float-As-String, Integer)
+          The cost of your products to you; this is never shown to customers, but can be used for accounting purposes. Read Only
         example: '0.0000'
         type: string
       weight:
@@ -1332,12 +1139,9 @@ definitions:
         example: 1
         type: number
       cost_price_tax:
-        description: >-
-          Tax applied to the product’s cost price. (Float, Float-As-String,
-          Integer)
-
-          The cost of your products to you; this is never shown to customers,
-          but can be used for accounting purposes. Read Only
+        description: |-
+          Tax applied to the product’s cost price. (Float, Float-As-String, Integer)
+          The cost of your products to you; this is never shown to customers, but can be used for accounting purposes. Read Only
         example: '54.0000'
         type: string
       is_refunded:
@@ -1345,9 +1149,7 @@ definitions:
         example: false
         type: boolean
       refunded_amount:
-        description: >-
-          The amount refunded from this transaction. (Float, Float-As-String,
-          Integer)
+        description: 'The amount refunded from this transaction. (Float, Float-As-String, Integer)'
         example: '0.0000'
         type: string
       return_id:
@@ -1363,15 +1165,11 @@ definitions:
         example: '0.0000'
         type: string
       wrapping_cost_ex_tax:
-        description: >-
-          The value of the wrapping cost, excluding tax. (Float,
-          Float-As-String, Integer)
+        description: 'The value of the wrapping cost, excluding tax. (Float, Float-As-String, Integer)'
         example: '0.0000'
         type: string
       wrapping_cost_inc_tax:
-        description: >-
-          The value of the wrapping cost, including tax. (Float,
-          Float-As-String, Integer)
+        description: 'The value of the wrapping cost, including tax. (Float, Float-As-String, Integer)'
         example: '0.0000'
         type: string
       wrapping_cost_tax:
@@ -1394,9 +1192,7 @@ definitions:
         type: string
         format: date
       fixed_shipping_cost:
-        description: >-
-          Fixed shipping cost for this product. (Float, Float-As-String,
-          Integer)
+        description: 'Fixed shipping cost for this product. (Float, Float-As-String, Integer)'
         example: '0.0000'
         type: string
       ebay_item_id:
@@ -1430,24 +1226,15 @@ definitions:
         items:
           $ref: '#/definitions/orderProductOptions'
       external_id:
-        description: >-
-          ID of the order in another system. For example, the Amazon Order ID if
-          this is an Amazon order.This field can be updated in a /POST, but
-          using a /PUT to update the order will return a 400 error. The field
-          'external_id' cannot be written to. Please remove it from your request
-          before trying again. It can not be overwritten once set.
+        description: 'ID of the order in another system. For example, the Amazon Order ID if this is an Amazon order.This field can be updated in a /POST, but using a /PUT to update the order will return a 400 error. The field ''external_id'' cannot be written to. Please remove it from your request before trying again. It can not be overwritten once set.'
         type: integer
       upc:
         type: string
         maxLength: 255
-        description: >-
-          Universal Product Code. Can be written to for custom products and
-          catalog products.
+        description: Universal Product Code. Can be written to for custom products and catalog products.
       variant_id:
         type: integer
-        description: >-
-          Products `variant_id`. PUT or POST. This field is not available for
-          custom products.
+        description: Products `variant_id`. PUT or POST. This field is not available for custom products.
   orderCount:
     title: orderCount
     example:
@@ -1481,27 +1268,19 @@ definitions:
             example: 0
           shipping_method:
             type: string
-            description: >-
-              Text code identifying the BigCommerce shipping module selected by
-              the customer.
+            description: Text code identifying the BigCommerce shipping module selected by the customer.
             example: Free Shipping
           base_cost:
             type: string
-            description: >-
-              The base value of the order’s items. (Float, Float-As-String,
-              Integer)
+            description: 'The base value of the order’s items. (Float, Float-As-String, Integer)'
             example: '5.0000'
           cost_ex_tax:
             type: string
             example: '0.0000'
-            description: >-
-              The value of the order’s items, excluding tax. (Float,
-              Float-As-String, Integer)
+            description: 'The value of the order’s items, excluding tax. (Float, Float-As-String, Integer)'
           cost_inc_tax:
             type: string
-            description: >-
-              The value of the order’s items, including tax. (Float,
-              Float-As-String, Integer)
+            description: 'The value of the order’s items, including tax. (Float, Float-As-String, Integer)'
             example: '0.0000'
           cost_tax:
             type: string
@@ -1509,9 +1288,7 @@ definitions:
             example: '0.0000'
           cost_tax_class_id:
             type: integer
-            description: >-
-              The ID of the tax class applied to the product. (NOTE: Value
-              ignored if automatic tax is enabled.)
+            description: 'The ID of the tax class applied to the product. (NOTE: Value ignored if automatic tax is enabled.)'
             example: 2
           base_handling_cost:
             type: string
@@ -1519,25 +1296,18 @@ definitions:
             example: '0.0000'
           handling_cost_ex_tax:
             type: string
-            description: >-
-              The handling charge, excluding tax. (Float, Float-As-String,
-              Integer)
+            description: 'The handling charge, excluding tax. (Float, Float-As-String, Integer)'
             example: '0.0000'
           handling_cost_inc_tax:
             type: string
-            description: >-
-              The handling charge, including tax. (Float, Float-As-String,
-              Integer)
+            description: 'The handling charge, including tax. (Float, Float-As-String, Integer)'
             example: '0.0000'
           handling_cost_tax:
             type: string
             example: '0.0000'
           handling_cost_tax_class_id:
             type: integer
-            description: >-
-              A read-only value. Do not attempt to set or modify this value in a
-              POST or PUT operation. (NOTE: Value ignored if automatic tax is
-              enabled on the store.)
+            description: 'A read-only value. Do not attempt to set or modify this value in a POST or PUT operation. (NOTE: Value ignored if automatic tax is enabled on the store.)'
             example: 2
           shipping_zone_id:
             type: number
@@ -1563,17 +1333,11 @@ definitions:
         example: 1
         type: integer
       order_id:
-        description: >-
-          The unique numeric identifier of the order to which the tax was
-          applied. NOTE: Not included if the store was using the automatic tax
-          feature.
+        description: 'The unique numeric identifier of the order to which the tax was applied. NOTE: Not included if the store was using the automatic tax feature.'
         example: 129
         type: integer
       order_address_id:
-        description: >-
-          The unique numeric identifier of the order address object associated
-          with the order. NOTE: Not included if the store was using the
-          automatic tax feature.
+        description: 'The unique numeric identifier of the order address object associated with the order. NOTE: Not included if the store was using the automatic tax feature.'
         example: 29
         type: integer
       tax_rate_id:
@@ -1581,9 +1345,7 @@ definitions:
         example: 1
         type: integer
       tax_class_id:
-        description: >-
-          The unique numeric identifier of the tax class object. NOTE: Will be 0
-          if automatic tax was enabled, or if the default tax class was used.
+        description: 'The unique numeric identifier of the tax class object. NOTE: Will be 0 if automatic tax was enabled, or if the default tax class was used.'
         example: 0
         type: integer
       name:
@@ -1591,15 +1353,11 @@ definitions:
         example: '"State Tax"'
         type: string
       class:
-        description: >-
-          The name of the type of tax that was applied. NOTE: will be “Automatic
-          Tax” if automatic tax was enabled.
+        description: 'The name of the type of tax that was applied. NOTE: will be “Automatic Tax” if automatic tax was enabled.'
         example: Gift Wrapping
         type: string
       rate:
-        description: >-
-          The tax rate.  The priority order in which the tax is applied (Float,
-          Float-As-String, Integer)
+        description: 'The tax rate.  The priority order in which the tax is applied (Float, Float-As-String, Integer)'
         example: '8.0000'
         type: string
       priority:
@@ -1607,9 +1365,7 @@ definitions:
         example: 0
         type: number
       priority_amount:
-        description: >-
-          The amount of tax calculated on the order.   (Float, Float-As-String,
-          Integer)
+        description: 'The amount of tax calculated on the order.   (Float, Float-As-String, Integer)'
         example: '1.5200'
         type: string
       line_amount:
@@ -1618,9 +1374,7 @@ definitions:
         type: string
       order_product_id:
         type: string
-        description: >-
-          If the `line_item_type` is `item` or `handling` then this field will
-          be the order product id. Otherwise the field will return as null.
+        description: If the `line_item_type` is `item` or `handling` then this field will be the order product id. Otherwise the field will return as null.
       line_item_type:
         type: string
         enum:
@@ -1657,13 +1411,9 @@ definitions:
         example: w4se4b6ASFEW4T
         type: string
       shipping_method:
-        description: >-
-          Additional information to describe the method of shipment (ex.
-          Standard, Ship by Weight, Custom Shipment). Can be used for live
-          quotes from certain shipping providers.
-
-          If different from `shipping_provider`, `shipping_method` should
-          correspond to `tracking_carrier`.
+        description: |-
+          Additional information to describe the method of shipment (ex. Standard, Ship by Weight, Custom Shipment). Can be used for live quotes from certain shipping providers.
+          If different from `shipping_provider`, `shipping_method` should correspond to `tracking_carrier`.
         example: Ship by Weight
         type: string
       shipping_provider:
@@ -1683,14 +1433,9 @@ definitions:
       tracking_carrier:
         type: string
         title: Tracking Carrier
-        description: >-
+        description: |-
           Tracking carrier for the shipment.
-
-          Acceptable values include an empty string (`""`) or one of the valid
-          tracking-carrier values viewable
-          [here](https://docs.google.com/spreadsheets/d/1w9c_aECSCGyf-oOrvGeUniDl-ARGKemfZl0qSsav8D4/pubhtml?gid=0&single=true)
-          and downloadable as a .CSV file
-          [here](https://docs.google.com/spreadsheets/d/1mTueEynfcEmwsU2y2Jd2MX-8GKwNZrmlRMBcIElg9aY/pub?gid=0&single=true&output=csv).
+          Acceptable values include an empty string (`""`) or one of the valid tracking-carrier values viewable [here](https://docs.google.com/spreadsheets/d/1w9c_aECSCGyf-oOrvGeUniDl-ARGKemfZl0qSsav8D4/pubhtml?gid=0&single=true) and downloadable as a .CSV file [here](https://docs.google.com/spreadsheets/d/1mTueEynfcEmwsU2y2Jd2MX-8GKwNZrmlRMBcIElg9aY/pub?gid=0&single=true&output=csv).
       comments:
         description: Comments the shipper wishes to add.
         type: string
@@ -1699,11 +1444,7 @@ definitions:
       shipping_address:
         $ref: '#/definitions/shippingAddress_Base'
       items:
-        description: >-
-          The items in the shipment. This object has the following members, all
-          integer: order_product_id (required), quantity (required), product_id
-          (read-only). A sample items value might be: [
-          {"order_product_id":16,"product_id": 0,"quantity":2} ]
+        description: 'The items in the shipment. This object has the following members, all integer: order_product_id (required), quantity (required), product_id (read-only). A sample items value might be: [ {"order_product_id":16,"product_id": 0,"quantity":2} ]'
         type: array
         items:
           type: object
@@ -1736,8 +1477,7 @@ definitions:
       url:
         description: ''
         readOnly: true
-        example: >-
-          https://api.bigcommerce.com/stores/{$$.env.store_hash}/v2/orders/129/products
+        example: 'https://api.bigcommerce.com/stores/{$$.env.store_hash}/v2/orders/129/products'
         type: string
       resource:
         description: ''
@@ -1752,8 +1492,7 @@ definitions:
       url:
         description: URL of the shipping address for api requests
         readOnly: true
-        example: >-
-          https://api.bigcommerce.com/stores/{$$.env.store_hash}/v2/orders/129/shippingaddresses
+        example: 'https://api.bigcommerce.com/stores/{$$.env.store_hash}/v2/orders/129/shippingaddresses'
         type: string
       resource:
         description: ''
@@ -1768,8 +1507,7 @@ definitions:
       url:
         description: URL of the coupons for api requests
         readOnly: true
-        example: >-
-          https://api.bigcommerce.com/stores/{$$.env.store_hash}/v2/orders/129/coupons
+        example: 'https://api.bigcommerce.com/stores/{$$.env.store_hash}/v2/orders/129/coupons'
         type: string
       resource:
         description: resource of the coupons
@@ -1779,11 +1517,8 @@ definitions:
   orderProductAppliedDiscounts:
     title: orderProductAppliedDiscounts
     type: object
-    description: >-
-      When applying a manual discount to an order (not a product level
-      discount), the discount is distributed across products in proportion to
-      the products price.
-
+    description: |-
+      When applying a manual discount to an order (not a product level discount), the discount is distributed across products in proportion to the products price.
       `(total_manual_discount*price_ex_tax)/subtotal_ex_tax`
     properties:
       id:
@@ -1811,9 +1546,7 @@ definitions:
         enum:
           - order
           - product
-        description: >-
-          Determines if the discount if discount was applied at the Order or
-          Product level. Read Only.
+        description: Determines if the discount if discount was applied at the Order or Product level. Read Only.
   orderProductOptions:
     title: orderProductOptions
     type: object
@@ -1864,30 +1597,22 @@ definitions:
         example: Apparel sizes
         type: string
       display_style:
-        description: >-
-          How it is displayed on the storefront. Examples include Drop-down,
-          radio buttons, or rectangles.
+        description: 'How it is displayed on the storefront. Examples include Drop-down, radio buttons, or rectangles.'
         example: Rectangle
         type: string
   formFields:
     title: formFields
     type: object
     readOnly: true
-    description: >-
-      Read-Only. If you have required address form fields they will need to be
-      set as optional before creating an order via API.
+    description: Read-Only. If you have required address form fields they will need to be set as optional before creating an order via API.
     properties:
       name:
-        description: >-
-          Read-Only. If you have required address form fields they will need to
-          be set as optional before creating an order via API.
+        description: Read-Only. If you have required address form fields they will need to be set as optional before creating an order via API.
         readOnly: true
         type: string
         example: License Id
       value:
-        description: >-
-          Read-Only. If you have required address form fields they will need to
-          be set as optional before creating an order via API.
+        description: Read-Only. If you have required address form fields they will need to be set as optional before creating an order via API.
         readOnly: true
         type: string
         example: 123BAF
@@ -1927,21 +1652,16 @@ definitions:
       url:
         type: string
         readOnly: true
-        description: >-
-          This URL will return a 204 for shipping quotes. To return shipping
-          quotes:
-
+        description: |-
+          This URL will return a 204 for shipping quotes. To return shipping quotes:
           `/shipping_addresses/shipping_address_id/shipping_quotes`
-        example: >-
-          https://api.bigcommerce.com/stores/{$$.env.store_hash}/v2/orders/163/shippingaddresses/64/shippingquotes
+        example: 'https://api.bigcommerce.com/stores/{$$.env.store_hash}/v2/orders/163/shippingaddresses/64/shippingquotes'
       resource:
         type: string
         readOnly: true
         example: orders/163/shippingaddresses/64/shippingquotes
-        description: >-
-          This URL will return a 204 for shipping quotes. To return shipping
-          quotes:
-
+        description: |-
+          This URL will return a 204 for shipping quotes. To return shipping quotes:
           `/shipping_addresses/shipping_address_id/shipping_quotes`
   shippingQuotes_Base:
     type: object
@@ -1965,12 +1685,7 @@ definitions:
         description: Id of the shipping provider
       shipping_provider_quote:
         type: array
-        description: >-
-          This can vary based on the shipping provider. Manual shipping methods
-          such as fixed will return an empty array. Shipping providers such as
-          UPS will return an object with the shipping information. Since the
-          shipping quote is tied to a shipping address only one quote will
-          return in the response.
+        description: This can vary based on the shipping provider. Manual shipping methods such as fixed will return an empty array. Shipping providers such as UPS will return an object with the shipping information. Since the shipping quote is tied to a shipping address only one quote will return in the response.
       provider_code:
         type: string
         example: shipping_byweight
@@ -2011,9 +1726,7 @@ definitions:
   orderProduct_Write:
     type: object
     title: orderProduct_Write
-    description: >-
-      Product from catalog; `product_options` are required if adding a product
-      with variants.
+    description: Product from catalog; `product_options` are required if adding a product with variants.
     properties:
       product_id:
         type: integer
@@ -2036,9 +1749,7 @@ definitions:
         type: string
       variant_id:
         type: integer
-        description: >-
-          Products `variant_id`. PUT or POST. This field is not available for
-          custom products.
+        description: Products `variant_id`. PUT or POST. This field is not available for custom products.
       wrapping_name:
         type: string
       wrapping_message:
@@ -2064,13 +1775,9 @@ definitions:
         example: w4se4b6ASFEW4T
         type: string
       shipping_method:
-        description: >
-          Additional information to describe the method of shipment (ex.
-          Standard, Ship by Weight, Custom Shipment). Can be used for live
-          quotes from certain shipping providers.
-
-          If different from `shipping_provider`, `shipping_method` should
-          correspond to `tracking_carrier`.
+        description: |
+          Additional information to describe the method of shipment (ex. Standard, Ship by Weight, Custom Shipment). Can be used for live quotes from certain shipping providers.
+          If different from `shipping_provider`, `shipping_method` should correspond to `tracking_carrier`.
         example: Ship by Weight
         type: string
       shipping_provider:
@@ -2089,23 +1796,14 @@ definitions:
       tracking_carrier:
         type: string
         title: Tracking Carrier
-        description: >-
+        description: |-
           Tracking carrier for the shipment.
-
-          Acceptable values include an empty string (`""`) or one of the valid
-          tracking-carrier values viewable
-          [here](https://docs.google.com/spreadsheets/d/1w9c_aECSCGyf-oOrvGeUniDl-ARGKemfZl0qSsav8D4/pubhtml?gid=0&single=true)
-          and downloadable as a .CSV file
-          [here](https://docs.google.com/spreadsheets/d/1mTueEynfcEmwsU2y2Jd2MX-8GKwNZrmlRMBcIElg9aY/pub?gid=0&single=true&output=csv).
+          Acceptable values include an empty string (`""`) or one of the valid tracking-carrier values viewable [here](https://docs.google.com/spreadsheets/d/1w9c_aECSCGyf-oOrvGeUniDl-ARGKemfZl0qSsav8D4/pubhtml?gid=0&single=true) and downloadable as a .CSV file [here](https://docs.google.com/spreadsheets/d/1mTueEynfcEmwsU2y2Jd2MX-8GKwNZrmlRMBcIElg9aY/pub?gid=0&single=true&output=csv).
       comments:
         description: Comments the shipper wishes to add.
         type: string
       items:
-        description: >-
-          The items in the shipment. This object has the following members, all
-          integer: order_product_id (required), quantity (required), product_id
-          (read-only). A sample items value might be: [
-          {"order_product_id":16,"product_id": 0,"quantity":2} ]
+        description: 'The items in the shipment. This object has the following members, all integer: order_product_id (required), quantity (required), product_id (read-only). A sample items value might be: [ {"order_product_id":16,"product_id": 0,"quantity":2} ]'
         type: array
         items:
           type: object
@@ -2152,9 +1850,7 @@ definitions:
         type: string
       system_description:
         description: System description of the order status
-        example: >-
-          An incomplete order happens when a shopper reached the payment page,
-          but did not complete the transaction.
+        example: 'An incomplete order happens when a shopper reached the payment page, but did not complete the transaction.'
         type: string
   orderStatusCount:
     allOf:
@@ -2181,23 +1877,17 @@ definitions:
             type: integer
   order_Shared:
     title: order_Shared
-    description: >-
-      Order object used for POST requests. Products and Billing address only
-      required for POST operation.
+    description: Order properties used in `POST` and `PUT` request bodies.
     type: object
     properties:
       billing_address:
         $ref: '#/definitions/billingAddress_Full'
       subtotal_ex_tax:
-        description: >-
-          Override value for subtotal excluding tax. If specified, the field
-          `subtotal_inc_tax` is also required. (Float, Float-As-String, Integer)
+        description: 'Override value for subtotal excluding tax. If specified, the field `subtotal_inc_tax` is also required. (Float, Float-As-String, Integer)'
         example: '225.0000'
         type: string
       subtotal_inc_tax:
-        description: >-
-          Override value for subtotal including tax. If specified, the field
-          `subtotal_ex_tax` is also required. (Float, Float-As-String, Integer)
+        description: 'Override value for subtotal including tax. If specified, the field `subtotal_ex_tax` is also required. (Float, Float-As-String, Integer)'
         example: '225.0000'
         type: string
       base_shipping_cost:
@@ -2205,15 +1895,11 @@ definitions:
         example: '0.0000'
         type: string
       shipping_cost_ex_tax:
-        description: >-
-          The value of shipping cost, excluding tax. (Float, Float-As-String,
-          Integer)
+        description: 'The value of shipping cost, excluding tax. (Float, Float-As-String, Integer)'
         example: '0.0000'
         type: string
       shipping_cost_inc_tax:
-        description: >-
-          The value of shipping cost, including tax. (Float, Float-As-String,
-          Integer)
+        description: 'The value of shipping cost, including tax. (Float, Float-As-String, Integer)'
         example: '0.0000'
         type: string
       base_handling_cost:
@@ -2221,15 +1907,11 @@ definitions:
         example: '0.0000'
         type: string
       handling_cost_ex_tax:
-        description: >-
-          The value of the handling cost, excluding tax. (Float,
-          Float-As-String, Integer)
+        description: 'The value of the handling cost, excluding tax. (Float, Float-As-String, Integer)'
         example: '0.0000'
         type: string
       handling_cost_inc_tax:
-        description: >-
-          The value of the handling cost, including tax. (Float,
-          Float-As-String, Integer)
+        description: 'The value of the handling cost, including tax. (Float, Float-As-String, Integer)'
         example: 0
         type: string
       base_wrapping_cost:
@@ -2237,27 +1919,19 @@ definitions:
         example: 0
         type: string
       wrapping_cost_ex_tax:
-        description: >-
-          The value of the wrapping cost, excluding tax. (Float,
-          Float-As-String, Integer)
+        description: 'The value of the wrapping cost, excluding tax. (Float, Float-As-String, Integer)'
         example: '0.0000'
         type: string
       wrapping_cost_inc_tax:
-        description: >-
-          The value of the wrapping cost, including tax. (Float,
-          Float-As-String, Integer)
+        description: 'The value of the wrapping cost, including tax. (Float, Float-As-String, Integer)'
         example: '0.0000'
         type: string
       total_ex_tax:
-        description: >-
-          Override value for the total, excluding tax. If specified, the field
-          `total_inc_tax` is also required. (Float, Float-As-String, Integer)
+        description: 'Override value for the total, excluding tax. If specified, the field `total_inc_tax` is also required. (Float, Float-As-String, Integer)'
         example: '225.0000'
         type: string
       total_inc_tax:
-        description: >-
-          Override value for the total, including tax. If specified, the field
-          `total_ex_tax` is also required. (Float, Float-As-String, Integer)
+        description: 'Override value for the total, including tax. If specified, the field `total_ex_tax` is also required. (Float, Float-As-String, Integer)'
         example: '225.0000'
         type: string
       items_total:
@@ -2270,24 +1944,18 @@ definitions:
         type: number
       payment_method:
         type: string
-        description: >-
-          The payment method for this order. Can be one of the following:
-          `Manual`, `Credit Card`, `cash`, `Test Payment Gateway`, etc.
+        description: 'The payment method for this order. Can be one of the following: `Manual`, `Credit Card`, `cash`, `Test Payment Gateway`, etc.'
         enum:
           - Credit Card
           - Cash
           - Test Payment Gateway
           - Manual
       payment_provider_id:
-        description: >-
-          The external Transaction ID/Payment ID within this order's payment
-          provider (if a payment provider was used).
+        description: The external Transaction ID/Payment ID within this order's payment provider (if a payment provider was used).
         example: null
         type: string
       refunded_amount:
-        description: >-
-          The amount refunded from this transaction. (Float, Float-As-String,
-          Integer)
+        description: 'The amount refunded from this transaction. (Float, Float-As-String, Integer)'
         example: '0.0000'
         type: string
       order_is_digital:
@@ -2299,15 +1967,11 @@ definitions:
         example: 12.345.678.910
         type: string
       geoip_country:
-        description: >-
-          The full name of the country where the customer made the purchase,
-          based on the IP.
+        description: 'The full name of the country where the customer made the purchase, based on the IP.'
         example: United States
         type: string
       geoip_country_iso2:
-        description: >-
-          The country where the customer made the purchase, in ISO2 format,
-          based on the IP.
+        description: 'The country where the customer made the purchase, in ISO2 format, based on the IP.'
         example: US
         type: string
       staff_notes:
@@ -2315,44 +1979,27 @@ definitions:
         example: Send Saturday
         type: string
       customer_message:
-        description: >-
-          Message that the customer entered (number, optional) -o the `Order
-          Comments` box during checkout.
+        description: 'Message that the customer entered (number, optional) -o the `Order Comments` box during checkout.'
         example: Thank you
         type: string
       discount_amount:
-        description: >-
-          Amount of discount for this transaction. (Float, Float-As-String,
-          Integer)
+        description: 'Amount of discount for this transaction. (Float, Float-As-String, Integer)'
         example: '0.0000'
         type: string
       is_deleted:
-        description: >-
-          Indicates whether the order was deleted (archived). Set to to true, to
-          archive an order.
+        description: 'Indicates whether the order was deleted (archived). Set to to true, to archive an order.'
         example: false
         type: boolean
       ebay_order_id:
-        description: >-
-          If the order was placed through eBay, the eBay order number will be
-          included. Otherwise, the value will be `0`.
+        description: 'If the order was placed through eBay, the eBay order number will be included. Otherwise, the value will be `0`.'
         example: '0'
         type: string
       external_source:
-        description: >-
-          For orders submitted or modified via the API, using a PUT or POST
-          operation, you can optionally pass in a value identifying the system
-          used to generate the order. For example: `POS`. Otherwise, the value
-          will be null.
+        description: 'For orders submitted or modified via the API, using a PUT or POST operation, you can optionally pass in a value identifying the system used to generate the order. For example: `POS`. Otherwise, the value will be null.'
         example: 'null'
         type: string
       external_id:
-        description: >-
-          ID of the order in another system. For example, the Amazon Order ID if
-          this is an Amazon order.This field can be updated in a /POST, but
-          using a /PUT to update the order will return a 400 error. The field
-          'external_id' cannot be written to. Please remove it from your request
-          before trying again. It can not be overwritten once set.
+        description: 'ID of the order in another system. For example, the Amazon Order ID if this is an Amazon order.This field can be updated in a POST, but using a PUT to update the order will return a 400 error. The field ''external_id'' cannot be written to. Please remove it from your request before trying again. It can not be overwritten once set.'
         example: null
         type: integer
       channel_id:
@@ -2361,33 +2008,23 @@ definitions:
         description: Shows where the order originated. The channel_id will default to 1.
       tax_provider_id:
         type: string
-        description: >+
+        description: |
           BasicTaxProvider - Tax is set to manual.
 
+          AvaTaxProvider - This is for when the tax provider has been set to automatic and the order was NOT created by the API. Used for Avalara.
 
-          AvaTaxProvider - This is for when the tax provider has been set to
-          automatic and the order was NOT created by the API. Used for Avalara.
-
-
-          "" (blank) - When the tax provider is unknown. This includes legacy
-          orders and orders previously created via API.
-
+          "" (blank) - When the tax provider is unknown. This includes legacy orders and orders previously created via API.
           This can be set when creating an order using a POST.
-
         enum:
           - BasicTaxProvider
           - AvaTaxProvider
           - ''
       date_created:
         type: string
-        description: >-
-          The date this order was created. If not specified, will default to the
-          current time. The date should be in RFC 2822 format.
+        description: 'The date this order was created. If not specified, will default to the current time. The date should be in RFC 2822 format.'
       default_currency_code:
         type: string
-        description: >-
-          The currency code of the default currency for this type of
-          transaction; writeable when multi-currency enabled.
+        description: The currency code of the default currency for this type of transaction; writeable when multi-currency enabled.
   billingAddress_Base:
     type: object
     title: billingAddress_Base
@@ -2508,108 +2145,67 @@ definitions:
         example: 118
       date_modified:
         type: string
-        description: >-
-          A read-only value representing the last modification of the order. Do
-          not attempt to modify or set this value in a POST or PUT operation.
-          RFC-2822
+        description: A read-only value representing the last modification of the order. Do not attempt to modify or set this value in a POST or PUT operation. RFC-2822
       date_shipped:
         type: string
-        description: >-
-          A read-only value representing the date of shipment. Do not attempt to
-          modify or set this value in a POST or PUT operation. RFC-2822
+        description: A read-only value representing the date of shipment. Do not attempt to modify or set this value in a POST or PUT operation. RFC-2822
       cart_id:
-        description: >-
-          The cart ID from which this order originated, if applicable.
-          Correlates with the Cart API. This is a READ-ONLY field; do not set or
-          modify its value in a POST or PUT request.
+        description: 'The cart ID from which this order originated, if applicable. Correlates with the Cart API. This is a READ-ONLY field; do not set or modify its value in a POST or PUT request.'
         example: a8458391-ef68-4fe5-9ec1-442e6a767364
         type: string
       status:
         type: string
-        description: >-
-          The status will include one of the (string, optiona) - values defined
-          under Order Statuses. This value is read-only. Do not attempt to
-          modify or set this value in a POST or PUT operation.
+        description: 'The status will include one of the (string, optiona) - values defined under Order Statuses. This value is read-only. Do not attempt to modify or set this value in a POST or PUT operation.'
         example: Awaiting Fulfillment
       subtotal_tax:
-        description: >-
-          A read-only value. Do not attempt to set or modify this value in a
-          POST or PUT operation. (Float, Float-As-String, Integer)
+        description: 'A read-only value. Do not attempt to set or modify this value in a POST or PUT operation. (Float, Float-As-String, Integer)'
         example: '0.0000'
         type: string
       shipping_cost_tax:
-        description: >-
-          A read-only value. Do not attempt to modify or set this value in a
-          POST or PUT operation. (Float, Float-As-String, Integer)
+        description: 'A read-only value. Do not attempt to modify or set this value in a POST or PUT operation. (Float, Float-As-String, Integer)'
         example: '0.0000'
         type: string
       shipping_cost_tax_class_id:
-        description: >-
-          Shipping-cost tax class. A read-only value. Do not attempt to modify
-          or set this value in a POST or PUT operation. (NOTE: Value ignored if
-          automatic tax is enabled on the store.)
+        description: 'Shipping-cost tax class. A read-only value. Do not attempt to modify or set this value in a POST or PUT operation. (NOTE: Value ignored if automatic tax is enabled on the store.)'
         example: 2
         type: integer
       handling_cost_tax:
-        description: >-
-          A read-only value. Do not attempt to modify or set this value in a
-          POST or PUT operation. (Float, Float-As-String, Integer)
+        description: 'A read-only value. Do not attempt to modify or set this value in a POST or PUT operation. (Float, Float-As-String, Integer)'
         example: '0.0000'
         type: string
       handling_cost_tax_class_id:
-        description: >-
-          A read-only value. Do not attempt to set or modify this value in a
-          POST or PUT operation. (NOTE: Value ignored if automatic tax is
-          enabled on the store.)
+        description: 'A read-only value. Do not attempt to set or modify this value in a POST or PUT operation. (NOTE: Value ignored if automatic tax is enabled on the store.)'
         example: 2
         type: integer
       wrapping_cost_tax:
-        description: >-
-          A read-only value. Do not attempt to modify or set this value in a
-          POST or PUT operation. (Float, Float-As-String, Integer)
+        description: 'A read-only value. Do not attempt to modify or set this value in a POST or PUT operation. (Float, Float-As-String, Integer)'
         example: '0.0000'
         type: string
       wrapping_cost_tax_class_id:
-        description: >-
-          A read-only value. Do not attempt to set or modify this value in a
-          POST or PUT operation. (NOTE: Value ignored if automatic tax is
-          enabled on the store.)
+        description: 'A read-only value. Do not attempt to set or modify this value in a POST or PUT operation. (NOTE: Value ignored if automatic tax is enabled on the store.)'
         example: 3
         type: integer
       payment_status:
-        description: >-
-          A read-only value. Do not attempt to set or modify this value in a
-          POST or PUT operation.
+        description: A read-only value. Do not attempt to set or modify this value in a POST or PUT operation.
         type: string
       store_credit_amount:
-        description: >-
-          Represents the store credit that the shopper has redeemed on this
-          individual order. This is a read-only value. Do not pass in a POST or
-          PUT. (Float, Float-As-String, Integer)
+        description: 'Represents the store credit that the shopper has redeemed on this individual order. This is a read-only value. Do not pass in a POST or PUT. (Float, Float-As-String, Integer)'
         example: '0.0000'
         type: string
       gift_certificate_amount:
-        description: >-
-          A read-only value. Do not pass in a POST or PUT. (Float,
-          Float-As-String, Integer)
+        description: 'A read-only value. Do not pass in a POST or PUT. (Float, Float-As-String, Integer)'
         example: '0.0000'
         type: string
       currency_id:
-        description: >-
-          The ID of the currency being used in this transaction. A read-only
-          value. Do not pass in a POST or PUT.
+        description: The ID of the currency being used in this transaction. A read-only value. Do not pass in a POST or PUT.
         example: 1
         type: integer
       currency_code:
-        description: >-
-          The currency code of the currency being used in this transaction. A
-          read-only value. Do not pass in a POST or PUT.
+        description: The currency code of the currency being used in this transaction. A read-only value. Do not pass in a POST or PUT.
         example: USD
         type: string
       currency_exchange_rate:
-        description: >-
-          A read-only value. Do not pass in a POST or PUT. (Float,
-          Float-As-String, Integer)
+        description: 'A read-only value. Do not pass in a POST or PUT. (Float, Float-As-String, Integer)'
         example: '1.0000000000'
         type: string
       default_currency_id:
@@ -2617,28 +2213,18 @@ definitions:
         example: 1
         type: integer
       coupon_discount:
-        description: >-
-          A read-only value. Do not pass in a POST or PUT. (Float,
-          Float-As-String, Integer)
+        description: 'A read-only value. Do not pass in a POST or PUT. (Float, Float-As-String, Integer)'
         example: '5.0000'
         type: string
       shipping_address_count:
         type: number
-        description: >-
-          The number of shipping addresses associated with this transaction. A
-          read-only value. Do not pass in a POST or PUT.
+        description: The number of shipping addresses associated with this transaction. A read-only value. Do not pass in a POST or PUT.
       is_email_opt_in:
-        description: >-
-          Indicates whether the shopper has selected an opt-in check box (on the
-          checkout page) to receive emails. A read-only value. Do not pass in a
-          POST or PUT.
+        description: Indicates whether the shopper has selected an opt-in check box (on the checkout page) to receive emails. A read-only value. Do not pass in a POST or PUT.
         example: false
         type: boolean
       order_source:
-        description: >-
-          Orders submitted via the store's website will include a `www` value.
-          Orders submitted via the API will be set to `external`. A read-only
-          value. Do not pass in a POST or PUT.
+        description: Orders submitted via the store's website will include a `www` value. Orders submitted via the API will be set to `external`. A read-only value. Do not pass in a POST or PUT.
         example: www
         type: string
       products:
@@ -2649,21 +2235,18 @@ definitions:
         $ref: '#/definitions/coupons_Resource'
   order_Req:
     title: order_Req
-    description: >-
-      Order properties used in `POST` and `PUT` request bodies; **required** :
-      `products`, `billing_address`.
+    description: Order properties used in `POST` and `PUT` request bodies.
     allOf:
       - $ref: '#/definitions/order_ReqOnly'
       - $ref: '#/definitions/order_Shared'
   order_ReqOnly:
     type: object
     title: order_ReqOnly
-    description: >-
-      Order properties that different in request bodies than they are in request
-      bodies.
+    description: ''
     properties:
       products:
         type: array
+        description: Required to create an order.
         items:
           anyOf:
             - $ref: '#/definitions/orderProduct_Write'
@@ -2685,7 +2268,7 @@ definitions:
                   example: BLU-SMALL
                 upc:
                   type: string
-                  example: 01234567890
+                  example: 1234567890
               required:
                 - name
                 - quantity
@@ -2696,8 +2279,6 @@ definitions:
         type: array
         items:
           $ref: '#/definitions/shippingAddress_Base'
-    required:
-      - products
 tags:
   - name: Orders
   - name: Order Coupons
@@ -2713,47 +2294,29 @@ securityDefinitions:
     type: apiKey
     name: X-Auth-Token
     in: header
-    description: >-
+    description: |-
       ### OAuth Scopes
-
       |  **UI Name** | **Permission** | **Parameter** |
-
       | --- | --- | --- |
-
       |  Orders | modify | `store_v2_orders` |
-
       |  Orders | read-only | `store_v2_orders_read_only` |
-
 
       ### Headers
 
-
       |Header|Parameter|Description|
-
       |-|-|-|
-
-      |`X-Auth-Token`|`access_token `|Obtained by creating an API account or
-      installing an app in a BigCommerce control panel.|
-
+      |`X-Auth-Token`|`access_token `|Obtained by creating an API account or installing an app in a BigCommerce control panel.|
 
       ### Example
 
-
       ```http
-
       GET /stores/{$$.env.store_hash}/v3/catalog/summary
-
       host: api.bigcommerce.com
-
       Content-Type: application/json
-
       X-Auth-Token: {access_token}
-
       ```
 
-
-      * For more information on Authenticating BigCommerce APIs, see:
-      [Authentication](https://developer.bigcommerce.com/api-docs/getting-started/authentication).
+      * For more information on Authenticating BigCommerce APIs, see: [Authentication](https://developer.bigcommerce.com/api-docs/getting-started/authentication).
 security:
   - X-Auth-Token: []
   - X-Auth-Client: []
@@ -2793,16 +2356,12 @@ parameters:
     name: status_id
     in: query
     type: integer
-    description: >-
-      The staus ID of the order. You can get the status id from the `/orders`
-      endpoints.
+    description: The staus ID of the order. You can get the status id from the `/orders` endpoints.
   status_id_path:
     name: status_id
     in: path
     type: integer
-    description: >-
-      The staus ID of the order. You can get the status id from the `/orders`
-      endpoints.
+    description: The staus ID of the order. You can get the status id from the `/orders` endpoints.
     format: int32
     required: true
   cart_id:
@@ -2880,10 +2439,7 @@ parameters:
     in: query
     type: string
     name: sort
-    description: >-
-      Field and direction to sort orders. To specify the direction, add `:asc`
-      or `:desc` to the end of the query parameter. E.g.
-      `sort=date_created:desc`.
+    description: 'Field and direction to sort orders. To specify the direction, add `:asc` or `:desc` to the end of the query parameter. E.g. `sort=date_created:desc`.'
     enum:
       - id
       - customer_id
@@ -2916,9 +2472,7 @@ parameters:
     name: is_flagged
     in: query
     type: boolean
-    description: >-
-      If the message is
-      [flagged](https://support.bigcommerce.com/s/article/Communicating-with-Customers#Messages).
+    description: 'If the message is [flagged](https://support.bigcommerce.com/s/article/Communicating-with-Customers#Messages).'
   order_id_path:
     in: path
     type: integer
@@ -2971,9 +2525,7 @@ responses:
           name: Incomplete
           system_label: Incomplete
           custom_label: Incomplete - Testing
-          system_description: >-
-            An incomplete order happens when a shopper reached the payment page,
-            but did not complete the transaction.
+          system_description: 'An incomplete order happens when a shopper reached the payment page, but did not complete the transaction.'
           order: 0
         - id: 1
           name: Pending
@@ -2985,17 +2537,13 @@ responses:
           name: Shipped
           system_label: Shipped
           custom_label: Shipped
-          system_description: >-
-            Order has been shipped, but receipt has not been confirmed; seller
-            has used the Ship Items action.
+          system_description: 'Order has been shipped, but receipt has not been confirmed; seller has used the Ship Items action.'
           order: 8
         - id: 3
           name: Partially Shipped
           system_label: Partially Shipped
           custom_label: Partially Shipped
-          system_description: >-
-            Only some items in the order have been shipped, due to some products
-            being pre-order only or other reasons.
+          system_description: 'Only some items in the order have been shipped, due to some products being pre-order only or other reasons.'
           order: 6
         - id: 4
           name: Refunded
@@ -3007,57 +2555,43 @@ responses:
           name: Cancelled
           system_label: Cancelled
           custom_label: Cancelled
-          system_description: >-
-            Seller has cancelled an order, due to a stock inconsistency or other
-            reasons.
+          system_description: 'Seller has cancelled an order, due to a stock inconsistency or other reasons.'
           order: 9
         - id: 6
           name: Declined
           system_label: Declined
           custom_label: Declined
-          system_description: >-
-            Seller has marked the order as declined for lack of manual payment,
-            or other reasons.
+          system_description: 'Seller has marked the order as declined for lack of manual payment, or other reasons.'
           order: 10
         - id: 7
           name: Awaiting Payment
           system_label: Awaiting Payment
           custom_label: Awaiting Payment
-          system_description: >-
-            Customer has completed checkout process, but payment has yet to be
-            confirmed.
+          system_description: 'Customer has completed checkout process, but payment has yet to be confirmed.'
           order: 2
         - id: 8
           name: Awaiting Pickup
           system_label: Awaiting Pickup
           custom_label: Awaiting Pickup
-          system_description: >-
-            Order has been pulled, and is awaiting customer pickup from a
-            seller-specified location.
+          system_description: 'Order has been pulled, and is awaiting customer pickup from a seller-specified location.'
           order: 5
         - id: 9
           name: Awaiting Shipment
           system_label: Awaiting Shipment
           custom_label: Awaiting Shipment
-          system_description: >-
-            Order has been pulled and packaged, and is awaiting collection from
-            a shipping provider.
+          system_description: 'Order has been pulled and packaged, and is awaiting collection from a shipping provider.'
           order: 4
         - id: 10
           name: Completed
           system_label: Completed
           custom_label: Completed - Testing
-          system_description: >-
-            Client has paid for their digital product and their file(s) are
-            available for download.
+          system_description: Client has paid for their digital product and their file(s) are available for download.
           order: 7
         - id: 11
           name: Awaiting Fulfillment
           system_label: Awaiting Fulfillment
           custom_label: Awaiting Fulfillment
-          system_description: >-
-            Customer has completed the checkout process and payment has been
-            confirmed.
+          system_description: Customer has completed the checkout process and payment has been confirmed.
           order: 3
         - id: 12
           name: Manual Verification Required
@@ -3069,9 +2603,7 @@ responses:
           name: Disputed
           system_label: Disputed
           custom_label: Disputed
-          system_description: >-
-            Customer has initiated a dispute resolution process for the PayPal
-            transaction that paid for the order.
+          system_description: Customer has initiated a dispute resolution process for the PayPal transaction that paid for the order.
           order: 12
         - id: 14
           name: Partially Refunded
@@ -3089,9 +2621,7 @@ responses:
         name: Awaiting Fulfillment
         system_label: Awaiting Fulfillment
         custom_label: Awaiting Fulfillment
-        system_description: >-
-          Customer has completed the checkout process and payment has been
-          confirmed.
+        system_description: Customer has completed the checkout process and payment has been confirmed.
         order: 3
   orderCollection_Resp:
     description: ''
@@ -3174,16 +2704,13 @@ responses:
           channel_id: 1
           external_source: {}
           products:
-            url: >-
-              https://api.bigcommerce.com/stores/{$$.env.store_hash}/v2/orders/100/products
+            url: 'https://api.bigcommerce.com/stores/{$$.env.store_hash}/v2/orders/100/products'
             resource: /orders/100/products
           shipping_addresses:
-            url: >-
-              https://api.bigcommerce.com/stores/{$$.env.store_hash}/v2/orders/100/shippingaddresses
+            url: 'https://api.bigcommerce.com/stores/{$$.env.store_hash}/v2/orders/100/shippingaddresses'
             resource: /orders/100/shippingaddresses
           coupons:
-            url: >-
-              https://api.bigcommerce.com/stores/{$$.env.store_hash}/v2/orders/100/coupons
+            url: 'https://api.bigcommerce.com/stores/{$$.env.store_hash}/v2/orders/100/coupons'
             resource: /orders/100/coupons
           external_id: {}
           external_merchant_id: {}
@@ -3264,16 +2791,13 @@ responses:
           channel_id: 1
           external_source: {}
           products:
-            url: >-
-              https://api.bigcommerce.com/stores/{$$.env.store_hash}/v2/orders/104/products
+            url: 'https://api.bigcommerce.com/stores/{$$.env.store_hash}/v2/orders/104/products'
             resource: /orders/104/products
           shipping_addresses:
-            url: >-
-              https://api.bigcommerce.com/stores/{$$.env.store_hash}/v2/orders/104/shippingaddresses
+            url: 'https://api.bigcommerce.com/stores/{$$.env.store_hash}/v2/orders/104/shippingaddresses'
             resource: /orders/104/shippingaddresses
           coupons:
-            url: >-
-              https://api.bigcommerce.com/stores/{$$.env.store_hash}/v2/orders/104/coupons
+            url: 'https://api.bigcommerce.com/stores/{$$.env.store_hash}/v2/orders/104/coupons'
             resource: /orders/104/coupons
           external_id: {}
           external_merchant_id: {}
@@ -3354,16 +2878,13 @@ responses:
           channel_id: 1
           external_source: {}
           products:
-            url: >-
-              https://api.bigcommerce.com/stores/{$$.env.store_hash}/v2/orders/105/products
+            url: 'https://api.bigcommerce.com/stores/{$$.env.store_hash}/v2/orders/105/products'
             resource: /orders/105/products
           shipping_addresses:
-            url: >-
-              https://api.bigcommerce.com/stores/{$$.env.store_hash}/v2/orders/105/shippingaddresses
+            url: 'https://api.bigcommerce.com/stores/{$$.env.store_hash}/v2/orders/105/shippingaddresses'
             resource: /orders/105/shippingaddresses
           coupons:
-            url: >-
-              https://api.bigcommerce.com/stores/{$$.env.store_hash}/v2/orders/105/coupons
+            url: 'https://api.bigcommerce.com/stores/{$$.env.store_hash}/v2/orders/105/coupons'
             resource: /orders/105/coupons
           external_id: {}
           external_merchant_id: {}
@@ -3444,16 +2965,13 @@ responses:
           channel_id: 1
           external_source: {}
           products:
-            url: >-
-              https://api.bigcommerce.com/stores/{$$.env.store_hash}/v2/orders/107/products
+            url: 'https://api.bigcommerce.com/stores/{$$.env.store_hash}/v2/orders/107/products'
             resource: /orders/107/products
           shipping_addresses:
-            url: >-
-              https://api.bigcommerce.com/stores/{$$.env.store_hash}/v2/orders/107/shippingaddresses
+            url: 'https://api.bigcommerce.com/stores/{$$.env.store_hash}/v2/orders/107/shippingaddresses'
             resource: /orders/107/shippingaddresses
           coupons:
-            url: >-
-              https://api.bigcommerce.com/stores/{$$.env.store_hash}/v2/orders/107/coupons
+            url: 'https://api.bigcommerce.com/stores/{$$.env.store_hash}/v2/orders/107/coupons'
             resource: /orders/107/coupons
           external_id: {}
           external_merchant_id: {}
@@ -3534,16 +3052,13 @@ responses:
           channel_id: 1
           external_source: {}
           products:
-            url: >-
-              https://api.bigcommerce.com/stores/{$$.env.store_hash}/v2/orders/110/products
+            url: 'https://api.bigcommerce.com/stores/{$$.env.store_hash}/v2/orders/110/products'
             resource: /orders/110/products
           shipping_addresses:
-            url: >-
-              https://api.bigcommerce.com/stores/{$$.env.store_hash}/v2/orders/110/shippingaddresses
+            url: 'https://api.bigcommerce.com/stores/{$$.env.store_hash}/v2/orders/110/shippingaddresses'
             resource: /orders/110/shippingaddresses
           coupons:
-            url: >-
-              https://api.bigcommerce.com/stores/{$$.env.store_hash}/v2/orders/110/coupons
+            url: 'https://api.bigcommerce.com/stores/{$$.env.store_hash}/v2/orders/110/coupons'
             resource: /orders/110/coupons
           external_id: {}
           external_merchant_id: {}
@@ -3563,9 +3078,7 @@ responses:
             name: Incomplete
             system_label: Incomplete
             custom_label: Incomplete - Testing
-            system_description: >-
-              An incomplete order happens when a shopper reached the payment
-              page, but did not complete the transaction.
+            system_description: 'An incomplete order happens when a shopper reached the payment page, but did not complete the transaction.'
             count: 15
             sort_order: 0
           - id: 1
@@ -3579,81 +3092,63 @@ responses:
             name: Awaiting Payment
             system_label: Awaiting Payment
             custom_label: Awaiting Payment
-            system_description: >-
-              Customer has completed checkout process, but payment has yet to be
-              confirmed.
+            system_description: 'Customer has completed checkout process, but payment has yet to be confirmed.'
             count: 48
             sort_order: 2
           - id: 11
             name: Awaiting Fulfillment
             system_label: Awaiting Fulfillment
             custom_label: Awaiting Fulfillment
-            system_description: >-
-              Customer has completed the checkout process and payment has been
-              confirmed.
+            system_description: Customer has completed the checkout process and payment has been confirmed.
             count: 31
             sort_order: 3
           - id: 9
             name: Awaiting Shipment
             system_label: Awaiting Shipment
             custom_label: Awaiting Shipment
-            system_description: >-
-              Order has been pulled and packaged, and is awaiting collection
-              from a shipping provider.
+            system_description: 'Order has been pulled and packaged, and is awaiting collection from a shipping provider.'
             count: 1
             sort_order: 4
           - id: 8
             name: Awaiting Pickup
             system_label: Awaiting Pickup
             custom_label: Awaiting Pickup
-            system_description: >-
-              Order has been pulled, and is awaiting customer pickup from a
-              seller-specified location.
+            system_description: 'Order has been pulled, and is awaiting customer pickup from a seller-specified location.'
             count: 0
             sort_order: 5
           - id: 3
             name: Partially Shipped
             system_label: Partially Shipped
             custom_label: Partially Shipped
-            system_description: >-
-              Only some items in the order have been shipped, due to some
-              products being pre-order only or other reasons.
+            system_description: 'Only some items in the order have been shipped, due to some products being pre-order only or other reasons.'
             count: 1
             sort_order: 6
           - id: 10
             name: Completed
             system_label: Completed
             custom_label: Completed - Testing
-            system_description: >-
-              Client has paid for their digital product and their file(s) are
-              available for download.
+            system_description: Client has paid for their digital product and their file(s) are available for download.
             count: 11
             sort_order: 7
           - id: 2
             name: Shipped
             system_label: Shipped
             custom_label: Shipped
-            system_description: >-
-              Order has been shipped, but receipt has not been confirmed; seller
-              has used the Ship Items action.
+            system_description: 'Order has been shipped, but receipt has not been confirmed; seller has used the Ship Items action.'
             count: 14
             sort_order: 8
           - id: 5
             name: Cancelled
             system_label: Cancelled
             custom_label: Cancelled
-            system_description: >-
-              Seller has cancelled an order, due to a stock inconsistency or
-              other reasons.
+            system_description: 'Seller has cancelled an order, due to a stock inconsistency or other reasons.'
             count: 5
             sort_order: 9
           - id: 6
             name: Declined
             system_label: Declined
             custom_label: Declined
-            system_description: >-
-              Seller has marked the order as declined for lack of manual
-              payment, or other reasons.
+            system_description: 'Seller has marked the order as declined for lack of manual payment, or other reasons.'
             count: 0
             sort_order: 10
           - id: 4
@@ -3667,9 +3162,7 @@ responses:
             name: Disputed
             system_label: Disputed
             custom_label: Disputed
-            system_description: >-
-              Customer has initiated a dispute resolution process for the PayPal
-              transaction that paid for the order.
+            system_description: Customer has initiated a dispute resolution process for the PayPal transaction that paid for the order.
             count: 0
             sort_order: 12
           - id: 12
@@ -3689,9 +3182,7 @@ responses:
         count: 133
     description: Order Countr response collection.
   order_Resp:
-    description: >-
-      Multiple Items -- An order that contains mulitple products. The store it
-      set to display prices excluding taxes. The tax rate is 8.95%.
+    description: Multiple Items -- An order that contains mulitple products. The store it set to display prices excluding taxes. The tax rate is 8.95%.
     schema:
       $ref: '#/definitions/order_Resp'
     examples:
@@ -3771,16 +3262,13 @@ responses:
         channel_id: 1
         external_source: null
         products:
-          url: >-
-            https://api.bigcommerce.com/stores/{$$.env.store_hash}/v2/orders/218/products
+          url: 'https://api.bigcommerce.com/stores/{$$.env.store_hash}/v2/orders/218/products'
           resource: /orders/218/products
         shipping_addresses:
-          url: >-
-            https://api.bigcommerce.com/stores/{$$.env.store_hash}/v2/orders/218/shippingaddresses
+          url: 'https://api.bigcommerce.com/stores/{$$.env.store_hash}/v2/orders/218/shippingaddresses'
           resource: /orders/218/shippingaddresses
         coupons:
-          url: >-
-            https://api.bigcommerce.com/stores/{$$.env.store_hash}/v2/orders/218/coupons
+          url: 'https://api.bigcommerce.com/stores/{$$.env.store_hash}/v2/orders/218/coupons'
           resource: /orders/218/coupons
         external_id: null
         external_merchant_id: null
@@ -3933,7 +3421,7 @@ responses:
           order_address_id: 51
           name: Fog Linen Chambray Towel - Beige Stripe
           sku: S-ORAN
-          upc: 01234567891112
+          upc: 1234567891112
           type: physical
           base_price: '55.9900'
           price_ex_tax: '55.9900'
@@ -4332,7 +3820,7 @@ responses:
         order_address_id: 81
         name: Dustpan & Brush
         sku: DUST1
-        upc: 01234567891112
+        upc: 1234567891112
         type: physical
         base_price: '31.9500'
         price_ex_tax: '31.9500'
@@ -4727,8 +4215,7 @@ responses:
           shipping_zone_id: 1
           shipping_zone_name: United States -1
           shipping_quotes:
-            url: >-
-              https://api.bigcommerce.com/stores/{$$.env.store_hash}/v2/orders/229/shippingaddresses/132/shippingquotes
+            url: 'https://api.bigcommerce.com/stores/{$$.env.store_hash}/v2/orders/229/shippingaddresses/132/shippingquotes'
             resource: /orders/229/shippingaddresses/132/shippingquotes
           form_fields: []
         - id: 133
@@ -4761,8 +4248,7 @@ responses:
           shipping_zone_id: 1
           shipping_zone_name: United States -1
           shipping_quotes:
-            url: >-
-              https://api.bigcommerce.com/stores/{$$.env.store_hash}/v2/orders/229/shippingaddresses/133/shippingquotes
+            url: 'https://api.bigcommerce.com/stores/{$$.env.store_hash}/v2/orders/229/shippingaddresses/133/shippingquotes'
             resource: /orders/229/shippingaddresses/133/shippingquotes
           form_fields: []
   orderShippingAddress_Resp:
@@ -4801,8 +4287,7 @@ responses:
         shipping_zone_id: 1
         shipping_zone_name: United States
         shipping_quotes:
-          url: >-
-            https://api.bigcommerce.com/stores/{$$.env.store_hash}/v2/orders/140/shippingaddresses/42/shippingquotes
+          url: 'https://api.bigcommerce.com/stores/{$$.env.store_hash}/v2/orders/140/shippingaddresses/42/shippingquotes'
           resource: /orders/140/shippingaddresses/42/shippingquotes
         form_fields:
           - name: Wholesale ID
@@ -4953,16 +4438,13 @@ responses:
         order_source: www
         external_source: {}
         products:
-          url: >-
-            https://api.bigcommerce.com/stores/{$$.env.store_hash}/v2/orders/113/products
+          url: 'https://api.bigcommerce.com/stores/{$$.env.store_hash}/v2/orders/113/products'
           resource: /orders/113/products
         shipping_addresses:
-          url: >-
-            https://api.bigcommerce.com/stores/{$$.env.store_hash}/v2/orders/113/shippingaddresses
+          url: 'https://api.bigcommerce.com/stores/{$$.env.store_hash}/v2/orders/113/shippingaddresses'
           resource: /orders/113/shippingaddresses
         coupons:
-          url: >-
-            https://api.bigcommerce.com/stores/{$$.env.store_hash}/v2/orders/113/coupons
+          url: 'https://api.bigcommerce.com/stores/{$$.env.store_hash}/v2/orders/113/coupons'
           resource: /orders/113/coupons
         external_id: {}
         external_merchant_id: {}
@@ -4974,181 +4456,116 @@ responses:
           example: 118
           type: integer
         customer_id:
-          description: >-
-            The ID of the customer placing the order; or 0 if it was a guest
-            order.
+          description: The ID of the customer placing the order; or 0 if it was a guest order.
           example: 6
           type: number
         date_created:
           type: string
-          description: >-
-            The date this order was created. If not specified, will default to
-            the current time. The date should be in RFC 2822 format, e.g.: Tue,
-            20 Nov 2012 00:00:00 +0000
+          description: 'The date this order was created. If not specified, will default to the current time. The date should be in RFC 2822 format, e.g.: Tue, 20 Nov 2012 00:00:00 +0000'
         date_modified:
           type: string
-          description: >-
-            A read-only value representing the last modification of the order.
-            Do not attempt to modify or set this value in a POST or PUT
-            operation. RFC-2822
+          description: A read-only value representing the last modification of the order. Do not attempt to modify or set this value in a POST or PUT operation. RFC-2822
         date_shipped:
           type: string
-          description: >-
-            A read-only value representing the date of shipment. Do not attempt
-            to modify or set this value in a POST or PUT operation. RFC-2822
+          description: A read-only value representing the date of shipment. Do not attempt to modify or set this value in a POST or PUT operation. RFC-2822
         status_id:
           description: The status ID of the order.
           example: 11
           type: integer
         cart_id:
-          description: >-
-            The cart ID from which this order originated, if applicable.
-            Correlates with the Cart API. This is a READ-ONLY field; do not set
-            or modify its value in a POST or PUT request.
+          description: 'The cart ID from which this order originated, if applicable. Correlates with the Cart API. This is a READ-ONLY field; do not set or modify its value in a POST or PUT request.'
           example: a8458391-ef68-4fe5-9ec1-442e6a767364
           type: string
         status:
-          description: >-
-            The status will include one of the (string, optiona) - values
-            defined under Order Statuses. This value is read-only. Do not
-            attempt to modify or set this value in a POST or PUT operation.
+          description: 'The status will include one of the (string, optiona) - values defined under Order Statuses. This value is read-only. Do not attempt to modify or set this value in a POST or PUT operation.'
           example: Awaiting Fulfillment
           type: string
         custom_status:
-          description: >-
-            Contains the same (string, optiona) - value as the Order Statuses
-            object's `custom_label` property.
+          description: 'Contains the same (string, optiona) - value as the Order Statuses object''s `custom_label` property.'
           example: Awaiting Fulfillment
           type: string
         subtotal_ex_tax:
-          description: >-
-            Override value for subtotal excluding tax. If specified, the field
-            `subtotal_inc_tax` is also required. (Float, Float-As-String,
-            Integer)
+          description: 'Override value for subtotal excluding tax. If specified, the field `subtotal_inc_tax` is also required. (Float, Float-As-String, Integer)'
           example: '225.0000'
           type: string
         subtotal_inc_tax:
-          description: >-
-            Override value for subtotal including tax. If specified, the field
-            `subtotal_ex_tax` is also required. (Float, Float-As-String,
-            Integer)
+          description: 'Override value for subtotal including tax. If specified, the field `subtotal_ex_tax` is also required. (Float, Float-As-String, Integer)'
           example: '225.0000'
           type: string
         subtotal_tax:
-          description: >-
-            A read-only value. Do not attempt to set or modify this value in a
-            POST or PUT operation. (Float, Float-As-String, Integer)
+          description: 'A read-only value. Do not attempt to set or modify this value in a POST or PUT operation. (Float, Float-As-String, Integer)'
           example: '0.0000'
           type: string
         base_shipping_cost:
-          description: >-
-            The value of the base shipping cost. (Float, Float-As-String,
-            Integer)
+          description: 'The value of the base shipping cost. (Float, Float-As-String, Integer)'
           example: '0.0000'
           type: string
         shipping_cost_ex_tax:
-          description: >-
-            The value of shipping cost, excluding tax. (Float, Float-As-String,
-            Integer)
+          description: 'The value of shipping cost, excluding tax. (Float, Float-As-String, Integer)'
           example: '0.0000'
           type: string
         shipping_cost_inc_tax:
-          description: >-
-            The value of shipping cost, including tax. (Float, Float-As-String,
-            Integer)
+          description: 'The value of shipping cost, including tax. (Float, Float-As-String, Integer)'
           example: '0.0000'
           type: string
         shipping_cost_tax:
-          description: >-
-            A read-only value. Do not attempt to modify or set this value in a
-            POST or PUT operation. (Float, Float-As-String, Integer)
+          description: 'A read-only value. Do not attempt to modify or set this value in a POST or PUT operation. (Float, Float-As-String, Integer)'
           example: '0.0000'
           type: string
         shipping_cost_tax_class_id:
-          description: >-
-            Shipping-cost tax class. A read-only value. Do not attempt to modify
-            or set this value in a POST or PUT operation. (NOTE: Value ignored
-            if automatic tax is enabled on the store.)
+          description: 'Shipping-cost tax class. A read-only value. Do not attempt to modify or set this value in a POST or PUT operation. (NOTE: Value ignored if automatic tax is enabled on the store.)'
           example: 2
           type: integer
         base_handling_cost:
-          description: >-
-            The value of the base handling cost. (Float, Float-As-String,
-            Integer)
+          description: 'The value of the base handling cost. (Float, Float-As-String, Integer)'
           example: '0.0000'
           type: string
         handling_cost_ex_tax:
-          description: >-
-            The value of the handling cost, excluding tax. (Float,
-            Float-As-String, Integer)
+          description: 'The value of the handling cost, excluding tax. (Float, Float-As-String, Integer)'
           example: '0.0000'
           type: string
         handling_cost_inc_tax:
-          description: >-
-            The value of the handling cost, including tax. (Float,
-            Float-As-String, Integer)
+          description: 'The value of the handling cost, including tax. (Float, Float-As-String, Integer)'
           example: 0
           type: string
         handling_cost_tax:
-          description: >-
-            A read-only value. Do not attempt to modify or set this value in a
-            POST or PUT operation. (Float, Float-As-String, Integer)
+          description: 'A read-only value. Do not attempt to modify or set this value in a POST or PUT operation. (Float, Float-As-String, Integer)'
           example: '0.0000'
           type: string
         handling_cost_tax_class_id:
-          description: >-
-            A read-only value. Do not attempt to set or modify this value in a
-            POST or PUT operation. (NOTE: Value ignored if automatic tax is
-            enabled on the store.)
+          description: 'A read-only value. Do not attempt to set or modify this value in a POST or PUT operation. (NOTE: Value ignored if automatic tax is enabled on the store.)'
           example: 2
           type: integer
         base_wrapping_cost:
-          description: >-
-            The value of the base wrapping cost. (Float, Float-As-String,
-            Integer)
+          description: 'The value of the base wrapping cost. (Float, Float-As-String, Integer)'
           example: 0
           type: string
         wrapping_cost_ex_tax:
-          description: >-
-            The value of the wrapping cost, excluding tax. (Float,
-            Float-As-String, Integer)
+          description: 'The value of the wrapping cost, excluding tax. (Float, Float-As-String, Integer)'
           example: '0.0000'
           type: string
         wrapping_cost_inc_tax:
-          description: >-
-            The value of the wrapping cost, including tax. (Float,
-            Float-As-String, Integer)
+          description: 'The value of the wrapping cost, including tax. (Float, Float-As-String, Integer)'
           example: '0.0000'
           type: string
         wrapping_cost_tax:
-          description: >-
-            A read-only value. Do not attempt to modify or set this value in a
-            POST or PUT operation. (Float, Float-As-String, Integer)
+          description: 'A read-only value. Do not attempt to modify or set this value in a POST or PUT operation. (Float, Float-As-String, Integer)'
           example: '0.0000'
           type: string
         wrapping_cost_tax_class_id:
-          description: >-
-            A read-only value. Do not attempt to set or modify this value in a
-            POST or PUT operation. (NOTE: Value ignored if automatic tax is
-            enabled on the store.)
+          description: 'A read-only value. Do not attempt to set or modify this value in a POST or PUT operation. (NOTE: Value ignored if automatic tax is enabled on the store.)'
           example: 3
           type: integer
         total_ex_tax:
-          description: >-
-            Override value for the total, excluding tax. If specified, the field
-            `total_inc_tax` is also required. (Float, Float-As-String, Integer)
+          description: 'Override value for the total, excluding tax. If specified, the field `total_inc_tax` is also required. (Float, Float-As-String, Integer)'
           example: '225.0000'
           type: string
         total_inc_tax:
-          description: >-
-            Override value for the total, including tax. If specified, the field
-            `total_ex_tax` is also required. (Float, Float-As-String, Integer)
+          description: 'Override value for the total, including tax. If specified, the field `total_ex_tax` is also required. (Float, Float-As-String, Integer)'
           example: '225.0000'
           type: string
         total_tax:
-          description: >-
-            A read-only value. Do not attempt to set or modify this value in a
-            POST or PUT operation. (Float, Float-As-String, Integer)
+          description: 'A read-only value. Do not attempt to set or modify this value in a POST or PUT operation. (Float, Float-As-String, Integer)'
           example: '0.0000'
           type: string
         items_total:
@@ -5160,26 +4577,18 @@ responses:
           example: 0
           type: number
         payment_method:
-          description: >-
-            The payment method for this order. Can be one of the following:
-            `Manual`, `Credit Card`, `cash`, `Test Payment Gateway`, etc.
+          description: 'The payment method for this order. Can be one of the following: `Manual`, `Credit Card`, `cash`, `Test Payment Gateway`, etc.'
           example: Cash on Delivery
           type: string
         payment_provider_id:
-          description: >-
-            The external Transaction ID/Payment ID within this order's payment
-            provider (if a payment provider was used).
+          description: The external Transaction ID/Payment ID within this order's payment provider (if a payment provider was used).
           example: null
           type: string
         payment_status:
-          description: >-
-            A read-only value. Do not attempt to set or modify this value in a
-            POST or PUT operation.
+          description: A read-only value. Do not attempt to set or modify this value in a POST or PUT operation.
           type: string
         refunded_amount:
-          description: >-
-            The amount refunded from this transaction. (Float, Float-As-String,
-            Integer)
+          description: 'The amount refunded from this transaction. (Float, Float-As-String, Integer)'
           example: '0.0000'
           type: string
         order_is_digital:
@@ -5187,16 +4596,11 @@ responses:
           example: false
           type: boolean
         store_credit_amount:
-          description: >-
-            Represents the store credit that the shopper has redeemed on this
-            individual order. This is a read-only value. Do not pass in a POST
-            or PUT. (Float, Float-As-String, Integer)
+          description: 'Represents the store credit that the shopper has redeemed on this individual order. This is a read-only value. Do not pass in a POST or PUT. (Float, Float-As-String, Integer)'
           example: '0.0000'
           type: string
         gift_certificate_amount:
-          description: >-
-            A read-only value. Do not pass in a POST or PUT. (Float,
-            Float-As-String, Integer)
+          description: 'A read-only value. Do not pass in a POST or PUT. (Float, Float-As-String, Integer)'
           example: '0.0000'
           type: string
         ip_address:
@@ -5204,33 +4608,23 @@ responses:
           example: 12.345.678.910
           type: string
         geoip_country:
-          description: >-
-            The full name of the country where the customer made the purchase,
-            based on the IP.
+          description: 'The full name of the country where the customer made the purchase, based on the IP.'
           example: United States
           type: string
         geoip_country_iso2:
-          description: >-
-            The country where the customer made the purchase, in ISO2 format,
-            based on the IP.
+          description: 'The country where the customer made the purchase, in ISO2 format, based on the IP.'
           example: US
           type: string
         currency_id:
-          description: >-
-            The ID of the currency being used in this transaction. A read-only
-            value. Do not pass in a POST or PUT.
+          description: The ID of the currency being used in this transaction. A read-only value. Do not pass in a POST or PUT.
           example: 1
           type: integer
         currency_code:
-          description: >-
-            The currency code of the currency being used in this transaction. A
-            read-only value. Do not pass in a POST or PUT.
+          description: The currency code of the currency being used in this transaction. A read-only value. Do not pass in a POST or PUT.
           example: USD
           type: string
         currency_exchange_rate:
-          description: >-
-            A read-only value. Do not pass in a POST or PUT. (Float,
-            Float-As-String, Integer)
+          description: 'A read-only value. Do not pass in a POST or PUT. (Float, Float-As-String, Integer)'
           example: '1.0000000000'
           type: string
         default_currency_id:
@@ -5238,9 +4632,7 @@ responses:
           example: 1
           type: integer
         default_currency_code:
-          description: >-
-            The currency code of the default currency for this type of
-            transaction. A read-only value. Do not pass in a POST or PUT.
+          description: The currency code of the default currency for this type of transaction. A read-only value. Do not pass in a POST or PUT.
           type: string
           example: USD
         staff_notes:
@@ -5248,39 +4640,26 @@ responses:
           example: Send Saturday
           type: string
         customer_message:
-          description: >-
-            Message that the customer entered (number, optiona) -o the `Order
-            Comments` box during checkout.
+          description: 'Message that the customer entered (number, optiona) -o the `Order Comments` box during checkout.'
           example: Thank you
           type: string
         discount_amount:
-          description: >-
-            Amount of discount for this transaction. (Float, Float-As-String,
-            Integer)
+          description: 'Amount of discount for this transaction. (Float, Float-As-String, Integer)'
           example: '0.0000'
           type: string
         coupon_discount:
-          description: >-
-            A read-only value. Do not pass in a POST or PUT. (Float,
-            Float-As-String, Integer)
+          description: 'A read-only value. Do not pass in a POST or PUT. (Float, Float-As-String, Integer)'
           example: '5.0000'
           type: string
         shipping_address_count:
           type: number
-          description: >-
-            The number of shipping addresses associated with this transaction. A
-            read-only value. Do not pass in a POST or PUT.
+          description: The number of shipping addresses associated with this transaction. A read-only value. Do not pass in a POST or PUT.
         is_deleted:
-          description: >-
-            Indicates whether the order was deleted (archived). Set to to true,
-            to archive an order.
+          description: 'Indicates whether the order was deleted (archived). Set to to true, to archive an order.'
           example: false
           type: boolean
         is_email_opt_in:
-          description: >-
-            Indicates whether the shopper has selected an opt-in check box (on
-            the checkout page) to receive emails. A read-only value. Do not pass
-            in a POST or PUT.
+          description: Indicates whether the shopper has selected an opt-in check box (on the checkout page) to receive emails. A read-only value. Do not pass in a POST or PUT.
           example: false
           type: boolean
         credit_card_type:
@@ -5288,9 +4667,7 @@ responses:
           example: '0'
           type: integer
         ebay_order_id:
-          description: >-
-            If the order was placed through eBay, the eBay order number will be
-            included. Otherwise, the value will be `0`.
+          description: 'If the order was placed through eBay, the eBay order number will be included. Otherwise, the value will be `0`.'
           example: '0'
           type: string
         billing_address:
@@ -5350,9 +4727,7 @@ responses:
                 title: Form Fields
                 type: object
                 readOnly: true
-                description: >-
-                  Read-Only. If you have required address form fields they will
-                  need to be set as optional before creating an order via API.
+                description: Read-Only. If you have required address form fields they will need to be set as optional before creating an order via API.
                 properties:
                   name:
                     description: Name of the form field
@@ -5365,18 +4740,11 @@ responses:
                     type: string
                     example: 123BAF
         order_source:
-          description: >-
-            Orders submitted via the store's website will include a `www` value.
-            Orders submitted via the API will be set to `external`. A read-only
-            value. Do not pass in a POST or PUT.
+          description: Orders submitted via the store's website will include a `www` value. Orders submitted via the API will be set to `external`. A read-only value. Do not pass in a POST or PUT.
           example: www
           type: string
         external_source:
-          description: >-
-            For orders submitted or modified via the API, using a PUT or POST
-            operation, you can optionally pass in a value identifying the system
-            used to generate the order. For example: `POS`. Otherwise, the value
-            will be null.
+          description: 'For orders submitted or modified via the API, using a PUT or POST operation, you can optionally pass in a value identifying the system used to generate the order. For example: `POS`. Otherwise, the value will be null.'
           example: 'null'
           type: string
         products:
@@ -5386,12 +4754,7 @@ responses:
         coupons:
           $ref: '#/definitions/coupons_Resource'
         external_id:
-          description: >-
-            ID of the order in another system. For example, the Amazon Order ID
-            if this is an Amazon order.This field can be updated in a /POST, but
-            using a /PUT to update the order will return a 400 error. The field
-            'external_id' cannot be written to. Please remove it from your
-            request before trying again. It can not be overwritten once set.
+          description: 'ID of the order in another system. For example, the Amazon Order ID if this is an Amazon order.This field can be updated in a /POST, but using a /PUT to update the order will return a 400 error. The field ''external_id'' cannot be written to. Please remove it from your request before trying again. It can not be overwritten once set.'
           example: 'null'
           type: string
         external_merchant_id:
@@ -5401,25 +4764,16 @@ responses:
         channel_id:
           type: integer
           example: 1
-          description: >-
-            Shows where the order originated. The channel_id will default to 1.
-            Read-Only.
+          description: Shows where the order originated. The channel_id will default to 1. Read-Only.
         tax_provider_id:
           type: string
-          description: >+
+          description: |
             BasicTaxProvider - Tax is set to manual.
 
+            AvaTaxProvider - This is for when the tax provider has been set to automatic and the order was NOT created by the API. Used for Avalara.
 
-            AvaTaxProvider - This is for when the tax provider has been set to
-            automatic and the order was NOT created by the API. Used for
-            Avalara.
-
-
-            "" (blank) - When the tax provider is unknown. This includes legacy
-            orders and orders previously created via API.
-
+            "" (blank) - When the tax provider is unknown. This includes legacy orders and orders previously created via API.
             This can be set when creating an order using a POST.
-
           enum:
             - BasicTaxProvider
             - AvaTaxProvider
