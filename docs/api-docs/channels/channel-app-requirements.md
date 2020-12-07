@@ -22,7 +22,8 @@ All Partners:
 - Uses [Channels API](https://developer.bigcommerce.com/api-reference/cart-checkout/channels-listings-api)
 - [Creates a channel](https://developer.bigcommerce.com/api-reference/cart-checkout/channels-listings-api/channels/createchannel) upon app installation using the `app_id`
 - Reads and updates channel status via [Channels endpoints](https://developer.bigcommerce.com/api-reference/cart-checkout/channels-listings-api)
-- Follows requirements for specific channel type.
+- Follows requirements for specific channel type
+
 - Contains an onboarding user flow
 
 Select Partners:
@@ -39,7 +40,8 @@ All Partners:
 
 All Partners:
 
-- Must use [listings API](https://developer.bigcommerce.com/api-reference/cart-checkout/channels-listings-api), if supporting per product listings (i.e. not simply syncing the entire catalog).
+- Must use [Listings API](https://developer.bigcommerce.com/api-reference/cart-checkout/channels-listings-api), if supporting per product listings.
+
 
 <div class="CalloutBlock--info">	
 <div class="HubBlock-content">	
