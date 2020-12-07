@@ -155,11 +155,11 @@ Accept: application/json
 
 The following protected sections are provided by BigCommerce.
 
-| Title                                         | Query                 | Description                                    |
-| --------------------------------------------- | --------------------- | ---------------------------------------------- |
+| Title               | Query                 | Description                                    |
+| ------------------- | --------------------- | ---------------------------------------------- |
 | [`Storefront Settings`](#storefront-settings) | `storefront_settings` | Renders channel specific storefront settings   |
-| `Domains`                                     | `domains`             | Renders channel specific domain settings       |
-| `Notifications`                               | `notifications`       | Renders channel specific notification settings |
+| `Domains`             | `domains`             | Renders channel specific domain settings       |
+| `Notifications`       | `notifications`       | Renders channel specific notification settings |
 | [`Currencies`](#currencies-settings)          | `currencies`          | Renders channel specific currency settings     |
 
 Include protected sections in the [create channel request](https://developer.bigcommerce.com/api-reference/cart-checkout/channels-listings-api/channels/createchannel) to display BigCommerce provided channel specific settings.
