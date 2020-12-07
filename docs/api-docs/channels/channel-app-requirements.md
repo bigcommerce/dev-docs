@@ -42,7 +42,7 @@ All Partners:
 
 - Must use [Listings API](https://developer.bigcommerce.com/api-reference/cart-checkout/channels-listings-api), if supporting per product listings.
 
-
+<div class="HubBlock--callout">
 <div class="CalloutBlock--info">	
 <div class="HubBlock-content">	
 
@@ -52,6 +52,7 @@ All Partners:
 >
 > - In order to promote app performance and user experience best practices, additional general and channel type requirements will be outlined as needed.
 
+</div>
 </div>
 </div>
 
