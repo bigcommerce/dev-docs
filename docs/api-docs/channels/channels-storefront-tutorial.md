@@ -6,19 +6,15 @@
 
 ## On this page
 
-- [Building Storefront Channels](#building-storefront-channels)
-  - [Prerequisites](#prerequisites)
-  - [Creating a channel](#creating-a-channel)
-  - [Specifying the platform](#specifying-the-platform)
-    - [Accepted values](#accepted-values)
-  - [Configuring UI sections](#configuring-ui-sections)
-  - [Protected UI sections](#protected-ui-sections)
-  - [Storefront settings](#storefront-settings)
-  - [Currencies settings](#currencies-settings)
-  - [Notification settings](#notification-settings)
-  - [Related resources](#related-resources)
-    - [Articles](#articles)
-    - [Endpoints](#endpoints)
+ - [Prerequisites](#prerequisites)
+ - [Creating a channel](#creating-a-channel)
+ - [Specifying the platform](#specifying-the-platform)
+ - [Configuring UI sections](#configuring-ui-sections)
+ - [Protected UI sections](#protected-ui-sections)
+ - [Storefront settings](#storefront-settings)
+ - [Currencies settings](#currencies-settings)
+ - [Notification settings](#notification-settings)
+ - [Related resources](#related-resources)
 
 </div>
 
