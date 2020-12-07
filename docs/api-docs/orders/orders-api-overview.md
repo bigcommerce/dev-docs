@@ -599,18 +599,6 @@ Order `subtotal` and `total` calculate automatically; edits to the following pro
 |`billing_address`|`obj`|Used to calculate shipping and taxes| 
 |`shipping_addresses`|`array[obj]`|Used to calculate shipping and taxes| 
 
-|Property|Description
-|-|
-|`products`|
-|`shipping_cost_ex_tax`|
-|`shipping_cost_inc_tax`|
-|`handling_cost_ex_tax`|
-|`handling_cost_inc_tax`|
-|`wrapping_cost_ex_tax`|
-|`wrapping_cost_inc_tax`|
-|`billing_address`|
-|`shipping_addresses`|
-
 You can override calculated values such as product prices, subtotals, and totals by sending a fixed value in the request. If you do not supply values for these properties, you will automatically calculate them based on the preset store values and tax rules.
 
 <div class="HubBlock--callout">
