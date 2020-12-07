@@ -23,10 +23,10 @@ This article provides a guide to partners who would like to update or replace th
 
 Existing sales channel apps need app credentials with updated OAuth scopes to authenticate and authorize requests to Channels Toolkit APIs. Login to the [Developer Portal](https://devtools.bigcommerce.com) to update your app's credentials. Channel APIs require the following scopes:
 
-| UI Name                  | Parameter                | Enables                                             |
-| ------------------------ | ------------------------ | --------------------------------------------------- |
-| Channels Settings Modify | `store_channel_settings` | Creating channels that reference external platforms |
-| Channels Listings Modify | `store_channel_listings` | Creating and reading product listing information    |
+|UI Name|Parameter|Enables|
+|-|-|-|
+|Channels Settings Modify|`store_channel_settings`|Creating channels that reference external platforms|
+|Channels Listings Modify|`store_channel_listings`|Creating and reading product listing information|
 
 See [Authenticating BigCommerce's REST APIs](https://developer.bigcommerce.com/api-docs/getting-started/authentication/rest-api-authentication) for more information on app credentials.
 
