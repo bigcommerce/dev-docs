@@ -6,13 +6,10 @@
 
 ## On this page
 
-- [Building Channels Quick Start](#building-channels-quick-start)
-  - [Prerequisites](#prerequisites)
-  - [Create a channel](#create-a-channel)
-  - [Create a channel with navigation](#create-a-channel-with-navigation)
-  - [Related resources](#related-resources)
-    - [Articles](#articles)
-    - [Endpoints](#endpoints)
+ - [Prerequisites](#prerequisites)
+ - [Create a channel](#create-a-channel)
+ - [Create a channel with navigation](#create-a-channel-with-navigation)
+ - [Related resources](#related-resources)
 
 </div>
 
