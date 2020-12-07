@@ -20,7 +20,7 @@ Using BigCommerce's [Channels Toolkit](https://developer.bigcommerce.com/api-doc
 
 This article provides a high-level overview of channels and channel apps on BigCommerce and introduces BigCommerce's channels toolkit. For an in-depth technical guide to developing BigCommerce sales channel apps, see [Building Channel Apps](https://developer.bigcommerce.com/api-docs/channels/building-channel-apps).
 
-## Channels toolkit
+## Channels Toolkit
 
 The Channels Toolkit is a set of APIs, UI components, and patterns that provide partners and third-party developers with the ability to build integrations between BigCommerce and external sales channels. Currently, we consider sales channels to fall into four major groups:
 
