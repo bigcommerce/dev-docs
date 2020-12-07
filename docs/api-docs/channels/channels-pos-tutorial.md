@@ -4,18 +4,12 @@
 
 ## On this page
 
-- [Building Point-of-Sale Channels](#building-point-of-sale-channels)
-  - [Prerequisites](#prerequisites)
-  - [Creating a channel](#creating-a-channel)
-  - [Specifying the platform](#specifying-the-platform)
-    - [Accepted values](#accepted-values)
-  - [Configuring UI sections](#configuring-ui-sections)
-  - [Rendering UI sections](#rendering-ui-sections)
-    - [Exmple overview section](#exmple-overview-section)
-    - [Example import section](#example-import-section)
-  - [Related resources](#related-resources)
-    - [Articles](#articles)
-    - [Endpoints](#endpoints)
+ - [Prerequisites](#prerequisites)
+ - [Creating a channel](#creating-a-channel)
+ - [Specifying the platform](#specifying-the-platform)
+ - [Configuring UI sections](#configuring-ui-sections)
+ - [Rendering UI sections](#rendering-ui-sections)
+ - [Related resources](#related-resources)
 
 </div>
 
