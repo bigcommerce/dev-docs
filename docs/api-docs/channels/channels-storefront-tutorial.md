@@ -137,11 +137,19 @@ Accept: application/json
 }
 ```
 
+<div class="HubBlock--callout">
+<div class="CalloutBlock--info">
+<div class="HubBlock-content">
+ 
 <!-- theme:info -->
 
 > **Note**
 >
 > You can [find an app's ID](https://developer.bigcommerce.com/api-docs/apps/tutorials/id) in the URL when editing the app in the [Developer Portal](https://developer.bigcommerce.com/api-docs/apps/guide/developer-portal).
+
+</div>
+</div>
+</div>
 
 ## Protected UI sections
 
