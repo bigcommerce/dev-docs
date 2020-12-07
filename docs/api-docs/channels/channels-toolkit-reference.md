@@ -6,14 +6,11 @@
 
 ## On this page
 
-- [Channels Toolkit Reference](#channels-toolkit-reference)
-  - [Required endpoints](#required-endpoints)
-  - [Recommended endpoints](#recommended-endpoints)
-  - [Extended functionality endpoints](#extended-functionality-endpoints)
-  - [UI components](#ui-components)
-    - [Required UI components](#required-ui-components)
-    - [Recommended UI components](#recommended-ui-components)
-  - [Documentation](#documentation)
+ - [Required endpoints](#required-endpoints)
+ - [Recommended endpoints](#recommended-endpoints)
+ - [Extended functionality endpoints](#extended-functionality-endpoints)
+ - [UI components](#ui-components)
+ - [Documentation](#documentation)
 
 </div>
 
