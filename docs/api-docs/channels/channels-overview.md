@@ -66,6 +66,9 @@ We enable this through our Channels API endpoints:
 
 ![Channels in Channel Manager](https://storage.googleapis.com/bigcommerce-production-dev-center/images/channels/channels-channel-overview.png "Channels in Channel Manager")
 
+<div class="HubBlock--callout">
+<div class="CalloutBlock--info">
+<div class="HubBlock-content">
 <!-- theme: info -->
 
 > **Note**
@@ -74,17 +77,29 @@ We enable this through our Channels API endpoints:
 >
 > - For channel apps that are strategically approved ([select partners](https://developer.bigcommerce.com/api-docs/partner/becoming-a-partner)), the app appears as an option when adding a new channel. This starts the app install process.
 
+</div>
+</div>
+</div>
+
 ### Management
 
 Once installed, merchants manage channel apps via Channel Manager in the control panel. This includes status and key channel settings surfaced by channel apps via Channels API endpoints.
 
 ![Edit Channel Settings](https://storage.googleapis.com/bigcommerce-production-dev-center/images/channels/channels-edit-settings.png "Edit Channel Settings")
 
+<div class="HubBlock--callout">
+<div class="CalloutBlock--info">
+<div class="HubBlock-content">
+ 
 > **Note**
 >
 > Apps provided by partners who don't use the Channel API will only appear in the App Marketplace and **My Apps**.
 
 On the view products page, merchants can list products on any installed channel that supports per-product listing capabilities.
+
+</div>
+</div>
+</div>
 
 ![List Product](https://storage.googleapis.com/bigcommerce-production-dev-center/images/channels/channels-view-products.png "List Product")
 
@@ -92,9 +107,17 @@ Merchants can also list products from the product edit page.
 
 ![Manage Channel Assignment](https://storage.googleapis.com/bigcommerce-production-dev-center/images/channels/channels-all-assignments.png "Manage Channel Assignment")
 
+<div class="HubBlock--callout">
+<div class="CalloutBlock--info">
+<div class="HubBlock-content">
+ 
 > **Note**
 >
 > Not all channel apps can or should support per product listing capabilities; determining if this functionality is appropriate and useful is up to the app developer.
+
+</div>
+</div>
+</div>
 
 ## Types of channels
 
