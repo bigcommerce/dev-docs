@@ -6,23 +6,13 @@
 
 ## On this page
 
-- [Extending Sales Channel Apps with Channels Toolkit](#extending-sales-channel-apps-with-channels-toolkit)
-  - [Step 1: Update API credentials](#step-1-update-api-credentials)
-  - [Step 2: Integrate channel API](#step-2-integrate-channel-api)
-    - [All partners](#all-partners)
-    - [Channel manager example](#channel-manager-example)
-    - [Select partners](#select-partners)
-    - [Channel app import section](#channel-app-import-section)
-    - [Channel app settings section](#channel-app-settings-section)
-  - [Step 3: Migrate existing data](#step-3-migrate-existing-data)
-  - [App requirements](#app-requirements)
-    - [Storefronts](#storefronts)
-    - [Marketplaces and marketing](#marketplaces-and-marketing)
-  - [Sample configuration](#sample-configuration)
-  - [Terminology](#terminology)
-  - [Related resources](#related-resources)
-    - [Articles](#articles)
-    - [Endpoints](#endpoints)
+ - [Step 1: Update API credentials](#step-1-update-api-credentials)
+ - [Step 2: Integrate channel API](#step-2-integrate-channel-api)
+ - [Step 3: Migrate existing data](#step-3-migrate-existing-data)
+ - [App requirements](#app-requirements)
+ - [Sample configuration](#sample-configuration)
+ - [Terminology](#terminology)
+ - [Related resources](#related-resources)
 
 </div>
 
