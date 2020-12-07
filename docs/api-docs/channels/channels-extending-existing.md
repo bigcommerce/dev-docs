@@ -16,7 +16,8 @@
 
 </div>
 
-This article provides a guide to partners who would like to update (or replace) their existing sales channel apps to leverage new functionality available via Channels Toolkit.
+This article provides a guide to partners who would like to update or replace their existing sales channel apps to leverage new functionality available via Channels Toolkit.
+
 
 ## Step 1: Update API credentials
 
@@ -35,8 +36,10 @@ To be visible in Channel Manager once installed, apps must meet certain requirem
 
 ### All partners
 
-- [Create Channel](https://developer.bigcommerce.com/api-reference/cart-checkout/channels-listings-api) (for each platform the app enables a merchant to sell on) - this enables the channel to be displayed within the “Manage” screen in the new Channel Manager for merchants, once the app has been installed.
-- [Create Channel](https://developer.bigcommerce.com/api-reference/cart-checkout/channels-listings-api) request must include `app_id` at minimum in the [app config object](#sample-configuration).
+- [Create a Channel](https://developer.bigcommerce.com/api-reference/cart-checkout/channels-listings-api) (for each platform the app enables a merchant to sell on) - this enables the channel to be displayed within the “Manage” screen in the new Channel Manager for merchants, once the app has been installed.
+
+- [Create a Channel](https://developer.bigcommerce.com/api-reference/cart-checkout/channels-listings-api) request must include `app_id` at a minimum in the [app config object](#sample-configuration).
+
 
 ### Channel manager example
 
@@ -44,7 +47,8 @@ To be visible in Channel Manager once installed, apps must meet certain requirem
 
 ### Select partners
 
-- Update UI to use [BigDesign](https://developer.bigcommerce.com/big-design/) and the general design patterns and user flows demonstrated in the sample app (shown in the screenshots below) with Channel name, icon, and menu nav sections.
+- Update UI to use [BigDesign](https://developer.bigcommerce.com/big-design/) and the general design patterns and user flows demonstrated in the sample app (shown in the screenshots below) with channel name, icon, and menu nav sections.
+
 - Include sections in the [Channel API](https://developer.bigcommerce.com/api-reference/cart-checkout/channels-listings-api) request in the [app config object](#sample-channel-app-configuration).
 
 ### Channel app import section
@@ -59,7 +63,8 @@ To be visible in Channel Manager once installed, apps must meet certain requirem
 
 - **Channels** - Register a channel for all existing merchants using the app.
 - **Orders** - Add `channel_id` with the corresponding channel ID for the merchant and which channel the order was placed on, if orders are synced to BigCommerce.
-- **Listings (optional)** - Create channel specific [product listings](https://developer.bigcommerce.com/api-reference/cart-checkout/channels-listings-api) (this is primarily necessary for storefronts, marketplaces, and marketing type of channels).
+- **Listings (optional)** - Create channel specific [product listings](https://developer.bigcommerce.com/api-reference/cart-checkout/channels-listings-api). This is primarily necessary for storefronts, marketplaces, and marketing type of channels.
+
 
 ## App requirements
 
@@ -77,7 +82,8 @@ The above "updating existing app" data applies; however, non-POS channel apps ar
 
 **All Partners**:
 
-- Must use [listings API](https://developer.bigcommerce.com/api-reference/cart-checkout/channels-listings-api), if supporting per product listings (i.e. not simply syncing the entire catalog).
+- Must use [listings API](https://developer.bigcommerce.com/api-reference/cart-checkout/channels-listings-api) if supporting per product listings.
+
 
 ## Sample configuration
 
