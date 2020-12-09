@@ -32,12 +32,19 @@ info:
 
     ### Currency Fields
 
-    * `currency_code` - the display currency used to present prices to the shopper on the storefront.
-    * `currency_exchange_rate`: the exchange rate between the store's default currency and the display currency; when the order is created by means of the V2 endpoints, this value is always 1 (only in the storefront this value can be different to 1).
+    The **default** currency refers to the transactional currency which is the currency the shopper pays in.
+
+    The **display** currency refers to the presentational currency used to present prices to the shopper on the storefront.
+
+    * `currency_id` - the display currency ID. Depending on the currency selected, the value may be different from the transactional currency.
+    * `currency_code` - the currency code of the display currency used to present prices to the shopper on the storefront. Depending on the currency selected, the value may be different from the transactional currency.
+    * `currency_exchange_rate` - the exchange rate between the store's default currency and the display currency. For orders created using the V2 endpoints, this value is always 1 (only in the storefront this value can be different to 1).
+    * `default_currency_id` - the transactional currency ID.
+    * `default_currency_code` - the currency code of the transactional currency the shopper pays in.
 
     The following additional fields are returned on orders when Multi-Currency is enabled on the store:
 
-    * `store_default_currency_code` - the store's default currency
+    * `store_default_currency_code` - the currency code of the store's default currency.
     * `store_default_to_transactional_exchange_rate` - the exchange rate between the store's default currency and the transactional currency used in the order.
 
     **Example:**
@@ -2028,7 +2035,7 @@ definitions:
         description: 'The date this order was created. If not specified, will default to the current time. The date should be in RFC 2822 format.'
       default_currency_code:
         type: string
-        description: The currency code of the default currency for this type of transaction; writeable when multi-currency enabled.
+        description: The currency code of the transactional currency the shopper pays in; writeable when multi-currency is enabled.
   billingAddress_Base:
     type: object
     title: billingAddress_Base
@@ -2201,19 +2208,19 @@ definitions:
         example: '0.0000'
         type: string
       currency_id:
-        description: The ID of the currency being used in this transaction. A read-only value. Do not pass in a POST or PUT.
+        description: The display currency ID. May be different from transactional currency. A read-only value. Do not pass in a POST or PUT.
         example: 1
         type: integer
       currency_code:
-        description: The currency code of the currency being used in this transaction. A read-only value. Do not pass in a POST or PUT.
+        description: The currency code of the display currency used to present prices on the storefront. A read-only value. Do not pass in a POST or PUT.
         example: USD
         type: string
       currency_exchange_rate:
-        description: 'A read-only value. Do not pass in a POST or PUT. (Float, Float-As-String, Integer)'
+        description: 'The exchange rate between the store''s default currency and the display currency. A read-only value. Do not pass in a POST or PUT. (Float, Float-As-String, Integer)'
         example: '1.0000000000'
         type: string
       default_currency_id:
-        description: A read-only value. Do not pass in a POST or PUT.
+        description: The transactional currency ID. A read-only value. Do not pass in a POST or PUT.
         example: 1
         type: integer
       coupon_discount:
@@ -4620,11 +4627,11 @@ responses:
           example: US
           type: string
         currency_id:
-          description: The ID of the currency being used in this transaction. A read-only value. Do not pass in a POST or PUT.
+          description: The display currency ID. May be different from transactional currency. A read-only value. Do not pass in a POST or PUT.
           example: 1
           type: integer
         currency_code:
-          description: The currency code of the currency being used in this transaction. A read-only value. Do not pass in a POST or PUT.
+          description: The currency code of the display currency used to present prices on the storefront. May be different from transactional currency. A read-only value. Do not pass in a POST or PUT.
           example: USD
           type: string
         currency_exchange_rate:
@@ -4632,11 +4639,11 @@ responses:
           example: '1.0000000000'
           type: string
         default_currency_id:
-          description: A read-only value. Do not pass in a POST or PUT.
+          description: The transactional currency ID. A read-only value. Do not pass in a POST or PUT.
           example: 1
           type: integer
         default_currency_code:
-          description: The currency code of the default currency for this type of transaction. A read-only value. Do not pass in a POST or PUT.
+          description: The currency code of the transactional currency the shopper pays in. A read-only value. Do not pass in a POST or PUT.
           type: string
           example: USD
         staff_notes:
