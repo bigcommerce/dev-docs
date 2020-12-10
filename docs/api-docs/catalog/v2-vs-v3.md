@@ -1,20 +1,20 @@
-# Difference between V2 Products and V3 Catalog REST APIs
+# Difference between V2 and V3 Catalog REST APIs
 
 <div class="otp" id="no-index">
 
 ### On this page
 - [V3 improvements](#v3-improvements)
-- [Difference between V2 Products and V3 Catalog APIs](#difference-between-v2-products-and-v3-catalog-apis)
+- [Difference between V2 and V3 Catalog APIs](#difference-between-v2-and-v3-catalog-apis)
 - [Related resources](#related-resources)
 
 </div>
 
 V2 and V3 Catalog REST APIs allow you to manage your store's products, categories, and brands, along with their sub-resources.
 
-Both the V2 Products and V3 Catalog APIs authenticate with OAuth and are designed to be used concurrently within a single application; however, data representation can be significantly different.
+Both the V2 and V3 Catalog APIs authenticate with OAuth and are designed to be used concurrently within a single application; however, data representation can be significantly different.
 
 V2 and V3 REST APIs are not fully compatible. When resources are available through both APIs, we recommend using the V3 API as it contains performance optimizations and usability improvements.
-For differences in resources, see the [Difference between V2 Products and V3 Catalog APIs](#difference-between-v2-products-and-v3-catalog-apis) section of this article.
+For differences in resources, see the [Difference between V2 and V3 Catalog APIs](#difference-between-v2-and-v3-catalog-apis) section of this article.
 
 <div class="HubBlock--callout">
 <div class="CalloutBlock--info">
@@ -38,7 +38,7 @@ For differences in resources, see the [Difference between V2 Products and V3 Cat
 * V3 [Brands](https://developer.bigcommerce.com/api-reference/store-management/catalog/brands/getbrandbyid), [Categories](https://developer.bigcommerce.com/api-reference/store-management/catalog/category/getcategorybyid), [Products](https://developer.bigcommerce.com/api-reference/store-management/catalog/products/getproductbyid), and [Product Variants](https://developer.bigcommerce.com/api-reference/store-management/catalog/product-variants/getvariantbyid) expose a metafields resource for use by developers to store custom data.
 * V3 API is optimized for performance. In general, data can be sent, received, and processed faster via V3, relative to V2.
 
-## Difference between V2 Products and V3 Catalog APIs
+## Difference between V2 and V3 Catalog APIs
 
 ### Product variants and modifiers instead of option sets
 
@@ -98,7 +98,7 @@ To reduce the number of API calls made, you can include variants with a `GET` re
 
 <!-- theme: warning -->
 
-### V2 SKU rules will override variant pricing.
+### V2 SKU rules will override variant pricing
 >
 > Creating SKU rules via the V2 API or CSV import will alter or override any variant price or sale price added to a product using the control panel, the V3 API, or [Price Lists UI](https://support.bigcommerce.com/s/article/Price-Lists).
 
@@ -108,7 +108,7 @@ To reduce the number of API calls made, you can include variants with a `GET` re
 
 ### Product option sets
 
-The V3 Catalog API does not include an endpoint to manage option sets, but it will respect option sets created using the [V2 Option Sets API](https://developer.bigcommerce.com/legacy/v2-catalog-products/v2-option-set-options) or the control panel. Currently, the control panel's Add/Edit Product section consumes the V2 API and any products created and managed through the control panel will be converted to the V2 model using option sets. If you apply an option set to a V3 product, the product's variants will be removed.
+The V3 Catalog API does not include an endpoint to manage option sets, but it will respect option sets created using the [V2 Option Sets API](https://developer.bigcommerce.com/legacy/v2-catalog-products/v2-option-set-options) or the control panel. Currently, the control panel's Add/Edit Product section consumes the V2 API, and any products created and managed through the control panel will be converted to the V2 model using option sets. If you apply an option set to a V3 product, the product's variants will be removed.
 
 ### Product rules 
 
