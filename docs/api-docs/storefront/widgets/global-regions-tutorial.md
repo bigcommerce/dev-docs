@@ -61,15 +61,15 @@ If you are using Stencil CLI and editing theme files locally, push and apply you
 
 To preview the global region you just created, launch [Page Builder](https://support.bigcommerce.com/s/article/Page-Builder) by going to **Storefront** > **My Theme** in the control panel, then click **Customize**. 
 
-Scroll to the bottom of your home page. You should see the `below_content--global` region under the non-global region below New Products.
+Scroll to the bottom of your home page. You should see the `below_content--global` region under the non-global region below **New Products**.
 
-![Global Region](https://raw.githubusercontent.com/bigcommerce/dev-docs/master/assets/images/global-regions-tutorial-01 "Global Region")
+![Global Region](https://raw.githubusercontent.com/bigcommerce/dev-docs/master/assets/images/global-regions-tutorial-01.png "Global Region")
 
 ## Place a widget in the global region
 
 To test your global region's functionality, drag and drop one of the basic widgets from the left pane into the `below_content--global` region, then click **Preview**. You should see the widget you just placed displayed on the home page and the category pages of your store.
 
-![Page Builder Design](https://raw.githubusercontent.com/bigcommerce/dev-docs/master/assets/images/global-regions-tutorial-02 "Page Builder Design")
+![Page Builder Design](https://raw.githubusercontent.com/bigcommerce/dev-docs/master/assets/images/global-regions-tutorial-02.png "Page Builder Design")
 
 ## Related resources
 
