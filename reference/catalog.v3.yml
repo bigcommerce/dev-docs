@@ -20555,13 +20555,13 @@ definitions:
       - variant_id
   customUrl_Full:
     type: object
-    description: The custom URL for the category on the storefront.
+    description: The custom URL for the product on the storefront.
     title: customUrl_Full
     properties:
       url:
         type: string
         description: |
-          Category URL on the storefront.
+          Product URL on the storefront.
         x-required:
           - post
           - put
