@@ -3,8 +3,9 @@
 <div class="otp" id="no-index">
 
 ### On this page
-- [View active filters](#view-active-filters)
+- [View active global filters](#view-active-global-filters)
 - [View available filters](#view-available-filters)
+- [View available category-level filters](#view-available-category-level-filters)
 - [Configure contextual filters](#configure-contextual-filters)
 - [Related resources](#related-resources)
 
@@ -42,7 +43,11 @@ This article demonstrates how to use [contextual filters](insert-link-here) to c
 </div>
 </div>
 
-## View active filters
+////////
+
+## View active global filters
+
+Global filters are your store's the currently active storefront filters.
 
 There are two ways to retrieve your store's currently active global filters: using the Settings API or through the store's control panel. To retrieve all configured global filters using the API, send a `GET` request to [/v3/settings/search/filters](insert-link-here).
 
@@ -86,19 +91,32 @@ The response will contain all of the global filters currently active on your sto
 }
 ```
 
-The global filters returned from completing this `GET` request should match the filters you see in the control panel under **Storefront Filters**. This set of filters is what you currently have configured on your store. 
+The global filters returned from completing this `GET` request should match the filters you see in the control panel under **Storefront Filters**. This set of storefront filters is what you currently have configured on your store. 
 
 To access **Storefront Filters** in the control panel, go to **Products** > **Product Filtering**. 
 
 ![Products Filters](https://raw.githubusercontent.com/bigcommerce/dev-docs/master/assets/images/contextual-filters-01.png "Products Filters")
 
+
+////////////
+
 ## View available filters
 
-Available filters are the filters you can configure in a certain context. To see all available configurable filters, send a `GET` request to [`/v3/settings/search/filters/available`](insert-link-here). To retrieve a list of filters available on a given category, add `category_id` as a query parameter.
+To retrieve all available storefront filters, send a `GET` request to [`/v3/settings/search/filters/available`](insert-link-here). 
+
+The list of available filters is pulled dynamically based on the setup of the catalog. You create new available filters by changing your product information in your catalog such as adding new [product options](https://support.bigcommerce.com/s/article/Product-Options-v3) or [custom fields](https://support.bigcommerce.com/s/article/Custom-Fields).
+
+
+
+///////
+
+## View available category-level filters
+
+To retrieve a list of filters available on a given category, include the `category_id` query parameter in your `GET` request to [`/v3/settings/search/filters/available`](insert-link-here). The response will contain all of the filters available for configuration on the given category.
+
+Currently, the Settings API only supports the default `channel_id` of 1.
 
 [![Open in Request Runner](https://storage.googleapis.com/bigcommerce-production-dev-center/images/Open-Request-Runner.svg)](https://developer.bigcommerce.com/api-reference/store-management/widgets/widget-template/createwidgettemplate#requestrunner) // replace link
-
-The response will contain all of the filters available for configuration. 
 
 ```json
 {
@@ -122,13 +140,29 @@ The response will contain all of the filters available for configuration.
             "price_range_min": 9.95,
             "price_range_max": 225
         },
-        ...
+        {
+            "id": "Q29sb3I=",
+            "type": "product",
+            "name": "Color",
+            "product_count": 1
+        },
+        {
+            "id": "U2l6ZQ==",
+            "type": "product",
+            "name": "Size",
+            "product_count": 1
+        },
+        {
+            "id": "Ym9vbA==",
+            "type": "other",
+            "name": "Other"
+        }
     ],
     "meta": {}
 }
 ```
 
-The filters returned from completing this `GET` request are the filters available for configuration. In this example, we have Brand, Price, and Rating filters that we can pick from when choosing which filters to activate. In reality, there will be more filters to select from.
+The filters returned from completing this `GET` request are the filters available for configuration on that category. In this example, we have Brand, Rating, Price, Color, Size, and Other filters to pick from when choosing which filters to activate for the Kitchen category. In reality, there will be more filters to select from.
 
 <div class="HubBlock--callout">
 <div class="CalloutBlock--info">
@@ -141,7 +175,8 @@ The filters returned from completing this `GET` request are the filters availabl
 </div>
 </div>
 
-## Configure contextual filters
+
+### Contextual overrides
 
 To see if there are any contextual overrides present on a given category, send a `GET` request to [`/v3/settings/search/filters/contexts`](insert-link-here) specifying the `category_id` query parameter.
 
@@ -194,13 +229,13 @@ The response will contain existing contextual overrides.
 }
 ```
 
-The order and names of returned filters should match the filters listed under **Category Filters** in the control panel. 
+The sort order and names of returned filters in the response should match the filters listed under **Category Filters** in the control panel. 
 
 ![Category Filters](https://raw.githubusercontent.com/bigcommerce/dev-docs/master/assets/images/contextual-filters-02.png "Category Filters")
 
-The sort order of filters on the storefront is determined implicitly from the order of the data you send. You can change the order the filters on the live site by changing the order of the data in the array. 
+The sort order of filters on the storefront is determined implicitly from the order of the data you send. You can change the order of the filters on the live site by changing the order of the data in the array. 
 
-### Contextual filters
+## Configure available category-level filters
 
 Using the [Contextual Filters](insert-link-here) endpoint, you can configure available category-level filters. To test it out, update some of the properties such as `display_name`, `display_product_count`, or `collapsed_by_default` and send a `PUT` request to [`/v3/settings/search/filters/contexts`](insert-link-here).
 
@@ -301,8 +336,6 @@ You can also view the changes on the storefront.
 </div>
 </div>
 </div> 
-
-
 
 ## Related resources
 
