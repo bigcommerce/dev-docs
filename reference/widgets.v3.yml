@@ -1033,6 +1033,9 @@ definitions:
         type: string
         format: html
         description: The widget template HTML. Supports Handlebars and Paper helpers.
+      storefront_api_query:
+        type: string
+        description: GraphQL Storefront API query that provides widget data.
   widget_Base:
     type: object
     title: widget_Base
