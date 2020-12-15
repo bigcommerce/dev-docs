@@ -777,16 +777,20 @@ definitions:
   widgetTemplate_Post:
     title: widgetTemplate_Post
     type: object
+    description: ''
     properties:
       name:
         type: string
-        description: User friendly name.
+        description: User-friendly name.
       schema:
         $ref: '#/definitions/widgetSchema'
       template:
         type: string
         description: Handlebars HTML content. Also has access to Stencil Paper helpers.
         format: html
+      storefront_api_query:
+        type: string
+        description: GraphQL Storefront API query that provides widget data.
     required:
       - name
       - template
