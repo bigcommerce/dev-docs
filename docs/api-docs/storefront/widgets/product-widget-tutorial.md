@@ -148,7 +148,7 @@ Doing so creates a [widget](https://developer.bigcommerce.com/api-reference/stor
 
 To view the widget's data, retrieve the widget's ID by accessing its `data-widget-id` attribute in the browser's developer tools, then pass it in a `GET` request to [`/v3/content/widgets/{uuid}`](https://developer.bigcommerce.com/api-reference/store-management/widgets/widget/getwidget).
 
-Alternatively, you can send a `GET` request to [`/v3/content/widgets`](https://developer.bigcommerce.com/api-reference/store-management/widgets/widget/getwidgets) passing your `widget_template_uuid` as a query parameter.
+Alternatively, you can send a `GET` request to [`/v3/content/widgets`](https://developer.bigcommerce.com/api-reference/store-management/widgets/widget/getwidgets), passing your `widget_template_uuid` as a query parameter.
 
 The [response](https://developer.bigcommerce.com/api-reference/store-management/widgets/widget/getwidget#responses) should be similar to the following example.
 
