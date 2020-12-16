@@ -2453,35 +2453,47 @@ definitions:
   product:
     type: object
     title: product
+    description: Default property that provides detailed product data.
     properties:
       detail_messages:
         type: string
+        description: Status messages for display at the top of the product page
       description:
         type: string
+        description: (HTML) description of the product
       warranty:
         type: string
+        description: Optional warranty text set by the merchant
       title:
         type: string
+        description: Displayed name of the product
       url:
         type: string
+        description: URL to the product detail page
       id:
         type: string
+        description: Unique ID for the product
       add_to_wishlist_url:
         type: string
+        description: URL to add the product to the customer’s wishlist
       tags:
         type: array
+        description: Keywords by which this product can also be identified
         items:
           type: object
       page_title:
         type: string
       meta_keywords:
         type: string
+        description: 'Optional search keywords that merchants may enter in the control panel’s "Add a Product" or “Edit a Product” page, to characterize the product in meta tags and storefront searches'
       meta_description:
         type: string
       gift_wrapping_available:
         type: boolean
+        description: Whether or not gift wrapping is enabled
       images:
         type: array
+        description: 'List of all images for this product, in Stencil image format (as configured in config.json; used with the getImage Handlebars helper)'
         items:
           type: object
           properties:
@@ -2491,6 +2503,7 @@ definitions:
               type: string
       main_image:
         type: object
+        description: Primary image to display when the product details page loads
         properties:
           data:
             type: string
@@ -2498,6 +2511,7 @@ definitions:
             type: string
       price:
         type: object
+        description: Price object that defines the shipping cost for this product (if shipping cost is fixed)
         properties:
           without_tax:
             $ref: '#/definitions/price'
@@ -2508,18 +2522,23 @@ definitions:
             type: object
       rating:
         type: integer
+        description: Rating for the product
       num_reviews:
         type: integer
+        description: Number of reviews the product has
       bulk_discount_rates:
         type: array
+        description: List of discount rates for the current product
         items:
           type: object
       availability:
         type: string
       sku:
         type: string
+        description: Default product variant when no options are selected
       upc:
         type: 'null'
+        description: Optional UPC code for the product
       add_this:
         type: array
         items:
@@ -2533,18 +2552,23 @@ definitions:
         type: string
       cart_url:
         type: string
+        description: URL to the customer’s shopping cart
       can_purchase:
         type: boolean
+        description: Boolean that indicates whether the product is available for purchase
       customizations:
         type: array
+        description: 'Product customizations (for example, a T-shirt size); these correspond to configurable fields and numeric-text product options in the BigCommerce control panel'
         items:
           type: object
       show_quantity_input:
         type: integer
       min_purchase_quantity:
         type: integer
+        description: Minimum quantity that can be purchased at once
       max_purchase_quantity:
         type: integer
+        description: Maximum quantity that can be purchased at once
       options:
         type: array
         items:
@@ -2749,18 +2773,23 @@ definitions:
     title: brands
   shopByBrand:
     type: array
+    title: shop_by_brand
+    description: 'Objects to enable customers to shop by brand. Returns top 10 brands, by product count.'
     items:
       type: object
       properties:
         count:
           type: string
+          description: Number of products matching this brand
         id:
           type: string
+          description: ID for this brand
         name:
           type: string
+          description: Name of this brand
         url:
           type: string
-    title: shop_by_brand
+          description: URL for this brand
   cart:
     type: object
     title: cart
@@ -3094,48 +3123,64 @@ definitions:
         description: Wishlists for this customer
   order:
     type: object
+    title: order
+    description: The order properties for a specific order.
     properties:
       billing_address:
         type: object
+        description: Billing address used for the order.
         properties:
           address_lines:
             type: array
+            description: Customer's billing address
             items:
               type: string
           city:
             type: string
+            description: Customer's billing city
           company:
             type: string
+            description: Customer's billing company name
           country:
             type: string
+            description: Customer billing country
           email:
             type: string
+            description: Customer's billing email
           full_name:
             type: string
+            description: Customer's billing name
           phone:
             type: string
+            description: Customer billing phone number
           state:
             type: string
+            description: Customer's billing state
           zip:
             type: string
+            description: Customer billing ZIP
       comments:
         type: array
         items:
           type: object
       date:
         type: string
+        description: Date of the order
       has_multiple_shipping_addresses:
         type: boolean
       id:
         type: integer
+        description: 'Unique, system-generated ID'
       invoice_url:
         type: string
       is_complete:
         type: boolean
+        description: Boolean indicating that the order has been completed
       is_digital:
         type: string
       items:
         type: array
+        description: List of items for the order.
         items:
           type: object
           properties:
@@ -3150,6 +3195,7 @@ definitions:
                   type: string
             name:
               type: string
+              description: Product Name
             options:
               type: array
               items:
@@ -3161,6 +3207,7 @@ definitions:
                     type: string
             order_product_id:
               type: string
+              description: Product ID
             price:
               type: object
               properties:
@@ -3172,24 +3219,30 @@ definitions:
                   type: integer
             quantity:
               type: integer
+              description: Quantity Ordered
             refunded:
               type: boolean
+              description: Price object that defines the value of this product that has been refunded.
             refunded_qty:
               type: integer
             reorder_message:
               type: string
+              description: An error message to be displayed when the customer attempts to reorder items that can’t be reordered.
             return_url:
               type: string
             shipping_rows:
               type: array
+              description: 'Array of shipping addresses, for each item in the order'
               items:
                 type: object
             show_reorder:
               type: boolean
+              description: Boolean indicating whether the customer should see a button for reordering items on the Account Order Details page.
             sku:
               type: string
             total:
               type: object
+              description: Price object that defines the order’s total value
               properties:
                 currency:
                   type: string
@@ -3205,49 +3258,67 @@ definitions:
         type: string
       payment_method:
         type: string
+        description: Customer’s payment method for this order (payment gateway)
       reorder_url:
         type: string
+        description: URL to place reorders for items in this order.
       return_url:
         type: string
       returns_enabled:
         type: integer
+        description: Boolean that indicates whether merchant allows products from the order to be returned.
       shipping_address:
         type: object
+        description: Shipping address used for the order.
         properties:
           address_lines:
             type: array
+            description: Customer's shipping address
             items:
               type: string
           city:
             type: string
+            description: Customer's shipping city
           company:
             type: string
+            description: Customer's shipping company name
           country:
             type: string
+            description: Customer's shipping country
           email:
             type: string
+            description: Customer's email
           full_name:
             type: string
+            description: Customer's shipping name
           phone:
             type: string
+            description: Customer's shipping phone number
           state:
             type: string
+            description: Customer's shipping state
           zip:
             type: string
+            description: Customer's shipping zip
       shipping_address_count:
         type: string
+        description: Number of shipping addresses the customer has specified for this order.
       shipping_method:
         type: string
       status:
         type: string
+        description: Order status code
       status_messages:
         type: array
+        description: Status message associated with the status code for the order
         items:
           type: object
       status_text:
         type: string
+        description: Status text associated with the status code for the order.
       total:
         type: object
+        description: Price object that defines the order’s total value
         properties:
           currency:
             type: string
@@ -3257,6 +3328,7 @@ definitions:
             type: number
       total_rows:
         type: array
+        description: A list of “total” rows containing total pricing information
         items:
           type: object
           properties:
@@ -3273,7 +3345,6 @@ definitions:
                   type:
                     - integer
                     - number
-    title: order
   shipments: {}
   wishlist: {}
   formsCreateAccount:
@@ -3618,6 +3689,26 @@ definitions:
     title: page
   pages:
     description: Global. A list of all web content pages for the BigCommerce storefront.
+    type: object
+    properties:
+      name:
+        type: string
+        description: Name of the page
+      URL:
+        type: string
+        description: URL of the page
+      children:
+        type: array
+        description: List of child pages for this page
+        items:
+          type: object
+          properties:
+            name:
+              type: string
+              description: Name of the child page
+            URL:
+              type: string
+              description: URL of the child page
   pagination:
     oneOf:
       - properties:
@@ -3715,43 +3806,61 @@ definitions:
         description: 'Boolean – true if there is at least one of brand results, category results, or a (non-null) suggested_query'
   settings:
     type: object
+    description: |
+      Global. Common settings shared across every BigCommerce storefront.
+    title: settings
     properties:
       account_creation_enabled:
         type: boolean
+        description: Site-wide boolean value that indicates whether to allow customers to create accounts
       add_this:
         type: object
+        description: Object that defines links for the AddThis social sharing component
         properties:
           buttons:
             type: array
+            description: 'Array of buttons to display for AddThis social sharing {{#each settings.add_this.buttons}}{{service}}{{/each}} {{#each settings.add_this.buttons}}{{annotations}}{{/each}}'
             items:
               type: object
               properties:
                 annotation:
                   type: string
+                  description: String containing HTML attributes associated with this button
                 service:
                   type: string
+                  description: 'String containing the name of this button''s social-media service (facebook, email, print, twitter, linkedin, google, etc.)'
       address:
         type: string
+        description: 'Store’s complete physical address, as entered by merchant in the Store Profile'
       amp_analytics_id:
         type: string
+        description: Returns Google AMP analytics ID
       base_url:
         type: string
+        description: The normal shop URL
       blog_enabled:
         type: boolean
+        description: Site-wide boolean value that indicates whether the blog is visible for this store
       bulk_discount_enabled:
         type: boolean
+        description: Boolean that return true if bulk discount is enabled on products.
       cdn_url:
         type: string
       client_ip_address:
         type: string
+        description: IP address of the customer browsing the store
       country_code:
         type: string
+        description: The country code corresponding to the IP
       data_tag_enabled:
         type: boolean
+        description: 'Site-wide boolean that indicates whether GAEE is enabled in a theme. For {{settings.data_tag_enabled}} to be true, the enhanced_ecommerce key must be present in config.json and a GAEE experiment must be enabled along with GA property value set in Advanced Settings > Analytics > GA in the BigCommerce Control Panel'
       display_date_format:
         type: string
+        description: 'Brief display format/pattern for dates, as configured in the control panel''s Display Date Format field'
       extended_display_date_format:
         type: string
+        description: 'Extended display format/pattern for dates, as configured in the control panel''s Extended Display Date Format field'
       facebook_like_button:
         type: object
         properties:
@@ -3770,114 +3879,165 @@ definitions:
             type: integer
       gift_certificates_enabled:
         type: boolean
+        description: Site-wide boolean value that indicates whether to enable the gift certificate system for this store
       is_eu_ip_address:
         type: boolean
+        description: A boolean value. Return true if the shoppers ip address is in the EU.
       maintenance:
         type: object
+        description: Object that manages information about the store when in maintenance (offline) mode
         properties:
           header:
             type: 'null'
+            description: 'If store is in maintenance mode, string containing header text for the "Down for Maintenance" window displayed to visitors; otherwise, null'
           message:
             type: 'null'
+            description: 'If store is in maintenance mode, string containing merchant-customizable body text (and optionally, HTML) for the "Down for Maintenance" window displayed to visitors; otherwise, null'
           notice:
             type: 'null'
+            description: 'If store is in maintenance mode, one of three strings identifying the store''s status, and generating a corresponding text notice to merchants about how to proceed: AdminPrelaunchNotice for preview stores, AdminMaintenanceNotice for active stores taken down for maintenance, or AdminHibernationModeNotice for deactivated stores; otherwise, null'
           password:
             type: 'null'
           securePath:
             type: string
       measurements:
         type: object
+        description: 'Collection of units-of-measure definitions, to be used when displaying product details:'
         properties:
           length:
             type: string
+            description: Units of measure for product length
           weight:
             type: string
+            description: Units of measure for product weight
       money:
         type: object
+        description: List of child items that define the store’s default currency formatting
         properties:
           currency_location:
             type: string
+            description: Whether currency symbol appears at left or right of the quantity
           currency_token:
             type: string
+            description: Symbol for the currency
           decimal_places:
             type: integer
+            description: Number of decimal places to display
           decimal_token:
             type: string
+            description: Symbol for decimal separator
           thousands_token:
             type: string
+            description: Symbol for thousands separator
       newsletter_summary:
         type: string
+        description: 'Returns the [newsletter summary](https://support.bigcommerce.com/s/article/Collecting-Newsletter-Subscriptions#newsletter)'
       password_requirements:
         type: object
+        description: 'Collection of properties representing BigCommerce requirements for customer-account passwords:'
         properties:
           alpha:
             type: string
+            description: Regular expression representing required/acceptable alphabetic characters
           error:
             type: string
+            description: String that passes a standard error message for noncompliant password
           minlength:
             type: integer
+            description: Integer representing minimum acceptable password length
           numeric:
             type: string
+            description: Regular expression representing required/acceptable numeric characters
       payments_url:
         type: string
+        description: 'Exposes the BigCommerce payments URL. `https://payments.bigcommerce.com`'
       phone_number:
         type: string
+        description: 'The contact phone number for the store located in the [stores profile](https://support.bigcommerce.com/s/article/Store-Profile-Settings).'
       privacy_cookie:
         type: boolean
+        description: 'If enabled, a string containing merchant-customizable text for (European Union–required) cookie-setting notification; if disabled, a boolean with a value of false'
       region_code:
         type: string
       request:
         type: object
+        description: Object that contains details about the HTTP request
         properties:
           absolute_path:
             type: string
+            description: The absolute URL requested. Never use request.path in the actual body of the page
           host:
             type: string
+            description: Hostname of the request
           is_crawler:
             type: boolean
+            description: Renders "true" if user angent is known crawler; "false" otherwise
           locale:
             type: string
+            description: "\tThe browser's locale. Allows for varying experience based on shopper locale"
           origin:
             type: string
+            description: Origin of the request
           referer:
             type: boolean
+            description: Refer of the request
           user_agent:
             type: string
+            description: User agent string of the request
       returns_enabled:
         type: integer
+        description: Boolean that indicates whether the control-panel setting for the returns system is enabled.
       rss_item_limit:
         type: integer
+        description: An integer that sets a limit on the number of RSS items to display.
       secure_base_url:
         type: string
+        description: 'The SSL-enabled, secure, shop URL'
       secure_host:
         type: string
+        description: 'Returns the SSL url for a store. Example: `https://www.bigcommerce.com`'
       shopper_consent_tracking_enabled:
         type: boolean
       show_newsletter_box:
         type: integer
+        description: Site-wide boolean value that indicates whether to display a mailing-list invite to visitors
       show_newsletter_summary:
         type: integer
+        description: 'Returns a 1 if the [newsletter summary](https://support.bigcommerce.com/s/article/Collecting-Newsletter-Subscriptions#newsletter is shown. Returns 0 if it is now shown. If show_newsletter_box is 0 then show_newsletter_summary will also be 0.'
       show_payment_methods:
         type: boolean
+        description: A boolean value. If true available payment methods on a store will be shown. If false they are hidden.
       show_product_rating:
         type: boolean
+        description: Site-wide boolean value that indicates whether to display product ratings (in numeric or star format) to visitors
       show_product_reviews:
         type: boolean
+        description: Site-wide boolean value that indicates whether to display full-text product reviews to visitors
       show_wishlist:
         type: boolean
+        description: Site-wide boolean value that indicates whether to allow customers to create wishlists
       store_dst_correction:
         type: integer
+        description: 'Whether or not this time zone observes Daylight Saving Time (boolean), as set by the control panel''s Enable DST Correction check box'
       store_hash:
         type: string
+        description: Returns the store hash as a string.
       store_logo:
         type: object
+        description: The store’s logo
         properties:
           title:
             type: string
+            description: "\tTitle for the logo – the text configured in the control panel under Storefront Design Design Options Logo"
+          image:
+            type: string
+            description: 'Optional image file, as a Stencil image object. To access the store_logo use: {{settings.store_logo.image.data}} and {{settings.store_logo.image.alt}} to access the alt tag. These are pulled from the Stencil image object.'
       store_name:
         type: string
+        description: Name of the BigCommerce store
       store_time_zone:
         type: string
+        description: 'Store''s time zone, as selected in the control panel''s Your Timezone drop-down list'
       storefront_api:
         type: object
         properties:
@@ -3885,36 +4045,39 @@ definitions:
             type: string
       tax_label:
         type: string
+        description: 'Defines the Tax Label (VAT, Sales Tax, etc.) that a merchant can set in the control panel’s Settings > Tax page for display to customers'
       theme_config_id:
         type: string
       theme_session_id:
         type: string
       theme_version_id:
         type: string
-    description: |
-      Global. Common settings shared across every BigCommerce storefront.
-    title: settings
   sitemap:
     type: object
+    description: ' Present on `sitemap.php`. List of all sitemap properties for this BigCommerce storefront.'
     properties:
       body:
         type: array
+        description: List of all sitemap subsections
         items:
           type: object
           properties:
             label:
               type: string
+              description: Label for the child page or category
             url:
               type: string
+              description: URL to the child page or category
       label:
         type: string
+        description: 'Subsection title (pages, categories, brands)'
       show_all_link:
         type: boolean
       subsection_url:
         type: string
+        description: 'URL to subsection content (pages, categories, brands) of the sitemap'
       title:
         type: string
-    description: ' Present on `sitemap.php`. List of all sitemap properties for this BigCommerce storefront.'
   social_media:
     description: Global. Array of all social-media site links for the storefront.
     type: array
@@ -3923,12 +4086,16 @@ definitions:
       properties:
         name:
           type: string
+          description: 'Internal name of this social-media platform (e.g., "googleplus")'
         url:
           type: string
+          description: 'URL to point to, set by merchant in control panel ([https://www.facebook.com/BigCommerce](https://www.facebook.com/BigCommerce), etc.)'
         position:
           type: integer
+          description: Display sort order for this platform within the social-media list
         display_name:
           type: string
+          description: 'Displayed/formatted name of this social-media platform (e.g., “Google+”)'
   blogBlog:
     type: object
     description: "Blog page. The Blog object used on the blog page.\n\n\n```html\n{{#each blog.posts}}\n\t\t{{> components/blog/post post=this}}\n{{/each}}\n```"
@@ -4681,6 +4848,7 @@ definitions:
     type: object
     properties: {}
     title: is_ajax
+    description: Boolean; returns `true` if the current executing request is an Ajax request
   products:
     type: object
     title: product card array
@@ -4691,10 +4859,12 @@ definitions:
           $ref: '#/definitions/products.product'
       featured:
         type: array
+        description: Renders a list of all the featured products for the BigCommerce storefront.
         items:
           $ref: '#/definitions/products.product'
       top_sellers:
         type: array
+        description: Object to display a sidebar of top-selling products
         items:
           $ref: '#/definitions/products.product'
   products.product:
@@ -4785,13 +4955,17 @@ definitions:
   price:
     type: object
     title: price
+    description: 'Exposes price- and currency-related properties in both raw numeric, and formatted string, formats.'
     properties:
       currency:
         type: string
+        description: Currency code
       formatted:
         type: string
+        description: 'String representation of the price, including currency formatting'
       value:
         type: number
+        description: Raw numeric value of the price
   blog.posts.post:
     type: object
     description: Individual blog post object.
