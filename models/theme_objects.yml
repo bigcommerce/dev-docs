@@ -2869,8 +2869,10 @@ definitions:
               type: string
             remove_url:
               type: string
+              description: URL to remove gift certificate from the cart.
             rrp:
               type: object
+              description: Price object that defines the cart item's list price (MSRP); can be used to display struck-out list prices.
               properties:
                 currency:
                   type: string
@@ -2880,6 +2882,7 @@ definitions:
                   type: integer
             show_gift_wrapping:
               type: boolean
+              description: Boolean indicating whether the wrapping options are shown.
             sku:
               type: string
             total:
@@ -2988,6 +2991,7 @@ definitions:
                   type: number
             included:
               type: boolean
+              description: Boolean that indicates whether taxes are included in the total price for the cart’s contents.
             name:
               type: string
   customer:
@@ -3281,17 +3285,18 @@ definitions:
         type: string
         description: Objects for integrating the Google reCAPTCHA service to distinguish human visitors from ’bots (automated agents).
       enabled:
-        type: string
+        type: boolean
         description: Boolean indicating whether reCAPTCHA is enabled for this store.
       public_key:
         type: string
         description: Public key (site key) that reCAPTCHA returns upon merchant’s enabling CAPTCHA security in Store Settings > Display Settings.
       address_fields:
-        type: string
-        description: 'Array of form fields that define each shipping address for this customer; for details, see this repo: https://github.com/bigcommerce/cornerstone/tree/master/templates/components/common/forms'
+        type: array
+        description: 'Array of form fields that define each shipping address for this customer; for details, see this [repo] (https://github.com/bigcommerce/cornerstone/tree/master/templates/components/common/forms):'
+        items: {}
       class_name:
         type: string
-        description: 'Specifies a CSS class to apply to a field within the array; for corresponding control-panel steps, see: https://support.bigcommerce.com/articles/Public/Editing-Form-Fields#advanced-settings'
+        description: 'Specifies a CSS class to apply to a field within the array; for corresponding control-panel steps, [see](https://support.bigcommerce.com/articles/Public/Editing-Form-Fields#advanced-settings):'
       account_fields:
         type: string
         description: 'Object of form fields; for details, see this repo: https://github.com/bigcommerce/cornerstone/tree/master/templates/components/common/forms'
@@ -3299,7 +3304,7 @@ definitions:
         type: string
         description: BCApp generated message to display when customer’s account creation fails.
       checking_out:
-        type: string
+        type: boolean
         description: Boolean indicating whether customer created the account during a purchase checkout.
   countries: {}
   formsEditAccount:
@@ -3334,8 +3339,9 @@ definitions:
         type: string
         description: ID for this shipping address
       shipping_fields:
-        type: string
-        description: 'Array of form fields that define each shipping address for this customer; for details, see this repo: https://github.com/bigcommerce/cornerstone/tree/master/templates/components/common/forms'
+        type: array
+        description: 'Array of form fields that define each shipping address for this customer; for details, see this [repo] (https://github.com/bigcommerce/cornerstone/tree/master/templates/components/common/forms)'
+        items: {}
       action:
         type: string
         description: URL to the proper handler (Update Address versus Save New Address).
@@ -3371,23 +3377,23 @@ definitions:
     type: object
     properties:
       success:
-        type: string
+        type: boolean
         description: Boolean indicating whether form was just submitted.
       name:
-        type: string
         description: Boolean indicating whether name input is enabled for the form.
+        type: boolean
       company:
-        type: string
         description: Boolean indicating whether company-name input is enabled for the form.
+        type: boolean
       phone:
-        type: string
         description: Boolean indicating whether phone-number input is enabled for the form.
+        type: boolean
       order:
-        type: string
+        type: boolean
         description: Boolean indicating whether order-number input is enabled for the form.
       rma:
-        type: string
         description: Boolean indicating whether RMA (Return Merchandise Authorization) input is enabled for the form.
+        type: boolean
       page_id:
         type: string
         description: "\tPage ID for this contact page (there can be multiple contact pages)."
@@ -4076,7 +4082,7 @@ definitions:
           type: object
           properties:
             is_active:
-              type: string
+              type: boolean
               description: Boolean that indicates whether this currency is active for use in the storefront
             switch_url:
               type: string
