@@ -251,6 +251,7 @@ POST https://api.bigcommerce.com/stores/{{STORE_HASH}}/v3/content/placements
 X-Auth-Token: {{ACCESS_TOKEN}}
 Content-Type: application/json
 Accept: application/json
+
 {
   "widget_uuid": "{{WIDGET_UUID}}",
   "template_file": "{{TEMPLATE_FILE}}",
