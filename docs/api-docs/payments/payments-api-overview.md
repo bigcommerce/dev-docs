@@ -68,7 +68,6 @@ You can process payments using cards stored with the BigCommerce Stored Credit C
 **BigCommerce supports the following gateways for credit cards:**
 
 * Authorize.net
-* Bolt
 * CardConnect
 * Chase integrated payments
 * Chase merchant services
