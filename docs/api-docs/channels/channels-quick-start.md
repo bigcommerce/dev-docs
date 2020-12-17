@@ -119,7 +119,8 @@ Accept: application/json
 <div class="CalloutBlock--info">
 <div class="HubBlock-content">
 
-> **Note**
+> ### Note
+
 >
 > - For additional information on [channel](https://developer.bigcommerce.com/api-reference/cart-checkout/channels-listings-api/channels) `config_meta` properties, see the [create a channel request body schema](https://developer.bigcommerce.com/api-reference/cart-checkout/channels-listings-api/channels/createchannel#request-body).
 

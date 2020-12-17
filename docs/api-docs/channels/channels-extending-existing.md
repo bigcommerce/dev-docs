@@ -82,7 +82,8 @@ The above "updating existing app" data applies; however, non-POS channel apps ar
 
 **All Partners**:
 
-- Must use [listings API](https://developer.bigcommerce.com/api-reference/cart-checkout/channels-listings-api) if supporting per product listings.
+- Must use [Listings API](https://developer.bigcommerce.com/api-reference/cart-checkout/channels-listings-api) if supporting per product listings.
+
 
 
 ## Sample configuration
