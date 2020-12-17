@@ -2,7 +2,8 @@
 
 <div class="otp" id="no-index">
 
-## On this page
+### On this page
+
 
  - [Prerequisites](#prerequisites)
  - [Creating a channel](#creating-a-channel)
