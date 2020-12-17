@@ -16,7 +16,8 @@
 
 This article documents how to use [Channels Toolkit](https://developer.bigcommerce.com/api-docs/channels/guide/channels-toolkit-reference) to install a POS channel into [Channel Manager](https://support.bigcommerce.com/s/article/Selling-Everywhere-with-Channel-Manager) during a [single-click app's](https://developer.bigcommerce.com/api-docs/apps/guide/types) installation. We'll assume you're an experienced app and POS developer familiar with channels on BigCommerce.
 
-## Prerequisites
+### Prerequisites
+
 
 - [Familiarity with channels on BigCommerce](https://developer.bigcommerce.com/api-docs/channels/guide/overview)
 - [Experience building apps](https://developer.bigcommerce.com/api-docs/apps/guide/intro)
