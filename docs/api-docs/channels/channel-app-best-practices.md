@@ -62,7 +62,7 @@ For increased performance, consider using batch operations and parallel requests
 ## Logging
 
 A log of all events should be kept and made accessible to the merchant utilizing the application.
-Logs should be broken out per service. For example: On the app page where a user would go to interact with product import functionality - they would expect to find all logs relating to that specific feature.
+Logs should be broken out per service. For example, a user should be able to access all logs related to a specific feature.
 
 Logs should be provided in a light, human-readable format and appended to the running feed of logs:
 
