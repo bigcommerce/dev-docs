@@ -2244,6 +2244,10 @@ definitions:
         $ref: '#/definitions/shippingAddresses_Resource'
       coupons:
         $ref: '#/definitions/coupons_Resource'
+      status_id:
+        type: number
+        example: 7
+        description: The staus ID of the order.
   order_Req:
     title: order_Req
     description: 'Order properties used in `POST` and `PUT` request bodies; **required** : `products`, `billing_address`.'
