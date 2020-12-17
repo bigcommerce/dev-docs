@@ -121,7 +121,7 @@ Accept: application/json
 <div class="HubBlock--callout">
 <div class="CalloutBlock--info">
 <div class="HubBlock-content">
- 
+
 <!-- theme: info -->
 
 > **Note**
@@ -133,9 +133,9 @@ Accept: application/json
 </div>
 
 <!-- title: Properties -->
+|  Property | Type | Description |	
+| --- | --- | --- |	
 
-| Property                    | Type       | Description                                                                                                                                                 |
-| --------------------------- | ---------- | ----------------------------------------------------------------------------------------------------------------------------------------------------------- |
 | `type`                      | str        | Allowed Values: pos, marketplace, storefront, marketing                                                                                                     |
 | `platform`                  | str        | Allowed Values: see below or in [API Reference](https://developer.bigcommerce.com/api-reference/cart-checkout/channels-listings-api/channels/createchannel) |
 | `name`                      | str        | The name the merchant will see                                                                                                                              |
@@ -169,8 +169,8 @@ For a complete Channel API reference (including request schemas and property des
 
 ## Terminology
 
-| Term                 | Definition                                                                                                                                                                                                                                                                                                                                                               |
-| -------------------- | ------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------ |
+|Term|Definition|
+|-|-|
 | **Channels Toolkit** | Channels Toolkit is a set of tools, UI patterns, guidelines, and APIs provided by BigCommerce to enable partners and developers to extend the BigCommerce ecosystem by building sales channel integrations (whether they are point of sale, marketing, marketplace, social, or headless storefronts) that are more deeply embedded within the BigCommerce control panel. |
 | **Select Partners**  | Partners approved by BigCommerce to be marketed and discoverable as sales channel providers within the new Channel Manager. These are partners who offer what we know to be best in breed integrations to key sales channels that help merchants grow their business.                                                                                                    |
 <div class="HubBlock--callout">
