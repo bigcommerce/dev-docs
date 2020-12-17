@@ -29,7 +29,7 @@ This article is a comprehensive guide on the foundations of integrating [Channel
 
 ## Getting started
 
-Here are a few things you'll need to create channel apps.
+Here are a few things you will need to create channel apps.
 
 1. [Store / Dev Sandbox](https://www.bigcommerce.com/essentials/free-trial/) (required to test app installation)
 2. [Developer Portal Account](https://devtools.bigcommerce.com/) (required to register apps)
