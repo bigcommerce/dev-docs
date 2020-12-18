@@ -212,7 +212,7 @@ paths:
           $ref: '#/responses/Error404_Resp'
         '422':
           $ref: '#/responses/Error422_Resp'
-      description: Return a single **Widget Template**.
+      description: Returns a single **Widget Template**.
     put:
       tags:
         - Widget Template
@@ -263,7 +263,7 @@ paths:
           $ref: '#/responses/Error404_Resp'
         '422':
           $ref: '#/responses/Error422_Resp'
-      description: Update a **Widget Template**.
+      description: Updates a **Widget Template**.
     delete:
       tags:
         - Widget Template
@@ -291,7 +291,7 @@ paths:
           $ref: '#/responses/Error404_Resp'
         '422':
           $ref: '#/responses/Error422_Resp'
-      description: Delete a **Widget Template**.
+      description: Deletes a **Widget Template**.
   /content/widgets:
     post:
       tags:
@@ -526,7 +526,7 @@ paths:
 
         ## Template files
 
-        The `template_file` property accepts the following values.
+        The `template_file` property accepts the following values:
 
         |Template File|Description|
         |-|-|
@@ -694,11 +694,7 @@ paths:
         '200':
           $ref: '#/responses/ThemeRegions_Resp'
       summary: Get Theme Regions
-      description: |-
-        Returns a list of unique **Theme Regions** in a file.
-
-        **Required Query**
-        * `template_file`
+      description: Returns a list of unique **Theme Regions** in a file.
       operationId: getContentRegions
       tags:
         - Regions
@@ -833,7 +829,7 @@ definitions:
         format: html
       storefront_api_query:
         type: string
-        description: GraphQL Storefront API query that provides widget data.
+        description: The GraphQL Storefront API query that provides widget data.
     required:
       - name
       - template
@@ -860,7 +856,12 @@ definitions:
           current_version_uuid:
             type: string
             description: The identifier to the current version of this widget template.
+          icon_name:
+            type: string
+            default: default
+            description: A read-only value. Do not attempt to set or modify this value in a POST or PUT operation.
     title: widgetTemplate_Full
+    description: ''
   widget_Full:
     title: widget_Full
     allOf:
@@ -1078,7 +1079,8 @@ definitions:
         description: The widget template HTML. Supports Handlebars and Paper helpers.
       storefront_api_query:
         type: string
-        description: GraphQL Storefront API query that provides widget data.
+        description: The GraphQL Storefront API query that provides widget data.
+    description: ''
   widget_Base:
     type: object
     title: widget_Base
@@ -1113,25 +1115,33 @@ definitions:
   widgetSchemaTab:
     type: object
     title: widgetSchemaTab
-    description: '**Tab**'
+    description: Use the **tab** settings type to create settings visible in Page Builder.
     enum:
       - tab
     properties:
       type:
         type: string
+        description: The type of setting component to display.
+        enum:
+          - tab
       label:
         type: string
+        example: Content
+        description: The user-friendly message to inform the user how this setting will be used.
       sections:
         type: array
+        description: Groups of related settings.
         items:
           type: object
           title: widgetSchemaTabSections
           properties:
             label:
               type: string
+              description: The user-friendly message to inform the user how this setting will be used.
+              example: Product
             settings:
               type: array
-              description: 'For examples of each type of setting, see [Page Builder > Schema Settings](https://developer.bigcommerce.com/stencil-docs/page-builder/schema-settings/alignment) in Theme Docs.'
+              description: 'For examples of schema settings, see [Widget UI Input Types](https://developer.bigcommerce.com/stencil-docs/page-builder/schema-settings).'
               items:
                 type: object
                 title: widgetSchemaSetting_Base
@@ -1205,6 +1215,7 @@ definitions:
                       value:
                         type: array
                         description: A single-object array containing a value from the `typeMeta`'s `selectOptions`.
+                        items: {}
   widgetSchemaTabSections:
     type: object
     title: widgetSchemaTabSections
@@ -1219,7 +1230,7 @@ definitions:
   widgetSchemaArray:
     type: object
     title: widgetSchemaArray
-    description: '**Array**'
+    description: 'Use the **array** settings type to build collections of elements within the widget. Each element in the array can contain tabs, sections, and an entire schema.'
     properties:
       type:
         type: string
@@ -1306,7 +1317,7 @@ definitions:
   widgetSchemaHidden:
     type: object
     title: widgetSchemaHidden
-    description: '**Hidden**'
+    description: Use the **hidden** settings type to create controls that have no user interface drawn in Page Builder. Hidden settings are not grouped into any other tabs or arrays.
     enum:
       - hidden
     properties:
