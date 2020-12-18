@@ -1115,7 +1115,7 @@ definitions:
   widgetSchemaTab:
     type: object
     title: widgetSchemaTab
-    description: Use the **tab** settings type to create settings visible in Page Builder.
+    description: '**Tab.** Use the **tab** settings type to create settings visible in Page Builder.'
     enum:
       - tab
     properties:
@@ -1230,7 +1230,7 @@ definitions:
   widgetSchemaArray:
     type: object
     title: widgetSchemaArray
-    description: 'Use the **array** settings type to build collections of elements within the widget. Each element in the array can contain tabs, sections, and an entire schema.'
+    description: '**Array.** Use the **array** settings type to build collections of elements within the widget. Each element in the array can contain tabs, sections, and an entire schema.'
     properties:
       type:
         type: string
@@ -1307,17 +1307,17 @@ definitions:
         $ref: '#/definitions/widgetSchemaConditional'
   widgetSchema:
     type: array
+    description: 'The schema for the widget''s merchant-facing UI. For more information on the available schema settings, see [Widget UI Schema](https://developer.bigcommerce.com/stencil-docs/page-builder/widget-ui-schema). '
+    title: ''
     items:
       anyOf:
         - $ref: '#/definitions/widgetSchemaTab'
         - $ref: '#/definitions/widgetSchemaArray'
         - $ref: '#/definitions/widgetSchemaHidden'
-    description: 'The schema for the widget''s merchant-facing UI. For more information on the available schema settings, see [Widget UI Schema](https://developer.bigcommerce.com/stencil-docs/page-builder/widget-ui-schema). '
-    title: ''
   widgetSchemaHidden:
     type: object
     title: widgetSchemaHidden
-    description: Use the **hidden** settings type to create controls that have no user interface drawn in Page Builder. Hidden settings are not grouped into any other tabs or arrays.
+    description: '**Hidden.** Use the **hidden** settings type to create controls that have no user interface drawn in Page Builder. Hidden settings are not grouped into any other tabs or arrays.'
     enum:
       - hidden
     properties:
