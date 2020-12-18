@@ -17,7 +17,7 @@ The [Settings API](https://developer.bigcommerce.com/api-reference/store-managem
 You can use the [Contextual Filters](insert-link-here) endpoint of the Settings API to programmatically configure a store's Product Filtering feature, also known as "faceted search".
 Additionally, the [Contextual Filters](insert-link-here) endpoint enables you to merchandise diverse product catalogs by creating a different faceted search configuration for each channel and product category on a store. With this feature, you can configure the product categories for various product lines with a different set of enabled filters, so that shoppers can filter by the most relevant criteria.
 
-This article demonstrates how to use [contextual filters](insert-link-here) to configure filters that appear on a particular category page.
+This article demonstrates how to use [Contextual Filters](insert-link-here) to configure filters that appear on a particular category page.
 
 ### Limitations
 
@@ -104,7 +104,7 @@ To access **Storefront Filters** in the control panel, go to **Products** > **Pr
 
 ## View available storefront filters
 
-The list of available storefront filters is pulled dynamically based on the setup of the catalog. You create new available filters by changing the product information in your catalog such as adding new [product options](https://support.bigcommerce.com/s/article/Product-Options-v3) or [custom fields](https://support.bigcommerce.com/s/article/Custom-Fields).
+The catalog setup produces the dynamically pulled list of available storefront filters. You create new available filters by changing the product information in your catalog, such as adding new [product options](https://support.bigcommerce.com/s/article/Product-Options-v3) or [custom fields](https://support.bigcommerce.com/s/article/Custom-Fields).
 
 To retrieve all available storefront filters, send a `GET` request to [`/v3/settings/search/filters/available`](insert-link-here).
 
@@ -202,7 +202,7 @@ Accept: application/json
 }
 ```
 
-The filters returned from completing this `GET` request are the filters available for configuration on the given category. In this example, we have Brand, Rating, Price, Color, Size, and Other filters to pick from when choosing which filters to activate for the Kitchen category. In reality, there will be more filters to select from.
+The filters returned from completing this `GET` request are the filters available for configuration on the given category. In this example, we have Brand, Rating, Price, Color, Size, and Other filters to pick from when choosing which filters to activate for the Kitchen category. In reality, you will be able to select from more filters.
 
 <div class="HubBlock--callout">
 <div class="CalloutBlock--info">
@@ -284,7 +284,7 @@ The order and names of returned filters should match the filters listed under **
 <div class="HubBlock-content">
 
 > ### Note
-> The order of the data you send determines implicitly the sort order of the filters on the storefront. You can change the order of the filters on the live site by changing the order of the data in the array. 
+> The order of the data you send determines the sort order of the filters on the storefront implicitly. You can change the order of the filters on the live site by changing the order of the array's data.
 
 </div>
 </div>
