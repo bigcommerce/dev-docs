@@ -2197,8 +2197,20 @@ definitions:
         example: 3
         type: integer
       payment_status:
-        description: A read-only value. Do not attempt to set or modify this value in a POST or PUT operation.
         type: string
+        description: A read-only value. Do not attempt to set or modify this value in a POST or PUT operation.
+        enum:
+          - authorized
+          - captured
+          - capture pending
+          - declined
+          - held for review
+          - paid
+          - partially refunded
+          - pending
+          - refunded
+          - void
+          - void pending
       store_credit_amount:
         description: 'Represents the store credit that the shopper has redeemed on this individual order. This is a read-only value. Do not pass in a POST or PUT. (Float, Float-As-String, Integer)'
         example: '0.0000'
