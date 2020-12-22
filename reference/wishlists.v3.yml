@@ -3,9 +3,32 @@ info:
   version: ''
   title: Wishlist
   contact: {}
-  description: >-
-    Create and manage customer
-    [wishlists](https://support.bigcommerce.com/s/article/Wishlists).
+  description: |-
+    Create and manage customer [wishlists](https://support.bigcommerce.com/s/article/Wishlists).
+
+    - [Authentication](#authentication)
+    - [Additional Information](#additional-information)
+
+    ## Authentication
+
+    [Authenticate](https://developer.bigcommerce.com/api-docs/getting-started/authentication) requests by including an OAuth `access_token` in the request header.
+
+    ```http
+    GET https://api.bigcommerce.com/stores/{{STORE_HASH}}/v3/{{ENDPOINT}}
+    Content-Type: application/json
+    X-Auth-Token: {{ACCESS_TOKEN}}
+    ```
+
+    ### OAuth scopes
+    |  **UI Name** | **Permission** | **Parameter** |
+    | --- | --- | --- |
+    |  Customers | modify | `store_v2_customers` |
+    |  Customers | read-only | `store_v2_customers_read_only` |
+
+    For more information on OAuth scopes, see [Authenticating BigCommerce's REST APIs](https://developer.bigcommerce.com/api-docs/getting-started/authentication/rest-api-authentication#oauth-scopes).
+
+    ## Additional Information
+    * [Wishlists](https://support.bigcommerce.com/s/article/Wishlists)
 host: api.bigcommerce.com
 basePath: '/stores/{$$.env.store_hash}/v3'
 schemes:
@@ -17,15 +40,11 @@ produces:
 paths:
   /wishlists:
     post:
-      description: >-
-        Creates a Wishlist and Wishlist Item. More than one item can be added in
-        the POST.
-
+      description: |-
+        Creates a wishlist and wishlist item. More than one item can be added in the POST.
 
         **Required Fields**
-
         * name
-
         * customer_id
       summary: Create a Wishlist
       tags:
@@ -92,9 +111,7 @@ paths:
               type:
                 type: string
     get:
-      description: >-
-        Returns a list of Wishlists. Optional filter parameters can be passed
-        in.
+      description: Returns a list of wishlists. Optional filter parameters can be passed in.
       summary: Get All Wishlists
       tags:
         - Wishlists
@@ -109,16 +126,12 @@ paths:
           type: integer
           name: page
           format: int32
-          description: >-
-            The page number of results per page. 1 is the default and starts
-            from record 0.
+          description: The page number of results per page. 1 is the default and starts from record 0.
         - name: limit
           in: query
           type: integer
           format: int32
-          description: >-
-            The numbers of items to return per page. Default is 50 and maximum
-            is 250.
+          description: The numbers of items to return per page. Default is 50 and maximum is 250.
         - name: Accept
           in: header
           type: string
@@ -158,7 +171,7 @@ paths:
                 type: string
   '/wishlists/{wishlist_id}/items/{item_id}':
     delete:
-      description: Deletes a Wishlist Item.
+      description: Deletes a wishlist item.
       summary: Delete Wishlist Item
       operationId: WishlistsItemsByIdDelete
       parameters:
@@ -226,7 +239,7 @@ paths:
         required: true
   '/wishlists/{wishlist_id}':
     get:
-      description: Returns a single Wishlist.
+      description: Returns a single wishlist.
       summary: Get a Wishlist
       tags:
         - Wishlists
@@ -279,16 +292,12 @@ paths:
               type:
                 type: string
     put:
-      description: >-
-        Updates a Wishlist.
+      description: |-
+        Updates a wishlist.
 
-
-        Use this endpoint to update an existing wishlist items, change the
-        wishlist name, customer ID or if the wishlist is available publicly.
-
+        Use this endpoint to update existing wishlist items, change the wishlist's name and whether the wishlist is available publicly. To add or delete a wishlist item, see [Wishlist Items](https://developer.bigcommerce.com/api-reference/store-management/wishlists/wishlists-items).
 
         **Required Fields**
-
         * customer_id
       summary: Update a Wishlist
       tags:
@@ -354,7 +363,7 @@ paths:
               type:
                 type: string
     delete:
-      description: Deletes a Wishlist.
+      description: Deletes a wishlist.
       summary: Delete a Wishlist
       tags:
         - Wishlists
@@ -437,7 +446,7 @@ paths:
         '500':
           description: Internal server error.
       summary: Add Wishlist Item
-      description: Adds a Wishlist Item. More than one item can be added at a time.
+      description: Adds a wishlist item. More than one item can be added at a time.
       operationId: WishlistsItemsByIdPost
       tags:
         - Wishlists Items
@@ -484,10 +493,10 @@ definitions:
         type: string
         example: School Shopping
       items:
-        description: Array of Wishlist items.
+        description: Array of wishlist items.
         type: array
         items:
-          title: Add Item to Wishlist
+          title: Add item to wishlist
           type: object
           properties:
             product_id:
@@ -507,7 +516,7 @@ definitions:
     type: object
     properties:
       customer_id:
-        description: The customer id.
+        description: The customer ID. A read-only value.
         type: integer
         format: int32
       is_public:
@@ -517,24 +526,24 @@ definitions:
         description: The title of the wishlist.
         type: string
       items:
-        description: Array of Wishlist items.
+        description: Array of wishlist items.
         type: array
         items:
-          title: Wishlist Item
+          title: Wishlist item
           type: object
           properties:
             id:
-              description: The ID of the item
               type: integer
-              format: int32
               example: 12
+              format: int32
+              description: The ID of the item.
             product_id:
               description: The ID of the product.
               type: integer
               format: int32
               example: 55
             variant_id:
-              description: The variant ID of the item.
+              description: The variant ID of the product.
               type: integer
               format: int32
               example: 22
@@ -555,23 +564,20 @@ definitions:
         format: int32
         example: 12
       name:
-        description: The Wishlist's name.
+        description: The name of the wishlist.
         type: string
         example: Christmas List
       is_public:
-        description: Whether the Wishlist is available to the public.
+        description: Whether the wishlist is available to the public.
         type: boolean
         example: true
       token:
-        description: >-
-          The token of the Wishlist. This is created internally within
-          BigCommerce. The Wishlist ID is to be used for external apps.
-          Read-Only
+        description: The token of the wishlist. This is created internally within BigCommerce. The wishlist ID is to be used for external apps. Read-Only.
         type: string
         format: uuid
         example: 2d55481-13eb-4d1e-9d79-9062b518570d
       items:
-        description: Array of Wishlist items
+        description: Array of wishlist items.
         type: array
         items:
           $ref: '#/definitions/wishlistItem_Full'
@@ -580,7 +586,7 @@ definitions:
     type: object
     properties:
       id:
-        description: The ID of the item
+        description: The ID of the item.
         type: integer
         format: int32
         example: 12
@@ -590,7 +596,7 @@ definitions:
         format: int32
         example: 55
       variant_id:
-        description: The variant ID of the item.
+        description: The variant ID of the product.
         type: integer
         format: int32
         example: 22
@@ -622,9 +628,7 @@ definitions:
         type: integer
         format: int32
       per_page:
-        description: >-
-          The amount of items returned in the collection per page, controlled by
-          the limit parameter.
+        description: 'The amount of items returned in the collection per page, controlled by the limit parameter.'
         type: integer
         format: int32
       current_page:
@@ -783,9 +787,7 @@ parameters:
     type: integer
     name: page
     format: int32
-    description: >-
-      The page number of results per page. 1 is the default and starts from
-      record 0.
+    description: The page number of results per page. 1 is the default and starts from record 0.
   FilterLimit:
     name: limit
     in: query
@@ -814,47 +816,29 @@ securityDefinitions:
     type: apiKey
     name: X-Auth-Token
     in: header
-    description: >-
+    description: |-
       ### OAuth Scopes
-
       |  **UI Name** | **Permission** | **Parameter** |
-
       | --- | --- | --- |
-
       |  Customers | modify | `store_v2_customers` |
-
       |  Customers | read-only | `store_v2_customers_read_only` |
-
 
       ### Headers
 
-
       |Header|Parameter|Description|
-
       |-|-|-|
-
-      |`X-Auth-Token`|`access_token `|Obtained by creating an API account or
-      installing an app in a BigCommerce control panel.|
-
+      |`X-Auth-Token`|`access_token `|Obtained by creating an API account or installing an app in a BigCommerce control panel.|
 
       ### Example
 
-
       ```http
-
       GET /stores/{$$.env.store_hash}/v3/catalog/summary
-
       host: api.bigcommerce.com
-
       Content-Type: application/json
-
       X-Auth-Token: {access_token}
-
       ```
 
-
-      * For more information on Authenticating BigCommerce APIs, see:
-      [Authentication](https://developer.bigcommerce.com/api-docs/getting-started/authentication). 
+      * For more information on Authenticating BigCommerce APIs, see [Authentication](https://developer.bigcommerce.com/api-docs/getting-started/authentication). 
 security:
   - X-Auth-Client: []
   - X-Auth-Token: []
