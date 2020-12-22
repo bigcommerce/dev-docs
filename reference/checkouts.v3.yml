@@ -492,9 +492,9 @@ paths:
                   first_name: BigCommerce
                   last_name: BigCommerce Cart/Checkout
                   email: testing@email.com
-                  company: {}
+                  company: BigCommerce
                   address1: 123 Main Street
-                  address2: {}
+                  address2: Apartment 4
                   city: Austin
                   state_or_province: Texas
                   state_or_province_code: TX
