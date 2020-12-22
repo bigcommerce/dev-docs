@@ -592,7 +592,7 @@ paths:
           schema:
             type: object
             properties: {}
-      description: Deletes the Channe's site.
+      description: Deletes the Channel's site.
       tags:
         - Channel Site
       summary: Delete a Channel Site
