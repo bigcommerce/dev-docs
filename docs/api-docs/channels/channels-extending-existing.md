@@ -133,38 +133,36 @@ Accept: application/json
 </div>
 </div>
 
-<!-- title: Properties -->
-|  Property | Type | Description |	
-| --- | --- | --- |	
+**Properties**
+|  Property | Type | Description |
+| --- | --- | --- |
+| `type` | str | Allowed Values: pos, marketplace, storefront, marketing |
+| `platform` | str | Allowed Values: see below or in [API Reference](https://developer.bigcommerce.com/api-reference/cart-checkout/channels-listings-api/channels/createchannel) |
+| `name` | str | The name the merchant will see |
+| `external_id` | str | Associated ID within a system / platform outside of BC. |
+| `status` | str | Allowed Values: active, inactive, connected, disconnected, archived |
+| `app` | obj | App configuration |
+| ↳ `id` | int | ID of the app |
+| ↳ `sections` | array[obj] | User interface section options |
+| &nbsp;&nbsp; ↳ `title` | str | Label displayed to merchants in navigation bar |
+| &nbsp;&nbsp; ↳ `query_path` | str | Passed to app's iframe. Ex: `https://<store_url>/manage/channel/2/app?id=5&section=overview` |
 
-| `type`                      | str        | Allowed Values: pos, marketplace, storefront, marketing                                                                                                     |
-| `platform`                  | str        | Allowed Values: see below or in [API Reference](https://developer.bigcommerce.com/api-reference/cart-checkout/channels-listings-api/channels/createchannel) |
-| `name`                      | str        | The name the merchant will see                                                                                                                              |
-| `external_id`               | str        | Associated ID within a system / platform outside of BC.                                                                                                     |
-| `status`                    | str        | Allowed Values: active, inactive, connected, disconnected, archived                                                                                         |
-| `app`                       | obj        | App configuration                                                                                                                                           |
-| ↳ `id`                      | int        | ID of the app                                                                                                                                               |
-| ↳ `sections`                | array[obj] | User interface section options                                                                                                                              |
-| &nbsp;&nbsp; ↳ `title`      | str        | Label displayed to merchants in navigation bar                                                                                                              |
-| &nbsp;&nbsp; ↳ `query_path` | str        | Passed to app's iframe. Ex: `https://<store_url>/manage/channel/2/app?id=5&section=overview`                                                                |
-
-<!-- title: Accepted platforms and types -->
-
-| Platform          | Accepted Type                                   |
-| ----------------- | ----------------------------------------------- |
-| `square`          | `pos`                                           |
-| `vend`            | `pos`                                           |
-| `clover`          | `pos`                                           |
-| `facebook`        | `marketplace`,`marketing`                       |
-| `amazon`          | `marketplace`                                   |
-| `ebay`            | `marketplace`                                   |
-| `wordpress`       | `storefront`                                    |
-| `drupal`          | `storefont`                                     |
-| `acquia`          | `storefront`                                    |
-| `bloomreach`      | `storefront`                                    |
-| `deity`           | `storefront`                                    |
-| `google_shopping` | `marketing`                                     |
-| `custom`          | `storefront`, `pos`, `marketing`, `marketplace` |
+**Accepted Platforms and Types**
+| Platform          | Accepted Type             |
+|-------------------|---------------------------|
+| `square `         | `pos`                     |
+| `vend`            | `pos`                     |
+| `clover`          | `pos`                     |
+| `facebook`        | `marketplace`,`marketing` |
+| `amazon`          | `marketplace`             |
+| `ebay`            | `marketplace`             |
+| `wordpress`       | `storefront`              |
+| `drupal`          | `storefont`               |
+| `acquia`          | `storefront`              |
+| `bloomreach`      | `storefront`              |
+| `deity`           | `storefront`              |
+| `google_shopping` | `marketing`               |
+| `custom`          | `storefront`, `pos`, `marketing`, `marketplace`             |
 
 For a complete Channel API reference (including request schemas and property descriptions), see: [API Reference > Channels and Listings](https://developer.bigcommerce.com/api-reference/cart-checkout/channels-listings-api).
 
