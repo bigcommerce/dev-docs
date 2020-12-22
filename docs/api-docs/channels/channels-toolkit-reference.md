@@ -81,7 +81,7 @@ The following UI components are required for channels.
 - [Icons](https://developer.bigcommerce.com/big-design/icons)
 - [Button](https://developer.bigcommerce.com/big-design/button)
 - [Progress Circle](https://developer.bigcommerce.com/big-design/progress-circle)
-- Lozenge
+- [Badge](https://developer.bigcommerce.com/big-design/badge)
 - [Dropdown](https://developer.bigcommerce.com/big-design/dropdown)
 - [Table](https://developer.bigcommerce.com/big-design/table)
 - [Box](https://developer.bigcommerce.com/big-design/box)
