@@ -307,15 +307,13 @@ paths:
           x-examples:
             application/json:
               name: Header Images
+              template: '{{#each images}}<a href=''{{image_url}}''><img src={{image_source}} style=''width:33.3%''/></a>{{/each}}'
               widget_configuration:
                 images:
-                  - image_url: 'https://{your-store-url}/all/kinfolk-issue-16/'
-                    image_source: 'https://cdn11.bigcommerce.com/s-n0i50vy/images/stencil/1280x1280/products/91/309/thekinfolktablecover_1024x1024__80715.1456436719.jpg?c=2&imbypass=on'
-                  - image_url: 'https://your-store-url/all/kinfolk-issue-16/'
-                    image_source: 'https://cdn11.bigcommerce.com/s-n0i50vy/images/stencil/1280x1280/products/109/361/kinfolkessentialissue_1024x1024__22507.1456436715.jpg?c=2&imbypass=on'
-                  - image_url: 'https://your-store-url/all/kinfolk-issue-16/'
-                    image_source: 'https://cdn11.bigcommerce.com/s-n0i50vy/images/stencil/500x659/products/85/282/livingwithplants_grande__26452.1456436666.jpg?c=2&imbypass=on'
-              widget_template_uuid: 3a1b0044-c9b3-47d3-9929-01ab0c20243b
+                  - image_source: 'https://cdn11.bigcommerce.com/s-n0i50vy/images/stencil/1280x1280/products/109/361/kinfolkessentialissue_1024x1024__22507.1456436715.jpg?c=2&imbypass=on'
+                  - image_source: 'https://cdn11.bigcommerce.com/s-n0i50vy/images/stencil/500x659/products/85/282/livingwithplants_grande__26452.1456436666.jpg?c=2&imbypass=on'
+                  - image_source: 'https://cdn11.bigcommerce.com/s-n0i50vy/images/stencil/1280x1280/products/109/361/kinfolkessentialissue_1024x1024__22507.1456436715.jpg?c=2&imbypass=on'
+              widget_template_uuid: f8459145-da8f-4d98-93e4-83aa47da61c6
         - name: Accept
           in: header
           type: string
@@ -437,13 +435,10 @@ paths:
               name: Header Images
               widget_configuration:
                 images:
-                  - image_url: 'https://{your-store-url}/all/kinfolk-issue-16/'
-                    image_source: 'https://cdn11.bigcommerce.com/s-n0i50vy/images/stencil/1280x1280/products/91/309/thekinfolktablecover_1024x1024__80715.1456436719.jpg?c=2&imbypass=on'
-                  - image_url: 'https://your-store-url/all/kinfolk-issue-16/'
-                    image_source: 'https://cdn11.bigcommerce.com/s-n0i50vy/images/stencil/1280x1280/products/109/361/kinfolkessentialissue_1024x1024__22507.1456436715.jpg?c=2&imbypass=on'
-                  - image_url: 'https://your-store-url/all/kinfolk-issue-16/'
-                    image_source: 'https://cdn11.bigcommerce.com/s-n0i50vy/images/stencil/500x659/products/85/282/livingwithplants_grande__26452.1456436666.jpg?c=2&imbypass=on'
-              widget_template_uuid: 3a1b0044-c9b3-47d3-9929-01ab0c20243b
+                  - image_source: 'https://cdn11.bigcommerce.com/s-n0i50vy/images/stencil/1280x1280/products/109/361/kinfolkessentialissue_1024x1024__22507.1456436715.jpg?c=2&imbypass=on'
+                  - image_source: 'https://cdn11.bigcommerce.com/s-n0i50vy/images/stencil/500x659/products/85/282/livingwithplants_grande__26452.1456436666.jpg?c=2&imbypass=on'
+                  - image_source: 'https://cdn11.bigcommerce.com/s-n0i50vy/images/stencil/1280x1280/products/109/361/kinfolkessentialissue_1024x1024__22507.1456436715.jpg?c=2&imbypass=on'
+              widget_template_uuid: f8459145-da8f-4d98-93e4-83aa47da61c6
         - name: Accept
           in: header
           type: string
@@ -523,6 +518,10 @@ paths:
           $ref: '#/responses/Error422_Resp'
       description: |-
         Creates a **Placement**.
+
+        **Required Fields**
+        * widget_uuid
+        * template_file
 
         ## Template files
 
@@ -1632,44 +1631,51 @@ responses:
     examples:
       application/json:
         data:
-          - uuid: bb34b23b-0d4b-4b9b-9e24-c8b0dcfd5e08
-            template_file: pages/category
-            region: ''
-            sort_order: 0
+          - channel_id: 1
+            date_created: '2020-12-21T20:43:16.796Z'
+            date_modified: '2020-12-21T20:43:16.796Z'
             entity_id: '21'
+            region: category_header_banner
+            sort_order: 1
             status: active
+            template_file: pages/category
+            uuid: 89eac5b3-91d7-48e5-92e7-ff53ecf07f8c
             widget:
-              uuid: a8940709-5655-4401-a341-62c44e3180b2
+              channel_id: 1
+              date_created: '2020-12-21T19:54:16.406Z'
+              date_modified: '2020-12-21T20:40:45.173Z'
+              description: ''
               name: Header Images
+              storefront_api_query_params: {}
+              uuid: 1f05183e-dfa4-4583-af28-250b47e177b2
+              version_uuid: c863f77b-e5b4-4462-a9ed-2aff9005140e
               widget_configuration:
-                images:
-                  - image_url: 'https://{{your-url}.com/'
-                    image_source: 'https://cdn11.bigcommerce.com/s-n0i50vy/images/stencil/1280x1280/products/91/309/thekinfolktablecover_1024x1024__80715.1456436719.jpg?c=2&imbypass=on'
-                  - image_url: 'https://{{your-url}.com/'
-                    image_source: 'https://cdn11.bigcommerce.com/s-n0i50vy/images/stencil/1280x1280/products/109/361/kinfolkessentialissue_1024x1024__22507.1456436715.jpg?c=2&imbypass=on'
-                  - image_url: 'https://{{your-url}.com/'
-                    image_source: 'https://cdn11.bigcommerce.com/s-n0i50vy/images/stencil/500x659/products/85/282/livingwithplants_grande__26452.1456436666.jpg?c=2&imbypass=on'
                 _:
-                  id: a8940709-5655-4401-a341-62c44e3180b2
+                  id: 1f05183e-dfa4-4583-af28-250b47e177b2
+                images:
+                  - image_source: 'https://cdn11.bigcommerce.com/s-n0i50vy/images/stencil/1280x1280/products/109/361/kinfolkessentialissue_1024x1024__22507.1456436715.jpg?c=2&imbypass=on'
+                  - image_source: 'https://cdn11.bigcommerce.com/s-n0i50vy/images/stencil/500x659/products/85/282/livingwithplants_grande__26452.1456436666.jpg?c=2&imbypass=on'
+                  - image_source: 'https://cdn11.bigcommerce.com/s-n0i50vy/images/stencil/1280x1280/products/109/361/kinfolkessentialissue_1024x1024__22507.1456436715.jpg?c=2&imbypass=on'
               widget_template:
-                uuid: 3a1b0044-c9b3-47d3-9929-01ab0c20243b
+                channel_id: 1
+                client_rerender: false
+                current_version_uuid: c863f77b-e5b4-4462-a9ed-2aff9005140e
+                date_created: '2020-12-21T19:49:29.110Z'
+                date_modified: '2020-12-21T19:49:29.110Z'
+                icon_name: default
+                kind: custom
                 name: Header Images
                 schema: []
-                template: '{{#each images}}<a href=''{{image_url}}''><img src={{image_source}} style=''width:33.3%''/></a>{{/each}}'
-                date_created: '2019-02-25T18:35:04.904Z'
-                date_modified: '2019-02-25T18:35:04.904Z'
-                kind: custom
-              date_created: '2019-02-25T18:36:45.238Z'
-              date_modified: '2019-02-25T18:36:45.238Z'
-              description: ''
-            date_created: '2019-02-25T18:37:10.658Z'
-            date_modified: '2019-02-25T18:37:10.658Z'
+                storefront_api_query: ''
+                template: '{{#each images}}<a href=''{{image_url}}''><img src={{image_source}} style=''width:50%''/></a>{{/each}}'
+                template_engine: handlebars_v3
+                uuid: f8459145-da8f-4d98-93e4-83aa47da61c6
         meta:
           pagination:
-            total: 1
             count: 1
-            per_page: 50
             current_page: 1
+            per_page: 50
+            total: 1
             total_pages: 1
   Placement_Resp:
     description: ''
@@ -1683,38 +1689,45 @@ responses:
     examples:
       application/json:
         data:
-          uuid: bb34b23b-0d4b-4b9b-9e24-c8b0dcfd5e08
-          template_file: pages/category
-          region: ''
-          sort_order: 0
+          channel_id: 1
+          date_created: '2020-12-21T20:43:16.796Z'
+          date_modified: '2020-12-21T20:43:16.796Z'
           entity_id: '21'
+          region: category_header_banner
+          sort_order: 1
           status: active
+          template_file: pages/category
+          uuid: 89eac5b3-91d7-48e5-92e7-ff53ecf07f8c
           widget:
-            uuid: a8940709-5655-4401-a341-62c44e3180b2
+            channel_id: 1
+            date_created: '2020-12-21T19:54:16.406Z'
+            date_modified: '2020-12-21T20:40:45.173Z'
+            description: ''
             name: Header Images
+            storefront_api_query_params: {}
+            uuid: 1f05183e-dfa4-4583-af28-250b47e177b2
+            version_uuid: c863f77b-e5b4-4462-a9ed-2aff9005140e
             widget_configuration:
-              images:
-                - image_url: 'https://{{your-url}.com/'
-                  image_source: 'https://cdn11.bigcommerce.com/s-n0i50vy/images/stencil/1280x1280/products/91/309/thekinfolktablecover_1024x1024__80715.1456436719.jpg?c=2&imbypass=on'
-                - image_url: 'https://{{your-url}.com/'
-                  image_source: 'https://cdn11.bigcommerce.com/s-n0i50vy/images/stencil/1280x1280/products/109/361/kinfolkessentialissue_1024x1024__22507.1456436715.jpg?c=2&imbypass=on'
-                - image_url: 'https://{{your-url}.com/'
-                  image_source: 'https://cdn11.bigcommerce.com/s-n0i50vy/images/stencil/500x659/products/85/282/livingwithplants_grande__26452.1456436666.jpg?c=2&imbypass=on'
               _:
-                id: a8940709-5655-4401-a341-62c44e3180b2
+                id: 1f05183e-dfa4-4583-af28-250b47e177b2
+              images:
+                - image_source: 'https://cdn11.bigcommerce.com/s-n0i50vy/images/stencil/1280x1280/products/109/361/kinfolkessentialissue_1024x1024__22507.1456436715.jpg?c=2&imbypass=on'
+                - image_source: 'https://cdn11.bigcommerce.com/s-n0i50vy/images/stencil/500x659/products/85/282/livingwithplants_grande__26452.1456436666.jpg?c=2&imbypass=on'
+                - image_source: 'https://cdn11.bigcommerce.com/s-n0i50vy/images/stencil/1280x1280/products/109/361/kinfolkessentialissue_1024x1024__22507.1456436715.jpg?c=2&imbypass=on'
             widget_template:
-              uuid: 3a1b0044-c9b3-47d3-9929-01ab0c20243b
+              channel_id: 1
+              client_rerender: false
+              current_version_uuid: c863f77b-e5b4-4462-a9ed-2aff9005140e
+              date_created: '2020-12-21T19:49:29.110Z'
+              date_modified: '2020-12-21T19:49:29.110Z'
+              icon_name: default
+              kind: custom
               name: Header Images
               schema: []
-              template: '{{#each images}}<a href=''{{image_url}}''><img src={{image_source}} style=''width:33.3%''/></a>{{/each}}'
-              date_created: '2019-02-25T18:35:04.904Z'
-              date_modified: '2019-02-25T18:35:04.904Z'
-              kind: custom
-            date_created: '2019-02-25T18:36:45.238Z'
-            date_modified: '2019-02-25T18:36:45.238Z'
-            description: ''
-          date_created: '2019-02-25T18:37:10.658Z'
-          date_modified: '2019-02-25T18:37:10.658Z'
+              storefront_api_query: ''
+              template: '{{#each images}}<a href=''{{image_url}}''><img src={{image_source}} style=''width:50%''/></a>{{/each}}'
+              template_engine: handlebars_v3
+              uuid: f8459145-da8f-4d98-93e4-83aa47da61c6
         meta: {}
   WidgetTemplateCollection_Resp:
     description: ''
@@ -1730,44 +1743,68 @@ responses:
     examples:
       application/json:
         data:
-          - uuid: 3a1b0044-c9b3-47d3-9929-01ab0c20243b
+          - channel_id: 1
+            client_rerender: false
+            current_version_uuid: 4bd7619e-7992-4454-8610-84fb16449761
+            date_created: '2020-12-21T19:36:16.896Z'
+            date_modified: '2020-12-21T19:36:16.896Z'
+            icon_name: default
+            kind: custom
             name: Header Images
             schema: []
+            storefront_api_query: ''
             template: '{{#each images}}<a href=''{{image_url}}''><img src={{image_source}} style=''width:33.3%''/></a>{{/each}}'
-            date_created: '2019-02-25T18:35:04.904Z'
-            date_modified: '2019-02-25T18:35:04.904Z'
+            template_engine: handlebars_v3
+            uuid: f8459145-da8f-4d98-93e4-83aa47da61c6
+          - channel_id: 1
+            client_rerender: false
+            current_version_uuid: c23dd66b-fa3f-451d-88ef-9f4082c6051e
+            date_created: '2020-12-21T19:36:59.384Z'
+            date_modified: '2020-12-21T19:36:59.384Z'
+            icon_name: default
             kind: custom
-          - uuid: 2fbb8014-2a6e-4569-b484-65824959d035
             name: Simple List
             schema: []
+            storefront_api_query: ''
             template: '<ul>{{#each list_items}}<li style=''color:{{color}};''>{{text}}</li>{{/each}}</ul>'
-            date_created: '2019-02-25T22:12:32.779Z'
-            date_modified: '2019-02-25T22:12:32.779Z'
+            template_engine: handlebars_v3
+            uuid: 42b42cbb-e2d8-4f2a-97ea-06755032115a
+          - channel_id: 1
+            client_rerender: false
+            current_version_uuid: bc820372-368e-4a96-a6d6-f313edba5617
+            date_created: '2020-12-21T19:38:08.036Z'
+            date_modified: '2020-12-21T19:38:08.036Z'
+            icon_name: default
             kind: custom
-          - uuid: bbdd79ad-760c-406c-8866-c0642ec6fb3f
-            name: Simple HTML
-            schema: []
-            template: '{{{html}}}'
-            date_created: '2019-02-26T16:35:33.257Z'
-            date_modified: '2019-02-26T16:35:33.257Z'
-            kind: custom
-          - uuid: 28a6d62d-6435-4423-a611-35feaab1229a
             name: Simple Text with Styling
             schema: []
+            storefront_api_query: ''
             template: '<style>#bc-simple-text-{{_.id}} {color: {{color}};background: {{background_color}};font-size: {{font_size}};font-style: {{font_style}};font-weight: {{font_weight}};font-family: {{font_family}};text-align: {{text_align}};margin-top: {{margin_top}};margin-bottom: {{margin_bottom}};margin-left: {{margin_left}};margin-right: {{margin_right}};padding-top: {{padding_top}};padding-bottom: {{padding_bottom}};padding-left: {{padding_left}};padding-right: {{padding_right}};}</style><p id=''bc-simple-text-{{_.id}}''>{{text}}</p>'
-            date_created: '2019-02-26T17:20:14.274Z'
-            date_modified: '2019-02-26T17:20:14.274Z'
+            template_engine: handlebars_v3
+            uuid: 17dcc919-982a-4cc0-8ede-a5b49f9ab6dc
+          - channel_id: 1
+            client_rerender: false
+            current_version_uuid: 873b0a03-b219-46ec-8f06-c3c4522ef25d
+            date_created: '2020-12-21T19:38:30.223Z'
+            date_modified: '2020-12-21T19:38:30.223Z'
+            icon_name: default
             kind: custom
-          - uuid: f054d960-3b3f-4bed-b3b3-ccb024e2f807
             name: YouTube Embed
             schema: []
+            storefront_api_query: ''
             template: '<iframe    id=''ytplayer-{{_.id}}''    type=''text/html'' width=''{{width}}''    height=''{{height}}'' src=''https://www.youtube.com/embed/{{video_id}}?autoplay={{autoplay}}&color={{color}}&controls={{controls}}&disablekb={{disablekb}}&fs={{fs}}&rel={{rel}}&showinfo={{showinfo}}'' frameborder=''{{frameborder}}''>  </iframe>'
-            date_created: '2019-02-26T18:59:18.359Z'
-            date_modified: '2019-02-26T18:59:18.359Z'
+            template_engine: handlebars_v3
+            uuid: d9e7fd0e-d5c2-45c9-8919-ce68a5590c12
+          - channel_id: 1
+            client_rerender: false
+            current_version_uuid: 8fa7ff13-fcfb-4106-9c32-5a084224a444
+            date_created: '2020-12-21T19:38:46.557Z'
+            date_modified: '2020-12-21T19:38:46.557Z'
+            icon_name: default
             kind: custom
-          - uuid: be346d31-d869-4e96-9299-4c85bc1af55a
             name: Slider Template
             schema: []
+            storefront_api_query: ''
             template: |-
               <ul class="slider">
               {{#each slides}}
@@ -1789,12 +1826,18 @@ responses:
               setTimeout(carousel, 4000); // Change image every 4 seconds
               }
               </script>
-            date_created: '2019-02-26T19:25:24.081Z'
-            date_modified: '2019-02-26T19:25:24.081Z'
-            kind: custom
-          - uuid: 2ff24732-6848-47ba-9a7f-c8b1d444f270
+            template_engine: handlebars_v3
+            uuid: 30714957-0e01-4c4e-8551-25591261d0d0
+          - channel_id: 0
+            client_rerender: false
+            current_version_uuid: 7494d009-c695-43ce-a1eb-ba75ef663ba2
+            date_created: '2020-06-23T18:07:12.110Z'
+            date_modified: '2020-06-23T18:07:12.110Z'
+            icon_name: default
+            kind: pp-cartpage-fullbanner
             name: PayPal Credit Banner - Cart Page (728x90)
             schema: []
+            storefront_api_query: ''
             template: |
               <style media="screen">
                 #banner-region-{{ _.id }} {
@@ -1820,12 +1863,18 @@ responses:
                   data-pp_partner_version="2">
                 </script>
               </div>
-            date_created: '2017-10-04T22:49:21.073Z'
-            date_modified: '2017-10-27T17:20:20.386Z'
-            kind: pp-cartpage-fullbanner
-          - uuid: 3002bf5b-5eca-4ac2-8f1f-5240c2b74712
+            template_engine: handlebars_v3
+            uuid: 2ff24732-6848-47ba-9a7f-c8b1d444f270
+          - channel_id: 0
+            client_rerender: false
+            current_version_uuid: ee4978a6-31f9-47e2-ab38-810dd1c78e34
+            date_created: '2020-06-23T18:07:12.136Z'
+            date_modified: '2020-06-23T18:07:12.136Z'
+            icon_name: default
+            kind: pp-homepage-fullbanner
             name: PayPal Credit Banner - Home Page (728x90)
             schema: []
+            storefront_api_query: ''
             template: |
               <style media="screen">
                 #banner-region-{{ _.id }} {
@@ -1851,133 +1900,12 @@ responses:
                   data-pp_partner_version="2">
                 </script>
               </div>
-            date_created: '2017-10-04T22:49:32.067Z'
-            date_modified: '2017-10-27T17:20:50.367Z'
-            kind: pp-homepage-fullbanner
-          - uuid: 7c541473-855d-4b62-a7bf-6ef3199f914c
-            name: PayPal Credit Banner - Product Details Page (234x60)
-            schema: []
-            template: |
-              <style media="screen">
-                #banner-region-{{ _.id }} {
-                  display: block;
-                  width: 100%;
-                  max-width: 234px;
-                  height: 60px;
-                }
-              </style>
-
-              <div id="banner-region-{{ _.id }}">
-                <script src="https://www.paypalobjects.com/upstream/partner.js"
-                  data-pp_payer_id="{{ merchant_id }}"
-                  data-pp_bn_code="BigCommerce_Cart_PPC"
-                  data-pp_dimensions="234x60"
-                  data-pp_format="HTML"
-                  data-pp_presentation_types="HTML"
-                  data-pp_page="ProductDetailsPage"
-                  data-pp_country_code="{{ country_code }}"
-                  data-pp_locale="{{ locale }}"
-                  data-pp_partner_version="2">
-                </script>
-              </div>
-            date_created: '2017-10-04T22:49:41.274Z'
-            date_modified: '2017-10-27T17:21:16.179Z'
-            kind: pp-proddetailspage-quarterbanner
-          - uuid: 2dfeb50e-5f8c-4df2-8525-a338091eed32
-            name: Braintree PayPal Credit Banner - Cart Page (728x90)
-            schema: []
-            template: |
-              <style media="screen">
-                #banner-region-{{ _.id }} {
-                  display: block;
-                  margin-right: auto;
-                  margin-left: auto;
-                  width: 100%;
-                  max-width: 728px;
-                  height: 90px;
-                }
-              </style>
-
-              <div id="banner-region-{{ _.id }}">
-                <script src="https://www.paypalobjects.com/upstream/partner.js"
-                  data-pp_payer_id="{{ merchant_id }}"
-                  data-pp_bn_code="BigCommerce_Cart_PPC"
-                  data-pp_dimensions="728x90"
-                  data-pp_format="HTML"
-                  data-pp_presentation_types="HTML"
-                  data-pp_page="CartPage"
-                  data-pp_country_code="{{ country_code }}"
-                  data-pp_locale="{{ locale }}"
-                  data-pp_partner_version="2">
-                </script>
-              </div>
-            date_created: '2017-10-27T17:21:27.316Z'
-            date_modified: '2017-10-27T17:21:38.264Z'
-            kind: bt-cartpage-fullbanner
-          - uuid: a96caeab-1e47-4196-b707-7037950fb2a7
-            name: Braintree PayPal Credit Banner - Home Page (728x90)
-            schema: []
-            template: |
-              <style media="screen">
-                #banner-region-{{ _.id }} {
-                  display: block;
-                  margin-right: auto;
-                  margin-left: auto;
-                  width: 100%;
-                  max-width: 728px;
-                  height: 90px;
-                }
-              </style>
-
-              <div id="banner-region-{{ _.id }}">
-                <script src="https://www.paypalobjects.com/upstream/partner.js"
-                  data-pp_payer_id="{{ merchant_id }}"
-                  data-pp_bn_code="BigCommerce_Cart_PPC"
-                  data-pp_dimensions="728x90"
-                  data-pp_format="HTML"
-                  data-pp_presentation_types="HTML"
-                  data-pp_page="HomePage"
-                  data-pp_country_code="{{ country_code }}"
-                  data-pp_locale="{{ locale }}"
-                  data-pp_partner_version="2">
-                </script>
-              </div>
-            date_created: '2017-10-27T17:21:48.607Z'
-            date_modified: '2017-10-27T17:21:59.798Z'
-            kind: bt-homepage-fullbanner
-          - uuid: 5b91d91c-9d09-4fc2-81a5-733746306924
-            name: Braintree PayPal Credit Banner - Product Details Page (234x60)
-            schema: []
-            template: |
-              <style media="screen">
-                #banner-region-{{ _.id }} {
-                  display: block;
-                  width: 100%;
-                  max-width: 234px;
-                  height: 60px;
-                }
-              </style>
-
-              <div id="banner-region-{{ _.id }}">
-                <script src="https://www.paypalobjects.com/upstream/partner.js"
-                  data-pp_payer_id="{{ merchant_id }}"
-                  data-pp_bn_code="BigCommerce_Cart_PPC"
-                  data-pp_dimensions="234x60"
-                  data-pp_format="HTML"
-                  data-pp_presentation_types="HTML"
-                  data-pp_page="ProductDetailsPage"
-                  data-pp_country_code="{{ country_code }}"
-                  data-pp_locale="{{ locale }}"
-                  data-pp_partner_version="2">
-                </script>
-              </div>
-            date_created: '2017-10-27T17:22:08.430Z'
-            date_modified: '2017-10-27T17:22:18.701Z'
-            kind: bt-proddetailspage-quarterbanner
+            template_engine: handlebars_v3
+            uuid: 3002bf5b-5eca-4ac2-8f1f-5240c2b74712
         meta:
           pagination:
-            total: 12
-            count: 12
+            total: 7
+            count: 7
             per_page: 50
             current_page: 1
             total_pages: 1
@@ -1995,15 +1923,19 @@ responses:
     examples:
       application/json:
         data:
-          current_version_uuid: c48b131a-ae9d-4767-b5d6-63d9e43bcf75
-          date_created: '2020-11-03T18:51:22.877Z'
-          date_modified: '2020-11-03T18:51:22.877Z'
+          channel_id: 1
+          client_rerender: false
+          current_version_uuid: 4bd7619e-7992-4454-8610-84fb16449761
+          date_created: '2020-12-21T19:36:16.896Z'
+          date_modified: '2020-12-21T19:36:16.896Z'
           icon_name: default
           kind: custom
           name: Header Images
           schema: []
+          storefront_api_query: ''
           template: '{{#each images}}<a href=''{{image_url}}''><img src={{image_source}} style=''width:33.3%''/></a>{{/each}}'
-          uuid: b9790903-09b9-4736-87ca-19ff61582ee7
+          template_engine: handlebars_v3
+          uuid: f8459145-da8f-4d98-93e4-83aa47da61c6
         meta: {}
   WidgetCollection_Resp:
     description: ''
@@ -2019,35 +1951,73 @@ responses:
     examples:
       application/json:
         data:
-          - uuid: a8940709-5655-4401-a341-62c44e3180b2
+          - channel_id: 1
+            date_created: '2020-12-21T19:54:16.406Z'
+            date_modified: '2020-12-21T19:54:16.406Z'
+            description: ''
             name: Header Images
+            storefront_api_query_params: {}
+            uuid: 1f05183e-dfa4-4583-af28-250b47e177b2
+            version_uuid: c863f77b-e5b4-4462-a9ed-2aff9005140e
             widget_configuration:
-              images:
-                - image_url: 'https://www.bigcommerce.com'
-                  image_source: 'https://cdn11.bigcommerce.com/s-n0i50vy/images/stencil/1280x1280/products/91/309/thekinfolktablecover_1024x1024__80715.1456436719.jpg?c=2&imbypass=on'
-                - image_url: 'hhttps://www.bigcommerce.com'
-                  image_source: 'https://cdn11.bigcommerce.com/s-n0i50vy/images/stencil/1280x1280/products/109/361/kinfolkessentialissue_1024x1024__22507.1456436715.jpg?c=2&imbypass=on'
-                - image_url: 'https://www.bigcommerce.com'
-                  image_source: 'https://cdn11.bigcommerce.com/s-n0i50vy/images/stencil/500x659/products/85/282/livingwithplants_grande__26452.1456436666.jpg?c=2&imbypass=on'
               _:
-                id: a8940709-5655-4401-a341-62c44e3180b2
+                id: 1f05183e-dfa4-4583-af28-250b47e177b2
+              images:
+                - image_source: 'https://cdn11.bigcommerce.com/s-n0i50vy/images/stencil/1280x1280/products/109/361/kinfolkessentialissue_1024x1024__22507.1456436715.jpg?c=2&imbypass=on'
+                - image_source: 'https://cdn11.bigcommerce.com/s-n0i50vy/images/stencil/500x659/products/85/282/livingwithplants_grande__26452.1456436666.jpg?c=2&imbypass=on'
+                - image_source: 'https://cdn11.bigcommerce.com/s-n0i50vy/images/stencil/1280x1280/products/109/361/kinfolkessentialissue_1024x1024__22507.1456436715.jpg?c=2&imbypass=on'
             widget_template:
-              uuid: 3a1b0044-c9b3-47d3-9929-01ab0c20243b
+              channel_id: 1
+              client_rerender: false
+              current_version_uuid: c863f77b-e5b4-4462-a9ed-2aff9005140e
+              date_created: '2020-12-21T19:49:29.110Z'
+              date_modified: '2020-12-21T19:49:29.110Z'
+              icon_name: default
+              kind: custom
               name: Header Images
               schema: []
-              template: '{{#each images}}<a href=''{{image_url}}''><img src={{image_source}} style=''width:33.3%''/></a>{{/each}}'
-              date_created: '2019-02-25T18:35:04.904Z'
-              date_modified: '2019-02-25T18:35:04.904Z'
-              kind: custom
-            date_created: '2019-02-25T18:36:45.238Z'
-            date_modified: '2019-02-25T18:36:45.238Z'
+              storefront_api_query: ''
+              template: '{{#each images}}<a href=''{{image_url}}''><img src={{image_source}} style=''width:50%''/></a>{{/each}}'
+              template_engine: handlebars_v3
+              uuid: f8459145-da8f-4d98-93e4-83aa47da61c6
+          - channel_id: 1
+            date_created: '2020-12-21T20:26:18.557Z'
+            date_modified: '2020-12-21T20:26:18.557Z'
             description: ''
+            name: Simple List
+            storefront_api_query_params: {}
+            uuid: 7a842254-96ad-475f-9fe5-a59695e9685f
+            version_uuid: c23dd66b-fa3f-451d-88ef-9f4082c6051e
+            widget_configuration:
+              _:
+                id: 7a842254-96ad-475f-9fe5-a59695e9685f
+              list_items:
+                - color: blue
+                  text: The color is blue
+                - color: green
+                  text: The color is green
+                - color: red
+                  text: The color is red
+            widget_template:
+              channel_id: 1
+              client_rerender: false
+              current_version_uuid: c23dd66b-fa3f-451d-88ef-9f4082c6051e
+              date_created: '2020-12-21T19:36:59.384Z'
+              date_modified: '2020-12-21T19:36:59.384Z'
+              icon_name: default
+              kind: custom
+              name: Simple List
+              schema: []
+              storefront_api_query: ''
+              template: '<ul>{{#each list_items}}<li style=''color:{{color}};''>{{text}}</li>{{/each}}</ul>'
+              template_engine: handlebars_v3
+              uuid: 42b42cbb-e2d8-4f2a-97ea-06755032115a
         meta:
           pagination:
-            total: 1
-            count: 1
-            per_page: 50
+            count: 2
             current_page: 1
+            per_page: 50
+            total: 2
             total_pages: 1
   Widget_Resp:
     description: ''
@@ -2061,30 +2031,35 @@ responses:
     examples:
       application/json:
         data:
-          date_created: '2020-11-05T18:15:13.390Z'
-          date_modified: '2020-11-05T18:15:13.390Z'
+          channel_id: 1
+          date_created: '2020-12-21T19:54:16.406Z'
+          date_modified: '2020-12-21T19:54:16.406Z'
           description: ''
           name: Header Images
-          uuid: 456851d3-0125-440e-820d-1b11c19da553
-          version_uuid: c48b131a-ae9d-4767-b5d6-63d9e43bcf75
+          storefront_api_query_params: {}
+          uuid: 1f05183e-dfa4-4583-af28-250b47e177b2
+          version_uuid: c863f77b-e5b4-4462-a9ed-2aff9005140e
           widget_configuration:
-            images:
-              - image_url: 'https://tatiana.fun/all/kinfolk-issue-16/'
-                image_source: 'https://cdn11.bigcommerce.com/s-n0i50vy/images/stencil/1280x1280/products/91/309/thekinfolktablecover_1024x1024__80715.1456436719.jpg?c=2&imbypass=on'
-              - image_url: 'https://tatiana.fun/all/kinfolk-issue-16/'
-                image_source: 'https://cdn11.bigcommerce.com/s-n0i50vy/images/stencil/1280x1280/products/109/361/kinfolkessentialissue_1024x1024__22507.1456436715.jpg?c=2&imbypass=on'
-              - image_url: 'https://tatiana.fun/all/kinfolk-issue-16/'
-                image_source: 'https://cdn11.bigcommerce.com/s-n0i50vy/images/stencil/500x659/products/85/282/livingwithplants_grande__26452.1456436666.jpg?c=2&imbypass=on'
             _:
-              id: a8940709-5655-4401-a341-62c44e3180b2
+              id: 1f05183e-dfa4-4583-af28-250b47e177b2
+            images:
+              - image_source: 'https://cdn11.bigcommerce.com/s-n0i50vy/images/stencil/1280x1280/products/109/361/kinfolkessentialissue_1024x1024__22507.1456436715.jpg?c=2&imbypass=on'
+              - image_source: 'https://cdn11.bigcommerce.com/s-n0i50vy/images/stencil/500x659/products/85/282/livingwithplants_grande__26452.1456436666.jpg?c=2&imbypass=on'
+              - image_source: 'https://cdn11.bigcommerce.com/s-n0i50vy/images/stencil/1280x1280/products/109/361/kinfolkessentialissue_1024x1024__22507.1456436715.jpg?c=2&imbypass=on'
           widget_template:
-            uuid: 3a1b0044-c9b3-47d3-9929-01ab0c20243b
+            channel_id: 1
+            client_rerender: false
+            current_version_uuid: c863f77b-e5b4-4462-a9ed-2aff9005140e
+            date_created: '2020-12-21T19:49:29.110Z'
+            date_modified: '2020-12-21T19:49:29.110Z'
+            icon_name: default
+            kind: custom
             name: Header Images
             schema: []
-            template: '{{#each images}}<a href=''{{image_url}}''><img src={{image_source}} style=''width:33.3%''/></a>{{/each}}'
-            date_created: '2019-02-25T18:35:04.904Z'
-            date_modified: '2019-02-25T18:35:04.904Z'
-            kind: custom
+            storefront_api_query: ''
+            template: '{{#each images}}<a href=''{{image_url}}''><img src={{image_source}} style=''width:50%''/></a>{{/each}}'
+            template_engine: handlebars_v3
+            uuid: f8459145-da8f-4d98-93e4-83aa47da61c6
         meta: {}
   Error422_Resp:
     description: |
