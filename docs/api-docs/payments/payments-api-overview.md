@@ -56,6 +56,7 @@ You can process payments using cards stored with the BigCommerce Stored Credit C
 
 * AdyenV2
 * Authorize.net
+* Bolt
 * Checkout.com
 * CyberSource
 * MyVirtualMerchant
