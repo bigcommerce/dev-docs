@@ -36,25 +36,30 @@ For differences in resources, see the [Difference between V2 and V3 Catalog APIs
 * You can include sub-resources within a request.
 * Each V3 resource includes a meta object, simplifying pagination.
 * V3 [Brands](https://developer.bigcommerce.com/api-reference/store-management/catalog/brands/getbrandbyid), [Categories](https://developer.bigcommerce.com/api-reference/store-management/catalog/category/getcategorybyid), [Products](https://developer.bigcommerce.com/api-reference/store-management/catalog/products/getproductbyid), and [Product Variants](https://developer.bigcommerce.com/api-reference/store-management/catalog/product-variants/getvariantbyid) expose a metafields resource for use by developers to store custom data.
-* V3 API is optimized for performance. In general, data can be sent, received, and processed faster via V3, relative to V2.
+* V3 API is optimized for performance. In general, data can be sent, received, and processed faster via V3 relative to V2.
 
 ## Difference between V2 and V3 Catalog APIs
 
 ### Product variants and modifiers instead of option sets
 
-V3 Catalog introduced a new option model, which included two types of options: [variant options](https://developer.bigcommerce.com/api-docs/store-management/products-overview#variant-options) and [modifiers](https://developer.bigcommerce.com/api-docs/store-management/products-overview#modifier-options). You can now create variants and modifiers in one call without having to create option sets beforehand. The new option model simplified the creation and management of variant prices and modifier adjusters and removed the need to use complex rules, in all but some cases.
+V3 Catalog introduced a new option model that included two types of options: [variant options](https://developer.bigcommerce.com/api-docs/store-management/products-overview#variant-options) and [modifiers](https://developer.bigcommerce.com/api-docs/store-management/products-overview#modifier-options). 
 
-#### Variant options
+You can now create variants and modifiers in one call without having to create option sets beforehand. The new option model simplified the creation and management of variant prices and modifier adjusters. In all but some cases,  it removed the need to use complex rules.
+
+**Variant options**
+
 [Variant options](https://developer.bigcommerce.com/api-docs/store-management/products-overview#variant-options) represent options used for variant generation. A shopper has to choose from available variant options before adding a product to the cart. Variant options include multiple-choice types such as swatch, rectangle, radio button, and dropdown.
 
-Variant options example: size or color.
+*Variant options example:* size or color.
 
-#### Variants
+**Variants**
+
 [Variants](https://developer.bigcommerce.com/api-docs/store-management/products-overview#variant) are created based on the combination of variant options and have their own attributes such as image, prices, weight, and stock level.
 
-Variant example: large blue t-shirt.
+*Variant example:* large blue t-shirt.
 
-#### Modifiers
+**Modifiers**
+
 [Modifiers](https://developer.bigcommerce.com/api-docs/store-management/products-overview#modifier-options) represent options used for additional product customization such as gift wrapping, engraving, text to be printed on a t-shirt, or a warranty. Unlike variant options, modifiers do not generate variants, and you can display them as *required* or *optional* on the storefront. You can use modifiers along with [rules](https://developer.bigcommerce.com/api-docs/store-management/products-overview#complex-rules) to change a product's price or weight.
 Modifiers include multiple-choice types such as swatch, rectangle, radio button, and dropdown, and non-multiple-choice types such as text, multi-line text, date picker, file upload, and pick list.
 
@@ -70,8 +75,6 @@ Modifiers include multiple-choice types such as swatch, rectangle, radio button,
 </div>
 </div>
 
-#### Creating variants using V2 and V3 Catalog API
-
 The following workflows demonstrate the difference between creating a product with variants using V2 and V3 Catalog APIs.
 
 **V2 API workflow to create a product with variants:**
@@ -86,9 +89,9 @@ The following workflows demonstrate the difference between creating a product wi
 
 1. [Create a product](https://developer.bigcommerce.com/api-reference/store-management/catalog/products/createproduct) with variants by sending a `POST` request to `/v3/catalog/products`. You can specify the price directly on the variant level using the `price` property of the variant object.
 
-#### Product variants
+**Product variants**
 
-In V3, every purchasable entity in the catalog is a variant including the product itself. This structure enables enhanced inventory management flows, such as using the [variants](https://developer.bigcommerce.com/api-reference/store-management/catalog/variants/getvariants) endpoint to manage inventory levels. While it is possible to create an SKU with a subset of product options using the V2 API; in V3, you must create variants for every combination of option values. We recommend creating products using the V3 API as BigCommerce intends to move operations to the V3 API.
+In V3, every purchasable entity in the catalog is a variant including the product itself. This structure enables enhanced inventory management flows, such as using the [Variants](https://developer.bigcommerce.com/api-reference/store-management/catalog/variants/getvariants) endpoint to manage inventory levels. While it is possible to create an SKU with a subset of product options using the V2 API, V3 requires creating variants for every combination of option values. We recommend creating products using the V3 API as BigCommerce intends to move operations to the V3 API.
 
 To reduce the number of API calls made, you can include variants with a `GET` request using the `?include=variants` query parameter.
 
