@@ -1003,6 +1003,7 @@ paths:
             application/json:
               - first_name: John
                 last_name: Doe
+                id: 38
                 address1: 111 E West Street
                 address2: '654'
                 city: Akron
