@@ -1,6 +1,6 @@
 # Building Storefront Channels
 
-<!-- https://developer.bigcommerce.com/api-docs/channels/tutorials/storefront#building-a-channel-app -->
+<!-- Dev Center URL: https://developer.bigcommerce.com/api-docs/channels/tutorials/storefront#building-a-channel-app -->
 
 <div class="otp" id="no-index">
 
