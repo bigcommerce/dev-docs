@@ -1,6 +1,6 @@
 # Channel App Best Practices
 
-<!-- https://developer.bigcommerce.com/api-docs/channels/guide/channel-app-best-practices -->
+<!-- Dev Center URL: https://developer.bigcommerce.com/api-docs/channels/guide/channel-app-best-practices -->
 
 <div class="otp" id="no-index">
 
