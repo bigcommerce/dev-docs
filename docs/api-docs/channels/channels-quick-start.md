@@ -1,4 +1,4 @@
-<!-- https://developer.bigcommerce.com/api-docs/channels/quick-start -->
+<!-- Dev Center URL: https://developer.bigcommerce.com/api-docs/channels/quick-start -->
 
 # Building Channels Quick Start
 
