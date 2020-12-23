@@ -1,6 +1,6 @@
 # Extending Sales Channel Apps with Channels Toolkit
 
-<!-- https://developer.bigcommerce.com/api-docs/channels/tutorials/extend-existing-apps -->
+<!-- Dev Center URL: https://developer.bigcommerce.com/api-docs/channels/tutorials/extend-existing-apps -->
 
 <div class="otp" id="no-index">
 
