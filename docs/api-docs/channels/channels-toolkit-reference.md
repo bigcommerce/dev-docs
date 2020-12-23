@@ -1,13 +1,16 @@
 # Channels Toolkit Reference
 
+<!-- Dev Center URL: https://developer.bigcommerce.com/api-docs/channels/guide/channels-toolkit-reference -->
+
 <div class="otp" id="no-index">
 
-### On this page
-- [Required endpoints](#required-endpoints)
-- [Recommended endpoints](#recommended-endpoints)
-- [Extended functionality endpoints](#extended-functionality-endpoints)
-- [UI components](#ui-components)
-- [Documentation](#documentation)
+## On this page
+
+ - [Required endpoints](#required-endpoints)
+ - [Recommended endpoints](#recommended-endpoints)
+ - [Extended functionality endpoints](#extended-functionality-endpoints)
+ - [UI components](#ui-components)
+ - [Documentation](#documentation)
 
 </div>
 
@@ -71,26 +74,26 @@ To assist in the rapid development of apps that match the native UI and UX of th
 
 The following UI components are required for channels.
 
-* [Typography](https://developer.bigcommerce.com/big-design/typography)
-* [Tabs](https://developer.bigcommerce.com/big-design/tabs)
-* [Panel](https://developer.bigcommerce.com/big-design/panel)
-* [Link](https://developer.bigcommerce.com/big-design/link)
-* [Icons](https://developer.bigcommerce.com/big-design/icons)
-* [Button](https://developer.bigcommerce.com/big-design/button)
-* [Progress Circle](https://developer.bigcommerce.com/big-design/progress-circle)
-* Lozenge
-* [Dropdown](https://developer.bigcommerce.com/big-design/dropdown)
-* [Table](https://developer.bigcommerce.com/big-design/table)
-* [Box](https://developer.bigcommerce.com/big-design/box)
+- [Typography](https://developer.bigcommerce.com/big-design/typography)
+- [Tabs](https://developer.bigcommerce.com/big-design/tabs)
+- [Panel](https://developer.bigcommerce.com/big-design/panel)
+- [Link](https://developer.bigcommerce.com/big-design/link)
+- [Icons](https://developer.bigcommerce.com/big-design/icons)
+- [Button](https://developer.bigcommerce.com/big-design/button)
+- [Progress Circle](https://developer.bigcommerce.com/big-design/progress-circle)
+- [Badge](https://developer.bigcommerce.com/big-design/badge)
+- [Dropdown](https://developer.bigcommerce.com/big-design/dropdown)
+- [Table](https://developer.bigcommerce.com/big-design/table)
+- [Box](https://developer.bigcommerce.com/big-design/box)
 
 ### Recommended UI components
 
 The following UI components are highly recommended for channels.
 
-* [Alerts](https://developer.bigcommerce.com/big-design/alert)
-* [Form](https://developer.bigcommerce.com/big-design/form)
-* [Input](https://developer.bigcommerce.com/big-design/input)
-* [Tooltip](https://developer.bigcommerce.com/big-design/tooltip)
+- [Alerts](https://developer.bigcommerce.com/big-design/alert)
+- [Form](https://developer.bigcommerce.com/big-design/form)
+- [Input](https://developer.bigcommerce.com/big-design/input)
+- [Tooltip](https://developer.bigcommerce.com/big-design/tooltip)
 
 ## Documentation
 
