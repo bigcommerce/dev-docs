@@ -1792,7 +1792,7 @@ responses:
             name: YouTube Embed
             schema: []
             storefront_api_query: ''
-            template: '<iframe    id=''ytplayer-{{_.id}}''    type=''text/html'' width=''{{width}}''    height=''{{height}}'' src=''https://www.youtube.com/embed/{{video_id}}?autoplay={{autoplay}}&color={{color}}&controls={{controls}}&disablekb={{disablekb}}&fs={{fs}}&rel={{rel}}&showinfo={{showinfo}}'' frameborder=''{{frameborder}}''>  </iframe>'
+            template: '<iframe id=''ytplayer-{{_.id}}''type=''text/html'' width=''{{width}}'' height=''{{height}}'' src=''https://www.youtube.com/embed/{{video_id}}?autoplay={{autoplay}}&color={{color}}&controls={{controls}}&disablekb={{disablekb}}&fs={{fs}}&rel={{rel}}&showinfo={{showinfo}}'' frameborder=''{{frameborder}}''></iframe>'
             template_engine: handlebars_v3
             uuid: d9e7fd0e-d5c2-45c9-8919-ce68a5590c12
           - channel_id: 1
