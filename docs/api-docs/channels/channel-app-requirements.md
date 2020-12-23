@@ -1,6 +1,6 @@
 # Channel App Requirements
 
-<!-- https://developer.bigcommerce.com/api-docs/channels/guide/channel-app-requirements -->
+<!-- Dev Center URL: https://developer.bigcommerce.com/api-docs/channels/guide/channel-app-requirements -->
 
 <div class="otp" id="no-in">
 
