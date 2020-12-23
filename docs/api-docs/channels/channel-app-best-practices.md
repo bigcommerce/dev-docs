@@ -43,7 +43,7 @@ Example Automated Sync Intervals:
 
 - **Do not update automatically**: The merchant should have an option to opt-out of automatic syncs.
 - **Every X Minutes**: This would trigger the associated event every x minutes.
-- **Real Time**: This would utilize webhooks to provide ‘real time’ updates.
+- **Real Time**: This would utilize webhooks to provide real-time updates.
 
 ## Performance
 
