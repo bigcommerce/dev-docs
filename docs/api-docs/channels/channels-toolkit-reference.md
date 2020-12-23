@@ -1,6 +1,6 @@
 # Channels Toolkit Reference
 
-<!-- https://developer.bigcommerce.com/api-docs/channels/guide/channels-toolkit-reference -->
+<!-- Dev Center URL: https://developer.bigcommerce.com/api-docs/channels/guide/channels-toolkit-reference -->
 
 <div class="otp" id="no-index">
 
