@@ -1,6 +1,6 @@
 # BigCommerce Channels Overview
 
-<!-- https://developer.bigcommerce.com/api-docs/channels/guide/overview -->
+<!-- Dev Center URL: https://developer.bigcommerce.com/api-docs/channels/guide/overview -->
 
 ## On this page
 
