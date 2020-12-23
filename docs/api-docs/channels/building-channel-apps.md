@@ -1,4 +1,4 @@
-<!-- https://developer.bigcommerce.com/api-docs/channels/guide/building-channel-apps -->
+<!-- Dev Center URL: https://developer.bigcommerce.com/api-docs/channels/guide/building-channel-apps -->
 
 # Building Channel Apps
 
