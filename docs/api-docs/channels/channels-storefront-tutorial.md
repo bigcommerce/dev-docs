@@ -1,25 +1,31 @@
 # Building Storefront Channels
 
+<!-- Dev Center URL: https://developer.bigcommerce.com/api-docs/channels/tutorials/storefront#building-a-channel-app -->
+
 <div class="otp" id="no-index">
 
-### On this page
-- [Creating a channel](#creating-a-channel)
-- [Specifying the platform](#specifying-the-platform)
-- [Configuring UI sections](#configuring-ui-sections)
-- [Protected UI sections](#protected-ui-sections)
-- [Storefront settings](#storefront-settings)
-- [Currencies settings](#currencies-settings)
-- [Notification settings](#notification-settings)
-- [Related resources](#related-resources)
+## On this page
+
+ - [Prerequisites](#prerequisites)
+ - [Creating a channel](#creating-a-channel)
+ - [Specifying the platform](#specifying-the-platform)
+ - [Configuring UI sections](#configuring-ui-sections)
+ - [Protected UI sections](#protected-ui-sections)
+ - [Storefront settings](#storefront-settings)
+ - [Currencies settings](#currencies-settings)
+ - [Notification settings](#notification-settings)
+ - [Related resources](#related-resources)
 
 </div>
 
 This article documents how to use [Channels Toolkit](https://developer.bigcommerce.com/api-docs/channels/guide/channels-toolkit-reference) to install a storefront channel into [Channel Manager](https://support.bigcommerce.com/s/article/Selling-Everywhere-with-Channel-Manager) during a [single-click app's](https://developer.bigcommerce.com/api-docs/apps/guide/types) installation. We'll assume you're an experienced app and headless storefront developer familiar with channels on BigCommerce.
 
 ### Prerequisites
-* [Familiarity with channels on BigCommerce](https://developer.bigcommerce.com/api-docs/channels/guide/overview)
-* [Experience building apps](https://developer.bigcommerce.com/api-docs/apps/guide/intro)
-* [Experience building headless storefronts](https://developer.bigcommerce.com/api-docs/storefronts/developers-guide-headless)
+
+
+- [Familiarity with channels on BigCommerce](https://developer.bigcommerce.com/api-docs/channels/guide/overview)
+- [Experience building apps](https://developer.bigcommerce.com/api-docs/apps/guide/intro)
+- [Experience building headless storefronts](https://developer.bigcommerce.com/api-docs/storefronts/developers-guide-headless)
 
 ## Creating a channel
 
@@ -89,7 +95,6 @@ Accept: application/json
   "platform": "deity",
   ...
   }
-}
 ```
 
 [![Open in Request Runner](https://storage.googleapis.com/bigcommerce-production-dev-center/images/Open-Request-Runner.svg)](https://developer.bigcommerce.com/api-reference/cart-checkout/channels-listings-api/channels/createchannel#requestrunner)
@@ -136,8 +141,11 @@ Accept: application/json
 <div class="HubBlock--callout">
 <div class="CalloutBlock--info">
 <div class="HubBlock-content">
+ 
+<!-- theme:info -->
 
-> ### Note
+> **Note**
+>
 > You can [find an app's ID](https://developer.bigcommerce.com/api-docs/apps/tutorials/id) in the URL when editing the app in the [Developer Portal](https://developer.bigcommerce.com/api-docs/apps/guide/developer-portal).
 
 </div>
@@ -200,8 +208,9 @@ Included protected sections display above custom sections.
 <div class="CalloutBlock--warning">
 <div class="HubBlock-content">
 
-> ### Note
-> * Any content an app attempts to render to the control panel iFrame for a protected section will be overridden by the BigCommerce provided content.
+> **Note**
+>
+> - Any content an app attempts to render to the control panel iFrame for a protected section will be overridden by the BigCommerce provided content.
 
 </div>
 </div>
@@ -265,10 +274,7 @@ Accept: application/json
   "data": {
     "channel_id": 1,
     "default_currency": "USD",
-    "enabled_currencies": [
-      "USD",
-      "CAD"
-    ]
+    "enabled_currencies": ["USD", "CAD"]
   },
   "meta": {}
 }
@@ -285,10 +291,12 @@ Include the `Notifications` [protected section](#protected-ui-sections) in the c
 ## Related resources
 
 ### Articles
-* [Building Apps](https://developer.bigcommerce.com/api-docs/apps/guide/intro)
-* [Building Channels](https://developer.bigcommerce.com/api-docs/channels/guide/overview)
-* [Find an App's ID](https://developer.bigcommerce.com/api-docs/apps/tutorials/id)
+
+- [Building Apps](https://developer.bigcommerce.com/api-docs/apps/guide/intro)
+- [Building Channels](https://developer.bigcommerce.com/api-docs/channels/guide/overview)
+- [Find an App's ID](https://developer.bigcommerce.com/api-docs/apps/tutorials/id)
 
 ### Endpoints
-* [Channels API Reference](https://developer.bigcommerce.com/api-reference/cart-checkout/channels-listings-api)
-* [Settings API Reference](https://developer.bigcommerce.com/api-reference/store-management/settings)
+
+- [Channels API Reference](https://developer.bigcommerce.com/api-reference/cart-checkout/channels-listings-api)
+- [Settings API Reference](https://developer.bigcommerce.com/api-reference/store-management/settings)
