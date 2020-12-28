@@ -16,8 +16,8 @@
 
 <!-- theme: warning -->
 
-### Custom fonts unavailable on Store Design
-> Currently, custom fonts that you incorporate on your Stencil theme using this process will not be available for selection in Store Design.
+### Custom fonts unavailable on Page Builder
+> Currently, custom fonts that you incorporate on your Stencil theme using this process will not be available for selection in Page Builder.
 
 </div>
 </div>
@@ -33,8 +33,9 @@ There are two paths to take for using custom fonts. They are as follows:
 
 ### Google Fonts
 
-[Google Fonts](https://fonts.google.com/) are a collection of open source fonts available for use. The base Cornerstone theme uses Karla and Montserrat. Google Fonts come included in the Cornerstone theme.  In `config.json` update each place you want the change with the name of the new Google Font.
-Make sure it follows of the format `Google_FontName_Weight`.
+[Google Fonts](https://fonts.google.com/) are a collection of open source fonts available for use. The base Cornerstone theme uses Karla and Montserrat. Google Fonts come included in the Cornerstone theme.  
+
+You can update the fonts in `config.json`; make sure to follow the `Google_FontName_Weight` format.
 
 ```json
 //old
@@ -110,20 +111,20 @@ display: block;
 <!-- theme: {{callout_type}} -->
 
 ### CDN Handlebars
-> The CDN custom Handlebars helper assumes WebDAV's default /content/ folder, so there is no need to specify that folder.
+> The CDN custom Handlebars helper assumes WebDAV's default `/content/` folder, so there is no need to specify that folder.
 > Fonts staged via WebDAV, as in the above example, will not show up in the local version of your theme.
 
 </div>
 </div>
 </div>
 
-Any location where the font is not overridden in the CSS, it falls back on the font in `config.json`. Make sure to update the font there to prevent fallbacks.
+Locations where the font is not overridden in CSS will fall back on the font in `config.json`. Make sure to update the font there to prevent fallbacks.
 
 <a id="markdown-sass-stylesheet-support-for-theme-fonts" name="sass-stylesheet-support-for-theme-fonts"></a>
 
 ## Sass stylesheet support for theme fonts
 
-To support Store Design, your theme's Sass stylesheet must call [Stencil's custom Sass functions](/stencil-docs/storefront-customization/custom-sass-functions) to transform fonts specified in the theme's `config.json` file. You must call these functions on each `config.json` font key whose value you want to make available to Sass variables.
+To support Page Builder, your theme's Sass stylesheet must call [Stencil's custom Sass functions](/stencil-docs/storefront-customization/custom-sass-functions) to transform fonts specified in the theme's `config.json` file. You must call these functions on each `config.json` font key whose value you want to make available to Sass variables.
 
 The default Stencil theme includes these function calls in the following stylesheet
 
@@ -131,9 +132,9 @@ The default Stencil theme includes these function calls in the following stylesh
 {theme-name}/assets/scss/settings/foundation/type/_settings.scss
 ```
 
-If your theme relies on a Sass framework other than Foundation, the relevant stylesheet will be a different .scss file name within `{theme-name}/assets/scss/`.
+If your theme relies on a Sass framework other than Foundation, the relevant stylesheet will be a different SCSS file name within `{theme-name}/assets/scss/`.
 
-### How to enable fonts for Store Design
+### How to enable fonts for Page Builder
 
 Assume that your theme's `config.json` contains the following key name and value (the details of both are arbitrary, but the key name must end in `-font`, and the value must follow a defined format):
 
@@ -177,13 +178,12 @@ Then, from your theme's root directory, run:
 
 `npm install`
 
-### Calling Theme Icons
+### Calling theme icons
 
 A Stencil theme's icons are delivered via a single SVG sprite, which is embedded on the page in
 `<theme-name>templates/layout/base.html`. This sprite is generated via the Grunt task `grunt svgstore`.
 
-The task takes individual SVG files for each icon (in the theme's `assets/icons/` subdirectory) and bundles
-them together, to be inlined on the top of the theme, inside a Handlebars partial.
+The task takes individual SVG files for each icon (in the theme's `assets/icons/` subdirectory) and bundles them together, to be inlined on the top of the theme, inside a Handlebars partial.
 
 You can then call each icon in a similar way to an inline image, via the following HTML:
 
