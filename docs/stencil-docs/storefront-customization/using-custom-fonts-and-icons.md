@@ -17,7 +17,9 @@
 <!-- theme: warning -->
 
 ### Custom fonts unavailable on Page Builder
-> Currently, custom fonts that you incorporate on your Stencil theme using this process will not be available for selection in Page Builder.
+>
+> * BigCommerce widgets come with a list of pre-defined fonts and do not support custom fonts at this time. 
+> * Third-party widgets can support any font available in the theme. To learn more about third-party widgets, see [Third-Party Widgets](https://developer.bigcommerce.com/stencil-docs/page-builder/third-party-widgets).
 
 </div>
 </div>
