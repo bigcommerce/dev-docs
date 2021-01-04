@@ -1212,6 +1212,7 @@ paths:
 
         **Usage Notes**
         - `image_url` - `255` character limit
+        - For file uploads, use the `multipart/form-data` media type
         - Only one image at a time can be created
       operationId: createProductImage
       parameters:
@@ -1551,13 +1552,9 @@ paths:
       description: |-
         Updates a *Product Image*.
 
-         **Required Fields**
-        - `image_file`, or
-        - `image_url`
-
         **Usage Notes**
         - `image_url` - `255` character limit
-        - When using file upload, other image file params can be updated using `key:value` pairs.
+        - For file uploads, send a POST request using the `multipart/form-data` media type
       operationId: updateProductImage
       parameters:
         - name: productImage
