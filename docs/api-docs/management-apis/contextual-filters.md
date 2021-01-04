@@ -27,7 +27,7 @@ This article demonstrates how to use [Contextual Filters](insert-link-here) to c
 ###  Prerequisites
 
 * [A BigCommerce store](https://support.bigcommerce.com/s/article/Starting-a-Bigcommerce-Trial).
-* API `access_token` with `content modify` scope.
+* API `access_token` with `information modify` scope.
 * Knowledge of the [Settings API](https://developer.bigcommerce.com/api-reference/store-management/settings).
 * Pro or Enterprise store plan. To upgrade, see [Changing Your Store's Plan](https://support.bigcommerce.com/s/article/How-do-I-upgrade-my-stores-plan).
 
@@ -104,7 +104,7 @@ To access **Storefront Filters** in the control panel, go to **Products** > **Pr
 
 ## View available storefront filters
 
-The catalog setup produces the dynamically pulled list of available storefront filters. You create new available filters by changing the product information in your catalog, such as adding new [product options](https://support.bigcommerce.com/s/article/Product-Options-v3) or [custom fields](https://support.bigcommerce.com/s/article/Custom-Fields).
+The list of available storefront filters is derived from the product information in the catalog. You create new available filters by changing the product information in your catalog, such as adding new [product options](https://support.bigcommerce.com/s/article/Product-Options-v3) or [custom fields](https://support.bigcommerce.com/s/article/Custom-Fields).
 
 To retrieve all available storefront filters, send a `GET` request to [`/v3/settings/search/filters/available`](insert-link-here).
 
@@ -149,7 +149,7 @@ Accept: application/json
 To retrieve a list of filters available on a given category, include the `category_id` query parameter in your `GET` request to [`/v3/settings/search/filters/available`](insert-link-here). Currently, the Settings API only supports the default `channel_id` of 1.
 
 ```http
-GET https://api.bigcommerce.com/stores/{{STORE_HASH}}/v3/settings/search/filters/available?category_id={{CATEGORY_ID}}
+GET https://api.bigcommerce.com/stores/{{STORE_HASH}}/v3/settings/search/filters/available?channel_id=1&category_id={{CATEGORY_ID}}
 X-Auth-Token: {{ACCESS_TOKEN}}
 Accept: application/json
 ```
@@ -220,7 +220,7 @@ The filters returned from completing this `GET` request are the filters availabl
 To see if there are any contextual overrides present on a given category, send a `GET` request to [`/v3/settings/search/filters/contexts`](insert-link-here) specifying the `category_id` query parameter.
 
 ```http
-GET https://api.bigcommerce.com/stores/{{STORE_HASH}}/v3/settings/search/filters/contexts?category_id={{CATEGORY_ID}}
+GET https://api.bigcommerce.com/stores/{{STORE_HASH}}/v3/settings/search/filters/contexts?channel_id=1&category_id={{CATEGORY_ID}}
 X-Auth-Token: {{ACCESS_TOKEN}}
 Accept: application/json
 ```
