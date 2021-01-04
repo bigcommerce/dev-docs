@@ -13,7 +13,7 @@ V2 and V3 Catalog REST APIs allow you to manage your store's products, categorie
 
 Both the V2 and V3 Catalog APIs authenticate with OAuth and can be used concurrently within a single application; however, data representation can be significantly different.
 
-V2 and V3 REST APIs are not fully compatible. When resources are available through both APIs, we recommend using the V3 API as it contains performance optimizations and usability improvements.
+While every effort has been made to provide reasonable forwards and backwards compatibility between V2 and V3 REST APIs, there are important differences between the APIs which may result in undesirable behavior when both API versions are used for write actions on a given store. When resources are available through both APIs, we recommend using the V3 API as it contains performance optimizations and usability improvements.
 For differences in resources, see the [Difference between V2 and V3 Catalog APIs](#difference-between-v2-and-v3-catalog-apis) section of this article.
 
 <div class="HubBlock--callout">
@@ -22,6 +22,7 @@ For differences in resources, see the [Difference between V2 and V3 Catalog APIs
 
 > ### Note
 >
+> * All V2 Catalog REST APIs are deprecated. For information on deprecated endpoints, see [Deprecations and sunsets](https://developer.bigcommerce.com/api-reference#deprecations-and-sunsets).
 > * BigCommerce will not introduce new resources in V2 APIs.
 > * BigCommerce will eventually migrate all existing V2 resources to V3.
 > * Not all V2 resources have V3 counterparts. 
