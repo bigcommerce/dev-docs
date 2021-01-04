@@ -33,7 +33,7 @@ There are two paths to take for using custom fonts. They are as follows:
 
 ### Google Fonts
 
-[Google Fonts](https://fonts.google.com/) are a collection of open source fonts available for use. The base Cornerstone theme uses Karla and Montserrat. Google Fonts come included in the Cornerstone theme.  
+[Google Fonts](https://fonts.google.com/) are a collection of open-source fonts available for use. The base Cornerstone theme uses Karla and Montserrat. Google Fonts come included in the Cornerstone theme.  
 
 You can update the fonts in `config.json`; make sure to follow the `Google_FontName_Weight` format.
 
@@ -185,7 +185,7 @@ A Stencil theme's icons are delivered via a single SVG sprite, which is embedded
 
 The task takes individual SVG files for each icon (in the theme's `assets/icons/` subdirectory) and bundles them together, to be inlined on the top of the theme, inside a Handlebars partial.
 
-You can then call each icon in a similar way to an inline image, via the following HTML:
+You can then call each icon in a similar way to an inline image via the following HTML:
 
 `<svg><use xlink:href="#icon-svgFileName" /></svg>`
 
