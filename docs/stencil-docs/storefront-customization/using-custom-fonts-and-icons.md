@@ -120,7 +120,7 @@ display: block;
 </div>
 </div>
 
-Locations where the font is not overridden in CSS will fall back on the font in `config.json`. Make sure to update the font there to prevent fallbacks.
+Files that do not contain font-overriding CSS code will use the CSS settings in the `config.json` file.
 
 <a id="markdown-sass-stylesheet-support-for-theme-fonts" name="sass-stylesheet-support-for-theme-fonts"></a>
 
