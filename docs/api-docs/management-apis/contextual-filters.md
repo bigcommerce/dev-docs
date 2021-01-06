@@ -27,7 +27,7 @@ This article demonstrates how to use [Contextual Filters](insert-link-here) to c
 ###  Prerequisites
 
 * [A BigCommerce store](https://support.bigcommerce.com/s/article/Starting-a-Bigcommerce-Trial).
-* API `access_token` with `information modify` scope.
+* API `access_token` with `information & settings modify` scope.
 * Knowledge of the [Settings API](https://developer.bigcommerce.com/api-reference/store-management/settings).
 * Pro or Enterprise store plan. To upgrade, see [Changing Your Store's Plan](https://support.bigcommerce.com/s/article/How-do-I-upgrade-my-stores-plan).
 
