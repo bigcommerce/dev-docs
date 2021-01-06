@@ -384,7 +384,7 @@ You can also view the changes on the storefront.
 
 > ### Note
 > * You can add new filters using [custom fields](https://support.bigcommerce.com/s/article/Custom-Fields).
-> * For information on how to manage filters using the control panel, see [Product Filtering](insert-link-here). 
+> * For information on how to manage filters using the control panel, see [Product Filtering](https://support.bigcommerce.com/s/article/Product-Filtering-Settings). 
 > * A storefront can display up to 12 filters per page.
 
 </div>
@@ -395,7 +395,7 @@ You can also view the changes on the storefront.
 
 ### Articles
 * [Custom Fields](https://support.bigcommerce.com/s/article/Custom-Fields)
-* [Product Filtering](insert-link-here)
+* [Product Filtering](https://support.bigcommerce.com/s/article/Product-Filtering-Settings)
 
 ### Endpoints
 * [Settings API](https://developer.bigcommerce.com/api-reference/store-management/settings)
