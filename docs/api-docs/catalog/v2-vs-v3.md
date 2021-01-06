@@ -112,7 +112,9 @@ To reduce the number of API calls made, you can include variants with a `GET` re
 
 ### Product option sets
 
-The V3 Catalog API does not include an endpoint to manage option sets, but it will respect option sets created using the [V2 Option Sets API](https://developer.bigcommerce.com/legacy/v2-catalog-products/v2-option-set-options) or the control panel. Currently, the control panel's Add/Edit Product section consumes the V2 API, and any products created and managed through the control panel will be converted to the V2 model using option sets. If you apply an option set to a V3 product, you will remove the product's variants.
+The V3 Catalog API does not include an endpoint to manage option sets, but it will respect option sets created using the [V2 Option Sets API](https://developer.bigcommerce.com/legacy/v2-catalog-products/v2-option-set-options) or the control panel. 
+
+On all new stores, the [V3 Add/Edit Product](https://support.bigcommerce.com/s/article/Adding-Products-v3) experience uses the V3 Catalog API. On some older stores, the control panel's [Add/Edit Product](https://support.bigcommerce.com/s/article/Adding-Products) section consumes the V2 API, and any products created and managed through the control panel will be converted to the V2 model using option sets. If you apply an option set to a V3 product, you will remove the product's variants.
 
 ### Product rules 
 
