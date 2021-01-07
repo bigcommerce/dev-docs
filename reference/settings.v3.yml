@@ -92,6 +92,7 @@ paths:
         - $ref: '#/components/parameters/ChannelIdParam'
       tags:
         - Storefront Status
+      description: Update storefront status.
     delete:
       summary: Delete Status
       operationId: delete-settings-storefront-status
@@ -103,6 +104,7 @@ paths:
         - $ref: '#/components/parameters/KeysToDelete'
       tags:
         - Storefront Status
+      description: Delete storefront status.
   /settings/storefront/seo:
     get:
       summary: Get SEO Settings
@@ -134,7 +136,7 @@ paths:
                 $ref: '#/components/schemas/ErrorResponse'
       parameters:
         - $ref: '#/components/parameters/ChannelIdParam'
-      description: Get storefront's SEO settings.
+      description: Get storefront SEO settings.
       tags:
         - Storefront SEO
     put:
@@ -160,6 +162,7 @@ paths:
         - $ref: '#/components/parameters/ChannelIdParam'
       tags:
         - Storefront SEO
+      description: Update storefront SEO settings.
     delete:
       summary: Delete  SEO Settings
       tags:
@@ -171,6 +174,7 @@ paths:
       parameters:
         - $ref: '#/components/parameters/RequiredChannelIdParamForDelete'
         - $ref: '#/components/parameters/KeysToDelete'
+      description: Delete storefront SEO settings.
   /settings/storefront/robotstxt:
     get:
       summary: Get Robots.txt Settings
@@ -200,7 +204,7 @@ paths:
                 $ref: '#/components/schemas/ErrorResponse'
       parameters:
         - $ref: '#/components/parameters/ChannelIdParam'
-      description: Get storefront's robots.txt.
+      description: Get storefront robots.txt.
       tags:
         - Storefront Robotstxt
     put:
@@ -226,6 +230,7 @@ paths:
         - $ref: '#/components/parameters/ChannelIdParam'
       tags:
         - Storefront Robotstxt
+      description: Update storefront robots.txt.
     delete:
       summary: Delete Robots.txt Settings
       tags:
@@ -237,6 +242,7 @@ paths:
       parameters:
         - $ref: '#/components/parameters/RequiredChannelIdParamForDelete'
         - $ref: '#/components/parameters/KeysToDelete'
+      description: Delete storefront robots.txt.
   /settings/storefront/category:
     get:
       summary: Get Category Settings
@@ -268,7 +274,7 @@ paths:
                 $ref: '#/components/schemas/ErrorResponse'
       parameters:
         - $ref: '#/components/parameters/ChannelIdParam'
-      description: 'Get '
+      description: Get storefront category settings.
       tags:
         - Storefront Category
     put:
@@ -294,6 +300,7 @@ paths:
         - $ref: '#/components/parameters/ChannelIdParam'
       tags:
         - Storefront Category
+      description: Update storefront category settings.
     delete:
       summary: Delete  Category
       tags:
@@ -305,6 +312,7 @@ paths:
       parameters:
         - $ref: '#/components/parameters/RequiredChannelIdParamForDelete'
         - $ref: '#/components/parameters/KeysToDelete'
+      description: Delete storefront category settings.
   /settings/storefront/search:
     get:
       summary: Get Search Settings
@@ -361,6 +369,7 @@ paths:
         - $ref: '#/components/parameters/ChannelIdParam'
       tags:
         - Storefront Search
+      description: Update storefront search settings.
     delete:
       summary: Delete Search Settings
       tags:
@@ -372,6 +381,7 @@ paths:
       parameters:
         - $ref: '#/components/parameters/RequiredChannelIdParamForDelete'
         - $ref: '#/components/parameters/KeysToDelete'
+      description: Delete storefront search settings.
   /settings/storefront/security:
     get:
       summary: Get Security Settings
@@ -426,6 +436,7 @@ paths:
         - Storefront Security
       parameters:
         - $ref: '#/components/parameters/ChannelIdParam'
+      description: Update storefront security settings.
     delete:
       summary: Delete Security Settings
       tags:
@@ -437,6 +448,7 @@ paths:
       parameters:
         - $ref: '#/components/parameters/RequiredChannelIdParamForDelete'
         - $ref: '#/components/parameters/KeysToDelete'
+      description: Delete storefront security settings.
 components:
   schemas:
     AnalyticsProvider:
