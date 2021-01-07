@@ -12384,7 +12384,7 @@ paths:
         - Category Metafields
     post:
       description: |-
-        Creates a *Cateory Metafield*.
+        Creates a *Category Metafield*.
 
         **Required Fields:**
         - permission_set
