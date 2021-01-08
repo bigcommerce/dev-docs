@@ -12,9 +12,9 @@
 
 </div>
 
-The [Settings API](https://developer.bigcommerce.com/api-reference/store-management/settings) allows you to manage settings and configurations for BigCommerce hosted stores and headless storefronts. 
+The [Settings API](https://developer.bigcommerce.com/api-reference/store-management/settings) allows you to manage settings and configurations for BigCommerce-hosted stores and headless storefronts. 
 
-You can use the [Contextual Filters](insert-link-here) endpoint of the Settings API to programmatically configure a store's Product Filtering feature, also known as "faceted search".
+You can use the [Contextual Filters](insert-link-here) endpoint of the Settings API to programmatically configure a store's Product Filtering feature, also known as _faceted search_.
 Additionally, the [Contextual Filters](insert-link-here) endpoint enables you to merchandise diverse product catalogs by creating a different faceted search configuration for each channel and product category on a store. With this feature, you can configure the product categories for various product lines with a different set of enabled filters, so that shoppers can filter by the most relevant criteria.
 
 This article demonstrates how to use [Contextual Filters](insert-link-here) to configure filters that appear on a particular category page.
@@ -22,7 +22,7 @@ This article demonstrates how to use [Contextual Filters](insert-link-here) to c
 ### Limitations
 
 * Currently, the API only supports the default channel with an ID of 1.
-* You can configure contextual filters for Category pages, but not for Brand or Search Results pages at this time.
+* At this time, you can configure contextual filters for Category pages, but not for Brand or Search Results pages.
 
 ###  Prerequisites
 
@@ -46,7 +46,11 @@ This article demonstrates how to use [Contextual Filters](insert-link-here) to c
 
 ## View active storefront filters
 
-There are two ways to retrieve your store's currently active storefront filters: using the Settings API or through the store's control panel. To view all configured filters using the API, send a `GET` request to [`/v3/settings/search/filters`](insert-link-here).
+There are two ways to retrieve your store's currently active storefront filters: 
+* Settings API
+* The store's control panel
+
+To view all configured filters using the API, send a `GET` request to [`/v3/settings/search/filters`](insert-link-here).
 
 ```http
 GET https://api.bigcommerce.com/stores/{{STORE_HASH}}/v3/settings/search/filters
@@ -208,7 +212,7 @@ The filters returned from completing this `GET` request are the filters availabl
 <div class="CalloutBlock--info">
 <div class="HubBlock-content">
 
-> ### Categories
+> ### Note
 > To get a list of your store's categories, send a `GET` request to [`/v3/catalog/categories`](https://developer.bigcommerce.com/api-reference/store-management/catalog/category/getcategories).
 
 </div>
@@ -284,7 +288,7 @@ The order and names of returned filters should match the filters listed under **
 <div class="HubBlock-content">
 
 > ### Note
-> The order of the data you send determines the sort order of the filters on the storefront implicitly. You can change the order of the filters on the live site by changing the order of the array's data.
+> The order of the data you send implicitly determines the sort order of the filters on the storefront. You can change the order of the filters on the live site by changing the order of the array's data.
 
 </div>
 </div>
