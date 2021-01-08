@@ -1,0 +1,321 @@
+openapi: 3.0.1
+info:
+  title: Custom Template Associations API
+  version: 3.0.0
+  description: Management of storefront Custom Template Associations
+  termsOfService: 'http://www.bigcommerce.com/terms'
+  contact:
+    name: BigCommerce
+    url: 'https://www.bigcommerce.com'
+    email: support@bigcommerce.com
+servers:
+  - url: 'https://api.bigcommerce.com/stores/{store_hash}/v3'
+    description: Production API Gateway
+    variables:
+      store_hash:
+        default: abc123
+        description: Store hash used to identify the store.
+paths:
+  /storefront/custom-template-associations:
+    get:
+      summary: Get collection of custom template associations
+      tags:
+        - custom-templates
+      responses:
+        '200':
+          description: OK
+          content:
+            application/json:
+              schema:
+                type: object
+                properties:
+                  data:
+                    type: array
+                    items:
+                      $ref: '#/components/schemas/CustomTemplateAssociation'
+                  meta:
+                    $ref: '#/components/schemas/MetaPaginationObject'
+              examples:
+                example-1:
+                  value:
+                    data:
+                      - id: 1
+                        channel_id: 1
+                        entity_type: product
+                        entity_id: 123
+                        template_file: custom-product-1.html
+                      - id: 2
+                        channel_id: 12345
+                        entity_type: page
+                        entity_id: 123
+                        template_file: custom-page.html
+                    meta:
+                      pagination:
+                        total: 246
+                        count: 5
+                        per_page: 5
+                        current_page: 1
+                        total_pages: 50
+                        links:
+                          next: '?limit=5&page=2'
+                          current: '?limit=5&page=1'
+      parameters:
+        - schema:
+            type: integer
+          in: query
+          name: channel_id
+          description: Channel ID to return only custom template associations for a given Channel
+        - schema:
+            type: string
+          in: query
+          name: 'entity_id:in'
+          description: 'Filter by a list of entity IDs. Must be used together with "type" filter.'
+        - schema:
+            type: integer
+          in: query
+          name: limit
+          description: Number of results to return per page
+        - schema:
+            type: integer
+          in: query
+          name: page
+          description: 'Which page number to return, based on the page size. Used to paginate large collections.'
+        - schema:
+            type: string
+            enum:
+              - product
+              - category
+              - brand
+              - page
+          in: query
+          name: type
+          description: Filter associations by type
+        - schema:
+            type: boolean
+          in: query
+          name: is_valid
+          description: "Optional toggle to filter for exclusively valid or invalid associations entries. An invalid entry is one where it's file name does not match up to an existing custom layout file in the currently active theme for the channel."
+      description: "Get a collection of the store's custom template associations across all storefronts"
+      operationId: GetCustomTemplateAssociations
+    put:
+      summary: Upsert custom template associations
+      tags:
+        - custom-templates
+      responses:
+        '200':
+          description: Success response for batch upsert of custom template associations
+          content:
+            application/json:
+              schema:
+                type: object
+        '422':
+          description: Error response for batch PUT of Custom template associations. Includes the errors for each reference id.
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/ErrorResponse'
+      requestBody:
+        content:
+          application/json:
+            schema:
+              type: array
+              uniqueItems: true
+              maxItems: 100
+              minItems: 1
+              items:
+                $ref: '#/components/schemas/CustomTemplateAssociationUpsert'
+            examples:
+              example-1:
+                value:
+                  - id: 1
+                    channel_id: 1
+                    entity_type: product
+                    entity_id: 123
+                    template_file: custom-product-1.html
+                  - id: 2
+                    channel_id: 12345
+                    entity_type: page
+                    entity_id: 123
+                    template_file: custom-page.html
+        description: ''
+      description: 'Upsert new custom template associations data across all storefronts. If an existing record is found for the combination of channel ID, entity ID, and type, the existing record will be overwritten with the new template.'
+      operationId: UpsertCustomTemplateAssociations
+    delete:
+      summary: Delete custom template associations
+      tags:
+        - custom-templates
+      responses:
+        '204':
+          description: No Content
+      parameters:
+        - schema:
+            type: integer
+          in: query
+          name: 'id:in'
+          description: List of Association IDs to delete explicitly.
+        - schema:
+            type: integer
+          in: query
+          name: 'entity_id:in'
+          description: List of Entity IDs to delete explicitly. Must be used together with "type"
+        - schema:
+            type: integer
+          in: query
+          name: channel_id
+          description: Channel ID provided to delete all custom template associations for a given Channel
+        - schema:
+            type: string
+            enum:
+              - product
+              - category
+              - brand
+              - page
+          in: query
+          name: type
+          description: Filter associations by type
+      description: Delete custom template associations. At least one query parameter must be used.
+      operationId: DeleteCustomTemplateAssociations
+    parameters: []
+components:
+  schemas:
+    Error:
+      type: object
+      properties:
+        status:
+          type: integer
+        message:
+          type: string
+    ErrorResponse400:
+      type: object
+      properties:
+        schema:
+          $ref: '#/components/schemas/Error'
+    ErrorResponse404:
+      type: object
+      properties:
+        schema:
+          $ref: '#/components/schemas/Error'
+    ErrorResponse409:
+      type: object
+      properties:
+        schema:
+          $ref: '#/components/schemas/Error'
+    ErrorResponse422:
+      type: object
+      properties:
+        schema:
+          $ref: '#/components/schemas/Error'
+    MetaPaginationObject:
+      type: object
+      properties:
+        pagination:
+          type: object
+          properties:
+            total:
+              type: integer
+              example: 246
+              minimum: 0
+            count:
+              type: integer
+              example: 5
+              minimum: 0
+            per_page:
+              type: integer
+              example: 5
+              minimum: 0
+            current_page:
+              type: integer
+              example: 1
+              minimum: 1
+            total_pages:
+              type: integer
+              example: 50
+              minimum: 0
+            links:
+              type: object
+              properties:
+                next:
+                  type: string
+                  example: '?limit=5&page=2'
+                current:
+                  type: string
+                  example: '?limit=5&page=1'
+    DetailedErrors:
+      type: object
+      additionalProperties:
+        type: string
+    BaseError:
+      type: object
+      description: |
+        Error payload for the BigCommerce API.
+      properties:
+        status:
+          description: |
+            The HTTP status code.
+          type: integer
+        title:
+          description: |
+            The error title describing the particular error.
+          type: string
+        type:
+          type: string
+        instance:
+          type: string
+    ErrorResponse:
+      allOf:
+        - $ref: '#/components/schemas/BaseError'
+        - type: object
+          properties:
+            errors:
+              $ref: '#/components/schemas/DetailedErrors'
+    CustomTemplateAssociation:
+      title: CustomTemplateAssociation
+      type: object
+      properties:
+        id:
+          type: integer
+        channel_id:
+          type: integer
+        entity_type:
+          type: string
+          enum:
+            - product
+            - category
+            - brand
+            - page
+        entity_id:
+          type: integer
+        template_file:
+          type: string
+          example: custom-product-1.html
+        is_valid:
+          type: boolean
+          description: An invalid file name does not match with an existing custom layout file in the currently active theme for the channel. When an association is invalid the store will fallback to using the default for that entity type.
+        date_created:
+          type: string
+        date_modified:
+          type: string
+    CustomTemplateAssociationUpsert:
+      title: CustomTemplateAssociation
+      type: object
+      properties:
+        channel_id:
+          type: integer
+        entity_type:
+          type: string
+          enum:
+            - product
+            - category
+            - brand
+            - page
+        entity_id:
+          type: integer
+        template_file:
+          type: string
+          example: custom-product-1.html
+      required:
+        - channel_id
+        - entity_type
+        - entity_id
+        - template_file
+  securitySchemes: {}
