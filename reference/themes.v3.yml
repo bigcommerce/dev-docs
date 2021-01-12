@@ -45,9 +45,9 @@ info:
     name: ""
 tags:
   - name: Themes
-    description: BigCommerce Themes API Definition.
   - name: Theme Actions
   - name: Theme Configurations
+  - name: Theme Custom Templates
   - name: Theme Jobs
 paths:
   /themes:
@@ -299,7 +299,7 @@ paths:
 
         **Required Fields**
         * file
-  "/themes/{uuid}":
+  /themes/{uuid}:
     get:
       tags:
         - Themes
@@ -625,7 +625,7 @@ paths:
         Actives a store *Theme*.
 
         This returns a 204 response upon success.
-  "/themes/jobs/{job_id}":
+  /themes/jobs/{job_id}:
     get:
       tags:
         - Theme Jobs
@@ -703,7 +703,7 @@ paths:
                 title: Error Response
       description: Returns a theme *Job*. If job is completed, the result is included
         in the response.
-  "/themes/{uuid}/configurations":
+  /themes/{uuid}/configurations:
     get:
       responses:
         "200":
@@ -775,6 +775,61 @@ paths:
       x-private: true
     parameters:
       - $ref: "#/components/parameters/ThemeIdParam"
+  /themes/custom-templates/{version_uuid}:
+    parameters:
+      - schema:
+          type: string
+        name: version_uuid
+        in: path
+        required: true
+    get:
+      summary: Get Custom Templates
+      tags:
+        - Theme Custom Templates
+      responses:
+        '200':
+          description: OK
+          content:
+            application/json:
+              schema:
+                type: object
+                properties:
+                  data:
+                    type: object
+                    properties:
+                      product:
+                        type: array
+                        items:
+                          type: string
+                      category:
+                        type: array
+                        items:
+                          type: string
+                      brand:
+                        type: array
+                        items:
+                          type: string
+                      page:
+                        type: array
+                        items:
+                          type: string
+                  meta:
+                    type: object
+              examples:
+                example-1:
+                  value:
+                    data:
+                      product:
+                        - custom-product-1.html
+                      category: []
+                      brand:
+                        - custom-brand-1.html
+                      page:
+                        - custom-page-1.html
+                        - holiday-page.html
+                    meta: {}
+      operationId: get-themes-theme_uuid-custom-templates
+      description: Enumerate available custom templates for in the theme files in a specific theme version for each supported entity type.
 security:
   - X-Auth-Client: []
   - X-Auth-Token: []
