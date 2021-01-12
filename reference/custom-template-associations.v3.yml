@@ -1,13 +1,8 @@
 openapi: 3.0.1
 info:
-  title: Custom Template Associations API
+  title: Custom Template Associations
   version: 3.0.0
-  description: Management of storefront Custom Template Associations
-  termsOfService: 'http://www.bigcommerce.com/terms'
-  contact:
-    name: BigCommerce
-    url: 'https://www.bigcommerce.com'
-    email: support@bigcommerce.com
+  description: Efficiently associate a stencil theme's custom templates to products, categories, brands, and pages.
 servers:
   - url: 'https://api.bigcommerce.com/stores/{store_hash}/v3'
     description: Production API Gateway
@@ -18,9 +13,9 @@ servers:
 paths:
   /storefront/custom-template-associations:
     get:
-      summary: Get collection of custom template associations
+      summary: Get Custom Template Associations
       tags:
-        - custom-templates
+        - Custom Template Associations
       responses:
         '200':
           description: OK
@@ -98,9 +93,9 @@ paths:
       description: "Get a collection of the store's custom template associations across all storefronts"
       operationId: GetCustomTemplateAssociations
     put:
-      summary: Upsert custom template associations
+      summary: Upsert Custom Template Associations
       tags:
-        - custom-templates
+        - Custom Template Associations
       responses:
         '200':
           description: Success response for batch upsert of custom template associations
@@ -141,9 +136,9 @@ paths:
       description: 'Upsert new custom template associations data across all storefronts. If an existing record is found for the combination of channel ID, entity ID, and type, the existing record will be overwritten with the new template.'
       operationId: UpsertCustomTemplateAssociations
     delete:
-      summary: Delete custom template associations
+      summary: Delete Custom Template Associations
       tags:
-        - custom-templates
+        - Custom Template Associations
       responses:
         '204':
           description: No Content

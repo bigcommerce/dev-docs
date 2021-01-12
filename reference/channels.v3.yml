@@ -158,6 +158,7 @@ info:
     * [Channels Toolkit Reference](https://developer.bigcommerce.com/api-docs/channels/channels-toolkit-reference)
 tags:
   - name: Channels
+  - name: Channel Active Theme
   - name: Channel Currency Assignments
   - name: Channel Listings
   - name: Channel Site
@@ -653,6 +654,27 @@ paths:
       tags:
         - Channel Listings
       description: Creates a Channel Listing
+  '/channels/{channel_id}/active-theme':
+    get:
+      summary: Get Channel Active Theme
+      description: Get active theme details for a channel.
+      tags:
+      - Channel Active Theme
+      responses:
+        '200':
+          description: OK
+          content:
+            application/json:
+              schema:
+                type: object
+                properties:
+                  data:
+                    $ref: '#/components/schemas/ChannelTheme'
+                  meta:
+                    type: object
+      operationId: get-channel-active-theme
+    parameters:
+      - $ref: '#/components/parameters/ChannelIdPathParam'
   "/channels/{channel_id}/site":
     get:
       summary: Get a Channel Site
@@ -954,6 +976,13 @@ components:
       in: query
       schema:
         type: integer
+    ChannelIdPathParam:
+      name: channel_id
+      in: path
+      required: true
+      schema:
+        type: integer
+        format: int64
     channel_id:
       name: channel_id
       in: path
@@ -1925,4 +1954,105 @@ components:
             $ref: "#/components/schemas/channel_currencies"
         meta:
           type: object
-
+    ChannelTheme:
+      title: AppliedTheme
+      type: object
+      description: "Details about the Channel's relationship to Themes."
+      properties:
+        active_theme_uuid:
+          type: string
+          description: The UUID of the currently active Theme on the Channel.
+        active_theme_configuration_uuid:
+          type: string
+          description: The UUID of the currently active Theme Configuration on the Channel.
+        active_theme_version_uuid:
+          type: string
+          description: The UUID of the currently active Theme Version on the Channel. Needed to look up the available Custom Templates for the Theme.
+        saved_theme_configuration_uuid:
+          type: string
+          description: The UUID of the most recently saved Theme Configuration. If this is different from the active theme configuration UUID, this indicates that some changes have been saved in the control panel Theme Editor that have not yet been published.
+        active_theme_display_version:
+          type: string
+          description: The display version string of the currently active Theme on the Channel
+        active_theme_documentation_url:
+          type: string
+          description: The documentation url of the currently active Theme on the Channel
+        active_theme_is_private:
+          type: boolean
+          description: Indicates that the currently active Theme on the Channel is private to the store and not a marketplace theme
+        active_theme_is_purchased:
+          type: boolean
+          description: Indicates whether the variation of the currently active Theme on the Channel has been purchased by the store
+        active_theme_partner:
+          type: object
+          properties: '#/components/schemas/Partner'
+        active_theme_style_editable:
+          type: boolean
+          description: Indicates whether the currently active Theme on the Channel is editable with the Style Editor
+        active_theme_name:
+          type: string
+          description: The theme name for the given version of the currently active Theme on the Channel
+        active_theme_type:
+          type: string
+          description: Theme type (Stencil or Blueprint) for the currently active Theme on the Channel
+          enum:
+            - Blueprint
+            - Stencil
+        active_theme_upgrade:
+          $ref: '#/components/schemas/Upgrade'
+        active_theme_update_available:
+          type: boolean
+          description: Indicates whether there is an update available for the currently active Theme on the Channel
+        active_theme_screenshot:
+          $ref: '#/components/schemas/Screenshot'
+        active_theme_variation_count:
+          type: number
+          description: The count of all the variations for the currently active Theme on the Channel's variations' version.
+        active_theme_variation_name:
+          type: string
+          description: The name of the variation of the currently active Theme on the Channel
+      Partner:
+        title: Partner
+        type: object
+        description: "Details about the Partner's relationship to Themes"
+        nullable: true
+        properties:
+          id:
+            type: string
+            description: The UUID of the partner of a theme
+          name:
+            type: string
+            description: The display name of the partner of a theme
+          contact_url:
+            type: string
+            description: The URL for contact/support of the partner of a theme
+          contact_email:
+            type: string
+            description: The email address for contact/support of the partner of a theme
+      Upgrade:
+        title: Upgrade
+        type: object
+        nullable: true
+        description: "Details about the Upgrade's relationship to Themes"
+        properties:
+          available:
+            type: boolean
+            description: Indicates whether or not an upgrade is available for the given theme
+          display_version:
+            type: string
+            nullable: true
+            description: The display version string of the latest theme version to upgrade to (may be null if available is false)
+      Screenshot:
+        title: Screenshot
+        type: object
+        description: "Details about the Screenshot's relationship to Themes"
+        properties:
+          large_preview:
+            type: string
+            description: URL of the large preview screenshot of the theme
+          large_thumb:
+            type: string
+            description: URL of the large thumbnail screenshot of theme
+          small_thumb:
+            type: string
+            description: URL of the small thumbnail screenshot of theme
