@@ -592,8 +592,8 @@ paths:
       summary: Delete Contextual Filters
       operationId: deleteContexts
       responses:
-        '204':
-          description: No Content
+        '200':
+          description: OK
       description: Deletes contextual filters enabled in a particular context.
       parameters:
         - schema:
