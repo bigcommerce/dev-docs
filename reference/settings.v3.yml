@@ -449,6 +449,165 @@ paths:
         - $ref: '#/components/parameters/RequiredChannelIdParamForDelete'
         - $ref: '#/components/parameters/KeysToDelete'
       description: Delete storefront security settings.
+  /settings/search/filters:
+    get:
+      summary: Get Enabled Filters
+      responses:
+        '200':
+          description: OK
+          content:
+            application/json:
+              schema:
+                type: object
+                properties:
+                  data:
+                    $ref: '#/components/schemas/ConfiguredFilters'
+                  meta:
+                    type: object
+      operationId: getEnabled
+      description: 'Returns a list of enabled default [Product Filtering](https://support.bigcommerce.com/s/article/Product-Filtering-Settings) filters. These filters will be used if a store does not have contextual overrides.'
+      tags:
+        - Search Filters
+    put:
+      summary: Update Enabled Filters
+      operationId: updateEnabled
+      responses:
+        '200':
+          description: OK
+      description: 'Updates enabled default [Product Filtering](https://support.bigcommerce.com/s/article/Product-Filtering-Settings) filters.'
+      requestBody:
+        content:
+          application/json:
+            schema:
+              $ref: '#/components/schemas/ConfiguredFilters'
+      tags:
+        - Search Filters
+  /settings/search/filters/available:
+    get:
+      summary: Get Available Filters
+      responses:
+        '200':
+          description: OK
+          content:
+            application/json:
+              schema:
+                type: object
+                properties:
+                  data:
+                    type: array
+                    items:
+                      $ref: '#/components/schemas/AvailableFilter'
+                  meta:
+                    type: object
+      operationId: getAvailable
+      description: 'Returns a list of filters available to power [Product Filtering](https://support.bigcommerce.com/s/article/Product-Filtering-Settings).'
+      parameters:
+        - schema:
+            type: integer
+          in: query
+          name: channel_id
+          description: Narrows the list of available filters based on channel ID. Only products currently assigned to the given Channel will be considered.
+        - schema:
+            type: integer
+          in: query
+          name: category_id
+          description: Narrows the list of available filters based on category ID. Only products within the provided Category will be considered.
+      tags:
+        - Search Filters
+  /settings/search/filters/contexts:
+    get:
+      summary: Get Contextual Filters
+      responses:
+        '200':
+          description: OK
+          content:
+            application/json:
+              schema:
+                type: object
+                properties:
+                  data:
+                    type: array
+                    items:
+                      $ref: '#/components/schemas/ConfiguredFiltersOverride'
+                  meta:
+                    $ref: '#/components/schemas/MetaPaginationObject'
+      operationId: getContexts
+      parameters:
+        - schema:
+            type: integer
+          in: query
+          name: channel_id
+          description: Only return contextual overrides related to a particular Channel.
+        - schema:
+            type: integer
+          in: query
+          name: category_id
+          description: Only return contextual overrides related to a particular Category.
+      description: |-
+        Returns a list of contextual filters enabled for a particular channel or category. 
+
+        **Usage Notes**
+
+        Contextual filters allow you to configure the enabled filters per channel or category, so that shoppers can filter by the most relevant criteria.
+
+        The order of the returned filters will match the sort order of the filters on the storefront.
+      tags:
+        - Search Filters
+    put:
+      summary: Upsert Contextual Filters
+      operationId: upsertContexts
+      responses:
+        '200':
+          description: OK
+          content:
+            application/json:
+              schema:
+                type: object
+                properties:
+                  data:
+                    type: array
+                    items:
+                      $ref: '#/components/schemas/ConfiguredFiltersOverride'
+                  meta:
+                    type: object
+      description: |-
+        Upserts contextual filters for a particular channel or category.
+
+        **Usage Notes**
+
+        Contextual filters allow you to configure the enabled filters per channel or category, so that shoppers can filter by the most relevant criteria.
+
+        You can change the order of the filters on the live site by changing the order of the filters you send.
+      requestBody:
+        content:
+          application/json:
+            schema:
+              type: array
+              items:
+                $ref: '#/components/schemas/ConfiguredFiltersOverride'
+      tags:
+        - Search Filters
+      parameters: []
+    delete:
+      summary: Delete Contextual Filters
+      operationId: deleteContexts
+      responses:
+        '204':
+          description: No Content
+      description: Deletes contextual filters enabled in a particular context.
+      parameters:
+        - schema:
+            type: integer
+          in: query
+          name: channel_id
+          description: Delete contextual overrides related to this channel ID
+        - schema:
+            type: integer
+          in: query
+          name: category_id
+          description: Delete contextual overrides related to this category ID
+      tags:
+        - Search Filters
 components:
   schemas:
     AnalyticsProvider:
@@ -884,6 +1043,88 @@ components:
         collapsed_by_default:
           type: boolean
       description: Miscellaneous Filters which appear as a group.
+    AvailablePriceFilter:
+      title: AvailablePriceFilter
+      type: object
+      properties:
+        id:
+          type: string
+        type:
+          type: string
+          enum:
+            - price
+        name:
+          type: string
+        price_range_min:
+          type: number
+        price_range_max:
+          type: number
+      description: ''
+    AvailableOtherFilter:
+      title: AvailableOtherFilter
+      type: object
+      properties:
+        id:
+          type: string
+        type:
+          type: string
+          enum:
+            - other
+        name:
+          type: string
+    SearchFilterOverrideContextIdentifier:
+      title: ContextIdentifier
+      type: object
+      properties:
+        channel_id:
+          type: integer
+        category_id:
+          type: integer
+    LogoSettings:
+      type: object
+      properties:
+        logo_image_url:
+          type: string
+        logo_text:
+          type: string
+        type:
+          type: string
+          enum:
+            - image
+            - text
+        favicon_url:
+          type: string
+    ContentSortEnumValues:
+      type: string
+      title: ContentSortEnumValues
+      default: relevance
+      enum:
+        - relevance
+        - atoz
+        - ztoa
+    ConfiguredFilter:
+      title: ConfiguredFilter
+      oneOf:
+        - $ref: '#/components/schemas/EnabledProductFilter'
+        - $ref: '#/components/schemas/EnabledPriceFilter'
+        - $ref: '#/components/schemas/EnabledCategoryFilter'
+        - $ref: '#/components/schemas/EnabledBrandFilter'
+        - $ref: '#/components/schemas/EnabledRatingFilter'
+        - $ref: '#/components/schemas/EnabledMiscFilter'
+    ConfiguredFilters:
+      title: ConfiguredFilters
+      type: array
+      items:
+        $ref: '#/components/schemas/ConfiguredFilter'
+    ConfiguredFiltersOverride:
+      title: ConfiguredFiltersOverride
+      type: object
+      properties:
+        data:
+          $ref: '#/components/schemas/ConfiguredFilters'
+        context:
+          $ref: '#/components/schemas/SearchFilterOverrideContextIdentifier'
+      description: 'A new set of enabled Product Filtering filters which should display in a particular context, such as on a particular Channel, or while viewing a particular Category. Array order indicates the display order on the storefront.'
   securitySchemes:
     X-Auth-Token:
       name: X-Auth-Token
