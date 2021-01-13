@@ -14,7 +14,7 @@
 
 The [Settings API](https://developer.bigcommerce.com/api-reference/store-management/settings) allows you to manage settings and configurations for BigCommerce-hosted stores and headless storefronts. 
 
-You can use the [Contextual Filters](https://developer.bigcommerce.com/api-reference/store-management/settings/search-filters/getcontexts) endpoint of the Settings API to programmatically configure a store's Product Filtering feature, also known as _faceted search_.
+You can use the [Contextual Filters](https://developer.bigcommerce.com/api-reference/store-management/settings/search-filters/getcontexts) endpoint of the Settings API to programmatically configure a store's [Product Filtering](https://support.bigcommerce.com/s/article/Product-Filtering-Settings) feature, also known as _faceted search_.
 Additionally, the [Contextual Filters](https://developer.bigcommerce.com/api-reference/store-management/settings/search-filters/getcontexts) endpoint enables you to merchandise diverse product catalogs by creating a different faceted search configuration for each channel and product category on a store. With this feature, you can configure the product categories for various product lines with a different set of enabled filters, so that shoppers can filter by the most relevant criteria.
 
 This article demonstrates how to use [Contextual Filters](https://developer.bigcommerce.com/api-reference/store-management/settings/search-filters/getcontexts) to configure filters that appear on a particular category page.
