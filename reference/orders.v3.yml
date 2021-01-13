@@ -1724,7 +1724,9 @@ definitions:
               remaining_balance:
                 description: |
                   Remaining balance of shopper's store credit.
-                type: string
+                type: number
+                format: float
+                example: 35.42
     title: Transaction
     type: object
   CreditCard:
@@ -1783,7 +1785,9 @@ definitions:
       remaining_balance:
         description: |
           Remaining balance of shopper's store credit.
-        type: string
+        type: number
+        format: float
+        example: 35.42
   Custom:
     type: object
     description: Custom payment from manual order.
