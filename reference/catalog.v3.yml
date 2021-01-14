@@ -1214,6 +1214,7 @@ paths:
         - `image_url` - `255` character limit
         - For file uploads, use the `multipart/form-data` media type
         - Only one image at a time can be created
+        - Supported image file types are BMP, GIF, JPEG, PNG, WBMP, and XBM.
       operationId: createProductImage
       parameters:
         - name: productImage
@@ -1222,8 +1223,8 @@ paths:
           schema:
             description: The model for a POST to create an image on a product.
             allOf:
-              - type: object
-                description: Common ProductImage properties.
+              - description: Common ProductImage properties.
+                title: Product Image Base
                 properties:
                   id:
                     description: |
@@ -1234,8 +1235,9 @@ paths:
                       The unique numeric identifier for the product with which the image is associated.
                     type: integer
                   image_file:
-                    description: |
+                    description: |-
                       The local path to the original image file uploaded to BigCommerce.
+                      A `multipart/form-data` media type.
                     type: string
                   url_zoom:
                     description: |
@@ -1272,7 +1274,6 @@ paths:
                     description: |
                       The description for the image.
                     type: string
-                title: Product Image Base
               - properties:
                   image_url:
                     description: |
@@ -1317,12 +1318,13 @@ paths:
             description: |
               Response payload for the BigCommerce API.
             type: object
+            title: Product Image Response
             properties:
               data:
                 title: Product Image
                 allOf:
-                  - type: object
-                    description: Common ProductImage properties.
+                  - description: Common ProductImage properties.
+                    title: Product Image Base
                     properties:
                       id:
                         description: |
@@ -1333,8 +1335,10 @@ paths:
                           The unique numeric identifier for the product with which the image is associated.
                         type: integer
                       image_file:
-                        description: |
+                        description: |-
                           The local path to the original image file uploaded to BigCommerce.
+
+                          A `multipart/form-data` media type.
                         type: string
                       url_zoom:
                         description: |
@@ -1371,9 +1375,7 @@ paths:
                         description: |
                           The description for the image.
                         type: string
-                    title: Product Image Base
-                  - type: object
-                    properties:
+                  - properties:
                       id:
                         description: |
                           The unique numeric ID of the image; increments sequentially.
@@ -1383,8 +1385,10 @@ paths:
                           The unique numeric identifier for the product with which the image is associated.
                         type: integer
                       image_file:
-                        description: |
+                        description: |-
                           The local path to the original image file uploaded to BigCommerce. Use image_url when creating a product.
+
+                          A `multipart/form-data` media type.
                         type: string
                       url_zoom:
                         description: |
@@ -1413,11 +1417,11 @@ paths:
                         description: |-
                           Publically available URL.
                           Use the image_url when creating a product.
+                type: object
               meta:
                 type: object
                 description: Empty meta object; may be used later.
                 title: Meta
-            title: Product Image Response
           examples:
             application/json:
               data:
