@@ -1387,7 +1387,6 @@ paths:
                       image_file:
                         description: |-
                           The local path to the original image file uploaded to BigCommerce. Use image_url when creating a product.
-
                           A `multipart/form-data` media type.
                         type: string
                       url_zoom:
