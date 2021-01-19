@@ -2,68 +2,39 @@ swagger: '2.0'
 info:
   version: ''
   title: Customers V3
-  description: >-
+  description: |-
     Create and manage customers.
 
-
     - [Authentication](#authentication)
-
     - [Available Endpoints](#available-endpoints)
-
     - [Resources](#resources)
-
 
     ## Authentication
 
-
-    Requests can be authenticated by sending an `access_token` via
-    `X-Auth-Token` HTTP header:
-
+    Requests can be authenticated by sending an `access_token` via `X-Auth-Token` HTTP header:
 
     ```http
-
     GET /stores/{$$.env.store_hash}/v3/catalog/summary
-
     host: api.bigcommerce.com
-
     Accept: application/json
-
     X-Auth-Token: {access_token}
-
     ```
 
-
     |Header|Parameter|Description|
-
     |-|-|-|
-
-    |`X-Auth-Token`|`access_token `|Obtained by creating an API account or
-    installing an app in a BigCommerce control panel.|
-
+    |`X-Auth-Token`|`access_token `|Obtained by creating an API account or installing an app in a BigCommerce control panel.|
 
     ### OAuth Scopes
 
-
-    | UI Name                                      | Permission |
-    Parameter                                     |
-
+    | UI Name                                      | Permission | Parameter                                     |
     |----------------------------------------------|------------|-----------------------------------------------|
+    | Customers                                    | modify     | `store_v2_customers`                          |
+    | Customers                                    | read-only  | `store_v2_customers_read_only`                |
 
-    | Customers                                    | modify     |
-    `store_v2_customers`                          |
-
-    | Customers                                    | read-only  |
-    `store_v2_customers_read_only`                |
-
-
-    For more information on Authenticating BigCommerce APIs, see:
-    [Authentication](https://developer.bigcommerce.com/api-docs/getting-started/authentication).
-
+    For more information on Authenticating BigCommerce APIs, see: [Authentication](https://developer.bigcommerce.com/api-docs/getting-started/authentication).
 
     ## Resources
-
-    * [Customer and Subscribers
-    Overview](/api-docs/customers/customers-subscribers-overview).
+    * [Customer and Subscribers Overview](/api-docs/customers/customers-subscribers-overview).
   contact: {}
 host: api.bigcommerce.com
 basePath: '/stores/{$$.env.store_hash}/v3'
@@ -76,13 +47,10 @@ produces:
 paths:
   /customers:
     get:
-      description: >-
-        Returns a list of Customers. Optional filter parameters can be passed
-        in.
-
+      description: |-
+        Returns a list of Customers. Optional filter parameters can be passed in.
 
         **Notes**
-
 
         Attribute names are not available on the customer object.
       summary: Get All Customers
@@ -141,18 +109,12 @@ paths:
         - name: 'date_modified:min'
           in: query
           type: string
-          description: >-
-            Filter items by mininum date_modified.
-            `date_modified:min=2019-09-04T:00:00:00` or
-            `date_modified:min=2019-09-04`
+          description: 'Filter items by mininum date_modified. `date_modified:min=2019-09-04T:00:00:00` or `date_modified:min=2019-09-04`'
         - name: 'date_modified:max'
           in: query
           type: string
           format: date-time
-          description: >-
-            Filter items by maximum date_modified
-            `date_modified:max=2018-09-05T13:45:03` or
-            `date_modified:max=2019-09-04`
+          description: 'Filter items by maximum date_modified `date_modified:max=2018-09-05T13:45:03` or `date_modified:max=2019-09-04`'
         - name: 'email:in'
           in: query
           type: string
@@ -175,10 +137,8 @@ paths:
         - name: 'registration_ip_address:in'
           in: query
           type: array
-          description: >-
-            Filter items by registration_ip_address. If the customer was created
-            using the API, then registration address is blank.
-
+          description: |-
+            Filter items by registration_ip_address. If the customer was created using the API, then registration address is blank.
             `registration_ip_address:in=12.345.6.789`
           items:
             type: integer
@@ -218,46 +178,27 @@ paths:
         '200':
           $ref: '#/responses/CustomerCollectionResponse'
     post:
-      description: >-
+      description: |-
         Creates Customers. Multiple customers can be created in one call.
 
-
         **Required Fields**
-
         * last_name
-
         * first_name
-
         * email
 
-
         **Required Fields Customer Address**
-
         * first_name
-
         * city
-
         * country_code
-
         * state_or_province
-
         * last_name
-
         * address1
-
         * postal_code
 
-
         **Required Fields Attributes**
-
-        * Attributes must be
-        [created](https://developer.bigcommerce.com/api-reference/customer-subscribers/v3-customers-api/customer-attributes/customersattributespost)
-        **BEFORE** creating a customer.
-
+        * Attributes must be [created](https://developer.bigcommerce.com/api-reference/customer-subscribers/v3-customers-api/customer-attributes/customersattributespost) **BEFORE** creating a customer.
         * attribute_id
-
-        * attribute_value -- This is input as a string, regardless of the
-        [Type](/api-reference/customer-subscribers/v3-customers-api/models/type).
+        * attribute_value -- This is input as a string, regardless of the [Type](/api-reference/customer-subscribers/v3-customers-api/models/type).
       summary: Create Customers
       tags:
         - Customers
@@ -409,9 +350,7 @@ paths:
                         type: integer
                         format: int32
                       attribute_value:
-                        description: >-
-                          Attribute value. This will always be a string,
-                          regardless of the attributes type.
+                        description: 'Attribute value. This will always be a string, regardless of the attributes type.'
                         type: string
                         minLength: 0
                         maxLength: 255
@@ -423,19 +362,14 @@ paths:
                   type: object
                   properties:
                     force_password_reset:
-                      description: >-
-                        If `true`, this customer will be forced to change
-                        password on next login.
+                      description: 'If `true`, this customer will be forced to change password on next login.'
                       type: boolean
                     new_password:
                       description: New password for customer. Write only field
                       type: string
                 accepts_product_review_abandoned_cart_emails:
                   type: boolean
-                  description: >-
-                    It determines if the customer is signed up to receive either
-                    product review or abandoned cart emails or recieve both
-                    emails.
+                  description: It determines if the customer is signed up to receive either product review or abandoned cart emails or recieve both emails.
                 store_credit_amounts:
                   description: 'Store credit. '
                   type: array
@@ -456,10 +390,7 @@ paths:
         '200':
           $ref: '#/responses/CustomerCollectionResponse'
         '422':
-          description: >-
-            The *Customer* was not valid. This is the result of missing required
-            fields or trying to edit a read only field. See the response for
-            more details.
+          description: The *Customer* was not valid. This is the result of missing required fields or trying to edit a read only field. See the response for more details.
           schema:
             title: Error Response
             type: object
@@ -487,35 +418,22 @@ paths:
               errors:
                 .customer_create: Error creating customers
     put:
-      description: >-
-        Updates Customers. Subresource updates are not supported. Multiple
-        customers can be updated in one call.
-
+      description: |-
+        Updates Customers. Subresource updates are not supported. Multiple customers can be updated in one call.
 
         **Required Fields**
-
         * id -- ID of the *Customer* This must be included in the request body
 
-
         **Read Only Fields**
-
         * id
-
         * registration_ip_address
-
         * date_created
-
         * date_modified
-
 
 
         **Notes**
 
-
-        Attributes Values can not be updated using Update a Customer. Use the
-        Update a [Customer Attribute
-        Values](https://developer.bigcommerce.com/api-reference/customer-subscribers/v3-customers-api/customer-attribute-values/customersattributevaluesput)
-        endpoint.
+        Attributes Values can not be updated using Update a Customer. Use the Update a [Customer Attribute Values](https://developer.bigcommerce.com/api-reference/customer-subscribers/v3-customers-api/customer-attribute-values/customersattributevaluesput) endpoint.
       summary: Update Customers
       tags:
         - Customers
@@ -583,19 +501,14 @@ paths:
                   type: object
                   properties:
                     force_password_reset:
-                      description: >-
-                        If `true`, this customer will be forced to change
-                        password on next login.
+                      description: 'If `true`, this customer will be forced to change password on next login.'
                       type: boolean
                     new_password:
                       description: New password for customer. Write only field
                       type: string
                 accepts_product_review_abandoned_cart_emails:
                   type: boolean
-                  description: >-
-                    It determines if the customer is signed up to receive either
-                    product review or abandoned cart emails or recieve both
-                    emails.
+                  description: It determines if the customer is signed up to receive either product review or abandoned cart emails or recieve both emails.
                 store_credit_amounts:
                   description: 'Store credit. '
                   type: array
@@ -628,9 +541,8 @@ paths:
         '200':
           $ref: '#/responses/CustomerCollectionResponse'
         '422':
-          description: >
-            The `Customer` was not valid. This is the result of missing required
-            fields, or of invalid data. See the response for more details.
+          description: |
+            The `Customer` was not valid. This is the result of missing required fields, or of invalid data. See the response for more details.
           schema:
             title: Error Response
             type: object
@@ -651,20 +563,15 @@ paths:
                 additionalProperties:
                   type: string
     delete:
-      description: >-
+      description: |-
         Deletes Customers.
 
-
         **Required Query**
-
         * id:in -- ID of the customer
-
 
         **Notes**
 
-
-        A query is required to delete customers. If not provided, a 204 is
-        returned, with no changes to the data.
+        A query is required to delete customers. If not provided, a 204 is returned, with no changes to the data.
       summary: Delete Customers
       tags:
         - Customers
@@ -686,9 +593,7 @@ paths:
           headers: {}
   /customers/addresses:
     get:
-      description: >-
-        Returns a list of Customer Addresses. Optional filter parameters can be
-        passed in.
+      description: Returns a list of Customer Addresses. Optional filter parameters can be passed in.
       summary: Get All Customer Addresses
       operationId: CustomersAddressesGet
       deprecated: false
@@ -750,27 +655,17 @@ paths:
       tags:
         - Customer Addresses
     post:
-      description: >-
-        Creates a Customer Address. Multiple customer addresses can be created
-        in one call.
-
+      description: |-
+        Creates a Customer Address. Multiple customer addresses can be created in one call.
 
         **Required Fields**
-
         * first_name
-
         * city
-
         * customer_id
-
         * country_code
-
         * state_or_province
-
         * last_name
-
         * address1
-
         * postal_code
       summary: Create a Customer Address
       operationId: CustomersAddressesPost
@@ -878,9 +773,8 @@ paths:
         '200':
           $ref: '#/responses/AddressCollectionResponse'
         '422':
-          description: >
-            The `Address` was not valid. This is the result of missing required
-            fields, or of invalid data. See the response for more details.
+          description: |
+            The `Address` was not valid. This is the result of missing required fields, or of invalid data. See the response for more details.
           schema:
             title: Error Response
             type: object
@@ -903,15 +797,11 @@ paths:
       tags:
         - Customer Addresses
     put:
-      description: >-
-        Updates a Customer Address. Multiple customer addresses can be updated
-        in one call.
-
+      description: |-
+        Updates a Customer Address. Multiple customer addresses can be updated in one call.
 
         **Required Fields**
-
         * id -- ID of the *Customer Address*
-
         * customer_id -- ID of the *Customer*.
       summary: Update a Customer Address
       operationId: CustomersAddressesPut
@@ -1025,9 +915,8 @@ paths:
         '200':
           $ref: '#/responses/AddressCollectionResponse'
         '422':
-          description: >
-            The `Address` was not valid. This is the result of missing required
-            fields, or of invalid data. See the response for more details.
+          description: |
+            The `Address` was not valid. This is the result of missing required fields, or of invalid data. See the response for more details.
           schema:
             title: Error Response
             type: object
@@ -1084,9 +973,7 @@ paths:
         - Customer Addresses
   /customers/attributes:
     get:
-      description: >-
-        Returns a list of Customer Attributes. Optional filter parameters can be
-        passed in.
+      description: Returns a list of Customer Attributes. Optional filter parameters can be passed in.
       summary: Get All Customer Attributes
       operationId: CustomersAttributesGet
       deprecated: false
@@ -1108,9 +995,7 @@ paths:
           in: query
           required: false
           type: string
-          description: >-
-            Filter items by substring in first_name and last_name (%substring% -
-            use with % symbols).
+          description: Filter items by substring in first_name and last_name (%substring% - use with % symbols).
         - name: type
           in: query
           required: false
@@ -1162,34 +1047,22 @@ paths:
           default: application/json
       responses:
         '200':
-          $ref: '#/responses/CustomerAttributeCollectionResponse'
+          $ref: '#/responses/CustomerAttributesResponse'
       tags:
         - Customer Attributes
     post:
-      description: >-
-        Creates a Customer Attribute. Multiple customer attributes can be
-        created in one call.
-
+      description: |-
+        Creates a Customer Attribute. Multiple customer attributes can be created in one call.
 
         **Required Fields**
-
         * name
-
         * type
-
 
         **Notes**
 
+        Once the data type is set, it can not be changed. The attribute will need to be deleted then created again with the new data type. This will also delete it from the customer.
 
-        Once the data type is set, it can not be changed. The attribute will
-        need to be deleted then created again with the new data type. This will
-        also delete it from the customer.
-
-
-        Customer attributes are created separately from the customer. After the
-        name and type are created, then the attributes can be added to the
-        customer.
-
+        Customer attributes are created separately from the customer. After the name and type are created, then the attributes can be added to the customer.
 
         A store cannot have more than 50 customer attributes.
       summary: Create a Customer Attribute
@@ -1240,12 +1113,10 @@ paths:
           default: application/json
       responses:
         '200':
-          $ref: '#/responses/CustomerAttributeCollectionResponse'
+          $ref: '#/responses/CustomerAttributesResponse'
         '422':
-          description: >
-            The `Attribute` was not valid. This is the result of missing
-            required fields, or of invalid data. See the response for more
-            details.
+          description: |
+            The `Attribute` was not valid. This is the result of missing required fields, or of invalid data. See the response for more details.
           schema:
             title: Error Response
             type: object
@@ -1268,19 +1139,13 @@ paths:
       tags:
         - Customer Attributes
     put:
-      description: >-
-        Updates a Customer Attribute. Multiple customer attributes can be
-        updated in one call.
-
+      description: |-
+        Updates a Customer Attribute. Multiple customer attributes can be updated in one call.
 
         **Required Fields**
-
         * id -- ID of the *Customer Attribute*
 
-
-        Once the data type is set, it can not be changed. The attribute will
-        need to be deleted then created again with the new data type. This will
-        also delete it from the customer.
+        Once the data type is set, it can not be changed. The attribute will need to be deleted then created again with the new data type. This will also delete it from the customer.
       summary: Update a Customer Attribute
       operationId: CustomersAttributesPut
       deprecated: false
@@ -1307,12 +1172,10 @@ paths:
           default: application/json
       responses:
         '200':
-          $ref: '#/responses/CustomerAttributeCollectionResponse'
+          $ref: '#/responses/CustomerAttributesResponse'
         '422':
-          description: >
-            The `Attribute` was not valid. This is the result of missing
-            required fields, or of invalid data. See the response for more
-            details.
+          description: |
+            The `Attribute` was not valid. This is the result of missing required fields, or of invalid data. See the response for more details.
           schema:
             title: Error Response
             type: object
@@ -1368,9 +1231,7 @@ paths:
         - Customer Attributes
   /customers/attribute-values:
     get:
-      description: >-
-        Returns a list of Customer Attribute Values. Optional filter parameters
-        can be passed in.
+      description: Returns a list of Customer Attribute Values. Optional filter parameters can be passed in.
       summary: Get All Customer Attribute Values
       operationId: CustomersAttributeValuesGet
       deprecated: false
@@ -1400,9 +1261,7 @@ paths:
         - name: 'attribute_id:in'
           in: query
           type: array
-          description: >-
-            The attribute id for which we should return values.
-            `attribute_id:in=1,2`
+          description: 'The attribute id for which we should return values. `attribute_id:in=1,2`'
           items:
             type: integer
         - name: name
@@ -1432,41 +1291,27 @@ paths:
           in: query
           type: string
           format: date-time
-          description: >-
-            Filter items by maximum date_modified
-            `date_modified:max=2018-09-05T13:45:03` or
-            `date_modified:max=2019-09-04`
+          description: 'Filter items by maximum date_modified `date_modified:max=2018-09-05T13:45:03` or `date_modified:max=2019-09-04`'
         - name: 'date_modified:min'
           in: query
           type: string
-          description: >-
-            Filter items by mininum date_modified.
-            `date_modified:min=2019-09-04T:00:00:00` or
-            `date_modified:min=2019-09-04`
+          description: 'Filter items by mininum date_modified. `date_modified:min=2019-09-04T:00:00:00` or `date_modified:min=2019-09-04`'
       responses:
         '200':
           $ref: '#/responses/CustomerAttributeValueCollectionResponse'
       tags:
         - Customer Attribute Values
     put:
-      description: >-
-        Upserts Customer Attribute Values. Updates the attribute values on the
-        Customer. Multiple customer attribute values can be updated in one call.
+      description: |-
+        Upserts Customer Attribute Values. Updates the attribute values on the Customer. Multiple customer attribute values can be updated in one call.
 
-
-        Upsert checks for an existing record. If there is none, it creates the
-        record, if there is a matching record, it updates that record.
-
+        Upsert checks for an existing record. If there is none, it creates the record, if there is a matching record, it updates that record.
 
         Up to 10 per call are allowed.
 
-
         **Required Fields**
-
         * customer_id -- ID of the *Customer*
-
         * id -- ID of the *Customer Attribute*
-
         * value -- Value of the *Customer Attribute*
       summary: Upsert Customer Attribute Values
       operationId: CustomersAttributeValuesPut
@@ -1487,9 +1332,7 @@ paths:
                   type: integer
                   format: int32
                 value:
-                  description: >-
-                    Attribute value. This will always be a string, regardless of
-                    the attributes type.
+                  description: 'Attribute value. This will always be a string, regardless of the attributes type.'
                   type: string
                   minLength: 0
                   maxLength: 255
@@ -1535,10 +1378,8 @@ paths:
         '200':
           $ref: '#/responses/CustomerAttributeValueCollectionResponse'
         '422':
-          description: >
-            The `CustomerAttributeValue` was not valid. This is the result of
-            missing required fields, or of invalid data. See the response for
-            more details.
+          description: |
+            The `CustomerAttributeValue` was not valid. This is the result of missing required fields, or of invalid data. See the response for more details.
           schema:
             title: Error Response
             type: object
@@ -1561,13 +1402,10 @@ paths:
       tags:
         - Customer Attribute Values
     delete:
-      description: >-
-        Deletes Customer Attribute Values. Deletes the attribute value from the
-        customer.
-
+      description: |-
+        Deletes Customer Attribute Values. Deletes the attribute value from the customer.
 
         **Required Query**
-
         * id:in - ID of the *Customer Attribute Value*
       summary: Delete Customer Attribute Values
       operationId: CustomersAttributeValuesDelete
@@ -1603,10 +1441,7 @@ paths:
         '200':
           $ref: '#/responses/FormFieldValueCollectionResponse'
         '422':
-          description: >-
-            The form field value was not valid. This is the result of missing
-            required fields, or of invalid data. See the response for more
-            details.
+          description: 'The form field value was not valid. This is the result of missing required fields, or of invalid data. See the response for more details.'
           schema:
             title: Error Response
             type: object
@@ -1627,9 +1462,7 @@ paths:
                 additionalProperties:
                   type: string
       summary: Get Customer Form Field Values
-      description: >-
-        Returns a list of Form Field Values for the Customer or Customer Address
-        object.
+      description: Returns a list of Form Field Values for the Customer or Customer Address object.
       operationId: CustomerFormFieldsGet
       tags:
         - Customer Form Field Values
@@ -1689,10 +1522,7 @@ paths:
         '200':
           $ref: '#/responses/FormFieldValueCollectionResponse'
         '422':
-          description: >-
-            The form field value was not valid. This is the result of missing
-            required fields, or of invalid data. See the response for more
-            details.
+          description: 'The form field value was not valid. This is the result of missing required fields, or of invalid data. See the response for more details.'
           schema:
             title: Error Response
             type: object
@@ -1713,32 +1543,20 @@ paths:
                 additionalProperties:
                   type: string
       summary: Upsert Customer Form Field Values
-      description: >-
-        Upserts Customer Form Field Values. Updates the form field values on the
-        Customer or Customer Address. Multiple form field values can be updated
-        in one call.
+      description: |-
+        Upserts Customer Form Field Values. Updates the form field values on the Customer or Customer Address. Multiple form field values can be updated in one call.
 
-
-        Upsert checks for an existing record, if there is none it creates the
-        record, if there is a matching record it updates that record.
-
+        Upsert checks for an existing record, if there is none it creates the record, if there is a matching record it updates that record.
 
         **Required Fields**
-
         * name
-
         * value
-
         * customer_id
-
 
         OR
 
-
         * name
-
         * value
-
         * address_id
       operationId: CustomerFormFieldValuePUT
       tags:
@@ -1861,15 +1679,11 @@ paths:
         '200':
           $ref: '#/responses/consent_Resp'
         '401':
-          description: >-
-            Unauthorized - the v3 Auth client ID or token in the request are not
-            a valid combination for this store.
+          description: Unauthorized - the v3 Auth client ID or token in the request are not a valid combination for this store.
           schema:
             $ref: '#/definitions/ErrorResponse'
         '403':
-          description: >-
-            Missing scope - the v3 Auth token is valid but does not have proper
-            permissions to access this endpoint.
+          description: Missing scope - the v3 Auth token is valid but does not have proper permissions to access this endpoint.
           schema:
             $ref: '#/definitions/ErrorResponse'
         '422':
@@ -1910,15 +1724,11 @@ paths:
         '200':
           $ref: '#/responses/consent_Resp'
         '401':
-          description: >-
-            Unauthorized - the v3 Auth client ID or token in the request are not
-            a valid combination for this store.
+          description: Unauthorized - the v3 Auth client ID or token in the request are not a valid combination for this store.
           schema:
             $ref: '#/definitions/ErrorResponse'
         '403':
-          description: >-
-            Missing scope - the v3 Auth token is valid but does not have proper
-            permissions to access this endpoint.
+          description: Missing scope - the v3 Auth token is valid but does not have proper permissions to access this endpoint.
           schema:
             $ref: '#/definitions/ErrorResponse'
         '422':
@@ -1940,9 +1750,7 @@ definitions:
         type: integer
         format: int32
       per_page:
-        description: >-
-          The amount of items returned in the collection per page, controlled by
-          the limit parameter.
+        description: 'The amount of items returned in the collection per page, controlled by the limit parameter.'
         type: integer
         format: int32
       current_page:
@@ -1955,9 +1763,7 @@ definitions:
         format: int32
       links:
         title: Links
-        description: >-
-          Pagination links for the previous and next parts of the whole
-          collection.
+        description: Pagination links for the previous and next parts of the whole collection.
         type: object
         properties:
           previous:
@@ -1988,9 +1794,7 @@ definitions:
             type: integer
             format: int32
           per_page:
-            description: >-
-              The amount of items returned in the collection per page,
-              controlled by the limit parameter.
+            description: 'The amount of items returned in the collection per page, controlled by the limit parameter.'
             type: integer
             format: int32
           current_page:
@@ -2003,9 +1807,7 @@ definitions:
             format: int32
           links:
             title: Links
-            description: >-
-              Pagination links for the previous and next parts of the whole
-              collection.
+            description: Pagination links for the previous and next parts of the whole collection.
             type: object
             properties:
               previous:
@@ -2125,9 +1927,7 @@ definitions:
         type: object
         properties:
           force_password_reset:
-            description: >-
-              If `true`, this customer will be forced to change password on next
-              login.
+            description: 'If `true`, this customer will be forced to change password on next login.'
             type: boolean
       addresses:
         description: Array of customer addresses. Limited to 10
@@ -2293,9 +2093,7 @@ definitions:
               type: integer
               format: int32
             value:
-              description: >-
-                Attribute value. This will always be a string, regardless of the
-                attributes type.
+              description: 'Attribute value. This will always be a string, regardless of the attributes type.'
               type: string
               minLength: 0
               maxLength: 255
@@ -2400,9 +2198,7 @@ definitions:
               example: 43.18
       accepts_product_review_abandoned_cart_emails:
         type: boolean
-        description: >-
-          It determines if the customer is signed up to receive either product
-          review or abandoned cart emails or recieve both emails.
+        description: It determines if the customer is signed up to receive either product review or abandoned cart emails or recieve both emails.
       channel_ids:
         $ref: '#/definitions/customerChannelIds'
   customer_Post:
@@ -2539,18 +2335,14 @@ definitions:
         type: object
         properties:
           force_password_reset:
-            description: >-
-              If `true`, this customer will be forced to change password on next
-              login.
+            description: 'If `true`, this customer will be forced to change password on next login.'
             type: boolean
           new_password:
             description: New password for customer. Write only field
             type: string
       accepts_product_review_abandoned_cart_emails:
         type: boolean
-        description: >-
-          It determines if the customer is signed up to receive either product
-          review or abandoned cart emails or recieve both emails.
+        description: It determines if the customer is signed up to receive either product review or abandoned cart emails or recieve both emails.
       store_credit_amounts:
         description: 'Store credit. '
         type: array
@@ -2621,18 +2413,14 @@ definitions:
         type: object
         properties:
           force_password_reset:
-            description: >-
-              If `true`, this customer will be forced to change password on next
-              login.
+            description: 'If `true`, this customer will be forced to change password on next login.'
             type: boolean
           new_password:
             description: New password for customer. Write only field
             type: string
       accepts_product_review_abandoned_cart_emails:
         type: boolean
-        description: >-
-          It determines if the customer is signed up to receive either product
-          review or abandoned cart emails or recieve both emails.
+        description: It determines if the customer is signed up to receive either product review or abandoned cart emails or recieve both emails.
       store_credit_amounts:
         description: 'Store credit. '
         type: array
@@ -2673,9 +2461,7 @@ definitions:
         type: integer
         format: int32
       value:
-        description: >-
-          Attribute value. This will always be a string, regardless of the
-          attributes type.
+        description: 'Attribute value. This will always be a string, regardless of the attributes type.'
         type: string
         minLength: 0
         maxLength: 255
@@ -2699,9 +2485,7 @@ definitions:
         type: integer
         format: int32
       attribute_value:
-        description: >-
-          Attribute value. This will always be a string, regardless of the
-          attributes type.
+        description: 'Attribute value. This will always be a string, regardless of the attributes type.'
         type: string
         minLength: 0
         maxLength: 255
@@ -2758,10 +2542,7 @@ definitions:
     required:
       - name
       - id
-    description: >-
-      Once the data type is set, it can not be changed. The attribute will need
-      to be deleted then created again with the new data type. This will also
-      delete it from the customer.
+    description: 'Once the data type is set, it can not be changed. The attribute will need to be deleted then created again with the new data type. This will also delete it from the customer.'
   attribute_Post:
     title: attribute_Post
     example:
@@ -3167,9 +2948,7 @@ definitions:
     allOf:
       - properties:
           force_password_reset:
-            description: >-
-              If `true`, this customer will be forced to change password on next
-              login.
+            description: 'If `true`, this customer will be forced to change password on next login.'
             type: boolean
       - properties:
           new_password:
@@ -3183,9 +2962,7 @@ definitions:
     type: object
     properties:
       force_password_reset:
-        description: >-
-          If `true`, this customer will be forced to change password on next
-          login.
+        description: 'If `true`, this customer will be forced to change password on next login.'
         type: boolean
   addressType:
     title: addressType
@@ -3529,9 +3306,7 @@ definitions:
           type: integer
           format: int32
         value:
-          description: >-
-            Attribute value. This will always be a string, regardless of the
-            attributes type.
+          description: 'Attribute value. This will always be a string, regardless of the attributes type.'
           type: string
           minLength: 0
           maxLength: 255
@@ -3557,10 +3332,8 @@ definitions:
         - customer_id
     title: customerAttributes_Full
   customerAttributes_Base:
-    description: >-
-      The `attributes` array for the `customer` object used in `POST` requests
-      to `/customers`.
-
+    description: |-
+      The `attributes` array for the `customer` object used in `POST` requests to `/customers`.
 
       Array of customer attributes. Limited to 10.
     type: array
@@ -3575,9 +3348,7 @@ definitions:
           type: integer
           format: int32
         value:
-          description: >-
-            Attribute value. This will always be a string, regardless of the
-            attributes type.
+          description: 'Attribute value. This will always be a string, regardless of the attributes type.'
           type: string
           minLength: 0
           maxLength: 255
@@ -3650,10 +3421,8 @@ parameters:
     name: 'name:like'
     in: query
     type: array
-    description: >-
-      Filter items by substring in first_name and last_name (%substring% - use
-      with % symbols).
-
+    description: |-
+      Filter items by substring in first_name and last_name (%substring% - use with % symbols).
       `name:like=moriarty&name:like=doe`
     items:
       type: string
@@ -3661,10 +3430,8 @@ parameters:
     name: 'name:like'
     in: query
     type: string
-    description: >-
-      Filter items by substring in first_name and last_name (%substring% - use
-      with % symbols).
-
+    description: |-
+      Filter items by substring in first_name and last_name (%substring% - use with % symbols).
       `name:like=moriarty,doe`
   FilterIdParam:
     name: 'id:in'
@@ -3685,17 +3452,13 @@ parameters:
     name: 'date_modified:min'
     in: query
     type: string
-    description: >-
-      Filter items by mininum date_modified.
-      `date_modified:min=2019-09-04T:00:00:00` or `date_modified:min=2019-09-04`
+    description: 'Filter items by mininum date_modified. `date_modified:min=2019-09-04T:00:00:00` or `date_modified:min=2019-09-04`'
   FilterDateModifiedMaxParam:
     name: 'date_modified:max'
     in: query
     type: string
     format: date-time
-    description: >-
-      Filter items by maximum date_modified
-      `date_modified:max=2018-09-05T13:45:03` or `date_modified:max=2019-09-04`
+    description: 'Filter items by maximum date_modified `date_modified:max=2018-09-05T13:45:03` or `date_modified:max=2019-09-04`'
   FilterDateCreatedParam:
     name: date_created
     in: query
@@ -3717,10 +3480,8 @@ parameters:
     name: 'registration_ip_address:in'
     in: query
     type: array
-    description: >-
-      Filter items by registration_ip_address. If the customer was created using
-      the API, then registration address is blank.
-
+    description: |-
+      Filter items by registration_ip_address. If the customer was created using the API, then registration address is blank.
       `registration_ip_address:in=12.345.6.789`
     items:
       type: integer
@@ -3856,47 +3617,29 @@ securityDefinitions:
     type: apiKey
     name: X-Auth-Token
     in: header
-    description: >-
+    description: |-
       ### OAuth Scopes
-
       |  **UI Name** | **Permission** | **Parameter** |
-
       | --- | --- | --- |
-
       |  Customers | modify | `store_v2_customers` |
-
       |  Customers | read-only | `store_v2_customers_read_only` |
-
 
       ### Headers
 
-
       |Header|Parameter|Description|
-
       |-|-|-|
-
-      |`X-Auth-Token`|`access_token `|Obtained by creating an API account or
-      installing an app in a BigCommerce control panel.|
-
+      |`X-Auth-Token`|`access_token `|Obtained by creating an API account or installing an app in a BigCommerce control panel.|
 
       ### Example
 
-
       ```http
-
       GET /stores/{$$.env.store_hash}/v3/catalog/summary
-
       host: api.bigcommerce.com
-
       Content-Type: application/json
-
       X-Auth-Token: {access_token}
-
       ```
 
-
-      * For more information on Authenticating BigCommerce APIs, see:
-      [Authentication](https://developer.bigcommerce.com/api-docs/getting-started/authentication).
+      * For more information on Authenticating BigCommerce APIs, see: [Authentication](https://developer.bigcommerce.com/api-docs/getting-started/authentication).
 security:
   - X-Auth-Client: []
   - X-Auth-Token: []
@@ -4881,9 +4624,7 @@ responses:
           properties:
             pagination:
               title: Pagination
-              description: >-
-                Data about the response, including pagination and collection
-                totals.
+              description: 'Data about the response, including pagination and collection totals.'
               type: object
               properties:
                 total:
@@ -4895,9 +4636,7 @@ responses:
                   type: integer
                   format: int32
                 per_page:
-                  description: >-
-                    The amount of items returned in the collection per page,
-                    controlled by the limit parameter.
+                  description: 'The amount of items returned in the collection per page, controlled by the limit parameter.'
                   type: integer
                   format: int32
                 current_page:
@@ -4910,9 +4649,7 @@ responses:
                   format: int32
                 links:
                   title: Links
-                  description: >-
-                    Pagination links for the previous and next parts of the
-                    whole collection.
+                  description: Pagination links for the previous and next parts of the whole collection.
                   type: object
                   properties:
                     previous:
@@ -5327,9 +5064,7 @@ responses:
                 type: integer
                 format: int32
               value:
-                description: >-
-                  Attribute value. This will always be a string, regardless of
-                  the attributes type.
+                description: 'Attribute value. This will always be a string, regardless of the attributes type.'
                 type: string
                 minLength: 0
                 maxLength: 255
@@ -5360,9 +5095,7 @@ responses:
           properties:
             pagination:
               title: Pagination
-              description: >-
-                Data about the response, including pagination and collection
-                totals.
+              description: 'Data about the response, including pagination and collection totals.'
               type: object
               properties:
                 total:
@@ -5374,9 +5107,7 @@ responses:
                   type: integer
                   format: int32
                 per_page:
-                  description: >-
-                    The amount of items returned in the collection per page,
-                    controlled by the limit parameter.
+                  description: 'The amount of items returned in the collection per page, controlled by the limit parameter.'
                   type: integer
                   format: int32
                 current_page:
@@ -5389,9 +5120,7 @@ responses:
                   format: int32
                 links:
                   title: Links
-                  description: >-
-                    Pagination links for the previous and next parts of the
-                    whole collection.
+                  description: Pagination links for the previous and next parts of the whole collection.
                   type: object
                   properties:
                     previous:
@@ -5443,9 +5172,7 @@ responses:
                 type: integer
                 format: int32
               value:
-                description: >-
-                  Attribute value. This will always be a string, regardless of
-                  the attributes type.
+                description: 'Attribute value. This will always be a string, regardless of the attributes type.'
                 type: string
                 minLength: 0
                 maxLength: 255
@@ -5499,9 +5226,7 @@ responses:
                 type: integer
                 format: int32
               value:
-                description: >-
-                  Attribute value. This will always be a string, regardless of
-                  the attributes type.
+                description: 'Attribute value. This will always be a string, regardless of the attributes type.'
                 type: string
                 minLength: 0
                 maxLength: 255
@@ -5532,9 +5257,7 @@ responses:
           properties:
             pagination:
               title: Pagination
-              description: >-
-                Data about the response, including pagination and collection
-                totals.
+              description: 'Data about the response, including pagination and collection totals.'
               type: object
               properties:
                 total:
@@ -5546,9 +5269,7 @@ responses:
                   type: integer
                   format: int32
                 per_page:
-                  description: >-
-                    The amount of items returned in the collection per page,
-                    controlled by the limit parameter.
+                  description: 'The amount of items returned in the collection per page, controlled by the limit parameter.'
                   type: integer
                   format: int32
                 current_page:
@@ -5561,9 +5282,7 @@ responses:
                   format: int32
                 links:
                   title: Links
-                  description: >-
-                    Pagination links for the previous and next parts of the
-                    whole collection.
+                  description: Pagination links for the previous and next parts of the whole collection.
                   type: object
                   properties:
                     previous:
@@ -5620,9 +5339,7 @@ responses:
                 maxLength: 255
               type:
                 title: Type
-                description: >-
-                  Attribute type should match one of: string, number, date. When
-                  doing a
+                description: 'Attribute type should match one of: string, number, date. When doing a'
                 example: string
                 type: string
                 enum:
@@ -5738,9 +5455,7 @@ responses:
           properties:
             pagination:
               title: Pagination
-              description: >-
-                Data about the response, including pagination and collection
-                totals.
+              description: 'Data about the response, including pagination and collection totals.'
               type: object
               properties:
                 total:
@@ -5752,9 +5467,7 @@ responses:
                   type: integer
                   format: int32
                 per_page:
-                  description: >-
-                    The amount of items returned in the collection per page,
-                    controlled by the limit parameter.
+                  description: 'The amount of items returned in the collection per page, controlled by the limit parameter.'
                   type: integer
                   format: int32
                 current_page:
@@ -5767,9 +5480,7 @@ responses:
                   format: int32
                 links:
                   title: Links
-                  description: >-
-                    Pagination links for the previous and next parts of the
-                    whole collection.
+                  description: Pagination links for the previous and next parts of the whole collection.
                   type: object
                   properties:
                     previous:
