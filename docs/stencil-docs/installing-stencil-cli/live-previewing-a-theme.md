@@ -78,7 +78,7 @@ It is also possible to download and develop against themes in the BigCommerce Th
 
 ### Back up before reinstalling
 
-> If you're re-installing an existing theme, be sure to back up the theme’s `.stencil` file. This file contains the store URL, username, access tokens, and other settings. If you would like to allow for complete rollback, back up your entire theme’s directory.
+> If you're re-installing an existing theme, be sure to back up the theme’s `.stencil` file or `secrets.stencil.json` and `config.stencil.json` files (if using Stencil V3.1 release or later). The files contain the store URL, username, access tokens, and other settings. If you would like to allow for complete rollback, back up your entire theme’s directory.
 
 
 </div>
@@ -102,11 +102,11 @@ This will install the `npm` modules required to properly leverage the Stencil ev
 
 ## Serving a live preview
 
-Once Stencil CLI is installed and a theme is downloaded, a `.stencil` configuration file can be initialized for the theme and development can begin.
+Once Stencil CLI is installed and a theme is downloaded, a `.stencil` configuration file or `secrets.stencil.json` and `config.stencil.json` configuration files (if using Stencil V3.1 release or later) can be initialized for the theme and development can begin.
 
 Stencil CLI uses [Browsersync](https://github.com/bigcommerce/browser-sync) to serve up a live preview of a theme in development. When the preview is opened on multiple devices or browser windows, scroll, click, refresh and form actions are mirrored across the browser instances.
 
-The Browsersync preview is launched by executing the `stencil start` command in a terminal window. When `stencil start` is executed, Stencil CLI checks for the required `.stencil` configuration file, which contains the following information:
+The Browsersync preview is launched by executing the `stencil start` command in a terminal window. When `stencil start` is executed, Stencil CLI checks for the required `.stencil` configuration file or `secrets.stencil.json` and `config.stencil.json` configuration files (if using Stencil V3.1 release or later), which contains the following information:
 * the store's URL
 * an API access token
 * a local port number
@@ -115,7 +115,7 @@ This configuration file is created by running `stencil init` and entering the in
 
 
 
-To initialize a new `.stencil` configuration file and start live preview, run the following commands in a terminal:
+To initialize a new `.stencil` configuration file or `secrets.stencil.json` and `config.stencil.json` configuration files (if using Stencil V3.1 release or later) and start live preview, run the following commands in a terminal:
 
 ```shell
 # move into the theme's directory
@@ -124,7 +124,7 @@ cd ~/path/to/theme/dir
 # install theme modules (if you haven't already)
 npm install
 
-# create .stencil configuration file
+# create .stencil configuration file  or `secrets.stencil.json` and `config.stencil.json` configuration files (if using Stencil V3.1 release or later)
 stencil init --url https://yourstore.com/ --token 19d3ae6-dc15-4af9-bead-a2c703aa7b --port 3000
 
 # serve a live preview of the theme:
