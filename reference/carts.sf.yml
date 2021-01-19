@@ -238,7 +238,7 @@ paths:
         <div class="HubBlock--callout">
         <div class="CalloutBlock--info">
         <div class="HubBlock-content"> 
-        
+
         > ### Note
         > The Send a Test Request feature is not currently supported for this endpoint.
          
@@ -733,7 +733,7 @@ definitions:
                         description: The total value of all coupons applied to this item.
                       listPrice:
                         type: number
-                        description: 'Item''s list price, as quoted by the manufacturer/distributor.'
+                        description: The net item price before discounts and coupons. It is based on the product default price or sale price (if set) configured in BigCommerce Admin.
                       salePrice:
                         type: number
                         description: Item's price after all discounts are applied. (The final price before tax calculation.)
