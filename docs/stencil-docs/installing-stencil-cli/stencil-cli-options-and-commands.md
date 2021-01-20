@@ -33,7 +33,7 @@ Running `stencil help` outputs a full list of commands and their descriptions. F
 
 |Command                     |Description                                                                                 |
 |-|--|
-|[init](#stencil-init)       |Interactively creates a `.stencil`, which configures how to run a BigCommerce store locally.|
+|[init](#stencil-init)       |Interactively creates a `.stencil` file or `secrets.stencil.json` and `config.stencil.json` files (if using Stencil V3.1 release or later), which configures how to run a BigCommerce store locally.|
 |[start](#stencil-init)      |Starts up the BigCommerce storefront local development environment, using theme files in the current directory and data from the live store.                |
 |[bundle](#stencil-bundle)   |Bundles up the theme into a structured `.zip` file, which can be uploaded to BigCommerce.      |
 |[pull](#stencil-pull)       |Pulls the configuration from the active theme on your live store and updates your local configuration.|
@@ -76,7 +76,7 @@ Options:
 
 ## `stencil init`
 
-Creates a `.stencil` file used to configure the live preview when `stencil start` is run. The configuration information can be specified using the optional switches; if the configuration information is not specified via options, a prompt for the information will be displayed.
+Creates a `.stencil` file or `secrets.stencil.json` and `config.stencil.json` files (if using Stencil V3.1 release or later) used to configure the live preview when `stencil start` is run. The configuration information can be specified using the optional switches; if the configuration information is not specified via options, a prompt for the information will be displayed.
 
 **Usage:**
 

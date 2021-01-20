@@ -64,7 +64,7 @@ Without these permissions, running your theme locally will fail with multiple er
 
 ## Local mapping and testing
 
-To test your custom templates locally, you must edit your `.stencil` file to create mappings between each local template and a corresponding URL. Within the .stencil file, look for the following section:
+To test your custom templates locally, you must edit your `.stencil` file or `secrets.stencil.json` and `config.stencil.json` files (if using Stencil V3.1 release or later) to create mappings between each local template and a corresponding URL. Within the .stencil file or `secrets.stencil.json` and `config.stencil.json` files, look for the following section:
 
 <div class="HubBlock-header">
     <div class="HubBlock-header-title flex items-center">
@@ -148,7 +148,7 @@ lineNumbers: true
 
 ### Mapping requirements and options
 
-The requirements and options for the .stencil mapping examples above are as follows:
+The requirements and options for the .stencil or `secrets.stencil.json` and `config.stencil.json` (if using Stencil V3.1 release or later) mapping examples above are as follows:
 
 * Each mapped URL must be a URL for a brand, category, product, or static page that is already configured in the store. This means that you cannot insert a placeholder URL that is an arbitrary string of letters, such as /abcdefghijklmnop/.
 
@@ -160,12 +160,12 @@ The requirements and options for the .stencil mapping examples above are as foll
 
 * That parent for brand URLs is /brands/ (plural), while the corresponding subdirectory for HTML files is /brand/ (singular).
 
-* After editing your .stencil file, you must restart stencil to see your changes locally. Enter stencil start on the command line, appending any appropriate switches for your workflow (e.g.: stencil start -e -n).
+* After editing your .stencil file or `secrets.stencil.json` and `config.stencil.json` files (if using Stencil V3.1 release or later), you must restart stencil to see your changes locally. Enter stencil start on the command line, appending any appropriate switches for your workflow (e.g.: stencil start -e -n).
 
 ### Why these URL Requirements?
 When you create a local custom template page for products, you expect that page to have access to all Stencil product objects. However, the server cannot readily determine the page type of each local custom template. So we give it a hint by instructing the server to look at the page type of the URL where you mapped the template.
 
-In the above .stencil configuration example’s final entry, the server will look at the URL /custom‑category/ within the store, deduce that the page type is category, and return a category context to Stencil CLI. This allows Stencil CLI to properly display the page in the browser when you visit http://localhost:3000/custom‑category/ locally, or when shoppers visit the corresponding public store page.
+In the above .stencil or `secrets.stencil.json` and `config.stencil.json` (if using Stencil V3.1 release or later) configuration example’s final entry, the server will look at the URL /custom‑category/ within the store, deduce that the page type is category, and return a category context to Stencil CLI. This allows Stencil CLI to properly display the page in the browser when you visit http://localhost:3000/custom‑category/ locally, or when shoppers visit the corresponding public store page.
 
 ### Mapping Multiple URLs
 Beyond the single URL mapped to each template in the above examples, you have the option of mapping an array of URLs to each template. This is shown in the following example for the product template:
@@ -208,7 +208,7 @@ Here are solutions to some known problems in locally authoring and testing custo
 
 ### Viewing Custom Brand Templates Locally
 
-If you are having trouble viewing custom brand templates locally, ensure that the URL used in your .stencil file is of the form: /brands/brandname. This is necessary because all the brand pages are located under the /brands/ URL path. Also, bear in mind that currently, all brand URLs are Unicode-encoded. So, for example, you should replace a hyphen with: %252d.
+If you are having trouble viewing custom brand templates locally, ensure that the URL used in your .stencil file or `secrets.stencil.json` and `config.stencil.json`files (if using Stencil V3.1 release or later) is of the form: /brands/brandname. This is necessary because all the brand pages are located under the /brands/ URL path. Also, bear in mind that currently, all brand URLs are Unicode-encoded. So, for example, you should replace a hyphen with: %252d.
 
 ### Outdated Stencil CLI
 

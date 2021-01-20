@@ -168,7 +168,7 @@ To prevent this error from recurring, add the same `nvm use <version_number>` co
 
 ### "Unauthorized...username/token" error
 
-If executing the `stencil start` command generates an `Unauthorized, please use a valid username/token` error, make sure the `.stencil` file contains the correct store URL. Also, verify that you copied the correct username and token. If you continue to get the same error, please reissue tokens.
+If executing the `stencil start` command generates an `Unauthorized, please use a valid username/token` error, make sure the `.stencil` file or `secrets.stencil.json` and `config.stencil.json` files (if using Stencil V3.1 release or later) contain the correct store URL. Also, verify that you copied the correct username and token. If you continue to get the same error, please reissue tokens.
 
 ## 500 errors
 
