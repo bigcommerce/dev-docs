@@ -1,160 +1,94 @@
 openapi: 3.0.0
 info:
-  version: ""
+  version: ''
   title: Channels
-  description: >-
-    Create and manage sales
-    [channels](https://developer.bigcommerce.com/api-docs/channels/overview),
-    their sites, and their [product
-    listings](https://developer.bigcommerce.com/api-reference/cart-checkout/channels-listings-api).
-
+  description: |-
+    Create and manage sales [channels](https://developer.bigcommerce.com/api-docs/channels/overview), their sites, and their [product listings](https://developer.bigcommerce.com/api-reference/cart-checkout/channels-listings-api).
 
     - [Authentication](#authentication)
-
     - [Channels](#channels)
-
     - [Channel Listings](#channel-listings)
-
     - [Channel Site](#channel-site)
-
     - [Resources](#resources)
-
 
     ## Authentication
 
-
     Authenticate requests by including an [OAuth](https://developer.bigcommerce.com/api-docs/getting-started/authentication) `access_token` in the request header.
 
-
     ```http
-
     GET https://api.bigcommerce.com/stores/{{STORE_HASH}}/v3/channels
-
     Content-Type: application/json
-
     X-Auth-Token: {{ACCESS_TOKEN}}
-
     ```
-
 
     ### [OAuth Scopes](https://developer.bigcommerce.com/api-docs/getting-started/authentication/rest-api-authentication#oauth-scopes)
 
-
     | UI Name                                      | Permission | Parameter                                     |
-
     |----------------------------------------------|------------|-----------------------------------------------|
-
     | Channel Listings                             | modify     | `store_channel_listings`                      |
-
     | Channel Listings                             | read-only  | `store_channel_listings_read_only`            |
-
     | Channel Settings                             | modify     | `store_channel_settings`                      |
-
     | Channel Settings                             | read-only  | `store_channel_settings_read_only`            |
-
 
     ## [Channels](https://developer.bigcommerce.com/api-reference/cart-checkout/channels-listings-api/channels)
 
-
     A channel is anywhere a merchant sells their products. This encompasses headless storefronts, marketplaces, POS systems, and marketing platforms.
-
 
     ### Platform
 
-
     A channel's `type` and `platform` combination must be a valid pair as indicated in the table below.
 
-
     | Platform          | Accepted Type             |
-
     |-------------------|---------------------------|
-
     | `square `         | `pos`                     |
-
     | `vend`            | `pos`                     |
-
     | `clover`          | `pos`                     |
-
     | `facebook`        | `marketplace`,`marketing` |
-
     | `amazon`          | `marketplace`             |
-
     | `ebay`            | `marketplace`             |
-
     | `wordpress`       | `storefront`              |
-
     | `drupal`          | `storefont`               |
-
     | `acquia`          | `storefront`              |
-
     | `bloomreach`      | `storefront`              |
-
     | `deity`           | `storefront`              |
-
     | `next`            | `storefront`              |
-
     | `google_shopping` | `marketing`               |
-
     | `custom`          | `storefront`, `pos`, `marketing`, `marketplace` |
-
 
     ### Status
 
-
     Allowed values for a channel's `status` vary by channel `type` and `platform`.
 
-
     |Type|Platform|Allowed Statuses|
-
     |--|--|--|
-
-    |`storefront`|`bigcommerce`|`active`, `inactive`, `archived`|
-
+    |`storefront`|`bigcommerce`|`prelaunch`, `active`, `inactive`|
     |`storefront`|**Is not** `bigcommerce` |`active`, `inactive`, `disconnected`
-
     |`marketing`, `marketplace`, `pos`|N/A|`connected`, `disconnected`|
 
-
     <div class="HubBlock--callout">
-
     <div class="CalloutBlock--warning">
-
     <div class="HubBlock-content">
 
-
     > ### Note
-
     > * As of April 2020, `status`  should be used in place of `is_enabled` -- `is_enabled` will be deprecated.
 
-
     </div>
-
     </div>
-
     </div>
-
 
     ## [Channel Listings](https://developer.bigcommerce.com/api-reference/cart-checkout/channels-listings-api/channel-listings)
 
-
     Channel listings allow you to manage catalog differences among different storefronts or marketplaces.
-
 
     ## [Channel Site](https://developer.bigcommerce.com/api-reference/cart-checkout/channels-listings-api/channel-site)
 
-
     A site refers to the domain associated with a channel.
-
 
     ## Resources
 
-
     * [Sites and Routes API Reference](https://developer.bigcommerce.com/api-reference/cart-checkout/sites-routes-api)
-
     * [Building Channels Overview](https://developer.bigcommerce.com/api-docs/channels/overview)
-
     * [Building Channel Apps](https://developer.bigcommerce.com/api-docs/channels/building-channel-apps)
-
     * [Channels Toolkit Reference](https://developer.bigcommerce.com/api-docs/channels/channels-toolkit-reference)
 tags:
   - name: Channels
@@ -170,20 +104,65 @@ paths:
       summary: Get all Channels
       operationId: listChannels
       responses:
-        "200":
-          $ref: "#/components/responses/channel_Resp_Collection"
-        "500":
-          $ref: "#/components/responses/error_Resp"
-      description: Returns a list of *Channels*. Will always return the BigCommerce
-        storefront with an ID of `1`.
+        '200':
+          $ref: '#/components/responses/channel_Resp_Collection'
+        '500':
+          $ref: '#/components/responses/error_Resp'
+      description: |-
+        Returns a list of *Channels*. 
+
+        Will always return the default BigCommerce storefront with an ID of `1`. This storefront is created by default when you provision a BigCommerce store.
       parameters:
-        - in: query
+        - type: string
+          in: query
           name: include
-          description: Channels subresources that can be included in the response
+          description: Channels subresources that can be included in the response.
           schema:
             type: string
-            enum:
-              - currencies
+        - type: boolean
+          in: query
+          name: available
+          enum:
+            - true
+            - false
+          description: 'Filter items based on whether the channel is currently available for integration. Setting this query to `true` will return channels with the status of `prelaunch`, `active` , `inactive`, or `connected`. Setting this query to `false` will return channels with the status of `disconnected`.'
+          schema:
+            type: boolean
+        - type: string
+          in: query
+          name: name
+          description: Filter items by name.
+          schema:
+            type: string
+        - type: string
+          in: query
+          name: status
+          enum:
+            - prelaunch
+            - active
+            - inactive
+            - connected
+            - disconnected
+          description: Filter items by status.
+          schema:
+            type: string
+        - type: string
+          in: query
+          name: type
+          enum:
+            - marketplace
+            - marketing
+            - pos
+            - storefront
+          description: Filter items by type.
+          schema:
+            type: string
+        - type: string
+          in: query
+          name: platform
+          description: 'Filter items by platform. For a list of supported platforms, see [Platform](https://developer.bigcommerce.com/api-reference/store-management/channels#platform).'
+          schema:
+            type: string
     post:
       tags:
         - Channels
@@ -193,7 +172,7 @@ paths:
         content:
           application/json:
             schema:
-              $ref: "#/components/schemas/channel_Post"
+              $ref: '#/components/schemas/channel_Post'
         required: true
         x-examples:
           Channel without App: |-
@@ -240,8 +219,8 @@ paths:
           Additional Sections Example:
             name: My Store - US
             type: storefront
-            platform: ""
-            external_id: "002"
+            platform: ''
+            external_id: '002'
             is_enabled: true
             status: connected
             is_listable_from_ui: true
@@ -257,41 +236,39 @@ paths:
                   - title: Settings
                     query_path: settings?intro=true
       responses:
-        "201":
-          $ref: "#/components/responses/channel_Resp"
-        "400":
-          description: Invalid data was submitted. This is the result of an invalid value
-            being passed for 1 or more fields. Commonly, an invalid combination
-            of 'type' and 'platform' was provided.
+        '201':
+          $ref: '#/components/responses/channel_Resp'
+        '400':
+          description: 'Invalid data was submitted. This is the result of an invalid value being passed for 1 or more fields. Commonly, an invalid combination of ''type'' and ''platform'' was provided.'
           content:
             application/json:
               schema:
-                $ref: "#/components/responses/error_Resp"
+                $ref: '#/components/responses/error_Resp'
               examples:
                 response:
                   value:
                     status: 400
                     title: Input is invalid
-                    type: https://developer.bigcommerce.com/api#api-status-codes
+                    type: 'https://developer.bigcommerce.com/api#api-status-codes'
                     errors: {}
-        "401":
-          $ref: "#/components/responses/error_Resp"
-        "422":
+        '401':
+          $ref: '#/components/responses/error_Resp'
+        '422':
           description: The request is missing 1 or more required fields
           content:
             application/json:
               schema:
-                $ref: "#/components/responses/error_Resp"
+                $ref: '#/components/responses/error_Resp'
               examples:
                 response:
                   value:
                     status: 422
                     title: JSON data is missing or invalid
-                    type: https://developer.bigcommerce.com/api#api-status-codes
+                    type: 'https://developer.bigcommerce.com/api#api-status-codes'
                     errors:
                       platform: error.path.missing
-        "500":
-          $ref: "#/components/responses/error_Resp"
+        '500':
+          $ref: '#/components/responses/error_Resp'
       description: |-
         Creates a *Channel*.
 
@@ -299,7 +276,7 @@ paths:
         - [Request Body](#request-body)
         - [Responses](#responses)
         - [Send a Test Request](#send-a-test-request)
-  "/channels/{channel_id}":
+  '/channels/{channel_id}':
     parameters:
       - name: channel_id
         in: path
@@ -314,14 +291,14 @@ paths:
       summary: Get a Channel
       operationId: getChannel
       responses:
-        "200":
-          $ref: "#/components/responses/channel_Resp"
-        "404":
-          description: "A *Channel* with the provided ID was not found. "
+        '200':
+          $ref: '#/components/responses/channel_Resp'
+        '404':
+          description: 'A *Channel* with the provided ID was not found. '
           content:
             application/json:
               schema:
-                $ref: "#/components/responses/error_Resp"
+                $ref: '#/components/responses/error_Resp'
       description: Returns a *Channel*. Channel ID `1` returns the BigCommerce storefront.
       parameters:
         - in: query
@@ -340,12 +317,12 @@ paths:
         content:
           application/json:
             schema:
-              $ref: "#/components/schemas/channel_Put"
+              $ref: '#/components/schemas/channel_Put'
         required: true
         x-examples:
           application/json:
             name: My Store - US
-            external_id: "002"
+            external_id: '002'
             is_enabled: true
             status: connected
             is_listable_from_ui: true
@@ -361,12 +338,12 @@ paths:
                   - title: Settings
                     query_path: settings
       responses:
-        "200":
-          description: ""
+        '200':
+          description: ''
           content:
             application/json:
               schema:
-                $ref: "#/components/schemas/resp_channel"
+                $ref: '#/components/schemas/resp_channel'
               examples:
                 response:
                   value:
@@ -375,12 +352,12 @@ paths:
                       name: Old Wordpress Channel
                       platform: wordpress
                       type: storefront
-                      date_created: 2019-03-19T16:05:37Z
-                      date_modified: 2019-05-29T06:03:37Z
-                      external_id: ""
+                      date_created: '2019-03-19T16:05:37Z'
+                      date_modified: '2019-05-29T06:03:37Z'
+                      external_id: ''
                       is_enabled: false
                     meta: {}
-        "400":
+        '400':
           description: |-
             Bad Request
 
@@ -388,35 +365,35 @@ paths:
           content:
             application/json:
               schema:
-                $ref: "#/components/schemas/error"
+                $ref: '#/components/schemas/error'
             Invalid Response:
               examples:
                 response:
                   value:
                     status: 400
                     title: Input is invalid
-                    type: https://developer.bigcommerce.com/api-docs/getting-started/api-status-codes
+                    type: 'https://developer.bigcommerce.com/api-docs/getting-started/api-status-codes'
                     errors: {}
-        "401":
+        '401':
           description: Unauthorized
           content:
             application/json:
               schema:
-                $ref: "#/components/schemas/error"
-        "404":
-          description: "A *Channel* with the provided ID was not found. "
+                $ref: '#/components/schemas/error'
+        '404':
+          description: 'A *Channel* with the provided ID was not found. '
           content:
             application/json:
               schema:
-                $ref: "#/components/schemas/error"
+                $ref: '#/components/schemas/error'
               examples:
                 response:
                   value:
                     status: 404
-                    title: "{}"
-                    type: https://developer.bigcommerce.com/api#api-status-codes
+                    title: '{}'
+                    type: 'https://developer.bigcommerce.com/api#api-status-codes'
                     errors: {}
-        "422":
+        '422':
           description: |-
             Unprocessable Entity (WebDAV)
 
@@ -424,59 +401,44 @@ paths:
           content:
             application/json:
               schema:
-                $ref: "#/components/schemas/error"
+                $ref: '#/components/schemas/error'
             422 Example:
               examples:
                 response:
                   value:
                     status: 422
                     title: JSON data is missing or invalid
-                    type: https://developer.bigcommerce.com/api-docs/getting-started/api-status-codes
+                    type: 'https://developer.bigcommerce.com/api-docs/getting-started/api-status-codes'
                     errors:
                       status: error.expected.jsstring
-        "500":
+        '500':
           description: Internal server error.
           content:
             application/json:
               schema:
-                $ref: "#/components/schemas/error"
-      description: >-
+                $ref: '#/components/schemas/error'
+      description: |-
         Updates a *Channel*.
 
-
         - [Updatable Fields](updatedeable-fields)
-
         - [Authorization](#authorization)
-
         - [Request Parameters](#request-parameters)
-
         - [Request Body](#request-body)
-
         - [Responses](#responses)
-
         - [Send a Test Request](#send-a-test-request)
-
 
         ## Updatable Fields
 
-
         The following fields can be updated.
-
         * `name`
-
         * `external_id`
-
         * `status`
-
         * `is_listable_from_ui`
-
         * `is_visible`
-
         * `config_meta`
 
-
         Partial updates are supported. Currently, if a field that *cannot* be updated is passed in, the API **will not** respond with an error. It returns a 200 response with the object, in which you will see the field(s) were not updated.
-  "/channels/{channel_id}/listings":
+  '/channels/{channel_id}/listings':
     get:
       summary: Get Channel Listings
       operationId: listChannelListings
@@ -487,33 +449,29 @@ paths:
           schema:
             type: integer
             format: int64
-        - $ref: "#/components/parameters/LimitParam"
-        - $ref: "#/components/parameters/AfterParam"
+        - $ref: '#/components/parameters/LimitParam'
+        - $ref: '#/components/parameters/AfterParam'
         - in: query
-          name: data_modified:min
-          description: Filter items by mininum date_modified.
-            `date_modified:min=2019-09-04T:00:00:00` or
-            `date_modified:min=2019-09-04`
+          name: 'data_modified:min'
+          description: 'Filter items by mininum date_modified. `date_modified:min=2019-09-04T:00:00:00` or `date_modified:min=2019-09-04`'
           schema:
             type: string
             format: date-time
         - in: query
-          name: data_modified:max
-          description: Filter items by maximum date_modified.
-            `date_modified:max=2019-09-04T:00:00:00` or
-            `date_modified:max=2019-09-04`
+          name: 'data_modified:max'
+          description: 'Filter items by maximum date_modified. `date_modified:max=2019-09-04T:00:00:00` or `date_modified:max=2019-09-04`'
           schema:
             type: string
             format: date-time
-        - $ref: "#/components/parameters/product_id_in"
+        - $ref: '#/components/parameters/product_id_in'
       requestBody:
         content:
           application/json:
             schema:
-              $ref: "#/components/schemas/listing_Full"
+              $ref: '#/components/schemas/listing_Full'
       responses:
-        "200":
-          $ref: "#/components/responses/listing_Resp_Collection"
+        '200':
+          $ref: '#/components/responses/listing_Resp_Collection'
       tags:
         - Channel Listings
       description: Returns a list of all *Channel Listings* for a particular channel
@@ -533,7 +491,7 @@ paths:
             schema:
               type: array
               items:
-                $ref: "#/components/schemas/listing_Put"
+                $ref: '#/components/schemas/listing_Put'
         required: true
         x-examples:
           application/json:
@@ -552,21 +510,20 @@ paths:
                   variant_id: 74
                   state: error
       responses:
-        "200":
-          $ref: "#/components/responses/listing_Resp_Collection"
-        "422":
-          description: When there are errors with multiple objects in the request, errors
-            will be associated with the object's location in the list.
+        '200':
+          $ref: '#/components/responses/listing_Resp_Collection'
+        '422':
+          description: 'When there are errors with multiple objects in the request, errors will be associated with the object''s location in the list.'
           content:
             application/json:
               schema:
-                $ref: "#/components/responses/error_Resp"
+                $ref: '#/components/responses/error_Resp'
               examples:
                 response:
                   value:
                     status: 422
                     title: JSON data is missing or invalid
-                    type: https://developer.bigcommerce.com/api#api-status-codes
+                    type: 'https://developer.bigcommerce.com/api#api-status-codes'
                     errors:
                       0.product_id: error.path.missing
                       1.product_id: error.path.missing
@@ -589,7 +546,7 @@ paths:
             schema:
               type: array
               items:
-                $ref: "#/components/schemas/listing_Post"
+                $ref: '#/components/schemas/listing_Post'
         required: true
         x-examples:
           application/json:
@@ -609,47 +566,47 @@ paths:
                   state: active
                   external_id: Var2
       responses:
-        "200":
-          $ref: "#/components/responses/listing_Resp"
-        "422":
-          description: ""
+        '200':
+          $ref: '#/components/responses/listing_Resp'
+        '422':
+          description: ''
           content:
             application/json:
               schema:
-                $ref: "#/components/responses/error_Resp"
+                $ref: '#/components/responses/error_Resp'
               examples:
                 response:
                   value:
                     status: 422
                     title: JSON data is missing or invalid
-                    type: https://developer.bigcommerce.com/api#api-status-codes
+                    type: 'https://developer.bigcommerce.com/api#api-status-codes'
                     errors:
                       0.variants: error.path.missing
       tags:
         - Channel Listings
       description: Creates a channel listing
-  "/channels/{channel_id}/listings/{listing_id}":
+  '/channels/{channel_id}/listings/{listing_id}':
     parameters:
-      - $ref: "#/components/parameters/channel_id"
-      - $ref: "#/components/parameters/listing_id"
+      - $ref: '#/components/parameters/channel_id'
+      - $ref: '#/components/parameters/listing_id'
     get:
       summary: Get a Channel Listing
       operationId: getChannelListing
       responses:
-        "200":
-          $ref: "#/components/responses/listing_Resp"
-        "404":
-          description: ""
+        '200':
+          $ref: '#/components/responses/listing_Resp'
+        '404':
+          description: ''
           content:
             application/json:
               schema:
-                $ref: "#/components/responses/error_Resp"
+                $ref: '#/components/responses/error_Resp'
               examples:
                 response:
                   value:
                     status: 404
-                    title: Listing [1218040] not found
-                    type: https://developer.bigcommerce.com/api#api-status-codes
+                    title: 'Listing [1218040] not found'
+                    type: 'https://developer.bigcommerce.com/api#api-status-codes'
                     errors: {}
       tags:
         - Channel Listings
@@ -659,7 +616,7 @@ paths:
       summary: Get Channel Active Theme
       description: Get active theme details for a channel.
       tags:
-      - Channel Active Theme
+        - Channel Active Theme
       responses:
         '200':
           description: OK
@@ -675,7 +632,7 @@ paths:
       operationId: get-channel-active-theme
     parameters:
       - $ref: '#/components/parameters/ChannelIdPathParam'
-  "/channels/{channel_id}/site":
+  '/channels/{channel_id}/site':
     get:
       summary: Get a Channel Site
       description: |
@@ -690,24 +647,24 @@ paths:
           schema:
             type: string
       responses:
-        "200":
-          $ref: "#/components/responses/site_Resp"
+        '200':
+          $ref: '#/components/responses/site_Resp'
       tags:
         - Channel Site
     put:
       responses:
-        "200":
-          $ref: "#/components/responses/site_Resp"
+        '200':
+          $ref: '#/components/responses/site_Resp'
       summary: Update a Channel Site
       operationId: put-channel-site
       requestBody:
         content:
           application/json:
             schema:
-              $ref: "#/components/schemas/site_Put"
+              $ref: '#/components/schemas/site_Put'
         x-examples:
           application/json:
-            url: https://example.com/
+            url: 'https://example.com/'
       tags:
         - Channel Site
       description: Updates a site for provided channel
@@ -719,26 +676,26 @@ paths:
           type: string
     post:
       responses:
-        "200":
-          $ref: "#/components/responses/site_Resp"
+        '200':
+          $ref: '#/components/responses/site_Resp'
       summary: Create a Channel Site
       operationId: postChannelSite
       requestBody:
         content:
           application/json:
             schema:
-              $ref: "#/components/schemas/site_Post"
+              $ref: '#/components/schemas/site_Post'
         x-examples:
           application/json:
-            url: http://kittens.mybigcommerce.com/
+            url: 'http://kittens.mybigcommerce.com/'
             channel_id: 123
       tags:
         - Channel Site
       description: Alias of POST `/sites`. Creates a site for provided channel.
     delete:
       responses:
-        "200":
-          description: ""
+        '200':
+          description: ''
           content:
             application/json:
               schema:
@@ -756,12 +713,12 @@ paths:
         - Channel Currency Assignments
       operationId: post-channels-currency-assignments
       responses:
-        "200":
-          description: ""
+        '200':
+          description: ''
           content:
             application/json:
               schema:
-                $ref: "#/components/schemas/currencyAssignments_Resp"
+                $ref: '#/components/schemas/currencyAssignments_Resp'
             example-1:
               examples:
                 response:
@@ -772,7 +729,7 @@ paths:
                           - string
                         default_currency: string
                     meta: {}
-        "422":
+        '422':
           description: Unprocessable Entity (WebDAV)
           content:
             application/json:
@@ -780,7 +737,7 @@ paths:
                 type: object
                 properties: {}
       requestBody:
-        $ref: "#/components/requestBodies/channel_currenciesArray"
+        $ref: '#/components/requestBodies/channel_currenciesArray'
     put:
       summary: Update Assignments
       description: Batch update enabled or default currencies for channels.
@@ -788,12 +745,12 @@ paths:
         - Channel Currency Assignments
       operationId: put-channels-currency-assignments
       responses:
-        "200":
+        '200':
           description: OK
           content:
             application/json:
               schema:
-                $ref: "#/components/schemas/currencyAssignments_Resp"
+                $ref: '#/components/schemas/currencyAssignments_Resp'
             example-1:
               examples:
                 response:
@@ -805,7 +762,7 @@ paths:
                         default_currency: string
                     meta: {}
       requestBody:
-        $ref: "#/components/requestBodies/channel_currenciesArray"
+        $ref: '#/components/requestBodies/channel_currenciesArray'
     get:
       summary: Get all Assignments
       description: Get a list of currency assignments.
@@ -813,12 +770,12 @@ paths:
         - Channel Currency Assignments
       operationId: get-channels-currency-assignments
       responses:
-        "200":
-          description: ""
+        '200':
+          description: ''
           content:
             application/json:
               schema:
-                $ref: "#/components/schemas/currencyAssignments_Resp"
+                $ref: '#/components/schemas/currencyAssignments_Resp'
             example-1:
               examples:
                 response:
@@ -830,7 +787,7 @@ paths:
                           - USD
                           - CAD
                     meta: {}
-  "/channels/{channel_id}/currency-assignments":
+  '/channels/{channel_id}/currency-assignments':
     parameters:
       - name: channel_id
         in: path
@@ -843,12 +800,12 @@ paths:
       tags:
         - Channel Currency Assignments
       responses:
-        "200":
+        '200':
           description: OK
           content:
             application/json:
               schema:
-                $ref: "#/components/schemas/currencyAssignments_Resp"
+                $ref: '#/components/schemas/currencyAssignments_Resp'
             example-1:
               examples:
                 response:
@@ -867,13 +824,13 @@ paths:
         - Channel Currency Assignments
       operationId: post-channels-channel_id-currency-assignments
       responses:
-        "200":
+        '200':
           description: OK
           content:
             application/json:
               schema:
-                $ref: "#/components/schemas/currencyAssignments_Resp"
-        "422":
+                $ref: '#/components/schemas/currencyAssignments_Resp'
+        '422':
           description: Unprocessable Entity (WebDAV)
           content:
             application/json:
@@ -881,8 +838,7 @@ paths:
                 type: object
                 properties: {}
       requestBody:
-        $ref: "#/components/requestBodies/post-channels-channel_id-currency-assignments\
-          Body"
+        $ref: '#/components/requestBodies/post-channels-channel_id-currency-assignmentsBody'
     put:
       summary: Update Channel Assignments
       description: Update currencies for specific channel.
@@ -890,13 +846,13 @@ paths:
         - Channel Currency Assignments
       operationId: put-channels-channel_id-currency-assignments
       responses:
-        "200":
+        '200':
           description: OK
           content:
             application/json:
               schema:
-                $ref: "#/components/schemas/currencyAssignments_Resp"
-        "422":
+                $ref: '#/components/schemas/currencyAssignments_Resp'
+        '422':
           description: Unprocessable Entity (WebDAV)
           content:
             application/json:
@@ -904,19 +860,17 @@ paths:
                 type: object
                 properties: {}
       requestBody:
-        $ref: "#/components/requestBodies/post-channels-channel_id-currency-assignments\
-          Body"
+        $ref: '#/components/requestBodies/post-channels-channel_id-currency-assignmentsBody'
     delete:
       summary: Delete Channel Assignments
-      description: Delete channel specific default and enabled currencies. Once done,
-        this channel will inherit the store's currency settings.
+      description: 'Delete channel specific default and enabled currencies. Once done, this channel will inherit the store''s currency settings.'
       tags:
         - Channel Currency Assignments
       operationId: delete-channels-channel_id-currency-assignments
       responses:
-        "204":
-          description: ""
-        "404":
+        '204':
+          description: ''
+        '404':
           description: Not Found
           content:
             application/json:
@@ -931,7 +885,7 @@ x-stoplight:
     includeDownloadLink: true
     showModels: false
 servers:
-  - url: https://api.bigcommerce.com/stores/{$$.env.store_hash}/v3
+  - url: 'https://api.bigcommerce.com/stores/{$$.env.store_hash}/v3'
     variables:
       $$.env.store_hash:
         default: unknown
@@ -946,14 +900,14 @@ components:
       schema:
         type: integer
     DateModifiedMaxParam:
-      name: date_modified:max
+      name: 'date_modified:max'
       description: max iso8601 time
       in: query
       schema:
         type: string
         format: date-time
     DateModifiedMinParam:
-      name: date_modified:min
+      name: 'date_modified:min'
       description: min iso8601 time
       in: query
       schema:
@@ -969,9 +923,8 @@ components:
         type: integer
     LimitParam:
       name: limit
-      description: >
-        Controls the number of items per page in a limited (paginated) list of
-        products.
+      description: |
+        Controls the number of items per page in a limited (paginated) list of products.
       required: false
       in: query
       schema:
@@ -999,7 +952,7 @@ components:
         format: int64
     product_id_in:
       in: query
-      name: product_id:in
+      name: 'product_id:in'
       description: Filter by a comma-separated list of product Ids.
       style: form
       explode: false
@@ -1009,7 +962,7 @@ components:
           type: string
   responses:
     channel_Resp_Collection:
-      description: ""
+      description: ''
       content:
         application/json:
           schema:
@@ -1019,9 +972,9 @@ components:
               data:
                 type: array
                 items:
-                  $ref: "#/components/schemas/channel_Full"
+                  $ref: '#/components/schemas/channel_Full'
               meta:
-                $ref: "#/components/schemas/_metaCollection"
+                $ref: '#/components/schemas/_metaCollection'
           examples:
             response:
               value:
@@ -1030,25 +983,25 @@ components:
                     type: storefront
                     platform: bigcommerce
                     name: myBC-store.com
-                    date_created: 2018-01-04T04:15:50.000Z
-                    date_modified: 2018-01-18T01:22:10.000Z
-                    external_id: ""
+                    date_created: '2018-01-04T04:15:50.000Z'
+                    date_modified: '2018-01-18T01:22:10.000Z'
+                    external_id: ''
                     is_enabled: false
                   - id: 2
                     type: storefront
                     platform: wordpress
                     name: mysite.com
-                    date_created: 2018-01-04T04:15:50.000Z
-                    date_modified: 2018-01-18T01:22:10.000Z
-                    external_id: ""
+                    date_created: '2018-01-04T04:15:50.000Z'
+                    date_modified: '2018-01-18T01:22:10.000Z'
+                    external_id: ''
                     is_enabled: false
                   - id: 3
                     name: Square
                     platform: square
                     type: pos
-                    date_created: 2019-03-19T16:05:37Z
-                    date_modified: 2019-03-19T16:05:37Z
-                    external_id: ""
+                    date_created: '2019-03-19T16:05:37Z'
+                    date_modified: '2019-03-19T16:05:37Z'
+                    external_id: ''
                     is_enabled: true
                 meta:
                   pagination:
@@ -1062,9 +1015,9 @@ components:
                     type: storefront
                     platform: bigcommerce
                     name: myBC-store.com
-                    date_created: 2018-01-04T04:15:50.000Z
-                    date_modified: 2018-01-18T01:22:10.000Z
-                    external_id: ""
+                    date_created: '2018-01-04T04:15:50.000Z'
+                    date_modified: '2018-01-18T01:22:10.000Z'
+                    external_id: ''
                     is_enabled: false
                     currencies:
                       channel_id: 1
@@ -1075,9 +1028,9 @@ components:
                     type: storefront
                     platform: wordpress
                     name: mysite.com
-                    date_created: 2018-01-04T04:15:50.000Z
-                    date_modified: 2018-01-18T01:22:10.000Z
-                    external_id: ""
+                    date_created: '2018-01-04T04:15:50.000Z'
+                    date_modified: '2018-01-18T01:22:10.000Z'
+                    external_id: ''
                     is_enabled: false
                     currencies:
                       channel_id: 2
@@ -1089,9 +1042,9 @@ components:
                     name: Square
                     platform: square
                     type: pos
-                    date_created: 2019-03-19T16:05:37Z
-                    date_modified: 2019-03-19T16:05:37Z
-                    external_id: ""
+                    date_created: '2019-03-19T16:05:37Z'
+                    date_modified: '2019-03-19T16:05:37Z'
+                    external_id: ''
                     is_enabled: true
                     currencies:
                       channel_id: 3
@@ -1102,7 +1055,7 @@ components:
                   pagination:
                     total: 1
     channel_Resp:
-      description: ""
+      description: ''
       content:
         application/json:
           schema:
@@ -1110,9 +1063,9 @@ components:
             type: object
             properties:
               data:
-                $ref: "#/components/schemas/channel_Full"
+                $ref: '#/components/schemas/channel_Full'
               meta:
-                $ref: "#/components/schemas/_meta"
+                $ref: '#/components/schemas/_meta'
           examples:
             response:
               value:
@@ -1121,9 +1074,9 @@ components:
                   name: Amazon US
                   platform: amazon
                   type: marketplace
-                  date_created: 2020-08-25T18:45:11Z
-                  date_modified: 2020-08-25T18:45:11Z
-                  external_id: ""
+                  date_created: '2020-08-25T18:45:11Z'
+                  date_modified: '2020-08-25T18:45:11Z'
+                  external_id: ''
                   is_listable_from_ui: true
                   is_enabled: true
                   is_visible: true
@@ -1146,9 +1099,9 @@ components:
                   name: Amazon US
                   platform: amazon
                   type: marketplace
-                  date_created: 2020-08-25T18:45:11Z
-                  date_modified: 2020-08-25T18:45:11Z
-                  external_id: ""
+                  date_created: '2020-08-25T18:45:11Z'
+                  date_modified: '2020-08-25T18:45:11Z'
+                  external_id: ''
                   is_listable_from_ui: true
                   is_enabled: true
                   is_visible: true
@@ -1168,9 +1121,9 @@ components:
                     default_currency: USD
                 meta: {}
     error_Resp:
-      $ref: "#/components/schemas/error"
+      $ref: '#/components/schemas/error'
     listing_Resp:
-      description: ""
+      description: ''
       content:
         application/json:
           schema:
@@ -1178,9 +1131,9 @@ components:
             type: object
             properties:
               data:
-                $ref: "#/components/schemas/listing_Full"
+                $ref: '#/components/schemas/listing_Full'
               meta:
-                $ref: "#/components/schemas/_meta"
+                $ref: '#/components/schemas/_meta'
           examples:
             response:
               value:
@@ -1192,8 +1145,8 @@ components:
                   name: consequat sunt in
                   description: esse ut
                   state: pending
-                  date_created: 1983-02-18T22:15:06.619Z
-                  date_modified: 1968-11-21T09:39:57.067Z
+                  date_created: '1983-02-18T22:15:06.619Z'
+                  date_modified: '1968-11-21T09:39:57.067Z'
                   variants:
                     - channel_id: 47820013
                       product_id: 20462375
@@ -1202,8 +1155,8 @@ components:
                       name: cillum laborum
                       description: ad pariatur quis sit
                       state: deleted
-                      date_created: 2017-05-29T10:17:39.098Z
-                      date_modified: 1977-09-05T16:23:58.812Z
+                      date_created: '2017-05-29T10:17:39.098Z'
+                      date_modified: '1977-09-05T16:23:58.812Z'
                     - channel_id: 19713462
                       product_id: 19463120
                       variant_id: 29707671
@@ -1211,8 +1164,8 @@ components:
                       name: ullamco
                       description: ex id ut pariatur nulla
                       state: active
-                      date_created: 1947-09-19T12:51:47.853Z
-                      date_modified: 1970-04-26T02:18:59.359Z
+                      date_created: '1947-09-19T12:51:47.853Z'
+                      date_modified: '1970-04-26T02:18:59.359Z'
                     - channel_id: 35515643
                       product_id: 77549222
                       variant_id: 35862420
@@ -1220,11 +1173,11 @@ components:
                       name: enim anim
                       description: incididunt
                       state: error
-                      date_created: 1941-04-19T21:53:38.279Z
-                      date_modified: 1954-12-07T16:08:06.950Z
+                      date_created: '1941-04-19T21:53:38.279Z'
+                      date_modified: '1954-12-07T16:08:06.950Z'
                 meta: {}
     listing_Resp_Collection:
-      description: ""
+      description: ''
       content:
         application/json:
           schema:
@@ -1234,9 +1187,9 @@ components:
               data:
                 type: array
                 items:
-                  $ref: "#/components/schemas/listing_Full"
+                  $ref: '#/components/schemas/listing_Full'
               meta:
-                $ref: "#/components/schemas/_metaCollection"
+                $ref: '#/components/schemas/_metaCollection'
           examples:
             response:
               value:
@@ -1248,8 +1201,8 @@ components:
                     name: Baseball bat
                     description: A steel baseball bat
                     state: active
-                    date_created: 2019-01-20T22:11:39.384Z
-                    date_modified: 2019-02-06T22:59:36.867Z
+                    date_created: '2019-01-20T22:11:39.384Z'
+                    date_modified: '2019-02-06T22:59:36.867Z'
                     variants:
                       - channel_id: 42527118
                         product_id: 76825686
@@ -1258,35 +1211,35 @@ components:
                         name: Baseball Bat - short
                         description: A shorter baseball bat
                         state: deleted
-                        date_created: 2019-01-20T22:11:39.384Z
-                        date_modified: 2019-02-06T22:59:36.867Z
+                        date_created: '2019-01-20T22:11:39.384Z'
+                        date_modified: '2019-02-06T22:59:36.867Z'
                 meta:
                   pagination:
                     total: 1
                     count: 1
                     total_pages: 1
                     links:
-                      current: ?page=1&limit=1000
+                      current: '?page=1&limit=1000'
     site_Resp:
-      description: ""
+      description: ''
       content:
         application/json:
           schema:
             type: object
             properties:
               data:
-                $ref: "#/components/schemas/site_Full"
+                $ref: '#/components/schemas/site_Full'
               meta:
-                $ref: "#/components/schemas/_meta"
+                $ref: '#/components/schemas/_meta'
           examples:
             response:
               value:
                 data:
                   id: 1
-                  url: https://www.my-awesome-site.com
+                  url: 'https://www.my-awesome-site.com'
                   channel_id: 18735
-                  created_at: 2019-08-05T18:26:21Z
-                  updated_at: 2019-08-05T18:26:21Z
+                  created_at: '2019-08-05T18:26:21Z'
+                  updated_at: '2019-08-05T18:26:21Z'
                 meta: {}
   requestBodies:
     post-channels-channel_id-currency-assignmentsBody:
@@ -1297,15 +1250,12 @@ components:
             properties:
               enabled_currencies:
                 type: array
-                description: Currencies that are enabled for the given channel, in ISO 4217 3
-                  character alphabetic
+                description: 'Currencies that are enabled for the given channel, in ISO 4217 3 character alphabetic'
                 items:
                   type: string
               default_currency:
                 type: string
-                description: Default currency for the channel, in ISO 4217 3 character
-                  alphabetic. Will be used on storefront when other currencies
-                  cannot
+                description: 'Default currency for the channel, in ISO 4217 3 character alphabetic. Will be used on storefront when other currencies cannot'
             required:
               - enabled_currencies
               - default_currency
@@ -1315,7 +1265,7 @@ components:
           schema:
             type: array
             items:
-              $ref: "#/components/schemas/channel_currencies"
+              $ref: '#/components/schemas/channel_currencies'
       x-examples:
         example-1:
           - channel_id: 123
@@ -1327,61 +1277,41 @@ components:
       type: apiKey
       in: header
       name: X-Auth-Token
-      description: >-
+      description: |-
         ### OAuth Scopes
-
         |  **UI Name** | **Permission** | **Parameter** |
-
         | --- | --- | --- |
-
         |  Channel Listings | modify | `store_channel_listings` |
-
         |  Channel Listings | read-only | `store_channel_listings_read_only` |
-
         |  Channel Settings | modify | `store_channel_settings` |
-
         |  Channel Settings | read-only | `store_channel_settings_read_only` |
-
         |  Sites & Routes | modify | `store_sites` |
-
         |  Sites & Routes | read-only | `store_sites_read_only` |
-
 
         ### Headers
 
-
         |Header|Parameter|Description|
-
         |-|-|-|
-
         |`X-Auth-Token`|`access_token `|Obtained by creating an API account or installing an app in a BigCommerce control panel.|
-
 
         ### Example
 
-
         ```http
-
         GET /stores/{$$.env.store_hash}/v3/catalog/summary
-
         host: api.bigcommerce.com
-
         Content-Type: application/json
-
         X-Auth-Token: {access_token}
-
         ```
-
 
         * For more information on Authenticating BigCommerce APIs, see: [Authentication](https://developer.bigcommerce.com/api-docs/getting-started/authentication).
   schemas:
     _metaCollection:
       title: _metaCollection
       type: object
-      description: Data about the response, including pagination and collection totals.
+      description: 'Data about the response, including pagination and collection totals.'
       properties:
         pagination:
-          $ref: "#/components/schemas/pagination_Full"
+          $ref: '#/components/schemas/pagination_Full'
     pagination_Full:
       type: object
       description: |
@@ -1401,9 +1331,8 @@ components:
             The total number of pages in the collection.
         links:
           type: object
-          description: >
-            Pagination links for the previous and next parts of the whole
-            collection.
+          description: |
+            Pagination links for the previous and next parts of the whole collection.
           properties:
             previous:
               type: string
@@ -1421,20 +1350,20 @@ components:
     channel_Post:
       title: channel_Post
       allOf:
-        - $ref: "#/components/schemas/channel_Base"
+        - $ref: '#/components/schemas/channel_Base'
         - type: object
           properties:
             type:
-              $ref: "#/components/schemas/channelType"
+              $ref: '#/components/schemas/channelType'
             platform:
-              $ref: "#/components/schemas/channelPlatform"
+              $ref: '#/components/schemas/channelPlatform'
           required:
             - type
             - platform
     channel_Put:
       title: channel_Put
       allOf:
-        - $ref: "#/components/schemas/channel_Base"
+        - $ref: '#/components/schemas/channel_Base'
     channel_Full:
       title: channel_Full
       allOf:
@@ -1443,16 +1372,16 @@ components:
             id:
               type: integer
               format: int32
-              description: ID of the channel, as returned by BC
+              description: 'ID of the channel, as returned by BC'
             type:
-              $ref: "#/components/schemas/channelType"
+              $ref: '#/components/schemas/channelType'
             platform:
-              $ref: "#/components/schemas/channelPlatform"
+              $ref: '#/components/schemas/channelPlatform'
             date_created:
               type: string
             date_modified:
               type: string
-        - $ref: "#/components/schemas/channel_Post"
+        - $ref: '#/components/schemas/channel_Post'
     listing_Put:
       title: listing_Put
       type: object
@@ -1465,12 +1394,10 @@ components:
           format: int32
         name:
           type: string
-          description: Name of the product for this channel listing specifically. This
-            overrides the name in the catalog
+          description: Name of the product for this channel listing specifically. This overrides the name in the catalog
         description:
           type: string
-          description: Description of the product for this channel listing specifically.
-            This overrides the description in the catalog
+          description: Description of the product for this channel listing specifically. This overrides the description in the catalog
         state:
           enum:
             - active
@@ -1488,7 +1415,7 @@ components:
         variants:
           type: array
           items:
-            $ref: "#/components/schemas/listingVariant_Post"
+            $ref: '#/components/schemas/listingVariant_Post'
       required:
         - listing_id
         - product_id
@@ -1505,24 +1432,20 @@ components:
         listing_id:
           type: integer
           format: int32
-          description: ID of the channel listing that has been created, returned, or updated
+          description: 'ID of the channel listing that has been created, returned, or updated'
         external_id:
           type: string
-          description: Associated ID within a system / platform outside of BC for the
-            product listing.
+          description: Associated ID within a system / platform outside of BC for the product listing.
         product_id:
           type: integer
           format: int32
-          description: ID of the product in the BC catalog that the channel listing
-            corresponds to
+          description: ID of the product in the BC catalog that the channel listing corresponds to
         name:
           type: string
-          description: Name of the product for this channel listing specifically. This
-            overrides the name in the catalog
+          description: Name of the product for this channel listing specifically. This overrides the name in the catalog
         description:
           type: string
-          description: Description of the product for this channel listing specifically.
-            This overrides the description in the catalog
+          description: Description of the product for this channel listing specifically. This overrides the description in the catalog
         state:
           enum:
             - active
@@ -1536,7 +1459,7 @@ components:
             - submitted
             - deleted
             - unknown
-          description: "Current state of the channel listing "
+          description: 'Current state of the channel listing '
           type: string
         date_created:
           type: string
@@ -1549,7 +1472,7 @@ components:
         variants:
           type: array
           items:
-            $ref: "#/components/schemas/listingVariant_Full"
+            $ref: '#/components/schemas/listingVariant_Full'
     _meta:
       type: object
       description: Empty meta object; may be used later.
@@ -1566,12 +1489,10 @@ components:
           description: Associated ID within a system / platform outside of BC.
         name:
           type: string
-          description: Name of the product for this channel listing specifically. This
-            overrides the name in the catalog
+          description: Name of the product for this channel listing specifically. This overrides the name in the catalog
         description:
           type: string
-          description: Description of the product for this channel listing specifically.
-            This overrides the description in the catalog
+          description: Description of the product for this channel listing specifically. This overrides the description in the catalog
         state:
           enum:
             - active
@@ -1589,7 +1510,7 @@ components:
         variants:
           type: array
           items:
-            $ref: "#/components/schemas/listingVariant_Post"
+            $ref: '#/components/schemas/listingVariant_Post'
       required:
         - product_id
         - state
@@ -1612,16 +1533,13 @@ components:
           minimum: 0
         external_id:
           type: string
-          description: Associated ID within a system / platform outside of BC for the
-            product variant listing
+          description: Associated ID within a system / platform outside of BC for the product variant listing
         name:
           type: string
-          description: Name of the product for this channel listing specifically. This
-            overrides the name in the catalog
+          description: Name of the product for this channel listing specifically. This overrides the name in the catalog
         description:
           type: string
-          description: Description of the product for this channel listing specifically.
-            This overrides the description in the catalog
+          description: Description of the product for this channel listing specifically. This overrides the description in the catalog
         state:
           enum:
             - active
@@ -1658,12 +1576,10 @@ components:
           type: string
         name:
           type: string
-          description: Name of the product for this channel listing specifically. This
-            overrides the name in the catalog
+          description: Name of the product for this channel listing specifically. This overrides the name in the catalog
         description:
           type: string
-          description: Description of the product for this channel listing specifically.
-            This overrides the description in the catalog
+          description: Description of the product for this channel listing specifically. This overrides the description in the catalog
         state:
           enum:
             - active
@@ -1687,32 +1603,27 @@ components:
       type: object
       properties:
         data:
-          $ref: "#/components/schemas/channel_Full"
+          $ref: '#/components/schemas/channel_Full'
         meta:
-          $ref: "#/components/schemas/_meta"
-      description: ""
+          $ref: '#/components/schemas/_meta'
+      description: ''
     site_Put:
       type: object
       properties:
         url:
           type: string
-          description: The Fully Qualified URL (including host and scheme) where this site
-            is hosted. All URLs generated for this site will be appended to
-            this.
+          description: The Fully Qualified URL (including host and scheme) where this site is hosted. All URLs generated for this site will be appended to this.
       title: site_Put
     site_Post:
       type: object
       properties:
         url:
           type: string
-          description: The Fully Qualified URL (including host and scheme) where this site
-            is hosted. All URLs generated for this site will be appended to
-            this.
-          example: http://kittens.mybigcommerce.com/
+          description: The Fully Qualified URL (including host and scheme) where this site is hosted. All URLs generated for this site will be appended to this.
+          example: 'http://kittens.mybigcommerce.com/'
         channel_id:
           type: integer
-          description: The channel this site is attached to. Each site belongs to a single
-            channel, and each channel can have either zero or one sites.
+          description: 'The channel this site is attached to. Each site belongs to a single channel, and each channel can have either zero or one sites.'
       title: site_Post
     site_Full:
       type: object
@@ -1721,27 +1632,22 @@ components:
           type: integer
         url:
           type: string
-          description: The Fully Qualified URL (including host and scheme) where this site
-            is hosted. All URLs generated for this site will be appended to
-            this.
-          example: http://kittens.mybigcommerce.com/
+          description: The Fully Qualified URL (including host and scheme) where this site is hosted. All URLs generated for this site will be appended to this.
+          example: 'http://kittens.mybigcommerce.com/'
         channel_id:
           type: integer
-          description: The channel this site is attached to. Each site belongs to a single
-            channel, and each channel can have either zero or one sites.
+          description: 'The channel this site is attached to. Each site belongs to a single channel, and each channel can have either zero or one sites.'
         created_at:
           type: string
           description: When was this site created? RFC 3339
-          example: 2018-01-04T04:15:50.000Z
+          example: '2018-01-04T04:15:50.000Z'
         updated_at:
           type: string
           description: When was this site defintion last updated? RFC 3339
-          example: 2018-01-04T04:15:50.000Z
+          example: '2018-01-04T04:15:50.000Z'
         routes:
           type: array
-          description: (optional - if included) collection of routes defined for this
-            site. Limited to 200 routes side loaded (query routes direction via
-            `/routes` for bulk)
+          description: (optional - if included) collection of routes defined for this site. Limited to 200 routes side loaded (query routes direction via `/routes` for bulk)
           items:
             type: object
             properties:
@@ -1767,29 +1673,20 @@ components:
                   - static
               matching:
                 type: string
-                description: >-
-                  (entity_id?) For a given type, which resources should match
-                  this route? e.g For a route with the type: "product" and
-                  matching: "5" this route would be used for the product with
-                  the ID of 5.
-
+                description: |-
+                  (entity_id?) For a given type, which resources should match this route? e.g For a route with the type: "product" and matching: "5" this route would be used for the product with the ID of 5.
 
                   Depending on the type of resource, this may be an ID (matching a specific item), or a "*" wildcard matching all items of that type.
-                example: "5"
+                example: '5'
               route:
                 type: string
-                description: >-
-                  The route template that will be used to generate the URL for
-                  the requested resource.
-
+                description: |-
+                  The route template that will be used to generate the URL for the requested resource.
 
                   Supports several tokens:
 
-
                   - {id} The ID of the requested item
-
                   - {slug} The slug for the requested item (if available). Note: the `slug` value may contain `/` slash
-
                   - {language} The language string that the client is using
                 example: /my-amazing-product
       title: site_Full
@@ -1819,22 +1716,14 @@ components:
       properties:
         app:
           type: object
-          description: "A [channel
-            app](https://developer.bigcommerce.com/api-docs/channels/overview#c\
-            hannel-apps) config object for optionally configuring the channel's
-            user interface in the control panel. "
+          description: 'A [channel app](https://developer.bigcommerce.com/api-docs/channels/overview#channel-apps) config object for optionally configuring the channel''s user interface in the control panel. '
           properties:
             id:
               type: integer
-              description: The unique `id` given to an app registered in
-                [DevTools](https://devtools.bigcommerce.com/); used to create
-                links to the app in channel manager. [Learn how to find an App's
-                ID](https://developer.bigcommerce.com/api-docs/apps/tutorials/id).
+              description: 'The unique `id` given to an app registered in [DevTools](https://devtools.bigcommerce.com/); used to create links to the app in channel manager. [Learn how to find an App''s ID](https://developer.bigcommerce.com/api-docs/apps/tutorials/id).'
             sections:
               type: array
-              description: if set, when the app is loaded within the control panel, the
-                navigation `sections` will be directly embedded in the control
-                panel navigation.
+              description: 'if set, when the app is loaded within the control panel, the navigation `sections` will be directly embedded in the control panel navigation.'
               items:
                 type: object
                 properties:
@@ -1844,9 +1733,7 @@ components:
                     example: '"Settings"'
                   query_path:
                     type: string
-                    description: The value that will be passed to the app's iFrame in the URL and
-                      will allow the app to display the appropriate section
-                      within the app iFrame in the control panel.
+                    description: The value that will be passed to the app's iFrame in the URL and will allow the app to display the appropriate section within the app iFrame in the control panel.
           required:
             - id
       description: Optional channel configuration object.
@@ -1855,20 +1742,19 @@ components:
       type: object
       properties:
         config_meta:
-          $ref: "#/components/schemas/channelConfigMeta_Full"
+          $ref: '#/components/schemas/channelConfigMeta_Full'
         external_id:
           type: string
-          description: "Associated ID within a system / platform outside of BC. "
+          description: 'Associated ID within a system / platform outside of BC. '
         is_listable_from_ui:
           type: boolean
         is_visible:
           type: boolean
         name:
           type: string
-          description: Name of the channel as it will appear to merchants in the control
-            panel; required in `POST` requests.
+          description: Name of the channel as it will appear to merchants in the control panel; required in `POST` requests.
         status:
-          $ref: "#/components/schemas/channelStatus"
+          $ref: '#/components/schemas/channelStatus'
       required:
         - name
     channelStatus:
@@ -1876,13 +1762,11 @@ components:
       title: channelStatus
       enum:
         - active
+        - prelaunch
         - inactive
         - connected
         - disconnected
-        - archived
-      description: The status of the channel; channel `platform` and `status` must be
-        a [valid
-        combination](https://developer.bigcommerce.com/api-reference/cart-checkout/channels-listings-api#status).
+      description: 'The status of the channel; channel `platform` and `status` must be a [valid combination](https://developer.bigcommerce.com/api-reference/cart-checkout/channels-listings-api#status).'
     channelType:
       type: string
       enum:
@@ -1890,14 +1774,11 @@ components:
         - marketplace
         - storefront
         - marketing
-      description: The type of channel; channel `platform` and `type` must be a [valid
-        combination](https://developer.bigcommerce.com/api-reference/cart-checkout/channels-listings-api#platform).
+      description: 'The type of channel; channel `platform` and `type` must be a [valid combination](https://developer.bigcommerce.com/api-reference/cart-checkout/channels-listings-api#platform).'
       title: channelType
     channelPlatform:
       type: string
-      description: The name of the platform for the channel; channel `platform` and
-        `type` must be a [valid
-        combination](https://developer.bigcommerce.com/api-reference/cart-checkout/channels-listings-api#platform).
+      description: 'The name of the platform for the channel; channel `platform` and `type` must be a [valid combination](https://developer.bigcommerce.com/api-reference/cart-checkout/channels-listings-api#platform).'
       enum:
         - bigcommerce
         - acquia
@@ -1916,7 +1797,7 @@ components:
         - custom
       title: channelPlatform
     channel_currencies:
-      description: ""
+      description: ''
       type: object
       properties:
         channel_id:
@@ -1927,18 +1808,13 @@ components:
           example: 123
         enabled_currencies:
           type: array
-          description: Currencies that are enabled for the given channel in [ISO
-            4217](https://en.wikipedia.org/wiki/ISO_4217) three character
-            alphabetic format.
+          description: 'Currencies that are enabled for the given channel in [ISO 4217](https://en.wikipedia.org/wiki/ISO_4217) three character alphabetic format.'
           items:
             type: string
         default_currency:
           type: string
           minLength: 1
-          description: Default currency for the channel in [ISO
-            4217](https://en.wikipedia.org/wiki/ISO_4217) three character
-            alphabetic format. Will be used on storefront when other currencies
-            cannot
+          description: 'Default currency for the channel in [ISO 4217](https://en.wikipedia.org/wiki/ISO_4217) three character alphabetic format. Will be used on storefront when other currencies cannot'
       required:
         - channel_id
         - enabled_currencies
@@ -1946,18 +1822,18 @@ components:
     currencyAssignments_Resp:
       title: currencyAssignments_Resp
       type: object
-      description: ""
+      description: ''
       properties:
         data:
           type: array
           items:
-            $ref: "#/components/schemas/channel_currencies"
+            $ref: '#/components/schemas/channel_currencies'
         meta:
           type: object
     ChannelTheme:
       title: AppliedTheme
       type: object
-      description: "Details about the Channel's relationship to Themes."
+      description: Details about the Channel's relationship to Themes.
       properties:
         active_theme_uuid:
           type: string
@@ -1970,7 +1846,7 @@ components:
           description: The UUID of the currently active Theme Version on the Channel. Needed to look up the available Custom Templates for the Theme.
         saved_theme_configuration_uuid:
           type: string
-          description: The UUID of the most recently saved Theme Configuration. If this is different from the active theme configuration UUID, this indicates that some changes have been saved in the control panel Theme Editor that have not yet been published.
+          description: 'The UUID of the most recently saved Theme Configuration. If this is different from the active theme configuration UUID, this indicates that some changes have been saved in the control panel Theme Editor that have not yet been published.'
         active_theme_display_version:
           type: string
           description: The display version string of the currently active Theme on the Channel
@@ -2014,7 +1890,7 @@ components:
       Partner:
         title: Partner
         type: object
-        description: "Details about the Partner's relationship to Themes"
+        description: Details about the Partner's relationship to Themes
         nullable: true
         properties:
           id:
@@ -2033,7 +1909,7 @@ components:
         title: Upgrade
         type: object
         nullable: true
-        description: "Details about the Upgrade's relationship to Themes"
+        description: Details about the Upgrade's relationship to Themes
         properties:
           available:
             type: boolean
@@ -2045,7 +1921,7 @@ components:
       Screenshot:
         title: Screenshot
         type: object
-        description: "Details about the Screenshot's relationship to Themes"
+        description: Details about the Screenshot's relationship to Themes
         properties:
           large_preview:
             type: string
