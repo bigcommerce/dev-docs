@@ -74,8 +74,8 @@ To test your global region's functionality, drag and drop one of the basic widge
 ## Related resources
 
 ### Articles
-* [Widgets Overview](/api-docs/storefront/widgets/widgets-overview)
+* [Widgets Overview](/api-docs/store-management/widgets/overview)
 * [Page Builder Overview](https://developer.bigcommerce.com/stencil-docs/page-builder/page-builder-overview)
 
 ### Endpoints
-* [Widgets API](/api-reference/storefront/widgets-api)
+* [Widgets API](/api-reference/store-management/widgets)
