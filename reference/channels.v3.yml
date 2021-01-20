@@ -113,52 +113,43 @@ paths:
 
         Will always return the default BigCommerce storefront with an ID of `1`. This storefront is created by default when you provision a BigCommerce store.
       parameters:
-        - type: string
-          in: query
+        - in: query
           name: include
           description: Channels subresources that can be included in the response.
           schema:
             type: string
-        - type: boolean
-          in: query
+        - in: query
           name: available
-          enum:
-            - true
-            - false
           description: 'Filter items based on whether the channel is currently available for integration. Setting this query to `true` will return channels with the status of `prelaunch`, `active` , `inactive`, or `connected`. Setting this query to `false` will return channels with the status of `disconnected`.'
           schema:
             type: boolean
-        - type: string
-          in: query
+        - in: query
           name: name
           description: Filter items by name.
           schema:
             type: string
-        - type: string
-          in: query
+        - in: query
           name: status
-          enum:
-            - prelaunch
-            - active
-            - inactive
-            - connected
-            - disconnected
           description: Filter items by status.
           schema:
             type: string
-        - type: string
-          in: query
+            enum:
+              - prelaunch
+              - active
+              - inactive
+              - connected
+              - disconnected
+        - in: query
           name: type
-          enum:
-            - marketplace
-            - marketing
-            - pos
-            - storefront
           description: Filter items by type.
           schema:
             type: string
-        - type: string
-          in: query
+            enum:
+              - marketplace
+              - marketing
+              - pos
+              - storefront
+        - in: query
           name: platform
           description: 'Filter items by platform. For a list of supported platforms, see [Platform](https://developer.bigcommerce.com/api-reference/store-management/channels#platform).'
           schema:
@@ -269,13 +260,7 @@ paths:
                       platform: error.path.missing
         '500':
           $ref: '#/components/responses/error_Resp'
-      description: |-
-        Creates a *Channel*.
-
-        - [Authorization](#authorization)
-        - [Request Body](#request-body)
-        - [Responses](#responses)
-        - [Send a Test Request](#send-a-test-request)
+      description: Creates a *Channel*.
   '/channels/{channel_id}':
     parameters:
       - name: channel_id
@@ -420,13 +405,6 @@ paths:
       description: |-
         Updates a *Channel*.
 
-        - [Updatable Fields](updatedeable-fields)
-        - [Authorization](#authorization)
-        - [Request Parameters](#request-parameters)
-        - [Request Body](#request-body)
-        - [Responses](#responses)
-        - [Send a Test Request](#send-a-test-request)
-
         ## Updatable Fields
 
         The following fields can be updated.
@@ -474,7 +452,7 @@ paths:
           $ref: '#/components/responses/listing_Resp_Collection'
       tags:
         - Channel Listings
-      description: Returns a list of all *Channel Listings* for a particular channel
+      description: Returns a list of all *Channel Listings* for a particular channel.
     put:
       summary: Update Channel Listings
       operationId: updateChannelListings
@@ -529,7 +507,7 @@ paths:
                       1.product_id: error.path.missing
       tags:
         - Channel Listings
-      description: Updates a listing for provided channel
+      description: Updates a *Channel Listing*.
     post:
       summary: Create Channel Listings
       operationId: createChannelListings
@@ -584,7 +562,7 @@ paths:
                       0.variants: error.path.missing
       tags:
         - Channel Listings
-      description: Creates a channel listing
+      description: Creates a *Channel Listing*.
   '/channels/{channel_id}/listings/{listing_id}':
     parameters:
       - $ref: '#/components/parameters/channel_id'
@@ -610,7 +588,7 @@ paths:
                     errors: {}
       tags:
         - Channel Listings
-      description: Creates a Channel Listing
+      description: Returns a *Channel Listing*.
   '/channels/{channel_id}/active-theme':
     get:
       summary: Get Channel Active Theme
@@ -638,7 +616,7 @@ paths:
       description: |
         Alias of GET /sites?channel_id=channel_id
 
-        Returns site data for given channel
+        Returns site data for given channel.
       operationId: get-channel-site
       parameters:
         - name: channel_id
@@ -667,7 +645,7 @@ paths:
             url: 'https://example.com/'
       tags:
         - Channel Site
-      description: Updates a site for provided channel
+      description: Updates a site for provided channel.
     parameters:
       - name: channel_id
         in: path
@@ -819,7 +797,7 @@ paths:
       operationId: get-channels-channel_id-currency-assignments
     post:
       summary: Create Channel Assignments
-      description: Add channel specific currency assignments
+      description: Add channel specific currency assignments.
       tags:
         - Channel Currency Assignments
       operationId: post-channels-channel_id-currency-assignments
