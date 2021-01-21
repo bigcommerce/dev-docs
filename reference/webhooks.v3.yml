@@ -1,0 +1,415 @@
+openapi: 3.0.0
+info:
+  title: BigCommerce Webhooks
+  version: ""
+  description: Get notified when specific events occur on a BigCommerce store. For
+    more information, see [Webhooks
+    Overview](https://developer.bigcommerce.com/api-docs/store-management/webhooks/overview).
+paths:
+  /hooks:
+    post:
+      responses:
+        "200":
+          $ref: "#/components/responses/webhooks_Resp"
+        "422":
+          $ref: "#/components/responses/422_UnprocessableEntity"
+      summary: Create a Webhook
+      description: Creates a webhook. Only one webhook at a time can be created.
+        Custom headers can be added.
+      operationId: createWebhooks
+      parameters:
+        - $ref: "#/components/parameters/Accept"
+        - $ref: "#/components/parameters/Content-Type"
+      requestBody:
+        content:
+          application/json:
+            schema:
+              $ref: "#/components/schemas/webhook_Base"
+        x-examples:
+          application/json:
+            scope: store/order/*
+            destination: https://665b65a6.ngrok.io/webhooks
+            headers: {}
+      tags:
+        - Webhooks
+    get:
+      responses:
+        "200":
+          $ref: "#/components/responses/webhooks_Resp"
+      summary: Get Webhooks
+      description: >-
+        Returns a list of all webhooks on a store associated to the `client_id`
+        used to authenticate the request.
+
+
+        *Note: BigCommerce determines the `client_id` from the `access_token`.*
+      operationId: getAllWebhooks
+      tags:
+        - Webhooks
+      parameters:
+        - $ref: "#/components/parameters/Accept"
+        - $ref: "#/components/parameters/Content-Type"
+  "/hooks/{id}":
+    get:
+      responses:
+        "200":
+          $ref: "#/components/responses/webhooks_Resp"
+      description: Return a webhook by ID.
+      operationId: getWebhook
+      summary: Get a Webhook
+      tags:
+        - Webhooks
+      parameters:
+        - $ref: "#/components/parameters/Accept"
+        - $ref: "#/components/parameters/Content-Type"
+    parameters:
+      - name: id
+        in: path
+        required: true
+        schema:
+          type: string
+    put:
+      responses:
+        "200":
+          $ref: "#/components/responses/webhooks_Resp"
+      summary: Update a Webhook
+      description: Updates a webhook. Custom headers can be added.
+      operationId: updateAWebhook
+      parameters:
+        - $ref: "#/components/parameters/Accept"
+        - $ref: "#/components/parameters/Content-Type"
+      requestBody:
+        content:
+          application/json:
+            schema:
+              $ref: "#/components/schemas/webhook_Base"
+        x-examples:
+          application/json:
+            scope: store/cart/lineItem/*
+            destination: https://myapp.herokuapp.com/
+            is_active: true
+            headers:
+              User-Name: Hello
+              Password: Goodbye
+      tags:
+        - Webhooks
+    delete:
+      responses:
+        "200":
+          $ref: "#/components/responses/webhooks_Resp"
+      summary: Delete a Webhook
+      description: Deletes a webhook. Only one webhook at a time can be deleted. When
+        a webhook is deleted, it is returned in the response as a 200 OK.
+      operationId: deleteAWebhook
+      tags:
+        - Webhooks
+      parameters:
+        - $ref: "#/components/parameters/Accept"
+        - $ref: "#/components/parameters/Content-Type"
+tags:
+  - name: Webhooks
+  - name: Callbacks
+security:
+  - X-Auth-Client: []
+  - X-Auth-Token: []
+x-stoplight:
+  docs:
+    includeDownloadLink: true
+    showModels: false
+servers:
+  - url: https://api.bigcommerce.com/stores/{$$.env.store_hash}/v3
+    variables:
+      $$.env.store_hash:
+        default: '{$$.env.store_hash}'
+  - url: https://api.bigcommerce.com/stores/{$$.env.store_hash}/v2
+    variables:
+      $$.env.store_hash:
+        default: '{$$.env.store_hash}'
+components:
+  parameters:
+    Accept:
+      in: header
+      name: Accept
+      schema:
+        type: string
+        default: application/json
+    Content-Type:
+      name: Content-Type
+      in: header
+      schema:
+        type: string
+        default: application/json
+  responses:
+    webhooks_Resp:
+      description: ""
+      content:
+        application/json:
+          schema:
+            $ref: "#/components/schemas/webhook_Full"
+          examples:
+            response:
+              value:
+                id: 18048287
+                client_id: m9r6keqmo7h7f23btnp3anbez1kglkl
+                store_hash: anbez1k
+                scope: store/order/*
+                destination: https://665b65a6.ngrok.io/webhooks
+                headers: {}
+                is_active: true
+                created_at: 1561488106
+                updated_at: 1561488106
+    502_GatewayError:
+      description: If something happens during the request that causes it to fail, a
+        502 response will be returned. A new request should be made; however, it
+        could fail.
+      content:
+        application/json:
+          schema:
+            $ref: "#/components/schemas/error_Full"
+          examples:
+            response:
+              value:
+                status: 502
+                title: A login URL could not be generated. Please try another request.
+                type: https://developer.bigcommerce.com/api#api-status-codes
+    504_GatewayTimeout:
+      description: If this occurs, you should retry the request. Typically retrying
+        the request several times will result in a successful request; However,
+        if you are unable to successfully make a request, please check the
+        BigCommerce system status [here](https://status.bigcommerce.com/). A
+        service is likely down and the request will need to be made again when
+        it is back up (in several hours usually)
+      content:
+        application/json:
+          schema:
+            $ref: "#/components/schemas/errorDetailed_Full"
+          examples:
+            response:
+              value:
+                status: 504
+                title: Gateway Timeout
+                type: https://developer.bigcommerce.com/api#api-status-codes
+                errors: {}
+    403_Unauthorized:
+      description: ""
+      content:
+        application/json:
+          schema:
+            $ref: "#/components/schemas/error_Full"
+          examples:
+            response:
+              value:
+                status: 403
+                title: Unauthorized Access. You do not have permission to make this request.
+                type: https://developer.bigcommerce.com/api#api-status-codes
+    400_BadRequest:
+      description: |-
+        Malformed request syntax. Typically need to fix the JSON
+        Body to resend successfully.
+      content:
+        application/json:
+          schema:
+            $ref: "#/components/schemas/error_Full"
+          examples:
+            response:
+              value:
+                status: 400
+                title: Input is invalid.
+                type: https://developer.bigcommerce.com/api#api-status-codes
+    404_NotFound:
+      description: If the requested account resource is not found for the franchise,
+        return a 404 Not Found.
+      content:
+        application/json:
+          schema:
+            $ref: "#/components/schemas/error_Full"
+          examples:
+            response:
+              value:
+                status: 404
+                title: Account with {id} not found
+                type: https://developer.bigcommerce.com/api#api-status-codes
+    422_UnprocessableEntity:
+      description: This occurs when missing or unacceptable data is passed for one or
+        more fields. Please correct the values for the fields listed in the
+        errors object.
+      content:
+        application/json:
+          schema:
+            type: object
+            properties:
+              status:
+                type: integer
+              title:
+                type: string
+              type:
+                type: string
+              errors:
+                type: object
+                properties:
+                  name:
+                    type: string
+                  primary_contact.district:
+                    type: string
+          examples:
+            response:
+              value:
+                status: 422
+                title: JSON data is missing or invalid
+                type: https://developer.bigcommerce.com/api-docs/getting-started/api-status-codes
+                errors:
+                  destination: error.path.missing.
+    503_ServiceUnavailable:
+      description: If this occurs, you should retry the request. If you are unable to
+        successfully make a request, please check the BigCommerce system status
+        [here](https://status.bigcommerce.com/). A service is likely down and
+        the request will need to be made again when it is back up (in several
+        hours usually)
+      content:
+        application/json:
+          schema:
+            $ref: "#/components/schemas/error_Full"
+          examples:
+            response:
+              value:
+                status: 503
+                title: Service Unavailable
+                type: https://developer.bigcommerce.com/api#api-status-codes
+  securitySchemes:
+    X-Auth-Token:
+      type: apiKey
+      name: X-Auth-Token
+      in: header
+      description: >-
+        ### OAuth Scopes
+
+        |  **UI Name** | **Permission** | **Parameter** |
+
+        | --- | --- | --- |
+
+        |  - | - | - |
+
+
+        **Note**: Creating and mangaing webhooks require the default scope used when an API User account is created.
+
+
+        ### Headers
+
+
+        |Header|Parameter|Description|
+
+        |-|-|-|
+
+        |`X-Auth-Token`|`access_token `|Obtained by creating an API account or installing an app in a BigCommerce control panel.|
+
+
+        ### Example
+
+
+        ```http
+
+        GET /stores/{$$.env.store_hash}/v3/catalog/summary
+
+        host: api.bigcommerce.com
+
+        Content-Type: application/json
+
+        X-Auth-Token: {access_token}
+
+        ```
+
+
+        * For more information on Authenticating BigCommerce APIs, see: [Authentication](https://developer.bigcommerce.com/api-docs/getting-started/authentication).
+  schemas:
+    error_Full:
+      type: object
+      title: error_Full
+      properties:
+        status:
+          description: |
+            The HTTP status code.
+          type: integer
+        title:
+          description: |
+            The error title describing the particular error.
+          type: string
+        type:
+          type: string
+    errorDetailed_Full:
+      type: object
+      title: errorDetailed_Full
+      properties:
+        errors:
+          type: object
+          additionalProperties:
+            type: string
+          title: DetailedErrors
+    webhook_Base:
+      type: object
+      title: webhook_Base
+      properties:
+        scope:
+          type: string
+          example: "`store/order/*`"
+          description: Event you subscribe to
+        destination:
+          type: string
+          example: https://665b65a6.ngrok.io/webhooks`
+          description: URL must be active and return a 200 response
+        is_active:
+          type: boolean
+          example: true
+          description: If webhook is active or not
+        headers:
+          type: object
+          description: "You can pass in any number of custom headers to validate webhooks
+            being returned. "
+          properties:
+            custom:
+              type: string
+      required:
+        - scope
+        - destination
+        - is_active
+        - headers
+    webhook_Full:
+      allOf:
+        - type: object
+          properties:
+            id:
+              type: integer
+              description: Id of the webhook
+              example: 18048287
+            client_id:
+              type: string
+              description: Client ID, unique to the store
+              example: m9r6keqmo7h7f23btnpwernbez1kglkl
+            store_hash:
+              type: string
+              description: "Store permanent ID. "
+              example: sftg45fsd
+            created_at:
+              type: integer
+              example: 1561488106
+              description: Created time
+            updated_at:
+              type: integer
+              example: 1561488106
+              description: Updated time
+        - $ref: "#/components/schemas/webhook_Base"
+      title: webhook_Full
+    Pagination:
+      type: object
+      description: |
+        Data about the response, including pagination and collection totals.
+      properties:
+        offset:
+          type: integer
+          description: Offset.
+        limit:
+          type: integer
+          description: Total number of items in the result set.
+        total_items:
+          type: integer
+          description: Total number of items.
+
