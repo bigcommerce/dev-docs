@@ -2,55 +2,33 @@ swagger: '2.0'
 info:
   title: Subscribers
   version: ''
-  description: >-
+  description: |-
     Manage subscribers.
 
-
     ### OAuth Scopes
-
     |  **UI Name** | **Permission** | **Parameter** |
-
     | --- | --- | --- |
-
     |  Customers | modify | `store_v2_customers` |
-
     |  Customers | read-only | `store_v2_customers_read_only` |
-
 
     ### Headers
 
-
     |Header|Parameter|Description|
-
     |-|-|-|
-
-    |`X-Auth-Client`|`client_id`|Obtained by creating an API account or
-    installing an app in a BigCommerce control panel.|
-
-    |`X-Auth-Token`|`access_token `|Obtained by creating an API account or
-    installing an app in a BigCommerce control panel.|
-
+    |`X-Auth-Client`|`client_id`|Obtained by creating an API account or installing an app in a BigCommerce control panel.|
+    |`X-Auth-Token`|`access_token `|Obtained by creating an API account or installing an app in a BigCommerce control panel.|
 
     ### Example
 
-
     ```http
-
     GET /stores/{$$.env.store_hash}/v3/catalog/summary
-
     host: api.bigcommerce.com
-
     Content-Type: application/json
-
     X-Auth-Client: {client_id}
-
     X-Auth-Token: {access_token}
-
     ```
 
-
-    * For more information on Authenticating BigCommerce APIs, see:
-    [Authentication](https://developer.bigcommerce.com/api-docs/getting-started/authentication). 
+    * For more information on Authenticating BigCommerce APIs, see: [Authentication](https://developer.bigcommerce.com/api-docs/getting-started/authentication). 
   termsOfService: ''
   license:
     name: ''
@@ -68,9 +46,7 @@ consumes:
 paths:
   /customers/subscribers:
     get:
-      description: >-
-        Returns a list of *Subscribers*. Optional filter parameters can be
-        passed in.
+      description: Returns a list of *Subscribers*. Optional filter parameters can be passed in.
       operationId: getSubscribers
       parameters:
         - name: email
@@ -111,9 +87,7 @@ paths:
           type: string
           format: date-time
         - name: date_modified
-          description: >-
-            Filter items by date_modified. For example
-            `v3/catalog/products?date_last_imported:min=2018-06-15`
+          description: 'Filter items by date_modified. For example `v3/catalog/products?date_last_imported:min=2018-06-15`'
           required: false
           in: query
           type: string
@@ -124,9 +98,7 @@ paths:
           in: query
           type: integer
         - name: limit
-          description: >-
-            Controls the number of items per page in a limited (paginated) list
-            of products.
+          description: Controls the number of items per page in a limited (paginated) list of products.
           required: false
           in: query
           type: integer
@@ -138,6 +110,10 @@ paths:
           in: header
           type: string
           default: application/json
+        - type: integer
+          in: query
+          name: id
+          description: Filter items by id.
       responses:
         '200':
           $ref: '#/responses/subrscriberCollection_Resp'
@@ -178,9 +154,8 @@ paths:
         '200':
           $ref: '#/responses/subscriber_Resp'
         '409':
-          description: >
-            The `Subscriber` was in conflict with another subscriber. This is
-            the result of duplicate unique values, such as email.
+          description: |
+            The `Subscriber` was in conflict with another subscriber. This is the result of duplicate unique values, such as email.
           schema:
             allOf:
               - type: object
@@ -210,10 +185,8 @@ paths:
                         type: string
             title: Error Response
         '422':
-          description: >
-            The `Subscriber` was not valid. This is the result of missing
-            required fields, or of invalid data. See the response for more
-            details.
+          description: |
+            The `Subscriber` was not valid. This is the result of missing required fields, or of invalid data. See the response for more details.
           schema:
             allOf:
               - type: object
@@ -246,9 +219,7 @@ paths:
         - Subscribers
       summary: Create a Subscriber
     delete:
-      description: >-
-        By default, it deletes all *Subscribers*. A filter should be added to
-        avoid deleting all subscribers in a store.
+      description: 'By default, it deletes all *Subscribers*. A filter should be added to avoid deleting all subscribers in a store.'
       operationId: deleteSubscribers
       parameters:
         - name: email
@@ -289,9 +260,7 @@ paths:
           type: string
           format: date-time
         - name: date_modified
-          description: >-
-            Filter items by date_modified. For example
-            `v3/catalog/products?date_last_imported:min=2018-06-15`
+          description: 'Filter items by date_modified. For example `v3/catalog/products?date_last_imported:min=2018-06-15`'
           required: false
           in: query
           type: string
@@ -397,9 +366,8 @@ paths:
                 type: string
             title: Not Found
         '409':
-          description: >
-            The `Subscriber` was in conflict with another subscriber. This is
-            the result of duplicate unique values, such as `email`.
+          description: |
+            The `Subscriber` was in conflict with another subscriber. This is the result of duplicate unique values, such as `email`.
           schema:
             allOf:
               - type: object
@@ -429,10 +397,8 @@ paths:
                         type: string
             title: Error Response
         '422':
-          description: >
-            The `Subscriber` was not valid. This is the result of missing
-            required fields, or of invalid data. See the response for more
-            details.
+          description: |
+            The `Subscriber` was not valid. This is the result of missing required fields, or of invalid data. See the response for more details.
           schema:
             allOf:
               - type: object
@@ -525,9 +491,7 @@ parameters:
     type: integer
   FilterDateModifiedParam:
     name: date_modified
-    description: >-
-      Filter items by date_modified. For example
-      `v3/catalog/products?date_last_imported:min=2018-06-15`
+    description: 'Filter items by date_modified. For example `v3/catalog/products?date_last_imported:min=2018-06-15`'
     required: false
     in: query
     type: string
@@ -548,9 +512,7 @@ parameters:
     type: integer
   LimitParam:
     name: limit
-    description: >-
-      Controls the number of items per page in a limited (paginated) list of
-      products.
+    description: Controls the number of items per page in a limited (paginated) list of products.
     required: false
     in: query
     type: integer
@@ -639,9 +601,8 @@ definitions:
         maxLength: 255
       source:
         type: string
-        description: >
-          The source of the subscriber. Values are: `storefront`, `order`, or
-          `custom`.
+        description: |
+          The source of the subscriber. Values are: `storefront`, `order`, or `custom`.
         minLength: 0
         maxLength: 255
       order_id:
@@ -688,9 +649,8 @@ definitions:
             maxLength: 255
           source:
             type: string
-            description: >
-              The source of the subscriber. Values are: `storefront`, `order`,
-              or `custom`.
+            description: |
+              The source of the subscriber. Values are: `storefront`, `order`, or `custom`.
             minLength: 0
             maxLength: 255
           order_id:
@@ -746,9 +706,8 @@ definitions:
             example: 36
           per_page:
             type: integer
-            description: >
-              The amount of items returned in the collection per page,
-              controlled by the limit parameter.
+            description: |
+              The amount of items returned in the collection per page, controlled by the limit parameter.
             example: 50
           current_page:
             type: integer
@@ -762,9 +721,8 @@ definitions:
             example: 1
           links:
             type: object
-            description: >
-              Pagination links for the previous and next parts of the whole
-              collection.
+            description: |
+              Pagination links for the previous and next parts of the whole collection.
             properties:
               previous:
                 type: string
@@ -797,9 +755,8 @@ definitions:
         example: 36
       per_page:
         type: integer
-        description: >
-          The amount of items returned in the collection per page, controlled by
-          the limit parameter.
+        description: |
+          The amount of items returned in the collection per page, controlled by the limit parameter.
         example: 50
       current_page:
         type: integer
@@ -813,9 +770,8 @@ definitions:
         example: 1
       links:
         type: object
-        description: >
-          Pagination links for the previous and next parts of the whole
-          collection.
+        description: |
+          Pagination links for the previous and next parts of the whole collection.
         properties:
           previous:
             type: string
@@ -907,47 +863,29 @@ securityDefinitions:
     type: apiKey
     name: X-Auth-Token
     in: header
-    description: >-
+    description: |-
       ### OAuth Scopes
-
       |  **UI Name** | **Permission** | **Parameter** |
-
       | --- | --- | --- |
-
       |  Customers | modify | `store_v2_customers` |
-
       |  Customers | read-only | `store_v2_customers_read_only` |
-
 
       ### Headers
 
-
       |Header|Parameter|Description|
-
       |-|-|-|
-
-      |`X-Auth-Token`|`access_token `|Obtained by creating an API account or
-      installing an app in a BigCommerce control panel.|
-
+      |`X-Auth-Token`|`access_token `|Obtained by creating an API account or installing an app in a BigCommerce control panel.|
 
       ### Example
 
-
       ```http
-
       GET /stores/{$$.env.store_hash}/v3/catalog/summary
-
       host: api.bigcommerce.com
-
       Content-Type: application/json
-
       X-Auth-Token: {access_token}
-
       ```
 
-
-      * For more information on Authenticating BigCommerce APIs, see:
-      [Authentication](https://developer.bigcommerce.com/api-docs/getting-started/authentication). 
+      * For more information on Authenticating BigCommerce APIs, see: [Authentication](https://developer.bigcommerce.com/api-docs/getting-started/authentication). 
 security:
   - X-Auth-Client: []
   - X-Auth-Token: []
