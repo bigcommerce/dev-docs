@@ -1,6 +1,6 @@
 openapi: 3.0.0
 info:
-  title: BigCommerce Webhooks
+  title: Webhooks v3
   version: ''
   description: 'Get notified when specific events occur on a BigCommerce store. For more information, see [Webhooks Overview](https://developer.bigcommerce.com/api-docs/store-management/webhooks/overview).'
 paths:
