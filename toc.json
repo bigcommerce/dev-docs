@@ -192,6 +192,11 @@
     },
     {
       "type": "item",
+      "title": "Webhooks V3",
+      "uri": "reference/webhooks.v3.yml"
+    },
+    {
+      "type": "item",
       "title": "Widgets V3",
       "uri": "reference/widgets.v3.yml"
     },
