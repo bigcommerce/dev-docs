@@ -8,7 +8,7 @@ paths:
     post:
       responses:
         '200':
-          $ref: '#/components/responses/webhooks_Resp'
+          $ref: '#/components/responses/webhook_Resp'
         '422':
           $ref: '#/components/responses/422_UnprocessableEntity'
       summary: Create a Webhook
@@ -54,7 +54,7 @@ paths:
     get:
       responses:
         '200':
-          $ref: '#/components/responses/webhooks_Resp'
+          $ref: '#/components/responses/webhook_Resp'
       description: Return a webhook by ID.
       operationId: getWebhook
       summary: Get a Webhook
@@ -72,7 +72,7 @@ paths:
     put:
       responses:
         '200':
-          $ref: '#/components/responses/webhooks_Resp'
+          $ref: '#/components/responses/webhook_Resp'
       summary: Update a Webhook
       description: Updates a webhook. Custom headers can be added.
       operationId: updateAWebhook
@@ -97,7 +97,7 @@ paths:
     delete:
       responses:
         '200':
-          $ref: '#/components/responses/webhooks_Resp'
+          $ref: '#/components/responses/webhook_Resp'
       summary: Delete a Webhook
       description: 'Deletes a webhook. Only one webhook at a time can be deleted. When a webhook is deleted, it is returned in the response as a 200 OK.'
       operationId: deleteAWebhook
