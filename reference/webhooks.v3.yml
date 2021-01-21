@@ -22,6 +22,12 @@ paths:
           application/json:
             schema:
               $ref: '#/components/schemas/webhook_Base'
+            examples:
+              Example:
+                value:
+                  scope: '{$$.env.scope}'
+                  destination: '{$$.env.destination}'
+                  is_active: true
         x-examples:
           application/json:
             scope: store/order/*
