@@ -75,7 +75,7 @@ Limits the number of items returned from an array; returns a new array.
 
 #### Example
 
-```html
+```handlebars
 {{#each (limit cart.items 4)}}
     <li class="previewCartItem">
         <div class="previewCartItem-image">
@@ -108,7 +108,7 @@ Using specified search key(s), retrieves corresponding values from some or all e
 
 #### Example
 
-```html
+```handlebars
 {{pluck ([limit] <collection> [<limit-value>]) '<path>'}}
 ```
 
@@ -203,23 +203,46 @@ As highlighted above, the helper is configured to rewrite *local* URLs to a `ass
 
 ### {{money}}
 
-Format number length, thousands delimiter, and decimal delimiter.
+Formats number length, thousands delimiter, and decimal delimiter.
+
+#### Parameters
+
+- `n` {Integer}: Length of decimal.
+- `s` {Mixed}: Thousands delimiter.
+- `c` {Mixed}: Decimal delimiter.
+
+#### Example
+
+```handlebars
+{{money value n s c}}
+```
 
 [See it in GitHub](https://github.com/bigcommerce/paper-handlebars/blob/master/helpers/money.js).
-
-[See it in Cornerstone](https://github.com/bigcommerce/cornerstone/search?l=HTML&q=money).
 
 ### {{getFontLoaderConfig}}
 
 Returns font loader config as JSON string.
 
-[See it in GitHub](https://github.com/bigcommerce/paper-handlebars/blob/master/helpers/getFontLoaderConfig.js).
+#### Parameters
 
-[See it in Cornerstone](https://github.com/bigcommerce/cornerstone/search?l=HTML&q=getFontLoaderConfig).
+- `filepath` {String}: Filepath to the config file.
+
+#### Example
+
+```handlebars
+{{getFontLoaderConfig './lib/fonts'}}
+```
+
+[See it in GitHub](https://github.com/bigcommerce/paper-handlebars/blob/master/helpers/getFontLoaderConfig.js).
 
 ### {{getFontsCollection}}
 
 Returns `<link>` elements for configured fonts.
+
+#### Parameters
+
+
+#### Example
 
 [See it in GitHub](https://github.com/bigcommerce/paper-handlebars/blob/master/helpers/getFontsCollection.js).
 
@@ -229,17 +252,24 @@ Returns `<link>` elements for configured fonts.
 
 Encodes HTML entities.
 
-[See it in GitHub](https://github.com/bigcommerce/paper-handlebars/blob/master/helpers/encodeHtmlEntities.js).
+#### Parameters
 
-[See it in Cornerstone](https://github.com/bigcommerce/cornerstone/search?l=HTML&q=encodeHtmlEntities).
+
+#### Example
+
+[See it in GitHub](https://github.com/bigcommerce/paper-handlebars/blob/master/helpers/encodeHtmlEntities.js).
 
 ### {{nl2br}}
 
 Converts newline characters to `<br>` tags.
 
+#### Parameters
+
+- `text` {String}: Text to convert.
+
 #### Example
 
-```html
+```handlebars
 {{nl2br settings.address}}
 ```
 
@@ -265,6 +295,16 @@ Converts newline characters to `<br>` tags.
 
 Renders preformatted text.
 
+#### Parameters
+
+- `text` {String}: Text to format.
+
+#### Example
+
+```handlebars
+{{{pre "text"}}}
+```
+
 [See it in GitHub](https://github.com/bigcommerce/paper-handlebars/blob/master/helpers/pre.js).
 
 [See it in Cornerstone](https://github.com/bigcommerce/cornerstone/search?l=HTML&q=pre).
@@ -289,16 +329,16 @@ Pre-fetches fonts; currently only supports Google fonts.
 
 ### {{stylesheet}}
 
-It renders a link tag to insert a stylesheet into your theme. (This is required if you want Theme Editor to rewrite the stylesheet file when a merchant customizes their theme.) This helper returns an HTML string.
+Renders a link tag to insert a stylesheet into a theme. (This is required if you want Theme Editor to rewrite the stylesheet file when a merchant customizes their theme.) This helper returns an HTML string.
 
 #### Parameters
 
-- path: String containing the path to the theme's CSS stylesheet file.
-- Other parameters are optional, appended in the form: `key="value"`.
+- `assetPath` (String}): Filepath to the theme's CSS stylesheet file.
+- You can append optional parameters as `key="value"` pairs.
 
 #### Example
 
-```html
+```handlebars
 {{{stylesheet "assets/css/style.css" class="myStylesheet"}}}
 ```
 
@@ -308,10 +348,12 @@ It renders a link tag to insert a stylesheet into your theme. (This is required 
 
 ### {{lang}}
 
-Maps keys to translation files, based on the locale indicated by the visitor’s browser. Its parameters are the following keys:
+Maps keys to translation files, based on the locale indicated by the visitor’s browser. 
 
-- `translationKey`: a string.
-- `options`: key-value pairs.
+#### Parameters
+
+- `translationKey`{String}
+- `options`: You can append optional parameters as `key="value"` pairs.
 
 #### Example
 
@@ -330,6 +372,16 @@ Maps keys to translation files, based on the locale indicated by the visitor’s
 
 Returns language translation keys as JSON string.
 
+#### Parameters
+
+- `keyFilter` {String}
+
+#### Example
+
+```handlebars
+{{{langJson "keyFilter"}}}
+```
+
 [See it in GitHub](https://github.com/bigcommerce/paper-handlebars/blob/master/helpers/langJson.js).
 
 [See it in Cornerstone](https://github.com/bigcommerce/cornerstone/search?l=HTML&q=langJson).
@@ -340,9 +392,9 @@ Returns URL for an image [uploaded to `/dav/content/`](https://support.bigcommer
 
 #### Parameters
 
-* `a` **{String}:** Image path relative to `/dav/content/`
-* `width` **{Int}:** Width in pixels
-* `height` **{Int}:** Height in pixels
+- `a` {String}: Image path relative to `/dav/content/`.
+- `width` {Integer}: Width in pixels.
+- `height` {Integer}: Height in pixels.
 
 #### Example
 
@@ -371,7 +423,7 @@ Returns a `srcset` for an image [uploaded to `/dav/content/`](https://support.bi
 
 #### Parameters
 
-* `a` **{String}:** Image path relative to `/dav/content/`
+- `a` {String}: Image path relative to `/dav/content/`.
 
 #### Example
 
@@ -395,11 +447,9 @@ Returns an `<img>` tag `src` value for images of the specified size. Values for 
 
 #### Parameters
 
-- `stencilImage`: a StencilImage.
-- `size`: a string referencing a key in the `theme_settings` object.
-- `defaultImage` (optional): a string.
-
-You can use the optional `defaultImage` parameter to specify an image that will be displayed in cases where the passed `stencilImage` value is null.
+- `stencilImage` {String}: a StencilImage.
+- `size` {String}: A key in the `theme_settings` object.
+- `defaultImage` {String}: Optional default image URL to use if the `stencilImage` is undefined.
 
 #### Example
 
@@ -416,9 +466,10 @@ You can use the optional `defaultImage` parameter to specify an image that will 
 Returns an [Image Manager](https://support.bigcommerce.com/s/article/Using-the-Image-Manager) image URL for an image [uploaded to `/dav/product_images/uploaded_images`](https://support.bigcommerce.com/s/article/File-Access-WebDAV).
 
 #### Parameters
-* `a` **{String}:** Image path relative to `/dav/product_images/uploaded_images`
-* `width` **{Int}:** Width in pixels
-* `height` **{Int}:** Height in pixels
+
+- `a` {String}: Image path relative to `/dav/product_images/uploaded_images`.
+- `width` {Integer}: Width in pixels.
+- `height` {Integer}: Height in pixels.
 
 #### Example
 
@@ -448,7 +499,8 @@ Returns an [Image Manager](https://support.bigcommerce.com/s/article/Using-the-I
 Returns an [Image Manager](https://support.bigcommerce.com/s/article/Using-the-Image-Manager) image `srcset` for an image [uploaded to `/dav/product_images/uploaded_images`](https://support.bigcommerce.com/s/article/File-Access-WebDAV).
 
 #### Parameters
-* `a` **{String}:** Image path relative to `/dav/product_images/uploaded_images`
+
+- `a` {String}: Image path relative to `/dav/product_images/uploaded_images`.
 
 #### Example
 
@@ -463,21 +515,18 @@ https://cdn.bcapp/3dsf74g/images/stencil/80w/image-manager/asset.jpg 80w, https:
 https://cdn.bcapp/3dsf74g/images/stencil/80w/image-manager/folder/asset.jpg 80w, https://cdn.bcapp/3dsf74g/images/stencil/160w/image-manager/folder/asset.jpg 160w, https://cdn.bcapp/3dsf74g/images/stencil/320w/image-manager/folder/asset.jpg 320w, https://cdn.bcapp/3dsf74g/images/stencil/640w/image-manager/folder/asset.jpg 640w, https://cdn.bcapp/3dsf74g/images/stencil/960w/image-manager/folder/asset.jpg 960w, https://cdn.bcapp/3dsf74g/images/stencil/1280w/image-manager/folder/asset.jpg 1280w, https://cdn.bcapp/3dsf74g/images/stencil/1920w/image-manager/folder/asset.jpg 1920w, https://cdn.bcapp/3dsf74g/images/stencil/2560w/image-manager/folder/asset.jpg 2560w
  -->
 ```
-[See it in GitHub](https://github.com/bigcommerce/paper-handlebars/blob/master/helpers/getImageManagerImageSrcset.js).
 
-[See it in Cornerstone](https://github.com/bigcommerce/cornerstone/search?l=HTML&q=getImageManagerImageSrcset).
+[See it in GitHub](https://github.com/bigcommerce/paper-handlebars/blob/master/helpers/getImageManagerImageSrcset.js).
 
 ### {{getImageSrcset}}
 
 The `getImageSrcset` helper is a replacement for `getImage` which allows you to generate either a single image URL (for an `<img>` `src`) or a list of image sizes for `srcset`. [Srcset](https://developer.mozilla.org/en-US/docs/Web/HTML/Element/img#attr-srcset) allows you to specify a list of sizes from which the browser may choose, based on the expected size of the image on the page, the device's pixel density, and other factors.
 
-Similar to `getImage`, it accepts an `stencilImage` parameter, and optionally, a `defaultImage` to use as a fallback.
-
 #### Parameters
 
-- `stencilImage`: a StencilImage
-- `defaultImage` : a fallback image URL to use if the StencilImage is undefined.
-- Image sizes specified as named parameters on the helper
+- `stencilImage` {String}: a StencilImage.
+- `size` {String}: A key in the `theme_settings` object.
+- `defaultImage` {String}: Optional default image URL to use if the `stencilImage` is undefined.
 
 You can then specify what sizes you want as named arguments on the helper.
 
@@ -487,7 +536,7 @@ You can then specify what sizes you want as named arguments on the helper.
 
 By specifying `use_default_sizes=true` on the helper, a `srcset` string will be constructed with a set of sizes chosen by BigCommerce to be optimal for most uses.
 
-```html
+```handlebars
 {{getImageSrcset image use_default_sizes=true}}
 {{getImageSrcset image "https://place-hold.it/500x300" use_default_sizes=true}}
 ```
@@ -507,7 +556,7 @@ Default sizes:
 
 **Single 1x size**
 
-```html
+```handlebars
 {{getImageSrcset image 1x=theme_settings.zoom_size}}
 {{getImageSrcset image 1x="1280x800"}}
 {{getImageSrcset image 1x="1280w"}}
@@ -517,7 +566,7 @@ By specifying a single size as the '1x', size, you can choose to get an image at
 
 **Pixel density**
 
-```html
+```handlebars
 {{getImageSrcset image 1x="1280w" 2x="2560w"}}
 {{getImageSrcset image 1x="800w" 1.5x="1200w" 2x="1600w"}}
 {{getImageSrcset image 1x="640x640" 2x="1280x1280"}}
@@ -529,7 +578,7 @@ As above, you can reference `theme_settings` keys or specify your own size inlin
 
 **Inherent width**
 
-```html
+```handlebars
 <img src="{{getImage image 'default'}}" srcset="{{getImageSrcset image 100w='100w' 200w='200w' 300w='300w'}}" />
 
 <!-- =>
@@ -553,13 +602,17 @@ As above, you can reference `theme_settings` keys or specify your own size inlin
 
 ### {{any}}
 
-Renders block if one or more parameters is `true`. Parameters can be of different types (strings, numbers, arrays, or collections).
+Renders block if one or more parameters is true. 
+
+#### Parameters
+
+- `arg` {String|Number|Array|Object}
 
 #### Example
 
 The `any` helper is invoked as shown here:
 
-```html
+```handlebars
 {{#any items selected=true}}
   <!-- block to display if any items have selected=true -->
 {{/any}}
@@ -569,7 +622,7 @@ A usage example is [`templates/components/category/shop-by-price.html`](https://
 
 In this component, the `{{#any...` helper is used to determine whether a shopper has selected one of the filters, and whether a "reset" button needs to be displayed:
 
-```html
+```handlebars
 {{#any shop_by_price selected=true}}
     <li class="navList-item">
         <a href="{{category_url}}" class="navList-action">
@@ -585,17 +638,21 @@ In this component, the `{{#any...` helper is used to determine whether a shopper
 
 ### {{all}}
 
-Renders block if all parameters are `true`. Parameters can be of different types (strings, numbers, arrays, or collections).
+Renders block if all parameters are `true`. 
+
+#### Parameters
+
+- `arg` {String|Number|Array|Object}
 
 #### Example
 
-```html
+```handlebars
 {{#all items theme_settings.optionA theme_settings.optionB}}
   ... /* block to display, if all items evaluate to true */
 {{/all}}
 ```
 
-```html
+```handlebars
 {{#all product.custom_fields theme_settings.show_custom_fields_tabs}}
     <li class="tab">
         <a class="tab-title" href="#tab-{{dashcase (lowercase (sanitize theme_settings.pdp-custom-fields-tab-label))}}">{{sanitize theme_settings.pdp-custom-fields-tab-label}}</a>
@@ -609,7 +666,7 @@ Renders block if all parameters are `true`. Parameters can be of different types
 
 ### {{compare}}
 
-Render block if comparison of first and third parameter returns true.
+Render a block if comparison of the first and third parameters returns true.
 
 #### Parameters
 
@@ -625,8 +682,8 @@ Render block if comparison of first and third parameter returns true.
   * `>=`
   * `typeof`
 * `b` {}
-* `options` **{Object}:** options object
-* `returns` **{String}**: Block, or if specified the inverse block is rendered if falsey.
+* `options` {Object}: Options object.
+* `returns` {String}: Block, or if specified the inverse block is rendered if falsy.
 
 [See it in GitHub](https://github.com/bigcommerce/paper-handlebars/blob/master/helpers/compare.js).
 
@@ -634,12 +691,14 @@ Render block if comparison of first and third parameter returns true.
 
 ### {{contains}}
 
-Renders the block if `collection` has the given `value`, using strict equality (===) for comparison, otherwise the inverse block is rendered (if specified). If a startIndex is specified and is negative, it is used as the offset from the end of the collection.
+Renders the block if `collection` has the given `value`, using strict equality (`===`) for comparison, otherwise the inverse block is rendered (if specified). If a `startIndex` is specified and is negative, it is used as the offset from the end of the collection.
 
-#### Params
+#### Parameters
 
-* `collection` {Array|Object|String}: The collection to iterate over.
-* `value` {any}: The value to check for.
+- `collection` {Array|Object|String}: The collection to iterate over.
+- `value` {any}: The value to check for.
+
+//source: https://github.com/helpers/handlebars-helpers
 
 #### Example
 
@@ -658,16 +717,13 @@ Renders the block if `collection` has the given `value`, using strict equality (
 
 ### {{for}}
 
-Repeats block for range from index `a` to element `b`.
+Repeats a block for a specified range from index `a` to element `b`. To protect against infinite loops, this helper is limited to 100 iterations.
 
 #### Parameters
 
-* `a`: starting integer
-* `b`: ending integer
-
-In particular, this helper is limited to 100 iterations, in order to protect against infinite loops.
-
-The `for` helper has the following syntax, where parameters `<from>` and `<to>` are numbers, and `<context>` is an object:
+- `a` {Number}: Starting number.
+- `b` {Number}: Ending number.
+- `context` {Object}
 
 #### Example
 
@@ -684,6 +740,10 @@ The `for` helper has the following syntax, where parameters `<from>` and `<to>` 
 ### {{if}}
 
 Renders `if` block when if-statement evaluates to true; otherwise renders `else` block.
+
+#### Parameters
+
+- `arg` {String|Number|Array|Object}
 
 #### Example
 
@@ -703,11 +763,11 @@ Renders `if` block when if-statement evaluates to true; otherwise renders `else`
 
 ### {{or}}
 
-Renders block if on more param evaluates to true.
+Renders block if one or more parameters evaluates to true.
 
 #### Parameters
 
-The `or` operator's parameters are one or more strings, numbers, arrays, or collections. Parameters can be of mixed types.
+- `arg` {String|Number|Array|Object}: Parameters can be of mixed types.
 
 #### Example
 
@@ -717,7 +777,7 @@ The `or` operator's parameters are one or more strings, numbers, arrays, or coll
 {{/or}}
 ```
 
-```html
+```handlebars
 {{#or options configurable_fields}}
     <a href="#" data-item-edit="{{id}}">{{lang 'cart.checkout.change'}}</a>
 {{/or}}
@@ -729,11 +789,15 @@ The `or` operator's parameters are one or more strings, numbers, arrays, or coll
 
 ### {{unless}}
 
-Renders block if statement is false; does not support operators for comparison expressions.
+Renders a block if a statement is false; does not support operators for comparison expressions.
+
+#### Parameters
+
+- `arg` {String|Number|Array|Object}
 
 #### Example
 
-```html
+```handlebars
 {{#each category_results}}
 <li class="category-suggestion">
     {{#each this}}
@@ -750,7 +814,12 @@ Renders block if statement is false; does not support operators for comparison e
 
 ### {{concat}}
 
-Concatenates two strings.
+Concatenates two values.
+
+#### Parameters
+
+- `value` {String}
+- `otherValue` {String}
 
 #### Example
 
@@ -768,10 +837,10 @@ Joins an array of string elements into a single string.
 
 #### Parameters
 
-- `values`: {Array}
-- `separator`: {String}
+- `values` {Array}
+- `separator` {String}
 - `limit=<number>`: An optional limit.
--
+
 #### Example
 
 ```handlebars
@@ -786,9 +855,11 @@ Joins an array of string elements into a single string.
 
 ### {{json}}
 
-`JSON.stringify()`s an object.
+Converts a JavaScript object into a JSON string.
 
-Joins two strings.
+#### Parameters
+
+- `data` {Object}
 
 #### Example
 
