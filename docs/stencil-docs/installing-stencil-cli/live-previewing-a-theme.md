@@ -102,7 +102,7 @@ This will install the `npm` modules required to properly leverage the Stencil ev
 
 ## Serving a live preview
 
-Once Stencil CLI is installed and a theme is downloaded, a `.stencil` configuration file or `secrets.stencil.json` and `config.stencil.json` configuration files (if using Stencil V3.1 release or later) can be initialized for the theme and development can begin.
+Once Stencil CLI is installed and a theme is downloaded, a `.stencil` or `config.stencil.json` configuration file (if using Stencil V3.1 release or later) can be initialized for the theme and development can begin.
 
 Stencil CLI uses [Browsersync](https://github.com/bigcommerce/browser-sync) to serve up a live preview of a theme in development. When the preview is opened on multiple devices or browser windows, scroll, click, refresh and form actions are mirrored across the browser instances.
 
@@ -115,7 +115,7 @@ This configuration file is created by running `stencil init` and entering the in
 
 
 
-To initialize a new `.stencil` configuration file or `secrets.stencil.json` and `config.stencil.json` configuration files (if using Stencil V3.1 release or later) and start live preview, run the following commands in a terminal:
+To initialize a new `.stencil` or `config.stencil.json` configuration file (if using Stencil V3.1 release or later) and start live preview, run the following commands in a terminal:
 
 ```shell
 # move into the theme's directory
@@ -124,7 +124,7 @@ cd ~/path/to/theme/dir
 # install theme modules (if you haven't already)
 npm install
 
-# create .stencil configuration file  or `secrets.stencil.json` and `config.stencil.json` configuration files (if using Stencil V3.1 release or later)
+# create `.stencil` or `config.stencil.json` configuration file (if using Stencil V3.1 release or later)
 stencil init --url https://yourstore.com/ --token 19d3ae6-dc15-4af9-bead-a2c703aa7b --port 3000
 
 # serve a live preview of the theme:

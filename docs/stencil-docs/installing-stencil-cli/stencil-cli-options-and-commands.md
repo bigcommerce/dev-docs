@@ -76,7 +76,9 @@ Options:
 
 ## `stencil init`
 
-Creates a `.stencil` file or `secrets.stencil.json` and `config.stencil.json` files (if using Stencil V3.1 release or later) used to configure the live preview when `stencil start` is run. The configuration information can be specified using the optional switches; if the configuration information is not specified via options, a prompt for the information will be displayed.
+Creates a `.stencil` file or `secrets.stencil.json` and `config.stencil.json` files (if using Stencil V3.1 release or later) used to configure the live preview when `stencil start` is run. You can specify the configuration information using the optional switches; if you do not specify the configuration information via options, Stencil CLI will prompt you to do so. 
+
+NOTE: For custom templates, use only the `config.stencil.json` file. The `config.stencil.json` file contains theme-related configuration information like store URL, custom templates, etc.  The `secrets.stencil.json` file contains the access token.
 
 **Usage:**
 
