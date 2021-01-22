@@ -8,7 +8,7 @@
 - [Text with styling](#text-with-styling)
 - [Image slider](#image-slider)
 - [Button](#button)
-- [Resources](#resources)
+- [Related resources](#related-resources)
 
 </div>
 
@@ -241,11 +241,11 @@ Below are widget code samples for developers to use as a starting point.
 
 ![Button](https://raw.githubusercontent.com/bigcommerce/dev-docs/master/assets/images/widgets-code-samples-05.png "Button")
 
-## Resources
+## Related resources
 
-### Related endpoints
+### Articles
+* [Widgets Overview](/api-docs/store-management/widgets/overview)
+* [Widgets Tutorial](/api-docs/store-management/widgets/tutorials/tutorial)
+
+### Endpoints
 * [Widgets API](/api-reference/storefront/widgets-api)
-
-### Related articles
-* [Widgets Overview](/api-docs/storefront/widgets/widgets-overview)
-* [Widgets Tutorial](/api-docs/storefront/widgets/widgets-tutorial)
