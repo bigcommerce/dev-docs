@@ -66,16 +66,14 @@ BigCommerce's open source helpers defined in [paper-handlebars/helpers/](https:/
 
 ### {{limit}}
 
-It limits the number of items returned from an array variable, and returns a new array.
+Limits the number of items returned from an array; returns a new array.
 
 #### Parameters
 
-- `data`: {Array}
-- `limit`: {Number}
+- `data` {Array}: Collection.
+- `limit` {Number}: Index specifying the number of items to exclude.
 
 #### Example
-
-Assume that `{{cart.items}}` would return 10 items. You could use this helper to limit that behavior to only the first four items, by specifying:
 
 ```html
 {{#each (limit cart.items 4)}}
@@ -100,21 +98,19 @@ Assume that `{{cart.items}}` would return 10 items. You could use this helper to
 
 ### {{pluck}}
 
-For one specified search key(s), it retrieves corresponding values from some or all elements in a specified collection.
-
-The `pluck` helper returns the retrieved values in a comma-separated string. This helper's general form is:
-
-```html
-{{pluck ([limit] <collection> [<limit-value>]) '<search-key>'}}
-```
+Using specified search key(s), retrieves corresponding values from some or all elements in a collection. Returns the retrieved values in a comma-separated string.
 
 #### Parameters
 
 - `limit`, `limit-value`: Optional parameters to limit the number of results returned.
-- `collection`: The collection to search.
-- `search-key`: The string to search for.
+- `collection` {Object|Array}: Collection.
+- `path` {String}: The string to search for.
 
 #### Example
+
+```html
+{{pluck ([limit] <collection> [<limit-value>]) '<path>'}}
+```
 
 If each category in `categories` contains an image object, use dot notation to access the image's children:
 
@@ -141,21 +137,25 @@ Handlebars statement:
 
 A URL transformer for content delivery networks.
 
+#### Parameters
+
+- `assetPath` {String}: Path to the file containing static assets.
+
 #### Example
 
-When you reference static assets that you have locally staged outside your `<theme-name>` directory and uploaded using WebDAV, place the `webdav:` prefix before each corresponding `assetPath` parameter. For example, a link like:
+To reference static assets staged locally outside your `<theme-name>` directory and uploaded using WebDAV, place the `webdav:` prefix before each corresponding `assetPath` parameter. For example, the following link:
 
 ```html
 <img src="{{cdn 'webdav:img/image.jpg'}}">
 ```
 
-will be transformed to a result like:
+will be transformed to a result like this:
 
 ```html
 <img src="https://cdn.bcapp/3dsf74g/content/img/image.jpg">
 ```
 
-The presumed WebDAV root directory is `/content/`. (So, in this example, the `image.jpg` file has been uploaded to the WebDAV `/content/` directory.) The presumed local directory is `assets/`, so you can omit that path when referencing its contained files or subdirectories.
+In this example, the `image.jpg` file was uploaded to the WebDAV `/content/` directory making `/content` the WebDAV root directory. The presumed local directory is `assets/`, so you can omit that path when referencing its contained files or subdirectories.
 
 [See it in GitHub](https://github.com/bigcommerce/paper-handlebars/blob/master/helpers/cdn.js).
 
@@ -163,9 +163,9 @@ The presumed WebDAV root directory is `/content/`. (So, in this example, the `im
 
 #### CDN custom endpoints
 
-You can define custom CDN endpoints to use with the `cdn` helper. This facilitates including large, high-resolution image assets in themes, without exceeding BigCommerce's [50 MB limit](/stencil-docs/prepare-and-upload-a-theme/bundling-and-uploading#bundling_bundling-your-theme) when bundling the theme for upload to BigCommerce.
+You can define custom CDN endpoints to use with the `{{cdn}}` helper. This way you can include large, high-resolution image assets in themes without exceeding BigCommerce's [50 MB limit](/stencil-docs/prepare-and-upload-a-theme/bundling-and-uploading#bundling_bundling-your-theme) when bundling the theme for upload to BigCommerce.
 
-You could use a local version of the image in development, and a version on a CDN (e.g. Imgix) in production. To do so, define custom CDN endpoints in your theme's <span class="fn">config.json</span> [file](https://github.com/bigcommerce/cornerstone/blob/master/config.json), as highlighted in the example below:
+You could use a local version of the image in development, and a version on a CDN (e.g. Imgix) in production. To do so, define custom CDN endpoints in your theme's `config.json` [file](https://github.com/bigcommerce/cornerstone/blob/master/config.json), as highlighted in the example below:
 
 ```json
 {
@@ -199,7 +199,7 @@ Whereas in production, it would return:
 <img src="https://bigcommerce.customcdn.net/img/image.jpg" />
 ```
 
-As highlighted above, the helper is configured to rewrite *local* URLs to a `assets/cdn/` subfolder. The `stencil bundle` command will exclude this local `assets/cdn/` subfolder from the bundle that it creates. This filtering circumvents the 50 MB size limit on the resulting .zip file.
+As highlighted above, the helper is configured to rewrite *local* URLs to a `assets/cdn/` subfolder. The `stencil bundle` command will exclude this local `assets/cdn/` subfolder from the bundle that it creates. This filtering circumvents the 50 MB size limit on the resulting ZIP file.
 
 ### {{money}}
 
