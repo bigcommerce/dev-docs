@@ -301,6 +301,7 @@ Finally, use the customClasses function in `assets/js/app.js` to map the custom 
 ```js
 const customClasses = {
     'pages/custom/product/customProd': () => import('./theme/custom')
+    // 'pages\\custom\\product\\customProd': () => import('./theme/custom') // for windows machine
 };
 /**
  * This function gets added to the global window and then called
