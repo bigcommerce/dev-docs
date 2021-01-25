@@ -259,8 +259,8 @@ To upgrade the widget derived from the original widget template, send `"upgrade"
 ## Related resources
 
 ### Articles
-* [Widgets Overview](/api-docs/storefront/widgets/widgets-overview)
+* [Widgets Overview](/api-docs/store-management/widgets/overview)
 * [Page Builder Overview](https://developer.bigcommerce.com/stencil-docs/page-builder/page-builder-overview)
 
 ### Endpoints
-* [Widgets API](/api-reference/storefront/widgets-api)
+* [Widgets API](/api-reference/store-management/widgets)
