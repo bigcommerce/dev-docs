@@ -881,13 +881,22 @@ Converts a JavaScript object into a JSON string.
 
 ### {{replace}}
 
-Replaces all instances of first param in second param with the child block.
+```handlebars
+{{replace firstParam secondParam string}}
+```
+
+Replaces all instances of the first parameter in the second parameter with the child block.
+
+#### Parameters
+
+- `firstParam` {String}
+- `secondParam` {?}
+- `string` {String}
 
 #### Example
 
-Replace all instances of `%%Syndicate%%` in `page.content` with `{{> components/page/rss_feed}}`:
-
-```html
+```handlebars
+<!-- Replace all instances of `%%Syndicate%%` in `page.content` with `{{> components/page/rss_feed}}`. -->
 {{#replace '%%Syndicate%%' page.content}}
     {{> components/page/rss_feed}}
 {{else}}
@@ -897,18 +906,18 @@ Replace all instances of `%%Syndicate%%` in `page.content` with `{{> components/
 
 [See it in GitHub](https://github.com/bigcommerce/paper-handlebars/blob/master/helpers/replace.js).
 
-[See it in Cornerstone](https://github.com/bigcommerce/cornerstone/search?l=HTML&q=replace).
-
 ### {{setURLQueryParam}}
 
+```handlebars
+{{setURLQueryParam url key value}}
+```
 Appends keys values to a URL.
 
 #### Parameters
 
-* `key` {String}: The query parameter key.
-* `value` {Number}: The query parameter value of the stated key.
-* `url` {String}: The URL of the query parameter.
-* `returns` {String}: A formatted URL query parameter.
+- `url` {String}: The URL of the query parameter.
+- `key` {String}: The query parameter key.
+- `value` {Number}: The query parameter value of the stated key.
 
 #### Example
 
@@ -919,11 +928,16 @@ Appends keys values to a URL.
 
 [See it in GitHub](https://github.com/bigcommerce/paper-handlebars/blob/master/helpers/setURLQueryParam.js).
 
-[See it in Cornerstone](https://github.com/bigcommerce/cornerstone/search?l=HTML&q=setURLQueryParam).
-
 ### {{stripQuerystring}}
 
+```handlebars
+{{stripQuerystring url}}
+```
 Strips query string from URL.
+
+#### Parameters
+
+- `url` {String}: The URL containing the query parameter.
 
 #### Example
 
@@ -934,11 +948,16 @@ Strips query string from URL.
 
 [See it in GitHub](https://github.com/bigcommerce/paper-handlebars/blob/master/helpers/stripQuerystring.js).
 
-[See it in Cornerstone](https://github.com/bigcommerce/cornerstone/search?l=HTML&q=stripQuerystring).
-
 ### {{toLowerCase}}
 
+```handlebars
+{{toLowerCase string}}
+```
 Converts string to lowercase.
+
+#### Parameters
+
+- `string` {String}
 
 #### Example
 
@@ -948,17 +967,17 @@ Converts string to lowercase.
 
 [See it in GitHub](https://github.com/bigcommerce/paper-handlebars/blob/master/helpers/toLowerCase.js).
 
-[See it in Cornerstone](https://github.com/bigcommerce/cornerstone/search?l=HTML&q=toLowerCase).
-
 ### {{truncate}}
 
+```handlebars
+{{truncate string length}}
+```
 Truncates a string.
 
 #### Parameters
 
-* `str` {String}: The string you want to truncate.
-* `length` {Number}: The desired length of the returned truncated string.
-* `returns` {String}: The truncated string.
+- `string` {String}: The string you want to truncate.
+- `length` {Number}: The desired length of the returned truncated string.
 
 #### Example
 
@@ -969,15 +988,20 @@ Truncates a string.
 
 [See it in GitHub](https://github.com/bigcommerce/paper-handlebars/blob/master/helpers/truncate.js).
 
-[See it in Cornerstone](https://github.com/bigcommerce/cornerstone/search?l=HTML&q=truncate).
-
 ### {{block}}
 
-Defines a block of content; can be overwritten by a [partial](#partial).
+```handlebars
+{{block string}}
+```
+Defines a block of content. You can overwrite it using the [partial](#partial) helper.
+
+#### Parameters
+
+- `string` {String}
 
 #### Example
 
-```html
+```handlebars
 <div class="container">
     {{#block "page"}} {{/block}}
 </div>
@@ -985,11 +1009,16 @@ Defines a block of content; can be overwritten by a [partial](#partial).
 
 [See it in GitHub](https://github.com/bigcommerce/paper-handlebars/blob/master/helpers/block.js).
 
-[See it in Cornerstone](https://github.com/bigcommerce/cornerstone/search?l=HTML&q=block).
-
 ### {{dynamicComponent}}
 
+```handlebars
+{{dynamicComponent path}}
+```
 Inserts dynamic partial at the path passed in.
+
+#### Parameters
+
+- `path` {String}: The path to insert a dynamic component in.
 
 #### Example
 
@@ -1000,8 +1029,6 @@ Inserts dynamic partial at the path passed in.
 ```
 
 [See it in GitHub](https://github.com/bigcommerce/paper-handlebars/blob/master/helpers/dynamicComponent.js).
-
-[See it in Cornerstone](https://github.com/bigcommerce/cornerstone/search?l=HTML&q=dynamicComponent).
 
 ### {{inject}}
 
