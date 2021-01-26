@@ -101,7 +101,7 @@ paths:
     get:
       tags:
         - Channels
-      summary: Get all Channels
+      summary: Get All Channels
       operationId: listChannels
       responses:
         '200':
