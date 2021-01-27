@@ -10,7 +10,7 @@
 - [Resources](#resources)
 </div>
 
-Designing for accessibility means to be inclusive to the needs of all users. In this tutorial, you will learn how to implement accessibility in your theme and improve theme usability for all users.
+Designing for accessibility means being inclusive to the needs of all users. This tutorial outlines the basic accessibility requirements we would like to see in all BigCommerce themes. We include some examples of each type of change, but it is not an exhaustive list, and we encourage you to do your research to best meet the requirements and help improve usability for all users.
 
 We have included four accessibility best practices and examples that will help you develop a theme that meets the needs of the broadest range of abilities.
 
@@ -19,10 +19,25 @@ Prerequisites
 * This tutorial uses Cornerstone. Your theme may differ.
 
 ## Using alt text
-Alternative (alt) text is an image description read aloud by a screen reader, allowing the content to be accessible to visually impaired users. Developers should use the aria-label attribute, a [WCAG (Web Content Accessibility Guidelines)](https://www.w3.org/WAI/standards-guidelines/wcag/) technique, to ensure merchants provide alt text for all image elements.
+Alternative (alt) text is an image description read aloud by a screen reader, allowing the content to be accessible to visually impaired users. All `img` tags require alt attributes and are the most preferred way to provide alt text for `img` elements.
+
+```json
+<img alt =" ".../>
+```
+You can add the alt text to the `img` element in the image widget of Page Builder or in the `cornerstone/assets/img/` directory.
+
+Follow the step below to add alt text to an image using the control panel:
+1. Go to **Storefront** > **My theme** in the control panel, then click **Customize**.
+2. Launch Page Builder and select the image widget.
+3. Enter the alt text.
+4. Click **Save**.
+
+![Image Widget](https://raw.githubusercontent.com/bigcommerce/dev-docs/master/assets/images/accessibility_image_widget.png "Image Widget")
+
+### aria-label attribute
+There are other options for providing text for images. Developers can use the aria-label attribute, a [WCAG (Web Content Accessibility Guidelines)](https://www.w3.org/WAI/standards-guidelines/wcag/) technique which provides assistive technology with the aria label text instead of the image alt text. 
 
 The aria-label attribute uses an ID reference value that matches the ID element attribute to associate an element with text. Screen readers use the text of one or more identified elements, which can be seen elsewhere on the page.
-
 
 Example
 
@@ -36,16 +51,6 @@ The example below displays how to use an aria-label for two elements considered 
 </div>
 ```
 
-You can add the alt text to the `img` element in the image widget of Page Builder or in the `cornerstone/assets/img/` directory.
-
-Follow the step below to add alt text to an image using the control panel:
-1. Go to **Storefront** > **My theme** in the control panel, then click **Customize**.
-2. Launch Page Builder and select the image widget.
-3. Enter the alt text.
-4. Click **Save**.
-
-![Image Widget](https://raw.githubusercontent.com/bigcommerce/dev-docs/master/assets/images/accessibility_image_widget.png "Image Widget")
-
 ## Text accessibility
 Text accessibility involves making content readable and understandable. You can achieve text accessibility by using the following:
 * Color contrast
@@ -56,18 +61,17 @@ Text accessibility involves making content readable and understandable. You can 
 ### Color contrast
 Color contrast is an essential factor in visual accessibility. Use contrasting colors for better readability, along with keeping headings clear and concise.
 
+NOTE: According to [WCAG 2.1 (Web Content Accessibility Guidelines)](https://www.w3.org/TR/WCAG21/), your eCommerce website must have a minimum color contrast ratio of at least 4.5.1 for standard text and 3:1 for large text. We recommend presetting these guidelines, using [Lighthouse](https://developers.google.com/web/tools/lighthouse) or Chrome's [Accessibility Developer Tools](https://chrome.google.com/webstore/detail/accessibility-developer-t/fpkknkljclfencbdbgkenhalefipecmb/reviews?hl=en) to ensure you meet WCAG 2.1 guidelines. 
+
 Pure black text on a white background can cause eye strain. Instead, try black text on light blue, pale green, or gray background. The following example demonstrates good color contrasting and has a 14.9.1 contrast ratio.
 
 Good contrast ratio
-![Good contrast](https://raw.githubusercontent.com/bigcommerce/dev-docs/master/assets/images/accessibility_good_color_contrast.png "Good contrast")
+![Good contrast](https://raw.githubusercontent.com/bigcommerce/dev-docs/master/assets/images/accessibility_good_color_contrast.png "Good contrast" {width=40px height=40px})
 
 It is essential to avoid colors that are too close together. For example, avoid green and black, green and gray, and green and red. Alternatively, it is good practice to use light text on dark backgrounds or dark text on light backgrounds. The example below shows poor color contrasting because the black text is on a green background. The color constrast ratio is 3.8.1. It would have been better to use white text on a dark green background.
 
 Poor contrast ratio
 ![Poor contrast](https://raw.githubusercontent.com/bigcommerce/dev-docs/master/assets/images/accessibility_poor_color_contrast.png "Poor contrast")
-
-
-NOTE: According to [WCAG 2.1 (Web Content Accessibility Guidelines)](https://www.w3.org/TR/WCAG21/), your eCommerce website must have a minimum color contrast ratio of at least 4.5.1 for standard text and 3:1 for large text.
 
 ### Text headings
 Text headings organize and provide structure for a page, helping users to understand its contents. Headings should be logical, clear, and concise. The following example demonstrates the incorrect and correct structure of text headings.
@@ -131,6 +135,17 @@ You can add scripts or code to improve the accessibility of your theme. As state
 * Add multi-factor authentication or alternative methods besides CAPTCHA to verify identity. Visual CAPTCHA does not allow alt text, and therefore visually impaired users cannot use it.
 * Add hidden titles that can be accessed by a screen reader.
 
+Example
+
+To update a menu button to add more color contrast, add the following text to the Footer.html file for your mobile and regular templates.
+
+```json
+<style>
+.mobileMenu-toggle .mobileMenu-toggleIcon, .mobileMenu-toggle .mobileMenu-toggleIcon:after, .mobileMenu-toggle .mobileMenu-toggleIcon:before {
+background: #fff;
+}
+</style>
+```
 There are many more customizations and changes you can make to increase your store's accessibility. This article lists just a few. To learn more about accessibility, see the list of related resources below. 
 
 ## Resources
