@@ -2,28 +2,18 @@ swagger: '2.0'
 info:
   version: ''
   title: Content
-  description: >-
+  description: |-
     Manage blog posts, blog tags, content pages, and redirects.
 
-
     <div class="HubBlock--callout">
-
     <div class="CalloutBlock--warning">
-
     <div class="HubBlock-content">
 
-
     ### Note
-
-    * V2 Redirects are deprecated; we recommend using [V3
-    Redirects](https://developer.bigcommerce.com/api-reference/storefront/redirects/redirects/getredirects)
-    instead.
-
+    * V2 Redirects are deprecated; we recommend using [V3 Redirects](https://developer.bigcommerce.com/api-reference/storefront/redirects/redirects/getredirects) instead.
 
     </div>
-
     </div>
-
     </div>
 host: api.bigcommerce.com
 basePath: '/stores/{$$.env.store_hash}/v2'
@@ -69,9 +59,7 @@ paths:
       operationId: getAllBlogTags
   /blog/posts:
     get:
-      description: >-
-        Returns all *Blog Posts*. Default sorting is by published_date,
-        beginning with the most recent post.
+      description: 'Returns all *Blog Posts*. Default sorting is by published_date, beginning with the most recent post.'
       summary: Get All Blog Posts
       parameters:
         - name: Accept
@@ -135,44 +123,14 @@ paths:
                 title: Hello Again
                 url: /blog/hello-again/
                 preview_url: /blog/hello-again/
-                body: >-
-                  <p>Jelly beans muffin marzipan gingerbread donut dessert.
-                  Cheesecake cheesecake sugar plum cookie cake tart. Soufflé
-                  sesame snaps jelly beans brownie chocolate tart. Marshmallow
-                  jujubes candy pie. Gummies lemon drops tart soufflé pastry
-                  pie. Caramels wafer biscuit gummi bears. Liquorice toffee
-                  wafer bear claw marzipan jelly-o. Dessert bear claw topping
-                  icing croissant. Pie bonbon chocolate bar chocolate bar
-                  tiramisu chocolate lemon drops candy.</p><p>Marshmallow
-                  cupcake sweet roll candy marshmallow caramels cotton candy pie
-                  icing. Powder jelly beans chupa chups lollipop liquorice
-                  marzipan dessert soufflé sesame snaps. Macaroon chupa chups
-                  gummies cheesecake ice cream caramels sesame snaps cotton
-                  candy gingerbread. Chocolate cake fruitcake tart bear claw
-                  lemon drops tart dragée tart apple pie. Halvah chupa chups
-                  soufflé jelly soufflé marshmallow. Croissant tart tart.
-                  Gingerbread apple pie biscuit.</p><p>Wafer lemon drops tart
-                  pastry brownie chocolate bar jelly. Dragée muffin cupcake
-                  liquorice caramels marzipan gingerbread marzipan. Apple pie
-                  pudding jelly sweet roll croissant bonbon wafer. Cookie
-                  chocolate bar sesame snaps bonbon macaroon candy canes donut
-                  sugar plum. Bear claw bonbon tootsie roll bonbon. Apple pie
-                  gummies donut sweet. Marzipan bear claw cotton candy topping
-                  dragée bonbon danish powder.</p>
+                body: <p>Jelly beans muffin marzipan gingerbread donut dessert. Cheesecake cheesecake sugar plum cookie cake tart. Soufflé sesame snaps jelly beans brownie chocolate tart. Marshmallow jujubes candy pie. Gummies lemon drops tart soufflé pastry pie. Caramels wafer biscuit gummi bears. Liquorice toffee wafer bear claw marzipan jelly-o. Dessert bear claw topping icing croissant. Pie bonbon chocolate bar chocolate bar tiramisu chocolate lemon drops candy.</p><p>Marshmallow cupcake sweet roll candy marshmallow caramels cotton candy pie icing. Powder jelly beans chupa chups lollipop liquorice marzipan dessert soufflé sesame snaps. Macaroon chupa chups gummies cheesecake ice cream caramels sesame snaps cotton candy gingerbread. Chocolate cake fruitcake tart bear claw lemon drops tart dragée tart apple pie. Halvah chupa chups soufflé jelly soufflé marshmallow. Croissant tart tart. Gingerbread apple pie biscuit.</p><p>Wafer lemon drops tart pastry brownie chocolate bar jelly. Dragée muffin cupcake liquorice caramels marzipan gingerbread marzipan. Apple pie pudding jelly sweet roll croissant bonbon wafer. Cookie chocolate bar sesame snaps bonbon macaroon candy canes donut sugar plum. Bear claw bonbon tootsie roll bonbon. Apple pie gummies donut sweet. Marzipan bear claw cotton candy topping dragée bonbon danish powder.</p>
                 tags:
                   - sugar
                   - sweet
                   - spice
                   - everything
                   - nice
-                summary: >-
-                  Jelly beans muffin marzipan gingerbread donut dessert.
-                  Cheesecake cheesecake sugar plum cookie cake tart. Soufflé
-                  sesame snaps jelly beans brownie chocolate tart. Marshmallow
-                  jujubes candy pie. Gummies lemon drops tart soufflé pastry
-                  pie. Caramels wafer biscuit gummi bears. Liquorice toffee
-                  wafer bear claw marzipan jelly-o. Dessert bear claw topping
-                  icing croissant. Pie bonbon chocolate bar [...]
+                summary: 'Jelly beans muffin marzipan gingerbread donut dessert. Cheesecake cheesecake sugar plum cookie cake tart. Soufflé sesame snaps jelly beans brownie chocolate tart. Marshmallow jujubes candy pie. Gummies lemon drops tart soufflé pastry pie. Caramels wafer biscuit gummi bears. Liquorice toffee wafer bear claw marzipan jelly-o. Dessert bear claw topping icing croissant. Pie bonbon chocolate bar [...]'
                 is_published: true
                 published_date:
                   date: '2018-05-18 08:26:42.000000'
@@ -187,42 +145,12 @@ paths:
                 title: Hello
                 url: /blog/hello/
                 preview_url: /blog/hello/
-                body: >-
-                  <p>Jelly beans muffin marzipan gingerbread donut dessert.
-                  Cheesecake cheesecake sugar plum cookie cake tart. Soufflé
-                  sesame snaps jelly beans brownie chocolate tart. Marshmallow
-                  jujubes candy pie. Gummies lemon drops tart soufflé pastry
-                  pie. Caramels wafer biscuit gummi bears. Liquorice toffee
-                  wafer bear claw marzipan jelly-o. Dessert bear claw topping
-                  icing croissant. Pie bonbon chocolate bar chocolate bar
-                  tiramisu chocolate lemon drops candy.</p><p>Marshmallow
-                  cupcake sweet roll candy marshmallow caramels cotton candy pie
-                  icing. Powder jelly beans chupa chups lollipop liquorice
-                  marzipan dessert soufflé sesame snaps. Macaroon chupa chups
-                  gummies cheesecake ice cream caramels sesame snaps cotton
-                  candy gingerbread. Chocolate cake fruitcake tart bear claw
-                  lemon drops tart dragée tart apple pie. Halvah chupa chups
-                  soufflé jelly soufflé marshmallow. Croissant tart tart.
-                  Gingerbread apple pie biscuit.</p><p>Wafer lemon drops tart
-                  pastry brownie chocolate bar jelly. Dragée muffin cupcake
-                  liquorice caramels marzipan gingerbread marzipan. Apple pie
-                  pudding jelly sweet roll croissant bonbon wafer. Cookie
-                  chocolate bar sesame snaps bonbon macaroon candy canes donut
-                  sugar plum. Bear claw bonbon tootsie roll bonbon. Apple pie
-                  gummies donut sweet. Marzipan bear claw cotton candy topping
-                  dragée bonbon danish powder.</p>
+                body: <p>Jelly beans muffin marzipan gingerbread donut dessert. Cheesecake cheesecake sugar plum cookie cake tart. Soufflé sesame snaps jelly beans brownie chocolate tart. Marshmallow jujubes candy pie. Gummies lemon drops tart soufflé pastry pie. Caramels wafer biscuit gummi bears. Liquorice toffee wafer bear claw marzipan jelly-o. Dessert bear claw topping icing croissant. Pie bonbon chocolate bar chocolate bar tiramisu chocolate lemon drops candy.</p><p>Marshmallow cupcake sweet roll candy marshmallow caramels cotton candy pie icing. Powder jelly beans chupa chups lollipop liquorice marzipan dessert soufflé sesame snaps. Macaroon chupa chups gummies cheesecake ice cream caramels sesame snaps cotton candy gingerbread. Chocolate cake fruitcake tart bear claw lemon drops tart dragée tart apple pie. Halvah chupa chups soufflé jelly soufflé marshmallow. Croissant tart tart. Gingerbread apple pie biscuit.</p><p>Wafer lemon drops tart pastry brownie chocolate bar jelly. Dragée muffin cupcake liquorice caramels marzipan gingerbread marzipan. Apple pie pudding jelly sweet roll croissant bonbon wafer. Cookie chocolate bar sesame snaps bonbon macaroon candy canes donut sugar plum. Bear claw bonbon tootsie roll bonbon. Apple pie gummies donut sweet. Marzipan bear claw cotton candy topping dragée bonbon danish powder.</p>
                 tags:
                   - cupcakes
                   - sugar
                   - sweet
-                summary: >-
-                  Jelly beans muffin marzipan gingerbread donut dessert.
-                  Cheesecake cheesecake sugar plum cookie cake tart. Soufflé
-                  sesame snaps jelly beans brownie chocolate tart. Marshmallow
-                  jujubes candy pie. Gummies lemon drops tart soufflé pastry
-                  pie. Caramels wafer biscuit gummi bears. Liquorice toffee
-                  wafer bear claw marzipan jelly-o. Dessert bear claw topping
-                  icing croissant. Pie bonbon chocolate bar [...]
+                summary: 'Jelly beans muffin marzipan gingerbread donut dessert. Cheesecake cheesecake sugar plum cookie cake tart. Soufflé sesame snaps jelly beans brownie chocolate tart. Marshmallow jujubes candy pie. Gummies lemon drops tart soufflé pastry pie. Caramels wafer biscuit gummi bears. Liquorice toffee wafer bear claw marzipan jelly-o. Dessert bear claw topping icing croissant. Pie bonbon chocolate bar [...]'
                 is_published: true
                 published_date:
                   date: '2018-05-18 08:26:00.000000'
@@ -237,30 +165,7 @@ paths:
                 title: Your first blog post!
                 url: /your-first-blog-post/
                 preview_url: /your-first-blog-post/
-                body: >-
-                  <p> <strong>Welcome to your blog!</strong><br> A blog is a
-                  great place to share details on your products, business and
-                  whatever else you think your shoppers might like to hear from
-                  you. You can include photos in your blog posts and even
-                  videos. For ideas and inspiration on how to structure your
-                  blog, take a look at the Bigcommerce <a
-                  href='http://blog.bigcommerce.com/' target='_blank'
-                  rel='nofollow'>ecommerce blog</a>.</p><p><strong>How can I
-                  delete this post?</strong><br>To delete this post and add your
-                  own, login to your <a href='/admin' target='_blank'>admin
-                  area</a> and go to Storefront > Blog in the left hand
-                  menu.</p><p><strong>Powered by Bigcommerce</strong><br>Your
-                  website, online store and blog are powered by Bigcommerce <a
-                  href='http://www.bigcommerce.com/' target='_blank'
-                  rel='nofollow'>ecommerce software</a>. It includes everything
-                  you need to run a beautiful online store including <a
-                  href='http://www.bigcommerce.com/templates/' target='_blank'
-                  rel='nofollow'>ecommerce website templates</a>, <a
-                  href='http://www.bigcommerce.com/features/hosting/'
-                  target='_blank' rel='nofollow'>ecommerce hosting</a>, an <a
-                  href='http://www.bigcommerce.com/features/setup/'
-                  target='_blank' rel='nofollow'>online shopping cart</a> and
-                  more.</p>
+                body: '<p> <strong>Welcome to your blog!</strong><br> A blog is a great place to share details on your products, business and whatever else you think your shoppers might like to hear from you. You can include photos in your blog posts and even videos. For ideas and inspiration on how to structure your blog, take a look at the Bigcommerce <a href=''http://blog.bigcommerce.com/'' target=''_blank'' rel=''nofollow''>ecommerce blog</a>.</p><p><strong>How can I delete this post?</strong><br>To delete this post and add your own, login to your <a href=''/admin'' target=''_blank''>admin area</a> and go to Storefront > Blog in the left hand menu.</p><p><strong>Powered by Bigcommerce</strong><br>Your website, online store and blog are powered by Bigcommerce <a href=''http://www.bigcommerce.com/'' target=''_blank'' rel=''nofollow''>ecommerce software</a>. It includes everything you need to run a beautiful online store including <a href=''http://www.bigcommerce.com/templates/'' target=''_blank'' rel=''nofollow''>ecommerce website templates</a>, <a href=''http://www.bigcommerce.com/features/hosting/'' target=''_blank'' rel=''nofollow''>ecommerce hosting</a>, an <a href=''http://www.bigcommerce.com/features/setup/'' target=''_blank'' rel=''nofollow''>online shopping cart</a> and more.</p>'
                 tags:
                   - Blog
                   - SEO
@@ -279,41 +184,24 @@ paths:
         - Blog Posts
       operationId: getAllBlogPosts
     post:
-      description: >-
+      description: |-
         Creates a *Blog Post*.
 
-
         **Required Fields**
-
         *   title
-
         *   body
 
-
         **Read Only Fields**
-
         *   id
-
         *   preview_url
-
         *   summary
-
 
         **Notes**
 
+        * When including `published_date` in a request, supply it as a flat date string (not an object) in valid <a href="http://tools.ietf.org/html/rfc2822#section-3.3" target="_blank">RFC 2822</a>. The&#160;example request below includes a `published_date` in RFC 2822 format.
 
-        * When including `published_date` in a request, supply it as a flat date
-        string (not an object) in valid <a
-        href="http://tools.ietf.org/html/rfc2822#section-3.3"
-        target="_blank">RFC 2822</a>. The&#160;example request below includes a
-        `published_date` in RFC 2822 format.
-
-
-        * Blog posts default to draft status. To publish blog posts to the
-        storefront, set their `is_published` property to `true`.
-
-        * If a custom URL is not provided, the post’s URL will be generated
-        based on the value of `title`.
+        * Blog posts default to draft status. To publish blog posts to the storefront, set their `is_published` property to `true`.
+        * If a custom URL is not provided, the post’s URL will be generated based on the value of `title`.
       summary: Create a Blog Post
       parameters:
         - name: Accept
@@ -356,17 +244,12 @@ paths:
               title: Welcome to BigCommerce
               url: /blog/welcome-bigcommerce/
               preview_url: /blog/welcome-bigcommerce/
-              body: >-
-                <p>Customize your site, manage shipping and payments, and list
-                your products on Amazon, eBay, and Facebook with the #1
-                ecommerce platform. </p>
+              body: '<p>Customize your site, manage shipping and payments, and list your products on Amazon, eBay, and Facebook with the #1 ecommerce platform. </p>'
               tags:
                 - BigCommerce
                 - welcome
                 - ecommerce
-              summary: >-
-                <p>We power ecommerce websites for successful retailers all over
-                the world</p>
+              summary: <p>We power ecommerce websites for successful retailers all over the world</p>
               is_published: true
               published_date:
                 date: '2018-05-18T08:26:42.000Z'
@@ -453,17 +336,12 @@ paths:
               title: Welcome to BigCommerce
               url: /blog/welcome-bigcommerce/
               preview_url: /blog/welcome-bigcommerce/
-              body: >-
-                <p>Customize your site, manage shipping and payments, and list
-                your products on Amazon, eBay, and Facebook with the #1
-                ecommerce platform. </p>
+              body: '<p>Customize your site, manage shipping and payments, and list your products on Amazon, eBay, and Facebook with the #1 ecommerce platform. </p>'
               tags:
                 - BigCommerce
                 - welcome
                 - ecommerce
-              summary: >-
-                <p>We power ecommerce websites for successful retailers all over
-                the world</p>
+              summary: <p>We power ecommerce websites for successful retailers all over the world</p>
               is_published: true
               published_date:
                 date: '2018-05-18T08:26:42.000Z'
@@ -476,25 +354,16 @@ paths:
               thumbnail_path: ''
       operationId: getABlogPost
     put:
-      description: >
+      description: |
         Updates a *Blog Post*.
 
-
         **Read Only Fields**
-
         *   id
-
         *   preview_url
-
 
         **Notes**
 
-
-        * When including `published_date` in a request, supply it as a flat date
-        string (not an object) in valid <a
-        href="http://tools.ietf.org/html/rfc2822#section-3.3"
-        target="_blank">RFC 2822</a>. The&#160;example request below includes a
-        `published_date` in RFC 2822 format.
+        * When including `published_date` in a request, supply it as a flat date string (not an object) in valid <a href="http://tools.ietf.org/html/rfc2822#section-3.3" target="_blank">RFC 2822</a>. The&#160;example request below includes a `published_date` in RFC 2822 format.
       summary: Update a Blog Post
       tags:
         - Blog Posts
@@ -538,17 +407,12 @@ paths:
               title: Welcome to BigCommerce
               url: /blog/welcome-bigcommerce/
               preview_url: /blog/welcome-bigcommerce/
-              body: >-
-                <p>Customize your site, manage shipping and payments, and list
-                your products on Amazon, eBay, and Facebook with the #1
-                ecommerce platform. </p>
+              body: '<p>Customize your site, manage shipping and payments, and list your products on Amazon, eBay, and Facebook with the #1 ecommerce platform. </p>'
               tags:
                 - BigCommerce
                 - welcome
                 - ecommerce
-              summary: >-
-                <p>We power ecommerce websites for successful retailers all over
-                the world</p>
+              summary: <p>We power ecommerce websites for successful retailers all over the world</p>
               is_published: true
               published_date:
                 date: '2018-05-18T08:26:42.000Z'
@@ -624,9 +488,7 @@ paths:
       operationId: getACountOfAllBlogPosts
   /pages:
     get:
-      description: >-
-        Returns a list of *Pages*. Default sorting is by auto-generated ID from
-        oldests to newest.
+      description: Returns a list of *Pages*. Default sorting is by auto-generated ID from oldests to newest.
       summary: Get All Pages
       tags:
         - Pages
@@ -673,10 +535,7 @@ paths:
                 name: Contact Form
                 url: /contact-us/
                 meta_description: ''
-                body: >-
-                  <p>We're happy to answer questions or help you with
-                  returns.<br />Please fill out the form below if you need
-                  assistance.</p>
+                body: <p>We're happy to answer questions or help you with returns.<br />Please fill out the form below if you need assistance.</p>
                 mobile_body: 0
                 has_mobile_version: false
                 is_visible: true
@@ -702,21 +561,11 @@ paths:
                     - raw
                     - link
                 contact_fields:
-                  description: >-
-                    Where the page’s type is a contact form: object whose
-                    members are the fields enabled (in the control panel) for
-                    storefront display. Possible members are:`fullname`: full
-                    name of the customer submitting the form; `phone`:
-                    customer’s phone number, as submitted on the form;
-                    `companyname`: customer’s submitted company name; `orderno`:
-                    customer’s submitted order number; `rma`: customer’s
-                    submitted RMA (Return Merchandise Authorization) number.
+                  description: 'Where the page’s type is a contact form: object whose members are the fields enabled (in the control panel) for storefront display. Possible members are:`fullname`: full name of the customer submitting the form; `phone`: customer’s phone number, as submitted on the form; `companyname`: customer’s submitted company name; `orderno`: customer’s submitted order number; `rma`: customer’s submitted RMA (Return Merchandise Authorization) number.'
                   example: 'fullname,companyname,phone,orderno,rma'
                   type: string
                 email:
-                  description: >-
-                    Where the page’s type is a contact form: email address that
-                    receives messages sent via the form.
+                  description: 'Where the page’s type is a contact form: email address that receives messages sent via the form.'
                   example: janedoes@email.com
                   type: string
                 name:
@@ -728,22 +577,14 @@ paths:
                   example: /contact-us/
                   type: string
                 meta_description:
-                  description: Description contained within this page’s <meta> element.
+                  description: Description contained within this page's `<meta>` element.
                   type: string
                 body:
                   type: string
-                  description: >-
-                    HTML or variable that populates this page’s <body> element,
-                    in default/desktop view. Required in POST if page type is
-                    `raw`.
-                  example: >-
-                    <p>We're happy to answer questions or help you with
-                    returns.<br />Please fill out the form below if you need
-                    assistance.</p>
+                  description: 'HTML or variable that populates this page''s `<body>` element, in default/desktop view. Required in POST if page type is `raw`.'
+                  example: <p>We're happy to answer questions or help you with returns.<br />Please fill out the form below if you need assistance.</p>
                 mobile_body:
-                  description: >-
-                    HTML to use for this page's body when viewed in the mobile
-                    template (deprecated).
+                  description: HTML to use for this page's body when viewed in the mobile template (deprecated).
                   example: 0
                   type: string
                 has_mobile_version:
@@ -751,9 +592,7 @@ paths:
                   example: false
                   type: boolean
                 is_visible:
-                  description: >-
-                    If true, this page appears in the storefront’s navigation
-                    menu.
+                  description: 'If true, this page appears in the storefront’s navigation menu.'
                   example: true
                   type: boolean
                 is_homepage:
@@ -761,42 +600,28 @@ paths:
                   example: false
                   type: boolean
                 meta_title:
-                  description: >-
-                    Text specified for this page’s <title> element. (If empty,
-                    the value of the name property is used.)
+                  description: 'Text specified for this page’s <title> element. (If empty, the value of the name property is used.)'
                   type: string
                 layout_file:
-                  description: >-
-                    Layout template for this page. This field is writable only
-                    for stores with a Blueprint theme applied.
+                  description: Layout template for this page. This field is writable only for stores with a Blueprint theme applied.
                   example: page.html
                   type: string
                 sort_order:
-                  description: >-
-                    Order in which this page should display on the storefront.
-                    (Lower integers specify earlier display.)
+                  description: Order in which this page should display on the storefront. (Lower integers specify earlier display.)
                   example: 3
                   type: integer
                 search_keywords:
-                  description: >-
-                    Comma-separated list of keywords that shoppers can use to
-                    locate this page when searching the store.
+                  description: Comma-separated list of keywords that shoppers can use to locate this page when searching the store.
                   type: string
                 meta_keywords:
-                  description: >-
-                    Comma-separated list of SEO-relevant keywords to include in
-                    the page’s <meta> element.
+                  description: Comma-separated list of SEO-relevant keywords to include in the page’s <meta> element.
                   type: string
                 feed:
                   type: string
-                  description: >-
-                    If page type is `rss_feed` the n this field is visisble.
-                    Required in POST required for `rss page` type.
+                  description: If page type is `rss_feed` the n this field is visisble. Required in POST required for `rss page` type.
                 link:
                   type: string
-                  description: >-
-                    If page type is `link` this field is returned. Required in
-                    POST to create a `link` page.
+                  description: If page type is `link` this field is returned. Required in POST to create a `link` page.
                 id:
                   type: integer
                   example: 44
@@ -807,40 +632,12 @@ paths:
                     - application/json
                     - text/javascript
                     - text/html
-                  description: >-
-                    The default value is `text/html`. If the `page_type` is
-                    `raw` then the content type can be changed to either
-                    JavaScript or JSON.
+                  description: |-
+                    The default value is `text/html`. If the `page_type` is `raw` then the content type can be changed to either JavaScript or JSON.
 
-
-                    Updating this field allows you to place a JavaScript or a
-                    JSON file in the root directory.
-
+                    Updating this field allows you to place a JavaScript or a JSON file in the root directory.
 
                     This file is publicly available at the specified URL.
-
-
-                    If the page was created using the Control Panel, the
-                    content-type is `text/html`.
-
-
-                    Available for POST or PUT.
-
-
-                    Example of use:
-
-
-                    ```json
-
-                    { "id": 21, "name": "service worker", "body":
-                    "importScripts(\"https://mycdn.com/sw.js\");", "is_visible":
-                    false, "parent_id": 0, "sort_order": 0, "type": "raw",
-                    "is_homepage": false, "is_customers_only": false,
-                    "search_keywords": "", "has_mobile_version": true,
-                    "mobile_body": "", "content_type": "text/javascript", "url":
-                    "/sw.js" }
-
-                    ```
                   example: text/html
               required:
                 - type
@@ -849,185 +646,27 @@ paths:
                 - feed
                 - link
           examples:
-            application/json:
-              - id: 1
-                name: RSS Syndication
-                meta_title: ''
-                body: '%%Syndicate%%'
-                is_visible: true
-                parent_id: 0
-                sort_order: 5
-                meta_keywords: '0'
-                type: page
-                meta_description: ''
-                is_homepage: false
-                layout_file: ''
-                is_customers_only: false
-                search_keywords: '0'
-                has_mobile_version: false
-                mobile_body: '0'
-                url: /rss-syndication/
-              - id: 2
-                name: Shipping & Returns
-                meta_title: ''
-                body: >-
-                  <em>To edit this page simply login to the control panel, click
-                  the <strong style="font-weight: 400">Website Content</strong>
-                  tab and choose the </em> <strong style="font-weight:
-                  400"><em>View Web Pages option. Click Edit next to the
-                  Shipping & Returns page and you can change this text. A sample
-                  returns policy is shown below which you can edit as
-                  needed.</em><em style="font-style:
-                  normal"><br/><br/></em></strong><em style="font-style:
-                  normal"><strong>Returns Policy</strong></em><strong
-                  style="font-weight: 400"></em></em><em style="font-style:
-                  normal"><br/><br/></em>You may return most new, unopened items
-                  within 30 days of delivery for a full refund. We'll also pay
-                  the return shipping costs if the return is a result of our
-                  error (you received an incorrect or defective item,
-                  etc.).<br/><br/>You should expect to receive your refund
-                  within four weeks of giving your package to the return
-                  shipper, however, in many cases you will receive a refund more
-                  quickly. This time period includes the transit time for us to
-                  receive your return from the shipper (5 to 10 business days),
-                  the time it takes us to process your return once we receive it
-                  (3 to 5 business days), and the time it takes your bank to
-                  process our refund request (5 to 10 business
-                  days).<br/><br/>If you need to return an item, please <a
-                  href="/contact-us/">Contact Us</a> with your order number and
-                  details about the product you would like to return. We will
-                  respond quickly with instructions for how to return items from
-                  your
-                  order.<br/><br/></strong><strong>Shipping</em></em></em></strong><strong
-                  style="font-weight: 400"><em style="font-style:
-                  normal"><br/><br/></em>We can ship to virtually any address in
-                  the world. Note that there are restrictions on some products,
-                  and some products cannot be shipped to international
-                  destinations.<br/><br/>When you place an order, we will
-                  estimate shipping and delivery dates for you based on the
-                  availability of your items and the shipping options you
-                  choose. Depending on the shipping provider you choose,
-                  shipping date estimates may appear on the shipping quotes
-                  page.<br/><br/>Please also note that the shipping rates for
-                  many items we sell are weight-based. The weight of any such
-                  item can be found on its detail page. To reflect the policies
-                  of the shipping companies we use, all weights will be rounded
-                  up to the next full pound.<br/>
-                is_visible: true
-                parent_id: 0
-                sort_order: 2
-                meta_keywords: ''
-                type: page
-                meta_description: ''
-                is_homepage: false
-                layout_file: page.html
-                is_customers_only: false
-                search_keywords: ''
-                has_mobile_version: false
-                mobile_body: ''
-                url: /shipping-returns/
-              - id: 3
-                name: Blog
-                is_visible: true
-                parent_id: 0
-                sort_order: 4
-                type: blog_index
-                is_homepage: false
-                is_customers_only: false
-              - id: 4
-                name: Contact Us
-                meta_title: ''
-                email: ''
-                body: >-
-                  <p>We're happy to answer questions or help you with
-                  returns.<br />Please fill out the form below if you need
-                  assistance.</p>
-                is_visible: true
-                parent_id: 0
-                sort_order: 3
-                meta_keywords: ''
-                type: contact_form
-                contact_fields: 'fullname,companyname,phone,orderno,rma'
-                meta_description: ''
-                is_homepage: false
-                layout_file: page.html
-                is_customers_only: false
-                search_keywords: ''
-                has_mobile_version: false
-                mobile_body: '0'
-                url: /contact-us/
-              - id: 5
-                name: Test Page
-                meta_title: ''
-                body: "<p>Redirect webpage</p>\r\n<p>&nbsp;</p>\r\n<p><img class=\"__mce_add_custom__\" title=\"screen-shot-2018-06-11-at-8.38.00-am.png\" src=\"%%GLOBAL_ShopPathSSL%%/product_images/uploaded_images/screen-shot-2018-06-11-at-8.38.00-am.png\" alt=\"screen-shot-2018-06-11-at-8.38.00-am.png\" width=\"1026\" height=\"586\" /></p>"
-                is_visible: true
-                parent_id: 0
-                sort_order: 0
-                meta_keywords: ''
-                type: page
-                meta_description: ''
-                is_homepage: false
-                layout_file: page.html
-                is_customers_only: false
-                search_keywords: ''
-                has_mobile_version: true
-                mobile_body: ''
-                url: /test-page/
+            Example:
               - id: 6
-                name: Child Pages
-                meta_title: ''
-                body: ''
-                is_visible: true
                 parent_id: 5
-                sort_order: 0
-                meta_keywords: ''
                 type: page
+                contact_fields: 'fullname,companyname,phone,orderno,rma'
+                email: janedoes@email.com
+                name: Contact Form
+                url: /contact-us/
                 meta_description: ''
+                body: 'We are happy to answer questions or help you with...'
+                mobile_body: ''
+                feed: ''
+                link: ''
+                has_mobile_version: false
+                is_visible: true
                 is_homepage: false
                 layout_file: page.html
-                is_customers_only: false
-                search_keywords: ''
-                has_mobile_version: true
-                mobile_body: ''
-                url: /child-pages/
-              - id: 7
-                name: Footer only page
+                sort_order: 3
                 meta_title: ''
-                body: <p>Testing</p>
-                is_visible: true
-                parent_id: 0
-                sort_order: 0
-                meta_keywords: ''
-                type: page
-                meta_description: ''
-                is_homepage: false
-                layout_file: page.html
-                is_customers_only: false
                 search_keywords: ''
-                has_mobile_version: true
-                mobile_body: ''
-                url: /footer-only-page/
-            Response Schema:
-              - type: page
-                name: consequat labore cillum minim
-                body: occaecat reprehenderit
-                feed: consectetur et
-                link: nulla veniam aliq
-                id: {}
-                parent_id: -3084899
-                contact_fields: do dolor
-                email: adipisicing minim esse
-                url: in ut
-                meta_description: est Duis
-                mobile_body: incididunt nulla dolore ut in
-                has_mobile_version: true
-                is_visible: true
-                is_homepage: true
-                meta_title: voluptate sint ullamco ut occaecat
-                layout_file: reprehenderit eiusmod ut adipisicing
-                sort_order: 96609556
-                search_keywords: dolor enim exercitation
-                meta_keywords: sun
+                meta_keywords: ''
       operationId: getAllPages
     post:
       description: |-
@@ -1042,6 +681,10 @@ paths:
 
         **Read Only Fields**
         *   `id`
+
+        ## Content Type
+
+        The default value for `content_type` is `text/html`; however, if `page_type` is set to `raw`, `content_type` can be changed to `text/javascript` or `application/json`. Updating this field allows you to place a JavaScript or a JSON file in the root directory.
       summary: Create a Page
       tags:
         - Pages
@@ -1064,39 +707,22 @@ paths:
           schema:
             $ref: '#/definitions/page_Base'
           x-examples:
-            application/json:
-              name: 404 Page for Cats
-              body: >-
-                <head><title>Hairball! Not Found</title></head><body>Sorry! You
-                can not haz cheeseburger.</body>
-              is_visible: true
+            JavaScript Example:
+              id: 21
+              name: service worker
+              body: 'importScripts("https://mycdn.com/sw.js");'
+              is_visible: false
               parent_id: 0
-              sort_order: 12
+              sort_order: 0
               type: raw
               is_homepage: false
               is_customers_only: false
-              search_keywords: 'dead, missing, broken'
-              has_mobile_version: false
+              search_keywords: ''
+              has_mobile_version: true
               mobile_body: ''
-              url: /404-meow/
-          description: >-
-            The default value for `content_type` is `text/html`; however, if
-            `page_type` is set to `raw`, `content_type` can be changed to either
-            `text/javascript` or `application/json`.
-
-
-            Updating this field allows you to place a JavaScript or a JSON file
-            in the root directory.
-
-
-            This file is publicly available at the specified URL.
-
-
-            If the page was created using the Control Panel, the content-type is
-            `text/html`.
-
-
-            Available for `POST` or `PUT`
+              content_type: text/javascript
+              url: /sw.js
+          description: ''
       responses:
         '200':
           description: ''
@@ -1112,9 +738,7 @@ paths:
               name: Contact Form
               url: /contact-us/
               meta_description: ''
-              body: >-
-                <p>We're happy to answer questions or help you with returns.<br
-                />Please fill out the form below if you need assistance.</p>
+              body: We're happy to answer questions or help you with returns.<br />Please fill out the form below if you need assistance.
               mobile_body: 0
               has_mobile_version: false
               is_visible: true
@@ -1221,47 +845,7 @@ paths:
               id: 2
               name: Shipping & Returns
               meta_title: ''
-              body: >-
-                <em>To edit this page simply login to the control panel, click
-                the <strong style="font-weight: 400">Website Content</strong>
-                tab and choose the </em> <strong style="font-weight:
-                400"><em>View Web Pages option. Click Edit next to the Shipping
-                & Returns page and you can change this text. A sample returns
-                policy is shown below which you can edit as needed.</em><em
-                style="font-style: normal"><br/><br/></em></strong><em
-                style="font-style: normal"><strong>Returns
-                Policy</strong></em><strong style="font-weight:
-                400"></em></em><em style="font-style: normal"><br/><br/></em>You
-                may return most new, unopened items within 30 days of delivery
-                for a full refund. We'll also pay the return shipping costs if
-                the return is a result of our error (you received an incorrect
-                or defective item, etc.).<br/><br/>You should expect to receive
-                your refund within four weeks of giving your package to the
-                return shipper, however, in many cases you will receive a refund
-                more quickly. This time period includes the transit time for us
-                to receive your return from the shipper (5 to 10 business days),
-                the time it takes us to process your return once we receive it
-                (3 to 5 business days), and the time it takes your bank to
-                process our refund request (5 to 10 business days).<br/><br/>If
-                you need to return an item, please <a
-                href="/contact-us/">Contact Us</a> with your order number and
-                details about the product you would like to return. We will
-                respond quickly with instructions for how to return items from
-                your
-                order.<br/><br/></strong><strong>Shipping</em></em></em></strong><strong
-                style="font-weight: 400"><em style="font-style:
-                normal"><br/><br/></em>We can ship to virtually any address in
-                the world. Note that there are restrictions on some products,
-                and some products cannot be shipped to international
-                destinations.<br/><br/>When you place an order, we will estimate
-                shipping and delivery dates for you based on the availability of
-                your items and the shipping options you choose. Depending on the
-                shipping provider you choose, shipping date estimates may appear
-                on the shipping quotes page.<br/><br/>Please also note that the
-                shipping rates for many items we sell are weight-based. The
-                weight of any such item can be found on its detail page. To
-                reflect the policies of the shipping companies we use, all
-                weights will be rounded up to the next full pound.<br/>
+              body: '<em>To edit this page simply login to the control panel, click the <strong style="font-weight: 400">Website Content</strong> tab and choose the </em> <strong style="font-weight: 400"><em>View Web Pages option. Click Edit next to the Shipping & Returns page and you can change this text. A sample returns policy is shown below which you can edit as needed.</em><em style="font-style: normal"><br/><br/></em></strong><em style="font-style: normal"><strong>Returns Policy</strong></em><strong style="font-weight: 400"></em></em><em style="font-style: normal"><br/><br/></em>You may return most new, unopened items within 30 days of delivery for a full refund. We''ll also pay the return shipping costs if the return is a result of our error (you received an incorrect or defective item, etc.).<br/><br/>You should expect to receive your refund within four weeks of giving your package to the return shipper, however, in many cases you will receive a refund more quickly. This time period includes the transit time for us to receive your return from the shipper (5 to 10 business days), the time it takes us to process your return once we receive it (3 to 5 business days), and the time it takes your bank to process our refund request (5 to 10 business days).<br/><br/>If you need to return an item, please <a href="/contact-us/">Contact Us</a> with your order number and details about the product you would like to return. We will respond quickly with instructions for how to return items from your order.<br/><br/></strong><strong>Shipping</em></em></em></strong><strong style="font-weight: 400"><em style="font-style: normal"><br/><br/></em>We can ship to virtually any address in the world. Note that there are restrictions on some products, and some products cannot be shipped to international destinations.<br/><br/>When you place an order, we will estimate shipping and delivery dates for you based on the availability of your items and the shipping options you choose. Depending on the shipping provider you choose, shipping date estimates may appear on the shipping quotes page.<br/><br/>Please also note that the shipping rates for many items we sell are weight-based. The weight of any such item can be found on its detail page. To reflect the policies of the shipping companies we use, all weights will be rounded up to the next full pound.<br/>'
               is_visible: true
               parent_id: 0
               sort_order: 2
@@ -1296,9 +880,7 @@ paths:
               name: Contact Form
               url: /contact-us/
               meta_description: ''
-              body: >-
-                <p>We're happy to answer questions or help you with returns.<br
-                />Please fill out the form below if you need assistance.</p>
+              body: <p>We're happy to answer questions or help you with returns.<br />Please fill out the form below if you need assistance.</p>
               mobile_body: 0
               has_mobile_version: false
               is_visible: true
@@ -1324,21 +906,11 @@ paths:
                   - raw
                   - link
               contact_fields:
-                description: >-
-                  Where the page’s type is a contact form: object whose members
-                  are the fields enabled (in the control panel) for storefront
-                  display. Possible members are:`fullname`: full name of the
-                  customer submitting the form; `phone`: customer’s phone
-                  number, as submitted on the form; `companyname`: customer’s
-                  submitted company name; `orderno`: customer’s submitted order
-                  number; `rma`: customer’s submitted RMA (Return Merchandise
-                  Authorization) number.
+                description: 'Where the page’s type is a contact form: object whose members are the fields enabled (in the control panel) for storefront display. Possible members are:`fullname`: full name of the customer submitting the form; `phone`: customer’s phone number, as submitted on the form; `companyname`: customer’s submitted company name; `orderno`: customer’s submitted order number; `rma`: customer’s submitted RMA (Return Merchandise Authorization) number.'
                 example: 'fullname,companyname,phone,orderno,rma'
                 type: string
               email:
-                description: >-
-                  Where the page’s type is a contact form: email address that
-                  receives messages sent via the form.
+                description: 'Where the page’s type is a contact form: email address that receives messages sent via the form.'
                 example: janedoes@email.com
                 type: string
               name:
@@ -1354,17 +926,10 @@ paths:
                 type: string
               body:
                 type: string
-                description: >-
-                  HTML or variable that populates this page’s <body> element, in
-                  default/desktop view. Required in POST if page type is `raw`.
-                example: >-
-                  <p>We're happy to answer questions or help you with
-                  returns.<br />Please fill out the form below if you need
-                  assistance.</p>
+                description: 'HTML or variable that populates this page’s <body> element, in default/desktop view. Required in POST if page type is `raw`.'
+                example: <p>We're happy to answer questions or help you with returns.<br />Please fill out the form below if you need assistance.</p>
               mobile_body:
-                description: >-
-                  HTML to use for this page's body when viewed in the mobile
-                  template (deprecated).
+                description: HTML to use for this page's body when viewed in the mobile template (deprecated).
                 example: 0
                 type: string
               has_mobile_version:
@@ -1372,9 +937,7 @@ paths:
                 example: false
                 type: boolean
               is_visible:
-                description: >-
-                  If true, this page appears in the storefront’s navigation
-                  menu.
+                description: 'If true, this page appears in the storefront’s navigation menu.'
                 example: true
                 type: boolean
               is_homepage:
@@ -1382,42 +945,28 @@ paths:
                 example: false
                 type: boolean
               meta_title:
-                description: >-
-                  Text specified for this page’s <title> element. (If empty, the
-                  value of the name property is used.)
+                description: 'Text specified for this page’s <title> element. (If empty, the value of the name property is used.)'
                 type: string
               layout_file:
-                description: >-
-                  Layout template for this page. This field is writable only for
-                  stores with a Blueprint theme applied.
+                description: Layout template for this page. This field is writable only for stores with a Blueprint theme applied.
                 example: page.html
                 type: string
               sort_order:
-                description: >-
-                  Order in which this page should display on the storefront.
-                  (Lower integers specify earlier display.)
+                description: Order in which this page should display on the storefront. (Lower integers specify earlier display.)
                 example: 3
                 type: integer
               search_keywords:
-                description: >-
-                  Comma-separated list of keywords that shoppers can use to
-                  locate this page when searching the store.
+                description: Comma-separated list of keywords that shoppers can use to locate this page when searching the store.
                 type: string
               meta_keywords:
-                description: >-
-                  Comma-separated list of SEO-relevant keywords to include in
-                  the page’s <meta> element.
+                description: Comma-separated list of SEO-relevant keywords to include in the page’s <meta> element.
                 type: string
               feed:
                 type: string
-                description: >-
-                  If page type is `rss_feed` the n this field is visisble.
-                  Required in POST required for `rss page` type.
+                description: If page type is `rss_feed` the n this field is visisble. Required in POST required for `rss page` type.
               link:
                 type: string
-                description: >-
-                  If page type is `link` this field is returned. Required in
-                  POST to create a `link` page.
+                description: If page type is `link` this field is returned. Required in POST to create a `link` page.
               id:
                 type: integer
                 example: 44
@@ -1428,39 +977,21 @@ paths:
                   - application/json
                   - text/javascript
                   - text/html
-                description: >-
-                  The default value is `text/html`. If the `page_type` is `raw`
-                  then the content type can be changed to either JavaScript or
-                  JSON.
+                description: |-
+                  The default value is `text/html`. If the `page_type` is `raw` then the content type can be changed to either JavaScript or JSON.
 
-
-                  Updating this field allows you to place a JavaScript or a JSON
-                  file in the root directory.
-
+                  Updating this field allows you to place a JavaScript or a JSON file in the root directory.
 
                   This file is publicly available at the specified URL.
 
-
-                  If the page was created using the Control Panel, the
-                  content-type is `text/html`.
-
+                  If the page was created using the Control Panel, the content-type is `text/html`.
 
                   Available for POST or PUT.
 
-
                   Example of use:
 
-
                   ```json
-
-                  { "id": 21, "name": "service worker", "body":
-                  "importScripts(\"https://mycdn.com/sw.js\");", "is_visible":
-                  false, "parent_id": 0, "sort_order": 0, "type": "raw",
-                  "is_homepage": false, "is_customers_only": false,
-                  "search_keywords": "", "has_mobile_version": true,
-                  "mobile_body": "", "content_type": "text/javascript", "url":
-                  "/sw.js" }
-
+                  { "id": 21, "name": "service worker", "body": "importScripts(\"https://mycdn.com/sw.js\");", "is_visible": false, "parent_id": 0, "sort_order": 0, "type": "raw", "is_homepage": false, "is_customers_only": false, "search_keywords": "", "has_mobile_version": true, "mobile_body": "", "content_type": "text/javascript", "url": "/sw.js" }
                   ```
                 example: text/html
             required:
@@ -1496,32 +1027,20 @@ paths:
         - Pages
   /redirects:
     get:
-      description: >-
+      description: |-
         Returns a list all *Redirect URLs*. 
 
-
         <div class="HubBlock--callout">
-
         <div class="CalloutBlock--warning">
-
         <div class="HubBlock-content">
-
 
         ### **Deprecated**
 
+        Avoid using this API operation if possible. It will be removed in a future version.
 
-        Avoid using this API operation if possible. It will be removed in a
-        future version.
-
-
-        For the most up-to-date version of this API, see  [Get Redirects
-        v3](https://developer.bigcommerce.com/api-reference/storefront/redirects/redirects/getredirects)
-        to manage redirects URLs.
-
+        For the most up-to-date version of this API, see  [Get Redirects v3](https://developer.bigcommerce.com/api-reference/storefront/redirects/redirects/getredirects) to manage redirects URLs.
         </div>
-
         </div>
-
         </div>
       summary: Get All Redirects
       tags:
@@ -1567,50 +1086,33 @@ paths:
                 forward:
                   type: product
                   ref: '111'
-                url: >-
-                  http://store-url.mybigcommerce.com/towels/bath-towels/hand-towels/
+                url: 'http://store-url.mybigcommerce.com/towels/bath-towels/hand-towels/'
             Response Schema: ''
       operationId: getAListofRedirects
+      deprecated: true
     post:
-      description: >-
+      description: |-
         Creates a *Redirect URL*.
 
-
         **Required Fields**
-
         *   path
-
         *   forward
 
-
         **Read Only**
-
         *   url
 
-
         <div class="HubBlock--callout">
-
         <div class="CalloutBlock--warning">
-
         <div class="HubBlock-content">
-
 
         ### **Deprecated**
 
+        Avoid using this API operation if possible. It will be removed in a future version.
 
-        Avoid using this API operation if possible. It will be removed in a
-        future version.
-
-
-        For the most up-to-date version of this API, see [Upsert Redirects
-        v3](https://developer.bigcommerce.com/api-reference/storefront/redirects/redirects/upsertredirects)
-        to upsert new redirect data.
-
+        For the most up-to-date version of this API, see [Upsert Redirects v3](https://developer.bigcommerce.com/api-reference/storefront/redirects/redirects/upsertredirects) to upsert new redirect data.
 
         </div>
-
         </div>
-
         </div>
       summary: Create a Redirect
       tags:
@@ -1678,35 +1180,22 @@ paths:
       operationId: deleteAllRedirects
   '/redirects/{id}':
     get:
-      description: >+
+      description: |
         Returns a single *Redirect URL*.
 
-
         <div class="HubBlock--callout">
-
         <div class="CalloutBlock--warning">
-
         <div class="HubBlock-content">
-
 
         ### **Deprecated**
 
+        Avoid using this API operation if possible. It will be removed in a future version.
 
-        Avoid using this API operation if possible. It will be removed in a
-        future version.
-
-
-        For the most up-to-date version of this API, see [Get Redirects
-        v3](https://developer.bigcommerce.com/api-reference/storefront/redirects/redirects/getredirects)
-        to get a redirect URL.
-
+        For the most up-to-date version of this API, see [Get Redirects v3](https://developer.bigcommerce.com/api-reference/storefront/redirects/redirects/getredirects) to get a redirect URL.
 
         </div>
-
         </div>
-
         </div>
-
       summary: Get a Redirect
       tags:
         - Redirects
@@ -1742,49 +1231,32 @@ paths:
               forward:
                 type: product
                 ref: 111
-              url: >-
-                http://store-url.mybigcommerce.com/towels/bath-towels/hand-towels/
+              url: 'http://store-url.mybigcommerce.com/towels/bath-towels/hand-towels/'
       operationId: getARedirectURL
+      deprecated: true
     put:
-      description: >
+      description: |
         Updates a *Redirect URL*.
 
-
         **Required Fields**
-
         *   path
-
         *   forward
 
-
         **Read Only Fields**
-
         *   url
 
-
         <div class="HubBlock--callout">
-
         <div class="CalloutBlock--warning">
-
         <div class="HubBlock-content">
-
 
         ### **Deprecated**
 
+        Avoid using this API operation if possible. It will be removed in a future version.
 
-        Avoid using this API operation if possible. It will be removed in a
-        future version.
-
-
-        For the most up-to-date version of this API, see [Upsert Redirects
-        v3](https://developer.bigcommerce.com/api-reference/storefront/redirects/redirects/upsertredirects)
-        to update redirect data.
-
+        For the most up-to-date version of this API, see [Upsert Redirects v3](https://developer.bigcommerce.com/api-reference/storefront/redirects/redirects/upsertredirects) to update redirect data.
 
         </div>
-
         </div>
-
         </div>
       summary: Update a Redirect
       tags:
@@ -1819,8 +1291,7 @@ paths:
               forward:
                 type: product
                 ref: 111
-              url: >-
-                http://store-url.mybigcommerce.com/towels/bath-towels/hand-towels/
+              url: 'http://store-url.mybigcommerce.com/towels/bath-towels/hand-towels/'
             type: object
             properties:
               id:
@@ -1836,22 +1307,16 @@ paths:
                 properties:
                   type:
                     type: string
-                    description: >
-                      The type of redirect. If it is a manual redirect then type
-                      will always be manual. Dynamic redirects will have the
-                      type of the page. Such as product or category.
+                    description: |
+                      The type of redirect. If it is a manual redirect then type will always be manual. Dynamic redirects will have the type of the page. Such as product or category.
                     example: product
                   ref:
                     type: string
-                    description: >-
-                      Reference of the redirect. Dynamic redirects will have the
-                      category or product number. Manual redirects will have the
-                      url that is being directed to.
+                    description: Reference of the redirect. Dynamic redirects will have the category or product number. Manual redirects will have the url that is being directed to.
                     example: 111
               url:
                 description: URL of the redirect. READ-ONLY
-                example: >-
-                  http://store-url.mybigcommerce.com/towels/bath-towels/hand-towels/
+                example: 'http://store-url.mybigcommerce.com/towels/bath-towels/hand-towels/'
                 type: string
             required:
               - path
@@ -1874,8 +1339,7 @@ paths:
               forward:
                 type: product
                 ref: 111
-              url: >-
-                http://store-url.mybigcommerce.com/towels/bath-towels/hand-towels/
+              url: 'http://store-url.mybigcommerce.com/towels/bath-towels/hand-towels/'
       operationId: updateARedirectURL
     delete:
       description: "Deletes a *Redirect URL*.\n\n<div class=\"HubBlock--callout\">\n<div class=\"CalloutBlock--warning\">\n<div class=\"HubBlock-content\">\n\n### **Deprecated**\n\nAvoid using this API operation if possible. It will be removed in a future version.\n\nFor the most up-to-date version of this API, see [Delete Redirects v3](https://developer.bigcommerce.com/api-reference/storefront/redirects/redirects/deleteredirects) to delete a redirect URL.\n\t\n</div>\n</div>\n</div>"
@@ -1913,32 +1377,20 @@ paths:
         required: true
   /redirects/count:
     get:
-      description: >-
+      description: |-
         Gets a count of *Redirect URLs* in a store.
 
-
         <div class="HubBlock--callout">
-
         <div class="CalloutBlock--warning">
-
         <div class="HubBlock-content">
-
 
         ### **Deprecated**
 
+        Avoid using this API operation if possible. It will be removed in a future version.
 
-        Avoid using this API operation if possible. It will be removed in a
-        future version.
-
-
-        For the most up-to-date version of this API, see  [Get Redirects
-        v3](https://developer.bigcommerce.com/api-reference/storefront/redirects/redirects/getredirects)
-        to get a count of redirects.
-
+        For the most up-to-date version of this API, see  [Get Redirects v3](https://developer.bigcommerce.com/api-reference/storefront/redirects/redirects/getredirects) to get a count of redirects.
         </div>
-
         </div>
-
         </div>
       summary: Get a Count of Redirects
       tags:
@@ -1965,6 +1417,7 @@ paths:
             application/json:
               count: 27
       operationId: getACountOfRedirects
+      deprecated: true
 definitions:
   blogPost_Full:
     title: blogPost_Full
@@ -1981,8 +1434,7 @@ definitions:
     properties:
       url:
         description: Full URL of where the resource is located.
-        example: >-
-          https://api.bigcommerce.com/stores/{$$.env.store_hash}/v2/customers/5/addresses
+        example: 'https://api.bigcommerce.com/stores/{$$.env.store_hash}/v2/customers/5/addresses'
         type: string
       resource:
         description: Resource being accessed.
@@ -2044,17 +1496,11 @@ definitions:
     type: object
     properties:
       type:
-        description: >-
-          The type of redirect. If it is a `manual` redirect then type will
-          always be manual. Dynamic redirects will have the type of the page.
-          Such as product or category.
+        description: The type of redirect. If it is a `manual` redirect then type will always be manual. Dynamic redirects will have the type of the page. Such as product or category.
         example: product
         type: string
       ref:
-        description: >-
-          Reference of the redirect. Dynamic redirects will have the category or
-          product number. Manual redirects will have the url that is being
-          directed to.
+        description: Reference of the redirect. Dynamic redirects will have the category or product number. Manual redirects will have the url that is being directed to.
         example: 111
         type: number
   customer_Full:
@@ -2062,17 +1508,11 @@ definitions:
     type: object
     properties:
       id:
-        description: >-
-          Unique numeric ID of this customer. This is a READ-ONLY field; do not
-          set or modify its value in a POST or PUT request.
+        description: Unique numeric ID of this customer. This is a READ-ONLY field; do not set or modify its value in a POST or PUT request.
         example: 1
         type: integer
       _authentication:
-        description: >-
-          Not returned in any responses, but accepts up to two fields allowing
-          you to set the customer’s password. If a password is not supplied, it
-          is generated automatically. For further information about using this
-          object, please see the Customers resource documentation.
+        description: 'Not returned in any responses, but accepts up to two fields allowing you to set the customer’s password. If a password is not supplied, it is generated automatically. For further information about using this object, please see the Customers resource documentation.'
         type: object
         properties:
           force_reset:
@@ -2102,25 +1542,18 @@ definitions:
         example: 1234567890
         type: string
       date_created:
-        description: >-
-          Date on which the customer registered from the storefront or was
-          created in the control panel. This is a READ-ONLY field; do not set or
-          modify its value in a POST or PUT request.
+        description: Date on which the customer registered from the storefront or was created in the control panel. This is a READ-ONLY field; do not set or modify its value in a POST or PUT request.
         example: 'Thu, 11 Jan 2018 20:57:52 +0000'
         type: string
         format: date-time
       date_modified:
-        description: >
-          Date on which the customer updated their details in the storefront or
-          was updated in the control panel. This is a READ-ONLY field; do not
-          set or modify its value in a POST or PUT request.
+        description: |
+          Date on which the customer updated their details in the storefront or was updated in the control panel. This is a READ-ONLY field; do not set or modify its value in a POST or PUT request.
         example: 'Tue, 10 Apr 2018 18:59:05 +0000'
         type: string
         format: date-time
       store_credit:
-        description: >-
-          The amount of credit the customer has. (Float, Float as String,
-          Integer)
+        description: 'The amount of credit the customer has. (Float, Float as String, Integer)'
         example: 0
         type: string
       registration_ip_address:
@@ -2135,22 +1568,17 @@ definitions:
         description: Store-owner notes on the customer.
         type: string
       tax_exempt_category:
-        description: >-
-          If applicable, the tax-exempt category of the shopper's customer account. You can apply a tax-exempt category to multiple customers. This code should match the exemption codes provided by the third-party integration.
+        description: 'If applicable, the tax-exempt category of the shopper''s customer account. You can apply a tax-exempt category to multiple customers. This code should match the exemption codes provided by the third-party integration.'
         type: string
       accepts_marketing:
-        description: >
-          Records whether the customer would like to receive marketing content
-          from this store. READ-ONLY.This is a READ-ONLY field; do not set or
-          modify its value in a POST or PUT request.
+        description: |
+          Records whether the customer would like to receive marketing content from this store. READ-ONLY.This is a READ-ONLY field; do not set or modify its value in a POST or PUT request.
         example: true
         type: boolean
       addresses:
         $ref: '#/definitions/addresses'
       form_fields:
-        description: >-
-          Array of custom fields. This is a READ-ONLY field; do not set or
-          modify its value in a POST or PUT request.
+        description: Array of custom fields. This is a READ-ONLY field; do not set or modify its value in a POST or PUT request.
         type: array
         items:
           $ref: '#/definitions/formField'
@@ -2172,15 +1600,12 @@ definitions:
           - all
           - specific
           - none
-        description: >-
+        description: |-
           + `all` - Customers can access all categories
            + `specific`  - Customers can access a specific list of categories
-          + `none` - Customers are prevented from viewing any of the categories
-          in this group.
+          + `none` - Customers are prevented from viewing any of the categories in this group.
       categories:
-        description: >-
-          Is an array of category IDs and should be supplied only if `type` is
-          specific.
+        description: Is an array of category IDs and should be supplied only if `type` is specific.
         type: array
         example: '18,19,23,34'
         items:
@@ -2190,27 +1615,19 @@ definitions:
     type: object
     properties:
       name:
-        description: >-
-          a string identifying the time zone, in the format:
-          <Continent-name>/<City-name>.
+        description: 'a string identifying the time zone, in the format: <Continent-name>/<City-name>.'
         example: America/Chicago
         type: string
       raw_offset:
-        description: >-
-          a negative or positive number, identifying the offset from UTC/GMT, in
-          seconds, during winter/standard time.
+        description: 'a negative or positive number, identifying the offset from UTC/GMT, in seconds, during winter/standard time.'
         example: -21600
         type: integer
       dst_offset:
-        description: >-
-          "-/+" offset from UTC/GMT, in seconds, during summer/daylight saving
-          time.
+        description: '"-/+" offset from UTC/GMT, in seconds, during summer/daylight saving time.'
         example: -18000
         type: integer
       dst_correction:
-        description: >-
-          a boolean indicating whether this time zone observes daylight saving
-          time.
+        description: a boolean indicating whether this time zone observes daylight saving time.
         example: true
         type: boolean
       date_format:
@@ -2234,15 +1651,11 @@ definitions:
         example: M jS Y
         type: string
       export:
-        description: >-
-          string that defines the CSV export format for orders, customers, and
-          products, in the pattern: M jS Y
+        description: 'string that defines the CSV export format for orders, customers, and products, in the pattern: M jS Y'
         example: M jS Y
         type: string
       extended_display:
-        description: >-
-          string that defines dates’ extended-display format, in the pattern: M
-          jS Y @ g:i A.
+        description: 'string that defines dates’ extended-display format, in the pattern: M jS Y @ g:i A.'
         example: 'M jS Y @ g:i A'
         type: string
   blogTags:
@@ -2278,10 +1691,7 @@ definitions:
       body:
         type: string
         description: Text body of the blog post.
-        example: >-
-          <p>Customize your site, manage shipping and payments, and list your
-          products on Amazon, eBay, and Facebook with the #1 ecommerce platform.
-          </p>
+        example: '<p>Customize your site, manage shipping and payments, and list your products on Amazon, eBay, and Facebook with the #1 ecommerce platform. </p>'
       tags:
         description: Tags to characterize the blog post.
         type: array
@@ -2289,9 +1699,7 @@ definitions:
           type: string
       summary:
         description: Summary of the blog post. (READ-ONLY)
-        example: >-
-          <p>We power ecommerce websites for successful retailers all over the
-          world</p>
+        example: <p>We power ecommerce websites for successful retailers all over the world</p>
         type: string
       is_published:
         description: Whether the blog post is published.
@@ -2316,9 +1724,7 @@ definitions:
         example: BigCommerce
         type: string
       thumbnail_path:
-        description: >-
-          Local path to a thumbnail uploaded to `product_images/` via
-          [WebDav](https://support.bigcommerce.com/s/article/File-Access-WebDAV).
+        description: 'Local path to a thumbnail uploaded to `product_images/` via [WebDav](https://support.bigcommerce.com/s/article/File-Access-WebDAV).'
         type: string
     required:
       - title
@@ -2338,11 +1744,7 @@ definitions:
         format: time
         example: '+00:00'
   authentication:
-    description: >-
-      Not returned in any responses, but accepts up to two fields allowing you
-      to set the customer’s password. If a password is not supplied, it is
-      generated automatically. For further information about using this object,
-      please see the Customers resource documentation.
+    description: 'Not returned in any responses, but accepts up to two fields allowing you to set the customer’s password. If a password is not supplied, it is generated automatically. For further information about using this object, please see the Customers resource documentation.'
     type: object
     properties:
       force_reset:
@@ -2373,20 +1775,11 @@ definitions:
           - raw
           - link
       contact_fields:
-        description: >-
-          Where the page’s type is a contact form: object whose members are the
-          fields enabled (in the control panel) for storefront display. Possible
-          members are:`fullname`: full name of the customer submitting the form;
-          `phone`: customer’s phone number, as submitted on the form;
-          `companyname`: customer’s submitted company name; `orderno`:
-          customer’s submitted order number; `rma`: customer’s submitted RMA
-          (Return Merchandise Authorization) number.
+        description: 'Where the page’s type is a contact form: object whose members are the fields enabled (in the control panel) for storefront display. Possible members are:`fullname`: full name of the customer submitting the form; `phone`: customer’s phone number, as submitted on the form; `companyname`: customer’s submitted company name; `orderno`: customer’s submitted order number; `rma`: customer’s submitted RMA (Return Merchandise Authorization) number.'
         example: 'fullname,companyname,phone,orderno,rma'
         type: string
       email:
-        description: >-
-          Where the page’s type is a contact form: email address that receives
-          messages sent via the form.
+        description: 'Where the page’s type is a contact form: email address that receives messages sent via the form.'
         example: janedoes@email.com
         type: string
       name:
@@ -2402,16 +1795,10 @@ definitions:
         type: string
       body:
         type: string
-        description: >-
-          HTML or variable that populates this page’s `<body>` element, in
-          default/desktop view. Required in POST if page type is `raw`.
-        example: >-
-          <p>We're happy to answer questions or help you with returns.<br
-          />Please fill out the form below if you need assistance.</p>
+        description: 'HTML or variable that populates this page’s `<body>` element, in default/desktop view. Required in POST if page type is `raw`.'
+        example: <p>We're happy to answer questions or help you with returns.<br />Please fill out the form below if you need assistance.</p>
       mobile_body:
-        description: >-
-          HTML to use for this page's body when viewed in the mobile template
-          (deprecated).
+        description: HTML to use for this page's body when viewed in the mobile template (deprecated).
         example: 0
         type: string
       has_mobile_version:
@@ -2427,42 +1814,28 @@ definitions:
         example: false
         type: boolean
       meta_title:
-        description: >-
-          Text specified for this page’s `<title>` element. (If empty, the value
-          of the name property is used.)
+        description: 'Text specified for this page’s `<title>` element. (If empty, the value of the name property is used.)'
         type: string
       layout_file:
-        description: >-
-          Layout template for this page. This field is writable only for stores
-          with a Blueprint theme applied.
+        description: Layout template for this page. This field is writable only for stores with a Blueprint theme applied.
         example: page.html
         type: string
       sort_order:
-        description: >-
-          Order in which this page should display on the storefront. (Lower
-          integers specify earlier display.)
+        description: Order in which this page should display on the storefront. (Lower integers specify earlier display.)
         example: 3
         type: integer
       search_keywords:
-        description: >-
-          Comma-separated list of keywords that shoppers can use to locate this
-          page when searching the store.
+        description: Comma-separated list of keywords that shoppers can use to locate this page when searching the store.
         type: string
       meta_keywords:
-        description: >-
-          Comma-separated list of SEO-relevant keywords to include in the page’s
-          `<meta/>` element.
+        description: Comma-separated list of SEO-relevant keywords to include in the page’s `<meta/>` element.
         type: string
       feed:
         type: string
-        description: >-
-          If page type is `rss_feed` the n this field is visisble. Required in
-          POST required for `rss page` type.
+        description: If page type is `rss_feed` the n this field is visisble. Required in POST required for `rss page` type.
       link:
         type: string
-        description: >-
-          If page type is `link` this field is returned. Required in  POST to
-          create a `link` page.
+        description: If page type is `link` this field is returned. Required in  POST to create a `link` page.
       content_type:
         type: string
         enum:
@@ -2486,47 +1859,29 @@ securityDefinitions:
     type: apiKey
     name: X-Auth-Token
     in: header
-    description: >-
+    description: |-
       ### OAuth Scopes
-
       |  **UI Name** | **Permission** | **Parameter** |
-
       | --- | --- | --- |
-
       |  Content | modify | `store_v2_content` |
-
       |  Content | read-only | `store_v2_content_read_only` |
-
 
       ### Headers
 
-
       |Header|Parameter|Description|
-
       |-|-|-|
-
-      |`X-Auth-Token`|`access_token `|Obtained by creating an API account or
-      installing an app in a BigCommerce control panel.|
-
+      |`X-Auth-Token`|`access_token `|Obtained by creating an API account or installing an app in a BigCommerce control panel.|
 
       ### Example
 
-
       ```http
-
       GET /stores/{$$.env.store_hash}/v3/catalog/summary
-
       host: api.bigcommerce.com
-
       Content-Type: application/json
-
       X-Auth-Token: {access_token}
-
       ```
 
-
-      * For more information on Authenticating BigCommerce APIs, see:
-      [Authentication](https://developer.bigcommerce.com/api-docs/getting-started/authentication).
+      * For more information on Authenticating BigCommerce APIs, see: [Authentication](https://developer.bigcommerce.com/api-docs/getting-started/authentication).
 security:
   - X-Auth-Token: []
   - X-Auth-Client: []
