@@ -80,7 +80,10 @@ definitions:
       discountAmount:
         description: Discounted amount.
         type: number
-        format: double
+        format: float
+      giftWrappingCostTotal:
+        type: number
+        description: Gift wrapping for all items, including or excluding tax.
       orderAmount:
         description: 'Sum of line-items amounts, minus cart-level discounts and coupons. This amount includes taxes (where applicable).'
         type: number

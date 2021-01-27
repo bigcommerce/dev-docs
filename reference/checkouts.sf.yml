@@ -2433,6 +2433,9 @@ definitions:
         type: number
         description: Shipping cost before any discounts are applied.
         format: float
+      giftWrappingCostTotal:
+        type: number
+        description: Gift wrapping cost for all items, including or excluding tax.
       handlingCostTotal:
         type: number
         description: Handling cost for all consignments including or excluding tax.
@@ -3995,6 +3998,9 @@ definitions:
             type: number
             description: Shipping cost before any discounts are applied.
             format: float
+          giftWrappingCostTotal:
+            type: number
+            description: Gift wrapping for all items, including or excluding tax.
           handlingCostTotal:
             type: number
             description: Handling cost for all consignments including or excluding tax.
