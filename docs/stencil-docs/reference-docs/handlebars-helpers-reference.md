@@ -10,11 +10,11 @@
 
 </div>
 
-This is a reference for [Stencil](https://developer.bigcommerce.com/stencil-docs/getting-started/about-stencil) supported [Handlebars](https://handlebarsjs.com/) helpers. It includes [custom helper](#custom-helpers) documentation and usage examples and a list of whitelisted [standard helpers](#standard-helpers).
+This article is a reference for [Stencil](https://developer.bigcommerce.com/stencil-docs/getting-started/about-stencil) supported [Handlebars](https://handlebarsjs.com/) helpers. It includes [custom helpers](#custom-helpers) documentation and usage examples and a list of whitelisted [standard helpers](#standard-helpers).
 
 ## Custom helpers
 
-BigCommerce's open source helpers defined in [paper-handlebars/helpers/](https://github.com/bigcommerce/paper-handlebars/tree/master/helpers) (GitHub).
+To decide which [custom Handlebars helpers](https://github.com/bigcommerce/paper-handlebars/tree/master/helpers) to use, consult the following table:
 
 | **Helper** | **Category** | **Description** |
 | --- | --- | --- |
@@ -1014,7 +1014,7 @@ Defines a block of content. You can overwrite it using the [partial](#partial) h
 ```handlebars
 {{dynamicComponent path}}
 ```
-Inserts dynamic partial at the path passed in.
+Inserts a dynamic partial in the specified path.
 
 #### Parameters
 
@@ -1032,11 +1032,19 @@ Inserts dynamic partial at the path passed in.
 
 ### {{inject}}
 
+```handlebars
+{{inject value object}}
+```
 Injects key values into [jsContext](#jscontext).
+
+#### Parameters
+
+- `value` {String}: The value to inject.
+- `object` {?}
 
 #### Example
 
-```html
+```handlebars
 {{inject "myProductName" product.title}}
 
 <script>
@@ -1052,35 +1060,30 @@ console.log(jsContext.myProductName);
 
 [See it in GitHub](https://github.com/bigcommerce/paper-handlebars/blob/master/helpers/inject.js).
 
-[See it in Cornerstone](https://github.com/bigcommerce/cornerstone/search?l=HTML&q=inject).
-
 ### {{jsContext}}
 
-Returns JSON for all data injected by inject helper.
+Returns JSON for all data injected by [inject](#inject) helper. Used in conjunction with `{{inject}}`.
 
-#### Example
+#### Parameters
 
-```html
-{{inject "myProductName" product.title}}
-
-<script>
-var jsContext = JSON.parse({{jsContext}});
-console.log(jsContext.myProductName);
-// => "BigCommerce Coffee Mug"
-</script>
-```
+- None. (?)
 
 [See it in GitHub](https://github.com/bigcommerce/paper-handlebars/blob/master/helpers/jsContext.js).
 
-[See it in Cornerstone](https://github.com/bigcommerce/cornerstone/search?l=HTML&q=jsContext).
-
 ### {{partial}}
 
-Overrides content defined by a block helper.
+```handlebars
+{{partial string}}
+```
+Overrides content defined by a [block](#block) helper.
+
+#### Parameters
+
+- `string` {String}
 
 #### Example
 
-```html
+```handlebars
 {{#partial "head"}}
     {{#if pagination.category.previous}}
         <link rel="prev" href="{{pagination.category.previous}}">
@@ -1093,11 +1096,16 @@ Overrides content defined by a block helper.
 
 [See it in GitHub](https://github.com/bigcommerce/paper-handlebars/blob/master/helpers/partial.js).
 
-[See it in Cornerstone](https://github.com/bigcommerce/cornerstone/search?l=HTML&q=partial).
-
 ### {{region}}
 
-Specifies a [widget](https://developer.bigcommerce.com/api-docs/store-management/widgets/overview) region.
+```handlebars
+{{region name}}
+```
+Specifies a [widget](https://developer.bigcommerce.com/api-docs/store-management/widgets/overview#widgets) region.
+
+#### Parameters
+
+- `name` {String}: The name of the region.
 
 #### Example
 
@@ -1107,11 +1115,17 @@ Specifies a [widget](https://developer.bigcommerce.com/api-docs/store-management
 
 [See it in GitHub](https://github.com/bigcommerce/paper-handlebars/blob/master/helpers/region.js).
 
-[See it in Cornerstone](https://github.com/bigcommerce/cornerstone/search?l=HTML&q=region).
-
 ### {{assignVar}}
 
-Save a variable for later use in the template.
+```handlebars
+{{assignVar key value}}
+```
+Saves a variable for later use in the template.
+
+#### Parameters
+
+- `key` {String}
+- `value` {String|Number}
 
 #### Example
 
@@ -1121,11 +1135,16 @@ Save a variable for later use in the template.
 
 [See it in GitHub](https://github.com/bigcommerce/paper-handlebars/blob/master/helpers/assignVar.js).
 
-[See it in Cornerstone](https://github.com/bigcommerce/cornerstone/search?l=HTML&q=assignVar).
-
 ### {{getVar}}
 
-Get a variable set by [assignVar](#assignVar).
+```handlebars
+{{getVar key}}
+```
+Get the variable set by [assignVar](#assignVar).
+
+#### Parameters
+
+- `key` {String}
 
 #### Example
 
@@ -1135,11 +1154,16 @@ Get a variable set by [assignVar](#assignVar).
 
 [See it in GitHub](https://github.com/bigcommerce/paper-handlebars/blob/master/helpers/getVar.js).
 
-[See it in Cornerstone](https://github.com/bigcommerce/cornerstone/search?l=HTML&q=getVar).
-
 ### {{decrementVar}}
 
-Decrement variable assigned by [assignVar](#assignVar) by 1.
+```handlebars
+{{decrementVar key}}
+```
+Decrement the variable set by [assignVar](#assignVar) by 1.
+
+#### Parameters
+
+- `key` {String}
 
 #### Example
 
@@ -1149,11 +1173,16 @@ Decrement variable assigned by [assignVar](#assignVar) by 1.
 
 [See it in GitHub](https://github.com/bigcommerce/paper-handlebars/blob/master/helpers/decrementVar.js).
 
-[See it in Cornerstone](https://github.com/bigcommerce/cornerstone/search?l=HTML&q=decrementVar).
-
 ### {{incrementVar}}
 
-Increment variable assigned by [assignVar](#assignVar) by 1.
+```handlebars
+{{incrementVar key}}
+```
+Increment variable set by [assignVar](#assignVar) by 1.
+
+#### Parameters
+
+- `key` {String}
 
 #### Example
 
@@ -1163,138 +1192,133 @@ Increment variable assigned by [assignVar](#assignVar) by 1.
 
 [See it in GitHub](https://github.com/bigcommerce/paper-handlebars/blob/master/helpers/incrementVar.js).
 
-[See it in Cornerstone](https://github.com/bigcommerce/cornerstone/search?l=HTML&q=incrementVar).
-
 ## Standard helpers
 
-Below are the standard helpers available to stencil themes and a link to it's documentation on github [@helpers/handlebars-helpers](https://github.com/helpers/handlebars-helpers).
+The following standard helpers are available to all Stencil themes:
 
-|Helper|
-|-|
-|[after](https://github.com/helpers/handlebars-helpers#after)|
-|[arrayify](https://github.com/helpers/handlebars-helpers#arrayify)|
-|[before](https://github.com/helpers/handlebars-helpers#before)|
-|[eachIndex](https://github.com/helpers/handlebars-helpers#eachIndex)|
-|[filter](https://github.com/helpers/handlebars-helpers#filter)|
-|[first](https://github.com/helpers/handlebars-helpers#first)|
-|[forEach](https://github.com/helpers/handlebars-helpers#forEach)|
-|[inArray](https://github.com/helpers/handlebars-helpers#inArray)|
-|[isArray](https://github.com/helpers/handlebars-helpers#isArray)|
-|[last](https://github.com/helpers/handlebars-helpers#last)|
-|[lengthEqual](https://github.com/helpers/handlebars-helpers#lengthEqual)|
-|[map](https://github.com/helpers/handlebars-helpers#map)|
-|[some](https://github.com/helpers/handlebars-helpers#some)|
-|[sort](https://github.com/helpers/handlebars-helpers#sort)|
-|[sortBy](https://github.com/helpers/handlebars-helpers#sortBy)|
-|[withAfter](https://github.com/helpers/handlebars-helpers#withAfter)|
-|[withBefore](https://github.com/helpers/handlebars-helpers#withBefore)|
-|[withFirst](https://github.com/helpers/handlebars-helpers#withFirst)|
-|[withLast](https://github.com/helpers/handlebars-helpers#withLast)|
-|[withSort](https://github.com/helpers/handlebars-helpers#withSort)|
-|[isEmpty](https://github.com/helpers/handlebars-helpers#isEmpty)|
-|[iterate](https://github.com/helpers/handlebars-helpers#iterate)|
-|[length](https://github.com/helpers/handlebars-helpers#length)|
-|[and](https://github.com/helpers/handlebars-helpers#and)|
-|[gt](https://github.com/helpers/handlebars-helpers#gt)|
-|[gte](https://github.com/helpers/handlebars-helpers#gte)|
-|[has](https://github.com/helpers/handlebars-helpers#has)|
-|[eq](https://github.com/helpers/handlebars-helpers#eq)|
-|[ifEven](https://github.com/helpers/handlebars-helpers#ifEven)|
-|[ifNth](https://github.com/helpers/handlebars-helpers#ifNth)|
-|[ifOdd](https://github.com/helpers/handlebars-helpers#ifOdd)|
-|[is](https://github.com/helpers/handlebars-helpers#is)|
-|[isnt](https://github.com/helpers/handlebars-helpers#isnt)|
-|[lt](https://github.com/helpers/handlebars-helpers#lt)|
-|[lte](https://github.com/helpers/handlebars-helpers#lte)|
-|[neither](https://github.com/helpers/handlebars-helpers#neither)|
-|[unlessEq](https://github.com/helpers/handlebars-helpers#unlessEq)|
-|[unlessGt](https://github.com/helpers/handlebars-helpers#unlessGt)|
-|[unlessLt](https://github.com/helpers/handlebars-helpers#unlessLt)|
-|[unlessGteq](https://github.com/helpers/handlebars-helpers#unlessGteq)|
-|[unlessLteq](https://github.com/helpers/handlebars-helpers#unlessLteq)|
-|[moment](https://github.com/helpers/handlebars-helpers#moment)|
-|[ellipsis](https://github.com/helpers/handlebars-helpers#ellipsis)|
-|[sanitize](https://github.com/helpers/handlebars-helpers#sanitize)|
-|[ul](https://github.com/helpers/handlebars-helpers#ul)|
-|[ol](https://github.com/helpers/handlebars-helpers#ol)|
-|[thumbnailImage](https://github.com/helpers/handlebars-helpers#thumbnailImage)|
-|[inflect](https://github.com/helpers/handlebars-helpers#inflect)|
-|[ordinalize](https://github.com/helpers/handlebars-helpers#ordinalize)|
-|[markdown](https://github.com/helpers/handlebars-helpers#markdown)|
-|[add](https://github.com/helpers/handlebars-helpers#add)|
-|[subtract](https://github.com/helpers/handlebars-helpers#subtract)|
-|[divide](https://github.com/helpers/handlebars-helpers#divide)|
-|[multiply](https://github.com/helpers/handlebars-helpers#multiply)|
-|[floor](https://github.com/helpers/handlebars-helpers#floor)|
-|[ceil](https://github.com/helpers/handlebars-helpers#ceil)|
-|[round](https://github.com/helpers/handlebars-helpers#round)|
-|[sum](https://github.com/helpers/handlebars-helpers#sum)|
-|[avg](https://github.com/helpers/handlebars-helpers#avg)|
-|[default](https://github.com/helpers/handlebars-helpers#default)|
-|[option](https://github.com/helpers/handlebars-helpers#option)|
-|[noop](https://github.com/helpers/handlebars-helpers#noop)|
-|[withHash](https://github.com/helpers/handlebars-helpers#withHash)|
-|[addCommas](https://github.com/helpers/handlebars-helpers#addCommas)|
-|[phoneNumber](https://github.com/helpers/handlebars-helpers#phoneNumber)|
-|[random](https://github.com/helpers/handlebars-helpers#random)|
-|[toAbbr](https://github.com/helpers/handlebars-helpers#toAbbr)|
-|[toExponential](https://github.com/helpers/handlebars-helpers#toExponential)|
-|[toFixed](https://github.com/helpers/handlebars-helpers#toFixed)|
-|[toFloat](https://github.com/helpers/handlebars-helpers#toFloat)|
-|[toInt](https://github.com/helpers/handlebars-helpers#toInt)|
-|[toPrecision](https://github.com/helpers/handlebars-helpers#toPrecision)|
-|[extend](https://github.com/helpers/handlebars-helpers#extend)|
-|[forIn](https://github.com/helpers/handlebars-helpers#forIn)|
-|[forOwn](https://github.com/helpers/handlebars-helpers#forOwn)|
-|[toPath](https://github.com/helpers/handlebars-helpers#toPath)|
-|[get](https://github.com/helpers/handlebars-helpers#get)|
-|[getObject](https://github.com/helpers/handlebars-helpers#getObject)|
-|[hasOwn](https://github.com/helpers/handlebars-helpers#hasOwn)|
-|[isObject](https://github.com/helpers/handlebars-helpers#isObject)|
-|[merge](https://github.com/helpers/handlebars-helpers#merge)|
-|[JSONparse](https://github.com/helpers/handlebars-helpers#JSONparse)|
-|[JSONstringify](https://github.com/helpers/handlebars-helpers#JSONstringify)|
-|[camelcase](https://github.com/helpers/handlebars-helpers#camelcase)|
-|[capitalize](https://github.com/helpers/handlebars-helpers#capitalize)|
-|[capitalizeAll](https://github.com/helpers/handlebars-helpers#capitalizeAll)|
-|[center](https://github.com/helpers/handlebars-helpers#center)|
-|[chop](https://github.com/helpers/handlebars-helpers#chop)|
-|[dashcase](https://github.com/helpers/handlebars-helpers#dashcase)|
-|[dotcase](https://github.com/helpers/handlebars-helpers#dotcase)|
-|[hyphenate](https://github.com/helpers/handlebars-helpers#hyphenate)|
-|[isString](https://github.com/helpers/handlebars-helpers#isString)|
-|[lowercase](https://github.com/helpers/handlebars-helpers#lowercase)|
-|[occurrences](https://github.com/helpers/handlebars-helpers#occurrences)|
-|[pascalcase](https://github.com/helpers/handlebars-helpers#pascalcase)|
-|[pathcase](https://github.com/helpers/handlebars-helpers#pathcase)|
-|[plusify](https://github.com/helpers/handlebars-helpers#plusify)|
-|[reverse](https://github.com/helpers/handlebars-helpers#reverse)|
-|[sentence](https://github.com/helpers/handlebars-helpers#sentence)|
-|[snakecase](https://github.com/helpers/handlebars-helpers#snakecase)|
-|[split](https://github.com/helpers/handlebars-helpers#split)|
-|[startsWith](https://github.com/helpers/handlebars-helpers#startsWith)|
-|[titleize](https://github.com/helpers/handlebars-helpers#titleize)|
-|[trim](https://github.com/helpers/handlebars-helpers#trim)|
-|[uppercase](https://github.com/helpers/handlebars-helpers#uppercase)|
-|[encodeURI](https://github.com/helpers/handlebars-helpers#encodeURI)|
-|[decodeURI](https://github.com/helpers/handlebars-helpers#decodeURI)|
-|[urlResolve](https://github.com/helpers/handlebars-helpers#urlResolve)|
-|[urlParse](https://github.com/helpers/handlebars-helpers#urlParse)|
-|[stripProtocol](https://github.com/helpers/handlebars-helpers#stripProtocol)|
-|[enumerate](https://github.com/helpers/handlebars-helpers#enumerate)|
-|[equals](https://github.com/helpers/handlebars-helpers#equals)|
-|[getShortMonth](https://github.com/helpers/handlebars-helpers#getShortMonth)|
-|[pick](https://github.com/helpers/handlebars-helpers#pick)|
+* [after](https://github.com/helpers/handlebars-helpers#after)
+* [arrayify](https://github.com/helpers/handlebars-helpers#arrayify)
+* [before](https://github.com/helpers/handlebars-helpers#before)
+* [eachIndex](https://github.com/helpers/handlebars-helpers#eachIndex)
+* [filter](https://github.com/helpers/handlebars-helpers#filter)
+* [first](https://github.com/helpers/handlebars-helpers#first)
+* [forEach](https://github.com/helpers/handlebars-helpers#forEach)
+* [inArray](https://github.com/helpers/handlebars-helpers#inArray)
+* [isArray](https://github.com/helpers/handlebars-helpers#isArray)
+* [last](https://github.com/helpers/handlebars-helpers#last)
+* [lengthEqual](https://github.com/helpers/handlebars-helpers#lengthEqual)
+* [map](https://github.com/helpers/handlebars-helpers#map)
+* [some](https://github.com/helpers/handlebars-helpers#some)
+* [sort](https://github.com/helpers/handlebars-helpers#sort)
+* [sortBy](https://github.com/helpers/handlebars-helpers#sortBy)
+* [withAfter](https://github.com/helpers/handlebars-helpers#withAfter)
+* [withBefore](https://github.com/helpers/handlebars-helpers#withBefore)
+* [withFirst](https://github.com/helpers/handlebars-helpers#withFirst)
+* [withLast](https://github.com/helpers/handlebars-helpers#withLast)
+* [withSort](https://github.com/helpers/handlebars-helpers#withSort)
+* [isEmpty](https://github.com/helpers/handlebars-helpers#isEmpty)
+* [iterate](https://github.com/helpers/handlebars-helpers#iterate)
+* [length](https://github.com/helpers/handlebars-helpers#length)
+* [and](https://github.com/helpers/handlebars-helpers#and)
+* [gt](https://github.com/helpers/handlebars-helpers#gt)
+* [gte](https://github.com/helpers/handlebars-helpers#gte)
+* [has](https://github.com/helpers/handlebars-helpers#has)
+* [eq](https://github.com/helpers/handlebars-helpers#eq)
+* [ifEven](https://github.com/helpers/handlebars-helpers#ifEven)
+* [ifNth](https://github.com/helpers/handlebars-helpers#ifNth)
+* [ifOdd](https://github.com/helpers/handlebars-helpers#ifOdd)
+* [is](https://github.com/helpers/handlebars-helpers#is)
+* [isnt](https://github.com/helpers/handlebars-helpers#isnt)
+* [lt](https://github.com/helpers/handlebars-helpers#lt)
+* [lte](https://github.com/helpers/handlebars-helpers#lte)
+* [neither](https://github.com/helpers/handlebars-helpers#neither)
+* [unlessEq](https://github.com/helpers/handlebars-helpers#unlessEq)
+* [unlessGt](https://github.com/helpers/handlebars-helpers#unlessGt)
+* [unlessLt](https://github.com/helpers/handlebars-helpers#unlessLt)
+* [unlessGteq](https://github.com/helpers/handlebars-helpers#unlessGteq)
+* [unlessLteq](https://github.com/helpers/handlebars-helpers#unlessLteq)
+* [moment](https://github.com/helpers/handlebars-helpers#moment)
+* [ellipsis](https://github.com/helpers/handlebars-helpers#ellipsis)
+* [sanitize](https://github.com/helpers/handlebars-helpers#sanitize)
+* [ul](https://github.com/helpers/handlebars-helpers#ul)
+* [ol](https://github.com/helpers/handlebars-helpers#ol)
+* [thumbnailImage](https://github.com/helpers/handlebars-helpers#thumbnailImage)
+* [inflect](https://github.com/helpers/handlebars-helpers#inflect)
+* [ordinalize](https://github.com/helpers/handlebars-helpers#ordinalize)
+* [markdown](https://github.com/helpers/handlebars-helpers#markdown)
+* [add](https://github.com/helpers/handlebars-helpers#add)
+* [subtract](https://github.com/helpers/handlebars-helpers#subtract)
+* [divide](https://github.com/helpers/handlebars-helpers#divide)
+* [multiply](https://github.com/helpers/handlebars-helpers#multiply)
+* [floor](https://github.com/helpers/handlebars-helpers#floor)
+* [ceil](https://github.com/helpers/handlebars-helpers#ceil)
+* [round](https://github.com/helpers/handlebars-helpers#round)
+* [sum](https://github.com/helpers/handlebars-helpers#sum)
+* [avg](https://github.com/helpers/handlebars-helpers#avg)
+* [default](https://github.com/helpers/handlebars-helpers#default)
+* [option](https://github.com/helpers/handlebars-helpers#option)
+* [noop](https://github.com/helpers/handlebars-helpers#noop)
+* [withHash](https://github.com/helpers/handlebars-helpers#withHash)
+* [addCommas](https://github.com/helpers/handlebars-helpers#addCommas)
+* [phoneNumber](https://github.com/helpers/handlebars-helpers#phoneNumber)
+* [random](https://github.com/helpers/handlebars-helpers#random)
+* [toAbbr](https://github.com/helpers/handlebars-helpers#toAbbr)
+* [toExponential](https://github.com/helpers/handlebars-helpers#toExponential)
+* [toFixed](https://github.com/helpers/handlebars-helpers#toFixed)
+* [toFloat](https://github.com/helpers/handlebars-helpers#toFloat)
+* [toInt](https://github.com/helpers/handlebars-helpers#toInt)
+* [toPrecision](https://github.com/helpers/handlebars-helpers#toPrecision)
+* [extend](https://github.com/helpers/handlebars-helpers#extend)
+* [forIn](https://github.com/helpers/handlebars-helpers#forIn)
+* [forOwn](https://github.com/helpers/handlebars-helpers#forOwn)
+* [toPath](https://github.com/helpers/handlebars-helpers#toPath)
+* [get](https://github.com/helpers/handlebars-helpers#get)
+* [getObject](https://github.com/helpers/handlebars-helpers#getObject)
+* [hasOwn](https://github.com/helpers/handlebars-helpers#hasOwn)
+* [isObject](https://github.com/helpers/handlebars-helpers#isObject)
+* [merge](https://github.com/helpers/handlebars-helpers#merge)
+* [JSONparse](https://github.com/helpers/handlebars-helpers#JSONparse)
+* [JSONstringify](https://github.com/helpers/handlebars-helpers#JSONstringify)
+* [camelcase](https://github.com/helpers/handlebars-helpers#camelcase)
+* [capitalize](https://github.com/helpers/handlebars-helpers#capitalize)
+* [capitalizeAll](https://github.com/helpers/handlebars-helpers#capitalizeAll)
+* [center](https://github.com/helpers/handlebars-helpers#center)
+* [chop](https://github.com/helpers/handlebars-helpers#chop)
+* [dashcase](https://github.com/helpers/handlebars-helpers#dashcase)
+* [dotcase](https://github.com/helpers/handlebars-helpers#dotcase)
+* [hyphenate](https://github.com/helpers/handlebars-helpers#hyphenate)
+* [isString](https://github.com/helpers/handlebars-helpers#isString)
+* [lowercase](https://github.com/helpers/handlebars-helpers#lowercase)
+* [occurrences](https://github.com/helpers/handlebars-helpers#occurrences)
+* [pascalcase](https://github.com/helpers/handlebars-helpers#pascalcase)
+* [pathcase](https://github.com/helpers/handlebars-helpers#pathcase)
+* [plusify](https://github.com/helpers/handlebars-helpers#plusify)
+* [reverse](https://github.com/helpers/handlebars-helpers#reverse)
+* [sentence](https://github.com/helpers/handlebars-helpers#sentence)
+* [snakecase](https://github.com/helpers/handlebars-helpers#snakecase)
+* [split](https://github.com/helpers/handlebars-helpers#split)
+* [startsWith](https://github.com/helpers/handlebars-helpers#startsWith)
+* [titleize](https://github.com/helpers/handlebars-helpers#titleize)
+* [trim](https://github.com/helpers/handlebars-helpers#trim)
+* [uppercase](https://github.com/helpers/handlebars-helpers#uppercase)
+* [encodeURI](https://github.com/helpers/handlebars-helpers#encodeURI)
+* [decodeURI](https://github.com/helpers/handlebars-helpers#decodeURI)
+* [urlResolve](https://github.com/helpers/handlebars-helpers#urlResolve)
+* [urlParse](https://github.com/helpers/handlebars-helpers#urlParse)
+* [stripProtocol](https://github.com/helpers/handlebars-helpers#stripProtocol)
+* [enumerate](https://github.com/helpers/handlebars-helpers#enumerate)
+* [equals](https://github.com/helpers/handlebars-helpers#equals)
+* [getShortMonth](https://github.com/helpers/handlebars-helpers#getShortMonth)
+* [pick](https://github.com/helpers/handlebars-helpers#pick)
 
 ## Contributing to helpers
 
-BigCommerce's [custom handlebar's helpers](https://github.com/bigcommerce/paper-handlebars/tree/master/helpers) are open source. To contribute, make a pull request to [bigcommerce/paper-handlebars](https://github.com/bigcommerce/paper-handlebars).
+BigCommerce's [custom Handlebars helpers](https://github.com/bigcommerce/paper-handlebars/tree/master/helpers) are open source. To contribute, make a pull request to [bigcommerce/paper-handlebars](https://github.com/bigcommerce/paper-handlebars).
 
 ## Resources
+
 * [Widgets](https://developer.bigcommerce.com/api-docs/store-management/widgets/overview)
 * [Theme Objects](https://developer.bigcommerce.com/stencil-docs/reference-docs/global-objects-and-properties)
 * [Cornerstone](https://github.com/bigcommerce/cornerstone)
 * [Paper Handlebars](https://github.com/bigcommerce/paper-handlebars/tree/master/helpers)
-
-### Additional resources
-* [Handlebars.js Docs](https://handlebarsjs.com/) (handlebarsjs.com)
+* [Handlebars.js Docs](https://handlebarsjs.com/)
