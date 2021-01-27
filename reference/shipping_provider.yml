@@ -465,8 +465,6 @@ definitions:
           Optional, any global request options declared by the carrier and
           configued by the merchant to retrieve rates
         title: Connection Options Instance
-      rate_options:
-        $ref: '#/definitions/RateOptionsInstance'
     required:
       - base_options
   BaseOptionsSchema:
@@ -728,7 +726,7 @@ definitions:
                   description: >-
                     The Group (if any) that this customer is in. This will be
                     default to zero if the customer is not in a group or is a
-                    guest. 
+                    guest.
                   properties:
                     customer_group_id:
                       type: integer
@@ -768,8 +766,6 @@ definitions:
           Optional, any global request options declared by the carrier and
           configued by the merchant to retrieve rates
         title: Connection Options Instance
-      rate_options:
-        $ref: '#/definitions/RateOptionsInstance'
     required:
       - base_options
   CustomerDetails:
@@ -787,7 +783,7 @@ definitions:
           title: Customer Group
           description: >-
             The Group (if any) that this customer is in. This will be default to
-            zero if the customer is not in a group or is a guest. 
+            zero if the customer is not in a group or is a guest.
       customer_id:
         type: integer
     title: Customer Details
@@ -829,7 +825,7 @@ definitions:
     title: Customer Group
     description: >-
       The Group (if any) that this customer is in. This will be default to zero
-      if the customer is not in a group or is a guest. 
+      if the customer is not in a group or is a guest.
   KeyValuePair:
     type: object
     properties:
@@ -2051,7 +2047,7 @@ definitions:
               description: >-
                 The Group (if any) that this customer is in. This will be
                 default to zero if the customer is not in a group or is a
-                guest. 
+                guest.
               properties:
                 customer_group_id:
                   type: integer
