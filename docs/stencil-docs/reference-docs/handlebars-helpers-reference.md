@@ -10,32 +10,32 @@
 
 </div>
 
-This article is a reference for [Stencil](https://developer.bigcommerce.com/stencil-docs/getting-started/about-stencil) supported [Handlebars](https://handlebarsjs.com/) helpers. It includes [custom helpers](#custom-helpers) documentation and usage examples and a list of whitelisted [standard helpers](#standard-helpers).
+This article is a reference for [Stencil](https://developer.bigcommerce.com/stencil-docs/getting-started/about-stencil) supported [Handlebars](https://handlebarsjs.com/) helpers. It includes [custom helpers](#custom-helpers) documentation and a list of whitelisted [standard helpers](#standard-helpers).
 
 ## Custom helpers
 
-To decide which [custom Handlebars helpers](https://github.com/bigcommerce/paper-handlebars/tree/master/helpers) to use, consult the following table:
+The following table contains BigCommerce's open source [Handlebars helpers](https://github.com/bigcommerce/paper-handlebars/tree/master/helpers).
 
 | **Helper** | **Category** | **Description** |
 | --- | --- | --- |
 | [limit](#limit) | array | Limits array to second argument. |
 | [pluck](#pluck) | array | Uses search key to get values from collections. |
-| [cdn](#cdn) | assets | Url transform for content delivery networks. |
+| [cdn](#cdn) | assets | A URL transformer for content delivery networks. |
 | [money](#money) | currency | Formats number length, thousands delimiter, and decimal delimiter. |
-| [getFontLoaderConfig](#getfontloaderconfig) | fonts | Returns font loader config as JSON string. |
+| [getFontLoaderConfig](#getfontloaderconfig) | fonts | Returns font loader config as a JSON string. |
 | [getFontsCollection](#getfontscollection) | fonts | Returns `<link>` elements for configured fonts. |
 | [encodeHtmlEntities](#encodehtmlentities) | html | Encodes HTML entities. |
 | [nl2br](#nl2br) | html | Converts newline characters to `<br>` tags. |
 | [pre](#pre) | html | Renders preformatted text. |
-| [resourceHints](#resourcehints) | html | Prefetch Google fonts. |
-| [stylesheet](#stylesheet) | html | Renders link tag for inserting a stylesheet. |
+| [resourceHints](#resourcehints) | html | Pre-fetches Google fonts. |
+| [stylesheet](#stylesheet) | html | Renders a link tag for inserting a stylesheet. |
 | [lang](#lang) | i18n | Maps keys to translation files. |
-| [langJson](#langjson) | i18n | Returns language translation keys as JSON string. |
-| [getContentImage](#getcontentimage) | images | Returns sized image URL from store `/content` directory. |
+| [langJson](#langjson) | i18n | Returns language translation keys as a JSON string. |
+| [getContentImage](#getcontentimage) | images | Returns sized image URL from store's `/content` directory. |
 | [getContentImageSrcset](#getcontentimagesrcset) | images | Returns source set of URLs for images in `/content`. |
 | [getImage](#getimage) | images | Returns image URL for specified size. |
-| [getImageManagerImage](#getimagemanagerimage) | images | Returns sized image URL for `/product_images/uploaded_images images..` |
-| [getImageManagerImageSrcset](#getimagemanagerimagesrcset) | images | Returns image srcset for `/product_images/uploaded_images` images. |
+| [getImageManagerImage](#getimagemanagerimage) | images | Returns sized image URL for images in `/product_images/uploaded_images`. |
+| [getImageManagerImageSrcset](#getimagemanagerimagesrcset) | images | Returns image srcset for images in `/product_images/uploaded_images`. |
 | [getImageSrcset](#getimagesrcset) | images | Returns single image URL or list of URLs for different sizes. |
 | [any](#any) | logic | Renders block if any params are true. |
 | [all](#all) | logic | Renders block if all params are true. |
@@ -43,24 +43,24 @@ To decide which [custom Handlebars helpers](https://github.com/bigcommerce/paper
 | [contains](#contains) | logic | Renders block if first param is in second param. |
 | [for](#for) | logic | Iterates for range `a` to `b`. |
 | [if](#if) | logic | Renders block if statement is true. |
-| [or](#or) | logic | Renders block if on more param evaluates to true. |
+| [or](#or) | logic | Renders block if on more parameters evaluate to true. |
 | [unless](#unless) | logic | Renders block if statement is false. |
 | [concat](#concat) | string | Concatenates two strings. |
-| [join](#join) | string | Joins array of string items; returns a string. |
-| [json](#json) | string | `JSON.stringify()`s an object. |
-| [replace](#replace) | string | Replaces all instances of first param in second param. |
+| [join](#join) | string | Joins an array of string elements into one string. |
+| [json](#json) | string | Converts a JavaScript object into a JSON string. |
+| [replace](#replace) | string | Replaces all instances of the first parameter in the second parameter. |
 | [setURLQueryParam](#seturlqueryparam) | string | Appends keys values to a URL. |
 | [stripQuerystring](#stripquerystring) | string | Removes query string. |
-| [toLowerCase](#tolowercase) | string | Converts string to lowercase. |
+| [toLowerCase](#tolowercase) | string | Converts a string to lowercase. |
 | [truncate](#truncate) | string | Truncates a string. |
 | [block](#block) | template | Defines a content block. |
-| [dynamicComponent](#dynamiccomponent) | template | Inserts dynamic partial at the path passed in. |
-| [inject](#inject) | template | Injects key values into jsContext. |
-| [jsContext](#jscontext) | template | Returns JSON for all data injected by inject helper. |
+| [dynamicComponent](#dynamiccomponent) | template | Inserts a dynamic partial at the specified path. |
+| [inject](#inject) | template | Injects key values into `{{jsContext}}`. |
+| [jsContext](#jscontext) | template | Returns JSON for all data injected by `{{inject}}`. |
 | [partial](#partial) | template | Overrides content defined by a block helper. |
 | [region](#region) | template | Specifies a widget region. |
 | [assignVar](#assignvar) | variables | Saves value to a variable. |
-| [getVar](#getvar) | variables| Returns variable value. |
+| [getVar](#getvar) | variables| Returns a variable value. |
 | [decrementVar](#decrementvar) | variables | Decrements a variable by 1. |
 | [incrementVar](#incrementvar) | variables | Increments a variable by 1. |
 
@@ -388,7 +388,7 @@ Returns language translation keys as JSON string.
 
 ### {{getContentImage}}
 
-Returns URL for an image [uploaded to `/dav/content/`](https://support.bigcommerce.com/s/article/File-Access-WebDAV).
+Returns a URL for an image [uploaded to `/dav/content/`](https://support.bigcommerce.com/s/article/File-Access-WebDAV).
 
 #### Parameters
 
@@ -667,6 +667,7 @@ Renders block if all parameters are `true`.
 ### {{compare}}
 
 Render a block if comparison of the first and third parameters returns true.
+Compares values with JavaScript operators, including `typeof`. 
 
 #### Parameters
 
@@ -692,6 +693,8 @@ Render a block if comparison of the first and third parameters returns true.
 ### {{contains}}
 
 Renders the block if `collection` has the given `value`, using strict equality (`===`) for comparison, otherwise the inverse block is rendered (if specified). If a `startIndex` is specified and is negative, it is used as the offset from the end of the collection.
+
+Renders block if first param is in second param.
 
 #### Parameters
 
@@ -814,7 +817,7 @@ Renders a block if a statement is false; does not support operators for comparis
 
 ### {{concat}}
 
-Concatenates two values.
+Concatenates two strings.
 
 #### Parameters
 
