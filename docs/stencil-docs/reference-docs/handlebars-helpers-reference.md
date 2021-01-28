@@ -329,7 +329,7 @@ Renders preformatted text.
 #### Example
 
 ```handlebars
-{{{need to add}}}
+{{need to add}}
 ```
 
 [See it in GitHub](https://github.com/bigcommerce/paper-handlebars/blob/master/helpers/pre.js).
@@ -358,12 +358,12 @@ Pre-fetches Google fonts. Outputs a formatted `link` tag for DNS-prefetch.
 ```handlebars
 {{stylesheet assetPath}}
 ``` 
-Renders a link tag to insert a stylesheet into a theme. (This is required if you want Theme Editor to rewrite the stylesheet file when a merchant customizes their theme.) This helper returns an HTML string.
+Renders a link tag to insert a stylesheet into a theme; returns an HTML string. (This is required if you want Theme Editor to rewrite the stylesheet file when a merchant customizes their theme.)
 
 #### Parameters
 
 - `assetPath` (String}): Filepath to the theme's CSS stylesheet file.
-- You can append optional parameters as `key="value"` pairs.
+- `options`: You can append optional parameters as `key="value"` pairs.
 
 #### Example
 
@@ -378,7 +378,7 @@ Renders a link tag to insert a stylesheet into a theme. (This is required if you
 ```handlebars
 {{lang translationKey}}
 ```
-Maps keys to translation files, based on the locale indicated by the visitor’s browser. 
+Maps keys to translation files based on the locale indicated by the visitor’s browser. 
 
 #### Parameters
 
@@ -401,11 +401,11 @@ Maps keys to translation files, based on the locale indicated by the visitor’s
 ```handlebars
 {{langJson keyFilter}}
 ```
-Returns language translation keys as JSON string.
+Returns language translation keys as a JSON string.
 
 #### Parameters
 
-- `keyFilter` {String}
+- `keyFilter` {String}: need to add definition
 
 #### Example
 
@@ -418,13 +418,13 @@ Returns language translation keys as JSON string.
 ### {{getContentImage}}
 
 ```handlebars
-{{getContentImage a width height}}
+{{getContentImage path width height}}
 ```
-Returns a URL for an image [uploaded to `/dav/content/`](https://support.bigcommerce.com/s/article/File-Access-WebDAV).
+Returns a URL for an image uploaded to `/dav/content/`. To learn more about uploading files to your store's server, see [WebDAV](https://support.bigcommerce.com/s/article/File-Access-WebDAV).
 
 #### Parameters
 
-- `a` {String}: Image path relative to `/dav/content/`.
+- `path` {String}: Image path relative to `/dav/content/`.
 - `width` {Integer}: Width in pixels.
 - `height` {Integer}: Height in pixels.
 
@@ -451,13 +451,13 @@ Returns a URL for an image [uploaded to `/dav/content/`](https://support.bigcomm
 ### {{getContentImageSrcset}}
 
 ```handlebars
-{{getContentImageSrcset a}}
+{{getContentImageSrcset path}}
 ```
-Returns a `srcset` for an image [uploaded to `/dav/content/`](https://support.bigcommerce.com/s/article/File-Access-WebDAV).
+Returns a `srcset` for an image uploaded to `/dav/content/`.
 
 #### Parameters
 
-- `a` {String}: Image path relative to `/dav/content/`.
+- `path` {String}: Image path relative to `/dav/content/`.
 
 #### Example
 
@@ -477,11 +477,14 @@ https://cdn.bcapp/3dsf74g/images/stencil/80w/content/folder/asset.jpg 80w, https
 
 ### {{getImage}}
 
-Returns an `<img>` tag `src` value for images of the specified size. Values for the size parameter are defined in the `settings` array in [`config.json`](https://github.com/bigcommerce/cornerstone/blob/master/config.json).
+```handlebars
+{{getImage stencilImage size}}
+```
+Returns an `<img>` tag `src` value for images of a specified size. Values for the size parameter are defined in the `settings` array in [`config.json`](https://github.com/bigcommerce/cornerstone/blob/master/config.json).
 
 #### Parameters
 
-- `stencilImage` {String}: a StencilImage.
+- `stencilImage` {String}: a Stencil image.
 - `size` {String}: A key in the `theme_settings` object.
 - `defaultImage` {String}: Optional default image URL to use if the `stencilImage` is undefined.
 
@@ -493,15 +496,16 @@ Returns an `<img>` tag `src` value for images of the specified size. Values for 
 
 [See it in GitHub](https://github.com/bigcommerce/paper-handlebars/blob/master/helpers/getImage.js).
 
-[See it in Cornerstone](https://github.com/bigcommerce/cornerstone/search?l=HTML&q=getImage).
-
 ### {{getImageManagerImage}}
 
-Returns an [Image Manager](https://support.bigcommerce.com/s/article/Using-the-Image-Manager) image URL for an image [uploaded to `/dav/product_images/uploaded_images`](https://support.bigcommerce.com/s/article/File-Access-WebDAV).
+```handlebars
+{{getImageManagerImage path width height}}
+```
+Returns an [Image Manager](https://support.bigcommerce.com/s/article/Using-the-Image-Manager) image URL for an image uploaded to `/dav/product_images/uploaded_images`. To learn more about uploading files to your store's server, see [WebDAV](https://support.bigcommerce.com/s/article/File-Access-WebDAV).
 
 #### Parameters
 
-- `a` {String}: Image path relative to `/dav/product_images/uploaded_images`.
+- `path` {String}: Image path relative to `/dav/product_images/uploaded_images`.
 - `width` {Integer}: Width in pixels.
 - `height` {Integer}: Height in pixels.
 
@@ -526,15 +530,16 @@ Returns an [Image Manager](https://support.bigcommerce.com/s/article/Using-the-I
 
 [See it in GitHub](https://github.com/bigcommerce/paper-handlebars/blob/master/helpers/getImageManagerImage.js).
 
-[See it in Cornerstone](https://github.com/bigcommerce/cornerstone/search?l=HTML&q=getImageManagerImage).
-
 ### {{getImageManagerImageSrcset}}
 
-Returns an [Image Manager](https://support.bigcommerce.com/s/article/Using-the-Image-Manager) image `srcset` for an image [uploaded to `/dav/product_images/uploaded_images`](https://support.bigcommerce.com/s/article/File-Access-WebDAV).
+```handlebars
+{{getImageManagerImageSrcset path}}
+```
+Returns an [Image Manager](https://support.bigcommerce.com/s/article/Using-the-Image-Manager) image `srcset` for an image uploaded to `/dav/product_images/uploaded_images`.
 
 #### Parameters
 
-- `a` {String}: Image path relative to `/dav/product_images/uploaded_images`.
+- `path` {String}: Image path relative to `/dav/product_images/uploaded_images`.
 
 #### Example
 
@@ -554,11 +559,14 @@ https://cdn.bcapp/3dsf74g/images/stencil/80w/image-manager/folder/asset.jpg 80w,
 
 ### {{getImageSrcset}}
 
-The `getImageSrcset` helper is a replacement for `getImage` which allows you to generate either a single image URL (for an `<img>` `src`) or a list of image sizes for `srcset`. [Srcset](https://developer.mozilla.org/en-US/docs/Web/HTML/Element/img#attr-srcset) allows you to specify a list of sizes from which the browser may choose, based on the expected size of the image on the page, the device's pixel density, and other factors.
+```handlebars
+{{getImageSrcset stencilImage size}}
+```
+The `getImageSrcset` helper is a replacement for [`getImage`](#getImage) which allows you to generate either a single image URL (for an `<img>` `src`) or a list of image sizes for `srcset`. Using the [srcset](https://developer.mozilla.org/en-US/docs/Web/HTML/Element/img#attr-srcset) attribute, you can specify a list of image sizes for the browser to choose from based on the expected size of the image on the page, the device's pixel density, and other factors.
 
 #### Parameters
 
-- `stencilImage` {String}: a StencilImage.
+- `stencilImage` {String}: a Stencil image.
 - `size` {String}: A key in the `theme_settings` object.
 - `defaultImage` {String}: Optional default image URL to use if the `stencilImage` is undefined.
 
@@ -596,7 +604,7 @@ Default sizes:
 {{getImageSrcset image 1x="1280w"}}
 ```
 
-By specifying a single size as the '1x', size, you can choose to get an image at any size of your choosing. You can reference a value from the `theme_settings` object (similar to `getImage`), or you can specify your own size inline. Note that `getImageSrcset` does not require `theme_settings` keys to be wrapped in quotes; they should be referenced directly.
+By specifying a single size as `1x`, you can choose any image resolution. You can reference a value from the `theme_settings` object (similar to `getImage`), or you can specify your own size inline. `getImageSrcset` does not require `theme_settings` keys to be wrapped in quotes; they should be referenced directly.
 
 **Pixel density**
 
@@ -606,7 +614,7 @@ By specifying a single size as the '1x', size, you can choose to get an image at
 {{getImageSrcset image 1x="640x640" 2x="1280x1280"}}
 ```
 
-By specifying several sizes using the pixel density descriptor, you can generate a srcset of different image resolutions for different pixel density screens as described [here](https://developer.mozilla.org/en-US/docs/Learn/HTML/Multimedia_and_embedding/Responsive_images#Resolution_switching_Same_size_different_resolutions). For example, you can specify a `2x` image for Retina screens, and a `1x` image for normal screens.
+By specifying several sizes using the pixel density descriptor, you can generate a `srcset` of different image resolutions for different pixel density screens as described [here](https://developer.mozilla.org/en-US/docs/Learn/HTML/Multimedia_and_embedding/Responsive_images#Resolution_switching_Same_size_different_resolutions). For example, you can specify a `2x` image for Retina screens, and a `1x` image for normal screens.
 
 As above, you can reference `theme_settings` keys or specify your own size inline.
 
@@ -626,16 +634,17 @@ As above, you can reference `theme_settings` keys or specify your own size inlin
 -->
 ```
 
-By specifying several sizes using the inherent width descriptor, you can generate a srcset of different image resolutions based on width, which can in turn be selected by the browser based on the expected size of the image when the page is painted. It is recommended to use this together with a `sizes` attribute on the `<img>` as described [here](https://developer.mozilla.org/en-US/docs/Learn/HTML/Multimedia_and_embedding/Responsive_images#Resolution_switching_Different_sizes). In Cornerstone, this is handled automatically via JavaScript.
+By specifying several sizes using the inherent width descriptor, you can generate a `srcset` of different image resolutions based on width, which can in turn be selected by the browser based on the expected size of the image when the page is painted. It is recommended to use this together with a `sizes` attribute on the `<img>` element as described [here](https://developer.mozilla.org/en-US/docs/Learn/HTML/Multimedia_and_embedding/Responsive_images#Resolution_switching_Different_sizes). In Cornerstone, this is handled automatically via JavaScript.
 
 As above, you can reference `theme_settings` keys or specify your own size inline.
 
 [See it in GitHub](https://github.com/bigcommerce/paper-handlebars/blob/master/helpers/getImageSrcset.js).
 
-[See it in Cornerstone](https://github.com/bigcommerce/cornerstone/search?l=HTML&q=getImageSrcset).
-
 ### {{any}}
 
+```handlebars
+{{any arg}}
+```
 Renders block if one or more parameters is true. 
 
 #### Parameters
@@ -643,8 +652,6 @@ Renders block if one or more parameters is true.
 - `arg` {String|Number|Array|Object}
 
 #### Example
-
-The `any` helper is invoked as shown here:
 
 ```handlebars
 {{#any items selected=true}}
@@ -654,7 +661,7 @@ The `any` helper is invoked as shown here:
 
 A usage example is [`templates/components/category/shop-by-price.html`](https://github.com/bigcommerce/cornerstone/blob/master/templates/components/category/shop-by-price.html), a category page in Stencil's Cornerstone base theme that does _not_ have faceted search turned on. Shoppers will see "Shop by price" filters instead of product filters.
 
-In this component, the `{{#any...` helper is used to determine whether a shopper has selected one of the filters, and whether a "reset" button needs to be displayed:
+In this component, the `{{any}}` helper is used to determine whether a shopper has selected one of the filters, and whether a "reset" button needs to be displayed:
 
 ```handlebars
 {{#any shop_by_price selected=true}}
@@ -668,11 +675,12 @@ In this component, the `{{#any...` helper is used to determine whether a shopper
 
 [See it in GitHub](https://github.com/bigcommerce/paper-handlebars/blob/master/helpers/any.js).
 
-[See it in Cornerstone](https://github.com/bigcommerce/cornerstone/search?l=HTML&q=any).
-
 ### {{all}}
 
-Renders block if all parameters are `true`. 
+```handlebars
+{{all arg}}
+```
+Renders block if all parameters are true. 
 
 #### Parameters
 
@@ -696,17 +704,18 @@ Renders block if all parameters are `true`.
 
 [See it in GitHub](https://github.com/bigcommerce/paper-handlebars/blob/master/helpers/all.js).
 
-[See it in Cornerstone](https://github.com/bigcommerce/cornerstone/search?l=HTML&q=all).
-
 ### {{compare}}
 
-Render a block if comparison of the first and third parameters returns true.
-Compares values with JavaScript operators, including `typeof`. 
+```handlebars
+{{compare a operator b}}
+```
+
+Compares values with JavaScript operators. Renders block if comparison of the first and third parameters returns true.
 
 #### Parameters
 
-* `a` {}
-* `operator` {}: The operator to use. Operators must be enclosed in quotes: ">", "=", "<=", and so on.
+- `a` {}
+- `operator` {}: The operator to use. Operators must be enclosed in quotes: ">", "=", "<=", and so on.
   * `==`
   * `===`
   * `!=`
@@ -716,26 +725,23 @@ Compares values with JavaScript operators, including `typeof`.
   * `<=`
   * `>=`
   * `typeof`
-* `b` {}
-* `options` {Object}: Options object.
-* `returns` {String}: Block, or if specified the inverse block is rendered if falsy.
+- `b` {}
+- `options` {Object}: Options object.
+- `returns` {String}: Block, or if specified the inverse block is rendered if falsy.
 
 [See it in GitHub](https://github.com/bigcommerce/paper-handlebars/blob/master/helpers/compare.js).
 
-[See it in Cornerstone](https://github.com/bigcommerce/cornerstone/search?l=HTML&q=compare).
-
 ### {{contains}}
 
-Renders the block if `collection` has the given `value`, using strict equality (`===`) for comparison, otherwise the inverse block is rendered (if specified). If a `startIndex` is specified and is negative, it is used as the offset from the end of the collection.
-
-Renders block if first param is in second param.
+```handlebars
+{{contains collection value}}
+```
+Renders block if `collection` has the given `value`, using strict equality (`===`) for comparison, otherwise the inverse block is rendered (if specified). If a `startIndex` is specified and is negative, it is used as the offset from the end of the collection.
 
 #### Parameters
 
 - `collection` {Array|Object|String}: The collection to iterate over.
-- `value` {any}: The value to check for.
-
-//source: https://github.com/helpers/handlebars-helpers
+- `value` {String|Number|Array|Object}: The value to check for.
 
 #### Example
 
@@ -750,17 +756,17 @@ Renders block if first param is in second param.
 
 [See it in GitHub](https://github.com/bigcommerce/paper-handlebars/blob/master/helpers/contains.js).
 
-[See it in Cornerstone](https://github.com/bigcommerce/cornerstone/search?l=HTML&q=contains).
-
 ### {{for}}
 
-Repeats a block for a specified range from index `a` to element `b`. To protect against infinite loops, this helper is limited to 100 iterations.
+```handlebars
+{{for a b}}
+```
+Repeats block for a specified range from index `a` to index `b`. To protect against infinite loops, this helper is limited to 100 iterations.
 
 #### Parameters
 
 - `a` {Number}: Starting number.
 - `b` {Number}: Ending number.
-- `context` {Object}
 
 #### Example
 
@@ -772,10 +778,11 @@ Repeats a block for a specified range from index `a` to element `b`. To protect 
 
 [See it in GitHub](https://github.com/bigcommerce/paper-handlebars/blob/master/helpers/for.js).
 
-[See it in Cornerstone](https://github.com/bigcommerce/cornerstone/search?l=HTML&q=for).
-
 ### {{if}}
 
+```handlebars
+{{if arg}}
+```
 Renders `if` block when if-statement evaluates to true; otherwise renders `else` block.
 
 #### Parameters
@@ -796,10 +803,11 @@ Renders `if` block when if-statement evaluates to true; otherwise renders `else`
 
 [See it in GitHub](https://github.com/bigcommerce/paper-handlebars/blob/master/helpers/if.js).
 
-[See it in Cornerstone](https://github.com/bigcommerce/cornerstone/search?l=HTML&q=if).
-
 ### {{or}}
 
+```handlebars
+{{or arg}}
+```
 Renders block if one or more parameters evaluates to true.
 
 #### Parameters
@@ -822,10 +830,11 @@ Renders block if one or more parameters evaluates to true.
 
 [See it in GitHub](https://github.com/bigcommerce/paper-handlebars/blob/master/helpers/or.js).
 
-[See it in Cornerstone](https://github.com/bigcommerce/cornerstone/search?l=HTML&q=or).
-
 ### {{unless}}
 
+```handlebars
+{{unless arg}}
+```
 Renders a block if a statement is false; does not support operators for comparison expressions.
 
 #### Parameters
@@ -847,10 +856,11 @@ Renders a block if a statement is false; does not support operators for comparis
 
 [See it in GitHub](https://github.com/bigcommerce/paper-handlebars/blob/master/helpers/unless.js).
 
-[See it in Cornerstone](https://github.com/bigcommerce/cornerstone/search?l=HTML&q=unless).
-
 ### {{concat}}
 
+```handlebars
+{{concat value otherValue}}
+```
 Concatenates two strings.
 
 #### Parameters
@@ -866,10 +876,11 @@ Concatenates two strings.
 
 [See it in GitHub](https://github.com/bigcommerce/paper-handlebars/blob/master/helpers/concat.js).
 
-[See it in Cornerstone](https://github.com/bigcommerce/cornerstone/search?l=HTML&q=concat).
-
 ### {{join}}
 
+```handlebars
+{{join values separator}}
+```
 Joins an array of string elements into a single string.
 
 #### Parameters
@@ -888,10 +899,11 @@ Joins an array of string elements into a single string.
 
 [See it in GitHub](https://github.com/bigcommerce/paper-handlebars/blob/master/helpers/join.js).
 
-[See it in Cornerstone](https://github.com/bigcommerce/cornerstone/search?l=HTML&q=join).
-
 ### {{json}}
 
+```handlebars
+{{json data}}
+```
 Converts a JavaScript object into a JSON string.
 
 #### Parameters
@@ -914,19 +926,16 @@ Converts a JavaScript object into a JSON string.
 
 [See it in GitHub](https://github.com/bigcommerce/paper-handlebars/blob/master/helpers/json.js).
 
-[See it in Cornerstone](https://github.com/bigcommerce/cornerstone/search?l=HTML&q=json).
-
 ### {{replace}}
 
 ```handlebars
 {{replace firstParam secondParam string}}
 ```
-
 Replaces all instances of the first parameter in the second parameter with the child block.
 
 #### Parameters
 
-- `firstParam` {String}
+- `firstParam` {?}
 - `secondParam` {?}
 - `string` {String}
 
@@ -948,7 +957,7 @@ Replaces all instances of the first parameter in the second parameter with the c
 ```handlebars
 {{setURLQueryParam url key value}}
 ```
-Appends keys values to a URL.
+Appends key values to a URL.
 
 #### Parameters
 
@@ -970,7 +979,7 @@ Appends keys values to a URL.
 ```handlebars
 {{stripQuerystring url}}
 ```
-Strips query string from URL.
+Strips query string from a URL.
 
 #### Parameters
 
@@ -994,7 +1003,7 @@ Converts string to lowercase.
 
 #### Parameters
 
-- `string` {String}
+- `string` {String}: String you want to convert.
 
 #### Example
 
@@ -1072,7 +1081,7 @@ Inserts a dynamic partial in the specified path.
 ```handlebars
 {{inject value object}}
 ```
-Injects key values into [jsContext](#jscontext).
+Injects key values into the [jsContext](#jscontext) helper.
 
 #### Parameters
 
@@ -1099,7 +1108,10 @@ console.log(jsContext.myProductName);
 
 ### {{jsContext}}
 
-Returns JSON for all data injected by [inject](#inject) helper. Used in conjunction with `{{inject}}`.
+```handlebars
+{{jsContext}}
+```
+Returns JSON for all data injected by the [inject](#inject) helper.
 
 #### Parameters
 
@@ -1112,7 +1124,7 @@ Returns JSON for all data injected by [inject](#inject) helper. Used in conjunct
 ```handlebars
 {{partial string}}
 ```
-Overrides content defined by a [block](#block) helper.
+Overrides content defined by the [block](#block) helper.
 
 #### Parameters
 
@@ -1177,7 +1189,7 @@ Saves a variable for later use in the template.
 ```handlebars
 {{getVar key}}
 ```
-Get the variable set by [assignVar](#assignVar).
+Returns the variable set by [assignVar](#assignVar).
 
 #### Parameters
 
@@ -1196,7 +1208,7 @@ Get the variable set by [assignVar](#assignVar).
 ```handlebars
 {{decrementVar key}}
 ```
-Decrement the variable set by [assignVar](#assignVar) by 1.
+Decrements the variable set by [assignVar](#assignVar) by 1.
 
 #### Parameters
 
@@ -1215,7 +1227,7 @@ Decrement the variable set by [assignVar](#assignVar) by 1.
 ```handlebars
 {{incrementVar key}}
 ```
-Increment variable set by [assignVar](#assignVar) by 1.
+Increments the variable set by [assignVar](#assignVar) by 1.
 
 #### Parameters
 
