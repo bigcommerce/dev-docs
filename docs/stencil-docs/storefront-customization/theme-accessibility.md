@@ -19,7 +19,7 @@ We have included four accessibility best practices and examples that will help y
 * This tutorial uses Cornerstone. Your theme may differ.
 
 ## Using alt text
-Alternative (alt) text is an image description read aloud by a screen reader, allowing the content to be accessible to visually impaired users. All `img` tags require alt attributes and are the most preferred way to provide alt text for `img` elements.
+Alternative (alt) text is an image description read aloud by a screen reader, making the content accessible to visually impaired users. All HTML `<img>` elements should have an `alt` attribute to provide a text description of the image.
 
 ```json
 <img alt =" ".../>
