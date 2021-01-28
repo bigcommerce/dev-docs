@@ -104,7 +104,7 @@ The following example demonstrates how you can make link text meaningful.
 
 Don't use "click here" for the linked text, instead use the exact title of a linked page or use a description of the linked page. You may need to rework a sentence to make the text meaningful.
 
-Additional recommendations regarding linked text are:
+Additional linked text recommendations:
 * Use unique link text where possible.
 * Avoid using a URL as the link text, consider using the page title or description of the page.
 * Don't use the word "link" in your link text.
