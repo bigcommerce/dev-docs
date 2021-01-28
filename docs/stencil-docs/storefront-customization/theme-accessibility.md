@@ -135,7 +135,7 @@ You can add scripts or code to improve the accessibility of your theme. As state
 * Add multi-factor authentication or alternative methods besides CAPTCHA to verify identity. Visual CAPTCHA does not allow alt text, and therefore visually impaired users cannot use it.
 * Add hidden titles that can be accessed by a screen reader.
 
-Example
+**Example**
 
 To update a menu button to add more color contrast, add the following text to the `footer.html` file for your mobile and regular templates.
 
