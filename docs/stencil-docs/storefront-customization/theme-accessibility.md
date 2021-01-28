@@ -34,7 +34,7 @@ Follow the steps below to add alt text to an image using the control panel:
 
 ![Image Widget](https://raw.githubusercontent.com/bigcommerce/dev-docs/master/assets/images/accessibility_image_widget.png "Image Widget")
 
-### aria-label attribute
+### Aria-label attribute
 There are other options for providing text for images. Developers can use the aria-label attribute, a [WCAG (Web Content Accessibility Guidelines)](https://www.w3.org/WAI/standards-guidelines/wcag/) technique which provides assistive technology with the aria label text instead of the image alt text. 
 
 The aria-label attribute uses an ID reference value that matches the ID element attribute to associate an element with text. Screen readers use the text of one or more identified elements, which can be seen elsewhere on the page.
