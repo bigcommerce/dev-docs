@@ -80,7 +80,7 @@ Text headings organize and provide structure for a page, helping users to unders
 
 Your main heading should be H1 and indicate the main content. The incorrect example displays the main heading as H2, which you should only use for subtopics. In addition, don't skip or alter headings as it could cause a fragmented experience, as shown above. H3 is out of order and should follow H2. The correct structure displayed above on the right shows heading levels from h1 to h3 communicating more specific information about the previous section.
 
-To see an example video on the best way to create text headings, see [How Headings Help Screen Reader Users](https://www.youtube.com/watch?v=zRTqCGJ_HwQ).
+For an example video on how to create text headings, see [How Headings Help Screen Reader Users](https://www.youtube.com/watch?v=zRTqCGJ_HwQ).
 
 ### Text size and alignment
 The use of white space around blocks of text makes it easier to read. We recommend the following text formatting:
