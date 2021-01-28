@@ -74,7 +74,7 @@ Color contrast is an essential factor in visual accessibility. Use contrasting c
 
 Pure black text on a white background can cause eye strain. Instead, try black text on light blue, pale green, or gray background. The following example demonstrates good color contrasting and has a 14.9.1 contrast ratio.
 
-Good contrast ratio
+**Good contrast ratio**
 ![Good contrast](https://raw.githubusercontent.com/bigcommerce/dev-docs/master/assets/images/accessibility_good_color_contrast.png "Good contrast")
 
 It is essential to avoid colors that are too close together. For example, avoid green and black, green and gray, and green and red. Alternatively, it is good practice to use light text on dark backgrounds or dark text on light backgrounds. The example below shows poor color contrasting because the black text is on a green background. The color constrast ratio is 3.8.1. It would have been better to use white text on a dark green background.
