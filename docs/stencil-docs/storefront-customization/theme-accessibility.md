@@ -10,7 +10,7 @@
 - [Resources](#resources)
 </div>
 
-Designing for accessibility means being inclusive to the needs of all users. This tutorial outlines the basic accessibility requirements we would like to see in all BigCommerce themes. We include some examples of each type of change, but it is not an exhaustive list, and we encourage you to do your research to best meet the requirements and help improve usability for all users.
+Designing for accessibility means being inclusive to the needs of all users. This tutorial outlines the basic accessibility requirements we would like to see in all BigCommerce themes.
 
 We have included four accessibility best practices and examples that will help you develop a theme that meets the needs of the broadest range of abilities.
 
@@ -160,4 +160,3 @@ There are many more customizations and changes you can make to increase your sto
 - [How Headings Help Screen Reader Users](https://www.youtube.com/watch?v=zRTqCGJ_HwQ)
 - [WebAIM article on Typefaces and Fonts](https://webaim.org/techniques/textlayout/)
 - [Accessible Components: Keyboard access -- Polycasts#49](https://www.youtube.com/watch?v=REVxMvdBYMwaccessioa)
-
