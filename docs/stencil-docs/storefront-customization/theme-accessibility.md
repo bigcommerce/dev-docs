@@ -43,7 +43,7 @@ The aria-label attribute uses an ID reference value that matches the ID element 
 
 The example below displays how to use an aria-label for two elements considered to be one image.
 
-```json
+```html
 <div role="img" aria-label="Cart images">
 
 <img src = "giftCard.png" alt=""/>
