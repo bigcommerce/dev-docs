@@ -132,7 +132,7 @@ To see an example video on the best way to create keyboard accessibility, see [A
 You can add scripts or code to improve the accessibility of your theme. As stated above, you can use the `tabindex` global attribute to add an element for keyboard navigation. Also, we suggest doing the following:
 
 * Add a script or plugin to allow mobile, tablet, or desktop viewing. Use responsive design to match user technology to accommodate different zoom states and viewport sizes.
-* Add multi-factor authentication or alternative methods besides CAPTCHA to verify identity. Visual CAPTCHA does not allow alt text, and therefore visually impaired users cannot use it.
+* Add multi-factor authentication or alternative methods besides CAPTCHA to verify identity. Visual CAPTCHA does not allow alt text, preventing visually impaired people from using it.
 * Add hidden titles that can be accessed by a screen reader.
 
 **Example**
