@@ -632,7 +632,7 @@ The Payments API processes credit card payments through supported payment gatewa
 
 **Is Strong Customer Authentication supported?**
 
-Payment gateways that use 3D Secure meet the EU's Strong Customer Authentication regulation requirements. To see which BigCommerce supported payment gateways use 3D Secure, refer to [Available Payment Gateways](https://support.bigcommerce.com/s/article/Available-Payment-Gateways#all-available) in the [Help Center](https://support.bigcommerce.com/).
+Payment gateways that use 3D Secure meet the EU's Strong Customer Authentication regulation requirements. To see which BigCommerce supported payment gateways use 3D Secure, refer to the Help Center's [Available Payment Gateways](https://support.bigcommerce.com/s/article/Available-Payment-Gateways#all-available) page.
 
 ## Related resources
 
