@@ -15,7 +15,7 @@ Designing for accessibility means being inclusive to the needs of all users. Thi
 We have included four accessibility best practices and examples that will help you develop a theme that meets the needs of the broadest range of abilities.
 
 Prerequisites
-* [A BigCommerce store](https://support.bigcommerce.com/s/article/Starting-a-Bigcommerce-Trial)
+* [A BigCommerce store](https://support.bigcommerce.com/s/article/Starting-a-Bigcommerce-Trial).
 * This tutorial uses Cornerstone. Your theme may differ.
 
 ## Using alt text
