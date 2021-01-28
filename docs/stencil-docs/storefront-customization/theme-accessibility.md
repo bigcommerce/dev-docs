@@ -150,7 +150,7 @@ There are many more customizations and changes you can make to increase your sto
 
 ## Resources
 
-### Related resources
+### Articles
 - [WCAG (Web Content Accessibility Guidelines)](https://www.w3.org/WAI/standards-guidelines/wcag/)
 - [Essential Accessibility](https://wwww.essentialaccessibility.com/)
 - [Audio Eye](https://www.audioeye.com)
