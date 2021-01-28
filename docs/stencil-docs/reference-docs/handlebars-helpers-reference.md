@@ -66,6 +66,9 @@ The following table contains BigCommerce's open source [Handlebars helpers](http
 
 ### {{limit}}
 
+```handlebars
+{{limit data limit)}}
+```
 Limits the number of items returned from an array; returns a new array.
 
 #### Parameters
@@ -94,11 +97,12 @@ Limits the number of items returned from an array; returns a new array.
 
 [See it in GitHub](https://github.com/bigcommerce/paper-handlebars/blob/master/helpers/limit.js).
 
-[See it in Cornerstone](https://github.com/bigcommerce/cornerstone/search?l=HTML&q=limit).
-
 ### {{pluck}}
 
-Using specified search key(s), retrieves corresponding values from some or all elements in a collection. Returns the retrieved values in a comma-separated string.
+```handlebars
+{{pluck limit collection path}}
+```
+Using specified search key(s), retrieves corresponding values from some or all elements in a collection. Returns retrieved values in a comma-separated string.
 
 #### Parameters
 
@@ -111,7 +115,6 @@ Using specified search key(s), retrieves corresponding values from some or all e
 ```handlebars
 {{pluck ([limit] <collection> [<limit-value>]) '<path>'}}
 ```
-
 If each category in `categories` contains an image object, use dot notation to access the image's children:
 
 ```json
@@ -131,10 +134,11 @@ Handlebars statement:
 
 [See it in GitHub](https://github.com/bigcommerce/paper-handlebars/blob/master/helpers/pluck.js).
 
-[See it in Cornerstone](https://github.com/bigcommerce/cornerstone/search?l=HTML&q=pluck).
-
 ### {{cdn}}
 
+```handlebars
+{{cdn assetPath}}
+```
 A URL transformer for content delivery networks.
 
 #### Parameters
@@ -155,17 +159,17 @@ will be transformed to a result like this:
 <img src="https://cdn.bcapp/3dsf74g/content/img/image.jpg">
 ```
 
-In this example, the `image.jpg` file was uploaded to the WebDAV `/content/` directory making `/content` the WebDAV root directory. The presumed local directory is `assets/`, so you can omit that path when referencing its contained files or subdirectories.
+In this example, the `image.jpg` file was uploaded to the WebDAV `/content/` directory making `/content` the WebDAV root directory. Because our presumed local directory is `assets/`, we can omit that path when referencing its contained files or subdirectories.
 
 [See it in GitHub](https://github.com/bigcommerce/paper-handlebars/blob/master/helpers/cdn.js).
-
-[See it in Cornerstone](https://github.com/bigcommerce/cornerstone/search?l=HTML&q=cdn).
 
 #### CDN custom endpoints
 
 You can define custom CDN endpoints to use with the `{{cdn}}` helper. This way you can include large, high-resolution image assets in themes without exceeding BigCommerce's [50 MB limit](/stencil-docs/prepare-and-upload-a-theme/bundling-and-uploading#bundling_bundling-your-theme) when bundling the theme for upload to BigCommerce.
 
-You could use a local version of the image in development, and a version on a CDN (e.g. Imgix) in production. To do so, define custom CDN endpoints in your theme's `config.json` [file](https://github.com/bigcommerce/cornerstone/blob/master/config.json), as highlighted in the example below:
+You could use a local version of the image in development, and a version on a CDN such as Imgix in production. To do so, define custom CDN endpoints in your theme's [`config.json` file](https://github.com/bigcommerce/cornerstone/blob/master/config.json). 
+
+For example:
 
 ```json
 {
@@ -203,10 +207,14 @@ As highlighted above, the helper is configured to rewrite *local* URLs to a `ass
 
 ### {{money}}
 
+```handlebars
+{{money value n s c}}
+```
 Formats number length, thousands delimiter, and decimal delimiter.
 
 #### Parameters
 
+- `value` {?}
 - `n` {Integer}: Length of decimal.
 - `s` {Mixed}: Thousands delimiter.
 - `c` {Mixed}: Decimal delimiter.
@@ -214,14 +222,17 @@ Formats number length, thousands delimiter, and decimal delimiter.
 #### Example
 
 ```handlebars
-{{money value n s c}}
+{{need to add}}
 ```
 
 [See it in GitHub](https://github.com/bigcommerce/paper-handlebars/blob/master/helpers/money.js).
 
 ### {{getFontLoaderConfig}}
 
-Returns font loader config as JSON string.
+```handlebars
+{{getFontLoaderConfig filepath}}
+```
+Returns font loader config as a JSON string.
 
 #### Parameters
 
@@ -237,30 +248,47 @@ Returns font loader config as JSON string.
 
 ### {{getFontsCollection}}
 
+```handlebars
+{{getFontsCollection param}}
+```
 Returns `<link>` elements for configured fonts.
 
 #### Parameters
 
+- `param` {?}
 
 #### Example
 
-[See it in GitHub](https://github.com/bigcommerce/paper-handlebars/blob/master/helpers/getFontsCollection.js).
+```handlebars
+{{need to add}}
+```
 
-[See it in Cornerstone](https://github.com/bigcommerce/cornerstone/search?l=HTML&q=getFontsCollection).
+[See it in GitHub](https://github.com/bigcommerce/paper-handlebars/blob/master/helpers/getFontsCollection.js).
 
 ### {{encodeHtmlEntities}}
 
+```handlebars
+{{encodeHtmlEntities param}}
+```
 Encodes HTML entities.
 
 #### Parameters
 
+- `param` {?}
 
 #### Example
+
+```handlebars
+{{need to add}}
+```
 
 [See it in GitHub](https://github.com/bigcommerce/paper-handlebars/blob/master/helpers/encodeHtmlEntities.js).
 
 ### {{nl2br}}
 
+```handlebars
+{{nl2br text}}
+```
 Converts newline characters to `<br>` tags.
 
 #### Parameters
@@ -272,8 +300,6 @@ Converts newline characters to `<br>` tags.
 ```handlebars
 {{nl2br settings.address}}
 ```
-
-`settings.address`:
 
 ```json
 "settings": {
@@ -289,10 +315,11 @@ Converts newline characters to `<br>` tags.
 
 [See it in GitHub](https://github.com/bigcommerce/paper-handlebars/blob/master/helpers/nl2br.js).
 
-[See it in Cornerstone](https://github.com/bigcommerce/cornerstone/search?l=HTML&q=nl2br).
-
 ### {{pre}}
 
+```handlebars
+{{pre text}}
+```
 Renders preformatted text.
 
 #### Parameters
@@ -302,20 +329,21 @@ Renders preformatted text.
 #### Example
 
 ```handlebars
-{{{pre "text"}}}
+{{{need to add}}}
 ```
 
 [See it in GitHub](https://github.com/bigcommerce/paper-handlebars/blob/master/helpers/pre.js).
 
-[See it in Cornerstone](https://github.com/bigcommerce/cornerstone/search?l=HTML&q=pre).
-
 ### {{resourceHints}}
 
-Pre-fetches fonts; currently only supports Google fonts.
+```handlebars
+{{resourceHints}}
+```
+Pre-fetches Google fonts. Outputs a formatted `link` tag for DNS-prefetch.
 
 #### Parameters
 
-* `returns`: Outputs a formatted `link` tag for DNS-prefetch.
+- None.
 
 #### Example
 ```js
@@ -325,10 +353,11 @@ Pre-fetches fonts; currently only supports Google fonts.
 
 [See it in GitHub](https://github.com/bigcommerce/paper-handlebars/blob/master/helpers/resourceHints.js).
 
-[See it in Cornerstone](https://github.com/bigcommerce/cornerstone/search?l=HTML&q=resourceHints).
-
 ### {{stylesheet}}
 
+```handlebars
+{{stylesheet assetPath}}
+``` 
 Renders a link tag to insert a stylesheet into a theme. (This is required if you want Theme Editor to rewrite the stylesheet file when a merchant customizes their theme.) This helper returns an HTML string.
 
 #### Parameters
@@ -344,10 +373,11 @@ Renders a link tag to insert a stylesheet into a theme. (This is required if you
 
 [See it in GitHub](https://github.com/bigcommerce/paper-handlebars/blob/master/helpers/stylesheet.js).
 
-[See it in Cornerstone](https://github.com/bigcommerce/cornerstone/search?l=HTML&q=stylesheet).
-
 ### {{lang}}
 
+```handlebars
+{{lang translationKey}}
+```
 Maps keys to translation files, based on the locale indicated by the visitor’s browser. 
 
 #### Parameters
@@ -366,10 +396,11 @@ Maps keys to translation files, based on the locale indicated by the visitor’s
 
 [See it in GitHub](https://github.com/bigcommerce/paper-handlebars/blob/master/helpers/lang.js).
 
-[See it in Cornerstone](https://github.com/bigcommerce/cornerstone/search?l=HTML&q=lang).
-
 ### {{langJson}}
 
+```handlebars
+{{langJson keyFilter}}
+```
 Returns language translation keys as JSON string.
 
 #### Parameters
@@ -379,15 +410,16 @@ Returns language translation keys as JSON string.
 #### Example
 
 ```handlebars
-{{{langJson "keyFilter"}}}
+{{need to add}}
 ```
 
 [See it in GitHub](https://github.com/bigcommerce/paper-handlebars/blob/master/helpers/langJson.js).
 
-[See it in Cornerstone](https://github.com/bigcommerce/cornerstone/search?l=HTML&q=langJson).
-
 ### {{getContentImage}}
 
+```handlebars
+{{getContentImage a width height}}
+```
 Returns a URL for an image [uploaded to `/dav/content/`](https://support.bigcommerce.com/s/article/File-Access-WebDAV).
 
 #### Parameters
@@ -406,7 +438,6 @@ Returns a URL for an image [uploaded to `/dav/content/`](https://support.bigcomm
 {{getContentImage "asset.jpg" width="a" height="a"}}
 <!--=> https://cdn.bcapp/3dsf74g/images/stencil/original/content/asset.jpg  -->
 
-
 <!-- Sized image URL returned if valid height and/or width passed in -->
 {{getContentImage "asset.jpg" width=123 height=321}}
 <!--=> https://cdn.bcapp/3dsf74g/images/stencil/123x321/content/asset.jpg -->
@@ -419,6 +450,9 @@ Returns a URL for an image [uploaded to `/dav/content/`](https://support.bigcomm
 
 ### {{getContentImageSrcset}}
 
+```handlebars
+{{getContentImageSrcset a}}
+```
 Returns a `srcset` for an image [uploaded to `/dav/content/`](https://support.bigcommerce.com/s/article/File-Access-WebDAV).
 
 #### Parameters
