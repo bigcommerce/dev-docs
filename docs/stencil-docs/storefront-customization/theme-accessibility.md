@@ -24,7 +24,7 @@ Alternative (alt) text is an image description read aloud by a screen reader, ma
 ```json
 <img alt =" ".../>
 ```
-You can add the alt text to the `img` element in the image widget of Page Builder or in the `cornerstone/assets/img/` directory.
+You can add the alt text to the `<img>` element in the image widget of Page Builder or in the `cornerstone/assets/img/` directory.
 
 Follow the step below to add alt text to an image using the control panel:
 1. Go to **Storefront** > **My theme** in the control panel, then click **Customize**.
