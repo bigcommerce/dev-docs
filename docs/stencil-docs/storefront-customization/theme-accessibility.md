@@ -61,7 +61,16 @@ Text accessibility involves making content readable and understandable. You can 
 ### Color contrast
 Color contrast is an essential factor in visual accessibility. Use contrasting colors for better readability, along with keeping headings clear and concise.
 
-NOTE: According to [WCAG 2.1 (Web Content Accessibility Guidelines)](https://www.w3.org/TR/WCAG21/), your eCommerce website must have a minimum color contrast ratio of at least 4.5.1 for standard text and 3:1 for large text. We recommend presetting these guidelines, using [Lighthouse](https://developers.google.com/web/tools/lighthouse) or Chrome's [Accessibility Developer Tools](https://chrome.google.com/webstore/detail/accessibility-developer-t/fpkknkljclfencbdbgkenhalefipecmb/reviews?hl=en) to ensure you meet WCAG 2.1 guidelines. 
+<div class="HubBlock--callout">
+<div class="CalloutBlock--info">
+<div class="HubBlock-content">
+
+> ### Note
+> According to [WCAG 2.1 (Web Content Accessibility Guidelines)](https://www.w3.org/TR/WCAG21/), your eCommerce website must have a minimum color contrast ratio of at least 4.5.1 for standard text and 3:1 for large text. We recommend presetting these guidelines, using [Lighthouse](https://developers.google.com/web/tools/lighthouse) or Chrome's [Accessibility Developer Tools](https://chrome.google.com/webstore/detail/accessibility-developer-t/fpkknkljclfencbdbgkenhalefipecmb/reviews?hl=en) to ensure you meet WCAG 2.1 guidelines. 
+
+</div>
+</div>
+</div>
 
 Pure black text on a white background can cause eye strain. Instead, try black text on light blue, pale green, or gray background. The following example demonstrates good color contrasting and has a 14.9.1 contrast ratio.
 
