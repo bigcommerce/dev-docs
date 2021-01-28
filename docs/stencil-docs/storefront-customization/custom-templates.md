@@ -160,7 +160,7 @@ The requirements and options for the `.stencil` or `config.stencil.json` (if usi
 
 * That parent for brand URLs is /brands/ (plural), while the corresponding subdirectory for HTML files is /brand/ (singular).
 
-* After editing your `.stencil` file or `config.stencil.json` files (if using Stencil V3.1 release or later), you must restart stencil to see your changes locally. Enter stencil start on the command line, appending any appropriate switches for your workflow (e.g.: `stencil start -e -n`).
+* After editing your `.stencil` file or `config.stencil.json` files (if using Stencil V3.1 release or later), you must restart stencil to see your changes locally. Enter `stencil start` in the command prompt, appending any appropriate switches for your workflow (e.g.: `stencil start -e -n`).
 
 ### Why these URL Requirements?
 When you create a local custom template page for products, you expect that page to have access to all Stencil product objects. However, the server cannot readily determine the page type of each local custom template. So we give it a hint by instructing the server to look at the page type of the URL where you mapped the template.
