@@ -126,7 +126,7 @@ a.setAttribute("tabindex","0")
 
 Open the following example in a new tab and try it out, [native-keyboard-accessibility.html](https://mdn.github.io/learning-area/tools-testing/cross-browser-testing/accessibility/native-keyboard-accessibility.html). Press the Tab key and navigate from the top of the page to the bottom, highlighting active elements. You can also use the arrow keys to scroll through the dropdown menu.
 
-To see an example video on the best way to create keyboard accessibility, see [Accessible Components: Keyboard access -- Polycasts#49](https://www.youtube.com/watch?v=REVxMvdBYMw).
+For an example video on keyboard accessibility, see [Accessible Components: Keyboard access -- Polycasts#49](https://www.youtube.com/watch?v=REVxMvdBYMw).
 
 ## Customizations
 You can add scripts or code to improve the accessibility of your theme. As stated above, you can use the `tabindex` global attribute to add an element for keyboard navigation. Also, we suggest doing the following:
