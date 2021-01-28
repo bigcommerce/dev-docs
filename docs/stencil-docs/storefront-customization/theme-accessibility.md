@@ -139,7 +139,7 @@ Example
 
 To update a menu button to add more color contrast, add the following text to the Footer.html file for your mobile and regular templates.
 
-```json
+```html
 <style>
 .mobileMenu-toggle .mobileMenu-toggleIcon, .mobileMenu-toggle .mobileMenu-toggleIcon:after, .mobileMenu-toggle .mobileMenu-toggleIcon:before {
 background: #fff;
