@@ -83,7 +83,11 @@ Your main heading should be H1 and indicate the main content. The incorrect exam
 To see an example video on the best way to create text headings, see [How Headings Help Screen Reader Users](https://www.youtube.com/watch?v=zRTqCGJ_HwQ).
 
 ### Text size and alignment
-The use of white space around blocks of text makes it easier to read. We recommend using left-aligned text, a font size of 14px, have 55-65 characters per line, and use sans serif fonts.
+The use of white space around blocks of text makes it easier to read. We recommend the following text formatting:
+* left-aligned text
+* font size of 14px
+* 55-65 characters per line
+* sans serif fonts
 
 The following examples demonstrate the incorrect and correct usage of text size and alignment. The incorrect example shows 25-40 characters per line, uses Comic Sans MS, and the font is 11px. The correct example uses the recommended font size of 14 px, has 55-65 characters per line, and uses Arial font.
 
