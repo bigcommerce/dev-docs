@@ -7,7 +7,7 @@
 - [Text accessibility](#text-accessibility)
 - [Keyboard accessibility](#keyboard-accessibility)
 - [Customization](#customization)
-- [Resources](#resources)
+- [Related resources](#related-resources)
 </div>
 
 Designing for accessibility means being inclusive to the needs of all users. This tutorial outlines the basic accessibility requirements we would like to see in all BigCommerce themes.
