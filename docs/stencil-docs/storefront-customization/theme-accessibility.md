@@ -120,7 +120,7 @@ Keyboard accessibility involves making a theme accessible without the use of a m
 
 To enable and element to participate in keyboard navigation, use the 'tabindex' global attribute.
 
-```json
+```js
 a.setAttribute("tabindex","0")
 ```
 
