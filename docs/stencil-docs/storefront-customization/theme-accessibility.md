@@ -114,7 +114,6 @@ Additional recommendations regarding linked text are:
 * Provide a warning when link text opens a new window.
 * Remove broken or empty links.
 
-
 ## Keyboard accessibility
 Keyboard accessibility involves making a theme accessible without the use of a mouse. Ensure you can navigate to all links, menus, buttons, and form fields using the keyboard. Press the Tab key and navigate from the top of the page to the bottom. The navigation order must be logical and intuitive.
 
