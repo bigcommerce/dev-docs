@@ -148,7 +148,7 @@ background: #fff;
 ```
 There are many more customizations and changes you can make to increase your store's accessibility. This article lists just a few. To learn more about accessibility, see the list of related resources below. 
 
-## Resources
+## Related resources
 
 ### Articles
 - [WCAG (Web Content Accessibility Guidelines)](https://www.w3.org/WAI/standards-guidelines/wcag/)
