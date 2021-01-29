@@ -59,7 +59,7 @@ Text accessibility involves making content readable and understandable. You can 
 * Text links
 
 ### Color contrast
-Color contrast is an essential factor in visual accessibility. Use contrasting colors for better readability, along with keeping headings clear and concise.
+Color contrast is an essential factor in visual accessibility.
 
 <div class="HubBlock--callout">
 <div class="CalloutBlock--info">
