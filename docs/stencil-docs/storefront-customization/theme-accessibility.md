@@ -37,7 +37,7 @@ Follow the steps below to add alt text to an image using Page Builder:
 ### Aria-label attribute
 There are other options for providing text for images. Developers can use the aria-label attribute, a [Web Content Accessibility Guidelines (WCAG)](https://www.w3.org/WAI/standards-guidelines/wcag/) technique that provides assistive technology with the aria-label text instead of the image alt text. 
 
-The aria-label attribute uses an ID reference value that matches the ID element attribute to associate an element with text. Screen readers use the text of one or more identified elements, which can be seen elsewhere on the page.
+The aria-label attribute uses an ID reference value that matches the ID element attribute to associate an element with text. Screen readers use the text of one or more identified elements that can be referenced elsewhere on the page.
 
 **Example**
 
