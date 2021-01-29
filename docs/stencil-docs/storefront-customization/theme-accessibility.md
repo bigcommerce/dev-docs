@@ -162,7 +162,7 @@ background: #fff;
 }
 </style>
 ```
-There are many more customizations and changes you can make to increase your store's accessibility. This article lists just a few. To learn more about accessibility, see the list of related resources below. 
+There are many more customizations and changes you can make to increase your store's accessibility; this article lists just a few. To learn more about accessibility, see the list of related resources below. 
 
 ## Related resources
 
