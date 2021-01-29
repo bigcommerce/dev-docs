@@ -121,7 +121,7 @@ Additional linked text recommendations:
 * Use unique link text where possible.
 * Avoid using a URL as the link text; consider using the page title or description of the page.
 * Don't use the word "link" in your link text.
-* Don't capitalize links.
+* Don't capitalize links unless the title of the linked page is capitalized.
 * Keep link text concise.
 * Don't link directly to downloads.
 * Provide a warning when link text opens a new window.
