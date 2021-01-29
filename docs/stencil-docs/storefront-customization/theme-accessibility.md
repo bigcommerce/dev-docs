@@ -115,7 +115,7 @@ The following example demonstrates how you can make link text meaningful.
 | -- | --|
 | For more information on how to modify the login form, <ins>click here</ins>. | Read more about <ins>modifying the login form</ins>.|
 
-Don't use "click here" for the linked text, instead use the exact title of a linked page or use a description of the linked page. You may need to rework a sentence to make the text meaningful.
+Don't use "click here" for the linked text. Instead, use the exact title of a linked page or use a description of the linked page. You may need to rework a sentence to make the text meaningful.
 
 Additional linked text recommendations:
 * Use unique link text where possible.
