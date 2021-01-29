@@ -3,7 +3,7 @@
 <div class="otp" id="no-index">
 
 ### On this page
-- [Using alt text](#using-alt-text)
+- [Image alt text](#image-alt-text)
 - [Text accessibility](#text-accessibility)
 - [Keyboard accessibility](#keyboard-accessibility)
 - [Customization](#customization)
