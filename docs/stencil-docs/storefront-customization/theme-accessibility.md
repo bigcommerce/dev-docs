@@ -39,7 +39,7 @@ There are other options for providing text for images. Developers can use the ar
 
 The aria-label attribute uses an ID reference value that matches the ID element attribute to associate an element with text. Screen readers use the text of one or more identified elements that can be referenced elsewhere on the page.
 
-**Example**
+**Aria-label example**
 
 The example below displays how to use an aria-label for two elements considered to be one image.
 
