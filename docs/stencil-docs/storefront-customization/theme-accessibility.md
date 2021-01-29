@@ -66,7 +66,7 @@ Color contrast is an essential factor in visual accessibility.
 <div class="HubBlock-content">
 
 > ### Note
-> According to [WCAG 2.1 (Web Content Accessibility Guidelines)](https://www.w3.org/TR/WCAG21/), your eCommerce website must have a minimum color contrast ratio of at least 4.5.1 for standard text and 3:1 for large text. We recommend presetting these guidelines, using [Lighthouse](https://developers.google.com/web/tools/lighthouse) or Chrome's [Accessibility Developer Tools](https://chrome.google.com/webstore/detail/accessibility-developer-t/fpkknkljclfencbdbgkenhalefipecmb/reviews?hl=en) to ensure you meet WCAG 2.1 guidelines. 
+> According to [WCAG 2.1](https://www.w3.org/TR/WCAG21/), your ecommerce website must have minimum color contrast ratios of 4.5.1 for standard text and 3:1 for large text. To ensure you meet WCAG 2.1 guidelines, we recommend presetting these guidelines, using [Lighthouse](https://developers.google.com/web/tools/lighthouse) or Chrome's [Accessibility Developer Tools](https://chrome.google.com/webstore/detail/accessibility-developer-t/fpkknkljclfencbdbgkenhalefipecmb/reviews?hl=en).
 
 </div>
 </div>
