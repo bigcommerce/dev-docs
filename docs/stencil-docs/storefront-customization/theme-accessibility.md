@@ -119,7 +119,7 @@ Don't use "click here" for the linked text. Instead, use the exact title of a li
 
 Additional linked text recommendations:
 * Use unique link text where possible.
-* Avoid using a URL as the link text, consider using the page title or description of the page.
+* Avoid using a URL as the link text; consider using the page title or description of the page.
 * Don't use the word "link" in your link text.
 * Don't capitalize links.
 * Keep link text concise.
