@@ -82,7 +82,7 @@ It is essential to avoid colors that are too close together. For example, avoid 
 **Poor contrast ratio**
 ![Poor contrast](https://raw.githubusercontent.com/bigcommerce/dev-docs/master/assets/images/accessibility_poor_color_contrast.png "Black text on a dark green background")
 
-### Text headings
+### Headings
 Text headings organize and provide structure for a page, helping users to understand its contents. Headings should be logical, clear, and concise. The following example shows which heading structures should be used or avoided.
 
 ![Text headings](https://raw.githubusercontent.com/bigcommerce/dev-docs/master/assets/images/accessibility_text_headings.png "Text headings")
