@@ -10,7 +10,7 @@
 - [Related resources](#related-resources)
 </div>
 
-Designing for accessibility means being inclusive to the needs of all users. This tutorial outlines the basic accessibility requirements we would like to see in all BigCommerce themes.
+Designing for accessibility means being inclusive to the needs of all users. This article outlines the basic accessibility requirements BigCommerce would recommend for all themes.
 
 We have included four accessibility best practices and examples that will help you develop a theme that meets the needs of the broadest range of abilities.
 
