@@ -91,7 +91,7 @@ Your main heading should be H1 and indicate the main content. The incorrect exam
 
 For an example video on how to create text headings, see [How Headings Help Screen Reader Users](https://www.youtube.com/watch?v=zRTqCGJ_HwQ).
 
-### Text size and alignment
+### Font size and text alignment
 The use of white space around blocks of text makes it easier to read. We recommend the following text formatting:
 * left-aligned text
 * font size of 14px
