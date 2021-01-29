@@ -85,7 +85,7 @@ It is essential to avoid colors that are too close together. For example, avoid 
 ### Headings
 Text headings organize and provide structure for a page, helping users to understand its contents. Headings should be logical, clear, and concise. The following example shows which heading structures should be used or avoided.
 
-![Text headings](https://raw.githubusercontent.com/bigcommerce/dev-docs/master/assets/images/accessibility_text_headings.png "Text headings")
+![Text headings](https://raw.githubusercontent.com/bigcommerce/dev-docs/master/assets/images/accessibility_text_headings.png "Two lists depicting examples of good heading structure and poor heading structure")
 
 Your main heading should be H1 and indicate the main content. The incorrect example displays the main heading as H2, which you should only use for subtopics. In addition, don't skip or alter headings as it could cause a fragmented experience, as shown above. H3 is out of order and should follow H2. The correct structure displayed above on the right shows heading levels from h1 to h3 communicating more specific information about the previous section.
 
