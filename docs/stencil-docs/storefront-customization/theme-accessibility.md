@@ -80,7 +80,7 @@ Use contrasting colors for better readability and clarity. Pure black text on a 
 It is essential to avoid colors that are too close together. For example, avoid green and black, green and gray, and green and red. Alternatively, it is good practice to use light text on dark backgrounds or dark text on light backgrounds. The example below shows poor color contrasting because the black text is on a green background. The color constrast ratio is 3.8.1. It would have been better to use white text on a dark green background.
 
 **Poor contrast ratio**
-![Poor contrast](https://raw.githubusercontent.com/bigcommerce/dev-docs/master/assets/images/accessibility_poor_color_contrast.png "Poor contrast")
+![Poor contrast](https://raw.githubusercontent.com/bigcommerce/dev-docs/master/assets/images/accessibility_poor_color_contrast.png "Black text on a dark green background")
 
 ### Text headings
 Text headings organize and provide structure for a page, helping users to understand its contents. Headings should be logical, clear, and concise. The following example demonstrates the incorrect and correct structure of text headings.
