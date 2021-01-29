@@ -54,7 +54,7 @@ The example below displays how to use an aria-label for two elements considered 
 ## Text accessibility
 Text accessibility involves making content readable and understandable. You can achieve text accessibility using the following methods:
 * Color contrast
-* Text headings
+* Headings
 * Text size and alignment
 * Text links
 
