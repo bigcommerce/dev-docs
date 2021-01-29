@@ -128,7 +128,9 @@ Additional linked text recommendations:
 * Remove broken or empty links.
 
 ## Keyboard accessibility
-Keyboard accessibility involves making a theme accessible without the use of a mouse. Ensure you can navigate to all links, menus, buttons, and form fields using the keyboard. Press the Tab key and navigate from the top of the page to the bottom. The navigation order must be logical and intuitive.
+Keyboard accessibility involves making a theme accessible without the use of a mouse. Ensure you can navigate to all links, menus, buttons, and form fields using the keyboard. 
+
+To test a page's keyboard accessibility, press the `Tab` key and navigate from the top of the page to the bottom. The navigation order must be logical and intuitive.
 
 To enable an element to participate in keyboard navigation, use the `tabindex` global attribute.
 
