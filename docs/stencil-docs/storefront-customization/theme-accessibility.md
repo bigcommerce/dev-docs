@@ -18,7 +18,7 @@ We have included four accessibility best practices and examples that will help y
 * [A BigCommerce store](https://support.bigcommerce.com/s/article/Starting-a-Bigcommerce-Trial).
 * A store theme. (The following examples use the Cornerstone theme.)
 
-## Using alt text
+## Image alt text
 Alternative (alt) text is an image description read aloud by a screen reader, making the content accessible to visually impaired users. All HTML `<img>` elements should have an `alt` attribute to provide a text description of the image.
 
 ```html
