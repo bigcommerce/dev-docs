@@ -153,7 +153,7 @@ You can add scripts or code to improve the accessibility of your theme. As state
 
 **Example**
 
-To update a menu button to add more color contrast, add the following text to the `footer.html` file for your mobile and regular templates.
+To update a menu button to add more color contrast, add the following text to the `footer.html` file of your mobile and regular templates:
 
 ```html
 <style>
