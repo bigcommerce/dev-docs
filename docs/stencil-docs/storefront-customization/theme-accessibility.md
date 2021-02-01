@@ -21,9 +21,35 @@ We have included four accessibility best practices and examples that will help y
 ## Image alt text
 Alternative (alt) text is an image description read aloud by a screen reader. Adding alt text increases the content's accessibility to visually-impaired users. All HTML `<img>` elements should use the `alt` attribute to provide a text description of the image.
 
+**Store logo example**
+
+In Cornerstone, go to `templates/components/common/store-logo.html`. You will see the following code:
+
 ```html
-<img alt =" ".../>
+ <a href="{{urls.home}}" class="header-logo__link">
+    {{#if settings.store_logo.image}}
+        {{#if theme_settings.logo_size '===' 'original'}}
+            <img class="header-logo-image-unknown-size" src="{{getImage settings.store_logo.image 'logo_size'}}" alt="{{settings.store_logo.title}}" title="{{settings.store_logo.title}}">
+        {{else}}
+            <div class="header-logo-image-container">
+                <img class="header-logo-image" src="{{getImage settings.store_logo.image 'logo_size'}}" alt="{{settings.store_logo.title}}" title="{{settings.store_logo.title}}">
+            </div>
+        {{/if}}
+    {{else}}
+        <span class="header-logo-text">{{settings.store_logo.title}}</span>
+    {{/if}}
+</a>
 ```
+Add or update the image alt text to provide descriptive text for your store logo.
+
+```html
+alt = "{{BigCommerce store logo}}" 
+```
+
+NOTE: You can update the `<title>` tag with the same text as the `<alt>` tag to create a tooltip, or remove it if you do not need it.
+
+**Page Builder example**
+
 You can add alt text to the `<img>` element in the Image widget of Page Builder or the `cornerstone/assets/img/` directory.
 
 Follow the steps below to add alt text to an image using Page Builder:
@@ -39,24 +65,33 @@ There are other options for providing text for images. Developers can use the ar
 
 The aria-label attribute uses an ID reference value that matches the ID element attribute to associate an element with text. Screen readers use the text of one or more identified elements that can be referenced elsewhere on the page.
 
-**Aria-label example**
+**Popup modal text example**
 
-The example below displays how to use an aria-label for two elements considered to be one image.
+In Cornerstone, put the following code at the bottom of your stencil template html:
 
 ```html
-<div role="img" aria-label="Cart images">
-
-<img src = "giftCard.png" alt=""/>
-<img src = "Checkout.png" alt=""/>
+<div id="elementID" class="modal modal--large" data-reveal>
+    <a href="#" class="modal-close" aria-label="Popup text" role="button">
+        <span aria-hidden="true">&#215;</span>
+    </a>
+    <div class="modal-content"></div>
+    <div class="loadingOverlay"></div>
 </div>
+```
+Add a button on your page and use the following code:
+```html
+<!--open custom modal-->
+       <div class="modal-button-container">
+                <a class="button" href="#elementID" data-reveal-id="elementID">Descriptive text</a>
+        </div>
 ```
 
 ## Text accessibility
 Text accessibility involves making content readable and understandable. You can achieve text accessibility using the following methods:
-* Color contrast
-* Headings
-* Font size and text alignment
-* Text links
+* [Color contrast](#color-contrast)
+* [Headings](#headings)
+* [Font size and text alignment](#Font-size-and-text-alignment)
+* [Text links](#text-links)
 
 ### Color contrast
 Color contrast is an essential factor in visual accessibility.
@@ -72,39 +107,50 @@ Color contrast is an essential factor in visual accessibility.
 </div>
 </div>
 
-Use contrasting colors for better readability and clarity. Pure black text on a white background can cause eye strain. Instead, try black text on light blue, pale green, or gray background. The following example demonstrates good color contrasting and has a 14.9.1 contrast ratio.
-
-**Good contrast ratio**
-![Good contrast](https://raw.githubusercontent.com/bigcommerce/dev-docs/master/assets/images/accessibility_good_color_contrast.png "Black text on a light gray background")
-
-It is essential to avoid colors that are too close together. For example, avoid green and black, green and gray, and green and red. Alternatively, it is good practice to use light text on dark backgrounds or dark text on light backgrounds. The example below shows poor color contrasting because the black text is on a green background. The color constrast ratio is 3.8.1. It would have been better to use white text on a dark green background.
+It is essential to avoid using dark colors for both the background and text color. Instead, use contrasting colors to achieve better visibility.   For example, avoid green and black, green and gray, and green and red. Alternatively, it is good practice to use light text on dark backgrounds or dark text on light backgrounds. The example below shows poor color contrasting because the black text is on a green background. The color constrast ratio is 3.8.1. It would have been better to use white text on a dark green background.
 
 **Poor contrast ratio**
+
 ![Poor contrast](https://raw.githubusercontent.com/bigcommerce/dev-docs/master/assets/images/accessibility_poor_color_contrast.png "Black text on a dark green background")
+
+The following example displays black text on a gray background, which demonstrates good color contrast. The contrast ratio is 14.9.1, which meets WCAG guidelines. 
+
+**Good contrast ratio**
+
+![Good contrast](https://raw.githubusercontent.com/bigcommerce/dev-docs/master/assets/images/accessibility_good_color_contrast.png "Black text on a light gray background")
+
 
 ### Headings
 Text headings organize and provide structure for a page, helping users to understand its contents. Headings should be logical, clear, and concise. The following example shows which heading structures should be used or avoided.
 
 ![Text headings](https://raw.githubusercontent.com/bigcommerce/dev-docs/master/assets/images/accessibility_text_headings.png "Two lists depicting examples of good heading structure and poor heading structure")
 
-Your main heading should be H1 and indicate the main content. The incorrect example displays the main heading as H2, which you should only use for subtopics. In addition, don't skip or alter headings as it could cause a fragmented experience, as shown above. H3 is out of order and should follow H2. The correct structure displayed above on the right shows heading levels from h1 to h3 communicating more specific information about the previous section.
+Your main heading should be H1 and indicate the main content. The incorrect example displays the main heading as H2, which you should only use for subtopics. Avoid breaking the headings sequence to prevent a fragmented accessibility experience.
+
+The correct structure displayed above on the right shows heading levels from largest to smallest communicating more specific information about the previous section.
 
 For an example video on how to create text headings, see [How Headings Help Screen Reader Users](https://www.youtube.com/watch?v=zRTqCGJ_HwQ).
 
 ### Font size and text alignment
 The use of white space around blocks of text makes it easier to read. We recommend the following text formatting:
-* left-aligned text
-* font size of 14px
+* Left-aligned text
+* Font size of 14px
 * 55-65 characters per line
-* sans serif fonts
+* Sans serif fonts
 
-The following examples demonstrate the incorrect and correct usage of text size and alignment. The incorrect example shows 25-40 characters per line, uses Comic Sans MS, and the font is 11px. The correct example uses the recommended font size of 14 px, has 55-65 characters per line, and uses Arial font.
+**Non-compliant font size and alignment**
 
-The correct example demonstrates how to make text readable. To learn more about text size and alignment needed for accessibility, see the [WebAIM article on Typefaces and Fonts](https://webaim.org/techniques/textlayout/).
+The following example demonstrates non-compliant usage of font size and text alignment. The non-compliant example shows 25-40 characters per line, uses Comic Sans MS, and is 11px. The sentences are short and choppy which results in a poor reading experience.
 
-![Incorrect text](https://raw.githubusercontent.com/bigcommerce/dev-docs/master/assets/images/accessibility_incorrect_type_size.png "Incorrect text")
+![Incorrect text](https://raw.githubusercontent.com/bigcommerce/dev-docs/master/assets/images/accessibility_incorrect_type_size.png "Non-compliant font size and alignment")
 
-![Correct text](https://raw.githubusercontent.com/bigcommerce/dev-docs/master/assets/images/accessibility_correct_text_size.png "Correct type")
+**Compliant font-size and alignment**
+
+The WCAG compliant example uses the recommended font size of 14px, has 55-65 characters per line, and uses Arial font. This example promotes readability and white space is balanced.
+
+To learn more about font size and alignment needed for accessibility, see the [WebAIM article on Typefaces and Fonts](https://webaim.org/techniques/textlayout/).
+
+![Correct text](https://raw.githubusercontent.com/bigcommerce/dev-docs/master/assets/images/accessibility_correct_text_size.png "Compliant font size and alignment")
 
 ### Text links
 Text links should be unique within a page and meaningful when read out of context.
@@ -151,7 +197,7 @@ You can add scripts or code to improve the accessibility of your theme. As state
 * Add multi-factor authentication or alternative methods besides CAPTCHA to verify identity. Visual CAPTCHA does not allow alt text, preventing visually impaired people from using it.
 * Add hidden titles that can be accessed by a screen reader.
 
-**Example**
+**Menu button customization example**
 
 To update a menu button to add more color contrast, add the following text to the `footer.html` file of your mobile and regular templates:
 
