@@ -43,14 +43,14 @@ In Cornerstone, go to `templates/components/common/store-logo.html`. You will se
 Add or update the image alt text to provide descriptive text for your store logo.
 
 ```html
-alt = "{{BigCommerce store logo}}" 
+alt = "BigCommerce store logo" 
 ```
 
 NOTE: You can update the `<title>` tag with the same text as the `<alt>` tag to create a tooltip, or remove it if you do not need it.
 
 **Page Builder example**
 
-You can add alt text to the `<img>` element in the Image widget of Page Builder or the `cornerstone/assets/img/` directory.
+You can add alt text to the `<img>` element in the Image Widget of Page Builder or the `cornerstone/assets/img/` directory.
 
 Follow the steps below to add alt text to an image using Page Builder:
 1. Go to **Storefront** > **My theme** in the control panel, then click **Customize**.
@@ -58,7 +58,7 @@ Follow the steps below to add alt text to an image using Page Builder:
 3. Enter the alt text.
 4. Click **Save**.
 
-![Image Widget](https://raw.githubusercontent.com/bigcommerce/dev-docs/master/assets/images/accessibility_image_widget.png "Image Widget")
+![Image Widget](https://raw.githubusercontent.com/bigcommerce/dev-docs/master/assets/images/accessibility-image-widget.png "Image Widget")
 
 ### Aria-label attribute
 There are other options for providing text for images. Developers can use the aria-label attribute, a [Web Content Accessibility Guidelines (WCAG)](https://www.w3.org/WAI/standards-guidelines/wcag/) technique that provides assistive technology with the aria-label text instead of the image alt text. 
@@ -90,7 +90,7 @@ Add a button on your page and use the following code:
 Text accessibility involves making content readable and understandable. You can achieve text accessibility using the following methods:
 * [Color contrast](#color-contrast)
 * [Headings](#headings)
-* [Font size and text alignment](#Font-size-and-text-alignment)
+* [Font size and text alignment](#font-size-and-text-alignment)
 * [Text links](#text-links)
 
 ### Color contrast
@@ -107,7 +107,7 @@ Color contrast is an essential factor in visual accessibility.
 </div>
 </div>
 
-It is essential to avoid using dark colors for both the background and text color. Instead, use contrasting colors to achieve better visibility.   For example, avoid green and black, green and gray, and green and red. Alternatively, it is good practice to use light text on dark backgrounds or dark text on light backgrounds. The example below shows poor color contrasting because the black text is on a green background. The color constrast ratio is 3.8.1. It would have been better to use white text on a dark green background.
+It is essential to avoid using dark colors for both the background and text color. Instead, use contrasting colors to achieve better visibility.   For example, avoid green and black, green and gray, and green and red background and text colors. Alternatively, it is good practice to use light text on dark backgrounds or dark text on light backgrounds. The example below shows poor color contrasting because the black text is on a green background. The color constrast ratio is 3.8.1. It would have been better to use white text on a dark green background.
 
 **Poor contrast ratio**
 
@@ -142,7 +142,7 @@ The use of white space around blocks of text makes it easier to read. We recomme
 
 The following example demonstrates non-compliant usage of font size and text alignment. The non-compliant example shows 25-40 characters per line, uses Comic Sans MS, and is 11px. The sentences are short and choppy which results in a poor reading experience.
 
-![Incorrect text](https://raw.githubusercontent.com/bigcommerce/dev-docs/master/assets/images/accessibility_incorrect_type_size.png "Non-compliant font size and alignment")
+![Non-compliant](https://raw.githubusercontent.com/bigcommerce/dev-docs/master/assets/images/accessibility_incorrect_text_size.png "Non-compliant font size and alignment")
 
 **Compliant font-size and alignment**
 
@@ -150,7 +150,7 @@ The WCAG compliant example uses the recommended font size of 14px, has 55-65 cha
 
 To learn more about font size and alignment needed for accessibility, see the [WebAIM article on Typefaces and Fonts](https://webaim.org/techniques/textlayout/).
 
-![Correct text](https://raw.githubusercontent.com/bigcommerce/dev-docs/master/assets/images/accessibility_correct_text_size.png "Compliant font size and alignment")
+![Compliant text](https://raw.githubusercontent.com/bigcommerce/dev-docs/master/assets/images/accessibility_correct_text_size.png "Compliant font size and alignment")
 
 ### Text links
 Text links should be unique within a page and meaningful when read out of context.
@@ -211,6 +211,7 @@ background: #fff;
 There are many more customizations and changes you can make to increase your store's accessibility; this article lists just a few. To learn more about accessibility, see the list of related resources below. 
 
 ## Related resources
+For apps that can check and improve your site's accessibility, see our Site Tools category in the [App Marketplace](https://www.bigcommerce.com/apps/search/?search=accessibility).
 
 ### Articles
 - [WCAG (Web Content Accessibility Guidelines)](https://www.w3.org/WAI/standards-guidelines/wcag/)
