@@ -216,6 +216,24 @@ paths:
           required: false
           in: query
           type: integer
+        - type: integer
+          in: query
+          name: 'inventory_level:in'
+        - type: integer
+          in: query
+          name: 'inventory_level:not_in'
+        - type: integer
+          in: query
+          name: 'inventory_level:min'
+        - type: integer
+          in: query
+          name: 'inventory_level:max'
+        - type: integer
+          in: query
+          name: 'inventory_level:greater'
+        - type: integer
+          in: query
+          name: 'inventory_level:less'
         - name: inventory_low
           description: |
             Filter items by inventory_low. Values: 1, 0.
@@ -347,24 +365,6 @@ paths:
             - inventory_level
             - is_visible
             - total_sold
-        - type: integer
-          in: query
-          name: 'inventory_level:in'
-        - type: integer
-          in: query
-          name: 'inventory_level:not_in'
-        - type: integer
-          in: query
-          name: 'inventory_level:min'
-        - type: integer
-          in: query
-          name: 'inventory_level:max'
-        - type: integer
-          in: query
-          name: 'inventory_level:greater'
-        - type: integer
-          in: query
-          name: 'inventory_level:less'
       responses:
         '200':
           $ref: '#/responses/ProductCollectionResponse'
