@@ -64,7 +64,7 @@ Without these permissions, running your theme locally will fail with multiple er
 
 ## Local mapping and testing
 
-To test your custom templates locally, you must edit your `.stencil` or `config.stencil.json` file (if using Stencil V3.1 release or later) to create mappings between each local template and a corresponding URL. Within the .stencil file or `config.stencil.json` file, look for the following section:
+To test your custom templates locally, you must edit your `.stencil` or `config.stencil.json` file (if using Stencil V3.1 release or later) to create mappings between each local template and a corresponding URL. Within the `.stencil` file or `config.stencil.json` file, look for the following section:
 
 <div class="HubBlock-header">
     <div class="HubBlock-header-title flex items-center">
@@ -148,7 +148,7 @@ lineNumbers: true
 
 ### Mapping requirements and options
 
-The requirements and options for the .stencil or `config.stencil.json` (if using Stencil V3.1 release or later) mapping examples above are as follows:
+The requirements and options for the `.stencil` or `config.stencil.json` (if using Stencil V3.1 release or later) mapping examples above are as follows:
 
 * Each mapped URL must be a URL for a brand, category, product, or static page that is already configured in the store. This means that you cannot insert a placeholder URL that is an arbitrary string of letters, such as /abcdefghijklmnop/.
 
@@ -160,7 +160,7 @@ The requirements and options for the .stencil or `config.stencil.json` (if using
 
 * That parent for brand URLs is /brands/ (plural), while the corresponding subdirectory for HTML files is /brand/ (singular).
 
-* After editing your .stencil file or `config.stencil.json` files (if using Stencil V3.1 release or later), you must restart stencil to see your changes locally. Enter stencil start on the command line, appending any appropriate switches for your workflow (e.g.: `stencil start -e -n`).
+* After editing your `.stencil` file or `config.stencil.json` files (if using Stencil V3.1 release or later), you must restart stencil to see your changes locally. Enter `stencil start` in the command prompt, appending any appropriate switches for your workflow (e.g.: `stencil start -e -n`).
 
 ### Why these URL Requirements?
 When you create a local custom template page for products, you expect that page to have access to all Stencil product objects. However, the server cannot readily determine the page type of each local custom template. So we give it a hint by instructing the server to look at the page type of the URL where you mapped the template.
