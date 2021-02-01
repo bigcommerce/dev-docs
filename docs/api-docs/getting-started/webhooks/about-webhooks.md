@@ -185,7 +185,7 @@ To see if a webhook is still active, make a `GET` request to `/hooks/{id}` and c
 
 If you receive an email, or discover `is_active` is `false`, try the following:
 * Verify the app is responding to the callback with a `200` response.
-* Verify the destination server has a valid TLS/SSL setup by visiting https://sslcheck.globalsign.com. Any of the following will cause the TLS/SSL handshake to fail:
+* Verify the destination server has a valid TLS/SSL setup by visiting https://globalsign.ssllabs.com/. Any of the following will cause the TLS/SSL handshake to fail:
   * Self-signed certificates
   * Hostname on certificate doesn't match the hostname in DNS settings
   * Key and trust stores are not configured with the required intermediate certificates
