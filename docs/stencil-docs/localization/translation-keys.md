@@ -137,7 +137,7 @@ lineNumbers: true
 -->
 
 ```html
-{{lang "translation.key" optionalVariable=”someValue”}}
+{{lang "translation.key" optionalVariable="someValue"}}
 ```
 
 In a non-internationalized theme, a storefront page might include a string like this:

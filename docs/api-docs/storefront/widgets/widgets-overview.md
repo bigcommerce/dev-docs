@@ -44,7 +44,7 @@ Global regions are special regions you can use to place and manage content sitew
 To create a global region, add the `--global` suffix to the region name as shown in the following example:
 
 ```handlebars
-{{{region name=”header_bottom--global”}}}
+{{{region name="header_bottom--global"}}}
 ```
 
 <div class="HubBlock--callout">
