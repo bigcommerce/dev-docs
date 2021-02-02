@@ -19,35 +19,24 @@ We have included four accessibility best practices and examples that will help y
 * A store theme. (The following examples use the Cornerstone theme.)
 
 ## Image alt text
-Alternative (alt) text is an image description read aloud by a screen reader. Adding alt text increases the content's accessibility to visually-impaired users. All HTML `<img>` elements should use the `alt` attribute to provide a text description of the image.
+Alternative (alt) text is an image description read aloud by a screen reader. Adding alt text increases the content's accessibility to visually-impaired users. All HTML `<img>` elements should use the `<alt>` attribute to provide a text description of the image.
 
 **Alt image text using HTML**
 
-In Cornerstone, go to `templates/components/common/store-logo.html`. You will see the following code:
-
-```html
- <a href="{{urls.home}}" class="header-logo__link">
-    {{#if settings.store_logo.image}}
-        {{#if theme_settings.logo_size '===' 'original'}}
-            <img class="header-logo-image-unknown-size" src="{{getImage settings.store_logo.image 'logo_size'}}" alt="{{settings.store_logo.title}}" title="{{settings.store_logo.title}}">
-        {{else}}
-            <div class="header-logo-image-container">
-                <img class="header-logo-image" src="{{getImage settings.store_logo.image 'logo_size'}}" alt="{{settings.store_logo.title}}" title="{{settings.store_logo.title}}">
-            </div>
-        {{/if}}
-    {{else}}
-        <span class="header-logo-text">{{settings.store_logo.title}}</span>
-    {{/if}}
-</a>
-```
-Add or update the image alt text to provide descriptive text for your store logo.
-
-```html
-alt = "BigCommerce store logo" 
-```
-
+In Cornerstone, go to `templates/components/common/store-logo.html`. In the `<img>` tag, provide descriptive alt text for your store logo.
+<div class="HubBlock--callout">
+<div class="CalloutBlock--info">
+<div class="HubBlock-content">
+ 
 NOTE: You can update the `<title>` tag with the same text as the `<alt>` tag to create a tooltip, or remove it if you do not need it.
+</div>
+</div>
+</div>
 
+```html
+<img class="header-logo-image" src="https://cdn11.bigcommerce.com/{{store-domain}}/images/stencil/250x100/4f4f5910-4185-4897-9648-0b841b36d530_4_5005_c_1591994810__53965.original.jpeg 'logo_size'}}" alt="BigCommerce store logo" title="BigCommerce store logo"> 
+```
+ 
 **Alt image text in Page Builder**
 
 You can add alt text to the `<img>` element in the Image Widget of Page Builder or the `cornerstone/assets/img/` directory.
@@ -107,7 +96,7 @@ Color contrast is an essential factor in visual accessibility.
 </div>
 </div>
 
-It is essential to avoid using dark colors for both the background and text color. Instead, use contrasting colors to achieve better visibility.   For example, avoid green and black, green and gray, and green and red background and text colors. Alternatively, it is good practice to use light text on dark backgrounds or dark text on light backgrounds. The example below shows poor color contrasting because the black text is on a green background. The color constrast ratio is 3.8.1. It would have been better to use white text on a dark green background.
+It is essential to avoid using dark colors for both the background and text color. Instead, use contrasting colors to achieve better visibility.   For example, avoid green and black, green and gray, and green and red background and text colors. Alternatively, it is good practice to use light text on dark backgrounds or dark text on light backgrounds. The example below shows poor color contrasting because the black text is on a green background. The color contrast ratio is 3.8.1. It would have been better to use white text on a dark green background.
 
 **Poor contrast ratio**
 
@@ -190,7 +179,7 @@ Press the `Tab` key and navigate from the top of the page to the bottom, highlig
 
 For an example video on keyboard accessibility, see [Accessible Components: Keyboard access -- Polycasts#49](https://www.youtube.com/watch?v=REVxMvdBYMw).
 
-## Customizations
+## Customization
 You can add scripts or code to improve the accessibility of your theme. As stated above, you can use the `tabindex` global attribute to add an element for keyboard navigation. Also, we suggest doing the following:
 
 * Add a script or plugin to allow mobile, tablet, or desktop viewing. Use responsive design to match user technology to accommodate different zoom states and viewport sizes.
