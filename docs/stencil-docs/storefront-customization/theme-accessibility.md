@@ -21,7 +21,7 @@ We have included four accessibility best practices and examples that will help y
 ## Image alt text
 Alternative (alt) text is an image description read aloud by a screen reader. Adding alt text increases the content's accessibility to visually-impaired users. All HTML `<img>` elements should use the `alt` attribute to provide a text description of the image.
 
-**Store logo example**
+**Alt image text using HTML**
 
 In Cornerstone, go to `templates/components/common/store-logo.html`. You will see the following code:
 
