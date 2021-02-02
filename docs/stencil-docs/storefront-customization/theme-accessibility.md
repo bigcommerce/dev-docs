@@ -48,7 +48,7 @@ alt = "BigCommerce store logo"
 
 NOTE: You can update the `<title>` tag with the same text as the `<alt>` tag to create a tooltip, or remove it if you do not need it.
 
-**Page Builder example**
+**Alt image text in Page Builder**
 
 You can add alt text to the `<img>` element in the Image Widget of Page Builder or the `cornerstone/assets/img/` directory.
 
