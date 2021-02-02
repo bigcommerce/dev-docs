@@ -49,7 +49,7 @@ Please follow these guidelines to head off errors upon theme upload, and to avoi
 
 ## How .json Entries Govern Store Design's UI
 
-Your entries in the <span class=”fn”>schema.json</span> and <span class=”fn”>config.json</span> directly shape users' options in Store Design:
+Your entries in the <span class="fn">schema.json</span> and <span class="fn">config.json</span> directly shape users' options in Store Design:
 * Theme Variations always appear at the top of the Store Design panel. These variations are defined only in <span class="fn">config.json</span>, and their definition order in that file governs their display order in Store Design.
 * Merchants must select one variation to edit, at a time, in Store Design. The selections that they make in the remainder of Store Design's UI will apply to only that selected variation.
 * Store Design's remaining sequence of top-level (Section) headings corresponds directly to the sequence of top-level (Section) objects that you declare in `schema.json`
@@ -142,7 +142,7 @@ You may experience an issue when setting up the Store Design UI. For any unexpec
 
 ### Configured Control Missing from Store Design Panel
 * **Symptom:** A control that you have configured within schema.json is completely absent from the Store Design UI.
-* **Likely Cause:** The specified “type” is one of: text, text area, radio [button], or image. (Store Design does not currently support these data types.)
+* **Likely Cause:** The specified "type" is one of: text, text area, radio [button], or image. (Store Design does not currently support these data types.)
 * **Resolution:** Display the user option via one of the supported data types: color, font, select [drop-down list], or checkbox.
 
 ### Theme Changes Not Saved from Store Design UI

@@ -173,11 +173,11 @@ function getLoginUrl(customerId, storeHash, storeUrl, clientId, clientSecret) {
    return `${storeUrl}/login/token/${token}`;
 };
  
-const clientId = “Your client id”;
-const clientSecret = “Your client secret”;
-const customerId = “You customer id”;
-const storeHash = “Your store hash”;
-const storeUrl = “Your store url”;
+const clientId = "Your client id";
+const clientSecret = "Your client secret";
+const customerId = "Your customer id";
+const storeHash = "Your store hash";
+const storeUrl = "Your store url";
  
 const loginUrl = getLoginUrl(customerId, storeHash, storeUrl, clientId, clientSecret);
 console.log(loginUrl);
