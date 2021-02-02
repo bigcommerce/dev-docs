@@ -136,7 +136,7 @@ The use of white space around blocks of text makes it easier to read. We recomme
 * Left-aligned text
 * Font size of 14px
 * 55-65 characters per line
-* Sans serif fonts
+* Sans-serif fonts
 
 **Non-compliant font size and alignment**
 
