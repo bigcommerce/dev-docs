@@ -56,7 +56,7 @@ Accept: application/json
     "platform": "sales channel platform",
     "name": "name of the sales channel",
     "external_id": "",
-    "status": "connected”,
+    "status": "connected",
     "app": {
       "id": 123,                         // ID of the app
       "sections": [{
