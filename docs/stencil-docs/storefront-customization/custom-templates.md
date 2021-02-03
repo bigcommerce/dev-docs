@@ -38,7 +38,7 @@ If you are migrating from BigCommerce's legacy Blueprint themes framework, pleas
 
 ## Authoring a custom template
 
-As a theme developer, you must first create the custom subdirectory in the `templates/pages` directory, and the four required subdirectories inside of it (brand, category, product, page). Creating these subdirectories will result in the following directory paths:
+As a theme developer, you must first create a custom page. Create the custom page by going to **Storefront** > **Web Pages** in the Control Panel. Then create the custom subdirectory in the `templates/pages` directory, and the four required subdirectories inside of it (brand, category, product, page). Creating these subdirectories will result in the following directory paths:
 
 * templates/pages/custom/brand
 * templates/pages/custom/category
