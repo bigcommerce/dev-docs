@@ -1,48 +1,31 @@
 openapi: 3.0.0
 info:
   title: Themes
-  version: ""
-  description: >-
-    Backup, restore, download, and activate themes; and, get the status of theme
-    jobs and read theme configurations.
-
+  version: ''
+  description: |-
+    Backup, restore, download, and activate themes; and, get the status of theme jobs and read theme configurations.
 
     - [OAuth Scopes](#oauth-scopes)
-
     - [Authentication](#authentication)
-
 
     ## Authentication
 
-
     Requests can be authenticated by sending an `access_token` via `X-Auth-Token` HTTP header.
 
-
     ```http
-
     GET /stores/{$$.env.store_hash}/v3/themes
-
     host: api.bigcommerce.com
-
     Accept: application/json
-
     X-Auth-Token: {access_token}
-
     ```
 
-
     ### OAuth Scopes
-
     | UI Name                                      | Permission | Parameter                                     |
-
     |----------------------------------------------|------------|-----------------------------------------------|
-
     | Themes                                       | modify     | `store_themes_manage`                         |
-
     For more information on OAuth Scopes, see: [Authentication](https://developer.bigcommerce.com/api-docs/getting-started/authentication).
-
   license:
-    name: ""
+    name: ''
 tags:
   - name: Themes
   - name: Theme Actions
@@ -57,12 +40,12 @@ paths:
       operationId: getStoreThemes
       summary: Get all Themes
       responses:
-        "200":
-          description: ""
+        '200':
+          description: ''
           content:
             application/json:
               schema:
-                $ref: "#/components/schemas/ThemesCollectionResponse"
+                $ref: '#/components/schemas/ThemesCollectionResponse'
               examples:
                 response:
                   value:
@@ -71,45 +54,15 @@ paths:
                         variations:
                           - uuid: 877427a0-731f-0136-9d2f-633ff0d6ced1
                             name: Light
-                            description: Ideal for a wide range of businesses and brands, this design is
-                              fully responsive, simple, and ready for you to add
-                              your branding, logo, and products. It comes ready
-                              to build a clean looking and beautiful store with
-                              features such as homepage carousel, social media
-                              icons, featured and top selling products, and
-                              faceted search (which is available on select
-                              BigCommerce plans). Fully express your brand by
-                              using our Theme Editor to quickly and easily style
-                              your site's fonts and colors, all without the need
-                              to write code.
+                            description: 'Ideal for a wide range of businesses and brands, this design is fully responsive, simple, and ready for you to add your branding, logo, and products. It comes ready to build a clean looking and beautiful store with features such as homepage carousel, social media icons, featured and top selling products, and faceted search (which is available on select BigCommerce plans). Fully express your brand by using our Theme Editor to quickly and easily style your site''s fonts and colors, all without the need to write code.'
                             external_id: light
                           - uuid: 87be3180-731f-0136-9d2f-633ff0d6ced1
                             name: Bold
-                            description: Ideal for a wide range of businesses and brands, this design is
-                              fully responsive, simple, and ready for you to add
-                              your branding, logo, and products. It comes ready
-                              to build a clean looking and beautiful store with
-                              features such as homepage carousel, social media
-                              icons, featured and top selling products, and
-                              faceted search (which is available on select
-                              BigCommerce plans). Fully express your brand by
-                              using our Theme Editor to quickly and easily style
-                              your site's fonts and colors, all without the need
-                              to write code.
+                            description: 'Ideal for a wide range of businesses and brands, this design is fully responsive, simple, and ready for you to add your branding, logo, and products. It comes ready to build a clean looking and beautiful store with features such as homepage carousel, social media icons, featured and top selling products, and faceted search (which is available on select BigCommerce plans). Fully express your brand by using our Theme Editor to quickly and easily style your site''s fonts and colors, all without the need to write code.'
                             external_id: bold
                           - uuid: 87d48e90-731f-0136-9d2f-633ff0d6ced1
                             name: Warm
-                            description: Ideal for a wide range of businesses and brands, this design is
-                              fully responsive, simple, and ready for you to add
-                              your branding, logo, and products. It comes ready
-                              to build a clean looking and beautiful store with
-                              features such as homepage carousel, social media
-                              icons, featured and top selling products, and
-                              faceted search (which is available on select
-                              BigCommerce plans). Fully express your brand by
-                              using our Theme Editor to quickly and easily style
-                              your site's fonts and colors, all without the need
-                              to write code.
+                            description: 'Ideal for a wide range of businesses and brands, this design is fully responsive, simple, and ready for you to add your branding, logo, and products. It comes ready to build a clean looking and beautiful store with features such as homepage carousel, social media icons, featured and top selling products, and faceted search (which is available on select BigCommerce plans). Fully express your brand by using our Theme Editor to quickly and easily style your site''s fonts and colors, all without the need to write code.'
                             external_id: warm
                         name: Cornerstone-blog
                         is_private: true
@@ -118,45 +71,15 @@ paths:
                         variations:
                           - uuid: b16c3fe0-7bcb-0136-b5fc-07fe54a9e639
                             name: Light
-                            description: Ideal for a wide range of businesses and brands, this design is
-                              fully responsive, simple, and ready for you to add
-                              your branding, logo, and products. It comes ready
-                              to build a clean looking and beautiful store with
-                              features such as homepage carousel, social media
-                              icons, featured and top selling products, and
-                              faceted search (which is available on select
-                              BigCommerce plans). Fully express your brand by
-                              using our Theme Editor to quickly and easily style
-                              your site's fonts and colors, all without the need
-                              to write code.
+                            description: 'Ideal for a wide range of businesses and brands, this design is fully responsive, simple, and ready for you to add your branding, logo, and products. It comes ready to build a clean looking and beautiful store with features such as homepage carousel, social media icons, featured and top selling products, and faceted search (which is available on select BigCommerce plans). Fully express your brand by using our Theme Editor to quickly and easily style your site''s fonts and colors, all without the need to write code.'
                             external_id: light
                           - uuid: b17d57e0-7bcb-0136-b5fc-07fe54a9e639
                             name: Bold
-                            description: Ideal for a wide range of businesses and brands, this design is
-                              fully responsive, simple, and ready for you to add
-                              your branding, logo, and products. It comes ready
-                              to build a clean looking and beautiful store with
-                              features such as homepage carousel, social media
-                              icons, featured and top selling products, and
-                              faceted search (which is available on select
-                              BigCommerce plans). Fully express your brand by
-                              using our Theme Editor to quickly and easily style
-                              your site's fonts and colors, all without the need
-                              to write code.
+                            description: 'Ideal for a wide range of businesses and brands, this design is fully responsive, simple, and ready for you to add your branding, logo, and products. It comes ready to build a clean looking and beautiful store with features such as homepage carousel, social media icons, featured and top selling products, and faceted search (which is available on select BigCommerce plans). Fully express your brand by using our Theme Editor to quickly and easily style your site''s fonts and colors, all without the need to write code.'
                             external_id: bold
                           - uuid: b18ad610-7bcb-0136-b5fc-07fe54a9e639
                             name: Warm
-                            description: Ideal for a wide range of businesses and brands, this design is
-                              fully responsive, simple, and ready for you to add
-                              your branding, logo, and products. It comes ready
-                              to build a clean looking and beautiful store with
-                              features such as homepage carousel, social media
-                              icons, featured and top selling products, and
-                              faceted search (which is available on select
-                              BigCommerce plans). Fully express your brand by
-                              using our Theme Editor to quickly and easily style
-                              your site's fonts and colors, all without the need
-                              to write code.
+                            description: 'Ideal for a wide range of businesses and brands, this design is fully responsive, simple, and ready for you to add your branding, logo, and products. It comes ready to build a clean looking and beautiful store with features such as homepage carousel, social media icons, featured and top selling products, and faceted search (which is available on select BigCommerce plans). Fully express your brand by using our Theme Editor to quickly and easily style your site''s fonts and colors, all without the need to write code.'
                             external_id: warm
                         name: Cornerstone
                         is_private: false
@@ -165,43 +88,19 @@ paths:
                         variations:
                           - uuid: fec9fe60-7ede-0136-effe-0cbd49ed50aa
                             name: Minimal
-                            description: Fortune is a standout theme for cutting-edge online stores.
-                              Customers will be transfixed by its striking hero
-                              area, which puts your imagery on full display,
-                              along with its sleek navigation and unique product
-                              grid. Ideal for small-to-medium-sized catalogs,
-                              Fortune has everything you need to command and
-                              convert shoppers.
+                            description: 'Fortune is a standout theme for cutting-edge online stores. Customers will be transfixed by its striking hero area, which puts your imagery on full display, along with its sleek navigation and unique product grid. Ideal for small-to-medium-sized catalogs, Fortune has everything you need to command and convert shoppers.'
                             external_id: minimal
                           - uuid: fee26530-7ede-0136-effe-0cbd49ed50aa
                             name: Bright
-                            description: Fortune is a standout theme for cutting-edge online stores.
-                              Customers will be transfixed by its striking hero
-                              area, which puts your imagery on full display,
-                              along with its sleek navigation and unique product
-                              grid. Ideal for small-to-medium-sized catalogs,
-                              Fortune has everything you need to command and
-                              convert shoppers.
+                            description: 'Fortune is a standout theme for cutting-edge online stores. Customers will be transfixed by its striking hero area, which puts your imagery on full display, along with its sleek navigation and unique product grid. Ideal for small-to-medium-sized catalogs, Fortune has everything you need to command and convert shoppers.'
                             external_id: bright
                           - uuid: fef38820-7ede-0136-effe-0cbd49ed50aa
                             name: Contrast
-                            description: Fortune is a standout theme for cutting-edge online stores.
-                              Customers will be transfixed by its striking hero
-                              area, which puts your imagery on full display,
-                              along with its sleek navigation and unique product
-                              grid. Ideal for small-to-medium-sized catalogs,
-                              Fortune has everything you need to command and
-                              convert shoppers.
+                            description: 'Fortune is a standout theme for cutting-edge online stores. Customers will be transfixed by its striking hero area, which puts your imagery on full display, along with its sleek navigation and unique product grid. Ideal for small-to-medium-sized catalogs, Fortune has everything you need to command and convert shoppers.'
                             external_id: contrast
                           - uuid: ff085ab0-7ede-0136-effe-0cbd49ed50aa
                             name: Highlight
-                            description: Fortune is a standout theme for cutting-edge online stores.
-                              Customers will be transfixed by its striking hero
-                              area, which puts your imagery on full display,
-                              along with its sleek navigation and unique product
-                              grid. Ideal for small-to-medium-sized catalogs,
-                              Fortune has everything you need to command and
-                              convert shoppers.
+                            description: 'Fortune is a standout theme for cutting-edge online stores. Customers will be transfixed by its striking hero area, which puts your imagery on full display, along with its sleek navigation and unique product grid. Ideal for small-to-medium-sized catalogs, Fortune has everything you need to command and convert shoppers.'
                             external_id: highlight
                         name: Fortune
                         is_private: false
@@ -253,12 +152,12 @@ paths:
                 - file
         required: true
       responses:
-        "201":
+        '201':
           description: Job ID for the background job processing the theme upload.
           content:
             application/json:
               schema:
-                $ref: "#/components/schemas/JobId"
+                $ref: '#/components/schemas/JobId'
               examples:
                 response:
                   value:
@@ -299,7 +198,7 @@ paths:
 
         **Required Fields**
         * file
-  /themes/{uuid}:
+  '/themes/{uuid}':
     get:
       tags:
         - Themes
@@ -325,12 +224,12 @@ paths:
             type: string
             default: application/json
       responses:
-        "200":
-          description: ""
+        '200':
+          description: ''
           content:
             application/json:
               schema:
-                $ref: "#/components/schemas/ThemeResponse"
+                $ref: '#/components/schemas/ThemeResponse'
               examples:
                 response:
                   value:
@@ -339,45 +238,15 @@ paths:
                       variations:
                         - uuid: b16c3fe0-7bcb-0136-b5fc-07fe54a9e639
                           name: Light
-                          description: Ideal for a wide range of businesses and brands, this design is
-                            fully responsive, simple, and ready for you to add
-                            your branding, logo, and products. It comes ready to
-                            build a clean looking and beautiful store with
-                            features such as homepage carousel, social media
-                            icons, featured and top selling products, and
-                            faceted search (which is available on select
-                            BigCommerce plans). Fully express your brand by
-                            using our Theme Editor to quickly and easily style
-                            your site's fonts and colors, all without the need
-                            to write code.
+                          description: 'Ideal for a wide range of businesses and brands, this design is fully responsive, simple, and ready for you to add your branding, logo, and products. It comes ready to build a clean looking and beautiful store with features such as homepage carousel, social media icons, featured and top selling products, and faceted search (which is available on select BigCommerce plans). Fully express your brand by using our Theme Editor to quickly and easily style your site''s fonts and colors, all without the need to write code.'
                           external_id: light
                         - uuid: b17d57e0-7bcb-0136-b5fc-07fe54a9e639
                           name: Bold
-                          description: Ideal for a wide range of businesses and brands, this design is
-                            fully responsive, simple, and ready for you to add
-                            your branding, logo, and products. It comes ready to
-                            build a clean looking and beautiful store with
-                            features such as homepage carousel, social media
-                            icons, featured and top selling products, and
-                            faceted search (which is available on select
-                            BigCommerce plans). Fully express your brand by
-                            using our Theme Editor to quickly and easily style
-                            your site's fonts and colors, all without the need
-                            to write code.
+                          description: 'Ideal for a wide range of businesses and brands, this design is fully responsive, simple, and ready for you to add your branding, logo, and products. It comes ready to build a clean looking and beautiful store with features such as homepage carousel, social media icons, featured and top selling products, and faceted search (which is available on select BigCommerce plans). Fully express your brand by using our Theme Editor to quickly and easily style your site''s fonts and colors, all without the need to write code.'
                           external_id: bold
                         - uuid: b18ad610-7bcb-0136-b5fc-07fe54a9e639
                           name: Warm
-                          description: Ideal for a wide range of businesses and brands, this design is
-                            fully responsive, simple, and ready for you to add
-                            your branding, logo, and products. It comes ready to
-                            build a clean looking and beautiful store with
-                            features such as homepage carousel, social media
-                            icons, featured and top selling products, and
-                            faceted search (which is available on select
-                            BigCommerce plans). Fully express your brand by
-                            using our Theme Editor to quickly and easily style
-                            your site's fonts and colors, all without the need
-                            to write code.
+                          description: 'Ideal for a wide range of businesses and brands, this design is fully responsive, simple, and ready for you to add your branding, logo, and products. It comes ready to build a clean looking and beautiful store with features such as homepage carousel, social media icons, featured and top selling products, and faceted search (which is available on select BigCommerce plans). Fully express your brand by using our Theme Editor to quickly and easily style your site''s fonts and colors, all without the need to write code.'
                           external_id: warm
                       name: Cornerstone
                       is_private: false
@@ -414,8 +283,7 @@ paths:
                           type: string
                         title: DetailedErrors
                 title: Error Response
-      description: Returns a store *Theme*. The theme variation is not available at
-        this endpoint.
+      description: Returns a store *Theme*. The theme variation is not available at this endpoint.
     delete:
       tags:
         - Themes
@@ -441,8 +309,8 @@ paths:
             type: string
             default: application/json
       responses:
-        "204":
-          description: ""
+        '204':
+          description: ''
         default:
           description: Error message.
           content:
@@ -474,15 +342,14 @@ paths:
                           type: string
                         title: DetailedErrors
                 title: Error Response
-      description: >-
+      description: |-
         Deletes a store *Theme*.
-
         Theme variations can not be deleted using this endpoint. This will delete the theme and all variations.
     parameters:
-      - $ref: "#/components/parameters/ThemeIdParam"
-  "/themes/{uuid}/actions/download":
+      - $ref: '#/components/parameters/ThemeIdParam'
+  '/themes/{uuid}/actions/download':
     parameters:
-      - $ref: "#/components/parameters/ThemeIdParam"
+      - $ref: '#/components/parameters/ThemeIdParam'
     post:
       tags:
         - Theme Actions
@@ -505,18 +372,18 @@ paths:
         content:
           application/json:
             schema:
-              $ref: "#/components/schemas/WhichThemeToDownload"
+              $ref: '#/components/schemas/WhichThemeToDownload'
         required: true
         x-examples:
           application/json:
             which: last_created
       responses:
-        "200":
+        '200':
           description: Job ID for the background job processing the download.
           content:
             application/json:
               schema:
-                $ref: "#/components/schemas/JobId"
+                $ref: '#/components/schemas/JobId'
               examples:
                 response:
                   value:
@@ -576,7 +443,7 @@ paths:
         content:
           application/json:
             schema:
-              $ref: "#/components/schemas/Activate"
+              $ref: '#/components/schemas/Activate'
         description: Request parameters.
         required: true
         x-examples:
@@ -584,12 +451,12 @@ paths:
             variation_id: 87be3180-731f-0136-9d2f-633ff0d6ced1
             which: original
       responses:
-        "204":
+        '204':
           description: This returns when the request is successful.
           content:
             application/json:
               schema:
-                $ref: "#/components/schemas/NoContent"
+                $ref: '#/components/schemas/NoContent'
         default:
           description: Error message.
           content:
@@ -625,7 +492,7 @@ paths:
         Actives a store *Theme*.
 
         This returns a 204 response upon success.
-  /themes/jobs/{job_id}:
+  '/themes/jobs/{job_id}':
     get:
       tags:
         - Theme Jobs
@@ -651,18 +518,18 @@ paths:
             type: string
             default: application/json
       responses:
-        "200":
-          description: ""
+        '200':
+          description: ''
           content:
             application/json:
               schema:
-                $ref: "#/components/schemas/JobResponse"
+                $ref: '#/components/schemas/JobResponse'
               examples:
                 response:
                   value:
                     data:
                       id: ceea1917b1518f5ae491da6ad8a56336
-                      time: 2018-09-18T13:59:01Z
+                      time: '2018-09-18T13:59:01Z'
                       status: COMPLETED
                       percent_complete: 100
                       result:
@@ -701,13 +568,12 @@ paths:
                           type: string
                         title: DetailedErrors
                 title: Error Response
-      description: Returns a theme *Job*. If job is completed, the result is included
-        in the response.
-  /themes/{uuid}/configurations:
+      description: 'Returns a theme *Job*. If job is completed, the result is included in the response.'
+  '/themes/{uuid}/configurations':
     get:
       responses:
-        "200":
-          $ref: "#/components/responses/themesConfigurations_RespCollection"
+        '200':
+          $ref: '#/components/responses/themesConfigurations_RespCollection'
       tags:
         - Theme Configurations
       summary: Get Theme Configuration
@@ -717,11 +583,31 @@ paths:
         **Usage Notes**:
         * At least one filter must be provided.
       parameters:
-        - $ref: "#/components/parameters/ThemeIdParam"
-      x-private: true
+        - $ref: '#/components/parameters/ThemeIdParam'
+        - schema:
+            type: array
+            items:
+              type: string
+          in: query
+          name: 'uuid:in'
+          description: Filter configurations by a list of configuration UUIDs.
+        - schema:
+            type: array
+            items:
+              type: integer
+          in: query
+          name: 'channel_id:in'
+          description: Filter configurations by a list of channel_ids.
+        - $ref: ./catalog.v3.yml#/parameters/PageParam
+        - $ref: ./catalog.v3.yml#/parameters/LimitParam
+        - schema:
+            type: string
+          in: query
+          name: variation_uuid
+          description: Filter configurations by a variation_uuid.
     parameters:
       - in: query
-        name: site_id:in
+        name: 'site_id:in'
         description: Filter configurations by a list of site_ids
         required: true
         style: form
@@ -731,7 +617,7 @@ paths:
           items:
             type: integer
       - in: query
-        name: uuid:in
+        name: 'uuid:in'
         description: Filter configurations by a list of configuration UUIDs
         style: form
         explode: false
@@ -744,38 +630,36 @@ paths:
         description: Filter configurations by a variation_uuid
         schema:
           type: string
-      - $ref: "#/components/parameters/PageParam"
-      - $ref: "#/components/parameters/LimitParam"
-  "/themes/{uuid}/configurations/validate":
+      - $ref: '#/components/parameters/PageParam'
+      - $ref: '#/components/parameters/LimitParam'
+  '/themes/{uuid}/configurations/validate':
     post:
       responses:
-        "200":
+        '200':
           description: Theme passes validation.
           content:
             application/json:
               schema:
                 type: object
                 properties: {}
-        "422":
-          description: Theme failed validation, detailed errors in response.
+        '422':
+          description: 'Theme failed validation, detailed errors in response.'
           content:
             application/json:
               schema:
-                $ref: "#/components/schemas/ErrorResponse"
+                $ref: '#/components/schemas/ErrorResponse'
       summary: Validate Theme Configuration
       tags:
         - Theme Configurations
-      description: Validates a theme configuration against the theme's Schema without
-        creating it. Useful for testing schemas before creation.
+      description: Validates a theme configuration against the theme's Schema without creating it. Useful for testing schemas before creation.
       requestBody:
         content:
           application/json:
             schema:
-              $ref: "#/components/schemas/themeConfiguration_Write"
-      x-private: true
+              $ref: '#/components/schemas/themeConfiguration_Write'
     parameters:
-      - $ref: "#/components/parameters/ThemeIdParam"
-  /themes/custom-templates/{version_uuid}:
+      - $ref: '#/components/parameters/ThemeIdParam'
+  '/themes/custom-templates/{version_uuid}':
     parameters:
       - schema:
           type: string
@@ -838,7 +722,7 @@ x-stoplight:
     includeDownloadLink: true
     showModels: false
 servers:
-  - url: https://api.bigcommerce.com/stores/{$$.env.store_hash}/v3
+  - url: 'https://api.bigcommerce.com/stores/{$$.env.store_hash}/v3'
     variables:
       $$.env.store_hash:
         default: unknown
@@ -882,16 +766,15 @@ components:
         type: integer
     LimitParam:
       name: limit
-      description: >
-        Controls the number of items per page in a limited (paginated) list of
-        products.
+      description: |
+        Controls the number of items per page in a limited (paginated) list of products.
       required: false
       in: query
       schema:
         type: integer
   responses:
     themesConfigurations_RespCollection:
-      description: ""
+      description: ''
       content:
         application/json:
           schema:
@@ -902,9 +785,9 @@ components:
               data:
                 type: array
                 items:
-                  $ref: "#/components/schemas/themeConfiguration_Full"
+                  $ref: '#/components/schemas/themeConfiguration_Full'
               meta:
-                $ref: "#/components/schemas/CollectionMeta"
+                $ref: '#/components/schemas/CollectionMeta'
           examples:
             response:
               value:
@@ -924,58 +807,43 @@ components:
                     total_pages: 1
                     links:
                       previous: nostrud in
-                      current: ?page=1&limit=50
+                      current: '?page=1&limit=50'
                       next: in
   securitySchemes:
     X-Auth-Token:
       type: apiKey
       in: header
       name: X-Auth-Token
-      description: >-
+      description: |-
         ### OAuth Scopes
-
         |  **UI Name** | **Permission** | **Parameter** |
-
         | --- | --- | --- |
-
         |  Themes | modify | `store_themes_manage` |
-
 
         ### Headers
 
-
         |Header|Parameter|Description|
-
         |-|-|-|
-
         |`X-Auth-Token`|`access_token `|Obtained by creating an API account or installing an app in a BigCommerce control panel.|
-
 
         ### Example
 
-
         ```http
-
         GET /stores/{$$.env.store_hash}/v3/catalog/summary
-
         host: api.bigcommerce.com
-
         Content-Type: application/json
-
         X-Auth-Token: {access_token}
-
         ```
-
 
         * For more information on Authenticating BigCommerce APIs, see: [Authentication](https://developer.bigcommerce.com/api-docs/getting-started/authentication).
   schemas:
     CollectionMeta:
       type: object
-      description: Data about the response, including pagination and collection totals.
+      description: 'Data about the response, including pagination and collection totals.'
       properties:
         pagination:
           type: object
-          description: Data about the response, including pagination and collection totals.
+          description: 'Data about the response, including pagination and collection totals.'
           title: Pagination
           properties:
             total:
@@ -990,9 +858,8 @@ components:
               example: 36
             per_page:
               type: integer
-              description: >
-                The amount of items returned in the collection per page,
-                controlled by the limit parameter.
+              description: |
+                The amount of items returned in the collection per page, controlled by the limit parameter.
               example: 50
             current_page:
               type: integer
@@ -1006,9 +873,8 @@ components:
               example: 1
             links:
               type: object
-              description: >
-                Pagination links for the previous and next parts of the whole
-                collection.
+              description: |
+                Pagination links for the previous and next parts of the whole collection.
               properties:
                 previous:
                   type: string
@@ -1018,7 +884,7 @@ components:
                   type: string
                   description: |
                     Link to the current page returned in the response.
-                  example: ?page=1&limit=50
+                  example: '?page=1&limit=50'
                 next:
                   type: string
                   description: |
@@ -1026,7 +892,7 @@ components:
       title: Collection Meta
     Pagination:
       type: object
-      description: Data about the response, including pagination and collection totals.
+      description: 'Data about the response, including pagination and collection totals.'
       title: Pagination
       properties:
         total:
@@ -1041,9 +907,8 @@ components:
           example: 36
         per_page:
           type: integer
-          description: >
-            The amount of items returned in the collection per page, controlled
-            by the limit parameter.
+          description: |
+            The amount of items returned in the collection per page, controlled by the limit parameter.
           example: 50
         current_page:
           type: integer
@@ -1057,9 +922,8 @@ components:
           example: 1
         links:
           type: object
-          description: >
-            Pagination links for the previous and next parts of the whole
-            collection.
+          description: |
+            Pagination links for the previous and next parts of the whole collection.
           properties:
             previous:
               type: string
@@ -1069,19 +933,19 @@ components:
               type: string
               description: |
                 Link to the current page returned in the response.
-              example: ?page=1&limit=50
+              example: '?page=1&limit=50'
             next:
               type: string
               description: |
                 Link to the next page returned in the response.
     Meta:
       type: object
-      description: Data about the response, including pagination and collection totals.
+      description: 'Data about the response, including pagination and collection totals.'
       title: Collection Meta
       properties:
         pagination:
           type: object
-          description: Data about the response, including pagination and collection totals.
+          description: 'Data about the response, including pagination and collection totals.'
           title: Pagination
           properties:
             total:
@@ -1096,9 +960,8 @@ components:
               example: 36
             per_page:
               type: integer
-              description: >
-                The amount of items returned in the collection per page,
-                controlled by the limit parameter.
+              description: |
+                The amount of items returned in the collection per page, controlled by the limit parameter.
               example: 50
             current_page:
               type: integer
@@ -1112,9 +975,8 @@ components:
               example: 1
             links:
               type: object
-              description: >
-                Pagination links for the previous and next parts of the whole
-                collection.
+              description: |
+                Pagination links for the previous and next parts of the whole collection.
               properties:
                 previous:
                   type: string
@@ -1124,7 +986,7 @@ components:
                   type: string
                   description: |
                     Link to the current page returned in the response.
-                  example: ?page=1&limit=50
+                  example: '?page=1&limit=50'
                 next:
                   type: string
                   description: |
@@ -1380,12 +1242,11 @@ components:
                 type: boolean
         meta:
           type: object
-          description: Data about the response, including pagination and collection totals.
+          description: 'Data about the response, including pagination and collection totals.'
           properties:
             pagination:
               type: object
-              description: Data about the response, including pagination and collection
-                totals.
+              description: 'Data about the response, including pagination and collection totals.'
               title: Pagination
               properties:
                 total:
@@ -1400,9 +1261,8 @@ components:
                   example: 36
                 per_page:
                   type: integer
-                  description: >
-                    The amount of items returned in the collection per page,
-                    controlled by the limit parameter.
+                  description: |
+                    The amount of items returned in the collection per page, controlled by the limit parameter.
                   example: 50
                 current_page:
                   type: integer
@@ -1416,9 +1276,8 @@ components:
                   example: 1
                 links:
                   type: object
-                  description: >
-                    Pagination links for the previous and next parts of the
-                    whole collection.
+                  description: |
+                    Pagination links for the previous and next parts of the whole collection.
                   properties:
                     previous:
                       type: string
@@ -1428,7 +1287,7 @@ components:
                       type: string
                       description: |
                         Link to the current page returned in the response.
-                      example: ?page=1&limit=50
+                      example: '?page=1&limit=50'
                     next:
                       type: string
                       description: |
@@ -1442,9 +1301,9 @@ components:
       title: Theme Response
       properties:
         data:
-          $ref: "#/components/schemas/Theme"
+          $ref: '#/components/schemas/Theme'
         meta:
-          $ref: "#/components/schemas/CollectionMeta"
+          $ref: '#/components/schemas/CollectionMeta'
     JobResponse:
       type: object
       properties:
@@ -1510,23 +1369,16 @@ components:
       title: Job Response
       description: Response for /GET Jobs by Id.
     WhichThemeToDownload:
-      description: "An object specifying which theme to download. One of: `original`:
-        the original Marketplace or uploaded custom theme; `last_activated`: the
-        theme version most recently applied to the store; `last_created`: the
-        theme version most recently created."
+      description: 'An object specifying which theme to download. One of: `original`: the original Marketplace or uploaded custom theme; `last_activated`: the theme version most recently applied to the store; `last_created`: the theme version most recently created.'
       allOf:
-        - description: >-
+        - description: |-
             A BigCommerce object specifying which theme to download.
-
 
             `original`: the original Marketplace or uploaded custom theme.
 
-
             `last_activated`: the theme version most recently applied to the store.
 
-
             `last_created`: the theme version most recently created.
-
 
             If `which` is missing or invalid in the request, its value will default to `last_activated`.
           example: original
@@ -1542,12 +1394,12 @@ components:
       type: object
     RequestHeaders:
       type: object
-      description: "These are the minium request headers needed for BigCommerce. "
+      description: 'These are the minium request headers needed for BigCommerce. '
       title: Request Headers
       properties:
         X-Auth-Client:
           type: string
-          example: "{X-Auth-Client}"
+          example: '{X-Auth-Client}'
         Accepts:
           type: string
           default: application/json
@@ -1565,14 +1417,12 @@ components:
           description: The Variation to which the Configuration belongs.
         settings:
           type: object
-          description: The content of the configuration, which is a JSON object which will
-            vary in structure from theme to theme.
+          description: 'The content of the configuration, which is a JSON object which will vary in structure from theme to theme.'
         date_created:
           type: string
         site_id:
           type: integer
-          description: Site ID to which this configuration belongs. Will be 0 for the
-            original configuration for a Theme.
+          description: Site ID to which this configuration belongs. Will be 0 for the original configuration for a Theme.
       title: themeConfiguration_Full
     themeConfiguration_Write:
       description: A theme.
@@ -1583,6 +1433,5 @@ components:
           description: The Variation to which the Configuration belongs.
         settings:
           type: object
-          description: The content of the configuration, which is a JSON object which will
-            vary in structure from theme to theme.
+          description: 'The content of the configuration, which is a JSON object which will vary in structure from theme to theme.'
       title: themeConfiguration_Write
