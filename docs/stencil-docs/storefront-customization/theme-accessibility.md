@@ -28,7 +28,9 @@ In Cornerstone, go to `templates/components/common/store-logo.html`. In the `<im
 <div class="CalloutBlock--info">
 <div class="HubBlock-content">
  
-NOTE: You can update the `<title>` tag with the same text as the `<alt>` tag to create a tooltip, or remove it if you do not need it.
+### Note 
+
+You can update the `title` attribute with the same text as the `alt` attribute to create a tooltip, or remove it if you do not need it.
 </div>
 </div>
 </div>
