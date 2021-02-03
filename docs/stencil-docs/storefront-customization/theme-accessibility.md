@@ -41,7 +41,7 @@ You can update the `title` attribute with the same text as the `alt` attribute t
  
 **Alt image text in Page Builder**
 
-You can add alt text to the `<img>` element in the Image Widget of Page Builder or the `cornerstone/assets/img/` directory.
+You can add alt text to the `<img>` element in the Image widget of Page Builder or the `cornerstone/assets/img/` directory.
 
 Follow the steps below to add alt text to an image using Page Builder:
 1. Go to **Storefront** > **My theme** in the control panel, then click **Customize**.
