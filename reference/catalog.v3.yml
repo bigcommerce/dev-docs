@@ -660,77 +660,23 @@ paths:
                 type: string
             title: Not Found
         '409':
-          description: '`Product` was in conflict with another product. This is caused by: duplicate unique values, such as name or SKU; a missing category, brand, or tax_class with which the product is being associated; or a conflicting bulk pricing rule.'
+          description: '`Product` was in conflict with another product. This is the result of duplicate unique values such as name or SKU; a missing or invalid `category_id`, `brand_id`, or `tax_class id`; or a conflicting `bulk_pricing_rule`.'
           schema:
-            type: array
-            items:
-              allOf:
-                - type: object
-                  description: |
-                    Error payload for the BigCommerce API.
-                  properties:
-                    status:
-                      description: |
-                        The HTTP status code.
-                      type: integer
-                    title:
-                      description: |
-                        The error title describing the particular error.
-                      type: string
-                    type:
-                      type: string
-                    instance:
-                      type: string
-                  title: Base Error
-                - type: object
-                  properties:
-                    errors:
-                      type: object
-                      title: Detailed Errors
-                      properties:
-                        additionalProperties:
-                          type: string
-              title: Error Response
+            $ref: '#/definitions/errorResponse_409'
         '413':
-          description: ''
+          description: 413 Request Entity Too Large
           examples:
             application/json:
               errors: {}
               status: 413
               title: The request payload is too large. The maximum items allowed in the array is 50
               type: 'https://developer.bigcommerce.com/api-docs/getting-started/api-status-codes'
-        '422':
-          description: '`Product` was not valid. This is the result of missing required fields, or of invalid data. See the response for more details.'
           schema:
-            type: array
-            items:
-              allOf:
-                - type: object
-                  description: |
-                    Error payload for the BigCommerce API.
-                  properties:
-                    status:
-                      description: |
-                        The HTTP status code.
-                      type: integer
-                    title:
-                      description: |
-                        The error title describing the particular error.
-                      type: string
-                    type:
-                      type: string
-                    instance:
-                      type: string
-                  title: Base Error
-                - type: object
-                  properties:
-                    errors:
-                      type: object
-                      title: Detailed Errors
-                      properties:
-                        additionalProperties:
-                          type: string
-              title: Error Response
+            $ref: '#/definitions/error_Base'
+        '422':
+          description: '`Product` was not valid. This is the result of missing required fields or invalid data. See the response for more details.'
+          schema:
+            $ref: '#/definitions/errorResponse_422'
           examples:
             application/json:
               - status: -511628
@@ -21782,6 +21728,40 @@ definitions:
             minLength: 1
             maxLength: 255
     title: productVariant_Put
+  errorResponse_409:
+    title: errorResponse_409
+    allOf:
+      - properties:
+          code:
+            type: integer
+          status:
+            type: integer
+          title:
+            type: string
+            description: The error title describing the particular error.
+          type:
+            type: string
+      - properties:
+          errors:
+            $ref: '#/definitions/detailedErrors'
+    type: object
+  errorResponse_422:
+    title: errorResponse_422
+    allOf:
+      - properties:
+          code:
+            type: integer
+          status:
+            type: integer
+          title:
+            type: string
+            description: The error title describing the particular error.
+          type:
+            type: string
+      - properties:
+          errors:
+            $ref: '#/definitions/detailedErrors'
+    type: object
 securityDefinitions:
   X-Auth-Token:
     type: apiKey
