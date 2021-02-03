@@ -36,7 +36,7 @@ You can update the `title` attribute with the same text as the `alt` attribute t
 </div>
 
 ```html
-<img class="header-logo-image" src="https://cdn11.bigcommerce.com/{{store-domain}}/images/stencil/250x100/4f4f5910-4185-4897-9648-0b841b36d530_4_5005_c_1591994810__53965.original.jpeg 'logo_size'}}" alt="BigCommerce store logo" title="BigCommerce store logo"> 
+<img src="store_logo.jpeg" alt="BigCommerce store logo"> 
 ```
  
 **Alt image text in Page Builder**
