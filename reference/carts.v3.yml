@@ -440,7 +440,7 @@ paths:
                 updated_time: '2018-09-17T14:53:40+00:00'
               meta: {}
         '204':
-          description: 'If the action's result is an empty cart, the cart gets automatically deleted.'
+          description: If the action's result is an empty cart, the cart gets automatically deleted.
       summary: Delete Cart Line Item
       operationId: deleteCartLineItem
   '/carts/{cartId}':
