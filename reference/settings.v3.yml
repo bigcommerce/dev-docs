@@ -39,7 +39,7 @@ paths:
       summary: Get Status
       responses:
         '200':
-          description: OK
+          description: ''
           content:
             application/json:
               schema:
@@ -53,13 +53,12 @@ paths:
                 example-1:
                   value:
                     data:
-                      status: prelaunch
-                      down_for_maintenance_message: string
-                      prelaunch_message: string
-                      prelaunch_password: string
+                      down_for_maintenance_message: Down for maintenance
+                      prelaunch_message: Prelaunch
+                      prelaunch_password: mezt1f77gd
                     meta: {}
         '422':
-          description: Provided settings could not be applied for some reason - detailed errors in the response.
+          description: The request is missing 1 or more required fields. See the response for more details.
           content:
             application/json:
               schema:
@@ -76,9 +75,14 @@ paths:
           application/json:
             schema:
               $ref: '#/components/schemas/StorefrontStatus'
+            examples:
+              example-1:
+                value:
+                  down_for_maintenance_message: Down for maintenance
+                  prelaunch_message: Coming soon
       responses:
         '200':
-          description: OK
+          description: ''
           content:
             application/json:
               schema:
@@ -88,6 +92,14 @@ paths:
                     $ref: '#/components/schemas/StorefrontStatus'
                   meta:
                     type: object
+              examples:
+                example-1:
+                  value:
+                    data:
+                      down_for_maintenance_message: Down for maintenance
+                      prelaunch_message: Coming soon
+                      prelaunch_password: mezt1f77gd
+                    meta: {}
       parameters:
         - $ref: '#/components/parameters/ChannelIdParam'
       tags:
@@ -98,7 +110,7 @@ paths:
       operationId: delete-settings-storefront-status
       responses:
         '200':
-          description: OK
+          description: ''
       parameters:
         - $ref: '#/components/parameters/RequiredChannelIdParamForDelete'
         - $ref: '#/components/parameters/KeysToDelete'
@@ -110,7 +122,7 @@ paths:
       summary: Get SEO Settings
       responses:
         '200':
-          description: OK
+          description: ''
           content:
             application/json:
               schema:
@@ -124,9 +136,10 @@ paths:
                 example-1:
                   value:
                     data:
-                      page_title: string
-                      meta_description: string
-                      www_redirect: www
+                      meta_description: Your BigCommerce Store
+                      meta_keywords: ''
+                      page_title: BigCommerce Store
+                      www_redirect: no-www
                     meta: {}
         '422':
           description: Provided settings could not be applied for some reason - detailed errors in the response.
@@ -146,6 +159,13 @@ paths:
           application/json:
             schema:
               $ref: '#/components/schemas/SEOSettings'
+            examples:
+              example-1:
+                value:
+                  meta_description: Your BigCommerce Store
+                  meta_keywords: ''
+                  page_title: New BigCommerce Store
+                  www_redirect: no-www
       responses:
         '200':
           description: OK
@@ -158,6 +178,15 @@ paths:
                     $ref: '#/components/schemas/SEOSettings'
                   meta:
                     type: object
+              examples:
+                example-1:
+                  value:
+                    data:
+                      meta_description: Your BigCommerce Store
+                      meta_keywords: ''
+                      page_title: New BigCommerce Store
+                      www_redirect: no-www
+                    meta: {}
       parameters:
         - $ref: '#/components/parameters/ChannelIdParam'
       tags:
@@ -318,7 +347,7 @@ paths:
       summary: Get Search Settings
       responses:
         '200':
-          description: OK
+          description: ''
           content:
             application/json:
               schema:
@@ -332,7 +361,10 @@ paths:
                 example-1:
                   value:
                     data:
+                      content_product_sort: relevance
                       default_product_sort: bestselling
+                      product_filtering_enabled: true
+                      search_suggest: true
                     meta: {}
         '422':
           description: Provided settings could not be applied for some reason - detailed errors in the response.
@@ -353,6 +385,13 @@ paths:
           application/json:
             schema:
               $ref: '#/components/schemas/StorefrontSearchSettings'
+            examples:
+              example-1:
+                value:
+                  content_product_sort: relevance
+                  default_product_sort: featured
+                  product_filtering_enabled: true
+                  search_suggest: true
       responses:
         '200':
           description: OK
@@ -365,6 +404,15 @@ paths:
                     $ref: '#/components/schemas/StorefrontSearchSettings'
                   meta:
                     type: object
+              examples:
+                example-1:
+                  value:
+                    data:
+                      content_product_sort: relevance
+                      default_product_sort: featured
+                      product_filtering_enabled: true
+                      search_suggest: true
+                    meta: {}
       parameters:
         - $ref: '#/components/parameters/ChannelIdParam'
       tags:
@@ -387,7 +435,7 @@ paths:
       summary: Get Enabled Filters
       responses:
         '200':
-          description: OK
+          description: ''
           content:
             application/json:
               schema:
@@ -397,6 +445,44 @@ paths:
                     $ref: '#/components/schemas/ConfiguredFilters'
                   meta:
                     type: object
+              examples:
+                example-1:
+                  value:
+                    data:
+                      - collapsed_by_default: false
+                        display_name: Size
+                        display_product_count: true
+                        id: U123=
+                        is_enabled: true
+                        items_to_show: 10
+                        sort_by: alpha
+                        type: product
+                      - collapsed_by_default: false
+                        display_name: Brand
+                        display_product_count: true
+                        id: Y123=
+                        is_enabled: true
+                        items_to_show: 12
+                        sort_by: alpha
+                        type: brand
+                      - collapsed_by_default: false
+                        display_name: Color
+                        display_product_count: true
+                        id: Q123=
+                        is_enabled: true
+                        items_to_show: 10
+                        sort_by: alpha
+                        type: product
+                      - collapsed_by_default: true
+                        display_name: Ships for Free
+                        display_product_count: false
+                        id: Y456=
+                        is_enabled: true
+                        show_free_shipping_filter: true
+                        show_in_stock_filter: true
+                        show_is_featured_filter: true
+                        type: other
+                    meta: {}
       operationId: getEnabled
       description: 'Returns a list of enabled default [Product Filtering](https://support.bigcommerce.com/s/article/Product-Filtering-Settings) filters. These filters will be used if a store does not have contextual overrides.'
       tags:
@@ -406,13 +492,96 @@ paths:
       operationId: updateEnabled
       responses:
         '200':
-          description: OK
+          description: ''
+          content:
+            application/json:
+              schema:
+                type: object
+                properties:
+                  data:
+                    $ref: '#/components/schemas/ConfiguredFilters'
+                  meta:
+                    type: object
+              examples:
+                example-1:
+                  value:
+                    data:
+                      - collapsed_by_default: false
+                        display_name: Size
+                        display_product_count: true
+                        id: U123==
+                        is_enabled: true
+                        items_to_show: 12
+                        sort_by: alpha
+                        type: product
+                      - collapsed_by_default: false
+                        display_name: Brand
+                        display_product_count: true
+                        id: Y123=
+                        is_enabled: true
+                        items_to_show: 10
+                        sort_by: alpha
+                        type: brand
+                      - collapsed_by_default: false
+                        display_name: Color
+                        display_product_count: true
+                        id: Q123=
+                        is_enabled: true
+                        items_to_show: 10
+                        sort_by: alpha
+                        type: product
+                      - collapsed_by_default: true
+                        display_name: Ships for Free
+                        display_product_count: true
+                        id: Y456=
+                        is_enabled: true
+                        show_free_shipping_filter: true
+                        show_in_stock_filter: true
+                        show_is_featured_filter: true
+                        type: other
+                    meta: {}
       description: 'Updates enabled default [Product Filtering](https://support.bigcommerce.com/s/article/Product-Filtering-Settings) filters.'
       requestBody:
         content:
           application/json:
             schema:
               $ref: '#/components/schemas/ConfiguredFilters'
+            examples:
+              example-1:
+                value:
+                  - collapsed_by_default: false
+                    display_name: Size
+                    display_product_count: true
+                    id: U123=
+                    is_enabled: true
+                    items_to_show: 12
+                    sort_by: alpha
+                    type: product
+                  - collapsed_by_default: false
+                    display_name: Brand
+                    display_product_count: true
+                    id: Y123=
+                    is_enabled: true
+                    items_to_show: 10
+                    sort_by: alpha
+                    type: brand
+                  - collapsed_by_default: false
+                    display_name: Color
+                    display_product_count: true
+                    id: Q123=
+                    is_enabled: true
+                    items_to_show: 10
+                    sort_by: alpha
+                    type: product
+                  - collapsed_by_default: true
+                    display_name: Ships for Free
+                    display_product_count: true
+                    id: Y456=
+                    is_enabled: true
+                    show_free_shipping_filter: true
+                    show_in_stock_filter: true
+                    show_is_featured_filter: true
+                    type: other
       tags:
         - Search Filters
   /settings/search/filters/available:
@@ -420,7 +589,7 @@ paths:
       summary: Get Available Filters
       responses:
         '200':
-          description: OK
+          description: ''
           content:
             application/json:
               schema:
@@ -432,6 +601,39 @@ paths:
                       $ref: '#/components/schemas/AvailableFilter'
                   meta:
                     type: object
+              examples:
+                example-1:
+                  value:
+                    data:
+                      - id: Y2F0Zooo123=
+                        name: Category
+                        product_count: 7
+                        type: category
+                      - id: YnJh123=
+                        name: Brand
+                        product_count: 8
+                        type: brand
+                      - id: cmF0a123
+                        name: Rating
+                        product_count: 1
+                        type: rating
+                      - id: cHJp123=
+                        name: Price
+                        price_range_max: 300.99
+                        price_range_min: 6.75
+                        type: price
+                      - id: U2l123==
+                        name: Size
+                        product_count: 3
+                        type: product
+                      - id: Q29s123=
+                        name: Color
+                        product_count: 2
+                        type: product
+                      - id: Ym9123==
+                        name: Other
+                        type: other
+                    meta: {}
       operationId: getAvailable
       description: 'Returns a list of filters available to power [Product Filtering](https://support.bigcommerce.com/s/article/Product-Filtering-Settings).'
       parameters:
@@ -598,6 +800,8 @@ components:
             - www
             - no-www
             - none
+        meta_keywords:
+          type: string
     StorefrontCategorySettings:
       type: object
       properties:
@@ -612,6 +816,14 @@ components:
       properties:
         default_product_sort:
           $ref: '#/components/schemas/ProductSortEnumValues'
+        content_product_sort:
+          $ref: '#/components/schemas/ContentSortEnumValues'
+        product_filtering_enabled:
+          type: boolean
+          description: Controls whether Product Filtering feature is active on the storefront. Only supports manipulation on a global level.
+        search_suggest:
+          type: boolean
+      title: ''
     StoreProfile:
       description: 'The basic profile settings for a store, used to give the shopper information about the business from which they are purchasing.'
       type: object
@@ -632,6 +844,7 @@ components:
           type: string
         prelaunch_password:
           type: string
+          description: A read-only value representing the auto-generated storefront password.
     ProductSortEnumValues:
       type: string
       title: ProductSortEnumValues
@@ -645,7 +858,7 @@ components:
         - highestprice
         - lowestprice
         - bestreviewed
-      description: The available sorts for PLP pages
+      description: The available sorts for PLP pages.
     StorefrontSecuritySettings:
       title: StorefrontSecuritySettings
       type: object
