@@ -578,7 +578,7 @@ paths:
         - Theme Configurations
       summary: Get Theme Configuration
       description: |-
-        Get list of Configurations related to a Theme.
+        Returns a list of theme's configurations.
 
         **Usage Notes**:
         * At least one filter must be provided.
@@ -651,7 +651,7 @@ paths:
       summary: Validate Theme Configuration
       tags:
         - Theme Configurations
-      description: Validates a theme configuration against the theme's Schema without creating it. Useful for testing schemas before creation.
+      description: Validates a theme configuration against the theme's schema without creating it. Useful for testing schemas before creation.
       requestBody:
         content:
           application/json:
