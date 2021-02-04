@@ -1178,7 +1178,7 @@ paths:
         - `image_url` - `255` character limit
         - For file uploads, use the `multipart/form-data` media type
         - Only one image at a time can be created
-        - Supported image file types are BMP, GIF, JPEG, PNG, WBMP, and XBM.
+        - Supported image file types are BMP, GIF, JPEG, PNG, WBMP, XBM, and WEBP.
       operationId: createProductImage
       parameters:
         - name: productImage
