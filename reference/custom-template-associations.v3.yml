@@ -2,9 +2,9 @@ openapi: 3.0.1
 info:
   title: Custom Template Associations
   version: 3.0.0
-  description: Efficiently associate a stencil theme's custom templates to products, categories, brands, and pages.
+  description: 'Efficiently associate a stencil theme''s custom templates to products, categories, brands, and pages.'
 servers:
-  - url: 'https://api.bigcommerce.com/stores/{store_hash}/v3'
+  - url: 'https://api.bigcommerce.com/stores/{$$.env.store_hash}/v3'
     description: Production API Gateway
     variables:
       store_hash:
@@ -64,7 +64,7 @@ paths:
             type: string
           in: query
           name: 'entity_id:in'
-          description: 'Filter by a list of entity IDs. Must be used together with "type" filter.'
+          description: Filter by a list of entity IDs. Must be used together with "type" filter.
         - schema:
             type: integer
           in: query
@@ -89,8 +89,8 @@ paths:
             type: boolean
           in: query
           name: is_valid
-          description: "Optional toggle to filter for exclusively valid or invalid associations entries. An invalid entry is one where it's file name does not match up to an existing custom layout file in the currently active theme for the channel."
-      description: "Get a collection of the store's custom template associations across all storefronts"
+          description: Optional toggle to filter for exclusively valid or invalid associations entries. An invalid entry is one where it's file name does not match up to an existing custom layout file in the currently active theme for the channel.
+      description: Get a collection of the store's custom template associations across all storefronts
       operationId: GetCustomTemplateAssociations
     put:
       summary: Upsert Custom Template Associations
@@ -313,4 +313,10 @@ components:
         - entity_type
         - entity_id
         - template_file
-  securitySchemes: {}
+  securitySchemes:
+    X-Auth-Token:
+      name: X-Auth-Token
+      type: apiKey
+      in: header
+security:
+  - X-Auth-Token: []
