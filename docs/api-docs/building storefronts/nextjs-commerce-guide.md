@@ -1,6 +1,7 @@
 # Next.js Commerce Quick Start Guide
 
 <div class="otp" id="no-index">
+
 ### On this page
 
 - [**Overview**](#overview)
