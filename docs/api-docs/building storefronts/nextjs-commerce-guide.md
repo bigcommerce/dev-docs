@@ -7,7 +7,7 @@
 - [**Overview**](#overview)
 - [**Getting started**](#getting-started)
 - [**Application**](#application)
-- [**Application Settings**](#application-settings)
+- [**Application settings**](#application-settings)
 - [**Resources**](#resources)
 </div>
 
