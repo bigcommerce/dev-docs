@@ -1,5 +1,15 @@
 # Next.js Commerce Quick Start Guide
 
+<div class="otp" id="no-index">
+### On this page
+
+- [**Overview**](#overview)
+- [**Getting started**](#getting-started)
+- [**Application**](#application)
+- [**Application Settings**](#application-settings)
+- [**Resources and References**](#resources-and-references)
+</div>
+
 ## **Overview**
 
 BigCommerce offers cloud-based, multi-channel, ecommerce solutions. We also offer themes with powerful design tools and features that allow store owners to build and host their storefront on our servers.
