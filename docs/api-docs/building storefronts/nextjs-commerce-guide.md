@@ -162,7 +162,7 @@ Storefront Data Hooks has helper functions to handle common user actions such as
 
 SWR uses FETCH for data fetching: [vercel/fetch: Opinionated fetch (with retrying and DNS caching) optimized for use inside microservices](https://github.com/vercel/fetch)
 
-## **Application Settings**
+## **Application settings**
 
 ### **Next SEO**
 
@@ -185,7 +185,7 @@ defaultLocale: 'en-US',
 
 For more information on i18n routing in Next.js, see the Next.js documentation on [internationalized routing](https://nextjs.org/docs/advanced-features/i18n-routing).
 
-## **Resources and References**
+## **Resources**
 
 - [Next.js Commerce](http://nextjs.org/commerce)
 - [Next.js Commerce Framework](https://github.com/vercel/commerce-framework)
