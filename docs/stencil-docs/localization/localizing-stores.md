@@ -2,8 +2,8 @@
 
 <div class="otp" id="no-index">
 
-### On This Page
-- [Translating theme files via Stencil CLI](#translating-theme-files-via-stencil-cli)
+### On this page
+- [Localizing theme files](#localizing-theme-files)
 - [Localizing checkout](#localizing-checkout)
 - [Localizing control panel content](#localizing-control-panel-content)
 - [Resources](#resources)
@@ -31,9 +31,26 @@ A BigCommerce storefront can be customized to display in any one language of you
 </div>
 </div>
 
-## Translating theme files via Stencil CLI
+## Localizing theme files
+
+### Translating theme files by Stencil CLI
 
 The bulk of localizing a store is translating content on your theme's page templates. You will need to abstract these templates' literal text strings into `{{lang}}` variables, then provide per-language JSON files that define these variables in corresponding key/value pairs.
+
+### Translating strings by BigCommerce
+
+Some of the strings displayed on your storefront are not currently editable in BigCommerce. These are strings such as "This promotion cannot be applied with the selected currency." For strings such as this BigCommerce, will automatically render the strings in the shopper's language as defined by the shopper's browser language setting.
+
+Currently BigCommerce supports these uneditable strings in the following languages:
+* English
+* French
+* German
+* Spanish
+* Italian
+* Dutch
+* Portuguese
+
+If you would like to review these strings, you can do so by downloading the language files we have made available in the .po file format. We recommend viewing these in a text editor designed to handle the .po file format or use a simple text editor.
 
 ## Localizing checkout
 
