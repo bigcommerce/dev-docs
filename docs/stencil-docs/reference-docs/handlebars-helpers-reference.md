@@ -48,6 +48,7 @@ The following table contains BigCommerce's open source [Handlebars helpers](http
 | [concat](#concat) | string | Concatenates two strings. |
 | [join](#join) | string | Joins an array of string elements into one string. |
 | [json](#json) | string | Converts a JavaScript object into a JSON string. |
+| [occurrences](#occurrences) | string | Returns the number of occurrences of substring within the given string. |
 | [replace](#replace) | string | Replaces all instances of the first parameter in the second parameter. |
 | [setURLQueryParam](#seturlqueryparam) | string | Appends keys values to a URL. |
 | [stripQuerystring](#stripquerystring) | string | Removes query string. |
@@ -67,7 +68,7 @@ The following table contains BigCommerce's open source [Handlebars helpers](http
 ### {{limit}}
 
 ```handlebars
-{{limit data limit)}}
+{{limit data limit}}
 ```
 Limits the number of items returned from an array; returns a new array.
 
@@ -77,6 +78,8 @@ Limits the number of items returned from an array; returns a new array.
 - `limit` {Number}: Index specifying the number of items to exclude.
 
 #### Example
+
+Assume that `{{cart.items}}` returns 10 items. You can use this helper to limit that behavior to only the first four items.
 
 ```handlebars
 {{#each (limit cart.items 4)}}
@@ -102,7 +105,7 @@ Limits the number of items returned from an array; returns a new array.
 ```handlebars
 {{pluck limit collection path}}
 ```
-Using specified search key(s), retrieves corresponding values from some or all elements in a collection. Returns retrieved values in a comma-separated string.
+Retrieves corresponding values from some or all elements in a collection using specified search key(s). Returns retrieved values in a comma-separated string.
 
 #### Parameters
 
@@ -167,7 +170,7 @@ In this example, the `image.jpg` file was uploaded to the WebDAV `/content/` dir
 
 You can define custom CDN endpoints to use with the `{{cdn}}` helper. This way you can include large, high-resolution image assets in themes without exceeding BigCommerce's [50 MB limit](/stencil-docs/prepare-and-upload-a-theme/bundling-and-uploading#bundling_bundling-your-theme) when bundling the theme for upload to BigCommerce.
 
-You could use a local version of the image in development, and a version on a CDN such as Imgix in production. To do so, define custom CDN endpoints in your theme's [`config.json` file](https://github.com/bigcommerce/cornerstone/blob/master/config.json). 
+You could use a local version of the image in development and a version on a CDN such as Imgix in production. To do so, define custom CDN endpoints in your theme's [`config.json` file](https://github.com/bigcommerce/cornerstone/blob/master/config.json). 
 
 For example:
 
@@ -203,7 +206,7 @@ Whereas in production, it would return:
 <img src="https://bigcommerce.customcdn.net/img/image.jpg" />
 ```
 
-As highlighted above, the helper is configured to rewrite *local* URLs to a `assets/cdn/` subfolder. The `stencil bundle` command will exclude this local `assets/cdn/` subfolder from the bundle that it creates. This filtering circumvents the 50 MB size limit on the resulting ZIP file.
+As highlighted above, the helper is configured to rewrite *local* URLs to an `assets/cdn/` subfolder. The `stencil bundle` command will exclude this local `assets/cdn/` subfolder from the bundle that it creates. This filtering circumvents the 50 MB size limit on the resulting ZIP file.
 
 ### {{money}}
 
@@ -214,7 +217,7 @@ Formats number length, thousands delimiter, and decimal delimiter.
 
 #### Parameters
 
-- `value` {?}
+- `value` {Number}: The number to format.
 - `n` {Integer}: Length of decimal.
 - `s` {Mixed}: Thousands delimiter.
 - `c` {Mixed}: Decimal delimiter.
@@ -222,7 +225,7 @@ Formats number length, thousands delimiter, and decimal delimiter.
 #### Example
 
 ```handlebars
-{{need to add}}
+{{money 1000 2 ',' '.'}}
 ```
 
 [See it in GitHub](https://github.com/bigcommerce/paper-handlebars/blob/master/helpers/money.js).
@@ -232,7 +235,7 @@ Formats number length, thousands delimiter, and decimal delimiter.
 ```handlebars
 {{getFontLoaderConfig filepath}}
 ```
-Returns font loader config as a JSON string.
+Returns font-loader configuration as a JSON string.
 
 #### Parameters
 
@@ -249,18 +252,15 @@ Returns font loader config as a JSON string.
 ### {{getFontsCollection}}
 
 ```handlebars
-{{getFontsCollection param}}
+{{getFontsCollection}}
 ```
 Returns `<link>` elements for configured fonts.
-
-#### Parameters
-
-- `param` {?}
 
 #### Example
 
 ```handlebars
-{{need to add}}
+{{getFontsCollection}}
+<!-- <link rel="stylesheet" href="https://fonts.googleapis.com/css?family=Tangerine"> -->
 ```
 
 [See it in GitHub](https://github.com/bigcommerce/paper-handlebars/blob/master/helpers/getFontsCollection.js).
@@ -274,7 +274,8 @@ Encodes HTML entities.
 
 #### Parameters
 
-- `param` {?}
+- `param` {String}
+- `ards` {String}: Optional parameters.
 
 #### Example
 
@@ -341,14 +342,11 @@ Renders preformatted text.
 ```
 Pre-fetches Google fonts. Outputs a formatted `link` tag for DNS-prefetch.
 
-#### Parameters
-
-- None.
-
 #### Example
-```js
+
+```handlebars
 {{{resourceHints}}}
-//=> <link rel="dns-prefetch" href="https://fonts.gstatic.com/" >
+<!-- <link rel="dns-prefetch" href="https://fonts.gstatic.com/" > -->
 ```
 
 [See it in GitHub](https://github.com/bigcommerce/paper-handlebars/blob/master/helpers/resourceHints.js).
@@ -405,12 +403,12 @@ Returns language translation keys as a JSON string.
 
 #### Parameters
 
-- `keyFilter` {String}: need to add definition
+- `keyFilter` {String}
 
 #### Example
 
 ```handlebars
-{{need to add}}
+{{langJson 'default_messages'}}
 ```
 
 [See it in GitHub](https://github.com/bigcommerce/paper-handlebars/blob/master/helpers/langJson.js).
@@ -480,11 +478,11 @@ https://cdn.bcapp/3dsf74g/images/stencil/80w/content/folder/asset.jpg 80w, https
 ```handlebars
 {{getImage stencilImage size}}
 ```
-Returns an `<img>` tag `src` value for images of a specified size. Values for the size parameter are defined in the `settings` array in [`config.json`](https://github.com/bigcommerce/cornerstone/blob/master/config.json).
+Returns `<img>` tag `src` value for images of a specified size. Values for the size parameter are defined in the `settings` array in [`config.json`](https://github.com/bigcommerce/cornerstone/blob/master/config.json).
 
 #### Parameters
 
-- `stencilImage` {String}: a Stencil image.
+- `stencilImage` {String}: A Stencil image.
 - `size` {String}: A key in the `theme_settings` object.
 - `defaultImage` {String}: Optional default image URL to use if the `stencilImage` is undefined.
 
@@ -566,7 +564,7 @@ The `getImageSrcset` helper is a replacement for [`getImage`](#getImage) which a
 
 #### Parameters
 
-- `stencilImage` {String}: a Stencil image.
+- `stencilImage` {String}: A Stencil image.
 - `size` {String}: A key in the `theme_settings` object.
 - `defaultImage` {String}: Optional default image URL to use if the `stencilImage` is undefined.
 
@@ -614,7 +612,7 @@ By specifying a single size as `1x`, you can choose any image resolution. You ca
 {{getImageSrcset image 1x="640x640" 2x="1280x1280"}}
 ```
 
-By specifying several sizes using the pixel density descriptor, you can generate a `srcset` of different image resolutions for different pixel density screens as described [here](https://developer.mozilla.org/en-US/docs/Learn/HTML/Multimedia_and_embedding/Responsive_images#Resolution_switching_Same_size_different_resolutions). For example, you can specify a `2x` image for Retina screens, and a `1x` image for normal screens.
+By specifying several sizes using the pixel density descriptor, you can generate a `srcset` of different image resolutions for different pixel density screens as described in [Resolution switching: Same size, different resolutions](https://developer.mozilla.org/en-US/docs/Learn/HTML/Multimedia_and_embedding/Responsive_images#Resolution_switching_Same_size_different_resolutions). For example, you can specify a `2x` image for Retina screens, and a `1x` image for normal screens.
 
 As above, you can reference `theme_settings` keys or specify your own size inline.
 
@@ -634,7 +632,7 @@ As above, you can reference `theme_settings` keys or specify your own size inlin
 -->
 ```
 
-By specifying several sizes using the inherent width descriptor, you can generate a `srcset` of different image resolutions based on width, which can in turn be selected by the browser based on the expected size of the image when the page is painted. It is recommended to use this together with a `sizes` attribute on the `<img>` element as described [here](https://developer.mozilla.org/en-US/docs/Learn/HTML/Multimedia_and_embedding/Responsive_images#Resolution_switching_Different_sizes). In Cornerstone, this is handled automatically via JavaScript.
+By specifying several sizes using the inherent width descriptor, you can generate a `srcset` of different image resolutions based on width, which can in turn be selected by the browser based on the expected size of the image when the page is painted. It is recommended to use this together with a `sizes` attribute on the `<img>` element as described in [Resolution switching: Different sizes](https://developer.mozilla.org/en-US/docs/Learn/HTML/Multimedia_and_embedding/Responsive_images#Resolution_switching_Different_sizes). In Cornerstone, this is handled automatically via JavaScript.
 
 As above, you can reference `theme_settings` keys or specify your own size inline.
 
@@ -659,7 +657,7 @@ Renders block if one or more parameters is true.
 {{/any}}
 ```
 
-A usage example is [`templates/components/category/shop-by-price.html`](https://github.com/bigcommerce/cornerstone/blob/master/templates/components/category/shop-by-price.html), a category page in Stencil's Cornerstone base theme that does _not_ have faceted search turned on. Shoppers will see "Shop by price" filters instead of product filters.
+A usage example is [`templates/components/category/shop-by-price.html`](https://github.com/bigcommerce/cornerstone/blob/master/templates/components/category/shop-by-price.html), a category page in Stencil's Cornerstone base theme that does _not_ have faceted search turned on. Shoppers will see **Shop by price** filters instead of product filters.
 
 In this component, the `{{any}}` helper is used to determine whether a shopper has selected one of the filters, and whether a "reset" button needs to be displayed:
 
@@ -926,6 +924,27 @@ Converts a JavaScript object into a JSON string.
 
 [See it in GitHub](https://github.com/bigcommerce/paper-handlebars/blob/master/helpers/json.js).
 
+### {{occurrences}}
+
+```handlebars
+{{occurrences str substring}}
+```
+Returns the number of occurrences of substring within the given string. 
+
+#### Parameters
+
+- `str` {String}
+- `substring` {String}
+
+#### Example
+
+ ```handlebars
+ {{occurrences "foo bar foo bar baz" "foo"}}
+ <!-- 2 -->
+ ```
+
+[See it in GitHub](https://github.com/bigcommerce/paper-handlebars/blob/master/helpers/occurrences.js).
+
 ### {{replace}}
 
 ```handlebars
@@ -1086,7 +1105,7 @@ Injects key values into the [jsContext](#jscontext) helper.
 #### Parameters
 
 - `value` {String}: The value to inject.
-- `object` {?}
+- `object` {Object}
 
 #### Example
 
@@ -1113,9 +1132,11 @@ console.log(jsContext.myProductName);
 ```
 Returns JSON for all data injected by the [inject](#inject) helper.
 
-#### Parameters
+#### Example
 
-- None. (?)
+```handlebars
+{{need to add}}
+```
 
 [See it in GitHub](https://github.com/bigcommerce/paper-handlebars/blob/master/helpers/jsContext.js).
 
@@ -1254,23 +1275,23 @@ Increments the variable set by [assignVar](#assignVar) by 1.
 </div>
 </div>
 
-The following table contains whitelisted standard Handlebars helpers available to all Stencil themes.
+The following table contains whitelisted standard Handlebars helpers available to all Stencil themes. Each helper is linked to its GitHub documentation including parameters and examples.
 
 | **Helper** | **Category** | **Description** |
 | --- | --- | --- |
 | [after](https://github.com/helpers/handlebars-helpers#after) | array | Returns all of the items in an array after the specified index. |
-| [arrayify](https://github.com/helpers/handlebars-helpers#arrayify) | array | Cast the given value to an array. |
-| [before](https://github.com/helpers/handlebars-helpers#before) | array | Return all of the items in the collection before the specified count. |
+| [arrayify](https://github.com/helpers/handlebars-helpers#arrayify) | array | Casts the given value to an array. |
+| [before](https://github.com/helpers/handlebars-helpers#before) | array | Returns all of the items in the collection before the specified count. |
 | [eachIndex](https://github.com/helpers/handlebars-helpers#eachIndex) | array |  |
 | [filter](https://github.com/helpers/handlebars-helpers#filter) | array | Block helper that filters the given array and renders the block for values that evaluate to `true`, otherwise the inverse block is returned. |
-| [first](https://github.com/helpers/handlebars-helpers#first) | array | Returns the first item, or first `n` items of an array. |
+| [first](https://github.com/helpers/handlebars-helpers#first) | array | Returns the first item or first `n` items of an array. |
 | [forEach](https://github.com/helpers/handlebars-helpers#forEach) | array | Iterates over each item in an array and exposes the current item in the array as context to the inner block. |
 | [inArray](https://github.com/helpers/handlebars-helpers#inArray) | array | Block helper that renders the block if an array has the given `value`. |
 | [isArray](https://github.com/helpers/handlebars-helpers#isArray) | array | Returns `true` if value is an es5 array. |
 | [last](https://github.com/helpers/handlebars-helpers#last) | array | Returns the last item, or last `n` items of an array or string. |
 | [length](https://github.com/helpers/handlebars-helpers#length) | array | Returns the length of the given string or array. |
 | [lengthEqual](https://github.com/helpers/handlebars-helpers#lengthEqual) | array | Returns true if the the length of the given value is equal to the given `length`. |
-| [map](https://github.com/helpers/handlebars-helpers#map) | array | Returns a new array, created by calling `function` on each element of the given array. |
+| [map](https://github.com/helpers/handlebars-helpers#map) | array | Returns a new array created by calling `function` on each element of the given array. |
 | [some](https://github.com/helpers/handlebars-helpers#some) | array | Block helper that returns the block if the callback returns `true` for some value in the given array. |
 | [sort](https://github.com/helpers/handlebars-helpers#sort) | array | Sorts the given array. If an array of objects is passed, you may optionally pass a `key` to sort on as the second argument.  |
 | [sortBy](https://github.com/helpers/handlebars-helpers#sortBy) | array | Sorts an array. If an array of objects is passed, you may optionally pass a `key` to sort on as the second argument. |
@@ -1295,13 +1316,13 @@ The following table contains whitelisted standard Handlebars helpers available t
 | [lt](https://github.com/helpers/handlebars-helpers#lt) | comparison | Block helper that renders a block if `a` is less than `b`. If an inverse block is specified it will be rendered when falsy. |
 | [lte](https://github.com/helpers/handlebars-helpers#lte) | comparison | Block helper that renders a block if `a` is less than or equal to `b`. If an inverse block is specified it will be rendered when falsy.|
 | [neither](https://github.com/helpers/handlebars-helpers#neither)| comparison | Block helper that renders a block if neither of the given values are truthy. If an inverse block is specified it will be rendered when falsy. |
-| [unlessEq](https://github.com/helpers/handlebars-helpers#unlessEq) | comparison | Block helper that always renders the inverse block unless `a` is is equal to `b`.|
-| [unlessGt](https://github.com/helpers/handlebars-helpers#unlessGt) | comparison | Block helper that always renders the inverse block unless `a` is is greater than `b`.|
+| [unlessEq](https://github.com/helpers/handlebars-helpers#unlessEq) | comparison | Block helper that always renders the inverse block unless `a` is equal to `b`.|
+| [unlessGt](https://github.com/helpers/handlebars-helpers#unlessGt) | comparison | Block helper that always renders the inverse block unless `a` is greater than `b`.|
 | [unlessLt](https://github.com/helpers/handlebars-helpers#unlessLt)| comparison | Block helper that always renders the inverse block unless `a` is less than `b`. |
 | [unlessGteq](https://github.com/helpers/handlebars-helpers#unlessGteq) | comparison | Block helper that always renders the inverse block unless `a` is greater than or equal to `b`. |
 | [unlessLteq](https://github.com/helpers/handlebars-helpers#unlessLteq) | comparison | Block helper that always renders the inverse block unless `a` is less than or equal to `b`.|
 | [moment](https://github.com/helpers/handlebars-helpers#moment)| date | Use [moment](https://momentjs.com/) as a helper. |
-| [sanitize](https://github.com/helpers/handlebars-helpers#sanitize) | html | Strip HTML tags from a string, so that only the text nodes are preserved.|
+| [sanitize](https://github.com/helpers/handlebars-helpers#sanitize) | html | Strips HTML tags from a string, so that only the text nodes are preserved.|
 | [ul](https://github.com/helpers/handlebars-helpers#ul)| html | Block helper for creating unordered lists (`<ul></ul>`). |
 | [ol](https://github.com/helpers/handlebars-helpers#ol) | html | Block helper for creating ordered lists (`<ol></ol>`). |
 | [thumbnailImage](https://github.com/helpers/handlebars-helpers#thumbnailImage) | html | Returns a `<figure>` with a thumbnail linked to a full picture. |
@@ -1338,10 +1359,10 @@ The following table contains whitelisted standard Handlebars helpers available t
 | [hasOwn](https://github.com/helpers/handlebars-helpers#hasOwn) | object | Returns `true` if `key` is an own, enumerable property of the given context object. |
 | [isObject](https://github.com/helpers/handlebars-helpers#isObject) | object | Returns `true` if value is an object. |
 | [JSONparse](https://github.com/helpers/handlebars-helpers#JSONparse) | object | Parses the given string using `JSON.parse`. |
-| [JSONstringify](https://github.com/helpers/handlebars-helpers#JSONstringify) | object | Stringify an object using `JSON.stringify`. |
-| [merge](https://github.com/helpers/handlebars-helpers#merge) |object| Deeply merge the properties of the given objects with the context object. |`
+| [JSONstringify](https://github.com/helpers/handlebars-helpers#JSONstringify) | object | Stringifies an object using `JSON.stringify`. |
+| [merge](https://github.com/helpers/handlebars-helpers#merge) |object| Deeply merges the properties of the given objects with the context object. |`
 | [pick](https://github.com/helpers/handlebars-helpers#pick) | object | Picks properties from the context object. |
-| [camelcase](https://github.com/helpers/handlebars-helpers#camelcase) |string| camelCases the characters in the given string. |`
+| [camelcase](https://github.com/helpers/handlebars-helpers#camelcase) |string| camelCase the characters in the given string. |`
 | [capitalize](https://github.com/helpers/handlebars-helpers#capitalize) | string | Capitalizes the first word in a sentence. |
 | [capitalizeAll](https://github.com/helpers/handlebars-helpers#capitalizeAll) | string | Capitalizes all words in a string. |
 | [center](https://github.com/helpers/handlebars-helpers#center) |string| Centers a string using non-breaking spaces. |`
@@ -1359,7 +1380,7 @@ The following table contains whitelisted standard Handlebars helpers available t
 | [reverse](https://github.com/helpers/handlebars-helpers#reverse) | string | Reverses a string. |
 | [sentence](https://github.com/helpers/handlebars-helpers#sentence) | string | Sentence case the given string. |
 | [snakecase](https://github.com/helpers/handlebars-helpers#snakecase) | string | `snake_case` the characters in the given string. |
-| [split](https://github.com/helpers/handlebars-helpers#split) | string | Split a string by the given character. |
+| [split](https://github.com/helpers/handlebars-helpers#split) | string | Splits a string by the given character. |
 | [startsWith](https://github.com/helpers/handlebars-helpers#startsWith) | string | Tests whether a string begins with the given prefix. |
 | [titleize](https://github.com/helpers/handlebars-helpers#titleize) | string | Title case the given string. |
 | [trim](https://github.com/helpers/handlebars-helpers#trim) | string | Removes extraneous whitespace from the beginning and end of a string. |
