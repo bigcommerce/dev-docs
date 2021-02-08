@@ -1263,7 +1263,7 @@ The following table contains whitelisted standard Handlebars helpers available t
 | [before](https://github.com/helpers/handlebars-helpers#before) | array | Return all of the items in the collection before the specified count. |
 | [eachIndex](https://github.com/helpers/handlebars-helpers#eachIndex) | array |  |
 | [filter](https://github.com/helpers/handlebars-helpers#filter) | array | Block helper that filters the given array and renders the block for values that evaluate to `true`, otherwise the inverse block is returned. |
-| [first](https://github.com/helpers/handlebars-helpers#first) | assets | Returns the first item, or first `n` items of an array. |
+| [first](https://github.com/helpers/handlebars-helpers#first) | array | Returns the first item, or first `n` items of an array. |
 | [forEach](https://github.com/helpers/handlebars-helpers#forEach) | array | Iterates over each item in an array and exposes the current item in the array as context to the inner block. |
 | [inArray](https://github.com/helpers/handlebars-helpers#inArray) | array | Block helper that renders the block if an array has the given `value`. |
 | [isArray](https://github.com/helpers/handlebars-helpers#isArray) | array | Returns `true` if value is an es5 array. |
@@ -1285,7 +1285,7 @@ The following table contains whitelisted standard Handlebars helpers available t
 | [default](https://github.com/helpers/handlebars-helpers#default) | comparison | Returns the first value that is not undefined, otherwise the default value is returned. |
 | [eq](https://github.com/helpers/handlebars-helpers#eq) | comparison | Block helper that renders a block if `a` is equal to `b`. If an inverse block is specified it will be rendered when falsy. |
 | [gt](https://github.com/helpers/handlebars-helpers#gt) | comparison | Block helper that renders a block if `a` is greater than `b`. If an inverse block is specified, it will be rendered when falsy. |
-| [gte](https://github.com/helpers/handlebars-helpers#gte) | collection | Block helper that renders a block if `a` is greater than or equal to `b`. If an inverse block is specified it will be rendered when falsy. |
+| [gte](https://github.com/helpers/handlebars-helpers#gte) | comparison | Block helper that renders a block if `a` is greater than or equal to `b`. If an inverse block is specified it will be rendered when falsy. |
 | [has](https://github.com/helpers/handlebars-helpers#has) | comparison | Block helper that renders a block if value has pattern. If an inverse block is specified it will be rendered when falsy. |
 | [ifEven](https://github.com/helpers/handlebars-helpers#ifEven) | comparison | Returns `true` if the given value is an even number. |
 | [ifNth](https://github.com/helpers/handlebars-helpers#ifNth) | comparison | Conditionally renders a block if the remainder is zero when `a` operand is divided by `b`. If an inverse block is specified it will be rendered when the remainder is not zero. |
@@ -1309,14 +1309,15 @@ The following table contains whitelisted standard Handlebars helpers available t
 | [ordinalize](https://github.com/helpers/handlebars-helpers#ordinalize) | inflection | Returns an ordinalized number as a string. |
 | [markdown](https://github.com/helpers/handlebars-helpers#markdown) | markdown | Block helper that converts a string of inline markdown to HTML. |
 | [add](https://github.com/helpers/handlebars-helpers#add) | math | Returns the sum of `a` plus `b`. |
-| [subtract](https://github.com/helpers/handlebars-helpers#subtract) | math | Returns the product of `a` minus `b`. |
-| [divide](https://github.com/helpers/handlebars-helpers#divide) | math| Divides `a` by `b`. |
-| [multiply](https://github.com/helpers/handlebars-helpers#multiply) | math | Returns the product of `a` times `b`. |
-| [floor](https://github.com/helpers/handlebars-helpers#floor) | math | Returns the `Math.floor()` of the given value. |
-| [ceil](https://github.com/helpers/handlebars-helpers#ceil) | math| Returns the `Math.ceil()` of the given value. |
-| [round](https://github.com/helpers/handlebars-helpers#round) | math | Rounds the given number. |
-| [sum](https://github.com/helpers/handlebars-helpers#sum) | math | Returns the sum of all numbers in the given array. |
 | [avg](https://github.com/helpers/handlebars-helpers#avg) | math| Returns the average of all numbers in the given array. |
+| [ceil](https://github.com/helpers/handlebars-helpers#ceil) | math| Returns the `Math.ceil()` of the given value. |
+| [divide](https://github.com/helpers/handlebars-helpers#divide) | math| Divides `a` by `b`. |
+| [floor](https://github.com/helpers/handlebars-helpers#floor) | math | Returns the `Math.floor()` of the given value. |
+| [multiply](https://github.com/helpers/handlebars-helpers#multiply) | math | Returns the product of `a` times `b`. |
+| [random](https://github.com/helpers/handlebars-helpers#random) | math | Generates a random number between two values. |
+| [round](https://github.com/helpers/handlebars-helpers#round) | math | Rounds the given number. |
+| [subtract](https://github.com/helpers/handlebars-helpers#subtract) | math | Returns the product of `a` minus `b`. |
+| [sum](https://github.com/helpers/handlebars-helpers#sum) | math | Returns the sum of all numbers in the given array. |
 | [option](https://github.com/helpers/handlebars-helpers#option) | misc | Returns the given value of `prop` from `this.options`. |
 | [noop](https://github.com/helpers/handlebars-helpers#noop) | misc | Block helper that renders the block without taking any arguments. |
 | [withHash](https://github.com/helpers/handlebars-helpers#withHash) | misc| Block helper that builds the context for the block from the options hash. |
@@ -1336,9 +1337,9 @@ The following table contains whitelisted standard Handlebars helpers available t
 | [getObject](https://github.com/helpers/handlebars-helpers#getObject) |object| Use property paths (`a.b.c`) to get an object from the context. Differs from the [get]([get](https://github.com/helpers/handlebars-helpers#get)) helper in that this helper will return the actual object including the given property key. This helper does not work as a block helper. |`
 | [hasOwn](https://github.com/helpers/handlebars-helpers#hasOwn) | object | Returns `true` if `key` is an own, enumerable property of the given context object. |
 | [isObject](https://github.com/helpers/handlebars-helpers#isObject) | object | Returns `true` if value is an object. |
-| [merge](https://github.com/helpers/handlebars-helpers#merge) |object| Deeply merge the properties of the given objects with the context object. |`
 | [JSONparse](https://github.com/helpers/handlebars-helpers#JSONparse) | object | Parses the given string using `JSON.parse`. |
 | [JSONstringify](https://github.com/helpers/handlebars-helpers#JSONstringify) | object | Stringify an object using `JSON.stringify`. |
+| [merge](https://github.com/helpers/handlebars-helpers#merge) |object| Deeply merge the properties of the given objects with the context object. |`
 | [pick](https://github.com/helpers/handlebars-helpers#pick) | object | Picks properties from the context object. |
 | [camelcase](https://github.com/helpers/handlebars-helpers#camelcase) |string| camelCases the characters in the given string. |`
 | [capitalize](https://github.com/helpers/handlebars-helpers#capitalize) | string | Capitalizes the first word in a sentence. |
@@ -1356,7 +1357,6 @@ The following table contains whitelisted standard Handlebars helpers available t
 | [pathcase](https://github.com/helpers/handlebars-helpers#pathcase) | string | `path/case` the characters in a string. |
 | [plusify](https://github.com/helpers/handlebars-helpers#plusify) | string | Replaces spaces in the given string with pluses. |
 | [reverse](https://github.com/helpers/handlebars-helpers#reverse) | string | Reverses a string. |
-| [pascalcase](https://github.com/helpers/handlebars-helpers#pascalcase) | string | PascalCase the characters in a string. |
 | [sentence](https://github.com/helpers/handlebars-helpers#sentence) | string | Sentence case the given string. |
 | [snakecase](https://github.com/helpers/handlebars-helpers#snakecase) | string | `snake_case` the characters in the given string. |
 | [split](https://github.com/helpers/handlebars-helpers#split) | string | Split a string by the given character. |
@@ -1369,7 +1369,6 @@ The following table contains whitelisted standard Handlebars helpers available t
 | [urlResolve](https://github.com/helpers/handlebars-helpers#urlResolve) | url | Takes a `base` URL and a `href` URL and resolves them as a browser would for an anchor tag. |
 | [urlParse](https://github.com/helpers/handlebars-helpers#urlParse) | url | Parses a URL string into an object. |
 | [stripProtocol](https://github.com/helpers/handlebars-helpers#stripProtocol) | url | Strips protocol from a URL. Useful for displaying media that may have an 'http' protocol on secure connections. |
-| [random](https://github.com/helpers/handlebars-helpers#random) | utils| Generates a random number. |
 
 ## Contributing to helpers
 
