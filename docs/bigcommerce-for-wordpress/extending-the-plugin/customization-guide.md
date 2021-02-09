@@ -398,7 +398,8 @@ You may wish to customize the built-in transactional emails sent from BigCommerc
 
 Email templates can be customized and enabled/disabled on an individual basis from the BigCommerce control panel. For more information, see [Customizing Emails](https://support.bigcommerce.com/s/article/Customizing-Emails).
 
-## Additional Resources
+## Related resources
+
 
 - [https://codex.wordpress.org/Theme_Development](https://codex.wordpress.org/Theme_Development)
 - [https://wpengine.com/resources/customize-wordpress-plugin/](https://wpengine.com/resources/customize-wordpress-plugin/)
