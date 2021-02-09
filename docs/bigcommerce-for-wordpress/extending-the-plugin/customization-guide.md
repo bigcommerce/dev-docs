@@ -17,13 +17,11 @@
 - [Email templates](#email-templates)
 - [Related resources](#related-resources)
 
-
 </div>
 
 ## Introduction
 
 BigCommerce for WordPress (BC4WP) is compatible out-of-the-box with all standard WordPress themes and includes full support for the Genesis theme framework. The plugin includes templates and stylesheets to render all of the elements and pages you need to merchandise your products and move shoppers through checkout, including:
-
 
 - Product Cards
 - Product Detail Pages
@@ -78,9 +76,11 @@ As WordPress loads, it will first check for a custom template override in your t
 
 ### Required classes
 
-BigCommerce for WordPress relies on specially named element classes for JavaScript functionality, and we strongly recommend leaving the default class names untouched as you create custom templates. You are, however, welcome to create additional classes.
+BC4WP relies on specially named element classes for JavaScript functionality, and we strongly recommend leaving the default class names untouched as you create custom templates. You are, however, welcome to create additional classes.
 
 ## Accessing BigCommerce data
+
+BC4WP allows your WordPress site to access most of your BigCommerce data. The following will guide you through the process of accessing your products, variants, channels, customers, and customer groups.
 
 ### Products
 
