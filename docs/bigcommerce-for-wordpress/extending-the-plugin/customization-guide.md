@@ -15,7 +15,8 @@
 - [Localizing strings displayed on the storefront](#localizing-strings-displayed-on-the-storefront)
 - [Styling Checkout](#styling-checkout)
 - [Email Templates](#email-templates)
-- [Additional Resources](#additional-resources)
+- [Related resources](#related-resources)
+
 
 </div>
 
