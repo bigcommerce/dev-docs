@@ -37,9 +37,9 @@ BigCommerce for WordPress (BC4WP) is compatible out-of-the-box with all standard
 
 Although the plugin will work with any theme, as a theme developer, you can choose to offer BigCommerce for WordPress support by styling the pages and elements created by the plugin to fit your theme’s design.
 
-Plugin developers can also fork [BigCommerce for WordPress on GitHub](https://github.com/bigcommerce/bigcommerce-for-wordpress), where the plugin is available as an open source project. We encourage developers to adapt BigCommerce for WordPress to fit any custom use case imaginable! If you’re building a custom feature that you think would benefit the wider community, consider submitting a pull request on GitHub to add your feature to the code base.
+Plugin developers can also fork [BigCommerce for WordPress on GitHub](https://github.com/bigcommerce/bigcommerce-for-wordpress), where the plugin is available as an open-source project. We encourage developers to adapt BigCommerce for WordPress to fit any custom use case imaginable! If you’re building a custom feature that you think would benefit the wider community, consider submitting a pull request on GitHub to add your feature to the code base.
 
-This guide will walk through the available options for developing themes that support BigCommerce for WordPress and extending the plugin through custom development.
+This guide will walk through the available options to develop themes that support BigCommerce for WordPress and extend the plugin through custom development.
 
 ## File structure
 
@@ -53,17 +53,18 @@ All of the BC4WP template files that render on the front end can be found in the
 - `archive-bigcommerce_product.php`: The template for rendering the Product post type archive.
 
 These templates may require modification to match the styling of your theme. Both templates call `get_header()` and `get_footer()` to render your theme's default header and footer.
-The page content is rendered inside the wrapper template found in `components/page-wrapper.php`. By modifying this wrapper template to match the HTML markup of a template in your theme, you should have consistent styling across your site.
+
+You can render the page content inside the wrapper template found in `components/page-wrapper.php`. By modifying this wrapper template to match the HTML markup of a template in your theme, you should have consistent styling across your site.
 
 ### CSS
 
-BigCommerce for WordPress uses [PostCSS](https://postcss.org/), a JavaScript tool that accepts CSS with special additional syntax and compiles it into normal CSS. Combined with PostCSS plugins, PostCSS offers many of the core features of CSS preprocessors like Sass, with less overhead.
+BigCommerce for WordPress uses [PostCSS](https://postcss.org/), a JavaScript tool that accepts CSS with special additional syntax and compiles it into normal CSS. Combined with PostCSS plugins, PostCSS offers many of CSS preprocessors' core features like Sass, with less overhead.
 
-PostCSS modules are contained in the asset/pcss directory. The assets/css directory contains both the minified and uncompressed versions of the CSS files created during the PostCSS build process.
+The `asset/pcss` directory contains PostCSS modules. The `assets/css` directory contains both the minified and uncompressed versions of the CSS files created during the PostCSS build process.
 
 ## Template overrides
 
-When a WordPress plugin is updated, existing plugin files are overwritten by the new version. To ensure that your customizations persist through the update process, it’s important to use overrides in your theme files rather than editing plugin files directly.
+When a WordPress plugin is updated, the new version overwrites existing plugin files. To ensure that your customizations persist through the update process, it’s important to use overrides in your theme files rather than editing plugin files directly.
 
 To override any template, create a bigcommerce directory in your theme and copy the template file to that directory.
 
@@ -73,7 +74,7 @@ Copy `templates/public/single-bigcommerce_product.php` to `bigcommerce/single-bi
 
 Copy `templates/public/components/page-wrapper.php` to `bigcommerce/components/page-wrapper.php`
 
-As WordPress loads, it will first check for a custom template override in your theme’s bigcommerce directory; if no custom template is found there, WordPress will fetch the built-in plugin template instead.
+As WordPress loads, it will first check for a custom template override in your theme's `/bigcommerce` directory; if there is no custom template there, WordPress will fetch the built-in plugin template instead.
 
 ### Required classes
 
@@ -94,7 +95,7 @@ If you have a BigCommerce product ID, you can get the Product object using that 
 
 `$product = \BigCommerce\Post_Types\Product\Product::by_product_id( $product_id );`
 
-In the context of many templates, the `$product` variable is already available to you. Check the docblock at the top of the template file to see which variables are defined in that scope.
+In the context of many templates, the `$product` variable is already available to you. Check the docblock at the top of the template file to see defined variables in that scope.
 
 If the Product object is available, you can access all the product's cached information from the BigCommerce Catalog API.
 
@@ -120,8 +121,7 @@ You can retrieve the same properties using the `__get()` method already availabl
 $weight = $product->weight;
 $height = $product->height;
 ```
-
-The product ID can appear in various places on the client side. The ID you use depends on context. Here are some places to look:
+The product ID can appear in various places on the client side. The ID you use depends on the context. Here are some places to look:
 
 - On an Add to Cart button
   </br>
@@ -132,7 +132,7 @@ The product ID can appear in various places on the client side. The ID you use d
 
 Generally, the WordPress plugin works with post IDs, not product IDs. The latter is rarely needed on the client side.
 
-To retrieve additional information about the product in the browser, there is a REST API endpoint. Its primary purpose is supporting the product block interface in the WordPress admin, but it can be used anywhere to retrieve a small subset of the information about the product. The endpoint is `/wp-json/bigcommerce/v1/products`.
+There is a REST API endpoint to retrieve additional information about the product in the browser.  Its primary purpose is supporting the product block interface in the WordPress admin. Still, you can use it anywhere to retrieve a small subset of the product's information. The endpoint is `/wp-json/bigcommerce/v1/products`.
 
 ### Variants
 
@@ -188,7 +188,7 @@ The channel ID is not available anywhere on the client side.
 
 ### Customers
 
-A logged out user does not have any customer information. For a logged in user, you can create a Customer object to get the customer's information.
+A logged-out user does not have any customer information. For a logged-in user, you can create a Customer object to get the customer's information.
 
 ```php
 $customer    = new \BigCommerce\Accounts\Customer( get_current_user_id() );
@@ -251,7 +251,7 @@ BigCommerce for WordPress provides over 100 hooks that you can use to extend and
 
 ### Architectural guidelines
 
-All actions and filters called by the plugin begin with the `bigcommerce/` prefix (e.g., `bigcommerce/init`). If there is a dynamic component to the hook, it should be preceded by an equal sign (e.g., `bigcommerce/template=' . $template . '/path`).
+All actions and filters called by the plugin begin with the `bigcommerce/` prefix (e.g., `bigcommerce/init`). If there is a dynamic component to the hook, precede it with an equal sign (e.g., `bigcommerce/template=' . $template . '/path`).
 
 The entire plugin operates through closures wrapped around calls to classes instantiated via a dependency injection container. In the event that you need to modify the core behavior of the plugin, there are several methods to get access to these closures.
 
@@ -283,7 +283,7 @@ add_action( 'bigcommerce/template/product/archive', 'your_callback_function', 10
 
 ## Localizing strings displayed on the storefront
 
-The language used by BC4WP to display messages on your storefront can be localized. The array `$js_i18n_array` defined in `src/BigCommerce/Assets/Theme/JS_Localization.php:19` contains all strings used by `assets/js/dist/scripts.js` to display messages on the front-end.
+You can localize the language used by BC4WP to display messages on your storefront. The array `$js_i18n_array` defined in `src/BigCommerce/Assets/Theme/JS_Localization.php:19` contains all strings used by `assets/js/dist/scripts.js` to display messages on the front-end.
 
 ```php
 $js_i18n_array = [
@@ -328,7 +328,7 @@ $js_i18n_array = [
 		];
 ```
 
-As an example of how to localize strings, let's change the message displayed to a user when they add an item to their cart. By default, the message "Product successfully added to your cart." is displayed. Instead, let's update that language and include a link to your store's cart.
+As an example of how to localize strings, let's change the message displayed to a user when they add an item to their cart. By default, the message "Product successfully added to your cart." displays. Instead, let's update that language and include a link to your store's cart.
 
 1. Using either a child theme or child plugin, declare a function named `update_add_to_cart_message()` that accepts `$js_i18n_array` as an arguement.
 2. Within `update_add_to_cart_message()`, set the new value for the `['ajax_add_to_cart_success']` key located in the nested `['cart']` array to `'Item added to cart. <a href="/cart">View Cart!</a>'`. Note that this is an example and your store's cart might have a different slug than `/cart`.
@@ -349,19 +349,19 @@ Following the `update_add_to_cart_message` function, call the `add_filter()` fun
 add_filter( 'bigcommerce/js_localization', 'update_add_to_cart_message' );
 ```
 
-Once the file is saved, WordPress will now localize the modified string when an item is added to a cart by doing the following:
+Once you save the file, WordPress will now localize the modified string when an item is added to a cart by doing the following:
 
-1. When the `bigcommerce/js_localization` filter hook is applied, `add_filter()` invokes `update_add_to_cart_message()` and `$js_i18n_array` is passed in as an argument.
-2. `$js_i18n_array` is filtered and the value for `ajax_add_to_cart_success` is updated to `'Ttem added to cart. <a href="/cart">View Cart!</a>'` before being returned on the following line by our return statement.
+1. When you apply the `bigcommerce/js_localization` filter hook, `add_filter()` invokes `update_add_to_cart_message()` and `$js_i18n_array` is passed in as an argument.
+2. Filter `$js_i18n_array` and update the value for `ajax_add_to_cart_success` to `'Ttem added to cart. <a href="/cart">View Cart!</a>'` before being returned on the following line by our return statement.
 3. `Scripts.js` displays this updated string when a user adds an item to their cart.
 
 ## Styling checkout
 
 BigCommerce for WordPress offers two possible checkout experiences, depending on whether the WordPress site has an installed SSL certificate.
 
-If no SSL is detected, shoppers will be redirected to the BigCommerce checkout page, on the domain of the BigCommerce store. Because BigCommerce stores provide an SSL certificate by default, this ensures that the checkout page is always accessed on an encrypted domain. If you are using this checkout experience, visit our [Stencil documentation](https://developer.bigcommerce.com/stencil-docs/template-files/customize-stencil-checkout/optimized-one-page-checkout) to review all available options for styling the checkout page.
+If no SSL is detected, WordPress redirects shoppers to your BigCommerce checkout page to finish their transaction over a secure connection. If using the redirected checkout, visit our [Stencil documentation](https://developer.bigcommerce.com/stencil-docs/template-files/customize-stencil-checkout/optimized-one-page-checkout) to review all available options for styling the checkout page.
 
-If an SSL is detected, shoppers will visit an embedded version of the BigCommerce checkout page, on your WordPress domain. This has the advantage of providing a seamless experience for the shopper.
+If an SSL is detected, BC4WP seamlessly embeds BigCommerce’s secure one-page checkout through an iFrame on your WordPress checkout page.
 
 ### Embedded checkout
 
@@ -391,19 +391,18 @@ function myCheckoutFunction($checkout_config) {
 add_filter('bigcommerce/checkout/config', 'myCheckoutFunction');
 ```
 
-Following this format, you can apply styles to other elements, like buttons, input fields, and checkboxes. See the full list of checkout elements that can be styled and which properties you can adjust in the [Embedded Checkout Styles documentation](https://github.com/bigcommerce/checkout-sdk-js/blob/master/docs/interfaces/embeddedcheckoutstyles.md) (Github).
+Following this format, you can apply styles to other elements, like buttons, input fields, and checkboxes. See the full list of checkout elements that you can style and which properties you can adjust in the [Embedded Checkout Styles documentation](https://github.com/bigcommerce/checkout-sdk-js/blob/master/docs/interfaces/embeddedcheckoutstyles.md) (Github).
 
 Note that styles apply globally to all elements on the checkout page. For example, styles applied to steps will apply to all steps rather than targeting only step 2 or 3.
 
 ## Email templates
 
-You may wish to customize the built-in transactional emails sent from BigCommerce when an order is placed or updated. You can add custom text or images to email templates to reflect your store’s branding.
+You may wish to customize the built-in transactional emails sent from BigCommerce when placing or updating an order. You can add custom text or images to email templates to reflect your store’s branding.
 
 Email templates can be customized and enabled/disabled on an individual basis from the BigCommerce control panel. For more information, see [Customizing Emails](https://support.bigcommerce.com/s/article/Customizing-Emails).
 
 ## Related resources
 
-
-- [https://codex.wordpress.org/Theme_Development](https://codex.wordpress.org/Theme_Development)
-- [https://wpengine.com/resources/customize-wordpress-plugin/](https://wpengine.com/resources/customize-wordpress-plugin/)
-- [https://css-tricks.com/methods-overriding-styles-wordpress/](https://css-tricks.com/methods-overriding-styles-wordpress/)
+- [Theme Development - WordPress.org](https://codex.wordpress.org/Theme_Development)
+- [How to Customize WordPress Plugins](https://wpengine.com/resources/customize-wordpress-plugin/)
+- [Methods for Overriding Styles in WordPress](https://css-tricks.com/methods-overriding-styles-wordpress/)
