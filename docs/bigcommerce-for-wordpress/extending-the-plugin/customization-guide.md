@@ -7,14 +7,14 @@
 ### On This Page
 
 - [Introduction](#introduction)
-- [File Structure](#file-structure)
-- [Template Overrides](#template-overrides)
-- [Accessing BigCommerce Data](#accessing-bigcommerce-data)
+- [File structure](#file-structure)
+- [Template overrides](#template-overrides)
+- [Accessing BigCommerce data](#accessing-bigcommerce-data)
 - [Custom CSS](#custom-css)
 - [Hooks](#hooks)
 - [Localizing strings displayed on the storefront](#localizing-strings-displayed-on-the-storefront)
-- [Styling Checkout](#styling-checkout)
-- [Email Templates](#email-templates)
+- [Styling checkout](#styling-checkout)
+- [Email templates](#email-templates)
 - [Related resources](#related-resources)
 
 
@@ -41,7 +41,7 @@ Plugin developers can also fork [BigCommerce for WordPress on GitHub](https://gi
 
 This guide will walk through the available options for developing themes that support BigCommerce for WordPress and extending the plugin through custom development.
 
-## File Structure
+## File structure
 
 ### Templates
 
@@ -61,7 +61,7 @@ BigCommerce for WordPress uses [PostCSS](https://postcss.org/), a JavaScript too
 
 PostCSS modules are contained in the asset/pcss directory. The assets/css directory contains both the minified and uncompressed versions of the CSS files created during the PostCSS build process.
 
-## Template Overrides
+## Template overrides
 
 When a WordPress plugin is updated, existing plugin files are overwritten by the new version. To ensure that your customizations persist through the update process, it’s important to use overrides in your theme files rather than editing plugin files directly.
 
@@ -75,11 +75,11 @@ Copy `templates/public/components/page-wrapper.php` to `bigcommerce/components/p
 
 As WordPress loads, it will first check for a custom template override in your theme’s bigcommerce directory; if no custom template is found there, WordPress will fetch the built-in plugin template instead.
 
-### Required Classes
+### Required classes
 
 BigCommerce for WordPress relies on specially named element classes for JavaScript functionality, and we strongly recommend leaving the default class names untouched as you create custom templates. You are, however, welcome to create additional classes.
 
-## Accessing BigCommerce Data
+## Accessing BigCommerce data
 
 ### Products
 
@@ -206,7 +206,7 @@ $order     = $customer->get_order_details( $order_id );
 
 The customer ID is not available anywhere on the client side.
 
-### Customer Groups
+### Customer groups
 
 Similar to the customer ID, the customer group ID is available via the Customer object.
 
@@ -236,7 +236,7 @@ button.bc-btn.bc-btn--form-submit.bc-btn--add_to_cart {
 }
 ```
 
-### Opting Out of BigCommerce Styles
+### Opting out of BigCommerce styles
 
 If you wish to disable the built-in plugin styles entirely, you have the option to do so. In the WordPress theme customizer, navigate to BigCommerce > Colors & Theme and select Disable Plugin Styles from the CSS dropdown menu.
 
@@ -249,7 +249,7 @@ Hooks are access points during the WordPress execution process where a developer
 
 BigCommerce for WordPress provides over 100 hooks that you can use to extend and customize the plugin. For a comprehensive, searchable list of all available hooks, visit our [Code Reference](https://bigcommerce.moderntribe.qa/reference/hooks/).
 
-### Architectural Guidelines
+### Architectural guidelines
 
 All actions and filters called by the plugin begin with the `bigcommerce/` prefix (e.g., `bigcommerce/init`). If there is a dynamic component to the hook, it should be preceded by an equal sign (e.g., `bigcommerce/template=' . $template . '/path`).
 
@@ -355,7 +355,7 @@ Once the file is saved, WordPress will now localize the modified string when an 
 2. `$js_i18n_array` is filtered and the value for `ajax_add_to_cart_success` is updated to `'Ttem added to cart. <a href="/cart">View Cart!</a>'` before being returned on the following line by our return statement.
 3. `Scripts.js` displays this updated string when a user adds an item to their cart.
 
-## Styling Checkout
+## Styling checkout
 
 BigCommerce for WordPress offers two possible checkout experiences, depending on whether the WordPress site has an installed SSL certificate.
 
@@ -363,7 +363,7 @@ If no SSL is detected, shoppers will be redirected to the BigCommerce checkout p
 
 If an SSL is detected, shoppers will visit an embedded version of the BigCommerce checkout page, on your WordPress domain. This has the advantage of providing a seamless experience for the shopper.
 
-### Embedded Checkout
+### Embedded checkout
 
 Embedded Checkout includes settings within the WordPress theme customizer that allow you to adjust colors to blend the checkout page with your theme. For advanced users, the plugin provides the [Checkout Config hook](https://bigcommerce.moderntribe.qa/reference/hooks/bigcommerce-checkout-config/) to filter all available [Embedded Checkout config options](https://github.com/bigcommerce/checkout-sdk-js/blob/master/docs/interfaces/embeddedcheckoutoptions.md) (Github). Because of the method used to load the Embedded Checkout within the iframe, styling checkout must be accomplished by filtering the available `$checkout_config` options rather than targeting element classes or IDs with CSS.
 
@@ -395,7 +395,7 @@ Following this format, you can apply styles to other elements, like buttons, inp
 
 Note that styles apply globally to all elements on the checkout page. For example, styles applied to steps will apply to all steps rather than targeting only step 2 or 3.
 
-## Email Templates
+## Email templates
 
 You may wish to customize the built-in transactional emails sent from BigCommerce when an order is placed or updated. You can add custom text or images to email templates to reflect your store’s branding.
 
