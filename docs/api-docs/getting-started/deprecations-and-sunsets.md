@@ -42,17 +42,17 @@ The following operations are scheduled to be removed.
 
 | Operation | Endpoints | Sunset | Replacement |
 |-|-|-|-|
-| `DELETE Collection` | `/v2/customers`| March 31, 2021| [`DELETE /v3/customers`](https://developer.bigcommerce.com/api-reference/customer-subscribers/v3-customers-api/customers/customersdelete)|
+| `DELETE Collection` | `/v2/customers`| March 31, 2021| [`DELETE /v3/customers`](https://developer.bigcommerce.com/api-reference/store-management/customers-v3/customers/customersdelete)|
 | `DELETE Collection` | `/v2/option_sets`| May 10, 2020| None; can still be deleted individually by ID.|
-| `DELETE Collection` | `/v2/products`| May 10, 2020| [`DELETE /v3/catalog/products`](https://developer.bigcommerce.com/api-reference/catalog/catalog-api/products/deleteproducts)|
+| `DELETE Collection` | `/v2/products`| May 10, 2020| [`DELETE /v3/catalog/products`](https://developer.bigcommerce.com/api-reference/store-management/catalog/products/deleteproducts)|
 
 The following properties are scheduled to be removed.
 
 | Property | Endpoints | Sunset | Replacement |
 |-|-|-|-|
-|`is_activated`| [Channels](https://developer.bigcommerce.com/api-reference/cart-checkout/channels-listings-api/channels/listchannels) | May, 10, 2020 | `status` |
+|`is_activated`| [Channels](https://developer.bigcommerce.com/api-reference/store-management/channels/channels/listchannels) | May, 10, 2020 | `status` |
 
 ## Related resources 
 
 ### Articles
-* [Learn more about V2 vs V3 API](https://developer.bigcommerce.com/api-docs/store-management/catalog/v2-vs-v3).
+* [Difference between V2 and V3 Catalog REST APIs](https://developer.bigcommerce.com/api-docs/store-management/catalog/v2-vs-v3).
