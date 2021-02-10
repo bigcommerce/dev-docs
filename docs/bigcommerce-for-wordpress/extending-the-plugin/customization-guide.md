@@ -8,8 +8,7 @@
 
 - [Overview](#overview)
 
-- [File structure](#file-structure)
-- [Template overrides](#template-overrides)
+- [Styling BC4WP templates](#Styling-BC4WP-templates)
 - [Accessing BigCommerce data](#accessing-bigcommerce-data)
 - [Custom CSS](#custom-css)
 - [Hooks](#hooks)
@@ -21,7 +20,6 @@
 </div>
 
 ## Overview
-
 
 BigCommerce for WordPress (BC4WP) is compatible out-of-the-box with all standard WordPress themes and includes full support for the Genesis theme framework. The plugin includes templates and stylesheets to render all of the elements and pages you need to merchandise your products and move shoppers through checkout, including:
 
@@ -41,19 +39,21 @@ Plugin developers can also fork [BigCommerce for WordPress on GitHub](https://gi
 
 This guide will walk through the available options to develop themes that support BigCommerce for WordPress and extend the plugin through custom development.
 
-## File structure
+## Styling BC4WP templates
 
-### Templates
+BC4WP includes template files that are used to display your BigCommerce data on your WordPress storefront. You can edit these templates to change both the content displayed and the styling of that content.
 
-You can find all of the BigCommerce for WordPress template files that render on the front end in the templates/public folder. Templates within the components subfolder render smaller content blocks within your theme’s template, while two control the entire page:
+### Templates location
+
+You can find all of the BC4WP template files that render on the frontend in the `templates/public` folder. Templates within the `templates/public/components` subfolder render smaller content blocks within your theme’s template, while the following two control the entire page:
 
 - `single-bigcommerce_product.php`: The template for rendering a single Product post.
 
 - `archive-bigcommerce_product.php`: The template for rendering the Product post type archive.
 
-These templates may require modification to match the styling of your theme. Both templates call `get_header()` and `get_footer()` to render your theme's default header and footer.
+These templates may require modification to match the styling of your theme. Both templates call the functions `get_header()` and `get_footer()` to render your theme's default header and footer.
 
-You can render the page content inside the wrapper template found in `components/page-wrapper.php`. By modifying this wrapper template to match the HTML markup of a template in your theme, you should have consistent styling across your site.
+You can render the page content inside the wrapper template found in `components/page-wrapper.php`. By modifying this wrapper template to match the HTML markup of a template in your theme, you can have consistent styling across your site.
 
 ### CSS
 
@@ -61,7 +61,7 @@ BigCommerce for WordPress uses [PostCSS](https://postcss.org/), a JavaScript too
 
 The `asset/pcss` directory contains PostCSS modules. The `assets/css` directory contains both the minified and uncompressed versions of the CSS files created during the PostCSS build process.
 
-## Template overrides
+### Template overrides
 
 When a WordPress plugin is updated, the new version overwrites existing plugin files. To ensure that your customizations persist through the update process, it’s important to use overrides in your theme files rather than editing plugin files directly.
 
@@ -75,7 +75,7 @@ Copy `templates/public/components/page-wrapper.php` to `bigcommerce/components/p
 
 As WordPress loads, it will first check for a custom template override in your theme's `/bigcommerce` directory; if there is no custom template there, WordPress will fetch the built-in plugin template instead.
 
-### Required classes
+### Required element classes
 
 BC4WP relies on specially named element classes for JavaScript functionality, and we strongly recommend leaving the default class names untouched as you create custom templates. You are, however, welcome to create additional classes.
 
