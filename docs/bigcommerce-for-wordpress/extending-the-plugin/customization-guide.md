@@ -6,7 +6,8 @@
 
 ### On This Page
 
-- [Introduction](#introduction)
+- [Overview](#overview)
+
 - [File structure](#file-structure)
 - [Template overrides](#template-overrides)
 - [Accessing BigCommerce data](#accessing-bigcommerce-data)
