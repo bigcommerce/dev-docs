@@ -11,7 +11,7 @@
 
 ## Deprecations
 
-The following endpoints are deprecated. We discourage using these endpoints as they are no longer supported by BigCommerce. Instead, consider using the provided V3 replacements.
+The following endpoints are deprecated. We discourage using these endpoints as BigCommerce no longer supports them. Instead, consider using the provided V3 replacements.
 
 | Endpoints | Replacements |
 |-|-|
@@ -38,7 +38,7 @@ The following endpoints are deprecated. We discourage using these endpoints as t
 
 ## Sunsets
 
-The following operations are scheduled to be removed.
+BigCommerce has scheduled the removal of the following operations.
 
 | Operation | Endpoints | Sunset | Replacement |
 |-|-|-|-|
@@ -46,7 +46,7 @@ The following operations are scheduled to be removed.
 | `DELETE Collection` | `/v2/option_sets`| May 10, 2020| None; can still be deleted individually by ID.|
 | `DELETE Collection` | `/v2/products`| May 10, 2020| [`DELETE /v3/catalog/products`](https://developer.bigcommerce.com/api-reference/store-management/catalog/products/deleteproducts)|
 
-The following properties are scheduled to be removed.
+BigCommerce has scheduled the removal of the following properties.
 
 | Property | Endpoints | Sunset | Replacement |
 |-|-|-|-|
