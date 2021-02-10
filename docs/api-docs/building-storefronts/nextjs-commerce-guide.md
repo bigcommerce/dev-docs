@@ -73,7 +73,7 @@ To get started with Next.js Commerce, you’ll need to deploy a live version dir
 
       ![Log in to existing BigCommerce store dialogue](https://raw.githubusercontent.com/bigcommerce/dev-docs/master/assets/images/nextjs-commerce-07.png)
 
-   2. If you are new to BigCommerce, select **Sign Up** to create a BigCommerce developer sandbox store and populate it with sample data. Vercel will connect Next.js Commerce to this store automatically.
+   2. If you are new to BigCommerce, select **Sign Up** to create a BigCommerce developer sandbox store and populate it with sample data. Vercel will connect Next.js Commerce to this sandbox store automatically. If you would later like to upgrade your sandbox store to a live store, contact BigCommerce to assist with that process.
 
       ![Sign up for BigCommerce store button](https://raw.githubusercontent.com/bigcommerce/dev-docs/master/assets/images/nextjs-commerce-08.png)
 
