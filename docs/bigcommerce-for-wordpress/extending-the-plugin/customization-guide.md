@@ -45,8 +45,7 @@ This guide will walk through the available options to develop themes that suppor
 
 ### Templates
 
-All of the BC4WP template files that render on the front end can be found in the templates/public folder. Templates within the components subfolder render smaller content blocks within your theme’s template, while two control the entire page:
-
+You can find all of the BigCommerce for WordPress template files that render on the front end in the templates/public folder. Templates within the components subfolder render smaller content blocks within your theme’s template, while two control the entire page:
 
 - `single-bigcommerce_product.php`: The template for rendering a single Product post.
 
