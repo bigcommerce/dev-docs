@@ -470,6 +470,14 @@ paths:
               type: array
               items:
                 $ref: '#/components/schemas/listing_Put'
+            examples:
+              Example:
+                value:
+                  - listing_id: 23488
+                    state: deleted
+                  - listing_id: 23445
+                    state: active
+                    name: 'new, updated name'
         required: true
         x-examples:
           application/json:
@@ -487,6 +495,7 @@ paths:
                 - product_id: 111
                   variant_id: 74
                   state: error
+        description: ''
       responses:
         '200':
           $ref: '#/components/responses/listing_Resp_Collection'
@@ -525,6 +534,32 @@ paths:
               type: array
               items:
                 $ref: '#/components/schemas/listing_Post'
+            examples:
+              Single:
+                value:
+                  - product_id: 80
+                    name: Orbit Terrarium - Large
+                    description: 'The same terrarium, but not a [Sample]'
+                    state: active
+                    variants:
+                      - product_id: 80
+                        variant_id: 64
+                        name: Terrarium with dinosaur
+                        state: active
+              Multiple:
+                value:
+                  - product_id: 0
+                    external_id: string
+                    name: string
+                    description: string
+                    state: active
+                    variants:
+                      - product_id: 0
+                        variant_id: 0
+                        external_id: string
+                        name: string
+                        description: string
+                        state: active
         required: true
         x-examples:
           application/json:
