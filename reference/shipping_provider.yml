@@ -69,6 +69,7 @@ info:
     - [Shipping
     Carriers](/api-reference/store-management/shipping-api/shipping-carrier)
   termsOfService: ''
+host: '{$$.env.host}'
 schemes:
   - http
 consumes:
@@ -118,9 +119,6 @@ paths:
                       discounted_cost:
                         currency: VQD
                         amount: 16810732.187082157
-                      handling_fee:
-                        currency: XJI
-                        amount: 40041529.64122505
                       dispatch_date: '1947-07-10'
                       transit_time:
                         units: DAYS
@@ -146,9 +144,6 @@ paths:
                       discounted_cost:
                         currency: XRQ
                         amount: 69218406.22440869
-                      handling_fee:
-                        currency: NAQ
-                        amount: 46888664.810077965
                       dispatch_date: '1954-03-05'
                       transit_time:
                         units: HOURS
@@ -174,9 +169,6 @@ paths:
                       discounted_cost:
                         currency: CKD
                         amount: 18401337.766514115
-                      handling_fee:
-                        currency: SST
-                        amount: 53022434.34401362
                       dispatch_date: '1993-06-23'
                       transit_time:
                         units: HOURS
@@ -204,9 +196,6 @@ paths:
                       discounted_cost:
                         currency: UBE
                         amount: 40327578.11995282
-                      handling_fee:
-                        currency: PKM
-                        amount: 90324348.3875872
                       dispatch_date: '1943-09-25'
                       transit_time:
                         units: DAYS
@@ -224,9 +213,6 @@ paths:
                       discounted_cost:
                         currency: VFS
                         amount: 86177946.62739782
-                      handling_fee:
-                        currency: CZN
-                        amount: 2864671.781634076
                       dispatch_date: '1999-01-13'
                       transit_time:
                         units: DAYS
@@ -256,9 +242,6 @@ paths:
                       discounted_cost:
                         currency: NPA
                         amount: 72743924.13626081
-                      handling_fee:
-                        currency: UTV
-                        amount: 79994636.80266502
                       dispatch_date: '2006-01-17'
                       transit_time:
                         units: BUSINESS_DAYS
@@ -278,9 +261,6 @@ paths:
                       discounted_cost:
                         currency: SJL
                         amount: 60745150.4084129
-                      handling_fee:
-                        currency: CPH
-                        amount: 69099843.07967302
                       dispatch_date: '1976-06-19'
                       transit_time:
                         units: DAYS
@@ -298,9 +278,6 @@ paths:
                       discounted_cost:
                         currency: PCP
                         amount: 99728805.8108871
-                      handling_fee:
-                        currency: HCA
-                        amount: 38122253.30262849
                       dispatch_date: '1962-05-18'
                       transit_time:
                         units: DAYS
@@ -324,9 +301,6 @@ paths:
                       discounted_cost:
                         currency: HMF
                         amount: 98693839.53819382
-                      handling_fee:
-                        currency: GLZ
-                        amount: 96819308.76657994
                       dispatch_date: '2010-08-15'
                       transit_time:
                         units: HOURS
@@ -344,9 +318,6 @@ paths:
                       discounted_cost:
                         currency: ZMA
                         amount: 57479313.52475042
-                      handling_fee:
-                        currency: SWS
-                        amount: 85670029.92850508
                       dispatch_date: '2008-10-24'
                       transit_time:
                         units: DAYS
@@ -374,9 +345,6 @@ paths:
                       discounted_cost:
                         currency: QGD
                         amount: 81757709.40827666
-                      handling_fee:
-                        currency: ROR
-                        amount: 8001588.654643376
                       dispatch_date: '1999-11-11'
                       transit_time:
                         units: HOURS
@@ -402,9 +370,6 @@ paths:
                       discounted_cost:
                         currency: YYL
                         amount: 11005656.662449125
-                      handling_fee:
-                        currency: ZXR
-                        amount: 34703328.84931253
                       dispatch_date: '1980-05-16'
                       transit_time:
                         units: HOURS
@@ -445,6 +410,12 @@ paths:
       tags:
         - Shipping Provider
       operationId: validateConnectionOptions
+tags:
+  - name: Shipping Provider
+x-stoplight:
+  docs:
+    includeDownloadLink: true
+    showModels: false
 definitions:
   RateRequestPayload:
     type: object
@@ -950,20 +921,6 @@ definitions:
                       - currency
                       - amount
                     title: Money Value
-                  handling_fee:
-                    description: Value object for a money amount
-                    type: object
-                    properties:
-                      currency:
-                        type: string
-                        pattern: '^[A-Z]{3,3}$'
-                      amount:
-                        type: number
-                        minimum: 0
-                    required:
-                      - currency
-                      - amount
-                    title: Money Value
                   dispatch_date:
                     type: string
                     format: date
@@ -1069,20 +1026,6 @@ definitions:
               type: string
               maxLength: 50
             discounted_cost:
-              description: Value object for a money amount
-              type: object
-              properties:
-                currency:
-                  type: string
-                  pattern: '^[A-Z]{3,3}$'
-                amount:
-                  type: number
-                  minimum: 0
-              required:
-                - currency
-                - amount
-              title: Money Value
-            handling_fee:
               description: Value object for a money amount
               type: object
               properties:
@@ -1377,20 +1320,6 @@ definitions:
         type: string
         maxLength: 50
       discounted_cost:
-        description: Value object for a money amount
-        type: object
-        properties:
-          currency:
-            type: string
-            pattern: '^[A-Z]{3,3}$'
-          amount:
-            type: number
-            minimum: 0
-        required:
-          - currency
-          - amount
-        title: Money Value
-      handling_fee:
         description: Value object for a money amount
         type: object
         properties:
@@ -2075,10 +2004,3 @@ definitions:
                   type: string
                 value:
                   type: string
-tags:
-  - name: Shipping Provider
-host: ''
-x-stoplight:
-  docs:
-    includeDownloadLink: true
-    showModels: false
