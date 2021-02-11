@@ -130,7 +130,7 @@ categories: [
 
 Handlebars statement:
 
-```html
+```handlebars
 {{pluck (limit categories 2) 'image.data'}}
 <!-- Returns a comma-separated list of image URLs -->
 ```
@@ -260,7 +260,7 @@ Returns `<link>` elements for configured fonts.
 
 ```handlebars
 {{getFontsCollection}}
-<!-- <link rel="stylesheet" href="https://fonts.googleapis.com/css?family=Tangerine"> -->
+<!-- <link href="https://fonts.googleapis.com/css?family=Open+Sans:,400italic,700|Karla:700|Lora:400|Volkron:|Droid:400,700|Crimson+Text:400,700&display=swap" rel="stylesheet"> -->
 ```
 
 [See it in GitHub](https://github.com/bigcommerce/paper-handlebars/blob/master/helpers/getFontsCollection.js).
@@ -268,19 +268,39 @@ Returns `<link>` elements for configured fonts.
 ### {{encodeHtmlEntities}}
 
 ```handlebars
-{{encodeHtmlEntities param}}
+{{encodeHtmlEntities string args}}
 ```
-Encodes HTML entities.
+Returns a string with HTML entities encoded. You may optionally pass additional encoding arguments.
 
 #### Parameters
 
-- `param` {String}
-- `ards` {String}: Optional parameters.
+- `string` {String}: String to encode with HTML entities.
+- `args` {Boolean}: Whitelist of allowed named arguments. Allowed arguments: `useNamedReferences`, `decimal`, `encodeEverything`, `allowUnsafeSymbols`. Specify `arg='true'` to use. For example, `decimal='true'`.
 
-#### Example
+#### Examples
 
 ```handlebars
-{{need to add}}
+{{encodeHtmlEntities 'foo © bar ≠ baz 𝌆 qux'}}
+<!-- results in: 'foo &#xA9; bar &#x2260; baz &#x1D306; qux' -->
+
+{{encodeHtmlEntities 'an ampersand: &'}}
+<!-- results in: 'an ampersand: &#x26;' -->
+
+{{encodeHtmlEntities "foo © bar ≠ baz 𝌆 qux" useNamedReferences="true"}}
+<!-- Returns a string with HTML entities encoded with named references. -->
+<!-- results in: 'foo &copy; bar &ne; baz &#x1D306; qux' -->
+
+{{encodeHtmlEntities "foo © bar ≠ baz 𝌆 qux" decimal="true"}}
+<!-- Returns a string with HTML entities encoded with decimal option. -->
+<!-- results in: 'foo &#169; bar &#8800; baz &#119558; qux' -->
+
+{{encodeHtmlEntities "foo © bar ≠ baz 𝌆 qux" encodeEverything="true"}}
+<!-- Returns a string with HTML entities encoded with encodeEverything option. -->
+<!-- results in: '&#x66;&#x6F;&#x6F;&#x20;&#xA9;&#x20;&#x62;&#x61;&#x72;&#x20;&#x2260;&#x20;&#x62;&#x61;&#x7A;&#x20;&#x1D306;&#x20;&#x71;&#x75;&#x78;' -->
+
+{{encodeHtmlEntities "foo © and & ampersand" allowUnsafeSymbols="true"}}
+<!-- Returns a string with HTML entities encoded with allowUnsafeSymbols option. -->
+<!-- results in: 'foo &#xA9; and & ampersand' -->
 ```
 
 [See it in GitHub](https://github.com/bigcommerce/paper-handlebars/blob/master/helpers/encodeHtmlEntities.js).
