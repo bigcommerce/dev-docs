@@ -1010,37 +1010,10 @@ paths:
         Update a shipping address associated with an order.
 
 
-        Only these fields are updatable:
-
-        - `first_name`
-
-        - `last_name`
-
-        - `company`
-
-        - `street_1`
-
-        - `street_2`
-
-        - `city`
-
-        - `zip`
-
-        - `country`
-
-        - `country_iso2`
-
-        - `state`
-
-        - `email`
-
-        - `phone`
-
-
         **Note**: Updating will NOT trigger the recalculation of shipping cost and tax
       tags:
         - Order Shipping Addresses
-  "/orders/{order_id}/shipping_addresses/{shipping_address_id}/shipping_quotes":
+  /orders/{order_id}/shipping_addresses/{shipping_address_id}/shipping_quotes:
     get:
       responses:
         "200":
@@ -3441,11 +3414,6 @@ components:
               type: number
               description: The number of items that have been shipped.
               example: 0
-            shipping_method:
-              type: string
-              description: Text code identifying the BigCommerce shipping module selected by
-                the customer.
-              example: Free Shipping
             base_cost:
               type: string
               description: The base value of the order’s items. (Float, Float-As-String,
@@ -4305,6 +4273,7 @@ components:
     shippingAddress_Base:
       type: object
       title: shippingAddress_Base
+      description: Shipping Address properties common to all requests and responses.
       properties:
         first_name:
           type: string
@@ -4345,6 +4314,11 @@ components:
           type: string
           example: janedoe@email.com
           description: "Recipient's email address. "
+        shipping_method:
+              type: string
+              description: Text code identifying the BigCommerce shipping module selected by
+                the customer.
+              example: Free Shipping
     order_RespOnly:
       title: order_RespOnly
       type: object
