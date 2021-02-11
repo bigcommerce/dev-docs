@@ -946,7 +946,7 @@ definitions:
                         example: 358
                       product_id:
                         type: number
-                        description: The id of the product. Required in a /POST
+                        description: The id of the product. Required in a /POST request.
                         example: 12
                       sku:
                         type: string
@@ -996,7 +996,7 @@ definitions:
                           properties:
                             coupons:
                               type: object
-                              description: 'Required in a '
+                              description: 'Required in a /POST request.'
                               properties:
                                 coupon_code:
                                   type: object
@@ -1119,7 +1119,7 @@ definitions:
                         example: 358
                       product_id:
                         type: number
-                        description: The id of the product. Required in a /POST
+                        description: The id of the product. Required in a /POST request.
                         example: 12
                       sku:
                         type: string
@@ -1169,7 +1169,7 @@ definitions:
                           properties:
                             coupons:
                               type: object
-                              description: 'Required in a '
+                              description: 'Required in a /POST request.'
                               properties:
                                 coupon_code:
                                   type: object
@@ -1392,7 +1392,7 @@ definitions:
                   example: 358
                 product_id:
                   type: number
-                  description: The id of the product. Required in a /POST
+                  description: The id of the product. Required in a /POST request.
                   example: 12
                 sku:
                   type: string
@@ -1444,7 +1444,7 @@ definitions:
                     properties:
                       coupons:
                         type: object
-                        description: 'Required in a '
+                        description: 'Required in a /POST request.'
                         properties:
                           coupon_code:
                             type: object
@@ -1567,7 +1567,7 @@ definitions:
                   example: 358
                 product_id:
                   type: number
-                  description: The id of the product. Required in a /POST
+                  description: The id of the product. Required in a /POST request.
                   example: 12
                 sku:
                   type: string
@@ -1619,7 +1619,7 @@ definitions:
                     properties:
                       coupons:
                         type: object
-                        description: 'Required in a '
+                        description: 'Required in a /POST request.'
                         properties:
                           coupon_code:
                             type: object
@@ -1861,7 +1861,7 @@ definitions:
             example: 358
           product_id:
             type: number
-            description: The id of the product. Required in a /POST
+            description: The id of the product. Required in a /POST request.
             example: 12
           sku:
             type: string
@@ -1913,7 +1913,7 @@ definitions:
               properties:
                 coupons:
                   type: object
-                  description: 'Required in a '
+                  description: 'Required in a /POST request.'
                   properties:
                     coupon_code:
                       type: object
@@ -2035,7 +2035,7 @@ definitions:
             example: 358
           product_id:
             type: number
-            description: The id of the product. Required in a /POST
+            description: The id of the product. Required in a /POST request.
             example: 12
           sku:
             type: string
@@ -2087,7 +2087,7 @@ definitions:
               properties:
                 coupons:
                   type: object
-                  description: 'Required in a '
+                  description: 'Required in a /POST request.'
                   properties:
                     coupon_code:
                       type: object
@@ -2207,7 +2207,7 @@ definitions:
         example: 358
       product_id:
         type: number
-        description: The id of the product. Required in a /POST
+        description: The id of the product. Required in a /POST request.
         example: 12
       sku:
         type: string
@@ -2259,7 +2259,7 @@ definitions:
           properties:
             coupons:
               type: object
-              description: 'Required in a '
+              description: 'Required in a /POST request.'
               properties:
                 coupon_code:
                   type: object
