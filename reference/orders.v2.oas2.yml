@@ -95,7 +95,7 @@ info:
 
     ```
 paths:
-  "/orders/{order_id}":
+  /orders/{order_id}:
     get:
       description: Gets an *Order*. To learn more about creating or updating orders,
         see [Orders Overview](/api-docs/orders/orders-api-overview).
@@ -117,9 +117,6 @@ paths:
           schema:
             type: string
             default: application/json
-        - $ref: "#/components/parameters/order_id_path"
-      requestBody:
-        $ref: "#/components/requestBodies/getAnOrderBody"
       responses:
         "200":
           $ref: "#/components/responses/order_Resp"
@@ -138,7 +135,6 @@ paths:
       parameters:
         - $ref: "#/components/parameters/Accept"
         - $ref: "#/components/parameters/Content-Type"
-        - $ref: "#/components/parameters/order_id_path"
       requestBody:
         content:
           application/json:
@@ -218,8 +214,6 @@ paths:
         - $ref: "#/components/parameters/order_id_path"
         - $ref: "#/components/parameters/Accept"
         - $ref: "#/components/parameters/Content-Type"
-      requestBody:
-        $ref: "#/components/requestBodies/getAnOrderBody"
       responses:
         "204":
           description: ""
@@ -438,7 +432,7 @@ paths:
         "204":
           description: ""
       operationId: deleteAllOrders
-  "/orders/{order_id}/coupons":
+  /orders/{order_id}/coupons:
     get:
       description: |-
         Lists all order coupons. Optional parameters can be passed in.
@@ -476,13 +470,7 @@ paths:
       tags:
         - Order Coupons
       operationId: getAllOrderCoupons
-    parameters:
-      - name: order_id
-        in: path
-        required: true
-        schema:
-          type: string
-  "/orders/{order_id}/products":
+  /orders/{order_id}/products:
     get:
       description: Lists all order products on an order using `order_id`. By default,
         items sort from lowest to highest according to a newly created ID,
@@ -500,13 +488,7 @@ paths:
       tags:
         - Order Products
       operationId: getAllOrderProducts
-    parameters:
-      - name: order_id
-        in: path
-        required: true
-        schema:
-          type: string
-  "/orders/{order_id}/shipping_addresses":
+  /orders/{order_id}/shipping_addresses:
     get:
       description: >-
         Get all shipping addresses on an order using the `order_id`.
@@ -578,7 +560,7 @@ paths:
       tags:
         - Order Status
       operationId: getOrderStatus
-  "/order_statuses/{status_id}":
+  /order_statuses/{status_id}:
     get:
       description: >-
         Returns a single order status.
@@ -631,7 +613,7 @@ paths:
         - Order Status
       operationId: getAOrderStatus
     parameters: []
-  "/orders/{order_id}/taxes":
+  /orders/{order_id}/taxes:
     get:
       description: >-
         Gets all order taxes using `order_id`.
@@ -664,7 +646,7 @@ paths:
       operationId: getOrderTaxes
     parameters:
       - $ref: "#/components/parameters/order_id_path"
-  "/orders/{order_id}/shipments":
+  /orders/{order_id}/shipments:
     get:
       description: Gets a list of all shipments on an order.
       summary: Get Order Shipments
@@ -745,7 +727,7 @@ paths:
       operationId: deleteAllOrderShipments
     parameters:
       - $ref: "#/components/parameters/order_id_path"
-  "/orders/{order_id}/shipments/count":
+  /orders/{order_id}/shipments/count:
     get:
       description: Gets a count of the number of shipments that have been made for a
         single order.
@@ -761,7 +743,7 @@ paths:
       operationId: getCountShipments
     parameters:
       - $ref: "#/components/parameters/order_id_path"
-  "/orders/{order_id}/shipments/{shipment_id}":
+  /orders/{order_id}/shipments/{shipment_id}:
     get:
       tags:
         - Order Shipments
@@ -815,7 +797,7 @@ paths:
     parameters:
       - $ref: "#/components/parameters/order_id_path"
       - $ref: "#/components/parameters/shipment_id"
-  "/orders/{order_id}/messages":
+  /orders/{order_id}/messages:
     get:
       responses:
         "200":
@@ -838,12 +820,8 @@ paths:
         - $ref: "#/components/parameters/limit"
       operationId: getOrderMessages
     parameters:
-      - name: order_id
-        in: path
-        required: true
-        schema:
-          type: string
-  "/orders/{order_id}/products/{id}":
+      - $ref: "#/components/parameters/order_id_path"
+  /orders/{order_id}/products/{product_id}:
     get:
       responses:
         "200":
@@ -859,11 +837,6 @@ paths:
     parameters:
       - $ref: "#/components/parameters/order_id_path"
       - $ref: "#/components/parameters/product_id"
-      - name: id
-        in: path
-        required: true
-        schema:
-          type: string
     put:
       responses:
         "200":
@@ -884,7 +857,7 @@ paths:
             schema:
               $ref: "#/components/schemas/orderProduct_Write"
       x-private: true
-  "/orders/{order_id}/shipping_addresses/{id}":
+  /orders/{order_id}/shipping_addresses/{id}:
     get:
       responses:
         "200":
@@ -912,11 +885,7 @@ paths:
             default: application/json
       operationId: getAShippingAddress
     parameters:
-      - name: order_id
-        in: path
-        required: true
-        schema:
-          type: string
+      - $ref: "#/components/parameters/order_id_path"
       - name: id
         in: path
         required: true
@@ -1303,7 +1272,7 @@ components:
         type: integer
     order_id_query:
       in: query
-      name: order_id
+      name: order_id_query
       description: ID of the order
       required: true
       schema:
@@ -1507,9 +1476,9 @@ components:
                   total_tax: "0.0000"
                   items_total: 17
                   items_shipped: 0
-                  payment_method: Test Order
-                  payment_provider_id: {}
-                  payment_status: ""
+                  payment_method: "Credit Card"
+                  payment_provider_id: ""
+                  payment_status: "authorized"
                   refunded_amount: "0.0000"
                   order_is_digital: false
                   store_credit_amount: "0.0000"
@@ -1545,10 +1514,10 @@ components:
                     email: janedoe@email.com
                     form_fields: []
                   is_email_opt_in: false
-                  credit_card_type: {}
+                  credit_card_type: null
                   order_source: manual
                   channel_id: 1
-                  external_source: {}
+                  external_source: 'POS'
                   products:
                     url: https://api.bigcommerce.com/stores/{$$.env.store_hash}/v2/orders/100/products
                     resource: /orders/100/products
@@ -1558,366 +1527,18 @@ components:
                   coupons:
                     url: https://api.bigcommerce.com/stores/{$$.env.store_hash}/v2/orders/100/coupons
                     resource: /orders/100/coupons
-                  external_id: {}
+                  external_id: null
                   external_merchant_id: {}
                   tax_provider_id: BasicTaxProvider
                   store_default_currency_code: ""
                   store_default_to_transactional_exchange_rate: "1.0000000000"
                   custom_status: Awaiting Fulfillment
-                - id: 104
-                  customer_id: 2
-                  date_created: Wed, 10 Jan 2018 21:23:58 +0000
-                  date_modified: Wed, 10 Jan 2018 21:24:05 +0000
-                  date_shipped: ""
-                  status_id: 11
-                  status: Awaiting Fulfillment
-                  subtotal_ex_tax: "49.0000"
-                  subtotal_inc_tax: "49.0000"
-                  subtotal_tax: "0.0000"
-                  base_shipping_cost: "0.0000"
-                  shipping_cost_ex_tax: "0.0000"
-                  shipping_cost_inc_tax: "0.0000"
-                  shipping_cost_tax: "0.0000"
-                  shipping_cost_tax_class_id: 2
-                  base_handling_cost: "0.0000"
-                  handling_cost_ex_tax: "0.0000"
-                  handling_cost_inc_tax: "0.0000"
-                  handling_cost_tax: "0.0000"
-                  handling_cost_tax_class_id: 2
-                  base_wrapping_cost: "0.0000"
-                  wrapping_cost_ex_tax: "0.0000"
-                  wrapping_cost_inc_tax: "0.0000"
-                  wrapping_cost_tax: "0.0000"
-                  wrapping_cost_tax_class_id: 3
-                  total_ex_tax: "49.0000"
-                  total_inc_tax: "49.0000"
-                  total_tax: "0.0000"
-                  items_total: 1
-                  items_shipped: 0
-                  payment_method: Test Payment Gateway
-                  payment_provider_id: ""
-                  payment_status: captured
-                  refunded_amount: "0.0000"
-                  order_is_digital: false
-                  store_credit_amount: "0.0000"
-                  gift_certificate_amount: "0.0000"
-                  ip_address: 00.000.000.000
-                  geoip_country: United States
-                  geoip_country_iso2: US
-                  currency_id: 1
-                  currency_code: USD
-                  currency_exchange_rate: "1.0000000000"
-                  default_currency_id: 1
-                  default_currency_code: USD
-                  staff_notes: ""
-                  customer_message: ""
-                  discount_amount: "0.0000"
-                  coupon_discount: "0.0000"
-                  shipping_address_count: 1
-                  is_deleted: false
-                  ebay_order_id: "0"
-                  cart_id: ffc0f428-4c54-45d1-9ac7-1cf42ee665e0
-                  billing_address:
-                    first_name: test
-                    last_name: test
-                    company: ""
-                    street_1: 1234 street drive
-                    street_2: ""
-                    city: Austin
-                    state: Texas
-                    zip: "78704"
-                    country: United States
-                    country_iso2: US
-                    phone: ""
-                    email: test1234@gmail.com
-                    form_fields: []
-                  is_email_opt_in: false
-                  credit_card_type: {}
-                  order_source: www
-                  channel_id: 1
-                  external_source: {}
-                  products:
-                    url: https://api.bigcommerce.com/stores/{$$.env.store_hash}/v2/orders/104/products
-                    resource: /orders/104/products
-                  shipping_addresses:
-                    url: https://api.bigcommerce.com/stores/{$$.env.store_hash}/v2/orders/104/shippingaddresses
-                    resource: /orders/104/shippingaddresses
-                  coupons:
-                    url: https://api.bigcommerce.com/stores/{$$.env.store_hash}/v2/orders/104/coupons
-                    resource: /orders/104/coupons
-                  external_id: {}
-                  external_merchant_id: {}
-                  tax_provider_id: ""
-                  store_default_currency_code: ""
-                  store_default_to_transactional_exchange_rate: "1.0000000000"
-                  custom_status: Awaiting Fulfillment
-                - id: 105
-                  customer_id: 3
-                  date_created: Wed, 10 Jan 2018 21:23:59 +0000
-                  date_modified: Wed, 10 Jan 2018 21:24:13 +0000
-                  date_shipped: ""
-                  status_id: 11
-                  status: Awaiting Fulfillment
-                  subtotal_ex_tax: "225.0000"
-                  subtotal_inc_tax: "225.0000"
-                  subtotal_tax: "0.0000"
-                  base_shipping_cost: "0.0000"
-                  shipping_cost_ex_tax: "0.0000"
-                  shipping_cost_inc_tax: "0.0000"
-                  shipping_cost_tax: "0.0000"
-                  shipping_cost_tax_class_id: 2
-                  base_handling_cost: "0.0000"
-                  handling_cost_ex_tax: "0.0000"
-                  handling_cost_inc_tax: "0.0000"
-                  handling_cost_tax: "0.0000"
-                  handling_cost_tax_class_id: 2
-                  base_wrapping_cost: "0.0000"
-                  wrapping_cost_ex_tax: "0.0000"
-                  wrapping_cost_inc_tax: "0.0000"
-                  wrapping_cost_tax: "0.0000"
-                  wrapping_cost_tax_class_id: 3
-                  total_ex_tax: "225.0000"
-                  total_inc_tax: "225.0000"
-                  total_tax: "0.0000"
-                  items_total: 1
-                  items_shipped: 0
-                  payment_method: Test Payment Gateway
-                  payment_provider_id: ""
-                  payment_status: captured
-                  refunded_amount: "0.0000"
-                  order_is_digital: false
-                  store_credit_amount: "0.0000"
-                  gift_certificate_amount: "0.0000"
-                  ip_address: 00.000.000.000
-                  geoip_country: United States
-                  geoip_country_iso2: US
-                  currency_id: 1
-                  currency_code: USD
-                  currency_exchange_rate: "1.0000000000"
-                  default_currency_id: 1
-                  default_currency_code: USD
-                  staff_notes: ""
-                  customer_message: ""
-                  discount_amount: "0.0000"
-                  coupon_discount: "0.0000"
-                  shipping_address_count: 1
-                  is_deleted: false
-                  ebay_order_id: "0"
-                  cart_id: f12c906a-5bb6-4baa-a2da-1a87e818744e
-                  billing_address:
-                    first_name: test
-                    last_name: test
-                    company: ""
-                    street_1: 1060 w addison
-                    street_2: ""
-                    city: chicago
-                    state: Illinois
-                    zip: "60613"
-                    country: United States
-                    country_iso2: US
-                    phone: ""
-                    email: test@test.com
-                    form_fields: []
-                  is_email_opt_in: false
-                  credit_card_type: {}
-                  order_source: www
-                  channel_id: 1
-                  external_source: {}
-                  products:
-                    url: https://api.bigcommerce.com/stores/{$$.env.store_hash}/v2/orders/105/products
-                    resource: /orders/105/products
-                  shipping_addresses:
-                    url: https://api.bigcommerce.com/stores/{$$.env.store_hash}/v2/orders/105/shippingaddresses
-                    resource: /orders/105/shippingaddresses
-                  coupons:
-                    url: https://api.bigcommerce.com/stores/{$$.env.store_hash}/v2/orders/105/coupons
-                    resource: /orders/105/coupons
-                  external_id: {}
-                  external_merchant_id: {}
-                  tax_provider_id: ""
-                  store_default_currency_code: ""
-                  store_default_to_transactional_exchange_rate: "1.0000000000"
-                  custom_status: Awaiting Fulfillment
-                - id: 107
-                  customer_id: 1
-                  date_created: Thu, 11 Jan 2018 20:43:07 +0000
-                  date_modified: Thu, 11 Jan 2018 20:43:33 +0000
-                  date_shipped: ""
-                  status_id: 11
-                  status: Awaiting Fulfillment
-                  subtotal_ex_tax: "19.9900"
-                  subtotal_inc_tax: "19.9900"
-                  subtotal_tax: "0.0000"
-                  base_shipping_cost: "0.0000"
-                  shipping_cost_ex_tax: "0.0000"
-                  shipping_cost_inc_tax: "0.0000"
-                  shipping_cost_tax: "0.0000"
-                  shipping_cost_tax_class_id: 2
-                  base_handling_cost: "0.0000"
-                  handling_cost_ex_tax: "0.0000"
-                  handling_cost_inc_tax: "0.0000"
-                  handling_cost_tax: "0.0000"
-                  handling_cost_tax_class_id: 2
-                  base_wrapping_cost: "0.0000"
-                  wrapping_cost_ex_tax: "0.0000"
-                  wrapping_cost_inc_tax: "0.0000"
-                  wrapping_cost_tax: "0.0000"
-                  wrapping_cost_tax_class_id: 3
-                  total_ex_tax: "19.9900"
-                  total_inc_tax: "19.9900"
-                  total_tax: "0.0000"
-                  items_total: 1
-                  items_shipped: 0
-                  payment_method: Test Payment Gateway
-                  payment_provider_id: ""
-                  payment_status: captured
-                  refunded_amount: "0.0000"
-                  order_is_digital: false
-                  store_credit_amount: "0.0000"
-                  gift_certificate_amount: "0.0000"
-                  ip_address: 00.000.000.000
-                  geoip_country: United States
-                  geoip_country_iso2: US
-                  currency_id: 1
-                  currency_code: USD
-                  currency_exchange_rate: "1.0000000000"
-                  default_currency_id: 1
-                  default_currency_code: USD
-                  staff_notes: ""
-                  customer_message: ""
-                  discount_amount: "0.0000"
-                  coupon_discount: "0.0000"
-                  shipping_address_count: 1
-                  is_deleted: false
-                  ebay_order_id: "0"
-                  cart_id: b32cba50-b5c8-4986-8523-3a65aade7108
-                  billing_address:
-                    first_name: Jane
-                    last_name: Doe
-                    company: ""
-                    street_1: 123 MainStreet
-                    street_2: ""
-                    city: Austin
-                    state: Texas
-                    zip: "78751"
-                    country: United States
-                    country_iso2: US
-                    phone: ""
-                    email: janedoe@email.com
-                    form_fields: []
-                  is_email_opt_in: false
-                  credit_card_type: {}
-                  order_source: www
-                  channel_id: 1
-                  external_source: {}
-                  products:
-                    url: https://api.bigcommerce.com/stores/{$$.env.store_hash}/v2/orders/107/products
-                    resource: /orders/107/products
-                  shipping_addresses:
-                    url: https://api.bigcommerce.com/stores/{$$.env.store_hash}/v2/orders/107/shippingaddresses
-                    resource: /orders/107/shippingaddresses
-                  coupons:
-                    url: https://api.bigcommerce.com/stores/{$$.env.store_hash}/v2/orders/107/coupons
-                    resource: /orders/107/coupons
-                  external_id: {}
-                  external_merchant_id: {}
-                  tax_provider_id: ""
-                  store_default_currency_code: ""
-                  store_default_to_transactional_exchange_rate: "1.0000000000"
-                  custom_status: Awaiting Fulfillment
-                - id: 110
-                  customer_id: 4
-                  date_created: Thu, 11 Jan 2018 20:57:52 +0000
-                  date_modified: Mon, 09 Apr 2018 15:44:39 +0000
-                  date_shipped: Mon, 09 Apr 2018 15:44:39 +0000
-                  status_id: 10
-                  status: Completed
-                  subtotal_ex_tax: "26.9900"
-                  subtotal_inc_tax: "26.9900"
-                  subtotal_tax: "0.0000"
-                  base_shipping_cost: "0.0000"
-                  shipping_cost_ex_tax: "0.0000"
-                  shipping_cost_inc_tax: "0.0000"
-                  shipping_cost_tax: "0.0000"
-                  shipping_cost_tax_class_id: 2
-                  base_handling_cost: "0.0000"
-                  handling_cost_ex_tax: "0.0000"
-                  handling_cost_inc_tax: "0.0000"
-                  handling_cost_tax: "0.0000"
-                  handling_cost_tax_class_id: 2
-                  base_wrapping_cost: "0.0000"
-                  wrapping_cost_ex_tax: "0.0000"
-                  wrapping_cost_inc_tax: "0.0000"
-                  wrapping_cost_tax: "0.0000"
-                  wrapping_cost_tax_class_id: 3
-                  total_ex_tax: "26.9900"
-                  total_inc_tax: "26.9900"
-                  total_tax: "0.0000"
-                  items_total: 2
-                  items_shipped: 0
-                  payment_method: Cash on Delivery
-                  payment_provider_id: {}
-                  payment_status: ""
-                  refunded_amount: "0.0000"
-                  order_is_digital: false
-                  store_credit_amount: "0.0000"
-                  gift_certificate_amount: "0.0000"
-                  ip_address: 00.000.000.000
-                  geoip_country: United States
-                  geoip_country_iso2: US
-                  currency_id: 1
-                  currency_code: USD
-                  currency_exchange_rate: "1.0000000000"
-                  default_currency_id: 1
-                  default_currency_code: USD
-                  staff_notes: ""
-                  customer_message: ""
-                  discount_amount: "0.0000"
-                  coupon_discount: "0.0000"
-                  shipping_address_count: 1
-                  is_deleted: false
-                  ebay_order_id: "0"
-                  cart_id: 60f95366-ef20-48d7-a3a3-417963b5ed69
-                  billing_address:
-                    first_name: Jane
-                    last_name: Doe
-                    company: ""
-                    street_1: 123 E MainStreet
-                    street_2: ""
-                    city: Austin
-                    state: Texas
-                    zip: "78751"
-                    country: United States
-                    country_iso2: US
-                    phone: ""
-                    email: janedoe@email.com
-                    form_fields: []
-                  is_email_opt_in: false
-                  credit_card_type: {}
-                  order_source: www
-                  channel_id: 1
-                  external_source: {}
-                  products:
-                    url: https://api.bigcommerce.com/stores/{$$.env.store_hash}/v2/orders/110/products
-                    resource: /orders/110/products
-                  shipping_addresses:
-                    url: https://api.bigcommerce.com/stores/{$$.env.store_hash}/v2/orders/110/shippingaddresses
-                    resource: /orders/110/shippingaddresses
-                  coupons:
-                    url: https://api.bigcommerce.com/stores/{$$.env.store_hash}/v2/orders/110/coupons
-                    resource: /orders/110/coupons
-                  external_id: {}
-                  external_merchant_id: {}
-                  tax_provider_id: ""
-                  store_default_currency_code: ""
-                  store_default_to_transactional_exchange_rate: "1.0000000000"
-                  custom_status: Completed - Testing
     ordersCount_Resp:
       description: Order Countr response collection.
       content:
         application/json:
           schema:
-            type: array
+            type: object
             items:
               $ref: "#/components/schemas/ordersCount_Full"
           examples:
@@ -2044,12 +1665,13 @@ components:
                     sort_order: 14
                 count: 133
     order_Resp:
-      description: Multiple Items -- An order that contains mulitple products. The
-        store it set to display prices excluding taxes. The tax rate is 8.95%.
+      description: Order Response.
       content:
         application/json:
           schema:
-            $ref: "#/components/schemas/order_Resp"
+            type: object
+            items:
+              $ref: "#/components/schemas/order_Resp"
           examples:
             response:
               value:
@@ -2083,9 +1705,9 @@ components:
                 total_tax: "5.3100"
                 items_total: 4
                 items_shipped: 0
-                payment_method: Pay in Store
-                payment_provider_id: null
-                payment_status: ""
+                payment_method: 'Cash'
+                payment_provider_id: ''
+                payment_status: "authorized"
                 refunded_amount: "0.0000"
                 order_is_digital: false
                 store_credit_amount: "0.0000"
@@ -2142,108 +1764,6 @@ components:
                 store_default_currency_code: ""
                 store_default_to_transactional_exchange_rate: "1.0000000000"
                 custom_status: Awaiting Payment
-        Multiple Items:
-          examples:
-            response:
-              value: >-
-                {
-                  "id": 247,
-                  "customer_id": 11,
-                  "date_created": "Thu, 20 Jun 2019 16:07:08 +0000",
-                  "date_modified": "Thu, 20 Jun 2019 16:07:08 +0000",
-                  "date_shipped": "",
-                  "status_id": 11,
-                  "status": "Awaiting Fulfillment",
-                  "subtotal_ex_tax": "924.4700",
-                  "subtotal_inc_tax": "1000.7400",
-                  "subtotal_tax": "76.2700",
-                  "base_shipping_cost": "8.0000",
-                  "shipping_cost_ex_tax": "7.3900",
-                  "shipping_cost_inc_tax": "8.0000",
-                  "shipping_cost_tax": "0.6100",
-                  "shipping_cost_tax_class_id": 0,
-                  "base_handling_cost": "0.0000",
-                  "handling_cost_ex_tax": "0.0000",
-                  "handling_cost_inc_tax": "0.0000",
-                  "handling_cost_tax": "0.0000",
-                  "handling_cost_tax_class_id": 0,
-                  "base_wrapping_cost": "0.0000",
-                  "wrapping_cost_ex_tax": "0.0000",
-                  "wrapping_cost_inc_tax": "0.0000",
-                  "wrapping_cost_tax": "0.0000",
-                  "wrapping_cost_tax_class_id": 0,
-                  "total_ex_tax": "931.8600",
-                  "total_inc_tax": "1008.7400",
-                  "total_tax": "76.8800",
-                  "items_total": 11,
-                  "items_shipped": 0,
-                  "payment_method": "Test Payment Gateway",
-                  "payment_provider_id": "",
-                  "payment_status": "captured",
-                  "refunded_amount": "0.0000",
-                  "order_is_digital": false,
-                  "store_credit_amount": "0.0000",
-                  "gift_certificate_amount": "0.0000",
-                  "ip_address": "70.112.53.67",
-                  "geoip_country": "United States",
-                  "geoip_country_iso2": "US",
-                  "currency_id": 1,
-                  "currency_code": "USD",
-                  "currency_exchange_rate": "1.0000000000",
-                  "default_currency_id": 1,
-                  "default_currency_code": "USD",
-                  "staff_notes": "BIN-45",
-                  "customer_message": "Custom Journal Added",
-                  "discount_amount": "0.0000",
-                  "coupon_discount": "0.0000",
-                  "shipping_address_count": 1,
-                  "is_deleted": false,
-                  "ebay_order_id": "0",
-                  "cart_id": "8b84f622-faf1-4c10-887b-f5dff2f9eaf4",
-                  "billing_address": {
-                    "first_name": "Jane",
-                    "last_name": "Doe",
-                    "company": "",
-                    "street_1": "555 East Street",
-                    "street_2": "",
-                    "city": "Austin",
-                    "state": "Texas",
-                    "zip": "78108",
-                    "country": "United States",
-                    "country_iso2": "US",
-                    "phone": "1234567890",
-                    "email": "janedoe@email.com",
-                    "form_fields": [
-                      {
-                        "name": "Delivery Instructions",
-                        "value": "Leave in backyard"
-                      }
-                    ]
-                  },
-                  "is_email_opt_in": false,
-                  "credit_card_type": {},
-                  "order_source": "manual",
-                  "channel_id": 1,
-                  "external_source": {},
-                  "products": {
-                    "url": "https://api.bigcommerce.com/stores/{$$.env.store_hash}/v2/orders/247/products",
-                    "resource": "/orders/247/products"
-                  },
-                  "shipping_addresses": {
-                    "url": "https://api.bigcommerce.com/stores/{$$.env.store_hash}/v2/orders/247/shippingaddresses",
-                    "resource": "/orders/247/shippingaddresses"
-                  },
-                  "coupons": {
-                    "url": "https://api.bigcommerce.com/stores/{$$.env.store_hash}/v2/orders/247/coupons",
-                    "resource": "/orders/247/coupons"
-                  },
-                  "external_id": {},
-                  "external_merchant_id": {},
-                  "tax_provider_id": "BasicTaxProvider",
-                  "store_default_currency_code": "USD",
-                  "store_default_to_transactional_exchange_rate": "1.0000000000",
-                  "custom_status": "Awaiting Fulfillment"
-                }
     orderCouponsCollection_Resp:
       description: ""
       content:
@@ -2275,7 +1795,7 @@ components:
                   order_id: 181
                   staff_id: 1
                   customer_id: 11
-                  type: admin
+                  type: "admin"
                   subject: "Re: Order #181"
                   message: Thank you again!
                   status: unread
@@ -2299,8 +1819,8 @@ components:
                   order_address_id: 51
                   name: Fog Linen Chambray Towel - Beige Stripe
                   sku: S-ORAN
-                  upc: 1234567891112
-                  type: physical
+                  upc: "1234567891112"
+                  type: "physical"
                   base_price: "55.9900"
                   price_ex_tax: "55.9900"
                   price_inc_tax: "65.2300"
@@ -2326,22 +1846,20 @@ components:
                   wrapping_cost_tax: "0.0000"
                   wrapping_message: ""
                   quantity_shipped: 0
-                  event_name: {}
-                  event_date: ""
                   fixed_shipping_cost: "5.0000"
                   ebay_item_id: ""
                   ebay_transaction_id: ""
                   option_set_id: 19
-                  parent_order_product_id: {}
+                  parent_order_product_id: null
                   is_bundled_product: false
                   bin_picking_number: ""
-                  external_id: {}
+                  external_id: null
                   fulfillment_source: ""
                   applied_discounts:
                     - id: manual-discount
                       amount: "1.5900"
                       name: Manual Discount
-                      code: {}
+                      code: null
                       target: order
                   product_options:
                     - id: 45
@@ -2351,7 +1869,7 @@ components:
                       display_name: Size
                       display_value: S
                       value: "69"
-                      type: Multiple choice
+                      type: "Multiple choice"
                       name: Apparel sizes
                       display_style: Rectangle
                     - id: 46
@@ -2361,7 +1879,7 @@ components:
                       display_name: Color
                       display_value: Orange
                       value: "112"
-                      type: Swatch
+                      type: "Swatch"
                       name: Colors
                       display_style: ""
                     - id: 47
@@ -2371,7 +1889,7 @@ components:
                       display_name: Add Letters
                       display_value: Text Field
                       value: Text Field
-                      type: Text field
+                      type: "Text field"
                       name: Add Letters
                       display_style: ""
                     - id: 48
@@ -2381,7 +1899,7 @@ components:
                       display_name: Is this a gift?
                       display_value: Yes
                       value: "104"
-                      type: Checkbox
+                      type: "Checkbox"
                       name: Gift Wrapping $5
                       display_style: ""
                     - id: 49
@@ -2391,7 +1909,7 @@ components:
                       display_name: PickList
                       display_value: Able Brewing System
                       value: "106"
-                      type: Product Pick List
+                      type: "Product Pick List"
                       name: PickList
                       display_style: Pick list
                   configurable_fields: []
@@ -2401,7 +1919,7 @@ components:
                   order_address_id: 51
                   name: Able Brewing System
                   sku: ABS
-                  type: physical
+                  type: "physical"
                   base_price: "0.0000"
                   price_ex_tax: "0.0000"
                   price_inc_tax: "0.0000"
@@ -2427,264 +1945,16 @@ components:
                   wrapping_cost_tax: "0.0000"
                   wrapping_message: ""
                   quantity_shipped: 0
-                  event_name: {}
-                  event_date: ""
+                  event_name: null
+                  event_date: null
                   fixed_shipping_cost: "0.0000"
                   ebay_item_id: ""
                   ebay_transaction_id: ""
-                  option_set_id: {}
+                  option_set_id: null
                   parent_order_product_id: 65
                   is_bundled_product: true
                   bin_picking_number: BIN
-                  external_id: {}
-                  fulfillment_source: ""
-                  applied_discounts: []
-                  product_options: []
-                  configurable_fields: []
-        Multiple Products:
-          examples:
-            response:
-              value:
-                - id: 238
-                  order_id: 247
-                  product_id: 0
-                  variant_id: 0
-                  order_address_id: 151
-                  name: Journal
-                  sku: Jour-BLK
-                  upc: ""
-                  type: physical
-                  base_price: "45.0000"
-                  price_ex_tax: "41.5700"
-                  price_inc_tax: "45.0000"
-                  price_tax: "3.4300"
-                  base_total: "45.0000"
-                  total_ex_tax: "41.5700"
-                  total_inc_tax: "45.0000"
-                  total_tax: "3.4300"
-                  weight: "0.0000"
-                  width: "0.0000"
-                  height: "0.0000"
-                  depth: "0.0000"
-                  quantity: 1
-                  base_cost_price: "0.0000"
-                  cost_price_inc_tax: "0.0000"
-                  cost_price_ex_tax: "0.0000"
-                  cost_price_tax: "0.0000"
-                  is_refunded: false
-                  quantity_refunded: 0
-                  refund_amount: "0.0000"
-                  return_id: 0
-                  wrapping_name: ""
-                  base_wrapping_cost: "0.0000"
-                  wrapping_cost_ex_tax: "0.0000"
-                  wrapping_cost_inc_tax: "0.0000"
-                  wrapping_cost_tax: "0.0000"
-                  wrapping_message: ""
-                  quantity_shipped: 0
-                  event_name: {}
-                  event_date: ""
-                  fixed_shipping_cost: "0.0000"
-                  ebay_item_id: ""
-                  ebay_transaction_id: ""
-                  option_set_id: {}
-                  parent_order_product_id: {}
-                  is_bundled_product: false
-                  bin_picking_number: ""
-                  external_id: {}
-                  fulfillment_source: ""
-                  applied_discounts: []
-                  product_options: []
-                  configurable_fields: []
-                - id: 239
-                  order_id: 247
-                  product_id: 174
-                  variant_id: 345
-                  order_address_id: 151
-                  name: 1L Le Parfait Jar
-                  sku: ""
-                  upc: ""
-                  type: physical
-                  base_price: "7.8700"
-                  price_ex_tax: "7.2700"
-                  price_inc_tax: "7.8700"
-                  price_tax: "0.6000"
-                  base_total: "15.7400"
-                  total_ex_tax: "14.5400"
-                  total_inc_tax: "15.7400"
-                  total_tax: "1.2000"
-                  weight: "1.0000"
-                  width: "0.0000"
-                  height: "0.0000"
-                  depth: "0.0000"
-                  quantity: 2
-                  base_cost_price: "3.0000"
-                  cost_price_inc_tax: "3.0000"
-                  cost_price_ex_tax: "3.0000"
-                  cost_price_tax: "0.0000"
-                  is_refunded: false
-                  quantity_refunded: 0
-                  refund_amount: "0.0000"
-                  return_id: 0
-                  wrapping_name: ""
-                  base_wrapping_cost: "0.0000"
-                  wrapping_cost_ex_tax: "0.0000"
-                  wrapping_cost_inc_tax: "0.0000"
-                  wrapping_cost_tax: "0.0000"
-                  wrapping_message: ""
-                  quantity_shipped: 0
-                  event_name: {}
-                  event_date: ""
-                  fixed_shipping_cost: "0.0000"
-                  ebay_item_id: ""
-                  ebay_transaction_id: ""
-                  option_set_id: {}
-                  parent_order_product_id: {}
-                  is_bundled_product: false
-                  bin_picking_number: ""
-                  external_id: {}
-                  fulfillment_source: ""
-                  applied_discounts: []
-                  product_options: []
-                  configurable_fields: []
-                - id: 240
-                  order_id: 247
-                  product_id: 201
-                  variant_id: 477
-                  order_address_id: 151
-                  name: BigCommerce T-Shirt
-                  sku: SKU-201-Red-Small T-Shirt-Able Brewing System
-                  upc: ""
-                  type: physical
-                  base_price: "235.0000"
-                  price_ex_tax: "217.0900"
-                  price_inc_tax: "235.0000"
-                  price_tax: "17.9100"
-                  base_total: "940.0000"
-                  total_ex_tax: "868.3600"
-                  total_inc_tax: "940.0000"
-                  total_tax: "71.6400"
-                  weight: "3.0000"
-                  width: "3.0000"
-                  height: "3.0000"
-                  depth: "3.0000"
-                  quantity: 4
-                  base_cost_price: "0.0000"
-                  cost_price_inc_tax: "0.0000"
-                  cost_price_ex_tax: "0.0000"
-                  cost_price_tax: "0.0000"
-                  is_refunded: false
-                  quantity_refunded: 0
-                  refund_amount: "0.0000"
-                  return_id: 0
-                  wrapping_name: ""
-                  base_wrapping_cost: "0.0000"
-                  wrapping_cost_ex_tax: "0.0000"
-                  wrapping_cost_inc_tax: "0.0000"
-                  wrapping_cost_tax: "0.0000"
-                  wrapping_message: ""
-                  quantity_shipped: 0
-                  event_name: {}
-                  event_date: ""
-                  fixed_shipping_cost: "0.0000"
-                  ebay_item_id: ""
-                  ebay_transaction_id: ""
-                  option_set_id: 68
-                  parent_order_product_id: {}
-                  is_bundled_product: false
-                  bin_picking_number: ""
-                  external_id: {}
-                  fulfillment_source: ""
-                  applied_discounts: []
-                  product_options:
-                    - id: 143
-                      option_id: 96
-                      order_product_id: 240
-                      product_option_id: 242
-                      display_name: Color
-                      display_value: Red
-                      value: "211"
-                      type: Swatch
-                      name: Color1549572910-201
-                      display_style: ""
-                    - id: 144
-                      option_id: 114
-                      order_product_id: 240
-                      product_option_id: 263
-                      display_name: PickList PriceList
-                      display_value: Able Brewing System
-                      value: "237"
-                      type: Product Pick List
-                      name: PickList-PriceList1549572910-201
-                      display_style: Pick list with photos
-                    - id: 145
-                      option_id: 97
-                      order_product_id: 240
-                      product_option_id: 243
-                      display_name: T-Shirt Size
-                      display_value: Small T-Shirt
-                      value: "214"
-                      type: Multiple choice
-                      name: T-Shirt-Size1545071633-201
-                      display_style: Rectangle
-                    - id: 146
-                      option_id: 105
-                      order_product_id: 240
-                      product_option_id: 254
-                      display_name: Custom Message
-                      display_value: BigCommerce
-                      value: BigCommerce
-                      type: Text field
-                      name: Custom-Message1549572912-201
-                      display_style: ""
-                  configurable_fields: []
-                - id: 241
-                  order_id: 247
-                  product_id: 167
-                  variant_id: 338
-                  order_address_id: 151
-                  name: Able Brewing System
-                  sku: ""
-                  upc: ""
-                  type: physical
-                  base_price: "0.0000"
-                  price_ex_tax: "0.0000"
-                  price_inc_tax: "0.0000"
-                  price_tax: "0.0000"
-                  base_total: "0.0000"
-                  total_ex_tax: "0.0000"
-                  total_inc_tax: "0.0000"
-                  total_tax: "0.0000"
-                  weight: "0.0000"
-                  width: "0.0000"
-                  height: "0.0000"
-                  depth: "0.0000"
-                  quantity: 4
-                  base_cost_price: "0.0000"
-                  cost_price_inc_tax: "0.0000"
-                  cost_price_ex_tax: "0.0000"
-                  cost_price_tax: "0.0000"
-                  is_refunded: false
-                  quantity_refunded: 0
-                  refund_amount: "0.0000"
-                  return_id: 0
-                  wrapping_name: ""
-                  base_wrapping_cost: "0.0000"
-                  wrapping_cost_ex_tax: "0.0000"
-                  wrapping_cost_inc_tax: "0.0000"
-                  wrapping_cost_tax: "0.0000"
-                  wrapping_message: ""
-                  quantity_shipped: 0
-                  event_name: {}
-                  event_date: ""
-                  fixed_shipping_cost: "0.0000"
-                  ebay_item_id: ""
-                  ebay_transaction_id: ""
-                  option_set_id: {}
-                  parent_order_product_id: 240
-                  is_bundled_product: true
-                  bin_picking_number: ""
-                  external_id: {}
+                  external_id: null
                   fulfillment_source: ""
                   applied_discounts: []
                   product_options: []
@@ -2704,8 +1974,8 @@ components:
                 order_address_id: 81
                 name: Dustpan & Brush
                 sku: DUST1
-                upc: 1234567891112
-                type: physical
+                upc: "1234567891112"
+                type: "physical"
                 base_price: "31.9500"
                 price_ex_tax: "31.9500"
                 price_inc_tax: "37.2300"
@@ -2731,16 +2001,16 @@ components:
                 wrapping_cost_tax: "0.0000"
                 wrapping_message: ""
                 quantity_shipped: 0
-                event_name: {}
-                event_date: ""
+                event_name: null
+                event_date: null
                 fixed_shipping_cost: "0.0000"
                 ebay_item_id: ""
                 ebay_transaction_id: ""
-                option_set_id: 62
-                parent_order_product_id: {}
+                option_set_id: null
+                parent_order_product_id: null
                 is_bundled_product: false
                 bin_picking_number: ""
-                external_id: {}
+                external_id: null
                 fulfillment_source: ""
                 applied_discounts: []
                 product_options:
@@ -2751,7 +2021,7 @@ components:
                     display_name: Product Pick List
                     display_value: 1L Le Parfait Jar
                     value: "197"
-                    type: Product Pick List
+                    type: "Product Pick List"
                     name: ProductPickList
                     display_style: Pick list
                 configurable_fields: []
@@ -2980,7 +2250,7 @@ components:
                   merchant_shipping_cost: "0.0000"
                   shipping_method: None
                   comments: Janes Order
-                  shipping_provider: ""
+                  shipping_provider: "usps"
                   tracking_carrier: ""
                   tracking_link: ""
                   billing_address:
@@ -3031,7 +2301,7 @@ components:
                 merchant_shipping_cost: "0.0000"
                 shipping_method: None
                 comments: Ready to go...
-                shipping_provider: ""
+                shipping_provider: "usps"
                 tracking_carrier: ""
                 billing_address:
                   first_name: Jane
@@ -3351,9 +2621,9 @@ components:
                 email: jane@email.com
                 form_fields: []
               is_email_opt_in: false
-              credit_card_type: {}
+              credit_card_type: null
               order_source: www
-              external_source: {}
+              external_source: null
               products:
                 url: https://api.bigcommerce.com/stores/{$$.env.store_hash}/v2/orders/113/products
                 resource: /orders/113/products
@@ -3363,8 +2633,8 @@ components:
               coupons:
                 url: https://api.bigcommerce.com/stores/{$$.env.store_hash}/v2/orders/113/coupons
                 resource: /orders/113/coupons
-              external_id: {}
-              external_merchant_id: {}
+              external_id: null
+              external_merchant_id: null
               custom_status: Awaiting Payment
             type: object
             properties:
@@ -3468,10 +2738,10 @@ components:
                 example: "0.0000"
                 type: string
               handling_cost_inc_tax:
-                description: The value of the handling cost, including tax. (Float,
-                  Float-As-String, Integer)
-                example: 0
-                type: string
+                description: The value of the handling cost, including tax. (Float, Float-As-String, Integer)
+                type:
+                  - number
+                  - string
               handling_cost_tax:
                 description: A read-only value. Do not attempt to modify or set this value in a
                   POST or PUT operation. (Float, Float-As-String, Integer)
@@ -3484,10 +2754,13 @@ components:
                 example: 2
                 type: integer
               base_wrapping_cost:
-                description: The value of the base wrapping cost. (Float, Float-As-String,
-                  Integer)
+                description: The value of the base wrapping cost.
                 example: 0
-                type: string
+                type:
+                 - string
+                 - integer
+                 - float
+                format: number
               wrapping_cost_ex_tax:
                 description: The value of the wrapping cost, excluding tax. (Float,
                   Float-As-String, Integer)
@@ -3543,7 +2816,9 @@ components:
                 description: The external Transaction ID/Payment ID within this order's payment
                   provider (if a payment provider was used).
                 example: null
-                type: string
+                type:
+                  - string
+                  - 'null'
               payment_status:
                 description: A read-only value. Do not attempt to set or modify this value in a
                   POST or PUT operation.
@@ -3644,8 +2919,10 @@ components:
                 type: boolean
               credit_card_type:
                 description: Credit card type
-                example: "0"
-                type: integer
+                example: 0
+                type:
+                  - integer
+                  - 'null'
               ebay_order_id:
                 description: If the order was placed through eBay, the eBay order number will be
                   included. Otherwise, the value will be `0`.
@@ -3733,7 +3010,9 @@ components:
                   system used to generate the order. For example: `POS`.
                   Otherwise, the value will be null."
                 example: "null"
-                type: string
+                type:
+                  - string
+                  - 'null'
               products:
                 $ref: "#/components/schemas/products_Resource"
               shipping_addresses:
@@ -3748,11 +3027,15 @@ components:
                   remove it from your request before trying again. It can not be
                   overwritten once set.
                 example: "null"
-                type: string
+                type:
+                  - string
+                  - 'null'
               external_merchant_id:
                 description: ID of the merchant
                 example: "null"
-                type: string
+                type:
+                  - string
+                  - 'null'
               channel_id:
                 type: integer
                 example: 1
@@ -3775,12 +3058,6 @@ components:
                   - AvaTaxProvider
                   - ""
   requestBodies:
-    getAnOrderBody:
-      content:
-        application/json:
-          schema:
-            type: object
-            properties: {}
   securitySchemes:
     X-Auth-Token:
       type: apiKey
@@ -3834,21 +3111,12 @@ components:
         - $ref: "#/components/schemas/order_Shared"
     ordersCount_Full:
       title: ordersCount_Full
-      example:
-        statuses:
-          id: 0
-          name: Incomplete
-          system_label: Incomplete
-          custom_label: Incomplete- Waiting on Shipment
-          system_description: An incomplete order happens when a shopper reached the
-            payment page, but did not complete the transaction.
-          count: 6
-          sort_order: 0
-        count: 45
       type: object
       properties:
         statuses:
-          $ref: "#/components/schemas/orderStatusCount"
+          type: array
+          items:
+            - $ref: '#/components/schemas/ordersCountStatus'
         count:
           description: Total number of orders in the store
           example: 45
@@ -3871,26 +3139,29 @@ components:
           type: integer
         code:
           description: Coupon code, as a string.
-          example: S2549JM0Y
-          type: string
+          example: 'S2549JM0Y'
+          type:
+            - string
+            - 'null'
         amount:
-          description: >-
-            Amount of the discount. This information is returned as in integer.
-            Dollar and percentage discounts will return the same.
-
-            For example, $3 returns as '3' while 5% will return as 5. Check the discount type to see what type of discount is available. (Float, Float-As-String, Integer)
-          example: "5.0000"
-          type: string
+          description: Amount of the discount. This information is returned as in integer. Dollar and percentage discounts will return the same. For example, $3 returns as '3' while 5% will return as 5. Check the discount type to see what type of discount is available.
+          example: 5.0000
+          type:
+            - string
+            - float
+            - integer
+          format: number
         type:
-          type: integer
+          type:
+            - integer
           title: Order Coupon Discount Type
           description: |-
-            type 0: per_item_discount
-            type 1: percentage_discount
-            type 2: per_total_discount
-            type 3: shipping_discount
-            type 4: free_shipping
-            type 5: promotions
+            0: per_item_discount
+            1: percentage_discount
+            2: per_total_discount
+            3: shipping_discount
+            4: free_shipping
+            5: promotions
           enum:
             - 0
             - 1
@@ -3899,11 +3170,8 @@ components:
             - 4
             - 5
         discount:
-          description: >-
-            The amount off the order the discount is worth. For example, if an
-            order subtotal is $90 and the discount is $3 then it will return as
-            3.000. If the discount is
-
+          description: |-
+            The amount off the order the discount is worth. For example, if an order subtotal is $90 and the discount is $3 then it will return as 3.000. If the discount is
             3% then will return as 2.7000 or the amount of the order.  (Float, Float-As-String, Integer)
           example: 2.7
           type: number
@@ -4018,7 +3286,9 @@ components:
         weight:
           description: Weight of the product. (Float, Float-As-String, Integer)
           example: 1
-          type: number
+          type:
+            - number
+            - string
         cost_price_tax:
           description: >-
             Tax applied to the product’s cost price. (Float, Float-As-String,
@@ -4074,10 +3344,14 @@ components:
         event_name:
           description: Name of promotional event/delivery date.
           example: "null"
-          type: string
+          type:
+            - string
+            - 'null'
         event_date:
           description: Date of the promotional event/scheduled delivery.
-          type: string
+          type:
+            - string
+            - 'null'
           format: date
         fixed_shipping_cost:
           description: Fixed shipping cost for this product. (Float, Float-As-String,
@@ -4093,10 +3367,14 @@ components:
         option_set_id:
           description: Numeric ID of the option set applied to the product.
           example: 5
-          type: integer
+          type:
+            - integer
+            - 'null'
         parent_order_product_id:
           description: ID of a parent product.
-          type: integer
+          type:
+            - integer
+            - 'null'
         is_bundled_product:
           description: Whether this product is bundled with other products.
           example: false
@@ -4120,7 +3398,9 @@ components:
             using a /PUT to update the order will return a 400 error. The field
             'external_id' cannot be written to. Please remove it from your
             request before trying again. It can not be overwritten once set.
-          type: integer
+          type:
+            - string
+            - 'null'
         upc:
           type: string
           maxLength: 255
@@ -4264,7 +3544,7 @@ components:
           type: string
         class:
           description: "The name of the type of tax that was applied. NOTE: will be
-            “Automatic Tax” if automatic tax was enabled."
+            'Automatic Tax' if automatic tax was enabled."
           example: Gift Wrapping
           type: string
         rate:
@@ -4469,7 +3749,9 @@ components:
             Coupon Code.
             There is no code when creating a manual discount.
           example: S2549JM0Y
-          type: string
+          type:
+            - string
+            - 'null'
         target:
           type: string
           enum:
@@ -4576,7 +3858,7 @@ components:
           date_created:
             type: string
           customer:
-            type: string
+            type: object
       title: orderMessages
     shippingQuotes_Resource:
       type: object
@@ -4645,27 +3927,6 @@ components:
         method_id:
           type: integer
           description: Shipping method ID
-    orderCustomProduct:
-      type: object
-      title: orderCustomProduct
-      properties:
-        name:
-          type: string
-        quantity:
-          type: number
-        price_ex_tax:
-          type: number
-        price_inc_tax:
-          type: number
-        sku:
-          type: string
-        upc:
-          type: string
-      required:
-        - name
-        - quantity
-        - price_ex_tax
-        - price_inc_tax
     orderProduct_Write:
       type: object
       title: orderProduct_Write
@@ -4769,17 +4030,6 @@ components:
               quantity:
                 type: number
                 example: 2
-    Error:
-      type: array
-      items:
-        type: object
-        properties:
-          status:
-            type: integer
-          message:
-            type: string
-      title: Error
-      description: "Returns for incorrect requests. "
     orderStatus_Base:
       title: orderStatus_Base
       type: object
@@ -4805,7 +4055,9 @@ components:
           example: An incomplete order happens when a shopper reached the payment page,
             but did not complete the transaction.
           type: string
-    orderStatusCount:
+    ordersCountStatus:
+      title: ordersCountStatus
+      type: object
       allOf:
         - $ref: "#/components/schemas/orderStatus_Base"
         - type: object
@@ -4813,18 +4065,8 @@ components:
             count:
               description: Number of orders that exist with this status
               example: 6
-              type: number
+              type: integer
             sort_order:
-              description: The sort order of the order status from the Control Panel
-              example: 0
-              type: number
-      title: orderStatusCount
-    orderStatus_OrderStatuses:
-      allOf:
-        - $ref: "#/components/schemas/orderStatus_Base"
-        - type: object
-          properties:
-            order:
               description: The sort order of the order status from the Control Panel
               example: 0
               type: integer
@@ -4876,12 +4118,12 @@ components:
         handling_cost_inc_tax:
           description: The value of the handling cost, including tax. (Float,
             Float-As-String, Integer)
-          example: 0
+          example: "0.0000"
           type: string
         base_wrapping_cost:
           description: The value of the base wrapping cost. (Float, Float-As-String,
             Integer)
-          example: 0
+          example: "0.0000"
           type: string
         wrapping_cost_ex_tax:
           description: The value of the wrapping cost, excluding tax. (Float,
@@ -4925,8 +4167,10 @@ components:
         payment_provider_id:
           description: The external Transaction ID/Payment ID within this order's payment
             provider (if a payment provider was used).
-          example: null
-          type: string
+          example: ''
+          type:
+            - string
+            - number
         refunded_amount:
           description: The amount refunded from this transaction. (Float, Float-As-String,
             Integer)
@@ -4980,7 +4224,9 @@ components:
             used to generate the order. For example: `POS`. Otherwise, the value
             will be null."
           example: "null"
-          type: string
+          type:
+            - string
+            - 'null'
         external_id:
           description: ID of the order in another system. For example, the Amazon Order ID
             if this is an Amazon order.This field can be updated in a /POST, but
@@ -4988,7 +4234,9 @@ components:
             'external_id' cannot be written to. Please remove it from your
             request before trying again. It can not be overwritten once set.
           example: null
-          type: integer
+          type:
+          - string
+          - 'null'
         channel_id:
           type: integer
           example: 1
@@ -5097,35 +4345,6 @@ components:
           type: string
           example: janedoe@email.com
           description: "Recipient's email address. "
-    shipping-addresses-post:
-      type: object
-      properties:
-        first_name:
-          type: string
-        last_name:
-          type: string
-        company:
-          type: string
-        street_1:
-          type: string
-        street_2:
-          type: string
-        city:
-          type: string
-        state:
-          type: string
-        zip:
-          type: string
-        country:
-          type: string
-        country_iso2:
-          type: string
-        email:
-          type: string
-        phone:
-          type: string
-        shipping_method:
-          type: string
     order_RespOnly:
       title: order_RespOnly
       type: object
@@ -5196,8 +4415,7 @@ components:
           type: integer
         payment_status:
           type: string
-          description: A read-only value. Do not attempt to set or modify this value in a
-            POST or PUT operation.
+          description: A read-only value. Do not attempt to set or modify this value in a POST or PUT operation.
           enum:
             - authorized
             - captured
@@ -5310,7 +4528,7 @@ components:
                     example: BLU-SMALL
                   upc:
                     type: string
-                    example: 1234567890
+                    example: '1234567890'
                 required:
                   - name
                   - quantity
