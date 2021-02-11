@@ -548,18 +548,24 @@ paths:
                         state: active
               Multiple:
                 value:
-                  - product_id: 0
-                    external_id: string
-                    name: string
-                    description: string
+                  - product_id: 80
+                    name: Orbit Terrarium - Large
+                    description: 'The same terrarium, but not a [Sample]'
                     state: active
                     variants:
-                      - product_id: 0
-                        variant_id: 0
-                        external_id: string
-                        name: string
-                        description: string
+                      - product_id: 80
+                        variant_id: 64
+                        name: Terrarium with dinosaur
                         state: active
+                  - product_id: 81
+                    state: pending
+                    name: Women's bold t-shirt
+                    description: Boldly going where t-shirts have never gone before
+                    variants:
+                      - product_id: 81
+                        variant_id: 65
+                        state: pending
+                        name: small women's bold t-shirt
         required: true
         x-examples:
           application/json:
