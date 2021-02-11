@@ -233,18 +233,18 @@ Formats number length, thousands delimiter, and decimal delimiter.
 ### {{getFontLoaderConfig}}
 
 ```handlebars
-{{getFontLoaderConfig filepath}}
+{{getFontLoaderConfig fontConfig}}
 ```
-Returns font-loader configuration as a JSON string.
+Returns font-loader config as a JSON string.
 
 #### Parameters
 
-- `filepath` {String}: Filepath to the config file.
+- `fontConfig` {String}: Font config in the `Google_FontName_Weight` format.
 
 #### Example
 
 ```handlebars
-{{getFontLoaderConfig './lib/fonts'}}
+{{getFontLoaderConfig 'Google_Karla_700'}}
 ```
 
 [See it in GitHub](https://github.com/bigcommerce/paper-handlebars/blob/master/helpers/getFontLoaderConfig.js).
