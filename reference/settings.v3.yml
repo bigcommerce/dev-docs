@@ -27,6 +27,8 @@ info:
     url: 'https://www.bigcommerce.com'
     email: support@bigcommerce.com
 tags:
+  - name: Email Statuses
+  - name: Search Filters
   - name: Storefront Category
   - name: Storefront Robotstxt
   - name: Storefront Search
@@ -679,7 +681,7 @@ paths:
           name: category_id
           description: Only return contextual overrides related to a particular Category.
       description: |-
-        Returns a list of contextual filters enabled for a particular channel or category. 
+        Returns a list of contextual filters enabled for a particular channel or category.
 
         **Usage Notes**
 
@@ -743,6 +745,63 @@ paths:
           description: Delete contextual overrides related to this category ID
       tags:
         - Search Filters
+  /settings/email-statuses:
+    get:
+      summary: Get Email Statuses
+      description: Get global transactional email settings or channel specific overrides by `channel_id`.
+      tags:
+        - Email Statuses
+      responses:
+        '200':
+          description: 'OK, null indicates that a particular field has not been overridden on a channel level when channel level settings are requested'
+          content:
+            application/json:
+              schema:
+                type: object
+                properties:
+                  data:
+                    $ref: '#/components/schemas/EnabledTransactionalEmails'
+                  meta:
+                    type: object
+      operationId: get-settings-emails-enabled
+      parameters:
+        - $ref: '#/components/parameters/ChannelIdParam'
+    put:
+      summary: Update Email Statuses
+      description: Update global transactional email settings or create channel specific overrides by `channel_id`.
+      operationId: put-settings-transactional-emails-enabled
+      tags:
+        - Email Statuses
+      responses:
+        '200':
+          description: OK
+          content:
+            application/json:
+              schema:
+                type: object
+                properties:
+                  data:
+                    $ref: '#/components/schemas/EnabledTransactionalEmails'
+                  meta:
+                    type: object
+      requestBody:
+        content:
+          application/json:
+            schema:
+              $ref: '#/components/schemas/EnabledTransactionalEmails'
+      parameters:
+        - $ref: '#/components/parameters/ChannelIdParam'
+    delete:
+      summary: Delete Email Statuses Overrides
+      description: Delete channel specific overrides for email settings.
+      operationId: delete-settings-transactional-emails-enabled
+      tags:
+        - Email Statuses
+      responses:
+        '204':
+          description: No Content
+      parameters:
+        - $ref: '#/components/parameters/ChannelIdParam'
 components:
   schemas:
     AnalyticsProvider:
@@ -760,26 +819,8 @@ components:
         enabled:
           type: boolean
           description: Flag indicates if Web Analytics Provider is enabled or not.
-      example:
-        - id: 1
-          name: Google Analytics
-          code: GA-1234567890
-          enabled: true
     AnalyticsProviders:
       type: array
-      example:
-        - id: 1
-          name: Google Analytics
-          code: GA-1234567890
-          enabled: true
-        - id: 2
-          name: Visual Website Optimizer
-          code: ''
-          enabled: true
-        - id: 3
-          name: Facebook Pixel
-          code: FP-1234567890
-          enabled: false
       items:
         $ref: '#/components/schemas/AnalyticsProvider'
     RobotsTxtSettings:
