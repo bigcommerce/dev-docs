@@ -3,8 +3,8 @@
 <div class="otp" id="no-index">
 
 ### On this page
-- [Importing theme images](#importing-theme-images)
-- [Injecting theme variables](#injecting-theme-variables)
+- [Importing images](#importing-images)
+- [Injecting variables](#injecting-variables)
 - [Using Lighthouse](#using-lighthouse)
 - [Designing for accessibility](#designing-for-accessibility)
 - [Resources](#resources)
@@ -133,11 +133,11 @@ To improve CLS:
 
 In this example, the performance score is currently 47. The LCP score is 6.2s, the TBT score is 410 ms, and the CLS score is 1.137 which are all less than optional scores.
 
-![Performance Metrics](https://raw.githubusercontent.com/bigcommerce/dev-docs/master/assets/images/performnce-example-1.png "Performance Metrics")
+![Performance Metrics](https://raw.githubusercontent.com/bigcommerce/dev-docs/master/assets/images/performance-example-1.png "Performance Metrics")
 
 To improve performance, let's start by removing usused JavaScript. Lighthouse and the **Coverage** tab offers suggestions of unused JavaScript code that can be removed. The red section of the bar is unused bytes. The green section is used bytes.
 
-![Coverage tab](https://raw.githubusercontent.com/bigcommerce/dev-docs/master/assets/images/performnce-example-2.png "Coverage tab")
+![Coverage tab](https://raw.githubusercontent.com/bigcommerce/dev-docs/master/assets/images/performance-example-2.png "Coverage tab")
 
 In addition to removing unused bytes, you can minify, compress, and refractor CSS/JavaScript files. This includes removing line breaks, whitespace, and comments.
 
@@ -159,7 +159,7 @@ Lighthouse displays information relevant to elements contributing to the CLS sco
 
 After removing some unused bytes, minifying JavaScript files, and resizing an image, the performance score is 77. The LCP score is now 4.3s, the TBT score is 120 ms and the CLS score is 0.001. You can continue to remove additional unused bytes to improve your performance score and metrics. 
 
-![Improved Performance Metrics](https://raw.githubusercontent.com/bigcommerce/dev-docs/master/assets/images/performnce-example-3.png "Improved Performance Metrics")
+![Improved Performance Metrics](https://raw.githubusercontent.com/bigcommerce/dev-docs/master/assets/images/performance-example-3.png "Improved Performance Metrics")
 
 Using Lighthouse is an important step in optimizing your site and improving the user experience. It is an easy to use best practice tip that provides powerful insights. 
 
