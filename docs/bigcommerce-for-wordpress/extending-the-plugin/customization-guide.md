@@ -7,7 +7,6 @@
 ### On This Page
 
 - [Overview](#overview)
-
 - [Styling BC4WP templates](#Styling-BC4WP-templates)
 - [Accessing BigCommerce data](#accessing-bigcommerce-data)
 - [Custom CSS](#custom-css)
