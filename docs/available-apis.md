@@ -82,7 +82,7 @@ The following endpoints are deprecated.
 |`/v2/options`| [V3 Options](https://developer.bigcommerce.com/api-reference/catalog/catalog-api/product-options), [V3 Modifiers](https://developer.bigcommerce.com/api-reference/catalog/catalog-api/product-modifiers) |
 |`/v2/option_sets`|[V3 Options](https://developer.bigcommerce.com/api-reference/catalog/catalog-api/product-options), [V3 Variants](https://developer.bigcommerce.com/api-reference/catalog/catalog-api/product-variants)|
 |`/v2/products `| [V3 Products](https://developer.bigcommerce.com/api-reference/catalog/catalog-api/products/getproducts)|
-|`/v2/redirects/`|[V3 Redirects](https://developer.bigcommerce.com/api-reference/storefront/redirects)|
+|`/v2/redirects`|[V3 Redirects](https://developer.bigcommerce.com/api-reference/storefront/redirects)|
 
 
 
@@ -93,7 +93,7 @@ The following endpoints are deprecated.
 > ### Note
 > * Deprecated endpoints are no longer supported by BigCommerce; their use is discouraged.
 > * In V3, `options` and `modifiers` attach directly to products. Use `options` and `modifiers` together to access the contents of the former V2 `options` response.
-> * `option_sets` endpoint is intentionally not available in the V3 API. See [V2 vs V3 Catalog APIs](https://developer.bigcommerce.com/legacy/v2-products/v2-v3) for more information.
+> * `option_sets` endpoint is intentionally not available in the V3 API. See [Difference between V2 and V3 Catalog APIs](https://developer.bigcommerce.com/api-docs/store-management/catalog/v2-vs-v3#difference-between-v2-and-v3-catalog-apis) for more information.
 
 </div>
 </div>
@@ -115,4 +115,4 @@ The following properties are scheduled to be removed.
 |-|-|-|-|
 |`is_activated`| [Channels](https://developer.bigcommerce.com/api-reference/cart-checkout/channels-listings-api/channels/listchannels) | May, 10, 2020 | `status` |
 
-[Learn more about V2 vs V3 API](https://developer.bigcommerce.com/legacy/v2-products/v2-v3#Whats-not-in-V3).
+[Learn more about V2 vs V3 API](https://developer.bigcommerce.com/api-docs/store-management/catalog/v2-vs-v3).
