@@ -179,19 +179,35 @@ paths:
           in: query
           type: integer
         - name: date_modified
-          description: 'Filter items by `date_modified`. For example, `/v3/catalog/products?date_modified:min=2018-06-15` gets all products modified after `2018-06-15`'
+          description: 'Filter items by `date_modified`. '
           required: false
           in: query
           type: string
           format: date-time
+        - type: string
+          in: query
+          name: 'date_modified:max'
+          description: 'Filter items by `date_modified`. For example, `date_modified:max=2020-06-15`.'
+        - type: string
+          in: query
+          name: 'date_modified:min'
+          description: 'Filter items by `date_modified`. For example, `date_modified:min=2018-06-15`.'
         - name: date_last_imported
-          description: 'Filter items by date_last_imported. For example `v3/catalog/products?date_last_imported:min=2018-06-15`'
+          description: Filter items by date_last_imported.
           required: false
           in: query
           type: string
           format: date-time
+        - type: string
+          in: query
+          description: 'Filter items by date_last_imported. For example, `date_last_imported:max=2020-06-15`.'
+          name: 'date_last_imported:max'
+        - type: string
+          in: query
+          description: 'Filter items by date_last_imported. For example, `date_last_imported:min=2018-06-15`.'
+          name: 'date_last_imported:min'
         - name: is_visible
-          description: 'Filter items by if visible on the storefront. '
+          description: Filter items based on whether the product is currently visible on the storefront.
           required: false
           in: query
           type: boolean
@@ -253,7 +269,7 @@ paths:
           in: query
           type: integer
         - name: type
-          description: 'Filter items by type: `physical` or `digital`.'
+          description: Filter items by type.
           required: false
           in: query
           type: string
@@ -322,11 +338,7 @@ paths:
             - disabled
             - preorder
         - name: price_list_id
-          description: |-
-            This filter returns the product pricing with the *Price List* pricing instead. To use:
-            `?price_list_id=1`.
-            If there are variants use:
-            `?price_list_id=1&include=variants`
+          description: 'This filter returns the product pricing with the *Price List* pricing instead. To use:`?price_list_id=1`.If there are variants use:`?price_list_id=1&include=variants`.'
           required: false
           in: query
           type: integer
@@ -365,6 +377,10 @@ paths:
             - inventory_level
             - is_visible
             - total_sold
+        - type: integer
+          in: query
+          description: 'Filter items by categories. Use for products in multiple categories. For example, `categories:in=12`.'
+          name: 'categories:in'
       responses:
         '200':
           $ref: '#/responses/ProductCollectionResponse'
@@ -791,6 +807,10 @@ paths:
           type: string
           default: application/json
           required: true
+        - type: integer
+          in: query
+          name: price_list_id
+          description: Filter by price_list_id.
       responses:
         '200':
           description: ''
@@ -1796,6 +1816,8 @@ paths:
           type: string
           default: application/json
           required: true
+        - $ref: '#/parameters/PageParam'
+        - $ref: '#/parameters/LimitParam'
       responses:
         '200':
           description: ''
@@ -3820,7 +3842,7 @@ paths:
               instance:
                 type: string
             title: Not Found
-      summary: Get all Product Options
+      summary: Get All Product Options
       tags:
         - Product Options
     post:
@@ -5047,6 +5069,8 @@ paths:
           type: string
           default: application/json
           required: true
+        - $ref: '#/parameters/PageParam'
+        - $ref: '#/parameters/LimitParam'
       responses:
         '200':
           description: ''
@@ -5141,7 +5165,7 @@ paths:
                   total_pages: 1
                   links:
                     current: '?page=1&limit=50'
-      summary: Get all Product Option Values
+      summary: Get All Product Option Values
       tags:
         - Product Option Values
     post:
@@ -7475,6 +7499,8 @@ paths:
           type: string
           default: application/json
           required: true
+        - $ref: '#/parameters/PageParam'
+        - $ref: '#/parameters/LimitParam'
       responses:
         '200':
           description: ''
@@ -8434,6 +8460,8 @@ paths:
           type: string
           default: application/json
           required: true
+        - $ref: '#/parameters/PageParam'
+        - $ref: '#/parameters/LimitParam'
       responses:
         '200':
           description: ''
