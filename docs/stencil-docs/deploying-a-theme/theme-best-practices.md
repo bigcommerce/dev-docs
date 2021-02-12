@@ -53,6 +53,7 @@ your JavaScript. */
 console.log(jsContext.myProductName); // Will output: Sample Product
 </script>
 ```
+The `{{jsContext}}` handlebar helper returns JSON for all data injected by the `{{inject}}` helper. For more information, see [injection helpers](https://developer.bigcommerce.com/stencil-docs/reference-docs/handlebars-helpers-reference#injection-helpers).
 
 We suggest injecting only specific files and only the variables you need. If you inject all settings, you could accidently inject PII (Personally-Identifying Information) and cause performance issues with your site.
 
