@@ -36,7 +36,7 @@ The second way to import images is to use the image manager within the control p
 3. Click **Choose File** (or Browse) and select an image from your computer. Repeat for each additional image.
 4. Click **Upload**.
 
-When importing images, ensure images are appropriately-sized and have low byte size to increase a store's site speed. We recommend using a recent Stencil theme which uses responsive images. Once you have that, the best practice is to upload the best quality images you have, and BigCommerce will take care of optimizing them. JPEGs are recommended over other formats. See [Optimizing your Images](https://support.bigcommerce.com/s/article/Optimizing-Your-Images) for more details on how to optimize images.
+When importing images, ensure images are appropriately-sized and have low byte size to increase a store's site speed. We recommend using a recent Stencil theme that uses responsive images. Once you have that, the best practice is to upload the best quality images you have, and BigCommerce will optimize them. We recommend JPEGs over other formats. See [Optimizing your Images](https://support.bigcommerce.com/s/article/Optimizing-Your-Images) for more details on how to optimize images.
 
 ## Injecting variables
 
