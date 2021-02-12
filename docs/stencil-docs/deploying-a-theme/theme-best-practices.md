@@ -43,7 +43,7 @@ When importing images, ensure images are appropriately-sized and have low byte s
 Injecting javascript context variables allow you to access variables as needed to customize your theme. You can inject javascript context variables using the `inject` helper. The `inject` helper can be sent to the browser. Below is an example of an inject helper that can be added to your code.
 
 ```json
-{inject "myProductName" product.title}}
+{{inject "myProductName" product.title}}
 
 <script>
 // Note the lack of quotes around the jsContext handlebars helper, it becomes a string automatically.
