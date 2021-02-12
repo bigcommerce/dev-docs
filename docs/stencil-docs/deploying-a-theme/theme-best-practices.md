@@ -14,7 +14,7 @@ In this tutorial, you will learn the correct way to import theme images and inje
 
 ## Importing images
 There are two ways to import images. The quickest and easiest way to import images is to:
-1. Connect your store via the [WebDAV](https://support.bigcommerce.com/s/article/File-Access-WebDAV) client of your choice.
+1. Connect to your store using the [WebDAV](https://support.bigcommerce.com/s/article/File-Access-WebDAV) client of your choice.
 2. Add images to the `/content` directory.
 3. Reference images from there, as shown in the examples below:
 
