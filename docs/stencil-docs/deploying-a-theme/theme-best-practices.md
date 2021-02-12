@@ -21,7 +21,7 @@ There are two ways to import images. The quickest and easiest way to import imag
 ```json
 <img src="/content/image.jpg">
 ```
-If the image is uploaded to WebDAV, you can access it within the theme using cdn handlebar helper as follows:
+If you upload the image using a WebDAV client, you can access it within the theme using the `cdn` handlebar helper as follows:
 
 ```json
 {{cdn "webdav:/img/image.jpg"}}
