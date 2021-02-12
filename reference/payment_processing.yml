@@ -26,17 +26,17 @@ security:
   - X-Auth-Token: []
 paths:
   /payments:
-    servers:
-      - url: https://payments.bigcommerce.com/stores/{$$.env.store_hash}
-        variables:
-          $$.env.store_hash:
-            default: store_hash
     post:
       summary: Process Payment
       tags:
         - Process Payment
       operationId: PaymentsPost
       description: Process payments for an order. See [Payment Processing](https://developer.bigcommerce.com/api-docs/store-management/payment-processing) for more information.
+      servers:
+        - url: https://payments.bigcommerce.com/stores/{$$.env.store_hash}
+          variables:
+            $$.env.store_hash:
+              default: store_hash
       parameters:
         - name: Authorization
           in: header
@@ -300,11 +300,6 @@ paths:
                   - title
                   - type
   /payments/access_tokens:
-    servers:
-      - url: https://api.bigcommerce.com/stores/{$$.env.store_hash}/v3
-        variables:
-          $$.env.store_hash:
-            default: store_hash
     post:
       description: >-
         This endpoint provides the capability to create a payment access token.
@@ -322,6 +317,11 @@ paths:
       tags:
         - Access Tokens
       operationId: PaymentsAccessTokensPost
+      servers:
+        - url: https://api.bigcommerce.com/stores/{$$.env.store_hash}/v3
+          variables:
+            $$.env.store_hash:
+              default: store_hash
       deprecated: false
       parameters:
         - name: Accept
@@ -575,11 +575,6 @@ paths:
                   - title
                   - type
   /payments/methods:
-    servers:
-      - url: https://api.bigcommerce.com/stores/{$$.env.store_hash}/v3
-        variables:
-          $$.env.store_hash:
-            default: store_hash
     get:
       description: |-
         Returns a list of accepted payment methods based on the `order_id`.
@@ -590,6 +585,11 @@ paths:
       tags:
         - Accepted Methods
       operationId: PaymentsMethodsGet
+      servers:
+      - url: https://api.bigcommerce.com/stores/{$$.env.store_hash}/v3
+        variables:
+          $$.env.store_hash:
+            default: store_hash
       deprecated: false
       parameters:
         - name: order_id
