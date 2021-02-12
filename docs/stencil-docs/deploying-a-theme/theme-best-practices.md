@@ -16,12 +16,7 @@ In this tutorial, you will learn the correct way to import theme images and inje
 There are two ways to import images. The quickest and easiest way to import images is to:
 1. Connect to your store using the [WebDAV](https://support.bigcommerce.com/s/article/File-Access-WebDAV) client of your choice.
 2. Add images to the `/content` directory.
-3. Reference images from there, as shown in the examples below:
-
-```json
-<img src="/content/image.jpg">
-```
-If you upload the image using a WebDAV client, you can access it within the theme using the `cdn` handlebar helper as follows:
+3. Upload the images using a WebDAV client, you can access the images within the theme using the `cdn` handlebar helper as follows:
 
 ```json
 {{cdn "webdav:/img/image.jpg"}}
@@ -40,7 +35,7 @@ When importing images, ensure images are appropriately-sized and have low byte s
 
 ## Injecting variables
 
-Injecting javascript context variables allow you to access variables as needed to customize your theme. You can inject javascript context variables using the `inject` helper. The `inject` helper can be sent to the browser. Below is an example of an inject helper that can be added to your code.
+Injecting javascript context variables allow you to access variables as needed to customize your theme. You can inject javascript context variables using the `{{inject}}` helper. The `{{inject}}` helper can be sent to the browser. Below is an example of an `{{inject}}` helper that can be added to your code.
 
 ```json
 {{inject "myProductName" product.title}}
@@ -55,7 +50,7 @@ console.log(jsContext.myProductName); // Will output: Sample Product
 ```
 The `{{jsContext}}` handlebar helper returns JSON for all data injected by the `{{inject}}` helper. For more information, see [injection helpers](https://developer.bigcommerce.com/stencil-docs/reference-docs/handlebars-helpers-reference#injection-helpers).
 
-We suggest injecting only specific files and only the variables you need. If you inject all settings, you could accidently inject PII (Personally-Identifying Information) and cause performance issues with your site.
+We suggest injecting only specific variables and only the variables you need. If you inject all settings, you could accidently inject PII (Personally-Identifying Information) and cause performance issues with your site.
 
 ## Using Lighthouse
 
@@ -103,13 +98,13 @@ The optimal FID score is 100 milliseconds or less.
 To improve FID:
 * Reduce the effect of third-party code
 * Reduce JavaScript execution time
-* Reduce duration of your longest task
+* Reduce the duration of your longest task
 
 Lighthouse does not display FID since it can only be measured in the field. Real user interaction is needed in order to measure the response delay. Instead, Lighthouse displays Total Blocking Time (TBT) which also captures a user's interactivity. Improvements to TBT will also improve your FID score.
 
 A good TBT score is 300 milliseconds or less.
 
-### Cumulative Layout Shift (CLS)
+### Cumulative Layout Shift
 
 CLS is the metric that measures visual stability. This metric measures how often users experience unexpected layout shifts. A layout shift is when a visible element changes its position from one rendered frame to the next. For example, a layout shift can occur when a user is viewing a page and a video moves on top of the home carousel. These unexpected movements can result in an unpleasant experience for the user.
 
@@ -144,7 +139,7 @@ In addition to removing unused bytes, you can minify, compress, and refractor CS
 
 **Minify example**
 
-```json
+```css
 code {
 padding: 1px 5px 1px 5px;
 font-family: Consolas, Menlo, Monaco, Lucida Console, Liberation Mono, DejaVu Sans Mono, 
@@ -152,7 +147,7 @@ font-family: Consolas, Menlo, Monaco, Lucida Console, Liberation Mono, DejaVu Sa
 background-color: #eeeeee;}
 ```
 
-```json
+```css
 code {padding: 1px 5px 1px 5px;font-family: Consolas, Menlo, Monaco, Lucida Console, Liberation Mono, DejaVu Sans Mono, Bitstream Vera Sans Mono, Courier New, monospace, serif;background-color: #eeeeee;}
 ```
 
@@ -169,7 +164,7 @@ Using Lighthouse is an important step in optimizing your site and improving the 
 Accessible sites have benefits, including faster load speed, better SEO, and useful for marketing your product. See [Developing Themes for Accessibility](https://developer.bigcommerce.com/stencil-docs/theme-accessibility) for more information.
 
 ## Resources
-- [File Access (WebDAV)](https://support.bigcommerce.com/articles/Public/File-Access-WebDAV/)(knowledge Base)
+- [File Access (WebDAV)](https://support.bigcommerce.com/articles/Public/File-Access-WebDAV/)(Knowledge Base)
 - [Lighthouse](https://developers.google.com/web/tools/lighthouse)
-- [Designing for Accessibility]()
+- [Designing for Accessibility](https://developer.bigcommerce.com/stencil-docs/theme-accessibility)
 - [Folder Structure](https://support.bigcommerce.com/s/article/File-Access-WebDAV#folder)
