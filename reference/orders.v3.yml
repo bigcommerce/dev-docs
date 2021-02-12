@@ -235,7 +235,6 @@ paths:
           $ref: '#/responses/RefundCollection_Resp'
       tags:
         - Order Refunds
-      x-private: true
     post:
       summary: Create Refunds - BATCH
       description: Creates a refund. This endpoint will accept a batch of one or more.
