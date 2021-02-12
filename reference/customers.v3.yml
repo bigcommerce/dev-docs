@@ -1308,7 +1308,7 @@ paths:
                   - name: color
                     value: blue
                     customer_id: 0
-  '/customers/{customerId}/consent':
+  /customers/{customerId}/consent:
     get:
       description: Gets the customer consent.
       summary: Get Customer Consent
@@ -1386,9 +1386,9 @@ paths:
             application/json:
               schema:
                 $ref: '#/components/schemas/ErrorResponse'
-  '/customers/{customerId}/stored-instruments':
+  /customers/{customerId}/stored-instruments:
     get:
-      summary: ListStoredInstruments
+      summary: Get Stored Instruments
       tags:
         - Customer Stored Instruments
       description: 'Lists all available stored instruments for a customer. This list will include all types of stored instruments namely card, account and bank_account instruments'
