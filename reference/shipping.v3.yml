@@ -102,6 +102,12 @@ paths:
           items:
             type: integer
           required: true
+        - in: body
+          name: body
+          required: true
+          description: ''
+          schema:
+            $ref: '#/definitions/customsInformation'        
     put:
       responses:
         '200':
