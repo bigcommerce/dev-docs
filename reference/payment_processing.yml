@@ -1,721 +1,1451 @@
-swagger: '2.0'
+openapi: 3.0.0
 info:
-  version: ''
+  version: ""
   title: Payment Processing
   contact: {}
-  description: >-
-    Process payments using payment instrument such as credit card. See [Payments
-    Overview](/api-docs/payments/payments-api-overview) for more information.
-  termsOfService: ''
-host: payments.bigcommerce.com
-basePath: '/stores/{store_hash}'
-schemes:
-  - https
-consumes:
-  - application/json
-produces:
-  - application/json
-paths:
-  /payments:
-    post:
-      description: >-
-        Process a payment on an order.
-
-
-        ## Headers
-
-        Payment Access Token: 
-
-        - X-Auth-Token
-
-        - Content-Type: application/json
-
-        - Accept: application/json
-
-
-        Stored Cards/Credit Card:
-
-        - Content-Type: application/json
-
-        - Accept: application/vnd.bc.v1+json
-
-        - Authorization: PAT a-valid-payment-access-token
-
-
-        ## Usage Notes
-
-        Depending on merchant's configuration in BigCommerce's Control Panel,
-        the payment request will be processed as either 'Authorize only' or
-        'Authorize and Capture'.
-
-
-        Payments can be processed using Stored Cards, Payment Tokens or Credit
-        Cards. See [Payments API
-        Overview](/api-docs/payments/payments-api-overview) for more.
-
-
-        ## Error Codes
-
-        | Code | Description | Possible Causes | Possible Solutions |
-
-        |-|-|  - |  - |
-
-        | `10000` |  An internal error has occurred within the API. | 
-        Connection error | Try the request again. |
-
-        | `10001` | Missing or incorrect required fields. | Missing or Incorrect
-        Fields |  Check the request for any data that is incorrect or is missing
-        |
-
-        | `30000` | Merchant payment configuration could not be found. | * The
-        payment provider has not been configured in the store. | Check the
-        [payment
-        gateways](https://support.bigcommerce.com/s/article/Online-Payment-Methods#setup)
-        settings in your BigCommerce store. |
-
-        | `3001` | Merchant payment configuration is not correctly being
-        configured. | The payment configuration is being rejected by the payment
-        gateway. | Check the [payment
-        gateways](https://support.bigcommerce.com/s/article/Online-Payment-Methods#setup)
-        settings in your BigCommerce store. <br> Reach out the the payment
-        gateway to check the information is correct. |
-
-        | `30002` | Vaulting service is currently not available. |  The vaulting
-        feature is not enabled on this store. | Reach out to the store owner to
-        enable [Stored Credit
-        Cards](https://support.bigcommerce.com/s/article/Enabling-Stored-Credit-Cards)
-        |
-
-        | `30003` | Order could not be found. | The order does not exist. <br>
-        The order ID is not correct. |  Check the current orders in the store
-        using [Get All
-        Orders](https://developer.bigcommerce.com/api-reference/orders/orders-api/orders/getanorder)
-        |
-
-        | `30004` | The validation on line item and grand total does not match.
-        | N/A| Recreate the payment access token <br> Recreate the order <br>
-        Ensure the store settings for taxes and discounts are setup correctly|
-
-        | `30050` | Payment instrument could not be saved. | Credit card
-        information is incorrect. | Check that the card information is
-        correct.<br> * `expiry_month` is two digits<br>* `expiry_year` is four
-        digits |
-
-        | `30051` | The stored card was not found. |  The card requested for
-        payment is not associated to the shopper.| Use [Get Payment
-        Methods](/api-reference/payments/payments-create-payment-token-api/payment-methods/paymentsmethodsget)
-        to see available vaulted cards |
-
-        |`30100` | Payment access token could not be created. | N/A|N/A|
-
-        | `30101` | Order is invalid. | The order is in the wrong status. |
-        Orders must be in Incomplete Status with a `status_id:0` <br>  The order
-        must be created by the Checkout SDK, Checkout API or V2 Orders API.
-        Orders created in the Control and set to an incomplete status will
-        return this error. |
-
-        | `30102` | The payment was declined. | The card information provided
-        was incorrect<br>The token provided was incorrect | Check that the
-        provider shopper information is correct<br>Make sure the token in the
-        Authorization header field is correct |
-
-        | `30103` | Card has expired |N/A | N/A|
-
-        | `30104` | The payment was declined. Please contact card issuer for
-        more information. |N/A |N/A|
-
-        | `30105` | The payment was declined due to duplicate payment being
-        submitted. |N/A |N/A |
-
-        | `30106` | The payment was declined due to insufficient funds. |N/A
-        |N/A|
-      tags:
-        - Payment
-      operationId: PaymentsPost
-      produces:
-        - application/json
-      parameters:
-        - name: Authorization
-          in: header
-          required: true
-          type: string
-          description: >-
-            Authorization header with a valid payment access token is required
-            to access this endpoint e.g. Authorization: PAT
-            a-valid-payment-access-token
-        - name: body
-          in: body
-          required: true
-          description: ''
-          schema:
-            title: Payment Request
-            type: object
-            properties:
-              payment:
-                title: Payment
-                type: object
-                required:
-                  - instrument
-                  - payment_method_id
-                properties:
-                  amount:
-                    description: Amount in smallest currency unit
-                    type: integer
-                    format: int32
-                  currency_code:
-                    description: Currency code
-                    type: string
-                    pattern: '^[A-Z]{3}$'
-                  instrument:
-                    oneOf:
-                      - $ref: '#/definitions/Card'
-                      - $ref: '#/definitions/StoredCard'
-                      - $ref: '#/definitions/StoredPaypalAccount'
-                  payment_method_id:
-                    description: >-
-                      Identifier for payment method that will be used for this
-                      payment and `id` from the Get Accepted Payment Methods API
-                    type: string
-                    minLength: 1
-            required:
-              - payment
-          x-examples:
-            application/json:
-              payment:
-                instrument: {}
-                payment_method_id: Lorem in
-                amount: 81505146
-                currency_code: NYE
-            Payment Access Token: |-
-              curl -X POST \
-                https://payments.bigcommerce.com/stores/{$$.env.store_hash}/payments \
-                -H 'Accept: application/vnd.bc.v1+json' \
-                -H 'Authorization: PAT eyJ0eXAiOiJKV1QiLCJhbGciOiJIUzI1NiJ9.eyJleHAiOjE1NsdfasftIsIm5iZiI6MTU1MTM5MDU0MiwiaXNzIjoicGF5bWVudHMuYmlnY29tbWVyY2UuY29tIiwic3ViIjoianJhaDZnbW4iLCJqdGkiOiI3Nzg3ZmU1Zi01OWJmLTQ3ZWMtYTFmZC00ZDQ3ZTkwNjFlNWMiLCJpYXQiOjE1NTEzOTA1NDIsImRhdGEiOnsic3RvcmVfaWQiOjEwMjU2NDYsIm9yZGVyX2lkIjoyMTUsImFtb3VudCI6OTgwMCwiY3VycmVuY3kiOiJVU0QifX0.WbR90d8m4gn8wK7kPMDEoVq8B0hHC5Ul5H4Hpqq6Yvo' \
-                -H 'Content-Type: application/json' \
-            Vaulted Card:
-              payment:
-                instrument:
-                  type: stored_card
-                  token: vaulted instrument token
-                  verification_value: '123'
-                payment_method_id: stripe.card
-                save_instrument: true
-            Credit Card: |-
-              {
-                "payment": {
-                  "instrument": {
-                    "type": "card",
-                    "number": "4111111111111111",
-                    "cardholder_name": "BP",
-                    "expiry_month": 12,
-                    "expiry_year": 2020,
-                    "verification_value": "411"
-                  },
-                  "payment_method_id": "authorizenet.card",
-                   "save_instrument": true
-                }
-              }
-        - name: Accept
-          in: header
-          type: string
-          default: application/vnd.bc.v1+json
-          enum:
-            - application/vnd.bc.v1+json
-        - name: Content-Type
-          in: header
-          type: string
-          default: application/json
-      responses:
-        '202':
-          description: Payment has been successfully processed
-          schema:
-            title: Success Payment Response
-            type: object
-            properties:
-              id:
-                description: Identifier for this transaction
-                type: string
-              transaction_type:
-                title: Transaction Type
-                description: Transaction type for this payment
-                example: authorization
-                type: string
-                enum:
-                  - authorization
-                  - purchase
-              status:
-                type: string
-                title: Status
-                description: Status to indicate a success response
-                enum:
-                  - success
-                  - pending
-          examples:
-            application/json:
-              id: 227d9e1e-94f8-408c-95a5-f97b30592eb7
-              transaction_type: authorization
-              status: pending
-        '400':
-          description: Payment request has been rejected due to malformed request
-          schema:
-            title: Error Payment Response
-            type: object
-            properties:
-              status:
-                description: HTTP status code
-                type: integer
-                format: int32
-              title:
-                description: Short summary describing the particular error
-                type: string
-              detail:
-                description: Detailed summary describing the particular error
-                type: string
-              type:
-                description: Reference that identifies the particular error
-                type: string
-              code:
-                description: Code representing the particular error
-                type: integer
-                format: int32
-              errors:
-                description: ''
-                type: object
-                additionalProperties:
-                  type: string
-            required:
-              - status
-              - title
-              - type
-        '401':
-          description: Valid authentication required
-          schema:
-            title: Error Payment Response
-            type: object
-            properties:
-              status:
-                description: HTTP status code
-                type: integer
-                format: int32
-              title:
-                description: Short summary describing the particular error
-                type: string
-              detail:
-                description: Detailed summary describing the particular error
-                type: string
-              type:
-                description: Reference that identifies the particular error
-                type: string
-              code:
-                description: Code representing the particular error
-                type: integer
-                format: int32
-              errors:
-                description: ''
-                type: object
-                additionalProperties:
-                  type: string
-            required:
-              - status
-              - title
-              - type
-        '422':
-          description: >-
-            Payment request has been rejected due to missing, invalid data or
-            declined by payment provider
-          schema:
-            title: Error Payment Response
-            type: object
-            properties:
-              status:
-                description: HTTP status code
-                type: integer
-                format: int32
-              title:
-                description: Short summary describing the particular error
-                type: string
-              detail:
-                description: Detailed summary describing the particular error
-                type: string
-              type:
-                description: Reference that identifies the particular error
-                type: string
-              code:
-                description: Code representing the particular error
-                type: integer
-                format: int32
-              errors:
-                description: ''
-                type: object
-                additionalProperties:
-                  type: string
-            required:
-              - status
-              - title
-              - type
-        default:
-          description: Internal server error
-          schema:
-            title: Error Payment Response
-            type: object
-            properties:
-              status:
-                description: HTTP status code
-                type: integer
-                format: int32
-              title:
-                description: Short summary describing the particular error
-                type: string
-              detail:
-                description: Detailed summary describing the particular error
-                type: string
-              type:
-                description: Reference that identifies the particular error
-                type: string
-              code:
-                description: Code representing the particular error
-                type: integer
-                format: int32
-              errors:
-                description: ''
-                type: object
-                additionalProperties:
-                  type: string
-            required:
-              - status
-              - title
-              - type
-      summary: Process Payment for an Order
-definitions:
-  PaymentRequest:
-    title: Payment Request
-    type: object
-    properties:
-      payment:
-        title: Payment
-        type: object
-        required:
-          - instrument
-          - payment_method_id
-        properties:
-          amount:
-            description: Amount in smallest currency unit
-            type: integer
-            format: int32
-          currency_code:
-            description: Currency code
-            type: string
-            pattern: '^[A-Z]{3}$'
-          instrument:
-            description: ''
-            type: object
-          payment_method_id:
-            description: Identifier for payment method that will be used for this payment
-            type: string
-            minLength: 1
-    required:
-      - payment
-  Payment:
-    title: Payment
-    type: object
-    properties:
-      amount:
-        description: Amount in smallest currency unit
-        type: integer
-        format: int32
-      currency_code:
-        description: Currency code
-        type: string
-        pattern: '^[A-Z]{3}$'
-      instrument:
-        description: ''
-        type: object
-      payment_method_id:
-        description: Identifier for payment method that will be used for this payment
-        type: string
-        minLength: 1
-    required:
-      - instrument
-      - payment_method_id
-  SuccessPaymentResponse:
-    title: Success Payment Response
-    type: object
-    properties:
-      id:
-        description: Identifier for this transaction
-        type: string
-      transaction_type:
-        title: Transaction Type
-        description: Transaction type for this payment
-        example: authorization
-        type: string
-        enum:
-          - authorization
-          - purchase
-      status:
-        type: string
-        title: Status
-        description: Status to indicate a success response
-        enum:
-          - success
-          - pending
-  TransactionType:
-    title: Transaction Type
-    description: Transaction type for this payment
-    example: authorization
-    type: string
-    enum:
-      - authorization
-      - purchase
-  Status:
-    type: string
-    title: Status
-    description: Status to indicate a success response
-    enum:
-      - success
-      - pending
-  ErrorPaymentResponse:
-    title: Error Payment Response
-    type: object
-    properties:
-      status:
-        description: HTTP status code
-        type: integer
-        format: int32
-      title:
-        description: Short summary describing the particular error
-        type: string
-      detail:
-        description: Detailed summary describing the particular error
-        type: string
-      type:
-        description: Reference that identifies the particular error
-        type: string
-      code:
-        description: Code representing the particular error
-        type: integer
-        format: int32
-      errors:
-        description: ''
-        type: object
-        additionalProperties:
-          type: string
-    required:
-      - status
-      - title
-      - type
-  Card:
-    title: Card
-    type: object
-    properties:
-      type:
-        description: Type to classify this payment instrument
-        example: card
-        type: string
-        default: card
-      cardholder_name:
-        description: Cardholder's full name
-        type: string
-        minLength: 1
-      number:
-        description: Credit card number
-        type: string
-        minLength: 1
-      expiry_month:
-        description: Expiry month of this card
-        type: integer
-        minimum: 1
-        maximum: 12
-        format: int32
-      expiry_year:
-        description: Expiry year of this card
-        type: integer
-        format: int32
-      verification_value:
-        description: Verification value of this card
-        type: string
-        minLength: 3
-        maxLength: 4
-      issue_month:
-        description: Issue month of this card
-        type: integer
-        minimum: 1
-        maximum: 12
-        format: int32
-      issue_year:
-        description: Issue year of this card
-        type: integer
-        format: int32
-      issue_number:
-        description: Issue number of this card
-        type: integer
-        format: int32
-    required:
-      - type
-      - cardholder_name
-      - number
-      - expiry_month
-      - expiry_year
-  StoredCard:
-    title: Stored Card
-    type: object
-    properties:
-      type:
-        description: Type to classify this payment instrument
-        example: stored_card
-        type: string
-        default: stored_card
-      token:
-        description: Identifier representing this stored card
-        type: string
-        minLength: 64
-        maxLength: 64
-    required:
-      - type
-      - token
-  BasePaymentResponse:
-    title: Base Payment Response
-    type: object
-    properties:
-      id:
-        description: Identifier for this transaction
-        type: string
-      transaction_type:
-        title: Transaction Type
-        description: Transaction type for this payment
-        example: authorization
-        type: string
-        enum:
-          - authorization
-          - purchase
-  PendingPaymentResponse:
-    title: Pending Payment Response
-    type: object
-    properties:
-      id:
-        description: Identifier for this transaction
-        type: string
-      transaction_type:
-        title: Transaction Type
-        description: Transaction type for this payment
-        example: authorization
-        type: string
-        enum:
-          - authorization
-          - purchase
-      status:
-        type: string
-        title: Status
-        description: Status to indicate a success response
-        enum:
-          - success
-          - pending
-  Error:
-    title: Error
-    type: object
-    properties:
-      status:
-        description: HTTP status code
-        type: integer
-        format: int32
-      title:
-        description: Short summary describing the particular error
-        type: string
-      detail:
-        description: Detailed summary describing the particular error
-        type: string
-      type:
-        description: Reference that identifies the particular error
-        type: string
-      code:
-        description: Code representing the particular error
-        type: integer
-        format: int32
-    required:
-      - status
-      - title
-      - type
-  StoredPaypalAccount:
-    title: StoredPaypalAccount
-    type: object
-    properties:
-      type:
-        type: string
-        description: Type to classify this payment instrument
-        enum:
-          - stored_paypal_account
-      token:
-        description: Identifier representing this stored paypal account
-        type: string
-        minLength: 64
-        maxLength: 64
-    required:
-      - type
-      - token
+  description: Process payments using payment instrument such as credit card. See [Payments Overview](https://developer.bigcommerce.com/api-docs/store-management/payment-processing) for more information.
 tags:
-  - name: Payment
-    description: ''
-parameters:
-  Accept:
-    name: Accept
-    in: header
-    type: string
-    default: application/vnd.bc.v1+json
-    enum:
-      - application/vnd.bc.v1+json
-  Content-Type:
-    name: Content-Type
-    in: header
-    type: string
-    default: application/json
-securityDefinitions:
-  X-Auth-Token:
-    type: apiKey
-    in: header
-    name: X-Auth-Token
-    description: >-
-      ### OAuth Scopes
-
-      |  **UI Name** | **Permission** | **Parameter** |
-
-      | --- | --- | --- |
-
-      |  Create Payments | create | `store_payments_access_token_create` |
-
-
-      ### Headers
-
-
-      |Header|Parameter|Description|
-
-      |-|-|-|
-
-      |`X-Auth-Token`|`access_token `|Obtained by creating an API account or
-      installing an app in a BigCommerce control panel.|
-
-
-      ### Example
-
-
-      ```http
-
-      GET /stores/{$$.env.store_hash}/v3/catalog/summary
-
-      host: api.bigcommerce.com
-
-      Content-Type: application/json
-
-      X-Auth-Token: {access_token}
-
-      ```
-
-
-      * For more information on Authenticating BigCommerce APIs, see:
-      [Authentication](https://developer.bigcommerce.com/api-docs/getting-started/authentication). 
-security:
-  - X-Auth-Client: []
-  - X-Auth-Token: []
+  - name: Accepted Methods
+  - name: Access Tokens
+  - name: Process Payment
 x-stoplight:
   docs:
     includeDownloadLink: true
     showModels: false
+servers:
+  - url: https://api.bigcommerce.com/stores/{$$.env.store_hash}/v3
+    variables:
+      $$.env.store_hash:
+        default: store_hash
+  - url: https://payments.bigcommerce.com/stores/{$$.env.store_hash}
+    variables:
+      $$.env.store_hash:
+        default: store_hash
+security:
+  - X-Auth-Client: []
+  - X-Auth-Token: []
+paths:
+  /payments:
+    servers:
+      - url: https://payments.bigcommerce.com/stores/{$$.env.store_hash}
+        variables:
+          $$.env.store_hash:
+            default: store_hash
+    post:
+      summary: Process Payment
+      tags:
+        - Process Payment
+      operationId: PaymentsPost
+      description: Process payments for an order. See [Payment Processing](https://developer.bigcommerce.com/api-docs/store-management/payment-processing) for more information.
+      parameters:
+        - name: Authorization
+          in: header
+          required: true
+          description: "Authorization header with a valid payment access token is required
+            to access this endpoint e.g. Authorization: PAT
+            a-valid-payment-access-token"
+          schema:
+            type: string
+        - name: Accept
+          in: header
+          schema:
+            type: string
+            enum:
+              - application/vnd.bc.v1+json
+            default: application/vnd.bc.v1+json
+        - name: Content-Type
+          in: header
+          schema:
+            type: string
+            default: application/json
+      requestBody:
+        content:
+          application/json:
+            schema:
+              title: Payment Request
+              type: object
+              properties:
+                payment:
+                  title: Payment
+                  type: object
+                  required:
+                    - instrument
+                    - payment_method_id
+                  properties:
+                    amount:
+                      description: Amount in smallest currency unit
+                      type: integer
+                      format: int32
+                    currency_code:
+                      description: Currency code
+                      type: string
+                      pattern: ^[A-Z]{3}$
+                    instrument:
+                      oneOf:
+                        - $ref: "#/components/schemas/Card"
+                        - $ref: "#/components/schemas/StoredCard"
+                        - $ref: "#/components/schemas/StoredPaypalAccount"
+                    payment_method_id:
+                      description: Identifier for payment method that will be used for this payment
+                        and `id` from the Get Accepted Payment Methods API
+                      type: string
+                      minLength: 1
+              required:
+                - payment
+        required: true
+        x-examples:
+          application/json:
+            payment:
+              instrument: {}
+              payment_method_id: Lorem in
+              amount: 81505146
+              currency_code: NYE
+          Payment Access Token: >-
+            curl -X POST \
+              https://payments.bigcommerce.com/stores/{$$.env.store_hash}/payments \
+              -H 'Accept: application/vnd.bc.v1+json' \
+              -H 'Authorization: PAT eyJ0eXAiOiJKV1QiLCJhbGciOiJIUzI1NiJ9.eyJleHAiOjE1NsdfasftIsIm5iZiI6MTU1MTM5MDU0MiwiaXNzIjoicGF5bWVudHMuYmlnY29tbWVyY2UuY29tIiwic3ViIjoianJhaDZnbW4iLCJqdGkiOiI3Nzg3ZmU1Zi01OWJmLTQ3ZWMtYTFmZC00ZDQ3ZTkwNjFlNWMiLCJpYXQiOjE1NTEzOTA1NDIsImRhdGEiOnsic3RvcmVfaWQiOjEwMjU2NDYsIm9yZGVyX2lkIjoyMTUsImFtb3VudCI6OTgwMCwiY3VycmVuY3kiOiJVU0QifX0.WbR90d8m4gn8wK7kPMDEoVq8B0hHC5Ul5H4Hpqq6Yvo' \
+              -H 'Content-Type: application/json' \
+          Vaulted Card:
+            payment:
+              instrument:
+                type: stored_card
+                token: vaulted instrument token
+                verification_value: "123"
+              payment_method_id: stripe.card
+              save_instrument: true
+          Credit Card: |-
+            {
+              "payment": {
+                "instrument": {
+                  "type": "card",
+                  "number": "4111111111111111",
+                  "cardholder_name": "BP",
+                  "expiry_month": 12,
+                  "expiry_year": 2020,
+                  "verification_value": "411"
+                },
+                "payment_method_id": "authorizenet.card",
+                 "save_instrument": true
+              }
+            }
+      responses:
+        "202":
+          description: Payment has been successfully processed
+          content:
+            application/json:
+              schema:
+                title: Success Payment Response
+                type: object
+                properties:
+                  id:
+                    description: Identifier for this transaction
+                    type: string
+                  transaction_type:
+                    title: Transaction Type
+                    description: Transaction type for this payment
+                    example: authorization
+                    type: string
+                    enum:
+                      - authorization
+                      - purchase
+                  status:
+                    type: string
+                    title: Status
+                    description: Status to indicate a success response
+                    enum:
+                      - success
+                      - pending
+              examples:
+                response:
+                  value:
+                    id: 227d9e1e-94f8-408c-95a5-f97b30592eb7
+                    transaction_type: authorization
+                    status: pending
+        "400":
+          description: Payment request has been rejected due to malformed request
+          content:
+            application/json:
+              schema:
+                title: Error Payment Response
+                type: object
+                properties:
+                  status:
+                    description: HTTP status code
+                    type: integer
+                    format: int32
+                  title:
+                    description: Short summary describing the particular error
+                    type: string
+                  detail:
+                    description: Detailed summary describing the particular error
+                    type: string
+                  type:
+                    description: Reference that identifies the particular error
+                    type: string
+                  code:
+                    description: Code representing the particular error
+                    type: integer
+                    format: int32
+                  errors:
+                    description: ""
+                    type: object
+                    additionalProperties:
+                      type: string
+                required:
+                  - status
+                  - title
+                  - type
+        "401":
+          description: Valid authentication required
+          content:
+            application/json:
+              schema:
+                title: Error Payment Response
+                type: object
+                properties:
+                  status:
+                    description: HTTP status code
+                    type: integer
+                    format: int32
+                  title:
+                    description: Short summary describing the particular error
+                    type: string
+                  detail:
+                    description: Detailed summary describing the particular error
+                    type: string
+                  type:
+                    description: Reference that identifies the particular error
+                    type: string
+                  code:
+                    description: Code representing the particular error
+                    type: integer
+                    format: int32
+                  errors:
+                    description: ""
+                    type: object
+                    additionalProperties:
+                      type: string
+                required:
+                  - status
+                  - title
+                  - type
+        "422":
+          description: Payment request has been rejected due to missing, invalid data or
+            declined by payment provider
+          content:
+            application/json:
+              schema:
+                title: Error Payment Response
+                type: object
+                properties:
+                  status:
+                    description: HTTP status code
+                    type: integer
+                    format: int32
+                  title:
+                    description: Short summary describing the particular error
+                    type: string
+                  detail:
+                    description: Detailed summary describing the particular error
+                    type: string
+                  type:
+                    description: Reference that identifies the particular error
+                    type: string
+                  code:
+                    description: Code representing the particular error
+                    type: integer
+                    format: int32
+                  errors:
+                    description: ""
+                    type: object
+                    additionalProperties:
+                      type: string
+                required:
+                  - status
+                  - title
+                  - type
+        default:
+          description: Internal server error
+          content:
+            application/json:
+              schema:
+                title: Error Payment Response
+                type: object
+                properties:
+                  status:
+                    description: HTTP status code
+                    type: integer
+                    format: int32
+                  title:
+                    description: Short summary describing the particular error
+                    type: string
+                  detail:
+                    description: Detailed summary describing the particular error
+                    type: string
+                  type:
+                    description: Reference that identifies the particular error
+                    type: string
+                  code:
+                    description: Code representing the particular error
+                    type: integer
+                    format: int32
+                  errors:
+                    description: ""
+                    type: object
+                    additionalProperties:
+                      type: string
+                required:
+                  - status
+                  - title
+                  - type
+  /payments/access_tokens:
+    servers:
+      - url: https://api.bigcommerce.com/stores/{$$.env.store_hash}/v3
+        variables:
+          $$.env.store_hash:
+            default: store_hash
+    post:
+      description: >-
+        This endpoint provides the capability to create a payment access token.
+        The payment access token is required when making request to Payment API
+        for submitting payment for an order.
+
+
+        After the token is created then use the token to [Process Payments](/api-reference/payments/payments-process-payments/payment/paymentspost).
+
+
+        **Required Fields**
+
+        * order_id
+      summary: Create Payment Access Token
+      tags:
+        - Access Tokens
+      operationId: PaymentsAccessTokensPost
+      deprecated: false
+      parameters:
+        - name: Accept
+          in: header
+          schema:
+            type: string
+            default: application/json
+        - in: header
+          name: Content-Type
+          schema:
+            type: string
+            default: application/json
+      requestBody:
+        content:
+          application/json:
+            schema:
+              title: Payment Access Token Request
+              type: object
+              properties:
+                order:
+                  $ref: "#/components/schemas/Order"
+              required:
+                - order
+        required: true
+        x-examples:
+          application/json:
+            order:
+              id: 44796008
+              is_recurring: true
+          Example:
+            order:
+              id: 182
+      responses:
+        "201":
+          description: Payment access token has been successfully created
+          headers: {}
+          content:
+            application/json:
+              schema:
+                title: Payments Access Tokens Response
+                type: object
+                properties:
+                  data:
+                    title: Payment Access Token
+                    type: object
+                    properties:
+                      id:
+                        description: Payment access token. This token is required in subsequent payment
+                          request to Payment API endpoint.
+                        type: string
+                        minLength: 1
+                    required:
+                      - id
+        "400":
+          description: Request has been rejected
+          content:
+            application/json:
+              schema:
+                title: ErrorResponse
+                type: object
+                properties:
+                  status:
+                    description: HTTP status code
+                    type: integer
+                    format: int32
+                  title:
+                    description: Short summary describing the particular error
+                    type: string
+                  detail:
+                    description: Detailed summary describing the particular error
+                    type: string
+                  type:
+                    description: Reference that identifies the particular error
+                    type: string
+                  code:
+                    description: Code representing the particular error
+                    type: integer
+                    format: int32
+                  errors:
+                    type: object
+                    additionalProperties:
+                      type: string
+                required:
+                  - status
+                  - title
+                  - type
+        "401":
+          description: Valid authentication required
+          content:
+            application/json:
+              schema:
+                title: ErrorResponse
+                type: object
+                properties:
+                  status:
+                    description: HTTP status code
+                    type: integer
+                    format: int32
+                  title:
+                    description: Short summary describing the particular error
+                    type: string
+                  detail:
+                    description: Detailed summary describing the particular error
+                    type: string
+                  type:
+                    description: Reference that identifies the particular error
+                    type: string
+                  code:
+                    description: Code representing the particular error
+                    type: integer
+                    format: int32
+                  errors:
+                    type: object
+                    additionalProperties:
+                      type: string
+                required:
+                  - status
+                  - title
+                  - type
+        "404":
+          description: Request has been rejected due to resource not being found
+          content:
+            application/json:
+              schema:
+                title: ErrorResponse
+                type: object
+                properties:
+                  status:
+                    description: HTTP status code
+                    type: integer
+                    format: int32
+                  title:
+                    description: Short summary describing the particular error
+                    type: string
+                  detail:
+                    description: Detailed summary describing the particular error
+                    type: string
+                  type:
+                    description: Reference that identifies the particular error
+                    type: string
+                  code:
+                    description: Code representing the particular error
+                    type: integer
+                    format: int32
+                  errors:
+                    type: object
+                    additionalProperties:
+                      type: string
+                required:
+                  - status
+                  - title
+                  - type
+        "409":
+          description: Request has been rejected due to conflict with the current state of
+            the target resource
+          content:
+            application/json:
+              schema:
+                title: ErrorResponse
+                type: object
+                properties:
+                  status:
+                    description: HTTP status code
+                    type: integer
+                    format: int32
+                  title:
+                    description: Short summary describing the particular error
+                    type: string
+                  detail:
+                    description: Detailed summary describing the particular error
+                    type: string
+                  type:
+                    description: Reference that identifies the particular error
+                    type: string
+                  code:
+                    description: Code representing the particular error
+                    type: integer
+                    format: int32
+                  errors:
+                    type: object
+                    additionalProperties:
+                      type: string
+                required:
+                  - status
+                  - title
+                  - type
+        "422":
+          description: Request has been rejected due to missing or invalid data
+          content:
+            application/json:
+              schema:
+                title: ErrorResponse
+                type: object
+                properties:
+                  status:
+                    description: HTTP status code
+                    type: integer
+                    format: int32
+                  title:
+                    description: Short summary describing the particular error
+                    type: string
+                  detail:
+                    description: Detailed summary describing the particular error
+                    type: string
+                  type:
+                    description: Reference that identifies the particular error
+                    type: string
+                  code:
+                    description: Code representing the particular error
+                    type: integer
+                    format: int32
+                  errors:
+                    type: object
+                    additionalProperties:
+                      type: string
+                required:
+                  - status
+                  - title
+                  - type
+        default:
+          description: Internal server error
+          content:
+            application/json:
+              schema:
+                title: ErrorResponse
+                type: object
+                properties:
+                  status:
+                    description: HTTP status code
+                    type: integer
+                    format: int32
+                  title:
+                    description: Short summary describing the particular error
+                    type: string
+                  detail:
+                    description: Detailed summary describing the particular error
+                    type: string
+                  type:
+                    description: Reference that identifies the particular error
+                    type: string
+                  code:
+                    description: Code representing the particular error
+                    type: integer
+                    format: int32
+                  errors:
+                    type: object
+                    additionalProperties:
+                      type: string
+                required:
+                  - status
+                  - title
+                  - type
+  /payments/methods:
+    servers:
+      - url: https://api.bigcommerce.com/stores/{$$.env.store_hash}/v3
+        variables:
+          $$.env.store_hash:
+            default: store_hash
+    get:
+      description: |-
+        Returns a list of accepted payment methods based on the `order_id`.
+
+        **Required Fields**
+        * order_id
+      summary: Get Accepted Payment Methods
+      tags:
+        - Accepted Methods
+      operationId: PaymentsMethodsGet
+      deprecated: false
+      parameters:
+        - name: order_id
+          in: query
+          required: false
+          description: Identifier for the order
+          schema:
+            type: integer
+            format: int32
+            exclusiveMinimum: false
+            exclusiveMaximum: false
+        - name: Accept
+          in: header
+          schema:
+            type: string
+            default: application/json
+        - in: header
+          name: Content-Type
+          schema:
+            type: string
+            default: application/json
+      responses:
+        "200":
+          $ref: "#/components/responses/paymentsMethods_Resp"
+        "400":
+          description: Request has been rejected
+          content:
+            application/json:
+              schema:
+                title: ErrorResponse
+                type: object
+                properties:
+                  status:
+                    description: HTTP status code
+                    type: integer
+                    format: int32
+                  title:
+                    description: Short summary describing the particular error
+                    type: string
+                  detail:
+                    description: Detailed summary describing the particular error
+                    type: string
+                  type:
+                    description: Reference that identifies the particular error
+                    type: string
+                  code:
+                    description: Code representing the particular error
+                    type: integer
+                    format: int32
+                  errors:
+                    type: object
+                    additionalProperties:
+                      type: string
+                required:
+                  - status
+                  - title
+                  - type
+        "401":
+          description: Valid authentication required
+          content:
+            application/json:
+              schema:
+                title: ErrorResponse
+                type: object
+                properties:
+                  status:
+                    description: HTTP status code
+                    type: integer
+                    format: int32
+                  title:
+                    description: Short summary describing the particular error
+                    type: string
+                  detail:
+                    description: Detailed summary describing the particular error
+                    type: string
+                  type:
+                    description: Reference that identifies the particular error
+                    type: string
+                  code:
+                    description: Code representing the particular error
+                    type: integer
+                    format: int32
+                  errors:
+                    type: object
+                    additionalProperties:
+                      type: string
+                required:
+                  - status
+                  - title
+                  - type
+        "404":
+          description: Request has been rejected due to resource not being found
+          content:
+            application/json:
+              schema:
+                title: ErrorResponse
+                type: object
+                properties:
+                  status:
+                    description: HTTP status code
+                    type: integer
+                    format: int32
+                  title:
+                    description: Short summary describing the particular error
+                    type: string
+                  detail:
+                    description: Detailed summary describing the particular error
+                    type: string
+                  type:
+                    description: Reference that identifies the particular error
+                    type: string
+                  code:
+                    description: Code representing the particular error
+                    type: integer
+                    format: int32
+                  errors:
+                    type: object
+                    additionalProperties:
+                      type: string
+                required:
+                  - status
+                  - title
+                  - type
+        "422":
+          description: Request has been rejected due to missing or invalid data
+          content:
+            application/json:
+              schema:
+                title: ErrorResponse
+                type: object
+                properties:
+                  status:
+                    description: HTTP status code
+                    type: integer
+                    format: int32
+                  title:
+                    description: Short summary describing the particular error
+                    type: string
+                  detail:
+                    description: Detailed summary describing the particular error
+                    type: string
+                  type:
+                    description: Reference that identifies the particular error
+                    type: string
+                  code:
+                    description: Code representing the particular error
+                    type: integer
+                    format: int32
+                  errors:
+                    type: object
+                    additionalProperties:
+                      type: string
+                required:
+                  - status
+                  - title
+                  - type
+        default:
+          description: Internal server error
+          content:
+            application/json:
+              schema:
+                title: ErrorResponse
+                type: object
+                properties:
+                  status:
+                    description: HTTP status code
+                    type: integer
+                    format: int32
+                  title:
+                    description: Short summary describing the particular error
+                    type: string
+                  detail:
+                    description: Detailed summary describing the particular error
+                    type: string
+                  type:
+                    description: Reference that identifies the particular error
+                    type: string
+                  code:
+                    description: Code representing the particular error
+                    type: integer
+                    format: int32
+                  errors:
+                    type: object
+                    additionalProperties:
+                      type: string
+                required:
+                  - status
+                  - title
+                  - type
+components:
+  parameters:
+    Accept:
+      name: Accept
+      in: header
+      schema:
+        type: string
+        enum:
+          - application/vnd.bc.v1+json
+        default: application/vnd.bc.v1+json
+    Content-Type:
+      name: Content-Type
+      in: header
+      schema:
+        type: string
+        default: application/json
+  responses:
+    paymentsMethods_Resp:
+      description: ""
+      content:
+        application/json:
+          schema:
+            title: Payments Methods Response
+            type: object
+            properties:
+              data:
+                type: array
+                items:
+                  $ref: "#/components/schemas/paymentMethod_Full"
+          examples:
+            response:
+              value:
+                data:
+                  - id: stripe.card
+                    name: Stripe
+                    test_mode: true
+                    type: card
+                    supported_instruments:
+                      - instrument_type: VISA
+                        verification_value_required: true
+                      - instrument_type: MASTERCARD
+                        verification_value_required: true
+                      - instrument_type: AMEX
+                        verification_value_required: true
+                      - instrument_type: DISCOVER
+                        verification_value_required: true
+                      - instrument_type: JCB
+                        verification_value_required: true
+                      - instrument_type: DINERS_CLUB
+                        verification_value_required: true
+                      - instrument_type: STORED_CARD
+                        verification_value_required: true
+                    stored_instruments:
+                      - type: stored_card
+                        brand: VISA
+                        expiry_month: 9
+                        expiry_year: 2020
+                        issuer_identification_number: "424242"
+                        last_4: "4242"
+                        token: 050a1e5c982e5905288ec5ec33f292772762033a0704f46fccb16bf1940b51ef
+                        is_default: true
+                meta: {}
+    paymentAccessToken_Resp:
+      description: ""
+      content:
+        application/json:
+          schema:
+            title: Payments Access Tokens Response
+            type: object
+            properties:
+              data:
+                $ref: "#/components/schemas/PaymentAccessToken"
+  securitySchemes:
+    X-Auth-Token:
+      type: apiKey
+      in: header
+      name: X-Auth-Token
+      description: >-
+        ### OAuth Scopes
+
+        |  **UI Name** | **Permission** | **Parameter** |
+
+        | --- | --- | --- |
+
+        |  Create Payments | create | `store_payments_access_token_create` |
+
+        |  Get Payment Methods | read-only | `store_payments_methods_read` |
+
+
+        ### Headers
+
+
+        |Header|Parameter|Description|
+
+        |-|-|-|
+
+        |`X-Auth-Token`|`ACCESS_TOKEN`|Obtained by creating an API account or installing an app in a BigCommerce control panel.|
+
+        |`Authorization`|`{PAYMENT_ACCESS_TOKEN}`|Obtained using Create Access Token endpoint.|
+
+
+        ### Example
+
+
+        ```http
+
+        POST /stores/{$$.env.store_hash}/v3/payments/access_tokens
+
+        host: api.bigcommerce.com
+
+        Content-Type: application/json
+
+        X-Auth-Token: {ACCESS_TOKEN}
+
+        ```
+
+
+        ```http
+
+        POST /payments
+
+        host: payments.bigcommerce.com
+
+        Content-Type: application/json
+
+        Authorization: {PAYMENT_ACCESS_TOKEN}
+
+        ```
+
+
+        * For more information on Authenticating BigCommerce APIs, see: [Authentication](https://developer.bigcommerce.com/api-docs/getting-started/authentication).
+  schemas:
+    PaymentRequest:
+      title: Payment Request
+      type: object
+      properties:
+        payment:
+          title: Payment
+          type: object
+          required:
+            - instrument
+            - payment_method_id
+          properties:
+            amount:
+              description: Amount in smallest currency unit
+              type: integer
+              format: int32
+            currency_code:
+              description: Currency code
+              type: string
+              pattern: ^[A-Z]{3}$
+            instrument:
+              description: ""
+              type: object
+            payment_method_id:
+              description: Identifier for payment method that will be used for this payment
+              type: string
+              minLength: 1
+      required:
+        - payment
+    Payment:
+      title: Payment
+      type: object
+      properties:
+        amount:
+          description: Amount in smallest currency unit
+          type: integer
+          format: int32
+        currency_code:
+          description: Currency code
+          type: string
+          pattern: ^[A-Z]{3}$
+        instrument:
+          description: ""
+          type: object
+        payment_method_id:
+          description: Identifier for payment method that will be used for this payment
+          type: string
+          minLength: 1
+      required:
+        - instrument
+        - payment_method_id
+    SuccessPaymentResponse:
+      title: Success Payment Response
+      type: object
+      properties:
+        id:
+          description: Identifier for this transaction
+          type: string
+        transaction_type:
+          title: Transaction Type
+          description: Transaction type for this payment
+          example: authorization
+          type: string
+          enum:
+            - authorization
+            - purchase
+        status:
+          type: string
+          title: Status
+          description: Status to indicate a success response
+          enum:
+            - success
+            - pending
+    TransactionType:
+      title: Transaction Type
+      description: Transaction type for this payment
+      example: authorization
+      type: string
+      enum:
+        - authorization
+        - purchase
+    Status:
+      type: string
+      title: Status
+      description: Status to indicate a success response
+      enum:
+        - success
+        - pending
+    ErrorPaymentResponse:
+      title: Error Payment Response
+      type: object
+      properties:
+        status:
+          description: HTTP status code
+          type: integer
+          format: int32
+        title:
+          description: Short summary describing the particular error
+          type: string
+        detail:
+          description: Detailed summary describing the particular error
+          type: string
+        type:
+          description: Reference that identifies the particular error
+          type: string
+        code:
+          description: Code representing the particular error
+          type: integer
+          format: int32
+        errors:
+          description: ""
+          type: object
+          additionalProperties:
+            type: string
+      required:
+        - status
+        - title
+        - type
+    Card:
+      title: Card
+      type: object
+      properties:
+        type:
+          description: Type to classify this payment instrument
+          example: card
+          type: string
+          default: card
+        cardholder_name:
+          description: Cardholder's full name
+          type: string
+          minLength: 1
+        number:
+          description: Credit card number
+          type: string
+          minLength: 1
+        expiry_month:
+          description: Expiry month of this card
+          type: integer
+          minimum: 1
+          maximum: 12
+          format: int32
+        expiry_year:
+          description: Expiry year of this card
+          type: integer
+          format: int32
+        verification_value:
+          description: Verification value of this card
+          type: string
+          minLength: 3
+          maxLength: 4
+        issue_month:
+          description: Issue month of this card
+          type: integer
+          minimum: 1
+          maximum: 12
+          format: int32
+        issue_year:
+          description: Issue year of this card
+          type: integer
+          format: int32
+        issue_number:
+          description: Issue number of this card
+          type: integer
+          format: int32
+      required:
+        - type
+        - cardholder_name
+        - number
+        - expiry_month
+        - expiry_year
+    StoredCard:
+      title: Stored Card
+      type: object
+      properties:
+        type:
+          description: Type to classify this payment instrument
+          example: stored_card
+          type: string
+          default: stored_card
+        token:
+          description: Identifier representing this stored card
+          type: string
+          minLength: 64
+          maxLength: 64
+      required:
+        - type
+        - token
+    BasePaymentResponse:
+      title: Base Payment Response
+      type: object
+      properties:
+        id:
+          description: Identifier for this transaction
+          type: string
+        transaction_type:
+          title: Transaction Type
+          description: Transaction type for this payment
+          example: authorization
+          type: string
+          enum:
+            - authorization
+            - purchase
+    PendingPaymentResponse:
+      title: Pending Payment Response
+      type: object
+      properties:
+        id:
+          description: Identifier for this transaction
+          type: string
+        transaction_type:
+          title: Transaction Type
+          description: Transaction type for this payment
+          example: authorization
+          type: string
+          enum:
+            - authorization
+            - purchase
+        status:
+          type: string
+          title: Status
+          description: Status to indicate a success response
+          enum:
+            - success
+            - pending
+    StoredPaypalAccount:
+      title: StoredPaypalAccount
+      type: object
+      properties:
+        type:
+          type: string
+          description: Type to classify this payment instrument
+          enum:
+            - stored_paypal_account
+        token:
+          description: Identifier representing this stored paypal account
+          type: string
+          minLength: 64
+          maxLength: 64
+      required:
+        - type
+        - token
+    Order:
+      title: Order
+      type: object
+      properties:
+        id:
+          description: Identifier for the order
+          type: integer
+          minimum: 1
+          format: int32
+        is_recurring:
+          description: Whether this is a recurring order. If the order is recurring this
+            field should be set to true in order to let the payment gateway
+            know.
+          example: false
+          type: boolean
+          default: false
+      required:
+        - id
+    PaymentAccessTokenRequest:
+      title: Payment Access Token Request
+      type: object
+      properties:
+        order:
+          title: Order
+          type: object
+          required:
+            - id
+          properties:
+            id:
+              description: Identifier for the order
+              type: integer
+              minimum: 1
+              format: int32
+            is_recurring:
+              description: Whether this is a recurring order. If the order is recurring this
+                field should be set to true in order to let the payment gateway
+                know.
+              example: false
+              type: boolean
+              default: false
+      required:
+        - order
+    PaymentAccessToken:
+      title: Payment Access Token
+      type: object
+      properties:
+        id:
+          description: Payment access token. This token is required in subsequent payment
+            request to Payment API endpoint.
+          type: string
+          minLength: 1
+      required:
+        - id
+    paymentMethodStoredInstrument:
+      title: paymentMethodStoredInstrument
+      type: object
+      properties:
+        brand:
+          description: Brand of this card such as VISA or Mastercard
+          type: string
+          minLength: 1
+        expiry_month:
+          description: Expiry month of this card
+          type: integer
+          minimum: 1
+          maximum: 12
+          format: int32
+        expiry_year:
+          description: Expiry year of this card
+          type: integer
+          format: int32
+        issuer_identification_number:
+          description: Issuer identification number of this card. This is extracted from
+            the card when the order is payed for.
+          type: string
+          minLength: 6
+          maxLength: 6
+        last_4:
+          description: Last four numbers of this card
+          type: string
+          minLength: 4
+          maxLength: 4
+        token:
+          description: Identifier representing this stored card. This is used to identify
+            cards within BigCommerce. It is the same as the
+            `payment_access_token` that returns via the [Get Transactions
+            endpoint](https://developer.bigcommerce.com/api-reference/orders/orders-transactions-api/orders/gettransactions).
+          type: string
+          minLength: 64
+          maxLength: 64
+        is_default:
+          description: Whether this instrument is a default instrument
+          example: false
+          type: boolean
+          default: false
+        type:
+          description: Type to classify this stored card
+          example: stored_card
+          type: string
+          default: stored_card
+      required:
+        - brand
+        - expiry_month
+        - expiry_year
+        - issuer_identification_number
+        - last_4
+        - token
+        - is_default
+        - type
+    paymentMethod_Full:
+      title: paymentMethod_Full
+      type: object
+      properties:
+        id:
+          description: Identifier for this payment method
+          type: string
+          minLength: 1
+        name:
+          description: Name of this payment method
+          type: string
+          minLength: 1
+        stored_instruments:
+          type: array
+          items:
+            $ref: "#/components/schemas/paymentMethodStoredInstrument"
+        supported_instruments:
+          type: array
+          items:
+            title: Supported Card Instrument
+            type: object
+            properties:
+              instrument_type:
+                title: InstrumentType
+                description: Type of this instrument
+                example: VISA
+                type: string
+                enum:
+                  - VISA
+                  - MASTERCARD
+                  - DISCOVER
+                  - AMEX
+                  - DINERS_CLUB
+                  - JCB
+                  - DANKORT
+                  - MAESTRO
+                  - STORED_CARD
+              verification_value_required:
+                description: Whether verification value is required for payment
+                type: boolean
+            required:
+              - instrument_type
+        test_mode:
+          description: Whether this payment method is on test mode
+          example: false
+          type: boolean
+          default: false
+        type:
+          description: Type to classify this payment method
+          example: card
+          type: string
+          default: card
+      required:
+        - id
+        - name
+        - supported_instruments
+        - test_mode
+        - type
+    SupportedCardInstrument:
+      title: Supported Card Instrument
+      type: object
+      properties:
+        instrument_type:
+          title: InstrumentType
+          description: Type of this instrument
+          example: VISA
+          type: string
+          enum:
+            - VISA
+            - MASTERCARD
+            - DISCOVER
+            - AMEX
+            - DINERS_CLUB
+            - JCB
+            - DANKORT
+            - MAESTRO
+            - STORED_CARD
+        verification_value_required:
+          description: Whether verification value is required for payment
+          type: boolean
+      required:
+        - instrument_type
+    Error:
+      title: Error
+      type: object
+      properties:
+        status:
+          description: HTTP status code
+          type: integer
+          format: int32
+        title:
+          description: Short summary describing the particular error
+          type: string
+        detail:
+          description: Detailed summary describing the particular error
+          type: string
+        type:
+          description: Reference that identifies the particular error
+          type: string
+        code:
+          description: Code representing the particular error
+          type: integer
+          format: int32
+      required:
+        - status
+        - title
+        - type
+    ErrorResponse:
+      title: ErrorResponse
+      type: object
+      properties:
+        status:
+          description: HTTP status code
+          type: integer
+          format: int32
+        title:
+          description: Short summary describing the particular error
+          type: string
+        detail:
+          description: Detailed summary describing the particular error
+          type: string
+        type:
+          description: Reference that identifies the particular error
+          type: string
+        code:
+          description: Code representing the particular error
+          type: integer
+          format: int32
+        errors:
+          type: object
+          additionalProperties:
+            type: string
+      required:
+        - status
+        - title
+        - type
+    InstrumentType:
+      title: InstrumentType
+      description: Type of this instrument
+      example: VISA
+      type: string
+      enum:
+        - VISA
+        - MASTERCARD
+        - DISCOVER
+        - AMEX
+        - DINERS_CLUB
+        - JCB
+        - DANKORT
+        - MAESTRO
+        - STORED_CARD
+    StoredPaypalAccountInstrument:
+      title: StoredPaypalAccountInstrument
+      type: object
+      properties:
+        email:
+          type: string
+          format: email
+          description: Email address of this stored account
+        token:
+          type: string
+          description: Identifier representing this stored account
+          minLength: 64
+          maxLength: 64
+        is_default:
+          type: boolean
+          description: Whether this instrument is a default instrument
+          default: false
+        type:
+          type: string
+          description: Type to classify this stored account
+          enum:
+            - stored_paypal_account
+      required:
+        - email
+        - token
+        - is_default
+        - type
+    SupportedPaypalAccountInstrument:
+      title: SupportedPaypalAccountInstrument
+      type: object
+      properties:
+        instrument_type:
+          type: string
+          description: Type of this instrument
+          enum:
+            - STORED_PAYPAL_ACCOUNT
+      required:
+        - instrument_type
