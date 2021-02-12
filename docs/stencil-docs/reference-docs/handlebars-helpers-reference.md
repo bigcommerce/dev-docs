@@ -22,13 +22,13 @@ The following table contains BigCommerce's open source [Handlebars helpers](http
 | [pluck](#pluck) | array | Uses search key to get values from collections. |
 | [cdn](#cdn) | assets | A URL transformer for content delivery networks. |
 | [money](#money) | currency | Formats number length, thousands delimiter, and decimal delimiter. |
-| [getFontLoaderConfig](#getfontloaderconfig) | fonts | Returns font loader config as a JSON string. |
+| [getFontLoaderConfig](#getfontloaderconfig) | fonts | Returns font-loader config as a JSON string. |
 | [getFontsCollection](#getfontscollection) | fonts | Returns `<link>` elements for configured fonts. |
 | [encodeHtmlEntities](#encodehtmlentities) | html | Encodes HTML entities. |
 | [nl2br](#nl2br) | html | Converts newline characters to `<br>` tags. |
 | [pre](#pre) | html | Renders preformatted text. |
 | [resourceHints](#resourcehints) | html | Pre-fetches Google fonts. |
-| [stylesheet](#stylesheet) | html | Renders a link tag for inserting a stylesheet. |
+| [stylesheet](#stylesheet) | html | Renders a `<link>` tag for inserting a stylesheet. |
 | [lang](#lang) | i18n | Maps keys to translation files. |
 | [langJson](#langjson) | i18n | Returns language translation keys as a JSON string. |
 | [getContentImage](#getcontentimage) | images | Returns sized image URL from store's `/content` directory. |
@@ -37,28 +37,28 @@ The following table contains BigCommerce's open source [Handlebars helpers](http
 | [getImageManagerImage](#getimagemanagerimage) | images | Returns sized image URL for images in `/product_images/uploaded_images`. |
 | [getImageManagerImageSrcset](#getimagemanagerimagesrcset) | images | Returns image srcset for images in `/product_images/uploaded_images`. |
 | [getImageSrcset](#getimagesrcset) | images | Returns single image URL or list of URLs for different sizes. |
-| [any](#any) | logic | Renders block if any params are true. |
-| [all](#all) | logic | Renders block if all params are true. |
+| [any](#any) | logic | Renders block if **any** params are true. |
+| [all](#all) | logic | Renders block if **all** params are true. |
 | [compare](#compare) | logic | Compares values with JavaScript operators, including `typeof`. |
 | [contains](#contains) | logic | Renders block if first param is in second param. |
 | [for](#for) | logic | Iterates for range `a` to `b`. |
 | [if](#if) | logic | Renders block if statement is true. |
-| [or](#or) | logic | Renders block if on more parameters evaluate to true. |
-| [unless](#unless) | logic | Renders block if statement is false. |
+| [or](#or) | logic | Renders block if one or more parameters evaluate to true. |
+| [unless](#unless) | logic | Renders block if a statement evaluates to false. |
 | [concat](#concat) | string | Concatenates two strings. |
 | [join](#join) | string | Joins an array of string elements into one string. |
 | [json](#json) | string | Converts a JavaScript object into a JSON string. |
 | [occurrences](#occurrences) | string | Returns the number of occurrences of substring within the given string. |
 | [replace](#replace) | string | Replaces all instances of the first parameter in the second parameter. |
 | [setURLQueryParam](#seturlqueryparam) | string | Appends keys values to a URL. |
-| [stripQuerystring](#stripquerystring) | string | Removes query string. |
+| [stripQuerystring](#stripquerystring) | string | Removes a query string. |
 | [toLowerCase](#tolowercase) | string | Converts a string to lowercase. |
 | [truncate](#truncate) | string | Truncates a string. |
 | [block](#block) | template | Defines a content block. |
-| [dynamicComponent](#dynamiccomponent) | template | Inserts a dynamic partial at the specified path. |
+| [dynamicComponent](#dynamiccomponent) | template | Inserts a dynamic partial in the specified path. |
 | [inject](#inject) | template | Injects key values into `{{jsContext}}`. |
 | [jsContext](#jscontext) | template | Returns JSON for all data injected by `{{inject}}`. |
-| [partial](#partial) | template | Overrides content defined by a block helper. |
+| [partial](#partial) | template | Overrides content defined by `{{block}}`. |
 | [region](#region) | template | Specifies a widget region. |
 | [assignVar](#assignvar) | variables | Saves value to a variable. |
 | [getVar](#getvar) | variables| Returns a variable value. |
@@ -82,6 +82,12 @@ Limits the number of items returned from an array; returns a new array.
 Assume that `{{cart.items}}` returns 10 items. You can use this helper to limit that behavior to only the first four items.
 
 ```handlebars
+<!-- context = {var: 'This is longer than the chosen limit'} -->
+{{limit var 10}}
+<!-- results in: 'This is lo' -->
+```
+
+```handlebars
 {{#each (limit cart.items 4)}}
     <li class="previewCartItem">
         <div class="previewCartItem-image">
@@ -98,7 +104,8 @@ Assume that `{{cart.items}}` returns 10 items. You can use this helper to limit 
   ...
 ```
 
-[See it in GitHub](https://github.com/bigcommerce/paper-handlebars/blob/master/helpers/limit.js).
+[See it in GitHub](https://github.com/bigcommerce/paper-handlebars/blob/master/helpers/limit.js)
+[See it in Cornerstone](https://github.com/bigcommerce/cornerstone/search?l=HTML&q=limit)
 
 ### {{pluck}}
 
@@ -113,29 +120,42 @@ Retrieves corresponding values from some or all elements in a collection using s
 - `collection` {Object|Array}: Collection.
 - `path` {String}: The string to search for.
 
-#### Example
+#### Examples
 
 ```handlebars
 {{pluck ([limit] <collection> [<limit-value>]) '<path>'}}
 ```
 If each category in `categories` contains an image object, use dot notation to access the image's children:
 
-```json
-categories: [
-  { "id": 1, "name": "Bakeware", "image": { "data": "http://...", "alt": "Bakeware image"} },
-  { "id": 2, "name": "Cookware", "image": { "data": "http://...", "alt": "Cookware image"} },
-  { "id": 3, "name": "Cutlery", "image": { "data": "http://...", "alt": "Cutlery image"} }
-]
-```
+```handlebars
+<!-- context = {
+    categories: [
+        { "id": 1, "name": "Bakeware", "image": { "data": "http://...", "alt": "Bakeware image"} },
+        { "id": 2, "name": "Cookware", "image": { "data": "http://...", "alt": "Cookware image"} },
+        { "id": 3, "name": "Cutlery", "image": { "data": "http://...", "alt": "Cutlery image"} }
+        ]
+    } -->
 
-Handlebars statement:
+{{pluck (limit categories 2) 'image.data'}}
+<!-- Returns a comma-separated list of image URLs. -->
+```
 
 ```handlebars
-{{pluck (limit categories 2) 'image.data'}}
-<!-- Returns a comma-separated list of image URLs -->
+<!-- context = {
+    users: [
+        { 'user': 'barney', 'age': 36, 'image': { 'url': 'barney.jpg' } },
+        { 'user': 'fred',   'age': 40, 'image': { 'url': 'fred.jpg' } }
+        ]
+    } -->
+{{pluck users "age"}}
+<!-- results in: '36,40' -->
+
+{{pluck users "image.url"}}'
+<!-- results in: 'barney.jpg,fred.jpg' -->
 ```
 
-[See it in GitHub](https://github.com/bigcommerce/paper-handlebars/blob/master/helpers/pluck.js).
+[See it in GitHub](https://github.com/bigcommerce/paper-handlebars/blob/master/helpers/pluck.js)
+[See it in Cornerstone](https://github.com/bigcommerce/cornerstone/search?l=HTML&q=pluck)
 
 ### {{cdn}}
 
@@ -148,7 +168,12 @@ A URL transformer for content delivery networks.
 
 - `assetPath` {String}: Path to the file containing static assets.
 
-#### Example
+#### Examples
+
+```handlebars
+{{cdn "assets/img/image.jpg"}}
+<!-- results in: 'https://cdn.bcapp/3dsf74g/stencil/123/img/image.jpg' -->
+```
 
 To reference static assets staged locally outside your `<theme-name>` directory and uploaded using WebDAV, place the `webdav:` prefix before each corresponding `assetPath` parameter. For example, the following link:
 
@@ -163,8 +188,6 @@ will be transformed to a result like this:
 ```
 
 In this example, the `image.jpg` file was uploaded to the WebDAV `/content/` directory making `/content` the WebDAV root directory. Because our presumed local directory is `assets/`, we can omit that path when referencing its contained files or subdirectories.
-
-[See it in GitHub](https://github.com/bigcommerce/paper-handlebars/blob/master/helpers/cdn.js).
 
 #### CDN custom endpoints
 
@@ -188,7 +211,7 @@ For example:
 }
 ```
 
-After defining an endpoint, you can use the short name in the same way as you would use a `webdav:` abbreviation:
+After defining the endpoint, you can use the short name in the same way as you would use a `webdav:` protocol:
 
 ```html
 <img src="{{cdn 'customcdn:img/image.jpg'}}" />
@@ -207,6 +230,9 @@ Whereas in production, it would return:
 ```
 
 As highlighted above, the helper is configured to rewrite *local* URLs to an `assets/cdn/` subfolder. The `stencil bundle` command will exclude this local `assets/cdn/` subfolder from the bundle that it creates. This filtering circumvents the 50 MB size limit on the resulting ZIP file.
+
+[See it in GitHub](https://github.com/bigcommerce/paper-handlebars/blob/master/helpers/cdn.js)
+[See it in Cornerstone](https://github.com/bigcommerce/cornerstone/search?l=HTML&q=cdn)
 
 ### {{money}}
 
@@ -228,7 +254,7 @@ Formats number length, thousands delimiter, and decimal delimiter.
 {{money 1000 2 ',' '.'}}
 ```
 
-[See it in GitHub](https://github.com/bigcommerce/paper-handlebars/blob/master/helpers/money.js).
+[See it in GitHub](https://github.com/bigcommerce/paper-handlebars/blob/master/helpers/money.js)
 
 ### {{getFontLoaderConfig}}
 
@@ -245,9 +271,10 @@ Returns font-loader config as a JSON string.
 
 ```handlebars
 {{getFontLoaderConfig 'Google_Karla_700'}}
+<!-- results in: 'Karla:700' -->
 ```
 
-[See it in GitHub](https://github.com/bigcommerce/paper-handlebars/blob/master/helpers/getFontLoaderConfig.js).
+[See it in GitHub](https://github.com/bigcommerce/paper-handlebars/blob/master/helpers/getFontLoaderConfig.js)
 
 ### {{getFontsCollection}}
 
@@ -263,7 +290,8 @@ Returns `<link>` elements for configured fonts.
 <!-- <link href="https://fonts.googleapis.com/css?family=Open+Sans:,400italic,700|Karla:700|Lora:400|Volkron:|Droid:400,700|Crimson+Text:400,700&display=swap" rel="stylesheet"> -->
 ```
 
-[See it in GitHub](https://github.com/bigcommerce/paper-handlebars/blob/master/helpers/getFontsCollection.js).
+[See it in GitHub](https://github.com/bigcommerce/paper-handlebars/blob/master/helpers/getFontsCollection.js)
+[See it in Cornerstone](https://github.com/bigcommerce/cornerstone/search?l=HTML&q=getFontsCollection)
 
 ### {{encodeHtmlEntities}}
 
@@ -303,7 +331,7 @@ Returns a string with HTML entities encoded. You may optionally pass additional 
 <!-- results in: 'foo &#xA9; and & ampersand' -->
 ```
 
-[See it in GitHub](https://github.com/bigcommerce/paper-handlebars/blob/master/helpers/encodeHtmlEntities.js).
+[See it in GitHub](https://github.com/bigcommerce/paper-handlebars/blob/master/helpers/encodeHtmlEntities.js)
 
 ### {{nl2br}}
 
@@ -316,60 +344,65 @@ Converts newline characters to `<br>` tags.
 
 - `text` {String}: Text to convert.
 
-#### Example
+#### Examples
 
 ```handlebars
-{{nl2br settings.address}}
+<!-- context = { address: '\r\n685 Market St\r\nSan Francisco\r\n94105\r\nCA\r\n' } -->
+{{nl2br address}}
+<!-- results in: '<br>685 Market St<br>San Francisco<br>94105<br>CA<br>' -->
 ```
 
-```json
-"settings": {
-  "address": "\r\n685 Market St\r\nSan Francisco\r\n94105\r\nCA\r\n"
-}
+```handlebars
+<!-- context = { text: 'Hello\nmy\nname\nis\nJack' } -->
+{{nl2br text}}
+<!-- results in: 'Hello<br>my<br>name<br>is<br>Jack' -->
 ```
 
-**Result:**
-
-```html
-"<br>685 Market St<br>San Francisco<br>94105<br>CA<br>"
-```
-
-[See it in GitHub](https://github.com/bigcommerce/paper-handlebars/blob/master/helpers/nl2br.js).
+[See it in GitHub](https://github.com/bigcommerce/paper-handlebars/blob/master/helpers/nl2br.js)
+[See it in Cornerstone](https://github.com/bigcommerce/cornerstone/search?l=HTML&q=nl2br)
 
 ### {{pre}}
 
 ```handlebars
-{{pre text}}
+{{pre value}}
 ```
-Renders preformatted text.
+Renders preformatted text. This helper will escape text.
 
 #### Parameters
 
-- `text` {String}: Text to format.
+- `value` {String}: Text to format.
 
 #### Example
 
 ```handlebars
-{{need to add}}
+<!-- context = {var: {}} -->
+{{pre var}}
+<!-- results in: '<pre>{}</pre>' -->
+
+<!-- context = {var: "<div>&\"500\"</div>"} -->
+{{pre var}}
+<!-- results in: '<pre>&quot;&lt;div&gt;&amp;\\&quot;500\\&quot;&lt;/div&gt;&quot;</pre>' -->
 ```
 
-[See it in GitHub](https://github.com/bigcommerce/paper-handlebars/blob/master/helpers/pre.js).
+[See it in GitHub](https://github.com/bigcommerce/paper-handlebars/blob/master/helpers/pre.js)
+[See it in Cornerstone](https://github.com/bigcommerce/cornerstone/search?l=HTML&q=pre)
 
 ### {{resourceHints}}
 
 ```handlebars
 {{resourceHints}}
 ```
-Pre-fetches Google fonts. Outputs a formatted `link` tag for DNS-prefetch.
+Pre-fetches Google fonts. Outputs a formatted `<link>` tag for DNS-prefetch.
 
 #### Example
 
 ```handlebars
-{{{resourceHints}}}
-<!-- <link rel="dns-prefetch" href="https://fonts.gstatic.com/" > -->
+{{resourceHints}}
+<!-- <link rel="dns-prefetch preconnect" href="https://fonts.googleapis.com" crossorigin><link rel="dns-prefetch preconnect" href="https://fonts.gstatic.com" crossorigin> -->
 ```
 
-[See it in GitHub](https://github.com/bigcommerce/paper-handlebars/blob/master/helpers/resourceHints.js).
+[See it in GitHub](https://github.com/bigcommerce/paper-handlebars/blob/master/helpers/resourceHints.js)
+[See it in Cornerstone](https://github.com/bigcommerce/cornerstone/search?l=HTML&q=resourceHints)
 
 ### {{stylesheet}}
 
@@ -381,7 +414,7 @@ Renders a link tag to insert a stylesheet into a theme; returns an HTML string. 
 #### Parameters
 
 - `assetPath` (String}): Filepath to the theme's CSS stylesheet file.
-- `options`: You can append optional parameters as `key="value"` pairs.
+- `options`: You can append optional parameters as key/value pairs.
 
 #### Example
 
@@ -389,7 +422,8 @@ Renders a link tag to insert a stylesheet into a theme; returns an HTML string. 
 {{{stylesheet "assets/css/style.css" class="myStylesheet"}}}
 ```
 
-[See it in GitHub](https://github.com/bigcommerce/paper-handlebars/blob/master/helpers/stylesheet.js).
+[See it in GitHub](https://github.com/bigcommerce/paper-handlebars/blob/master/helpers/stylesheet.js)
+[See it in Cornerstone](https://github.com/bigcommerce/cornerstone/search?l=HTML&q=stylesheet)
 
 ### {{lang}}
 
@@ -401,9 +435,9 @@ Maps keys to translation files based on the locale indicated by the visitor’s 
 #### Parameters
 
 - `translationKey`{String}
-- `options`: You can append optional parameters as `key="value"` pairs.
+- `options`: You can append optional parameters as key/value pairs.
 
-#### Example
+#### Examples
 
 ```html
 <label class="form-label" for="search_query_adv">
@@ -412,7 +446,14 @@ Maps keys to translation files based on the locale indicated by the visitor’s 
 </label>
 ```
 
-[See it in GitHub](https://github.com/bigcommerce/paper-handlebars/blob/master/helpers/lang.js).
+```handlebars
+<!-- context = {name: 'BigCommerce'} -->
+{{lang 'powered_by' name=name}}
+<!-- results in: 'Powered By BigCommerce' -->
+```
+
+[See it in GitHub](https://github.com/bigcommerce/paper-handlebars/blob/master/helpers/lang.js)
+[See it in Cornerstone](https://github.com/bigcommerce/cornerstone/search?l=HTML&q=lang)
 
 ### {{langJson}}
 
@@ -423,15 +464,17 @@ Returns language translation keys as a JSON string.
 
 #### Parameters
 
-- `keyFilter` {String}
+- `keyFilter` {String}: The language translation keys to render for the storefront locale/language.
 
 #### Example
 
 ```handlebars
-{{langJson 'default_messages'}}
+{{langJson 'validation_messages'}}
+<!-- This will load validation messages in JSON format for the storefront locale/language. -->
 ```
 
-[See it in GitHub](https://github.com/bigcommerce/paper-handlebars/blob/master/helpers/langJson.js).
+[See it in GitHub](https://github.com/bigcommerce/paper-handlebars/blob/master/helpers/langJson.js)
+[See it in Cornerstone](https://github.com/bigcommerce/cornerstone/search?l=HTML&q=langJson)
 
 ### {{getContentImage}}
 
@@ -451,20 +494,20 @@ Returns a URL for an image uploaded to `/dav/content/`. To learn more about uplo
 ```handlebars
 <!-- Original image URL returned if no size or invalid size is passed in -->
 {{getContentImage "asset.jpg"}}
-<!--=> https://cdn.bcapp/3dsf74g/images/stencil/original/content/asset.jpg  -->
+<!-- results in: 'https://cdn.bcapp/3dsf74g/images/stencil/original/content/asset.jpg' -->
 
 {{getContentImage "asset.jpg" width="a" height="a"}}
-<!--=> https://cdn.bcapp/3dsf74g/images/stencil/original/content/asset.jpg  -->
+<!-- results in: 'https://cdn.bcapp/3dsf74g/images/stencil/original/content/asset.jpg' -->
 
 <!-- Sized image URL returned if valid height and/or width passed in -->
 {{getContentImage "asset.jpg" width=123 height=321}}
-<!--=> https://cdn.bcapp/3dsf74g/images/stencil/123x321/content/asset.jpg -->
+<!-- results in: 'https://cdn.bcapp/3dsf74g/images/stencil/123x321/content/asset.jpg' -->
 
 {{getContentImage "asset.jpg" width=123}}
-<!--=> https://cdn.bcapp/3dsf74g/images/stencil/123w/content/folder/asset.jpg -->
+<!-- results in: 'https://cdn.bcapp/3dsf74g/images/stencil/123w/content/folder/asset.jpg' -->
 ```
 
-[See it in GitHub](https://github.com/bigcommerce/paper-handlebars/blob/master/helpers/getContentImage.js).
+[See it in GitHub](https://github.com/bigcommerce/paper-handlebars/blob/master/helpers/getContentImage.js)
 
 ### {{getContentImageSrcset}}
 
@@ -481,17 +524,14 @@ Returns a `srcset` for an image uploaded to `/dav/content/`.
 
 ```handlebars
 {{getContentImageSrcset "asset.jpg"}}
-<!--=>
-https://cdn.bcapp/3dsf74g/images/stencil/80w/content/asset.jpg 80w, https://cdn.bcapp/3dsf74g/images/stencil/160w/content/asset.jpg 160w, https://cdn.bcapp/3dsf74g/images/stencil/320w/content/asset.jpg 320w, https://cdn.bcapp/3dsf74g/images/stencil/640w/content/asset.jpg 640w, https://cdn.bcapp/3dsf74g/images/stencil/960w/content/asset.jpg 960w, https://cdn.bcapp/3dsf74g/images/stencil/1280w/content/asset.jpg 1280w, https://cdn.bcapp/3dsf74g/images/stencil/1920w/content/asset.jpg 1920w, https://cdn.bcapp/3dsf74g/images/stencil/2560w/content/asset.jpg 2560w
--->
+<!-- results in: 'https://cdn.bcapp/3dsf74g/images/stencil/80w/content/asset.jpg 80w, https://cdn.bcapp/3dsf74g/images/stencil/160w/content/asset.jpg 160w, https://cdn.bcapp/3dsf74g/images/stencil/320w/content/asset.jpg 320w, https://cdn.bcapp/3dsf74g/images/stencil/640w/content/asset.jpg 640w, https://cdn.bcapp/3dsf74g/images/stencil/960w/content/asset.jpg 960w, https://cdn.bcapp/3dsf74g/images/stencil/1280w/content/asset.jpg 1280w, https://cdn.bcapp/3dsf74g/images/stencil/1920w/content/asset.jpg 1920w, https://cdn.bcapp/3dsf74g/images/stencil/2560w/content/asset.jpg 2560w' -->
+
 
 {{getContentImageSrcset "folder/asset.jpg" width=123}}
-<!--=>
-https://cdn.bcapp/3dsf74g/images/stencil/80w/content/folder/asset.jpg 80w, https://cdn.bcapp/3dsf74g/images/stencil/160w/content/folder/asset.jpg 160w, https://cdn.bcapp/3dsf74g/images/stencil/320w/content/folder/asset.jpg 320w, https://cdn.bcapp/3dsf74g/images/stencil/640w/content/folder/asset.jpg 640w, https://cdn.bcapp/3dsf74g/images/stencil/960w/content/folder/asset.jpg 960w, https://cdn.bcapp/3dsf74g/images/stencil/1280w/content/folder/asset.jpg 1280w, https://cdn.bcapp/3dsf74g/images/stencil/1920w/content/folder/asset.jpg 1920w, https://cdn.bcapp/3dsf74g/images/stencil/2560w/content/folder/asset.jpg 2560w
- -->
+<!-- results in: 'https://cdn.bcapp/3dsf74g/images/stencil/80w/content/folder/asset.jpg 80w, https://cdn.bcapp/3dsf74g/images/stencil/160w/content/folder/asset.jpg 160w, https://cdn.bcapp/3dsf74g/images/stencil/320w/content/folder/asset.jpg 320w, https://cdn.bcapp/3dsf74g/images/stencil/640w/content/folder/asset.jpg 640w, https://cdn.bcapp/3dsf74g/images/stencil/960w/content/folder/asset.jpg 960w, https://cdn.bcapp/3dsf74g/images/stencil/1280w/content/folder/asset.jpg 1280w, https://cdn.bcapp/3dsf74g/images/stencil/1920w/content/folder/asset.jpg 1920w, https://cdn.bcapp/3dsf74g/images/stencil/2560w/content/folder/asset.jpg 2560w' -->
 ```
 
-[See it in GitHub](https://github.com/bigcommerce/paper-handlebars/blob/master/helpers/getContentImageSrcset.js).
+[See it in GitHub](https://github.com/bigcommerce/paper-handlebars/blob/master/helpers/getContentImageSrcset.js)
 
 ### {{getImage}}
 
@@ -509,10 +549,11 @@ Returns `<img>` tag `src` value for images of a specified size. Values for the s
 #### Example
 
 ```handlebars
-{{getImage image "thumbnail"}}
+{{getImage image "logo"}}
 ```
 
-[See it in GitHub](https://github.com/bigcommerce/paper-handlebars/blob/master/helpers/getImage.js).
+[See it in GitHub](https://github.com/bigcommerce/paper-handlebars/blob/master/helpers/getImage.js)
+[See it in Cornerstone](https://github.com/bigcommerce/cornerstone/search?l=HTML&q=getImage)
 
 ### {{getImageManagerImage}}
 
@@ -532,21 +573,22 @@ Returns an [Image Manager](https://support.bigcommerce.com/s/article/Using-the-I
 ```handlebars
 <!-- Original image URL returned if no size or invalid size is passed in -->
 {{getImageManagerImage "asset.jpg"}}
-<!--=> https://cdn.bcapp/3dsf74g/images/stencil/original/image-manager/asset.jpg  -->
+<!-- results in: https://cdn.bcapp/3dsf74g/images/stencil/original/image-manager/asset.jpg -->
 
-{{getImageManagerImage "folder/asset.jpg" height=123}} <!-- height must be accompanied by width -->
-<!--=> https://cdn.bcapp/3dsf74g/images/stencil/original/image-manager/folder/asset.jpg  -->
+<!-- height must be accompanied by width -->
+{{getImageManagerImage "folder/asset.jpg" height=123}}
+<!-- results in: https://cdn.bcapp/3dsf74g/images/stencil/original/image-manager/folder/asset.jpg -->
 
 
 <!-- Sized image URL returned if valid height and/or width passed in -->
 {{getImageManagerImage "asset.jpg" width=123}}
-<!--=> https://cdn.bcapp/3dsf74g/images/stencil/123w/image-manager/asset.jpg -->
+<!-- results in: https://cdn.bcapp/3dsf74g/images/stencil/123w/image-manager/asset.jpg -->
 
 {{getImageManagerImage "folder/asset.jpg" width=123 height=321}}
-<!--=> https://cdn.bcapp/3dsf74g/images/stencil/123x321/image-manager/folder/asset.jpg -->
+<!-- results in: https://cdn.bcapp/3dsf74g/images/stencil/123x321/image-manager/folder/asset.jpg -->
 ```
 
-[See it in GitHub](https://github.com/bigcommerce/paper-handlebars/blob/master/helpers/getImageManagerImage.js).
+[See it in GitHub](https://github.com/bigcommerce/paper-handlebars/blob/master/helpers/getImageManagerImage.js)
 
 ### {{getImageManagerImageSrcset}}
 
@@ -563,12 +605,12 @@ Returns an [Image Manager](https://support.bigcommerce.com/s/article/Using-the-I
 
 ```handlebars
 {{getImageManagerImageSrcset "asset.jpg"}}
-<!--=>
+<!-- results in:
 https://cdn.bcapp/3dsf74g/images/stencil/80w/image-manager/asset.jpg 80w, https://cdn.bcapp/3dsf74g/images/stencil/160w/image-manager/asset.jpg 160w, https://cdn.bcapp/3dsf74g/images/stencil/320w/image-manager/asset.jpg 320w, https://cdn.bcapp/3dsf74g/images/stencil/640w/image-manager/asset.jpg 640w, https://cdn.bcapp/3dsf74g/images/stencil/960w/image-manager/asset.jpg 960w, https://cdn.bcapp/3dsf74g/images/stencil/1280w/image-manager/asset.jpg 1280w, https://cdn.bcapp/3dsf74g/images/stencil/1920w/image-manager/asset.jpg 1920w, https://cdn.bcapp/3dsf74g/images/stencil/2560w/image-manager/asset.jpg 2560w
  -->
 
 {{getImageManagerImageSrcset "folder/asset.jpg" width=123}}
- <!--=>
+ <!-- results in:
 https://cdn.bcapp/3dsf74g/images/stencil/80w/image-manager/folder/asset.jpg 80w, https://cdn.bcapp/3dsf74g/images/stencil/160w/image-manager/folder/asset.jpg 160w, https://cdn.bcapp/3dsf74g/images/stencil/320w/image-manager/folder/asset.jpg 320w, https://cdn.bcapp/3dsf74g/images/stencil/640w/image-manager/folder/asset.jpg 640w, https://cdn.bcapp/3dsf74g/images/stencil/960w/image-manager/folder/asset.jpg 960w, https://cdn.bcapp/3dsf74g/images/stencil/1280w/image-manager/folder/asset.jpg 1280w, https://cdn.bcapp/3dsf74g/images/stencil/1920w/image-manager/folder/asset.jpg 1920w, https://cdn.bcapp/3dsf74g/images/stencil/2560w/image-manager/folder/asset.jpg 2560w
  -->
 ```
@@ -588,7 +630,7 @@ The `getImageSrcset` helper is a replacement for [`getImage`](#getImage) which a
 - `size` {String}: A key in the `theme_settings` object.
 - `defaultImage` {String}: Optional default image URL to use if the `stencilImage` is undefined.
 
-You can then specify what sizes you want as named arguments on the helper.
+You can specify what sizes you want as named arguments on the helper.
 
 #### Examples
 
@@ -641,13 +683,13 @@ As above, you can reference `theme_settings` keys or specify your own size inlin
 ```handlebars
 <img src="{{getImage image 'default'}}" srcset="{{getImageSrcset image 100w='100w' 200w='200w' 300w='300w'}}" />
 
-<!-- =>
+<!-- results in:
 <img src="https://cdn11.bigcommerce.com/s-abc123/images/stencil/640x640/products/86/286/ablebrewingsystem4_1024x1024__07155.1456436672.jpg?c=2" srcset="https://cdn11.bigcommerce.com/s-abc123/images/stencil/100w/products/86/286/ablebrewingsystem4_1024x1024__07155.1456436672.jpg?c=2 100w, https://cdn11.bigcommerce.com/s-abc123/images/stencil/200w/products/86/286/ablebrewingsystem4_1024x1024__07155.1456436672.jpg?c=2 200w,https://cdn11.bigcommerce.com/s-abc123/images/stencil/300w/products/86/286/ablebrewingsystem4_1024x1024__07155.1456436672.jpg?c=2 300w" />
 -->
 
 <img src="{{getImageSrcSet image 1x='1000x1000'}}" srcset="{{getImageSrcset image 1x='1000x1000' 2x='2000x2000'}}" />
 
-<!-- =>
+<!-- results in:
 <img src="https://cdn11.bigcommerce.com/s-abc123/images/stencil/640x640/products/86/286/ablebrewingsystem4_1024x1024__07155.1456436672.jpg?c=2" srcset="https://cdn11.bigcommerce.com/s-abc123/images/stencil/100w/products/86/286/ablebrewingsystem4_1024x1024__07155.1456436672.jpg?c=2 100w, https://cdn11.bigcommerce.com/s-abc123/images/stencil/200w/products/86/286/ablebrewingsystem4_1024x1024__07155.1456436672.jpg?c=2 200w,https://cdn11.bigcommerce.com/s-abc123/images/stencil/300w/products/86/286/ablebrewingsystem4_1024x1024__07155.1456436672.jpg?c=2 300w" />
 -->
 ```
@@ -656,14 +698,15 @@ By specifying several sizes using the inherent width descriptor, you can generat
 
 As above, you can reference `theme_settings` keys or specify your own size inline.
 
-[See it in GitHub](https://github.com/bigcommerce/paper-handlebars/blob/master/helpers/getImageSrcset.js).
+[See it in GitHub](https://github.com/bigcommerce/paper-handlebars/blob/master/helpers/getImageSrcset.js)
+[See it in Cornerstone](https://github.com/bigcommerce/cornerstone/search?l=HTML&q=getImageSrcset)
 
 ### {{any}}
 
 ```handlebars
 {{any arg}}
 ```
-Renders block if one or more parameters is true. 
+Renders block if one or more parameters are true. 
 
 #### Parameters
 
@@ -691,7 +734,8 @@ In this component, the `{{any}}` helper is used to determine whether a shopper h
 {{/any}}
 ```
 
-[See it in GitHub](https://github.com/bigcommerce/paper-handlebars/blob/master/helpers/any.js).
+[See it in GitHub](https://github.com/bigcommerce/paper-handlebars/blob/master/helpers/any.js)
+[See it in Cornerstone](https://github.com/bigcommerce/cornerstone/search?l=HTML&q=any)
 
 ### {{all}}
 
@@ -708,7 +752,7 @@ Renders block if all parameters are true.
 
 ```handlebars
 {{#all items theme_settings.optionA theme_settings.optionB}}
-  ... /* block to display, if all items evaluate to true */
+   <!-- /* block to display, if all items evaluate to true */ -->
 {{/all}}
 ```
 
@@ -720,14 +764,14 @@ Renders block if all parameters are true.
 {{/all}}
 ```
 
-[See it in GitHub](https://github.com/bigcommerce/paper-handlebars/blob/master/helpers/all.js).
+[See it in GitHub](https://github.com/bigcommerce/paper-handlebars/blob/master/helpers/all.js)
+[See it in Cornerstone](https://github.com/bigcommerce/cornerstone/search?l=HTML&q=all)
 
 ### {{compare}}
 
 ```handlebars
 {{compare a operator b}}
 ```
-
 Compares values with JavaScript operators. Renders block if comparison of the first and third parameters returns true.
 
 #### Parameters
@@ -747,7 +791,10 @@ Compares values with JavaScript operators. Renders block if comparison of the fi
 - `options` {Object}: Options object.
 - `returns` {String}: Block, or if specified the inverse block is rendered if falsy.
 
-[See it in GitHub](https://github.com/bigcommerce/paper-handlebars/blob/master/helpers/compare.js).
+#### Example
+
+[See it in GitHub](https://github.com/bigcommerce/paper-handlebars/blob/master/helpers/compare.js)
+[See it in Cornerstone](https://github.com/bigcommerce/cornerstone/search?l=HTML&q=compare)
 
 ### {{contains}}
 
@@ -772,7 +819,7 @@ Renders block if `collection` has the given `value`, using strict equality (`===
 {{/contains}}
 ```
 
-[See it in GitHub](https://github.com/bigcommerce/paper-handlebars/blob/master/helpers/contains.js).
+[See it in GitHub](https://github.com/bigcommerce/paper-handlebars/blob/master/helpers/contains.js)
 
 ### {{for}}
 
@@ -794,7 +841,8 @@ Repeats block for a specified range from index `a` to index `b`. To protect agai
 {{/for}}
 ```
 
-[See it in GitHub](https://github.com/bigcommerce/paper-handlebars/blob/master/helpers/for.js).
+[See it in GitHub](https://github.com/bigcommerce/paper-handlebars/blob/master/helpers/for.js)
+[See it in Cornerstone](https://github.com/bigcommerce/cornerstone/search?l=HTML&q=for)
 
 ### {{if}}
 
@@ -819,7 +867,8 @@ Renders `if` block when if-statement evaluates to true; otherwise renders `else`
 {{/if}}
 ```
 
-[See it in GitHub](https://github.com/bigcommerce/paper-handlebars/blob/master/helpers/if.js).
+[See it in GitHub](https://github.com/bigcommerce/paper-handlebars/blob/master/helpers/if.js)
+[See it in Cornerstone](https://github.com/bigcommerce/cornerstone/search?l=HTML&q=if)
 
 ### {{or}}
 
@@ -836,7 +885,7 @@ Renders block if one or more parameters evaluates to true.
 
 ```handlebars
 {{#or 1 0 0 0 0 0 0}}
-<!-- 1 evaluates to true, so block rendered-->
+<!-- 1 evaluates to true, so block is rendered-->
 {{/or}}
 ```
 
@@ -846,7 +895,8 @@ Renders block if one or more parameters evaluates to true.
 {{/or}}
 ```
 
-[See it in GitHub](https://github.com/bigcommerce/paper-handlebars/blob/master/helpers/or.js).
+[See it in GitHub](https://github.com/bigcommerce/paper-handlebars/blob/master/helpers/or.js)
+[See it in Cornerstone](https://github.com/bigcommerce/cornerstone/search?l=HTML&q=or)
 
 ### {{unless}}
 
@@ -872,7 +922,8 @@ Renders a block if a statement is false; does not support operators for comparis
 {{/each}}
 ```
 
-[See it in GitHub](https://github.com/bigcommerce/paper-handlebars/blob/master/helpers/unless.js).
+[See it in GitHub](https://github.com/bigcommerce/paper-handlebars/blob/master/helpers/unless.js)
+[See it in Cornerstone](https://github.com/bigcommerce/cornerstone/search?l=HTML&q=unless)
 
 ### {{concat}}
 
@@ -889,10 +940,12 @@ Concatenates two strings.
 #### Example
 
 ```handlebars
-{{concat breadcrumbs.[0].name breadcrumbs.[0].url}}
+{{concat 'hello' 'world'}}
+<!-- results in: 'helloworld' -->
 ```
 
-[See it in GitHub](https://github.com/bigcommerce/paper-handlebars/blob/master/helpers/concat.js).
+[See it in GitHub](https://github.com/bigcommerce/paper-handlebars/blob/master/helpers/concat.js)
+[See it in Cornerstone](https://github.com/bigcommerce/cornerstone/search?l=HTML&q=concat)
 
 ### {{join}}
 
@@ -910,39 +963,41 @@ Joins an array of string elements into a single string.
 #### Example
 
 ```handlebars
-{{#if facets.length '>' 2}}
-    {{lang 'search.faceted.browse-by'}} {{ join (pluck facets 'title') ', ' limit=2 }} &amp; {{ toLowerCase (lang 'search.faceted.more') }}
-{{/if}}
+<!-- context = {
+    list: ['Mario', 'Chris', 'Mick', 'Hau', 'Cody']
+} -->
+{{join list " "}}
+<!-- results in: 'Mario Chris Mick Hau Cody' -->
+
+{{join list ", "}}
+<!-- results in: 'Mario, Chris, Mick, Hau, Cody' -->
 ```
 
-[See it in GitHub](https://github.com/bigcommerce/paper-handlebars/blob/master/helpers/join.js).
+[See it in GitHub](https://github.com/bigcommerce/paper-handlebars/blob/master/helpers/join.js)
+[See it in Cornerstone](https://github.com/bigcommerce/cornerstone/search?l=HTML&q=join)
 
 ### {{json}}
 
 ```handlebars
-{{json data}}
+{{json object}}
 ```
 Converts a JavaScript object into a JSON string.
 
 #### Parameters
 
-- `data` {Object}
+- `object` {Object}: A JavaScrip object.
 
 #### Example
 
 ```handlebars
-{{json blog}}
-
-<!-- //=>
-{
-    "name": "Blog",
-    "recent_posts": [{...}],
-    "url": "/blog/"
-}
--->
+<!-- context = {
+    object: { a: 1, b: "hello" }
+} -->
+{{json object}}
+<!-- results in: '{"a":1,"b":"hello"}' -->
 ```
 
-[See it in GitHub](https://github.com/bigcommerce/paper-handlebars/blob/master/helpers/json.js).
+[See it in GitHub](https://github.com/bigcommerce/paper-handlebars/blob/master/helpers/json.js)
 
 ### {{occurrences}}
 
@@ -960,10 +1015,10 @@ Returns the number of occurrences of substring within the given string.
 
  ```handlebars
  {{occurrences "foo bar foo bar baz" "foo"}}
- <!-- 2 -->
+ <!-- results in: 2 -->
  ```
 
-[See it in GitHub](https://github.com/bigcommerce/paper-handlebars/blob/master/helpers/occurrences.js).
+[See it in GitHub](https://github.com/bigcommerce/paper-handlebars/blob/master/helpers/occurrences.js)
 
 ### {{replace}}
 
@@ -989,7 +1044,8 @@ Replaces all instances of the first parameter in the second parameter with the c
 {{/replace}}
 ```
 
-[See it in GitHub](https://github.com/bigcommerce/paper-handlebars/blob/master/helpers/replace.js).
+[See it in GitHub](https://github.com/bigcommerce/paper-handlebars/blob/master/helpers/replace.js)
+[See it in Cornerstone](https://github.com/bigcommerce/cornerstone/search?l=HTML&q=replace)
 
 ### {{setURLQueryParam}}
 
@@ -1008,7 +1064,7 @@ Appends key values to a URL.
 
 ```handlebars
 {{setURLQueryParam "http://example.com/image.jpg" "c" "2"}}
-<!-- => http://example.com/image.jpg?c=2 -->
+<!-- results in: http://example.com/image.jpg?c=2 -->
 ```
 
 [See it in GitHub](https://github.com/bigcommerce/paper-handlebars/blob/master/helpers/setURLQueryParam.js).
@@ -1028,17 +1084,17 @@ Strips query string from a URL.
 
 ```handlebars
 {{stripQuerystring "http://example.com?tests=true"}}
-<!-- => http://example.com -->
+<!-- results in: http://example.com -->
 ```
 
-[See it in GitHub](https://github.com/bigcommerce/paper-handlebars/blob/master/helpers/stripQuerystring.js).
+[See it in GitHub](https://github.com/bigcommerce/paper-handlebars/blob/master/helpers/stripQuerystring.js)
 
 ### {{toLowerCase}}
 
 ```handlebars
 {{toLowerCase string}}
 ```
-Converts string to lowercase.
+Converts a string to lowercase.
 
 #### Parameters
 
@@ -1047,10 +1103,12 @@ Converts string to lowercase.
 #### Example
 
 ```handlebars
-{{toLowerCase head.title}}
+{{toLowerCase 'I Love PIZZA'}}
+<!-- results in: 'i love pizza' -->
 ```
 
-[See it in GitHub](https://github.com/bigcommerce/paper-handlebars/blob/master/helpers/toLowerCase.js).
+[See it in GitHub](https://github.com/bigcommerce/paper-handlebars/blob/master/helpers/toLowerCase.js)
+[See it in Cornerstone](https://github.com/bigcommerce/cornerstone/search?l=HTML&q=toLowerCase)
 
 ### {{truncate}}
 
@@ -1068,10 +1126,10 @@ Truncates a string.
 
 ```handlebars
 {{truncate "This will be truncated to only the first part of the sentence." 22}}
-<!-- => This will be truncated -->
+<!-- results in: 'This will be truncated' -->
 ```
 
-[See it in GitHub](https://github.com/bigcommerce/paper-handlebars/blob/master/helpers/truncate.js).
+[See it in GitHub](https://github.com/bigcommerce/paper-handlebars/blob/master/helpers/truncate.js)
 
 ### {{block}}
 
@@ -1092,7 +1150,8 @@ Defines a block of content. You can overwrite it using the [partial](#partial) h
 </div>
 ```
 
-[See it in GitHub](https://github.com/bigcommerce/paper-handlebars/blob/master/helpers/block.js).
+[See it in GitHub](https://github.com/bigcommerce/paper-handlebars/blob/master/helpers/block.js)
+[See it in Cornerstone](https://github.com/bigcommerce/cornerstone/search?l=HTML&q=block)
 
 ### {{dynamicComponent}}
 
@@ -1113,7 +1172,8 @@ Inserts a dynamic partial in the specified path.
 {{/each}}
 ```
 
-[See it in GitHub](https://github.com/bigcommerce/paper-handlebars/blob/master/helpers/dynamicComponent.js).
+[See it in GitHub](https://github.com/bigcommerce/paper-handlebars/blob/master/helpers/dynamicComponent.js)
+[See it in Cornerstone](https://github.com/bigcommerce/cornerstone/search?l=HTML&q=dynamicComponent)
 
 ### {{inject}}
 
@@ -1135,30 +1195,27 @@ Injects key values into the [jsContext](#jscontext) helper.
 <script>
 var jsContext = JSON.parse({{jsContext}});
 console.log(jsContext.myProductName);
-// => "BigCommerce Coffee Mug"
+// results in: "BigCommerce Coffee Mug"
 </script>
 ```
 
 ```handlebars
-{{inject "categoryProductsPerPage" theme_settings.categorypage_products_per_page}}
+{{inject 'productSize' theme_settings.product_size}}
+<!-- Returns a JSON representation of an object of all the keys injected. -->
 ```
 
-[See it in GitHub](https://github.com/bigcommerce/paper-handlebars/blob/master/helpers/inject.js).
+[See it in GitHub](https://github.com/bigcommerce/paper-handlebars/blob/master/helpers/inject.js)
+[See it in Cornerstone](https://github.com/bigcommerce/cornerstone/search?q=inject)
 
 ### {{jsContext}}
 
 ```handlebars
 {{jsContext}}
 ```
-Returns JSON for all data injected by the [inject](#inject) helper.
+Returns a JSON representation of the data injected by the [inject](#inject) helper.
 
-#### Example
-
-```handlebars
-{{need to add}}
-```
-
-[See it in GitHub](https://github.com/bigcommerce/paper-handlebars/blob/master/helpers/jsContext.js).
+[See it in GitHub](https://github.com/bigcommerce/paper-handlebars/blob/master/helpers/jsContext.js)
+[See it in Cornerstone](https://github.com/bigcommerce/cornerstone/search?l=HTML&q=jsContext)
 
 ### {{partial}}
 
@@ -1184,7 +1241,8 @@ Overrides content defined by the [block](#block) helper.
 {{/partial}}
 ```
 
-[See it in GitHub](https://github.com/bigcommerce/paper-handlebars/blob/master/helpers/partial.js).
+[See it in GitHub](https://github.com/bigcommerce/paper-handlebars/blob/master/helpers/partial.js)
+[See it in Cornerstone](https://github.com/bigcommerce/cornerstone/search?l=HTML&q=jsContext)
 
 ### {{region}}
 
@@ -1200,17 +1258,22 @@ Specifies a [widget](https://developer.bigcommerce.com/api-docs/store-management
 #### Example
 
 ```handlebars
-{{{region name="home_below_menu"}}}
+<!-- context = {
+    'banner-top': "hello world"
+    } -->
+{{{region name="banner-top"}}}
+<!-- results in: '<div data-content-region="banner-top">hello world</div>' -->
 ```
 
-[See it in GitHub](https://github.com/bigcommerce/paper-handlebars/blob/master/helpers/region.js).
+[See it in GitHub](https://github.com/bigcommerce/paper-handlebars/blob/master/helpers/region.js)
+[See it in Cornerstone](https://github.com/bigcommerce/cornerstone/search?l=HTML&q=region)
 
 ### {{assignVar}}
 
 ```handlebars
 {{assignVar key value}}
 ```
-Saves a variable for later use in the template.
+Assigns a variable for later use in the template.
 
 #### Parameters
 
@@ -1223,7 +1286,7 @@ Saves a variable for later use in the template.
 {{assignVar "foo" 10}}
 ```
 
-[See it in GitHub](https://github.com/bigcommerce/paper-handlebars/blob/master/helpers/assignVar.js).
+[See it in GitHub](https://github.com/bigcommerce/paper-handlebars/blob/master/helpers/assignVar.js)
 
 ### {{getVar}}
 
@@ -1242,7 +1305,7 @@ Returns the variable set by [assignVar](#assignVar).
 {{getVar "foo"}}
 ```
 
-[See it in GitHub](https://github.com/bigcommerce/paper-handlebars/blob/master/helpers/getVar.js).
+[See it in GitHub](https://github.com/bigcommerce/paper-handlebars/blob/master/helpers/getVar.js)
 
 ### {{decrementVar}}
 
@@ -1261,7 +1324,7 @@ Decrements the variable set by [assignVar](#assignVar) by 1.
 {{decrementVar "foo"}}
 ```
 
-[See it in GitHub](https://github.com/bigcommerce/paper-handlebars/blob/master/helpers/decrementVar.js).
+[See it in GitHub](https://github.com/bigcommerce/paper-handlebars/blob/master/helpers/decrementVar.js)
 
 ### {{incrementVar}}
 
@@ -1280,7 +1343,7 @@ Increments the variable set by [assignVar](#assignVar) by 1.
 {{incrementVar "foo"}}
 ```
 
-[See it in GitHub](https://github.com/bigcommerce/paper-handlebars/blob/master/helpers/incrementVar.js).
+[See it in GitHub](https://github.com/bigcommerce/paper-handlebars/blob/master/helpers/incrementVar.js)
 
 ## Standard helpers
 
