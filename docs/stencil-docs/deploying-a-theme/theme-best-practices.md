@@ -147,7 +147,7 @@ background-color: #eeeeee;}
 ```
 
 ```css
-code {padding: 1px 5px 1px 5px;font-family: Consolas, Menlo, Monaco, Lucida Console, Liberation Mono, DejaVu Sans Mono, Bitstream Vera Sans Mono, Courier New, monospace, serif;background-color: #eee;}
+.element-class{padding: 1px 5px 1px 5px;font-family: Consolas, Menlo, Monaco, Lucida Console, Liberation Mono, DejaVu Sans Mono, Bitstream Vera Sans Mono, Courier New, monospace, serif;background-color: #eee;}
 ```
 
 Lighthouse displays information relevant to elements contributing to the CLS score. In this example, the banner above the carousel causes a loading issue. Once the image is resized or removed the CLS score improves.
