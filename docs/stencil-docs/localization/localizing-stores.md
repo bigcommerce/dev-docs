@@ -39,7 +39,8 @@ The bulk of localizing a store is translating content on your theme's page templ
 
 ### Translating strings by BigCommerce
 
-Some of the strings displayed on your storefront are not currently editable in BigCommerce. These are strings such as "This promotion cannot be applied with the selected currency." For strings such as this BigCommerce, will automatically render the strings in the shopper's language as defined by the shopper's browser language setting.
+Some of the strings displayed on your storefront are not currently editable in BigCommerce. These are strings such as "This promotion cannot be applied with the selected currency." BigCommerce will automatically render such strings in the shopper's language as defined by the shopper's browser language settings.
+
 
 Currently BigCommerce supports these uneditable strings in the following languages:
 * English
