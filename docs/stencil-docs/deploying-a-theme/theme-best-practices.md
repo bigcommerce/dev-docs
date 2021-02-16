@@ -35,7 +35,7 @@ When importing images, ensure images are appropriately-sized and have low byte s
 
 ## Injecting variables
 
-Injecting javascript context variables allow you to access store data through your theme. You can inject javascript context variables using the `{{inject}}` helper for properties you want responses for by assigning a custom variable name. You can then use the `{{jsContext}}` handlebars helper to access a stringified JSON object containing all injected data with your assigned variable name as the key in key-value pairs. The code example below uses `{{inject}}` and `{{jsContent}}` to log the product name to your browser's console when added to Cornerstone's `product.html` file: 
+Injecting javascript context variables allow you to access store data through your theme. You can inject javascript context variables using the `{{inject}}` helper for properties you want responses for by assigning a custom variable name. You can then use the `{{jsContext}}` handlebars helper to access a stringified JSON object containing all injected data with your assigned variable name as the key in key-value pairs. For more information, see [injection helpers](https://developer.bigcommerce.com/stencil-docs/reference-docs/handlebars-helpers-reference#injection-helpers). The code example below uses `{{inject}}` and `{{jsContent}}` to log the product name to your browser's console when added to Cornerstone's `product.html` file: 
 
 ```javascript
 {{inject "myProductName" product.title}}
@@ -48,7 +48,6 @@ your JavaScript. */
 console.log(jsContext.myProductName); // Will output: Sample Product
 </script>
 ```
-The `{{jsContext}}` handlebar helper returns JSON for all data injected by the `{{inject}}` helper. For more information, see [injection helpers](https://developer.bigcommerce.com/stencil-docs/reference-docs/handlebars-helpers-reference#injection-helpers).
 
 We suggest injecting only specific variables and only the variables you need. If you inject all settings, you could accidently inject PII (Personally-Identifying Information) and cause performance issues with your site.
 
@@ -127,7 +126,7 @@ To improve CLS:
 
 ### Optimization example
 
-In this example, the performance score is currently 47. The LCP score is 6.2s, the TBT score is 410 ms, and the CLS score is 1.137, which are all less than optimal scores.
+In this example, the performance score is currently 47. The LCP score is 6.2 s, the TBT score is 410 ms, and the CLS score is 1.137, which are all less than optimal scores.
 
 ![Performance Metrics](https://raw.githubusercontent.com/bigcommerce/dev-docs/master/assets/images/performance-example-1.png "Performance Metrics")
 
@@ -153,7 +152,7 @@ code {padding: 1px 5px 1px 5px;font-family: Consolas, Menlo, Monaco, Lucida Cons
 
 Lighthouse displays information relevant to elements contributing to the CLS score. In this example, the banner above the carousel causes a loading issue. Once the image is resized or removed the CLS score improves.
 
-After removing some unused bytes, minifying JavaScript files, and resizing an image, the performance score is 77. The LCP score is now 4.3s, the TBT score is 120 ms and the CLS score is 0.001. You can continue to remove additional unused bytes to improve your performance score and metrics. 
+After removing some unused bytes, minifying JavaScript files, and resizing an image, the performance score is 77. The LCP score is now 4.3 s, the TBT score is 120 ms and the CLS score is 0.001. You can continue to remove additional unused bytes to improve your performance score and metrics. 
 
 ![Improved Performance Metrics](https://raw.githubusercontent.com/bigcommerce/dev-docs/master/assets/images/performance-example-3.png "Improved Performance Metrics")
 
