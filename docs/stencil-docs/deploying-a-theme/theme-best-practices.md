@@ -139,7 +139,7 @@ In addition to removing unused code, you can minify, compress, and refactor CSS 
 **Minification example**
 
 ```css
-code {
+.element-class {
 padding: 1px 5px 1px 5px;
 font-family: Consolas, Menlo, Monaco, Lucida Console, Liberation Mono, DejaVu Sans Mono, 
     Bitstream Vera Sans Mono, Courier New, monospace, serif;
