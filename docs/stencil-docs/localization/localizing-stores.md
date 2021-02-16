@@ -43,13 +43,13 @@ Some of the strings displayed on your storefront are not currently editable in B
 
 
 Currently BigCommerce supports these uneditable strings in the following languages:
+* Dutch
 * English
 * French
 * German
-* Spanish
 * Italian
-* Dutch
 * Portuguese
+* Spanish
 
 You can review these strings by downloading the language files we have made available in the portable object format. We recommend viewing these in a simple text editor or a text editor designed to handle PO files.
 
