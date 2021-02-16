@@ -35,9 +35,9 @@ When importing images, ensure images are appropriately-sized and have low byte s
 
 ## Injecting variables
 
-Injecting javascript context variables allow you to access variables as needed to customize your theme. You can inject javascript context variables using the `{{inject}}` helper. The `{{inject}}` helper can be sent to the browser. Below is an example of an `{{inject}}` helper that can be added to your code.
+Injecting javascript context variables allow you to access store data through your theme. You can inject javascript context variables using the `{{inject}}` helper for properties you want responses for by assigning a custom variable name. You can then use the `{{jsContext}}` handlebars helper to access a stringified JSON object containing all injected data with your assigned variable name as the key in key-value pairs. The code example below uses `{{inject}}` and `{{jsContent}}` to log the product name to your browser's console when added to Cornerstone's `product.html` file: 
 
-```json
+```javascript
 {{inject "myProductName" product.title}}
 
 <script>
@@ -100,13 +100,13 @@ To improve FID:
 * Reduce JavaScript execution time
 * Reduce the duration of your longest task
 
-Lighthouse does not display FID since it can only be measured in the field. Real user interaction is needed in order to measure the response delay. Instead, Lighthouse displays Total Blocking Time (TBT) which also captures a user's interactivity. Improvements to TBT will also improve your FID score.
+Lighthouse does not display FID since measuring the response delay requires real user interaction. Instead, Lighthouse displays Total Blocking Time (TBT) to gauge how long a page takes to become useable. TBT is the sum of task loading time over 50ms measured between the first text or image rendering and the time it takes for a fully interactive page. Improvements to TBT will also improve your FID score.
 
 A good TBT score is 300 milliseconds or less.
 
 ### Cumulative Layout Shift
 
-CLS is the metric that measures visual stability. This metric measures how often users experience unexpected layout shifts. A layout shift is when a visible element changes its position from one rendered frame to the next. For example, a layout shift can occur when a user is viewing a page and a video moves on top of the home carousel. These unexpected movements can result in an unpleasant experience for the user.
+CLS is the metric that measures visual stability. This metric measures how often users experience unexpected layout shifts. A layout shift is when a visible element changes its position from one rendered frame to the next. For example, a layout shift can occur when a user views a page and a video moves on top of the home carousel. These unexpected movements can result in an unpleasant experience for the user.
 
 <div class="HubBlock--callout">
 <div class="CalloutBlock--info">
@@ -123,21 +123,21 @@ To improve CLS:
 * Add size attributes to elements
 * Reserve space for injected content
 * Avoid inserting ads or banners dynamically
-* Ensure to load critical CSS before content
+* Load critical CSS before the content
 
 ### Optimization example
 
-In this example, the performance score is currently 47. The LCP score is 6.2s, the TBT score is 410 ms, and the CLS score is 1.137 which are all less than optional scores.
+In this example, the performance score is currently 47. The LCP score is 6.2s, the TBT score is 410 ms, and the CLS score is 1.137, which are all less than optimal scores.
 
 ![Performance Metrics](https://raw.githubusercontent.com/bigcommerce/dev-docs/master/assets/images/performance-example-1.png "Performance Metrics")
 
-To improve performance, let's start by removing usused JavaScript. Lighthouse and the **Coverage** tab offers suggestions of unused JavaScript code that can be removed. The red section of the bar is unused bytes. The green section is used bytes.
+To improve performance, let's start by measuring usused JavaScript. In Chrome DevTools, the **Lighthouse** and **Coverage** tabs offer suggestions of unused JavaScript code that you can potentially remove. The red section of the bar represents unused bytes; the green section represents used bytes. It is important to note that unused JavaScript means your page has not used it yet. The JavaScript in red might be connected to event listeners that only fire when a user interacts with your page.
 
 ![Coverage tab](https://raw.githubusercontent.com/bigcommerce/dev-docs/master/assets/images/performance-example-2.png "Coverage tab")
 
-In addition to removing unused bytes, you can minify, compress, and refractor CSS/JavaScript files. This includes removing line breaks, whitespace, and comments.
+In addition to removing unused code, you can minify, compress, and refactor CSS and JavaScript files by removing line breaks, whitespace, and comments.
 
-**Minify example**
+**Minification example**
 
 ```css
 code {
@@ -148,7 +148,7 @@ background-color: #eeeeee;}
 ```
 
 ```css
-code {padding: 1px 5px 1px 5px;font-family: Consolas, Menlo, Monaco, Lucida Console, Liberation Mono, DejaVu Sans Mono, Bitstream Vera Sans Mono, Courier New, monospace, serif;background-color: #eeeeee;}
+code {padding: 1px 5px 1px 5px;font-family: Consolas, Menlo, Monaco, Lucida Console, Liberation Mono, DejaVu Sans Mono, Bitstream Vera Sans Mono, Courier New, monospace, serif;background-color: #eee;}
 ```
 
 Lighthouse displays information relevant to elements contributing to the CLS score. In this example, the banner above the carousel causes a loading issue. Once the image is resized or removed the CLS score improves.
