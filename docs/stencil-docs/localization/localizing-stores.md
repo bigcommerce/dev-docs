@@ -10,9 +10,9 @@
 
 </div>
 
-A BigCommerce storefront can be customized to display in any one language of your choice. To fully localize a store into a language/region other than U.S. English, you will need to customize three areas:
+A BigCommerce storefront can be customized to display in any one language of your choice. To fully localize a store into a language/region, you will need to customize three areas:
 
-* [**Storefront theme pages.**](#translating-theme-files-via-stencil-cli)Translate static strings by adding translation files for your chosen non-English languages via Stencil CLI.
+* [**Storefront theme pages.**](#translating-theme-files-via-stencil-cli)Translate static strings by adding translation files for your chosen languages via Stencil CLI.
 
 * [**Checkout.**](#localizing-checkout) Localize checkout by modifying theme files in Stencil CLI and settings in the BigCommerce control panel.
 
@@ -37,10 +37,9 @@ A BigCommerce storefront can be customized to display in any one language of you
 
 The bulk of localizing a store is translating content on your theme's page templates. You will need to abstract these templates' literal text strings into `{{lang}}` variables, then provide per-language JSON files that define these variables in corresponding key/value pairs.
 
-### Translating strings by BigCommerce
+### Multiple language strings by BigCommerce
 
 Some of the strings displayed on your storefront are not currently editable in BigCommerce. These are strings such as "This promotion cannot be applied with the selected currency." BigCommerce will automatically render such strings in the shopper's language as defined by the shopper's browser language settings.
-
 
 Currently BigCommerce supports these uneditable strings in the following languages:
 * Dutch
@@ -107,13 +106,13 @@ You must localize the store's product catalog separately from its theme. Each en
 For an overview of how to populate the store catalog, including options for bulk-importing content that you can localize outside the BigCommerce platform, see [Adding Products](https://support.bigcommerce.com/s/article/Adding-Products-v3).
 
 ### Localizing currency
-Each store's default currency is configured in the BigCommerce control panel. For details, see [Changing Your Default Currency](https://support.bigcommerce.com/s/article/Managing-Currencies#default).
+You can configure each store's default currency in the BigCommerce control panel. For details, see [Changing Your Default Currency](https://support.bigcommerce.com/s/article/Managing-Currencies#default).
 
 ### Localizing date format
 You can set the appropriate date format for your store's language/region in the BigCommerce control panel: **Store Setup** › **Store Settings** › [**Date & Timezone**](http://login.bigcommerce.com/deep-links/manage/settings/store). For details, see [Date & Timezone Settings](https://support.bigcommerce.com/s/article/Store-Settings#date-time).
 
 ### Localizing order statuses
-The `order-status` labels displayed on a BigCommerce storefront are configured outside your theme. You can translate each of these strings in the BigCommerce control panel under **Orders** ›
+You can configure the `order-status` labels displayed on a BigCommerce storefront outside your theme. You can translate each of these strings in the BigCommerce control panel under **Orders** ›
  [**Order Statuses**](http://login.bigcommerce.com/deep-links/manage/orders/order-statuses). For instructions, see [Customizing an Order Status Label](https://support.bigcommerce.com/s/article/Order-Statuses#rename).
 
 ### Localizing the blog
