@@ -136,7 +136,7 @@ The BigCommerce platform does not currently support translation of gift certific
 
 ## Resources
 
-### Related Articles
+### Related articles
 
 * [Translation Keys](https://developer.bigcommerce.com/stencil-docs/localization/translation-keys)
 * [Restyle Optimized One-Page Checkout](https://developer.bigcommerce.com/stencil-docs/customizing-checkout/optimized-one-page-checkout)
@@ -144,8 +144,19 @@ The BigCommerce platform does not currently support translation of gift certific
 * [Adding Products](https://support.bigcommerce.com/s/article/Adding-Products-v3) (BigCommerce Knowledge Base)
 * [Changing Your Default Currency](https://support.bigcommerce.com/s/article/Managing-Currencies#default)(BigCommerce Knowledge Base)
 
-### Additional Resources
+### Additional resources
 
 * [checkout.html](https://github.com/bigcommerce/cornerstone/blob/master/templates/pages/checkout.html) (BigCommerce GitHub)
 * [order-confirmation.html](https://github.com/bigcommerce/cornerstone/blob/master/templates/pages/order-confirmation.html) (BigCommerce GitHub)
 * [JSON translation file](https://github.com/bigcommerce/cornerstone/tree/master/lang) (BigCommerce GitHub)
+
+### Language files
+
+* [Dutch](https://bigcommerce.github.io/dev-docs/assets/PO/storefront-nl-NL.po)
+* [French](https://bigcommerce.github.io/dev-docs/assets/PO/storefront-fr-FR.po)
+* [German](https://bigcommerce.github.io/dev-docs/assets/PO/storefront-de-DE.po)
+* [Italian](https://bigcommerce.github.io/dev-docs/assets/PO/storefront-it-IT.po)
+* [Portuguese Brazil](https://bigcommerce.github.io/dev-docs/assets/PO/storefront-pt-BR.po)
+* [Spanish (Mexico)](https://bigcommerce.github.io/dev-docs/assets/PO/storefront-es-MX.po)
+* [Spanish (Spain)](https://bigcommerce.github.io/dev-docs/assets/PO/storefront-es-ES.po)
+* [Swedish](https://bigcommerce.github.io/dev-docs/assets/PO/storefront-sv-SE.po)
