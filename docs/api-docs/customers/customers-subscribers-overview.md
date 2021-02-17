@@ -10,8 +10,8 @@
 - [What is a guest?](#what-is-a-guest)
 - [Customer Login API](#customer-login-api)
 - [Current Customer API](#current-customer-api)
-- [Customer API](#customer-api)
-- [Differences between V2 and V3 Customer API](#differences-between-v2-and-v3-customer-api)
+- [Customers API](#customers-api)
+- [Differences between V2 and V3 Customers API](#differences-between-v2-and-v3-customers-api)
 - [Subscribers API](#subscribers-api)
 - [FAQ](#faq)
 - [Related resources](#related-resources)
@@ -71,11 +71,11 @@ Store [settings](https://forum.bigcommerce.com/s/article/Checkout-Settings#check
 
 ## Customer Login API
 
-The Customer Login API allows for single sign-on. Once a customer has authenticated by logging in to a third-party system (CMS, portal, or app), you can use the Customer Login API to seamlessly log the customer into their BigCommerce customer account.
+The [Customer Login API](https://developer.bigcommerce.com/api-docs/storefront/customer-login-api) allows for single sign-on. Once a customer has authenticated by logging in to a third-party system (CMS, portal, or app), you can use the Customer Login API to seamlessly log the customer into their BigCommerce customer account.
 
 ## Current Customer API
 
-The Current Customer API allows your application to identify logged in customers. This identification is useful when you need to show customer-specific information.
+The [Current Customer API](https://developer.bigcommerce.com/api-docs/storefront/current-customer-api) allows your application to identify logged in customers. This identification is useful when you need to show customer-specific information.
 
 ## Customers API
 
@@ -121,7 +121,7 @@ The V2 Customers API is comprised of customers, customer addresses and customer 
 
 [Customer groups](https://developer.bigcommerce.com/api-reference/store-management/customers-v2/customer-groups/) allow you to organize your customers, give them discounts, and restrict access to specific products or categories. Customer groups are not yet available on the V3 Customers API.
 
-## Differences between V2 and V3 Customer API
+## Differences between V2 and V3 Customers API
 
 ### Making requests
 
