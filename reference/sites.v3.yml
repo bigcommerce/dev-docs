@@ -2,103 +2,56 @@ swagger: '2.0'
 info:
   title: Sites
   version: ''
-  description: >-
-    Create and manage [sites](#sites) and [routes](#routes) for [headless
-    storefront](https://support.bigcommerce.com/s/article/The-Headless-Approach#what-mean)
-    sales
-    [channels](https://developer.bigcommerce.com/api-reference/cart-checkout/channels-listings-api).
-
+  description: |-
+    Create and manage [sites](#sites) and [routes](#routes) for [headless storefront](https://support.bigcommerce.com/s/article/The-Headless-Approach#what-mean) sales [channels](https://developer.bigcommerce.com/api-reference/cart-checkout/channels-listings-api).
 
     - [Authentication](#authentication)
-
     - [Sites](#sites)
-
     - [Site routes](#site-routes)
-
     - [Route types](#route-types)
-
     - [Route variables](#route-variables)
-
     - [Additional Information](#additional-information)
-
 
     ## Authentication
 
-
-    Authenticate requests by sending an
-    [OAuth](https://developer.bigcommerce.com/api-docs/getting-started/authentication)
-    `access_token` via `X-Auth-Token` HTTP header.
-
+    Authenticate requests by sending an [OAuth](https://developer.bigcommerce.com/api-docs/getting-started/authentication) `access_token` via `X-Auth-Token` HTTP header.
 
     ```http
-
     GET https://api.bigcommerce.com/stores/{{STORE_HASH}}/v3/sites
-
     Content-Type: application/json
-
     X-Auth-Token: {{ACCESS_TOKEN}}
-
     ```
 
-
-    ### [OAuth
-    Scopes](https://developer.bigcommerce.com/api-docs/getting-started/authentication/rest-api-authentication#oauth-scopes)
-
+    ### [OAuth Scopes](https://developer.bigcommerce.com/api-docs/getting-started/authentication/rest-api-authentication#oauth-scopes)
 
     | UI Name        | Permission | Parameter               |
-
     |----------------|------------|-------------------------|
-
     | Sites & Routes | modify     | `store_sites`           |
-
     | Sites & Routes | read-only  | `store_sites_read_only` |
 
+    For more information on authenticating BigCommerce APIs, see [Authentication](https://developer.bigcommerce.com/api-docs/getting-started/authentication).
 
-    For more information on authenticating BigCommerce APIs, see
-    [Authentication](https://developer.bigcommerce.com/api-docs/getting-started/authentication).
+    ## [Sites](https://developer.bigcommerce.com/api-reference/cart-checkout/sites-routes-api/sites)
 
-
-    ##
-    [Sites](https://developer.bigcommerce.com/api-reference/cart-checkout/sites-routes-api/sites)
-
-
-    Sites link [headless
-    storefronts](https://developer.bigcommerce.com/api-docs/storefronts/developers-guide-headless)
-    to sales
-    [channels](https://developer.bigcommerce.com/api-reference/cart-checkout/channels-listings-api).
-    To [create a
-    site](https://developer.bigcommerce.com/api-reference/cart-checkout/sites-routes-api/sites/post-site),
-    send a `POST` request to `/stores/{{STORE_HASH}}/v3/sites`.
-
+    Sites link [headless storefronts](https://developer.bigcommerce.com/api-docs/storefronts/developers-guide-headless) to sales [channels](https://developer.bigcommerce.com/api-reference/cart-checkout/channels-listings-api). To [create a site](https://developer.bigcommerce.com/api-reference/cart-checkout/sites-routes-api/sites/post-site), send a `POST` request to `/stores/{{STORE_HASH}}/v3/sites`.
 
     ```http
-
     POST https://api.bigcommerce.com/stores/{{STORE_HASH}}/v3/sites
-
     X-Auth-Token: {{ACCESS_TOKEN}}
-
     Content-Type: application/json
-
     Accept: application/json
-
 
     {
       "url": "http://store.example.com/",
       "channel_id": 5
     }
-
     ```
 
-
-    [![Open in Request
-    Runner](https://storage.googleapis.com/bigcommerce-production-dev-center/images/Open-Request-Runner.svg)](https://developer.bigcommerce.com/api-reference/cart-checkout/sites-routes-api/sites/post-site#requestrunner)
-
+    [![Open in Request Runner](https://storage.googleapis.com/bigcommerce-production-dev-center/images/Open-Request-Runner.svg)](https://developer.bigcommerce.com/api-reference/cart-checkout/sites-routes-api/sites/post-site#requestrunner)
 
     **[Response:](https://developer.bigcommerce.com/api-reference/cart-checkout/sites-routes-api/sites/post-site#responses)**
 
-
     ```json
-
     {
       "id": 1,
       "url": "http://store.example.com/",
@@ -106,156 +59,86 @@ info:
       "created_at": "2018-01-04T04:15:50.000Z",
       "updated_at": "2018-01-04T04:15:50.000Z"
     }
-
     ```
 
-
-    To [get a list of
-    sites](https://developer.bigcommerce.com/api-reference/cart-checkout/sites-routes-api/sites/getsites),
-    send a `GET` request to `/stores/{{STORE_HASH}}/v3/sites`.
-
+    To [get a list of sites](https://developer.bigcommerce.com/api-reference/cart-checkout/sites-routes-api/sites/getsites), send a `GET` request to `/stores/{{STORE_HASH}}/v3/sites`.
 
     ```http
-
     GET https://api.bigcommerce.com/stores/{{STORE_HASH}}/v3/sites
-
     X-Auth-Token: {{ACCESS_TOKEN}}
-
     Accept: application/json
-
     ```
 
+    [![Open in Request Runner](https://storage.googleapis.com/bigcommerce-production-dev-center/images/Open-Request-Runner.svg)](https://developer.bigcommerce.com/api-reference/cart-checkout/sites-routes-api/sites/getsites#requestrunner)
 
-    [![Open in Request
-    Runner](https://storage.googleapis.com/bigcommerce-production-dev-center/images/Open-Request-Runner.svg)](https://developer.bigcommerce.com/api-reference/cart-checkout/sites-routes-api/sites/getsites#requestrunner)
+    ## [Site routes](https://developer.bigcommerce.com/api-reference/cart-checkout/sites-routes-api/site-routes)
 
-
-    ## [Site
-    routes](https://developer.bigcommerce.com/api-reference/cart-checkout/sites-routes-api/site-routes)
-
-
-    Site routes tell BigCommerce how to link to pages on a [headless
-    storefront](https://developer.bigcommerce.com/api-docs/storefronts/developers-guide-headless).
-    To [create a
-    route](https://developer.bigcommerce.com/api-reference/cart-checkout/sites-routes-api/site-routes/post-site-route)
-    for a [site](#sites), send a `POST` request to
-    `/stores/{{STORE_HASH}}/v3/sites/{site_id}/routes`.
-
+    Site routes tell BigCommerce how to link to pages on a [headless storefront](https://developer.bigcommerce.com/api-docs/storefronts/developers-guide-headless). To [create a route](https://developer.bigcommerce.com/api-reference/cart-checkout/sites-routes-api/site-routes/post-site-route) for a [site](#sites), send a `POST` request to `/stores/{{STORE_HASH}}/v3/sites/{site_id}/routes`.
 
     ```http
-
-    POST
-    https://api.bigcommerce.com/stores/{{STORE_HASH}}/v3/sites/{site_id}/routes
-
+    POST https://api.bigcommerce.com/stores/{{STORE_HASH}}/v3/sites/{site_id}/routes
     X-Auth-Token: {{ACCESS_TOKEN}}
-
     Content-Type: application/json
-
     Accept: application/json
-
 
     {
       "type": "product",
       "matching": "12",
       "route": "/en/product?id=12"
     }
-
     ```
 
-
-    [![Open in Request
-    Runner](https://storage.googleapis.com/bigcommerce-production-dev-center/images/Open-Request-Runner.svg)](https://developer.bigcommerce.com/api-reference/cart-checkout/sites-routes-api/site-routes/post-site-route#requestrunner)
-
+    [![Open in Request Runner](https://storage.googleapis.com/bigcommerce-production-dev-center/images/Open-Request-Runner.svg)](https://developer.bigcommerce.com/api-reference/cart-checkout/sites-routes-api/site-routes/post-site-route#requestrunner)
 
     ## Route types
 
-
     The following route types are supported.
 
-
     | Type | Description |
-
     |-|-|
-
     |`account_new_return`|Route for shopper account page|
-
     |`account_order_status`|Route for shopper order status account page|
-
     |`cart`|Route to shopper's cart|
-
     |`checkout`|Route to checkout|
-
     |`create_account`|Route to the create a shopper account page|
-
     |`forgot_password`|Route to shopper forgot password page|
-
     |`home`|Route to headless storefront homepage|
-
     |`order_confirmation`|Route to the order confirmation page|
-
     |`product`|Route for product details pages |
-
-    |`recover_abandoned_cart`|Route for URL in emails for a shopper to recover
-    their abandoned cart|
-
+    |`recover_abandoned_cart`|Route for URL in emails for a shopper to recover their abandoned cart|
     |`unsubscribe`|Route for unsubscribe URL in emails|
-
 
     ## Route variables
 
-
     The following route variables are supported
 
-
     |Variable|Description|
-
     |-|-|-|
-
     |`{id}`|The **ID** of the requested item|
-
-    |`{slug}`|The **slug** for the requested item (if available). Note: the
-    `slug` value may contain `/` slash|
-
+    |`{slug}`|The **slug** for the requested item (if available). Note: the `slug` value may contain `/` slash|
     |`{lang}`|The **language** string that the client is using|
-
 
     **Example:**
 
-
     ```http
-
-    POST
-    https://api.bigcommerce.com/stores/{{STORE_HASH}}/v3/sites/{site_id}/routes
-
+    POST https://api.bigcommerce.com/stores/{{STORE_HASH}}/v3/sites/{site_id}/routes
     X-Auth-Token: {{ACCESS_TOKEN}}
-
     Content-Type: application/json
-
     Accept: application/json
-
 
     {
       "type": "product",
       "matching": "*",
       "route": "/{lang}/{slug}?id={id}"
     }
-
     ```
-
 
     ## Additional Information
 
-
     ### Related resources
-
-    * [Channels and Listings
-    Reference](https://developer.bigcommerce.com/api-reference/cart-checkout/channels-listings-api)
-
-    * [Channels
-    Overview](https://developer.bigcommerce.com/api-docs/channels/overview)
-
-    * [Building Headless Storefronts
-    Guide](https://developer.bigcommerce.com/api-docs/storefronts/developers-guide-headless)
+    * [Channels and Listings Reference](https://developer.bigcommerce.com/api-reference/cart-checkout/channels-listings-api)
+    * [Channels Overview](https://developer.bigcommerce.com/api-docs/channels/overview)
+    * [Building Headless Storefronts Guide](https://developer.bigcommerce.com/api-docs/storefronts/developers-guide-headless)
   contact: {}
 host: api.bigcommerce.com
 basePath: '/stores/{$$.env.store_hash}/v3'
@@ -289,37 +172,24 @@ paths:
           $ref: '#/responses/504_GatewayTimeout'
       tags:
         - Sites
-      description: >-
-        Create a site that links a [headless
-        storefront](https://developer.bigcommerce.com/api-docs/storefronts/developers-guide-headless)
-        to a sales
-        [channel](https://developer.bigcommerce.com/api-reference/cart-checkout/channels-listings-api).
-
+      description: |-
+        Create a site that links a [headless storefront](https://developer.bigcommerce.com/api-docs/storefronts/developers-guide-headless) to a sales [channel](https://developer.bigcommerce.com/api-reference/cart-checkout/channels-listings-api).
 
         - [Authorization](#authorization)
-
         - [Request Body](#request-body)
-
         - [Responses](#responses)
-
         - [Send a Test Request](#send-a-test-request)
     get:
       responses:
         '200':
           $ref: '#/responses/site_RespCollection'
       summary: Get Sites
-      description: >-
-        Get sites linked to a [headless
-        storefront](https://developer.bigcommerce.com/api-docs/storefronts/developers-guide-headless)
-        sales channels.
-
+      description: |-
+        Get sites linked to a [headless storefront](https://developer.bigcommerce.com/api-docs/storefronts/developers-guide-headless) sales channels.
 
         - [Authorization](#authorization)
-
         - [Request Parameters](#request-parameters)
-
         - [Responses](#responses)
-
         - [Send a Test Request](#send-a-test-request)
       tags:
         - Sites
@@ -347,7 +217,7 @@ paths:
       tags:
         - Sites
       description: |-
-        Get site with site ID `{site_id}`.
+        Get a site with site ID `{site_id}`.
 
         - [Authorization](#authorization)
         - [Request Parameters](#request-parameters)
@@ -381,7 +251,7 @@ paths:
       produces:
         - application/json
       description: |-
-        Update site with site ID `{site_id}`.
+        Update a site with site ID `{site_id}`.
 
         - [Authorization](#authorization)
         - [Request Parameters](#request-parameters)
@@ -403,7 +273,7 @@ paths:
       tags:
         - Sites
       description: |-
-        Delete site with site ID `{site_id`}.
+        Delete a site with site ID `{site_id`}.
 
         - [Authorization](#authorization)
         - [Request Parameters](#request-parameters)
@@ -494,30 +364,18 @@ paths:
           $ref: '#/responses/502_GatewayError'
       tags:
         - Site Routes
-      description: >-
-        Create routes that tell BigCommerce how to link to pages on a [headless
-        storefront](https://developer.bigcommerce.com/api-docs/storefronts/developers-guide-headless).
-
+      description: |-
+        Create routes that tell BigCommerce how to link to pages on a [headless storefront](https://developer.bigcommerce.com/api-docs/storefronts/developers-guide-headless).
 
         - [Usage notes](#usage-notes)
-
         - [Authorization](#authorization)
-
         - [Request Parameters](#request-parameters)
-
         - [Request Body](#request-body)
-
         - [Responses](#responses)
-
         - [Send a Test Request](#send-a-test-request)
 
-
         ## Usage Notes
-
-        * For a list of [supported route
-        types](https://developer.bigcommerce.com/api-reference/cart-checkout/sites-routes-api#route-types),
-        see [Sites and Routes API
-        Description](https://developer.bigcommerce.com/api-reference/cart-checkout/sites-routes-api).
+        * For a list of supported route types, see [Route types](https://developer.bigcommerce.com/api-reference/store-management/sites#route-types).
     put:
       responses:
         '200':
@@ -569,7 +427,7 @@ paths:
         - [Send a Test Request](#send-a-test-request)
 
         ## Usage Notes
-        * `id` is required when updating existing route.
+        * `id` is required when updating an existing route.
       summary: Update Site's Routes
       parameters:
         - in: body
@@ -665,7 +523,7 @@ paths:
           $ref: '#/responses/siteRoute_Resp'
       tags:
         - Site Routes
-      description: |+
+      description: |
         Update a site's route.
 
         - [Authorization](#authorization)
@@ -673,7 +531,6 @@ paths:
         - [Request Body](#request-body)
         - [Responses](#responses)
         - [Send a Test Request](#send-a-test-request)
-
     delete:
       summary: Delete a Site Route
       operationId: delete-route
@@ -701,7 +558,7 @@ paths:
         - [Send a Test Request](#send-a-test-request)
 definitions:
   _metaCollection:
-    $ref: './BigCommerce_All_Common.oas2.yml#/definitions/metaCollection_Full'
+    $ref: ./BigCommerce_All_Common.oas2.yml#/definitions/metaCollection_Full
   siteRoute_Full:
     title: siteRoute_Full
     description: Route object used in responses.
@@ -717,9 +574,7 @@ definitions:
     properties:
       url:
         type: string
-        description: >-
-          The Fully Qualified URL (including host and scheme) where this site is
-          hosted. All URLs generated for this site will be appended to this.
+        description: The Fully Qualified URL (including host and scheme) where this site is hosted. All URLs generated for this site will be appended to this.
         example: 'http://kittens.mybigcommerce.com/'
     title: put_Site
   _site:
@@ -729,15 +584,11 @@ definitions:
         type: integer
       url:
         type: string
-        description: >-
-          The Fully Qualified URL (including host and scheme) where this site is
-          hosted. All URLs generated for this site will be appended to this.
+        description: The Fully Qualified URL (including host and scheme) where this site is hosted. All URLs generated for this site will be appended to this.
         example: 'http://kittens.mybigcommerce.com/'
       channel_id:
         type: integer
-        description: >-
-          The channel this site is attached to. Each site belongs to a single
-          channel, and each channel can have either zero or one sites.
+        description: 'The channel this site is attached to. Each site belongs to a single channel, and each channel can have either zero or one sites.'
       created_at:
         type: string
         description: When was this site created? RFC 3339
@@ -748,10 +599,7 @@ definitions:
         example: '2018-01-04T04:15:50.000Z'
       routes:
         type: array
-        description: >-
-          (optional - if included) collection of routes defined for this site.
-          Limited to 200 routes side loaded (query routes direction via
-          `/routes` for bulk)
+        description: (optional - if included) collection of routes defined for this site. Limited to 200 routes side loaded (query routes direction via `/routes` for bulk)
         items:
           $ref: '#/definitions/siteRoute_Full'
     title: _site
@@ -774,9 +622,8 @@ definitions:
           Total number of items in the collection response.
       per_page:
         type: integer
-        description: >
-          The amount of items returned in the collection per page, controlled by
-          the limit parameter.
+        description: |
+          The amount of items returned in the collection per page, controlled by the limit parameter.
       current_page:
         type: integer
         description: |
@@ -787,9 +634,8 @@ definitions:
           The total number of pages in the collection.
       links:
         type: object
-        description: >
-          Pagination links for the previous and next parts of the whole
-          collection.
+        description: |
+          Pagination links for the previous and next parts of the whole collection.
         properties:
           previous:
             type: string
@@ -806,9 +652,7 @@ definitions:
     title: _pagination
   _errors:
     type: object
-    description: >-
-      The keys and values in an errors object will vary depending on the error
-      received.
+    description: The keys and values in an errors object will vary depending on the error received.
     title: _errors
   error_Full:
     type: object
@@ -838,15 +682,11 @@ definitions:
     properties:
       url:
         type: string
-        description: >-
-          The Fully Qualified URL (including host and scheme) where this site is
-          hosted. All URLs generated for this site will be appended to this.
+        description: The Fully Qualified URL (including host and scheme) where this site is hosted. All URLs generated for this site will be appended to this.
         example: 'http://kittens.mybigcommerce.com/'
       channel_id:
         type: integer
-        description: >-
-          The channel this site is attached to. Each site belongs to a single
-          channel, and each channel can have either zero or one sites.
+        description: 'The channel this site is attached to. Each site belongs to a single channel, and each channel can have either zero or one sites.'
     title: post_Site
   siteRoute_Base:
     type: object
@@ -854,9 +694,7 @@ definitions:
     properties:
       type:
         type: string
-        description: >-
-          The type of resource being routed to; [supported
-          types](https://developer.bigcommerce.com/api-reference/cart-checkout/sites-routes-api#route-types).
+        description: 'The type of resource being routed to; [supported types](https://developer.bigcommerce.com/api-reference/cart-checkout/sites-routes-api#route-types).'
         enum:
           - product
           - brand
@@ -873,83 +711,50 @@ definitions:
           - static
       matching:
         type: string
-        description: >-
-          (entity_id?) For a given type, which resources should match this
-          route? e.g For a route with the type: "product" and matching: "5" this
-          route would be used for the product with the ID of 5.
+        description: |-
+          (entity_id?) For a given type, which resources should match this route? e.g For a route with the type: "product" and matching: "5" this route would be used for the product with the ID of 5.
 
-
-          Depending on the type of resource, this may be an ID (matching a
-          specific item), or a "*" wildcard matching all items of that type.
+          Depending on the type of resource, this may be an ID (matching a specific item), or a "*" wildcard matching all items of that type.
         example: '5'
       route:
         type: string
-        description: >-
-          The route template that will be used to generate the URL for the
-          requested resource.
-
+        description: |-
+          The route template that will be used to generate the URL for the requested resource.
 
           Supports several tokens:
-
           - `{id}` The **ID** of the requested item
-
-          - `{slug}` The **slug** for the requested item (if available). Note:
-          the `slug` value may contain `/` slash
-
+          - `{slug}` The **slug** for the requested item (if available). Note: the `slug` value may contain `/` slash
           - `{language}` The **language** string that the client is using
         example: /my-amazing-product
 tags:
   - name: Sites
-    description: >-
-      Enables creation and management of external sites (domains) where shoppers
-      shop. Allows for the correct shopping experience to be delivered and
-      maintained (i.e. redirect URLs, email links) when a shopper goes through
-      the purchasing process.
+    description: 'Enables creation and management of external sites (domains) where shoppers shop. Allows for the correct shopping experience to be delivered and maintained (i.e. redirect URLs, email links) when a shopper goes through the purchasing process.'
   - name: Site Routes
 securityDefinitions:
   X-Auth-Token:
     type: apiKey
     in: header
     name: X-Auth-Token
-    description: >-
+    description: |-
       ```http
-
       GET https://api.bigcommerce.com/stores/{{STORE_HASH}}/v3/sites
-
       Content-Type: application/json
-
       X-Auth-Token: {{ACCESS_TOKEN}}
-
       ```
 
-
       |Header|Description|
-
       |-|-|
+      |`X-Auth-Token`|An [OAuth](https://developer.bigcommerce.com/api-docs/getting-started/authentication/rest-api-authentication) `access_token`|
 
-      |`X-Auth-Token`|An
-      [OAuth](https://developer.bigcommerce.com/api-docs/getting-started/authentication/rest-api-authentication)
-      `access_token`|
-
-
-      ### [OAuth
-      Scopes](https://developer.bigcommerce.com/api-docs/getting-started/authentication/rest-api-authentication#oauth-scopes)
-
+      ### [OAuth Scopes](https://developer.bigcommerce.com/api-docs/getting-started/authentication/rest-api-authentication#oauth-scopes)
 
       |  **UI Name** | **Permission** | **Parameter** |
-
       | --- | --- | --- |
-
       |  Channel Listings | modify | `store_channel_listings` |
-
       |  Channel Listings | read-only | `store_channel_listings_read_only` |
-
       |  Channel Settings | modify | `store_channel_settings` |
-
       |  Channel Settings | read-only | `store_channel_settings_read_only` |
-
       |  Sites & Routes | modify | `store_sites` |
-
       |  Sites & Routes | read-only | `store_sites_read_only` |
 security:
   - X-Auth-Client: []
@@ -957,29 +762,19 @@ security:
 parameters: {}
 responses:
   502_GatewayError:
-    description: >-
-      If something happens during the request that causes it to fail, a 502
-      response will be returned. A new request should be made; however, it could
-      fail.
+    description: 'If something happens during the request that causes it to fail, a 502 response will be returned. A new request should be made; however, it could fail.'
     schema:
       $ref: '#/definitions/error_Full'
     examples: {}
   504_GatewayTimeout:
-    description: >-
-      If this occurs, you should retry the request. Typically retrying the
-      request several times will result in a successful request; However, if you
-      are unable to successfully make a request, please check the BigCommerce
-      system status [here](https://status.bigcommerce.com/). A service is likely
-      down and the request will need to be made again when it is back up (in
-      several hours usually)
+    description: 'If this occurs, you should retry the request. Typically retrying the request several times will result in a successful request; However, if you are unable to successfully make a request, please check the BigCommerce system status [here](https://status.bigcommerce.com/). A service is likely down and the request will need to be made again when it is back up (in several hours usually)'
     schema:
       $ref: '#/definitions/error_Full'
     examples:
       application/json:
         status: 504
         title: Gateway Timeout
-        type: >-
-          https://developer.bigcommerce.com/api-docs/getting-started/api-status-codes
+        type: 'https://developer.bigcommerce.com/api-docs/getting-started/api-status-codes'
         errors: {}
   403_Unauthorized:
     description: ''
@@ -989,8 +784,7 @@ responses:
       application/json:
         status: 403
         title: Unauthorized Access. You do not have permission to make this request.
-        type: >-
-          https://developer.bigcommerce.com/api-docs/getting-started/api-status-codes
+        type: 'https://developer.bigcommerce.com/api-docs/getting-started/api-status-codes'
   400_BadRequest:
     description: |-
       Malformed request syntax. Typically need to fix the JSON
@@ -1001,42 +795,31 @@ responses:
       application/json:
         status: 400
         title: Input is invalid.
-        type: >-
-          https://developer.bigcommerce.com/api-docs/getting-started/api-status-codes
+        type: 'https://developer.bigcommerce.com/api-docs/getting-started/api-status-codes'
   404_NotFound:
     description: Requested resource not founded.
     schema:
       $ref: '#/definitions/error_Full'
     examples: {}
   422_UnprocessableEntity:
-    description: >-
-      This occurs when missing or unacceptable data is passed for one or more
-      fields. Please correct the values for the fields listed in the errors
-      object.
+    description: This occurs when missing or unacceptable data is passed for one or more fields. Please correct the values for the fields listed in the errors object.
     schema:
       $ref: '#/definitions/errorDetailed_Full'
     examples:
       application/json:
         status: 422
         title: JSON data is missing or invalid
-        type: >-
-          https://developer.bigcommerce.com/api-docs/getting-started/api-status-codes
+        type: 'https://developer.bigcommerce.com/api-docs/getting-started/api-status-codes'
         errors: {}
   503_ServiceUnavailable:
-    description: >-
-      If this occurs, you should retry the request. If you are unable to
-      successfully make a request, please check the BigCommerce system status
-      [here](https://status.bigcommerce.com/). A service is likely down and the
-      request will need to be made again when it is back up (in several hours
-      usually)
+    description: 'If this occurs, you should retry the request. If you are unable to successfully make a request, please check the BigCommerce system status [here](https://status.bigcommerce.com/). A service is likely down and the request will need to be made again when it is back up (in several hours usually)'
     schema:
       $ref: '#/definitions/error_Full'
     examples:
       application/json:
         status: 503
         title: Service Unavailable
-        type: >-
-          https://developer.bigcommerce.com/api-docs/getting-started/api-status-codes
+        type: 'https://developer.bigcommerce.com/api-docs/getting-started/api-status-codes'
   response_Site:
     description: ''
     examples:
@@ -1076,8 +859,7 @@ responses:
         meta:
           saved_records: 0
         title: Bulk operation has failed
-        type: >-
-          https://developer.bigcommerce.com/api-docs/getting-started/api-status-codes
+        type: 'https://developer.bigcommerce.com/api-docs/getting-started/api-status-codes'
         errors:
           0.matching.type: Route already exists for site 1 matching 5 for type product
           1.matching.type: Route already exists for site 1 matching * for type home
@@ -1101,8 +883,7 @@ responses:
       application/json:
         status: 422
         title: JSON data is missing or invalid
-        type: >-
-          https://developer.bigcommerce.com/api-docs/getting-started/api-status-codes
+        type: 'https://developer.bigcommerce.com/api-docs/getting-started/api-status-codes'
         errors:
           matching: error.path.missing
   site_RespCollection:
