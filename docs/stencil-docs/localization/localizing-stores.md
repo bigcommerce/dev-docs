@@ -10,7 +10,8 @@
 
 </div>
 
-A BigCommerce storefront can be customized to display in any one language of your choice. To fully localize a store into a language/region, you will need to customize three areas:
+A BigCommerce storefront can be customized to display in any one language of your choice. To fully localize a store for a language or region, you will need to customize three areas:
+
 
 * [**Storefront theme pages.**](#translating-theme-files-via-stencil-cli)Translate static strings by adding translation files for your chosen languages via Stencil CLI.
 
