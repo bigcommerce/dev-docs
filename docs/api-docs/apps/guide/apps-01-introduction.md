@@ -39,7 +39,7 @@ What can developers do with BigCommerce apps?
 ### Integrate with Business Systems
 Use [BigCommerce APIs](https://developer.bigcommerce.com/api-reference) to integrate stores with business systems such as the following:
 * [ERP systems](https://www.bigcommerce.com/apps/erp/)
-* [Oder management platforms](https://www.bigcommerce.com/apps/catalog-order-management/)
+* [Order management platforms](https://www.bigcommerce.com/apps/catalog-order-management/)
 * [Accounting software](https://www.bigcommerce.com/apps/accounting-tax/)
 * [Shipping and Fulfillment services](https://www.bigcommerce.com/apps/shipping-fulfillment/)
 
