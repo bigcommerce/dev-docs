@@ -1,0 +1,571 @@
+msgid ""
+msgstr ""
+"Project-Id-Version: \n"
+"Report-Msgid-Bugs-To: \n"
+"Last-Translator: Automatically generated\n"
+"Language-Team: none\n"
+"MIME-Version: 1.0\n"
+"Content-Type: text/plain; charset=UTF-8\n"
+"Content-Transfer-Encoding: 8bit\n"
+"POT-Creation-Date: 2020-11-22T23:30:49+00:00\n"
+"PO-Revision-Date: 2020-11-22T23:30:49+00:00\n"
+"Language: pt-BR\n"
+
+msgid ""
+"The coupon code you entered couldn't be applied to any items in your order."
+msgstr ""
+"Não foi possível aplicar o código do cupom que você inseriu a nenhum item do "
+"seu pedido."
+
+msgid ""
+"There was an error updating your billing address. Please check all fields "
+"are correct and try again."
+msgstr ""
+"Ocorreu um erro na atualização do seu endereço de faturamento. Confira se "
+"todos os campos estão preenchidos corretamente e tente novamente."
+
+msgid "My Account"
+msgstr "Minha conta"
+
+msgid "You have requested an invalid product download. Please try again."
+msgstr "Você solicitou o download de um produto inválido. Tente novamente."
+
+msgid "This download has expired."
+msgstr "O download expirou."
+
+msgid "Product Downloads"
+msgstr "Downloads de produtos"
+
+msgid "Files for %s"
+msgstr "Arquivos para %s"
+
+msgid "The files available for %s are listed below."
+msgstr "Os arquivos disponíveis para %s estão listados abaixo."
+
+msgid "Your account details have been updated."
+msgstr "As informações da sua conta foram atualizadas."
+
+msgid "Something went wrong trying to update your details. Please try again."
+msgstr ""
+"Encontramos um problema enquanto tentávamos atualizar suas informações. "
+"Tente novamente."
+
+msgid "Please type in your current password."
+msgstr "Digite sua senha atual."
+
+msgid "Stock check error"
+msgstr "Erro de verificação de estoque"
+
+msgid "We are facing a problem with checking inventory stock. Please try again"
+msgstr ""
+"Estamos enfrentando um problema na verificação do estoque. Tente novamente"
+
+msgid "Invalid payload"
+msgstr "Carga inválida"
+
+msgid "Invalid custom form field ID provided: {field}"
+msgstr ""
+"Foi informado uma ID de campo de formulário personalizada incorreta: {field}"
+
+msgid "All prices are in <span title='%s'>%s</span>"
+msgstr "Todos os preços estão em <span title='%s'>%s</span>"
+
+msgid ""
+"Your order does not meet the minimum total for this coupon code to be "
+"applied. Please spend another {amountDiff} first."
+msgstr ""
+"Seu pedido não atende ao total mínimo para aplicação do código do cupom. "
+"Gaste mais {amountDiff} primeiro."
+
+msgid ""
+"We don't have enough {product} stock on hand for the quantity you selected. "
+"Please try again."
+msgstr ""
+"Não temos estoque de {product} disponível suficiente para a quantidade que "
+"você selecionou. Tente novamente."
+
+msgid "Promotion is inactive"
+msgstr "A promoção está inativa"
+
+msgid "This promotion cannot be applied with the selected currency"
+msgstr "Não é possível aplicar esta promoção com a moeda selecionada"
+
+msgid "You are not in the customer group the promotion targets"
+msgstr "Você não faz parte do grupo de clientes a que a promoção se destina"
+
+msgid "You do not meet the minimum order requirement for the promotion"
+msgstr "O seu pedido não atende às exigências mínimas da promoção"
+
+msgid "Shipping address is required for the promotion"
+msgstr "O endereço de envio é obrigatório para a promoção"
+
+msgid "The promotion can not be used in order with multiple shipping addresses"
+msgstr ""
+"A promoção não pode ser utilizada em pedidos com vários endereços de envio"
+
+msgid "The promotion can not be applied for this shipping address"
+msgstr "Não é possível aplicar a promoção neste endereço de envio"
+
+msgid "Something went wrong"
+msgstr "Ocorreu um erro"
+
+msgid "The coupon code you entered has been disabled so it can't be used."
+msgstr "O código do cupom inserido foi desativado e não pode ser utilizado."
+
+msgid "The coupon code you entered expired on %s so it can't be used."
+msgstr "O código do cupom inserido expirou em %s e não pode ser utilizado."
+
+msgid "The coupon code you entered has already expired so it can't be used."
+msgstr "O código do cupom inserido expirou e não pode ser utilizado."
+
+msgid "Coupon code can not be found"
+msgstr "Não foi possível encontrar o código do cupom"
+
+msgid "This promotion can not be used in conjunction with other promotions"
+msgstr "Essa promoção não pode ser usada em conjunto com outras promoções"
+
+msgid "unknown"
+msgstr "desconhecido"
+
+msgid ""
+"Unfortunately this product is no longer for sale so it cannot be reordered."
+msgstr ""
+"Infelizmente, este produto não está mais à venda e não pode ser comprado "
+"novamente."
+
+msgid "This product cannot be reordered because it's out of stock."
+msgstr ""
+"Não é possível comprar este produto novamente porque não há estoque "
+"disponível."
+
+msgid "Please select a file for the {displayName} option."
+msgstr "Selecione um arquivo para a opção {displayName}."
+
+msgid "Unfortunately this product is not available for purchase."
+msgstr "Infelizmente, este produto não está disponível para compra."
+
+msgid ""
+"The inventory level for the following product is below what you ordered, so "
+"we could not proceed with the checkout: {productName}"
+msgstr ""
+"O nível do inventário para o produto a seguir está abaixo do que você "
+"solicitou, portanto, não foi possível dar prosseguimento à finalização da "
+"compra: {productName}"
+
+msgid "The coupon has been removed from your cart."
+msgstr "O cupom foi removido do seu carrinho."
+
+msgid "Forgot Password"
+msgstr "Esqueci a senha"
+
+msgid "Create Account"
+msgstr "Criar conta"
+
+msgid "Your Account Has Been Created"
+msgstr "Sua conta foi criada"
+
+msgid "Sign in"
+msgstr "Entrar"
+
+msgid ""
+"If the entered email address is associated with this store, you will receive "
+"a password reset email. If you don't receive this e-mail, please check your "
+"junk mail folder or contact us for further assistance."
+msgstr ""
+"Se o endereço de email informado estiver associado a esta loja, você vai "
+"receber um email de redefinição de senha. Se não receber este email, "
+"verifique a pasta onde fica o lixo eletrônico ou entre em contato conosco "
+"para receber mais ajuda."
+
+msgid ""
+"The link you were given in the Request Password email is invalid. Please "
+"request another new password to receive a new link."
+msgstr ""
+"O link que você recebeu no email de solicitação de senha é inválido. "
+"Solicite outra senha nova para receber outro link."
+
+msgid ""
+"An internal error occurred while trying to change your password. Please try "
+"again."
+msgstr ""
+"Ocorreu um erro interno enquanto tentávamos alterar a sua senha. Tente "
+"novamente."
+
+msgid "Sorry, your passwords do not match. Please try again."
+msgstr "Desculpe, suas senhas não correspondem. Tente novamente."
+
+msgid ""
+"Passwords must be at least 7 characters and contain both alphabetic and "
+"numeric characters."
+msgstr ""
+"As senhas devem ter pelo menos sete caracteres e conter caracteres "
+"alfabéticos e numéricos."
+
+msgid "You need to sign in to access this page."
+msgstr "É necessário entrar na sua conta para acessar a página."
+
+msgid "Your password has been successfully updated."
+msgstr "Sua senha foi atualizada."
+
+msgid "Please provide a valid return URL"
+msgstr "Informe um URL de devolução válido"
+
+msgid "Please type in a valid email address, such as joe@example.com"
+msgstr "Digite um endereço de email válido, por exemplo jose@exemplo.com"
+
+msgid ""
+"Too many requests made when trying to send password-less login, please try "
+"again later."
+msgstr ""
+"Houve muitas solicitações na tentativa de acesso sem senha, tente novamente "
+"mais tarde."
+
+msgid "Email failed to send, please try again later."
+msgstr "O email não foi enviado, tente novamente mais tarde."
+
+msgid ""
+"You left some items from a previous cart. We have added those items to your "
+"current cart."
+msgstr ""
+"Você deixou alguns itens em um carrinho anterior. Adicionamos esses itens ao "
+"seu carrinho atual."
+
+msgid "The captcha you entered is incorrect. Please try again."
+msgstr "O captcha que você inseriu está incorreto. Tente novamente."
+
+msgid ""
+"Your email address or password is incorrect. Please try again. If you've "
+"forgotten your sign in details, just click the 'Forgot your password?' link "
+"below."
+msgstr ""
+"Seu endereço de email ou senha está incorreto. Tente novamente. Caso tenha "
+"esquecido suas informações de acesso, basta clicar no link 'Esqueceu sua "
+"senha?' abaixo."
+
+msgid ""
+"Due to excessive login attempts, please wait %s seconds before attempting to "
+"log in again."
+msgstr ""
+"Você fez muitas tentativas de acesso, aguarde %s segundos para tentar "
+"novamente."
+
+msgid ""
+"You must reset your password before you may log in again. Please check your "
+"email at :email to reset your password"
+msgstr ""
+"É necessário redefinir a sua senha para poder entrar novamente. Verifique "
+"seu email em :email para redefinir sua senha"
+
+msgid "You cannot create an account at this time."
+msgstr "Você não pode criar uma conta no momento."
+
+msgid "Click here to continue."
+msgstr "Clique aqui para prosseguir."
+
+msgid "Click here to continue shopping"
+msgstr "Clique aqui para continuar comprando"
+
+msgid "The email address %s is already in use. Please enter a different one."
+msgstr "O endereço de email %s já está sendo usado. Informe outro."
+
+msgid ""
+"Please type in a valid phone number containing at least 3 numbers. The only "
+"special characters allowed are: :allowedchars"
+msgstr ""
+"Digite um número de telefone válido que contenha pelo menos três números. Os "
+"únicos caracteres especiais permitidos são: :allowedchars"
+
+msgid "Your passwords don't match."
+msgstr "Suas senhas não correspondem."
+
+msgid ""
+"An internal error occurred while trying to create your account. Please try "
+"again."
+msgstr ""
+"Ocorreu um erro interno enquanto tentávamos criar sua conta. Tente novamente."
+
+msgid ""
+"<a href='%s/login.php' onclick='%s'>Sign in</a> or <a href='%s/login.php?"
+"action=logout' onclick='%s'>sign out</a>"
+msgstr ""
+"<a href='%s/login.php' onclick='%s'>Entrar</a> ou <a href='%s/login.php?"
+"action=logout' onclick='%s'>sair</a>"
+
+msgid ""
+"<a href='%s/login.php' onclick='%s'>Sign in</a> or <a href='%s/login.php?"
+"action=create_account' onclick='%s'>Create an account</a>"
+msgstr ""
+"<a href='%s/login.php' onclick='%s'>Entre</a> ou <a href='%s/login.php?"
+"action=create_account' onclick='%s'>crie uma conta</a>"
+
+msgid "You've been logged out of your account successfully."
+msgstr "Você foi desconectado da sua conta."
+
+msgid "Token is missing."
+msgstr "Falta o token."
+
+msgid ""
+"Sign in failed. The provided token has expired or already been used. Please "
+"try again."
+msgstr ""
+"Acesso negado. O token informado expirou ou já foi usado. Tente novamente."
+
+msgid "Please choose a valid amount for this gift certificate."
+msgstr "Escolha um valor válido para este vale-presente."
+
+msgid "Please enter a valid amount for this gift certificate."
+msgstr "Insira um valor válido para este vale-presente."
+
+msgid ""
+"Please enter an amount between the minimum and maximum gift certificate "
+"value."
+msgstr "Insira um valor entre o valor mínimo e máximo para o vale-presente."
+
+msgid ""
+"Please enter the name of the person you wish to send this gift certificate "
+"to."
+msgstr ""
+"Informe o nome da pessoa para quem você deseja enviar este vale-presente."
+
+msgid ""
+"Please enter a valid email address for the person you wish to send this gift "
+"certificate to."
+msgstr ""
+"Informe um endereço de email válido da pessoa para quem você deseja enviar "
+"este vale-presente."
+
+msgid "Please enter your name."
+msgstr "Informe seu nome."
+
+msgid "Please enter your email address."
+msgstr "Informe seu endereço de email."
+
+msgid "Please enter a shorter message for your gift certificate."
+msgstr "Digite uma mensagem menor no seu vale-presente."
+
+msgid "Please select a theme for your gift certificate."
+msgstr "Selecione um tema para o vale-presente."
+
+msgid "Cannot purchase a Gift Certificate using a Gift Certificate"
+msgstr "Não é possível comprar vales-presentes utilizando um vale-presente"
+
+msgid "Your gift certificate has been updated successfully."
+msgstr "Seu vale-presente foi atualizado."
+
+msgid "Your gift certificate has been generated and saved in your cart."
+msgstr "Seu vale-presente foi gerado e salvo no seu carrinho."
+
+msgid "The selected product combination doesn't exist."
+msgstr "A combinação de produtos selecionada não existe."
+
+msgid "Please enter a valid product quantity."
+msgstr "Insira uma quantidade de produto válida."
+
+msgid "Please enter a title, text and rating for your review."
+msgstr "Insira um título, um texto e uma classificação para a sua avaliação."
+
+msgid ""
+"You are only allowed to post :number product review every :duration. Please "
+"try again later."
+msgstr ""
+"Você tem permissão somente para publicar :number avaliações de produto a "
+"cada :duration. Tente novamente mais tarde."
+
+msgid "The email you entered is incorrect. Please type it again."
+msgstr "O email que você informou está incorreto. Digite-o novamente."
+
+msgid "An internal error occurred while trying to save your review."
+msgstr "Ocorreu um erro interno enquanto tentávamos salvar a sua avaliação."
+
+msgid "Your review was saved and is shown below."
+msgstr "A sua avaliação foi salva e está exibida abaixo."
+
+msgid "Your review was saved and is pending approval."
+msgstr "A sua avaliação foi salva, mas a aprovação está pendente."
+
+msgid "Only customers who have purchased this item can review it."
+msgstr "Somente os clientes que compraram este item podem avalia-lo."
+
+msgid "Oops..."
+msgstr "Epa..."
+
+msgid "Please enter your name and email address before submitting this form."
+msgstr "Informe o seu nome e endereço de email para enviar este formulário."
+
+msgid ""
+"Sorry, your request could not be processed as it contained an invalid "
+"security token. Please refresh and try again."
+msgstr ""
+"Não foi possível processar sua solicitação pois continha um token de "
+"segurança inválido. Atualize e tente novamente."
+
+msgid "Newsletter Subscription"
+msgstr "Assinatura do boletim informativo"
+
+msgid "Please enter a valid email address, such as john@example.com."
+msgstr "Informe um endereço de email válido, por exemplo joao@exemplo.com."
+
+msgid "The email address %s is already subscribed to receive our newsletter."
+msgstr ""
+"O endereço de email %s já está na lista para receber nosso boletim "
+"informativo."
+
+msgid "Thanks for Subscribing!"
+msgstr "Obrigado por se inscrever!"
+
+msgid ""
+"Thank you for joining our mailing list. You'll be sent the next issue of our "
+"newsletter shortly."
+msgstr ""
+"Obrigado por participar da nossa mala direta. Você vai receber a próxima "
+"edição do nosso boletim informativo em breve."
+
+msgid "Continue"
+msgstr "Continuar"
+
+msgid ""
+"The gift certificate you entered couldn't be applied to any items in your "
+"order."
+msgstr ""
+"Não foi possível aplicar o vale-presente que você inseriu a nenhum item do "
+"seu pedido."
+
+msgid "The gift certificate {code} does not exist"
+msgstr "O vale-presente {code} não existe"
+
+msgid "Please enter a valid zip code/postcode or state."
+msgstr "Informe um código postal ou um estado válido."
+
+msgid "Please select a valid state."
+msgstr "Selecione um estado válido."
+
+msgid "Please enter a valid zip code/postcode."
+msgstr "Informe um CEP/código postal válido."
+
+msgid ""
+"Unfortunately one or more items in your cart can't be shipped to your "
+"location. Please choose a different delivery address."
+msgstr ""
+"Infelizmente, um ou mais itens presentes no seu carrinho não podem ser "
+"enviados para a sua localização. Selecione outro endereço de entrega."
+
+msgid "Unable to retrieve shipping quote. Please try again or contact support."
+msgstr ""
+"Não foi possível cotar o frete. Tente novamente ou entre em contato com o "
+"suporte."
+
+msgid "Passwords must be at least :length characters and contain: "
+msgstr "As senhas devem ter pelo menos :length caracteres e devem conter: "
+
+msgid "lower case letters"
+msgstr "letras minúsculas"
+
+msgid "upper case letters"
+msgstr "letras maiúsculas"
+
+msgid "at least :numbers "
+msgstr "pelo menos :numbers "
+
+msgid "at least :specialchars "
+msgstr "pelo menos :specialchars "
+
+msgid ""
+"Subject to Status. Terms and Conditions Apply. {merchantName} acts as a "
+"broker and offers credit from PayPal Credit.\n"
+"PayPal Credit is a trading name of PayPal (Europe) .à.r.l. et Cie, S.C.A., "
+"22-24 Boulevard Royal L-2449, Luxembourg."
+msgstr ""
+"Sujeito ao status. Os termos e condições se aplicam. {merchantName} atua "
+"como corretor e oferece crédito do PayPal Credit.\n"
+"PayPal Credit é um nome comercial do PayPal (Europa) .à.r.l. et Cie, S.C.A., "
+"22-24 Boulevard Royal L-2449, Luxemburgo."
+
+msgid "Add payment method"
+msgstr "Adicionar método de pagamento"
+
+msgid "Address Book"
+msgstr "Catálogo de endereços"
+
+msgid "Address Form"
+msgstr "Formulário de endereço"
+
+msgid "Your Orders"
+msgstr "Seus pedidos"
+
+msgid "Order #{id}"
+msgstr "Pedido N.º {id}"
+
+msgid "Files"
+msgstr "Arquivos"
+
+msgid "Account Details"
+msgstr "Detalhes da conta"
+
+msgid "Edit Payment Method"
+msgstr "Editar método de pagamento"
+
+msgid "Your Messages"
+msgstr "Suas mensagens"
+
+msgid "Login"
+msgstr "Acesso"
+
+msgid "Reset Password"
+msgstr "Redefinir senha"
+
+msgid "Create New Return"
+msgstr "Criar nova devolução"
+
+msgid "Your Account"
+msgstr "Sua conta"
+
+msgid "Payment Methods"
+msgstr "Métodos de pagamento"
+
+msgid "Recently Viewed Items"
+msgstr "Itens vistos recentemente"
+
+msgid "Your Returns"
+msgstr "Suas devoluções"
+
+msgid "Return Saved"
+msgstr "Devolução salva"
+
+msgid "New Wishlist"
+msgstr "Nova lista de desejos"
+
+msgid "Edit Wishlist"
+msgstr "Editar lista de desejos"
+
+msgid "Your Wishlists"
+msgstr "Suas listas de desejos"
+
+msgid "All Brands"
+msgstr "Todas as marcas"
+
+msgid "Your Cart"
+msgstr "Seu carrinho"
+
+msgid "Compare Products"
+msgstr "Comparar produtos"
+
+msgid "Error"
+msgstr "Erro"
+
+msgid "Gift Certificates"
+msgstr "Vales-presente"
+
+msgid "Search"
+msgstr "Pesquisar"
+
+msgid "Sitemap"
+msgstr "Mapa do site"
+
+msgid "View Wishlist"
+msgstr "Ver lista de desejos"
+
+msgid "View Shared Wishlist"
+msgstr "Ver lista de desejos compartilhada"
+
+msgid "Home"
+msgstr "Página inicial"
