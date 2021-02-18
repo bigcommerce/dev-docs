@@ -283,4 +283,4 @@ Accept: application/json
 * [Widget UI Schema](https://developer.bigcommerce.com/stencil-docs/page-builder/widget-ui-schema)
 
 ### Endpoints 
-* [Widgets API](/api-reference/storefront/widgets-api)
+* [Widgets API](/api-reference/store-management/widgets)

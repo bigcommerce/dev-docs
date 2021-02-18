@@ -30,7 +30,7 @@ Process payments using a sequence of requests to two API hosts:
 
 ## PCI compliance
 
-BigCommerce is only responsible for the security of credit cards to the extent that secure handling is maintained while the payment is en route from payment request to payment processors. As a third-party developer, you are responsible for developing the storefronts or recurring billing apps in a PCI compliant manner. You will also need to maintain a PCI compliance certification for third-party service providers certified by an external Qualified Security Assessor (QSA). 
+BigCommerce is only responsible for the security of credit cards to the extent that secure handling is maintained while the payment is en route from payment request to payment processors. As a third-party developer, you are responsible for developing the storefronts or recurring billing apps in a PCI compliant manner. You will also need to maintain a PCI compliance certification for third-party service providers certified by an external Qualified Security Assessor (QSA).
 
 Merchants or shoppers' personal identifiable information (PII) collected by recurring billing apps that consume the BigCommerce Payments API must have its own Privacy Policy sufficient to the requirements of the European Union General Data Protection Requirements (GDPR). The GDPR must be available and displayed to the general public.
 
@@ -551,7 +551,7 @@ A declined payment will return a 4XX error with details if available.
 If you configure a payment gateway for authorization only, authorization happens at the time of processing. You will need to capture the order later through the control panel. If you configure a payment gateway for authorization and capture, the payment will be authorized and captured at the time of processing.
 
 ### Control panel
-Orders created and captured via the API will look the same as other orders created via the storefront or other apps. The order source will be “Checkout API.”
+Orders created and captured via the API will look the same as other orders created via the storefront or other apps. The order source will be "Checkout API".
 
 ### Data access
 The card data is not accessible via the API once the payment is processed.
@@ -629,6 +629,10 @@ The Payment Processing API is for processing payments through a store's payment 
 
 **Are offline payment methods supported?**
 The Payments API processes credit card payments through supported payment gateways; it does not expose methods for processing [offline payment methods](https://support.bigcommerce.com/s/article/Offline-Payment-Methods) such as cash on delivery.
+
+**Is Strong Customer Authentication supported?**
+
+Payment gateways that use 3D Secure meet the EU's Strong Customer Authentication regulation requirements. To see which BigCommerce supported payment gateways use 3D Secure, refer to the Help Center's [Available Payment Gateways](https://support.bigcommerce.com/s/article/Available-Payment-Gateways#all-available) page.
 
 ## Related resources
 

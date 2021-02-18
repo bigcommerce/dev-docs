@@ -1600,7 +1600,7 @@ For further details about catalog price properties, please see [Catalog Price Ob
   </tr>
   <tr>
     <td><span class="indent3"> name</span></td>
-    <td>Display name for the option ("Small", “Medium”, etc.)</td>
+    <td>Display name for the option ("Small", "Medium", etc.)</td>
   </tr>
   <tr>
     <td><span class="indent3"> value</span></td>
