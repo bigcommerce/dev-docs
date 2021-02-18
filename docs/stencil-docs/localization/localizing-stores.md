@@ -34,6 +34,8 @@ A BigCommerce storefront can be customized to display in any one language of you
 
 ## Localizing theme files
 
+Localize your theme by adding translation files via Stencil CLI.
+
 ### Translating theme files by Stencil CLI
 
 The bulk of localizing a store is translating content on your theme's page templates. You will need to abstract these templates' literal text strings into `{{lang}}` variables, then provide per-language JSON files that define these variables in corresponding key/value pairs.
