@@ -6,7 +6,7 @@
 - [Storefront APIs](#storefront-apis)
 - [Management APIs](#management-apis)
 - [Provider APIs](#provider-apis)
-- [Deprecations and sunsets](#deprecations-and-sunsets)
+- [Resources](#resources)
 
 </div>
 
@@ -68,51 +68,7 @@ Implement endpoints consumed by BigCommerce for custom integrations (ex: custom 
 
 [Learn more about the Shipping Provider API](https://developer.bigcommerce.com/api-docs/store-management/shipping/shipping-provider-api).
 
-## Deprecations and sunsets
+## Resources
 
-### Deprecations
-
-The following endpoints are deprecated.
-
-| Endpoints | Replacements |
-|-|-|
-|`/v2/brands`| [V3 Brands](https://developer.bigcommerce.com/api-reference/catalog/catalog-api/brands/getbrands)|
-|`/v2/categories`| [V3 Categories](https://developer.bigcommerce.com/api-reference/catalog/catalog-api/category/getcategories)|
-|`/v2/customers`| [V3 Customers](https://developer.bigcommerce.com/api-reference/customer-subscribers/v3-customers-api)|
-|`/v2/options`| [V3 Options](https://developer.bigcommerce.com/api-reference/catalog/catalog-api/product-options), [V3 Modifiers](https://developer.bigcommerce.com/api-reference/catalog/catalog-api/product-modifiers) |
-|`/v2/option_sets`|[V3 Options](https://developer.bigcommerce.com/api-reference/catalog/catalog-api/product-options), [V3 Variants](https://developer.bigcommerce.com/api-reference/catalog/catalog-api/product-variants)|
-|`/v2/products `| [V3 Products](https://developer.bigcommerce.com/api-reference/catalog/catalog-api/products/getproducts)|
-|`/v2/redirects`|[V3 Redirects](https://developer.bigcommerce.com/api-reference/storefront/redirects)|
-
-
-
-<div class="HubBlock--callout">
-<div class="CalloutBlock--info">
-<div class="HubBlock-content">
-
-> ### Note
-> * Deprecated endpoints are no longer supported by BigCommerce; their use is discouraged.
-> * In V3, `options` and `modifiers` attach directly to products. Use `options` and `modifiers` together to access the contents of the former V2 `options` response.
-> * `option_sets` endpoint is intentionally not available in the V3 API. See [Difference between V2 and V3 Catalog APIs](https://developer.bigcommerce.com/api-docs/store-management/catalog/v2-vs-v3#difference-between-v2-and-v3-catalog-apis) for more information.
-
-</div>
-</div>
-</div>
-
-### Sunsets
-
-The following operations are scheduled to be removed.
-
-| Operation | Endpoints | Sunset | Replacement |
-|-|-|-|-|
-| `DELETE Collection` | `/v2/customers`| May 10, 2020| [`DELETE /v3/customers`](https://developer.bigcommerce.com/api-reference/customer-subscribers/v3-customers-api/customers/customersdelete)|
-| `DELETE Collection` | `/v2/option_sets`| May 10, 2020| None; can still be deleted individually by ID.|
-| `DELETE Collection` | `/v2/products`| May 10, 2020| [`DELETE /v3/catalog/products`](https://developer.bigcommerce.com/api-reference/catalog/catalog-api/products/deleteproducts)|
-
-The following properties are scheduled to be removed.
-
-| Property | Endpoints | Sunset | Replacement |
-|-|-|-|-|
-|`is_activated`| [Channels](https://developer.bigcommerce.com/api-reference/cart-checkout/channels-listings-api/channels/listchannels) | May, 10, 2020 | `status` |
-
-[Learn more about V2 vs V3 API](https://developer.bigcommerce.com/api-docs/store-management/catalog/v2-vs-v3).
+- [Deprecations and Sunsets](https://developer.bigcommerce.com/api-docs/getting-started/deprecations-and-sunsets)
+- [Difference between V2 and V3 Catalog REST APIs](https://developer.bigcommerce.com/api-docs/store-management/catalog/v2-vs-v3)
