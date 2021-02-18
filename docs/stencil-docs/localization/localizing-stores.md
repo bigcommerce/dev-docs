@@ -156,7 +156,8 @@ The BigCommerce platform does not currently support translation of gift certific
 * [French](https://bigcommerce.github.io/dev-docs/assets/PO/storefront-fr-FR.po)
 * [German](https://bigcommerce.github.io/dev-docs/assets/PO/storefront-de-DE.po)
 * [Italian](https://bigcommerce.github.io/dev-docs/assets/PO/storefront-it-IT.po)
-* [Portuguese Brazil](https://bigcommerce.github.io/dev-docs/assets/PO/storefront-pt-BR.po)
+* [Portuguese (Brazil)](https://bigcommerce.github.io/dev-docs/assets/PO/storefront-pt-BR.po)
+
 * [Spanish (Mexico)](https://bigcommerce.github.io/dev-docs/assets/PO/storefront-es-MX.po)
 * [Spanish (Spain)](https://bigcommerce.github.io/dev-docs/assets/PO/storefront-es-ES.po)
 * [Swedish](https://bigcommerce.github.io/dev-docs/assets/PO/storefront-sv-SE.po)
