@@ -86,7 +86,7 @@ paths:
         - name: 'id:in'
           in: query
           description: |-
-            Filter items by id.
+            Filter items by ID.
             `id:in=4,5,6`
           style: form
           explode: false
@@ -417,7 +417,7 @@ paths:
         - in: query
           name: 'id:in'
           description: |-
-            Filter items by id.
+            Filter items by ID.
             `id:in=4,5,6`
           required: true
           style: form
@@ -466,9 +466,9 @@ paths:
             type: array
             items:
               type: string
-        - name: name
+        - name: name:in
           in: query
-          description: 'Filter items by first_name and last_name. `name=moriarty,holmes`'
+          description: 'Filter items by first_name and last_name. `name:in=James+Moriarty`'
           style: form
           explode: false
           schema:
@@ -477,7 +477,7 @@ paths:
               type: string
         - in: query
           name: 'customer_id:in'
-          description: 'The ID of the customer. `customer_id:in=23,24,55`'
+          description: 'Filter by the ID of the customer. Also accepts comma-separated IDs to filter for multiple customers. `customer_id:in=23,24,55`'
           style: form
           explode: false
           schema:
@@ -497,7 +497,7 @@ paths:
         - name: 'id:in'
           in: query
           description: |-
-            Filter items by id.
+            Filter items by ID.
             `id:in=4,5,6`
           style: form
           explode: false
@@ -683,7 +683,7 @@ paths:
           name: 'id:in'
           required: true
           description: |-
-            Filter items by id.
+            Filter items by ID.
             `id:in=4,5,6`
           style: form
           explode: false
@@ -714,63 +714,63 @@ paths:
           description: Items count per page. `limit=50`
           schema:
             type: number
-        - name: 'name:in'
+        - name: 'name'
           in: query
           required: false
-          description: Filter items by first_name and last_name.
+          description: Filter items by customer attribute name `name=Date+Joined`
           schema:
             type: string
         - name: 'name:like'
           in: query
           required: false
-          description: Filter items by substring in first_name and last_name (%substring% - use with % symbols).
+          description: Filter items by substring in customer attribute name. `name:like=join`
           schema:
             type: string
         - name: type
           in: query
           required: false
-          description: The type of the customer attrribute.
+          description: The type of the customer attribute.
           schema:
             type: string
         - name: date_created
           in: query
           required: false
-          description: Filter items by date_created.
+          description: Filter items by `date_created`. `date_created=2021-01-07T20:28:16Z`
           schema:
             type: string
             format: date-time
         - name: 'date_created:max'
           in: query
           required: false
-          description: Filter items by date_created.
+          description: Filter items by maximum `date_created`. ISO 8601 full-date is required, ISO 8601 full-time is not required. UNIX timestamp also accepted. `date_created=2021-01-07` or `date_created=1610051296000`
           schema:
             type: string
             format: date-time
         - name: 'date_created:min'
           in: query
           required: false
-          description: Filter items by date_created.
+          description: Filter items by minimum `date_created`. ISO 8601 full-date is required, ISO 8601 full-time is not required. UNIX timestamp also accepted. `date_created=2021-01-07` or `date_created=1610051296000`
           schema:
             type: string
             format: date-time
         - name: date_modified
           in: query
           required: false
-          description: Filter items by date_modified.
+          description: Filter items by `date_modified`.
           schema:
             type: string
             format: date-time
         - name: 'date_modified:max'
           in: query
           required: false
-          description: Filter items by date_modified.
+          description: Filter items by maximum `date_modified`. ISO 8601 full-date is required, ISO 8601 full-time is not required. UNIX timestamp also accepted. `date_created=2021-01-07` or `date_created=1610051296000`
           schema:
             type: string
             format: date-time
         - name: 'date_modified:min'
           in: query
           required: false
-          description: Filter items by date_modified.
+          description: Filter items by minimum `date_modified`. ISO 8601 full-date is required, ISO 8601 full-time is not required. UNIX timestamp also accepted. `date_created=2021-01-07` or `date_created=1610051296000`
           schema:
             type: string
             format: date-time
@@ -935,7 +935,7 @@ paths:
         - name: 'id:in'
           in: query
           required: true
-          description: Filter items by id.
+          description: Filter items by ID.
           style: form
           explode: false
           schema:
@@ -988,7 +988,7 @@ paths:
             type: number
         - in: query
           name: 'customer_id:in'
-          description: 'The ID of the customer. `customer_id:in=23,24,55`'
+          description: 'Filter items by the customer ID. `customer_id:in=23,24,55`'
           style: form
           explode: false
           schema:
@@ -997,7 +997,7 @@ paths:
               type: integer
         - name: 'attribute_id:in'
           in: query
-          description: 'The attribute id for which we should return values. `attribute_id:in=1,2`'
+          description: 'Filter items by the attribute ID. `attribute_id:in=1,2`'
           style: form
           explode: false
           schema:
@@ -1006,41 +1006,41 @@ paths:
               type: integer
         - name: name
           in: query
-          description: The attribute name for which we should return values. `name=age`
+          description: Filter items by the attribute name. `name=age`
           schema:
             type: string
         - name: date_created
           in: query
-          description: 'Filter items by date_created. `date_created=2018-09-05T13:43:54`'
+          description: 'Filter items by `date_created`. `date_created=2018-09-05T13:43:54`'
           schema:
             type: string
             format: date-time
         - name: 'date_created:max'
           in: query
-          description: 'Filter items by maximum date_created. `date_created:max=2018-09-10`'
+          description: 'Filter items by maximum `date_created`. ISO 8601 full-date is required, ISO 8601 full-time is not required. UNIX timestamp also accepted. `date_created=2021-01-07` or `date_created=1610051296000`'
           schema:
             type: string
         - name: 'date_created:min'
           in: query
-          description: 'Filter items by date_created. `date_created:min=2018-09-05`'
+          description: 'Filter items by minimum `date_created`. ISO 8601 full-date is required, ISO 8601 full-time is not required. UNIX timestamp also accepted. `date_created=2021-01-07` or `date_created=1610051296000`'
           schema:
             type: string
             format: date-time
         - name: date_modified
           in: query
-          description: 'Filter items by date_modified. `date_modified=2018-09-05T13:45:03`'
+          description: 'Filter items by `date_modified`. `date_modified=2018-09-05T13:45:03`'
           schema:
             type: string
             format: date-time
         - name: 'date_modified:max'
           in: query
-          description: 'Filter items by maximum date_modified `date_modified:max=2018-09-05T13:45:03` or `date_modified:max=2019-09-04`'
+          description: 'Filter items by maximum `date_modified`. ISO 8601 full-date is required, ISO 8601 full-time is not required. UNIX timestamp also accepted. `date_created=2021-01-07` or `date_created=1610051296000`'
           schema:
             type: string
             format: date-time
         - name: 'date_modified:min'
           in: query
-          description: 'Filter items by mininum date_modified. `date_modified:min=2019-09-04T:00:00:00` or `date_modified:min=2019-09-04`'
+          description: 'Filter items by mininum `date_modified`. ISO 8601 full-date is required, ISO 8601 full-time is not required. UNIX timestamp also accepted. `date_created=2021-01-07` or `date_created=1610051296000`'
           schema:
             type: string
       responses:
@@ -1143,7 +1143,7 @@ paths:
           in: query
           required: true
           description: |-
-            Filter items by id.
+            Filter items by ID.
             `id:in=4,5,6`
           style: form
           explode: false
@@ -1224,23 +1224,23 @@ paths:
             type: number
         - in: query
           name: customer_id
-          description: The ID of the *Customer*.
+          description: Filter by the customer ID.
           schema:
             type: integer
         - name: address_id
           in: query
-          description: The ID of the *Customer Address*.
+          description: Filter by the ID of the customer address.
           schema:
             type: integer
         - name: field_name
           in: query
-          description: The fields name.
+          description: Filter by the field name.
           schema:
             type: string
         - name: field_type
           in: query
           description: |-
-            The field type.
+            Filter by the field type.
              * `checkboxes` - checkboxes field
              * `date` - date field
              * `multiline` - multiline text field
@@ -1310,7 +1310,7 @@ paths:
                     customer_id: 0
   /customers/{customerId}/consent:
     get:
-      description: Gets the customer consent.
+      description: Gets the status of a customer's consent to allow data collection by cookies and scripts while shopping on a storefront.
       summary: Get Customer Consent
       tags:
         - Customer Consent
@@ -1340,7 +1340,7 @@ paths:
               schema:
                 $ref: '#/components/schemas/ErrorResponse'
     put:
-      description: Updates the customer consent.
+      description: Updates the status of a customer's consent to allow data collection by cookies and scripts while shopping on a storefront.
       summary: Update Customer Consent
       tags:
         - Customer Consent
@@ -1505,7 +1505,7 @@ components:
       name: 'id:in'
       in: query
       description: |-
-        Filter items by id.
+        Filter items by ID.
         `id:in=4,5,6`
       style: form
       explode: false
@@ -1588,7 +1588,7 @@ components:
     FilterCustomerAttributeTypeParam:
       name: type
       in: query
-      description: The type of the customer attrribute. `type=string`
+      description: The type of the customer attribute. `type=string`
       schema:
         type: string
         enum:
@@ -1667,7 +1667,7 @@ components:
     FilterAttributeIdParam:
       name: 'attribute_id:in'
       in: query
-      description: 'The attribute id for which we should return values. `attribute_id:in=1,2`'
+      description: 'The attribute ID for which we should return values. `attribute_id:in=1,2`'
       style: form
       explode: false
       schema:
@@ -3743,7 +3743,7 @@ components:
           minLength: 0
           maxLength: 255
         customer_group_id:
-          description: Id of the group which this customer belongs to.
+          description: ID of the group which this customer belongs to.
           type: integer
           format: int32
         id:
@@ -3837,7 +3837,7 @@ components:
           minLength: 0
           maxLength: 255
         customer_group_id:
-          description: Id of the group which this customer belongs to.
+          description: ID of the group which this customer belongs to.
           type: integer
           format: int32
         addresses:
@@ -3906,7 +3906,7 @@ components:
           minLength: 0
           maxLength: 255
         customer_group_id:
-          description: Id of the group which this customer belongs to.
+          description: ID of the group which this customer belongs to.
           type: integer
           format: int32
         id:
@@ -4617,7 +4617,7 @@ components:
           minLength: 0
           maxLength: 255
         customer_group_id:
-          description: Id of the group which this customer belongs to.
+          description: ID of the group which this customer belongs to.
           type: integer
           format: int32
     customerAttributes_Full:
