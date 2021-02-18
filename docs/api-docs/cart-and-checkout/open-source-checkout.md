@@ -90,3 +90,4 @@ To install a custom checkout on a store, follow these steps:
 ### Articles
 - [Checkout SDK](https://developer.bigcommerce.com/stencil-docs/customizing-checkout/checkout-sdk)
 - [File Access (WebDav)](https://support.bigcommerce.com/s/article/File-Access-WebDAV)
+- [Installing Custom Checkouts in the Control Panel](https://support.bigcommerce.com/s/blog-article/aAn4O000000CdFGSA0/installing-custom-checkouts-in-the-control-panel)
