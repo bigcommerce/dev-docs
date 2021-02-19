@@ -9,11 +9,13 @@
 
 </div>
 
+This article provides a reference for deprecated APIs and exposes BigCommerce's plans to sunset specific API operations and properties. We recommend setting up a feed alert for our [Developer Changelog](https://developer.bigcommerce.com/changelog) to receive the most up-to-date information about API changes.
+
 ## Deprecations
 
-The following endpoints are deprecated. We discourage using these endpoints as they are no longer supported by BigCommerce. Instead, consider using the provided V3 replacements.
+The following V2 APIs are deprecated. We discourage using these APIs as BigCommerce no longer supports them. Instead, consider using the provided V3 replacements.
 
-| Endpoints | Replacements |
+| Deprecated API | Replacement |
 |-|-|
 |`/v2/brands`| [V3 Brands](https://developer.bigcommerce.com/api-reference/catalog/catalog-api/brands/getbrands)|
 |`/v2/categories`| [V3 Categories](https://developer.bigcommerce.com/api-reference/catalog/catalog-api/category/getcategories)|
@@ -30,7 +32,7 @@ The following endpoints are deprecated. We discourage using these endpoints as t
 
 > ### Note
 > * In V3, `options` and `modifiers` attach directly to products. Use `options` and `modifiers` together to access the contents of the former V2 `options` response.
-> * `option_sets` endpoint is intentionally not available in the V3 API. See [Difference between V2 and V3 Catalog APIs](https://developer.bigcommerce.com/api-docs/store-management/catalog/v2-vs-v3#difference-between-v2-and-v3-catalog-apis) for more information.
+> * `option_sets` endpoint is intentionally not available in the V3 API. For more information, see [Difference between V2 and V3 Catalog APIs](https://developer.bigcommerce.com/api-docs/store-management/catalog/v2-vs-v3#difference-between-v2-and-v3-catalog-apis).
 
 </div>
 </div>
@@ -38,21 +40,21 @@ The following endpoints are deprecated. We discourage using these endpoints as t
 
 ## Sunsets
 
-The following operations are scheduled to be removed.
+BigCommerce has scheduled the removal of the following operations.
 
-| Operation | Endpoints | Sunset | Replacement |
+| Sunset operation | Endpoint | Sunset date | Replacement |
 |-|-|-|-|
-| `DELETE Collection` | `/v2/customers`| March 31, 2021| [`DELETE /v3/customers`](https://developer.bigcommerce.com/api-reference/customer-subscribers/v3-customers-api/customers/customersdelete)|
+| `DELETE Collection` | `/v2/customers`| March 31, 2021| [`DELETE /v3/customers`](https://developer.bigcommerce.com/api-reference/store-management/customers-v3/customers/customersdelete)|
 | `DELETE Collection` | `/v2/option_sets`| May 10, 2020| None; can still be deleted individually by ID.|
-| `DELETE Collection` | `/v2/products`| May 10, 2020| [`DELETE /v3/catalog/products`](https://developer.bigcommerce.com/api-reference/catalog/catalog-api/products/deleteproducts)|
+| `DELETE Collection` | `/v2/products`| May 10, 2020| [`DELETE /v3/catalog/products`](https://developer.bigcommerce.com/api-reference/store-management/catalog/products/deleteproducts)|
 
-The following properties are scheduled to be removed.
+BigCommerce has scheduled the removal of the following properties.
 
-| Property | Endpoints | Sunset | Replacement |
+| Sunset property | Endpoint | Sunset date | Replacement |
 |-|-|-|-|
-|`is_activated`| [Channels](https://developer.bigcommerce.com/api-reference/cart-checkout/channels-listings-api/channels/listchannels) | May, 10, 2020 | `status` |
+|`is_enabled`| [Channels](https://developer.bigcommerce.com/api-reference/store-management/channels/channels/listchannels) | May, 10, 2020 | `status` |
 
 ## Related resources 
 
-### Articles
-* [Learn more about V2 vs V3 API](https://developer.bigcommerce.com/api-docs/store-management/catalog/v2-vs-v3).
+* [Developer Changelog](https://developer.bigcommerce.com/changelog)
+* [Difference between V2 and V3 Catalog REST APIs](https://developer.bigcommerce.com/api-docs/store-management/catalog/v2-vs-v3)
