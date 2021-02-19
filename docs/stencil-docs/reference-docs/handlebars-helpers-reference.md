@@ -143,7 +143,6 @@ categories: [
     { "id": 3, "name": "Cutlery", "image": { "data": "http://...", "alt": "Cutlery image"} }
 ]
 ```
-
 ```handlebars
 {{pluck (limit categories 2) 'image.data'}}
 <!-- Returns a comma-separated list of image URLs. -->
@@ -155,7 +154,6 @@ categories: [
     { "user": "fred",   "age": 40, "image": { "url": "fred.jpg" } }
 ]
 ```
-
 ```handlebars
 {{pluck users "age"}}
 <!-- => 36,40 -->
@@ -371,6 +369,10 @@ Converts newline characters to `<br>` tags.
 <!-- results in: 'foo &#xA9; and & ampersand' -->
 ```
 
+{{encodeHtmlEntities "foo © and & ampersand" allowUnsafeSymbols="true"}}
+<!-- Returns a string with HTML entities encoded with allowUnsafeSymbols option. -->
+<!-- results in: 'foo &#xA9; and & ampersand' -->
+```
 ```handlebars
 {{nl2br settings.address}}
 <!-- => <br>685 Market St<br>San Francisco<br>94105<br>CA<br> -->
