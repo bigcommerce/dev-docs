@@ -70,6 +70,7 @@ The following table contains BigCommerce's open source [Handlebars helpers](http
 ```handlebars
 {{limit data limit}}
 ```
+
 Limits the number of items returned from an array; returns a new array.
 
 #### Parameters
@@ -118,6 +119,7 @@ Assume that `{{cart.items}}` returns 10 items. You can use this helper to limit 
 ```handlebars
 {{pluck limit collection path}}
 ```
+
 Retrieves corresponding values from some or all elements in a collection using specified search key(s). Returns retrieved values in a comma-separated string.
 
 #### Parameters
@@ -131,6 +133,7 @@ Retrieves corresponding values from some or all elements in a collection using s
 ```html
 {{pluck ([limit] <collection> [<limit-value>]) '<path>'}}
 ```
+
 If each category in `categories` contains an image object, use dot notation to access the image's children:
 
 ```json
@@ -140,6 +143,7 @@ categories: [
     { "id": 3, "name": "Cutlery", "image": { "data": "http://...", "alt": "Cutlery image"} }
 ]
 ```
+
 ```handlebars
 {{pluck (limit categories 2) 'image.data'}}
 <!-- Returns a comma-separated list of image URLs. -->
@@ -151,6 +155,7 @@ categories: [
     { "user": "fred",   "age": 40, "image": { "url": "fred.jpg" } }
 ]
 ```
+
 ```handlebars
 {{pluck users "age"}}
 <!-- => 36,40 -->
@@ -167,6 +172,7 @@ categories: [
 ```handlebars
 {{cdn assetPath}}
 ```
+
 A URL transformer for content delivery networks.
 
 #### Parameters
@@ -244,6 +250,7 @@ As highlighted above, the helper is configured to rewrite *local* URLs to an `as
 ```handlebars
 {{money value n s c}}
 ```
+
 Formats number length, thousands delimiter, and decimal delimiter.
 
 #### Parameters
@@ -266,6 +273,7 @@ Formats number length, thousands delimiter, and decimal delimiter.
 ```handlebars
 {{getFontLoaderConfig fontConfig}}
 ```
+
 Returns font-loader config as a JSON string.
 
 #### Parameters
@@ -286,6 +294,7 @@ Returns font-loader config as a JSON string.
 ```handlebars
 {{getFontsCollection}}
 ```
+
 Returns `<link>` elements for configured fonts.
 
 #### Example
@@ -303,6 +312,7 @@ Returns `<link>` elements for configured fonts.
 ```handlebars
 {{encodeHtmlEntities string args}}
 ```
+
 Returns a string with HTML entities encoded. You may optionally pass additional encoding arguments.
 
 #### Parameters
@@ -343,6 +353,7 @@ Returns a string with HTML entities encoded. You may optionally pass additional 
 ```handlebars
 {{nl2br text}}
 ```
+
 Converts newline characters to `<br>` tags.
 
 #### Parameters
@@ -359,6 +370,7 @@ Converts newline characters to `<br>` tags.
 <!-- Returns a string with HTML entities encoded with allowUnsafeSymbols option. -->
 <!-- results in: 'foo &#xA9; and & ampersand' -->
 ```
+
 ```handlebars
 {{nl2br settings.address}}
 <!-- => <br>685 Market St<br>San Francisco<br>94105<br>CA<br> -->
@@ -372,6 +384,7 @@ Converts newline characters to `<br>` tags.
 ```handlebars
 {{pre value}}
 ```
+
 Renders preformatted text. This helper will escape text.
 
 #### Parameters
@@ -398,6 +411,7 @@ Renders preformatted text. This helper will escape text.
 ```handlebars
 {{resourceHints}}
 ```
+
 Pre-fetches Google fonts. Outputs a formatted `<link>` tag for DNS-prefetch.
 
 #### Example
@@ -415,6 +429,7 @@ Pre-fetches Google fonts. Outputs a formatted `<link>` tag for DNS-prefetch.
 ```handlebars
 {{stylesheet assetPath}}
 ``` 
+
 Renders a link tag to insert a stylesheet into a theme; returns an HTML string. (This is required if you want Theme Editor to rewrite the stylesheet file when a merchant customizes their theme.)
 
 #### Parameters
@@ -436,6 +451,7 @@ Renders a link tag to insert a stylesheet into a theme; returns an HTML string. 
 ```handlebars
 {{lang translationKey}}
 ```
+
 Maps keys to translation files based on the locale indicated by the visitor’s browser. 
 
 #### Parameters
@@ -466,6 +482,7 @@ Maps keys to translation files based on the locale indicated by the visitor’s 
 ```handlebars
 {{langJson keyFilter}}
 ```
+
 Returns language translation keys as a JSON string.
 
 #### Parameters
@@ -487,6 +504,7 @@ Returns language translation keys as a JSON string.
 ```handlebars
 {{getContentImage path width height}}
 ```
+
 Returns a URL for an image uploaded to `/dav/content/`. To learn more about uploading files to your store's server, see [WebDAV](https://support.bigcommerce.com/s/article/File-Access-WebDAV).
 
 #### Parameters
@@ -520,6 +538,7 @@ Returns a URL for an image uploaded to `/dav/content/`. To learn more about uplo
 ```handlebars
 {{getContentImageSrcset path}}
 ```
+
 Returns a `srcset` for an image uploaded to `/dav/content/`.
 
 #### Parameters
@@ -544,6 +563,7 @@ Returns a `srcset` for an image uploaded to `/dav/content/`.
 ```handlebars
 {{getImage stencilImage size}}
 ```
+
 Returns `<img>` tag `src` value for images of a specified size. Values for the size parameter are defined in the `settings` array in [`config.json`](https://github.com/bigcommerce/cornerstone/blob/master/config.json).
 
 #### Parameters
@@ -566,6 +586,7 @@ Returns `<img>` tag `src` value for images of a specified size. Values for the s
 ```handlebars
 {{getImageManagerImage path width height}}
 ```
+
 Returns an [Image Manager](https://support.bigcommerce.com/s/article/Using-the-Image-Manager) image URL for an image uploaded to `/dav/product_images/uploaded_images`. To learn more about uploading files to your store's server, see [WebDAV](https://support.bigcommerce.com/s/article/File-Access-WebDAV).
 
 #### Parameters
@@ -601,6 +622,7 @@ Returns an [Image Manager](https://support.bigcommerce.com/s/article/Using-the-I
 ```handlebars
 {{getImageManagerImageSrcset path}}
 ```
+
 Returns an [Image Manager](https://support.bigcommerce.com/s/article/Using-the-Image-Manager) image `srcset` for an image uploaded to `/dav/product_images/uploaded_images`.
 
 #### Parameters
@@ -626,6 +648,7 @@ https://cdn.bcapp/3dsf74g/images/stencil/80w/image-manager/folder/asset.jpg 80w,
 ```handlebars
 {{getImageSrcset stencilImage size}}
 ```
+
 The `getImageSrcset` helper is a replacement for [`getImage`](#getImage) which allows you to generate either a single image URL (for an `<img>` `src`) or a list of image sizes for `srcset`. Using the [srcset](https://developer.mozilla.org/en-US/docs/Web/HTML/Element/img#attr-srcset) attribute, you can specify a list of image sizes for the browser to choose from based on the expected size of the image on the page, the device's pixel density, and other factors.
 
 #### Parameters
@@ -708,6 +731,7 @@ As above, you can reference `theme_settings` keys or specify your own size inlin
 ```handlebars
 {{any arg}}
 ```
+
 Renders block if one or more parameters are true. 
 
 #### Parameters
@@ -744,6 +768,7 @@ In this component, the `{{any}}` helper is used to determine whether a shopper h
 ```handlebars
 {{all arg}}
 ```
+
 Renders block if all parameters are true. 
 
 #### Parameters
@@ -774,6 +799,7 @@ Renders block if all parameters are true.
 ```handlebars
 {{compare a operator b}}
 ```
+
 Compares values with JavaScript operators. Renders block if comparison of the first and third parameters returns true.
 
 #### Parameters
@@ -801,6 +827,7 @@ Compares values with JavaScript operators. Renders block if comparison of the fi
 ```handlebars
 {{contains collection value}}
 ```
+
 Renders block if `collection` has the given `value`, using strict equality (`===`) for comparison, otherwise the inverse block is rendered (if specified). If a `startIndex` is specified and is negative, it is used as the offset from the end of the collection.
 
 #### Parameters
@@ -826,6 +853,7 @@ Renders block if `collection` has the given `value`, using strict equality (`===
 ```handlebars
 {{for a b}}
 ```
+
 Repeats block for a specified range from index `a` to index `b`. To protect against infinite loops, this helper is limited to 100 iterations.
 
 #### Parameters
@@ -849,6 +877,7 @@ Repeats block for a specified range from index `a` to index `b`. To protect agai
 ```handlebars
 {{if arg}}
 ```
+
 Renders `if` block when if-statement evaluates to true; otherwise renders `else` block.
 
 #### Parameters
@@ -875,6 +904,7 @@ Renders `if` block when if-statement evaluates to true; otherwise renders `else`
 ```handlebars
 {{or arg}}
 ```
+
 Renders block if one or more parameters evaluates to true.
 
 #### Parameters
@@ -903,6 +933,7 @@ Renders block if one or more parameters evaluates to true.
 ```handlebars
 {{unless arg}}
 ```
+
 Renders a block if a statement is false; does not support operators for comparison expressions.
 
 #### Parameters
@@ -930,6 +961,7 @@ Renders a block if a statement is false; does not support operators for comparis
 ```handlebars
 {{concat value otherValue}}
 ```
+
 Concatenates two strings.
 
 #### Parameters
@@ -952,6 +984,7 @@ Concatenates two strings.
 ```handlebars
 {{join values separator}}
 ```
+
 Joins an array of string elements into a single string.
 
 #### Parameters
@@ -981,6 +1014,7 @@ Joins an array of string elements into a single string.
 ```handlebars
 {{json object}}
 ```
+
 Converts a JavaScript object into a JSON string.
 
 #### Parameters
@@ -1004,6 +1038,7 @@ Converts a JavaScript object into a JSON string.
 ```handlebars
 {{occurrences str substring}}
 ```
+
 Returns the number of occurrences of substring within the given string. 
 
 #### Parameters
@@ -1013,10 +1048,10 @@ Returns the number of occurrences of substring within the given string.
 
 #### Example
 
- ```handlebars
- {{occurrences "foo bar foo bar baz" "foo"}}
- <!-- => 2 -->
- ```
+```handlebars
+{{occurrences "foo bar foo bar baz" "foo"}}
+<!-- => 2 -->
+```
 
 - [See it in GitHub](https://github.com/bigcommerce/paper-handlebars/blob/master/helpers/occurrences.js)
 
@@ -1025,6 +1060,7 @@ Returns the number of occurrences of substring within the given string.
 ```handlebars
 {{replace firstParam secondParam string}}
 ```
+
 Replaces all instances of the first parameter in the second parameter with the child block.
 
 #### Parameters
@@ -1052,6 +1088,7 @@ Replaces all instances of the first parameter in the second parameter with the c
 ```handlebars
 {{setURLQueryParam url key value}}
 ```
+
 Appends key values to a URL.
 
 #### Parameters
@@ -1074,6 +1111,7 @@ Appends key values to a URL.
 ```handlebars
 {{stripQuerystring url}}
 ```
+
 Strips query string from a URL.
 
 #### Parameters
@@ -1094,6 +1132,7 @@ Strips query string from a URL.
 ```handlebars
 {{toLowerCase string}}
 ```
+
 Converts a string to lowercase.
 
 #### Parameters
@@ -1115,6 +1154,7 @@ Converts a string to lowercase.
 ```handlebars
 {{truncate string length}}
 ```
+
 Truncates a string.
 
 #### Parameters
@@ -1136,6 +1176,7 @@ Truncates a string.
 ```handlebars
 {{block string}}
 ```
+
 Defines a block of content. You can overwrite it using the [partial](#partial) helper.
 
 #### Parameters
@@ -1158,6 +1199,7 @@ Defines a block of content. You can overwrite it using the [partial](#partial) h
 ```handlebars
 {{dynamicComponent path}}
 ```
+
 Inserts a dynamic partial in the specified path.
 
 #### Parameters
@@ -1180,6 +1222,7 @@ Inserts a dynamic partial in the specified path.
 ```handlebars
 {{inject value object}}
 ```
+
 Injects key values into the [jsContext](#jscontext) helper.
 
 #### Parameters
@@ -1212,6 +1255,7 @@ console.log(jsContext.myProductName);
 ```handlebars
 {{jsContext}}
 ```
+
 Returns a JSON representation of the data injected by the [inject](#inject) helper.
 
 - [See it in GitHub](https://github.com/bigcommerce/paper-handlebars/blob/master/helpers/jsContext.js)
@@ -1222,6 +1266,7 @@ Returns a JSON representation of the data injected by the [inject](#inject) help
 ```handlebars
 {{partial string}}
 ```
+
 Overrides content defined by the [block](#block) helper.
 
 #### Parameters
@@ -1249,6 +1294,7 @@ Overrides content defined by the [block](#block) helper.
 ```handlebars
 {{region name}}
 ```
+
 Specifies a [widget](https://developer.bigcommerce.com/api-docs/store-management/widgets/overview#widgets) region.
 
 #### Parameters
@@ -1273,6 +1319,7 @@ Specifies a [widget](https://developer.bigcommerce.com/api-docs/store-management
 ```handlebars
 {{assignVar key value}}
 ```
+
 Assigns a variable for later use in the template.
 
 #### Parameters
@@ -1293,6 +1340,7 @@ Assigns a variable for later use in the template.
 ```handlebars
 {{getVar key}}
 ```
+
 Returns the variable set by [assignVar](#assignVar).
 
 #### Parameters
@@ -1312,6 +1360,7 @@ Returns the variable set by [assignVar](#assignVar).
 ```handlebars
 {{decrementVar key}}
 ```
+
 Decrements the variable set by [assignVar](#assignVar) by 1.
 
 #### Parameters
@@ -1331,6 +1380,7 @@ Decrements the variable set by [assignVar](#assignVar) by 1.
 ```handlebars
 {{incrementVar key}}
 ```
+
 Increments the variable set by [assignVar](#assignVar) by 1.
 
 #### Parameters
@@ -1438,17 +1488,17 @@ The following table contains whitelisted standard Handlebars helpers available t
 | [forOwn](https://github.com/helpers/handlebars-helpers#forOwn) |object| Block helper that iterates over the own properties of an object, exposing each key and value on the context. |
 | [toPath](https://github.com/helpers/handlebars-helpers#toPath) | object | Takes arguments and, if they are string or number, converts them to a dot-delineated object property path. |
 | [get](https://github.com/helpers/handlebars-helpers#get) | object | Use property paths (`a.b.c`) to get a value or nested value from the context. Works as a regular helper or block helper. |
-| [getObject](https://github.com/helpers/handlebars-helpers#getObject) |object| Use property paths (`a.b.c`) to get an object from the context. Differs from the [get]([get](https://github.com/helpers/handlebars-helpers#get)) helper in that this helper will return the actual object including the given property key. This helper does not work as a block helper. |`
+| [getObject](https://github.com/helpers/handlebars-helpers#getObject) |object| Use property paths (`a.b.c`) to get an object from the context. Differs from the [get](https://github.com/helpers/handlebars-helpers#get) helper in that this helper will return the actual object including the given property key. This helper does not work as a block helper. |
 | [hasOwn](https://github.com/helpers/handlebars-helpers#hasOwn) | object | Returns `true` if `key` is an own, enumerable property of the given context object. |
 | [isObject](https://github.com/helpers/handlebars-helpers#isObject) | object | Returns `true` if value is an object. |
 | [JSONparse](https://github.com/helpers/handlebars-helpers#JSONparse) | object | Parses the given string using `JSON.parse`. |
 | [JSONstringify](https://github.com/helpers/handlebars-helpers#JSONstringify) | object | Stringifies an object using `JSON.stringify`. |
-| [merge](https://github.com/helpers/handlebars-helpers#merge) |object| Deeply merges the properties of the given objects with the context object. |`
+| [merge](https://github.com/helpers/handlebars-helpers#merge) |object| Deeply merges the properties of the given objects with the context object. |
 | [pick](https://github.com/helpers/handlebars-helpers#pick) | object | Picks properties from the context object. |
-| [camelcase](https://github.com/helpers/handlebars-helpers#camelcase) |string| camelCase the characters in the given string. |`
+| [camelcase](https://github.com/helpers/handlebars-helpers#camelcase) |string| camelCase the characters in the given string. |
 | [capitalize](https://github.com/helpers/handlebars-helpers#capitalize) | string | Capitalizes the first word in a sentence. |
 | [capitalizeAll](https://github.com/helpers/handlebars-helpers#capitalizeAll) | string | Capitalizes all words in a string. |
-| [center](https://github.com/helpers/handlebars-helpers#center) |string| Centers a string using non-breaking spaces. |`
+| [center](https://github.com/helpers/handlebars-helpers#center) |string| Centers a string using non-breaking spaces. |
 | [chop](https://github.com/helpers/handlebars-helpers#chop) | string | Like [trim](https://github.com/helpers/handlebars-helpers#trim), but removes both extraneous whitespace and non-word characters from the beginning and end of a string. |
 | [dashcase](https://github.com/helpers/handlebars-helpers#dashcase) | string | Replaces non-word characters and periods with hyphens. |
 | [dotcase](https://github.com/helpers/handlebars-helpers#dotcase) | string | `dot.case` the characters in a string. |
