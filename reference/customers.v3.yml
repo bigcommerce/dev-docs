@@ -1392,6 +1392,7 @@ paths:
       tags:
         - Customer Stored Instruments
       description: 'Lists all available stored instruments for a customer. This list will include all types of stored instruments namely card, account and bank_account instruments'
+      x-private: true
       operationId: liststoredinstruments
       parameters:
         - $ref: '#/components/parameters/customerId'
