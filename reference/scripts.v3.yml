@@ -2,87 +2,46 @@ swagger: '2.0'
 info:
   title: Scripts
   version: ''
-  description: >-
-    Inject client-side code onto a BigCommere storefront. To learn more about
-    Scripts, see [here](/api-docs/scripts/scripts-overview). 
-
+  description: |-
+    Inject client-side code onto a BigCommere storefront. To learn more about scripts, see [Scripts API](/api-docs/store-management/scripts). 
 
     - [OAuth Scopes](#oauth-scopes)
-
     - [Authentication](#authentication)
-
     - [Available Endpoints](#available-endpoints)
 
-
     ## OAuth Scopes
-
-    | UI Name                                      | Permission |
-    Parameter                                     |
-
+    | UI Name                                      | Permission | Parameter                                     |
     |----------------------------------------------|------------|-----------------------------------------------|
+    | Checkout Content<sup>1</sup>                             | modify     | `store_content_checkout`                      |
+    | Checkout Content<sup>1</sup>                             | read-only  | `store_content_checkout_read_only`            |
+    | Content                                       | modify     | `store_v2_content`                            |
+    | Content                                       | read-only  | `store_v2_content_read_only`                  |
 
-    | Checkout Content<sup>1</sup>                             | modify     |
-    `store_content_checkout`                      |
+    1. `Checkout Content` scopes are required to create or read scripts on the checkout page.
 
-    | Checkout Content<sup>1</sup>                             | read-only  |
-    `store_content_checkout_read_only`            |
-
-    | Content                                       | modify     |
-    `store_v2_content`                            |
-
-    | Content                                       | read-only  |
-    `store_v2_content_read_only`                  |
-
-
-    1. `Checkout Content` scopes are required to create or read scripts on the
-    checkout page.
-
-
-    For more information on OAuth Scopes, see:
-    [Authentication](https://developer.bigcommerce.com/api-docs/getting-started/authentication).
-
+    For more information on OAuth Scopes, see [Authentication](https://developer.bigcommerce.com/api-docs/getting-started/authentication).
 
     ## Authentication
 
-
-    Requests can be authenticated by sending an`access_token` via `X-Auth-Token`
-    HTTP header:
-
+    Requests can be authenticated by sending an`access_token` via `X-Auth-Token` HTTP header:
 
     ```http
-
     GET /stores/{$$.env.store_hash}/v3/catalog/summary
-
     host: api.bigcommerce.com
-
     Accept: application/json
-
     X-Auth-Token: {access_token}
-
     ```
 
-
     |Header|Parameter|Description|
-
     |-|-|-|
+    |`X-Auth-Token`|`access_token`|Obtained by creating an API account or installing an app in a BigCommerce control panel.|
 
-    |`X-Auth-Token`|`access_token `|Obtained by creating an API account or
-    installing an app in a BigCommerce control panel.|
-
-
-    For more information on Authenticating BigCommerce APIs, see:
-    [Authentication](https://developer.bigcommerce.com/api-docs/getting-started/authentication).
-
+    For more information on Authenticating BigCommerce APIs, see [Authentication](https://developer.bigcommerce.com/api-docs/getting-started/authentication).
 
     ## Available Endpoints
-
-    | Resource / Endpoint                     |
-    Description                                                             |
-
+    | Resource / Endpoint                     | Description                                                             |
     |-----------------------------------------|-------------------------------------------------------------------------|
-
-    | Scripts                                 | Add client-side code to a
-    store                                         |
+    | Scripts                                 | Add client-side code to a store                                         |
   termsOfService: ''
   license:
     name: ''
@@ -111,9 +70,7 @@ paths:
             application/json:
               name: Bootstrap
               description: Build responsive websites
-              html: >-
-                <script
-                src=\"https://stackpath.bootstrapcdn.com/bootstrap/4.1.3/js/bootstrap.min.js\"></script>
+              html: '<script src=\"https://stackpath.bootstrapcdn.com/bootstrap/4.1.3/js/bootstrap.min.js\"></script>'
               auto_uninstall: true
               load_method: default
               location: footer
@@ -123,8 +80,7 @@ paths:
             src script:
               name: Bootstrap
               description: Build responsive websites
-              src: >-
-                https://stackpath.bootstrapcdn.com/bootstrap/4.1.3/js/bootstrap.min.js
+              src: 'https://stackpath.bootstrapcdn.com/bootstrap/4.1.3/js/bootstrap.min.js'
               auto_uninstall: true
               load_method: default
               location: footer
@@ -133,9 +89,7 @@ paths:
             script tag:
               name: Bootstrap
               description: Build responsive websites
-              html: >-
-                <script
-                src=\"https://stackpath.bootstrapcdn.com/bootstrap/4.1.3/js/bootstrap.min.js\"></script>
+              html: '<script src=\"https://stackpath.bootstrapcdn.com/bootstrap/4.1.3/js/bootstrap.min.js\"></script>'
               auto_uninstall: true
               load_method: default
               location: footer
@@ -199,38 +153,24 @@ paths:
                       type: string
                     title: DetailedErrors
             title: Error Response
-          description: >
-            This is the result of missing required fields, or of invalid data.
-            See the response for more details.
+          description: |
+            This is the result of missing required fields, or of invalid data. See the response for more details.
       tags:
         - Scripts
-      description: >-
+      description: |-
         Creates a *Script*.
 
-
         **Required Fields**
-
         * name
 
-
         **Read Only Fields**
-
         * uuid
 
-
         **Notes**
-
-        * If kind is `src` –- Only the `src` property is needed, and you can
-        optionally supply a `load_method`. The `html` field should not be
-        specified.
-
-        * If kind is script_tag -- Only the `script_tag` is needed. The `src`
-        field should not be specified.
-
+        * If kind is `src` –- Only the `src` property is needed, and you can optionally supply a `load_method`. The `html` field should not be specified.
+        * If kind is `script_tag` -- Only the `script_tag` is needed. The `src` field should not be specified.
         * Each app can have 10 scripts installed.
-
-        * Multiple scripts can be created [per
-        call](https://developer.bigcommerce.com/api-docs/storefront/scripts-overview#scripts_scripts-notes). 
+        * Multiple scripts can be created [per call](https://developer.bigcommerce.com/api-docs/store-management/scripts#notes). 
     get:
       summary: Get All Scripts
       operationId: getScripts
@@ -241,15 +181,12 @@ paths:
           in: query
           type: integer
         - name: limit
-          description: >-
-            Controls the number of items per page in a limited (paginated) list
-            of products.
+          description: Controls the number of items per page in a limited (paginated) list of products.
           required: false
           in: query
           type: integer
         - name: sort
-          description: |
-            Scripts field name to sort by.
+          description: Field name to sort the scripts by.
           required: false
           in: query
           type: string
@@ -277,6 +214,10 @@ paths:
           type: string
           default: application/json
           required: true
+        - type: array
+          in: query
+          name: 'channel_id:in'
+          description: Filters list of scripts by the associated channel_id.
       responses:
         '200':
           schema:
@@ -297,8 +238,7 @@ paths:
                   name: jQuery
                   description: 'The Write Less, Do More, JavaScript Library.'
                   html: ''
-                  src: >-
-                    https://ajax.googleapis.com/ajax/libs/jquery/3.3.1/jquery.min.js
+                  src: 'https://ajax.googleapis.com/ajax/libs/jquery/3.3.1/jquery.min.js'
                   auto_uninstall: true
                   load_method: default
                   location: head
@@ -312,8 +252,7 @@ paths:
                   name: Bootstrap
                   description: Build responsive websites
                   html: ''
-                  src: >-
-                    https://stackpath.bootstrapcdn.com/bootstrap/4.1.3/js/bootstrap.min.js
+                  src: 'https://stackpath.bootstrapcdn.com/bootstrap/4.1.3/js/bootstrap.min.js'
                   auto_uninstall: true
                   load_method: default
                   location: footer
@@ -358,17 +297,14 @@ paths:
                       type: string
                     title: DetailedErrors
             title: Error Response
-          description: >
-            This is the result of missing required fields, or of invalid data.
-            See the response for more details.
+          description: |
+            This is the result of missing required fields, or of invalid data. See the response for more details.
       tags:
         - Scripts
-      description: >-
+      description: |-
         Returns a list of *Scripts*. Optional parameters can be passed in.
 
-
-        This will only return scripts that have been created by the api key and
-        password that created the script originally. 
+        This operation will only return scripts generated by the API key and password used to create the script originally. 
   '/content/scripts/{uuid}':
     get:
       summary: Get a Script
@@ -402,8 +338,7 @@ paths:
                 name: jQuery
                 description: 'The Write Less, Do More, JavaScript Library.'
                 html: ''
-                src: >-
-                  https://ajax.googleapis.com/ajax/libs/jquery/3.3.1/jquery.min.js
+                src: 'https://ajax.googleapis.com/ajax/libs/jquery/3.3.1/jquery.min.js'
                 auto_uninstall: true
                 load_method: default
                 location: head
@@ -472,9 +407,8 @@ paths:
                       type: string
                     title: DetailedErrors
             title: Error Response
-          description: >
-            This is the result of missing required fields, or of invalid data.
-            See the response for more details.
+          description: |
+            This is the result of missing required fields, or of invalid data. See the response for more details.
       tags:
         - Scripts
       description: Returns a single *Script*.
@@ -497,9 +431,7 @@ paths:
             application/json:
               name: jQuery
               description: 'The Write Less, Do More, JavaScript Library.'
-              html: >-
-                <script
-                src=\"https://ajax.googleapis.com/ajax/libs/jquery/3.3.1/jquery.min.js\"></script>
+              html: '<script src=\"https://ajax.googleapis.com/ajax/libs/jquery/3.3.1/jquery.min.js\"></script>'
               src: 'https://ajax.googleapis.com/ajax/libs/jquery/3.3.1/jquery.min.js'
               auto_uninstall: true
               load_method: default
@@ -529,8 +461,7 @@ paths:
                 name: jQuery
                 description: 'The Write Less, Do More, JavaScript Library.'
                 html: ''
-                src: >-
-                  https://ajax.googleapis.com/ajax/libs/jquery/3.3.1/jquery.min.js
+                src: 'https://ajax.googleapis.com/ajax/libs/jquery/3.3.1/jquery.min.js'
                 auto_uninstall: true
                 load_method: default
                 location: head
@@ -598,9 +529,8 @@ paths:
                       type: string
                     title: DetailedErrors
             title: Error Response
-          description: >
-            This is the result of missing required fields, or of invalid data.
-            See the response for more details.
+          description: |
+            This is the result of missing required fields, or of invalid data. See the response for more details.
       tags:
         - Scripts
       description: Updates a *Script*.
@@ -686,9 +616,7 @@ paths:
                       type: string
                     title: DetailedErrors
             title: Error Response
-          description: >-
-            This is the result of missing required fields, or of invalid data.
-            See the response for more details.
+          description: 'This is the result of missing required fields, or of invalid data. See the response for more details.'
       tags:
         - Scripts
       description: Deletes a *Script*.
@@ -736,17 +664,13 @@ parameters:
     required: false
   FilterIncludeFieldsParam:
     name: include_fields
-    description: >-
-      Fields to include, in a comma-separated list. The ID and the specified
-      fields will be returned.
+    description: 'Fields to include, in a comma-separated list. The ID and the specified fields will be returned.'
     required: false
     in: query
     type: string
   FilterExcludeFieldsParam:
     name: exclude_fields
-    description: >-
-      Fields to exclude, in a comma-separated list. The specified fields will be
-      excluded from a response. The ID cannot be excluded.
+    description: 'Fields to exclude, in a comma-separated list. The specified fields will be excluded from a response. The ID cannot be excluded.'
     required: false
     in: query
     type: string
@@ -758,9 +682,7 @@ parameters:
     type: integer
   LimitParam:
     name: limit
-    description: >-
-      Controls the number of items per page in a limited (paginated) list of
-      products.
+    description: Controls the number of items per page in a limited (paginated) list of products.
     required: false
     in: query
     type: integer
@@ -839,9 +761,8 @@ definitions:
             example: 36
           per_page:
             type: integer
-            description: >
-              The amount of items returned in the collection per page,
-              controlled by the limit parameter.
+            description: |
+              The amount of items returned in the collection per page, controlled by the limit parameter.
             example: 50
           current_page:
             type: integer
@@ -855,9 +776,8 @@ definitions:
             example: 1
           links:
             type: object
-            description: >
-              Pagination links for the previous and next parts of the whole
-              collection.
+            description: |
+              Pagination links for the previous and next parts of the whole collection.
             properties:
               previous:
                 type: string
@@ -890,9 +810,8 @@ definitions:
         example: 36
       per_page:
         type: integer
-        description: >
-          The amount of items returned in the collection per page, controlled by
-          the limit parameter.
+        description: |
+          The amount of items returned in the collection per page, controlled by the limit parameter.
         example: 50
       current_page:
         type: integer
@@ -906,9 +825,8 @@ definitions:
         example: 1
       links:
         type: object
-        description: >
-          Pagination links for the previous and next parts of the whole
-          collection.
+        description: |
+          Pagination links for the previous and next parts of the whole collection.
         properties:
           previous:
             type: string
@@ -1075,9 +993,7 @@ definitions:
   script_Response:
     type: object
     title: script_Response
-    description: >-
-      For a list of all locations visit [Scripts
-      Visibility](https://developer.bigcommerce.com/api-docs/storefront/scripts-overview#scripts_scripts-visibility).
+    description: 'For a list of all locations visit [Scripts Visibility](https://developer.bigcommerce.com/api-docs/storefront/scripts-overview#scripts_scripts-visibility).'
     properties:
       data:
         $ref: '#/definitions/script_Full'
@@ -1086,9 +1002,7 @@ definitions:
   script_responseCollection:
     type: object
     title: script_responseCollection
-    description: >-
-      For a list of all locations visit [Scripts
-      Visibility](https://developer.bigcommerce.com/api-docs/storefront/scripts-overview#scripts_scripts-visibility).
+    description: 'For a list of all locations visit [Scripts Visibility](https://developer.bigcommerce.com/api-docs/storefront/scripts-overview#scripts_scripts-visibility).'
     properties:
       data:
         type: array
@@ -1119,25 +1033,16 @@ definitions:
         description: The user-friendly description.
       html:
         type: string
-        description: >-
-          An html string containing exactly one `script` tag. Only present if
-          `kind` is `script_tag`
+        description: An html string containing exactly one `script` tag. Only present if `kind` is `script_tag`.
       src:
         type: string
-        description: >-
-          The `src` attribute of the script to load. Only present if `kind` is
-          `src`.
+        description: The `src` attribute of the script to load. Only present if `kind` is `src`.
       auto_uninstall:
         type: boolean
-        description: >-
-          It will enable automatic cleanup of the script when the single click
-          app is uninstalled or OAuth token is revoked.
+        description: It will enable automatic cleanup of the script when the single click app is uninstalled or OAuth token is revoked.
       load_method:
         type: string
-        description: >-
-          The load method to use for the script. Values are `default`, `async`,
-          or `defer`. It determines how the script should be loaded into the
-          page.
+        description: 'The load method to use for the script. Values are `default`, `async`, or `defer`. It determines how the script should be loaded into the page.'
         enum:
           - default
           - async
@@ -1158,34 +1063,22 @@ definitions:
           - order_confirmation
       kind:
         type: string
-        description: >-
+        description: |-
           What type of script this is.
 
+          `src` - a `script` tag will be generated with its `src` attribute set to the value of `src`; For scripts that use the src url. By providing a path to the script, we can optimize and serve the script tag automatically for you.
 
-          `src` - a `script` tag will be generated with its `src` attribute set
-          to the value of `src`; For scripts that use the src url. By providing
-          a path to the script, we can optimize and serve the script tag
-          automatically for you.
-
-
-          `script_tag` - The value of `html` will be injected directly onto the
-          page.
-
-          For scripts which include a raw HTML script_tag to be inserted into
-          the page. The load_method must be default.
+          `script_tag` - The value of `html` will be injected directly onto the page.
+          For scripts which include a raw HTML script_tag to be inserted into the page. The load_method must be default.
         enum:
           - src
           - script_tag
       api_client_id:
         type: string
-        description: >-
-          The client id of the API user that created this script, or blank if
-          created by other means.
+        description: 'The client id of the API user that created this script, or blank if created by other means.'
       consent_category:
         type: string
-        description: >-
-          What category of script this is for the purposes of GDPR/CCPA
-          compliance.
+        description: What category of script this is for the purposes of GDPR/CCPA compliance.
         enum:
           - essential
           - functional
@@ -1199,51 +1092,31 @@ securityDefinitions:
     type: apiKey
     name: X-Auth-Token
     in: header
-    description: >-
+    description: |-
       ### OAuth Scopes
-
       |  **UI Name** | **Permission** | **Parameter** |
-
       | --- | --- | --- |
-
       |  Content | modify | `store_v2_content` |
-
       |  Content | read-only | `store_v2_content_read_only` |
 
-
-      **Note:**: Injecting scripts into Checkout requires `Checkout Content`
-      scope.
-
+      **Note:**: Injecting scripts into Checkout requires `Checkout Content` scope.
 
       ### Headers
 
-
       |Header|Parameter|Description|
-
       |-|-|-|
-
-      |`X-Auth-Token`|`access_token `|Obtained by creating an API account or
-      installing an app in a BigCommerce control panel.|
-
+      |`X-Auth-Token`|`access_token`|Obtained by creating an API account or installing an app in a BigCommerce control panel.|
 
       ### Example
 
-
       ```http
-
       GET /stores/{$$.env.store_hash}/v3/catalog/summary
-
       host: api.bigcommerce.com
-
       Content-Type: application/json
-
       X-Auth-Token: {access_token}
-
       ```
 
-
-      * For more information on Authenticating BigCommerce APIs, see:
-      [Authentication](https://developer.bigcommerce.com/api-docs/getting-started/authentication). 
+      * For more information on Authenticating BigCommerce APIs, see: [Authentication](https://developer.bigcommerce.com/api-docs/getting-started/authentication). 
 security:
   - X-Auth-Client: []
   - X-Auth-Token: []
