@@ -87,7 +87,13 @@ Assume that `{{cart.items}}` returns 10 items. You can use this helper to limit 
 <!-- => This is lo -->
 ```
 
-```html
+```handlebars
+<!-- context = {var: 'This is longer than the chosen limit'} -->
+{{limit var 10}}
+<!-- results in: 'This is lo' -->
+```
+
+```handlebars
 {{#each (limit cart.items 4)}}
     <li class="previewCartItem">
         <div class="previewCartItem-image">
@@ -332,7 +338,7 @@ Returns a string with HTML entities encoded. You may optionally pass additional 
 
 - [See it in GitHub](https://github.com/bigcommerce/paper-handlebars/blob/master/helpers/encodeHtmlEntities.js)
 
-### {{nl2br}}
+#### Examples
 
 ```handlebars
 {{nl2br text}}
@@ -345,10 +351,13 @@ Converts newline characters to `<br>` tags.
 
 #### Example
 
-```json
-"settings": {
-  "address": "\r\n685 Market St\r\nSan Francisco\r\n94105\r\nCA\r\n"
-}
+{{encodeHtmlEntities "foo © bar ≠ baz 𝌆 qux" encodeEverything="true"}}
+<!-- Returns a string with HTML entities encoded with encodeEverything option. -->
+<!-- results in: '&#x66;&#x6F;&#x6F;&#x20;&#xA9;&#x20;&#x62;&#x61;&#x72;&#x20;&#x2260;&#x20;&#x62;&#x61;&#x7A;&#x20;&#x1D306;&#x20;&#x71;&#x75;&#x78;' -->
+
+{{encodeHtmlEntities "foo © and & ampersand" allowUnsafeSymbols="true"}}
+<!-- Returns a string with HTML entities encoded with allowUnsafeSymbols option. -->
+<!-- results in: 'foo &#xA9; and & ampersand' -->
 ```
 ```handlebars
 {{nl2br settings.address}}
@@ -384,7 +393,7 @@ Renders preformatted text. This helper will escape text.
 - [See it in GitHub](https://github.com/bigcommerce/paper-handlebars/blob/master/helpers/pre.js)
 - [See it in Cornerstone](https://github.com/bigcommerce/cornerstone/search?l=HTML&q=pre)
 
-### {{resourceHints}}
+### {{pre}}
 
 ```handlebars
 {{resourceHints}}
@@ -675,7 +684,7 @@ As above, you can reference `theme_settings` keys or specify your own size inlin
 
 **Inherent width**
 
-```html
+```handlebars
 <img src="{{getImage image 'default'}}" srcset="{{getImageSrcset image 100w='100w' 200w='200w' 300w='300w'}}" />
 
 <!-- =>
@@ -717,7 +726,7 @@ A usage example is [`templates/components/category/shop-by-price.html`](https://
 
 In this component, the `{{any}}` helper is used to determine whether a shopper has selected one of the filters, and whether a "reset" button needs to be displayed:
 
-```html
+```handlebars
 {{#any shop_by_price selected=true}}
     <li class="navList-item">
         <a href="{{category_url}}" class="navList-action">
@@ -749,7 +758,7 @@ Renders block if all parameters are true.
 {{/all}}
 ```
 
-```html
+```handlebars
 {{#all product.custom_fields theme_settings.show_custom_fields_tabs}}
     <li class="tab">
         <a class="tab-title" href="#tab-{{dashcase (lowercase (sanitize theme_settings.pdp-custom-fields-tab-label))}}">{{sanitize theme_settings.pdp-custom-fields-tab-label}}</a>
@@ -880,7 +889,7 @@ Renders block if one or more parameters evaluates to true.
 {{/or}}
 ```
 
-```html
+```handlebars
 {{#or options configurable_fields}}
     <a href="#" data-item-edit="{{id}}">{{lang 'cart.checkout.change'}}</a>
 {{/or}}
@@ -902,7 +911,7 @@ Renders a block if a statement is false; does not support operators for comparis
 
 #### Example
 
-```html
+```handlebars
 {{#each category_results}}
 <li class="category-suggestion">
     {{#each this}}
@@ -1055,7 +1064,7 @@ Appends key values to a URL.
 
 ```handlebars
 {{setURLQueryParam "http://example.com/image.jpg" "c" "2"}}
-<!-- => http://example.com/image.jpg?c=2 -->
+<!-- results in: http://example.com/image.jpg?c=2 -->
 ```
 
 - [See it in GitHub](https://github.com/bigcommerce/paper-handlebars/blob/master/helpers/setURLQueryParam.js).
@@ -1075,7 +1084,7 @@ Strips query string from a URL.
 
 ```handlebars
 {{stripQuerystring "http://example.com?tests=true"}}
-<!-- => http://example.com -->
+<!-- results in: http://example.com -->
 ```
 
 - [See it in GitHub](https://github.com/bigcommerce/paper-handlebars/blob/master/helpers/stripQuerystring.js)
@@ -1117,7 +1126,7 @@ Truncates a string.
 
 ```handlebars
 {{truncate "This will be truncated to only the first part of the sentence." 22}}
-<!-- => This will be truncated -->
+<!-- results in: 'This will be truncated' -->
 ```
 
 - [See it in GitHub](https://github.com/bigcommerce/paper-handlebars/blob/master/helpers/truncate.js)
@@ -1180,7 +1189,7 @@ Injects key values into the [jsContext](#jscontext) helper.
 
 #### Example
 
-```html
+```handlebars
 {{inject "myProductName" product.title}}
 
 <script>
@@ -1221,7 +1230,7 @@ Overrides content defined by the [block](#block) helper.
 
 #### Example
 
-```html
+```handlebars
 {{#partial "head"}}
     {{#if pagination.category.previous}}
         <link rel="prev" href="{{pagination.category.previous}}">
