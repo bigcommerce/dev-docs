@@ -237,7 +237,7 @@ Password validation is only available on the V2 Customers API. Validation will r
 ### Endpoints
 - [Customer Login API](https://developer.bigcommerce.com/api-docs/storefront/customer-login-api)
 - [Current Customer API](https://developer.bigcommerce.com/api-docs/storefront/current-customer-api)
-- [Customers API](https://developer.bigcommerce.com/api-reference/store-management/customers-v3)
+- [Customers V3 API](https://developer.bigcommerce.com/api-reference/store-management/customers-v3)
 - [Customer Groups](https://developer.bigcommerce.com/api-reference/store-management/customers-v2/customer-groups/getallcustomergroups) (Customers V2 API)
 - [Password Validation](https://developer.bigcommerce.com/api-reference/store-management/customers-v2/customer-passwords/validatecustomerpassword) (Customers V2 API)
 - [Password Confirmation](https://developer.bigcommerce.com/api-reference/store-management/customers-v2/customers/createanewcustomer) (Customers V2 API)
