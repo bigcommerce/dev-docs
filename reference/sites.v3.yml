@@ -197,11 +197,11 @@ paths:
         - in: query
           name: page
           type: integer
-          required: true
+          description: Specifies the page number in a limited (paginated) list of items.
         - in: query
           name: limit
           type: integer
-          required: true
+          description: Controls the number of items per page in a limited (paginated) list of items.
   '/sites/{site_id}':
     get:
       summary: Get a Site
@@ -297,6 +297,14 @@ paths:
           in: query
           description: Filter routes by a given resource type
           type: string
+        - type: integer
+          in: query
+          name: page
+          description: Specifies the page number in a limited (paginated) list of items.
+        - type: integer
+          in: query
+          name: limit
+          description: Controls the number of items per page in a limited (paginated) list of items.
       responses:
         '200':
           description: ''
