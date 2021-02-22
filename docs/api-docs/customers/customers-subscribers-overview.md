@@ -246,4 +246,3 @@ Password validation is only available on the V2 Customers API. Validation will r
 
 ### Webhooks
 - [Customers](https://developer.bigcommerce.com/api-docs/store-management/webhooks/events#customer)
-
