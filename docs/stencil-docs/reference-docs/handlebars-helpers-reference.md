@@ -94,7 +94,7 @@ Assume that `{{cart.items}}` returns 10 items. You can use this helper to limit 
 <!-- results in: 'This is lo' -->
 ```
 
-```handlebars
+```html
 {{#each (limit cart.items 4)}}
     <li class="previewCartItem">
         <div class="previewCartItem-image">
@@ -149,11 +149,12 @@ categories: [
 ```
 
 ```json
-"users": [
+users: [
     { "user": "barney", "age": 36, "image": { "url": "barney.jpg" } },
     { "user": "fred",   "age": 40, "image": { "url": "fred.jpg" } }
 ]
 ```
+
 ```handlebars
 {{pluck users "age"}}
 <!-- => 36,40 -->
@@ -360,19 +361,6 @@ Converts newline characters to `<br>` tags.
 
 #### Example
 
-{{encodeHtmlEntities "foo © bar ≠ baz 𝌆 qux" encodeEverything="true"}}
-<!-- Returns a string with HTML entities encoded with encodeEverything option. -->
-<!-- results in: '&#x66;&#x6F;&#x6F;&#x20;&#xA9;&#x20;&#x62;&#x61;&#x72;&#x20;&#x2260;&#x20;&#x62;&#x61;&#x7A;&#x20;&#x1D306;&#x20;&#x71;&#x75;&#x78;' -->
-
-{{encodeHtmlEntities "foo © and & ampersand" allowUnsafeSymbols="true"}}
-<!-- Returns a string with HTML entities encoded with allowUnsafeSymbols option. -->
-<!-- results in: 'foo &#xA9; and & ampersand' -->
-```
-
-{{encodeHtmlEntities "foo © and & ampersand" allowUnsafeSymbols="true"}}
-<!-- Returns a string with HTML entities encoded with allowUnsafeSymbols option. -->
-<!-- results in: 'foo &#xA9; and & ampersand' -->
-```
 ```handlebars
 {{nl2br settings.address}}
 <!-- => <br>685 Market St<br>San Francisco<br>94105<br>CA<br> -->
@@ -441,7 +429,7 @@ Renders a link tag to insert a stylesheet into a theme; returns an HTML string. 
 
 #### Example
 
-```html
+```handlebars
 {{stylesheet "assets/css/style.css" class="myStylesheet"}}
 ```
 
@@ -552,7 +540,6 @@ Returns a `srcset` for an image uploaded to `/dav/content/`.
 ```handlebars
 {{getContentImageSrcset "asset.jpg"}}
 <!-- => https://cdn.bcapp/3dsf74g/images/stencil/80w/content/asset.jpg 80w, https://cdn.bcapp/3dsf74g/images/stencil/160w/content/asset.jpg 160w, https://cdn.bcapp/3dsf74g/images/stencil/320w/content/asset.jpg 320w, https://cdn.bcapp/3dsf74g/images/stencil/640w/content/asset.jpg 640w, https://cdn.bcapp/3dsf74g/images/stencil/960w/content/asset.jpg 960w, https://cdn.bcapp/3dsf74g/images/stencil/1280w/content/asset.jpg 1280w, https://cdn.bcapp/3dsf74g/images/stencil/1920w/content/asset.jpg 1920w, https://cdn.bcapp/3dsf74g/images/stencil/2560w/content/asset.jpg 2560w -->
-
 
 {{getContentImageSrcset "folder/asset.jpg" width=123}}
 <!-- => https://cdn.bcapp/3dsf74g/images/stencil/80w/content/folder/asset.jpg 80w, https://cdn.bcapp/3dsf74g/images/stencil/160w/content/folder/asset.jpg 160w, https://cdn.bcapp/3dsf74g/images/stencil/320w/content/folder/asset.jpg 320w, https://cdn.bcapp/3dsf74g/images/stencil/640w/content/folder/asset.jpg 640w, https://cdn.bcapp/3dsf74g/images/stencil/960w/content/folder/asset.jpg 960w, https://cdn.bcapp/3dsf74g/images/stencil/1280w/content/folder/asset.jpg 1280w, https://cdn.bcapp/3dsf74g/images/stencil/1920w/content/folder/asset.jpg 1920w, https://cdn.bcapp/3dsf74g/images/stencil/2560w/content/folder/asset.jpg 2560w -->
@@ -709,7 +696,7 @@ As above, you can reference `theme_settings` keys or specify your own size inlin
 
 **Inherent width**
 
-```handlebars
+```html
 <img src="{{getImage image 'default'}}" srcset="{{getImageSrcset image 100w='100w' 200w='200w' 300w='300w'}}" />
 
 <!-- =>
@@ -742,7 +729,7 @@ Renders block if one or more parameters are true.
 
 #### Example
 
-```handlebars
+```html
 {{#any items selected=true}}
   <!-- block to display if any items have selected=true -->
 {{/any}}
@@ -752,7 +739,7 @@ A usage example is [`templates/components/category/shop-by-price.html`](https://
 
 In this component, the `{{any}}` helper is used to determine whether a shopper has selected one of the filters, and whether a "reset" button needs to be displayed:
 
-```handlebars
+```html
 {{#any shop_by_price selected=true}}
     <li class="navList-item">
         <a href="{{category_url}}" class="navList-action">
@@ -785,7 +772,7 @@ Renders block if all parameters are true.
 {{/all}}
 ```
 
-```handlebars
+```html
 {{#all product.custom_fields theme_settings.show_custom_fields_tabs}}
     <li class="tab">
         <a class="tab-title" href="#tab-{{dashcase (lowercase (sanitize theme_settings.pdp-custom-fields-tab-label))}}">{{sanitize theme_settings.pdp-custom-fields-tab-label}}</a>
@@ -921,7 +908,7 @@ Renders block if one or more parameters evaluates to true.
 {{/or}}
 ```
 
-```handlebars
+```html
 {{#or options configurable_fields}}
     <a href="#" data-item-edit="{{id}}">{{lang 'cart.checkout.change'}}</a>
 {{/or}}
@@ -944,7 +931,7 @@ Renders a block if a statement is false; does not support operators for comparis
 
 #### Example
 
-```handlebars
+```html
 {{#each category_results}}
 <li class="category-suggestion">
     {{#each this}}
@@ -1277,7 +1264,7 @@ Overrides content defined by the [block](#block) helper.
 
 #### Example
 
-```handlebars
+```html
 {{#partial "head"}}
     {{#if pagination.category.previous}}
         <link rel="prev" href="{{pagination.category.previous}}">
