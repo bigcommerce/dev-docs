@@ -7,7 +7,7 @@ Object schemas for handlebars email templates.
 ```shell
 .
 ├── data                                   # json data for generating and updating yaml schema
-├── _openapi.yml                           # Groups models together for docs
+├── _all.yml                               # Groups models together for docs
 ├── account_details_changed_email.yml      # Individual email template models
 ├── ...
 ```

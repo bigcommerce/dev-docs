@@ -1,0 +1,67 @@
+type: object
+title: 'Handlebars Email Template Objects'
+properties:
+  Abandoned Cart Email Template Objects:
+    description:
+    type: object
+    allOf:
+      - $ref: ./abandoned_cart_email.yml
+  Account Details Changed Email Template Objects:
+    description:
+    type: object
+    allOf:
+      - $ref: ./account_details_changed_email.yml
+  Account Reset Password Email Template Objects:
+    title: Account Reset Password Email Template
+    description: test
+    type: object
+    allOf:
+      - $ref: ./account_reset_password_email.yml
+  Combined Order Status Template Objects:
+    description:
+    type: object
+    allOf:
+      - $ref: ./combined_order_status_email.yml
+  Create Account Email Template Objects:
+    title: Create Account Template
+    description:
+    type: object
+    allOf:
+      - $ref: ./create_account_email.yml
+  Gift Certificate Email Template Objects:
+    title: Gift Certificate Email Template
+    description: test
+    type: object
+    allOf:
+      - $ref: ./gift_certificate_email.yml
+  Invoice Email Template Objects:
+    description:
+    type: object
+    allOf:
+      - $ref: ./invoice_email.yml
+  Order Message Notification Email Template Objects:
+    description:
+    type: object
+    allOf:
+      - $ref: ./order_message_notification.yml
+  Passwordless Login Email Template Objects:
+    description:
+    type: object
+    allOf:
+      - $ref: ./passwordless_login_email.yml
+  Product Review Email Template Objects:
+    title: Product Review Email Template
+    description: test
+    type: object
+    allOf:
+      - $ref: ./product_review_email.yml
+  Return Confirmation Email Template Objects:
+    description: test
+    type: object
+    allOf:
+      - $ref: ./return_confirmation_email.yml
+  Return Status Change Email Template Objects:
+    description: test
+    type: object
+    allOf:
+      - $ref: ./return_status_change_email.yml
