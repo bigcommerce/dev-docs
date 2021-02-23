@@ -75,7 +75,7 @@ The [Customer Login API](https://developer.bigcommerce.com/api-docs/storefront/c
 
 ## Current Customer API
 
-The [Current Customer API](https://developer.bigcommerce.com/api-docs/storefront/current-customer-api) allows your application to identify logged in customers. This identification is useful when you need to show customer-specific information.
+The [Current Customer API](https://developer.bigcommerce.com/api-docs/storefront/current-customer-api) allows your application to identify logged-in customers. This identification is useful when you need to show customer-specific information.
 
 ## Customers API
 
@@ -203,7 +203,7 @@ lineNumbers: true
 
 ### Upsert
 
-You can use the V3 Customers API [Upsert Customer Attribute Values](https://developer.bigcommerce.com/api-reference/store-management/customers-v3/customer-attribute-values/customersattributevaluesput) operation to upsert form field values and customer attributes. Upsert looks for a match to the existing record and, if one is found, makes an update. If a match is not found, it creates a new record.
+You can use the V3 Customers API [Upsert Customer Attribute Values](https://developer.bigcommerce.com/api-reference/store-management/customers-v3/customer-attribute-values/customersattributevaluesput) operation to upsert form field values and customer attributes. Upsert looks for a match to the existing record and makes an update if there is one. If there is no match, it creates a new record.
 
 ### Authentication object
 
@@ -226,7 +226,7 @@ When possible, use the V3 Customers API as BigCommerce will eventually deprecate
 
 **How can I validate customer passwords?**
 
-Password validation is only available on the V2 Customers API. Validation will return a boolean. The V3 Customers API can reset a customer's password or input a new password. 
+Password validation is only available on the V2 Customers API at this time. We recommend using the V3 Customers API to reset or input a new password as BigCommerce intends to deprecate the V2 Customers API.
 
 ## Related resources
 
@@ -245,4 +245,4 @@ Password validation is only available on the V2 Customers API. Validation will r
 - [Subscribers API](https://developer.bigcommerce.com/api-reference/store-management/subscribers)
 
 ### Webhooks
-- [Customers](https://developer.bigcommerce.com/api-docs/store-management/webhooks/events#customer)
+- [Customer](https://developer.bigcommerce.com/api-docs/store-management/webhooks/events#customer)
