@@ -1,0 +1,244 @@
+openapi: 3.0.0
+info:
+  title: Email Templates
+  description: Manage Handlebars-based email templates globally and create channel-specific overrides.
+servers:
+  - url: 'https://api.bigcommerce.com/stores/{store_hash}/v3'
+    description: BigCommerce API Gateway
+    variables:
+      store_hash:
+        default: abc123
+        description: Store hash used to identify the store.
+paths:
+  /marketing/email-templates:
+    get:
+      summary: Get All Email Templates
+      description: Get a list of email templates.
+      responses:
+        '200':
+          content:
+            application/json:
+              schema:
+                type: object
+                properties:
+                  data:
+                    $ref: '#/components/schemas/EmailTemplatesCollection'
+                  meta:
+                    type: object
+          description: |
+            An array of email templates on the store
+      parameters:
+        - $ref: '#/components/parameters/ChannelIdParam'
+  /marketing/email-templates/{template-name}:
+    parameters:
+      - schema:
+          type: string
+        name: template-name
+        in: path
+        required: true
+    get:
+      summary: Get a Template
+      description: Get an single global email template or a channel-specific email template override.
+      tags:
+        - Email Templates
+      responses:
+        '200':
+          description: OK
+          content:
+            application/json:
+              schema:
+                type: object
+                properties:
+                  data:
+                    $ref: '#/components/schemas/EmailTemplate'
+                  meta:
+                    type: object
+      operationId: get-marketing-email-templates-template-name
+      parameters:
+        - $ref: '#/components/parameters/ChannelIdParam'
+    put:
+      summary: Update a Template
+      description: Update a global template or create a channel-specific email template override.
+      tags:
+        - Email Templates
+      operationId: put-marketing-email-templates-template-name
+      responses:
+        '200':
+          description: OK
+          content:
+            application/json:
+              schema:
+                type: object
+                properties:
+                  data:
+                    $ref: '#/components/schemas/EmailTemplate'
+                  meta:
+                    type: object
+        '400':
+          description: Bad Request
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/ErrorResponse'
+      parameters:
+        - $ref: '#/components/parameters/ChannelIdParam'
+      requestBody:
+        content:
+          application/json:
+            schema:
+              $ref: '#/components/schemas/EmailTemplate'
+    delete:
+      summary: Delete Email Template Override
+      description: Removes a channel-specific email template override.
+      tags:
+        - Email Templates
+      operationId: delete-template
+      responses:
+        '200':
+          description: OK
+      parameters:
+        - $ref: '#/components/parameters/RequiredChannelIdParamForDelete'
+components:
+  schemas:
+    ErrorResponse:
+      allOf:
+        - $ref: '#/components/schemas/BaseError'
+        - type: object
+          properties:
+            errors:
+              $ref: '#/components/schemas/DetailedErrors'
+    BaseError:
+      type: object
+      description: |
+        Error payload for the BigCommerce API.
+      properties:
+        status:
+          description: |
+            The HTTP status code.
+          type: integer
+        title:
+          description: |
+            The error title describing the particular error.
+          type: string
+        type:
+          type: string
+        instance:
+          type: string
+    DetailedErrors:
+      type: object
+      additionalProperties:
+        type: string
+    EmailTemplatesCollection:
+      title: EmailTemplatesCollection
+      type: array
+      items:
+        $ref: '#/components/schemas/EmailTemplate'
+      description: A collection of all email templates.
+    EmailTemplate:
+      title: EmailTemplate
+      type: object
+      description: Data for a particular email template
+      properties:
+        type_id:
+          type: string
+          enum:
+            - abandoned_cart_email
+            - account_details_changed_email
+            - combined_order_status_email
+            - createaccount_email
+            - createguestaccount_email
+            - giftcertificate_email
+            - invoice_email
+            - ordermessage_notification
+            - return_confirmation_email
+            - return_statuschange_email
+            - product_review_email
+            - account_reset_password_email
+          example: account_reset_password_email
+        body:
+          type: string
+          example: '<!DOCTYPE html> <html lang="en"> <head>     <meta charset="UTF-8">     <title>Title</title> </head> <body> <p>     {{lang "reset_password" name=store.name}} </p> <br/> <br/> <a href=''{{account.reset_password_link}}''>     {{account.reset_password_link}} </a>  </body> </html>'
+        translations:
+          $ref: '#/components/schemas/LocaleCollection'
+        subject:
+          type: string
+          example: 'Reset your password at {{store.name}}'
+    LocaleObject:
+      title: LocaleObject
+      type: object
+      properties:
+        locale:
+          type: string
+          example: en
+          description: 'Locale code for this language, such as ''en'', ''en-us'', ''fr-ca''.'
+        keys:
+          type: object
+          example:
+            reset_password: 'To change your customer account password at {name} please click this link or copy and paste it into your browser:'
+          description: Language keys for the template. User-defined. Should match any lang keys used in the template.
+      description: A particular locale's translations.
+    LocaleCollection:
+      title: LocaleCollection
+      type: array
+      items:
+        $ref: '#/components/schemas/LocaleObject'
+      description: A collection of locale translations for the static language.
+    EmailTemplateUpdate:
+      title: EmailTemplateUpdate
+      type: object
+      description: Data for updated template
+      properties:
+        body:
+          type: string
+          example: '<!DOCTYPE html> <html lang="en"> <head>     <meta charset="UTF-8">     <title>Title</title> </head> <body> <p>     {{lang "reset_password" name=store.name}} </p> <br/> <br/> <a href=''{{account.reset_password_link}}''>     {{account.reset_password_link}} </a>  </body> </html>'
+        translations:
+          $ref: '#/components/schemas/LocaleCollection'
+        subject:
+          type: string
+          example: 'Reset your password at {{store.name}}'
+      required:
+        - body
+        - lang
+        - subject
+    scratch:
+      title: scratch
+      type: object
+      properties:
+        id:
+          type: string
+  parameters:
+    ChannelIdParam:
+      in: query
+      name: channel_id
+      schema:
+        type: integer
+      description: 'Channel ID to use for channel-specific setting. If omitted, you will interact with the global setting only.'
+    RequiredChannelIdParamForDelete:
+      in: query
+      name: channel_id
+      schema:
+        type: integer
+      description: 'Required Channel ID. This delete operation will delete overridden settings for this channel, thus restoring them to the global defaults.'
+      required: true
+  securitySchemes:
+    X-Auth-Token:
+      name: API Key
+      type: apiKey
+      in: query
+      description: |-
+        Authenticate requests by including an [OAuth](https://developer.bigcommerce.com/api-docs/getting-started/authentication) `access_token` in the request header.
+
+        ```http
+        GET /stores/{{STORE_HASH}}/v3/marketing/email-templates
+        host: api.bigcommerce.com
+        Accept: application/json
+        X-Auth-Token: {{ACCESS_TOKEN}}
+        ```
+
+        ### OAuth Scopes
+        |  **UI Name** | **Permission** | **Parameter** |
+        | --- | --- | --- |
+        |  Information & Settings | modify | `store_v2_information` |
+        |  Information & Settings | read-only | `store_v2_information_read_only` |
+security:
+  - X-Auth-Token: []

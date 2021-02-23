@@ -1,0 +1,100 @@
+type: object
+properties:
+  return:
+    type: object
+    properties:
+      return_id:
+        type: string
+      reason:
+        type: string
+      action:
+        type: string
+      comments:
+        type: string
+      order_id:
+        type: string
+      products:
+        type: array
+        items:
+          type: object
+          properties:
+            name:
+              type: string
+            quantity:
+              type: integer
+  store:
+    type: object
+    properties:
+      name:
+        type: string
+      domain_name:
+        type: string
+      logo:
+        type: object
+        properties:
+          title:
+            type: string
+          name:
+            type: string
+          url:
+            type: string
+      ssl_path:
+        type: string
+      cdn_path:
+        type: string
+      image_directory:
+        type: string
+      img_path:
+        type: string
+      path_normal:
+        type: string
+      path:
+        type: string
+      address:
+        type: string
+      language:
+        type: object
+        properties:
+          code:
+            type: string
+          direction:
+            type: string
+  customer:
+    type: object
+    properties:
+      first_name:
+        type: string
+      full_name:
+        type: string
+      email:
+        type: string
+  misc:
+    type: object
+    properties:
+      year:
+        type: integer
+  translations:
+    type: object
+    properties:
+      en:
+        type: object
+        properties:
+          confirmation:
+            type: string
+          summary:
+            type: string
+          clickHere:
+            type: string
+          reason:
+            type: string
+          action:
+            type: string
+          comments:
+            type: string
+          contains:
+            type: string
+          items:
+            type: string
+          quantity:
+            type: string
+

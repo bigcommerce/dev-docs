@@ -1,0 +1,100 @@
+type: object
+properties:
+  certificate:
+    type: object
+    properties:
+      code:
+        type: string
+      to_name:
+        type: string
+      to_email:
+        type: string
+      from_name:
+        type: string
+      from_email:
+        type: string
+      amount:
+        type: string
+      redeem_link:
+        type: string
+      expiry_date:
+        type: object
+        properties:
+          formatted:
+            type: string
+          value:
+            type: integer
+  store:
+    type: object
+    properties:
+      name:
+        type: string
+      domain_name:
+        type: string
+      logo:
+        type: object
+        properties:
+          title:
+            type: string
+          name:
+            type: string
+          url:
+            type: string
+      ssl_path:
+        type: string
+      cdn_path:
+        type: string
+      image_directory:
+        type: string
+      img_path:
+        type: string
+      path_normal:
+        type: string
+      path:
+        type: string
+      address:
+        type: string
+      language:
+        type: object
+        properties:
+          code:
+            type: string
+          direction:
+            type: string
+  customer:
+    type: object
+    properties:
+      first_name:
+        type: string
+      full_name:
+        type: string
+      email:
+        type: string
+  misc:
+    type: object
+    properties:
+      year:
+        type: integer
+  translations:
+    type: object
+    properties:
+      en:
+        type: object
+        properties:
+          title:
+            type: string
+          hello:
+            type: string
+          message:
+            type: string
+          expiry_info:
+            type: string
+          instruction:
+            type: string
+          attached:
+            type: string
+          warning:
+            type: string
+          go_shopping:
+            type: string
+

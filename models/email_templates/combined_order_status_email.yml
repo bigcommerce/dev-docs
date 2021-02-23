@@ -1,0 +1,165 @@
+type: object
+properties:
+  order:
+    type: object
+    properties:
+      id:
+        type: integer
+      new_status:
+        type: string
+      total:
+        type: object
+        properties:
+          value:
+            type: integer
+          formatted:
+            type: string
+      refund:
+        type: object
+        properties:
+          value:
+            type: integer
+          formatted:
+            type: string
+      date_placed:
+        type: object
+        properties:
+          value:
+            type: integer
+          formatted:
+            type: string
+      payment_method:
+        type: string
+      link:
+        type: string
+      customer_name:
+        type: string
+      downloadable_products:
+        type: array
+        items:
+          type: object
+          properties:
+            name:
+              type: string
+            options:
+              type: string
+            quantity:
+              type: integer
+            link:
+              type: string
+      products:
+        type: array
+        items:
+          type: object
+          properties:
+            name:
+              type: string
+            sku:
+              type: string
+            quantity:
+              type: integer
+      tracking:
+        type: array
+        items:
+          type: object
+          properties:
+            id:
+              type: string
+            shipping_method:
+              type: string
+            link:
+              type: string
+  store:
+    type: object
+    properties:
+      name:
+        type: string
+      domain_name:
+        type: string
+      logo:
+        type: object
+        properties:
+          title:
+            type: string
+          name:
+            type: string
+          url:
+            type: string
+      ssl_path:
+        type: string
+      cdn_path:
+        type: string
+      image_directory:
+        type: string
+      img_path:
+        type: string
+      path_normal:
+        type: string
+      path:
+        type: string
+      address:
+        type: string
+      language:
+        type: object
+        properties:
+          code:
+            type: string
+          direction:
+            type: string
+  customer:
+    type: object
+    properties:
+      first_name:
+        type: string
+      full_name:
+        type: string
+      email:
+        type: string
+  misc:
+    type: object
+    properties:
+      year:
+        type: integer
+  translations:
+    type: object
+    properties:
+      en:
+        type: object
+        properties:
+          title:
+            type: string
+          hello:
+            type: string
+          message:
+            type: string
+          details_title:
+            type: string
+          order_total:
+            type: string
+          date_placed:
+            type: string
+          payment_method:
+            type: string
+          total_refund:
+            type: string
+          products_shipped:
+            type: string
+          products_to_be_shipped:
+            type: string
+          tracking_title:
+            type: string
+          downloadable_items_title:
+            type: string
+          quantity:
+            type: string
+          download:
+            type: string
+          tracking_label:
+            type: string
+          no_tracking_numbers:
+            type: string
+          check_status:
+            type: string
+          go_shopping:
+            type: string
+

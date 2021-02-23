@@ -1,0 +1,71 @@
+{
+  "return": {
+    "id": 1,
+    "reason": "reason of return",
+    "action": "action",
+    "comments": "sample comment",
+    "product": {
+      "name": "ProductName",
+      "quantity": 2,
+      "thumbnail_url": ""
+    },
+    "status": {
+      "value": 1,
+      "formatted": "Pending"
+    },
+    "store_credit": {
+      "value": 10.1,
+      "formatted": "$10.1 USD"
+    },
+    "link": "https://my-dev-store-97434969.store.bcdev/account.php?action=view_returns",
+    "instructions": ""
+  },
+  "order": {
+    "id": 1
+  },
+  "store": {
+    "name": "My Dev Store 97434969",
+    "domain_name": "my-dev-store-97434969.store.bcdev",
+    "logo": {
+      "title": "[= My Dev Store 97434969 =]",
+      "name": "avatar-2020_1612860757__16350.jpeg",
+      "url": "https://valeryderived-cloud-dev-vm.store.bcdev/store/f1kr2akw96/product_images/avatar-2020_1612860757__16350.jpeg"
+    },
+    "ssl_path": "https://my-dev-store-97434969.store.bcdev",
+    "cdn_path": "https://valeryderived-cloud-dev-vm.store.bcdev/store/f1kr2akw96",
+    "image_directory": "product_images",
+    "img_path": "https://valeryderived-cloud-dev-vm.store.bcdev/r08d84bb67d250c7624502ed76d8e0bafb1a5cacf/g-themes/ClassicNext/images",
+    "path_normal": "https://my-dev-store-97434969.store.bcdev",
+    "path": "https://my-dev-store-97434969.store.bcdev",
+    "address": "",
+    "language": {
+      "code": "en",
+      "direction": "ltr"
+    }
+  },
+  "customer": {
+    "first_name": "John",
+    "full_name": "John Jr",
+    "email": "john.f@example.com"
+  },
+  "misc": {
+    "year": 2021
+  },
+  "translations": {
+    "en": {
+      "title": "Return request status changed",
+      "hello": "Hello {name},",
+      "message": "The status of your return request for order #{id} has changed to <strong>{status}</strong>.",
+      "received_credit": "You have received a store credit of {credits} To use it, simply place your order and you will be able to choose store credit as the payment method when it comes time to pay for your order.",
+      "details_title": "Return details",
+      "return_reason": "Return reason:",
+      "return_action": "Return action:",
+      "return_comments": "Your comments:",
+      "check_status": "Check return status",
+      "products_title": "Return items",
+      "quantity": "Qty:",
+      "instructions_title": "Return Instructions:",
+      "go_shopping": "Go shopping"
+    }
+  }
+}

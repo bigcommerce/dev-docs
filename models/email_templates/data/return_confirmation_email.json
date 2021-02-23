@@ -1,0 +1,56 @@
+{
+  "return": {
+    "return_id": "123",
+    "reason": "reason of return",
+    "action": "action",
+    "comments": "sample comment",
+    "order_id": "321",
+    "products": [
+      {
+        "name": "Shower Gel",
+        "quantity": 3
+      }
+    ]
+  },
+  "store": {
+    "name": "My Dev Store 97434969",
+    "domain_name": "my-dev-store-97434969.store.bcdev",
+    "logo": {
+      "title": "[= My Dev Store 97434969 =]",
+      "name": "avatar-2020_1612860757__16350.jpeg",
+      "url": "https://valeryderived-cloud-dev-vm.store.bcdev/store/f1kr2akw96/product_images/avatar-2020_1612860757__16350.jpeg"
+    },
+    "ssl_path": "https://my-dev-store-97434969.store.bcdev",
+    "cdn_path": "https://valeryderived-cloud-dev-vm.store.bcdev/store/f1kr2akw96",
+    "image_directory": "product_images",
+    "img_path": "https://valeryderived-cloud-dev-vm.store.bcdev/r08d84bb67d250c7624502ed76d8e0bafb1a5cacf/g-themes/ClassicNext/images",
+    "path_normal": "https://my-dev-store-97434969.store.bcdev",
+    "path": "https://my-dev-store-97434969.store.bcdev",
+    "address": "",
+    "language": {
+      "code": "en",
+      "direction": "ltr"
+    }
+  },
+  "customer": {
+    "first_name": "John",
+    "full_name": "John Jr",
+    "email": "john.f@example.com"
+  },
+  "misc": {
+    "year": 2021
+  },
+  "translations": {
+    "en": {
+      "confirmation": "Confirmation for Return Request for Order ID",
+      "summary": "A summary of your return is shown below. To view the status of this return",
+      "clickHere": "click here",
+      "reason": "Return Reason",
+      "action": "Return Action",
+      "comments": "Your Comments",
+      "contains": "Your Return Request Contains the Following Items...",
+      "items": "Return Items",
+      "quantity": "Qty"
+    }
+  }
+}

@@ -1,0 +1,346 @@
+type: object
+properties:
+  order:
+    type: object
+    properties:
+      id:
+        type: integer
+      customer_message:
+        type: string
+      customer_id:
+        type: integer
+      date_placed:
+        type: object
+        properties:
+          formatted:
+            type: string
+          value:
+            type: integer
+      account_order_status_url:
+        type: string
+      shipping:
+        type: object
+        properties:
+          methods:
+            type: array
+            items:
+              type: object
+          address:
+            type: object
+            properties:
+              email:
+                type: string
+              phone:
+                type: string
+              first_name:
+                type: string
+              last_name:
+                type: string
+              company:
+                type: string
+              country:
+                type: string
+              city:
+                type: string
+              state:
+                type: string
+              zip:
+                type: string
+              address_lines:
+                type: array
+                items:
+                  type: object
+              custom_fields:
+                type: array
+                items:
+                  type: object
+      products:
+        type: array
+        items:
+          type: object
+          properties:
+            name:
+              type: string
+            quantity:
+              type: integer
+            sku:
+              type: string
+            address_lines:
+              type: array
+              items:
+                type: object
+            address_id:
+              type: integer
+            options:
+              type: object
+              properties:
+                Size:
+                  type: string
+            download_url:
+              type: string
+            thumbnail_url:
+              type: string
+            event:
+              type: object
+              properties:
+                name:
+                  type: string
+                date:
+                  type: object
+                  properties:
+                    value:
+                      type: integer
+                    formatted:
+                      type: string
+            price:
+              type: object
+              properties:
+                value:
+                  type: float
+                formatted:
+                  type: string
+            total:
+              type: object
+              properties:
+                value:
+                  type: float
+                formatted:
+                  type: string
+            preorder:
+              type: object
+              properties:
+                is_preorder:
+                  type: boolean
+                message:
+                  type: string
+                date:
+                  type: object
+                  properties:
+                    value:
+                      type: integer
+                    formatted:
+                      type: string
+            attribute_lines:
+              type: array
+              items:
+                type: object
+            configurable_fields:
+              type: array
+              items:
+                type: object
+      payment:
+        type: object
+        properties:
+          is_test:
+            type: boolean
+          provider_name:
+            type: string
+          offline_payment_message:
+            type: string
+          gateway_amount:
+            type: object
+            properties:
+              formatted:
+                type: string
+              value:
+                type: integer
+      billing:
+        type: object
+        properties:
+          is_managed_by_amazon:
+            type: boolean
+          address:
+            type: object
+            properties:
+              email:
+                type: string
+              phone:
+                type: string
+              first_name:
+                type: string
+              last_name:
+                type: string
+              company:
+                type: string
+              country:
+                type: string
+              city:
+                type: string
+              state:
+                type: string
+              zip:
+                type: string
+              address_lines:
+                type: array
+                items:
+                  type: object
+              custom_fields:
+                type: array
+                items:
+                  type: object
+      total_rows:
+        type: array
+        items:
+          type: object
+          properties:
+            label:
+              type: string
+            price:
+              type: object
+              properties:
+                value:
+                  type: float
+                formatted:
+                  type: string
+            shipping_discounts:
+              type: array
+              items:
+                type: object
+      total_cost:
+        type: object
+        properties:
+          formatted:
+            type: string
+          value:
+            type: integer
+      meta:
+        type: object
+        properties:
+          mandate_url:
+            type: string
+          shipping_addresses_num:
+            type: integer
+          show_immediate_download:
+            type: boolean
+  store:
+    type: object
+    properties:
+      name:
+        type: string
+      domain_name:
+        type: string
+      logo:
+        type: object
+        properties:
+          title:
+            type: string
+          name:
+            type: string
+          url:
+            type: string
+      ssl_path:
+        type: string
+      cdn_path:
+        type: string
+      image_directory:
+        type: string
+      img_path:
+        type: string
+      path_normal:
+        type: string
+      path:
+        type: string
+      address:
+        type: string
+      language:
+        type: object
+        properties:
+          code:
+            type: string
+          direction:
+            type: string
+  customer:
+    type: object
+    properties:
+      first_name:
+        type: string
+      full_name:
+        type: string
+      email:
+        type: string
+  misc:
+    type: object
+    properties:
+      year:
+        type: integer
+  translations:
+    type: object
+    properties:
+      en:
+        type: object
+        properties:
+          comment_label:
+            type: string
+          order_id_line:
+            type: string
+          view_summary:
+            type: string
+          sepa:
+            type: string
+          shipment_to_multiple_addresses:
+            type: string
+          shipping_immediate_download:
+            type: string
+          shipping_address_label:
+            type: string
+          immediate_download:
+            type: string
+          email:
+            type: string
+          billing_address_managed_by_amazon:
+            type: string
+          billing_address_label:
+            type: string
+          pending_payment:
+            type: string
+          how_to_pay:
+            type: string
+          pay_for_order_help:
+            type: string
+          order_total:
+            type: string
+          cart_items:
+            type: string
+          sku:
+            type: string
+          quantity:
+            type: string
+          item_price:
+            type: string
+          item_total:
+            type: string
+          payment_method:
+            type: string
+          no_payment_taken_in_test_mode:
+            type: string
+          download_files:
+            type: string
+          preorder:
+            type: string
+          download_available_after_payment:
+            type: string
+          shipped_to:
+            type: string
+          shipping_discount:
+            type: string
+          thanks_for_your_order:
+            type: string
+          your_order_contains:
+            type: string
+          shipping_method:
+            type: string
+          shipping_to_address:
+            type: string
+          your_order_will_be_shipped_by:
+            type: string
+          total_cost:
+            type: string
+          items:
+            type: string
+          total:
+            type: string
+          price:
+            type: string
+          email_address:
+            type: string
+

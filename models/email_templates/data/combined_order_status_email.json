@@ -1,0 +1,93 @@
+{
+  "order": {
+    "id": 1,
+    "new_status": "Awaiting Fulfillment",
+    "total": {
+      "value": 10,
+      "formatted": "$10.00 USD"
+    },
+    "refund": {
+      "value": 0,
+      "formatted": ""
+    },
+    "date_placed": {
+      "value": 1614615796,
+      "formatted": "03/01/2121"
+    },
+    "payment_method": "Store Credit",
+    "link": "#status-link",
+    "customer_name": "John Cena",
+    "downloadable_products": [
+      {
+        "name": "Journal",
+        "options": "",
+        "quantity": 1,
+        "link": "#downloadable-link"
+      }
+    ],
+    "products": [
+      {
+        "name": "Test product",
+        "sku": "FA44",
+        "quantity": 11
+      }
+    ],
+    "tracking": [
+      {
+        "id": "123BC",
+        "shipping_method": "DHL",
+        "link": "#example.com"
+      }
+    ]
+  },
+  "store": {
+    "name": "My Dev Store 97434969",
+    "domain_name": "my-dev-store-97434969.store.bcdev",
+    "logo": {
+      "title": "[= My Dev Store 97434969 =]",
+      "name": "avatar-2020_1612860757__16350.jpeg",
+      "url": "https://valeryderived-cloud-dev-vm.store.bcdev/store/f1kr2akw96/product_images/avatar-2020_1612860757__16350.jpeg"
+    },
+    "ssl_path": "https://my-dev-store-97434969.store.bcdev",
+    "cdn_path": "https://valeryderived-cloud-dev-vm.store.bcdev/store/f1kr2akw96",
+    "image_directory": "product_images",
+    "img_path": "https://valeryderived-cloud-dev-vm.store.bcdev/r08d84bb67d250c7624502ed76d8e0bafb1a5cacf/g-themes/ClassicNext/images",
+    "path_normal": "https://my-dev-store-97434969.store.bcdev",
+    "path": "https://my-dev-store-97434969.store.bcdev",
+    "address": "",
+    "language": {
+      "code": "en",
+      "direction": "ltr"
+    }
+  },
+  "customer": {
+    "first_name": "John",
+    "full_name": "John Jr",
+    "email": "john.f@example.com"
+  },
+  "misc": {
+    "year": 2021
+  },
+  "translations": {
+    "en": {
+      "title": "Order status changed",
+      "hello": "Hi {name},",
+      "message": "The status of your order #{id} has changed to <strong>{status}</strong>.",
+      "details_title": "Order details",
+      "order_total": "Order total:",
+      "date_placed": "Date placed:",
+      "payment_method": "Payment method:",
+      "total_refund": "Total refunded:",
+      "products_shipped": "Products shipped",
+      "products_to_be_shipped": "Products to be shipped",
+      "tracking_title": "Tracking information",
+      "downloadable_items_title": "Downloadable items",
+      "quantity": "Qty:",
+      "download": "Download file",
+      "tracking_label": "Tracking Link",
+      "no_tracking_numbers": "No tracking numbers are assigned to your order yet",
+      "check_status": "Check order status",
+      "go_shopping": "Go shopping"
+    }
+  }
+}

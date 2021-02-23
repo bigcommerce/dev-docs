@@ -1,0 +1,30 @@
+openapi: 3.0.0
+info:
+  title: Email Template Handlebars Objects
+  description: Objects available to Handlebars email templates.
+components:
+  schemas:
+    abandoned_cart_email:
+      $ref: ./abandoned_cart_email.yml
+    account_details_changed_email:
+      $ref: ./account_details_changed_email.yml
+    account_reset_password_email:
+      $ref: ./account_reset_password_email.yml
+    combined_order_status_email:
+      $ref: ./combined_order_status_email.yml
+    ceate_account_email:
+      $ref: ./ceate_account_email.yml
+    gift_certification_email:
+      $ref: ./gift_certification_email.yml
+    invoice_email:
+      $ref: ./invoice_email.yml
+    order_message_notification:
+      $ref: ./order_message_notification.yml
+    passwordless_login_email:
+      $ref: ./passwordless_login_email.yml
+    product_review_email:
+      $ref: ./product_review_email.yml
+    return_confirmation_email:
+      $ref: ./return_confirmation_email.yml
+    return_status_change_email:
+      $ref: ./return_status_change_email.yml

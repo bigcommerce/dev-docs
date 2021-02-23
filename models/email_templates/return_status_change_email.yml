@@ -1,0 +1,129 @@
+type: object
+properties:
+  return:
+    type: object
+    properties:
+      id:
+        type: integer
+      reason:
+        type: string
+      action:
+        type: string
+      comments:
+        type: string
+      product:
+        type: object
+        properties:
+          name:
+            type: string
+          quantity:
+            type: integer
+          thumbnail_url:
+            type: string
+      status:
+        type: object
+        properties:
+          value:
+            type: integer
+          formatted:
+            type: string
+      store_credit:
+        type: object
+        properties:
+          value:
+            type: float
+          formatted:
+            type: string
+      link:
+        type: string
+      instructions:
+        type: string
+  order:
+    type: object
+    properties:
+      id:
+        type: integer
+  store:
+    type: object
+    properties:
+      name:
+        type: string
+      domain_name:
+        type: string
+      logo:
+        type: object
+        properties:
+          title:
+            type: string
+          name:
+            type: string
+          url:
+            type: string
+      ssl_path:
+        type: string
+      cdn_path:
+        type: string
+      image_directory:
+        type: string
+      img_path:
+        type: string
+      path_normal:
+        type: string
+      path:
+        type: string
+      address:
+        type: string
+      language:
+        type: object
+        properties:
+          code:
+            type: string
+          direction:
+            type: string
+  customer:
+    type: object
+    properties:
+      first_name:
+        type: string
+      full_name:
+        type: string
+      email:
+        type: string
+  misc:
+    type: object
+    properties:
+      year:
+        type: integer
+  translations:
+    type: object
+    properties:
+      en:
+        type: object
+        properties:
+          title:
+            type: string
+          hello:
+            type: string
+          message:
+            type: string
+          received_credit:
+            type: string
+          details_title:
+            type: string
+          return_reason:
+            type: string
+          return_action:
+            type: string
+          return_comments:
+            type: string
+          check_status:
+            type: string
+          products_title:
+            type: string
+          quantity:
+            type: string
+          instructions_title:
+            type: string
+          go_shopping:
+            type: string
+
