@@ -41,7 +41,7 @@ BigCommerce has over 65 payment gateway integrations available out-of-the box, s
 * PayPal through Braintree
 * All non-hosted (API) gateways that are supported by Optimized One Page Checkout 
 
-Unsupported hosted payment gateways are Amazon Pay, AfterPay, Google Pay, Chase Pay, and Masterpass.
+Unsupported hosted payment gateways are Amazon Pay, AfterPay, Google Pay, and Masterpass.
 
 ## BigCommerce for WordPress unsupported features
 
