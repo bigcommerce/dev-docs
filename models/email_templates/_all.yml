@@ -1,51 +1,56 @@
 type: object
 title: 'Handlebars Email Template Objects'
 properties:
+  Global Email Template Objects:
+    description: Data available across all email templates.
+    type: object
+    allOf:
+      - $ref: ./global.yml
   Abandoned Cart Email Template Objects:
-    description:
+    description: Data available to the abandoned cart email template.
     type: object
     allOf:
       - $ref: ./abandoned_cart_email.yml
   Account Details Changed Email Template Objects:
-    description:
+    description: Data available to the account details changed email template.
     type: object
     allOf:
       - $ref: ./account_details_changed_email.yml
   Account Reset Password Email Template Objects:
     title: Account Reset Password Email Template
-    description: test
+    description: Data available to the reset password email template.
     type: object
     allOf:
       - $ref: ./account_reset_password_email.yml
   Combined Order Status Template Objects:
-    description:
+    description: Data available to the combined order status email template.
     type: object
     allOf:
       - $ref: ./combined_order_status_email.yml
   Create Account Email Template Objects:
     title: Create Account Template
-    description:
+    description: Data available to the create account email template.
     type: object
     allOf:
       - $ref: ./create_account_email.yml
   Gift Certificate Email Template Objects:
     title: Gift Certificate Email Template
-    description: test
+    description: Data available to the gift certificate email template.
     type: object
     allOf:
       - $ref: ./gift_certificate_email.yml
   Invoice Email Template Objects:
-    description:
+    description: Data available to the invoice email template.
     type: object
     allOf:
       - $ref: ./invoice_email.yml
   Order Message Notification Email Template Objects:
-    description:
+    description: Data available to the order message notification email template.
     type: object
     allOf:
       - $ref: ./order_message_notification.yml
   Passwordless Login Email Template Objects:
-    description:
+    description: Data available to the passwordless login email template.
     type: object
     allOf:
       - $ref: ./passwordless_login_email.yml
@@ -56,12 +61,12 @@ properties:
     allOf:
       - $ref: ./product_review_email.yml
   Return Confirmation Email Template Objects:
-    description: test
+    description: Data available to the return confirmation email template.
     type: object
     allOf:
       - $ref: ./return_confirmation_email.yml
   Return Status Change Email Template Objects:
-    description: test
+    description: Data available to the return status change email template.
     type: object
     allOf:
       - $ref: ./return_status_change_email.yml
