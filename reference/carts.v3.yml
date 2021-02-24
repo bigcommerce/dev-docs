@@ -930,7 +930,7 @@ definitions:
               type: number
               description: The discounted amount.
       line_items:
-        type: array
+        type: object
         items:
           type: object
           title: Line Item
