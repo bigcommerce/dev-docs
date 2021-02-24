@@ -168,7 +168,7 @@ paths:
           in: body
           required: true
           schema:
-            $ref: '#/definitions/Cart Line Item Update Post'
+            $ref: '#/definitions/Cart_Line_Item_Update_Post'
           x-examples:
             application/json:
               line_items:
@@ -296,7 +296,7 @@ paths:
           in: body
           required: true
           schema:
-            $ref: '#/definitions/Cart Line Item Update Post'
+            $ref: '#/definitions/Cart_Line_Item_Update_Post'
           x-examples:
             application/json:
               line_item:
@@ -703,9 +703,9 @@ definitions:
           code:
             type: string
             format: ISO-4217
-      locale:
+      locale: 
         type: string
-        description: Accepts string of format `xx` or `xx-YY`.
+        description: Accepts string of format `xx` or `xx-YY`.    
   CartRequestData:
     type: object
     title: Cart Request Data
@@ -2476,6 +2476,9 @@ definitions:
         variant_id:
           type: number
           description: Exists only in Catalog V3
+        name:
+          type: string
+          description: 'Optionally, provide a value to override the product name'
       required:
         - quantity
         - product_id
@@ -2492,6 +2495,9 @@ definitions:
         list_price:
           type: number
           description: Optional price override
+        name:
+          type: string
+          description: 'Optionally, provide a value to override the product name'
         option_selections:
           type: array
           description: Needed for Catalog V2
@@ -2502,12 +2508,18 @@ definitions:
                 type: number
               option_value:
                 type: string
+              name:
+                type: string
+                description: Override selected Option or Modifier Name
+              value:
+                type: string
+                description: Override selected Option Value
       required:
         - quantity
         - product_id
-  Cart Line Item Update Post:
+  Cart_Line_Item_Update_Post:
     type: object
-    title: Cart Line Item Update Post
+    title: Cart_Line_Item_Update_Post
     properties:
       line_items:
         oneOf:
