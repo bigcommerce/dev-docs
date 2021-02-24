@@ -6,6 +6,8 @@ info:
   termsOfService: ''
 host: '{$$.env.store_domain}'
 basePath: /api/storefront
+tags:
+  - Order
 schemes:
   - https
 consumes:
@@ -140,6 +142,9 @@ definitions:
               type: integer
       taxTotal:
         type: integer
+      channelId:
+        type: number
+        description: Id of the channel which the order belongs to.
   Currency:
     title: Currency
     description: This will always be the same between cart and checkout.
@@ -738,6 +743,4 @@ responses:
   order_Resp:
     description: ''
     schema:
-      title: Response Order Data
-      type: object
       $ref: '#/definitions/Order'
