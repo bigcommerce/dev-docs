@@ -192,14 +192,14 @@ paths:
       parameters:
         - name: 'order_id:in'
           in: query
-          description: Filter by order_ids
+          description: Filter by `order_id`. Accepts multiple as comma-separated values. 
           type: array
           items:
             type: integer
           collectionFormat: csv
         - name: 'id:in'
           in: query
-          description: Filter by resource ids
+          description: Filter by refund `id`. Accepts multiple as comma-separated values.
           type: array
           items:
             type: integer
@@ -214,22 +214,28 @@ paths:
 
 
             Must be in url-encoded RFC 3339 format.
-            e.g. `2020-01-15T01:02:34-01:00` is RFC-3339 format.
+            e.g. `2020-01-15T01:02:34-01:00` is RFC 3339 format.
             Url-encoded this will be `2020-01-15T01%3A02%3A34%2B01%3A00`
           format: date-time
-          default: RFC 3339
         - in: query
           name: 'created:max'
           type: string
           format: date-time
-          default: RFC 3339
           description: |-
             Filter results so they are earlier than or equal to provided date.
 
 
             Must be in url-encoded RFC 3339 format.
-            e.g. `2020-01-15T01:02:34-01:00` is RFC-3339 format.
+            e.g. `2020-01-15T01:02:34-01:00` is RFC 3339 format.
             Url-encoded this will be `2020-01-15T01%3A02%3A34%2B01%3A00`
+        - in: query
+          name: page
+          type: integer
+          description: Specifies the page number in a limited (paginated) list of items.
+        - in: query
+          name: limit
+          type: integer
+          description: Controls the number of items per page in a limited (paginated) list of items.
       responses:
         '200':
           $ref: '#/responses/RefundCollection_Resp'
@@ -611,6 +617,7 @@ paths:
         - $ref: "#/parameters/LimitParam"
         - $ref: "#/parameters/MetafieldKeyParam"
         - $ref: "#/parameters/MetafieldNamespaceParam"
+        - $ref: "#/parameters/DirectionParam"
       responses:
         '200':
           description: |
@@ -765,6 +772,16 @@ parameters:
     required: false
     in: query
     type: integer
+  DirectionParam:
+    name: direction
+    description: |
+      Sort direction. Acceptable values are: `asc`, `desc`.
+    required: false
+    in: query
+    type: string
+    enum:
+      - asc
+      - desc  
 securityDefinitions:
   X-Auth-Token:
     type: apiKey
