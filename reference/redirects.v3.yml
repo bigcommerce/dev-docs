@@ -79,21 +79,21 @@ paths:
         - type: integer
           in: query
           name: site_id
-          description: Site ID to return only redirects for a given Site
+          description: Filters items by `site_id`.
         - type: array
           in: query
           name: 'id:in'
-          description: 'Explicitly fetch Redirects by IDs, provided as CSV string'
+          description: Filters items by redirect `id`. Also accepts comma-separated values to filter for multiple redirects.
           items:
             type: string
         - type: integer
           in: query
           name: limit
-          description: Number of results to return per page
+          description: Controls the number of items to return per page.
         - type: integer
           in: query
           name: page
-          description: 'Which page number to return, based on the page size. Used to paginate large collections.'
+          description: Specifies the page number in a limited (paginated) list of items. Used to paginate large collections.
         - type: string
           enum:
             - from_path
@@ -101,7 +101,7 @@ paths:
             - site_id
           in: query
           name: sort
-          description: Sorts a collection by a particular field.
+          description: Sorts a collection by a specified field.
         - type: string
           enum:
             - asc
@@ -114,18 +114,18 @@ paths:
             - to_url
           in: query
           name: include
-          description: 'Request extra fields that aren''t in the standard response. On this endpoint, only "to_url" is supported.'
+          description: Indicates whether to include redirect sub-resources. Only `to_url` is supported.
         - type: string
           in: query
           name: keyword
-          description: 'Search keyword to look for redirects matching this keyword. Will only search from the beginning of a URL path, so "blue" will match "/blue" and "/blue-shirt" but not "/royal-blue-shirt"'
-      description: Get a collection of the store's 301 redirects across all sites
+          description: 'Filters redirects by the specified keyword. Will only search from the beginning of a URL path. For example, `blue` will match `/blue` and `/blue-shirt` ,  **not** `/royal-blue-shirt`.'
+      description: Returns a collection of the store's 301 redirects across all sites.
       operationId: GetRedirects
     put:
       summary: Upsert Redirects
       tags:
         - Redirects
-      description: Upsert new redirect data across all storefronts.
+      description: Upserts new redirect data across all storefronts.
       responses:
         '201':
           $ref: ''
@@ -194,7 +194,7 @@ paths:
           name: site_id
           description: Site ID provided to delete all redirects for a given Site
           type: integer
-      description: Delete redirects
+      description: Deletes redirects.
       operationId: DeleteRedirects
 definitions:
   Error:
