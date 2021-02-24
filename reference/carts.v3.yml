@@ -31,7 +31,7 @@ paths:
         * If a product has modifiers, omit the `variant_id` and instead use the `option_selections` array to describe both the **variant** and the **modifier** selections.
         * Redirect URLs can only be generated from carts created using the **Server-to-Server Carts API**. 
         * To get cart `redirect_urls` in the response, append the following query parameter to the request URL: `include=redirect_urls`.
-        * To restore a cart created by a shopper or via the Storefront Cart API, first recreate the cart using the Server to Server Cart API.
+        * To restore a cart that was created by a shopper or via the Storefront Cart API, first recreate the cart using the Server to Server Cart API.
       parameters:
         - name: cartData
           in: body
@@ -239,9 +239,9 @@ paths:
         * Redirect URLs can also be created via **Create a Cart** requests by appending `include=redirect_urls`.
         * A **Carts** redirect URLs may only be used once. 
         * Once a redirect URL has been visited, it will be invalidated and cannot be used again. 
-        * If your application requires URLs to be visited more than once, consider generating a fresh one each time you need to restore a cart and redirecting to the URL from your own application.
+        * If your application requires URLs to be visited more than once, consider generating a fresh one each time you need to restore a cart, and redirecting to the URL from your own application.
         * Redirect URLs can be generated only from carts created using the Server to Server Cart API. 
-        * To restore a cart created on the storefront, either by a shopper or the Storefront Cart API, first recreate the cart using the Server to Server Cart API.
+        * To restore a cart that was created on the storefront, either by a shopper or the Storefront Cart API, first recreate the cart using the Server to Server Cart API.
       parameters:
         - name: cartId
           in: path
@@ -277,6 +277,8 @@ paths:
         If the product has modifiers, omit the `variant_id` and instead use the `option_selections` array to describe both the **variant** and the **modifier** selections.
 
         If a variant needs to be changed or updated, the product will need to be removed and re-added to the cart with the correct variants using the Add Cart Line Items endpoint.
+
+        `custom_items` cannot be updated via the API at this time. To update your cart, add a new updated custom item and delete the outdated one. If your cart contains only one line item, perform the add operation before the delete operation.
 
         Deleting all line items from the cart will invalidate the cart. 
       parameters:
@@ -440,7 +442,7 @@ paths:
                 updated_time: '2018-09-17T14:53:40+00:00'
               meta: {}
         '204':
-          description: If the action's result is an empty cart, the cart gets automatically deleted.
+          description: 'If the action''s result is an empty cart, the cart gets automatically deleted.'
       summary: Delete Cart Line Item
       operationId: deleteCartLineItem
   '/carts/{cartId}':
@@ -701,6 +703,9 @@ definitions:
           code:
             type: string
             format: ISO-4217
+      locale:
+        type: string
+        description: Accepts string of format `xx` or `xx-YY`.
   CartRequestData:
     type: object
     title: Cart Request Data
@@ -1047,7 +1052,7 @@ definitions:
                                 - coupon_code
                       discount_amount:
                         type: number
-                        description: The total value of all discounts applied to this item. This includes coupons and cart level discounts.
+                        description: The total value of all discounts applied to this item. This includes coupons and cart level discounts
                         example: 4
                       coupon_amount:
                         type: number
@@ -1220,7 +1225,7 @@ definitions:
                                 - coupon_code
                       discount_amount:
                         type: number
-                        description: The total value of all discounts applied to this item. This includes coupons and cart level discounts.
+                        description: The total value of all discounts applied to this item. This includes coupons and cart level discounts
                         example: 4
                       coupon_amount:
                         type: number
@@ -1286,7 +1291,7 @@ definitions:
                     type: string
                   name:
                     type: string
-                    description: Provided name that will appear in the control panel.
+                    description: GiftCertificate-provided name that will appear in the control panel.
                   theme:
                     type: string
                     description: 'Currently supports `Birthday`, `Boy`, `Celebration`, `Christmas`, `General`, and `Girl`.'
@@ -1362,6 +1367,9 @@ definitions:
       channel_id:
         type: integer
         description: 'If no channel is specified, defaults to 1. '
+      locale:
+        type: string
+        description: Locale of the cart.
   Currency:
     type: object
     description: This will always be the same between cart and checkout.
@@ -1740,7 +1748,7 @@ definitions:
               type: string
             name:
               type: string
-              description: Provided name that will appear in the control panel.
+              description: GiftCertificate-provided name that will appear in the control panel.
             theme:
               type: string
               description: 'Currently supports `Birthday`, `Boy`, `Celebration`, `Christmas`, `General`, and `Girl`.'
@@ -2310,7 +2318,7 @@ definitions:
                 - coupon_code
       discount_amount:
         type: number
-        description: The total value of all discounts applied to this item. This includes coupons and cart level discounts.
+        description: The total value of all discounts applied to this item. This includes coupons and cart level discounts
         example: 4
       coupon_amount:
         type: number

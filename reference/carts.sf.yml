@@ -474,6 +474,9 @@ definitions:
             - quantity
             - sender
             - recipient
+      locale:
+        type: string
+        description: Locale of the cart. Accepts string of format `xx` or `xx-YY`.
   CreateCartPost:
     type: object
     properties:
@@ -978,6 +981,9 @@ definitions:
         type: string
         format: ISO-8601
         description: Time when the cart was last updated.
+      locale:
+        type: string
+        description: Locale of the cart.
   Currency:
     type: object
     description: This will always be the same between cart and checkout.
