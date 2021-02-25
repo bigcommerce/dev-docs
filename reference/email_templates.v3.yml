@@ -3,7 +3,7 @@ info:
   title: Email Templates
   description: Manage Handlebars-based email templates globally and create channel-specific overrides.
 servers:
-  - url: 'https://api.bigcommerce.com/stores/{store_hash}/v3'
+  - url: 'https://api.bigcommerce.com/stores/{$$.env.store_hash}/v3'
     description: BigCommerce API Gateway
     variables:
       store_hash:
@@ -272,7 +272,7 @@ components:
       required: true
   securitySchemes:
     X-Auth-Token:
-      name: API Key
+      name: X-Auth-Token
       type: apiKey
       in: query
       description: |-
