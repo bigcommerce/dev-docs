@@ -125,10 +125,10 @@ In V3, any variants or modifier adjusters created with non-null core properties 
 
 ### Articles
 * [Catalog Overview](https://developer.bigcommerce.com/api-docs/store-management/catalog/catalog-overview/)
-* [Deprecations and sunsets](https://developer.bigcommerce.com/api-reference#deprecations-and-sunsets)
+* [Deprecations and sunsets](https://developer.bigcommerce.com/api-docs/getting-started/deprecations-and-sunsets)
 
 ### Endpoints
 * [V3 Product Complex Rules](https://developer.bigcommerce.com/api-reference/store-management/catalog/product-complex-rules)
 * [V3 Product Options](https://developer.bigcommerce.com/api-reference/store-management/catalog/product-options)
 * [V3 Product Modifiers](https://developer.bigcommerce.com/api-reference/store-management/catalog/product-modifiers)
-* [V3 Product Variants](https://developer.bigcommerce.com/api-reference/catalog/catalog-api/product-variants)
+* [V3 Product Variants](https://developer.bigcommerce.com/api-reference/store-management/catalog/product-variants)
