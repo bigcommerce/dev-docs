@@ -12,7 +12,7 @@ servers:
 paths:
   /marketing/email-templates:
     get:
-      summary: Get All Email Templates
+      summary: Get Email Templates
       description: Get a list of email templates.
       responses:
         '200':
@@ -25,11 +25,26 @@ paths:
                     $ref: '#/components/schemas/EmailTemplatesCollection'
                   meta:
                     type: object
+              examples:
+                Example:
+                  value:
+                    data:
+                      - type_id: account_reset_password_email
+                        body: '<!DOCTYPE html> <html lang="en"> <head>     <meta charset="UTF-8">     <title>Title</title> </head> <body> <p>     {{lang "reset_password" name=store.name}} </p> <br/> <br/> <a href=''{{account.reset_password_link}}''>     {{account.reset_password_link}} </a>  </body> </html>'
+                        translations:
+                          - locale: en
+                            keys:
+                              reset_password: 'To change your customer account password at {name} please click this link or copy and paste it into your browser:'
+                        subject: 'Reset your password at {{store.name}}'
+                    meta: {}
           description: |
             An array of email templates on the store
       parameters:
         - $ref: '#/components/parameters/ChannelIdParam'
-  /marketing/email-templates/{template-name}:
+      operationId: getEmailTemplates
+      tags:
+        - Email Templates
+  '/marketing/email-templates/{template-name}':
     parameters:
       - schema:
           type: string
@@ -37,7 +52,7 @@ paths:
         in: path
         required: true
     get:
-      summary: Get a Template
+      summary: Get an Email Template
       description: Get an single global email template or a channel-specific email template override.
       tags:
         - Email Templates
@@ -53,7 +68,19 @@ paths:
                     $ref: '#/components/schemas/EmailTemplate'
                   meta:
                     type: object
-      operationId: get-marketing-email-templates-template-name
+              examples:
+                Example:
+                  value:
+                    data:
+                      type_id: account_reset_password_email
+                      body: '<!DOCTYPE html> <html lang="en"> <head>     <meta charset="UTF-8">     <title>Title</title> </head> <body> <p>     {{lang "reset_password" name=store.name}} </p> <br/> <br/> <a href=''{{account.reset_password_link}}''>     {{account.reset_password_link}} </a>  </body> </html>'
+                      translations:
+                        - locale: en
+                          keys:
+                            reset_password: 'To change your customer account password at {name} please click this link or copy and paste it into your browser:'
+                      subject: 'Reset your password at {{store.name}}'
+                    meta: {}
+      operationId: getEmailTemplate
       parameters:
         - $ref: '#/components/parameters/ChannelIdParam'
     put:
@@ -61,7 +88,7 @@ paths:
       description: Update a global template or create a channel-specific email template override.
       tags:
         - Email Templates
-      operationId: put-marketing-email-templates-template-name
+      operationId: updateEmailTemplate
       responses:
         '200':
           description: OK
@@ -74,6 +101,18 @@ paths:
                     $ref: '#/components/schemas/EmailTemplate'
                   meta:
                     type: object
+              examples:
+                Example:
+                  value:
+                    data:
+                      type_id: account_reset_password_email
+                      body: '<!DOCTYPE html> <html lang="en"> <head>     <meta charset="UTF-8">     <title>Title</title> </head> <body> <p>     {{lang "reset_password" name=store.name}} </p> <br/> <br/> <a href=''{{account.reset_password_link}}''>     {{account.reset_password_link}} </a>  </body> </html>'
+                      translations:
+                        - locale: en
+                          keys:
+                            reset_password: 'To change your customer account password at {name} please click this link or copy and paste it into your browser:'
+                      subject: 'Reset your password at {{store.name}}'
+                    meta: {}
         '400':
           description: Bad Request
           content:
@@ -87,12 +126,23 @@ paths:
           application/json:
             schema:
               $ref: '#/components/schemas/EmailTemplate'
+            examples:
+              Example:
+                value:
+                  type_id: account_reset_password_email
+                  body: '<!DOCTYPE html> <html lang="en"> <head>     <meta charset="UTF-8">     <title>Title</title> </head> <body> <p>     {{lang "reset_password" name=store.name}} </p> <br/> <br/> <a href=''{{account.reset_password_link}}''>     {{account.reset_password_link}} </a>  </body> </html>'
+                  translations:
+                    - locale: en
+                      keys:
+                        reset_password: 'To change your customer account password at {name} please click this link or copy and paste it into your browser:'
+                  subject: 'Reset your password at {{store.name}}'
+        description: ''
     delete:
       summary: Delete Email Template Override
       description: Removes a channel-specific email template override.
       tags:
         - Email Templates
-      operationId: delete-template
+      operationId: deleteEmailTemplateOverride
       responses:
         '200':
           description: OK
