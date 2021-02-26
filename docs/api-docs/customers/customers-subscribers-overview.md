@@ -111,7 +111,8 @@ Customer attributes are created separately from the customer. After the name and
 
 [Customer addresses](https://developer.bigcommerce.com/api-reference/store-management/customers-v3/customer-addresses/) consist of a customers address and phone number. Customers can have multiple addresses stored against them.
 
-[Customer form field values](https://developer.bigcommerce.com/api-reference/store-management/customers-v3/customer-form-field-values/) are fields on either the customer address or customer signup that accept any string data. For example, a signup field can have a customer input a wholesaler ID or, for an address field, have them input any special delivery instructions. For more information about creating form fields, see [Account Signup Fields](https://support.bigcommerce.com/s/article/Editing-Form-Fields#account-fields). 
+[Customer form field values](https://developer.bigcommerce.com/api-reference/store-management/customers-v3/customer-form-field-values/) are fields on either the customer address or customer sign-up that accept any string data. For example, a sign-up field can have a customer input a wholesaler ID or, for an address field, have them input any special delivery instructions. For more information about creating form fields, see [Account Signup Fields](https://support.bigcommerce.com/s/article/Editing-Form-Fields#account-fields). 
+
 
 You can access and edit the values for the fields on customer and customer address records using the API. 
 
