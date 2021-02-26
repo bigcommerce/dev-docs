@@ -422,7 +422,6 @@ paths:
                         name: Able Brewing System
                         url: 'http://store-url.mybigcommerce.com/all/able-brewing-system/'
                         quantity: 1
-                        is_taxable: true
                         image_url: 'https://cdn8.bigcommerce.com/s-{store_hash}/products/167/images/398/ablebrewingsystem4_1024x1024__07155__93974.1534344516.330.500.jpg?c=2'
                         discounts:
                           - id: total-coupon
@@ -1031,26 +1030,7 @@ definitions:
                               format: double
                       coupons:
                         description: ''
-                        type: array
-                        items:
-                          title: Applied Coupon
-                          type: object
-                          properties:
-                            code:
-                              description: the coupon code
-                              type: string
-                            id:
-                              description: The coupon ID.
-                              type: number
-                            coupon_type:
-                              description: Key name to identify the type of coupon.
-                              type: string
-                            discounted_amount:
-                              description: The discounted amount applied within a given context.
-                              type: number
-                              format: double
-                          required:
-                            - code
+                        type: number
                       discount_amount:
                         description: The total value of all discounts applied to this item.
                         type: number
@@ -1075,7 +1055,6 @@ definitions:
                         description: Item's sale price multiplied by the quantity.
                         type: number
                         format: double
-                      
                       is_require_shipping:
                         description: ''
                         type: boolean
@@ -1168,26 +1147,7 @@ definitions:
                               format: double
                       coupons:
                         description: ''
-                        type: array
-                        items:
-                          title: Applied Coupon
-                          type: object
-                          properties:
-                            code:
-                              description: the coupon code
-                              type: string
-                            id:
-                              description: The coupon ID.
-                              type: number
-                            coupon_type:
-                              description: Key name to identify the type of coupon.
-                              type: string
-                            discounted_amount:
-                              description: The discounted amount applied within a given context.
-                              type: number
-                              format: double
-                          required:
-                            - code
+                        type: number
                       discount_amount:
                         description: The total value of all discounts applied to this item.
                         type: number
@@ -1630,7 +1590,6 @@ definitions:
         type: number
         format: double
       cart_amount_ex_tax:
-        description: 'Sum of line-items amounts, minus cart-level discounts and coupons excluding tax.'
         type: number
         format: double
       coupons:

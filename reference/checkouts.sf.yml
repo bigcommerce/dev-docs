@@ -3414,7 +3414,7 @@ definitions:
                     description: 'Number of decimal places for the currency. For example, USD currency has two decimal places.'
                     type: number
                     format: double
-              taxIncluded:
+              istaxIncluded:
                 description: Boolean representing whether tax information is included.
                 type: boolean
               baseAmount:
@@ -3562,6 +3562,9 @@ definitions:
                           isShippingRequired:
                             description: Whether this item requires shipping to a physical address.
                             type: boolean
+                          isMutable:
+                            description:
+                            type: boolean
                           giftWrapping:
                             title: Gift Wrapping
                             type: object
@@ -3612,6 +3615,9 @@ definitions:
                             description: Quantity of this item.
                             type: number
                             format: double
+                          brand:
+                            description: The item's brand.
+                            type: string
                           isTaxable:
                             description: Whether the item is taxable.
                             type: boolean
@@ -3659,6 +3665,9 @@ definitions:
                           type:
                             description: the product type - physical or digital
                             type: string
+                          isMutable:
+                            description:
+                            type: boolean
                           isShippingRequired:
                             description: Whether this item requires shipping to a physical address.
                             type: boolean
@@ -4525,7 +4534,7 @@ definitions:
             description: 'Number of decimal places for the currency. For example, USD currency has two decimal places.'
             type: number
             format: double
-      taxIncluded:
+      isTaxIncluded:
         description: Boolean representing whether tax information is included.
         type: boolean
       baseAmount:
@@ -4664,6 +4673,12 @@ definitions:
                     description: Item's sale price multiplied by the quantity.
                     type: number
                     format: double
+                  comparisonPrice:
+                    description:   Item's comparison price
+                    type: number
+                  extendedComparisonPrice: 
+                    description:  Item's comparison price multiplied by the quantity.
+                    type: number
                   type:
                     description: the product type - physical or digital
                     type: string
@@ -4673,6 +4688,9 @@ definitions:
                   isShippingRequired:
                     description: Whether this item requires shipping to a physical address.
                     type: boolean
+                  isMutable:
+                    description:
+                    type: Boolean
                   giftWrapping:
                     title: Gift Wrapping
                     type: object
