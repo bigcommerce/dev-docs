@@ -4,31 +4,38 @@
 
 ### On This Page
 
-- [V2 and V3 Operations Comparison](#v2-and-v3-operations-comparison)
+- [V2 and V3 Operations](#v2-and-v3-operations)
 - [Interoperability between V2 and V3](#interoperability-between-v2-and-v3)
 - [Related resources](#related-resources)
 
 </div>
 
-Use the code samples presented in this article to learn about the difference in operations between V2 and V3 Catalog REST APIs.
+The article explains the difference between V2 and V3 Catalog APIs by comparing major actions on both versions. 
 
-We have created a handy cheat sheet below that lists all the differences between V2 and V3 of the API.
-This identifies the differences between major actions on both versions.
+## V2 and V3 Operations
 
+Examples in this section illustrate the difference working with simple and complex products using V2 and V3 versions of the Catalog API.
 
-## V2 and V3 Operations Comparison
+<div class="HubBlock--callout">
+<div class="CalloutBlock--info">
+<div class="HubBlock-content">
 
-### Simple Product
+> ### Note
+> * **Simple product** is a product that does not have variants, modifiers, or options.
+> * **Complex product** is a product that has variants, options, or modifiers.
 
-Simple product is defined as not having variants, modifiers, or options.
+</div>
+</div>
+</div>
 
-**Return a single product**
+### Return a single product
 
-Both versions of the API return a single product in response to a `GET` request when a `product_id` is passed in; however, the there is a difference in the data returned in the response. 
+Both versions of the API return a single product in response to a `GET` request when a `product_id` is passed in; however, the data returned in the response differs. 
 
 To retrieve a product using the V3 Catalog API, send a `GET` request to `/v3/catalog/products/{product_id}`.
 
-**V3 Response:**
+**V3 response:**
+
 `GET /v3/catalog/products/{product_id}`
 
 ```json
@@ -113,8 +120,10 @@ To retrieve a product using the V3 Catalog API, send a `GET` request to `/v3/cat
 }
 ```
 
-To retrieve a product's data using the V2 Products API, send a `GET` request to `/v2/products/{product_id}`
-**V2 Response:**
+To retrieve a product's data using the V2 Products API, send a `GET` request to `/v2/products/{product_id}`.
+
+**V2 response:**
+
 `GET /v2/products/{product_id}`
 
 ```json
@@ -253,11 +262,12 @@ To retrieve a product's data using the V2 Products API, send a `GET` request to 
 }
 ```
 
-**Create a product**
+### Create a product
 
 To create a simple product using the V3 Catalog API, send a `POST` request to `/v3/catalog/products`.
 
-**V3 Request:**
+**V3 request:**
+
 `POST /v3/catalog/products`
 
 ```json
@@ -273,9 +283,10 @@ To create a simple product using the V3 Catalog API, send a `POST` request to `/
 }
 ```
 
-To create a simple product using the V2 Catalog API, in addition to the properties in the V3 example, your `POST` request must include the `availability` property.
+To create a simple product using the V2 Catalog API, your `POST` request must include the `availability` property in addition to the properties in the V3 example.
 
-**Request V2 Product**
+**V2 request:**
+
 `POST /v2/products`
 
 ```json
@@ -292,15 +303,16 @@ To create a simple product using the V2 Catalog API, in addition to the properti
 }
 ```
 
-**Create a product with images**
+### Create a product with images
 
-To create a simple product with an image using the V3 Catalog API, first create the product, then add an image.
+To create a simple product with an image using the V3 Catalog API, first create the product, then add the image.
 
-**V3 Request:**
+**V3 request:**
+
 `POST /v3/catalog/products/{product_id}/images`
 
-1. Create a product using: `POST /v3/catalog/products`
-2. Add an image using: `POST /v3/catalog/products/{product_id}/images`
+1. Create a product using `POST /v3/catalog/products`
+2. Add an image using `POST /v3/catalog/products/{product_id}/images`
 
 ```json
 {
@@ -311,15 +323,14 @@ To create a simple product with an image using the V3 Catalog API, first create 
 }
 ```
 
-Creating a product with an image in V2 follows a similar sequence; however, V2 `/images/ endpoint only accepts form data.
+Creating a product with an image in V2 follows a similar sequence; however, V2 `/images` endpoint only accepts the `multipart/form-data` media type.
 
-**V2 Request:**
+**V2 request:**
+
 `POST /v2/products/{product_id}/images`
 
-1. Create a product using: `POST /v2/products`
-2. Add an image using: `POST /v2/products/{product_id}/images`
-
-* Only accepts form data.
+1. Create a product using `POST /v2/products`
+2. Add an image using `POST /v2/products/{product_id}/images`
 
 ```shell
 curl -X POST \
@@ -333,15 +344,16 @@ curl -X POST \
   -F image_file=@/Users/{user_name}/Documents/product_images/image_file.png
   ```
 
-**Create a product with videos**
+### Create a product with videos
 
-To create a simple product with an video using the V3 Catalog API, first create the product, then add a video.
+To create a simple product with an video using the V3 Catalog API, first create the product, then add the video. All videos must be loaded through YouTube and have a `video_id`.
 
 **V3 request:**
-`POST /v3/catalog/products/{{id}}/videos`
 
-1. Create a product using: `POST /v3/catalog/products`
-2. Add a video using: `POST /v3/catalog/products/{{id}}/videos`
+`POST /v3/catalog/products/{product_id}/videos`
+
+1. Create a product using `POST /v3/catalog/products`
+2. Add a video using `POST /v3/catalog/products/{product_id}/videos`
 
 ```json
 {
@@ -353,11 +365,14 @@ To create a simple product with an video using the V3 Catalog API, first create 
 }
 ```
 
-**V2 request:**
-`POST /v2/products/{{id}}/videos`
+V2 follows a similar sequence; however, you must pass the full URL in the request body to create a new video.
 
-1. Create a product using: `POST /v2/products`
-2. Add a video using: `POST /v2/products/{{id}}/videos`
+**V2 request:**
+
+`POST /v2/products/{product_id}/videos`
+
+1. Create a product using `POST /v2/products`
+2. Add a video using `POST /v2/products/{product_id}/videos`
 
 ```json
 {
@@ -365,13 +380,9 @@ To create a simple product with an video using the V3 Catalog API, first create 
 }
 ```
 
-## Complex products
+### Create a product with variants and SKUs
 
-Complex products are defined as having variants, options, and modifiers.
-
-### Create product with variants and SKU
-
-V3 version lets you create a complex product with SKUs in one request.
+The V3 Catalog API lets you create a complex product with SKUs in one request.
 
 **V3 request:**
 
@@ -410,13 +421,14 @@ V3 version lets you create a complex product with SKUs in one request.
 }
 ```
 
+Creating a product with variants and SKUs on V2 requires calling multiple V2 endpoints. Here is a sample workflow you would need to follow to create product options and option sets using the V2 API endpoints.
+
 **V2 workflow:**
 
-This is an example workflow to create product options and option sets using the V2 Products API:
-
-1. Create an option (in this example *Color*)
+1. Create an option (for example, Color)
 
 `POST /v2/options`
+
 This will only create an option with no values added.
 
 ```json
@@ -430,7 +442,8 @@ This will only create an option with no values added.
 2. Add option values
 
 `POST /v2/options/{option_id}/values`
-This will add values such as white, black, and blue. Only one value at a time can be created. In this example it will take 3 separate `POST` requests to create all colors.
+
+This will add values such as white, black, and blue. You can create only one value at a time. In this example, it will take three separate `POST` requests to create all colors.
 
 ```json
 {
@@ -443,7 +456,7 @@ This will add values such as white, black, and blue. Only one value at a time ca
 
 3. Create an option set
 
-After the option with values has been created, an option set needs to be created so the option and values created in the previous steps can be added to it.
+Next, you need to create an option set and add the option and values created in the previous steps to it.
 
 `POST /v2/option_sets`
 
@@ -465,8 +478,9 @@ After the option with values has been created, an option set needs to be created
 
 5. Assign the option set to the product
 
+To assign the option set to the product, send a `PUT` request to `/v2/products/{id}` and update the `option_set_id` property.
+
 `PUT /v2/products/{id}`
-To assign the option set to a product, make a `PUT` request and update the `option_set_id` field of the product.
 
 ```json
 {
@@ -475,8 +489,6 @@ To assign the option set to a product, make a `PUT` request and update the `opti
 ```
 
 7. Assign SKUs to the options on the product
-
-**Get Option value ID**
 
 First, retrieve the options associated with the option set. You will need the option's `option_value_id` to create an SKU.
 
@@ -522,13 +534,11 @@ First, retrieve the options associated with the option set. You will need the op
 ]
 ```
 
-**Get Product option ID**
+Then, send a `GET` request to `/v2/products/{product_id}/options` to retrieve the `product_option_id`.
 
-Then, send a `GET` request `/v2/products/{product_id}/options` to retrieve the option's ID.
+Now that you have both `option_value_id` and `product_option_id`, you can add SKUs to the product. Each color will need a separate `POST` to create an SKU.
 
-**Add Product SKU**
-
-Each color will need a separate `POST` to create an SKU.
+**V2 request:**
 
 `POST /v2/products/{product_id}/skus`
 
@@ -543,9 +553,8 @@ Each color will need a separate `POST` to create an SKU.
   ]
 }
 ```
-**Response:**
 
-`GET /v2/products/{product_id}/skus`
+**V2 response:**
 
 ```json
 [
@@ -623,7 +632,7 @@ Each color will need a separate `POST` to create an SKU.
 
 ### Create a product with variants and modifiers
 
-**V3 Example**
+**V3 example**
 
 This examples uses a checkbox which is created in two steps.
 
@@ -660,15 +669,15 @@ This examples uses a checkbox which is created in two steps.
 }
 ```
 
-**V2 Example**
+**V2 example**
 
-Modifiers are considered an option on V2. The follow the same workflow as described in [Create product with variants and SKU](#create-product-with-variants-and-SKU). Assigning an SKU is optional.
+Modifiers are considered an option on V2. They follow the same workflow as described in [Create a product with variants and SKUs](#create-a-product-with-variants-and-skus). Assigning an SKU is optional.
 
 ### Create a product with complex rules
 
-**V3 Example**
-
 In V3, it is best practice to either assign values directly to a variant or use adjusters on the modifier option itself. Complex rules should be reserved for rare cases where a rule condition is too complex to express. To learn more, see [Complex rules](https://developer.bigcommerce.com/api-docs/store-management/catalog/catalog-overview#complex-rules).
+
+**V3 example**
 
 `POST /v3/catalog/products/{product_id}/complex-rules`
 
@@ -693,7 +702,7 @@ In V3, it is best practice to either assign values directly to a variant or use 
 }
 ```
 
-**V2 Example**
+In the following V2 example, we will add a complex rule to increase the product's price by $5 if the checkbox is selected.
 
 <div class="HubBlock--callout">
 <div class="CalloutBlock--info">
@@ -706,7 +715,7 @@ In V3, it is best practice to either assign values directly to a variant or use 
 </div>
 </div>
 
-In the following example, we will adds a complex rule to increase the product's price by $5 if the checkbox is selected.
+**V2 example**
 
 `POST /v2/products/{product_id}/rules`
 
@@ -730,6 +739,7 @@ In the following example, we will adds a complex rule to increase the product's 
 The following examples demonstrate the difference between updating stock levels for a single product on V2 and V3 Catalog APIs.
 
 **V3 example**
+
 `PUT /v3/catalog/products/{id}`
 
 ```json
@@ -740,6 +750,7 @@ The following examples demonstrate the difference between updating stock levels 
 ```
 
 **V2 example**
+
 `PUT /v2/products/{id}`
 
 ```json
@@ -752,6 +763,7 @@ The following examples demonstrate the difference between updating stock levels 
 The following examples illustrate the difference between updating stock levels on a single variant and SKU for V2 and V3 Catalog APIs.
 
 **V3 example**
+
 `PUT /v3/catalog/products/{id}/variants/{id}`
 
 ```json
@@ -762,6 +774,7 @@ The following examples illustrate the difference between updating stock levels o
 ```
 
 **V2 example**
+
 `PUT /v2/products/{id}/skus/{id}`
 
 ```json
@@ -772,13 +785,13 @@ The following examples illustrate the difference between updating stock levels o
 }
 ```
 
-**Update stock levels on multiple variants/SKUs**
+**Update stock levels on multiple variants and SKUs**
 
 In V3, you can update stock levels on multiple variants and SKUs in one call by sending a `PUT` request to `/v3/catalog/products/{id}`. When using the V2 version, you need to send a separate request for each SKU.
 
 ## Interoperability between V2 and V3
 
-When a product option is created in V2 and assigned to a product, editing the global option using the V3 API will automatically copy the V2 global product option to a local product variant option or modifier option. This is triggered by an Update or Delete to either the [Product Options](/api-reference/catalog/catalog-api/product-options/getoptions) or [Product Modifiers](/api-reference/catalog/catalog-api/product-modifiers/getmodifiers) endpoints.
+When a product option is created in V2 and assigned to a product, editing the global option using the V3 Catalog API will automatically copy the V2 global product option to a local product variant option or modifier. This is triggered by an `UPDATE ` or `DELETE` to either the [Product Options](https://developer.bigcommerce.com/api-reference/store-management/catalog/product-options/getoptions) or [Product Modifiers](https://developer.bigcommerce.com/api-reference/store-management/catalog/product-modifiers/getmodifiers) endpoints.
 
 **What this does is:**
 - Changes the `option_value` > `id`. Not the `option_id`.
