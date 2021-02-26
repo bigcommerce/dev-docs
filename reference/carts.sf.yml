@@ -493,6 +493,16 @@ definitions:
           variantId:
             type: number
             description: ID of the variant.
+          optionSelections:
+            type: object
+            description: Array of `OptionSelection` objects.
+            properties:
+              optionId:
+                type: number
+                description: ID of the option.
+              optionValue:
+                type: number
+                description: Value of the option.
         required:
           - quantity
       giftCertificate:
