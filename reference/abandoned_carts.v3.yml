@@ -63,10 +63,7 @@ info:
 
 
     For more information on Authenticating BigCommerce APIs, see:
-    [Authentication](https://developer.bigcommerce.com/api-docs/getting-started/authentication).        
-  contact:
-    url: ''
-    name: ''
+    [Authentication](https://developer.bigcommerce.com/api-docs/getting-started/authentication).
   license:
     name: ''
   termsOfService: ''
@@ -94,7 +91,7 @@ paths:
       summary: Get an Abandoned Cart
       description: >-
         Returns the `cart_id` corresponding to the abandoned cart `{token}`
-        passed in. 
+        passed in.
 
 
         **Usage Notes**:
@@ -117,57 +114,6 @@ definitions:
   metaEmpty_Full:
     type: object
     title: metaEmpty_Full
-  pagination_Full:
-    type: object
-    title: pagination_Full
-    properties:
-      total:
-        description: Total number of items in the result set.
-        type: integer
-        format: int32
-      count:
-        description: Total number of items in the collection response.
-        type: integer
-        format: int32
-      per_page:
-        description: >-
-          The amount of items returned in the collection per page, controlled by
-          the limit parameter.
-        type: integer
-        format: int32
-      current_page:
-        description: The page you are currently on within the collection.
-        type: integer
-        format: int32
-      total_pages:
-        description: The total number of pages in the collection.
-        type: integer
-        format: int32
-      links:
-        $ref: '#/definitions/links_Full'
-  metaCollection_Full:
-    type: object
-    title: metaCollection_Full
-    properties:
-      pagination:
-        $ref: '#/definitions/pagination_Full'
-  links_Full:
-    type: object
-    properties:
-      previous:
-        type: string
-        description: |
-          Link to the previous page returned in the response.
-      current:
-        type: string
-        description: |
-          Link to the current page returned in the response.
-        example: '?page=1&limit=50'
-      next:
-        type: string
-        description: |
-          Link to the next page returned in the response.
-    title: links_Full
   error_Full:
     type: object
     title: error_Full
@@ -199,7 +145,7 @@ definitions:
         type: string
         description: >-
           The `cart_id` of the abandoned cart. Can be used to display the
-          abanded cart to the customer via storefront cart or 
+          abanded cart to the customer via storefront cart or
 schemes:
   - https
 parameters:
