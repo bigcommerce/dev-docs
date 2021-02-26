@@ -2407,6 +2407,7 @@ definitions:
   checkout_Full:
     title: checkout_Full
     type: object
+    description: ''
     properties:
       id:
         description: ''
@@ -2427,7 +2428,7 @@ definitions:
         items:
           $ref: '#/definitions/AppliedCoupon'
       orderId:
-        description: ''
+        description: '""'
         type: string
       shippingCostTotal:
         type: number
@@ -2492,7 +2493,7 @@ definitions:
         type: integer
         format: int32
       email:
-        description: The cart's email. This is the same email that is used in the billing address
+        description: The cart's email. This is the same email that is used in the billing address.
         type: string
       currency:
         $ref: '#/definitions/Currency'
@@ -2532,6 +2533,8 @@ definitions:
       updatedTime:
         description: Time when the cart was last updated.
         type: string
+    required:
+      - customer_id
   Currency:
     title: Currency
     description: The currency which prices are displayed (the store default currency).
@@ -2561,7 +2564,7 @@ definitions:
         description: the coupon code
         type: string
       displayName:
-        description: The coupon title based on different types provided in control panel section
+        description: The coupon title based on different types provided in control panel section.
         type: string
       couponType:
         type: integer
@@ -3822,11 +3825,11 @@ definitions:
                     type: string
             type: object
           consignments:
-            description: ''
+            description: 'This allows us to have multiple shipping addresses. Where there is only one shipping address, this array will contain only one value, with all the items.'
             type: array
             items:
               title: Consignment
-              description: 'This allows us to have multiple shipping addresses. Where there is only one shipping address, this array will contain only one value, with all the items.'
+              description: ''
               type: object
               properties:
                 id:
