@@ -2732,8 +2732,8 @@ components:
                 type:
                  - string
                  - integer
-                 - float
-                format: number
+                 - number
+                format: float
               wrapping_cost_ex_tax:
                 description: The value of the wrapping cost, excluding tax. (Float,
                   Float-As-String, Integer)
@@ -3121,9 +3121,9 @@ components:
           example: 5.0000
           type:
             - string
-            - float
+            - number
             - integer
-          format: number
+          format: float
         type:
           type:
             - integer
