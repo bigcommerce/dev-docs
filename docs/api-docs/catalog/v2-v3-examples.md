@@ -1,13 +1,12 @@
-# Examples of differences between Catalog API versions
+# V2 to V3 Catalog APIs Operations Comparison
 
 <div class="otp" id="no-index">
 
 ### On This Page
+
+- [V2 and V3 Operations Comparison](#v2-and-v3-operations-comparison)
 - [Interoperability between V2 and V3](#interoperability-between-v2-and-v3)
-- [V2 and V3 Cheat Sheet](#v2-and-v3-cheat-sheet)
-- [Simple Product](#simple-product)
-- [Complex Products](#complex-products)
-- [Stock Levels](#stock-levels)
+- [Related resources](#related-resources)
 
 </div>
 
@@ -17,7 +16,7 @@ We have created a handy cheat sheet below that lists all the differences between
 This identifies the differences between major actions on both versions.
 
 
-## V2 and V3 Cheat Sheet
+## V2 and V3 Operations Comparison
 
 ### Simple Product
 
@@ -728,7 +727,7 @@ In the following example, we will adds a complex rule to increase the product's 
 
 ### Stock Levels
 
-**Update Stock Levels for a simple product**
+The following examples demonstrate the difference between updating stock levels for a single product on V2 and V3 Catalog APIs.
 
 **V3 example**
 `PUT /v3/catalog/products/{id}`
@@ -750,7 +749,7 @@ In the following example, we will adds a complex rule to increase the product's 
 }
 ```
 
-**Update Stock Levels on a single Variant/SKU**
+The following examples illustrate the difference between updating stock levels on a single variant and SKU for V2 and V3 Catalog APIs.
 
 **V3 example**
 `PUT /v3/catalog/products/{id}/variants/{id}`
@@ -773,17 +772,13 @@ In the following example, we will adds a complex rule to increase the product's 
 }
 ```
 
-**Update Stock Levels on Multiple Variants/SKU**
+**Update stock levels on multiple variants/SKUs**
 
 In V3, you can update stock levels on multiple variants and SKUs in one call by sending a `PUT` request to `/v3/catalog/products/{id}`. When using the V2 version, you need to send a separate request for each SKU.
 
-
 ## Interoperability between V2 and V3
 
-When a product option is created in V2 and assigned to a product, trying to edit the global option using the V3 API would return a 422 error.
-
-
-Instead of a 422 error, now it will automatically copy the V2 global product option to a local product variant option or modifier option. This is triggered by an Update or Delete to either the [Product Options](/api-reference/catalog/catalog-api/product-options/getoptions) or [Product Modifiers](/api-reference/catalog/catalog-api/product-modifiers/getmodifiers) endpoints.
+When a product option is created in V2 and assigned to a product, editing the global option using the V3 API will automatically copy the V2 global product option to a local product variant option or modifier option. This is triggered by an Update or Delete to either the [Product Options](/api-reference/catalog/catalog-api/product-options/getoptions) or [Product Modifiers](/api-reference/catalog/catalog-api/product-modifiers/getmodifiers) endpoints.
 
 **What this does is:**
 - Changes the `option_value` > `id`. Not the `option_id`.
@@ -797,21 +792,15 @@ Instead of a 422 error, now it will automatically copy the V2 global product opt
 - Change product pricing, rules or any other product modifiers. They will be copied over and assigned the product correctly.
 
 ### Update Request to Product Option Values
-On the following product, you will see the original option response of a product created using V2, a change to the option values and then the final option response.
 
-This product is a T-Shirt with a global option set of size and color added. Take a note of the option values id’s. These will change when an update is made to the option using the /options endpoint on V3. While they will all change since the entire option set is copied to the product, the one we are updating below is the label for Size Small, which has a `option_value` > `id` of 192.
+In the following example, you will see the original option response of a product created using the V2 API, a change to the option values, and the final option response.
 
-<div class="HubBlock-header">
-    <div class="HubBlock-header-title flex items-center">
-        <div class="HubBlock-header-name">/GET https://api.bigcommerce.com/stores/{store_hash}/v3/catalog/products/{product_id}/options</div>
-    </div><div class="HubBlock-header-subtitle">Note the option_values id's for the colors are 180, 181 and 182. The values for color are 192, 193 and 194. </div>
-</div>
+The product used in this example is a T-Shirt with a global option set of size and color. Make a note of the `option_values` IDs. These IDs will change when you make an update to the option using the V3 `/options` endpoint. 
 
-<!--
-title: "/GET https://api.bigcommerce.com/stores/{store_hash}/v3/catalog/products/{product_id}/options"
-subtitle: "Note the option_values id's for the colors are 180, 181 and 182. The values for color are 192, 193 and 194. "
-lineNumbers: true
--->
+While they will all change since the entire option set is copied to the product, the one we are updating below is the label for Size Small, which has an `option_value` > `id` of 192.
+
+**V2 GET response**
+`GET https://api.bigcommerce.com/stores/{store_hash}/v3/catalog/products/{product_id}/options`
 
 ```json
 {
@@ -908,49 +897,34 @@ lineNumbers: true
 }
 ```
 
-<!--
-    title: #### Size and Color
+<div class="HubBlock--callout">
+<div class="CalloutBlock--info">
+<div class="HubBlock-content">
 
-    data: //s3.amazonaws.com/user-content.stoplight.io/6012/1545080028604
--->
+> ### Note
+> * `option_values` IDs for **Color** are 180, 181 and 182.
+> * `option_values` IDs for **Size** are 192, 193 and 194.
+
+</div>
+</div>
+</div>
 
 #### Size and Color
-![#### Size and Color
-](//s3.amazonaws.com/user-content.stoplight.io/6012/1545080028604 "#### Size and Color
-")
+![#### Size and Color](//s3.amazonaws.com/user-content.stoplight.io/6012/1545080028604 "#### Size and Color")
 
 Below, "Small" is updated to "Small T-Shirt".
 
-<div class="HubBlock-header">
-    <div class="HubBlock-header-title flex items-center">
-        <div class="HubBlock-header-name">/PUT https://api.bigcommerce.com/stores/{store_hash_/v3/catalog/products/{product_id}/options/{option_id}/values/{option_value)</div>
-    </div><div class="HubBlock-header-subtitle"></div>
-</div>
+**V3 UPDATE request**
 
-<!--
-title: "/PUT https://api.bigcommerce.com/stores/{store_hash_/v3/catalog/products/{product_id}/options/{option_id}/values/{option_value)"
-subtitle: ""
-lineNumbers: true
--->
+`PUT https://api.bigcommerce.com/stores/{store_hash_/v3/catalog/products/{product_id}/options/{option_id}/values/{option_value)`
 
 ```json
-
 {
 	"label": "Small T-Shirt"
 }
 ```
 
-<div class="HubBlock-header">
-    <div class="HubBlock-header-title flex items-center">
-        <div class="HubBlock-header-name">Response</div>
-    </div><div class="HubBlock-header-subtitle">/PUT https://api.bigcommerce.com/stores/{store_hash_/v3/catalog/products/{product_id}/options/{option_id}/values/{option_value)</div>
-</div>
-
-<!--
-title: "Response"
-subtitle: "/PUT https://api.bigcommerce.com/stores/{store_hash_/v3/catalog/products/{product_id}/options/{option_id}/values/{option_value)"
-lineNumbers: true
--->
+**V3 response**
 
 ```json
 {
@@ -965,19 +939,11 @@ lineNumbers: true
 }
 ```
 
-The ID is now 214. It was changed from 192. Below you can see the `option_value` > `id` for all the options changed even though only one was edited. The Control Panel now shows the options as (Custom).
+The option value id has changed from 192 to 214. Even though only one option value was edited, the `option_value` > `id` for all other options have also changed. The control panel now shows the options as **(Custom)**.
 
-<div class="HubBlock-header">
-    <div class="HubBlock-header-title flex items-center">
-        <div class="HubBlock-header-name">/GET https://api.bigcommerce.com/stores/{store_hash}/v3/catalog/products/{product_id}/options</div>
-    </div><div class="HubBlock-header-subtitle">The option_value > id is now 214</div>
-</div>
+**V3 GET response**
 
-<!--
-title: "/GET https://api.bigcommerce.com/stores/{store_hash}/v3/catalog/products/{product_id}/options"
-subtitle: "The option_value > id is now 214"
-lineNumbers: true
--->
+`GET https://api.bigcommerce.com/stores/{store_hash}/v3/catalog/products/{product_id}/options`
 
 ```json
 {
@@ -1074,13 +1040,12 @@ lineNumbers: true
 }
 ```
 
-<!--
-    title: #### Size and Color
-
-    data: //s3.amazonaws.com/user-content.stoplight.io/6012/1545080964540
--->
-
 #### Size and Color
-![#### Size and Color
-](//s3.amazonaws.com/user-content.stoplight.io/6012/1545080964540 "#### Size and Color
-")
+![V2 Size and Color](//s3.amazonaws.com/user-content.stoplight.io/6012/1545080964540 "V2 Size and Color")
+
+## Related resources
+
+### Articles
+
+* [Catalog Overview](https://developer.bigcommerce.com/api-docs/store-management/products-overview)
+* [Deprecations and sunsets](https://developer.bigcommerce.com/api-reference#deprecations-and-sunsets)
