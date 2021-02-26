@@ -19,3 +19,4 @@ jobs:
       - uses: stoplightio/spectral-action@v0.5.5
         with:
           file_glob: 'reference/*.yml'
+          repo_token: ${{secrets.GITHUB_TOKEN}}
