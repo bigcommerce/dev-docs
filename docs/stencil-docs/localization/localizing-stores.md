@@ -44,14 +44,26 @@ The bulk of localizing a store is translating content on your theme's page templ
 
 Some of the strings displayed on your storefront are not currently editable in BigCommerce. These are strings such as "This promotion cannot be applied with the selected currency." BigCommerce will automatically render such strings in the shopper's language as defined by the shopper's browser language settings.
 
-Currently BigCommerce supports these uneditable strings in the following languages:
-* Dutch
+BigCommerce supports these uneditable strings in the following languages:
+* [Dutch](https://bigcommerce.github.io/dev-docs/assets/PO/storefront-nl-NL.po)
 * English
-* French
-* German
-* Italian
-* Portuguese
-* Spanish
+* [French](https://bigcommerce.github.io/dev-docs/assets/PO/storefront-fr-FR.po)
+* [German](https://bigcommerce.github.io/dev-docs/assets/PO/storefront-de-DE.po)
+* [Italian](https://bigcommerce.github.io/dev-docs/assets/PO/storefront-it-IT.po)
+* [Portuguese (Brazil)](https://bigcommerce.github.io/dev-docs/assets/PO/storefront-pt-BR.po)
+* [Spanish (Mexico)](https://bigcommerce.github.io/dev-docs/assets/PO/storefront-es-MX.po)
+* [Spanish (Spain)](https://bigcommerce.github.io/dev-docs/assets/PO/storefront-es-ES.po)
+* [Swedish](https://bigcommerce.github.io/dev-docs/assets/PO/storefront-sv-SE.po)
+
+<div class="HubBlock--callout">
+<div class="CalloutBlock--info">
+<div class="HubBlock-content">
+
+<!-- theme: info -->
+Currently BigCommerce only supports English for all stores. If you would like the additional languages turned on for your store, please reach out to our support team.
+</div>
+</div>
+</div>
 
 You can review these strings by downloading the language files we have made available in the portable object format. We recommend viewing these in a simple text editor or a text editor designed to handle PO files.
 
