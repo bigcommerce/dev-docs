@@ -192,7 +192,7 @@ paths:
       parameters:
         - name: 'order_id:in'
           in: query
-          description: Filter by `order_id`. Accepts multiple as comma-separated values. 
+          description: Filter by `order_id`. Accepts multiple as comma-separated values.
           type: array
           items:
             type: integer
@@ -698,12 +698,12 @@ paths:
           schema:
             $ref: "#/definitions/MetafieldPut"
       responses:
-        200:
+        '200':
           description: |
             A metafield and metadata.
           schema:
             $ref: "#/definitions/MetafieldResponse"
-        404:
+        '404':
           description: |
             The resource was not found.
           schema:
@@ -781,7 +781,7 @@ parameters:
     type: string
     enum:
       - asc
-      - desc  
+      - desc
 securityDefinitions:
   X-Auth-Token:
     type: apiKey

@@ -66,7 +66,7 @@ paths:
           description: ''
       summary: Delete Customs Information
       description: |-
-        Deletes customs information objects for a product. 
+        Deletes customs information objects for a product.
 
         ## Example
 
@@ -297,6 +297,10 @@ definitions:
                 type: string
                 description: Query string appended to the resource to show the current page.
                 example: '?limit=1&page=2'
+  error_Full:
+    title: Error
+    description: Meta data relating to pagination
+    type: object
 tags:
   - name: Shipping Method
   - name: Shipping Carrier
@@ -330,7 +334,7 @@ securityDefinitions:
       X-Auth-Token: {access_token}
       ```
 
-      * For more information on Authenticating BigCommerce APIs, see: [Authentication](https://developer.bigcommerce.com/api-docs/getting-started/authentication). 
+      * For more information on Authenticating BigCommerce APIs, see: [Authentication](https://developer.bigcommerce.com/api-docs/getting-started/authentication).
 security:
   - X-Auth-Client: []
   - X-Auth-Token: []

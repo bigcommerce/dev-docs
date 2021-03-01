@@ -13,17 +13,6 @@ paths:
       responses:
         '200':
           $ref: '#/responses/webhooks_Resp'
-          examples:
-            application/json:
-              id: 18048287
-              client_id: m9r6keqmo7h7f23btnp3anbez1kglkl
-              store_hash: '{store_hash}'
-              scope: store/order/*
-              destination: 'https://665b65a6.ngrok.io/webhooks'
-              headers: {}
-              is_active: true
-              created_at: 1561488106
-              updated_at: 1561488106
         '422':
           $ref: '#/responses/422_UnprocessableEntity'
       summary: Create a Webhook
@@ -175,7 +164,7 @@ securityDefinitions:
 
 
       * For more information on Authenticating BigCommerce APIs, see:
-      [Authentication](https://developer.bigcommerce.com/api-docs/getting-started/authentication). 
+      [Authentication](https://developer.bigcommerce.com/api-docs/getting-started/authentication).
 parameters:
   Accept:
     in: header
@@ -231,7 +220,7 @@ definitions:
         type: object
         description: >-
           You can pass in any number of custom headers to validate webhooks
-          being returned. 
+          being returned.
         properties:
           custom:
             type: string

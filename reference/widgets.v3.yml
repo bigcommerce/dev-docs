@@ -125,7 +125,7 @@ paths:
                         }
                       ]
                     }
-                    
+
         - name: Accept
           in: header
           type: string
@@ -250,19 +250,6 @@ paths:
       responses:
         '200':
           $ref: '#/responses/WidgetTemplate_Resp'
-          examples:
-            application/json:
-              data:
-                current_version_uuid: 39963864-d8ad-4c99-8ee7-9e0542766866
-                date_created: '2020-11-06T18:20:26.326Z'
-                date_modified: '2020-11-06T20:09:05.638Z'
-                icon_name: default
-                kind: custom
-                name: Header Images
-                schema: []
-                template: '{{#each images}}<a href=''{{image_url}}''><img src={{image_source}} style=''width:33.3%''/></a>{{/each}}'''
-                uuid: b9790903-09b9-4736-87ca-19ff61582ee7
-              meta: {}
         '404':
           $ref: '#/responses/Error404_Resp'
         '422':

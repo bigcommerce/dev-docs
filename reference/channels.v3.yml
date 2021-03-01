@@ -109,7 +109,7 @@ paths:
         '500':
           $ref: '#/components/responses/error_Resp'
       description: |-
-        Returns a list of *Channels*. 
+        Returns a list of *Channels*.
 
         Will always return the default BigCommerce storefront with an ID of `1`. This storefront is created by default when you provision a BigCommerce store.
       parameters:
@@ -1924,30 +1924,30 @@ components:
           contact_email:
             type: string
             description: The email address for contact/support of the partner of a theme
-      Upgrade:
-        title: Upgrade
-        type: object
-        nullable: true
-        description: Details about the Upgrade's relationship to Themes
-        properties:
-          available:
-            type: boolean
-            description: Indicates whether or not an upgrade is available for the given theme
-          display_version:
-            type: string
-            nullable: true
-            description: The display version string of the latest theme version to upgrade to (may be null if available is false)
-      Screenshot:
-        title: Screenshot
-        type: object
-        description: Details about the Screenshot's relationship to Themes
-        properties:
-          large_preview:
-            type: string
-            description: URL of the large preview screenshot of the theme
-          large_thumb:
-            type: string
-            description: URL of the large thumbnail screenshot of theme
-          small_thumb:
-            type: string
-            description: URL of the small thumbnail screenshot of theme
+    Upgrade:
+      title: Upgrade
+      type: object
+      nullable: true
+      description: Details about the Upgrade's relationship to Themes
+      properties:
+        available:
+          type: boolean
+          description: Indicates whether or not an upgrade is available for the given theme
+        display_version:
+          type: string
+          nullable: true
+          description: The display version string of the latest theme version to upgrade to (may be null if available is false)
+    Screenshot:
+      title: Screenshot
+      type: object
+      description: Details about the Screenshot's relationship to Themes
+      properties:
+        large_preview:
+          type: string
+          description: URL of the large preview screenshot of the theme
+        large_thumb:
+          type: string
+          description: URL of the large thumbnail screenshot of theme
+        small_thumb:
+          type: string
+          description: URL of the small thumbnail screenshot of theme

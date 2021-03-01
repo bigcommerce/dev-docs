@@ -559,14 +559,55 @@ paths:
         - Site Routes
       description: |-
         Delete a site's route.
-         
+
         - [Authorization](#authorization)
         - [Request Parameters](#request-parameters)
         - [Responses](#responses)
         - [Send a Test Request](#send-a-test-request)
 definitions:
   _metaCollection:
-    $ref: ./BigCommerce_All_Common.oas2.yml#/definitions/metaCollection_Full
+    title: metaCollection
+    description: Meta data relating to pagination
+    type: object
+    properties:
+      pagination:
+        type: object
+        properties:
+          total:
+            type: integer
+            description: Total number of items returned.
+            example: 3
+          count:
+            type: integer
+            description: Number of items returned on per page.
+            example: 1
+          per_page:
+            type: integer
+            description: Number of items to be displayed per page.
+            example: 1
+          current_page:
+            type: integer
+            description: Current page number.
+            example: 2
+          total_page:
+            type: integer
+            description: Total number of pages.
+            example: 3
+          links:
+            type: object
+            properties:
+              previous:
+                type: string
+                description: Query string appended to the resource to return to the previous page.
+                example: '?limit=1&page=1'
+              next:
+                type: string
+                description: Query string appended to the resource to proceed to the next page.
+                example: '?limit=1&page=3'
+              current:
+                type: string
+                description: Query string appended to the resource to show the current page.
+                example: '?limit=1&page=2'
   siteRoute_Full:
     title: siteRoute_Full
     description: Route object used in responses.
