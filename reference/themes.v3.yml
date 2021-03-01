@@ -598,8 +598,8 @@ paths:
           in: query
           name: 'channel_id:in'
           description: Filter configurations by a list of channel_ids.
-        - $ref: ./catalog.v3.yml#/parameters/PageParam
-        - $ref: ./catalog.v3.yml#/parameters/LimitParam
+        - $ref:  '#/components/parameters/PageParam'
+        - $ref: '#/components/parameters/LimitParam'
         - schema:
             type: string
           in: query
