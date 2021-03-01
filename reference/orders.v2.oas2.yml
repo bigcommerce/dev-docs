@@ -2575,7 +2575,7 @@ components:
                 type:
                   - string
                   - integer
-                  - float
+                  - number
                 format: number
               wrapping_cost_ex_tax:
                 description: 'The value of the wrapping cost, excluding tax. (Float, Float-As-String, Integer)'

@@ -19,11 +19,11 @@ paths:
 
         <div class="HubBlock--callout">
         <div class="CalloutBlock--info">
-        <div class="HubBlock-content"> 
+        <div class="HubBlock-content">
 
         > ### Note
         > The Send a Test Request feature is not currently supported for this endpoint.
-         
+
         </div>
         </div>
         </div>
@@ -185,15 +185,15 @@ paths:
                       type: string
     put:
       description: |-
-        Updates *Checkout* customer messages. 
+        Updates *Checkout* customer messages.
 
         <div class="HubBlock--callout">
         <div class="CalloutBlock--info">
-        <div class="HubBlock-content"> 
+        <div class="HubBlock-content">
 
         > ### Note
         > The Send a Test Request feature is not currently supported for this endpoint.
-         
+
         </div>
         </div>
         </div>
@@ -346,11 +346,11 @@ paths:
 
         <div class="HubBlock--callout">
         <div class="CalloutBlock--info">
-        <div class="HubBlock-content"> 
+        <div class="HubBlock-content">
 
         > ### Note
         > The Send a Test Request feature is not currently supported for this endpoint.
-         
+
         </div>
         </div>
         </div>
@@ -508,11 +508,11 @@ paths:
 
         <div class="HubBlock--callout">
         <div class="CalloutBlock--info">
-        <div class="HubBlock-content"> 
+        <div class="HubBlock-content">
 
         > ### Note
         > The Send a Test Request feature is not currently supported for this endpoint.
-         
+
         </div>
         </div>
         </div>
@@ -766,12 +766,12 @@ paths:
 
         <div class="HubBlock--callout">
         <div class="CalloutBlock--info">
-        <div class="HubBlock-content"> 
+        <div class="HubBlock-content">
 
         > ### Note
         > * The `email` property is only required if the customer is a guest shopper. Otherwise, it is set automatically.
         > * The Send a Test Request feature is not currently supported for this endpoint.
-         
+
         </div>
         </div>
         </div>
@@ -927,11 +927,11 @@ paths:
 
         <div class="HubBlock--callout">
         <div class="CalloutBlock--info">
-        <div class="HubBlock-content"> 
+        <div class="HubBlock-content">
 
         > ### Note
         > The Send a Test Request feature is not currently supported for this endpoint.
-         
+
         </div>
         </div>
         </div>
@@ -1536,15 +1536,15 @@ paths:
       summary: Update a Consignment
     delete:
       description: |-
-        Removes an existing *Consignment* from *Checkout*. 
+        Removes an existing *Consignment* from *Checkout*.
 
         <div class="HubBlock--callout">
         <div class="CalloutBlock--info">
-        <div class="HubBlock-content"> 
+        <div class="HubBlock-content">
 
         > ### Note
         > The Send a Test Request feature is not currently supported for this endpoint.
-         
+
         </div>
         </div>
         </div>
@@ -1686,13 +1686,13 @@ paths:
 
         <div class="HubBlock--callout">
         <div class="CalloutBlock--info">
-        <div class="HubBlock-content"> 
+        <div class="HubBlock-content">
 
         > ### Note
         > * *Gift Certificates* are treated as a payment methods.
         > * You are not able to purchase a gift certificate with a gift certificate.
         > * The Send a Test Request feature is not currently supported for this endpoint.
-         
+
         </div>
         </div>
         </div>
@@ -1840,12 +1840,12 @@ paths:
 
         <div class="HubBlock--callout">
         <div class="CalloutBlock--info">
-        <div class="HubBlock-content"> 
+        <div class="HubBlock-content">
 
         > ### Note
         >
         > The Send a Test Request feature is not currently supported for this endpoint.
-         
+
         </div>
         </div>
         </div>
@@ -1881,11 +1881,11 @@ paths:
 
         <div class="HubBlock--callout">
         <div class="CalloutBlock--info">
-        <div class="HubBlock-content"> 
+        <div class="HubBlock-content">
 
         > ### Note
         > The Send a Test Request feature is not currently supported for this endpoint.
-         
+
         </div>
         </div>
         </div>
@@ -2036,11 +2036,11 @@ paths:
 
         <div class="HubBlock--callout">
         <div class="CalloutBlock--info">
-        <div class="HubBlock-content"> 
+        <div class="HubBlock-content">
 
         > ### Note
         > The Send a Test Request feature is not currently supported for this endpoint.
-         
+
         </div>
         </div>
         </div>
@@ -2309,11 +2309,11 @@ paths:
 
         <div class="HubBlock--callout">
         <div class="CalloutBlock--info">
-        <div class="HubBlock-content"> 
+        <div class="HubBlock-content">
 
         > ### Note
         > The Send a Test Request feature is not currently supported for this endpoint.
-         
+
         </div>
         </div>
         </div>
@@ -2342,11 +2342,11 @@ paths:
 
         <div class="HubBlock--callout">
         <div class="CalloutBlock--info">
-        <div class="HubBlock-content"> 
+        <div class="HubBlock-content">
 
         > ### Note
         > The Send a Test Request feature is not currently supported for this endpoint.
-         
+
         </div>
         </div>
         </div>
@@ -2362,11 +2362,11 @@ paths:
 
         <div class="HubBlock--callout">
         <div class="CalloutBlock--info">
-        <div class="HubBlock-content"> 
+        <div class="HubBlock-content">
 
         > ### Note
         > The Send a Test Request feature is not currently supported for this endpoint.
-         
+
         </div>
         </div>
         </div>
@@ -3563,7 +3563,7 @@ definitions:
                             description: Whether this item requires shipping to a physical address.
                             type: boolean
                           isMutable:
-                            description:
+                            description: ''
                             type: boolean
                           giftWrapping:
                             title: Gift Wrapping
@@ -3666,7 +3666,7 @@ definitions:
                             description: the product type - physical or digital
                             type: string
                           isMutable:
-                            description:
+                            description: ''
                             type: boolean
                           isShippingRequired:
                             description: Whether this item requires shipping to a physical address.
@@ -4676,7 +4676,7 @@ definitions:
                   comparisonPrice:
                     description:   Item's comparison price
                     type: number
-                  extendedComparisonPrice: 
+                  extendedComparisonPrice:
                     description:  Item's comparison price multiplied by the quantity.
                     type: number
                   type:
@@ -4689,7 +4689,7 @@ definitions:
                     description: Whether this item requires shipping to a physical address.
                     type: boolean
                   isMutable:
-                    description:
+                    description: ''
                     type: Boolean
                   giftWrapping:
                     title: Gift Wrapping
