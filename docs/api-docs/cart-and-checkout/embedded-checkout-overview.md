@@ -10,7 +10,11 @@
 
 </div>
 
-Embedded Checkout lets you place BigCommerce’s checkout onto any website. Customers can check out on an external storefront while their order information syncs simultaneously to the BigCommerce Control Panel. You can see this in action within the BigCommerce for WordPress plugin, which uses the same process described here as a checkout option for merchants. View more information about the plugin in the article [BigCommerce for Wordpress](https://developer.bigcommerce.com/bigcommerce-for-wordpress/getting-started/introduction).
+In order for Embedded Checkout to work correctly for shoppers, your WordPress checkout page must be served from the same domain as your BigCommerce storefront.
+
+To accomplish this, you’ll need to create and use a subdomain of your storefront domain for your BigCommerce store. For example, if your WordPress storefront is www.mystore.com, then you’ll set up your BigCommerce store to use checkout.mystore.com (or something similar).
+
+Embedded Checkout lets you place BigCommerce’s checkout onto any page or subdomain that shares the same root domain as your BigCommerce storefront. Customers can check out on an external storefront while their order information syncs simultaneously to the BigCommerce Control Panel. You can see this in action within the BigCommerce for WordPress plugin, which uses the same process described here as a checkout option for merchants. View more information about the plugin in the article [BigCommerce for Wordpress](https://developer.bigcommerce.com/bigcommerce-for-wordpress/getting-started/introduction).
 
 <a id="how-it-works"></a>
 
