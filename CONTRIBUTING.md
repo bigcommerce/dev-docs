@@ -1,9 +1,10 @@
 # Contributing to BigCommerce API Specifications
 
-- [Editing](#editing)
-- [Linting](#linting)
-- [Commit messages](#commit-messages)
-- [Contributing to other projects](#contributing-to-other-projects)
+- [Edit](#edit)
+- [Lint](#lint)
+- [Commit](#commit)
+- [Pull request](#pull-request)
+- [Tools](#tools)
 
 Thanks for showing interest in contributing!
 
@@ -14,6 +15,7 @@ Clone the respoitory and edit with your preferred editor (we recommend [VS Code]
 ## Lint
 
 Check for errors using [Spectral](https://stoplight.io/open-source/spectral).
+
 ## Commit
 
 Commit your changes.
@@ -22,6 +24,7 @@ Commit your changes.
 * Capitalize the subject.
 * Use present tense ("Add Feature" not "Added Feature").
 * Use imperative mood ("Fix Broken Link" not "Fixes Broken Link").
+*
 ## Pull request
 
 [Open a pull request](https://docs.github.com/en/free-pro-team@latest/github/collaborating-with-issues-and-pull-requests/creating-a-pull-request); explain your changes in the description.
