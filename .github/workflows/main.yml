@@ -1,6 +1,7 @@
-name: Run Spectral on Pull Requests
+name: Stoplight
 
-on: push
+on:
+  - push
 
 jobs:
   build:
@@ -12,7 +13,10 @@ jobs:
 
       # Run Spectral
       - uses: stoplightio/spectral-action@master
+        id: expect-success
         with:
-          file_glob: ./reference/*.sf.yml
+          file_glob: ./reference/*.yml
           repo_token: ${{secrets.GITHUB_TOKEN}}
-          spectral_ruleset: .spectral.yaml
+          spectral_ruleset: ./.spectral.yaml
+      - if: steps.expect-success.output.status == 'success'
+        run: exit 0
