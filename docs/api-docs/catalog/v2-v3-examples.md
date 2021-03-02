@@ -14,14 +14,14 @@ The article explains the difference between V2 and V3 Catalog APIs by comparing 
 
 ## V2 and V3 Operations
 
-Examples in this section illustrate the difference working with simple and complex products using V2 and V3 versions of the Catalog API.
+In this section, we will look at using V2 and V3 Catalog APIs to work with simple and complex products.
 
 <div class="HubBlock--callout">
 <div class="CalloutBlock--info">
 <div class="HubBlock-content">
 
 > ### Note
-> * **Simple product** is a product that does not have variants, modifiers, or options.
+> * **Simple product** is a product that does not have variants, options, or modifiers.
 > * **Complex product** is a product that has variants, options, or modifiers.
 
 </div>
@@ -30,7 +30,7 @@ Examples in this section illustrate the difference working with simple and compl
 
 ### Return a single product
 
-Both versions of the API return a single product in response to a `GET` request when a `product_id` is passed in; however, the data returned in the response differs. 
+Both versions of the API return a single product in response to a `GET` request when a `product_id` is passed in; however, the response data differs slightly. 
 
 To retrieve a product using the V3 Catalog API, send a `GET` request to `/v3/catalog/products/{product_id}`.
 
@@ -120,7 +120,7 @@ To retrieve a product using the V3 Catalog API, send a `GET` request to `/v3/cat
 }
 ```
 
-To retrieve a product's data using the V2 Products API, send a `GET` request to `/v2/products/{product_id}`.
+To retrieve a product using the V2 Products API, send a `GET` request to `/v2/products/{product_id}`.
 
 **V2 response:**
 
@@ -283,7 +283,7 @@ To create a simple product using the V3 Catalog API, send a `POST` request to `/
 }
 ```
 
-To create a simple product using the V2 Catalog API, your `POST` request must include the `availability` property in addition to the properties in the V3 example.
+To create a simple product using the V2 Catalog API, in addition to the properties in the V3 example, your `POST` request must include `availability`.
 
 **V2 request:**
 
@@ -421,7 +421,7 @@ The V3 Catalog API lets you create a complex product with SKUs in one request.
 }
 ```
 
-Creating a product with variants and SKUs on V2 requires calling multiple V2 endpoints. Here is a sample workflow you would need to follow to create product options and option sets using the V2 API endpoints.
+Creating a product with variants and SKUs on V2 requires calling multiple V2 endpoints. Here is a sample V2 workflow you would need to follow to create product options and option sets.
 
 **V2 workflow:**
 
@@ -736,7 +736,7 @@ In the following V2 example, we will add a complex rule to increase the product'
 
 ### Stock Levels
 
-The following examples demonstrate the difference between updating stock levels for a single product on V2 and V3 Catalog APIs.
+To update a product's stock levels using the V3 Catalog API, send a `PUT` request to `/v3/catalog/products/{id}`.
 
 **V3 example**
 
@@ -749,6 +749,8 @@ The following examples demonstrate the difference between updating stock levels 
 }
 ```
 
+To update a product's stock levels using the V2 Products API, send a `PUT` request to `/v2/products/{id}`.
+
 **V2 example**
 
 `PUT /v2/products/{id}`
@@ -760,7 +762,7 @@ The following examples demonstrate the difference between updating stock levels 
 }
 ```
 
-The following examples illustrate the difference between updating stock levels on a single variant and SKU for V2 and V3 Catalog APIs.
+To update stock levels on a single variant and SKU using the V3 Catalog API, send a `PUT` request to `/v3/catalog/products/{id}/variants/{id}`.
 
 **V3 example**
 
@@ -772,6 +774,8 @@ The following examples illustrate the difference between updating stock levels o
   "inventory_warning_level": 10
 }
 ```
+
+To update stock levels on a single variant and SKU using the V2 Products API, in addition to the properties in the V3 example, your `PUT` request must include `sku`. 
 
 **V2 example**
 
@@ -791,7 +795,7 @@ In V3, you can update stock levels on multiple variants and SKUs in one call by 
 
 ## Interoperability between V2 and V3
 
-When a product option is created in V2 and assigned to a product, editing the global option using the V3 Catalog API will automatically copy the V2 global product option to a local product variant option or modifier. This is triggered by an `UPDATE ` or `DELETE` to either the [Product Options](https://developer.bigcommerce.com/api-reference/store-management/catalog/product-options/getoptions) or [Product Modifiers](https://developer.bigcommerce.com/api-reference/store-management/catalog/product-modifiers/getmodifiers) endpoints.
+When a product option is created in V2 and assigned to a product, editing the global option using the V3 Catalog API will automatically copy the V2 global product option to a local product variant option or modifier. This is triggered by an `UPDATE ` or a `DELETE` call to either the [Product Options](https://developer.bigcommerce.com/api-reference/store-management/catalog/product-options/getoptions) or [Product Modifiers](https://developer.bigcommerce.com/api-reference/store-management/catalog/product-modifiers/getmodifiers) endpoints.
 
 **What this does is:**
 - Changes the `option_value` > `id`. Not the `option_id`.
@@ -810,9 +814,10 @@ In the following example, you will see the original option response of a product
 
 The product used in this example is a T-Shirt with a global option set of size and color. Make a note of the `option_values` IDs. These IDs will change when you make an update to the option using the V3 `/options` endpoint. 
 
-While they will all change since the entire option set is copied to the product, the one we are updating below is the label for Size Small, which has an `option_value` > `id` of 192.
+In this example, we will update the label for Size Small, which has an `option_value` > `id` of 192.
 
-**V2 GET response**
+**V2 GET response:**
+
 `GET https://api.bigcommerce.com/stores/{store_hash}/v3/catalog/products/{product_id}/options`
 
 ```json
@@ -915,8 +920,8 @@ While they will all change since the entire option set is copied to the product,
 <div class="HubBlock-content">
 
 > ### Note
-> * `option_values` IDs for **Color** are 180, 181 and 182.
-> * `option_values` IDs for **Size** are 192, 193 and 194.
+> * `option_values` IDs for **Color** are 180, 181, and 182.
+> * `option_values` IDs for **Size** are 192, 193, and 194.
 
 </div>
 </div>
@@ -927,7 +932,7 @@ While they will all change since the entire option set is copied to the product,
 
 Below, "Small" is updated to "Small T-Shirt".
 
-**V3 UPDATE request**
+**V3 UPDATE request:**
 
 `PUT https://api.bigcommerce.com/stores/{store_hash_/v3/catalog/products/{product_id}/options/{option_id}/values/{option_value)`
 
@@ -952,9 +957,9 @@ Below, "Small" is updated to "Small T-Shirt".
 }
 ```
 
-The option value id has changed from 192 to 214. Even though only one option value was edited, the `option_value` > `id` for all other options have also changed. The control panel now shows the options as **(Custom)**.
+The option value ID has changed from 192 to 214. Even though only one option value was edited, option value IDs for all other options have also changed. The control panel will show these options as **(Custom)**.
 
-**V3 GET response**
+**V3 GET response:**
 
 `GET https://api.bigcommerce.com/stores/{store_hash}/v3/catalog/products/{product_id}/options`
 
