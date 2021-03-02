@@ -34,7 +34,7 @@ Both versions of the API return a single product in response to a `GET` request 
 
 To retrieve a product using the V3 Catalog API, send a `GET` request to `/v3/catalog/products/{product_id}`.
 
-**V3 response:**
+**V3 response**
 
 `GET /v3/catalog/products/{product_id}`
 
@@ -122,7 +122,7 @@ To retrieve a product using the V3 Catalog API, send a `GET` request to `/v3/cat
 
 To retrieve a product using the V2 Products API, send a `GET` request to `/v2/products/{product_id}`.
 
-**V2 response:**
+**V2 response**
 
 `GET /v2/products/{product_id}`
 
@@ -266,7 +266,7 @@ To retrieve a product using the V2 Products API, send a `GET` request to `/v2/pr
 
 To create a simple product using the V3 Catalog API, send a `POST` request to `/v3/catalog/products`.
 
-**V3 request:**
+**V3 request**
 
 `POST /v3/catalog/products`
 
@@ -285,7 +285,7 @@ To create a simple product using the V3 Catalog API, send a `POST` request to `/
 
 To create a simple product using the V2 Catalog API, in addition to the properties in the V3 example, your `POST` request must include `availability`.
 
-**V2 request:**
+**V2 request**
 
 `POST /v2/products`
 
@@ -307,7 +307,7 @@ To create a simple product using the V2 Catalog API, in addition to the properti
 
 To create a simple product with an image using the V3 Catalog API, first create the product, then add the image.
 
-**V3 request:**
+**V3 request**
 
 `POST /v3/catalog/products/{product_id}/images`
 
@@ -325,7 +325,7 @@ To create a simple product with an image using the V3 Catalog API, first create 
 
 Creating a product with an image in V2 follows a similar sequence; however, V2 `/images` endpoint only accepts the `multipart/form-data` media type.
 
-**V2 request:**
+**V2 request**
 
 `POST /v2/products/{product_id}/images`
 
@@ -348,7 +348,7 @@ curl -X POST \
 
 To create a simple product with an video using the V3 Catalog API, first create the product, then add the video. All videos must be loaded through YouTube and have a `video_id`.
 
-**V3 request:**
+**V3 request**
 
 `POST /v3/catalog/products/{product_id}/videos`
 
@@ -367,7 +367,7 @@ To create a simple product with an video using the V3 Catalog API, first create 
 
 V2 follows a similar sequence; however, you must pass the full URL in the request body to create a new video.
 
-**V2 request:**
+**V2 request**
 
 `POST /v2/products/{product_id}/videos`
 
@@ -384,7 +384,7 @@ V2 follows a similar sequence; however, you must pass the full URL in the reques
 
 The V3 Catalog API lets you create a complex product with SKUs in one request.
 
-**V3 request:**
+**V3 request**
 
 `POST /v3/catalog/products`
 
@@ -423,7 +423,7 @@ The V3 Catalog API lets you create a complex product with SKUs in one request.
 
 Creating a product with variants and SKUs on V2 requires calling multiple V2 endpoints. Here is a sample V2 workflow you would need to follow to create product options and option sets.
 
-**V2 workflow:**
+**V2 workflow**
 
 1. Create an option (for example, Color)
 
@@ -538,7 +538,7 @@ Then, send a `GET` request to `/v2/products/{product_id}/options` to retrieve th
 
 Now that you have both `option_value_id` and `product_option_id`, you can add SKUs to the product. Each color will need a separate `POST` to create an SKU.
 
-**V2 request:**
+**V2 request**
 
 `POST /v2/products/{product_id}/skus`
 
@@ -554,7 +554,7 @@ Now that you have both `option_value_id` and `product_option_id`, you can add SK
 }
 ```
 
-**V2 response:**
+**V2 response**
 
 ```json
 [
@@ -815,7 +815,7 @@ In this section, we will examine the original response data for a V2 product and
 
 The product used in this example is a t-shirt with a global option set of **Size** and **Color**. We are going to update the `label` property for **Size Small**, which has an `option_value` ID of 192. Make a note of the product's `option_values` IDs. These IDs will change when you make an update to the **Size Small** option using the V3 `/options` endpoint. 
 
-**V2 GET response:**
+**V2 GET response**
 
 `GET https://api.bigcommerce.com/stores/{store_hash}/v3/catalog/products/{product_id}/options`
 
@@ -927,11 +927,11 @@ The product used in this example is a t-shirt with a global option set of **Size
 </div>
 
 #### Size and Color
-![#### Size and Color](//s3.amazonaws.com/user-content.stoplight.io/6012/1545080028604 "#### Size and Color")
+![#### Size and Color](http://s3.amazonaws.com/user-content.stoplight.io/6012/1545080028604 "#### Size and Color")
 
 Below, "Small" is updated to "Small T-Shirt".
 
-**V3 UPDATE request:**
+**V3 UPDATE request**
 
 `PUT https://api.bigcommerce.com/stores/{store_hash_/v3/catalog/products/{product_id}/options/{option_id}/values/{option_value)`
 
@@ -958,7 +958,7 @@ Below, "Small" is updated to "Small T-Shirt".
 
 The option value ID has changed from 192 to 214. Even though only one option value was edited, option value IDs for all other options have also changed. The control panel will show these options as **(Custom)**.
 
-**V3 GET response:**
+**V3 GET response**
 
 `GET https://api.bigcommerce.com/stores/{store_hash}/v3/catalog/products/{product_id}/options`
 
@@ -1058,7 +1058,7 @@ The option value ID has changed from 192 to 214. Even though only one option val
 ```
 
 #### Size and Color
-![V2 Size and Color](//s3.amazonaws.com/user-content.stoplight.io/6012/1545080964540 "V2 Size and Color")
+![V2 Size and Color](http://s3.amazonaws.com/user-content.stoplight.io/6012/1545080964540 "V2 Size and Color")
 
 ## Related resources
 
