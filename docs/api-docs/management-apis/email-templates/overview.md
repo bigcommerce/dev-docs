@@ -11,7 +11,8 @@
 
 </div>
 
-This article provides and overview of BigCommerce's transactional email templates and API.
+This article provides an overview of BigCommerce's transactional email templates and API.
+
 
 ## Editing
 
