@@ -795,26 +795,25 @@ In V3, you can update stock levels on multiple variants and SKUs in one call by 
 
 ## Interoperability between V2 and V3
 
-When a product option is created in V2 and assigned to a product, editing the global option using the V3 Catalog API will automatically copy the V2 global product option to a local product variant option or modifier. This is triggered by an `UPDATE ` or a `DELETE` call to either the [Product Options](https://developer.bigcommerce.com/api-reference/store-management/catalog/product-options/getoptions) or [Product Modifiers](https://developer.bigcommerce.com/api-reference/store-management/catalog/product-modifiers/getmodifiers) endpoints.
+When a product option is created in V2 and assigned to a product, editing the global option using the V3 Catalog API will automatically copy the V2 global product option to a local product variant, option, or modifier. This is triggered by an `UPDATE ` or a `DELETE` call to either the [Product Options](https://developer.bigcommerce.com/api-reference/store-management/catalog/product-options/getoptions) or [Product Modifiers](https://developer.bigcommerce.com/api-reference/store-management/catalog/product-modifiers/getmodifiers) endpoints.
 
-**What this does is:**
-- Changes the `option_value` > `id`. Not the `option_id`.
-- Creates a copy directly on the product.
-- Copies over any variants, modifiers and option set rules.
-- In the Control Panel the product is listed as having a (Custom) Option Set.
-- Global Option Set rules are copied as product rules and the `sort_order` is updated so they executed before any existing product rules (which should mirror the behavior before the product was changed).
+Editing the V2 global product option using the V3 Catalog API will:
 
-**What this does not do:**
-- Remove the Option Set from the store entirely. It is still available in the control panel as an option set to be assigned.
-- Change product pricing, rules or any other product modifiers. They will be copied over and assigned the product correctly.
+- Change the `option_value` > `id`. Not the `option_id`.
+- Create a copy directly on the product.
+- Copy over any variants, modifiers and option set rules.
+- Copy global option set rules as product rules and update the `sort_order`. These global option set rules take precedence over any existing product rules, which should mirror the behavior before the product was changed.
 
-### Update Request to Product Option Values
+Editing the V2 global product option using the V3 Catalog API will not:
 
-In the following example, you will see the original option response of a product created using the V2 API, a change to the option values, and the final option response.
+- Remove the option set from the store entirely. It will remain available in the control panel as an option set to be assigned.
+- Change product pricing, rules, or any other product modifiers. They will be copied over and assigned the product correctly.
 
-The product used in this example is a T-Shirt with a global option set of size and color. Make a note of the `option_values` IDs. These IDs will change when you make an update to the option using the V3 `/options` endpoint. 
+### Update request to product option values
 
-In this example, we will update the label for Size Small, which has an `option_value` > `id` of 192.
+In this section, we will examine the original response data for a V2 product and compare it to the final option response after updating one of the option values using the V3 Catalog API. 
+
+The product used in this example is a t-shirt with a global option set of **Size** and **Color**. We are going to update the `label` property for **Size Small**, which has an `option_value` ID of 192. Make a note of the product's `option_values` IDs. These IDs will change when you make an update to the **Size Small** option using the V3 `/options` endpoint. 
 
 **V2 GET response:**
 
