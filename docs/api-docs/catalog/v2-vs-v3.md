@@ -43,25 +43,25 @@ For differences in resources, see the [Difference between V2 and V3 Catalog APIs
 
 ### Product variants and modifiers instead of option sets
 
-V3 Catalog introduced a new option model that included two types of options: [variant options](https://developer.bigcommerce.com/api-docs/store-management/products-overview#variant-options) and [modifiers](https://developer.bigcommerce.com/api-docs/store-management/products-overview#modifier-options). 
+V3 Catalog introduced a new option model that included two types of options: [variant options](https://developer.bigcommerce.com/api-docs/store-management/catalog/catalog-overview#variant-options) and [modifiers](https://developer.bigcommerce.com/api-docs/store-management/catalog/catalog-overview#modifier-options). 
 
 You can now create variants and modifiers in one call without having to create option sets beforehand. The new option model simplified the creation and management of variant prices and modifier adjusters. In all but some cases,  it removed the need to use complex rules.
 
 **Variant options**
 
-[Variant options](https://developer.bigcommerce.com/api-docs/store-management/products-overview#variant-options) represent options used for variant generation. A shopper has to choose from available variant options before adding a product to the cart. Variant options include multiple-choice types such as swatch, rectangle, radio button, and dropdown.
+[Variant options](https://developer.bigcommerce.com/api-docs/store-management/catalog/catalog-overview#variant-option) represent options used for variant generation. A shopper has to choose from available variant options before adding a product to the cart. Variant options include multiple-choice types such as swatch, rectangle, radio button, and dropdown.
 
 *Variant options example:* size or color.
 
 **Variants**
 
-[Variants](https://developer.bigcommerce.com/api-docs/store-management/products-overview#variant) are created based on the combination of variant options and have their own attributes such as image, prices, weight, and stock level.
+[Variants](https://developer.bigcommerce.com/api-docs/store-management/catalog/catalog-overview#variant) are created based on the combination of variant options and have their own attributes such as image, prices, weight, and stock level.
 
 *Variant example:* large blue t-shirt.
 
 **Modifiers**
 
-[Modifiers](https://developer.bigcommerce.com/api-docs/store-management/products-overview#modifier-options) represent options used for additional product customization such as gift wrapping, engraving, text to be printed on a t-shirt, or a warranty. Unlike variant options, modifiers do not generate variants, and you can display them as *required* or *optional* on the storefront. You can use modifiers along with [rules](https://developer.bigcommerce.com/api-docs/store-management/products-overview#complex-rules) to change a product's price or weight.
+[Modifiers](https://developer.bigcommerce.com/api-docs/store-management/catalog/catalog-overview#modifier-options) represent options used for additional product customization such as gift wrapping, engraving, text to be printed on a t-shirt, or a warranty. Unlike variant options, modifiers do not generate variants, and you can display them as *required* or *optional* on the storefront. You can use modifiers along with [rules](https://developer.bigcommerce.com/api-docs/store-management/catalog/catalog-overview#complex-rules) to change a product's price or weight.
 Modifiers include multiple-choice types such as swatch, rectangle, radio button, and dropdown, and non-multiple-choice types such as text, multi-line text, date picker, file upload, and pick list.
 
 <div class="HubBlock--callout">
@@ -124,11 +124,11 @@ In V3, any variants or modifier adjusters created with non-null core properties 
 ## Related resources
 
 ### Articles
-* [Catalog Overview](https://developer.bigcommerce.com/api-docs/store-management/products-overview)
-* [Deprecations and sunsets](https://developer.bigcommerce.com/api-reference#deprecations-and-sunsets)
+* [Catalog Overview](https://developer.bigcommerce.com/api-docs/store-management/catalog/catalog-overview/)
+* [Deprecations and sunsets](https://developer.bigcommerce.com/api-docs/getting-started/deprecations-and-sunsets)
 
 ### Endpoints
 * [V3 Product Complex Rules](https://developer.bigcommerce.com/api-reference/store-management/catalog/product-complex-rules)
 * [V3 Product Options](https://developer.bigcommerce.com/api-reference/store-management/catalog/product-options)
 * [V3 Product Modifiers](https://developer.bigcommerce.com/api-reference/store-management/catalog/product-modifiers)
-* [V3 Product Variants](https://developer.bigcommerce.com/api-reference/catalog/catalog-api/product-variants)
+* [V3 Product Variants](https://developer.bigcommerce.com/api-reference/store-management/catalog/product-variants)
