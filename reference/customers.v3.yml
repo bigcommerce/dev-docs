@@ -148,7 +148,7 @@ paths:
             format: date-time
         - name: 'email:in'
           in: query
-          description: 'Filter items by email. `email:in=janedoe@email.com`'
+          description: 'Filter items by email. `email:in=janedoe@example.com`'
           schema:
             type: string
         - name: 'name:in'
@@ -1408,7 +1408,7 @@ components:
     FilterEmailParam:
       name: 'email:in'
       in: query
-      description: 'Filter items by email. `email:in=janedoe@email.com`'
+      description: 'Filter items by email. `email:in=janedoe@example.com`'
       schema:
         type: string
     FilterNameLikeParam:
@@ -1714,7 +1714,7 @@ components:
                       force_password_reset: true
                     company: BigCommerce
                     customer_group_id: 5
-                    email: johndoe@email.com
+                    email: johndoe@example.com
                     first_name: John
                     last_name: Doe
                     notes: Warehouse
@@ -1884,7 +1884,7 @@ components:
                             },
                             "company": "",
                             "customer_group_id": 0,
-                            "email": "janedoe@email.com",
+                            "email": "janedoe@example.com",
                             "first_name": "Jane",
                             "last_name": "Doe",
                             "notes": "",
@@ -2349,7 +2349,7 @@ components:
                             },
                             "company": "BigCommerce",
                             "customer_group_id": 5,
-                            "email": "johndoe@email.com",
+                            "email": "johndoe@example.com",
                             "first_name": "John",
                             "last_name": "Doe",
                             "notes": "Warehouse",
@@ -2434,7 +2434,7 @@ components:
                             },
                             "company": "BigCommerce",
                             "customer_group_id": 5,
-                            "email": "johndoe1@email.com",
+                            "email": "johndoe1@example.com",
                             "first_name": "John",
                             "last_name": "Doe",
                             "notes": "New notes!!! 4/17/19",
@@ -4747,7 +4747,7 @@ components:
           example: Tester
         email:
           type: string
-          example: example@email.com
+          example: example@example.com
         company:
           type: string
           description: Company of the card holder

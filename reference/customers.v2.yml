@@ -211,7 +211,7 @@ paths:
                 company: ''
                 first_name: Jane
                 last_name: Doe
-                email: jane@email.com
+                email: jane@example.com
                 phone: ''
                 form_fields:
                   - name: Account Sign Up Field
@@ -233,7 +233,7 @@ paths:
                 company: ''
                 first_name: BigCommerce
                 last_name: BigCommerce
-                email: bc@email.com
+                email: bc@example.com
                 phone: ''
                 form_fields: {}
                 date_created: 'Wed, 10 Jan 2018 21:24:05 +0000'
@@ -569,7 +569,7 @@ paths:
               company: BigCommerce
               first_name: Jane
               last_name: Doe
-              email: janedoe@email.com
+              email: janedoe@example.com
               phone: 1234567890
               date_created: 'Thu, 11 Jan 2018 20:57:52 +0000'
               date_modified: 'Tue, 10 Apr 2018 18:59:05 +0000'
@@ -712,7 +712,7 @@ paths:
               company: BigCommerce
               first_name: Jane
               last_name: Doe
-              email: janedoe@email.com
+              email: janedoe@example.com
               phone: 1234567890
               date_created: 'Thu, 11 Jan 2018 20:57:52 +0000'
               date_modified: 'Tue, 10 Apr 2018 18:59:05 +0000'
@@ -814,7 +814,7 @@ paths:
               company: ''
               first_name: Jane
               last_name: Doe
-              email: janedoes@email.com
+              email: janedoes@example.com
               phone: ''
               form_fields:
                 - name: License Id
@@ -893,7 +893,7 @@ paths:
               company: BigCommerce
               first_name: Jane
               last_name: Doe
-              email: janedoe@email.com
+              email: janedoe@example.com
               phone: 1234567890
               date_created: 'Thu, 11 Jan 2018 20:57:52 +0000'
               date_modified: 'Tue, 10 Apr 2018 18:59:05 +0000'
@@ -949,7 +949,7 @@ paths:
               email:
                 type: string
                 description: Email address of the customer.
-                example: janedoe@email.com
+                example: janedoe@example.com
               phone:
                 description: Phone number of the customer.
                 example: 1234567890
@@ -1040,7 +1040,7 @@ paths:
           x-examples:
             application/json:
               first_name: Jane
-              email: jane@email.com
+              email: jane@example.com
               phone: '1234567890'
             password-update: |-
               {
@@ -2515,7 +2515,7 @@ definitions:
         type: string
       email:
         description: ''
-        example: janedoe@email.com
+        example: janedoe@example.com
         type: string
       form_fields:
         description: ''
@@ -2565,7 +2565,7 @@ definitions:
       company: BigCommerce
       first_name: Jane
       last_name: Doe
-      email: janedoe@email.com
+      email: janedoe@example.com
       phone: 1234567890
       date_created: 'Thu, 11 Jan 2018 20:57:52 +0000'
       date_modified: 'Tue, 10 Apr 2018 18:59:05 +0000'
@@ -2887,7 +2887,7 @@ definitions:
       company: BigCommerce
       first_name: Jane
       last_name: Doe
-      email: janedoe@email.com
+      email: janedoe@example.com
       phone: 1234567890
       date_created: 'Thu, 11 Jan 2018 20:57:52 +0000'
       date_modified: 'Tue, 10 Apr 2018 18:59:05 +0000'
@@ -2936,7 +2936,7 @@ definitions:
       email:
         type: string
         description: Email address of the customer.
-        example: janedoe@email.com
+        example: janedoe@example.com
       phone:
         description: Phone number of the customer.
         example: 1234567890

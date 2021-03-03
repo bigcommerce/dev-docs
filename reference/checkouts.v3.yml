@@ -130,7 +130,7 @@ paths:
             application/json:
               first_name: Jane
               last_name: Doe
-              email: jane@email.com
+              email: jane@example.com
               address1: 123 Main Street
               address2: ''
               city: Austin
@@ -186,7 +186,7 @@ paths:
             $ref: '#/definitions/AddressProperties'
           x-examples:
             application/json:
-              email: jane@email.com
+              email: jane@example.com
               phone: '1234567890'
       responses:
         '200':
@@ -231,7 +231,7 @@ paths:
           x-examples:
             application/json:
               - shipping_address:
-                  email: jane2@email.com
+                  email: jane2@example.com
                   country_code: US
                   first_name: BigCommerce
                   last_name: Cart/Checkout
@@ -248,7 +248,7 @@ paths:
                   - item_id: 27556eb3-6537-4d08-b75e-1ac32d80934b
                     quantity: 1
               - shipping_address:
-                  email: testing@email.com
+                  email: testing@example.com
                   country_code: US
                   first_name: Testing
                   last_name: BigCommerce
@@ -324,7 +324,7 @@ paths:
             application/json: |-
               {
                 "shipping_address": {
-                  "email": "jane2@email.com",
+                  "email": "jane2@example.com",
                   "country_code": "US",
                   "first_name": "Testing",
                   "last_name": "BigCommerce",
@@ -1557,7 +1557,7 @@ responses:
           cart:
             id: 41d4ef29-0532-4ded-a669-14e4048451ad
             customer_id: 9
-            email: testing@email.com
+            email: testing@example.com
             currency:
               code: USD
             base_amount: 520.54
@@ -1672,7 +1672,7 @@ responses:
             id: 5b744c77bbe1f
             first_name: BigCommerce
             last_name: BigCommerce Cart/Checkout
-            email: testing@email.com
+            email: testing@example.com
             company: {}
             address1: 123 Main Street
             address2: {}
@@ -1705,7 +1705,7 @@ responses:
               shippingAddress:
                 first_name: BigCommerce
                 last_name: BigCommerce Cart/Checkout
-                email: testing@email.com
+                email: testing@example.com
                 company: ''
                 address1: 123 Main Street
                 address2: ''
@@ -1748,7 +1748,7 @@ responses:
             id: 306d57d7-124e-4112-82cd-35e060c0d4d9
             customer_id: 11
             channel_id: 1
-            email: janedoe@email.com
+            email: janedoe@example.com
             currency:
               code: USD
             base_amount: 31.95
@@ -1790,7 +1790,7 @@ responses:
             id: 5d484d668e5aa
             first_name: null
             last_name: null
-            email: janedoe@email.com
+            email: janedoe@example.com
             company: BigCommerce
             address1: 123 Main Street
             address2: Apt 1
@@ -1815,7 +1815,7 @@ responses:
               shipping_address:
                 first_name: BigCommerce
                 last_name: Cart/Checkout
-                email: jane2@email.com
+                email: jane2@example.com
                 company: ''
                 address1: 123 Main Street
                 address2: ''
@@ -1875,7 +1875,7 @@ responses:
             id: 306d57d7-124e-4112-82cd-35e060c0d4d9
             customer_id: 11
             channel_id: 1
-            email: janedoe@email.com
+            email: janedoe@example.com
             currency:
               code: USD
             base_amount: 31.95
@@ -1917,7 +1917,7 @@ responses:
             id: 5d484d668e5aa
             first_name:
             last_name:
-            email: janedoe@email.com
+            email: janedoe@example.com
             company: BigCommerce
             address1: 123 Main Street
             address2: Apt 1
@@ -1950,7 +1950,7 @@ responses:
             shipping_address:
               first_name: BigCommerce
               last_name: Cart/Checkout
-              email: jane2@email.com
+              email: jane2@example.com
               company: ''
               address1: 123 Main Street
               address2: ''

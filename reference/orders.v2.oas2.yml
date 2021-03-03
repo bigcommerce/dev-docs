@@ -120,7 +120,7 @@ paths:
               zip: '78751'
               country: United States
               country_iso2: US
-              email: janedoe@email.com
+              email: janedoe@example.com
             shipping_addresses:
               - first_name: Trish
                 last_name: Test
@@ -267,7 +267,7 @@ paths:
               zip: '78751'
               country: United States
               country_iso2: US
-              email: janedoe@email.com
+              email: janedoe@example.com
             products:
               - name: BigCommerce Coffee Mug
                 quantity: 1
@@ -285,7 +285,7 @@ paths:
               zip: '78751'
               country: United States
               country_iso2: US
-              email: janedoe@email.com
+              email: janedoe@example.com
             shipping_addresses:
               - first_name: Trish
                 last_name: Test
@@ -318,7 +318,7 @@ paths:
               zip: '78751'
               country: United States
               country_iso2: US
-              email: janedoe@email.com
+              email: janedoe@example.com
             shipping_addresses:
               - first_name: Trish
                 last_name: Test
@@ -349,7 +349,7 @@ paths:
               zip: '78751'
               country: United States
               country_iso2: US
-              email: janedoe@email.com
+              email: janedoe@example.com
             shipping_addresses:
               - first_name: Trish
                 last_name: Test
@@ -1369,7 +1369,7 @@ components:
                     country: United States
                     country_iso2: US
                     phone: ''
-                    email: janedoe@email.com
+                    email: janedoe@example.com
                     form_fields: []
                   is_email_opt_in: false
                   credit_card_type: null
@@ -1585,7 +1585,7 @@ components:
                   country: United States
                   country_iso2: US
                   phone: '1234567890'
-                  email: janedoe@email.com
+                  email: janedoe@example.com
                   form_fields:
                     - name: Delivery Instructions
                       value: Leave in backyard
@@ -2068,7 +2068,7 @@ components:
                     country: United States
                     country_iso2: US
                     phone: ''
-                    email: janedoe@email.com
+                    email: janedoe@example.com
                   shipping_address:
                     first_name: Trishy
                     last_name: Test
@@ -2110,7 +2110,7 @@ components:
                     country: United States
                     country_iso2: US
                     phone: ''
-                    email: janedoe@email.com
+                    email: janedoe@example.com
                   shipping_address:
                     first_name: Jane
                     last_name: Doe
@@ -2123,7 +2123,7 @@ components:
                     country: United States
                     country_iso2: US
                     phone: ''
-                    email: janedoe@email.com
+                    email: janedoe@example.com
                   items:
                     - order_product_id: 189
                       product_id: 0
@@ -2160,7 +2160,7 @@ components:
                   country: United States
                   country_iso2: US
                   phone: ''
-                  email: janedoe@email.com
+                  email: janedoe@example.com
                 shipping_address:
                   first_name: Trishy
                   last_name: Test
@@ -2214,7 +2214,7 @@ components:
                   country: United States
                   country_iso2: US
                   state: Texas
-                  email: janedoe@email.com
+                  email: janedoe@example.com
                   phone: ''
                   items_total: 2
                   items_shipped: 2
@@ -2247,7 +2247,7 @@ components:
                   country: United States
                   country_iso2: US
                   state: Texas
-                  email: janedoe@email.com
+                  email: janedoe@example.com
                   phone: ''
                   items_total: 0
                   items_shipped: 0
@@ -2289,7 +2289,7 @@ components:
                 country: United States
                 country_iso2: US
                 state: Texas
-                email: jane@email.com
+                email: jane@example.com
                 phone: '1234567890'
                 items_total: 2
                 items_shipped: 0
@@ -2463,7 +2463,7 @@ components:
                 country: United States
                 country_iso2: US
                 phone: ''
-                email: jane@email.com
+                email: jane@example.com
                 form_fields: []
               is_email_opt_in: false
               credit_card_type: null
@@ -2759,7 +2759,7 @@ components:
                     type: string
                   email:
                     description: ''
-                    example: janedoe@email.com
+                    example: janedoe@example.com
                     type: string
                   form_fields:
                     description: ''
@@ -3935,7 +3935,7 @@ components:
           type: number
         email:
           type: string
-          example: janedoe@email.com
+          example: janedoe@example.com
       required:
         - zip
     shippingAddress_Base:
@@ -3980,7 +3980,7 @@ components:
           description: Recipient's telephone number.
         email:
           type: string
-          example: janedoe@email.com
+          example: janedoe@example.com
           description: 'Recipient''s email address. '
         shipping_method:
           type: string

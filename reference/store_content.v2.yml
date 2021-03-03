@@ -532,7 +532,7 @@ paths:
                 parent_id: 5
                 type: page
                 contact_fields: 'fullname,companyname,phone,orderno,rma'
-                email: janedoes@email.com
+                email: janedoes@example.com
                 name: Contact Form
                 url: /contact-us/
                 meta_description: ''
@@ -615,7 +615,7 @@ paths:
               parent_id: 5
               type: page
               contact_fields: 'fullname,companyname,phone,orderno,rma'
-              email: janedoes@email.com
+              email: janedoes@example.com
               name: Contact Form
               url: /contact-us/
               meta_description: ''
@@ -1288,7 +1288,7 @@ definitions:
       email:
         type: string
         description: Email address of the customer.
-        example: janedoe@email.com
+        example: janedoe@example.com
       phone:
         description: Phone number of the customer.
         example: 1234567890
@@ -1532,7 +1532,7 @@ definitions:
         type: string
       email:
         description: 'Where the page’s type is a contact form: email address that receives messages sent via the form.'
-        example: janedoes@email.com
+        example: janedoes@example.com
         type: string
       name:
         type: string

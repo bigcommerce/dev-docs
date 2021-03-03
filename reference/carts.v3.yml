@@ -185,10 +185,10 @@ paths:
                   quantity: 1
                   sender:
                     name: Jane Does
-                    email: janedoe@email.com
+                    email: janedoe@example.com
                   recipient:
                     name: Jane Does
-                    email: janedoe@email.com
+                    email: janedoe@example.com
                   message: Happy Birthday Jane!
             Custom Item: |-
               {
@@ -433,10 +433,10 @@ paths:
                       taxable: false
                       sender:
                         name: Jane Does
-                        email: janedoe@email.com
+                        email: janedoe@example.com
                       recipient:
                         name: Jane Does
-                        email: janedoe@email.com
+                        email: janedoe@example.com
                       message: Happy Birthday Jane!
                 created_time: '2018-09-17T14:27:39+00:00'
                 updated_time: '2018-09-17T14:53:40+00:00'

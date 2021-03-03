@@ -550,7 +550,7 @@ paths:
               cart:
                 id: b6fbd994-61a8-4f25-9167-6ec10489c448
                 customerId: 11
-                email: janedoe@email.com
+                email: janedoe@example.com
                 currency:
                   name: US Dollars
                   code: USD
@@ -676,10 +676,10 @@ paths:
                       taxable: false
                       sender:
                         name: Jane Doe
-                        email: janedoe@email.com
+                        email: janedoe@example.com
                       recipient:
                         name: John Doe
-                        email: johndoe@email.com
+                        email: johndoe@example.com
                       message: Thank you!
                       type: giftCertificate
                 createdTime: '2018-09-18T15:48:26+00:00'
@@ -688,7 +688,7 @@ paths:
                 id: 5ba11e4a10fb5
                 firstName: Jane
                 lastName: Doe
-                email: janedoe@email.com
+                email: janedoe@example.com
                 company: {}
                 address1: 123 Main Street
                 address2: {}
@@ -722,7 +722,7 @@ paths:
                   shippingAddress:
                     firstName: Jane
                     lastName: Doe
-                    email: janedoe@email.com
+                    email: janedoe@example.com
                     company: ''
                     address1: 123 Main Street
                     address2: ''
@@ -794,7 +794,7 @@ paths:
             application/json:
               firstName: Jane
               lastName: Doe
-              email: janedoe@email.com
+              email: janedoe@example.com
               company: BigCommerce
               address1: 123 Main Street
               address2: Apt 1
@@ -965,7 +965,7 @@ paths:
             application/json:
               firstName: Jane
               lastName: Doe
-              email: janedoe@email.com
+              email: janedoe@example.com
               company: BigCommerce
               address1: 123 Main Street
               address2: Apt 1
@@ -984,7 +984,7 @@ paths:
               cart:
                 id: b6fbd994-61a8-4f25-9167-6ec10489c448
                 customerId: 11
-                email: janedoe@email.com
+                email: janedoe@example.com
                 currency:
                   name: US Dollars
                   code: USD
@@ -1110,10 +1110,10 @@ paths:
                       taxable: false
                       sender:
                         name: Jane Doe
-                        email: janedoe@email.com
+                        email: janedoe@example.com
                       recipient:
                         name: John Doe
-                        email: johndoe@email.com
+                        email: johndoe@example.com
                       message: Thank you!
                       type: giftCertificate
                 createdTime: '2018-09-18T15:48:26+00:00'
@@ -1122,7 +1122,7 @@ paths:
                 id: 5ba11e4a10fb5
                 firstName: Jane
                 lastName: Doe
-                email: janedoe@email.com
+                email: janedoe@example.com
                 company: {}
                 address1: 123 Main Street
                 address2: {}
@@ -1156,7 +1156,7 @@ paths:
                   shippingAddress:
                     firstName: Jane
                     lastName: Doe
-                    email: janedoe@email.com
+                    email: janedoe@example.com
                     company: ''
                     address1: 123 Main Street
                     address2: ''
@@ -1222,7 +1222,7 @@ paths:
               - shippingAddress:
                   firstName: Jane
                   lastName: Doe
-                  email: janedoe@email.com
+                  email: janedoe@example.com
                   company: BigCommerce
                   address1: 123 Main Street
                   address2: Apt 1
@@ -1238,7 +1238,7 @@ paths:
               - shippingAddress:
                   firstName: John
                   lastName: Doe
-                  email: johnedoe@email.com
+                  email: johnedoe@example.com
                   company: BigCommerce
                   address1: 123 South Street
                   address2: Apt 5
@@ -2072,7 +2072,7 @@ paths:
               cart:
                 id: b6fbd994-61a8-4f25-9167-6ec10489c448
                 customerId: 11
-                email: janedoe@email.com
+                email: janedoe@example.com
                 currency:
                   name: US Dollars
                   code: USD
@@ -2185,10 +2185,10 @@ paths:
                       taxable: false
                       sender:
                         name: Jane Doe
-                        email: janedoe@email.com
+                        email: janedoe@example.com
                       recipient:
                         name: John Doe
-                        email: johndoe@email.com
+                        email: johndoe@example.com
                       message: Thank you!
                       type: giftCertificate
                 createdTime: '2018-09-18T15:48:26+00:00'
@@ -2197,7 +2197,7 @@ paths:
                 id: 5ba11e4a10fb5
                 firstName: Jane
                 lastName: Doe
-                email: janedoe@email.com
+                email: janedoe@example.com
                 company: null
                 address1: 123 Main Street
                 address2: null

@@ -50,7 +50,7 @@ paths:
               country: United States
               country_code: US
               phone: ''
-              admin_email: jane.does@email.com
+              admin_email: jane.does@example.com
               order_email: info@janedoes.mybigcommerce.com
               favicon_url: >-
                 https://cdn8.bigcommerce.com/r-8816ba2f48b0bcf4bec0c1a954c00e0fc36b/img/bc_favicon.ico
@@ -226,7 +226,7 @@ definitions:
         type: string
       admin_email:
         description: Email address of the store administrator/owner.
-        example: janedoes@email.com
+        example: janedoes@example.com
         type: string
       order_email:
         description: Email address for orders and fulfillment.

@@ -195,10 +195,10 @@ paths:
               giftCertificates:
                 - sender:
                     name: Jane Doe
-                    email: janedoe@email.com
+                    email: janedoe@example.com
                   recipient:
                     name: John Doe
-                    email: johndoe@email.com
+                    email: johndoe@example.com
                   amount: 10
                   theme: Celebration
                   quantity: 1

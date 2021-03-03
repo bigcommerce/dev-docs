@@ -10864,7 +10864,7 @@ paths:
                 text: This product is amazing!!!
                 status: approved
                 rating: 5
-                email: janedoe@email.com
+                email: janedoe@example.com
                 name: Jane Doe
                 date_reviewed: '2018-05-07T19:37:13+00:00'
                 id: 5
@@ -10970,7 +10970,7 @@ paths:
               text: This product is amazing!!!
               status: approved
               rating: 5
-              email: janedoe@email.com
+              email: janedoe@example.com
               name: Jane Doe
               date_reviewed: '2018-05-07T19:37:13+00:00'
         - in: header
@@ -25581,7 +25581,7 @@ responses:
           text: This product is amazing!!!
           status: approved
           rating: 5
-          email: janedoe@email.com
+          email: janedoe@example.com
           name: Jane Doe
           date_reviewed: '2018-05-07T19:37:13+00:00'
           id: 5

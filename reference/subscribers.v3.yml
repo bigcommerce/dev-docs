@@ -138,7 +138,7 @@ paths:
             $ref: '#/definitions/subscriber_Post'
           x-examples:
             application/json:
-              email: janedoe2@email.com
+              email: janedoe2@example.com
               first_name: Jane
               last_name: Doe
               source: mailchimp
@@ -334,7 +334,7 @@ paths:
             $ref: '#/definitions/subscriber_Put'
           x-examples:
             application/json:
-              email: janed@email.com
+              email: janed@example.com
         - in: header
           type: string
           name: Accept

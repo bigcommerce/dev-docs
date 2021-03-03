@@ -1067,7 +1067,7 @@ definitions:
       to_email:
         type: string
         description: Email of the recipient.
-        example: johndoe@email.com
+        example: johndoe@example.com
       from_name:
         type: string
         description: Name of the customer who purchased the gift certificate.
@@ -1075,7 +1075,7 @@ definitions:
       from_email:
         type: string
         description: Email of the customer who purchased the gift certificate.
-        example: janedoe@email.com
+        example: janedoe@example.com
       amount:
         type: string
         description: Value of the gift certificate.
@@ -1146,9 +1146,9 @@ definitions:
     x-examples:
       example-1:
         to_name: John Doe
-        to_email: johndoe@email.com
+        to_email: johndoe@example.com
         from_name: Jane Doe
-        from_email: janedoe@email.com
+        from_email: janedoe@example.com
         amount: '10'
         id: 1
         customer_id: 5
@@ -1446,9 +1446,9 @@ responses:
         order_id: 116
         code: FFZ-5N4-C7M-S78
         to_name: John Doe
-        to_email: johndoe@email.com
+        to_email: johndoe@example.com
         from_name: Jane Doe
-        from_email: janedoe@email.com
+        from_email: janedoe@example.com
         amount: 10
         balance: 0
         status: active
