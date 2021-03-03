@@ -4527,12 +4527,12 @@ definitions:
       default:
         type: object
         description: The default value to use when rendering the widget for the first time.
-          src: 
-            type: string
-            example: '"https://images.unsplash.com/photo-1548768041"'
-          type:
-            type: string
-            example: IMAGE_MANAGER
+        src: 
+          type: string
+          example: '"https://images.unsplash.com/photo-1548768041"'
+        type:
+          type: string
+          example: IMAGE_MANAGER         
   widget_input:
     type: object
     title: input
