@@ -105,7 +105,7 @@ paths:
         content:
           application/json:
             schema:
-              $ref: '#/components/schemas/order_Req'
+              $ref: '#/components/schemas/order_Put'
         required: true
         x-examples:
           application/json:
@@ -254,10 +254,12 @@ paths:
         content:
           application/json:
             schema:
-              $ref: '#/components/schemas/order_Req'
+              $ref: '#/components/schemas/order_Post'
         required: true
         x-examples:
           application/json:
+            status_id: 0
+            customer_id: 11
             billing_address:
               first_name: Jane
               last_name: Doe
@@ -745,26 +747,6 @@ paths:
     parameters:
       - $ref: '#/components/parameters/order_id_path'
       - $ref: '#/components/parameters/product_id'
-    put:
-      responses:
-        '200':
-          description: ''
-          content:
-            application/json:
-              schema:
-                type: object
-                properties: {}
-      summary: Update Order Product
-      description: Updates the specified product for the specified order.
-      operationId: updateOrderProduct
-      tags:
-        - Order Products
-      requestBody:
-        content:
-          application/json:
-            schema:
-              $ref: '#/components/schemas/orderProduct_Write'
-      x-private: true
   '/orders/{order_id}/shipping_addresses/{id}':
     get:
       responses:
@@ -1609,6 +1591,98 @@ components:
                 store_default_currency_code: ''
                 store_default_to_transactional_exchange_rate: '1.0000000000'
                 custom_status: Awaiting Payment
+                customer_locale: en
+              Multiple Items:
+                id: 247
+                customer_id: 11
+                date_created: 'Thu, 20 Jun 2019 16:07:08 +0000'
+                date_modified: 'Thu, 20 Jun 2019 16:07:08 +0000'
+                date_shipped: ''
+                status_id: 11
+                status: Awaiting Fulfillment
+                subtotal_ex_tax: 924.47
+                subtotal_inc_tax: 1000.74
+                subtotal_tax: 76.27
+                base_shipping_cost: 8
+                shipping_cost_ex_tax: 7.39
+                shipping_cost_inc_tax: 8
+                shipping_cost_tax: 0.61
+                shipping_cost_tax_class_id: 0
+                base_handling_cost: 0
+                handling_cost_ex_tax: 0
+                handling_cost_inc_tax: 0
+                handling_cost_tax: 0
+                handling_cost_tax_class_id: 0
+                base_wrapping_cost: 0
+                wrapping_cost_ex_tax: 0
+                wrapping_cost_inc_tax: 0
+                wrapping_cost_tax: 0
+                wrapping_cost_tax_class_id: 0
+                total_ex_tax: 931.86
+                total_inc_tax: 1008.74
+                total_tax: 76.88
+                items_total: 11
+                items_shipped: 0
+                payment_method: Test Payment Gateway
+                payment_provider_id: ''
+                payment_status: captured
+                refunded_amount: 0
+                order_is_digital: false
+                store_credit_amount: 0
+                gift_certificate_amount: 0
+                ip_address: 70.112.53.67
+                geoip_country: United States
+                geoip_country_iso2: US
+                currency_id: 1
+                currency_code": USD
+                currency_exchange_rate: 1
+                default_currency_id: 1
+                default_currency_code: USD
+                staff_notes: BIN-45
+                customer_message: Custom Journal Added
+                discount_amount: 0
+                coupon_discount": 0
+                shipping_address_count: 1
+                is_deleted: false
+                ebay_order_id: 0
+                cart_id: 8b84f622-faf1-4c10-887b-f5dff2f9eaf4
+                billing_address:
+                  first_name: Jane
+                  last_name: Doe
+                  company: ''
+                  street_1: 555 East Street
+                  street_2: ''
+                  city: Austin
+                  state: Texas
+                  zip: 78108
+                  country: United States
+                  country_iso2: US
+                  phone: 1234567890
+                  email: janedoe@email.com
+                  form_fields:
+                    name: Delivery Instructions
+                    value: Leave in backyard
+                is_email_opt_in: false
+                credit_card_type: {}
+                order_source: manual
+                channel_id: 1
+                external_source: {}
+                products:
+                  url: 'https://api.bigcommerce.com/stores/{$$.env.store_hash}/v2/orders/247/products'
+                  resource: /orders/247/products
+                shipping_addresses:
+                  url: 'https://api.bigcommerce.com/stores/{$$.env.store_hash}/v2/orders/247/shippingaddresses'
+                  resource: /orders/247/shippingaddresses
+                coupons:
+                  url: 'https://api.bigcommerce.com/stores/{$$.env.store_hash}/v2/orders/247/coupons'
+                  resource: /orders/247/coupons
+                external_id: {}
+                external_merchant_id: {}
+                tax_provider_id: BasicTaxProvider
+                store_default_currency_code: USD
+                store_default_to_transactional_exchange_rate: 1
+                custom_status: Awaiting Fulfillment
+                customer_locale: en
     orderCouponsCollection_Resp:
       description: ''
       content:
@@ -1663,6 +1737,8 @@ components:
                   product_id: 77
                   order_address_id: 51
                   name: Fog Linen Chambray Towel - Beige Stripe
+                  name_customer: Fog Linen Chambray Towel - Beige Stripe
+                  name_merchant: Fog Linen Chambray Towel - Beige Stripe
                   sku: S-ORAN
                   upc: '1234567891112'
                   type: physical
@@ -1712,7 +1788,11 @@ components:
                       order_product_id: 65
                       product_option_id: 120
                       display_name: Size
+                      display_name_customer: Size
+                      display_name_merchant: Size
                       display_value: S
+                      display_value_customer: S
+                      display_value_merchant: S
                       value: '69'
                       type: Multiple choice
                       name: Apparel sizes
@@ -1723,6 +1803,8 @@ components:
                       product_option_id: 121
                       display_name: Color
                       display_value: Orange
+                      display_value_customer: S
+                      display_value_merchant: S
                       value: '112'
                       type: Swatch
                       name: Colors
@@ -1818,6 +1900,8 @@ components:
                 product_id: 188
                 order_address_id: 81
                 name: Dustpan & Brush
+                name_customer: Dustpan & Brush
+                name_merchant: Dustpan & Brush
                 sku: DUST1
                 upc: '1234567891112'
                 type: physical
@@ -1864,175 +1948,180 @@ components:
                     order_product_id: 116
                     product_option_id: 227
                     display_name: Product Pick List
+                    display_name_customer: Product Pick List
+                    display_name_merchant: Product Pick List
                     display_value: 1L Le Parfait Jar
+                    display_value_customer: 1L Le Parfait Jar
+                    display_value_merchant: 1L Le Parfait Jar
                     value: '197'
                     type: Product Pick List
                     name: ProductPickList
                     display_style: Pick list
                 configurable_fields: []
-        Custom Product:
-          examples:
-            response:
-              value: |-
-                {
-                    "id": 238,
-                    "order_id": 247,
-                    "product_id": 0,
-                    "variant_id": 0,
-                    "order_address_id": 151,
-                    "name": "Journal",
-                    "sku": "Jour-BLK",
-                    "upc": "",
-                    "type": "physical",
-                    "base_price": "45.0000",
-                    "price_ex_tax": "41.5700",
-                    "price_inc_tax": "45.0000",
-                    "price_tax": "3.4300",
-                    "base_total": "45.0000",
-                    "total_ex_tax": "41.5700",
-                    "total_inc_tax": "45.0000",
-                    "total_tax": "3.4300",
-                    "weight": "0.0000",
-                    "width": "0.0000",
-                    "height": "0.0000",
-                    "depth": "0.0000",
-                    "quantity": 1,
-                    "base_cost_price": "0.0000",
-                    "cost_price_inc_tax": "0.0000",
-                    "cost_price_ex_tax": "0.0000",
-                    "cost_price_tax": "0.0000",
-                    "is_refunded": false,
-                    "quantity_refunded": 0,
-                    "refund_amount": "0.0000",
-                    "return_id": 0,
-                    "wrapping_name": "",
-                    "base_wrapping_cost": "0.0000",
-                    "wrapping_cost_ex_tax": "0.0000",
-                    "wrapping_cost_inc_tax": "0.0000",
-                    "wrapping_cost_tax": "0.0000",
-                    "wrapping_message": "",
-                    "quantity_shipped": 0,
-                    "event_name": null,
-                    "event_date": "",
-                    "fixed_shipping_cost": "0.0000",
-                    "ebay_item_id": "",
-                    "ebay_transaction_id": "",
-                    "option_set_id": null,
-                    "parent_order_product_id": null,
-                    "is_bundled_product": false,
-                    "bin_picking_number": "",
-                    "external_id": null,
-                    "fulfillment_source": "",
-                    "applied_discounts": [],
-                    "product_options": [],
-                    "configurable_fields": []
-                }
-        Product with Variants:
-          examples:
-            response:
-              value: |-
-                {
-                  "id": 240,
-                  "order_id": 247,
-                  "product_id": 201,
-                  "variant_id": 477,
-                  "order_address_id": 151,
-                  "name": "BigCommerce T-Shirt",
-                  "sku": "SKU-201-Red-Small T-Shirt-Able Brewing System",
-                  "upc": "",
-                  "type": "physical",
-                  "base_price": "235.0000",
-                  "price_ex_tax": "217.0900",
-                  "price_inc_tax": "235.0000",
-                  "price_tax": "17.9100",
-                  "base_total": "940.0000",
-                  "total_ex_tax": "868.3600",
-                  "total_inc_tax": "940.0000",
-                  "total_tax": "71.6400",
-                  "weight": "3.0000",
-                  "width": "3.0000",
-                  "height": "3.0000",
-                  "depth": "3.0000",
-                  "quantity": 4,
-                  "base_cost_price": "0.0000",
-                  "cost_price_inc_tax": "0.0000",
-                  "cost_price_ex_tax": "0.0000",
-                  "cost_price_tax": "0.0000",
-                  "is_refunded": false,
-                  "quantity_refunded": 0,
-                  "refund_amount": "0.0000",
-                  "return_id": 0,
-                  "wrapping_name": "",
-                  "base_wrapping_cost": "0.0000",
-                  "wrapping_cost_ex_tax": "0.0000",
-                  "wrapping_cost_inc_tax": "0.0000",
-                  "wrapping_cost_tax": "0.0000",
-                  "wrapping_message": "",
-                  "quantity_shipped": 0,
-                  "event_name": {},
-                  "event_date": "",
-                  "fixed_shipping_cost": "0.0000",
-                  "ebay_item_id": "",
-                  "ebay_transaction_id": "",
-                  "option_set_id": 68,
-                  "parent_order_product_id": {},
-                  "is_bundled_product": false,
-                  "bin_picking_number": "",
-                  "external_id": {},
-                  "fulfillment_source": "",
-                  "applied_discounts": [],
-                  "product_options": [
-                    {
-                      "id": 143,
-                      "option_id": 96,
-                      "order_product_id": 240,
-                      "product_option_id": 242,
-                      "display_name": "Color",
-                      "display_value": "Red",
-                      "value": "211",
-                      "type": "Swatch",
-                      "name": "Color1549572910-201",
-                      "display_style": ""
-                    },
-                    {
-                      "id": 144,
-                      "option_id": 114,
-                      "order_product_id": 240,
-                      "product_option_id": 263,
-                      "display_name": "PickList PriceList",
-                      "display_value": "Able Brewing System",
-                      "value": "237",
-                      "type": "Product Pick List",
-                      "name": "PickList-PriceList1549572910-201",
-                      "display_style": "Pick list with photos"
-                    },
-                    {
-                      "id": 145,
-                      "option_id": 97,
-                      "order_product_id": 240,
-                      "product_option_id": 243,
-                      "display_name": "T-Shirt Size",
-                      "display_value": "Small T-Shirt",
-                      "value": "214",
-                      "type": "Multiple choice",
-                      "name": "T-Shirt-Size1545071633-201",
-                      "display_style": "Rectangle"
-                    },
-                    {
-                      "id": 146,
-                      "option_id": 105,
-                      "order_product_id": 240,
-                      "product_option_id": 254,
-                      "display_name": "Custom Message",
-                      "display_value": "BigCommerce",
-                      "value": "BigCommerce",
-                      "type": "Text field",
-                      "name": "Custom-Message1549572912-201",
-                      "display_style": ""
-                    }
-                  ],
-                  "configurable_fields": []
-                }
+              Custom Product:
+                - id: 238
+                  order_id: 247
+                  product_id: 0
+                  variant_id: 0
+                  order_address_id: 151
+                  name: Journal
+                  name_customer: Journal
+                  name_merchant: Journal
+                  sku: Jour-BLK
+                  upc: ''
+                  type: physical
+                  base_price: '45.0000'
+                  price_ex_tax: '41.5700'
+                  price_inc_tax: '45.0000'
+                  price_tax: '3.4300'
+                  base_total: '45.0000'
+                  total_ex_tax: '41.5700'
+                  total_inc_tax: '45.0000'
+                  total_tax: '3.4300'
+                  weight: '0.0000'
+                  width: '0.0000'
+                  height: '0.0000'
+                  depth: '0.0000'
+                  quantity: 1
+                  base_cost_price: '0.0000'
+                  cost_price_inc_tax: '0.0000'
+                  cost_price_ex_tax: '0.0000'
+                  cost_price_tax: '0.0000'
+                  is_refunded: false
+                  quantity_refunded: 0
+                  refund_amount: '0.0000'
+                  return_id: 0
+                  wrapping_name: ''
+                  base_wrapping_cost: '0.0000'
+                  wrapping_cost_ex_tax: '0.0000'
+                  wrapping_cost_inc_tax: '0.0000'
+                  wrapping_cost_tax: '0.0000'
+                  wrapping_message: ''
+                  quantity_shipped: 0
+                  event_name: null
+                  event_date: ''
+                  fixed_shipping_cost: '0.0000'
+                  ebay_item_id: ''
+                  ebay_transaction_id: ''
+                  option_set_id: null
+                  parent_order_product_id: null
+                  is_bundled_product: false
+                  bin_picking_number: ''
+                  external_id: null
+                  fulfillment_source: ''
+                  applied_discounts: []
+                  product_options: []
+                  configurable_fields: []
+              Product with Variants:
+                - id: 240
+                  order_id: 247
+                  product_id: 201
+                  variant_id: 477
+                  order_address_id: 151
+                  name: BigCommerce T-Shirt
+                  name_customer: BigCommerce T-Shirt
+                  name_merchant: BigCommerce T-Shirt
+                  sku: SKU-201-Red-Small T-Shirt-Able Brewing System
+                  upc: ''
+                  type: physical
+                  base_price: '235.0000'
+                  price_ex_tax: '217.0900'
+                  price_inc_tax: '235.0000'
+                  price_tax: '17.9100'
+                  base_total: '940.0000'
+                  total_ex_tax: '868.3600'
+                  total_inc_tax: '940.0000'
+                  total_tax: '71.6400'
+                  weight: '3.0000'
+                  width: '3.0000'
+                  height: '3.0000'
+                  depth: '3.0000'
+                  quantity: 4
+                  base_cost_price: '0.0000'
+                  cost_price_inc_tax: '0.0000'
+                  cost_price_ex_tax: '0.0000'
+                  cost_price_tax: '0.0000'
+                  is_refunded: false
+                  quantity_refunded: 0
+                  refund_amount: '0.0000'
+                  return_id: 0
+                  wrapping_name: ''
+                  base_wrapping_cost: '0.0000'
+                  wrapping_cost_ex_tax: '0.0000'
+                  wrapping_cost_inc_tax: '0.0000'
+                  wrapping_cost_tax: '0.0000'
+                  wrapping_message: ''
+                  quantity_shipped: 0
+                  event_name: {}
+                  event_date: ''
+                  fixed_shipping_cost: '0.0000'
+                  ebay_item_id: ''
+                  ebay_transaction_id: ''
+                  option_set_id: 68
+                  parent_order_product_id: {}
+                  is_bundled_product: false
+                  bin_picking_number: ''
+                  external_id: {}
+                  fulfillment_source: ''
+                  applied_discounts: []
+              product_options:
+                - id: 143
+                  option_id: 96
+                  order_product_id: 240
+                  product_option_id: 242
+                  display_name: Color
+                  display_name_customer: Color
+                  display_name_merchant: Color
+                  display_value: Red
+                  display_value_customer: Red
+                  display_value_merchant: Red
+                  value: '211'
+                  type: Swatch
+                  name: Color1549572910-201
+                  display_style: ''
+                - id: 144
+                  option_id: 114
+                  order_product_id: 240
+                  product_option_id: 263
+                  display_name: PickList PriceList
+                  display_name_customer: PickList PriceList
+                  display_name_merchant: PickList PriceList
+                  display_value: Able Brewing System
+                  display_value_customer: Able Brewing System
+                  display_value_merchant: Able Brewing System
+                  value: '237'
+                  type: Product Pick List
+                  name: PickList-PriceList1549572910-201
+                  display_style: Pick list with photos
+                - id: 145
+                  option_id: 97
+                  order_product_id: 240
+                  product_option_id: 243
+                  display_name: T-Shirt Size
+                  display_name_customer: T-Shirt Size
+                  display_name_merchant: T-Shirt Size
+                  display_value: Small T-Shirt
+                  display_value_customer: Small T-Shirt
+                  display_value_merchant: Small T-Shirt
+                  value: '214'
+                  type: Multiple choice
+                  name: T-Shirt-Size1545071633-201
+                  display_style: Rectangle
+                - id: 146
+                  option_id: 105
+                  order_product_id: 240
+                  product_option_id: 254
+                  display_name: Custom Message
+                  display_name_customer: Custom Message
+                  display_name_merchant: Custom Message
+                  display_value: BigCommerce
+                  display_value_customer: BigCommerce
+                  display_value_merchant: BigCommerce
+                  value: BigCommerce
+                  type: Text field
+                  name: Custom-Message1549572912-201
+                  display_style: ''
+                  configurable_fields: []
     orderShipmentCollection_Resp:
       description: ''
       content:
@@ -2042,7 +2131,7 @@ components:
             items:
               $ref: '#/components/schemas/orderShipment'
           examples:
-            response:
+            application/json:
               value:
                 - id: 6
                   order_id: 225
@@ -2135,7 +2224,7 @@ components:
           schema:
             $ref: '#/components/schemas/orderShipment'
           examples:
-            response:
+            application/json:
               value:
                 id: 11
                 order_id: 228
@@ -2575,7 +2664,7 @@ components:
                 type:
                   - string
                   - integer
-                  - number
+                  - float
                 format: number
               wrapping_cost_ex_tax:
                 description: 'The value of the wrapping cost, excluding tax. (Float, Float-As-String, Integer)'
@@ -2930,6 +3019,7 @@ components:
     orderProducts:
       title: orderProducts
       type: object
+      description: ''
       properties:
         id:
           description: Numeric ID of this product within this order.
@@ -2948,9 +3038,10 @@ components:
           example: 20
           type: integer
         name:
-          description: The product name.
+          description: Alias for name_customer - The product name that is shown to customer in storefront.
           example: Fog Linen Chambray Towel - Beige Stripe
           type: string
+          minLength: 1
         sku:
           description: User-defined product code/stock keeping unit (SKU).
           example: S-GREE
@@ -3139,6 +3230,14 @@ components:
         variant_id:
           type: integer
           description: Products `variant_id`. PUT or POST. This field is not available for custom products.
+        name_customer:
+          type: string
+          example: Fog Linen Chambray Towel - Beige Stripe
+          description: The product name that is shown to customer in storefront.
+        name_merchant:
+          type: string
+          example: Towel Type 1
+          description: The product name that is shown to merchant in Control Panel.
     orderCount:
       title: orderCount
       example:
@@ -3474,11 +3573,11 @@ components:
           example: 120
           type: integer
         display_name:
-          description: 'The name of the option, as shown on the storefront.'
+          description: Alias for display_name_customer. The product option name that is shown to customer in the storefront.
           example: Size
           type: string
         display_value:
-          description: 'The name of the value, as shown on the storefront.'
+          description: Alias for display_value_customer. The product option value that is shown to customer in storefront.
           example: S
           type: string
         value:
@@ -3506,6 +3605,22 @@ components:
           description: 'How it is displayed on the storefront. Examples include Drop-down, radio buttons, or rectangles.'
           example: Rectangle
           type: string
+        display_name_customer:
+          type: string
+          example: couleur
+          description: The product option name that is shown to customer in storefront.
+        display_name_merchant:
+          type: string
+          example: color
+          description: The product option name that is shown to merchant in Control Panel.
+        display_value_customer:
+          type: string
+          example: bleu
+          description: The product option value that is shown to customer in storefront.
+        display_value_merchant:
+          type: string
+          example: blue
+          description: The product option value that is shown to merchant in Control Panel.
     formFields:
       title: formFields
       type: object
@@ -4147,3 +4262,693 @@ components:
           type: array
           items:
             $ref: '#/components/schemas/shippingAddress_Base'
+    orderCustomProduct_Put:
+      type: object
+      title: orderCustomProduct_Put
+      description: |
+        To `add` a custom product to an existing order, don't include `id` in the payload. At least one of these fields `name`, `name_customer`, or `name_merchant` must be provided with non-empty value.
+             To `update` an order product line, `id` is required. The payload should only contain the fields that needs to be updated. Those fields that are omitted will not be changed.
+             Note:
+             - Empty strings `''` and `null` are invalid for `xxx`, `xxx_customer`, and `xxx_merchant`.
+             - `name` and `name_customer` always hold the same value, updating either `name` or `name_customer` will change the value for both of those fields.
+             - If both fields `name` and `name_customer` are present, they must have same value.
+             - When updating an existing order product, if both fields `name` and `name_customer` are omitted from the request, they will not be updated.
+             - When updating an existing order product, if `name_merchant` is omitted from the request, it will not be updated.
+             - When adding product, if `name_merchant` is omitted, it will be set to the value of `name` (or `name_customer`).
+             - When adding a new product to an existing order, if both fields `name` and `name_customer` are omitted, they will be set to the value of `name_merchant`.
+      properties:
+        name:
+          type: string
+          example: Fog Linen Chambray Towel - Beige Stripe
+          description: |
+            Alias for name_customer. The product name that is shown to customer in storefront.
+        name_customer:
+          type: string
+          example: Fog Linen Chambray Towel - Beige Stripe
+          description: The product name that is shown to customer in storefront.
+        name_merchant:
+          type: string
+          example: Towel Type 1
+          description: The product name that is shown to merchant in control panel.
+        quantity:
+          type: number
+        price_ex_tax:
+          type: number
+        price_inc_tax:
+          type: number
+        sku:
+          type: string
+        upc:
+          type: string
+        id:
+          type: integer
+          description: ID of the product line
+      required:
+        - name
+        - quantity
+        - price_ex_tax
+        - price_inc_tax
+    orderCatalogProduct_Put:
+      title: orderCatalogProduct_Put
+      type: object
+      description: |
+        To `add` product to an existing order, don't include `id` in the payload. And note that the `product_options` are required if adding a product with variants.
+        To `update` an order product line, `id` is required. The payload should only contain the fields that needs to be updated. Those fields that are omitted will not be changed.
+        Note:
+        - `xxx` and `xxx_customer` always hold the same value, updating either `xxx` or `xxx_customer` will change value for both of those fields.
+        - If both fields `xxx` and `xxx_customer` are present, they must have same value.
+        - Empty strings `''` and `null` are invalid for `xxx`, `xxx_customer`, and `xxx_merchant`.
+        - When updating and existing order product without changing the variant, product or product options, if `xxx_merchant` is not part of the request it will not be updated.
+        - When updating an existing order product, if both fields `xxx` and `xxx_customer` not part of the request they will not be updated.
+        - When adding a product to and existing order or changing the variant, product, or product options.
+        - Empty strings `''` and `null` are invalid for `xxx`, `xxx_customer, and `xxx_merchant` if `xxx_merchant` is omitted, it will default to have the catalog value.
+        - If both fields `xxx` and `xxx_customer` are omitted from the request, they will default to the catalog value.
+      properties:
+        id:
+          type: integer
+          description: ID of the order product line
+        product_id:
+          type: integer
+        name:
+          type: string
+          description: Alias for `name_customer`. The product name that is shown to customer in storefront.
+          example: Fog Linen Chambray Towel - Beige Stripe
+        name_customer:
+          type: string
+          example: Fog Linen Chambray Towel - Beige Stripe
+          description: The product name that is shown to customer in storefront.
+        name_merchant:
+          type: string
+          example: Towel Type 1
+          description: The product name that is shown to merchant in control panel.
+        product_options:
+          type: array
+          items:
+            type: object
+            properties:
+              id:
+                type: integer
+              value:
+                type: string
+              display_name:
+                type: string
+                example: couleur
+                description: Alias for display_name_customer. The product option name that is shown to customer in storefront.
+              display_name_customer:
+                type: string
+                description: The product option name that is shown to customer in storefront.
+                example: couleur
+              display_name_merchant:
+                type: string
+                example: color
+                description: The product option name that is shown to merchant in Control Panel.
+              display_value:
+                type: string
+                example: bleu
+                description: Alias for display_value_customer. The product option value that is shown to customer in storefront.
+              display_value_merchant:
+                type: string
+                example: blue
+                description: The product option value that is shown to merchant in Control Panel.
+              display_value_customer:
+                type: string
+                example: bleu
+                description: The product option value that is shown to customer in storefront.
+        quantity:
+          type: number
+        price_inc_tax:
+          type: number
+        price_ex_tax:
+          type: number
+        upc:
+          type: string
+        variant_id:
+          type: integer
+          description: '""'
+        wrapping_name:
+          type: string
+        wrapping_message:
+          type: string
+        wrapping_cost_ex_tax:
+          type: number
+        wrapping_cost_inc_tax:
+          type: number
+    orderCatalogProduct_Post:
+      title: orderCatalogProduct_Post
+      type: object
+      description: |
+        `product_options` are required if adding a product with variants.
+        Note:
+        - `xxx` and `xxx_customer` always hold the same value, updating either `xxx` or `xxx_customer` will change value for both of those fields. 
+        - If both fields `xxx` and `xxx_customer` are present, they must have same value.
+        - Empty strings `''` and `null` are invalid for `xxx` and `xxx_customer, and `xxx_merchant`.
+        - `xxx`, `xxx_customer`, and `xxx_merchant` default to the value from `catalog` if not supplied in the request.
+      properties:
+        product_id:
+          type: integer
+        name:
+          type: string
+          example: Fog Linen Chambray Towel - Beige Stripe
+          description: Alias for name_customer. The product name that is shown to customer in storefront.
+        name_customer:
+          type: string
+          example: Fog Linen Chambray Towel - Beige Stripe
+          description: The product name that is shown to customer in storefront.
+        name_merchant:
+          type: string
+          example: Towel Type 1
+          description: The product name that is shown to merchant in control panel.
+        product_options:
+          type: array
+          items:
+            type: object
+            properties:
+              id:
+                type: string
+              value:
+                type: string
+              display_name:
+                type: string
+                example: couleur
+                description: Alias for display_name_customer. The product option name that is shown to customer in storefront.
+              display_name_customer:
+                type: string
+                example: couleur
+                description: The product option name that is shown to customer in storefront.
+              display_name_merchant:
+                type: string
+                example: color
+                description: The product option name that is shown to merchant in Control Panel.
+              display_value:
+                type: string
+                example: bleu
+                description: Alias for display_value_customer. The product option value that is shown to customer in storefront.
+              display_value_customer:
+                type: string
+                example: bleu
+                description: The product option value that is shown to customer in storefront.
+              display_value_merchant:
+                type: string
+                example: blue
+                description: The product option value that is shown to merchant in control panel.
+        quantity:
+          type: number
+        price_inc_tax:
+          type: number
+        price_ex_tax:
+          type: number
+        upc:
+          type: string
+        variant_id:
+          type: integer
+          description: '""'
+        wrapping_name:
+          type: string
+        wrapping_message:
+          type: string
+        wrapping_cost_ex_tax:
+          type: number
+        wrapping_cost_inc_tax:
+          type: number
+      required:
+        - product_id
+        - product_options
+        - quantity
+    orderCustomProduct_Post:
+      title: orderCustomProduct_Post
+      type: object
+      description: |-
+        At least one of these fields `name`, `name_customer`, or `name_merchant` must be provided with non-empty value.
+        Note: `name` and `name_customer` always hold the same value, updating either `name` or `name_customer` will change value for both of those fields.
+        If both fields `name` and `name_customer` are present, they must have the same value.
+        Empty strings `''` and `null` are invalid for `xxx`, `xxx_customer`, and `xxx_merchant`.
+        If both fields `name` and `name_customer` are omitted, they will be populated by the `name_merchant` value.
+        If field `name_merchant` is omitted it will be populated by the value of `name` (or `name_customer`).
+      properties:
+        name:
+          type: string
+          example: Fog Linen Chambray Towel - Beige Stripe
+          description: Alias for name_customer. The product name that is shown to customer in storefront.
+        name_customer:
+          type: string
+          example: Fog Linen Chambray Towel - Beige Stripe
+          description: The product name that is shown to customer in storefront.
+        name_merchant:
+          type: string
+          example: Towel Type 1
+          description: The product name that is shown to merchant in control panel.
+        quantity:
+          type: number
+        price_inc_tax:
+          type: number
+        price_ex_tax:
+          type: number
+        upc:
+          type: string
+        sku:
+          type: string
+      required:
+        - name
+        - quantity
+        - price_inc_tax
+        - price_ex_tax
+    order_Put:
+      title: order_Put
+      allOf:
+        - payment_method:
+            type: string
+            description: 'The payment method for this order. Can be one of the following: `Manual`, `Credit Card`, `Cash`,`Test Payment Gateway`, etc.'
+          properties:
+            status_id:
+              type: integer
+              description: The status ID of the order.
+              example: 11
+            customer_id:
+              type: number
+              example: 6
+              description: The ID of the customer placing the order; or 0 if it was a guest order.
+            billing_address:
+              $ref: '#/components/schemas/billingAddress_Full'
+            products:
+              type: array
+              items:
+                anyOf:
+                  - $ref: '#/components/schemas/orderCatalogProduct_Put'
+                  - $ref: '#/components/schemas/orderCustomProduct_Put'
+            subtotal_ex_tax:
+              type: string
+              description: 'Override value for subtotal excluding tax. If specified, the field `subtotal_inc_tax` is also required. (Float, Float-As-String, Integer)'
+              example: '225.0000'
+            subtotal_inc_tax:
+              type: string
+              description: 'Override value for subtotal including tax. If specified, the field `subtotal_ex_tax` is also required. (Float, Float-As-String, Integer)'
+              example: '225.0000'
+            base_shipping_cost:
+              type: string
+              description: 'The value of the base shipping cost. (Float, Float-As-String, Integer)'
+              example: '0.0000'
+            shipping_cost_ex_tax:
+              type: string
+              description: 'The value of shipping cost, excluding tax. (Float, Float-As-String, Integer)'
+              example: '0.0000'
+            shipping_cost_inc_tax:
+              type: string
+              description: 'The value of shipping cost, including tax. (Float, Float-As-String, Integer)'
+              example: '0.0000'
+            base_handling_cost:
+              type: string
+              description: 'The value of the base handling cost. (Float, Float-As-String, Integer)'
+              example: '0.0000'
+            handling_cost_ex_tax:
+              type: string
+              description: 'The value of the handling cost, excluding tax. (Float, Float-As-String, Integer)'
+              example: '0.0000'
+            handling_cost_inc_tax:
+              type: string
+              description: 'The value of the handling cost, including tax. (Float, Float-As-String, Integer)'
+              example: '0'
+            base_wrapping_cost:
+              type: string
+              description: 'The value of the base wrapping cost. (Float, Float-As-String, Integer)'
+              example: '0'
+            wrapping_cost_ex_tax:
+              type: string
+              description: 'The value of the wrapping cost, excluding tax. (Float, Float-As-String, Integer)'
+              example: '0.0000'
+            wrapping_cost_inc_tax:
+              type: string
+              description: 'The value of the wrapping cost, including tax. (Float, Float-As-String, Integer)'
+              example: '0.0000'
+            total_ex_tax:
+              type: string
+              description: 'Override value for the total, excluding tax. If specified, the field `total_inc_tax` is also required. (Float, Float-As-String, Integer)'
+              example: '225.0000'
+            total_inc_tax:
+              type: string
+              description: 'Override value for the total, including tax. If specified, the field `total_ex_tax` is also required. (Float, Float-As-String, Integer)'
+              example: '225.0000'
+            items_total:
+              type: number
+              description: The total number of items in the order.
+              example: 1
+            items_shipped:
+              type: number
+              description: 'The number of items that have been shipped. example: 0  - properties: shipping_addresses: $ref: '
+              enum: null
+            payment_method:
+              type: string
+              description: 'The payment method for this order. Can be one of the following: `Manual`, `Credit Card`, `Cash`,`Test Payment Gateway`, etc.'
+              enum:
+                - Credit Card
+                - Cash
+                - Manual
+                - Test Payment Gateway
+            payment_provider_id:
+              type: string
+              description: The external Transaction ID/Payment ID within this order's payment provider (if a payment provider was used).
+            refunded_amount:
+              type: string
+              description: 'The amount refunded from this transaction. (Float, Float-As-String, Integer)'
+              example: '0.0000'
+            order_is_digital:
+              type: boolean
+              description: Whether this is an order for digital products.
+              example: false
+            ip_address:
+              type: string
+              description: 'IP Address of the customer, if known.'
+              example: 12.345.678.910
+            geoip_country:
+              type: string
+              description: 'The full name of the country where the customer made the purchase, based on the IP.'
+              example: United States
+            geoip_country_iso2:
+              type: string
+              description: 'The country where the customer made the purchase, in ISO2 format, based on the IP.'
+              example: US
+            staff_notes:
+              type: string
+              description: Any additional notes for staff.
+              example: Send Saturday
+            customer_message:
+              type: string
+              description: 'Message that the customer entered (number, optional) -o the `Order Comments` box during checkout.'
+              example: Thank you
+            discount_amount:
+              type: string
+              description: 'Amount of discount for this transaction. (Float, Float-As-String, Integer)'
+              example: '0.0000'
+            is_deleted:
+              type: boolean
+              description: 'Indicates whether the order was deleted (archived). Set to to true, to archive an order.'
+              example: false
+            ebay_order_id:
+              type: string
+              description: 'If the order was placed through eBay, the eBay order number will be included. Otherwise, the value will be `0`.'
+              example: '0'
+            external_source:
+              type: string
+              description: 'For orders submitted or modified via the API, using a PUT or POST operation, you can optionally pass in a value identifying the system used to generate the order. For example: `POS`. Otherwise, the value will be null.'
+              example: 'null'
+            channel_id:
+              type: integer
+              description: Shows where the order originated. The channel_id will default to 1.
+              example: 1
+            tax_provider_id:
+              type: string
+              description: |-
+                BasicTaxProvider - Tax is set to manual.
+                AvaTaxProvider - This is for when the tax provider has been set to automatic and the order was NOT created by the API. Used for Avalara.
+                "\" (blank) - When the tax provider is unknown. This includes legacy orders and orders previously created via API.
+                          This can be set when creating an order using a POST.
+              enum:
+                - BasicTaxProvider
+                - AvaTaxProvider
+            date_created:
+              type: string
+              description: 'The date this order was created. If not specified, will default to the current time. The date should be in RFC 2822 format.'
+            customer_locale:
+              type: string
+              example: '\"en\", \"en-us\"'
+              pattern: '^([a-z][a-z])(\\-[a-z][a-z]){0,1}$'
+              description: The customer's locale.
+            shipping_addresses:
+              $ref: '#/components/schemas/shippingAddress_Base'
+      type: object
+    order_Base:
+      title: order_Base
+      type: object
+      properties:
+        status_id:
+          type: integer
+          description: The status ID of the order.
+          example: 11
+        customer_id:
+          type: number
+          description: The ID of the customer placing the order; or 0 if it was a guest order.
+          example: 6
+        billing_address:
+          allOf:
+            - properties:
+                first_name:
+                  type: string
+                last_name:
+                  type: string
+                  description: Doe
+                company:
+                  type: string
+                street_1:
+                  type: string
+                  description: 123 Main Street
+                street_2:
+                  type: string
+                city:
+                  type: string
+                  description: Austin
+                state:
+                  type: string
+                  description: TX
+                zip:
+                  type: string
+                  description: '12345'
+                country:
+                  type: string
+                  description: United States
+                country_iso2:
+                  type: string
+                  description: US
+                phone:
+                  type: string
+                email:
+                  type: string
+                  description: janedoe@email.com
+          type: object
+        form_fields:
+          type: array
+          items:
+            type: object
+            properties:
+              name:
+                type: string
+                example: License Id
+                description: Read-Only. If you have required address form fields they will need to be set as optional before creating an order via API.
+              value:
+                type: string
+                example: 123BAF
+                description: Read-Only. If you have required address form fields they will need to be set as optional before creating an order via API.
+        products:
+          type: array
+          items:
+            anyOf:
+              - $ref: '#/components/schemas/orderCatalogProduct_Post'
+              - $ref: '#/components/schemas/orderCustomProduct_Post'
+      required:
+        - billing_address
+        - products
+    order_Post:
+      title: order_Post
+      description: Products and Billing address only required for POST operation.
+      allOf:
+        - properties:
+            first_name:
+              type: string
+            last_name:
+              type: string
+            company:
+              type: string
+            street_1:
+              type: string
+            street_2:
+              type: string
+            city:
+              type: string
+            state:
+              type: string
+            zip:
+              type: string
+            country:
+              type: string
+            country_iso2:
+              type: string
+            email:
+              type: string
+            phone:
+              type: string
+            shipping_method:
+              type: string
+            subtotal_ex_tax:
+              type: string
+              description: 'Override value for subtotal excluding tax. If specified, the field `subtotal_inc_tax` is also required. (Float, Float-As-String, Integer)'
+              example: '225.0000'
+            subtotal_inc_tax:
+              type: string
+              description: 'Override value for subtotal including tax. If specified, the field `subtotal_ex_tax` is also required. (Float, Float-As-String, Integer)'
+              example: '225.0000'
+            base_shipping_cost:
+              type: string
+              description: 'The value of the base shipping cost. (Float, Float-As-String, Integer)'
+              example: '0.0000'
+            shipping_cost_ex_tax:
+              type: string
+              description: 'The value of shipping cost, excluding tax. (Float, Float-As-String, Integer)'
+              example: '0.0000'
+            shipping_cost_inc_tax:
+              type: string
+              description: 'The value of shipping cost, including tax. (Float, Float-As-String, Integer)'
+              example: '0.0000'
+            base_handling_cost:
+              type: string
+              description: 'The value of the base handling cost. (Float, Float-As-String, Integer)'
+              example: '0.0000'
+            handling_cost_ex_tax:
+              type: string
+              description: 'The value of the handling cost, excluding tax. (Float, Float-As-String, Integer)'
+              example: '0.0000'
+            handling_cost_inc_tax:
+              type: string
+              description: 'The value of the handling cost, including tax. (Float, Float-As-String, Integer)'
+              example: '0'
+            base_wrapping_cost:
+              type: string
+              description: 'The value of the base wrapping cost. (Float, Float-As-String, Integer)'
+              example: '0'
+            wrapping_cost_ex_tax:
+              type: string
+              description: 'The value of the wrapping cost, excluding tax. (Float, Float-As-String, Integer)'
+              example: '0.0000'
+            wrapping_cost_inc_tax:
+              type: string
+              description: 'The value of the wrapping cost, including tax. (Float, Float-As-String, Integer)'
+              example: '0.0000'
+            total_ex_tax:
+              type: string
+              description: 'Override value for the total, excluding tax. If specified, the field `total_inc_tax` is also required. (Float, Float-As-String, Integer)'
+              example: '225.0000'
+            total_inc_tax:
+              type: string
+              description: 'Override value for the total, including tax. If specified, the field `total_ex_tax` is also required. (Float, Float-As-String, Integer)'
+              example: '225.0000'
+            items_total:
+              type: number
+              description: The total number of items in the order.
+              example: 1
+            items_shipped:
+              type: number
+              description: 'The number of items that have been shipped. example: 0  - properties: shipping_addresses: $ref: '
+            payment_method:
+              type: string
+              description: 'The payment method for this order. Can be one of the following: `Manual`, `Credit Card`, `Cash`,`Test Payment Gateway`, etc.'
+              enum:
+                - Credit Card
+                - Cash
+                - Manual
+                - Test Payment Gateway
+            payment_provider_id:
+              type: string
+              description: The external Transaction ID/Payment ID within this order's payment provider (if a payment provider was used).
+            refunded_amount:
+              type: string
+              description: 'The amount refunded from this transaction. (Float, Float-As-String, Integer)'
+              example: '0.0000'
+            order_is_digital:
+              type: boolean
+              description: Whether this is an order for digital products.
+              example: false
+            ip_address:
+              type: string
+              description: 'IP Address of the customer, if known.'
+              example: 12.345.678.910
+            geoip_country:
+              type: string
+              description: 'The full name of the country where the customer made the purchase, based on the IP.'
+              example: United States
+            geoip_country_iso2:
+              type: string
+              description: 'The country where the customer made the purchase, in ISO2 format, based on the IP.'
+              example: US
+            staff_notes:
+              type: string
+              description: Any additional notes for staff.
+              example: Send Saturday
+            customer_message:
+              type: string
+              description: 'Message that the customer entered (number, optional) -o the `Order Comments` box during checkout.'
+              example: Thank you
+            discount_amount:
+              type: string
+              description: 'Amount of discount for this transaction. (Float, Float-As-String, Integer)'
+              example: '0.0000'
+            is_deleted:
+              type: boolean
+              description: 'Indicates whether the order was deleted (archived). Set to true, to archive an order.'
+              example: false
+            ebay_order_id:
+              type: string
+              description: 'If the order was placed through eBay, the eBay order number will be included. Otherwise, the value will be `0`.'
+              example: '0'
+            external_source:
+              type: string
+              description: 'For orders submitted or modified via the API, using a PUT or POST operation, you can optionally pass in a value identifying the system used to generate the order. For example: `POS`. Otherwise, the value will be null.'
+              example: 'null'
+            channel_id:
+              type: integer
+              description: Shows where the order originated. The channel_id will default to 1.
+              example: 1
+            tax_provider_id:
+              type: string
+              description: |
+                BasicTaxProvider - Tax is set to manual.
+                AvaTaxProvider - This is for when the tax provider has been set to automatic and the order was NOT created by the API. Used for Avalara.
+
+                "\" (blank) - When the tax provider is unknown. This includes legacy orders and orders previously created via API.This can be set when creating an order using POST.
+                  
+              enum:
+                - BasicTaxProvider
+                - AvaTaxProvider
+            date_created:
+              type: string
+              description: 'The date this order was created. If not specified, will default to the current time. The date should be in RFC 2822 format.'
+            customer_locale:
+              type: string
+              example: '\"en\", \"en-us\"'
+              description: The customer's locale.
+              pattern: '^([a-z][a-z])(\\-[a-z][a-z]){0,1}$'
+            status_id:
+              type: integer
+              description: The status ID of the order.
+              example: 11
+            customer_id:
+              type: number
+              example: 6
+              description: The ID of the customer placing the order; or 0 if it was a guest order.
+            billing_address:
+              allOf:
+                - properties:
+                    first_name:
+                      type: string
+                    form_fields:
+                      type: array
+                      description: Read-Only. If you have required address form fields they will need to be set as optional before creating an order via API.
+                      items:
+                        type: object
+                        properties:
+                          name:
+                            type: string
+                            description: |
+                              Read-Only. If you have required address form fields they will need to be set as optional before creating an order via API.
+                            example: License ID
+                          value:
+                            type: string
+                            description: Read-Only. If you have required address form fields they will need to be set as optional before creating an order via API.
+                            example: 123BAF
+              type: object
+            products:
+              type: array
+              items:
+                anyOf:
+                  - $ref: '#/components/schemas/orderCatalogProduct_Post'
+                  - $ref: '#/components/schemas/orderCustomProduct_Post'
+          required:
+            - billing_address
+            - products
+      type: object
