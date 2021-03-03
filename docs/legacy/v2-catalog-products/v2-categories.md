@@ -27,7 +27,7 @@ Index of hierarchical categories used to organize and group products.
 ### Deprecated
 > Avoid using this API operation if possible. It will be removed in a future version.
 
-For the most up-to-date version of this API, see [Category](https://developer.bigcommerce.com/api-reference/catalog/catalog-api/category).
+For the most up-to-date version of this API, see [Category](https://developer.bigcommerce.com/api-reference/store-management/catalog/category).
 
 
 </div>
