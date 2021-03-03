@@ -1,18 +1,18 @@
-# V2 to V3 Catalog APIs Operations Comparison
+# V2 to V3 Catalog Operations Comparison
 
 <div class="otp" id="no-index">
 
 ### On This Page
 
-- [V2 and V3 Operations](#v2-and-v3-operations)
+- [V2 and V3 operations](#v2-and-v3-operations)
 - [Interoperability between V2 and V3](#interoperability-between-v2-and-v3)
 - [Related resources](#related-resources)
 
 </div>
 
-The article explains the difference between V2 and V3 Catalog APIs by comparing major actions on both versions. 
+The article illustrates the difference between V2 and V3 Catalog APIs by comparing major operations. 
 
-## V2 and V3 Operations
+## V2 and V3 operations
 
 In this section, we will look at using V2 and V3 Catalog APIs to work with simple and complex products.
 
@@ -28,9 +28,9 @@ In this section, we will look at using V2 and V3 Catalog APIs to work with simpl
 </div>
 </div>
 
-### Return a single product
+### Get a product
 
-Both versions of the API return a single product in response to a `GET` request when a `product_id` is passed in; however, the response data differs slightly. 
+Both versions of the API return a single product when a `product_id` is passed in a `GET` request; however, the response data differs slightly. 
 
 To retrieve a product using the V3 Catalog API, send a `GET` request to `/v3/catalog/products/{product_id}`.
 
@@ -200,63 +200,45 @@ To retrieve a product using the V2 Products API, send a `GET` request to `/v2/pr
     "custom_url": "/fog-linen-chambray-towel-beige-stripe/",
     "primary_image": {
         "id": 266,
-        "zoom_url": "https://cdn11.bigcommerce.com/s-8icpbmfiln/products/77/images/266/foglinenbeigestripetowel1b.1580767715.1280.1280.jpg?c=1",
-        "thumbnail_url": "https://cdn11.bigcommerce.com/s-8icpbmfiln/products/77/images/266/foglinenbeigestripetowel1b.1580767715.220.290.jpg?c=1",
-        "standard_url": "https://cdn11.bigcommerce.com/s-8icpbmfiln/products/77/images/266/foglinenbeigestripetowel1b.1580767715.386.513.jpg?c=1",
-        "tiny_url": "https://cdn11.bigcommerce.com/s-8icpbmfiln/products/77/images/266/foglinenbeigestripetowel1b.1580767715.44.58.jpg?c=1"
+        "zoom_url": "https://cdn11.bigcommerce.com/{store_hash}/products/77/images/266/foglinenbeigestripetowel1b.1580767715.1280.1280.jpg?c=1",
+        "thumbnail_url": "https://cdn11.bigcommerce.com/{store_hash}/products/77/images/266/foglinenbeigestripetowel1b.1580767715.220.290.jpg?c=1",
+        "standard_url": "https://cdn11.bigcommerce.com/{store_hash}/products/77/images/266/foglinenbeigestripetowel1b.1580767715.386.513.jpg?c=1",
+        "tiny_url": "https://cdn11.bigcommerce.com/{store_hash}/products/77/images/266/foglinenbeigestripetowel1b.1580767715.44.58.jpg?c=1"
     },
     "availability": "available",
     "brand": {
-        "url": "https://api.bigcommerce.com/stores/8icpbmfiln/v2/brands/0",
+        "url": "https://api.bigcommerce.com/stores/{store_hash}/v2/brands/0",
         "resource": "/brands/0"
     },
     "downloads": {
-        "url": "https://api.bigcommerce.com/stores/8icpbmfiln/v2/products/77/downloads",
+        "url": "https://api.bigcommerce.com/stores/{store_hash}/v2/products/77/downloads",
         "resource": "/products/77/downloads"
     },
     "images": {
-        "url": "https://api.bigcommerce.com/stores/8icpbmfiln/v2/products/77/images",
+        "url": "https://api.bigcommerce.com/stores/{store_hash}/v2/products/77/images",
         "resource": "/products/77/images"
     },
-    "discount_rules": {
-        "url": "https://api.bigcommerce.com/stores/8icpbmfiln/v2/products/77/discountrules",
-        "resource": "/products/77/discountrules"
-    },
-    "configurable_fields": {
-        "url": "https://api.bigcommerce.com/stores/8icpbmfiln/v2/products/77/configurablefields",
-        "resource": "/products/77/configurablefields"
-    },
-    "custom_fields": {
-        "url": "https://api.bigcommerce.com/stores/8icpbmfiln/v2/products/77/customfields",
-        "resource": "/products/77/customfields"
-    },
     "videos": {
-        "url": "https://api.bigcommerce.com/stores/8icpbmfiln/v2/products/77/videos",
+        "url": "https://api.bigcommerce.com/stores/{store_hash}/v2/products/77/videos",
         "resource": "/products/77/videos"
     },
     "skus": {
-        "url": "https://api.bigcommerce.com/stores/8icpbmfiln/v2/products/77/skus",
+        "url": "https://api.bigcommerce.com/stores/{store_hash}/v2/products/77/skus",
         "resource": "/products/77/skus"
     },
     "rules": {
-        "url": "https://api.bigcommerce.com/stores/8icpbmfiln/v2/products/77/rules",
+        "url": "https://api.bigcommerce.com/stores/{store_hash}/v2/products/77/rules",
         "resource": "/products/77/rules"
     },
     "option_set": {
-        "url": "https://api.bigcommerce.com/stores/8icpbmfiln/v2/optionsets/14",
+        "url": "https://api.bigcommerce.com/stores/{store_hash}/v2/optionsets/14",
         "resource": "/optionsets/14"
     },
     "options": {
-        "url": "https://api.bigcommerce.com/stores/8icpbmfiln/v2/products/77/options",
+        "url": "https://api.bigcommerce.com/stores/{store_hash}/v2/products/77/options",
         "resource": "/products/77/options"
     },
-    "tax_class": {
-        "url": "https://api.bigcommerce.com/stores/8icpbmfiln/v2/taxclasses/0",
-        "resource": "/taxclasses/0"
-    },
-    "reviews": {
-        "url": "https://api.bigcommerce.com/stores/8icpbmfiln/v2/products/77/reviews",
-        "resource": "/products/77/reviews"
+    ...
     },
     "metadata": []
 }
@@ -283,7 +265,7 @@ To create a simple product using the V3 Catalog API, send a `POST` request to `/
 }
 ```
 
-To create a simple product using the V2 Catalog API, in addition to the properties in the V3 example, your `POST` request must include `availability`.
+To create a simple product using the V2 Products API, in addition to the properties in the V3 example, your `POST` request must include `availability`.
 
 **V2 request**
 
@@ -323,7 +305,7 @@ To create a simple product with an image using the V3 Catalog API, first create 
 }
 ```
 
-Creating a product with an image in V2 follows a similar sequence; however, V2 `/images` endpoint only accepts the `multipart/form-data` media type.
+Creating a product with an image in V2 follows a similar sequence; however, the V2 `/images` endpoint only accepts the `multipart/form-data` media type.
 
 **V2 request**
 
@@ -421,15 +403,15 @@ The V3 Catalog API lets you create a complex product with SKUs in one request.
 }
 ```
 
-Creating a product with variants and SKUs on V2 requires calling multiple V2 endpoints. Here is a sample V2 workflow you would need to follow to create product options and option sets.
+Creating a product with variants and SKUs on V2 requires calling multiple V2 endpoints. Here is a sample V2 workflow you would have to follow to create product options and option sets.
 
 **V2 workflow**
 
 1. Create an option (for example, Color)
 
-`POST /v2/options`
-
 This will only create an option with no values added.
+
+`POST /v2/options`
 
 ```json
 {
@@ -441,9 +423,9 @@ This will only create an option with no values added.
 
 2. Add option values
 
-`POST /v2/options/{option_id}/values`
+This will add values such as white, black, and blue. You can only create one value at a time. In this example, we will need to send three separate `POST` requests to create all colors.
 
-This will add values such as white, black, and blue. You can create only one value at a time. In this example, it will take three separate `POST` requests to create all colors.
+`POST /v2/options/{option_id}/values`
 
 ```json
 {
@@ -504,7 +486,7 @@ First, retrieve the options associated with the option set. You will need the op
         "sort_order": 0,
         "is_required": false,
         "option": {
-            "url": "https://api.bigcommerce.com/stores/8icpbmfiln/v2/options/37",
+            "url": "https://api.bigcommerce.com/stores/{store_hash}/v2/options/37",
             "resource": "/options/37"
         },
         "values": [
@@ -734,7 +716,7 @@ In the following V2 example, we will add a complex rule to increase the product'
 }
 ```
 
-### Stock Levels
+### Stock levels
 
 To update a product's stock levels using the V3 Catalog API, send a `PUT` request to `/v3/catalog/products/{id}`.
 
@@ -797,25 +779,25 @@ In V3, you can update stock levels on multiple variants and SKUs in one call by 
 
 When a product option is created in V2 and assigned to a product, editing the global option using the V3 Catalog API will automatically copy the V2 global product option to a local product variant, option, or modifier. This is triggered by an `UPDATE ` or a `DELETE` call to either the [Product Options](https://developer.bigcommerce.com/api-reference/store-management/catalog/product-options/getoptions) or [Product Modifiers](https://developer.bigcommerce.com/api-reference/store-management/catalog/product-modifiers/getmodifiers) endpoints.
 
-Editing the V2 global product option using the V3 Catalog API will:
+Editing the V2 global product option using the V3 Catalog API will do the following:
 
 - Change the `option_value` > `id`. Not the `option_id`.
 - Create a copy directly on the product.
-- Copy over any variants, modifiers and option set rules.
+- Copy over any variants, modifiers, and option set rules.
 - Copy global option set rules as product rules and update the `sort_order`. These global option set rules take precedence over any existing product rules, which should mirror the behavior before the product was changed.
 
 Editing the V2 global product option using the V3 Catalog API will not:
 
 - Remove the option set from the store entirely. It will remain available in the control panel as an option set to be assigned.
-- Change product pricing, rules, or any other product modifiers. They will be copied over and assigned the product correctly.
+- Change product pricing, rules, or any other product modifiers.
 
 ### Update request to product option values
 
-In this section, we will examine the original response data for a V2 product and compare it to the final option response after updating one of the option values using the V3 Catalog API. 
+In this section, we will examine the difference between the original response for a V2 product and the final response after updating one of the option values using the V3 Catalog API. 
 
 The product used in this example is a t-shirt with a global option set of **Size** and **Color**. We are going to update the `label` property for **Size Small**, which has an `option_value` ID of 192. Make a note of the product's `option_values` IDs. These IDs will change when you make an update to the **Size Small** option using the V3 `/options` endpoint. 
 
-**V2 GET response**
+**V2 response**
 
 `GET https://api.bigcommerce.com/stores/{store_hash}/v3/catalog/products/{product_id}/options`
 
@@ -927,19 +909,21 @@ The product used in this example is a t-shirt with a global option set of **Size
 </div>
 
 #### Size and Color
-![#### Size and Color](http://s3.amazonaws.com/user-content.stoplight.io/6012/1545080028604 "#### Size and Color")
+![Size and Color](http://s3.amazonaws.com/user-content.stoplight.io/6012/1545080028604 "Size and Color")
 
-Below, "Small" is updated to "Small T-Shirt".
+Below, **Small** is updated to **Small T-Shirt**.
 
-**V3 UPDATE request**
+**V3 request**
 
-`PUT https://api.bigcommerce.com/stores/{store_hash_/v3/catalog/products/{product_id}/options/{option_id}/values/{option_value)`
+`PUT https://api.bigcommerce.com/stores/{store_hash}/v3/catalog/products/{product_id}/options/{option_id}/values/{option_value)`
 
 ```json
 {
 	"label": "Small T-Shirt"
 }
 ```
+
+Notice that the option value ID has changed from 192 to 214. 
 
 **V3 response**
 
@@ -956,9 +940,9 @@ Below, "Small" is updated to "Small T-Shirt".
 }
 ```
 
-The option value ID has changed from 192 to 214. Even though only one option value was edited, option value IDs for all other options have also changed. The control panel will show these options as **(Custom)**.
+Even though only one option value was edited, option value IDs for all other options have also changed. The control panel will display these options as **(Custom)**.
 
-**V3 GET response**
+**V3 response**
 
 `GET https://api.bigcommerce.com/stores/{store_hash}/v3/catalog/products/{product_id}/options`
 
@@ -1058,7 +1042,7 @@ The option value ID has changed from 192 to 214. Even though only one option val
 ```
 
 #### Size and Color
-![V2 Size and Color](http://s3.amazonaws.com/user-content.stoplight.io/6012/1545080964540 "V2 Size and Color")
+![Size and Color](http://s3.amazonaws.com/user-content.stoplight.io/6012/1545080964540 "Size and Color")
 
 ## Related resources
 
