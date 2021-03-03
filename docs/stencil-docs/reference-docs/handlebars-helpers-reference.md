@@ -347,7 +347,7 @@ Returns a string with HTML entities encoded. You may optionally pass additional 
 
 - [See it in GitHub](https://github.com/bigcommerce/paper-handlebars/blob/master/helpers/encodeHtmlEntities.js)
 
-#### Examples
+### {{nl2br}}
 
 ```handlebars
 {{nl2br text}}
@@ -396,7 +396,7 @@ Renders preformatted text. This helper will escape text.
 - [See it in GitHub](https://github.com/bigcommerce/paper-handlebars/blob/master/helpers/pre.js)
 - [See it in Cornerstone](https://github.com/bigcommerce/cornerstone/search?l=HTML&q=pre)
 
-### {{pre}}
+### {{resourceHints}}
 
 ```handlebars
 {{resourceHints}}
@@ -594,7 +594,6 @@ Returns an [Image Manager](https://support.bigcommerce.com/s/article/Using-the-I
 <!-- height must be accompanied by width -->
 {{getImageManagerImage "folder/asset.jpg" height=123}}
 <!-- => https://cdn.bcapp/3dsf74g/images/stencil/original/image-manager/folder/asset.jpg -->
-
 
 <!-- Sized image URL returned if valid height and/or width passed in -->
 {{getImageManagerImage "asset.jpg" width=123}}
@@ -1008,7 +1007,7 @@ Converts a JavaScript object into a JSON string.
 
 #### Parameters
 
-- `object` {Object}: A JavaScrip object.
+- `object` {Object}: A JavaScript object.
 
 #### Example
 
