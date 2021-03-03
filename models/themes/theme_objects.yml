@@ -4525,9 +4525,14 @@ definitions:
         description: The variable name where the setting value will be available in the widget template.
         example: '"imageUrl"'
       default:
-        type: string
+        type: object
         description: The default value to use when rendering the widget for the first time.
-        example: '"https://images.unsplash.com/photo-1548768041"'
+          src: 
+            type: string
+            example: '"https://images.unsplash.com/photo-1548768041"'
+          type:
+            type: string
+            example: IMAGE_MANAGER
   widget_input:
     type: object
     title: input
