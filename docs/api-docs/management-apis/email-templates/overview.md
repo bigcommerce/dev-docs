@@ -18,7 +18,8 @@ This article provides an overview of BigCommerce's transactional email templates
 
 To edit transactional email templates in a store's control panel, [log in](https://support.bigcommerce.com/s/article/Logging-Into-Your-Store) and navigate to **Marketing** › [**Transactional Emails**](http://login.bigcommerce.com/deep-links/manage/transactional-emails).
 
-Use [handlebars expressions](https://developer.bigcommerce.com/api-docs/store-management/email-templates/handlebars) to localize email templates and access dynamic data (like a customer's first name in an order email).
+Use [Handlebars expressions](https://developer.bigcommerce.com/api-docs/store-management/email-templates/handlebars) to localize email templates and access dynamic data (like a customer's first name in an order email).
+
 
 ```html
 <!-- Combined Order Status Email Template -->
