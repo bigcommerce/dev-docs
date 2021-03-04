@@ -45,7 +45,7 @@ info:
         "channel_id": 1,
         "entity_type": "product",
         "entity_id": 12,
-        "template_file": "custom-template-1.html"
+        "file_name": "custom-template-1.html"
       }
     ]
     ```
@@ -190,12 +190,12 @@ paths:
                         channel_id: 1
                         entity_type: product
                         entity_id: 123
-                        template_file: custom-product-1.html
+                        file_name: custom-product-1.html
                       - id: 2
                         channel_id: 12345
                         entity_type: page
                         entity_id: 123
-                        template_file: custom-page.html
+                        file_name: custom-page.html
                     meta:
                       pagination:
                         total: 246
@@ -278,12 +278,12 @@ paths:
                     channel_id: 1
                     entity_type: product
                     entity_id: 123
-                    template_file: custom-product-1.html
+                    file_name: custom-product-1.html
                   - id: 2
                     channel_id: 12345
                     entity_type: page
                     entity_id: 123
-                    template_file: custom-page.html
+                    file_name: custom-page.html
         description: ''
       description: 'Upsert new custom template associations data across all storefronts. If an existing record is found for the combination of channel ID, entity ID, and type, the existing record will be overwritten with the new template.'
       operationId: UpsertCustomTemplateAssociations
@@ -432,7 +432,7 @@ components:
             - page
         entity_id:
           type: integer
-        template_file:
+        file_name:
           type: string
           example: custom-product-1.html
         is_valid:
@@ -457,14 +457,14 @@ components:
             - page
         entity_id:
           type: integer
-        template_file:
+        file_name:
           type: string
           example: custom-product-1.html
       required:
         - channel_id
         - entity_type
         - entity_id
-        - template_file
+        - file_name
   securitySchemes:
     X-Auth-Token:
       name: X-Auth-Token
