@@ -1,0 +1,219 @@
+type: object
+title: 'Webhook Events'
+description:
+properties:
+  store/app/uninstalled:
+    description: Occurs when a client store is cancelled and uninstalled from the platform.
+    type: object
+    allOf:
+      - $ref: ./store_app_uninstalled.yml
+  store/cart/abandoned:
+    description: This webhook will fire once after a cart is abandoned. A cart is considered abandoned if no changes have been made for at least one hour after the last modified property. This hook is available for all store plans, regardless of whether the Abandoned Cart Saver feature is enabled.
+    type: object
+    allOf:
+      - $ref: ./store_cart_abandoned.yml
+  store/cart/converted:
+    description: This hook fires when a cart is converted into an order, which is typically after the payment step of checkout on the storefront. At this point, the cart is no longer accessible and has been deleted. This hook returns both the cart ID and order ID for correlation purposes.
+    type: object
+    allOf:
+      - $ref: ./store_cart_converted.yml
+  store/cart/couponApplied:
+    description: This webhook will fire whenever a new coupon code is applied to a cart. It will include the ID of the coupon code.
+    type: object
+    allOf:
+      - $ref: ./store_cart_couponApplied.yml
+  store/cart/created:
+    description: This webhook will fire whenever a new cart is created, either via a storefront shopper adding their first item to the cart, or when a new cart is created via an API consumer. If it is from the storefront, then it fires when the first product is added to a new session.(The cart did not exist before). For the API it means a POST to /carts, (V3 and Storefront API). The store/cart/updated hook will also fire.
+    type: object
+    allOf:
+      - $ref: ./store_cart_created.yml
+  store/cart/deleted:
+    description: This webhook will fire whenever a cart is deleted. This will occur either when all items have been removed from a cart and it is auto-deleted, or when the cart is explicitly removed via a DELETE request by an API consumer. This ends the lifecycle of the cart. The store/cart/updated webhook will also fire when the last item is removed.
+    type: object
+    allOf:
+      - $ref: ./store_cart_deleted.yml
+  store/cart/lineItem/created:
+    description: When a new item is added to the cart
+    type: object
+    allOf:
+      - $ref: ./store_cart_lineItem_created.yml
+  store/cart/lineItem/deleted:
+    description: When an item is deleted from the cart
+    type: object
+    allOf:
+      - $ref: ./store_cart_lineItem_deleted.yml
+  store/cart/lineItem/updated:
+    description: When an item’s quantity has changed or the product options change.
+    type: object
+    allOf:
+      - $ref: ./store_cart_lineItem_updated.yml
+  store/cart/updated:
+    description: his webhook is fired whenever a cart is modified through the changes in its line items. Eg. when a new item is added to a cart or an existing item’s quantity is updated. This hook also fires when the email is changed during guest checkout or when an existing item is deleted. The payload will include the ID of the cart being updated. This webhook also fires along with the cart created hook, because the first product being added to an empty cart triggers an update.
+    type: object
+    allOf:
+      - $ref: ./store_cart_updated.yml
+  store/category/created:
+    description: Category is created
+    type: object
+    allOf:
+      - $ref: ./store_category_created.yml
+  store/category/deleted:
+    description: Category is deleted
+    type: object
+    allOf:
+      - $ref: ./store_category_deleted.yml
+  store/category/updated:
+    description: Category is updated
+    type: object
+    allOf:
+      - $ref: ./store_category_updated.yml
+  store/customer/address/created:
+    description: Customer address is created
+    type: object
+    allOf:
+      - $ref: ./store_customer_address_created.yml
+  store/customer/address/deleted:
+    description: Customer address is deleted
+    type: object
+    allOf:
+      - $ref: ./store_customer_address_deleted.yml
+  store/customer/address/updated:
+    description: Customer address is updated
+    type: object
+    allOf:
+      - $ref: ./store_customer_address_updated.yml
+  store/customer/created:
+    description: A new customer is created
+    type: object
+    allOf:
+      - $ref: ./store_customer_created.yml
+  store/customer/deleted:
+    description: Customer is deleted
+    type: object
+    allOf:
+      - $ref: ./store_customer_deleted.yml
+  store/customer/payment/instrument/default/updated:
+    description: Customer default payment instrument is updated
+    type: object
+    allOf:
+      - $ref: ./store_customer_payment_instrument_default_updated.yml
+  store/customer/updated:
+    description: Customer is updated. Does not currently track changes to the customer address.
+    type: object
+    allOf:
+      - $ref: ./store_customer_updated.yml
+  store/information/updated:
+    description: Occurs when changes are made to store settings. For a full list of fields that can trigger this event, see Store information updated events below
+    type: object
+    allOf:
+      - $ref: ./store_information_updated.yml
+  store/order/archived:
+    description: Order is archived
+    type: object
+    allOf:
+      - $ref: ./store_order_archived.yml
+  store/order/created:
+    description: Fires if an order is created using the control panel, an app or via the API
+    type: object
+    allOf:
+      - $ref: ./store_order_created.yml
+  store/order/message/created:
+    description: Order message is created by customer or in control panel
+    type: object
+    allOf:
+      - $ref: ./store_order_message_created.yml
+  store/order/refund/created:
+    description: A refund has been submitted against an order
+    type: object
+    allOf:
+      - $ref: ./store_order_refund_created.yml
+  store/order/statusUpdated:
+    description: This will only fire if the order status has changed. Such as Pending to Awaiting Payment
+    type: object
+    allOf:
+      - $ref: ./store_order_statusUpdated.yml
+  store/order/updated:
+    description: Fires when an already created order is updated. Any changes to an existing order will fire this webhook. Updates can include changing the status, updating a coupon or changing an address.
+    type: object
+    allOf:
+      - $ref: ./store_order_updated.yml
+  store/product/created:
+    description: A new product is created
+    type: object
+    allOf:
+      - $ref: ./store_product_created.yml
+  store/product/deleted:
+    description: Product is deleted
+    type: object
+    allOf:
+      - $ref: ./store_product_deleted.yml
+  store/product/inventory/order/updated:
+    description: Fires if a product’s inventory is decremented or incremented, including when an order is placed. Webhook responds to inventory updates made using the control panel, CSV import, API or an app.
+    type: object
+    allOf:
+      - $ref: ./store_product_inventory_order_updated.yml
+  store/product/inventory/updated:
+    description: Product inventory is updated.
+    type: object
+    allOf:
+      - $ref: ./store_product_inventory_updated.yml
+  store/product/updated:
+    description: Occurs when product details are edited. For a full list of product fields that trigger an updated event, see Product updated events below
+    type: object
+    allOf:
+      - $ref: ./store_product_updated.yml
+  store/shipment/created:
+    description: Shipment is created
+    type: object
+    allOf:
+      - $ref: ./store_shipment_created.yml
+  store/shipment/deleted:
+    description: Shipment is deleted
+    type: object
+    allOf:
+      - $ref: ./store_shipment_deleted.yml
+  store/shipment/updated:
+    description: Shipment is updated
+    type: object
+    allOf:
+      - $ref: ./store_shipment_updated.yml
+  store/sku/created:
+    description: A new sku is created
+    type: object
+    allOf:
+      - $ref: ./store_sku_created.yml
+  store/sku/deleted:
+    description: SKU is deleted
+    type: object
+    allOf:
+      - $ref: ./store_sku_deleted.yml
+  store/sku/inventory/order/updated:
+    description: This will fire when the inventory is updated via API, the control panel, when an order is placed and when an order is refunded and the inventory is returned to stock. This hook will fire based on a store’s Inventory settings.
+    type: object
+    allOf:
+      - $ref: ./store_sku_inventory_order_updated.yml
+  store/sku/inventory/updated:
+    description: SKU is updated
+    type: object
+    allOf:
+      - $ref: ./store_sku_inventory_updated.yml
+  store/sku/updated:
+    description: SKU is updated
+    type: object
+    allOf:
+      - $ref: ./store_sku_updated.yml
+  store/subscriber/created:
+    description: Subscriber is created
+    type: object
+    allOf:
+      - $ref: ./store_subscriber_created.yml
+  store/subscriber/deleted:
+    description: Subscriber is deleted
+    type: object
+    allOf:
+      - $ref: ./store_subscriber_deleted.yml
+  store/subscriber/updated:
+    description: Subscriber is updated
+    type: object
+    allOf:
+      - $ref: ./store_subscriber_updated.yml

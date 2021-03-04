@@ -1,0 +1,14 @@
+{
+  "scope": "store/customer/address/deleted",
+  "store_id": "1025646",
+  "data": {
+      "type": "customer",
+      "id": 60,
+      "address": {
+          "customer_id": 32
+      }
+  },
+  "hash": "416ca9c01779515de91824aa1cac9012ee691e7a",
+  "created_at": 1561481620,
+  "producer": "stores/{store_hash}"
+}

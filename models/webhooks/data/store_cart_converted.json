@@ -1,0 +1,12 @@
+{
+  "scope": "store/cart/converted",
+  "store_id": "1025646",
+  "data": {
+      "type": "cart",
+      "id": "d30016e2-23c0-4a90-884f-2e92ac135476",
+      "orderId": 252
+  },
+  "hash": "b86db7c77d7ef8f90d6a8aefa56de32ccd776923",
+  "created_at": 1561486893,
+  "producer": "stores/{store_hash}"
+}

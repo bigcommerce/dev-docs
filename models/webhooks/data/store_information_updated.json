@@ -1,0 +1,10 @@
+{
+  "scope": "store/information/updated",
+  "store_id": "123446",
+  "data": {
+    "type": "store"
+  },
+  "hash": "c553845e0a5e28dc8b0ea494458692a25586a294",
+  "created_at": 1535489273,
+  "producer": "stores/{store_hash}"
+}

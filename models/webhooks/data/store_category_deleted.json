@@ -1,0 +1,11 @@
+{
+  "scope": "store/category/deleted",
+  "store_id": "1025646",
+  "data": {
+      "type": "category",
+      "id": 42
+  },
+  "hash": "dc3a47c15425d2c895dba674f86fe71a8f3b6459",
+  "created_at": 1561480214,
+  "producer": "stores/{store_hash}"
+}
