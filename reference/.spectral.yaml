@@ -1,0 +1,7 @@
+extends:
+  - spectral:oas
+  - ../.spectral.yaml
+rules:
+  info-contact: off
+  oas3-unused-components-schema: off
+  oas2-unused-definition: off

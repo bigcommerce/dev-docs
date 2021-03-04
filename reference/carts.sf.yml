@@ -1,210 +1,137 @@
-swagger: '2.0'
+openapi: 3.0.1
 info:
+  version: Storefront
   title: Storefront Carts
   description: Manage cart operations and data via front-end JavaScript on BigCommerce stencil powered storefronts.
-  version: ''
-consumes:
-  - application/json
-produces:
-  - application/json
+servers:
+  - url: 'https://{$$.env.store_domain/api/storefront'
+tags:
+  - name: Cart
+  - name: Cart Items
 paths:
   /carts:
     get:
-      parameters:
-        - name: include
-          type: string
-          in: query
-          description: |-
-            To return product options add one of the following include:
-
-            `lineItems.physicalItems.options`: The Cart returns an abbreviated result. Use this to return physical items product options. Can also be used in a /POST to have the extended Cart object return.
-
-            `lineItems.digitalItems.options`:  The Cart returns an abbreviated result. Use this to return digital items product options.  Can also be used in a /POST to have the extended Cart object return.
-
-            `lineItems.digitalItems.options,lineItems.physicalItems.options`:  The Cart returns an abbreviated result. Use this to return digital and physical options. Can also be used in a /POST to have the extended Cart object return.
-          default: 'lineItems.digitalItems.options,lineItems.physicalItems.options'
-          enum:
-            - lineItems.physicalItems.options
-            - lineItems.digitalItems.options
-            - 'lineItems.digitalItems.options,lineItems.physicalItems.options'
       tags:
         - Cart
-      responses:
-        '200':
-          $ref: '#/responses/CartResponse'
       summary: Get a Cart
       description: |-
-        Returns a *Cart*. 
-
-        By default, the cart response will return abbreviated details for cart line items. To get full details of selected product options, use the following query parameters: 
-
-        - Physical products only: `?include=lineItems.physicalItems.options `
-        - Digital products only: `?include=lineItems.digitalItems.options`
-        - Both physical and digital items: `?include=lineItems.digitalItems.options,lineItems.physicalItems.options`
+        Returns a *Cart*.
 
         <div class="HubBlock--callout">
         <div class="CalloutBlock--info">
-        <div class="HubBlock-content"> 
+        <div class="HubBlock-content">
 
         > ### Note
         > The Send a Test Request feature is not currently supported for this endpoint.
-         
+
         </div>
         </div>
         </div>
       operationId: getACart
+      parameters:
+        - $ref: '#/components/parameters/include'
+      responses:
+        '200':
+          $ref: '#/components/responses/getCarts'
     post:
+      tags:
+        - Cart
+      summary: Create a Cart
       description: |-
         Creates a *Cart*.
 
-        **Required Fields**
-        * lineItems
-        * giftCertificates – only if adding a gift certificate
-
-        Cart ID is generated in the response.
-
-        To add a product with a mix of variants and options, add `optionSelections` to the `lineItems` object. `optionSelections` accepts `optionId` and `optionValue`. 
-
-        The redirect url endpoint does not work using the Storefront Cart. At this time, shoppers can not be directed to any carts or checkouts created using the Storefront APIs. 
-
         <div class="HubBlock--callout">
         <div class="CalloutBlock--info">
-        <div class="HubBlock-content"> 
+        <div class="HubBlock-content">
 
         > ### Note
         > The Send a Test Request feature is not currently supported for this endpoint.
-         
+
         </div>
         </div>
         </div>
+      operationId: createACart
       parameters:
-        - name: cartData
-          in: body
-          required: true
-          schema:
-            $ref: '#/definitions/LineItemsRequest'
-          x-examples:
-            Simple Product:
-              lineItems:
-                - quantity: 5
-                  productId: 107
-            Product with Variant: |-
-              {
-                "lineItems": [
-                  {
-                    "quantity": 2,
-                    "productId": 107,
-                    "variantId": 185
-                  }
-                ]
-              }
-              //This works when a product can be specified purely by a variant, without any other required options.
-            Variant and Modifiers: |-
-              {
-                  "lineItems":[
-                      {
-                          "quantity": 2,
-                          "productId": 107,
-                          "variantId": 185,
-                          "optionSelections": [
-                              {
-                                "optionId": 134,
-                                "optionValue": 116
-                              },
-                              {
-                                "optionId": 135,
-                                "optionValue": 118
-                              }
-                          ]
-                      }
-                  ]
-              }
-            Several Variants and Modifiers:
-              lineItems:
-                - quantity: 1
-                  productId: 77
-                  optionSelections:
-                    - optionId: 120
-                      optionValue: 69
-                    - optionId: 121
-                      optionValue: 10
-                    - optionId: 124
-                      optionValue: 106
-                    - optionId: 122
-                      optionValue: Hello
-        - name: include
-          type: string
-          in: query
-          description: |-
-            To return product options add one of the following include:
-
-            `lineItems.physicalItems.options`: The Cart returns an abbreviated result. Use this to return physical items product options. Can also be used in a /POST to have the extended Cart object return.
-
-            `lineItems.digitalItems.options`:  The Cart returns an abbreviated result. Use this to return digital items product options.  Can also be used in a /POST to have the extended Cart object return.
-
-            `lineItems.digitalItems.options,lineItems.physicalItems.options`:  The Cart returns an abbreviated result. Use this to return digital and physical options. Can also be used in a /POST to have the extended Cart object return.
-          default: 'lineItems.digitalItems.options,lineItems.physicalItems.options'
-          enum:
-            - lineItems.physicalItems.options
-            - lineItems.digitalItems.options
-            - 'lineItems.digitalItems.options,lineItems.physicalItems.options'
-      tags:
-        - Cart
+        - $ref: '#/components/parameters/include'
+      requestBody:
+        content:
+          application/json:
+            schema:
+              $ref: '#/components/schemas/requestCart'
+            examples:
+              With Text Modifier:
+                value:
+                  lineItems:
+                    - quantity: 2
+                      productId: 230
+                      optionSelections:
+                        - optionId: 10
+                          optionValue: "Some Text Value"
+                  locale: en
+        required: true
       responses:
         '200':
-          $ref: '#/responses/CartResponse'
-      summary: Create a Cart
-      operationId: createACart
-  '/carts/{cartId}/items':
-    post:
+          $ref: '#/components/responses/postCarts'
+      x-codegen-request-body-name: cartData
+  /carts/{cartId}:
+    delete:
+      tags:
+        - Cart
+      summary: Delete a Cart
       description: |-
-        Adds a line items to the *Cart*.
-
-        **Required Fields**
-        * line_items object
-        * gift_certificates object – Only if adding a gift certificate to for shopper purchase
+        Deletes a *Cart*. Once a *Cart* has been deleted it can not be recovered.
 
         <div class="HubBlock--callout">
         <div class="CalloutBlock--info">
-        <div class="HubBlock-content"> 
+        <div class="HubBlock-content">
 
         > ### Note
         > The Send a Test Request feature is not currently supported for this endpoint.
-         
+
         </div>
         </div>
         </div>
+      operationId: deleteACart
       parameters:
         - name: cartId
           in: path
-          required: true
           description: This cart's unique ID.
-          type: string
-          format: UUID
-        - name: ItemData
-          in: body
           required: true
           schema:
-            $ref: '#/definitions/CreateCartPost'
-          x-examples:
-            application/json:
-              lineItems:
-                - quantity: 5
-                  productId: 161
-                  variantId: 55
-              giftCertificates:
-                - sender:
-                    name: Jane Doe
-                    email: janedoe@example.com
-                  recipient:
-                    name: John Doe
-                    email: johndoe@example.com
-                  amount: 10
-                  theme: Celebration
-                  quantity: 1
-                  message: Thank You!
+            type: string
+            format: UUID
+      responses:
+        '204':
+          description: ''
+          content: {}
+  /carts/{cartId}/items:
+    post:
+      tags:
+        - Cart Items
+      summary: Add Cart Line Items
+      description: |-
+        Adds a line items to the *Cart*.
+
+        <div class="HubBlock--callout">
+        <div class="CalloutBlock--info">
+        <div class="HubBlock-content">
+
+        > ### Note
+        > The Send a Test Request feature is not currently supported for this endpoint.
+
+        </div>
+        </div>
+        </div>
+      operationId: addCartLineItem
+      parameters:
+        - name: cartId
+          in: path
+          description: This cart's unique ID.
+          required: true
+          schema:
+            type: string
+            format: UUID
         - name: include
-          type: string
           in: query
           description: |-
             To return product options add one of the following include:
@@ -214,20 +141,38 @@ paths:
             `lineItems.digitalItems.options`:  The Cart returns an abbreviated result. Use this to return digital items product options.  Can also be used in a /POST to have the extended Cart object return.
 
             `lineItems.digitalItems.options,lineItems.physicalItems.options`:  The Cart returns an abbreviated result. Use this to return digital and physical options. Can also be used in a /POST to have the extended Cart object return.
-          default: 'lineItems.digitalItems.options,lineItems.physicalItems.options'
-          enum:
-            - lineItems.physicalItems.options
-            - lineItems.digitalItems.options
-            - 'lineItems.digitalItems.options,lineItems.physicalItems.options'
-      tags:
-        - Cart Items
+          schema:
+            type: string
+            default: 'lineItems.digitalItems.options,lineItems.physicalItems.options'
+            enum:
+              - lineItems.physicalItems.options
+              - lineItems.digitalItems.options
+              - 'lineItems.digitalItems.options,lineItems.physicalItems.options'
       responses:
         '200':
-          $ref: '#/responses/CartResponse'
-      summary: Add Cart Line Items
-      operationId: addCartLineItem
-  '/carts/{cartId}/items/{itemId}':
+          $ref: '#/components/responses/postCartsItems'
+      requestBody:
+        content:
+          application/json:
+            schema:
+              $ref: '#/components/schemas/LineItemsRequest'
+            examples:
+              With Option Selections:
+                value:
+                  lineItems:
+                    - quantity: 2
+                      productId: 230
+                      optionSelections:
+                        - optionId: 10
+                          optionValue: 117
+                        - optionId: 11
+                          optionValue: test
+        description: ''
+  /carts/{cartId}/items/{itemId}:
     put:
+      tags:
+        - Cart Items
+      summary: Update Cart Line Item
       description: |-
         Updates a *Cart* line item. Updates an existing, single line item in the cart.
 
@@ -237,45 +182,31 @@ paths:
 
         <div class="HubBlock--callout">
         <div class="CalloutBlock--info">
-        <div class="HubBlock-content"> 
+        <div class="HubBlock-content">
 
         > ### Note
         > The Send a Test Request feature is not currently supported for this endpoint.
-         
+
         </div>
         </div>
         </div>
+      operationId: updateCartLineItem
       parameters:
         - name: cartId
           in: path
-          required: true
           description: This cart's unique ID.
-          type: string
-          format: UUID
-        - name: itemId
-          in: path
-          required: true
-          description: This item's ID.
-          type: string
-          format: number
-        - name: lineItem
-          in: body
           required: true
           schema:
-            $ref: '#/definitions/CreateCartPost'
-          x-examples:
-            application/json:
-              lineItem:
-                quantity: 10
-              giftCertificate:
-                name: Jane Doe
-                theme: General
-                amount: 0
-                quantity: 0
-                sender: {}
-                recipient: {}
+            type: string
+            format: UUID
+        - name: itemId
+          in: path
+          description: This item's ID.
+          required: true
+          schema:
+            type: string
+            format: number
         - name: include
-          type: string
           in: query
           description: |-
             To return product options add one of the following include:
@@ -285,19 +216,34 @@ paths:
             `lineItems.digitalItems.options`:  The Cart returns an abbreviated result. Use this to return digital items product options.  Can also be used in a /POST to have the extended Cart object return.
 
             `lineItems.digitalItems.options,lineItems.physicalItems.options`:  The Cart returns an abbreviated result. Use this to return digital and physical options. Can also be used in a /POST to have the extended Cart object return.
-          default: 'lineItems.digitalItems.options,lineItems.physicalItems.options'
-          enum:
-            - lineItems.physicalItems.options
-            - lineItems.digitalItems.options
-            - 'lineItems.digitalItems.options,lineItems.physicalItems.options'
-      tags:
-        - Cart Items
+          schema:
+            type: string
+            default: 'lineItems.digitalItems.options,lineItems.physicalItems.options'
+            enum:
+              - lineItems.physicalItems.options
+              - lineItems.digitalItems.options
+              - 'lineItems.digitalItems.options,lineItems.physicalItems.options'
+      requestBody:
+        content:
+          application/json:
+            schema:
+              $ref: '#/components/schemas/LineItemsRequest'
+            examples:
+              Example:
+                value:
+                  lineItems:
+                    - productId: 229
+                      variantId: 191
+                      quantity: 10
+        required: true
       responses:
         '200':
-          $ref: '#/responses/CartResponse'
-      summary: Update Cart Line Item
-      operationId: updateCartLineItem
+          $ref: '#/components/responses/putCartsItems'
+      x-codegen-request-body-name: lineItem
     delete:
+      tags:
+        - Cart Items
+      summary: Delete Cart Line Item
       description: |-
         Deletes a *Cart* line item.
 
@@ -305,29 +251,31 @@ paths:
 
         <div class="HubBlock--callout">
         <div class="CalloutBlock--info">
-        <div class="HubBlock-content"> 
+        <div class="HubBlock-content">
 
         > ### Note
         > The Send a Test Request feature is not currently supported for this endpoint.
-         
+
         </div>
         </div>
         </div>
+      operationId: deleteCartLineItem
       parameters:
         - name: cartId
           in: path
-          required: true
           description: This cart's unique ID.
-          type: string
-          format: UUID
+          required: true
+          schema:
+            type: string
+            format: UUID
         - name: itemId
           in: path
-          required: true
           description: The ID of the item to delete.
-          type: string
-          format: number
+          required: true
+          schema:
+            type: string
+            format: number
         - name: include
-          type: string
           in: query
           description: |-
             To return product options add one of the following include:
@@ -337,1467 +285,1255 @@ paths:
             `lineItems.digitalItems.options`:  The Cart returns an abbreviated result. Use this to return digital items product options.  Can also be used in a /POST to have the extended Cart object return.
 
             `lineItems.digitalItems.options,lineItems.physicalItems.options`:  The Cart returns an abbreviated result. Use this to return digital and physical options. Can also be used in a /POST to have the extended Cart object return.
-          default: 'lineItems.digitalItems.options,lineItems.physicalItems.options'
-          enum:
-            - lineItems.physicalItems.options
-            - lineItems.digitalItems.options
-            - 'lineItems.digitalItems.options,lineItems.physicalItems.options'
-      tags:
-        - Cart Items
+          schema:
+            type: string
+            default: 'lineItems.digitalItems.options,lineItems.physicalItems.options'
+            enum:
+              - lineItems.physicalItems.options
+              - lineItems.digitalItems.options
+              - 'lineItems.digitalItems.options,lineItems.physicalItems.options'
       responses:
         '200':
-          $ref: '#/responses/CartResponse'
-      summary: Delete Cart Line Item
-      operationId: deleteCartLineItem
-  '/carts/{cartId}':
-    delete:
-      description: |-
-        Deletes a *Cart*. Once a *Cart* has been deleted it can not be recovered.
-
-        <div class="HubBlock--callout">
-        <div class="CalloutBlock--info">
-        <div class="HubBlock-content"> 
-
-        > ### Note
-        > The Send a Test Request feature is not currently supported for this endpoint.
-         
-        </div>
-        </div>
-        </div>
-      parameters:
-        - name: cartId
-          in: path
-          required: true
-          description: This cart's unique ID.
+          $ref: '#/components/responses/deleteCartsItems'
+components:
+  schemas:
+    responseCartCoupons:
+      title: Response Cart Coupons
+      type: array
+      items:
+        required:
+          - code
+        type: object
+        properties:
+          code:
+            type: string
+            description: The coupon code.
+          couponType:
+            type: integer
+            description: |-
+              |Type `int`|Type Name|
+              |-|-|
+              |`0`|`per_item_discount`|
+              |`1`|`percentage_discount`|
+              |`2`|`per_total_discount`|
+              |`3`|`shipping_discount`|
+              |`4`|`free_shipping`|
+              |`5`|`promotion`|
+          discountedAmount:
+            type: number
+            description: The discounted amount applied within a given context.
+            format: float
+          id:
+            type: string
+            description: The coupon ID.
+    responseCartDiscounts:
+      title: responseCartDiscounts
+      type: array
+      x-examples: {}
+      items:
+        type: object
+        properties:
+          discountedAmount:
+            type: number
+            description: The discounted amount applied within a given context.
+            format: float
+          id:
+            type: string
+            description: ID of the applied discount.
+    responseCart:
+      description: Cart object used in storefront cart responses.
+      title: Cart Read
+      type: object
+      properties:
+        id:
           type: string
+          description: 'Cart ID, provided after creating a cart with a POST.'
           format: UUID
-      tags:
-        - Cart
-      responses:
-        '204':
-          description: ''
-      summary: Delete a Cart
-      operationId: deleteACart
-parameters:
-  lineItems.options:
-    name: include
-    type: string
-    in: query
-    description: |-
-      To return product options add one of the following include:
+        customerId:
+          type: integer
+          description: ID of the customer to which the cart belongs.
+        email:
+          type: string
+          description: The cart's email. This is the same email that is used in the billing address
+        currency:
+          $ref: '#/components/schemas/responseCartCurrency'
+        isTaxIncluded:
+          type: boolean
+          description: Whether this item is taxable.
+        baseAmount:
+          type: number
+          description: 'Cost of cart''s contents, before applying discounts.'
+        discountAmount:
+          type: number
+          description: Discounted amount.
+          format: float
+        cartAmount:
+          type: number
+          description: 'Sum of line-items amounts, minus cart-level discounts and coupons. This amount includes taxes (where applicable).'
+        coupons:
+          $ref: '#/components/schemas/responseCartCoupons'
+        discounts:
+          $ref: '#/components/schemas/responseCartDiscounts'
+        lineItems:
+          $ref: '#/components/schemas/responseCartLineItems'
+        createdTime:
+          type: string
+          description: Time when the cart was created.
+          format: ISO-8601
+        updatedTime:
+          type: string
+          description: Time when the cart was last updated.
+          format: ISO-8601
+        locale:
+          type: string
+          description: Locale of the cart.
+    requestCart:
+      title: Create Cart Request Object
+      description: Cart object used in create cart requests.
+      oneOf:
+        - properties:
+            lineItems:
+              type: array
+              items:
+                $ref: '#/components/schemas/requestCartPostLineItem'
+            locale:
+              type: string
+          required:
+            - lineItems
+        - properties:
+            giftCertificates:
+              type: array
+              items:
+                $ref: '#/components/schemas/requestLineItemGiftCertificate'
+            locale:
+              type: string
+          required:
+            - giftCertificates
+        - properties:
+            lineItems:
+              type: array
+              items:
+                $ref: '#/components/schemas/requestCartPostLineItem'
+            giftCertificates:
+              $ref: '#/components/schemas/requestLineItemGiftCertificate'
+            locale:
+              type: string
+          required:
+            - lineItems
+            - giftCertificates
+      type: object
+    responseCartLineItemsPhysicalItemGiftWrapping:
+      title: Gift Wrapping
+      type: object
+      properties:
+        amount:
+          type: number
+          description: Gift-wrapping price per product.
+          format: float
+        message:
+          type: string
+        name:
+          type: string
+          description: Name of the gift-wrapping option.
+      nullable: true
+    requestLineItemGiftCertificate:
+      title: Line Item Gift Certificate Request Data
+      required:
+        - amount
+        - name
+        - quantity
+        - recipient
+        - sender
+        - theme
+      type: object
+      properties:
+        amount:
+          maximum: 1000
+          minimum: 1
+          type: number
+          description: Gift-certificate amount.
+        message:
+          type: string
+          description: 'Message shown to recipient, as provided by sender.'
+        name:
+          type: string
+          description: Name assigned to this gift-certificate line item.
+        quantity:
+          minimum: 1
+          type: integer
+          description: Quantity of this item.
+        recipient:
+          $ref: '#/components/schemas/requestLineItemGiftCertificateRecipient'
+        sender:
+          $ref: '#/components/schemas/requestLineItemGiftCertificateSender'
+        theme:
+          type: string
+          description: 'Currently supports `Birthday`, `Boy`, `Celebration`, `Christmas`, `General`, and `Girl`.'
+    LineItemsRequest:
+      title: requestLineItems
+      oneOf:
+        - properties:
+            lineItems:
+              type: array
+              items:
+                $ref: '#/components/schemas/requestCartPostLineItem'
+          required:
+            - lineItems
+        - properties:
+            giftCertificates:
+              type: array
+              items:
+                $ref: '#/components/schemas/requestLineItemGiftCertificate'
+          required:
+            - giftCertificates
+        - properties:
+            lineItems:
+              type: array
+              items:
+                $ref: '#/components/schemas/requestCartPostLineItem'
+            giftCertificates:
+              $ref: '#/components/schemas/requestLineItemGiftCertificate'
+          required:
+            - lineItems
+            - giftCertificates
+      x-examples: {}
+      type: object
+      description: Cart object used in add items requests.
+    responseCartCurrency:
+      title: Currency
+      type: object
+      properties:
+        code:
+          type: string
+          description: 'ISO-4217 currency code. (See: http://en.wikipedia.org/wiki/ISO_4217.)'
+          format: ISO-4217
+      description: This will always be the same between cart and checkout.
+      x-go-gen-location: models
+    responseCartLineItems:
+      title: Response Line Items Object
+      type: object
+      properties:
+        customItems:
+          type: array
+          items:
+            $ref: '#/components/schemas/responseCartLineItemsCustomItems'
+        digitalItems:
+          type: array
+          description: Array of `ItemDigital` objects.
+          items:
+            $ref: '#/components/schemas/responseCartLineItemsDigitalItems'
+        giftCertificates:
+          type: array
+          description: Array of `ItemGiftCertificate` objects.
+          items:
+            $ref: '#/components/schemas/responseCartLineItemsGiftCertificates'
+        physicalItems:
+          type: array
+          description: Array of `ItemPhysical` objects.
+          items:
+            $ref: '#/components/schemas/responseCartLineItemsItemsPhysicalItemsItems'
+    responseCartLineItemsCustomItems:
+      title: Item Custom
+      type: object
+      properties:
+        extendedListPrice:
+          type: integer
+          readOnly: true
+        id:
+          type: string
+          description: Id of the custom item
+          readOnly: true
+          example: f1f3a531-fbcf-439b-bac1-40d5ae5c2bff
+        listPrice:
+          type: integer
+          description: Price of the item. With or without tax depending on your stores set up.
+          readOnly: true
+          example: 10
+        name:
+          type: string
+          description: Item name
+          readOnly: true
+          example: Custom Item Name
+        quantity:
+          type: integer
+          readOnly: true
+          example: 1
+        sku:
+          type: string
+          description: Custom item sku
+          readOnly: true
+          example: SM-456
+      description: |-
+        **Read Only**
 
-      `lineItems.physicalItems.options`: The Cart returns an abbreviated result. Use this to return physical items product options. Can also be used in a /POST to have the extended Cart object return.
-
-      `lineItems.digitalItems.options`:  The Cart returns an abbreviated result. Use this to return digital items product options.  Can also be used in a /POST to have the extended Cart object return.
-
-      `lineItems.digitalItems.options,lineItems.physicalItems.options`:  The Cart returns an abbreviated result. Use this to return digital and physical options. Can also be used in a /POST to have the extended Cart object return.
-    default: 'lineItems.digitalItems.options,lineItems.physicalItems.options'
-    enum:
-      - lineItems.physicalItems.options
-      - lineItems.digitalItems.options
-      - 'lineItems.digitalItems.options,lineItems.physicalItems.options'
-definitions:
-  LineItemsRequest:
-    type: object
-    title: Line Items Request
-    properties:
-      lineItems:
-        type: array
-        description: Array of `lineItem` objects.
-        items:
-          type: object
-          title: Line Item Request Data
-          properties:
-            quantity:
-              type: number
-              description: Quantity of this item.
+        This will return in the Cart Response if the Cart was created using the [Server to Server Cart API](/api-reference/cart-checkout/server-server-cart-api). A custom item can only be added to a cart using the Server to Server API.
+    responseCartLineItemsDigitalItems:
+      title: Item Digital
+      allOf:
+        - $ref: '#/components/schemas/responseCartLineItemsDigitalItemsAllOf0'
+    responseCartLineItemsDigitalItemsAllOf0:
+      title: Base Item
+      required:
+        - quantity
+      type: object
+      properties:
+        options:
+          type: array
+          description: The list of selected options for this product.
+          items:
+            $ref: '#/components/schemas/responseCartLineItemsDigitalItemsAllOf0OptionsItems'
+        brand:
+          type: string
+          description: The products brand
+        couponAmount:
+          type: number
+          description: The total value of all coupons applied to this item.
+        discountAmount:
+          type: number
+          description: The total value of all discounts applied to this item (excluding coupon).
+          format: float
+        discounts:
+          type: array
+          description: 'List of discounts applied to this item, as an array of AppliedDiscount objects.'
+          items:
+            $ref: '#/components/schemas/responseCartLineItemsDigitalItemsAllOf0DiscountsItems'
+        extendedListPrice:
+          type: number
+          description: Item's list price multiplied by the quantity.
+        extendedSalePrice:
+          type: number
+          description: Item's sale price multiplied by the quantity.
+        id:
+          type: string
+          description: The line-item ID.
+          example: '4'
+        imageUrl:
+          type: string
+          description: 'URL of an image of this item, accessible on the internet.'
+          format: uri
+        isTaxable:
+          type: boolean
+          description: Whether the item is taxable.
+        listPrice:
+          type: number
+          description: 'Item''s list price, as quoted by the manufacturer/distributor.'
+        name:
+          type: string
+          description: The item's product name.
+        parentId:
+          type: string
+          description: 'The product is part of a bundle such as a product pick list, then the parentId or the main product id will populate.'
+          example: '6'
+        productId:
+          type: number
+          description: ID of the product.
+        quantity:
+          type: number
+          description: Quantity of this item.
+        salePrice:
+          type: number
+          description: Item's price after all discounts are applied. (The final price before tax calculation.)
+        sku:
+          type: string
+          description: SKU of the variant.
+        url:
+          type: string
+          description: The product URL.
+          format: uri
+        variantId:
+          type: number
+          description: ID of the variant.
+          example: 7
+    responseCartLineItemsDigitalItemsAllOf0DiscountsItems:
+      title: Applied Discount
+      type: object
+      properties:
+        discountedAmount:
+          type: number
+          description: The discounted amount applied within a given context.
+          format: float
+        id:
+          type: number
+          description: ID of the applied discount.
+    responseCartLineItemsDigitalItemsAllOf0OptionsItems:
+      title: Product Option
+      type: object
+      properties:
+        name:
+          type: string
+          description: 'The product option name. For example, Color or Size'
+        nameId:
+          type: number
+          description: The product option identifier.
+        value:
+          type: string
+          description: 'The product option value. For example, Red or Medium'
+        valueId:
+          type: number
+          description: The product option value identifier.
+    responseCartLineItemsGiftCertificates:
+      title: Item Gift Certificate
+      required:
+        - amount
+        - recipient
+        - sender
+        - theme
+      type: object
+      properties:
+        amount:
+          type: number
+          description: 'Value must be between 1.00 and 1,000.00 in the store''s default currency.'
+        id:
+          type: string
+          description: ID of this gift certificate.
+        isTaxable:
+          type: boolean
+          description: Whether or not the gift certificate is taxable.
+        message:
+          type: string
+          description: Message that will be sent to the gift certificate's recipient. Limited to 200 characters.
+        name:
+          type: string
+          description: GiftCertificate-provided name that will appear in the control panel.
+        recipient:
+          $ref: '#/components/schemas/responseCartLineItemsGiftCertificatesRecipient'
+        sender:
+          $ref: '#/components/schemas/responseCartLineItemsGiftCertificatesSender'
+        theme:
+          type: string
+          description: 'Currently supports `Birthday`, `Boy`, `Celebration`, `Christmas`, `General`, and `Girl`.'
+    responseCartLineItemsGiftCertificatesRecipient:
+      title: Contact Entity
+      type: object
+      properties:
+        email:
+          type: string
+          description: Contact's email address.
+          format: email
+        name:
+          type: string
+          description: Contact's name.
+    responseCartLineItemsGiftCertificatesSender:
+      title: Contact Entity
+      type: object
+      properties:
+        email:
+          type: string
+          description: Contact's email address.
+          format: email
+        name:
+          type: string
+          description: Contact's name.
+    responseCartLineItemsItemsPhysicalItemsItems:
+      title: Item Physical
+      allOf:
+        - $ref: '#/components/schemas/responseCartBaseItem'
+        - $ref: '#/components/schemas/responseCartLineItemsItemsPhysicalItemsItemsAllOf1'
+    responseCartBaseItem:
+      title: Base Item
+      type: object
+      properties:
+        options:
+          type: array
+          description: The list of selected options for this product.
+          items:
+            $ref: '#/components/schemas/responseCartLineItemsItemsPhysicalItemsItemsAllOf0OptionsItems'
+        brand:
+          type: string
+          description: The products brand
+        couponAmount:
+          type: number
+          description: The total value of all coupons applied to this item.
+        discountAmount:
+          type: number
+          description: The total value of all discounts applied to this item (excluding coupon).
+          format: float
+        discounts:
+          $ref: '#/components/schemas/responseCartDiscounts'
+        extendedListPrice:
+          type: number
+          description: Item's list price multiplied by the quantity.
+        extendedSalePrice:
+          type: number
+          description: Item's sale price multiplied by the quantity.
+        id:
+          type: string
+          description: The line-item ID.
+          example: '4'
+        imageUrl:
+          type: string
+          description: 'URL of an image of this item, accessible on the internet.'
+          format: uri
+        isTaxable:
+          type: boolean
+          description: Whether the item is taxable.
+        listPrice:
+          type: number
+          description: The net item price before discounts and coupons. It is based on the product default price or sale price (if set) configured in BigCommerce Admin.
+        name:
+          type: string
+          description: The item's product name.
+        parentId:
+          type: number
+          description: 'The product is part of a bundle such as a product pick list, then the parentId or the main product id will populate.'
+          example: 6
+        productId:
+          type: number
+          description: ID of the product.
+        quantity:
+          type: number
+          description: Quantity of this item.
+        salePrice:
+          type: number
+          description: Item's price after all discounts are applied. (The final price before tax calculation.)
+        sku:
+          type: string
+          description: SKU of the variant.
+        url:
+          type: string
+          description: The product URL.
+          format: uri
+        variantId:
+          type: number
+          description: ID of the variant.
+          example: 7
+      required:
+        - quantity
+    responseCartLineItemsItemsPhysicalItemsItemsAllOf0OptionsItems:
+      title: Product Option
+      type: object
+      properties:
+        name:
+          type: string
+          description: 'The product option name. For example, Color or Size'
+        nameId:
+          type: number
+          description: The product option identifier.
+        value:
+          type: string
+          description: 'The product option value. For example, Red or Medium'
+        valueId:
+          type: number
+          description: The product option value identifier.
+    responseCartLineItemsItemsPhysicalItemsItemsAllOf1:
+      type: object
+      properties:
+        giftWrapping:
+          $ref: '#/components/schemas/responseCartLineItemsPhysicalItemGiftWrapping'
+        isShippingRequired:
+          type: boolean
+          description: Whether this item requires shipping to a physical address.
+    requestCartPostLineItem:
+      title: Line Item Request Data
+      anyOf:
+        - properties:
             productId:
               type: number
               description: ID of the product.
+            quantity:
+              type: number
+              description: Quantity of this item.
+          required:
+            - productId
+            - quantity
+        - properties:
+            productId:
+              type: number
+              description: ID of the product.
+            quantity:
+              type: number
+              description: Quantity of this item.
             variantId:
               type: number
               description: ID of the variant.
           required:
+            - productId
             - quantity
-      giftCertificates:
-        type: array
-        description: Array of `giftCertificate` objects.
-        items:
-          type: object
-          title: Line Item Gift Certificate Request Data
-          properties:
-            name:
-              type: string
-              description: Name assigned to this gift-certificate line item.
-            theme:
-              type: string
-              description: 'Currently supports `Birthday`, `Boy`, `Celebration`, `Christmas`, `General`, and `Girl`.'
-            amount:
+            - variantId
+        - properties:
+            productId:
               type: number
-              description: Gift-certificate amount.
-              minimum: 1
-              maximum: 1000
+              description: ID of the product.
             quantity:
-              type: integer
+              type: number
               description: Quantity of this item.
-              minimum: 1
-            sender:
-              type: object
-              title: Contact Entity
-              properties:
-                name:
-                  type: string
-                  description: Contact's name.
-                email:
-                  type: string
-                  format: email
-                  description: Contact's email address.
-            recipient:
-              type: object
-              title: Contact Entity
-              properties:
-                name:
-                  type: string
-                  description: Contact's name.
-                email:
-                  type: string
-                  format: email
-                  description: Contact's email address.
-            message:
-              type: string
-              maximum: 200
-              description: 'Message shown to recipient, as provided by sender.'
-          required:
-            - name
-            - theme
-            - amount
-            - quantity
-            - sender
-            - recipient
-      locale:
-        type: string
-        description: Locale of the cart. Accepts string of format `xx` or `xx-YY`.
-  CreateCartPost:
-    type: object
-    properties:
-      lineItem:
-        type: object
-        title: Line Item Request Data
-        properties:
-          quantity:
-            type: number
-            description: Quantity of this item.
-          productId:
-            type: number
-            description: ID of the product.
-          variantId:
-            type: number
-            description: ID of the variant.
-          optionSelections:
-            type: object
-            description: Array of `OptionSelection` objects.
-            properties:
-              optionId:
-                type: number
-                description: ID of the option.
-              optionValue:
-                type: number
-                description: Value of the option.
-        required:
-          - quantity
-      giftCertificate:
-        type: object
-        title: Line Item Gift Certificate Request Data
-        properties:
-          name:
-            type: string
-            description: Name assigned to this gift-certificate line item.
-          theme:
-            type: string
-            description: 'Currently supports `Birthday`, `Boy`, `Celebration`, `Christmas`, `General`, and `Girl`.'
-          amount:
-            type: number
-            description: Gift-certificate amount.
-            minimum: 1
-            maximum: 1000
-          quantity:
-            type: integer
-            description: Quantity of this item.
-            minimum: 1
-          sender:
-            type: object
-            properties:
-              name:
-                type: string
-                description: Contact's name.
-              email:
-                type: string
-                format: email
-                description: Contact's email address.
-            title: Contact Entity
-          recipient:
-            type: object
-            properties:
-              name:
-                type: string
-                description: Contact's name.
-              email:
-                type: string
-                format: email
-                description: Contact's email address.
-            title: Contact Entity
-          message:
-            type: string
-            maximum: 200
-            description: 'Message shown to recipient, as provided by sender.'
-        required:
-          - name
-          - theme
-          - amount
-          - quantity
-          - sender
-          - recipient
-    title: Create Cart Post
-  LineItemRequestData:
-    type: object
-    title: Line Item Request Data
-    properties:
-      quantity:
-        type: number
-        description: Quantity of this item.
-      productId:
-        type: number
-        description: ID of the product.
-      variantId:
-        type: number
-        description: ID of the variant.
-    required:
-      - quantity
-  LineItemGiftCertificateRequestData:
-    type: object
-    title: Line Item Gift Certificate Request Data
-    properties:
-      name:
-        type: string
-        description: Name assigned to this gift-certificate line item.
-      theme:
-        type: string
-        description: 'Currently supports `Birthday`, `Boy`, `Celebration`, `Christmas`, `General`, and `Girl`.'
-      amount:
-        type: number
-        description: Gift-certificate amount.
-        minimum: 1
-        maximum: 1000
-      quantity:
-        type: integer
-        description: Quantity of this item.
-        minimum: 1
-      sender:
-        type: object
-        properties:
-          name:
-            type: string
-            description: Contact's name.
-          email:
-            type: string
-            format: email
-            description: Contact's email address.
-        title: Contact Entity
-      recipient:
-        type: object
-        properties:
-          name:
-            type: string
-            description: Contact's name.
-          email:
-            type: string
-            format: email
-            description: Contact's email address.
-        title: Contact Entity
-      message:
-        type: string
-        maximum: 200
-        description: 'Message shown to recipient, as provided by sender.'
-    required:
-      - name
-      - theme
-      - amount
-      - quantity
-      - sender
-      - recipient
-  Cart_Full:
-    description: |-
-      A cart contains a collection of items, prices, discounts, etc. It does not contain customer-related data.
-      Custom Items is a read only field. A custom item can only be added to a cart using the Server to Server Cart API. 
-    type: object
-    title: Cart_Full
-    properties:
-      id:
-        description: 'Cart ID, provided after creating a cart with a POST.'
-        type: string
-        format: UUID
-      customer_id:
-        description: ID of the customer to which the cart belongs.
-        type: integer
-      email:
-        description: The cart's email. This is the same email that is used in the billing address
-        type: string
-      currency:
-        type: object
-        description: This will always be the same between cart and checkout.
-        title: Currency
-        properties:
-          code:
-            type: string
-            format: ISO-4217
-            description: 'ISO-4217 currency code. (See: http://en.wikipedia.org/wiki/ISO_4217.)'
-      isTaxIncluded:
-        type: boolean
-        description: Whether this item is taxable.
-      baseAmount:
-        type: number
-        description: 'Cost of cart''s contents, before applying discounts.'
-      discountAmount:
-        type: number
-        format: float
-        description: Discounted amount.
-      cartAmount:
-        type: number
-        description: 'Sum of line-items amounts, minus cart-level discounts and coupons. This amount includes taxes (where applicable).'
-      coupons:
-        type: array
-        description: Array of `AppliedCoupon` objects applied to this cart.
-        items:
-          $ref: '#/definitions/AppliedCoupon'
-      discounts:
-        type: array
-        description: Array of `AppliedDiscount` objects applied to this cart.
-        items:
-          $ref: '#/definitions/AppliedDiscount'
-      lineItems:
-        type: array
-        description: Array of `LineItem` objects.
-        items:
-          type: object
-          title: Line Item
-          properties:
-            physicalItems:
+            optionSelections:
               type: array
-              description: Array of `ItemPhysical` objects.
               items:
-                allOf:
-                  - title: Base Item
-                    properties:
-                      id:
-                        type: string
-                        description: The line-item ID.
-                        example: '4'
-                      parentId:
-                        type: string
-                        description: 'The product is part of a bundle such as a product pick list, then the parentId or the main product id will populate.'
-                        example: '6'
-                      variantId:
-                        type: number
-                        description: ID of the variant.
-                        example: 7
-                      productId:
-                        type: number
-                        description: ID of the product.
-                      sku:
-                        type: string
-                        description: SKU of the variant.
-                      name:
-                        type: string
-                        description: The item's product name.
-                      url:
-                        description: The product URL.
-                        type: string
-                        format: uri
-                      quantity:
-                        type: number
-                        description: Quantity of this item.
-                      isTaxable:
-                        type: boolean
-                        description: Whether the item is taxable.
-                      imageUrl:
-                        type: string
-                        description: 'URL of an image of this item, accessible on the internet.'
-                        format: uri
-                      discounts:
-                        type: array
-                        description: 'List of discounts applied to this item, as an array of AppliedDiscount objects.'
-                        items:
-                          type: object
-                          title: Applied Discount
-                          properties:
-                            id:
-                              type: number
-                              description: ID of the applied discount.
-                            discountedAmount:
-                              type: number
-                              format: float
-                              description: The discounted amount applied within a given context.
-                      discountAmount:
-                        type: number
-                        format: float
-                        description: The total value of all discounts applied to this item (excluding coupon).
-                      couponAmount:
-                        type: number
-                        description: The total value of all coupons applied to this item.
-                      listPrice:
-                        type: number
-                        description: The net item price before discounts and coupons. It is based on the product default price or sale price (if set) configured in BigCommerce Admin.
-                      salePrice:
-                        type: number
-                        description: Item's price after all discounts are applied. (The final price before tax calculation.)
-                      extendedListPrice:
-                        type: number
-                        description: Item's list price multiplied by the quantity.
-                      extendedSalePrice:
-                        type: number
-                        description: Item's sale price multiplied by the quantity.
-                      Options:
-                        description: The list of selected options for this product.
-                        type: array
-                        items:
-                          type: object
-                          title: Product Option
-                          properties:
-                            name:
-                              type: string
-                              description: 'The product option name. For example, Color or Size'
-                            nameId:
-                              type: number
-                              description: The product option identifier.
-                            value:
-                              type: string
-                              description: 'The product option value. For example, Red or Medium'
-                            valueId:
-                              type: number
-                              description: The product option value identifier.
-                      brand:
-                        type: string
-                        description: The products brand
-                    required:
-                      - quantity
+                description: Array of `OptionSelection` objects.
+                x-examples: {}
+                anyOf:
                   - properties:
-                      isShippingRequired:
-                        type: boolean
-                        description: Whether this item requires shipping to a physical address.
-                      giftWrapping:
-                        $ref: '#/definitions/GiftWrapping'
-                title: Item Physical
+                      optionId:
+                        type: number
+                        description: ID of the option.
+                      optionValue:
+                        description: Value of the option.
+                        oneOf:
+                          - type: string
+                            properties: {}
+                          - type: number
+                            properties: {}
+                          - type: object
+                            properties:
+                              month:
+                                type: string
+                              day:
+                                type: string
+                              year:
+                                type: string
                 type: object
-            digitalItems:
-              type: array
-              description: Array of `ItemDigital` objects.
-              items:
-                allOf:
-                  - title: Base Item
-                    properties:
-                      id:
-                        type: string
-                        description: The line-item ID.
-                        example: '4'
-                      parentId:
-                        type: string
-                        description: 'The product is part of a bundle such as a product pick list, then the parentId or the main product id will populate.'
-                        example: '6'
-                      variantId:
-                        type: number
-                        description: ID of the variant.
-                        example: 7
-                      productId:
-                        type: number
-                        description: ID of the product.
-                      sku:
-                        type: string
-                        description: SKU of the variant.
-                      name:
-                        type: string
-                        description: The item's product name.
-                      url:
-                        description: The product URL.
-                        type: string
-                        format: uri
-                      quantity:
-                        type: number
-                        description: Quantity of this item.
-                      isTaxable:
-                        type: boolean
-                        description: Whether the item is taxable.
-                      imageUrl:
-                        type: string
-                        description: 'URL of an image of this item, accessible on the internet.'
-                        format: uri
+          required:
+            - productId
+            - quantity
+            - optionSelections
+      x-examples:
+        example-1:
+          productId: 0
+          quantity: 0
+      type: object
+    requestLineItemGiftCertificateRecipient:
+      title: Contact Entity
+      type: object
+      properties:
+        email:
+          type: string
+          description: Contact's email address.
+          format: email
+        name:
+          type: string
+          description: Contact's name.
+    requestLineItemGiftCertificateSender:
+      title: Contact Entity
+      type: object
+      properties:
+        email:
+          type: string
+          description: Contact's email address.
+          format: email
+        name:
+          type: string
+          description: Contact's name.
+  responses:
+    postCarts:
+      description: Post Carts Response
+      content:
+        application/json:
+          schema:
+            $ref: '#/components/schemas/responseCart'
+          examples:
+            Example:
+              value:
+                id: string
+                customerId: 0
+                email: string
+                currency:
+                  code: string
+                isTaxIncluded: true
+                baseAmount: 0
+                discountAmount: 0
+                cartAmount: 0
+                coupons:
+                  - code: string
+                    couponType: 0
+                    discountedAmount: 0
+                    id: string
+                discounts:
+                  - discountedAmount: 0
+                    id: string
+                lineItems:
+                  customItems:
+                    - extendedListPrice: 0
+                      id: f1f3a531-fbcf-439b-bac1-40d5ae5c2bff
+                      listPrice: 10
+                      name: Custom Item Name
+                      quantity: 1
+                      sku: SM-456
+                  digitalItems:
+                    - options:
+                        - name: string
+                          nameId: 0
+                          value: string
+                          valueId: 0
+                      brand: string
+                      couponAmount: 0
+                      discountAmount: 0
                       discounts:
-                        type: array
-                        description: 'List of discounts applied to this item, as an array of AppliedDiscount objects.'
-                        items:
-                          type: object
-                          title: Applied Discount
-                          properties:
-                            id:
-                              type: number
-                              description: ID of the applied discount.
-                            discountedAmount:
-                              type: number
-                              format: float
-                              description: The discounted amount applied within a given context.
-                      discountAmount:
-                        type: number
-                        format: float
-                        description: The total value of all discounts applied to this item (excluding coupon).
-                      couponAmount:
-                        type: number
-                        description: The total value of all coupons applied to this item.
-                      listPrice:
-                        type: number
-                        description: 'Item''s list price, as quoted by the manufacturer/distributor.'
-                      salePrice:
-                        type: number
-                        description: Item's price after all discounts are applied. (The final price before tax calculation.)
-                      extendedListPrice:
-                        type: number
-                        description: Item's list price multiplied by the quantity.
-                      extendedSalePrice:
-                        type: number
-                        description: Item's sale price multiplied by the quantity.
-                      Options:
-                        description: The list of selected options for this product.
-                        type: array
-                        items:
-                          type: object
-                          title: Product Option
-                          properties:
-                            name:
-                              type: string
-                              description: 'The product option name. For example, Color or Size'
-                            nameId:
-                              type: number
-                              description: The product option identifier.
-                            value:
-                              type: string
-                              description: 'The product option value. For example, Red or Medium'
-                            valueId:
-                              type: number
-                              description: The product option value identifier.
-                      brand:
-                        type: string
-                        description: The products brand
-                    required:
-                      - quantity
-                title: Item Digital
-                type: object
-            giftCertificates:
-              type: array
-              description: Array of `ItemGiftCertificate` objects.
-              items:
-                type: object
-                title: Item Gift Certificate
-                properties:
-                  id:
-                    type: string
-                    description: ID of this gift certificate.
-                  name:
-                    type: string
-                    description: GiftCertificate-provided name that will appear in the control panel.
-                  theme:
-                    type: string
-                    description: 'Currently supports `Birthday`, `Boy`, `Celebration`, `Christmas`, `General`, and `Girl`.'
-                  amount:
-                    type: number
-                    description: 'Value must be between 1.00 and 1,000.00 in the store''s default currency.'
-                  isTaxable:
-                    type: boolean
-                    description: Whether or not the gift certificate is taxable.
-                  sender:
-                    type: object
-                    title: Contact Entity
-                    properties:
-                      name:
-                        type: string
-                        description: Contact's name.
-                      email:
-                        type: string
-                        format: email
-                        description: Contact's email address.
-                  recipient:
-                    type: object
-                    title: Contact Entity
-                    properties:
-                      name:
-                        type: string
-                        description: Contact's name.
-                      email:
-                        type: string
-                        format: email
-                        description: Contact's email address.
-                  message:
-                    type: string
-                    description: Message that will be sent to the gift certificate's recipient. Limited to 200 characters.
-                required:
-                  - theme
-                  - amount
-                  - sender
-                  - recipient
-            customItems:
-              type: array
-              items:
-                type: object
-                title: Item Custom
-                description: |-
-                  **Read Only**
-
-                  This will return in the Cart Response if the Cart was created using the [Server to Server Cart API](/api-reference/cart-checkout/server-server-cart-api). A custom item can only be added to a cart using the Server to Server API. 
-                properties:
-                  id:
-                    type: string
-                    description: Id of the custom item
-                    example: f1f3a531-fbcf-439b-bac1-40d5ae5c2bff
-                    readOnly: true
-                  sku:
-                    type: string
-                    description: Custom item sku
-                    example: SM-456
-                    readOnly: true
-                  name:
-                    type: string
-                    description: Item name
-                    example: Custom Item Name
-                    readOnly: true
-                  quantity:
-                    type: integer
-                    example: 1
-                    readOnly: true
-                  listPrice:
-                    type: integer
-                    description: Price of the item. With or without tax depending on your stores set up.
-                    example: 10
-                    readOnly: true
-                  extendedListPrice:
-                    type: integer
-                    example: 9.24
-                    readOnly: true
-          required:
-            - physicalItems
-            - digitalItems
-            - giftCertificates
-      createdTime:
-        type: string
-        format: ISO-8601
-        description: Time when the cart was created.
-      updatedTime:
-        type: string
-        format: ISO-8601
-        description: Time when the cart was last updated.
-      locale:
-        type: string
-        description: Locale of the cart.
-  Currency:
-    type: object
-    description: This will always be the same between cart and checkout.
-    properties:
-      code:
-        type: string
-        format: ISO-4217
-        description: 'ISO-4217 currency code. (See: http://en.wikipedia.org/wiki/ISO_4217.)'
-    title: Currency
-  LineItem:
-    type: object
-    title: Line Item
-    properties:
-      physicalItems:
-        type: array
-        description: Array of `ItemPhysical` objects.
-        items:
-          allOf:
-            - title: Base Item
-              properties:
-                id:
-                  type: string
-                  description: The line-item ID.
-                  example: '4'
-                parentId:
-                  type: string
-                  description: 'The product is part of a bundle such as a product pick list, then the parentId or the main product id will populate.'
-                  example: '6'
-                variantId:
-                  type: number
-                  description: ID of the variant.
-                  example: 7
-                productId:
-                  type: number
-                  description: ID of the product.
-                sku:
-                  type: string
-                  description: SKU of the variant.
-                name:
-                  type: string
-                  description: The item's product name.
-                url:
-                  description: The product URL.
-                  type: string
-                  format: uri
-                quantity:
-                  type: number
-                  description: Quantity of this item.
-                isTaxable:
-                  type: boolean
-                  description: Whether the item is taxable.
-                imageUrl:
-                  type: string
-                  description: 'URL of an image of this item, accessible on the internet.'
-                  format: uri
+                        - discountedAmount: 0
+                          id: 0
+                      extendedListPrice: 0
+                      extendedSalePrice: 0
+                      id: '4'
+                      imageUrl: 'http://example.com'
+                      isTaxable: true
+                      listPrice: 0
+                      name: string
+                      parentId: '6'
+                      productId: 0
+                      quantity: 0
+                      salePrice: 0
+                      sku: string
+                      url: 'http://example.com'
+                      variantId: 7
+                  giftCertificates:
+                    - amount: 0
+                      id: string
+                      isTaxable: true
+                      message: string
+                      name: string
+                      recipient:
+                        email: user@example.com
+                        name: string
+                      sender:
+                        email: user@example.com
+                        name: string
+                      theme: string
+                  physicalItems:
+                    - options:
+                        - name: string
+                          nameId: 0
+                          value: string
+                          valueId: 0
+                      brand: string
+                      couponAmount: 0
+                      discountAmount: 0
+                      discounts:
+                        - discountedAmount: 0
+                          id: string
+                      extendedListPrice: 0
+                      extendedSalePrice: 0
+                      id: '4'
+                      imageUrl: 'http://example.com'
+                      isTaxable: true
+                      listPrice: 0
+                      name: string
+                      parentId: 6
+                      productId: 0
+                      quantity: 0
+                      salePrice: 0
+                      sku: string
+                      url: 'http://example.com'
+                      variantId: 7
+                      giftWrapping:
+                        amount: 0
+                        message: string
+                        name: string
+                      isShippingRequired: true
+                createdTime: string
+                updatedTime: string
+                locale: string
+    postCartsItems:
+      description: ''
+      content:
+        application/json:
+          schema:
+            $ref: '#/components/schemas/responseCart'
+          examples:
+            example-1:
+              value:
+                id: string
+                customerId: 0
+                email: string
+                currency:
+                  code: string
+                isTaxIncluded: true
+                baseAmount: 0
+                discountAmount: 0
+                cartAmount: 0
+                coupons:
+                  - code: string
+                    couponType: 0
+                    discountedAmount: 0
+                    id: string
                 discounts:
-                  type: array
-                  description: 'List of discounts applied to this item, as an array of AppliedDiscount objects.'
-                  items:
-                    type: object
-                    title: Applied Discount
-                    properties:
-                      id:
-                        type: number
-                        description: ID of the applied discount.
-                      discountedAmount:
-                        type: number
-                        format: float
-                        description: The discounted amount applied within a given context.
-                discountAmount:
-                  type: number
-                  format: float
-                  description: The total value of all discounts applied to this item (excluding coupon).
-                couponAmount:
-                  type: number
-                  description: The total value of all coupons applied to this item.
-                listPrice:
-                  type: number
-                  description: 'Item''s list price, as quoted by the manufacturer/distributor.'
-                salePrice:
-                  type: number
-                  description: Item's price after all discounts are applied. (The final price before tax calculation.)
-                extendedListPrice:
-                  type: number
-                  description: Item's list price multiplied by the quantity.
-                extendedSalePrice:
-                  type: number
-                  description: Item's sale price multiplied by the quantity.
-                Options:
-                  description: The list of selected options for this product.
-                  type: array
-                  items:
-                    type: object
-                    title: Product Option
-                    properties:
-                      name:
-                        type: string
-                        description: 'The product option name. For example, Color or Size'
-                      nameId:
-                        type: number
-                        description: The product option identifier.
-                      value:
-                        type: string
-                        description: 'The product option value. For example, Red or Medium'
-                      valueId:
-                        type: number
-                        description: The product option value identifier.
-                brand:
-                  type: string
-                  description: The products brand
-              required:
-                - quantity
-            - properties:
-                isShippingRequired:
-                  type: boolean
-                  description: Whether this item requires shipping to a physical address.
-                giftWrapping:
-                  title: Gift Wrapping
-                  type: object
-                  properties:
-                    name:
-                      type: string
-                      description: Name of the gift-wrapping option.
-                    amount:
-                      type: number
-                      format: float
-                      description: Gift-wrapping price per product.
-          title: Item Physical
-          type: object
-      digitalItems:
-        type: array
-        description: Array of `ItemDigital` objects.
-        items:
-          allOf:
-            - title: Base Item
-              properties:
-                id:
-                  type: string
-                  description: The line-item ID.
-                  example: '4'
-                parentId:
-                  type: string
-                  description: 'The product is part of a bundle such as a product pick list, then the parentId or the main product id will populate.'
-                  example: '6'
-                variantId:
-                  type: number
-                  description: ID of the variant.
-                  example: 7
-                productId:
-                  type: number
-                  description: ID of the product.
-                sku:
-                  type: string
-                  description: SKU of the variant.
-                name:
-                  type: string
-                  description: The item's product name.
-                url:
-                  description: The product URL.
-                  type: string
-                  format: uri
-                quantity:
-                  type: number
-                  description: Quantity of this item.
-                isTaxable:
-                  type: boolean
-                  description: Whether the item is taxable.
-                imageUrl:
-                  type: string
-                  description: 'URL of an image of this item, accessible on the internet.'
-                  format: uri
+                  - discountedAmount: 0
+                    id: string
+                lineItems:
+                  customItems:
+                    - extendedListPrice: 0
+                      id: f1f3a531-fbcf-439b-bac1-40d5ae5c2bff
+                      listPrice: 10
+                      name: Custom Item Name
+                      quantity: 1
+                      sku: SM-456
+                  digitalItems:
+                    - options:
+                        - name: string
+                          nameId: 0
+                          value: string
+                          valueId: 0
+                      brand: string
+                      couponAmount: 0
+                      discountAmount: 0
+                      discounts:
+                        - discountedAmount: 0
+                          id: 0
+                      extendedListPrice: 0
+                      extendedSalePrice: 0
+                      id: '4'
+                      imageUrl: 'http://example.com'
+                      isTaxable: true
+                      listPrice: 0
+                      name: string
+                      parentId: '6'
+                      productId: 0
+                      quantity: 0
+                      salePrice: 0
+                      sku: string
+                      url: 'http://example.com'
+                      variantId: 7
+                  giftCertificates:
+                    - amount: 0
+                      id: string
+                      isTaxable: true
+                      message: string
+                      name: string
+                      recipient:
+                        email: user@example.com
+                        name: string
+                      sender:
+                        email: user@example.com
+                        name: string
+                      theme: string
+                  physicalItems:
+                    - options:
+                        - name: string
+                          nameId: 0
+                          value: string
+                          valueId: 0
+                      brand: string
+                      couponAmount: 0
+                      discountAmount: 0
+                      discounts:
+                        - discountedAmount: 0
+                          id: string
+                      extendedListPrice: 0
+                      extendedSalePrice: 0
+                      id: '4'
+                      imageUrl: 'http://example.com'
+                      isTaxable: true
+                      listPrice: 0
+                      name: string
+                      parentId: 6
+                      productId: 0
+                      quantity: 0
+                      salePrice: 0
+                      sku: string
+                      url: 'http://example.com'
+                      variantId: 7
+                      giftWrapping:
+                        amount: 0
+                        message: string
+                        name: string
+                      isShippingRequired: true
+                createdTime: string
+                updatedTime: string
+                locale: string
+    putCartsItems:
+      description: ''
+      content:
+        application/json:
+          schema:
+            $ref: '#/components/schemas/responseCart'
+          examples:
+            Example:
+              value:
+                id: string
+                customerId: 0
+                email: string
+                currency:
+                  code: string
+                isTaxIncluded: true
+                baseAmount: 0
+                discountAmount: 0
+                cartAmount: 0
+                coupons:
+                  - code: string
+                    couponType: 0
+                    discountedAmount: 0
+                    id: string
                 discounts:
-                  type: array
-                  description: 'List of discounts applied to this item, as an array of AppliedDiscount objects.'
-                  items:
-                    type: object
-                    title: Applied Discount
-                    properties:
-                      id:
-                        type: number
-                        description: ID of the applied discount.
-                      discountedAmount:
-                        type: number
-                        format: float
-                        description: The discounted amount applied within a given context.
-                discountAmount:
-                  type: number
-                  format: float
-                  description: The total value of all discounts applied to this item (excluding coupon).
-                couponAmount:
-                  type: number
-                  description: The total value of all coupons applied to this item.
-                listPrice:
-                  type: number
-                  description: 'Item''s list price, as quoted by the manufacturer/distributor.'
-                salePrice:
-                  type: number
-                  description: Item's price after all discounts are applied. (The final price before tax calculation.)
-                extendedListPrice:
-                  type: number
-                  description: Item's list price multiplied by the quantity.
-                extendedSalePrice:
-                  type: number
-                  description: Item's sale price multiplied by the quantity.
-                Options:
-                  description: The list of selected options for this product.
-                  type: array
-                  items:
-                    type: object
-                    title: Product Option
-                    properties:
-                      name:
-                        type: string
-                        description: 'The product option name. For example, Color or Size'
-                      nameId:
-                        type: number
-                        description: The product option identifier.
-                      value:
-                        type: string
-                        description: 'The product option value. For example, Red or Medium'
-                      valueId:
-                        type: number
-                        description: The product option value identifier.
-                brand:
-                  type: string
-                  description: The products brand
-              required:
-                - quantity
-          title: Item Digital
-          type: object
-      giftCertificates:
-        type: array
-        description: Array of `ItemGiftCertificate` objects.
-        items:
-          type: object
-          title: Item Gift Certificate
-          properties:
-            id:
-              type: string
-              description: ID of this gift certificate.
-            name:
-              type: string
-              description: GiftCertificate-provided name that will appear in the control panel.
-            theme:
-              type: string
-              description: 'Currently supports `Birthday`, `Boy`, `Celebration`, `Christmas`, `General`, and `Girl`.'
-            amount:
-              type: number
-              description: 'Value must be between 1.00 and 1,000.00 in the store''s default currency.'
-            isTaxable:
-              type: boolean
-              description: Whether or not the gift certificate is taxable.
-            sender:
-              type: object
-              title: Contact Entity
-              properties:
-                name:
-                  type: string
-                  description: Contact's name.
-                email:
-                  type: string
-                  format: email
-                  description: Contact's email address.
-            recipient:
-              type: object
-              title: Contact Entity
-              properties:
-                name:
-                  type: string
-                  description: Contact's name.
-                email:
-                  type: string
-                  format: email
-                  description: Contact's email address.
-            message:
-              type: string
-              description: Message that will be sent to the gift certificate's recipient. Limited to 200 characters.
-          required:
-            - theme
-            - amount
-            - sender
-            - recipient
-      customItems:
-        type: array
-        items:
-          type: object
-          title: Item Custom
-          description: |-
-            **Read Only**
+                  - discountedAmount: 0
+                    id: string
+                lineItems:
+                  customItems:
+                    - extendedListPrice: 0
+                      id: f1f3a531-fbcf-439b-bac1-40d5ae5c2bff
+                      listPrice: 10
+                      name: Custom Item Name
+                      quantity: 1
+                      sku: SM-456
+                  digitalItems:
+                    - options:
+                        - name: string
+                          nameId: 0
+                          value: string
+                          valueId: 0
+                      brand: string
+                      couponAmount: 0
+                      discountAmount: 0
+                      discounts:
+                        - discountedAmount: 0
+                          id: 0
+                      extendedListPrice: 0
+                      extendedSalePrice: 0
+                      id: '4'
+                      imageUrl: 'http://example.com'
+                      isTaxable: true
+                      listPrice: 0
+                      name: string
+                      parentId: '6'
+                      productId: 0
+                      quantity: 0
+                      salePrice: 0
+                      sku: string
+                      url: 'http://example.com'
+                      variantId: 7
+                  giftCertificates:
+                    - amount: 0
+                      id: string
+                      isTaxable: true
+                      message: string
+                      name: string
+                      recipient:
+                        email: user@example.com
+                        name: string
+                      sender:
+                        email: user@example.com
+                        name: string
+                      theme: string
+                  physicalItems:
+                    - options:
+                        - name: string
+                          nameId: 0
+                          value: string
+                          valueId: 0
+                      brand: string
+                      couponAmount: 0
+                      discountAmount: 0
+                      discounts:
+                        - discountedAmount: 0
+                          id: string
+                      extendedListPrice: 0
+                      extendedSalePrice: 0
+                      id: '4'
+                      imageUrl: 'http://example.com'
+                      isTaxable: true
+                      listPrice: 0
+                      name: string
+                      parentId: 6
+                      productId: 0
+                      quantity: 0
+                      salePrice: 0
+                      sku: string
+                      url: 'http://example.com'
+                      variantId: 7
+                      giftWrapping:
+                        amount: 0
+                        message: string
+                        name: string
+                      isShippingRequired: true
+                createdTime: string
+                updatedTime: string
+                locale: string
+    getCarts:
+      description: ''
+      content:
+        application/json:
+          schema:
+            type: array
+            items:
+              $ref: '#/components/schemas/responseCart'
+          examples:
+            Example:
+              value:
+                - id: 770ded29-da45-4ee0-abc6-883e83c0e5ed
+                  customerId: 0
+                  email: ''
+                  currency:
+                    name: US Dollars
+                    code: USD
+                    symbol: $
+                    decimalPlaces: 2
+                  isTaxIncluded: false
+                  baseAmount: 246
+                  discountAmount: 0
+                  cartAmount: 221.4
+                  coupons: []
+                  discounts:
+                    - id: a83dea21-d757-47a2-a06a-73cf6a983746
+                      discountedAmount: 24.6
+                  lineItems:
+                    physicalItems:
+                      - id: a83dea21-d757-47a2-a06a-73cf6a983746
+                        parentId: 6
+                        variantId: 193
+                        productId: 230
+                        sku: sku123-VA
+                        name: options test
+                        url: 'https://store.example.com/options-test/'
+                        quantity: 2
+                        brand: BigCommerce
+                        isTaxable: true
+                        imageUrl: 'https://cdn11.bigcommerce.com/r-3b68d717e18793df0b51c71e16bc24664ad18b7c/themes/ClassicNext/images/ProductDefault.gif'
+                        discounts:
+                          - id: string
+                            discountedAmount: 24.6
+                        discountAmount: 24.6
+                        couponAmount: 0
+                        listPrice: 123
+                        salePrice: 110.7
+                        extendedListPrice: 246
+                        extendedSalePrice: 221.4
+                        isShippingRequired: true
+                        type: physical
+                        isMutable: true
+                        giftWrapping: null
+                    digitalItems: []
+                    giftCertificates: []
+                    customItems: []
+                  createdTime: '2021-03-04T14:17:50+00:00'
+                  updatedTime: '2021-03-04T14:17:50+00:00'
+                  locale: en
+    deleteCartsItems:
+      description: ''
+      content:
+        application/json:
+          schema:
+            $ref: '#/components/schemas/responseCart'
+          examples:
+            Example:
+              value:
+                id: string
+                customerId: 0
+                email: string
+                currency:
+                  code: string
+                isTaxIncluded: true
+                baseAmount: 0
+                discountAmount: 0
+                cartAmount: 0
+                coupons:
+                  - code: string
+                    couponType: 0
+                    discountedAmount: 0
+                    id: string
+                discounts:
+                  - discountedAmount: 0
+                    id: string
+                lineItems:
+                  customItems:
+                    - extendedListPrice: 0
+                      id: f1f3a531-fbcf-439b-bac1-40d5ae5c2bff
+                      listPrice: 10
+                      name: Custom Item Name
+                      quantity: 1
+                      sku: SM-456
+                  digitalItems:
+                    - options:
+                        - name: string
+                          nameId: 0
+                          value: string
+                          valueId: 0
+                      brand: string
+                      couponAmount: 0
+                      discountAmount: 0
+                      discounts:
+                        - discountedAmount: 0
+                          id: 0
+                      extendedListPrice: 0
+                      extendedSalePrice: 0
+                      id: '4'
+                      imageUrl: 'http://example.com'
+                      isTaxable: true
+                      listPrice: 0
+                      name: string
+                      parentId: '6'
+                      productId: 0
+                      quantity: 0
+                      salePrice: 0
+                      sku: string
+                      url: 'http://example.com'
+                      variantId: 7
+                  giftCertificates:
+                    - amount: 0
+                      id: string
+                      isTaxable: true
+                      message: string
+                      name: string
+                      recipient:
+                        email: user@example.com
+                        name: string
+                      sender:
+                        email: user@example.com
+                        name: string
+                      theme: string
+                  physicalItems:
+                    - options:
+                        - name: string
+                          nameId: 0
+                          value: string
+                          valueId: 0
+                      brand: string
+                      couponAmount: 0
+                      discountAmount: 0
+                      discounts:
+                        - discountedAmount: 0
+                          id: string
+                      extendedListPrice: 0
+                      extendedSalePrice: 0
+                      id: '4'
+                      imageUrl: 'http://example.com'
+                      isTaxable: true
+                      listPrice: 0
+                      name: string
+                      parentId: 6
+                      productId: 0
+                      quantity: 0
+                      salePrice: 0
+                      sku: string
+                      url: 'http://example.com'
+                      variantId: 7
+                      giftWrapping: null
+                      isShippingRequired: true
+                createdTime: string
+                updatedTime: string
+                locale: string
+    deleteCarts:
+      description: ''
+      content:
+        application/json:
+          schema:
+            $ref: '#/components/schemas/responseCart'
+          examples:
+            example-1:
+              value:
+                id: string
+                customerId: 0
+                email: string
+                currency:
+                  code: string
+                isTaxIncluded: true
+                baseAmount: 0
+                discountAmount: 0
+                cartAmount: 0
+                coupons:
+                  - code: string
+                    couponType: 0
+                    discountedAmount: 0
+                    id: string
+                discounts:
+                  - discountedAmount: 0
+                    id: string
+                lineItems:
+                  customItems:
+                    - extendedListPrice: 0
+                      id: f1f3a531-fbcf-439b-bac1-40d5ae5c2bff
+                      listPrice: 10
+                      name: Custom Item Name
+                      quantity: 1
+                      sku: SM-456
+                  digitalItems:
+                    - options:
+                        - name: string
+                          nameId: 0
+                          value: string
+                          valueId: 0
+                      brand: string
+                      couponAmount: 0
+                      discountAmount: 0
+                      discounts:
+                        - discountedAmount: 0
+                          id: 0
+                      extendedListPrice: 0
+                      extendedSalePrice: 0
+                      id: '4'
+                      imageUrl: 'http://example.com'
+                      isTaxable: true
+                      listPrice: 0
+                      name: string
+                      parentId: '6'
+                      productId: 0
+                      quantity: 0
+                      salePrice: 0
+                      sku: string
+                      url: 'http://example.com'
+                      variantId: 7
+                  giftCertificates:
+                    - amount: 0
+                      id: string
+                      isTaxable: true
+                      message: string
+                      name: string
+                      recipient:
+                        email: user@example.com
+                        name: string
+                      sender:
+                        email: user@example.com
+                        name: string
+                      theme: string
+                  physicalItems:
+                    - options:
+                        - name: string
+                          nameId: 0
+                          value: string
+                          valueId: 0
+                      brand: string
+                      couponAmount: 0
+                      discountAmount: 0
+                      discounts:
+                        - discountedAmount: 0
+                          id: string
+                      extendedListPrice: 0
+                      extendedSalePrice: 0
+                      id: '4'
+                      imageUrl: 'http://example.com'
+                      isTaxable: true
+                      listPrice: 0
+                      name: string
+                      parentId: 6
+                      productId: 0
+                      quantity: 0
+                      salePrice: 0
+                      sku: string
+                      url: 'http://example.com'
+                      variantId: 7
+                      giftWrapping: null
+                      isShippingRequired: true
+                createdTime: string
+                updatedTime: string
+                locale: string
+  parameters:
+    lineItems.options:
+      name: include
+      in: query
+      description: |-
+        To return product options add one of the following include:
 
-            This will return in the Cart Response if the Cart was created using the [Server to Server Cart API](/api-reference/cart-checkout/server-server-cart-api). A custom item can only be added to a cart using the Server to Server API. 
-          properties:
-            id:
-              type: string
-              description: Id of the custom item
-              example: f1f3a531-fbcf-439b-bac1-40d5ae5c2bff
-              readOnly: true
-            sku:
-              type: string
-              description: Custom item sku
-              example: SM-456
-              readOnly: true
-            name:
-              type: string
-              description: Item name
-              example: Custom Item Name
-              readOnly: true
-            quantity:
-              type: integer
-              example: 1
-              readOnly: true
-            listPrice:
-              type: integer
-              description: Price of the item. With or without tax depending on your stores set up.
-              example: 10
-              readOnly: true
-            extendedListPrice:
-              type: integer
-              example: 9.24
-              readOnly: true
-    required:
-      - physicalItems
-      - digitalItems
-      - giftCertificates
-  ItemGiftCertificate:
-    type: object
-    required:
-      - sender
-      - recipient
-      - amount
-      - theme
-    properties:
-      id:
+        `lineItems.physicalItems.options`: The Cart returns an abbreviated result. Use this to return physical items product options. Can also be used in a /POST to have the extended Cart object return.
+
+        `lineItems.digitalItems.options`:  The Cart returns an abbreviated result. Use this to return digital items product options.  Can also be used in a /POST to have the extended Cart object return.
+
+        `lineItems.digitalItems.options,lineItems.physicalItems.options`:  The Cart returns an abbreviated result. Use this to return digital and physical options. Can also be used in a /POST to have the extended Cart object return.
+      schema:
         type: string
-        description: ID of this gift certificate.
-      name:
-        type: string
-        description: GiftCertificate-provided name that will appear in the control panel.
-      theme:
-        type: string
-        description: 'Currently supports `Birthday`, `Boy`, `Celebration`, `Christmas`, `General`, and `Girl`.'
-      amount:
-        type: number
-        description: 'Value must be between 1.00 and 1,000.00 in the store''s default currency.'
-      isTaxable:
-        type: boolean
-        description: Whether or not the gift certificate is taxable.
-      sender:
-        type: object
-        properties:
-          name:
-            type: string
-            description: Contact's name.
-          email:
-            type: string
-            format: email
-            description: Contact's email address.
-        title: Contact Entity
-      recipient:
-        type: object
-        properties:
-          name:
-            type: string
-            description: Contact's name.
-          email:
-            type: string
-            format: email
-            description: Contact's email address.
-        title: Contact Entity
-      message:
-        type: string
-        description: Message that will be sent to the gift certificate's recipient. Limited to 200 characters.
-    title: Item Gift Certificate
-  ContactEntity:
-    type: object
-    properties:
-      name:
-        type: string
-        description: Contact's name.
-      email:
-        type: string
-        format: email
-        description: Contact's email address.
-    title: Contact Entity
-  ItemDigital:
-    allOf:
-      - type: object
-        title: Base Item
-        properties:
-          id:
-            type: string
-            description: The line-item ID.
-            example: '4'
-          parentId:
-            type: string
-            description: 'The product is part of a bundle such as a product pick list, then the parentId or the main product id will populate.'
-            example: '6'
-          variantId:
-            type: number
-            description: ID of the variant.
-            example: 7
-          productId:
-            type: number
-            description: ID of the product.
-          sku:
-            type: string
-            description: SKU of the variant.
-          name:
-            type: string
-            description: The item's product name.
-          url:
-            description: The product URL.
-            type: string
-            format: uri
-          quantity:
-            type: number
-            description: Quantity of this item.
-          isTaxable:
-            type: boolean
-            description: Whether the item is taxable.
-          imageUrl:
-            type: string
-            description: 'URL of an image of this item, accessible on the internet.'
-            format: uri
-          discounts:
-            type: array
-            description: 'List of discounts applied to this item, as an array of AppliedDiscount objects.'
-            items:
-              type: object
-              properties:
-                id:
-                  type: number
-                  description: ID of the applied discount.
-                discountedAmount:
-                  type: number
-                  format: float
-                  description: The discounted amount applied within a given context.
-              title: Applied Discount
-          discountAmount:
-            type: number
-            format: float
-            description: The total value of all discounts applied to this item (excluding coupon).
-          couponAmount:
-            type: number
-            description: The total value of all coupons applied to this item.
-          listPrice:
-            type: number
-            description: 'Item''s list price, as quoted by the manufacturer/distributor.'
-          salePrice:
-            type: number
-            description: Item's price after all discounts are applied. (The final price before tax calculation.)
-          extendedListPrice:
-            type: number
-            description: Item's list price multiplied by the quantity.
-          extendedSalePrice:
-            type: number
-            description: Item's sale price multiplied by the quantity.
-          Options:
-            description: The list of selected options for this product.
-            type: array
-            items:
-              type: object
-              properties:
-                name:
-                  type: string
-                  description: 'The product option name. For example, Color or Size'
-                nameId:
-                  type: number
-                  description: The product option identifier.
-                value:
-                  type: string
-                  description: 'The product option value. For example, Red or Medium'
-                valueId:
-                  type: number
-                  description: The product option value identifier.
-              title: Product Option
-          brand:
-            type: string
-            description: The products brand
-        required:
-          - quantity
-    title: Item Digital
-  ItemPhysical:
-    allOf:
-      - title: Base Item
-        properties:
-          id:
-            type: string
-            description: The line-item ID.
-            example: '4'
-          parentId:
-            type: string
-            description: 'The product is part of a bundle such as a product pick list, then the parentId or the main product id will populate.'
-            example: '6'
-          variantId:
-            type: number
-            description: ID of the variant.
-            example: 7
-          productId:
-            type: number
-            description: ID of the product.
-          sku:
-            type: string
-            description: SKU of the variant.
-          name:
-            type: string
-            description: The item's product name.
-          url:
-            description: The product URL.
-            type: string
-            format: uri
-          quantity:
-            type: number
-            description: Quantity of this item.
-          isTaxable:
-            type: boolean
-            description: Whether the item is taxable.
-          imageUrl:
-            type: string
-            description: 'URL of an image of this item, accessible on the internet.'
-            format: uri
-          discounts:
-            type: array
-            description: 'List of discounts applied to this item, as an array of AppliedDiscount objects.'
-            items:
-              type: object
-              title: Applied Discount
-              properties:
-                id:
-                  type: number
-                  description: ID of the applied discount.
-                discountedAmount:
-                  type: number
-                  format: float
-                  description: The discounted amount applied within a given context.
-          discountAmount:
-            type: number
-            format: float
-            description: The total value of all discounts applied to this item (excluding coupon).
-          couponAmount:
-            type: number
-            description: The total value of all coupons applied to this item.
-          listPrice:
-            type: number
-            description: 'Item''s list price, as quoted by the manufacturer/distributor.'
-          salePrice:
-            type: number
-            description: Item's price after all discounts are applied. (The final price before tax calculation.)
-          extendedListPrice:
-            type: number
-            description: Item's list price multiplied by the quantity.
-          extendedSalePrice:
-            type: number
-            description: Item's sale price multiplied by the quantity.
-          Options:
-            description: The list of selected options for this product.
-            type: array
-            items:
-              type: object
-              title: Product Option
-              properties:
-                name:
-                  type: string
-                  description: 'The product option name. For example, Color or Size'
-                nameId:
-                  type: number
-                  description: The product option identifier.
-                value:
-                  type: string
-                  description: 'The product option value. For example, Red or Medium'
-                valueId:
-                  type: number
-                  description: The product option value identifier.
-          brand:
-            type: string
-            description: The products brand
-        required:
-          - quantity
-      - properties:
-          isShippingRequired:
-            type: boolean
-            description: Whether this item requires shipping to a physical address.
-          giftWrapping:
-            $ref: '#/definitions/GiftWrapping'
-    title: Item Physical
-    type: object
-  BaseItem:
-    type: object
-    title: Base Item
-    properties:
-      id:
-        type: string
-        description: The line-item ID.
-        example: '4'
-      parentId:
-        type: string
-        description: 'The product is part of a bundle such as a product pick list, then the parentId or the main product id will populate.'
-        example: '6'
-      variantId:
-        type: number
-        description: ID of the variant.
-        example: 7
-      productId:
-        type: number
-        description: ID of the product.
-      sku:
-        type: string
-        description: SKU of the variant.
-      name:
-        type: string
-        description: The item's product name.
-      url:
-        description: The product URL.
-        type: string
-        format: uri
-      quantity:
-        type: number
-        description: Quantity of this item.
-      isTaxable:
-        type: boolean
-        description: Whether the item is taxable.
-      imageUrl:
-        type: string
-        description: 'URL of an image of this item, accessible on the internet.'
-        format: uri
-      discounts:
-        type: array
-        description: 'List of discounts applied to this item, as an array of AppliedDiscount objects.'
-        items:
-          type: object
-          properties:
-            id:
-              type: number
-              description: ID of the applied discount.
-            discountedAmount:
-              type: number
-              format: float
-              description: The discounted amount applied within a given context.
-          title: Applied Discount
-      discountAmount:
-        type: number
-        format: float
-        description: The total value of all discounts applied to this item (excluding coupon).
-      couponAmount:
-        type: number
-        description: The total value of all coupons applied to this item.
-      listPrice:
-        type: number
-        description: 'Item''s list price, as quoted by the manufacturer/distributor.'
-      salePrice:
-        type: number
-        description: Item's price after all discounts are applied. (The final price before tax calculation.)
-      extendedListPrice:
-        type: number
-        description: Item's list price multiplied by the quantity.
-      extendedSalePrice:
-        type: number
-        description: Item's sale price multiplied by the quantity.
-      Options:
-        description: The list of selected options for this product.
-        type: array
-        items:
-          type: object
-          properties:
-            name:
-              type: string
-              description: 'The product option name. For example, Color or Size'
-            nameId:
-              type: number
-              description: The product option identifier.
-            value:
-              type: string
-              description: 'The product option value. For example, Red or Medium'
-            valueId:
-              type: number
-              description: The product option value identifier.
-          title: Product Option
-      brand:
-        type: string
-        description: The products brand
-    required:
-      - quantity
-  ProductOption:
-    type: object
-    properties:
-      name:
-        type: string
-        description: 'The product option name. For example, Color or Size'
-      nameId:
-        type: number
-        description: The product option identifier.
-      value:
-        type: string
-        description: 'The product option value. For example, Red or Medium'
-      valueId:
-        type: number
-        description: The product option value identifier.
-    title: Product Option
-  AppliedCoupon:
-    type: object
-    title: Applied Coupon
-    properties:
-      id:
-        type: string
-        description: The coupon ID.
-      code:
-        type: string
-        description: The coupon code.
-      couponType:
-        type: integer
-        description: |-
-          |Type `int`|Type Name|
-          |-|-|
-          |`0`|`per_item_discount`|
-          |`1`|`percentage_discount`|
-          |`2`|`per_total_discount`|
-          |`3`|`shipping_discount`|
-          |`4`|`free_shipping`|
-          |`5`|`promotion`|
+        default: 'lineItems.digitalItems.options,lineItems.physicalItems.options'
         enum:
-          - 1
-          - 2
-          - 3
-          - 4
-          - 5
-      discountedAmount:
-        type: number
-        format: float
-        description: The discounted amount applied within a given context.
-    required:
-      - code
-  AppliedDiscount:
-    type: object
-    properties:
-      id:
-        type: number
-        description: ID of the applied discount.
-      discountedAmount:
-        type: number
-        format: float
-        description: The discounted amount applied within a given context.
-    title: Applied Discount
-  GiftWrapping:
-    title: Gift Wrapping
-    type: object
-    properties:
-      name:
+          - lineItems.physicalItems.options
+          - lineItems.digitalItems.options
+          - 'lineItems.digitalItems.options,lineItems.physicalItems.options'
+    include:
+      name: include
+      in: query
+      description: Include product options in specified line item types.
+      schema:
         type: string
-        description: Name of the gift-wrapping option.
-      amount:
-        type: number
-        format: float
-        description: Gift-wrapping price per product.
-      message:
-        type: string
-  ItemCustom:
-    type: object
-    title: Item Custom
-    description: |-
-      **Read Only**
-
-      This will return in the Cart Response if the Cart was created using the [Server to Server Cart API](/api-reference/cart-checkout/server-server-cart-api). A custom item can only be added to a cart using the Server to Server API. 
-    properties:
-      id:
-        type: string
-        description: Id of the custom item
-        example: f1f3a531-fbcf-439b-bac1-40d5ae5c2bff
-        readOnly: true
-      sku:
-        type: string
-        description: Custom item sku
-        example: SM-456
-        readOnly: true
-      name:
-        type: string
-        description: Item name
-        example: Custom Item Name
-        readOnly: true
-      quantity:
-        type: integer
-        example: 1
-        readOnly: true
-      listPrice:
-        type: integer
-        description: Price of the item. With or without tax depending on your stores set up.
-        example: 10
-        readOnly: true
-      extendedListPrice:
-        type: integer
-        example: 9.24
-        readOnly: true
-securityDefinitions: {}
-basePath: /api/storefront
-schemes:
-  - https
+        enum:
+          - lineItems.physicalItems.options
+          - lineItems.digitalItems.options
+          - 'lineItems.digitalItems.options,lineItems.physicalItems.options'
+  examples: {}
 x-stoplight:
   docs:
     includeDownloadLink: true
     showModels: false
-host: '{$$.env.store_domain}'
-tags:
-  - name: Cart Items
-responses:
-  CartResponse:
-    description: ''
-    schema:
-      $ref: '#/definitions/Cart_Full'
