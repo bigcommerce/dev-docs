@@ -408,6 +408,10 @@ var loginMutation =
 # Otherwise, the success message can be used to determine
 # that the credentials are valid
 #
+# Chrome incognito and Safari by default block cross-origin
+# requests containing third-party cookies; this causes
+# subsequent customer queries from the playground to fail.
+#
 # Credentials should ALWAYS be passed as GraphQL Variables
 # Stores in pre-launch or maintenance mode may reject queries.
 # Access from Control Panel > Advanced Settings > Storefront API Playground
