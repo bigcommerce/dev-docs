@@ -1007,7 +1007,7 @@ Converts a JavaScript object into a JSON string.
 
 #### Parameters
 
-- `object` {Object}: A JavaScrip object.
+- `object` {Object}: A JavaScript object.
 
 #### Example
 
