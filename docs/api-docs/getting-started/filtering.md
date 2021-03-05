@@ -24,8 +24,8 @@ These are the most common filter options available for the V3 API:
 | Greater than (for numbers or dates)| attribute:greater=value | `/v3/catalog/products?price:greater=10` |
 | Less than (for numbers or dates) | attribute:less=value | `/v3/catalog/products?price:less=10` |
 | SQL LIKE operator (for strings) | attribute:like=pattern | `/v3/catalog/categories?name:like=Shirts` |
-| SQL IN operator (for arrays) | attribute:in=csv,list,of,values | `/v3/catalog/products?categories:in=123,456` |
-| SQL NOT IN operator (for arrays) | attribute:not_in=csv,list,of,values | `/v3/catalog/products?categories:not_in=123,456` |
+| SQL IN operator (for arrays) | attribute:in=csv,list of values | `/v3/catalog/products?categories:in=123,456` |
+| SQL NOT IN operator (for arrays) | attribute:not_in=csv,list of values | `/v3/catalog/products?categories:not_in=123,456` |
 
 Available filters vary by endpoint. For up-to-date information on supported filters, refer to the `GET` method documentation of each endpoint.
 
