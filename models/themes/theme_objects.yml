@@ -4511,28 +4511,31 @@ definitions:
                           description: 'The default value to use when rendering the widget for the first time. '
                           example: '"#FFFFFF"'
   widget_image_manager:
+    description: ''
     type: object
-    title: image_manager
-    required:
-      - default
     properties:
       type:
         type: string
-        description: The type of setting component to display.
-        example: '"imageManager"'
+        minLength: 1
       id:
         type: string
-        description: The variable name where the setting value will be available in the widget template.
-        example: '"imageUrl"'
+        minLength: 1
       default:
         type: object
-        description: The default value to use when rendering the widget for the first time.
-        src: 
-          type: string
-          example: '"https://images.unsplash.com/photo-1548768041"'
-        type:
-          type: string
-          example: IMAGE_MANAGER         
+        properties:
+          src:
+            type: string
+            minLength: 1
+          type:
+            type: string
+            minLength: 1
+        required:
+          - src
+          - type
+    required:
+      - type
+      - id
+      - default      
   widget_input:
     type: object
     title: input
