@@ -11,7 +11,7 @@
 
 </div>
 
-Embedded Checkout lets you place BigCommerce's checkout onto any website. Customers can check out on an external storefront while their order information syncs simultaneously to the BigCommerce Control Panel. You can see this in action within the BigCommerce for WordPress plugin, which uses the same process described here as a checkout option for merchants. View more information about the plugin in the article [BigCommerce for Wordpress](https://developer.bigcommerce.com/bigcommerce-for-wordpress/getting-started/introduction).
+The [Checkout SDK's](https://github.com/bigcommerce/checkout-sdk-js) [`embedded-checkout` sub-module](https://github.com/bigcommerce/checkout-sdk-js/blob/master/docs/README.md#embedcheckout) can be used to embed [BigCommerce's Optimized One-Page Checkout](https://support.bigcommerce.com/s/article/Optimized-Single-Page-Checkout) into non-native storefronts like WordPress. You can see this in action within the BigCommerce for WordPress plugin, which uses the same process described here as a checkout option for merchants. View more information about the plugin in the article [BigCommerce for Wordpress](https://developer.bigcommerce.com/bigcommerce-for-wordpress/getting-started/introduction).
 
 ## How it works
 
@@ -35,4 +35,4 @@ The [Customer Login API](https://developer.bigcommerce.com/api-docs/customers/cu
 
 ### How do I resolve Embedded Checkout 403 "Cannot start checkout session with an empty cart" Errors?**
 
-In order for Embedded Checkout to work correctly for shoppers using a browser with restricted privacy settings (like Apple's Safari), your checkout page must be served from the same domain as your BigCommerce storefront. For example, if your headless storefront is `www.mystore.com`, then your BigCommerce store's domain should be `checkout.mystore.com`. See [BigCommerce for WordPress](https://support.bigcommerce.com/s/article/BigCommerce-for-WordPress-Checkout#safari) in the Help Center for more information on making Embedded Checkout on a headless WordPress storefront compatibile with Safari.
+For Embedded Checkout to work correctly for shoppers using a browser with restricted privacy settings (like Apple's Safari), your checkout page must be served from the same domain as your BigCommerce storefront. For example, if your headless storefront is `www.mystore.com`, then your BigCommerce store's domain should be `checkout.mystore.com`. For more information on making Embedded Checkout on a headless WordPress storefront compatible with Safari, see [BigCommerce for WordPress](https://support.bigcommerce.com/s/article/BigCommerce-for-WordPress-Checkout#safari) in the Help Center.
