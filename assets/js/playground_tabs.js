@@ -9,8 +9,11 @@
  * tabs.get("customerDetails");
  * */
 
-var paginateProductsQuery = 
+var paginateProductsQuery =
 `# Get a few products from the catalog
+# Stores in pre-launch or maintenance mode may reject queries.
+# Access from Control Panel > Advanced Settings > Storefront API Playground
+# or browse privately and query against https://buybutton.store/graphql
 query paginateProducts(
   $pageSize: Int = 3
   $cursor: String
@@ -26,7 +29,7 @@ query paginateProducts(
       edges {
         cursor
         node {
-          entityId 
+          entityId
           name
         }
       }
@@ -34,9 +37,12 @@ query paginateProducts(
   }
 }`
 
-var categoryTreeQuery = 
+var categoryTreeQuery =
 `# Explicitly fetch the first 3 levels of the category tree,
 # and get a few fields on each category
+# Stores in pre-launch or maintenance mode may reject queries.
+# Access from Control Panel > Advanced Settings > Storefront API Playground
+# or browse privately and query against https://buybutton.store/graphql
 query CategoryTree3LevelsDeep {
   site {
     categoryTree {
@@ -57,9 +63,12 @@ fragment CategoryFields on CategoryTreeItem {
   entityId
 }`
 
-var lookUpUrlQuery = 
+var lookUpUrlQuery =
 `# Given a URL path, look it up to see if it matches a Product, Brand, or Category,
 # and fetch details about that object
+# Stores in pre-launch or maintenance mode may reject queries.
+# Access from Control Panel > Advanced Settings > Storefront API Playground
+# or browse privately and query against https://buybutton.store/graphql
 query LookUpUrl(
   $urlPath: String!
   # Use GraphQL Query Variables to provide a path
@@ -96,10 +105,13 @@ query LookUpUrl(
   }
 }`
 
-var singleProductQuery = 
+var singleProductQuery =
 `# Fetch details about a product by its ID
+# Stores in pre-launch or maintenance mode may reject queries.
+# Access from Control Panel > Advanced Settings > Storefront API Playground
+# or browse privately and query against https://buybutton.store/graphql
 query productById(
-  $productId: Int! 
+  $productId: Int!
   # Use GraphQL Query Variables to inject your product ID
 ) {
   site {
@@ -181,6 +193,9 @@ var singleVariantQuery =
 `# Get a particular Product Variant by its SKU code
 # This will return variant-level information where relevant,
 # and the base product information otherwise
+# Stores in pre-launch or maintenance mode may reject queries.
+# Access from Control Panel > Advanced Settings > Storefront API Playground
+# or browse privately and query against https://buybutton.store/graphql
 query VariantById (
   $variantSku: String!
   # Use GraphQL Query Variables to inject your variant ID
@@ -226,8 +241,11 @@ fragment DimensionFields on Measurement {
 
 var extendedProductQuery =
 `# Get extended information (options, variants) for several products with a list of IDs
+# Stores in pre-launch or maintenance mode may reject queries.
+# Access from Control Panel > Advanced Settings > Storefront API Playground
+# or browse privately and query against https://buybutton.store/graphql
 query ExtendedProductsById(
-  $productIds: [Int!] 
+  $productIds: [Int!]
   # Use GraphQL Query Variables to inject your product IDs
 ) {
   site {
@@ -285,10 +303,13 @@ var refinedProductQuery =
 # This will return an updated version of the product information with these selections
 # factored in, which may affect the SKU, Prices, Image, or other details based on the
 # catalog configuration of the store.
+# Stores in pre-launch or maintenance mode may reject queries.
+# Access from Control Panel > Advanced Settings > Storefront API Playground
+# or browse privately and query against https://buybutton.store/graphql
 query ProductsWithOptionSelections (
   $productId: Int!,
   $optionValueIds: [OptionValueId!]
-  # Use GraphQL Query Variables to inject your product ID 
+  # Use GraphQL Query Variables to inject your product ID
   # and Option Value IDs
 ) {
   site {
@@ -327,9 +348,12 @@ var refinedProductQueryVariables =
   ]
 }`
 
-var metafieldsQuery = 
+var metafieldsQuery =
 `# Access metafields attached to products, brands, categories, or variants
 # Adjust this query with your metafield namespace and key(s) to access them
+# Stores in pre-launch or maintenance mode may reject queries.
+# Access from Control Panel > Advanced Settings > Storefront API Playground
+# or browse privately and query against https://buybutton.store/graphql
 query metafields {
   site {
     products(first: 3) {
@@ -375,16 +399,18 @@ query metafields {
   }
 }`
 
-var loginMutation = 
+var loginMutation =
 `# Log in a customer using email and password
 #
-# If this is being used in a browser, a cookie will be set 
+# If this is being used in a browser, a cookie will be set
 # to authenticate future requests
-# 
-# Otherwise, the success message can be used to determine 
+#
+# Otherwise, the success message can be used to determine
 # that the credentials are valid
 #
 # Credentials should ALWAYS be passed as GraphQL Variables
+# Stores in pre-launch or maintenance mode may reject queries.
+# Access from Control Panel > Advanced Settings > Storefront API Playground
 mutation Login($email: String!, $pass: String!) {
   login(email: $email, password: $pass) {
     result
