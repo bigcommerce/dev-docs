@@ -101,7 +101,8 @@ Accept: application/json
 <div class="HubBlock-content">
 
 > ### Note
-> * To get an `item_id` for the [create refund quote](https://developer.bigcommerce.com/api-reference/store-management/order-transactions/order-refunds/postrefundquote#requestrunner) request, make a request to [get order products](https://developer.bigcommerce.com/api-reference/store-management/orders/order-products/getallorderproducts#requestrunner); the `id` of the order product is the `item_id`.
+> * To get an `item_id` for the [create refund quote](https://developer.bigcommerce.com/api-reference/store-management/order-transactions/order-refunds/postrefundquote#requestrunner) request for an item with `"item_type": "PRODUCT", make a request to [get order products](https://developer.bigcommerce.com/api-reference/store-management/orders/order-products/getallorderproducts#requestrunner); the `id` of the order product is the `item_id`.
+> * To get an `item_id` for the [create refund quote](https://developer.bigcommerce.com/api-reference/store-management/order-transactions/order-refunds/postrefundquote#requestrunner) request for an item with `"item_type": "SHIPPING", make a request to [get order shipping addresses](https://developer.bigcommerce.com/api-reference/store-management/orders/order-shipping-addresses/getallshippingaddresses#requestrunner); the `id` of the order shipping address is the `item_id`.
 > * To get a list of orders and their `id`s, make a request to [get all orders](https://developer.bigcommerce.com/api-reference/store-management/orders/orders/getallorders#requestrunner).
 
 </div>
