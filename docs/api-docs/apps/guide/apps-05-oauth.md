@@ -1,4 +1,3 @@
-<<<<<<< HEAD
 # Single-Click App OAuth Flow
 
 
@@ -495,4 +494,3 @@ For additional details, see [Security Considerations in RC6749](https://tools.ie
 * [An Introduction to OAuth 2](https://www.digitalocean.com/community/tutorials/an-introduction-to-oauth-2) (www.digitalocean.com)
 * [RFC6749](https://tools.ietf.org/html/rfc6749) (tools.ietf.org)
 * [OWASP Top Ten](https://owasp.org/www-project-top-ten/) (owasp.org)
->>>>>>> master
