@@ -10,7 +10,7 @@
 
 </div>
 
-The article illustrates the difference between V2 and V3 Catalog APIs by comparing major operations. 
+This article illustrates the difference between V2 and V3 Catalog APIs by comparing major operations. 
 
 ## V2 and V3 operations
 
@@ -21,8 +21,8 @@ In this section, we will look at using V2 and V3 Catalog APIs to work with simpl
 <div class="HubBlock-content">
 
 > ### Note
-> * **Simple product** is a product that does not have variants, options, or modifiers.
-> * **Complex product** is a product that has variants, options, or modifiers.
+> * **Simple products** are products that do not have variants, options, or modifiers.
+> * **Complex products** are products that have variants, options, or modifiers.
 
 </div>
 </div>
@@ -285,16 +285,13 @@ To create a simple product using the V2 Products API, in addition to the propert
 }
 ```
 
-### Create a product with images
+### Add a product image
 
-To create a simple product with an image using the V3 Catalog API, first create the product, then add the image.
+To add an image to the existing product using the V3 Catalog API, send a `POST` request to `/v3/catalog/products/{product_id}/images`.
 
 **V3 request**
 
 `POST /v3/catalog/products/{product_id}/images`
-
-1. Create a product using `POST /v3/catalog/products`
-2. Add an image using `POST /v3/catalog/products/{product_id}/images`
 
 ```json
 {
@@ -305,14 +302,11 @@ To create a simple product with an image using the V3 Catalog API, first create 
 }
 ```
 
-Creating a product with an image in V2 follows a similar sequence; however, the V2 `/images` endpoint only accepts the `multipart/form-data` media type.
+The V2 `/images` endpoint only accepts the `multipart/form-data` media type.
 
 **V2 request**
 
 `POST /v2/products/{product_id}/images`
-
-1. Create a product using `POST /v2/products`
-2. Add an image using `POST /v2/products/{product_id}/images`
 
 ```shell
 curl -X POST \
@@ -326,16 +320,13 @@ curl -X POST \
   -F image_file=@/Users/{user_name}/Documents/product_images/image_file.png
   ```
 
-### Create a product with videos
+### Add a product video
 
-To create a simple product with an video using the V3 Catalog API, first create the product, then add the video. All videos must be loaded through YouTube and have a `video_id`.
+To add a video to the existing product using the V3 Catalog API, send a `POST` request to `/v3/catalog/products/{product_id}/videos`. All videos must be loaded through YouTube and have a `video_id`.
 
 **V3 request**
 
 `POST /v3/catalog/products/{product_id}/videos`
-
-1. Create a product using `POST /v3/catalog/products`
-2. Add a video using `POST /v3/catalog/products/{product_id}/videos`
 
 ```json
 {
@@ -343,18 +334,15 @@ To create a simple product with an video using the V3 Catalog API, first create 
   "description": "Company Values",
   "sort_order": 1,
   "type": "youtube",
-  "video_id": "123345AA"
+  "video_id": "4wZ3ZG_Wams"
 }
 ```
 
-V2 follows a similar sequence; however, you must pass the full URL in the request body to create a new video.
+To add a product video using the V2 API, you must pass the full video URL in the request body.
 
 **V2 request**
 
 `POST /v2/products/{product_id}/videos`
-
-1. Create a product using `POST /v2/products`
-2. Add a video using `POST /v2/products/{product_id}/videos`
 
 ```json
 {
@@ -616,7 +604,7 @@ Now that you have both `option_value_id` and `product_option_id`, you can add SK
 
 **V3 example**
 
-This examples uses a checkbox which is created in two steps.
+This example uses a checkbox that is created in two steps.
 
 1. Create a modifier
 
@@ -777,14 +765,14 @@ In V3, you can update stock levels on multiple variants and SKUs in one call by 
 
 ## Interoperability between V2 and V3
 
-When a product option is created in V2 and assigned to a product, editing the global option using the V3 Catalog API will automatically copy the V2 global product option to a local product variant, option, or modifier. This is triggered by an `UPDATE ` or a `DELETE` call to either the [Product Options](https://developer.bigcommerce.com/api-reference/store-management/catalog/product-options/getoptions) or [Product Modifiers](https://developer.bigcommerce.com/api-reference/store-management/catalog/product-modifiers/getmodifiers) endpoints.
+When a product option is created in V2 and assigned to a product, editing the global option using the V3 Catalog API will automatically copy the V2 global product option to a local product variant, option, or modifier. This is triggered by an `UPDATE` or a `DELETE` call to either the [Product Options](https://developer.bigcommerce.com/api-reference/store-management/catalog/product-options/getoptions) or [Product Modifiers](https://developer.bigcommerce.com/api-reference/store-management/catalog/product-modifiers/getmodifiers) endpoints.
 
 Editing the V2 global product option using the V3 Catalog API will do the following:
 
 - Change the `option_value` > `id`. Not the `option_id`.
 - Create a copy directly on the product.
 - Copy over any variants, modifiers, and option set rules.
-- Copy global option set rules as product rules and update the `sort_order`. These global option set rules take precedence over any existing product rules, which should mirror the behavior before the product was changed.
+- Copy global option set rules as product rules and update the `sort_order`. These global option set rules take precedence over any existing product rules, which should mirror the behavior before we changed the product.
 
 Editing the V2 global product option using the V3 Catalog API will not:
 
@@ -795,7 +783,7 @@ Editing the V2 global product option using the V3 Catalog API will not:
 
 In this section, we will examine the difference between the original response for a V2 product and the final response after updating one of the option values using the V3 Catalog API. 
 
-The product used in this example is a t-shirt with a global option set of **Size** and **Color**. We are going to update the `label` property for **Size Small**, which has an `option_value` ID of 192. Make a note of the product's `option_values` IDs. These IDs will change when you make an update to the **Size Small** option using the V3 `/options` endpoint. 
+The product used in this example is a t-shirt with a global option set of **Size** and **Color**. We will update the `label` property for **Size Small**, which has an `option_value` ID of 192. Make a note of the product's `option_values` IDs. These IDs will change when you update the **Size Small** option using the V3 `/options` endpoint. 
 
 **V2 response**
 
@@ -940,7 +928,7 @@ Notice that the option value ID has changed from 192 to 214.
 }
 ```
 
-Even though only one option value was edited, option value IDs for all other options have also changed. The control panel will display these options as **(Custom)**.
+Even though we edited only one option value, option value IDs for all other options have also changed. The control panel will display these options as **(Custom)**.
 
 **V3 response**
 
