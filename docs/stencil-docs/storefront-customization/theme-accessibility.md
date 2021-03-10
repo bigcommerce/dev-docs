@@ -206,7 +206,7 @@ For apps that can check and improve your site's accessibility, see our Site Tool
 
 ### Articles
 - [WCAG (Web Content Accessibility Guidelines)](https://www.w3.org/WAI/standards-guidelines/wcag/)
-- [Essential Accessibility](https://wwww.essentialaccessibility.com/)
+- [Essential Accessibility](https://www.essentialaccessibility.com/)
 - [Audio Eye](https://www.audioeye.com)
 - [AccessiBe](https://accessibe.com/)
 
