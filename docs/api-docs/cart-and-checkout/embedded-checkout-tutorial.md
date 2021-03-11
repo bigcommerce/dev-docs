@@ -254,7 +254,7 @@ If your channel site doesn't match the URL from which you're making a request to
 ### Are hosted payment gateways supported with Embedded Checkout?
 At this time, you cannot embed a checkout using a hosted payment gateway. See [Available Payment Gateways](https://support.bigcommerce.com/s/article/Available-Payment-Gateways#all-available) to determine which type of gateway you're using.
 
-### How do I resolve Embedded Checkout 403 "Cannot start checkout session with an empty cart" Errors?**
+### How do I resolve Embedded Checkout 403 "Cannot start checkout session with an empty cart" Errors?
 
 For Embedded Checkout to work correctly for shoppers using a browser with restricted privacy settings (like Apple's Safari), your checkout page must be served from the same domain as your BigCommerce storefront. For example, if your headless storefront is `www.mystore.com`, then your BigCommerce store's domain should be `checkout.mystore.com`. For more information on making Embedded Checkout on a headless WordPress storefront compatible with Safari, see [BigCommerce for WordPress](https://support.bigcommerce.com/s/article/BigCommerce-for-WordPress-Checkout#safari) in the Help Center.
 
