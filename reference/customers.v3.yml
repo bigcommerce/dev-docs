@@ -14,6 +14,8 @@ tags:
   - name: Customer Consent
   - name: Customer Form Fields
   - name: Customer Stored Instruments
+  - name: Customer Settings
+  - name: Customer Settings Channel
 x-stoplight:
   docs:
     includeDownloadLink: true
@@ -242,6 +244,15 @@ paths:
         * Attributes must be [created](https://developer.bigcommerce.com/api-reference/customer-subscribers/v3-customers-api/customer-attributes/customersattributespost) **BEFORE** creating a customer.
         * attribute_id
         * attribute_value -- This is input as a string, regardless of the [Type](/api-reference/customer-subscribers/v3-customers-api/models/type).
+
+        **Notes**
+        For multi-storefront merchants who wants to give:
+        * Global access:
+          * The channel listed in `origin_channel_id` needs `allow_global_logins=true` in their channel settings
+          * Leave `channel_ids` empty
+        * Channel restricted access:
+          * The channel listed in `origin_channel_id` needs to have `allow_global_logins=false` in their channel settings
+          *  Either leave `channel_ids` empty to use the current channel or give the list of channels we grant access
       summary: Create Customers
       tags:
         - Customers
@@ -286,6 +297,7 @@ paths:
                     accepts_product_review_abandoned_cart_emails: true
                     store_credit_amounts:
                       - amount: 43.15
+                    origin_channel_id: 1
         required: true
         x-examples: {}
         description: ''
@@ -339,7 +351,8 @@ paths:
 
         **Notes**
 
-        Attributes Values can not be updated using Update a Customer. Use the Update a [Customer Attribute Values](https://developer.bigcommerce.com/api-reference/customer-subscribers/v3-customers-api/customer-attribute-values/customersattributevaluesput) endpoint.
+        * Attributes Values can not be updated using Update a Customer. Use the Update a [Customer Attribute Values](https://developer.bigcommerce.com/api-reference/customer-subscribers/v3-customers-api/customer-attribute-values/customersattributevaluesput) endpoint.
+        * channel_ids -- Updating the list of channels a customer can access may create some side effects in a multi-storefront situation. This list determines which customer account we will use to authenticate a shopper given a channel.
       summary: Update Customers
       tags:
         - Customers
@@ -398,6 +411,7 @@ paths:
                     accepts_product_review_abandoned_cart_emails: true
                     store_credit_amounts:
                       - amount: 43.15
+                    channel_ids: '-1 -2'
     delete:
       description: |-
         Deletes Customers.
@@ -466,7 +480,7 @@ paths:
             type: array
             items:
               type: string
-        - name: name:in
+        - name: 'name:in'
           in: query
           description: 'Filter items by first_name and last_name. `name:in=James+Moriarty`'
           style: form
@@ -697,9 +711,124 @@ paths:
           headers: {}
       tags:
         - Customer Addresses
+  /customers/settings:
+    get:
+      tags:
+        - Customer Settings
+      description: Gets the customer settings
+      summary: Gets the customer settings
+      operationId: CustomerSettingsGet
+      responses:
+        '200':
+          description: Customer settings are returned.
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/CustomerSettingsObject'
+              examples:
+                data:
+                  value:
+                    privacy_settings:
+                      ask_shopper_for_tracking_consent: true
+                      policy_url: 'https://bigcommmerce.com/policy'
+                    customer_group_settings:
+                      guest_customer_group_id: 1
+                      default_customer_group_id: 1
+    put:
+      tags:
+        - Customer Settings
+      description: Update the customer settings
+      summary: Update the customer settings
+      operationId: CustomerSettingsPut
+      requestBody:
+        content:
+          application/json:
+            schema:
+              $ref: '#/components/schemas/CustomerSettingsObject'
+        required: true
+      responses:
+        '200':
+          description: Customer settings are returned
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/CustomerSettingsObject'
+              examples:
+                data:
+                  value:
+                    privacy_settings:
+                      ask_shopper_for_tracking_consent: true
+                      policy_url: 'https://bigcommmerce.com/policy'
+                    customer_group_settings:
+                      guest_customer_group_id: 1
+                      default_customer_group_id: 1
+  '/customers/settings/channels/{channel_id}':
+    get:
+      tags:
+        - Customer Settings Channel
+      description: Gets the customer settings per channel
+      summary: Gets the customer settings per channel
+      operationId: CustomerSettingsChannelGet
+      parameters:
+        - in: path
+          name: channel_id
+          schema:
+            type: object
+          required: true
+      responses:
+        '200':
+          description: Customer settings for this channel are returned
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/responses/CustomerChannelSettingsResponse'
+              examples:
+                data:
+                  value:
+                    privacy_settings:
+                      ask_shopper_for_tracking_consent: true
+                      policy_url: 'https://bigcommmerce.com/policy'
+                    customer_group_settings:
+                      guest_customer_group_id: 1
+                      allow_global_logins: true
+    put:
+      tags:
+        - Customer Settings Channel
+      description: Update the customer settings per channel
+      summary: Update the customer settings per channel
+      operationId: CustomerSettingsChannelPut
+      parameters:
+        - in: path
+          name: channel_id
+          schema:
+            type: integer
+          required: true
+      requestBody:
+        content:
+          application/json:
+            schema:
+              $ref: '#/components/schemas/CustomerChannelSettingsObject'
+        required: true
+      responses:
+        '200':
+          description: Customer settings are returned
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/responses/CustomerChannelSettingsResponse'
+              examples:
+                data:
+                  value:
+                    privacy_settings:
+                      ask_shopper_for_tracking_consent: true
+                      policy_url: 'https://bigcommmerce.com/policy'
+                    customer_group_settings:
+                      guest_customer_group_id: 1
+                      default_customer_group_id: 1
+                    allow_global_logins: true
   /customers/attributes:
     get:
-      description: Returns a list of Customer Attributes. Optional filter parameters can be passed in.
+      description: Returns a list of Customer Attributes. You can pass in optional filter parameters.
       summary: Get All Customer Attributes
       operationId: CustomersAttributesGet
       deprecated: false
@@ -714,7 +843,7 @@ paths:
           description: Items count per page. `limit=50`
           schema:
             type: number
-        - name: 'name'
+        - name: name
           in: query
           required: false
           description: Filter items by customer attribute name `name=Date+Joined`
@@ -723,7 +852,7 @@ paths:
         - name: 'name:like'
           in: query
           required: false
-          description: Filter items by substring in customer attribute name. `name:like=join`
+          description: 'Filter items by substring in customer attribute name. `name:like=join`'
           schema:
             type: string
         - name: type
@@ -735,21 +864,21 @@ paths:
         - name: date_created
           in: query
           required: false
-          description: Filter items by `date_created`. `date_created=2021-01-07T20:28:16Z`
+          description: 'Filter items by `date_created`. `date_created=2021-01-07T20:28:16Z`'
           schema:
             type: string
             format: date-time
         - name: 'date_created:max'
           in: query
           required: false
-          description: Filter items by maximum `date_created`. ISO 8601 full-date is required, ISO 8601 full-time is not required. UNIX timestamp also accepted. `date_created=2021-01-07` or `date_created=1610051296000`
+          description: 'Filter items by maximum `date_created`. ISO 8601 full-date is required, ISO 8601 full-time is not required. UNIX timestamp also accepted. `date_created=2021-01-07` or `date_created=1610051296000`'
           schema:
             type: string
             format: date-time
         - name: 'date_created:min'
           in: query
           required: false
-          description: Filter items by minimum `date_created`. ISO 8601 full-date is required, ISO 8601 full-time is not required. UNIX timestamp also accepted. `date_created=2021-01-07` or `date_created=1610051296000`
+          description: 'Filter items by minimum `date_created`. ISO 8601 full-date is required, ISO 8601 full-time is not required. UNIX timestamp also accepted. `date_created=2021-01-07` or `date_created=1610051296000`'
           schema:
             type: string
             format: date-time
@@ -763,14 +892,14 @@ paths:
         - name: 'date_modified:max'
           in: query
           required: false
-          description: Filter items by maximum `date_modified`. ISO 8601 full-date is required, ISO 8601 full-time is not required. UNIX timestamp also accepted. `date_created=2021-01-07` or `date_created=1610051296000`
+          description: 'Filter items by maximum `date_modified`. ISO 8601 full-date is required, ISO 8601 full-time is not required. UNIX timestamp also accepted. `date_created=2021-01-07` or `date_created=1610051296000`'
           schema:
             type: string
             format: date-time
         - name: 'date_modified:min'
           in: query
           required: false
-          description: Filter items by minimum `date_modified`. ISO 8601 full-date is required, ISO 8601 full-time is not required. UNIX timestamp also accepted. `date_created=2021-01-07` or `date_created=1610051296000`
+          description: 'Filter items by minimum `date_modified`. ISO 8601 full-date is required, ISO 8601 full-time is not required. UNIX timestamp also accepted. `date_created=2021-01-07` or `date_created=1610051296000`'
           schema:
             type: string
             format: date-time
@@ -1308,7 +1437,7 @@ paths:
                   - name: color
                     value: blue
                     customer_id: 0
-  /customers/{customerId}/consent:
+  '/customers/{customerId}/consent':
     get:
       description: Gets the status of a customer's consent to allow data collection by cookies and scripts while shopping on a storefront.
       summary: Get Customer Consent
@@ -3532,6 +3661,27 @@ components:
         application/json:
           schema:
             $ref: '#/components/schemas/consent_Full'
+    CustomerSettingsResponse:
+      description: ''
+      content:
+        application/json:
+          schema:
+            title: CustomerSettingsResponse
+            type: object
+            properties:
+              data:
+                $ref: '#/components/schemas/CustomerSettingsObject'
+    CustomerChannelSettingsResponse:
+      description: ''
+      content:
+        application/json:
+          schema:
+            title:
+            description: ''
+            type: object
+            properties:
+              data:
+                $ref: "#/components/schemas/CustomerChannelSettingsObject"
   securitySchemes:
     X-Auth-Token:
       type: apiKey
@@ -4785,3 +4935,42 @@ components:
             type: number
             format: float
             example: 43.15
+    CustomerSettingsObject:
+      title: CustomerSettingsObject
+      type: object
+      description: Customer Settings
+      properties:
+        privacy_settings:
+          type: object
+          properties:
+            ask_shopper_for_tracking_consent:
+              type: boolean
+            policy_url:
+              type: string
+        customer_group_settings:
+          type: object
+          properties:
+            guest_customer_group_id:
+              type: integer
+            default_customer_group_id:
+              type: integer
+    CustomerChannelSettingsObject:
+      title: CustomerChannelSettingsObject
+      type: object
+      properties:
+        privacy_settings:
+          type: object
+          properties:
+            ask_shopper_for_tracking_consent:
+              type: boolean
+            policy_url:
+              type: string
+        customer_group_settings:
+          type: object
+          properties:
+            guest_customer_group_id:
+              type: integer
+            default_customer_group_id:
+              type: integer
+        allow_global_logins:
+          type: boolean
