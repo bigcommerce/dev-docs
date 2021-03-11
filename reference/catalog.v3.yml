@@ -3842,9 +3842,9 @@ paths:
               instance:
                 type: string
             title: Not Found
-      summary: Get All Product Options
+      summary: Get All Product Variant Options
       tags:
-        - Product Options
+        - Product Variant Options
     post:
       parameters:
         - name: Option
@@ -4241,9 +4241,9 @@ paths:
                       additionalProperties:
                         type: string
             title: Error Response
-      summary: Create a Product Option
+      summary: Create a Product Variant Option
       tags:
-        - Product Options
+        - Product Variant Options
   '/catalog/products/{product_id}/options/{option_id}':
     parameters:
       - name: product_id
@@ -4354,9 +4354,9 @@ paths:
               instance:
                 type: string
             title: Not Found
-      summary: Get a Product Option
+      summary: Get a Product Variant Option
       tags:
-        - Product Options
+        - Product Variant Options
     put:
       description: |-
         Updates a *Variant Option*.
@@ -5008,15 +5008,15 @@ paths:
                       additionalProperties:
                         type: string
             title: Error Response
-      summary: Update a Product Option
+      summary: Update a Product Variant Option
       tags:
-        - Product Options
+        - Product Variant Options
     delete:
       operationId: deleteOptionById
       responses:
         '204':
           description: ''
-      summary: Delete a Product Option
+      summary: Delete a Product Variant Option
       description: Deletes a *Variant Option*.
       parameters:
         - in: header
@@ -5030,7 +5030,7 @@ paths:
           default: application/json
           required: true
       tags:
-        - Product Options
+        - Product Variant Options
   '/catalog/products/{product_id}/options/{option_id}/values':
     parameters:
       - name: product_id
@@ -5165,9 +5165,9 @@ paths:
                   total_pages: 1
                   links:
                     current: '?page=1&limit=50'
-      summary: Get All Product Option Values
+      summary: Get All Product Variant Option Values
       tags:
-        - Product Option Values
+        - Product Variant Option Values
     post:
       description: |-
         Creates a *Variant Option Value*.
@@ -5332,9 +5332,9 @@ paths:
                       additionalProperties:
                         type: string
             title: Error Response
-      summary: Create Product Option Values
+      summary: Create a Product Variant Option Value
       tags:
-        - Product Option Values
+        - Product Variant Option Values
   '/catalog/products/{product_id}/options/{option_id}/values/{value_id}':
     parameters:
       - name: product_id
@@ -5451,9 +5451,9 @@ paths:
               instance:
                 type: string
             title: Not Found
-      summary: Get a Product Option Value
+      summary: Get a Product Variant Option Value
       tags:
-        - Product Option Values
+        - Product Variant Option Values
     put:
       description: |-
         Updates a *Variant Option Value*.
@@ -5616,16 +5616,16 @@ paths:
                       additionalProperties:
                         type: string
             title: Error Response
-      summary: Update a Product Option Value
+      summary: Update a Product Variant Option Value
       tags:
-        - Product Option Values
+        - Product Variant Option Values
     delete:
-      description: Deletea a *Variant Option Value*.
+      description: Deletes a *Variant Option Value*.
       operationId: deleteOptionValueById
       responses:
         '204':
           description: ''
-      summary: Delete a Product Option Value
+      summary: Delete a Product Variant Option Value
       parameters:
         - in: header
           type: string
@@ -5638,7 +5638,7 @@ paths:
           default: application/json
           required: true
       tags:
-        - Product Option Values
+        - Product Variant Option Values
   '/catalog/products/{product_id}/modifiers':
     parameters:
       - name: product_id
