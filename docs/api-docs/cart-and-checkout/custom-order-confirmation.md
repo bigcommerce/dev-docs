@@ -30,7 +30,7 @@ If using Open Source Checkout, you can generate the loader file by following the
 1. Navigate and locate the Open Source Checkout folder using the terminal, and run `npm ci` to download dependencies.
 2. Run `npm run build` to generate a `/dist/` folder with all the files.
 
-When using Open Source Checkout to view changes and test implementations through the UI, deploy, and install the custom confirmation page. More details are below.
+When using Open Source Checkout to view changes and test implementations through the UI, deploy and install the custom confirmation page. More details are below.
 
 ### Properties available on the custom order confirmation page
 When a store uses a custom confirmation page, some properties are attached to the `window.checkoutConfig` object on the checkout page. These properties are:
