@@ -27,7 +27,7 @@ The loader file must be responsible for the following:
 
 If using Open Source Checkout, you can generate the loader file by following these steps:
 
-1. Navigate and locate the Open Source Checkout folder using the terminal, and run `npm ci` to download dependencies
+1. Navigate and locate the Open Source Checkout folder using the terminal, and run `npm ci` to download dependencies.
 2. Run `npm run build` to generate a `/dist/` folder with all the files
 
 When using Open Source Checkout to view changes and test implementations through the UI, deploy, and install the custom confirmation page. More details are below.
