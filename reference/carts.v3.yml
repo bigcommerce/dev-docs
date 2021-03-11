@@ -29,6 +29,7 @@ paths:
         * A cart can be created by adding an existing **catalog item** or a **custom item**.
         * Carts are valid for **30 days** from the **last modification** (this includes creating the cart or editing the cart).
         * If a product has modifiers, omit the `variant_id` and instead use the `option_selections` array to describe both the **variant** and the **modifier** selections.
+        * The format and data type of a cart's `option_value` is defined by the `value_data` object of a product’s [variant option value](https://developer.bigcommerce.com/api-reference/store-management/catalog/product-option-values/getoptionvaluebyid), [modifier value](https://developer.bigcommerce.com/api-reference/store-management/catalog/product-modifier-values/getmodifiervaluebyid), or a combination of both.
         * Redirect URLs can only be generated from carts created using the **Server-to-Server Carts API**. 
         * To get cart `redirect_urls` in the response, append the following query parameter to the request URL: `include=redirect_urls`.
         * To restore a cart that was created by a shopper or via the Storefront Cart API, first recreate the cart using the Server to Server Cart API.
@@ -117,7 +118,7 @@ paths:
 
             1. Creating a cart by adding a simple product (a product without option selections).
             2. Creating a cart with a variant. This works when a product can be specified purely by a variant, without any other required options.
-            3. Creating a cart using a date option. The API supports timestamps, “option_value”: 1743570000, and dates as an array, “option_value”: {“day”:”01”, “month”:”02”, “year”:”2020”}.
+            3. Creating a cart using a date option. The API supports timestamps, “option_value”: 1743570000, and dates as an object literal, “option_value”: {“day”:”01”, “month”:”02”, “year”:”2020”}.
             4. Creating a cart with a variant, a checkbox, and a picklist modifier added.
             5. Creating a cart using a custom item.
         - name: include
@@ -703,9 +704,9 @@ definitions:
           code:
             type: string
             format: ISO-4217
-      locale: 
+      locale:
         type: string
-        description: Accepts string of format `xx` or `xx-YY`.    
+        description: Accepts string of format `xx` or `xx-YY`.
   CartRequestData:
     type: object
     title: Cart Request Data
@@ -1001,7 +1002,7 @@ definitions:
                           properties:
                             coupons:
                               type: object
-                              description: 'Required in a /POST request.'
+                              description: Required in a /POST request.
                               properties:
                                 coupon_code:
                                   type: object
@@ -1038,7 +1039,7 @@ definitions:
                                         - 4
                                     discountAmount:
                                       type: integer
-                                      description: The amount of the discount based on the coupon. For example, 3 percent off will show a 3.
+                                      description: 'The amount of the discount based on the coupon. For example, 3 percent off will show a 3.'
                                       example: 3
                                     expiresDate:
                                       type: integer
@@ -1059,7 +1060,7 @@ definitions:
                         description: The total value of all coupons applied to this item.
                       list_price:
                         type: number
-                        description: Item's list price, as quoted by the manufacturer/distributor.
+                        description: 'Item''s list price, as quoted by the manufacturer/distributor.'
                       sale_price:
                         type: number
                         description: Item's price after all discounts are applied. (The final price before tax calculation.)
@@ -1174,7 +1175,7 @@ definitions:
                           properties:
                             coupons:
                               type: object
-                              description: 'Required in a /POST request.'
+                              description: Required in a /POST request.
                               properties:
                                 coupon_code:
                                   type: object
@@ -1211,7 +1212,7 @@ definitions:
                                         - 4
                                     discountAmount:
                                       type: integer
-                                      description: The amount of the discount based on the coupon. For example, 3 percent off will show a 3.
+                                      description: 'The amount of the discount based on the coupon. For example, 3 percent off will show a 3.'
                                       example: 3
                                     expiresDate:
                                       type: integer
@@ -1232,7 +1233,7 @@ definitions:
                         description: The total value of all coupons applied to this item.
                       list_price:
                         type: number
-                        description: Item's list price, as quoted by the manufacturer/distributor.
+                        description: 'Item''s list price, as quoted by the manufacturer/distributor.'
                       sale_price:
                         type: number
                         description: Item's price after all discounts are applied. (The final price before tax calculation.)
@@ -1452,7 +1453,7 @@ definitions:
                     properties:
                       coupons:
                         type: object
-                        description: 'Required in a /POST request.'
+                        description: Required in a /POST request.
                         properties:
                           coupon_code:
                             type: object
@@ -1489,7 +1490,7 @@ definitions:
                                   - 4
                               discountAmount:
                                 type: integer
-                                description: The amount of the discount based on the coupon. For example, 3 percent off will show a 3.
+                                description: 'The amount of the discount based on the coupon. For example, 3 percent off will show a 3.'
                                 example: 3
                               expiresDate:
                                 type: integer
@@ -1510,7 +1511,7 @@ definitions:
                   description: The total value of all coupons applied to this item.
                 list_price:
                   type: number
-                  description: Item's list price, as quoted by the manufacturer/distributor. Optional price override.
+                  description: 'Item''s list price, as quoted by the manufacturer/distributor. Optional price override.'
                 sale_price:
                   type: number
                   description: Item's price after all discounts are applied. (The final price before tax calculation.)
@@ -1627,7 +1628,7 @@ definitions:
                     properties:
                       coupons:
                         type: object
-                        description: 'Required in a /POST request.'
+                        description: Required in a /POST request.
                         properties:
                           coupon_code:
                             type: object
@@ -1664,7 +1665,7 @@ definitions:
                                   - 4
                               discountAmount:
                                 type: integer
-                                description: The amount of the discount based on the coupon. For example, 3 percent off will show a 3.
+                                description: 'The amount of the discount based on the coupon. For example, 3 percent off will show a 3.'
                                 example: 3
                               expiresDate:
                                 type: integer
@@ -1685,7 +1686,7 @@ definitions:
                   description: The total value of all coupons applied to this item.
                 list_price:
                   type: number
-                  description: Item's list price, as quoted by the manufacturer/distributor. Optional price override.
+                  description: 'Item''s list price, as quoted by the manufacturer/distributor. Optional price override.'
                 sale_price:
                   type: number
                   description: Item's price after all discounts are applied. (The final price before tax calculation.)
@@ -1801,7 +1802,7 @@ definitions:
               type: string
             list_price:
               type: string
-              description: Price of the item. With or without tax, depending on your store's setup. Optional price override.
+              description: 'Price of the item. With or without tax, depending on your store''s setup. Optional price override.'
     required:
       - physical_items
       - digital_items
@@ -1921,7 +1922,7 @@ definitions:
               properties:
                 coupons:
                   type: object
-                  description: 'Required in a /POST request.'
+                  description: Required in a /POST request.
                   properties:
                     coupon_code:
                       type: object
@@ -1958,7 +1959,7 @@ definitions:
                             - 4
                         discountAmount:
                           type: integer
-                          description: The amount of the discount based on the coupon. For example, 3 percent off will show a 3.
+                          description: 'The amount of the discount based on the coupon. For example, 3 percent off will show a 3.'
                           example: 3
                         expiresDate:
                           type: integer
@@ -1979,7 +1980,7 @@ definitions:
             description: The total value of all coupons applied to this item.
           list_price:
             type: number
-            description: Item's list price, as quoted by the manufacturer/distributor. Optional price override.
+            description: 'Item''s list price, as quoted by the manufacturer/distributor. Optional price override.'
           sale_price:
             type: number
             description: Item's price after all discounts are applied. (The final price before tax calculation.)
@@ -2095,7 +2096,7 @@ definitions:
               properties:
                 coupons:
                   type: object
-                  description: 'Required in a /POST request.'
+                  description: Required in a /POST request.
                   properties:
                     coupon_code:
                       type: object
@@ -2132,7 +2133,7 @@ definitions:
                             - 4
                         discountAmount:
                           type: integer
-                          description: The amount of the discount based on the coupon. For example, 3 percent off will show a 3.
+                          description: 'The amount of the discount based on the coupon. For example, 3 percent off will show a 3.'
                           example: 3
                         expiresDate:
                           type: integer
@@ -2153,7 +2154,7 @@ definitions:
             description: The total value of all coupons applied to this item.
           list_price:
             type: number
-            description: Item's list price, as quoted by the manufacturer/distributor. Optional price override.
+            description: 'Item''s list price, as quoted by the manufacturer/distributor. Optional price override.'
           sale_price:
             type: number
             description: Item's price after all discounts are applied. (The final price before tax calculation.)
@@ -2267,7 +2268,7 @@ definitions:
           properties:
             coupons:
               type: object
-              description: 'Required in a /POST request.'
+              description: Required in a /POST request.
               properties:
                 coupon_code:
                   type: object
@@ -2304,7 +2305,7 @@ definitions:
                         - 4
                     discountAmount:
                       type: integer
-                      description: The amount of the discount based on the coupon. For example, 3 percent off will show a 3.
+                      description: 'The amount of the discount based on the coupon. For example, 3 percent off will show a 3.'
                       example: 3
                     expiresDate:
                       type: integer
@@ -2325,7 +2326,7 @@ definitions:
         description: The total value of all coupons applied to this item.
       list_price:
         type: number
-        description: Item's list price, as quoted by the manufacturer/distributor.
+        description: 'Item''s list price, as quoted by the manufacturer/distributor.'
       sale_price:
         type: number
         description: Item's price after all discounts are applied. (The final price before tax calculation.)
@@ -2458,7 +2459,7 @@ definitions:
         type: string
       list_price:
         type: string
-        description: Price of the item. With or without tax, depending on your store's setup.
+        description: 'Price of the item. With or without tax, depending on your store''s setup.'
   cart_PostVariant:
     type: array
     title: cart_PostVariant
