@@ -446,13 +446,9 @@ paths:
               $ref: '#/definitions/siteRoute_Full'
           x-examples:
             application/json:
-              - id: 1
-                type: product
-                matching: '*'
-                route: '/products/{id}'
-              - type: product
-                matching: '10'
-                route: '/products?id={id}'
+              type: product
+              matching: '*'
+              route: '/products/{id}'
         - in: path
           name: site_id
           type: integer
