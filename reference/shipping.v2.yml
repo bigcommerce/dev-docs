@@ -962,7 +962,7 @@ paths:
     get:
       description: >-
         Returns a list of *Shipping Methods* in a zone. Default sorting is by
-        shipping-method id, from lowest to highest. 
+        shipping-method id, from lowest to highest.
       summary: Get All Shipping Methods in a Zone
       tags:
         - Shipping Method
@@ -1154,17 +1154,17 @@ paths:
     get:
       description: >-
         Returns a single *Shipping Method* in a zone. Real Time Carrier
-        Connections are also supported by this endpoint.  
+        Connections are also supported by this endpoint.
 
 
-        ### Settings Objects 
+        ### Settings Objects
 
 
         A shipping method's `type` and `settings` properties can match one of
         the following models:
 
 
-        ### perorder Object – Properties 
+        ### perorder Object – Properties
 
 
         Object model for flat-rate shipping quotes per order.
@@ -1177,7 +1177,7 @@ paths:
         | rate | number | Flat rate per order. |
 
 
-        #### JSON Example 
+        #### JSON Example
 
 
         ```json
@@ -1192,7 +1192,7 @@ paths:
         ```
 
 
-        ### peritem Object – Properties 
+        ### peritem Object – Properties
 
 
         Object model for flat-rate shipping quotes per item ordered.
@@ -1205,7 +1205,7 @@ paths:
         | rate | number | Flat rate per item. |
 
 
-        #### JSON Example 
+        #### JSON Example
 
 
         ```json
@@ -1220,7 +1220,7 @@ paths:
         ```
 
 
-        ### weight Object – Properties 
+        ### weight Object – Properties
 
 
         Object model for shipping quotes by weight.
@@ -1242,8 +1242,8 @@ paths:
 
 
 
-        #### JSON Example 
-           
+        #### JSON Example
+
         ```json
 
         {
@@ -1270,7 +1270,7 @@ paths:
         ```
 
 
-        ### total Object – Properties 
+        ### total Object – Properties
 
 
         Object model for shipping quotes by order's total value.
@@ -1294,7 +1294,7 @@ paths:
         store's currency. |
 
 
-        #### JSON Example 
+        #### JSON Example
 
 
         This example sets free shipping above a certain order total:
@@ -1334,7 +1334,7 @@ paths:
                         "lower_limit": 50,
                         "upper_limit": 100000,
                         "shipping_cost": 0
-                    }       
+                    }
                 ]
             }
         }
@@ -1342,7 +1342,7 @@ paths:
         ```
 
 
-        ### Range Object – Properties 
+        ### Range Object – Properties
 
 
         Object model to define ranges for shipping quotes. Units are defined in
@@ -1361,7 +1361,7 @@ paths:
         between the lower and upper limits. |
 
 
-        #### JSON Example 
+        #### JSON Example
 
 
         ```json
@@ -1668,13 +1668,13 @@ paths:
                 pass_phrase: yourEndiciaPassphrase
           description: >-
             The request body will vary by carrier. See [Create a Carrier
-            Connection](/api-reference/store-management/shipping-api/shipping-carrier/postshippingcarrierconnection). 
+            Connection](/api-reference/store-management/shipping-api/shipping-carrier/postshippingcarrierconnection).
       responses:
         '204':
           description: Returns if request was succesful
         '400':
           description: |-
-            If a required field is not provided it will return a 400 response. 
+            If a required field is not provided it will return a 400 response.
 
             [
                 {
@@ -1718,7 +1718,7 @@ paths:
         '400':
           description: >-
             If a required field is not provided, the request will return a 400
-            response. 
+            response.
 
 
             [
@@ -1780,7 +1780,7 @@ paths:
           description: Returns if request was succesful
         '400':
           description: |-
-            If a required field is not provided it will return a 400 response. 
+            If a required field is not provided it will return a 400 response.
 
             [
                 {
@@ -2137,64 +2137,6 @@ definitions:
       connection:
         type: object
         description: '`connection` object varies by carrier'
-  customsInformation:
-    title: customsInformation
-    description: Data about the customs information object.
-    type: object
-    minProperties: 5
-    maxProperties: 5
-    properties:
-      product_id:
-        description: >-
-          The id of the product which the customs information data will apply
-          to.
-        type: integer
-        format: int32
-        example: 77
-      country_of_origin:
-        description: >-
-          The country of manufacture, production, or growth represented in ISO
-          3166-1 alpha-2 format.
-        type: string
-        pattern: '^[A-Z]{2}$'
-        minLength: 2
-        maxLength: 2
-        example: US
-      commodity_description:
-        description: >-
-          Description that provides information for customs to identify and
-          verify shapes physical characteristics and packaging of each shipment.
-        type: string
-        minLength: 0
-        maxLength: 100
-        example: Baseball caps
-      international_shipping:
-        description: Flag to determine whether this product will be shipped internationally
-        type: boolean
-        enum:
-          - true
-          - false
-        example: true
-      hs_codes:
-        $ref: '#/definitions/harmonizedSystemCodes'
-  harmonizedSystemCodes:
-    title: harmonizedSystemCodes
-    description: >-
-      Key value pair commonly used in the form of
-      **countryISO2:'/^[0-9A-Za-z]{6,14}$/'**. This is to represent a country
-      and the associated hs code that applies to that country. Eg
-      {"US":"508313","AU":"850610"}.
-
-
-      There is a special value of **'ALL'** which can be used in place of the
-      countryISO2 to represent that the hs code applies to all countries. Eg
-      {"ALL":"634000"}. This can be combined with other countries in the hs
-      codes object. For Eg {"All":"640000", "US":"641000"}
-    type: object
-    example:
-      CA: '508313'
-      AU: '817355'
-      ALL: '501000'
   metaCollection:
     title: metaCollection
     description: Meta data relating to pagination
@@ -2294,7 +2236,7 @@ securityDefinitions:
 
 
       * For more information on Authenticating BigCommerce APIs, see:
-      [Authentication](https://developer.bigcommerce.com/api-docs/getting-started/authentication). 
+      [Authentication](https://developer.bigcommerce.com/api-docs/getting-started/authentication).
 security:
   - X-Auth-Client: []
   - X-Auth-Token: []
