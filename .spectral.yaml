@@ -300,3 +300,13 @@ except:
     - oas2-schema
   'shipping_provider.yml#/host':
     - oas2-schema
+  'reference/customers_v2.yml':
+    - oas2-valid-response-schema-example
+    - oas2-valid-parameter-example
+    - oas2-valid-response-example
+    - oas2-valid-definition-example
+  'customers_v2.yml':
+    - oas2-valid-response-schema-example
+    - oas2-valid-parameter-example
+    - oas2-valid-response-example
+    - oas2-valid-definition-example
