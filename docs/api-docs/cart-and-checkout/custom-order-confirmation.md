@@ -39,7 +39,7 @@ When a store uses a custom confirmation page, some properties are attached to th
 * `orderId`: if present, it means we should render an order confirmation page for the given order Id
 * `checkoutId`: If present, the ID of the active checkout. You can't have both `orderId` and `checkoutId`
 
-To use the data exposed in the window object, include relevant code in your loader file. Here is an example of this code :
+To use the data exposed in the window object, include relevant code in your loader file. The following is an example of the relevant code:
 
 ```js
 ReactDOM.render(
