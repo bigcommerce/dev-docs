@@ -49,6 +49,10 @@ paths:
             * `cart.line_items.physical_items.options` - physical options
             * `cart.line_items.digital_items.options` - digital options
             * `consignments.available_shipping_options` - shipping options
+          enum:
+            - cart.line_items.physical_items.options
+            - cart.line_items.digital_items.options
+            - consignments.available_shipping_options
       responses:
         '200':
           $ref: '#/responses/CheckoutResponse'

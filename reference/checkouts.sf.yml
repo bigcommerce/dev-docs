@@ -54,6 +54,17 @@ paths:
             * `payments` - payments
             * `promotions` - promotions
             * `consignments.availableShippingOptions` - shipping options
+          enum:
+            - cart.lineItems.physicalItems.options
+            - cart.lineItems.digitalItems.options
+            - cart.lineItems.physicalItems.categoryNames
+            - cart.lineItems.digitalItems.categoryNames
+            - cart.lineItems.customItems.categoryNames
+            - customer
+            - customer.customerGroup
+            - payments
+            - promotions
+            - consignments.availableShippingOptions
       responses:
         '200':
           description: ''
