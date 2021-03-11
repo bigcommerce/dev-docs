@@ -781,7 +781,7 @@ paths:
           content:
             application/json:
               schema:
-                $ref: '#/components/responses/CustomerChannelSettingsResponse'
+                $ref: '#/components/schemas/CustomerChannelSettingsObject'
               examples:
                 data:
                   value:
@@ -815,7 +815,7 @@ paths:
           content:
             application/json:
               schema:
-                $ref: '#/components/responses/CustomerChannelSettingsResponse'
+                $ref: '#/components/schemas/CustomerSettingsObject'
               examples:
                 data:
                   value:
@@ -3661,27 +3661,6 @@ components:
         application/json:
           schema:
             $ref: '#/components/schemas/consent_Full'
-    CustomerSettingsResponse:
-      description: ''
-      content:
-        application/json:
-          schema:
-            title: CustomerSettingsResponse
-            type: object
-            properties:
-              data:
-                $ref: '#/components/schemas/CustomerSettingsObject'
-    CustomerChannelSettingsResponse:
-      description: ''
-      content:
-        application/json:
-          schema:
-            title:
-            description: ''
-            type: object
-            properties:
-              data:
-                $ref: "#/components/schemas/CustomerChannelSettingsObject"
   securitySchemes:
     X-Auth-Token:
       type: apiKey
