@@ -16,7 +16,9 @@ You can engage with your customers after purchase with a custom order confirmati
 The installation process is the same as [Installing a Custom Checkout](https://developer.bigcommerce.com/stencil-docs/customizing-checkout/installing-custom-checkouts), except you will modify a different [file](https://github.com/bigcommerce/checkout-js/blob/master/src/app/order/OrderConfirmation.tsx) in [Open Source Checkout](https://github.com/bigcommerce/checkout-js).
 
 ## Generate the JavaScript loader file
-The first step to installing a custom order confirmation page is generating the loader file. If creating both a custom checkout and a custom order confirmation page using checkout-js, the generated loader file is the same. However, you do not need to create a custom checkout in order to have a custom order confirmation page. You can install a custom order confirmation page and still use the default checkout. The loader file must be responsible for the following:
+Generating a loader file is the first step in installing a custom order confirmation page. If you are creating a custom checkout and a custom order confirmation page using checkout-js, the generated loader file is the same for both. However, you can install a custom order confirmation page and still use the default checkout.
+
+The loader file must be responsible for the following:
 
 * Loading all the required assets, including CSS files
 * Running the app
