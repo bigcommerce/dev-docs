@@ -11,7 +11,7 @@ jobs:
           command: mkdir ~/junit
       - run:
           name: "API Description Linter"
-          command: npx @stoplight/spectral lint reference/*.yml -f=junit -o ~/junit/test_results.xml -v -F=warn --ruleset=./.spectral.yaml
+          command: npx @stoplight/spectral@5.8.1 lint reference/*.yml -f=junit -o ~/junit/test_results.xml -v -F=warn --ruleset=./.spectral.yaml
       - store_test_results:
           path: ~/junit
       - store_artifacts:
