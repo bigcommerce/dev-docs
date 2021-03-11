@@ -50,7 +50,7 @@ ReactDOM.render(
 
 ## Hosting a custom order confirmation page
 
-You will need to host the custom confirmation file online so it can be served by the store. You can use a hosting service, such as [Amazon S3](https://aws.amazon.com/s3/). Using an external host will allow you the freedom to automate the build process if you wish and push updates automatically from your local machine.
+You will need to host the custom confirmation file online so it can be served by the store using an external hosting service. Using an external host will allow you the freedom to automate the build process if you wish and push updates automatically from your local machine.
 
 ### Using WebDAV to host a custom order confirmation page
 
