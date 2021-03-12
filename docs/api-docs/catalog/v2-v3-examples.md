@@ -606,7 +606,7 @@ Now that you have both `option_value_id` and `product_option_id`, you can add SK
 
 This example uses a checkbox that is created in two steps.
 
-1. Create a modifier
+1. Create a modifier.
 
 `POST /v3/catalog/products/{product_id}/modifiers`
 
