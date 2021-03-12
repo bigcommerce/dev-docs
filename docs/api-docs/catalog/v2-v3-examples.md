@@ -458,7 +458,7 @@ To assign the option set to the product, send a `PUT` request to `/v2/products/{
 }
 ```
 
-7. Assign SKUs to the options on the product
+7. Assign SKUs to the options on the product.
 
 First, retrieve the options associated with the option set. You will need the option's `option_value_id` to create an SKU.
 
