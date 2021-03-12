@@ -49,6 +49,7 @@ Please include:
 - App ID (see below)
 - Email
 - Description of the app
+- Your service URLs (see below)
 
 To get your app ID, create an app in [Developer Tools](https://devtools.bigcommerce.com/), and fill out the information on [Step 3 Technical](https://developer.bigcommerce.com/api-docs/apps/guide/publishing#add-technical-information). In the URL, the app will have a unique ID. Send the unique ID in exchange for a carrier ID to test the app.
 
