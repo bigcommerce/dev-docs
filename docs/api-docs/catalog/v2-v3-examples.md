@@ -436,7 +436,7 @@ Next, you need to create an option set and add the option and values created in 
 }
 ```
 
-4. Add the options created in step 1 to the option set
+4. Add the options created in step 1 to the option set.
 
 `POST /v2/option_sets/{option_set_id}/options`
 
