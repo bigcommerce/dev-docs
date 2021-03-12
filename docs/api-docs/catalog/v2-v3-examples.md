@@ -395,7 +395,7 @@ Creating a product with variants and SKUs on V2 requires calling multiple V2 end
 
 **V2 workflow**
 
-1. Create an option (for example, Color)
+1. Create an option (for example, Color).
 
 This will only create an option with no values added.
 
