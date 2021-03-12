@@ -308,7 +308,8 @@ Accept: application/json
 
 > ### Note
 > * Custom products do not get added to the catalog.
-> * If you do not specify the product price in the [create order](https://developer.bigcommerce.com/api-reference/store-management/orders/orders/createanorder) request, the product's catalog price will be used. You can override this price with the `price_inc_tax` and `price_ex_tax` properties.
+> * If the product's price is not specfied in the [create order](https://developer.bigcommerce.com/api-reference/store-management/orders/orders/createanorder) request, BigCommmerce's pricing service calculates the price by applying applicable currency conversions and [pricing operations](https://developer.bigcommerce.com/api-docs/store-management/pricing-order-operation) (such as [price lists](https://support.bigcommerce.com/s/article/Price-Lists) and [customer group discounts](https://support.bigcommerce.com/s/article/Customer-Groups#pricing)) to the product's catalog price; use `price_inc_tax` and `price_ex_tax` to override the calculated price.
+> * Marketing promotions currently do not apply to orders created via the Orders API.
 > * If you override `price_ex_tax` or `price_inc_tax`, override both; otherwise, order totals will not calculate correctly.
 > * Overriding `price_inc_tax` or `price_ex_tax` does not change variant pricing.
 
@@ -596,8 +597,8 @@ Order `subtotal` and `total` calculate automatically; edits to the following pro
 |`handling_cost_inc_tax`|`float`|Value of handling cost, including tax|
 |`wrapping_cost_ex_tax`|`float`|Value of wrapping cost, excluding tax |
 |`wrapping_cost_inc_tax`|`float`|Value of wrapping cost, including tax |
-|`billing_address`|`obj`|Used to calculate shipping and taxes| 
-|`shipping_addresses`|`array[obj]`|Used to calculate shipping and taxes| 
+|`billing_address`|`obj`|Used to calculate shipping and taxes|
+|`shipping_addresses`|`array[obj]`|Used to calculate shipping and taxes|
 
 You can override calculated values such as product prices, subtotals, and totals by sending a fixed value in the request. If you do not supply values for these properties, you will automatically calculate them based on the preset store values and tax rules.
 
