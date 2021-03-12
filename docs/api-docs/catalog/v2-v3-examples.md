@@ -446,7 +446,7 @@ Next, you need to create an option set and add the option and values created in 
 }
 ```
 
-5. Assign the option set to the product
+5. Assign the option set to the product.
 
 To assign the option set to the product, send a `PUT` request to `/v2/products/{id}` and update the `option_set_id` property.
 
