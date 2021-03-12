@@ -623,7 +623,7 @@ This example uses a checkbox that is created in two steps.
 }
 ```
 
-2. Update a modifier value
+2. Update a modifier value.
 
 `PUT /v3/catalog/products/{product_id}/modifiers/{modifier_id}/values/{value_id}`
 
