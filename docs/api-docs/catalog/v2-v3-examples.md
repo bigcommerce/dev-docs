@@ -424,7 +424,7 @@ This will add values such as white, black, and blue. You can only create one val
 }
 ```
 
-3. Create an option set
+3. Create an option set.
 
 Next, you need to create an option set and add the option and values created in the previous steps to it.
 
