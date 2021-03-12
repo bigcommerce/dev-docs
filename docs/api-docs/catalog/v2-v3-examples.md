@@ -409,7 +409,7 @@ This will only create an option with no values added.
 }
 ```
 
-2. Add option values
+2. Add option values.
 
 This will add values such as white, black, and blue. You can only create one value at a time. In this example, we will need to send three separate `POST` requests to create all colors.
 
