@@ -243,6 +243,7 @@ For additional details, see [Security Considerations in RC6749](https://tools.ie
 ### Additional resources
 * [OAuth 2.0 Simplified](https://oauth.net/getting-started/) ([oauth.net](https://oauth.net/))
 * [What the Heck is OAuth](https://developer.okta.com/blog/2017/06/21/what-the-heck-is-oauth) ([developer.okta.com](https://developer.okta.com/))
-* [An Introduction to OAuth 2](https://www.digitalocean.com/community/tutorials/an-introduction-to-oauth-2) ([DigitalOcean](www.digitalocean.com))
+* [An Introduction to OAuth 2](https://www.digitalocean.com/community/tutorials/an-introduction-to-oauth-2) ([DigitalOcean](https://www.digitalocean.com))
+
 * [RFC6749](https://tools.ietf.org/html/rfc6749) ([tools.ietf.org](https://tools.ietf.org/))
 * [OWASP Top Ten](https://owasp.org/www-project-top-ten/) ([owasp.org](https://owasp.org/))
