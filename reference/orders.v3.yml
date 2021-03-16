@@ -2,101 +2,50 @@ swagger: '2.0'
 info:
   title: Orders V3
   version: ''
-  description: >-
-    Surfaces endpoints related to payment processing. The
-    `/orders/{id}/transactions` endpoint returns transaction details for the
-    specified order. To programmatically create, update, and delete orders
-    themselves, see [Orders
-
-    v2](https://developer.bigcommerce.com/api-reference/store-management/orders).
-    To process payments, see [Payment
-
+  description: |-
+    Surfaces endpoints related to payment processing. The `/orders/{id}/transactions` endpoint returns transaction details for the specified order. To programmatically create, update, and delete orders themselves, see [Orders
+    v2](https://developer.bigcommerce.com/api-reference/store-management/orders). To process payments, see [Payment
     Processing](https://developer.bigcommerce.com/api-reference/payments/payments-process-payments).
 
-
     - [Authentication](#authentication)
-
-    - [Available Endpoints](#available-endpoints)
-
     - [Order Transactions](#order-transactions)
-
     - [Order refunds](#order-refunds)
-
     - [Resources](#resources)
-
 
     ## Authentication
 
-
-    Authenticate requests by including an
-    [OAuth](https://developer.bigcommerce.com/api-docs/getting-started/authentication)
-    `access_token` in the request header.
-
+    Authenticate requests by including an [OAuth](https://developer.bigcommerce.com/api-docs/getting-started/authentication) `access_token` in the request header.
 
     ```http
-
     GET https://api.bigcommerce.com/stores/{{STORE_HASH}}/v3/{{ENDPOINT}}
-
     Content-Type: application/json
-
     X-Auth-Token: {{ACCESS_TOKEN}}
-
     ```
-
 
     ### OAuth Scopes
 
-
     | UI Name| Permission |Parameter|
-
     |----------------------------------------------|------------|----------|
-
     | Order Transactions|modify|`store_v2_transactions`|
-
     | Order Transactions|read-only  |`store_v2_transactions_read_only`|
-
     | Orders| modify|`store_v2_orders`|
-
     | Orders| read-only|`store_v2_orders_read_only`|
 
-
     ## Order Transactions
-
-    The `/orders/{id}/transactions` endpoint returns details about the payment
-    instruments used to pay for an order. Depending on the payment method used,
-    different details will be available. Not all credit card payment gateways
-    return full card or fraud details. Transactions endpoints are primarily used
-    to get detailed gateway response information for credit card transactions;
-    however they will also return any available information about digital wallet
-    and offline payments.
-
+    The `/orders/{id}/transactions` endpoint returns details about the payment instruments used to pay for an order. Depending on the payment method used, different details will be available. Not all credit card payment gateways return full card or fraud details. Transactions endpoints are primarily used to get detailed gateway response information for credit card transactions; however they will also return any available information about digital wallet and offline payments.
 
     **Note**: transactions are not created for the following payment methods:
-
     * Test Payment Gateway
-
     * PayPal Express
-
     * Amazon Pay
 
-
     ## Order Refunds
-
-    The Order API refund endpoints allow developers to process refunds against
-    orders with settled payments. Refund endpoints are useful when building
-    order management or payment integrations. They make embedding refund
-    functionality directly into the application possible without requiring
-    merchants to return to their BigCommerce Control Panel.
-
+    The Order API refund endpoints allow developers to process refunds against orders with settled payments. Refund endpoints are useful when building order management or payment integrations. They make embedding refund functionality directly into the application possible without requiring merchants to return to their BigCommerce Control Panel.
 
     ## Resources
-
     * [Orders
-
     Overview](https://developer.bigcommerce.com/api-docs/orders/orders-overview)
-
     * [Orders
-
     V2](https://developer.bigcommerce.com/api-reference/store-management/orders)
   termsOfService: ''
   license:
@@ -271,10 +220,7 @@ paths:
         '201':
           $ref: '#/responses/refundsBATCH_Resp'
         '422':
-          description: >-
-            Partial success/failure response. HTTP status for the entire
-            response to roll up to the most severe individual failure to the
-            whole request.
+          description: Partial success/failure response. HTTP status for the entire response to roll up to the most severe individual failure to the whole request.
           schema:
             type: object
             properties:
@@ -378,10 +324,7 @@ paths:
   '/orders/{order_id}/payment_actions/refund_quotes':
     post:
       summary: Create a Refund Quote
-      description: >-
-        Calculate the tax amount, total refund amount and get availble payment
-        options for an order refund by providing items and costs or quantities
-        to refund.
+      description: 'Calculate the tax amount, total refund amount and get availble payment options for an order refund by providing items and costs or quantities to refund.'
       operationId: postrefundquote
       parameters:
         - name: order_id
@@ -475,9 +418,7 @@ paths:
         - Order Refunds
     get:
       summary: Get Refunds for Order
-      description: >-
-        Returns a list of refunds ordered by refund ID in ascending order for
-        the given order.
+      description: Returns a list of refunds ordered by refund ID in ascending order for the given order.
       operationId: getorderrefunds
       parameters:
         - $ref: '#/parameters/Accept'
@@ -495,11 +436,8 @@ paths:
   /orders/payment_actions/refund_quotes:
     post:
       summary: Create Refund Quotes - BATCH
-      description: >-
-        Calculate the tax amount, total refund amount and get availble payment
-        options for an order refund by providing items and costs or quantities
-        to refund.
-
+      description: |-
+        Calculate the tax amount, total refund amount and get availble payment options for an order refund by providing items and costs or quantities to refund.
 
         This endpoint will accept a batch of one or more.
       operationId: postrefundquotes
@@ -522,9 +460,7 @@ paths:
         '201':
           $ref: '#/responses/RefundQuotesBATCH_Resp'
         '422':
-          description: >-
-            Partial success/failure response. Status to roll up to the most
-            severe individual failure to the whole request.
+          description: Partial success/failure response. Status to roll up to the most severe individual failure to the whole request.
           schema:
             type: object
             properties:
@@ -568,10 +504,7 @@ paths:
                   }
               }
         '503':
-          description: >-
-            Status to roll up to the most severe individual failure to the whole
-            request. Example shows that severe error status is rolled up to the
-            overall response status code.
+          description: Status to roll up to the most severe individual failure to the whole request. Example shows that severe error status is rolled up to the overall response status code.
           schema:
             type: object
             properties:
@@ -602,9 +535,9 @@ paths:
       tags:
         - Order Refunds
       x-private: true
-  /orders/{order_id}/metafields:
+  '/orders/{order_id}/metafields':
     parameters:
-      - $ref: "#/parameters/OrderIdParam"
+      - $ref: '#/parameters/OrderIdParam'
     get:
       summary: Get Metafields
       tags:
@@ -613,28 +546,27 @@ paths:
         Gets a `Metafield` object list, by `order_id`.
       operationId: getOrderMetafieldsByOrderId
       parameters:
-        - $ref: "#/parameters/PageParam"
-        - $ref: "#/parameters/LimitParam"
-        - $ref: "#/parameters/MetafieldKeyParam"
-        - $ref: "#/parameters/MetafieldNamespaceParam"
-        - $ref: "#/parameters/DirectionParam"
+        - $ref: '#/parameters/PageParam'
+        - $ref: '#/parameters/LimitParam'
+        - $ref: '#/parameters/MetafieldKeyParam'
+        - $ref: '#/parameters/MetafieldNamespaceParam'
+        - $ref: '#/parameters/DirectionParam'
       responses:
         '200':
           description: |
             An array of metafields and metadata.
           schema:
-            $ref: "#/definitions/MetaFieldCollectionResponse"
+            $ref: '#/definitions/MetaFieldCollectionResponse'
         '404':
           description: |
             The resource was not found.
           schema:
-            $ref: "#/definitions/NotFound"
+            $ref: '#/definitions/NotFound'
     post:
       summary: Create Metafields
       tags:
         - Metafields
-      description:
-        Creates an order `Metafield`.
+      description: Creates an order `Metafield`.
       operationId: createOrderMetafield
       parameters:
         - name: Metafield
@@ -643,27 +575,27 @@ paths:
           description: |
             A `Metafield` object.
           schema:
-            $ref: "#/definitions/MetafieldPost"
+            $ref: '#/definitions/MetafieldPost'
       responses:
         '200':
           description: |
             A `Metafield` object.
           schema:
-            $ref: "#/definitions/MetafieldResponse"
-        '422':
-          description: |
-            The `Metafield` was not valid. This is the result of missing required fields, or of invalid data. See the response for more details.
-          schema:
-            $ref: "#/definitions/ErrorResponse"
+            $ref: '#/definitions/MetafieldResponse'
         '409':
           description: |
             The `Metafield` was in conflict with another `Metafield`. This can be the result of duplicate unique key combinations of the app's client id, namespace, key, resource_type, and resource_id.
           schema:
-            $ref: "#/definitions/ErrorResponse"
-  /orders/{order_id}/metafields/{metafield_id}:
+            $ref: '#/definitions/ErrorResponse'
+        '422':
+          description: |
+            The `Metafield` was not valid. This is the result of missing required fields, or of invalid data. See the response for more details.
+          schema:
+            $ref: '#/definitions/ErrorResponse'
+  '/orders/{order_id}/metafields/{metafield_id}':
     parameters:
-      - $ref: "#/parameters/OrderIdParam"
-      - $ref: "#/parameters/MetafieldIdParam"
+      - $ref: '#/parameters/OrderIdParam'
+      - $ref: '#/parameters/MetafieldIdParam'
     get:
       summary: Get a Metafield
       tags:
@@ -676,18 +608,17 @@ paths:
           description: |
             A `Metafield` object.
           schema:
-            $ref: "#/definitions/MetafieldResponse"
+            $ref: '#/definitions/MetafieldResponse'
         '404':
           description: |
             The resource was not found.
           schema:
-            $ref: "#/definitions/NotFound"
+            $ref: '#/definitions/NotFound'
     put:
       summary: Update a Metafield
       tags:
         - Metafields
-      description:
-        Updates a `Metafield` object.
+      description: Updates a `Metafield` object.
       operationId: updateOrderMetafield
       parameters:
         - name: Metafield
@@ -696,18 +627,18 @@ paths:
           description: |
             A `Metafield` object.
           schema:
-            $ref: "#/definitions/MetafieldPut"
+            $ref: '#/definitions/MetafieldPut'
       responses:
         '200':
           description: |
             A metafield and metadata.
           schema:
-            $ref: "#/definitions/MetafieldResponse"
+            $ref: '#/definitions/MetafieldResponse'
         '404':
           description: |
             The resource was not found.
           schema:
-            $ref: "#/definitions/NotFound"
+            $ref: '#/definitions/NotFound'
     delete:
       summary: Delete a Metafield
       tags:
@@ -787,47 +718,29 @@ securityDefinitions:
     type: apiKey
     in: header
     name: X-Auth-Token
-    description: >-
+    description: |-
       ### OAuth Scopes
-
       |  **UI Name** | **Permission** | **Parameter** |
-
       | --- | --- | --- |
-
       |  Order Transactions | modify | `store_v2_transactions` |
-
       |  Order Transactions | read-only | `store_v2_transactions_read_only` |
-
 
       ### Headers
 
-
       |Header|Parameter|Description|
-
       |-|-|-|
-
-      |`X-Auth-Token`|`access_token `|Obtained by creating an API account or
-      installing an app in a BigCommerce control panel.|
-
+      |`X-Auth-Token`|`access_token `|Obtained by creating an API account or installing an app in a BigCommerce control panel.|
 
       ### Example
 
-
       ```http
-
       GET /stores/{$$.env.store_hash}/v3/catalog/summary
-
       host: api.bigcommerce.com
-
       Content-Type: application/json
-
       X-Auth-Token: {access_token}
-
       ```
 
-
-      * For more information on Authenticating BigCommerce APIs, see:
-      [Authentication](https://developer.bigcommerce.com/api-docs/getting-started/authentication).
+      * For more information on Authenticating BigCommerce APIs, see: [Authentication](https://developer.bigcommerce.com/api-docs/getting-started/authentication).
 security:
   - X-Auth-Client: []
   - X-Auth-Token: []
@@ -1069,9 +982,8 @@ definitions:
         example: 36
       per_page:
         type: integer
-        description: >
-          The amount of items returned in the collection per page, controlled by
-          the limit parameter.
+        description: |
+          The amount of items returned in the collection per page, controlled by the limit parameter.
         example: 50
       current_page:
         type: integer
@@ -1085,9 +997,8 @@ definitions:
         example: 1
       links:
         type: object
-        description: >
-          Pagination links for the previous and next parts of the whole
-          collection.
+        description: |
+          Pagination links for the previous and next parts of the whole collection.
         properties:
           previous:
             type: string
@@ -1198,9 +1109,7 @@ definitions:
           description: The name of the order product
         returnable_quantity:
           type: integer
-          description: >-
-            The maximum quantity of this item that can presently be requested
-            for return
+          description: The maximum quantity of this item that can presently be requested for return
         total:
           type: string
           format: decimal
@@ -1253,9 +1162,8 @@ definitions:
             example: 36
           per_page:
             type: integer
-            description: >
-              The amount of items returned in the collection per page,
-              controlled by the limit parameter.
+            description: |
+              The amount of items returned in the collection per page, controlled by the limit parameter.
             example: 50
           current_page:
             type: integer
@@ -1269,9 +1177,8 @@ definitions:
             example: 1
           links:
             type: object
-            description: >
-              Pagination links for the previous and next parts of the whole
-              collection.
+            description: |
+              Pagination links for the previous and next parts of the whole collection.
             properties:
               previous:
                 type: string
@@ -1308,9 +1215,8 @@ definitions:
             example: 36
           per_page:
             type: integer
-            description: >
-              The amount of items returned in the collection per page,
-              controlled by the limit parameter.
+            description: |
+              The amount of items returned in the collection per page, controlled by the limit parameter.
             example: 50
           current_page:
             type: integer
@@ -1324,9 +1230,8 @@ definitions:
             example: 1
           links:
             type: object
-            description: >
-              Pagination links for the previous and next parts of the whole
-              collection.
+            description: |
+              Pagination links for the previous and next parts of the whole collection.
             properties:
               previous:
                 type: string
@@ -1375,14 +1280,8 @@ definitions:
           - settled
       method:
         type: string
-        description: >
-          The payment method: `credit_card` - a credit-card transaction;
-          `electronic_wallet` - an online wallet; `store_credit` - a transaction
-          using store credit; `gift_certificate` - a transaction using a gift
-          certificate; `custom` - manual payment methods; `token` - payment
-          token; `nonce` - temporary payment token; `offsite` - online payment
-          off the site (e.g., PayPal); `offline` - payment method that takes
-          place offline.
+        description: |
+          The payment method: `credit_card` - a credit-card transaction; `electronic_wallet` - an online wallet; `store_credit` - a transaction using store credit; `gift_certificate` - a transaction using a gift certificate; `custom` - manual payment methods; `token` - payment token; `nonce` - temporary payment token; `offsite` - online payment off the site (e.g., PayPal); `offline` - payment method that takes place offline.
         enum:
           - credit_card
           - electronic_wallet
@@ -1439,9 +1338,8 @@ definitions:
           - testgateway
           - usaepay
       gateway_transaction_id:
-        description: >
-          The transaction ID returned by the payment gateway for this
-          transaction item.
+        description: |
+          The transaction ID returned by the payment gateway for this transaction item.
         type: string
       date_created:
         description: |
@@ -1450,9 +1348,8 @@ definitions:
         format: date-time
       test:
         type: boolean
-        description: >
-          True if the transaction performed was a test, or if the gateway is in
-          test mode.
+        description: |
+          True if the transaction performed was a test, or if the gateway is in test mode.
       status:
         type: string
         description: |
@@ -1466,9 +1363,8 @@ definitions:
           Result of gateway fraud review, if any. Default is `false`.
       reference_transaction_id:
         type: integer
-        description: >
-          Identifier for an existing transaction upon which this transaction
-          acts.
+        description: |
+          Identifier for an existing transaction upon which this transaction acts.
       offline:
         $ref: '#/definitions/Offline'
       custom:
@@ -1514,14 +1410,8 @@ definitions:
               - settled
           method:
             type: string
-            description: >
-              The payment method: `credit_card` - a credit-card transaction;
-              `electronic_wallet` - an online wallet; `store_credit` - a
-              transaction using store credit; `gift_certificate` - a transaction
-              using a gift certificate; `custom` - manual payment methods;
-              `token` - payment token; `nonce` - temporary payment token;
-              `offsite` - online payment off the site; `offline` - payment
-              method that takes place offline.
+            description: |
+              The payment method: `credit_card` - a credit-card transaction; `electronic_wallet` - an online wallet; `store_credit` - a transaction using store credit; `gift_certificate` - a transaction using a gift certificate; `custom` - manual payment methods; `token` - payment token; `nonce` - temporary payment token; `offsite` - online payment off the site; `offline` - payment method that takes place offline.
             enum:
               - credit_card
               - electronic_wallet
@@ -1578,9 +1468,8 @@ definitions:
               - testgateway
               - usaepay
           gateway_transaction_id:
-            description: >
-              The transaction ID returned by the payment gateway for this
-              transaction item.
+            description: |
+              The transaction ID returned by the payment gateway for this transaction item.
             type: string
           date_created:
             description: |
@@ -1589,9 +1478,8 @@ definitions:
             format: date-time
           test:
             type: boolean
-            description: >
-              True if the transaction performed was a test, or if the gateway is
-              in test mode.
+            description: |
+              True if the transaction performed was a test, or if the gateway is in test mode.
           status:
             type: string
             description: |
@@ -1605,9 +1493,8 @@ definitions:
               Result of gateway fraud review, if any. Default is `false`.
           reference_transaction_id:
             type: integer
-            description: >
-              Identifier for an existing transaction upon which this transaction
-              acts.
+            description: |
+              Identifier for an existing transaction upon which this transaction acts.
           offline:
             type: object
             description: 'Offline payment (e.g., check or purchase order).'
@@ -1628,9 +1515,8 @@ definitions:
                 type: string
           payment_method_id:
             type: string
-            description: |+
+            description: |
               The payment method ID used for this transaction
-
         required:
           - event
           - method
@@ -1644,9 +1530,8 @@ definitions:
               Unique identifier for the transaction.
           order_id:
             type: string
-            description: >
-              Identifier for the BigCommerce Order with which this transaction
-              is associated.
+            description: |
+              Identifier for the BigCommerce Order with which this transaction is associated.
           date_created:
             description: |
               The datetime of the transaction.
@@ -1654,15 +1539,9 @@ definitions:
             format: date-time
           payment_instrument_token:
             type: string
-            description: >-
-              This field contains internal BigPay token for stored card that is
-              then mapped to the actual third-party token. We currently do not
-              offer a way to get third party tokens.These tokens are read-only
-              and do not return any information about the payment.
+            description: This field contains internal BigPay token for stored card that is then mapped to the actual third-party token. We currently do not offer a way to get third party tokens.These tokens are read-only and do not return any information about the payment.
           avs_result:
-            description: >-
-              Address Verification Service (AVS) result from the payment
-              gateway.
+            description: Address Verification Service (AVS) result from the payment gateway.
             type: object
             title: AVS Results
             properties:
@@ -1708,9 +1587,8 @@ definitions:
                 format: float
                 example: 100
               starting_balance:
-                description: >
-                  The balance on a gift certificate at the time of this
-                  purchase.
+                description: |
+                  The balance on a gift certificate at the time of this purchase.
                 type: number
                 format: float
                 example: 100
@@ -1721,11 +1599,8 @@ definitions:
                 format: float
                 example: 35.42
               status:
-                description: >
-                  The status of a gift certificate: `active` - gift certificate
-                  is active; `pending` - gift certificate purchase is pending;
-                  `disabled` - gift certificate is disabled; `expired` - gift
-                  certificate is expired.
+                description: |
+                  The status of a gift certificate: `active` - gift certificate is active; `pending` - gift certificate purchase is pending; `disabled` - gift certificate is disabled; `expired` - gift certificate is expired.
                 type: string
                 enum:
                   - active
@@ -1771,10 +1646,7 @@ definitions:
           - unionpay
           - visa
           - vr
-        description: >-
-          **Allowed values**: alelo, alia, american_express, cabal, carnet,
-          dankort, diners_club, discover, elo, forbrugsforeningen, jcb, maestro,
-          master, naranja, sodexo, unionpay, visa, vr
+        description: '**Allowed values**: alelo, alia, american_express, cabal, carnet, dankort, diners_club, discover, elo, forbrugsforeningen, jcb, maestro, master, naranja, sodexo, unionpay, visa, vr'
       card_iin:
         description: |
           The IIN of a credit-card number.
@@ -1851,10 +1723,8 @@ definitions:
         format: float
         example: 35.42
       status:
-        description: >
-          The status of a gift certificate: `active` - gift certificate is
-          active; `pending` - gift certificate purchase is pending; `disabled` -
-          gift certificate is disabled; `expired` - gift certificate is expired.
+        description: |
+          The status of a gift certificate: `active` - gift certificate is active; `pending` - gift certificate purchase is pending; `disabled` - gift certificate is disabled; `expired` - gift certificate is expired.
         type: string
         enum:
           - active
@@ -1921,9 +1791,7 @@ definitions:
         type: integer
         format: int32
       per_page:
-        description: >-
-          The amount of items returned in the collection per page, controlled by
-          the limit parameter.
+        description: 'The amount of items returned in the collection per page, controlled by the limit parameter.'
         type: integer
         format: int32
       current_page:
@@ -1996,10 +1864,7 @@ definitions:
     properties:
       order_id:
         type: integer
-        description: >-
-          Order ID against which this refund will be created. This is optional
-          for creating a single refund request. The order ID is included in the
-          request path.
+        description: Order ID against which this refund will be created. This is optional for creating a single refund request. The order ID is included in the request path.
         example: 1
       items:
         $ref: '#/definitions/ItemsRefund'
@@ -2020,9 +1885,7 @@ definitions:
         example: 1.95
       rounding:
         type: number
-        description: >-
-          Indicates rounding value to bring refund_total to an amount refundable
-          via payment providers (in this case to 2 decimal places)
+        description: Indicates rounding value to bring refund_total to an amount refundable via payment providers (in this case to 2 decimal places)
       adjustment:
         $ref: '#/definitions/Amount'
       tax_inclusive:
@@ -2030,19 +1893,13 @@ definitions:
         description: Indicate if total_refund_amount includes tax amount
       refund_methods:
         type: array
-        description: >+
+        description: |+
           An array of available refund methods.
 
+          Note that `refund_methods` is an array of refund methods, with each refund method being an array of payment options.
 
-          Note that `refund_methods` is an array of refund methods, with each
-          refund method being an array of payment options.
-
-
-          For example, if the order was placed by a combination of store credit
-          and bank deposit the  refund methods would be:
-
+          For example, if the order was placed by a combination of store credit and bank deposit the  refund methods would be:
           ```json
-
           {
             "refund_methods": [
               [
@@ -2085,24 +1942,14 @@ definitions:
               ]
             ]
           }
-
           ```
 
-
           In this case there are three refund methods available to the merchant:
-
           1. Refund up to the entire order amount to store credit.
-
-          2. Mark an amount up to the full order amount as refunded externally,
-          through a provider or means not represented directly in BC ("custom").
-
-          3. Refund the amount paid by store credit to store credit, and the
-          amount paid by bank deposit via a manual refund, which will be
-          recorded as being refunded against the bank deposit.
-
+          2. Mark an amount up to the full order amount as refunded externally, through a provider or means not represented directly in BC ("custom").
+          3. Refund the amount paid by store credit to store credit, and the amount paid by bank deposit via a manual refund, which will be recorded as being refunded against the bank deposit.
 
           >
-
 
 
         items:
@@ -2171,9 +2018,7 @@ definitions:
         example: 9.99
       offline:
         type: boolean
-        description: >-
-          Whether the payment was marked as offline or performed through an
-          online payment service.
+        description: Whether the payment was marked as offline or performed through an online payment service.
         example: true
     example: |-
       {
@@ -2191,15 +2036,11 @@ definitions:
   QuantityBoundItem:
     type: object
     title: Quantity Bound Item
-    description: >
+    description: |
       Quantity Bound Item
 
-
-      Type of refund item that capture refunding of items in the order that are
-      of type quantity.
-
+      Type of refund item that capture refunding of items in the order that are of type quantity.
       * `PRODUCT`
-
       * `GIFT_WRAPPING`
     properties:
       item_type:
@@ -2244,15 +2085,11 @@ definitions:
   AmountBoundItem:
     type: object
     title: Amount Bound Item
-    description: >
+    description: |
       Amount Bound Item
 
-
-      Type of refund item that capture refunding of items in the order that are
-      of type amount.
-
+      Type of refund item that capture refunding of items in the order that are of type amount.
       * `SHIPPING`
-
       * `HANDLING`
     properties:
       item_type:
@@ -2285,9 +2122,7 @@ definitions:
         description: Reference to order id
       user_id:
         type: integer
-        description: >-
-          Reference to the user's id who create this refund. This is
-          automatically populated by BigCommerce.
+        description: Reference to the user's id who create this refund. This is automatically populated by BigCommerce.
         readOnly: true
       created:
         type: string
@@ -2301,10 +2136,7 @@ definitions:
         $ref: '#/definitions/Amount'
       total_tax:
         type: number
-        description: >-
-          Total tax amount refunded back to shopper. Note: order_level_amount
-          does not affect tax liability. This can be negative amount indicating
-          we have collected tax by virtue of refunding less to the customer
+        description: 'Total tax amount refunded back to shopper. Note: order_level_amount does not affect tax liability. This can be negative amount indicating we have collected tax by virtue of refunding less to the customer'
       items:
         type: array
         description: Array of items refunded
@@ -2337,9 +2169,7 @@ definitions:
         description: Reason for refunding an item
       quantity:
         type: integer
-        description: >-
-          Quantity of item refunded. Note: this will only be populated for
-          item_type PRODUCT
+        description: 'Quantity of item refunded. Note: this will only be populated for item_type PRODUCT'
       requested_amount:
         $ref: '#/definitions/Amount'
     title: Refund Item
@@ -2391,16 +2221,11 @@ definitions:
         example: 9.99
       offline:
         type: boolean
-        description: >-
-          Indicates the payment must be done offline due to constraints of the
-          payment provider, such as partial refunds not being supported, or it
-          being offline only such as cash on delivery of bank deposit.
+        description: 'Indicates the payment must be done offline due to constraints of the payment provider, such as partial refunds not being supported, or it being offline only such as cash on delivery of bank deposit.'
         example: true
       offline_provider:
         type: boolean
-        description: >-
-          Indicates if the payment provider is a strictly offline provider, such
-          as cash on delivery or bank deposit.
+        description: 'Indicates if the payment provider is a strictly offline provider, such as cash on delivery or bank deposit.'
         example: true
       offline_reason:
         type: string
@@ -2409,9 +2234,7 @@ definitions:
   Amount:
     type: number
     format: float
-    description: >-
-      A non-negative 2 decimal place rounded value that represents that amount
-      that can be charged/refunded via payment providers
+    description: A non-negative 2 decimal place rounded value that represents that amount that can be charged/refunded via payment providers
     example: 1.99
     title: Amount
   MetaRefund:
@@ -2433,18 +2256,18 @@ definitions:
       data:
         type: array
         items:
-          $ref: "#/definitions/Metafield"
+          $ref: '#/definitions/Metafield'
       meta:
-        $ref: "#/definitions/CollectionMeta"
+        $ref: '#/definitions/CollectionMeta'
   MetafieldResponse:
     description: |
       Response payload for the BigCommerce API.
     type: object
     properties:
       data:
-        $ref: "#/definitions/Metafield"
+        $ref: '#/definitions/Metafield'
       meta:
-        $ref: "#/definitions/Meta"
+        $ref: '#/definitions/Meta'
   MetafieldBase:
     type: object
     description: |
@@ -2516,7 +2339,7 @@ definitions:
     description: |
       Allows app partners to write custom data to various resources in the API.
     allOf:
-      - $ref: "#/definitions/MetafieldBase"
+      - $ref: '#/definitions/MetafieldBase'
       - type: object
         properties:
           id:
@@ -2538,13 +2361,13 @@ definitions:
     description: |
       The model for a POST to create metafield.
     allOf:
-      - $ref: "#/definitions/MetafieldBase"
+      - $ref: '#/definitions/MetafieldBase'
   MetafieldPut:
     type: object
     description: |
       The model for a PUT to update metafield.
     allOf:
-      - $ref: "#/definitions/MetafieldBase"
+      - $ref: '#/definitions/MetafieldBase'
       - type: object
         properties:
           id:
@@ -2627,10 +2450,7 @@ responses:
         data:
           $ref: '#/definitions/GetReturnsSettings'
   502_GatewayError:
-    description: >-
-      If something happens during the request that causes it to fail, a 502
-      response will be returned. A new request should be made; however, it could
-      fail.
+    description: 'If something happens during the request that causes it to fail, a 502 response will be returned. A new request should be made; however, it could fail.'
     schema:
       $ref: '#/definitions/error_Base'
     examples:
@@ -2639,13 +2459,7 @@ responses:
         title: A login URL could not be generated. Please try another request.
         type: 'https://developer.bigcommerce.com/api#api-status-codes'
   504_GatewayTimeout:
-    description: >-
-      If this occurs, you should retry the request. Typically retrying the
-      request several times will result in a successful request; However, if you
-      are unable to successfully make a request, please check the BigCommerce
-      system status [here](https://status.bigcommerce.com/). A service is likely
-      down and the request will need to be made again when it is back up (in
-      several hours usually)
+    description: 'If this occurs, you should retry the request. Typically retrying the request several times will result in a successful request; However, if you are unable to successfully make a request, please check the BigCommerce system status [here](https://status.bigcommerce.com/). A service is likely down and the request will need to be made again when it is back up (in several hours usually)'
     schema:
       $ref: '#/definitions/errorDetailed_Full'
     examples:
@@ -2684,10 +2498,7 @@ responses:
         title: 'Account with {id} not found'
         type: 'https://developer.bigcommerce.com/api#api-status-codes'
   422_UnprocessableEntity:
-    description: >-
-      This occurs when missing or unacceptable data is passed for one or more
-      fields. Please correct the values for the fields listed in the errors
-      object.
+    description: This occurs when missing or unacceptable data is passed for one or more fields. Please correct the values for the fields listed in the errors object.
     schema:
       $ref: '#/definitions/ErrorResponse'
     examples:
@@ -2699,12 +2510,7 @@ responses:
           name: error.expected.jsstring
           primary_contact.district: error.expected.jsstring.
   503_ServiceUnavailable:
-    description: >-
-      If this occurs, you should retry the request. If you are unable to
-      successfully make a request, please check the BigCommerce system status
-      [here](https://status.bigcommerce.com/). A service is likely down and the
-      request will need to be made again when it is back up (in several hours
-      usually)
+    description: 'If this occurs, you should retry the request. If you are unable to successfully make a request, please check the BigCommerce system status [here](https://status.bigcommerce.com/). A service is likely down and the request will need to be made again when it is back up (in several hours usually)'
     schema:
       $ref: '#/definitions/error_Base'
     examples:
@@ -2910,9 +2716,7 @@ responses:
         meta:
           $ref: '#/definitions/metaCollection_Full'
   Transaction_Resp:
-    description: >-
-      Response payload for the BigCommerce Order Transactions API single
-      transaction.
+    description: Response payload for the BigCommerce Order Transactions API single transaction.
     schema:
       allOf:
         - properties:
@@ -2925,9 +2729,7 @@ responses:
                 Unique identifier for the transaction.
             order_id:
               type: string
-              description: >-
-                Identifier for the BigCommerce Order with which this transaction
-                is associated.
+              description: Identifier for the BigCommerce Order with which this transaction is associated.
             date_created:
               type: string
               format: date-time
@@ -2935,11 +2737,7 @@ responses:
                 The datetime of the transaction.
             payment_instrument_token:
               type: string
-              description: >-
-                This field contains internal BigPay token for stored card that
-                is then mapped to the actual third-party token. We currently do
-                not offer a way to get third party tokens.These tokens are
-                read-only and do not return any information about the payment.
+              description: This field contains internal BigPay token for stored card that is then mapped to the actual third-party token. We currently do not offer a way to get third party tokens.These tokens are read-only and do not return any information about the payment.
             avs_result:
               $ref: '#/definitions/AVSResult'
             cvv_result:
