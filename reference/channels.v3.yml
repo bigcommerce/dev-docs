@@ -149,11 +149,29 @@ paths:
               - marketing
               - pos
               - storefront
+        - $ref: '#/components/parameters/type_in'
         - in: query
           name: platform
           description: 'Filter items by platform. For a list of supported platforms, see [Platform](https://developer.bigcommerce.com/api-reference/store-management/channels#platform).'
           schema:
             type: string
+            enum:
+              - square
+              - vend
+              - clover
+              - facebook
+              - amazon
+              - ebay
+              - wordpress
+              - drupal
+              - acquia
+              - bloomreach
+              - deity
+              - next
+              - google_shopping
+              - custom
+        - $ref: '#/components/parameters/LimitParam'
+        - $ref: '#/components/parameters/platform_in'
     post:
       tags:
         - Channels
@@ -934,20 +952,20 @@ components:
         format: date-time
     PageParam:
       name: page
-      description: |
-        Specifies the page number in a limited (paginated) list of listings.
+      description: Specifies the page number for a paginated response.
       required: false
       in: query
       schema:
         type: integer
     LimitParam:
       name: limit
-      description: |
-        Controls the number of items per page in a limited (paginated) list of products.
+      description: Controls the number of items per page for paginated responses.
       required: false
       in: query
       schema:
         type: integer
+        format: int32
+        multipleOf: 1
     ChannelIdPathParam:
       name: channel_id
       in: path
@@ -979,6 +997,22 @@ components:
         type: array
         items:
           type: string
+    type_in:
+      name: 'type:in'
+      in: query
+      required: false
+      schema:
+        type: string
+        example: 'storefront,marketing'
+      description: Filter by comma-separated list of types.
+    platform_in:
+      name: 'platform:in'
+      in: query
+      required: false
+      schema:
+        type: string
+        example: 'facebook,amazon'
+      description: Filter by a comma-separated list of platforms.
   responses:
     channel_Resp_Collection:
       description: ''
