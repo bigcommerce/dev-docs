@@ -38,7 +38,8 @@ For more information on OAuth Scopes and authentication, see [Authentication](ht
 
 ## Products overview
 
-[Products](/api-reference/store-management/catalog/products/getproducts) are the primary catalog entity, and the primary function of the eCommerce platform is to sell products on the storefront and other channels.
+[Products](/api-reference/store-management/catalog/products/getproducts) are the primary catalog entity, and the primary function of the ecommerce platform is to sell products on the storefront and other channels.
+
 
 Products can be physical or digital:
 * **Physical** - Exist in a physical form, have a weight, and are sold by merchants to ship to customers.
