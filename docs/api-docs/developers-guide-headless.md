@@ -17,7 +17,7 @@
 
 </div>
 
-This article providers a high level guide to using BigCommerce to power headless storefronts; we'll assume you're already familiar with headless commerce as a concept; if you're not, check out our whitepaper, [A New Era of Ecommerce: Headless Commerce](https://www.bigcommerce.com/new-era-headless-caas/) or the Help Center's [Healdess Commerce Guide](https://support.bigcommerce.com/s/article/The-Headless-Approach).
+This article providers a high level guide to using BigCommerce to power headless storefronts; we'll assume you're already familiar with headless commerce as a concept; if you're not, check out our whitepaper, [A New Era of Ecommerce: Headless Commerce](https://www.bigcommerce.com/new-era-headless-caas/) or the Help Center's [Headless Commerce Guide](https://support.bigcommerce.com/s/article/The-Headless-Approach).
 
 ## Ways to implement headless
 
@@ -58,7 +58,7 @@ Need code up a custom storefront but don't want to start from scratch? Kick-star
 Need to build a custom solution from scratch? Bigcommerce has APIs, SDKs, and toolkits to help you do whatever you need, headlessly.
 
 * [Create storefront channels with the Channels API.](https://developer.bigcommerce.com/api-docs/channels/quick-start).
-* [Mannage sites and routes for headless storefronts with the sites and routes API](https://developer.bigcommerce.com/api-reference/store-management/sites).
+* [Manage sites and routes for headless storefronts with the sites and routes API](https://developer.bigcommerce.com/api-reference/store-management/sites).
 * [Manage 301 redirects for one or more storefronts with Redirects V3 API](https://developer.bigcommerce.com/api-reference/store-management/redirects)
 * [Create storefront specific product listings with the Channels API](https://developer.bigcommerce.com/api-reference/cart-checkout/channels-listings-api).
 * [Query storefront data with GraphQL](https://developer.bigcommerce.com/api-docs/storefront/graphql/graphql-storefront-api-overview).
