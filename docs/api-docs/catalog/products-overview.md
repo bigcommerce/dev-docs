@@ -296,7 +296,8 @@ X-Auth-Token: {{ACCESS_TOKEN}}
 
 ## Adding bulk pricing rules
 
-To add bulk quantity-based pricing to products, `PUT` to `/v3/catalog/products/{{product_id}}/bulk-pricing-rules`.
+To add bulk quantity-based pricing to products, send a `PUT` request to `/v3/catalog/products/{{product_id}}/bulk-pricing-rules`.
+
 
 
 ```http
