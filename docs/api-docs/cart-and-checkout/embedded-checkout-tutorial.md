@@ -5,14 +5,14 @@
 ### On this page
 - [Creating a channel](#creating-a-channel)
 - [Creating a site](#creating-a-site)
-- [Creating a cart](#step-3-create-a-cart)
+- [Creating a cart](#creating-a-cart)
 - [Embedding the checkout](#embedding-the-checkout)
 - [FAQ](#faq)
 - [Related resources](#related-resources)
 
 </div>
 
-Embedded Checkout lets you place BigCommerce’s Optimized One-Page checkout onto an external site. This tutorial will walk you through the sequence of API calls your application should make to create a working Embedded Checkout. 
+Embedded Checkout lets you place BigCommerce’s Optimized One-Page checkout onto an external site. This tutorial will walk you through the sequence of API calls your application should make to create a working Embedded Checkout.
 
 This article assumes you have familiarity with the following concepts:
 
@@ -51,7 +51,7 @@ To allow an external website to serve the BigCommerce checkout, create a new cha
 The response will contain an `id` which we will use as the `channel_id` in future requests.
 
 **Create Channel response**
-	
+
 ```json
 
 {
@@ -71,7 +71,7 @@ The response will contain an `id` which we will use as the `channel_id` in futur
 <div class="HubBlock--callout">
 <div class="CalloutBlock--info">
 <div class="HubBlock-content">
-    
+
 <!-- theme:  -->
 > Channels created via API are visible in the BigCommerce store's Control Panel in **Products** > **Listed On**. The Orders section will now also include a filter for your channel.
 
@@ -116,7 +116,7 @@ This returns `id` which you will use as the `site_id` in future requests. The `u
 
 ## Creating a cart
 
-To proceed to checkout, we'll need an active cart. To create one, send a `POST` request to the [Server-to-Server Cart API's](https://developer.bigcommerce.com/api-reference/cart-checkout/server-server-cart-api)  `/cart` endpoint. 
+To proceed to checkout, we'll need an active cart. To create one, send a `POST` request to the [Server-to-Server Cart API's](https://developer.bigcommerce.com/api-reference/cart-checkout/server-server-cart-api)  `/cart` endpoint.
 
 **`POST`**  `https://api.bigcommerce.com/stores/{{store_hash}}/v3/carts`
 
@@ -149,10 +149,10 @@ If you are creating a cart for a specific customer, pass in the `customer_id` in
 }
 ```
 
-Contained in the response is an `id` which we'll use as the `cart_id` in the next request: 
+Contained in the response is an `id` which we'll use as the `cart_id` in the next request:
 
 **Create Cart response**
-	
+
 ```json
 {
     "data": {
@@ -160,10 +160,10 @@ Contained in the response is an `id` which we'll use as the `cart_id` in the nex
     ...
 }
 ```
-Next, generate cart redirect URLs by sending a `POST` request to `/carts/{{cart_id}}/redirect_urls`. 
+Next, generate cart redirect URLs by sending a `POST` request to `/carts/{{cart_id}}/redirect_urls`.
 
 **`POST`** `https://api.bigcommerce.com/stores/{{store_hash}}/v3/carts/{{cart_id}}/redirect_urls`
-	
+
 **Generate Redirect URLs response**
 
 ```json
@@ -175,17 +175,19 @@ Next, generate cart redirect URLs by sending a `POST` request to `/carts/{{cart_
 ```
 
 ### Redirecting a logged-in customer to embedded checkout
+
 For some use cases, you may want your customer to log in before they can begin the checkout process.
 
-Customers can log in using the [Customer Login API](https://developer.bigcommerce.com/api-docs/customers/customer-login-api#logging-in-a-customer). 
+Customers can log in using the [Customer Login API](https://developer.bigcommerce.com/api-docs/customers/customer-login-api#logging-in-a-customer).
 
 You will first need to use JSON Web Token Standard to create a new token. Use a [JWT library](https://jwt.io/#libraries-io) to accomplish this. For more information, see [Create JWT Using the Debugger Tool](https://developer.bigcommerce.com/api-docs/customers/customer-login-api#create-jwt-using-the-debugger-tool).
 
-Next, include the `checkout_url` as part of the request payload you send to BigCommerce. 
+Next, include the `checkout_url` as part of the request payload you send to BigCommerce.
 
 **`POST`** `https://{store-url}}/login/token/{token}`
 
 **Customer Login Request**
+
 
 ```json
 {
@@ -199,6 +201,7 @@ Next, include the `checkout_url` as part of the request payload you send to BigC
 "request_ip": "111.222.333.444"
 }
 ```
+
 <div class="HubBlock--callout">
 <div class="CalloutBlock--info">
 <div class="HubBlock-content">
@@ -207,10 +210,9 @@ The `request_ip` field is optional.
 </div>
 </div>
 
-
 ## Embedding the checkout
 
-Use the `embedded_checkout_url` that is returned from generating redirect URLs and assemble a JSON object. It will be used by the Checkout JS SDK to determine how to render the checkout. 
+Use the `embedded_checkout_url` that is returned from generating redirect URLs and assemble a JSON object. It will be used by the Checkout JS SDK to determine how to render the checkout.
 
 **JSON object**
 ```json
@@ -220,7 +222,7 @@ Use the `embedded_checkout_url` that is returned from generating redirect URLs a
     }
 ```
 
-Pass the object to the `embedCheckout` method of the Checkout SDK. 
+Pass the object to the `embedCheckout` method of the Checkout SDK.
 
 
 **embedCheckout method**
@@ -251,6 +253,10 @@ If your channel site doesn't match the URL from which you're making a request to
 
 ### Are hosted payment gateways supported with Embedded Checkout?
 At this time, you cannot embed a checkout using a hosted payment gateway. See [Available Payment Gateways](https://support.bigcommerce.com/s/article/Available-Payment-Gateways#all-available) to determine which type of gateway you're using.
+
+### How do I resolve Embedded Checkout 403 "Cannot start checkout session with an empty cart" Errors?
+
+For Embedded Checkout to work correctly for shoppers using a browser with restricted privacy settings (like Apple's Safari), your checkout page must be served from the same domain as your BigCommerce storefront. For example, if your headless storefront is `www.mystore.com`, then your BigCommerce store's domain should be `checkout.mystore.com`. For more information on making Embedded Checkout on a headless WordPress storefront compatible with Safari, see [BigCommerce for WordPress](https://support.bigcommerce.com/s/article/BigCommerce-for-WordPress-Checkout#safari).
 
 ## Related resources
 
