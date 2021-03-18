@@ -3118,6 +3118,12 @@ definitions:
             type: string
           value:
             type: number
+      customer_group_id:
+        type: number
+      customer_group_name:
+        type: string
+      edit_stored_instrument:
+        type: string
       wishlists:
         type: 'null'
         description: Wishlists for this customer
@@ -3516,9 +3522,11 @@ definitions:
       header_image:
         type: string
         description: img src for header
-      id:
-        type: string
-        description: the id of the order
+      order:
+        type: object
+        properties:
+          id:
+            type: number
   formsReturn:
     title: forms.return
     description: Objects to handle a new return for the current customer. (Called on the default `templates/pages/account/add-return.html` template.)
@@ -4535,7 +4543,7 @@ definitions:
     required:
       - type
       - id
-      - default      
+      - default
   widget_input:
     type: object
     title: input
