@@ -82,9 +82,7 @@ info:
 
     <!-- ... -->
 
-    <script>
         var jsContext = JSON.parse({{jsContext}});
-    </script>
     ```
 
     **client code:**
@@ -97,6 +95,9 @@ info:
     ## Resources
 
     * [Template Object Reference](/stencil-docs/reference-docs/global-objects-and-properties/models)
+host: api.bigcommerce.com
+schemes:
+  - https
 paths: {}
 definitions:
   configJson:
@@ -158,34 +159,34 @@ definitions:
               This should be an array of exact feature names supported in the theme. The "Default/Examples"column lists the complete namespace. At least one of the values listed there must be present.
               These values are used as metadata for Theme Marketplace searches. 
               The `"customized_check_out"` value has a second function: It must be present if you want to enable [Optimized One-Page Checkout](https://support.bigcommerce.com/articles/Public/Optimized-Single-Page-Checkout) for your theme.</td>
-            enum:
-              - fully_responsive
-              - mega_navigation
-              - multi_tiered_sidebar_menu
-              - masonry_design
-              - frontpage_slideshow
-              - quick_add_to_cart
-              - switchable_product_view
-              - product_comparison_table
-              - complex_search_filtering
-              - customizable_product_selector
-              - cart_suggested_products
-              - free_customer_support
-              - free_theme_upgrades
-              - high_res_product_images
-              - product_filtering
-              - advanced_quick_view
-              - product_showcase
-              - persistent_cart
-              - one_page_check_out
-              - product_videos
-              - google_amp
-              - customized_checkout
-              - enhanced_ecommerce
-              - csrf_protection
-              - account_payment_methods_v2
             items:
               type: string
+              enum:
+                - fully_responsive
+                - mega_navigation
+                - multi_tiered_sidebar_menu
+                - masonry_design
+                - frontpage_slideshow
+                - quick_add_to_cart
+                - switchable_product_view
+                - product_comparison_table
+                - complex_search_filtering
+                - customizable_product_selector
+                - cart_suggested_products
+                - free_customer_support
+                - free_theme_upgrades
+                - high_res_product_images
+                - product_filtering
+                - advanced_quick_view
+                - product_showcase
+                - persistent_cart
+                - one_page_check_out
+                - product_videos
+                - google_amp
+                - customized_checkout
+                - enhanced_ecommerce
+                - csrf_protection
+                - account_payment_methods_v2
       css_compiler:
         type: string
         example: '"scss"'
@@ -809,56 +810,56 @@ definitions:
                   type: string
                 optimized_for:
                   type: array
-                  enum:
-                    - arts_crafts
-                    - animals_pets
-                    - automotive_industrial
-                    - electronics_computers
-                    - fashion_jewelry
-                    - food_beverage
-                    - gifts_specialty
-                    - health_beauty
-                    - home_garden
-                    - books_entertainment
-                    - sports_recreation
-                    - toys_games
-                    - multi_purpose
-                    - chrome_firefox_safari_ie_10
-                    - mobile_tablet_desktop
-                    - sales_discounts
-                    - wholesale
-                    - single_product
-                    - large_catalog
-                    - mobile
-                    - clothing
-                    - cosmetics
-                    - home_appliances
-                    - home_furnishings
-                    - movies
-                    - music
-                    - digital_downloads
-                    - outdoor_sports
-                    - hunting_fishing
-                    - video_games
                   items:
                     type: string
+                    enum:
+                      - arts_crafts
+                      - animal_pets
+                      - automotive_industrial
+                      - electronics_computers
+                      - fashion_jewelry
+                      - food_beverage
+                      - gifts_specialty
+                      - health_beauty
+                      - home_garden
+                      - books_entertainment
+                      - sports_recreation
+                      - toys_games
+                      - multi_purpose
+                      - chrome_firefox_safari_ie_10
+                      - mobile_tablet_desktop
+                      - sales_discounts
+                      - wholesale
+                      - single_product
+                      - large_catalog
+                      - mobile
+                      - clothing
+                      - cosmetics
+                      - home_appliances
+                      - home_furnishings
+                      - movies
+                      - music
+                      - digital_downloads
+                      - outdoor_sports
+                      - hunting_fishing
+                      - video_games
                 industries:
                   type: array
-                  enum:
-                    - arts_crafts
-                    - animals_pets
-                    - automotive_industrial
-                    - electronics_computers
-                    - fashion_jewelry
-                    - food_beverage
-                    - gifts_specialty
-                    - health_beauty
-                    - home_garden
-                    - books_entertainment
-                    - sports_recreation
-                    - toys_games
                   items:
                     type: string
+                    enum:
+                      - arts_crafts
+                      - animal_pets
+                      - automotive_industrial
+                      - electronics_computers
+                      - fashion_jewelry
+                      - food_beverage
+                      - gifts_specialty
+                      - health_beauty
+                      - home_garden
+                      - books_entertainment
+                      - sports_recreation
+                      - toys_games
               required:
                 - desktop_screenshot
                 - mobile_screenshot
