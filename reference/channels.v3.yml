@@ -925,7 +925,7 @@ servers:
   - url: 'https://api.bigcommerce.com/stores/{$$.env.store_hash}/v3'
     variables:
       $$.env.store_hash:
-        default: unknown
+        default: store_hash
 components:
   parameters:
     AfterParam:
