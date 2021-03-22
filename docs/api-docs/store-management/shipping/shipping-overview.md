@@ -3,7 +3,7 @@
 	
 ### On this page 
 - [Checkout APIs](#checkout-apis)
-- [Order shipping addresses](#shipping_order-shipping-addresses)
+- [Order shipping addresses](#order-shipping-addresses)
 - [Shipping zone and shipping methods](#shipping-zone-and-shipping-methods)
 - [Real-time carriers](#real-time-carriers)
 - [Related resources](#related-resources)
@@ -26,7 +26,7 @@ A checkout will always have one consignment assigned to it, which is the first s
 
 ## Order shipping addresses
 
-The [Order Shipping Addresses](https://developer.bigcommerce.com/api-reference/orders/orders-api/order-shipping-addresses) endpoint allows you to view the shipping addresses on an order. An order can have more than one shipping address.
+The [Order Shipping Addresses](https://developer.bigcommerce.com/api-reference/store-management/orders/order-shipping-addresses/) endpoint allows you to view the shipping addresses on an order. An order can have more than one shipping address.
 
 ## Shipping zone and shipping methods
 
@@ -48,5 +48,5 @@ For a list of all supported carriers, see [Real-Time Quote Providers](https://su
 ### Endpoints
 * [Storefront Checkouts API](https://developer.bigcommerce.com/api-reference/cart-checkout/storefront-checkout-api)
 * [Server-to-Server Checkouts API](https://developer.bigcommerce.com/api-reference/cart-checkout/server-server-checkout-api)
-* [Order Shipping Addresses](https://developer.bigcommerce.com/api-reference/orders/orders-api/order-shipping-addresses)
+* [Order Shipping Addresses](https://developer.bigcommerce.com/api-reference/store-management/orders/order-shipping-addresses/)
 * [Shipping v2](https://developer.bigcommerce.com/api-reference/store-management/shipping-api)
