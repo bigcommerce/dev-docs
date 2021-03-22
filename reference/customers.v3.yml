@@ -410,7 +410,7 @@ paths:
                     accepts_product_review_abandoned_cart_emails: true
                     store_credit_amounts:
                       - amount: 43.15
-                    channel_ids: '-1 -2'
+                    channel_ids: [-1, -2]
     delete:
       description: |-
         Deletes Customers.
@@ -747,7 +747,7 @@ paths:
         required: true
       responses:
         '200':
-          description: Customer settings are returned
+          description: Customer settings are returned.
           content:
             application/json:
               schema:
@@ -776,7 +776,7 @@ paths:
           required: true
       responses:
         '200':
-          description: Customer settings for this channel are returned
+          description: Customer settings for this channel are returned.
           content:
             application/json:
               schema:
@@ -810,7 +810,7 @@ paths:
         required: true
       responses:
         '200':
-          description: Customer settings are returned
+          description: Customer settings are returned.
           content:
             application/json:
               schema:
@@ -3917,6 +3917,14 @@ components:
           description: It determines if the customer is signed up to receive either product review or abandoned cart emails or recieve both emails.
         store_credit_amounts:
           $ref: '#/components/schemas/CustomerStoredCreditAmounts'
+        origin_channel_id:
+          description: Channel ID the customer has been created from
+          type: integer
+        channel_ids:
+          description: Array of channels the customer can access
+          type: array
+          items:
+            type: integer
       required:
         - email
         - first_name
@@ -3978,6 +3986,11 @@ components:
           description: It determines if the customer is signed up to receive either product review or abandoned cart emails or recieve both emails.
         store_credit_amounts:
           $ref: '#/components/schemas/CustomerStoredCreditAmounts'
+        channel_ids:
+          description: Arrays of channels the customer can access
+          type: array
+          items:
+            type: integer
       required:
         - id
     attributeValue_Full:
