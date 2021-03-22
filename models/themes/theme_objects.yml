@@ -2451,6 +2451,1217 @@ definitions:
         type: string
       page:
         $ref: '#/definitions/page'
+  global:
+    type: object
+    description: Properties available to most pages.
+    title: Global Properties
+    properties:
+      banners:
+        $ref: '#/definitions/banners'
+      blog:
+        type: object
+        description: Blog-specific properties for the blog feature within BigCommerce storefronts
+        properties:
+          name:
+            type: string
+          recent_posts:
+            type: array
+            items:
+              $ref: '#/definitions/blog.posts.post'
+          url:
+            type: string
+      breadcrumbs:
+        type: array
+        description: Defines a page’s breadcrumbs – available on virtually all pages that have a breadcrumb trail
+        items:
+          type: object
+          properties:
+            name:
+              type: string
+            url:
+              type: string
+      carousel:
+        type: object
+        description: 'A list of images, text, and style assets for a storefront’s image slide show'
+        properties:
+          slides:
+            type: array
+            items:
+              type: object
+              properties:
+                alt_text:
+                  type: string
+                button_text:
+                  type: string
+                button_text_color:
+                  type: string
+                heading:
+                  type: string
+                heading_color:
+                  type: string
+                image:
+                  type: string
+                image_height:
+                  type: string
+                image_width:
+                  type: string
+                stencil_image:
+                  type: object
+                  properties:
+                    alt:
+                      type: string
+                    data:
+                      type: string
+                    height:
+                      type: integer
+                    width:
+                      type: integer
+                text:
+                  type: string
+                text_color:
+                  type: string
+                url:
+                  type: string
+          swap_frequency:
+            type: integer
+      cart:
+        $ref: '#/definitions/cart'
+      cart_id:
+        type: 'null'
+        description: Global. The cart ID if one exists.
+      categories:
+        $ref: '#/definitions/categories'
+      configuration_id:
+        type: string
+        example: cabfdf20-a5d9-0138-bff6-0242ac11000e
+      currency_selector:
+        type: object
+        properties:
+          active_currency_code:
+            type: string
+          active_currency_flag:
+            type: string
+          active_currency_id:
+            type: integer
+          active_currency_name:
+            type: string
+          currencies:
+            type: array
+            items:
+              type: object
+              properties:
+                flag:
+                  type: string
+                id:
+                  type: integer
+                is_active:
+                  type: boolean
+                name:
+                  type: string
+                switch_url:
+                  type: string
+          default_currency_code:
+            type: string
+      customer:
+        type: 'null'
+      customer_group_id:
+        type: integer
+      customer_group_name:
+        type: string
+      footer:
+        type: object
+        properties:
+          scripts:
+            type: string
+      forms:
+        type: object
+        properties:
+          search:
+            $ref: '#/definitions/search'
+          address:
+            $ref: '#/definitions/formsAddress'
+          contact:
+            $ref: '#/definitions/formsContact'
+          create_account:
+            $ref: '#/definitions/formsCreateAccount'
+          edit_account:
+            $ref: '#/definitions/formsEditAccount'
+          gift_certicate:
+            $ref: '#/definitions/formsGiftCertificate'
+          login:
+            $ref: '#/definitions/formsLogin'
+          return:
+            $ref: '#/definitions/formsReturn'
+          wishlist:
+            $ref: '#/definitions/formsWishlist'
+      head:
+        type: object
+        properties:
+          favicon:
+            type: string
+          meta_tags:
+            type: string
+          scripts:
+            type: string
+          stylesheets:
+            type: string
+          title:
+            type: string
+      in_development:
+        type: boolean
+      in_production:
+        type: boolean
+      is_ajax:
+        type: boolean
+        description: returns true if the current executing request is an Ajax request
+      page_type:
+        type: string
+        description: "Global. Allowed Values: account_addressboo\naccount_downloaditem\taccount_inbox\neditaccount\naccount_orderstatus\taccount_ordersinvoice_print\taccount_order\taccount_recentitems\naccount_saved_return\taccount_returns\twishlists\nadd-wishlist\twishlist\tcreateaccount_thanks\ncreateaccount\nforgotpassword\nlogin\ngetnewpassword\nblog\nblog_post\nbrand\nbrands\ncart\ncategory\ncompare\n403\n404\nerror\ngiftcertificates_balance\ngiftcertificates\tgiftcertificates_redeem\tdefault\npage\npage_contact_form\tproduct\nrss\tsearch\nsitemap\nnewsletter_subscribe\tunsubscribe\thibernation"
+      pages:
+        type: array
+        items:
+          type: object
+          properties:
+            name:
+              type: string
+            url:
+              type: string
+      pagination:
+        type: array
+        items:
+          $ref: '#/definitions/pagination'
+      products:
+        type: object
+        properties:
+          new:
+            type: array
+            items:
+              type: object
+              properties:
+                add_to_cart_url:
+                  type: string
+                availability:
+                  type: string
+                brand:
+                  type: 'null'
+                category:
+                  type: array
+                  items:
+                    type: string
+                custom_fields:
+                  type: 'null'
+                date_added:
+                  type: string
+                demo:
+                  type: boolean
+                has_options:
+                  type: boolean
+                id:
+                  type: integer
+                image:
+                  type: 'null'
+                images:
+                  type: array
+                  items:
+                    type: object
+                low_stock_level:
+                  type: 'null'
+                name:
+                  type: string
+                num_reviews:
+                  type: integer
+                pre_order:
+                  type: boolean
+                price:
+                  type: object
+                  properties:
+                    sale_price_without_tax:
+                      type: object
+                      properties:
+                        currency:
+                          type: string
+                        formatted:
+                          type: string
+                        value:
+                          type: integer
+                    tax_label:
+                      type: string
+                    without_tax:
+                      type: object
+                      properties:
+                        currency:
+                          type: string
+                        formatted:
+                          type: string
+                        value:
+                          type: integer
+                qty_in_cart:
+                  type: integer
+                rating:
+                  type: integer
+                show_cart_action:
+                  type: boolean
+                sku:
+                  type: 'null'
+                stock_level:
+                  type: 'null'
+                summary:
+                  type: string
+                url:
+                  type: string
+                weight:
+                  type: object
+                  properties:
+                    formatted:
+                      type: string
+                    value:
+                      type: integer
+          top_sellers:
+            type: array
+            items:
+              type: object
+              properties:
+                add_to_cart_url:
+                  type: string
+                availability:
+                  type: string
+                brand:
+                  type: 'null'
+                category:
+                  type: array
+                  items:
+                    type: string
+                custom_fields:
+                  type: 'null'
+                date_added:
+                  type: string
+                demo:
+                  type: boolean
+                has_options:
+                  type: boolean
+                id:
+                  type: integer
+                image:
+                  type: 'null'
+                images:
+                  type: array
+                  items:
+                    type: object
+                low_stock_level:
+                  type: 'null'
+                name:
+                  type: string
+                num_reviews:
+                  type: integer
+                pre_order:
+                  type: boolean
+                price:
+                  type: object
+                  properties:
+                    sale_price_without_tax:
+                      type: object
+                      properties:
+                        currency:
+                          type: string
+                        formatted:
+                          type: string
+                        value:
+                          type: integer
+                    tax_label:
+                      type: string
+                    without_tax:
+                      type: object
+                      properties:
+                        currency:
+                          type: string
+                        formatted:
+                          type: string
+                        value:
+                          type: integer
+                qty_in_cart:
+                  type: integer
+                rating:
+                  type: integer
+                show_cart_action:
+                  type: boolean
+                sku:
+                  type: 'null'
+                stock_level:
+                  type: 'null'
+                summary:
+                  type: string
+                url:
+                  type: string
+                weight:
+                  type: object
+                  properties:
+                    formatted:
+                      type: string
+                    value:
+                      type: integer
+      remote_api_scripts:
+        type: string
+      settings:
+        type: object
+        properties:
+          account_creation_enabled:
+            type: boolean
+          add_this:
+            type: object
+            properties:
+              buttons:
+                type: array
+                items:
+                  type: object
+                  properties:
+                    annotation:
+                      type: string
+                    service:
+                      type: string
+          address:
+            type: string
+          amp_analytics_id:
+            type: string
+          base_url:
+            type: string
+          blog_enabled:
+            type: boolean
+          bulk_discount_enabled:
+            type: boolean
+          cdn_url:
+            type: string
+          client_ip_address:
+            type: string
+          country_code:
+            type: string
+          data_tag_enabled:
+            type: boolean
+          display_date_format:
+            type: string
+          extended_display_date_format:
+            type: string
+          facebook_like_button:
+            type: object
+            properties:
+              enabled:
+                type: boolean
+              href:
+                type: string
+              verb:
+                type: string
+          general:
+            type: object
+            properties:
+              fastCart:
+                type: boolean
+              storeId:
+                type: integer
+          gift_certificates_enabled:
+            type: boolean
+          is_eu_ip_address:
+            type: boolean
+          maintenance:
+            type: object
+            properties:
+              header:
+                type: 'null'
+              message:
+                type: 'null'
+              notice:
+                type: 'null'
+              password:
+                type: 'null'
+              securePath:
+                type: string
+          measurements:
+            type: object
+            properties:
+              length:
+                type: string
+              weight:
+                type: string
+          money:
+            type: object
+            properties:
+              currency_location:
+                type: string
+              currency_token:
+                type: string
+              decimal_places:
+                type: integer
+              decimal_token:
+                type: string
+              thousands_token:
+                type: string
+          newsletter_summary:
+            type: string
+          password_requirements:
+            type: object
+            properties:
+              alpha:
+                type: string
+              error:
+                type: string
+              minlength:
+                type: integer
+              numeric:
+                type: string
+          payments_url:
+            type: string
+          phone_number:
+            type: string
+          privacy_cookie:
+            type: boolean
+          request:
+            type: object
+            properties:
+              absolute_path:
+                type: string
+              host:
+                type: string
+              is_crawler:
+                type: boolean
+              locale:
+                type: string
+              origin:
+                type: string
+              referer:
+                type: boolean
+              user_agent:
+                type: string
+          returns_enabled:
+            type: integer
+          rss_item_limit:
+            type: integer
+          secure_base_url:
+            type: string
+          secure_host:
+            type: string
+          show_newsletter_box:
+            type: integer
+          show_newsletter_summary:
+            type: integer
+          show_payment_methods:
+            type: boolean
+          show_product_rating:
+            type: boolean
+          show_product_reviews:
+            type: boolean
+          show_wishlist:
+            type: boolean
+          store_dst_correction:
+            type: integer
+          store_hash:
+            type: string
+          store_logo:
+            type: object
+            properties:
+              title:
+                type: string
+          store_name:
+            type: string
+          store_time_zone:
+            type: string
+          storefront_api:
+            type: object
+            properties:
+              token:
+                type: string
+          tax_label:
+            type: string
+          theme_config_id:
+            type: string
+          theme_session_id:
+            type: string
+          theme_version_id:
+            type: string
+      shipping_messages:
+        type: array
+        items:
+          type: object
+      shop_by_brand:
+        type: array
+        items:
+          type: object
+      social_media:
+        type: array
+        items:
+          type: object
+      template_file:
+        type: string
+        description: A string containing the name of the root template currently being rendered in the page context.
+        example: pages/home
+      theme_images:
+        type: array
+        items:
+          type: object
+      theme_session_id:
+        type: string
+      theme_settings:
+        type: object
+        properties:
+          alert-backgroundColor:
+            type: string
+          alert-color:
+            type: string
+          alert-color-alt:
+            type: string
+          applePay-button:
+            type: string
+          blockquote-cite-font-color:
+            type: string
+          blog_size:
+            type: string
+          body-bg:
+            type: string
+          body-font:
+            type: string
+          brand_size:
+            type: string
+          brandpage_products_per_page:
+            type: integer
+          button--default-borderColor:
+            type: string
+          button--default-borderColorActive:
+            type: string
+          button--default-borderColorHover:
+            type: string
+          button--default-color:
+            type: string
+          button--default-colorActive:
+            type: string
+          button--default-colorHover:
+            type: string
+          button--disabled-backgroundColor:
+            type: string
+          button--disabled-borderColor:
+            type: string
+          button--disabled-color:
+            type: string
+          button--icon-svg-color:
+            type: string
+          button--primary-backgroundColor:
+            type: string
+          button--primary-backgroundColorActive:
+            type: string
+          button--primary-backgroundColorHover:
+            type: string
+          button--primary-color:
+            type: string
+          button--primary-colorActive:
+            type: string
+          button--primary-colorHover:
+            type: string
+          card--alternate-backgroundColor:
+            type: string
+          card--alternate-borderColor:
+            type: string
+          card--alternate-color--hover:
+            type: string
+          card-figcaption-button-background:
+            type: string
+          card-figcaption-button-color:
+            type: string
+          card-title-color:
+            type: string
+          card-title-color-hover:
+            type: string
+          carousel-arrow-bgColor:
+            type: string
+          carousel-arrow-borderColor:
+            type: string
+          carousel-arrow-color:
+            type: string
+          carousel-bgColor:
+            type: string
+          carousel-description-color:
+            type: string
+          carousel-dot-bgColor:
+            type: string
+          carousel-dot-color:
+            type: string
+          carousel-dot-color-active:
+            type: string
+          carousel-title-color:
+            type: string
+          categorypage_products_per_page:
+            type: integer
+          checkRadio-backgroundColor:
+            type: string
+          checkRadio-borderColor:
+            type: string
+          checkRadio-color:
+            type: string
+          color-black:
+            type: string
+          color-error:
+            type: string
+          color-errorLight:
+            type: string
+          color-grey:
+            type: string
+          color-greyDark:
+            type: string
+          color-greyDarker:
+            type: string
+          color-greyDarkest:
+            type: string
+          color-greyLight:
+            type: string
+          color-greyLighter:
+            type: string
+          color-greyLightest:
+            type: string
+          color-greyMedium:
+            type: string
+          color-info:
+            type: string
+          color-infoLight:
+            type: string
+          color-primary:
+            type: string
+          color-primaryDark:
+            type: string
+          color-primaryDarker:
+            type: string
+          color-primaryLight:
+            type: string
+          color-secondary:
+            type: string
+          color-secondaryDark:
+            type: string
+          color-secondaryDarker:
+            type: string
+          color-success:
+            type: string
+          color-successLight:
+            type: string
+          color-textBase:
+            type: string
+          color-textBase--active:
+            type: string
+          color-textBase--hover:
+            type: string
+          color-textHeading:
+            type: string
+          color-textLink:
+            type: string
+          color-textLink--active:
+            type: string
+          color-textLink--hover:
+            type: string
+          color-textSecondary:
+            type: string
+          color-textSecondary--active:
+            type: string
+          color-textSecondary--hover:
+            type: string
+          color-warning:
+            type: string
+          color-warningLight:
+            type: string
+          color-white:
+            type: string
+          color-whitesBase:
+            type: string
+          color_badge_product_sale_badges:
+            type: string
+          color_hover_product_sale_badges:
+            type: string
+          color_text_product_sale_badges:
+            type: string
+          container-border-global-color-base:
+            type: string
+          container-fill-base:
+            type: string
+          container-fill-dark:
+            type: string
+          default_image_brand:
+            type: string
+          default_image_gift_certificate:
+            type: string
+          default_image_product:
+            type: string
+          dropdown--quickSearch-backgroundColor:
+            type: string
+          dropdown--wishList-backgroundColor:
+            type: string
+          fontSize-h1:
+            type: integer
+          fontSize-h2:
+            type: integer
+          fontSize-h3:
+            type: integer
+          fontSize-h4:
+            type: integer
+          fontSize-h5:
+            type: integer
+          fontSize-h6:
+            type: integer
+          fontSize-root:
+            type: integer
+          footer-backgroundColor:
+            type: string
+          form-label-font-color:
+            type: string
+          gallery_size:
+            type: string
+          geotrust_ssl_common_name:
+            type: string
+          geotrust_ssl_seal_size:
+            type: string
+          header-backgroundColor:
+            type: string
+          headings-font:
+            type: string
+          hide_blog_page_heading:
+            type: boolean
+          hide_breadcrumbs:
+            type: boolean
+          hide_category_page_heading:
+            type: boolean
+          hide_contact_us_page_heading:
+            type: boolean
+          hide_content_navigation:
+            type: boolean
+          hide_page_heading:
+            type: boolean
+          homepage_blog_posts_count:
+            type: integer
+          homepage_featured_products_column_count:
+            type: integer
+          homepage_featured_products_count:
+            type: integer
+          homepage_new_products_column_count:
+            type: integer
+          homepage_new_products_count:
+            type: integer
+          homepage_show_carousel:
+            type: boolean
+          homepage_show_carousel_arrows:
+            type: boolean
+          homepage_stretch_carousel_images:
+            type: boolean
+          homepage_top_products_column_count:
+            type: integer
+          homepage_top_products_count:
+            type: integer
+          icon-color:
+            type: string
+          icon-color-hover:
+            type: string
+          icon-ratingEmpty:
+            type: string
+          icon-ratingFull:
+            type: string
+          input-bg-color:
+            type: string
+          input-border-color:
+            type: string
+          input-border-color-active:
+            type: string
+          input-disabled-bg:
+            type: string
+          input-font-color:
+            type: string
+          label-backgroundColor:
+            type: string
+          label-color:
+            type: string
+          loadingOverlay-backgroundColor:
+            type: string
+          logo-position:
+            type: string
+          logo_fontSize:
+            type: integer
+          logo_size:
+            type: string
+          navPages-color:
+            type: string
+          navPages-color-hover:
+            type: string
+          navPages-subMenu-backgroundColor:
+            type: string
+          navPages-subMenu-separatorColor:
+            type: string
+          navUser-color:
+            type: string
+          navUser-color-hover:
+            type: string
+          navUser-dropdown-backgroundColor:
+            type: string
+          navUser-dropdown-borderColor:
+            type: string
+          navUser-indicator-backgroundColor:
+            type: string
+          navigation_design:
+            type: string
+          optimizedCheckout-backgroundImage:
+            type: string
+          optimizedCheckout-backgroundImage-size:
+            type: string
+          optimizedCheckout-body-backgroundColor:
+            type: string
+          optimizedCheckout-buttonPrimary-backgroundColor:
+            type: string
+          optimizedCheckout-buttonPrimary-backgroundColorActive:
+            type: string
+          optimizedCheckout-buttonPrimary-backgroundColorDisabled:
+            type: string
+          optimizedCheckout-buttonPrimary-backgroundColorHover:
+            type: string
+          optimizedCheckout-buttonPrimary-borderColor:
+            type: string
+          optimizedCheckout-buttonPrimary-borderColorActive:
+            type: string
+          optimizedCheckout-buttonPrimary-borderColorDisabled:
+            type: string
+          optimizedCheckout-buttonPrimary-borderColorHover:
+            type: string
+          optimizedCheckout-buttonPrimary-color:
+            type: string
+          optimizedCheckout-buttonPrimary-colorActive:
+            type: string
+          optimizedCheckout-buttonPrimary-colorDisabled:
+            type: string
+          optimizedCheckout-buttonPrimary-colorHover:
+            type: string
+          optimizedCheckout-buttonPrimary-font:
+            type: string
+          optimizedCheckout-buttonSecondary-backgroundColor:
+            type: string
+          optimizedCheckout-buttonSecondary-backgroundColorActive:
+            type: string
+          optimizedCheckout-buttonSecondary-backgroundColorHover:
+            type: string
+          optimizedCheckout-buttonSecondary-borderColor:
+            type: string
+          optimizedCheckout-buttonSecondary-borderColorActive:
+            type: string
+          optimizedCheckout-buttonSecondary-borderColorHover:
+            type: string
+          optimizedCheckout-buttonSecondary-color:
+            type: string
+          optimizedCheckout-buttonSecondary-colorActive:
+            type: string
+          optimizedCheckout-buttonSecondary-colorHover:
+            type: string
+          optimizedCheckout-buttonSecondary-font:
+            type: string
+          optimizedCheckout-colorFocus:
+            type: string
+          optimizedCheckout-contentPrimary-color:
+            type: string
+          optimizedCheckout-contentPrimary-font:
+            type: string
+          optimizedCheckout-contentSecondary-color:
+            type: string
+          optimizedCheckout-contentSecondary-font:
+            type: string
+          optimizedCheckout-discountBanner-backgroundColor:
+            type: string
+          optimizedCheckout-discountBanner-iconColor:
+            type: string
+          optimizedCheckout-discountBanner-textColor:
+            type: string
+          optimizedCheckout-form-textColor:
+            type: string
+          optimizedCheckout-formChecklist-backgroundColor:
+            type: string
+          optimizedCheckout-formChecklist-backgroundColorSelected:
+            type: string
+          optimizedCheckout-formChecklist-borderColor:
+            type: string
+          optimizedCheckout-formChecklist-color:
+            type: string
+          optimizedCheckout-formField-backgroundColor:
+            type: string
+          optimizedCheckout-formField-borderColor:
+            type: string
+          optimizedCheckout-formField-errorColor:
+            type: string
+          optimizedCheckout-formField-inputControlColor:
+            type: string
+          optimizedCheckout-formField-placeholderColor:
+            type: string
+          optimizedCheckout-formField-shadowColor:
+            type: string
+          optimizedCheckout-formField-textColor:
+            type: string
+          optimizedCheckout-header-backgroundColor:
+            type: string
+          optimizedCheckout-header-borderColor:
+            type: string
+          optimizedCheckout-header-textColor:
+            type: string
+          optimizedCheckout-headingPrimary-color:
+            type: string
+          optimizedCheckout-headingPrimary-font:
+            type: string
+          optimizedCheckout-headingSecondary-color:
+            type: string
+          optimizedCheckout-headingSecondary-font:
+            type: string
+          optimizedCheckout-link-color:
+            type: string
+          optimizedCheckout-link-font:
+            type: string
+          optimizedCheckout-link-hoverColor:
+            type: string
+          optimizedCheckout-loadingToaster-backgroundColor:
+            type: string
+          optimizedCheckout-loadingToaster-textColor:
+            type: string
+          optimizedCheckout-logo:
+            type: string
+          optimizedCheckout-logo-position:
+            type: string
+          optimizedCheckout-logo-size:
+            type: string
+          optimizedCheckout-orderSummary-backgroundColor:
+            type: string
+          optimizedCheckout-orderSummary-borderColor:
+            type: string
+          optimizedCheckout-show-backgroundImage:
+            type: boolean
+          optimizedCheckout-show-logo:
+            type: string
+          optimizedCheckout-step-backgroundColor:
+            type: string
+          optimizedCheckout-step-borderColor:
+            type: string
+          optimizedCheckout-step-textColor:
+            type: string
+          overlay-backgroundColor:
+            type: string
+          pace-progress-backgroundColor:
+            type: string
+          paymentbuttons-paypal-color:
+            type: string
+          paymentbuttons-paypal-fundingicons:
+            type: boolean
+          paymentbuttons-paypal-label:
+            type: string
+          paymentbuttons-paypal-layout:
+            type: string
+          paymentbuttons-paypal-shape:
+            type: string
+          paymentbuttons-paypal-size:
+            type: string
+          paymentbuttons-paypal-tagline:
+            type: boolean
+          pdp-custom-fields-tab-label:
+            type: string
+          pdp-non-sale-price-label:
+            type: string
+          pdp-price-label:
+            type: string
+          pdp-retail-price-label:
+            type: string
+          pdp-sale-price-label:
+            type: string
+          price_ranges:
+            type: boolean
+          product_list_display_mode:
+            type: string
+          product_sale_badges:
+            type: string
+          product_size:
+            type: string
+          productgallery_size:
+            type: string
+          productpage_related_products_count:
+            type: integer
+          productpage_reviews_count:
+            type: integer
+          productpage_similar_by_views_count:
+            type: integer
+          productpage_videos_count:
+            type: integer
+          productthumb_size:
+            type: string
+          productview_thumb_size:
+            type: string
+          restrict_to_login:
+            type: boolean
+          searchpage_products_per_page:
+            type: integer
+          select-arrow-color:
+            type: string
+          select-bg-color:
+            type: string
+          shop_by_brand_show_footer:
+            type: boolean
+          shop_by_price_visibility:
+            type: boolean
+          show_accept_amex:
+            type: boolean
+          show_accept_discover:
+            type: boolean
+          show_accept_mastercard:
+            type: boolean
+          show_accept_paypal:
+            type: boolean
+          show_accept_visa:
+            type: boolean
+          show_copyright_footer:
+            type: boolean
+          show_custom_fields_tabs:
+            type: boolean
+          show_powered_by:
+            type: boolean
+          show_product_details_tabs:
+            type: boolean
+          show_product_dimensions:
+            type: boolean
+          show_product_quantity_box:
+            type: boolean
+          show_product_quick_view:
+            type: boolean
+          show_product_reviews_tabs:
+            type: boolean
+          show_product_weight:
+            type: boolean
+          social_icon_placement_bottom:
+            type: string
+          social_icon_placement_top:
+            type: boolean
+          spinner-borderColor-dark:
+            type: string
+          spinner-borderColor-light:
+            type: string
+          storeName-color:
+            type: string
+          supported_card_type_icons:
+            type: array
+            items:
+              type: string
+          swatch_option_size:
+            type: string
+          thumb_size:
+            type: string
+          zoom_size:
+            type: string
+      urls:
+        type: object
+        description: Global. A list of all web content pages for the BigCommerce storefront.
+        properties:
+          account:
+            type: object
+            properties:
+              add_address:
+                type: string
+              addresses:
+                type: string
+              details:
+                type: string
+              inbox:
+                type: string
+              index:
+                type: string
+              orders:
+                type: object
+                properties:
+                  all:
+                    type: string
+                  completed:
+                    type: string
+                  save_new_return:
+                    type: string
+              payment_methods:
+                type: object
+                properties:
+                  all:
+                    type: string
+              recent_items:
+                type: string
+              returns:
+                type: string
+              send_message:
+                type: string
+              update_action:
+                type: string
+              wishlists:
+                type: object
+                properties:
+                  add:
+                    type: string
+                  all:
+                    type: string
+                  delete:
+                    type: string
+                  edit:
+                    type: string
+          auth:
+            type: object
+            properties:
+              check_login:
+                type: string
+              create_account:
+                type: string
+              forgot_password:
+                type: string
+              login:
+                type: string
+              logout:
+                type: string
+              save_new_account:
+                type: string
+              save_new_password:
+                type: string
+              send_password_email:
+                type: string
+          brands:
+            type: string
+          cart:
+            type: string
+          checkout:
+            type: object
+            properties:
+              multiple_address:
+                type: string
+              single_address:
+                type: string
+          compare:
+            type: string
+          contact_us_submit:
+            type: string
+          gift_certificate:
+            type: object
+            properties:
+              balance:
+                type: string
+              purchase:
+                type: string
+              redeem:
+                type: string
+          home:
+            type: string
+          product:
+            type: object
+            properties:
+              post_review:
+                type: string
+          rss:
+            type: object
+            properties:
+              products:
+                type: array
+                items:
+                  type: object
+          search:
+            type: string
+          sitemap:
+            type: string
+          subscribe:
+            type: object
+            properties:
+              action:
+                type: string
+      version_id:
+        type: string
+      page:
+        $ref: '#/definitions/page'
   product:
     type: object
     title: product
@@ -5031,6 +6242,16 @@ definitions:
       data:
         type: string
         description: Internal URL to product or category image.
+  templatesPagesProducts:
+    title: templates/pages/product.html
+    x-examples: {}
+    allOf:
+      - properties:
+          product:
+            $ref: '#/definitions/product'
+        type: object
+      - $ref: '#/definitions/global'
+    description: Objects available to `templates/pages/product.html`.
 responses:
   schemaSetting_Base:
     description: ''
