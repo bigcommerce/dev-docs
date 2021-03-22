@@ -4052,6 +4052,8 @@ components:
         default_currency_code:
           type: string
           description: The currency code of the transactional currency the shopper pays in; writeable when multi-currency is enabled.
+        customer_id:
+          type: number
     billingAddress_Base:
       type: object
       title: billingAddress_Base
@@ -4635,7 +4637,6 @@ components:
             items_shipped:
               type: number
               description: 'The number of items that have been shipped. example: 0  - properties: shipping_addresses: $ref: '
-              enum: null
             payment_method:
               type: string
               description: 'The payment method for this order. Can be one of the following: `Manual`, `Credit Card`, `Cash`,`Test Payment Gateway`, etc.'
@@ -4944,7 +4945,6 @@ components:
                 AvaTaxProvider - This is for when the tax provider has been set to automatic and the order was NOT created by the API. Used for Avalara.
 
                 "\" (blank) - When the tax provider is unknown. This includes legacy orders and orders previously created via API.This can be set when creating an order using POST.
-
               enum:
                 - BasicTaxProvider
                 - AvaTaxProvider
