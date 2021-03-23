@@ -8,7 +8,7 @@
 
 BundleB2B (B3) adds business-to-business (B2B) functionality to the BigCommerce platform, allowing businesses to easily facilitate B2B operations online. B3 provides a comprehensive suite of key B2B features to improve the B2B self-service experience for BigCommerce store owners and their customers.
 
-The B2B Edition of BigCommerce is a bundled offering of the BigCommerce Enterprise solution, B3, and six BigCommerce themes with B3 preinstalled. 
+The B2B Edition of BigCommerce is a bundled offering of the BigCommerce Enterprise solution, B3, and six BigCommerce themes with B3 preinstalled.
 
 Some of the enhancements to your BigCommerce store that B3 offers include:
 
@@ -25,11 +25,11 @@ Some of the enhancements to your BigCommerce store that B3 offers include:
 
 B3 is preinstalled if you purchase the B2B Edition of BigCommerce. If B3 is purchased as a separate product for an existing BigCommerce plan, the B3 app is installed from the BigCommerce App Marketplace and must be manually integrated with your BigCommerce theme.
 
-The B3 admin panel is seamlessly loaded as an iFrame accessible from the My Apps section of your Store Dashboard. The client-facing portions of the app are loaded dynamically with JavaScript. 
+The B3 admin panel is seamlessly loaded as an iFrame accessible from the My Apps section of your Store Dashboard. The client-facing portions of the app are loaded dynamically with JavaScript.
 
 ## Customizing B3
 
-With B3, you can customize the placement of B3 app elements, customize display text, customize styling, and customize checkout configurations. You also have access to the lifecycle hooks for many B3 modules to inject your own JavaScript functions.
+With B3, you can customize the placement of B3 app elements, customize display text, customize styling, and customize checkout configurations. You also have access to the lifecycle methods for many B3 modules to inject your own JavaScript functions.
 
 Additionally, you can use the B3 REST API to create, read, update, and delete items such as orders, companies, addresses, payments, sales reps, and users. This API allows you to build your own services or integrate B3 with third-party business tools such as Salesforce.
 
@@ -60,7 +60,7 @@ For a list of B3 container names and their default placements, see the [BundleB2
 
 You can customize the styling of many B3 elements using CSS.
 
-To specify which DOM node a B3 container mounts on, insert `window.b3themeConfig.useStyles = {}` into your theme's `assets/js/global.js` file. Within `window.b3themeConfig.useStyles = {}`, create a property that uses the B3 element name as the key and one or more comma-separated CSS declarations as the value. 
+To modify the styling of a B3 module, first, insert `window.b3themeConfig.useStyles = {}` into your theme's `assets/js/global.js` file. Within `window.b3themeConfig.useStyles = {}`, create a property that uses the B3 element name as the key and one or more comma-separated CSS declarations as the value.
 
 Since the CSS is written in a JavaScript object, properties with two names, like `background-color`, must be written with camel case syntax: `backgroundColor: "lightblue"`
 
@@ -90,9 +90,9 @@ For diagrams of B3 element names and their placements, see the [BundleB2B Develo
 
 ### Customize display text
 
-B3 allows you to customize display text for many of the application's elements, such as buttons, headers, and labels. 
+B3 allows you to customize display text for many of the application's elements, such as buttons, headers, and labels.
 
-To overwrite the default text that B3 renders, insert `window.b3themeConfig.useText = {}` into your theme's `assets/js/global.js` file. Within `window.b3themeConfig.useText = {}`, create a property for each element you would like to overwrite using B3 element names are used as keys and strings containing the new display text as values. 
+To overwrite the default text that B3 renders, insert `window.b3themeConfig.useText = {}` into your theme's `assets/js/global.js` file. Within `window.b3themeConfig.useText = {}`, create a property for each element you would like to overwrite using B3 element names as keys and strings containing the new display text as values.
 
 When done, the object will resemble the following:
 
@@ -142,7 +142,7 @@ window.b3themeConfig.useJavaScript = {
 
 The output to the browser console of the above example is the following:
 
-![Docs%20Draft%20a609bfb87efc4b189a43113b01be4cc9/Untitled.png](Docs%20Draft%20a609bfb87efc4b189a43113b01be4cc9/Untitled.png)
+![B3 console log output](https://raw.githubusercontent.com/bigcommerce/dev-docs/master/assets/images/B3-console.png)
 
 For a full list of available modules, see the [BundleB2B Developer Guide](https://developer.bundleb2b.net/storefront/js.html).
 
