@@ -176,9 +176,7 @@ paths:
       description: |-
         Updates a *Cart* line item. Updates an existing, single line item in the cart.
 
-        Currently only updating the item quantity is supported.
-
-        If a variant needs to be changed or updated, the product will need to be removed and re-added to the cart with the correct variants using the [Add Cart Line Items](/api-reference/cart-checkout/storefront-cart-api/cart-items/addcartlineitem) endpoint.
+        This endpoint only supports quantity change for simple products. If a modified product or variant needs to be changed or updated, the product will need to be removed and re-added to the cart with the correct variants using the [Add Cart Line Item](https://developer.bigcommerce.com/api-reference/storefront/carts/cart-items/addcartlineitem) endpoint.
 
         <div class="HubBlock--callout">
         <div class="CalloutBlock--info">
