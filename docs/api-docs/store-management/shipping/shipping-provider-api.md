@@ -96,7 +96,7 @@ Example:
 
 ## Developing the app
 
-Shipping providers are highly recommendeded to build a BigCommerce [single-click app](https://developer.bigcommerce.com/api-docs/apps/guide/types#single-click) in order to utilise the Shipping Provider API to provide shipping quotes. A BigCommerce app provides many benefits to merchants, for example, it enables shipping providers to promote their solution in the BigCommerce apps marketplace, ask for merchant authorisation of API scopes during app install, as well as enable configuration of shipping provider settings and/or order fulfilment via an iFrame in the BigCommerce control panel.
+Shipping providers are required to build a BigCommerce [single-click app](https://developer.bigcommerce.com/api-docs/apps/guide/types#single-click) in order to utilise the Shipping Provider API to provide shipping quotes. A BigCommerce app provides many benefits to merchants, for example, it enables shipping providers to promote their solution in the BigCommerce apps marketplace, ask for merchant authorisation of API scopes during app install, as well as enable configuration of shipping provider settings and/or order fulfilment via an iFrame in the BigCommerce control panel.
 
 Review our [introduction to building apps](https://developer.bigcommerce.com/api-docs/apps/guide/intro) guide and use the sidebar to explore topics including but not limited to; [types of apps](https://developer.bigcommerce.com/api-docs/apps/guide/types), [managing apps in the dev portal](https://developer.bigcommerce.com/api-docs/apps/guide/developer-portal), [implementing OAuth](https://developer.bigcommerce.com/api-docs/apps/guide/auth) and [designing the UI](https://developer.bigcommerce.com/api-docs/apps/guide/ui).
 
