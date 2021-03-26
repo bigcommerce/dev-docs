@@ -14,7 +14,7 @@ This article documents how to use [widget versioning](https://developer.bigcomme
 
 ###  Prerequisites
 
-* A test store.
+* [A BigCommerce store](https://support.bigcommerce.com/s/article/Starting-a-Bigcommerce-Trial).
 * API `access_token` with `content modify` scope.
 * Knowledge of the [Widgets API](https://developer.bigcommerce.com/api-docs/storefront/widgets/widgets-overview).
 
@@ -62,7 +62,7 @@ Accept: application/json
       ]
     }
   ],
-  "template": "<h1>Hello, World!</h1>"
+  "template": "<h1>{{textContent}}</h1>"
 }
 ```
 
@@ -82,7 +82,7 @@ Accept: application/json
 
 You can view your widget template in the store's control panel using [Page Builder](https://support.bigcommerce.com/s/article/Page-Builder), BigCommerce's storefront editing and customization tool. You can locate your newly created widget template in the left pane under **Custom**. 
 
-![Page Builder](https://raw.githubusercontent.com/bigcommerce/dev-docs/master/assets/images/widget-versioning-01 "Page Builder")
+![Page Builder](https://raw.githubusercontent.com/bigcommerce/dev-docs/master/assets/images/widget-versioning-01.png "Page Builder")
 
 ### Create a widget
 
@@ -100,7 +100,7 @@ Accept: application/json
 {
   "name": "Version 1 Widget",
   "widget_configuration": {
-    "textContent": "Posted via the API"
+    "textContent": "Hello, World!"
   },
   "widget_template_uuid": "{your-widget-template-uuid}"
 }
@@ -131,7 +131,7 @@ Look for `version_uuid` and `current_version_uuid` in the response. You will not
       "kind": "custom",
       "name": "Simple Text",
       "schema": [...],
-      "template": "<h1>Hello, World!</h1>",
+      "template": "<h1>{{textContent}}</h1>",
       "uuid": "ee65e81f-a6a6-43a4-8d52-60bab87dbff3"
     }
   },
@@ -199,7 +199,7 @@ Accept: application/json
       ]
     }
   ],
-  "template": "<h1 style='color:red;'>Hello, World!</h1>",
+  "template": "<h1 style='color:red;'>{{textContent}}</h1>",
   "create_new_version": true
 }
 ```
@@ -225,7 +225,7 @@ Accept: application/json
 {
   "name": "Version 2 Widget",
   "widget_configuration": {
-    "textContent": "Posted via the API"
+    "textContent": "Hello, World!"
   },
   "widget_template_uuid": "{your-widget-template-uuid}"
 }
@@ -237,19 +237,30 @@ To display the new widget next to the old one, place it in the same region. In o
 
 You should now see two different widgets displayed below **Featured Products**.
 
-![Add a new widget](https://raw.githubusercontent.com/bigcommerce/dev-docs/master/assets/images/widget-versioning-02 "Add a new widget")
+![Add a new widget](https://raw.githubusercontent.com/bigcommerce/dev-docs/master/assets/images/widget-versioning-02.png "Add a new widget")
 
 ## Upgrade the widget
 
 To upgrade the widget derived from the original widget template, send `"upgrade":true` in a `PUT` request to [`/v3/content/widgets/{uuid}`](https://developer.bigcommerce.com/api-reference/store-management/widgets/widget/updatewidget). This will push the widget up to the latest widget template version.
 
-![Upgrade the widget](https://raw.githubusercontent.com/bigcommerce/dev-docs/master/assets/images/widget-versioning-03 "Upgrade the widget")
+![Upgrade the widget](https://raw.githubusercontent.com/bigcommerce/dev-docs/master/assets/images/widget-versioning-03.png "Upgrade the widget")
+
+<div class="HubBlock--callout">
+<div class="CalloutBlock--info">
+<div class="HubBlock-content">
+
+> ### Note
+> * If the newer version of your widget template contains different schema settings, you need to provide the necessary configuration values along with the `upgrade` flag to make sure the widget is updated correctly. 
+
+</div>
+</div>
+</div>
 
 ## Related resources
 
 ### Articles
-* [Widgets Overview](/api-docs/storefront/widgets/widgets-overview)
+* [Widgets Overview](/api-docs/store-management/widgets/overview)
 * [Page Builder Overview](https://developer.bigcommerce.com/stencil-docs/page-builder/page-builder-overview)
 
 ### Endpoints
-* [Widgets API](/api-reference/storefront/widgets-api)
+* [Widgets API](/api-reference/store-management/widgets)

@@ -38,7 +38,8 @@ For more information on OAuth Scopes and authentication, see [Authentication](ht
 
 ## Products overview
 
-[Products](/api-reference/catalog/catalog-api/products/getproducts) are the primary catalog entity, and the primary function of the eCommerce platform is to sell products on the storefront and other channels.
+[Products](/api-reference/store-management/catalog/products/getproducts) are the primary catalog entity, and the primary function of the ecommerce platform is to sell products on the storefront and other channels.
+
 
 Products can be physical or digital:
 * **Physical** - Exist in a physical form, have a weight, and are sold by merchants to ship to customers.
@@ -61,7 +62,7 @@ Products can be physical or digital:
 
 ### Creating a product
 
-Below is an example `POST` request for creating a simple product without options, modifiers, or variants.
+Below is an example `POST` request for creating a simple product without variant options or modifiers.
 
 
 ```http
@@ -84,9 +85,9 @@ X-Auth-Token: {{ACCESS_TOKEN}}
 
 [![Open in Request Runner](https://storage.googleapis.com/bigcommerce-production-dev-center/images/Open-Request-Runner.svg)](https://developer.bigcommerce.com/api-reference/catalog/catalog-api/products/createproduct#requestrunner)
 
-## Creating Products with Options
+## Creating products with variant options
 
-To create a complex product with options selectable by shoppers, include a `variants` array in the request body.
+To create a complex product with variant options selectable by shoppers, include a `variants` array in the request body.
 
 ```http
 POST https://api.bigcommerce.com/stores/{{STORE_HASH}}/v3/catalog/products
@@ -187,6 +188,7 @@ X-Auth-Token: {{ACCESS_TOKEN}}
 ## Pricing precision
 
 BigCommerce pricing is precise up to `4` decimal places. For example:
+
 * `"$ 10.99999` rounds up to `$ 11`
 * `"$ 10.99994` rounds down to `$ 10.9999`
 
@@ -286,9 +288,7 @@ X-Auth-Token: {{ACCESS_TOKEN}}
 <!-- theme:  -->
 
 ### Note
-> Custom field values are limited to **250** characters.
-
-> For additional information on custom fields and their use-cases, see [Custom Fields](https://support.bigcommerce.com/s/article/Custom-Fields).
+> Custom field values are limited to **250** characters. For additional information on custom fields and their use-cases, see [Custom Fields](https://support.bigcommerce.com/s/article/Custom-Fields).
 
 
 </div>
@@ -297,7 +297,8 @@ X-Auth-Token: {{ACCESS_TOKEN}}
 
 ## Adding bulk pricing rules
 
-Add bulk quantity-based pricing to products via `PUT` to `/v3/catalog/products/{{product_id}}/bulk-pricing-rules`.
+To add bulk quantity-based pricing to products, send a `PUT` request to `/v3/catalog/products/{{product_id}}/bulk-pricing-rules`.
+
 
 
 ```http
@@ -331,7 +332,7 @@ For general information and use cases for product bulk pricing, see [Bulk Pricin
 
 ## Adding product metafields
 
-[Metafields](/api-reference/catalog/catalog-api/product-metafields/createproductmetafield) are key-value pairs intended for programmatically storing data against a product or other entity. Data stored in metafields does not appear in the storefront or the control panel. Data not appearing in the storefront or control panel is useful when information needs to be passed back and forth between an app and BigCommerce.
+[Metafields](/api-reference/store-management/catalog/product-metafields/createproductmetafield) are key-value pairs intended for programmatically storing data against a product or other entity. Data stored in metafields does not appear in the storefront or the control panel. Data not appearing in the storefront or control panel is useful when information needs to be passed back and forth between an app and BigCommerce.
 
 
 To add metafields to a product, `PUT` to `/v3/catalog/products/{{product_id}}/metafields`.
@@ -402,7 +403,7 @@ X-Auth-Token: {{ACCESS_TOKEN}}
 
 ## Creating brands
 
-To create a [Brand](/api-reference/catalog/catalog-api/brands/getbrands), send a `POST` request to `/v3/catalog/brands`.
+To create a [Brand](/api-reference/store-management/catalog/brands/getbrands), send a `POST` request to `/v3/catalog/brands`.
 
 
 ```http
@@ -430,7 +431,7 @@ For general information on brands and their use cases, see [Managing Brands](htt
 
 ## Variant options
 
-[Variant options](/api-reference/catalog/catalog-api/product-variants/getvariantsbyproductid) are any choices that the shopper needs to make that will result in selecting a variant. Color and size are typical examples of variant options.  A t-shirt can have different combinations of sizes and colors.
+[Variant options](/api-reference/store-management/catalog/product-options/getoptions) are any choices that the shopper needs to make that will result in selecting a variant. Color and size are typical examples of variant options.  A t-shirt can have different combinations of sizes and colors.
 
 Example:
 * Color is a variant option; red, orange, and green are variant option values.
@@ -454,14 +455,14 @@ This example results in selecting a combination of small and red on the storefro
 ### Variant options example
 
 
-| If the product is | variant option |
+| Product | Variant option |
 | -- | -- |
 | T-Shirt | Blue<br>-<br>Small<br> Medium<br> Large|
 | Backpack | Black<br> Yellow<br>-<br>2L <br> 3L<br> 8L |
 
 ### Options created on V2 and V3
 
-* If a product has options created using the V2 API, you cannot add additional options using the V3 API.
+* If a product has variant options created using the V2 API, you cannot add additional variant options using the V3 API.
 * SKUs in V2 map to variants in V3.
 * Base variants are not SKUs in V2.
 
@@ -472,7 +473,7 @@ This example results in selecting a combination of small and red on the storefro
 <!-- theme:  -->
 
 ### Create variant option
-> Creating a variant option does not automatically create SKUs or build out variants. You can build out SKUs later using the [variants endpoint](/api-reference/catalog/catalog-api/product-variants/createvariant).
+> Creating a variant option does not automatically create SKUs or build out variants. You can build out SKUs later using the [variants endpoint](/api-reference/store-management/catalog/product-variants/createvariant).
 
 </div>
 </div>
@@ -487,6 +488,7 @@ lineNumbers: true
 -->
 
 **Example create size variant option**
+
 ```http
 POST https://api.bigcommerce.com/stores/{store_hash}/v3/catalog/products/{product_id}/options
 Accept: application/json
@@ -521,7 +523,7 @@ X-Auth-Token: {{ACCESS_TOKEN}}
 [![Open in Request Runner](https://storage.googleapis.com/bigcommerce-production-dev-center/images/Open-Request-Runner.svg)](https://developer.bigcommerce.com/api-reference/catalog/catalog-api/product-options/createoption#requestrunner)
 
 ## Variant
-[Variants](/api-reference/catalog/catalog-api/product-variants/getvariantsbyproductid) represent an item as it sits on the shelf in the warehouse or a particular saleable product. A product might be a t-shirt, while the variant would be “a small, red t-shirt.” Shoppers select variants on the storefront via product options. In the case where a product is simple, meaning it does not have any options, the product is its own variant - called a base variant. Everything you can buy should be a variant.
+[Variants](/api-reference/store-management/catalog/product-variants/getvariantsbyproductid) represent an item as it sits on the shelf in the warehouse or a particular saleable product. A product might be a t-shirt, while the variant would be “a small, red t-shirt.” Shoppers select variants on the storefront via product options. In the case where a product is simple, meaning it does not have any options, the product is its own variant - called a base variant. Everything you can buy should be a variant.
 
 * Options build out variants.
 * Variants are usually what you track inventory against.
@@ -547,16 +549,17 @@ X-Auth-Token: {{ACCESS_TOKEN}}
 
 ### Variants:
 
-| If the product is | Variant Option | Variant |
+| Product | Variant option | Variant |
 | -- | -- | -- |
 | T-Shirt | Blue<br>-<br> Small<br> Medium<br> Large| SM-BLU<br> SM-MED <br> SM-LARG
 | Backpack | Black<br>Yellow<br>-<br>2L <br> 3L<br> 8L |BLACK-2L<br>BLACK-3L<br>BLACK 8L<br>-<br>YELLOW-2L<br>YELLOW-3L<br>YELLOW-8L|
 
 ## Create a variant
-You can create variants in two ways:
-* From existing variant options, using [Create a Product Variant](/api-reference/catalog/catalog-api/product-variants/createvariant) endpoint.
 
-* By adding variants with options and SKUs, using [Create a Product](/api-reference/catalog/catalog-api/products/createproduct) endpoint.
+You can create variants in two ways:
+* From existing variant options, using [Create a Product Variant](/api-reference/store-management/catalog/product-variants/createvariant) endpoint.
+
+* By adding variants with options and SKUs, using [Create a Product](/api-reference/store-management/catalog/products/createproduct) endpoint.
 
 
 The example below will go over using existing variant options to create the variants.
@@ -628,7 +631,7 @@ To combine the variant option values into variants and build out SKUs use the fo
 ### Note
 > * Variants need to be created one at a time using this endpoint.
 > * You can create only one variant option at a time; individual variant options will contain an array of multiple values.
-> * To use a variant array and create variants in the same call as the base product, use the [/catalog/product](/api-reference/catalog/catalog-api/products/createproduct) endpoint during product creation.
+> * To use a variant array and create variants in the same call as the base product, use the [/catalog/product](/api-reference/store-management/catalog/products/createproduct) endpoint during product creation.
 
 </div>
 </div>
@@ -660,7 +663,7 @@ The `option_values` array combines the options small and blue to create the SKU 
 
 ### Create a variant using the product endpoint
 
-The following example creates a base product, variant options, and variants in a single call to the [Products](https://developer.bigcommerce.com/api-reference/catalog/catalog-api/products/createproduct) endpoint. Use this method to create a product and variants in a single call without creating variant options first (option display will default to radio button).
+The following example creates a base product, variant options, and variants in a single call to the [Products](https://developer.bigcommerce.com/api-reference/store-management/catalog/products/createproduct) endpoint. Use this method to create a product and variants in a single call without creating variant options first (option display will default to radio button).
 
 
 ```http
@@ -720,7 +723,7 @@ X-Auth-Token: {{ACCESS_TOKEN}}
 
 ## Modifier options
 
-[Modifier options](/api-reference/catalog/catalog-api/product-modifiers/getmodifiers) are any choices that the shopper can make to change how the merchant fulfills the product. Examples include:
+[Modifier options](/api-reference/store-management/catalog/product-modifiers/getmodifiers) are any choices that the shopper can make to change how the merchant fulfills the product. Examples include:
 * A checkbox to add shipping insurance
 * Text to be engraved on the product
 * A selected color for an unfinished product before it’s shipped
@@ -737,7 +740,7 @@ You can add an adjuster to a modifier option to change things, such as increasin
 ### Modifier options example
 
 
-| If the product is | Variant Option | Variant |Modifier |
+| Product | Variant option | Variant |Modifier |
 | -- | -- | -- | -- |
 | T-Shirt | Blue<br>-<br> Small<br> Medium<br> Large| BLU<br> BLU-MED <br> BLU-LARG| Checkbox<br>Donate to Charity|
 | Backpack | Black<br>Yellow<br>-<br>2L <br> 3L<br> 8L |BLACK-2L<br>BLACK-3L<br>BLACK 8L<br>-<br>YELLOW-2L<br>YELLOW-3L<br>YELLOW-8L| Text Field<br> Add Embroidery|
@@ -778,7 +781,7 @@ Creating a checkbox with an adjuster requires two separate calls: one to create 
 </div>
 </div>
 
-To [create a modifier](https://developer.bigcommerce.com/api-reference/catalog/catalog-api/product-modifiers/createmodifier), send a `POST` request to `/v3/catalog/products/{{product_id}}/modifiers`.
+To [create a modifier](https://developer.bigcommerce.com/api-reference/store-management/catalog/product-modifiers/createmodifier), send a `POST` request to `/v3/catalog/products/{{product_id}}/modifiers`.
 
 ```http
 POST https://api.bigcommerce.com/stores/{{STORE_HASH}}/v3/catalog/products/{{product_id}}/modifiers
@@ -847,7 +850,7 @@ X-Auth-Token: {{ACCESS_TOKEN}}
 
 Since this is a checkbox with two states, you create two option values. The default `adjuster_value` is null.
 
-To [update the modifier value](https://developer.bigcommerce.com/api-reference/catalog/catalog-api/product-modifier-values/updatemodifiervalue), send a `PUT` request to `/v3/catalog/products/{{product_id}}/modifiers/{{modifier_id}}/values/{value_id}`.
+To [update the modifier value](https://developer.bigcommerce.com/api-reference/store-management/catalog/product-modifier-values/updatemodifiervalue), send a `PUT` request to `/v3/catalog/products/{{product_id}}/modifiers/{{modifier_id}}/values/{value_id}`.
 
 ```http
 PUT https://api.bigcommerce.com/stores/{{STORE_HASH}}/v3/catalog/products/{{product_id}}/modifiers/{{modifier_id}}/values/{value_id}
@@ -887,7 +890,7 @@ To fix this error:
 
 ## Complex rules
 
-[Complex rules](/api-reference/catalog/catalog-api/product-complex-rules/getcomplexrules) allow merchants to set up conditions and actions based on shopper option selections on the storefront. You can use them to vary the following based on option selections made by the shopper:
+[Complex rules](/api-reference/store-management/catalog/product-complex-rules/getcomplexrules) allow merchants to set up conditions and actions based on shopper option selections on the storefront. You can use them to vary the following based on option selections made by the shopper:
 * Price
 * Weight
 * Image
@@ -903,8 +906,7 @@ Use complex rules when an adjustment should be triggered by:
 
 ### Complex rules example
 
-
-| If the product is | Variant Option | Variant |Modifier | Complex Rule |
+| Product | Variant option | Variant |Modifier | Complex rule |
 | -- | -- | -- | -- | -- |
 | T-Shirt | Blue<br>-<br> Small<br> Medium<br> Large| SM-BLU<br> SM-MED <br> SM-LARG| Checkbox<br>Donate to Charity| Checkbox<br> Donate to Charity.<br> Add $5
 | Backpack | Black<br>Yellow<br>-<br>2L <br> 3L<br> 8L |BLACK-2L<br>BLACK-3L<br>BLACK 8L<br>-<br>YELLOW-2L<br>YELLOW-3L<br>YELLOW-8L| Text Field<br> Add Embroidery| N/A
@@ -955,7 +957,7 @@ Complex rules must consist of multiple conditions that trigger the rule adjustme
 
 ## Categories
 
-[Categories](/api-reference/catalog/catalog-api/category/getcategories) are a hierarchy of products available on the store, presented in a tree structure. A store's category structure determines the primary menu structure of most storefront themes directly tied to it.
+[Categories](/api-reference/store-management/catalog/category/getcategories) are a hierarchy of products available on the store, presented in a tree structure. A store's category structure determines the primary menu structure of most storefront themes directly tied to it.
 
 BigCommerce's V3 REST API does not require products to be associated with a category during creation. You can add new products to a catalog without a category, which can be assigned later if desired. A store's category can contain multiple products or no products at all and still be valid. 
 
@@ -982,7 +984,7 @@ X-Auth-Token: {{ACCESS_TOKEN}}
 
 ### Category tree
 
-[Category Tree](https://developer.bigcommerce.com/api-reference/catalog/catalog-api/category/getcategorytree) returns a simple view of the parent > child relationship of all categories in the store. You can use this endpoint to fetch the categories if building out a custom navigation for a store.
+[Category Tree](/api-reference/store-management/catalog/category/getcategorytree) returns a simple view of the parent > child relationship of all categories in the store. You can use this endpoint to fetch the categories if building out a custom navigation for a store.
 
 ```http
 GET https://api.bigcommerce.com/stores/{{STORE_HASH}}/v3/catalog/categories/tree
@@ -1031,7 +1033,7 @@ X-Auth-Token: {{ACCESS_TOKEN}}
 ## Related resources
 
 ### Endpoints
-* [Catalog API](/api-reference/catalog/catalog-api)
+* [Catalog API](/api-reference/store-management/catalog)
 
 ### Webhooks
 * [Products](/api-docs/store-management/webhooks/events#products)

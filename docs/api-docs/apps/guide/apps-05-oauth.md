@@ -87,8 +87,10 @@ GET /auth?code=qr6h3thvbvag2ffq&scope=store_v2_orders&context=stores/g5cd38 HTTP
 > ### Note
 >
 > * When your app receives a new token, any previously issued token is invalidated.
-> * As a best practice, your app should validate this list to ensure that it matches your app's needs, and fail if it does not. At this time, the user can not pick and choose scopes. The dialog presented to the user requires the user to approve all scopes or none.
-> * The request comes from the client browser, rather than directly from BigCommerce. This allows you to use a non-publicly available auth callback URL while testing your app.
+
+> * As a best practice, your app should validate the list of scopes to ensure that it matches your app's needs and fails if it does not. At this time, the user cannot pick and choose scopes. The dialog presented to the user requires the user to approve all scopes or none. For more information about available scopes, see [OAuth scopes](https://developer.bigcommerce.com/api-docs/getting-started/authentication/rest-api-authentication#oauth-scopes).
+
+> * The request comes from the client browser, rather than directly from BigCommerce. This request allows you to use a non-publicly available auth callback URL while testing your app.
 
 </div>
 </div>
@@ -114,7 +116,7 @@ client_id={CLIENT_ID}&client_secret={CLIENT_SECRET}&code=qr6h3thvbvag2ffq&scope=
 | `client_id` | The Client ID for your app obtained in the [Developer Portal](https://devtools.bigcommerce.com/my/apps). |
 | `client_secret` | The Client Secret for your app obtained in the [Developer Portal](https://devtools.bigcommerce.com/my/apps). |
 | `code` | Temporary access code received in the `GET` request.|
-| `scope` | List of OAuth scopes received in the `GET` request. |
+| `scope` | List of OAuth scopes received in the `GET` request. For more information about available scopes, see [OAuth scopes](https://developer.bigcommerce.com/api-docs/getting-started/authentication/rest-api-authentication#oauth-scopes).|
 | `grant_type` | Always set to `authorization_code`. |
 | `redirect_uri` | Must be identical to your registered auth callback URI. |
 | `context` | Store hash received in the `GET` request.|
@@ -239,8 +241,9 @@ For additional details, see [Security Considerations in RC6749](https://tools.ie
 * [BigDesign Tutorial](https://medium.com/bigcommerce-developer-blog/bigdesign-build-native-looking-uis-with-the-bigcommerce-design-system-fb06a01a24f2)
 
 ### Additional resources
-* [OAuth 2.0 Simplified](https://oauth.net/getting-started/) (oauth.net)
-* [What the Heck is OAuth](https://developer.okta.com/blog/2017/06/21/what-the-heck-is-oauth) (developer.okta.com)
-* [An Introduction to OAuth 2](https://www.digitalocean.com/community/tutorials/an-introduction-to-oauth-2) (www.digitalocean.com)
-* [RFC6749](https://tools.ietf.org/html/rfc6749) (tools.ietf.org)
-* [OWASP Top Ten](https://owasp.org/www-project-top-ten/) (owasp.org)
+* [OAuth 2.0 Simplified](https://oauth.net/getting-started/) ([oauth.net](https://oauth.net/))
+* [What the Heck is OAuth](https://developer.okta.com/blog/2017/06/21/what-the-heck-is-oauth) ([developer.okta.com](https://developer.okta.com/))
+* [An Introduction to OAuth 2](https://www.digitalocean.com/community/tutorials/an-introduction-to-oauth-2) ([DigitalOcean](https://www.digitalocean.com))
+
+* [RFC6749](https://tools.ietf.org/html/rfc6749) ([tools.ietf.org](https://tools.ietf.org/))
+* [OWASP Top Ten](https://owasp.org/www-project-top-ten/) ([owasp.org](https://owasp.org/))
