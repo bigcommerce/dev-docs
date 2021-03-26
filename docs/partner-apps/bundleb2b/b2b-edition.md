@@ -1,5 +1,5 @@
 # The B2B Edition of BigCommerce
-
+### On this page
 - [B3 integration with BigCommerce](#b3-integration-with-bigcommerce)
 - [Customizing B3](#customizing-b3)
 - [Overwriting and injecting JavaScript](#overwriting-and-injecting-javascript)
