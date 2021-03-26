@@ -29,7 +29,7 @@ The B3 admin panel is seamlessly loaded as an iFrame accessible from the My Apps
 
 ## Customizing B3
 
-With B3, you can customize the placement of B3 app elements, customize display text, customize styling, and customize checkout configurations. You also have access to the lifecycle methods for many B3 modules to inject your own JavaScript functions.
+With B3, you can customize the placement of B3 app elements, display text, styling, and checkout configurations. You also have access to the lifecycle methods for many B3 modules to inject your own JavaScript functions.
 
 Additionally, you can use the B3 REST API to create, read, update, and delete items such as orders, companies, addresses, payments, sales reps, and users. This API allows you to build your own services or integrate B3 with third-party business tools such as Salesforce.
 
