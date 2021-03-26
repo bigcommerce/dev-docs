@@ -121,7 +121,7 @@ mounted() {},
 - `beforeMount()` is a `function` that calls all enclosed functions before the module renders. Default is `noop`.
 - `mounted()` is a `function` that calls all enclosed functions after the module has rendered. Default is `noop`.
 
-To overwrite and/or inject custom functions for a supported B3 module, insert `window.b3themeConfig.useJavaScript = {}` into your theme's `assets/js/global.js` file. Within `window.b3themeConfig.useJavaScript = {}`, create a property for each of the modules you'd like to customize that uses the module name as the key and the four global keys above as the value.
+To overwrite and/or inject custom functions for a supported B3 module, insert `window.b3themeConfig.useJavaScript = {}` into your theme's `assets/js/global.js` file. Within `window.b3themeConfig.useJavaScript = {}`, create a property for each of the modules you'd like to customize that uses the module name as the key and the aforementioned global keys as the value.
 
 When done, your object will resemble the following example that demonstrates the call stack of each function:
 
