@@ -43,7 +43,7 @@ Additionally, you can use the B3 REST API to create, read, update, and delete it
 
 ### Customize page containers
 
-B3 renders client-facing pages and elements by mounting fixed containers to your BigCommerce theme using JavaScript. You can change the placement of select B3 elements by using `window.b3themeConfig.useContainers = {}` to specify which DOM node B3 mounts the container on.
+B3 renders client-facing pages and elements by mounting fixed containers to BigCommerce themes using JavaScript. You can change the placement of select B3 elements by using `window.b3themeConfig.useContainers = {}` to specify which DOM node B3 mounts the container on.
 
 To specify which DOM node a B3 container mounts on, insert `window.b3themeConfig.useContainers = {}` into your theme's `assets/js/global.js` file. Within `window.b3themeConfig.useContainers = {}`, create a property that uses the name of the B3 container as the key and the selector for the theme element it will mount on as the value. When done, the object will resemble the following:
 
