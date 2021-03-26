@@ -113,7 +113,7 @@ B3 has lifecycle methods for many modules that allow you to inject custom JavaSc
 overwrite: false,
 callback() {},
 beforeMount() {},
-mounted() {},
+mounted() {}
 ```
 
 - `overwrite` is a `boolean` that specifies whether to overwrite B3 functions for that module. Default is `false`.
