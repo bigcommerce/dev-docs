@@ -158,5 +158,5 @@ For the complete list of API endpoints, see [B3 Open API (v2) specifications](ht
 - [BundleB2B Open API (v2)](https://developer.bundleb2b.net/openapi/)
 - [RESTful APIs call - BundleB2B Developer Guide](https://developer.bundleb2b.net/storefront/api-call.html)
 - [Customize display text - BundleB2B Developer Guide](https://developer.bundleb2b.net/storefront/text.html)
-- [Customizing page containers - BundleB2B Developer Guide](https://developer.bundleb2b.net/storefront/containers.html)
+- [Customize page containers - BundleB2B Developer Guide](https://developer.bundleb2b.net/storefront/containers.html)
 - [Javascript overwrite or injection - BundleB2B Developer Guide](https://developer.bundleb2b.net/storefront/js.html)
