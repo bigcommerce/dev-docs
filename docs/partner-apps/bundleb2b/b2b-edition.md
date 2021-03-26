@@ -23,7 +23,7 @@ B3 offers multiple enhancements to your BigCommerce store, including:
 
 ## B3 integration with BigCommerce
 
-B3 is preinstalled if you purchase the B2B Edition of BigCommerce. If B3 is purchased as a separate product for an existing BigCommerce plan, the B3 app is installed from the BigCommerce App Marketplace and must be manually integrated with your BigCommerce theme.
+B3 comes pre-installed with your theme if you purchase the B2B Edition of BigCommerce. If B3 is purchased as a separate product for an existing BigCommerce plan, the B3 app is installed from the BigCommerce App Marketplace and must be manually integrated with your BigCommerce theme.
 
 The B3 admin panel is seamlessly loaded as an iFrame accessible from the My Apps section of your Store Dashboard. The client-facing portions of the app are loaded dynamically with JavaScript.
 
