@@ -1,0 +1,88 @@
+openapi: 3.0.1
+info:
+  version: Storefront
+  title: Storefront Customers
+  description: Manage customers and data via front-end JavaScript on BigCommerce stencil powered storefronts.
+servers:
+  - url: 'https://{$$.env.store_domain}/api/storefront'
+tags:
+  - name: Customers
+paths:
+  /customers:
+    post:
+      tags:
+        - Customers
+      description: |-
+        Creates a *Customer*.
+
+        <div class="HubBlock--callout">
+        <div class="CalloutBlock--info">
+        <div class="HubBlock-content">
+
+        > ### Note
+        > The Send a Test Request feature is not currently supported for this endpoint.
+
+        </div>
+        </div>
+        </div>
+      responses:
+        '204':
+          description: Customer succesfully created
+        '400':
+          description: ' Could not create customer'
+        '422':
+          description: Missing Required Fields
+        '429':
+          description: Spam Protection Failed
+      summary: Creates a Customer
+      operationId: createACustomer
+      requestBody:
+        content:
+          application/json:
+            schema:
+              $ref: '#/components/schemas/CustomerCreateData'
+            examples:
+              application/json:
+                value:
+                  firstName: Jane
+                  lastName: Doe
+                  email: janedoe@example.com
+                  password: string
+                  acceptsMarketingEmails: true
+                  customFields:
+                    - fieldId: '25'
+                      fieldValue: Leave in backyard
+        description: Data sent the the customer endpoint when creating a customer during checkout.
+components:
+  schemas:
+    CustomerCreateData:
+      title: CustomerCreateData
+      type: object
+      properties:
+        firstName:
+          type: string
+          description: First name of customer
+        lastName:
+          type: string
+          description: Last name of customer
+        email:
+          type: string
+          description: Email of customer
+        password:
+          type: string
+          description: Password of customer
+        acceptsMarketingEmails:
+          type: boolean
+          description: Has customer provided consent to receive marketing emails.
+        customFields:
+          type: array
+          items:
+            $ref: '#/components/schemas/CustomFields'
+    CustomFields:
+      title: CustomFields
+      type: object
+      properties:
+        fieldId:
+          type: string
+        fieldValue:
+          type: string
