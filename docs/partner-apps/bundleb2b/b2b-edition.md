@@ -150,7 +150,7 @@ For a full list of available modules, see the [BundleB2B Developer Guide](https:
 
 You can find instructions on how to get your B3 authentication token on the [BundleB2B Developer Guide](https://developer.bundleb2b.net/storefront/api-call.html) page.
 
-For the complete list of API endpoints, please see [B3 Open API (v2) specifications](https://developer.bundleb2b.net/openapi/).
+For the complete list of API endpoints, see [B3 Open API (v2) specifications](https://developer.bundleb2b.net/openapi/).
 
 ## Resources
 
