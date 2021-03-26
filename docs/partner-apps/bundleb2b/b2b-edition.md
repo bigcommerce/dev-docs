@@ -10,7 +10,7 @@ BundleB2B (B3) adds business-to-business (B2B) functionality to the BigCommerce 
 
 The B2B Edition of BigCommerce is a bundled offering of the BigCommerce Enterprise solution, B3, and six BigCommerce themes with B3 preinstalled.
 
-Some of the enhancements to your BigCommerce store that B3 offers include:
+B3 offers multiple enhancements to your BigCommerce store, including:
 
 - Corporate account management
 - Sales representative masquerade
