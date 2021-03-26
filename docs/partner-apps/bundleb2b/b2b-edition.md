@@ -142,7 +142,7 @@ window.b3themeConfig.useJavaScript = {
 
 The output to the browser console of the above example is the following:
 
-![B3 console log output](https://raw.githubusercontent.com/bigcommerce/dev-docs/master/assets/images/B3-console.png)
+![B3 console log output](https://github.com/bigcommerce/dev-docs/blob/fc576cd09ee4f346d2668d97082a75aeff7ff468/assets/images/B3-console.png?raw=true)
 
 For a full list of available modules, see the [BundleB2B Developer Guide](https://developer.bundleb2b.net/storefront/js.html).
 
