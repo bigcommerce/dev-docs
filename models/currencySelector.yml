@@ -1,4 +1,4 @@
-description: '`global` `{{currency_selector}}` array of supported currencies, and the storefront's active currency.'
+description: "`global` `{{currency_selector}}` array of supported currencies, and the storefront's active currency"
 type: object
 properties:
   active_currency_id:
