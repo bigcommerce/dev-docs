@@ -1,0 +1,10 @@
+type: object
+title: footer
+description: '`global` `{{footer}}` object'
+properties:
+  sitemap_url:
+    type: string
+    description: "The URL to the sitemap, based on store’s SEO setting."
+  scripts:
+    type: string
+    description: Scripts to be loaded after the HTML has loaded; includes performance metrics.

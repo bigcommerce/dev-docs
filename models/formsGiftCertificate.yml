@@ -1,0 +1,49 @@
+title: forms.gift_certificate
+description: Gift certificate form object available to `templates/pages/gift-certificate/purchase.html`.
+type: object
+properties:
+  action:
+    type: string
+  amount_options:
+    type: array
+    items:
+      type: object
+      properties:
+        currency:
+          type: string
+        formatted:
+          type: string
+        value:
+          type: number
+  can_use_custom_amount:
+    type: boolean
+  editing:
+    type: boolean
+  expires_in_days:
+    type: boolean
+  preview:
+    type: string
+  themes:
+    type: array
+    items:
+      type: object
+      properties:
+        display:
+          type: string
+        value:
+          type: string
+  values:
+    type: object
+    properties:
+      amount:
+        type: string
+      from_email:
+        type: string
+      from_name:
+        type: string
+      message:
+        type: string
+      to_email:
+        type: string
+      to_name:
+        type: string

@@ -1,0 +1,18 @@
+description: 'Faceted-search for searching globally, by category, or by brand.'
+type: object
+properties:
+  facets:
+    type: string
+    description: "\tList of all search facets available"
+  selected:
+    type: array
+    description: Container for the selected search facets (selected facets contain properties below)
+    items:
+      type: object
+      properties:
+        remove_all_url:
+          type: string
+          description: URL to remove all selected search restrictions.
+        items:
+          type: string
+          description: Currently enabled search facets

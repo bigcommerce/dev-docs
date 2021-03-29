@@ -1,0 +1,52 @@
+type: array
+items:
+  type: object
+  properties:
+    date:
+      type: string
+    details_url:
+      type: string
+    id:
+      type: string
+    image:
+      $ref: ./image.yml
+    items:
+      type: array
+      items:
+        type: object
+        properties:
+          expected_release_date:
+            type: string
+          image:
+            $ref: ./image.yml
+          name:
+            type: string
+          options:
+            type: array
+            items:
+              type: object
+          quantity:
+            type: string
+          refunded:
+            type: string
+          type:
+            type: string
+    last_update_date:
+      type: string
+    payment_instructions:
+      type: string
+    reorder_url:
+      type: string
+    return_url:
+      type: string
+    status:
+      type: string
+    total:
+      type: object
+      properties:
+        currency:
+          type: string
+        formatted:
+          type: string
+        value:
+          type: number

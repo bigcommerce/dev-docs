@@ -1,0 +1,29 @@
+description: '`{{page}} object present on content pages, forms, and RSS feeds.'
+type: object
+properties:
+  breadcrumbs:
+    description: Present if page has ancestors.
+    items: {}
+    type: array
+  content:
+    type: string
+  feed:
+    description: 'Present if page is an RSS feed page. '
+    items:
+      properties:
+        content:
+          type: string
+        title:
+          type: string
+        url:
+          type: string
+      type: object
+    type: array
+  id:
+    type: integer
+  sub_pages:
+    items:
+      type: object
+    type: array
+  title:
+    type: string

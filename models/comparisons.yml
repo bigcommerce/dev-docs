@@ -1,0 +1,25 @@
+    description: '`{{comparisons}}` array available to `templates/pages/compare.html`'
+    type: array
+    title: comparisons
+    items:
+      type: object
+      properties:
+        availability:
+          type: string
+          description: How long this product usually takes to ship.
+        brand:
+          type: object
+          description: Object containing brand data for this product.
+          properties:
+            url:
+              type: string
+              description: Brand URL for this product.
+            name:
+              type: string
+              description: Brand name for this product.
+        remove_url:
+          type: string
+          description: URL to remove this product/column from the comparison.
+        custom_fields:
+          type: string
+          description: 'Array of additional product details – size, color, book''s ISBN, DVD''s release date, etc. – as name/value pairs.'

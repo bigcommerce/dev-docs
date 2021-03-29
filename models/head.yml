@@ -1,0 +1,18 @@
+description: '`global` {{head}} object containing data configured for the HTML `<head>` element'
+type: object
+properties:
+  favicon:
+    description: the store's favicon
+    type: string
+  meta_tags:
+    description: meta tags to improve store SEO
+    type: string
+  scripts:
+    description: 'scripts to be loaded in the `<head>` tag'
+    type: string
+  stylesheets:
+    description: CSS files to be included
+    type: string
+  title:
+    description: current page's title
+    type: string

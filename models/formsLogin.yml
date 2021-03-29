@@ -1,0 +1,21 @@
+title: forms.login
+description: Shopper login form object available to `templates/pages/create-login.html`.
+type: object
+properties:
+  error:
+    type: string
+    description: BigCommerce defined message to display when customer’s login action fails.
+  success:
+    type: string
+    description: BigCommerce defined message to display when customer’s login action succeeds.
+  reCAPTCHA:
+    type: string
+  enabled:
+    type: string
+    description: Returns 1 when reCAPTCHA is enabled and 0 when it's disabled within the BigCommerce control panel.
+  public_key:
+    type: string
+    description: Optional key used for all reCAPTCHA in your store if specified in the BigCommerce control panel.
+  markup:
+    type: string
+    description: HTML that adds reCAPTCHA V2.

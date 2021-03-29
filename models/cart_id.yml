@@ -1,0 +1,3 @@
+description: '`global` `{{cart_id}}`'
+type: string
+example: '`2343eb66-3c41-4966-a539-d8af36d3fc47`'

@@ -1,0 +1,9 @@
+description: '`{{*.image}}` object used by various objects such as `{{category.image}}`, `{{product.images[*]}}`'
+type: object
+properties:
+  alt:
+    type: string
+    description: corresponding text to display for missing images, accessible screen readers, etc.
+  data:
+    type: string
+    description: internal URL to the image.

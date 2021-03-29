@@ -1,0 +1,5 @@
+description: '`{{shipping_messages}}` object available to `templates/pages/home.html`'
+type: array
+items:
+  type: string
+  example: free shipping

@@ -1,0 +1,81 @@
+type: object
+description: product.price and products[*].price object available to various product templates and components.
+properties:
+  non_sale_price_without_tax:
+    type: object
+    properties:
+      currency:
+        type: string
+      formatted:
+        type: string
+      value:
+        type: number
+  price_range:
+    type: object
+    properties:
+      max:
+        type: object
+        properties:
+          tax_label:
+            type: string
+          without_tax:
+            type: object
+            properties:
+              currency:
+                type: string
+              formatted:
+                type: string
+              value:
+                type: number
+      min:
+        type: object
+        properties:
+          tax_label:
+            type: string
+          without_tax:
+            type: object
+            properties:
+              currency:
+                type: string
+              formatted:
+                type: string
+              value:
+                type: number
+  rrp_without_tax:
+    type: object
+    properties:
+      currency:
+        type: string
+      formatted:
+        type: string
+      value:
+        type: number
+  sale_price_without_tax:
+    type: object
+    properties:
+      currency:
+        type: string
+      formatted:
+        type: string
+      value:
+        type: number
+  saved:
+    type: object
+    properties:
+      currency:
+        type: string
+      formatted:
+        type: string
+      value:
+        type: number
+  tax_label:
+    type: string
+  without_tax:
+    type: object
+    properties:
+      currency:
+        type: string
+      formatted:
+        type: string
+      value:
+        type: number

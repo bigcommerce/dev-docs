@@ -1,0 +1,17 @@
+description: '{{products}} object available pages with product cards like `templates/pages/home.html`; contains `new`, `featured`, and `top_sellers`'
+type: object
+properties:
+  new:
+    type: array
+    items:
+      $ref: ./productsProduct.yml
+  featured:
+    type: array
+    description: Renders a list of all the featured products for the BigCommerce storefront.
+    items:
+      $ref: ./productsProduct.yml
+  top_sellers:
+    type: array
+    description: Object to display a sidebar of top-selling products
+    items:
+      $ref: ./productsProduct.yml

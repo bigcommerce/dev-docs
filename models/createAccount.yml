@@ -1,0 +1,4 @@
+type: object
+properties:
+  continue_url:
+    type: string

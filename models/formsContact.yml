@@ -1,0 +1,18 @@
+type: object
+description: Contact form object available to `templates/pages/contact-us.html`.
+properties:
+  captcha_url:
+    type: string
+  page_id:
+    type: string
+  recaptcha:
+    type: object
+    properties:
+      enabled:
+        type: number
+      markup:
+        type: string
+      public_key:
+        type: string
+  text:
+    type: string

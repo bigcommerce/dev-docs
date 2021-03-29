@@ -1,0 +1,25 @@
+title: categories
+type: array
+description: '`global` `{{categories}}` array containing categories for the current page context; default sort is by category `id` ascending'
+items:
+  type: object
+  properties:
+    count:
+      type: string
+      description: Number of products in this category.
+    id:
+      type: string
+      description: ID of the top-level category listed.
+    image:
+      $ref: ./image.yml
+    name:
+      type: string
+      description: Name of the top-level category
+    url:
+      type: string
+      description: URL to the category page.
+    children:
+      type: array
+      description: List of child categories for this top-level category.
+      items:
+        $ref: ./categories.yml

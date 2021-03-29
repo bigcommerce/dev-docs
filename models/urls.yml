@@ -1,0 +1,116 @@
+
+description: '`global` `{{urls}}` object containg a collection of storefront pages and their sub-pages'
+type: object
+properties:
+  account:
+    type: object
+    properties:
+      add_address:
+        type: string
+      addresses:
+        type: string
+      details:
+        type: string
+      inbox:
+        type: string
+      index:
+        type: string
+      orders:
+        type: object
+        properties:
+          all:
+            type: string
+          completed:
+            type: string
+          save_new_return:
+            type: string
+      payment_methods:
+        type: object
+        properties:
+          all:
+            type: string
+      recent_items:
+        type: string
+      returns:
+        type: string
+      send_message:
+        type: string
+      update_action:
+        type: string
+      wishlists:
+        type: object
+        properties:
+          add:
+            type: string
+          all:
+            type: string
+          delete:
+            type: string
+          edit:
+            type: string
+  auth:
+    type: object
+    properties:
+      check_login:
+        type: string
+      create_account:
+        type: string
+      forgot_password:
+        type: string
+      login:
+        type: string
+      logout:
+        type: string
+      save_new_account:
+        type: string
+      save_new_password:
+        type: string
+      send_password_email:
+        type: string
+  brands:
+    type: string
+  cart:
+    type: string
+  checkout:
+    type: object
+    properties:
+      multiple_address:
+        type: string
+      single_address:
+        type: string
+  compare:
+    type: string
+  contact_us_submit:
+    type: string
+  gift_certificate:
+    type: object
+    properties:
+      balance:
+        type: string
+      purchase:
+        type: string
+      redeem:
+        type: string
+  home:
+    type: string
+  product:
+    type: object
+    properties:
+      post_review:
+        type: string
+  rss:
+    type: object
+    properties:
+      products:
+        type: array
+        items:
+          type: object
+  search:
+    type: string
+  sitemap:
+    type: string
+  subscribe:
+    type: object
+    properties:
+      action:
+        type: string

@@ -1,0 +1,23 @@
+description: '{{checkout}} object available to checkout and order confirmation templates and components'
+type: object
+properties:
+  order_confirmation_content:
+    type: string
+    desciption: default content from checkout template
+  checkout_head:
+    type: string
+    desciption: default content from checkout `<head>`
+  order:
+    description: '`{{checkout.order}}` object available to order confirmation templates and components.'
+    type: object
+    properties:
+      id:
+        type: number
+        description: the `id` of the order.
+  header_image:
+    type: string
+    description: The image `src` of the header.
+  id:
+    type: string
+    description: the cart and checkout `id`
+    example: 2343eb66-3c41-4966-a539-d8af36d3fc47

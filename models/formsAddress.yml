@@ -1,0 +1,17 @@
+title: forms.address
+description: Form object presented to customers in the Add/Edit Address page. Available on `templates/pages/account/add-address.html`.
+type: object
+properties:
+  address_id:
+    type: string
+    description: ID for this shipping address
+  shipping_fields:
+    type: array
+    description: 'Array of form fields that define each shipping address for this customer; for details, see this [repo] (https://github.com/bigcommerce/cornerstone/tree/master/templates/components/common/forms)'
+    items: {}
+  action:
+    type: string
+    description: URL to the proper handler (Update Address versus Save New Address).
+  error:
+    type: string
+    description: Message to display when form entry fails (defined by the BigCommerce App).

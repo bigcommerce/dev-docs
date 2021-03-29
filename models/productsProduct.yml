@@ -1,0 +1,84 @@
+description: 'product object for product card arrays like `{{products.new}}`, `{{products.featured}}`, and `{{products.top_sellers}}`'
+type: object
+title: product card
+properties:
+  add_to_cart_url:
+    type: string
+  availability:
+    type: string
+  brand:
+    type: 'null'
+  category:
+    type: array
+    items:
+      type: string
+  custom_fields:
+    type: array
+    items:
+      type: object
+      properties:
+        id:
+          type: integer
+        name:
+          type: string
+        value:
+          type: string
+  date_added:
+    type: string
+  demo:
+    type: boolean
+  has_options:
+    type: boolean
+  id:
+    type: integer
+  image:
+    $ref: ./image.yml
+  images:
+    type: array
+    items:
+      $ref: ./image.yml
+  low_stock_level:
+    type: 'null'
+    description: "\tIf inventory tracking is turned on: Sets a threshold low-stock level. You can use conditional logic to display a \"limited availability\" badge if the stock_levelproperty's value falls below this threshold. If inventory tracking is turned off: A \"null\" string."
+  name:
+    type: string
+  num_reviews:
+    type: integer
+  pre_order:
+    type: boolean
+  price:
+    type: object
+    properties:
+      tax_label:
+        type: string
+      without_tax:
+        type: object
+        properties:
+          currency:
+            type: string
+          formatted:
+            type: string
+          value:
+            type: integer
+  qty_in_cart:
+    type: integer
+  rating:
+    type: integer
+  show_cart_action:
+    type: boolean
+  sku:
+    type: 'null'
+  stock_level:
+    type: 'null'
+    description: 'If inventory tracking is turned on: The number of items available for sale (0 or more). If inventory tracking is turned off: A "null" string.'
+  summary:
+    type: string
+  url:
+    type: string
+  weight:
+    type: object
+    properties:
+      formatted:
+        type: string
+      value:
+        type: integer

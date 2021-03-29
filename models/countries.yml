@@ -1,0 +1,14 @@
+description: '{{countries}} array available to `templates/pages/account/payment-methods.html`; used in country and state drop-downs when submitting add payment form'
+type: array
+items:
+  type: object
+  properties:
+    code:
+      description: country code
+      type: string
+    label:
+      description: country name that appears in the drop-down
+      type: string
+    value:
+      description: country name
+      type: string

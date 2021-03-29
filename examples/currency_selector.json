@@ -1,0 +1,18 @@
+{
+  "active_currency_code": "USD",
+  "active_currency_flag": "<img src=\"https://cdn11.bigcommerce.com/s-h10wocxy6s/lib/flags/us.gif\" border=\"0\" alt=\"\" role=\"presentation\" />",
+  "active_currency_id": 1,
+  "active_currency_name": "US Dollars",
+  "currencies": [
+    {
+      "cart_currency_switch_url": "/cart/change-currency",
+      "code": "USD",
+      "flag": "<img src=\"https://cdn11.bigcommerce.com/s-h10wocxy6s/lib/flags/us.gif\" border=\"0\" alt=\"\" role=\"presentation\" />",
+      "id": 1,
+      "is_active": true,
+      "name": "US Dollars",
+      "switch_url": "https://www.checkoutmydeck.com/account.php?setCurrencyId=1"
+    }
+  ],
+  "default_currency_code": "USD"
+}

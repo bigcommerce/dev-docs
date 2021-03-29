@@ -1,0 +1,38 @@
+type: array
+description: An array of blog posts.
+items:
+  type: object
+  description: Individual blog post object.
+  properties:
+    author:
+      type: string
+      description: Author of the blog post.
+    date_published:
+      type: string
+      description: Date the blog entry was published
+    show_read_more:
+      type: boolean
+      description: Show readmore.
+    summary:
+      type: string
+      description: Blog post summary.
+    tags:
+      type: array
+      description: Tags for the blog.
+      items:
+        type: object
+        properties:
+          name:
+            type: string
+            description: Name of the tag.
+          url:
+            type: string
+            description: URL for the tag.
+    thumbnail:
+      $ref: ./image.yml
+    title:
+      type: string
+      description: Title of the blog post.
+    url:
+      type: string
+  title: blog.posts.post

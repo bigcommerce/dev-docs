@@ -1,0 +1,217 @@
+description: '`{{order}}` object available to templates and components with order context'
+type: object
+properties:
+  billing_address:
+    type: object
+    description: Billing address used for the order.
+    properties:
+      address_lines:
+        type: array
+        description: Customer's billing address
+        items:
+          type: string
+      city:
+        type: string
+        description: Customer's billing city
+      company:
+        type: string
+        description: Customer's billing company name
+      country:
+        type: string
+        description: Customer billing country
+      email:
+        type: string
+        description: Customer's billing email
+      full_name:
+        type: string
+        description: Customer's billing name
+      phone:
+        type: string
+        description: Customer billing phone number
+      state:
+        type: string
+        description: Customer's billing state
+      zip:
+        type: string
+        description: Customer billing ZIP
+  comments:
+    type: array
+    items:
+      type: object
+  date:
+    type: string
+    description: Date of the order
+  has_multiple_shipping_addresses:
+    type: boolean
+  id:
+    type: integer
+    description: 'Unique, system-generated ID'
+  invoice_url:
+    type: string
+  is_complete:
+    type: boolean
+    description: Boolean indicating that the order has been completed
+  is_digital:
+    type: string
+  items:
+    type: array
+    description: List of items for the order.
+    items:
+      type: object
+      properties:
+        gift_wrapping_name:
+          type: string
+        image:
+          $ref: ./image.yml
+        name:
+          type: string
+          description: Product Name
+        options:
+          type: array
+          items:
+            type: object
+            properties:
+              name:
+                type: string
+              value:
+                type: string
+        order_product_id:
+          type: string
+          description: Product ID
+        price:
+          type: object
+          properties:
+            currency:
+              type: string
+            formatted:
+              type: string
+            value:
+              type: integer
+        quantity:
+          type: integer
+          description: Quantity Ordered
+        refunded:
+          type: boolean
+          description: Price object that defines the value of this product that has been refunded.
+        refunded_qty:
+          type: integer
+        reorder_message:
+          type: string
+          description: An error message to be displayed when the customer attempts to reorder items that can’t be reordered.
+        return_url:
+          type: string
+        shipping_rows:
+          type: array
+          description: 'Array of shipping addresses, for each item in the order'
+          items:
+            type: object
+        show_reorder:
+          type: boolean
+          description: Boolean indicating whether the customer should see a button for reordering items on the Account Order Details page.
+        sku:
+          type: string
+        total:
+          type: object
+          description: Price object that defines the order’s total value
+          properties:
+            currency:
+              type: string
+            formatted:
+              type: string
+            value:
+              type: integer
+        type:
+          type: string
+  last_updated:
+    type: string
+  order_instructions:
+    type: string
+  payment_method:
+    type: string
+    description: Customer’s payment method for this order (payment gateway)
+  reorder_url:
+    type: string
+    description: URL to place reorders for items in this order.
+  return_url:
+    type: string
+  returns_enabled:
+    type: integer
+    description: Boolean that indicates whether merchant allows products from the order to be returned.
+  shipping_address:
+    type: object
+    description: Shipping address used for the order.
+    properties:
+      address_lines:
+        type: array
+        description: Customer's shipping address
+        items:
+          type: string
+      city:
+        type: string
+        description: Customer's shipping city
+      company:
+        type: string
+        description: Customer's shipping company name
+      country:
+        type: string
+        description: Customer's shipping country
+      email:
+        type: string
+        description: Customer's email
+      full_name:
+        type: string
+        description: Customer's shipping name
+      phone:
+        type: string
+        description: Customer's shipping phone number
+      state:
+        type: string
+        description: Customer's shipping state
+      zip:
+        type: string
+        description: Customer's shipping zip
+  shipping_address_count:
+    type: string
+    description: Number of shipping addresses the customer has specified for this order.
+  shipping_method:
+    type: string
+  status:
+    type: string
+    description: Order status code
+  status_messages:
+    type: array
+    description: Status message associated with the status code for the order
+    items:
+      type: object
+  status_text:
+    type: string
+    description: Status text associated with the status code for the order.
+  total:
+    type: object
+    description: Price object that defines the order’s total value
+    properties:
+      currency:
+        type: string
+      formatted:
+        type: string
+      value:
+        type: number
+  total_rows:
+    type: array
+    description: A list of “total” rows containing total pricing information
+    items:
+      type: object
+      properties:
+        label:
+          type: string
+        value:
+          type: object
+          properties:
+            currency:
+              type: string
+            formatted:
+              type: string
+            value:
+              type:
+                - integer
+                - number

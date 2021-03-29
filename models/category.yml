@@ -1,0 +1,115 @@
+type: object
+description: '`{{category}}` available to `templates/pages/category.html` and other category page templates and components'
+title: category
+properties:
+  config:
+    type: array
+    items:
+      type: object
+  count:
+    type: integer
+  description:
+    type: string
+    description: Merchant-defined description of the category.
+  detail_messages:
+    type: array
+    description: 'Message displayed when a product is out of stock, and inventory settings are configured to redirect to a category: "Sorry, the product you tried to view is currently out of stock, here are some similar products we have available." (This phrasing is set by the BigCommerce App.)'
+    items:
+      type: object
+  faceted_search_enabled:
+    type: boolean
+    description: Boolean that defines whether product-filtering search is enabled for the store.
+  facets:
+    type: array
+    description: Available search facets.
+    items:
+      type: object
+  id:
+    type: integer
+    description: Unique ID for the category.
+  image:
+    $ref: ./image.yml
+  meta:
+    type: array
+    items:
+      type: object
+  name:
+    type: string
+    description: Merchant-defined category name.
+  products:
+    type: array
+    items:
+      $ref: ./productsProduct.yml
+  selected:
+    type: array
+    description: Selected search facets.
+    items:
+      type: object
+  shop_by_price:
+    type: array
+    description: 'Exposes price- and currency-related properties in both raw numeric, and formatted string, formats.'
+    items:
+      type: object
+      properties:
+        high:
+          type: object
+          description: Price object that defines the maximum price boundary.
+          properties:
+            currency:
+              type: string
+            formatted:
+              type: string
+            value:
+              type: integer
+        low:
+          type: object
+          description: Price object that defines the minimum price boundary
+          properties:
+            currency:
+              type: string
+            formatted:
+              type: string
+            value:
+              type: integer
+        selected:
+          type: boolean
+          description: Price object that defines the currently selected price range.
+        url:
+          type: string
+          description: URL of price-filtered product results for this category.
+  show_compare:
+    type: integer
+    description: Boolean that defines whether to show controls for product comparison
+  state:
+    type: array
+    items:
+      type: object
+  subcategories:
+    type: array
+    description: List of any child categories.
+    items:
+      type: object
+      properties:
+        description:
+          type: string
+          description: Merchant-defined description of the subcategory.
+        id:
+          type: integer
+          description: Unique ID for the subcategory.
+        image:
+          type: 'null'
+          description: 'Image representing this subcategory, in Stencil image format.'
+        name:
+          type: string
+          description: Name of the subcategory
+        product_count:
+          type: integer
+          description: Number of products in the subcategory. (Counts at the current level only – not recursive to deeper levels.)
+        url:
+          type: string
+          description: URL to the subcategory.
+  total_products:
+    type: integer
+    description: Count of the number of products in the category.
+  url:
+    type: string

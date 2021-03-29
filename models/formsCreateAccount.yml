@@ -1,0 +1,29 @@
+description: Object to enable the current customer to create a store account. Called on the default `templates/pages/auth/create-account.html`template
+title: forms.create_account
+type: object
+properties:
+  recaptcha:
+    type: string
+    description: Objects for integrating the Google reCAPTCHA service to distinguish human visitors from ’bots (automated agents).
+  enabled:
+    type: boolean
+    description: Boolean indicating whether reCAPTCHA is enabled for this store.
+  public_key:
+    type: string
+    description: Public key (site key) that reCAPTCHA returns upon merchant’s enabling CAPTCHA security in Store Settings > Display Settings.
+  address_fields:
+    type: array
+    description: 'Array of form fields that define each shipping address for this customer; for details, see this [repo] (https://github.com/bigcommerce/cornerstone/tree/master/templates/components/common/forms):'
+    items: {}
+  class_name:
+    type: string
+    description: 'Specifies a CSS class to apply to a field within the array; for corresponding control-panel steps, [see](https://support.bigcommerce.com/articles/Public/Editing-Form-Fields#advanced-settings):'
+  account_fields:
+    type: string
+    description: 'Object of form fields; for details, see this repo: https://github.com/bigcommerce/cornerstone/tree/master/templates/components/common/forms'
+  error:
+    type: string
+    description: BCApp generated message to display when customer’s account creation fails.
+  checking_out:
+    type: boolean
+    description: Boolean indicating whether customer created the account during a purchase checkout.

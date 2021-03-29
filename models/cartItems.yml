@@ -1,0 +1,88 @@
+type: array
+items:
+  type: object
+  properties:
+    availability:
+      type: string
+    brand:
+      type: object
+      properties:
+        name:
+          type: string
+    can_modify:
+      type: boolean
+    configurable_fields:
+      type: array
+      items:
+        type: object
+    custom_fields:
+      type: array
+      items:
+        type: object
+        properties:
+          id:
+            type: integer
+          name:
+            type: string
+          value:
+            type: string
+    id:
+      type: string
+    image:
+      $ref: ./image.yml
+    max_purchase_quantity:
+      type: 'null'
+    min_purchase_quantity:
+      type: 'null'
+    name:
+      type: string
+    options:
+      type: array
+      items:
+        type: object
+    price:
+      type: object
+      properties:
+        currency:
+          type: string
+        formatted:
+          type: string
+        value:
+          type: number
+    product_id:
+      type: integer
+    quantity:
+      type: integer
+    release_date:
+      type: string
+    remove_url:
+      type: string
+      description: URL to remove gift certificate from the cart.
+    rrp:
+      type: object
+      description: Price object that defines the cart item's list price (MSRP); can be used to display struck-out list prices.
+      properties:
+        currency:
+          type: string
+        formatted:
+          type: string
+        value:
+          type: integer
+    show_gift_wrapping:
+      type: boolean
+      description: Boolean indicating whether the wrapping options are shown.
+    sku:
+      type: string
+    total:
+      type: object
+      properties:
+        currency:
+          type: string
+        formatted:
+          type: string
+        value:
+          type: number
+    type:
+      type: string
+    url:
+      type: string

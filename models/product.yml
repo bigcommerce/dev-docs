@@ -1,0 +1,126 @@
+description: '{{product}} object available to `templates/pages/product.html`, `templates/pages/amp/product.html`, and their components'
+type: object
+properties:
+  AddThisServiceButtonMeta:
+    type: string
+  add_this:
+    items:
+      properties:
+        annotation:
+          type: string
+        service:
+          type: string
+      type: object
+    type: array
+  add_to_wishlist_url:
+    description: URL to add the product to the customer’s wishlist
+    type: string
+  availability:
+    type: string
+  bulk_discount_rates:
+    description: List of discount rates for the current product
+    items:
+      type: object
+    type: array
+  can_purchase:
+    description: Boolean that indicates whether the product is available for purchase
+    type: boolean
+  cart_url:
+    description: URL to the customer’s shopping cart
+    type: string
+  category:
+    items:
+      type: string
+    type: array
+  customizations:
+    description: Product customizations (for example, a T-shirt size); these correspond to configurable fields and numeric-text product options in the BigCommerce control panel
+    items:
+      type: object
+    type: array
+  description:
+    description: (HTML) description of the product
+    type: string
+  detail_messages:
+    description: Status messages for display at the top of the product page
+    type: string
+  gift_wrapping_available:
+    description: Whether or not gift wrapping is enabled
+    type: boolean
+  id:
+    description: Unique ID for the product
+    type: string
+  images:
+    description: List of all images for this product, in Stencil image format (as configured in config.json; used with the getImage Handlebars helper)
+    items:
+      properties:
+        alt:
+          type: string
+        data:
+          type: string
+      type: object
+    type: array
+  main_image:
+    description: Primary image to display when the product details page loads
+    properties:
+      alt:
+        type: string
+      data:
+        type: string
+    type: object
+  max_purchase_quantity:
+    description: Maximum quantity that can be purchased at once
+    type: integer
+  meta_description:
+    type: string
+  meta_keywords:
+    description: Optional search keywords that merchants may enter in the control panel’s "Add a Product" or “Edit a Product” page, to characterize the product in meta tags and storefront searches
+    type: string
+  min_purchase_quantity:
+    description: Minimum quantity that can be purchased at once
+    type: integer
+  num_reviews:
+    description: Number of reviews the product has
+    type: integer
+  options:
+    items:
+      type: object
+    type: array
+  page_title:
+    type: string
+  price:
+    $ref: ./productPrice.yml
+  rating:
+    description: Rating for the product
+    type: integer
+  related_products:
+    $ref: ./productRelatedProducts.yml
+  reviews:
+    $ref: ./productReviews.yml
+  shipping_messages:
+    items:
+      type: object
+    type: array
+  show_quantity_input:
+    type: integer
+  sku:
+    description: Default product variant when no options are selected
+    type: string
+  tags:
+    description: Keywords by which this product can also be identified
+    items:
+      type: object
+    type: array
+  title:
+    description: Displayed name of the product
+    type: string
+  upc:
+    description: Optional UPC code for the product
+    type: 'null'
+  url:
+    description: URL to the product detail page
+    type: string
+  videos:
+    $ref: ./productVideos.yml
+  warranty:
+    description: Optional warranty text set by the merchant
+    type: string

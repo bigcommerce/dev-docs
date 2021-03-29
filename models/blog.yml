@@ -1,0 +1,33 @@
+description: '`{{blog}}` objects'
+type: object
+oneOf:
+  - type: object
+    description: '`{{blog}}` object available to blog and blog post templates and components'
+    title: blog (blog page)
+    properties:
+      description:
+        type: string
+        description: Blog description.
+      name:
+        type: string
+        description: Blog name.
+      posts:
+          $ref: ./blogPosts.yml
+      tag:
+        type: 'null'
+        description: The blog's tag.
+      url:
+        type: string
+        description: URL to the blog page.
+  - type: object
+    description: "Global blog object."
+    title: blog (blog page)
+    properties:
+      name:
+        type: string
+        description: Blog name.
+      recent_posts:
+          $ref: ./blogPosts.yml
+      url:
+        type: string
+        description: URL to the blog page.

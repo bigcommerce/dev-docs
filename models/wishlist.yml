@@ -1,0 +1,132 @@
+description: wishlist object available to `templates/pages/account/wishlist-details.html` and components.
+type: object
+properties:
+  id:
+    type: number
+  is_editable:
+    type: boolean
+  is_public:
+    type: boolean
+  items:
+    type: array
+    items:
+      type: object
+      properties:
+        add_to_cart_url:
+          type: string
+        add_to_wishlist_url:
+          type: string
+        availability:
+          type: object
+          properties:
+        brand:
+          type: object
+          properties:
+            name:
+              type: object
+              properties:
+        custom_fields:
+          type: array
+          items:
+            type: object
+            properties:
+              id:
+                type: number
+              name:
+                type: string
+              value:
+                type: string
+        date_added:
+          type: string
+        demo:
+          type: boolean
+        has_options:
+          type: boolean
+        id:
+          type: number
+        image:
+          $ref: ./image.yml
+        images:
+          type: array
+          items:
+            $ref: ./image.yml
+        low_stock_level:
+          type: object
+          properties:
+        name:
+          type: string
+        num_reviews:
+          type: object
+          properties:
+        pre_order:
+          type: boolean
+        price:
+          type: object
+          properties:
+            tax_label:
+              type: string
+            without_tax:
+              type: object
+              properties:
+                currency:
+                  type: string
+                formatted:
+                  type: string
+                value:
+                  type: number
+        product_id:
+          type: number
+        qty_in_cart:
+          type: number
+        rating:
+          type: object
+          properties:
+        remove_url:
+          type: string
+        show_cart_action:
+          type: boolean
+        sku:
+          type: object
+          properties:
+        stock_level:
+          type: object
+          properties:
+        summary:
+          type: string
+        url:
+          type: string
+        weight:
+          type: object
+          properties:
+            formatted:
+              type: object
+              properties:
+            value:
+              type: object
+              properties:
+  name:
+    type: string
+  pagination:
+    type: object
+    properties:
+      current:
+        type: number
+      links:
+        type: array
+        items:
+          type: object
+          properties:
+            number:
+              type: number
+            url:
+              type: string
+      next:
+        type: object
+        properties:
+      previous:
+        type: object
+        properties:
+  share_url:
+    type: string
+  token:
+    type: string

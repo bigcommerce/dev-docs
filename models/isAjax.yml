@@ -1,0 +1,2 @@
+description: returns true if the current executing request is an Ajax request
+type: boolean

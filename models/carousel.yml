@@ -1,0 +1,44 @@
+title: carousel
+description: '`global` `{{carousel}}` array of images, texts, and styles for configure for the storefront slide show'
+type: object
+properties:
+  slides:
+    type: array
+    items:
+      type: object
+      properties:
+        alt_text:
+          type: string
+        button_text:
+          type: string
+        button_text_color:
+          type: string
+        heading:
+          type: string
+        heading_color:
+          type: string
+        image:
+          type: string
+        image_height:
+          type: string
+        image_width:
+          type: string
+        stencil_image:
+          type: object
+          properties:
+            alt:
+              type: string
+            data:
+              type: string
+            height:
+              type: integer
+            width:
+              type: integer
+        text:
+          type: string
+        text_color:
+          type: string
+        url:
+          type: string
+  swap_frequency:
+    type: integer

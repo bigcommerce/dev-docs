@@ -1,0 +1,17 @@
+type: array
+description: '`{{downloads}}` object available to `templates/pages/account/download-item.html`'
+items:
+  type: object
+  properties:
+    description:
+      type: string
+    expired:
+      type: boolean
+    id:
+      type: string
+    name:
+      type: string
+    size:
+      type: string
+    url:
+      type: string

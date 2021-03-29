@@ -1,0 +1,245 @@
+description: '`global` `{{settings}}` object'
+type: object
+title: settings
+properties:
+  account_creation_enabled:
+    type: boolean
+    description: Site-wide boolean value that indicates whether to allow customers to create accounts
+  add_this:
+    type: object
+    description: Object that defines links for the AddThis social sharing component
+    properties:
+      buttons:
+        type: array
+        description: 'Array of buttons to display for AddThis social sharing {{#each settings.add_this.buttons}}{{service}}{{/each}} {{#each settings.add_this.buttons}}{{annotations}}{{/each}}'
+        items:
+          type: object
+          properties:
+            annotation:
+              type: string
+              description: String containing HTML attributes associated with this button
+            service:
+              type: string
+              description: 'String containing the name of this button''s social-media service (facebook, email, print, twitter, linkedin, google, etc.)'
+  address:
+    type: string
+    description: 'Store’s complete physical address, as entered by merchant in the Store Profile'
+  amp_analytics_id:
+    type: string
+    description: Returns Google AMP analytics ID
+  base_url:
+    type: string
+    description: The normal shop URL
+  blog_enabled:
+    type: boolean
+    description: Site-wide boolean value that indicates whether the blog is visible for this store
+  bulk_discount_enabled:
+    type: boolean
+    description: Boolean that return true if bulk discount is enabled on products.
+  cdn_url:
+    type: string
+  client_ip_address:
+    type: string
+    description: IP address of the customer browsing the store
+  country_code:
+    type: string
+    description: The country code corresponding to the IP
+  data_tag_enabled:
+    type: boolean
+    description: 'Site-wide boolean that indicates whether GAEE is enabled in a theme. For {{settings.data_tag_enabled}} to be true, the enhanced_ecommerce key must be present in config.json and a GAEE experiment must be enabled along with GA property value set in Advanced Settings > Analytics > GA in the BigCommerce Control Panel'
+  display_date_format:
+    type: string
+    description: 'Brief display format/pattern for dates, as configured in the control panel''s Display Date Format field'
+  extended_display_date_format:
+    type: string
+    description: 'Extended display format/pattern for dates, as configured in the control panel''s Extended Display Date Format field'
+  facebook_like_button:
+    type: object
+    properties:
+      enabled:
+        type: boolean
+      href:
+        type: string
+      verb:
+        type: string
+  general:
+    type: object
+    properties:
+      fastCart:
+        type: boolean
+      storeId:
+        type: integer
+  gift_certificates_enabled:
+    type: boolean
+    description: Site-wide boolean value that indicates whether to enable the gift certificate system for this store
+  is_eu_ip_address:
+    type: boolean
+    description: A boolean value. Return true if the shoppers ip address is in the EU.
+  maintenance:
+    type: object
+    description: Object that manages information about the store when in maintenance (offline) mode
+    properties:
+      header:
+        type: 'null'
+        description: 'If store is in maintenance mode, string containing header text for the "Down for Maintenance" window displayed to visitors; otherwise, null'
+      message:
+        type: 'null'
+        description: 'If store is in maintenance mode, string containing merchant-customizable body text (and optionally, HTML) for the "Down for Maintenance" window displayed to visitors; otherwise, null'
+      notice:
+        type: 'null'
+        description: 'If store is in maintenance mode, one of three strings identifying the store''s status, and generating a corresponding text notice to merchants about how to proceed: AdminPrelaunchNotice for preview stores, AdminMaintenanceNotice for active stores taken down for maintenance, or AdminHibernationModeNotice for deactivated stores; otherwise, null'
+      password:
+        type: 'null'
+      securePath:
+        type: string
+  measurements:
+    type: object
+    description: 'Collection of units-of-measure definitions, to be used when displaying product details:'
+    properties:
+      length:
+        type: string
+        description: Units of measure for product length
+      weight:
+        type: string
+        description: Units of measure for product weight
+  money:
+    type: object
+    description: List of child items that define the store’s default currency formatting
+    properties:
+      currency_location:
+        type: string
+        description: Whether currency symbol appears at left or right of the quantity
+      currency_token:
+        type: string
+        description: Symbol for the currency
+      decimal_places:
+        type: integer
+        description: Number of decimal places to display
+      decimal_token:
+        type: string
+        description: Symbol for decimal separator
+      thousands_token:
+        type: string
+        description: Symbol for thousands separator
+  newsletter_summary:
+    type: string
+    description: 'Returns the [newsletter summary](https://support.bigcommerce.com/s/article/Collecting-Newsletter-Subscriptions#newsletter)'
+  password_requirements:
+    type: object
+    description: 'Collection of properties representing BigCommerce requirements for customer-account passwords:'
+    properties:
+      alpha:
+        type: string
+        description: Regular expression representing required/acceptable alphabetic characters
+      error:
+        type: string
+        description: String that passes a standard error message for noncompliant password
+      minlength:
+        type: integer
+        description: Integer representing minimum acceptable password length
+      numeric:
+        type: string
+        description: Regular expression representing required/acceptable numeric characters
+  payments_url:
+    type: string
+    description: 'Exposes the BigCommerce payments URL. `https://payments.bigcommerce.com`'
+  phone_number:
+    type: string
+    description: 'The contact phone number for the store located in the [stores profile](https://support.bigcommerce.com/s/article/Store-Profile-Settings).'
+  privacy_cookie:
+    type: boolean
+    description: 'If enabled, a string containing merchant-customizable text for (European Union–required) cookie-setting notification; if disabled, a boolean with a value of false'
+  region_code:
+    type: string
+  request:
+    type: object
+    description: Object that contains details about the HTTP request
+    properties:
+      absolute_path:
+        type: string
+        description: The absolute URL requested. Never use request.path in the actual body of the page
+      host:
+        type: string
+        description: Hostname of the request
+      is_crawler:
+        type: boolean
+        description: Renders "true" if user angent is known crawler; "false" otherwise
+      locale:
+        type: string
+        description: "\tThe browser's locale. Allows for varying experience based on shopper locale"
+      origin:
+        type: string
+        description: Origin of the request
+      referer:
+        type: boolean
+        description: Refer of the request
+      user_agent:
+        type: string
+        description: User agent string of the request
+  returns_enabled:
+    type: integer
+    description: Boolean that indicates whether the control-panel setting for the returns system is enabled.
+  rss_item_limit:
+    type: integer
+    description: An integer that sets a limit on the number of RSS items to display.
+  secure_base_url:
+    type: string
+    description: 'The SSL-enabled, secure, shop URL'
+  secure_host:
+    type: string
+    description: 'Returns the SSL url for a store. Example: `https://www.bigcommerce.com`'
+  shopper_consent_tracking_enabled:
+    type: boolean
+  show_newsletter_box:
+    type: integer
+    description: Site-wide boolean value that indicates whether to display a mailing-list invite to visitors
+  show_newsletter_summary:
+    type: integer
+    description: 'Returns a 1 if the [newsletter summary](https://support.bigcommerce.com/s/article/Collecting-Newsletter-Subscriptions#newsletter is shown. Returns 0 if it is now shown. If show_newsletter_box is 0 then show_newsletter_summary will also be 0.'
+  show_payment_methods:
+    type: boolean
+    description: A boolean value. If true available payment methods on a store will be shown. If false they are hidden.
+  show_product_rating:
+    type: boolean
+    description: Site-wide boolean value that indicates whether to display product ratings (in numeric or star format) to visitors
+  show_product_reviews:
+    type: boolean
+    description: Site-wide boolean value that indicates whether to display full-text product reviews to visitors
+  show_wishlist:
+    type: boolean
+    description: Site-wide boolean value that indicates whether to allow customers to create wishlists
+  store_dst_correction:
+    type: integer
+    description: 'Whether or not this time zone observes Daylight Saving Time (boolean), as set by the control panel''s Enable DST Correction check box'
+  store_hash:
+    type: string
+    description: Returns the store hash as a string.
+  store_logo:
+    type: object
+    description: The store’s logo
+    properties:
+      title:
+        type: string
+        description: "\tTitle for the logo – the text configured in the control panel under Storefront Design Design Options Logo"
+      image:
+        $ref: ./image.yml
+  store_name:
+    type: string
+    description: Name of the BigCommerce store
+  store_time_zone:
+    type: string
+    description: 'Store''s time zone, as selected in the control panel''s Your Timezone drop-down list'
+  storefront_api:
+    type: object
+    properties:
+      token:
+        type: string
+  tax_label:
+    type: string
+    description: 'Defines the Tax Label (VAT, Sales Tax, etc.) that a merchant can set in the control panel’s Settings > Tax page for display to customers'
+  theme_config_id:
+    type: string
+  theme_session_id:
+    type: string
+  theme_version_id:
+    type: string

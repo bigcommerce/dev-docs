@@ -1,0 +1,14 @@
+description: '{{brands}} object available to `templates/pages/brands.html`'
+type: array
+items:
+  type: object
+  properties:
+    id:
+      type: integer
+    image:
+      $ref: ./image.yml
+    name:
+      type: string
+    url:
+      type: string
+title: brands

@@ -1,0 +1,44 @@
+description: '{{brand}} object available to `templates/pages/brand.html`'
+type: object
+properties:
+  config:
+    type: array
+    items:
+      type: object
+  faceted_search_enabled:
+    type: boolean
+  facets:
+    type: array
+    items:
+      type: object
+  image:
+    $ref: ./image.yml
+  meta:
+    type: array
+    items:
+      type: object
+  name:
+    type: string
+  products:
+    type: array
+    items:
+      $ref: ./productsProduct.yml
+  search_error:
+    type: boolean
+  selected:
+    type: object
+    properties:
+      items:
+        type: array
+        items:
+          type: object
+      remove_all_url:
+        type: string
+  show_compare:
+    type: boolean
+  state:
+    type: array
+    items:
+      type: object
+  url:
+    type: string

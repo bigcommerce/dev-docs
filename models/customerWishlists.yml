@@ -1,0 +1,25 @@
+type: array
+description: customer.wishlists objects available to `templates/components/account/wishlist-list.html` and components.
+items:
+  type: object
+  properties:
+    add_url:
+      type: string
+    delete_url:
+      type: string
+    edit_url:
+      type: string
+    id:
+      type: number
+    is_public:
+      type: boolean
+    name:
+      type: string
+    num_items:
+      type: number
+    share_url:
+      type: string
+    token:
+      type: string
+    view_url:
+      type: string
