@@ -1,4 +1,3 @@
-title: carousel
 description: '`global` `{{carousel}}` array of images, texts, and styles for configure for the storefront slide show'
 type: object
 properties:
