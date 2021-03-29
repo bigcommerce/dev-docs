@@ -1,3 +1,6 @@
+# Full Context
+
+```yaml json_schema
 title: 'Theme Objects'
 type: object
 properties:
@@ -83,3 +86,4 @@ properties:
    $ref: ./vault.yml
   wishlist:
    $ref: ./wishlist.yml
+```

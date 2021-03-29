@@ -5,6 +5,7 @@ Stencil template objects expose dynamic page data. Not all objects are available
 <div class="otp" id="no-index">
 
 ### On this Page
+- [Context Objects](#context-objects)
 - [Viewing a Page's Context](#viewing-a-pages-context)
 - [Using Handlebars](#using-handlebars)
 - [Using PageManager JavaScript](#using-pagemanager-javascript)
@@ -12,6 +13,8 @@ Stencil template objects expose dynamic page data. Not all objects are available
 - [Resources](#resources)
 
 </div>
+
+## Context Objects
 
 ## Viewing a Page's Context
 

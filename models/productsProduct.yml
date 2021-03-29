@@ -1,6 +1,5 @@
 description: 'product object for product card arrays like `{{products.new}}`, `{{products.featured}}`, and `{{products.top_sellers}}`'
 type: object
-title: product card
 properties:
   add_to_cart_url:
     type: string
