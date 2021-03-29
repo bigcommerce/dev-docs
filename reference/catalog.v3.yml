@@ -11467,17 +11467,52 @@ paths:
           required: false
           in: query
           type: string
+        - type: array
+          items:
+            type: string
+          in: query
+          name: 'name:like'
         - name: parent_id
           description: 'Filter items by parent_id. If the category is a child or sub category it can be filtered with the parent_id. '
           required: false
           in: query
           type: integer
+        - type: array
+          items:
+            type: integer
+          in: query
+          name: 'parent_id:in'
+        - type: array
+          items:
+            type: integer
+          in: query
+          name: 'parent_id:min'
+        - type: array
+          items:
+            type: integer
+          in: query
+          name: 'parent_id:max'
+        - type: array
+          items:
+            type: integer
+          in: query
+          name: 'parent_id:greater'
+        - type: array
+          items:
+            type: integer
+          in: query
+          name: 'parent_id:less'
         - name: page_title
           description: |
             Filter items by page_title.
           required: false
           in: query
           type: string
+        - type: array
+          items:
+            type: string
+          in: query
+          name: 'page_title:like'
         - name: keyword
           description: 'Filter items by keywords. eg. new, towel, bath'
           required: false
@@ -11752,11 +11787,24 @@ paths:
         - Category
     delete:
       description: |-
-        By default, it deletes all *Category* objects. A filter should be added to avoid deleting all *Category* objects in a store.
+        Deletes *Category* objects. At least one filter parameter is required to perform the `DELETE` operation.
 
-        Sending a `DELETE` to this endpoint will result in a `422` error. Move products to a new category by sending a `PUT` to the `/catalog/products/{product_id}` endpoint before deleting a category.
+        **Usage Notes**
+
+        - Sending a `DELETE`request without specifying a filter parameter will result in a `422` error. 
+        - Sending a `DELETE` request for a category that contains products will result in a `422` error. Move products to a new category by sending a `PUT` requst to the `/catalog/products/{product_id}` endpoint before deleting a category.
       operationId: deleteCategories
       parameters:
+        - type: integer
+          in: query
+          name: id
+          description: Filter items by id.
+        - $ref: '#/parameters/FilterIdIn'
+        - $ref: '#/parameters/FilterIdNotIn'
+        - $ref: '#/parameters/FilterIdMin'
+        - $ref: '#/parameters/FilterIdMax'
+        - $ref: '#/parameters/FilterIdGreater'
+        - $ref: '#/parameters/FilterIdLess'
         - name: name
           description: |
             Filter items by name.
@@ -11784,6 +11832,41 @@ paths:
           required: false
           in: query
           type: boolean
+        - type: array
+          items:
+            type: string
+          in: query
+          name: 'name:like'
+        - type: array
+          items:
+            type: integer
+          in: query
+          name: 'parent_id:in'
+        - type: array
+          items:
+            type: integer
+          in: query
+          name: 'parent_id:min'
+        - type: array
+          items:
+            type: integer
+          in: query
+          name: 'parent_id:max'
+        - type: array
+          items:
+            type: integer
+          in: query
+          name: 'parent_id:greater'
+        - type: array
+          items:
+            type: integer
+          in: query
+          name: 'parent_id:less'
+        - type: array
+          items:
+            type: string
+          in: query
+          name: 'page_title:like'
         - in: header
           type: string
           name: Accept
