@@ -2,7 +2,7 @@ description: '`{{customer}}` object available to templates and components with c
 type: object
 properties:
   addresses:
-    $ref: ./customerAddresses.yml
+    $ref: ./customer/addresses.yml
   customer_group_id:
     type: number
   customer_group_name:
@@ -24,16 +24,18 @@ properties:
     description: Number of wishlists for this customer.
     type: string
   orders:
-    $ref: ./customerOrders.yml
+    $ref: ./customer/orders.yml
   payment_methods:
-    $ref: ./customerOrders.yml
+    $ref: ./customer/payment_methods.yml
   phone:
     description: Customer's phone number
     type: string
   recently_viewed_products:
-    $ref: ./customerOrders.yml
+    type: array
+    items:
+      $ref: ./common/product.yml
   returns:
-    $ref: ./customerOrders.yml
+    $ref: ./customer/returns.yml
   shipping_address:
     description: Shipping address used for the order
     properties:
@@ -87,7 +89,7 @@ properties:
         type: string
     type: object
   shipping_addresses:
-    $ref: ./customerOrders.yml
+    $ref: ./customer/orders.yml
   store_credit:
     description: Customer's store credit
     properties:
@@ -99,4 +101,4 @@ properties:
         type: number
     type: object
   wishlists:
-    $ref: ./customerWishlists.yml
+    $ref: ./customer/wishlists.yml

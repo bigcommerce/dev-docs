@@ -71,7 +71,7 @@ properties:
         id:
           type: string
         image:
-          $ref: ./image.yml
+          $ref: ./common/image.yml
         max_purchase_quantity:
           type: 'null'
         min_purchase_quantity:

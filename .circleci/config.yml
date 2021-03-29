@@ -1,0 +1,18 @@
+version: 2
+jobs:
+  build:
+    name: Run Spectral
+    docker:
+      - image: circleci/node:12
+    steps:
+      - checkout
+      - run:
+          name: Setup Test Dir
+          command: mkdir ~/junit
+      - run:
+          name: "API Description Linter"
+          command: npx @stoplight/spectral@5.8.1 lint models/*.yml -f=junit -o ~/junit/test_results.xml -v -F=warn
+      - store_test_results:
+          path: ~/junit
+      - store_artifacts:
+          path: ~/junit

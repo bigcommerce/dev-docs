@@ -29,7 +29,7 @@ items:
             type: string
             description: URL for the tag.
     thumbnail:
-      $ref: ./image.yml
+      $ref: ../common/image.yml
     title:
       type: string
       description: Title of the blog post.

@@ -1,0 +1,21 @@
+type: object
+allOf:
+  - type: object
+    description: product.price and products[*].price object available to various product templates and components.
+    properties:
+      non_sale_price_without_tax:
+        $ref: ../common/amount.yml
+      price_range:
+        type: object
+        properties:
+          max:
+            ../common/price.yml
+          min:
+            ../common/price.yml
+      rrp_without_tax:
+        $ref: ../common/amount.yml
+      sale_price_without_tax:
+        $ref: ../common/amount.yml
+      saved:
+        $ref: ../common/amount.yml
+  - $ref: ../common/price.yml

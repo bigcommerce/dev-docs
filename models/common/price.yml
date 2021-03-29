@@ -1,0 +1,8 @@
+type: object
+description: properties common to `product.price` and `product.price.price_range`
+properties:
+  tax_label:
+    type: string
+    description: Tax label (VAT, sales tax, etc.) displayed to customers.
+  without_tax:
+    $ref: ./amount.yml

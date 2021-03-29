@@ -11,7 +11,7 @@ items:
       type: string
       description: ID of the top-level category listed.
     image:
-      $ref: ./image.yml
+      $ref: ./common/image.yml
     name:
       type: string
       description: Name of the top-level category
@@ -22,4 +22,22 @@ items:
       type: array
       description: List of child categories for this top-level category.
       items:
-        $ref: ./categories.yml
+        type: object
+        properties:
+          count:
+            type: string
+            description: Number of products in this category.
+          id:
+            type: string
+            description: ID of the top-level category listed.
+          image:
+            $ref: ./common/image.yml
+          name:
+            type: string
+            description: Name of the top-level category
+          url:
+            type: string
+            description: URL to the category page.
+          children:
+            type: array
+            description: List of child categories.

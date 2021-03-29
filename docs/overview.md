@@ -16,6 +16,8 @@ Stencil template objects expose dynamic page data. Not all objects are available
 
 ## Context Objects
 
+
+
 ## Viewing a Page's Context
 
 To get the template context in plaintext JSON for a page served locally by Stencil CLI, add `debug=context` to the URL query string. To get the template context JSON ouput to a rendered page, use `debug=bar`. Example:

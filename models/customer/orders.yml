@@ -9,7 +9,7 @@ items:
     id:
       type: string
     image:
-      $ref: ./image.yml
+      $ref: ../common/image.yml
     items:
       type: array
       items:
@@ -18,7 +18,7 @@ items:
           expected_release_date:
             type: string
           image:
-            $ref: ./image.yml
+            $ref: ../common/image.yml
           name:
             type: string
           options:

@@ -1,12 +1,12 @@
 description: '`{{forms}}` object available to pages and components with forms'
 type: object
 anyOf:
-  - $ref: ./formsAddress.yml
-  - $ref: ./formsContact.yml
-  - $ref: ./formsCreateAccount.yml
-  - $ref: ./formsEditAccount.yml
-  - $ref: ./formsGiftCertificate.yml
-  - $ref: ./formsLogin.yml
-  - $ref: ./formsProvider.yml
-  - $ref: ./formsReturn.yml
-  - $ref: ./formsWishlist.yml
+  - $ref: ./forms/address.yml
+  - $ref: ./forms/contact.yml
+  - $ref: ./forms/create_account.yml
+  - $ref: ./forms/edit_account.yml
+  - $ref: ./forms/gift_certificate.yml
+  - $ref: ./forms/login.yml
+  - $ref: ./forms/provider.yml
+  - $ref: ./forms/return.yml
+  - $ref: ./forms/wishlist.yml
