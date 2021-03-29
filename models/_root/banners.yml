@@ -1,6 +1,5 @@
-type: object
 description: '`global` `{{banners}}` object'
-title: banners
+type: object
 properties:
   bottom:
     type: array

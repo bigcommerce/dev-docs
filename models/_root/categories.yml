@@ -1,4 +1,3 @@
-title: categories
 type: array
 description: '`global` `{{categories}}` array containing categories for the current page context; default sort is by category `id` ascending'
 items:
@@ -11,7 +10,7 @@ items:
       type: string
       description: ID of the top-level category listed.
     image:
-      $ref: ./common/image.yml
+      $ref: ../common/image.yml
     name:
       type: string
       description: Name of the top-level category
@@ -31,7 +30,7 @@ items:
             type: string
             description: ID of the top-level category listed.
           image:
-            $ref: ./common/image.yml
+            $ref: ../common/image.yml
           name:
             type: string
             description: Name of the top-level category

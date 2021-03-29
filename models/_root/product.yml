@@ -88,14 +88,14 @@ properties:
   page_title:
     type: string
   price:
-    $ref: ./product/price.yml
+    $ref: ../product/price.yml
   rating:
     description: Rating for the product
     type: integer
   related_products:
-    $ref: ./product/related_products.yml
+    $ref: ../product/related_products.yml
   reviews:
-    $ref: ./product/reviews.yml
+    $ref: ../product/reviews.yml
   shipping_messages:
     items:
       type: object
@@ -120,7 +120,7 @@ properties:
     description: URL to the product detail page
     type: string
   videos:
-    $ref: ./product/videos.yml
+    $ref: ../product/videos.yml
   warranty:
     description: Optional warranty text set by the merchant
     type: string

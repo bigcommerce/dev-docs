@@ -1,4 +1,3 @@
-title: forms.wishlist
 description: Form object presented to customers on the Add/Edit Wishlist page. Available on `templates/pages/account/add-wishlist.html`.
 type: object
 properties:

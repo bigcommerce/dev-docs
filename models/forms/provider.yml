@@ -1,4 +1,3 @@
-title:
 description: forms.provider object available to `templates/pages/account/payment-methods.html` and components.
 type: object
 properties:

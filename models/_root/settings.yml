@@ -222,7 +222,7 @@ properties:
         type: string
         description: "\tTitle for the logo – the text configured in the control panel under Storefront Design Design Options Logo"
       image:
-        $ref: ./common/image.yml
+        $ref: ../common/image.yml
   store_name:
     type: string
     description: Name of the BigCommerce store

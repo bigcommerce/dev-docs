@@ -28,7 +28,7 @@ properties:
     type: integer
     description: Unique ID for the category.
   image:
-    $ref: ./common/image.yml
+    $ref: ../common/image.yml
   meta:
     type: array
     items:
@@ -39,7 +39,7 @@ properties:
   products:
     type: array
     items:
-      $ref: ./common/product.yml
+      $ref: ../common/product.yml
   selected:
     type: array
     description: Selected search facets.

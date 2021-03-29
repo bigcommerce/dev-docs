@@ -1,4 +1,3 @@
-title: forms.edit_account
 description: The form object used to edit a customer object available to `templates/pages/account/edit.html`.
 type: object
 properties:

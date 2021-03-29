@@ -12,7 +12,7 @@ oneOf:
         type: string
         description: Blog name.
       posts:
-          $ref: ./blog/posts.yml
+          $ref: ../blog/posts.yml
       tag:
         type: 'null'
         description: The blog's tag.
@@ -27,7 +27,7 @@ oneOf:
         type: string
         description: Blog name.
       recent_posts:
-          $ref: ./blog/posts.yml
+          $ref: ../blog/posts.yml
       url:
         type: string
         description: URL to the blog page.

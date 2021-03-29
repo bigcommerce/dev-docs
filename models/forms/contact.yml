@@ -1,5 +1,5 @@
-type: object
 description: Contact form object available to `templates/pages/contact-us.html`.
+type: object
 properties:
   captcha_url:
     type: string

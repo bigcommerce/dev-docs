@@ -12,7 +12,7 @@ properties:
     items:
       type: object
   image:
-    $ref: ./common/image.yml
+    $ref: ../common/image.yml
   meta:
     type: array
     items:
@@ -22,7 +22,7 @@ properties:
   products:
     type: array
     items:
-      $ref: ./common/product.yml
+      $ref: ../common/product.yml
   search_error:
     type: boolean
   selected:

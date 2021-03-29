@@ -1,4 +1,3 @@
-title: forms.gift_certificate
 description: Gift certificate form object available to `templates/pages/gift-certificate/purchase.html`.
 type: object
 properties:

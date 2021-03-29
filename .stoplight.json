@@ -10,7 +10,7 @@
     "json_schema": {
       "rootDir": "models",
       "include": [
-        "models/*.yml"
+        "models/_root/**"
       ]
     },
     "markdown": {

@@ -1,4 +1,3 @@
-title: forms.login
 description: Shopper login form object available to `templates/pages/create-login.html`.
 type: object
 properties:
