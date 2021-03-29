@@ -1,5 +1,3 @@
-
-title: Customer Addresses
 description: The customer.addresses object available to `templates/pages/account/addresses.html` and other account address templates.
 type: array
 items:
