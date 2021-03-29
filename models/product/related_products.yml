@@ -4,7 +4,6 @@ items:
   description: >-
     Product object used for list components that show multiple products,
     each in its own "card" or panel.
-  title: product card
   properties:
     add_to_cart_url:
       type: string
@@ -41,7 +40,6 @@ items:
       type: array
       items:
         type: object
-        title: image
         description: >-
           Common image object; ex: `{{category.image}}`,
           `{{product.images.image}}

@@ -3,7 +3,6 @@ description: customer.payment_methods object available to `templates/pages/accou
 oneOf:
   - type: array
     description: Replaces `customerPaymentMethods` object used in payment_methods.html templates when `account_payment_methods_v2` is enabled in **config.json** > **meta** > **features**.
-    title: customer.payment_methodsV2
     items:
       type: object
       properties:
@@ -117,5 +116,4 @@ oneOf:
               type: object
       selected_payment_method:
         type: 'null'
-    title: customer.payment_methodsV1
     description: Object to view stored customer payment methods

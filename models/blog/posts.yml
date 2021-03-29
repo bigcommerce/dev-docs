@@ -35,4 +35,3 @@ items:
       description: Title of the blog post.
     url:
       type: string
-  title: blog.posts.post

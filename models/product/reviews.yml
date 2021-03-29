@@ -19,5 +19,3 @@ properties:
         type: string
   show_review_email:
     type: boolean
-  '':
-    type: string
