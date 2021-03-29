@@ -10,7 +10,7 @@
     "json_schema": {
       "rootDir": "models",
       "include": [
-        "root/"
+        "models/root"
       ]
     },
     "markdown": {
