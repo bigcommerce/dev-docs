@@ -2718,17 +2718,18 @@ paths:
             $ref: '#/definitions/productVariant_Put'
           x-examples:
             application/json:
-              cost_price: 3
-              price: 50.99
-              sale_price: 45
-              retail_price: 50.99
+              cost_price: 0
+              price: 89
+              sale_price: 85
+              retail_price: 89
               weight: 1
-              width: 4
+              width: 2
               height: 14.6
               depth: 22
-              is_free_shipping: true
+              is_free_shipping: false
               purchasing_disabled: true
-              purchasing_disabled_message: This item not available at this time.
+              purchasing_disabled_message: This item is not available.
+              mpn: TR-SML02
         - in: header
           type: string
           name: Accept
@@ -2755,37 +2756,32 @@ paths:
           examples:
             application/json:
               data:
-                id: 384
-                product_id: 192
-                sku: SMIT-2
-                sku_id: 350
-                price: {}
-                calculated_price: 25
-                sale_price: {}
-                retail_price: {}
-                map_price: {}
-                weight: {}
+                bin_picking_number: '0'
+                calculated_price: 85
                 calculated_weight: 1
-                width: {}
-                height: {}
-                depth: {}
-                is_free_shipping: false
-                fixed_cost_shipping_price: {}
-                purchasing_disabled: false
-                purchasing_disabled_message: ''
-                image_url: ''
-                cost_price: {}
-                upc: ''
-                mpn: ''
+                cost_price: 0
+                depth: 22
+                fixed_cost_shipping_price: 0
                 gtin: ''
+                height: 14.6
+                id: 65
                 inventory_level: 0
                 inventory_warning_level: 0
-                bin_picking_number: ''
-                option_values:
-                  - id: 176
-                    label: Black
-                    option_id: 220
-                    option_display_name: Color
+                is_free_shipping: false
+                map_price: 0
+                mpn: TR-SML02
+                option_values: []
+                price: 89
+                product_id: 81
+                purchasing_disabled: true
+                purchasing_disabled_message: This item is not available.
+                retail_price: 89
+                sale_price: 85
+                sku: OTS
+                sku_id: null
+                upc: ''
+                weight: 1
+                width: 2
               meta: {}
         '404':
           description: |
@@ -19214,6 +19210,9 @@ definitions:
         x-nullable: true
         minLength: 0
         maxLength: 255
+      mpn:
+        type: string
+        description: The Manufacturer Part Number (MPN) for the variant.
   productVariant_Full:
     allOf:
       - $ref: '#/definitions/productVariant_Base'
@@ -19239,8 +19238,8 @@ definitions:
             format: double
             description: |
               The price of the variant as seen on the storefront. This price takes into account `sale_price` and any price adjustment rules that are applicable to this variant.
-          '':
-            type: string
+          calculated_weight:
+            type: number
     title: productVariant_Full
   productVariant_Post:
     description: |
