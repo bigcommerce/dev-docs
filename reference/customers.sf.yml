@@ -86,3 +86,7 @@ components:
           type: string
         fieldValue:
           type: string
+x-stoplight:
+  docs:
+    includeDownloadLink: false
+    showModels: false
