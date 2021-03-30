@@ -1,27 +1,27 @@
-desciption: '`{{shipments}}` array available to `templates/pages/account/orders/details.html`'
+description: '`{{shipments}}` array available to `templates/pages/account/orders/details.html`'
 type: array
 items:
   type: object
   properties:
     date_shipped:
-      desciption: shipping date for this shipment
+      description: shipping date for this shipment
       type: string
     shipping_method:
-      desciption: shipping method for this shipment
+      description: shipping method for this shipment
       type: string
     shipping_provider:
-      desciption: shipping carrier for this shipment
+      description: shipping carrier for this shipment
       type: string
     shipping_track:
-      desciption: tracking information for this shipment
+      description: tracking information for this shipment
       type: object
       properties:
         number:
-          desciption: tracking number for this shipment
+          description: tracking number for this shipment
           type: string
         url:
-          desciption: tracking URL for this shipment
+          description: tracking URL for this shipment
           type: string
     show_shipping_method:
-      desciption: boolean indicating whether shipping method should be displayed to customer or not
+      description: boolean indicating whether shipping method should be displayed to customer or not
       type: boolean

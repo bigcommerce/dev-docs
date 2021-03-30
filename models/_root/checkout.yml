@@ -3,10 +3,10 @@ type: object
 properties:
   order_confirmation_content:
     type: string
-    desciption: default content from checkout template
+    description: default content from checkout template
   checkout_head:
     type: string
-    desciption: default content from checkout `<head>`
+    description: default content from checkout `<head>`
   order:
     description: '`{{checkout.order}}` object available to order confirmation templates and components.'
     type: object
