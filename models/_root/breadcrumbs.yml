@@ -1,4 +1,4 @@
-description: '`global` {{breadcrumbs}} array'
+description: '`global` `{{breadcrumbs}}` array'
 type: array
 items:
   type: object

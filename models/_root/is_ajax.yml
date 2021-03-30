@@ -1,2 +1,2 @@
-description: returns true if the current executing request is an Ajax request
+description: "`global` `{{is_ajax}}` boolean; returns true if the current request is an AJAX request"
 type: boolean

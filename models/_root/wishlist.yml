@@ -1,4 +1,4 @@
-description: wishlist object available to `templates/pages/account/wishlist-details.html` and components.
+description: "`{{wishlist}}` object available to `templates/pages/account/wishlist-details.html` and components."
 type: object
 properties:
   id:

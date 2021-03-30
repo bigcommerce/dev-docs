@@ -1,4 +1,4 @@
-description: '{{products}} object available pages with product cards like `templates/pages/home.html`; contains `new`, `featured`, and `top_sellers`'
+description: '`{{products}}` object available pages with product cards like `templates/pages/home.html`; contains `new`, `featured`, and `top_sellers`'
 type: object
 properties:
   new:

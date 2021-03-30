@@ -1,4 +1,4 @@
-description: 'Faceted-search for searching globally, by category, or by brand.'
+description: '`global` `{{faceted_search}}`; provides data for searching by category or brand.'
 type: object
 properties:
   facets:

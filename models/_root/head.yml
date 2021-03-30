@@ -1,4 +1,4 @@
-description: '`global` {{head}} object containing data configured for the HTML `<head>` element'
+description: '`global` `{{head}}` object containing data configured for the HTML `<head>` element'
 type: object
 properties:
   favicon:

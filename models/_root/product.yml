@@ -1,4 +1,4 @@
-description: '{{product}} object available to `templates/pages/product.html`, `templates/pages/amp/product.html`, and their components'
+description: '`{{product}}` object available to `templates/pages/product.html`, `templates/pages/amp/product.html`, and their components'
 type: object
 properties:
   AddThisServiceButtonMeta:

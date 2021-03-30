@@ -1,2 +1,45 @@
 type: string
-description: "`global` `{{page_type}}` string. Allowed Values: account_addressboo\naccount_downloaditem\taccount_inbox\neditaccount\naccount_orderstatus\taccount_ordersinvoice_print\taccount_order\taccount_recentitems\naccount_saved_return\taccount_returns\twishlists\nadd-wishlist\twishlist\tcreateaccount_thanks\ncreateaccount\nforgotpassword\nlogin\ngetnewpassword\nblog\nblog_post\nbrand\nbrands\ncart\ncategory\ncompare\n403\n404\nerror\ngiftcertificates_balance\ngiftcertificates\tgiftcertificates_redeem\tdefault\npage\npage_contact_form\tproduct\nrss\tsearch\nsitemap\nnewsletter_subscribe\tunsubscribe\thibernation"
+description: "`global` `{{page_type}}` string."
+example: brands
+enum:
+- account_addressboo
+- account_downloaditem
+- account_inbox
+- editaccount
+- account_orderstatus
+- account_ordersinvoice_print
+- account_order
+- account_recentitems
+- account_saved_return
+- account_returns
+- wishlists
+- add-wishlist
+- wishlist
+- createaccount_thanks
+- createaccount
+- forgotpassword
+- login
+- getnewpassword
+- blog
+- blog_post
+- brand
+- brands
+- cart
+- category
+- compare
+- 403
+- 404
+- error
+- giftcertificates_balance
+- giftcertificates
+- giftcertificates_redeem
+- default
+- page
+- page_contact_form
+- product
+- rss
+- search
+- sitemap
+- newsletter_subscribe
+- unsubscribe
+- hibernation
