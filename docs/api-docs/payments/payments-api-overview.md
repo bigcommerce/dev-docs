@@ -23,8 +23,8 @@ Process payments using a sequence of requests to two API hosts:
 * Process the payment:  `https://payments.bigcommerce.com/stores/{store_hash}/payments`
 
 ### Required [OAuth Scopes](/api-docs/getting-started/authentication#authentication_oauth-scopes)
-* `Create` `Payments`
-* `Read` `Payment Methods`
+* `Create Payments`
+* `Get Payment Methods`
 
 [![Run in Postman](https://run.pstmn.io/button.svg)](https://app.getpostman.com/run-collection/38daa68bda00ba9d4734)
 
