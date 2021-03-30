@@ -1,0 +1,22 @@
+description: "`{{sitemap}}` object available to `templates/pages/sitemap.html`."
+type: array
+items:
+  type: object
+  properties:
+    body:
+      type: array
+      items:
+        type: object
+        properties:
+          label:
+            type: string
+          url:
+            type: string
+    label:
+      type: string
+    show_all_link:
+      type: boolean
+    subsection_url:
+      type: string
+    title:
+      type: string
