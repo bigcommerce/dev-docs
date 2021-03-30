@@ -1,4 +1,4 @@
-description: '{{brand}} object available to `templates/pages/brand.html`'
+description: '`{{brand}}` object available to `templates/pages/brand.html`'
 type: object
 properties:
   config:

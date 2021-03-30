@@ -1,4 +1,4 @@
-description: Object to enable the current customer to create a store account. Called on the default `templates/pages/auth/create-account.html`template
+description: "`{{forms.create_account}}` object available to `templates/pages/auth/create-account.html`"
 type: object
 properties:
   recaptcha:

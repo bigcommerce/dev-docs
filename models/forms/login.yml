@@ -1,4 +1,4 @@
-description: Shopper login form object available to `templates/pages/create-login.html`.
+description: "`{{forms.login}}` object available to `templates/pages/create-login.html`"
 type: object
 properties:
   error:

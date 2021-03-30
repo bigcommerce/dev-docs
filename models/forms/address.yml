@@ -1,4 +1,4 @@
-description: Form object presented to customers in the Add/Edit Address page. Available on `templates/pages/account/add-address.html`.
+description: "`{{forms.address}}` object available to `templates/pages/account/add-address.html`"
 type: object
 properties:
   address_id:

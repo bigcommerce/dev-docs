@@ -1,4 +1,4 @@
-description: Gift certificate form object available to `templates/pages/gift-certificate/purchase.html`.
+description: "`{{forms.gift_certicate}}` object available to `templates/pages/gift-certificate/purchase.html`"
 type: object
 properties:
   action:

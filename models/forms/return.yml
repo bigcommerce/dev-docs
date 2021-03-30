@@ -1,4 +1,4 @@
-description: forms.return object available to `templates/pages/account/add-return.html`.
+description: "`{{forms.return}}` object available to `templates/pages/account/add-return.html`"
 properties:
   actions:
     type: array

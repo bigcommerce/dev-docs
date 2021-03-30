@@ -1,4 +1,4 @@
-description: Contact form object available to `templates/pages/contact-us.html`.
+description: "`{{forms.contact}}` object available to `templates/pages/account/add-address.html`"
 type: object
 properties:
   captcha_url:

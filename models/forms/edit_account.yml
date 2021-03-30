@@ -1,4 +1,4 @@
-description: The form object used to edit a customer object available to `templates/pages/account/edit.html`.
+description: "`{{forms.edit_account}}` object available to `templates/pages/account/edit.html`"
 type: object
 properties:
   first_name:

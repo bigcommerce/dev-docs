@@ -1,4 +1,4 @@
-description: '`{{blog}}` objects'
+description: '`global` and template `{{blog}}` objects'
 type: object
 oneOf:
   - type: object
@@ -20,7 +20,7 @@ oneOf:
         type: string
         description: URL to the blog page.
   - type: object
-    description: "Global blog object."
+    description: "`global` `{{blog}} object"
     title: blog (blog page)
     properties:
       name:
