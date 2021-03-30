@@ -337,11 +337,6 @@ paths:
             - available
             - disabled
             - preorder
-        - name: price_list_id
-          description: 'This filter returns the product pricing with the *Price List* pricing instead. To use:`?price_list_id=1`.If there are variants use:`?price_list_id=1&include=variants`.'
-          required: false
-          in: query
-          type: integer
         - name: page
           description: Specifies the page number in a limited (paginated) list of products.
           required: false
@@ -807,10 +802,6 @@ paths:
           type: string
           default: application/json
           required: true
-        - type: integer
-          in: query
-          name: price_list_id
-          description: Filter by price_list_id.
       responses:
         '200':
           description: ''
@@ -17223,16 +17214,6 @@ parameters:
       - available
       - disabled
       - preorder
-  FilterPriceListIdParam:
-    name: price_list_id
-    description: |-
-      This filter returns the product pricing with the *Price List* pricing instead. To use:
-      `?price_list_id=1`.
-      If there are variants use:
-      `?price_list_id=1&include=variants`
-    required: false
-    in: query
-    type: integer
   FilterProductIdParam:
     type: string
     name: product_id
