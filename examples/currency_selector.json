@@ -11,7 +11,7 @@
       "id": 1,
       "is_active": true,
       "name": "US Dollars",
-      "switch_url": "https://www.checkoutmydeck.com/account.php?setCurrencyId=1"
+      "switch_url": "https://store.example.com/account.php?setCurrencyId=1"
     }
   ],
   "default_currency_code": "USD"

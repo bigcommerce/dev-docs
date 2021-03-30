@@ -1,0 +1,42 @@
+description: "`{{pagination}}` object available to templates containing paginated lists, such as `templates/pages/category.html` and `templates/pages/brands.html`"
+type: object
+oneOf:
+  - type: object
+    properties:
+      category:
+        type: object
+        properties:
+          current:
+            type: number
+          links:
+            type: array
+            items:
+              type: object
+          sort:
+            type: string
+  - type: object
+    properties:
+      brand:
+        type: object
+        properties:
+          current:
+            type: number
+          links:
+            type: array
+            items:
+              type: object
+          sort:
+            type: string
+  - type: object
+    properties:
+      blog:
+        type: object
+        properties:
+          current:
+            type: number
+          links:
+            type: array
+            items:
+              type: object
+          sort:
+            type: string
