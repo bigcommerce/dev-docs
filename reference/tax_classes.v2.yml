@@ -67,15 +67,25 @@ paths:
             application/json:
               - id: 1
                 name: Non-Taxable Products
+                created_at: '1973-01-20T21:34:57.903Z'
+                updated_at: '1990-12-30T00:29:23.515Z'
               - id: 2
                 name: Shipping
+                created_at: '1973-01-20T21:34:57.903Z'
+                updated_at: '1990-12-30T00:29:23.515Z'
               - id: 3
                 name: Gift Wrapping
+                created_at: '1973-01-20T21:34:57.903Z'
+                updated_at: '1990-12-30T00:29:23.515Z'
             Response Schema:
               - id: proident irure consequat anim
                 name: sed non commodo et tempor
+                created_at: '1973-01-20T21:34:57.903Z'
+                updated_at: '1990-12-30T00:29:23.515Z'
               - id: consequat voluptate
                 name: sunt ex
+                created_at: '1973-01-20T21:34:57.903Z'
+                updated_at: '1990-12-30T00:29:23.515Z'
       x-unitTests: []
       x-operation-settings:
         CollectParameters: false
@@ -114,9 +124,13 @@ paths:
             application/json:
               id: 1
               name: Shipping
+              created_at: '1973-01-20T21:34:57.903Z'
+              updated_at: '1990-12-30T00:29:23.515Z'
             Response Schema:
               id: ut pariatur eiusmod non
               name: dolore nulla Duis Ut ea
+              created_at: '1973-01-20T21:34:57.903Z'
+              updated_at: '1990-12-30T00:29:23.515Z'
       x-unitTests: []
       x-operation-settings:
         CollectParameters: false
@@ -130,6 +144,8 @@ definitions:
     example:
       id: 1
       name: Shipping
+      created_at: '1973-01-20T21:34:57.903Z'
+      updated_at: '1990-12-30T00:29:23.515Z'
     type: object
     properties:
       id:
@@ -141,6 +157,16 @@ definitions:
       name:
         description: The name of the tax class.
         example: Shipping
+        type: string
+      created_at:
+        description: Date and time of the tax class' creation. Read-Only.
+        example: '2018-05-07T20:14:17+00:00'
+        format: date-time
+        type: string
+      updated_at:
+        description: Date and time when the tax class was last updated. Read-Only.
+        example: '2018-05-07T20:14:17+00:00'
+        format: date-time
         type: string
 tags:
   - name: Taxes
