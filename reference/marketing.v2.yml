@@ -275,24 +275,15 @@ paths:
         Updates a *Coupon*.
 
 
-        **Required Fields**
-
-        *   `applies_to`
-
         **Read Only Fields**
 
-        *   `id`
-        *   `num_uses`
+        * `id`
+        * `num_uses`
+        * `date_created`
 
         **Notes**
 
-        If the `applies_to` value is cleared, you can restore it to the coupon by reapplying the `applies_to` value in a new PUT request.
-
-        Only the following fields can be updated via `PUT`:
-
-        * `code`
-        * `max_uses`
-        * `max_uses_per_customer`
+        If the `applies_to` value is cleared, you can restore it to the coupon by reapplying the `applies_to` value in a new `PUT` request.
       summary: Update a Coupon
       parameters:
         - name: id
@@ -322,15 +313,23 @@ paths:
             $ref: '#/definitions/coupon_Base'
           x-examples:
             application/json:
-              name: 5% off order total
-              type: per_item_discount
-              code: 4F75AF0C3802D39
-              enabled: true
-              amount: '5'
+              amount: '25.0000'
               applies_to:
                 entity: categories
                 ids:
                   - 0
+              code: 4F75AF0C3802K55
+              enabled: false
+              expires: '01 Jun 2022 14:31:46 -0700'
+              max_uses: 0
+              max_uses_per_customer: 1
+              min_purchase: '150.0000'
+              name: $25 off!
+              restricted_to:
+                countries:
+                  - AU
+              shipping_methods: null
+              type: per_total_discount
       responses:
         '200':
           $ref: '#/responses/coupon_Resp'
