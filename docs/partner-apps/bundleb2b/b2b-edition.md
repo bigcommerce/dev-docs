@@ -41,7 +41,7 @@ Additionally, you can use the B3 REST API to create, read, update, and delete it
 - A code editor
 - Access to your BigCommerce store dashboard with Store Owner permissions
 
-### Customize page containers
+### Customizing page containers
 
 B3 renders client-facing pages and elements by mounting fixed containers to BigCommerce themes using JavaScript. You can change the placement of select B3 elements by using `window.b3themeConfig.useContainers = {}` to specify which DOM node B3 mounts the container on.
 
