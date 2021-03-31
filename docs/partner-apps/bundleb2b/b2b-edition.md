@@ -45,7 +45,11 @@ Additionally, you can use the B3 REST API to create, read, update, and delete it
 
 B3 renders client-facing pages and elements by mounting fixed containers to BigCommerce themes using JavaScript. You can change the placement of select B3 elements by using `window.b3themeConfig.useContainers = {}` to specify which DOM node B3 mounts the container on.
 
-To specify which DOM node a B3 container mounts on, insert `window.b3themeConfig.useContainers = {}` into your theme's `assets/js/global.js` file. Within `window.b3themeConfig.useContainers = {}`, create a property that uses the name of the B3 container as the key and the selector for the theme element it will mount on as the value. When done, the object will resemble the following:
+To specify which DOM node a B3 container mounts on, follow these steps:
+ 1. Insert `window.b3themeConfig.useContainers = {}` into your theme's `assets/js/global.js` file. 
+ 2. Within `window.b3themeConfig.useContainers = {}`, create a property that uses the name of the B3 container as the key and the selector for the theme element it will mount on as the value. 
+ 
+ When done, the object will resemble the following:
 
 ```jsx
 window.b3themeConfig.useContainers = {
@@ -92,7 +96,10 @@ For diagrams of B3 element names and their placements, see the [BundleB2B Develo
 
 B3 allows you to customize display text for many of the application's elements, such as buttons, headers, and labels.
 
-To overwrite the default text that B3 renders, insert `window.b3themeConfig.useText = {}` into your theme's `assets/js/global.js` file. Within `window.b3themeConfig.useText = {}`, create a property for each element you would like to overwrite using B3 element names as keys and strings containing the new display text as values.
+To overwrite the default text that B3 renders, follow these steps:
+
+ 1. Insert `window.b3themeConfig.useText = {}` into your theme's `assets/js/global.js` file. 
+ 2. Within `window.b3themeConfig.useText = {}`, create a property for each element you would like to overwrite using B3 element names as keys and strings containing the new display text as values.
 
 When done, the object will resemble the following:
 
@@ -121,7 +128,10 @@ mounted() {}
 - `beforeMount()` is a `function` that calls all enclosed functions before the module renders. Default is `noop`.
 - `mounted()` is a `function` that calls all enclosed functions after the module has rendered. Default is `noop`.
 
-To overwrite and/or inject custom functions for a supported B3 module, insert `window.b3themeConfig.useJavaScript = {}` into your theme's `assets/js/global.js` file. Within `window.b3themeConfig.useJavaScript = {}`, create a property for each of the modules you'd like to customize that uses the module name as the key and the aforementioned global keys as the value.
+To overwrite and/or inject custom functions for a supported B3 module, follow these steps:
+
+ 1. Insert `window.b3themeConfig.useJavaScript = {}` into your theme's `assets/js/global.js` file. 
+ 2. Within `window.b3themeConfig.useJavaScript = {}`, create a property for each of the modules you'd like to customize that uses the module name as the key and the aforementioned global keys as the value.
 
 When done, your object will resemble the following example that demonstrates the call stack of each function:
 
@@ -154,9 +164,9 @@ For the complete list of API endpoints, see [B3 Open API (v2) specifications](ht
 
 ## Additional BundleB2B resources
 
-- [Quick start - BundleB2B Developer Guide](https://developer.bundleb2b.net/storefront/quick-start.html)
+- [Quick start](https://developer.bundleb2b.net/storefront/quick-start.html)
 - [BundleB2B Open API (v2)](https://developer.bundleb2b.net/openapi/)
-- [RESTful APIs call - BundleB2B Developer Guide](https://developer.bundleb2b.net/storefront/api-call.html)
-- [Customize display text - BundleB2B Developer Guide](https://developer.bundleb2b.net/storefront/text.html)
-- [Customize page containers - BundleB2B Developer Guide](https://developer.bundleb2b.net/storefront/containers.html)
-- [Javascript overwrite or injection - BundleB2B Developer Guide](https://developer.bundleb2b.net/storefront/js.html)
+- [RESTful APIs call](https://developer.bundleb2b.net/storefront/api-call.html)
+- [Customize display text](https://developer.bundleb2b.net/storefront/text.html)
+- [Customize page containers](https://developer.bundleb2b.net/storefront/containers.html)
+- [Javascript overwrite or injection](https://developer.bundleb2b.net/storefront/js.html)
