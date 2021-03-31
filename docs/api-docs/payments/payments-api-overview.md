@@ -67,18 +67,21 @@ You can process payments using cards stored with the BigCommerce Stored Credit C
 
 **BigCommerce supports the following gateways for credit cards:**
 
+* AdyenV2
 * Authorize.net
+* Bolt
 * CardConnect
 * Chase integrated payments
 * Chase merchant services
 * Checkout.com
-* Cybersource direct
+* Cybersource
 * eWAY rapid
 * First data payeezy gateway
 * Heartland payment systems
 * MIGS
 * MyVirtualMerchant
 * NMI
+* Orbital
 * Paymetric
 * PayPal powered by Braintree
 * PayPal Payments Pro (Payflow Edition) UK
@@ -89,6 +92,9 @@ You can process payments using cards stored with the BigCommerce Stored Credit C
 * Stripe
 * StripeV3
 * USA ePay
+* Vantiv
+* Vantiv Core
+* Windcave
 * Worldpay Core
 * WorldPay
 
