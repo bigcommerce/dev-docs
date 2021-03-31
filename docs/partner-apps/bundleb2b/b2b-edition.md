@@ -152,7 +152,7 @@ You can find instructions on how to get your B3 authentication token on the [Bun
 
 For the complete list of API endpoints, see [B3 Open API (v2) specifications](https://developer.bundleb2b.net/openapi/).
 
-## Resources
+## Additional BundleB2B resources
 
 - [Quick start - BundleB2B Developer Guide](https://developer.bundleb2b.net/storefront/quick-start.html)
 - [BundleB2B Open API (v2)](https://developer.bundleb2b.net/openapi/)
