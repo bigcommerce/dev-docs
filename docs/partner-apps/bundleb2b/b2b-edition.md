@@ -88,7 +88,7 @@ window.b3themeConfig.useStyles = {
 
 For diagrams of B3 element names and their placements, see the [BundleB2B Developer Guide](https://developer.bundleb2b.net/storefront/containers.html).
 
-### Customize display text
+### Customizing display text
 
 B3 allows you to customize display text for many of the application's elements, such as buttons, headers, and labels.
 
