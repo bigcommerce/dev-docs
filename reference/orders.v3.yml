@@ -338,7 +338,23 @@ paths:
           schema:
             $ref: '#/definitions/RefundQuote_Post'
           x-examples:
-            application/json:
+            Quantity:
+              items:
+                - item_id: 75
+                  item_type: PRODUCT
+                  quantity: 1
+            Amount:
+              items:
+                - item_id: 79
+                  item_type: SHIPPING
+                  amount: 10
+            Tax Exempt (Order Level):
+              items:
+                - item_type: ORDER
+                  item_id: 1234
+                  amount: 1
+                  reason: Overchaged $1.00
+            Multiple Items:
               items:
                 - item_id: 75
                   item_type: PRODUCT
@@ -346,7 +362,7 @@ paths:
                 - item_id: 79
                   item_type: SHIPPING
                   amount: 10
-              tax_adjustment_amount: 0
+          description: ''
         - $ref: '#/parameters/Accept'
         - $ref: '#/parameters/Content-Type'
       responses:
@@ -378,7 +394,43 @@ paths:
           schema:
             $ref: '#/definitions/RefundRequest_Post'
           x-examples:
-            application/json:
+            Quantity:
+              items:
+                - item_id: 75
+                  item_type: PRODUCT
+                  quantity: 1
+              payments:
+                - provider_id: storecredit
+                  amount: 232.75
+                  offline: false
+            Amount:
+              order_id: 1
+              items:
+                - item_type: SHIPPING
+                  item_id: 1
+                  amount: 1.99
+                  reason: string
+              reason: Wrong t-shirt size
+              payments:
+                - |-
+                  {
+                      "provider_id": "checkout_paypalexpress",
+                      "amount": 9.99,
+                      "offline": true
+                  }
+            Tax Exempt (Order Level):
+              order_id: 1234
+              items:
+                - item_type: ORDER
+                  item_id: 1234
+                  amount: 1
+                  reason: overcharged
+              payments:
+                - provider_id: authorizenet
+                  provider_description: Authorize.net
+                  amount: 1
+                  offline: false
+            Multiple Items:
               items:
                 - item_id: 75
                   item_type: PRODUCT
@@ -391,6 +443,7 @@ paths:
                 - provider_id: storecredit
                   amount: 232.75
                   offline: false
+          description: ''
         - $ref: '#/parameters/Accept'
         - $ref: '#/parameters/Content-Type'
       responses:
@@ -1893,7 +1946,7 @@ definitions:
         description: Indicate if total_refund_amount includes tax amount
       refund_methods:
         type: array
-        description: |+
+        description: |
           An array of available refund methods.
 
           Note that `refund_methods` is an array of refund methods, with each refund method being an array of payment options.
@@ -1950,8 +2003,6 @@ definitions:
           3. Refund the amount paid by store credit to store credit, and the amount paid by bank deposit via a manual refund, which will be recorded as being refunded against the bank deposit.
 
           >
-
-
         items:
           $ref: '#/definitions/RefundMethod'
   RefundRequest_Post:
@@ -1959,10 +2010,6 @@ definitions:
     description: Request body for refund requests.
     title: RefundRequest_Post
     properties:
-      order_id:
-        type: integer
-        description: Order id against which this refund will be created
-        example: 1
       items:
         $ref: '#/definitions/ItemsRefund'
       reason:
@@ -1974,7 +2021,6 @@ definitions:
         items:
           $ref: '#/definitions/PaymentRequest'
     required:
-      - order_id
       - items
       - payments
   PostRefundsRequest:
@@ -2063,12 +2109,12 @@ definitions:
         maxLength: 1000
   TaxExemptItem:
     type: object
-    title: Tax Exempt Item
-    description: Tax Exempt Item
+    title: Tax Exempt (Order Level)
+    description: 'Use this to refund a custom value at the order level. When `item_type` is set to `ORDER`, tax is not re-calculated.'
     properties:
       item_type:
         type: string
-        description: Type of refund.
+        description: 'The type of refund. When `item_type` is set to `ORDER`, tax is not re-calculated.'
         example: ORDER
         enum:
           - ORDER

@@ -4188,7 +4188,7 @@ components:
         coupons:
           $ref: '#/components/schemas/coupons_Resource'
         status_id:
-          type: number
+          type: integer
           example: 7
           description: The staus ID of the order.
     orderCustomProduct_Put:
