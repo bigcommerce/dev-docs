@@ -56,7 +56,7 @@ window.b3themeConfig.useContainers = {
 
 For a list of B3 container names and their default placements, see the [BundleB2B Developer Guide](https://developer.bundleb2b.net/storefront/containers.html).
 
-### Customize styles
+### Customizing styles
 
 You can customize the styling of many B3 elements using CSS.
 
