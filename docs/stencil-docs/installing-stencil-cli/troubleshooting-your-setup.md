@@ -168,7 +168,7 @@ To prevent this error from recurring, add the same `nvm use <version_number>` co
 
 ### "Unauthorized...username/token" error
 
-If executing the `stencil start` command generates an `Unauthorized, please use a valid username/token` error, make sure the `.stencil` file contains the correct store URL. Also, verify that you copied the correct username and token. If you continue to get the same error, please reissue tokens.
+If executing the `stencil start` command generates an `Unauthorized, please use a valid username/token` error, make sure the `.stencil` file or `secrets.stencil.json` and `config.stencil.json` files (if using Stencil V3.1 release or later) contain the correct store URL. Also, verify that you copied the correct username and token. If you continue to get the same error, please reissue tokens.
 
 ## 500 errors
 
@@ -207,7 +207,7 @@ The `eval-cheap-module-source-map` option performs faster rebuilds, but omits li
 If uploading your theme triggers a TR-300 error, this can indicate an included source-map file (`bundle.js.map`) that exceeds its size limit of 5 MB. If your `bundle.js.map` exceeds that limit, the workaround is to move this file outside your theme directory before re-running `stencil bundle`.
 
 Other reasons for this error include exceeding these stencil theme limitations:
-* Max directory size for `/templates/` and `/parsed/templates/`: 1 MB
+* Max file size for `/templates/` and `/parsed/templates/`: 1 MB
 * Max for any single file in the bundle: 5 MB
 * Max zipped size: 50 MB
 * Max unzipped size: 100 MB

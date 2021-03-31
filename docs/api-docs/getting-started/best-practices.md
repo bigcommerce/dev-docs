@@ -1,10 +1,10 @@
-# Best Practices
+# API Best Practices
 
 <div class="otp" id="no-index">
 
-### On This Page
+### On this page
 - [Ensure your integration is up-to-date](#ensure-your-integration-is-up-to-date)
-- [Anticipating changes to BigCommerce APIs](#anticipating-changes-to-bigcommerce-apis)
+- [Anticipate changes to BigCommerce APIs](#anticipate-changes-to-bigcommerce-apis)
 - [Use webhooks effectively](#use-webhooks-effectively)
 - [Thread API requests](#thread-api-requests)
 - [Marketplace apps](#marketplace-apps)
@@ -18,26 +18,27 @@
 
 BigCommerce frequently enhances its core product and is actively developing v3 API endpoints. By using the newest API version, you will ensure that your app has access to the latest resources. You will also be better positioned to provide a user experience consistent with what merchants will see in their BigCommerce store’s control panel. To stay up to date, bookmark our [changelog](/changelog).
 
-## Anticipating changes to BigCommerce APIs
+## Anticipate changes to BigCommerce APIs
 
 At BigCommerce, we make a distinction between "breaking" and "non-breaking" changes. 
 
 Any "breaking" changes listed below will always be made with early warning via our developer [changelog](/changelog) and other channels. There are several exceptional cases. BigCommerce will make breaking changes without warning to non-production (alpha/beta) APIs, or when we know the usage of a particular endpoint is zero.
 
-A breaking change to a public API is:
+Breaking changes:
+
 
 - Removal of a field from an API response
 - Changing the data type of a field
 - Changing the structure of an object
 - Removal of an entire endpoint
-- Adding a new required field to a POST/PUT body
+- Adding a new required field to a `POST`/`PUT` body
 
 We encourage developers to write code against our APIs that will not break if an endpoint begins returning additional fields. We will push these "non-breaking" changes to the code base without warning as part of our normal development.
 
-Changes considered to be non-breaking:
+Non-breaking changes:
 
-- Adding a new field to a GET response
-- Adding a new optional field to a POST/PUT body
+- Adding a new field to a `GET` response
+- Adding a new optional field to a `POST`/`PUT` body
 - Adding new endpoints
 
 ## Use webhooks effectively
@@ -57,25 +58,27 @@ The [BigCommerce Ruby API](https://github.com/bigcommerce/bigcommerce-api-ruby) 
 
 Merchants often have more than one person who can access a store's control panel. BigCommerce allows additional users to access an app when the store owner has granted them appropriate permissions. The requirements for supporting multi-user app access are:
 * Tokens must be stored against the `store_hash` and not against user info.
-* Within the [Dev Tools](https://developer.bigcommerce.com/api-docs/getting-started/authentication/rest-api-authentication#obtaining-app-api-credentials) workspace, you must enable your app’s **Technical** > **Multiple Users** option.
+* Within the [Developer Portal](https://developer.bigcommerce.com/api-docs/getting-started/authentication/rest-api-authentication#obtaining-app-api-credentials) workspace, you must enable your app’s **Technical** > **Multiple Users** option.
 
 In the payload returned when a user launches an app, users are distinguished by `owner_email` versus `user_email`. If these two emails match, the user is the store owner.
 
-If you wish to enable user removal, you can do by filling in your app’s **Technical** > **Remove User Callback URL** field in Dev Tools. Enabling user removal is optional. For more advanced implementations, you can enable the store owner to grant specific permissions to different non-admin users. For example, `person1@email.com` could be restricted to only editing product inventory but not viewing orders. If you decide to include user permission in your app, it’s a great feature to advertise.
+If you wish to enable user removal, you can do so by filling in your app’s **Technical** > **Remove User Callback URL** field in the Developer Portal. Enabling user removal is optional. For more advanced implementations, you can enable the store owner to grant specific permissions to different non-admin users. For example, `person1@email.com` could be restricted to only editing product inventory but not viewing orders. If you decide to include user permission in your app, it’s a great feature to advertise.
 
 For more information, see [Multi-User Support](/api-docs/apps/guide/intro#multi-user-support).
 
 ## API rate limits
 Apps that authenticate with OAuth are rate-limited based on a quota that is refreshed every few seconds. The maximum quota for a store will vary depending on the [store’s plan](https://support.bigcommerce.com/s/article/Platform-Limits#storelimits).
 
-* Enterprise plans and Enterprise sandboxes (Enterprise-Test): Unlimited (7mil / 30sec)
-* Pro plans: 60k per hour (450 / 30sec)
-* All other sandboxes (Dev/Partner/Employee): 20k per hour (150 / 30sec)
-* Plus & Standard plans: 20k per hour (150 / 30sec)
+| Plans & sandboxes | Maximum quota |
+| -- | -- | 
+| Enterprise plans and Enterprise sandboxes (Enterprise-Test) | Unlimited (7mil / 30sec)| 
+| Pro plans| 60k per hour (450 / 30sec) | 
+| All other sandboxes (Dev/Partner/Employee) | 20k per hour (150 / 30sec)| 
+| Plus & Standard plans| 20k per hour (150 / 30sec) | 
 
 Each request to the API consumes one available request from the quota. When an app hits the quota limit, subsequent requests are rejected until the quota is refreshed.
 
-The store’s overall quota is distributed across all apps that are accessing the store at a given time. This provides fairness for multiple apps that are accessing the API simultaneously, preventing a single greedy app from consuming the store’s entire quota by itself. The quota might adjust as additional clients connect or disconnect while you’re running requests.
+The store’s overall quota is distributed across all apps that are accessing the store at a given time. This provides fairness for multiple apps that are accessing the API simultaneously, preventing a single app from consuming the store’s entire quota by itself. The quota might adjust as additional clients connect or disconnect while you’re running requests.
 
 ### Concurrent API call rate limits
 
@@ -134,7 +137,7 @@ Your client can sleep on the specified interval:
 After waiting for the given number of milliseconds, your client can go back to making API requests.
 
 ### Making requests in parallel
-You might wish to increase the amount of work your application can do in a given unit of time, by sending multiple HTTP requests to the BigCommerce API in parallel. This is perfectly acceptable. However, your application should monitor the rate limiting headers to avoid an HTTP `429` response. Methods for doing this might include:
+You might wish to increase the amount of work your application can do in a given unit of time by sending multiple HTTP requests to the BigCommerce API in parallel. This is perfectly acceptable. However, your application should monitor the rate limiting headers to avoid an HTTP `429` response. Methods for doing this include:
 * Slowing your rate of API requests when `X-Rate-Limit-Requests-Left` is nearing zero.
 * Determining an acceptable average rate of requests, by dividing `X-Rate-Limit-Requests-Quota` by `X-Rate-Limit-Time-Window-Seconds`, and then self-throttling to that rate.
 
@@ -158,8 +161,10 @@ Consider subscribing to the [Cart Webhook](https://developer.bigcommerce.com/api
 
 ## Platform limits
 
-BigCommerce does have limits on the number of products, categories, brands, etc. that can be created in a store. See [Platform Limits](https://forum.bigcommerce.com/s/article/Platform-Limits#product-catalog-limits) for more details.
+BigCommerce does have limits on the number of products, categories, brands, etc. that can be created in a store. See [Platform Limits](https://support.bigcommerce.com/s/article/Platform-Limits) for more details.
 
 ## Resources
 ### Related articles
 * [API Status Codes](https://developer.bigcommerce.com/api-docs/getting-started/api-status-codes)
+* [Filtering](https://developer.bigcommerce.com/api-docs/getting-started/filtering)
+* [Platform Limits](https://support.bigcommerce.com/s/article/Platform-Limits)

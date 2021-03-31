@@ -16,11 +16,11 @@
 - [Handling refunds](#handling-refunds)
 - [Calculating totals](#calculating-totals)
 - [FAQ](#faq)
-- [Resources](#resources)
+- [Related resources](#related-resources)
 
 </div>
 
-This article introduces BigCommerce's [Orders V2](https://developer.bigcommerce.com/api-reference/store-management/orders) and [Orders V3](https://developer.bigcommerce.com/api-reference/store-management/order-transactions) REST API resources. [Orders V2](https://developer.bigcommerce.com/api-reference/store-management/orders) exposes endpoints for [creating](https://developer.bigcommerce.com/api-reference/store-management/orders/orders/createanorder), [reading](https://developer.bigcommerce.com/api-reference/store-management/orders/orders/getallorders), [updating](https://developer.bigcommerce.com/api-reference/store-management/orders/orders/updateanorder), and [deleting](https://developer.bigcommerce.com/api-reference/store-management/orders/orders/deleteallorders) orders; it also includes endpoints for managing [order shipments](https://developer.bigcommerce.com/api-reference/store-management/orders/order-shipments) and [order shipping addresses](https://developer.bigcommerce.com/api-reference/store-management/orders/order-shipping-addresses). [Orders V3](https://developer.bigcommerce.com/api-reference/store-management/order-transactions) surfaces [order transactions](https://developer.bigcommerce.com/api-reference/store-management/order-transactions/transactions/gettransactions) and [order refunds](https://developer.bigcommerce.com/api-reference/store-management/order-transactions) endpoints. For information on processing order payments via API, see [Payments API Overview](https://developer.bigcommerce.com/api-docs/payments/payments-api-overview).
+This article introduces BigCommerce's [Orders V2](https://developer.bigcommerce.com/api-reference/store-management/orders) and [Orders V3](https://developer.bigcommerce.com/api-reference/store-management/order-transactions) REST API resources. [Orders V2](https://developer.bigcommerce.com/api-reference/store-management/orders) exposes endpoints for [creating](https://developer.bigcommerce.com/api-reference/store-management/orders/orders/createanorder), [reading](https://developer.bigcommerce.com/api-reference/store-management/orders/orders/getallorders), [updating](https://developer.bigcommerce.com/api-reference/store-management/orders/orders/updateanorder), and [deleting](https://developer.bigcommerce.com/api-reference/store-management/orders/orders/deleteallorders) orders; it also includes endpoints for managing [order shipments](https://developer.bigcommerce.com/api-reference/store-management/orders/order-shipments) and [order shipping addresses](https://developer.bigcommerce.com/api-reference/store-management/orders/order-shipping-addresses). [Orders V3](https://developer.bigcommerce.com/api-reference/store-management/order-transactions) surfaces [order transactions](https://developer.bigcommerce.com/api-reference/store-management/order-transactions/transactions/gettransactions) and [order refunds](https://developer.bigcommerce.com/api-reference/store-management/order-transactions/order-refunds/) endpoints. For information on processing order payments via API, see [Payments API Overview](https://developer.bigcommerce.com/api-docs/payments/payments-api-overview).
 
 ### Prerequisites:
 * [A BigCommerce store](https://support.bigcommerce.com/s/article/Starting-a-Bigcommerce-Trial)
@@ -34,9 +34,8 @@ This article introduces BigCommerce's [Orders V2](https://developer.bigcommerce.
 To [create an order](https://developer.bigcommerce.com/api-reference/store-management/orders/orders/createanorder), send a `POST` request to `/stores/{{STORE_HASH}}/v2/orders`.
 
 ```http
-POST https://api.bigcommerce.com/stores/{{STORE_HASH}}/v2//v2/orders
+POST https://api.bigcommerce.com/stores/{{STORE_HASH}}/v2/orders
 X-Auth-Token: {{ACCESS_TOKEN}}
-X-Auth-Client: {{CLIENT_ID}}
 Content-Type: application/json
 Accept: application/json
 
@@ -70,7 +69,7 @@ Accept: application/json
 <div class="HubBlock-content">
 
 > ### Note
-> * The example above contains minimum required fields for a [create order request](https://developer.bigcommerce.com/api-reference/store-management/orders/orders/createanorder).
+> * The example above contains the minimum required fields for a [create order](https://developer.bigcommerce.com/api-reference/store-management/orders/orders/createanorder) request.
 > * The product ordered is a *custom* product; custom products do not exist in the catalog.
 
 </div>
@@ -79,12 +78,11 @@ Accept: application/json
 
 ## Changing order status
 
-Specify [order status](https://developer.bigcommerce.com/api-reference/store-management/orders/order-status/getorderstatus) by including the `status_id` property in the [create order](https://developer.bigcommerce.com/api-reference/store-management/orders/orders/createanorder) request. To [update an order](https://developer.bigcommerce.com/api-reference/store-management/orders/orders/updateanorder) and change it's status, send a `PUT` request to `/v2/orders/{order_id}`.
+Specify [order status](https://developer.bigcommerce.com/api-reference/store-management/orders/order-status/getorderstatus) by including the `status_id` property in the [create order](https://developer.bigcommerce.com/api-reference/store-management/orders/orders/createanorder) request. To [update an order](https://developer.bigcommerce.com/api-reference/store-management/orders/orders/updateanorder) and change its status, send a `PUT` request to `/v2/orders/{order_id}`.
 
 ```http
 PUT https://api.bigcommerce.com/stores/{{STORE_HASH}}/v2/orders/{order_id}
 X-Auth-Token: {{ACCESS_TOKEN}}
-X-Auth-Client: {{CLIENT_ID}}
 Content-Type: application/json
 Accept: application/json
 
@@ -98,9 +96,8 @@ Accept: application/json
 To [get a list of order statuses](https://developer.bigcommerce.com/api-reference/store-management/orders/order-status/getorderstatus), send a `GET` request to `/stores/{{STORE_HASH}}/v2/order_statuses`.
 
 ```http
-GET https://api.bigcommerce.com/stores/{{STORE_HASH}}/v2//order_statuses
+GET https://api.bigcommerce.com/stores/{{STORE_HASH}}/v2/order_statuses
 X-Auth-Token: {{ACCESS_TOKEN}}
-X-Auth-Client: {{CLIENT_ID}}
 Content-Type: application/json
 Accept: application/json
 ```
@@ -130,7 +127,7 @@ Accept: application/json
 > ### Note
 > * If not specified, `status_id` defaults to `1`.
 > * The refunded status is neither paid nor unpaid.
-> * See [Order Statuses](https://support.bigcommerce.com/s/article/Order-Statuses#rename) in the Help Center for information on changing `custom_label` in the control panel .
+> * For information on changing `custom_label` in the control panel, see [Order Statuses](https://support.bigcommerce.com/s/article/Order-Statuses#rename).
 
 </div>
 </div>
@@ -142,9 +139,8 @@ Accept: application/json
 Specify the [customer](https://developer.bigcommerce.com/api-reference/store-management/customers-v3/customers/customersget#responses) by including a `customer_id` in the [create order](https://developer.bigcommerce.com/api-reference/store-management/orders/orders/createanorder) request.
 
 ```http
-POST https://api.bigcommerce.com/stores/{{STORE_HASH}}/v2//v2/orders
+POST https://api.bigcommerce.com/stores/{{STORE_HASH}}/v2/orders
 X-Auth-Token: {{ACCESS_TOKEN}}
-X-Auth-Client: {{CLIENT_ID}}
 Content-Type: application/json
 Accept: application/json
 
@@ -163,7 +159,6 @@ To [get a list of customers](https://developer.bigcommerce.com/api-reference/sto
 ```http
 GET https://api.bigcommerce.com/stores/{{STORE_HASH}}/v3/customers
 X-Auth-Token: {{ACCESS_TOKEN}}
-X-Auth-Client: {{CLIENT_ID}}
 Accept: application/json
 ```
 
@@ -185,9 +180,8 @@ Accept: application/json
 Add [shipping addresses](https://developer.bigcommerce.com/api-reference/store-management/orders/order-shipping-addresses/updateashippingaddress#request-body) by including a [`shipping_address` array](https://developer.bigcommerce.com/api-reference/store-management/orders/order-shipping-addresses/updateashippingaddress#request-body) in the [create order](https://developer.bigcommerce.com/api-reference/store-management/orders/orders/createanorder) request.
 
 ```http
-POST https://api.bigcommerce.com/stores/{{STORE_HASH}}/v2//v2/orders
+POST https://api.bigcommerce.com/stores/{{STORE_HASH}}/v2/orders
 X-Auth-Token: {{ACCESS_TOKEN}}
-X-Auth-Client: {{CLIENT_ID}}
 Content-Type: application/json
 Accept: application/json
 
@@ -233,9 +227,8 @@ Accept: application/json
 Specify [products from the catalog](https://developer.bigcommerce.com/api-reference/store-management/orders/order-shipping-addresses/updateashippingaddress#request-body) by including a [`products` array](https://developer.bigcommerce.com/api-reference/store-management/orders/order-shipping-addresses/updateashippingaddress#request-body) in the [create order](https://developer.bigcommerce.com/api-reference/store-management/orders/orders/createanorder) request.
 
 ```http
-POST https://api.bigcommerce.com/stores/{{STORE_HASH}}/v2//v2/orders
+POST https://api.bigcommerce.com/stores/{{STORE_HASH}}/v2/orders
 X-Auth-Token: {{ACCESS_TOKEN}}
-X-Auth-Client: {{CLIENT_ID}}
 Content-Type: application/json
 Accept: application/json
 
@@ -269,12 +262,11 @@ Accept: application/json
 
 [![Open in Request Runner](https://storage.googleapis.com/bigcommerce-production-dev-center/images/Open-Request-Runner.svg)](https://developer.bigcommerce.com/api-reference/store-management/orders/orders/createanorder#requestrunner)
 
-To get the `product_options.id` and `product_options.value` of a product for the order `products` array, send a `GET` request to `/stores/{{STORE_HASH}}/v3//catalog/products/{product_id}/variants`.
+To get the `product_options.id` and `product_options.value` of a product for the order `products` array, send a `GET` request to `/stores/{{STORE_HASH}}/v3/catalog/products/{product_id}/variants`.
 
 ```http
-GET https://api.bigcommerce.com/stores/{{STORE_HASH}}/v3//catalog/products/{product_id}/variants
+GET https://api.bigcommerce.com/stores/{{STORE_HASH}}/v3/catalog/products/{product_id}/variants
 X-Auth-Token: {{ACCESS_TOKEN}}
-X-Auth-Client: {{CLIENT_ID}}
 Content-Type: application/json
 Accept: application/json
 ```
@@ -316,7 +308,8 @@ Accept: application/json
 
 > ### Note
 > * Custom products do not get added to the catalog.
-> * If price is not specified, the store's product catalog price is used; override this price with `price_inc_tax` and `price_ex_tax`.
+> * If the product's price is not specfied in the [create order](https://developer.bigcommerce.com/api-reference/store-management/orders/orders/createanorder) request, BigCommmerce's pricing service calculates the price by applying applicable currency conversions and [pricing operations](https://developer.bigcommerce.com/api-docs/store-management/pricing-order-operation) (such as [price lists](https://support.bigcommerce.com/s/article/Price-Lists) and [customer group discounts](https://support.bigcommerce.com/s/article/Customer-Groups#pricing)) to the product's catalog price; use `price_inc_tax` and `price_ex_tax` to override the calculated price.
+> * Marketing promotions currently do not apply to orders created via the Orders API.
 > * If you override `price_ex_tax` or `price_inc_tax`, override both; otherwise, order totals will not calculate correctly.
 > * Overriding `price_inc_tax` or `price_ex_tax` does not change variant pricing.
 
@@ -333,7 +326,6 @@ To [create an order shipment](https://developer.bigcommerce.com/api-reference/st
 ```http
 POST https://api.bigcommerce.com/stores/{{STORE_HASH}}}/v2/orders/{{order_id}}/shipments
 X-Auth-Token: {{ACCESS_TOKEN}}
-X-Auth-Client: {{CLIENT_ID}}
 Content-Type: application/json
 Accept: application/json
 
@@ -384,7 +376,6 @@ You can create multiple shipments for orders, and each shipment can have a diffe
 ```http
 POST https://api.bigcommerce.com/stores/{{STORE_HASH}}}/v2/orders/{{order_id}}/shipments
 X-Auth-Token: {{ACCESS_TOKEN}}
-X-Auth-Client: {{CLIENT_ID}}
 Content-Type: application/json
 Accept: application/json
 
@@ -403,7 +394,6 @@ Accept: application/json
 ```http
 POST https://api.bigcommerce.com/stores/{{STORE_HASH}}}/v2/orders/{{order_id}}/shipments
 X-Auth-Token: {{ACCESS_TOKEN}}
-X-Auth-Client: {{CLIENT_ID}}
 Content-Type: application/json
 Accept: application/json
 
@@ -434,7 +424,6 @@ To [get shipping quotes](https://developer.bigcommerce.com/api-reference/store-m
 ```http
 GET https://api.bigcommerce.com/stores/{{STORE_HASH}}/v2/orders/{order_id}/shipping_addresses/{shipping_address_id}/shipping_quotes
 X-Auth-Token: {{ACCESS_TOKEN}}
-X-Auth-Client: {{CLIENT_ID}}
 Accept: application/json
 ```
 
@@ -465,7 +454,6 @@ To [get order taxes](https://developer.bigcommerce.com/api-reference/store-manag
 ```http
 GET https://api.bigcommerce.com/stores/{{STORE_HASH}}/v2/orders/{order_id}/taxes
 X-Auth-Token: {{ACCESS_TOKEN}}
-X-Auth-Client: {{CLIENT_ID}}
 Accept: application/json
 ```
 
@@ -523,7 +511,7 @@ BigCommerce submits tax documents to Avalara when an order moves from an **unpai
 
 > ### Note
 > * Abbreviated state names (ex: `CA` instead of `California`) in an order address will cause tax document submission to fail.
-> * Taxes are calculated using rules specified in the store (unless [automatic taxes](https://support.bigcommerce.com/s/article/Automatic-Tax-Setup) are enabled).
+> * You can calculate taxes using rules specified in the store unless [automatic taxes](https://support.bigcommerce.com/s/article/Automatic-Tax-Setup) are enabled.
 > * You can optionally override tax values by specifying `price_inc_tax` and `price_ex_tax` in an [update order request](https://developer.bigcommerce.com/api-reference/store-management/orders/orders/updateanorder).
 > * If a store has [automatic tax](https://support.bigcommerce.com/s/article/Automatic-Tax-Setup) enabled, BigCommerce does not compute sales tax on orders created via the API.
 
@@ -538,7 +526,6 @@ To [get order transactions](https://developer.bigcommerce.com/api-reference/stor
 ```http
 GET https://api.bigcommerce.com/stores/{{STORE_HASH}}/v3/orders/{order_id}/transactions
 X-Auth-Token: {{ACCESS_TOKEN}}
-X-Auth-Client: {{CLIENT_ID}}
 Accept: application/json
 ```
 
@@ -583,8 +570,8 @@ Accept: application/json
 <div class="HubBlock-content">
 
 > ### Note
-> * Depending on the payment method, different information will be available (not all payment gateways return full card or fraud detail).
-> * Transactions are not created for the following payment methods:
+> * Not all payment gateways return the full card or fraud detail. Depending on the payment method, different information will be available.
+> * You cannot create transactions for the following payment methods:
 >   * Test Payment Gateway
 >   * PayPal Express
 >   * Amazon Pay
@@ -599,7 +586,7 @@ Accept: application/json
 
 ## Calculating totals
 
-Order `subtotal` and `total` calculate automatically; edits to the following properties trigger recalculation.
+Order `subtotal` and `total` calculate automatically; edits to the following properties trigger a recalculation.
 
 |Property|Type|Description|
 |-|-|-|
@@ -610,22 +597,10 @@ Order `subtotal` and `total` calculate automatically; edits to the following pro
 |`handling_cost_inc_tax`|`float`|Value of handling cost, including tax|
 |`wrapping_cost_ex_tax`|`float`|Value of wrapping cost, excluding tax |
 |`wrapping_cost_inc_tax`|`float`|Value of wrapping cost, including tax |
-|`billing_address`|`obj`|Used to calculate shipping and taxes| 
-|`shipping_addresses`|`array[obj]`|Used to calculate shipping and taxes| 
+|`billing_address`|`obj`|Used to calculate shipping and taxes|
+|`shipping_addresses`|`array[obj]`|Used to calculate shipping and taxes|
 
-|Property|Description
-|-|
-|`products`|
-|`shipping_cost_ex_tax`|
-|`shipping_cost_inc_tax`|
-|`handling_cost_ex_tax`|
-|`handling_cost_inc_tax`|
-|`wrapping_cost_ex_tax`|
-|`wrapping_cost_inc_tax`|
-|`billing_address`|
-|`shipping_addresses`|
-
-You can override calculated values such as product prices, subtotals, and totals by sending a fixed value in the request. If values are not supplied for these properties, they will be automatically calculated based on the preset store values and tax rules.
+You can override calculated values such as product prices, subtotals, and totals by sending a fixed value in the request. If you do not supply values for these properties, you will automatically calculate them based on the preset store values and tax rules.
 
 <div class="HubBlock--callout">
 <div class="CalloutBlock--info">
@@ -659,38 +634,28 @@ Yes, the store's catalog does not include products.
 
 **What is the difference between country_ISO2 and country?**
 
-There is no requirement to specify country when `country_ISO2` is specified in the shipping and billing addresses and vice versa.
+There is no requirement to specify country when you specify `country_ISO2` in the shipping and billing addresses and vice versa.
 
-**How can I take a payment for an order?**
+**How can I take payment for an order?**
 
 You can either process payment through a third party or using the control panel.
 
 **Can I generate a shipping quote from a carrier using the API?**
 
-Not at this time. If an order is created either in the control panel or via API, it returns a 204 when trying to get a Shipping Quote.
+Not at this time. If you create an order either in the control panel or via API, it will return a 204 when trying to get a shipping quote.
 
-## Resources
+## Related resources
 
-### Webhooks
-
-- [Orders](/api-docs/getting-started/webhooks/webhook-events#webhook-events_orders)
-
-### Related endpoints
-
-- [Storefront Orders](https://developer.bigcommerce.com/api-reference/cart-checkout/storefront-orders)
-- [Order Refunds](https://developer.bigcommerce.com/api-reference/store-management/order-transactions/order-refunds)
-- [Orders](https://developer.bigcommerce.com/api-reference/orders/orders-api/orders/)
-- [Order Shipments](/api-reference/orders/orders-api/order-shipments/createordershipments)
-- [Order Status](/api-reference/orders/orders-api/order-status/getaorderstatus)
-- [Shipping Quotes](/api-reference/orders/orders-api/order-shipping-addresses-quotes/getshippingquotes)
-- [Order Products](/api-reference/orders/orders-api/order-products/getanorderproduct)
-- [Order Shipping Address](/api-reference/orders/orders-api/order-shipping-addresses/getashippingaddress)
-- [Order Coupons](/api-reference/orders/orders-api/order-coupons/getallordercoupons)
-- [Order Transactions](https://developer.bigcommerce.com/api-reference/store-management/order-transactions/transactions)
-
-### Related articles
-
+### Articles
 - [Payments API Overview](https://developer.bigcommerce.com/api-docs/payments/payments-api-overview)
 - [Order Refunds](https://developer.bigcommerce.com/api-docs/orders/payment-actions)
-- [Order Statuses](https://support.bigcommerce.com/s/article/Order-Statuses) (Help Center)
-- [Order Notifications](https://support.bigcommerce.com/s/article/Customer-Order-Notifications#enable) (Help Center)
+- [Order Statuses](https://support.bigcommerce.com/s/article/Order-Statuses)
+- [Order Notifications](https://support.bigcommerce.com/s/article/Customer-Order-Notifications)
+
+### Endpoints
+- [Storefront Orders](https://developer.bigcommerce.com/api-reference/cart-checkout/storefront-orders)
+- [Orders v2](https://developer.bigcommerce.com/api-reference/store-management/orders)
+- [Orders v3](https://developer.bigcommerce.com/api-reference/store-management/order-transactions)
+
+### Webhooks
+- [Orders](/api-docs/store-management/webhooks/events#orders)

@@ -1,12 +1,13 @@
-#  Shipping Providers
+# Shipping Providers
 
 <div class="otp" id="no-index">
 
 ### On this page
+
 - [Sign-up](#sign-up)
 - [Before development](#before-development)
 - [Developing the app](#developing-the-app)
-- [Control panel installation workflow](#control-panel-installation-workflow)
+- [Control Panel installation workflow](#control-panel-installation-workflow)
 - [Validation credentials](#validation-credentials)
 - [API installation workflow](#api-installation-workflow)
 - [Returning shipping quotes](#returning-shipping-quotes)
@@ -15,23 +16,23 @@
 - [App diagram](#app-diagram)
 - [Definitions](#definitions)
 - [FAQ](#faq)
-- [Resources](#resources)
+- [Related resources](#related-resources)
 
 </div>
 
 Shipping service providers wishing to offer shipping services and rates to BigCommerce merchants and shoppers can implement BigCommerce Shipping Provider endpoints. Once they implement and accept their service into BigCommerce's shipping Carrier Registry, merchants will have access to enable and configure the service through their BigCommerce control panel. Once enabled on a store, BigCommerce will automatically retrieve the service options and rates using the provider's endpoints and display them to merchants in the store's control panel and to shoppers on the storefront.
 
-
-Shipping Provider endpoints can also be used by merchants to retrieve rates from custom shipping tables or an in-house shipping rate calculation service.
+Merchants can also use shipping provider endpoints to retrieve rates from custom shipping tables or an in-house shipping rate calculation service.
 
 Some use cases for the Shipping Provider API are:
 
-* A drop-shipper that requires their own rates
-* A merchant that already has a shipping table
-* Third-party logistics
-* Create a combination of in-store pickup and shipping options for shoppers
+- A drop-shipper that requires their own rates
+- A merchant that already has a shipping table
+- Third-party logistics
+- Create a combination of in-store pickup and shipping options for shoppers
 
 ### Prerequisites
+
 Required [OAuth](/api-docs/getting-started/authentication#authentication_oauth-scopes) scopes: `Information and Settings`
 
 ## Sign-up
@@ -42,11 +43,14 @@ To get your app setup, send an email to
 <a href="mailto:shippingproviderapi@bigcommerce.com">shippingproviderapi@bigcommerce.com</a>.
 
 Please include:
-* Name
-* Partner ID
-* App ID (see below)
-* Email
-* Description of the app
+
+- Name
+- Partner ID
+- App ID (see below)
+- Email
+- Description of the app
+- [Your service URLs](#your-service-urls) 
+
 
 To get your app ID, create an app in [Developer Tools](https://devtools.bigcommerce.com/), and fill out the information on [Step 3 Technical](https://developer.bigcommerce.com/api-docs/apps/guide/publishing#add-technical-information). In the URL, the app will have a unique ID. Send the unique ID in exchange for a carrier ID to test the app.
 
@@ -57,6 +61,7 @@ To get your app ID, create an app in [Developer Tools](https://devtools.bigcomme
 BigCommerce will send requests to your server to get information back about shipping quotes, credential validation, and configuration.
 
 ### Your service URLs
+
 Since BigCommerce will be sending requests, you will need to provide BigCommerce with URLs that can accept quote requests and optionally a URL to check and validate connection options during app registration. These can be any valid HTTPS URL using port `443`, for example:
 
 `https://yourhost.com/rate`
@@ -69,10 +74,10 @@ You should create a URL to provide shipping quotes on your API and check the ava
 
 ### Requests and responses
 
-BigCommerce will send and receive data using JSON. The request for rates will always be formatted using the [Base Rate Request Model](https://developer.bigcommerce.com/api-reference/store-management/shipping-provider-api/shipping-provider/requestshippingrates). The response for rates should be formatted using the [Carrier Quote Object](https://developer.bigcommerce.com/api-reference/store-management/shipping-provider-api/shipping-provider/requestshippingrates). Format the request to check for merchant app credentials as Check Connection Options request payload, and the response should be formatted using the Check Connection Options response payload.
-
+BigCommerce will send and receive data using JSON. The request for rates will always be formatted using the [Base Rate Request Model](https://developer.bigcommerce.com/api-reference/providers/shipping-provider-api/shipping-provider/requestshippingrates). The response for rates should be formatted using the [Carrier Quote Object](https://developer.bigcommerce.com/api-reference/providers/shipping-provider-api/shipping-provider/requestshippingrates). Format the request to check for merchant app credentials as Check Connection Options request payload, and the response should be formatted using the Check Connection Options response payload.
 
 ### Error handling
+
 In the case of errors, include error messages in the response payload under the messages key.
 
 Example:
@@ -99,7 +104,6 @@ During the app setup, if you configure the Check Connection Options URL for the 
 
 To validate connection options, send a `POST` request to `http://<yourserver.com>/check_connection_options`:
 
-
 ```json
 {
   "connection_options": {
@@ -109,7 +113,6 @@ To validate connection options, send a `POST` request to `http://<yourserver.com
 ```
 
 Response:
-
 
 ```json
 {
@@ -130,6 +133,7 @@ Response:
 <!-- theme:  -->
 
 ## Validation credentials
+
 > The step of validating the credentials is optional. It does not change how the app operates. It is best practice to authenticate the user against your database or the downstream provider service.
 
 </div>
@@ -149,7 +153,6 @@ lineNumbers: true
 -->
 
 To create a carrier connection, send a `POST` request. For example:
-
 
 ```json
 {
@@ -177,6 +180,7 @@ lineNumbers: true
 ```
 
 Once connected, it’s possible to create shipping methods for a connected carrier in any shipping zone. You can query shipping zones using the Shipping Zones resource. For any zone, a request can be made to the Shipping Methods resource using the zone ID from the Shipping Zones resource to create a new method for the connected carrier. You are required to enter the shipping carrier’s ID in the type field.
+
 <!--
 title: "Sample Request"
 subtitle: "POST https://api.bigcommerce.com/stores/{store_hash}/v2/shipping/zones/{zone_id}/methods"
@@ -235,7 +239,8 @@ title: "Sample Request"
 subtitle: "POST https://developerserver.com/rate"
 lineNumbers: true
 -->
-To request shipping rates, send a `POST` request. For example: 
+
+To request shipping rates, send a `POST` request. For example:
 
 `/POST https://developerserver.com/rate`
 
@@ -423,16 +428,16 @@ BigCommerce passes carrier-specific product metadata to a carrier service in a r
 
 To pass metadata in a rate request, the metafields must meet the following requirements:
 
-* must be a product or variant metafields (you cannot pass category, brand, and other metafields in rate requests)
-* `permission_set` on the metafield must be `read` or `write`
-* `namespace` on the metafield must match this format: `shipping_carrier_carrier_id` (example: `shipping_carrier_72`)
+- must be a product or variant metafields (you cannot pass category, brand, and other metafields in rate requests)
+- `permission_set` on the metafield must be `read` or `write`
+- `namespace` on the metafield must match this format: `shipping_carrier_carrier_id` (example: `shipping_carrier_72`)
 
 The carrier registration process described in the [Sign-up Section](https://developer.bigcommerce.com/api-docs/providers/shipping#sign-up) provides the `carrier_id`.
 
-
 For more information on product and variant metafields, see:
-* [API Reference > Store Management > Catalog > Product Metafields](https://developer.bigcommerce.com/api-reference/catalog/catalog-api/product-metafields)
-* [API Reference > Store Management > Catalog > Product Variant Metafields](https://developer.bigcommerce.com/api-reference/catalog/catalog-api/product-variants-metafields)
+
+- [API Reference > Store Management > Catalog > Product Metafields](https://developer.bigcommerce.com/api-reference/catalog/catalog-api/product-metafields)
+- [API Reference > Store Management > Catalog > Product Variant Metafields](https://developer.bigcommerce.com/api-reference/catalog/catalog-api/product-variants-metafields)
 
 ## Submitting the app
 
@@ -440,9 +445,7 @@ Before submitting your app, make sure you have the following information.
 
 **Single-carrier vs. multi-carrier**
 
-
 A single-carrier app will offer one service, such as USPS. A multi-carrier app will offer more than one carrier such as USPS, DHL, and Canada Post.
-
 
 **Name and description**
 
@@ -467,6 +470,7 @@ To submit your app, send an email to <a href="mailto:shippingproviderapi@bigcomm
 -->
 
 #### Carrier Service API
+
 ![#### Carrier Service API
 ](//s3.amazonaws.com/user-content.stoplight.io/6012/1552664566834 "#### Carrier Service API
 ")
@@ -475,31 +479,38 @@ Only one registered shipping carrier may be associated with an app. This [regist
 
 ## Definitions
 
-| Name | Description |
-| -- | -- |
-| Configuration Fields | The fields the merchant will see in the control panel. Merchants can navigate to the Shipping Manager and enable, configure, and disable the carrier for any defined zone. They will also be able to activate the app using the Carrier Connection API. Then use the Shipping Zones API and Shipping Methods API to configure the app from there. |
-| Quote URL | A URL for a resource of the shipping carrier that accepts quote requests and responds with shipping quotes. For more on the Quote URL, see a typical app workflow below.|
-| Single Carrier vs Multi Carrier | A single carrier app will offer only one shipping provider. A multi carrier app will aggregate multiple shipping carriers in one app.|
-| Countries Available | A list of countries where you can use the shipping carrier. The default behavior is that the carrier is available for every shipping origin. In most cases, this list should be as broad as possible. For example, if your carrier operates worldwide, make it available worldwide. The countries can be limited further than what the shipping carrier has provided. If the service is worldwide, then leave this field blank to specify that it is worldwide. Specifying the use of the shipping carrier is an optional step. |
-| Shipping Carrier |  A shipping carrier provides quotes to BigCommerce. If a shipping carrier uses more than one shipping provider, then it becomes a multi carrier aggregator. A carrier includes a name, a description, and a logo. |
-| Multi-Carrier Aggregator | A shipping solution that provides shipping quotes for multiple carriers.|
-| Check Connection Options URL | A URL for a shipping carrier resource that accepts check requests containing the connection options provided by a user when enabling the carrier and indicates whether or not those settings are valid. This is an optional step. |
-| Shipping Quote | An estimation of the cost to ship a set of items from an origin to a destination. |
-| Shipping Zone | Describes a set of destination addresses and the applicable shipping settings, such as handling fees and available shipping methods.|
-| Shipping Origin | The location from which goods are shipped. This origin determines which shipping carriers are available for the merchant to configure in the control panel. |
+| Name                            | Description                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                     |
+| ------------------------------- | ------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------- |
+| Configuration Fields            | The fields the merchant will see in the control panel. Merchants can navigate to the Shipping Manager and enable, configure, and disable the carrier for any defined zone. They will also be able to activate the app using the Carrier Connection API. Then use the Shipping Zones API and Shipping Methods API to configure the app from there.                                                                                                                                                                               |
+| Quote URL                       | A URL for a resource of the shipping carrier that accepts quote requests and responds with shipping quotes. For more on the Quote URL, see a typical app workflow below.                                                                                                                                                                                                                                                                                                                                                        |
+| Single Carrier vs. Multi Carrier | A single carrier app will offer only one shipping provider. A multi carrier app will aggregate multiple shipping carriers in one app.                                                                                                                                                                                                                                                                                                                                                                                           |
+| Countries Available             | A list of countries where you can use the shipping carrier. The default behavior is that the carrier is available for every shipping origin. In most cases, this list should be as broad as possible. For example, if your carrier operates worldwide, make it available worldwide. You can limit the countries further than what the shipping carrier has provided. If the service is worldwide, then leave this field blank to specify that it is worldwide. Specifying the use of the shipping carrier is an optional step. |
+| Shipping Carrier                | A shipping carrier provides quotes to BigCommerce. If a shipping carrier uses more than one shipping provider, then it becomes a multi carrier aggregator. A carrier includes a name, a description, and a logo.                                                                                                                                                                                                                                                                                                                |
+| Multi-Carrier Aggregator        | A shipping solution that provides shipping quotes for multiple carriers.                                                                                                                                                                                                                                                                                                                                                                                                                                                        |
+| Check Connection Options URL    | A URL for a shipping carrier resource that accepts check requests containing the connection options provided by a user when enabling the carrier and indicates whether or not those settings are valid. This is an optional step.                                                                                                                                                                                                                                                                                               |
+| Shipping Quote                  | An estimation of the cost to ship a set of items from an origin to a destination.                                                                                                                                                                                                                                                                                                                                                                                                                                               |
+| Shipping Zone                   | Describes a set of destination addresses and the applicable shipping settings, such as handling fees and available shipping methods.                                                                                                                                                                                                                                                                                                                                                                                            |
+| Shipping Origin                 | The location from which goods are shipped. This origin determines which shipping carriers are available for the merchant to configure in the control panel.                                                                                                                                                                                                                                                                                                                                                                     |
 
 ## FAQ
+
 **Can I publish more than one app at a time?**
 
 No, you can only publish one app at a time. The others can be for use as testing or as private apps.
 
-## Resources
-### Webhooks
-- [Shipping](/api-docs/getting-started/webhooks/webhook-events#webhook-events_shipment)
-### Related endpoints
-- [Shipping Provider](/api-reference/store-management/shipping-provider-api)
+## Related resources
+
+### Articles
+
+- [App Store Approval Requirements](https://developer.bigcommerce.com/api-docs/partner/app-store-approval-requirements)
+
+### Endpoints
+
+- [Shipping Providers](/api-reference/store-management/shipping-provider-api)
 - [Shipping Zones](/api-reference/store-management/shipping-api/shipping-zones)
 - [Shipping Methods](/api-reference/store-management/shipping-api/shipping-method)
 - [Shipping Carriers](/api-reference/store-management/shipping-api/shipping-carrier)
-### Related articles
-- [App Store Approval Requirements](https://developer.bigcommerce.com/api-docs/partner/app-store-approval-requirements)
+
+### Webhooks
+
+- [Webhooks](/api-docs/getting-started/webhooks/webhook-events#webhook-events_shipment)

@@ -206,7 +206,6 @@ This consistent behavior is true for each of the common objects documented in th
 | has_options | Indicates whether customer is required to specify options when ordering the product | Boolean | 
 | stock_level | If inventory tracking is turned on: The number of items available for sale (0 or more). If inventory tracking is turned off: A "null" string. | number or null |
 | low_stock_level | If inventory tracking is turned on: Sets a threshold low-stock level. You can use conditional logic to display a "limited availability" badge if the  `stock_level`property's value falls below this threshold. If inventory tracking is turned off: A "null" string. | number or "null" |
-| qty_in_cart | Quantity of this item in the customer’s cart | number |
 | custom_fields | Array of [custom fields](https://support.bigcommerce.com/articles/Public/Custom-Fields) for this product; custom fields can be used for purposes like: alternate brand name, merchandising title for the product, product type, "gift idea" indicator, etc. | array |
 | &#x21B3; id |Unique (integer) identifier for this custom field | integer |
 | &#x21B3; name | Name of this custom field| string |

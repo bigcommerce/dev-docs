@@ -2,29 +2,31 @@
 
 <div class="otp" id="no-index">
 
-### On This Page
-- [Supported Templates](#supported-templates)
-- [Global Attributes](#global-attributes)
-- [Category Attributes](#category-attributes)
-- [Blog Attributes](#blog-attributes)
-- [Product Attributes](#product-attributes)
-- [Brand Attributes](#brand-attributes)
-- [Brand List Attributes](#brand-list-attributes)
-- [Cart Attributes](#cart-attributes)
-- [Search Attributes](#search-attributes)
+### On this page
+- [Supported templates](#supported-templates)
+- [Global attributes](#global-attributes)
+- [Category attributes](#category-attributes)
+- [Blog attributes](#blog-attributes)
+- [Product attributes](#product-attributes)
+- [Brand attributes](#brand-attributes)
+- [Brand list attributes](#brand-list-attributes)
+- [Search attributes](#search-attributes)
   
 </div>
 
 Front matter defines which store resources are available to be rendered within a Stencil template. Front matter is declared at the top of each template and uses [YAML](https://yaml.org/) syntax. For more information, see [Declaring Front Matter Objects](https://developer.bigcommerce.com/stencil-docs/storefront-customization/using-front-matter#declaring-front-matter-objects).
 
-## Supported Templates
-YAML Front Matter is supported for templates in the `templates/pages/` directory.
+## Supported templates
+You can use YAML Front Matter for templates in the `templates/pages/` directory. Injecting objects in the front matter of `templates/pages/page.html` will make the objects available to custom templates.
 
-Front Matter is not supported for templates in the following directories:
+
+You cannot use Front Matter for templates in the following directories:
 * `templates/components/`
 * `templates/layout/`
+* `templates/pages/custom/`
 
-## Global Attributes
+
+## Global attributes
 ​Global attributes are available on all pages.
 ​
 ```yaml
@@ -39,10 +41,10 @@ customer:
 ​
 |  Property | Description |
 | --- | --- |
-|  `customer` | Customer attributes are always included, and are available if the active shopper is logged in. |
+|  `customer` | Customer attributes are always included and are available when an active shopper logs in. |
 |  `returns` | Boolean indicating whether to retrieve product return requests for this customer. No filtering available.true: Retrieve requests. null or false: Do not retrieve requests. |
-|  `wishlists` | If `null`, wishlists displayed. If `limit` not specified, retrieves unlimited number of wishlists. |
-|  `orders` | If `null`, no orders displayed. Displays complete and incomplete orders. If `limit` not specified, displays 20 orders. |
+|  `wishlists` | If `null`, wishlists are displayed. If `limit` is not specified, it retrieves an unlimited number of wishlists. |
+|  `orders` | If `null`, no orders are displayed. Displays complete and incomplete orders. If `limit` is not specified, it displays 20 orders. |
 |  `recently_viewed_products` | Boolean indicating whether to display recently viewed products. No filtering available. |
 |  `limit` | The maximum number of the entity to display. |
 
@@ -60,7 +62,7 @@ products:
 | --- | --- |
 | `products` | When filtering/limiting, products' default sorting is by order id, from lowest to highest.|
 | `featured` | null: No featured products displayed. If not set, defaults to 4 products.|
-|`new`| null: No new products displayed. Maximum allowable value is 25. If not defined, defaults to 8 products.|
+|`new`| null: No new products displayed. The maximum allowable value is 25. If not defined, defaults to 8 products.|
 |`top_sellers`| null: No top-selling products displayed. If not defined, defaults to all top sellers.|
 
 ```yaml 
@@ -68,7 +70,7 @@ carousel: true    # displays carousel on the storefront unless set to null
 ```
 |  Property | Description |
 | --- | --- |
-|`carousel`|Boolean indicating whether to display a carousel on storefront. No filtering available.|
+|`carousel`|Boolean indicating whether to display a carousel on a storefront. No filtering available.|
 
 ```yaml
 blog:	
@@ -79,9 +81,9 @@ blog:
 
 |  Property | Description |
 | --- | --- |
-|`blog`| Default sorting is by published_date, from most-recent to earliest. This does not work on the blog page. See [Blog Attributes](https://developer.bigcommerce.com/stencil-docs/reference-docs/front-matter-reference#front-matter-attributes-reference_blog).|
+|`blog`| Default sorting is by published_date, from most recent to earliest. This sorting does not work on the blog page. See [Blog Attributes](https://developer.bigcommerce.com/stencil-docs/reference-docs/front-matter-reference#blog-attributes).|
 |`recent_posts`| null: No recent blog posts displayed. If not defined, defaults to the maximum of 20 blog posts.|
-|`summary`|Sets the number of characters to display in each blog post summary. If not defined, displays 100 characters.|
+|`summary`|Sets the number of characters to display in each blog post summary. If not defined, it displays 100 characters.|
 
 ```yaml 
 cart: true    # show cart data
@@ -107,9 +109,9 @@ shop_by_brand: true   # displays brand list
 
 |Property|Description|
 |---|---|
-|`shop_by_brand`|Typically used in a footer or sidebar. null: Do not display this brand list. If not defined, returns 10 brands, ordered by the number of products per brand.|
+|`shop_by_brand`|Typically used in a footer or sidebar. null: Do not display this brand list. If not defined, it returns 10 brands, ordered by the number of products per brand.|
 
-## Category Attributes
+## Category attributes
 Category attributes are available in the context of a category.
 
 ```yaml
@@ -122,9 +124,9 @@ category:
 |Property|Description|
 |---|---|
 |`shop_by_price`|Boolean indicating whether to display Shop-by-Price controls.|
-|`products`|Defines the number of products displayed per page for this category. Range of possible values is 1–100 products.|
+|`products`|Defines the number of products displayed per page for this category. The range of possible values is 1–100 products.|
 
-## Blog Attributes
+## Blog attributes
 Blog attributes are available in the context of a blog.
 
 ```yaml
@@ -137,12 +139,12 @@ blog:
 
 |Property|Description|
 |---|---|
-|`posts`|Default sorting is by `published_date`, from most-recent to earliest.|
-|`limit`|null: No blog posts displayed. Maximum is 20 blog posts per page.|
-|`pages`|null: No pagination. If not defined, defaults to 5 pages.|
-|`summary`|<number> sets the number of characters to display in each blog-post summary. If not defined, displays 250 characters.|
+|`posts`|Default sorting is by `published_date`, from most recent to earliest.|
+|`limit`|null: No blog posts displayed. The maximum is 20 blog posts per page.|
+|`pages`|null: No pagination. If not defined, defaults to five pages.|
+|`summary`|<number> sets the number of characters to display in each blog-post summary. If not defined, it displays 250 characters.|
 
-## Product Attributes
+## Product attributes
 Product attributes are available in the context of a product.
 
 ```yaml
@@ -162,13 +164,13 @@ product:
 |Property|Description|
 |---|---|
 |`product`|When filtering/limiting, products' default sorting is by order id, from lowest to highest.|
-|`videos`|If `product.videos` is not defined, no videos are returned. If `product.videos` is defined, the default behavior is to return all videos. If `product.videos.limit` is defined, this sets the maximum number of videos returned.|
-|`images`|If `product.images` is not defined, no images are returned. If `product.images` is defined, you must also define `product.images.limit`, which throttles the number of images returned. The maximum allowable value for this parameter is 5 images.|
-|`reviews`|Boolean indicating whether to display product reviews. If `product.reviews` is present, and is not explicitly set to `false`, reviews will appear. If not defined, defaults to 10 reviews. When filtering/limiting reviews, default sorting is by review id, from lowest to highest.|
+|`videos`|If `product.videos` is not defined, you will not return videos. If you define `product.videos`, the default behavior is to return all videos. If you define `product.videos.limit`, this sets the maximum number of videos returned.|
+|`images`|If `product.images` is not defined, you will not return images. If `product.images` is defined, you must also define `product.images.limit`, which throttles the number of images returned. The maximum allowable value for this parameter is five images.|
+|`reviews`|Boolean indicating whether to display product reviews. If `product.reviews` is present and is not explicitly set to `false`, reviews will appear. If not defined, defaults to 10 reviews. When filtering/limiting reviews, the default sorting is by review id, from lowest to highest.|
 |`related_products`|Displays products that are related by name. If `limit` absent or undefined, the default behavior is to display all related products. Inserting `limit` with no integer will display 0 products.|
-|`similar_by_views`|Displays products similar to those displayed in the current page context. If `limit` absent or undefined, default is to display 4 products.|
+|`similar_by_views`|Displays products similar to those displayed in the current page context. If `limit` absent or undefined, the default is to display four products.|
 
-## Brand Attributes
+## Brand attributes
 
 ```yaml
 brand:
@@ -178,9 +180,9 @@ brand:
 
 |Property|Description|
 |---|---|
-|`products`|`limit` defines the number of products displayed per page for this brand. Range of possible values is 1–50 products.|
+|`products`|`limit` defines the number of products displayed per page for this brand. The range of possible values is 1–50 products.|
 
-## Brand List Attributes
+## Brand list attributes
 
 ```yaml
 brands:
@@ -189,21 +191,10 @@ brands:
 
 |Property|Description|
 |---|---|
-|`brands`|When retrieving a collection of brands, default sorting is by brand id, from lowest to highest. `limit` sets the number of brands displayed in the list. If `limit` is not defined, returns all brands, up to a maximum of 50.|
+|`brands`|When retrieving a collection of brands, the default sorting is by brand id, from lowest to highest. `limit` sets the number of brands displayed in the list. If `limit` is not defined, returns all brands, up to a maximum of 50.|
 
-## Cart Attributes 
 
-```yaml
-cart:
-  suggestions:
-    limit: 4    # limits number of suggested products to 4
-```
-
-|Property|Description|
-|---|---|
-|`suggestions`|`limit` defines suggested products to display to shopper, based on cart contents. If enabled, these suggestions appear only immediately after the shopper adds an item to the cart. If `limit` is null, does not display suggested products. If not defined, returns 4 suggested products.|
-
-## Search Attributes
+## Search attributes
 
 ```yaml
 search: 
@@ -213,4 +204,4 @@ search:
 
 |Property|Description|
 |---|---|
-|`product_results`|`limit` defines the number of product search results displayed per page. Range of possible values is 1–100 products.|
+|`product_results`|`limit` defines the number of product search results displayed per page. The range of possible values is 1–100 products.|

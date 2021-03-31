@@ -13,23 +13,21 @@
 
 Stencil CLI gives developers the power to locally edit and preview themes with no impact to a merchant’s live storefront, and it's built-in [Browsersync](https://github.com/bigcommerce/browser-sync) capabilities make simultaneous testing across desktop, mobile, and tablet devices a breeze. Once work is complete, developers can push themes to BigCommerce storefronts (and set them live) using Stencil CLI's simple, yet powerful commands.
 
-
 This article contains the detailed instructions needed to install and configure Stencil CLI -- the first step to developing themes on the BigCommerce platform.
 
 ## Installing on Mac
 
 To install Stencil CLI and it's dependencies on Mac, open a terminal and run the following commands.
 
-
 ```shell
 # Install Node Version Manager (nvm)
 curl -o- https://raw.githubusercontent.com/creationix/nvm/v0.31.0/install.sh | bash
 
 # Install Stencil CLI supported version of Node.js
-nvm install 10.16
+nvm install 12
 
 # Switch to Stencil CLI supported version of Node.js:
-nvm use 10.16
+nvm use 12
 
 # Install Stencil CLI
 npm install -g @bigcommerce/stencil-cli
@@ -42,6 +40,8 @@ npm install -g @bigcommerce/stencil-cli
 <!-- theme: info -->
 
 > These instructions have been tested on **Mac OS X Yosemite**.
+
+> Refer to [Stencil CLI README.MD](https://github.com/bigcommerce/stencil-cli) for latest `node` version supported.
 
 </div>
 </div>
@@ -60,7 +60,7 @@ iex ((New-Object System.Net.WebClient).DownloadString("https://chocolatey.org/in
 choco install git
 
 # Install nvm-windows and stencil compatible node.js
-choco install nvm; nvm install 10.16; nvm use 10.16
+choco install nvm; nvm install 12; nvm use 12
 
 #####################################################################################
 # Close PowerShell and re-open as admin
@@ -99,7 +99,7 @@ If you're a pro at installing and configuring Python and Node.js environments on
 **Required Dependencies:**
 * [Git](https://git-scm.com/downloads) - required to run npm install
 * [Python 2.7.x](https://www.python.org/downloads/) - required to build some dependencies
-* [Node.js 10.16 and npm](https://nodejs.org/en/download/releases/) - later versions not currently supported on Windows
+* [Node.js 12 and npm](https://nodejs.org/en/download/releases/) - later versions not currently supported on Windows
 * [Visual C++ Build Tools 2015](https://www.npmjs.com/package/windows-build-tools) - required to compile some dependencies
 
 Once they're installed and configured, use `npm` to install Stencil CLI:
@@ -116,6 +116,8 @@ npm install -g @bigcommerce/stencil-cli
 
 > These instructions have been tested successfully on **Windows 10**.
 
+> Refer to [Stencil CLI README.MD](https://github.com/bigcommerce/stencil-cli) for latest `node` version supported.
+
 
 </div>
 </div>
@@ -126,25 +128,25 @@ npm install -g @bigcommerce/stencil-cli
 To install Stencil CLI and dependencies on debian-based distros, open a terminal and run the following commands:
 
 ```shell
-## Update package list, then install node and npm
-sudo apt-get update && sudo apt-get install nodejs npm
+# Download and install nvm if you don't have it.
+curl -o- https://raw.githubusercontent.com/nvm-sh/nvm/v0.36.0/install.sh | bash
 
-# Download nvm install.sh and run with bash
-curl -o- https://raw.githubusercontent.com/creationix/nvm/v0.31.0/install.sh | bash
-
-# reload .bashrc so nvm command works
+# Reload .bashrc so nvm command works
 source ~/.bashrc
 
-# Explicitly install supported node version
-nvm install 10.16
+# Explicitly install and use supported node version
+nvm install 12
 
-# Install Stencil CLI
+nvm use 12
+
+# Install stencil
 npm install -g @bigcommerce/stencil-cli
 ```
 
 **Depending on the distro, you may also need to install:**
 * g++
 * [libsass](https://sass-lang.com/libsass)
+* git
 
 <div class="HubBlock--callout">
 <div class="CalloutBlock--info">
@@ -152,8 +154,10 @@ npm install -g @bigcommerce/stencil-cli
 
 <!-- theme: info -->
 
-> These instructions have been tested on **Ubuntu 18.04**.
-
+### Note
+> * These instructions have been tested on **Ubuntu 18.04**.
+> * Refer to [Stencil CLI README.MD](https://github.com/bigcommerce/stencil-cli) for latest `node` version supported.
+> * Refer to [nvm](https://github.com/nvm-sh/nvm) for latest `nvm` install instructions.
 
 </div>
 </div>
@@ -180,5 +184,8 @@ stencil start
 
 ## Resources
 
+* [Dockerizing BigCommerce's Stencil CLI](https://medium.com/bigcommerce-developer-blog/dockerizing-bigcommerces-stencil-cli-f508ddc0c3c0) (medium.com)
+
 ### Additional resources
-* [Demonstration of Stencil Installation and Launch](https://www.youtube.com/watch/iWBrJalyM0A) (Youtube)
+
+* [Demonstration of Stencil Installation and Launch](https://www.youtube.com/watch/iWBrJalyM0A) (youtube.com)

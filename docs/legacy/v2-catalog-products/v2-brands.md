@@ -27,6 +27,8 @@ Brand facets for identifying and categorizing products according to their manufa
 ### Deprecated
 > Avoid using this API operation if possible. It will be removed in a future version.
 
+For the most up-to-date version of this API, see [Brands](https://developer.bigcommerce.com/api-reference/store-management/catalog/brands).
+
 </div>
 </div>
 </div>

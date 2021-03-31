@@ -12,7 +12,7 @@
 - [Sample app diagram](#sample-app-diagram)
 - [Error codes](#error-codes)
 - [FAQ](#faq)
-- [Resources](#resources)
+- [Related resources](#related-resources)
 
 </div>
 
@@ -23,14 +23,14 @@ Process payments using a sequence of requests to two API hosts:
 * Process the payment:  `https://payments.bigcommerce.com/stores/{store_hash}/payments`
 
 ### Required [OAuth Scopes](/api-docs/getting-started/authentication#authentication_oauth-scopes)
-* `Create` `Payments`
-* `Read` `Payment Methods`
+* `Create Payments`
+* `Get Payment Methods`
 
 [![Run in Postman](https://run.pstmn.io/button.svg)](https://app.getpostman.com/run-collection/38daa68bda00ba9d4734)
 
 ## PCI compliance
 
-BigCommerce is only responsible for the security of credit cards to the extent that secure handling is maintained while the payment is en route from payment request to payment processors. As a third-party developer, you are responsible for developing the storefronts or recurring billing apps in a PCI compliant manner. You will also need to maintain a PCI compliance certification for third-party service providers certified by an external Qualified Security Assessor (QSA). 
+BigCommerce is only responsible for the security of credit cards to the extent that secure handling is maintained while the payment is en route from payment request to payment processors. As a third-party developer, you are responsible for developing the storefronts or recurring billing apps in a PCI compliant manner. You will also need to maintain a PCI compliance certification for third-party service providers certified by an external Qualified Security Assessor (QSA).
 
 Merchants or shoppers' personal identifiable information (PII) collected by recurring billing apps that consume the BigCommerce Payments API must have its own Privacy Policy sufficient to the requirements of the European Union General Data Protection Requirements (GDPR). The GDPR must be available and displayed to the general public.
 
@@ -56,6 +56,8 @@ You can process payments using cards stored with the BigCommerce Stored Credit C
 
 * AdyenV2
 * Authorize.net
+* Bolt
+* Checkout.com
 * CyberSource
 * MyVirtualMerchant
 * Paymetric
@@ -69,6 +71,7 @@ You can process payments using cards stored with the BigCommerce Stored Credit C
 * CardConnect
 * Chase integrated payments
 * Chase merchant services
+* Checkout.com
 * Cybersource direct
 * eWAY rapid
 * First data payeezy gateway
@@ -88,6 +91,8 @@ You can process payments using cards stored with the BigCommerce Stored Credit C
 * USA ePay
 * Worldpay Core
 * WorldPay
+
+Attempting to process a payment through the API using the full credit card information may fail if the provider requires 3DS authentication. The card must be saved through a shopper-initiated transaction before it can be charged through the Payments API. For a list of payment gateways that support 3DS, see [All Available Payment Gateways](https://support.bigcommerce.com/s/article/Available-Payment-Gateways#all-available).
 
 <div class="HubBlock--callout">
 <div class="CalloutBlock--info">
@@ -548,7 +553,7 @@ A declined payment will return a 4XX error with details if available.
 If you configure a payment gateway for authorization only, authorization happens at the time of processing. You will need to capture the order later through the control panel. If you configure a payment gateway for authorization and capture, the payment will be authorized and captured at the time of processing.
 
 ### Control panel
-Orders created and captured via the API will look the same as other orders created via the storefront or other apps. The order source will be “Checkout API.”
+Orders created and captured via the API will look the same as other orders created via the storefront or other apps. The order source will be "Checkout API".
 
 ### Data access
 The card data is not accessible via the API once the payment is processed.
@@ -625,23 +630,27 @@ Store credit is not a supported payment method with the Payments API. Store cred
 The Payment Processing API is for processing payments through a store's payment gateway. Since BigCommerce store gift cards are not processed through a payment gateway, they can not be processed through the Payment Processing API.
 
 **Are offline payment methods supported?**
-The Payments API is designed to process credit card payments through supported payment gateways; it does not expose methods for processing [offline payment methods](https://support.bigcommerce.com/s/article/Offline-Payment-Methods) such as cash on delivery.
+The Payments API processes credit card payments through supported payment gateways; it does not expose methods for processing [offline payment methods](https://support.bigcommerce.com/s/article/Offline-Payment-Methods) such as cash on delivery.
 
-## Resources
+**Is Strong Customer Authentication supported?**
 
-### Webhooks
+Payment gateways that use 3D Secure meet the EU's Strong Customer Authentication regulation requirements. To see which BigCommerce supported payment gateways use 3D Secure, refer to the Help Center's [Available Payment Gateways](https://support.bigcommerce.com/s/article/Available-Payment-Gateways#all-available) page.
 
-- [Customer Payment Instrument](https://developer.bigcommerce.com/api-docs/getting-started/webhooks/webhook-events#webhook-events_customer)
-- [Orders](https://developer.bigcommerce.com/api-docs/getting-started/webhooks/webhook-events#webhook-events_orders)
-- [Cart](https://developer.bigcommerce.com/api-docs/getting-started/webhooks/webhook-events#webhook-events_cart)
+## Related resources
 
-### Related endpoints
+### Articles
+* [Available Payment Gateways](https://support.bigcommerce.com/s/article/Available-Payment-Gateways)
+* [Enabling Stored Credit Cards](https://support.bigcommerce.com/s/article/Enabling-Stored-Credit-Cards)
+* [Manually Capturing Transactions (Authorize Only)](https://support.bigcommerce.com/s/article/How-can-I-set-my-payment-gateway-to-only-authorize-transactions-and-not-capture-the-funds-automatically)
+* [Processing Refunds](https://support.bigcommerce.com/s/article/Processing-Refunds)
+
+
+### Endpoints
 * [Create Access Token](/api-reference/payments/payments-create-payment-token-api/payment-access-token/paymentsaccesstokenspost)
 * [Get Payment Methods](/api-reference/payments/payments-create-payment-token-api/payment-methods/paymentsmethodsget)
 * [Process Payment](/api-reference/payments/payments-process-payments/payment/paymentspost)
 
-### Additional resources
-* [Enabling Stored Credit Cards](https://support.bigcommerce.com/s/article/Enabling-Stored-Credit-Cards) (BigCommerce Support)
-* [Processing Refunds](https://support.bigcommerce.com/s/article/Processing-Refunds) (BigCommerce Support)
-* [Manually Capturing Transactions (Authorize Only)](https://support.bigcommerce.com/s/article/How-can-I-set-my-payment-gateway-to-only-authorize-transactions-and-not-capture-the-funds-automatically) (BigCommerce Support)
-* [Available Payment Gateways](https://support.bigcommerce.com/s/article/Available-Payment-Gateways) (BigCommerce Support)
+### Webhooks
+- [Cart](https://developer.bigcommerce.com/api-docs/getting-started/webhooks/webhook-events#webhook-events_cart)
+- [Customer Payment Instrument](https://developer.bigcommerce.com/api-docs/getting-started/webhooks/webhook-events#webhook-events_customer)
+- [Orders](https://developer.bigcommerce.com/api-docs/getting-started/webhooks/webhook-events#webhook-events_orders)

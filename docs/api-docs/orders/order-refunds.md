@@ -9,7 +9,7 @@
 - [Offline order refunds](#offline-order-refunds)
 - [FAQ](#faq)
 - [Troubleshooting](#troubleshooting)
-- [Resources](#resources)
+- [Related resources](#related-resources)
 
 </div>
 
@@ -44,7 +44,6 @@ To [create a refund quote](https://developer.bigcommerce.com/api-reference/store
 ```http
 POST https://api.bigcommerce.com/stores/{{STORE_HASH}}/v3/orders/{order_id}/payment_actions/refund_quotes
 X-Auth-Token: {{ACCESS_TOKEN}}
-X-Auth-Client: {{CLIENT_ID}}
 Content-Type: application/json
 Accept: application/json
 
@@ -102,7 +101,7 @@ Accept: application/json
 <div class="HubBlock-content">
 
 > ### Note
-> * To get an `item_id` for the [create refund quote](https://developer.bigcommerce.com/api-reference/store-management/order-transactions/order-refunds/postrefundquote#requestrunner) request, make a request to [get order products](https://developer.bigcommerce.com/api-reference/store-management/orders/order-products/getallorderproducts#requestrunner); the `id` of the order product is the `item_id`.
+> * To get an `item_id`, make a `GET` request to `v2/orders/{order_id}/products`. The returned `id` value is the `item_id` needed to create a `PRODUCT` refund quote. The returned `order_address_id` value is the `item_id` needed to create a `SHIPPING` refund quote. To read more about using the `v2/orders/{order_id}/products` endpoint, visit [List Order Products](https://developer.bigcommerce.com/api-reference/store-management/orders/order-products/getallorderproducts#requestrunner).
 > * To get a list of orders and their `id`s, make a request to [get all orders](https://developer.bigcommerce.com/api-reference/store-management/orders/orders/getallorders#requestrunner).
 
 </div>
@@ -117,7 +116,6 @@ Use the `provider_id`, the `amount`, and `items` from the [refund quote](#creati
 ```http
 POST https://api.bigcommerce.com/stores/{{STORE_HASH}}/v3/orders/{order_id}/payment_actions/refunds
 X-Auth-Token: {{ACCESS_TOKEN}}
-X-Auth-Client: {{CLIENT_ID}}
 Content-Type: application/json
 Accept: application/json
 
@@ -224,11 +222,14 @@ No, you cannot return items to inventory that you refunded via API. You can eith
 
 * You must receive payment of the order before you can issue a refund.
 * If you use a payment gateway, it must support refunds. For a list of payment gateways that support refunds through BigCommerce, see the Supported Payment Gateways section in [Processing Refunds](https://support.bigcommerce.com/s/article/Processing-Refunds#payment-gateways).
-* If you use a payment gateway, you must settle payments. Some gateways require a certain amount of time to pass before refunds can be processed.
+* If you use a payment gateway, you must settle payments. Some gateways require a certain amount of time to pass before you can process refunds.
 
-## Resources
+## Related resources
 
+### Articles
 * [Orders Overview](https://developer.bigcommerce.com/api-docs/store-management/orders)
+* [Order Webhook Events](https://developer.bigcommerce.com/api-docs/store-management/webhooks/events#orders)
+
+### Endpoints
 * [Orders V2 Reference](https://developer.bigcommerce.com/api-reference/orders/orders-api)
 * [Orders V3 Reference](https://developer.bigcommerce.com/api-reference/orders/orders-transactions-api)
-* [Order Webhook Events](https://developer.bigcommerce.com/api-docs/store-management/webhooks/events#orders)
