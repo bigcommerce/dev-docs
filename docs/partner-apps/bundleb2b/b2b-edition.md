@@ -4,7 +4,7 @@
 - [Customizing B3](#customizing-b3)
 - [Overwriting and injecting JavaScript](#overwriting-and-injecting-javascript)
 - [B3 REST API](#b3-rest-api)
-- [Resources](#resources)
+- [Additional BundleB2B resources](#additional-bundleb2b-resources)
 
 BundleB2B (B3) adds business-to-business (B2B) functionality to the BigCommerce platform, allowing businesses to easily facilitate B2B operations online. B3 provides a comprehensive suite of key B2B features to improve the B2B self-service experience for BigCommerce store owners and their customers.
 
@@ -64,9 +64,20 @@ For a list of B3 container names and their default placements, see the [BundleB2
 
 You can customize the styling of many B3 elements using CSS.
 
-To modify the styling of a B3 module, first, insert `window.b3themeConfig.useStyles = {}` into your theme's `assets/js/global.js` file. Within `window.b3themeConfig.useStyles = {}`, create a property that uses the B3 element name as the key and one or more comma-separated CSS declarations as the value.
+To modify the styling of a B3 module, follow these steps:
+1. Insert `window.b3themeConfig.useStyles = {}` into your theme's `assets/js/global.js` file. 
+2. Within `window.b3themeConfig.useStyles = {}`, create a property that uses the B3 element name as the key and one or more comma-separated CSS declarations as the value.
 
-Since the CSS is written in a JavaScript object, properties with two names, like `background-color`, must be written with camel case syntax: `backgroundColor: "lightblue"`
+<div class="HubBlock--callout">
+<div class="CalloutBlock--info">
+<div class="HubBlock-content">
+
+> ### Note
+> Since the CSS is written in a JavaScript object, properties with two names, like `background-color`, must be written with camel case syntax: `backgroundColor: "lightblue"`
+
+</div>
+</div>
+</div>
 
 When done, the object will resemble the following:
 
