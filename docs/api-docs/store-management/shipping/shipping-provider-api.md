@@ -33,7 +33,8 @@ Some use cases for the Shipping Provider API are:
 
 ### Prerequisites
 
-Required [OAuth](/api-docs/getting-started/authentication#authentication_oauth-scopes) scopes: `Information and Settings`
+* Required [OAuth](/api-docs/getting-started/authentication#authentication_oauth-scopes) scopes: `Information and Settings`
+* BigCommerce [single-click app](https://developer.bigcommerce.com/api-docs/apps/guide/types#single-click)
 
 ## Sign-up
 
@@ -96,7 +97,11 @@ Example:
 
 ## Developing the app
 
-The intended use of the Shipping Provider API is to create an app that merchants can install on their store. The Shipping Provider API can be a standalone app or part of an existing application. When developing the app, there are a few things to consider, which are listed below.
+To use the Shipping Provider API to provide shipping quotes, shipping providers must build a BigCommerce [single-click app](https://developer.bigcommerce.com/api-docs/apps/guide/types#single-click). 
+
+Using a BigCommerce app enables shipping providers to promote their solution in the BigCommerce apps marketplace, request merchant authorization of API scopes during app install, and enable configuration of shipping provider settings and/or order fulfilment via an iFrame in the BigCommerce control panel.
+
+For more information, see our [Introduction to Building Apps](https://developer.bigcommerce.com/api-docs/apps/guide/intro).
 
 ## Control Panel installation workflow
 
