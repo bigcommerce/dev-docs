@@ -33,7 +33,8 @@ Some use cases for the Shipping Provider API are:
 
 ### Prerequisites
 
-Required [OAuth](/api-docs/getting-started/authentication#authentication_oauth-scopes) scopes: `Information and Settings`
+* Required [OAuth](/api-docs/getting-started/authentication#authentication_oauth-scopes) scopes: `Information and Settings`
+* BigCommerce [single-click app](https://developer.bigcommerce.com/api-docs/apps/guide/types#single-click)
 
 ## Sign-up
 
@@ -96,11 +97,11 @@ Example:
 
 ## Developing the app
 
-Shipping providers are required to build a BigCommerce [single-click app](https://developer.bigcommerce.com/api-docs/apps/guide/types#single-click) in order to utilise the Shipping Provider API to provide shipping quotes. A BigCommerce app provides many benefits to merchants, for example, it enables shipping providers to promote their solution in the BigCommerce apps marketplace, request merchant authorisation of API scopes during app install, as well as enable configuration of shipping provider settings and/or order fulfilment via an iFrame in the BigCommerce control panel.
+To use the Shipping Provider API to provide shipping quotes, shipping providers must build a BigCommerce [single-click app](https://developer.bigcommerce.com/api-docs/apps/guide/types#single-click). 
 
-Review our [introduction to building apps](https://developer.bigcommerce.com/api-docs/apps/guide/intro) guide and use the sidebar to explore topics including but not limited to; types of apps, managing apps in the dev portal, implementing OAuth and designing the UI.
+Using a BigCommerce app enables shipping providers to promote their solution in the BigCommerce apps marketplace, request merchant authorization of API scopes during app install, and enable configuration of shipping provider settings and/or order fulfilment via an iFrame in the BigCommerce control panel.
 
-Make sure to also review our [app development best practices](https://developer.bigcommerce.com/api-docs/apps/guide/best-practices) for some tips.
+For more information, see our [Introduction to Building Apps](https://developer.bigcommerce.com/api-docs/apps/guide/intro).
 
 ## Control Panel installation workflow
 
