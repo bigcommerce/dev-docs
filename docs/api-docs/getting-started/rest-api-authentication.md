@@ -186,7 +186,7 @@ It is recommended you migrate from using legacy API credentials to OAuth. Some b
 
 ### How to migrate
 
-Consider whether your application should reside within the public (App Marketplace)[https://www.bigcommerce.com/apps/], where any BigCommerce merchant can quickly discover and install it. To learn more about how to set up this kind of app, see [Becoming a Partner](/api-docs/partner/becoming-a-partner).
+Consider whether your application should reside within the public [App Marketplace](https://www.bigcommerce.com/apps/), where any BigCommerce merchant can quickly discover and install it. To learn more about how to set up this kind of app, see [Becoming a Partner](/api-docs/partner/becoming-a-partner).
 
 If you would like to update your API connection from basic authentication to OAuth, you will need to make the following changes:
 
