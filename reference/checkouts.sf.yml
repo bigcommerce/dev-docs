@@ -1190,8 +1190,8 @@ paths:
                     postalCode: '78751'
                     phone: '1234567890'
                     customFields:
-                      - field_id: field_25
-                        field_value: Leave in backyard
+                      - fieldId: field_25
+                        fieldValue: Leave in backyard
               orderId: {}
               shippingCostTotal: 69.94
               shippingCostBeforeDiscount: 69.94
@@ -1252,7 +1252,7 @@ paths:
                   stateOrProvinceCode: Austin
                   countryCode: USA
                   postalCode: '12345'
-                  custom_fields:
+                  customFields:
                     - {}
                 lineItems:
                   - itemId: 69791a88-85c9-4c19-8042-e537621e8a55
@@ -2458,7 +2458,7 @@ definitions:
         format: float
       giftWrappingCostTotal:
         type: number
-        description: Gift wrapping cost for all items, including or excluding tax.
+        description: 'Gift wrapping cost for all items, including or excluding tax.'
       handlingCostTotal:
         type: number
         description: Handling cost for all consignments including or excluding tax.
@@ -2598,20 +2598,20 @@ definitions:
         description: ''
         type: string
         pattern: '^\+?[1-9]\d{1,14}(x\d{1-5})?$'
-      custom_fields:
+      customFields:
         type: array
         items:
-          $ref: '#/definitions/custom_fields'
+          $ref: '#/definitions/customFields'
     required:
       - countryCode
-  custom_fields:
-    title: custom_fields
+  customFields:
+    title: customFields
     type: object
     description: 'When doing a PUT or POST to the `fieldValue` with a pick list, the input must be a number. The response will be a string.'
     properties:
-      field_id:
+      fieldId:
         type: string
-      field_value:
+      fieldValue:
         type: string
         description: 'This can also be an array for fields that need to support list of values (e.g., a set of check boxes.). When doing a PUT or POST to the `fieldValue` with a pick list, the input must be a number. The response will be a string.'
   consignment_Full:
@@ -3365,7 +3365,7 @@ definitions:
             format: float
           giftWrappingCostTotal:
             type: number
-            description: Gift wrapping for all items, including or excluding tax.
+            description: 'Gift wrapping for all items, including or excluding tax.'
           handlingCostTotal:
             type: number
             description: Handling cost for all consignments including or excluding tax.
@@ -3531,14 +3531,14 @@ definitions:
             description: ''
             type: string
             pattern: '^\+?[1-9]\d{1,14}(x\d{1-5})?$'
-          custom_fields:
+          customFields:
             type: array
             items:
               type: object
               properties:
-                field_id:
+                fieldId:
                   type: string
-                field_value:
+                fieldValue:
                   type: string
         required:
           - countryCode
@@ -3620,14 +3620,14 @@ definitions:
             description: ''
             type: string
             pattern: '^\+?[1-9]\d{1,14}(x\d{1-5})?$'
-          custom_fields:
+          customFields:
             type: array
             items:
               type: object
               properties:
-                field_id:
+                fieldId:
                   type: string
-                field_value:
+                fieldValue:
                   type: string
         required:
           - countryCode
@@ -3825,10 +3825,10 @@ definitions:
                     type: number
                     format: double
                   comparisonPrice:
-                    description:   Item's comparison price
+                    description: Item's comparison price
                     type: number
                   extendedComparisonPrice:
-                    description:  Item's comparison price multiplied by the quantity.
+                    description: Item's comparison price multiplied by the quantity.
                     type: number
                   type:
                     description: the product type - physical or digital
