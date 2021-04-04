@@ -19336,6 +19336,9 @@ definitions:
             x-nullable: true
             minLength: 0
             maxLength: 255
+          image_url:
+            type: string
+            description: Publicly available image url 
       - properties:
           product_id:
             type: integer
