@@ -196,7 +196,7 @@ paths:
         IsMultiContentStreaming: false
   '/checkouts/{checkoutId}/consignments':
     post:
-      description: "Adds a new *Consignment* to *Checkout*.\n\n\nThere are two steps to add a new shipping address and shipping options with line items. \n* Add a new Consignment to Checkout.\n\t* Send a POST to Consignments with each shipping address and line items IDs. Each address can have its own line item IDs.\n\t* As part of the request URL make sure to add `include=consignments.available_shipping_options` to return the available shipping options based on line items and shipping locations. This appended request will return `available_shipping_options` in the response.\n\n* [Update the Consignment](https://developer.bigcommerce.com/api-reference/cart-checkout/server-server-checkout-api/checkout-consignments/checkoutsconsignmentsbycheckoutidandconsignmentidput) with Shipping Options.\n\n**Required Query**\n* consignments.available_shipping_options\n\n**Required Fields**\n* shipping_address\n* line_items"
+      description: "Adds a new *Consignment* to *Checkout*.\n\n\nThere are two steps to add a new shipping address and shipping options with line items. \n* Add a new Consignment to Checkout.\n\t* Send a POST to Consignments with each shipping address and line items IDs. Each address can have its own line item IDs.\n\t* \n\n* [Update the Consignment](https://developer.bigcommerce.com/api-reference/cart-checkout/server-server-checkout-api/checkout-consignments/checkoutsconsignmentsbycheckoutidandconsignmentidput) with Shipping Options.\n\n\n**Required Fields**\n* shipping_address\n* line_items"
       summary: Add Consignment to Checkout
       tags:
         - Checkout Consignments
@@ -265,13 +265,13 @@ paths:
                     quantity: 1
         - name: include
           in: query
-          required: false
           x-enum-elements:
             - name: Enum_consignments.availableShippingOptions
               description: ''
           type: string
           description: Must be included to get available shipping options
-          default: consignments.available_shipping_options
+          enum: 
+            - consignments.available_shipping_options
         - $ref: '#/parameters/includeShippingOption'
       responses:
         '200':
@@ -356,7 +356,8 @@ paths:
               description: ''
           type: string
           description: Must be included to get available shipping options
-          default: consignments.available_shipping_options
+          enum: 
+            - consignments.available_shipping_options
       responses:
         '200':
           $ref: '#/responses/CheckoutResponse'
@@ -1881,30 +1882,30 @@ responses:
             cart_amount_ex_tax: 31.95
             coupons: []
             discounts:
-            - id: 8edef915-8e8e-4ebd-bece-31fbb1191a7e
-              discounted_amount: 0
+              - id: 8edef915-8e8e-4ebd-bece-31fbb1191a7e
+                discounted_amount: 0
             line_items:
               physical_items:
-              - id: 8edef915-8e8e-4ebd-bece-31fbb1191a7e
-                parent_id: 123
-                variant_id: 359
-                product_id: 188
-                sku: DUST1
-                name: Hello
-                url: https://{$$.env.store_hash}/all/dustpan-brush/
-                quantity: 1
-                is_taxable: true
-                image_url: https://cdn11.bigcommerce.com/s-{store_hash}/products/188/images/460/dustpan1_1024x1024_1024x1024__43447__69128.1534344539.330.500.jpg?c=2
-                discounts: []
-                coupons: 0
-                discount_amount: 0
-                coupon_amount: 0
-                list_price: 31.95
-                sale_price: 33.23
-                extended_list_price: 31.95
-                extended_sale_price: 33.23
-                is_require_shipping: true
-                gift_wrapping:  null
+                - id: 8edef915-8e8e-4ebd-bece-31fbb1191a7e
+                  parent_id: 123
+                  variant_id: 359
+                  product_id: 188
+                  sku: DUST1
+                  name: Hello
+                  url: 'https://{$$.env.store_hash}/all/dustpan-brush/'
+                  quantity: 1
+                  is_taxable: true
+                  image_url: 'https://cdn11.bigcommerce.com/s-{store_hash}/products/188/images/460/dustpan1_1024x1024_1024x1024__43447__69128.1534344539.330.500.jpg?c=2'
+                  discounts: []
+                  coupons: 0
+                  discount_amount: 0
+                  coupon_amount: 0
+                  list_price: 31.95
+                  sale_price: 33.23
+                  extended_list_price: 31.95
+                  extended_sale_price: 33.23
+                  is_require_shipping: true
+                  gift_wrapping: null
               digital_items: []
               gift_certificates: []
               custom_items: []
@@ -1912,8 +1913,8 @@ responses:
             updated_time: '2019-08-05T15:41:28+00:00'
           billing_address:
             id: 5d484d668e5aa
-            first_name:
-            last_name:
+            first_name: null
+            last_name: null
             email: janedoe@example.com
             company: BigCommerce
             address1: 123 Main Street
@@ -1923,49 +1924,49 @@ responses:
             state_or_province_code: ''
             country: ''
             country_code: ''
-            postal_code:
-            phone:
+            postal_code: null
+            phone: null
             custom_fields: []
           consignments:
-          - id: 5d484e28d20a8
-            shipping_cost_inc_tax: 8.32
-            shipping_cost_ex_tax: 8
-            handling_cost_inc_tax: 0
-            handling_cost_ex_tax: 0
-            coupon_discounts: []
-            discounts: []
-            line_item_ids:
-            - 8edef915-8e8e-4ebd-bece-31fbb1191a7e
-            selected_shipping_option:
-              id: 006a58a98c9a844225552ee2a9c60ca8
-              type: shipping_byweight
-              description: Ship by Weight
-              image_url: ''
-              cost: 8
-              transit_time: ''
-              additional_description: ''
-            shipping_address:
-              first_name: BigCommerce
-              last_name: Cart/Checkout
-              email: jane2@example.com
-              company: ''
-              address1: 123 Main Street
-              address2: ''
-              city: Austin
-              state_or_province: Texas
-              state_or_province_code: TX
-              country: United States
-              country_code: US
-              postal_code: '78751'
-              phone: '688546'
-              customFields:
-              - field_id: field_25
-                field_value: Great!
+            - id: 5d484e28d20a8
+              shipping_cost_inc_tax: 8.32
+              shipping_cost_ex_tax: 8
+              handling_cost_inc_tax: 0
+              handling_cost_ex_tax: 0
+              coupon_discounts: []
+              discounts: []
+              line_item_ids:
+                - 8edef915-8e8e-4ebd-bece-31fbb1191a7e
+              selected_shipping_option:
+                id: 006a58a98c9a844225552ee2a9c60ca8
+                type: shipping_byweight
+                description: Ship by Weight
+                image_url: ''
+                cost: 8
+                transit_time: ''
+                additional_description: ''
+              shipping_address:
+                first_name: BigCommerce
+                last_name: Cart/Checkout
+                email: jane2@example.com
+                company: ''
+                address1: 123 Main Street
+                address2: ''
+                city: Austin
+                state_or_province: Texas
+                state_or_province_code: TX
+                country: United States
+                country_code: US
+                postal_code: '78751'
+                phone: '688546'
+                customFields:
+                  - field_id: field_25
+                    field_value: Great!
           taxes:
-          - name: Tax
-            amount: 1.6
+            - name: Tax
+              amount: 1.6
           coupons: []
-          order_id:
+          order_id: null
           shipping_cost_total_inc_tax: 8.32
           shipping_cost_total_ex_tax: 8
           handling_cost_total_inc_tax: 0
