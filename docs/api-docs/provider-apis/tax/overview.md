@@ -4,13 +4,12 @@
 
 ### On this Page
 
-- [Introduction](#introduction)
 - [Obtaining an app ID](#obtaining-an-app-id)
 - [Sharing provider details with BigCommerce](#sharing-provider-details-with-bigcommerce)
 - [Building the app](#building-the-app)
 - [Installing the app](#installing-the-app)
-- [Establishing a connection with the Tax Provider API](#establishing-a-connection-with-the-tax-provider-api)
-- [Enabling your tax provider in the BigCommerce control panel](#enabling-your-tax-provider-in-the-bigcommerce-control-panel)
+- [Establishing a connection](#establishing-a-connection)
+- [Enabling tax providers in the control panel](#enabling-tax-providers-in-the-control-panel)
 - [Tax estimation](#tax-estimation)
 - [Document submission](#document-submission)
 - [Testing](#testing)
@@ -19,23 +18,23 @@
 
 </div>
 
-## Introduction
+The [Tax Provider API](https://developer.bigcommerce.com/api-reference/providers/tax-provider-api) allows you to provide business-to-consumer sales tax estimates to shoppers on the storefront and to merchants in the control panel; it can also be used to submit documents for tax reconciliation purposes.
 
-Tax Provider API enables you to provide B2C sales tax estimates to shoppers at various points in the BigCommerce storefront flow and within the BigCommerce control panel, as well as submit documents for tax reconciliation purposes.
+The [Tax Provider API](https://developer.bigcommerce.com/api-reference/providers/tax-provider-api) works in conjunction with a BigCommerce app, so you will need to [build an app](https://developer.bigcommerce.com/api-docs/apps/guide/intro) that integrates the [Tax Provider API](https://developer.bigcommerce.com/api-reference/providers/tax-provider-api).
 
-The Tax Provider API works in conjunction with a BigCommerce app, so you will need to build an app in addition to integrating to the Tax Provider API.
-
-Multi-tenant tax providers can choose to publish their BigCommerce app so that it's discoverable by anyone or publish their app as unlisted so that it can only be installed via URL. Furthermore, tax solutions that have been built in-house or for specific merchants by a digital agency are also supported as private instances, and will only work on specified stores.
+Multi-tenant tax providers can choose to publish their BigCommerce app so that it's discoverable by anyone, or publish their app as unlisted so that it can only be installed via URL. Furthermore, tax solutions that have been built in-house or for specific merchants by a digital agency are also supported as private instances, and will only work on specified stores.
 
 ## Obtaining an app ID
 
-To get your app ID, start creating an app in [Developer Tools](https://devtools.bigcommerce.com/), and fill out the information on [Step 3 Technical](https://developer.bigcommerce.com/api-docs/apps/guide/publishing#add-technical-information). In the URL, you will see your unique app ID.
+To get your app ID, start creating an app in the [Developer Portal](https://devtools.bigcommerce.com/), and fill out the information on [Step 3 Technical](https://developer.bigcommerce.com/api-docs/apps/guide/publishing#add-technical-information). In the URL, you will see your unique app ID.
+
+[Learn more about finding your app's ID](https://developer.bigcommerce.com/api-docs/apps/tutorials/id).
 
 ## Sharing provider details with BigCommerce
 
 Once you've obtained your app ID, please share your app ID as well as the below information with BigCommerce by emailing [taxproviderapi@bigcommerce.com](mailto:taxproviderapi@bigcommerce.com). This allows us to create your tax provider configuration, which will take approximately 5 days.
 
-Once your tax provider configuration is ready, we'll let you know via email. The email will also include your `provider_id` which is required when establishing a connection with the Tax Provider API.
+Once your tax provider configuration is ready, we'll let you know via email. The email will also include your `provider_id` which is required when establishing a connection with the [Tax Provider API](https://developer.bigcommerce.com/api-reference/providers/tax-provider-api).
 
 </br>
 
@@ -63,17 +62,17 @@ Once your tax provider configuration is ready, we'll let you know via email. The
 
 Tax providers are required to build a BigCommerce [single-click app](https://developer.bigcommerce.com/api-docs/apps/guide/types#single-click) in order to utilise the Tax Provider API to provide tax estimates and submit tax documents. A BigCommerce single-click app provides many benefits, for example, it enables tax providers to promote their solution in the BigCommerce apps marketplace, ask for merchant authorisation of API scopes during app install, as well as enable configuration of tax provider settings via an iFrame in the BigCommerce control panel.
 
-Review our [introduction to building apps](https://developer.bigcommerce.com/api-docs/apps/guide/intro) guide and use the sidebar to explore topics including but not limited to; types of apps, managing apps in the dev portal, implementing OAuth and designing the UI.
+Review our [introduction to building apps](https://developer.bigcommerce.com/api-docs/apps/guide/intro) guide and use the sidebar to explore topics including: types of apps, managing apps in the dev portal, implementing OAuth, and designing the UI.
 
 Make sure to also review our [app development best practices](https://developer.bigcommerce.com/api-docs/apps/guide/best-practices) for some tips.
 
 ## Installing the app
 
-Once the merchant clicks **Install** on a tax providers single-click app, it's essential the app successfully handles the OAuth flow before moving onto the next step of establishing a connection with the Tax Provider API. This [OAuth summary](https://developer.bigcommerce.com/api-docs/apps/guide/auth#oauth-summary) provides an overview of the OAuth flow.
+Once the merchant clicks **Install** on a tax providers single-click app, it's essential the app successfully handles the OAuth flow before moving onto the next step of establishing a connection with the [Tax Provider API](https://developer.bigcommerce.com/api-reference/providers/tax-provider-api). This [OAuth summary](https://developer.bigcommerce.com/api-docs/apps/guide/auth#oauth-summary) provides an overview of the OAuth flow.
 
-Notably, when handling the OAuth flow, the tax provider must ensure their app is requesting read and write permissions on the **Information and Settings** API scopes. Additionally, the tax provider should store the **client_id** and **access_token** that are received. Both are required later when [establishing a connection with the Tax Provider API](establishing-a-connection-with-the-tax-provider-api).
+Notably, when handling the OAuth flow, the tax provider must ensure their app is requesting read and write permissions on the **Information and Settings** API scopes. Additionally, the tax provider should store the **client_id** and **access_token** that are received. Both are required later when [establishing a connection with the Tax Provider API](#establishing-a-connection-with-the-tax-provider-api).
 
-## Establishing a connection with the Tax Provider API
+## Establishing a connection
 
 A tax provider is ready to establish a connection with the Tax Provider API when all of the below are true:
 
@@ -89,13 +88,13 @@ If the tax provider supports all eligible stores, then they may choose to provid
 
 If the tax provider is a private instance, then they may choose to provide the basic authentication credentials themselves.
 
-In either case, the Tax Provider API, `PUT` `/connection` endpoint should be called after the tax providers app has been successfully installed. Tax providers will need to include store_hash, `provider_id`, `X-Auth-Client` (`client_id`) and `X-Auth-Token`(`access_token`) values.
+In either case, the [Update Connection](https://developer.bigcommerce.com/api-reference/store-management/tax/tax-provider-connection/provider-connection-put) endpoint should be called after the tax provider's app has been successfully installed. Tax providers will need to include `store_hash`, `provider_id`, `X-Auth-Client` (`client_id`) and `X-Auth-Token`(`access_token`) values.
 
-We recommend that you call the `PUT` `/connection` endpoint immediately after the app has been successfully installed, otherwise your tax provider will not be displayed when merchants navigate to the **Store Setup > Tax** page in the BigCommerce control panel.
+We recommend calling the [Update Connection](https://developer.bigcommerce.com/api-reference/store-management/tax/tax-provider-connection/provider-connection-put) endpoint immediately after the app has been successfully installed, otherwise your tax provider will not be displayed when merchants navigate to the **Store Setup > Tax** page in the BigCommerce control panel.
 
-Optionally, `GET` `/connection` may be used at any time to retrieve the connection status of the specified tax provider in the context of a store.
+The [Get a Connection](https://developer.bigcommerce.com/api-reference/store-management/tax/tax-provider-connection/provider-connection-get) request may be used at any time to retrieve the connection status of the specified tax provider in the context of a store.
 
-## Enabling your tax provider in the BigCommerce control panel
+## Enabling tax providers in the control panel
 
 Once the tax provider's app has been successfully installed and basic authentication credentials have been provided via the Update a Connection request, users will be able to enable the tax provider on all supplied merchant and/or partner test stores provided by the tax proivder in [sharing provider details with BigCommerce](#sharing-provider-details-with-bigcommerce).
 
@@ -109,43 +108,50 @@ If document submission is supported, navigate to **Store Setup > Tax > {Tax Prov
 
 Once the tax provider app has been enabled in the BigCommerce control panel, the tax provider is ready to respond to tax estimate requests sent by BigCommerce.
 
-Tax estimates will be requested, depending on the BigCommerce merchant's store settings, multiple times during a stand BigCommerce checkout flow:
+Tax estimates will be requested, depending on the BigCommerce store's settings, multiple times during a standard BigCommerce checkout flow.
 
 * After selecting a shipping method when using the **Estimate Shipping & Tax functionality** on the cart page
 * After specifying a shipping address during a checkout
 * After specifying a billing address during a checkout
 
-Estimate requests are not expected:
+Estimate requests are not expected after the following events.
 
 * While browsing a store's product catalog or product pages.
 * On the cart page prior to a shopper selecting a shipping method using the **Estimate Shipping & Tax** functionality.
 * On the checkout page prior to specifying a shipping address.
 * On the checkout page, when toggling any option related to using the shopper's shipping address as their billing address.
 
-Additionally, estimate calls will be made in the control panel when using certain flows:
+Estimate calls will also be made in the control panel when using flows like the following.
 
 * Line-item refund flows
 * Test connection functionality when users navigate to **Store Setup > Tax > {Tax Provider}** in the BigCommerce control panel
 
-#### Note:
+<div class="HubBlock--callout">
+<div class="CalloutBlock--info">
+<div class="HubBlock-content">
 
-Tax estimate requests sent by BigCommerce may not always contain complete data as these requests will be fired at different stages of the shopper checkout. For example, the **Estimate Shipping & Tax** functionality on the cart page does not provide any billing address data, but the tax provider will still be expected to return a valid tax estimate.
+> ### Note
+> * Tax estimate requests sent by BigCommerce may not always contain complete data as these requests will be fired at different stages of the shopper checkout. For example, the **Estimate Shipping & Tax** functionality on the cart page does not provide any billing address data, but the tax provider will still be expected to return a valid tax estimate.
+
+</div>
+</div>
+</div>
 
 ### Responding to tax estimate requests
 
 When responding to tax estimate requests sent by BigCommerce, tax providers are required to include aggregates and breakdowns of sales tax amounts and rates for product item prices, shipping and handling prices. This is because when navigating to the **Store Setup > Tax > Tax Settings** page in the BigCommerce control panel, merchants have the ability to specify whether they would like to show taxes in cart, checkout, orders and invoice **As one summarized line item** or **Broken down by tax rate**.
 
-Refer to our developer reference for full details on the Tax Provider API, `POST` `/estimate` endpoint.
+[View the Estimate Taxes API reference](https://developer.bigcommerce.com/api-reference/providers/tax-provider-api/tax-provider/estimate).
 
 ## Document submission
 
-Document submission enables tax providers to persist a tax quote request, replace it with another one or invalidate it if necessary.
+Document submission enables tax providers to persist a tax quote request, replace it with another one, or invalidate it if necessary.
 
-Supporting document submission is optional, however if a tax provider wants to support this functionality then they are required to share document submission URLs with BigCommerce when [sharing provider details with BigCommerce](#sharing-provider-details-with-bigcommerce).
+Supporting document submission is optional; however, if a tax provider wishing to support this functionality are required to share document submission URLs with BigCommerce when [sharing provider details with BigCommerce](#sharing-provider-details-with-bigcommerce).
 
 If document submission is supported, navigate to **Store Setup > Tax > {Tax Provider}** and ensure the submit order data checkbox is checked.
 
-Refer to our developer reference for full details on the Tax Provider API document submission endpoints.
+[View the Commit Tax Quote API reference](https://developer.bigcommerce.com/api-reference/providers/tax-provider-api/tax-provider/commit).
 
 ## Testing
 
@@ -162,14 +168,19 @@ To test the tax provider connection, navigate to **Store Setup > Tax > {Tax Prov
 
 For anything related to the BigCommerce app, please raise a ticket using your [BigCommerce dev tools portal](https://devtools.bigcommerce.com/).
 
-Refer to our Tax Provider API developer reference here for full details.
+Refer to our [Tax Provider API reference](https://developer.bigcommerce.com/api-reference/providers/tax-provider-api) here for a complete API description.
 
-For Tax Provider API related questions or to request set up of a new tax provider configuration, please email [taxproviderapi@bigcommerce.com](mailto:taxproviderapi@bigcommerce.com).
+For Tax Provider API related questions, or to request set up of a new tax provider configuration, email [taxproviderapi@bigcommerce.com](mailto:taxproviderapi@bigcommerce.com).
 
 ## Related resources
 
+### Articles
+
+* [Building Apps Guide](https://developer.bigcommerce.com/api-docs/apps/guide/intro)
+
 ### Endpoints
 
+  - [Tax Provoider API Reference](https://developer.bigcommerce.com/api-reference/providers/tax-provider-api)
   - [Get a Tax Provider Connection](https://developer.bigcommerce.com/api-reference/store-management/tax/tax-provider-connection/provider-connection-get)
   - [Delete a Tax Provider Connection](https://developer.bigcommerce.com/api-reference/store-management/tax/tax-provider-connection/provider-connection-delete)
   - [Update a Tax Provider Connection](https://developer.bigcommerce.com/api-reference/store-management/tax/tax-provider-connection/provider-connection-put)
