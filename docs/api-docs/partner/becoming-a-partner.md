@@ -3,33 +3,34 @@
 <div class="otp" id="no-index">
 
 ### On this page
-- [Partner Program](#partner-program)
-- [Applying to the Technology Partner Program](#applying-to-the-technology-partner-program)
-- [App Marketplace](#app-marketplace)
-- [Troubleshooting](#troubleshooting)
+
+- [Applying to the Partner Program](#applying-to-the-technology-partner-program)
+- [Partner Portal training](#partner-portal-training)
+- [Ongoing support](#ongoing-support)
 - [Resources](#resources)
 </div> 
 
 
-## Partner program
-The BigCommerce Partner Program includes access to training, sales enablement, and a referral network to get more clients and build better ecommerce experiences.
-Becoming an official BigCommerce partner will authorize you to provide best-of-breed solutions to the fast-growing online businesses we host. 
+The BigCommerce Partner Program includes access to resources, training, sales enablement, partner support, and a referral network to increase your client base and build better ecommerce experiences.
+Becoming an official BigCommerce partner will empower you to provide best-of-breed solutions to the fast-growing online businesses we host. 
 
+We offer three partnership programs designed to help you grow your business. 
 
-The following sections outline the steps required to publish single-click apps in the [BigCommerce App Marketplace](https://www.bigcommerce.com/apps).
+**Agency partners**
 
+The Agency Partner Program is for agencies that build ecommerce solutions and deliver custom experiences for their clients. As an agency partner, you get access to advanced features, training resources, and integrations. To learn more, see [Partner Program](https://www.bigcommerce.com/partners/become-a-partner/).
 
-## Applying to the Technology Partner Program
-Before you can submit an app to the BigCommerce App Marketplace, also known as the App Store, you must become an official partner. BigCommerce offers app developers free sandbox stores through its Technology Partner Program. To be approved as a partner, you will need:
+**Affiliate partners**
 
-* A website showcasing your agency or technology solution
-* Intent to offer your app publicly
-* Ability to support your app's users
-* Evidence of expertise in app development
+The Affiliate Partner Program is for marketers interested in growing their revenue by promoting BigCommerce through the use of referral links, pre-made banners, and other affiliate materials. To learn more, see [Affiliate Program](https://www.bigcommerce.com/partners/become-a-partner/affiliate/).
 
-For a list of general requirements and to verify that your application meets BigCommerce listing standards, see [App Store Approval Requirements](https://developer.bigcommerce.com/api-docs/partner/app-store-approval-requirements).
+**Technology partners**
 
-The following steps outline how to become a BigCommerce Partner:
+The Technology Partner Program is for companies that design ecommerce themes, custom apps, and business software integrations. To learn more, see [Partner Program](https://www.bigcommerce.com/partners/become-a-partner/).
+
+## Applying to the Partner Program
+
+The following steps outline how to become a BigCommerce Partner (Agency or Technology):
 
 1. Go to the [Partner Portal](https://partners.bigcommerce.com/).
    
@@ -39,67 +40,42 @@ The following steps outline how to become a BigCommerce Partner:
 
 3. Enter your company email address.
    
-4. Click the **Technology Partner Program** button.
+4. Select the program type.
    
 ![Partner Registration](https://raw.githubusercontent.com/bigcommerce/dev-docs/master/assets/images/becoming-a-partner-02.png "Partner Registration")
 
 5. Complete the member registration.
+
 6. Click the **Complete Registration** button. 
-7. Once your application is approved, check your email for your Partner ID.
 
-Once approved, you will receive one or more emails listing your partner credentials and next steps. Your **Partner ID** will be required to submit your app for App Marketplace consideration. If you do not receive these credentials by email, please contact [appstore@bigcommerce.com](mailto:appstore@bigcommerce.com).
+7. Once your application is approved, check your email for your partner credentials. (This can take up to two days.)
 
-## App Marketplace
-To build and test a Marketplace app, you will need:
+Once approved, you will receive one or more emails listing your partner credentials and next steps. If you do not receive these credentials, please contact your BigCommerce Channel Account Manager for assistance or email [appstore@bigcommerce.com](mailto:appstore@bigcommerce.com).
 
-* A BigCommerce store (sandbox or trial)
-* A developer account on the [BigCommerce Developer Portal](https://devtools.bigcommerce.com/my/apps)
-* BigCommerce partner credentials 
+## Partner Portal training
 
-A sandbox store cannot process transactions and is for developing and testing apps without the 15-day time limit of a trial store. 
+BigCommerce offers training modules to help you get up to speed with the BigCommerce platform. You will need to complete these training modules to become a BigCommerce Certified Partner.
 
-We encourage you to create your sandbox store and your Developer Portal account using the same login credentials.
-
-> **Note**
-> Your Developer Portal account is an entirely separate account outside of the Partner Portal.
+To access the training modules, log into the [Partner Portal](https://partners.bigcommerce.com/), hover over the **Training** tab (top navigation), and select **eLearning Modules**. This will take you to the [Training & Enablement](https://partners.bigcommerce.com/English/Solutions/training/training_and_enablement.aspx) page.
 
 <div class="HubBlock--callout">
-<div class="CalloutBlock--warning">
+<div class="CalloutBlock--info">
 <div class="HubBlock-content">
-    
-<!-- theme: warning -->
 
-### Trials erased after 15 days
-> Although you do not need a sandbox store for app development, it is best practice. If you opt to develop on a trial store, keep in mind the store and data will be erased after 15 days, and you will have to create a new trial store to proceed.
-
+> ### Certifications and the BigDev Bootcamp
+> Advanced training is available through the BigDev Bootcamp. The BigDev Bootcamp delivers sessions focused on the Catalog API, Orders API, Cart and Checkout APIs, Storefront API, and Stencil. Please reach out to your Account Manager if you are interested in registering for these sessions.
 
 </div>
 </div>
 </div>
 
-##  Troubleshooting
+## Ongoing support
 
-**Are all fields required when applying to become a partner?**
-
-We highly recommend filling out all the fields associated with publishing edits for your listing. Without filling in all fields, your listing will lack information merchants are accustomed to seeing on other listings and expect to see throughout the Marketplace.
-
-
-**I’ve logged into the Developer Portal, but I don’t see my published listing. Where is it?**
-
-You may be logged in with the wrong account. Each listing can only be owned by one user, so it is likely assigned to another email address. If you’re unable to track down the correct owner account for your solution, please reach out to <a href="mailto:appstore@bigcommerce.com">appstore@bigcommerce.com</a>.
-
-**Why can't I see the updates I've made to my App Marketplace listing?**
-
-
-The updates will be effective immediately in your control panel app card, but the updates can take up to 24 hours to appear on the public BigCommerce Marketplace. Feel free to use this as a grace period to make additional edits as needed.
-
-
-**Who should I contact if I have further questions?**
-
-If you have additional questions, email <a href="mailto:appstore@bigcommerce.com">appstore@bigcommerce.com</a>.
+BigCommerce provides ongoing support to help you every step of the way. From dedicated account managers to access to the BigCommerce Community, BigCommerce offers a wide variety of resources to assist you. To learn more, see [Support](https://developer.bigcommerce.com/api-docs/partner/getting-started/support).
 
 ## Resources
 
 ### Related articles
-* [App Store Approval Requirements](https://developer.bigcommerce.com/api-docs/partner/app-store-approval-requirements)
-* [Partner Portal](https://partners.bigcommerce.com/) (BigCommerce)
+
+* [Introduction to Building Apps](https://developer.bigcommerce.com/api-docs/apps/guide/intro)
+* [App Store Approval Requirements](https://developer.bigcommerce.com/api-docs/apps/guide/requirements)
