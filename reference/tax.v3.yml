@@ -1,0 +1,198 @@
+openapi: 3.0.0
+info:
+  title: Tax Provider Connection
+  version: "3"
+  description: >-
+    Manage the connection between a merchant's BigCommerce store and a third
+    party tax provider. For more information, see [Tax Provider API
+    Overview](https://developer.bigcommerce.com/api-docs/providers/tax).
+
+
+    ## Additional information
+
+
+    ### Related API resources
+     - https://developer.bigcommerce.com/api-reference/cart-checkout/storefront-cart-api
+     - https://developer.bigcommerce.com/api-reference/orders/orders-api
+     - https://developer.bigcommerce.com/api-reference/store-management/tax-classes-api
+paths:
+  /tax/providers/{provider_id}/connection:
+    get:
+      summary: Get a Connection
+      description: >-
+        May be used to retrieve the connection status of the specified provider
+        in the context of a store.
+
+
+        Requires **read** permissions on the **Information and Settings** scope.
+      operationId: provider-connection-get
+      responses:
+        "200":
+          description: OK
+          content:
+            "*/*":
+              schema:
+                $ref: "#/components/schemas/response-connection"
+            application/json:
+              examples:
+                response:
+                  value:
+                    data:
+                      username: MyConnectedTaxProviderAccount
+                      configured: true
+        "404":
+          description: Provider does not exist
+      security:
+        - X-Auth-Client: []
+        - X-Auth-Token: []
+      tags:
+        - Tax Provider Connection
+    delete:
+      summary: Delete a Connection
+      description: >-
+        Remove any previously set basic connection credentials for the specified
+        provider. If the specified provider is the active tax provider on the
+        store, the store's active tax provider will be reset to BigCommerce
+        Manual Tax. It is suggested to call this endpoint during a single-click
+        app **uninstall** operation.
+
+
+        This operation will be logged in the **Store Logs** under **Staff Actions**.
+
+
+        Requires **write** permissions on the **Information and Settings** scope.
+      operationId: provider-connection-delete
+      responses:
+        "200":
+          description: OK
+          content:
+            "*/*":
+              schema:
+                $ref: "#/components/schemas/response-connection"
+            application/json:
+              examples:
+                response:
+                  value:
+                    data:
+                      username: MyDisconnectedTaxProviderAccount
+                      configured: false
+        "404":
+          description: Provider does not exist
+      security:
+        - X-Auth-Client: []
+        - X-Auth-Token: []
+      tags:
+        - Tax Provider Connection
+    put:
+      responses:
+        "200":
+          description: OK
+          content:
+            application/json:
+              schema:
+                $ref: "#/components/schemas/response-connection"
+              examples:
+                response:
+                  value:
+                    data:
+                      username: MyUpdatedTaxProviderAccount
+                      configured: true
+        "404":
+          description: Provider does not exist
+        "422":
+          description: Unprocessable Entity, will include a specific error message
+            referencing the issue.
+      description: >-
+        Used to set basic authentication credentials for the specified provider.
+        These basic credentials will be used to authenticate each API request to
+        the Tax Provider from the associated store.
+
+
+        This operation will be logged in the **Store Logs** under **Staff Actions**.
+
+
+        Requires **write** permissions on the **Information and Settings** scope.
+      summary: Update a Connection
+      operationId: provider-connection-put
+      tags:
+        - Tax Provider Connection
+      security:
+        - X-Auth-Client: []
+        - X-Auth-Token: []
+      requestBody:
+        content:
+          application/json:
+            schema:
+              type: object
+              properties:
+                username:
+                  type: string
+                  description: Public identifying information representing a unique account on the
+                    tax provider's infrastructure. Should not contain any
+                    personal identifying information (e.g. a personal email
+                    address).
+                  example: MyTaxProviderAccount
+                password:
+                  type: string
+                  example: h6eSgKLN72q7jYTW
+        description: "Basic authentication information, associated with a merchant
+          account on the third party tax provider's infrastructure. "
+        x-examples:
+          application/json:
+            username: MyTaxProviderAccount
+            password: h6eSgKLN72q7jYTW
+    parameters:
+      - name: provider_id
+        in: path
+        required: true
+        schema:
+          type: string
+security:
+  - X-Auth-Client: []
+  - X-Auth-Token: []
+tags:
+  - name: Tax Provider Connection
+servers:
+  - url: https://api.bigcommerce.com/stores/{store_hash}/v3
+    variables:
+      store_hash:
+        default: unknown
+components:
+  parameters:
+    provider_id:
+      name: Tax Provider ID
+      in: path
+      description: Unique key that identifies the Tax Provider on the BigCommerce platform.
+      required: true
+      schema:
+        type: string
+  securitySchemes:
+    X-Auth-Client:
+      type: apiKey
+      name: X-Auth-Client
+      in: header
+    X-Auth-Token:
+      type: apiKey
+      name: X-Auth-Token
+      in: header
+  schemas:
+    response-connection:
+      type: object
+      title: Connection Status
+      properties:
+        data:
+          type: object
+          properties:
+            username:
+              type: string
+              description: Identifies a unique account on the external tax provider
+                infrastructure. May be used to reconcile the two platforms.
+            configured:
+              type: boolean
+              description: >-
+                Describes whether the stored credentials are considered complete
+                and configured, ready to be used for Tax Provider API requests.
+
+
+                Merchants may enable any **configured** tax provider for storefront tax quotation.
+
