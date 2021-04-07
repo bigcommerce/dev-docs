@@ -4,7 +4,7 @@
 
 ### On this page
 
-- [Applying to the Partner Program](#applying-to-the-technology-partner-program)
+- [Applying to the Partner Program](#applying-to-the-partner-program)
 - [Partner Portal training](#partner-portal-training)
 - [Ongoing support](#ongoing-support)
 - [Resources](#resources)
@@ -22,7 +22,7 @@ The Agency Partner Program is for agencies that build ecommerce solutions and de
 
 **Affiliate partners**
 
-The Affiliate Partner Program is for marketers interested in growing their revenue by promoting BigCommerce through the use of referral links, pre-made banners, and other affiliate materials. To learn more, see [Affiliate Program](https://www.bigcommerce.com/partners/become-a-partner/affiliate/).
+The Affiliate Partner Program is for marketers interested in growing their revenue by promoting BigCommerce through referral links, pre-made banners, and other affiliate materials. To learn more, see [Affiliate Program](https://www.bigcommerce.com/partners/become-a-partner/affiliate/).
 
 **Technology partners**
 
@@ -56,7 +56,7 @@ Once approved, you will receive one or more emails listing your partner credenti
 
 BigCommerce offers training modules to help you get up to speed with the BigCommerce platform. You will need to complete these training modules to become a BigCommerce Certified Partner.
 
-To access the training modules, log into the [Partner Portal](https://partners.bigcommerce.com/), hover over the **Training** tab (top navigation), and select **eLearning Modules**. This will take you to the [Training & Enablement](https://partners.bigcommerce.com/English/Solutions/training/training_and_enablement.aspx) page.
+To access the training modules, log into the [Partner Portal](https://partners.bigcommerce.com/), hover over the **Training** tab (top navigation), and select **eLearning Modules**. This path will take you to the [Training & Enablement](https://partners.bigcommerce.com/English/Solutions/training/training_and_enablement.aspx) page.
 
 <div class="HubBlock--callout">
 <div class="CalloutBlock--info">
@@ -79,3 +79,4 @@ BigCommerce provides ongoing support to help you every step of the way. From ded
 
 * [Introduction to Building Apps](https://developer.bigcommerce.com/api-docs/apps/guide/intro)
 * [App Store Approval Requirements](https://developer.bigcommerce.com/api-docs/apps/guide/requirements)
+* [Video tutorials](https://support.bigcommerce.com/s/videos)
