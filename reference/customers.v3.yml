@@ -763,7 +763,7 @@ paths:
                     customer_group_settings:
                       guest_customer_group_id: 1
                       default_customer_group_id: 1
-  /customers/settings/channels/{channel_id}:
+  '/customers/settings/channels/{channel_id}':
     get:
       tags:
         - Customer Settings Channel
@@ -1438,7 +1438,7 @@ paths:
                   - name: color
                     value: blue
                     customer_id: 0
-  /customers/{customerId}/consent:
+  '/customers/{customerId}/consent':
     get:
       description: Gets the status of a customer's consent to allow data collection by cookies and scripts while shopping on a storefront.
       summary: Get Customer Consent
@@ -1516,12 +1516,24 @@ paths:
             application/json:
               schema:
                 $ref: '#/components/schemas/ErrorResponse'
-  /customers/{customerId}/stored-instruments:
+  '/customers/{customerId}/stored-instruments':
     get:
-      summary: Get Stored Instruments
+      summary: Get Stored Instruments (Beta)
       tags:
         - Customer Stored Instruments
-      description: 'Lists all available stored instruments for a customer. This list will include all types of stored instruments namely card, account and bank_account instruments'
+      description: |-
+        Lists all available stored instruments for a customer. This list will include all types of stored instruments namely card, account and bank_account instruments
+
+        <div class="HubBlock--callout">
+        <div class="CalloutBlock--info">
+        <div class="HubBlock-content">
+
+        > ### Note
+        > * This endpoint is in beta.
+
+        </div>
+        </div>
+        </div> 
       operationId: liststoredinstruments
       parameters:
         - $ref: '#/components/parameters/customerId'
