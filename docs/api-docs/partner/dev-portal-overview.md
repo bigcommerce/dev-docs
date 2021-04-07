@@ -19,11 +19,9 @@ For instructions on how to use the Developer Portal to create an app, see [Manag
 
 ## Resources
 
-* [Python / Flask](https://github.com/bigcommerce/hello-world-app-python-flask)
-* [PHP / Silex](https://github.com/bigcommerce/hello-world-app-php-silex)
-* [Ruby / Sinatra](https://github.com/bigcommerce/hello-world-app-ruby-sinatra)
-* [Laravel / React](https://github.com/bigcommerce/laravel-react-sample-app)
-* [Node / FaunaDB / Netlify](https://github.com/bigcommerce/channels-app/)
+### Related articles
+
+* [Introduction to Building Apps](https://developer.bigcommerce.com/api-docs/apps/guide/intro)
 
 ### Tools
 * [BigDesign Developer Playground](https://developer.bigcommerce.com/big-design/)
@@ -31,6 +29,8 @@ For instructions on how to use the Developer Portal to create an app, see [Manag
 * [Adobe Illustrator UI Kit](https://design.bigcommerce.com/bigdesign-ui-kit)
 
 ### Blog Posts
-* [Introduction to Building Apps](https://developer.bigcommerce.com/api-docs/apps/guide/intro)
+
 * [Building a BigCommerce App Using Laravel and React](https://medium.com/bigcommerce-developer-blog/building-a-bigcommerce-app-using-laravel-and-react-711ceceb5006) (BigCommerce Developer Blog)
+* [Building a Custom Shipping Provider Integration](https://medium.com/bigcommerce-developer-blog/byo-custom-solutions-with-the-bigcommerce-shipping-provider-api-9ff9fcf4e1a3)
+* [Building Subscription/Recurring Billing Apps](https://medium.com/bigcommerce-developer-blog/payments-api-build-headless-checkouts-and-recurring-billing-apps-on-bigcommerce-a4c556df1f0)
 * [BigDesign Tutorial](https://medium.com/bigcommerce-developer-blog/bigdesign-build-native-looking-uis-with-the-bigcommerce-design-system-fb06a01a24f2) (BigCommerce Developer Blog)
