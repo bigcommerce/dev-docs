@@ -488,7 +488,7 @@ paths:
       operationId: getACountOfAllBlogPosts
   /pages:
     get:
-      description: Returns a list of *Pages*. Default sorting is by auto-generated ID from oldests to newest.
+      description: 'Returns a list of *Pages*. Default sorting is by auto-generated ID from oldests to newest. This endpoint is deprecated. Use [Pages V3](https://developer.bigcommerce.com/api-reference/store-management/pages) instead. '
       summary: Get All Pages
       tags:
         - Pages
@@ -549,9 +549,10 @@ paths:
                 search_keywords: ''
                 meta_keywords: ''
       operationId: getAllPages
+      deprecated: true
     post:
       description: |-
-        Creates a *Page*. The payload limit is 1MB.
+        Creates a *Page*. The payload limit is 1MB. This endpoint is deprecated. Use [Pages V3](https://developer.bigcommerce.com/api-reference/store-management/pages) instead. 
 
         **Required Fields**
         *   `type`
@@ -630,9 +631,10 @@ paths:
               search_keywords: ''
               meta_keywords: ''
       operationId: createAPage
+      deprecated: true
   '/pages/{id}':
     get:
-      description: Returns a *Page*.
+      description: 'Returns a *Page*. This endpoint is deprecated. Use [Pages V3](https://developer.bigcommerce.com/api-reference/store-management/pages) instead. '
       summary: Get A Page
       tags:
         - Pages
@@ -681,8 +683,9 @@ paths:
               mobile_body: '0'
               url: /rss-syndication/
       operationId: getAPage
+      deprecated: true
     delete:
-      description: Deletes a *Page*.
+      description: 'Deletes a *Page*. This endpoint is deprecated. Use [Pages V3](https://developer.bigcommerce.com/api-reference/store-management/pages) instead. '
       summary: Delete a Page
       tags:
         - Pages
@@ -710,6 +713,7 @@ paths:
         '204':
           description: ''
       operationId: deleteAPage
+      deprecated: true
     parameters:
       - name: id
         in: path
@@ -742,7 +746,7 @@ paths:
               url: /shipping-returns/
       summary: Update a Page
       description: |-
-        Updates a *Page*. The payload limit is 1MB.
+        Updates a *Page*. The payload limit is 1MB. This endpoint is deprecated. Use [Pages V3](https://developer.bigcommerce.com/api-reference/store-management/pages) instead. 
 
         **Read Only Fields**
         * id
@@ -777,6 +781,7 @@ paths:
           default: application/json
       tags:
         - Pages
+      deprecated: true
   /redirects:
     get:
       description: |-
