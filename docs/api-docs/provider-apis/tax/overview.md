@@ -22,7 +22,7 @@ The [Tax Provider API](https://developer.bigcommerce.com/api-reference/providers
 
 The [Tax Provider API](https://developer.bigcommerce.com/api-reference/providers/tax-provider-api) works in conjunction with a BigCommerce app, so you will need to [build an app](https://developer.bigcommerce.com/api-docs/apps/guide/intro) that integrates the [Tax Provider API](https://developer.bigcommerce.com/api-reference/providers/tax-provider-api).
 
-Multi-tenant tax providers can choose to publish their BigCommerce app so that it's discoverable by anyone, or publish their app as unlisted so that it can only be installed via URL. Furthermore, tax solutions that have been built in-house or for specific merchants by a digital agency are also supported as private instances, and will only work on specified stores.
+Multi-tenant tax providers can choose to publish their BigCommerce app so that it's discoverable by anyone, or publish their app as unlisted so that it can only be installed via URL. Furthermore, tax solutions that have been built in-house or for specific merchants by digital agencies are also supported as private instances, and will only work on the stores specified.
 
 ## Obtaining an app ID
 
@@ -34,7 +34,7 @@ To get your app ID, start creating an app in the [Developer Portal](https://devt
 
 Once you've obtained your app ID, please share your app ID as well as the below information with BigCommerce by emailing [taxproviderapi@bigcommerce.com](mailto:taxproviderapi@bigcommerce.com). This allows us to create your tax provider configuration, which will take approximately 5 days.
 
-Once your tax provider configuration is ready, we'll let you know via email. The email will also include your `provider_id` which is required when establishing a connection with the [Tax Provider API](https://developer.bigcommerce.com/api-reference/providers/tax-provider-api).
+Once your tax provider configuration is ready, we'll let you know via email. The email will also include your `provider_id` which is required when [establishing a connection](#establishing-a-connection) with the [Tax Provider API](https://developer.bigcommerce.com/api-reference/providers/tax-provider-api).
 
 </br>
 
@@ -42,12 +42,12 @@ Once your tax provider configuration is ready, we'll let you know via email. The
 | ------------------------------------- | ------------------------------ | ---------------------------- | ----------------------------------------------------------------------------------------------------- | ------------------------------------------------- |
 | App ID                                | Required                       | Integer                      | Tells us which provider config to use after the app is installed.                                     | `123456`                                          |
 | Tax provider name                     | Required                       | String                       | Displayed in the BigCommerce control panel (like in **Store Setup > Tax > Add Tax Service**).             | `Sample Tax`                                      |
-| Tax provider type                     | Required                       | Product, Sandbox             | Determines hierarchy of your provider (Production is primary and Sandbox is secondary).               | `Production`                                      |
+| Tax provider type                     | Required                       | Production, Sandbox             | Hierarchy of your provider (Production is primary and Sandbox is secondary, see [sandbox tax provider configuration](#sandbox-tax-provider-configuration) for more information.               | `Production`                                      |
 | Merchant support email                | Optional                       | Email                        | Displayed in the BigCommerce control panel in **Store Setup > Tax > Tax Provider**.                       | `support@sampletax.example.com`                   |
 | Merchant support URL                  | Optional                       | URL                          | Displayed in the BigCommerce control panel in **Store Setup > Tax > Tax Provider**.                        | `sampletax.example.com/support`                   |
 | **Coverage**                          |                                |                              |                                                                                                       |                                                   |
 | Tax provider visibility               | Required                       | Show, Hide                   | Tells us if your tax provider should be displayed to users in the BigCommerce control panel.          | `Show`                                            |
-| Supported store(s)                    | Required                       | All Stores, Private Instance | Tells us which stores your tax provider is supported on.                                              | `All Stores`                                      |
+| Supported store(s)                    | Required                       | All stores, Private instance | Tells us which stores your tax provider is supported on.                                              | `All stores`                                      |
 | Supported store(s) - private instance | Required (if private instance) | Store hashes                 | Test store hashes that are supported by your tax provider (if private instance).                      | `dwvjntfqv,epq54yymgq`                            |
 | Supported / unsupported countries     | Required                       | ISO 3166-1 alpha-2           | Comma separated ISO 3166-1 alpha-2 country codes for supported countries.                             | `US,CA,GB,FR,AU,NZ`                               |
 | **URLs**                              |                                |                              |                                                                                                       |                                                   |
@@ -58,6 +58,18 @@ Once your tax provider configuration is ready, we'll let you know via email. The
 | **Testing**                               |                                |                              |                                                                                                       |                                                   |
 | Partner test store domain(s)          | Required                       | Domain name                  | Share your test store domain(s) sow we can test prior to launching your tax provider.                 | `https://sampletax-test-store.mybigcommerce.com/` |
 
+### Sandbox tax provider configuration
+
+Sandbox tax provider configurations are nested within your production tax provider configuration, as such, tax providers who require a sandbox tax provider should also provide details for their production tax provider configuration.
+
+Additionally, sandbox tax provider configurations inherit some properties of the parent production tax provider configuration. As such, when providing the details for a sandbox tax provider configuration, it's unncessary to specify the below inehrited properties:
+
+* Supported store(s)
+* Supported store hash(es) (in the case tax provider is a private instance)
+* Supported / supported countries
+
+It's possible to create multiple sandbox tax providers within the production tax provider configuration, for example a tax provider could have a development and a test sandbox tax provider nested within their production tax provider configuration.
+
 ## Building the app
 
 Tax providers are required to build a BigCommerce [single-click app](https://developer.bigcommerce.com/api-docs/apps/guide/types#single-click) in order to utilise the Tax Provider API to provide tax estimates and submit tax documents. A BigCommerce single-click app provides many benefits, for example, it enables tax providers to promote their solution in the BigCommerce apps marketplace, ask for merchant authorisation of API scopes during app install, as well as enable configuration of tax provider settings via an iFrame in the BigCommerce control panel.
@@ -66,11 +78,22 @@ Review our [introduction to building apps](https://developer.bigcommerce.com/api
 
 Make sure to also review our [app development best practices](https://developer.bigcommerce.com/api-docs/apps/guide/best-practices) for some tips.
 
+<div class="HubBlock--callout">
+<div class="CalloutBlock--info">
+<div class="HubBlock-content">
+
+> ### Note
+> * If you have registered your app in the Developer Portal but have not submitted it for approval because it's still in development, the app will be in a Draft state. This means your app can only be installed on stores owned by the same email address as the Developer Portal account email.
+
+</div>
+</div>
+</div>
+
 ## Installing the app
 
 Once the merchant clicks **Install** on a tax providers single-click app, it's essential the app successfully handles the OAuth flow before moving onto the next step of establishing a connection with the [Tax Provider API](https://developer.bigcommerce.com/api-reference/providers/tax-provider-api). This [OAuth summary](https://developer.bigcommerce.com/api-docs/apps/guide/auth#oauth-summary) provides an overview of the OAuth flow.
 
-Notably, when handling the OAuth flow, the tax provider must ensure their app is requesting read and write permissions on the **Information and Settings** API scopes. Additionally, the tax provider should store the **client_id** and **access_token** that are received. Both are required later when [establishing a connection with the Tax Provider API](#establishing-a-connection-with-the-tax-provider-api).
+When handling the OAuth flow, tax providers must ensure their app is requesting read and write permissions on the **Information and Settings** API scopes. Additionally, the tax provider should store the **client_id** and **access_token** that are received. Both are required later when [establishing a connection with the Tax Provider API](#establishing-a-connection-with-the-tax-provider-api).
 
 ## Establishing a connection
 
@@ -147,7 +170,7 @@ When responding to tax estimate requests sent by BigCommerce, tax providers are 
 
 Document submission enables tax providers to persist a tax quote request, replace it with another one, or invalidate it if necessary.
 
-Supporting document submission is optional; however, if a tax provider wishing to support this functionality are required to share document submission URLs with BigCommerce when [sharing provider details with BigCommerce](#sharing-provider-details-with-bigcommerce).
+Supporting document submission is optional; however, tax providers wishing to support this functionality are required to share document submission URLs with BigCommerce when [sharing provider details with BigCommerce](#sharing-provider-details-with-bigcommerce).
 
 If document submission is supported, navigate to **Store Setup > Tax > {Tax Provider}** and ensure the submit order data checkbox is checked.
 
