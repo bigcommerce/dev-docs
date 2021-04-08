@@ -171,10 +171,8 @@ paths:
           $ref: '#/components/responses/order_Resp'
       operationId: updateAnOrder
     delete:
-      description: |-
+      description:
         Archives an order.
-
-        Any attempt to archive an order on a store with automatic tax enabled will fail, and will return `405 Method not allowed.`
       summary: Archive an Order
       tags:
         - Orders
