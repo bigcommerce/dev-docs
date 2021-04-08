@@ -1,0 +1,396 @@
+openapi: 3.0.0
+info:
+  title: Pages V3
+  version: '3'
+  description: Manage content pages across multiple sites.
+  termsOfService: 'http://www.bigcommerce.com/terms'
+tags:
+  - name: Pages
+paths:
+  /content/pages:
+    get:
+      operationId: content-pages-get
+      tags:
+        - Pages
+      description: Returns a Pages list
+      responses:
+        '200':
+          description: |
+            An array of pages.
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/PagesCollectionResponse'
+      parameters:
+        - schema:
+            type: integer
+          in: query
+          name: channel_id
+          description: Channel Id to return only pages for a given Channel
+        - schema:
+            type: integer
+          in: query
+          name: id
+          description: Id of the page
+        - schema:
+            type: string
+          in: query
+          name: 'id:in'
+          description: 'Explicitly fetch Pages by IDs, provided as CSV string'
+        - schema:
+            type: string
+          in: query
+          name: name
+          description: Name of the page
+        - schema:
+            type: string
+          in: query
+          name: name:like
+          description: Partial name of the page
+        - schema:
+            type: integer
+          in: query
+          name: limit
+          description: Number of results to return per page
+        - schema:
+           type: integer
+          in: query
+          name: page
+          description: 'Which page number to return, based on the page size. Used to paginate large collections.'
+    post:
+      operationId: content-pages-post
+      description: Create a content page.
+      tags:
+        - Pages
+      requestBody:
+        content:
+          application/json:
+            schema:
+              $ref: '#/components/schemas/PagesPostRequest'
+        description: Create operation for Page objects.
+        required: true
+      responses:
+        '200':
+          description: |
+            An array of created pages.
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/PagesResponse'
+        '422':
+          description: |
+            The `Page` was not valid. This is the result of missing required fields, or of invalid data. See the response for more details.
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/ErrorResponse'
+    put:
+      operationId: content-pages-put
+      description: Update content pages.
+      tags:
+        - Pages
+      requestBody:
+        content:
+          application/json:
+            schema:
+              $ref: '#/components/schemas/PagesPutRequest'
+        description: Update operation for Page objects.
+        required: true
+      responses:
+        '200':
+          description: |
+            An array of updated pages.
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/PagesResponse'
+        '422':
+          description: |
+            The `Page` was not valid. This is the result of missing required fields, or of invalid data. See the response for more details.
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/ErrorResponse'
+    delete:
+      operationId: content-pages-delete
+      tags:
+        - Pages
+      description: Deletes a page from a store.
+      responses:
+        '204':
+          description: |
+            An empty response.
+      parameters:
+        - schema:
+            type: integer
+          in: query
+          name: 'id:in'
+          description: List of Redirect IDs to delete explicitly
+        - schema:
+            type: integer
+          in: query
+          name: channel_id
+          description: Channel Id provided to delete all pages for a given Channel
+servers:
+  - url: 'https://api.bigcommerce.com/stores/{store_hash}/v3'
+    description: Pages API Gateway
+    variables:
+      store_hash:
+        default: abc123
+        description: Store hash used to identify the store.
+components:
+  schemas:
+    DetailedErrors:
+      type: object
+      additionalProperties:
+        type: string
+    BaseError:
+      type: object
+      description: |
+        Error payload for the BigCommerce API.
+      properties:
+        status:
+          description: |
+            The HTTP status code.
+          type: integer
+        title:
+          description: |
+            The error title describing the particular error.
+          type: string
+        type:
+          type: string
+        instance:
+          type: string
+    ErrorResponse:
+      allOf:
+        - $ref: '#/components/schemas/BaseError'
+        - type: object
+          properties:
+            errors:
+              $ref: '#/components/schemas/DetailedErrors'
+    CollectionMeta:
+      type: object
+      description: |
+        Data about the response, including pagination and collection totals.
+      properties:
+        pagination:
+          $ref: '#/components/schemas/Pagination'
+    PagesPost:
+      type: object
+      allOf:
+        - $ref: '#/components/schemas/Page'
+        - type: object
+          required:
+            - type
+            - name
+            - link (for a page of type link)
+            - feed (for a page of type rss_feed)
+            - body (for a page of type raw)
+    PagesPutRequest:
+      description: |
+        Request payload for the BigCommerce API.
+      type: array
+      items:
+        $ref: '#/components/schemas/PagePut'
+    PagesPostRequest:
+      description: |
+        Request payload for the BigCommerce API.
+      type: array
+      items:
+        $ref: '#/components/schemas/PagesPost'
+    PagesCollectionResponse:
+      description: |
+        Response payload for the BigCommerce API.
+      type: object
+      properties:
+        data:
+          type: array
+          items:
+            $ref: '#/components/schemas/Page'
+        meta:
+          $ref: '#/components/schemas/CollectionMeta'
+      title: ''
+    PagesResponse:
+      description: |
+        Response payload for the BigCommerce API.
+      type: object
+      properties:
+        data:
+          type: array
+          items:
+            $ref: '#/components/schemas/Page'
+        meta:
+          type: object
+    PageResponse:
+      description: |
+        Response payload for the BigCommerce API.
+      type: object
+      properties:
+        data:
+          type: array
+          items:
+            $ref: '#/components/schemas/Page'
+    ContactFields:
+      type: object
+      allOf:
+        - type: object
+          properties:
+            fullname:
+              type: string
+              description: full name of the customer submitting the form
+            phone:
+              type: string
+              description: 'customer’s phone number, as submitted on the form'
+            companyname:
+              type: string
+              description: customer’s submitted company name
+            orderno:
+              type: string
+              description: customer’s submitted order number
+            rma:
+              type: string
+              description: customer’s submitted RMA (Return Merchandise Authorization) number.
+    PagePut:
+      type: object
+      allOf:
+        - $ref: '#/components/schemas/Page'
+        - type: object
+          properties:
+            id:
+              type: integer
+              description: |
+                The unique numeric ID of the page.
+          required:
+            - id
+    Page:
+      type: object
+      allOf:
+        - $ref: '#/components/schemas/PageBase'
+        - type: object
+          properties:
+            email:
+              type: string
+              description: |
+                The email of the customer. Must be unique.
+              minLength: 3
+              maxLength: 255
+            meta_title:
+              type: string
+            body:
+              type: string
+              description: |
+                HTML or variable that populates this page’s  element, in default/desktop view. Required in POST if page type is raw.
+            feed:
+              type: string
+              description: |
+                If page type is rss_feed the n this field is visisble. Required in POST required for rss page type.
+            link:
+              type: string
+              description: |
+                If page type is link this field is returned. Required in POST to create a link page.
+            contact_fields:
+              type: array
+              description: |
+                Where the page’s type is a contact form: object whose members are the fields enabled (in the control panel) for storefront display. Possible members are:fullname: full name of the customer submitting the form; phone: customer’s phone number, as submitted on the form; companyname: customer’s submitted company name; orderno: customer’s submitted order number; rma: customer’s submitted RMA (Return Merchandise Authorization) number.
+              items:
+                $ref: '#/components/schemas/ContactFields'
+            meta_keywords:
+              type: string
+              description: |
+                Comma-separated list of SEO-relevant keywords to include in the page’s  element.
+            meta_description:
+              type: string
+              description: |
+                Description contained within this page’s  element.
+            search_keywords:
+              type: string
+              description: |
+                Comma-separated list of keywords that shoppers can use to locate this page when searching the store.
+            url:
+              type: string
+              description: |
+                Relative URL on the storefront for this page.
+            channel_id:
+              type: integer
+              description: |
+                The Id of the channel where this page should be shown.
+    PageBase:
+      type: object
+      description: Common Page properties.
+      properties:
+        id:
+          type: integer
+          description: |
+            The unique numeric ID of the page.
+        name:
+          type: string
+          description: |
+            The first name of the page.
+          minLength: 1
+          maxLength: 100
+        is_visible:
+          type: boolean
+          description: |
+            If true, this page appears in the storefront’s navigation menu.
+        parent_id:
+          type: integer
+          description: |
+            ID of any parent Web page.
+        sort_order:
+          type: integer
+          description: |
+            Order in which this page should display on the storefront. (Lower integers specify earlier display.)
+        type:
+          type: string
+          description: |
+            page: free-text page link: link to another web address rss_feed: syndicated content from an RSS feed contact_form: When the store’s contact form is used.
+        is_homepage:
+          type: boolean
+          description: |
+            If true, this page is the storefront’s home page.
+        is_customers_only:
+          type: boolean
+          description: |
+            If `true`, this will be displayed as a home page. ??????
+    Pagination:
+      type: object
+      description: |
+        Data about the response, including pagination and collection totals.
+      properties:
+        total:
+          type: integer
+          description: |
+            Total number of items in the result set.
+        count:
+          type: integer
+          description: |
+            Total number of items in the collection response.
+        per_page:
+          type: integer
+          description: |
+            The amount of items returned in the collection per page, controlled by the limit parameter.
+        current_page:
+          type: integer
+          description: |
+            The page you are currently on within the collection.
+        total_pages:
+          type: integer
+          description: |
+            The total number of pages in the collection.
+        links:
+          type: object
+          description: |
+            Pagination links for the previous and next parts of the whole collection.
+          properties:
+            previous:
+              type: string
+              description: |
+                Link to the previous page returned in the response.
+            current:
+              type: string
+              description: |
+                Link to the current page returned in the response.
+            next:
+              type: string
+              description: |
+                Link to the next page returned in the response.
