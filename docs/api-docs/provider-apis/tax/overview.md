@@ -60,15 +60,15 @@ Once your tax provider configuration is ready, we'll let you know via email. The
 
 ### Sandbox tax provider configuration
 
-Sandbox tax provider configurations are nested within your production tax provider configuration, as such, tax providers who require a sandbox tax provider should also provide details for their production tax provider configuration.
+Sandbox tax provider configurations are nested within your production tax provider configuration, as such tax providers requiring a sandbox tax provider configuration should also provide the details for their production tax provider configuration.
 
-Additionally, sandbox tax provider configurations inherit some properties of the parent production tax provider configuration. As such, when providing the details for a sandbox tax provider configuration, it's unncessary to specify the below inehrited properties:
+Additionally, when providing the details for a sandbox tax provider configuration, it's unncessary to specify the below properties because they are inherited from the parent production tax provider configuration (all other properties are still required):
 
 * Supported store(s)
 * Supported store hash(es) (in the case tax provider is a private instance)
 * Supported / supported countries
 
-It's possible to create multiple sandbox tax providers within the production tax provider configuration, for example a tax provider could have a development and a test sandbox tax provider nested within their production tax provider configuration.
+Tax providers can create multiple sandbox tax providers within their production tax provider configuration, for example a tax provider could have a development and a test sandbox tax provider nested within their production tax provider configuration.
 
 ## Building the app
 
