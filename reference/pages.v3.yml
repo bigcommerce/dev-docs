@@ -12,7 +12,7 @@ paths:
       operationId: content-pages-get
       tags:
         - Pages
-      description: Returns a Pages list
+      description: Get a list of content pages.
       responses:
         '200':
           description: |
@@ -45,7 +45,7 @@ paths:
         - schema:
             type: string
           in: query
-          name: name:like
+          name: 'name:like'
           description: Partial name of the page
         - schema:
             type: integer
@@ -53,13 +53,14 @@ paths:
           name: limit
           description: Number of results to return per page
         - schema:
-           type: integer
+            type: integer
           in: query
           name: page
           description: 'Which page number to return, based on the page size. Used to paginate large collections.'
+      summary: Get Pages
     post:
       operationId: content-pages-post
-      description: Create a content page.
+      description: Create content pages.
       tags:
         - Pages
       requestBody:
@@ -84,6 +85,7 @@ paths:
             application/json:
               schema:
                 $ref: '#/components/schemas/ErrorResponse'
+      summary: Create Pages
     put:
       operationId: content-pages-put
       description: Update content pages.
@@ -111,6 +113,7 @@ paths:
             application/json:
               schema:
                 $ref: '#/components/schemas/ErrorResponse'
+      summary: Updates Pages
     delete:
       operationId: content-pages-delete
       tags:
@@ -131,6 +134,7 @@ paths:
           in: query
           name: channel_id
           description: Channel Id provided to delete all pages for a given Channel
+      summary: Delete a Page
 servers:
   - url: 'https://api.bigcommerce.com/stores/{store_hash}/v3'
     description: Pages API Gateway
@@ -138,6 +142,10 @@ servers:
       store_hash:
         default: abc123
         description: Store hash used to identify the store.
+x-stoplight:
+  docs:
+    includeDownloadLink: false
+    showModels: false
 components:
   schemas:
     DetailedErrors:
