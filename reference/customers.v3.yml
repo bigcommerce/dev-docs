@@ -721,7 +721,7 @@ paths:
       operationId: CustomerSettingsGet
       responses:
         '200':
-          description: Customer settings are returned.
+          description: Returns customer settings values for global level
           content:
             application/json:
               schema:
@@ -738,7 +738,7 @@ paths:
     put:
       tags:
         - Customer Settings
-      description: Update the customer settings
+      description: Updates the customer settings values on a global level
       summary: Update the customer settings
       operationId: CustomerSettingsPut
       requestBody:
@@ -749,7 +749,7 @@ paths:
         required: true
       responses:
         '200':
-          description: Customer settings are returned.
+          description: Customer settings are returned on a global level.
           content:
             application/json:
               schema:
@@ -767,7 +767,16 @@ paths:
     get:
       tags:
         - Customer Settings Channel
-      description: Gets the customer settings per channel
+      description: |-
+        Gets the customer settings per channel
+
+        **Required Fields**
+
+        * channel_id -- ID of the channel. This must be included in the request body.
+
+        **Notes**
+
+         * "null" indicates that there is no override per given channel and values are inherited from a global level.
       summary: Gets the customer settings per channel
       operationId: CustomerSettingsChannelGet
       parameters:
@@ -795,7 +804,16 @@ paths:
     put:
       tags:
         - Customer Settings Channel
-      description: Update the customer settings per channel
+      description: |-
+        Update the customer settings per channel
+
+        **Required Fields**
+
+        * channel_id -- ID of the channel. This must be included in the request body.
+
+        **Notes**
+
+        * Setting "null" will delete override per given channel and values will be inherited from a global level.
       summary: Update the customer settings per channel
       operationId: CustomerSettingsChannelPut
       parameters:
@@ -810,6 +828,7 @@ paths:
             schema:
               $ref: '#/components/schemas/CustomerChannelSettingsObject'
         required: true
+        description: ''
       responses:
         '200':
           description: Customer settings are returned.
