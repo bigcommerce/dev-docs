@@ -1,9 +1,9 @@
 openapi: 3.0.0
 info:
-  version: ""
+  version: ''
   title: Payment Processing
   contact: {}
-  description: Process payments using payment instrument such as credit card. See [Payments Overview](https://developer.bigcommerce.com/api-docs/store-management/payment-processing) for more information.
+  description: 'Process payments using payment instrument such as credit card. See [Payments Overview](https://developer.bigcommerce.com/api-docs/store-management/payment-processing) for more information.'
 tags:
   - name: Accepted Methods
   - name: Access Tokens
@@ -13,11 +13,11 @@ x-stoplight:
     includeDownloadLink: true
     showModels: false
 servers:
-  - url: https://api.bigcommerce.com/stores/{$$.env.store_hash}/v3
+  - url: 'https://api.bigcommerce.com/stores/{$$.env.store_hash}/v3'
     variables:
       $$.env.store_hash:
         default: store_hash
-  - url: https://payments.bigcommerce.com/stores/{$$.env.store_hash}
+  - url: 'https://payments.bigcommerce.com/stores/{$$.env.store_hash}'
     variables:
       $$.env.store_hash:
         default: store_hash
@@ -31,9 +31,9 @@ paths:
       tags:
         - Process Payment
       operationId: PaymentsPost
-      description: Process payments for an order. See [Payment Processing](https://developer.bigcommerce.com/api-docs/store-management/payment-processing) for more information.
+      description: 'Process payments for an order. See [Payment Processing](https://developer.bigcommerce.com/api-docs/store-management/payment-processing) for more information.'
       servers:
-        - url: https://payments.bigcommerce.com/stores/{$$.env.store_hash}
+        - url: 'https://payments.bigcommerce.com/stores/{$$.env.store_hash}'
           variables:
             $$.env.store_hash:
               default: store_hash
@@ -41,9 +41,7 @@ paths:
         - name: Authorization
           in: header
           required: true
-          description: "Authorization header with a valid payment access token is required
-            to access this endpoint e.g. Authorization: PAT
-            a-valid-payment-access-token"
+          description: 'Authorization header with a valid payment access token is required to access this endpoint e.g. Authorization: PAT a-valid-payment-access-token'
           schema:
             type: string
         - name: Accept
@@ -72,26 +70,32 @@ paths:
                     - instrument
                     - payment_method_id
                   properties:
-                    amount:
-                      description: Amount in smallest currency unit
-                      type: integer
-                      format: int32
-                    currency_code:
-                      description: Currency code
-                      type: string
-                      pattern: ^[A-Z]{3}$
                     instrument:
                       oneOf:
-                        - $ref: "#/components/schemas/Card"
-                        - $ref: "#/components/schemas/StoredCard"
-                        - $ref: "#/components/schemas/StoredPaypalAccount"
+                        - $ref: '#/components/schemas/Card'
+                        - $ref: '#/components/schemas/StoredCard'
+                        - $ref: '#/components/schemas/StoredPaypalAccount'
                     payment_method_id:
-                      description: Identifier for payment method that will be used for this payment
-                        and `id` from the Get Accepted Payment Methods API
+                      description: Identifier for payment method that will be used for this payment and `id` from the Get Accepted Payment Methods API
                       type: string
                       minLength: 1
               required:
                 - payment
+            examples:
+              example-1:
+                value:
+                  payment:
+                    instrument:
+                      type: card
+                      cardholder_name: string
+                      number: string
+                      expiry_month: 1
+                      expiry_year: 0
+                      verification_value: stri
+                      issue_month: 1
+                      issue_year: 0
+                      issue_number: 0
+                    payment_method_id: string
         required: true
         x-examples:
           application/json:
@@ -100,7 +104,7 @@ paths:
               payment_method_id: Lorem in
               amount: 81505146
               currency_code: NYE
-          Payment Access Token: >-
+          Payment Access Token: |-
             curl -X POST \
               https://payments.bigcommerce.com/stores/{$$.env.store_hash}/payments \
               -H 'Accept: application/vnd.bc.v1+json' \
@@ -111,7 +115,7 @@ paths:
               instrument:
                 type: stored_card
                 token: vaulted instrument token
-                verification_value: "123"
+                verification_value: '123'
               payment_method_id: stripe.card
               save_instrument: true
           Credit Card: |-
@@ -130,7 +134,7 @@ paths:
               }
             }
       responses:
-        "202":
+        '202':
           description: Payment has been successfully processed
           content:
             application/json:
@@ -162,7 +166,7 @@ paths:
                     id: 227d9e1e-94f8-408c-95a5-f97b30592eb7
                     transaction_type: authorization
                     status: pending
-        "400":
+        '400':
           description: Payment request has been rejected due to malformed request
           content:
             application/json:
@@ -188,7 +192,7 @@ paths:
                     type: integer
                     format: int32
                   errors:
-                    description: ""
+                    description: ''
                     type: object
                     additionalProperties:
                       type: string
@@ -196,7 +200,7 @@ paths:
                   - status
                   - title
                   - type
-        "401":
+        '401':
           description: Valid authentication required
           content:
             application/json:
@@ -222,7 +226,7 @@ paths:
                     type: integer
                     format: int32
                   errors:
-                    description: ""
+                    description: ''
                     type: object
                     additionalProperties:
                       type: string
@@ -230,9 +234,8 @@ paths:
                   - status
                   - title
                   - type
-        "422":
-          description: Payment request has been rejected due to missing, invalid data or
-            declined by payment provider
+        '422':
+          description: 'Payment request has been rejected due to missing, invalid data or declined by payment provider'
           content:
             application/json:
               schema:
@@ -257,7 +260,7 @@ paths:
                     type: integer
                     format: int32
                   errors:
-                    description: ""
+                    description: ''
                     type: object
                     additionalProperties:
                       type: string
@@ -291,7 +294,7 @@ paths:
                     type: integer
                     format: int32
                   errors:
-                    description: ""
+                    description: ''
                     type: object
                     additionalProperties:
                       type: string
@@ -301,24 +304,19 @@ paths:
                   - type
   /payments/access_tokens:
     post:
-      description: >-
-        This endpoint provides the capability to create a payment access token.
-        The payment access token is required when making request to Payment API
-        for submitting payment for an order.
-
+      description: |-
+        This endpoint provides the capability to create a payment access token. The payment access token is required when making request to Payment API for submitting payment for an order.
 
         After the token is created then use the token to [Process Payments](/api-reference/payments/payments-process-payments/payment/paymentspost).
 
-
         **Required Fields**
-
         * order_id
       summary: Create Payment Access Token
       tags:
         - Access Tokens
       operationId: PaymentsAccessTokensPost
       servers:
-        - url: https://api.bigcommerce.com/stores/{$$.env.store_hash}/v3
+        - url: 'https://api.bigcommerce.com/stores/{$$.env.store_hash}/v3'
           variables:
             $$.env.store_hash:
               default: store_hash
@@ -342,9 +340,15 @@ paths:
               type: object
               properties:
                 order:
-                  $ref: "#/components/schemas/Order"
+                  $ref: '#/components/schemas/Order'
               required:
                 - order
+            examples:
+              example-1:
+                value:
+                  order:
+                    id: 1
+                    is_recurring: false
         required: true
         x-examples:
           application/json:
@@ -355,7 +359,7 @@ paths:
             order:
               id: 182
       responses:
-        "201":
+        '201':
           description: Payment access token has been successfully created
           headers: {}
           content:
@@ -369,13 +373,18 @@ paths:
                     type: object
                     properties:
                       id:
-                        description: Payment access token. This token is required in subsequent payment
-                          request to Payment API endpoint.
+                        description: Payment access token. This token is required in subsequent payment request to Payment API endpoint.
                         type: string
                         minLength: 1
                     required:
                       - id
-        "400":
+              examples:
+                example-1:
+                  value:
+                    data:
+                      id: eyJhbGciOiJIUzI1NiJ9.eyJleHAiOjE2MTUyNTA3NTksIm5iZiI6MTYxNTI0Nz E1OSwiaXNzIjoicGF5bWVudHMuYmlnY29tbWVyY2UuY29tIiwic3ViIjoieHNsM3 JoZGYzNiIsImp0aSI6IjNhOGE3NTJjLTBmNWQtNDNmNS05MzdjLTRhMTYzODBlMW YwZCIsImlhdCI6MTYxNTI0NzE1OSwiZGF0YSI6eyJzdG9yZV9pZCI6IjEwMDEzMz YzMjQiLCJvcmRlcl9pZCI6IjE2NiIsImFtb3VudCI6NDU3OTAsImN1cnJlbmN5Ij oiVVNEIn19.dpCDgOfbNrz095VARY20yYBRTOuq-W1F0ETTgf1Zhbs
+                    meta: {}
+        '400':
           description: Request has been rejected
           content:
             application/json:
@@ -408,7 +417,7 @@ paths:
                   - status
                   - title
                   - type
-        "401":
+        '401':
           description: Valid authentication required
           content:
             application/json:
@@ -441,7 +450,7 @@ paths:
                   - status
                   - title
                   - type
-        "404":
+        '404':
           description: Request has been rejected due to resource not being found
           content:
             application/json:
@@ -474,9 +483,8 @@ paths:
                   - status
                   - title
                   - type
-        "409":
-          description: Request has been rejected due to conflict with the current state of
-            the target resource
+        '409':
+          description: Request has been rejected due to conflict with the current state of the target resource
           content:
             application/json:
               schema:
@@ -508,7 +516,7 @@ paths:
                   - status
                   - title
                   - type
-        "422":
+        '422':
           description: Request has been rejected due to missing or invalid data
           content:
             application/json:
@@ -586,10 +594,10 @@ paths:
         - Accepted Methods
       operationId: PaymentsMethodsGet
       servers:
-      - url: https://api.bigcommerce.com/stores/{$$.env.store_hash}/v3
-        variables:
-          $$.env.store_hash:
-            default: store_hash
+        - url: 'https://api.bigcommerce.com/stores/{$$.env.store_hash}/v3'
+          variables:
+            $$.env.store_hash:
+              default: store_hash
       deprecated: false
       parameters:
         - name: order_id
@@ -612,9 +620,9 @@ paths:
             type: string
             default: application/json
       responses:
-        "200":
-          $ref: "#/components/responses/paymentsMethods_Resp"
-        "400":
+        '200':
+          $ref: '#/components/responses/paymentsMethods_Resp'
+        '400':
           description: Request has been rejected
           content:
             application/json:
@@ -647,7 +655,7 @@ paths:
                   - status
                   - title
                   - type
-        "401":
+        '401':
           description: Valid authentication required
           content:
             application/json:
@@ -680,7 +688,7 @@ paths:
                   - status
                   - title
                   - type
-        "404":
+        '404':
           description: Request has been rejected due to resource not being found
           content:
             application/json:
@@ -713,7 +721,7 @@ paths:
                   - status
                   - title
                   - type
-        "422":
+        '422':
           description: Request has been rejected due to missing or invalid data
           content:
             application/json:
@@ -797,7 +805,7 @@ components:
         default: application/json
   responses:
     paymentsMethods_Resp:
-      description: ""
+      description: ''
       content:
         application/json:
           schema:
@@ -807,7 +815,7 @@ components:
               data:
                 type: array
                 items:
-                  $ref: "#/components/schemas/paymentMethod_Full"
+                  $ref: '#/components/schemas/paymentMethod_Full'
           examples:
             response:
               value:
@@ -836,13 +844,13 @@ components:
                         brand: VISA
                         expiry_month: 9
                         expiry_year: 2020
-                        issuer_identification_number: "424242"
-                        last_4: "4242"
+                        issuer_identification_number: '424242'
+                        last_4: '4242'
                         token: 050a1e5c982e5905288ec5ec33f292772762033a0704f46fccb16bf1940b51ef
                         is_default: true
                 meta: {}
     paymentAccessToken_Resp:
-      description: ""
+      description: ''
       content:
         application/json:
           schema:
@@ -850,64 +858,41 @@ components:
             type: object
             properties:
               data:
-                $ref: "#/components/schemas/PaymentAccessToken"
+                $ref: '#/components/schemas/PaymentAccessToken'
   securitySchemes:
     X-Auth-Token:
       type: apiKey
       in: header
       name: X-Auth-Token
-      description: >-
+      description: |-
         ### OAuth Scopes
-
         |  **UI Name** | **Permission** | **Parameter** |
-
         | --- | --- | --- |
-
         |  Create Payments | create | `store_payments_access_token_create` |
-
         |  Get Payment Methods | read-only | `store_payments_methods_read` |
-
 
         ### Headers
 
-
         |Header|Parameter|Description|
-
         |-|-|-|
-
         |`X-Auth-Token`|`ACCESS_TOKEN`|Obtained by creating an API account or installing an app in a BigCommerce control panel.|
-
         |`Authorization`|`{PAYMENT_ACCESS_TOKEN}`|Obtained using Create Access Token endpoint.|
-
 
         ### Example
 
-
         ```http
-
         POST /stores/{$$.env.store_hash}/v3/payments/access_tokens
-
         host: api.bigcommerce.com
-
         Content-Type: application/json
-
         X-Auth-Token: {ACCESS_TOKEN}
-
         ```
-
 
         ```http
-
         POST /payments
-
         host: payments.bigcommerce.com
-
         Content-Type: application/json
-
         Authorization: {PAYMENT_ACCESS_TOKEN}
-
         ```
-
 
         * For more information on Authenticating BigCommerce APIs, see: [Authentication](https://developer.bigcommerce.com/api-docs/getting-started/authentication).
   schemas:
@@ -929,9 +914,9 @@ components:
             currency_code:
               description: Currency code
               type: string
-              pattern: ^[A-Z]{3}$
+              pattern: '^[A-Z]{3}$'
             instrument:
-              description: ""
+              description: ''
               type: object
             payment_method_id:
               description: Identifier for payment method that will be used for this payment
@@ -950,9 +935,9 @@ components:
         currency_code:
           description: Currency code
           type: string
-          pattern: ^[A-Z]{3}$
+          pattern: '^[A-Z]{3}$'
         instrument:
-          description: ""
+          description: ''
           type: object
         payment_method_id:
           description: Identifier for payment method that will be used for this payment
@@ -1020,7 +1005,7 @@ components:
           type: integer
           format: int32
         errors:
-          description: ""
+          description: ''
           type: object
           additionalProperties:
             type: string
@@ -1080,6 +1065,17 @@ components:
         - number
         - expiry_month
         - expiry_year
+      x-examples:
+        example-1:
+          type: card
+          cardholder_name: string
+          number: string
+          expiry_month: 1
+          expiry_year: 0
+          verification_value: stri
+          issue_month: 1
+          issue_year: 0
+          issue_number: 0
     StoredCard:
       title: Stored Card
       type: object
@@ -1161,14 +1157,16 @@ components:
           minimum: 1
           format: int32
         is_recurring:
-          description: Whether this is a recurring order. If the order is recurring this
-            field should be set to true in order to let the payment gateway
-            know.
+          description: Whether this is a recurring order. If the order is recurring this field should be set to true in order to let the payment gateway know.
           example: false
           type: boolean
           default: false
       required:
         - id
+      x-examples:
+        example-1:
+          id: 1
+          is_recurring: false
     PaymentAccessTokenRequest:
       title: Payment Access Token Request
       type: object
@@ -1185,9 +1183,7 @@ components:
               minimum: 1
               format: int32
             is_recurring:
-              description: Whether this is a recurring order. If the order is recurring this
-                field should be set to true in order to let the payment gateway
-                know.
+              description: Whether this is a recurring order. If the order is recurring this field should be set to true in order to let the payment gateway know.
               example: false
               type: boolean
               default: false
@@ -1198,8 +1194,7 @@ components:
       type: object
       properties:
         id:
-          description: Payment access token. This token is required in subsequent payment
-            request to Payment API endpoint.
+          description: Payment access token. This token is required in subsequent payment request to Payment API endpoint.
           type: string
           minLength: 1
       required:
@@ -1223,8 +1218,7 @@ components:
           type: integer
           format: int32
         issuer_identification_number:
-          description: Issuer identification number of this card. This is extracted from
-            the card when the order is payed for.
+          description: Issuer identification number of this card. This is extracted from the card when the order is payed for.
           type: string
           minLength: 6
           maxLength: 6
@@ -1234,10 +1228,7 @@ components:
           minLength: 4
           maxLength: 4
         token:
-          description: Identifier representing this stored card. This is used to identify
-            cards within BigCommerce. It is the same as the
-            `payment_access_token` that returns via the [Get Transactions
-            endpoint](https://developer.bigcommerce.com/api-reference/orders/orders-transactions-api/orders/gettransactions).
+          description: 'Identifier representing this stored card. This is used to identify cards within BigCommerce. It is the same as the `payment_access_token` that returns via the [Get Transactions endpoint](https://developer.bigcommerce.com/api-reference/orders/orders-transactions-api/orders/gettransactions).'
           type: string
           minLength: 64
           maxLength: 64
@@ -1260,6 +1251,16 @@ components:
         - token
         - is_default
         - type
+      x-examples:
+        example-1:
+          brand: string
+          expiry_month: 1
+          expiry_year: 0
+          issuer_identification_number: string
+          last_4: stri
+          token: stringstringstringstringstringstringstringstringstringstringstri
+          is_default: false
+          type: stored_card
     paymentMethod_Full:
       title: paymentMethod_Full
       type: object
@@ -1275,7 +1276,7 @@ components:
         stored_instruments:
           type: array
           items:
-            $ref: "#/components/schemas/paymentMethodStoredInstrument"
+            $ref: '#/components/schemas/paymentMethodStoredInstrument'
         supported_instruments:
           type: array
           items:
@@ -1318,6 +1319,24 @@ components:
         - supported_instruments
         - test_mode
         - type
+      x-examples:
+        example-1:
+          id: string
+          name: string
+          stored_instruments:
+            - brand: string
+              expiry_month: 1
+              expiry_year: 0
+              issuer_identification_number: string
+              last_4: stri
+              token: stringstringstringstringstringstringstringstringstringstringstri
+              is_default: false
+              type: stored_card
+          supported_instruments:
+            - instrument_type: VISA
+              verification_value_required: true
+          test_mode: false
+          type: card
     SupportedCardInstrument:
       title: Supported Card Instrument
       type: object
