@@ -37,7 +37,7 @@ Accept: application/json
  
 {
   "name": "Product Widget",
-"storefront_api_query": "query Product($productId: Int = 1, $activeCurrencyCode: currencyCode) { site { product(entityId: $productId) { name entityId prices(currencyCode: $activeCurrencyCode) { price { currencyCode value } } defaultImage { url(width: 500, height: 500) } } } } ",
+  "storefront_api_query": "query Product($productId: Int = 1, $activeCurrencyCode: currencyCode) { site { product(entityId: $productId) { name entityId prices(currencyCode: $activeCurrencyCode) { price { currencyCode value } } defaultImage { url(width: 500, height: 500) } } } } ",
   "schema": [
     {
       "type": "hidden",
