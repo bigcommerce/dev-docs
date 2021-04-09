@@ -68,7 +68,7 @@ Perform the following steps to create new key-value pairs and invoke a defined t
         "powered_by": "Powered by"
     },
 ```
-2. Add the following syntax in the appropriate file.
+2. You can use the handlebars `lang` directive in the appropriate file to show a translated string.
 
 ```html
 {{lang "translation.key" optionalVariable="someValue"}}
@@ -76,8 +76,8 @@ Perform the following steps to create new key-value pairs and invoke a defined t
 For this example, update footer.html as shown below.
 
 ```html
-{{/if}} {{#if theme_settings.show_powered_by}}
-{{lang 'footer.powered_by'}} BigCommerce
+{{#if theme_settings.show_powered_by}}
+  {{lang 'footer.powered_by'}} BigCommerce
 ```
 
 ## Update browser settings
