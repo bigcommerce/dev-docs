@@ -45,4 +45,4 @@ BigCommerce has a dedicated Slack channel for Technology and Agency partners. It
 
 ## Partner Support Team
 
-You can access the Partner Support Team through the Partner Portal. Once you log into your Partner Portal account, hover over the **Support** tab located in the top right corner. Select **Contact Support** and you will be taken to a new page where you can **Open a Support Case** or use our **Live Chat** feature.
+You can access the Partner Support Team through the [Partner Portal](https://partners.bigcommerce.com/English/). Once you log into your Partner Portal account, hover over the **Support** tab located in the top right corner. Select **Contact Support** and you will be taken to a new page where you can **Create a Support Case** or use our **Live Chat** feature.

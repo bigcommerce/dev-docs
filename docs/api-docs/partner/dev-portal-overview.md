@@ -22,7 +22,6 @@ For instructions on how to use the Developer Portal to create an app, see [Manag
 ### Related articles
 
 * [BigCommerce APIs Quick Start](https://developer.bigcommerce.com/api-docs/getting-started/making-requests)
-* [BigDesign Developer Playground](https://developer.bigcommerce.com/big-design/)
 * [Filtering](https://developer.bigcommerce.com/api-docs/getting-started/filtering)
 * [Webhooks Overview](https://developer.bigcommerce.com/api-docs/store-management/webhooks/overview)
 

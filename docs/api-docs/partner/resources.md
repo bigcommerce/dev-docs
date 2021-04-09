@@ -39,7 +39,9 @@ BigCommerce sample apps are open-source projects developed by the BigCommerce te
 
 ## Checkout SDK
 
-The Checkout SDK is a JavaScript library intended for partners, developers, and merchants who want to build a custom checkout front-end experience. See [Checkout SDK](https://developer.bigcommerce.com/stencil-docs/customizing-checkout/checkout-sdk) for more information. To learn about available checkout page customization options, see [Restyle Optimized One-Page Checkout](https://developer.bigcommerce.com/stencil-docs/customizing-checkout/optimized-one-page-checkout).
+The [Checkout SDK](https://developer.bigcommerce.com/stencil-docs/customizing-checkout/checkout-sdk) is a JavaScript library intended for partners, developers, and merchants who want to build a custom checkout front-end experience. To learn the basics about building a custom checkout directly into the control panel, see [Checkout SDK Quick Start](https://developer.bigcommerce.com/stencil-docs/customizing-checkout/checkout-sdk-quickstart).
+For information on BigCommerce's [Open Checkout](https://github.com/bigcommerce/checkout-js) (also known as [Optimized One-Page Checkout](https://support.bigcommerce.com/s/article/Optimized-Single-Page-Checkout)), see [Open Checkout Quick Start](https://developer.bigcommerce.com/stencil-docs/customizing-checkout/open-checkout-quick-start).
+To learn about Open Checkout customization options, see [Restyle Optimized One-Page Checkout](https://developer.bigcommerce.com/stencil-docs/customizing-checkout/optimized-one-page-checkout). 
 
 ## Page Builder
 
@@ -56,6 +58,7 @@ The following articles cover essentials for getting started with Stencil:
 * [Theme Assets](https://developer.bigcommerce.com/stencil-docs/storefront-customization/theme-assets)
 * [Theme Object Reference](https://developer.bigcommerce.com/theme-objects)
 * [Bundling and Pushing a Theme](https://developer.bigcommerce.com/stencil-docs/deploying-a-theme/bundling-and-pushing)
+* [Theme Updates and Version Control](https://developer.bigcommerce.com/stencil-docs/deploying-a-theme/theme-updates-and-version-control)
 * [Customizing JavaScript](https://developer.bigcommerce.com/stencil-docs/javascript-and-event-hooks/customizing-javascript)
 * [Custom Templates](https://developer.bigcommerce.com/stencil-docs/storefront-customization/custom-templates)
 
