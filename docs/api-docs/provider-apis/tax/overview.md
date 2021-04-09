@@ -22,7 +22,7 @@ The [Tax Provider API](https://developer.bigcommerce.com/api-reference/providers
 
 The [Tax Provider API](https://developer.bigcommerce.com/api-reference/providers/tax-provider-api) works in conjunction with a BigCommerce app, so you will need to [build an app](https://developer.bigcommerce.com/api-docs/apps/guide/intro) that integrates the [Tax Provider API](https://developer.bigcommerce.com/api-reference/providers/tax-provider-api).
 
-Multi-tenant tax providers can choose to publish their BigCommerce app so that it's discoverable by anyone, or publish their app as unlisted so that it can only be installed via URL. Furthermore, tax solutions that have been built in-house or for specific merchants by digital agencies are also supported as private instances, and will only work on the stores specified.
+Multi-tenant tax providers can choose to publish their BigCommerce app so that it's discoverable by anyone, or publish their app as unlisted so that it can only be installed via URL. Furthermore, tax solutions that have been built in-house or for specific merchants by digital agencies are also supported as private instances, and will only work on the specified stores.
 
 ## Obtaining an app ID
 
@@ -40,15 +40,15 @@ Once your tax provider configuration is ready, we'll let you know via email. The
 
 |Tax Provider Details              |Required / Optional            |Value(s)                     |Description                                                                                           |Example                                           |
 | ------------------------------------- | ------------------------------ | ---------------------------- | ----------------------------------------------------------------------------------------------------- | ------------------------------------------------- |
-| App ID                                | Required                       | Integer                      | Tells us which provider config to use after the app is installed.                                     | `123456`                                          |
-| Tax provider name                     | Required                       | String                       | Displayed in the BigCommerce control panel (like in **Store Setup > Tax > Add Tax Service**).             | `Sample Tax`                                      |
-| Tax provider type                     | Required                       | Production, Sandbox             | Hierarchy of your provider (Production is primary and Sandbox is secondary, see [sandbox tax provider configuration](#sandbox-tax-provider-configuration) for more information.               | `Production`                                      |
-| Merchant support email                | Optional                       | Email                        | Displayed in the BigCommerce control panel in **Store Setup > Tax > Tax Provider**.                       | `support@sampletax.example.com`                   |
-| Merchant support URL                  | Optional                       | URL                          | Displayed in the BigCommerce control panel in **Store Setup > Tax > Tax Provider**.                        | `sampletax.example.com/support`                   |
+| App ID                                | Required                       | Integer                      | Tells us which tax provider configuration to use after the app is installed.                                     | `123456`                                          |
+| Tax provider name                     | Required                       | String                       | Displayed in the BigCommerce control panel (e.g. **Store Setup > Tax > Add Tax Service**).             | `Sample Tax`                                      |
+| Tax provider type                     | Required                       | Production, Sandbox             | Hierarchy of tax provider configurations, Production is primary and Sandboxes are secondary, see [sandbox tax provider configuration](#sandbox-tax-provider-configuration) for more information.               | `Production`                                      |
+| Merchant support email                | Optional                       | Email                        | Displayed in the BigCommerce control panel, **Store Setup > Tax > Tax Provider**.                       | `support@sampletax.example.com`                   |
+| Merchant support URL                  | Optional                       | URL                          | Displayed in the BigCommerce control panel, **Store Setup > Tax > Tax Provider**.                        | `sampletax.example.com/support`                   |
 | **Coverage**                          |                                |                              |                                                                                                       |                                                   |
-| Tax provider visibility               | Required                       | Show, Hide                   | Tells us if your tax provider should be displayed to users in the BigCommerce control panel.          | `Show`                                            |
-| Supported store(s)                    | Required                       | All stores, Private instance | Tells us which stores your tax provider is supported on.                                              | `All stores`                                      |
-| Supported store(s) - private instance | Required (if private instance) | Store hashes                 | Test store hashes that are supported by your tax provider (if private instance).                      | `dwvjntfqv,epq54yymgq`                            |
+| Tax provider visibility               | Required                       | Show, Hide                   | Tells us if tax provider should be displayed to users in the BigCommerce control panel before the tax providers app is installed on the associated store.          | `Show`                                            |
+| Platform availability                    | Required                       | All stores, Private instance | Tells us if tax provider should work on all stores or only on the stores where a store hash has been provided.                                           | `All stores`                                      |
+| Supported store(s) | Required if platform availability is **private instance**) | Store hashes                 | As a private instance, tax provider configuration will only work on store hashes provided.                      | `dwvjntfqv,epq54yymgq`                            |
 | Supported / unsupported countries     | Required                       | ISO 3166-1 alpha-2           | Comma separated ISO 3166-1 alpha-2 country codes for supported countries.                             | `US,CA,GB,FR,AU,NZ`                               |
 | **URLs**                              |                                |                              |                                                                                                       |                                                   |
 | Estimate URL                          | Required                       | URL                          | URL BigCommerce should use for Tax Provider API estimate requests.                                    | `https://sampletax.example.com/tax/estimate`      |
@@ -60,11 +60,14 @@ Once your tax provider configuration is ready, we'll let you know via email. The
 
 ### Sandbox tax provider configuration
 
-Sandbox tax provider configurations are nested within your production tax provider configuration, as such tax providers requiring a sandbox tax provider configuration should also provide the details for their production tax provider configuration.
+Sandbox tax provider configurations are nested within your production tax provider configuration, as such tax providers requiring a sandbox tax provider configuration should also provide details for their production tax provider configuration.
 
-Additionally, when providing the details for a sandbox tax provider configuration, it's unnecessary to specify the below properties because they are inherited from the parent production tax provider configuration (all other properties are still required):
+Additionally, when providing the details for a sandbox tax provider configuration, it's unnecessary to specify the below properties because they are inherited from the primary production tax provider configuration (all other properties are still required):
 
-* Supported store(s), i.e. all stores or supported store hashes in the case tax provider is a private instance
+* Merchant support email
+* Merchant support URL
+* Tax provider visibility
+* Platform availability, i.e. all stores or only specified store hashes
 * Supported / unsupported countries
 
 Tax providers can create multiple sandbox tax providers within their production tax provider configuration, for example a tax provider could have a development and a test sandbox tax provider nested within their production tax provider configuration.
