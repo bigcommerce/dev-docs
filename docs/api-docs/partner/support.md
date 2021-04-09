@@ -29,7 +29,7 @@ The [Developer library](https://developer.bigcommerce.com/dev-library/) provides
 
 ## Developer Slack
 
-BigCommerce has a dedicated Slack channel for Technology and Agency partners. It is a great place to connect, learn about new updates, and attend “Ask Me Anything” sessions with members of the BigCommerce Product team. To join the BigCommerce developer Slack community, fill out this [form](https://docs.google.com/forms/d/e/1FAIpQLSeQApTpd4T9lEX7hPgUjTyoq0vb8UbiCiWseuurJjdMHGBaGQ/viewform). 
+BigCommerce has a dedicated Slack channel for Technology and Agency partners. It is a great place to connect, learn about new updates, and attend “Ask Me Anything” sessions with the BigCommerce Product team members. To join the BigCommerce developer Slack community, fill out this [form](https://docs.google.com/forms/d/e/1FAIpQLSeQApTpd4T9lEX7hPgUjTyoq0vb8UbiCiWseuurJjdMHGBaGQ/viewform). 
 
 ## Changelog
 
