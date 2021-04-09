@@ -1766,6 +1766,7 @@ components:
             type: string
     channelConfigMeta_Full:
       type: object
+      description: Optional channel configuration object.
       properties:
         app:
           type: object
@@ -1787,9 +1788,6 @@ components:
                   query_path:
                     type: string
                     description: The value that will be passed to the app's iFrame in the URL and will allow the app to display the appropriate section within the app iFrame in the control panel.
-          required:
-            - id
-      description: Optional channel configuration object.
     channel_Base:
       title: channel_Base
       type: object
