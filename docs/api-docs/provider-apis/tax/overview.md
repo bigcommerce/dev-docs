@@ -172,7 +172,8 @@ When responding to tax estimate requests sent by BigCommerce, tax providers are 
 
 Document submission enables tax providers to persist a tax quote request, replace it with another one, or invalidate it if necessary.
 
-Supporting document submission is optional; however, tax providers wishing to support this functionality are required to share document submission URLs with BigCommerce when [sharing provider details with BigCommerce](#sharing-provider-details-with-bigcommerce).
+Supporting document submission is optional. However, tax providers wishing to support this functionality must share document submission URLs with BigCommerce when [sharing provider details with BigCommerce](#sharing-provider-details-with-bigcommerce).
+
 
 If document submission is supported, navigate to **Store Setup > Tax > {Tax Provider}** and ensure the submit order data checkbox is checked.
 
