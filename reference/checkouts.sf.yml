@@ -822,7 +822,7 @@ paths:
               address2: Apt 1
               city: Austin
               stateOrProvinceCode: TX
-              countryCode: USA
+              countryCode: US
               postalCode: '12345'
       responses:
         '200':
@@ -993,7 +993,7 @@ paths:
               address2: Apt 1
               city: Austin
               stateOrProvinceCode: TX
-              countryCode: USA
+              countryCode: US
               postalCode: '12345'
       responses:
         '200':
@@ -1250,7 +1250,7 @@ paths:
                   address2: Apt 1
                   city: Austin
                   stateOrProvinceCode: TX
-                  countryCode: USA
+                  countryCode: US
                   postalCode: '12345'
                   customFields:
                     - {}
@@ -1266,7 +1266,7 @@ paths:
                   address2: Apt 5
                   city: Austin
                   stateOrProvinceCode: TX
-                  countryCode: USA
+                  countryCode: US
                   postalCode: '12345'
                   customFields:
                     - {}
@@ -2589,7 +2589,7 @@ definitions:
         description: ''
         type: string
       countryCode:
-        description: 'ISO 3166-1 alpha-3 country code. (See: https://en.wikipedia.org/wiki/ISO_3166-1_alpha-3)'
+        description: 'ISO 3166-1 alpha-2 country code. (See: https://en.wikipedia.org/wiki/ISO_3166-1_alpha-2)'
         type: string
       postalCode:
         description: ''
@@ -3157,7 +3157,7 @@ definitions:
                     description: ''
                     type: string
                   countryCode:
-                    description: 'ISO 3166-1 alpha-3 country code. (See: https://en.wikipedia.org/wiki/ISO_3166-1_alpha-3)'
+                    description: 'ISO 3166-1 alpha-2 country code. (See: https://en.wikipedia.org/wiki/ISO_3166-1_alpha-2)'
                     type: string
                   postalCode:
                     description: ''
@@ -3230,7 +3230,7 @@ definitions:
                           description: ''
                           type: string
                         countryCode:
-                          description: 'ISO 3166-1 alpha-3 country code. (See: https://en.wikipedia.org/wiki/ISO_3166-1_alpha-3)'
+                          description: 'ISO 3166-1 alpha-2 country code. (See: https://en.wikipedia.org/wiki/ISO_3166-1_alpha-2)'
                           type: string
                         postalCode:
                           description: ''
@@ -3522,7 +3522,7 @@ definitions:
             description: ''
             type: string
           countryCode:
-            description: 'ISO 3166-1 alpha-3 country code. (See: https://en.wikipedia.org/wiki/ISO_3166-1_alpha-3)'
+            description: 'ISO 3166-1 alpha-2 country code. (See: https://en.wikipedia.org/wiki/ISO_3166-1_alpha-2)'
             type: string
           postalCode:
             description: ''
@@ -3611,7 +3611,7 @@ definitions:
             description: ''
             type: string
           countryCode:
-            description: 'ISO 3166-1 alpha-3 country code. (See: https://en.wikipedia.org/wiki/ISO_3166-1_alpha-3)'
+            description: 'ISO 3166-1 alpha-2 country code. (See: https://en.wikipedia.org/wiki/ISO_3166-1_alpha-2)'
             type: string
           postalCode:
             description: ''
