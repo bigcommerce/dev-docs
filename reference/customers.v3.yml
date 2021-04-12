@@ -16,6 +16,7 @@ tags:
   - name: Customer Stored Instruments
   - name: Customer Settings
   - name: Customer Settings Channel
+  - name: Customer Validate Credentials
 x-stoplight:
   docs:
     includeDownloadLink: false
@@ -712,6 +713,86 @@ paths:
           headers: {}
       tags:
         - Customer Addresses
+  /customers/validate-credentials:
+    post:
+      tags:
+        - Customer Validate Credentials
+      description: Validate a customer credentials - This endpoint has special rate limiting protections to protect against abuse
+      summary: Validate a customer credentials
+      operationId: CustomerValidateCredentials
+      requestBody:
+        required: true
+        content:
+          application/json:
+            schema:
+              $ref: '#/components/schemas/ValidateCustomerCredentialsObject'
+            examples:
+              data:
+                value:
+                  email: 'foo@bar.com'
+                  password: 'password'
+                  channel_id: 1
+      responses:
+        '200':
+          description: Returns if the customer credentials provided are valid or not
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/ValidateCustomerCredentialsResponseObject'
+              examples:
+                data:
+                  value:
+                    is_valid: true
+                    customer_id: 1
+        '422':
+          description: This is the result of missing required fields. See the response for more details.
+          content:
+            application/json:
+              schema:
+                title: Error Response
+                type: object
+                properties:
+                  status:
+                    description: The HTTP status code.
+                    type: integer
+                    format: int32
+                  title:
+                    description: The error title describing the particular error.
+                    type: string
+                  type:
+                    type: string
+                  instance:
+                    type: string
+                  errors:
+                    type: object
+                    additionalProperties:
+                      type: string
+        '429':
+          description: |
+            Allowed number of requests exceeded
+          content:
+            application/json:
+              schema:
+                title: Error Response
+                type: object
+                properties:
+                  status:
+                    description: The HTTP status code.
+                    type: integer
+                    format: int32
+                    example: 429
+                  title:
+                    description: The error title describing the particular error.
+                    type: string
+                    example: 'Too many requests'
+                  type:
+                    type: string
+                    example: 'https://developer.bigcommerce.com/api-docs/getting-started/api-status-codes'
+                  errors:
+                    type: object
+                    additionalProperties:
+                      type: string
+                    example: {}
   /customers/settings:
     get:
       tags:
@@ -1552,7 +1633,7 @@ paths:
 
         </div>
         </div>
-        </div> 
+        </div>
       operationId: liststoredinstruments
       parameters:
         - $ref: '#/components/parameters/customerId'
@@ -5083,3 +5164,30 @@ components:
           description: |-
             * Determines if a channel allows global customer to login
             * Determines if customers created on this channel will get global access/login
+    ValidateCustomerCredentialsObject:
+      title: ValidateCustomerCredentialsObject
+      type: object
+      required:
+        - email
+        - password
+      properties:
+        email:
+          type: string
+          description: Customer email address
+        password:
+          type: string
+          description: Customer password
+        channel_id:
+          type: integer
+          description: ChannelId to check the customer credentials against - If this field is empty we will use channel 1
+    ValidateCustomerCredentialsResponseObject:
+      title: ValidateCustomerCredentialsResponseObject
+      type: object
+      properties:
+        customer_id:
+          type: integer
+          nullable: true
+          description: returns the customer Id
+        is_valid:
+          type: boolean
+          description: indicates if the provided credentials are valid
