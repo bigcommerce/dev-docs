@@ -66,14 +66,14 @@ paths:
                       productId: 230
                       optionSelections:
                         - optionId: 10
-                          optionValue: "Some Text Value"
+                          optionValue: Some Text Value
                   locale: en
         required: true
       responses:
         '200':
           $ref: '#/components/responses/postCarts'
       x-codegen-request-body-name: cartData
-  /carts/{cartId}:
+  '/carts/{cartId}':
     delete:
       tags:
         - Cart
@@ -104,7 +104,7 @@ paths:
         '204':
           description: ''
           content: {}
-  /carts/{cartId}/items:
+  '/carts/{cartId}/items':
     post:
       tags:
         - Cart Items
@@ -168,15 +168,13 @@ paths:
                         - optionId: 11
                           optionValue: test
         description: ''
-  /carts/{cartId}/items/{itemId}:
+  '/carts/{cartId}/items/{itemId}':
     put:
       tags:
         - Cart Items
       summary: Update Cart Line Item
       description: |-
-        Updates a *Cart* line item. Updates an existing, single line item in the cart.
-
-        This endpoint only supports quantity change for simple products. If a modified product or variant needs to be changed or updated, the product will need to be removed and re-added to the cart with the correct variants using the [Add Cart Line Item](https://developer.bigcommerce.com/api-reference/storefront/carts/cart-items/addcartlineitem) endpoint.
+        Updates a *Cart* line item. Updates an existing, single line item quantity and the price of custom items in a cart.
 
         <div class="HubBlock--callout">
         <div class="CalloutBlock--info">
