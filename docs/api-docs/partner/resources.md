@@ -40,8 +40,8 @@ BigCommerce sample apps are open-source projects developed by the BigCommerce te
 ## Checkout SDK
 
 The [Checkout SDK](https://developer.bigcommerce.com/stencil-docs/customizing-checkout/checkout-sdk) is a JavaScript library intended for partners, developers, and merchants who want to build a custom checkout front-end experience. To learn the basics about building a custom checkout directly into the control panel, see [Checkout SDK Quick Start](https://developer.bigcommerce.com/stencil-docs/customizing-checkout/checkout-sdk-quickstart).
-For information on BigCommerce's [Open Checkout](https://github.com/bigcommerce/checkout-js) (also known as [Optimized One-Page Checkout](https://support.bigcommerce.com/s/article/Optimized-Single-Page-Checkout)), see [Open Checkout Quick Start](https://developer.bigcommerce.com/stencil-docs/customizing-checkout/open-checkout-quick-start).
-To learn about Open Checkout customization options, see [Restyle Optimized One-Page Checkout](https://developer.bigcommerce.com/stencil-docs/customizing-checkout/optimized-one-page-checkout). 
+
+For information on BigCommerce's [Open Checkout](https://github.com/bigcommerce/checkout-js) (also known as [Optimized One-Page Checkout](https://support.bigcommerce.com/s/article/Optimized-Single-Page-Checkout)), see [Open Checkout Quick Start](https://developer.bigcommerce.com/stencil-docs/customizing-checkout/open-checkout-quick-start). To learn about Open Checkout customization options, see [Restyle Optimized One-Page Checkout](https://developer.bigcommerce.com/stencil-docs/customizing-checkout/optimized-one-page-checkout). 
 
 ## Page Builder
 
