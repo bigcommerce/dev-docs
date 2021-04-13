@@ -301,7 +301,7 @@ Use the V2 Orders Endpoint to get the required ID:
   - `HANDLING` -- Order Address ID
   - `ORDER` -- Order ID
 
-**Will this trigger an email to the merchant?**
+**Will this trigger an email to the shopper?**
 
 Yes, if you configure the store to send an email when an order status changes to _Refunded_ or _Partially Refunded_.
 
