@@ -176,6 +176,9 @@ paths:
       description: |-
         Updates a *Cart* line item. Updates an existing, single line item quantity and the price of custom items in a cart.
 
+        If a modified product or variant needs to be changed or updated, you can remove and re-add the product to the cart with the correct variants using the [Delete Cart Line Item](https://developer.bigcommerce.com/api-reference/storefront/carts/cart-items/deletecartlineitem) and the [Add Cart Line Items](https://developer.bigcommerce.com/api-reference/storefront/carts/cart-items/addcartlineitem) endpoints.
+
+
         <div class="HubBlock--callout">
         <div class="CalloutBlock--info">
         <div class="HubBlock-content">
