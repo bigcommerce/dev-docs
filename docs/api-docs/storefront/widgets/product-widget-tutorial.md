@@ -37,45 +37,46 @@ Accept: application/json
  
 {
   "name": "Product Widget",
-  "storefront_api_query": "query Product($productId: Int = 1) { site { product(entityId: $productId) { name entityId prices { price { currencyCode value } } defaultImage { url(width: 500, height: 500) } } } } ",
+  "storefront_api_query": "query Product($productId: Int = 1, $activeCurrencyCode: currencyCode) { site { product(entityId: $productId) { name entityId prices(currencyCode: $activeCurrencyCode) { price { currencyCode value } } defaultImage { url(width: 500, height: 500) } } } } ",
   "schema": [
-  {
-    "type": "hidden",
-    "settings": [
-      {
-        "type": "graphQl",
-        "id": "graphQueries",
-        "typeMeta": {
-          "mappings": {
-            "productId": {
-              "reads": "productId",
-              "type": "Int!"
+    {
+      "type": "hidden",
+      "settings": [
+        {
+          "type": "graphQl",
+          "id": "graphQueries",
+          "typeMeta": {
+            "mappings": {
+              "productId": {
+                "reads": "productId",
+                "type": "Int!"
+              }
             }
           }
         }
-      }
-    ]
-  },
-  {
-    "type": "tab",
-    "label": "Content",
-    "sections": [
-      {
-        "label": "Product",
-        "settings": [
-          {
-            "type": "productId",
-            "label": "Product",
-            "id": "productId",
-            "default": "",
-            "typeMeta": {
-              "placeholder": "Search by name or SKU"
+      ]
+    },
+    {
+      "type": "tab",
+      "label": "Content",
+      "sections": [
+        {
+          "label": "Product",
+          "settings": [
+            {
+              "type": "productId",
+              "label": "Product",
+              "id": "productId",
+              "default": "",
+              "typeMeta": {
+                "placeholder": "Search by name or SKU"
+              }
             }
-          }
-        ]
-      }
-    ]
-  }],
+          ]
+        }
+      ]
+    }
+  ],
   "template": "<div style=\"text-align:center\">\n<h1>{{_.data.site.product.name}}</h1>\n<div>\n<img src=\"{{_.data.site.product.defaultImage.url}}\">\n</div>\n<div>\n<p>${{_.data.site.product.prices.price.value}}</p>\n</div>\n</div>"
 }
 ```
@@ -89,27 +90,55 @@ Accept: application/json
   "data": {
     "channel_id": 1,
     "client_rerender": false,
-    "current_version_uuid": "20e3c8f6-8fa5-46f1-b7e7-35f22ff37530",
-    "date_created": "2020-12-15T03:02:17.965Z",
-    "date_modified": "2020-12-15T03:02:17.965Z",
+    "current_version_uuid": "3f4defcf-2429-425d-8e5a-7c3807fa9896",
+    "date_created": "2021-04-09T21:23:16.274Z",
+    "date_modified": "2021-04-09T21:23:16.274Z",
     "icon_name": "default",
     "kind": "custom",
     "name": "Product Widget",
     "schema": [
       {
-        "settings": [...],
+        "settings": [
+          {
+            "id": "graphQueries",
+            "type": "graphQl",
+            "typeMeta": {
+              "mappings": {
+                "productId": {
+                  "reads": "productId",
+                  "type": "Int!"
+                }
+              }
+            }
+          }
+        ],
         "type": "hidden"
       },
       {
         "label": "Content",
-        "sections": [...],
+        "sections": [
+          {
+            "label": "Product",
+            "settings": [
+              {
+                "default": "",
+                "id": "productId",
+                "label": "Product",
+                "type": "productId",
+                "typeMeta": {
+                  "placeholder": "Search by name or SKU"
+                }
+              }
+            ]
+          }
+        ],
         "type": "tab"
       }
     ],
-    "storefront_api_query": "query Product($productId: Int = 1) { site { product(entityId: $productId) { name entityId prices { price { currencyCode value } } defaultImage { url(width: 500, height: 500) } } } } ",
+    "storefront_api_query": "query Product($productId: Int = 1, $activeCurrencyCode: currencyCode) { site { product(entityId: $productId) { name entityId prices(currencyCode: $activeCurrencyCode) { price { currencyCode value } } defaultImage { url(width: 500, height: 500) } } } } ",
     "template": "<div style=\"text-align:center\">\n<h1>{{_.data.site.product.name}}</h1>\n<div>\n<img src=\"{{_.data.site.product.defaultImage.url}}\">\n</div>\n<div>\n<p>${{_.data.site.product.prices.price.value}}</p>\n</div>\n</div>",
     "template_engine": "handlebars_v3",
-    "uuid": "4804b973-c472-43cf-b994-e38b07dd6d58"
+    "uuid": "95eaa664-b19e-4a31-b9c7-498f9bc60bae"
   },
   "meta": {}
 }
@@ -120,15 +149,20 @@ Accept: application/json
 |`name`|string|The name of the widget template.|
 |`schema`|object|The widget settings JSON [schema](https://developer.bigcommerce.com/stencil-docs/page-builder/widget-ui-schema) for [Page Builder](https://support.bigcommerce.com/s/article/Page-Builder) UI.|
 |`template`|string|The [widget template](https://developer.bigcommerce.com/api-docs/store-management/widgets/overview#widget-templates) rendered as Handlebars HTML.|
-|`storefront_api_query`|string|[GraphQL Storefront API](https://developer.bigcommerce.com/api-docs/storefront/graphql/graphql-storefront-api-overview) query that provides widget data; accessed in a template via `{{_.data}}`. |
+|`storefront_api_query`|string|[GraphQL Storefront API](https://developer.bigcommerce.com/api-docs/storefront/graphql/graphql-storefront-api-overview) query that provides widget data; accessed in a template via `{{_.data}}`.|
+
+### GraphQL queries
+
+The `storefront_api_query` field allows you to query store data that widgets can use. The widget configuration provides the values for the `storefront_api_query` parameters.
+For example, the `$productId` parameter comes from the widget configuration when a user selects a product. The `mappings` object from the widget template schema `settings` tells the widget to map the value of the widget configuration’s `productId` setting to the GraphQL parameter called `productId`.
 
 <div class="HubBlock--callout">
 <div class="CalloutBlock--info">
 <div class="HubBlock-content">
 
 > ### Note
->
-> You can limit the amount of widget customizations available to a merchant by configuring the settings in the template’s schema.
+> * You can use the `activeCurrencyCode` query parameter to return user-selected currency.
+> * There is no need to provide the mapping for the `activeCurrencyCode` property as it is auto-populated with the shopper’s active currency at the time of page load.
 
 </div>
 </div>
@@ -153,51 +187,82 @@ Alternatively, you can send a `GET` request to [`/v3/content/widgets`](https://d
 The [response](https://developer.bigcommerce.com/api-reference/store-management/widgets/widget/getwidget#responses) should be similar to the following example:
 
 ```json
+
 {
-  "data": {
-    "channel_id": 1,
-    "date_created": "2020-12-15T03:04:14.316Z",
-    "date_modified": "2020-12-15T03:04:14.316Z",
-    "description": "",
-    "name": "Product Widget",
-    "storefront_api_query_params": {
-      "productId": 86
-    },
-    "uuid": "d8876471-2b1b-4998-87f1-9f99e41294b9",
-    "version_uuid": "20e3c8f6-8fa5-46f1-b7e7-35f22ff37530",
-    "widget_configuration": {
-      "_": {
-        "id": "d8876471-2b1b-4998-87f1-9f99e41294b9"
-      },
-      "productId": "86"
-    },
-    "widget_template": {
+  "data": [
+    {
       "channel_id": 1,
-      "client_rerender": false,
-      "current_version_uuid": "20e3c8f6-8fa5-46f1-b7e7-35f22ff37530",
-      "date_created": "2020-12-15T03:02:17.965Z",
-      "date_modified": "2020-12-15T03:02:17.965Z",
-      "icon_name": "default",
-      "kind": "custom",
+      "date_created": "2021-04-09T21:27:21.163Z",
+      "date_modified": "2021-04-09T21:40:47.892Z",
+      "description": "",
       "name": "Product Widget",
-      "schema": [
-        {
-          "settings": [...],
-          "type": "hidden"
+      "storefront_api_query_params": {
+        "productId": 77
+      },
+      "uuid": "7e6d7a11-164e-4eb1-ae0a-af07f3e2c8fb",
+      "version_uuid": "3f4defcf-2429-425d-8e5a-7c3807fa9896",
+      "widget_configuration": {
+        "_": {
+          "id": "7e6d7a11-164e-4eb1-ae0a-af07f3e2c8fb"
         },
-        {
-          "label": "Content",
-          "sections": [...],
-          "type": "tab"
-        }
-      ],
-      "storefront_api_query": "query Product($productId: Int = 1) { site { product(entityId: $productId) { name entityId prices { price { currencyCode value } } defaultImage { url(width: 500, height: 500) } } } } ",
-      "template": "<div style=\"text-align:center\">\n<h1>{{_.data.site.product.name}}</h1>\n<div>\n<img src=\"{{_.data.site.product.defaultImage.url}}\">\n</div>\n<div>\n<p>${{_.data.site.product.prices.price.value}}</p>\n</div>\n</div>",
-      "template_engine": "handlebars_v3",
-      "uuid": "4804b973-c472-43cf-b994-e38b07dd6d58"
+        "productId": "77"
+      },
+      "widget_template": {
+        "channel_id": 1,
+        "client_rerender": false,
+        "current_version_uuid": "3f4defcf-2429-425d-8e5a-7c3807fa9896",
+        "date_created": "2021-04-09T21:23:16.274Z",
+        "date_modified": "2021-04-09T21:23:16.274Z",
+        "icon_name": "default",
+        "kind": "custom",
+        "name": "Product Widget",
+        "schema": [
+          {
+            "settings": [
+              {
+                "id": "graphQueries",
+                "type": "graphQl",
+                "typeMeta": {
+                  "mappings": {
+                    "productId": {
+                      "reads": "productId",
+                      "type": "Int!"
+                    }
+                  }
+                }
+              }
+            ],
+            "type": "hidden"
+          },
+          {
+            "label": "Content",
+            "sections": [
+              {
+                "label": "Product",
+                "settings": [
+                  {
+                    "default": "",
+                    "id": "productId",
+                    "label": "Product",
+                    "type": "productId",
+                    "typeMeta": {
+                      "placeholder": "Search by name or SKU"
+                    }
+                  }
+                ]
+              }
+            ],
+            "type": "tab"
+          }
+        ],
+        "storefront_api_query": "query Product($productId: Int = 1, $activeCurrencyCode: currencyCode) { site { product(entityId: $productId) { name entityId prices(currencyCode: $activeCurrencyCode) { price { currencyCode value } } defaultImage { url(width: 500, height: 500) } } } } ",
+        "template": "<div style=\"text-align:center\">\n<h1>{{_.data.site.product.name}}</h1>\n<div>\n<img src=\"{{_.data.site.product.defaultImage.url}}\">\n</div>\n<div>\n<p>${{_.data.site.product.prices.price.value}}</p>\n</div>\n</div>",
+        "template_engine": "handlebars_v3",
+        "uuid": "95eaa664-b19e-4a31-b9c7-498f9bc60bae"
+      }
     }
-  },
-  "meta": {}
+  ],
+  "meta": {...}
 }
 ```
 
