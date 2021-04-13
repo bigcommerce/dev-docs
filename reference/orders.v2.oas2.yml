@@ -147,6 +147,7 @@ paths:
                           value: '180'
                         - id: 230
                           value: '192'
+                  customer_locale: en
               Adding an Existing Product:
                 value:
                   products:
@@ -1345,6 +1346,7 @@ components:
                   store_default_currency_code: ''
                   store_default_to_transactional_exchange_rate: '1.0000000000'
                   custom_status: Awaiting Fulfillment
+                  customer_locale: en
     ordersCount_Resp:
       description: Order Countr response collection.
       content:
@@ -2880,6 +2882,10 @@ components:
                   - BasicTaxProvider
                   - AvaTaxProvider
                   - ''
+              customer_locale:
+                type: string,
+                example: \"en\", \"en-us\",
+                description: The customer's locale
   requestBodies: null
   securitySchemes:
     X-Auth-Token:
@@ -3970,6 +3976,10 @@ components:
             - AvaTaxProvider
             - ''
           type: string
+        customer_locale:
+          type: string
+          example: \"en\", \"en-us\",
+          description: The customer's locale
         total_ex_tax:
           description: 'Override value for the total, excluding tax. If specified, the field `total_inc_tax` is also required. (Float, Float-As-String, Integer)'
           example: '225.0000'
