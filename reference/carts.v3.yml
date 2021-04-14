@@ -566,7 +566,7 @@ paths:
       description: Get the global cart settings of a store.
       summary: Get cart settings
       tags:
-        - settings
+        - Settings
       operationId: CartSettingsGet
       produces:
         - application/json
@@ -632,7 +632,7 @@ paths:
         required: true
     get:
       summary: Get cart settings channel ID
-      tags: []
+      tags: [Carts Settings Channel ID]
       responses:
         '200':
           $ref: '#/responses/ChannelCartSettingsResponse'
@@ -650,7 +650,7 @@ paths:
       description: Update the global cart settings of a store.
       summary: Update cart settings channel ID
       tags:
-        - channel_id
+        - Cart Settings Channel ID
       operationId: CartSettingsChannelIdPut
       produces:
         - application/json
