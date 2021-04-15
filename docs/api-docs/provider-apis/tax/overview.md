@@ -24,6 +24,7 @@ The [Tax Provider API](https://developer.bigcommerce.com/api-reference/providers
 
 Multi-tenant tax providers can choose to publish their BigCommerce app so that it's discoverable by anyone, or publish their app as unlisted so that it can only be installed via URL. Furthermore, tax solutions that have been built in-house or for specific merchants by digital agencies are also supported as private instances, and will only work on the specified stores.
 
+
 ## Obtaining an app ID
 
 To get your app ID, start creating an app in the [Developer Portal](https://devtools.bigcommerce.com/), and fill out the information on [Step 3 Technical](https://developer.bigcommerce.com/api-docs/apps/guide/publishing#add-technical-information). In the URL, you will see your unique app ID.
@@ -35,6 +36,7 @@ To get your app ID, start creating an app in the [Developer Portal](https://devt
 Once you've obtained your app ID, please share your app ID as well as the below information with BigCommerce by emailing [taxproviderapi@bigcommerce.com](mailto:taxproviderapi@bigcommerce.com). This allows us to create your tax provider configuration, which will take approximately 5 days.
 
 Once your tax provider configuration is ready, we'll let you know via email. The email will also include your `provider_id` which is required when [establishing a connection](#establishing-a-connection) with the [Tax Provider API](https://developer.bigcommerce.com/api-reference/providers/tax-provider-api).
+
 
 </br>
 
@@ -174,7 +176,6 @@ Document submission enables tax providers to persist a tax quote request, replac
 
 Supporting document submission is optional. However, tax providers wishing to support this functionality must share document submission URLs with BigCommerce when [sharing provider details with BigCommerce](#sharing-provider-details-with-bigcommerce).
 
-
 If document submission is supported, navigate to **Store Setup > Tax > {Tax Provider}** and ensure the submit order data checkbox is checked.
 
 [View the Commit Tax Quote API reference](https://developer.bigcommerce.com/api-reference/providers/tax-provider-api/tax-provider/commit).
@@ -211,3 +212,4 @@ For Tax Provider API related questions, or to request set up of a new tax provid
   - [Delete a Tax Provider Connection](https://developer.bigcommerce.com/api-reference/store-management/tax/tax-provider-connection/provider-connection-delete)
   - [Update a Tax Provider Connection](https://developer.bigcommerce.com/api-reference/store-management/tax/tax-provider-connection/provider-connection-put)
   - [Tax Classes](https://developer.bigcommerce.com/api-reference/store-management/tax-classes-api)
+
