@@ -14,6 +14,7 @@ The table below lists each price type available on a product. The table is read 
 | Price list variant sale price | A product option that overrides price list pricing if variant pricing is set and selected. |
 | Price list variant bulk pricing | Available in fixed ($5), relative (-$2), or percentage (-25%) amount that overrides price list sale price on variants. It is dependent on the quantity added to a cart. | 
 | Price list variant product pick list | The product pick list overrides price list bulk pricing and allows you to change the price when a pick list item is selected. | 
+| Product option set (**Deprecated**)| A set of product option facets that may alter the variant price. (This feature is deprecated.) |
 | Product modifier | Available in fixed ($5) or percentage (%10) amount that is added or removed from the total product price and overrides the price list variant product pick list. A modifier includes choices such as adding $5 for insurance. |
 | Product product pick list | If you configure the product pick list to change the price, it will update the price and override the product modifier when the option is selected. |
 Discounts | When a shopper meets certain criteria or takes certain actions to automatically modify the final product or cart price depending on the discount type. |
