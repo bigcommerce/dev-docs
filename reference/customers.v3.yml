@@ -729,8 +729,8 @@ paths:
             examples:
               data:
                 value:
-                  email: 'foo@bar.com'
-                  password: 'password'
+                  email: foo@bar.com
+                  password: password
                   channel_id: 1
       responses:
         '200':
@@ -784,7 +784,7 @@ paths:
                   title:
                     description: The error title describing the particular error.
                     type: string
-                    example: 'Too many requests'
+                    example: Too many requests
                   type:
                     type: string
                     example: 'https://developer.bigcommerce.com/api-docs/getting-started/api-status-codes'
@@ -797,7 +797,7 @@ paths:
     get:
       tags:
         - Customer Settings
-      description: Gets the customer settings
+      description: Returns the global-level customer settings.
       summary: Gets the customer settings
       operationId: CustomerSettingsGet
       responses:
@@ -819,7 +819,7 @@ paths:
     put:
       tags:
         - Customer Settings
-      description: Updates the customer settings values on a global level
+      description: Updates the customer settings on the global level.
       summary: Update the customer settings
       operationId: CustomerSettingsPut
       requestBody:
@@ -849,22 +849,18 @@ paths:
       tags:
         - Customer Settings Channel
       description: |-
-        Gets the customer settings per channel
-
-        **Required Fields**
-
-        * channel_id -- ID of the channel. This must be included in the request body.
+        Returns the customer settings per channel.
 
         **Notes**
 
-         * "null" indicates that there is no override per given channel and values are inherited from a global level.
+         * `null` indicates that there is no override per given channel and values are inherited from the global level.
       summary: Gets the customer settings per channel
       operationId: CustomerSettingsChannelGet
       parameters:
         - in: path
           name: channel_id
           schema:
-            type: object
+            type: integer
           required: true
       responses:
         '200':
@@ -890,11 +886,11 @@ paths:
 
         **Required Fields**
 
-        * channel_id -- ID of the channel. This must be included in the request body.
+        * `channel_id`
 
         **Notes**
 
-        * Setting "null" will delete override per given channel and values will be inherited from a global level.
+        * Setting `null` will delete override per given channel and values will be inherited from the global level.
       summary: Update the customer settings per channel
       operationId: CustomerSettingsChannelPut
       parameters:
@@ -927,6 +923,12 @@ paths:
                       guest_customer_group_id: 1
                       default_customer_group_id: 1
                     allow_global_logins: true
+    parameters:
+      - schema:
+          type: integer
+        name: channel_id
+        in: path
+        required: true
   /customers/attributes:
     get:
       description: Returns a list of Customer Attributes. You can pass in optional filter parameters.
