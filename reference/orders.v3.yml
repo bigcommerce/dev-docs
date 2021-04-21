@@ -1940,7 +1940,7 @@ definitions:
         type: number
         description: Indicates rounding value to bring refund_total to an amount refundable via payment providers (in this case to 2 decimal places)
       adjustment:
-        $ref: '#/definitions/Amount'
+        $ref: '#/definitions/AdjustmentAmount'
       tax_inclusive:
         type: boolean
         description: Indicate if total_refund_amount includes tax amount
@@ -1951,7 +1951,7 @@ definitions:
 
           Note that `refund_methods` is an array of refund methods, with each refund method being an array of payment options.
 
-          For example, if the order was placed by a combination of store credit and bank deposit the  refund methods would be:
+          For example, if the order was placed by a combination of store credit and bank deposit the refund methods would be:
           ```json
           {
             "refund_methods": [
@@ -2280,9 +2280,15 @@ definitions:
   Amount:
     type: number
     format: float
-    description: A non-negative 2 decimal place rounded value that represents that amount that can be charged/refunded via payment providers
+    description: A non-negative 2 decimal place rounded value that represents the amount that can be charged/refunded via payment providers.
     example: 1.99
     title: Amount
+  AdjustmentAmount:
+    type: number
+    format: float
+    description: A negative or positive 2 decimal place rounded value that represents the difference between the refund amount requested in the refund quote and the actual amount that is refundable on the order. This value is negative when the refund amount requested in the refund quote is more than the total refundable amount. This value is positive when the total refundable amount has increased, e.g. as a result of rounding.
+    example: -10.20
+    title: Adjustment Amount
   MetaRefund:
     type: object
     title: MetaRefund
@@ -2672,7 +2678,7 @@ responses:
           total_refund_amount: 1.99
           total_refund_tax_amount: 1.95
           rounding: 1
-          adjustment: 1.99
+          adjustment: 0
           tax_inclusive: true
           refund_methods:
             - ''
