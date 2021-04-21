@@ -21,6 +21,45 @@ paths:
             application/json:
               schema:
                 $ref: '#/components/schemas/PagesCollectionResponse'
+              examples:
+                response:
+                  value:
+                    data:
+                      - id: 0
+                        name: string
+                        is_visible: true
+                        parent_id: 0
+                        sort_order: 0
+                        type: string
+                        is_homepage: true
+                        is_customers_only: true
+                        email: string
+                        meta_title: string
+                        body: string
+                        feed: string
+                        link: string
+                        contact_fields:
+                          - fullname: string
+                            phone: string
+                            companyname: string
+                            orderno: string
+                            rma: string
+                        meta_keywords: string
+                        meta_description: string
+                        search_keywords: string
+                        url: string
+                        channel_id: 0
+                    meta:
+                      pagination:
+                        total: 0
+                        count: 0
+                        per_page: 0
+                        current_page: 0
+                        total_pages: 0
+                        links:
+                          previous: string
+                          current: string
+                          next: string
       parameters:
         - schema:
             type: integer
@@ -78,6 +117,35 @@ paths:
             application/json:
               schema:
                 $ref: '#/components/schemas/PagesResponse'
+              examples:
+                response:
+                  value:
+                    data:
+                      - id: 0
+                        name: string
+                        is_visible: true
+                        parent_id: 0
+                        sort_order: 0
+                        type: string
+                        is_homepage: true
+                        is_customers_only: true
+                        email: string
+                        meta_title: string
+                        body: string
+                        feed: string
+                        link: string
+                        contact_fields:
+                          - fullname: string
+                            phone: string
+                            companyname: string
+                            orderno: string
+                            rma: string
+                        meta_keywords: string
+                        meta_description: string
+                        search_keywords: string
+                        url: string
+                        channel_id: 0
+                    meta: {}
         '422':
           description: |
             The `Page` was not valid. This is the result of missing required fields, or of invalid data. See the response for more details.
@@ -106,6 +174,35 @@ paths:
             application/json:
               schema:
                 $ref: '#/components/schemas/PagesResponse'
+              examples:
+                response:
+                  value:
+                    data:
+                      - id: 0
+                        name: string
+                        is_visible: true
+                        parent_id: 0
+                        sort_order: 0
+                        type: string
+                        is_homepage: true
+                        is_customers_only: true
+                        email: string
+                        meta_title: string
+                        body: string
+                        feed: string
+                        link: string
+                        contact_fields:
+                          - fullname: string
+                            phone: string
+                            companyname: string
+                            orderno: string
+                            rma: string
+                        meta_keywords: string
+                        meta_description: string
+                        search_keywords: string
+                        url: string
+                        channel_id: 0
+                    meta: {}
         '422':
           description: |
             The `Page` was not valid. This is the result of missing required fields, or of invalid data. See the response for more details.
