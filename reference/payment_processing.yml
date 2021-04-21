@@ -44,6 +44,7 @@ paths:
           description: 'Authorization header with a valid payment access token is required to access this endpoint e.g. Authorization: PAT a-valid-payment-access-token'
           schema:
             type: string
+            example: PAT eyJhbGciOiJIUzI1NiJ9.eyJleHAiOjE2MTg5NTcxODIsIm5iZiI6MTYxODk1MzU4MiwiaXNzIjoicGF5bWVudHMuYmlnY29tbWVyY2UuY29tIiwic3ViIjoidzBhc3RlZTlqbyIsImp0aSI6ImY1OTY4Y2ZmLWZhOWYtNGE1MC1hMTdjLTczOGE1NDA2ZTZmZiIsImlhdCI6MTYxODk1MzU4MiwiZGF0YSI6eyJzdG9yZV9pZCI6IjEwMDExOTc1NjgiLCJvcmRlcl9pZCI6IjE1MiIsImFtb3VudCI6NTk1NCwiY3VycmVuY3kiOiJVU0QifX0.CuwXl2ZZLLGo60hlCnfDeyQ-lZ4xzfKLIkI7JsZ7vjA
         - name: Accept
           in: header
           schema:
@@ -82,7 +83,7 @@ paths:
               required:
                 - payment
             examples:
-              example-1:
+              Card:
                 value:
                   payment:
                     instrument:
@@ -96,6 +97,14 @@ paths:
                       issue_year: 0
                       issue_number: 0
                     payment_method_id: string
+              Stored Card:
+                value:
+                  payment:
+                    instrument:
+                      type: stored_card
+                      token: 8cdf7b6ea1b27119463bf9e5106639618cc77a9adc49f0069ca8b756cc15caee
+                      verification_value: '1142'
+                    payment_method_id: adyenv2.scheme
         required: true
         x-examples:
           application/json:
@@ -133,6 +142,7 @@ paths:
                  "save_instrument": true
               }
             }
+        description: ''
       responses:
         '202':
           description: Payment has been successfully processed
@@ -787,6 +797,23 @@ paths:
                   - status
                   - title
                   - type
+      requestBody:
+        content:
+          application/json:
+            schema:
+              type: object
+              properties:
+                order_id:
+                  type: integer
+            examples:
+              example-1:
+                value:
+                  order_id: 0
+          application/xml:
+            schema:
+              type: object
+              properties: {}
+        description: ''
 components:
   parameters:
     Accept:
