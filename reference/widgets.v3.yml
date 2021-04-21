@@ -125,7 +125,6 @@ paths:
                         }
                       ]
                     }
-
         - name: Accept
           in: header
           type: string
@@ -321,7 +320,7 @@ paths:
       description: |-
         Creates a **Widget**.
 
-        ***Note:*** *There is a limit of 1000 widgets per store.*
+        **Note:** There is a limit of 10,000 widgets per store and 75 widgets per page. For more information, see [Store Limits](https://support.bigcommerce.com/s/article/Platform-Limits#storelimits).
 
         **Required Fields**
         * name
@@ -520,20 +519,9 @@ paths:
         * widget_uuid
         * template_file
 
-        ## Template files
+        **Template Files**
 
-        The `template_file` property accepts the following values:
-
-        |Template File|Description|
-        |-|-|
-        |`pages/blog-post`|Blog posts template|
-        |`pages/blog`|Blog posts template|
-        |`pages/brand`|Brand page template|
-        |`pages/category`|Category page template|
-        |`pages/home`|Home page template|
-        |`pages/page`|Content page template|
-        |`pages/product`|Product page template|
-        |`pages/search`|Search page template|
+        To view the list of values accepted by the `template_file` property, including **custom** templates, see [Placements](https://developer.bigcommerce.com/api-docs/store-management/widgets/overview#placements).
     get:
       tags:
         - Placement
