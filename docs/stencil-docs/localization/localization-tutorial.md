@@ -39,16 +39,26 @@ The `/lang` subfolder includes the `en.json` file and example language files. Th
 </div>
 </div>
 
-2. Name your translation file based on the [BCP 47 specification](https://tools.ietf.org/html/bcp47) of language and region codes.
+2. Name your translation file `es.json` and save it in the `/lang` subfolder. Translation files are named based on the [BCP 47 specification](https://tools.ietf.org/html/bcp47) of language and region codes.
 
 3. Copy the desired key-value pairs from the `en.json` file and paste them into your newly-created `es.json` file. Update the values to create your language file.
+
+en.json
+```json
+{
+"header": {
+  "welcome_back": "Welcome back, {name}",
+  "skip_to_main": "Skip to main content"
+   },
+ }
+```
 
 es.json
 ```json
 {
 "header": {
   "welcome_back": "Bienvenidos, {name}",
-  "skip_to_main": "saltar a la principal"
+  "skip_to_main": "Saltar a la principal"
    },
  }
 ```
@@ -60,7 +70,7 @@ Perform the following steps to create new key-value pairs and invoke a defined t
 
 1. Add a key-value pair to a language file.
   
-  In `en.json`, add `new_hours`.
+  In `en.json`, add `new_hours` key and corresponding information for the value.
 
 ```json
 "header": {
@@ -70,17 +80,17 @@ Perform the following steps to create new key-value pairs and invoke a defined t
     },
 
 ```
-In `es.json`, add `new_hours` and the Spanish translation.
+In `es.json`, add the same `new_hours` key and the Spanish translation of the value.
 
 ```json
 "header": {
         "welcome_back": "Bienvenidos, {name}",
         "skip_to_main": "saltar a la principal",
-        "new_hours": "horario de verano"
+        "new_hours": "horario de verano: {hours}"
     },
 
 ```
-2. Use the handlebars `lang` directive in the appropriate file to show a translated string.
+2. Use the Handlebars `lang` directive in the appropriate file to show a translated string.
 
 For this example, update `/templates/components/common/header.html` using the code below. Add the code after the `{{/if}}` tag and before the `<header>` tag.
 
@@ -106,7 +116,7 @@ Update your language browser to display the translation on the storefront. The f
 <div class="HubBlock-content">
 
 <!-- theme:  -->
-### NOTE
+### Note
 
 Other browsers may look and act differently. We suggest previewing your site to ensure the localization is working as expected.
 
