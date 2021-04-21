@@ -105,7 +105,7 @@ For this example, update `/templates/components/common/header.html` using the co
 Update your language browser to display the translation on the storefront. The following steps are for the Chrome browser.
 
 1. In your browser, go to **Settings** > **Advanced**.
-2. Select languages.
+2. Select **Languages**.
 3. Expand the language dialog and click **Add languages**.
 4. Select your desired language and click **Add**.
 5. Drag the newly selected language to the top of the list.
