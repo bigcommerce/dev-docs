@@ -38,9 +38,9 @@ This article is a general overview of BigCommerce's GraphQL Storefront API; it i
 
 ### Note
 
-> * GraphQL Storefront API is in open beta
-> * As new features are added to the API, they will be called out in our [Developer Changelog](https://developer.bigcommerce.com/changelog#labels/storefront-api)
-> * BigCommerce legacy Blueprint themes currently do not support the GraphQL API and Playground
+> * The GraphQL Storefront API is in early access and is feature-incomplete; it will remain in early access until we reach the minimum amount of functionality necessary to power an end-to-end shopping experience.
+> * As new features are added to the API, they will be called out in our [Developer Changelog](https://developer.bigcommerce.com/changelog#labels/storefront-api).
+> * BigCommerce legacy Blueprint themes currently do not support the GraphQL API and Playground.
 
 </div>
 </div>
@@ -656,5 +656,5 @@ In general, to reduce complexity, reduce the number of objects requested. For ex
 ## Related resources
 
 ### Tools
-* [GraphQL Cheat Sheet](https://devhints.io/graphql) 
+* [GraphQL Cheat Sheet](https://devhints.io/graphql)
 
