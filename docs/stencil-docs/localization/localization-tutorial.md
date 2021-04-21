@@ -85,8 +85,8 @@ In `es.json`, add the same `new_hours` key and the Spanish translation of the va
 ```json
 "header": {
         "welcome_back": "Bienvenidos, {name}",
-        "skip_to_main": "saltar a la principal",
-        "new_hours": "horario de verano: {hours}"
+        "skip_to_main": "Saltar a la principal",
+        "new_hours": "Horario de verano: {hours}"
     },
 
 ```
