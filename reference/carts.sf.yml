@@ -4,7 +4,7 @@ info:
   title: Storefront Carts
   description: Manage cart operations and data via front-end JavaScript on BigCommerce stencil powered storefronts.
 servers:
-  - url: 'https://{$$.env.store_domain/api/storefront'
+  - url: 'https://{$$.env.store_domain}/api/storefront'
 tags:
   - name: Cart
   - name: Cart Items
