@@ -6,7 +6,7 @@
 
 - [Get a customer's details](#get-a-customers-details)
 - [Get first three levels of category tree](#get-first-three-levels-of-category-tree)
-- [Get category and products by URL](#get-category-and-products-within-by-url)
+- [Get category and products within by URL](#get-category-and-products-within-by-url)
 - [Look up an object by URL](#look-up-an-object-by-url)
 - [Get product images at different resolutions](#get-product-images-at-different-resolutions)
 - [Get a product](#get-a-product)
@@ -18,6 +18,17 @@
 </div>
 
 Below are example GraphQL queries for use with the BigCommerce GraphQL Storefront API. The purpose of these examples is to assist developers in getting familiar with the API. For a general overview of it's usage and capabilities, see [GraphQL Storefront API Overview](https://developer.bigcommerce.com/api-docs/storefront/graphql/graphql-storefront-api-overview).
+
+<div class="HubBlock--callout">
+<div class="CalloutBlock--warning">
+<div class="HubBlock-content">
+
+> ### Note
+> * The GraphQL Storefront API is in early access and is feature-incomplete; it will remain in early access until we reach the minimum amount of functionality necessary to power an end-to-end shopping experience.
+
+</div>
+</div>
+</div>
 
 ## Get a customer's details
 
