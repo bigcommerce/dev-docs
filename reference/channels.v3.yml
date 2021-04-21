@@ -61,9 +61,9 @@ info:
 
     |Type|Platform|Allowed Statuses|
     |--|--|--|
-    |`storefront`|`bigcommerce`|`prelaunch`, `active`, `inactive`|
-    |`storefront`|**Is not** `bigcommerce` |`active`, `inactive`, `disconnected`
-    |`marketing`, `marketplace`, `pos`|N/A|`connected`, `disconnected`|
+    |`storefront`|`bigcommerce`|`prelaunch`, `active`, `inactive`, `deleted`|
+    |`storefront`|**Is not** `bigcommerce` |`active`, `inactive`, `disconnected`, `deleted`
+    |`marketing`, `marketplace`, `pos`|N/A|`connected`, `disconnected`, `deleted`|
 
     <div class="HubBlock--callout">
     <div class="CalloutBlock--warning">
@@ -139,6 +139,8 @@ paths:
               - inactive
               - connected
               - disconnected
+              - deleted
+              - terminated
         - in: query
           name: type
           description: Filter items by type.
@@ -1817,7 +1819,9 @@ components:
         - inactive
         - connected
         - disconnected
-      description: 'The status of the channel; channel `platform` and `status` must be a [valid combination](https://developer.bigcommerce.com/api-reference/cart-checkout/channels-listings-api#status).'
+        - deleted
+        - terminated
+      description: 'The status of the channel; channel `platform` and `status` must be a [valid combination](https://developer.bigcommerce.com/api-reference/cart-checkout/channels-listings-api#status). `terminated` is not valid for `PUT` or `POST` requests.'
     channelType:
       type: string
       enum:
