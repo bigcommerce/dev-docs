@@ -259,7 +259,62 @@ Updating the widget template with `create_new_version` set to `true` will change
 
 ## Placements
 
-[Placements](/api-reference/storefront/widgets-api/placement/createplacement) determine the region where you place widgets and in what order. 
+[Placements](/api-reference/storefront/widgets-api/placement/createplacement) determine the region where you place widgets and in what order.
+
+Currently, placements can exist on the following pages:
+
+* pages/account/add-address 
+* pages/account/add-return
+* pages/account/add-wishlist
+* pages/account/addresses
+* pages/account/download-item
+* pages/account/edit 
+* pages/account/inbox
+* pages/account/orders/all
+* pages/account/orders/completed
+* pages/account/orders/details
+* pages/account/orders/invoice
+* pages/account/recent-items
+* pages/account/return-saved
+* pages/account/returns
+* pages/account/wishlist-details
+* pages/account/wishlists 
+* pages/auth/account-created 
+* pages/auth/create-account 
+* pages/auth/forgot-password 
+* pages/auth/login 
+* pages/auth/new-password 
+* pages/blog 
+* pages/blog-post 
+* pages/brand 
+* pages/brands 
+* pages/cart 
+* pages/category 
+* pages/compare 
+* pages/contact-us 
+* pages/errors/403 
+* pages/errors/404 
+* pages/errors/generic 
+* pages/gift-certificate/balance 
+* pages/gift-certificate/purchase 
+* pages/gift-certificate/redeem 
+* pages/home 
+* pages/order-confirmation 
+* pages/page 
+* pages/product 
+* pages/search 
+* pages/sitemap 
+* pages/subscribed 
+* pages/unavailable/hibernation 
+* pages/unavailable/maintenance
+* pages/unsubscribe
+
+It is also possible to place widgets on the following custom templates, where `<filename>` is the name of the custom template file:
+
+* pages/custom/product/`<filename>`
+* pages/custom/brand/`<filename>`
+* pages/custom/category/`<filename>`
+* pages/custom/page/`<filename>`
 
 <div class="HubBlock--callout">
 <div class="CalloutBlock--info">
@@ -348,7 +403,7 @@ Widgets are rendered on the storefront as a data tag in the HTML.
 |--|--|
 | Widgets | Widgets are the units of content to be placed on specific pages in a Stencil theme. Each widget is composed of a widget configuration and a widget template. *There is a limit of `10,000` widgets per store.* |
 | Widget templates | Widget templates are Handlebars-enabled HTML templates that define the widget’s structure on a page. These templates can include conditional logic as well as looping. *There is a limit of `1,000` total custom widget templates per store. This does not include templates pre-provided by BigCommerce.* |
-| Placements | Placements determine the region where you place widgets and in what order. Currently, placements can only exist on the following pages:</br>* pages/account/add-address </br>* pages/account/add-return </br>* pages/account/add-wishlist </br>* pages/account/addresses </br>* pages/account/download-item </br>* pages/account/edit </br>* pages/account/inbox </br>* pages/account/orders/all </br>* pages/account/orders/completed </br>* pages/account/orders/details </br>* pages/account/orders/invoice </br>* pages/account/recent-items </br>* pages/account/return-saved </br>* pages/account/returns </br>* pages/account/wishlist-details </br>* pages/account/wishlists </br>* pages/auth/account-created </br>* pages/auth/create-account </br>* pages/auth/forgot-password </br>* pages/auth/login </br>* pages/auth/new-password </br>* pages/blog </br>* pages/blog-post </br>* pages/brand </br>* pages/brands </br>* pages/cart </br>* pages/category </br>* pages/compare </br>* pages/contact-us </br>* pages/errors/403 </br>* pages/errors/404 </br>* pages/errors/generic </br>* pages/gift-certificate/balance </br>* pages/gift-certificate/purchase </br>* pages/gift-certificate/redeem </br>* pages/home </br>* pages/order-confirmation </br>* pages/page </br>* pages/product </br>* pages/search </br>* pages/sitemap </br>* pages/subscribed </br>* pages/unavailable/hibernation </br>* pages/unavailable/maintenance </br>* pages/unsubscribe </br> *There is a limit of 75 placements per template file and `10,000` total placements per store.*|
+| Placements | Placements determine the region where you place widgets and in what order. *There is a limit of `75` placements per template file and `10,000` total placements per store.* |
 | Regions | Regions are specific spots in a Stencil template file where you can place widgets. Regions are defined at the theme file level using the following syntax: `{{{region name="..."}}}`. Many widgets can reside within a given region, and these widgets can have an assigned sort order. |
 | Widget configuration | This is a JSON payload that contains data used when rendering the widget. Each widget has a configuration, and there is a 64kb limit on the JSON size. The widget configuration must be valid JSON, but we don’t enforce any additional configuration structure requirements. |
 
