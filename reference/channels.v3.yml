@@ -70,7 +70,8 @@ info:
     <div class="HubBlock-content">
 
     > ### Note
-    > * As of April 2020, `status`  should be used in place of `is_enabled` -- `is_enabled` will be deprecated.
+    > * The `terminated` status is readonly. `terminated` channels can not be restored.
+    > * As of April 2020, `status`  should be used in place of `is_enabled` -- `is_enabled` is deprecated.
 
     </div>
     </div>
@@ -120,7 +121,7 @@ paths:
             type: string
         - in: query
           name: available
-          description: 'Filter items based on whether the channel is currently available for integration. Setting this query to `true` will return channels with the status of `prelaunch`, `active` , `inactive`, or `connected`. Setting this query to `false` will return channels with the status of `disconnected`.'
+          description: 'Filter items based on whether the channel is currently available for integration. Setting this query to `true` will return channels with the status of `prelaunch`, `active` , `inactive`, or `connected`. Setting this query to `false` will return channels with the status of `disconnected`, `deleted`, and `terminated`.'
           schema:
             type: boolean
         - in: query
@@ -1821,7 +1822,7 @@ components:
         - disconnected
         - deleted
         - terminated
-      description: 'The status of the channel; channel `platform` and `status` must be a [valid combination](https://developer.bigcommerce.com/api-reference/cart-checkout/channels-listings-api#status). `terminated` is not valid for `PUT` or `POST` requests.'
+      description: 'The status of the channel; channel `platform` and `status` must be a [valid combination](https://developer.bigcommerce.com/api-reference/cart-checkout/channels-listings-api#status). `terminated` is not valid for `PUT` or `POST` requests. `deleted` is not valid for `POST` requests. '
     channelType:
       type: string
       enum:
