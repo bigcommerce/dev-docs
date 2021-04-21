@@ -210,7 +210,7 @@ paths:
         - name: site_id
           in: path
           required: true
-          type: string
+          type: integer
       responses:
         '200':
           $ref: '#/responses/response_Site'
@@ -232,7 +232,7 @@ paths:
         - name: site_id
           in: path
           required: true
-          type: string
+          type: integer
         - name: body
           in: body
           required: true
@@ -265,7 +265,7 @@ paths:
         - name: site_id
           in: path
           required: true
-          type: string
+          type: integer
       responses:
         '204':
           description: ''
@@ -273,7 +273,7 @@ paths:
       tags:
         - Sites
       description: |-
-        Delete a site with site ID `{site_id`}.
+        Delete a site with site ID `{site_id}`.
 
         - [Authorization](#authorization)
         - [Request Parameters](#request-parameters)
@@ -283,7 +283,7 @@ paths:
     parameters:
       - name: site_id
         in: path
-        type: string
+        type: integer
         required: true
     get:
       summary: Get a Site's Routes
@@ -468,11 +468,11 @@ paths:
         - name: site_id
           in: path
           required: true
-          type: string
+          type: integer
         - name: route_id
           in: path
           required: true
-          type: string
+          type: integer
       responses:
         '200':
           description: ''
@@ -507,11 +507,11 @@ paths:
         - name: site_id
           in: path
           required: true
-          type: string
+          type: integer
         - name: route_id
           in: path
           required: true
-          type: string
+          type: integer
         - name: body
           in: body
           required: true
@@ -542,11 +542,11 @@ paths:
         - name: site_id
           in: path
           required: true
-          type: string
+          type: integer
         - name: route_id
           in: path
           required: true
-          type: string
+          type: integer
       responses:
         '204':
           description: ''
@@ -870,9 +870,9 @@ responses:
     examples:
       application/json:
         data:
-          id: 1
+          id: 1000
           url: 'https://www.my-awesome-site.com'
-          channel_id: 18735
+          channel_id: 1
           created_at: '2019-08-05T18:26:21Z'
           updated_at: '2019-08-05T18:26:21Z'
         meta: {}
@@ -945,9 +945,9 @@ responses:
     examples:
       application/json:
         data:
-          - channel_id: 16905
+          - channel_id: 1
             created_at: '2019-05-14T15:43:11Z'
-            id: 1
+            id: 1000
             updated_at: '2019-12-09T23:19:59Z'
             url: 'https://2wy5z.csb.app'
         meta:
