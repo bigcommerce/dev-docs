@@ -92,14 +92,14 @@ Localizing your theme's checkout and order confirmation pages requires customiza
 
 The remaining localization options reside outside your theme and are accessible through the BigCommerce control panel:
 
-* [Product catalog](#product-catalog)
-* [Currency](#currency)
-* [Date format](#date-format)
-* [Order statuses](#order-statuses)
-* [Blog](#blog)
-* [Static web pages](#static-web-pages)
-* [Transactional emails](#transactional-emails)
-* [Gift certificates](#gift-certificates)
+* [Product catalog](#localizing-the-product-catalog)
+* [Currency](#localizing-currency)
+* [Date format](#localizing-date-format)
+* [Order statuses](#localizing-order-statuses)
+* [Blog](#localizing-the-blog)
+* [Static web pages](#localizing-static-web-pages)
+* [Transactional emails](#managing-transactional-emails)
+* [Gift certificates](#managing-gift-certificates)
 
 <div class="HubBlock--callout">
 <div class="CalloutBlock--warning">
