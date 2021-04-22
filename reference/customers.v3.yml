@@ -798,7 +798,7 @@ paths:
       tags:
         - Customer Settings
       description: Returns the global-level customer settings.
-      summary: Gets the customer settings
+      summary: Get Customer Settings
       operationId: CustomerSettingsGet
       responses:
         '200':
@@ -820,7 +820,7 @@ paths:
       tags:
         - Customer Settings
       description: Updates the customer settings on the global level.
-      summary: Update the customer settings
+      summary: Update Customer Settings
       operationId: CustomerSettingsPut
       requestBody:
         content:
@@ -854,7 +854,7 @@ paths:
         **Notes**
 
          * `null` indicates that there is no override per given channel and values are inherited from the global level.
-      summary: Gets the customer settings per channel
+      summary: Get Customer Settings per Channel
       operationId: CustomerSettingsChannelGet
       parameters:
         - in: path
@@ -891,7 +891,7 @@ paths:
         **Notes**
 
         * Setting `null` will delete override per given channel and values will be inherited from the global level.
-      summary: Update the customer settings per channel
+      summary: Update Customer Settings per Channel
       operationId: CustomerSettingsChannelPut
       parameters:
         - in: path
