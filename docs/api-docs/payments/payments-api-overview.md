@@ -56,6 +56,7 @@ You can process payments using cards stored with the BigCommerce Stored Credit C
 
 * AdyenV2
 * Authorize.net
+* Barclaycard Fuse
 * Bolt
 * Checkout.com
 * CyberSource
@@ -69,6 +70,7 @@ You can process payments using cards stored with the BigCommerce Stored Credit C
 
 * AdyenV2
 * Authorize.net
+* Barclaycard Fuse
 * Bolt
 * CardConnect
 * Chase integrated payments
