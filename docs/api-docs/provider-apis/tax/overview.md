@@ -207,7 +207,7 @@ For Tax Provider API related questions, or to request set up of a new tax provid
 
 ### Endpoints
 
-  - [Tax Provoider API Reference](https://developer.bigcommerce.com/api-reference/providers/tax-provider-api)
+  - [Tax Provider API Reference](https://developer.bigcommerce.com/api-reference/providers/tax-provider-api)
   - [Get a Tax Provider Connection](https://developer.bigcommerce.com/api-reference/store-management/tax/tax-provider-connection/provider-connection-get)
   - [Delete a Tax Provider Connection](https://developer.bigcommerce.com/api-reference/store-management/tax/tax-provider-connection/provider-connection-delete)
   - [Update a Tax Provider Connection](https://developer.bigcommerce.com/api-reference/store-management/tax/tax-provider-connection/provider-connection-put)
