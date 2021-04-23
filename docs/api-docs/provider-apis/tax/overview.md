@@ -123,7 +123,6 @@ The [Get a Connection](https://developer.bigcommerce.com/api-reference/store-man
 
 ## Enabling tax providers in the control panel
 
-<<<<<<< HEAD
 Once the tax provider's app has been successfully installed and basic authentication credentials have been provided via the Update a Connection request, users will be able to enable the tax provider on all supplied merchant and/or partner test stores provided by the tax provider in [sharing provider details with BigCommerce](#sharing-provider-details-with-bigcommerce).
 
 To enable the tax provider, users must navigate to **Store Setup > Tax** in the BigCommerce control panel and click **Enable** next to the associated tax provider.
