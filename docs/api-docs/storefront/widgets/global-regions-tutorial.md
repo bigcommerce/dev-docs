@@ -1,4 +1,4 @@
-# Global Regions Tutorial
+# Global Regions
 
 <div class="otp" id="no-index">
 
