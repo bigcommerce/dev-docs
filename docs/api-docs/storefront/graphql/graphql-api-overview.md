@@ -38,9 +38,9 @@ This article is a general overview of BigCommerce's GraphQL Storefront API; it i
 
 ### Note
 
-> * GraphQL Storefront API is in open beta
-> * As new features are added to the API, they will be called out in our [Developer Changelog](https://developer.bigcommerce.com/changelog#labels/storefront-api)
-> * BigCommerce legacy Blueprint themes currently do not support the GraphQL API and Playground
+> * The GraphQL Storefront API is in early access and is feature-incomplete; it will remain in early access until we reach the minimum amount of functionality necessary to power an end-to-end shopping experience.
+> * As new features are added to the API, they will be called out in our [Developer Changelog](https://developer.bigcommerce.com/changelog#labels/storefront-api).
+> * BigCommerce legacy Blueprint themes currently do not support the GraphQL API and Playground.
 
 </div>
 </div>
@@ -374,9 +374,6 @@ Use normal Storefront API Tokens. According to the [Principle of least privilege
 
 Use a Customer Impersonation Storefront API Token and store it securely on your server like other secrets. When you need to run requests in the context of a particular Customer (for example, if they've logged in to your application), send their BigCommerce Customer ID along with the request as the `X-Bc-Customer-Id` header.
 
-
-<a id="complexity-limits" class="devdocsAnchor"></a>
-
 ## Pagination
 
 The GraphQL Storefront API follows the [GraphQL Cursor Connections Specification](https://facebook.github.io/relay/graphql/connections.htm) for pagination. If this is your first time working with GraphQL pagination, see [Apollo's Blog Post "Explaining GraphQL Connections"](https://blog.apollographql.com/explaining-graphql-connections-c48b7c3d6976) for an accessible introduction. If you've worked with other GraphQL APIs, pagination on BigCommerce should look familiar.
@@ -659,5 +656,5 @@ In general, to reduce complexity, reduce the number of objects requested. For ex
 ## Related resources
 
 ### Tools
-* [GraphQL Cheat Sheet](https://devhints.io/graphql) 
+* [GraphQL Cheat Sheet](https://devhints.io/graphql)
 
