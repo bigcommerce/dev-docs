@@ -49,8 +49,13 @@ Once your tax provider configuration is ready, we'll let you know via email. The
 | Partner support email                | Required                       | Email                        | Used by BigCommerce to contact tax provider, in the case we need to forward a merchant support request.                       | `support@sampletax.example.com`                   |
 | Links displayed in control panel                  | Optional                       | URL, Title, Description                          | Link(s) displayed to shoppers when they navigate to **Store Setup > Tax > {Tax Provider}**. One or multiple links supported.                        | `support.sampletax.com`, `Sample Tax Support`, `The Sample Tax Support website.`                    |
 =======
+<<<<<<< HEAD
+| Partner support email                | Required                       | Email                        | Used by BigCommerce to contact tax provider, in the case we need to forward a merchant support request.                       | `support@sampletax.example.com`                   |
+| Links displayed in control panel                  | Optional                       | URL, Title, Description                          | Link(s) displayed to shoppers when they navigate to **Store Setup > Tax > {Tax Provider}**. One or multiple links supported.                        | `support.sampletax.com`, `Sample Tax Support`, `The Sample Tax Support website.`                    |
+=======
 | Merchant support email                | Optional                       | Email                        | Displayed in the BigCommerce control panel, **Store Setup > Tax > Tax Provider**.                       | `support@sampletax.example.com`                   |
 | Merchant support URL                  | Optional                       | URL                          | Displayed in the BigCommerce control panel, **Store Setup > Tax > Tax Provider**.                        | `sampletax.example.com/support`                   |
+>>>>>>> master
 >>>>>>> master
 | **Coverage**                          |                                |                              |                                                                                                       |                                                   |
 | Tax provider visibility               | Required                       | Show, Hide                   | Tells us if tax provider should be displayed to users in the BigCommerce control panel before the tax providers app is installed on the associated store.          | `Show`                                            |
@@ -131,7 +136,11 @@ The [Get a Connection](https://developer.bigcommerce.com/api-reference/store-man
 <<<<<<< HEAD
 Once the tax provider's app has been successfully installed and basic authentication credentials have been provided via the Update a Connection request, users will be able to enable the tax provider on all supplied merchant and/or partner test stores provided by the tax provider in [sharing provider details with BigCommerce](#sharing-provider-details-with-bigcommerce).
 =======
+<<<<<<< HEAD
+Once the tax provider's app has been successfully installed and basic authentication credentials have been provided via the Update a Connection request, users will be able to enable the tax provider on all supplied merchant and/or partner test stores provided by the tax provider in [sharing provider details with BigCommerce](#sharing-provider-details-with-bigcommerce).
+=======
 Once the tax provider's app has been successfully installed and basic authentication credentials have been provided via the Update a Connection request, users will be able to enable the tax provider on all supplied merchant and/or partner test stores provided by the tax proivder in [sharing provider details with BigCommerce](#sharing-provider-details-with-bigcommerce).
+>>>>>>> master
 >>>>>>> master
 
 To enable the tax provider, users must navigate to **Store Setup > Tax** in the BigCommerce control panel and click **Enable** next to the associated tax provider.
