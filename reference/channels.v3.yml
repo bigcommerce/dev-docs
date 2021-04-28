@@ -125,11 +125,6 @@ paths:
           schema:
             type: boolean
         - in: query
-          name: name
-          description: Filter items by name.
-          schema:
-            type: string
-        - in: query
           name: status
           description: Filter items by status.
           schema:
