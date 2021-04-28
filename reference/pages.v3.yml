@@ -12,7 +12,7 @@ paths:
       operationId: content-pages-get
       tags:
         - Pages
-      description: Get a list of content pages.
+      description: Returns a list of content pages.
       responses:
         '200':
           description: |
@@ -99,7 +99,7 @@ paths:
       summary: Get Pages
     post:
       operationId: content-pages-post
-      description: Create content pages.
+      description: Creates content pages.
       tags:
         - Pages
       requestBody:
@@ -156,7 +156,7 @@ paths:
       summary: Create Pages
     put:
       operationId: content-pages-put
-      description: Update content pages.
+      description: Updates content pages.
       tags:
         - Pages
       requestBody:
@@ -210,7 +210,7 @@ paths:
             application/json:
               schema:
                 $ref: '#/components/schemas/ErrorResponse'
-      summary: Updates Pages
+      summary: Update Pages
     delete:
       operationId: content-pages-delete
       tags:
