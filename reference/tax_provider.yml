@@ -659,11 +659,14 @@ components:
           $ref: '#/components/schemas/TaxClass'
         tax_exempt:
           type: boolean
-          description: Flag whether or not this item is always tax exempt. Gift Certificate purchases for example. Tax Exempt items should be included in the Request for auditing purposes.
+          description: Flag whether or not this item is always tax exempt. For example, gift certificate purchases and order-level refunds are tax exempt. Tax exempt items are included in the request for auditing purposes.
           default: 'false'
         type:
           type: string
-          description: 'The type of line item this request represents. This will depend on the items position in the request hirearchy, for example a collection of items (Which may or may not also have wrapping attached) are contained within the document request, and separately each document request has a single shipping and a single handling line item (to capture these values).'
+          description: |-
+            The type of line item this request represents. This will depend on the items position in the request hirearchy, for example a collection of items (which may or may not also have wrapping attached) are contained within the document request. Seperately, each document request has a single shipping and a single handling line item (to capture these values).
+
+            The type refund is used when the tax estimate request is for an order-level refund.  
           enum:
             - item
             - wrapping
