@@ -1,4 +1,4 @@
-# Create and Add a Widget
+# Create and Place a Widget
 
 <div class="otp" id="no-index">
 
@@ -7,6 +7,7 @@
 - [Create a widget template](#create-a-widget-template)
 - [Create a widget](#create-a-widget)
 - [Create a placement](#create-a-placement)
+- [Create a custom template placement](#create-a-custom-template-placement)
 - [Create a user interface](#create-a-user-interface)
 - [Related resources](#related-resources)
 
@@ -14,15 +15,15 @@
 
 BigCommerce's [Widgets API](https://developer.bigcommerce.com/api-docs/store-management/widgets/overview) allows you to create, manage, and apply widgets to your storefront. 
 
-In this tutorial, you will create a [widget](https://raw.githubusercontent.com/bigcommerce/dev-docs/master/assets/images/widgets-tutorial-01.gif) (GitHub) that displays a row of three images and place that widget in a designated region on a category page.
+In this tutorial, you will create a [widget](https://raw.githubusercontent.com/bigcommerce/dev-docs/master/assets/images/widgets-tutorial-01.gif) (GitHub) that displays a row of three images and place that widget in a designated region on a category page of BigCommerce's [Cornerstone](https://github.com/bigcommerce/cornerstone) theme.
 
 ###  Prerequisites
 
-* A test store.
+* [A BigCommerce store](https://support.bigcommerce.com/s/article/Starting-a-Bigcommerce-Trial).
 * API `access_token` with `content modify` scope.
 * Knowledge of the [Widgets API](https://developer.bigcommerce.com/api-docs/storefront/widgets/widgets-overview).
 
-To edit theme files locally, we recommend using [Stencil CLI](https://developer.bigcommerce.com/stencil-docs/installing-stencil-cli/installing-stencil), BigCommerce's powerful theme development and deployment tool.
+To edit and preview theme files locally, we recommend using [Stencil CLI](https://developer.bigcommerce.com/stencil-docs/installing-stencil-cli/installing-stencil), BigCommerce's powerful theme development and deployment tool.
 
 ## Create a region
 
@@ -30,27 +31,28 @@ For a widget to appear on a store's page, you have to place it in a region. Regi
 
 Let's start by adding a new region called `category_header_banner` to your store's category page template. You will use this region to position your widget later.
 
-In `templates/pages/category.html`, add `{{{region name="category_header_banner"}}}` below the page heading.
+In `templates/pages/category.html`, add a new region `{{{region name="category_header_banner"}}}` below the page heading.
 
 ```html
-<!-- ... -->
 {{#unless theme_settings.hide_category_page_heading }}
-    <h1 class="page-heading">{{category.name}}
+    <h1 class="page-heading">{{category.name}}</h1>
+    {{{region name="category_below_header"}}}
 {{/unless}}
-
+<!-- Add category_header_banner region -->
 {{{region name="category_header_banner"}}}
-<!-- ... -->
+<!-- End of Add category_header_banner region -->
+{{{category.description}}}
 ```
 
-If you are using [Stencil CLI](https://developer.bigcommerce.com/stencil-docs/installing-stencil-cli/installing-stencil) and editing theme files locally, push and apply your changes before proceeding to the next step.
+If you are using [Stencil CLI](https://developer.bigcommerce.com/stencil-docs/installing-stencil-cli/installing-stencil) and editing theme files locally, run a `stencil push` command to apply your changes before proceeding to the next step. `stencil push` will bundles your theme into a zip file and upload the zip to BigCommerce. You can find more information on Stencil CLI commands in our [Stencil CLI Option and Commands](https://developer.bigcommerce.com/stencil-docs/installing-stencil-cli/stencil-cli-options-and-commands) article.
 
 <div class="HubBlock--callout">
 <div class="CalloutBlock--info">
 <div class="HubBlock-content">
 
 > ### Note
-> * Regions can only be added to templates in [`templates/pages/`](https://developer.bigcommerce.com/stencil-docs/storefront-customization/directory-structure).
->* To edit theme files locally, use [Stencil CLI](https://developer.bigcommerce.com/stencil-docs/installing-stencil-cli/installing-stencil).
+> * You can add regions to templates in the [`templates/pages/`](https://developer.bigcommerce.com/stencil-docs/storefront-customization/directory-structure) folder.
+> * To edit theme files locally, use [Stencil CLI](https://developer.bigcommerce.com/stencil-docs/installing-stencil-cli/installing-stencil).
 > * To edit theme files in the control panel, use [Page Builder](https://support.bigcommerce.com/s/article/Stencil-Themes#edit).
 
 </div>
@@ -77,6 +79,9 @@ Look for the region's name in the response.
   "data": [
     {
       "name": "header_bottom"
+    },
+    {
+      "name": "category_below_header"
     },
     {
       "name": "category_header_banner"
@@ -140,7 +145,7 @@ Accept: application/json
 
 ## Create a widget
 
-To create a widget, use the widget template `uuid` from the previous step. Send a `POST` request to [`/v3/content/widgets`](https://developer.bigcommerce.com/api-reference/storefront/widgets-api/widget/createwidget) making sure to replace the placeholder value inside `widget_template_uuid` with your template's `uuid`.
+To create a widget, use the widget template `uuid` from the previous step. Send a `POST` request to [`/v3/content/widgets`](https://developer.bigcommerce.com/api-reference/storefront/widgets-api/widget/createwidget) making sure to replace the `widget_template_uuid` placeholder value with your template's `uuid`.
 
 
 ```http
@@ -225,7 +230,66 @@ Accept: application/json
 | `template_file` | template file to target|
 | `status` | active or inactive |
 
-`entity_id` depends on the type of page; for example, for product pages, it is the product ID, and for category pages, it is the category ID. To place your widget on a specific category page, you need to provide a category ID. To retrieve available category IDs, send a `GET` request to [`/v3/catalog/categories`](https://developer.bigcommerce.com/api-reference/store-management/catalog/category/getcategories). If you omit `entity_id`; the widget will appear on all of the category pages.
+`entity_id` depends on the type of page; for example, for product pages, it is the product ID, and for category pages, it is the category ID. To place your widget on a specific category page, you need to provide a category ID. To retrieve available category IDs, send a `GET` request to [`/v3/catalog/categories`](https://developer.bigcommerce.com/api-reference/store-management/catalog/category/getcategories). If you omit `entity_id`; the widget will appear on all category pages.
+
+## Create a custom template placement
+
+It is possible to place a widget on a custom template. Just like with other pages, you must first add a region and then create a placement for your widget as described in [Create a region](#create-a-region) and [Create a placement](#create-a-placement) steps, respectively. 
+
+In this section, you will create a custom category template which you can then use to place your widget.
+
+1. In the `/templates/pages` folder, create a `/custom/category` folder and add a `custom-category.html` file.
+
+![Custom Template 01](https://raw.githubusercontent.com/bigcommerce/dev-docs/master/assets/images/widgets-custom-template-01.png "Custom Template 01")
+
+2. Add template content and a new region. (You can copy the content from `category.html`.)
+
+3. Open the `config.stencil.json` file and update the `custom-category.html` property. The URL you define in `config.stencil.json` will be used for category mapping.
+
+```json
+{
+  "customLayouts": {
+    "brand": {},
+    "category": {
+      "custom-category.html": "/custom-widget-templates/"
+    },
+    "page": {},
+    "product": {}
+  },
+  "normalStoreUrl": "{STORE URL}",
+  "port": "3000"
+}
+```
+
+If using Stencil CLI, push and apply your changes.
+
+4. To create a new category using the [Catalog API](https://developer.bigcommerce.com/api-reference/store-management/catalog), send a `POST` request to [`/v3/catalog/categories`](https://developer.bigcommerce.com/api-reference/store-management/catalog/category/createcategory). Use the URL defined in the `config.stencil.json` category mapping. In our example, it is `/custom-widget-templates/`.
+
+```http
+POST /stores/{{store_hash}}/v3/catalog/categories
+Host: api.bigcommerce.com
+X-Auth-Token: {{ACCESS_TOKEN}}
+Content-Type: application/json
+Accept: application/json
+
+{
+  "custom_url": {
+    "is_customized": false,
+    "url": "/custom-widget-templates/"
+  },
+  "default_product_sort": "use_store_settings",
+  "description": "<p>Custom category</p>",
+  "is_visible": true,
+  "layout_file": "custom-category.html",
+  "name": "Custom Category",
+  "sort_order": 1,
+  "parent_id": 0
+}
+```
+
+[![Open in Request Runner](https://storage.googleapis.com/bigcommerce-production-dev-center/images/Open-Request-Runner.svg)](https://developer.bigcommerce.com/api-reference/store-management/catalog/category/createcategory#requestrunner)
+
+4. You can now [create a placement](#create-a-placement) for the widget you created in the previous steps. 
 
 ## Create a user interface
 
