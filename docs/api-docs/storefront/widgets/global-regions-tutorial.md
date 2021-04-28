@@ -14,7 +14,7 @@ In this tutorial, we will explore the concept of global regions by creating a gl
 
 ###  Prerequisites
 
-* A test store.
+* [A BigCommerce store](https://support.bigcommerce.com/s/article/Starting-a-Bigcommerce-Trial).
 * Knowledge of the [Widgets API](https://developer.bigcommerce.com/api-docs/storefront/widgets/widgets-overview).
 * Knowledge of [Page Builder](https://support.bigcommerce.com/s/article/Page-Builder).
 
