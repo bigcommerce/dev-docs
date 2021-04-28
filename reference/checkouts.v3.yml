@@ -355,7 +355,7 @@ paths:
             - name: Enum_consignments.availableShippingOptions
               description: ''
           type: string
-          description: Must be included to get available shipping options
+          description: Include to get available shipping options
           enum:
             - consignments.available_shipping_options
       responses:
