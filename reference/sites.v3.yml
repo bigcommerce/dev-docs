@@ -292,7 +292,7 @@ paths:
         - name: site_id
           in: path
           required: true
-          type: string
+          type: integer
         - name: type
           in: query
           description: Filter routes by a given resource type
@@ -352,7 +352,7 @@ paths:
         - name: site_id
           in: path
           required: true
-          type: string
+          type: integer
         - name: body
           in: body
           required: true
