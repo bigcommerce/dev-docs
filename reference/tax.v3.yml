@@ -6,7 +6,7 @@ info:
 paths:
   '/tax/providers/{provider_id}/connection':
     get:
-      summary: Get a Connection
+      summary: Get Connection Status
       description: |
         Retrieve the connection status of the specified tax provider in the context of a store.
 
