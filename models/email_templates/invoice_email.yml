@@ -78,7 +78,7 @@ properties:
                   type: string
             download_url:
               type: string
-            thumbnail_url:
+            thumbnail:
               type: string
             event:
               type: object
