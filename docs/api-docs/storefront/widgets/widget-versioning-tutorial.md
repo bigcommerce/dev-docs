@@ -1,4 +1,4 @@
-# Widget Versioning Tutorial
+# Widget Versioning
 
 <div class="otp" id="no-index">
 

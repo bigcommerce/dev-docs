@@ -6,10 +6,9 @@
 
 - [Before you begin](#before-you-begin)
 - [Provide a summary](#provide-a-summary)
-- [Fill in details](#fill-in-details)
 - [Add technical information](#add-technical-information)
+- [Fill in details](#fill-in-details)
 - [Review submission](#review-submission)
-- [Preview the listing](#preview-the-listing)
 - [Submit your app for approval](#submit-your-app-for-approval)
 - [FAQ](#faq)
 - [Next steps](#next-steps)
@@ -57,27 +56,11 @@ To begin the app certification process, we'll need some basic information about 
 | App Summary     | App tagline used in the marketplace category and search results; 128 character max                     |
 | Category        | Marketplace category for app; used as search attribute; BigCommerce may re-categorize prior to launch  |
 
-## Fill in details
-
-Provide a helpful description with screenshots and a video to promote your app. We recommend bullet points followed by short paragraphs with headers. Aim for 200 words in total.
-
-![DevTools 02](https://raw.githubusercontent.com/bigcommerce/dev-docs/master/assets/images/devtools-tutorial-02.png  "DevTools 02")
-
-| Field                  | Description                                                                |
-| ---------------------- | -------------------------------------------------------------------------- |
-| Multiple Users         | Optionally allow your app to be accessible to store users other than owner |
-| App Type               | Type of app; single-Click recommended                                      |
-| Auth Callback URL      | Requested when `install` clicked                                           |
-| Load Callback URL      | Requested when user launches app                                           |
-| Uninstall Callback URL | Requested when store owner clicks uninstall                                |
-| OAuth Scopes           | OAuth scopes the app requires                                              |
-| Test Instructions      | Instructions needed to test the app thoroughly                             |
-
 ## Add technical information
 
 Specify app type, multiple users support, callback URLs, and OAuth scopes; and, provide detailed testing instructions.
 
-![DevTools 03](https://raw.githubusercontent.com/bigcommerce/dev-docs/master/assets/images/devtools-tutorial-03.png  "DevTools 03")
+![DevTools 02](https://raw.githubusercontent.com/bigcommerce/dev-docs/master/assets/images/devtools-tutorial-02.png  "DevTools 02")
 
 | Field                      | Description                                                                                                                        |
 | -------------------------- | ----------------------------------------------------------------------------------------------------------------------------------         |
@@ -91,23 +74,33 @@ Specify app type, multiple users support, callback URLs, and OAuth scopes; and, 
 | App Screenshot             | Screenshots of app UI inside BigCommerce                                                                                                   |
 | Alternate Logo             | Used if app featured in Marketplace carousel; should be 259 x 158px (or larger at ratio); dark background and light branding; no taglines  |
 
+## Fill in details
+
+Provide a helpful description with screenshots and a video to promote your app. We recommend bullet points followed by short paragraphs with headers. Aim for 200 words in total.
+
+![DevTools 03](https://raw.githubusercontent.com/bigcommerce/dev-docs/master/assets/images/devtools-tutorial-03.png  "DevTools 03")
+
+| Field                  | Description                                                                |
+| ---------------------- | -------------------------------------------------------------------------- |
+| Multiple Users         | Optionally allow your app to be accessible to store users other than owner |
+| App Type               | Type of app; single-Click recommended                                      |
+| Auth Callback URL      | Requested when `install` clicked                                           |
+| Load Callback URL      | Requested when user launches app                                           |
+| Uninstall Callback URL | Requested when store owner clicks uninstall                                |
+| OAuth Scopes           | OAuth scopes the app requires                                              |
+| Test Instructions      | Instructions needed to test the app thoroughly                             |
+
 ## Review submission
 
 Review the information added before submitting the app.
 
 ![DevTools 04](https://raw.githubusercontent.com/bigcommerce/dev-docs/master/assets/images/devtools-tutorial-04.png  "DevTools 04")
 
-## Preview the listing
-
-This is an approximation of what the app's page will look like in the Apps Marketplace.
-
-![DevTools 05](https://raw.githubusercontent.com/bigcommerce/dev-docs/master/assets/images/devtools-tutorial-05.png  "DevTools 05")
-
 ## Submit your app for approval
 
 Ensure all information is complete; test the app before submitting for review.
 
-![DevTools 06](https://raw.githubusercontent.com/bigcommerce/dev-docs/master/assets/images/devtools-tutorial-06.png "DevTools 06")
+![DevTools 05](https://raw.githubusercontent.com/bigcommerce/dev-docs/master/assets/images/devtools-tutorial-05.png "DevTools 05")
 
 If you have any questions about your submission, email [appstore@bigcommerce.com](mailto:appstore@bigcommerce.com).
 
