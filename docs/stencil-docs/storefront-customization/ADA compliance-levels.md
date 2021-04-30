@@ -299,7 +299,7 @@ Guideline 3.3.5 Help: Context-sensitive help is available.
  
 <!-- theme: info -->
 **Cornerstone Technique:**
-> Cornerstone provides a help link on every web page.
+> * Cornerstone provides a help link on every web page.
 > Cornerstone provides text instructions at the beginning of a form or set of fields that describes the necessary input.
  
 </div>
