@@ -60,7 +60,7 @@ Guideline 1.3.2 Meaningful Sequence: When the sequence in which content is prese
 <div class="HubBlock-content">
  
 <!-- theme: info -->
-**Cornerstone Technique:**
+**Cornerstone technique:**
 > The links in the navigation bar form a meaningful sequence. **Search**, **Sign In or  Register**, and **Cart** buttons appear above all other content because many visitors will want to perform these actions.
  
 </div>
@@ -76,7 +76,7 @@ Guideline 1.3.4 Orientation: Content does not restrict its view and operation to
 <div class="HubBlock-content">
  
 <!-- theme: info -->
-**Cornerstone Technique:**
+**Cornerstone technique:**
 > Cornerstone is fully responsive, meaning it automatically adapts to your device (desktop, tablet, and mobile).
  </div>
 </div>
@@ -92,7 +92,7 @@ Guideline 1.3.5 Identify Purpose: In content implemented using markup languages,
 <div class="HubBlock-content">
  
 <!-- theme: info -->
-**Cornerstone Technique:**
+**Cornerstone technique:**
 > Cornerstone allows you to add your own icons in the navigation of a site to load symbols and vocabulary familiar to users.
 </div>
 </div>
@@ -108,7 +108,7 @@ Guideline 2.4.1 Bypass Blocks: A mechanism is available to bypass blocks of cont
 <div class="HubBlock-content">
  
 <!-- theme: info -->
-**Cornerstone Technique:**
+**Cornerstone technique:**
 > Cornerstone allows you to add a visible 'Skip to Main' link to all pages on your site that sends users to the start of the main content of each page.
 
 Example: `/templates/components/common/header.html`
@@ -134,7 +134,7 @@ Guideline 2.4.5 Multiple Ways: More than one way is available to locate a web pa
 <div class="HubBlock-content">
  
 <!-- theme: info -->
-**Cornerstone Technique:**
+**Cornerstone technique:**
 > The search bar is in the top right by default; however, you can receive search results on both the quick-search bar and when you press Enter on the search results page.
 </div>
 </div>
@@ -149,7 +149,7 @@ Guideline 2.4.8 Location: Information about the user's location within a set of 
 <div class="HubBlock-content">
  
 <!-- theme: info -->
-**Cornerstone Technique:**
+**Cornerstone technique:**
 > Cornerstone allows the display of breadcrumbs on a web page.
 
 Example: `/templates/components/common/contact-us.html`
@@ -171,7 +171,7 @@ Guideline 3.1.1 Language of Page: The default human language of each Web page ca
 <div class="HubBlock-content">
  
 <!-- theme: info -->
-**Cornerstone Technique:**
+**Cornerstone technique:**
 > Cornerstone allows you to customize your display in any one language of your choice by using the `lang` attribute on the HTML element.
  
 </div>
@@ -187,7 +187,7 @@ Guideline 3.1.2 Language of Parts: The human language of each passage or phrase 
 <div class="HubBlock-content">
  
 <!-- theme: info -->
-**Cornerstone Technique:**
+**Cornerstone technique:**
 > Cornerstone allows you to translate your theme into multiple displayed languages. 
 </div>
 </div>
@@ -203,7 +203,7 @@ Guideline 3.1.3 Unusual Words: A mechanism is available for identifying specific
  
 <!-- theme: info -->
 
-**Cornerstone Technique:**
+**Cornerstone technique:**
 > Cornerstone allows you to add information and links to your footer categories to provide additional details.
  
 </div>
@@ -219,7 +219,7 @@ Guideline 3.2.2 On Input: Changing the setting of any user interface component d
 <div class="HubBlock-content">
  
 <!-- theme: info -->
-**Cornerstone Technique:**
+**Cornerstone technique:**
 > Cornerstone ensures that you must click a submit button to perform the action.
 </div>
 </div>
@@ -234,7 +234,7 @@ Guideline 3.2.3 Consistent Navigation: Navigational mechanisms that are repeated
 <div class="HubBlock-content">
  
 <!-- theme: info -->
-**Cornerstone Technique:**
+**Cornerstone technique:**
 > * Cornerstone uses a consistent presentation and layout for users who interact with repeated content.
 > * Cornerstone navigation menus are always in the same place.
 > * The Search box is in the same location on all pages.
@@ -252,7 +252,7 @@ Guideline 3.2.5 Change on Request: Changes of context are initiated only by user
 <div class="HubBlock-content">
  
 <!-- theme: info -->
-**Cornerstone Technique:**
+**Cornerstone technique:**
 > Cornerstone automatically redirects users from an old page to a new page in such a way that they never realize the redirect has occurred.
 </div>
 </div>
@@ -267,7 +267,7 @@ Guideline 3.3.1 Error Identification: If an input error is automatically detecte
 <div class="HubBlock-content">
  
 <!-- theme: info -->
-**Cornerstone Technique:**
+**Cornerstone technique:**
 > Cornerstone indicates if the user fails to include an `@` in the email address.
 </div> 
 </div>
@@ -283,7 +283,7 @@ Guideline 3.3.4 Error Identification: For web pages that cause legal commitments
 <div class="HubBlock-content">
  
 <!-- theme: info -->
-**Cornerstone Technique:**
+**Cornerstone technique:**
 > Cornerstone provides a checkbox in addition to a submit button. 
 </div>
 </div>
@@ -298,7 +298,7 @@ Guideline 3.3.5 Help: Context-sensitive help is available.
 <div class="HubBlock-content">
  
 <!-- theme: info -->
-**Cornerstone Technique:**
+**Cornerstone technique:**
 > * Cornerstone provides a help link on every web page.
 > * Cornerstone provides text instructions at the beginning of a form or set of fields that describes the necessary input.
  
