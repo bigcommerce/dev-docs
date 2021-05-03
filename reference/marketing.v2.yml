@@ -933,8 +933,9 @@ definitions:
         type: boolean
       code:
         type: string
-        description: The coupon code that customers will use to receive their discounts. Value must be unique.
+        description: The coupon code that customers will use to receive their discounts. Value must be unique. Only letters, numbers, white space, underscores and hypens are allowed.
         example: S2549JM0Y
+        pattern: '[a-zA-Z0-9_\ -]'
       applies_to:
         type: object
         description: 'If it is not included in the PUT request, its existing value on the coupon will be cleared. Also required to be set on the POST request'
