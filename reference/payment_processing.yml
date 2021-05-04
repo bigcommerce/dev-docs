@@ -105,6 +105,14 @@ paths:
                       token: 8cdf7b6ea1b27119463bf9e5106639618cc77a9adc49f0069ca8b756cc15caee
                       verification_value: '1142'
                     payment_method_id: adyenv2.scheme
+              Paypal Stored Card:
+                value:
+                  payment:
+                    instrument:
+                      type: stored_card
+                      token: 57606614f6b7a50bddc927d40399e47ed2c8d874a9f131b4861c650073fe17f5
+                      verification_value: '123'
+                    payment_method_id: braintree.card
         required: true
         x-examples:
           application/json:
@@ -597,6 +605,10 @@ paths:
       description: |-
         Returns a list of accepted payment methods based on the `order_id`.
 
+        **Notes**
+        * Use the [Create an Order](https://developer.bigcommerce.com/api-reference/store-management/checkouts/checkout-orders/createanorder) endpoint, to generate the `order_id`.
+        * Orders created will be set to incomplete order status.
+
         **Required Fields**
         * order_id
       summary: Get Accepted Payment Methods
@@ -808,7 +820,7 @@ paths:
             examples:
               example-1:
                 value:
-                  order_id: 0
+                  order_id: 155
           application/xml:
             schema:
               type: object
@@ -1043,6 +1055,17 @@ components:
     Card:
       title: Card
       type: object
+      x-examples:
+        example-1:
+          type: card
+          cardholder_name: string
+          number: string
+          expiry_month: 1
+          expiry_year: 0
+          verification_value: stri
+          issue_month: 1
+          issue_year: 0
+          issue_number: 0
       properties:
         type:
           description: Type to classify this payment instrument
@@ -1068,8 +1091,8 @@ components:
           type: integer
           format: int32
         verification_value:
-          description: Verification value of this card
           type: string
+          description: Verification value of this card (CVV or last_4)
           minLength: 3
           maxLength: 4
         issue_month:
@@ -1092,17 +1115,6 @@ components:
         - number
         - expiry_month
         - expiry_year
-      x-examples:
-        example-1:
-          type: card
-          cardholder_name: string
-          number: string
-          expiry_month: 1
-          expiry_year: 0
-          verification_value: stri
-          issue_month: 1
-          issue_year: 0
-          issue_number: 0
     StoredCard:
       title: Stored Card
       type: object
