@@ -7,8 +7,8 @@ info:
 
     - [Authentication](#authentication)
     - [Channels](#channels)
-    - [Channel Listings](#channel-listings)
-    - [Channel Site](#channel-site)
+    - [Channel listings](#channel-listings)
+    - [Channel site](#channel-site)
     - [Resources](#resources)
 
     ## Authentication
@@ -30,9 +30,9 @@ info:
     | Channel Settings                             | modify     | `store_channel_settings`                      |
     | Channel Settings                             | read-only  | `store_channel_settings_read_only`            |
 
-    ## [Channels](https://developer.bigcommerce.com/api-reference/cart-checkout/channels-listings-api/channels)
+    ## Channels
 
-    A channel is anywhere a merchant sells their products. This encompasses headless storefronts, marketplaces, POS systems, and marketing platforms.
+    A [channel](https://developer.bigcommerce.com/api-reference/cart-checkout/channels-listings-api/channels) is anywhere a merchant sells their products. This encompasses headless storefronts, marketplaces, POS systems, and marketing platforms.
 
     ### Platform
 
@@ -77,13 +77,13 @@ info:
     </div>
     </div>
 
-    ## [Channel Listings](https://developer.bigcommerce.com/api-reference/cart-checkout/channels-listings-api/channel-listings)
+    ## Channel listings
 
-    Channel listings allow you to manage catalog differences among different storefronts or marketplaces.
+    [Channel listings](https://developer.bigcommerce.com/api-reference/cart-checkout/channels-listings-api/channel-listings) allow you to manage catalog differences among different storefronts or marketplaces.
 
-    ## [Channel Site](https://developer.bigcommerce.com/api-reference/cart-checkout/channels-listings-api/channel-site)
+    ## Channel site
 
-    A site refers to the domain associated with a channel.
+    A [Channel site](https://developer.bigcommerce.com/api-reference/cart-checkout/channels-listings-api/channel-site) refers to the domain associated with a channel.
 
     ## Resources
 

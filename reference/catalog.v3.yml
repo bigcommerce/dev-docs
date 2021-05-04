@@ -6,7 +6,7 @@ info:
     Manage products, brands and categories. To learn more about catalog resources see [Catalog Overview](https://developer.bigcommerce.com/api-docs/catalog/products-overview).
 
     - [Authentication](#authentication)
-    - [Differentiating Variants & Modifiers](#variants-and-modifiers)
+    - [Differentiating Variants and Modifiers](#differentiating-variants-and-modifiers)
     - [Available Endpoints](#available-endpoints)
     - [Resources](#resources)
 
