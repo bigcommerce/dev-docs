@@ -103,7 +103,6 @@ info:
     |`create_account`|Route to the create a shopper account page|
     |`forgot_password`|Route to shopper forgot password page|
     |`home`|Route to headless storefront homepage|
-    |`order_confirmation`|Route to the order confirmation page|
     |`product`|Route for product details pages |
     |`recover_abandoned_cart`|Route for URL in emails for a shopper to recover their abandoned cart|
     |`unsubscribe`|Route for unsubscribe URL in emails|
