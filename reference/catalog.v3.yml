@@ -20538,7 +20538,7 @@ definitions:
           id:
             type: integer
             description: |-
-              The unique numeric ID of the custom field; increments sequentially.
+              The unique numeric ID of the custom field; increments sequentially. Required to update existing custom field in /PUT request.
               Read-Only
             minimum: 1
             example: 6
